@@ -56,7 +56,7 @@ mv shorwall-2.0.9.lrp shorwall-2.0.9.tar.gz
 }}}
 
 == Installation ==
-We can now simply extract the tarball into the root of the router. Make sure you have enough space before preceding, I have a WRT54GS so I'm a bit spoilt ;-): {{{
+We can now simply extract the tarball into the root of the router. Make sure you have enough space before preceding, I have a WRT54GS so I'm a bit spoilt ;) : {{{
 cd /
 tar -xzvf /tmp/shorwall-2.0.9.tar.gz
 }}}
@@ -237,7 +237,7 @@ AllowWeb        loc             fw
 }}}
 
 ===== /etc/shorewall/routestopped =====
-You will also probably want to add the interface of your LAN to the {{{/etc/shorewall/routestopped}}} file which tells Shorewall what interface to accept connections from when the firewall is stopped (a good thing :-)). Without this shorewall will keep any current connections open however for `absent minded administrators'.
+You will also probably want to add the interface of your LAN to the {{{/etc/shorewall/routestopped}}} file which tells Shorewall what interface to accept connections from when the firewall is stopped (a good thing :) ). Without this shorewall will keep any current connections open however for `absent minded administrators'.
 
 Add the following to {{{/etc/shorewall/routestopped}}}:{{{
 br0           -               routeback
