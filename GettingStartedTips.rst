@@ -10,6 +10,8 @@ tar jxvf buildroot-openwrt-20040509.tar.bz2
 make
 }}}
 
+Unfortunately, as of b4, this fails.  See the OpenWrtFaq for information as to how to resolve the 404 error, and rerun the make.
+
 At this point you'll have a openwrt-linux.trx and two openwrt-*-code.bin files. The openwrt-g-code.bin is for the WRT54G, openwrt-gs-code.bin is for the WRT54GS (speedbooster).
 
 = Sending the firmware =
