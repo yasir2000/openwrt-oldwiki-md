@@ -6,9 +6,10 @@
 ##master-date:Unknown-Date
 #format wiki
 #language en
-== Your Name ==
 
-Email: [[MailTo(mquinton AT SPAMFREE gmail DOT com)]]
+== Marc Quinton ==
+
+Email: [[MailTo(mquinton__@__gmail.com)]]
 
 * I'm using OpenWrt for building a meshed network with OLSR protocol,
 * currently, my networks cover 1km² and ; we have home-made antenas,
