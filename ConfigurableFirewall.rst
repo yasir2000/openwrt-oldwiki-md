@@ -120,3 +120,22 @@ drwx------ root/root         0 2004-09-23 18:55:35 var/lib/shorewall/
 -rw------- root/root       113 2004-05-14 09:40:31 var/lib/lrpkg/shorwall.list
 lrwxrwxrwx root/root         0 2004-09-23 18:55:35 var/lib/lrpkg/shorwall.version -> ../../../usr/share/shorewall/version
 }}}
+
+
+The files under /var/lib are luckily LEAF specific, and part of the lrpkg package format. These files are not needed and will in fact be removed on the router's next reset since  /var uses the router's ram disk.
+
+=== Configuration ===
+This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the openwrt set of interfaces, and also add any firewall rules that we may wish to have.
+
+The package we installed has been preconfigured for a LEAF router which uses the ULOG logging daemon. Thus the first change we need to make is to set shorewall to use syslogd. If you havn't already go syslogd running/configured on your system please see the mini-howto on "Setting up logging". The two files that contain the references to ULOG are: {{{
+etc/shorewall/shorewall.conf:LOGNEWNOTSYN=ULOG
+etc/shorewall/shorewall.conf:MACLIST_LOG_LEVEL=ULOG
+etc/shorewall/shorewall.conf:TCP_FLAGS_LOG_LEVEL=ULOG
+etc/shorewall/shorewall.conf:RFC1918_LOG_LEVEL=ULOG
+etc/shorewall/shorewall.conf:SMURF_LOG_LEVEL=ULOG
+etc/shorewall/shorewall.conf:BOGON_LOG_LEVEL=ULOG
+etc/shorewall/policy:net                all             DROP            ULOG
+etc/shorewall/policy:all                all             REJECT          ULOG
+}}}
+
+Replace each occourance of {{{ULOG}}} with {{{info}}} or some other valid Shorewall [http://www.shorewall.net/shorewall_logging.html logging level].
