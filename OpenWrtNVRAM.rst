@@ -1,9 +1,4 @@
 [[TableOfContents]]
-= Settings Used by OpenWrt on the Linksys WRT54G / WRT54GS =
-
-The Linksys WRT54G uses a number of NVRAM settings to configure itself on boot. OpenWrt uses these settings to setup the wireless LAN, the wired LAN and the WAN ports.
-
-Currently the the OpenWRT boot scripts are hardcoded to query certain NVRAM variables just as the original firmware. If you would rather need a more flexible yet compatible way to configure the router check out central NVRAM mapping (see CentralNvramMaps).
 
 == General Settings ==
 The WRT54G requires LAN and WAN settings at the least to properly boot. The specific settings/names are listed below, but this a bit of an overview:
