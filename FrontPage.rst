@@ -12,6 +12,8 @@
 
 [:IPv6 howto] How to build a 6to4 tunnel
 
+[:ConfigurableFirewall] Notes on  FireHOL and Shorewall howto
+
 [:OpenWrtPackages] List of package repositories
 
 [:Bugs] Report bugs here 
@@ -25,7 +27,6 @@ The OpenWRT forums: http://openwrt.org/forum/
 
 To-Do projects:
  * CentralNvramMaps
- * ConfigurableFirewall Package
 
 
 = MoinMoin Wiki =
