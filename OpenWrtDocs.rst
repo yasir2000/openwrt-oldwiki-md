@@ -26,6 +26,7 @@ To get started, click a link below.
 [:OpenWrtDocs/Configuration: OpenWrt Configuration]
    1. NVRAM
    2. Network configuration
+   3. Client mode.
 [:OpenWrtDocs/Troubleshooting: Troubleshooting OpenWrt]
    1. Recovering from bad firmware / Shorting the pins
    2. Fixing a broken script / Failsafe mode
@@ -34,5 +35,3 @@ To get started, click a link below.
 [:Glossary]
 ----
 [[PageList(OpenWrtDocs)]]
-----
-All of these pages are editable, to edit [:UserPreferences:create an account] and click the edit ([http://openwrt.org/wiki/classic/img/moin-edit.png]) button at the top of these pages.
