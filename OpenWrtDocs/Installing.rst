@@ -136,5 +136,14 @@ As an alternative (or if this installation routine doesn't do the trick for you)
 
 Another thing is that the ASUS WL500G doesn't seem to revert to the 192.168.1.1 address when starting the boot manager but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. On the other hand, boot_wait seems to be enabled by default on these devices.
 
+
+
+== Siemens Gigaset SE505 ==
+The installation procedure is essentially the same as the generic one described above. The only differences are that the bootloader listens on 192.168.2.1 and the IP of the machine sending the new firmware has to be 192.168.2.100 or the router will only accept the first packet.
+
+boot_wait seems to be enabled on these devices.
+
+
+
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
