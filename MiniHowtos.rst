@@ -11,14 +11,9 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Spawn a shell on serial console ==
-By default, no shell is initiated on the serial console line.  Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means it's on a read-only filesystem.  If you've never set up `/etc/inittab` for use before, do the following:
+By default, no shell is initiated on the serial console line.  Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means you should follow the [http://openwrt.ksilebo.net/OpenWrtFaq#head-c1131b5f2c7fed45983d534d90193913774487ff FAQ question] coverting how to do this.
 
-{{{
-@OpenWrt:/# rm /etc/inittab
-@OpenWrt:/# cp -p /rom/etc/inittab /etc/inittab
-}}}
-
-Now add the following to `/etc/inittab`.  '''Make sure this line comes IMMEDIATELY after the `::shutdown:` entry''':
+Add the following to `/etc/inittab`.  '''Make sure this line comes IMMEDIATELY after the `::shutdown:` entry, and before any other services (dnsmasq, etc...)!''':
 
 {{{
 ::respawn:/bin/ash 0</dev/console 1>/dev/console 2>&1
@@ -26,7 +21,7 @@ Now add the following to `/etc/inittab`.  '''Make sure this line comes IMMEDIATE
 
 Then send a HUP signal to `init` (`kill -HUP 1`).  You should now have a working shell via serial console.
 
-If you appended the above line to `/etc/inittab`, you may receive the message: `ash: can't access tty; job control turned off`.  `/bin/ash` needs to be the first application spawned so that it gets control of the tty.  If `dnsmasq` or other toys come first, they will have control of the tty, hence the lack-of job control.
+If you may receive the message: `ash: can't access tty; job control turned off`, then `/bin/ash` isn't the first application spawned by `init`; the first application gets control of the tty.  If `dnsmasq` or other toys come first, they will have control of the tty, hence the lack-of job control.
 
 == Setting up logging ==
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
@@ -137,4 +132,4 @@ If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's
 == CFE/PMON TFTP maximum image size limitation ==
 There is a physical limit of approximately 3,141,632 bytes that `CFE/PMON` will accept during the `boot_wait` stage.  Only 3,141,632 bytes will be flashed to the firmware.  If your firmware image is larger than this, the result will be undefined; the kernel may load then either panic, or possibly the unit will reboot itself then proceed to spit out `Boot program checksum is invalid` during `PMON`, and drop you to the `CFE>` prompt (requiring serial console).
 
-This was [http://www.sveasoft.com/modules/phpBB2/viewtopic.php?p=22112#22112 briefly touched on] over at the Sveasoft forums.
+This was [http://www.sveasoft.com/modules/phpBB2/viewtopic.php?p=22112#22112 briefly touched on] over at the Sveasoft forums.  To read the thread, you will need to be a Sveasoft subscriber.
