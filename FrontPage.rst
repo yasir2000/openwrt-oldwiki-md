@@ -6,6 +6,8 @@
 
 [:Wrt54gNVRAM] Documentation for various NVRAM settings
 
+[:MiniHowtos] Usefull tips for Users
+
 = MoinMoin Wiki =
 
 A WikiWikiWeb is a collaborative hypertext environment, with an emphasis on easy access to and modification of information. This wiki can also link to InterWiki space.
