@@ -28,12 +28,13 @@ WRT54G V1.x
   WAN=vlan1
   WIFI=eth2
 
-WRT54G V2.0/WRT54GS V1.0
+WRT54G V2.0/WRT54GS V1.x
   LAN=vlan0
   WAN=vlan1
   WIFI=eth1
 
 (please update to include other models)
+(Is the G2.2 the same as the G2.0? The GS1.1 is the same as the 1.0)
 }}}
 
 The basic (802.3) network configuration is handled by a series of NVRAM variables:
