@@ -119,3 +119,6 @@ In the end, there's nothing really magical about pins 15-16; you can pick any ad
 
 = WRT54G v2.2 / WRT54g v1.1 : Can't downgrade to this old firmware =
 See http://openwrt.org/forum/viewtopic.php?t=809
+
+= Using the system logs for additional troubleshooting =
+Modern versions of OpenWRT use S10boot to start a syslogd.  If a daemon is misbehaving and you can't figure out why use the ''logread'' tool to access the messages sent to syslog.  Often the solution makes itself evident in.
