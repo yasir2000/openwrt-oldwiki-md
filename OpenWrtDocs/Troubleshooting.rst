@@ -21,6 +21,15 @@ mount -t jffs2 /dev/mtdblock/4 /jffs
 }}}
 After the partition is mounted, you can edit the files in /jffs. If you run firstboot with the jffs2 partition mounted, it will not format the partition, but it will overwrite files with symlinks. (Packages will be preserved, changes to scripts will be lost)
 
+Note: if you cannot figure out how to put your device into failsafe mode (f.ex. if you don't have a DMZ LED and your attempts fail) then remember that you can always modify the boot scripts in the source to call arbitrary commands and then install another firmware. So if you want to run firstboot f.i., modify your buildroot/build_mipsel/root/etc/init.d/S99done to something like this:
+{{{
+#!/bin/sh
+# automagically run firstboot
+firstboot
+[...rest of file...]
+}}}
+Build a new image by typing make in the buildroot directory, install the modified firmware, boot the device, wait for about 90s, remove your changes in the S99done file in your source directory, rebuild the firmware and install it.
+
 = Resetting to defaults =
 
 If you're having trouble setting up some feature of your router (wireless, lan ports, etc) and for some reason all of the documentation here just isn't working for you, it's sometimes best to start from scratch with a default configuration.  Sometimes the various firmwares you try will add conflicting settings to NVRAM that will need to be flushed.  Erasing NVRAM ensures there aren't any errant settings confusing your poor confused router. Run this command to restore your NVRAM to defaults:
@@ -38,13 +47,14 @@ If firstboot is run while the jffs2 filesystem is mounted (eg. non-failsafe mode
 
 After these two steps, you'll have a router with a pristine unchanged configuration.  Everything should work now.
 
-= Recovering from bad firmware (Software-based Method) =
+= Recovering from bad firmware =
+== Software based method ==
 If you've followed the instructions and warnings you should have boot_wait set to on. With boot_wait on, each time the router boots you will have roughly 3 seconds to send a new firmware using tftp. Use a standard tftp client to send the firmware in binary mode to 192.168.1.1. Due to limitations in the bootloader, this firmware will have to be under 3MB in size.
 
 See ["OpenWrtDocs/Installing"][[BR]]
 [:OpenWrtDocs/Installing#head-f56e06c42cb97a7aace9a5b503d0d288697d98d9:"3.2. Using boot_wait to upload the firmware"]
 
-= Recovering the firmware (JTAG-adaptor Method) =
+== JTAG-adaptor Method ==
 '''you are now leaving the safe grounds of warranty coverage'''
 
 You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy, you can make it in a jiffy using spare parts from the bottom of your messy drawer. You need:
@@ -88,7 +98,7 @@ It seems to me though that the GS variant has a different location of the flash.
 
 Since the JTAG adaptor gives you full access to your Flash, I wonder if that nasty thing about shorting pins shouldn't be removed altogether.
 
-= Recovering the firmware (Shorting Pins Method) =
+== Shorting Pins Method ==
 
 If you didn't set boot_wait and don't build a JTAG, you'll have to resort to opening the router and shorting pins on the flash chip to recover.
 
