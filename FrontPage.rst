@@ -2,7 +2,7 @@
 #pragma section-numbers off
 
 = OpenWRT =
-[:OpenWrtFaq] Frequently abused questions from the forums
+[:OpenWrtFaq] Frequently abused questions from the forum
 
 [:OpenWrtNVRAM] Documentation for various NVRAM settings
 
