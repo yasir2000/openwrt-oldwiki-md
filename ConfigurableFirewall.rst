@@ -166,3 +166,15 @@ root@OpenWrt:~# nvram get lan_ifname
 br0
 }}}
 
+
+Now we know our WAN and LAN interfaces we can change configure Shorewall's interface configuration. Change the lines in {{{/etc/shorewall/interfaces}}}:{{{
+net     eth0            detect          dhcp,routefilter,norfc1918
+loc     eth1            detect
+}}}
+
+To (substitute vlan0,br0 for your WAN and LAN interfaces respectively as found above):{{{
+net     vlan1         detect          dhcp,routefilter,norfc1918
+loc     br0           detect          dhcp,routeback
+}}}
+
+The dhcp options allow dhcp traffic through the WAN and LAN interfaces since our router attempts to get an address from the ISP through the WAN interface and serves DHCP addresses to clients on the LAN interface.
