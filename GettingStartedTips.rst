@@ -35,7 +35,7 @@ With the standard tftp client (I'm using the standard Debian package "tftp"), do
 > trace
 > put openwrt-g-code.bin}}}
 
-Before you press enter on that last one, take the power cord out and plug back in.  Wait somewhere between 0.5 and 2 seconds, then press enter.  You might have to try a few times.  The trace output will tell you whether it's working.
+Before you press enter on that last one, take the power cord out and plug back in.  Wait somewhere between 0.5 and 2 seconds, then press enter. A good time to start the transfer would be the exact moment when your LAN LEDs start to blink for the first time. You might have to try a few times.  The trace output will tell you whether it's working.
 
 Note that for this to work, your host machine (the one you are sending the firmware from) must be configured in the 192.168.1.0/24 subnet (e.g. ifconfig eth0 inet 192.168.1.2 netmask 255.255.255.0).  Whatever other IP address or netmask you may have configured in the NVRAM does not take effect until the boot_wait period has passed and it is too late to load a new firmware. 
 
