@@ -9,6 +9,8 @@ ipkg install http://www.linuxops.net/ipkg/ip_1.0_mipsel.ipk
 ipkg install http://openwrt.ksilebo.net/ipkg/radvd_0.7.2_mipsel.ipk
 }}}
 
+Make sure the kernel module(s) you use are compatible with your kernel version. You should only use modules compiled for the same kernel. (The openwrt snapshots contain many usefull modules in the openwrt-kmodules.tar.bz2 file)
+
 = Setup software =
 == Kernel ==
 Load the ipv6 module into the kernel:
@@ -206,6 +208,18 @@ gjasny@Rincewind:~$ ip addr show
     link/sit 0.0.0.0 brd 0.0.0.0
 }}}
 
+= Installing ip6tables =
+Load the ipv6 iptables modules into the kernel:
+{{{
+insmod ip6_tables
+insmod ip6table_filter
+}}}
+(You should get these from your kernel source (contained openwrt-kmodules.tar.bz2)
+
+If the insmod ip6table_filter fails with an error, you might need to apply [http://silicon-verl.de/home/flo/software/sparc64-ip6tables.patch this alignment patch] to your linux kernel source (Needed for snapshots at 2004-08-23)
+
+You can find the ip6tables executable in the build_mipsel/iptables1.2.9/ip6tables subdirectory of your build environment.
+
 = Links =
  * [http://www.bieringer.de/linux/IPv6/index.html Peter Bieringer's IPv6 HOWTO]
  * [http://www.join.uni-muenster.de/TestTools/IPv6_Verbindungstests.php JOIN IPv6 Test Page (ping, traceroute, tracepath)]
@@ -221,7 +235,7 @@ Any ideas?
 {{{
 @ap:/# ping6 fe80::20d:88ff:fea6:f554
 Segmentation fault
-@ap:/# 
+@ap:/#
 }}}
 
 You probably have an ipv6.o which is incompatible with your version of the openwrt kernel. You should use kernel and modules from the same source; mixing them might not work (and probably does not).
