@@ -129,6 +129,10 @@ vlan0ports="1 2 3 4 5*" (use ports 1-4 on the back, 5 is the wrt54g itself)
 vlan0hwname=et0
 }}}
 
+=== Normal Behavior ===
+
+This is only the case if the nvram variable boardflags is set, on the WRT54G V1.1 and earlier, it's not set.
+
 When the et module (ethernet driver) loads it will read from vlan0ports to vlan15ports, behind the scenes the ethernet driver is using these variables to generate a more complex configuration which will be sent to the switch. When packets are recieved from external devices they need to be assigned a vlan id, and when packets are sent to those external devices the vlan tags need to be removed.
 
 PVID represents the primary vlan id, in other words if a packet doesn't have a vlan tag, which vlan does it belong to? The ethernet driver handles this rather trivially, in the case of vlan0ports="1 2 3 4 5*", ports 1-4 are set to PVID 0 (vlan0). Since the wrt needs to recieve packets from both the LAN (vlan0) and the WAN (vlan1), port 5 is a special case appearing in both vlan0ports and vlan1ports. This is where the '*' is used -- it determines the PVID of port 5, which is also the only port not to untag packets (for hopefully obvious reasons).
@@ -161,6 +165,37 @@ vlan1hwname=et0
 vlan2ports="1 2 5"
 vlan2hwname=et0
 }}}
+
+=== Workaround ===
+
+A workaround for devices that haven't got the boardflags set in nvram, is to install the package admcfg and add the following lines to /etc/init.d/S22admcfg:
+{{{
+if [ `nvram show 2> /dev/null | sed -e '/boardflags/!d'`a = "a" ]; then
+  T=`mktemp /tmp/adm.XXXXXX`
+  echo "admcfg port0
+admcfg port1
+admcfg port2
+admcfg port3
+admcfg port4
+admcfg port5" > $T
+  IFS='
+'; for I in `nvram show 2> /dev/null | grep vlan.*ports | sort`; do
+    L=`echo $I | sed -e 's#\(.*\)ports.*#\1#'`
+    IFS=' ';for K in `echo $I | sed -e 's#.*=##' -e 's#\*##'`; do
+      sed -e "s#\(port${K}.*\)#\1 $L#" $T > $T.2
+      mv $T.2 $T
+    done
+  done
+  S=`nvram show 2> /dev/null | sed -n -e 's#vlan\([0-9]*\)ports.*\*#\1#p'`
+  sed -e "s#vlan\([0-9]*\)#PVID:\1 vlan\1#" \
+    -e "/vlan/!s#\(.*\)#\1 DISABLED#" \
+    -e "s#port5 PVID:[0-9]* #port5 PVID:$S #" $T > $T.2
+  sh $T.2 > /dev/null
+  rm $T $T.2
+fi
+}}}
+
+It sets the vlan as the et module would do it.
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seemlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
