@@ -45,7 +45,7 @@ When OpenWrt boots it will check for the existance of a jffs2 partition and atte
 
 If you do not see this line you may need to run firstboot manually (just type "firstboot"). The firstboot script can also be used to erase all changes to the jffs2 partition, particularly useful when upgrading from previous OpenWrt versions with different filesystem layouts.
 
-= editing files =
+= Editing Files =
 
 The use of symlinks by the firstboot script saves space on the jffs2 partition, but it does have some interesting side effects such as edititing files. Since all files are by default symlinks to a readonly filesystem, you will not be able to edit files directly -- you'll get a readonly error if you try. Instead you have to delete the symlink and copy the file to the jffs2 partition to be able to edit it.
 
