@@ -1,6 +1,8 @@
-= Building the firmware =
+= Getting the firmware =
 
-The latest beta, b4, is available only in source form.  To build it, you'll need a linux-based system.  The build will build the development environment (a gcc cross-compiler for MIPS).  You'll need about a gig of disk space to build everything.
+The easiest way to get the firmware is to download a snapshot from http://openwrt.org/downloads/snapshots/.
+
+You can also build from source.  You'll need a linux-based system.  The build will build the development environment (a gcc cross-compiler for MIPS).  You'll need about a gig of disk space to build everything.
 {{{
 wget http://www.openwrt.org/cgi-bin/viewcvs.cgi/buildroot/buildroot.tar.gz
 tar zxvf buildroot.tar.gz
