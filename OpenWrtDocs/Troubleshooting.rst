@@ -27,8 +27,9 @@ When in failsafe, the system will boot using only the files contained within the
 
 If you want to completely erase the jffs2 partition, removing all packages you can run firstboot.
 
-If you want to attempt to fix the jffs2 partition, mount it with the following command:
+If you want to attempt to fix the jffs2 partition, mount it with the following commands:
 {{{
+mtd unlock /dev/mtd/4
 mount -t jffs2 /dev/mtdblock/4 /jffs
 }}}
 After the partition is mounted, you can edit the files in /jffs. If you run firstboot with the jffs2 partition mounted, it will not format the partition, but it will overwrite files with symlinks. (Packages will be preserved, changes to scripts will be lost)
