@@ -1,4 +1,4 @@
-{{{nas}}} is the binary, linksys proprietary, tool that sets up WPA no wrt54g routers.
+{{{nas}}} is the binary, linksys proprietary, tool that sets up WPA on wrt54g routers.
 
 The usage for nas is :
 {{{
