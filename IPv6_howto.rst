@@ -216,7 +216,7 @@ insmod ip6table_filter
 }}}
 (You should get these from your kernel source (contained openwrt-kmodules.tar.bz2)
 
-If the insmod ip6table_filter fails with an error, you might need to apply [http://www.vsoft.nl/openwrt/170-ip6tables-alignment.patch this alignment patch] to your linux kernel source (Needed for snapshots at 2004-08-23). The easiest way to do this is to copy this file to the buildroot/sources/openwrt/kernel/patches/ directory, before running make.
+If the insmod ip6table_filter fails with an error, you might need to apply [http://www.vsoft.nl/openwrt/170-ip6tables-alignment.patch this alignment patch] to your buildroot (Needed for CVS at 2004-08-23). The easiest way to do this is to copy this file to the buildroot/sources/openwrt/kernel/patches/ directory, before running make.
 
 You can find the ip6tables executable in the build_mipsel/iptables1.2.9/ip6tables subdirectory of your build environment.
 
