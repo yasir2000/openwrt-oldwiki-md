@@ -66,7 +66,7 @@ tftp> trace
 Packet tracing on.
 tftp> put openwrt-g-code.bin
 }}}
-Your output may look slightly different depending on the tftp client used. Setting "rexmt 1" will cause the tftp client to constantly retry to sent the file to the given address. While this is happening, plug your box, and as soon as bootloader's tftp client starts to listen, your client will successfully connect and sent the firmware.
+Your output may look slightly different depending on the tftp client used. Setting "rexmt 1" will cause the tftp client to constantly retry to sent the file to the given address. While this is happening, plug your box, and as soon as bootloader's tftp client starts to listen, your client will successfully connect and send the firmware.
 
 ||'''TFTP Error'''||'''Reason'''||
 ||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
