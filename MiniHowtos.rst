@@ -113,3 +113,6 @@ The most common problem we hear about is folks under the mistaken impression tha
 If you have a v2 or GS unit, during the PMON phase, '''you will always be able to reach the unit at IP 192.168.1.1'''.  If this doesn't work for you, you likely forgot to enable `boot_wait`.
 
 If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's still hope.  Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
+
+
+Gentoo users: The default tftp client doesn't seem to work, use the linksys-tftp ebuild instead
