@@ -18,11 +18,11 @@ To be written (by koitsu, h0h0h0)
 Please see the [http://openwrt.ksilebo.net/Bugs OpenWRT Bugs Page] for further details and workarounds.
 
 = `boot_wait` - What it is, and how it works =
-The information here is all verified against a WRT54G version 1.0.  There are minor changes with each variable hardware revision (1.0 vs. 1.1 vs. 2.0 vs. GS), but the general principles remain the same, as well as the final result.  To really understand `boot_wait`, you need to understand the boot process on the WRT54G, and how ARP tables work.
+Information here was verified with a WRT54G 1.0.  There are minor changes with each variable hardware revision (1.0 vs. 1.1 vs. 2.0 vs. GS), but the general principles remain the same, as well as the final result.  To really understand `boot_wait`, you need to understand the boot process on the WRT, and how ARP tables work.
 
 When the boot loader begins, it starts by validating the nvram data (configuration data that is stored in Flash).  If this data is valid, it checks for the existence of the variable `boot_wait`.  If `boot_wait` is set to `on` (boot_wait=on), the loader will go into a state that we call 'the boot wait state' on #wrt54g (IRC).  This state is also referred to as PMON.
 
-The WRT54G will remain in this state for 3-5 seconds before proceeding with loading the kernel.  The next step of the bootstrap is to do a CRC check of the kernel and root file-system.  If the CRC check fails, the router falls back to PMON and stays there.  If the CRC check passes, the router loads the kernel from flash and executes it.
+The WRT will remain in this state for 3-5 seconds before proceeding with loading the kernel.  The next step of the bootstrap is to do a CRC check of the kernel and root file-system.  If the CRC check fails, the router falls back to PMON and stays there.  If the CRC check passes, the router loads the kernel from flash and executes it.
 
 During the `boot_wait` state, the loader will be accepting Ethernet packets on eth0 (which is normally configured to be the 4 port switch).  '''It does not contain a fully-working IP stack''', and is only looking for 2 types of packets: ARP broadcasts and incoming TFTP attempts.
 
@@ -32,8 +32,6 @@ The easiest way to send a file during boot is to just start the TFTP tranfer (bi
 
 The most common problem we hear about is folks under the mistaken impression that the TFTP server requires a username and password to send a file during boot_wait state.  '''This is FALSE.'''  There is a TFTP server enabled within the stock Linksys firmware; '''this is not the same thing as PMON'''.  If you attempt to TFTP a firmware image to the unit while it's TFTP server is running, you'll receive an error message claiming "incorrect password" or something of that nature.  If you see that error message, then you missed the `boot_wait` window of opportunity or you didn't set `boot_wait` to on.  In this case, you can still update the firmware via the Web-based "Firmware Upgrade" page.  Note that once you've upgraded, it's highly recommended that you do enable `boot_wait` anyways.
 
-Some known variations on the IP number.  Apparently the Version 2.0 units always respond to address 192.168.1.1 mode when in boot_wait state.  I dont know if this is because they are responding to the arps, or if its because they are sending a gratuitous arp to prime the tables on the network when they boot.  It's actually irrelavent, with a V2 or GS unit, sending to 192.168.1.1 will always get to the right place, and if it's not working, its because you have something else wrong in the system, most likely you dont have the boot_wait nvram variable set.
+If you have a WRT54Gv2 or a WRT54GS, during the PMON phase, '''you will always be able to reach the unit at IP 192.168.1.1'''.  If this doesn't work for you, you likely forgot to enable `boot_wait`.
 
-Another variation on boot_wait state that's been used to successfully recover 'dead' units is the fact it does a crc check on the kernel before loading and executing.  If you short the right pair of address lines on the flash during boot, the boot loader will read back fine, but, addresses farther down in memory will have read errors, and generate a crc failure, sending the router into the boot_wait state for good.  Remove the item causing the short on the address lines (normally a small screwdriver), and you can now tftp in a new firmware, and it'll get written to the flash.
-
-
+If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's still hope.  Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
