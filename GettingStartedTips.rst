@@ -114,3 +114,7 @@ nvram_get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF=$(nvram_ge
 it goes immediately after the '''$IPT -t filter -A INPUT -p icmp -j ACCEPT''' line.
 
 now we just need someone to write a web interface for us, one that stores the rules in nvram :)
+
+* In Section 7 and 8
+
+"--to DestinationIP : Port" might be false. use --to-destination instead (mileage may vary, since syntax probably worked, but doesn't anymore)
