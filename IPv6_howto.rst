@@ -132,6 +132,13 @@ $IPT -A INPUT -p 41 -i ppp0 -j ACCEPT
 }}}
 You need to place it into the right position of your firewall script.
 
+=== IPv6 Forwarding ===
+
+Turn ipv6 forwarding on in the kernel:
+{{{
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+}}}
+
 === route advertising daemon ===
 This is the configuration file /etc/radvd.conf:
 {{{
