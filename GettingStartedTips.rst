@@ -103,7 +103,7 @@ and to get the NATIP look at how you have your network setup and look at them fr
 # modified by gumpy
 NATIP="192.168.1." # nat ip here up to the last period look at the example
 EXTIP="0.0.0.0" # put your external ip here 
-IPT="/usr/bin/iptables"
+IPT="/usr/sbin/iptables"
 
 split($0, rule)
 for(idx in rule) {
@@ -150,7 +150,7 @@ isnt that cool :)
 
 To add this to your init scripts put the command below in '''/etc/init.d/S45firewall''':
 {{{
-eval `nvram_get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"`
+eval `nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"`
 }}}
 it goes immediately after the '''$IPT -t filter -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT''' line.
 
