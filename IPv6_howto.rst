@@ -11,7 +11,7 @@ To use ipv6 we need the following modules
 == Install the ipv6 kernel modules ==
 Kernel modules are compiled for a specific version of the linux kernel on the openwrt router. If you use kernel modules for a slightly different kernel version, you might experience several problems with the kernel and/or configuration tools.
 
-If you used a CVS snapshot without ipv6 packages to install your routers kernel, you already have a file called openwrt-kmodules.tar.bz2 with several kernel modules compiled for this specific kernel. This file contains in the modules/2.4.20/kernel/net/ipv6/ directory the module ipv6.o. This file should be copied to the /lib/modules/2.4.20/kernel/net/ipv6/ directory on your router.
+If you used a [http://www.openwrt.org/downloads/snapshots/ CVS snapshot] without ipv6 packages to install your routers kernel, you already have a file called openwrt-kmodules.tar.bz2 with several kernel modules compiled for this specific kernel. This file contains in the modules/2.4.20/kernel/net/ipv6/ directory the module ipv6.o. This file should be copied to the /lib/modules/2.4.20/kernel/net/ipv6/ directory on your router.
 
 If you used a CVS snapshot with ipv6 packages (should be available from 2004-08-25), you can just install the kmod-ipv6 ipkg.
 
