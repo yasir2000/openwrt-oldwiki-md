@@ -34,6 +34,9 @@ The wireless NIC is integrated to the board. The switch is a BCM5325.
 This unit is just like the V2.2 Except it has an extra reboot button on the left front panel behind a Cisco logo.
 Experimental works with it.
 
+/!\ '''To take the front cover off of this unit you must first remove the small screws under the rubber covers of the front feet!'''
+
+
 /!\ '''The current version OpenWrt doesn't support these units, yet.'''
 
 
