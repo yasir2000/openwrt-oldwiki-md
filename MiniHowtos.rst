@@ -111,7 +111,7 @@ If you want statistics for multiple routers, with simple PHP interface, you can 
 [:PublishYourWANIp] Howto publish your WAN IP address to a webserver instead of using DynDNS
 
 == Build fails with "404 File Not Found" errors ==
-Please see the [http://openwrt.ksilebo.net/Bugs OpenWRT Bugs Page] for further details and workarounds.
+Please see the [http://openwrt.org/Bugs OpenWRT Bugs Page] for further details and workarounds.
 
 == boot_wait - What it is, and how it works ==
 Information here was verified with a WRT54G 1.0.  There are minor changes with each variable hardware revision (1.0 vs. 1.1 vs. 2.0 vs. GS), but the general principles remain the same, as well as the final result.  To really understand `boot_wait`, you need to understand the boot process on the WRT, and how ARP tables work.
@@ -133,7 +133,7 @@ If you have a v2 or GS unit, during the `CFE` phase, '''you will always be able 
 If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's still hope.  Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
 
 
-'''Gentoo users''': Please see [http://openwrt.ksilebo.net/Bugs#head-da30ad09c6ea6ec4e0ced6241dcbf480c57af867 this thread] for details about TFTP clients.
+'''Gentoo users''': Please see [http://openwrt.org/Bugs#head-da30ad09c6ea6ec4e0ced6241dcbf480c57af867 this thread] for details about TFTP clients.
 
 == CFE/PMON TFTP maximum image size limitation ==
 There is a physical limit of approximately 3,141,632 bytes that `CFE/PMON` will accept during the `boot_wait` stage.  Only 3,141,632 bytes will be flashed to the firmware.  If your firmware image is larger than this, the result will be undefined; the kernel may load then either panic, or possibly the unit will reboot itself then proceed to spit out `Boot program checksum is invalid` during `PMON`, and drop you to the `CFE>` prompt (requiring serial console).
