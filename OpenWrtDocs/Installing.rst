@@ -59,7 +59,7 @@ When you get to the last command the ping window should be filled with a long li
 
 This ping exploit definitely works with WRT54G v2.0/GS v1.0 and there are documented cases of it working for the latest hardware release WRT54G v2.2/GS v1.1.  You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware.
 
-You can also use the take-over http://openwrt.org/forum/viewtopic.php?t=507&highlight=takeover script to make ping hack in a single command (need a shell command line interpreter).
+You can also use the [http://openwrt.org/forum/viewtopic.php?t=507&highlight=takeover take-over] script to make ping hack in a single command (need a shell command line interpreter).
 
 == Using boot_wait to upload the firmware ==
 
