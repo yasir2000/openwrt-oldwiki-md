@@ -166,15 +166,32 @@ root@OpenWrt:~# nvram get lan_ifname
 br0
 }}}
 
-
-Now we know our WAN and LAN interfaces we can change configure Shorewall's interface configuration. Change the lines in {{{/etc/shorewall/interfaces}}}:{{{
+===== /etc/shorewall/interfaces =====
+Now we know our WAN and LAN interfaces we can change configure Shorewall's interface configuration. Change the lines in {{{/etc/shorewall/interfaces}}} from:{{{
 net     eth0            detect          dhcp,routefilter,norfc1918
 loc     eth1            detect
 }}}
 
-To (substitute vlan0,br0 for your WAN and LAN interfaces respectively as found above):{{{
+to (substitute vlan0,br0 for your WAN and LAN interfaces respectively as found above):{{{
 net     vlan1         detect          dhcp,routefilter,norfc1918
 loc     br0           detect          dhcp,routeback
 }}}
 
-The dhcp options allow dhcp traffic through the WAN and LAN interfaces since our router attempts to get an address from the ISP through the WAN interface and serves DHCP addresses to clients on the LAN interface.
+The dhcp options allow dhcp traffic through the WAN and LAN interfaces since our router attempts to get an address from the ISP through the WAN interface and serves DHCP addresses to clients on the LAN interface. The routeback option tells shorewall that the interface is virtual so it can handle the traffic flow this causes.
+
+===== /etc/shorewall/masq =====
+We will also need to configure the Masqueradeing rules with our interfaces, change the lines in {{{/etc/shorewall/masq}}} from:{{{
+eth0                    eth1
+}}}
+to (again substitute vlan0,br0 for your WAN and LAN interfaces):{{{
+vlan1                 br0
+}}}
+==== Remove TOS Support ====
+Since the OpenWRT iptables hasn't got support for TOS, we have to remove the support from Shorewall, to do this comment out (or remove) all lines from {{{/etc/shorewall/tos}}}, in my case:{{{
+#all  all             tcp             -               ssh             16
+#all  all             tcp             ssh             -               16
+#all  all             tcp             -               ftp             16
+#all  all             tcp             ftp             -               16
+#all  all             tcp             ftp-data        -               8
+#all  all             tcp             -               ftp-data        8
+}}}
