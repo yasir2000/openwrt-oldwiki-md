@@ -30,6 +30,34 @@ The boot script executes the /sbin/firehol shell script which in turn sources /l
 
 The default firewall for openwrt is very basic and not as robust as some would like. Shorewall also configures some advanced functionalities (not all supported by openwrt) that are harder to do by hand. Another possible advantage is that automating shorewall configuration through a web interface is not very hard.
 
+== Quick Start (ipkg installation) ==
+Instead of downloading and modifiying the original shorewall, you can build and/or install the ipkg I have made for OpenWRT. If you do you can skip the rest of the steps below, and go straight to the [http://www.shorewall.net/Documentation_Index.html Shorewall Documentation] on how to further configure your firewall from the defaults in the ipkg.
+
+=== Installing the IPKG Package ===
+
+Simply add the following line to {{{/etc/ipkg.conf}}}:{{{
+src yani http://openwrt.wojjie.net/packages
+}}}
+
+and run:{{{
+ipkg update
+ipkg install shoreware
+}}}
+
+ipkg shoudl install the dependencies (iproute2 and iptables-saverestore) and procede to install shoreware. When completed you will be given instructions to check your configuration and when happy add the RC script so that it is loaded at boot time.
+
+=== Building the IPKG Package ===
+
+If you want to build and install your own shorewall ipk:{{{
+wget http://www.shorewall.net/pub/shorewall/2.0/shorewall-2.0.9/shorwall-2.0.9.lrp
+wget http://www.openwrt.wojjie.net/src/shorwall-2.0.9-ipkg.tar.gz
+mkdir ipkgroot
+cd ipkgroot
+tar -xzvf ../shorwall-2.0.9.lrp
+tar -xzvf ../shorwall-2.0.9-ipkg.tar.gz
+fakeroot ipkg-buildpackage -c
+}}}
+
 == Requirements ==
 
 You will require the following OpenWRT packages:
