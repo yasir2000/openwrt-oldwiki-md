@@ -97,6 +97,8 @@ That's it for the openwrt box, now onto the rrdtool server..
 === Installing the server-side stuff ===
 Download [http://rrust.com/openwrt-stats.tar.gz]
 
+Read the README inside that for updated instructions.
+
 Edit and copy the `rrdtoolgraphs.conf` to your `/etc`.
 
 Edit `updates.sh` and `graphs.sh` for your paths.
