@@ -6,3 +6,6 @@
 
 will the usb port still full functionall?
 for use usb webcam? gprs/cdma/usb modem? usb flashdisk?
+
+how this compare to other firmware like this?
+http://chupa.nl/phpwiki/index.php/Guides
