@@ -1,24 +1,26 @@
-OpenWRT will run on every Broadcom 47xx/53xx based hardware, although some tweaking may be involved.
+'''OpenWRT will run on every Broadcom 47xx/53xx based hardware, although some tweaking may be involved.'''
 
-Currently OpenWrt is known to work on the following units:
+==== Unit lists: ====
+===== Units that considered supported (eg. known to work "out-of-the-box"): =====
 
- * Asus WL-500G
  * Asus WL-500B (version 1.0)
+ * Asus WL-500G
  * Buffalo WBR-G54
  * Buffalo WBR2-G54
+ * Linksys WAP54G (version 1.0)
  * Linksys WRT54G (version 1.0, 1.1, and 2.0)
  * Linksys WRT54GS (version 1.0)
- * Linksys WAP54G (version 1.0)
  * Siemens SE505
 
-The following units wasn't tested, but should work with some work:
+===== Units that should work: =====
 
  * Asus WL-300G
  * Asus WL-500B (version 2)
  * Belkin F5D7130
- * Belkin F5D7230
+ * Belkin F5D7230-4
  * Belkin F5D7231-4
  * Belkin F5D7231-4P
+ * Belkin F5D8230-4
  * Buffalo WBR-B11
  * Buffalo WBR2-G54S
  * Buffalo WHR-G54
@@ -31,7 +33,7 @@ The following units wasn't tested, but should work with some work:
  * Buffalo WLA2-G54L
  * Buffalo WLI2-TX1-G54
  * Buffalo WZR-RS-G54
- * Dell Truemobile 2300
+ * Dell TrueMobile 2300
  * Linksys WAP54G (version 2)
  * Motorola WA840G
  * Motorola WA840GP
@@ -47,9 +49,13 @@ The following units wasn't tested, but should work with some work:
  * Trendnet TEW-411BRP
  * Trendnet TEW-411BRPplus
 
-The following units are known to not work yet:
+===== Units known to not work yet: =====
 
  * Asus WL-500G Deluxe (aka WL-500GD)
  * Linksys WRT54G (version 2.2)
  * Linksys WRT54GS (version 1.1)
  * Netgear WGT634U
+
+==== "Will OpenWrt run on _____ ?" ====
+
+Possibly if you buy us one ....
