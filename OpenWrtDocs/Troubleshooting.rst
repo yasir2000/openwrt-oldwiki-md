@@ -24,11 +24,10 @@ After the partition is mounted, you can edit the files in /jffs. If you run firs
 Note: if you cannot figure out how to put your device into failsafe mode then remember that you can always modify the boot scripts in the source. So if you want to boot failsafe mode, you might edit your buildroot/build_mipsel/root/etc/preinit to something like this:
 {{{
 #!/bin/sh
-# executed from squashfs before init to
-# transfer root to the jffs2 partition
-mount none /proc -t proc
-export FAILSAFE=true
-[...rest of file...]
+mount none /proc -t proc              
+mount none /tmp -t ramfs
+export FAILSAFE=true                  
+exec /sbin/init         
 }}}
 Build a new image by typing make in the buildroot directory, install the modified firmware and boot the device. This forces your device to boot in FAILSAFE every time. So in order to boot in normal mode, you'll have to undo the changes you've made to the preinit file.
 
