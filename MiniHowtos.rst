@@ -2,6 +2,10 @@ Here we can put up a couple of MiniHOWTOs for Users.
 
 = Networking =
 = Software =
+This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
+
+== Making getty work with serial console ==
+
 = Useful details =
 [:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
 
