@@ -13,7 +13,8 @@ NVRAM stands for Non-Volatile RAM, in this case the last 64K of the flash chip u
 Command; Description
 nvram show | less; Display everything in nvram
 nvram get boot_wait; Get a specific variable
-nvram set boot_wait="on"; Set a value
+nvram set boot_wait=on; Set a value
+nvram set lan_ifnames="vlan0 vlan1 vlan2"; set multiple values to one param
 nvram unset foo; Delete a variable
 nvram commit; Write changes to the flash chip (otherwise only stored in RAM)
 }}}
@@ -70,46 +71,46 @@ Further information about the variables used can be found at [:OpenWrtNVRAM]
 The default network configuration:
 (lan+wireless bridged as 192.168.1.1/24, wan as dhcp)
 {{{
-lan_ifname="br0"
+lan_ifname=br0
 lan_ifnames="vlan0 eth1"
-lan_proto="static"
-lan_ipaddr="192.168.1.1"
-lan_netmask="255.255.255.0"
+lan_proto=static
+lan_ipaddr=192.168.1.1
+lan_netmask=255.255.255.0
 
-wan_ifname="vlan1"
-wan_proto="dhcp"
+wan_ifname=vlan1
+wan_proto=dhcp
 }}}
 
 
 If you just want to use OpenWrt as an access point you can avoid the WAN interface completely:
 (lan+wireless bridged as 192.168.1.25/24, routed through 192.168.1.1, wan ignored)
 {{{
-lan_ifname="br0"
+lan_ifname=br0
 lan_ifnames="vlan0 eth1"
-lan_proto="static"
-lan_ipaddr="192.168.1.25"
-lan_netmask="255.255.255.0"
-lan_gateway="192.168.1.1"
-lan_dns="192.168.1.1"
+lan_proto=static
+lan_ipaddr=192.168.1.25
+lan_netmask=255.255.255.0
+lan_gateway=192.168.1.1
+lan_dns=192.168.1.1
 
-wan_proto="none"
+wan_proto=none
 }}}
 
 To separate the LAN from the WIFI:
 (lan as 192.168.1.25/24, wireless as 192.168.2.25/24, wan as dhcp)
 {{{
-lan_ifname="vlan0"
-lan_proto="static"
-lan_ipaddr="192.168.1.25"
-lan_netmask="255.255.255.0"
+lan_ifname=vlan0
+lan_proto=static
+lan_ipaddr=192.168.1.25
+lan_netmask=255.255.255.0
 
-wifi_ifname="eth1"
-wifi_proto="static"
-wifi_ipaddr="192.168.2.25"
-wifi_netmask="255.255.255.0"
+wifi_ifname=eth1
+wifi_proto=static
+wifi_ipaddr=192.168.2.25
+wifi_netmask=255.255.255.0
 
-wan_ifname="vlan1"
-wan_proto="dhcp"
+wan_ifname=vlan1
+wan_proto=dhcp
 }}}
 
 '''The ethernet switch'''
@@ -120,7 +121,7 @@ The vlan configuration is based on two variables (per vlan) in nvram.
 
 {{{
 vlan0ports="1 2 3 4 5*" (use ports 1-4 on the back, 5 is the wrt54g itself)
-vlan0hwname="et0"
+vlan0hwname=et0
 }}}
 
 When the et module (ethernet driver) loads it will read from vlan0ports to vlan15ports, behind the scenes the ethernet driver is using these variables to generate a more complex configuration which will be sent to the switch. When packets are recieved from external devices they need to be assigned a vlan id, and when packets are sent to those external devices the vlan tags need to be removed.
