@@ -7,4 +7,4 @@ There are two versions of the WRT55AG. At this time it is unknown what the hardw
 We have no information about the internals of these units, yet, so they are '''NOT''' supported.
 
 ==== WRT55AG v2.0 ====
-The WRT55AG v1.0 uses ...?
+The WRT55AG v2.0  comes with firmware version 1.1 and uses ...?
