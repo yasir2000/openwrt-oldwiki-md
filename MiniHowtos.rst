@@ -44,6 +44,21 @@ If you want both local and remote logging, add `-L -R <hostname>` to the `syslog
 
 
 = Networking =
+== Individual control of all network devices ==
+(Author: Andrew Hodel)
+The wrt54g has 2 physical network devices, eth0(wired) and eth1(wireless), however eth0 is split into 2 vlans.  vlan0 is the virtual device that can be accessed from the 4 lan ports, and vlan1 is the WAN port on the box.
+
+With the default configuration, eth1 and vlan0 are bridged as device br0.  In order to disable this device, simply change the nvram setting lan_ifname:
+
+{{{
+nvram set lan_ifname=vlan0
+nvram commit
+}}}
+
+Now when you reboot , the wireless device (eth1) can be individually controlled using the nvram variables (wl*) or ifconfig/iwconfig.
+
+!Someone please put information on how to use eth1 (wireless) as a client, to connect back to a network and route from the vlan0 network using eth1 as the outbound gateway.
+
 == Getting Access to your ISP via PPTP (example xdsl-inode-Austria) ==
 (Author: Florian Reitmeir <florian@multi24.com>)
 First install the package pptp-client and the pppd package. Make sure ppp_async.o is loaded.
