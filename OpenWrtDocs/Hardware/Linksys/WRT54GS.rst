@@ -46,3 +46,5 @@ Why don't we try that in a real life test :)
 I'm hooking up the wrt to a new, fully charged, 12V lead-acid car battery, rated 45AH (skinny geeks shouldn't carry arround those kind of batteries).
 
 <to be continued>
+
+We have run a WRT for 6 weeks on a Lead Acid battery, charger, generator combination with no problems. Power was cut due to legal problems concerning the site the AP was on. The only time the unit was down was when we had power restored.
