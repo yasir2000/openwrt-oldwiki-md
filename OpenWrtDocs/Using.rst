@@ -2,7 +2,7 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 = Using OpenWrt for the first time =
-OpenWrt uses the DMZ led to signal bootup, turning the led on while booting and off when completely booted. OpenWrt uses many of the same network settings as other firmwares, meaning that once the system has booted you should be able to telnet the router at whatever address it was last configured for.
+OpenWrt uses the DMZ led to signal bootup, turning the led on while booting and off once completely booted. Once booted, you should be able to telnet into the router using the last address it was configured for.
 
 {{{
 Trying 192.168.1.1...
@@ -21,13 +21,16 @@ Enter 'help' for a list of built-in commands.
 root@OpenWrt:/# 
 }}}
 
+The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly commandline interface. With no packages installed, the firmware will simply configure the network interfaces, setup a basic NAT/firewall and load the telnet server and dnsmasq (a combination dns forwarder and dhcp server).
+
 '''Why no telnet password?'''
 Telnet is an insecure protocol with no encryption, we try to make a point of this insecurity by not enabling a password. If you're in an enviornment that requires password protection we suggest installing the dropbear ssh server.
 
 = Firstboot =
-The OpenWrt firmware contains two pieces, a kernel and a readonly filesystem known as squashfs. The job of the firstboot script is to make a secondary, writable jffs2 filesystem out of the free space in flash.
 
-When OpenWrt boots it will check for the existance of a jffs2 partition and attempt to boot from that, otherwise it will boot from the squashfs filesystem contained within the firmware. The lack of a jffs2 partition will ''automatically'' trigger the firstboot script which will run in the background, creating a jffs2 filesystem and populating it with symbolic links to the squashfs filesystem (which is now remounted to the /rom directory). The effect of this is that the root filesystem will suddenly appear to be writable shortly after bootup, this can be verified with the mount command:
+The OpenWrt firmware contains two pieces, a kernel and a readonly filesystem embeded in the firmare known as squashfs. The job of the firstboot script is to make a secondary, writable jffs2 filesystem out of the free space in flash.
+
+When OpenWrt boots it will check for the existance of a jffs2 partition and attempt to boot from that, otherwise it will boot from the squashfs filesystem. The lack of a jffs2 partition will ''automatically'' trigger the firstboot script which will run in the background, creating a jffs2 filesystem and populating it with symbolic links to the squashfs filesystem (which is now remounted to the /rom directory). The effect of this is that the root filesystem will suddenly appear to be writable shortly after bootup, this can be verified with the mount command:
 
 {{{
 /dev/mtdblock/4 on / type jffs2 (rw)
@@ -46,4 +49,16 @@ vim /etc/ipkg.conf
 }}}
 
 = ipkg =
-To be written ....
+The ipkg utility is a lightweight package manager used to download and install OpenWrt packages from the internet.
+(Linux users familiar with apt-get will recognise the similarities)
+
+||{{{ipkg update}}}||Download a list of packages available||
+||{{{ipkg list}}}||View the list of packages||
+||{{{ipkg install dropbear}}}||Install the dropbear package||
+||{{{ipkg remove dropbear}}}||Remove the dropbear package||
+More options can be found via ''{{{ipkg --help}}}''.
+
+Additional packages can be found through [http://nthill.free.fr/openwrt/tracker Nico's package tracker]; these packages can be installed using ''{{{ipkg install http://example.com/package.ipkg}}}'' or by adding the the source repository to your ''/etc/ipkg.conf''.
+
+= Configuration =
+See [:OpenWrtDocs/Configuration]
