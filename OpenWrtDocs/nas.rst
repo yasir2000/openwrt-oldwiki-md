@@ -1,5 +1,6 @@
-The usage for nas is :
+{{{nas}}} is the binary, linksys proprietary, tool that sets up WPA no wrt54g routers.
 
+The usage for nas is :
 {{{
 -S|-A = Authenticator (NAS) or Supplicant
  -m N = WPA authorisation  mode (N = 0: none, 1: 802.1x, 2: WPA PSK, 255: disabled)
