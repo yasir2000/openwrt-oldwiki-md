@@ -26,3 +26,13 @@ telnet to 192.168.1.1 and you're away.  Once you've installed dropbear, the ssh 
 = ssh from the outside =
 
 put the line "$IPT -t filter -A INPUT -p tcp --dport 22 -j ACCEPT" after the line "$IPT -t filter -A INPUT -p icmp -j ACCEPT" in /etc/init.d/S45firewall to be able to ssh into the box from the wanport.
+
+= ssh foward on WAN and to router from inside =
+
+This firewall rule forward ssh connections to an internal machine's ssh daemon.  Requests from inside the internal network go direct to the router.
+
+Put this after "$IPT -t filter -A INPUT -p icmp -j ACCEPT" in /etc/init.d/S45firewall
+
+{{{$IPT -A FORWARD -p tcp -i $WAN --dport 22 -j ACCEPT
+$IPT -A PREROUTING -t nat -p tcp -i $WAN --dport 22 -j DNAT --to 192.168.1.100:22
+$IPT -A INPUT -p tcp -i eth0 --dport 22 -j ACCEPT}}}
