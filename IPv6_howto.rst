@@ -4,7 +4,7 @@ This howto first describes how to setup ipv6 on your openwrt based router. It al
 = Install necessary software =
 To use ipv6 we need the following modules
  * The '''ipv6 kernel module''' (always)
- * ipv6 '''routing utilities''' (optional, to configure ipv6 routing)
+ * ipv6 '''routing software''' (recommended, to configure ipv6 routing)
  * The '''ip6tables kernel modules''' (optional, if you need an ipv6 firewall)
  * ip6tables (optional, to configure the ipv6 router)
 
@@ -15,15 +15,12 @@ If you used a [http://www.openwrt.org/downloads/snapshots/ CVS snapshot] without
 
 If you used a CVS snapshot with ipv6 packages (should be available from 2004-08-25), you can just install the kmod-ipv6 ipkg.
 
-== Install the software ==
+=== Install the routing software ===
 To configure the interfaces and the routing tables we need the new iputils. Additionally we need the route advertising daemon to propagate the IPv6 route to our local subnet.
 {{{
-ipkg install http://www.linuxops.net/ipkg/kmod-ipv6_2.4.20_mipsel.ipk
 ipkg install http://www.linuxops.net/ipkg/ip_1.0_mipsel.ipk
 ipkg install http://www.openwrt.org/ipkg/radvd_0.7.2_mipsel.ipk
 }}}
-
-Make sure the kernel module(s) you use are compatible with your kernel version. You should only use modules compiled for the same kernel. The new [http://www.openwrt.org/downloads/snapshots/ openwrt snapshots] contain most common modules in the openwrt-kmodules.tar.bz2 file. The snapshots (as of 2004-08-25) should also contain a kmod-ipv6 ipkg package)
 
 = Setup software =
 == Kernel ==
