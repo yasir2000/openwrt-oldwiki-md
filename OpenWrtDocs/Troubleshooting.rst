@@ -35,7 +35,7 @@ You still don't want to short any pins on your precious router. Thats nasty disg
  1. If you want to do it right, a 12-way IDC-Connector plug (these are the ones who look like the HDD-Cables)
  1. A 12-way ribbon cable for above
  1. The boyfriend of that IDC-Connector for the PCB
- 1. This [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a utility and instructions how to connect everything together.
+ 1. HairyDairyMaids [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a debrick utility and instructions how to connect everything together.
  1. A Linksys WRT54G with a broken flash and the desperate feeling that you can't make it any worse.
 
 It is basically like that:
