@@ -20,7 +20,7 @@ There are a number of public forums and web sites where the installation of open
 === Development Pages ===
 
  1. http://www.efn.org/~rick/work/f5d7230/ :: Rick Bronson's "Hacking the Belkin F5D7230-4 Version 1444 router"
- 
+ 2. http://www.codefu.org/weblogs/darkness/archives/000169.html :: "Building the Belkin F5D7230-4 GPL firmware" by darkness
 
 === Serial Pages ===
 
@@ -42,6 +42,25 @@ There are a number of public forums and web sites where the installation of open
  1. http://web.belkin.com/support/gpl.asp :: Belkin GPL Code
  2. http://www.linksys.com/support/gpl.asp :: Linksys GPL Code
  3. http://belkin.com/support/download/download.asp?download=F5D7230-4 :: Belkin Firmware
+
+
+=== Other Firmware Pages (that may yield useful information) ===
+
+ 1. http://openwrt.ksilebo.net/ :: Another link for OpenWRT
+ 2. http://sourceforge.net/projects/wifi-box/ :: WiFi Box
+ 3. http://sourceforge.net/projects/newbroadcom/ :: NewBroadcom Project
+ 4. http://www.portless.net/ewrt/ :: EWRT
+ 5. http://www.hyperdrive.be/hyperwrt/ :: HyperWRT
+
+
+=== Other Pages (that may yield useful information) ===
+
+ 1. http://www.linksysinfo.org :: Linksys WRT Information (similar/same platform as Belkin)
+ 2. http://forum.bsr-clan.de/viewforum.php?f=12 :: WRT54G/GS Discussion Forum
+ 3. http://slashdot.org/~TheIndividual/ :: Site of TheIndividual
+ 4. http://slashdot.org/~Featureless/ :: Site of Featureless
+ 5. http://wrt54g.atw.hu/ :: Firmware references by TheIndividual
+
 
 
 == Documentation ==
