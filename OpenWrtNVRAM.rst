@@ -131,3 +131,8 @@ This will make 10.1.2.0 directly connected. To route via a router, use:
 This will use vlan1 to send packets to 10.1.2.0 via router 192.168.1.1
 
 As of the most recent CVS build, all values must be present. The networking script doesn't detect missing values, and will thererfore not create the route if the syntax is incorrect (things missing, etc.).
+
+
+== NVRAM committing ==
+
+When you set/get nvram settings, you are get/setting them in RAM. "nvram commit" writes them persistenly to the flash. But you don't have to commit in order to test, in fact it's safer not to. You can save your settings to RAM, check them out by ifdown/ifup'ing all your interfaces, and then "nvram commit" them if they are to your liking. If not, you can reboot and you're back to the last working configuration you had.
