@@ -60,7 +60,6 @@ You can find more information about many of these models on their own pages, lis
  * Motorola WA840G
  * Motorola WA840GP
  * Motorola WR850GP
- * Netgear WG602 (version 3)
  * Netgear FWAG114NA ([http://www.tomsnetworking.com/Reviews-55-ProdID-FWAG114-2.php Toms Networking Review])
  * Ravotek W54-AP
  * Ravotek W54-RT
@@ -76,6 +75,7 @@ You can find more information about many of these models on their own pages, lis
 
  * Belkin F5D7230-4 -- only 2M of flash
  * Netgear WGT634U
+ * Netgear WG602 (version 3) -- only 2M of flash
 
 ===== Hardware Notes =====
 [[PageList(OpenWrtDocs/Hardware)]]
