@@ -14,6 +14,60 @@ This section should describe commonly-used packages, built-in Busybox tweaks, an
 To be written by koitsu, once I get around to it...
 
 = Networking =
+== Publishing system infos on a webpage ==
+You want to publish system infos of your WRT54G on the web, like it's done at [http://rrust.com/sysinfo/rrdtool-graphs/openwrt-index.php]? 
+Here's the howto:
+
+=== Installing the scripts on the WRT54G ===
+I did all of this using Nico's firmware here
+[http://nthill.free.fr/nicowrt/firmware/]
+
+It had all the openvpn stuff I needed, thnx Nico!
+{{{
+mkdir /etc/cron.5min
+vi /etc/cron.5min/stats.sh
+}}}
+Paste in the following:
+{{{
+cat /proc/loadavg | awk '{ print $1":"$2":"$3 }' > /tmp/load
+cat /proc/net/dev | grep tun1 | cut -d: -f2 | awk '{ print $1":"$9}' > /tmp/tun1
+cat /proc/net/dev | grep vlan1 | cut -d: -f2 | awk '{ print $1":"$9}' > /tmp/eth
+cat /proc/meminfo > /tmp/mem
+df -k | grep /dev/mtdblock/4 | awk '{ print $3":"$4 }' > /tmp/flashdisk
+}}}
+Then do a
+{{{
+chmod 755 /etc/cron.5min/stats.sh
+}}}
+Go into you `/www` directory and
+{{{
+ln -s /tmp/flashdisk flashdisk
+ln -s /tmp/load load
+ln -s /tmp/mem mem
+ln -s /tmp/tun1 tun1
+}}}
+If your rrdtool server is located on the outside, your lan you will need to edit your /etc/init.d/S45firewall to allow outside http access.
+
+Install crond, set it up to exec `/etc/cron.5min/stats.sh` every 5 minutes.
+
+That's it for the openwrt box, now onto the rrdtool server..
+
+=== Installing the server-side stuff ===
+Download [http://rrust.com/openwrt-stats.tar.gz]
+
+Edit and copy the `rrdtoolgraphs.conf` to your `/etc`.
+
+Edit `updates.sh` and `graphs.sh` for your paths.
+
+Edit your crontab with
+`*/5 * * * * root run-parts /etc/cron.5min > /dev/null 2>&1`
+
+Finallay, get the cronjobs working:
+{{{
+cp updates.sh /etc/cron.5min
+cp graphs.sh to /etc/cron.hourly 
+}}}
+
 = Useful details =
 [:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
 
