@@ -50,12 +50,23 @@ ipkg shoudl install the dependencies (iproute2 and iptables-saverestore) and pro
 
 If you want to build and install your own shorewall ipk see BuildingPackages to install an ipkg build environment and then:{{{
 wget http://www.shorewall.net/pub/shorewall/2.0/shorewall-2.0.9/shorwall-2.0.9.lrp
+wget http://openwrt.wojjie.net/src/iptables-saverestore.tar.gz
 wget http://openwrt.wojjie.net/src/shorwall-2.0.9-ipkg.tar.gz
+tar -xzvf iptables-saverestore.tar.gz
+#(if you have built iptables-save/restore as shown below in howto)
+#cp <buildrootpath>/build_mipsel/root/usr/sbin/iptables-* iptables-saverestore/usr/sbin/
+fakeroot ipkg-build iptables-saverestore
+
 mkdir ipkgroot
 cd ipkgroot
 tar -xzvf ../shorwall-2.0.9.lrp
 tar -xzvf ../shorwall-2.0.9-ipkg.tar.gz
 fakeroot ipkg-buildpackage -c
+cd ..
+}}}
+
+And install:{{{
+ipkg install iptables-saverestore_1.0_mipsel.ipk shorewall_2.0.9_all.ipk
 }}}
 
 == Requirements ==
