@@ -17,6 +17,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Asus WL-500G
  * Buffalo WBR-G54
  * Buffalo WBR2-G54
+ * Buffalo WLA-G54
  * Linksys WAP54G (version 1.0)
  * Linksys WRT54G (version 1.0, 1.1, and 2.0)
  * Linksys WRT54GS (version 1.0)
@@ -36,7 +37,6 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Buffalo WHR-G54
  * Buffalo WHR2-G54
  * Buffalo WHR3-G54
- * Buffalo WLA-G54
  * Buffalo WLA-G54C
  * Buffalo WLA2-G54
  * Buffalo WLA2-G54C
