@@ -69,7 +69,11 @@ You can now scan for nearby access points.
 
 {{{wl scan ; sleep 1 ; wl scanresults}}}
 
-if you get an eth error, try {{{wl ap 0}}} to put it into client mode.
+if you get an eth error, try 
+
+{{{wl ap 0}}}
+
+This will put it into client mode
 
 To join a non-encrypted access point you type:
 
