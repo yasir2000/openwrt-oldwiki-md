@@ -16,6 +16,10 @@ At this point you'll have a openwrt-linux.trx and two openwrt-*-code.bin files. 
 
 = Sending the firmware =
 
+It's a good idea to fully reset the router before loading OpenWrt, but this is not absolutely required.  In fact, it is probably a good idea to use the web administration menu to set the WAP parameters to your liking so you don't have to tweak the nvram directly after loading OpenWRT, since there is no web administration (as of b4).  Just don't change the IP address range so that dhcpd will work correctly after you reboot.
+
+To fully reset the router back to factory defaults, connect the power, and press and hold the reset button for 30 seconds or so.
+
 == Set boot_wait ==
 '''IMPORTANT: '''set boot_wait.  If you don't do this, you may have to open your router to upload new firmware. Read about [http://openwrt.ksilebo.net/temp/00-WARNING.TXT boot_wait warning].  If you are still running the original ROM, use the ping.asp exploit to set boot_wait.
 == Upload the ROM ==
