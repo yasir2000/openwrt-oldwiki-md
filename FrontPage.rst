@@ -18,6 +18,8 @@
 
 [:GettingStartedTips] Some tips on getting started, even if you're a Linux G0d
 
+[:WAP54GHowto] Installing OpenWRT on WAP54G mini-howto
+
 The OpenWRT forums: http://openwrt.org/forum/
 
 = MoinMoin Wiki =
