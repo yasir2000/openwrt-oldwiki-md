@@ -46,3 +46,5 @@ echo Recovering 192.168.1.1 using $1...
 echo -en "binary\nput $1 ASUSSPACELINK\nquit\n" | tftp 192.168.1.1
 echo Please wait until leds stops flashing.
 }}}
+
+In failsafe mode, the telnetd will respond on the WAN port, not the LAN interface.
