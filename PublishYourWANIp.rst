@@ -36,4 +36,5 @@ system("echo Changed on: `date` >> current_ip");
 ?>
 }}}
 
-Now you can run /usr/bin/checkmyip and see if it works. If it does then check out HowtoEnableCron to find out how you can automate this with cron.
+Now you can run /usr/bin/checkmyip and see if it works. Now surf over to your webserver and open "current_ip" on it.
+If it shows an IP address and a creation date then check out HowtoEnableCron to find out how you can automate this with cron.
