@@ -57,7 +57,19 @@ While in the bootloader the linksys wrt54g(s) will be forced to a lan ip of 192.
 
 The BIN file is simply a TRX with some extra information at the start to indicate the model. The only difference between openwrt-g-code.bin and openwrt-gs-code.bin is the first 4 bytes which determine the model.
 
-To upload the firmware to a WRT54GS, unplug your box and enter the commands given would be
+The basic procedure of using boot_wait is:
+  * unplug your router
+  * start your tftp client
+    * give it the router's address (always 192.168.1.1)
+    * set mode to octet
+    * tell the client to resend the file, until it succeeds.
+    * put the file
+  * plug your router, while having the tftp client running and constantly probing for a connection
+  * the tftp client will receive an ack from the bootloader and starts sending the firmware
+
+The tftp commands might vary across different implementations. Here are two examples, netkid's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
+
+netkit's tftp commands:
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -66,7 +78,19 @@ tftp> trace
 Packet tracing on.
 tftp> put openwrt-g-code.bin
 }}}
-Your output may look slightly different depending on the tftp client used. Setting "rexmt 1" will cause the tftp client to constantly retry to sent the file to the given address. While this is happening, plug your box, and as soon as bootloader's tftp client starts to listen, your client will successfully connect and send the firmware.
+Setting "rexmt 1" will cause the tftp client to constantly retry to sent the file to the given address. As advised above, plug your box after typing the commands, and as soon as WRT54G's bootloader start to listen, your client will successfully connect and send the firmware.
+
+Advanced TFTP commands:
+{{{ 
+atftp
+tftp> connect 192.168.1.1
+tftp> mode octet
+tftp> trace
+tftp> put openwrt-g-code.bin
+}}}
+You don't have to tell atftp to retry file sending, that's default.
+
+Please notice, that netkit's tftp failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewill settings, if you have one.
 
 ||'''TFTP Error'''||'''Reason'''||
 ||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
