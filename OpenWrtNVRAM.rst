@@ -85,9 +85,10 @@ For WPA:
 
 
 For WEP:
-||'''wl0_wep'''||on/off||
+||'''wl0_wep'''||on/off (At least for the WRT54G (v2.2) the wl0_wep parameter has to be to disabled/enabled, not to on/off...)||
 ||'''wl0_key1 ... wl0_key4'''||WEP keys (example: wl0_key1=DEADBEEF12)[[FootNote(64bit/128bit wep is autodetected by ''wlconf'' based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
 ||'''wl0_key'''||primary key index||
+
 
 For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(1=enable / 0=disable)||
