@@ -5,6 +5,9 @@
 ##        
 [:OpenWrtDocs]
 [[TableOfContents]]
+= Will OpenWrt work on my hardware ? =
+See [:OpenWrtDocs/Hardware]
+
 = Obtaining the firmware =
 
 '''Compiled binaries'''
