@@ -29,7 +29,7 @@ put the line "$IPT -t filter -A INPUT -p tcp --dport 22 -j ACCEPT" after the lin
 
 = ssh foward on WAN and to router from inside =
 
-This firewall rule forward ssh connections to an internal machine's ssh daemon.  Requests from inside the internal network go direct to the router.
+This firewall rule forwards ssh connections from outside your network (WAN) to an internal machine's ssh daemon (192.168.1.100).  Requests from inside the internal network go to the router's ssh daemon.
 
 Put this after "$IPT -t filter -A INPUT -p icmp -j ACCEPT" in /etc/init.d/S45firewall
 
