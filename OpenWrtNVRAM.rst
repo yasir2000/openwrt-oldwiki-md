@@ -52,7 +52,7 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_closed'''||(0/1) 0: broadcast ssid 1: hide ssid||
 ||'''wl0_country_code'''||AU = Worldwide, TH = Thailand, IL = Israel, JO = Jordan, CN = China, JP = Japan, US = USA/Canada/New Zealand, DE = Europe, All = All channels||
 ||'''wl0_macmode'''||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist||
-||'''wl0_maclist'''||List of space separated mac addresses to allow/deny according to wl0_macmode||
+||'''wl0_maclist'''||List of space separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: 00:02:2D:08:E2:1D ||
 ||'''wl0_radio'''||Enable / disable the radio (1=enable)||
 ||'''wl0_phytypes'''||Supported 802.11 modes, automatically set by wlconf||
 ||'''wl0_phytype'''||Attempt these 802.11 modes||
