@@ -1,5 +1,7 @@
 Yes, I publish my WAN IP to my Webserver so I don't need DynDNS support in order to connect to my Router.
 
+This HOWTO uses a PHP script on the webserver so you will have to have PHP support on your webserver in order to use this. Maybe somebody else can add how to do it on other servers.
+
 Create the following shell script on your router:
 
 {{{
