@@ -2,7 +2,9 @@
 #pragma section-numbers off
 
 = OpenWRT =
-OpenWrtFaq
+[:OpenWrtFaq] Frequently abused questions from the forums
+
+[:Wrt54gNVRAM] Documentation for various NVRAM settings
 
 = MoinMoin Wiki =
 
