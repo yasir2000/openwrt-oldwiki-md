@@ -27,4 +27,3 @@ Interesting starting points:
   * HelpForBeginners: to get you going
   * WikiSandBox: feel free to change this page and experiment with editing
   * FindPage: search or browse the database in various ways
-  * Wow i really can edit this page!
