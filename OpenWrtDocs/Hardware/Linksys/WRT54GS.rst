@@ -35,7 +35,7 @@ When one lowers the input voltage, the current draw increases so the total power
 At arround 4V the wrt stops responding. This was tested running lots of md5sums on a file (should show memory and cpu problems).
 Presumably, the internal DC-DC converter can't up the voltage enough anymore at that level.
 
-If anyone is willing to risk his wrt for a high-voltage measurement, let me know.
+If anyone is willing to risk his wrt for a high-voltage measurement, let me know. (email to joris in the v5.be domain)
 
 ===== Battery tests =====
 
