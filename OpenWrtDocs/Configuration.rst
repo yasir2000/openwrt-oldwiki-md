@@ -145,3 +145,13 @@ All ports lan (vlan0):
 vlan0ports="0 1 2 3 4 5*"
 vlan0hwname=et0
 }}}
+
+LAN (vlan0), WAN (vlan1), DMZ (vlan2):
+{{{
+vlan0ports="3 4 5*"
+vlan0hwname=et0
+vlan1ports="0 5"
+vlan1hwname=et0
+vlan2ports="1 2 5"
+vlan2hwname=et0
+}}}
