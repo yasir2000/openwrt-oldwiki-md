@@ -15,6 +15,7 @@ To get started, click a link below.
    3. Installing OpenWrt
          1. Enabling boot_wait
          2. Using boot_wait to upload the firmware
+         3. ASUS WL-500G routers
    4. Using OpenWrt
 [:OpenWrtDocs/Using: Using OpenWrt]
    1. Using OpenWrt for the first time
