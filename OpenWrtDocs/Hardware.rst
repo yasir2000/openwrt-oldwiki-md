@@ -45,6 +45,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Buffalo WZR-RS-G54
  * Dell TrueMobile 2300 ([http://openwrt.org/forum/viewtopic.php?t=833 more info])
  * Linksys WAP54G (version 2)
+ * Linksys WRT54GX
  * Motorola WA840G
  * Motorola WA840GP
  * Motorola ["WR850G"]
