@@ -4,6 +4,13 @@
 
 There are currently five versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0). Except the last two (v2.2 and v3.0), the WRT54G units are supported by the current CVS version of OpenWrt). boot_wait is off by default on these routers, so You should turn it on. The version number is found on the label on the bottom of the front part of the case, below the Linksys logo.
 
+===== Identification by S/N =====
+Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
+||||<tablestyle="width: 40%"> (!) '''Please add information to this list.''' (!) ||
+||'''Model'''||'''S/N'''||
+||WRT54G ver. 2||CDF50xxxxxxx||
+||WRT54G v2.2||CDF70xxxxxxx||
+
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
 The wireless NIC is a mini-PCI card. The switch is an ADM6996.
