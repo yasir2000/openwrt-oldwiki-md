@@ -36,6 +36,9 @@ You will require the following OpenWRT packages:
  * iproute2 (ip_2.0_mipsel.ipk)
 
 You may require the following OpenWRT packages if you want the associated features:
+ * OpenVPN
+  * OpenVPN Packages
+  * Add line for [http://www.shorewall.net/OPENVPN.html openvpn tunnel] in {{{/etc/shorewall/tunnels}}}
  * IPSEC VPN
   * OpenSwan Packages (see OpenSwan HowTo)
   * Add line for [http://www.shorewall.net/IPSEC.htm ipsec tunnel] in {{{/etc/shorewall/tunnels}}}
