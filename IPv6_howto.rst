@@ -223,3 +223,5 @@ Any ideas?
 Segmentation fault
 @ap:/# 
 }}}
+
+You probably have an ipv6.o which is incompatible with your version of the openwrt kernel. You should use kernel and modules from the same source; mixing them might not work (and probably does not).
