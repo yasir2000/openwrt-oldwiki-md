@@ -55,6 +55,7 @@ You can find more information about many of these models on their own pages, lis
  * Buffalo WZR-RS-G54
  * Dell TrueMobile 2300 ([http://openwrt.org/forum/viewtopic.php?t=833 more info])
  * Linksys WAP54G (version 2)
+ * Linksys WAP55AG (version 1)
  * Linksys WRT54GX
  * Linksys WRT55AG (version 1)
  * Motorola WA840G
@@ -66,6 +67,7 @@ You can find more information about many of these models on their own pages, lis
  * Siemens SX550
  * Sitecom WL-111
  * Svec FD2164
+ * Toshiba WRC-1000
  * Trendnet TEW-410APB
  * Trendnet TEW-410APBplus
  * Trendnet TEW-411BRP
