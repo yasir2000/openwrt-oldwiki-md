@@ -10,7 +10,7 @@ The WR850G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flas
 ==== WR850G v2 ====
 The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 32Mb SDRAM (but only 16Mb enabled). The wireless NIC is integrated to the board.
 
-Note: In at least one (feagle814's) WR850Gv2, there is only 16mb of RAM onboard.  DO NOT try the 32mb enablement hack on the WR850Gv2 without first verifying how much RAM you have!
+Note: In at least one (feagle814's) WR850G v2, there is only 16mb of RAM onboard.  DO NOT try the 32mb enablement hack on the WR850G v2 without first verifying how much RAM you have!  Failure to verify may cause your router to brick, requiring a JTAG nvram erasure to fix.  Also note that the CFE will report 32mb available on a v2 even if it's not available!
 
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
