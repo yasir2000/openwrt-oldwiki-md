@@ -65,7 +65,7 @@ Parport
 JTAG 
 }}}
 It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more.
-
+''Oh, and by the way, this cable is a good thing to have anyway, because many embedded devices feature that JTAG-interface e.g. HP's IPAQ has one as well, so if you dare to open it, you can do lots of [http://openwince.sourceforge.net/jtag/iPAQ-3600/ "funky things with your IPAQ"]
 
 = Recovering from bad flash (Shorting Pins Method) =
 
