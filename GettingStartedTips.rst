@@ -140,10 +140,10 @@ mirc:on:tcp:2000:2010>103 vnc:on:tcp:5800:5909>103
 would be parsed like this
 
 root@gumpnix:/# nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF=$(nvram get wan_ifname)
-/usr/bin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 2000:2010 -j ACCEPT
-/usr/bin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 2000:2010 -j DNAT --to-destination 192.168.1.103:2000-2010
-/usr/bin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 5800:5909 -j ACCEPT
-/usr/bin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 5800:5909 -j DNAT --to-destination 192.168.1.103:5800-5909
+/usr/sbin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 2000:2010 -j ACCEPT
+/usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 2000:2010 -j DNAT --to-destination 192.168.1.103:2000-2010
+/usr/sbin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 5800:5909 -j ACCEPT
+/usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 5800:5909 -j DNAT --to-destination 192.168.1.103:5800-5909
 
 isnt that cool :)
 }}}
