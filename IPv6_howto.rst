@@ -36,7 +36,7 @@ If you used an other package, you already have a file called openwrt-kmodules.ta
 == Install the ip6tables package ==
 The latest [http://www.openwrt.org/downloads/snapshots/ CVS snapshots] contain an ip6tables package with the ip6tables program compiled for the exact kernel version. An other option is to install te package with
 {{{
-<todo: Found ipkg reference>
+ipkg install <todo: Find up-to-date ipkg reference>
 }}}
 
 = Setup software =
