@@ -23,6 +23,14 @@ Note that we're using device `/dev/console` and not `/dev/ttyS0` or something of
 
 If you don't have `/sbin/getty` on your system, guess what?  You get to reconfigure/rebuild BusyBox to include it!  Possibly OpenWRT should have this enabled by default in the future, mmm?
 
+'''Don't want to rebuild for /sbin/getty support?'''
+
+This works fine to just leave a shell running on the console:
+
+{{{
+::respawn:/bin/ash --login </dev/tts/0 >/dev/tts/0 2>/dev/tts/0
+}}}
+
 == Setting up logging ==
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
 
