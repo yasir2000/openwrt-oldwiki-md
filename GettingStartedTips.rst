@@ -95,7 +95,11 @@ $IPT -t nat -A PREROUTING -p tcp -i $WAN --dport 22 -j DNAT --to 192.168.1.100:2
 If you had all your port forwarding configured before you flashed to OpenWRT and it's still in NVRAM then this awk script will show it to you.
 {{{
 {
-IPT=iptables
+# modified by gumpy
+NATIP="192.168.1." # nat ip here up to the last period look at the example
+EXTIP="0.0.0.0" # put your external ip here 
+IPT="/usr/bin/iptables"
+
 split($0, rule)
 for(idx in rule) {
     tmp = rule[idx]
@@ -104,13 +108,13 @@ for(idx in rule) {
     if (pts[2] == "off") continue
     if (pts[3] == "udp" || pts[3] == "both") {
         #print "#___udp for " pts[1]
-        print IPT " -A FORWARD -p udp -d " wtf[2] " --dport " wtf[1] " -j ACCEPT;"
-        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
+        print IPT " -A FORWARD -p udp -d " EXTIP " --dport " pts[4]":"wtf[1] " -j ACCEPT"
+        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to-destination " NATIP wtf[2] ":" pts[4]"-"wtf[1] 
     }
     if (pts[3] == "tcp" || pts[3] == "both") {
         #print "#___tcp for " pts[1]
-        print IPT " -A FORWARD -p tcp -d " wtf[2] " --dport " wtf[1] " -j ACCEPT" ";"
-        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
+        print IPT " -A FORWARD -p tcp -d " EXTIP " --dport " pts[4]":"wtf[1] " -j ACCEPT" 
+        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to-destination " NATIP wtf[2] ":" pts[4]"-"wtf[1]
     }
 }
 }
