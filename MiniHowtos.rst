@@ -24,7 +24,7 @@ To be written by koitsu, once I get around to it...
 == Build fails with "404 File Not Found" errors ==
 Please see the [http://openwrt.ksilebo.net/Bugs OpenWRT Bugs Page] for further details and workarounds.
 
-== `boot_wait` - What it is, and how it works ==
+== boot_wait - What it is, and how it works ==
 Information here was verified with a WRT54G 1.0.  There are minor changes with each variable hardware revision (1.0 vs. 1.1 vs. 2.0 vs. GS), but the general principles remain the same, as well as the final result.  To really understand `boot_wait`, you need to understand the boot process on the WRT, and how ARP tables work.
 
 When the boot loader begins, it starts by validating the nvram data (configuration data that is stored in Flash).  If this data is valid, it checks for the existence of the variable `boot_wait`.  If `boot_wait` is set to `on` (`nvram set boot_wait=on`), the loader will go into a state that we call 'the boot wait state' on #wrt54g (IRC).  This state is also referred to as PMON.
