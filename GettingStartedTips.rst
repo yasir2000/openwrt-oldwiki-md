@@ -152,6 +152,19 @@ To add this to your init scripts put the command below in '''/etc/init.d/S45fire
 {{{
 eval `nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"`
 }}}
+if that dont work then try it without the `
+{{{
+eval nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"
+
+should show output like this
+
+root@gumpnix:~# eval nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"
+/usr/sbin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 2000:2010 -j ACCEPT
+/usr/sbin/iptables -A PREROUTING -t nat -p tcp -i  --dport 2000:2010 -j DNAT --to-destination 192.168.1.103:2000-2010
+/usr/sbin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 5800:5909 -j ACCEPT
+/usr/sbin/iptables -A PREROUTING -t nat -p tcp -i  --dport 5800:5909 -j DNAT --to-destination 192.168.1.103:5800-5909
+
+}}}
 it goes immediately after the '''$IPT -t filter -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT''' line.
 
 now we just need someone to write a web interface for us, one that stores the rules in nvram :)
