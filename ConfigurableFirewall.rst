@@ -277,11 +277,11 @@ start() {
         exec /sbin/shorewall restore | tee /var/log/shorewallstartup.log
     else
         #create the rules and save them in the background
-        exec /sbin/shorewall start |tee /var/log/shorewallstartup.log&
-        wait `pidof -s shorewall` && shorewall save &
-        cp /var/lib/shorewall/restore /etc/shorewall/
+        exec /sbin/shorewall start |tee /var/log/shorewallstartup.log &&\
+         shorewall save  && cp /var/lib/shorewall/restore /etc/shorewall/ &
     fi
 }
+
 
 ################################################################################
 # E X E C U T I O N    B E G I N S   H E R E                                   #
