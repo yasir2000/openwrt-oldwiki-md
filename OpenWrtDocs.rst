@@ -2,6 +2,8 @@
 
 This page is a placeholder, please click on one of the following categories:
 
+([:UserPreference:Log in] to the wiki to edit these pages)
+
 [:OpenWrtDocs/About: About OpenWrt]
 
 [:OpenWrtDocs/Installing: Installing OpenWrt]
@@ -10,9 +12,14 @@ This page is a placeholder, please click on one of the following categories:
 
 [:OpenWrtDocs/Using: Using OpenWrt]
  * Firstboot
- * ipkg
  * how to edit files
+ * ipkg
 
 [:OpenWrtDocs/Configuration: OpenWrt Configuration]
  * NVRAM
  * Network Configuration
+
+[:OpenWrtDocs/Troubleshooting: Troubleshooting OpenWrt]
+ * Recovering from bad firmware
+ * Fixing a broken script
+ * Fixing NVRAM
