@@ -1,5 +1,3 @@
-
-
 = Client mode =
 
 If you want to use your WRT to connect to another AP or computer rather than to use it as an AP, here are the steps to follow:
@@ -100,3 +98,75 @@ The command wl manages the radio, and it's pretty powerful. Among many options (
 That's all what comes to my head now. If you have questions/comments about client mode write to switch at euskalnet.net.
 
 NOTE: A lot of info was taken from http://wifi-portal.elevate.nl/docs/clientmode.html. Thanks to whoever wrote that page (I wasn't able to find his name).
+
+
+== Try these scripts to make life easy ==
+
+Picked up my code/load from http://rodent.za.net/files/openwrt/ tested this on a wrt54gs v.2
+
+It just works, you connect and then the other eth ports do DHCP and MASQ and all that and you are on the net! It has a problem with linksys because it's the same network so it can't get the gateway set (I think that's why) so you have to change the default IP to 192.168.10.1 on the router and it should work. That's not in here, you figure that out.
+
+Here's stuff you can try on yours, two scripts, "go" starts and DHCPs in to  outside source, "scan" shows you APs, "scan c" would do a continuous scan (while driving). This is way too easy. Nice thing, if you don't like the scripts, then change them! Doesn't hurt anything and it all goes back to normal if you reboot.
+
+What you would typically do with this:
+
+scan
+
+wl join NETGEAR
+
+go
+
+You can hit "go" as much as you want to get DHCP on demand. Telnet into your box and do the following (with some knowledge of how things like "vi" works):
+
+{{{
+$ telnet 192.168.1.1
+
+cd /usr/bin/
+echo > go
+chmod 755 go
+
+vi go
+
+#!/bin/sh
+
+# Client mode script
+
+brctl delif br0 eth1
+brctl addif br0 vlan1
+iptables -F
+iptables -F -t nat
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+killall udhcpc
+udhcpc -i eth1 &
+wl ap 0
+wl scan
+sleep 1
+wl scanresults
+
+Now exit and save......
+
+echo > scan
+chmod 755 scan
+
+vi scan
+
+#!/bin/sh
+
+# Scan script, "scan c" will be continuous
+
+while [ 1 ]; do
+wl scan
+sleep 1
+if [ $# -eq 1 ]
+  then
+    clear
+    wl scanresults | grep -B 1 Mode
+  else
+    wl scanresults
+    break
+fi
+done
+
+Now exit and save...... (it's saved in NVRAM for next boot)
+
+}}}
