@@ -11,7 +11,7 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Spawn a shell on serial console ==
-By default, no shell is initiated on the serial console line.  Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means you should follow the [http://openwrt.ksilebo.net/OpenWrtFaq#head-c1131b5f2c7fed45983d534d90193913774487ff FAQ question] coverting how to do this.
+By default, no shell is initiated on the serial console line.  Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means you should follow the [http://openwrt.org/OpenWrtFaq#head-c1131b5f2c7fed45983d534d90193913774487ff FAQ question] coverting how to do this.
 
 Add the following to `/etc/inittab`.  '''Make sure this line comes IMMEDIATELY after the `::shutdown:` entry, and before any other services (dnsmasq, etc...)!''':
 
