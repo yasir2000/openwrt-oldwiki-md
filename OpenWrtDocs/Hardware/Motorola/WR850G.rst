@@ -15,8 +15,14 @@ Note: In at least one (feagle814's) WR850G v2, there is only 16mb of RAM onboard
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
 
+=== How to put OpenWRT Experimental edition on a Motorola WR850G ===
 
-=== How to put OpenWRT on a Motorola WR850G ===
+ * Download the motorola bin from ["downloads/experimental"].
+ * If you want, you can enable boot_wait by going to /frameDebug.asp and typing the necessary commands.
+ * Upload the firmware to the router via the Upgrade Firmware page.
+ * Enjoy!
+
+=== How to put OpenWRT (non-experimental) on a Motorola WR850G ===
 
  * Open the WR850G.  The plastic is hard and the clips are strong - use force!
  * Attach a serial cable to the serial connector - it's a 9-pin connector with two rows, one with 5 pins and one with 4 pins.  I recommend using a cell phone data cable - they're cheap and do the voltage conversions with no assembly required. 
