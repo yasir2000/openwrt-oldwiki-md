@@ -1,4 +1,4 @@
-Here we can put up a couple of MiniHOWTOs for Users.
+[[TableOfContents]]
 
 = Hardware =
 == Dual-port serial modification ==
