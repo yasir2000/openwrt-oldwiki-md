@@ -1,4 +1,4 @@
-I set up cron in order to publish my IP on the internet when it changes. You may know some more usefull tasks for cron on your router.
+I set up cron in order to publish my IP on the internet when it changes. You may know some more useful tasks for cron on your router.
 
 The easiest way to do this is to add the following to your /etc/rcS init script. This may be bad practice, but it saves having to create a new file on the flash.
 
