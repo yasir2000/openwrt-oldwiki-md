@@ -11,6 +11,8 @@ echo "0 * * * * /usr/bin/checkmyip" > /var/spool/cron/crontabs/root
 
 If you don't know how to edit the original files (read-only) on OpenWRT read this - EditingOpenWRTOriginalFiles
 
+Now either run the commands above manually or reboot your router to activate crond.
+
 Replace the echo line with the cron job you want to add. If you want to add more lines to that, just add additional echo lines using ">>" instead of ">" in the command in order to append lines to the end of the cron file.
 
 I'm not sure if this works in the default configuration of OpenWRT, since I already had a root user when I did this (installing dropbear (Mini SSH Server) adds the root user) on my router. So someone can may want to shed light on this issue.
