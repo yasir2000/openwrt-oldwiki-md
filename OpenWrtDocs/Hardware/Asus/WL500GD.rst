@@ -7,3 +7,7 @@ so, can openwrt fully use the usb port?
 connect to webcam?
 connect to gprs/cdma/usb modem?
 flashdisk?
+
+presumably some hardware hacking is required for the USB.  any recommendations?  i imagine signal integrity of the connector is an issue with USB2.0.  
+
+is the ram SDRAM or DDR-RAM?
