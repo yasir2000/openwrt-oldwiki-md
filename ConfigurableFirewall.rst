@@ -185,6 +185,22 @@ lrwxrwxrwx root/root         0 2004-09-23 18:55:35 var/lib/lrpkg/shorwall.versio
 
 The files under /var/lib are luckily LEAF specific, and part of the lrpkg package format. These files are not needed and will in fact be removed on the router's next reset since  /var uses the router's ram disk.
 
+=== Replacing Printf ===
+The default openwrt busybox comes with printf removed, you have two choices:
+
+ * Recompile busybox with printf support, and copy /usr/bin/printf to your router.
+ * Replace printf calls in shorewall with echo/awk statements.
+
+The second of these is actually easier and saves you quite a bit of space. The principle is that the printf that comes in the awk language is essentially the same as bash's printf, and you can replace{{{
+printf '%7d %5d %s\n' $count $port $srv
+}}}
+with
+{{{
+echo $count $port $srv | awk '{printf("%7d %5d %s\n",$1,$2,$3)}'
+}}}
+
+You will need to do this a few times in /sbin/shorewall and /usr/share/firewall.
+
 === Configuration ===
 This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the OpenWRT set of interfaces, and also add any firewall rules that we may wish to have.
 
