@@ -38,6 +38,8 @@ The router does not boot directly into the firmware, instead it boots into a pro
 
 First, for this to work the '''internet port must have a valid ip address''', either from dhcp or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
 
+'''NOTE: If you ahve upgraded your Linksys unit to the official firmware version 3.37.6 from Linksys, DOWNGRADE to version 3.37.2 before running the ping exploit!! Running the following commands with version 3.37.6 does not provide results to verify if the commands have been processed. *** Feel free to update this if you've found it to actually turn boot_wait on. *** - I am not so bold as to upgrade my firmware with OpenWRT unless I know for sure boot_wait is on.'''
+
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
 ;*/n${IFS}set${IFS}boot_wait=on
