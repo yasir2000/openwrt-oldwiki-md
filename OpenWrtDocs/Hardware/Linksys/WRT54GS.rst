@@ -20,7 +20,29 @@ We have no information about the internals of these units, yet. As noone saw a v
 ==== Motherboard photos ====
 
 ==== Power requirements ====
+The following tests were conducted on a linksys wrt54GS v2.0 hardware platform, hooked up to a lab psu.
+All measurements are accurate +/-0.01A
 
 ===== Normal operation =====
+In idle mode, radio off: 0.36A
+In idle mode, radio on: 0.45A
+
+(note: this also means one can follow the boot process nicely from the current draw... perhaps this could be usefull in debugging? Morse error messages on the amp meter, I think I'm getting carried away)
+
+Inserting or retracting a networking cable gives a ~2s peak of 0.02A
+
+When one lowers the input voltage, the current draw increases so the total power is always arround 5.3W (+/-0.1W)
+At arround 4V the wrt stops responding. This was tested running lots of md5sums on a file (should show memory and cpu problems).
+Presumably, the internal DC-DC converter can't up the voltage enough anymore at that level.
+
+If anyone is willing to risk his wrt for a high-voltage measurement, let me know.
 
 ===== Battery tests =====
+
+The measurements above show the wrt should behave exellent on batteries.
+
+Why don't we try that in a real life test :)
+
+I'm hooking up the wrt to a new, fully charged, 12V lead-acid car battery, rated 45AH (skinny geeks shouldn't carry arround those kind of batteries).
+
+<to be continued>
