@@ -9,7 +9,7 @@ echo "0 * * * * /usr/bin/checkmyip" > /var/spool/cron/crontabs/root
 /usr/sbin/crond
 }}}}
 
-If you don't know how to edit the original files (read-only) on OpenWRT read this - EditingOpenWRTOriginalFiles
+If you don't know how to edit the original files (read-only) on OpenWRT read this - EditingRomFiles
 
 Now either run the commands above manually or reboot your router to activate crond.
 
