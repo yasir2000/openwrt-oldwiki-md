@@ -52,3 +52,49 @@ Also, make sure you have the clock set correctly on your router!  An easy way to
 {{{
 rdate tock.usno.navy.mil
 }}}
+
+Here is one more way that this can be accomplished:
+{{{
+#!/bin/sh
+#
+# crond           Starts crond
+#
+mkdir -p /etc/spool/cron/crontabs
+mkdir -p /var/spool/cron
+ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
+
+start() {
+        echo -n "Starting crond: "
+        /usr/sbin/crond
+        touch /var/lock/crond
+        echo "OK"
+}
+stop() {
+        echo -n "Stopping crond: "
+        killall crond
+        rm -f /var/lock/crond
+        echo "OK"
+}
+restart() {
+        stop
+        start
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        restart
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
+}}}
+This will symlink /var/spool/cron/crontabs to /etc/spool/cron/crontabs so that your crontabs will stay effective across reboots.  As well, 'crontab -e' will work correctly, regardless of your user.
