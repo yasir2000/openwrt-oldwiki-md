@@ -175,7 +175,8 @@ From [http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/conf-ipv6-in-ipv4-point-to-poin
 {{{
 # ip tunnel add <device> mode sit ttl <ttldefault> remote <ipv4addressofforeigntunnel> local <ipv4addresslocal>
 # ip link set dev sit1 up
-# ip -6 route add <prefixtoroute1> dev sit1 metric 1
+# ip addr add <local-ipv6endpoint>/64 dev sit1
+# ip -6 route add default dev sit1
 }}} 
 
 
