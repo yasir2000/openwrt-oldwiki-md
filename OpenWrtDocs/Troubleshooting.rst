@@ -28,7 +28,7 @@ The '''great''' advantage is that you don't have fool about with that warranty s
 
 = Using a JTAG-adaptor =
 
-You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy and if you were me doesn't cost a jiffy because you already have this stuff floating around anyway. You need:
+You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy and if you were me doesn't cost a € because you already have this stuff floating around anyway. You need:
  1. 4 100R resistors
  1. 1 male SUB-D 25 plug
  1. If you want to do it right, a 12-way IDC-Connector plug (these are the ones who look like the HDD-Cables)
