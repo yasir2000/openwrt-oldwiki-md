@@ -40,6 +40,49 @@ Hardware notes:
 [[BR]]datasheet: http://www.analogmicro.com/Datasheet/ame8807.pdf
 
 
+''Serial:''
+{{{
+
+ar531x rev 0x00005742 firmware startup...
+SDRAM TEST SKIPPED
+
+
+Atheros AR5001AP default version 4.0.0.2
+Bootloader version 1.00
+
+
+ 0
+auto-booting...
+
+Attaching to TFFS... done.
+Loading /fl/apimg1...1395424
+Starting at 0x804846e0...
+
+
+FLASH IS 4M!
+MACunit 0 enabled
+MACunit 0 enabled
+/fl/  - Volume is OK
+Reading Configuration File "/fl/apcfg".
+Configuration file checksum: 45780 is good
+fopen /fl/dhcps_lease_entry fail !!!
+Attaching interface lo0...done
+DHCP server started.
+wireless access point starting...
+wlan0 Ready
+wireless access point starting...
+wlan1 Ready
+Ready
+Remote Web service ... disabled
+start easyconf
+Blocking WAN PING service ... disabled
+vp0 macaddr = 00:0f:66:e8:16:50
+vp65536 macaddr = 00:0f:66:e8:16:51
+ae0 macaddr = 00:0f:66:e8:16:52
+ae1 macaddr = 00:0f:66:e8:16:53
+}}}
+
+
 ''Chip vendors:''
 
 - YCL Electronics Corporation, Ltd.
