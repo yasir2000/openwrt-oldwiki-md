@@ -51,6 +51,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Motorola ["WR850G"]
  * Motorola WR850GP
  * Netgear WG602 (version 3)
+ * Netgear FWAG114NA ([http://www.tomsnetworking.com/Reviews-55-ProdID-FWAG114-2.php Toms Networking Review])
  * Ravotek W54-AP
  * Ravotek W54-RT
  * Siemens SX550
