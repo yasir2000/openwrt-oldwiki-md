@@ -50,6 +50,10 @@ Here's a trivial script to update dyndns.org accounts for those using pppoe. Ins
 LOGGING_TAG="dyndns-updater"
 ACCOUNT="..."
 PASS="..."
+DOMAIN="..."
+#EXAMPLES:
+#DOMAIN="mysubdomain.is-a-geek.net"
+#DOMAIN="mysubdomain.dyndns.org"
 
 rm -f /tmp/dyndns.org-answer
 
@@ -62,7 +66,7 @@ if [ "${IP}" = "" ]; then
 fi
 
 #now set address with wget (no ssl supported in busybox, so no https ...)
-wget -q -O /tmp/dyndns.org-answer "http://$ACCOUNT:$PASS@members.dyndns.org/nic/update?system=dyndns&hostname=$ACCOUNT.dyndns.org&myip=${IP}&wildcard=ON&offline=NO"
+wget -q -O /tmp/dyndns.org-answer "http://$ACCOUNT:$PASS@members.dyndns.org/nic/update?system=dyndns&hostname=$DOMAIN&myip=${IP}&wildcard=ON&offline=NO"
 
 if ! [ -f /tmp/dyndns.org-answer ]; then
   logger -t ${LOGGING_TAG} -- "Couldn't update ip-address for \"$ACCOUNT.dyndns.org\""
