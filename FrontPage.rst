@@ -29,7 +29,7 @@ MoinMoin is a Python Wiki:WikiClone, based on Wiki:PikiPiki. The name is a commo
 ----
 You can edit any page by pressing the link at the bottom of the page.  Capitalized words joined together form a WikiName, which hyperlinks to another page.  The highlighted title searches for all pages that link to the current page.  Pages which do not yet exist are linked with a question mark: just follow the link and you can add a definition.
 
-To get an overview over this site and what it contains, see the SiteNavigation page.
+To get an overview over this site and what it contains, see the SiteNavigation [http://www.plazaerotica.com/manga/ manga] page.
 
 To learn more about what a WikiWikiWeb is, read about MoinMoin:WhyWikiWorks and the MoinMoin:WikiNature. Also, consult the MoinMoin:WikiWikiWebFaq.
 
