@@ -5,9 +5,20 @@
 ##
 [:OpenWrtDocs]
 [[TableOfContents]]
+= When nothing seems to be working =
+
+If you're having trouble setting up some feature of your router (wireless, lan ports, etc) and for some reason all of the documentation here just isn't working for you, it's sometimes best to start from scratch with a default configuration.  Sometimes the various firmwares you try will add conflicting settings to NVRAM that will need to be flushed.  Erasing NVRAM ensures there aren't any errant settings confusing your poor confused router. Run this command to restore your NVRAM to defaults:
+{{{ mtd erase nvram; reboot; }}}
+This will erase your NVRAM and reboot the router.  Upon boot, the router will detect that its NVRAM is blank and will restore it to default settings.  Remember to set boot_wait back on AFTER resetting your router.  Setting it before you reboot will cancel the NVRAM erasure.
+
+To reset changes you've made to the OpenWRT configuration files, just run {{{firstboot}}} again.  When run from normal (non-failsafe) mode, firstboot will replace all changed configuration files with their snapshot defaults.
+
+After these two steps, you'll have a router with a pristine unchanged configuration.  Everything should work now.
+
 = Recovering from bad firmware (Alternate Software-based Method) =
 
 Since shorting pins can be dangerous this method has been recommended:
+(NOTE: This only works on the Linksys WRT models.  Other brands don't have this feature.)
 
  1. Disconnect your brick from everything
  1. Connect your PC to one of the LAN-Ports
