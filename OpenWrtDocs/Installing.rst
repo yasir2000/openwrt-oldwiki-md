@@ -37,9 +37,9 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 == Enabling boot_wait ==
 
-The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp.
+The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below
 
-Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the following "addresses": (Note that for this to work the internet port must have a valid ip address, either from dhcp or manually configured from the main page -- the port itself doesn't need to be connected unless using dhcp)
+First, for this to work the '''internet port must have a valid ip address''', either from dhcp or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
@@ -49,6 +49,8 @@ Setting of the boot_wait variable is done through a bug in the Ping.asp administ
 }}}
 
 When you get to the last command the ping window should be filled with a long list of variables including '''boot_wait=on''' somewhere in that list.
+
+This ping exploit definitely works with WRT54Gv2.0/GSv1.0 and there are documented cases of it working for the latest hardware release WRT54Gv2.2/GSv1.1.
 
 == Using boot_wait to upload the firmware ==
 
