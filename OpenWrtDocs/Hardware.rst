@@ -25,6 +25,8 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
 
 ===== Units that should work: (untested) =====
 
+You can find more information about many of these models on their own pages, listed further down below.
+
  * Asus WL-300G
  * Asus WL-500B (version 2)
  * Asus WL-HDD
@@ -48,7 +50,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Linksys WRT54GX
  * Motorola WA840G
  * Motorola WA840GP
- * Motorola ["WR850G"]
+ * Motorola WR850G
  * Motorola WR850GP
  * Netgear WG602 (version 3)
  * Netgear FWAG114NA ([http://www.tomsnetworking.com/Reviews-55-ProdID-FWAG114-2.php Toms Networking Review])
