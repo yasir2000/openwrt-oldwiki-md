@@ -118,6 +118,19 @@ If your computer is directly connected to the router and you are consistently ge
 
 Windows 2000 has a TFTP server, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware. Note that the Windows PC needs to be configured with a static IP address in the 192.168.1.0/24 subnet, and cannot use a DHCP IP address when flashing the firmware.
 
+== Installing via CFE - Common Firmware Environment
+
+If you managed to get a serial connection to your router and can stop CFE from booting the firmware with strg-c, you can update your router
+via network. You need to configure a TFTP-server on one of your systems and connect it to the same network as your lan port of your router.
+Put the correct trx file for your router and task to your tftpboot/tftp directory.
+If you see the command line of your Bootloader like this: 
+CFE>
+
+For example flashing a linksys WRT54GS v1.0:
+CFE>flash -noheader 192.168.1.2:/openwrt-generic-jffs2-8MB.trx flash1.trx
+
+This is useful for unsupported models, because you can skip the header check.
+Otherwise some WRT54GS are very picky about the 2 second timeout, so you can definitely flash it without any timing problems.
 
 == ASUS WL-500G routers ==
 The installation procedure there is slightly different from the Linksys routers:
