@@ -33,7 +33,7 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp.
 
-Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the following "addresses": (Note that for this to work the internet port must have a valid ip address, either from dhcp or manually configured from the main page -- the port itself doesn't need to be connected)
+Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the following "addresses": (Note that for this to work the internet port must have a valid ip address, either from dhcp or manually configured from the main page -- the port itself doesn't need to be connected unless using dhcp)
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
