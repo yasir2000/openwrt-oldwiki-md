@@ -23,6 +23,7 @@ The LAN settings used are:
 ||'''lan_ipaddr'''||LAN IP Address to be used for the 4 port switch and the wireless. This is the internal IP of the router.||
 ||'''lan_netmask'''||The Netmask (255.255.255.0 format) for the LAN IP you have assigned.||
 ||'''lan_stp'''||Whether or not to enable Spanning Tree Protocol on the bridge device (bridging the wireless and LAN segments) (0 (default) or 1)||
+||'''lan_gateway''||The IP address of the LAN gateway.||
 
 == WAN Configuration ==
 The WAN settings used are:
