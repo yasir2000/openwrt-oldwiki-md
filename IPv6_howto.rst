@@ -1,5 +1,9 @@
 = Preface =
-This howto first describes how to setup ipv6 on your openwrt based router. It also describes how a 6to4 tunnel over a ppp(oe) connection can be setup with a dynamic IP address.
+This howto first describes how to setup ipv6 on your openwrt based router. 
+
+It also describes how to setup ipv6 for
+ * A 6to4 tunnel over a ppp(oe) connection with a dynamic IP address.
+ * A tunnel to an ipv6 tunnel broker (e.g. [http://www.sixxs.net/ Sixxs])
 
 = Install necessary software =
 To use ipv6 we need the following modules
