@@ -18,7 +18,7 @@
 
 [:GettingStartedTips] Some tips on getting started, even if you're a Linux G0d
 
-The OpenWRT forums: http://openwrt.ksilebo.net/forum/
+The OpenWRT forums: http://openwrt.org/forum/
 
 = MoinMoin Wiki =
 
