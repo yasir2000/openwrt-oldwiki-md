@@ -1,4 +1,8 @@
 #acl Known:read,write All:read
+##
+## Note: these pages document the firmware itself, not packages
+##       questions/comments should be posted to the forum
+##
 [:OpenWrtDocs]
 [[TableOfContents]]
 = Using OpenWrt for the first time =
@@ -26,7 +30,10 @@ The firmware itself is designed to occupy as little space as possible while stil
 '''Why no telnet password?'''
 Telnet is an insecure protocol with no encryption, we try to make a point of this insecurity by not enabling a password. If you're in an enviornment that requires password protection we suggest installing the dropbear ssh server.
 
-= Firstboot =
+'''What if I can't get in?'''
+The problem is caused when the jffs2 partition (see below) is detected but unusable, either the result of previous OpenWrt installation or occasionally just caused by a brand new router. Simply boot into Failsafe (see [:OpenWrtDocs/Troubleshooting:]) and run firstboot to reformat the jffs2 partition.
+
+= Firstboot / jffs2 =
 
 The OpenWrt firmware contains two pieces, a kernel and a readonly filesystem embeded in the firmare known as squashfs. The job of the firstboot script is to make a secondary, writable jffs2 filesystem out of the free space in flash.
 
