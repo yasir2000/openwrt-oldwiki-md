@@ -43,8 +43,10 @@ The measurements above show the wrt should behave exellent on batteries.
 
 Why don't we try that in a real life test :)
 
-I'm hooking up the wrt to a new, fully charged, 12V lead-acid car battery, rated 45AH (skinny geeks shouldn't carry arround those kind of batteries).
+I'm hooking up the wrt to a new, fully charged, 12V lead-acid car battery, rated 42AH (skinny geeks shouldn't carry arround those kind of batteries).
+... 5 days later: the wrt behaved exellent! It remained up and running for 4 days and 13 hours on the battery.
+It should be noted that I measured the voltage only regularly during the first 3 days, during wich it dropped only arround 0.8V. Presumably, the battery used is rather good at keeping the voltage...
 
-<to be continued>
+
 
 We have run a WRT for 6 weeks on a Lead Acid battery, charger, generator combination with no problems. Power was cut due to legal problems concerning the site the AP was on. The only time the unit was down was when we had power restored.
