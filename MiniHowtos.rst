@@ -57,7 +57,7 @@ If you want both local and remote logging, add `-L -R <hostname>` to the `syslog
 
 = Networking =
 == Publishing system infos on a webpage ==
-You want to publish system infos of your WRT54G on the web, like it's done at [http://rrust.com/sysinfo/rrdtool-graphs/openwrt-index.php]? 
+You want to publish system infos of your WRT54G on the web, like it's done at [http://rrust.com/sysinfo/openwrt-stats/]? 
 Here's the howto:
 
 === Installing the scripts on the WRT54G ===
