@@ -1,22 +1,4 @@
-'''Motorola WR850G'''
-
-=== Hardware versions ===
-
-The WR850G has three different versions (v1, v2, v3).
-
-==== WR850G v1 ====
-The WR850G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is a mini-PCI card.
-
-==== WR850G v2 ====
-The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 32Mb SDRAM (but only 16Mb enabled). The wireless NIC is integrated to the board.
-
-Note: In at least one (feagle814's) WR850G v2, there is only 16mb of RAM onboard.  DO NOT try the 32mb enablement hack on the WR850G v2 without first verifying how much RAM you have!  Failure to verify may cause your router to brick, requiring a JTAG nvram erasure to fix.  Also note that the CFE will report 32mb available on a v2 even if it's not available!
-
-==== WR850G v3 ====
-The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
-
-
-=== How to put OpenWRT on a Motorola WR850G ===
+== To put OpenWRT on a Motorola WR850G: ==
 
  * Open the WR850G.  The plastic is hard and the clips are strong - use force!
  * Attach a serial cable to the serial connector - it's a 9-pin connector with two rows, one with 5 pins and one with 4 pins.  I recommend using a cell phone data cable - they're cheap and do the voltage conversions with no assembly required. 
@@ -32,4 +14,6 @@ The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
  * When this completes, it will reboot into OpenWRT.
  * Enjoy!
 
-/!\ '''Until we can find out, how to calculate the Motorola CRC, you have to have a serial console to be able to flash OpenWrt.'''
+(cleaned formatting; does this actually ''require'' a serial connection? - mbm)
+
+(as far as I know, it is required - unless we can calculate Motorola's CRC to make a "valid" firmware image. - nate)
