@@ -119,7 +119,7 @@ If the flashing is successful, the TFTP server should respond with a message sim
 }}}
 and the WRT will be rebooted.
 
-If TFTP responds with an invalid password error, then you ran the TFTP command too late in the WRT's boot cycle, so power the WRT off, and try again. 
+If you run the TFTP command too late in the WRT's boot cycle you will receive an invalid password error. Turn off the WRT and try again. 
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
