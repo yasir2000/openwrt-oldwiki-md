@@ -24,6 +24,8 @@ Then send a HUP signal to `init` (`kill -HUP 1`).  You should now have a working
 If you may receive the message: `ash: can't access tty; job control turned off`, then `/bin/ash` isn't the first application spawned by `init`; the first application gets control of the tty.  If `dnsmasq` or other toys come first, they will have control of the tty, hence the lack-of job control.
 
 == Setting up logging ==
+With the recent firmware(from 18-08-2004) syslogd is started on startup. You can read it with 'logread'
+
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
 
 To run syslogd and klogd you should edit `/etc/inittab` and add the following two lines:{{{
@@ -39,6 +41,7 @@ to `/etc/init.d/rcS`.
 If you want to log to a remote system, add `-R <hostname>` to the `syslogd` line in `/etc/inittab`.  In this case you don't need to add the `mkdir /var/log` command to the startup.  However, you will need to tell the remote system to listen for the log messages.  On my (Red Hat) Linux system that requires adding the `-r` flag to the syslogd startup (which I did by editing `/etc/sysconfig/syslog`).  You may need to check the `man` page for your host `syslogd` program.
 
 If you want both local and remote logging, add `-L -R <hostname>` to the `syslogd` line in `/etc/inittab`.
+
 
 = Networking =
 == Publishing system infos on a webpage ==
