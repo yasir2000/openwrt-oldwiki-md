@@ -26,9 +26,9 @@ To use `/bin/ash`, add the following to `/etc/inittab`:
 ::askfirst:-/bin/ash --login
 }}}
 
-Then send a HUP signal to `init` (`kill -HUP 1`).
+Then send a HUP signal to `init` (`kill -HUP 1`).  You should now have a working shell via serial console.
 
-You should now have a working shell via serial console.
+You may receive the message `-ash: can't access tty; job control turned off`; this was supposedly fixed in BusyBox long ago, but seems to haunt us now.  The problem may in fact be with the Linux kernel (yes, really).  2.4.27 and beyond may have fixed this problem.
 
 If you've rebuilt OpenWRT to support `/sbin/getty`, use this in `/etc/inittab` instead:
 
