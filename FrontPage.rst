@@ -21,7 +21,7 @@ You can edit any page by pressing the link at the bottom of the page.  Capitaliz
 
 To get an overview over this site and what it contains, see the SiteNavigation page.
 
-To learn more about what a WikiWikiWeb is, read about MoinMoin:WhyWikiWorks and the MoinMoin:WikiNature. Also, consult the MoinMoin:WikiWikiWebFaq.
+To learn even more about what a WikiWikiWeb is, read about MoinMoin:WhyWikiWorks and the MoinMoin:WikiNature. Also, consult the MoinMoin:WikiWikiWebFaq.
 
 ----
 Interesting starting points:
