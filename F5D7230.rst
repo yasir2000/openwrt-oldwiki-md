@@ -57,12 +57,6 @@ There are a number of public forums and web sites where the installation of open
 === Other Pages (that may yield useful information) ===
 
  1. http://www.linksysinfo.org :: Linksys WRT Information (similar/same platform as Belkin)
- 2. http://forum.bsr-clan.de/viewforum.php?f=12 :: WRT54G/GS Discussion Forum
- 3. http://slashdot.org/~TheIndividual/ :: Site of The Individual
- 4. http://slashdot.org/~Featureless/ :: Site of Featureless
- 5. http://wrt54g.atw.hu/ :: Firmware references by The Individual
-
-
 
 == Documentation ==
 
