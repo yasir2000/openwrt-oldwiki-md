@@ -1,3 +1,19 @@
+'''Motorola WR850G'''
+
+== Hardware version ==
+
+The WR850G has three different versions (v1, v2, v3).
+
+=== WR850G v1 ===
+The WR850G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is a mini-PCI card.
+
+=== WR850G v2 ===
+The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 32Mb SDRAM (but only 16Mb enabled). The wireless NIC is integrated to the board.
+
+=== WR850G v3 ===
+The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
+
+
 == To put OpenWRT on a Motorola WR850G: ==
 
  * Open the WR850G.  The plastic is hard and the clips are strong - use force!
