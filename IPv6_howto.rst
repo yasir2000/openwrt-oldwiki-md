@@ -215,3 +215,11 @@ gjasny@Rincewind:~$ ip addr show
  * load modules on every restart
  * start/stop radvd when connection goes up/down
  * ip6tables
+
+= Questions =
+Any ideas?
+{{{
+@ap:/# ping6 fe80::20d:88ff:fea6:f554
+Segmentation fault
+@ap:/# 
+}}}
