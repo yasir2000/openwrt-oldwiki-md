@@ -82,6 +82,10 @@ Nico
 
 !Someone please put information on how to use eth1 (wireless) as a client, to connect back to a network and route from the vlan0 network using eth1 as the outbound gateway.
 
+I was going to do this until I found this link: [http://www.penguincare.com.au/openwrt/docs.txt]
+
+Designed for a specific network, but has all of the essential ingredients.  -=CVS=-
+
 == Getting Access to your ISP via PPTP (example xdsl-inode-Austria) ==
 (Author: Florian Reitmeir <florian@multi24.com>)
 First install the package pptp-client and the pppd package. Make sure ppp_async.o is loaded.
