@@ -17,6 +17,21 @@ This might be because you did not set the binary flag on your tftp program, or h
 
 '''''Solution''''':[[BR]]
 Just reflash, and make sure your tftp program is configured right. Check your image.
+
+== Controlling the LEDs ==
+Some of the front panel LEDs can be controlled by writing to /proc/sys/diag.  A single hex value written here will control the state of the LEDs, e.g.
+
+ echo "0x01" > /proc/sys/diag
+
+The values are bitfields, so add up the ones you want in the table below to control the desired LEDs.
+
+||Value||Action||Known to work with||
+||0x00||Defaults||-||
+||0x01||DMZ LED on||WRT54G v2.0||
+||0x04||Power LED flashing||WRT54G v2.0||
+
+For example, if you want the power LED to flash (0x04) and the DMZ LED to light up (0x01) you'd echo "0x05" > /proc/sys/diag
+
 ----
 ----
 CategoryCategory
