@@ -93,6 +93,11 @@ $IPT -t nat -A PREROUTING -p tcp -i $WAN --dport 22 -j DNAT --to 192.168.1.100:2
 
 = AWK script to build iptables rules from nvram's forward_port variable =
 If you had all your port forwarding configured before you flashed to OpenWRT and it's still in NVRAM then this awk script will show it to you.
+Edit the EXTIP with the ipaddress you get from the below command, the external interface name will vary according to model of router, use your interface name in place of vlan1 to get your external ip. example: some routers use eth1 or i believe even eth2 it depends on what router.
+{{{
+ifconfig vlan1 | grep inet | awk '{print $2}' | sed 's/addr://g' <- replace vlan1 with what your wan interface is called
+}}}
+and to get the NATIP look at how you have your network setup and look at them from left to right to the last period 192.168.1. or 192.168.0. are 2 examples. and put that in the NATIP 
 {{{
 {
 # modified by gumpy
