@@ -1,3 +1,5 @@
+#acl Kaloz:read,write All:read
+
 '''Imre Kaloz'''
 
 OpenWrt developer. Used to be gone for days, then pokes ["mbm"] with ideas
