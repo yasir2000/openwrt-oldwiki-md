@@ -10,7 +10,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||'''Model'''||'''S/N'''||'''CVS'''||'''EXP'''||
 ||WRT54G ver. 2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
 ||WRT54G v2.2||CDF70xxxxxxx||<:> {X} ||<:> (./) ||
-
+||WRT54G v3||CDF80xxxxxxx||<:> {X} ||<:> (./) ||
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
 The wireless NIC is a mini-PCI card. The switch is an ADM6996.
@@ -31,7 +31,8 @@ The wireless NIC is integrated to the board. The switch is a BCM5325.
 /!\ '''The current version OpenWrt doesn't support these units, yet.'''
 
 ==== WRT54G v3.0 ====
-We have no information about the internals of these units, yet.
+This unit is just like the V2.2 Except it has an extra reboot button on the left front panel behind a Cisco logo.
+Experimental works with it.
 
 /!\ '''The current version OpenWrt doesn't support these units, yet.'''
 
