@@ -1,4 +1,8 @@
 #acl Known:read,write All:read
+##   
+## Note: these pages document the firmware itself, not packages
+##       questions/comments should be posted to the forum
+##        
 [:OpenWrtDocs]
 [[TableOfContents]]
 = Obtaining the firmware =
@@ -23,7 +27,7 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co buildroot
 
 OpenWrt is an unofficial firmware which is neither endorsed or supported by Linksys or any other vendor. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL].
 
-To avoid potentially serious damage to your router caused by an unbootable firmware we strongly enabling a setting known as '''boot_wait'''.
+To avoid potentially serious damage to your router caused by an unbootable firmware we strongly suggest enabling a setting known as '''boot_wait'''.
 
 == Enabling boot_wait ==
 
