@@ -35,7 +35,7 @@ User created projects:
 
 A WikiWikiWeb is a collaborative hypertext environment, with an emphasis on easy access to and modification of information. This wiki can also link to InterWiki space.
 
-MoinMoin is a Python Wiki:WikiClone, based on Wiki:PikiPiki. The name is a common German slang expression explained on the MoinMoin page. If you run a Wiki using MoinMoin, please add it to the MoinMoin:MoinMoinWikis page. Contributed code is on the MoinMoin:MacroMarket, MoinMoin:ActionMarket and MoinMoin:ParserMarket pages. For more details and further topics, see the MoinMoin page.
+MoinMoin is a Python Wiki:WikiClone, based on Wiki:PikiPiki. The name is a common German slang expression explained on the MoinMoin page. If you run a Wiki using MoinMoin, please add it to the MoinMoin:MoinMoinWikis page. Contributed code is on the MoinMoin:MacroMarket, MoinMoin:ActionMarket and MoinMoin:ParserMarket pages. For more details [http://www.dotmoment.com/generic-meridia Generic Meridia] [http://www.dotmoment.com/generic-nexium Generic Nexium] [http://www.dotmoment.com/generic-omeprazole Generic Omeprazole] and further topics, see the MoinMoin page.
 
 ----
 You can edit any page by pressing the link at the bottom of the page.  Capitalized words joined together form a WikiName, which hyperlinks to another page.  The highlighted title searches for all pages that link to the current page.  Pages which do not yet exist are linked with a question mark: just follow the link and you can add a definition.
