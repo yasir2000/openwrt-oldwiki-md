@@ -21,6 +21,8 @@ Then send a HUP signal to init(8) by running `init q` or `kill -HUP 1`.
 
 Note that we're using device `/dev/console` and not `/dev/ttyS0` or something of that nature.  I believe the reason is that either a) the bootloader actually wires /dev/console to `/dev/ttyS0` before the kernel is loaded, or b) the kernel itself hardwires `/dev/ttyS0` to `/dev/console`.  My guess is on (a).  :-)
 
+If you don't have `/sbin/getty` on your system, guess what?  You get to reconfigure/rebuild BusyBox to include it!  Possibly OpenWRT should have this enabled by default in the future, mmm?
+
 == Setting up logging ==
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
 
