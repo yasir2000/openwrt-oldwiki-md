@@ -19,4 +19,4 @@ http://heanet.dl.sourceforge.net/sourceforge/bridge/bridge-utils-0.9.6.tar.gz
 again.
 The same for:
 http://thekelleys.org.uk/dnsmasq/dnsmasq-2.7.tar.gz
-(it fails on 2.6, hope 2.7 is compatible...)
+(it fails on 2.6, hope 2.7 is compatible...). The version 2.6 has moved to http://thekelleys.org.uk/dnsmasq/archive/dnsmasq-2.6.tar.gz
