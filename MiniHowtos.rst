@@ -10,19 +10,7 @@ Here we can put up a couple of MiniHOWTOs for Users.
 [:PublishYourWANIp] Howto publish your WAN IP address to a webserver instead of using DynDNS
 
 = Build fails on bridge utils/dnsmasq =
-(Maybe this is the wrong place to put this information, but it's the best place I could
-find.)
-Build tries to download bridge-utils from sourceforge, but that fails due to an
-outdated url. One working url is
-http://heanet.dl.sourceforge.net/sourceforge/bridge/bridge-utils-0.9.6.tar.gz
-. After build aborted on that url I downloaded the package by hand, and started build
-again.
-The same for:
-http://thekelleys.org.uk/dnsmasq/dnsmasq-2.7.tar.gz
-
-The version 2.6, which is what the build system is actually looking for, has been moved to http://thekelleys.org.uk/dnsmasq/archive/dnsmasq-2.6.tar.gz - the system seems to fail when using it, however: it gunzip's at some point but preserves the .tar.gz extension. If the build fails, simply cd sources/dl && mv dnsmasq-2.6.tar.gz dnsmasq-2.6.tar && gzip dnsmasq-2.6.tar then restart the build.
-
-coax's note: I just replicated the above info by creating a [:Bugs] page. I agree that this is not the first place that one would look for such info ;) I'll leave it to others to decide which should be deleted.
+Please see the [http://openwrt.ksilebo.net/Bugs OpenWRT Bugs Page] for further details and workarounds.
 
 = boot_wait - What it is, and how it works =
 The information here is all verified against a WRT54G verion 1.0.  There are minor changes with various hardware revisions moving forward, but the general principles remain the same, and the final result is the same.  To really understand boot_wait, you need to understand the boot process on the WRT, and how arp tables work.  When the boot loader begins, it starts by validating the nvram data.  If this data is valid, it checks for the existence of the variable boot_wait.  If boot_wait=on, the loader will go into a state that we call 'the boot wait state' in #wrt54g.  It will sit in this state for 3 seconds, before proceeding with a normal boot.  The next step of the boot is to crc check the kernel and root file system.  If the crc check fails, the router falls back into boot_wait state, and stays there.  If the crc check passes, the router loads the kernel from flash, and executes it.
