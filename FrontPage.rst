@@ -10,6 +10,8 @@
 
 [:MiniHowtos] Useful tips for Users
 
+[:IPv6 howto] How to build a 6to4 tunnel
+
 [:OpenWrtPackages] List of package repositories
 
 [:Bugs] Report bugs here 
