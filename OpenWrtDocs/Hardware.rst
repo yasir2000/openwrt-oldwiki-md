@@ -8,7 +8,7 @@
 ===== Linksys models =====
 On the bottom of the device is a silver sticker with a Linksys logo on it, under this logo are the words "Model No." followed by the model number of the device (WRT54G, WRT54GS, WAP54G). If there isn't a version number (v1.1, v2.0, v2.2) after the model then it's a v1.0 device.
 
-/!\ If you have a WRT54G v2.2 or a WRT54GS v1.1 then OpenWrt will not yet run on these models. Read the forum for ongoing developments with this issue.
+/!\ If you have a WRT54G v2.2 or a WRT54GS v1.1 then OpenWrt will not yet run on these models. Read the forum for more information on the experimental releases for these models.
 
 ==== Unit lists: ====
 ===== Units that considered supported (eg. known to work "out-of-the-box"): =====
@@ -23,13 +23,12 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Linksys WRT54GS (version 1.0)
  * Siemens SE505
 
-===== Units that should work: =====
+===== Units that should work: (untested) =====
 
  * Asus WL-300G
  * Asus WL-500B (version 2)
  * Asus WL-HDD
  * Belkin F5D7130
- * Belkin F5D7230-4
  * Belkin F5D7231-4
  * Belkin F5D7231-4P
  * Belkin F5D8230-4
@@ -66,8 +65,9 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
 ===== Units known to not work yet: =====
 
  * Asus WL-500G Deluxe (aka WL-500GD)
- * Linksys WRT54G (version 2.2 and 3.0) ([http://openwrt.org/forum/viewtopic.php?t=809 more info on 2.2])
- * Linksys WRT54GS (version 1.1 and 2.0) ([http://openwrt.org/forum/viewtopic.php?t=809 more info on 1.1])
+ * Belkin F5D7230-4 -- only 2M of flash
+ * Linksys WRT54G (version 2.2 and 3.0) (works with experimental)
+ * Linksys WRT54GS (version 1.1 and 2.0) (works with experimental)
  * Netgear WGT634U
 
 ===== Hardware Notes =====
