@@ -40,6 +40,7 @@ You still don't want to short any pins on your precious router. Thats nasty disg
 
 It is basically like that:
 {{{
+Parport
  1                          13
   o o o o o o o o o o o o o o
 14 o|o|o|o o o o o o o o o o|25
@@ -61,7 +62,7 @@ It is basically like that:
       |_____________________|   |
   o-o-o-o-o-o___________________|
  2            12
-
+JTAG 
 }}}
 It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more.
 
