@@ -41,12 +41,6 @@ Load the ipv6 module into the kernel:
 insmod ipv6
 }}}
 
-And optionally load the ip6table modules into the kernel
-{{{
-insmod ip6_tables
-insmod ip6table_filter
-}}}
-
 After this your router has ipv6 support. To check this you could use ifconfig to validate if an ipv6 address is assigned to the loopback device.
 {{{
 # ifconfig lo 
@@ -58,6 +52,13 @@ lo        Link encap:Local Loopback
           TX packets:116 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
           RX bytes:10395 (10.1 KiB)  TX bytes:10395 (10.1 KiB)
+}}}
+
+
+Optionally, you can load the ip6table modules into the kernel
+{{{
+insmod ip6_tables
+insmod ip6table_filter
 }}}
 
 To check the installation of ip6tables you can use the ip6tables show command.
@@ -72,6 +73,7 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 }}}
+
 
 == PPPD ==
 When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
