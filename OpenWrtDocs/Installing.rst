@@ -31,7 +31,7 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co buildroot
 
 '''Experimental Source'''
 
-If you have hardware that is not supported by the above verion of OpenWRT, you can use the [http://openwrt.org/download/experimental Experimental version] of the code. You will need to compile this from scratch, and this is not recommended for beginners. The experimental code includes support for GS v1.1 and G v2.2 hardware. It may also work with G v3.0 hardware, however this has not yet been confirmed. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].
+If you have hardware that is not supported by the above verion of OpenWRT, you can use the [http://openwrt.org/downloads/experimental experimental version] of the code. You will need to compile this from scratch, and this is not recommended for beginners. The experimental code includes support for GS v1.1 and G v2.2 hardware. It may also work with G v3.0 hardware, however this has not yet been confirmed. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].
 
 = Installing OpenWrt =
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
