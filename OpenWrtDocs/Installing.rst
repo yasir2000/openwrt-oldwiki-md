@@ -1,5 +1,6 @@
 #acl Known:read,write All:read
 [:OpenWrtDocs]
+[[TableOfContents]]
 = Obtaining the firmware =
 
 '''Compiled binaries'''
@@ -24,7 +25,7 @@ OpenWrt is an unofficial firmware which is neither endorsed or supported by Link
 
 To avoid potentially serious damage to your router we strongly enabling a setting known as '''boot_wait'''.
 
-'''Setting boot_wait'''
+== Enabling boot_wait ==
 
 The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp.
 
@@ -41,6 +42,34 @@ Setting of the boot_wait variable is done through a bug in the Ping.asp administ
 
 When you get to the last command the ping window should be filled with a long list of variables including '''boot_wait=on''' somewhere in that list.
 
-= To be written =
+== Using boot_wait to upload the firmware ==
 
-(The rest of this document has yet to be written)
+Although the firmware can be installed through more traditional means, we recommend that you use boot_wait for your first install. This will confirm boot_wait is correctly enabled and provide a firmware recovery experience without the stress of a broken router.
+
+While in the bootloader the linksys wrt54g(s) will be forced to a lan ip of 192.168.1.1. To use the bootloader's tftp server you need to use a standard tftp client -- the tftp clients provided by linksys will not work for this. The file to be uploaded depends on the model; non linksys models take a TRX file while linksys models take a BIN file.
+
+||'''Model'''||'''Firmware'''||
+||WRT54G||openwrt-g-code.bin||
+||WRT54GS||openwrt-gs-code.bin||
+||(other)||openwrt-linux.trx||
+
+The BIN file is simply a TRX with some extra information at the start to indicate the model. The only difference between openwrt-g-code.bin and openwrt-gs-code.bin is the first 4 bytes which determine the model.
+
+To upload the firmware to a WRT54GS, the commands given would be
+{{{
+tftp 192.168.1.1
+tftp> binary
+tftp> rexmt 1
+tftp> trace
+Packet tracing on.
+tftp> put openwrt-g-code.bin
+}}}
+Your output may look slightly different depending on the tftp client used.
+
+||'''TFTP Error'''||'''Reason'''||
+||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
+||Invalid Password||The firmware has booted and you're connected to a password protected tftp server contained in the firmware, not the bootloader's tftp server.||
+||Timeout||Ping to verify the router is online[[BR]]Try a different tftp client (some are known not to work properly)||
+
+= Using OpenWrt =
+Please see [:OpenWrtDocs/Using]
