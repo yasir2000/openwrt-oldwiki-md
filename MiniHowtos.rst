@@ -10,7 +10,7 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 = Software =
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
-== Spawn a shell on serial console ===
+== Spawn a shell on serial console ==
 By default, no shell is initiated on the serial console line.  You have two options for accomplishing this: simply spawning `/bin/ash` or rebuilding OpenWRT's BusyBox to support `/sbin/getty`.
 
 Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means it's on a read-only filesystem.  If you've never set up `/etc/inittab` for use before, do the following:
