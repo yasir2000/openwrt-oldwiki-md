@@ -39,6 +39,20 @@ Before you press enter on that last one, take the power cord out and plug back i
 
 Note that for this to work, your host machine (the one you are sending the firmware from) must be configured in the 192.168.1.0/24 subnet (e.g. ifconfig eth0 inet 192.168.1.2 netmask 255.255.255.0).  Whatever other IP address or netmask you may have configured in the NVRAM does not take effect until the boot_wait period has passed and it is too late to load a new firmware. 
 
+It's no fun if you are too uncoordinated to miss that narrow little timing window. I am. So I used atftp (also in Debian) and did this instead:
+
+{{{
+while true; do 
+    cat <<END | atftp --tftp-timeout 1;
+verbose
+trace
+connect 192.168.1.1
+put openwrt-g-code.bin
+END
+    sleep 1;
+done
+}}}
+
 = Logging in first time =
 
 No matter how you uploaded the firmware, the router reboots automatically and runs a script called "firstboot"   to do some initialization. It is important that you don't reboot again until firstboot has finished. telnet to 192.168.1.1 and check with
