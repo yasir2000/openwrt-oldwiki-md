@@ -92,11 +92,11 @@ For WEP:
 For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(1=enable / 0=disable)||
 ||'''wl0_wds'''||Space separated list of WDS member MAC addresses (xx:xx:xx:xx:xx:xx notation)||
-'''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must ''not'' be in afterburner (6) mode (apparently no linksys ''speedboost'' is available for WDS clients).  Also, '''wl0_mode''' should be set to ''ap''.
+'''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must not be in afterburner (6) mode (apparently no linksys speedboost is available for WDS clients).  Also, '''wl0_mode''' should be set to ap.
 
 See [wlconf] for more information on the settings used by the ["wlconf"]/wifi commands
 == VLAN Settings ==
-Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan'' settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
+Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
 
 Be sure the NVRAM has settings for the following, and the recommended defaults:
 
