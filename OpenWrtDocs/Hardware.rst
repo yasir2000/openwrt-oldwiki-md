@@ -27,6 +27,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
 
  * Asus WL-300G
  * Asus WL-500B (version 2)
+ * Asus WL-HDD
  * Belkin F5D7130
  * Belkin F5D7230-4
  * Belkin F5D7231-4
