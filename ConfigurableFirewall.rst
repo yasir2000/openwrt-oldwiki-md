@@ -195,3 +195,41 @@ Since the OpenWRT iptables hasn't got support for TOS, we have to remove the sup
 #all  all             tcp             ftp-data        -               8
 #all  all             tcp             -               ftp-data        8
 }}}
+
+==== Configure Firewall Rules ====
+
+Finally we will want to customize the firewall to a set of rules we define. You will probably want to start out with this basic configuration which you can set in {{{/etc/shorewall/rules}}}:{{{
+#ACTION  SOURCE         DEST            PROTO   DEST    SOURCE     ORIGINAL     RATE            USER/
+#                                               PORT    PORT(S)    DEST         LIMIT           GROUP
+#                                               PORT    PORT(S)    DEST         LIMIT
+
+#      Accept DNS connections from the firewall to the network
+#
+AllowDNS        fw              net
+
+#       Accept SSH connections from the local network for administration
+#
+AllowSSH        loc             fw
+
+#       Accept SSH connections from the internet for administration
+#AllowSSH        net             fw
+
+#       Allow Ping To And From Firewall to local network
+#
+AllowPing       loc             fw
+AllowPing       fw              loc
+AllowPing       fw              net
+
+#       Allow Ping To Firewall from internet
+#
+#AllowPing       net             fw
+
+#
+# OpenWRT specific rules:
+# allow loc to fw udp/53 for local/caching DNS servers to work
+# allow loc to fw tcp/80 for weblet to work
+# allow loc to fw udp/67 and udp/68 for dnsmasq's dhcpd to work
+AllowDNS        loc             fw
+AllowWeb        loc             fw
+#LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
+}}}
