@@ -2,7 +2,7 @@ With a ConfigurableFirewall package OpenWRTs configuration of the firewall could
 
 The scripts take a configuration like the following:
 
-* /etc/firehol/FireholConf
+ * /etc/firehol/FireholConf
 
 To ease automatic configuration when installing packages it was proposed to split zone policy into separate files:
 
