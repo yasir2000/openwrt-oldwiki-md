@@ -242,3 +242,10 @@ You will also probably want to add the interface of your LAN to the {{{/etc/shor
 Add the following to {{{/etc/shorewall/routestopped}}}:{{{
 br0           -               routeback
 }}}
+
+===== /etc/shorewall/policy =====
+By default shorewall comes configured so that the firewall hasn't got access to the internet itself for increased security, however with OpenWRT we want access to the internet if only to use the ipkg system. To allow access simply follow the instructions in {{{/etc/shorewall/policy}}} and uncomment the line as follows:{{{
+# If you want open access to the Internet from your Firewall
+# remove the comment from the following line.
+fw             net             ACCEPT
+}}}
