@@ -306,6 +306,8 @@ There is a physical limit of approximately 3,141,632 bytes that `CFE/PMON` will 
 
 This was [http://www.sveasoft.com/modules/phpBB2/viewtopic.php?p=22112#22112 briefly touched on] over at the Sveasoft forums.  To read the thread, you will need to be a Sveasoft subscriber.
 
+"If this hasn't been done already, this can easily be solved with an intermediate-stage rom image that accepts a full-size image.  This is like how LILO works -- Micksa
+
 == backing up the jffs2 partition ==
 {{{
 mount /dev/mtdblock/4 /jffs
