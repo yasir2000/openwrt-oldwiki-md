@@ -33,3 +33,14 @@ It may not be necessary, but I've deleted /etc/init.d/S45firewall, in order to c
 
  6., If you're familiar with WiKi, customize this page to look better.
 
+== Reviving a brick WAP54G v1 ==
+After flashing a recent (mid december 2004) snapshot of openwrt-linux.trx into my WAP54G (v1) the device went dead, no WLAN nor LAN activity and both the power and diag LEDs permanently on. Yes, I ignored warnings like in this thread, stupid, stupid. 
+Did some more searching on the net and found the WRT54G trick to short pins 15 and 16 of the flash memory during power-on. But with my WAP54G this produced after appr. one second of pinging without reply on 192.168.1.1. indeed some ping responses but then the responses stop and nothing more can be done, regardless whether the short has been removed during the ping responses. The device does not enter a tftd wait state. 
+Then searched further on the net amd applied to the WAP54G a trick described for the WRT54G by Sveasoft.
+I applied from a windows system from a DOS window the command
+tftp -i 192.168.1.1 PUT <<PC-local path to a Linksys recent .trx for the WAP54G v1>> a fraction of a second after applying DC power to the device. A fraction being literally something around half a second. This worked !!!! Give the device time to re-install itself after the tftpd has announced a successful data transfer.
+Of course make sure that the PC has connectivity to the 192.168.1.x subnet.
+I was about to trash the device but am happy to have searched a little further on the net.
+By the way, also Sveasoft's Freya software was not functional on this device; the LAN was dead but the WLAN was not. Hence this could be easily restored from the Freya web interface by forcing a system reset (pressing the reset button some 5 seconds or so) and accessing the device and web interface from a client tuned to channel 6 with a 'linksys' ssid and all security turned off.
+Hope this can revive your WAP54G !!
+martin, portugal
