@@ -56,7 +56,7 @@ telnet to 192.168.1.1 and you're away.
 
 Install dropbear, which is the ssh server, and then disable telnet.  To install dropbear, change /etc/ipkg.conf (see [OpenWrtPackages]), then use ipkg to do the install.
 
-Make sure ssh works before you disable telnet.  Reboot the router once to make sure it will come up automatically on the next reboot also.  When you're sure it's safe, comment out the line in /etc/init.d/S50Services.  (Of course, first you have to delete the symlink and copy it across from /rom).
+Make sure ssh works before you disable telnet.  Reboot the router once to make sure it will come up automatically on the next reboot also.  When you're sure it's safe, comment out the line "/usr/sbin/telnetd -l /bin/login" in /etc/init.d/S50telnet.  (Of course, first you have to delete the symlink and copy it across from /rom).
 
 = ssh from the outside =
 
