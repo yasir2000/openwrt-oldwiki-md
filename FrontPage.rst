@@ -6,6 +6,8 @@
 
 [:Wrt54gNVRAM] Documentation for various NVRAM settings
 
+[:wrtLEDCodes] WRT LED analysis
+
 [:MiniHowtos] Useful tips for Users
 
 [:OpenWrtPackages] List of package repositories
