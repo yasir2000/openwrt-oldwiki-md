@@ -1,7 +1,7 @@
 '''Linksys WRT55AG'''
 
 === Hardware versions ===
-There are two versions of the WRT55AG. At this time it is unknown what the hardware inside consists of. You can get the version number from the sticker on the bottom of the device.
+There are two versions of the WRT55AG. You can get the version number from the sticker on the bottom of the device.
 
 See Tom's Hardware guide for information: http://www.tomsnetworking.com/Reviews-47-ProdID-WRT55AG-2.php
 Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
@@ -40,7 +40,7 @@ Hardware notes:
 [[BR]]datasheet: http://www.analogmicro.com/Datasheet/ame8807.pdf
 
 
-Chip vendors:
+''Chip vendors:''
 
 - YCL Electronics Corporation, Ltd.
 [[BR]] http://www.yclusa.net
