@@ -231,5 +231,6 @@ AllowPing       fw              net
 # allow loc to fw udp/67 and udp/68 for dnsmasq's dhcpd to work
 AllowDNS        loc             fw
 AllowWeb        loc             fw
+
 #LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
 }}}
