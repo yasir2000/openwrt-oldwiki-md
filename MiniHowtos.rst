@@ -5,7 +5,7 @@ Here we can put up a couple of MiniHOWTOs for Users.
 If you want to add two serial ports to your Gv2 or GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial Port Mod] for thorough details.  This will enable you to have a serial port intended as a hardware serial console, as well as a serial port for a modem or other device.
 
 == Single-port serial modification ==
-To be written by koitsu...  And yes, I have pictures, links where to buy parts online (with no minimum quantity or order amount), and all the good stuff.
+If you're only interested in having serial console working on your Gv2 or GS, check out [http://jdc.parodius.com/wrt54g/serial.html koitsu's Single-Port Serial Modification] page.  This page includes links to online sites that sell the necessary hardware for both his and Rod's modifications, as well as a (soon-to-be-written) walk-through of how to do the mod.  Pictures are also provided.
 
 = Software =
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
@@ -115,4 +115,4 @@ If you have a v2 or GS unit, during the PMON phase, '''you will always be able t
 If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's still hope.  Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
 
 
-Gentoo users: The default tftp client doesn't seem to work, use the linksys-tftp ebuild instead
+'''Gentoo users''': The default tftp client doesn't seem to work, use the linksys-tftp ebuild instead
