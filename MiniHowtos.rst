@@ -102,7 +102,7 @@ here is my firewall:
 WAN_GATEWAY=$(nvram get wan_gateway)
 WAN_IF=$(nvram get wan_ifname)
 PPTP_HOST=10.0.0.138 
-PPTP_IF=ppp0
+PPTP_IF=ppp+
 }}}
 
 /etc/init.d/S41pptp
