@@ -27,7 +27,7 @@ Before you push enter after the put command, power on the AP. Press enter asap w
 ||remap pppoe_ifname||
 Maybe it isn't required, but I've deleted /etc/init.d/S45firewall, so that I've completly disabled netfilter (iptables), and the AP will accept everything both via LAN and WLAN.
 
- 4., Now you can install packages via ipkg like on a WRT%!G unit. Note that WAP54G has only 1.8MB free space.
+ 4., Now you can install packages via ipkg like on a WRT54G unit. Note that WAP54G has only 1.8MB free space.
 
  5., If you have problems, send your comments to slapic@linux.co.hu.
 
