@@ -121,4 +121,4 @@ In the end, there's nothing really magical about pins 15-16; you can pick any ad
 See http://openwrt.org/forum/viewtopic.php?t=809
 
 = Using the system logs for additional troubleshooting =
-Modern versions of OpenWRT use S10boot to start a syslogd.  If a daemon is misbehaving and you can't figure out why use the ''logread'' tool to access the messages sent to syslog.  Often the solution makes itself evident in.
+Modern versions of OpenWRT use S10boot to start a syslogd.  If a daemon is misbehaving and you can't figure out why use the ''logread'' tool to access the messages sent to syslog.  Often the solution makes itself evident.
