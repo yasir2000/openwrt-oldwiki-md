@@ -8,6 +8,8 @@
 ===== Linksys models =====
 On the bottom of the device is a silver sticker with a Linksys logo on it, under this logo are the words "Model No." followed by the model number of the device (WRT54G, WRT54GS, WAP54G). If there isn't a version number (v1.1, v2.0, v2.2) after the model then it's a v1.0 device.
 
+/!\ If you have a WRT54G v2.2 or a WRT54GS v1.1 then OpenWrt will not yet run on these models. Read the forum for ongoing developments with this issue.
+
 ==== Unit lists: ====
 ===== Units that considered supported (eg. known to work "out-of-the-box"): =====
 
