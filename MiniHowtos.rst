@@ -266,6 +266,7 @@ cp graphs.sh to /etc/cron.hourly
 
 == Alternative statistics solution ==
 If you want statistics for multiple routers, with simple PHP interface, you can also try [http://pjf.dotgeek.org/downloads/openwrt/statswrt-0.1.tar.gz].
+Another project with pretty much the same focus is OpenWRT-stats [http://sf.net/projects/openwrt-stats]. And RRDCollect [http://openwrt.brainabuse.de/rrdcollect/readme.html] will even produce the status graphs on the WRT itself, without the need for a collecting host.
 
 = Useful details =
 [:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
