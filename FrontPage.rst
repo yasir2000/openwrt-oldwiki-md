@@ -24,8 +24,10 @@
 
 The OpenWRT forums: http://openwrt.org/forum/
 
+Official To-Do:
+   - not written
 
-To-Do projects:
+User created projects:
  * CentralNvramMaps
 
 
