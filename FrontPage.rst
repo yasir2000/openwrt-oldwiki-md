@@ -8,6 +8,8 @@
 
 [:MiniHowtos] Useful tips for Users
 
+[:OpenWrtPackages] List of package repositories
+
 = MoinMoin Wiki =
 
 A WikiWikiWeb is a collaborative hypertext environment, with an emphasis on easy access to and modification of information. This wiki can also link to InterWiki space.
