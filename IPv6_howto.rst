@@ -178,7 +178,7 @@ You can listen to its advertisments via the ''radvdump'' program.
 == Static tunnel to IPv6 tunnel broker ==
 Bert Huijben: I'm busy creating a extensible configuration package for IPv6 support on openwrt. I will add a howto entry for it afterwards.
 
-From [http://www.tldp.org/HOWTO/Linux%2BIPv6-HOWTO/conf-ipv6-in-ipv4-point-to-point-tunnels.html The Linux Documentation Project]
+From [http://www.tldp.org/HOWTO/Linux%252BIPv6-HOWTO/conf-ipv6-in-ipv4-point-to-point-tunnels.html The Linux Documentation Project]
 {{{
 # ip tunnel add <device> mode sit ttl <ttldefault> remote <ipv4addressofforeigntunnel> local <ipv4addresslocal>
 # ip link set dev sit1 up
