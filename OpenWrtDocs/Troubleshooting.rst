@@ -11,7 +11,7 @@ If you've followed our instructions and warnings you should have boot_wait set t
 If you didn't set boot_wait, you'll have to open the router and short pins on the flash chip to recover.
 
 ||4M flash chip (WRT54G v1.0, v1.1, v2.0, v2.2?)||Use pins 15&16||
-||8M flash chip (WRT54GS v1.0, v1.1?)||Use pins 5&6||
+||8M flash chip (WRT54GS v1.0, v1.1)||Use pins 5&6||
 
 /!\ Be very careful with the flash chip, short only the pins shown in the instructions and do not bend or break any pins
 
