@@ -14,11 +14,15 @@ At this point you'll have a openwrt-linux.trx and two openwrt-*-code.bin files. 
 
 = Sending the firmware =
 
-Of course, first set boot_wait.  If you don't do this, you end up with a brick.  So read this: http://openwrt.ksilebo.net/temp/00-WARNING.TXT
-
-Connect up an ethernet cable to one of the hub ports of the unit.
-
-With the standard tftp client (I'm using the standard Debian package "tftp"), do this.  Note, the file you send will be different for other models of the unit.  This is the one for the WRT54g
+== Set boot_wait ==
+'''IMPORTANT: '''set boot_wait.  If you don't do this, you may have to open your router to upload new firmware. Read about [http://openwrt.ksilebo.net/temp/00-WARNING.TXT boot_wait warning].  If you are still running the original ROM, use the ping.asp exploit to set boot_wait.
+== Upload the ROM ==
+There are two ways to do the initial ROM upload:
+=== Using the current firmware ===
+You can use the administration menu and upload the new .bin file.  You can do this using the stock ROM image off the Administration menu.  If you're reinstalling OpenWRT, you can use the "mtd write" command explained in the [OpenWrtFaq].
+=== Using tftp ===
+This is a better approach because you get familiar with reloading the ROM in case the OS doesn't boot correctly.
+With the standard tftp client (I'm using the standard Debian package "tftp"), do this.  '''Caution:''' The file in the example is for a WRT54g.  If you have a GS, make sure you send the openwrt-gs-code.bin instead!
 
 {{{ tftp 192.168.1.1
 > binary
