@@ -1,12 +1,19 @@
 Here we can put up a couple of MiniHOWTOs for Users.
 
-= Networking =
+= Hardware =
+== Dual-port serial modification (WRT54Gv2 and WRT54GS) ==
+[http://www.rwhitby.net/wrt54gs/serial.html]
+
+== Single-port serial modification (WRT54Gv2 and WRT54GS) ==
+To be written by koitsu...  And yes, I have pictures, links where to buy parts online (with no minimum quantity or order amount), and all the good stuff.
+
 = Software =
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Making getty work with serial console ==
 To be written by koitsu, once I get around to it...
 
+= Networking =
 = Useful details =
 [:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
 
