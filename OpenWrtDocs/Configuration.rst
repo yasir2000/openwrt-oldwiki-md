@@ -156,3 +156,11 @@ vlan1hwname=et0
 vlan2ports="1 2 5"
 vlan2hwname=et0
 }}}
+
+= QoS (Wondershaper) =
+
+Installing QoS will ensure amazingly fast internet even if you're running file sharing in the background or otherwise using your upload to capacity. The easiest thing to do at this point is to install shorewall and then install wondershaper. After installing wondershaper you need to edit /etc/init.d/S65wshaper and set the upload and download limits to something just below what your actual capacity is (otherwise you won't be using QoS at all). Then read a few lines down and delete the notice about reading the README so that it will boot nicely. 
+
+To make certain services low quality there are 4 lines after the UPLINK and DOWNLINK lines. The fourth line (NOPRIOPORTDST) is where you specify what ports to make lowest quality. The README doesn't specify how to make a list of ports and my experiments with space and comma didn't lead to happiness. Any suggestions?
+
+Finally, once you have the wshaper file completed you need to run /etc/init.d/S65wshaper. If you decide to change the UP/DOWNLINK values all you need to do is re-run the file and the changes are immediate. Yay! QoS heaven!
