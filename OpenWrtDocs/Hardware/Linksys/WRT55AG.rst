@@ -42,7 +42,16 @@ Hardware notes:
 
 ''Serial:''
 {{{
+        o
+GND - o o - RX
+      o o
+      o o
+      o o - TX
+      JP1
+}}}
+9600 baud, hit enter for login; login is the same as the web (u:blank p:admin)
 
+{{{
 ar531x rev 0x00005742 firmware startup...
 SDRAM TEST SKIPPED
 
@@ -80,6 +89,131 @@ vp0 macaddr = 00:0f:66:e8:16:50
 vp65536 macaddr = 00:0f:66:e8:16:51
 ae0 macaddr = 00:0f:66:e8:16:52
 ae1 macaddr = 00:0f:66:e8:16:53
+
+AP login:
+Password: *****
+
+Atheros Access Point Rev 3.3.1.25
+wlan0 -> help
+List of Access Point CLI commands:
+ config wlan                        -- config wlanX
+ connect bss                        -- connect to bssX
+ del acl                            -- Delete Access Control List
+ del key                            -- Delete Encryption key
+ find bss                           -- Find BSS
+ find channel                       -- Find Available Channel
+ find all                           -- Find All BSS
+ ftp                                -- Software update via FTP
+ get acl                            -- Display Access Control List
+ get aging                          -- Display Aging Interval
+ get antenna                        -- Display Antenna Diversity
+ get association                    -- Display Association Table
+ get authentication                 -- Display Authentication Type
+ get autochannelselect              -- Display Auto Channel Select
+ get beaconinterval                 -- Display Beacon Interval
+ get burstSeqThreshold              -- Display Max Number of frames in a Burst
+ get burstTime                      -- Display Burst Time
+ get channel                        -- Display Radio Channel
+ get cipher                         -- Display Encryption cipher
+ get config                         -- Display Current AP Configuration
+ get countrycode                    -- Display Country Code
+ get domainsuffix                   -- Display Domain Name Server suffix
+ get dtim                           -- Display Data Beacon Rate (DTIM)
+ get encryption                     -- Display Encryption Mode
+ get fragmentthreshold              -- Display Fragment Threshold
+ get frequency                      -- Display Radio Frequency (MHz)
+ get gateway                        -- Display Gateway IP Address
+ get groupkeyupdate                 -- Display Group Key Update Interval (in Sec
+onds)
+ get hardware                       -- Display Hardware Revisions
+ get hostipaddr                     -- Display Host IP Address
+ get ipaddr                         -- Display IP Address
+ get ipmask                         -- Display IP Subnet Mask
+ get key                            -- Display Encryption Key
+ get keyentrymethod                 -- Display Encyrption Key Entry Method
+ get keysource                      -- Display Source Of Encryption Keys
+ get login                          -- Display Login User Name
+ get minimumrate                    -- Display Minimum Rate
+ get nameaddr                       -- Display IP address of name server
+ get operationMode                  -- Display Operation Mode
+ get pktLogEnable                   -- Display Packet Logging Mode
+ get power                          -- Display Transmit Power Setting
+ get radiusname                     -- Display RADIUS server name or IP address
+ get radiusport                     -- Display RADIUS port number
+ get rate                           -- Display Data Rate
+ get reg                            -- Display the register contents at the give
+n offset
+ get remoteAp                       -- Display Remote Ap's Mac Address
+ get rtsthreshold                   -- Display RTS/CTS Threshold
+ get sntpserver                     -- Display SNTP/NTP Server IP Address
+ get ssid                           -- Display Service Set ID
+ get ssidsuppress                   -- Display SSID Suppress Mode
+ get station                        -- Display Station Status
+ get SuperG                         -- Display SuperG Feature Status
+ get systemname                     -- Display Access Point System Name
+ get tzone                          -- Display Time Zone Setting
+ get uptime                         -- Display UpTime
+ get wirelessmode                   -- Display Wireless LAN Mode
+ get wlanstate                      -- Display wlan state
+ help                               -- Display CLI Command List
+ ping                               -- Ping
+ pktLog                             -- Packet Log
+ reboot                             -- Reboot Access Point
+ run                                -- Run command file
+ quit                               -- Logoff
+ set acl                            -- Set Access Control List
+ set aging                          -- Set Aging Interval
+ set antenna                        -- Set Antenna
+ set authentication                 -- Set Authentication Type
+ set autochannelselect              -- Set Auto Channel Selection
+ set beaconinterval                 -- Modify Beacon Interval
+ set burstSeqThreshold              -- Set Max Number of frames in a Burst
+ set burstTime                      -- Set Burst Time
+ set channel                        -- Set Radio Channel
+ set cipher                         -- Set Cipher
+ set countrycode                    -- Set Country Code
+ set domainsuffix                   -- Set Domain Name Server Suffix
+ set dtim                           -- Set Data Beacon Rate (DTIM)
+ set encryption                     -- Set Encryption Mode
+ set factorydefault                 -- Restore to Default Factory Settings
+ set fragmentthreshold              -- Set Fragment Threshold
+ set frequency                      -- Set Radio Frequency (MHz)
+ set gateway                        -- Set Gateway IP Address
+ set groupkeyupdate                 -- Set Group Key Update Interval (in Seconds
+)
+ set hostipaddr                     -- Set Host IP address
+ set ipaddr                         -- Set IP Address
+ set ipmask                         -- Set IP Subnet Mask
+ set key                            -- Set Encryption Key
+ set keyentrymethod                 -- Select Encryption Key Entry Method
+ set keysource                      -- Select Source Of Encryption Keys
+ set login                          -- Modify Login User Name
+ set minimumrate                    -- Set Minimum Rate
+ set nameaddress                    -- Set Name Server IP address
+ set operationMode                  -- Set operation Mode
+ set password                       -- Modify Password
+ set passphrase                     -- Modify Passphrase
+ set pktLogEnable                   -- Enable Packet Logging
+ set power                          -- Set Transmit Power
+ set radiusname                     -- Set RADIUS name or IP address
+ set radiusport                     -- Set RADIUS port number
+ set radiussecret                   -- Set RADIUS shared secret
+ set rate                           -- Set Data Rate
+ set reg                            -- Set Register Value
+ set remoteAP                       -- Set Remote AP's Mac Address
+ set rtsthreshold                   -- Set RTS/CTS Threshold
+ set sntpserver                     -- Set SNTP/NTP Server IP Address
+ set ssid                           -- Set Service Set ID
+ set ssidsuppress                   -- Set SSID Suppress Mode
+ set SuperG                         -- Super G Features
+ set systemname                     -- Set Access Point System Name
+ set tzone                          -- Set Time Zone Setting
+ set wlanstate                      -- Set wlan state
+ set wirelessmode                   -- Set Wireless LAN Mode
+ timeofday                          -- Display Current Time of Day
+ version                            -- Software version
+ nvram                              -- nvram utility
+wlan0 ->
 }}}
 
 
