@@ -1,4 +1,12 @@
+#acl Known:read,write All:read
+##
+## Note: questions/comments should be posted to the forum
+##
 '''OpenWRT will run on every Broadcom 47xx/53xx based hardware, although some tweaking may be involved.'''
+
+==== How can I identify which hardware I have? ====
+===== Linksys models =====
+On the bottom of the device is a sticker with the Linksys logo on it. Under the logo is the words "Model No." followed by the model number of the device (WRT54G, WRT54GS, WAP54G). After the model there may be a version number (v1.1, v2.0, v2.2); if there isn't a version number then it's a v1.0 device.
 
 ==== Unit lists: ====
 ===== Units that considered supported (eg. known to work "out-of-the-box"): =====
@@ -33,7 +41,7 @@
  * Buffalo WLA2-G54L
  * Buffalo WLI2-TX1-G54
  * Buffalo WZR-RS-G54
- * Dell TrueMobile 2300
+ * Dell TrueMobile 2300 ([http://openwrt.org/forum/viewtopic.php?t=833 more info])
  * Linksys WAP54G (version 2)
  * Motorola WA840G
  * Motorola WA840GP
@@ -53,10 +61,10 @@
 ===== Units known to not work yet: =====
 
  * Asus WL-500G Deluxe (aka WL-500GD)
- * Linksys WRT54G (version 2.2)
- * Linksys WRT54GS (version 1.1)
+ * Linksys WRT54G (version 2.2) ([http://openwrt.org/forum/viewtopic.php?t=809 more info])
+ * Linksys WRT54GS (version 1.1) ([http://openwrt.org/forum/viewtopic.php?t=809 more info])
  * Netgear WGT634U
 
-==== "Will OpenWrt run on _____ ?" ====
+==== "Will OpenWrt run on <blank> ?" ====
 
 Possibly if you buy us one ....
