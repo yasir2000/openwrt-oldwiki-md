@@ -168,6 +168,10 @@ radvd
 }}}
 You can listen to its advertisments via the ''radvdump'' program.
 
+== Static tunnel to IPv6 tunnel broker ==
+Bert Huijben: I'm busy creating a extensible configuration package for IPv6 support on openwrt. I will add a howto entry for it afterwards.
+
+
 = Example for debugging purposes =
 Interface configuration:
 {{{
@@ -270,20 +274,6 @@ gjasny@Rincewind:~$ ip addr show
     link/sit 0.0.0.0 brd 0.0.0.0
 }}}
 
-= Installing ip6tables =
-First our kernel needs ip6table support. To configure the interfaces and the routing tables we need the ip6table command.
-
-Load the ipv6 iptables modules into the kernel:
-{{{
-insmod ip6_tables
-insmod ip6table_filter
-}}}
-(You should get these from your kernel source (contained openwrt-kmodules.tar.bz2)
-
-If the insmod ip6table_filter fails with an error, you might need to apply [http://www.vsoft.nl/openwrt/170-ip6tables-alignment.patch this alignment patch] to your buildroot (Needed for CVS at 2004-08-23). The easiest way to do this is to copy this file to the buildroot/sources/openwrt/kernel/patches/ directory, before running make.
-
-You can find the ip6tables executable in the build_mipsel/iptables1.2.9/ip6tables subdirectory of your build environment.
-
 = Links =
  * [http://www.bieringer.de/linux/IPv6/index.html Peter Bieringer's IPv6 HOWTO]
  * [http://www.join.uni-muenster.de/TestTools/IPv6_Verbindungstests.php JOIN IPv6 Test Page (ping, traceroute, tracepath)]
@@ -292,7 +282,6 @@ You can find the ip6tables executable in the build_mipsel/iptables1.2.9/ip6table
 = ToDo =
  * load modules on every restart
  * start/stop radvd when connection goes up/down
- * ip6tables
 
 = Questions =
 Any ideas?
