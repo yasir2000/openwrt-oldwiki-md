@@ -64,8 +64,8 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
 ===== Units known to not work yet: =====
 
  * Asus WL-500G Deluxe (aka WL-500GD)
- * Linksys WRT54G (version 2.2) ([http://openwrt.org/forum/viewtopic.php?t=809 more info])
- * Linksys WRT54GS (version 1.1) ([http://openwrt.org/forum/viewtopic.php?t=809 more info])
+ * Linksys WRT54G (version 2.2 and 3.0) ([http://openwrt.org/forum/viewtopic.php?t=809 more info on 2.2])
+ * Linksys WRT54GS (version 1.1 and 2.0) ([http://openwrt.org/forum/viewtopic.php?t=809 more info on 1.1])
  * Netgear WGT634U
 
 ===== Hardware Notes =====
