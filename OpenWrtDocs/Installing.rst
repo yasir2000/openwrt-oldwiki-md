@@ -102,7 +102,7 @@ Please note, netkit tftp has failed to work for some people. Try to use Advanced
 ||Invalid Password||The firmware has booted and you're connected to a password protected tftp server contained in the firmware, not the bootloader's tftp server.||
 ||Timeout||Ping to verify the router is online[[BR]]Try a different tftp client (some are known not to work properly)||
 
-Windows 2000 has a TFTP server, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used]; to flash with OpenWrt firmware. Note that the Windows PC needs to be configured with a static IP address in the 192.168.1.0/24 subnet, and cannot use a DHCP IP address when flashing the firmware.
+Windows 2000 has a TFTP server, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware. Note that the Windows PC needs to be configured with a static IP address in the 192.168.1.0/24 subnet, and cannot use a DHCP IP address when flashing the firmware.
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
