@@ -42,7 +42,7 @@ insmod ipv6
 }}}
 
 And optionally load the ip6table modules into the kernel
-{{}
+{{{
 insmod ip6_tables
 insmod ip6table_filter
 }}}
@@ -58,6 +58,19 @@ lo        Link encap:Local Loopback
           TX packets:116 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
           RX bytes:10395 (10.1 KiB)  TX bytes:10395 (10.1 KiB)
+}}}
+
+To check the installation of ip6tables you can use the ip6tables show command.
+{{{
+# ip6tables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
 }}}
 
 == PPPD ==
