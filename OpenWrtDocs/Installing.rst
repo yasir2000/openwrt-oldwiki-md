@@ -65,7 +65,7 @@ While in the bootloader the linksys wrt54g(s) will be forced to a lan ip of 192.
 The BIN file is simply a TRX with some extra information at the start to indicate the model. The only difference between openwrt-g-code.bin and openwrt-gs-code.bin is the first 4 bytes which determine the model.
 
 The basic procedure of using boot_wait is:
-  * unplug your router
+  * unplug the power to your router
   * start your tftp client
     * give it the router's address (always 192.168.1.1)
     * set mode to octet
