@@ -2,12 +2,12 @@ I set up cron in order to publish my IP on the internet when it changes. You may
 
 The easiest way to do this is to add the following to your /etc/rcS init script. This may be bad practice, but it saves having to create a new file on the flash.
 
-{{{{
+{{{
 # start crond
 mkdir -p /var/spool/cron/crontabs
 echo "0 * * * * /usr/bin/checkmyip" > /var/spool/cron/crontabs/root
 /usr/sbin/crond
-}}}}
+}}}
 
 If you don't know how to edit the original files (read-only) on OpenWRT read this - EditingRomFiles
 
