@@ -30,7 +30,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Linksys WRT54G (version 2.2 and 3.0)
  * Linksys WRT54GS (version 1.1 and 2.0)
  * Motorola WR850G
-
+ * Microsoft MN-700 (check the hardware notes)
 
 ===== Units that should work: (untested) =====
 
