@@ -46,3 +46,6 @@ On WRT54G v1.x models the process is much more difficult. Open the router and lo
 When the NVRAM is erased, all variables will be lost and only a few variables required for bootup will be created.
 
 /!\ After NVRAM is erased, boot_wait will be OFF and should be turned back ON.
+
+= WRT54G v2.2 / WRT54g v1.1 : Can't downgrade to this old firmware version =
+See http://openwrt.org/forum/viewtopic.php?t=809
