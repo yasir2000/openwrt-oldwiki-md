@@ -2,7 +2,7 @@
 This howto first describes how to setup ipv6 on your openwrt based router. 
 
 It also describes how to setup ipv6 for
- * A 6to4 tunnel over a ppp(oe) connection with a dynamic IP address.
+ * A 6to4 tunnel over a ppp(oe) connection with a dynamic IP address. 
  * A tunnel to an ipv6 tunnel broker (e.g. [http://www.sixxs.net/ Sixxs])
 
 = Install necessary software =
@@ -39,6 +39,25 @@ If you used an other package, you already have a file called openwrt-kmodules.ta
 Load the ipv6 module into the kernel:
 {{{
 insmod ipv6
+}}}
+
+And optionally load the ip6table modules into the kernel
+{{}
+insmod ip6_tables
+insmod ip6table_filter
+}}}
+
+After this your router has ipv6 support. To check this you could use ifconfig to validate if an ipv6 address is assigned to the loopback device.
+{{{
+# ifconfig lo 
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:116 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:116 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:10395 (10.1 KiB)  TX bytes:10395 (10.1 KiB)
 }}}
 
 == PPPD ==
