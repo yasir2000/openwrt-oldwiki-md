@@ -71,6 +71,7 @@ You can find more information about many of these models on their own pages, lis
  * Linksys WRT54G (version 2.2 and 3.0) (works with experimental)
  * Linksys WRT54GS (version 1.1 and 2.0) (works with experimental)
  * Netgear WGT634U
+ * Linksys WAG54G (untested)
 
 ===== Hardware Notes =====
 [[PageList(OpenWrtDocs/Hardware)]]
