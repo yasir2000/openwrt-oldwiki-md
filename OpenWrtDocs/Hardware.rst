@@ -47,7 +47,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Linksys WAP54G (version 2)
  * Motorola WA840G
  * Motorola WA840GP
- * Motorola WR850G
+ * Motorola ["WR850G"]
  * Motorola WR850GP
  * Netgear WG602 (version 3)
  * Ravotek W54-AP
