@@ -39,7 +39,12 @@ Note that for this to work, your host machine (the one you are sending the firmw
 
 = Logging in first time =
 
-telnet to 192.168.1.1 and run "firstboot".  Wait until it does its thing, then reboot.
+telnet to 192.168.1.1 and run "firstboot".  Wait until it does its thing, then reboot. In the current release this seems to be automated. Check with
+{{{ mount }}}
+if the root partition "/" is mounted rw, if not check again some minutes later. If it is not rw you can try this:
+{{{mtd unlock OpenWrt
+mtd erase OpenWrt
+}}} and reboot, wait some time to let firstboot do its work and check again with {{{ mount }}}. 
 
 = Logging in after that =
 
