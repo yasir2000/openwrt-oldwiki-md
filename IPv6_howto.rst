@@ -126,7 +126,7 @@ ip tunnel del tun6to4
 }}}
 
 === IPTables ===
-In my firewall scrip I had to add the following rule to let the encapsulated packets pass:
+In my firewall script I had to add the following rule to let the encapsulated packets pass:
 {{{
 $IPT -A INPUT -p 41 -i ppp0 -j ACCEPT
 }}}
