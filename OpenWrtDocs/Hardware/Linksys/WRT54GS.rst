@@ -5,6 +5,8 @@ There are three versions of the WRT54GS. Both are based on the 4712 board. They 
 
 ==== WRT54GS v1.0 ====
 The WRT54GS v1.0 uses an ADM6996 switch and SDRAM. These units are fully supported by OpenWrt.
+The device can be identified by ModelName WRT54GS or WRT54GS-XX, where XX should be a 
+country toplevel domain code (EU, DE, ...).
 
 ==== WRT54GS v1.1 ====
 The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. These units are '''NOT''' supported by OpenWrt, yet.
