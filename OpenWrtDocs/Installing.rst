@@ -25,12 +25,6 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co buildroot
 
 (It's the same source either way)
 
-'''Hardware version identification'''
-
-The black and silver Linksys sticker on the bottom of the unit is the best source for identification of the WRT54G(S) models and versions. First identify whether the model is a WRT54G or a WRT54GS; next identify a version number vX.X - if no version number is displayed then it is a version 1.0.
-
-/!\ If you have a WRT54G v2.2 or a WRT54GS v1.1 then OpenWrt will not yet run on these models. Read the forum for ongoing developments with this issue.
-
 = Installing OpenWrt =
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
 
