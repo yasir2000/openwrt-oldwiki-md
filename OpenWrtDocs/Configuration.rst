@@ -69,6 +69,8 @@ Further information about the variables used can be found at [:OpenWrtNVRAM]
 
 == Sample network configurations ==
 
+For client mode configuration (rather than AP mode), see this page: http://www.openwrt.org/ClientModeHowto
+
 (note these examples use wrt54g v2.x/wrt54gs v1.x interface names)
 
 The default network configuration:
