@@ -3,11 +3,11 @@
 NOTE: If you brick your WAP54G, don't flame me. This works for me, but this doesn't mean that it'll work for you!
 
 '''!!!WARNING!!!'''
-I know two different WAP54G models. Look at the rear of your AP. If the reset button is near to the left antenna, your AP will accept OpenWRT.
-If the reset button is near to the ethernet connector (left side of the ethernet connector), you'll brick your AP with OpenWRT. This version of WAP54G only works with the original Linksys firmwares (except 2.06) for me. If you install the Mustdie or Freya firmwares (based on 2.06), your LAN will not work, but WLAN will, so that you can upload a different firmware via WLAN. If you install OpenWRT, both LAN and WLAN will die.
+I know two different WAP54G models. Look at the rear of your AP. If the reset button is close to the left antenna, your AP will accept OpenWRT.
+If the reset button is next to the ethernet connector (left side of the ethernet connector), you'll brick your AP with OpenWRT. This version of WAP54G only works with the original Linksys firmwares (except 2.06) for me. If you install the Mustdie or Freya firmwares (based on 2.06), your LAN will not work, but WLAN will, so that you can upload a different firmware via WLAN. If you install OpenWRT, both LAN and WLAN will die.
 '''!!!WARNING!!!'''
 
- 1., Enable boot_wait. I did this by installing Sveasoft Freya firmware, enabling telnet on the web page, so that I got a prompt on the AP. telnet to the AP and issue the following two commands: ''nvram set boot_wait=on; nvram commit''. Before flashing openwrt, make sure the AP is in AP mode and you can connect it via wireless! Test it or you'll brick your AP!
+ 1., Enable boot_wait. I did this by installing Sveasoft Freya firmware and enabling telnet on the web page, so that I got a prompt on the AP. telnet to the AP and issue the following two commands: ''nvram set boot_wait=on; nvram commit''. Before flashing openwrt, make sure the AP is in AP mode and you can connect it via wireless! Test it or you'll brick your AP!
  
  2., I could tftp (netkit-tftp doesn't work for me, but atftp does) openwrt-linux.trx (CVS version) to the AP.
  a., Using atftp:
