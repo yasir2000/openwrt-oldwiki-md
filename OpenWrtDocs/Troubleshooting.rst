@@ -27,16 +27,42 @@ The '''great''' advantage is that you don't have fool about with that warranty s
 [http://www.linksys.com/support/top10faqs/wrt54g/Red%20Diag%20or%20Power%20Light%20Blinking%20on%20the%20WRT54G.asp "Linksys support page"]
 
 = Using a JTAG-adaptor =
+'''you are now leaving the safe grounds of warranty coverage'''
 
-You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy and if you were me doesn't cost a € because you already have this stuff floating around anyway. You need:
+You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy, you can make it in a jiffy using spare parts from the bottom of your messy drawer. You need:
  1. 4 100R resistors
  1. 1 male SUB-D 25 plug
  1. If you want to do it right, a 12-way IDC-Connector plug (these are the ones who look like the HDD-Cables)
  1. A 12-way ribbon cable for above
  1. The boyfriend of that IDC-Connector for the PCB
- 1. This [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a utitlty and instructions how to connect everything together.
+ 1. This [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a utility and instructions how to connect everything together.
  1. A Linksys WRT54G with a broken flash and the desperate feeling that you can't make it any worse.
 
+It is basically like that:
+{{{
+ 1                          13
+  o o o o o o o o o o o o o o
+14 o|o|o|o o o o o o o o o o|25
+    | | |          |_______||
+    | | |              |    |
+    ^ ^ ^              |    ^
+    1 1 1              |    1
+    0 0 0              \____0___
+    0 0 0                   0   |
+    v v v                   v   |
+    | | |_____              |   |
+    | |___    |             |   |
+    |     |   |             |   |
+    |     |   |             |   |
+    |     |   |             |   |
+ 1  |     |   |11           |   |
+  o o o o o o |             |   |
+      | |_____|             |   |
+      |_____________________|   |
+  o-o-o-o-o-o___________________|
+ 2            12
+
+}}}
 It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more.
 
 
