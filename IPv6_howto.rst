@@ -36,7 +36,7 @@ The content of the /etc/ppp/ip-up script:
 
 # 6to4 tunnel
 ipv4=$4
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%x%x:%x%x", $1, $2, $3, $4 }'`
+ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
 
 ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
 ip link set dev tun6to4 up
@@ -52,7 +52,7 @@ When the link goes down, the tunnel should be removed via /etc/ppp/ip-down
 
 # 6to4 tunnel
 ipv4=$4
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%x%x:%x%x", $1, $2, $3, $4 }'`
+ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
 
 ip -6 addr del ${ipv6prefix}:5678::1/64 dev vlan2
 
