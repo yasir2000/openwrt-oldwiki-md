@@ -13,6 +13,23 @@ This section should describe commonly-used packages, built-in Busybox tweaks, an
 == Making getty work with serial console ==
 To be written by koitsu, once I get around to it...
 
+== Setting up logging ==
+Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
+
+To run syslogd and klogd you should edit `/etc/inittab` and add the following two lines:{{{
+::respawn:/sbin/syslogd -n
+::respawn:/sbin/klogd -n
+}}}
+
+This tells `syslogd` to write the log file to `/var/log/messages`.  However, note that `/var` is linked to `/tmp` but we need to create `/var/log` at boot time.  Do that by adding:{{{
+mkdir /var/log
+}}}
+to `/etc/init.d/rcS`.
+
+If you want to log to a remote system, add `-R <hostname>` to the `syslogd` line in `/etc/inittab`.  In this case you don't need to add the `mkdir /var/log` command to the startup.
+
+If you want both local and remote logging, add `-L -R <hostname>` to the `syslogd` line in `/etc/inittab`.
+
 = Networking =
 == Publishing system infos on a webpage ==
 You want to publish system infos of your WRT54G on the web, like it's done at [http://rrust.com/sysinfo/rrdtool-graphs/openwrt-index.php]? 
