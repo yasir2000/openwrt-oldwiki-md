@@ -3,8 +3,7 @@
 The WBR2-G54 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb RAM.
 The wireless NIC is integrated to the board. boot_wait is on by default.
 
-The next experimental snapshot will support these units.
-Until that, You can use a hacked version of the .trx file from http://wifi.rulez.org/buffalo.trx
+These units are supported in the EXPERIMENTAL branch of OpenWrt.
 
 Please keep in mind that for now we can't control the leds.
 
