@@ -3,7 +3,7 @@
 === Hardware version ===
 
 There are currently 4 versions of the WRT54G (v1.0, v1.1, v2.0, v2.2). Except the last one (v2.2), the WRT54G
-units are supported by the current CVS version of OpenWrt). boot_wait is off by default on theese routers, so You should turn it on.
+units are supported by the current CVS version of OpenWrt). boot_wait is off by default on these routers, so You should turn it on.
 
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
