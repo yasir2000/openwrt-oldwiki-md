@@ -11,25 +11,38 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Making getty work with serial console ==
-Append the following to `/etc/inittab`:
+You have two (2) options: using `/sbin/getty` or using `/bin/ash`.  `getty` is the recommended method, but it does not come with stock OpenWRT at this time, therefore most people will probably want to use `/bin/ash` instead.
+
+Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means it's on a read-only filesystem.  If you've never set up `/etc/inittab` for use before, do the following:
+
+{{{
+@OpenWrt:/# rm /etc/inittab
+@OpenWrt:/# cp -p /rom/etc/inittab /etc/inittab
+}}}
+
+To use `/bin/ash`, add the following to `/etc/inittab`:
+
+{{{
+::respawn:/bin/ash --login </dev/tts/0 >/dev/tts/0 2>/dev/tts/0
+}}}
+
+Then send a HUP signal to `init(8)`:
+
+{{{
+@OpenWrt:/# kill -HUP 1
+}}}
+
+You should now have a working shell via serial console.
+
+If you've rebuilt OpenWRT to support `/sbin/getty`, use this in `/etc/inittab` instead:
 
 {{{
 ::respawn:/sbin/getty -i -n -L console 115200
 }}}
 
-Then send a HUP signal to init(8) by running `init q` or `kill -HUP 1`.
+Don't forget the HUP.  :-)
 
-Note that we're using device `/dev/console` and not `/dev/ttyS0` or something of that nature.  I believe the reason is that either a) the bootloader actually wires /dev/console to `/dev/ttyS0` before the kernel is loaded, or b) the kernel itself hardwires `/dev/ttyS0` to `/dev/console`.  My guess is on (a).  :-)
-
-If you don't have `/sbin/getty` on your system, guess what?  You get to reconfigure/rebuild BusyBox to include it!  Possibly OpenWRT should have this enabled by default in the future, mmm?
-
-'''Don't want to rebuild for /sbin/getty support?'''
-
-This works fine to just leave a shell running on the console:
-
-{{{
-::respawn:/bin/ash --login </dev/tts/0 >/dev/tts/0 2>/dev/tts/0
-}}}
+Note that we're using device `/dev/console` and not `/dev/tty/0`.  I believe the reason is that either a) the bootloader actually wires /dev/console to `/dev/tty/0` before the kernel is loaded, or b) the kernel itself hardwires `/dev/tty/0` to `/dev/console`.  My guess is on (a).  :-)
 
 == Setting up logging ==
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
