@@ -44,6 +44,7 @@
  * Ravotek W54-RT
  * Siemens SX550
  * Sitecom WL-111
+ * Svec FD2164
  * Trendnet TEW-410APB
  * Trendnet TEW-410APBplus
  * Trendnet TEW-411BRP
