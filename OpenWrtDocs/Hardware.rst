@@ -67,6 +67,9 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Linksys WRT54GS (version 1.1) ([http://openwrt.org/forum/viewtopic.php?t=809 more info])
  * Netgear WGT634U
 
+===== Hardware Notes =====
+[[PageList(OpenWrtDocs/Hardware)]]
+
 ==== "Will OpenWrt run on <blank> ?" ====
 
 Possibly if you buy us one ....
