@@ -9,7 +9,7 @@ Here we can put up a couple of MiniHOWTOs for Users.
 
 [:PublishYourWANIp] Howto publish your WAN IP address to a webserver instead of using DynDNS
 
-= Build fails on bridge utils/dnsmasq =
+= Build fails with "404 File Not Found" errors =
 Please see the [http://openwrt.ksilebo.net/Bugs OpenWRT Bugs Page] for further details and workarounds.
 
 = boot_wait - What it is, and how it works =
