@@ -8,4 +8,4 @@ Until that, You can use a hacked version of the .trx file from http://wifi.rulez
 
 Please keep in mind that for now we can't control the leds.
 
-/!\ '''This router sits on 192.168.11.1 as default, but flashable always on the last IP You have set up, so You have to TFTP to that address.'''
+/!\ '''This router sits on 192.168.11.100 as default, but flashable always on the last IP You have set up, so You have to TFTP to that address.'''
