@@ -105,12 +105,12 @@ for(idx in rule) {
     if (pts[3] == "udp" || pts[3] == "both") {
         #print "#___udp for " pts[1]
         print IPT " -A FORWARD -p udp -d " wtf[2] " --dport " wtf[1] " -j ACCEPT;"
-        print IPT " -A PREROUTING -t nat -p udp --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
+        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
     }
     if (pts[3] == "tcp" || pts[3] == "both") {
         #print "#___tcp for " pts[1]
         print IPT " -A FORWARD -p tcp -d " wtf[2] " --dport " wtf[1] " -j ACCEPT" ";"
-        print IPT " -A PREROUTING -t nat -p tcp --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
+        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
     }
 }
 }
@@ -118,13 +118,13 @@ for(idx in rule) {
 }}}
 save that as forward_port.awk and then run this:
 {{{
-nvram get forward_port | awk -f forward_port.awk
+nvram get forward_port | awk -f forward_port.awk -v WANIF=$(nvram get wan_ifname)
 }}}
 That will print the iptables cmdlines to the screen, if you want to paste them somewhere
 
 To add this to your init scripts put the command below in '''/etc/init.d/S45firewall''':
 {{{
-eval `nvram_get forward_port | awk -f /etc/init.d/forward_port.awk`
+eval `nvram_get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"`
 }}}
 it goes immediately after the '''$IPT -t filter -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT''' line.
 
