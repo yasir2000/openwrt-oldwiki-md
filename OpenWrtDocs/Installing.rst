@@ -10,11 +10,15 @@ See [:OpenWrtDocs/Hardware]
 
 = Obtaining the firmware =
 
-'''Compiled binaries'''
+'''Stable binaries'''
 
-We recommend using the daily snapshots, these are compiled versions of the latest openwrt firmware. You'll find the snapshots in http://openwrt.org/downloads/snapshots/
+We recommend using the daily snapshots, these are compiled versions of the latest openwrt firmware. You'll find the snapshots [http://openwrt.org/downloads/snapshots/ here]. These snapshots will not work with G v2.2+ or GS v1.1 hardware.
 
-'''Source'''
+'''Experimental binaries'''
+
+If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current experimental binary. These can be found [http://openwrt.org/downloads/experimental/bin/ here]. We recommend to use the squashfs versions for the [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54g-squashfs.bin WRT54G] and [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54gs-squashfs.bin WRT54GS].
+
+'''Stable Source'''
 
 The source can be obtained from http://www.openwrt.org/cgi-bin/viewcvs.cgi/buildroot/buildroot.tar.gz or via CVS using the following commands:
 
@@ -25,7 +29,7 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co buildroot
 
 (It's the same source either way)
 
-'''Experimental Code'''
+'''Experimental Source'''
 
 If you have hardware that is not supported by the above verion of OpenWRT, you can use the [http://openwrt.org/download/experimental Experimental version] of the code. You will need to compile this from scratch, and this is not recommended for beginners. The experimental code includes support for GS v1.1 and G v2.2 hardware. It may also work with G v3.0 hardware, however this has not yet been confirmed.
 
