@@ -37,12 +37,12 @@ With the standard tftp client (I'm using the standard Debian package "tftp"), do
 
 Before you press enter on that last one, take the power cord out and plug back in.  Wait somewhere between 0.5 and 2 seconds, then press enter. A good time to start the transfer would be the exact moment when your LAN LEDs start to blink for the first time. You might have to try a few times.  The trace output will tell you whether it's working.
 
-Note that for this to work, your host machine (the one you are sending the firmware from) must be configured in the 192.168.1.0/24 subnet (e.g. ifconfig eth0 inet 192.168.1.2 netmask 255.255.255.0).  Whatever other IP address or netmask you may have configured in the NVRAM does not take effect until the boot_wait period has passed and it is too late to load a new firmware. 
+Note that for this to work, your host machine (the one you are sending the firmware from) must be configured in the 192.168.1.0/24 subnet (e.g. ifconfig eth0 inet 192.168.1.2 netmask 255.255.255.0).  Whatever other IP address or netmask you may have configured in the NVRAM does not take effect until the boot_wait period has passed and it is too late to load a new firmware.
 
 It's no fun if you are too uncoordinated to miss that narrow little timing window. I am. So I used atftp (also in Debian) and did this instead:
 
 {{{
-while true; do 
+while true; do
     cat <<END | atftp --tftp-timeout 1;
 verbose
 trace
@@ -60,7 +60,7 @@ No matter how you uploaded the firmware, the router reboots automatically and ru
 if the root partition "/" is mounted rw, if not check again some minutes later. If it is not rw you can try this:
 {{{mtd unlock OpenWrt
 mtd erase OpenWrt
-}}} and reboot, wait some time to let firstboot do its work and check again with {{{ mount }}}. 
+}}} and reboot, wait some time to let firstboot do its work and check again with {{{ mount }}}.
 
 In some cases firstboot might not execute, or execute properly. To check this run
 "df".
@@ -95,49 +95,37 @@ $IPT -t nat -A PREROUTING -p tcp -i $WAN --dport 22 -j DNAT --to 192.168.1.100:2
 If you had all your port forwarding configured before you flashed to OpenWRT and it's still in NVRAM then this awk script will show it to you.
 {{{
 {
-IPT="iptables"
+IPT=iptables
 split($0, rule)
 for(idx in rule) {
     tmp = rule[idx]
     split(tmp, pts, ":")
     split(pts[5], wtf, ">")
-    if (pts[2] == "off") break
-    if (pts[3] == "both") {
-        print "#___tcp & udp for " pts[1]
-        print IPT " -A FORWARD -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
-        print IPT " -A INPUT -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A FORWARD -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
-        print IPT " -A INPUT -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-    } else if (pts[3] == "udp") {
-        print "#___udp for " pts[1]
-        print IPT " -A FORWARD -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
-        print IPT " -A INPUT -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-    } else if (pts[3] == "tcp") {
-        print "#___tcp for " pts[1]
-        print IPT " -A FORWARD -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
-        print IPT " -A INPUT -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
+    if (pts[2] == "off") continue
+    if (pts[3] == "udp" || pts[3] == "both") {
+        #print "#___udp for " pts[1]
+        print IPT " -A FORWARD -p udp -d " wtf[2] " --dport " wtf[1] " -j ACCEPT;"
+        print IPT " -A PREROUTING -t nat -p udp --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
+    }
+    if (pts[3] == "tcp" || pts[3] == "both") {
+        #print "#___tcp for " pts[1]
+        print IPT " -A FORWARD -p tcp -d " wtf[2] " --dport " wtf[1] " -j ACCEPT" ";"
+        print IPT " -A PREROUTING -t nat -p tcp --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1] ";"
     }
 }
 }
-}}} 
+
+}}}
 save that as forward_port.awk and then run this:
 {{{
-nvram get forward_port | awk -f forward_port.awk -v WANIF=$(nvram get wan_ifname)
+nvram get forward_port | awk -f forward_port.awk
 }}}
 That will print the iptables cmdlines to the screen, if you want to paste them somewhere
 
 To add this to your init scripts put the command below in '''/etc/init.d/S45firewall''':
 {{{
-nvram_get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF=$(nvram_get wan_ifname) | sh
+eval `nvram_get forward_port | awk -f /etc/init.d/forward_port.awk`
 }}}
-it goes immediately after the '''$IPT -t filter -A INPUT -p icmp -j ACCEPT''' line.
+it goes immediately after the '''$IPT -t filter -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT''' line.
 
 now we just need someone to write a web interface for us, one that stores the rules in nvram :)
-
-* In Section 7
-
-"--to DestinationIP : Port" might be false. use --to-destination instead (mileage may vary, since syntax probably worked, but doesn't anymore).
