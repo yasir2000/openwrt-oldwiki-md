@@ -41,12 +41,12 @@ src yani http://openwrt.wojjie.net/packages
 
 and run:{{{
 ipkg update
-ipkg install shoreware
+ipkg install shorewall
 }}}
 
-ipkg shoudl install the dependencies (iproute2 and iptables-saverestore) and procede to install shoreware. When completed you will be given instructions to check your configuration and when happy add the RC script so that it is loaded at boot time.
+ipkg should install the dependencies (iproute2 and iptables-saverestore) and procede to install shorewall. When completed you will be given instructions to check your configuration and when happy add the RC script so that it is loaded at boot time.
 
-Make sure you have logging enabled as described in the Setting up Logging MiniHowto.
+Make sure you have logging enabled as described in the Setting up Logging MiniHowtos.
 
 === Building the IPKG Package ===
 
