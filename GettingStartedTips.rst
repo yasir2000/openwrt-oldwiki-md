@@ -22,3 +22,7 @@ telnet to 192.168.1.1 and run "firstboot".  Wait until it does its thing, then r
 = Logging in after that =
 
 telnet to 192.168.1.1 and you're away.  Once you've installed dropbear, the ssh server, you probably want to disable telnet.  Comment out the line in /etc/init.d/S50Services.  (Of course, first you have to delete the symlink and copy it across from /rom)
+
+= ssh from the outside =
+
+put the line "$IPT -t filter -A INPUT -p tcp --dport 22 -j ACCEPT" after the line "$IPT -t filter -A INPUT -p icmp -j ACCEPT" in /etc/init.d/S45firewall to be able to ssh into the box from the wanport.
