@@ -3,6 +3,15 @@
 = Hardware =
 == Dual-port serial modification ==
 If you want to add two serial ports to your Gv2 or GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial Port Mod] for thorough details.  This will enable you to have a serial port intended as a hardware serial console, as well as a serial port for a modem or other device.
+
+To get decent, usable performance out of the second serial port, you need to install the setserial package and rebuild busybox to add the stty program. The following will get you a second port at maximum speed:
+{{{
+setserial /dev/tts/1 port 0xB8000400 irq 3
+stty -F /dev/tts/1 speed 115200
+}}}
+
+Note that both UART ports share one interrupt.
+
 German People could also take a look at the Page from freifunk hamburg: http://hamburg.freifunk.net/twiki/bin/view/Technisches/WRT54gSerielleSchnittstelle
 
 == Single-port serial modification ==
