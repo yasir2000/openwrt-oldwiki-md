@@ -39,7 +39,7 @@ If you've broken NVRAM, first try the failsafe routine described above; once in 
 
 If you can't get in using failsafe you will have to erase NVRAM.
 
-On the WRT54G v2.x or WRT54GS models, you can easily reset NVRAM by holding down the reset button while plugging in the router. If the reset button is held before the firmware boots.
+On the WRT54G v2.x or WRT54GS models, you can easily reset NVRAM by holding down the reset button while plugging in the router. If the reset button is held before the firmware boots. If this does not work, try the method for WRT54G v1.x models.
 
 On WRT54G v1.x models the process is much more difficult. Open the router and locate pins 2&3 on the flash chip -- Do not short them yet. Plug in the router, wait for all the switch ports to light up, when the ports are lit up, short pins 2&3 of the flash.
 
