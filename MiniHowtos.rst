@@ -10,8 +10,8 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 = Software =
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
-== Making getty work with serial console ==
-You have two (2) options: using `/sbin/getty` (recommended) or using `/bin/ash`.  `getty` is the recommended method (and the reason why is [http://codepoet.org/lists/busybox/2004-May/011705.html listed here], but it does not come included with stock OpenWRT at this time, therefore most people will probably want to use `/bin/ash` instead.
+== Spawn a shell on serial console ===
+By default, no shell is initiated on the serial console line.  You have two options for accomplishing this: simply spawning `/bin/ash` or rebuilding OpenWRT's BusyBox to support `/sbin/getty`.
 
 Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means it's on a read-only filesystem.  If you've never set up `/etc/inittab` for use before, do the following:
 
@@ -20,20 +20,20 @@ Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/in
 @OpenWrt:/# cp -p /rom/etc/inittab /etc/inittab
 }}}
 
-To use `/bin/ash`, add the following to `/etc/inittab`:
+To use `/bin/ash`, add the following to `/etc/inittab`.  '''Make sure this line comes IMMEDIATELY after the `::shutdown:` entry''':
 
 {{{
-::askfirst:-/bin/ash --login
+::respawn:/bin/ash 0</dev/console 1>/dev/console 2>&1
 }}}
 
 Then send a HUP signal to `init` (`kill -HUP 1`).  You should now have a working shell via serial console.
 
-You may receive the message `-ash: can't access tty; job control turned off`; this was supposedly fixed in BusyBox long ago, but seems to haunt us now.  The problem may in fact be with the Linux kernel (yes, really).  2.4.27 and beyond may have fixed this problem.
+If you appended the above line to `/etc/inittab`, you may receive the message: `ash: can't access tty; job control turned off`.  `/bin/ash` needs to be the first application spawned so that it gets control of the tty.  If `dnsmasq` or other toys come first, they will have control of the tty, hence the lack-of job control.
 
-If you've rebuilt OpenWRT to support `/sbin/getty`, use this in `/etc/inittab` instead:
+If you've rebuilt OpenWRT's BusyBox to support `/sbin/getty`, use this in `/etc/inittab` instead:
 
 {{{
-::askfirst:/sbin/getty -i -n -L console 115200
+::respawn:/sbin/getty -i -n -L console 115200
 }}}
 
 Don't forget the HUP.  :-)
