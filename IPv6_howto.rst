@@ -33,6 +33,11 @@ If you used a CVS snapshot with ipv6 packages (should be available from 2004-08-
 
 If you used an other package, you already have a file called openwrt-kmodules.tar.bz2 with several kernel modules compiled for this specific kernel. This file contains in the modules/2.4.20/kernel/net/ipv6/netfilter/ directory the modules needed for ip6tables. These files [[FootNote(or at least ip_6tables.o and ip6table_filter.o)]] should be copied to the /lib/modules/2.4.20/kernel/net/ipv6/ directory on your router.
 
+== Install the ip6tables package ==
+The latest [http://www.openwrt.org/downloads/snapshots/ CVS snapshots] contain an ip6tables package with the ip6tables program compiled for the exact kernel version. An other option is to install te package with
+{{{
+<todo: Found ipkg reference>
+}}}
 
 = Setup software =
 == Kernel ==
