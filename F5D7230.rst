@@ -44,7 +44,8 @@ There are a number of public forums and web sites where the installation of open
 
  1. http://web.belkin.com/support/gpl.asp :: Belkin GPL Code
  2. http://www.linksys.com/support/gpl.asp :: Linksys GPL Code
- 3. http://belkin.com/support/download/download.asp?download=F5D7230-4 :: Belkin Firmware
+ 3. http://www.asus.com.tw/support/download/item.aspx?ModelName=WL-500g :: Asus GPL Code
+ 4. http://belkin.com/support/download/download.asp?download=F5D7230-4 :: Belkin Firmware
 
 
 === Other Firmware Pages (that may yield useful firmware) ===
