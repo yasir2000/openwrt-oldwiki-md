@@ -4,7 +4,7 @@
 = OpenWRT =
 [:OpenWrtFaq] Frequently abused questions from the forums
 
-[:Wrt54gNVRAM] Documentation for various NVRAM settings
+[:OpenWrtNVRAM] Documentation for various NVRAM settings
 
 [:wrtLEDCodes] WRT LED analysis
 
