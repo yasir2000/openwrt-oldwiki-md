@@ -9,7 +9,7 @@ The device can be identified by ModelName WRT54GS or WRT54GS-XX, where XX should
 country toplevel domain code (EU, DE, ...).
 
 ==== WRT54GS v1.1 ====
-The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. These units are '''NOT''' supported by OpenWrt, yet.
+The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. These units are supported in the EXPERIMENTAL branch of OpenWrt.
 
 ==== WRT54GS v2.0 ====
-We have no information about the internals of these units, yet, so they are '''NOT''' supported.
+We have no information about the internals of these units, yet. As noone saw a v2.0, yet we can't be sure, but it should work with the EXPERIMENTAL branch of OpenWrt.
