@@ -198,6 +198,7 @@ Since the OpenWRT iptables hasn't got support for TOS, we have to remove the sup
 
 ==== Configure Firewall Rules ====
 
+===== /etc/shorewall/rules =====
 Finally we will want to customize the firewall to a set of rules we define. You will probably want to start out with this basic configuration which you can set in {{{/etc/shorewall/rules}}}:{{{
 #ACTION  SOURCE         DEST            PROTO   DEST    SOURCE     ORIGINAL     RATE            USER/
 #                                               PORT    PORT(S)    DEST         LIMIT           GROUP
@@ -233,4 +234,11 @@ AllowDNS        loc             fw
 AllowWeb        loc             fw
 
 #LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
+}}}
+
+===== /etc/shorewall/routestopped =====
+You will also probably want to add the interface of your LAN to the {{{/etc/shorewall/routestopped}}} file which tells Shorewall what interface to accept connections from when the firewall is stopped (a good thing :-)). Without this shorewall will keep any current connections open however for `absent minded administrators'.
+
+Add the following to {{{/etc/shorewall/routestopped}}}:{{{
+br0           -               routeback
 }}}
