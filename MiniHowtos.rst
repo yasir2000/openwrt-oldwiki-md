@@ -32,6 +32,6 @@ The easiest way to send a file during boot is to just start the TFTP tranfer (bi
 
 The most common problem we hear about is folks under the mistaken impression that the TFTP server requires a username and password to send a file during boot_wait state.  '''This is FALSE.'''  There is a TFTP server enabled within the stock Linksys firmware; '''this is not the same thing as PMON'''.  If you attempt to TFTP a firmware image to the unit while it's TFTP server is running, you'll receive an error message claiming "incorrect password" or something of that nature.  If you see that error message, then you missed the `boot_wait` window of opportunity or you didn't set `boot_wait` to on.  In this case, you can still update the firmware via the Web-based "Firmware Upgrade" page.  Note that once you've upgraded, it's highly recommended that you do enable `boot_wait` anyways.
 
-If you have a WRT54Gv2 or a WRT54GS, during the PMON phase, '''you will always be able to reach the unit at IP 192.168.1.1'''.  If this doesn't work for you, you likely forgot to enable `boot_wait`.
+If you have a v2 or GS unit, during the PMON phase, '''you will always be able to reach the unit at IP 192.168.1.1'''.  If this doesn't work for you, you likely forgot to enable `boot_wait`.
 
 If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's still hope.  Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
