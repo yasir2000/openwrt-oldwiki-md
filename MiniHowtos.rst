@@ -11,7 +11,7 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Making getty work with serial console ==
-You have two (2) options: using `/sbin/getty` or using `/bin/ash`.  `getty` is the recommended method, but it does not come with stock OpenWRT at this time, therefore most people will probably want to use `/bin/ash` instead.
+You have two (2) options: using `/sbin/getty` (recommended) or using `/bin/ash`.  `getty` is the recommended method (and the reason why is [http://codepoet.org/lists/busybox/2004-May/011705.html listed here], but it does not come included with stock OpenWRT at this time, therefore most people will probably want to use `/bin/ash` instead.
 
 Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means it's on a read-only filesystem.  If you've never set up `/etc/inittab` for use before, do the following:
 
@@ -23,26 +23,20 @@ Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/in
 To use `/bin/ash`, add the following to `/etc/inittab`:
 
 {{{
-::respawn:/bin/ash --login </dev/tts/0 >/dev/tts/0 2>/dev/tts/0
+::askfirst:-/bin/ash --login
 }}}
 
-Then send a HUP signal to `init(8)`:
-
-{{{
-@OpenWrt:/# kill -HUP 1
-}}}
+Then send a HUP signal to `init` (`kill -HUP 1`).
 
 You should now have a working shell via serial console.
 
 If you've rebuilt OpenWRT to support `/sbin/getty`, use this in `/etc/inittab` instead:
 
 {{{
-::respawn:/sbin/getty -i -n -L console 115200
+::askfirst:/sbin/getty -i -n -L console 115200
 }}}
 
 Don't forget the HUP.  :-)
-
-Note that we're using device `/dev/console` and not `/dev/tty/0`.  I believe the reason is that either a) the bootloader actually wires /dev/console to `/dev/tty/0` before the kernel is loaded, or b) the kernel itself hardwires `/dev/tty/0` to `/dev/console`.  My guess is on (a).  :-)
 
 == Setting up logging ==
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
