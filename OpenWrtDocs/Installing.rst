@@ -166,3 +166,6 @@ boot_wait seems to be enabled on these devices.
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
+
+= Troubleshooting =
+If you have any trouble flashing to OpenWrt please refer to [:OpenWrtDocs/Troubleshooting]
