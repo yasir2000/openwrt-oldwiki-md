@@ -100,6 +100,9 @@ cp updates.sh /etc/cron.5min
 cp graphs.sh to /etc/cron.hourly 
 }}}
 
+== Alternative statistics solution ==
+If you want statistics for multiple routers, with simple PHP interface, you can also try [http://pjf.dotgeek.org/downloads/openwrt/statswrt-0.1.tar.gz].
+
 = Useful details =
 [:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
 
