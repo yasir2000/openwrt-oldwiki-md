@@ -62,8 +62,7 @@ This firewall rule forwards ssh connections from outside your network (WAN) to a
 Put this after "$IPT -t filter -A INPUT -p icmp -j ACCEPT" in /etc/init.d/S45firewall
 
 {{{$IPT -A FORWARD -p tcp -i $WAN --dport 22 -j ACCEPT
-$IPT -A PREROUTING -t nat -p tcp -i $WAN --dport 22 -j DNAT --to 192.168.1.100:22
-$IPT -A INPUT -p tcp -i eth0 --dport 22 -j ACCEPT}}}
+$IPT -t nat -A PREROUTING -p tcp -i $WAN --dport 22 -j DNAT --to 192.168.1.100:22}}}
 
 = AWK script to build iptables rules from nvram's forward_port variable =
 If you had all your port forwarding configured before you flashed to OpenWRT and it's still in NVRAM then this awk script will show it to you.
