@@ -1,4 +1,4 @@
-##language:en
+##language:e
 #pragma section-numbers off
 
 = OpenWRT =
