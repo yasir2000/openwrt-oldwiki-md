@@ -104,5 +104,24 @@ Please note, netkit tftp has failed to work for some people. Try to use Advanced
 
 Windows 2000 has a TFTP server, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware. Note that the Windows PC needs to be configured with a static IP address in the 192.168.1.0/24 subnet, and cannot use a DHCP IP address when flashing the firmware.
 
+== ASUS WL-500G routers ==
+The installation procedure there is slightly different from the Linksys routers:
+Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
+
+TFTP commands:
+{{{
+tftp 192.168.1.1
+tftp> binary
+tftp> trace
+tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
+tftp> put openwrt-linux.trx ASUSSPACELINK
+}}}
+
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.openbsd-geek.de/flash.sh].
+
+As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
+
+Another thing is that the ASUS WL500G doesn't seem to revert to the 192.168.1.1 address when starting the boot manager but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. On the other hand, boot_wait seems to be enabled by default on these devices.
+
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
