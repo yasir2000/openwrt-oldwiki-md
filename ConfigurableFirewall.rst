@@ -46,6 +46,8 @@ ipkg install shoreware
 
 ipkg shoudl install the dependencies (iproute2 and iptables-saverestore) and procede to install shoreware. When completed you will be given instructions to check your configuration and when happy add the RC script so that it is loaded at boot time.
 
+Make sure you have logging enabled as described in the Setting up Logging MiniHowto.
+
 === Building the IPKG Package ===
 
 If you want to build and install your own shorewall ipk see BuildingPackages to install an ipkg build environment and then:{{{
