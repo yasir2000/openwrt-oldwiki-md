@@ -1,7 +1,11 @@
 #acl Known:read,write All:read
+##   
+## Note: these pages document the firmware itself, not packages
+##       questions/comments should be posted to the forum
+##        
 [:OpenWrtDocs]
 [[TableOfContents]]
-= Recovering from bad firmware =
+= Recovering from bad firmware / Shorting the pins =
 If you've followed our instructions and warnings you should have boot_wait set to on. With boot_wait on, each time the router boots you will have roughly 3 seconds to send a new firmware using tftp. Use a standard tftp client to send the firmware in binary mode to 192.168.1.1. Due to limitations in the bootloader, this firmware will have to be under 3MB in size.
 
 If you didn't set boot_wait, you'll have to open the router and short pins on the flash chip to recover.
@@ -13,7 +17,7 @@ If you didn't set boot_wait, you'll have to open the router and short pins on th
 
 Open the router and locate the flash chip, while the router is off use a straight pin or small screwdriver to connect the pins shown and plug in the router. The bootloader will be unable to load the firmware and instead it will run a tftp server on 192.168.1.1 as described above. On a WRT54G/WRT54GS the power led will be flashing (diag led on a WRT54G v1.0) and all other leds will be normal, when you see this led pattern you can stop shorting the pins and tftp a firmware to 192.168.1.1.
 
-= Fixing a broken script =
+= Fixing a broken script / Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the jffs2 partition, you can get back in by using OpenWrt's failsafe mode. To get into failsafe, plug in the router and wait for the DMZ led to light then immediately press and hold the reset button for 2 seconds. If done right the DMZ led will quickly flash 3 times every second.
 
 ( /!\  holding the reset button before the DMZ led can reset NVRAM, see the NVRAM section below )
