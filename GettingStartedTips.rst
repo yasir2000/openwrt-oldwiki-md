@@ -1,3 +1,17 @@
+= Building the firmware =
+
+The latest beta, b4, is available only in source form.  To build it, you'll need a linux-based system.  The build will build the development environment (a gcc cross-compiler for MIPS).  You'll need about a gig of disk space to build everything.
+{{{
+wget http://openwrt.ksilebo.net/temp/b4-pre/buildroot-20040509.tar.bz2
+tar jxvf buildroot-20040509.tar.bz2
+cd buildroot
+wget http://openwrt.ksilebo.net/temp/b4-pre/buildroot-openwrt-20040509.tar.bz2
+tar jxvf buildroot-openwrt-20040509.tar.bz2
+make
+}}}
+
+At this point you'll have a openwrt-linux.trx and two openwrt-*-code.bin files. The openwrt-g-code.bin is for the WRT54G, openwrt-gs-code.bin is for the WRT54GS (speedbooster).
+
 = Sending the firmware =
 
 Of course, first set boot_wait.  If you don't do this, you end up with a brick.  So read this: http://openwrt.ksilebo.net/temp/00-WARNING.TXT
@@ -21,7 +35,13 @@ telnet to 192.168.1.1 and run "firstboot".  Wait until it does its thing, then r
 
 = Logging in after that =
 
-telnet to 192.168.1.1 and you're away.  Once you've installed dropbear, the ssh server, you probably want to disable telnet.  Comment out the line in /etc/init.d/S50Services.  (Of course, first you have to delete the symlink and copy it across from /rom)
+telnet to 192.168.1.1 and you're away.
+
+= Suggested packages =
+
+Install dropbear, which is the ssh server, and then disable telnet.  To install dropbear, change /etc/ipkg.conf (see [OpenWrtPackages]), then use ipkg to do the install.
+
+Make sure ssh works before you disable telnet.  Reboot the router once to make sure it will come up automatically on the next reboot also.  When you're sure it's safe, comment out the line in /etc/init.d/S50Services.  (Of course, first you have to delete the symlink and copy it across from /rom).
 
 = ssh from the outside =
 
