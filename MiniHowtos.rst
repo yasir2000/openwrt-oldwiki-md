@@ -49,7 +49,7 @@ If you want both local and remote logging, add `-L -R <hostname>` to the `syslog
 First install the package pptp-client and the pppd package. Make sure ppp_async.o is loaded.
 
 === getting rid of wrong firewall information ===
-Inode in Austria uses DHCP to provide IP Adresses to the user, so you should configure the router tp get a IP via DHCP.
+Inode in Austria uses DHCP to provide IP addresses to the user, so you should configure the router to get a IP via DHCP.
 {{{
 nvram set wan_proto=DHCP
 nvram commit
@@ -57,7 +57,7 @@ nvram commit
 
 after that reset the router. 
 
-you should be aware that the following to lines will completly open/remove your firewall.
+you should be aware that the following two lines will completly open/remove your firewall.
 {{{
 iptables -t nat -F
 iptables -F
