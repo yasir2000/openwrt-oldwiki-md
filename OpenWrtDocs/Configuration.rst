@@ -49,7 +49,7 @@ NVRAM; Description
 <name>_gateway; Default Gateway (x.x.x.x)
 <name>_dns; DNS server (x.x.x.x)
 }}}
-The command ''ifup <name>'' will configure the interface defined by <name>_ifname according to the above variables. As an example, the /etc/init.d/S40network script will run the following commands:
+The command ''ifup <name>'' will configure the interface defined by <name>_ifname according to the above variables. As an example, the /etc/init.d/S40network script will automatically run the following commands at boot:
 {{{
 ifup lan
 ifup wan
@@ -61,11 +61,14 @@ It's important to remember that it's the <name>_ifname that specifies the interf
 
 The only <name> with any signfigance is '''wan''', used by the /etc/S45firewall script. The firewall script will NAT traffic through the wan_ifname, blocking connections to wan_ifname.
 
+Further information about the variables used can be found at [:OpenWrtNVRAM]
+
 '''Sample network configurations'''
 
 (note these examples use wrt54g v2.0/wrt54gs v1.0 interface names)
 
 The default network configuration:
+(lan+wireless bridged as 192.168.1.1/24, wan as dhcp)
 {{{
 lan_ifname="br0"
 lan_ifnames="vlan0 eth1"
@@ -79,6 +82,7 @@ wan_proto="dhcp"
 
 
 If you just want to use OpenWrt as an access point you can avoid the WAN interface completely:
+(lan+wireless bridged as 192.168.1.25/24, routed through 192.168.1.1, wan ignored)
 {{{
 lan_ifname="br0"
 lan_ifnames="vlan0 eth1"
@@ -92,6 +96,7 @@ wan_proto="none"
 }}}
 
 To separate the LAN from the WIFI:
+(lan as 192.168.1.25/24, wireless as 192.168.2.25/24, wan as dhcp)
 {{{
 lan_ifname="vlan0"
 lan_proto="static"
@@ -123,3 +128,20 @@ When the et module (ethernet driver) loads it will read from vlan0ports to vlan1
 PVID represents the primary vlan id, in other words if a packet doesn't have a vlan tag, which vlan does it belong to? The ethernet driver handles this rather trivially, in the case of vlan0ports="1 2 3 4 5*", ports 1-4 are set to PVID 0 (vlan0). Since the wrt needs to recieve packets from both the LAN (vlan0) and the WAN (vlan1), port 5 is a special case appearing in both vlan0ports and vlan1ports. This is where the '*' is used -- it determines the PVID of port 5, which is also the only port not to untag packets (for hopefully obvious reasons).
 
 The second variable, vlan0hwname is used by the network configuration program (or script in the case of openwrt) to determine the parent interface. This should be set to "et0" meaning the interface matching et0macaddr.
+
+'''Sample configurations'''
+(unless otherwise specified, vlan variables not shown are assumed to be unset)
+
+Default:
+{{{
+vlan0ports="1 2 3 4 5*"
+vlan0hwname=et0
+vlan1ports="0 5"
+vlan1hwname=et0
+}}}
+
+All ports lan (vlan0):
+{{{
+vlan0ports="0 1 2 3 4 5*"
+vlan0hwname=et0
+}}}
