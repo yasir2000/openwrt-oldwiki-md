@@ -41,7 +41,7 @@ Load the ipv6 module into the kernel:
 insmod ipv6
 }}}
 
-After this your router has ipv6 support. To check this you could use ifconfig to validate if an ipv6 address is assigned to the loopback device.
+After this your router has ipv6 support. To check this you could use ifconfig to validate the ::1/128 ipv6 address is assigned to the loopback device.
 {{{
 # ifconfig lo 
 lo        Link encap:Local Loopback  
