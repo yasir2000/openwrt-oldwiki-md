@@ -57,6 +57,29 @@ nvram commit
 
 Now when you reboot , the wireless device (eth1) can be individually controlled using the nvram variables (wl*) or ifconfig/iwconfig.
 
+=== Configuring dnsmasq to use different ip ranges for wired and wireless ===
+Suppose you have the following :
+{{{
+vlan0     Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
+          inet addr:192.168.1.1    Bcast:192.168.1.255    Mask:255.255.255.0
+
+eth1      Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
+          inet addr:10.75.9.1      Bcast:10.75.9.255      Mask:255.255.255.0
+}}}
+
+Simply put 2 "dhcp-range" in your /etc/dnsmasq.conf :
+{{{
+# dhcp-range=[network-id,]<start-addr>,<end-addr>[[,<netmask>],<broadcast>][,<default lease time>]
+dhcp-range=lan,192.168.1.101,192.168.1.104,255.255.255.0,24h
+dhcp-range=wlan,10.75.9.111,10.75.9.119,255.255.255.0,2h
+}}}
+You can then use the different "network-id" values with "dhcp-option" to customize the options your DHCP server will supply to your wired and wireless DHCP clients.
+
+--
+Nico
+
+== Using the wireless interface in client-mode (for wan) ==
+
 !Someone please put information on how to use eth1 (wireless) as a client, to connect back to a network and route from the vlan0 network using eth1 as the outbound gateway.
 
 == Getting Access to your ISP via PPTP (example xdsl-inode-Austria) ==
