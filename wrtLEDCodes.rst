@@ -13,7 +13,7 @@ Some LED sequences explained.
 
 '''''Reason''''':[[BR]]
 You flashed a '''corrupt''' image.[[BR]]
-This might be because you did not set the binary flag on your tftp program, or have a bad image, or you upload was interrupted.
+This might be because you did not set the binary flag on your tftp program, or have a bad image, or your upload was interrupted.
 
 '''''Solution''''':[[BR]]
 Just reflash, and make sure your tftp program is configured right. Check your image.
