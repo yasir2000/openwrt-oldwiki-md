@@ -35,6 +35,7 @@ There are a number of public forums and web sites where the installation of open
  1. http://www.broadcom.com/products/product.php?product_id=BCM94712&category_id= :: Broadcom Corporation &#8211; BM94712 &#8211; 802.11b/54g&#8482; Integrated Wireless AP/Router Reference Design
  2. http://www.wi-fiplanet.com/news/article.php/2238881 :: Broadcom Intros New Integrated 11g Processor
  3. http://rage.against.org/LinksysWRT54G :: Moi Meme - LinksysWRT54G
+ 4. http://www.askey.com.tw/eportal/globalweb/browseCatDispatcher.jsp?catOid=-715&menuCatOid=-91 :: Askey Reference Hardware
  
 
 === Software Pages ===
