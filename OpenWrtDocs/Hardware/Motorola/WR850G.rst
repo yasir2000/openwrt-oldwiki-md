@@ -38,4 +38,4 @@ The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
  * When this completes, it will reboot into OpenWRT.
  * Enjoy!
 
-/!\ '''Until we can find out, how to calculate the Motorola CRC, you have to have a serial console to be able to flash OpenWrt.'''
+/!\ Until a proper bin for non-experimental is published, you have to have a serial console to be able to flash OpenWrt snapshots.
