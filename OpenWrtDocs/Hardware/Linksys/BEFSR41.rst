@@ -8,7 +8,7 @@ found a bzip2 signature (0x42, 0x5A, 0x68) at 208 byte offset in the firmware fr
 
 this standard linksys header goes like this:
 
-3E0000EA410000EA4F0000EA420000EA440000EA460000EA4E0000EA470000EA
+(0x3E0000EA, 0x410000EA, 0x4F0000EA, 0x420000EA, 0x440000EA, 0x460000EA, 0x4E0000EA, 0x470000EA)
 
 after that there are some bytes that differ.
 
