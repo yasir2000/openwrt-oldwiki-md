@@ -11,7 +11,15 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Making getty work with serial console ==
-To be written by koitsu, once I get around to it...
+Append the following to `/etc/inittab`:
+
+{{{
+::respawn:/sbin/getty -i -n -L console 115200
+}}}
+
+Then send a HUP signal to init(8) by running `init q` or `kill -HUP 1`.
+
+Note that we're using device `/dev/console` and not `/dev/ttyS0` or something of that nature.  I believe the reason is that either a) the bootloader actually wires /dev/console to `/dev/ttyS0` before the kernel is loaded, or b) the kernel itself hardwires `/dev/ttyS0` to `/dev/console`.  My guess is on (a).  :-)
 
 == Setting up logging ==
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
