@@ -6,7 +6,7 @@
 
 ==== How can I identify which hardware I have? ====
 ===== Linksys models =====
-On the bottom of the device is a sticker with the Linksys logo on it. Under the logo is the words "Model No." followed by the model number of the device (WRT54G, WRT54GS, WAP54G). After the model there may be a version number (v1.1, v2.0, v2.2); if there isn't a version number then it's a v1.0 device.
+On the bottom of the device is a silver sticker with a Linksys logo on it, under this logo are the words "Model No." followed by the model number of the device (WRT54G, WRT54GS, WAP54G). If there isn't a version number (v1.1, v2.0, v2.2) after the model then it's a v1.0 device.
 
 ==== Unit lists: ====
 ===== Units that considered supported (eg. known to work "out-of-the-box"): =====
