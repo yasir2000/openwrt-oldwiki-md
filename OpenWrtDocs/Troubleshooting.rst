@@ -25,31 +25,24 @@ After the partition is mounted, you can edit the files in /jffs. If you run firs
 
 If you're having trouble setting up some feature of your router (wireless, lan ports, etc) and for some reason all of the documentation here just isn't working for you, it's sometimes best to start from scratch with a default configuration.  Sometimes the various firmwares you try will add conflicting settings to NVRAM that will need to be flushed.  Erasing NVRAM ensures there aren't any errant settings confusing your poor confused router. Run this command to restore your NVRAM to defaults:
 {{{
-mtd erase nvram; reboot;
+mtd erase nvram
+reboot
 }}}
-This will erase your NVRAM and reboot the router.  Upon boot, the router will detect that its NVRAM is blank and will restore it to default settings.  Remember to set boot_wait back on AFTER resetting your router. Performing an nvram commit before the reboot will cancel the NVRAM erasure, writing your old settings cached in memory back to the flash.
+This will clear out the NVRAM partition and reboot the router, the bootloader will create a new NVRAM partition with default settings after the reboot. Remember to set boot_wait back on after you reboot your router -- trying to do it before rebooting will just write your old settings (cached in memory) back to the flash.
 
-To reset changes you've made to the OpenWRT filesystem, just run {{{firstboot}}} again.  When run from normal (non-failsafe) mode, firstboot will replace all changed files with their defaults.
+To reset changes you've made to the OpenWRT filesystem, run
+{{{
+firstboot
+}}}
+If firstboot is run while the jffs2 filesystem is mounted (eg. non-failsafe mode) it will skip formatting and only reset changed files to their defaults. (Files are overwritten with symlinks to their original copy in /rom; extra files and packages are left intact)
 
 After these two steps, you'll have a router with a pristine unchanged configuration.  Everything should work now.
 
 = Recovering from bad firmware (Software-based Method) =
 If you've followed the instructions and warnings you should have boot_wait set to on. With boot_wait on, each time the router boots you will have roughly 3 seconds to send a new firmware using tftp. Use a standard tftp client to send the firmware in binary mode to 192.168.1.1. Due to limitations in the bootloader, this firmware will have to be under 3MB in size.
-##(NOTE: This is only known to work on the Linksys WRT models, other brands may not have this feature)
-##
-## EDIT: this seems to just be boot_wait .. commented out some stuff which
-## doesn't apply to boot_wait - mbm
-## 
 
- 1. Disconnect your brick from everything
- 2. Connect your PC to one of the LAN-Ports
- 3. Set your NIC to 192.168.1.50
-    Linux: {{{ifconfig eth0 192.168.1.50 up}}}
- 4. Connect power to your ''brick''
- 5. Ping to 192.168.1.1
- 6. Upload a new firmware using tftp
-
-##[http://www.linksys.com/support/top10faqs/wrt54g/Red%20Diag%20or%20Power%20Light%20Blinking%20on%20the%20WRT54G.asp "Linksys support page"]
+See OpenWrtDocs/Installing[[BR]]
+[:/OpenWrtDocs/Installing#head-f56e06c42cb97a7aace9a5b503d0d288697d98d9: 3.2. Using boot_wait to upload the firmware]
 
 = Recovering the firmware (JTAG-adaptor Method) =
 '''you are now leaving the safe grounds of warranty coverage'''
@@ -97,7 +90,7 @@ Since the JTAG adaptor gives you full access to your Flash, I wonder if that nas
 
 = Recovering the firmware (Shorting Pins Method) =
 
-If you didn't set boot_wait, you'll have to open the router and short pins on the flash chip to recover.
+If you didn't set boot_wait and don't build a JTAG, you'll have to resort to opening the router and shorting pins on the flash chip to recover.
 
 ||4M flash chip (WRT54G v1.0, v1.1, v2.0, v2.2?)||Use pins 15&16||
 ||8M flash chip (WRT54GS v1.0, v1.1)||Use pins 5&6||
@@ -106,5 +99,23 @@ If you didn't set boot_wait, you'll have to open the router and short pins on th
 
 Open the router and locate the flash chip, while the router is off use a straight pin or small screwdriver to connect the pins shown and plug in the router. The bootloader will be unable to load the firmware and instead it will run a tftp server on 192.168.1.1 as described above. On a WRT54G/WRT54GS the power led will be flashing (diag led on a WRT54G v1.0) and all other leds will be normal, when you see this led pattern you can stop shorting the pins and tftp a firmware to 192.168.1.1.
 
-= WRT54G v2.2 / WRT54g v1.1 : Can't downgrade to this old firmware 
+See http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html
+
+'''What the hell does shorting the pins do / how do you know what pins?'''
+
+The pins listed are address lines, if you grab the datasheet for any of the flash chips they'll be shown as a0, a1, a2 ...
+
+Each address line represents 1 bit -- Suppose you wanted the 12th byte off the chip, 12 translates to 1100 in binary which means you'd need 4 address lines and they'd be set on or off (voltage, no voltage) depending on if the bit is 1 or 0.
+
+If you short the pins, that changes the address the chip sees as requested. Continuing with the earlier example, suppose of those 4 address lines, the middle two were shorted:
+
+-XX-
+
+The requested address, 1100 gets seen as 1110; a request for address 12 got turned into a request for address 14. Likewise 3 (0011) becomes 7 (0110), 4 (0100) becomes 6 (0110) .. etc.
+
+Result: It's actually impossible to read the value at 12 in this case, and it's likely that address 14 holds a different value. If this were a firmware, the bootloader would attempt to verify the firmware on bootup with a CRC check, mangling the addresses would change the data read and the CRC wouldn't match.
+
+In the end, there's nothing really magical about pins 15-16; you can pick any address lines and short them and ''something'' will happen; if you didn't short the addresses of the bootloader there's a good chance it'll boot up and wait for a firmware. 
+
+= WRT54G v2.2 / WRT54g v1.1 : Can't downgrade to this old firmware =
 See http://openwrt.org/forum/viewtopic.php?t=809
