@@ -233,7 +233,7 @@ net     eth0            detect          dhcp,routefilter,norfc1918
 loc     eth1            detect
 }}}
 
-to (substitute vlan0,br0 for your WAN and LAN interfaces respectively as found above):{{{
+to (substitute vlan1, br0 for your WAN and LAN interfaces respectively as found above):{{{
 net     vlan1         detect          dhcp,routefilter,norfc1918
 loc     br0           detect          dhcp,routeback
 }}}
@@ -244,7 +244,7 @@ The dhcp options allow dhcp traffic through the WAN and LAN interfaces since our
 We will also need to configure the Masqueradeing rules with our interfaces, change the lines in {{{/etc/shorewall/masq}}} from:{{{
 eth0                    eth1
 }}}
-to (again substitute vlan0,br0 for your WAN and LAN interfaces):{{{
+to (again substitute vlan1, br0 for your WAN and LAN interfaces):{{{
 vlan1                 br0
 }}}
 ==== Remove TOS Support ====
@@ -293,6 +293,9 @@ AllowPing       fw              net
 # allow loc to fw udp/67 and udp/68 for dnsmasq's dhcpd to work
 AllowDNS        loc             fw
 AllowWeb        loc             fw
+
+# Allow syslogd to send messages to loghost in LAN
+#ACCEPT          fw              loc     udp     514
 
 #LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
 }}}
