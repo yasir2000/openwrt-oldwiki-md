@@ -10,7 +10,15 @@ this standard linksys header goes like this:
 
 (0x3E0000EA, 0x410000EA, 0x4F0000EA, 0x420000EA, 0x440000EA, 0x460000EA, 0x4E0000EA, 0x470000EA)
 
-after that there are some bytes that differ.
+after that there are 3 bytes that differ, with a 4th byte '0x00'.
+
+example:[[BR]]
+0x9E033700 -or-[[BR]]
+0xEA006400
+
+the next 12 bytes seem to be the same for the headers:
+
+(0x4B533431, 0x0001272E, 0x30310100)
 
 
 To extract some interesting firmware internals:
