@@ -10,7 +10,7 @@ The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb fl
 The wireless NIC is a mini-PCI card. The switch is an ADM6996.
 
 ==== WRT54G v1.1 ====
-The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
+The WRT54G v1.1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
 The wireless NIC is soldered to the board. The switch is an ADM6996.
 
 ==== WRT54G v2.0 ====
