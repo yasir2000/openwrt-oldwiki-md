@@ -48,9 +48,9 @@ ipkg shoudl install the dependencies (iproute2 and iptables-saverestore) and pro
 
 === Building the IPKG Package ===
 
-If you want to build and install your own shorewall ipk:{{{
+If you want to build and install your own shorewall ipk see BuildingPackages to install an ipkg build environment and then:{{{
 wget http://www.shorewall.net/pub/shorewall/2.0/shorewall-2.0.9/shorwall-2.0.9.lrp
-wget http://www.openwrt.wojjie.net/src/shorwall-2.0.9-ipkg.tar.gz
+wget http://openwrt.wojjie.net/src/shorwall-2.0.9-ipkg.tar.gz
 mkdir ipkgroot
 cd ipkgroot
 tar -xzvf ../shorwall-2.0.9.lrp
