@@ -21,6 +21,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Linksys WRT54G (version 1.0, 1.1, and 2.0)
  * Linksys WRT54GS (version 1.0)
  * Siemens SE505
+ * U.S ROBOTICS USR5430 (similar to WAP54g, ...tftp is factory enabled)
 
 ===== Additional units supported in the experimental version: =====
 
@@ -73,6 +74,7 @@ You can find more information about many of these models on their own pages, lis
  * Trendnet TEW-410APBplus
  * Trendnet TEW-411BRP
  * Trendnet TEW-411BRPplus
+ 
 
 ===== Units known to not work yet: =====
 
