@@ -102,5 +102,24 @@ Please note, netkit tftp has failed to work for some people. Try to use Advanced
 ||Invalid Password||The firmware has booted and you're connected to a password protected tftp server contained in the firmware, not the bootloader's tftp server.||
 ||Timeout||Ping to verify the router is online[[BR]]Try a different tftp client (some are known not to work properly)||
 
+Windows 2000 comes with a TFTP server, and it can be used to flash with OpenWrt firmware. Note that the Windows PC needs to be configured with a static IP address in the 192.168.1.0/24 subnet, and cannot use a DHCP IP address when flashing the firmware.
+
+Note that the Windows TFTP server doesn't support retries (most linux TFTP servers allow you to configure it to keep retrying to send the firmware image), so you need to get TFTP started at the right time when booting the WRT.
+
+Use the following command on a Windows PC:
+{{{
+  tftp -i 192.168.1.1 PUT OpenWrt-gs-code.bin
+}}}
+
+This command needs to be executed from a command prompt, and run this command at exactly the same time as you apply power to the WRT to start it's boot cycle.
+
+If the flashing is successful, the TFTP server should respond with a message similar to:
+{{{
+  Transfer successful: 1537024 bytes in 6 seconds, 256170 bytes/s
+}}}
+and the WRT will be rebooted.
+
+If TFTP responds with an invalid password error, then you ran the TFTP command too late in the WRT's boot cycle, so power the WRT off, and try again. 
+
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
