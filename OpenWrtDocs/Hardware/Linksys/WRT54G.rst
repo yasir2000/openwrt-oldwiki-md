@@ -21,12 +21,12 @@ The wireless NIC is integrated to the board. The switch is an ADM6996.
 The WRT54G v2.2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb DDR-SDRAM.
 The wireless NIC is integrated to the board. The switch is a BCM5325.
 
-/!\ '''The current version OpenWrt doesn't support theese units, yet.'''
+/!\ '''The current version OpenWrt doesn't support these units, yet.'''
 
 ==== WRT54G v3.0 ====
-We have no information about the internals of theese units, yet.
+We have no information about the internals of these units, yet.
 
-/!\ '''The current version OpenWrt doesn't support theese units, yet.'''
+/!\ '''The current version OpenWrt doesn't support these units, yet.'''
 
 
 
