@@ -12,6 +12,8 @@
 
 [:Bugs] Report bugs here 
 
+[:GettingStartedTips] Some tips on getting started, even if you're a Linux G0d
+
 = MoinMoin Wiki =
 
 A WikiWikiWeb is a collaborative hypertext environment, with an emphasis on easy access to and modification of information. This wiki can also link to InterWiki space.
