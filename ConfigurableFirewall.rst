@@ -144,7 +144,7 @@ The files under /var/lib are luckily LEAF specific, and part of the lrpkg packag
 This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the OpenWRT set of interfaces, and also add any firewall rules that we may wish to have.
 
 ==== Configure Logging ====
-The package we installed has been preconfigured for a LEAF router which uses the ULOG logging daemon. Thus the first change we need to make is to set shorewall to use syslogd. If you havn't already go syslogd running/configured on your system please see the mini-howto on "Setting up logging". The two files that contain the references to ULOG are: {{{
+The package we installed has been preconfigured for a LEAF router which uses the ULOG logging daemon. Thus the first change we need to make is to set shorewall to use syslogd. If you havn't already got syslogd running/configured on your system please see the mini-howto on "Setting up logging". The two files that contain the references to ULOG are: {{{
 etc/shorewall/shorewall.conf:LOGNEWNOTSYN=ULOG
 etc/shorewall/shorewall.conf:MACLIST_LOG_LEVEL=ULOG
 etc/shorewall/shorewall.conf:TCP_FLAGS_LOG_LEVEL=ULOG
