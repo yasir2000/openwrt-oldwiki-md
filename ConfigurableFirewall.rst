@@ -249,3 +249,91 @@ By default shorewall comes configured so that the firewall hasn't got access to 
 # remove the comment from the following line.
 fw             net             ACCEPT
 }}}
+
+=== Starting Shorewall at boot time ===
+
+To automatically start shorewall at boot time we will want to add an RC script. Shorewall installs such a script in /etc/init.d/shorewall, however we will want to modify this and rename it so that it works with openWRT.
+
+==== Editing RC Script ====
+
+We can start with the shorewall rc script as a basis, first edit the script {{{/etc/init.d/shorewall}}} and change it so that it looks like this:{{{
+################################################################################
+# Give Usage Information                                                       #
+################################################################################
+usage() {
+    echo "Usage: $0 start|stop|restart|status"
+    exit 1
+}
+
+start() {
+    echo "Starting Shorewall Firewall"
+    #If saved rules exist, load them
+    if [ -e /etc/shorewall/restore ]; then
+        mkdir -p /var/lib/shorewall
+        cp /etc/shorewall/restore /var/lib/shorewall/
+        exec /sbin/shorewall restore | tee /var/log/shorewallstartup.log
+    else
+        #create the rules and save them in the background
+        exec /sbin/shorewall start |tee /var/log/shorewallstartup.log&
+        wait `pidof -s shorewall` && shorewall save &
+        cp /var/lib/shorewall/restore /etc/shorewall/
+    fi
+}
+
+################################################################################
+# E X E C U T I O N    B E G I N S   H E R E                                   #
+################################################################################
+command="$1"
+
+mkdir -p /var/log
+touch /var/log/shorewall.log
+
+case "$command" in
+    start)
+        start
+        ;;
+    stop|restart|status)
+        exec /sbin/shorewall $@
+        ;;
+    *)
+
+        usage
+        ;;
+
+esac
+
+}}}
+
+==== Speeding up Shorewall startup with iptables-restore ====
+
+This script will attempt to restore Shorewall using a Shorewall restore file (created using the command {{{shorewall save}}}) or will start Shorewall and attempt to create a restore file. Since Shorewall takes a long time to start (not restore) on the WRT54G it backgrounds this process. This process seems to take up to a few minutes(!).
+
+The {{{shorewall restore}}} and {{{shorewall save}}} script however use the {{{iptables-save}}} and {{{iptables-restore}}} commands that are unfortunately pruned to save space when OpenWRT is built. You will likely want to install these however instead of waiting a few minutes for your firewall to startup each time your router boots. To get the files you must download the latest OpenWRT sources and in the {{{buildroot/make/openwrt.mk}}} file uncomment the following lines:{{{
+        # remove other unneeded files
+        #rm -f $(TARGET_DIR)/usr/sbin/iptables-save
+        #rm -f $(TARGET_DIR)/usr/sbin/iptables-restore
+}}}
+
+After building OpenWRT as normal, copy the files:{{{
+buildroot/build_mipsel/root/usr/sbin/iptables-save
+buildroot/build_mipsel/root/usr/sbin/iptables-restore
+}}}
+
+to the {{{/usr/sbin/}}} directory on your router.
+
+Now save the Shorewall configuration by starting our RC script:{{{
+/etc/init.d/shorewall start
+}}}
+
+Before proceding make sure your script works properly (so you don't end up with a hung/inaccessible router on boot!) by starting and stopping Shorewall using the RC script:{{{
+/etc/init.d/shorewall stop
+/etc/init.d/shorewall start
+}}}
+==== Rename RC script so it is started at boot ====
+
+Now we have our script working properly we must rename it so it is run on startup. First remove the file/symbolic link {{{/etc/init.d/S45firewall}}}, there is a backup of the original file at /rom/etc/init.d/S45firewall and rename our script to S45shorewall:{{{
+rm /etc/init.d/S45firewall
+mv /etc/init.d/shorewall /etc/init.d/S45shorewall
+}}}
+
+And we are finally done :) . Reboot the router and cross your fingers...
