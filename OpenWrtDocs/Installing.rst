@@ -16,7 +16,7 @@ We recommend using the daily snapshots, these are compiled versions of the lates
 
 '''Experimental binaries'''
 
-If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current experimental binary. These can be found [http://openwrt.org/downloads/experimental/bin/ here]. We recommend to use the squashfs versions for the [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54g-squashfs.bin WRT54G] and [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54gs-squashfs.bin WRT54GS].
+If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current experimental binary. These can be found [http://openwrt.org/downloads/experimental/bin/ here]. We recommend to use the squashfs versions for the [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54g-squashfs.bin WRT54G] and [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54gs-squashfs.bin WRT54GS]. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].
 
 '''Stable Source'''
 
@@ -31,7 +31,7 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co buildroot
 
 '''Experimental Source'''
 
-If you have hardware that is not supported by the above verion of OpenWRT, you can use the [http://openwrt.org/download/experimental Experimental version] of the code. You will need to compile this from scratch, and this is not recommended for beginners. The experimental code includes support for GS v1.1 and G v2.2 hardware. It may also work with G v3.0 hardware, however this has not yet been confirmed.
+If you have hardware that is not supported by the above verion of OpenWRT, you can use the [http://openwrt.org/download/experimental Experimental version] of the code. You will need to compile this from scratch, and this is not recommended for beginners. The experimental code includes support for GS v1.1 and G v2.2 hardware. It may also work with G v3.0 hardware, however this has not yet been confirmed. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].
 
 = Installing OpenWrt =
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
