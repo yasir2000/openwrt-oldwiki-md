@@ -18,7 +18,7 @@ The LAN settings used are:
 ||'''NVRAM Setting'''||'''Meaning'''||
 ||'''lan_ifname'''||The interface name to assign to the LAN segments (wireless and switch ports). This should be ''br0''||
 ||'''lan_ifnames'''||This is set to the interfaces you wish to bridge together into one LAN (recommend ''vlan0 eth1 eth2 eth3'')(use  ''vlan2 eth1 eth2 eth3'' with rev.1.1 routers)||
-||'''lan_hwnames'''||The hardware driver names for this interface
+||'''lan_hwnames'''||The hardware driver names for this interface||
 ||'''lan_proto'''||How to assign the LAN address. (This will be forced to ''static'' by networking.sh[[FootNote(Often lan_proto is incorrectly set to ''dhcp'' but configured as static, networking.sh compensates by forcing lan_proto=static, edit networking.sh if you wish to use dhcp)]])||
 ||'''lan_ipaddr'''||LAN IP Address to be used for the 4 port switch and the wireless. This is the internal IP of the router.||
 ||'''lan_netmask'''||The Netmask (255.255.255.0 format) for the LAN IP you have assigned.||
