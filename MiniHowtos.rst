@@ -92,12 +92,29 @@ dhcp-option=lan,6,10.10.6.1
 Nico
 
 == Using the wireless interface in client-mode (for wan) ==
+To convert a router using standard configuration into a NATing wireless client, you can use the ["wl_utility"]:
+{{{
+brctl delif br0 eth1
+brctl addif br0 vlan1
+iptables -F
+iptables -F -t nat
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+killall udhcpc
+udhcpc -i eth1 &
+wl ap 0
+wl scan
+sleep 1
+wl scanresults
+}}}
+This script assumes your wireless interface is eth1, the LAN ports are vlan0, and WAN is vlan1.  The script will print a list of networks in range, which can then be joined with the command:
+{{{
+wl join "ssid" [key xxxxx]
+}}}
+Note also that this script disables the firewall.
 
-!Someone please put information on how to use eth1 (wireless) as a client, to connect back to a network and route from the vlan0 network using eth1 as the outbound gateway.
-
-I was going to do this until I found this link: [http://www.penguincare.com.au/openwrt/docs.txt]
-
-Designed for a specific network, but has all of the essential ingredients.  -=CVS=-
+To set up the wireless client using NVRAM variables, see this link:
+[http://www.penguincare.com.au/openwrt/docs.txt]
+It was designed for a specific network, but has all of the essential ingredients.
 
 == Getting Access to your ISP via PPTP (example xdsl-inode-Austria) ==
 (Author: Florian Reitmeir <florian@multi24.com>)
