@@ -10,11 +10,12 @@ To get started, click a link below.
 [:OpenWrtDocs/About: About OpenWrt]
 
 [:OpenWrtDocs/Installing: Installing OpenWrt]
-   1. Obtaining the firmware
-   2. Installing OpenWrt
+   1. Will OpenWrt work on my hardware ?
+   2. Obtaining the firmware
+   3. Installing OpenWrt
          1. Enabling boot_wait
          2. Using boot_wait to upload the firmware
-   3. Using OpenWrt
+   4. Using OpenWrt
 [:OpenWrtDocs/Using: Using OpenWrt]
    1. Using OpenWrt for the first time
    2. Firstboot / jffs2
