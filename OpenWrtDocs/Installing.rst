@@ -47,7 +47,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 When you get to the last command the ping window should be filled with a long list of variables including '''boot_wait=on''' somewhere in that list.
 
-This ping exploit definitely works with WRT54Gv2.0/GSv1.0 and there are documented cases of it working for the latest hardware release WRT54Gv2.2/GSv1.1.  It definitely does not work with later firmware (date?) on the WRT54Gv2.0.
+This ping exploit definitely works with WRT54Gv2.0/GSv1.0 and there are documented cases of it working for the latest hardware release WRT54Gv2.2/GSv1.1.  You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware.
 
 == Using boot_wait to upload the firmware ==
 
