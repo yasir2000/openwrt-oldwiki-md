@@ -134,3 +134,8 @@ If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's
 
 
 '''Gentoo users''': The default tftp client doesn't seem to work, use the linksys-tftp ebuild instead
+
+== CFE/PMON TFTP maximum image size limitation ==
+There is a physical limit of approximately 3,141,632 bytes that `CFE/PMON` will accept during the `boot_wait` stage.  Only 3,141,632 bytes will be flashed to the firmware.  If your firmware image is larger than this, the result will be undefined; the kernel may load then either panic, or possibly the unit will reboot itself then proceed to spit out `Boot program checksum is invalid` during `PMON`, and drop you to the `CFE>` prompt (requiring serial console).
+
+This was [http://www.sveasoft.com/modules/phpBB2/viewtopic.php?p=22112#22112 briefly touched on] over at the Sveasoft forums.
