@@ -5,7 +5,7 @@ Here we can put up a couple of MiniHOWTOs for Users.
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
 == Making getty work with serial console ==
-To be written (by koitsu, h0h0h0)
+To be written by koitsu, once I get around to it...
 
 = Useful details =
 [:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
