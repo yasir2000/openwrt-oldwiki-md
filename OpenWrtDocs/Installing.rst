@@ -57,7 +57,7 @@ While in the bootloader the linksys wrt54g(s) will be forced to a lan ip of 192.
 
 The BIN file is simply a TRX with some extra information at the start to indicate the model. The only difference between openwrt-g-code.bin and openwrt-gs-code.bin is the first 4 bytes which determine the model.
 
-To upload the firmware to a WRT54GS, the commands given would be
+To upload the firmware to a WRT54GS, unplug your box and enter the commands given would be
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -66,7 +66,7 @@ tftp> trace
 Packet tracing on.
 tftp> put openwrt-g-code.bin
 }}}
-Your output may look slightly different depending on the tftp client used.
+Your output may look slightly different depending on the tftp client used. Setting "rexmt 1" will cause the tftp client to constantly retry to sent the file to the given address. While this is happening, plug your box, and as soon as bootloader's tftp client starts to listen, your client will successfully connect and sent the firmware.
 
 ||'''TFTP Error'''||'''Reason'''||
 ||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
