@@ -6,7 +6,7 @@
 
 [:Wrt54gNVRAM] Documentation for various NVRAM settings
 
-[:MiniHowtos] Usefull tips for Users
+[:MiniHowtos] Useful tips for Users
 
 = MoinMoin Wiki =
 
