@@ -13,3 +13,14 @@ The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. These units are supported 
 
 ==== WRT54GS v2.0 ====
 We have no information about the internals of these units, yet. As noone saw a v2.0, yet we can't be sure, but it should work with the EXPERIMENTAL branch of OpenWrt.
+
+
+=== Detailed hardware info ===
+
+==== Motherboard photos ====
+
+==== Power requirements ====
+
+===== Normal operation =====
+
+===== Battery tests =====
