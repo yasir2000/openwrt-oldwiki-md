@@ -242,7 +242,7 @@ Edit `updates.sh` and `graphs.sh` for your paths.
 Edit your crontab with
 `*/5 * * * * root run-parts /etc/cron.5min > /dev/null 2>&1`
 
-Finallay, get the cronjobs working:
+Finally, get the cronjobs working:
 {{{
 cp updates.sh /etc/cron.5min
 cp graphs.sh to /etc/cron.hourly 
