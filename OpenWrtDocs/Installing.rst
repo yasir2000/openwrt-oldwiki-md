@@ -38,7 +38,7 @@ The router does not boot directly into the firmware, instead it boots into a pro
 
 First, for this to work the '''internet port must have a valid ip address''', either from dhcp or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
 
-/!\ '''If you have upgraded your Linksys unit to the official firmware version 3.37.6, DOWNGRADE to version 3.37.2 before running the ping exploit! If you run the following commands with version 3.37.6, it does not provide results to verify if the commands have been processed. *** Feel free to update this if you've found it to actually turn boot_wait on. *** I am not so bold as to upgrade my firmware with OpenWRT unless I know for sure boot_wait is on.'''
+/!\ '''Linksys' 3.37.6 patches the ping.asp bug; downgrading to 3.37.2 is required before the following will work:'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
@@ -49,7 +49,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 When you get to the last command the ping window should be filled with a long list of variables including '''boot_wait=on''' somewhere in that list.
 
-This ping exploit definitely works with WRT54Gv2.0/GSv1.0 and there are documented cases of it working for the latest hardware release WRT54Gv2.2/GSv1.1.  You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware.
+This ping exploit definitely works with WRT54G v2.0/GS v1.0 and there are documented cases of it working for the latest hardware release WRT54G v2.2/GS v1.1.  You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware.
 
 == Using boot_wait to upload the firmware ==
 
