@@ -127,7 +127,7 @@ If you have a v2 or GS unit, during the `PMON` phase, '''you will always be able
 If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's still hope.  Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
 
 
-'''Gentoo users''': The default tftp client doesn't seem to work, use the linksys-tftp ebuild instead
+'''Gentoo users''': Please see [http://openwrt.ksilebo.net/Bugs#head-da30ad09c6ea6ec4e0ced6241dcbf480c57af867 this thread] for details about TFTP clients.
 
 == CFE/PMON TFTP maximum image size limitation ==
 There is a physical limit of approximately 3,141,632 bytes that `CFE/PMON` will accept during the `boot_wait` stage.  Only 3,141,632 bytes will be flashed to the firmware.  If your firmware image is larger than this, the result will be undefined; the kernel may load then either panic, or possibly the unit will reboot itself then proceed to spit out `Boot program checksum is invalid` during `PMON`, and drop you to the `CFE>` prompt (requiring serial console).
