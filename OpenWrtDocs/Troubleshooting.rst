@@ -41,8 +41,8 @@ After these two steps, you'll have a router with a pristine unchanged configurat
 = Recovering from bad firmware (Software-based Method) =
 If you've followed the instructions and warnings you should have boot_wait set to on. With boot_wait on, each time the router boots you will have roughly 3 seconds to send a new firmware using tftp. Use a standard tftp client to send the firmware in binary mode to 192.168.1.1. Due to limitations in the bootloader, this firmware will have to be under 3MB in size.
 
-See OpenWrtDocs/Installing[[BR]]
-[:/OpenWrtDocs/Installing#head-f56e06c42cb97a7aace9a5b503d0d288697d98d9: 3.2. Using boot_wait to upload the firmware]
+See ["OpenWrtDocs/Installing"][[BR]]
+[:OpenWrtDocs/Installing#head-f56e06c42cb97a7aace9a5b503d0d288697d98d9:"3.2. Using boot_wait to upload the firmware"]
 
 = Recovering the firmware (JTAG-adaptor Method) =
 '''you are now leaving the safe grounds of warranty coverage'''
