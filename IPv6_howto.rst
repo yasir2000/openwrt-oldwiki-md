@@ -6,10 +6,10 @@ First our kernel needs IPv6 support. To configure the interfaces and the routing
 {{{
 ipkg install http://www.linuxops.net/ipkg/kmod-ipv6_2.4.20_mipsel.ipk
 ipkg install http://www.linuxops.net/ipkg/ip_1.0_mipsel.ipk
-ipkg install http://openwrt.ksilebo.net/ipkg/radvd_0.7.2_mipsel.ipk
+ipkg install http://www.openwrt.org/ipkg/radvd_0.7.2_mipsel.ipk
 }}}
 
-Make sure the kernel module(s) you use are compatible with your kernel version. You should only use modules compiled for the same kernel. (The openwrt snapshots contain many usefull modules in the openwrt-kmodules.tar.bz2 file)
+Make sure the kernel module(s) you use are compatible with your kernel version. You should only use modules compiled for the same kernel. (The [http://www.openwrt.org/downloads/snapshots/ openwrt snapshots] contain most common modules in the openwrt-kmodules.tar.bz2 file)
 
 = Setup software =
 == Kernel ==
