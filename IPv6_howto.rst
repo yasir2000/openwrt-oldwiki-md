@@ -79,8 +79,8 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 }}}
 
-
-== PPPD ==
+= Setup IPv6 connectivity =
+== PPPD: 6to4 tunnel with dynamic ip address ==
 When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
 {{{
 mkdir /etc/ppp
@@ -125,14 +125,14 @@ ip link set dev tun6to4 down
 ip tunnel del tun6to4
 }}}
 
-== IPTables ==
+=== IPTables ===
 In my firewall scrip I had to add the following rule to let the encapsulated packets pass:
 {{{
 $IPT -A INPUT -p 41 -i ppp0 -j ACCEPT
 }}}
 You need to place it into the right position of your firewall script.
 
-== route advertising daemon ==
+=== route advertising daemon ===
 This is the configuration file /etc/radvd.conf:
 {{{
 # For more examples, see the radvd documentation.
