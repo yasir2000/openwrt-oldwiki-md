@@ -16,9 +16,7 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
  * Asus WL-500B (version 1.0)
  * Asus WL-500G
  * Buffalo WBR-G54
- * Buffalo WBR2-G54 (check the hardware notes)
  * Buffalo WLA-G54
- * Buffalo WLA2-G54L (check the hardware notes)
  * Linksys WAP54G (version 1.0)
  * Linksys WRT54G (version 1.0, 1.1, and 2.0)
  * Linksys WRT54GS (version 1.0)
@@ -26,6 +24,9 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
 
 ===== Additional units supported in the experimental version: =====
 
+ * Asus WL-500G Deluxe (aka WL-500GD)
+ * Buffalo WBR2-G54 (check the hardware notes)
+ * Buffalo WLA2-G54L (check the hardware notes)
  * Linksys WRT54G (version 2.2 and 3.0)
  * Linksys WRT54GS (version 1.1 and 2.0)
  * Motorola WR850G
@@ -55,6 +56,7 @@ You can find more information about many of these models on their own pages, lis
  * Dell TrueMobile 2300 ([http://openwrt.org/forum/viewtopic.php?t=833 more info])
  * Linksys WAP54G (version 2)
  * Linksys WRT54GX
+ * Linksys WRT55AG (version 1)
  * Motorola WA840G
  * Motorola WA840GP
  * Motorola WR850GP
@@ -72,7 +74,6 @@ You can find more information about many of these models on their own pages, lis
 
 ===== Units known to not work yet: =====
 
- * Asus WL-500G Deluxe (aka WL-500GD)
  * Belkin F5D7230-4 -- only 2M of flash
  * Netgear WGT634U
 
