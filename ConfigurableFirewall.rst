@@ -143,6 +143,7 @@ The files under /var/lib are luckily LEAF specific, and part of the lrpkg packag
 === Configuration ===
 This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the OpenWRT set of interfaces, and also add any firewall rules that we may wish to have.
 
+==== Configure Logging ====
 The package we installed has been preconfigured for a LEAF router which uses the ULOG logging daemon. Thus the first change we need to make is to set shorewall to use syslogd. If you havn't already go syslogd running/configured on your system please see the mini-howto on "Setting up logging". The two files that contain the references to ULOG are: {{{
 etc/shorewall/shorewall.conf:LOGNEWNOTSYN=ULOG
 etc/shorewall/shorewall.conf:MACLIST_LOG_LEVEL=ULOG
@@ -155,3 +156,13 @@ etc/shorewall/policy:all                all             REJECT          ULOG
 }}}
 
 Replace each occourance of {{{ULOG}}} with {{{info}}} or some other valid Shorewall [http://www.shorewall.net/shorewall_logging.html logging level].
+
+==== Configure Interfaces ====
+
+Since the WRT54G uses a very unusual set of interfaces (bridge of switch and wireless used for internal network, etc) we will have to change the default interface configuration. On my WRT54GS my WAN (Internet) interface is {{{vlan1}}} and my LAN (internal interface) is {{{br0}}}. This may be different fro you, the easiest way to find out is to run the folling commands to find your WAN and LAN interfaces respectively:{{{
+root@OpenWrt:~# nvram get wan_ifname
+vlan1
+root@OpenWrt:~# nvram get lan_ifname
+br0
+}}}
+
