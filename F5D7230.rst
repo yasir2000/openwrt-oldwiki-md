@@ -44,7 +44,7 @@ There are a number of public forums and web sites where the installation of open
  3. http://belkin.com/support/download/download.asp?download=F5D7230-4 :: Belkin Firmware
 
 
-=== Other Firmware Pages (that may yield useful information) ===
+=== Other Firmware Pages (that may yield useful firmware) ===
 
  1. http://openwrt.ksilebo.net/ :: Another link for OpenWRT
  2. http://sourceforge.net/projects/wifi-box/ :: Wi Fi Box
