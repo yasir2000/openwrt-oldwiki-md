@@ -4,7 +4,7 @@
 ##       questions/comments should be posted to the forum
 ##        
 ## THIS PAGE DOCUMENTS THE FIRMWARE, NOT PACKAGES
-## DO NOT ADD PACKAGE DOCUMENTATION TO THIS PAGE
+## DO NOT ADD PACKAGE DOCUMENTATION/CONFIGURATION TO THIS PAGE
 ##
 [:OpenWrtDocs]
 [[TableOfContents]]
@@ -31,13 +31,12 @@ WRT54G V1.x
   WAN=vlan1
   WIFI=eth2
 
-WRT54G V2.0/WRT54GS V1.x
+WRT54G V2.x/WRT54GS V1.x
   LAN=vlan0
   WAN=vlan1
   WIFI=eth1
 
 (please update to include other models)
-(Is the G2.2 the same as the G2.0? The GS1.1 is the same as the 1.0)
 }}}
 
 The basic (802.3) network configuration is handled by a series of NVRAM variables:
@@ -68,9 +67,9 @@ The only <name> with any signfigance is '''wan''', used by the /etc/S45firewall 
 
 Further information about the variables used can be found at [:OpenWrtNVRAM]
 
-'''Sample network configurations'''
+== Sample network configurations ==
 
-(note these examples use wrt54g v2.0/wrt54gs v1.0 interface names)
+(note these examples use wrt54g v2.x/wrt54gs v1.x interface names)
 
 The default network configuration:
 (lan+wireless bridged as 192.168.1.1/24, wan as dhcp)
@@ -117,7 +116,7 @@ wan_ifname=vlan1
 wan_proto=dhcp
 }}}
 
-'''The ethernet switch'''
+== The ethernet switch ==
 
 The WRT54G is essentially a WAP54G (wireless access point) with a 6 port switch. There's only one physical ethernet connection and that's wired internally into port 5 of the switch; the WAN is port 0 and the LAN is ports 1-4. The separation of the WAN and LAN interfaces is done by the switch itself. The switch has a vlan map which tells it which vlans can be accessed through which ports.
 
@@ -160,3 +159,18 @@ vlan1hwname=et0
 vlan2ports="1 2 5"
 vlan2hwname=et0
 }}}
+
+== Wireless Distribution System (WDS) / Repeater / Bridge ==
+OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seemlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
+
+Configuration of WDS is simple, and depends on one of two variables
+
+{{{#!CSV
+NVRAM; Description
+wl0_lazywds; Accept WDS connections from anyone (0:disabled 1:enabled)
+wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space separated) 
+}}}
+
+(Note: All APs must be on the same wireless channel and share the same encryption settings)
+
+For security reasons, it's recommended that you leave wl0_lazywds off and use wl0_wds to control WDS access to your AP. wl0_wds functions as an access list of peers to accept connections from and peers to try to connect to; the peers will either need the mac address of your AP in their wl0_wds list, or wl0_lazywds enabled.
