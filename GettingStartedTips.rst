@@ -56,7 +56,8 @@ for(idx in rule) {
         print IPT " -A FORWARD -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
         print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to " wtf[2] ":" wtf[1]
         print IPT " -A INPUT -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-    } else if (pts[3] == "udp") {         print "#___udp for " pts[1]
+    } else if (pts[3] == "udp") {         
+        print "#___udp for " pts[1]
         print IPT " -A FORWARD -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
         print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to " wtf[2] ":" wtf[1]
         print IPT " -A INPUT -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
