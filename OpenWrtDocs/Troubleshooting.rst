@@ -6,7 +6,14 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 = Recovering from bad firmware (Alternate Software-based Method) =
+
+---- /!\ '''Edit conflict - other version:''' ----
 Since shorting pins can be dangerous this method has been recommended:
+
+---- /!\ '''Edit conflict - your version:''' ----
+Since shorting pins can be dangerous this method has been recommended:
+
+---- /!\ '''End of edit conflict''' ----
  1. Disconnect your brick from everything
  1. Connect your PC to one of the LAN-Ports
  1. Setup your NIC to 10baseT-HD
@@ -19,10 +26,33 @@ mii-tool -R -F 10baseT-HD eth0 }}}
 ifconfig eth0 192.168.1.50 up }}}
  1. Connect power to your ''brick'' and press the Reset for 30 secs
  1. Ping to 192.168.1.1
+
+---- /!\ '''Edit conflict - other version:''' ----
  1. The power/diag light should blink if this worked.
+
+---- /!\ '''Edit conflict - your version:''' ----
+ 1. The power/diag light should blink if this worked.
+
+---- /!\ '''End of edit conflict''' ----
 The '''great''' advantage is that you don't have fool about with that warranty sticker.
 [http://www.linksys.com/support/top10faqs/wrt54g/Red%20Diag%20or%20Power%20Light%20Blinking%20on%20the%20WRT54G.asp "Linksys support page"]
 
+= Using a JTAG-adaptor =
+
+You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy and if you were me doesn't cost a jiffy because you already have this stuff floating around anyway. You need:
+ 1. 4 100R resistors
+ 1. 1 male SUB-D 25 plug
+ 1. If you want to do it right, a 12-way IDC-Connector plug (these are the ones who look like the HDD-Cables)
+ 1. A 12-way ribbon cable for above
+ 1. The girlfrind of that IDC-Connector for the PCB
+ 1. This [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a utitlty and instructions how to connect everything together.
+ 1. A Linksys WRT54G with a broken flash and the desperate feeling that you can't make it any worse.
+
+It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more.
+
+
+
+---- /!\ '''Edit conflict - other version:''' ----
 = Using a JTAG-adaptor =
 
 You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG-adaptor. It's easy and if you were me doesn't cost a jiffy because you already have this stuff floating around anyway. You need:
@@ -37,6 +67,10 @@ You still don't want to short any pins on your precious router. Thats nasty disg
 It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more.
 
 
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 = Recovering from bad flash (Shorting Pins Method) =
 
 If you've followed the instructions and warnings you should have boot_wait set to on. With boot_wait on, each time the router boots you will have roughly 3 seconds to send a new firmware using tftp. Use a standard tftp client to send the firmware in binary mode to 192.168.1.1. Due to limitations in the bootloader, this firmware will have to be under 3MB in size.
