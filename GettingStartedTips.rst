@@ -2,7 +2,7 @@
 
 The latest beta, b4, is available only in source form.  To build it, you'll need a linux-based system.  The build will build the development environment (a gcc cross-compiler for MIPS).  You'll need about a gig of disk space to build everything.
 {{{
-wget http://openwrt.ksilebo.net/cgi-bin/viewcvs.cgi/buildroot/buildroot.tar.gz
+wget http://www.openwrt.org/cgi-bin/viewcvs.cgi/buildroot/buildroot.tar.gz
 tar zxvf buildroot.tar.gz
 cd buildroot
 make
@@ -17,7 +17,7 @@ It's a good idea to fully reset the router before loading OpenWrt, but this is n
 To fully reset the router back to factory defaults, connect the power, and press and hold the reset button for 30 seconds or so.
 
 == Set boot_wait ==
-'''IMPORTANT: '''set boot_wait.  If you don't do this, you may have to open your router to upload new firmware. Read about [http://openwrt.ksilebo.net/temp/00-WARNING.TXT boot_wait warning].  If you are still running the original ROM, use the ping.asp exploit to set boot_wait.
+'''IMPORTANT: '''set boot_wait.  If you don't do this, you may have to open your router to upload new firmware. Read about [http://www.openwrt.org/temp/00-WARNING.TXT boot_wait warning].  If you are still running the original ROM, use the ping.asp exploit to set boot_wait.
 == Upload the ROM ==
 There are two ways to do the initial ROM upload:
 === Using the current firmware ===
