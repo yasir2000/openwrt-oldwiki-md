@@ -34,7 +34,18 @@ The default firewall for openwrt is very basic and not as robust as some would l
 You will require the following OpenWRT packages:
 
  * iproute2 (ip_2.0_mipsel.ipk)
- * tc (tc_2.0_mipsel.ipk)
+
+You may require the following OpenWRT packages if you want the associated features:
+ * IPSEC VPN
+  * OpenSwan Packages (see OpenSwan HowTo)
+  * Add line for [http://www.shorewall.net/IPSEC.htm ipsec tunnel] in {{{/etc/shorewall/tunnels}}}
+ * IPV6 Tunnel
+  * IPV6 Kernel modules (kmod-ipv6_2.4.20-1_mipsel.ipk)
+  * IPT6 Kernel modules (kmod-ipt6_2.4.20-1_mipsel.ipk)
+  * Add line for [http://www.shorewall.net/6to4.htm 6to4 tunnel] in {{{/etc/shorewall/tunnels}}}
+ * Traffic Shaping
+  * tc (tc_2.0_mipsel.ipk)
+  * Set {{{TC_ENABLED=Yes}}} in {{{/etc/shorewall.conf}}}
 
 First we need to download shorewall. I downloaded the latest stable [http://www.shorewall.net/pub/shorewall/2.0/shorewall-2.0.9/shorwall-2.0.9.lrp (2.09) LRP package]. The LRP package is made for the [http://leaf.sourceforge.net/ Linux Embedded Appliance Firewall] project, and thus is particularly suited to the needs of OpenWRT. The LRP Package is in fact just a tar.gz tarball, and you can rename it as such.
 
