@@ -68,22 +68,22 @@ iptables -F
 {{{
 defaultroute
 replacedefaultroute
-name username
+name <username>
 debug 
 noipdefault
 }}}
 
-don't forget to replace username with your normal ISP-Username
+don't forget to replace <username> with your normal ISP-Username
 the create /etc/ppp/chap-secrets and /etc/ppp/pap-secrets
 {{{
-username * password
+<username> * <password>
 }}}
 
-username should be same like in your /etc/ppp/options
+<username> should be same like in your /etc/ppp/options
 
 your finished. now a simple 
 {{{
-route add 10.0.0.138 gw old-default-gw
+route add 10.0.0.138 gw <old-default-gw>
 pptp 10.0.0.138 
 }}}
 
