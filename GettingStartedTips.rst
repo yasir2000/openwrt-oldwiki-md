@@ -83,22 +83,23 @@ for(idx in rule) {
     if (pts[3] == "both") {
         print "#___tcp & udp for " pts[1]
         print IPT " -A FORWARD -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to " wtf[2] ":" wtf[1]
+        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
         print IPT " -A INPUT -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
         print IPT " -A FORWARD -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to " wtf[2] ":" wtf[1]
+        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
         print IPT " -A INPUT -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-    } else if (pts[3] == "udp") {         
+    } else if (pts[3] == "udp") {
         print "#___udp for " pts[1]
         print IPT " -A FORWARD -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to " wtf[2] ":" wtf[1]
+        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
         print IPT " -A INPUT -p udp -i " WANIF " --dport " pts[4] " -j ACCEPT"
     } else if (pts[3] == "tcp") {
         print "#___tcp for " pts[1]
         print IPT " -A FORWARD -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to " wtf[2] ":" wtf[1]
+        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4] " -j DNAT --to-destination " wtf[2] ":" wtf[1]
         print IPT " -A INPUT -p tcp -i " WANIF " --dport " pts[4] " -j ACCEPT"
-    } }
+    }
+}
 }
 }}} 
 save that as forward_port.awk and then run this:
