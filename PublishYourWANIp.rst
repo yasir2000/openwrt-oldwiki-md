@@ -42,3 +42,44 @@ Now you can run /usr/bin/checkmyip and see if it works. Now surf over to your we
 If it shows an IP address and a creation date then check out HowtoEnableCron to find out how you can automate this with cron.
 
 Another way would be running the script within an ip-up script that gets called every time the WAN interface is brought up.
+
+
+Here's a trivial script to update dyndns.org accounts for those using pppoe. Install this on your router and call from /etc/ppp/ip-up. {{{
+#!/bin/sh
+
+LOGGING_TAG="dyndns-updater"
+ACCOUNT="..."
+PASS="..."
+
+rm -f /tmp/dyndns.org-answer
+
+#update the ip address ...
+#first get current address
+IP=$(ifconfig ppp0 | grep "inet addr" | awk '{print $2}' | awk -F ':' '{print $2}')
+
+if [ "${IP}" = "" ]; then
+  logger -t ${LOGGING_TAG} -- "Couldn't get ip address for ppp0."
+fi
+
+#now set address with wget (no ssl supported in busybox, so no https ...)
+wget -q -O /tmp/dyndns.org-answer "http://$ACCOUNT:$PASS@members.dyndns.org/nic/update?system=dyndns&hostname=$ACCOUNT.dyndns.org&myip=${IP}&wildcard=ON&offline=NO"
+
+if ! [ -f /tmp/dyndns.org-answer ]; then
+  logger -t ${LOGGING_TAG} -- "Couldn't update ip-address for \"$ACCOUNT.dyndns.org\""
+  logger -t ${LOGGING_TAG} -- "wget failed to download the file!"
+  exit 2
+fi
+
+if [ "$(cat /tmp/dyndns.org-answer | awk '{printf("%s",$2);}')" != "${IP}" ]; then
+  logger -t ${LOGGING_TAG} -- "Error while updating ip-address:"
+  cat /tmp/dyndns.org-answer | logger -t ${LOGGING_TAG}
+  rm -f /tmp/dyndns.org-answer
+  exit 3
+fi
+
+rm -f /tmp/dyndns.org-answer
+
+logger -t ${LOGGING_TAG} -- "IP address successfully updated to ${IP}"
+
+exit 0
+}}}
