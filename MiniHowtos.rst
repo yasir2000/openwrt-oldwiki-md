@@ -1,10 +1,10 @@
 Here we can put up a couple of MiniHOWTOs for Users.
 
 = Hardware =
-== Dual-port serial modification (WRT54Gv2 and WRT54GS) ==
-If you want to add two serial ports to your WRT54Gv2 or WRT54GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial Port Mod] for thorough details.  This will enable you to have a serial port intended as a hardware serial console, as well as a serial port for a modem or other device.
+== Dual-port serial modification ==
+If you want to add two serial ports to your Gv2 or GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial Port Mod] for thorough details.  This will enable you to have a serial port intended as a hardware serial console, as well as a serial port for a modem or other device.
 
-== Single-port serial modification (WRT54Gv2 and WRT54GS) ==
+== Single-port serial modification ==
 To be written by koitsu...  And yes, I have pictures, links where to buy parts online (with no minimum quantity or order amount), and all the good stuff.
 
 = Software =
