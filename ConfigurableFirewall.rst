@@ -31,6 +31,11 @@ The default firewall for openwrt is very basic and not as robust as some would l
 
 == Requirements ==
 
+You will require the following OpenWRT packages:
+
+ * iproute2 (ip_2.0_mipsel.ipk)
+ * tc (tc_2.0_mipsel.ipk)
+
 First we need to download shorewall. I downloaded the latest stable [http://www.shorewall.net/pub/shorewall/2.0/shorewall-2.0.9/shorwall-2.0.9.lrp (2.09) LRP package]. The LRP package is made for the [http://leaf.sourceforge.net/ Linux Embedded Appliance Firewall] project, and thus is particularly suited to the needs of OpenWRT. The LRP Package is in fact just a tar.gz tarball, and you can rename it as such.
 
 On the OpenWRT router: {{{
@@ -125,7 +130,7 @@ lrwxrwxrwx root/root         0 2004-09-23 18:55:35 var/lib/lrpkg/shorwall.versio
 The files under /var/lib are luckily LEAF specific, and part of the lrpkg package format. These files are not needed and will in fact be removed on the router's next reset since  /var uses the router's ram disk.
 
 === Configuration ===
-This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the openwrt set of interfaces, and also add any firewall rules that we may wish to have.
+This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the OpenWRT set of interfaces, and also add any firewall rules that we may wish to have.
 
 The package we installed has been preconfigured for a LEAF router which uses the ULOG logging daemon. Thus the first change we need to make is to set shorewall to use syslogd. If you havn't already go syslogd running/configured on your system please see the mini-howto on "Setting up logging". The two files that contain the references to ULOG are: {{{
 etc/shorewall/shorewall.conf:LOGNEWNOTSYN=ULOG
