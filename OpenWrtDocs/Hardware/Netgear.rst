@@ -1,3 +1,3 @@
-'''Siemens hardware notes'''
+'''Netgearhardware notes'''
 
  * [:OpenWrtDocs/Hardware/Netgear/WG602v3: WG602v3]
