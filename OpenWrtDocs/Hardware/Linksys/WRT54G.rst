@@ -31,7 +31,7 @@ We have no information about the internals of these units, yet.
 
 
 === Hardware hacking ===
-There are revision XH units of the WRT54G v2.0. These units have 32Mb of memory, but they are locked to 16Mb. You can unlock the remaining memory with changing some of the variables.
+There are revision XH units of the WRT54G v2.0. These units have 32Mb of memory, but they are locked to 16Mb. You can unlock the remaining memory by changing some of the variables.
 Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
-/!\ '''However, there are no guaranties, that these will work, and changing the memory configuration on a non-XH unit will give You a brick. Check the forums for more info.'''
+/!\ '''However, there is no guarantee that this will work. Changing the memory configuration on a non-XH unit will brick your router. Check the forums [url]http://openwrt.org/forum/viewtopic.php?p=4507 for more info.'''
