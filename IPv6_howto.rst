@@ -6,21 +6,29 @@ To use ipv6 we need the following modules
  * The '''ipv6 kernel module''' (always)
  * ipv6 '''routing software''' (recommended, to configure ipv6 routing)
  * The '''ip6tables kernel modules''' (optional, if you need an ipv6 firewall)
- * ip6tables (optional, to configure the ipv6 router)
+ * '''ip6tables commandline tool''' (optional, to configure the ipv6 router)
 
 == Install the ipv6 kernel modules ==
 Kernel modules are compiled for a specific version of the linux kernel on the openwrt router. If you use kernel modules for a slightly different kernel version, you might experience several problems with the kernel and/or configuration tools.
 
 If you used a [http://www.openwrt.org/downloads/snapshots/ CVS snapshot] without ipv6 packages to install your routers kernel, you already have a file called openwrt-kmodules.tar.bz2 with several kernel modules compiled for this specific kernel. This file contains in the modules/2.4.20/kernel/net/ipv6/ directory the module ipv6.o. This file should be copied to the /lib/modules/2.4.20/kernel/net/ipv6/ directory on your router.
 
-If you used a CVS snapshot with ipv6 packages (should be available from 2004-08-25), you can just install the kmod-ipv6 ipkg.
+If you used a CVS snapshot with ipv6 packages (should be available from 2004-08-25) or when you have built the packages from CVS, you can just install the '''kmod-ipv6''' package from this tarball.
 
-=== Install the routing software ===
+If you used an older kernel without openwrt-kmodules.tar.bz2 or one from an other source, you should use the ipv6.o from that kernel source.
+
+== Install the routing software ==
 To configure the interfaces and the routing tables we need the new iputils. Additionally we need the route advertising daemon to propagate the IPv6 route to our local subnet.
 {{{
 ipkg install http://www.linuxops.net/ipkg/ip_1.0_mipsel.ipk
 ipkg install http://www.openwrt.org/ipkg/radvd_0.7.2_mipsel.ipk
 }}}
+
+== Install the ip6tables kernel modules ==
+If you used a CVS snapshot with ipv6 packages (should be available from 2004-08-25) or when you have built the packages from CVS, you can just install the '''kmod-ipt6''' package from this tarball.
+
+If you used an other package, you already have a file called openwrt-kmodules.tar.bz2 with several kernel modules compiled for this specific kernel. This file contains in the modules/2.4.20/kernel/net/ipv6/netfilter/ directory the modules needed for ip6tables. These files [[FootNote(or at least ip_6tables.o and ip6table_filter.o)]] should be copied to the /lib/modules/2.4.20/kernel/net/ipv6/ directory on your router.
+
 
 = Setup software =
 == Kernel ==
