@@ -11,17 +11,25 @@ On the bottom of the device is a silver sticker with a Linksys logo on it, under
 /!\ If you have a WRT54G v2.2 or a WRT54GS v1.1 then OpenWrt will not yet run on these models. Read the forum for more information on the experimental releases for these models.
 
 ==== Unit lists: ====
-===== Units that considered supported (eg. known to work "out-of-the-box"): =====
+===== Units that considered supported in the stable version (eg. known to work "out-of-the-box"): =====
 
  * Asus WL-500B (version 1.0)
  * Asus WL-500G
  * Buffalo WBR-G54
- * Buffalo WBR2-G54
+ * Buffalo WBR2-G54 (check the hardware notes)
  * Buffalo WLA-G54
+ * Buffalo WLA2-G54L (check the hardware notes)
  * Linksys WAP54G (version 1.0)
  * Linksys WRT54G (version 1.0, 1.1, and 2.0)
  * Linksys WRT54GS (version 1.0)
  * Siemens SE505
+
+===== Additional units supported in the experimental version: =====
+
+ * Linksys WRT54G (version 2.2 and 3.0)
+ * Linksys WRT54GS (version 1.1 and 2.0)
+ * Motorola WR850G
+
 
 ===== Units that should work: (untested) =====
 
@@ -42,7 +50,6 @@ You can find more information about many of these models on their own pages, lis
  * Buffalo WLA-G54C
  * Buffalo WLA2-G54
  * Buffalo WLA2-G54C
- * Buffalo WLA2-G54L
  * Buffalo WLI2-TX1-G54
  * Buffalo WZR-RS-G54
  * Dell TrueMobile 2300 ([http://openwrt.org/forum/viewtopic.php?t=833 more info])
@@ -50,7 +57,6 @@ You can find more information about many of these models on their own pages, lis
  * Linksys WRT54GX
  * Motorola WA840G
  * Motorola WA840GP
- * Motorola WR850G
  * Motorola WR850GP
  * Netgear WG602 (version 3)
  * Netgear FWAG114NA ([http://www.tomsnetworking.com/Reviews-55-ProdID-FWAG114-2.php Toms Networking Review])
@@ -68,10 +74,7 @@ You can find more information about many of these models on their own pages, lis
 
  * Asus WL-500G Deluxe (aka WL-500GD)
  * Belkin F5D7230-4 -- only 2M of flash
- * Linksys WRT54G (version 2.2 and 3.0) (works with experimental)
- * Linksys WRT54GS (version 1.1 and 2.0) (works with experimental)
  * Netgear WGT634U
- * Linksys WAG54G (untested)
 
 ===== Hardware Notes =====
 [[PageList(OpenWrtDocs/Hardware)]]
