@@ -1,11 +1,30 @@
 #acl Known:read,write All:read
-##   
+##
 ## Note: these pages document the firmware itself, not packages
 ##       questions/comments should be posted to the forum
-##        
+##
 [:OpenWrtDocs]
 [[TableOfContents]]
-= Recovering from bad firmware / Shorting the pins =
+= Recovering from bad firmware / Shorting the pins... =
+... doesn't always help!
+I have a Black-Blue-Brick whiches ceased to be a WRT54GS-Router. I guess i tried everything includung the procedure below below, with no success whatsoever. Since this behaviour moves you far (in words: F A R !!!) beyond warranty, it is disputable if this should be recommended. Especially since there is an alternative that Linksys suggest :(didn't help me either):
+ 1. Disconnect your brick from everything
+ 1. Connect your PC to one of the LAN-Ports (supposedly)
+ 1. Setup your NIC to 10baseT-HD
+    in Linux you can do this using the mii-tool:
+    {{{
+mii-tool -R -F 10baseT-HD eth0 }}}
+ 1. Set your NIC to 192.168.1.50
+    Linux:
+    {{{
+ifconfig eth0 192.168.1.50 up }}}
+ 1. Connect power to your ''brick'' whilst you...
+ 1. ...press and hold Reset for 30 secs
+ 1. Ping to 192.168.1.1
+ 1. Hope for the best
+The '''great''' advantage is that you don't have fool about with that warranty sticker.
+[http://www.linksys.com/support/top10faqs/wrt54g/Red%20Diag%20or%20Power%20Light%20Blinking%20on%20the%20WRT54G.asp "You may want to look this up for yourself, for you doubt my words because you don't know me. Therefore you shouldn't trust me;)"]
+
 If you've followed our instructions and warnings you should have boot_wait set to on. With boot_wait on, each time the router boots you will have roughly 3 seconds to send a new firmware using tftp. Use a standard tftp client to send the firmware in binary mode to 192.168.1.1. Due to limitations in the bootloader, this firmware will have to be under 3MB in size.
 
 If you didn't set boot_wait, you'll have to open the router and short pins on the flash chip to recover.
