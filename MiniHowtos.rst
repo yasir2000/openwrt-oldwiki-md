@@ -75,6 +75,18 @@ dhcp-range=wlan,10.75.9.111,10.75.9.119,255.255.255.0,2h
 }}}
 You can then use the different "network-id" values with "dhcp-option" to customize the options your DHCP server will supply to your wired and wireless DHCP clients.
 
+for example
+{{{
+#set the default route for dhcp clients on the wlan side to 10.10.6.33
+dhcp-option=wlan,3,10.10.6.33
+#set the dns server for the dhcp clients on the wlan side to 10.10.6.33
+dhcp-option=wlan,6,10.10.6.33
+#set the default route for dhcp clients on the lan side to 10.10.6.1
+dhcp-option=lan,3,10.10.6.1
+#set the dns server for the dhcp clients on the lan side to 10.10.6.1
+dhcp-option=lan,6,10.10.6.1
+}}}
+
 --
 Nico
 
