@@ -140,4 +140,4 @@ now we just need someone to write a web interface for us, one that stores the ru
 
 * In Section 7
 
-"--to DestinationIP : Port" might be false. use --to-destination instead (mileage may vary, since syntax probably worked, but doesn't anymore)
+"--to DestinationIP : Port" might be false. use --to-destination instead (mileage may vary, since syntax probably worked, but doesn't anymore).
