@@ -62,6 +62,12 @@ if the root partition "/" is mounted rw, if not check again some minutes later. 
 mtd erase OpenWrt
 }}} and reboot, wait some time to let firstboot do its work and check again with {{{ mount }}}. 
 
+In some cases firstboot might not execute, or execute properly. To check this run
+"@OpenWrt:/# df".
+If the result of this command shows that /dev/mtdblock/4 is mounted on "/jffs", then you probably have this problem.
+Rectify this by running "firstboot".
+Now /dev/mtdblock/4 should be mounted at "/".
+
 = Logging in after that =
 
 telnet to 192.168.1.1 and you're away.
