@@ -6,7 +6,7 @@ The wireless NIC is a mini-PCI card. boot_wait is on by default.
 You can not configure the network switch to use different IP configurations for every LAN port.
 There are two network cards integrated, one for the 4 LAN ports and one for the WAN port. 
 For flashing you can use the following shellscript:
-
+{{{
 #!/bin/bash
 
 # recovery script for wl500g
@@ -45,3 +45,4 @@ echo -en "get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null\nquit\n" | tftp 192.168.1.
 echo Recovering 192.168.1.1 using $1...
 echo -en "binary\nput $1 ASUSSPACELINK\nquit\n" | tftp 192.168.1.1
 echo Please wait until leds stops flashing.
+}}}
