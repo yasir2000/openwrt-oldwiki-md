@@ -46,7 +46,7 @@ The router does not boot directly into the firmware, instead it boots into a pro
 
 First, for this to work the '''internet port must have a valid ip address''', either from dhcp or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
 
-/!\ '''Linksys' 3.37.6 patches the ping.asp bug; downgrading to 3.37.2 is required before the following will work:'''
+/!\ '''Linksys' 3.37.6 patches the ping.asp bug; downgrading to 3.37.2  is required before the following will work. Old firmware is available at [ftp://ftp.linksys.com/pub/network/]'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
