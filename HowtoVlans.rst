@@ -40,3 +40,8 @@ admcfg [<port> [option]]
             PVID:X - set the primary vlan id
 
             vlanX - set the vlan mappings 
+
+
+So, in theory, a command like `admcfg port0 TAG` should enable VLAN tagging on our trunk, then it would just be a matter of resetting some nvram values, or, as a safer alternative, using the admcfg utility to set which ports are members of which vlans.
+
+When using admcfg in startup scripts, I read a rather good suggestion of setting a delay of 1 minute before making changes. This way, if you typo or put in some really odd config (or forget your config), you can powercycle your wrt and attempt to salvage it in the first 60 seconds.
