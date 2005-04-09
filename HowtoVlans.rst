@@ -1,5 +1,7 @@
 = Howto: VLANS on the WRT54G =
 
+'''Request for help!''' I have been searching for a copy of the admcfg source, and have yet to find it. The only documentation I found was in google's cache, unfortunately google doesn't seem to cache tgz files. Please email be if you know where I can get a copy: bhook(at)kssb(dot)net.
+
 == Intro ==
 The author of this Howto had a need to use VLAN support to keep wifi and wired traffic separate on his network. There are other, more reliable ways of achieving this, but none came anywhere close in cost to using a WRT. Even a small name-brand switch that supports VLANs will run you a fairly high price.
 
