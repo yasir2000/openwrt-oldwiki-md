@@ -36,6 +36,12 @@ WRT54G V2.x/WRT54GS V1.x
   WAN=vlan1
   WIFI=eth1
 
+ASUS WL-500g
+  WAN=eth0
+  LAN=eth1
+  WIFI=eth2
+(LAN and WIFI are bridged together in br0 by default)
+
 (please update to include other models)
 }}}
 
