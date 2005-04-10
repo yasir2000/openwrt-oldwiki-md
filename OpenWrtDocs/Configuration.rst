@@ -22,6 +22,8 @@ nvram unset foo; Delete a variable
 nvram commit; Write changes to the flash chip (otherwise only stored in RAM)
 }}}
 
+A complete list of nvram options can be found at [:OpenWrtNVRAM].
+
 = Network configuration =
 
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
