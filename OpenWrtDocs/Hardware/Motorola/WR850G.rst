@@ -54,3 +54,5 @@ The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
  * Type in: nvram set boot_wait=on
  * Type in: nvram commit
  * Reboot and do tftp. 
+
+/!\ Some users report that boot wait only functions for one reboot after setting it from the web interface.
