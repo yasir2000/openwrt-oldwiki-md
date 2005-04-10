@@ -12,6 +12,8 @@ The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
 
 Note: In at least one (feagle814's) WR850G v2, there is only 16mb of RAM onboard.  DO NOT try the 32mb enablement hack on the WR850G v2 without first verifying how much RAM you have!
 
+ISSI IS42S16400B1-7T is a 16MB chip.
+
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
 
@@ -20,7 +22,12 @@ The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
  * Download the motorola bin from ["downloads/experimental"].
  * If you want, you can enable boot_wait by going to /frameDebug.asp and typing the necessary commands.
  * Upload the firmware to the router via the Upgrade Firmware page.
+ * If you are not able to connect to your router through the LAN port after flashing try connecting using wireless or the WAN port.  You may want to set a static IP on the WAN port before flashing in case you need to connect to the router over that port.
  * Enjoy!
+
+/!\ You may need to rename the .bin file to .trx to flash your WR850G using the Motorola web interface.
+
+/!\ After flashing your router with the new firmware all of the features may not be functioning properly.  If you are having problems with features not working properly or not working at all try resetting the NVRAM. ["OpenWrtDocs/Configuration"]
 
 === How to put OpenWRT (non-experimental) on a Motorola WR850G ===
 
@@ -39,3 +46,11 @@ The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
  * Enjoy!
 
 /!\ Until a proper bin for non-experimental is published, you have to have a serial console to be able to flash OpenWrt snapshots.
+
+=== How To Enable Boot Wait ===
+
+ * Reset router to default with  [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850G_4.03.exe firmware 4.03]
+ * Login to the router's web page and go to /frame_debug.asp
+ * Type in: nvram set boot_wait=on
+ * Type in: nvram commit
+ * Reboot and do tftp. 
