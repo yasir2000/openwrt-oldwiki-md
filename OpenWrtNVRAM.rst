@@ -7,7 +7,7 @@ There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVR
 ||'''Setting'''||'''Meaning/Purpose'''||
 ||'''*_ifname'''||The name of the interface which will be used for this category||
 ||'''*_ifnames'''||If the _ifname is a bridge (br0) then _ifnames is the interfaces to be bridged||
-||'''*_proto'''||''static'' or ''dhcp'', method used to configure the interface||
+||'''*_proto'''||''static'' or ''dhcp'', method used to configure the interface (options: ''none'', ''static'' and ''dhcp'')||
 ||'''*_ipaddr'''||IP address to use if _proto is static||
 ||'''*_netmask'''||netmask to use if _proto is static (X.X.X.X notation)||
 ||'''*_stp'''||Enable spanning tree if _ifname is a bridge (0 or 1)||
