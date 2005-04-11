@@ -2,6 +2,8 @@
 
 '''Request for help!''' I have been searching for a copy of the admcfg source, and have yet to find it. The only documentation I found was in google's cache, unfortunately google doesn't seem to cache tgz files. Please email be if you know where I can get a copy: bhook(at)kssb(dot)net.
 
+'''Answer:''' admcfg is obsolete and not portable across the various different hardware types. Please see [:OpenWrtDocs/Configuration#head-cdceb01bb26cc4c59c558d91f7d76c37c5318626: OpenWrtDocs/Configuration] for proper vlan setup.
+
 == Intro ==
 The author of this Howto had a need to use VLAN support to keep wifi and wired traffic separate on his network. There are other, more reliable ways of achieving this, but none came anywhere close in cost to using a WRT. Even a small name-brand switch that supports VLANs will run you a fairly high price.
 
