@@ -86,6 +86,12 @@ The basic procedure of using boot_wait is:
   * plug your router, while having the tftp client running and constantly probing for a connection
   * the tftp client will receive an ack from the bootloader and starts sending the firmware
 
+/!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transfered. DO NOT unplug the router, it will automatically reboot into the new firmware.''' OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off.
+
+||'''LED pattern'''||'''reason'''||
+||Solid power & DMZ||OpenWrt is booting or (if prolonged) has failed to boot, try [:OpenWrtDocs/Troubleshooting: failsafe mode]. (Usually caused by old/corrupt jffs2 data from a previous OpenWrt install)||
+||flashing power, slow flashing dmz||Error flashing / Corrupt firmware||
+
 The tftp commands might vary across different implementations. Here are two examples, netkid's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
 netkit's tftp commands:
