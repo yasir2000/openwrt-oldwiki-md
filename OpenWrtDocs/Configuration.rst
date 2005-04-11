@@ -219,3 +219,21 @@ wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space separated)
 (Note: All APs must be on the same wireless channel and share the same encryption settings)
 
 For security reasons, it's recommended that you leave wl0_lazywds off and use wl0_wds to control WDS access to your AP. wl0_wds functions as an access list of peers to accept connections from and peers to try to connect to; the peers will either need the mac address of your AP in their wl0_wds list, or wl0_lazywds enabled.
+
+
+== OpenWRT wireless bridge ==
+
+With 
+
+{{{
+nvram set wl0_mode=wet
+}}}
+
+you can use your AP/Router as a Bridge.
+
+This section is work in progress, please refer to the following docs:
+
+
+http://woz.gs/wifi/openwrtbridge.html
+
+http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
