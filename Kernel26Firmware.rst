@@ -8,15 +8,15 @@ This page is dedicated to the creation of a experimental 2.6 kernel release.
 
 == TODO in order of priority ==
 
- * '''A linux userspace boot loader'''
+ * '''A linux userspace boot loader [MipsExec]'''
 
- It would be nice if we could do something like '''linexec params.txt''' on the command prompt without the need for reflashing.
+ It would be nice if we could do something like '''mipsexec params.txt''' (with kernelimage and initrd files) on the command prompt without the need for reflashing.
 
  * '''A kernel26 development tree in CVS'''
 
  I would suggest asking the hh.org people on [http://handhelds.org/cgi-bin/cvsweb.cgi/linux/kernel26/]
 
- * '''Setup of a basic stucture for broadcom architecture'''
+ * '''Setup of a basic stucture for broadcom architecture [LinuxMipsCodingGuidelines]'''
 
  arch/mips/mips-boards/broadcom/platform-asus.c ...
 
