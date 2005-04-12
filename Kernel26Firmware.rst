@@ -1,6 +1,6 @@
 = Linux 2.6 Firmware Page =
 
-This page is dedicated to the creation of a experimental 2.6 kernel release.
+This page is dedicated to the creation of an experimental 2.6 kernel release.
 
 == Finished tasks ==
 
