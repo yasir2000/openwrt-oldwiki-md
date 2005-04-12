@@ -32,6 +32,8 @@ To get started, click a link below.
    1. Recovering from bad firmware / Shorting the pins
    2. Fixing a broken script / Failsafe mode
    3. Fixing NVRAM
+[:OpenWrtDocs/Development: Developing OpenWrt]
+   1. [:Kernel26Firmware: Experimental 2.6 release]
 
 [:Glossary]
 ----
