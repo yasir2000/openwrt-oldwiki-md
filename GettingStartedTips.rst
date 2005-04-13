@@ -113,12 +113,12 @@ for(idx in rule) {
     if (pts[2] == "off") continue
     if (pts[3] == "udp" || pts[3] == "both") {
         #print "#___udp for " pts[1]
-        print IPT " -A FORWARD -p udp -s " NATIP wtf[2] "-d " EXTIP " --dport " pts[4]":"wtf[1] " -j ACCEPT"
+        print IPT " -A FORWARD -p udp -d " NATIP wtf[2] " --dport " pts[4]":"wtf[1] " -j ACCEPT"
         print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to-destination " NATIP wtf[2] ":" pts[4]"-"wtf[1] 
     }
     if (pts[3] == "tcp" || pts[3] == "both") {
         #print "#___tcp for " pts[1]
-        print IPT " -A FORWARD -p tcp -s " NATIP wtf[2] " -d " EXTIP " --dport " pts[4]":"wtf[1] " -j ACCEPT" 
+        print IPT " -A FORWARD -p tcp -d " NATIP wtf[2] " --dport " pts[4]":"wtf[1] " -j ACCEPT" 
         print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to-destination " NATIP wtf[2] ":" pts[4]"-"wtf[1]
     }
 }
@@ -140,10 +140,11 @@ mirc:on:tcp:2000:2010>103 vnc:on:tcp:5800:5909>103
 would be parsed like this
 
 root@gumpnix:~# nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF=$(nvram get wan_ifname)
-/usr/sbin/iptables -A FORWARD -p tcp -s 192.168.1.103 -d 0.0.0.0 --dport 2000:2010 -j ACCEPT
+/usr/sbin/iptables -A FORWARD -p tcp -d 192.168.1.103 --dport 2000:2010 -j ACCEPT
 /usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 2000:2010 -j DNAT --to-destination 192.168.1.103:2000-2010
-/usr/sbin/iptables -A FORWARD -p tcp -s 192.168.1.103 -d 0.0.0.0 --dport 5800:5909 -j ACCEPT
+/usr/sbin/iptables -A FORWARD -p tcp -d 192.168.1.103 --dport 5800:5909 -j ACCEPT
 /usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 5800:5909 -j DNAT --to-destination 192.168.1.103:5800-5909
+
 
 
 isnt that cool :)
@@ -160,10 +161,11 @@ eval nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN
 should show output like this
 
 root@gumpnix:~# eval nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF="$WAN"
-/usr/sbin/iptables -A FORWARD -p tcp -s 192.168.1.103 -d 0.0.0.0 --dport 2000:2010 -j ACCEPT
+/usr/sbin/iptables -A FORWARD -p tcp -d 192.168.1.103 --dport 2000:2010 -j ACCEPT
 /usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 2000:2010 -j DNAT --to-destination 192.168.1.103:2000-2010
-/usr/sbin/iptables -A FORWARD -p tcp -s 192.168.1.103 -d 0.0.0.0 --dport 5800:5909 -j ACCEPT
+/usr/sbin/iptables -A FORWARD -p tcp -d 192.168.1.103 --dport 5800:5909 -j ACCEPT
 /usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 5800:5909 -j DNAT --to-destination 192.168.1.103:5800-5909
+
 
 }}}
 it goes immediately after the '''$IPT -t filter -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT''' line.
