@@ -102,7 +102,6 @@ and to get the NATIP look at how you have your network setup and look at them fr
 {
 # modified by gumpy
 NATIP="192.168.1." # nat ip here up to the last period look at the example
-EXTIP="0.0.0.0" # put your external ip here 
 IPT="/usr/sbin/iptables"
 
 split($0, rule)
