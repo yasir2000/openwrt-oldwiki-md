@@ -100,9 +100,9 @@ ifconfig vlan1 | grep inet | awk '{print $2}' | sed 's/addr://g' <- replace vlan
 and to get the NATIP look at how you have your network setup and look at them from left to right to the last period 192.168.1. or 192.168.0. are 2 examples. and put that in the NATIP 
 {{{
 {
-# modified by gumpy
-NATIP="192.168.1." # nat ip here up to the last period look at the example
+
 IPT="/usr/sbin/iptables"
+LANSUBNET=gensub(/[0-9]+/, "", 4, LANIP)
 
 split($0, rule)
 for(idx in rule) {
@@ -112,19 +112,19 @@ for(idx in rule) {
     if (pts[2] == "off") continue
     if (pts[3] == "udp" || pts[3] == "both") {
         #print "#___udp for " pts[1]
-        print IPT " -A FORWARD -p udp -d " NATIP wtf[2] " --dport " pts[4]":"wtf[1] " -j ACCEPT"
-        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to " NATIP wtf[2]  
+        print IPT " -A FORWARD -p udp -d " LANSUBNET wtf[2] " --dport " pts[4]":"wtf[1] " -j ACCEPT"
+        print IPT " -A PREROUTING -t nat -p udp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to " LANSUBNET wtf[2]  
     }
     if (pts[3] == "tcp" || pts[3] == "both") {
         #print "#___tcp for " pts[1]
-        print IPT " -A FORWARD -p tcp -d " NATIP wtf[2] " --dport " pts[4]":"wtf[1] " -j ACCEPT" 
-        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to " NATIP wtf[2] }
+        print IPT " -A FORWARD -p tcp -d " LANSUBNET wtf[2] " --dport " pts[4]":"wtf[1] " -j ACCEPT" 
+        print IPT " -A PREROUTING -t nat -p tcp -i " WANIF " --dport " pts[4]":"wtf[1] " -j DNAT --to " LANSUBNET wtf[2] }
 }
 }
 }}}
 save that as forward_port.awk and then run this:
 {{{
-nvram get forward_port | awk -f forward_port.awk -v WANIF=$(nvram get wan_ifname)
+nvram get forward_port | awk -f forward_port.awk -v WANIF=$(nvram get wan_ifname) -v LANIP=$(nvram get lan_ipaddr)
 }}}
 That will print the iptables cmdlines to the screen, if you want to paste them somewhere
 
@@ -136,7 +136,7 @@ mirc:on:tcp:2000:2010>103 vnc:on:tcp:5800:5909>103
 
 would be parsed like this
 
-root@gumpnix:~# nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF=$(nvram get wan_ifname)
+root@gumpnix:~# nvram get forward_port | awk -f /etc/init.d/forward_port.awk -v WANIF=$(nvram get wan_ifname) -v LANIP=$(nvram get lan_ipaddr)
 /usr/sbin/iptables -A FORWARD -p tcp -d 192.168.1.103 --dport 2000:2010 -j ACCEPT
 /usr/sbin/iptables -A PREROUTING -t nat -p tcp -i vlan1 --dport 2000:2010 -j DNAT --to 192.168.1.103
 /usr/sbin/iptables -A FORWARD -p tcp -d 192.168.1.103 --dport 5800:5909 -j ACCEPT
