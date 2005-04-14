@@ -100,7 +100,6 @@ ifconfig vlan1 | grep inet | awk '{print $2}' | sed 's/addr://g' <- replace vlan
 and to get the NATIP look at how you have your network setup and look at them from left to right to the last period 192.168.1. or 192.168.0. are 2 examples. and put that in the NATIP 
 {{{
 {
-
 IPT="/usr/sbin/iptables"
 LANSUBNET=gensub(/[0-9]+/, "", 4, LANIP)
 
