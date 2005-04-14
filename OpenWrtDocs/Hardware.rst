@@ -2,7 +2,7 @@
 ##
 ## Note: questions/comments should be posted to the forum
 ##
-'''OpenWRT will run on every Broadcom 47xx/53xx based hardware, although some tweaking may be involved.'''
+'''OpenWRT will run on every Broadcom 47xx/53xx based board which features a MIPS CPU, although some tweaking may be involved.'''
 
 ==== How can I identify which hardware I have? ====
 ===== Linksys models =====
