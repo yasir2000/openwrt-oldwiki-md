@@ -23,7 +23,7 @@ The LAN settings used are:
 ||'''lan_ipaddr'''||LAN IP Address to be used for the 4 port switch and the wireless. This is the internal IP of the router.||
 ||'''lan_netmask'''||The Netmask (255.255.255.0 format) for the LAN IP you have assigned.||
 ||'''lan_stp'''||Whether or not to enable Spanning Tree Protocol on the bridge device (bridging the wireless and LAN segments) (0 (default) or 1)||
-||'''lan_gateway''||The IP address of the LAN gateway.||
+||'''lan_gateway'''||The IP address of the LAN gateway.||
 
 == WAN Configuration ==
 The WAN settings used are:
@@ -74,14 +74,14 @@ Although the wifi_* variables can be used to configure the network settings of t
 
 For WPA:
 (See ["OpenWrtFaq"] on how to enable WPA on current snapshots)
-||'''security_mode'''||disabled,radius,wpa,psk,wep||
-||'''wl0_auth_mode'''||radius,wpa,psk||
+||'''security_mode'''||''disabled,radius,wpa,psk,wep''||
+||'''wl0_auth_mode'''||''radius,wpa,psk''||
 ||'''wl_wpa_psk'''||WPA pre-shared key||
 ||'''wl_wpa_gtk_rekey'''||WPA GTK rekey interval||
 (Broken?, unsupported?... But in the Linksys code!)
 ||'''wl_radius_ipaddr'''|| ||
 ||'''wl_radius_key'''|| ||
-||'''wl_radius_port'''||Default value: 1812||
+||'''wl_radius_port'''||Default value: ''1812''||
 
 
 For WEP:
@@ -91,9 +91,9 @@ For WEP:
 
 
 For WDS:
-||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(1=enable / 0=disable)||
+||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(''1=enable / 0=disable'')||
 ||'''wl0_wds'''||Space separated list of WDS member MAC addresses (xx:xx:xx:xx:xx:xx notation)||
-'''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must not be in afterburner (6) mode (apparently no linksys speedboost is available for WDS clients).  Also, '''wl0_mode''' should be set to ap.
+'''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must not be in afterburner (6) mode (apparently no linksys speedboost is available for WDS clients).  Also, '''wl0_mode''' should be set to ''ap''.
 
 See [wlconf] for more information on the settings used by the ["wlconf"]/wifi commands
 == VLAN Settings ==
