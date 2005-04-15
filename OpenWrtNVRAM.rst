@@ -94,7 +94,9 @@ For WEP:
 For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(''1=enable / 0=disable'')||
 ||'''wl0_wds'''||Space separated list of WDS member MAC addresses (xx:xx:xx:xx:xx:xx notation)||
+||'''wl_wds'''||Someone please tell||
 '''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must not be in afterburner (6) mode (apparently no linksys speedboost is available for WDS clients).  Also, '''wl0_mode''' should be set to ''ap''.
+
 
 See [wlconf] for more information on the settings used by the ["wlconf"]/wifi commands
 == VLAN Settings ==
