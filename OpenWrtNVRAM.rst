@@ -3,7 +3,7 @@
 == General Settings ==
 The WRT54G requires LAN and WAN settings at the least to properly boot. The specific settings/names are listed below, but this a bit of an overview:
 
-There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVRAM variables are NONSTANDARD, intended to be used when lan_ifnames doesn't bridge lan and wireless. Most people should leave the wifi_* variables unset)]]. For each one of these categories you may set the following variables (ie lan_ifname, wan_ifname, wifi_ifname)
+There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVRAM variables are NONSTANDARD, intended to be used when lan_ifnames doesn't bridge lan and wireless. Most people should leave the wifi_* variables unset)]]. For each one of these categories you may set the following variables (ie lan_ifname, wan_ifname, wifi_ifname)wl0_key
 ||'''Setting'''||'''Meaning/Purpose'''||
 ||'''*_ifname'''||The name of the interface which will be used for this category||
 ||'''*_ifnames'''||If the _ifname is a bridge (br0) then _ifnames is the interfaces to be bridged||
@@ -69,12 +69,13 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_dtim'''||Set DTIM period (default 1)||
 ||'''wl0_bcn'''||Set beacon period (default 100)||
 ||'''wl0_frameburst'''||(on/off) enable/disable frameburst||
-||'''wl0_antdiv'''||Select antenna (-1=auto, 0=main[near power jack], 1=aux[near reset button], 3=diversity)||
+||'''wl0_antdiv'''||Select antenna (''-1=auto, 0=main''[near power jack]'', 1=aux''[near reset button]'', 3=diversity'')||
 ||'''wl0_ssid'''||Set the SSID of the Wrt54g||
 
 For WPA:
 (See ["OpenWrtFaq"] on how to enable WPA on current snapshots)
 ||'''security_mode'''||''disabled,radius,wpa,psk,wep''||
+||'''security_mode_last'''||someone please explain :)||
 ||'''wl0_auth_mode'''||''radius,wpa,psk''||
 ||'''wl_wpa_psk'''||WPA pre-shared key||
 ||'''wl_wpa_gtk_rekey'''||WPA GTK rekey interval||
@@ -86,8 +87,8 @@ For WPA:
 
 For WEP:
 ||'''wl0_wep'''||on/off (In experimental, use enabled/disabled instead)||
-||'''wl0_key1 ... wl0_key4'''||WEP keys (example: wl0_key1=DEADBEEF12)[[FootNote(64bit/128bit wep is autodetected by ''wlconf'' based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
-||'''wl0_key'''||primary key index||
+||'''wl0_key1 ... wl0_key4'''||WEP keys (example: ''wl0_key1=DEADBEEF12'')[[FootNote(64bit/128bit wep is autodetected by ''wlconf'' based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
+||'''wl0_key'''||primary key index: the wl0_key[1234] used (values: ''1'',''2'',''3'',''4'')||
 
 
 For WDS:
