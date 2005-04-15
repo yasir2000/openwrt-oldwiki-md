@@ -63,10 +63,11 @@ You can find more information about many of these models on their own pages, lis
  * Motorola WA840G
  * Motorola WA840GP
  * Motorola WR850GP
- * Netgear FWAG114NA ([http://www.tomsnetworking.com/Reviews-55-ProdID-FWAG114-2.php Toms Networking Review])
+ * Netgear FWAG114NA ([http://www.tomsnetworking.com/Reviews-55-ProdID-FWAG114-2.php Tom's Networking Review])
  * Ravotek W54-AP
  * Ravotek W54-RT
  * Siemens SX550
+ * SimpleTech SimpleShare Office Storage Server 250GB ([http://www.tomsnetworking.com/Reviews-195-ProdID-STINAS250-1.php Tom's Networking Review])
  * Sitecom WL-111
  * Svec FD2164
  * Toshiba WRC-1000
