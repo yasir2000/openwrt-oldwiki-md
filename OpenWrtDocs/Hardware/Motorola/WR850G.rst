@@ -12,14 +12,14 @@ The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
 
 Note: In at least one (feagle814's) WR850G v2, there is only 16mb of RAM onboard.  DO NOT try the 32mb enablement hack on the WR850G v2 without first verifying how much RAM you have!
 
-ISSI IS42S16400B1-7T is a 16MB chip.
-
-G-Link GLT5640L16-6TC is a ??? chip.
+ISSI IS42S16400B1-7T is a 16MB chip.  Your router may have two of these (check the bottom of the PCB for the second one.)  If you have two you have a 32MB model.
 
 The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connector.  
 
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
+
+G-Link GLT5640L16-6TC is a 8MB chip.  Your router should have two of these.  Check the bottom of the PCB for the second one.
 
 The WR850G v3 version is housed in black pastic and has a hard wired non removable (without desoldering) antenna.
 
