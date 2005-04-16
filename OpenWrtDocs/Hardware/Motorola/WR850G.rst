@@ -16,10 +16,12 @@ ISSI IS42S16400B1-7T is a 16MB chip.
 
 G-Link GLT5640L16-6TC is a ??? chip.
 
-There are at least two versions of the WR850G v2.  One version is housed in gray plastic and sports a reverse SMA antenna connector.  The other version is housed in black pastic and has a hard wired non removable (without desoldering) antenna.
+The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connector.  
 
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
+
+The WR850G v3 version is housed in black pastic and has a hard wired non removable (without desoldering) antenna.
 
 === How to put OpenWRT Experimental edition on a Motorola WR850G ===
 
