@@ -45,6 +45,9 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wifi_ipaddr'''||IP address to use if wifi_proto is static||
 ||'''wifi_netmask'''||netmask to use if wifi_proto is static (X.X.X.X notation)||
 
+
+'''Note:''' There are wl_* and wl0_* variables; the wl_* variables are obsoleted and were replaced by wl0_*.
+
 ||'''NVRAM Setting'''||'''Meaning'''||
 ||'''wl0_ifname'''||Set by wlconf to the name of the ethernet interface (eth1, eth2)||
 ||'''wl0_hwaddr'''||Set by wlconf, use il0macaddr to change the mac||
@@ -77,12 +80,12 @@ For WPA:
 ||'''security_mode'''||''disabled,radius,wpa,psk,wep''||
 ||'''security_mode_last'''||someone please explain :)||
 ||'''wl0_auth_mode'''||''radius,wpa,psk''||
-||'''wl_wpa_psk'''||WPA pre-shared key||
-||'''wl_wpa_gtk_rekey'''||WPA GTK rekey interval||
+||'''wl0_wpa_psk'''||WPA pre-shared key||
+||'''wl0_wpa_gtk_rekey'''||WPA GTK rekey interval||
 (Broken?, unsupported?... But in the Linksys code!)
-||'''wl_radius_ipaddr'''|| ||
-||'''wl_radius_key'''|| ||
-||'''wl_radius_port'''||Default value: ''1812''||
+||'''wl0_radius_ipaddr'''|| ||
+||'''wl0_radius_key'''|| ||
+||'''wl0_radius_port'''||Default value: ''1812''||
 
 
 For WEP:
@@ -94,11 +97,8 @@ For WEP:
 For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(''1=enable / 0=disable'')||
 ||'''wl0_wds'''||Space separated list of WDS member MAC addresses (xx:xx:xx:xx:xx:xx notation)||
-||'''wl_wds'''||Someone please tell||
 '''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must not be in afterburner (6) mode (apparently no linksys speedboost is available for WDS clients).  Also, '''wl0_mode''' should be set to ''ap''.
 
-
-See [wlconf] for more information on the settings used by the ["wlconf"]/wifi commands
 == VLAN Settings ==
 Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
 
