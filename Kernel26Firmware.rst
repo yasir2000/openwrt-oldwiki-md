@@ -26,4 +26,4 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
  * '''A 2.6 port of the wlan driver.'''
 
- I dont know if this requires considerable reverse engineering. Some guys are doing reverse engineering on this broadcom driver, but I cannot find infos on the net...
+ I dont know if this requires considerable reverse engineering. Some guys are doing reverse engineering on this broadcom driver, but I cannot find infos on the net... (maybe you mean this project: [http://sourceforge.net/projects/linux-bcom4301/])
