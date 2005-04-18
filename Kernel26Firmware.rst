@@ -24,11 +24,11 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
  This should be relatively straight forward considering we have the source for the '''et''' module.
  See: [http://funke.lo-res.org/linksys/]
- Probably the ethernet part could also be merged or forked off using the regular b44 driver.
+ Probably for the ethernet part we could also copy or reuse the regular '''b44''' driver code.
 
  * '''A 2.6 port of the wlan driver.'''
 
- I dont know if this requires considerable reverse engineering. Some guys are doing reverse engineering on this broadcom driver, but I cannot find infos on the net... (maybe you mean this project: [http://sourceforge.net/projects/linux-bcom4301/])
+ There is already a very promising Broadcom Wlan driver project at [http://sourceforge.net/projects/linux-bcom4301/].
 
 == A more specific TODO ==
 
