@@ -12,6 +12,7 @@
  * [:support] How to get help and support
  * [:forum] Visit the forums
  * [http://nthill.free.fr/openwrt/tracker/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
+ * Without 2.6 support there's no future, help us on [:Kernel26Firmware]
 
 '''Howtos''' [[FullSearch(Howto)]]
 ----
