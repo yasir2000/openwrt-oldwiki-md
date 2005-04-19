@@ -9,7 +9,7 @@ Please keep in mind that for now we can't control the leds.
 
 /!\ '''This router sits on 192.168.11.1 as default, but flashable always on the last IP You have set up, so You have to TFTP to that address.'''
 
-
+----
 4 Mb Flash Memory from STMicroelectronics :
 M29DW324DB
 
@@ -22,9 +22,15 @@ C Source Driver
 Application Note for Source Driver
  http://www.st.com/stonline/books/pdf/docs/9656.pdf
 
-
+----
 EM638165TS SDRAM from EtronTechnology
 More info:
  http://www.etron.com/sdram.htm
 Product Guide:
- http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev 201.8).pdf
+ ["http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev 201.8).pdf"]
+
+----
+ADM6996L Ethernet Switch from Infineon:
+
+The Infineon-ADMtek ADM6996L is a high performance, low cost, highly integration (Controller, PHY and Memory) five-port 10/100 Mbps TX/FX plus one 10/100 MAC port Ethernet switch controller.
+ ["http://www.infineon.com/cgi/ecrm.dll/ecrm/scripts/search/advanced_search_result.jsp?queryString=ADM6996&x=0&y=0"]
