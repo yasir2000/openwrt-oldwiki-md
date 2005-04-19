@@ -14,17 +14,17 @@ Please keep in mind that for now we can't control the leds.
 M29DW324DB
 
 More info
-http://www.st.com/stonline/products/families/memories/fl_nor/drivers.htm
+ http://www.st.com/stonline/products/families/memories/fl_nor/drivers.htm
 
 C Source Driver
-http://www.st.com/stonline/products/families/memories/fl_nor/drivers/1588q1_2.zip
+ http://www.st.com/stonline/products/families/memories/fl_nor/drivers/1588q1_2.zip
 
 Application Note for Source Driver
-http://www.st.com/stonline/books/pdf/docs/9656.pdf
+ http://www.st.com/stonline/books/pdf/docs/9656.pdf
 
 
 EM638165TS SDRAM from EtronTechnology
 More info:
  http://www.etron.com/sdram.htm
 Product Guide:
-http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev%201.8).pdf
+ http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev 201.8).pdf
