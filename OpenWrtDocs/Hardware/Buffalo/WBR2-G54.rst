@@ -24,5 +24,7 @@ http://www.st.com/stonline/books/pdf/docs/9656.pdf
 
 
 EM638165TS SDRAM from EtronTechnology
-More info: http://www.etron.com/sdram.htm
-Product Guide:http://www.etron.com/img/pdf/SDRAM/64Mb/4Mx16/638165.pdf
+More info:
+ http://www.etron.com/sdram.htm
+Product Guide:
+http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev%201.8).pdf
