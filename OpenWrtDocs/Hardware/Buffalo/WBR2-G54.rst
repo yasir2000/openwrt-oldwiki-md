@@ -27,10 +27,10 @@ EM638165TS SDRAM from EtronTechnology
 More info:
  http://www.etron.com/sdram.htm
 Product Guide:
- ["http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev 201.8).pdf"]
+ http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev 201.8).pdf
 
 ----
 ADM6996L Ethernet Switch from Infineon:
 
 The Infineon-ADMtek ADM6996L is a high performance, low cost, highly integration (Controller, PHY and Memory) five-port 10/100 Mbps TX/FX plus one 10/100 MAC port Ethernet switch controller.
- ["http://www.infineon.com/cgi/ecrm.dll/ecrm/scripts/prod_ov.jsp?oid=52869"]
+ http://www.infineon.com/cgi/ecrm.dll/ecrm/scripts/prod_ov.jsp?oid=52869
