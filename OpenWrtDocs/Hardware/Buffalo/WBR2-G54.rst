@@ -33,4 +33,4 @@ Product Guide:
 ADM6996L Ethernet Switch from Infineon:
 
 The Infineon-ADMtek ADM6996L is a high performance, low cost, highly integration (Controller, PHY and Memory) five-port 10/100 Mbps TX/FX plus one 10/100 MAC port Ethernet switch controller.
- ["http://www.infineon.com/cgi/ecrm.dll/ecrm/scripts/search/advanced_search_result.jsp?queryString=ADM6996&x=0&y=0"]
+ ["http://www.infineon.com/cgi/ecrm.dll/ecrm/scripts/prod_ov.jsp?oid=52869"]
