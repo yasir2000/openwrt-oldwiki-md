@@ -21,3 +21,8 @@ http://www.st.com/stonline/products/families/memories/fl_nor/drivers/1588q1_2.zi
 
 Application Note for Source Driver
 http://www.st.com/stonline/books/pdf/docs/9656.pdf
+
+
+EM638165TS SDRAM from EtronTechnology
+More info: http://www.etron.com/sdram.htm
+Product Guide:http://www.etron.com/img/pdf/SDRAM/64Mb/4Mx16/638165.pdf
