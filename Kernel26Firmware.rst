@@ -20,6 +20,31 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
  arch/mips/mips-boards/broadcom/platform-asus.c ...
 
+ * '''Find out if we can use the SOC abstraction layer for Silicon Backplane'''
+
+ Comments by andy (linux-mips mailing list):
+
+ The Silicon Backplane bus actually came from another company, it wasn't
+ defined by Broadcom; google knows all: [http://www.ocpip.org/socket/adoption/sonics]
+ 
+ I think there are other OCP busses supported in the kernel; ISTR seeing
+ some PPC SoC from IBM that uses OCP... so perhaps this should be brought
+ up on l-k for general discussion.
+ 
+ But it's challenging to come up with a useful abstraction that covers
+ both the b44 scenario and the SoC scenario.
+
+   - for b44, OCP is on the far side of the PCI bus, and is used only to
+     access a single core (ethernet MAC).
+ 
+   - for bcm947xx (and ppc SoC, I guess), OCP is the system bus, and is
+     used to access everything from PCI to DRAM.
+ 
+ grep grep grep... Take a look at include/asm-ppc/ocp.h and arch/ppc/platforms/*.c, it looks like the PowerPC people have already done a bunch of work here.
+
+ Also of interest may be the new SOC abstraction on the hh.org branch, see [http://handhelds.org/cgi-bin/cvsweb.cgi/linux/kernel26/Documentation/soc.txt]
+
+
  * '''A 2.6 port of the ethernet/switch driver.'''
 
  This should be relatively straight forward considering we have the source for the '''et''' module.
@@ -32,7 +57,7 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
 == A more specific TODO ==
 
-The idea is here merge the Broadcom stuff with the linux-mips kernel. Here's a quick comparison with some specific hints on how to migrate.
+The idea is here merge the Broadcom stuff with the linux-mips kernel. Here's a quick comparison, on file level, with some specific hints on how to migrate.
 
 {{{
 Files found in the openwrt distribution and not in the linux-mips-2.6 distro
@@ -65,21 +90,7 @@ correct. So please feel free to fill in the blanks or make suggestions.
 > ./arch/mips/brcm-boards/generic/int-handler.S:4
 > ./arch/mips/brcm-boards/generic/gdb_hook.c:3
 
-- Migrate: Should we cluster this with the sibyte stuf? Probably
-there's some shared code....
-
-   so migrate dir structure from:
-        arch/mips/sibyte/cfe
-        arch/mips/sibyte/swarm
-        arch/mips/sibyte/sb1250
-   to:
-        arch/mips/broadcom/cfe
-                           sb1
-                           swarm
-                           sb1250
-                           bcm947xx
-                           generic
-
+- Migrate ...
 
 > ./drivers/net/hnd/bcmutils.c:3
 > ./drivers/net/hnd/hnddma.c:4
@@ -149,18 +160,4 @@ For example in arch/misp/xxxx/board-asus-500gx.c ../board-linksys-wrtxxx.c )
 
 > ./include/asm-mips/bootinfo.h:2
 - Update with BCM machine types...
-
-Silicon BackplaneeEthernet driver/API:
- It looks like most broadcom drivers (even the b44) use a broadcom specific
- bus. Maybe we could generalise this in a specific SiliconBackplane api.
-
-
-Ethernet driver and switch chip:
- see: [http://funke.lo-res.org/linksys/]
- Probably the ethernet part could be integrated or forked off using the regular
- b44 driver.
-
-Wlan driver:
- see: [http://cvs.sourceforge.net/viewcvs.py/linux-bcom4301/src/]
-
 }}}
