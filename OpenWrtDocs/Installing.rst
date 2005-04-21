@@ -78,6 +78,27 @@ CFE> nvram set boot_wait=on
 CFE> nvram get boot_wait           (just to confirm, should respond with "on")
 CFE> nvram commit                  (takes a few seconds to complete)
 }}}
+
+---- /!\ '''Edit conflict - other version:''' ----
+=== Setting boot_wait from a serial connection ===
+
+With a serial connection to your WRT, you don't have to use the ping bug or change your Linksys firmware. You can set boot_wait from the console, using the commands
+{{{
+#nvram set boot_wait=on
+#nvram get boot_wait           (just to confirm, should respond with "on")
+#nvram commit                  (takes a few seconds to complete)
+}}}
+
+You can also set boot_wait from the CFE boot loader (to enter CFE, reboot the router with "# reboot" while hitting "Ctrl C" continously)
+{{{
+CFE> nvram set boot_wait=on
+CFE> nvram get boot_wait           (just to confirm, should respond with "on")
+CFE> nvram commit                  (takes a few seconds to complete)
+}}}
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 == Using boot_wait to upload the firmware ==
 
 Although the firmware can be installed through more traditional means, we recommend that you use boot_wait for your first install. This will confirm boot_wait is correctly enabled and provide a firmware recovery experience without the stress of a broken router.
@@ -101,7 +122,7 @@ The basic procedure of using boot_wait is:
   * plug your router, while having the tftp client running and constantly probing for a connection
   * the tftp client will receive an ack from the bootloader and starts sending the firmware
 
-/!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transfered. DO NOT unplug the router, it will automatically reboot into the new firmware.''' OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off.
+/!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred. DO NOT unplug the router, it will automatically reboot into the new firmware.''' OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off.
 
 ||'''LED pattern'''||'''reason'''||
 ||Solid power & DMZ||OpenWrt is booting or (if prolonged) has failed to boot, try [:OpenWrtDocs/Troubleshooting: failsafe mode]. (Usually caused by old/corrupt jffs2 data from a previous OpenWrt install)||
