@@ -4,6 +4,8 @@
 == Dual-port serial modification ==
 If you want to add two serial ports to your Gv2 or GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial Port Mod] for thorough details.  This will enable you to have a serial port intended as a hardware serial console, as well as a serial port for a modem or other device.
 
+(Note that Rod's instructions are for the version 3 PCB in the AD233BK kit. The version 3 PCB mislabelled Cts and Rts, putting them around the wrong way. The version 4 labelling for the PCB is correct. Rod's instructions are correct for the version 3 PCB, but if you have a version 4 PCB, you will have to reverse Cts and Rts for your second serial port to work)
+
 To get decent, usable performance out of the second serial port, you need to install the setserial package and rebuild busybox to add the stty program. The following will get you a second port at maximum speed:
 {{{
 setserial /dev/tts/1 port 0xB8000400 irq 3
