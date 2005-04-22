@@ -49,7 +49,9 @@ nvram set wifi_ifname=eth1		#  "eth2" on hardware version 1
 
 This is the main command. It changes the WRT's behavior from AP to client, or station ("sta" for short):
 
-{{{nvram set wl0_mode=sta}}}
+{{{
+nvram set wl0_mode=sta
+}}}
 
 Then configure the interaces normally. For example, assuming the wifi interface uses DHCP and the LAN interface has the static IP address 192.168.1.1:
 
