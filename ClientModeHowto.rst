@@ -69,31 +69,44 @@ reboot}}}
 
 You can now scan for nearby access points.
 
-{{{wl scan ; sleep 1 ; wl scanresults}}}
+{{{
+wl scan ; sleep 1 ; wl scanresults
+}}}
 
 if you get an eth error, try 
 
-{{{wl ap 0}}}
+{{{
+wl ap 0
+}}}
 
 This will put it into client mode
 
 To join a non-encrypted access point you type:
 
-{{{wl join ssid}}}
+{{{
+wl join ssid
+}}}
 
 You can tell WRT to join the same SSID each time it boots by setting wl0_ssid:
 
-{{{nvram set wl0_ssid=MyNetwork}}}
+{{{
+nvram set wl0_ssid=MyNetwork
+}}}
 
 When you set an interface to DHCP, OpenWRT runs the DHCP client on that interface automatically at boot time. If you want to re-run the client, for example because you joined another ssid, you can reboot (assuming you also set wl0_ssid nvram variable), or you can run the udhcpc command:
 
-{{{udhcpc -i eth1 -b}}}
+{{{
+udhcpc -i eth1 -b
+}}}
 
 This will ask the network for an IP address over the interface eth1 (wifi in v2), and fork to the background if it gets no replies.
 
 The command wl manages the radio, and it's pretty powerful. Among many options (see them here: http://wifi-portal.elevate.nl/docs/wl.txt.). There are some  particulary interesting:
 
-{{{wl txpwr}}}: change the transmit power. Accepts a value between 0-255, which I've heard it's in mW, but don't know for sure. It's said that setting a high value here (above 84) will shorten the live of your radio to the point that setting it to 250 will make it last some months. Use this setting at your own risk.
+{{{
+wl txpwr
+}}}
+: change the transmit power. Accepts a value between 0-255, which I've heard it's in mW, but don't know for sure. It's said that setting a high value here (above 84) will shorten the live of your radio to the point that setting it to 250 will make it last some months. Use this setting at your own risk.
 
 {{{
 wl txant / wl antdiv
