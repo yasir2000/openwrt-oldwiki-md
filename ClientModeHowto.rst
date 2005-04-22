@@ -95,13 +95,25 @@ The command wl manages the radio, and it's pretty powerful. Among many options (
 
 {{{wl txpwr}}}: change the transmit power. Accepts a value between 0-255, which I've heard it's in mW, but don't know for sure. It's said that setting a high value here (above 84) will shorten the live of your radio to the point that setting it to 250 will make it last some months. Use this setting at your own risk.
 
-{{{wl txant / wl antdiv}}}: this commands will let you choose which antenna will be used to send and receive respectively. This is usually useful if you have replaced an antenna. 0 means main antenna (the one near the power plug) and 1 means the other antenna. 
+{{{
+wl txant / wl antdiv
+}}}
+: this commands will let you choose which antenna will be used to send and receive respectively. This is usually useful if you have replaced an antenna. 0 means main antenna (the one near the power plug) and 1 means the other antenna. 
 
-{{{wl status}}}: prints the current ssid, signal quality, channel... etc.
+{{{
+wl status
+}}}
+: prints the current ssid, signal quality, channel... etc.
 
-{{{wl dissasoc}}}: dissasociates from the current ssid
+{{{
+wl dissasoc
+}}}
+: dissasociates from the current ssid
 
-{{{wl rate}}}: sets/gets the speed rate. To set it to auto, use -1.
+{{{
+wl rate
+}}}
+: sets/gets the speed rate. To set it to auto, use -1.
 
 That's all what comes to my head now. If you have questions/comments about client mode write to switch at euskalnet.net.
 
