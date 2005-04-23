@@ -215,7 +215,7 @@ interface br0
 
 };
 }}}
-After wrting the prefix you use, start the daemon:
+After writing the prefix you use, start the daemon:
 {{{
 /etc/init.d/S51radvd start
 }}}
