@@ -12,10 +12,10 @@ It also describes how to setup :
 
 = Install necessary software =
 To use ipv6 we need the following modules:
- * The ipv6 kernel module (always)
+ * ipv6 kernel module (always)
  * ipv6 routing software (always, to configure ipv6 routing)
- * The ip6tables kernel modules (optional, if you need an ipv6 firewall)
- * ip6tables commandline tool (optional, to configure the ipv6 router)
+ * ip6tables kernel modules (optional, if you need an ipv6 firewall)
+ * ip6tables commandline tool (optional, to configure the ipv6 firewall)
 
 == Install the ipv6 kernel modules ==
 {{{
@@ -93,7 +93,7 @@ $IPT -A INPUT -p 41 -i $WAN -j ACCEPT
 You need to place it into the right position of your firewall script (eg: just after/before "$IPT -t filter -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
-== PPPD: 6to4 tunnel with dynamic ip address ==
+== PPP(oe): 6to4 tunnel with dynamic ip address ==
 When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
 {{{
 mkdir /etc/ppp
