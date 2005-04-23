@@ -40,6 +40,8 @@ OpenWrt is an unofficial firmware which is neither endorsed or supported by Link
 
 To avoid potentially serious damage to your router caused by an unbootable firmware we strongly suggest enabling a setting known as '''boot_wait'''.
 
+/!\ '''We strongly suggest you also read [:OpenWrtDocs/Troubleshooting] before installing'''
+
 == Enabling boot_wait ==
 
 The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below
@@ -48,7 +50,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 /!\ '''Linksys' 3.37.6 patches the ping.asp bug; downgrading to 3.37.2  is required before the following will work.'''
 
-/!\ '''Old firmware is available at [ftp://ftp.linksys.com/pub/network/]. These are ''official'' firmware images from LinkSys'''
+/!\ '''Old firmware is available at [ftp://ftp.linksys.com/pub/network/]. These are ''official'' firmware images from Linksys'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
