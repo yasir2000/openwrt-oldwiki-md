@@ -1,15 +1,13 @@
 = Preface =
-This howto first describes how to setup ipv6 on your openwrt based router. 
+This howto describes how to setup ipv6 on your openwrt based router. 
 
 It is based on the openwrt [http://openwrt.org/downloads/experimental/ experimental] version. 
 
 It also describes how to setup :
  * A 6to4 tunnel over a ppp(oe) connection with a dynamic IP address. 
-
  * SixXS.net Tunnel Broker :
     * 6in4 static
     * 6in4 heartbeat
-
  * radvd to propagate the IPv6 route to the LAN
 
 = Install necessary software =
@@ -92,7 +90,7 @@ packets pass:
 {{{
 $IPT -A INPUT -p 41 -i $WAN -j ACCEPT
 }}}
-You need to place it into the right position of your firewall script (eg: just after "$IPT -t filter -A INPUT -p 47 -j ACCEPT" ).
+You need to place it into the right position of your firewall script (eg: just after/before "$IPT -t filter -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
 == PPPD: 6to4 tunnel with dynamic ip address ==
@@ -197,7 +195,6 @@ aiccu start
 }}}
 
 If it doesn't work use {{{logread}}} to see what occurs
-
 
 
 = IPv6 on the LAN =
@@ -311,6 +308,7 @@ Interface configuration of a client machine:
  * [http://www.bieringer.de/linux/IPv6/index.html Peter Bieringer's IPv6 HOWTO]
 
 = ToDo =
+ * list of ipv6 ready application available in openwrt
  * start/stop radvd when connection goes up/down
 
 = Questions =
