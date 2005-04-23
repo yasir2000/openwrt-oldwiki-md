@@ -11,11 +11,11 @@ It also describes how to setup :
  * radvd to propagate the IPv6 route to the LAN
 
 = Install necessary software =
-To use ipv6 we need the following modules
- * The '''ipv6 kernel module''' (always)
- * ipv6 '''routing software''' (always, to configure ipv6 routing)
- * The '''ip6tables kernel modules''' (optional, if you need an ipv6 firewall)
- * '''ip6tables commandline tool''' (optional, to configure the ipv6 router)
+To use ipv6 we need the following modules:
+ * The ipv6 kernel module (always)
+ * ipv6 routing software (always, to configure ipv6 routing)
+ * The ip6tables kernel modules (optional, if you need an ipv6 firewall)
+ * ip6tables commandline tool (optional, to configure the ipv6 router)
 
 == Install the ipv6 kernel modules ==
 {{{
@@ -139,6 +139,8 @@ ip tunnel del tun6to4
 }}}
 
 == Static tunnel to SixXS.net ==
+''Note: this script should works with all Tunnel Broker''
+----
 {{{
 #!/bin/sh
 
@@ -183,13 +185,16 @@ ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/aiccu_2005.01.31-1_mipsel.i
 Edit /etc/aiccu.conf :
  * put your login/passwd
  * configure "ipv4_interface" (usually vlan1)
+ * comment the "tunnel_id" line if you have only one tunnel
 
 From the SixXS documentation :
-"Keep your machine NTP synced, if the timestamp difference is bigger than 120
+'''Keep your machine NTP synced, if the timestamp difference is bigger than 120
 seconds the heartbeat will be silently dropped. Note also that you need to select
-the correct time zone."
+the correct time zone.'''
 
-Now start :
+This can be solved by installing ntpclient (to correctly set the clock on boot) and openntpd (to manage the drift).
+
+Now start the sixxs client :
 {{{
 aiccu start
 }}}
