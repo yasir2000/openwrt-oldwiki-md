@@ -187,7 +187,7 @@ Edit /etc/aiccu.conf :
  * configure "ipv4_interface" (usually vlan1)
  * comment the "tunnel_id" line if you have only one tunnel
 
-From the SixXS documentation :
+/!\  From the SixXS documentation :
 '''Keep your machine NTP synced, if the timestamp difference is bigger than 120
 seconds the heartbeat will be silently dropped. Note also that you need to select
 the correct time zone.'''
