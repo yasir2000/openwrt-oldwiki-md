@@ -19,7 +19,7 @@ To use ipv6 we need the following modules:
 
 == Install the ipv6 kernel modules ==
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ipv6_2.4.29-1_mipsel.ipk
+ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ipv6_2.4.30-1_mipsel.ipk
 }}}
 
 == Install the routing software ==
@@ -31,7 +31,7 @@ ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/radvd_0.7.3-1_mipsel.ipk
 
 == Install the ip6tables kernel modules ==
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ip6tables_2.4.29-1_mipsel.ipk
+ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ip6tables_2.4.30-1_mipsel.ipk
 }}}
 
 == Install the ip6tables package ==
@@ -106,10 +106,6 @@ The content of the /etc/ppp/ip-up script:
 
 # set default route
 /sbin/route add default ppp0
-
-# set time
-/bin/sleep 2
-/usr/sbin/rdate rtime.urz.tu-dresden.de
 
 # 6to4 tunnel
 ipv4=$4
@@ -203,8 +199,7 @@ If it doesn't work use {{{logread}}} to see what occurs
 
 
 = IPv6 on the LAN =
-
-This is the configuration file /etc/radvd.conf:
+Using our mythical 2001:2:3:4::/64 network, we would put in /etc/radvd.conf the following lines:
 {{{
 # For more examples, see the radvd documentation.
 
@@ -212,7 +207,7 @@ interface br0
 {
         AdvSendAdvert on;
 
-        prefix 1:2:3:4::/64
+        prefix 2001:2:3:4::/64
         {
                 AdvOnLink on;
                 AdvAutonomous on;
@@ -220,13 +215,17 @@ interface br0
 
 };
 }}}
-After writing the prefix you use, start the daemon:
+
+We forward our delegated subnet to br0
+{{{
+ip -6 ro add 2001:2:3:4::/64 dev br0
+}}}
+
+After all this you can start the daemon:
 {{{
 /etc/init.d/S51radvd start
 }}}
 You can listen to its advertisments via the ''radvdump'' program.
-
-
 
 = Example for debugging purposes =
 Interface configuration:
@@ -271,7 +270,7 @@ default via 212.68.233.1 dev vlan1
 
 root@openwrt:~# ip -6 route show
 2001:6f8:202:e::/64 via :: dev sixxs  metric 256  mtu 1280 advmss 1220
-2001:6f8:309:1::/64 dev br0  metric 256  mtu 1500 advmss 1220
+2001:6f8:309:1::/64 dev br0  metric 1024  mtu 1500 advmss 1220
 fe80::/64 dev eth0  metric 256  mtu 1500 advmss 1220
 fe80::/64 dev vlan0  metric 256  mtu 1500 advmss 1220
 fe80::/64 dev eth1  metric 256  mtu 1500 advmss 1220
