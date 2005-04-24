@@ -4,7 +4,7 @@ This howto describes how to setup ipv6 on your openwrt based router.
 It is based on the openwrt [http://openwrt.org/downloads/experimental/ experimental] version. 
 
 There is 2 big different steps :
-  * setup a ipv6 connection to a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric])
+  * setup an ipv6 connection to a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric])
   * propagate the IPv6 route to the LAN with radvd
 
 
