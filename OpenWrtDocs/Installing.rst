@@ -42,6 +42,8 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 /!\ '''We strongly suggest you also read [:OpenWrtDocs/Troubleshooting] before installing'''
 
+/!\ '''The jffs2 versions of the experimental build may take several minutes for the first bootup and will require a reboot before being usable'''
+
 == Enabling boot_wait ==
 
 The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below
