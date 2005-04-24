@@ -197,6 +197,8 @@ If it doesn't work use {{{logread}}} to see what occurs
 
 
 = IPv6 on the LAN =
+At this point I suppose that you have a working ipv6 connection on the wrt, that you can ''ping6 www.kame.net'' without error.
+
 Using our mythical 2001:2:3:4::/64 network, we would put in /etc/radvd.conf the following lines:
 {{{
 # For more examples, see the radvd documentation.
@@ -214,7 +216,7 @@ interface br0
 };
 }}}
 
-We add 2001:2:3:4::1 to br0 & forward our delegated /64 subnet to br0
+Now we add {{{2001:2:3:4::1}}} to br0 & forward our delegated /64 subnet to br0 :
 {{{
 ip -6 addr add 2001:2:3:4::1/64 dev br0
 }}}
