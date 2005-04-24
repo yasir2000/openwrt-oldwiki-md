@@ -244,6 +244,7 @@ root@OpenWrt:~# ip addr show
 5: br0: <BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue
     link/ether 00:0f:66:56:ee:6f brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.1/24 brd 192.168.1.255 scope global br0
+    inet6 2001:6f8:309:1::1/64 scope global
     inet6 fe80::20f:66ff:fe56:ee6f/64 scope link
 6: vlan0: <BROADCAST,MULTICAST,PROMISC,UP> mtu 1500 qdisc noqueue
     link/ether 00:0f:66:56:ee:6f brd ff:ff:ff:ff:ff:ff
