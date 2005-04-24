@@ -88,9 +88,9 @@ target     prot opt source               destination
 In my firewall script I had to add the following rule to let the encapsulated
 packets pass:
 {{{
-$IPT -A INPUT -p 41 -i $WAN -j ACCEPT
+iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 }}}
-You need to place it into the right position of your firewall script (eg: just after/before "$IPT -t filter -A INPUT -p 47 -j ACCEPT" ).
+You need to place it into the right position of your firewall script (eg: just after/before "iptables -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
 == PPP(oe): 6to4 tunnel with dynamic ip address ==
