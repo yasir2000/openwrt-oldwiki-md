@@ -3,12 +3,10 @@ This howto describes how to setup ipv6 on your openwrt based router.
 
 It is based on the openwrt [http://openwrt.org/downloads/experimental/ experimental] version. 
 
-It also describes how to setup :
- * A 6to4 tunnel over a ppp(oe) connection with a dynamic IP address. 
- * SixXS.net Tunnel Broker :
-    * 6in4 static
-    * 6in4 heartbeat
- * radvd to propagate the IPv6 route to the LAN
+There is 2 big different steps :
+  * setup a ipv6 connection to a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric])
+  * propagate the IPv6 route to the LAN with radvd
+
 
 = Install necessary software =
 To use ipv6 we need the following modules:
@@ -93,46 +91,46 @@ iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 You need to place it into the right position of your firewall script (eg: just after/before "iptables -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
-== PPP(oe): 6to4 tunnel with dynamic ip address ==
-When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
-{{{
-mkdir /etc/ppp
-ln -s /etc/ppp /tmp/ppp
-}}}
-
-The content of the /etc/ppp/ip-up script:
-{{{
-#!/bin/sh
-
-# set default route
-/sbin/route add default ppp0
-
-# 6to4 tunnel
-ipv4=$4
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
-
-ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
-ip link set dev tun6to4 up
-ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
-ip -6 route add 2000::/3 via ::192.88.99.1 dev tun6to4 metric 1
-
-ip -6 addr add ${ipv6prefix}:5678::1/64 dev vlan2
-}}}
-
-When the link goes down, the tunnel should be removed via /etc/ppp/ip-down
-{{{
-#!/bin/sh
-
-# 6to4 tunnel
-ipv4=$4
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
-
-ip -6 addr del ${ipv6prefix}:5678::1/64 dev vlan2
-
-ip -6 route flush dev tun6to4
-ip link set dev tun6to4 down
-ip tunnel del tun6to4
-}}}
+## == PPP(oe): 6to4 tunnel with dynamic ip address ==
+## When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these ## scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
+## {{{
+## mkdir /etc/ppp
+## ln -s /etc/ppp /tmp/ppp
+## }}}
+## 
+## The content of the /etc/ppp/ip-up script:
+## {{{
+## #!/bin/sh
+## 
+## # set default route
+## sbin/route add default ppp0
+## 
+## # 6to4 tunnel
+## ipv4=$4
+## ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
+## 
+## ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
+## ip link set dev tun6to4 up
+## ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
+## ip -6 route add 2000::/3 via ::192.88.99.1 dev tun6to4 metric 1
+## 
+## ip -6 addr add ${ipv6prefix}:5678::1/64 dev vlan2
+## }}}
+## 
+## When the link goes down, the tunnel should be removed via /etc/ppp/ip-down
+## {{{
+## #!/bin/sh
+## 
+## # 6to4 tunnel
+## ipv4=$4
+## ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
+## 
+## ip -6 addr del ${ipv6prefix}:5678::1/64 dev vlan2
+## 
+## ip -6 route flush dev tun6to4
+## ip link set dev tun6to4 down
+## ip tunnel del tun6to4
+## }}}
 
 == Static tunnel to SixXS.net ==
 ''Note: this script should works with all Tunnel Broker''
@@ -216,9 +214,9 @@ interface br0
 };
 }}}
 
-We forward our delegated subnet to br0
+We add 2001:2:3:4::1 to br0 & forward our delegated /64 subnet to br0
 {{{
-ip -6 ro add 2001:2:3:4::/64 dev br0
+ip -6 addr add 2001:2:3:4::1/64 dev br0
 }}}
 
 After all this you can start the daemon:
@@ -270,7 +268,7 @@ default via 212.68.233.1 dev vlan1
 
 root@openwrt:~# ip -6 route show
 2001:6f8:202:e::/64 via :: dev sixxs  metric 256  mtu 1280 advmss 1220
-2001:6f8:309:1::/64 dev br0  metric 1024  mtu 1500 advmss 1220
+2001:6f8:309:1::/64 dev br0  metric 256  mtu 1500 advmss 1220
 fe80::/64 dev eth0  metric 256  mtu 1500 advmss 1220
 fe80::/64 dev vlan0  metric 256  mtu 1500 advmss 1220
 fe80::/64 dev eth1  metric 256  mtu 1500 advmss 1220
