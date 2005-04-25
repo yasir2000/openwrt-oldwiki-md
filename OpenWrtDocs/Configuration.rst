@@ -42,7 +42,8 @@ ASUS WL-500g
   WAN=eth0
   LAN=eth1
   WIFI=eth2
-(LAN and WIFI are bridged together in br0 by default)
+(LAN and WIFI are bridged together in br0 by default,
+on some devices WAN can be eth1 and LAN eth0)
 
 (please update to include other models)
 }}}
