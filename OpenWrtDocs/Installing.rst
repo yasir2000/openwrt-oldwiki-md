@@ -20,36 +20,47 @@ If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current
 
 '''jffs2 vs SquashFS'''
 
-Both will work so it's really your choice, but that leads to the question of what they are?
-	The difference is in the filesystem layout, up until experimental, the filesystem was split.
- 	You had a small readonly squashfs partition, and the remaining space was jffs2
-	Firstboot would symlink everything in the squashfs partition to the jffs2 partition and you'd
-	use the jffs2 partition as the root device. You could never actually change anything on the
-	squashfs partition, so if you wanted to alter a file you had to delete the symlink and create
-	a new copy on jffs2. One of the advantages though, was that since you always had the squashfs
-	filesystem you could always use it as part of the failsafe boot. Thus bypassing issues with bootup scripts.
-	experimental now gives you the option of no squashfs partition; everything goes onto jffs2 advantage
-	there is that you don't have the redundancy, if you want to alter a file, you alter it and there's
-	the possibility of upgrading from one release to another release with just ipkg (you could try that
-	on squashfs but you'd eat all the space with duplicate programs) 
-They both give you failsafe just to different degrees obviously there's no original copy of the filesystem
-	on the jffs2 only images so the only real difference between a normal boot and a failsafe boot is some
-	nvram overrides and forcing the networking to 192.168.1.1 thus if you've screwed up the startup that's
-	not going to help much (you'd need to reflash)
+{{{
+(irc logs)
+[18:18] <[mbm]> the difference is in the filesystem layout
+[18:18] <[mbm]> up until experimental, the filesystem was split
+[18:18] <[mbm]> you had a small readonly squashfs partition, and the remaining space was jffs2
+[18:18] <[mbm]> firstboot would symlink everything in the squashfs partition to the jffs2 partition and you'd use the jffs2 partition as the root device
+[18:19] <[mbm]> you could never actually change anything on the squashfs partition, so if you wanted to alter a file you had to delete the symlink and create a new copy on jffs2
+[18:20] <[mbm]> one of the advantages though, was that since you always had the squashfs filesystem you could always use it as part of the failsafe boot
+[18:20] <[mbm]> to bypass issues with bootup scripts
+[18:20] <[mbm]> experimental now gives you the option of no squashfs partition; everything goes onto jffs2
+[18:21] <[mbm]> advantage there is that you don't have the redundancy, if you want to alter a file, you alter it
+[18:21] <[mbm]> and there's the possibility of upgrading from one release to another release with just ipkg (you could try that on squashfs but you'd eat all the space with duplicate programs)
+[18:22] <[mbm]> they both give you failsafe
+[18:22] <[mbm]> just to different degrees
+[18:22] <[mbm]> obviously there's no original copy of the filesystem on the jffs2 only images
+[18:22] <[mbm]> so the only real difference between a normal boot and a failsafe boot is some nvram overrides
+[18:23] <[mbm]> forces the networking to 192.168.1.1
+[18:23] <[mbm]> if you've screwed up the startup that's not going to help much
+[18:23] <[mbm]> and you'd need to reflash
+[18:23] <[mbm]> reflashing with a jffs2 image erases everything on the filesystem
+[18:24] <[mbm]> the squashfs firmware images only contain the squashfs files, which means basically that you can reflash and your jffs2 will be exactly as you left it
+[18:25] <[mbm]> total filesystem space on a wrt54g is around 3M, basic filesystem will eat up about a meg of that
+[18:26] <[mbm]> so ~2m free
+[18:26] <[mbm]> on a wrt54gs it's ~6M free
+[18:26] <[mbm]> when the squashfs boots up, it checks for the existance of the jffs2 partition and attempts to use it (unless you've booted failsafe)
+[18:27] <[mbm]> if you want to think about it in terms of the flash .. your basic layout is [bootloader][firmware][free space][nvram]
+[18:27] <[mbm]> firmware can take the whole space between the bootloader and nvram, but never actually does
+[18:28] <[mbm]> in the squashfs layout, the firmware is [kernel][squashfs]
+[18:28] <[mbm]> and [free space] becomes jffs2
+[18:28] <[mbm]> as long as the firmware remains roughly the same size, jffs2 doesn't get touched
+[18:29] <[mbm]> if the firmware gets larger, it starts to take over that free space, and any jffs2 data there gets overwritten
+[18:29] <[mbm]> firmware gets smaller and the space just gets added onto the jffs2 partition with no corruption
+[18:30] <[mbm]> the jffs2 firmwares are a little harder to explain
+[18:30] <[mbm]> it's still the basic [bootloader][firmware][free space][nvram] layout
+[18:30] <[mbm]> and the firmware (atleast initially) is [kernel][jffs2]
+[18:31] <[mbm]> the trick is that on bootup it performs some magic to change the firmware to be just [kernel], making it basically [bootloader][kernel][free space ...][nvram]
+[18:31] <[mbm]> and jffs2 gets migrated to the free space after the kernel (firmware)
+[18:32] <[mbm]> actual technicalities aren't too important
+[18:32] <[mbm]> but understand that reflashing to a jffs2 image will basically wipe everything between bootloader and nvram
+}}}
 
-The squashfs firmware images only contain the squashfs files, which means basically that you can reflash and your
-	jffs2 will be exactly as you left it
-
-When the squashfs boots up, it checks for the existance of the jffs2 partition and attempts to use it (unless you've
-	booted failsafe) if you want to think about it in terms of the flash .. your basic layout is 
-	[bootloader][firmware][free space][nvram]
-	firmware can take the whole space between the bootloader and nvram, but never actually does in the squashfs layout,
-	the firmware is [kernel][squashfs][free space][nvram] where [free space] becomes jffs2. As long as the firmware
-	The jffs2 firmware is still the basic [bootloader][firmware][free space][nvram] layout and the firmware
-	(atleast initially) is [kernel][jffs2] the trick is that on bootup it performs some magic to change the
-	firmware to be just [kernel], making it basically [bootloader][kernel][free space ...][nvram] and jffs2 gets
-	migrated to the free space after the kernel (firmware) but understand that reflashing to a jffs2 image will
-	basically wipe everything between bootloader and nvram)
 
 '''Stable Source'''
 
