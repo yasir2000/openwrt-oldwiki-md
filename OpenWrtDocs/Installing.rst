@@ -18,6 +18,39 @@ We recommend using the daily snapshots, these are compiled versions of the lates
 
 If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current experimental binary. These can be found [http://openwrt.org/downloads/experimental/bin/ here]. We recommend to use the squashfs versions for the [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54g-squashfs.bin WRT54G] and [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54gs-squashfs.bin WRT54GS]. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].
 
+'''jffs2 vs SquashFS'''
+
+Both will work so it's really your choice, but that leads to the question of what they are?
+	The difference is in the filesystem layout, up until experimental, the filesystem was split.
+ 	You had a small readonly squashfs partition, and the remaining space was jffs2
+	Firstboot would symlink everything in the squashfs partition to the jffs2 partition and you'd
+	use the jffs2 partition as the root device. You could never actually change anything on the
+	squashfs partition, so if you wanted to alter a file you had to delete the symlink and create
+	a new copy on jffs2. One of the advantages though, was that since you always had the squashfs
+	filesystem you could always use it as part of the failsafe boot. Thus bypassing issues with bootup scripts.
+	experimental now gives you the option of no squashfs partition; everything goes onto jffs2 advantage
+	there is that you don't have the redundancy, if you want to alter a file, you alter it and there's
+	the possibility of upgrading from one release to another release with just ipkg (you could try that
+	on squashfs but you'd eat all the space with duplicate programs) 
+They both give you failsafe just to different degrees obviously there's no original copy of the filesystem
+	on the jffs2 only images so the only real difference between a normal boot and a failsafe boot is some
+	nvram overrides and forcing the networking to 192.168.1.1 thus if you've screwed up the startup that's
+	not going to help much (you'd need to reflash)
+
+The squashfs firmware images only contain the squashfs files, which means basically that you can reflash and your
+	jffs2 will be exactly as you left it
+
+When the squashfs boots up, it checks for the existance of the jffs2 partition and attempts to use it (unless you've
+	booted failsafe) if you want to think about it in terms of the flash .. your basic layout is 
+	[bootloader][firmware][free space][nvram]
+	firmware can take the whole space between the bootloader and nvram, but never actually does in the squashfs layout,
+	the firmware is [kernel][squashfs][free space][nvram] where [free space] becomes jffs2. As long as the firmware
+	The jffs2 firmware is still the basic [bootloader][firmware][free space][nvram] layout and the firmware
+	(atleast initially) is [kernel][jffs2] the trick is that on bootup it performs some magic to change the
+	firmware to be just [kernel], making it basically [bootloader][kernel][free space ...][nvram] and jffs2 gets
+	migrated to the free space after the kernel (firmware) but understand that reflashing to a jffs2 image will
+	basically wipe everything between bootloader and nvram)
+
 '''Stable Source'''
 
 The source can be obtained from http://www.openwrt.org/cgi-bin/viewcvs.cgi/buildroot/buildroot.tar.gz or via CVS using the following commands:
