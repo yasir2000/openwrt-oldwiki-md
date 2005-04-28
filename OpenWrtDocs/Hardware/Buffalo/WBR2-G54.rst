@@ -11,6 +11,7 @@ Please keep in mind that for now we can't control the leds.
 
 J5 is is the serial interface, pinout as follows:
 
+{{{
      CPU
 
 TX    o
@@ -19,6 +20,7 @@ VCC   o
 GND   o
 
      LEDS
+}}}
 
 J10 is the usual EJTAG.
 
