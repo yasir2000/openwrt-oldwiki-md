@@ -46,7 +46,7 @@ Hardware notes:
 GND - o o - RX
       o o
       o o
-      o o - TX
+VCC   o o - TX
       JP1
 }}}
 9600 baud, hit enter for login; login is the same as the web (u:blank p:admin)
