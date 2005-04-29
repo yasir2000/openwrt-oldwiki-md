@@ -13,6 +13,7 @@
  * [:forum] Visit the forums
  * [http://nthill.free.fr/openwrt/tracker/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
  * Without 2.6 support there's no future, help us on [:Kernel26Firmware]
+ * [:initd_policy] policy proposal for init.d stuff
 
 '''Howtos''' [[FullSearch(Howto)]]
 ----
