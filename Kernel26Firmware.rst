@@ -55,6 +55,8 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
  There is already a very promising Broadcom Wlan driver project at [http://sourceforge.net/projects/linux-bcom4301/].
 
+/!\ As there is no contact info here, I've put this here as a sidenote - check Jolt's 2.6 port - http://cvs.berlios.de/cgi-bin/viewcvs.cgi/tuxap/kernel/ - Kaloz
+
 == A more specific TODO ==
 
 The idea is here merge the Broadcom stuff with the linux-mips kernel. Here's a quick comparison, on file level, with some specific hints on how to migrate.
