@@ -65,7 +65,7 @@ Netgear;FWAG114;;Broadcom 4710;125MHz;;;Atheros & Broadcom mini-PCI;;;;;;Unteste
 Netgear;WG602;3;Broadcom 4712;200MHz;2Mb;8Mb;integrated Broadcom;on;;;;;No
 Netgear;WGT634U;;Broadcom 5365;200MHz;8Mb;32Mb;Atheros mini-PCI;doesn't exist;Yes;No;1x v2.0;;WiP
 Ravotek;W54-AP;;;;;;;;;;;;Untested
-Ravotek;W54-RT;;;;;;;;;;;;Untested
+Ravotek;W54-RT;;Broadcom 4710r4;125MHz;4Mb;16Mb;Broadcom mini-PCI 4306;On;;;;;No
 Siemens;SE505;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;;;Supported
 Siemens;SE505;2;Broadcom 4712;200MHz;4Mb;8Mb;integrated Broadcom;on;;;;;WiP
 Siemens;SX550;;;;;;;;;;;;Untested
