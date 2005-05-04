@@ -10,7 +10,7 @@ This is work in progress.
 
 {{{#!CSV
 Make;Model;Version;Board;CPU;Flash;RAM;Wireless NIC;boot_wait;Serial;JTAG;USB;Notes;Support
-Asus;WL-300G;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;;;Untested
+Asus;WL-300G;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;on;;;;;Untested
 Asus;WL-500B;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;1x v1.1;parallel port;Supported
 Asus;WL-500B;2;Broadcom 4710;125MHz;4Mb;16Mb;Ralink mini-PCI;on;;;1x v1.1;parallel port;Untested
 Asus;WL-500G;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;1x v1.1;parallel port;Supported
@@ -53,8 +53,8 @@ Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Ye
 Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Yes;;just like v1.1 + extra button;Experimental
 Linksys;WRT54GX;;Broadcom 4704;300MHz;4Mb;16Mb;Airgo mini-PCI;on;;;;;Untested
 Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;off;;;;;Untested
-Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;doesn't exist;;;;;WiP
-Microsoft;MN-700;;;;;;;;;;;;Supported
+Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;doesn't exist;Yes;;;;WiP
+Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;Yes;Yes;;;Supported
 Motorola;WR840G;;;;;;;;;;;;Untested
 Motorola;WR840GP;;;;;;;;;;;;Untested
 Motorola;WR850G;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;;;;;Experimental
@@ -72,7 +72,7 @@ Siemens;SX550;;;;;;;;;;;;Untested
 SimpleTech;SimpleShare Office Storage Server;160GB, 250GB;Broadcom 4780;266Mhz;;32Mb;none;;;;2x v2.0;;Untested
 Sitecom;WL-111;;;;;;;;;;;;Untested
 Svec;FD2164;;;;;;;;;;;;Untested
-Toshiba;WRC-1000;;;;;;Prism mini-PCI;;;;;;Untested
+Toshiba;WRC-1000;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;Untested
 Trendnet;TEW-410APB;;;;;;;;;;;;Untested
 Trendnet;TEW-410APBplus;;;;;;;;;;;;Untested
 Trendnet;TEW-411BRP;;;;;;;;;;;;Untested
