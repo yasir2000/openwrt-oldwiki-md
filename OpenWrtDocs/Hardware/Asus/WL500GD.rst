@@ -17,7 +17,15 @@ The wireless NIC is integrated to the board, and it also has a VIA USB2.0 contro
    18005000    4243    816     1       100522c5        mips3302 core
    18006000    4243    80f     0       1000225d        memc sdram core
 
-   Devices that pop up on the real PCI bus:
+   Is this the same as on 0x18005000?
+   40001000    4243    816     1       100522c5        mips 3302 core
+
+   The external SB cells for the BCM4306:
+   40004000    4243    812     5       110422c5        802.11 MAC core
+   40005000    4243    804     9       101522d5        pci core
+
+
+   Devices that pop up on the "real" PCI bus:
 
    Bus.dev.func  registers          vend:prod     Description
    1.0.0         iomem 0x40000000   14e4:5365     BCM5365P Sentry5 Host Bridge
