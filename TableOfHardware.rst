@@ -54,7 +54,7 @@ Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Ye
 Linksys;WRT54GX;;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;on;Yes;;;No wireless support;Experimental
 Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;off;;;;;Untested
 Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;doesn't exist;Yes;;;;WiP
-Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;Yes;Yes;;;Supported
+Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;doesn't exist;No;Yes;;Have to reflash a bootloader (CFE/PMON) first;Supported
 Motorola;WR840G;;;;;;;;;;;;Untested
 Motorola;WR840GP;;;;;;;;;;;;Untested
 Motorola;WR850G;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;;;;;Experimental
