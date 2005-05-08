@@ -23,7 +23,7 @@ Belkin;F5D7231-4P;;;;;;;;;;;;Untested
 Belkin;F5D8230-4;;Broadcom 4704;300MHz;4Mb;16Mb;Airgo mini-PCI;on;;;;;Untested
 Buffalo;WBR-B11;;;;;;;;;;;;Untested
 Buffalo;WBR2-B11;;;;;;;;;;;;Untested
-Buffalo;WBR-G54;;;;;;;on;;;;;Supported
+Buffalo;WBR-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;;;Supported
 Buffalo;WBR2-G54;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;on;Yes;Yes;;;Experimental
 Buffalo;WBR2-G54S;;;;;;;;;;;;Untested
 Buffalo;WHR-G54;;;;;;;;;;;;Untested
@@ -44,7 +44,7 @@ Linksys;WAP54G;2;Broadcom 4712;200MHz;2Mb;16Mb;integrated Broadcom;off;Yes;;;;Un
 Linksys;WRT54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;off;;;;ADM6996 switch;Supported
 Linksys;WRT54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;off;;;;ADM6996 switch;Supported
 Linksys;WRT54G;2.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch;Supported
-Linksys;WRT54G;2.0 XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch, 16Mb RAM is enabled by default;Supported
+Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch, 16Mb RAM is enabled by default;Supported
 Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;BCM5325 switch, DDR RAM;Experimental
 Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;just like v2.2 + extra button;Experimental
 Linksys;WRT54GC;;;;;;;off;;;;compact version of Linksys WRT54G;No
@@ -56,11 +56,11 @@ Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;of
 Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;doesn't exist;Yes;;;;WiP
 Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;doesn't exist;No;Yes;;Have to reflash a bootloader (CFE/PMON) first;Supported
 Motorola;WR840G;;;;;;;;;;;;Untested
-Motorola;WR840GP;;;;;;;;;;;;Untested
+Motorola;WR840GP;;Broadcom 4712;200MHz;;;integrated Broadcom;;;;;;Untested
 Motorola;WR850G;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;;;;;Experimental
-Motorola;WR850G;2;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;;;;;16Mb RAM is enabled by default, may have just 16Mb;Experimental
+Motorola;WR850G;2;Broadcom 4712;200MHz;4Mb;16 or 32Mb;integrated Broadcom;;;;;some units have 32Mb RAM, but only 16Mb RAM is enabled by default;Experimental
 Motorola;WR850G;3;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;;;;;;Experimental
-Motorola;WR850GP;;;;;;;;;;;;Untested
+Motorola;WR850GP;;Broadcom 4712;200MHz;;;integrated Broadcom;;;;;;Untested
 Netgear;FWAG114;;Broadcom 4710;125MHz;;;Atheros & Broadcom mini-PCI;;;;;;Untested
 Netgear;WG602;3;Broadcom 4712;200MHz;2Mb;8Mb;integrated Broadcom;on;;;;;No
 Netgear;WGT634U;;Broadcom 5365;200MHz;8Mb;32Mb;Atheros mini-PCI;doesn't exist;Yes;No;1x v2.0;;WiP
