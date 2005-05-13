@@ -145,3 +145,5 @@ if you're having trouble popping open your WRT54GS v.2 to get at the internals, 
 gently use your nails or a flat object to pry all the edges of the front feet up, then simply remove them. The feet are plugs, not just a thin rubber covering, so careful removal will not harm the feet.
 
 from there you will have access to two small Phillips-head screws. Remove and enjoy.
+
+Note: The Linksys WAG54G also has screws.
