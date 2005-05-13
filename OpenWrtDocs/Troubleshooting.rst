@@ -137,3 +137,11 @@ See http://openwrt.org/forum/viewtopic.php?t=809
 
 = Using the system logs for additional troubleshooting =
 Modern versions of OpenWRT use S10boot to start a syslogd.  If a daemon is misbehaving and you can't figure out why use the ''logread'' tool to access the messages sent to syslog.  Often the solution makes itself evident.
+
+= WRT54GS v.2 have screws =
+
+if you're having trouble popping open your WRT54GS v.2 to get at the internals, it's probably because there are screws hidden under the the two front feet in the blue part of the case. DO NOT apply extra force to open these models without checking for the prescence of screws!
+
+gently use your nails or a flat object to pry all the edges of the front feet up, then simply remove them. The feet are plugs, not just a thin rubber covering, so careful removal will not harm the feet.
+
+from there you will have access to two small Phillips-head screws. Remove and enjoy.
