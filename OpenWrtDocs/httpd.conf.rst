@@ -102,6 +102,5 @@ A:*
 #
 }}}
 
-'''httpd''' will work without configuration file, also you may delete all comments (line start with #) if you need place on disk.
 
-bb
+'''httpd''' will work without configuration file, also you may delete all comments (line start with #) if you need place on disk.
