@@ -1,5 +1,7 @@
+= httpd =
 '''httpd''' is the binary, part of BusyBox, tool that start http daemon.
 
+== Usage ==
 The usage for '''httpd''' is :
 {{{
 Usage: httpd [options]
