@@ -18,6 +18,8 @@ Usage: httpd [options]
 [:OpenWrtDocs/httpd.conf: Configuration file] may have any name, but it is good practice to be in /etc with name [:OpenWrtDocs/httpd.conf: httpd.conf].
 
 
+'''httpd''' suport [:OpenWrtDocs/httpd_CGI_scripts: CGI script]. 
+ 
 
 
-""Document is under construction, be patient""
+'''''Document is under construction, be patient'''''
