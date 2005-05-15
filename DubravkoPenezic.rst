@@ -1,3 +1,3 @@
-BusyBox httpd man page
+BusyBox ["httpd"] man page
 ----
 CategoryHomepage
