@@ -9,7 +9,7 @@ Standard set of Comon Gateway Interface environment variable are :
 CONTENT_TYPE=application/x-www-form-urlencoded
 GATEWAY_INTERFACE=CGI/1.1
 REMOTE_ADDR=192.168.1.180
-QUERY_STRING=Zbr=1234567&SrceMB=&ime=jhkjhlkh+klhlkjhlk+%A9%D0%C6%AE%C6%AE&prezime=&sektor=OP&textfield=&uid=&email=&textfield=&submit=Smisli
+QUERY_STRING=Zbr=1234567&SrceMB=&ime=jhkjhlkh+klhlkjhlk+%A9%D0%C6%AE%C6%AE&prezime=&sektor=OP
 REMOTE_PORT=2292
 CONTENT_LENGTH=128
 REQUEST_URI=/cgi-bin/test
@@ -22,4 +22,18 @@ REQUEST_METHOD=POST
 PWD=/www/cgi-bin
 SERVER_PORT=80
 SCRIPT_NAME=/cgi-bin/test
+}}}
+
+/cgi-bin/test
+
+{{{
+#!/bin/sh
+echo "Content-type: text/html"
+echo ""
+echo "<HTML><HEAD><TITLE>Sample CGI Output</TITLE></HEAD>"
+echo "<BODY>"
+echo "<pre>"
+env
+echo "</pre>"
+echo "</BODY></HTML>"
 }}}
