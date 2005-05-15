@@ -1,3 +1,3 @@
-BusyBox [OpenWrtDoc/httpd httpd] man page
+BusyBox [OpenWrtDocs/httpd httpd] man page
 ----
 CategoryHomepage
