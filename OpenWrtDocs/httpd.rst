@@ -1,4 +1,4 @@
-{{{httpd}}} is the binary, part of BusyBox, tool that start httpd.
+"'httpd'" is the binary, part of BusyBox, tool that start http daemon.
 
 The usage for httpd is :
 {{{
