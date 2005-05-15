@@ -102,3 +102,5 @@ connections Contents Delete Description Display everything Further if If ignored
 accept Accept accessed addresses allows Note points ppp pppoe pppoecd proto
 
 Authentication httpd string
+
+file home incoming
