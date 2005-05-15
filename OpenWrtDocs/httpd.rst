@@ -15,7 +15,7 @@ Usage: httpd [options]
         -d STRING       URL decode STRING
 }}}
 
-Configuration file may have any name, but it is good practice to be in /etc with name [http://openwrt.org/OpenWrtDocs/httpd.conf httpd.conf].
+Configuration file may have any name, but it is good practice to be in /etc with name [/OpenWrtDocs/httpd.conf httpd.conf].
 
 
 
