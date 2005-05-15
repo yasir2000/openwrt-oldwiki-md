@@ -13,6 +13,11 @@ Usage: httpd [options]
         -m PASS         Crypt PASS with md5 algorithm
         -e STRING       Html encode STRING
         -d STRING       URL decode STRING
+
+        ==== available but not used ? ====
+        -u UID          Start httpd under UID
+        -u user_name    Start httpd under UID of user_name user
+        -v              Verbose (but show nothing) oposite of daemon mod
 }}}
 
 [:OpenWrtDocs/httpd.conf: Configuration file] may have any name, but it is good practice to be in /etc with name [:OpenWrtDocs/httpd.conf: httpd.conf].
