@@ -104,3 +104,5 @@ accept Accept accessed addresses allows Note points ppp pppoe pppoecd proto
 Authentication httpd string
 
 file home incoming
+
+decode directory encode
