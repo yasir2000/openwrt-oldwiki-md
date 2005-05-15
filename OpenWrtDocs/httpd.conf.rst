@@ -1,3 +1,5 @@
+""httpd"" configuration file (httpd.conf) with comments about options, default and examples.
+
 {{{
 httpd.conf
 #
