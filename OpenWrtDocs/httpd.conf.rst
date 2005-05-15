@@ -1,4 +1,5 @@
-BusyBox httpd '''''configuration file (httpd.conf)''''' with comments about options, default and examples:
+= BusyBox httpd configuration file (httpd.conf) =
+=== with comments about options, default and examples ===
 
 ''Follow configuration was tested on OpenWrt experimental build 2005-04-23''
 
