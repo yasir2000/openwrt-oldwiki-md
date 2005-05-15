@@ -1,6 +1,6 @@
 '''httpd''' is the binary, part of BusyBox, tool that start http daemon.
 
-The usage for httpd is :
+The usage for '''httpd''' is :
 {{{
 Usage: httpd [options]
         ===== daemon options =====
