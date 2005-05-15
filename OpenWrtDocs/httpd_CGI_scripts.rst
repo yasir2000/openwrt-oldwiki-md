@@ -37,3 +37,13 @@ env
 echo "</pre>"
 echo "</BODY></HTML>"
 }}}
+
+Environment variables are set up and the script is invoked with pipes for stdin/stdout.  
+
+== HTML Forms ==
+
+If a post is being done the script is fed the POST data in addition to setting the QUERY_STRING variable (for GETs or POSTs).
+
+=== POST ===
+
+=== GET ===
