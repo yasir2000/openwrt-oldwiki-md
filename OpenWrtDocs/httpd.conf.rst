@@ -1,7 +1,8 @@
-""httpd"" configuration file (httpd.conf) with comments about options, default and examples.
+BusyBox httpd '''''configuration file (httpd.conf)''''' with comments about options, default and examples:
+
+''Follow configuration was tested on OpenWrt experimental build 2005-04-23''
 
 {{{
-httpd.conf
 #
 # httpd.conf - BusyBox v1.00 (2005.04.23-22:18+0000) multi-call binary
 # Contribute by Dubravko Penezic, dpenezic@gmail.com , 2005-05-15
@@ -100,3 +101,7 @@ A:*
 # Default MIME type is application/octet-stream if extension isnt set
 #
 }}}
+
+'''httpd''' will work without configuration file, also you may delete all comments (line start with #) if you need place on disk.
+
+bb
