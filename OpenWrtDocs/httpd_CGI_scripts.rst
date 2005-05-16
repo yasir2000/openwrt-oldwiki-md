@@ -46,4 +46,82 @@ If a post is being done the script is fed the POST data in addition to setting t
 
 === POST ===
 
+/www/form-post.html
+
+{{{
+<html>
+<head>
+<title>CGI Test</title>
+</head>
+
+<body>
+<form name="form1" method="post" action="/cgi-bin/test-post">
+  <p>Text field
+    <input name="Text_Field" type="text" id="Text_Field">
+  </p>
+  <p>Radio button  </p>
+  <p>
+    <input name="Radio_Button" type="radio" value="1"> 1 
+  </p>
+  <p>
+    <input name="Radio_Button" type="radio" value="2"> 2
+  </p>
+  <p>
+    <input name="Radio_Button" type="radio" value="3"> 3
+  </p>
+  <p>Some text </p>
+  <p>
+    <textarea name="Text_Area" id="Text_Area"></textarea>
+  </p>
+  <p>&nbsp;</p>
+  <p>
+    <input type="submit" name="Submit" value="Submit">
+    <input type="reset" name="Reset" value="Reset">
+  </p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>
+}}}
+
 === GET ===
+
+/www/form-get.html
+
+{{{
+<html>
+<head>
+<title>CGI Test</title>
+</head>
+
+<body>
+<form name="form1" method="get" action="/cgi-bin/test-get">
+  <p>Text field
+    <input name="Text_Field" type="text" id="Text_Field">
+  </p>
+  <p>Radio button  </p>
+  <p>
+    <input name="Radio_Button" type="radio" value="1"> 1 
+  </p>
+  <p>
+    <input name="Radio_Button" type="radio" value="2"> 2
+  </p>
+  <p>
+    <input name="Radio_Button" type="radio" value="3"> 3
+  </p>
+  <p>Some text </p>
+  <p>
+    <textarea name="Text_Area" id="Text_Area"></textarea>
+  </p>
+  <p>&nbsp;</p>
+  <p>
+    <input type="submit" name="Submit" value="Submit">
+    <input type="reset" name="Reset" value="Reset">
+  </p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>
+}}}
