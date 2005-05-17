@@ -84,13 +84,30 @@ This will put it into client mode
 To join a non-encrypted access point you type:
 
 {{{
-wl join ssid
+wl join MyNetwork
+}}}
+or, with a network key:
+{{{
+wl join MyNetwork key 736576656E
 }}}
 
 You can tell WRT to join the same SSID each time it boots by setting wl0_ssid:
 
 {{{
 nvram set wl0_ssid=MyNetwork
+}}}
+
+To use WEP, set the variables wl0_wep and wl0_key1 (in hex)
+
+{{{
+nvram set wl0_wep=enabled
+nvram set wl0_key1=736576656E
+}}}
+
+Don't forget!
+
+{{{
+nvram commit
 }}}
 
 When you set an interface to DHCP, OpenWRT runs the DHCP client on that interface automatically at boot time. If you want to re-run the client, for example because you joined another ssid, you can reboot (assuming you also set wl0_ssid nvram variable), or you can run the udhcpc command:
