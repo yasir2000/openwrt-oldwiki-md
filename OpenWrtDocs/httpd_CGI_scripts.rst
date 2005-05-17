@@ -44,7 +44,11 @@ Environment variables are set up and the script is invoked with pipes for stdin/
 
 If a post is being done the script is fed the POST data in addition to setting the QUERY_STRING variable (for GETs or POSTs).
 
+Prefered way to do forms in CGI is POST.
+
 === POST ===
+
+Example how to use POST in form.
 
 /www/form-post.html
 
@@ -85,7 +89,40 @@ If a post is being done the script is fed the POST data in addition to setting t
 </html>
 }}}
 
+/www/cgi-bin/test-post
+
+{{{
+#!/bin/sh
+echo "Content-type: text/html"
+echo ""
+echo "<HTML><HEAD><TITLE>Sample CGI Output</TITLE></HEAD>"
+echo "<BODY>"
+echo "<pre>"
+echo "Environment variables"
+echo ""
+env
+echo ""
+echo "========================================================="
+echo ""
+echo "Form variables :"
+echo ""
+read QUERY_STRING
+eval $(echo "$QUERY_STRING"|awk -F'&' '{for(i=1;i<=NF;i++){print $i}}')
+tmp=`httpd -d $Text_Field`
+echo "Text_Field=$tmp"
+tmp=`httpd -d $Radio_Button`
+echo "Radio_Button=$tmp"
+tmp=`httpd -d $Text_Area`
+echo "Text_Area=$tmp"
+echo "</pre>"
+echo "</BODY></HTML>"
+}}}
+
 === GET ===
+
+Text area fields (and any other field that may contain \n are very hard to menage).
+
+Example how to use GET in form.
 
 /www/form-get.html
 
@@ -110,10 +147,6 @@ If a post is being done the script is fed the POST data in addition to setting t
   <p>
     <input name="Radio_Button" type="radio" value="3"> 3
   </p>
-  <p>Some text </p>
-  <p>
-    <textarea name="Text_Area" id="Text_Area"></textarea>
-  </p>
   <p>&nbsp;</p>
   <p>
     <input type="submit" name="Submit" value="Submit">
@@ -124,4 +157,8 @@ If a post is being done the script is fed the POST data in addition to setting t
 </form>
 </body>
 </html>
+}}}
+
+/www/cgi-bin/test-get
+{{{
 }}}
