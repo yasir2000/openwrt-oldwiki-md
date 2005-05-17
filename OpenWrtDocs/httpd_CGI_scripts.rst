@@ -161,4 +161,25 @@ Example how to use GET in form.
 
 /www/cgi-bin/test-get
 {{{
+#!/bin/sh
+echo "Content-type: text/html"
+echo ""
+echo "<HTML><HEAD><TITLE>Sample CGI Output</TITLE></HEAD>"
+echo "<BODY>"
+echo "<pre>"
+echo "Environment variables"
+echo ""
+env
+echo ""
+echo "========================================================="
+echo ""
+echo "Form variables :"
+echo ""
+eval $(echo "$QUERY_STRING"|awk -F'&' '{for(i=1;i<=NF;i++){print $i}}')
+tmp=`httpd -d $Text_Field`
+echo "Text_Field=$tmp"
+tmp=`httpd -d $Radio_Button`
+echo "Radio_Button=$tmp"
+echo "</pre>"
+echo "</BODY></HTML>"
 }}}
