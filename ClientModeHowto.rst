@@ -118,6 +118,33 @@ udhcpc -i eth1 -b
 
 This will ask the network for an IP address over the interface eth1 (wifi in v2), and fork to the background if it gets no replies.
 
+If you want to have the wired clients getting their ip-config with dhcp, you have to configure that as well.
+The dhcp-server configuration is in /etc/dnsmasq.conf
+Break the link to make it editable and make it survive a reboot:
+
+{{{
+cp -f /rom/etc/dnsmasq.conf /etc/
+}}}
+
+Then use vi to edit the line which starts with 'except-interface=vlan1'. Now you want the dhcp-server to listen
+on vlan1, but not offer any leases on eth1 (that would be bad!). Change the line to read
+{{{
+except-interface=eth1
+}}}
+
+Since my router gives me ip-addresses on 192.168.1.* already, I changed my OpenWrt to use 192.168.10.*:
+I changed the line that starts with dhcp-range as follows
+{{{
+dhcp-range=192.168.10.100,192.168.10.250,255.255.255.0,12h
+}}}
+
+and then set the interface accordingly:
+{{{
+nvram set lan_ipaddr=192.168.1.1
+nvram commit
+reboot
+}}}
+
 The command wl manages the radio, and it's pretty powerful. Among many options (see them here: http://wifi-portal.elevate.nl/docs/wl.txt.). There are some  particulary interesting:
 
 {{{
