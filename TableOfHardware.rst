@@ -72,7 +72,7 @@ Siemens;SX550;;;;;;;;;;;;Untested
 SimpleTech;SimpleShare Office Storage Server;160GB, 250GB;Broadcom 4780;266Mhz;;32Mb;none;;;;2x v2.0;;Untested
 Sitecom;WL-111;;;;;;;;;;;;Untested
 Svec;FD2164;;;;;;;;;;;;Untested
-Toshiba;WRC-1000;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;Untested
+Toshiba;WRC-1000;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;Experimantal+HostAP
 Trendnet;TEW-410APB;;;;;;;;;;;;Untested
 Trendnet;TEW-410APBplus;;;;;;;;;;;;Untested
 Trendnet;TEW-411BRP;;;;;;;;;;;;Untested
