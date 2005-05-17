@@ -5,16 +5,36 @@
 The usage for '''httpd''' is :
 {{{
 Usage: httpd [options]
+
         ===== daemon options =====
         -c FILE         Specifies configuration file. (default httpd.conf)
-        -p PORT Server port (default 80)
+                        = -c /etc/httpd.config
+	                =  if -c is not set, an attempt will be made to open the 
+                           default root configuration file.  
+	                   If -c is set and the file is not found, the server 
+                           exits with an error
+
+        -p PORT         Server port (default 80)
+                        = -p 80
+
         -r REALM        Authentication Realm for Basic Authentication
+                        = -r "WRT54GS Router"
+	                = default realm "Web Server Authentication"
+
         -h HOME         Specifies http HOME directory (default ./)
+                        = -h /www
+
 
         ===== script options =====
         -m PASS         Crypt PASS with md5 algorithm
+                        = foo=`httpd -m "astro"`  # MD5 string $1$$e6xMPuPW0w8dESCuffefU.
+ 
         -e STRING       Html encode STRING
+                        = bar=`httpd -e "<Hello World>"`   # encode as "&#60Hello&#32World&#62"
+
         -d STRING       URL decode STRING
+                        = foo=`httpd -d $foo`  # decode "Hello%20World" as "Hello World"
+
 
         ==== available but not used ? ====
         -u UID          Start httpd under UID
@@ -27,6 +47,3 @@ Usage: httpd [options]
 
 '''httpd''' suport [:OpenWrtDocs/httpd_CGI_scripts: CGI script]. 
  
-
-
-'''''Document is under construction, be patient'''''
