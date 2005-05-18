@@ -61,6 +61,7 @@ If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current
 [18:32] <[mbm]> but understand that reflashing to a jffs2 image will basically wipe everything between bootloader and nvram
 }}}
 
+For some notes on actually using the jffs2 root see [:OpenWrtDocs/Jffs2Root].
 
 '''Stable Source'''
 
