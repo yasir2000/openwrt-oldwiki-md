@@ -1,7 +1,10 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 = Using the Jffs2 root filesystem =
-== Choice of root filesystems ==
+This page is about some of the practical issues of using the new Jffs2 root filesystem
+available in the experimental version of OpenWrt.
+
+= Choice of root filesystems =
 The "experimental" version of the OpenWrt firmware includes a choice of two root filesystems (selected by choosing the right firmware image):
 
  * SquashFS Root -- this is the "classic" layout, also used in the "stable" version of the firmware
@@ -22,7 +25,7 @@ For more information about the two roots, see the explanation from '''mbm''' in 
 
 The rest of this page is about practical ways to make use of the Jffs2 root.
 
-== Loading a Jffs2 image ==
+= Loading a Jffs2 image =
 It is important, when using the Jffs2 root, to use an image built for the correct Flash RAM size.  
 For example, when using a Jffs2 image with an Asus WL500G, which has a 4MB Flash, use the ''openwrt-generic-jffs2-4MB'' image.
 
@@ -70,19 +73,19 @@ You can now make changes to the root filesystem.  These changes will be preserve
 but '''will all be lost if the firmware is reloaded'''.
 The way to preserve changes when loading a new image is to make changes in the image itself.
 
-== Changing the files in the image ==
+= Changing the files in the image =
 
 To change files in the image you need to have the OpenWrt Buildroot installed.  
 Within that kit, there is documentation in the ''docs/buildroot-documentation.html'' file.  
 This explains that there are two ways to customise the filesystem.
 This page only explains using the ''target/default/target_skeleton/'' method, as the goal is to make changes which will last even if the software is rebuilt.
 
-=== Packages ===
+== Packages ==
 
 The best way to have custom packages installed is to use the facilities already present in the build environment.  
 This is documented in the ''docs/buildroot-documentation.html'' file.
 
-=== The target skeleton ===
+== The target skeleton ==
 
 The filesystem is initialised by copying the contents from the ''target/default/target_skeleton/'' directory in the Buildroot.
 Note that hidden files (with a leading dot) do not seem to be copied.
@@ -92,12 +95,12 @@ Also note that not '''all''' files on the resulting filesystem are stored in thi
 The most common change is likely to be to add additional procedures to be run on startup.  
 These can just be added to the ''target/default/target_skeleton/etc/init.d'' directory.
 
-=== Rebuilding ===
+== Rebuilding ==
 
 If you make changes to the target skeleton, you can rebuild the filesystem just by issuing a ''make'' command.  
 You should then test your changes by loading them onto your target system
 
-== System-specific changes ==
+= System-specific changes =
 
 If you have more than one OpenWrt system, you will need to have a way to make changes that are specific to each system.
 The way to do this is to set each system's hostname in the NVRAM (by setting the ''wan_hostname'' variable) and then to use that name to load specific changes.
@@ -129,13 +132,11 @@ echo "search home.cobb.me.uk" >/etc/resolv.conf
 echo "nameserver 192.168.0.252" >>/etc/resolv.conf
 }}}
 
-== Backing up files ==
+= Backing up files =
 
 Of course, changing the files in the loadable image is not the only way to preserve files during upgrades.
-You may want to take a backup of your filesystem before doing any upgrade, so that you have all the files saved
-in case you have forgotten to make some change in the skeleton.
 
-To take a backup you can use the ''tar'' command.  However, remember:
-
- 1. Copy the tar file off the system before doing the upgrade -- do not forget that the upgrade will lose all files on the box.
- 1. You will not want to restore the whole tar -- some files in the new filesystem have deliberately changed (or else you wouldn't have done the upgrade).  You will have to restore individual files or directories by hand.
+Recent OpenWrt firmware ships with two scripts (''/sbin/backup'' and ''/sbin/restore'') which backup and restore your /etc directory and list of installed packages.
+This can be very useful but remember that it will restore everything in your /etc directory.
+This does not work very well with Jffs2 images because it ends up saving and restoring everything, including the files which are part of the system and which may have changed for good reasons.
+For that reason, it is more useful with SquashFS images where it does not save anything that you have left unmodified.
