@@ -110,7 +110,7 @@ If you didn't set boot_wait and don't build a JTAG, you'll have to resort to ope
 ||4M flash chip (WRT54G v1.0, v1.1, v2.0, v2.2?)||Use pins 15&16||
 ||8M flash chip (WRT54GS v1.0, v1.1)||Use pins 5&6||
 
-/!\ Be very careful with the flash chip, short only the pins shown in the instructions and do not bend or break any pins
+''' /!\ Be very careful with the flash chip, short only the pins shown in the instructions and do not bend or break any pins; shorting the wrong pins can cause serious damage.'''
 
 Open the router and locate the flash chip, while the router is off use a straight pin or small screwdriver to connect the pins shown and plug in the router. The bootloader will be unable to load the firmware and instead it will run a tftp server on 192.168.1.1 as described above. On a WRT54G/WRT54GS the power led will be flashing (diag led on a WRT54G v1.0) and all other leds will be normal, when you see this led pattern you can stop shorting the pins and tftp a firmware to 192.168.1.1.
 
@@ -133,14 +133,15 @@ Result: It's actually impossible to read the value at 12 in this case, and it's 
 In the end, there's nothing really magical about pins 15-16; you can pick any address lines and short them and ''something'' will happen; if you didn't short the addresses of the bootloader there's a good chance it'll boot up and wait for a firmware. 
 
 = WRT54G v2.2 / WRT54g v1.1 : Can't downgrade to this old firmware =
-See http://openwrt.org/forum/viewtopic.php?t=809
+The stable release of OpenWrt does not support the ethernet switch found on newer versions of the WRT54G. Support has been added for these units in the experimental release. See http://openwrt.org/forum/viewtopic.php?id=1029 and http://openwrt.org/downloads/experimental
+
 
 = Using the system logs for additional troubleshooting =
 Modern versions of OpenWRT use S10boot to start a syslogd.  If a daemon is misbehaving and you can't figure out why use the ''logread'' tool to access the messages sent to syslog.  Often the solution makes itself evident.
 
-= WRT54GS v.2 have screws =
+= WRT54GS v2.0 have screws =
 
-if you're having trouble popping open your WRT54GS v.2 to get at the internals, it's probably because there are screws hidden under the the two front feet in the blue part of the case. DO NOT apply extra force to open these models without checking for the prescence of screws!
+if you're having trouble popping open your WRT54GS v2.0 to get at the internals, it's probably because there are screws hidden under the the two front feet in the blue part of the case. DO NOT apply extra force to open these models without checking for the prescence of screws!
 
 gently use your nails or a flat object to pry all the edges of the front feet up, then simply remove them. The feet are plugs, not just a thin rubber covering, so careful removal will not harm the feet.
 
