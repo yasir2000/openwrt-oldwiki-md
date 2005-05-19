@@ -327,3 +327,15 @@ Segmentation fault
 You probably have an ipv6.o which is incompatible with your version of the openwrt kernel. You should use kernel and modules from the same source; mixing them might not work (and probably does not).
 
 Thanks - this worked!
+
+{{{
+May 20 01:29:22 wrt54gs radvd[376]: version 0.7.2 started
+May 20 01:29:22 wrt54gs radvd[376]: IPv6 forwarding setting is: 0, should be 1
+May 20 01:29:22 wrt54gs radvd[376]: IPv6 forwarding seems to be disabled, exiting
+}}}
+
+You need to add
+{{{
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+}}}
+to your enable script to enable ipv6 forwarding before you can run radvd.
