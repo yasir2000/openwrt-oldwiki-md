@@ -33,7 +33,7 @@ WRT54G V1.x
   WAN=vlan1
   WIFI=eth2
 
-WRT54G V2.x/WRT54GS V1.x
+WRT54G V2.x/WRT54G V3.0/WRT54GS V1.x
   LAN=vlan0
   WAN=vlan1
   WIFI=eth1
