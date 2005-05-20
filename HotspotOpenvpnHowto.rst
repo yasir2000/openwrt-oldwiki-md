@@ -7,8 +7,7 @@ Bjoern Biesenbach bjoern@bjoern-b.de
 
 20. May 2005
 
-Image WRT54GV11
-
+'''PDF-Version http://bjoern-b.de/files/HotspotOpenvpn.pdf '''
 
 '''Contents'''
 
