@@ -164,6 +164,7 @@ netkit's tftp commands:
 tftp 192.168.1.1
 tftp> binary
 tftp> rexmt 1
+tftp> timeout 60
 tftp> trace
 Packet tracing on.
 tftp> put openwrt-g-code.bin
