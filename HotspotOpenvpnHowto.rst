@@ -8,7 +8,7 @@ Bjoern Biesenbach bjoern@bjoern-b.de
 20. May 2005
 
 '''PDF-Version: http://bjoern-b.de/files/HotspotOpenvpn.pdf ''' [[BR]]
-''' Experimental snapshot 23.4.05 including required packages: http://bjoern-b.de/files/hopenwrt-wrt54g-jffs2.bin '''
+''' Experimental snapshot 23.4.05 including required packages: http://bjoern-b.de/files/openwrt-wrt54g-jffs2.bin '''
 
 '''Contents'''
 
