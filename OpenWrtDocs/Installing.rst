@@ -157,6 +157,20 @@ The basic procedure of using boot_wait is:
 ||Solid power & DMZ||OpenWrt is booting or (if prolonged) has failed to boot, try [:OpenWrtDocs/Troubleshooting: failsafe mode]. (Usually caused by old/corrupt jffs2 data from a previous OpenWrt install)||
 ||flashing power, slow flashing dmz||Error flashing / Corrupt firmware||
 
+=== The complete boot process consists of the following LEDs ===
+
+||'''Boot Stage'''||'''LED Patterns'''||'''Processes / Runlevel'''||
+||Power off||All LEDs off||Nothing||
+||?||All LEDs on||?||
+||?||Power = BLINK[[BR]] DMZ = OFF[[BR]] WLAN = OFF[[BR]] 1,2,3,4 = ON[[BR]] Internet = ON||?||
+||?||Power = Blink[[BR]] All Other = OFF||?||
+||?||Power = Blink[[BR]] 1,2,3,4 = LINK/ACTICITY[[BR]] All Other = OFF||?||
+||?||Power = ON[[BR]] DMZ = ON[[BR]]1,2,3,4 = LINK[[BR]]All Other = OFF||?||
+||?||Power = BLINK ONCE[[BR]]DMZ = ON[[BR]]WLAN = ON[[BR]]1,2,3,4 = LINK||?||
+||?||Power = ON[[BR]]DMZ = ON[[BR]]WLAN = ON[[BR]]1,2,3,4 = LINK||?||
+||?||Power = ON[[BR]]DMZ = OFF[[BR]]WLAN = ON[[BR]]1,2,3,4 = LINK||?||
+
+
 The tftp commands might vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
 netkit's tftp commands:
