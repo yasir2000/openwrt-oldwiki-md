@@ -16,11 +16,11 @@ Bjoern Biesenbach bjoern@bjoern-b.de
     * Network
     * What you need
     * OpenWrt
-          o Network devices
-          o ipkg setup
-          o DHCP-Server
-          o OpenVPN
-          o Iptables setup 
+          o Network devices [[BR]]
+          o ipkg setup [[BR]]
+          o DHCP-Server [[BR]]
+          o OpenVPN [[BR]]
+          o Iptables setup [[BR]]
 
     * Clientside
           o OpenVPN 
