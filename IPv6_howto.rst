@@ -173,7 +173,7 @@ exit 0
 
 == Dynamic (heartbeat) tunnel to SixXS.net ==
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/aiccu_2005.01.31-1_mipsel.ipk
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/gcc34/packages/aiccu_2005.01.31-1_mipsel.ipk
 }}}
 
 Edit /etc/aiccu.conf :
