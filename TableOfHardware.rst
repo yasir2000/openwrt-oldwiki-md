@@ -14,6 +14,7 @@ Asus;WL-300G;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;on;;;;;Untested
 Asus;WL-500B;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;1x v1.1;parallel port;Supported
 Asus;WL-500B;2;Broadcom 4710;125MHz;4Mb;16Mb;Ralink mini-PCI;on;;;1x v1.1;parallel port;Untested
 Asus;WL-500G;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;1x v1.1;parallel port;Supported
+Asus;WL-520G;;Broadcom 5350;200MHz;2Mb;8Mb;integrated Broadcom;;;;;also known as WL-500G-X;Untested
 Asus;WL-500G Deluxe;;Broadcom 5365;200MHz;4Mb;32Mb;integrated Broadcom;on;Yes;No;2x v2.0; on some units 16Mb RAM is enabled by default, additional USB interfaces;Experimental
 Asus;WL-HDD;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;on;;;1x v1.1;;Untested
 Belkin;F5D7130;;;;;;;;;;;;Untested
@@ -25,7 +26,7 @@ Buffalo;WBR-B11;;;;;;;;;;;;Untested
 Buffalo;WBR2-B11;;;;;;;;;;;;Untested
 Buffalo;WBR-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;on;;;;;Supported
 Buffalo;WBR2-G54;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;on;Yes;Yes;;;Experimental
-Buffalo;WBR2-G54S;;;;;;;;;;;;Untested
+Buffalo;WBR2-G54S;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;on;;;;;Experimental
 Buffalo;WHR-G54;;;;;;;;;;;;Untested
 Buffalo;WHR2-G54;;;;;;;;;;;;Untested
 Buffalo;WHR3-G54;;;;;;;;;;;;Untested
