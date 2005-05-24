@@ -18,7 +18,7 @@ We have no information about the internals of these units, yet. As noone saw a v
 === Detailed hardware info ===
 
 ==== Motherboard photos ====
-Nice hardwer info with precise picture http://wiki.version6.net/WRT54GS
+Nice hardware info with precise picture http://wiki.version6.net/WRT54GS
 
 ==== Power requirements ====
 The following tests were conducted on a linksys wrt54GS v2.0 hardware platform, hooked up to a lab psu.
