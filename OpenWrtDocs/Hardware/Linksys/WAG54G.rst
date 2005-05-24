@@ -1,6 +1,6 @@
 = WAG54G =
 
-== WAG54G Serial Console ==
+== Serial Console ==
 
 {{{
 |
