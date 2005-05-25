@@ -6,7 +6,7 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 = Will OpenWrt work on my hardware ? =
-See [:OpenWrtDocs/Hardware]
+See [:TableOfHardware]
 
 = Obtaining the firmware =
 
