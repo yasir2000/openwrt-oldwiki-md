@@ -31,7 +31,7 @@ The firmware itself is designed to occupy as little space as possible while stil
 Telnet is an insecure protocol with no encryption, we try to make a point of this insecurity by not enabling a password. If you're in an environment that requires password protection we suggest installing the dropbear ssh server.
 
 '''What if I can't get in?'''
-The problem is caused when the jffs2 partition (see below) is detected but unusable, either the result of previous OpenWrt installation or occasionally just caused by a brand new router. Simply boot into Failsafe (see [:OpenWrtDocs/Troubleshooting:]) and run firstboot to reformat the jffs2 partition.
+The problem is caused when the jffs2 partition (see below) is detected but unusable, either the result of previous OpenWrt installation or occasionally just caused by a brand new router. Simply boot into [:OpenWrtDocs/Troubleshooting: failsafe mode] and run firstboot to reformat the jffs2 partition.
 
 = Firstboot / jffs2 =
 
