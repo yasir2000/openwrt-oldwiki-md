@@ -12,7 +12,7 @@ country toplevel domain code (EU, DE, ...).
 The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. These units are supported in the EXPERIMENTAL branch of OpenWrt.
 
 ==== WRT54GS v2.0 ====
-We have no information about the internals of these units, yet. As none saw a v2.0, yet we can't be sure, but it should work with the EXPERIMENTAL branch of OpenWrt (update: some people actually reported success with the EXPERIMENTAL branch).
+The WRT54GS v2.0 uses a BCM5325EKQM switch and a BCM4712LKFB processor.  These units are supported in the EXPERIMENTAL branch of OpenWrt.
 
 
 === Detailed hardware info ===
