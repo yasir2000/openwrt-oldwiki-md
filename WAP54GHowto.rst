@@ -26,7 +26,22 @@ Before you press enter after the put command, power on the AP. Press enter as so
 ||remap wan_ifnames||
 ||remap pppoe_ifname||
 It may not be necessary, but I've deleted /etc/init.d/S45firewall, in order to completely disable netfilter (iptables), to make the AP accept everything from both LAN and WLAN.
+ 
+ 3.1, In the last experimental release the /rom/etc/nvram.overrides as removed!
+This script set the basic nvram value copy all in a script and execute it!
+||#!/bin/sh||
+||nvram set wifi_ifname=eth2||
+||nvram set lan_ifname=br0||
+||nvram set lan_ifnames=eth1 eth2||
+||nvram set wl0_ifname=eth2||
+||nvram set wan0_ifname=eth1||
+||nvram set lan_hwnames=et1 wl0||
+||nvram set wan_ifname=eth1||
+||nvram set txpwr=84||
+||nvram commit||
 
+This script is tested on a v.1 unit!
+ 
  4., Now you can install packages via ipkg like on a WRT54G unit. Note that WAP54G has only 1.8MB free space.
 
  5., If you have problems, send your comments to slapic@linux.co.hu.
