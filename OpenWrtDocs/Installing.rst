@@ -177,7 +177,7 @@ tftp> trace
 Packet tracing on.
 tftp> put openwrt-g-code.bin
 }}}
-Setting "rexmt 1" will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug your box after typing the commands, and as soon as WRT54G's bootloader start to listen, your client will successfully connect and send the firmware. You can try to run "# ping -f 192.168.1.1" (as root) in a separate window and enter the line "put openwrt-g-code.bin" as the colons stop running over your terminal when you power-recycle your linksys. 
+Setting "rexmt 1" will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug in your box after typing the commands, and as soon as WRT54G's bootloader starts to listen, your client will successfully connect and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a separate window and enter the line "put openwrt-g-code.bin" as the colons stop running over your terminal when you power-recycle your linksys. 
 
 Advanced TFTP commands:
 {{{ 
