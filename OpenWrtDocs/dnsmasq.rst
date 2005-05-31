@@ -7,3 +7,13 @@
 == FAQ ==
 
 === Whay local client nslookup request respond like "[rutername]can't find [hostname]: Query refused ===
+
+dnsmasq will reaspond with that message if isnt know IP address where to forward DNS request. That IP address is provided in /etc/resolve.conf. Some programs like (ppp/pppoe) create dinamicly resolve.conf file and fill it with IP address got from ISP provider (basicly if you are not connected with ppp, you dont have resolve.conf file).
+
+If you got that message and you are have reslove.conf file, very probably your dnsmasq is running like user nobody (standard behavior in experimental distribution of OpenWRT). Put next line in /etc/dnsmasq.conf
+{{{
+  user=root
+}}}
+
+and stop/start dnsmasq daemon. That should solve your problem.
+
