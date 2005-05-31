@@ -12,7 +12,7 @@ The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flas
 
 Note: In at least two (feagle814's, rgh12's) WR850G v2, there is 16MB of RAM onboard.  DO NOT try the 32mb enablement hack on the WR850G v2 without first verifying how much RAM you really have (see earlier paragraph on the address wrap problem)!
 
-ISSI IS42S16400B1-7T is a 8MB chip (1Mbx16x4, 64Mb total [divided by 8 = 8megabytes]).  If you have the ISSI IS42S16800xx-7t it is a 16MB chip (2Mbx16x4 128Mb total [divided by 8 = 16megabytes]).  The linksys wrt54gs has 32megabytes of ram (x2) installed in it.  Your router will have two RAM chips installed also, check the bottom of the PCB for the second one.
+ISSI IS42S16400B1-7T is a 8MB chip (1Mbx16x4, 64Mb total [divided by 8 = 8megabytes]).  If you have the ISSI IS42S16800xx-7t it is a 16MB chip (2Mbx16x4 128Mb total [divided by 8 = 16megabytes]).  There are two RAM chips installed on the v2 router, the other one is on the back side of the circuitboard.  Since the Linksys wrt54gs has 32megabytes of ram (x2) installed in it, and if you wanted to use the same code as it does, then you must either change the 8MB chips to 16MB chips, or live with the fact that you will be somewhat restricted in what you can do with the smaller amount of memory available (possibly limiting what packages you can safely run). If you are really lucky, you may not have to do anything at all (if you have the 16MB chips installed already).
 
 The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connector.  
 
