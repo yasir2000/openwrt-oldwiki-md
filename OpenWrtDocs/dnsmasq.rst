@@ -19,7 +19,7 @@ and stop/start dnsmasq daemon. That should solve your problem.
 
 Be aware that router itself doesnt use dnsmasq for resolving DNS request, insted it use IP address of DNS set to WAN(vlan1) interface.
 
-Before described problem appear if you use standard experimental distribution (LAN an WiFI behaind NAT) and WAN use some PPP (pppoe/xDSL). DHCP return clients (PC) connected on WiFi or LAN local IP address and for DNS server local IP address of router (so clients will use dnsmasq for resolving hostname).
+Before described problem appear if you use router in AP mode and standard experimental distribution (LAN an WiFI behaind NAT) and WAN use some PPP (pppoe/xDSL). DHCP return clients (PC) connected on WiFi or LAN local IP address and for DNS server local IP address of router (so clients will use dnsmasq for resolving hostname).
 
 === Where to set names for private IP address ===
 Puting information about that in /etc/hosts file, and format is
