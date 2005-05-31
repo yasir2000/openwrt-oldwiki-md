@@ -6,9 +6,9 @@
 
 == FAQ ==
 
-=== Whay local client nslookup request respond like "[rutername]can't find [hostname]: Query refused ===
+=== Whay local client nslookup request respond like "[rutername]can't find [hostname]: Query refused" ===
 
-dnsmasq will reaspond with that message if isnt know IP address where to forward DNS request. That IP address is provided in /etc/resolve.conf. Some programs like (ppp/pppoe) create dinamicly resolve.conf file and fill it with IP address got from ISP provider (basicly if you are not connected with ppp, you dont have resolve.conf file).
+dnsmasq will reaspond with that message if isnt know IP address where to forward DNS request. That IP address is provided in /etc/resolve.conf. Some programs like (ppp/pppoe) create dinamicly resolve.conf file and fill it with IP address got from ISP provider (basicly if you are not connected with ppp, you dont have resolve.conf file). dnsmasq check modification time of resolve.conf file and if is changed from last request, it will reload info from resolve.conf file (that feature give you possibility to start dnsmasq on booting time, and creating resolve conf on time knowing IP address of DNS server).
 
 If you got that message and you have reslove.conf file, very probably your dnsmasq is running like user nobody (standard behavior in experimental distribution of OpenWRT). Put next line in /etc/dnsmasq.conf
 {{{
@@ -17,7 +17,11 @@ If you got that message and you have reslove.conf file, very probably your dnsma
 
 and stop/start dnsmasq daemon. That should solve your problem.
 
-=== Where to set names for privet IP address ===
+Be aware that router itself doesnt use dnsmasq for resolving DNS request, insted it use IP address of DNS set to WAN(vlan1) interface.
+
+Before described problem appear if you use standard experimental distribution (LAN an WiFI behaind NAT) and WAN use some PPP (pppoe/xDSL). DHCP return clients (PC) connected on WiFi or LAN local IP address and for DNS server local IP address of router (so clients will use dnsmasq for resolving hostname).
+
+=== Where to set names for private IP address ===
 Puting information about that in /etc/hosts file, and format is
 {{{
 [IP_address] host_name host_name_short ...
