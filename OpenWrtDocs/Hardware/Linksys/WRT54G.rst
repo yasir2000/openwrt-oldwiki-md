@@ -47,3 +47,6 @@ There are revision XH units of the WRT54G v2.0. These units have 32Mb of memory,
 Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
 /!\ '''However, there are no guaranties, that these will work, and changing the memory configuration on a non-XH unit will give You a brick. Check the forums for more info.'''
+
+
+If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a switch. On the board it is printed as SW2. This is the second reset button you can find on WRT54G v3.0, except that it has not been soldered.
