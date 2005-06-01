@@ -38,7 +38,7 @@ Buffalo;WLI2-TX1-G54;;;;;;;;;;;;Untested
 Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8Mb;64Mb;Broadcom mini-PCI;;;;;;Untested
 Dell;Truemobile 2300;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;off;;;;;Untested
 Linksys;BEFSR41;;;;;;;;;;;;No
-Linksys;WRT54AG;;;;;;Prism mini-PCI;;;;;;Untested
+Linksys;WRT54AG;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;No wireless support;Supported
 Linksys;WAP54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;off;;;;;Supported
 Linksys;WAP54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;off;Yes;;;;Supported
 Linksys;WAP54G;2;Broadcom 4712;200MHz;2Mb;16Mb;integrated Broadcom;off;Yes;;;;Untested
@@ -48,13 +48,16 @@ Linksys;WRT54G;2.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes
 Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch, 16Mb RAM is enabled by default;Supported
 Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;BCM5325 switch, DDR RAM;Experimental
 Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;just like v2.2 + extra button;Experimental
+Linksys;WRT54G;4.0;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;;Yes;Yes;;;Untested
 Linksys;WRT54GC;;;;;;;off;;;;compact version of Linksys WRT54G;No
 Linksys;WRT54GS;1.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch;Supported
 Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Yes;;BCM5325 switch, DDR RAM;Experimental
 Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Yes;;just like v1.1 + extra button;Experimental
+Linksys;WRT54GS;3.0;Broadcom 5365;200MHz;8Mb;32Mb;integrated Broadcom;;Yes;Yes;;;Untested
 Linksys;WRT54GX;;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;on;Yes;;;No wireless support;Experimental
 Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;off;;;;;Untested
 Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;doesn't exist;Yes;;;;WiP
+Linksys;WTR54GS;;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;;No;No;;;Untested
 Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;doesn't exist;No;Yes;;Have to reflash a bootloader (CFE/PMON) first;Supported
 Motorola;WR840G;;;;;;;;;;;;Untested
 Motorola;WR840GP;;Broadcom 4712;200MHz;;;integrated Broadcom;;;;;;Untested
