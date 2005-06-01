@@ -243,10 +243,11 @@ Another thing is that the ASUS WL500G doesn't seem to revert to the 192.168.1.1 
 
 
 == Siemens Gigaset SE505 ==
-The installation procedure is essentially the same as the generic one described above. The only differences are that the bootloader listens on 192.168.2.1 and the IP of the machine sending the new firmware has to be 192.168.2.100 or the router will only accept the first packet.
+The installation procedure is essentially the same as the generic one described above. The only differences are that the bootloader listens based on nvram lan_ipaddr= variable (default: 192.168.2.1) and the IP of the machine sending the new firmware has to be 192.168.x.100 or the router will only accept the first packet.
 
 boot_wait seems to be enabled on these devices.
 
+You can erase nvram settings by pressing reset button while powering on the router.
 
 
 = Using OpenWrt =
