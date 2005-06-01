@@ -6,7 +6,7 @@
 
 == FAQ ==
 
-=== Whay local client nslookup request respond like "[rutername]can't find [hostname]: Query refused" ===
+=== Whay local client nslookup request respond like "[routername]can't find [hostname]: Query refused" ===
 
 dnsmasq will reaspond with that message if isnt know IP address where to forward DNS request. That IP address is provided in /etc/resolve.conf. Some programs like (ppp/pppoe) create dinamicly resolve.conf file and fill it with IP address got from ISP provider (basicly if you are not connected with ppp, you dont have resolve.conf file). dnsmasq check modification time of resolve.conf file and if is changed from last request, it will reload info from resolve.conf file (that feature give you possibility to start dnsmasq on booting time, and creating resolve conf on time knowing IP address of DNS server).
 
