@@ -12,9 +12,9 @@ The inital version (v1) is based on the Broadcom 4710 board. It has a 125MHz CPU
 
 The new experimental firmware (20050424) doesn't seem to work in this model at the moment.
 
-/!\ '''The reset button is hardwired on the Se505 v1, so there is no failsafe mode.'''
+/!\ '''The reset button is hardwired on the Se505 v1, so there is no failsafe mode. You can set back default nvram settings by pressing reset button while turning on the router.'''
 
-/!\ '''The IP of the machine uploading firmware has to be 192.168.2.100.''' [documented under FAQ on the Siemens site]
+/!\ '''The IP of the machine uploading firmware has to be 192.168.x.100.''' [documented under FAQ on the Siemens site]
 
 = Siemens SE505v2 =
 
