@@ -194,6 +194,8 @@ Please note, netkit tftp has failed to work for some people. Try to use Advanced
 Note: At least netkit-tftp on gentoo failed me (EpA). All I got was Just one ACK reply and nothing more.
 I tried with atftp and it worked straight away.
 
+'''Note:'''  Some CFE versions require that the firmware file is named '''code.bin'''.  If the TFTP upload is being igored, try renaming the file.
+
 ||'''TFTP Error'''||'''Reason'''||
 ||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
 ||Invalid Password||The firmware has booted and you're connected to a password protected tftp server contained in the firmware, not the bootloader's tftp server.||
