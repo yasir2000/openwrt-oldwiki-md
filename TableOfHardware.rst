@@ -47,7 +47,7 @@ Linksys;WRT54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;off;;;;ADM6
 Linksys;WRT54G;2.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch;Supported
 Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch, 16Mb RAM is enabled by default;Supported
 Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;BCM5325 switch, DDR RAM;Experimental
-Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;off;Yes;Yes;;just like v2.2 + extra button;Experimental
+Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;on - downgrade firmware to v3.01.3;Yes;Yes;;just like v2.2 + extra button;Experimental
 Linksys;WRT54G;4.0;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;;Yes;Yes;;;Untested
 Linksys;WRT54GC;;;;;;;off;;;;compact version of Linksys WRT54G;No
 Linksys;WRT54GS;1.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;off;Yes;Yes;;ADM6996 switch;Supported
