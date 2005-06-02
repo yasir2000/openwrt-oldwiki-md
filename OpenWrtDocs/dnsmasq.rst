@@ -29,6 +29,6 @@ Puting information about that in /etc/hosts file, and format is
 192.168.1.1 router.lan router
 }}}
 
-=== Make sure that the configuration files it needs are readable by 'nobody'.
+=== Make sure that the configuration files it needs are readable by 'nobody'. ===
 
 If you are using the squashf root, and your umask is 077 (the default in the experimental distribution), when you remove the symlink to the configuration file in /etc/ and cp the /rom/etc/ file into etc so you can edit it, dnsmasq will not be able to read the conffile, and lookups will fail.  Set the umask to 022 or chmod the files and it works fine.
