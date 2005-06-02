@@ -8,8 +8,9 @@ There are currently five versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0). 
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''OpenWRT'''||
 ||'''Model'''||'''S/N'''||'''CVS'''||'''EXP'''||
-||WRT54G ver1.1||CDF20xxxxxxx||||||
-||WRT54G ver. 2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
+||<(|2>WRT54G v1.1||CDF20xxxxxxx||<:|2> (./) ||<:|2> (./) ||
+||CDF30xxxxxxx||
+||WRT54G v2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
 ||WRT54G v2.2||CDF70xxxxxxx||<:> {X} ||<:> (./) ||
 ||WRT54G v3||CDF80xxxxxxx||<:> {X} ||<:> (./) ||
 ==== WRT54G v1.0 ====
