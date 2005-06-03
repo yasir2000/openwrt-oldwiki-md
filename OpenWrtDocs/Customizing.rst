@@ -5,13 +5,15 @@ The contents of this section of the wiki can have serious consequences. While ev
 
 = Hardware =
 == Adding Dual Serial Ports ==
-*Mod already done. Will update soon*
+''Serial ports allow you to do a myriad of things, inlcuding connect to your computer, connect to other deviced such as LCDs and GPSes, etc... With a lil programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports.. those are already there.. this just makes them much easier to use with just about any hardware you want''
+
 == Adding an MMC/SD Card ==
 *Mod already done. Will update soon*
 == Adding an LCD ==
 *Awaiting hardware for writeup*
 == Adding a GPS ==
 *Almost done
+
 == Adding a Weather Station ==
 == Adding an LCD ==
 [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg]
@@ -22,6 +24,7 @@ The contents of this section of the wiki can have serious consequences. While ev
 [http://www.duff.dk/wrt54gs/pics/02_Covox_Top.jpg]
 == Adding Sound Output ==
 [http://www.duff.dk/wrt54gs/pics/07_Finished_product.jpg]
+
 = Software =
 = Firmware =
 == Overclocking ==
@@ -236,7 +239,18 @@ Posted: 2005-04-03
 
 Nvserial - Utility to build modified CFE images - http://downloads.openwrt.org/inh/nvserial
 == Firmware images, CFE images, etc... ==
+'''Please see the [http://downloads.openwrt.org/inh/cfe/README README] file regarding MAC addresses'''
+=== Linksys wrt54g v1.0 ===
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0.boot_wait Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
+=== Linksys wrt54g v1.1 ===
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1 Stock CFE.bin]||Standard CFE that ships with the v1.1||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1.boot_wait Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
 === Linksys wrt54g v2.2 and v3 ===
-Modified CFE.bin file, with boot_wait enabled, and special feature to reset to default nvram values by holding reset and powering on the router - http://downloads.openwrt.org/inh/cfe.bin - '''Please see the note in the cfe.txt file regarding MAC addresses'''
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0 Stock CFE.bin]||Standard CFE that ships with the v2.2/3||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0.boot_wait Modified CFE.bin]||boot_wait enabled, and will load nvram values stored in the cfe if reset is held while rebooting.||
+=== Linksys wrt54gx v1.0 ===
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0 (compressed)||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0.decompressed Stock CFE.bin]||Standard CFE that ships with the v1.0 (de-compressed)||
 
 Modified cfe.txt file accompanying the above .bin file - http://downloads.openwrt.org/inh/cfe.txt
