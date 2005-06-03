@@ -242,19 +242,18 @@ Nvserial - Utility to build modified CFE images - http://downloads.openwrt.org/i
 '''Please see the [http://downloads.openwrt.org/inh/cfe/README README] file regarding MAC addresses'''
 === Linksys wrt54g v1.0 ===
 ||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0.boot_wait Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
-||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g1.0 boot_wait Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0.Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
+||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g1.0 Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
 === Linksys wrt54g v1.1 ===
 ||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1 Stock CFE.bin]||Standard CFE that ships with the v1.1||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1.boot_wait Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
-||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g1.1 boot_wait Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1.Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
+||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g1.1 Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
 === Linksys wrt54g v2.2 and v3 ===
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0 Stock CFE.bin]||Standard CFE that ships with the v2.2/3||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0.boot_wait Modified CFE.bin]||boot_wait enabled, and will load nvram values 
-stored in the cfe if reset is held while rebooting.||
-||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g3.0 boot_wait Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0 Stock CFE.bin]||Standard CFE that ships with the v2.2 and 3||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0 Modified CFE.bin]||boot_wait enabled, and will load nvram values stored in the cfe if reset is held while rebooting||
+||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g3.0 Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
 === Linksys wrt54gx v1.0 ===
 ||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0 (compressed)||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0.decompressed Stock CFE.bin]||Standard CFE that ships with the v1.0 (de-compressed)||
+||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0 Decompressed Stock CFE.bin]||Standard CFE that ships with the v1.0 (de-compressed)||
 
 Modified cfe.txt file accompanying the above .bin file - http://downloads.openwrt.org/inh/cfe.txt
