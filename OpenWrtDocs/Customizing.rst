@@ -87,7 +87,7 @@ Those are all values known to work. You can either set just the MIPSclock by usi
 nvram set clkfreq=MIPSclock,sbclock
 }}}
 
-You can also mix and match values. I've personally found that setting MIPSclock to 264 (that seems to be the upper limit) and SBclock to 96, I get much better performance.
+You can also mix and match values. I've personally found that setting MIPSclock to 300 and SBclock to 96, I get much better performance.
 
 '''Conclusion'''
 
