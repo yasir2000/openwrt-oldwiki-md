@@ -11,20 +11,21 @@ The contents of this section of the wiki can have serious consequences. While ev
 == Adding an LCD ==
 *Awaiting hardware for writeup*
 == Adding a GPS ==
+*Almost done
 = Software =
 = Firmware =
 == Overclocking ==
-''Overclocking the WRT has been a very sought-after mod. Many people overclock thier home PCs, and now I will tell you how to overclock your OpenWRT router.''
+''Overclocking the WRT has been a very sought-after mod. Many people overclock thier home PCs, and now I will tell you how to overclock your OpenWrt router. ''
 
 '''Background Info'''
 
-Many people know that by setting the nvram variable clkfreq, you can overclock your router. Many people also know that Linksys actually released a beta firmware, changing clkfreq to 216 to fix stability issues. That quick fix actually works quite well, as many people can tell you. Linksys also released a lesser-known beta firmware that set clkfreq to 240. This also well. But there are a few lesser known, and as far as I know, a few things discovered by [mbm] and I. First off, you can NOT set clkfreq to any number you want. It is very selective, and only certain values work. Also, there are 2 clocks you can adjust. This was previously unknown (read: another OpenWRT first.)
+Many people know that by setting the nvram variable clkfreq, you can overclock your router. Many people also know that Linksys actually released a beta firmware, changing clkfreq to 216 to fix stability issues. That quick fix actually works quite well, as many people can tell you. Linksys also released a lesser-known beta firmware that set clkfreq to 240. This also well. But there are a few lesser known, and as far as I know, a few things discovered by [mbm] and I. First off, you can NOT set clkfreq to any number you want. It is very selective, and only certain values work. Also, there are 2 clocks you can adjust. This was previously unknown (read: another OpenWrt first.)
 
 '''Simple Overclocking'''
 
 As stated earlier, Linksys released firmware that made thier routers run at 216 mHz instead of 200 to fix stability issues. You too can do this simple overclock to make your router run much more solidly. Here is all you have to do.
 
-At the OpenWRT prompt, type:
+At the OpenWrt prompt, type:
 {{{
 nvram set clkfreq=216
 nvram commit
@@ -36,7 +37,7 @@ reboot
 }}}
 Simple enough! If your router was unstable with high traffic loads before, you should be much more stable now :)
 
-'''Advanced Overclocking'''
+'''Moderate Overclocking'''
 
 While a 16mHz increase doesnt seem like much, it works wonders for the router. But what if you want to go faster? Setting clkfreq to 220 locks up the router, and then you are stuck with having to use the JTAG method to de-brick. That is, of course,  assuming you didnt change the default values in the CFE file, in which case all you have to do is reboot with the reset button held in... see the 'changing cfe defaults' guide)
 
@@ -49,6 +50,48 @@ cat /proc/cpuinfo
 }}}
 
 Try the values, test your performance, or just bask in all your overclocking glory :)
+
+'''Advanced Overclocking'''
+
+This is the good stuff, especially if you have done the MMC/SD card mod, as it boosts the read/write speeds from 200 kilobytes a second to over 330 :D
+
+In addition to setting clkfreq to a higher number, there is also another clock that can be controlled. This is called the sb clock, and is beleived to be the clock that controlls the speed of the data transfer between different areas of the Broadcom CPU. To set it, you set clkfreq like this:
+{{{
+nvram set clkfreq=MIPSclock,SBclock
+}}}
+
+For example, the following does the same as if you were to set clkfreq to 264:
+{{{
+nvram set clkfreq=264,132
+}}}
+
+MIPSclock is the standard clock you change when setting clkfreq with one value. The second number you set it to is the aformentioned SBclock. The SBclock, just like the MIPSclock, only has certain values that can be used, or it will brick your router. Here's a table:
+
+||MIPSclock||||SBclock||
+||||||||
+||192||||96||
+||200||||100||
+||216||||108||
+||228||||101333333||
+||228||||114||
+||240||||120||
+||252||||126||
+||264||||132||
+||272||||116571428||
+||280||||120||
+||288||||123428571||
+||300||||120||
+
+Those are all values known to work. You can either set just the MIPSclock by using that value, or set both MIPS and SB clocks by using:
+{{{
+nvram set clkfreq=MIPSclock,sbclock
+}}}
+
+You can also mix and match values. I've personally found that setting MIPSclock to 264 (that seems to be the upper limit) and SBclock to 96, I get much better performance.
+
+'''Conclusion'''
+
+The clock seems to still remain somewhat of a mystery. With the recently discovered SBclock, and table of useable values, overclocking is a much more feasible and safe mod than it used to be. 
 == Changing CFE defaults ==
 ''The following is a guide from http://wl500g.dyndns.org/wrt54g.html that I've copied here, with added commentary. I am not the original author, that credit goes to Oleg.''
 
@@ -160,7 +203,7 @@ By default most firmwares has pmon partition write protected, i.e. you can't fla
 
 '''Flashing new CFE image'''
 
-So, once you've recompiled and flashed your new firmware you need yo upgrade CFE. This process is dangerous, as flash failure during it will prevent your unit from booting. Copy cfe_new.bin to your wrt54g and flash it. The exact commands are dependent on the firmware. With OpenWRT I've used the folowing:
+So, once you've recompiled and flashed your new firmware you need yo upgrade CFE. This process is dangerous, as flash failure during it will prevent your unit from booting. Copy cfe_new.bin to your wrt54g and flash it. The exact commands are dependent on the firmware. With OpenWrt I've used the folowing:
 
 {{{
 mtd unlock pmon
@@ -171,7 +214,7 @@ mtd write /tmp/cfe_new.bin pmon
 
 '''Checking it'''
 
-Embedded nvram is only used, when real nvram is either corrupted or empty (CRC/magic checks fails), so you will need to erase nvram or to reset to defaults. With OpenWRT type this:
+Embedded nvram is only used, when real nvram is either corrupted or empty (CRC/magic checks fails), so you will need to erase nvram or to reset to defaults. With OpenWrt type this:
 {{{
 mtd erase nvram
 }}}
