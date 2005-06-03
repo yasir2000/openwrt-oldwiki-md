@@ -10,14 +10,14 @@
  We have no information about the internals of these units, yet, so they are '''NOT''' supported.
  This version seems to be compatible to Openwrt and the GPL toolchain provided by Linksys '''may''' work for this version. Have a look at the [http://www.seattlewireless.net/index.cgi/LinksysWrt55ag pictures] at Seattle-Wireless. They show that the chipset is broadcom. 
 
-===== Official Linksys GPL Firmware =====
+===== Official Linksys Firmware =====
  Like all other official Linksys Firmware, this Firmware is located at their [http://www.linksys.com/support/gpl.asp GPL Code Center]
  The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website.
 
 ==== WRT55AG v2.0 ====
  It seems as if this version uses VxWorks as most Atheros based routers do. So there is '''no OpenSource Firmware''' available :-(
 
-===== Official Linksys GPL Firmware =====
+===== Official Linksys Firmware =====
  The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website. [[BR]]
  It is not possible to flash this firmware (version 1.10) on WRT55AG v2.0! The webinterface states that it runs version 1.30.
  Neither the 'self-compiled' GPL nor the 'official' linksys firmware can be flashed into the device.
