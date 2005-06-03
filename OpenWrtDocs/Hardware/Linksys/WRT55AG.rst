@@ -18,6 +18,7 @@ The current (3rd of June, 2005) version is 1.10 and can be obtained from the lin
   
 ===== Dissassembly instruction =====
 Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"]
+The antenna is not detachable anymore (like all wrt54g(s)). There are two radios in the box itself. 
 
 ===== Myth =====
 "The WRT55AG v2.0 comes with firmware version 1.1 and appears to use VxWorks, not linux."
