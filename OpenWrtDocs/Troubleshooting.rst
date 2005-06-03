@@ -75,8 +75,8 @@ NOTE: The diagram below is as if you were looking at your computer's parallel po
 
 Parport
  1                          13
-  o o o o o o o o o o o o o o
-14 o|o|o|o o o o o o o o o o|25
+  o o o o o o o o o o o o o
+14 o|o|o|o o o o o o o o o|25
     | | |          |_______||
     | | |              |    |
     ^ ^ ^              |    ^
