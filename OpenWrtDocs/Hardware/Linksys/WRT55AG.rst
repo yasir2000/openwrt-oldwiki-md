@@ -1,30 +1,30 @@
 '''Linksys WRT55AG'''
 
 === Hardware versions ===
-There are two versions of the WRT55AG. You can get the version number from the sticker on the bottom of the device.
+ There are two versions of the WRT55AG. You can get the version number from the sticker on the bottom of the device.
 
-See Tom's Hardware guide for information: http://www.tomsnetworking.com/Reviews-47-ProdID-WRT55AG-2.php
-Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
+ See Tom's Hardware guide for information: http://www.tomsnetworking.com/Reviews-47-ProdID-WRT55AG-2.php
+ Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
 
 ==== WRT55AG v1.0 ====
-We have no information about the internals of these units, yet, so they are '''NOT''' supported.
-This version seems to be compatible to openwrt and the GPL toolchain provided my Linksys may work for this version. 
+ We have no information about the internals of these units, yet, so they are '''NOT''' supported.
+ This version seems to be compatible to Openwrt and the GPL toolchain provided by Linksys '''may''' work for this version. Have a look at the [http://www.seattlewireless.net/index.cgi/LinksysWrt55ag pictures] at Seattle-Wireless. They show that the chipset is broadcom. 
 
 ===== Official Linksys GPL Firmware =====
-Like all other official Linksys Firmware, this Firmware is located at their [http://www.linksys.com/support/gpl.asp GPL Code Center]
-The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website.
+ Like all other official Linksys Firmware, this Firmware is located at their [http://www.linksys.com/support/gpl.asp GPL Code Center]
+ The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website.
 
 ==== WRT55AG v2.0 ====
-It seems as if this version uses VxWorks as most Atheros based routers do. So there is no OpenSource Firmware available :-(
+ It seems as if this version uses VxWorks as most Atheros based routers do. So there is '''no OpenSource Firmware''' available :-(
 
 ===== Official Linksys GPL Firmware =====
-The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website. [[BR]]
-It is not possible to flash this firmware (version 1.10) on WRT55AG v2.0! The webinterface states that it runs version 1.30.
-Neither the 'self-compiled' nor the 'official' linksys firmware can be flashed into the device.
+ The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website. [[BR]]
+ It is not possible to flash this firmware (version 1.10) on WRT55AG v2.0! The webinterface states that it runs version 1.30.
+ Neither the 'self-compiled' nor the 'official' linksys firmware can be flashed into the device.
   
 ===== Dissassembly instruction =====
-Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"]
-The antenna is not detachable anymore (like all wrt54g(s)). There are two radios soldered onto the PCB, the chipset is made by Atheros. It differs quite much from the version 1.0 
+ Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"] 
+ The antenna is not detachable anymore (like all wrt54g(s)). There are two radios soldered onto the PCB, the chipset is made by Atheros. It differs quite much from the version 1.0 
 
 ===== Hardware notes =====
 
