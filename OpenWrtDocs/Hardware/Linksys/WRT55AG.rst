@@ -8,22 +8,23 @@ Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
 
 ==== WRT55AG v1.0 ====
 We have no information about the internals of these units, yet, so they are '''NOT''' supported.
-
-==== WRT55AG v2.0 ====
-It seems!!! as if Linksys also runs linux on this box, so this is not for sure. At least they provide a tarball with broadcom(?!) toolchain. This is strange because the stock firmware is version 1.30 and the chipset is made by Atheros, not Broadcom. On their website one can only find the firmware 1.10 which seems to be outdated. It is not possible to flash the firmware 1.10 on such a router that runs 1.30.
-It may be possible that 1.10 is for WRT55AG v1.0 and runs Linux, but v2.0 is somsthing else (VxWorks?).
+This version seems to be compatible to openwrt and the GPL toolchain provided my Linksys may work for this version. 
 
 ===== Official Linksys GPL Firmware =====
 Like all other official Linksys Firmware, this Firmware is located at their [http://www.linksys.com/support/gpl.asp GPL Code Center]
 The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website.
+
+==== WRT55AG v2.0 ====
+It seems as if this version uses VxWorks as most Atheros based routers do. So there is no OpenSource Firmware available :-(
+
+===== Official Linksys GPL Firmware =====
+The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website. [[BR]]
+It is not possible to flash this firmware (version 1.10) on WRT55AG v2.0! The webinterface states that it runs version 1.30.
+Neither the 'self-compiled' nor the 'official' linksys firmware can be flashed into the device.
   
 ===== Dissassembly instruction =====
 Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"]
-The antenna is not detachable anymore (like all wrt54g(s)). There are two radios in the box itself. 
-
-===== Myth =====
-"The WRT55AG v2.0 comes with firmware version 1.1 and appears to use VxWorks, not linux."
-Hopefully this statement is not correct, the GPL firmware is to be checked soon for that issue.
+The antenna is not detachable anymore (like all wrt54g(s)). There are two radios soldered onto the PCB, the chipset is made by Atheros. It differs quite much from the version 1.0 
 
 ===== Hardware notes =====
 
