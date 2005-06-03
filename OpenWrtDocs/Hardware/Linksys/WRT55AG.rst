@@ -20,7 +20,9 @@
 ===== Official Linksys GPL Firmware =====
  The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website. [[BR]]
  It is not possible to flash this firmware (version 1.10) on WRT55AG v2.0! The webinterface states that it runs version 1.30.
- Neither the 'self-compiled' nor the 'official' linksys firmware can be flashed into the device.
+ Neither the 'self-compiled' GPL nor the 'official' linksys firmware can be flashed into the device.
+
+ To complete confusion there is [http://www.linksys.com/international/firmware.asp?intfwid=91&coid=6 another firmware page], where the current version 1.30 can be downloaded. There is no changelog.
   
 ===== Dissassembly instruction =====
  Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"] 
