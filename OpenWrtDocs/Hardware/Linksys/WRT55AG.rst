@@ -10,7 +10,8 @@ Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
 We have no information about the internals of these units, yet, so they are '''NOT''' supported.
 
 ==== WRT55AG v2.0 ====
-It seems as if Linksys also runs linux on this box. At least they provide a tarball with broadcom(?!) toolchain. This is strange because the stock firmware is version 1.30 and the chipset is made by Atheros, not Broadcom. On their website one can only find the firmware 1.10 which seems to be outdated. It is not possible to flash the firmware 1.10 on such a router that runs 1.30
+It seems!!! as if Linksys also runs linux on this box, so this is not for sure. At least they provide a tarball with broadcom(?!) toolchain. This is strange because the stock firmware is version 1.30 and the chipset is made by Atheros, not Broadcom. On their website one can only find the firmware 1.10 which seems to be outdated. It is not possible to flash the firmware 1.10 on such a router that runs 1.30.
+It may be possible that 1.10 is for WRT55AG v1.0 and runs Linux, but v2.0 is somsthing else (VxWorks?).
 
 ===== Official Linksys GPL Firmware =====
 Like all other official Linksys Firmware, this Firmware is located at their [http://www.linksys.com/support/gpl.asp GPL Code Center]
