@@ -10,9 +10,20 @@ Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
 We have no information about the internals of these units, yet, so they are '''NOT''' supported.
 
 ==== WRT55AG v2.0 ====
-The WRT55AG v2.0 comes with firmware version 1.1 and appears to use VxWorks, not linux.
+It seems as if Linksys also runs linux on this box.
 
-Hardware notes:
+===== Official Linksys GPL Firmware =====
+Like all other official Linksys Firmware, this Firmware is located at their [http://www.linksys.com/support/gpl.asp GPL Code Center]
+The current (3rd of June, 2005) version is 1.1 and can be obtained from the linksys website.
+  
+===== Dissassembly instruction =====
+Detailed and correct Information, even the default webinterface are available [http://openwrt.org/downloads/wrt55ag_v2-deconstruction/ here]
+
+===== Myth =====
+"The WRT55AG v2.0 comes with firmware version 1.1 and appears to use VxWorks, not linux."
+Hopefully this statement is not correct, the GPL firmware is to be checked soon for that issue.
+
+===== Hardware notes =====
 
 - Two pcs. of "YCL DUAL 10/100 BASE PTH FILTER MODULE MODEL:PH202484"
 [[BR]](datasheet requested on 2005-03-05 via email)
