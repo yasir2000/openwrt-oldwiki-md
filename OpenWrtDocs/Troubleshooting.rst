@@ -71,6 +71,8 @@ You still don't want to short any pins on your precious router. Thats nasty disg
 
 It is basically like that:
 {{{
+NOTE: The diagram below is as if you were looking at your computer's parallel port head on. If you are going to solder directly to a male connector, pay close attention to the pin numbers as they will be in a different orientation on the male connector. When looking at the back of the male connector (where you solder wires to) pin 13 is on the far left, while 1 is on the right.
+
 Parport
  1                          13
   o o o o o o o o o o o o o o
