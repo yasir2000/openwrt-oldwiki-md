@@ -12,6 +12,16 @@ The contents of this section of the wiki can have serious consequences. While ev
 *Awaiting hardware for writeup*
 == Adding a GPS ==
 *Almost done
+== Adding a Weather Station ==
+== Adding an LCD ==
+[http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg]
+== Adding VGA Output ==
+[http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg]
+[http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg]
+== Adding Secod Reset Button (v2.2 only) ==
+[http://www.duff.dk/wrt54gs/pics/02_Covox_Top.jpg]
+== Adding Sound Output ==
+[http://www.duff.dk/wrt54gs/pics/07_Finished_product.jpg]
 = Software =
 = Firmware =
 == Overclocking ==
