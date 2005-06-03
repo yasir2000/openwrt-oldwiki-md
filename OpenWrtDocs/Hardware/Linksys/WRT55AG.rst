@@ -17,7 +17,7 @@ Like all other official Linksys Firmware, this Firmware is located at their [htt
 The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website.
   
 ===== Dissassembly instruction =====
-Detailed and correct Information, even the default webinterface are available [http:///downloads/wrt55ag_v2-deconstruction/ here]
+Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"]
 
 ===== Myth =====
 "The WRT55AG v2.0 comes with firmware version 1.1 and appears to use VxWorks, not linux."
