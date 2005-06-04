@@ -151,8 +151,9 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 
 = Software =
 == Software Tools ==
-=== Bandwidth Monitoring ===
+=== Networking ===
 ||[http://www.hetos.de/bwlog.html WRTbwlog]||A tool that shows internet traffic on all wired and wireless interfaces, as well as many other useful and related functions||
+=== System ===
 === Wireless ===
 ||[http://wiviz.natetrue.com WiViz]||A very nice wireless network visualization tool||
 == Software Guides ==
@@ -200,7 +201,39 @@ Once you've picked the network you want to connect to, type:
 {{{
 wl join <ssid>
 }}}
+=== System ===
+==== wrt54g Version 3 LED load monitor ====
+''This uses the white and amber LEDs that Linksys added to the wrt54g version 3. It willi turn on the white LED normal useage, but when CPU useage jumps to 80% or above, it turns on the amber LED to alert you. Credit goes to SeRi for this mod :)''
 
+'''Installing Necessary Software'''
+
+First of, grab the [http://downloads.openwrt.org/inh/programs/loadmon.sh loadmon.sh] script, and [mbm]'s [http://downloads.openwrt.org/gpio.tar.gz GPIO tool]. Then untar the gpio tool, and copy the files to your /usr/sbin directory. A typical way to do this on a jffs2 install would go as follows. If you are using squash fs, then you shoudl know what to do.
+{{{
+cd /tmp
+wget http://downloads.openwrt.org/inh/programs/loadmon.sh
+wget http://downloads.openwrt.org/gpio.tar.gz
+tar xvf gpio.tar.gz
+mv gpio /usr/sbin
+mv loadmon.sh /usr/sbin
+}}} 
+
+Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, add the line 'loadmon.sh' to your /etc/profile. For example, it looks like this on my system:
+{{{
+#!/bin/sh
+[ -f /etc/banner ] && cat /etc/banner
+
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export PS1='\u@\h:\w\$ '
+
+alias less=more
+alias vim=vi
+
+arp() { cat /proc/net/arp; }
+ldd() { LD_TRACE_LOADED_OBJECTS=1 $*; }
+loadmon.sh
+}}}
+
+Now reboot and test it out :)
 = Firmware =
 == Overclocking ==
 ''Overclocking the WRT has been a very sought-after mod. Many people overclock their home PCs, and now I will tell you how to overclock your OpenWrt router. Please read the "troubleshooting" section at the bottom of this document, it contains important information on things you should do before trying to overclock.''
