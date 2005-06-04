@@ -159,48 +159,8 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 == Software Guides ==
 === Wireless ===
 ==== Client Mode ====
-''Client mode allows you to connect your router to another computer via an ethernet port, and allows you to essentially use the router as a wireless network card to connect to wireless access points, etc... The following is essentially a rip from Hackaday's great [http://hackaday.com/entry/1234000690043237/ tutorial].''
+See [:ClientModeHowto]
 
-Setting up OpenWrt to be used in client mode is actaully fairly easy. First off, [http://openwrt.org/OpenWrtDocs/Installing install] OpenWrt, read through [http://openwrt.org/OpenWrtDocs/Using this] and get used to moving abotu in OpenWrt. Finally, [http://openwrt.org/OpenWrtDocs/Configuration configure] your OpenWrt install. It seems like a lot of steps, but it's all things you have to do at some point. 
-
-Now that the basics are out of the way, things get decidely simpler. If you haven't already, do the following:
-{{{
-ipkg update
-}}}
-
-That will ensure everything is up to date. Now to use the router in client mode, we need to install the 'wl' tool:
-{{{
-ipkg install wl
-}}}
-
-Next, you need to take down the firewall. Most people recommend deleting it. I don't, because if you ever want to put it back up again, you're kinda screwed if you deleted it. Instead, do the following:
-{{{
-mv /etc/init.d/S45firewall /etc/init.d/s45firewall
-}}}
-
-What this does is rename the firewall, so the startup scripts thinks it isn't there (remember, linux is case-sensitive.)
-
-Next, we have to break the LAN/WiFi bridges. A couple of nvram settings take care of that:
-{{{
-nvram set lan_ifname=vlan0
-nvram set wifi_ifname=eth1
-nvram set wl0_mode=sta
-nvram set lan_proto=static
-nvram set lan_ipaddr=192.168.1.10
-nvram set wifi_proto=dhcp
-nvram commit
-reboot
-}}}
-
-That gets everythign setup. After the reboot, it's time to scan for access points, and connect of course :)
-{{{
-wl scan ; sleep 1 ; wlscanresults
-}}}
-
-Once you've picked the network you want to connect to, type:
-{{{
-wl join <ssid>
-}}}
 === System ===
 ==== wrt54g Version 3 LED load monitor ====
 ''This uses the white and amber LEDs that Linksys added to the wrt54g version 3. It willi turn on the white LED normal useage, but when CPU useage jumps to 80% or above, it turns on the amber LED to alert you. Credit goes to SeRi for this mod :)''
