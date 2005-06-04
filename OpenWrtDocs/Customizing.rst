@@ -217,7 +217,12 @@ mv gpio /usr/sbin
 mv loadmon.sh /usr/sbin
 }}} 
 
-Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, add the line 'loadmon.sh' to your /etc/profile. For example, it looks like this on my system:
+Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, add the line 'loadmon.sh' to your /etc/profile. Here's a simple way to do that:
+{{{
+echo loadmon.sh & >> /etc/profile
+}}}
+
+For example, it looks like this on my system:
 {{{
 #!/bin/sh
 [ -f /etc/banner ] && cat /etc/banner
@@ -230,7 +235,7 @@ alias vim=vi
 
 arp() { cat /proc/net/arp; }
 ldd() { LD_TRACE_LOADED_OBJECTS=1 $*; }
-loadmon.sh
+loadmon.sh &
 }}}
 
 Now reboot and test it out :)
