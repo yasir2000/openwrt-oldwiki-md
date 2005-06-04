@@ -240,6 +240,7 @@ Posted: 2005-04-03
 Nvserial - Utility to build modified CFE images - http://downloads.openwrt.org/inh/nvserial
 == Firmware images, CFE images, etc... ==
 '''Please see the [http://downloads.openwrt.org/inh/cfe/README README] file regarding MAC addresses'''
+
 === Linksys wrt54gs v1.0 ===
 ||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0||
 ||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0.Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
