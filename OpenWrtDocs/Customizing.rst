@@ -1,14 +1,13 @@
-[:OpenWrtDocs]
 [[TableOfContents]]
 = Disclaimer =
-The contents of this section of the wiki can have serious consequences. While every effory has been made to test and verify the items herin, if executed incorrectly, or if you just happen to have a bad daym you COULD SERIOUSLY DAMAGE YOUR HARDWARE. I (inh) nor anyone else, will be help responsible for anything you do.
+The contents of this section of the wiki can have serious consequences. While every effort has been made to test and verify the items herein, if executed incorrectly, or if you just happen to have a bad day you COULD SERIOUSLY DAMAGE YOUR HARDWARE. Neither I (inh) nor anyone else will be held responsible for anything you do.
 
 = Hardware =
 == Adding Dual Serial Ports ==
-''Serial ports allow you to do a myriad of things, inlcuding connect to your computer, connect to other deviced such as LCDs and GPSes, etc... With a lil programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports.. those are already there.. this just makes them much easier to use with just about any hardware you want''
+''Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.''
 
 == Adding an MMC/SD Card ==
-''This is one very cool mod! Credit goes to http://kiel.kool.dk for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldnt be too hard.''
+''This is one very cool mod! Credit goes to http://kiel.kool.dk for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
 
 '''Introduction'''
 
@@ -21,7 +20,7 @@ This project is for people who would like to add a little storage to their Links
 
 '''Pictures'''
 
-    * The insides of the router with SD card reader installed  /> PICTURES UNAVAIlABLE ATM
+    * The insides of the router with SD card reader installed  /> PICTURES Unavailable ATM
     * The finished product with SD card reader installed      /
 
 '''What you need'''
@@ -35,7 +34,7 @@ This project is for people who would like to add a little storage to their Links
 
    1. For the SD card to work we need to attach 6 wires inside the router. This drawing of the SD card should give an idea of the pins that come into play:
 
-||<|7> http://downloads.openwrt.org/inh/reference/mmc.gif||1. CS - Chip Select for the SD card||
+||<|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif||1. CS - Chip Select for the SD card||
 ||2. DI - Data in on the SD card.||
 ||3. VSS - Ground is a good thing||
 ||4. VDD - We need power of course. 3.3V will do the job||
@@ -65,9 +64,9 @@ CONFIG_MSDOS_FS=y
 CONFIG_VFAT_FS=y
 }}}
 
-Now get the driver and the Makefile. You will need to modify the Makefile to point to where your OpenWRT linux kernel headers are and also the mipsel compiler location. When that is done just type make (ignore the warnings - they are ok).
+Now get the driver and the Makefile. You will need to modify the Makefile to point to where your OpenWRT linux kernel headers are and also the mipsel compiler location. When that is done just type make (ignore the warnings - they are OK).
 
-The module is now ready to be inserted. Make sure a card is placed in the reader and then load the module. Check with dmesg that everything went ok, and hopefully you should now have some new devices in /dev/mmc/... Here is a little snippet of a "conversation" with the router
+The module is now ready to be inserted. Make sure a card is placed in the reader and then load the module. Check with dmesg that everything went OK, and hopefully you should now have some new devices in /dev/mmc/... Here is a little snippet of a "conversation" with the router
 {{{
 root@radio:~# ls -al /lib/modules/2.4.20/
 drwxr-xr-x    1 root     root            0 Jan  1 00:08 .
@@ -112,7 +111,7 @@ Filesystem           1k-blocks      Used Available Use% Mounted on
 
 '''A little help with kernel compilation'''
 
-The easiest way to get a kernel running with the needed fs support is probably by downloading OpenWRT and building the flash image. When you are familar with this process, it is quite easy to change the settings for your kernel. Just go to buildroot/build_mipsel/linux and type make menuconfig. Go to file systems -> Partition Types and check "Advanced partition selection" and "PC BIOS (MSDOS partition tables) support". In "File systems" you should also check "DOS FAT fs support" and optionally "VFAT (Windows 95) fs support". When done just exit saving the changed and type make dep zImage to force a rebuild of the kernel. Then you can just rebuild your OpenWRT image and the new kernel will be included automatically.
+The easiest way to get a kernel running with the needed fs support is probably by downloading OpenWRT and building the flash image. When you are familiar with this process, it is quite easy to change the settings for your kernel. Just go to buildroot/build_mipsel/linux and type make menuconfig. Go to file systems -> Partition Types and check "Advanced partition selection" and "PC BIOS (MSDOS partition tables) support". In "File systems" you should also check "DOS FAT fs support" and optionally "VFAT (Windows 95) fs support". When done just exit saving the changed and type make dep zImage to force a rebuild of the kernel. Then you can just rebuild your OpenWRT image and the new kernel will be included automatically.
 GPIO pins, eh?
 
 The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of General Purpose Input/Output pins (or GPIO pins) that are used for various purposes in the router. We have been able to identify 8 such pins until now and these are assigned as follows:
@@ -137,30 +136,31 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 *Awaiting hardware for writeup*
 == Adding a GPS ==
 *Almost done
-
 == Adding a Weather Station ==
 == Adding an LCD ==
 [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg]
 == Adding VGA Output ==
 [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg]
 [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg]
-== Adding Secod Reset Button (v2.2 only) ==
+== Adding Second Reset Button (v2.2 only) ==
 [http://www.duff.dk/wrt54gs/pics/02_Covox_Top.jpg]
 == Adding Sound Output ==
 [http://www.duff.dk/wrt54gs/pics/07_Finished_product.jpg]
+== Adding a Power Button ==
+== Adding a Power Reset Button ==
 
 = Software =
 = Firmware =
 == Overclocking ==
-''Overclocking the WRT has been a very sought-after mod. Many people overclock thier home PCs, and now I will tell you how to overclock your OpenWrt router. Please read the "troubleshooting" section at the bottom of this document. It contains important informaion on things you shoudl do before trying to overclock.''
+''Overclocking the WRT has been a very sought-after mod. Many people overclock their home PCs, and now I will tell you how to overclock your OpenWrt router. Please read the "troubleshooting" section at the bottom of this document, it contains important information on things you should do before trying to overclock.''
 
 '''Background Info'''
 
-Many people know that by setting the nvram variable clkfreq, you can overclock your router. Many people also know that Linksys actually released a beta firmware, changing clkfreq to 216 to fix stability issues. That quick fix actually works quite well, as many people can tell you. Linksys also released a lesser-known beta firmware that set clkfreq to 240. This also well. But there are a few lesser known, and as far as I know, a few things discovered by [mbm] and I. First off, you can NOT set clkfreq to any number you want. It is very selective, and only certain values work. Also, there are 2 clocks you can adjust. This was previously unknown (read: another OpenWrt first.)
+Many people know that by setting the nvram variable clkfreq, you can overclock your router. Many people also know that Linksys actually released a beta firmware, changing clkfreq to 216 to fix stability issues. That quick fix actually works quite well, as many people can tell you. Linksys also released a lesser-known beta firmware that set clkfreq to 240. There are also a few things discovered by [mbm] and I that seem to affect performance. First off, you can NOT set clkfreq to any number you want. It is very selective, and only certain values work. Also, there are 2 clocks you can adjust. This was previously unknown (read: another OpenWrt first.)
 
 '''Simple Overclocking'''
 
-As stated earlier, Linksys released firmware that made thier routers run at 216 mHz instead of 200 to fix stability issues. You too can do this simple overclock to make your router run much more solidly. Here is all you have to do.
+As stated earlier, Linksys released firmware that made their routers run at 216 MHz instead of 200 to fix stability issues. You too can do this simple overclock to make your router run much more solidly. Here is all you have to do.
 
 At the OpenWrt prompt, type:
 {{{
@@ -176,12 +176,12 @@ Simple enough! If your router was unstable with high traffic loads before, you s
 
 '''Moderate Overclocking'''
 
-While a 16mHz increase doesnt seem like much, it works wonders for the router. But what if you want to go faster? Setting clkfreq to 220 locks up the router, and then you are stuck with having to use the JTAG method to de-brick. That is, of course,  assuming you didnt change the default values in the CFE file, in which case all you have to do is reboot with the reset button held in... see the 'changing cfe defaults' guide)
+While a 16mHz increase doesn't seem like much, it works wonders for the router. But what if you want to go faster? Setting clkfreq to 220 locks up the router, and then you are stuck with having to use the JTAG method to de-brick. That is, of course,  assuming you didn't change the default values in the CFE file, in which case all you have to do is reboot with the reset button held in... see the 'changing cfe defaults' guide)
 
 Anyways, back on topic.. More speed! 
 The trick with making it run faster is setting the right clkfreq values. The wrong ones turn your router into a brick. Here is a list of values that are known to work: 192,200,216,228,240,252,264,272,280,288,300
 
-I've personally tested all of them on my wrt54g version 3, and they all worked. There is one caveat howerver; values above 264 seem to have no change. By checking the cpuinfo, it still reports the BogoMIPS as 264, even if clkfreq is set above that. To check your cpuinfo, type:
+I've personally tested all of them on my wrt54g version 3, and they all worked. There is one caveat however; values above 264 seem to have no change. By checking the cpuinfo, it still reports the BogoMIPS as 264, even if clkfreq is set above that. To check your cpuinfo, type:
 {{{
 cat /proc/cpuinfo
 }}}
@@ -192,7 +192,7 @@ Try the values, test your performance, or just bask in all your overclocking glo
 
 This is the good stuff, especially if you have done the MMC/SD card mod, as it boosts the read/write speeds from 200 kilobytes a second to over 330 :D
 
-In addition to setting clkfreq to a higher number, there is also another clock that can be controlled. This is called the sb clock, and is beleived to be the clock that controlls the speed of the data transfer between different areas of the Broadcom CPU. To set it, you set clkfreq like this:
+In addition to setting clkfreq to a higher number, there is also another clock that can be controlled. This is called the sb clock, and is believed to be the clock that controls the speed of the data transfer between different areas of the Broadcom CPU. To set it, you set clkfreq like this:
 {{{
 nvram set clkfreq=MIPSclock,SBclock
 }}}
@@ -202,7 +202,7 @@ For example, the following does the same as if you were to set clkfreq to 264:
 nvram set clkfreq=264,132
 }}}
 
-MIPSclock is the standard clock you change when setting clkfreq with one value. The second number you set it to is the aformentioned SBclock. The SBclock, just like the MIPSclock, only has certain values that can be used, or it will brick your router. Here's a table:
+MIPSclock is the standard clock you change when setting clkfreq with one value. The second number you set it to is the aforementioned SBclock. The SBclock, just like the MIPSclock, only has certain values that can be used, or it will brick your router. Here's a table:
 
 ||MIPSclock||||SBclock||
 ||||||||
@@ -228,11 +228,11 @@ You can also mix and match values. I've personally found that setting MIPSclock 
 
 '''Conclusion'''
 
-The clock seems to still remain somewhat of a mystery. With the recently discovered SBclock, and table of useable values, overclocking is a much more feasible and safe mod than it used to be. 
+The clock seems to still remain somewhat of a mystery. With the recently discovered SBclock, and table of usable values, overclocking is a much more feasible and safe mod than it used to be. 
 
 '''Troubleshooting'''
 
-Setting an invalid clkfreq value can have a very undesireable effect: complete router lockup, aka 'bricking.' Normally bricking isn't that bad of a thing. YOu can simply use the [http://openwrt.org/OpenWrtDocs/Troubleshooting#head-d1e14acb3488c8f4b91727d72dce9f59583f9d65 JTAG method] to de-brick. When setting clkfreq values, however, you must take extra care. If you set an invalid window, you have a VERY VERY small time frame to get the jtag to erase the nvram before the CPU locks up. Rough estimates give a window of 1/2 second. If you have ever had to do this, it is a very big annoyance. A better solution is to add the nvram value reset_gpio to the default nvram stored in the cfe. By setting the right value to reset_gpio, and flashing the modified cfe back on to your router, if you do set a wrong clkfreq value, all you have to do is reset with the reset button held in, and everything will reset back to defaults. Details on  this method can be found [http://openwrt.org/OpenWrtDocs/Customizing#head-50e9ee3f70e5d5229aeade4c624b965b24de5967 here].
+Setting an invalid clkfreq value can have a very undesirable effect: complete router lockup, AKA 'bricking.' Normally bricking isn't that bad of a thing. You can simply use the [http://openwrt.org/OpenWrtDocs/Troubleshooting#head-d1e14acb3488c8f4b91727d72dce9f59583f9d65 JTAG method] to de-brick. When setting clkfreq values, however, you must take extra care. If you set an invalid window, you have a VERY VERY small time frame to get the jtag to erase the nvram before the CPU locks up. Rough estimates give a window of 1/2 second. If you have ever had to do this, it is a very big annoyance. A better solution is to add the nvram value reset_gpio to the default nvram stored in the cfe. By setting the right value to reset_gpio, and flashing the modified cfe back on to your router, if you do set a wrong clkfreq value, all you have to do is reset with the reset button held in, and everything will reset back to defaults. Details on  this method can be found [http://openwrt.org/OpenWrtDocs/Customizing#head-50e9ee3f70e5d5229aeade4c624b965b24de5967 here].
 
 == Changing CFE defaults ==
 ''The following is a guide from http://wl500g.dyndns.org/wrt54g.html that I've copied here, with added commentary. I am not the original author, that credit goes to Oleg.''
@@ -305,7 +305,7 @@ bootnv_ver=2
 
 '''Changing defaults'''
 
-Open cfe.txt using text editor and change defaults in the way you like (but be extremelly careful, as some changes could prevent device from booting and you will need to use JTAG cable to bring it back to life). For me I've decided to enable both Afterburner (Speedbooster) and set boot_wait to on by default, so reset to default no longer messes the things, so I've applied this pseudo-patch (please note, that I've added bit 0x200 to boardflags to enable afterburner):
+Open cfe.txt using text editor and change defaults in the way you like (but be extremely careful, as some changes could prevent device from booting and you will need to use JTAG cable to bring it back to life). For me I've decided to enable both Afterburner (Speedbooster) and set boot_wait to on by default, so reset to default no longer messes the things, so I've applied this pseudo-patch (please note, that I've added bit 0x200 to boardflags to enable afterburner):
 {{{
 -boardflags=0x0118
 -boot_wait=off
@@ -313,7 +313,7 @@ Open cfe.txt using text editor and change defaults in the way you like (but be e
 +boot_wait=on
 }}}
 
-''To make life easier for me, I added "reset_gpio=6" to the cfe.txt file. This way, if I do set something wrong, like clkfreq, and the router just locks up, I wont have to try over and over again to hit a very slim window with the JTAG to erase the nvram. I can just hold reset when the router powers on, and it will use teh default nvram values stored in the cfe.''
+''To make life easier for me, I added "reset_gpio=6" to the cfe.txt file. This way, if I do set something wrong, like clkfreq, and the router just locks up, I wont have to try over and over again to hit a very slim window with the JTAG to erase the nvram. I can just hold reset when the router powers on, and it will use the default nvram values stored in the cfe.''
 
 If you do not understand some things in this file, do not try to edit it. This is also applies to afterburner. I've also tried to change default lan_ipaddr, but this does not work in the way I expect: CFE started to answer to ping request to new lan_ipaddr, but it does not accept tftp transfers...
 
@@ -345,14 +345,14 @@ By default most firmwares has pmon partition write protected, i.e. you can't fla
 
 '''Flashing new CFE image'''
 
-So, once you've recompiled and flashed your new firmware you need yo upgrade CFE. This process is dangerous, as flash failure during it will prevent your unit from booting. Copy cfe_new.bin to your wrt54g and flash it. The exact commands are dependent on the firmware. With OpenWrt I've used the folowing:
+So, once you've recompiled and flashed your new firmware you need you upgrade CFE. This process is dangerous, as flash failure during it will prevent your unit from booting. Copy cfe_new.bin to your wrt54g and flash it. The exact commands are dependent on the firmware. With OpenWrt I've used the following:
 
 {{{
 mtd unlock pmon
 mtd write /tmp/cfe_new.bin pmon
 }}}
 
-''I recommend using the JTAG cable method for reflashing your CFE. If somethign were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting ''
+''I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting ''
 
 '''Checking it'''
 
@@ -365,25 +365,3 @@ Posted: 2005-04-03
 
 = Downloads =
 == Programs ==
-
-Nvserial - Utility to build modified CFE images - http://downloads.openwrt.org/inh/nvserial
-== Firmware images, CFE images, etc... ==
-'''Please see the [http://downloads.openwrt.org/inh/cfe/README README] file regarding MAC addresses'''
-
-=== Linksys wrt54gs v1.0 ===
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.0.Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
-||[http://downloads.openwrt.org/inh/cfe/cfe.txt-gs1.0 Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
-=== Linksys wrt54gs v1.1 ===
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1 Stock CFE.bin]||Standard CFE that ships with the v1.1||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gs1.1.Modified CFE.bin]||boot_wait enabled by default in the cfe nvram||
-||[http://downloads.openwrt.org/inh/cfe/cfe.txt-gs1.1 Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
-=== Linksys wrt54g v2.2 and v3 ===
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0 Stock CFE.bin]||Standard CFE that ships with the v2.2 and 3||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-g3.0 Modified CFE.bin]||boot_wait enabled, and will load nvram values stored in the cfe if reset is held while rebooting||
-||[http://downloads.openwrt.org/inh/cfe/cfe.txt-g3.0 Modified CFE NVRAM values]||The nvram values used in the modified cfe.bin||
-=== Linksys wrt54gx v1.0 ===
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0 Stock CFE.bin]||Standard CFE that ships with the v1.0 (compressed)||
-||[http://downloads.openwrt.org/inh/cfe/cfe.bin-gx1.0 Decompressed Stock CFE.bin]||Standard CFE that ships with the v1.0 (de-compressed)||
-
-Modified cfe.txt file accompanying the above .bin file - http://downloads.openwrt.org/inh/cfe.txt
