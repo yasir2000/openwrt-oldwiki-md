@@ -196,6 +196,6 @@ Using Linux you have to load the tunnel module.
 
 Now you can start the tunnel using
 
-    openvpn -daemon -config /etc/openvpn/wlan_home.conf 
+    openvpn --daemon --config /etc/openvpn/wlan_home.conf 
 
 For Windows just right-click onto your config and choose the second point to execute the config.
