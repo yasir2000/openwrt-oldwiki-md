@@ -121,7 +121,8 @@ First we should install the required software.
 
 Let's create the directory and a private key for our VPN.
 
-    mkdir /etc/openvpn openvpn -genkey -secret /etc/openvpn/wlan_home.key 
+    mkdir /etc/openvpn [[BR]]
+    openvpn --genkey --secret /etc/openvpn/wlan_home.key 
 
 Load the tunneling module and add it to the autoloader.
 
