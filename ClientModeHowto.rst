@@ -43,8 +43,8 @@ This is also known as doing NAT (Network Address Translation), and it's likely y
 The next step is breaking down the default bridge between the wifi interface and the LAN ports. This is done as follows:
 
 {{{
-nvram set lan_ifname=vlan0		#  "vlan2" on hardware version 1
-nvram set wifi_ifname=eth1		#  "eth2" on hardware version 1
+nvram set lan_ifname=vlan0		#  "vlan2" on hardware version 1.x
+nvram set wifi_ifname=eth1		#  "eth2" on hardware version 1.x
 }}}
 
 This is the main command. It changes the WRT's behavior from AP to client, or station ("sta" for short):
