@@ -8,43 +8,11 @@ If you have internet access from the WRT, it's a good moment to install the wl p
 
 {{{ipkg install http://nthill.free.fr/openwrt/ipkg/stable/20041003/wl_0.1-2_mipsel.ipk}}}
 
-First reverse the firewall. Optionally, if you just want to disable it, you can delete the file /etc/init.d/S45firewall.
-To reverse it, here is the content you should put in /etc/init.d/S45firewall:
-
-{{{
-#!/bin/sh
-. /etc/functions.sh
-
-WAN=$(nvram get wan_ifname)
-WIFI=$(nvram get wifi_ifname)
-
-IPT=/usr/sbin/iptables
-
-for T in filter nat mangle ; do
-  $IPT -t $T -F
-  $IPT -t $T -X
-done
-
-$IPT -t filter -A INPUT -m state --state INVALID -j DROP
-$IPT -t filter -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
-$IPT -t filter -A INPUT -i $WIFI -j DROP
-
-$IPT -t filter -A FORWARD -m state --state INVALID -j DROP
-$IPT -t filter -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-$IPT -t filter -A FORWARD -i $WIFI -j DROP
-$IPT -t filter -A FORWARD -o $WIFI -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-}}}
-Optionally, if you want the source IP address of the outgoing traffic to be modified to the ip of the wifi interface, you should also add the following line:
-
-{{{ $IPT -t nat -A POSTROUTING -o $WIFI -j MASQUERADE }}}
-
-This is also known as doing NAT (Network Address Translation), and it's likely your case if you use the WRT to connect to the internet. If you want your outgoing traffic to keep the source IP address unchanged, don't add that line.
-
-The next step is breaking down the default bridge between the wifi interface and the LAN ports. This is done as follows:
+The first step is breaking down the default bridge between the wifi interface and the LAN ports. Note that we're using the wan_ifname to refer to the wireless connection; this will save you from having to rewrite the firewall:
 
 {{{
 nvram set lan_ifname=vlan0		#  "vlan2" on hardware version 1.x
-nvram set wifi_ifname=eth1		#  "eth2" on hardware version 1.x
+nvram set wan_ifname=eth1		#  "eth2" on hardware version 1.x
 }}}
 
 This is the main command. It changes the WRT's behavior from AP to client, or station ("sta" for short):
@@ -55,15 +23,19 @@ nvram set wl0_mode=sta
 
 Then configure the interaces normally. For example, assuming the wifi interface uses DHCP and the LAN interface has the static IP address 192.168.1.1:
 
-{{{nvram set lan_proto=static
+{{{
+nvram set lan_proto=static
 nvram set lan_ipaddr=192.168.1.1
-nvram set wifi_proto=dhcp}}}
+nvram set wan_proto=dhcp
+}}}
 
 You can configure other options if you need to, like wifi_dns or wifi_gateway. 
 We are done with NVRAM, so we commit and reboot the WRT:
 
-{{{nvram commit
-reboot}}}
+{{{
+nvram commit
+reboot
+}}}
 
 == Finding and joining networks ==
 
