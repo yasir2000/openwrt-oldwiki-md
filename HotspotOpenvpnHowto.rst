@@ -143,7 +143,7 @@ persist-tun[[BR]]
 verb 3[[BR]]
 
 '''/etc/init.d/S60openvpn'''[[BR]]
-#!/bin/sh
+#!/bin/sh[[BR]]
 openvpn --daemon --config /etc/openvpn/wlan_home.conf
 
 Don't forget to assign executable rights to this file.
