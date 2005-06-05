@@ -21,9 +21,18 @@ The wireless NIC is a mini-PCI card. The switch is an ADM6996.
 The WRT54G v1.1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
 The wireless NIC is soldered to the board. The switch is an ADM6996.
 
+Hardware informations (nvram) :
+
+{{{boardtype=bcm94710dev}}}
+
 ==== WRT54G v2.0 ====
 The WRT54G v2.0 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM.
 The wireless NIC is integrated to the board. The switch is an ADM6996.
+
+Hardware informations (nvram) :
+
+{{{boardtype=0x0101
+boardflags=0x0188}}}
 
 
 ==== WRT54G v2.2 ====
@@ -31,6 +40,11 @@ The WRT54G v2.2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb fl
 The wireless NIC is integrated to the board. The switch is a BCM5325.
 
 /!\ '''The current version OpenWrt doesn't support these units, yet.'''
+
+Hardware informations (nvram) :
+
+{{{boardtype=0x0708
+boardflags=0x0118}}}
 
 ==== WRT54G v3.0 ====
 This unit is just like the V2.2 Except it has an extra reboot button on the left front panel behind a Cisco logo.
