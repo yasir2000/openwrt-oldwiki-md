@@ -23,7 +23,8 @@ The wireless NIC is soldered to the board. The switch is an ADM6996.
 
 Hardware informations (nvram) :
 
-{{{boardtype=bcm94710dev}}}
+{{{boardtype=bcm94710dev
+}}}
 
 ==== WRT54G v2.0 ====
 The WRT54G v2.0 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM.
