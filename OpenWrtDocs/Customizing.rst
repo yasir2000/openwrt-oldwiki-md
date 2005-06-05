@@ -132,8 +132,6 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 *to be written
 === Porting to other platforms ===
 *almost done being written
-== Adding an LCD ==
-*Awaiting hardware for writeup*
 == Adding a GPS ==
 *Almost done
 == Adding a Weather Station ==
@@ -163,7 +161,7 @@ See [:ClientModeHowto]
 
 === System ===
 ==== wrt54g Version 3 LED load monitor ====
-''This uses the white and amber LEDs that Linksys added to the wrt54g version 3. It willi turn on the white LED normal useage, but when CPU useage jumps to 80% or above, it turns on the amber LED to alert you. Credit goes to SeRi for this mod :)''
+''Credit goes to SeRi for starting this mod. He had it use the wrt's white and amber LEDs (version 3 only) to show system load.  I thought it was a very nifty mod, but i couldnt use it, as the white and amber leds are used for the read/write lines on the SD card mod. So what did I do? I modded the mod of course! Now anyone with a spare LED can use this mod. you jsut need to set the correct gpio pin. For wrt54g's version 2-3, gpio 7 is for the DMZ LED, which is what I use. You can modify the source accordingly. This will flash the LED once per second under normal useage, twice per second under medium load, and when there is a high load on the system, the LED flashes 3 times per second.''
 
 '''Installing Necessary Software'''
 
@@ -179,7 +177,7 @@ mv loadmon.sh /usr/sbin
 
 Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, add the line 'loadmon.sh' to your /etc/profile. Here's a simple way to do that:
 {{{
-echo loadmon.sh & >> /etc/profile
+echo "loadmon.sh &" >> /etc/profile
 }}}
 
 For example, it looks like this on my system:
