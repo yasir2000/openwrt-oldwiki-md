@@ -51,6 +51,14 @@ boardflags=0x0118}}}
 This unit is just like the V2.2 Except it has an extra reboot button on the left front panel behind a Cisco logo.
 Experimental works with it.
 
+Hardware informations (nvram) :
+
+{{{boardrev=0x10
+boardtype=0x0708
+boardflags2=0
+boardflags=0x0118
+boardnum=42}}}
+
 /!\ '''To take the front cover off of this unit you must first remove the small screws under the rubber covers of the front feet!'''
 
 
