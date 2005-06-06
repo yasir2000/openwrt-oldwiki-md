@@ -99,7 +99,9 @@ Parport
 JTAG
 }}}
 Or a more modern version if you prefer:
+
 http://downloads.openwrt.org/inh/reference/JTAGschem.png
+
 ''Use the pin numbers on the parallel port conenctor, and the pin numbers on the WRT pcb, as they are all correct.
 Note: Pin 12 is assumed to be grounded.  If it is not grounded on your WRT, you may safely connect the wire indicated on Pin 12 to any grounded even-numbered pin on the WRT's JTAG connector.
 
