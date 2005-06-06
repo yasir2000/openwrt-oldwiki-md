@@ -27,7 +27,7 @@
   
 ===== Dissassembly instruction =====
  Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"] 
- The antenna is not detachable anymore (like all wrt54g(s)). There are two radios soldered onto the PCB, the chipset is made by Atheros. It differs quite much from the version 1.0 
+ The antenna is not detachable (in contrast to WRT54G(S), those have RP-TNC). There are two radios soldered onto the PCB, the chipset is made by Atheros. It differs quite much from the version 1.0 
 
 ===== Hardware notes =====
 
