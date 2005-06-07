@@ -156,3 +156,6 @@ gently use your nails or a flat object to pry all the edges of the front feet up
 from there you will have access to two small Phillips-head screws. Remove and enjoy.
 
 Note: The Linksys WAG54G also has screws.
+
+= Getting help =
+Still stuck? see [http:/openwrt.org/support] for information on where to get help.
