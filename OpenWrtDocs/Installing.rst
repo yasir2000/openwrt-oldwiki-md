@@ -101,11 +101,7 @@ The router does not boot directly into the firmware, instead it boots into a pro
 
 First, for this to work the '''internet port must have a valid ip address''', either from dhcp or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
 
-/!\ '''Linksys' 3.37.6 patches the Ping.asp bug; downgrading to 3.37.2  is required before the following will work.'''
-
-/!\ '''Old firmware is available at [ftp://ftp.linksys.com/pub/network/]. These are ''official'' firmware images from Linksys.'''
-
-/!\ '''[ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.bin] seems to work on a WRT54GS version 2, despite the mismatch between the hardware version and the stated version of the firmware.'''
+/!\ '''The last versions of the firmware to support the Ping.asp bug described below are [ftp://ftp.linksys.com/pub/network/WRT54GV2_3.01.3_US_code.zip 3.01.3] for the WRT54G (up to/including v3.0) and [ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.zip 3.37.2] for the WRT54GS (up to/including v2.0). Downgrading to these firmwares is required to enable boot_wait.'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
