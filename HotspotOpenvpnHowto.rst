@@ -71,9 +71,9 @@ nvram set wan_mtu=1492[[BR]]
 nvram set pppoe_ifname=vlan1[[BR]]
 nvram set pppoe_username=user at provider.name[[BR]]
 nvram set pppoe_passwd=yourpassword[[BR]]
-nvram commit[[BR]]
 
 nvram set wl0_ssid=Hotspot[[BR]]
+nvram commit[[BR]]
 
 reboot
 
