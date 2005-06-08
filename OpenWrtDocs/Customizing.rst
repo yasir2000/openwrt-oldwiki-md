@@ -183,14 +183,7 @@ mv loadmon.sh /usr/sbin
 
 Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, add the line 'loadmon.sh' to your /etc/profile. Here's a simple way to do that:
 {{{
-
----- /!\ '''Edit conflict - other version:''' ----
 echo "loadmon.sh &" >> /etc/profile
-
----- /!\ '''Edit conflict - your version:''' ----
-echo "loadmon.sh &" >> /etc/profile
-
----- /!\ '''End of edit conflict''' ----
 }}}
 
 For example, it looks like this on my system:
