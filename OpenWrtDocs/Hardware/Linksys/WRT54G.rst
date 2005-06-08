@@ -67,15 +67,23 @@ boardnum=42}}}
 
 === Table summary ===
 
+how to get info :
 
-||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||
-||WRT54G v1.1       ||     1        ||     2         ||      3         ||       4         ||      5       ||
-||WRT54G v2         ||     1        ||     2         ||      3         ||       4         ||      5       ||
-||WRT54G v2.2       ||     1        ||     2         ||      3         ||       4         ||      5       ||
-||WRT54G v3         ||     1        ||     2         ||      3         ||       4         ||      5       ||
-||Buffalo WBR-54G   || 0x10         ||  bcm94710ap   ||  0x0188        ||  2              ||  42          ||
-||Toshiba WRC1000   || -            ||  bcm94710r4   ||  -             ||  -              ||  100         ||
-||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||   0x0188       ||  0              ||  00         ||
+* cpu model : cat /proc/cpuinfo | grep cpu
+* board info : nvram show | grep board | sort
+
+||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||
+||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||      -       ||       5         || BCM4710 V0.0  ||
+||WRT54G v2         ||     -        ||     -         ||      -         ||       -         ||      -       ||       -         || BCM3302 V0.7  ||
+||WRT54G v2.2       ||     -        ||     -         ||      -         ||       -         ||      -       ||       7         ||               ||
+||WRT54G v3         ||     -        ||     -         ||      -         ||       -         ||      -       ||       -         ||               ||
+||WRT54GS v1.1      || 0x10         ||  0x0708       ||  0x0318        ||  0              ||  42          ||       -         ||               ||
+||Buffalo WBR-54G   || 0x10         ||  bcm94710ap   ||  0x0188        ||  2              ||  42          ||       -         ||               ||
+||Toshiba WRC1000   || -            ||  bcm94710r4   ||  -             ||  -              ||  100         ||       -         ||               ||
+||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  00          ||       -         ||               ||
+
+
+please complete this table.
 
 
 
