@@ -84,6 +84,8 @@ how to get info :
 ||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  00          ||       -         || -             ||
 
 
+*other variables (nvram) of interest :  boot_ver, pmon_ver, firmware_version, os_version
+
 
 please complete this table. Look at this thread : http://openwrt.org/forum/viewtopic.php?pid=8127#p8127
 
