@@ -83,7 +83,7 @@ how to get info :
 ||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  00          ||       -         ||               ||
 
 
-please complete this table.
+please complete this table. Look at this thread : http://openwrt.org/forum/viewtopic.php?pid=8127#p8127
 
 
 
