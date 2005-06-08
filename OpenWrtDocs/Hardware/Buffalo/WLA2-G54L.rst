@@ -8,3 +8,16 @@ These units are supported in the EXPERIMENTAL branch of OpenWrt.
 Please keep in mind that for now we can't control the leds.
 
 /!\ '''This router sits on 192.168.11.100 as default, but flashable always on the last IP You have set up, so You have to TFTP to that address.'''
+
+J5 is is the serial interface, pinout as follows:
+
+{{{
+     CPU
+
+TX    o
+RX    o
+VCC   o
+GND   o
+
+     LEDS
+}}}
