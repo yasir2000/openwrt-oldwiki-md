@@ -88,7 +88,7 @@ how to get info :
 
 
 please complete this table. Look at this thread : http://openwrt.org/forum/viewtopic.php?pid=8127#p8127
-
+May be this table should move up to OpenWrtDocs/Hardware.
 
 
 === Hardware hacking ===
