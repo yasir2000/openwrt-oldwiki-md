@@ -151,11 +151,11 @@ NOTE: A lot of info was taken from http://wifi-portal.elevate.nl/docs/clientmode
 
 == Try these scripts to make life easy ==
 
-Picked up my code/load from http://rodent.za.net/files/openwrt/ tested this on a wrt54gs v.2
-
 It just works, you connect and then the other eth ports do DHCP and MASQ and all that and you are on the net! It has a problem with linksys because it's the same network so it can't get the gateway set (I think that's why) so you have to change the default IP to 192.168.10.1 on the router and it should work. That's not in here, you figure that out.
 
 Here's stuff you can try on yours, two scripts, "go" starts and DHCPs in to  outside source, "scan" shows you APs, "scan c" would do a continuous scan (while driving). This is way too easy. Nice thing, if you don't like the scripts, then change them! Doesn't hurt anything and it all goes back to normal if you reboot.
+
+Before you do this you should rm /etc/init.d/S45firewall and reboot. If you don't do this, then 'iptables -F' will reset the firewall to default action, which is usualy DROP and your router becomes unreachable. Otherwise the 'iptables -F' line should be left commented out - since flushing the chains on every run is a bad idea.
 
 What you would typically do with this:
 
@@ -182,7 +182,7 @@ vi go
 
 brctl delif br0 eth1
 brctl addif br0 vlan1
-iptables -F
+# iptables -F
 iptables -F -t nat
 iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 killall udhcpc
