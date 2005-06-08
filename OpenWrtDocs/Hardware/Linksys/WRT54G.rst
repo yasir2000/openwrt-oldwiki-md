@@ -65,6 +65,19 @@ boardnum=42}}}
 /!\ '''The current version OpenWrt doesn't support these units, yet.'''
 
 
+=== Table summary ===
+
+
+||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||
+||WRT54G v1.1       ||     1        ||     2         ||      3         ||       4         ||      5       ||
+||WRT54G v2         ||     1        ||     2         ||      3         ||       4         ||      5       ||
+||WRT54G v2.2       ||     1        ||     2         ||      3         ||       4         ||      5       ||
+||WRT54G v3         ||     1        ||     2         ||      3         ||       4         ||      5       ||
+||Buffalo WBR-54G   || 0x10         ||  bcm94710ap   ||  0x0188        ||  2              ||  42          ||
+||Toshiba WRC1000   || -            ||  bcm94710r4   ||  -             ||  -              ||  100         ||
+||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||   0x0188       ||  0              ||  00         ||
+
+
 
 === Hardware hacking ===
 There are revision XH units of the WRT54G v2.0. These units have 32Mb of memory, but they are locked to 16Mb. You can unlock the remaining memory with changing some of the variables.
