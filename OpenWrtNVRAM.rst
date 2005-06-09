@@ -72,7 +72,7 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_dtim'''||Set DTIM period (default 1)||
 ||'''wl0_bcn'''||Set beacon period (default 100)||
 ||'''wl0_frameburst'''||(on/off) enable/disable frameburst||
-||'''wl0_antdiv'''||Select antenna (''-1=auto, 0=main''[near power jack]'', 1=aux''[near reset button]'', 3=diversity'')||
+||'''wl0_antdiv'''||Select antenna (''-1=auto, 0=main''[near power jack]'', 1=aux''[near reset button]'', 3=diversity'') In WRT54G v2.0 and WRT54GS V1.1 is reversed 0=''[near reset button]'' and 1=''[near power jack]''||
 ||'''wl0_ssid'''||Set the SSID of the Wrt54g||
 
 For WPA:
