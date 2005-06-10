@@ -102,7 +102,7 @@ Or a more modern version if you prefer:
 
 http://downloads.openwrt.org/inh/reference/JTAGschem.png
 
-''Use the pin numbers on the parallel port conenctor, and the pin numbers on the WRT pcb, as they are all correct.
+''Use the pin numbers on the parallel port connector, and the pin numbers on the WRT pcb, as they are all correct.
 Note: Pin 12 is assumed to be grounded.  If it is not grounded on your WRT, you may safely connect the wire indicated on Pin 12 to any grounded even-numbered pin on the WRT's JTAG connector.
 
 It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more.
@@ -158,4 +158,4 @@ from there you will have access to two small Phillips-head screws. Remove and en
 Note: The Linksys WAG54G also has screws.
 
 = Getting help =
-Still stuck? see [http:/openwrt.org/support] for information on where to get help.
+Still stuck? see [http://openwrt.org/support] for information on where to get help.
