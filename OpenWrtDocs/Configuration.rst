@@ -243,3 +243,11 @@ This section is work in progress, please refer to the following docs:
 http://woz.gs/wifi/openwrtbridge.html
 
 http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
+
+= TimeZone =
+
+To set a Time Zone type something like the following line in /etc/profile:
+{{{
+export TZ="CET-1CETDST"
+}}}
+''note: This sets TimeZome to GMT+1''
