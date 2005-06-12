@@ -1,4 +1,4 @@
-{{{nas}}} is the binary, linksys proprietary, tool that sets up WPA on wrt54g routers.
+{{{nas}}} is the binary, Broadcom proprietary, tool that sets up WPA on wrt54g routers.
 
 The usage for nas is :
 {{{
@@ -11,9 +11,12 @@ Usage: nas [options]
         -h    RADIUS server IP address
         -p    RADIUS server UDP port
         -s    Service Set Identity
-        -w    Cryptographic algorithm
+        -w    Cryptographic algorithm: 2:TKIP, 4:AES
+        -P    
 The -l <lan> option must be present first and then followed by -i <wl> ... options for each wireless interface
 
  -S|-A = Authenticator (NAS) or Supplicant
  -H UDP port on which to listen to requests
 }}}
+
+The ["OpenWrtFaq"] contains information on how to enable WPA.
