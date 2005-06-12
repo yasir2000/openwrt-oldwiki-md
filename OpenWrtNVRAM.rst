@@ -90,6 +90,7 @@ For WPA:
 
 For WEP:
 ||'''wl0_wep'''||on/off (In experimental, use enabled/disabled instead)||
+||'''wl0_auth_mode'''||''open,restricted''||
 ||'''wl0_key1 ... wl0_key4'''||WEP keys (example: ''wl0_key1=DEADBEEF12'')[[FootNote(64bit/128bit wep is autodetected by ''wlconf'' based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
 ||'''wl0_key'''||primary key index: the wl0_key[1234] used (values: ''1'',''2'',''3'',''4'')||
 
