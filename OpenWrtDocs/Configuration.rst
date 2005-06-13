@@ -263,9 +263,11 @@ Putting a TimeZone entry for the Systemlogger could also be an good idea
 simply put a lin like something in /etc/TZ:
 
 {{{
-MET-1METDST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
+CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
 }}}
-''note: this sets TimeZone for MET with daylight-savings and the starting and endtime.''
+''note: this sets TimeZone for CET/CEST (Central European Time UTC+1 / Central European Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October at 03:00) of DST (Daylight Saving Time).''
 
-''more can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640''
+More can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640
 and: http://openwrt.org/forum/viewtopic.php?id=131
+
+You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
