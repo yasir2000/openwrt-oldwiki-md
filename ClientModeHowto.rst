@@ -82,13 +82,13 @@ Don't forget!
 nvram commit
 }}}
 
-When you set an interface to DHCP, OpenWRT runs the DHCP client on that interface automatically at boot time. If you want to re-run the client, for example because you joined another ssid, you can reboot (assuming you also set wl0_ssid nvram variable), or you can run the udhcpc command:
+When you set an interface to DHCP, OpenWRT runs the DHCP client on that interface automatically at boot time. If you want to re-run the dhcp client, for example because you joined another ssid, you can reboot (assuming you also set wl0_ssid nvram variable), or you can just run the ifup command:
 
 {{{
-udhcpc -i eth1 -b
+ifup wan
 }}}
 
-This will ask the network for an IP address over the interface eth1 (wifi in v2), and fork to the background if it gets no replies.
+This will ask the network for an IP address over the interface wifi interface (wan_ifname was set to the wifi interface above).
 
 If you want to have the wired clients getting their ip-config with dhcp, you have to configure that as well.
 The dhcp-server configuration is in /etc/dnsmasq.conf
