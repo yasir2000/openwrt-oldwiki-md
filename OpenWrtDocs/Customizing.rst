@@ -204,6 +204,36 @@ loadmon.sh &
 }}}
 
 Now reboot and test it out :)
+
+If you dont want to build your own firmware, and you own a router with the white and orange lights, you can try this script.  It will show the white light if load is low, white and orange at medium load, and orange at high load:
+
+{{{
+#!/bin/sh
+
+#Set GPIO to the GPIO of the LED you wish to use.
+# Default is 7 for DMZ LED on most routers..
+GPIOG=2
+GPIOR=3
+DELAY=2
+HIGHLOAD="70"
+MEDLOAD="30"
+
+while sleep $DELAY; do
+   load=$(cat /proc/loadavg | cut -d " " -f1 | tr -d ".")
+   #echo $load
+
+    if [ "$load" -gt "$HIGHLOAD" ]; then
+        gpio enable $GPIOG
+        gpio disable $GPIOR
+    elif [ "$load" -gt "$MEDLOAD" ]; then
+        gpio disable $GPIOG
+        gpio disable $GPIOR
+    else
+        gpio disable $GPIOG
+        gpio enable $GPIOR
+    fi
+done
+}}}
 = Firmware =
 == Overclocking ==
 ''Overclocking the WRT has been a very sought-after mod. Many people overclock their home PCs, and now I will tell you how to overclock your OpenWrt router. Please read the "troubleshooting" section at the bottom of this document, it contains important information on things you should do before trying to overclock.''
