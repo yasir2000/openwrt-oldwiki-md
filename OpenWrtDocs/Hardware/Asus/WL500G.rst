@@ -48,3 +48,5 @@ echo Please wait until leds stops flashing.
 }}}
 
 In failsafe mode, the telnetd will respond on the WAN port, not the LAN interface.
+
+Here is a nice photo of the internals: http://www.ixbt.com/comm/wireless/asus-wl-500g/minipci.jpg
