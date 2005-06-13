@@ -116,6 +116,9 @@ This ping exploit definitely works with WRT54G v2.0/GS v1.0 and there are docume
 
 You can also use the [http://openwrt.org/forum/viewtopic.php?t=507&highlight=takeover take-over] script to make ping hack in a single command (need a shell command line interpreter).
 
+Lastly, you can also install other alternate firmware, simply for the purposes of enabling boot_wait.
+Most of the alternate firmwares available at [http://linksysinfo.org linksysinfo.org], including the Alchemy firmware, WiFiBox, and others, all allow you to set boot_wait as part of their GUI.
+
 === Setting boot_wait from a serial connection ===
 
 With a serial connection to your WRT, you don't have to use the ping bug or change your Linksys firmware. You can set boot_wait from the console, using the commands
