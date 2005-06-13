@@ -45,4 +45,4 @@ The wireless NIC is integrated to the board, and it also has a VIA USB2.0 contro
 
 == Software Overview ==
 
-The next experimental snapshot will support these units.
+Experimental supports these units.
