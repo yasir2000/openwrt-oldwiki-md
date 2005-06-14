@@ -10,78 +10,30 @@ See [:TableOfHardware]
 
 = Obtaining the firmware =
 
-'''Stable binaries'''
+'''Stable Release'''
 
-We recommend using the daily snapshots, these are compiled versions of the latest openwrt firmware. You'll find the snapshots [http://openwrt.org/downloads/snapshots/ here]. These snapshots will not work with G v2.2+ or GS v1.1 hardware.
-
-'''Experimental binaries'''
-
-If you own an WRT G v2.2+ or GS v1.1+ hardware, you will need to use the current experimental binary. These can be found [http://openwrt.org/downloads/experimental/bin/ here]. We recommend to use the squashfs versions for the [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54g-squashfs.bin WRT54G] and [http://openwrt.org/downloads/experimental/bin/openwrt-wrt54gs-squashfs.bin WRT54GS]. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].
-
-'''jffs2 vs SquashFS'''
-
-{{{
-(irc logs)
-[18:18] <[mbm]> the difference is in the filesystem layout
-[18:18] <[mbm]> up until experimental, the filesystem was split
-[18:18] <[mbm]> you had a small readonly squashfs partition, and the remaining space was jffs2
-[18:18] <[mbm]> firstboot would symlink everything in the squashfs partition to the jffs2 partition and you'd use the jffs2 partition as the root device
-[18:19] <[mbm]> you could never actually change anything on the squashfs partition, so if you wanted to alter a file you had to delete the symlink and create a new copy on jffs2
-[18:20] <[mbm]> one of the advantages though, was that since you always had the squashfs filesystem you could always use it as part of the failsafe boot
-[18:20] <[mbm]> to bypass issues with bootup scripts
-[18:20] <[mbm]> experimental now gives you the option of no squashfs partition; everything goes onto jffs2
-[18:21] <[mbm]> advantage there is that you don't have the redundancy, if you want to alter a file, you alter it
-[18:21] <[mbm]> and there's the possibility of upgrading from one release to another release with just ipkg (you could try that on squashfs but you'd eat all the space with duplicate programs)
-[18:22] <[mbm]> they both give you failsafe
-[18:22] <[mbm]> just to different degrees
-[18:22] <[mbm]> obviously there's no original copy of the filesystem on the jffs2 only images
-[18:22] <[mbm]> so the only real difference between a normal boot and a failsafe boot is some nvram overrides
-[18:23] <[mbm]> forces the networking to 192.168.1.1
-[18:23] <[mbm]> if you've screwed up the startup that's not going to help much
-[18:23] <[mbm]> and you'd need to reflash
-[18:23] <[mbm]> reflashing with a jffs2 image erases everything on the filesystem
-[18:24] <[mbm]> the squashfs firmware images only contain the squashfs files, which means basically that you can reflash and your jffs2 will be exactly as you left it
-[18:25] <[mbm]> total filesystem space on a wrt54g is around 3M, basic filesystem will eat up about a meg of that
-[18:26] <[mbm]> so ~2m free
-[18:26] <[mbm]> on a wrt54gs it's ~6M free
-[18:26] <[mbm]> when the squashfs boots up, it checks for the existance of the jffs2 partition and attempts to use it (unless you've booted failsafe)
-[18:27] <[mbm]> if you want to think about it in terms of the flash .. your basic layout is [bootloader][firmware][free space][nvram]
-[18:27] <[mbm]> firmware can take the whole space between the bootloader and nvram, but never actually does
-[18:28] <[mbm]> in the squashfs layout, the firmware is [kernel][squashfs]
-[18:28] <[mbm]> and [free space] becomes jffs2
-[18:28] <[mbm]> as long as the firmware remains roughly the same size, jffs2 doesn't get touched
-[18:29] <[mbm]> if the firmware gets larger, it starts to take over that free space, and any jffs2 data there gets overwritten
-[18:29] <[mbm]> firmware gets smaller and the space just gets added onto the jffs2 partition with no corruption
-[18:30] <[mbm]> the jffs2 firmwares are a little harder to explain
-[18:30] <[mbm]> it's still the basic [bootloader][firmware][free space][nvram] layout
-[18:30] <[mbm]> and the firmware (atleast initially) is [kernel][jffs2]
-[18:31] <[mbm]> the trick is that on bootup it performs some magic to change the firmware to be just [kernel], making it basically [bootloader][kernel][free space ...][nvram]
-[18:31] <[mbm]> and jffs2 gets migrated to the free space after the kernel (firmware)
-[18:32] <[mbm]> actual technicalities aren't too important
-[18:32] <[mbm]> but understand that reflashing to a jffs2 image will basically wipe everything between bootloader and nvram
-}}}
-
-For some notes on actually using the jffs2 root see [:OpenWrtDocs/Jffs2Root].
+At the moment we have no stable supported release. We are working on our first release candidate. In the next days you will get firmware and packages in binary format here:
+[http://openwrt.org/whiterussian/ http://openwrt.org/whiterussian/]
 
 '''Stable Source'''
 
-The source can be obtained from http://www.openwrt.org/cgi-bin/viewcvs.cgi/buildroot/buildroot.tar.gz or via CVS using the following commands:
+If you like to get the source code and compile on your own use our CVS repository. You will need to compile this from scratch, and this is not recommended for beginners.
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt login
-cvs -d:pserver:anonymous@openwrt.org:/openwrt co buildroot
+cvs -d:pserver:anonymous@openwrt.org:/openwrt co -rwhiterussian openwrt
 }}}
 
-(It's the same source either way)
+'''Development'''
 
-'''Experimental Source'''
-
-If you have hardware that is not supported by the above verion of OpenWRT, you can use the [http://openwrt.org/downloads/experimental experimental version] of the code. You will need to compile this from scratch, and this is not recommended for beginners. The experimental code includes support for GS v1.1 and G v2.2 hardware. It may also work with G v3.0 hardware, however this has not yet been confirmed. More information on the experimental releases can be found on [http://openwrt.org/forum/viewtopic.php?t=1029 the forum].  You can also grab the same source from cvs using the following commands
+Development take place in CVS. We have no regularly binary snapshots, if you like to help, compile on your own. You get the source via:
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt login
-cvs -d:pserver:anonymous@openwrt.org:/openwrt co -r TESTED openwrt
+cvs -d:pserver:anonymous@openwrt.org:/openwrt co openwrt
 }}}
+
+If you find any bugs, please use our forum or irc channel to report.
+
+You may find some binary snapshots in the directories of our developers http://openwrt.org/downloads/...
 
 
 = Installing OpenWrt =
