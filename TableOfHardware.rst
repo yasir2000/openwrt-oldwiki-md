@@ -40,6 +40,7 @@ Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8Mb;64Mb;Broadcom mini-PCI;BCM5325;;;;;
 Dell;Truemobile 2300;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;off;;;;;Untested
 Linksys;BEFSR41;;;;;;;;;;;;;No
 Linksys;WRT54AG;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;No wireless support;Supported
+Linksys;WRT54AG;;Texas Instruments Sangam/AR7;150MHz;4Mb;16Mb;TI;;;;;;ADSL Modem;WiP
 Linksys;WAP54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;None;off;;;;;Supported
 Linksys;WAP54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;off;Yes;;;;Supported
 Linksys;WAP54G;2;Broadcom 4712;200MHz;2Mb;16Mb;integrated Broadcom;None;off;Yes;;;;Untested
