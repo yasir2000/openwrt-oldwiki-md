@@ -6,6 +6,7 @@ A lot of information is being discussed, and development is taking place, on the
 NOTE: OpenWRT *will not run* on these boxes! They have only 2MB flash. OpenWRT images are 4MB and 8MB. You do the math.
 
 NOTE2: Pre-1444 hardware versions do have 4 MB flash and 16 MB RAM ...
+
 NOTE3: F5D7231-4 seems to have the same firmware. No more infos yet on its hardware.
 
 == Links ==
