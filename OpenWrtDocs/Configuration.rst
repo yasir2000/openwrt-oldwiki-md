@@ -271,3 +271,6 @@ More can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id259
 and: http://openwrt.org/forum/viewtopic.php?id=131
 
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
+
+= Crontab =
+HowtoEnableCron
