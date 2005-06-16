@@ -7,7 +7,7 @@ NOTE: OpenWRT *will not run* on these boxes! They have only 2MB flash. OpenWRT i
 
 NOTE2: Pre-1444 hardware versions do have 4 MB flash and 16 MB RAM ...
 
-NOTE3: F5D7231-4 seems to have the same firmware. No more infos yet on its hardware.
+NOTE3: F5D7231-4 seems to have the same firmware. Hardware looks exactly the same. There even is a procedure to convert a 7230 v1444 into a 7231. (just change the firmware(look in seattle wireless wiki))
 
 == Links ==
 
