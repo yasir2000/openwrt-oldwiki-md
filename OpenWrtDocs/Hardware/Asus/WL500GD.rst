@@ -46,3 +46,7 @@ The wireless NIC is integrated to the board, and it also has a VIA USB2.0 contro
 == Software Overview ==
 
 Experimental supports these units.
+
+== USB Storage ==
+
+For information about how to use a USB storage device (such as a memory stick or a hard drive) and even boot from it, see UsbStorageHowto.
