@@ -303,6 +303,8 @@ MIPSclock is the standard clock you change when setting clkfreq with one value. 
 ||288||||123428571||
 ||300||||120||
 
+/!\ '''Some users have reported problems going above 240; you will need a JTAG cable to erase nvram if the clkfreq setting doesn't work.'''
+
 Those are all values known to work. You can either set just the MIPSclock by using that value, or set both MIPS and SB clocks by using:
 {{{
 nvram set clkfreq=MIPSclock,sbclock
