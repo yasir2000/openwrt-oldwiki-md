@@ -39,15 +39,50 @@ You may find some binary snapshots in the directories of our developers http://o
 = Installing OpenWrt =
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
 
-OpenWrt is an unofficial firmware which is neither endorsed or supported by Linksys or any other vendor. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL].
+OpenWrt is an unofficial firmware which is neither endorsed or supported by the vendor of your router. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL].
 
-To avoid potentially serious damage to your router caused by an unbootable firmware we strongly suggest enabling a setting known as '''boot_wait'''.
+To avoid potentially serious damage to your router caused by an unbootable firmware you should read the documentation for your specific router.
 
 /!\ '''We strongly suggest you also read [:OpenWrtDocs/Troubleshooting] before installing'''
 
-/!\ '''The jffs2 versions of the experimental build may take several minutes for the first bootup and will require a reboot before being usable'''
+/!\ '''The jffs2 versions of  may take several minutes for the first bootup and will require a reboot before being usable'''
 
-== Enabling boot_wait ==
+== General instructions ==
+
+On most of the supported routers OpenWrt an be initially installed via Trivial File Transfer Protokoll (TFTP) with a TFTP-Client on your PC or Mac. 
+There are different kind of bootloaders preinstalled on your router. Broadcom based routers use CFE - Common Firmware Environment, Texas Instruments based router
+Adam2. Just to name some of them. 
+
+The tftp commands might vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
+
+netkit's tftp commands:
+{{{
+tftp 192.168.1.1
+tftp> binary
+tftp> rexmt 1
+tftp> timeout 60
+tftp> trace
+Packet tracing on.
+tftp> put openwrt-xxx-x.x-xxx.bin
+}}}
+Setting "rexmt 1" will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug in your box after typing the commands, and as soon as the bootloader starts to listen, your client will successfully connect and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a separate window and enter the line "put openwrt-xxx-x.x-xxx.bin" as the colons stop running over your terminal when you power-recycle your router. 
+
+Advanced TFTP commands:
+{{{ 
+atftp
+tftp> connect 192.168.1.1
+tftp> mode octet
+tftp> trace
+tftp> put openwrt-xxx-x.x-xxx.bin
+}}}
+You don't have to tell atftp to retry file sending because that's the default.
+
+Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one.
+
+
+== Linksys WRT54G and WRT54GS ==
+
+=== Enabling boot_wait ===
 
 The router does not boot directly into the firmware, instead it boots into a program known as a bootloader which is responsible for initializing the hardware and loading the firmware. If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below
 
@@ -116,31 +151,7 @@ The basic procedure of using boot_wait is:
 ||Solid power & DMZ||OpenWrt is booting or (if prolonged) has failed to boot, try [:OpenWrtDocs/Troubleshooting: failsafe mode]. (Usually caused by old/corrupt jffs2 data from a previous OpenWrt install)||
 ||flashing power, slow flashing dmz||Error flashing / Corrupt firmware||
 
-The tftp commands might vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
-netkit's tftp commands:
-{{{
-tftp 192.168.1.1
-tftp> binary
-tftp> rexmt 1
-tftp> timeout 60
-tftp> trace
-Packet tracing on.
-tftp> put openwrt-g-code.bin
-}}}
-Setting "rexmt 1" will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug in your box after typing the commands, and as soon as WRT54G's bootloader starts to listen, your client will successfully connect and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a separate window and enter the line "put openwrt-g-code.bin" as the colons stop running over your terminal when you power-recycle your linksys. 
-
-Advanced TFTP commands:
-{{{ 
-atftp
-tftp> connect 192.168.1.1
-tftp> mode octet
-tftp> trace
-tftp> put openwrt-g-code.bin
-}}}
-You don't have to tell atftp to retry file sending because that's the default.
-
-Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you have one.
 
 Note: At least netkit-tftp on gentoo failed me (EpA). All I got was Just one ACK reply and nothing more.
 I tried with atftp and it worked straight away.
