@@ -27,33 +27,44 @@ A complete list of nvram options can be found at [:OpenWrtNVRAM].
 = Network configuration =
 
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
-{{{
-WRT54G V1.x
-  LAN=vlan2
-  WAN=vlan1
-  WIFI=eth2
+||'''Manufacturer'''||'''Model'''||'''Hardware version'''||'''LAN'''||'''WAN'''||'''WIFI'''||'''Comments'''||
+||Linksys||WRT54G||v1.x||vlan2||vlan1||eth2|| ||
+||Linksys||WRT54G||v2.x/v3.0||vlan0||vlan1||eth1|| ||
+||Linksys||WRT54GS||v1.x||vlan0||vlan1||eth1|| ||
+||Asus||WL-500g|| ||eth1||eth0||eth2|| ||
+||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||please verify||
+Please update to include other models.
 
-WRT54G V2.x/WRT54G V3.0/WRT54GS V1.x
-  LAN=vlan0
-  WAN=vlan1
-  WIFI=eth1
+NOTE: LAN and WIFI are bridged together in br0 by default, on some devices WAN can be eth1 and LAN eth0.
 
-ASUS WL-500g
-  WAN=eth0
-  LAN=eth1
-  WIFI=eth2
+## {{{
+## WRT54G V1.x
+##   LAN=vlan2
+##   WAN=vlan1
+##   WIFI=eth2
+## 
+## WRT54G V2.x/WRT54G V3.0/WRT54GS V1.x
+##   LAN=vlan0
+##   WAN=vlan1
+##   WIFI=eth1
+## 
+## ASUS WL-500g
+##   WAN=eth0
+##   LAN=eth1
+##   WIFI=eth2
+## 
+## ASUS WL-500g Deluxe
+##   WAN=vlan1
+##   LAN=vlan0
+##   WIFI=eth1
+## 
+## (LAN and WIFI are bridged together in br0 by default,
+## on some devices WAN can be eth1 and LAN eth0)
+## 
+## (please update to include other models)
+## }}}
 
-ASUS WL-500g Deluxe
-  WAN=vlan1
-  LAN=vlan0
-  WIFI=eth1
-
-(LAN and WIFI are bridged together in br0 by default,
-on some devices WAN can be eth1 and LAN eth0)
-
-(please update to include other models)
-}}}
-
+[[BR]]
 The basic (802.3) network configuration is handled by a series of NVRAM variables:
 {{{#!CSV
 NVRAM; Description
