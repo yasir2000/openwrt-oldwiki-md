@@ -48,6 +48,9 @@ Although the wifi_* variables can be used to configure the network settings of t
 
 '''Note:''' There are wl_* and wl0_* variables; the wl_* variables are obsoleted and were replaced by wl0_*.
 
+
+'''Note:''' Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region!
+
 ||'''NVRAM Setting'''||'''Meaning'''||
 ||'''wl0_ifname'''||Set by wlconf to the name of the ethernet interface (eth1, eth2)||
 ||'''wl0_hwaddr'''||Set by wlconf, use il0macaddr to change the mac||
