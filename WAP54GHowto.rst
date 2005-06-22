@@ -48,6 +48,32 @@ This script is tested on a v.1 unit!
 
  6., If you're familiar with WiKi, customize this page to look better.
 
+
+== Warning: your WAP54G doesn't have much flash! (and can get stuck because of that) ==
+With only 4Mo of flash, the WAP54G is limited to a jffs2 partition of less than 2Mo.
+
+'''There is bug in the OpenWRT firmware which prevents you from deleting, modifying and (obvioulsy) adding new files on the system when the jffs2 partition is full!'''
+
+As far as I know, the system should still work (you should be able to telnet/SSH it) but you won't be able to change any of its configuration but the nvram variables.
+
+If you can tftp with boot_wait on, you should be able to install a new openWRT image, but I don't know if new install will reformat the jffs2 partition.
+
+The solution which worked for me was to use the 'mtd' command to erase the jffs2 partition:
+
+{{{
+mtd erase OpenWrt
+}}}
+
+you may need (I didn't have to do that) to first do a 
+
+{{{
+mtd unlock OpenWrt
+}}}
+
+Information on flash layout and the 'mtd' command can be found in this post by mbm: http://forum.openwrt.org/viewtopic.php?pid=3123#p3123
+
+
+
 == Reviving a brick WAP54G v1 ==
 After flashing a recent (mid december 2004) snapshot of openwrt-linux.trx into my WAP54G (v1) the device went dead, no WLAN nor LAN activity and both the power and diag LEDs permanently on. Yes, I ignored warnings like in this thread, stupid, stupid. 
 Did some more searching on the net and found the WRT54G trick to short pins 15 and 16 of the flash memory during power-on. But with my WAP54G this produced after appr. one second of pinging without reply on 192.168.1.1. indeed some ping responses but then the responses stop and nothing more can be done, regardless whether the short has been removed during the ping responses. The device does not enter a tftd wait state. 
