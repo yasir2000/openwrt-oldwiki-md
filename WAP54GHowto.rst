@@ -54,11 +54,16 @@ With only 4Mo of flash, the WAP54G is limited to a jffs2 partition of less than 
 
 '''There is bug in the OpenWRT firmware which prevents you from deleting, modifying and (obvioulsy) adding new files on the system when the jffs2 partition is full!'''
 
+The error message you get (quite paradoxical if you aks me):
+{{{
+root@OpenWrt:/# rm /usr/man/man8/openvpn.8
+rm: unable to remove `/usr/man/man8/openvpn.8': No space left on device
+}}}
 As far as I know, the system should still work (you should be able to telnet/SSH it) but you won't be able to change any of its configuration but the nvram variables.
 
 If you can tftp with boot_wait on, you should be able to install a new openWRT image, but I don't know if new install will reformat the jffs2 partition.
 
-The solution which worked for me was to use the 'mtd' command to erase the jffs2 partition:
+The solution which worked for me was erase the jffs2 partition. You will lose all your installed packages along with your personalised configuration files, so save everything you need first. However this is better than having a 'stuck' access point. To erase the jffs2 partition you can use the 'mtd' command:
 
 {{{
 mtd erase OpenWrt
@@ -70,9 +75,11 @@ you may need (I didn't have to do that) to first do a
 mtd unlock OpenWrt
 }}}
 
+Run `firstboot` to regenerate your jffs2 partition if the system didn't do it automatically after the reboot. Obviously this
+
 Information on flash layout and the 'mtd' command can be found in this post by mbm: http://forum.openwrt.org/viewtopic.php?pid=3123#p3123
 
-
+PS: alternatively, you can fill up the flash of your WAP54G on purpose to lock it and be certain nobody is going to modify your configurations files without knowing this trick and formating the whole partition. This is called 'security through obscurity' and I do not advise it!
 
 == Reviving a brick WAP54G v1 ==
 After flashing a recent (mid december 2004) snapshot of openwrt-linux.trx into my WAP54G (v1) the device went dead, no WLAN nor LAN activity and both the power and diag LEDs permanently on. Yes, I ignored warnings like in this thread, stupid, stupid. 
