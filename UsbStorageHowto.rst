@@ -108,6 +108,8 @@ mkdir /usb /mnt
 
 Now, we will copy everything from the flash to the USB:
 {{{
+# load modules
+insmod jbd && insmod ext3
 # mount it
 mount -t ext3 /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 # copy everything
