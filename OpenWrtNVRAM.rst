@@ -49,8 +49,6 @@ Although the wifi_* variables can be used to configure the network settings of t
 '''Note:''' There are wl_* and wl0_* variables; the wl_* variables are obsoleted and were replaced by wl0_*.
 
 
-'''Note:''' Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region!
-
 ||'''NVRAM Setting'''||'''Meaning'''||
 ||'''wl0_ifname'''||Set by wlconf to the name of the ethernet interface (eth1, eth2)||
 ||'''wl0_hwaddr'''||Set by wlconf, use il0macaddr to change the mac||
@@ -65,6 +63,7 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_phytype'''||Attempt these 802.11 modes||
 ||'''wl0_corerev'''||Set by wlconf to the wireless revision, (4:v1.0 hardware, 7:v2,gs)||
 ||'''wl0_channel'''||The channel to use (1-13 worldwide, 1-11 USA/Canada, default 6, 0=auto channel)||
+||||'''Note:''' Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region!||
 ||'''wl0_gmode'''||Set 54g modes (0=Legacy B, 1=auto, 2=G only, 3=B deferred, 4=performance, 5=LRS, 6=afterburner)||
 ||'''wl0_gmode_protection'''|| ||
 ||'''wl0_rateset'''||all||
