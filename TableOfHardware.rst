@@ -51,7 +51,7 @@ Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;ADM
 Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Experimental
 Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Experimental
 Linksys;WRT54G;4.0;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
-Linksys;WRT54GC;;;;;;;;off;;;;compact version of Linksys WRT54G;No
+Linksys;WRT54GC;;Marvell 88W8510;;;;integrated 802.11b/g;Marvell 88E6060;off;;;;compact version of Linksys WRT54G;No (never!)
 Linksys;WRT54GS;1.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;;Supported
 Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Experimental
 Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Experimental
