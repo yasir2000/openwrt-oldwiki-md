@@ -20,6 +20,33 @@ Here's what we have integrated so far:
    * A kernel that boots up to the part where it tries to mount the root filesystem
    * A simple mtd flash map driver that uses the boot loader's partition map
 
+=== WAG54G Serial Console ===
+
+{{{
+|
+|    __
+|   |  |        <--- Pin 1: GND
+|    --
+|   |  |        <--- Pin 2: Not Connected
+|    --
+|   |  |        <--- Pin 3: Router's Serial RX
+|    --
+|   |  |        <--- Pin 4: Router's Serial TX
+|    --
+|   |  |        <--- Pin 5: VCC
+|    --
+|
+|
+ \__led__led__led__led____________________
+                Front of WAG54G
+}}}
+
+The method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
+
+Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
+
+A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
+
 == TODO ==
 
    * Implement a proper mtd flash map driver
