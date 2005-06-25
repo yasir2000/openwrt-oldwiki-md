@@ -30,12 +30,13 @@ Buffalo;WBR2-G54S;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;
 Buffalo;WHR-G54;;;;;;;;;;;;;Untested
 Buffalo;WHR2-G54;;;;;;;;;;;;;Untested
 Buffalo;WHR3-G54;;;;;;;;;;;;;Untested
-Buffalo;WHR3-AG54;;Broadcom4704;300MHz;4MB;64MB;Broadcom mini-PCI;;on;;;;Same as WHR3-G54(?);Untested
+Buffalo;WHR3-AG54;;Broadcom 4704;300MHz;4MB;64MB;Broadcom mini-PCI;;on;;;;Same as WHR3-G54(?);Untested
 Buffalo;WLA-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;;can't use eth1;Supported
 Buffalo;WLA-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54L;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Experimental
 Buffalo;WLI2-TX1-G54;;;;;;;;;;;;;Untested
+Buffalo;WLI2-TX1-AG54;;Broadcom 4702;;;16MB;Broadcom mini-PCI;;on;;;;Same as WLI2-TX1-AG54(?);Untested
 Buffalo;WZR-G108;;;;8Mb;;Airgo mini-PCI;;;;;;;Untested
 Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8Mb;64Mb;Broadcom mini-PCI;BCM5325;;;;;;Untested
 Dell;Truemobile 2300;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;off;;;;;Untested
