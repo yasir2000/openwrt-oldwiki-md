@@ -50,7 +50,7 @@ You can find more information about many of these models on their own pages, lis
  * Buffalo WHR-G54
  * Buffalo WHR2-G54
  * Buffalo WHR3-G54
- * Buffalo WLA-G54C
+ * Buffalo WLA-G54C ([http://www.tomsnetworking.com/Sections-article87-page1.php Toms Networking review])
  * Buffalo WLA2-G54
  * Buffalo WLA2-G54C
  * Buffalo WLI2-TX1-G54
