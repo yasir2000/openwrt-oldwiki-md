@@ -13,7 +13,7 @@ See [:TableOfHardware]
 '''Stable Release'''
 
 At the moment we have no stable supported release. We are working on our first release candidate. In the next days you will get firmware and packages in binary format here:
-[http://openwrt.org/whiterussian/ http://openwrt.org/whiterussian/]
+[http://downloads.openwrt.org/whiterussian/ http://downloads.openwrt.org/whiterussian/]
 
 '''Stable Source'''
 
