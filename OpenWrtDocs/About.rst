@@ -22,3 +22,10 @@ a build system, which may be used to create modified firmware from source. Porti
 If you aren't up to the task or simply don't need a real, full blooded Linux, here are some alternatives:
 
 [http://www.seattlewireless.net/index.cgi/LinksysWrt54g#head-c8ffcfc4b9ddb0bd95c3d4e4b1faf349738899f1 Seattle Wireless's Customized Firmware Listing]
+
+= OpenWrt Version History =
+
+The project started in January 2004. The first OpenWrt versions were based on Linksys original GPL sources for WRT54g and a buildroot from the uclibc project. 
+This version is known as OpenWrt "stable" and was widely in use. There are still many OpenWrt applications, like the Freifunk-Firmware or Sip@Home, which are based on this version.
+
+In the beginning of 2005 some new developers has joined the small developer team. After some month of closed development the team decided to publish the first "experimental" versions of OpenWrt. The experimental version use a heavily customized buildsystem based on buildroot2 from the uclibc project. OpenWrt now uses new linux kernel sources and only add patches for the system on chip and drivers for the network interfaces. The developer team try to reimplement most of the proprietary code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to programm the VLAN capable switch (robocfg). The codename of the first OpenWrt release is "White Russian" a popular cocktail. OpenWrt 1.0 is planned for the end of 2005.  
