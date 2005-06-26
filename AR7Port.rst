@@ -4,7 +4,7 @@
 
 AR7 is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including 
    * AVM Fritz!Box
-   * Linksys WAG54G v2
+   * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
    * Linksys ADSL2MUE
    * Linksys WRTP54G
    * Netgear DG834G
