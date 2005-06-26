@@ -16,6 +16,7 @@ Asus;WL-500B;2;Broadcom 4710;125MHz;4Mb;16Mb;Ralink mini-PCI;BCM5325;on;;;1x v1.
 Asus;WL-500G;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Supported
 Asus;WL-520G;;Broadcom 5350;200MHz;2Mb;8Mb;integrated Broadcom;integrated into CPU;;;;;also known as WL-500G-X;Untested
 Asus;WL-500G Deluxe;;Broadcom 5365;200MHz;4Mb;32Mb;integrated Broadcom;integrated into CPU;on;Yes;No;2x v2.0; on some units 16Mb RAM is enabled by default, additional USB interfaces;Experimental
+Asus;WL-700G;;Broadcom 4780;300MHz;;;;;;;;3x v2.0;ide interface;Untested
 Asus;WL-HDD;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;on;;;1x v1.1;;Untested
 Belkin;F5D7130;;Broadcom 4710;125MHz;;;Broadcom mini-PCI;None;;;;;;Untested
 Belkin;F5D7230-4;;;;2Mb;;;;;;;;Pre-1444 versions have 4Mb flash and 16Mb RAM;No
