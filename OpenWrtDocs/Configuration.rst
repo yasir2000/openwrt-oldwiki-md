@@ -58,6 +58,11 @@ NOTE: LAN and WIFI are bridged together in br0 by default, on some devices WAN c
 ##   WAN=vlan1
 ##   LAN=vlan0
 ##   WIFI=eth1
+##
+## BUFFALO WBR-G54
+##   WAN=eth1
+##   LAN=eth0
+##   WIFI=eth2
 ## 
 ## (LAN and WIFI are bridged together in br0 by default,
 ## on some devices WAN can be eth1 and LAN eth0)
