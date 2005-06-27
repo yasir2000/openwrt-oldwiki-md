@@ -20,7 +20,7 @@ Asus;WL-700G;;Broadcom 4780;300MHz;;;;;;;;3x v2.0;ide interface;Untested
 Asus;WL-HDD;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;on;;;1x v1.1;;Untested
 Belkin;F5D7130;;Broadcom 4710;125MHz;;;Broadcom mini-PCI;None;;;;;;Untested
 Belkin;F5D7230-4;;;;2Mb;;;;;;;;Pre-1444 versions have 4Mb flash and 16Mb RAM;No
-Belkin;F5D7231-4;;;;;;;;;;;;;Untested
+Belkin;F5D7231-4;1102;Broadcom 4712;200 MHz;2 MiB;8 MiB;;BCM5325;;;;;;Untested
 Belkin;F5D7231-4P;;;;;;;;;;;;;Untested
 Belkin;F5D8230-4;;Broadcom 4704;300MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;;;;;Untested
 Buffalo;WBR-B11;;;;;;;;;;;;;Untested
