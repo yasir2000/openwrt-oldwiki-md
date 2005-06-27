@@ -33,6 +33,7 @@ The names of the network interfaces will depend largely on what hardware OpenWrt
 ||Linksys||WRT54GS||v1.x||vlan0||vlan1||eth1|| ||
 ||Asus||WL-500g|| ||eth1||eth0||eth2|| ||
 ||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||||
+||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
 Please update to include other models.
 
 NOTE: LAN and WIFI are bridged together in br0 by default, on some devices WAN can be eth1 and LAN eth0.
