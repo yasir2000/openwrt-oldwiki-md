@@ -150,6 +150,12 @@ wan_ifname=vlan1
 wan_proto=dhcp
 }}}
 
+Note that the default behaviour is to [http://forum.openwrt.org/viewtopic.php?pid=8410#p8410 use WPA] if your WRT54G is running in AP mode.  If you don't want to use WPA, set wl0_crypto to the empty string:
+
+{{{
+wl0_crypto=
+}}}
+
 == The ethernet switch ==
 
 The WRT54G is essentially a WAP54G (wireless access point) with a 6 port switch. There's only one physical ethernet connection and that's wired internally into port 5 of the switch; the WAN is port 0 and the LAN is ports 1-4. The separation of the WAN and LAN interfaces is done by the switch itself. The switch has a vlan map which tells it which vlans can be accessed through which ports.
