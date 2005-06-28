@@ -449,5 +449,11 @@ mtd erase nvram
 Then cross your fingers and reboot your unit. And remember - I'm not responsible for any damage to your unit, as this information is provided AS IS for my own pleasure. oleg@cs.msu.su
 Posted: 2005-04-03
 
+== Customizing Firmware Image ==
+
+It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files.  For example, it's easy to move the root home directory to /root, pre-load an .ssh/authorized_keys file, and modify /etc/passwd to include a stock password and point the root home directory at /root instead of the default /tmp.  To do this you will need a Linux system and to download the source tar file.  Extract this tar file, cd into the "openwrt" directory and look in the "docs" subdirectory.  Documentation for customizing the image is located there.
+
+The short form is that you first run "make" and will be presented with a configuration like the normal Linux kernel menuconfig.  Use this to select various software packages and configurations.  When done, customize the base file-system by modifying the filesystem image under "target/default/target_skeleton", and then run "make" again.  This will run quite a while, well over an hour on a Pentium M 1.8 system.  When complete, your customized firmware will be in the "bin" subdirectory, ready to install.  If you make changes to the filesystem image, you'll need to regenerate the firmware with "make target_prepare target_install".  If you remove files, you will need to remove them from "build_mipsel/root" as well, or they will persist across new firmware image builds.
+
 = Downloads =
 == Programs ==
