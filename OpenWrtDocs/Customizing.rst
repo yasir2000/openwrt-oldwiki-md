@@ -11,7 +11,7 @@ The contents of this section of the wiki can have serious consequences. While ev
 Most OpenWrt compatible devices have one or two serial ports on the router's pcb (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 == Adding an MMC/SD Card ==
-''This is one very cool mod! Credit goes to http://kiel.kool.dk for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
+''This is one very cool mod! Credit goes to [http://kiel.kool.dk:27 kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
 
 '''Introduction'''
 
@@ -24,8 +24,8 @@ This project is for people who would like to add a little storage to their Links
 
 '''Pictures'''
 
-    * The insides of the router with SD card reader installed  /> PICTURES Unavailable ATM
-    * The finished product with SD card reader installed      /
+    * [http://kiel.kool.dk:27/pics/AllSolderingDone.jpg The insides of the router with SD card reader installed]
+    * [http://kiel.kool.dk:27/pics/Reuter_complete.jpg The finished product with SD card reader installed]
 
 '''What you need'''
 
@@ -48,9 +48,9 @@ This project is for people who would like to add a little storage to their Links
 
       We will be driving the SD card in SPI mode, meaning that only one of the four data out pins are used (pin 7). Obtaining the specs for driving the card in the native SD mode is VERY costly and furthermore the limited number of GPIO pins available inside the router also mandates the use of some sort of serial protocol. The two VSS pins can simply be wired together for this project (VSS2 is used to control the sleep mode of the card). With this in mind lets look at the solder points in the router.
 
-         1. The first three solder points are located at RP3. \
-         2. The next two solder points are located at JP1      > IMAGES THAT AREN'T AVAILABLE ATM
-         3. The last solder point is at the DMZ LED           /
+         1. [http://kiel.kool.dk:27/pics/solderpoint_1_annotated.jpg The first three solder points] are located at RP3
+         2. [http://kiel.kool.dk:27/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
+         3. [http://kiel.kool.dk:27/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
       Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
    2. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
