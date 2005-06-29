@@ -65,8 +65,9 @@ Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;;doesn't exi
 Linksys;WTR54GS;;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;No;No;;;Untested
 Maxtor;Shared Storage;;Broadcom 4780;266Mhz;2Mb;32Mb;None;None;;Yes;No;2x USB 2.0;;Untested
 Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;doesn't exist;Yes;Yes;;Have to reflash a bootloader (CFE/PMON) first;Supported
-Motorola;WR840G;;;;;;;none;;;;;;Untested
-Motorola;WR840GP;;Broadcom 4712;200MHz;;;integrated Broadcom;none;;;;;;Untested
+Motorola;WA840G;;Broadcom 4712;200Mhz;;;integrated Broadcom;none;;;;;;Untested
+Motorola;WA840GV2;;Broadcom 4712;200Mhz;2Mb;8Mb;integrated Broadcom;none;;;;;;Untested
+Motorola;WA840GP;;Broadcom 4712;200MHz;;;integrated Broadcom;none;;;;;;Untested
 Motorola;WR850G;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;;;;;;Experimental
 Motorola;WR850G;2;Broadcom 4712;200MHz;4Mb;16 or 32Mb;integrated Broadcom;;;;;;some units have 32Mb RAM, but only 16Mb RAM is enabled by default;Experimental
 Motorola;WR850G;3;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;;;;;;;Experimental
