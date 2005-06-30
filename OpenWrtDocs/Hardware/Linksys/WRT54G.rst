@@ -73,7 +73,7 @@ how to get info :
 * board info : nvram show | grep board | sort
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||
-||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||      -       ||       5         || BCM4710 V0.0  ||
+||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42           ||       5         || BCM4710 V0.0  ||
 ||WRT54G v2.0       ||     -        ||  0x0101       ||  0x0188        ||       -         ||      -       ||       -         || BCM3302 V0.7  ||
 ||WRT54G v2.2       ||     -        ||  0x0708       ||  0x0118        ||       -         ||      -       ||       7         || -             ||
 ||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || -             ||
