@@ -12,12 +12,12 @@ See [:TableOfHardware]
 
 '''Stable Release'''
 
-At the moment we have no stable supported release. We are working on our first release candidate. In the next days you will get firmware and packages in binary format here:
+At the moment we have no stable supported release. You can get release candidates for the next stable OpenWrt release in binary format:
 [http://downloads.openwrt.org/whiterussian/ http://downloads.openwrt.org/whiterussian/]
 
 '''Stable Source'''
 
-If you like to get the source code and compile on your own use our CVS repository. You will need to compile this from scratch, and this is not recommended for beginners.
+If you like to get the source code and compile on your own use our CVS repository. You will need to compile this from scratch, but this is not recommended for beginners.
 
 {{{
 cvs -d:pserver:anonymous@openwrt.org:/openwrt co -rwhiterussian openwrt
@@ -33,15 +33,15 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co openwrt
 
 If you find any bugs, please use our forum or irc channel to report.
 
-You may find some binary snapshots in the directories of our developers http://openwrt.org/downloads/...
+You may find some binary snapshots in the directories of our developers http://downloads.openwrt.org/people/
 
 
 = Installing OpenWrt =
-/!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
+/!\ '''LOADING AN UNOFFICIAL FIRMWARE MAY VOID YOUR WARRANTY'''
 
-OpenWrt is an unofficial firmware which is neither endorsed or supported by the vendor of your router. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL].
+OpenWrt is an unofficial firmware which is neither endorsed or supported by the vendor of your router. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL]. You can always flash back your original firmware, so please be sure you have it downloaded and saved locally.
 
-To avoid potentially serious damage to your router caused by an unbootable firmware you should read the documentation for your specific router.
+To avoid potentially serious damage to your router caused by an unbootable firmware you should read the documentation for your specific router model.
 
 /!\ '''We strongly suggest you also read [:OpenWrtDocs/Troubleshooting] before installing'''
 
@@ -49,8 +49,8 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 == General instructions ==
 
-On most of the supported routers OpenWrt can be initially installed via Trivial File Transfer Protokoll (TFTP) with a TFTP-Client on your PC or Mac. 
-When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based router Adam2.  
+On most of the supported routers OpenWrt can be initially installed via Trivial File Transfer Protokoll (TFTP) with a TFTP client on your PC or Mac. 
+When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based routers use Adam2.  
 
 The basic procedure of using a tftp client to upload a new firmware to your router:
   * unplug the power to your router
@@ -63,7 +63,8 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
   * the tftp client will receive an ack from the bootloader and starts sending the firmware
 
 /!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred. DO NOT unplug the router, it will automatically reboot into the new firmware.''' 
-On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off.
+On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off. Sometimes automatically reboot does not work, so you can 
+savely reboot after 10 minutes.
 
 The tftp commands might vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
@@ -171,7 +172,7 @@ tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
 tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/flash.sh].
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/utils/flash.sh].
 
 As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
 
@@ -189,7 +190,7 @@ tftp> trace
 tftp> put openwrt-xxx-x.x-xxx.trx 
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/flash.sh].
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/utils/flash.sh].
 
 As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
 
@@ -204,6 +205,8 @@ boot_wait is enabled on these devices.
 You can erase nvram settings by pressing reset button while powering on the router.
 
 == Motorola ==
+
+Who knows how it works on this model?
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
