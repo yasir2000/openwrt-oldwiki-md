@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2005/7/1. Legend:
+This is a table of all supported devices as of 2005/7/2. Legend:
 
  * Supported - supported in white russian
  * Untested - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
@@ -9,7 +9,9 @@ This is work in progress.
 
 {{{#!CSV
 Manufacturer;Model;Version;Board;CPU;Flash;RAM;Wireless NIC;Switch;boot_wait;Serial;JTAG;USB;Notes;Support
-Asus;WL-300G;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;on;;;;;Untested
+ALLNet;ALL130DSL;;Texas Instruments Sangam/AR7;;;;;;;;;;;Untested
+ALLNet;ALL0277;;Broadcom 4710;;;;;;;;;;;Untested
+Asus;WL-300G;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;on;;;;;Supported
 Asus;WL-500B;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Supported
 Asus;WL-500B;2;Broadcom 4710;125MHz;4Mb;16Mb;Ralink mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Untested
 Asus;WL-500G;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Supported
@@ -35,7 +37,7 @@ Buffalo;WLA-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;;c
 Buffalo;WLA-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54L;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Supported
-Buffalo;WLI2-TX1-G54;;Broadcom 4702;125MHz;4Mb;16MB;Broadcom mini-PCI;None;;;;;;Untested
+Buffalo;WLI2-TX1-G54;;Broadcom 4710;125MHz;4Mb;16MB;Broadcom mini-PCI;None;;;;;;Untested
 Buffalo;WLI2-TX1-AG54;;Broadcom 4702;125MHz;;16MB;Broadcom mini-PCI;None;;;;;Same as WLI2-TX1-G54(?);Untested
 Buffalo;WZR-G108;;;;8Mb;;Airgo mini-PCI;;;;;;;Untested
 Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8Mb;64Mb;Broadcom mini-PCI;BCM5325;;;;;;Untested
@@ -59,7 +61,7 @@ Linksys;WRT54GS;1.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;ADM6996;of
 Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Supported
 Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Supported
 Linksys;WRT54GS;3.0;Broadcom 5365;200MHz;8Mb;32Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
-Linksys;WRT54GX;;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;Yes;;;No wireless support;Supported
+Linksys;WRT54GX;1.0;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;Yes;;;No wireless support;Supported
 Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;;off;;;;;Untested
 Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;;doesn't exist;Yes;;;;WiP
 Linksys;WTR54GS;;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;No;No;;;Untested
@@ -90,8 +92,3 @@ Trendnet;TEW-411BRP;;;;;;;;;;;;;Untested
 Trendnet;TEW-411BRPplus;;;;;;;;;;;;;Untested
 US Robotics;USR5430;;;;;;;;on;;;;similar to WAP54G;Supported
 }}}
-
-== Other devices ==
-
- * http://www.linux-mips.org/wiki/Broadcom_SOCs
- * http://www.airhive.net/phpwiki/index.php/BroadcomRouters
