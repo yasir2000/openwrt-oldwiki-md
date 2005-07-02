@@ -111,7 +111,7 @@ It seems to me though that the GS variant has a different location of the flash.
 
 Since the JTAG adaptor gives you full access to your Flash, I wonder if that nasty thing about shorting pins shouldn't be removed altogether.
 
-Note: I had to enable ppdev in the kernel to use the program by hairydairymaid with linux. Working versions of the CFE can be found at [http://downloads.openwrt.org/inh/cfe/], information about changing the CFE are available at [http://wiki.openwrt.org/OpenWrtDocs/Customizing].
+Note: I had to enable ppdev in the kernel to use the program by hairydairymaid with linux. Working versions of the CFE can be found at [http://downloads.openwrt.org/people/inh/cfe/], information about changing the CFE are available at [http://wiki.openwrt.org/OpenWrtDocs/Customizing].
 
 == Shorting Pins Method ==
 
