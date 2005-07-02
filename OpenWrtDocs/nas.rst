@@ -6,7 +6,7 @@
 
 From experimental build 2005-05-25 and whiterussian, OpenWRT use a new wireless driver (3.90.23.0). These versions require nas binary from Linksys beta firmware (4.50.05/4.00.5).
 
-The nas binary can be found at: http://openwrt.alphacore.net/experimental/nas_0.2-1_mipsel.ipk
+The nas binary can be found at: http://downloads.openwrt.org/whiterussian/packages/non-free
 
 If you use old version of firmware, pleas upgrade. Please check forum for right version of nas for old firmware.
 
