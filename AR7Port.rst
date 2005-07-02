@@ -8,9 +8,11 @@ AR7 is a router platform by Texas Instruments, which is used for routers and ADS
    * Linksys ADSL2MUE
    * Linksys WRTP54G
    * Netgear DG834G
-   * D-Link DSL-G604T
+   * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T]
 
 and many more.
+
+http://www.linux-mips.org/wiki/AR7
 
 == Finished tasks ==
 
