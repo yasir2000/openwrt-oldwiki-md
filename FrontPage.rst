@@ -9,7 +9,7 @@
  * [:OpenWrtFaq] Frequently abused questions from the forum
  * [:OpenWrtDocs] Documentation
  * [:GettingStartedTips] Some tips on getting started, even if you're a Linux G0d
- * [:support] How to get help and support
+ * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums] 
  * [http://nthill.free.fr/openwrt/tracker/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
  * Without 2.6 support there's no future, help us on [:Kernel26Firmware]
