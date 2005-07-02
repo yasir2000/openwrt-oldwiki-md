@@ -38,8 +38,9 @@ Buffalo;WLA-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54L;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Supported
 Buffalo;WLI2-TX1-G54;;Broadcom 4710;125MHz;4Mb;16MB;Broadcom mini-PCI;None;;;;;;Untested
-Buffalo;WLI2-TX1-AG54;;Broadcom 4702;125MHz;;16MB;Broadcom mini-PCI;None;;;;;Same as WLI2-TX1-G54(?);Untested
+Buffalo;WLI2-TX1-AG54;;Broadcom 4710;125MHz;;16MB;Broadcom mini-PCI;None;;;;;Same as WLI2-TX1-G54(?);Untested
 Buffalo;WZR-G108;;;;8Mb;;Airgo mini-PCI;;;;;;;Untested
+Buffalo;WZR-HP-G54;;Broadcom 4704;300MHz;;;Broadcom mini-PCI;BCM5325;;;;;;Untested
 Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8Mb;64Mb;Broadcom mini-PCI;BCM5325;;;;;;Untested
 Dell;Truemobile 2300;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;;off;;;;;Untested
 Linksys;BEFSR41;;;;;;;;;;;;;No
@@ -47,7 +48,8 @@ Linksys;WRT54AG;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;No wireless s
 Linksys;WAG54G;2;Texas Instruments Sangam/AR7;150MHz;4Mb;16Mb;ACX111;;;;;;ADSL Modem;WiP
 Linksys;WAP54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;None;off;;;;;Supported
 Linksys;WAP54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;off;Yes;;;;Supported
-Linksys;WAP54G;2;Broadcom 4712;200MHz;2Mb;16Mb;integrated Broadcom;None;off;Yes;;;;Untested
+Linksys;WAP54G;2.0;Broadcom 4712;200MHz;2Mb;16Mb;integrated Broadcom;None;off;Yes;;;;Untested
+Linksys;WAP54G;3.0;Broadcom 5352;200MHz;;;integrated Broadcom;None;;Yes;Yes;;;Untested
 Linksys;WRE54G;;Broadcom 4712;200MHz;2Mb;8Mb;integrated Broadcom;None;off;Yes;;;;Untested
 Linksys;WRT54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;ADM6996;off;;;;;Supported
 Linksys;WRT54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off;;;;;Supported
@@ -55,16 +57,16 @@ Linksys;WRT54G;2.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off
 Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;16Mb RAM is enabled by default;Supported
 Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Supported
 Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Supported
-Linksys;WRT54G;4.0;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
+Linksys;WRT54G;4.0;Broadcom 5352;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
 Linksys;WRT54GC;;Marvell 88W8510;;;;integrated 802.11b/g;Marvell 88E6060;off;;;;compact version of Linksys WRT54G;No (never!)
 Linksys;WRT54GS;1.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;;Supported
 Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Supported
 Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Supported
-Linksys;WRT54GS;3.0;Broadcom 5365;200MHz;8Mb;32Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
+Linksys;WRT54GS;3.0;Broadcom 5352;200MHz;8Mb;32Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
 Linksys;WRT54GX;1.0;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;Yes;;;No wireless support;Supported
 Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;;off;;;;;Untested
 Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;;doesn't exist;Yes;;;;WiP
-Linksys;WTR54GS;;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;No;No;;;Untested
+Linksys;WTR54GS;;Broadcom 5350;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;No;No;;;Untested
 Maxtor;Shared Storage;;Broadcom 4780;266Mhz;2Mb;32Mb;None;None;;Yes;No;2x USB 2.0;;Untested
 Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;doesn't exist;Yes;Yes;;Have to reflash a bootloader (CFE/PMON) first;Supported
 Motorola;WA840G;1;Broadcom 4712;200Mhz;;;integrated Broadcom;none;;;;;;Untested
