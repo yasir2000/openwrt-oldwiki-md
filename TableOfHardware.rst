@@ -48,7 +48,7 @@ Linksys;WAP54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;off;Ye
 Linksys;WAP54G;2;Broadcom 4712;200MHz;2Mb;16Mb;integrated Broadcom;None;off;Yes;;;;Untested
 Linksys;WRE54G;;Broadcom 4712;200MHz;2Mb;8Mb;integrated Broadcom;None;off;Yes;;;;Untested
 Linksys;WRT54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;ADM6996;off;;;;;Supported
-Linksys;WRT54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off;;;;;Supported
+Linksys;[:OpenWrtDocs/Hardware/Linksys/WRT54G: WRT54G];1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off;;;;;Supported
 Linksys;WRT54G;2.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;;Supported
 Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;16Mb RAM is enabled by default;Supported
 Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Supported
