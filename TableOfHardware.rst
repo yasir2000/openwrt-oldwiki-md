@@ -35,7 +35,7 @@ Buffalo;WLA-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;;c
 Buffalo;WLA-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54L;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Supported
-Buffalo;WLI2-TX1-G54;;;;;;;;;;;;;Untested
+Buffalo;WLI2-TX1-G54;;Broadcom 4702;125MHz;4Mb;16MB;Broadcom mini-PCI;None;;;;;;Untested
 Buffalo;WLI2-TX1-AG54;;Broadcom 4702;125MHz;;16MB;Broadcom mini-PCI;None;;;;;Same as WLI2-TX1-G54(?);Untested
 Buffalo;WZR-G108;;;;8Mb;;Airgo mini-PCI;;;;;;;Untested
 Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8Mb;64Mb;Broadcom mini-PCI;BCM5325;;;;;;Untested
