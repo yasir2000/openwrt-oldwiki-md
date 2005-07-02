@@ -1,6 +1,16 @@
 = nas =
 
-{{{nas}}} is the binary, Broadcom proprietary, tool that sets up security connection on wireless device.
+'''nas''' is the binary, Broadcom proprietary, tool that sets up security connection on wireless device.
+
+== Which nas to use ? ==
+
+From experimental build 2005-05-25 and whiterussian, OpenWRT use a new wireless driver (3.90.23.0). These versions require nas binary from Linksys beta firmware (4.50.05/4.00.5).
+
+The nas binary can be found at: http://openwrt.alphacore.net/experimental/nas_0.2-1_mipsel.ipk
+
+If you use old version of firmware, pleas upgrade. Please check forum for right version of nas for old firmware
+
+== nas options ==
 
 The usage for nas is :
 {{{
@@ -25,14 +35,14 @@ The ["OpenWrtFaq"] contains information on how to enable WPA.
 
 == From experimental build 2005-05-25 (whiteRusian included) ==
 
-Current versions (both HEAD and whiterussian branch) use a new wireless driver (3.90.23.0). These versions require two changes:
+Current versions (both HEAD and whiterussian branch) use a new wireless driver (3.90.23.0).  two changes:
 
 * needs nas binary from Linksys beta firmware (4.50.05/4.00.5)
 
 * PSK option changed from "-m 2" to "-m 4"
 
 
-The nas binary can be found at: http://openwrt.alphacore.net/experimental/nas_0.2-1_mipsel.ipk
+
 Remaining questions:
 
 * What do the new "-m" options do?
