@@ -72,24 +72,30 @@ nas -P /tmp/nas.lan.pid -l br0 -H 34954 -i eth1 -A -m 32 -r <Radius share-key> -
 nas -P /tmp/nas.lan.pid -l br0 -H 34954
 }}}
 
+=== nas command options ===
 
 The usage for nas is :
 {{{
 Usage: nas [options]
         -l    LAN interface name
         -i    Wireless interface name
-        -k    Shared secret
-        -m    0:Radius, 1:WPA, 2:WPA-PSK, default:Radius
+        -k    WPA share-key
+        -m    ?????? 
         -g    WPA GTK rotation interval
         -h    RADIUS server IP address
-        -p    RADIUS server UDP port
-        -s    Service Set Identity
-        -w    Cryptographic algorithm: 2:TKIP, 4:AES
-        -P    
+        -r    RADIUS secret
+        -p    RADIUS server authentication UDP port
+        -s    SSID
+        -w    ??????
+        -P    nas pid file
+        -I    ??????
+        -K    WEP share key
+        -H    UDP port on which to listen to requests
+        -t    ??????
+
 The -l <lan> option must be present first and then followed by -i <wl> ... options for each wireless interface
 
  -S|-A = Authenticator (NAS) or Supplicant
- -H UDP port on which to listen to requests
 }}}
 
 
