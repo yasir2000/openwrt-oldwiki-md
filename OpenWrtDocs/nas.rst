@@ -1,4 +1,6 @@
-{{{nas}}} is the binary, Broadcom proprietary, tool that sets up WPA on wrt54g routers.
+= nas =
+
+{{{nas}}} is the binary, Broadcom proprietary, tool that sets up security connection on wireless device.
 
 The usage for nas is :
 {{{
