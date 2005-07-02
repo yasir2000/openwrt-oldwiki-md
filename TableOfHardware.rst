@@ -90,3 +90,8 @@ Trendnet;TEW-411BRP;;;;;;;;;;;;;Untested
 Trendnet;TEW-411BRPplus;;;;;;;;;;;;;Untested
 US Robotics;USR5430;;;;;;;;on;;;;similar to WAP54G;Supported
 }}}
+
+== Other devices ==
+
+ * http://www.linux-mips.org/wiki/Broadcom_SOCs
+ * http://www.airhive.net/phpwiki/index.php/BroadcomRouters
