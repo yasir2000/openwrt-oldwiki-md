@@ -242,6 +242,8 @@ done
 
 Many people know that by setting the nvram variable clkfreq, you can overclock your router. Many people also know that Linksys actually released a beta firmware, changing clkfreq to 216 to fix stability issues. That quick fix actually works quite well, as many people can tell you. Linksys also released a lesser-known beta firmware that set clkfreq to 240. There are also a few things discovered by [mbm] and I that seem to affect performance. First off, you can NOT set clkfreq to any number you want. It is very selective, and only certain values work. Also, there are 2 clocks you can adjust. This was previously unknown (read: another OpenWrt first.)
 
+'''NOTE: While many people have had success with this, some have not. It is HIGHLY recommended that you flash the modified CFE images I (inh) provide at [http://downloads.opnewrt.org/inh/cfe/] in case something goes wrong. Otherwise you will have to setup a JTAG cable to debrick'''
+
 '''Simple Overclocking'''
 
 As stated earlier, Linksys released firmware that made their routers run at 216 MHz instead of 200 to fix stability issues. You too can do this simple overclock to make your router run much more solidly. Here is all you have to do.
