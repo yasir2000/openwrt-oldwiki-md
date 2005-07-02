@@ -99,25 +99,7 @@ The -l <lan> option must be present first and then followed by -i <wl> ... optio
 }}}
 
 
-The ["OpenWrtFaq"] contains information on how to enable WPA.
-
-
-
-
-Remaining questions:
-
-* What do the new "-m" options do?
-
-* How to enable WPA2?
-
-* Is it possible to extract nas binary from Linksys firmware image? Method from the wiki does not work anymore with this version.
-
-Edit: My impression is "wl0_wep" key is not needed. So either set it to "disabled" or remove it.
-
-Last edited by Yogi (2005-06-26 12:33:33)
-
-Here are option of command nas of LINKSYS WRT54GS ver 4.50.5
-
+== More info ==
 
 For more detail please read forum post
 
