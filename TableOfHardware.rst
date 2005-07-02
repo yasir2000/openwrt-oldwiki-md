@@ -28,7 +28,7 @@ Buffalo;WBR-B11;;;;;;;;;;;;;Untested
 Buffalo;WBR2-B11;;;;;;;;;;;;;Untested
 Buffalo;WBR-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;;;Supported
 Buffalo;WBR2-G54;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;Yes;Yes;;;Supported
-Buffalo;WBR2-G54S;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Suported
+Buffalo;WBR2-G54S;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Supported
 Buffalo;WHR-G54;;;;;;;;;;;;;Untested
 Buffalo;WHR2-G54;;;;;;;;;;;;;Untested
 Buffalo;WHR3-G54;;;;;;;;;;;;;Untested
