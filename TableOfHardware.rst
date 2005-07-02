@@ -1,7 +1,6 @@
-This is a table of all supported devices as of 2005/6/9. Legend:
+This is a table of all supported devices as of 2005/7/1. Legend:
 
- * Supported - supported in stable version
- * Experimental - supported in experimental version
+ * Supported - supported in white russian
  * Untested - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
  * No - confirmed that this device is not supported yet
  * WiP - Work in Progress
@@ -15,7 +14,7 @@ Asus;WL-500B;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;1x v
 Asus;WL-500B;2;Broadcom 4710;125MHz;4Mb;16Mb;Ralink mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Untested
 Asus;WL-500G;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Supported
 Asus;WL-520G;;Broadcom 5350;200MHz;2Mb;8Mb;integrated Broadcom;integrated into CPU;;;;;also known as WL-500G-X;Untested
-Asus;WL-500G Deluxe;;Broadcom 5365;200MHz;4Mb;32Mb;integrated Broadcom;integrated into CPU;on;Yes;No;2x v2.0; on some units 16Mb RAM is enabled by default, additional USB interfaces;Experimental
+Asus;WL-500G Deluxe;;Broadcom 5365;200MHz;4Mb;32Mb;integrated Broadcom;integrated into CPU;on;Yes;No;2x v2.0; on some units 16Mb RAM is enabled by default, additional USB interfaces;Supported
 Asus;WL-700G;;Broadcom 4780;300MHz;;;;;;;;3x v2.0;ide interface;Untested
 Asus;WL-HDD;;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;None;on;;;1x v1.1;;Untested
 Belkin;F5D7130;;Broadcom 4710;125MHz;;;Broadcom mini-PCI;None;;;;;;Untested
@@ -26,8 +25,8 @@ Belkin;F5D8230-4;;Broadcom 4704;300MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;;;;;Un
 Buffalo;WBR-B11;;;;;;;;;;;;;Untested
 Buffalo;WBR2-B11;;;;;;;;;;;;;Untested
 Buffalo;WBR-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;;;Supported
-Buffalo;WBR2-G54;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;Yes;Yes;;;Experimental
-Buffalo;WBR2-G54S;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Experimental
+Buffalo;WBR2-G54;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;Yes;Yes;;;Supported
+Buffalo;WBR2-G54S;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Suported
 Buffalo;WHR-G54;;;;;;;;;;;;;Untested
 Buffalo;WHR2-G54;;;;;;;;;;;;;Untested
 Buffalo;WHR3-G54;;;;;;;;;;;;;Untested
@@ -35,7 +34,7 @@ Buffalo;WHR3-AG54;;Broadcom 4704;300MHz;4MB;64MB;Broadcom mini-PCI;;;;;;Same as 
 Buffalo;WLA-G54;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;on;;;;can't use eth1;Supported
 Buffalo;WLA-G54C;;;;;;;;;;;;;Untested
 Buffalo;WLA2-G54C;;;;;;;;;;;;;Untested
-Buffalo;WLA2-G54L;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Experimental
+Buffalo;WLA2-G54L;;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;on;;;;;Supported
 Buffalo;WLI2-TX1-G54;;;;;;;;;;;;;Untested
 Buffalo;WLI2-TX1-AG54;;Broadcom 4702;125MHz;;16MB;Broadcom mini-PCI;None;;;;;Same as WLI2-TX1-G54(?);Untested
 Buffalo;WZR-G108;;;;8Mb;;Airgo mini-PCI;;;;;;;Untested
@@ -52,15 +51,15 @@ Linksys;WRT54G;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;ADM6996;off;;
 Linksys;WRT54G;1.1;Broadcom 4710;125MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off;;;;;Supported
 Linksys;WRT54G;2.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;;Supported
 Linksys;WRT54G;2.0 rev. XH;Broadcom 4712;200MHz;4Mb;32Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;16Mb RAM is enabled by default;Supported
-Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Experimental
-Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Experimental
+Linksys;WRT54G;2.2;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Supported
+Linksys;WRT54G;3.0;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Supported
 Linksys;WRT54G;4.0;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
 Linksys;WRT54GC;;Marvell 88W8510;;;;integrated 802.11b/g;Marvell 88E6060;off;;;;compact version of Linksys WRT54G;No (never!)
 Linksys;WRT54GS;1.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;ADM6996;off;Yes;Yes;;;Supported
-Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Experimental
-Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Experimental
+Linksys;WRT54GS;1.1;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;;Supported
+Linksys;WRT54GS;2.0;Broadcom 4712;200MHz;8Mb;32Mb;integrated Broadcom;BCM5325;off;Yes;Yes;;extra button;Supported
 Linksys;WRT54GS;3.0;Broadcom 5365;200MHz;8Mb;32Mb;integrated Broadcom;integrated into CPU;;Yes;Yes;;;Untested
-Linksys;WRT54GX;;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;Yes;;;No wireless support;Experimental
+Linksys;WRT54GX;;Broadcom 4704;264MHz;4Mb;16Mb;Airgo mini-PCI;BCM5325;on;Yes;;;No wireless support;Supported
 Linksys;WRT55AG;1.0;Broadcom 4710;125MHz;4Mb;16Mb;Atheros & Broadcom mini-PCI;;off;;;;;Untested
 Linksys;WRT55AG;2.0;Atheros 5312;230MHz;4Mb;16Mb;integrated Atheros;;doesn't exist;Yes;;;;WiP
 Linksys;WTR54GS;;Broadcom 5365;200MHz;4Mb;16Mb;integrated Broadcom;integrated into CPU;;No;No;;;Untested
@@ -69,9 +68,9 @@ Microsoft;MN-700;;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;doesn'
 Motorola;WA840G;1;Broadcom 4712;200Mhz;;;integrated Broadcom;none;;;;;;Untested
 Motorola;WA840G;2;Broadcom 4712;200Mhz;2Mb;8Mb;integrated Broadcom;none;;;;;;Untested
 Motorola;WA840GP;;Broadcom 4712;200MHz;;;integrated Broadcom;none;;;;;;Untested
-Motorola;WR850G;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;;;;;;Experimental
-Motorola;WR850G;2;Broadcom 4712;200MHz;4Mb;16 or 32Mb;integrated Broadcom;;;;;;some units have 32Mb RAM, but only 16Mb RAM is enabled by default;Experimental
-Motorola;WR850G;3;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;;;;;;;Experimental
+Motorola;WR850G;1;Broadcom 4710;125MHz;4Mb;16Mb;Broadcom mini-PCI;BCM5325;;;;;;Supported
+Motorola;WR850G;2;Broadcom 4712;200MHz;4Mb;16 or 32Mb;integrated Broadcom;;;;;;some units have 32Mb RAM, but only 16Mb RAM is enabled by default;Supported
+Motorola;WR850G;3;Broadcom 4712;200MHz;4Mb;16Mb;integrated Broadcom;;;;;;;Supported
 Motorola;WR850GP;;Broadcom 4712;200MHz;;;integrated Broadcom;;;;;;;Untested
 Netgear;FWAG114;;Broadcom 4710;125MHz;;;Atheros & Broadcom mini-PCI;BCM5325;;;;;;Untested
 Netgear;WG602;3;Broadcom 4712;200MHz;2Mb;8Mb;integrated Broadcom;None;on;;;;;No
@@ -84,7 +83,7 @@ Siemens;SX550;;;;;;;;;;;;;Untested
 SimpleTech;SimpleShare Office Storage Server;;Broadcom 4780;266Mhz;;32Mb;None;None;;;;2x v2.0;;Untested
 Sitecom;WL-111;;;;;;;;;;;;;Untested
 Svec;FD2164;;;;;;;;;;;;;Untested
-Toshiba;WRC-1000;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;you need hostap for wlan;Experimental
+Toshiba;WRC-1000;;Broadcom 4710;125MHz;4Mb;16Mb;Prism mini-PCI;;;;;;you need hostap for wlan;Supported
 Trendnet;TEW-410APB;;;;;;;;;;;;;Untested
 Trendnet;TEW-410APBplus;;;;;;;;;;;;;Untested
 Trendnet;TEW-411BRP;;;;;;;;;;;;;Untested
