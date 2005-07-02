@@ -1,4 +1,4 @@
-= How do I enable the USB stick on ASUS WL-500gx (WL-500GDeluxe, wl500gx) ? =
+= How do I enable the USB stick on Asus WL-500g / Asus WL500g Deluxe? =
 
 Good idea is to read http://rotz.org/archives/2005/03/wl500g_usb_stic.html
 
@@ -15,10 +15,11 @@ libusb - a Library for accessing Linux USB devices
 lsusb - A program to list USB devices
 }}}
 
-In ASUS WL-500gx you need these packages (install command): {{{ipkg install kmod-usb-core kmod-usb-uhci kmod-usb-storage}}}
+For Asus WL500G:
+Install these packages: 
+{{{ipkg install kmod-usb-core kmod-usb-uhci kmod-usb-storage}}}
 
-Next you have to add next lines to /etc/modules
-
+and add next lines to /etc/modules
 {{{
 scsi_mod
 sd_mod
@@ -28,7 +29,21 @@ uhci
 usb-storage
 }}}
 
-You can use command {{{vi /etc/modules}}}
+For Asus WL-500g Deluxe: 
+Install these packages: 
+{{{ipkg install kmod-usb-core kmod-usb2 kmod-usb-storage}}}
+
+and add next lines to /etc/modules
+{{{
+scsi_mod
+sd_mod
+sg
+usbcore
+ehci
+usb-storage
+}}}
+
+You can use command {{{vi /etc/modules}}}. Either reboot or load the modules in this order manually with insmod.
 
 Now check if you see your USB stick (of course joining in your ASUS): {{{dmesg}}}
 
