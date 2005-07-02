@@ -96,6 +96,7 @@ Usage: nas [options]
 The -l <lan> option must be present first and then followed by -i <wl> ... options for each wireless interface
 
  -S|-A = Authenticator (NAS) or Supplicant
+
 }}}
 
 
