@@ -80,15 +80,22 @@ Usage: nas [options]
         -l    LAN interface name
         -i    Wireless interface name
         -k    WPA share-key
-        -m    ?????? 
+        -m    2 - WPA
+              64 - WPA2
+              66 - WPA WPA2
+              4 - PSK
+              128 - PSK2
+              132 - PSK PSK2             
         -g    WPA GTK rotation interval
         -h    RADIUS server IP address
         -r    RADIUS secret
         -p    RADIUS server authentication UDP port
         -s    SSID
-        -w    ??????
+        -w    2 - TKIP
+              4 - AES
+              6 - AES+TKIP
         -P    nas pid file
-        -I    ??????
+        -I    WEP key index
         -K    WEP share key
         -H    UDP port on which to listen to requests
         -t    ??????
