@@ -1,4 +1,5 @@
 '''Linksys WRT54G'''
+[[TableOfContents]]
 
 === Hardware versions ===
 
