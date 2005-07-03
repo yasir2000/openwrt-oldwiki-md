@@ -73,6 +73,20 @@ You can now make changes to the root filesystem.  These changes will be preserve
 but '''will all be lost if the firmware is reloaded'''.
 The way to preserve changes when loading a new image is to make changes in the image itself.
 
+Note that loading a new image is easily done using Openwrt itself, rather than using the bootloader.  Once you have built your new image, with your new filesystem included, you copy the image into the /tmp directory on the router.  For example:
+
+{{{
+scp bin/openwrt-generic-jffs2-4MB.trx asus:/tmp
+}}}
+
+Then, on the router, use ''mtd'' to load the image into flash and reboot:
+
+{{{
+mtd -r write /tmp/openwrt-generic-jffs2-4MB.trx linux
+}}}
+
+The ''-r'' is important as the replacement of the running system filesystem will mean that the system will be very confused if it is not immediately rebooted!
+
 = Changing the files in the image =
 
 To change files in the image you need to have the OpenWrt Buildroot installed.  
