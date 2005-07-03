@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2005/7/2. Legend:
+This is a table of all supported devices as of 2005/7/3. Legend:
 
  * Supported - supported in white russian
  * Untested - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
@@ -11,12 +11,12 @@ This is work in progress.
 Manufacturer;Model;Version;Board;CPU;Flash;RAM;Wireless NIC;Switch;boot_wait;Serial;JTAG;USB;Notes;Support
 ALLNet;ALL130DSL;;Texas Instruments Sangam/AR7;;;;;;;;;;;Untested
 ALLNet;ALL0277;;Broadcom 4710;;;;;;;;;;;Untested
-Asus;WL-300G;;Broadcom 4710;125MHz;4MB;16MB;integrated Broadcom;None;on;;;;;Supported
+Asus;WL-300G;;Broadcom 4710;125MHz;4MB;16MB;integrated Broadcom;None;on;;;;special connector;Supported
 Asus;WL-500B;1;Broadcom 4710;125MHz;4MB;16MB;Broadcom mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Supported
 Asus;WL-500B;2;Broadcom 4710;125MHz;4MB;16MB;Ralink mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Untested
 Asus;WL-500G;;Broadcom 4710;125MHz;4MB;16MB;Broadcom mini-PCI;BCM5325;on;;;1x v1.1;parallel port;Supported
-Asus;WL-520G;;Broadcom 5350;200MHz;2MB;8MB;integrated Broadcom;integrated into CPU;;;;;also known as WL-500G-X;Untested
-Asus;WL-500G Deluxe;;Broadcom 5365;200MHz;4MB;32MB;integrated Broadcom;integrated into CPU;on;Yes;No;2x v2.0; on some units 16Mb RAM is enabled by default, additional USB interfaces;Supported
+Asus;WL-520G;;Broadcom 5350;200MHz;2MB;8MB;integrated Broadcom;integrated into CPU;on;;;;also known as WL-500G-X;Untested
+Asus;WL-500G Deluxe;;Broadcom 5365;200MHz;4MB;32MB;integrated Broadcom;integrated into CPU;on;Yes;No;2x v2.0; on some units 16MB RAM is enabled by default, additional USB interfaces;Supported
 Asus;WL-700G;;Broadcom 4780;300MHz;;;;;;;;3x v2.0;ide interface;Untested
 Asus;WL-HDD;;Broadcom 4710;125MHz;4MB;16MB;integrated Broadcom;None;on;;;1x v1.1;;Untested
 Belkin;F5D7130;;Broadcom 4710;125MHz;;;Broadcom mini-PCI;None;;;;;;Untested
