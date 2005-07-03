@@ -299,6 +299,19 @@ CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
 More can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640
 and: http://openwrt.org/forum/viewtopic.php?id=131
 
+Examples:
+||Australia||Melbourne||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
+||<rowspan=11>Europe||Amsterdam, Netherlands||<rowspan=11>CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Barcelona, Spain||
+||Berlin, Germany||
+||Brussels, Belgium||
+||Copenhagen, Denmark||
+||Geneva, Switzerland||
+||Madrid, Spain||
+||Oslo, Norway||
+||Paris, France||
+||Prague, Czech Republic||
+||Roma, Italy||
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
 = Crontab =
