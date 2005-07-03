@@ -2,6 +2,8 @@
 ##
 ## Note: questions/comments should be posted to the forum
 ##
+[[TableOfContents]]
+
 '''OpenWRT will run on every Broadcom 47xx/53xx based board which features a MIPS CPU, although some tweaking may be involved.'''
 
 ["TableOfHardware"]
