@@ -139,6 +139,18 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 == Adding a GPS ==
 ''Adding a GPS to your router may seem like an odd idea, but it does have it's uses. If you like to war drive, this combined with the SD card mod would let you simply plug in the router to your cigarette lighter and go, logging the networks to the sd card. It also isn't a hard mod to do. Depending on your GPS, this may be as simple as soldering 3 wires to your router. In my case it was a little more complicated, but by no means hard. It was just like adding a serial port, but instead of adding the serial port, I added the GPS.''
 
+== MiniPCI and PCI ==
+
+As it is known, MiniPCI is just a 3.3V version of the convantional PCI in the compact formfactor.
+
+There are a lot of MiniPCI peripherial, a sound cards, IDE/ATA and SATA controllers, and even accelerated SVGA cards.
+
+It is possible to remove a WiFi MiniPCI card and insert another peripherial. Fortunately, some A/G dual-stadart WRT* models has a two MiniPCI slots.
+
+[http://www.globalamericaninc.com/other/mini_PCI_&_AGP.php miniPCI and miniAGP Cards]
+
+
+
 == Adding a Weather Station ==
 == Adding an LCD ==
 [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg]
