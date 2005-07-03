@@ -136,8 +136,6 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 *to be written
 === Porting to other platforms ===
 *almost done being written
-== Adding a GPS ==
-''Adding a GPS to your router may seem like an odd idea, but it does have it's uses. If you like to war drive, this combined with the SD card mod would let you simply plug in the router to your cigarette lighter and go, logging the networks to the sd card. It also isn't a hard mod to do. Depending on your GPS, this may be as simple as soldering 3 wires to your router. In my case it was a little more complicated, but by no means hard. It was just like adding a serial port, but instead of adding the serial port, I added the GPS.''
 
 == MiniPCI and PCI ==
 
@@ -149,6 +147,14 @@ It is possible to remove a WiFi MiniPCI card and insert another peripherial. For
 
 [http://www.globalamericaninc.com/other/mini_PCI_&_AGP.php miniPCI and miniAGP Cards]
 
+There are a MiniPCI-to-PCI converters:
+
+ * [http://www.interfacemasters.com/products/pci_tools/mini_pci_to_pci/ IM300 Mini PCI Type III to PCI Adapter Card]
+ * [http://www.interfacemasters.com/products/pci_tools/im380/index.html IM380 Mini PCI Type III to PCI Adapter Card ] for TWO PCI clots, one 3.3V and 5V another. (What a juicy pictures! :)
+ * http://www.costronic.com/ MiniPCI-to-PCI CV09MP-P series. 
+
+== Adding a GPS ==
+''Adding a GPS to your router may seem like an odd idea, but it does have it's uses. If you like to war drive, this combined with the SD card mod would let you simply plug in the router to your cigarette lighter and go, logging the networks to the sd card. It also isn't a hard mod to do. Depending on your GPS, this may be as simple as soldering 3 wires to your router. In my case it was a little more complicated, but by no means hard. It was just like adding a serial port, but instead of adding the serial port, I added the GPS.''
 
 
 == Adding a Weather Station ==
