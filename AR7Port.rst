@@ -3,12 +3,13 @@
 == What is this AR7 stuff? ==
 
 AR7 is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including 
-   * AVM Fritz!Box
+   * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
+   * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
+   * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T]
    * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
    * Linksys ADSL2MUE
    * Linksys WRTP54G
-   * Netgear DG834G
-   * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T]
+   * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
 
 and many more.
 
