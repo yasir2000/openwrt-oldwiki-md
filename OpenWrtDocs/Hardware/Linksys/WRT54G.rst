@@ -83,7 +83,7 @@ how to get info :
 ||Buffalo WBR-54G   || 0x10         ||  bcm94710ap   ||  0x0188        ||  2              ||  42          ||       -         || -             ||
 ||Toshiba WRC1000   || -            ||  bcm94710r4   ||  -             ||  -              ||  100         ||       -         || -             ||
 ||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  00          ||       -         || -             ||
-||Asus WL-500G Deluxe|| 0x10        ||  bcm95365r    ||      -         ||       -         ||  45          ||       5         || - ||
+||Asus WL-500G Deluxe|| 0x10        ||  bcm95365r    ||      -         ||       -         ||  45          ||       5         || - ||BCM3302 V0.7||
 
 *other variables (nvram) of interest :  boot_ver, pmon_ver, firmware_version, os_version
 
