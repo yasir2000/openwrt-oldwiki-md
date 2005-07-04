@@ -70,7 +70,7 @@ boardnum=42}}}
 
 how to get info :
 
-* cpu model : cat /proc/cpuinfo | grep cpu
+* cpu model : cat /proc/cpuinfo | grep cpu[BR]
 * board info : nvram show | grep board | sort
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||
