@@ -156,5 +156,16 @@ Gently use your nails or a flat object to pry all the edges of the front feet up
 
 From there you will have access to two small Phillips-head screws. Remove and enjoy.
 
+= Going from jffs2 to squashfs =
+
+''Note - this section assumes you take care of backup - follow this procedure without backing up properly first, and all of your jffs2 files are gone!''
+
+A user has reported having troubles going from jffs2 to squashfs using the wl-500gd.  The cause of this problem, and the solution are not tested very thoughroughly, so please add your expirience.
+
+The problem was apparently, that after tfp'ing the jffs2 image (white russian rc1), the router was behaving nicely, but when the squashfs image (also white russian rc1) was tftp'ed, the router wouldn't finnish booting, on the contrary the boot process would loop.
+
+The solution was the flash with the jffs2 image again, and then after telnetting to the device do a "mtd -r erase".  When the device reboots, it will keep "asking" for a new firmware (pwr is blinking).  Then you tftp the squashfs image, and then everything "just works".
+
+
 = Getting help =
 Still stuck? see [http://openwrt.org/support] for information on where to get help.
