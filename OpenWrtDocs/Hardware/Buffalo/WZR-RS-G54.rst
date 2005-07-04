@@ -1,42 +1,33 @@
-debauchery:~ # '''mkdir /tmp/buffalo; cd /tmp/buffalo'''
+'''''Retrieve the firmware and decomrpess it'''''[[BR]]
+{{{# mkdir /tmp/buffalo; cd /tmp/buffalo
+# wget -q http://www.buffalotech.com/downloads/WZR-RS-G54_2%5B1%5D.32_1.00.zip
+# unzip -q WZR-RS-G54_2\[1\].32_1.00.zip}}}
 
-debauchery:/tmp/buffalo # '''wget http://www.buffalotech.com/downloads/WZR-RS-G54_2%5B1%5D.32_1.00.zip'''
+'''''Determine the correct bs value'''''[[BR]]
+{{{# hexdump -C WZR-RS-G54_2\[1\].32_1.00-US_US-TZO-uclibc.00-US_US-uclibc | grep Compressed
+}}}
 
-{{{--14:53:00--  http://www.buffalotech.com/downloads/WZR-RS-G54_2%5B1%5D.32_1.00.zip
-         => `WZR-RS-G54_2[1].32_1.00.zip'
-Resolving www.buffalotech.com... 207.195.226.220
-Connecting to www.buffalotech.com|207.195.226.220|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 4,636,827 [application/zip]
+''{{{     000c0030  00 00 00 00 00 43 6f 6d  70 72 65 73 73 65 64 20  |.....Compressed |
+    000c0050  69 0e f9 84 1a 43 6f 6d  70 72 65 73 73 65 64 00  |i....Compressed.|}}}''
 
-  100%[====================================>] 4,636,827    683.70K/s    ETA 00:00
+''{{{offset = 000c0035 (786485)
+         786485 - 16 bytes = 786469
+bs     = 786469}}}''
 
-14:53:07 (654.31 KB/s) - `WZR-RS-G54_2[1].32_1.00.zip' saved [4,636,827/4,636,827]}}}
+'''''Take the calculated bs value and extract the filesystem'''''[[BR]]
+{{{# dd if=WZR-RS-G54_2\[1\].32_1.00-US_US-TZO-uclibc.00-US_US-uclibc of=wzr-rs-g54-fs.img skip=1 bs=786469
+  5+1 records in
+  5+1 records out}}}
 
-debauchery:/tmp/buffalo # '''unzip WZR-RS-G54_2\[1\].32_1.00.zip'''
-{{{Archive:  WZR-RS-G54_2[1].32_1.00.zip
-  inflating: WZR-RS-G54_2[1].32_1.00-US_US-TZO-uclibc.00-US_US-uclibc}}}
+'''''Mount the extracted filesystem'''''[[BR]]
+{{{# mkdir /mnt/wzr-rs-g54
+# mount -t cramfs -o loop wzr-rs-g54-fs.img /mnt/wzr-rs-g54}}}
 
-debauchery:/tmp/buffalo # '''hexdump -C WZR-RS-G54_2\[1\].32_1.00-US_US-TZO-uclibc.00-US_US-uclibc | grep Compressed'''
-{{{000c0030  00 00 00 00 00 43 6f 6d  70 72 65 73 73 65 64 20  |.....Compressed |
-000c0050  69 0e f9 84 1a 43 6f 6d  70 72 65 73 73 65 64 00  |i....Compressed.|}}}
+'''''A few quick lists + sizes'''''[[BR]]
+{{{# cd /mnt/wzr-rs-g54/; ls -lh
+}}}
 
-''Calculate the correct bs value:''
-
-{{{offset = 000c0035
-bs = 000c0035 = 786485 - 16 bytes = 786469}}}
-
-debauchery:/tmp/buffalo # '''dd if=WZR-RS-G54_2\[1\].32_1.00-US_US-TZO-uclibc.00-US_US-uclibc of=wzr-rs-g54-fs.img skip=1 bs=786469'''
-{{{5+1 records in<br>
-5+1 records out<br>}}}
-
-debauchery:/tmp/buffalo # '''mkdir /mnt/wzr-rs-g54'''
-
-debauchery:/tmp/buffalo # '''mount -t cramfs -o loop wzr-rs-g54-fs.img /mnt/wzr-rs-g54'''
-
-debauchery:/tmp/buffalo # '''cd /mnt/wzr-rs-g54/; ls -lh'''
-
-{{{total 9.5K
+''{{{total 9.5K
 drwxr-xr-x  1 root root  576 Jan  1  1970 bin
 drwxr-xr-x  1 root root    0 Jan  1  1970 dev
 drwxr-xr-x  1 root root  300 Jan  1  1970 etc
@@ -49,10 +40,11 @@ drwxr-xr-x  1 root root  416 Jan  1  1970 sbin
 drwxr-xr-x  1 root root    0 Jan  1  1970 tmp
 drwxr-xr-x  1 root root   64 Jan  1  1970 usr
 lrwxrwxrwx  1 root root    7 Jan  1  1970 var -> tmp/var
-drwxr-xr-x  1 root root 2.8K Jan  1  1970 www}}}
+drwxr-xr-x  1 root root 2.8K Jan  1  1970 www}}}''
 
-debauchery:/mnt/wzr-rs-g54 # '''du -h ./'''
-{{{3.8M    ./usr/sbin
+{{{# du -h ./
+}}}
+''{{{3.8M    ./usr/sbin
 4.0K    ./usr/bin
 1.4M    ./usr/lib
 5.1M    ./usr
@@ -131,4 +123,4 @@ debauchery:/mnt/wzr-rs-g54 # '''du -h ./'''
 630K    ./lib/modules/2.4.20
 630K    ./lib/modules
 917K    ./lib
-12M     ./}}}
+12M     ./}}}''
