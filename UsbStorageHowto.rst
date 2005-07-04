@@ -30,20 +30,39 @@ usb-storage
 }}}
 
 For Asus WL-500g Deluxe: 
-Install these packages: 
-{{{ipkg install kmod-usb-core kmod-usb2 kmod-usb-storage}}}
+
+If you plan to use USB 2.0 only devices install these packages: 
+{{{ipkg install kmod-usb2 kmod-usb-storage}}} ({{{kmod-usb-core}}} will added as dependency)
 
 and add next lines to /etc/modules
 {{{
+usbcore
+ehci
 scsi_mod
 sd_mod
 sg
-usbcore
-ehci
 usb-storage
 }}}
 
-You can use command {{{vi /etc/modules}}}. Either reboot or load the modules in this order manually with insmod.
+If you want use your old USB 1.1 stick with USB 2.0 you must also install:
+{{{ipkg install kmod-usb-uhci}}}
+
+and then and add next line to /etc/modules
+{{{
+uhci
+}}}
+then your /etc/modules looks like
+{{{
+usbcore
+ehci
+uhci
+scsi_mod
+sd_mod
+sg
+usb-storage
+}}}
+
+You can use command {{{vi /etc/modules}}} or {{{echo -e "usbcore\nehci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 2.0 and {{{echo -e "usbcore\nehci\nuhci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 1.1. Either reboot or load the modules in this order manually with insmod.
 
 Now check if you see your USB stick (of course joining in your ASUS): {{{dmesg}}}
 
