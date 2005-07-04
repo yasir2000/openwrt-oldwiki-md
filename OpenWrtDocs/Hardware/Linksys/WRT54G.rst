@@ -70,8 +70,8 @@ boardnum=42}}}
 
 how to get info :
 
-* cpu model : cat /proc/cpuinfo | grep cpu[[BR]]
-* board info : nvram show | grep board | sort
+* board info : nvram show | grep board | sort[[BR]]
+* cpu model : cat /proc/cpuinfo | grep cpu
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||
 ||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42           ||       5         || BCM4710 V0.0  ||
