@@ -137,21 +137,19 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 === Porting to other platforms ===
 *almost done being written
 
-== MiniPCI and PCI ==
+== Mini PCI and PCI ==
 
-As it is known, MiniPCI is just a 3.3V version of the convantional PCI in the compact formfactor.
+According to [http://www.pcisig.com/specifications/conventional/mini_pci/ PCI-SIG]: ''The Mini PCI specification defines an alternate implementation for small form factor PCI cards referred to in this specification as a Mini PCI card. This specification uses a qualified subset of the same signal protocol, electrical definitions, and configuration definitions as the Conventional PCI Specification.''
 
-There are a lot of MiniPCI peripherial, a sound cards, IDE/ATA and SATA controllers, and even accelerated SVGA cards.
+In other words it is a compact 3.3V version of venerable PCI. Many Mini PCI devices are available today: sound cards, IDE/ATA and SATA controllers, and even accelerated SVGA cards. For example: [http://www.globalamericaninc.com/other/mini_PCI_&_AGP.php miniPCI and miniAGP Cards].
 
-It is possible to remove a WiFi MiniPCI card and insert another peripherial. Fortunately, some A/G dual-stadart WRT* models has a two MiniPCI slots.
+It is possible to remove a Wi-Fi Mini PCI card and insert another device. Fortunately, some A/G dual-standart WRT* models have two Mini PCI slots.
 
-[http://www.globalamericaninc.com/other/mini_PCI_&_AGP.php miniPCI and miniAGP Cards]
-
-There are a MiniPCI-to-PCI converters:
+Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with your Mini PCI-equipped hardware using Mini PCI-to-PCI converter. Information on some Mini PCI-to-PCI converters can be found here:
 
  * [http://www.interfacemasters.com/products/pci_tools/mini_pci_to_pci/ IM300 Mini PCI Type III to PCI Adapter Card]
- * [http://www.interfacemasters.com/products/pci_tools/im380/index.html IM380 Mini PCI Type III to PCI Adapter Card ] for TWO PCI clots, one 3.3V and 5V another. (What a juicy pictures! :)
- * http://www.costronic.com/ MiniPCI-to-PCI CV09MP-P series. 
+ * [http://www.interfacemasters.com/products/pci_tools/im380/index.html IM380 Mini PCI Type III to PCI Adapter Card ] with '''two''' PCI slots, one 3.3V and one 5V --- check out juicy pictures! :)
+ * [http://www.costronic.com/ Costronic's] Mini PCI-to-PCI [http://www.costronic.com/Eindexp.htm#Mini%20PCI CV09MP-P] series. 
 
 == Adding a GPS ==
 ''Adding a GPS to your router may seem like an odd idea, but it does have it's uses. If you like to war drive, this combined with the SD card mod would let you simply plug in the router to your cigarette lighter and go, logging the networks to the sd card. It also isn't a hard mod to do. Depending on your GPS, this may be as simple as soldering 3 wires to your router. In my case it was a little more complicated, but by no means hard. It was just like adding a serial port, but instead of adding the serial port, I added the GPS.''
