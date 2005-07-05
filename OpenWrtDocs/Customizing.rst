@@ -137,6 +137,30 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 === Porting to other platforms ===
 *almost done being written
 
+== USB ==
+
+If your WRT* has a USB port, you could attach a lot of USB devices.
+
+=== USB Hard Drive ===
+
+Already done, see ["UsbStorageHowto"].
+
+=== USB Serial port/Modem ===
+
+It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors. 
+
+Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convertor.
+
+=== USB Keyboard/Joystick ===
+
+Hmmm...
+
+=== USB Headpones ===
+
+=== USB Webcam ===
+
+=== USB Ethernet ===
+
 == Mini PCI and PCI ==
 
 According to [http://www.pcisig.com/specifications/conventional/mini_pci/ PCI-SIG]: ''The Mini PCI specification defines an alternate implementation for small form factor PCI cards referred to in this specification as a Mini PCI card. This specification uses a qualified subset of the same signal protocol, electrical definitions, and configuration definitions as the Conventional PCI Specification.''
