@@ -136,7 +136,7 @@ If you short the pins, that changes the address the chip sees as requested. Cont
 
 -XX-
 
-The requested address, 1100 gets seen as 1110; a request for address 12 got turned into a request for address 14. Likewise 3 (0011) becomes 7 (0110), 4 (0100) becomes 6 (0110) .. etc.
+The requested address, 1100 gets seen as 1110; a request for address 12 got turned into a request for address 14. Likewise 3 (0011) becomes 7 (0111), 4 (0100) becomes 6 (0110) .. etc.
 
 Result: It's actually impossible to read the value at 12 in this case, and it's likely that address 14 holds a different value. If this were a firmware, the bootloader would attempt to verify the firmware on bootup with a CRC check, mangling the addresses would change the data read and the CRC wouldn't match.
 
