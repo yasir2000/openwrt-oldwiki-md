@@ -125,7 +125,7 @@ When you get to the last command the ping window should be filled with a long li
 
 This ping exploit definitely works with WRT54G v2.0, WRT54G v.2.2, WRT54GS v1.0 and WRT54GSv1.1. You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware. Note: flashing a Linksys WRT54GS v1.1 by using TFTP is only possible using the Port 1 of the switch!
 
-You can also use the [http://openwrt.org/forum/viewtopic.php?t=507&highlight=takeover take-over] script to make ping hack in a single command (need a shell command line interpreter).
+You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover] script to make ping hack in a single command (need a shell command line interpreter).
 
 === Setting boot_wait from a serial connection ===
 
