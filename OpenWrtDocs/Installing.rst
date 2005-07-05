@@ -63,8 +63,8 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
   * the tftp client will receive an ack from the bootloader and starts sending the firmware
 
 /!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred. DO NOT unplug the router, it will automatically reboot into the new firmware.''' 
-On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off. Sometimes automatically reboot does not work, so you can 
-savely reboot after 10 minutes.
+On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off. Sometimes automatic rebooting does not work, so you can 
+safely reboot after 10 minutes.
 
 The tftp commands might vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
