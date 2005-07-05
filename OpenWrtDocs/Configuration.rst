@@ -289,7 +289,7 @@ for that copy the following line at the beginnig after the comment in the /etc/i
 }}}
 
 Putting a TimeZone entry for the Systemlogger could also be an good idea
-simply put a lin like something in /etc/TZ:
+simply put a line like something in /etc/TZ:
 
 {{{
 CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
