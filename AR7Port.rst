@@ -22,6 +22,7 @@ Here's what we have integrated so far:
 
    * A kernel that boots up to the part where it tries to mount the root filesystem
    * A simple mtd flash map driver that uses the boot loader's partition map
+   * NEW: Running a shell with a modified OpenWrt rootfs works now!
 
 === WAG54G Serial Console ===
 
