@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2005/7/3. Legend:
+This is a table of all supported devices as of 2005/7/6. Legend:
 
  * Supported - supported in white russian
  * Untested - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
@@ -43,7 +43,7 @@ Buffalo;WLI2-TX1-AG54;;Broadcom 4710;125MHz;;16MB;Broadcom mini-PCI;None;;;;;Sam
 Buffalo;WZR-G108;;;;8Mb;;Airgo mini-PCI;;;;;;;Untested
 Buffalo;WZR-HP-G54;;Broadcom 4704;300MHz;;;Broadcom mini-PCI;BCM5325;;;;;;Untested
 Buffalo;WZR-RS-G54;;Broadcom 4704;300MHz;8MB;64MB;Broadcom mini-PCI;BCM5325;;;;;;Untested
-Dell;Truemobile 2300;;Broadcom 4710;125MHz;4MB;16MB;Broadcom mini-PCI;;off;;;;;Untested
+Dell;Truemobile 2300;;Broadcom 4710;125MHz;4MB;16MB;Broadcom mini-PCI;;off;;;;;Supported
 Linksys;BEFSR41;;;;;;;;;;;;;No
 Linksys;WRT54AG;;Broadcom 4710;125MHz;4MB;16MB;Prism mini-PCI;;;;;;No wireless support;Supported
 Linksys;WAG54G;2;Texas Instruments Sangam/AR7;150MHz;4MB;16MB;ACX111;;;;;;ADSL Modem;WiP
