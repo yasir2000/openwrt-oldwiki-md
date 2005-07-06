@@ -6,14 +6,12 @@
 ## 
 
 = OpenWRT =
- * [:OpenWrtFaq] Frequently abused questions from the forum
  * [:OpenWrtDocs] Documentation
+ * [:OpenWrtFaq] Frequently abused questions from the forum
  * [:GettingStartedTips] Some tips on getting started, even if you're a Linux G0d
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums] 
- * [http://nthill.free.fr/openwrt/tracker/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
- * Without 2.6 support there's no future, help us on [:Kernel26Firmware]
- * [:initd_policy] policy proposal for init.d stuff
+ * [http://tracker.openwrt.org/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
 
 '''Howtos''' [[FullSearch(Howto)]]
 ----
