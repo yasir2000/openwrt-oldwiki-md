@@ -204,7 +204,7 @@ boot_wait is enabled on these devices.
 
 You can erase nvram settings by pressing reset button while powering on the router.
 
-== Motorola ==
+== Motorola WR850G ==
 
 Flashing the Motorola WR850G is fairly easy.  Just follow these easy steps!
 
