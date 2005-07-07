@@ -206,7 +206,15 @@ You can erase nvram settings by pressing reset button while powering on the rout
 
 == Motorola ==
 
-Who knows how it works on this model?
+Flashing the Motorola WR850G is fairly easy.  Just follow these easy steps!
+
+ 1. Use the web interface to set the router's IP address to 192.168.1.1.  This will mitigate the issue where dnsmasq doesn't properly read the subnet from the configuration.
+ 2. Download the motorola firmware image (either the squashfs or the jffs2-8mb version) from the website. (Note: The motorola has 4mb flash, but requires the 8mb version.  This is an ignominously confusing naming problem that hopefully will be fixed.  At the moment the motorola-jffs2-4mb is entirely useless.)
+ 3. Change the extension of the firmware image to .trx, because the Motorola web interface will not accept files with different extensions.
+ 4. Use the Control Panel -> Firmware page of the Motorola web interface to upload OpenWRT.  The power light on the WR850G will flash between red and green.  DO NOT INTERRUPT THE POWER TO THE WR850G WHILE THIS IS HAPPENING.  Doing so has been shown by the state of California to cause birth defects such as low birth weight, miscarriage, and the Black Lung.
+ 5. You will receive a message in your browser telling you the flash is complete and that you should restart the router.  Do so, either using the web interface or power cycling the router.
+ 6. When you're finished, telnet to 192.168.1.1, issue the 'reboot' command if you're using jffs2, and change your password to activate dropbear.
+ 7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1)
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
