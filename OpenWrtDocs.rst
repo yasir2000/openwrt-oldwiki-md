@@ -22,4 +22,3 @@ To get started, click a link below.
 '''[:Glossary]'''
 [[Include(Glossary,,titlesonly)]]
 ----
-[[PageList(OpenWrtDocs)]]
