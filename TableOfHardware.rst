@@ -38,7 +38,7 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Buffalo||WLA2-G54L|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||No||||||Supported||
 ||Buffalo||WLI2-TX1-G54|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||None|| || || || || ||Untested||
 ||Buffalo||WLI2-TX1-AG54|| ||Broadcom 4710||125MHz|| ||16MB||Broadcom mini-PCI||None|| || || || ||Same as WLI2-TX1-G54(?)||Untested||
-||Buffalo||WZR-G108|| || || ||8Mb||||Airgo mini-PCI|| || || || || || ||Untested||
+||Buffalo||WZR-G108|| || || ||8Mb|| ||Airgo mini-PCI|| || || || || || ||Untested||
 ||Buffalo||WZR-HP-G54|| ||Broadcom 4704||300MHz|| || ||Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Buffalo||WZR-RS-G54|| ||Broadcom 4704||300MHz||8MB||64MB||Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Dell||Truemobile 2300|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||off|| || || || ||Supported||
