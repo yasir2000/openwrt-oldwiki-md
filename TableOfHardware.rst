@@ -48,8 +48,8 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Linksys||WAP54G||1.0||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||None||off|| || || || ||Supported||
 ||Linksys||WAP54G||1.1||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||off||Yes|| || || ||Supported||
 ||Linksys||WAP54G||2.0||Broadcom 4712||200MHz||2MB||16MB||integrated Broadcom||None||off||Yes|| || || ||Untested||
-||Linksys||WAP54G||3.0||Broadcom 5352||200MHz||| |||integrated Broadcom||None||||Yes||Yes||| |||Untested||
-||Linksys||WRE54G||||Broadcom 4712||200MHz||2MB||8MB||integrated Broadcom||None||off||Yes||| || |||Untested||
+||Linksys||WAP54G||3.0||Broadcom 5352||200MHz||| |||integrated Broadcom||None|| ||Yes||Yes|| || ||Untested||
+||Linksys||WRE54G|| ||Broadcom 4712||200MHz||2MB||8MB||integrated Broadcom||None||off||Yes|| || || ||Untested||
 ||Linksys||WRT54G||1.0||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||ADM6996L||off|| || || || ||Supported||
 ||Linksys||WRT54G||1.1||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||ADM6996L||off|| || || || ||Supported||
 ||Linksys||WRT54G||2.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||off||Yes||Yes||| |||Supported||
