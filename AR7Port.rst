@@ -3,14 +3,15 @@
 == What is this AR7 stuff? ==
 
 AR7 is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including 
-   * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
-   * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
-   * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T]
-   * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
-   * Linksys ADSL2MUE
-   * Linksys WRTP54G
-   * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
-
+ * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
+ * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
+ * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T]
+ * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
+ * Linksys ADSL2MUE
+ * Linksys WRTP54G
+ * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
+ * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
+  
 and many more.
 
 http://www.linux-mips.org/wiki/AR7
@@ -50,6 +51,14 @@ The method used to find the serial port was suggested to me on irc; use a piezo 
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
+
+== Firmware/Bootloader ==
+
+There are at least 3 variants
+
+ * Telogy Networks, Inc ADAM2 + Linux
+ * PSP bootloader + Linux
+ * Broad Net Technology, Inc. BRN BootLoader and realtime OS (SOHO.BIN)  
 
 == TODO ==
 
