@@ -9,9 +9,9 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Manufacturer||Model||Version||Board||CPU||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Notes||Support||
 ||ALLNet||ALL130DSL|| ||Texas Instruments Sangam/AR7|| || || || || || || || || || ||Untested||
 ||ALLNet||ALL0277|| ||Broadcom 4710|| || || || || || || || || || ||Untested||
-||Asus||WL-300G|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || || ||special connector||Supported||
-||Asus||WL-500B||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
-||Asus||WL-500B||2||Broadcom 4710||125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Untested||
+||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL300G WL-300G]|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || || ||special connector||Supported||
+||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500B WL-500B]||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
+||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500B WL-500B]||2||Broadcom 4710||125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Untested||
 ||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500G WL-500G]|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
 ||Asus||WL-520G|| ||Broadcom 5350||200MHz||2MB||8MB||integrated Broadcom||integrated into CPU||on|| || || ||also known as WL-500G-X||Untested||
 ||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500GD WL-500G Deluxe]|| ||Broadcom 5365||200MHz||4MB||32MB||integrated Broadcom||integrated into CPU||on||Yes||No||2x v2.0||some units 16MB RAM is enabled by default, additional USB interfaces||Supported||
