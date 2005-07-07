@@ -35,7 +35,14 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Buffalo||WLA-G54C|| || || || || || || || || || || || ||Untested||
 ||Buffalo||WLA2-G54|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L|| ||Yes||Yes|| || ||Untested||
 ||Buffalo||WLA2-G54C|| ||Broadcom 4712||200MHz||4Mb||16Mb||integrated Broadcom||None|| ||Yes||Yes|| || ||Untested||
+
+---- /!\ '''Edit conflict - other version:''' ----
 ||Buffalo||WLA2-G54L|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||No|| || ||Supported||
+
+---- /!\ '''Edit conflict - your version:''' ----
+||Buffalo||WLA2-G54L|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||No|| || ||Supported||
+
+---- /!\ '''End of edit conflict''' ----
 ||Buffalo||WLI2-TX1-G54|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||None|| || || || || ||Untested||
 ||Buffalo||WLI2-TX1-AG54|| ||Broadcom 4710||125MHz|| ||16MB||Broadcom mini-PCI||None|| || || || ||Same as WLI2-TX1-G54(?)||Untested||
 ||Buffalo||WZR-G108|| || || ||8Mb|| ||Airgo mini-PCI|| || || || || || ||Untested||
@@ -52,11 +59,18 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Linksys||WRE54G|| ||Broadcom 4712||200MHz||2MB||8MB||integrated Broadcom||None||off||Yes|| || || ||Untested||
 ||Linksys||WRT54G||1.0||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||ADM6996L||off|| || || || ||Supported||
 ||Linksys||WRT54G||1.1||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||ADM6996L||off|| || || || ||Supported||
-||Linksys||WRT54G||2.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||off||Yes||Yes||| |||Supported||
+||Linksys||WRT54G||2.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
 ||Linksys||WRT54G||2.0 rev. XH||Broadcom 4712||200MHz||4MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| ||16Mb RAM is||enabled by default||Supported||
 ||Linksys||WRT54G||2.2||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
 ||Linksys||WRT54G||3.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
+
+---- /!\ '''Edit conflict - other version:''' ----
 ||Linksys||WRT54G||4.0||Broadcom 5352||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||Yes||Yes|| || ||Untested||
+
+---- /!\ '''Edit conflict - your version:''' ----
+||Linksys||WRT54G||4.0||Broadcom 5352||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||Yes||Yes|| || ||Untested||
+
+---- /!\ '''End of edit conflict''' ----
 ||Linksys||WRT54GC|| ||Marvell 88W8510|| || || ||integrated 802.11b/g||Marvell 88E6060||off|| || || ||compact version of Linksys||WRT54G||No (never!)||
 ||Linksys||WRT54GS||1.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
 ||Linksys||WRT54GS||1.1||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
@@ -80,6 +94,8 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Netgear||FWAG114|| ||Broadcom 4710||125MHz|| || ||Atheros & Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Netgear||WG602||3||Broadcom 4712||200MHz||2MB||8MB||integrated Broadcom||None||on|| || || || ||No||
 ||Netgear||WGT634U|| ||Broadcom 5365||200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x||v2.0||||WiP||
+
+---- /!\ '''Edit conflict - other version:''' ----
 ||Ravotek||W54-AP|| || || || || || ||none|| || || || || ||Untested||
 ||Ravotek||W54-RT|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||No||
 ||Siemens||SE505||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||Supported||
@@ -94,3 +110,21 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Trendnet||TEW-411BRP|| || || || || || || || || || || || ||Untested||
 ||Trendnet||TEW-411BRPplus|| || || || || || || || || || || || ||Untested||
 ||US Robotics||USR5430|| || || || || || || ||on|| || || || ||Supported||
+
+---- /!\ '''Edit conflict - your version:''' ----
+||Ravotek||W54-AP|| || || || || || ||none|| || || || || ||Untested||
+||Ravotek||W54-RT|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||No||
+||Siemens||SE505||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||Supported||
+||Siemens||SE505||2||Broadcom 4712||200MHz||4MB||8MB||integrated Broadcom||ADM6996L||on|| || || || ||WiP||
+||Siemens||SX550|| || || || || || || || || || || || ||Untested||
+||SimpleTech||SimpleShare Office Storage Server|| ||Broadcom 4780||266Mhz|| ||32MB||None||None|| || || ||2x v2.0|| ||Untested||
+||Sitecom||WL-111|| || || || || || || || || || || || ||Untested||
+||Svec||FD2164|| || || || || || || || || || || || ||Untested||
+||Toshiba||WRC-1000|| ||Broadcom 4710||125MHz||4MB||16MB||Prism mini-PCI|| || || || || ||you need hostap for wlan||Supported||
+||Trendnet||TEW-410APB|| || || || || || || || || || || || ||Untested||
+||Trendnet||TEW-410APBplus|| || || || || || || || || || || || ||Untested||
+||Trendnet||TEW-411BRP|| || || || || || || || || || || || ||Untested||
+||Trendnet||TEW-411BRPplus|| || || || || || || || || || || || ||Untested||
+||US Robotics||USR5430|| || || || || || || ||on|| || || || ||Supported||
+
+---- /!\ '''End of edit conflict''' ----
