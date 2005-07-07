@@ -11,7 +11,7 @@ To get started, click a link below.
 [[Include(OpenWrtDocs/About,,titlesonly)]]
 '''[:OpenWrtDocs/Installing: Installing OpenWrt]'''
 [[Include(OpenWrtDocs/Installing,,titlesonly)]]
-'''[:OpenWrtDocs/Using: UsingOpenWrt]'''
+'''[:OpenWrtDocs/Using: Using OpenWrt]'''
 [[Include(OpenWrtDocs/Using,,titlesonly)]]
 '''[:OpenWrtDocs/Configuration: OpenWrt Configuration]'''
 [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
