@@ -1,32 +1,32 @@
-This is a table of all supported devices as of 2005/7/6. Legend:
+This is a table of all supported devices as of 2005/7/7. Legend:
 
- * Supported - supported in white russian
+ * Supported - supported in "white russian"
  * Untested - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
  * No - confirmed that this device is not supported yet
  * WiP - Work in Progress
 
 
 ||Manufacturer||Model||Version||Board||CPU||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Notes||Support||
-||ALLNet||ALL130DSL|| ||Texas Instruments Sangam/AR7|| || || || || || || || || || ||Untested||
-||ALLNet||ALL0277|| ||Broadcom 4710|| || || || || || || || || || ||Untested||
-||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL300G WL-300G]|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || || ||special connector||Supported||
-||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500B WL-500B]||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
-||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500B WL-500B]||2||Broadcom 4710||125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Untested||
-||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500G WL-500G]|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
-||Asus||WL-520G|| ||Broadcom 5350||200MHz||2MB||8MB||integrated Broadcom||integrated into CPU||on|| || || ||also known as WL-500G-X||Untested||
-||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500GD WL-500G Deluxe]|| ||Broadcom 5365||200MHz||4MB||32MB||integrated Broadcom||integrated into CPU||on||Yes||No||2x v2.0||some units 16MB RAM is enabled by default, additional USB interfaces||Supported||
+||ALLNet||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL]|| ||Texas Instruments Sangam/AR7|| || || || || || || || || || ||Untested||
+||ALLNet||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277]|| ||Broadcom 4710|| || || || || || || || || || ||Untested||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=41&l3=0&model=60&modelmenu=1 WL-300G]|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || || ||special connector||[wiki:OpenWrtDocs/Hardware/Asus/WL300G Supported]||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500B]||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||[wiki:OpenWrtDocs/Hardware/Asus/WL500B Supported]||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500B]||2||Broadcom 4710||125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||[wiki:OpenWrtDocs/Hardware/Asus/WL500B Untested]||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=61&modelmenu=1 WL-500G]|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||[wiki:OpenWrtDocs/Hardware/Asus/WL500G Supported]||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=492&modelmenu=1 WL-520G]|| ||Broadcom 5350||200MHz||2MB||8MB||integrated Broadcom||integrated into CPU||on|| || || ||also known as WL-500G-X||Untested||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=359&modelmenu=1 WL-500G Deluxe]|| ||Broadcom 5365||200MHz||4MB||32MB||integrated Broadcom||integrated into CPU||on||Yes||No||2x v2.0||some units 16MB RAM is enabled by default, additional USB interfaces||[wiki:OpenWrtDocs/Hardware/Asus/WL500GD Supported]||
 ||Asus||WL-700G|| ||Broadcom 4780||300MHz|| || || || || || || ||3x v2.0||ide interface||Untested||
-||Asus||WL-HDD|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || ||1x v1.1|| ||Untested||
-||Belkin||F5D7130|| ||Broadcom 4710||125MHz|| || ||Broadcom mini-PCI||None|| || || || || ||Untested||
-||Belkin||F5D7230-4|| || || ||2Mb|| || || || || || || ||Pre-1444 versions have 4MB flash and 16MB RAM||No||
-||Belkin||F5D7231-4||1102||Broadcom 4712||200 MHz||2 MB||8 MB||||BCM5325|| || || || || ||Untested||
+||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || ||1x v1.1|| ||Untested||
+||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136486 F5D7130]|| ||Broadcom 4710||125MHz|| || ||Broadcom mini-PCI||None|| || || || || ||Untested||
+||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4]|| || || ||2Mb|| || || || || || || ||Pre-1444 versions have 4MB flash and 16MB RAM||[wiki:F5D7230 No]||
+||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=179477 F5D7231-4]||1102||Broadcom 4712||200 MHz||2 MB||8 MB||integrated Broadcom||BCM5325|| || || || || ||[wiki:F5D7231 Untested]||
 ||Belkin||F5D7231-4P|| || || || || || || || || || || || ||Untested||
 ||Belkin||F5D8230-4|| ||Broadcom 4704||300MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on|| || || || ||Untested||
 ||Buffalo||WBR-B11|| || || || || || || || || || || || ||Untested||
 ||Buffalo||WBR2-B11|| || || || || || || || || || || || ||Untested||
 ||Buffalo||WBR-G54|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || || || ||Supported||
 ||Buffalo||WBR2-G54|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||Yes|| || ||Supported||
-||Buffalo||WBR2-G54S|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on|| || || || ||Supported||
+||Buffalo||WBR2-G54S|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||Yes|| || ||Supported||
 ||Buffalo||WHR-G54|| || || || || || || || || || || || ||Untested||
 ||Buffalo||WHR2-G54|| || || || || || || || || || || || ||Untested||
 ||Buffalo||WHR3-G54|| || || || || || || || || || || || ||Untested||
@@ -35,10 +35,10 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Buffalo||WLA-G54C|| || || || || || || || || || || || ||Untested||
 ||Buffalo||WLA2-G54|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L|| ||Yes||Yes|| || ||Untested||
 ||Buffalo||WLA2-G54C|| ||Broadcom 4712||200MHz||4Mb||16Mb||integrated Broadcom||None|| ||Yes||Yes|| || ||Untested||
-||Buffalo||WLA2-G54L|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||No|| || ||Supported||
+||Buffalo||WLA2-G54L|| ||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||Yes|| || ||Supported||
 ||Buffalo||WLI2-TX1-G54|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||None|| || || || || ||Untested||
 ||Buffalo||WLI2-TX1-AG54|| ||Broadcom 4710||125MHz|| ||16MB||Broadcom mini-PCI||None|| || || || ||Same as WLI2-TX1-G54(?)||Untested||
-||Buffalo||WZR-G108|| || || ||8Mb|| ||Airgo mini-PCI|| || || || || || ||Untested||
+||Buffalo||WZR-G108|| ||Broadcom 4704||300MHz||8Mb|| ||Airgo mini-PCI|| || || || || || ||Untested||
 ||Buffalo||WZR-HP-G54|| ||Broadcom 4704||300MHz|| || ||Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Buffalo||WZR-RS-G54|| ||Broadcom 4704||300MHz||8MB||64MB||Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Dell||Truemobile 2300|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||off|| || || || ||Supported||
@@ -61,13 +61,13 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Linksys||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||1.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
 ||Linksys||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||1.1||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
 ||Linksys||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||2.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
-||Linksys||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||3.0||Broadcom 5352||200MHz||8MB||32MB||integrated Broadcom||integrated into CPU||||Yes||Yes|| || ||Untested||
+||Linksys||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||3.0||Broadcom 5352||200MHz||8MB||32MB||integrated Broadcom||integrated into CPU|| ||Yes||Yes|| || ||Untested||
 ||Linksys||WRT54GX||1.0||Broadcom 4704||264MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on||Yes|| || ||No wireless support||Supported||
 ||Linksys||WRT55AG||1.0||Broadcom 4710||125MHz||4MB||16MB||Atheros & Broadcom mini-PCI||BCM5325||off|| || || || ||Untested||
 ||Linksys||WRT55AG||2.0||Atheros 5312||230MHz||4MB||16MB||integrated Atheros||KS8995M||doesn't exist||Yes||Yes|| || ||WiP||
 ||Linksys||WRTP54G|| ||Texas Instrument Sangam/AR7|| || || || || || || || || || ||WiP||
 ||Linksys||WTR54GS|| ||Broadcom 5350||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||No||No|| || ||Untested||
-||Maxtor||Shared Storage|| ||Broadcom 4780||266Mhz||2MB||32MB||None||None|| ||Yes||No||2x USB 2.0|| ||Untested||
+||Maxtor||Shared Storage|| ||Broadcom 4780||266Mhz||2MB||32MB||None||None|| ||Yes||No||2x v2.0|| ||Untested||
 ||Microsoft||MN-700|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||doesn't exist||Yes||Yes|| ||Have to reflash a bootloader (CFE/PMON) first||Supported||
 ||Motorola||WA840G||1||Broadcom 4710||125Mhz||4MB||16MB||Broadcom mini-PCI||None|| || || || || ||Untested||
 ||Motorola||WA840G||2||Broadcom 4712||200Mhz||2MB||8MB||integrated Broadcom||None||||Yes|| || || ||Untested||
@@ -80,7 +80,7 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Motorola||WR850GP|| ||Broadcom 4712||200MHz|| || ||integrated Broadcom|| || || || || || ||Untested||
 ||Netgear||FWAG114|| ||Broadcom 4710||125MHz|| || ||Atheros & Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Netgear||WG602||3||Broadcom 4712||200MHz||2MB||8MB||integrated Broadcom||None||on|| || || || ||No||
-||Netgear||WGT634U|| ||Broadcom 5365||200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x||v2.0||WiP||
+||Netgear||WGT634U|| ||Broadcom 5365||200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x v2.0|| ||WiP||
 ||Ravotek||W54-AP|| || || || || || ||none|| || || || || ||Untested||
 ||Ravotek||W54-RT|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||No||
 ||Siemens||SE505||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||Supported||
