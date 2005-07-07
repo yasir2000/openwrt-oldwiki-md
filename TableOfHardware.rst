@@ -12,7 +12,7 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Asus||WL-300G|| ||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||None||on|| || || ||special connector||Supported||
 ||Asus||WL-500B||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
 ||Asus||WL-500B||2||Broadcom 4710||125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Untested||
-||Asus||WL-500G|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
+||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500G WL-500G]|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||parallel port||Supported||
 ||Asus||WL-520G|| ||Broadcom 5350||200MHz||2MB||8MB||integrated Broadcom||integrated into CPU||on|| || || ||also known as WL-500G-X||Untested||
 ||Asus||[wiki:OpenWrtDocs/Hardware/Asus/WL500GD WL-500G Deluxe]|| ||Broadcom 5365||200MHz||4MB||32MB||integrated Broadcom||integrated into CPU||on||Yes||No||2x v2.0||some units 16MB RAM is enabled by default, additional USB interfaces||Supported||
 ||Asus||WL-700G|| ||Broadcom 4780||300MHz|| || || || || || || ||3x v2.0||ide interface||Untested||
