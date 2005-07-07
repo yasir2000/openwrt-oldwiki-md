@@ -9,6 +9,7 @@ AR7 is a router platform by Texas Instruments, which is used for routers and ADS
  * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
  * Linksys ADSL2MUE
  * Linksys WRTP54G
+ * Netcomm NB5
  * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
  * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
   
@@ -57,8 +58,8 @@ A more accurate method would be to use either a logic analyzer or an oscilloscop
 There are at least 3 variants
 
  * Telogy Networks, Inc ADAM2 + Linux
- * PSP bootloader + Linux
- * Broad Net Technology, Inc. BRN BootLoader and realtime OS (SOHO.BIN)  
+ * TI PSP bootloader + Linux
+ * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)  
 
 == TODO ==
 
