@@ -45,7 +45,7 @@ The wireless NIC is integrated to the board, and it also has a VIA USB2.0 contro
 
 == Software Overview ==
 
-Experimental supports these units.
+Support in OpenWrt 1.0 (White Russian) and later versions.
 
 == USB Storage ==
 
