@@ -30,6 +30,7 @@ This is a table of all supported devices as of 2005/7/7. Legend:
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||Yes||No||Supported||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=79&categoryid=6 WBR2-G54S]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||Yes||No||Supported||
 ||Buffalo||WHR-G54|| || || || || || || || || || ||Untested||
+||Buffalo||WHR-G54S|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz|| || ||integrated Broadcom||integrated into CPU|| ||Yes||Yes||No||Untested||
 ||Buffalo||WHR2-G54|| || || || || || || || || || ||Untested||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54]|| || || || || || || || || || ||Untested||
 ||Buffalo||WHR3-AG54|| ||Broadcom 4704 @ 300MHz||4MB||64MB||Broadcom mini-PCI|| || || || || ||Untested||
