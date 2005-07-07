@@ -2,7 +2,7 @@
 [[TableOfContents]]
 
 ===== afterburner =====
-Also known as speedbooster, this is the broadcom enhancement that claims faster 802.11 speeds.
+Also known as speedbooster, this is the broadcom enhancement that claims faster 802.11 speeds. On most routers it breaks WDS.
 
 ===== failsafe =====
 A special recovery mode in OpenWrt triggered by holding the reset button for ~2 seconds immediately after the DMZ led lights durring boot. While in failsafe OpenWrt will ignore files in jffs2 and will override the lan ip address with 192.168.1.1
@@ -20,7 +20,7 @@ The term nvram is used to both describe the partition where configuration is sto
 Generic term used to describe the WRT54G/WRT54GS series of routers.[[BR]](wrt is also the name of the bot used on the IRC channel to display news)
 
 ===== SpeedBooster =====
-See afterburner
+See afterburner.
 
 ===== squashfs =====
 A readonly filesystem normally mounted as /rom.
