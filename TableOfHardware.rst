@@ -65,9 +65,10 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Linksys||WRT54GX||1.0||Broadcom 4704||264MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on||Yes|| || ||No wireless support||Supported||
 ||Linksys||WRT55AG||1.0||Broadcom 4710||125MHz||4MB||16MB||Atheros & Broadcom mini-PCI||BCM5325||off|| || || || ||Untested||
 ||Linksys||WRT55AG||2.0||Atheros 5312||230MHz||4MB||16MB||integrated Atheros||KS8995M||doesn't exist||Yes||Yes|| || ||WiP||
-||Linksys||WTR54GS||||Broadcom 5350||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||No||No|| || ||Untested||
+||Linksys||WRTP54G|| ||Texas Instrument Sangam/AR7|| || || || || || || || || || ||WiP||
+||Linksys||WTR54GS|| ||Broadcom 5350||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||No||No|| || ||Untested||
 ||Maxtor||Shared Storage|| ||Broadcom 4780||266Mhz||2MB||32MB||None||None|| ||Yes||No||2x USB 2.0|| ||Untested||
-||Microsoft||MN-700||||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||doesn't exist||Yes||Yes||||Have to reflash a bootloader (CFE/PMON) first||Supported||
+||Microsoft||MN-700|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||doesn't exist||Yes||Yes||||Have to reflash a bootloader (CFE/PMON) first||Supported||
 ||Motorola||WA840G||1||Broadcom 4710||125Mhz||4MB||16MB||Broadcom mini-PCI||None|| || || || || ||Untested||
 ||Motorola||WA840G||2||Broadcom 4712||200Mhz||2MB||8MB||integrated Broadcom||None||||Yes|| || || ||Untested||
 ||Motorola||WA840GP|| ||Broadcom 4712||200MHz|| || ||integrated Broadcom||None|| || || || || ||Untested||
