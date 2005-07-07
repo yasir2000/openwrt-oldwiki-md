@@ -34,6 +34,7 @@ The names of the network interfaces will depend largely on what hardware OpenWrt
 ||Asus||WL-500g|| ||eth1||eth0||eth2|| ||
 ||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
+||Motorola||WR850G||v3||vlan0||vlan1||eth1||eth0 is the whole switch, as with the Asus||
 Please update to include other models.
 
 NOTE: LAN and WIFI are bridged together in br0 by default, on some devices WAN can be eth1 and LAN eth0.
