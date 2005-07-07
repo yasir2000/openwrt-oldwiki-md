@@ -53,11 +53,11 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Linksys||WRT54G||1.0||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI||ADM6996L||off|| || || || ||Supported||
 ||Linksys||WRT54G||1.1||Broadcom 4710||125MHz||4MB||16MB||integrated Broadcom||ADM6996L||off|| || || || ||Supported||
 ||Linksys||WRT54G||2.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
-||Linksys||WRT54G||2.0 rev. XH||Broadcom 4712||200MHz||4MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| ||16Mb RAM is||enabled by default||Supported||
+||Linksys||WRT54G||2.0 rev. XH||Broadcom 4712||200MHz||4MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| ||16Mb RAM is enabled by default||Supported||
 ||Linksys||WRT54G||2.2||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
 ||Linksys||WRT54G||3.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
 ||Linksys||WRT54G||4.0||Broadcom 5352||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||Yes||Yes|| || ||Untested||
-||Linksys||WRT54GC|| ||Marvell 88W8510|| || || ||integrated 802.11b/g||Marvell 88E6060||off|| || || ||compact version of Linksys||WRT54G||No (never!)||
+||Linksys||WRT54GC|| ||Marvell 88W8510|| || || ||integrated 802.11b/g||Marvell 88E6060||off|| || || ||compact version of Linksys WRT54G||No (never!)||
 ||Linksys||WRT54GS||1.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
 ||Linksys||WRT54GS||1.1||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
 ||Linksys||WRT54GS||2.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
@@ -79,7 +79,7 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Motorola||WR850GP|| ||Broadcom 4712||200MHz|| || ||integrated Broadcom|| || || || || || ||Untested||
 ||Netgear||FWAG114|| ||Broadcom 4710||125MHz|| || ||Atheros & Broadcom mini-PCI||BCM5325|| || || || || ||Untested||
 ||Netgear||WG602||3||Broadcom 4712||200MHz||2MB||8MB||integrated Broadcom||None||on|| || || || ||No||
-||Netgear||WGT634U|| ||Broadcom 5365||200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x||v2.0|| ||WiP||
+||Netgear||WGT634U|| ||Broadcom 5365||200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x||v2.0||WiP||
 ||Ravotek||W54-AP|| || || || || || ||none|| || || || || ||Untested||
 ||Ravotek||W54-RT|| ||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||No||
 ||Siemens||SE505||1||Broadcom 4710||125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || || ||Supported||
