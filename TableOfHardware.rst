@@ -58,10 +58,10 @@ This is a table of all supported devices as of 2005/7/6. Legend:
 ||Linksys||WRT54G||3.0||Broadcom 4712||200MHz||4MB||16MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
 ||Linksys||WRT54G||4.0||Broadcom 5352||200MHz||4MB||16MB||integrated Broadcom||integrated into CPU|| ||Yes||Yes|| || ||Untested||
 ||Linksys||WRT54GC|| ||Marvell 88W8510|| || || ||integrated 802.11b/g||Marvell 88E6060||off|| || || ||compact version of Linksys WRT54G||No (never!)||
-||Linksys||WRT54GS||1.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
-||Linksys||WRT54GS||1.1||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
-||Linksys||WRT54GS||2.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
-||Linksys||WRT54GS||3.0||Broadcom 5352||200MHz||8MB||32MB||integrated Broadcom||integrated into CPU||||Yes||Yes|| || ||Untested||
+||Linksys||[:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||1.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes|| || ||Supported||
+||Linksys||[:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||1.1||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| || ||Supported||
+||Linksys||[:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||2.0||Broadcom 4712||200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes|| ||extra button||Supported||
+||Linksys||[:OpenWrtDocs/Hardware/Linksys/WRT54GS WRT54GS]||3.0||Broadcom 5352||200MHz||8MB||32MB||integrated Broadcom||integrated into CPU||||Yes||Yes|| || ||Untested||
 ||Linksys||WRT54GX||1.0||Broadcom 4704||264MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on||Yes|| || ||No wireless support||Supported||
 ||Linksys||WRT55AG||1.0||Broadcom 4710||125MHz||4MB||16MB||Atheros & Broadcom mini-PCI||BCM5325||off|| || || || ||Untested||
 ||Linksys||WRT55AG||2.0||Atheros 5312||230MHz||4MB||16MB||integrated Atheros||KS8995M||doesn't exist||Yes||Yes|| || ||WiP||
