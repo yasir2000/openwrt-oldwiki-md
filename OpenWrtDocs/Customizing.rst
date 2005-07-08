@@ -149,7 +149,7 @@ Already done, see ["UsbStorageHowto"].
 
 It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors. 
 
-Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convertor.
+Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convertor (i.e. [http://gimel.esc.cam.ac.uk/james/resources/pl2303/ Prolific PL2303]).
 
 === USB Keyboard/Joystick ===
 
