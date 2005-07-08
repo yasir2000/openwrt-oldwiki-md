@@ -8,8 +8,8 @@ This is a table of all supported devices as of 2005/7/8. Legend:
 
 
 ||Manufacturer||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status & Notes||
-||ALLNet||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7]|| || || || || || || || ||[wiki:AR7Port WiP]||
-||ALLNet||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710]|| || || || || || || || ||Untested||
+||ALLNet||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7]||2MB|| || || || || || || ||[wiki:AR7Port WiP]||
+||ALLNet||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710]||4MB|| || || || || || || ||Untested||
 ||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=41&l3=0&model=60&modelmenu=1 WL-300G]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||integrated Broadcom||None||on|| || ||No||[wiki:OpenWrtDocs/Hardware/Asus/WL300G Supported]||
 ||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500B]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||[wiki:OpenWrtDocs/Hardware/Asus/WL500B Supported]||
 ||Asus||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500B]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||[wiki:OpenWrtDocs/Hardware/Asus/WL500B Untested]||
@@ -25,7 +25,7 @@ This is a table of all supported devices as of 2005/7/8. Legend:
 ||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=184855 F5D7231-4P]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2 MB||16 MB||integrated Broadcom||ADM6996L|| || || ||1x v1.1||[wiki:F5D7231 Untested]||
 ||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=154416 F5D7330]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2 MB||8 MB||Broadcom mini-PCI||None|| || || || ||Untested||
 ||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on||Yes||No||No||Untested||
-||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11]|| || ||4MB|| || || || || || || ||Untested||
+||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||No||Supported||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=24&categoryid=6 WBR2-B11]|| || ||4MB|| || || || || || || ||Untested||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||No||Supported||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||integrated Broadcom||ADM6996L||on||Yes||Yes||No||Supported||
@@ -90,13 +90,12 @@ This is a table of all supported devices as of 2005/7/8. Legend:
 ||Ravotek||W54-RT|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||No||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||Supported||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||integrated Broadcom||ADM6996L||on||Yes||No|| ||WiP||
-||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || || || || || || || || || ||Untested||
+||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
 ||Simpletech||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz|| ||32MB||None||None|| ||Yes||Yes||2x v2.0||Untested||
 ||Sitecom||WL-111|| || || || || || || || || || ||Untested||
-||Svec||[http://www.svec.com.tw/products.htm?FD2164 FD2164]|| || || || || || || || || || ||Untested||
 ||Toshiba||WRC-1000|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism mini-PCI|| || || || || ||Partial||
-||Trendnet||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB]|| || || || || || || || || || ||Untested||
-||Trendnet||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || || || || || || || || || ||Untested||
-||Trendnet||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || || || || || || || || || ||Untested||
-||Trendnet||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus]|| || || || || || || || || || ||Untested||
-||US Robotics||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || || || || || ||on|| || || ||Supported||
+||Trendnet||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB]|| || ||2MB|| || || || || || || ||Untested||
+||Trendnet||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || ||2MB|| || || || || || || ||Untested||
+||Trendnet||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
+||Trendnet||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus]|| || ||4MB|| || || || || || || ||Untested||
+||US Robotics||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || || ||2MB|| || ||on|| || || ||Supported||
