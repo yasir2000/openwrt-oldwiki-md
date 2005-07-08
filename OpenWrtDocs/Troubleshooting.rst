@@ -126,6 +126,9 @@ Open the router and locate the flash chip, while the router is off use a straigh
 
 See http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html
 
+Note: With my 1.1 wrt54g device, there was no way to make it work with atftp, tftp or even windows tftp..
+I was about to trash the device when I managed to put back linksys official firmware using the short pin and the official uploader tool and then puted back the openwrt using the administration web upgrade tool.. Ouf!
+
 '''What the hell does shorting the pins do / how do you know what pins?'''
 
 The pins listed are address lines, if you grab the datasheet for any of the flash chips they'll be shown as a0, a1, a2 ...
