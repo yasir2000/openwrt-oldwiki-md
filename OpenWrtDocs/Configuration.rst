@@ -105,6 +105,8 @@ The only <name> with any signfigance is '''wan''', used by the /etc/S45firewall 
 
 Further information about the variables used can be found at [:OpenWrtNVRAM]
 
+Don't forget to check the [:OpenWrtFaq] for information about howto setup PPPOE etc.
+
 == Sample network configurations ==
 
 For client mode configuration (rather than AP mode), see this page: [:ClientModeHowto]
