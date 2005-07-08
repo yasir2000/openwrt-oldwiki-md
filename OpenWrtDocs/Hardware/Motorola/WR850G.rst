@@ -25,6 +25,8 @@ The WR850G v3 version is housed in black pastic and has a hard wired non removab
 
 === How to put OpenWRT Experimental edition on a Motorola WR850G ===
 
+/!\ Refer to ["OpenWrtDocs/Installing"] for a different take on installing to a WR850G.
+
  * Download the motorola bin from ["downloads/experimental"].
  * If you want, you can enable boot_wait by going to /frameDebug.asp and typing the necessary commands.
  * Upload the firmware to the router via the Upgrade Firmware page.
@@ -62,3 +64,8 @@ The WR850G v3 version is housed in black pastic and has a hard wired non removab
  * Reboot and do tftp. 
 
 /!\ Some users report that boot wait only functions for one reboot after setting it from the web interface.
+
+
+=== Finding the serial ports on the WR850G ===
+
+While the first serial port is easy to find (and described in the "non-experimental" installation section above), the second serial port is quite well hidden.  On the bottom of the board near the serial connector you'll notice there are two small black components labeled "0".  Next to them there are solder pads where you'd expect two more "0" components to go - but they're missing!  On the set of pads away from the serial connector, the second serial port signals are exposed.  Get out your fine-tipped soldering iron and solder some fine wires to the pads opposite the serial connector.  RR93 is data out of the WR, and RR94 is data in.
