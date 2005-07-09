@@ -69,7 +69,7 @@ There are also at least two variants of ADAM2. My version (0.22.06) allows flash
    * Make Oleg's LZMA loader work
    * Port the open source drivers from the vendors' GPL releases (avalanche_cpmac, avalanche_vmac, vlynq, etc.)
    * Make the wireless interface work (either by trying the driver from http://acx100.sf.net or by making the binary blob work)
-   * Make the binary-only ADSL driver work with our new Kernel
+   * We now have the source for tiatm.o... this code is very messy - needs cleaning.
 
 == Some ideas on the mtd flash map driver ==
 
