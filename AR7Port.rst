@@ -59,7 +59,9 @@ There are at least 3 variants
 
  * Telogy Networks, Inc ADAM2 + Linux
  * TI PSP bootloader + Linux
- * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)  
+ * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
+
+There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
 
 == TODO ==
 
