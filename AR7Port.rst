@@ -24,7 +24,8 @@ Here's what we have integrated so far:
 
    * A kernel that boots up to the part where it tries to mount the root filesystem
    * A simple mtd flash map driver that uses the boot loader's partition map
-   * NEW: Running a shell with a modified OpenWrt rootfs works now!
+   * Running a shell with a modified OpenWrt rootfs works!
+   * '''NEW:''' We have working (and free) drivers for Ethernet and ADSL in CVS!
 
 === WAG54G Serial Console ===
 
@@ -67,9 +68,8 @@ There are also at least two variants of ADAM2. My version (0.22.06) allows flash
 
    * Implement a proper mtd flash map driver
    * Make Oleg's LZMA loader work
-   * Port the open source drivers from the vendors' GPL releases (avalanche_cpmac, avalanche_vmac, vlynq, etc.)
+   * Port open source drivers from the vendors' GPL releases (avalanche_vmac, vlynq, etc.)
    * Make the wireless interface work (either by trying the driver from http://acx100.sf.net or by making the binary blob work)
-   * We now have the source for tiatm.o... this code is very messy - needs cleaning.
 
 == Some ideas on the mtd flash map driver ==
 
