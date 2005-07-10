@@ -127,6 +127,14 @@ This ping exploit definitely works with WRT54G v2.0, WRT54G v.2.2, WRT54GS v1.0 
 
 You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover] script to make ping hack in a single command (need a shell command line interpreter).
 
+There is another bug still present in Ping.asp (firmware revision 3.03.1) where you can put your shell code into the ping_times variable. See http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=448 This means you don't have to downgrade your firmware first and it removes the input size restrictions so you can use more obvious shell commands like:
+
+{{{
+`/usr/sbin/nvram set boot_wait=on`
+`/usr/sbin/nvram commit`
+`/usr/sbin/nvram show > /tmp/ping.log`
+}}}
+
 === Setting boot_wait from a serial connection ===
 
 With a serial connection to your WRT, you don't have to use the ping bug or change your Linksys firmware. You can set boot_wait from the console, using the commands
