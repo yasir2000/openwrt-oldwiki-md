@@ -281,13 +281,17 @@ http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 
 == System ==
 
+=== dnsmasq ===
+
+dnsmasq  ["OpenWrtDocs/dnsmasq"]
+
 === nas ===
 
-OpenWrtDocs/nas
+nas ["OpenWrtDocs/nas"]
 
 === wl ===
 
-OpenWrtDocs/wl
+wl ["OpenWrtDocs/wl"]
 
 === TimeZone and NTP ===
 
@@ -337,4 +341,4 @@ HowtoEnableCron
 
 === httpd ===
 
-OpenWrtDocs/httpd
+httpd  ["OpenWrtDocs/httpd"]
