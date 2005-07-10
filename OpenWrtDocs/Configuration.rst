@@ -285,19 +285,19 @@ http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 
 Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server.
 
-Documentation you may found on next link ["OpenWrtDocs/dnsmasq"]
+Documentation can be found at ["OpenWrtDocs/dnsmasq"]
 
 === nas ===
 
 '''nas''' is the binary, Broadcom proprietary, tool that sets up security connection on wireless device.
 
-Documentation with discovered feature, you may found on next link ["OpenWrtDocs/nas"] .
+Documentation with discovered feature can be found at ["OpenWrtDocs/nas"] .
 
 === wl ===
 
 '''wl''' is a proprietary Linksys binary tool for setting the parameters of the wireless interface.
 
-Documentation with discovered feature, you may found on next link ["OpenWrtDocs/wl"] .
+Documentation with discovered feature can be found at ["OpenWrtDocs/wl"] .
 
 === TimeZone and NTP ===
 
@@ -349,4 +349,4 @@ HowtoEnableCron
 
 '''httpd''' is the binary, part of BusyBox, tool that start http daemon.
 
-Documentation you may found on next ["OpenWrtDocs/httpd"] .
+Documentation can be found at ["OpenWrtDocs/httpd"] .
