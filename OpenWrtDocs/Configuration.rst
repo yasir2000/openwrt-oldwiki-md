@@ -277,7 +277,7 @@ http://woz.gs/wifi/openwrtbridge.html
 
 http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 
-= Software configuration (system and applications) =
+= Software configuration =
 
 == System ==
 
