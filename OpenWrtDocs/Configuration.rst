@@ -283,7 +283,11 @@ http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 
 === nas ===
 
+OpenWrtDocs/nas
+
 === wl ===
+
+OpenWrtDocs/wl
 
 === TimeZone and NTP ===
 
@@ -332,3 +336,5 @@ HowtoEnableCron
 == Aplications ==
 
 === httpd ===
+
+OpenWrtDocs/httpd
