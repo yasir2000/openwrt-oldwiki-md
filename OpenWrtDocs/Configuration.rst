@@ -277,8 +277,15 @@ http://woz.gs/wifi/openwrtbridge.html
 
 http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 
-= Software (system and applications) =
-== TimeZone and NTP ==
+= Software configuration (system and applications) =
+
+== System ==
+
+=== nas ===
+
+=== wl ===
+
+=== TimeZone and NTP ===
 
 To set a Time Zone type something like the following line in /etc/profile:
 {{{
@@ -319,5 +326,9 @@ Examples:
 ||Roma, Italy||
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
-== Crontab ==
+=== Crontab ===
 HowtoEnableCron
+
+== Aplications ==
+
+=== httpd ===
