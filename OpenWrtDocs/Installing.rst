@@ -50,7 +50,7 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 == General instructions ==
 
 On most of the supported routers OpenWrt can be initially installed via Trivial File Transfer Protokoll (TFTP) with a TFTP client on your PC or Mac. 
-When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based routers use Adam2.  
+When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based routers use ["ADAM2"].  
 
 The basic procedure of using a tftp client to upload a new firmware to your router:
   * unplug the power to your router
