@@ -45,38 +45,6 @@ lan port or on the wan port. Then the switch tags the packages (with VLAN), so L
 is able to see the difference and that way we have the vlan devices, which describe wan
 or lan port.
 
-## {{{
-## WRT54G V1.x
-##   LAN=vlan2
-##   WAN=vlan1
-##   WIFI=eth2
-## 
-## WRT54G V2.x/WRT54G V3.0/WRT54GS V1.x
-##   LAN=vlan0
-##   WAN=vlan1
-##   WIFI=eth1
-## 
-## ASUS WL-500g
-##   WAN=eth0
-##   LAN=eth1
-##   WIFI=eth2
-## 
-## ASUS WL-500g Deluxe
-##   WAN=vlan1
-##   LAN=vlan0
-##   WIFI=eth1
-##
-## BUFFALO WBR-G54
-##   WAN=eth1
-##   LAN=eth0
-##   WIFI=eth2
-## 
-## (LAN and WIFI are bridged together in br0 by default,
-## on some devices WAN can be eth1 and LAN eth0)
-## 
-## (please update to include other models)
-## }}}
-
 [[BR]]
 The basic (802.3) network configuration is handled by a series of NVRAM variables:
 {{{#!CSV
@@ -325,19 +293,19 @@ CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
 More can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640
 and: http://openwrt.org/forum/viewtopic.php?id=131
 
-Examples:
+Examples: CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
 ||Australia||Melbourne||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
-||<rowspan=11>Europe||Amsterdam, Netherlands||<rowspan=11>CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
-||Barcelona, Spain||
-||Berlin, Germany||
-||Brussels, Belgium||
-||Copenhagen, Denmark||
-||Geneva, Switzerland||
-||Madrid, Spain||
-||Oslo, Norway||
-||Paris, France||
-||Prague, Czech Republic||
-||Roma, Italy||
+||<rowspan=11>Europe||Amsterdam, Netherlands||||
+||Barcelona, Spain||||
+||Berlin, Germany||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Brussels, Belgium||||
+||Copenhagen, Denmark||||
+||Geneva, Switzerland||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Madrid, Spain||||
+||Oslo, Norway||||
+||Paris, France||||
+||Prague, Czech Republic||||
+||Roma, Italy||||
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
 === Crontab ===
