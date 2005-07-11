@@ -1,3 +1,4 @@
+[[TableOfContents]]
 = Status of the AR7 port of OpenWrt =
 
 == What is this AR7 stuff? ==
@@ -54,22 +55,27 @@ Make sure you reset the router after probing each pin. The bootloader/linux boot
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
 
-== Firmware/Bootloader ==
-
-There are at least 3 variants
-
- * Telogy Networks, Inc ADAM2 + Linux
- * TI PSP bootloader + Linux
- * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
-
-There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
-
 == TODO ==
 
    * Implement a proper mtd flash map driver
    * Make Oleg's LZMA loader work
    * Port open source drivers from the vendors' GPL releases (avalanche_vmac, vlynq, etc.)
    * Make the wireless interface work (either by trying the driver from http://acx100.sf.net or by making the binary blob work)
+
+== Firmware/Bootloader ==
+
+There are at least 3 variants
+
+ * Telogy Networks, Inc ["ADAM2"] + Linux
+ * TI PSP bootloader + Linux
+ * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
+
+There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
+
+There are two ADAM2 environment controlling boot process:
+
+ * autoload = 0|1
+ * autoload_timeout = N sec.
 
 == Some ideas on the mtd flash map driver ==
 
