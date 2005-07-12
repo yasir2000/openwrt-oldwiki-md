@@ -69,7 +69,7 @@ You can tell WRT to join the same SSID each time it boots by setting wl0_ssid:
 nvram set wl0_ssid=MyNetwork
 }}}
 
-To use WEP, set the variables wl0_wep and wl0_key1 (in hex)
+To use WEP, set the variables wl0_wep and wl0_key1 (in hex, A-F UPPERCASE!)
 
 {{{
 nvram set wl0_wep=enabled
