@@ -47,10 +47,16 @@ This project is for people who would like to add a little storage to their Links
 ||7. DO - Data out from the SD card||
 
       We will be driving the SD card in SPI mode, meaning that only one of the four data out pins are used (pin 7). Obtaining the specs for driving the card in the native SD mode is VERY costly and furthermore the limited number of GPIO pins available inside the router also mandates the use of some sort of serial protocol. The two VSS pins can simply be wired together for this project (VSS2 is used to control the sleep mode of the card). With this in mind lets look at the solder points in the router.
+''This is for WRT HW-version 2, at version 2.2 the locations are different, but the general procedure is the same.''
 
          1. [http://kiel.kool.dk:27/pics/solderpoint_1_annotated.jpg The first three solder points] are located at RP3
          2. [http://kiel.kool.dk:27/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
          3. [http://kiel.kool.dk:27/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
+
+For Version 2.2 hardware: 
+GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find 
+GPIO 5 is next to the RA10 Text label
+GPIO 4 is located near the RA13 Text label (near to the Power LED)
 
       Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
    2. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
