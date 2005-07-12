@@ -17,8 +17,10 @@ Most OpenWrt compatible devices have one or two serial ports on the router's pcb
 
 This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3. 
 
-=== Installing on a wrt54g version 2 ===
+=== Installing on a wrt54g version 2 and 2.2 ===
 ''The following is the guide from [http://kiel.kool.dk:27 kiel.kool.dk] by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
+
+''I added now comments for WRT HW-version 2.2 where the GPIO locations are different, but the general procedure is the same.''
 
 This project is for people who would like to add a little storage to their Linksys WRT54G router besides the builtin 4MB flash ram. What we will do is connect an SD card reader to some of the GPIO pins of the CPU found inside the Linksys and with the help of a little driver we can use as a block device from Linux. This means that if you compile your kernel for the Linksys with e.g. support for MSDOS partitions and VFAT you will be able to mount, read, write, partition and so on your normal SD cards. The speed obtainable for reading and writing seems to be about 200 KB/s.
 
@@ -47,36 +49,18 @@ This project is for people who would like to add a little storage to their Links
 ||7. DO - Data out from the SD card||
 
       We will be driving the SD card in SPI mode, meaning that only one of the four data out pins are used (pin 7). Obtaining the specs for driving the card in the native SD mode is VERY costly and furthermore the limited number of GPIO pins available inside the router also mandates the use of some sort of serial protocol. The two VSS pins can simply be wired together for this project (VSS2 is used to control the sleep mode of the card). With this in mind lets look at the solder points in the router.
-''This is for WRT HW-version 2, at version 2.2 the locations are different, but the general procedure is the same.''
-
----- /!\ '''Edit conflict - other version:''' ----
-''This is for WRT HW-version 2, at version 2.2 the locations are different, but the general procedure is the same.''
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 
          1. [http://kiel.kool.dk:27/pics/solderpoint_1_annotated.jpg The first three solder points] are located at RP3
          2. [http://kiel.kool.dk:27/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
          3. [http://kiel.kool.dk:27/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
 For Version 2.2 hardware: 
-GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find 
-GPIO 5 is next to the RA10 Text label
-GPIO 4 is located near the RA13 Text label (near to the Power LED)
+  GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find 
+  GPIO 5 next to the RA10 Text label.
+  GPIO 4 is located near the RA13 Text label (near to the Power LED)
+[http://nanl.de/nanl/bildchen/gpio_3_5_mini.jpg  Here is a picture of the GPIO 3+5] 
 
-
----- /!\ '''Edit conflict - other version:''' ----
-For Version 2.2 hardware: 
-GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find 
-GPIO 5 is next to the RA10 Text label
-GPIO 4 is located near the RA13 Text label (near to the Power LED)
-
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
-      Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
+Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
    2. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
    3. Mount the card reader somewhere inside your router. We chose the right hand side of the top cover, using double sided duct tape to make it stick and drilled a small slot to allow cards to be inserted and removed with the cover closed. See the picture links at the top of the page to see what this looks like and check this picture of the actual hole.
    4. That was easy. We are now ready for the software part.
