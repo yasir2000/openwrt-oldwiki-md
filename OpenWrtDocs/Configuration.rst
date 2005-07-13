@@ -213,7 +213,7 @@ fi
 It sets the vlan as the et module would do it.
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
-OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seemlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
+OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
 
 Configuration of WDS is simple, and depends on one of two variables
 
@@ -312,7 +312,7 @@ You can find more on timezones on [http://www.timeanddate.com/worldclock/ timean
 === Crontab ===
 HowtoEnableCron
 
-== Aplications ==
+== Applications ==
 
 === httpd ===
 
