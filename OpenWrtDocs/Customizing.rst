@@ -170,6 +170,12 @@ Hmmm...
 
 === USB Ethernet ===
 
+If you need one (2..3..127) additional Ethernet ports, it is possible to use USB-to-Ethernet adaptor.
+
+As example, Genius (KYE) GF3000U which is based on the ADMtek [http://hecnar.ifrance.com/linksys.html Pegasus] AN986.
+
+Most of this devices has 10/100Mbit/s Full-Duplex Ethernet interface, but transfer rate is about 10Mbit/s only.
+
 === USB Bluetooth ===
 
 It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?id=1650 Forum].
