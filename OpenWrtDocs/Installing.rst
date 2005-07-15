@@ -17,7 +17,7 @@ At the moment we have no stable supported release. You can get release candidate
 
 '''Stable Source'''
 
-If you like to get the source code and compile on your own use our CVS repository. You will need to compile this from scratch, but this is not recommended for beginners.
+The stable source code can be found in the above directory or from our CVS repository. This is not recommended for beginners; we will not troubleshoot failed compiles.
 
 {{{
 cvs -d:pserver:anonymous@openwrt.org:/openwrt co -rwhiterussian openwrt
@@ -25,7 +25,7 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co -rwhiterussian openwrt
 
 '''Development'''
 
-Development take place in CVS. We have no regularly binary snapshots, if you like to help, compile on your own. You get the source via:
+Development take place in CVS. You get the source via:
 
 {{{
 cvs -d:pserver:anonymous@openwrt.org:/openwrt co openwrt
@@ -35,9 +35,8 @@ If you find any bugs, please use our forum or irc channel to report.
 
 You may find some binary snapshots in the directories of our developers http://downloads.openwrt.org/people/
 
-
 = Installing OpenWrt =
-/!\ '''LOADING AN UNOFFICIAL FIRMWARE MAY VOID YOUR WARRANTY'''
+/!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
 
 OpenWrt is an unofficial firmware which is neither endorsed or supported by the vendor of your router. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL]. You can always flash back your original firmware, so please be sure you have it downloaded and saved locally.
 
@@ -47,15 +46,16 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 /!\ '''The jffs2 versions of  may take several minutes for the first bootup and will require a reboot before being usable'''
 
-== General instructions ==
+== General instructions (router specific instructions later) ==
 
-On most of the supported routers OpenWrt can be initially installed via Trivial File Transfer Protokoll (TFTP) with a TFTP client on your PC or Mac. 
+Although you can install the firmware  through more traditional means (via webpage), we recommend that you use TFTP for your first install. This is '''NOT''' a requirement, simply a damned good idea; if anything goes wrong you can just TFTP the old firmware back.
+
 When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based routers use ["ADAM2"].  
 
 The basic procedure of using a tftp client to upload a new firmware to your router:
   * unplug the power to your router
   * start your tftp client
-    * give it the router's address (always 192.168.1.1)
+    * give it the router's address (usually 192.168.1.1)
     * set mode to octet
     * tell the client to resend the file, until it succeeds.
     * put the file
@@ -63,10 +63,11 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
   * the tftp client will receive an ack from the bootloader and starts sending the firmware
 
 /!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred. DO NOT unplug the router, it will automatically reboot into the new firmware.''' 
-On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off. Sometimes automatic rebooting does not work, so you can 
-safely reboot after 10 minutes.
 
-The tftp commands might vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
+On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off. Sometimes automatic rebooting does not work, so you can 
+safely reboot after 5 minutes.
+
+The tftp commands vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
 netkit's tftp commands:
 {{{
@@ -97,14 +98,19 @@ Please note, netkit tftp has failed to work for some people. Try to use Advanced
 ||Invalid Password||The firmware has booted and you're connected to a password protected tftp server contained in the firmware, not the bootloader's tftp server.||
 ||Timeout||Ping to verify the router is online[[BR]]Try a different tftp client (some are known not to work properly)||
 
-If your computer is directly connected to the router and you are consistently getting "Invalid Password" failures, try connecting your computer and the router to a hub or switch.  Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
+Some machines will disable the ethernet when the router is powered off and not enable it until after the router has been powered on for a few seconds. If you're consistantly getting "Invalid Password" failures try connecting your computer and the router to a hub or switch.  Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
 
-Windows 2000 has a TFTP server, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware. Note that the Windows PC needs to be configured with a static IP address in the 192.168.1.0/24 subnet, and cannot use a DHCP IP address when flashing the firmware.
+Windows 2000 has a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware.
 
 == Linksys WRT54G and WRT54GS ==
 
-The bootloader on the Linksys WRT54G and WRT54GS models, either CFE or PMON, doesn't automatically accept a firmware image via TFTP. 
-The first step you need to do, is to enable boot_wait.
+To use the TFTP method above you need to enable boot_wait. Once enabled, the router will wait for ~3 seconds for a firmware before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0) address for the purpose of reflashing. 
+
+/!\ '''Do not use the Linksys TFTP program. IT WILL NOT WORK.'''
+
+||'''Model'''||'''Firmware (JFFS2)'''||'''Firmware (SQUASHFS)'''||
+||WRT54G||openwrt-wrt54g-jffs2.bin||openwrt-wrt54g-squashfs.bin||
+||WRT54GS||openwrt-wrt54gs-jffs2.bin||openwrt-wrt54gs-squashfs.bin||
 
 === Enabling boot_wait ===
 
@@ -123,7 +129,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 When you get to the last command the ping window should be filled with a long list of variables including '''boot_wait=on''' somewhere in that list.
 
-This ping exploit definitely works with WRT54G v2.0, WRT54G v.2.2, WRT54GS v1.0 and WRT54GSv1.1. You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware. Note: flashing a Linksys WRT54GS v1.1 by using TFTP is only possible using the Port 1 of the switch!
+This ping exploit definitely works with ALL WRT54G/GS VERSIONS. You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware. Note: flashing a Linksys WRT54GS v1.1 by using TFTP is only possible using the Port 1 of the switch!
 
 You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover] script to make ping hack in a single command (need a shell command line interpreter).
 
@@ -150,22 +156,6 @@ CFE> nvram set boot_wait=on
 CFE> nvram get boot_wait           (just to confirm, should respond with "on")
 CFE> nvram commit                  (takes a few seconds to complete)
 }}}
-
-=== Using boot_wait to upload the firmware ===
-
-Although the firmware can be installed through more traditional means, we recommend that you use tftp for your first install. This will confirm boot_wait is correctly enabled and provide a firmware recovery experience without the stress of a broken router.
-
-While in the bootloader the Linksys WRT54G(S) will be forced to a lan ip of 192.168.1.1. To use the bootloader's tftp server you need to use a standard tftp client -- the tftp clients provided by linksys will not work for this. The file to be uploaded depends on your model.
-
-||'''Model'''||'''Firmware (JFFS2)'''||'''Firmware (SQUASHFS)'''||
-||WRT54G||openwrt-wrt54g-jffs2.bin||openwrt-wrt54g-squashfs.bin||
-||WRT54GS||openwrt-wrt54gs-jffs2.bin||openwrt-wrt54gs-squashfs.bin||
-
-
-||'''LED pattern'''||'''reason'''||
-||Solid power & DMZ||OpenWrt is booting or (if prolonged) has failed to boot, try [:OpenWrtDocs/Troubleshooting: failsafe mode]. (Usually caused by old/corrupt jffs2 data from a previous OpenWrt install)||
-||flashing power, slow flashing dmz||Error flashing / Corrupt firmware||
-
 
 == ASUS WL-500G ==
 
