@@ -159,7 +159,7 @@ Gently use your nails or a flat object to pry all the edges of the front feet up
 
 From there you will have access to two small Phillips-head screws. Remove and enjoy.
 
-= Going from jffs2 to squashfs or from squashfs to jffs2 =
+= Problems going from jffs2 to squashfs or from squashfs to jffs2 =
 
 ''Important note!  This section assumes you have taken care of backup - follow this procedure without backing up properly first, and your jffs2 files are gone!''
 
@@ -168,7 +168,7 @@ mtd -e linux -r write openwrt-xxx-yyy.trx linux
 
 This will first erase your old system, including your rootfs and then write the new image and reboot your router. If you switch between the different root filesystems, cleaning up old stuff is mandatory, otherwise your router may not boot.
 
-If the damage has already happened, eg. you flashed with an image, and now the router is cycling, you simply flash with whatever your router had before.  (Eg. if you were going from jffs2 to squashfs, you simply flash it with jffs2 again, and the router will boot again).  Now you can follow the above procedure.
+If the damage has already happened, eg. you flashed with an image, and now the router is cycling during boot, you simply flash with whatever your router had before.  (Eg. if you were going from jffs2 to squashfs, you simply flash it with jffs2 again, and the router will boot again).  Now you can follow the above procedure.
 
 Another way to make the change, (for instance, if you don't understand how to do the above), is to log into your router with telnet or ssh. You make sure boot_wait is like you want it, then you erase everything using the command:
 
