@@ -65,7 +65,7 @@ The ipkg utility is a lightweight package manager used to download and install O
 ||{{{ipkg remove dropbear}}}||Remove the dropbear package||
 More options can be found via ''{{{ipkg --help}}}''.
 
-Additional packages can be found through [http://nthill.free.fr/openwrt/tracker Nico's package tracker]; these packages can be installed using ''{{{ipkg install http://example.com/package.ipk}}}'' or by adding the the source repository to your ''/etc/ipkg.conf''.
+Additional packages can be found through [http://tracker.openwrt.org Nico's package tracker]; these packages can be installed using ''{{{ipkg install http://example.com/package.ipk}}}'' or by adding the the source repository to your ''/etc/ipkg.conf''.
 
 = Configuration =
 See [:OpenWrtDocs/Configuration]
