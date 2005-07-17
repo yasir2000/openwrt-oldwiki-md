@@ -182,38 +182,47 @@ vlan2ports="1 2 5"
 vlan2hwname=et0
 }}}
 
-=== Workaround ===
+= Wireless configuration =
 
-A workaround for devices that haven't got the boardflags set in nvram, is to install the package admcfg and add the following lines to /etc/init.d/S22admcfg:
-{{{
-if [ `nvram show 2> /dev/null | sed -e '/boardflags/!d'`a = "a" ]; then
-  T=`mktemp /tmp/adm.XXXXXX`
-  echo "admcfg port0
-admcfg port1
-admcfg port2
-admcfg port3
-admcfg port4
-admcfg port5" > $T
-  IFS='
-'; for I in `nvram show 2> /dev/null | grep vlan.*ports | sort`; do
-    L=`echo $I | sed -e 's#\(.*\)ports.*#\1#'`
-    IFS=' ';for K in `echo $I | sed -e 's#.*=##' -e 's#\*##'`; do
-      sed -e "s#\(port${K}.*\)#\1 $L#" $T > $T.2
-      mv $T.2 $T
-    done
-  done
-  S=`nvram show 2> /dev/null | sed -n -e 's#vlan\([0-9]*\)ports.*\*#\1#p'`
-  sed -e "s#vlan\([0-9]*\)#PVID:\1 vlan\1#" \
-    -e "/vlan/!s#\(.*\)#\1 DISABLED#" \
-    -e "s#port5 PVID:[0-9]* #port5 PVID:$S #" $T > $T.2
-  sh $T.2 > /dev/null
-  rm $T $T.2
-fi
-}}}
+== Basic settings ==
 
-It sets the vlan as the et module would do it.
+|| '''NVRAM variable''' || '''Description''' ||
+|| wl0_mode  || '''ap''' = Access Point (master mode), '''sta''' Client mode ||
+|| wl0_ssid  || ESSID ||
+|| wl0_infra || '''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
+|| wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
+
+See OpenWrtNVRAM for more NVRAM settings.
+
+== WEP encryption ==
+
+|| '''NVRAM variable''' || '''Description''' ||
+|| wl0_wep || '''disabled''' = disabled WEP, '''enabled''' = enable WEP ||
+|| wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
+|| wl0_key[1..4] || WEP key in hexadecimal format ||
+
+Note that setting up WPA will override any WEP settings
+
+== WPA encryption ==
+
+For enabling WPA, you need to install the nas package. 
+When you enable or disable WPA settings, you should make sure that the NVRAM variable '''wl0_auth_mode''' is unset, because it is obsolete.
+
+|| '''NVRAM variable''' || '''Description''' ||
+||<rowspan=6> wl0_akm || '''open''' = No WPA ||
+||  '''psk''' = WPA Personal/PSK (Preshared Key) ||
+||  '''wpa''' WPA with a RADIUS server ||
+||  '''psk2''' = WPA2 PSK ||
+||  '''wpa2''' WPA2 with RADIUS ||
+||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 ||
+||<rowspan=3> wl0_crypto || '''tkip''' = RC4 encryption ||
+||  '''aes''' = AES encryption ||
+||  '''tkip+aes''' = support both ||
+|| wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
+
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
+
 OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
 
 Configuration of WDS is simple, and depends on one of two variables
