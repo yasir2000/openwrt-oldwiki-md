@@ -201,7 +201,9 @@ See OpenWrtNVRAM for more NVRAM settings.
 || wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
 || wl0_key[1..4] || WEP key in hexadecimal format ||
 
-Note that setting up WPA will override any WEP settings
+Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly.
+
+Setting up WPA will override any WEP settings
 
 == WPA encryption ==
 
