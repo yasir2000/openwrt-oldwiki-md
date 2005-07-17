@@ -93,7 +93,7 @@ This is a table of all supported devices as of 2005/7/8. Legend:
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
 ||Simpletech||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz|| ||32MB||None||None|| ||Yes||Yes||2x v2.0||Untested||
 ||Sitecom||WL-111|| || || || || || || || || || ||Untested||
-||Toshiba||WRC-1000|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism mini-PCI|| || || || || ||Partial||
+||Toshiba||WRC-1000|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism mini-PCI|| || || || || ||Partial, needs [http://hostap.epitest.fi/ hostap]||
 ||Trendnet||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB]|| || ||2MB|| || || || || || || ||Untested||
 ||Trendnet||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || ||2MB|| || || || || || || ||Untested||
 ||Trendnet||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
