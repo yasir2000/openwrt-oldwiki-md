@@ -78,24 +78,20 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_ssid'''||Set the SSID of the Wrt54g||
 
 For WPA:
-(See ["OpenWrtFaq"] on how to enable WPA on current snapshots)
-||'''security_mode'''||''disabled,radius,wpa,psk,wep''||
-||'''security_mode_last'''||someone please explain :)||
-||'''wl0_auth_mode'''||''radius,wpa,psk''||
+(See ["OpenWrtDocs/Configuration"] on how to enable WPA on current snapshots)
+||'''wl0_auth_mode'''||obsolete, use '''wl0_akm'''||
+||'''wl0_akm'''||''open,wpa,psk,wpa2,psk2''||
 ||'''wl0_wpa_psk'''||WPA pre-shared key||
 ||'''wl0_wpa_gtk_rekey'''||WPA GTK rekey interval||
-(Broken?, unsupported?... But in the Linksys code!)
 ||'''wl0_radius_ipaddr'''|| ||
 ||'''wl0_radius_key'''|| ||
 ||'''wl0_radius_port'''||Default value: ''1812''||
 
 
 For WEP:
-||'''wl0_wep'''||on/off (In experimental, use enabled/disabled instead)||
-||'''wl0_auth_mode'''||''open,restricted''||
-||'''wl0_key1 ... wl0_key4'''||WEP keys (example: ''wl0_key1=DEADBEEF12'')[[FootNote(64bit/128bit wep is autodetected by ''wlconf'' based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
+||'''wl0_wep'''||enabled/disabled||
+||'''wl0_key1 ... wl0_key4'''||WEP keys (example: ''wl0_key1=DEADBEEF12'')[[FootNote(64bit/128bit wep is autodetected based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
 ||'''wl0_key'''||primary key index: the wl0_key[1234] used (values: ''1'',''2'',''3'',''4'')||
-
 
 For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(''1=enable / 0=disable'')||
