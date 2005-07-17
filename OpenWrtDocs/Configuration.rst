@@ -257,6 +257,10 @@ http://woz.gs/wifi/openwrtbridge.html
 
 http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 
+For the "invisible wire" style, e.g. for bridging between two buildings, you might want to check out this link:
+
+http://www.jean.nu/view.php/page/openwrt
+
 = Software configuration =
 
 == System ==
