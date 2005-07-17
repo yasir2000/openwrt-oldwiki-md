@@ -28,12 +28,14 @@ root@OpenWrt:/#
 The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly commandline interface. With no packages installed, the firmware will simply configure the network interfaces, setup a basic NAT/firewall and load the telnet server and dnsmasq (a combination dns forwarder and dhcp server).
 
 '''Why no telnet password?'''
-Telnet is an insecure protocol with no encryption, we try to make a point of this insecurity by not enabling a password. If you're in an environment that requires password protection we suggest installing the dropbear ssh server.
+Telnet is an insecure protocol with no encryption, we try to make a point of this insecurity by not enabling a password. If you're in an environment that requires password protection we suggest setting a password with the ''passwd'' command, which will disable the telnet server and enable the Dropbear SSH server.
 
 '''What if I can't get in?'''
 The problem is caused when the jffs2 partition (see below) is detected but unusable, either the result of previous OpenWrt installation or occasionally just caused by a brand new router. Simply boot into [:OpenWrtDocs/Troubleshooting: failsafe mode] and run firstboot to reformat the jffs2 partition.
 
 = Firstboot / jffs2 =
+
+The following applies only to the squashfs images of OpenWrt. The jffs2 images just need an extra reboot, so you don't have to run ''firstboot'' yourself.
 
 The OpenWrt firmware contains two pieces, a kernel and a readonly filesystem embeded in the firmare known as squashfs. The job of the firstboot script is to make a secondary, writable jffs2 filesystem out of the free space in flash.
 
@@ -46,6 +48,8 @@ When OpenWrt boots it will check for the existance of a jffs2 partition and atte
 If you do not see this line you may need to run firstboot manually (just type "firstboot"). The firstboot script can also be used to erase all changes to the jffs2 partition, particularly useful when upgrading from previous OpenWrt versions with different filesystem layouts.
 
 = Editing Files =
+
+On jffs2 firmware images, the whole root filesystem is writable, however on the squashfs builds you need some extra steps to edit the default configuration files:
 
 The use of symlinks by the firstboot script saves space on the jffs2 partition, but it does have some interesting side effects such as edititing files. Since all files are by default symlinks to a readonly filesystem, you will not be able to edit files directly -- you'll get a readonly error if you try. Instead you have to delete the symlink and copy the file to the jffs2 partition to be able to edit it.
 
