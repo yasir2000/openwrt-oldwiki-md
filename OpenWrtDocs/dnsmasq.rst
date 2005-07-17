@@ -6,20 +6,21 @@
 
 == FAQ ==
 
-=== Why local client nslookup request respond like "[routername]can't find [hostname]: Query refused" ===
+=== Problem: nslookup says something like "[routername] can't find [hostname]: Query refused" ===
 
-dnsmasq will reaspond with that message if isnt know IP address where to forward DNS request. That IP address is provided in /etc/resolve.conf. Some programs like (ppp/pppoe) create dinamicly resolve.conf file and fill it with IP address got from ISP provider (basicly if you are not connected with ppp, you dont have resolve.conf file). dnsmasq check modification time of resolve.conf file and if is changed from last request, it will reload info from resolve.conf file (that feature give you possibility to start dnsmasq on booting time, and creating resolve conf on time knowing IP address of DNS server).
+Described problem can appear when you use router in AP mode with experimental distribution.
 
-If you got that message and you have reslove.conf file, very probably your dnsmasq is running like user nobody (standard behavior in experimental distribution of OpenWRT). Put next line in /etc/dnsmasq.conf
+dnsmasq responds with this message if it doesn't know where to forward DNS request for resolution. This IP address is provided in /etc/resolv.conf (on squashfs it is aliased to /rom/etc/resolv.conf, which in turn alias of /tmp/resolv.conf). Some programs, like ppp/pppoe, create resolv.conf dynamically and put there IP address they got from ISP. Basically if you are not connected with ppp, you don't have resolv.conf file. dnsmasq checks modification time of resolv.conf file and, if it is changed from last request, it will reload info from resolv.conf. This feature gives you possibility to start dnsmasq before actual information is received from ISP.
+
+If you got this message and you have resolv.conf file, most probably your dnsmasq is running like user nobody, which is standard behavior in experimental distribution of OpenWRT. Just put following line in /etc/dnsmasq.conf
+
 {{{
   user=root
 }}}
 
 and stop/start dnsmasq daemon. That should solve your problem.
 
-Be aware that router itself doesnt use dnsmasq for resolving DNS request, insted it use IP address of DNS set to WAN(vlan1) interface.
-
-Before described problem appear if you use router in AP mode and standard experimental distribution (LAN an WiFI behaind NAT) and WAN use some PPP (pppoe/xDSL). DHCP return clients (PC) connected on WiFi or LAN local IP address and for DNS server local IP address of router (so clients will use dnsmasq for resolving hostname).
+Be aware that router itself doesn't use dnsmasq to resolve its own DNS requests. Instead it uses IP address of DNS set to WAN(vlan1) interface.
 
 === Where to set names for private IP address ===
 Puting information about that in /etc/hosts file, and format is
