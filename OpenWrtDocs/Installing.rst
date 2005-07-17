@@ -87,11 +87,11 @@ atftp
 tftp> connect 192.168.1.1
 tftp> mode octet
 tftp> trace
+tftp> timeout 1
 tftp> put openwrt-xxx-x.x-xxx.bin
 }}}
-You don't have to tell atftp to retry file sending because that's the default.
 
-Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one.
+Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
 
 ||'''TFTP Error'''||'''Reason'''||
 ||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
