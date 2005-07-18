@@ -53,6 +53,7 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_ifname'''||Set by wlconf to the name of the ethernet interface (eth1, eth2)||
 ||'''wl0_hwaddr'''||Set by wlconf, use il0macaddr to change the mac||
 ||'''wl0_mode'''||Either ''ap'', ''sta'' or ''wet'' for Access Point mode, station mode or wireless ethernet bridge ||
+||'''wl0_ap_isolate'''||(0/1) 0: allow clients to see each other  1: hide clients from each other ||
 ||'''wl0_infra'''||Select operation mode for ''sta'' and ''wet'' (0=ad-hoc, 1=infrastructure)||
 ||'''wl0_closed'''||(0/1) 0: broadcast ssid 1: hide ssid||
 ||'''wl0_country_code'''||AU = Worldwide, TH = Thailand, IL = Israel, JO = Jordan, CN = China, JP = Japan, US = USA/Canada/New Zealand, DE = Europe, All = All channels||
