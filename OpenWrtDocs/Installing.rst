@@ -176,6 +176,8 @@ As an alternative (or if this installation routine doesn't do the trick for you)
 
 Another thing is that the ASUS WL500G doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
 
+It has be reported in several cases that the squashfs firmware does not work for the ASUS WL-500G. After uploading the firmware, you will not be able to ping the router. Taking the jffs firmware works fine.
+
 == ASUS WL-500G Deluxe ==
 
 Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
