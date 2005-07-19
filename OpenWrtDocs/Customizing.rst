@@ -150,13 +150,14 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 
 If your WRT* has a USB port, you could attach a lot of USB devices.
 
-http://www.linux-usb.org/
+ * http://www.linux-usb.org/
+ * [http://www.nslu2-linux.org/wiki/Info/USBDeviceSupport USBDeviceSupport] @NSLU2 Linux
 
 === USB Hard Drive ===
 
 Already done, see ["UsbStorageHowto"].
 
-All "USB Mass Storage" devices will work too: USB-to-IDE, some cellphones, come digital cams e.t.c.
+All "USB Mass Storage" class devices will work too: USB-to-IDE, some cellphones, come digital cams e.t.c.
 
 === USB Serial port/Modem ===
 
@@ -171,6 +172,8 @@ Hmmm...
 === USB Headpones ===
 
 === USB Webcam ===
+
+http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
 
 === USB Ethernet ===
 
