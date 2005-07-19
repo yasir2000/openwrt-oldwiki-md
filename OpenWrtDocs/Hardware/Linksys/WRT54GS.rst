@@ -14,6 +14,9 @@ The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM.
 ==== WRT54GS v2.0 ====
 The WRT54GS v2.0 uses a BCM5325EKQM switch and a BCM4712LKFB processor. 
 
+==== WRT54GS v2.1 ====
+The WRT54GS v2.1 also uses a BCM5325EKQM switch and a BCM4712LKFB processor. 
+
 === Detailed hardware info ===
 
 ==== Motherboard photos ====
