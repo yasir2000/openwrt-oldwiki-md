@@ -156,6 +156,8 @@ http://www.linux-usb.org/
 
 Already done, see ["UsbStorageHowto"].
 
+All "USB Mass Storage" devices will work too: USB-to-IDE, some cellphones, come digital cams e.t.c.
+
 === USB Serial port/Modem ===
 
 It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors. 
@@ -174,7 +176,7 @@ Hmmm...
 
 If you need one (2..3..127) additional Ethernet ports, it is possible to use USB-to-Ethernet adaptor.
 
-As example, Genius (KYE) GF3000U which is based on the ADMtek [http://hecnar.ifrance.com/linksys.html Pegasus] AN986.
+As example, Genius (KYE) GF3000U, Linksys USB100TX, D-Link DSB-650TX which are based on the [http://www.nslu2-linux.org/wiki/HowTo/AddEthernetAdapter ADMtek Pegasus] AN986.
 
 Most of this devices has 10/100Mbit/s Full-Duplex Ethernet interface, but transfer rate is about 10Mbit/s only.
 
