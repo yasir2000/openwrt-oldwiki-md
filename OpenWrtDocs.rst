@@ -21,6 +21,7 @@ To get started, click a link below.
 [[Include(OpenWrtDocs/Troubleshooting,,titlesonly)]]
 '''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
 [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
+
 '''[:Glossary]'''
 [[Include(Glossary,,titlesonly)]]
 ----
