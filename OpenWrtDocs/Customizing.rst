@@ -150,6 +150,8 @@ The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED p
 
 If your WRT* has a USB port, you could attach a lot of USB devices.
 
+http://www.linux-usb.org/
+
 === USB Hard Drive ===
 
 Already done, see ["UsbStorageHowto"].
