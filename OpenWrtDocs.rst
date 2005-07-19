@@ -19,6 +19,8 @@ To get started, click a link below.
 [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 '''[:OpenWrtDocs/Troubleshooting: Troubleshooting OpenWrt]'''
 [[Include(OpenWrtDocs/Troubleshooting,,titlesonly)]]
+'''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
+[[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
 '''[:Glossary]'''
 [[Include(Glossary,,titlesonly)]]
 ----
