@@ -322,6 +322,13 @@ Examples:
 ||Paris, France||||
 ||Prague, Czech Republic||||
 ||Roma, Italy||||
+||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
+||Alaska Time||AKST9AKDT||
+||Pacific Time||PST8PDT||
+||Mountain Time||MST7MDT||
+||Central Time||CST6CDT||
+||Eastern Time||EST5EDT||
+||Atlantic Time||AST4ADT||
 Please update and include your Time Zone.[[BR]]
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
