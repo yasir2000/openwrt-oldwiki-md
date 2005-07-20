@@ -17,6 +17,8 @@ To get started, click a link below.
 [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
 '''[:OpenWrtDocs/Customizing: OpenWrt Customization]'''
 [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
+'''[http://downloads.openwrt.org/docs/buildroot-documentation.html Compiling OpenWRT]'''
+ OpenWRT Buildroot - Usage and Documentation
 '''[:OpenWrtDocs/Troubleshooting: Troubleshooting OpenWrt]'''
 [[Include(OpenWrtDocs/Troubleshooting,,titlesonly)]]
 '''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
