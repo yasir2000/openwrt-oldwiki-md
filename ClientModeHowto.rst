@@ -21,7 +21,7 @@ This is the main command. It changes the WRT's behavior from AP to client, or st
 nvram set wl0_mode=sta
 }}}
 
-Then configure the interaces normally. For example, assuming the wifi interface uses DHCP and the LAN interface has the static IP address 192.168.1.1:
+Then configure the interfaces normally. For example, assuming the wifi interface uses DHCP and the LAN interface has the static IP address 192.168.1.1:
 
 {{{
 nvram set lan_proto=static
@@ -117,7 +117,7 @@ nvram commit
 reboot
 }}}
 
-The command wl manages the radio, and it's pretty powerful. Among many options (see them here: http://wifi-portal.elevate.nl/docs/wl.txt.). There are some  particulary interesting:
+The command wl manages the radio, and it's pretty powerful. Among many options (see them here: http://wifi-portal.elevate.nl/docs/wl.txt.). There are some  particularly interesting:
 
 {{{
 wl txpwr
@@ -135,9 +135,9 @@ wl status
 : prints the current ssid, signal quality, channel... etc.
 
 {{{
-wl dissasoc
+wl disassoc
 }}}
-: dissasociates from the current ssid
+: disassociates from the current ssid
 
 {{{
 wl rate
