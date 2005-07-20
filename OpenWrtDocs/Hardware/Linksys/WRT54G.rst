@@ -3,7 +3,7 @@
 
 === Hardware versions ===
 
-There are currently six versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0, v4.00). With the exception of v4.00 devices (it is currently marked as untested for White Russian RC1), the WRT54G units are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is off by default on these routers, so you should turn it on. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
+There are currently seven versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0, v3.1, v4.00). With the exception of v4.00 devices (it is currently marked as untested for White Russian RC1), the WRT54G units are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is off by default on these routers, so you should turn it on. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
 ===== Identification by S/N =====
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
@@ -14,6 +14,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
 ||WRT54G v2.2||CDF70xxxxxxx||<:> {X} ||<:> (./) ||
 ||WRT54G v3||CDF80xxxxxxx||<:> {X} ||<:> (./) ||
+||WRT54G v3.1 (AU?)||CDF90xxxxxxx||<:> {X} ||<:> (./) ||
 
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
@@ -47,7 +48,7 @@ Hardware informations (nvram) :
 {{{boardtype=0x0708
 boardflags=0x0118}}}
 
-==== WRT54G v3.0 ====
+==== WRT54G v3.0 & WRT54G v3.1 ====
 This unit is just like the V2.2 Except it has an extra reboot button on the left front panel behind a Cisco logo.
 
 ==== WRT54G v4.00 ====
@@ -75,6 +76,8 @@ how to get info :
 ||WRT54G v2.0       ||     -        ||  0x0101       ||  0x0188        ||       -         ||      -       ||       -         || BCM3302 V0.7  ||
 ||WRT54G v2.2       ||     -        ||  0x0708       ||  0x0118        ||       -         ||      -       ||       7         || -             ||
 ||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         ||BCM3302 V0.7||
+||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         ||BCM3302 V0.7||
+||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         ||BCM3302 V0.7||
 ||WRT54GS v1.0      || 0x10         ||  0x0101       ||  0x0388        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||
 ||WRT54GS v1.1      || 0x10         ||  0x0708       ||  0x0318        ||  0              ||  42          ||       -         || -             ||
 ||Buffalo WBR-54G   || 0x10         ||  bcm94710ap   ||  0x0188        ||  2              ||  42          ||       -         || -             ||
