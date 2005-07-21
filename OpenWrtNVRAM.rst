@@ -25,6 +25,11 @@ The LAN settings used are:
 ||'''lan_stp'''||Whether or not to enable Spanning Tree Protocol on the bridge device (bridging the wireless and LAN segments) (0 (default) or 1)||
 ||'''lan_gateway'''||The IP address of the LAN gateway.||
 
+DHCP Settings:
+||'''NVRAM Setting'''||'''Meaning'''||
+||'''dhcp_start'''||The starting IP address for DHCP assignments||
+||'''dhcp_num'''||The number of addresses in DHCP pool||
+
 == WAN Configuration ==
 The WAN settings used are:
 
