@@ -3,7 +3,7 @@
 
 == What is this AR7 stuff? ==
 
-AR7 is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including 
+AR7 is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including
  * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
  * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T]
@@ -13,7 +13,7 @@ AR7 is a router platform by Texas Instruments, which is used for routers and ADS
  * Netcomm NB5
  * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
  * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
-  
+
 and many more.
 
 http://www.linux-mips.org/wiki/AR7
@@ -59,12 +59,12 @@ The firmware image could be constructed like this:
 
 > [ kernel + loader ] [ padding to blocksize - trx header size ] [ filesystem in .trx container ]
 
-That way the kernel can walk through the flash blocks and look for a trx header at the end. It should be put at the end of the block, so that the jffs2 part is aligned properly. 
+That way the kernel can walk through the flash blocks and look for a trx header at the end. It should be put at the end of the block, so that the jffs2 part is aligned properly.
 Then we need an implementation of jffs2root in the kernel, which (if JFFS2 is detected) erases everything outside of the TRX in the data partition that ADAM2 provides and extends the TRX partition to the full size.
 
 = How to help =
 
-If you want to help and got some basic kernel hacking knowledge, you should start by familiarizing yourself with the OpenWrt build system. It now has support for building images for non-broadcom hardware. 
+If you want to help and got some basic kernel hacking knowledge, you should start by familiarizing yourself with the OpenWrt build system. It now has support for building images for non-broadcom hardware.
 All the kernel and image stuff is in the target/ subdirectory.
 
 AR7-specific kernel patches go into {{{target/linux/linux-2.4/patches/ar7}}}. The build system part that constructs the firmware images for AR7 based routers is in {{{target/linux/image/ar7}}}. You can also find the kernel loader there.
@@ -75,7 +75,7 @@ If you'd like to help out and maybe have a patch or two, please talk to one of t
 = Other stuff =
 
 
-=== WAG54G Serial Console ===
+== WAG54G Serial Console ==
 
 {{{
 |
