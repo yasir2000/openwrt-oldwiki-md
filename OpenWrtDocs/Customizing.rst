@@ -3,12 +3,29 @@
 The contents of this section of the wiki can have serious consequences. While every effort has been made to test and verify the items herein, if executed incorrectly, or if you just happen to have a bad day you COULD SERIOUSLY DAMAGE YOUR HARDWARE. Neither I (inh) nor anyone else will be held responsible for anything you do.
 
 = Hardware =
-== Adding Dual Serial Ports ==
-''Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.''
+== Serial Console ==
+
+Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
+
+=== Home-made RS-232 kit ===
+
+http://jdc.parodius.com/wrt54g/serial.html
+
+=== USB Kit ===
+
+A USB based data cable for a mobile cell phone is another possibility.
+
+http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
+
+=== Adding Dual Serial Ports ===
 
 '''Background''' 
 
 Most OpenWrt compatible devices have one or two serial ports on the router's pcb (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+
+http://www.rwhitby.net/wrt54gs/serial.html
+
+=== Terminal software ===
 
 == Adding an MMC/SD Card ==
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk:27 kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
