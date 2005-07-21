@@ -30,6 +30,7 @@ Here's what we have integrated so far:
    * '''NEW:''' The flash map driver is working, but needs more testing
    * '''NEW:''' We have the source for the TI WLAN driver
    * '''NEW:''' With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
+   * '''NEW:''' The VLYNQ bus seems to work
 
 == Bugs / Ugly-Hacks ==
 
@@ -45,7 +46,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 == TODO ==
 
    * Make Oleg's LZMA loader work
-   * Port open source drivers from the vendors' GPL releases (avalanche_vmac, vlynq, etc.)
+   * Port open source drivers from the vendors' GPL releases (avalanche_vmac, etc.)
    * Fix the wireless driver
 
 == Firmware/Bootloader ==
