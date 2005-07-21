@@ -31,6 +31,17 @@ Here's what we have integrated so far:
    * '''NEW:''' We have the source for the TI WLAN driver
    * '''NEW:''' With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
 
+== Bugs / Ugly-Hacks ==
+
+I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work, so that they can be removed.
+
+   * '''arch/mips/ar7/printf.c''': not inline with the generic '''arch/mips/mips-boards/generic/printf.c''', and requires '''arch/mips/lib/promlib.c''' to have an #ifndef CONFIG_AR7 around the entire file.
+   * '''arch/mips/lib/promlib.c''': see above.
+   * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way.
+   * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible.
+
+   * Please document any more bugs/ugly-hacks found.
+
 == TODO ==
 
    * Make Oleg's LZMA loader work
