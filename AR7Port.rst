@@ -29,6 +29,7 @@ Here's what we have integrated so far:
    * We have working (and free) drivers for Ethernet and ADSL in CVS!
    * '''NEW:''' The flash map driver is working, but needs more testing
    * '''NEW:''' We have the source for the TI WLAN driver
+   * '''NEW:''' With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
 
 == TODO ==
 
