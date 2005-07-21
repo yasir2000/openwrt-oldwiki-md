@@ -63,17 +63,6 @@ There are two ADAM2 environment controlling boot process:
  * autoload = 0|1
  * autoload_timeout = N sec.
 
-== Some ideas on the mtd flash map driver ==
-
-To make the flash partitioning as flexible as it is in the Broadcom stuff, I'd like to use TRX for it, too.
-Because the boot loader ADAM2 doesn't support TRX, we need to leave the kernel out of it.
-The firmware image could be constructed like this:
-
-> [ kernel + loader ] [ padding to blocksize - trx header size ] [ filesystem in .trx container ]
-
-That way the kernel can walk through the flash blocks and look for a trx header at the end. It should be put at the end of the block, so that the jffs2 part is aligned properly.
-Then we need an implementation of jffs2root in the kernel, which (if JFFS2 is detected) erases everything outside of the TRX in the data partition that ADAM2 provides and extends the TRX partition to the full size.
-
 = How to help =
 
 If you want to help and got some basic kernel hacking knowledge, you should start by familiarizing yourself with the OpenWrt build system. It now has support for building images for non-broadcom hardware.
