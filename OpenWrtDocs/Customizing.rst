@@ -11,6 +11,8 @@ Serial ports allow you to do a myriad of things, including connect to your compu
 
 http://jdc.parodius.com/wrt54g/serial.html
 
+http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
+
 === USB Kit ===
 
 A USB based data cable for a mobile cell phone is another possibility.
