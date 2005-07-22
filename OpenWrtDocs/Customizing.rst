@@ -208,6 +208,10 @@ Most of this devices has 10/100Mbit/s Full-Duplex Ethernet interface, but transf
 
 It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?id=1650 Forum].
 
+=== USB VGA ===
+
+http://www.winischhofer.at/linuxsisusbvga.shtml
+
 == Mini PCI and PCI ==
 
 According to [http://www.pcisig.com/specifications/conventional/mini_pci/ PCI-SIG]: ''The Mini PCI specification defines an alternate implementation for small form factor PCI cards referred to in this specification as a Mini PCI card. This specification uses a qualified subset of the same signal protocol, electrical definitions, and configuration definitions as the Conventional PCI Specification.''
