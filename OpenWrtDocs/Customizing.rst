@@ -186,7 +186,9 @@ Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convert
 
 Hmmm...
 
-=== USB Headpones ===
+=== USB Sound devices ===
+
+http://www.nslu2-linux.org/wiki/HowTo/SlugAsAudioPlayer
 
 === USB Webcam ===
 
