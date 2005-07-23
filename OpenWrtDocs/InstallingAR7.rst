@@ -9,7 +9,7 @@
 
 ||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''Code Pattern'''||
 ||ALLNet||ALL130DSL|| || || ||
-||D-Link||DSL-G604T|| || || ||
+||D-Link||DSL-G604T/G664T|| ||ftp||-||
 ||Linksys||WAG54G||V2-AU||ftp||WAG2||
 ||Linksys||WAG54G||V2-DE|| ||WA22||
 ||Linksys||WAG54G||V2-EU||linksys-tftp||WA21||
@@ -17,6 +17,7 @@
 ||Linksys||WAG54G||V2-UK||tftp||WA21||
 ||Linksys||WRTP54G|| || || ||
 
+## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
 ## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
 ## Linksys WAG54G V2-DE = ADAM2 Revision 
 ## Linksys WAG54G V2-EU = ADAM2 Revision 0.22.12
@@ -113,6 +114,24 @@ ftp> quit
 For more detailed infomation about adam2's ftp capabilities, have a look at:
 
 [http://www.seattlewireless.net/index.cgi/ADAM2]
+
+=== Flashing via ftp: one image file (requires serial console) ===
+
+ADAM2 stores the mtd partition layout in env variables. It is possible to change that layout so that kernel and rootfs will be in one partition:
+
+{{{
+Adam2_AR7RD > setenv mtd1 0x90010000,0x903f0000
+}}}
+
+After that, you can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd1}}} via ftp:
+{{{
+ftp> binary
+ftp> quote MEDIA FLSH
+ftp> put "openwrt-ar7-2.4-squashfs.bin" "fs mtd1"
+ftp> quote REBOOT
+ftp> quit
+}}}
+(As of 2005-07-24, this method doesn't work with jffs2 images)
 
 === Flashing via tftp method ===
 
