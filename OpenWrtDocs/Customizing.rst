@@ -242,7 +242,10 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
 [http://www.duff.dk/wrt54gs/pics/07_Finished_product.jpg]
 == Adding a Power Button ==
 == Adding a Power Reset Button ==
+== Making it Mobile ==
+[http://yasha.okshtein.net/wrt54g/4m.jpg]
 
+[http://yasha.okshtein.net/wrt54g/] How to Mobilize a WRT54g
 = Software =
 == Software Tools ==
 === Networking ===
