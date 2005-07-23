@@ -315,7 +315,7 @@ Examples:
 ||Barcelona, Spain||||
 ||Berlin, Germany||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Brussels, Belgium||||
-||Copenhagen, Denmark||||
+||Copenhagen, Denmark||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Geneva, Switzerland||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Madrid, Spain||||
 ||Oslo, Norway||||
