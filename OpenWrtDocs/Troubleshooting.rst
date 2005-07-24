@@ -176,5 +176,24 @@ mtd -r erase
 
 The router will reboot, and you can flash it with the image you want.
 
+= Problems accessing the wireless interface =
+
+After clearing you nvram and rebooting, the wireless interface has disappeared. In fact, the wl.o kernel module does not load anymore, due to the lack of some nvram variables, and you will find this message in your log :
+{{{
+eth%d: 3.90.37.0 driver failed with code 23
+}}}
+If you have a WRT54GS v1.1, you may try to add the following variables :
+{{{
+wl0id=0x4320 
+wl0gpio2=0 
+wl0gpio3=0
+}}}
+and try to load the wl.o module :
+{{{
+insmod wl.o
+}}}
+
+Another way to fix this problem should be to flash a "working" linksys firmware, configure your router and revert to openwrt.
+
 = Getting help =
 Still stuck? see [http://openwrt.org/support] for information on where to get help.
