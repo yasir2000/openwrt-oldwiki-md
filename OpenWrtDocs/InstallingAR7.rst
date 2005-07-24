@@ -7,15 +7,15 @@
 
 '''Supported hardware'''
 
-||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''IP address'''||'''Code Pattern'''||
+||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''ADAM2 IP'''||'''Code Pattern'''||
 ||ALLNet||ALL130DSL|| || || || ||
-||D-Link||DSL-G604T/G664T|| ||ftp||5.8.8.8||-||
-||Linksys||WAG54G||V2-AU||ftp||WAG2||||
-||Linksys||WAG54G||V2-DE|| ||WA22||||
-||Linksys||WAG54G||V2-EU||linksys-tftp||||WA21||
-||Linksys||WAG54G||V2-FR|| ||||WA21||
-||Linksys||WAG54G||V2-UK||tftp||||WA21||
-||Linksys||WRTP54G|| || || ||||
+||D-Link||DSL-G604T/G664T|| ||ftp||5.8.8.8|| ||
+||Linksys||WAG54G||V2-AU||ftp|| ||WAG2||
+||Linksys||WAG54G||V2-DE||tftp|| ||WA22||
+||Linksys||WAG54G||V2-EU||linksys-tftp|| ||WA21||
+||Linksys||WAG54G||V2-FR|| || ||WA21||
+||Linksys||WAG54G||V2-UK||tftp|| ||WA21||
+||Linksys||WRTP54G|| || || || ||
 
 ## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
 ## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
