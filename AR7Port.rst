@@ -18,6 +18,8 @@ and many more.
 
 http://www.linux-mips.org/wiki/AR7
 
+See [:OpenWrtDocs/InstallingAR7] if you are brave enough to test it.
+
 == Finished tasks ==
 
 Our Kernel support for AR7 is in CVS HEAD and disabled by default.
@@ -65,16 +67,7 @@ There are two ADAM2 environment controlling boot process:
  * autoload = 0|1
  * autoload_timeout = N sec.
 
-ADAM2 is using two mtd partitions for kernel and rootfs, which is not supported by OpenWrt - there is a workaround for this: Change the size of {{{mtd1}}} (the kernel partition) to include {{{mtd0}}} (the rootfs partition)
-{{{
-Adam2_AR7RD > setenv mtd1 0x90010000,0x903f0000
-}}}
-and then flash {{{openwrt-ar7-2.4-squashfs.bin}}}
 
-When you are done playing, you can set the size of mtd1 back to the original value:
-{{{
-Adam2_AR7RD > setenv mtd1 0x90010000,0x900a0000
-}}}
 = How to help =
 
 If you want to help and got some basic kernel hacking knowledge, you should start by familiarizing yourself with the OpenWrt build system. It now has support for building images for non-broadcom hardware.
