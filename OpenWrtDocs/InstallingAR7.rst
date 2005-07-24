@@ -7,15 +7,15 @@
 
 '''Supported hardware'''
 
-||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''Code Pattern'''||
-||ALLNet||ALL130DSL|| || || ||
-||D-Link||DSL-G604T/G664T|| ||ftp||-||
-||Linksys||WAG54G||V2-AU||ftp||WAG2||
-||Linksys||WAG54G||V2-DE|| ||WA22||
-||Linksys||WAG54G||V2-EU||linksys-tftp||WA21||
-||Linksys||WAG54G||V2-FR|| ||WA21||
-||Linksys||WAG54G||V2-UK||tftp||WA21||
-||Linksys||WRTP54G|| || || ||
+||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''IP address'''||'''Code Pattern'''||
+||ALLNet||ALL130DSL|| || || || ||
+||D-Link||DSL-G604T/G664T|| ||ftp||5.8.8.8||-||
+||Linksys||WAG54G||V2-AU||ftp||WAG2||||
+||Linksys||WAG54G||V2-DE|| ||WA22||||
+||Linksys||WAG54G||V2-EU||linksys-tftp||||WA21||
+||Linksys||WAG54G||V2-FR|| ||||WA21||
+||Linksys||WAG54G||V2-UK||tftp||||WA21||
+||Linksys||WRTP54G|| || || ||||
 
 ## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
 ## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
@@ -115,19 +115,47 @@ For more detailed infomation about adam2's ftp capabilities, have a look at:
 
 [http://www.seattlewireless.net/index.cgi/ADAM2]
 
-=== Flashing via ftp: one image file (requires serial console) ===
+=== Flashing via ftp: one image file ===
 
-ADAM2 stores the mtd partition layout in env variables. It is possible to change that layout so that kernel and rootfs will be in one partition:
+ADAM2 stores the mtd partition layout in env variables. Depending on your hardware, there will be different numbers of mtd partitions with slightly different layout. Most devices have separated partitions for the kernel and the filesystem, which is not supported by OpenWrt. But it is possible to add a partition where kernel and rootfs will be together.
 
+The first step is to determine the original layout:
 {{{
-Adam2_AR7RD > setenv mtd1 0x90010000,0x903f0000
+$ telnet <router> 21
+220 ADAM2 FTP Server ready.
+USER adam2
+331 Password required for adam2.
+PASS adam2
+230 User adam2 successfully logged in.
+GETENV mtd0
+mtd0                  0x900a0000,0x903f0000
+200 GETENV command successful
+GETENV mtd1
+mtd1                  0x90010000,0x900a0000
+200 GETENV command successful
+GETENV mtd2
+mtd2                  0x90000000,0x90010000
+200 GETENV command successful
+GETENV mtd3
+mtd3                  0x903f0000,0x90400000
+200 GETENV command successful
+GETENV mtd4
+501 mtd4 environment variable not set.
 }}}
 
-After that, you can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd1}}} via ftp:
+Here we can see that {{{mtd1}}} (kernel) and {{{mtd0}}} (filesystem) together go from {{{0x90010000}}} to {{{0x903f0000}}}, these values can vary by some KBytes depending on your machine.
+
+We can also see that {{{mtd3}}} is the last partition and that there is no partition spanning kernel '''and''' filesystem. So we just add it:
+{{{
+SETENV mtd4,0x90010000,0x903f0000
+200 SETENV command successful
+}}}
+
+After that, we can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd4}}} via ftp:
 {{{
 ftp> binary
 ftp> quote MEDIA FLSH
-ftp> put "openwrt-ar7-2.4-squashfs.bin" "fs mtd1"
+ftp> put "openwrt-ar7-2.4-squashfs.bin" "openwrt-ar7-2.4-squashfs.bin mtd4"
 ftp> quote REBOOT
 ftp> quit
 }}}
