@@ -271,7 +271,8 @@ First of, grab the [http://downloads.openwrt.org/inh/programs/loadmon.sh loadmon
 cd /tmp
 wget http://downloads.openwrt.org/inh/programs/loadmon.sh
 wget http://downloads.openwrt.org/gpio.tar.gz
-tar xvf gpio.tar.gz
+gzip -d gpio.tar.gz
+tar xvf gpio.tar
 mv gpio /usr/sbin
 mv loadmon.sh /usr/sbin
 }}} 
