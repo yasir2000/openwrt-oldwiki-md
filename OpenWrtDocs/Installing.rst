@@ -100,7 +100,7 @@ Please note, netkit tftp has failed to work for some people. Try to use Advanced
 
 Some machines will disable the ethernet when the router is powered off and not enable it until after the router has been powered on for a few seconds. If you're consistantly getting "Invalid Password" failures try connecting your computer and the router to a hub or switch.  Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
 
-Windows 2000 has a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware.
+Windows 2000 and Windows XP have a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware.
 
 == Linksys WRT54G and WRT54GS ==
 
