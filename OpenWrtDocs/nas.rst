@@ -2,6 +2,9 @@
 
 '''nas''' is the binary, Broadcom proprietary, tool that sets up security connection on wireless device.
 
+''note:'' normally nas is called by the S41wpa script in /etc/init.d. This Script composes the command by reading the corresponding nvram variables (wl0_ssid, wl0_akm, wl0_crypto,...).
+
+
 == Which nas to use ? ==
 
 From experimental build 2005-05-25 and whiterussian, OpenWRT use a new wireless driver (3.90.23.0). These versions require nas binary from Linksys beta firmware (4.50.05/4.00.5).
