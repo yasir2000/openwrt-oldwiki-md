@@ -108,6 +108,9 @@ To use the TFTP method above you need to enable boot_wait. Once enabled, the rou
 
 /!\ '''Do not use the Linksys TFTP program. IT WILL NOT WORK.'''
 
+/!\ '''Some Users reported problems with the whiterussian RC2 squashfs image on WRT54GS v1.1 routers.
+see [http://forum.openwrt.org/viewtopic.php?id=1750 this thread] for details.
+
 ||'''Model'''||'''Firmware (JFFS2)'''||'''Firmware (SQUASHFS)'''||
 ||WRT54G||openwrt-wrt54g-jffs2.bin||openwrt-wrt54g-squashfs.bin||
 ||WRT54GS||openwrt-wrt54gs-jffs2.bin||openwrt-wrt54gs-squashfs.bin||
