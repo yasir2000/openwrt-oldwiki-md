@@ -415,6 +415,9 @@ The clock seems to still remain somewhat of a mystery. With the recently discove
 
 '''Troubleshooting'''
 
+Possible NEW Recovery Method (no jtag from RawDigits):
+I set my wrt to 264 MHz today (didn't read well enough before trying this) which resulted in a router constantly rebooting.  I noticed that the number of seconds I could ping the router got progressively shorter after each boot, so I thought heat might be at fault here.  I placed my WRT in the freezer, and then ran a power cord and cat5 to it.  This resulted in a stable WRT at the higher frequency, allowing me to reset the NVRAM var for clkfreq.  The WRT is now running at its friendly 200 MHz with no issues whatsoever.  Let me know if this works for you (rawdigits@hotmail.com).
+
 Setting an invalid clkfreq value can have a very undesirable effect: complete router lockup, AKA 'bricking.' Normally bricking isn't that bad of a thing. You can simply use the [http://openwrt.org/OpenWrtDocs/Troubleshooting#head-d1e14acb3488c8f4b91727d72dce9f59583f9d65 JTAG method] to de-brick. When setting clkfreq values, however, you must take extra care. If you set an invalid window, you have a VERY VERY small time frame to get the jtag to erase the nvram before the CPU locks up. Rough estimates give a window of 1/2 second. If you have ever had to do this, it is a very big annoyance. A better solution is to add the nvram value reset_gpio to the default nvram stored in the cfe. By setting the right value to reset_gpio, and flashing the modified cfe back on to your router, if you do set a wrong clkfreq value, all you have to do is reset with the reset button held in, and everything will reset back to defaults. Details on  this method can be found [http://openwrt.org/OpenWrtDocs/Customizing#head-50e9ee3f70e5d5229aeade4c624b965b24de5967 here].
 
 == Changing CFE defaults ==
