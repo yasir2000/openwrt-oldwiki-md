@@ -221,7 +221,9 @@ When you enable or disable WPA settings, you should make sure that the NVRAM var
 ||  '''aes''' = AES encryption ||
 ||  '''tkip+aes''' = support both ||
 || wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
-
+|| wl0_radius_key || Shared Secret for connection to the Radius server ||
+|| wl0_radius_ipaddr || IP to connect... ||
+|| wl0_radius_port || Port# to connect... ||
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 
