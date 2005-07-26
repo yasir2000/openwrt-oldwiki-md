@@ -14,7 +14,7 @@ NVRAM stands for Non-Volatile RAM, in this case the last 64K of the flash chip u
 
 {{{#!CSV
 Command; Description
-nvram show | less; Display everything in nvram
+nvram show | sort | less; Display everything in nvram
 nvram get boot_wait; Get a specific variable
 nvram set boot_wait=on; Set a value
 nvram set lan_ifnames="vlan0 vlan1 vlan2"; set multiple values to one param
