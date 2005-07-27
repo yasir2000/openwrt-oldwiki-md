@@ -23,7 +23,7 @@ If you installed the nas binary using the package indicated above, an install sc
 ||Real wireless device||wl0_ifname||Probably also correct too||
 ||SSID||wl0_ssid||The SSID configured for the wireless||
 ||WPA rekey||wl0_wpa_gtk_rekey||Rekeying interval in seconds. Defaults to 3600.||
-||Authentication mode||wl0_akm, wl0_auth_mode||'wpa', 'wpa wpa2', 'wpa2', 'psk', 'psk psk2', 'psk2'.||
+||Authentication mode||wl0_akm||'wpa', 'wpa wpa2', 'wpa2', 'psk', 'psk psk2', 'psk2'.||
 ||Encryption mode for WPA||wl0_crypto||'tkip', 'aes', 'aes+tkip'.||
 ||Preshared key||wl0_wpa_psk||Specifies the preshared key. Only for psk/psk2||
 ||Radius Server IP||wl0_radius_ipaddr||Radius server IP address. Only for wpa/wpa2.||
