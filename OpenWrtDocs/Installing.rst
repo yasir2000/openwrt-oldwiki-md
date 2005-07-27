@@ -231,7 +231,7 @@ tftp> timeout 60
 tftp> put openwrt-xxx-x.x-xxx.trx 
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.1.1.
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.11.2 or whatever the unit was set to prior to the installation.
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
