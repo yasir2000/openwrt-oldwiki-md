@@ -180,7 +180,7 @@ Another thing is that the ASUS WL500G doesn't seem to revert to the 192.168.1.1 
 
 == ASUS WL-500G Deluxe ==
 
-Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
+This device is based on the Broadcom chipset so the openwrt-brcm-x image is required. Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
 
 TFTP commands:
 {{{
@@ -190,7 +190,7 @@ tftp> trace
 tftp> put openwrt-xxx-x.x-xxx.trx 
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/utils/flash.sh].
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/utils/flash.sh]. This script is also included in the source under scripts/flash.sh.
 
 As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
 
@@ -217,6 +217,21 @@ Flashing the Motorola WR850G is fairly easy.  Just follow these easy steps!
  5. You will receive a message in your browser telling you the flash is complete and that you should restart the router.  Do so, either using the web interface or power cycling the router.
  6. When you're finished, telnet to 192.168.1.1, issue the 'reboot' command if you're using jffs2, and change your password to activate dropbear.
  7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1)
+
+== Buffalo Airstation WLA-G54 ==
+This device is based on the Broadcom chipset so the openwrt-brcm-x image is required. The web interface will not allow you to install the openwrt firmware so you will need to use tftp. Pull the power plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware. This unit keeps the IP address that it was set to whilst in this mode. Factory setting is 192.168.11.2.
+
+TFTP commands:
+{{{
+tftp 192.168.11.2
+tftp> binary
+tftp> trace
+tftp> rexmt 1
+tftp> timeout 60
+tftp> put openwrt-xxx-x.x-xxx.trx 
+}}}
+
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.1.1.
 
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
