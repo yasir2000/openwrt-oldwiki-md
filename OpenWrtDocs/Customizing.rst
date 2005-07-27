@@ -59,13 +59,13 @@ This project is for people who would like to add a little storage to their Links
 
    1. For the SD card to work we need to attach 6 wires inside the router. This drawing of the SD card should give an idea of the pins that come into play:
 
-||<|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif||1. CS - Chip Select for the SD card||
-||2. DI - Data in on the SD card.||
-||3. VSS - Ground is a good thing||
-||4. VDD - We need power of course. 3.3V will do the job||
-||5. CLK - The clock we generate for the SD card||
-||6. VSS2 - Another ground is also a good thing||
-||7. DO - Data out from the SD card||
+||<|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif||1. CS - Chip Select for the SD card||GPIO7||
+||2. DI - Data in on the SD card.||GPIO5||
+||3. VSS - Ground is a good thing||GND||
+||4. VDD - We need power of course. 3.3V will do the job||3.3v||
+||5. CLK - The clock we generate for the SD card||GPIO3||
+||6. VSS2 - Another ground is also a good thing||GND||
+||7. DO - Data out from the SD card||GPIO4||
 
       We will be driving the SD card in SPI mode, meaning that only one of the four data out pins are used (pin 7). Obtaining the specs for driving the card in the native SD mode is VERY costly and furthermore the limited number of GPIO pins available inside the router also mandates the use of some sort of serial protocol. The two VSS pins can simply be wired together for this project (VSS2 is used to control the sleep mode of the card). With this in mind lets look at the solder points in the router.
 
