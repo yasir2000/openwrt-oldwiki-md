@@ -59,7 +59,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 There are at least 3 variants
 
  * Telogy Networks, Inc ["ADAM2"] + Linux
- * TI PSP bootloader + Linux
+ * TI PSP bootloader ["PSPBoot"] + Linux
  * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
 
 There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
