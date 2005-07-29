@@ -113,6 +113,8 @@ Since the JTAG adaptor gives you full access to your Flash, I wonder if that nas
 
 Note: I had to enable ppdev in the kernel to use the program by hairydairymaid with linux. Working versions of the CFE can be found at [http://downloads.openwrt.org/people/inh/cfe/], information about changing the CFE are available at [http://wiki.openwrt.org/OpenWrtDocs/Customizing].
 
+Note2: I had to disable i2c-parport support in my kernel - because i always got the kernel message "all devices in use" when trying to access the parport.
+
 == Shorting Pins Method ==
 
 If you didn't set boot_wait and don't build a JTAG, you'll have to resort to opening the router and shorting pins on the flash chip to recover.
