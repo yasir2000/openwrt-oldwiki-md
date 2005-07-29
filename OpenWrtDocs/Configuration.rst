@@ -220,7 +220,7 @@ When you enable or disable WPA settings, you should make sure that the NVRAM var
 ||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 ||
 ||<rowspan=3> wl0_crypto || '''tkip''' = RC4 encryption ||
 ||  '''aes''' = AES encryption ||
-||  '''tkip+aes''' = support both ||
+||  '''aes+tkip''' = support both ||
 || wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
 || wl0_radius_key || Shared Secret for connection to the Radius server ||
 || wl0_radius_ipaddr || IP to connect... ||
