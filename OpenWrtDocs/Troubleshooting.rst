@@ -197,5 +197,9 @@ insmod wl.o
 
 Another way to fix this problem should be to flash a "working" linksys firmware, configure your router and revert to openwrt.
 
+= Source port mismatch with atftp =
+
+If you get 'source port mismatch, check bypassedtimeout: retrying...' error when trying to upload firmware, there is probably something wrong with your arp table. First try clearing it by using 'arp -d 192.168.1.1' and retry. You can check which mac address your computer sees with 'arp -a'. If clearing didn't help, you can also try setting MAC address (under MAC address clone in basic setup) to mac address that your computer sees. Upload should work afterwards. I had this problem with wrt54gs.
+
 = Getting help =
 Still stuck? see [http://openwrt.org/support] for information on where to get help.
