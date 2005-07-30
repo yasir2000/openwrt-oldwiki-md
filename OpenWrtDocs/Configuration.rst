@@ -35,7 +35,7 @@ The names of the network interfaces will depend largely on what hardware OpenWrt
 ||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
 ||Buffalo||WLA-G54|| ||eth0||N/A||eth2||No WAN port on this device||
-||Motorola||WR850G||v3||vlan0||vlan1||eth1||eth0 is the whole switch, as with the Asus||
+||Motorola||WR850G||v3||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Microsoft||MN700||v.x||eth0||eth1||eth2|| ||
 ||Siemens||SE505||v2||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 Please update to include other models.
