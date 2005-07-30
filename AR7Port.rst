@@ -43,7 +43,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way.
    * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.)
    * '''arch/mips/kernel/traps.c''', '''arch/mips/mm/tlb-r4k.c''': a lot of "KSEG0+CONFIG_AR7_MEMORY" we might need to keep this, the ar7 has a small ammount of ram/rom on-chip where the exception code goes... strange that it loads the generic linux exception code, as well as the ar7 exception code in arch/mips/ar7.
-   * '''arch/mips/kernel/setup.c''': the bootmap_size for ar7 needs fixing, and I killed all of arch/mips/ar7/ar7_paging.c (it's now merged with setup.c and is a lot more compact.) (note: this is in my latest patch at http://z3ro.geek.nz/wag54g/patch/2005-07-28 which is not merged into the openwrt buildroot yet.)
+   * '''arch/mips/kernel/setup.c''': the bootmap_size for ar7 needs fixing, and I killed all of arch/mips/ar7/ar7_paging.c (it's now merged with setup.c and is a lot more compact.) (note: this is in my latest patch at http://z3ro.geek.nz/ar7/2005-07-28 which is not merged into the openwrt buildroot yet.)
    * '''arch/mips/mm/init.c''': see above, this has changes related to the old ar7_paging.c file, some of which can probably be removed now that we use the "proper" bootmem code in setup.c (I'll do this next)
 
    * Please document any more bugs/ugly-hacks found.
