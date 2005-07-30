@@ -129,10 +129,10 @@ wan_ifname=vlan1
 wan_proto=dhcp
 }}}
 
-Note that the default behaviour is to [http://forum.openwrt.org/viewtopic.php?pid=8410#p8410 use WPA] if your WRT54G is running in AP mode.  If you don't want to use WPA, set wl0_crypto to the empty string:
+Note that the default behaviour is to [http://forum.openwrt.org/viewtopic.php?pid=8410#p8410 use WPA] if your WRT54G is running in AP mode.  If you don't want to use WPA, unset wl0_crypto with:
 
 {{{
-wl0_crypto=
+nvram unset wl0_crypto && nvram commit
 }}}
 
 == The ethernet switch ==
