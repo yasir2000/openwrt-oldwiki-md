@@ -89,6 +89,10 @@ tftp> mode octet
 tftp> trace
 tftp> timeout 1
 tftp> put openwrt-xxx-x.x-xxx.bin
+
+Or use the command-line:
+
+atftp --trace --option "timeout 1" --option "mode octet" --put openwrt-xxx-x.x-xxx.bin 192.168.1.1
 }}}
 
 Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
