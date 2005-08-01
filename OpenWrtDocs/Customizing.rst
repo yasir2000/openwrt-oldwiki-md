@@ -246,6 +246,10 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
 [http://yasha.okshtein.net/wrt54g/4m.jpg]
 
 [http://yasha.okshtein.net/wrt54g/] How to Mobilize a WRT54g
+== Adding i2c bus ==
+i2c bus allows you to extend the IO ability beyond just 8 bits of IO.
+
+Inital docs are here http://www.byteclub.net/wiki/index.php?title=Wrt54g
 = Software =
 == Software Tools ==
 === Networking ===
