@@ -8,7 +8,6 @@
 = OpenWRT =
  * [:OpenWrtDocs] Documentation
  * [:OpenWrtFaq] Frequently abused questions from the forum
- * [:GettingStartedTips] Some tips on getting started, even if you're a Linux G0d
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums] 
  * [http://tracker.openwrt.org/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
