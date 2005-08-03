@@ -4,8 +4,11 @@ This HOWTO describes how to setup IPv6 on your OpenWrt based router.
 It is based on the OpenWrt [http://openwrt.org/downloads/experimental/ experimental] version. 
 
 There is 2 big different steps :
-  * setup an IPv6 connection to a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric])
-  * propagate the IPv6 route to the LAN with radvd
+  1. setup a working ipv6 connection on the OpenWRT router. This can either be:
+      * using a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric]).
+      * using 6to4, a standard encapsulation protocol for IPv6 over IPv4
+  2. propagate the IPv6 subnet to the LAN with radvd
+
 
 
 = Install necessary software =
@@ -91,46 +94,48 @@ iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 You need to place it into the right position of your firewall script (eg: just after/before "iptables -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
-## == PPP(oe): 6to4 tunnel with dynamic ip address ==
-## When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these ## scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
-## {{{
-## mkdir /etc/ppp
-## ln -s /etc/ppp /tmp/ppp
-## }}}
-## 
-## The content of the /etc/ppp/ip-up script:
-## {{{
-## #!/bin/sh
-## 
-## # set default route
-## sbin/route add default ppp0
-## 
-## # 6to4 tunnel
-## ipv4=$4
-## ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
-## 
-## ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
-## ip link set dev tun6to4 up
-## ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
-## ip -6 route add 2000::/3 via ::192.88.99.1 dev tun6to4 metric 1
-## 
-## ip -6 addr add ${ipv6prefix}:5678::1/64 dev vlan2
-## }}}
-## 
-## When the link goes down, the tunnel should be removed via /etc/ppp/ip-down
-## {{{
-## #!/bin/sh
-## 
-## # 6to4 tunnel
-## ipv4=$4
-## ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
-## 
-## ip -6 addr del ${ipv6prefix}:5678::1/64 dev vlan2
-## 
-## ip -6 route flush dev tun6to4
-## ip link set dev tun6to4 down
-## ip tunnel del tun6to4
-## }}}
+== 6to4 tunnel (with static or dynamic IP address) ==
+If you connect to your ISP using PPP (usually PPPoE):
+When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
+{{{
+mkdir /etc/ppp
+ln -s /etc/ppp /tmp/ppp
+}}}
+
+The content of the /etc/ppp/ip-up script:
+{{{
+#!/bin/sh
+
+# set default route
+sbin/route add default ppp0
+
+# 6to4 tunnel
+ipv4=$4
+ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
+
+ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
+ip link set dev tun6to4 up
+ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
+ip -6 route add 2000::/3 via ::192.88.99.1 dev tun6to4 metric 1
+
+ip -6 addr add ${ipv6prefix}:5678::1/64 dev vlan2
+}}}
+
+When the link goes down, the tunnel should be removed via /etc/ppp/ip-down
+{{{
+#!/bin/sh
+
+# 6to4 tunnel
+ipv4=$4
+ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
+
+ip -6 addr del ${ipv6prefix}:5678::1/64 dev vlan2
+
+ip -6 route flush dev tun6to4
+ip link set dev tun6to4 down
+ip tunnel del tun6to4
+}}}
+
 
 == Static tunnel to SixXS.net ==
 ''Note: this script should works with any Tunnel Broker''
