@@ -1,21 +1,21 @@
 = Preface =
-This howto describes how to setup ipv6 on your openwrt based router. 
+This HOWTO describes how to setup IPv6 on your OpenWrt based router. 
 
-It is based on the openwrt [http://openwrt.org/downloads/experimental/ experimental] version. 
+It is based on the OpenWrt [http://openwrt.org/downloads/experimental/ experimental] version. 
 
 There is 2 big different steps :
-  * setup an ipv6 connection to a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric])
+  * setup an IPv6 connection to a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric])
   * propagate the IPv6 route to the LAN with radvd
 
 
 = Install necessary software =
-To use ipv6 we need the following modules:
- * ipv6 kernel module (always)
- * ipv6 routing software (always, to configure ipv6 routing)
- * ip6tables kernel modules (optional, if you need an ipv6 firewall)
- * ip6tables commandline tool (optional, to configure the ipv6 firewall)
+To use IPv6 we need the following modules:
+ * IPv6 kernel module (always)
+ * IPv6 routing software (always, to configure IPv6 routing)
+ * ip6tables kernel modules (optional, if you need an IPv6 firewall)
+ * ip6tables commandline tool (optional, to configure the IPv6 firewall)
 
-== Install the ipv6 kernel modules ==
+== Install the IPv6 kernel modules ==
 {{{
 ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ipv6_2.4.30-1_mipsel.ipk
 }}}
@@ -49,7 +49,7 @@ If you want to load ipv6 module at boot time, just add 'ipv6' to /etc/modules:
 echo ipv6 >> /etc/modules
 }}}
 
-After this your router has ipv6 support. To check this you could use ifconfig to validate the ::1/128 ipv6 address is assigned to the loopback device.
+After this your router has IPv6 support. To check this you could use ifconfig to validate the ::1/128 IPv6 address is assigned to the loopback device.
 {{{
 # ifconfig lo 
 lo        Link encap:Local Loopback  
@@ -133,7 +133,7 @@ You need to place it into the right position of your firewall script (eg: just a
 ## }}}
 
 == Static tunnel to SixXS.net ==
-''Note: this script should works with all Tunnel Broker''
+''Note: this script should works with any Tunnel Broker''
 ----
 {{{
 #!/bin/sh
@@ -313,7 +313,7 @@ Interface configuration of a client machine:
  * [http://www.bieringer.de/linux/IPv6/index.html Peter Bieringer's IPv6 HOWTO]
 
 = ToDo =
- * list of ipv6 ready application available in openwrt
+ * list of IPv6 ready application available in OpenWrt
  * start/stop radvd when connection goes up/down
 
 = Questions =
