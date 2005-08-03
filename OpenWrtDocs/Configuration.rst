@@ -26,6 +26,8 @@ A complete list of nvram options can be found at [:OpenWrtNVRAM].
 
 = Network configuration =
 
+For a quick overview of the router architecture, see the [http://commons.wikimedia.org/wiki/Image:WRT54G_internal_architecture.png this diagram].
+
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
 ||'''Manufacturer'''||'''Model'''||'''Hardware version'''||'''LAN'''||'''WAN'''||'''WIFI'''||'''Comments'''||
 ||Linksys||WRT54G||v1.x||vlan2||vlan1||eth2|| ||
