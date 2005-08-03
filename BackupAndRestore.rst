@@ -21,6 +21,51 @@ ssh root@wrt "dd if=/dev/mtdblock/3" > wrt-nvram.bin
 
 easy!
 
+Of course you can use a shell script and the well known tar to backup your files and some system informations too.
+In the example below i installed the package wput, to upload the backup to my main FTP server.
+{{{
+#!/bin/sh
+
+# get the own name, to difference different WRTs
+HOST=$(nvram get wan_hostname)
+
+# create a directory, where the backup and tempoarary files will be stored
+mkdir /tmp/backupfiles
+
+NVRAMFILE=/tmp/backupfiles/nvram-$(date +%Y.%m.%d-%X)-$HOST.txt
+REMOTEFILE2=$(date +%Y.%m.%d-%X)-$HOST.tar.gz
+
+# save the nvram values
+nvram show | sort > $NVRAMFILE
+
+# save some other runtime informations
+SYSINFOFILE=/tmp/backupfiles/sysinfo-$(date +%Y.%m.%d-%X)-$HOST.txt
+touch $SYSINFOFILE
+ps axf > $SYSINFOFILE
+uptime >> $SYSINFOFILE
+ifconfig >> $SYSINFOFILE
+route -n >> $SYSINFOFILE
+wl scan
+sleep 3;
+wl scanresults >> $SYSINFOFILE
+wl status >> $SYSINFOFILE
+iwconfig >> $SYSINFOFILE
+
+# create the tar archive, if you created your own directories below root ( / ), add the directory here too
+tar czf /tmp/backupfiles/$REMOTEFILE2 /bin/ /dev/ /etc/ /jffs/ /lib/ /rom/ /sbin/ /usr/ /var/ /www/ /tmp/
+
+sleep 3
+
+# now upload the tar file to your prefered FTP server
+# for the options i used with wput type wput --help 
+/usr/bin/wput -R -v -t 2 -B /tmp/backupfiles/$REMOTEFILE2 ftp://FTPUSERNAME:FTPPASSWORD@FTPSERVER/$REMOTEFILE2
+
+# remove the backup directory (if wanted) to free space
+rm -r /tmp/backupfiles
+
+}}}
+
+
 == Restoring ==
 
 I'll assume you need a full restore, ie you've totally botched your box, and you have either restored to factory firmware, or bought a new box :)
