@@ -71,6 +71,12 @@ Okay, I grabbed two WRTs and loaded openwrt (snapshot-20050202). I got them conf
 
 Now, I ssh into one of my WRTs on any of ports 1-4 to issue the following commands (note: if you really want you can jack with vlan0/1 and pvid0/1, but these could end up disconnecting you from your WRT):
 
+  `ifconfig br0 down`   #disables default bridge br0
+
+  `brctl delbr br0`     #deletes default bridge br0
+
+  `insmod adm.o`
+
   `admcfg port0 vlan0 vlan1 vlan2 vlan3 vlan4 vlan5 vlan6 vlan7 vlan8 vlan9 vlan10 vlan11 vlan12 vlan13 vlan14 vlan15 PVID:2 TAG`
 
   `vconfig add eth0 2`
@@ -133,3 +139,62 @@ Now, this builds on the section above, so if you haven't got that working (namel
  *90% of the commands you type are actually executing busybox through a symlink. This can cause some issues, since busybox isn't intended to be a full-featured version of the commands it replaces. For example, you can't force the interface to send pings from.
  *I haven't figured out what exactly to do with the WIFI yet. I know that eth1 is the physical interface, but I'm not quite sure how to bridge it onto port 0 with an actual VLAN assigned to it. My best guess at this point is to set the PVID for port 5 to something other than 0, but as mentioned above I have no clue what will happen when you start screwing with port 5.
  *About speed: I tested it here with two PCs (both with eepro1000) and a wrt54gs between. Both PCs had an own VLAN. The Speed for FTP was around 3.7 M/s and the load on the Linksys was arount 0.7.
+
+== A little help ==
+ *A script which may help some people. Create a file `vi /etc/init.d/S41network` and copy this:
+"
+#!/bin/sh
+
+ifconfig br0 down #disables default bridge br0
+
+brctl delbr br0     #deletes default bridge br0
+
+#
+ 
+insmod adm.o    #loads admcfg module
+
+#
+ 
+admcfg port0 PVID:1 vlan1   #sets port0 (internet) #leave that as vlan1.
+
+admcfg port1 PVID:0 vlan0   #sets port1 as vlan0
+
+admcfg port2 PVID:2 vlan2   #sets port2 as vlan2
+
+admcfg port3 PVID:3 vlan3   #sets port3 as vlan3
+
+admcfg port4 PVID:4 vlan4   #sets port4 as vlan4
+
+#
+ 
+vconfig add eth0 0  #creates vlans
+
+vconfig add eth0 1
+
+vconfig add eth0 2
+
+vconfig add eth0 3
+
+vconfig add eth0 4
+
+#
+ 
+#assign ip addresses
+
+ifconfig vlan1 192.168.2.1 netmask 255.255.255.0 broadcast 192.168.2.255 up #iport labeled internet
+
+ifconfig vlan0 192.168.1.1 netmask 255.255.255.0 broadcast 192.168.1.255 up #port labeled port1
+
+ifconfig vlan2 192.168.3.1 netmask 255.255.255.0 broadcast 192.168.3.255 up #port labeled port2
+
+ifconfig vlan3 192.168.4.1 netmask 255.255.255.0 broadcast 192.168.4.255 up #port labeled port3
+
+ifconfig vlan4 192.168.5.1 netmask 255.255.255.0  broadcast 192.168.5.255 up #port labeled port4
+
+# 
+
+ifconfig eth1 192.168.6.1 netmask 255.255.255.0 broadcast 192.168.6.255 up #wireless port
+"
+
+Then save the file and don't forget to `chmod +x /etc/init.d/S41network`
+Now the only thing you have to do is alter the IPs, netmasks and broadcasts.
