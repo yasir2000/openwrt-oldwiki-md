@@ -251,7 +251,20 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
 i2c bus allows you to extend the IO ability beyond just 8 bits of IO.
 
 Inital docs are here http://www.byteclub.net/wiki/index.php?title=Wrt54g
+
 = Software =
+== Things not to compile in ==
+When you change things in the configs yourself, only active the following if you realy know what you are doing.
+
+
+Busybox Configuration - General Configuration - Support NSA Security Enhanced Linux = N
+
+Busybox Configuration - Init Utilities - halt = N
+
+Busybox Configuration - Init Utilities - poweroff = N
+
+Busybox Configuration - Networking Utilities - ifupdown = N
+
 == Software Tools ==
 === Networking ===
 ||[http://www.hetos.de/bwlog.html WRTbwlog]||A tool that shows internet traffic on all wired and wireless interfaces, as well as many other useful and related functions||
