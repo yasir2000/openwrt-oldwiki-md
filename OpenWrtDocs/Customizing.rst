@@ -13,6 +13,7 @@ http://jdc.parodius.com/wrt54g/serial.html
 
 http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
+ASUS WL-500b/g http://wl500g.info/showthread.php?t=587&page=1&pp=15
 === USB Kit ===
 
 A USB based data cable for a mobile cell phone is another possibility.
