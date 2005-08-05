@@ -64,6 +64,8 @@ usb-storage
 
 You can use command {{{vi /etc/modules}}} or {{{echo -e "usbcore\nehci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 2.0 and {{{echo -e "usbcore\nehci\nuhci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 1.1. Either reboot or load the modules in this order manually with insmod.
 
+NOTE: ehci is now replaced by ehci-hcd (whiterussian rc2)
+
 Now check if you see your USB stick (of course joining in your ASUS): {{{dmesg}}}
 
 If it correct you see similar as below
@@ -98,6 +100,10 @@ WARNING: USB Mass Storage data integrity not assured
 USB Mass Storage device found at 2
 USB Mass Storage support registered.
 }}}
+
+Install a filesystem kernel module:
+ * ext2/3: {{{ipkg install kmod-ext2 kmod-ext3}}} and add {{{ext2 jbd ext3}}} to /etc/modules
+ * vfat (filesystem generally used in usb sticks and older windows): {{{ipkg install kmod-vfat}}} and add {{{fat vfat}}} to /etc/modules
 
 Next you can mount and use your USB stick (with relevant modul for your file system in memory and created directory for mount): {{{mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt}}}
 
