@@ -150,7 +150,7 @@ vlan0hwname=et0
 
 === Normal Behavior ===
 
-This is only the case if the nvram variable boardflags is set, on the WRT54G V1.1 and earlier, it's not set.
+This is only the case if the nvram variable boardflags is set. On the WRT54G V1.1 and earlier, it's not set.
 
 When the et module (ethernet driver) loads it will read from vlan0ports to vlan15ports, behind the scenes the ethernet driver is using these variables to generate a more complex configuration which will be sent to the switch. When packets are recieved from external devices they need to be assigned a vlan id, and when packets are sent to those external devices the vlan tags need to be removed.
 
