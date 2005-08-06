@@ -13,7 +13,6 @@ AR7 is a router platform by Texas Instruments, which is used for routers and ADS
  * Netcomm NB5
  * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
  * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
- * Sitecom [http://www.trasduzione.com/WL-108 WL-108]
 
 and many more.
 
