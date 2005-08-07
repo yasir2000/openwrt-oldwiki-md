@@ -348,8 +348,20 @@ HowtoEnableCron
 
 Documentation can be found at ["OpenWrtDocs/httpd"] .
 
+---- /!\ '''Edit conflict - other version:''' ----
+
 = Hardware =
 
 == LED ==
 
 Document can be found at ["wrtLEDCodes"]
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+= Hardware =
+
+== LED ==
+
+Document can be found at ["wrtLEDCodes"]
+
+---- /!\ '''End of edit conflict''' ----
