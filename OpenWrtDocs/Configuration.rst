@@ -347,3 +347,9 @@ HowtoEnableCron
 '''httpd''' is the binary, part of BusyBox, tool that start http daemon.
 
 Documentation can be found at ["OpenWrtDocs/httpd"] .
+
+= Hardware =
+
+== LED ==
+
+Document can be found at ["wrtLEDCodes"]
