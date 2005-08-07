@@ -30,10 +30,12 @@ Here's what we have integrated so far:
    * A simple mtd flash map driver that uses the boot loader's partition map
    * Running a shell with a modified OpenWrt rootfs works!
    * We have working (and free) drivers for Ethernet and ADSL in CVS!
-   * '''NEW:''' The flash map driver is working, but needs more testing
-   * '''NEW:''' We have the source for the TI WLAN driver
-   * '''NEW:''' With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
-   * '''NEW:''' The VLYNQ bus seems to work
+   * The flash map driver is working, but needs more testing
+   * We have the source for the TI WLAN driver
+   * With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
+   * The VLYNQ bus seems to work
+   * '''NEW:''' The LZMA loader works and is integrated
+   * '''NEW:''' ADSL almost ready (needs some integration work, not in CVS yet)
 
 == Bugs / Ugly-Hacks ==
 
@@ -42,7 +44,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * '''arch/mips/ar7/printf.c''': not inline with the generic '''arch/mips/mips-boards/generic/printf.c''', and requires '''arch/mips/lib/promlib.c''' to have an #ifndef CONFIG_AR7 around the entire file.
    * '''arch/mips/lib/promlib.c''': see above.
    * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way.
-   * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.)
+   * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.) -- nbd: for halt, you probably only need __cli() + while(1);
    * '''arch/mips/kernel/traps.c''', '''arch/mips/mm/tlb-r4k.c''': a lot of "KSEG0+CONFIG_AR7_MEMORY" we might need to keep this, the ar7 has a small ammount of ram/rom on-chip where the exception code goes... strange that it loads the generic linux exception code, as well as the ar7 exception code in arch/mips/ar7.
    * '''arch/mips/kernel/setup.c''': the bootmap_size for ar7 needs fixing, and I killed all of arch/mips/ar7/ar7_paging.c (it's now merged with setup.c and is a lot more compact.) (note: this is in my latest patch at http://z3ro.geek.nz/ar7/2005-07-28 which is not merged into the openwrt buildroot yet.)
    * '''arch/mips/mm/init.c''': see above, this has changes related to the old ar7_paging.c file, some of which can probably be removed now that we use the "proper" bootmem code in setup.c (I'll do this next)
@@ -51,7 +53,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 
 == TODO ==
 
-   * Make Oleg's LZMA loader work
+   * Complete the init scripts, remove nvram dependencies
    * Port open source drivers from the vendors' GPL releases (avalanche_vmac, etc.)
    * Fix the wireless driver
 
@@ -64,6 +66,7 @@ There are at least 3 variants
  * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
 
 There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
+TFTP is probably specific to CyberTAN-based stuff (almost exclusively Linksys). All other vendors seem to use FTP
 
 There are two ADAM2 environment controlling boot process:
 
