@@ -88,15 +88,13 @@
    * ebtables
    * iproute2
    * iptables
-   * snort
-
- * net-routing
    * ndisc
    * olsrd
    * quagga
    * radvd
+   * snort
 
- * net-server
+ * net-service
    * dnsmasq
    * dropbear
    * freeradius
@@ -127,16 +125,14 @@
    * nocatsplash
    * wpa_supplicant
 
- * serial
-   * microcom
-   * picocom
-   * setserial
-
  * utils
    * lcd4linux
+   * microcom
    * monit
    * osiris
+   * picocom
    * screen
+   * setserial
    * shfs
    * strace
    * usbutils
