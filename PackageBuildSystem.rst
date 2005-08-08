@@ -71,6 +71,7 @@ package-$(BR2_PACKAGE_<PACKAGE>) += <package>
 The menuconfig configuration files (*.in) does currently not support wildcards in the source-statement. This patch is required to do this: ["PackageBuildSystemConfigPatch"].
 
 == Package Categories ==
+["PackageBuildSystemCategories"]
 
 == TODO ==
  * Write ["PackageCreation"] for documentation on package creation.
