@@ -7,6 +7,11 @@
    * wificonf
    * wireless-tools
 
+ * comm
+   * microcom
+   * picocom
+   * setserial
+
  * lang
    * haserl
    * lua
@@ -63,6 +68,11 @@
    * tor
    * ulogd
 
+ * net-acct
+   * bwm
+   * fprobe
+   * pmacct
+
  * net-client
    * ez-ipupdate
    * htpdate
@@ -73,10 +83,8 @@
    * wput
 
  * net-diag
-   * bwm
    * dsniff
    * fping
-   * fprobe
    * kismet
    * nmap
    * tcpdump
@@ -92,6 +100,7 @@
    * olsrd
    * quagga
    * radvd
+   * robocfg
    * snort
 
  * net-service
@@ -127,17 +136,12 @@
 
  * utils
    * lcd4linux
-   * microcom
    * monit
    * osiris
-   * picocom
    * screen
-   * setserial
    * shfs
    * strace
    * usbutils
 
  * TODO
-   * pmacct
-   * robocfg
    * sdk
