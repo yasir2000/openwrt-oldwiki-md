@@ -2,6 +2,8 @@
 
 Good idea is to read http://rotz.org/archives/2005/03/wl500g_usb_stic.html
 
+Also, if using a multi-card reader read http://www.cs.sfu.ca/~ggbaker/personal/cf-linux
+
 You can see which packages are available:
 {{{
 root@OpenWrt:~#ipkg list | grep USB
@@ -21,13 +23,23 @@ Install these packages:
 
 and add next lines to /etc/modules
 {{{
-scsi_mod
+scsi_mod max_scsi_luns=8
 sd_mod
 sg
 usbcore
 uhci
+usb-ohci
 usb-storage
 }}}
+
+The ''max_scsi_luns=8'' bit is needed for multi-card readers.
+
+Some models of the Asus WL-500g use an ohci controller - so you need to load the usb-ohci module, not uhci.
+
+NOTE:
+The WhiteRussian-RC2 release of OpenWRT loads modules in the /etc/modules.d directory (although the /etc/modules file is still also used)
+
+
 
 For Asus WL-500g Deluxe: 
 
