@@ -193,6 +193,10 @@ Hmmm...
 
 http://www.nslu2-linux.org/wiki/HowTo/SlugAsAudioPlayer
 
+[http://www.logitech.com/index.cfm/products/details/US/EN,CRID=2258,CONTENTID=6730 Logitech USB Headset for PlayStation 2]
+
+[http://www.micronas.com/products/documentation/multimedia/uac355xb/index.php Micronas UAC355xB] USB Codec
+
 === USB Webcam ===
 
 http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
