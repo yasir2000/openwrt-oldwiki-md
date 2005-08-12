@@ -213,6 +213,8 @@ Setting up WPA will override any WEP settings
 For enabling WPA, you need to install the nas package. 
 When you enable or disable WPA settings, you should make sure that the NVRAM variable '''wl0_auth_mode''' is unset, because it is obsolete.
 
+More information is on ["OpenWrtDocs/nas"]. (solve problem with WhiteRussian RC2 and client mode)
+
 || '''NVRAM variable''' || '''Description''' ||
 ||<rowspan=6> wl0_akm || '''open''' = No WPA ||
 ||  '''psk''' = WPA Personal/PSK (Preshared Key) ||
