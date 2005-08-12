@@ -138,7 +138,7 @@ When you get to the last command the ping window should be filled with a long li
 
 This ping exploit definitely works with ALL WRT54G/GS VERSIONS. You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware. Note: flashing a Linksys WRT54GS v1.1 by using TFTP is only possible using the Port 1 of the switch!
 
-You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover] script to make ping hack in a single command (need a shell command line interpreter).
+You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover] script to make ping hack in a single command (need a shell command line interpreter). This script expects to find the to-be flashed firmware in a file called '''openwrt-g-code.bin''', which is in the ''current'' directory.
 
 There is another bug still present in Ping.asp (firmware revision 3.03.1) where you can put your shell code into the ping_times variable. See http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=448 This means you don't have to downgrade your firmware first and it removes the input size restrictions so you can use more obvious shell commands like:
 
