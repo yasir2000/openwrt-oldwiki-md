@@ -34,8 +34,9 @@ Here's what we have integrated so far:
    * We have the source for the TI WLAN driver
    * With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
    * The VLYNQ bus seems to work
-   * '''NEW:''' The LZMA loader works and is integrated
-   * '''NEW:''' ADSL almost ready (needs some integration work, not in CVS yet)
+   * The LZMA loader works and is integrated
+   * '''NEW:''' ADSL seems to work, needs testing...
+   * '''NEW:''' Support for WAG354G is integrated, needs testing...
 
 == Bugs / Ugly-Hacks ==
 
@@ -54,7 +55,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 == TODO ==
 
    * Complete the init scripts, remove nvram dependencies
-   * Port open source drivers from the vendors' GPL releases (avalanche_vmac, etc.)
+   * Test ADSL driver
    * Fix the wireless driver
 
 == Firmware/Bootloader ==
