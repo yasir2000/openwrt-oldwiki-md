@@ -122,7 +122,7 @@ Usage: nas [options]
 
 The -l <lan> option must be present first and then followed by -i <wl> ... options for each wireless interface
 
-On "Supplicant" side -l <lan> option can't be used. see http://forum.openwrt.org/viewtopic.php?pid=10703
+On "Supplicant"/"Client" side -l <lan> option can't be used. 
 
  -S|-A = Authenticator (NAS) or Supplicant
 
@@ -134,3 +134,5 @@ On "Supplicant" side -l <lan> option can't be used. see http://forum.openwrt.org
 For more detail please read forum post
 
 http://forum.openwrt.org/viewtopic.php?id=1836
+
+For more detail about "Supplicant"/"Client" mode see http://forum.openwrt.org/viewtopic.php?pid=10703
