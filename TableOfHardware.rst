@@ -91,6 +91,7 @@ This is a table of all supported devices as of 2005/7/8. Legend:
 ||Netgear||[http://www.netgear.com/products/details/WGT634U.php WGT634U]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365P] @ 200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x v2.0||WiP||
 ||Ravotek||W54-AP|| || || || || ||None|| || || || ||Untested||
 ||Ravotek||W54-RT|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||No||
+||Ravotek||RT210w|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325A2KQM||on||no||no||no||Supported||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||Supported||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||integrated Broadcom||ADM6996L||on||Yes||No|| ||Supported||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
