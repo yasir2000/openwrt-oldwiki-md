@@ -199,6 +199,8 @@ http://www.nslu2-linux.org/wiki/HowTo/SlugAsAudioPlayer
 
 === USB Webcam ===
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 Check out this page: http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
 
 If you have a Philips-based cam (Philips and many Logitechs, also others) and a USB port, you can try the following (tested by me on an ASUS WL500GX):
@@ -208,6 +210,19 @@ If you have a Philips-based cam (Philips and many Logitechs, also others) and a 
 4. Plug in you camera and enjoy! You can use camsrv to stream images, mvc as a simple motion detector... or compile your own programs.
 
 Note: the video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, because of devfs. Just use the correct parameters when you invoke the programs.
+
+---- /!\ '''Edit conflict - your version:''' ----
+Check out this page: http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
+
+If you have a Philips-based cam (Philips and many Logitechs, also others) and a USB port, you can try the following (tested by me on an ASUS WL500GX):
+1. Grab the "Tom" package from here: http://wl500g.info/showpost.php?p=8610&postcount=17 (and be sure to read through some of the posts) and install it, then erase the /lib/modules/2.4.20/pwc.o file
+2. Download the kmod-videodev and kmod-pwc packages from http://downloads.openwrt.org/people/nico/whiterussian/packages/
+3. Install them :)
+4. Plug in you camera and enjoy! You can use camsrv to stream images, mvc as a simple motion detector... or compile your own programs.
+
+Note: the video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, because of devfs. Just use the correct parameters when you invoke the programs.
+
+---- /!\ '''End of edit conflict''' ----
 
 === USB Ethernet ===
 
