@@ -48,9 +48,9 @@ Here's a trivial script to update dyndns.org accounts for those using pppoe. Ins
 #!/bin/sh
 
 LOGGING_TAG="dyndns-updater"
-ACCOUNT="..."
-PASS="..."
-DOMAIN="..."
+ACCOUNT=$(nvram get ddns_username)
+PASS=$(nvram get ddns_passwd)
+DOMAIN=$(nvram get ddns_hostname)
 #EXAMPLES:
 #DOMAIN="mysubdomain.is-a-geek.net"
 #DOMAIN="mysubdomain.dyndns.org"
