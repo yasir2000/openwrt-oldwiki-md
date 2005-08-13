@@ -2,7 +2,7 @@
 
 '''Request for help!''' I have been searching for a copy of the admcfg source, and have yet to find it. The only documentation I found was in google's cache, unfortunately google doesn't seem to cache tgz files. Please email be if you know where I can get a copy: bhook(at)kssb(dot)net.
 
-'''Answer:''' admcfg is obsolete and not portable across the various different hardware types. Please see [:OpenWrtDocs/Configuration#head-cdceb01bb26cc4c59c558d91f7d76c37c5318626: OpenWrtDocs/Configuration] for proper vlan setup.
+'''Answer:''' admcfg is obsolete and not portable across the various different hardware types. Please see [:OpenWrtDocs/Configuration#head-cdceb01bb26cc4c59c558d91f7d76c37c5318626: OpenWrtDocs/Configuration] for proper vlan setup. [:TableOfHardware: Devices] with BCM5325 can be configured using robocfg.
 
 '''Response to Answer:''' admcfg may be obsolete, and is buggy (the ARP bug is annoying), but the vlanxxxx variables don't provide all of the needed configuration options for the ADM switch in a WRT54G. For example, I have found no way to make port 0 (the WAN port) a TAGGED port. At first I thought that the * used in the vlanXports variables might help, but it simply defines the default PVID for a port that exists in multiple vlans. In single AP networks, there probably would never be a need to configure tagged vlans, but if you are trying to use multiple APs and want to segment your WiFi, and still use the ethernet ports, then as best I can tell admcfg is the only way to go. And lastly, the vlanxxxx variables don't do anything until you reset the router, which means you could easily brick your wrt (only cracking open the case can save it then).
 
