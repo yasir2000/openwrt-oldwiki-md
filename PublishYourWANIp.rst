@@ -55,6 +55,22 @@ DOMAIN=$(nvram get ddns_hostname)
 #DOMAIN="mysubdomain.is-a-geek.net"
 #DOMAIN="mysubdomain.dyndns.org"
 
+if [ "$ACCOUNT" = "" -o "$PASS" = "" -o "$DOMAIN" = "" ]; then
+  logger -t ${LOGGING_TAG} -- "DynDNS Updatescript $0 is not properly configured!"
+  echo "The DynDNS Updatescript $0 is not properly configured!"
+  echo "To configure, set the following nvram variables:"
+  echo "ddns_username:  DynDNS Username"
+  echo "ddns_passwd:    DynDNS Password"
+  echo "ddns_hostname:  DynDNS Hostname"
+  echo ""
+  echo "Example:"
+  echo "nvram set ddns_username JoeSchmuh"
+  echo "nvram set ddns_passwd SomethingSecret"
+  echo "nvram set ddns_hostname JoeSchmuh.is-a-geek.net"
+  echo "nvram commit"
+  exit 4
+fi
+
 rm -f /tmp/dyndns.org-answer
 
 #update the ip address ...
