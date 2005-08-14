@@ -323,7 +323,9 @@ Examples:
 ||Berlin, Germany||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Brussels, Belgium||||
 ||Copenhagen, Denmark||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Dublin, Ireland||GMT+0IST-1,M3.5.0/01:00:00,M10.5.0/02:00:00||
 ||Geneva, Switzerland||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||London, Great Britain||GMT+0BST-1,M3.5.0/01:00:00,M10.5.0/02:00:00||
 ||Madrid, Spain||||
 ||Oslo, Norway||||
 ||Paris, France||||
