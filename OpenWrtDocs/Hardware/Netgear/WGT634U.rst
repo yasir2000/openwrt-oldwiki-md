@@ -13,3 +13,5 @@ More info in the forum: --> http://openwrt.org/forum/viewtopic.php?id=33
 External developer's Wiki: http://wgt634u.nomis52.net/
 
 OpenWGT project --> http://openwgt.informatik.hu-berlin.de/
+
+Another firmware project --> http://router.4th.be/
