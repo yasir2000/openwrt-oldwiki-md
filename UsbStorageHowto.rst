@@ -17,7 +17,7 @@ libusb - a Library for accessing Linux USB devices
 lsusb - A program to list USB devices
 }}}
 
-For Asus WL500G:
+For Asus WL500g:
 Install these packages: 
 {{{ipkg install kmod-usb-core kmod-usb-uhci kmod-usb-storage}}}
 
@@ -120,7 +120,7 @@ Install a filesystem kernel module:
 Next you can mount and use your USB stick (with relevant modul for your file system in memory and created directory for mount): {{{mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt}}}
 
 
-= How do I boot from USB stick on ASUS WL-500gx (WL-500GDeluxe, wl500gx) ? =
+= How do I boot from USB stick on ASUS WL-500gx (WL-500g Deluxe, wl500gx) ? =
 This guide assumes that you're using a jffs root, with squashfs root some steps might be a little different.
 
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the ext3 filesystem: 
