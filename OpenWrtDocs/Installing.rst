@@ -238,6 +238,13 @@ tftp> put openwrt-xxx-x.x-xxx.trx
 
 After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.11.2 or whatever the unit was set to prior to the installation.
 
+== Buffalo AirStation WBR2-G54S ==
+Here too you need an openwrt-brcm-*.trx image.  The device has boot_wait=on by default, so you can just begin sending the file from your TFTP client, power up the device, and let it install.  The TFTP loader uses the IP address to which you've configured the device; 192.168.11.1 by default.  If you ping the device, the TFTP loader will respond with TTL=100, but both the Buffalo firmware and OpenWRT will respond with TTL=64.
+
+The firmware provided by Buffalo has some extra headers at the beginning.  If you load it via TFTP, you must first remove the extras so that the file begins with "HDR0".  Otherwise, it won't boot (but you can still replace it via TFTP).
+
+With the Buffalo firmware (at least version 2.30), if you save the settings to a file, it will obfuscate the output by inverting each bit.  To undo this and see the NV-RAM settings, filter the file through: perl -pe 's/(.)/chr(ord($1)^0xFF)/seg; tr/\0/\n/'
+
 = Using OpenWrt =
 Please see [:OpenWrtDocs/Using]
 
