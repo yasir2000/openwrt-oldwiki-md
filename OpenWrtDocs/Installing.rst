@@ -209,7 +209,7 @@ boot_wait is enabled by default on these devices.
 
 You can erase nvram settings by pressing reset button while powering on the router.
 
-Starting with WHITE RUSSIAN (RC2) the bug is fixed. So from this release of OpenWrt everithing is just fine.
+Starting with WHITE RUSSIAN (RC2) the bug is fixed. So from this release of OpenWrt everything works just fine.
 
 == Motorola WR850G ==
 
