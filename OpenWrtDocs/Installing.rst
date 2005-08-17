@@ -164,7 +164,7 @@ CFE> nvram get boot_wait           (just to confirm, should respond with "on")
 CFE> nvram commit                  (takes a few seconds to complete)
 }}}
 
-== ASUS WL-500G ==
+== ASUS WL-500G and WL-300G ==
 
 Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
 
@@ -181,7 +181,7 @@ After this, wait until the PWR LED stops flashing and the device to reboot and y
 
 As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
 
-Another thing is that the ASUS WL500G doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
+Another thing is that the ASUS WL500G/WL300G doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
 
 == ASUS WL-500G Deluxe ==
 
