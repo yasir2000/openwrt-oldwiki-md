@@ -10,6 +10,9 @@ If you've broken one of the startup scripts, firewalled yourself or corrupted th
 
 ( /!\  holding the reset button before the DMZ led can reset NVRAM )
 
+( /!\  the ASUS WL-300G does not have a DMZ led : press the reset button for 2 seconds just after the AIR led lights, or maybe the LAN led. At some point it works, anyway. )
+
+
 When in failsafe, the system will boot using only the files contained within the firmware (the squashfs partition) ignoring any changes made to the jffs2 partition. Additionally, various network settings will be overridden forcing the router to 192.168.1.1.
 
 If you want to completely erase the jffs2 partition, removing all packages you can run firstboot.
@@ -31,7 +34,8 @@ exec /sbin/init
 }}}
 Build a new image by typing make in the buildroot directory, install the modified firmware and boot the device. This forces your device to boot in FAILSAFE every time. So in order to boot in normal mode, you'll have to undo the changes you've made to the preinit file.
 
-ASUS WL-500G units seem to respond only on the WAN port when booted in failsafe mode. 
+ASUS WL-500G units seem to respond only on the WAN port when booted in failsafe mode. ASUS WL-300G responds only on the LAN port in failsafe mode.
+
 
 = Resetting to defaults =
 
