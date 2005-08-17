@@ -33,6 +33,7 @@ The names of the network interfaces will depend largely on what hardware OpenWrt
 ||Linksys||WRT54G||v1.x||vlan2||vlan1||eth2|| ||
 ||Linksys||WRT54G||v2.x/v3.0||vlan0||vlan1||eth1|| ||
 ||Linksys||WRT54GS||v1.x/v2.0||vlan0||vlan1||eth1|| ||
+||Asus||WL-300g|| ||eth0||None||eth2|| ||
 ||Asus||WL-500g|| ||eth0||eth1||eth2|| ||
 ||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
