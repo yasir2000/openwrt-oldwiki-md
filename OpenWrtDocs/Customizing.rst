@@ -244,6 +244,10 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
 
 
 == Adding a Weather Station ==
+''Connect a WX200 / WM918 / WMR918 / WMR968 weather station ''
+[http://david.zope.nl/hardware/wl500g/wx200wl500g/]
+
+
 == Adding an LCD ==
 [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg]
 == Adding VGA Output ==
