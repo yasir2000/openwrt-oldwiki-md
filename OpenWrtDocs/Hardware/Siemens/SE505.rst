@@ -10,7 +10,7 @@ There are currently two versions of the SE505:
 
 The inital version (v1) is based on the Broadcom 4710 board. It has a 125MHz CPU, 4MB flash and 16MB RAM. The wireless NIC is a mini-PCI card.
 
-The new experimental firmware (20050424) doesn't seem to work in this model at the moment.
+After several bugfixes releases from WHITE RUSSIAN (RC2) works well on this router.
 
 /!\ '''The reset button is hardwired on the Se505 v1, so there is no failsafe mode. You can set back default nvram settings by pressing reset button while turning on the router.'''
 
