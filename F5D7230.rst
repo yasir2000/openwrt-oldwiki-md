@@ -9,6 +9,8 @@ NOTE2: Pre-1444 hardware versions do have 4 MB flash and 16 MB RAM ...
 
 NOTE3: F5D7231-4 seems to have the same firmware. Hardware looks exactly the same. There even is a procedure to convert a 7230 v1444 into a 7231. (just change the firmware(look in seattle wireless wiki))
 
+NOTE4: The Siemens SE505 (v2) is nearly exact the same router. It has fewer RAM (8MB) but more flash (4MB). Flashing a Belkin firmware is possible on the Siemens. The LED control is different though.
+
 == Links ==
 
 There are a number of public forums and web sites where the installation of open source firmware for the Belkin F5D7230-4 is being discussed and published.
