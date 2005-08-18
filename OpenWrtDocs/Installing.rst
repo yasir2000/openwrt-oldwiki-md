@@ -223,6 +223,8 @@ Flashing the Motorola WR850G is fairly easy.  Just follow these easy steps!
  6. When you're finished, telnet to 192.168.1.1, issue the 'reboot' command if you're using jffs2, and change your password to activate dropbear.
  7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1)
 
+/!\ '''If you're using TFTP to flash the firmware, put to the host 192.168.10.1.'''
+
 == Buffalo Airstation WLA-G54 ==
 This device is based on the Broadcom chipset so the openwrt-brcm-x image is required. The web interface will not allow you to install the openwrt firmware so you will need to use tftp. Pull the power plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware. This unit keeps the IP address that it was set to whilst in this mode. Factory setting is 192.168.11.2.
 
