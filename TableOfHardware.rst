@@ -105,3 +105,4 @@ This is a table of all supported devices as of 2005/7/8. Legend:
 ||Trendnet||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
 ||Trendnet||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus]|| || ||4MB|| || || || || || || ||Untested||
 ||US Robotics||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || ||2MB|| || || ||on|| || || ||Supported||
+||US Robotics||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461]|| ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz?||2MB||8MB @ 166MHz||integrated Broadcom||integrated into CPU||on|| || ||1x v2.0||Untested||
