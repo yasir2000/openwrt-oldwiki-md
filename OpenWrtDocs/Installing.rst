@@ -183,6 +183,8 @@ As an alternative (or if this installation routine doesn't do the trick for you)
 
 Another thing is that the ASUS WL500G/WL300G doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
 
+There are several helpful tutorials especially for the ASUS routers at http://www.macsat.com.
+
 == ASUS WL-500G Deluxe ==
 
 This device is based on the Broadcom chipset so the openwrt-brcm-x image is required. Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
