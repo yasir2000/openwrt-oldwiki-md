@@ -30,6 +30,8 @@ If you installed the nas binary using the package indicated above, an install sc
 ||Radius Server Port||wl0_radius_port||Radius server port. Defaults to 1812. Only for wpa/wpa2.||
 ||Radius Server Shared Secret||wl0_radius_key||The shared secret with the Radius server. Only for wpa/wpa2.||
 
+Please note, not all client cards/drivers/OSes support wpa/wpa2 or psk/psk2.  Try all combinations of wl0_akm before giving up on nas.
+
 == nas options ==
 
 === Security disable ===
