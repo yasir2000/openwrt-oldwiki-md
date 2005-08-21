@@ -123,7 +123,8 @@ Note2: I had to disable i2c-parport support in my kernel - because i always got 
 
 If you didn't set boot_wait and don't build a JTAG, you'll have to resort to opening the router and shorting pins on the flash chip to recover.
 
-||4M flash chip (WRT54G v1.0, v1.1, v2.0, v2.2?)||Use pins 15&16||
+||4M flash chip (WRT54G v1.0, v1.1, v2.0)||Use pins 15&16||
+||4M flash chip (WRT54G v2.2)||Use pins 16&17||
 ||8M flash chip (WRT54GS v1.0, v1.1)||Use pins 5&6||
 
 ''' /!\ Be very careful with the flash chip, short only the pins shown in the instructions and do not bend or break any pins; shorting the wrong pins can cause serious damage.'''
