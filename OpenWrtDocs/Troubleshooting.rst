@@ -61,7 +61,7 @@ If you've followed the instructions and warnings you should have boot_wait set t
 See ["OpenWrtDocs/Installing"][[BR]]
 [:OpenWrtDocs/Installing#head-f56e06c42cb97a7aace9a5b503d0d288697d98d9:"3.2. Using boot_wait to upload the firmware"]
 
-/!\  The Motorola WR850G may wait for an image on 192.168.10.1
+/!\  The Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] may wait for an image on 192.168.10.1
 
 /!\  the ASUS WL-300G does not have a DMZ led : press the reset button for 2 seconds just after the AIR led lights, or maybe the LAN led. At some point it works, anyway.
 
@@ -129,7 +129,7 @@ If you didn't set boot_wait and don't build a JTAG, you'll have to resort to ope
 
 ||4M flash chip (WRT54G v1.0, v1.1, v2.0)||Use pins 15&16||
 ||4M flash chip (WRT54G v2.2)||Use pins 16&17||
-||4M flash chip (Motorola !WR850Gv2)||Use pins 5&6||
+||4M flash chip (Motorola W!R850Gv2)||Use pins 5&6||
 ||8M flash chip (WRT54GS v1.0, v1.1)||Use pins 5&6||
 
 ''' /!\ Be very careful with the flash chip, short only the pins shown in the instructions and do not bend or break any pins; shorting the wrong pins can cause serious damage.'''
@@ -141,7 +141,7 @@ See http://voidmain.is-a-geek.net/redhat/wrt54g_revival.html
 Note: With my 1.1 wrt54g device, there was no way to make it work with atftp, tftp or even windows tftp..
 I was about to trash the device when I managed to put back linksys official firmware using the short pin and the official uploader tool and then puted back the openwrt using the administration web upgrade tool.. Ouf!
 
-/!\  The Motorola WR850G may wait for an image on 192.168.10.1
+/!\  The Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] may wait for an image on 192.168.10.1
 
 '''What the hell does shorting the pins do / how do you know what pins?'''
 
