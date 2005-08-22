@@ -94,7 +94,71 @@ iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 You need to place it into the right position of your firewall script (eg: just after/before "iptables -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
-== 6to4 tunnel (with static or dynamic IP address) ==
+
+You can choose between using 6to4 (standard, works from anywhere) or a SixXS tunnel (if you are near a Point of Presence).
+6to4 is probably the quickest to setup at first.
+
+== 6to4 with a direct connection to the Internet ==
+
+This applies e.g. if you WAN port (on vlan1) receives an public IPv4 address through DHCP or is assigned a static public IPv4 address.
+
+To have the 6to4 tunnel start up automatically on boot, copy this script in ''/etc/init.d/S42tun6to4'':
+
+{{{
+#!/bin/sh
+
+# 6to4 tunnel
+
+# retrieve the public IPv4 address
+ipv4=`ip -4 addr | awk '/^[0-9]+[:] vlan1[:]/ {l=NR+1} /inet (([0-9]{1,3}\.){3}[0-9]{1,3})\// {if (NR == l) split($2,a,"/")} END {print a[1]}'`
+# (if your IPv4 address does not change, replace the above line with ipv4="your ip")
+
+# get the IPv6 prefix from the IPv4 address
+ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
+
+# choose a subnet (4 hex digits)
+ipv6subnet=1234
+
+# the 6to4 relay:
+#   * the anycast address 192.88.99.1 should work from anywhere
+#   * other addresses are possible, e.g. see
+#     http://www.kfu.com/~nsayer/6to4/#list
+relay6to4=192.88.99.1
+
+
+case "$1" in
+  start)
+
+    # create tunnel and assign main address to tunnel interface
+    ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
+    ip link set dev tun6to4 up
+    ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
+    ip -6 route add 2000::/3 via ::${relay6to4} dev tun6to4 metric 1
+
+    # assign local internal address to LAN interface (br0)
+    ip -6 addr add ${ipv6prefix}:${ipv6subnet}::1/64 dev br0
+
+    # probably not necessary:
+    ip -6 addr add ${ipv6prefix}:${ipv6subnet}::1/64 dev vlan1
+    ip -6 route del ${ipv6prefix}:${ipv6subnet}::/64 dev vlan1
+
+
+    ;;
+  stop)
+
+    ip -6 addr del ${ipv6prefix}:${ipv6subnet}::1/64 dev vlan1
+
+    ip -6 addr del ${ipv6prefix}:${ipv6subnet}::2/64 dev br0
+
+    ip -6 route flush dev tun6to4
+    ip link set dev tun6to4 down
+    ip tunnel del tun6to4
+
+    ;;
+esac
+}}}
+
+== 6to4 tunnel with an Internet connection that uses PPP ==
 If you connect to your ISP using PPP (usually PPPoE):
 When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
 {{{
