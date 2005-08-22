@@ -26,7 +26,11 @@ A complete list of nvram options can be found at [:OpenWrtNVRAM].
 
 = Network configuration =
 
-For a quick overview of the router architecture, see the [http://commons.wikimedia.org/wiki/Image:WRT54G_internal_architecture.png this diagram].
+'''Quick overview of the router architecture:'''
+
+The WRT54G is made up of an Ethernet switch, a wireless access point and a router chip that connects them together.
+
+[http://upload.wikimedia.org/wikipedia/commons/0/0f/WRT54G_internal_architecture.png]
 
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
 ||'''Manufacturer'''||'''Model'''||'''Hardware version'''||'''LAN'''||'''WAN'''||'''WIFI'''||'''Comments'''||
