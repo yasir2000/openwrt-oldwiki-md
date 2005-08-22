@@ -110,11 +110,11 @@ To have the 6to4 tunnel start up automatically on boot, copy this script in ''/e
 # 6to4 tunnel
 
 # retrieve the public IPv4 address
-ipv4=`ip -4 addr | awk '/^[0-9]+[:] vlan1[:]/ {l=NR+1} /inet (([0-9]{1,3}\.){3}[0-9]{1,3})\// {if (NR == l) split($2,a,"/")} END {print a[1]}'`
+ipv4=$(ip -4 addr | awk -F'[/ ]' '/vlan1$/ { print $6 }')
 # (if your IPv4 address does not change, replace the above line with ipv4="your ip")
 
 # get the IPv6 prefix from the IPv4 address
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
+ipv6prefix=$(echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }')
 
 # choose a subnet (4 hex digits)
 ipv6subnet=1234
@@ -141,7 +141,6 @@ case "$1" in
     # probably not necessary:
     ip -6 addr add ${ipv6prefix}:${ipv6subnet}::1/64 dev vlan1
     ip -6 route del ${ipv6prefix}:${ipv6subnet}::/64 dev vlan1
-
 
     ;;
   stop)
