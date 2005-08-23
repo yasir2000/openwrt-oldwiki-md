@@ -3,7 +3,7 @@
 
 == What is this AR7 stuff? ==
 
-AR7 is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including
+AR7[http://focus.ti.com/pdfs/bcg/ar7wi_fact_sheet.pdf]  is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including
  * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
  * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-G664T)
