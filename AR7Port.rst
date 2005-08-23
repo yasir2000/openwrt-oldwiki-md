@@ -33,10 +33,10 @@ Here's what we have integrated so far:
    * The flash map driver is working, but needs more testing
    * We have the source for the TI WLAN driver
    * With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
-   * The VLYNQ bus seems to work
+   * The VLYNQ bus works
    * The LZMA loader works and is integrated
-   * '''NEW:''' ADSL seems to work, needs testing...
-   * '''NEW:''' Support for WAG354G is integrated, needs testing...
+   * Support for WAG354G is integrated, still needs testing...
+   * '''NEW:''' ADSL works! New init scripts for PPPoE are integrated.
 
 == Bugs / Ugly-Hacks ==
 
@@ -47,7 +47,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way.
    * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.) -- nbd: for halt, you probably only need __cli() + while(1);
    * '''arch/mips/kernel/traps.c''', '''arch/mips/mm/tlb-r4k.c''': a lot of "KSEG0+CONFIG_AR7_MEMORY" we might need to keep this, the ar7 has a small ammount of ram/rom on-chip where the exception code goes... strange that it loads the generic linux exception code, as well as the ar7 exception code in arch/mips/ar7.
-   * '''arch/mips/kernel/setup.c''': the bootmap_size for ar7 needs fixing, and I killed all of arch/mips/ar7/ar7_paging.c (it's now merged with setup.c and is a lot more compact.) (note: this is in my latest patch at http://z3ro.geek.nz/ar7/2005-07-28 which is not merged into the openwrt buildroot yet.)
+   * '''arch/mips/kernel/setup.c''': the bootmap_size for ar7 needs fixing, and I killed all of arch/mips/ar7/ar7_paging.c (it's now merged with setup.c and is a lot more compact.)
    * '''arch/mips/mm/init.c''': see above, this has changes related to the old ar7_paging.c file, some of which can probably be removed now that we use the "proper" bootmem code in setup.c (I'll do this next)
 
    * Please document any more bugs/ugly-hacks found.
@@ -55,15 +55,16 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 == TODO ==
 
    * Complete the init scripts, remove nvram dependencies
-   * Test ADSL driver
+   * Test WAG354G support
    * Fix the wireless driver
+   * Figure out an user-friendly way of upgrading the DSL-G664T,G604T - this device can only upgrade kernel and FS separeately over the web interface (this will NOT work with OpenWrt). 
 
 == Firmware/Bootloader ==
 
 There are at least 3 variants
 
- * Telogy Networks, Inc ["ADAM2"] + Linux
- * TI PSP bootloader ["PSPBoot"] + Linux
+ * Telogy Networks, Inc ["ADAM2"] + Linux - most AR7 devices
+ * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, maybe others
  * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
 
 There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
@@ -82,7 +83,7 @@ All the kernel and image stuff is in the target/ subdirectory.
 
 AR7-specific kernel patches go into {{{target/linux/linux-2.4/patches/ar7}}}. The build system part that constructs the firmware images for AR7 based routers is in {{{target/linux/image/ar7}}}. You can also find the kernel loader there.
 
-If you'd like to help out and maybe have a patch or two, please talk to one of the developers working on this via IRC in the OpenWrt channel. Some people working on this are: nbd, wbx, wickus, z3ro.
+If you'd like to help out and maybe have a patch or two, please talk to one of the developers working on this via IRC in the OpenWrt channel. Some people working on this are: nbd, wbx, wickus, z3ro, ralf, mache, ralf.
 
 
 = Other stuff =
