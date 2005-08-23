@@ -215,7 +215,7 @@ Starting with WHITE RUSSIAN (RC2) the bug is fixed. So from this release of Open
 
 == Motorola WR850G ==
 
-Flashing the Motorola WR850G is fairly easy.  Just follow these easy steps!
+Flashing the Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] is fairly easy.  Just follow these easy steps!
 
  1. Use the web interface to set the router's IP address to 192.168.1.1.  This will mitigate the issue where dnsmasq doesn't properly read the subnet from the configuration.
  2. Download the motorola firmware image (either the squashfs or the jffs2-8mb version) from the website. (Note: The motorola has 4mb flash, but requires the 8mb version.  This is due to the paging size of the flash rom that is used, and is not related to the ignominously confusing names used for the files.  At the moment the motorola-jffs2-4mb is entirely useless [64k page size, 8mb is 128k page size].)
