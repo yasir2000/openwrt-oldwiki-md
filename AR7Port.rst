@@ -64,7 +64,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 There are at least 3 variants
 
  * Telogy Networks, Inc ["ADAM2"] + Linux - most AR7 devices
- * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, maybe others
+ * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, WRTP54G, maybe others?
  * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
 
 There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
@@ -116,3 +116,23 @@ The method used to find the serial port was suggested to me on irc; use a piezo 
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
+
+
+== WRTP54G Serial Console ==
+  {{
+{{{________________________________________
+|                                                                       |
+|                                                                       led
+|                   Pin 1: GND   --->      @                |
+|    --                                                                 led
+|    Pin 2: Not Connected   --->     @                |
+|    --                                                                 led
+|                        Pin 3: RX   --->     @                 |                 Front of Unit
+|    --                                                                 led
+|                        Pin 4: TX   ----->   @                 |             
+|    --                                                                |
+|                        Pin 5: VCC  --->  @                  led
+|    --                                                                |
+|                                                                       |
+|                                                                       |
+ \________________________________________|
