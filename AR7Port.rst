@@ -128,7 +128,7 @@ A more accurate method would be to use either a logic analyzer or an oscilloscop
 |                                         led
 |         Pin 2: Not Connected   ---> @   |
 |                                         led
-|                   Pin 3: RX   ----> @   |                 Front of Unit
+|                   Pin 3: RX   ----> @   |                 Front of WRTP54G
 |                                         led
 |                   Pin 4: TX   ----> @   |
 |                                         |
