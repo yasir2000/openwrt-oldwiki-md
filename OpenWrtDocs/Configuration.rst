@@ -273,13 +273,13 @@ http://www.jean.nu/view.php/page/openwrt
 
 == OpenWRT as Client ==
 
-Starting with RC2 basically the only thing you have to do is to switch the WL mode like with the bridge:
+Starting with RC2 WhiteRussian basically the only thing you have to do is to switch the WL mode like with the bridge:
 
 {{{
 nvram set wl0_mode=sta
 }}}
 
-Breaking down the bridge is not really necessary as described in http://wiki.openwrt.org/ClientModeHowto
+Breaking down the bridge is not really necessary as described in ["ClientModeHowto"]
 
 = Software configuration =
 
