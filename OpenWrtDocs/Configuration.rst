@@ -247,9 +247,20 @@ wl0_lazywds; Accept WDS connections from anyone (0:disabled 1:enabled)
 wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space separated)
 }}}
 
-(Note: All APs must be on the same wireless channel and share the same encryption settings. If you don't get it running with WPA-PSK the reason can be that a non-OpenWRT system doesn't support it. You can still try WEP.)
-
 For security reasons, it's recommended that you leave wl0_lazywds off and use wl0_wds to control WDS access to your AP. wl0_wds functions as an access list of peers to accept connections from and peers to try to connect to; the peers will either need the mac address of your AP in their wl0_wds list, or wl0_lazywds enabled.
+
+Easy steps for a successfull WDS:
+
+Roughly you should make it in two steps: First do it without wireless protection and then activate the protection.
+If you activate both you will double the pain to find a problem.
+
+===== Configure the IPs of each AP - don't use the same! For easier maintenance you can use the same subnet. =====
+===== Add the '''other''' APs MAC address to the list of allowed peers to each AP. With OpenWRT it's the variable wl0_wds. =====
+===== Disable all the unneeded services like DHCP, port forwarding, firewalling etc. except on the AP the has the internet connection. =====
+===== Configure the WLAN parameters on all APs identical. That is SSID, channel, etc. - keep it simple. If you want to try boosters etc. do this later. =====
+===== Have you commited your values? Do it. And reboot.=====
+===== Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings. =====
+===== You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP. =====
 
 == OpenWRT wireless bridge ==
 
