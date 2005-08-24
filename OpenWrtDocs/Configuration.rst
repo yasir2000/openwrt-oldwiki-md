@@ -255,11 +255,17 @@ Roughly you should make it in two steps: First do it without wireless protection
 If you activate both you will double the pain to find a problem.
 
 1. Configure the IPs of each AP - don't use the same! For easier maintenance you can use the same subnet.
+
 2. Add the '''other''' APs MAC address to the list of allowed peers to each AP. With OpenWRT it's the variable wl0_wds.
+
 3. Disable all the unneeded services like DHCP, port forwarding, firewalling etc. except on the AP the has the internet connection.
+
 4. Configure the WLAN parameters on all APs identical. That is SSID, channel, etc. - keep it simple. If you want to try boosters etc. do this later.
+
 5. Have you commited your values? Do it. And reboot.
+
 6. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
+
 7. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 
 == OpenWRT wireless bridge ==
