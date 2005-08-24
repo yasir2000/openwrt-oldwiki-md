@@ -119,20 +119,21 @@ A more accurate method would be to use either a logic analyzer or an oscilloscop
 
 
 == WRTP54G Serial Console ==
-  {{
+  
+
 {{{________________________________________
-|                                                                       |
-|                                                                       led
-|                   Pin 1: GND   --->      @                |
-|    --                                                                 led
-|    Pin 2: Not Connected   --->     @                |
-|    --                                                                 led
-|                        Pin 3: RX   --->     @                 |                 Front of Unit
-|    --                                                                 led
-|                        Pin 4: TX   ----->   @                 |             
-|    --                                                                |
-|                        Pin 5: VCC  --->  @                  led
-|    --                                                                |
-|                                                                       |
-|                                                                       |
+|                                         |
+|                                         led
+|                   Pin 1: GND   ---> @   |
+|                                         led
+|         Pin 2: Not Connected   ---> @   |
+|                                         led
+|                   Pin 3: RX   ----> @   |                 Front of Unit
+|                                         led
+|                   Pin 4: TX   ----> @   |
+|                                         |
+|                   Pin 5: VCC  ----> @   led
+|                                         |
+|                                         |
+|                                         |
  \________________________________________|
