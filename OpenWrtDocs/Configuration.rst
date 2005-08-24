@@ -247,10 +247,9 @@ wl0_lazywds; Accept WDS connections from anyone (0:disabled 1:enabled)
 wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space separated)
 }}}
 
-(Note: All APs must be on the same wireless channel and share the same encryption settings)
+(Note: All APs must be on the same wireless channel and share the same encryption settings. If you don't get it running with WPA-PSK the reason can be that a non-OpenWRT system doesn't support it. You can still try WEP.)
 
 For security reasons, it's recommended that you leave wl0_lazywds off and use wl0_wds to control WDS access to your AP. wl0_wds functions as an access list of peers to accept connections from and peers to try to connect to; the peers will either need the mac address of your AP in their wl0_wds list, or wl0_lazywds enabled.
-
 
 == OpenWRT wireless bridge ==
 
@@ -264,7 +263,6 @@ you can use your AP/Router as a Bridge.
 
 This section is work in progress, please refer to the following docs:
 
-
 http://woz.gs/wifi/openwrtbridge.html
 
 http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
@@ -272,6 +270,16 @@ http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
 For the "invisible wire" style, e.g. for bridging between two buildings, you might want to check out this link:
 
 http://www.jean.nu/view.php/page/openwrt
+
+== OpenWRT as Client ==
+
+Starting with RC2 basically the only thing you have to do is to switch the WL mode like with the bridge:
+
+{{{
+nvram set wl0_mode=sta
+}}}
+
+Breaking down the bridge is not really necessary as described in http://wiki.openwrt.org/ClientModeHowto
 
 = Software configuration =
 
