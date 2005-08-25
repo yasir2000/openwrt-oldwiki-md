@@ -8,6 +8,8 @@
 = Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the jffs2 partition, you can get back in by using OpenWrt's failsafe mode. To get into failsafe, plug in the router and wait for the DMZ led to light then immediately press and hold the reset button for 2 seconds. If done right the DMZ led will quickly flash 3 times every second.
 
+( /!\  The act of switching between a normal boot and failsafe mode could change your mac address!  This will invalidate the arp cache of the workstation you're using to access OpenWRT with.  If you can't ping OpenWRT at 192.168.1.1, check the cache with 'arp -a' and delete it with 'arp -d 192.168.1.1'. )
+
 ( /!\  holding the reset button before the DMZ led can reset NVRAM )
 
 ( /!\  the ASUS WL-300G does not have a DMZ led : press the reset button for 2 seconds just after the AIR led lights, or maybe the LAN led. At some point it works, anyway. )
