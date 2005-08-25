@@ -33,3 +33,12 @@ Puting information about that in /etc/hosts file, and format is
 === Make sure that the configuration files it needs are readable by 'nobody'. ===
 
 If you are using the squashfs root, and your umask is 077 (the default in the experimental distribution), when you remove the symlink to the configuration file in /etc/ and cp the /rom/etc/ file into etc so you can edit it, dnsmasq will not be able to read the conffile, and lookups will fail.  Set the umask to 022 or chmod the files and it works fine.
+
+=== Static IP-Address (leases) based on the MAC-Address of the client ===
+
+When a client should get always the same IP-Address from the DHCP-Server then use the line below in your /etc/dnsmasq.conf file
+{{{
+dhcp-host=<mac address client>,<hostname client>,<ip address client>,12h
+
+dhcp-host=00:11:22:ff:bb:af,foobar,192.168.1.2,12h
+}}}
