@@ -173,7 +173,7 @@ The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54
 |                    Pin 4: GND   ----> @ |
 |                    Pin 3: TX    ----> @ |
 |                    Pin 2: RX    ----> @ |
-|           Pin 1: Not connected  ----> @ |
+|             Pin 1: + 3.3 volts  ----> @ |
 |                                         |              Front of ADSL2MUE
 |                                         |
 |                                         led
