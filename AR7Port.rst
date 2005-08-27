@@ -144,7 +144,7 @@ The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54
 == WRTP54G JTAG Pinout ==
 
 {{{__________________________________________
-|                                         |
+|                     J3                  |
 |                                         led
 | Pin 1: TRST  ----> @   @ <-- Pin 2:GND  |
 |                                         led
