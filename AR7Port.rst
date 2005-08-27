@@ -137,5 +137,29 @@ A more accurate method would be to use either a logic analyzer or an oscilloscop
 |                                         |
 |                                         |
  \________________________________________|
-
+}}}
 The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54gv2m.  The board layout differs slightly, although enough that the serial and jtag headers are positioned parallel to the front of the unit as opposed to the perpendicular alignment on the wag54gv2
+
+
+== WRTP54G JTAG Pinout ==
+
+{{{__________________________________________
+|                                         |
+|                                         led
+| Pin 1: TRST  ----> @   @ <-- Pin 2:GND  |
+|                                         led
+| Pin 3: TDI   ----> @   @ <-- Pin 4:GND  |
+|                                         led
+| Pin 5: TDO   ----> @   @ <-- Pin 6:GND  |
+|                                         led
+| Pin 7: TMS   ----> @   @ <-- Pin 8:GND  |   Front of WRTP54G
+|                                         |
+| Pin 9: TCK   ----> @   @ <-- Pin 10:GND led
+|                                         |
+| Pin 11:RST   ----> @   @ <-- Pin 12:NC  |
+|                                         |
+| Pin 13:DINT  ----> @   @ <-- Pin 14:VIO*|
+ \________________________________________|
+
+    *voltage reference @ 3.3 volts
+}}}
