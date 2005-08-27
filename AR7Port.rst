@@ -163,3 +163,26 @@ The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54
 
     *voltage reference @ 3.3 volts
 }}}
+
+
+== ADSL2MUE Serial Console ==
+  
+
+{{{________________________________________
+|                                         |
+|                    Pin 4: GND   ----> @ |
+|                    Pin 3: TX    ----> @ |
+|                    Pin 2: RX    ----> @ |
+|           Pin 1: Not connected  ----> @ |
+|                                         |              Front of ADSL2MUE
+|                                         |
+|                                         led
+|                                         led
+|                                         led
+|                                         led
+|                                         led
+ \________________________________________|
+}}}
+The console is located on the same edge that the leds are, that is, front-right side of the board. It is labeled J1 and an arrow points to pin 1 on the left, that is, the closest pin to the leds.
+Voltage reference is 3.3 volts and it is set by default at 38400,8,N,1.
+Mine already had a connector soldered just like to ones we usually see on computer boards as CPU/NB fan connector.
