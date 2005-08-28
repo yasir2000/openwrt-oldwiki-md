@@ -53,7 +53,8 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
  * '''A 2.6 port of the wlan driver.'''
 
- There is already a very promising Broadcom Wlan driver project at [http://sourceforge.net/projects/linux-bcom4301/].
+ There is already a very promising Broadcom WLAN driver project at [http://sourceforge.net/projects/linux-bcom4301/], they document the chipsets specifications.
+ The actual specifications can be found at [http://bcm-specs.sipsolutions.net] and the project which actually writes the driver at [http://bcm43xx.berlios.de/].
 
 /!\ As there is no contact info here, I've put this here as a sidenote - check Jolt's 2.6 port - http://cvs.berlios.de/cgi-bin/viewcvs.cgi/tuxap/kernel/ - Kaloz
 
