@@ -232,6 +232,13 @@ As you can see, it's restarting after this AHB interrupt thingie. But at least i
 == porting to a newer kernel ==
 
 I've downloaded the current 2.4 mips kernel via cvs and the newest [ftp://ftp.mips.com/pub/tools/software/sde-for-linux/6.02.03-1/mips-sdelinux-v6.02.03-1.i386.rpm official mips (big endian) crosscompiler]:
+{{{
+$ mips-linux-gcc --version
+mips-linux-gcc (GCC) 3.4.4 mipssde-6.02.03-20050629
+Copyright (C) 2004 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+}}}
 
 {{{
 cvs -d :pserver:cvs@ftp.linux-mips.org:/home/cvs co -r linux_2_4 linux
