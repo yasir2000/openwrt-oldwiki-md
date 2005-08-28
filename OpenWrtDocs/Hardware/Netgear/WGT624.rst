@@ -149,4 +149,22 @@ Error loading file: errno = 0x610001.
 }}}
 
 == Kernel ==
-Kaloz got the sources from Devicescape with the (hopefully needed patches). The source tree seems a bit incomplete, so it makes sense to port the changes over to a new mips tree. We should stick to 2.4 for now as it is probably much easier to get the devicescape changes working with 2.4.31.
+Kaloz got the sources from Devicescape with the needed patches. According to arch/mips/ar531x/README.BUILD, I've downloaded 
+ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm. Installed it. 
+{{{
+$ ln -s defconfig-ar531x-jffs2 .config
+$ make oldconfig
+$ make clean ARCH=mips CROSS_COMPILE=mips-linux-
+$ make  ARCH=mips CROSS_COMPILE=mips-linux- vmlinux
+....
+mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arch/mips/kernel/init_task.o init/main.o init/version.o init/do_mounts.o \
+        --start-group \
+        arch/mips/kernel/kernel.o arch/mips/mm/mm.o kernel/kernel.o mm/mm.o fs/fs.o ipc/ipc.o arch/mips/math-emu/fpu_emulator.o \
+         drivers/char/char.o drivers/block/block.o drivers/misc/misc.o drivers/net/net.o drivers/mtd/mtdlink.o drivers/net/wireless/wireless_net.o drivers/media/media.o \
+        net/network.o \
+        arch/mips/lib/lib.a /tmp/software/openwgt/mips-linux-2.4.25/lib/lib.a arch/mips/ar531x/ar531x.o \
+        --end-group \
+        -o vmlinux
+mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
+$ cp vmlinux /tftpboot/image
+}}}
