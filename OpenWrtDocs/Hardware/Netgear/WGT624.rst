@@ -1,27 +1,27 @@
-Netgear WGT624
+= Netgear WGT624 =
 
 the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
 == Specs for WGT624 Rev1 ==
-Atheros Product Name: Atheros AR5001AP
-CPU: AR2312A-00
-Flash: 4MB
-RAM: 16MB
-Switch: Marvell
+ * Atheros Product Name: Atheros AR5001AP
+ * CPU: AR2312A-00
+ * Flash: 4MB
+ * RAM: 16MB
+ * Switch: Marvell
 
-One Antenna (2db)
-1 WAN-Ports
-4 LAN-Ports
-Powersupply: 5V
+ * One Antenna (2db)
+ * 1 WAN-Ports
+ * 4 LAN-Ports
+ * Powersupply: 5V
 
 
-== Serial == 
+== Serial ==
 It got populated Serial and JTAG-Headers.
 
-Serial-Layout
-Pin  3 RX
-Pin  9 TX
-Pin 12 GND
+Serial-Layout:
+ * Pin  3 RX
+ * Pin  9 TX
+ * Pin 12 GND
 
 Serial header is the 12 pin header near the power plug. JTAG is near the antenna.
 Serial pin 1 is the pin nearest to the cpu.
