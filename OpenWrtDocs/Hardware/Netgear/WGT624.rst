@@ -265,8 +265,5 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
         arch/mips/lib/lib.a /usr/src/mips/linux/lib/lib.a arch/mips/ar531x/ar531x.o \
         --end-group \
         -o vmlinux
-drivers/mtd/mtdlink.o: In function `jedec_probe':
-jedec.c:(.text+0x13a18): undefined reference to `strcpy'
-jedec.c:(.text+0x13a18): relocation truncated to fit: R_MIPS_26 against `strcpy'
-make: *** [vmlinux] Error 1
+mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 }}}
