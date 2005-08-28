@@ -81,3 +81,37 @@ watchdg: enabled
 }}}
 
 This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it was on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can this board ID with 'B' on the bootprompt.
+
+
+== Boot via TFTP ==
+
+this is only theoretical at the moment:\\
+the default boot parameters are:
+{{{
+ $dev(0,procnum)host:/file h=# e=# b=# g=# u=usr [pw=passwd] f=# 
+                           tn=targetname s=script o=other 
+ boot device: tffs=drive,removable     file name: /tffs0/vxWorks 
+ Boot flags:           
+   0x02  - load local system symbols 
+   0x04  - don't autoboot 
+   0x08  - quick autoboot (no countdown) 
+   0x20  - disable login security 
+   0x40  - use bootp to get boot parameters 
+   0x80  - use tftp to get boot image 
+   0x100 - use proxy arp 
+
+available boot devices:Enhanced Network Devices
+ et0 et1 tffs
+[Boot]: p
+
+boot device          : tffs:
+unit number          : 0 
+processor number     : 0 
+file name            : /fl/APIMG1
+inet on ethernet (e) : 192.168.1.20:0xffffff00
+flags (f)            : 0x8 
+other (o)            : et
+
+}}}
+
+So we will have to set the boot device to et0, the flags to 0x80 (use tftp) and the filename to 192.168.1.1:/tftpboot/kernelimage
