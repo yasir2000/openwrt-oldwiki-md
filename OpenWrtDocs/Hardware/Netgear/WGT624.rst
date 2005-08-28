@@ -237,6 +237,12 @@ $ mips-linux-gcc --version
 mips-linux-gcc (GCC) 3.4.4 mipssde-6.02.03-20050629
 }}}
 
+ths over at #mipslinux explains:
+"In a hosted (i.e. userland) environment the compiler is free to transform libc calls. Goes horribly wrong in the kernel, which doesn't implement libc. :-)"
+
+This happens with GCC 3.4, so add -ffreestanding to the GCCFLAGS in arch/mips/Makefile.
+
+
 {{{
 cvs -d :pserver:cvs@ftp.linux-mips.org:/home/cvs co -r linux_2_4 linux
 cp -a mips-linux-2.4.25/arch/mips/ar531x/ linux/arch/mips/
