@@ -27,7 +27,7 @@ Serial-Layout:
 Serial header is the 12 pin header near the power plug. JTAG is near the antenna.
 Serial pin 1 is the pin nearest to the cpu.
 
-I wanted to buy a prolific USB to serial cellphone cable at ebay, but they sent me an Silicon Labs cable, but this chipset is finaly supported in 2.6.12. Works great (usb 2-1.2: CP2101 converter now attached to ttyUSB0)
+I wanted to buy a prolific USB to serial cellphone cable at ebay, but they sent me an Silicon Labs cable. This chipset is finally supported in 2.6.12. Works great (usb 2-1.2: CP2101 converter now attached to ttyUSB0)
 
 Set your serial terminal (i.e. minicom) to 9600 8N1, I enabled software flow control, too.
 
@@ -80,4 +80,4 @@ memcap:  disabled
 watchdg: enabled
 }}}
 
-This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it were on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can this board ID with 'B' on the bootprompt.
+This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it was on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can this board ID with 'B' on the bootprompt.
