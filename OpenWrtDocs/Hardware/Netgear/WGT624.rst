@@ -114,4 +114,35 @@ other (o)            : et
 
 }}}
 
-So we will have to set the boot device to et0, the flags to 0x80 (use tftp) and the filename to 192.168.1.1:/tftpboot/kernelimage
+So we will have to set the boot device to et0, the flags to 0x80 (use tftp) and the /tftpboot/kernelimage
+
+I just tried the following
+{{{
+[Boot]: p
+
+boot device          : et
+unit number          : 0 
+processor number     : 0 
+host name            : tftpserver
+file name            : /tftpboot/image
+inet on ethernet (e) : 192.168.1.20:0xffffff00
+host inet (h)        : 192.168.1.2
+flags (f)            : 0x88 
+other (o)            : et
+}}}
+host name and host inet should point to the tftp server. If everything went good, you should see something like this on your tftp-server:
+{{{
+Aug 28 14:16:16 duron in.tftpd[3758]: RRQ from 192.168.1.20 filename /tftpboot/image 
+Aug 28 14:16:16 duron in.tftpd[3758]: sending NAK (1, File not found) to 192.168.1.20
+}}}
+and on your WRT624
+{{{
+[Boot]: @
+Attached TCP/IP interface to et0.
+Attaching network interface lo0... done.
+Loading... Error code 1: File not found
+tftpGet: Error occurred while transferring the file.
+Erroneous header read
+
+Error loading file: errno = 0x610001.
+}}}
