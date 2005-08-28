@@ -15,6 +15,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v2.2||CDF70xxxxxxx||<:> {X} ||<:> (./) ||
 ||WRT54G v3||CDF80xxxxxxx||<:> {X} ||<:> (./) ||
 ||WRT54G v3.1 (AU?)||CDF90xxxxxxx||<:> {X} ||<:> (./) ||
+||WRT54G v4||CDFA0xxxxxxx||<:> {X} ||<:> ? ||
 
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
@@ -52,7 +53,7 @@ boardflags=0x0118}}}
 This unit is just like the V2.2 Except it has an extra reboot button on the left front panel behind a Cisco logo.
 
 ==== WRT54G v4.00 ====
-Please add information for this revision.
+New more integrated board layout (photos [http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6#wrt54g4 here]), switch is now in SoC.
 
 Hardware informations (nvram) :
 
