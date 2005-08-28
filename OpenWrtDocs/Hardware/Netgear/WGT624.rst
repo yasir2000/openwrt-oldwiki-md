@@ -85,7 +85,8 @@ This is how it should like like, but if the board ID is like U12H013T00_NETGEAR 
 
 == Boot via TFTP ==
 
-this is only theoretical at the moment:\\
+this is only theoretical at the moment:
+
 the default boot parameters are:
 {{{
  $dev(0,procnum)host:/file h=# e=# b=# g=# u=usr [pw=passwd] f=# 
@@ -135,7 +136,7 @@ host name and host inet should point to the tftp server. If everything went good
 Aug 28 14:16:16 duron in.tftpd[3758]: RRQ from 192.168.1.20 filename /tftpboot/image 
 Aug 28 14:16:16 duron in.tftpd[3758]: sending NAK (1, File not found) to 192.168.1.20
 }}}
-and on your WRT624
+and on your WGT624
 {{{
 [Boot]: @
 Attached TCP/IP interface to et0.
