@@ -149,8 +149,17 @@ Error loading file: errno = 0x610001.
 }}}
 
 == Kernel ==
-Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches. According to arch/mips/ar531x/README.BUILD, I've downloaded 
-ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm. Installed it. 
+Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches. 
+According to arch/mips/ar531x/README.BUILD, I've downloaded:
+
+ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm
+{{{
+$ mips-linux-gcc --version
+2.96-mips3264-000710
+}}}
+It's a good start to reproduce the very same environment, as they did in order to exclude all problems that might occur while porting to a newer compiler or kernel.
+
+
 {{{
 $ ln -s defconfig-ar531x-jffs2 .config
 $ make oldconfig
@@ -219,3 +228,18 @@ Atheros AR5001AP default version 0.0.0.225
 }}}
 
 As you can see, it's restarting after this AHB interrupt thingie. But at least it is finally booting a linux kernel.
+
+== porting to a newer kernel ==
+
+I've downloaded the current 2.4 mips kernel via cvs and the newest [ftp://ftp.mips.com/pub/tools/software/sde-for-linux/6.02.03-1/mips-sdelinux-v6.02.03-1.i386.rpm official mips (big endian) crosscompiler]:
+
+{{{
+cvs -d :pserver:cvs@ftp.linux-mips.org:/home/cvs co -r linux_2_4 linux
+cp -a mips-linux-2.4.25/arch/mips/ar531x/ linux/arch/mipso/
+cp -a mips-linux-2.4.25/include/asm-mips/atheros/ linux/include/asm-mips/
+cp -a mips-linux-2.4.25/defconfig-ar531x-jffs2 linux/.config
+cd linux
+make oldconfig
+make  ARCH=mips CROSS_COMPILE=mips-linux- dep
+make  ARCH=mips CROSS_COMPILE=mips-linux- vmlinux
+}}}
