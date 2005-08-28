@@ -80,7 +80,7 @@ memcap:  disabled
 watchdg: enabled
 }}}
 
-This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it was on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can this board ID with 'B' on the bootprompt.
+This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it was on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can change this board ID with pressing 'B' on the bootprompt.
 
 
 == Boot via TFTP ==
