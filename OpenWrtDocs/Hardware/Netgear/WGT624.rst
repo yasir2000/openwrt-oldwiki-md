@@ -149,7 +149,7 @@ Error loading file: errno = 0x610001.
 }}}
 
 == Kernel ==
-Kaloz got the sources from Devicescape with the needed patches. According to arch/mips/ar531x/README.BUILD, I've downloaded 
+Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches. According to arch/mips/ar531x/README.BUILD, I've downloaded 
 ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm. Installed it. 
 {{{
 $ ln -s defconfig-ar531x-jffs2 .config
