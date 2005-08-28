@@ -241,6 +241,7 @@ cp -a mips-linux-2.4.25/defconfig-ar531x-jffs2 linux/.config
 cp -a mips-linux-2.4.25/arch/mips/Makefile linux/arch/mips/Makefile
 cp -a mips-linux-2.4.25/arch/mips/config-shared.in linux/arch/mips/config-shared.in
 cp -a mips-linux-2.4.25/include/asm-mips/bootinfo.h linux/include/asm-mips/
+cp -a mips-linux-2.4.25/drivers/mtd/chips/jedec_probe.c linux/drivers/mtd/chips/
 cd linux
 make oldconfig
 make  ARCH=mips CROSS_COMPILE=mips-linux- dep
