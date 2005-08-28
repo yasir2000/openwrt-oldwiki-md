@@ -147,3 +147,6 @@ Erroneous header read
 
 Error loading file: errno = 0x610001.
 }}}
+
+== Kernel ==
+Kaloz got the sources from Devicescape with the (hopefully needed patches). The source tree seems a bit incomplete, so it makes sense to port the changes over to a new mips tree. We should stick to 2.4 for now as it is probably much easier to get the devicescape changes working with 2.4.31.
