@@ -238,6 +238,9 @@ cvs -d :pserver:cvs@ftp.linux-mips.org:/home/cvs co -r linux_2_4 linux
 cp -a mips-linux-2.4.25/arch/mips/ar531x/ linux/arch/mipso/
 cp -a mips-linux-2.4.25/include/asm-mips/atheros/ linux/include/asm-mips/
 cp -a mips-linux-2.4.25/defconfig-ar531x-jffs2 linux/.config
+cp -a mips-linux-2.4.25/arch/mips/Makefile linux/arch/mips/Makefile
+cp -a mips-linux-2.4.25/arch/mips/config-shared.in linux/arch/mips/config-shared.in
+cp -a mips-linux-2.4.25/include/asm-mips/bootinfo.h linux/include/asm-mips/
 cd linux
 make oldconfig
 make  ARCH=mips CROSS_COMPILE=mips-linux- dep
