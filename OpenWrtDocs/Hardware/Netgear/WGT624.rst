@@ -235,9 +235,6 @@ I've downloaded the current 2.4 mips kernel via cvs and the newest [ftp://ftp.mi
 {{{
 $ mips-linux-gcc --version
 mips-linux-gcc (GCC) 3.4.4 mipssde-6.02.03-20050629
-Copyright (C) 2004 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 }}}
 
 {{{
