@@ -245,4 +245,17 @@ cd linux
 make oldconfig
 make  ARCH=mips CROSS_COMPILE=mips-linux- dep
 make  ARCH=mips CROSS_COMPILE=mips-linux- vmlinux
+
+mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arch/mips/kernel/init_task.o init/main.o init/version.o init/do_mounts.o \
+        --start-group \
+        arch/mips/kernel/kernel.o arch/mips/mm/mm.o kernel/kernel.o mm/mm.o fs/fs.o ipc/ipc.o arch/mips/math-emu/fpu_emulator.o \
+         drivers/char/char.o drivers/block/block.o drivers/misc/misc.o drivers/net/net.o drivers/mtd/mtdlink.o drivers/media/media.o \
+        net/network.o \
+        arch/mips/lib/lib.a /usr/src/mips/linux/lib/lib.a arch/mips/ar531x/ar531x.o \
+        --end-group \
+        -o vmlinux
+drivers/mtd/mtdlink.o: In function `jedec_probe':
+jedec.c:(.text+0x13a18): undefined reference to `strcpy'
+jedec.c:(.text+0x13a18): relocation truncated to fit: R_MIPS_26 against `strcpy'
+make: *** [vmlinux] Error 1
 }}}
