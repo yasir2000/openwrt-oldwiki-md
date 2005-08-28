@@ -355,7 +355,7 @@ Examples:
 ||Madrid, Spain||||
 ||Oslo, Norway||||
 ||Paris, France||||
-||Prague, Czech Republic||||
+||Prague, Czech Republic||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Roma, Italy||||
 ||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
 ||Alaska Time||AKST9AKDT||
