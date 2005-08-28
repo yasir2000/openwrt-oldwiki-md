@@ -14,6 +14,7 @@ the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS 
  * 4 LAN-Ports
  * Powersupply: 5V
 
+Some photos are here: http://home.fhtw-berlin.de/~s0502837/wgt624/
 
 == Serial ==
 It got populated Serial and JTAG-Headers.
