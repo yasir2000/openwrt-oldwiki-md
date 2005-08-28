@@ -267,3 +267,12 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
         -o vmlinux
 mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 }}}
+
+So it either crashes instantly (maybe the optimization is wrong -march=r4600 might me meaningless with 2.96 but messes around with 3.4.4) or the early printk hacks don't work.
+{{{
+[Boot]: @
+Attached TCP/IP interface to et0.
+Attaching network interface lo0... done.
+Loading... 1585120
+Starting at 0x80140040...
+}}}
