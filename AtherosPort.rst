@@ -4,7 +4,7 @@
 == What is this stuff? ==
 
 The AR531x and 231x is a router platform by Atheros, which is used for dual-band and single-band 108Mb/s routers, including
- * [http://www.netgear.com/products/details/WGT624.php Netgear WGT624]
+ * [:OpenWrtDocs/Hardware/Netgear/WGT624:Netgear WGT624] [http://www.netgear.com/products/details/WGT624.php Product link]
  * [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Linksys WRT55AG v2] (Note: v1 '''IS Broadcom based''', so this porting effort doesn't have anything to do with it.)
 
 and many more.
