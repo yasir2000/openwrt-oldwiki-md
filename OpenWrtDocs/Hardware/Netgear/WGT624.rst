@@ -50,7 +50,7 @@ value = 70 = 0x46 = 'F'
 
 
 == Firmware ==
-My WGT624 came with firmware 4.2.7 which introduces problems with further upgrades because it changes the board id. There 4.2.7 isn't avaible, but if you got this firmware version, you can fix it, if you intercept bootloader by pressing ESC rather immediatly after powering up. It will look like this:
+My WGT624 came with firmware 4.2.7 which introduces problems with further upgrades because it changes the board id. Therefore 4.2.7 isn't avaible, but if you got this firmware version, you can fix it, if you intercept bootloader by pressing ESC rather immediatly after powering up. It will look like this:
 {{{
 ar531x rev 0x00005743 firmware startup...
 SDRAM TEST...PASSED
