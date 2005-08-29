@@ -27,43 +27,6 @@ There are at least 2 variants
  * VxWorx' own bootloader - most AR7 devices
  * RedBoot
 
-If you managed to get serial working, you can interrupt the vxworks bootloader if you press escape just after powering up. It'll look like this (WGT624) :
-
-{{{
-ar531x rev 0x00005743 firmware startup...            
-SDRAM TEST...PASSED                                  
-                                                     
-boardData checksum failed!
-
-Atheros AR5001AP default version 0.0.0.225
-
-[Boot]: help
-
- ?                     - print this list
- @                     - boot (load and go)
- p                     - print boot params
- c                     - change boot params
- e                     - print fatal exception
- v                     - print version
- B                     - change board data
- S                     - show board data
- n netif               - print network interface device address
- $dev(0,procnum)host:/file h=# e=# b=# g=# u=usr [pw=passwd] f=# 
-                           tn=targetname s=script o=other 
- boot device: tffs=drive,removable     file name: /tffs0/vxWorks 
- Boot flags:           
-   0x02  - load local system symbols 
-   0x04  - don't autoboot 
-   0x08  - quick autoboot (no countdown) 
-   0x20  - disable login security 
-   0x40  - use bootp to get boot parameters 
-   0x80  - use tftp to get boot image 
-   0x100 - use proxy arp 
-
-available boot devices:Enhanced Network Devices
- et0 et1 tffs
-
-}}}
 
 = How to help =
 
