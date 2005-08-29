@@ -1,4 +1,5 @@
 = Netgear WGT624 =
+[[TableOfContents]]
 
 the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
