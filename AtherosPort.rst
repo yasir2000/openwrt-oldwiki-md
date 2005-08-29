@@ -14,7 +14,7 @@ and many more.
 == TODO ==
 
    * Write docs on the VxWorx bootloader
-   * Port the kenrel patches to recent kernels
+   * Port the kernel patches to recent kernels
    * Get JTAG on the go
    * Port the ethernet driver from RedBoot to Linux
    * Get it work, tested, and later into the OpenWrt buildroot. 
