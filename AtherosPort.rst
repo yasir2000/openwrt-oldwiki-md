@@ -11,6 +11,14 @@ The AR531x and 231x is a router platform by Atheros, which is used for dual-band
 
 and many more.
 
+The guys over at [[http://www.jungo.com/openrg/download/jungo_software_specification.pdf Jungo]] claim to support the AR531X/AR2313:
+The following hardware components/platforms are fully supported. Jungo provides production-ready OpenRG and OpenSM
+software evaluations for all listed reference designs...
+ *  Atheros
+    * AR531X
+    * AR2313
+
+Someone might ask them, if they can supply some newer kernel patches for this plattform.
 
 == TODO ==
 
