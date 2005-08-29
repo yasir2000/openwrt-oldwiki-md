@@ -254,6 +254,8 @@ cp -a mips-linux-2.4.25/include/asm-mips/bootinfo.h linux/include/asm-mips/
 cp -a mips-linux-2.4.25/drivers/mtd/chips/jedec_probe.c linux/drivers/mtd/chips/
 cp -a mips-linux-2.4.25/arch/mips/kernel/setup.c linux/arch/mips/kernel/setup.c
 cp -a mips-linux-2.4.25/drivers/mtd/chips/cfi_cmdset_0020.c linux/drivers/mtd/chips/
+cp -a mips-linux-2.4.25/drivers/mtd/maps/physmap.c linux/drivers/mtd/maps
+cp -a mips-linux-2.4.25/drivers/mtd/redboot.c linux/drivers/mtd/
 cd linux
 make oldconfig
 make  ARCH=mips CROSS_COMPILE=mips-linux- dep
