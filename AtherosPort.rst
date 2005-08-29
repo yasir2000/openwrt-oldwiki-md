@@ -9,9 +9,9 @@ The AR531x and 231x is a router platform by Atheros, which is used for dual-band
  * [http://www.dlink.com/products/?sec=0&pid=316 D-Link DI-524], at least HW rev C1
  * [http://support.dlink.com/products/view.asp?productid=DWL%2D2210AP D-Link DWL-2210AP], at least according to [http://devicescape.com Devicescape]
 
-and [[http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
+and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
 
-The guys over at [[http://www.jungo.com/openrg/download/jungo_software_specification.pdf Jungo]] claim to support the AR531X/AR2313:
+The guys over at [http://www.jungo.com/openrg/download/jungo_software_specification.pdf Jungo] claim to support the AR531X/AR2313:
 "The following hardware components/platforms are fully supported. Jungo provides production-ready OpenRG and OpenSM
 software evaluations for all listed reference designs..."
  *  Atheros
