@@ -272,13 +272,59 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
 mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 }}}
 
-So it either crashes instantly (maybe the optimization is wrong -march=r4600 might me meaningless with 2.96 but messes around with 3.4.4) or the early printk hacks don't work.
+
 {{{
 [Boot]: @
 Attached TCP/IP interface to et0.
 Attaching network interface lo0... done.
-Loading... 1585120
+Loading... 1589216
 Starting at 0x80140040...
-}}}
 
-I just noticed that even if there isn't anything to see on the serial console, the leds blinks for some time, as if there was anything loading...
+CPU revision is: 00018009
+Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
+Primary data cache 16kB, 4-way, linesize 16 bytes.
+Linux version 2.4.31 (malte@duron) (gcc version 3.4.4 mipssde-6.02.03-20050629) #5 Tue Aug 30 01:25:55 CEST 2005
+Determined physical RAM map:
+ memory: 01000000 @ 00000000 (usable)
+On node 0 totalpages: 4096
+zone(0): 4096 pages.
+zone(1): 0 pages.
+zone(2): 0 pages.
+Kernel command line: console=ttyS0,9600
+Using 90.000 MHz high precision timer.
+Calibrating delay loop... 179.40 BogoMIPS
+Memory: 14640k/16384k available (1256k kernel code, 1744k reserved, 80k data, 60k init, 0k highmem)
+Dentry cache hash table entries: 2048 (order: 2, 16384 bytes)
+Inode cache hash table entries: 1024 (order: 1, 8192 bytes)
+Mount cache hash table entries: 512 (order: 0, 4096 bytes)
+Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
+Page-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Checking for 'wait' instruction...  available.
+POSIX conformance testing by UNIFIX
+Unable to handle kernel paging request at virtual address 00000014, epc == 8004994c, ra == 80049954
+Oops in fault.c::do_page_fault, line 206:
+$0 : 00000000 1000c100 00000000 801f50a0 8015dff4 801f5120 00000000 1000c101
+$8 : 00000030 801154e0 8015da28 00000000 000001f5 8015d9f0 00000000 1000c101
+$16: 80002794 801f50a0 00010f00 801f5120 ffffffe9 80125478 80170000 80156e4c
+$24: 80170000 00000001                   8013e000 8013fe30 00000000 80049954
+Hi : 00000000
+Lo : 00000080
+epc   : 8004994c    Not tainted
+Status: 1000c103
+Cause : 90800008
+PrId  : 00018009
+Process swapper (pid: 0, stackpage=8013e000)
+Stack:    8015c8c0 00000001 80170000 0000043f 80170000 80170000 80170000
+ 1000c101 000f3aff 8017755c 80169c1c 8016a055 00000060 8015c8c0 80170000
+ 80160000 80002794 00000000 00010f00 8014e258 00000000 80125478 00000001
+ 80156e4c 00000000 8000922c 8013fea8 801b7270 00808000 8009e894 80170000
+ 80156e4c 80009cc4 000003e9 00010f00 00000000 8013ff68 ffffffff 8015fee4
+ 0000041b ...
+Call Trace:   [<80002794>] [<80125478>] [<8000922c>] [<8009e894>] [<80009cc4>]
+ [<80016848>] [<80002794>] [<80125478>] [<80014c5c>] [<801254a4>] [<80004738>]
+ [<80014c5c>] [<80125478>]
+
+Code: 00409821  3c168017  8ec213c0 <0c0161ae> 8c440014  104000ae  00408021  0c01260c  00402021 
+Kernel panic: Attempted to kill the idle task!
+In idle task - not syncing
+}}}
