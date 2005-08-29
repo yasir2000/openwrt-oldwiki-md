@@ -267,3 +267,18 @@ In Windows, you can define static routes for a VPN connection by administering t
 
 === Quagga ===
 The OSPF, RIP and other routing protocols are provided by Quagga.  The OSPF and RIP protocols are commonly implemented and also by Microsoft Windows(r).  The routing protocol can be made responsible to handle the routing table updates when a pptp link is brought up or taken down.  Please see the relevant documentation for Quagga or other routing daemons you may need to use.
+
+== Troubleshooting ==
+if you cannot connect, and you get some error like:
+
+{{{
+rcvd [CCP ConfReq id=0x1 <mppe +H -M +S -L -D -C>]
+sent [CCP ConfNak id=0x1 <mppe -H -M +S -L -D -C>]
+rcvd [LCP TermReq id=0x3 "MPPE required but peer negotiation failed"]
+LCP terminated by peer (MPPE required but peer negotiation failed)
+}}}
+
+you have to add a line in the ''/etc/ppp/options.pptp''
+{{{
+mppe required,no40,no56,stateless
+}}}
