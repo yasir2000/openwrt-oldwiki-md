@@ -140,8 +140,10 @@ Open the router and locate the flash chip, while the router is off use a straigh
 
 See http://voidmain.is-a-geek.net/redhat/wrt54g_revival.html
 
-Note: With my 1.1 wrt54g device, there was no way to make it work with atftp, tftp or even windows tftp..
+Note1: With my 1.1 wrt54g device, there was no way to make it work with atftp, tftp or even windows tftp..
 I was about to trash the device when I managed to put back linksys official firmware using the short pin and the official uploader tool and then puted back the openwrt using the administration web upgrade tool.. Ouf!
+
+Note2: Observed on a WRT54GS V1.0: it is *sometimes* necessary to hit the reset button **AFTER** having shorted the pins and letting the lights come to their steady-state as mentioned above.  This has been observed multiple times by at least two OpenWRT users, but no obvious pattern has emerged as to why it sometimes works as advertised above, while other times requires the reset button to be hit.  If you're stuck here, it can't hurt to try this.
 
 /!\  The Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] may wait for an image on 192.168.10.1
 
