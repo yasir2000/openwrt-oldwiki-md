@@ -6,6 +6,8 @@
  See Tom's Hardware guide for information: http://www.tomsnetworking.com/Reviews-47-ProdID-WRT55AG-2.php
  Also see: http://www.tomsnetworking.com/Sections-article100-page3.php
 
+Note: Information on the WRT55AG seems to be flaky, I have a WRT55AG ver2 which came with firmware 1.10, after searching on the internet, I was able to also locate firmware version 1.30 which runs on my router including some WPA fixes.  On the Linksys website, there is GPL code available for the v2 firmware, but not the v1!! So, read below with this in mind :P
+
 ==== WRT55AG v1.0 ====
  We have no information about the internals of these units, yet, so they are '''NOT''' supported.
  This version seems to be compatible to Openwrt and the GPL toolchain provided by Linksys '''may''' work for this version. Have a look at the [http://www.seattlewireless.net/index.cgi/LinksysWrt55ag pictures] at Seattle-Wireless. They show that the chipset is broadcom. 
