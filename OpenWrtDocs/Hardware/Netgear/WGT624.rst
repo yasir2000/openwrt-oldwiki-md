@@ -243,7 +243,7 @@ ths over at #mipslinux explains:
 
 This happens with GCC 3.4, so add -ffreestanding to the GCCFLAGS in arch/mips/Makefile.
 
-
+Someone might wonder, why I only copy and do not patch, but it's just because there aren't any two-way-differences in the files, so copying does the job.
 {{{
 cvs -d :pserver:cvs@ftp.linux-mips.org:/home/cvs co -r linux_2_4 linux
 cp -a mips-linux-2.4.25/arch/mips/ar531x/ linux/arch/mips/
