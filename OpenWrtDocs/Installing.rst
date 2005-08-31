@@ -125,7 +125,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 /!\ '''The last versions of the firmware to support the Ping.asp bug described below are [ftp://ftp.linksys.com/pub/network/WRT54GV2_3.01.3_US_code.zip 3.01.3] for the WRT54G (up to/including v3.0) and [ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.zip 3.37.2] for the WRT54GS (up to/including v2.0). Downgrading to these firmwares is required to enable boot_wait.'''
 
-/!\ '''I have a WRT54GS 1.1 with a firmware version 4.50 - the Ping.asp trick worked for me without downgrading the firmware! If you are lazy, like me, it may worth a try. '''
+/!\ '''I have a WRT54GS 1.1 with a firmware version 4.50 - the Ping.asp trick worked for me without downgrading the firmware! This seems to work as well with the WRT54G V3.1 with firmware V4.01.2. If you are lazy, like me, it may worth a try.'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
