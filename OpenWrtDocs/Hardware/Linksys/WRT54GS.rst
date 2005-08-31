@@ -40,6 +40,8 @@ Presumably, the internal DC-DC converter can't up the voltage enough anymore at 
 
 If anyone is willing to risk his router for a high-voltage measurement, let me know. (email to joris in the v5.be domain)
 
+A WRT54GS1.1 uses AD1509 voltage regulators for the 5V and 3.3V rails. These have a maximum operating input voltage of 22V so theoretically, anything below that should be ok.
+
 ===== Battery tests =====
 
 The measurements above show the wrt should behave exellent on batteries.
