@@ -20,6 +20,9 @@ software evaluations for all listed reference designs..."
 
 Someone might ask them, if they can supply some newer kernel patches for this plattform.
 
+----
+There is an accesspoint device sold in the Czech Republic which is also based on an AR2313. It wouldn't be interesting but it seems to be one more atheros SoC device running linux. You can find a boot up log [http://cz-free.net/phpBB2/viewtopic.php?p=537& here]. A firmware for this ap is [http://www.i4shop.net/cz/iObchod/2005/Firmware/ca8-4-v1.07e01.bin here]. 
+
 == TODO ==
 
    * Write docs on the VxWorx bootloader
