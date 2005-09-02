@@ -8,7 +8,7 @@
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
  * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-G664T)
  * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
- * Linksys ADSL2MUE
+ * Linksys [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]
  * Linksys WRTP54G
  * Netcomm NB5
  * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
