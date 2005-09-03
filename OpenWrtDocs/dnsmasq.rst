@@ -22,6 +22,23 @@ and stop/start dnsmasq daemon. That should solve your problem.
 
 Be aware that router itself doesn't use dnsmasq to resolve its own DNS requests. Instead it uses IP address of DNS set to WAN(vlan1) interface.
 
+=== Problem: on starting, dnsmasq reports something like, "Syntax error: network+192.168.1.100" ===
+
+An initial symptom of this problem is that DNS forwarding doesn't seem to work and a call to 'ps -A' reports that dnsmasq isn't running. Check the output of 'logread' for information about what happened when dnsmasq tried to run:
+
+{{{
+logread |grep dnsmasq|less
+}}}
+
+The problem lies in that the init script for dnsmasq expects the nvram variable, dhcp_start, to be in an integer format instead of an IP. For example, if your starting address is 192.168.1.100, your ending address is 192.168.1.150, and your network is simply 192.168.1.0/255.255.255.0 try this:
+
+{{{
+nvram set dhcp_start=100
+nvram set dhcp_num=50
+nvram commit
+/etc/init.d/S50dnsmasq restart
+}}}
+
 === Where to set names for private IP address ===
 Puting information about that in /etc/hosts file, and format is
 {{{
