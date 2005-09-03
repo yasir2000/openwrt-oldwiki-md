@@ -212,7 +212,9 @@ See OpenWrtNVRAM for more NVRAM settings.
 
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly.
 
-Setting up WPA will override any WEP settings
+Enter the WEP key in hex format (allowed hex chars are 0-9a-f). A 128-Bit WEP key must be 26 hex digits long.
+
+Setting up WPA will override any WEP settings.
 
 == WPA encryption ==
 
