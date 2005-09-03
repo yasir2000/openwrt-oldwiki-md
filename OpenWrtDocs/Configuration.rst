@@ -208,11 +208,11 @@ See OpenWrtNVRAM for more NVRAM settings.
 || '''NVRAM variable''' || '''Description''' ||
 || wl0_wep || '''disabled''' = disabled WEP, '''enabled''' = enable WEP ||
 || wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
-|| wl0_key[1..4] || WEP key in hexadecimal format ||
+|| wl0_key[1..4] || WEP key in hexadecimal format (allowed hex chars are 0-9a-f) ||
 
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly.
 
-Enter the WEP key in hex format (allowed hex chars are 0-9a-f). A 128-Bit WEP key must be 26 hex digits long.
+A 128-Bit WEP key must be 26 hex digits long.
 
 Setting up WPA will override any WEP settings.
 
