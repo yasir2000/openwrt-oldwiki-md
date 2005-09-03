@@ -162,9 +162,8 @@ $ mips-linux-gcc --version
 }}}
 It's a good start to reproduce the very same environment, as they did in order to exclude all problems that might occur while porting to a newer compiler or kernel.
 
-
 {{{
-$ ln -s defconfig-ar531x-jffs2 .config
+$ ln -s defconfig-ar531x-ramdisk .config
 $ make oldconfig
 $ make clean ARCH=mips CROSS_COMPILE=mips-linux-
 $ make  ARCH=mips CROSS_COMPILE=mips-linux- vmlinux
@@ -181,20 +180,22 @@ mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\
 $ cp vmlinux /tftpboot/image
 }}}
 
-Then I started the network booting on my WGT624:
+
 {{{
 [Boot]: @
 Attached TCP/IP interface to et0.
 Attaching network interface lo0... done.
-Loading... 1265416 + 293776
-Starting at 0x8013a040...
+Loading... 1861632
+Starting at 0x80124040...
+
 
 <4>CPU revision is: 00018009
 <4>Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
 <4>Primary data cache 16kB 4-way, linesize 16 bytes.
-<4>Linux version 2.4.25 (malte@duron) (gcc version 2.96-mips3264-000710) #1 Sun Aug 28 17:09:56 CEST 2005
+<4>Linux version 2.4.25 (malte@duron) (gcc version 2.96-mips3264-000710) #4 Sat Sep 3 18:06:35 CEST 2005
 <4>Determined physical RAM map:
 <4> memory: 01000000 @ 00000000 (usable)
+<4>Initial ramdisk at: 0x80149000 (389120 bytes)
 <4>On node 0 totalpages: 4096
 <4>zone(0): 4096 pages.
 <4>zone(1): 0 pages.
@@ -202,7 +203,7 @@ Starting at 0x8013a040...
 <4>Kernel command line: console=ttyS0,9600
 <4>Using 90.000 MHz high precision timer.
 <4>Calibrating delay loop... 179.40 BogoMIPS
-<6>Memory: 14664k/16384k available (1235k kernel code, 1720k reserved, 80k data, 60k init, 0k highmem)
+<6>Memory: 14368k/16384k available (1149k kernel code, 2016k reserved, 456k data, 64k init, 0k highmem)
 <6>Dentry cache hash table entries: 2048 (order: 2, 16384 bytes)
 <6>Inode cache hash table entries: 1024 (order: 1, 8192 bytes)
 <6>Mount cache hash table entries: 512 (order: 0, 4096 bytes)
@@ -214,23 +215,57 @@ Starting at 0x8013a040...
 <6>Based upon Swansea University Computer Society NET3.039
 <4>Initializing RT netlink socket
 <4>Starting kswapd
-<5>JFFS2 version 2.1. (C) 2001 Red Hat, Inc., designed by Axis Communications AB.
 <6>Serial driver version 5.05c (2001-07-08) with no serial options enabled
 <6>ttyS00 at 0xbc000003 (irq = 37) is a 16550A
 <6>Generic MIPS RTC Driver v1.0
+<4>RAMDISK driver initialized: 16 RAM disks of 3072K size 1024 blocksize
 <5>physmap flash device: 200000 at be000000
 <5> Amd/Fujitsu Extended Query Table v1.1 at 0x0040
 <5>number of CFI chips: 1
 <5>cfi_cmdset_0002: Disabling fast programming due to code brokenness.
-<4>AHB interrupt: PROCADDR=0x01000000  PROC1=0x80000a56  DMAADDR=0x00000000  DMA1=0x00000000
-ar531x rev 0x00005743 firmware startup...
-SDRAM TEST...PASSED
-
-
-Atheros AR5001AP default version 0.0.0.225
+<5>Using physmap partition definition
+<5>Creating 1 MTD partitions on "Physically mapped flash":
+<5>0x000f0000-0x001d0000 : "rootfs"
+<6>NET4: Linux TCP/IP 1.0 for NET4.0
+<6>IP Protocols: ICMP, UDP, TCP, IGMP
+<6>IP: routing cache hash table of 512 buckets, 4Kbytes
+<6>TCP: Hash tables configured (established 1024 bind 2048)
+<6>NET4: Ethernet Bridge 008 for NET4.0
+<5>RAMDISK: Compressed image found at block 0
+<6>Freeing initrd memory: 380k freed
+<4>VFS: Mounted root (ext2 filesystem) readonly.
+<6>Freeing unused kernel memory: 64k freed
+<4>Algorithmics/MIPS FPU Emulator v1.5
+init started:  BusyBox v1.00-pre10 (2004.06.09-17:51+0000) multi-call binary
+Starting pid 10, console /dev/co<6>wlan: 0.7.3.1 BETA
+nsole: '/etc/rc.d/rcS'
+Load MADWiFi wlan module
+Using ../../lib/modules/2.4.25<6>ath_hal: 0.9.9.2
+/net/wlan.o
+Load MADWiFi Atheros HAL module
+Using ../../lib/mo<6>ath_pci: 0.8.5.5 BETA
+<4>macVersion = 4, macRev = 3
+dules/2.4.25/net<4>Setup queue (0) for WME_AC_BK
+<4>Setup queue (1) for WME_AC_BE
+<4>Setup queue (2) for WME_AC_VI
+<4>Setup queue (3) for WME_AC_VO
+<3>ath0: mac 4.3 phy 4.2 5ghz radio 4.6
+<4>ath0: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
+<4>ath0: 11g rates: 1Mbps 2Mbps 5.5Mbps 11Mbps 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+<4>ath0: 802.11 address: 00:09:5b:87:de:ac
+<6>ath0: Atheros 5312 WiSoC: mem=0xb8500000, irq=5
+/ath_hal.o
+Warning: loading ath_hal will taint the kernel: non-GPL license - Proprietary
+  See http://www.tux.org/lkml/#export-tainted for information about tainted modules
+Load MADWiFi Atheros Driver module
+Using ../../lib/modules/2.4.25/net/ath_lbus.o
+Starting pid 19, console /dev/console: '/bin/sh'
+BusyBox v1.00-pre10 (2004.06.09-17:51+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+#
 }}}
 
-As you can see, it's restarting after this AHB interrupt thingie. But at least it is finally booting a linux kernel.
+
 
 == porting to a newer kernel ==
 
@@ -330,93 +365,4 @@ Call Trace:   [<80002794>] [<80125478>] [<8000922c>] [<8009e894>] [<80009cc4>]
 Code: 00409821  3c168017  8ec213c0 <0c0161ae> 8c440014  104000ae  00408021  0c01260c  00402021 
 Kernel panic: Attempted to kill the idle task!
 In idle task - not syncing
-}}}
-
-= Get together =
-
-== first running kernel ==
-I just wanted to retry building the 2.4.25 kernel in order to debug this strange irq-handler problem but this time the kernel booted successfully to busybox, I used the defconfig-ramdisk this time:
-
-{{{
-[Boot]: @
-Attached TCP/IP interface to et0.
-Attaching network interface lo0... done.
-Loading... 1861632
-Starting at 0x80124040...
-
-
-<4>CPU revision is: 00018009
-<4>Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
-<4>Primary data cache 16kB 4-way, linesize 16 bytes.
-<4>Linux version 2.4.25 (malte@duron) (gcc version 2.96-mips3264-000710) #4 Sat Sep 3 18:06:35 CEST 2005
-<4>Determined physical RAM map:
-<4> memory: 01000000 @ 00000000 (usable)
-<4>Initial ramdisk at: 0x80149000 (389120 bytes)
-<4>On node 0 totalpages: 4096
-<4>zone(0): 4096 pages.
-<4>zone(1): 0 pages.
-<4>zone(2): 0 pages.
-<4>Kernel command line: console=ttyS0,9600
-<4>Using 90.000 MHz high precision timer.
-<4>Calibrating delay loop... 179.40 BogoMIPS
-<6>Memory: 14368k/16384k available (1149k kernel code, 2016k reserved, 456k data, 64k init, 0k highmem)
-<6>Dentry cache hash table entries: 2048 (order: 2, 16384 bytes)
-<6>Inode cache hash table entries: 1024 (order: 1, 8192 bytes)
-<6>Mount cache hash table entries: 512 (order: 0, 4096 bytes)
-<6>Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
-<4>Page-cache hash table entries: 4096 (order: 2, 16384 bytes)
-<4>Checking for 'wait' instruction...  available.
-<4>POSIX conformance testing by UNIFIX
-<6>Linux NET4.0 for Linux 2.4
-<6>Based upon Swansea University Computer Society NET3.039
-<4>Initializing RT netlink socket
-<4>Starting kswapd
-<6>Serial driver version 5.05c (2001-07-08) with no serial options enabled
-<6>ttyS00 at 0xbc000003 (irq = 37) is a 16550A
-<6>Generic MIPS RTC Driver v1.0
-<4>RAMDISK driver initialized: 16 RAM disks of 3072K size 1024 blocksize
-<5>physmap flash device: 200000 at be000000
-<5> Amd/Fujitsu Extended Query Table v1.1 at 0x0040
-<5>number of CFI chips: 1
-<5>cfi_cmdset_0002: Disabling fast programming due to code brokenness.
-<5>Using physmap partition definition
-<5>Creating 1 MTD partitions on "Physically mapped flash":
-<5>0x000f0000-0x001d0000 : "rootfs"
-<6>NET4: Linux TCP/IP 1.0 for NET4.0
-<6>IP Protocols: ICMP, UDP, TCP, IGMP
-<6>IP: routing cache hash table of 512 buckets, 4Kbytes
-<6>TCP: Hash tables configured (established 1024 bind 2048)
-<6>NET4: Ethernet Bridge 008 for NET4.0
-<5>RAMDISK: Compressed image found at block 0
-<6>Freeing initrd memory: 380k freed
-<4>VFS: Mounted root (ext2 filesystem) readonly.
-<6>Freeing unused kernel memory: 64k freed
-<4>Algorithmics/MIPS FPU Emulator v1.5
-init started:  BusyBox v1.00-pre10 (2004.06.09-17:51+0000) multi-call binary
-Starting pid 10, console /dev/co<6>wlan: 0.7.3.1 BETA
-nsole: '/etc/rc.d/rcS'
-Load MADWiFi wlan module
-Using ../../lib/modules/2.4.25<6>ath_hal: 0.9.9.2
-/net/wlan.o
-Load MADWiFi Atheros HAL module
-Using ../../lib/mo<6>ath_pci: 0.8.5.5 BETA
-<4>macVersion = 4, macRev = 3
-dules/2.4.25/net<4>Setup queue (0) for WME_AC_BK
-<4>Setup queue (1) for WME_AC_BE
-<4>Setup queue (2) for WME_AC_VI
-<4>Setup queue (3) for WME_AC_VO
-<3>ath0: mac 4.3 phy 4.2 5ghz radio 4.6
-<4>ath0: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
-<4>ath0: 11g rates: 1Mbps 2Mbps 5.5Mbps 11Mbps 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
-<4>ath0: 802.11 address: 00:09:5b:87:de:ac
-<6>ath0: Atheros 5312 WiSoC: mem=0xb8500000, irq=5
-/ath_hal.o
-Warning: loading ath_hal will taint the kernel: non-GPL license - Proprietary
-  See http://www.tux.org/lkml/#export-tainted for information about tainted modules
-Load MADWiFi Atheros Driver module
-Using ../../lib/modules/2.4.25/net/ath_lbus.o
-Starting pid 19, console /dev/console: '/bin/sh'
-BusyBox v1.00-pre10 (2004.06.09-17:51+0000) Built-in shell (msh)
-Enter 'help' for a list of built-in commands.
-#
 }}}
