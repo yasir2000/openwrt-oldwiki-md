@@ -332,9 +332,9 @@ Kernel panic: Attempted to kill the idle task!
 In idle task - not syncing
 }}}
 
-=Get together=
+= Get together =
 
-== first running kernel==
+== first running kernel ==
 I just wanted to retry building the 2.4.25 kernel in order to debug this strange irq-handler problem but this time the kernel booted successfully to busybox, I used the defconfig-ramdisk this time:
 
 {{{
