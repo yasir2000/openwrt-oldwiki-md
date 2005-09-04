@@ -121,7 +121,7 @@ wan_proto=none
 }}}
 
 To separate the LAN from the WIFI:
-(lan as 192.168.1.25/24, wireless as 192.168.2.25/24, wan as dhcp)
+(lan as 192.168.1.25/24, wireless as 192.168.2.25/24, wan as dhcp, remove your wifi interface (eth1 on v2/3 linksys routers) from the lan_ifnames variable)
 {{{
 lan_ifname=vlan0
 lan_proto=static
@@ -135,6 +135,8 @@ wifi_netmask=255.255.255.0
 
 wan_ifname=vlan1
 wan_proto=dhcp
+
+lan_ifnames=vlan0 eth2 eth3
 }}}
 
 Note that the default behaviour is to [http://forum.openwrt.org/viewtopic.php?pid=8410#p8410 use WPA] if your WRT54G is running in AP mode.  If you don't want to use WPA, unset wl0_crypto with:
