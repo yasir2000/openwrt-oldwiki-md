@@ -1,3 +1,6 @@
+[:OpenWrtDocs]
+[[TableOfContents]]
+
 = How do I enable the USB stick on Asus WL-500g / Asus WL500g Deluxe? =
 
 Good idea is to read http://rotz.org/archives/2005/03/wl500g_usb_stic.html
