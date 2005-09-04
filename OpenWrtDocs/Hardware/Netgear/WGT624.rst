@@ -293,7 +293,41 @@ gzip -9 ramdisk
 
 rebuild your kernel and you'll get a vmlinux with a builtin ramdisk with this new busybox.
 
+== MadWifi ==
 
+As I want to export the images via the ath0, I have to get a wlan working, but for now there is a problem with this binary-driver:
+{{{
+BusyBox v1.00 (2005.09.04-01:01+0000) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+/ # ifconfig ath0
+ath0      Link encap:Ethernet  HWaddr 00:09:5B:87:DE:AC  
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:199 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:5 Memory:b8500000-b85ffffc 
+
+/ # ifconfig ath0 up
+<4>ath0: hardware error; resetting
+<4>ath0: hardware error; resetting
+<4>ath0: hardware error; resetting
+...
+}}}
+Fortunatly there is an opensource madwifi driver. Download that driver:
+{{{
+cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/madwifi co madwifi
+cd madwifi
+less README
+export TARGET=mips-be-elf
+export TOOLPREFIX=/tmp/software/openwgt/sde/usr/local/bin/mips-linux-
+make KERNELPATH=/usr/src/mips/mips-linux-2.4.25
+Checking if all requirements are met... FAILED
+Please enable crypto API.
+make: *** [configcheck] Error 1
+}}}
+So we have to recompile the kernel with the crypto API.
 
 == porting to a newer kernel ==
 
