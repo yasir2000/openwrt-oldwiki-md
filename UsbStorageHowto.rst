@@ -367,6 +367,8 @@ exit 0
                              
 }}}
 
+Send questions/bugs on this script to Matt Barclay mbarclay (at) openfbo dot com
+
 Link a single package to root:
 {{{
 ipkg-link add kismet-server
