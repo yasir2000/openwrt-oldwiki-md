@@ -327,7 +327,44 @@ Checking if all requirements are met... FAILED
 Please enable crypto API.
 make: *** [configcheck] Error 1
 }}}
-So we have to recompile the kernel with the crypto API.
+So we have to recompile the kernel with the crypto API. As I don't know which crypto stuff is actually necessary, I include all (except of HMAC, that doesn't compile). I don't care about the size for now. So add this to your .config:
+{{{
+#
+# Cryptographic options
+#
+CONFIG_CRYPTO=y
+#CONFIG_CRYPTO_HMAC=y
+CONFIG_CRYPTO_NULL=y
+CONFIG_CRYPTO_MD4=y
+CONFIG_CRYPTO_MD5=y
+CONFIG_CRYPTO_SHA1=y
+CONFIG_CRYPTO_SHA256=y
+CONFIG_CRYPTO_SHA512=y
+CONFIG_CRYPTO_WP512=y
+CONFIG_CRYPTO_DES=y
+CONFIG_CRYPTO_BLOWFISH=y
+CONFIG_CRYPTO_TWOFISH=y
+CONFIG_CRYPTO_SERPENT=y
+CONFIG_CRYPTO_AES=y
+CONFIG_CRYPTO_CAST5=y
+CONFIG_CRYPTO_CAST6=y
+CONFIG_CRYPTO_TEA=y
+CONFIG_CRYPTO_KHAZAD=y
+CONFIG_CRYPTO_ANUBIS=y
+CONFIG_CRYPTO_ARC4=y
+CONFIG_CRYPTO_DEFLATE=y
+CONFIG_CRYPTO_MICHAEL_MIC=y
+CONFIG_CRYPTO_TEST=y
+}}}
+
+Now the madwifi sources compile fine, you have to copy the needed modules from the source tree to the ramdisk:
+{{{
+ath/ath_pci.o
+ath_hal/ath_hal.o
+ath_rate/onoe/ath_rate_onoe.o
+net80211/{wlan.o,wlan_wep.o,wlan_tkip.o,wlan_ccmp.o,wlan_acl.o,wlan_xauth.o}
+}}}
+You might want to strip these modules with ${TOOLPREFIX}strip -S. I just wanted to copy these files to the ramdisk, but I discovered that there is an ath_lbus and not an ath_pci. Google doesn't know anything about this lbus stuff, but it seems as they use some esoteric bus system. I'm a bit stumped.
 
 == porting to a newer kernel ==
 
