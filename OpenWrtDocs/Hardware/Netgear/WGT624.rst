@@ -321,7 +321,7 @@ cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/madwifi co madwifi
 cd madwifi
 less README
 export TARGET=mips-be-elf
-export TOOLPREFIX=/tmp/software/openwgt/sde/usr/local/bin/mips-linux-
+export TOOLPREFIX=/usr/local/bin/mips-linux-
 make KERNELPATH=/usr/src/mips/mips-linux-2.4.25
 Checking if all requirements are met... FAILED
 Please enable crypto API.
