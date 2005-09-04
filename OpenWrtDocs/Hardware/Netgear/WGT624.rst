@@ -265,6 +265,34 @@ Enter 'help' for a list of built-in commands.
 #
 }}}
 
+== newer busybox ==
+I thought it'd be nice if there were some more apps like dd in order to extract the mtds. It should be possible to get networking running via the built-in atheros-wifi-drivers. That could make it possible to transfer the mtd images to another computer with dd and this ath0.
+
+I wanted to get a openwrt root filesystem for this AP, but OpenWRT doesn't support big endian mipses out of the box, so you have to run a make menuconfig, select all your busybox stuff, and make it static! After you've saved your config, open the .config with an editor and replace all occurences of mipsel with mips, and comment out all the kernel stuff as there isn't yet any kernel support for AR531x yet. It should look like this:
+{{{
+#
+# Kernel Configuration / Device Support
+#
+#BR2_LINUX_2_4=y
+#BR2_LINUX_2_4_BRCM=y
+#BR2_TARGET_WRT54G=y
+#BR2_TARGET_WRT54GS=y
+#BR2_TARGET_MOTOROLA=y
+}}}
+
+Then type 'make' and get a beer.
+
+{{{
+cd mips-linux-2.4.25/arch/mips/ramdisk/
+gunzip ramdisk.gz
+mount -t loop ramdisk /mnt/ramdisk
+cp -R openwrt/build_mips/busybox-1.00/ipkg/busybox/{bin,sbin,usr} /mnt/ramdisk
+umount /mnt/ramdisk
+gzip -9 ramdisk
+}}}
+
+rebuild your kernel and you'll get a vmlinux with a builtin ramdisk with this new busybox.
+
 
 
 == porting to a newer kernel ==
