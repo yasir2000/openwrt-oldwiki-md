@@ -365,6 +365,27 @@ ath_rate/onoe/ath_rate_onoe.o
 net80211/{wlan.o,wlan_wep.o,wlan_tkip.o,wlan_ccmp.o,wlan_acl.o,wlan_xauth.o}
 }}}
 You might want to strip these modules with ${TOOLPREFIX}strip -S. I just wanted to copy these files to the ramdisk, but I discovered that there is an ath_lbus and not an ath_pci. Google doesn't know anything about this lbus stuff, but it seems as they use some esoteric bus system. I'm a bit stumped.
+I tried the pci modules nevertheless, but they don't seem to work:
+{{{
+lsmod
+Module                  Size  Used by    Tainted: P  
+ath_pci                43660   0 (unused)
+wlan_ccmp               4732   0 (unused)
+wlan_tkip               9980   0 (unused)
+wlan_wep                3964   0 (unused)
+wlan_acl                2492   0 (unused)
+wlan_xauth               332   0 (unused)
+ath_rate_onoe           4172   0 [ath_pci]
+ath_hal               185152   0 [ath_pci]
+wlan                   91776   0 [ath_pci wlan_ccmp wlan_tkip wlan_wep wlan_acl wlan_xauth ath_rate_onoe]
+# ifconfig -a
+lo        Link encap:Local Loopback  
+          LOOPBACK  MTU:16436  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+}}}
 
 == porting to a newer kernel ==
 
