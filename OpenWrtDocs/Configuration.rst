@@ -328,11 +328,18 @@ export TZ="CET-1CETDST"
 }}}
 ''note: This sets TimeZome to GMT+1''
 
-If you want to use a TimeClient to Syncronize use rdate
-for that copy the following line at the beginnig after the comment in the /etc/init.d/rcS
+If you want to use a TimeClient to Syncronize, use rdate
+for that. Create a file in /etc/init.d/ called S51rdate, with the contents:
 
 {{{
+#!/bin/sh
 /usr/sbin/rdate 128.138.140.44
+}}}
+
+save it, and then type this at a prompt to make it executable:
+
+{{{
+chmod a+x /etc/init.d/S51rdate
 }}}
 
 Putting a TimeZone entry for the Systemlogger could also be an good idea
