@@ -20,6 +20,9 @@ A USB based data cable for a mobile cell phone is another possibility.
 
 http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
+   note: For the serial console with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
+
+
 === Adding Dual Serial Ports ===
 
 '''Background''' 
