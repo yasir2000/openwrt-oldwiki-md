@@ -20,7 +20,7 @@ At the moment we have no stable supported release. You can get release candidate
 The stable source code can be found in the above directory or from our CVS repository. This is not recommended for beginners; we will not troubleshoot failed compiles.
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt co -rwhiterussian openwrt
+cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co -r whiterussian openwrt
 }}}
 
 '''Development'''
@@ -28,7 +28,7 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt co -rwhiterussian openwrt
 Development take place in CVS. You get the source via:
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt co openwrt
+cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
 }}}
 
 If you find any bugs, please use our forum or irc channel to report.
