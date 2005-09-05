@@ -8,6 +8,23 @@ If you have internet access from the WRT, it's a good moment to install the wl p
 
 {{{ipkg install http://nthill.free.fr/openwrt/ipkg/stable/20041003/wl_0.1-2_mipsel.ipk}}}
 
+The first step is breaking down the default bridge between the wifi interface and the LAN ports. Note that we're using the wan_ifname to refer to the wireless connection; this will save you from having to rewrite the firewall:
+
+{{{
+nvram set lan_ifname=vlan0		#  "vlan2" on hardware version 1.x
+nvram set wan_ifname=eth1		#  "eth2" on hardware version 1.x
+}}}
+
+This is the main command. It changes the WRT's behavior from AP to client, or station ("sta" for short):
+
+{{{
+nvram set wl0_mode=sta
+}}}
+
+Then configure the interaces normally. For example, assuming the wifi interface uses DHCP and the LAN interface has the static IP address 192.168.1.1:
+
+{{{
+nvram set lan_proto=static
 nvram set lan_ipaddr=192.168.1.1
 nvram set wan_proto=dhcp
 }}}
@@ -52,7 +69,7 @@ You can tell WRT to join the same SSID each time it boots by setting wl0_ssid:
 nvram set wl0_ssid=MyNetwork
 }}}
 
-To use WEP, set the variables wl0_wep and wl0_key1 (in hex, A-F UPPERCASE!)
+To use WEP, set the variables wl0_wep and wl0_key1 (in hex)
 
 {{{
 nvram set wl0_wep=enabled
@@ -100,7 +117,7 @@ nvram commit
 reboot
 }}}
 
-The command wl manages the radio, and it's pretty powerful. Among many options (see them here: http://wifi-portal.elevate.nl/docs/wl.txt.). There are some  particularly interesting:
+The command wl manages the radio, and it's pretty powerful. Among many options (see them here: http://wifi-portal.elevate.nl/docs/wl.txt.). There are some  particulary interesting:
 
 {{{
 wl txpwr
@@ -118,9 +135,9 @@ wl status
 : prints the current ssid, signal quality, channel... etc.
 
 {{{
-wl disassoc
+wl dissasoc
 }}}
-: disassociates from the current ssid
+: dissasociates from the current ssid
 
 {{{
 wl rate
