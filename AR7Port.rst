@@ -5,12 +5,13 @@
 
 [http://focus.ti.com/pdfs/bcg/ar7wi_fact_sheet.pdf AR7]  is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including
  * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
+ * [http://www.aztech.com/DSL-600EW.htm Aztech DSL 600EW] (has USB)
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
  * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-G664T)
  * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
  * Linksys [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]
  * Linksys WRTP54G
- * Netcomm NB5
+ * Netcomm NB5 (Aztech DSL600EW)
  * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
  * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
  * Sitecom [http://www.trasduzione.com/WL-108 WL-108]
