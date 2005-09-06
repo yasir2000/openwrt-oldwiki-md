@@ -63,3 +63,162 @@ Make sure you have the following two lines in your /etc/sysctl.conf
 net.bridge.bridge-nf-call-iptables=0
 net.bridge.bridge-nf-filter-vlan-tagged=0
 }}}
+
+=== Firewall Scripts ===
+
+First, the layer2 firewall:
+
+{{{
+#!/bin/ash
+#
+# This file is /etc/init.d/S44L2firewall
+
+IFCONFIG=/sbin/ifconfig
+BRCTL=/usr/sbin/brctl
+EBTABLES=/usr/sbin/ebtables
+
+LAN_IF=$(nvram get lan_ifname)
+LAN_IP=$(nvram get lan_ipaddr)
+LAN_MASK=$(nvram get lan_netmask)
+LAN_MAC=$($IFCONFIG $LAN_IF | \
+  /bin/grep "HWaddr" | \
+  /bin/sed 's/.*HWaddr \(.*\)/\1/g')
+LAN_GW=$(nvram get lan_gateway)
+
+WAN_IF=$(nvram get wan_ifname)
+WAN_MAC=$($IFCONFIG $WAN_IF | \
+  /bin/grep "HWaddr" | \
+  /bin/sed 's/.*HWaddr \(.*\)/\1/g')
+
+BR_IF=br0
+BR_STP=off
+
+
+
+# ===================================================
+# ORDER IS CRITICAL IN BRIDGE SETUP, DONT MUCK IT UP!
+# ===================================================
+
+$IFCONFIG $BR_IF > /dev/null 2> /dev/null
+if [ $? != 0 ]; then
+  echo "Creating bridge interface:"
+  echo "  Creating bridge..."
+  $BRCTL addbr $BR_IF
+  $BRCTL stp $BR_IF $BR_STP
+
+  echo "  Adding LAN interface..."
+  $IFCONFIG $LAN_IF inet 0.0.0.0
+  $BRCTL addif $BR_IF $LAN_IF
+
+  echo "  Adding WAN interface..."
+  $IFCONFIG $WAN_IF inet 0.0.0.0
+  $BRCTL addif $BR_IF $WAN_IF
+
+  echo "  Configuring Bridge interface..."
+  $IFCONFIG $BR_IF inet 0.0.0.0 up
+
+  echo "  Configuring LAN interface..."
+  $IFCONFIG $LAN_IF inet $LAN_IP netmask 255.255.255.255
+
+  echo "  Configuring WAN interface..."
+  $IFCONFIG $WAN_IF inet $LAN_IP netmask $LAN_MASK
+
+  echo "  Adding default route..."
+  /sbin/route add default gw $LAN_GW dev $WAN_IF
+
+else
+  echo "Bridge already configured."
+fi
+
+echo "Configuring bridge firewall..."
+## CLEAR TABLES
+for T in filter nat broute; do
+  $EBTABLES -t $T -F
+  $EBTABLES -t $T -X
+done
+
+# force ARP requests/replies and IP traffic to be routed on layer3
+$EBTABLES -t broute -A BROUTING -p 0x0806 -j DROP
+
+# Block IP traffic sourced outside the LAN subnet
+$EBTABLES -t filter -A FORWARD -i $WAN_IF \
+  -p 0x0800 --ip-src ! $LAN_IP/$LAN_MASK -j DROP
+
+# force all outgoing packets to have router's MAC address
+$EBTABLES -t nat -A POSTROUTING -o $WAN_IF -j snat --to-source $WAN_MAC
+
+
+}}}
+
+Next, the layer3 firewall:
+
+{{{
+#!/bin/sh
+
+# When booting into failsafe mode, dont startup firewall?
+${FAILSAFE:+exit}
+echo "Configuring layer3 firewall..."
+
+IFCONFIG=/sbin/ifconfig
+BRCTL=/usr/sbin/brctl
+IPTABLES=/usr/sbin/iptables
+
+LAN_IF=$(nvram get lan_ifname)
+LAN_IP=$(nvram get lan_ipaddr)
+LAN_MASK=$(nvram get lan_netmask)
+
+WAN_IF=$(nvram get wan_ifname)
+
+BR_IF=br0
+BR_STP=off
+
+
+## CLEAR TABLES
+for T in filter nat mangle; do
+  iptables -t $T -F
+  iptables -t $T -X
+done
+
+### INPUT
+### (connections with the router as destination)
+  echo "  Configuring INPUT chain..."
+
+  # allow IP packets from the LAN
+  iptables -A INPUT -s $LAN_IP/$LAN_MASK -j ACCEPT
+
+  # base case
+  iptables -A INPUT -m state --state INVALID -j DROP
+  iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+  # Deny the rest
+  iptables -A INPUT -j DROP
+
+
+### OUTPUT
+### (connections with the router as source)
+  echo "  Configuring OUTPUT chain..."
+
+
+### OUTPUT
+### (connections with the router as source)
+  echo "  Configuring OUTPUT chain..."
+
+
+### FORWARDING
+### (connections routed through the router)
+  echo "  Configuring FORWARDING chain..."
+
+  # allow IP packets from the LAN to the LAN
+  iptables -A FORWARD -s $LAN_IP/$LAN_MASK -d $LAN_IP/$LAN_MASK -j ACCEPT
+
+  # base case
+  iptables -A FORWARD -m state --state INVALID -j DROP
+  iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pm
+  iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+  # allow
+  iptables -A FORWARD -i ! $WAN_IF -o $WAN_IF -j ACCEPT
+
+  # Deny the rest
+  iptables -A FORWARD -j DROP
+}}}
