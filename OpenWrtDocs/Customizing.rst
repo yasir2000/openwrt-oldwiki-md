@@ -366,6 +366,11 @@ while sleep $DELAY; do
     fi
 done
 }}}
+
+==== Transparent Firewall ====
+See [:TransparentFirewall]
+
+
 = Firmware =
 == Overclocking ==
 ''Overclocking the WRT has been a very sought-after mod. Many people overclock their home PCs, and now I will tell you how to overclock your OpenWrt router. Please read the "troubleshooting" section at the bottom of this document, it contains important information on things you should do before trying to overclock.''
