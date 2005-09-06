@@ -26,7 +26,7 @@ my_ipaddress    10.8.8.8
 NOTE: some devices comes with disabled telnet, you can't use this method with them
 NOTE: OpenWRT port's kernel contains no /proc/ticfg/env handler, thus you can't look up ADAM2 IP with OpenWRT already flashed in
 
-== by serial console ==
+=== by serial console ===
 
 Another method is using serial console and ADAM2 itself to find out it's IP
 
