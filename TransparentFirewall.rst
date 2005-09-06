@@ -10,7 +10,8 @@ Why are the servers different?
  * Because the cheap NAT routers block all incoming traffic that is not in the NAT table.  The servers need to have certain ports open for file sharing, printing, etc.  But I only want those services available to our local subnet.  The cheap NAT routers do not have the ability to port forward packets from the local subnet only.
  * The University's 'ISP' restricts each ethernet port to a single MAC address, very much the same way a wireless AP restricts each associated client to a single MAC address.  This means that not only do I need a transparent firewall, but I need IP layer bridging and MAC layer NAT.  
 
-== Network Topology == 
+
+== Network Topology ==
 
 == Kernel Patching ==
 
