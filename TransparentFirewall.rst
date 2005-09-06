@@ -226,6 +226,16 @@ done
 }}}
 
 
+== Will this work as a wireless bridge? ==
+
+That is a good question.  I have not tried it, but in theory it should work.  I would start off by reading the ClientModeHowto.  Get your WRT connected to your wireless AP, verify that it fully works.  Then follow this document, changing the following nvram variables above:
+
+{{{
+wan_ifname=eth1
+}}}
+
+If someone gets this working over wireless, fill in here and let us know...
+
 == DISCLAIMER ==
 
 As always, you need to test test test.  I am new to Linux, so dont count on my scripts to be perfect.  I'm just trying to save someone else some time, and to help demonstrate how robust OpenWRT can be.
