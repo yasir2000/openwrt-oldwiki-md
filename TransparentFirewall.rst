@@ -1,4 +1,4 @@
-HowTo setup a transparent firewall (or possibly, a wireless bridge)
+Howto setup a transparent firewall (or possibly, a wireless bridge)
 
 ''' WARNING: You should be familiar with booting Failsafe mode on your router when using this document.  The firewall rules can be tricky, and you can easily lock yourself out.'''
 
