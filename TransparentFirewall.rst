@@ -1,5 +1,8 @@
 How to setup a transparent firewall (or possibly, a wireless bridge)
 
+''' WARNING: You should be familiar with booting Failsafe mode on your router when using this document.  The firewall rules can be tricky, and you can easily lock yourself out.'''
+
+
 == Background ==
 
 I work at a university where every computer is connected to the internet with a public IP address.  This leaves all computers open to direct attack by hackers/worms on the internet.  I have used cheap NAT routers to protect most computers, but I need something a bit smarter to protect my servers.
@@ -13,7 +16,7 @@ Why are the servers different?
 
 == Network Topology ==
 
-<IMG SRC="http://support.mprg.org/files/topology.jpg">
+[http://support.mprg.org/openwrt/topology.jpg]
 
 == Kernel Patching ==
 
