@@ -20,6 +20,17 @@ Why are the servers different?
 
 == Kernel Patching ==
 
+ebtables has been removed from the openWRT kernel for performanc reasons, so you will need to build a custom firmware with ebtables in the kernel.
+
+ * Visit [http://wiki.openwrt.org/OpenWrtDocs/Installing] to download the openWRT source code.
+ * Click [http://support.mprg.org/openwrt/100-ebtables.patch.txt] to download the patch.
+ * Save the patch into openwrt/target/linux/linux-2.4/patches/
+ * Run 'make menuconfig'
+ * Be sure to include bridging and ebtables in package selection and kernel configuration.
+ * Run 'make'
+
+Please see other documentation on building a custom openWRT firmware if you are unfamiliar with the process.
+
 == Setup ==
 
 == References ==
