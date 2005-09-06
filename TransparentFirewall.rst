@@ -20,7 +20,7 @@ Why are the servers different?
 
 == Kernel Patching ==
 
-ebtables has been removed from the openWRT kernel for performanc reasons, so you will need to build a custom firmware with ebtables in the kernel.
+ebtables has been removed from the openWRT kernel for performance reasons, so you will need to build a custom firmware with ebtables in the kernel.
 
  * Visit [http://wiki.openwrt.org/OpenWrtDocs/Installing] to download the openWRT source code.
  * Click [http://support.mprg.org/openwrt/100-ebtables.patch.txt] to download the patch.
@@ -72,6 +72,8 @@ First, the layer2 firewall:
 #!/bin/ash
 #
 # This file is /etc/init.d/S44L2firewall
+
+${FAILSAFE:+exit}
 
 IFCONFIG=/sbin/ifconfig
 BRCTL=/usr/sbin/brctl
@@ -155,8 +157,8 @@ Next, the layer3 firewall:
 {{{
 #!/bin/sh
 
-# When booting into failsafe mode, dont startup firewall?
 ${FAILSAFE:+exit}
+
 echo "Configuring layer3 firewall..."
 
 IFCONFIG=/sbin/ifconfig
@@ -222,3 +224,8 @@ done
   # Deny the rest
   iptables -A FORWARD -j DROP
 }}}
+
+
+== DISCLAIMER ==
+
+As always, you need to test test test.  I am new to Linux, so dont count on my scripts to be perfect.  I'm just trying to save someone else some time, and to help demonstrate how robust OpenWRT can be.
