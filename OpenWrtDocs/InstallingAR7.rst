@@ -9,6 +9,7 @@
 
 ||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''ADAM2 IP'''||'''Code Pattern'''||
 ||ALLNet||ALL130DSL|| || || || ||
+||D-Link||DSL-G500T/G504T|| ||ftp||10.8.8.8|| ||
 ||D-Link||DSL-G604T/G664T|| ||ftp||5.8.8.8|| ||
 ||Linksys||WAG54G||V2-AU||ftp|| ||WAG2||
 ||Linksys||WAG54G||V2-DE||tftp|| ||WA22||
