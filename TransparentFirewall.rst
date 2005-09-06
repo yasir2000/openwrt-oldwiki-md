@@ -33,6 +33,8 @@ Please see other documentation on building a custom openWRT firmware if you are 
 
 == Setup ==
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 === Package Installation ===
 
 Be sure the following packages are installed: ebtables, ip, parprouted
@@ -53,3 +55,29 @@ wan_proto=static
 wan_ifname=vlan1
 wl0_radio=0
 }}}
+
+---- /!\ '''Edit conflict - your version:''' ----
+=== Package Installation ===
+
+Be sure the following packages are installed: ebtables, ip, parprouted
+
+=== NVRAM Variables ===
+
+The following nvram variables need to be set.  The variables set to '[set]' need to be set to your environment.
+
+{{{
+lan_gateway=[set]
+lan_netmask=[set]
+lan_ifnames=vlan0
+lan_dns=[set1],[set2],...
+lan_proto=static
+lan_ipaddr=[set]
+lan_ifname=vlan0
+wan_proto=static
+wan_ifname=vlan1
+wl0_radio=0
+}}}
+
+== References ==
+
+---- /!\ '''End of edit conflict''' ----
