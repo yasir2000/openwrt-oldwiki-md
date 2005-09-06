@@ -13,6 +13,8 @@ Why are the servers different?
 
 == Network Topology ==
 
+<IMG SRC="http://support.mprg.org/files/topology.jpg">
+
 == Kernel Patching ==
 
 == Setup ==
