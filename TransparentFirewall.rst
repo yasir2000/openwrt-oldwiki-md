@@ -55,4 +55,11 @@ wan_ifname=vlan1
 wl0_radio=0
 }}}
 
-== References ==
+=== System Variables ===
+
+Make sure you have the following two lines in your /etc/sysctl.conf
+
+{{{
+net.bridge.bridge-nf-call-iptables=0
+net.bridge.bridge-nf-filter-vlan-tagged=0
+}}}
