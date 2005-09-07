@@ -7,13 +7,28 @@ The contents of this section of the wiki can have serious consequences. While ev
 
 Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
 
+=== Finding Serial Console ===
+
+(stealed from the [:AR7Port:AR7Port] page) The method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection. 
+
+Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything. 
+
+A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;) 
+
+Unfortunately, BCM4702KPB SoC shares some UART pins with Ethernet0 port, so UART is disabled via GPIO. You have to use external NS16c550-compatible UART for devices based on this chip (i.e. [:WAP54GHowto:WAP54Gv1] or Asus [:OpenWrtDocs/Hardware/Asus/WL300G:WL-300G]). There is the large 20-pin jumper block connected to the CPU I/O data lines, which can be connected to an external UART.
+
+ASUS WL-500b/g: http://wl500g.info/showthread.php?t=587&page=1&pp=15
+
 === Home-made RS-232 kit ===
+
+'''Background''' 
+
+Most OpenWrt compatible devices have one or two serial ports on the router's pcb (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 http://jdc.parodius.com/wrt54g/serial.html
 
 http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
-ASUS WL-500b/g http://wl500g.info/showthread.php?t=587&page=1&pp=15
 === USB Kit ===
 
 A USB based data cable for a mobile cell phone is another possibility.
@@ -25,13 +40,13 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 === Adding Dual Serial Ports ===
 
-'''Background''' 
-
-Most OpenWrt compatible devices have one or two serial ports on the router's pcb (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
-
 http://www.rwhitby.net/wrt54gs/serial.html
 
 === Terminal software ===
+
+Hyperterm
+
+Minicom
 
 == Adding an MMC/SD Card ==
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk:27 kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
@@ -203,6 +218,8 @@ http://www.nslu2-linux.org/wiki/HowTo/SlugAsAudioPlayer
 === USB Webcam ===
 
 Check out this page: http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
+
+Asus [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500G-Deluxe] has a Webcam support and Motion Detection software in the default firmware.
 
 If you have a Philips-based cam (Philips and many Logitechs, also others) and a USB port, you can try the following (tested by me on an ASUS WL500GX):
    1. Grab the "Tom" package from here: http://wl500g.info/showpost.php?p=8610&postcount=17 (and be sure to read through some of the posts) and install it, then erase the /lib/modules/2.4.20/pwc.o file
