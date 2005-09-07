@@ -76,11 +76,11 @@ As you can see there is only a small window available in which to initiate the f
 
 Depending on which router you have will depend on what method you can use to flash it with. Please refer to the table in section 1 for the available methods to use with your router.
 
-The methods below can also be use the flash the official firmware back on to the router if required.
+The methods below can also be used to flash the official firmware back on to the router if required.
 
 === Flashing via ftp method ===
 
-Firstly you will need to obtain the appropriate version of OpenWrt for your router. In this case you will need to obtain two files, the kernel image, and the rootfs image. You have a choice of using squashfs or jffs2 for the rootfs.
+First you will need to obtain the appropriate version of OpenWrt for your router. In this case you will need to obtain two files, the kernel image, and the rootfs image. You have a choice of using squashfs or jffs2 for the rootfs.
 
 The basic procedure of using a ftp client to upload a new firmware to your router is as follows:
 
