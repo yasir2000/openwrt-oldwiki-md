@@ -396,10 +396,10 @@ nvram set ppp_passwd=your_isp_password
 nvram commit
 }}}
 and reboot.
+''
+Use ifconfig (device ppp0) or ping to determine the link is up. If there is no link enable '''debug''' in ''/etc/ppp/options'' and use '''logread''' to check the error messages.
 
-Use ifconfig (device ppp0) or ping to determine the link is up. If there is no link enable ""debug"" in "/etc/ppp/options" and use ""logread"" to check the error messages.
-
-If you have services (vpn, ntpd) that should be started after the link is up, put the start-scripts in "/etc/ppp/ip-up" (don't forget to chmod +x).
+If you have services (vpn, ntpd) that should be started after the link is up, put the start-scripts in ''/etc/ppp/ip-up'' (don't forget to chmod +x).
 For example:
 {{{
 #!/bin/sh
@@ -409,7 +409,7 @@ sh /etc/init.d/S55ntpd start
 }}}
 
 === Access to syslog ===
-If you want to read the syslog messages, use the ""logread"" tool.
+If you want to read the syslog messages, use the '''logread''' tool.
 
 == Applications ==
 
