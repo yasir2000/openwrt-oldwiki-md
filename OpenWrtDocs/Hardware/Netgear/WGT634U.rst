@@ -30,6 +30,30 @@ TODO:
  * wireless driver [partially]
  * usb driver
 
+== Serial console ==
+
+Default parameters for the serial console are: 115200, N, 8, 1
+
+[[BR]]You need a MAX3232 chip to get the console working.
+
+{{{
+------------------------------------------
+| |     |    LAN-Ports   |          |    |
+|       ------------------               |
+|                                        |
+|                                        |
+|                                VCC .   |
+|                                TX  .   |
+|                                RX  .   |
+|                                GND .   |
+|                                    J7  |
+|                           FLASH        |
+|                                        |
+------------------------------------------
+   |    |     |     |     |     |     |
+
+}}}
+
 == Other projects and information ==
 
 More info in the forum: --> http://openwrt.org/forum/viewtopic.php?id=33
