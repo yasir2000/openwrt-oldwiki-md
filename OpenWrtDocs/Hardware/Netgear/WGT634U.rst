@@ -13,14 +13,14 @@ You will find snapshots here: http://downloads.openwrt.org/people/wbx/netgear/
 Use one of the bin files.
 
 TODO:
- - integration of kernel 2.6 to buildsystem [done]
- - integration of kernel drivers, thx jolt [done]
- - LZMA Loader [done]
- - new Flash Map driver [partially] 
- - network driver
- - vlan configuration
- - wireless driver
- - usb driver
+  integration of kernel 2.6 to buildsystem [done]
+  integration of kernel drivers, thx jolt [done]
+  LZMA Loader [done]
+  new Flash Map driver [partially] 
+  network driver
+  vlan configuration
+  wireless driver
+  usb driver
 
 == Other projects and information ==
 
