@@ -14,7 +14,7 @@ If you compile on your own, please only use squashfs images. You can flash via t
 
 ifconfig eth0 -addr=10.23.23.2 -mask=255.255.255.0; flash -noheader 10.23.23.29:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
-ATTENTION: CVS jffs2 builds will brick your router (it will erase the NVRAM settings needed by CFE)
+/!\ '''ATTENTION: CVS jffs2 builds will brick your router (it will erase the NVRAM settings needed by CFE)'''
 
 Use one of the bin files.
 
