@@ -10,7 +10,8 @@ a serial connection.
 
 You will find snapshots here (may be next week): http://downloads.openwrt.org/people/wbx/netgear/
 
-If you compile on your own, please only use squashfs images. You can flash via tftp, you need to run a tftp server:<br>
+If you compile on your own, please only use squashfs images. You can flash via tftp, you need to run a tftp server:
+
 ifconfig eth0 -addr=10.23.23.2 -mask=255.255.255.0; flash -noheader 10.23.23.29:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
 ATTENTION: CVS jffs2 builds will brick your router (it will erase the NVRAM settings needed by CFE)
@@ -18,16 +19,16 @@ ATTENTION: CVS jffs2 builds will brick your router (it will erase the NVRAM sett
 Use one of the bin files.
 
 
-TODO:<br>
-  integration of kernel 2.6 to buildsystem [done]<br>
-  integration of kernel drivers, thx jolt [done]<br>
-  LZMA Loader [done]<br>
-  new Flash Map driver [partially]<br> 
-  network driver [done]<br>
-  OpenWrt startup scripts [not working, need to be fixed]<br>
-  vlan configuration<br>
-  wireless driver [partially]<br>
-  usb driver<br>
+TODO:
+ * integration of kernel 2.6 to buildsystem [done]
+ * integration of kernel drivers, thx jolt [done]
+ * LZMA Loader [done]
+ * new Flash Map driver [partially]
+ * network driver [done]
+ * OpenWrt startup scripts [not working, need to be fixed]
+ * vlan configuration
+ * wireless driver [partially]
+ * usb driver
 
 == Other projects and information ==
 
