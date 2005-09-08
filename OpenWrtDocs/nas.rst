@@ -103,9 +103,10 @@ Usage: nas [options]
         -i    Wireless interface name
         -k    WPA share-key
         -m    2 - WPA
+              4 - PSK
+              32 - 802.1X
               64 - WPA2
               66 - WPA WPA2
-              4 - PSK
               128 - PSK2
               132 - PSK PSK2             
         -g    WPA GTK rotation interval
@@ -113,7 +114,8 @@ Usage: nas [options]
         -r    RADIUS secret
         -p    RADIUS server authentication UDP port
         -s    SSID
-        -w    2 - TKIP
+        -w    1 - WEP
+              2 - TKIP
               4 - AES
               6 - AES+TKIP
         -P    nas pid file
