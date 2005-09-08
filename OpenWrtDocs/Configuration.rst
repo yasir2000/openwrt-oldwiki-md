@@ -407,6 +407,10 @@ For example:
 sh /etc/init.d/S55ntpd start
 /usr/sbin/openvpn /etc/openvpn.conf
 }}}
+
+=== Access to syslog ===
+If you want to read the syslog messages, use the ""logread"" tool.
+
 == Applications ==
 
 === httpd ===
