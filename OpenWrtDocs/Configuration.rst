@@ -202,6 +202,7 @@ vlan2hwname=et0
 || wl0_ssid  || ESSID ||
 || wl0_infra || '''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
 || wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
+|| wl0_channel || 1 / 2 / 3 /.../ 11 vhannel ||
 
 See OpenWrtNVRAM for more NVRAM settings.
 
