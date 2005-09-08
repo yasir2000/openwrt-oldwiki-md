@@ -36,6 +36,8 @@ Default parameters for the serial console are: 115200, N, 8, 1
 
 [[BR]]You need a MAX3232 chip to get the console working.
 
+[[BR]]J6 (left from J7) looks like a second serial port, but has no header on it.
+
 {{{
 ------------------------------------------
 | |     |    LAN-Ports   |          |    |
@@ -51,7 +53,6 @@ Default parameters for the serial console are: 115200, N, 8, 1
 |                                        |
 ------------------------------------------
    |    |     |     |     |     |     |
-
 }}}
 
 == Other projects and information ==
