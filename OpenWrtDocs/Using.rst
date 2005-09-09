@@ -34,7 +34,7 @@ Telnet is an insecure protocol with no encryption, we try to make a point of thi
 The problem is caused when the jffs2 partition (see below) is detected but unusable, either the result of previous OpenWrt installation or occasionally just caused by a brand new router. Simply boot into [:OpenWrtDocs/Troubleshooting: failsafe mode] and run firstboot to reformat the jffs2 partition.
 
 '''What if I can not access telnet when first booting?'''
-This may very well be a problem with your firewall settings in linux or windows. If you have any firewalls, disable them. In linux, you can flush iptables firewall settings by using the following series of commands:
+This may very well be a problem with your firewall settings in linux or windows. If you have any firewalls, disable them. *WARNING* Do this only if you know what you are doing and can restore your iptables rules effortlessly. In linux, you can flush iptables firewall settings by issuing the following series of commands:
 
 {{{
 iptables -F
