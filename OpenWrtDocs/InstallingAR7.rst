@@ -57,7 +57,7 @@ OpenWrt is an unofficial firmware which is neither endorsed or supported by the 
 
 To avoid potentially serious damage to your router caused by an unbootable firmware you should read the documentation for your specific router model.
 
-/!\ '''We strongly suggest you also read [:OpenWrtDocs/TroubleshootingAR7] before installing (To be written)'''
+/!\ '''We strongly suggest you also read [:OpenWrtDocs/TroubleshootingAR7] before installing'''
 
 /!\ '''The jffs2 versions of OpenWrt may take several minutes for the first bootup and will require a reboot before being usable'''
 
@@ -260,4 +260,4 @@ Please see [:OpenWrtDocs/Using]
 
 = Troubleshooting =
 
-If you have any trouble flashing to OpenWrt please refer to [:OpenWrtDocs/TroubleshootingAR7] (To be written)
+If you have any trouble flashing to OpenWrt please refer to [:OpenWrtDocs/TroubleshootingAR7]
