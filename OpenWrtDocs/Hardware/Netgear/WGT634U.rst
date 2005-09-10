@@ -23,8 +23,8 @@ TODO:
  * new Flash Map driver [done]
  * network driver [done]
  * OpenWrt startup scripts [done]
- * vlan configuration [need to be tested]
- * wireless driver [need to be tested, kernel oops]
+ * vlan configuration [need to be tested, robocfg fails]
+ * wireless driver [need to be tested, kernel oops if iwconfig is used]
  * usb driver [need to be tested]
  * led driver [partially]
 
