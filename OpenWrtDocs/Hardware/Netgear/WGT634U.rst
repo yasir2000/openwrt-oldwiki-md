@@ -25,7 +25,7 @@ TODO:
  * vlan configuration [need to be tested, robocfg fails]
  * wireless driver [need to be tested, kernel oops if iwconfig is used]
  * usb driver [need to be tested]
- * led driver [partially]
+ * led driver [need to be ported to 2.6]
  * update with mtd [works]
  * installation via webupgrade from original firmware [need to be tested]
 
