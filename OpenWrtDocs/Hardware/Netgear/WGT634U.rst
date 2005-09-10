@@ -24,7 +24,7 @@ TODO:
  * network driver [done]
  * OpenWrt startup scripts [done]
  * vlan configuration [need to be tested]
- * wireless driver [need to be tested]
+ * wireless driver [need to be tested, kernel oops]
  * usb driver [need to be tested]
  * led driver [partially]
 
