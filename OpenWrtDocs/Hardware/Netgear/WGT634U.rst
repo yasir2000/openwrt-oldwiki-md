@@ -26,7 +26,7 @@ TODO:
  * wireless driver [need to be tested, kernel oops if iwconfig is used]
  * usb driver [need to be tested]
  * led driver [partially]
- * update with mtd [need to be tested]
+ * update with mtd [works]
  * installation via webupgrade from original firmware [need to be tested]
 
 == Serial console ==
