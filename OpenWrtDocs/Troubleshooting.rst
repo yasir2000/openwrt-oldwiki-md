@@ -117,8 +117,6 @@ http://downloads.openwrt.org/inh/reference/JTAGschem.png
 ''Use the pin numbers on the parallel port connector, and the pin numbers on the WRT pcb, as they are all correct.
 Note: Pin 12 is assumed to be grounded.  If it is not grounded on your WRT, you may safely connect the wire indicated on Pin 12 to any grounded even-numbered pin on the WRT's JTAG connector.''
 
-It seems to me though that the GS variant has a different location of the flash. The size certainly differs ;-) you have to modify the source to this respect, or you have to wait till I have found out where this damn flash resides. I'll tell you as soon as i know more. Details for JTAG debricking a WRT54GS v1.0 have been put up here: [http://mark.alphadimensions.net/wrt54gsdebrick/ "Debricking a WRT54GS v1.0 using JTAG after nvram problems prevent booting"] .
-
 ''Oh, and by the way, this cable is a good thing to have anyway, because many embedded devices feature that JTAG-interface e.g. HP's IPAQ has one as well, so if you dare to open it, you can do lots of [http://openwince.sourceforge.net/jtag/iPAQ-3600/ "funky things with your IPAQ"]''
 
 Since the JTAG adaptor gives you full access to your Flash, I wonder if that nasty thing about shorting pins shouldn't be removed altogether.
