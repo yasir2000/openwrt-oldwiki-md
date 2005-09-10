@@ -32,6 +32,8 @@ TODO:
 == Restoring original firmware ==
 
 You can use http://downloads.openwrt.org/people/wbx/netgear/orig images:
+
+{{{
 CFE> setenv -p kernel_args "console=ttyS1,115200 root=/dev/ram0 init=linuxrc rw syst_size=8M"
 *** command status = 0
 CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0;
@@ -51,6 +53,7 @@ Reading 192.168.1.2:ng3.img: Done. 3014656 bytes read
 Programming...done. 3014656 bytes written
 *** command status = 0
 CFE>reset
+}}}
 
 == Serial console ==
 
