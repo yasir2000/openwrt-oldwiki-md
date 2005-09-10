@@ -29,6 +29,29 @@ TODO:
  * update with mtd [works]
  * installation via webupgrade from original firmware [need to be tested]
 
+== Restoring original firmware ==
+
+You can use http://downloads.openwrt.org/people/wbx/netgear/orig images:
+CFE> setenv -p kernel_args "console=ttyS1,115200 root=/dev/ram0 init=linuxrc rw syst_size=8M"
+*** command status = 0
+CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0;
+Device eth0:  hwaddr 00-0F-B5-0E-49-D6, ipaddr 192.168.1.1, mask 255.255.255.0
+        gateway not set, nameserver not set
+*** command status = 0
+CFE> flash -noheader 192.168.1.2:ng1.img flash0.os
+Reading 192.168.1.2:ng1.img: Done. 3932160 bytes read
+Programming...done. 3932160 bytes written
+*** command status = 0
+CFE> flash -noheader -offset=3932160 192.168.1.2:ng2.img flash0.os
+Reading 192.168.1.2:ng2.img: Done. 1109728 bytes read
+Programming...done. 1109728 bytes written
+*** command status = 0
+CFE> flash -noheader -offset=4718592 192.168.1.2:ng3.img flash0.os
+Reading 192.168.1.2:ng3.img: Done. 3014656 bytes read
+Programming...done. 3014656 bytes written
+*** command status = 0
+CFE>reset
+
 == Serial console ==
 
 Default parameters for the serial console are: 115200, N, 8, 1
