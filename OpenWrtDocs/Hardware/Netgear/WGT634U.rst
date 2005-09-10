@@ -25,10 +25,11 @@ TODO:
  * LZMA Loader [done]
  * new Flash Map driver [partially]
  * network driver [done]
- * OpenWrt startup scripts [not working, need to be fixed]
+ * OpenWrt startup scripts [partially]
  * vlan configuration
  * wireless driver [partially]
- * usb driver
+ * usb driver [need to be tested]
+ * led driver [partially]
 
 == Serial console ==
 
