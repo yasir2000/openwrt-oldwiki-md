@@ -14,20 +14,17 @@ If you compile on your own, please only use squashfs images. You can flash via t
 
 ifconfig eth0 -addr=10.23.23.2 -mask=255.255.255.0; flash -noheader 10.23.23.29:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
-/!\ '''ATTENTION: CVS jffs2 builds will brick your router (it will erase the NVRAM settings needed by CFE)'''
-
 Use one of the bin files.
-
 
 TODO:
  * integration of kernel 2.6 to buildsystem [done]
  * integration of kernel drivers, thx jolt [done]
  * LZMA Loader [done]
- * new Flash Map driver [partially]
+ * new Flash Map driver [done]
  * network driver [done]
- * OpenWrt startup scripts [partially]
- * vlan configuration
- * wireless driver [partially]
+ * OpenWrt startup scripts [done]
+ * vlan configuration [need to be tested]
+ * wireless driver [need to be tested]
  * usb driver [need to be tested]
  * led driver [partially]
 
