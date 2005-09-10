@@ -47,6 +47,8 @@ Programming...done. 4194304 bytes written
 CFE> reset
 }}}
 
+The web gui is not recovered?!
+
 == Serial console ==
 
 Default parameters for the serial console are: 115200, N, 8, 1
