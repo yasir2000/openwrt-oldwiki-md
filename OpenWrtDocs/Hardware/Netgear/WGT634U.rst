@@ -6,15 +6,14 @@ The wireless NIC is an Atheros mini-PCI, and it also has an USB2.0 controller.
 == Status of OpenWrt ==
 
 We now have a working Kernel 2.6.12.5 in CVS development tree. For trying a snapshot of OpenWrt you need
-a serial connection.
+a serial connection. You will find snapshots here: http://downloads.openwrt.org/people/wbx/netgear/
 
-You will find snapshots here (may be next week): http://downloads.openwrt.org/people/wbx/netgear/
-
-If you compile on your own, please only use squashfs images. You can flash via tftp, you need to run a tftp server:
+You can flash via tftp, you need to run a tftp server:
 
 ifconfig eth0 -addr=10.23.23.2 -mask=255.255.255.0; flash -noheader 10.23.23.29:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
-Use one of the bin files.
+Use one of the bin files. Please only use these snapshots if you like to help to get this OpenWrt port working. There is still a lot of work. See the TODO list.
+If you have any suggestions or patches for CVS HEAD, please send wbx (wbx@openwrt.org) an e-Mail.
 
 TODO:
  * integration of kernel 2.6 to buildsystem [done]
