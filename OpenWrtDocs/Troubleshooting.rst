@@ -41,6 +41,8 @@ ASUS WL-500G units seem to respond only on the WAN port when booted in failsafe 
 
 = Resetting to defaults =
 
+( /!\  resetting the NVRAM is not a good idea on every model, for example wl500g bootloader will not recreate default values, avoid deleting nvram )
+
 If you're having trouble setting up some feature of your router (wireless, lan ports, etc) and for some reason all of the documentation here just isn't working for you, it's sometimes best to start from scratch with a default configuration.  Sometimes the various firmwares you try will add conflicting settings to NVRAM that will need to be flushed.  Erasing NVRAM ensures there aren't any errant settings confusing your poor confused router. Run this command to restore your NVRAM to defaults:
 {{{
 mtd erase nvram
