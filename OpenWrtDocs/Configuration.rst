@@ -185,13 +185,15 @@ vlan0hwname=et0
 
 LAN (vlan0), WAN (vlan1), DMZ (vlan2):
 {{{
-vlan0ports="3 4 5*"
+vlan0ports="1 2 5*"
 vlan0hwname=et0
 vlan1ports="0 5"
 vlan1hwname=et0
-vlan2ports="1 2 5"
+vlan2ports="3 4 5"
 vlan2hwname=et0
 }}}
+
+It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least the WRT54GS v1.0 will not accept new firmware via tftp if port 1 is in another vlan.
 
 = Wireless configuration =
 
