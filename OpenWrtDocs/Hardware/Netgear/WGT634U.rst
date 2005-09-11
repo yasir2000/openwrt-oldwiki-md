@@ -29,6 +29,13 @@ TODO:
  * led driver [need to be ported to 2.6]
  * update with mtd and trx files [done]
  * installation via webupgrade from original firmware [need to be tested, crc error]
+ * wireless configuration in /etc
+ * upgrade mechanism without losing /etc
+
+== Configuration ==
+
+The OpenWrt port for Netgear WGT634U will not use any nvram configuration. Everything is configured iram n /etc. For network configuration please modify /etc/config/network.
+The nvram partition will be used for our new sophisticated upgrade mechanism. (needs to be written)
 
 == Restoring original firmware ==
 
