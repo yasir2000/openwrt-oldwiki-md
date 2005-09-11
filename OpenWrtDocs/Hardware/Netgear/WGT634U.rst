@@ -8,9 +8,11 @@ The wireless NIC is an Atheros mini-PCI, and it also has an USB2.0 controller.
 We now have a working Kernel 2.6.12.5 in CVS development tree. For trying a snapshot of OpenWrt you need
 a serial connection. You will find snapshots here: http://downloads.openwrt.org/people/wbx/netgear/
 
-You can flash via tftp, you need to run a tftp server (connect the wan port to the tftp system):
+You can flash the snapshots via tftp. You need to run a tftp server on your local PC connected to the wan port of the Netgear router.
+To get into the bootloader of the router by holding down Control-C while power on. The following CFE command is used to write the snapshots (.bin files)
+to the flash. Your PC is configured as 192.168.1.2.
 
-ifconfig eth0 -addr=10.23.23.2 -mask=255.255.255.0; flash -noheader 10.23.23.29:openwrt-wgt634u-2.6-squashfs.bin flash0.os
+ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0; flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
 Use one of the bin files. Please only use these snapshots if you like to help to get this OpenWrt port working. There is still a lot of work. See the TODO list.
 If you have any suggestions or patches for CVS HEAD, please send wbx (wbx@openwrt.org) an e-Mail.
