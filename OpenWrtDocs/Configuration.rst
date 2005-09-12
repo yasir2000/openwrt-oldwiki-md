@@ -358,19 +358,24 @@ and: http://openwrt.org/forum/viewtopic.php?id=131
 
 Examples:
 ||Australia||Melbourne||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
-||<rowspan=13>Europe||Amsterdam, Netherlands||||
-||Barcelona, Spain||||
+||<rowspan=18>Europe||Amsterdam, Netherlands||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Athens, Greece||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00||
+||Barcelona, Spain||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Berlin, Germany||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
-||Brussels, Belgium||||
+||Brussels, Belgium||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Budapest, Hungary||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Copenhagen, Denmark||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Dublin, Ireland||GMT+0IST-1,M3.5.0/01:00:00,M10.5.0/02:00:00||
 ||Geneva, Switzerland||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Helsinki, Finland||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00||
+||Lisbon, Portugal||WET-0WEST-1,M3.5.0/01:00:00,M10.5.0/02:00:00||
 ||London, Great Britain||GMT+0BST-1,M3.5.0/01:00:00,M10.5.0/02:00:00||
-||Madrid, Spain||||
-||Oslo, Norway||||
-||Paris, France||||
+||Madrid, Spain||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Oslo, Norway||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Paris, France||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Prague, Czech Republic||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
-||Roma, Italy||||
+||Roma, Italy||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
 ||Alaska Time||AKST9AKDT||
 ||Pacific Time||PST8PDT||
