@@ -427,6 +427,23 @@ If you want to read the syslog messages, use the '''logread''' tool.
 
 Documentation can be found at ["OpenWrtDocs/httpd"] .
 
+=== socks-Proxy ===
+
+There is a socks-proxy available for OpenWRT, it is called '''srelay''' (Find via the package tracker). However, there is no documentation for this package. So, here is a quick guide:
+
+srelay comes with a configuration file: /etc/srelay.conf (surprise surprise).
+It has some examples, but basically you will want to do this:
+
+{{{
+192.168.1.0/24 any -
+}}}
+
+This should give every computer in the 192.168.1-Subnet access to srelay while keeping everything else out.
+
+Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about the available options with '''srelay -h'''.
+
+Keep in mind that this information was found using trial-and-error-methods, so it might still be faulty or have unwanted side effects.
+
 = Hardware =
 
 == LED ==
