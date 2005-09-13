@@ -26,15 +26,15 @@ TODO:
  * new Flash Map driver [done]
  * network driver [done]
  * OpenWrt startup scripts [done]
- * pppoe [needs testing]
+ * pppoe [done]
+ * update with mtd and trx files [done]
  * vlan configuration [b44 patch, robocfg fails]
  * wireless driver [need to be tested, kernel oops if iwconfig is used]
  * usb driver [need to be tested]
  * led driver [need to be ported to 2.6]
- * update with mtd and trx files [done]
- * installation via webupgrade from original firmware [need to be tested, crc error]
  * wireless configuration in /etc
- * upgrade mechanism without losing /etc
+ * upgrade mechanism without losing /etc* installation via webupgrade from original firmware [need a crc header]
+
 
 == Configuration ==
 
