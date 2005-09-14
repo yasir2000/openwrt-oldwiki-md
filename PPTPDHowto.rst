@@ -100,7 +100,7 @@ iptables        -A input_rule      -i ppp+ -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCE
 Gratulations you have now set up your own pptpd and can start connecting with pptp clients. Don't forget to comment the debug options the appropriate configs again.
 
 
-== Troubleshooting ==
+== Troubleshooting and further information ==
 
 If you can connect to the pptpd and can ping the client from the server and vice versa but are not able to ping anything else refer to this checklist for diagnosis: http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml;
 
