@@ -7,6 +7,7 @@
 
 = OpenWRT =
  * [:OpenWrtDocs] Documentation
+ * [:OpenWrtHowTo] Many nice HowTos about OpenWrt
  * [:OpenWrtFaq] Frequently abused questions from the forum
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums] 
