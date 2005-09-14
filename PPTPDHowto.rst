@@ -97,7 +97,7 @@ iptables        -A input_rule      -i ppp+ -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCE
 
 == Finally ==
 
-Congratulations you have now set up your own pptpd and can start connecting with pptp clients. Don't forget to comment the debug options the appropriate config files again.
+Congratulations, you have now set up your own pptpd and can start connecting with pptp clients. Don't forget to comment out the debug options in the appropriate config files again.
 
 
 == Troubleshooting and further information ==
