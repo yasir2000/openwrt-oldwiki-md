@@ -17,7 +17,7 @@ http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 
 = Requirements =
-* a recent GNU/Linux distribution
+    * a recent GNU/Linux distribution
 ... to be continued ...
 
 
