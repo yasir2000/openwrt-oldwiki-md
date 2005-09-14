@@ -28,3 +28,5 @@ dd bs=32 skip=1 if=original.bin of=original.trx
 = Can I use TFTP to go back to the original firmware ? =
 
 Sure, the other way you can use is the TFTP method.
+
+/!\ Note: On many versions, the TFTP server is only able to accept smaller firmwares at bootup. Firmwares that are over approximately 3M will fail with a "no space" error. If this happens you'll need to either use a different firmware or reflash using the mtd commands above instead.
