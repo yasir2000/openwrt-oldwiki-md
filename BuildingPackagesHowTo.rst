@@ -71,6 +71,8 @@ unexpand --first-only - | cat >Config.in
 
 After pasting it, press ENTER and than CTRL+D keys to safe the file.
 
+You can also create your own files in the package/helloworld directory (for example config files).
+That files you can access in your package/Makefile with ./filename and copy it to your $(PKG_INSTALL_DIR) directory.
 
 === package/helloworld/Config.in ===
 
