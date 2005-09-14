@@ -3,6 +3,7 @@
 If you want to use OpenWrt to connect to another access point (AP) or
 computer rather than to use it as an AP, follow these steps:
 
+
 == Setting up/configuring client mode ==
 
 You need to have a recent version of OpenWrt 'White Russian' installed.
@@ -20,6 +21,7 @@ or if you've problems with wet mode, try:
 {{{
 nvram set wl0_mode=sta
 }}}
+
 
 === Bridged client mode ===
 
@@ -39,7 +41,11 @@ chmod -x /etc/init.d/S50dnsmasq
 Now we're breaking down the default bridge between the wifi interface
 and the LAN ports. Note that we're using the wan_ifname to refer to
 the wireless connection; this will save you from having to change
-the firewall script:
+the firewall script.
+
+NOTE: Use the correct network interface names for your hardware version.
+Check the interface names at http://wiki.openwrt.org/OpenWrtDocs/Configuration#head-b62c144b9886b221e0c4b870edb0dd23a7b6acab
+(below the diagram).
 
 {{{
 nvram set lan_ifname=br0
