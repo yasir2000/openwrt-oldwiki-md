@@ -26,10 +26,10 @@ mv /etc/init.d/pptpd /etc/init.d/S51pptpd
 
 == Configuring pptpd ==
 
-First we take a look at /etc/pptpd.conf where we see the options parameter pointing to /etc/ppp/options.pptpd but since no such file exists we move the ppp options for pptpd to that file.
+First we take a look at /etc/pptpd.conf where we see the options parameter pointing to a nonexistant file so we change that to /etc/ppp/options.pptpd.
 
 {{{
-mv /etc/ppp/ppptp-server-options /etc/ppp/options.pptpd
+option /etc/ppp/options.pptpd
 }}}
 
 Also take note of the commented debug option. We uncomment that line for debugging purpose.
