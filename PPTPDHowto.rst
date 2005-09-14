@@ -6,15 +6,13 @@ This howto describes how to install and configure pptpd on OpenWrt.
 
 We begin by installing the necesarry packages. All packages mentioned are included in Whiterussian RC2. To allow clients to use proper encryption we get the corresponding kmod-mppe and kmod-crypto packages as well as the pptpd package.
 {{{
-ipkg kmod-mppe
-ipkg kmod-crypto
-ipkg pptpd
+ipkg install kmod-mppe kmod-crypto pptpd
 }}}
 
 Now we should have all necesarry modules and a typo. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
 {{{
- for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
-   insmod $m >/dev/null 2>&1
+for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
+  insmod $m >/dev/null 2>&1
 }}}
 
 While we are at it we mark the startup script executable and put it so that it will load on boot.
