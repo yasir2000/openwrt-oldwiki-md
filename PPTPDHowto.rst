@@ -100,8 +100,8 @@ Congratulations, you have now set up your own pptpd and can start connecting wit
 
 == Troubleshooting and further information ==
 
-If you can connect to the pptpd and can ping the client from the server and vice versa but are not able to ping anything else refer to this checklist for diagnosis: http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml;
+If you can connect to the pptpd and can ping the client from the server and vice versa but are not able to ping anything else refer to this checklist for diagnosis: [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml]
 
-For a Windows XP client howto see here: http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html;
+For a Windows XP client howto see here: [http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html]
 
-Information on the pptp linux client can be found here: http://pptpclient.sourceforge.net/ or check the appropriate [PPTPClientHowto].
+Information on the pptp linux client can be found here: [http://pptpclient.sourceforge.net/] or check the appropriate [PPTPClientHowto].
