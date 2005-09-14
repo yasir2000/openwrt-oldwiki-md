@@ -45,7 +45,7 @@ the firewall script.
 
 NOTE: Use the correct network interface names for your hardware version.
 Check the interface names at [:OpenWrtDocs/Configuration] (2. Network
-configuration, Cbelow the diagram).
+configuration, below the diagram).
 
 {{{
 nvram set lan_ifname=br0
