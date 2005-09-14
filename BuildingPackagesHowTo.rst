@@ -49,7 +49,7 @@ mkdir -p package/helloworld/patches
 
 {{{#!CSV
 Directory; Description
-ipkg; Control file which conains information about your package
+ipkg; Control file which contains information about your package
 patches; Patch files for example 100-foo.patch
 }}}
 
