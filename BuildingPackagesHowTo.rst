@@ -16,6 +16,10 @@ the buildroot documentation which can be found at:
 http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 
+= Requirements =
+This point need to be filled with content.
+
+
 = Using the OpenWrt SDK =
 
 Let's start with porting and packaging the well known "Hello world"
