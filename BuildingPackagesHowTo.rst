@@ -61,7 +61,7 @@ unexpand to translate the spaces into tabs.
 unexpand --first-only - | cat >Config.in
 }}}
 
-When you paste it press CRTL+D keys to safe the file.
+After pasting it, press ENTER and than CTRL+D keys to safe the file.
 
 
 === package/helloworld/Config.in ===
