@@ -92,6 +92,7 @@ config BR2_PACKAGE_HELLO
 	(which is itself an example for the GNU Project).
 }}}
 
+
 === package/helloworld/Makefile ===
 
 {{{
@@ -150,6 +151,7 @@ mostlyclean:
 	rm $(PKG_BUILD_DIR)/.built
 }}}
 
+
 === package/helloworld/ipkg/hello.control ===
 
 {{{
@@ -168,6 +170,7 @@ Description: The classic greeting, and a good example
 	(which is itself an example for the GNU Project).
 }}}
 
+
 === package/helloworld/patches/100-hello.patch ===
 
 This example will also work without the Debian patch.
@@ -179,6 +182,7 @@ gunzip hello_2.1.1-4.diff.gz
 mv hello_2.1.1-4.diff 100-hello.patch
 cd ..
 }}}
+
 
 == Compiling ==
 
@@ -200,7 +204,7 @@ cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 }}}
 
 
-= Contibute your new ported program =
+= Contribute your new ported program =
 
 When you like you can contribute your program/package to the OpenWrt community.
 It may be included in further versions of OpenWrt.
