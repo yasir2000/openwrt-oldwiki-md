@@ -1,11 +1,7 @@
-Client Mode Howto
-
-
 = Client Mode =
 
 If you want to use OpenWrt to connect to another access point (AP) or
-Computer rather than to use it as an AP, follow these steps:
-
+computer rather than to use it as an AP, follow these steps:
 
 == Setting up/configuring client mode ==
 
@@ -24,7 +20,6 @@ or if you've problems with wet mode, try:
 {{{
 nvram set wl0_mode=sta
 }}}
-
 
 === Bridged client mode ===
 
@@ -73,7 +68,7 @@ reboot
 }}}
 
 
-== Finding and joining Networks ==
+== Finding and joining networks ==
 
 You can now scan for nearby access points. If iwlist doesn't find any
 networks on the first run, repeat the scanning a few times.
@@ -141,4 +136,4 @@ reboot, or you can run the ifup command:
 ifup wan; /sbin/wifi
 }}}
 
-This will set up the Wireless interface according to your nvram settings.
+This will set up the wireless interface according to your nvram settings.
