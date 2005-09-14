@@ -1,5 +1,3 @@
-Describe BuildingPackagesHowTo here.
-
 OpenWrt SDK Howto
 [[TableOfContents]]
 
@@ -9,8 +7,8 @@ This howto is for people who would like to port/package applications
 to OpenWrt with the OpenWrt Software Development Kit (SDK).
 
 When using the SDK you don't require a full buildroot. The SDK is
-a stripped down version of it, wich includes the toolchain and all the
-required libs and header files to cross-compile and package the
+a stripped down version of it, which includes the toolchain and all the
+required libs and header files to cross-compile the package and the
 applications for OpenWrt.
 
 Sience the usage of the SDK is similar to the Buildroot also look at
@@ -173,7 +171,7 @@ Description: The classic greeting, and a good example
 
 === package/helloworld/patches/100-hello.patch ===
 
-This example will also work without the Debian patch.
+This example will also work without the Debian patch. So you can skip this point.
 
 {{{
 cd patches
