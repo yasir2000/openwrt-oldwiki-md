@@ -71,7 +71,7 @@ iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
 
 == Routing ==
 
-While we now have a VPN ready where the clients can connect to the OpenWrt router we might want to allow the clients to see inside the LAN. Of course we can alway give appropriate routes to server and clients but another simple. In our example we have a LAN network 192.168.0.1/24 on the LAN port of our router. We want multiple clients to connect to the pptpd server and be able to connect to the LAN without the need of client routes. This is especially usefull for Windows machines as they either route everything through the pptpd tunnel or nothing and we want them to be able to connect without much configuration hassle for the users. We will use proxyarp for that purpose and add the following line to /etc/ppp/options.pptp
+While we now have a VPN ready where the clients can connect to the OpenWrt router we might want to allow the clients to see inside the LAN. Of course we can alway give appropriate routes to server and clients but another simple. In our example we have a LAN network 192.168.0.1/24 on the LAN port of our router. We want multiple clients to connect to the pptpd server and be able to connect to the LAN without the need of client routes. This is especially usefull for Windows machines as they either route everything through the pptpd tunnel or nothing and we want them to be able to connect without much configuration hassle for the users. We will use proxyarp for that purpose and add the following line to /etc/ppp/options.pptpd
 {{{
 proxyarp
 }}}
