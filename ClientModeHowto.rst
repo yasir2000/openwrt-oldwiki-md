@@ -44,8 +44,8 @@ the wireless connection; this will save you from having to change
 the firewall script.
 
 NOTE: Use the correct network interface names for your hardware version.
-Check the interface names at http://wiki.openwrt.org/OpenWrtDocs/Configuration#head-b62c144b9886b221e0c4b870edb0dd23a7b6acab
-(below the diagram).
+Check the interface names at [:OpenWrtDocs/Configuration] (2. Network
+configuration, Cbelow the diagram).
 
 {{{
 nvram set lan_ifname=br0
