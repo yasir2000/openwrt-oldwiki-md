@@ -177,22 +177,21 @@ Gently use your nails or a flat object to pry all the edges of the front feet up
 
 From there you will have access to two small Phillips-head screws. Remove and enjoy.
 
-= Problems going from jffs2 to squashfs or from squashfs to jffs2 =
+= Problems going from jffs2 to squashfs or problems booting after reflashing =
 
 ''Important note!  This section assumes you have taken care of backup - follow this procedure without backing up properly first, and your jffs2 files are gone!''
 
-Please use mtd to upgrade your router:
-mtd -e linux -r write openwrt-xxx-yyy.trx linux
+There are only two times when the jffs2 partition gets formatted:
 
-This will first erase your old system, including your rootfs and then write the new image and reboot your router. If you switch between the different root filesystems, cleaning up old stuff is mandatory, otherwise your router may not boot.
+ * If you flash to a jffs2 firmware, the jffs2 partition is always formatted the first time the device boots (hence the extra reboot)
+ * If you use squashfs and /sbin/mount_root is unable to pivot the root to the jffs2 filesystem
 
-If the damage has already happened, eg. you flashed with an image, and now the router is cycling during boot, you simply flash with whatever your router had before.  (Eg. if you were going from jffs2 to squashfs, you simply flash it with jffs2 again, and the router will boot again).  Now you can follow the above procedure.
+In all other instances (with the exception of failsafe), OpenWrt will assume that the jffs2 partition is valid and attempt to use it. This creates a problem when either the filesystem layout changes and the jffs2 symlinks are invalid, or when the jffs2 partition has been overwritten due to a larger firmware.
 
-Another way to make the change, (for instance, if you don't understand how to do the above), is to log into your router with telnet or ssh. You make sure boot_wait is like you want it, then you erase everything using the command:
+There's two ways to avoid the above issue:
 
-mtd -r erase
-
-The router will reboot, and you can flash it with the image you want.
+ * If you haven't yet reflashed, reflash using the command "mtd -e linux -r write openwrt-xxxx.trx linux". The "-e linux" tells mtd to erase any existing data; OpenWrt will be unable to find a jffs2 partition at bootup and the firstboot script will be called to create a jffs2 partition.
+ * If you have reflashed with squashfs and the device is unbootable then what's happened is OpenWrt has detected the jffs2 partition and attempted to bootit and crashed. Booting into failsafe mode will allow you into the device where you can run "firstboot" manually.
 
 = Problems accessing the wireless interface =
 
