@@ -17,7 +17,8 @@ http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 
 = Requirements =
-This point need to be filled with content.
+* a recent GNU/Linux distribution
+... to be continued ...
 
 
 = Using the OpenWrt SDK =
