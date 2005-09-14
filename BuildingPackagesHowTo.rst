@@ -16,6 +16,7 @@ http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 
 = Requirements =
+
     * a recent GNU/Linux distribution
 ... to be continued ...
 
@@ -62,7 +63,7 @@ patches; Patch files for example 100-foo.patch
 == Creating the required files ==
 
 TIP: When creating the files via copy & paste use the Unix command
-unexpand to translate the spaces into tabs.
+'unexpand' to translate the leading spaces into tabs.
 
 {{{
 unexpand --first-only - | cat >package/helloworld/Config.in
