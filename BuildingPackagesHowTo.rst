@@ -44,12 +44,15 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 
 == Creating the directories ==
 
+Create the following directories
+
 {{{
+cd ~/OpenWrt-SDK-Linux-i686-1
 mkdir -p package/helloworld/ipkg
 mkdir -p package/helloworld/patches
 }}}
 
-Directories and their contents:
+[[BR]]Directories and their contents:
 {{{#!CSV
 Directory; Description
 ipkg; Control file which contains information about your package
