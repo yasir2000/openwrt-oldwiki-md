@@ -44,7 +44,7 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 
 == Creating the directories ==
 
-Create the following directories
+Create the following directories:
 
 {{{
 cd ~/OpenWrt-SDK-Linux-i686-1
