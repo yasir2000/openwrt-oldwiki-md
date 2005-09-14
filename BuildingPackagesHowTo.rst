@@ -178,7 +178,6 @@ cd package/helloworld/patches
 wget http://ftp.debian.org/debian/pool/main/h/hello/hello_2.1.1-4.diff.gz
 gunzip hello_2.1.1-4.diff.gz
 mv hello_2.1.1-4.diff 100-hello.patch
-cd ..
 }}}
 
 
