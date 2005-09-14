@@ -65,7 +65,7 @@ TIP: When creating the files via copy & paste use the Unix command
 unexpand to translate the spaces into tabs.
 
 {{{
-unexpand --first-only - | cat >Config.in
+unexpand --first-only - | cat >package/helloworld/Config.in
 }}}
 
 After pasting it, press ENTER and than CTRL+D keys to safe the file.
