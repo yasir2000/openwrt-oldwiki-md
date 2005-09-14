@@ -38,6 +38,7 @@ bzcat OpenWrt-SDK-Linux-i686-1.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-SDK-Linux-i686-1
 }}}
 
+
 == Creating the directories ==
 
 {{{
@@ -45,7 +46,16 @@ mkdir -p package/helloworld/ipkg
 mkdir -p package/helloworld/patches
 }}}
 
+
 === Directories and their contents ===
+
+{{{#!CSV
+Directory; Description
+ipkg; Control file which conains information about your package
+patches; Patch files for example 100-foo.patch
+}}}
+
+
 
 ipkg:
 	Control file which conains information about your package
