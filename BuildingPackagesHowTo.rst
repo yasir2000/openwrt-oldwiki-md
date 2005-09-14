@@ -1,7 +1,7 @@
 Describe BuildingPackagesHowTo here.
 
 OpenWrt SDK Howto
-
+[[TableOfContents]]
 
 = About the OpenWrt SDK =
 
