@@ -52,7 +52,7 @@ mkdir -p package/helloworld/ipkg
 mkdir -p package/helloworld/patches
 }}}
 
-[[BR]]Directories and their contents:
+Directories and their contents:
 {{{#!CSV
 Directory; Description
 ipkg; Control file which contains information about your package
