@@ -61,16 +61,12 @@ We are now set and ready to give pptpd a first try. So either insmod all modules
 
 == Rules for iptables ==
 
-As I am no expert on iptables I can give you my config without warranty for security:
+We need to open port 1723 to accept the PPTP control connections so we add in /etc/firewall.user
 
 {{{
 ### Allow PPTP control connections from WAN
 iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 1723 -j ACCEPT
 iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
-
-### Allow GRE protocol
-iptables        -A output_rule             -p 47               -j ACCEPT
-iptables        -A input_rule              -p 47               -j ACCEPT
 }}}
 
 
@@ -88,6 +84,10 @@ found interface vlan0 for proxy arp
 }}}
 in the logs. The pptpd server will now answer arp request for the clients connected through the pptp tunnel and thus the packages are routed correctly to either the according ppp+ device or vlan0. We will have to add additional iptables rules of course (again given without any guarantee of safety, please correct this if you know better):
 {{{
+### Allow GRE protocol
+iptables        -A output_rule             -p 47               -j ACCEPT
+iptables        -A input_rule              -p 47               -j ACCEPT
+
 ### VPN Section
 iptables        -A forwarding_rule -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCEPT
 iptables        -A output_rule     -o ppp+ -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCEPT
@@ -97,7 +97,7 @@ iptables        -A input_rule      -i ppp+ -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCE
 
 == Finally ==
 
-Gratulations you have now set up your own pptpd and can start connecting with pptp clients. Don't forget to comment the debug options the appropriate configs again.
+Gratulations you have now set up your own pptpd and can start connecting with pptp clients. Don't forget to comment the debug options the appropriate config files again.
 
 
 == Troubleshooting and further information ==
