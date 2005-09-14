@@ -8,10 +8,9 @@ to OpenWrt with the OpenWrt Software Development Kit (SDK).
 
 When using the SDK you don't require a full buildroot. The SDK is
 a stripped down version of it, which includes the toolchain and all the
-required libs and header files to cross-compile the package and the
-applications for OpenWrt.
+required library and header files to cross-compile applications for OpenWrt.
 
-Sience the usage of the SDK is similar to the Buildroot also look at
+Since the usage of the SDK is similar to the buildroot also look at
 the buildroot documentation which can be found at:
 http://downloads.openwrt.org/docs/buildroot-documentation.html
 
@@ -124,7 +123,6 @@ $(TARGET_CONFIGURE_OPTS) \
 		--prefix=/usr \
 		--without-libiconv-prefix \
 		--without-libintl-prefix \
-		\
 		--disable-nls \
 	);
 	touch $@
@@ -192,8 +190,8 @@ make clean && make compile
 }}}
 
 
-When the compiling is finished you've a ready to use ipk package for OpenWrt
-in the ~/OpenWrt-SDK-Linux-i686-1/bin/packages directory
+When the compiling is finished you've a ready to use ipkg package for OpenWrt
+in the ~/OpenWrt-SDK-Linux-i686-1/bin/packages directory.
 
 {{{
 cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
@@ -206,7 +204,7 @@ cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 When you like you can contribute your program/package to the OpenWrt community.
 It may be included in further versions of OpenWrt.
 
-Todo this create a tarball from your package directory, and send the tarball
+To do this create a tarball from your package directory, and send the tarball
 to openwrt-devel@openwrt.org .
 
 {{{
