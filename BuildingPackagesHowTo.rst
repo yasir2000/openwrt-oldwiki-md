@@ -211,6 +211,6 @@ to openwrt-devel@openwrt.org .
 
 {{{
 cd ~/OpenWrt-SDK-Linux-i686-1/package
-tar cvjf ~/OpenWrt-SDK-Linux-i686-1/helloworld-sdk.tar.bz2 helloworld
+tar cvjf ../helloworld-sdk.tar.bz2 helloworld
 cd ..
 }}}
