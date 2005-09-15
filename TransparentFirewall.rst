@@ -24,12 +24,14 @@ ebtables has been removed from the openWRT kernel for performance reasons, so yo
 
  * Visit [http://wiki.openwrt.org/OpenWrtDocs/Installing] to download the openWRT source code.
  * Click [http://support.mprg.org/openwrt/100-ebtables.patch.txt] to download the patch.
- * Save the patch into openwrt/target/linux/linux-2.4/patches/
+ * Save the patch into openwrt/target/linux/linux-2.4/patches/generic/
  * Run 'make menuconfig'
  * Be sure to include bridging and ebtables in package selection and kernel configuration.
  * Run 'make'
 
 Please see other documentation on building a custom openWRT firmware if you are unfamiliar with the process.
+
+Also be aware that during the build process, you will be asked if you want to include certain sections of the ebtables patch.  I just pressed 'y' every time it asked.
 
 == Setup ==
 
