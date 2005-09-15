@@ -47,7 +47,7 @@ NOTE: Use the correct network interface names for your hardware version.
 Check the interface names at [:OpenWrtDocs/Configuration] (2. Network
 configuration, below the diagram).
 
-[:OpenWrtDocs/Configuration#NetworkInterfaceNames]
+[:OpenWrtDocs/Configuration#NetworkInterfaceNames OpenWrtDocs/Configuration]
 
 {{{
 nvram set lan_ifname=br0
