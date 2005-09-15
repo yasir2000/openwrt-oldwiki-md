@@ -125,6 +125,7 @@ Next you can mount and use your USB stick (with relevant modul for your file sys
 
 = How do I boot from USB stick on ASUS WL-500gx (WL-500g Deluxe, wl500gx) ? =
 This guide assumes that you're using a jffs root, with squashfs root some steps might be a little different.
+See http://forum.openwrt.org/viewtopic.php?pid=11211 if you want to use squashfs.
 
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the ext3 filesystem: 
 {{{
