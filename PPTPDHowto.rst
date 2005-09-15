@@ -104,4 +104,4 @@ If you can connect to the pptpd and can ping the client from the server and vice
 
 For a Windows XP client howto see here: [http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html]
 
-Information on the pptp linux client can be found here: [http://pptpclient.sourceforge.net/] or check the appropriate [PPTPClientHowto].
+Information on the pptp linux client can be found here: [http://pptpclient.sourceforge.net/] or check the appropriate ["PPTPClientHowto"].
