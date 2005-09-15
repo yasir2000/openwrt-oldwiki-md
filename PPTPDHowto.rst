@@ -9,7 +9,7 @@ We begin by installing the necesarry packages. All packages mentioned are includ
 ipkg install kmod-mppe kmod-crypto pptpd
 }}}
 
-Now we should have all necesarry modules and a typo. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
+Now we should have all necesarry modules and a typo. The following will be fixed in Whiterussian RC3+, but has not been fixed in RC2. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
 {{{
 for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
   insmod $m >/dev/null 2>&1
