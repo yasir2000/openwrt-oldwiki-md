@@ -43,7 +43,7 @@ and the LAN ports. Note that we're using the wan_ifname to refer to
 the wireless connection; this will save you from having to change
 the firewall script.
 
-IMPORTANT: Use the correct network interface names for your hardware version.
+'''IMPORTANT:''' Use the correct network interface names for your hardware version.
 Check the interface names at [:OpenWrtDocs/Configuration#NetworkInterfaceNames].
 
 {{{
