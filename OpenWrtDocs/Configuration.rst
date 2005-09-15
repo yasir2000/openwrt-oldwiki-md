@@ -32,6 +32,7 @@ The WRT54G is made up of an Ethernet switch, a wireless access point and a route
 
 [http://upload.wikimedia.org/wikipedia/commons/0/0f/WRT54G_internal_architecture.png]
 
+[[Anchor(NetworkInterfaceNames)]]
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
 ||'''Manufacturer'''||'''Model'''||'''Hardware version'''||'''LAN'''||'''WAN'''||'''WIFI'''||'''Comments'''||
 ||Linksys||WRT54G||v1.x||vlan2||vlan1||eth2|| ||
