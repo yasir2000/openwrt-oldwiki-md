@@ -4,7 +4,7 @@ This howto describes how to install and configure pptpd on OpenWrt.
 
 == Installing pptpd ==
 
-We begin by installing the necesarry packages. All packages mentioned are included in Whiterussian RC2. To allow clients to use proper encryption we get the corresponding kmod-mppe and kmod-crypto packages as well as the pptpd package.
+We begin by installing the necessary packages. All packages mentioned are included in Whiterussian RC2. To allow clients to use proper encryption we get the corresponding kmod-mppe and kmod-crypto packages as well as the pptpd package.
 {{{
 ipkg install kmod-mppe kmod-crypto pptpd
 }}}
