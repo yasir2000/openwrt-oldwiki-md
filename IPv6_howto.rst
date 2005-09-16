@@ -20,19 +20,19 @@ To use IPv6 we need the following modules:
 
 == Install the IPv6 kernel modules ==
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ipv6_2.4.30-1_mipsel.ipk
+ipkg install kmod-ipv6
 }}}
 
 == Install the routing software ==
 To configure the interfaces and the routing tables we need the new iputils. Additionally we need the route advertising daemon to propagate the IPv6 route to our local subnet.
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/ip_2.6.9-1_mipsel.ipk
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/radvd_0.7.3-1_mipsel.ipk
+ipkg install ip
+ipkg install radvd
 }}}
 
 == Install the ip6tables kernel modules ==
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/kmod-ip6tables_2.4.30-1_mipsel.ipk
+ipkg install kmod-ip6tables
 }}}
 
 == Install the ip6tables package ==
