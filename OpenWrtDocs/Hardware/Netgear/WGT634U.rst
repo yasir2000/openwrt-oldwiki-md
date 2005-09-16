@@ -30,9 +30,8 @@ TODO:
  * update with mtd and trx files [done]
  * vlan configuration [done] 
  * reset button driver [need to be ported to 2.6]
- * wireless driver [need to be tested, kernel oops if iwconfig is used]
+ * wireless driver [need to be tested, sometimes kernel oops if iwconfig is used, need new wificonf in HEAD, -> nbd ]
  * usb driver [need to be tested]
- * wireless configuration in /etc
  * webupgrade from original firmware [need a crc header]
 
 
