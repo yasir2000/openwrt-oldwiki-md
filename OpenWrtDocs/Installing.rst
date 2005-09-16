@@ -94,6 +94,14 @@ Or use the command-line:
 atftp --trace --option "timeout 1" --option "mode octet" --put --local-file openwrt-xxx-x.x-xxx.bin 192.168.1.1
 }}}
 
+MacTFTP Client commands: (For use with OS X. tftp in terminal did not work for me)
+Download MacTFTP Cleint [http://www.mactechnologies.com/pages/downld.html]
+* Choose Send
+* Address: 192.168.1.1
+* Choose the openwrt-xxx-x.x-xxx.bin file
+* Click on start while applying power to the WRT54G
+
+
 Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
 
 ||'''TFTP Error'''||'''Reason'''||
