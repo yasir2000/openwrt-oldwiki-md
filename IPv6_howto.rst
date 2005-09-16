@@ -37,7 +37,7 @@ ipkg install kmod-ip6tables
 
 == Install the ip6tables package ==
 {{{
-ipkg install http://nbd.vd-s.ath.cx/openwrt/packages/ip6tables_1.3.1-1_mipsel.ipk
+ipkg install ip6tables
 }}}
 
 = Setup software =
