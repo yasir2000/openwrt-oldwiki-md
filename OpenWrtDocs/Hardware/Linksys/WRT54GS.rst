@@ -17,6 +17,23 @@ The WRT54GS v2.0 uses a BCM5325EKQM switch and a BCM4712LKFB processor.
 ==== WRT54GS v2.1 ====
 The WRT54GS v2.1 also uses a BCM5325EKQM switch and a BCM4712LKFB processor. 
 
+Serial Number begining CGN40
+
+==== WRT54GS v3.0 ====
+The WRT54GS v3.0 uses a Broadcom 5352 CPU with integrated Switch.
+
+Serial Number begining CGN50
+
+Supported in RC3 and later.
+
+==== WRT54GS v4.0 ====
+
+NOTE: v4.0 only has 4MB Flash and 16MB Ram.  Half of prior versions.
+
+Serial Number begining CGN60
+
+Supported in RC3 and later.
+
 === Detailed hardware info ===
 
 ==== Motherboard photos ====
