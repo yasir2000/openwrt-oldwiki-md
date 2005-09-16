@@ -17,6 +17,7 @@
 ||Linksys||WAG54G||V2-FR|| || ||WA21||
 ||Linksys||WAG54G||V2-UK||tftp|| ||WA21||
 ||Linksys||WRTP54G|| || || || ||
+||Linksys||AG241||||tftp|| ||AG1B||
 
 ## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
 ## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
