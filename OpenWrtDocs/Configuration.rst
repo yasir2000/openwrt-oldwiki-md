@@ -140,12 +140,6 @@ wan_proto=dhcp
 lan_ifnames=vlan0 eth2 eth3
 }}}
 
-Note that the default behaviour is to [http://forum.openwrt.org/viewtopic.php?pid=8410#p8410 use WPA] if your WRT54G is running in AP mode.  If you don't want to use WPA, unset wl0_crypto with:
-
-{{{
-nvram unset wl0_crypto && nvram commit
-}}}
-
 == The ethernet switch ==
 
 The WRT54G is essentially a WAP54G (wireless access point) with a 6 port switch. There's only one physical ethernet connection and that's wired internally into port 5 of the switch; the WAN is port 0 and the LAN is ports 1-4. The separation of the WAN and LAN interfaces is done by the switch itself. The switch has a vlan map which tells it which vlans can be accessed through which ports.
@@ -272,27 +266,7 @@ If you activate both you will double the pain to find a problem.
  1. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 
-== OpenWRT wireless bridge ==
-
-With 
-
-{{{
-nvram set wl0_mode=wet
-}}}
-
-you can use your AP/Router as a Bridge.
-
-This section is work in progress, please refer to the following docs:
-
-http://woz.gs/wifi/openwrtbridge.html
-
-http://openwrt.org/forum/viewtopic.php?t=1078&highlight=wl0mode+wet
-
-For the "invisible wire" style, e.g. for bridging between two buildings, you might want to check out this link:
-
-http://www.jean.nu/view.php/page/openwrt
-
-== OpenWRT as Client ==
+== OpenWrt as client / wireless bridge ==
 
 Starting with RC2 WhiteRussian basically the only thing you have to do is to switch the WL mode like with the bridge:
 
@@ -300,7 +274,7 @@ Starting with RC2 WhiteRussian basically the only thing you have to do is to swi
 nvram set wl0_mode=sta
 }}}
 
-Breaking down the bridge is not really necessary as described in ["ClientModeHowto"]
+For more information, see ["ClientModeHowto"]
 
 = Software configuration =
 
