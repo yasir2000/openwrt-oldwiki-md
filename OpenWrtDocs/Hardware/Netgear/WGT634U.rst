@@ -28,10 +28,10 @@ TODO:
  * OpenWrt startup scripts [done]
  * pppoe [done]
  * update with mtd and trx files [done]
- * vlan configuration [partially, vlan may work manually configured now]
+ * vlan configuration [done] 
+ * reset button driver [need to be ported to 2.6]
  * wireless driver [need to be tested, kernel oops if iwconfig is used]
  * usb driver [need to be tested]
- * power button driver [need to be ported to 2.6]
  * wireless configuration in /etc
  * webupgrade from original firmware [need a crc header]
 
