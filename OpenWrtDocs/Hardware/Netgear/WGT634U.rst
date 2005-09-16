@@ -28,18 +28,18 @@ TODO:
  * OpenWrt startup scripts [done]
  * pppoe [done]
  * update with mtd and trx files [done]
- * vlan configuration [b44 patch, robocfg fails]
+ * vlan configuration [partially, vlan may work manually configured now]
  * wireless driver [need to be tested, kernel oops if iwconfig is used]
  * usb driver [need to be tested]
- * led driver [need to be ported to 2.6]
+ * power button driver [need to be ported to 2.6]
  * wireless configuration in /etc
- * upgrade mechanism without losing /etc* installation via webupgrade from original firmware [need a crc header]
+ * webupgrade from original firmware [need a crc header]
 
 
 == Configuration ==
 
-The OpenWrt port for Netgear WGT634U will not use any nvram configuration. Everything is configured iram n /etc. For network configuration please modify /etc/config/network.
-The nvram partition will be used for our new sophisticated upgrade mechanism. (needs to be written)
+The OpenWrt port for Netgear WGT634U will not use any nvram configuration. Everything is configured in /etc. For network configuration please modify /etc/config/network.
+The nvram partition is your old config partition, so please back it up. You eventually need it to restore your original firmware.
 
 == Restoring original firmware ==
 
@@ -58,8 +58,6 @@ Programming...done. 4194304 bytes written
 *** command status = 0
 CFE> reset
 }}}
-
-The web gui is not recovered?!
 
 == Serial console ==
 
