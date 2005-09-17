@@ -110,50 +110,93 @@ To have the 6to4 tunnel start up automatically on boot, copy this script in ''/e
 # 6to4 tunnel
 
 # retrieve the public IPv4 address
-ipv4=$(ip -4 addr | awk -F'[/ ]' '/vlan1$/ { print $6 }')
-# (if your IPv4 address does not change, replace the above line with ipv4="your ip")
+ipv4=`ip -4 addr | awk '/^[0-9]+[:] vlan1[:]/ {l=NR+1} /inet (([0-9]{1,3}\.){3}[0-9]{1,3})\// {if (NR == l) split($2,a,"/")} END {print a[1]}'`
+# (you may also write e.g. "ipv4=82.54.194.11" if your IP address does not change)
 
 # get the IPv6 prefix from the IPv4 address
-ipv6prefix=$(echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }')
+ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
 
-# choose a subnet (4 hex digits)
+# the local subnet (any 4 digit hex number)
 ipv6subnet=1234
 
-# the 6to4 relay:
-#   * the anycast address 192.88.99.1 should work from anywhere
-#   * other addresses are possible, e.g. see
-#     http://www.kfu.com/~nsayer/6to4/#list
+
+# The 6to4 relay: here are a few, use the anycast address when possible
+# For others see http://www.kfu.com/~nsayer/6to4/#list or google
+
+# anycast:
 relay6to4=192.88.99.1
+
+# uni-leipzig.de:
+#relay6to4=139.18.25.33
+
+# 6to4.ipv6.bt.com
+#relay6to4=194.73.82.244
+
+# microsoft
+#relay6to4=131.107.33.60
+
+# japan kddilab.6to4.jp
+#relay6to4=192.26.91.178
 
 
 case "$1" in
   start)
 
-    # create tunnel and assign main address to tunnel interface
+    echo "Creating tunnel interface..."
     ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
+
+    echo "Setting tunnel interface up..."
     ip link set dev tun6to4 up
+
+    echo "Assigning ${ipv6prefix}::1/16 address to tunnel interface..."
     ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
+
+    echo "Adding route to IPv6 internet on tunnel interface via relay..."
     ip -6 route add 2000::/3 via ::${relay6to4} dev tun6to4 metric 1
 
-    # assign local internal address to LAN interface (br0)
+    # the following lines do not seem to be necessary
+    #ip -6 addr add ${ipv6prefix}:${ipv6subnet}::3/64 dev vlan1
+    #ip -6 route del ${ipv6prefix}:${ipv6subnet}::/64 dev vlan1
+
+    echo "Assigning ${ipv6prefix}:${ipv6subnet}::1/64 address to br0 (local lan interface)..."
     ip -6 addr add ${ipv6prefix}:${ipv6subnet}::1/64 dev br0
 
-    # probably not necessary:
-    ip -6 addr add ${ipv6prefix}:${ipv6subnet}::1/64 dev vlan1
-    ip -6 route del ${ipv6prefix}:${ipv6subnet}::/64 dev vlan1
+    echo "Done."
+
 
     ;;
   stop)
 
-    ip -6 addr del ${ipv6prefix}:${ipv6subnet}::1/64 dev vlan1
+    #echo "Removing WAN (external) interface IPv6 address..."
+    #ip -6 addr del ${ipv6prefix}:${ipv6subnet}::3/64 dev vlan1
 
-    ip -6 addr del ${ipv6prefix}:${ipv6subnet}::2/64 dev br0
+    echo "Removing br0 (internal lan) interface IPv6 address..."
+    ip -6 addr del ${ipv6prefix}:${ipv6subnet}::1/64 dev br0
 
+    echo "Removing routes to 6to4 tunnel interface..."
     ip -6 route flush dev tun6to4
+
+    echo "Setting tunnel interface down..."
     ip link set dev tun6to4 down
+
+    echo "Removing tunnel interface..."
     ip tunnel del tun6to4
 
+    echo "Done."
+
     ;;
+  restart)
+
+    echo "=== 1. Stopping ==="
+    /etc/init.d/S42tun6to4 stop
+    echo "=== 2. Starting ==="
+    /etc/init.d/S42tun6to4 start
+    echo "=== 3. Done ==="
+    ;;
+  *)
+    echo "Usage: /etc/init.d/S42tun6to4 {start|stop|restart}"
+    ;;
+
 esac
 }}}
 
