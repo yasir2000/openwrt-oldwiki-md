@@ -12,9 +12,12 @@ You can flash the snapshots via tftp. You need to run a tftp server on your loca
 To get into the bootloader of the router by holding down Control-C while power on. The following CFE command is used to write the snapshots (.bin files)
 to the flash. Your PC is configured as 192.168.1.2.
 
-ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0; flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
+{{{
+ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
+flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
+}}}
 
-After that you can use "reboot" to start OpenWrt.
+After that you can use "`reboot`" to start OpenWrt.
 
 Please only use these snapshots if you like to help to get this OpenWrt port working. There is still a lot of work. See the TODO list.
 If you have any suggestions or patches for CVS HEAD, please send wbx (wbx@openwrt.org) an e-Mail.
@@ -28,7 +31,7 @@ TODO:
  * OpenWrt startup scripts [done]
  * pppoe [done]
  * update with mtd and trx files [done]
- * vlan configuration [done] 
+ * vlan configuration [done]
  * reset button driver [need to be ported to 2.6]
  * wireless driver [need to be tested, sometimes kernel oops if iwconfig is used, need new wificonf in HEAD, -> nbd ]
  * usb driver [need to be tested]
@@ -62,7 +65,7 @@ CFE> reset
 
 Default parameters for the serial console are: 115200, N, 8, 1
 
-[[BR]]You need a MAX3232 chip to get the console working.
+[[BR]]You need a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip to get the console working.
 
 [[BR]]J6 (left from J7) looks like a second serial port, but has no header on it.
 
