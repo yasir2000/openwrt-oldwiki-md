@@ -105,3 +105,5 @@ Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the second reset button you can find on WRT54G v3.0, except that it has not been soldered.
+
+Many versions of this model have a (possibly unpopulated) serial header, for more info see http://www.rwhitby.net/wrt54gs/serial.html.
