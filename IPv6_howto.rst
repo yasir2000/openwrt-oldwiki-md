@@ -502,7 +502,7 @@ netsh interface ipv6>exit
 C:\>
 }}}
 
-Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/0) telling Windows they can be used together at each end of a communication link.
+Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/0) telling Windows they can be used together at each end of a communication link. Now if you go to an IPv6 enabled website (e.g. www.kame.net) you will connect to it using IPv6 instead of IPv4.
 
 = Links =
  * [http://www.757.org/~joat/wiki/index.php/IPv6_on_the_WRT54G_via_OpenWRT IPv6 on OpenWrt with Hurricane Electric]
