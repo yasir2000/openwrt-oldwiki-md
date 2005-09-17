@@ -417,6 +417,93 @@ Interface configuration of a client machine:
        valid_lft forever preferred_lft forever
 }}}
 
+= Using IPv6 by default with Windows XP =
+
+Now you have 6to4 installed on your OpenWrt router with a radvd server, you can enable IPv6 on your Windows box by typing
+{{{
+ipv6 install
+}}}
+at the command prompt. This will install IPv6 and you will get a 6to4 address. However Windows will only use it to communicate with
+other 6to4 addresses or other IPv6 only hosts by default (it will prefer IPv4 otherwise). To force IPv6 with dual stack non-6to4 hosts, use this:
+{{{
+C:\>netsh
+netsh>interface ipv6
+netsh interface ipv6>show prefixpolicy
+Querying active state...
+
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+         5      5  3ffe:831f::/32
+        10      4  ::ffff:0:0/96
+        20      3  ::/96
+        30      2  2002::/16
+        40      1  ::/0
+        50      0  ::1/128
+
+netsh interface ipv6>set prefixpolicy
+One or more essential parameters were not entered.
+Verify the required parameters, and reenter them.
+The syntax supplied for this command is not valid. Check help for the correct syntax.
+
+Usage: set prefixpolicy [prefix=]<IPv6 address>/<integer> [precedence=]<integer>
+             [label=]<integer> [[store=]active|persistent]
+
+Parameters:
+
+       Tag              Value
+       prefix         - Prefix for which to add a policy.
+       precedence     - Precedence value for ordering.
+       label          - Label value for matching.
+       store          - One of the following values:
+                        active: Change only lasts until next boot.
+                        persistent: Change is persistent (default).
+
+Remarks: Modifies a source and destination address selection policy
+         for a given prefix.
+
+Example:
+
+       set prefixpolicy ::/96 3 4
+
+
+netsh interface ipv6>set prefixpolicy ::1/128 50 0
+Ok.
+
+netsh interface ipv6>set prefixpolicy ::/0 40 1
+Ok.
+
+netsh interface ipv6>set prefixpolicy 2002::/16 30 1
+Ok.
+
+netsh interface ipv6>set prefixpolicy ::/96 20 3
+Ok.
+
+netsh interface ipv6>set prefixpolicy ::ffff:0:0/96 10 4
+Ok.
+
+netsh interface ipv6>set prefixpolicy 3ffe:831f::/32 5 5
+Ok.
+
+netsh interface ipv6>show prefixpolicy
+Querying active state...
+
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+         5      5  3ffe:831f::/32
+        10      4  ::ffff:0:0/96
+        20      3  ::/96
+        30      1  2002::/16
+        40      1  ::/0
+        50      0  ::1/128
+
+netsh interface ipv6>exit
+
+
+C:\>
+}}}
+
+Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/0) telling Windows they can be used together at each end of a communication link.
+
 = Links =
  * [http://www.757.org/~joat/wiki/index.php/IPv6_on_the_WRT54G_via_OpenWRT IPv6 on OpenWrt with Hurricane Electric]
  * [http://www.join.uni-muenster.de/TestTools/IPv6_Verbindungstests.php JOIN IPv6 Test Page (ping, traceroute, tracepath)]
