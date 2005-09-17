@@ -267,7 +267,7 @@ If it doesn't work use {{{logread}}} to see what occurs
 = IPv6 on the LAN =
 At this point I suppose that you have a working ipv6 connection on the wrt, that you can ''ping6 www.kame.net'' without error.
 
-Using our mythical 3ffe:ffff:0:f101::/64 network, we would put in /etc/radvd.conf the following lines:
+Using our mythical `2001:db8:0:f101::/64` network, we would put in /etc/radvd.conf the following lines:
 {{{
 # For more examples, see the radvd documentation.
 
@@ -275,7 +275,7 @@ interface br0
 {
         AdvSendAdvert on;
 
-        prefix 3ffe:ffff:0:f101::/64
+        prefix 2001:db8:0:f101::/64
         {
                 AdvOnLink on;
                 AdvAutonomous on;
@@ -284,9 +284,9 @@ interface br0
 };
 }}}
 
-Now we add {{{3ffe:ffff:0:f101::1}}} to br0 & forward our delegated /64 subnet to br0 :
+Now we add `2001:db8:0:f101::1` to br0 & forward our delegated /64 subnet to br0 :
 {{{
-ip -6 addr add 3ffe:ffff:0:f101::1/64 dev br0
+ip -6 addr add 2001:db8:0:f101::1/64 dev br0
 }}}
 
 After all this you can start the daemon:
