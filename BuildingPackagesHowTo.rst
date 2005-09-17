@@ -115,7 +115,7 @@ $(eval $(call PKG_template,HELLO,hello,$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
 
 $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
 	(cd $(PKG_BUILD_DIR); \
-$(TARGET_CONFIGURE_OPTS) \
+                $(TARGET_CONFIGURE_OPTS) \
 		CFLAGS="$(TARGET_CFLAGS)" \
                 CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
                 LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
