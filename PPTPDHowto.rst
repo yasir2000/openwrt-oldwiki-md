@@ -19,7 +19,7 @@ While we are at it we mark the startup script executable and put it so that it w
 
 {{{
 chmod a+x /etc/init.d/ppptd
-mv /etc/init.d/pptpd /etc/init.d/S51pptpd
+ln -s /etc/init.d/pptpd /etc/init.d/S51pptpd
 }}}
 
 == Configuring pptpd ==
