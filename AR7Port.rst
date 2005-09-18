@@ -15,6 +15,8 @@
  * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
  * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
  * Sitecom [http://www.trasduzione.com/WL-108 WL-108]
+ * TCOM [http://ar7-firmware.berlios.de Sinus 154 DSL Basic SE] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
+ * TCOM [http://ar7-firmware.berlios.de Sinus 154 DSL Basic 3] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
 
 and many more.
 
