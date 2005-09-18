@@ -78,16 +78,16 @@ That files you can access in your package/Makefile with ./filename and copy it t
 
 {{{
 config BR2_PACKAGE_HELLO
-	tristate "hello - The classic greeting, and a good example"
-	default m if CONFIG_DEVEL
-	help
-	The GNU hello program produces a familiar, friendly greeting.  It
-	allows non-programmers to use a classic computer science tool which
-	would otherwise be unavailable to them.
-	.
-	Seriously, though: this is an example of how to do a Debian package.
-	It is the Debian version of the GNU Project's `hello world' program
-	(which is itself an example for the GNU Project).
+        tristate "hello - The classic greeting, and a good example"
+        default m if CONFIG_DEVEL
+        help
+        The GNU hello program produces a familiar, friendly greeting.  It
+        allows non-programmers to use a classic computer science tool which
+        would otherwise be unavailable to them.
+        .
+        Seriously, though: this is an example of how to do a Debian package.
+        It is the Debian version of the GNU Project's `hello world' program
+        (which is itself an example for the GNU Project).
 }}}
 
 
@@ -102,8 +102,8 @@ PKG_RELEASE:=1
 PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
 
 PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
-	http://mirrors.sunsite.dk/gnu/hello \
-	http://ftp.gnu.org/gnu/hello
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_CAT:=zcat
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -114,40 +114,40 @@ include $(TOPDIR)/package/rules.mk
 $(eval $(call PKG_template,HELLO,hello,$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
 
 $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
-	(cd $(PKG_BUILD_DIR); \
-                $(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS)" \
-                CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
-                LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
-		./configure \
-		--target=$(GNU_TARGET_NAME) \
-		--host=$(GNU_TARGET_NAME) \
-		--build=$(GNU_HOST_NAME) \
-		--prefix=/usr \
-		--without-libiconv-prefix \
-		--without-libintl-prefix \
-		--disable-nls \
-	);
-	touch $@
+         (cd $(PKG_BUILD_DIR); \
+                  $(TARGET_CONFIGURE_OPTS) \
+                  CFLAGS="$(TARGET_CFLAGS)" \
+                  CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
+                  LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
+                  ./configure \
+                           --target=$(GNU_TARGET_NAME) \
+                           --host=$(GNU_TARGET_NAME) \
+                           --build=$(GNU_HOST_NAME) \
+                           --prefix=/usr \
+                           --without-libiconv-prefix \
+                           --without-libintl-prefix \
+                           --disable-nls \
+        );
+        touch $@
 
 $(PKG_BUILD_DIR)/.built:
-	rm -rf $(PKG_INSTALL_DIR)
-	mkdir -p $(PKG_INSTALL_DIR)/usr/bin
-	$(MAKE) -C $(PKG_BUILD_DIR)/src \
-		$(TARGET_CONFIGURE_OPTS) \
-		prefix="$(PKG_INSTALL_DIR)/usr"
-	cp -fpR $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
-	touch $@
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(MAKE) -C $(PKG_BUILD_DIR)/src \
+                $(TARGET_CONFIGURE_OPTS) \
+                prefix="$(PKG_INSTALL_DIR)/usr"
+        cp -fpR $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
 
 $(IPKG_HELLO):
-	install -d -m0755 $(IDIR_HELLO)/usr/bin
-	cp -fpR $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
-	$(RSTRIP) $(IDIR_HELLO)
-	$(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        cp -fpR $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
 
 mostlyclean:
-	make -C $(PKG_BUILD_DIR) clean
-	rm $(PKG_BUILD_DIR)/.built
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built
 }}}
 
 
@@ -160,13 +160,13 @@ Section: misc
 Maintainer: Name <maintainer@example.com>
 Source: http://ftp.debian.org/debian/pool/main/h/hello
 Description: The classic greeting, and a good example
-	The GNU hello program produces a familiar, friendly greeting.  It
-	allows non-programmers to use a classic computer science tool which
-	would otherwise be unavailable to them.
-	.
-	Seriously, though: this is an example of how to do a Debian package.
-	It is the Debian version of the GNU Project's `hello world' program
-	(which is itself an example for the GNU Project).
+        The GNU hello program produces a familiar, friendly greeting.  It
+        allows non-programmers to use a classic computer science tool which
+        would otherwise be unavailable to them.
+        .
+        Seriously, though: this is an example of how to do a Debian package.
+        It is the Debian version of the GNU Project's `hello world' program
+        (which is itself an example for the GNU Project).
 }}}
 
 
