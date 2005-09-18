@@ -17,7 +17,9 @@
 ||Linksys||WAG54G||V2-FR|| || ||WA21||
 ||Linksys||WAG54G||V2-UK||tftp|| ||WA21||
 ||Linksys||WRTP54G|| || || || ||
-||Linksys||AG241||||tftp|| ||AG1B||
+||Linksys||AG241|| ||tftp|| ||AG1B||
+||TCOM||Sinus 154 DSL Basic SE|| || || || ||
+||TCOM||Sinus 154 DSL Basic 3|| || || || ||
 
 ## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
 ## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
@@ -64,7 +66,7 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 == Boot sequence ==
 
-AR7 hardware uses adam2 as the bootloader. The following sequence details how the hardware boots.
+Most AR7 hardware uses adam2 as the bootloader. The following sequence details how the hardware boots.
 
  * Switch on
  * 2 seconds while bootloader initialises
@@ -72,6 +74,10 @@ AR7 hardware uses adam2 as the bootloader. The following sequence details how th
  * Kernel boots
 
 As you can see there is only a small window available in which to initiate the firmware upgrade.
+
+Some AR7 hardware uses a different bootloader from Broad Net Technologies.
+See [http://ar7-firmware.berlios.de/openwrt/] for modifications which support
+this kind of hardware.
 
 == Flashing using the bootloader ==
 
