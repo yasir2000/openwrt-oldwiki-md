@@ -76,10 +76,9 @@ haserl package with:
 echo "haserl" >> my-image.brcm-2.4
 }}}
 
-The my-image.brcm-2.4 file should look like this after appending haserl:
+The my-image.brcm-2.4 file should look like this after appending haserl (cat my-image.brcm-2.4):
 
 {{{
-cat my-image.brcm-2.4
 base-files
 base-files-brcm
 bridge
@@ -170,15 +169,12 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 make clean && make
 }}}
 
-All created images can be found in the bin/<image_name>/ directory.
+All builded images can be found in the bin/<image_name>/ directory.
 
 
 Building the images looks like this (here only for the my-image image):
 
 {{{
-cd ~/OpenWrt-ImageBuilder-Linux-i686
-make clean && make
-
 ### BUILDING IMAGE FROM lists/my-image.brcm-2.4
 
 Unpacking kernel...Done.
