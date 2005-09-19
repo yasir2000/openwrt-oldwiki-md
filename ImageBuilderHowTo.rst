@@ -113,9 +113,9 @@ If you don't need any special tweaks you can go a head with
 "3.5 Building the image".
 
 
-== Additinal packages ==
+== Additional packages ==
 
-When you've additinal packages which are not listed (f. e. nas) in the
+When you've additional packages which are not listed (f. e. nas) in the
 packages directory you can add them by copying the package directly into
 the packages directory. After that add the package as described in 3.2
 above.
@@ -136,7 +136,7 @@ in the images with your own.
 You've two options here.
 
 
-files directory[[BR]]
+files directory:[[BR]]
 Files, directories and links in here would go into every image. Existing
 ones gets overwritten/replaced.
 
@@ -147,7 +147,7 @@ mkdir -p files/etc
 touch files/etc/example.txt
 }}}
 
-files.<image_name> directory[[BR]]
+files.<image_name> directory:[[BR]]
 Files, directories and links in here would only go into the image you
 defined by <image_name>. Existing ones gets overwritten/replaced.
 
