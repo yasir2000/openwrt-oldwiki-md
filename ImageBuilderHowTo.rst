@@ -76,9 +76,11 @@ haserl package with:
 echo "haserl" >> my-image.brcm-2.4
 }}}
 
-The my-image.brcm-2.4 file should look like this after appending haserl (cat my-image.brcm-2.4):
+The my-image.brcm-2.4 file should look like this after appending haserl:
 
 {{{
+cat my-image.brcm-2.4
+
 base-files
 base-files-brcm
 bridge
