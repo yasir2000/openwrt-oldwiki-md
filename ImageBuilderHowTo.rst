@@ -56,6 +56,9 @@ the image. It will use the ipkg packages out of the packages directory.
 When removing packages just remove the package name from the
 <image_name>.brcm-2.4 file.
 
+NOTE: Dependencies are not automatically resolved for ipkg packages by
+the Image Builder.
+
 Let's start with an example by adding the haserl package into your new
 image.
 
