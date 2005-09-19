@@ -306,7 +306,7 @@ robocfg switch disable vlans enable reset vlan 0 ports "1 2 3 4 5t" vlan 1 ports
 || wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
 || wl0_channel || 1 / 2 / 3 /.../ 11 vhannel ||
 
-See OpenWrtNVRAM for more NVRAM settings.
+See ["OpenWrtNVRAM"] for more NVRAM settings.
 
 == WEP encryption ==
 
