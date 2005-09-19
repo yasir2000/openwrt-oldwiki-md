@@ -30,20 +30,22 @@ included in the Image Builder) gets build, only follow the next step
 Everyone else show follow point by point on this howto.
 
 
-3.1 Obtaining and installing the Image Builder
+== Obtaining and installing the Image Builder ==
 
 The Image Builder could be downloaded from http://downloads.openwrt.org/whiterussian/.
 
 Download it into your homedir (don't use the root account) and untar the
 tarball. After that change into the new directory.
 
+{{{
 cd ~
 wget http://downloads.openwrt.org/whiterussian/rc3/bin/OpenWrt-ImageBuilder-Linux-i686.tar.bz2
 bzcat OpenWrt-ImageBuilder-Linux-i686.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-ImageBuilder-Linux-i686
+}}}
 
 
-3.2 The image/package lists
+== The image/package lists ==
 
 Now you're ready to build your own images. By default the Image Builder
 builds three types of images. They're default, micro and pptp. In the
@@ -59,19 +61,23 @@ image.
 
 Create a new package list by copying the default one:
 
+{{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 cd lists
 cp -v default.brcm-2.4 my-image.brcm-2.4
+}}}
 
 
 Now edit my-image.brcm-2.4 with your favourite editor or just append the
 haserl package with:
 
+{{{
 echo "haserl" >> my-image.brcm-2.4
-
+}}}
 
 The my-image.brcm-2.4 file should look like this after appending haserl:
 
+{{{
 cat my-image.brcm-2.4
 base-files
 base-files-brcm
@@ -97,6 +103,7 @@ wireless-tools
 wificonf
 zlib
 haserl
+}}}
 
 That's all.
 
@@ -104,19 +111,21 @@ If you don't need any special tweaks you can go a head with
 "3.5 Building the image".
 
 
-3.3 Additinal packages
+== Additinal packages ==
 
 When you've additinal packages which are not listed (f. e. nas) in the
 packages directory you can add them by copying the package directly into
 the packages directory. After that add the package as described in 3.2
 above.
 
+{{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 wget http://downloads.openwrt.org/whiterussian/packages/non-free/nas_3.90.37-7_mipsel.ipk
 mv -v nas_3.90.37-7_mipsel.ipk packages/
+}}}
 
 
-3.4 Custom files
+== Custom files ==
 
 Sometimes it's useful to add and/or replace files, directories and links
 in the images with your own.
@@ -128,37 +137,42 @@ files directory
 Files, directories and links in here would go into every image. Existing
 ones gets overwritten/replaced.
 
+{{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 mkdir -p files
 mkdir -p files/etc
 touch files/etc/example.txt
-
+}}}
 
 files.<image_name> directory
 Files, directories and links in here would only go into the image you
 defined by <image_name>. Existing ones gets overwritten/replaced.
 
+{{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 mkdir -p files.my-image
 mkdir -p files.my-image/etc
 touch files.my-image/etc/example.txt
-
+}}}
 
 You can copy/create files, directories and links as you like.
 
 
-3.5 Building the image
+== Building the image ==
 
 That's very easy. Just type make and all images you defined in the
 lists directory gets build.
 
+{{{
 make
+}}}
 
 All created images can be found in the bin/<image_name>/ directory.
 
 
 Building the images looks like this (here only for the my-image image):
 
+{{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 make
 
@@ -256,10 +270,11 @@ adding 992 bytes of garbage
 mjn3's addpattern replacement - v0.81
 writing firmware v4.70.6 on 5/9/19 (y/m/d)
 adding 992 bytes of garbage
-
+}}}
 
 And here are the results (your new images):
 
+{{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 ls -al bin/my-image/
 insgesamt 23024
@@ -277,12 +292,13 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 -rw-r--r--  1 user user 1577984 2005-09-19 20:14 openwrt-wrt54gs-squashfs.bin
 -rw-r--r--  1 user user 2229248 2005-09-19 20:14 openwrt-wrt54gs_v4-jffs2.bin
 -rw-r--r--  1 user user 1577984 2005-09-19 20:14 openwrt-wrt54gs_v4-squashfs.bin
+}}}
 
 
-4. Some more information
+= Some more information =
 
 
-4.1 Important directories
+== Important directories ==
 
 Some directories inside the Image Builder in which you would be
 interested in. These are:
