@@ -9,7 +9,7 @@ This guide should process you in building your own individual/custom
 OpenWrt firmware image by using the OpenWrt Image Builder.
 
 Why custom images?
-These images are for people who wan't do to less configuration on the
+[[BR]]These images are for people who wan't do to less configuration on the
 router or wan't to distribute the images for friends, or for backup
 perposes this list could to be continued by your own ideas.
 
@@ -164,7 +164,7 @@ That's very easy. Just type make and all images you defined in the
 lists directory gets build.
 
 {{{
-make
+make clean && make
 }}}
 
 All created images can be found in the bin/<image_name>/ directory.
@@ -174,7 +174,7 @@ Building the images looks like this (here only for the my-image image):
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
-make
+make clean && make
 
 ### BUILDING IMAGE FROM lists/my-image.brcm-2.4
 
