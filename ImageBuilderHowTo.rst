@@ -300,7 +300,7 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 
    * <image_name>
 
-     This is how you called/named you image. For example lists/default.brcm-2.4,
+     This is how you called/named your image. For example lists/default.brcm-2.4,
      here "default" is the <image_name>
 
 == Important directories ==
