@@ -3,7 +3,7 @@ Describe ImageBuilderHowTo here.
 OpenWrt Image Builder Howto
 
 
-1. About the OpenWrt Image Builder
+= About the OpenWrt Image Builder =
 
 This guide should process you in building your own individual/custom
 OpenWrt firmware image by using the OpenWrt Image Builder.
@@ -14,13 +14,13 @@ router or wan't to distribute the images for friends, or for backup
 perposes this list could to be continued by your own ideas.
 
 
-2. Requirements
+= Requirements =
    * a recent GNU/Linux distribution
 
    ... to be continued ...
 
 
-3. Using the OpenWrt Image Builder
+= Using the OpenWrt Image Builder =
 
 If you just like to see how the default images (default, micro and pptp
 included in the Image Builder) gets build, only follow the next step
