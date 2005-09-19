@@ -276,7 +276,7 @@ And here are the results (your new images):
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 ls -al bin/my-image/
-insgesamt 23024
+total 23024
 drwxr-xr-x  2 user user    4096 2005-09-19 20:14 .
 drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 -rw-r--r--  1 user user 2228224 2005-09-19 20:14 openwrt-brcm-2.4-jffs2-4MB.trx
