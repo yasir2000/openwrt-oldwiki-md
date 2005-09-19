@@ -46,7 +46,7 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 }}}
 
 
-== The image/package lists ==
+== The package lists ==
 
 Now you're ready to build your own images. By default the Image Builder
 builds three types of images. They're default, micro and pptp. In the
