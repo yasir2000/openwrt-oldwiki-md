@@ -135,7 +135,7 @@ in the images with your own.
 You've two options here.
 
 
-files directory
+files directory[[BR]]
 Files, directories and links in here would go into every image. Existing
 ones gets overwritten/replaced.
 
@@ -146,7 +146,7 @@ mkdir -p files/etc
 touch files/etc/example.txt
 }}}
 
-files.<image_name> directory
+files.<image_name> directory[[BR]]
 Files, directories and links in here would only go into the image you
 defined by <image_name>. Existing ones gets overwritten/replaced.
 
@@ -299,33 +299,29 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 
 = Some more information =
 
+   * <image_name>
+     This is how you called/named you image. For example lists/default.brcm-2.4,
+     here "default" is the <image_name>
 
 == Important directories ==
 
 Some directories inside the Image Builder in which you would be
 interested in. These are:
 
-bin/<image_name>/
-  Contains directories with the firmware images
+   * bin/<image_name>/
+     Contains directories with the firmware images
 
-build_mipsel/linux-2.4-brcm/root/
-  Contains the files and directories which goes into the image (will
-  be deleted everytime a new image gets build)
+   * build_mipsel/linux-2.4-brcm/root/
+     Contains the files and directories which goes into the image (will
+     be deleted everytime a new image gets build)
 
-files/
-  Files, directories and links in here would go into every image. Existing
-  ones gets overwritten/replaced
+   * files/
+     Files, directories and links in here would go into every image. Existing
+     ones gets overwritten/replaced
 
-files.<image_name>/
-  Files, directories and links in here would go only into the image you
-  defined by <image_name>. Existing ones gets overwritten/replaced.
+   * files.<image_name>/
+     Files, directories and links in here would go only into the image you
+     defined by <image_name>. Existing ones gets overwritten/replaced.
 
-packages/
-  In here are all OpenWrt packages you can use/include in the image.
-
-
-== Legend ==
-
-<image_name>
-  This is how you called/named you image. For example lists/default.brcm-2.4,
-  here "default" is the <image_name>
+   * packages/
+     In here are all OpenWrt packages you can use/include in the image.
