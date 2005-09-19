@@ -50,8 +50,8 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 
 Now you're ready to build your own images. By default the Image Builder
 builds three types of images. They're default, micro and pptp. In the
-lists/<image_name>.brcm-2.4 are the packages defined which go into
-image. It takes the ipkg packages out of the packages directory.
+file lists/<image_name>.brcm-2.4 are the packages defined which go into
+the image. It takes the ipkg packages out of the packages directory.
 
 When removing packages just remove the package name from the
 <image_name>.brcm-2.4 file.
