@@ -166,6 +166,7 @@ That's very easy. Just type make and all images you defined in the
 lists directory gets build.
 
 {{{
+cd ~/OpenWrt-ImageBuilder-Linux-i686
 make clean && make
 }}}
 
