@@ -39,7 +39,8 @@ tarball. After that change into the new directory.
 
 {{{
 cd ~
-wget http://downloads.openwrt.org/whiterussian/rc3/bin/OpenWrt-ImageBuilder-Linux-i686.tar.bz2
+wget http://downloads.openwrt.org/whiterussian/ \
+        rc3/bin/OpenWrt-ImageBuilder-Linux-i686.tar.bz2
 bzcat OpenWrt-ImageBuilder-Linux-i686.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 }}}
@@ -120,7 +121,8 @@ above.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
-wget http://downloads.openwrt.org/whiterussian/packages/non-free/nas_3.90.37-7_mipsel.ipk
+wget http://downloads.openwrt.org/whiterussian/ \
+        packages/non-free/nas_3.90.37-7_mipsel.ipk
 mv -v nas_3.90.37-7_mipsel.ipk packages/
 }}}
 
@@ -322,7 +324,7 @@ packages/
   In here are all OpenWrt packages you can use/include in the image.
 
 
-4.2 Legend
+== Legend ==
 
 <image_name>
   This is how you called/named you image. For example lists/default.brcm-2.4,
