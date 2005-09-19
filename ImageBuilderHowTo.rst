@@ -309,20 +309,20 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 Some directories inside the Image Builder in which you would be
 interested in. These are:
 
-   * bin/<image_name>/
+   * bin/<image_name>/[[BR]]
    Contains directories with the firmware images
 
-   * build_mipsel/linux-2.4-brcm/root/
+   * build_mipsel/linux-2.4-brcm/root/[[BR]]
    Contains the files and directories which goes into the image (will
    be deleted everytime a new image gets build)
 
-   * files/
+   * files/[[BR]]
    Files, directories and links in here would go into every image. Existing
    ones gets overwritten/replaced
 
-   * files.<image_name>/
+   * files.<image_name>/[[BR]]
    Files, directories and links in here would go only into the image you
    defined by <image_name>. Existing ones gets overwritten/replaced.
 
-   * packages/
+   * packages/[[BR]]
    In here are all OpenWrt packages you can use/include in the image.
