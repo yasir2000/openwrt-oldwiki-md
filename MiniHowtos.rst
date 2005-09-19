@@ -22,21 +22,8 @@ If you're only interested in having serial console working on your Gv2 or GS, ch
 = Software =
 This section should describe commonly-used packages, built-in Busybox tweaks, and things of that nature.
 
-== Spawn a shell on serial console ==
-By default, no shell is initiated on the serial console line.  Remember that stock out-of-the-box OpenWRT points `/etc/inittab` to `/rom/etc/inittab`, which means you should follow the [http://openwrt.org/OpenWrtFaq#head-c1131b5f2c7fed45983d534d90193913774487ff FAQ question] coverting how to do this.
-
-Add the following to `/etc/inittab`.  '''Make sure this line comes IMMEDIATELY after the `::shutdown:` entry, and before any other services (dnsmasq, etc...)!''':
-
-{{{
-::respawn:/bin/ash 0</dev/console 1>/dev/console 2>&1
-}}}
-
-Then send a HUP signal to `init` (`kill -HUP 1`).  You should now have a working shell via serial console.
-
-If you may receive the message: `ash: can't access tty; job control turned off`, then `/bin/ash` isn't the first application spawned by `init`; the first application gets control of the tty.  If `dnsmasq` or other toys come first, they will have control of the tty, hence the lack-of job control.
-
 == Setting up logging ==
-With the recent firmware(from 18-08-2004) syslogd is started on startup. You can read it with 'logread'
+syslogd is started on startup. You can read it with 'logread'
 
 Syslog logging can be very useful when trying to find out why things don't work.  There are two options for where to send the logging output: (1) to a local file stored in RAM, (2) to a remote system.  The local file option is very easy but because it is stored in RAM it will go away whenever the router reboots.  Using a remote system allows the output to be saved for ever.
 
