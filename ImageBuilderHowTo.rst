@@ -1,6 +1,6 @@
-Describe ImageBuilderHowTo here.
-
 OpenWrt Image Builder Howto
+
+[[TableOfContents]]
 
 
 = About the OpenWrt Image Builder =
