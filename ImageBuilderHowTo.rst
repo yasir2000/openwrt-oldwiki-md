@@ -172,7 +172,7 @@ make clean && make
 All builded images can be found in the bin/<image_name>/ directory.
 
 
-Building the images looks like this (here only for the my-image image):
+Building the images looks like this (here only for the image my-image):
 
 {{{
 ### BUILDING IMAGE FROM lists/my-image.brcm-2.4
