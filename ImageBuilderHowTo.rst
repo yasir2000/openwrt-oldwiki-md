@@ -5,13 +5,13 @@ OpenWrt Image Builder Howto
 
 = About the OpenWrt Image Builder =
 
-This guide should process you in building your own individual/custom
-OpenWrt firmware image by using the OpenWrt Image Builder.
+This guide should process you in building your own individual custom
+OpenWrt firmware images by using the OpenWrt Image Builder.
 
 Why custom images?
-[[BR]]These images are for people who wan't to do less configuration on the
-router or wan't to distribute the images for friends, or for backup
-perposes this list could to be continued by your own ideas.
+[[BR]]These images are for people who want to do less configuration on the
+router or want to distribute the images for friends or for backup
+purposes. This list could be continued by your own ideas.
 
 
 = Requirements =
@@ -27,14 +27,14 @@ included in the Image Builder) gets build, only follow the next step
 "3.1 Obtaining and installing the Image Builder" and the step
 "3.5 Building the image".
 
-Everyone else show follow point by point on this howto.
+Everyone else should follow point by point on this howto.
 
 
 == Obtaining and installing the Image Builder ==
 
 The Image Builder could be downloaded from http://downloads.openwrt.org/whiterussian/.
 
-Download it into your homedir (don't use the root account) and untar the
+Download it into your home directory (don't use the root account) and untar the
 tarball. After that change into the new directory.
 
 {{{
@@ -48,10 +48,10 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 
 == The package lists ==
 
-Now you're ready to build your own images. By default the Image Builder
+Now you are ready to build your own images. By default the Image Builder
 builds three types of images. They're default, micro and pptp. In the
 file lists/<image_name>.brcm-2.4 are the packages defined which go into
-the image. It takes the ipkg packages out of the packages directory.
+the image. It will use the ipkg packages out of the packages directory.
 
 When removing packages just remove the package name from the
 <image_name>.brcm-2.4 file.
@@ -109,13 +109,13 @@ haserl
 
 That's all.
 
-If you don't need any special tweaks you can go a head with
+If you don't need any special tweaks you can go ahead with
 "3.5 Building the image".
 
 
 == Additional packages ==
 
-When you've additional packages which are not listed (f. e. nas) in the
+When you have additional packages which are not listed (f.e. nas) in the
 packages directory you can add them by copying the package directly into
 the packages directory. After that add the package as described in 3.2
 above.
@@ -138,7 +138,7 @@ You've two options here.
 
 files directory:[[BR]]
 Files, directories and links in here would go into every image. Existing
-ones gets overwritten/replaced.
+ones are replaced.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -149,7 +149,7 @@ touch files/etc/example.txt
 
 files.<image_name> directory:[[BR]]
 Files, directories and links in here would only go into the image you
-defined by <image_name>. Existing ones gets overwritten/replaced.
+defined by <image_name>. Existing ones are replaced.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -158,7 +158,7 @@ mkdir -p files.my-image/etc
 touch files.my-image/etc/example.txt
 }}}
 
-You can copy/create files, directories and links as you like.
+You can copy or create files, directories and links as you like.
 
 
 == Building the image ==
@@ -311,6 +311,6 @@ interested in. These are:
 ||'''Directory'''||'''Description'''||
 ||bin/<image_name>/||Contains directories with the firmware images||
 ||build_mipsel/linux-2.4-brcm/root/||Contains the files and directories which goes into the image (willbe deleted everytime a new image gets build)||
-||files/||Files, directories and links in here would go into every image. Existing ones gets overwritten/replaced.||
-||files.<image_name>/||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones gets overwritten/replaced.||
-||packages/||In here are all OpenWrt packages you can use/include in the image.||
+||files/||Files, directories and links in here would go into every image. Existing ones are replaced.||
+||files.<image_name>/||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones are replaced.||
+||packages/||In here are all OpenWrt packages you can include in the image.||
