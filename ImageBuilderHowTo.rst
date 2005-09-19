@@ -312,6 +312,6 @@ interested in. These are:
 ||'''Directory'''||'''Description'''||
 ||bin/<image_name>/||Contains directories with the firmware images||
 ||build_mipsel/linux-2.4-brcm/root/||Contains the files and directories which goes into the image (willbe deleted everytime a new image gets build)||
-||files/||Files, directories and links in here would go into every image. Existing ones gets overwritten/replaced||
+||files/||Files, directories and links in here would go into every image. Existing ones gets overwritten/replaced.||
 ||files.<image_name>/||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones gets overwritten/replaced.||
 ||packages/||In here are all OpenWrt packages you can use/include in the image.||
