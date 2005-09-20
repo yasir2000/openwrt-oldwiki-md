@@ -529,6 +529,12 @@ Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about t
 
 Keep in mind that this information was found using trial-and-error-methods, so it might still be faulty or have unwanted side effects.
 
+=== uPnP ===
+
+'''uPnP''' is Universal Plug and Play.  You can use either the LinkSys binary from the original firmware or the compiled version.
+
+Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
+
 = Hardware =
 
 == LED ==
