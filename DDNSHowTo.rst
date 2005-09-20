@@ -148,11 +148,12 @@ file /tmp/ez-ipup:
 test -f /tmp/ez-ipup && cat /tmp/ez-ipup
 }}}
 
-The dump of my /tmp/ez-ipup file (yours looks similar:
+The dump of my /tmp/ez-ipup file:
 
 {{{
 1127182459,aaa.bbb.ccc.ddd
 }}}
 
-Where aaa.bbb.ccc.ddd is your current IP address. You can checkout your
-current IP address with http://www.whatismyip.com/ or http://www.whatismyip.org/.
+The first number is a Unix timestamp. And aaa.bbb.ccc.ddd is your current
+IP address. You can checkout your current IP address with
+http://www.whatismyip.com/ or http://www.whatismyip.org/.
