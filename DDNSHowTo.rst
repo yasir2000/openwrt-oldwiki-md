@@ -1,7 +1,7 @@
 Describe DDNSHowTo here.
 
 
-[[:TableOfContents]]
+[[TableOfContents]]
 
 
 = About Dynamic DNS (DDNS) =
