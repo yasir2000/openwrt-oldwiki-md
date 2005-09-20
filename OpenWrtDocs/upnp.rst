@@ -20,9 +20,13 @@ uPnP can be installed to run on your WRT.  Information in this guide assumes you
 
 === What are my options ===
 
-You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this thread: http://forum.openwrt.org/viewtopic.php?id=85
+You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this thread: http://forum.openwrt.org/viewtopic.php?id=85.
 
-'''To be updated soon with a summary of the contents of the above thread'''
+The pre-compiled Linksys binary is more elegant and integrates very well into Windows.  The Linux-IGD code is more generic and your mileage may vary on getting it working with MSN Messenger.  If you're not a guru, I recommend using the Linksys binary.  
+
+=== Where do I get the binaries? ===
+
+'''Coming Soon'''
 
 
 == Overview of Universal Plug & Play ==
