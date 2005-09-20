@@ -135,7 +135,8 @@ The main configuration is done now.
 To get this working you need to have ppp installed and configured.
 
 {{{
-test -f /etc/ppp/ip-up && echo -e "#/bin/sh\n\n/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &" > /etc/ppp/ip-up
+test -f /etc/ppp/ip-up && \
+        echo -e "#/bin/sh\n\n/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &" > /etc/ppp/ip-up
 chmod a+x /etc/ppp/ip-up
 }}}
 
