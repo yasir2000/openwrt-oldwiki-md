@@ -143,6 +143,8 @@ test -f /etc/ppp/ip-up || \
 chmod a+x /etc/ppp/ip-up
 }}}
 
+[[BR]]
+
 {{{
 cat /etc/ppp/ip-up
 }}}
