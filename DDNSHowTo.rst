@@ -14,11 +14,6 @@ server software on your computer and only have a dynamic IP.
 
 OpenWrt uses ez-ipupdate for providing DDNS service.
 
-For more details please look at the Wikipedia link below or edit
-this page.
-[[BR]]- http://en.wikipedia.org/wiki/Ddns
-[[BR]]- http://www.ez-ipupdate.com/
-
 
 = Requirements =
 
@@ -159,3 +154,10 @@ The dump of my /tmp/ez-ipup file:
 The first number is a Unix timestamp. And aaa.bbb.ccc.ddd is your current
 IP address. You can checkout your current IP address with
 http://www.whatismyip.com/ or http://www.whatismyip.org/.
+
+
+= Useful Links =
+
+For more details please look at the Wikipedia link below or edit this page.
+[[BR]]- http://en.wikipedia.org/wiki/Ddns
+[[BR]]- http://www.ez-ipupdate.com/
