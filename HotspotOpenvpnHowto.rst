@@ -38,14 +38,16 @@ The structure of our network is quite easy. We will use three separated networks
     VPN: 192.168.3.0/24 
 
 = What you need =
-To use this howto you need the openwrt-experimental firmware with the follwoing extensions:
+To use this howto I recommend you to use the newest White Russian RC3. You can build your own firmware or use the generic images in [http://downloads.openwrt.org/whiterussian/rc3/]
+
+To use openvpn you have to install the following packages:
 
     * openssl 
     * lzo 
     * kmod-tun 
     * openvpn 
 
-You also can build your own OpenWrt experimental firmware, then you need to download the sources of OpenWrt instead of the binary file. In this case you directly build the extensions mentioned above into your firmware. An instruction how to do this is in the documentation of the source file.
+I will install them later with ipkg.
 
 = OpenWrt =
 Our configuration has been tested with the Linksys WRT54g versions 2.0 and 2.2. If you use other hardware please mind that the interface names may be changed. Assuming your OpenWrt installation is untouched your box is reachable via telnet on 192.168.1.1. The first thing to do is to set a password. Log into your box, type "passwd" and set your new root password. After doing so disconnect and reconnect via ssh.
@@ -53,6 +55,9 @@ Our configuration has been tested with the Linksys WRT54g versions 2.0 and 2.2. 
 
 == Network devices ==
 The default config is a little tricky. The LAN-device (vlan0) and the WLAN-device (eth1) are bridged together to "br0". But as we want to have separated nets for those devices, we have to split them. Also the Internet (WAN) device has to be configured.
+''Note that the following commands are examples! You have to adapt them to your box. For example on some WRTs you have substitute wifi_ifname with wl0_ifname and so on.'' 
+
+
 
 nvram set lan_ifname=vlan0[[BR]]
 nvram set lan_proto=static[[BR]]
@@ -78,19 +83,8 @@ nvram commit[[BR]]
 reboot
 
 The box will restart and *hopefully* come up again.
+If your wlan interface (eth1) is not reachable, make sure it is ''up''.
 
-== ipkg setup ==
-The special thing about OpenWrt is that it comes with its own package management system, called "ipkg". We think it's comparable to the Debian "apt" system. To get this running and ready for later software install, /etc/ipkg.conf has to be changed. Do this with your favorite editor or by using scp. We recommend using vim ;-)
-
-'''/etc/ipkg.conf'''[[BR]]
-src experimental http://openwrt.org/downloads/experimental/bin/packages [[BR]]
-src openwrt http://openwrt.org/ipkg [[BR]]
-dest root /[[BR]]
-dest ram /tmp[[BR]]
-
-Maybe you know it from Debian, the package list has to be updated now.
-
-    ipkg update 
 
 == DHCP-Server ==
 The dnsmasq package in OpenWrt is responsible for the dhcpd functions. As we have a local LAN and a public WLAN we want to serve both with dynamically IP-address allocation. IP-addresses in the range between 192.168.1.200-192.168.1.250 and 192.168.2.200-192.168.2.250 are being offered.
@@ -151,15 +145,15 @@ Don't forget to assign executable rights to this file.
     chmod a+x /etc/init.d/S60openvpn 
 
 == Iptables setup ==
-/etc/init.d/S45firewall[[BR]]
+'''/etc/firewall.user'''[[BR]]
 
 [...][[BR]]
 iptables -A FORWARD -i eth1 -o ppp0 -j ACCEPT[[BR]]
 iptables -A FORWARD -i tun0 -j ACCEPT[[BR]]
 iptables -A FORWARD -i vlan0 -o tun0 -j ACCEPT[[BR]]
 
-This has to be appended! The whole file is much longer.
-Finally you can do a last reboot.
+This has to be appended! The whole file is much longer.[[BR]]
+'''Finally you can do a last reboot.'''
 
 = Clientside =
 
@@ -169,10 +163,12 @@ Install the fitting OpenVPN client for your operating system. Copy the /etc/open
 
     scp 192.168.1.1:/etc/openvpn/wlan_home.key /etc/openvpn/ 
 
-If you're using M$ Windows copy the file to "C:\Program Files\OpenVPN\config". Now create the config file.
+If you're using M$ Windows copy the file to "C:\Program Files\OpenVPN\config". [[BR]]
 
-'''/etc/openvpn/wlan_home.conf[[BR]]
-C:\Program Files\OpenVPN\config\wlan_home.conf'''[[BR]]
+Now create the config file.
+
+'''/etc/openvpn/wlan_home.conf[[BR]]''' or 
+'''C:\Program Files\OpenVPN\config\wlan_home.conf'''[[BR]]
 dev tun[[BR]]
 remote 192.168.2.1[[BR]]
 ifconfig 192.168.3.2 192.168.3.1[[BR]]
@@ -190,7 +186,7 @@ persist-key[[BR]]
 
 verb 3[[BR]]
 
-Using Linux you have to load the tunnel module.
+Using '''Linux''' you have to load the tunnel module.
 
     modprobe tun 
 
@@ -198,4 +194,4 @@ Now you can start the tunnel using
 
     openvpn --daemon --config /etc/openvpn/wlan_home.conf 
 
-For Windows just right-click onto your config and choose the second point to execute the config.
+For '''Windows''' just right-click onto your config and choose the second point to execute the config.
