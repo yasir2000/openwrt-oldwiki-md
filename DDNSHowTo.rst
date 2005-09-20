@@ -63,24 +63,6 @@ interface=eth0
 host=mydomain.com
 cache-file=/tmp/ez-ipup
 pid-file=/var/run/ez-ipupdate.pid
-#notify-email=john.doe@mydomain.com
-# other options:
-#address=<ip address>
-#daemon
-#debug
-#foreground
-#host=<host>
-#interface=<interface>
-#mx=<mail exchanger>
-#retrys=<number of trys>
-#run-as-user=<user>
-#run-as-euser=<user>
-#server=<server name>
-#timeout=<sec.millisec>
-#max-interval=<time in seconds>
-#notify-email=<email address>
-#period=<time between update attempts>
-#url=<url>
 }}}
 
 The list of allowed parameters in the configuration file are:
@@ -132,7 +114,7 @@ The main configuration is done now.
 
 == Via the /etc/ppp/ip-up script ==
 
-This updateds your DDNS every time a PPP connection was etablished.
+This updates your DDNS every time a PPP connection was etablished.
 To get this working you need to have PPP installed and configured on your router.
 
 {{{
