@@ -132,6 +132,25 @@ The main configuration is done now.
 
 == Via the /etc/ppp/ip-up script ==
 
+To get this working you need to have ppp installed and configured.
+
+{{{
+test -f /etc/ppp/ip-up && echo -e "#/bin/sh\n\n/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &" > /etc/ppp/ip-up
+chmod a+x /etc/ppp/ip-up
+}}}
+
+{{{
+cat /etc/ppp/ip-up
+}}}
+
+{{{
+#!/bin/sh
+
+/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &
+}}}
+
+If /etc/ppp/ip-up does not look like the above one, you have to edit the file manually with the vi editor.
+
 
 == Via a cronjob ==
 
