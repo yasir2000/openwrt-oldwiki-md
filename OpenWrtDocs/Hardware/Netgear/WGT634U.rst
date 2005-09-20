@@ -17,7 +17,7 @@ ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
 flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 }}}
 
-After that you can use "`reboot`" to start OpenWrt.
+Flashing may take over a minute. After that you can use "`reboot`" to start OpenWrt.
 
 Please only use these snapshots if you like to help to get this OpenWrt port working. There is still a lot of work. See the TODO list.
 If you have any suggestions or patches for CVS HEAD, please send wbx (wbx@openwrt.org) an e-Mail.
