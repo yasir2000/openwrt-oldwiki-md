@@ -31,17 +31,17 @@ Microsoft implemented the IGD in their "Internet Connection Sharing" (ICS) syste
 
 Once people started buying hardware routers, it became important (from a marketing perspective) that these devices could also act as an IGD, and respond to uPnP requests for access through the firewall in the router. And so, vendors began to create their own Internet Gateway Devices (IGD's) based on the standards available from the uPnP forum.  Each implementation is a little bit different, to cater for the different types of firewalls that the IGD software must communicate with.  In the case of all the hardware routers based on the Broadcom chipset - and we're talking the Linksys, Belkin, Asus, etc here - the IGD software is written to communicate with the Netfilter (IPTables) Linux firewall.  Most of this code is based on the Linux IGD project over at Sourceforge.
 
-== Security Warning!!! ==
+=== Security Warning!!! ===
 
 Let's not pull any punches here; the IGD is inherently NOT SECURE.  The uPnP framework does not cater for any authentication whatsoever.  This basically means that ANY computer, ANY person, or ANY application in your network can say "Hey firewall, open these ports".  And the worst part about that is that when the ports are opened, ANYONE on the Internet can connect to them.  
 
 You think trojans are bad now?  Just wait until everyone is running uPnP on their firewall.  Then all of a sudden every trojan that manages to infect your PC will install itself and then tell your firewall to allow anyone to connect to it.  Looks like that firewall just became worthless!
 
-=== So what should I do? ===
+==== So what should I do? ====
 
 Quite simply, if you do not have a drastic need to use MSN audio and video conversations, do NOT run the IGD/uPnP on your router.  There are currently no other major applications that support or need uPnP, although I believe BitTorrent is about to support it.
 
-=== I think I need uPnP, but the gurus will flame me in the forums for using it!! ===
+==== I think I need uPnP, but the gurus will flame me in the forums for using it!! ====
 
 Here's my perspective.  I work in the IT Security industry. I've taught security courses for the SANS Institute. I spend my working hours going round to customer after customer, implementing solutions to fix often disastrous mistakes that our penetration testing team has discovered.
 And I use uPnP - an insecure piece of software that increases my risk of being spanked by malicious code.
