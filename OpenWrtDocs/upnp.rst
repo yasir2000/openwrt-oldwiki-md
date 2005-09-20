@@ -16,7 +16,7 @@ in realtime, with no intervention by the user.  When the audio/video conversatio
 
 === Overview of Universal Plug & Play ===
 
-Universal Plug and Play is not a means of opening holes in firewalls.  Actually, uPnP is a '''suite''' of standards defined by the uPnP forum (www.upnp.org) on making devices interopate with  each other automatically, without you needing to get involved and configure it by hand.
+Universal Plug and Play is not just a means of opening holes in firewalls.  Actually, uPnP is a '''suite''' of standards defined by the uPnP forum (www.upnp.org) on making devices interopate with  each other automatically, without you needing to get involved and configure it by hand.
 
 ==== What's an Internet Gateway Device (IGD)? ====
 
