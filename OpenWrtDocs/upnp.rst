@@ -49,9 +49,9 @@ When we talk about all the hardware routers based on the Broadcom chipset (Links
 
 === Security Warning!!! ===
 
-Let's not pull any punches here; the IGD is inherently NOT SECURE.  The uPnP framework does not cater for any authentication whatsoever.  This basically means that ANY computer, ANY person, or ANY application in your network can say "Hey firewall, open these ports".  And the worst part about that is that when the ports are opened, ANYONE on the Internet can connect to them.  
+Let's not pull any punches here; the IGD is inherently '''NOT SECURE'''.  The uPnP framework does not cater for any authentication whatsoever.  This basically means that '''ANY''' computer, '''ANY''' person, or '''ANY''' application in your network can say "Hey firewall, open these ports".  And the worst part about that is that when the ports are opened, '''ANYONE''' on the Internet can connect to them.  
 
-You think trojans are bad now?  Just wait until everyone is running uPnP on their firewall.  Then all of a sudden every trojan that manages to infect your PC will install itself and then tell your firewall to allow anyone to connect to it.  Looks like that firewall just became worthless!
+You think trojans are bad now?  Just wait until everyone is running uPnP on their firewall, then all of a sudden every trojan that manages to infect your PC will tell your firewall to allow anyone to connect to it.  Looks like that firewall just became worthless!
 
 ==== So what should I do? ====
 
