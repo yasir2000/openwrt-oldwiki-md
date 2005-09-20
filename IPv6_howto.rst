@@ -1,3 +1,5 @@
+[[TableOfContents]]
+
 = Preface =
 This HOWTO describes how to setup IPv6 on your OpenWrt based router. 
 
