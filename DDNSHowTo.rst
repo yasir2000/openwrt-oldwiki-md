@@ -1,10 +1,4 @@
-'''This page still under development!!!'''
-
-Describe DDNSHowTo here.
-
-
 [[TableOfContents]]
-
 
 = About Dynamic DNS (DDNS) =
 
