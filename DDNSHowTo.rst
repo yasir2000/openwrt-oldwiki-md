@@ -133,7 +133,7 @@ The main configuration is done now.
 == Via the /etc/ppp/ip-up script ==
 
 This updateds your DDNS every time a PPP connection was etablished.
-To get this working you need to have ppp installed and configured.
+To get this working you need to have PPP installed and configured on your router.
 
 {{{
 test -d /etc/ppp && mkdir -p /etc/ppp
