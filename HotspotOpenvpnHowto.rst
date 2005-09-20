@@ -158,7 +158,7 @@ If you're using M$ Windows copy the file to "C:\Program Files\OpenVPN\config". [
 
 Now create the config file.
 
-'''/etc/openvpn/wlan_home.conf[[BR]]''' or 
+'''/etc/openvpn/wlan_home.conf''' or [[BR]] 
 '''C:\Program Files\OpenVPN\config\wlan_home.conf'''[[BR]]
 dev tun[[BR]]
 remote 192.168.2.1[[BR]]
