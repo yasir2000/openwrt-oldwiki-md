@@ -158,7 +158,7 @@ http://www.whatismyip.com/ or http://www.whatismyip.org/.
 
 = Useful Links =
 
-For more details please have a look at the links below.[[BR]]
+For more details please have a look at the links below.
 
 [[BR]]- http://en.wikipedia.org/wiki/Ddns
 [[BR]]- http://www.ez-ipupdate.com/
