@@ -159,6 +159,3 @@ The dump of my /tmp/ez-ipup file:
 The first number is a Unix timestamp. And aaa.bbb.ccc.ddd is your current
 IP address. You can checkout your current IP address with
 http://www.whatismyip.com/ or http://www.whatismyip.org/.
-
-
-= Publish your WAN IP address =
