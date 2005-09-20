@@ -437,7 +437,12 @@ More can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id259
 and: http://openwrt.org/forum/viewtopic.php?id=131
 
 Examples:
-||Australia||Melbourne||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
+||<rowspan=6>Australia||Melbourne,Canberra,Sydney||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
+||Perth||WST-8||
+||Brisbane||EST-10||
+||Adelaide||CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00||
+||Darwin||CST-9:30||
+||Hobart||EST-10EDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00||
 ||<rowspan=18>Europe||Amsterdam, Netherlands||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Athens, Greece||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00||
 ||Barcelona, Spain||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
