@@ -2,6 +2,9 @@
 +
 Private VPN access'''
 
+
+[[TableOfContents]]
+
 Updated 20. September 2005
 
 Jan Beba mail@janbeba.de [[BR]]
@@ -12,19 +15,6 @@ Bjoern Biesenbach bjoern@bjoern-b.de
 PDF-Version: http://bjoern-b.de/files/HotspotOpenvpn.pdf [[BR]]
 Experimental snapshot 23.4.05 including required packages: http://bjoern-b.de/files/openwrt-wrt54g-jffs2.bin 
 
-'''Contents'''
-
-    * Intro
-    * Network
-    * What you need
-    * OpenWrt
-          o Network devices [[BR]]
-          o DHCP-Server [[BR]]
-          o OpenVPN [[BR]]
-          o Iptables setup [[BR]]
-
-    * Clientside
-          o OpenVPN 
 
 = Intro =
 Today many people have a broadband Internet connection and surely don't use the whole bandwidth all the time. So why don't give others the opportunity to use your connection? With this document we want to describe how to set up a hotspot using an accesspoint running with OpenWrt. A very important aspect when you decide to open your wireless network for everyone often is, that you still want to use it for your own purpose. This might be accessing a local file- or printserver or anything else not everybody in front of your house should be able to see and to use. Also your own connection should be encrypted. WEP-encryption is not only quite insecure but would also conflict with the idea of an open hotspot. So we decided to create a VPN using OpenVPN.
