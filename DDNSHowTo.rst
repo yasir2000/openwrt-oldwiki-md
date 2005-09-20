@@ -141,7 +141,8 @@ The main configuration is done now.
 
 == Debugging ==
 
-To check if ez-ipupdate updated your IP look for the file /tmp/ez-ipup:
+To check if ez-ipupdate really updated your IP look at the contents of the
+file /tmp/ez-ipup:
 
 {{{
 test -f /tmp/ez-ipup && cat /tmp/ez-ipup
@@ -150,5 +151,8 @@ test -f /tmp/ez-ipup && cat /tmp/ez-ipup
 The dump of my /tmp/ez-ipup file (yours looks similar:
 
 {{{
-1127182459,84.145.26.177
+1127182459,aaa.bbb.ccc.ddd
 }}}
+
+Where aaa.bbb.ccc.ddd is your current IP address. You can checkout your
+current IP address with http://www.whatismyip.com/ or http://www.whatismyip.org/.
