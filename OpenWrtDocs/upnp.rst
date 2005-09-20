@@ -14,6 +14,16 @@ For folks running their modem (cable or DSL) directly into their PC, and using t
 But this is all useless drivel for us folks running OpenWRT; as soon as you place your Internet connection behind a firewall, you suddenly have an application which needs the firewall to allow connections from the Internet, through your router, translate the addresses, and send them on to your PC.  This all has to happen automatically,
 in realtime, with no intervention by the user.  When the audio/video conversation ends, the firewall must then disallow these connections, therefore going back to its previous security configuration.
 
+== uPnP on your WRT ==
+
+uPnP can be installed to run on your WRT.  Information in this guide assumes you are using a Linksys WRT54G/GS, however it should translate just as well to any other manufacturer so long as you're running OpenWRT.
+
+=== What are my options ===
+
+You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this thread: http://forum.openwrt.org/viewtopic.php?id=85
+
+'''To be updated soon with a summary of the contents of the above thread'''
+
 
 == Overview of Universal Plug & Play ==
 
