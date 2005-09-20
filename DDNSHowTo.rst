@@ -181,7 +181,7 @@ IP address. You can checkout your current IP address with
 http://www.whatismyip.com/ or http://www.whatismyip.org/.
 
 
-= Useful Links =
+= Useful links =
 
 For more details please have a look at the links below.
 
