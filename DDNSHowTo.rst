@@ -123,7 +123,7 @@ The main configuration is done now.
 = Starting DDNS =
 
 
-== Manual via the command line ==
+== Manually via the command line ==
 
 {{{
 /usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf
