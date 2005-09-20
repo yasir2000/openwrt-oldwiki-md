@@ -43,7 +43,9 @@ Microsoft implemented the IGD in their "Internet Connection Sharing" (ICS) syste
 
 === Hardware routers and the IGD ===
 
-Once people started buying hardware routers, it became important (from a marketing perspective) that these devices could also act as an IGD, and respond to uPnP requests for access through the firewall in the router. And so, vendors began to create their own Internet Gateway Devices (IGD's) based on the standards available from the uPnP forum.  Each implementation is a little bit different, to cater for the different types of firewalls that the IGD software must communicate with.  In the case of all the hardware routers based on the Broadcom chipset - and we're talking the Linksys, Belkin, Asus, etc here - the IGD software is written to communicate with the Netfilter (IPTables) Linux firewall.  Most of this code is based on the Linux IGD project over at Sourceforge.
+Once people started buying hardware routers, it became important (from a marketing perspective) that these devices could also act as an IGD, and respond to uPnP requests for access through the firewall in the router. And so, vendors began to create their own Internet Gateway Devices (IGD's) based on the standards available from the uPnP forum.  Each implementation is a little bit different, to cater for the different types of firewalls that the IGD software must communicate with.  
+
+When we talk about all the hardware routers based on the Broadcom chipset (Linksys, Belkin, Asus, etc), the IGD software has been written to communicate with the Netfilter (IPTables) Linux firewall and write variables to nvram when required.  Most of this code is based on the Linux IGD project over at Sourceforge.
 
 === Security Warning!!! ===
 
