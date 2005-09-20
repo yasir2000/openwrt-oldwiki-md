@@ -5,7 +5,7 @@
 == Background ==
 
 If you're a Windows user and find yourself using either MSN Messenger or Windows Messenger, you have probably already had problems getting audio and video conversations
-to work.  For various reasons (poor coding probably being one of them), the multimedia features of the messenger client require that UDP and TCP ports be dynamically
+to work.  For various reasons (poor design probably being one of them), the multimedia features of the messenger client require that UDP and TCP ports be dynamically
 opened and closed in your firewall as these audio/video conversations are negotiated, happen, and then are finished.  
 
 For folks running their modem (cable or DSL) directly into their PC, and using the Microsoft Windows XP Firewall (either SP1 or SP2), this is fine because the MSN Messenger software asks the firewall to open the ports and - by default - it is allowed to do so.  The same thing can be done with other "Application Aware" firewalls such as ZoneAlarm and Kerio Personal Firewall, because these tools can detect that the MSN Messenger application is trying to listen for or make connections and prompt the user to allow these activities.
