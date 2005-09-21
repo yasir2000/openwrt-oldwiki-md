@@ -22,11 +22,15 @@ uPnP can be installed to run on your WRT.  Information in this guide assumes you
 
 You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this thread: http://forum.openwrt.org/viewtopic.php?id=85.
 
-The pre-compiled Linksys binary is more elegant and integrates very well into Windows.  The Linux-IGD code is more generic and your mileage may vary on getting it working with MSN Messenger.  If you're not a guru, I recommend using the Linksys binary.  
+The pre-compiled Linksys binary is more elegant (read that as two binary files and one script) and will be detected by your Windows XP PCs.  With the Linksys binary, you are also able to manually open ports in your firewall via Windows using the Internet Gateway Properties page.
+
+The Linux-IGD code is more generic and your mileage may vary on getting it to talk to IPTables (the firewall software) to open the required ports.  It also will not let you open ports in the firewall via Windows.
 
 === Where do I get the binaries? ===
 
-'''Coming Soon'''
+You can get yani's compiled version of the Linux-IGD daemon from his website at http://openwrt.wojjie.net/packages/linux-igd_0.92_mipsel.ipk
+
+The package for the Linksys binary is currently being worked on. However if you know how to mount the Linksys firmware image in Linux, you can extract the files '''upnp''' and '''libshared.so''' from it and copy these to OpenWRT.  Configuration instructions will also soon follow. :)
 
 
 == Overview of Universal Plug & Play ==
