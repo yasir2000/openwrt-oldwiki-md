@@ -3,7 +3,7 @@
 
 = uPnP =
 
-'''This page still under development!!!'''
+'''Please read the security warning before getting involved with uPnP!'''
 
 If you're a Windows user and find yourself using either MSN Messenger or Windows Messenger, you have probably already had problems getting audio and video conversations
 to work.  For various reasons (poor design probably being one of them), the multimedia features of the messenger client require that UDP and TCP ports be dynamically
