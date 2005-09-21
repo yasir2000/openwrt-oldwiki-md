@@ -73,12 +73,12 @@ Being aware of the risk is the biggest security step you will ever make; if you'
 
 Whilst this is somewhat out of scope for this website, being a good Netizen means helping your fellow man.  So, if you are running the stock firmware from Linksys or Asus, MSN Messenger is probably working right now if you have activated uPnP already.  For those of you stuck with a Belkin router, you are probably pulling your hair out right now wondering why audio conversations just won't work.
 
-Belkin and some other vendors have added "Denial of Service" (DoS) protection to their firewall software, and MSN Messenger audio conversations just happen to be detected as a "UDP flood" attack, which makes the firewall block the connection.  The Belkin 7230 router is a problem because it has only 2MB of flash (not enough to run OpenWRT) and yet has DoS protection - I eventually traded mine in for a WRT54G.  The Belkin 7630 also has the problem but the DoS features can be deactivated via a hidden webpage.
+Belkin and some other vendors have added "Denial of Service" (DoS) protection to their firewall software, and MSN Messenger audio conversations just happen to be detected as a "UDP flood" attack, which makes the firewall block the connection.  The Belkin 7230 router is a problem because it has only 2MB of flash (not enough to run OpenWRT) and yet has DoS protection.  The Belkin 7630 also has the problem but the DoS features can be deactivated via a hidden webpage.
 
 === Getting MSN audio to work on a Belkin 7630 ===
 
-Easy.  Folow this link (replacing the URL with the IP address of your router): http://192.168.2.1/firewall_spi_h.stm and disable "Anti-DoS" protection.
+Easy.  Follow this link (replacing the URL with the IP address of your router): http://192.168.2.1/firewall_spi_h.stm and disable "Anti-DoS" protection.
 
 === Getting MSN audio to work on a Belkin 7230 ===
 
-Well, I never managed to get it working completely due to the inability to fully disable DoS protection.  If you really want MSN audio, trade up to a Linksys WRT54G or wait until someone manages to squeeze OpenWRT into 2MB of flash...
+Well, I never managed to get it working completely due to the inability to fully disable DoS protection.  If you really want MSN audio, trade up to a Linksys WRT54G, wait until someone manages to squeeze OpenWRT into 2MB of flash, or just use MSN video with sign language.  In case you're wondering, the first option is much cheaper and quicker. :)
