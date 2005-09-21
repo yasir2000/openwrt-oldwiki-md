@@ -576,7 +576,7 @@ If you do not understand some things in this file, do not try to edit it. This i
 '''Creating new CFE image'''
 
 You will need a nvserial utility which comes with several GPL tarballs. Linksys supplies it in the wrt54g.1.42.3, wrt54g.1.42.2, wap55ag.1.07, wap54gv2.2.06. Launch nvserial in the way like this on your x86 linux box:
-''You can get nvserial from http://downloads.openwrt.org/inh/nvserial''
+''You can get nvserial from http://downloads.openwrt.org/people/inh/programs/nvserial''
 {{{
 nvserial -i cfe.bin -o cfe_new.bin -b 4096 -c 2048 cfe.txt
 }}}
@@ -586,17 +586,17 @@ It works really slow, but it should finally create cfe_new.bin file for you, whi
 
 By default most firmwares has pmon partition write protected, i.e. you can't flash anything to this first 256k of flash. This is to prevent corrupting PMON/CFE. To remove this "lock" you will need to apply this patch to the kernel and recompile your firmware:
 {{{
---- linux/arch/mips/brcm-boards/bcm947xx/setup.c.orig   2005-01-23 19:29:05.000000000 +0300
-+++ linux/arch/mips/brcm-boards/bcm947xx/setup.c        2005-03-26 15:13:33.000000000 +0300
-@@ -179,7 +179,7 @@
+--- linux-2.4.30/arch/mips/bcm947xx/setup.c.orig	2005-09-21 08:47:37.000000000 -0400
++++ linux-2.4.30/arch/mips/bcm947xx/setup.c	        2005-09-21 09:05:37.154252496 -0400
+@@ -174,7 +174,7 @@
  #ifdef CONFIG_MTD_PARTITIONS
-
+ 
  static struct mtd_partition bcm947xx_parts[] = {
--       { name: "pmon", offset: 0, size: 0, mask_flags: MTD_WRITEABLE, },
-+       { name: "pmon", offset: 0, size: 0 /*, mask_flags: MTD_WRITEABLE,*/ },
-        { name: "linux", offset: 0, size: 0, },
-        { name: "rootfs", offset: 0, size: 0, mask_flags: MTD_WRITEABLE, },
-        { name: "nvram", offset: 0, size: 0, },
+-	{ name: "pmon",	offset: 0, size: 0, mask_flags: MTD_WRITEABLE, },
++	{ name: "pmon",	offset: 0, size: 0 /*, mask_flags: MTD_WRITEABLE,*/ },
+ 	{ name: "linux", offset: 0, size: 0, },
+ 	{ name: "rootfs", offset: 0, size: 0, },
+ 	{ name: "nvram", offset: 0, size: 0, },
 }}}
 
 '''Flashing new CFE image'''
@@ -605,7 +605,7 @@ So, once you've recompiled and flashed your new firmware you need you upgrade CF
 
 {{{
 mtd unlock pmon
-mtd write /tmp/cfe_new.bin pmon
+mtd write -f /tmp/cfe_new.bin pmon
 }}}
 
 ''I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting ''
