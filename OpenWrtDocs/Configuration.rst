@@ -232,11 +232,11 @@ robocfg switch enable
 
 Now that the switch has been configured to tag the appropriate packets, the VLANs can be created using the vconfig command:
 {{{
-vconfig eth0 0
-vconfig eth0 1
-vconfig eth0 2
-vconfig eth0 3
-vconfig eth0 4
+vconfig add eth0 0
+vconfig add eth0 1
+vconfig add eth0 2
+vconfig add eth0 3
+vconfig add eth0 4
 }}}
 
 Now VLANs 0-4 have been created, and these can be seen with the "ifconfig -a" command.  Each VLAN now needs to be assigned a unique hardware MAC address:
