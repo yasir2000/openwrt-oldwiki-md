@@ -11,8 +11,9 @@ opened and closed in your firewall as these audio/video conversations are negoti
 
 For folks running their modem (cable or DSL) directly into their PC, and using the Microsoft Windows XP Firewall (either SP1 or SP2), this is fine because the MSN Messenger software asks the firewall to open the ports and - by default - it is allowed to do so.  The same thing can be done with other "Application Aware" firewalls such as ZoneAlarm and Kerio Personal Firewall, because these tools can detect that the MSN Messenger application is trying to listen for or make connections and prompt the user to allow these activities.
 
-But this is all useless drivel for us folks running OpenWRT; as soon as you place your Internet connection behind a firewall, you suddenly have an application which needs the firewall to allow connections from the Internet, through your router, translate the addresses, and send them on to your PC.  This all has to happen automatically,
-in realtime, with no intervention by the user.  When the audio/video conversation ends, the firewall must then disallow these connections, therefore going back to its previous security configuration.
+But this is all useless drivel for us folks running OpenWRT. As soon as you place your Internet connection behind a router/firewall, you suddenly have an application which needs the firewall to dynamically allow connections from the Internet to your PC.  This all has to happen automatically, in realtime, with no intervention by the user.  When the audio/video conversation ends, the firewall must then disallow these connections, therefore going back to its previous security configuration.
+
+MSN Messenger is uPnP aware, and will both detect and use uPnP services if they are running on your router.
 
 == uPnP on your WRT ==
 
@@ -67,3 +68,15 @@ Here's my perspective.  I work in the IT Security industry. I've taught security
 And I use uPnP - an insecure piece of software that increases my risk of being spanked by malicious code.
 
 Being aware of the risk is the biggest security step you will ever make; if you're going to use any software that increases your risk, take precautions.  Encrypt all sensitive information with tools like PGP, and backup all your critical information to a writeable CD/DVD.  After that, just be aware of what '''might''' happen if the weaknesses in uPnP were exploited.  If you ever get wind of malicious software that exploits uPnP, shut it down for a while.
+
+== What if I'm not running OpenWRT? ==
+
+Whilst this is somewhat out of scope for this website, being a good Netizen means helping your fellow man.  So, if you are running the stock firmware from Linksys or Asus, MSN Messenger is probably working right now if you have activated uPnP already.  For those of you stuck with a Belkin router, you are probably pulling your hair out right now wondering why audio conversations just won't work.  Belkin and some other vendors have added "Denial of Service" (DoS) protection to their firewall software, and MSN Messenger audio conversations just happen to be detected as a UDP flood.  The Belkin 7230 router is a problem because it has only 2MB of flash (not enough to run OpenWRT) and yet has DoS protection - I eventually traded mine in for a WRT54G.  The Belkin 7630 also has the problem but the DoS features can be deactivated via a hidden webpage.
+
+=== Getting MSN audio to work on a Belkin 7630 ===
+
+Easy.  Folow this link (replacing the URL with the IP address of your router): http://192.168.2.1/firewall_spi_h.stm and disable "Anti-DoS" protection.
+
+=== Getting MSN audio to work on a Belkin 7230 ===
+
+Well, I never managed to get it working completely due to the inability to fully disable DoS protection.  If you really want MSN audio, trade up to a Linksys WRT54G.
