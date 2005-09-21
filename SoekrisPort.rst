@@ -8,7 +8,7 @@ The kernel, images and packages are available in my [http://openwrt.org/download
 
 
 == Installation ==
-I assume the CF is available on a linux system, using a card reader for example. The block device for the CF on this system is {{{/dev/sda}}} and will be mounted on {{{/mnt/cf}}}. The CF will be setup with the GRUB bootloader, an OpenwWRT linux kernel and an OpenWrt JFFS2 image, mounted using MTD block emulation.
+I assume the CF is available on a linux system, using a card reader for example. The block device for the CF on this system is {{{/dev/sda}}} and will be mounted on {{{/mnt/cf}}}. The CF will be setup with the GRUB bootloader, an OpenwWrt linux kernel and an OpenWrt JFFS2 image, mounted using MTD block emulation.
 
 === Creating the boot & root partitions ===
 The CF needs 2 partitions : one for the bootloader + kernel and the other for the root filesystem. Partition 1 (boot) should be around 1MB in size. Partition 2 (root) could be any size you want, but the larger it is, the longer it will take to mount at boot time, because of JFFS2.
