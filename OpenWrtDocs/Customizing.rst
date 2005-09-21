@@ -584,11 +584,11 @@ It works really slow, but it should finally create cfe_new.bin file for you, whi
 
 '''Recompiling kernel with writable pmon partition'''
 
-By default most firmwares has pmon partition write protected, i.e. you can't flash anything to this first 256k of flash. This is to prevent corrupting PMON/CFE. To remove this "lock" you will need to apply this patch to the kernel and recompile your firmware:
+By default most firmwares has pmon partition write protected, i.e. you can't flash anything to this first 256k of flash. This is to prevent corrupting PMON/CFE. To remove this "lock" you will need to compile your own firmare with the following patch, you will need to copy the patch into "target/linux/linux-2.4/patches/brcm". (This patch works with WHITERUSSIAN RC3)
 {{{
---- linux-2.4.30/arch/mips/bcm947xx/setup.c.orig	2005-09-21 08:47:37.000000000 -0400
-+++ linux-2.4.30/arch/mips/bcm947xx/setup.c	        2005-09-21 09:05:37.154252496 -0400
-@@ -174,7 +178,7 @@
+--- linux-2.4.30/arch/mips/bcm947xx/setup.c.orig	2005-09-21 11:24:09.000000000 -0400
++++ linux-2.4.30/arch/mips/bcm947xx/setup.c	2005-09-21 13:48:46.853425632 -0400
+@@ -174,7 +174,7 @@
  #ifdef CONFIG_MTD_PARTITIONS
  
  static struct mtd_partition bcm947xx_parts[] = {
