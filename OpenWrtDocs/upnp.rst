@@ -83,4 +83,4 @@ Easy.  Follow this [http://192.168.2.1/firewall_spi_h.stm link] (replacing the U
 
 Well, I never managed to get it working completely due to the inability to fully disable DoS protection.  If you really want MSN audio, trade up to a Linksys WRT54G, wait until someone manages to squeeze OpenWRT into 2MB of flash, or just use MSN video with sign language.  In case you're wondering, the first option is much cheaper and quicker. :)
 
-'''Disclaimer:''' If you happen to be extremely lucky, you may own a Belkin 7230 with a revision number earlier than 1444.  This particular model has 8MB of flash and therefore '''might''' work with OpenWRT.  It is, however, untested.  It is also a much slower CPU (125mhz) and its wireless throughput when using encryption may be poor.
+'''Disclaimer:''' If you happen to be extremely lucky, you may own a Belkin 7230 with a revision number earlier than 1444.  This particular model has 4MB of flash and therefore '''might''' work with OpenWRT.  It is, however, [http://wiki.openwrt.org/F5D7230 untested].  It is also a much slower CPU (125mhz) and its wireless throughput when using encryption may be poor.
