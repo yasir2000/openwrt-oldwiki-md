@@ -461,6 +461,7 @@ Examples:
 ||Prague, Czech Republic||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Roma, Italy||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||New Zealand||Auckland,Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
 ||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
 ||Alaska Time||AKST9AKDT||
 ||Pacific Time||PST8PDT||
