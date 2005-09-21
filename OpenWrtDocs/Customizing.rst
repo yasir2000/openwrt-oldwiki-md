@@ -588,7 +588,7 @@ By default most firmwares has pmon partition write protected, i.e. you can't fla
 {{{
 --- linux-2.4.30/arch/mips/bcm947xx/setup.c.orig	2005-09-21 08:47:37.000000000 -0400
 +++ linux-2.4.30/arch/mips/bcm947xx/setup.c	        2005-09-21 09:05:37.154252496 -0400
-@@ -174,7 +174,7 @@
+@@ -174,7 +178,7 @@
  #ifdef CONFIG_MTD_PARTITIONS
  
  static struct mtd_partition bcm947xx_parts[] = {
