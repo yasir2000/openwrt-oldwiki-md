@@ -154,7 +154,7 @@ Insert a line like this:
 When finished do ESC and :wq to save it. You can check it with "crontab -l".
 This will execute ez-ipupdate every day at 10:00 pm.
 
-There are some cronjob calculators around the Internet. They maybe helpful
+There are some cron job calculators around the Internet. They maybe helpful
 for you. One of them is http://www.csgnetwork.com/crongen.html.
 
 
