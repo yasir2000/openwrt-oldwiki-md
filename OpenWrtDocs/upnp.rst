@@ -21,7 +21,7 @@ uPnP can be installed to run on your WRT.  Information in this guide assumes you
 
 === What are my options ===
 
-You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this thread: http://forum.openwrt.org/viewtopic.php?id=85.
+You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this [http://forum.openwrt.org/viewtopic.php?id=85 thread.]
 
 The pre-compiled Linksys binary is more elegant (read that as two binary files and one script) and will be detected by your Windows XP PCs.  With the Linksys binary, you are also able to manually open ports in your firewall via Windows using the Internet Gateway Properties page.
 
@@ -29,18 +29,18 @@ The Linux-IGD code is more generic and your mileage may vary on getting it to ta
 
 === Where do I get the binaries? ===
 
-You can get yani's compiled version of the Linux-IGD daemon from his website at http://openwrt.wojjie.net/packages/linux-igd_0.92_mipsel.ipk
+You can get yani's compiled version of the Linux-IGD daemon from his [http://openwrt.wojjie.net/packages/linux-igd_0.92_mipsel.ipk website.] 
 
 The package for the Linksys binary is currently being worked on. However if you know how to mount the Linksys firmware image in Linux, you can extract the files '''upnp''' and '''libshared.so''' from it and copy these to OpenWRT.  Configuration instructions will also soon follow. :)
 
 
 == Overview of Universal Plug & Play ==
 
-Universal Plug and Play is not just a means of opening holes in firewalls.  Actually, uPnP is a '''suite''' of standards defined by the uPnP forum (www.upnp.org) on making devices interopate with  each other automatically, without you needing to get involved and configure it by hand.
+Universal Plug and Play is not just a means of opening holes in firewalls.  Actually, uPnP is a '''suite''' of standards defined by the [http://www.upnp.org uPnP forum] on making devices interopate with  each other automatically, without you needing to get involved and configure it by hand.
 
 === What's an Internet Gateway Device (IGD)? ===
 
-One of the many standards defined by the uPnP forum is the Internet Gateway Device - or IGD (http://www.upnp.org/standardizeddcps/igd.asp).  This little "device" is what we need to have running on our firewalls if we want to make MSN Messenger allow audio and video conversations.  However, since none of us currently use any uPnP standards other than the IGD, it ends up getting generically called "uPnP".  Be aware of this when you're sniffing round the Internet for information on the IGD - you'll need to search for both names.
+One of the many standards defined by the uPnP forum is the Internet Gateway Device - or [http://www.upnp.org/standardizeddcps/igd.asp IGD.]  This little "device" is what we need to have running on our firewalls if we want to make MSN Messenger allow audio and video conversations.  However, since none of us currently use any uPnP standards other than the IGD, it ends up getting generically called "uPnP".  Be aware of this when you're sniffing round the Internet for information on the IGD - you'll need to search for both names.
 
 ==== Microsoft and uPnP/IGD ====
 
@@ -50,7 +50,7 @@ Microsoft implemented the IGD in their "Internet Connection Sharing" (ICS) syste
 
 Once people started buying hardware routers, it became important (from a marketing perspective) that these devices could also act as an IGD, and respond to uPnP requests for access through the firewall in the router. And so, vendors began to create their own Internet Gateway Devices (IGD's) based on the standards available from the uPnP forum.  Each implementation is a little bit different, to cater for the different types of firewalls that the IGD software must communicate with.  
 
-When we talk about all the hardware routers based on the Broadcom chipset (Linksys, Belkin, Asus, etc), the IGD software has been written to communicate with the Netfilter (IPTables) Linux firewall and write variables to nvram when required.  Most of this code is based on the Linux IGD project over at Sourceforge.
+When we talk about all the hardware routers based on the Broadcom chipset (Linksys, Belkin, Asus, etc), the IGD software has been written to communicate with the Netfilter (IPTables) Linux firewall and write variables to nvram when required.  Most of this code is based on the [http://sourceforge.net/projects/linux-igd Linux IGD project] over at Sourceforge.
 
 == Security Warning!!! ==
 
@@ -77,7 +77,7 @@ Belkin and some other vendors have added "Denial of Service" (DoS) protection to
 
 === Getting MSN audio to work on a Belkin 7630 ===
 
-Easy.  Follow this link (replacing the URL with the IP address of your router): http://192.168.2.1/firewall_spi_h.stm and disable "Anti-DoS" protection.
+Easy.  Follow this [http://192.168.2.1/firewall_spi_h.stm link] (replacing the URL with the IP address of your router) and disable "Anti-DoS" protection.
 
 === Getting MSN audio to work on a Belkin 7230 ===
 
