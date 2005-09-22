@@ -53,6 +53,8 @@ If you are using the squashfs root, and your umask is 077 (the default in the ex
 
 === Static IP-Address (leases) based on the MAC-Address of the client ===
 
+'''NOTE:''' There is a known bug. dnsmasq can't read the /etc/ethers file because it runs as user nobody. nbd is working on a fix.
+
 When a client should get always the same IP-Address from the DHCP-Server then use the line below in your /etc/ethers file
 {{{
 # <mac> <hostname - optional> <ip>
