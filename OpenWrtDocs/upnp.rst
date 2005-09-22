@@ -31,7 +31,7 @@ The Linux-IGD code is more generic and your mileage may vary on getting it to ta
 
 === Where do I get the binaries? ===
 
-You can get yani's compiled version of the Linux-IGD daemon from his [http://openwrt.wojjie.net/packages/linux-igd_0.92_mipsel.ipk website.] 
+You can get yani's compiled version of the Linux-IGD daemon from his [http://openwrt.wojjie.net website.] 
 
 The automated package for the Linksys binary is currently being worked on.  There is a manual installation version (tarball) [http://members.optusnet.com.au/edwardluck/openwrt/packages/upnp-manual/ here].  Instructions are [http://members.optusnet.com.au/edwardluck/openwrt/packages/upnp-manual/README here].
 
