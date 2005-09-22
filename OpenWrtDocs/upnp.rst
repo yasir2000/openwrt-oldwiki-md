@@ -31,7 +31,7 @@ The Linux-IGD code is more generic and your mileage may vary on getting it to ta
 
 You can get yani's compiled version of the Linux-IGD daemon from his [http://openwrt.wojjie.net/packages/linux-igd_0.92_mipsel.ipk website.] 
 
-The package for the Linksys binary is currently being worked on. However if you know how to mount the Linksys firmware image in Linux, you can extract the files '''upnp''' and '''libshared.so''' from it and copy these to OpenWRT.  Configuration instructions will also soon follow. :)
+The automated package for the Linksys binary is currently being worked on.  There is a manual installation version (tarball) [http://members.optusnet.com.au/edwardluck/openwrt/packages/upnp-manual/ here].  Instructions are [http://members.optusnet.com.au/edwardluck/openwrt/packages/upnp-manual/README here].
 
 
 == Overview of Universal Plug & Play ==
