@@ -121,6 +121,17 @@ lan_dns=192.168.1.1
 wan_proto=none
 }}}
 
+You can also have the lan interface fetch its configuration via dhcp, but to do so, you'll have to comment out the line:
+{{{
+# linksys bug; remove when not using static configuration for lan
+nvram set lan_proto="static"
+}}}
+in /etc/init.d/S05nvram (The usual story about replacing the symlink with a copy of the file before editting applies).
+After doing this, you need to set the appropriate nvram variable:
+{{{
+lan_proto=dhcp
+}}}
+
 To separate the LAN from the WIFI:
 (lan as 192.168.1.25/24, wireless as 192.168.2.25/24, wan as dhcp, remove your wifi interface (eth1 on v2/3 linksys routers) from the lan_ifnames variable)
 {{{
