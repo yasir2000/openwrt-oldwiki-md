@@ -1,10 +1,12 @@
 = dnsmasq =
 
- Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is designed to provide DNS and, optionally, DHCP, to a small network. It can serve the names of local machines which are not in the global DNS. The DHCP server integrates with the DNS server and allows machines with DHCP-allocated addresses to appear in the DNS with names configured either in each host or in a central configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP for network booting of diskless machines.
+Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is designed to provide DNS and, optionally, DHCP, to a small network. It can serve the names of local machines which are not in the global DNS. The DHCP server integrates with the DNS server and allows machines with DHCP-allocated addresses to appear in the DNS with names configured either in each host or in a central configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP for network booting of diskless machines.
 
- Dnsmasq is targeted at home networks using NAT and connected to the internet via a modem, cable-modem or ADSL connection but would be a good choice for any small network where low resource use and ease of configuration are important. 
+Dnsmasq is targeted at home networks using NAT and connected to the internet via a modem, cable-modem or ADSL connection but would be a good choice for any small network where low resource use and ease of configuration are important. 
+
 
 == FAQ ==
+
 
 === Problem: nslookup says something like "[routername] can't find [hostname]: Query refused" ===
 
@@ -21,6 +23,7 @@ If you got this message and you have resolv.conf file, most probably your dnsmas
 and stop/start dnsmasq daemon. That should solve your problem.
 
 Be aware that router itself doesn't use dnsmasq to resolve its own DNS requests. Instead it uses IP address of DNS set to WAN(vlan1) interface.
+
 
 === Problem: on starting, dnsmasq reports something like, "Syntax error: network+192.168.1.100" ===
 
@@ -39,6 +42,7 @@ nvram commit
 /etc/init.d/S50dnsmasq restart
 }}}
 
+
 === Where to set names for private IP address ===
 Puting information about that in /etc/hosts file, and format is
 {{{
@@ -47,9 +51,6 @@ Puting information about that in /etc/hosts file, and format is
 192.168.1.1 router.lan router
 }}}
 
-=== Make sure that the configuration files it needs are readable by 'nobody'. ===
-
-If you are using the squashfs root, and your umask is 077 (the default in the experimental distribution), when you remove the symlink to the configuration file in /etc/ and cp the /rom/etc/ file into etc so you can edit it, dnsmasq will not be able to read the conffile, and lookups will fail.  Set the umask to 022 or chmod the files and it works fine.
 
 === Static IP-Address (leases) based on the MAC-Address of the client ===
 
