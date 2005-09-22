@@ -27,6 +27,8 @@ The pre-compiled Linksys binary is more elegant (read that as "three binary file
 
 The Linux-IGD code is more generic and your mileage may vary on getting it to talk to IPTables (the firewall software) to open the required ports.  It also will not let you open ports in the firewall via Windows.  uPnP on Linux has traditionally had problems with telling IPTables what to do; in particular some implementations of the IGD on Linux have either failed to make changes to IPTables or made changes to the INPUT table as opposed to the FORWARDING table.  Unless you're an IPTables geek (like me), this can be hard to trace.
 
+'''Disclaimer:''' The Linksys binary upnp overwrites the existing libshared.so file that is included with OpenWRT.  Depending on your configuration, this might break other applications you are using.  Yani's package does not replace this file, and so might be a better choice for you.
+
 === Where do I get the binaries? ===
 
 You can get yani's compiled version of the Linux-IGD daemon from his [http://openwrt.wojjie.net/packages/linux-igd_0.92_mipsel.ipk website.] 
