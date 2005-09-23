@@ -60,6 +60,7 @@ Programming...done. 4194304 bytes written
 *** command status = 0
 CFE> reset
 }}}
+Because it seems CFE's tftp client will only read 4194304 bytes from the tftpd, version 1.4.1.10 will not work using this method. It just happens that 1.4.1.9 doesn't have important data in the unread area of the image.
 
 == Serial console ==
 
