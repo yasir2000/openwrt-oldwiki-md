@@ -344,7 +344,7 @@ mv loadmon.sh /usr/sbin
 Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, create a script in /etc/init.d to start loadmon.sh. Here's a simple way to do that:
 {{{
 echo "#!/bin/sh" > /etc/init.d/S60loadmon
-echo "loadmon.sh &" >> /etc/init.d/S60loadmon
+echo "/usr/sbin/loadmon.sh &" >> /etc/init.d/S60loadmon
 chmod +x /etc/init.d/S60loadmon
 }}}
 
