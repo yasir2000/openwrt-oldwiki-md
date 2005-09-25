@@ -30,7 +30,7 @@ The Linux-IGD code is more generic and your mileage may vary on getting it to ta
 '''Disclaimer:''' The Linksys binary upnp overwrites the existing libshared.so file that is included with OpenWRT.  This file is also used by the nvram package, however you must install the upnp version for upnp to work.  To make this happen, use the following command:
 
 {{{
-ipkg install -force-overwrite upnp-linksys_4.00.7_mipsel.ipk
+ipkg install -force-overwrite upnp-linksys_4.20.7_mipsel.ipk
 }}}
 
 === Where do I get the binaries? ===
