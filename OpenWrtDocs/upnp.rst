@@ -73,7 +73,7 @@ Quite simply, if you do not have a drastic need to use MSN audio and video conve
 === I think I need uPnP, but the gurus will flame me in the forums for using it!! ===
 
 Here's my perspective.  I work in the IT Security industry. I've taught security courses for the SANS Institute. I spend my working hours going round to customer after customer, implementing solutions to fix often disastrous mistakes that our penetration testing team has discovered.
-And I use uPnP - an insecure piece of software that increases my risk of being spanked by malicious code.
+And I use uPnP - an insecure piece of software that increases my risk of being spanked by malicious code.  When you have family overseas who you want to see via webcam, MSN is an easy software tool for them to use.
 
 Being aware of the risk is the biggest security step you will ever make; if you're going to use any software that increases your risk, take precautions.  Encrypt all sensitive information with tools like PGP, and backup all your critical information to a writeable CD/DVD.  After that, just be aware of what '''might''' happen if the weaknesses in uPnP were exploited.  If you ever get wind of malicious software that exploits uPnP, shut it down for a while.
 
