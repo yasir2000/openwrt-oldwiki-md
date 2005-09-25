@@ -25,7 +25,7 @@ You can either use the pre-compiled '''upnp''' binary from the Linksys firmware 
 
 The pre-compiled Linksys binary is more elegant (read that as "three binary files and one script").  With the Linksys binary, you are also able to manually open ports in your firewall via Windows using the Internet Gateway Properties page.  You cannot currently do this with Linux-IGD.
 
-The Linux-IGD code is more generic and your mileage may vary on getting it to talk to IPTables (the firewall software) to open the required ports.  It also will not let you open ports in the firewall via Windows.  uPnP on Linux has traditionally had problems with telling IPTables what to do; in particular some implementations of the IGD on Linux have either failed to make changes to IPTables or made changes to the INPUT table as opposed to the FORWARDING table.  Unless you're an IPTables geek (like me), this can be hard to trace.
+The Linux-IGD code is more generic and your mileage may vary on getting it to talk to IPTables (the firewall software) to open the required ports.  It also will not let you open ports in the firewall via Windows.  uPnP on Linux has traditionally had problems with telling IPTables what to do; in particular some implementations of the IGD on Linux have either failed to make changes to IPTables or made changes to the INPUT table as opposed to the FORWARDING table.  Unless you're an IPTables geek this can be hard to trace.
 
 '''Disclaimer:''' The Linksys binary upnp overwrites the existing libshared.so file that is included with OpenWRT.  This file is also used by the nvram package, however you must install the upnp version for upnp to work.  To make this happen, use the following command:
 
