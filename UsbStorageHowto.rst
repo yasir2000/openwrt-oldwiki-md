@@ -40,7 +40,7 @@ The ''max_scsi_luns=8'' bit is needed for multi-card readers.
 Some models of the Asus WL-500g use an ohci controller - so you need to load the usb-ohci module, not uhci.
 
 NOTE:
-The WhiteRussian-RC2 release of OpenWRT loads modules in the /etc/modules.d directory (although the /etc/modules file is still also used)
+Since the WhiteRussian-RC2 release of OpenWRT modules listed in the /etc/modules.d directory are loaded automatically (although the /etc/modules file is still also used). Thus you probably do not need to explicitly state the modules to load in /etc/modules.
 
 
 
@@ -51,11 +51,11 @@ If you plan to use USB 2.0 only devices install these packages:
 
 and add next lines to /etc/modules
 {{{
-usbcore
-ehci
-scsi_mod
+scsi_mod max_scsi_luns=8
 sd_mod
 sg
+usbcore
+ehci
 usb-storage
 }}}
 
@@ -68,22 +68,22 @@ uhci
 }}}
 then your /etc/modules looks like
 {{{
-usbcore
-ehci
-uhci
-scsi_mod
+scsi_mod max_scsi_luns=8
 sd_mod
 sg
+usbcore
+ehci-hcd
+uhci
 usb-storage
 }}}
 
 You can use command {{{vi /etc/modules}}} or {{{echo -e "usbcore\nehci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 2.0 and {{{echo -e "usbcore\nehci\nuhci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 1.1. Either reboot or load the modules in this order manually with insmod.
 
-NOTE: ehci is now replaced by ehci-hcd (whiterussian rc2)
+NOTE: since Whiterussian RC2 ehci is replaced by ehci-hcd.
 
-Now check if you see your USB stick (of course joining in your ASUS): {{{dmesg}}}
+Now check if your OpenWrt sees your USB stick/device (of course inserting it into your ASUS): {{{dmesg}}}
 
-If it correct you see similar as below
+If it correct you should see similar to below
 
 {{{
 usb.c: registered new driver usbdevfs
