@@ -4,12 +4,12 @@ This howto describes how to install and configure pptpd on OpenWrt.
 
 == Installing pptpd ==
 
-We begin by installing the necessary packages. All packages mentioned are included in Whiterussian RC2. To allow clients to use proper encryption we get the corresponding kmod-mppe and kmod-crypto packages as well as the pptpd package.
+We begin by installing the necessary packages. All packages mentioned are included in Whiterussian RC2 abd RC3. To allow clients to use proper encryption we get the corresponding kmod-mppe and kmod-crypto packages as well as the pptpd package.
 {{{
 ipkg install kmod-mppe kmod-crypto pptpd
 }}}
 
-Now we should have all necesarry modules and a typo. The following will be fixed in Whiterussian RC3+, but has not been fixed in RC2. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
+Now we should have all necesarry modules and a typo that has not been fixed in RC2 or RC3. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
 {{{
 for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
   insmod $m >/dev/null 2>&1
@@ -87,9 +87,9 @@ iptables        -A output_rule             -p 47               -j ACCEPT
 iptables        -A input_rule              -p 47               -j ACCEPT
 
 ### VPN Section
-iptables        -A forwarding_rule -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCEPT
-iptables        -A output_rule     -o ppp+ -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCEPT
-iptables        -A input_rule      -i ppp+ -s 10.0.0.0/24 -d 10.0.0.0/24 -j ACCEPT
+iptables        -A forwarding_rule -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
+iptables        -A output_rule     -o ppp+ -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
+iptables        -A input_rule      -i ppp+ -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
 }}}
 
 
