@@ -4,7 +4,7 @@
 [[TableOfContents]]
 
 
-= Why Public Key authentication with Dropbear =
+= Why Public Key Authentication with Dropbear =
 There are several resons for using public key authentication. Most important would be adding
 more security, you like to get rid of entering your password everytime you login to your
 router or you like to automate things like file transfers using SCP (Secure Copy).
