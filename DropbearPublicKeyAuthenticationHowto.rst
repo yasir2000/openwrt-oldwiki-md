@@ -1,6 +1,3 @@
-/!\ '''This page still under development!!!''' /!\
-
-
 [[TableOfContents]]
 
 
