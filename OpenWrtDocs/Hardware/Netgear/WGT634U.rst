@@ -36,6 +36,7 @@ TODO:
  * wireless driver [need to be tested, sometimes kernel oops if iwconfig is used, need new wificonf in HEAD, -> nbd ]
  * usb driver [need to be tested]
  * webupgrade from original firmware [need a crc header]
+  * http://cvs.sourceforge.net/viewcvs.py/icebox/icebox/netgear_tools/mk-nfi.c?rev=1.1&view=auto should help
 
 
 == Configuration ==
