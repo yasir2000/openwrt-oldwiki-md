@@ -221,3 +221,6 @@ The free OpenSSH client and server
 PuTTY is a free implementation of Telnet and SSH for Win32 ({{{puttygen.exe}}},
 {{{putty.exe}}} and {{{pscp.exe}}})
 [[BR]]- http://www.chiark.greenend.org.uk/~sgtatham/putty/
+
+Key authentication
+[[BR]]http://en.wikipedia.org/wiki/Key_authentication
