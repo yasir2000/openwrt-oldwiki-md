@@ -185,7 +185,7 @@ mv hello_2.1.1-4.diff 100-hello.patch
 
 == Compiling ==
 
-The {{{make}}} command below compiles every package that you've created in the
+The {{{make}}} command below compiles every package that you have created in the
 {{{package}}} directory.
 
 {{{
