@@ -32,7 +32,7 @@ Everyone else should follow point by point on this howto.
 
 == Obtaining and installing the Image Builder ==
 
-The Image Builder could be downloaded from {{{http://downloads.openwrt.org/whiterussian/}}}.
+The Image Builder could be downloaded from http://downloads.openwrt.org/whiterussian/.
 
 Download it into your home directory (don't use the root account) and untar the
 tarball. After that change into the new directory.
@@ -141,7 +141,7 @@ in the images with your own.
 You've two options here.
 
 
-files directory:[[BR]]
+{{{files}}} directory:[[BR]]
 Files, directories and links in here would go into every image. Existing
 ones are replaced.
 
