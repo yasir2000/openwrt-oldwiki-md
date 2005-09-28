@@ -43,8 +43,8 @@ ez-ipupdate can be used with the following services:
 == Creating the configuration file ==
 
 Easiest way to use ez-ipupdate is creating a configuration file.
-We call the file /etc/ez-ipupdate.conf. You can choose any other
-name.
+We call the file {{{/etc/ez-ipupdate.conf}}}. You can choose any
+other name.
 
 {{{
 cat > /etc/ez-ipupdate.conf
@@ -131,13 +131,14 @@ cat /etc/ppp/ip-up
 /usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
-If /etc/ppp/ip-up does not look like the above one, you have to edit the file manually with the vi editor.
+If {{{/etc/ppp/ip-up}}} does not look like the above one, you have to edit the file
+manually with the vi editor.
 
 
 == Via a cronjob ==
 
 This updates your DDNS account on a specified time via crond. You have to
-configure HowtoEnableCron before you continue.
+configure [:HowtoEnableCron] before you continue.
 
 Do:
 
@@ -151,7 +152,7 @@ Insert a line like this:
 0 22 * * * /usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
-When finished do ESC and :wq to save it. You can check it with "crontab -l".
+When finished do ESC and :wq to save it. You can check it with {{{crontab -l}}}.
 This will execute ez-ipupdate every day at 10:00 pm.
 
 There are some cron job calculators around the Internet. They maybe helpful
@@ -161,7 +162,7 @@ for you. One of them is http://www.csgnetwork.com/crongen.html.
 == Debugging ==
 
 To check if ez-ipupdate really updated your IP look at the contents of the
-file /tmp/ez-ipup:
+file {{{/tmp/ez-ipup}}}:
 
 {{{
 test -f /tmp/ez-ipup && cat /tmp/ez-ipup
@@ -177,7 +178,7 @@ The first number is a Unix timestamp. And aaa.bbb.ccc.ddd is your current
 IP address. You can checkout your current IP address with
 http://www.whatismyip.com/ or http://www.whatismyip.org/.
 
-For advanced debugging enable the debug parameter in the configuration file.
+For advanced debugging enable the {{{debug}}} parameter in the configuration file.
 
 
 = Useful links =
