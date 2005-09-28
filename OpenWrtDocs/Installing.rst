@@ -125,6 +125,26 @@ To use the TFTP method above you need to enable boot_wait. Once enabled, the rou
 ||WRT54G||openwrt-wrt54g-jffs2.bin||openwrt-wrt54g-squashfs.bin||
 ||WRT54GS||openwrt-wrt54gs-jffs2.bin||openwrt-wrt54gs-squashfs.bin||
 
+Squashfs files:
+    The firmwares with "squashfs" in the filename use a combination of
+    a readonly squashfs partition and a writable jffs2 partition. This
+    gives you a /rom with all the files that shipped with the firmware
+    and a writable root containing symlinks to /rom. This is considered
+    the standard install.
+
+Jffs2 files:
+    The firmwares with "jffs2" in the name are jffs2 only; all of the
+    files are fully writable. The "4M" and "8M" in the filenames is a
+    reference to the flash block size; most 4M flash chips use a block
+    size of 64k while most 8M chips tend to use a 128k block size --
+    there are some exceptions. The jffs2 partition needs to be formatted
+    for the correct block size and hence the two versions.
+
+    The jffs2 versions are for experienced users only -- these firmwares
+    only have minimal support for failsafe mode.
+
+For more information, see the README file that comes with the release.
+
 === Enabling boot_wait ===
 
 If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below.  '''You find ping.asp by navigating through the administration page and selecting diagnostics.'''.  
