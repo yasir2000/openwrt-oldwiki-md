@@ -24,15 +24,15 @@ purposes. This list could be continued by your own ideas.
 
 If you just like to see how the default images (default, micro and pptp
 included in the Image Builder) gets build, only follow the next step
-"3.1 Obtaining and installing the Image Builder" and the step
-"3.5 Building the image".
+{{{3.1 Obtaining and installing the Image Builder}}} and the step
+{{{3.5 Building the image}}}.
 
 Everyone else should follow point by point on this howto.
 
 
 == Obtaining and installing the Image Builder ==
 
-The Image Builder could be downloaded from http://downloads.openwrt.org/whiterussian/.
+The Image Builder could be downloaded from {{{http://downloads.openwrt.org/whiterussian/}}}.
 
 Download it into your home directory (don't use the root account) and untar the
 tarball. After that change into the new directory.
@@ -50,13 +50,13 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 
 Now you are ready to build your own images. By default the Image Builder
 builds three types of images. They're default, micro and pptp. In the
-file lists/<image_name>.brcm-2.4 are the packages defined which go into
+file {{{lists/<image_name>.brcm-2.4}}} are the packages defined which go into
 the image. It will use the ipkg packages out of the packages directory.
 
 When removing packages just remove the package name from the
-<image_name>.brcm-2.4 file.
+{{{<image_name>.brcm-2.4}}} file.
 
-NOTE: Dependencies are not automatically resolved for ipkg packages by
+'''NOTE:''' Dependencies are not automatically resolved for ipkg packages by
 the Image Builder.
 
 Let's start with an example by adding the haserl package into your new
@@ -72,18 +72,20 @@ cp -v default.brcm-2.4 my-image.brcm-2.4
 }}}
 
 
-Now edit my-image.brcm-2.4 with your favourite editor or just append the
+Now edit {{{my-image.brcm-2.4}}} with your favourite editor or just append the
 haserl package with:
 
 {{{
 echo "haserl" >> my-image.brcm-2.4
 }}}
 
-The my-image.brcm-2.4 file should look like this after appending haserl:
+The {{{my-image.brcm-2.4}}} file should look like this after appending haserl:
 
 {{{
 cat my-image.brcm-2.4
+}}}
 
+{{{
 base-files
 base-files-brcm
 bridge
@@ -113,15 +115,15 @@ haserl
 That's all.
 
 If you don't need any special tweaks you can go ahead with
-"3.5 Building the image".
+{{{3.5 Building the image}}}.
 
 
 == Additional packages ==
 
-When you have additional packages which are not listed (f.e. nas) in the
+When you have additional packages which are not listed (f.e. {{{nas}}}) in the
 packages directory you can add them by copying the package directly into
-the packages directory. After that add the package as described in 3.2
-above.
+the packages directory. After that add the package as described in
+{{{3.2 The package lists}}} above.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -150,9 +152,9 @@ mkdir -p files/etc
 touch files/etc/example.txt
 }}}
 
-files.<image_name> directory:[[BR]]
+{{{files.<image_name>}}} directory:[[BR]]
 Files, directories and links in here would only go into the image you
-defined by <image_name>. Existing ones are replaced.
+defined by {{{<image_name>}}}. Existing ones are replaced.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -167,17 +169,17 @@ You can copy or create files, directories and links as you like.
 == Building the image ==
 
 That's very easy. Just type make and all images you defined in the
-lists directory gets build.
+{{{lists}}} directory gets build.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 make clean && make
 }}}
 
-All builded images can be found in the bin/<image_name>/ directory.
+All builded images can be found in the {{{bin/<image_name>}}} directory.
 
 
-Building the images looks like this (here only for the image my-image):
+Building the images looks like this (here only for the image {{{my-image}}}):
 
 {{{
 ### BUILDING IMAGE FROM lists/my-image.brcm-2.4
@@ -304,7 +306,7 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
    * <image_name>
 
      This is how you called/named your image. For example lists/default.brcm-2.4,
-     here "default" is the <image_name>
+     here "default" is the {{{<image_name>}}}
 
 == Important directories ==
 
