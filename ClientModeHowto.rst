@@ -10,7 +10,7 @@ You need to have a recent version of OpenWrt 'White Russian' installed.
 This Howto was written for RC3.
 
 The first step would be changing the WRT's behavior from AP to client
-mode ("wet" for short):
+mode ({{{wet}}} for short):
 
 {{{
 nvram set wl0_mode=wet
@@ -25,7 +25,7 @@ nvram set wl0_mode=sta
 
 === Bridged client mode ===
 
-In bridged client mode, all computers connected to the client will be 
+In bridged client mode, all computers connected to the client will be
 connected to the subnet of the access point you're connecting to (no
 firewalling).
 
@@ -43,7 +43,7 @@ and the LAN ports. Note that we're using the wan_ifname to refer to
 the wireless connection; this will save you from having to change
 the firewall script.
 
-'''IMPORTANT:''' Use the correct network interface names for your hardware version.
+/|\ '''IMPORTANT:''' Use the correct network interface names for your hardware version.
 Check the interface names at [:OpenWrtDocs/Configuration#NetworkInterfaceNames].
 
 {{{
@@ -62,8 +62,8 @@ nvram set lan_proto=static
 nvram set wan_proto=dhcp
 }}}
 
-You can configure other options if you need to, like wan_dns or
-wan_gateway. 
+You can configure other options if you need to, like {{{wan_dns}}} or
+{{{wan_gateway}}}.
 
 When you're done with setting up the NVRAM, just commit and reboot:
 
@@ -98,7 +98,7 @@ eth1      Scan completed :
                     Bit Rate:12 Mb/s
                     Bit Rate:48 Mb/s
 
-root@OpenWrt:/# 
+root@OpenWrt:/#
 }}}
 
 To join a non-encrypted access point run these commands:
@@ -134,8 +134,8 @@ nvram commit
 
 When you set an interface to DHCP, OpenWrt runs the DHCP client on that
 interface automatically at boot time. If you want to re-run the dhcp
-client, for example because you joined another network, you can either 
-reboot, or you can run the ifup command:
+client, for example because you joined another network, you can either
+reboot, or you can run the {{{ifup}}} command:
 
 {{{
 ifup wan; /sbin/wifi
