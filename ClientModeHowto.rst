@@ -38,8 +38,8 @@ chmod -x /etc/init.d/S50dnsmasq
 
 === Routed client mode ===
 
-Now we're breaking down the default bridge between the wifi interface
-and the LAN ports. Note that we're using the wan_ifname to refer to
+Now we are breaking down the default bridge between the wifi interface
+and the LAN ports. Note that we are using the {{{wan_ifname}}} to refer to
 the wireless connection; this will save you from having to change
 the firewall script.
 
@@ -65,7 +65,7 @@ nvram set wan_proto=dhcp
 You can configure other options if you need to, like {{{wan_dns}}} or
 {{{wan_gateway}}}.
 
-When you're done with setting up the NVRAM, just commit and reboot:
+When you are done with setting up the NVRAM, just commit and reboot:
 
 {{{
 nvram commit
@@ -75,7 +75,7 @@ reboot
 
 == Finding and joining networks ==
 
-You can now scan for nearby access points. If iwlist doesn't find any
+You can now scan for nearby access points. If {{{iwlist}}} doesn't find any
 networks on the first run, repeat the scanning a few times.
 
 {{{
