@@ -26,7 +26,7 @@ nvram set wl0_mode=sta
 === Bridged client mode ===
 
 In bridged client mode, all computers connected to the client will be
-connected to the subnet of the access point you're connecting to (no
+connected to the subnet of the access point you are connecting to (no
 firewalling).
 
 When using the bridged client mode, you should disable the DNS/DHCP server:
