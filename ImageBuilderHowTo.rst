@@ -168,7 +168,7 @@ You can copy or create files, directories and links as you like.
 
 == Building the image ==
 
-That's very easy. Just type make and all images you defined in the
+That's very easy. Just type {{{make}}} and all images you defined in the
 {{{lists}}} directory gets build.
 
 {{{
