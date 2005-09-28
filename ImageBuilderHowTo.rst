@@ -121,7 +121,7 @@ If you don't need any special tweaks you can go ahead with
 == Additional packages ==
 
 When you have additional packages which are not listed (f.e. {{{nas}}}) in the
-packages directory you can add them by copying the package directly into
+{{{packages}}} directory you can add them by copying the package directly into
 the {{{packages}}} directory. After that add the package as described in
 {{{3.2 The package lists}}} above.
 
