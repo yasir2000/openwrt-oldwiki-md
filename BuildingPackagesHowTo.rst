@@ -71,8 +71,9 @@ unexpand --first-only - | cat >package/helloworld/Config.in
 
 After pasting it, press ENTER and than CTRL+D keys to safe the file.
 
-You can also create your own files in the package/helloworld directory (for example config files).
-That files you can access in your package/Makefile with ./filename and copy it to your $(PKG_INSTALL_DIR) directory.
+You can also create your own files in the {{{package/helloworld}}} directory (for example config files).
+That files you can access in your {{{package/Makefile}}} with {{{./filename}}} and copy it
+to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
 === package/helloworld/Config.in ===
 
@@ -184,8 +185,8 @@ mv hello_2.1.1-4.diff 100-hello.patch
 
 == Compiling ==
 
-The make command below compiles every package that you've created in the
-package directory.
+The {{{make}}} command below compiles every package that you've created in the
+{{{package}}} directory.
 
 {{{
 cd ~/OpenWrt-SDK-Linux-i686-1
@@ -193,8 +194,8 @@ make clean && make compile
 }}}
 
 
-When the compiling is finished you've a ready to use ipkg package for OpenWrt
-in the ~/OpenWrt-SDK-Linux-i686-1/bin/packages directory.
+When the compiling is finished you have a ready to use ipkg package for OpenWrt
+in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
 
 {{{
 cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
@@ -207,7 +208,7 @@ cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 When you like you can contribute your program/package to the OpenWrt community.
 It may be included in further versions of OpenWrt.
 
-To do this create a tarball from your package directory, and send the tarball
+To do this create a tarball from your {{{package}}} directory, and send the tarball
 to openwrt-devel@openwrt.org .
 
 {{{
