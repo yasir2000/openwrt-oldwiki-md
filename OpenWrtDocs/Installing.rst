@@ -115,7 +115,7 @@ Windows 2000 and Windows XP have a TFTP client, and it [http://martybugs.net/wir
 
 == Linksys WRT54G and WRT54GS ==
 
-To use the TFTP method above you need to enable boot_wait. Once enabled, the router will wait for ~3 seconds for a firmware before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0) address for the purpose of reflashing. 
+To use the TFTP method above you need to enable boot_wait. Plug your ethernet cable into one of the LAN ports.  Once enabled, the router will wait for ~3 seconds for a firmware before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0) address for the purpose of reflashing. 
 
 /!\ '''Do not use the Linksys TFTP program. IT WILL NOT WORK.'''
 
