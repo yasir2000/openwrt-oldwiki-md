@@ -37,10 +37,10 @@ The problem is caused when the jffs2 partition (see below) is detected but unusa
 This may very well be a problem with your firewall settings in linux or windows. If you have any firewalls, disable them. *WARNING* Do this only if you know what you are doing and can restore your iptables rules effortlessly. In linux, you can flush iptables firewall settings by issuing the following series of commands:
 
 {{{
-iptables -F
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT
+iptables -F
 }}}
 
 = Firstboot / jffs2 =
