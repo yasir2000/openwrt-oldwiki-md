@@ -16,7 +16,7 @@ mode ({{{wet}}} for short):
 nvram set wl0_mode=wet
 }}}
 
-or if you've problems with wet mode, try:
+or if you've problems with {{{wet}}} mode, try:
 
 {{{
 nvram set wl0_mode=sta
