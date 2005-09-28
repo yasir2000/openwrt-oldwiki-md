@@ -168,7 +168,7 @@ file {{{/tmp/ez-ipup}}}:
 test -f /tmp/ez-ipup && cat /tmp/ez-ipup
 }}}
 
-The dump of my /tmp/ez-ipup file:
+The dump of my {{{/tmp/ez-ipup}}} file:
 
 {{{
 1127182459,aaa.bbb.ccc.ddd
