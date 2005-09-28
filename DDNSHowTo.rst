@@ -132,12 +132,12 @@ cat /etc/ppp/ip-up
 }}}
 
 If {{{/etc/ppp/ip-up}}} does not look like the above one, you have to edit the file
-manually with the vi editor.
+manually with the {{{vi}}} editor.
 
 
 == Via a cronjob ==
 
-This updates your DDNS account on a specified time via crond. You have to
+This updates your DDNS account on a specified time via {{{crond}}}. You have to
 configure [:HowtoEnableCron] before you continue.
 
 Do:
