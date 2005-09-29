@@ -31,7 +31,7 @@ program as an example.
 
 The SDK could be downloaded from http://downloads.openwrt.org/whiterussian/
 
-Download it into your homedir (don't use the root account) and untar
+Download it into your home directory (don't use the root account) and untar
 the tarball. After that change into the new directory.
 
 {{{
@@ -62,8 +62,8 @@ patches; Patch files for example 100-foo.patch
 
 == Creating the required files ==
 
-TIP: When creating the files via copy & paste use the Unix command
-'unexpand' to translate the leading spaces into tabs.
+'''TIP:''' When creating the files via copy & paste use the Unix command
+{{{unexpand}}} to translate the leading spaces into tabs.
 
 {{{
 unexpand --first-only - | cat >package/helloworld/Config.in
