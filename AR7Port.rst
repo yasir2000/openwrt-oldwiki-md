@@ -127,6 +127,9 @@ Make sure you reset the router after probing each pin. The bootloader/linux boot
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
 
+Pin 5 (VCC) supports you with 3.3 V in case your serial cable needs it.[[BR]]
+Terminal Settings should be: 38400 8N1, no hard- or software flow control.
+
 
 == WRTP54G Serial Console ==
   
