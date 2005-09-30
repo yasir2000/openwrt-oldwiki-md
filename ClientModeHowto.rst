@@ -16,13 +16,12 @@ mode ({{{wet}}} for short):
 nvram set wl0_mode=wet
 }}}
 
-or if you've problems with {{{wet}}} mode, try:
+'''TIP:''' If you have any problems with {{{wet}}} mode, instead try:
 
 {{{
 nvram set wl0_mode=sta
 }}}
 
-AndreasKloeckner: Success only with {{{sta}}} on WRT54G v.3.3.
 
 === Bridged client mode ===
 
