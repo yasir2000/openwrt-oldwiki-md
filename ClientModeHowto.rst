@@ -16,7 +16,7 @@ mode ({{{wet}}} for short):
 nvram set wl0_mode=wet
 }}}
 
-'''TIP:''' If you have any problems with {{{wet}}} mode, instead try:
+'''TIP:''' If you have any problems with {{{wet}}} mode, try instead:
 
 {{{
 nvram set wl0_mode=sta
