@@ -35,7 +35,13 @@ TODO:
  * reset button driver [need to be ported to 2.6]
  * wireless driver [need to be tested, sometimes kernel oops if iwconfig is used, need new wificonf in HEAD, -> nbd ]
  * usb driver [ehci needs to be fixed]
-  * ehci driver is not working (writing to high speed devices freeze the usb stack)
+  * ehci driver is not working (writing to high speed devices freeze the usb stack) and gives the following error:
+  {{{
+root@OpenWrt:/# mount -t ext3 /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
+ioctl_internal_command: <0 0 0 0> return code = 8000002
+   : Current: sense key=0x0
+    ASC=0x0 ASCQ=0x0
+  }}}
   * ohci driver is working - can't find ipkg package for it...
  * webupgrade from original firmware [need a crc header]
   * http://cvs.sourceforge.net/viewcvs.py/icebox/icebox/netgear_tools/mk-nfi.c?rev=1.1&view=auto should help
