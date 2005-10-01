@@ -155,7 +155,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 /!\ '''I have a WRT54GS 1.1 with a firmware version 4.50 - the Ping.asp trick worked for me without downgrading the firmware! This seems to work as well with the WRT54G V3.1 with firmware V4.01.2. If you are lazy, like me, it may worth a try.'''
 
-/!\ '''Ping bug still exists in firmware 4.20.6 on hardware 4.0, but I had to use the ping_times variation on the hack, plus some stripping of javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
+/!\ '''Ping bug still exists in firmware 4.20.6 on hardware 4.0 and firmware 4.20.7 on hardware 2.0, but it is necessary to use the ping_times variation on the hack, plus some stripping of javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
