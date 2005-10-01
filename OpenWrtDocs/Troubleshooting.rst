@@ -119,6 +119,8 @@ Note: Pin 12 is assumed to be grounded.  If it is not grounded on your WRT, you 
 
 ''Oh, and by the way, this cable is a good thing to have anyway, because many embedded devices feature that JTAG-interface e.g. HP's IPAQ has one as well, so if you dare to open it, you can do lots of [http://openwince.sourceforge.net/jtag/iPAQ-3600/ "funky things with your IPAQ"]''
 
+[http://openwince.sourceforge.net/jtag/ Openwince/JTAG] calls this cable as "Xilinx DLC5 JTAG Parallel Cable III" but since this variant isn't buffered, the length of this cable must not exceed 15..20cm.
+
 Since the JTAG adaptor gives you full access to your Flash, I wonder if that nasty thing about shorting pins shouldn't be removed altogether.
 
 Note: I had to enable ppdev in the kernel to use the program by hairydairymaid with linux. Working versions of the CFE can be found at [http://downloads.openwrt.org/people/inh/cfe/], information about changing the CFE are available at [http://wiki.openwrt.org/OpenWrtDocs/Customizing].
