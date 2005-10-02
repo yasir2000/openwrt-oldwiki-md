@@ -108,3 +108,5 @@ file home incoming
 decode directory encode
 
 built spaces their them though tool toolchain touch version versions via wget
+
+account bz2 bzcat call cat compile contents Debian directories do docs lib maintainer make
