@@ -48,7 +48,7 @@ nvram set wan_ifname=eth1
 
 Then configure the interfaces normally. For example, assuming the wifi
 interface uses DHCP and the LAN interface has the static IP address
-192.168.2.1:
+{{{192.168.2.1}}}:
 
 {{{
 nvram set lan_ipaddr=192.168.2.1
