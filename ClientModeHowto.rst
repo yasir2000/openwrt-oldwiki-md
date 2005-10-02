@@ -29,6 +29,16 @@ When using the bridged client mode, you should disable the DNS/DHCP server:
 chmod -x /etc/init.d/S50dnsmasq
 }}}
 
+When your configuration was set to routed client mode before, you need to add
+the wireless interface to the bridge again and remove it from the wan interface.
+
+/!\ '''IMPORTANT:''' Use the correct network interface names for your hardware version.
+Check the interface names at [:OpenWrtDocs/Configuration#NetworkInterfaceNames].
+
+{{{
+nvram set lan_ifnames="vlan0 eth1"
+nvram set wan_ifname=vlan1
+}}}
 
 === Routed client mode ===
 
