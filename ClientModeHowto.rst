@@ -19,7 +19,7 @@ mode ({{{sta}}} for short):
 nvram set wl0_mode=sta
 }}}
 
-'''NOTE:''' As soon your AP is in client mode you can't connect any
+'''NOTE:''' As soon as your AP is in client mode you can't connect any
 wireless clients to it any more.
 
 
