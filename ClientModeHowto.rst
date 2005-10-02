@@ -1,7 +1,10 @@
 = Client Mode =
 
 If you want to use OpenWrt to connect to another access point (AP) or
-computer rather than to use it as an AP, follow these steps:
+computer rather than to use it as an AP, follow the next steps.
+
+This [url=http://forum.openwrt.org/viewtopic.php?pid=13151#p13151]thread[/url]
+in the forum may also be useful to understand things.
 
 
 == Configuring client mode ==
