@@ -90,7 +90,7 @@ timeout 5
 
 title   OpenWrt
 root    (hd0,0)
-kernel  /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
+kernel  /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
 boot
 
 }}}
@@ -214,8 +214,8 @@ OpenWrt is booting...
 
 root (hd0,0)
  Filesystem type is ext2fs, partition type 0x83
-kernel /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 root=/dev/mtdb
-lock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
+kernel /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 
+root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
    [Linux-bzImage, setup=0xa00, size=0xaa952]
 boot
 Linux version 2.4.30 (nthill@debian) (gcc version 3.4.4) #2 Tue Sep 20 04:20:11 CEST 2005
@@ -231,7 +231,7 @@ zone(0): 4096 pages.
 zone(1): 28672 pages.
 zone(2): 0 pages.
 DMI not present.
-Kernel command line: blkmtd_device=/dev/hda2 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
+Kernel command line: blkmtd_device=/dev/hda2 blkmtd_sync=1 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
 Initializing CPU#0
 Detected 266.645 MHz processor.
 Calibrating delay loop... 532.48 BogoMIPS
