@@ -211,7 +211,7 @@ After this, wait until the PWR LED stops flashing and the device to reboot and y
 
 As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
 
-Another thing is that the ASUS WL500G/WL300G doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
+Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500G:WL-500G]/[:OpenWrtDocs/Hardware/Asus/WL300G:WL-300G] doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
 
 There are several helpful tutorials especially for the ASUS routers at http://www.macsat.com.
 
@@ -231,7 +231,7 @@ After this, wait until the PWR LED stops flashing and the device to reboot and y
 
 As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
 
-Another thing is that the ASUS WL500G doesn't revert to the 192.168.1.1 address when starting the bootloader, but use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
+Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500GD] doesn't revert to the 192.168.1.1 address when starting the bootloader, but use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
 
 
 == Siemens Gigaset SE505 ==
