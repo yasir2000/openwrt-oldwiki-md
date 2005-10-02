@@ -14,7 +14,9 @@ Note: In at least two (feagle814's, rgh12's) WR850G v2, there is 16MB of RAM onb
 
 ISSI IS42S16400B1-7T is a 8MB chip (1Mbx16x4, 64Mb total [divided by 8 = 8megabytes]).  If you have the ISSI IS42S16800xx-7t it is a 16MB chip (2Mbx16x4 128Mb total [divided by 8 = 16megabytes]).  There are two RAM chips installed on the v2 router, the other one is on the back side of the circuitboard.  Since the Linksys wrt54gs has 32megabytes of ram (2 chips also) installed in it, and if you wanted to use the same packages as it does, then you must either change the 8MB chips to 16MB chips, or live with the fact that you will be somewhat restricted in what you can do with the smaller amount of memory available (possibly limiting what packages you can safely run). If you are really lucky, you may not have to do anything at all (if you have the 16MB chips installed already).
 
-The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connector.  
+The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connector. 
+
+Warning Note: Do not erase the NVRAM, at least on this version.  It doesn't seem to be rewritten by the bootloader upon reboot, as with the WRT54G. 
 
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
