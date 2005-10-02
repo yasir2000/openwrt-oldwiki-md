@@ -9,7 +9,7 @@ in the forum may also be useful to understand things.
 
 == Configuring client mode ==
 
-You need to have a recent version of OpenWrt {{{White Russian}}} installed.
+You need to have a recent version of OpenWrt White Russian installed.
 This Howto was written for RC3.
 
 The first step would be changing the WRT's behavior from AP to client
