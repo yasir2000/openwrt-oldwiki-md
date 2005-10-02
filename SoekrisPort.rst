@@ -90,6 +90,7 @@ timeout 5
 
 title   OpenWrt
 root    (hd0,0)
+
 kernel  /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
 boot
 
@@ -214,6 +215,7 @@ OpenWrt is booting...
 
 root (hd0,0)
  Filesystem type is ext2fs, partition type 0x83
+
 kernel /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 
 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
    [Linux-bzImage, setup=0xa00, size=0xaa952]
