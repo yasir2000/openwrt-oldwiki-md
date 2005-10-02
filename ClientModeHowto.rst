@@ -13,7 +13,7 @@ You need to have a recent version of OpenWrt White Russian installed.
 This Howto was written for RC3.
 
 The first step would be changing the WRT's behavior from AP to client
-mode ({{{sta}}} for short):
+mode (station/client mode or {{{sta}}} for short):
 
 {{{
 nvram set wl0_mode=sta
