@@ -19,8 +19,9 @@ mode ({{{sta}}} for short):
 nvram set wl0_mode=sta
 }}}
 
-'''NOTE:''' As soon as your AP is in client mode you can't connect any
-wireless clients to it any more.
+'''NOTE:''' As soon as your AP is in client mode you _can't_ connect any
+wireless clients to it anymore because it's not in access point mode
+({{{wl0_mode=ap}}}).
 
 
 === Bridged client mode ===
