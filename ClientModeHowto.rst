@@ -4,9 +4,9 @@ If you want to use OpenWrt to connect to another access point (AP) or
 computer rather than to use it as an AP, follow these steps:
 
 
-== Setting up/configuring client mode ==
+== configuring client mode ==
 
-You need to have a recent version of OpenWrt 'White Russian' installed.
+You need to have a recent version of OpenWrt {{{White Russian}}} installed.
 This Howto was written for RC3.
 
 The first step would be changing the WRT's behavior from AP to client
@@ -71,6 +71,8 @@ reboot
 
 You can now scan for nearby access points. If {{{iwlist}}} doesn't find any
 networks on the first run, repeat the scanning a few times.
+
+'''TIP:''' With {{{iwlist}}} you can scan only when your AP is in client mode.
 
 {{{
 root@OpenWrt:/# iwlist eth1 scanning
