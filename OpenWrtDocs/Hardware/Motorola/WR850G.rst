@@ -16,7 +16,7 @@ ISSI IS42S16400B1-7T is a 8MB chip (1Mbx16x4, 64Mb total [divided by 8 = 8megaby
 
 The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connector. 
 
-Warning Note: Do not erase the NVRAM, at least on this version.  It doesn't seem to be rewritten by the bootloader upon reboot, as with the WRT54G. 
+/!\Warning: Do not erase the NVRAM, at least on this version.  It doesn't seem to be rewritten by the bootloader upon reboot, as with the WRT54G. 
 
 ==== WR850G v3 ====
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
