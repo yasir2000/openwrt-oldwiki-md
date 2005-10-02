@@ -3,7 +3,11 @@
 If you want to use OpenWrt to connect to another access point (AP) or
 computer rather than to use it as an AP, follow the next steps.
 
-This [:http://forum.openwrt.org/viewtopic.php?pid=13151#p13151]thread
+As soon your AP is in client mode you can't connect any wireless clients
+to it any more.
+
+
+This [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151]thread
 in the forum may also be useful to understand things.
 
 
