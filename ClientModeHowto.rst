@@ -13,13 +13,6 @@ The first step would be changing the WRT's behavior from AP to client
 mode ({{{wet}}} for short):
 
 {{{
-nvram set wl0_mode=wet
-}}}
-
-'''TIP:''' Try it with {{{sta}}} mode instead of {{{wet}}} mode if you
-have any problems.
-
-{{{
 nvram set wl0_mode=sta
 }}}
 
