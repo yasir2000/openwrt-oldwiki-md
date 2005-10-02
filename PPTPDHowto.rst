@@ -18,7 +18,7 @@ for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
 While we are at it we mark the startup script executable and put it so that it will load on boot.
 
 {{{
-chmod a+x /etc/init.d/ppptd
+chmod a+x /etc/init.d/pptpd
 ln -s /etc/init.d/pptpd /etc/init.d/S51pptpd
 }}}
 
