@@ -69,7 +69,7 @@ patches; Patch files for example 100-foo.patch
 unexpand --first-only - | cat >package/helloworld/Config.in
 }}}
 
-After pasting it, press ENTER and than CTRL+D keys to safe the file.
+After pasting it, press ENTER and then CTRL+D keys to save the file.
 
 You can also create your own files in the {{{package/helloworld}}} directory (for example config files).
 That files you can access in your {{{package/Makefile}}} with {{{./filename}}} and copy it
