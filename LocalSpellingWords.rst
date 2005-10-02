@@ -106,3 +106,5 @@ Authentication httpd string
 file home incoming
 
 decode directory encode
+
+built spaces their them though tool toolchain touch version versions via wget
