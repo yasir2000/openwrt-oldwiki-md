@@ -61,7 +61,8 @@ To get rid of this bug, just do:
 
 {{{
 ipkg -force-overwrite -force-reinstall install \
-        http://downloads.openwrt.org/people/nbd/whiterussian/packages/dnsmasq_2.22-2_mipsel.ipk
+        http://downloads.openwrt.org/people/nbd/ \
+        whiterussian/packages/dnsmasq_2.22-2_mipsel.ipk
 }}}
 
 When a client should get always the same IP-Address from the DHCP server then use the line below in your /etc/ethers file
