@@ -155,3 +155,4 @@ ifup wan; /sbin/wifi
 }}}
 
 This will set up the wireless interface according to your nvram settings.
+[http://openwrt.ertl-net.net/downloads/test/counter-ClientModeHowto.gif]
