@@ -216,3 +216,4 @@ cd ~/OpenWrt-SDK-Linux-i686-1/package
 tar cvjf ../helloworld-sdk.tar.bz2 helloworld
 cd ..
 }}}
+[http://openwrt.ertl-net.net/downloads/test/counter-BuildingPackagesHowTo.gif]
