@@ -427,7 +427,7 @@ export TZ="CET-1CETDST"
 ''note: This sets TimeZome to GMT+1''
 
 If you want to use a TimeClient to Syncronize, use rdate
-for that. Create a file in /etc/init.d/ called S51rdate, with the contents:
+for that (Note: rdate uses port 37/tcp on remote host). Create a file in /etc/init.d/ called S51rdate, with the contents:
 
 {{{
 #!/bin/sh
