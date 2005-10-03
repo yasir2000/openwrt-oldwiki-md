@@ -182,11 +182,15 @@ route add -net 192.168.0.0 netmask 255.255.255.0 $1
 
 Again, a corresponding route ''delete'' command should be added to the ip-down script. To delete a network from the routing table, replace ''add'' with ''del'' and also remove ''$1'' at the end of the command, since it is not needed.
 
-To contine the example above, deleting the route added by ip-up for the 192.168.0.0/255.255.255.0 network:
+To continue the example above, deleting the route added by ip-up for the 192.168.0.0/255.255.255.0 network:
 {{{
 route del -net 192.168.0.0 netmask 255.255.255.0
 }}}
 If entered in ip-down for the appropriate link, the 192.168.0.0/24-network will be removed from the static routing table when the link is taken down.
+
+=== static routing for all packets ===
+
+(It should be possible to direct all packets into the tunnel, if that's what you want. But be careful; if you direct the tunnel's packets as well, you'll end up with a routing loop and nothing will work.  To avoid this, add a static route for your tunnel server using the network interface.  Then add a default route that directs everything else to the tunnel network interface. The static host route takes priority over the default route, avoiding the  loop.  -- JamesCameron, PPTP Linux maintainer.)
 
 == Testing the link ==
 The pppd command is used to enable a link. The syntax pppd call peername, where peername is one of the peers in /etc/ppp/peers, tries to bring the link up.
