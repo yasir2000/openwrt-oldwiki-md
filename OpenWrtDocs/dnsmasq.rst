@@ -65,7 +65,7 @@ ipkg -force-overwrite -force-reinstall install \
         whiterussian/packages/dnsmasq_2.22-2_mipsel.ipk
 }}}
 
-When a client should get always the same IP-Address from the DHCP server then use the line below in your /etc/ethers file
+When a client should get always the same IP address from the DHCP server then use the line below in your /etc/ethers file
 
 {{{
 # <mac> <ip>
