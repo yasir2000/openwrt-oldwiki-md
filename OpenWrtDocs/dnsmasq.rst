@@ -72,4 +72,4 @@ When a client should get always the same IP address from the DHCP server then us
 00:aa:bb:cc:dd:ee 192.168.1.2
 }}}
 
-Put the hostname for that IP address in {{{/etc/hosts}}} file.
+Put the hostname for that IP address in the {{{/etc/hosts}}} file.
