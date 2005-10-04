@@ -283,10 +283,9 @@ address sticker on my unit. It's the only header I could find; only 4 pins and w
 |                                                              |
 |                                                              |
 |                                                              |
-\______________________________________________________________/
-    l                  l l l l          l      l
+\___l__________________l_l_l_l__________l______l_______________/
     e                  e e e e          e      e
     d                  d d d d          d      d
 }}}
 
-Obviously, the board is prepared to be assembled with a MAX3232 or similar. The pads can either be used to connect a 3.3V serial cable directly or the missing parts (MAX3232, capacitors, resistors; have a look at the datasheet) could be soldered on the board. I chose to connect a cable directly using the pads as described above. Settings are 115200,8,N,1.
+Obviously, the board is prepared to be assembled with a MAX3232 or similar. The pads can either be used to directly connect a 3.3V serial cable or the missing parts (MAX3232, capacitors, resistors; have a look at the datasheet) could be soldered on the board. I chose to connect a cable directly using the pads as described above. Settings are 115200,8,N,1.
