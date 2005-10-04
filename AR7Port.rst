@@ -264,3 +264,29 @@ The console is located aproximately in center of a board, it's JP5, the only 5-p
 }}}
 The console is located roughly behind the tick led on the front left of the board, just off the edge of the MiniPCI connector. It was half hidden by the MAC
 address sticker on my unit. It's the only header I could find; only 4 pins and wasn't soldered up at all. I took a voltage tap of an adjacent 74xx chip to power my MAX232. Settings are 115200,8,N,1.
+
+== ALLNet ALL0277DSLv2 Serial Console ==
+
+{{{
+
+|                                                              |
+|                 U2 (MAX3232?)                                |
+|                                                              |
+|                 === 1     16 === +3.3V                       |
+|                 === 2     15 === GND                         |
+|                 === 3     14 ===                             |
+|                 === 4     13 ===                             |
+|                 === 5     12 === CPU's RxD                   |
+|                 === 6     11 === CPU's TxD                   |
+|                 === 7     10 ===                             |
+|                 === 8      9 ===                             |
+|                                                              |
+|                                                              |
+|                                                              |
+\______________________________________________________________/
+    l                  l l l l          l      l
+    e                  e e e e          e      e
+    d                  d d d d          d      d
+}}}
+
+Obviously, the board is prepared to be assembled with a MAX3232 or similar. The pads can either be used to connect a 3.3V serial cable directly or the missing parts (MAX3232, capacitors, resistors; have a look at the datasheet) could be soldered on the board. I chose to connect a cable directly using the pads as described above. Settings are 115200,8,N,1.
