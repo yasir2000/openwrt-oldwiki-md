@@ -34,6 +34,13 @@ MPD is configured in the file /etc/mpd.conf. The default config file probably wo
 
 Your music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk connected locally.
 
+= Devices =
+
+Any USB Audio device supported by linux should work with OpenWRT. I have succesfully used two cheap USB-Stick cards as pictured below. These were purchased in Australia for AU $20 each. The black one has a built-in amplifier which direclty drives a set of bookshelf speakers to quite a good listening volume. The one with the buttons appears as a USB HID device and you can get key press events in /dev/input/eventx. This could be used to hack up a simple control interface on the router.
+
+attachment:usbsoundcard_1.jpg
+attachment:usbsoundcard_2.jpg
+
 = Future =
 
 I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by roku, linksys, netgear, philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
