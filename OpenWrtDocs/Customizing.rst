@@ -209,6 +209,8 @@ Hmmm...
 
 === USB Sound devices ===
 
+http://wiki.openwrt.org/UsbAudioHowto
+
 http://www.nslu2-linux.org/wiki/HowTo/SlugAsAudioPlayer
 
 [http://www.logitech.com/index.cfm/products/details/US/EN,CRID=2258,CONTENTID=6730 Logitech USB Headset for PlayStation 2]
@@ -277,6 +279,8 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
 [http://www.duff.dk/wrt54gs/pics/02_Covox_Top.jpg]
 == Adding Sound Output ==
 [http://www.duff.dk/wrt54gs/pics/07_Finished_product.jpg]
+
+See also: http://wiki.openwrt.org/UsbAudioHowto
 == Adding a Power Button ==
 == Adding a Power Reset Button ==
 == Making it Mobile ==
