@@ -28,11 +28,11 @@ You may build both oss and alsa as packages but only one can be used at a time.
 
 At the time of writing, only one audio application (mpd) has been packaged.
 
-MPD (Music Player Daemon) is a small music player with support for FLAC, MP3 and OGG files. It is a daemon process which is typically controlled by a client such as gmpc running on another desktop machine. For more information about MPD, visit the website at www.musicpd.org
+MPD (Music Player Daemon) is a small music player with support for FLAC, MP3 and OGG files. It is a daemon process which is typically controlled by a client such as gmpc running on another desktop machine. For more information about MPD, visit the website at http://www.musicpd.org.
 
-MPD is configured with the config file /etc/mpd.conf. The default config file will probably not work as-is, but it should have enough comments to edited easily. The MPD package does not currently contain a script to start MPD at boot.
+MPD is configured in the file /etc/mpd.conf. The default config file probably won't work as-is, but it should have enough comments to  be edited easily. The MPD package does not currently contain a script to start MPD at boot.
 
-You music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk connected locally.
+Your music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk connected locally.
 
 = Future =
 
