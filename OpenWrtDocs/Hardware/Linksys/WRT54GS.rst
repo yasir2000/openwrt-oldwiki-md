@@ -33,7 +33,8 @@ NOTE: v4.0 only has 4MB Flash and 16MB Ram.  Half of prior versions.
 Serial Number begining CGN60
 
 Supported in RC3 and later.
-
+my WRT54GS V4 has 8mb flash
+and 32mb ram, only first relase of wrt54gs v4 had 4mb/16mb 
 === Detailed hardware info ===
 
 ==== Motherboard photos ====
