@@ -29,10 +29,10 @@ in /etc/printcap.
    * Supported router by OpenWrt with USB and/or parport (the
    Asus WL-500g has both USB and parport)
    * a recent OpenWrt version installed (at least White Russian RC3)
-   with already configured USB and/or parport modules and the p910nd
-   package (which is not yet included in White Russian)
+   with already configured USB and/or parport modules and the
+   {{{p910nd}}} package (which is not yet included in White Russian)
    * GNU/Linux or Windows clients to connect to your printer server
-   * A USB or parallel printer 
+   * A USB or parallel printer
 
 
 = Installation =
@@ -106,7 +106,7 @@ Please translate this to english. Thanks.
 
 
 === Gnome ===
- 
+
 Please fill this section with some useful content.
 
 
