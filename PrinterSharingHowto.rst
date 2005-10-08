@@ -131,5 +131,5 @@ Please update this section with some useful content.
 = Links =
 
 - [http://etherboot.sourceforge.net/p910nd/]
-- [http://wl500g.dyndns.org/printing/]
-- [http://wl500g.dyndns.org/]
+[[BR]]- [http://wl500g.dyndns.org/printing/]
+[[BR]]- [http://wl500g.dyndns.org/]
