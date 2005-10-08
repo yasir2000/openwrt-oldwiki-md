@@ -95,13 +95,13 @@ Please fill this section with some useful content.
 
 === kprinter (KDE) ===
 
-- Start kprinter
-- Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
-- Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
-- Bei Port 9100 (for LPT) bzw. 9100 (for USB) eingeben / Weiter
-- Hersteller und Modell auswählen / Weiter
-- Bei Treiberauswahl den empfohlenen auswählen / Weiter
-- You can new print a test page or change the Einstellungen / Weiter
+[[BR]]- Start kprinter
+[[BR]]- Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
+[[BR]]- Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
+[[BR]]- Bei Port 9100 (for LPT) bzw. 9100 (for USB) eingeben / Weiter
+[[BR]]- Hersteller und Modell auswählen / Weiter
+[[BR]]- Bei Treiberauswahl den empfohlenen auswählen / Weiter
+[[BR]]- You can new print a test page or change the Einstellungen / Weiter
 
 
 === Gnome ===
