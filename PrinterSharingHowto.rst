@@ -11,7 +11,7 @@ LAN network than this is the right howto for you. The alternative
 would be the cups package (which is also aviable for OpenWrt) but
 in my opinien it's a bit overkill for WRT router.
 
-From the p910nd man page:
+From the p910nd man page:[[BR]]
 p910nd is a small printer daemon intended for diskless workstations
 that does not spool to disk but passes the job directly to the
 printer. Normally a lpr daemon on a spooling host connects to it with
