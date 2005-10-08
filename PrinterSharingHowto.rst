@@ -1,6 +1,3 @@
-/!\ '''This page is still under development''' /!\
-
-
 [[TableOfContents]]
 
 
@@ -29,8 +26,11 @@ in /etc/printcap.
 
 = Requirements =
 
-   * Supported router by OpenWrt with USB and/or parport (the Asus WL-500g has both USB and parport)
-   * a recent OpenWrt version installed (at least White Russian RC3) with already configured USB and/or parport modules and the p910nd package (which is not yet included in White Russian)
+   * Supported router by OpenWrt with USB and/or parport (the
+   Asus WL-500g has both USB and parport)
+   * a recent OpenWrt version installed (at least White Russian RC3)
+   with already configured USB and/or parport modules and the p910nd
+   package (which is not yet included in White Russian)
    * GNU/Linux or Windows clients to connect to your printer server
    * A USB or parallel printer 
 
@@ -121,7 +121,7 @@ Please fill this section with some useful content.
 = Not supported printers =
 
 Here you should create a list of printers which are '''not''' working
-with the p910nd package. Please include manufacturer, model,
+with the {{{p910nd}}} package. Please include manufacturer, model,
 interface (USB/Parport), driver working  and some short comment.
 
 Please update this section with some useful content.
