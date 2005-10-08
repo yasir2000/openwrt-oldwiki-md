@@ -335,7 +335,7 @@ Setting up WPA will override any WEP settings.
 
 == WPA encryption ==
 
-For enabling WPA, you need to install the nas package. 
+For enabling WPA, you need to install the nas package.
 When you enable or disable WPA settings, you should make sure that the NVRAM variable '''wl0_auth_mode''' is unset, because it is obsolete.
 
 More information is on ["OpenWrtDocs/nas"]. (solve problem with WhiteRussian RC2 and client mode)
@@ -383,7 +383,7 @@ If you activate both you will double the pain to find a problem.
  1. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 
-/!\ Note: if you broke up your bridge as detailed in 
+/!\ Note: if you broke up your bridge as detailed in
 "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better no what you are doing...
 
 == OpenWrt as client / wireless bridge ==
@@ -553,26 +553,26 @@ Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
 === CUPSD ===
 
-Known bugs: 
+Known bugs:
 
 Tespage printing doesn´t work. This is due to missing of the .css file from which will generate the Testpage.
 Wrong permissions:
 
-You have to replace 
+You have to replace
 
-<Location />                                                                   
-AuthType Basic                                                                 
-AuthClass System                                                               
-Order Allow,Deny                                                               
-Allow From All                                                                 
-</Location>                                                                    
+<Location />
+AuthType Basic
+AuthClass System
+Order Allow,Deny
+Allow From All
+</Location>
 
 with:
-                                                                                
-<Location />                                                                    
-Order Deny,Allow                                                                
-Deny From All                                                                   
-Allow from 127.0.0.1                                                            
+
+<Location />
+Order Deny,Allow
+Deny From All
+Allow from 127.0.0.1
 Allow from 192.168.1.0/24 #your ip area.
 </Location>
 
