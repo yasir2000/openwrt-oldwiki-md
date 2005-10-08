@@ -133,6 +133,7 @@ If you didn't set boot_wait and don't build a JTAG, you'll have to resort to ope
 
 ||4M flash chip (WRT54G v1.0, v1.1, v2.0)||Use pins 15&16||
 ||4M flash chip (WRT54G v2.2)||Use pins 16&17||
+||4M flash chip (Buffalo WBR2-G54)||Use pins 16&17||
 ||4M flash chip (Motorola W!R850Gv2)||Use pins 5&6||
 ||8M flash chip (WRT54GS v1.0, v1.1)||Use pins 5&6||
 
