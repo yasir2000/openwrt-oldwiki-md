@@ -551,6 +551,35 @@ Keep in mind that this information was found using trial-and-error-methods, so i
 
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
+=== CUPSD ===
+
+Known bugs: 
+
+Tespage printing doesn´t work. This is due to missing of the .css file from which will generate the Testpage.
+Wrong permissions:
+
+You have to replace 
+
+<Location />                                                                   
+AuthType Basic                                                                 
+AuthClass System                                                               
+Order Allow,Deny                                                               
+Allow From All                                                                 
+</Location>                                                                    
+
+with:
+                                                                                
+<Location />                                                                    
+Order Deny,Allow                                                                
+Deny From All                                                                   
+Allow from 127.0.0.1                                                            
+Allow from 192.168.1.0/24 #your ip area.
+</Location>
+
+Helpfull information for Steve disciple:
+
+Its all you have to do. If you want to connect, your macosx with your mac you have to use the extended printer settings. If you use the standard printer settings and add an ipp printer, macosx will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
+
 = Hardware =
 
 == LED ==
