@@ -6,12 +6,13 @@
 
 = Why should I use printer sharing? What is that? =
 
-Wenn you like to share printers with other PCs (clients) in your
-LAN network than this is the right howto for you. The alternative
-would be the cups package (which is also aviable for OpenWrt) but
-in my opinien it's a bit overkill for WRT router. So the small
-{{{p910nd}}} non-spooling printer server is exactly what I was
-looking for.
+If you want to share printers with other PCs (clients) in your
+network, then this is the right howto for you. It was written
+for the small {{{p910nd}}} non-spooling printer server.
+An alternative would be using the cups package (which is also available) but
+in my opinion it's too much for the average OpenWrt device (mostly because
+it needs to cache the print jobs before sending them and because there's
+not much space for that left without additional storage space).
 
 From the p910nd man page:[[BR]]
 p910nd is a small printer daemon intended for diskless workstations
@@ -28,13 +29,10 @@ in /etc/printcap.
 
 = Requirements =
 
-   * Supported router by OpenWrt with USB and/or parport (f. e.
-   the Asus WL-500g has both USB and parport)
-   * a recent OpenWrt version installed (at least White Russian RC4)
-   with already configured USB and/or parport modules
+   * Supported router by OpenWrt with USB and/or parport (the Asus WL-500g has both USB and parport)
+   * a recent OpenWrt version installed (at least White Russian RC3) with already configured USB and/or parport modules and the p910nd package (which is not yet included in White Russian)
    * GNU/Linux or Windows clients to connect to your printer server
-   * a printer (which has a printer driver that allows to make RAW
-   socket connections via the TCP/IP protocol)
+   * A USB or parallel printer 
 
 
 = Installation =
@@ -51,8 +49,7 @@ ipkg install http://downloads.openwrt.org/people/nico/testing/ \
 in the stable White Russian release (except the kmod-* and kernel
 packages).
 
-The {{{p910nd}}} package will go eventuelly in the next White Russian
-release candidate.
+The {{{p910nd}}} package will be included in White Russian RC4.
 
 
 = Configuring the printer daemon =
@@ -109,8 +106,8 @@ Please translate this to english. Thanks.
 
 
 === Gnome ===
-
-Please fill this section with some usefulcontent.
+ 
+Please fill this section with some useful content.
 
 
 == Windows clients ==
