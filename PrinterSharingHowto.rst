@@ -9,7 +9,9 @@
 Wenn you like to share printers with other PCs (clients) in your
 LAN network than this is the right howto for you. The alternative
 would be the cups package (which is also aviable for OpenWrt) but
-in my opinien it's a bit overkill for WRT router.
+in my opinien it's a bit overkill for WRT router. So the small
+{{{p910nd}}} non-spooling printer server is exactly what I was
+looking for.
 
 From the p910nd man page:[[BR]]
 p910nd is a small printer daemon intended for diskless workstations
