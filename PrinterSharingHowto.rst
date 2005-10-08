@@ -45,7 +45,7 @@ ipkg install http://downloads.openwrt.org/people/nico/testing/ \
         mipsel/packages/p910nd_0.7-1_mipsel.ipk
 }}}
 
-'''NOTE:''' These binary packages from Nico's repository can be used
+'''TIP:''' These binary packages from Nico's repository can be used
 in the stable White Russian release (except the kmod-* and kernel
 packages).
 
