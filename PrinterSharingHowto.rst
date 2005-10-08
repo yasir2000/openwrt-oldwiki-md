@@ -74,7 +74,7 @@ Here I would demonstrate you, how to configure the printer driver
 on your client. It could be that these steps are not exactly the
 same on your operating system.
 
-NOTE: Port 9101 is USB connections and port 9100 is for parallel
+'''NOTE:''' Port 9101 is USB connections and port 9100 is for parallel
 port (LPT) connections.
 
 
