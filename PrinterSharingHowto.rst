@@ -57,10 +57,10 @@ The {{{p910nd}}} package will be included in White Russian RC4.
 Edit the file {{{/etc/default/p910nd}}} to your needs. The file is
 well commented.
 
-Save it and restart the {{{p910nd}}} daemon with:
+Save it and start the {{{p910nd}}} daemon with:
 
 {{{
-/etc/init.d/S70p910nd restart
+/etc/init.d/S70p910nd start
 }}}
 
 You can run more than one printer at the same time. For example
