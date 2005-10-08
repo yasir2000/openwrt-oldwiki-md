@@ -95,6 +95,8 @@ Please fill this section with some useful content.
 
 === kprinter (KDE) ===
 
+Please translate this to english. Thanks.
+
 [[BR]]- Start kprinter
 [[BR]]- Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
 [[BR]]- Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
