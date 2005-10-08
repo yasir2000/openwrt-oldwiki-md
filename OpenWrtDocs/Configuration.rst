@@ -556,25 +556,30 @@ Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 Known bugs:
 
 Tespage printing doesn´t work. This is due to missing of the .css file from which will generate the Testpage.
+
 Wrong permissions:
 
 You have to replace
 
-<Location />
-AuthType Basic
-AuthClass System
-Order Allow,Deny
-Allow From All
-</Location>
+{{{
+<Location /> 
+AuthType Basic 
+AuthClass System 
+Order Allow,Deny 
+Allow From All 
+</Location> 
+}}}
 
 with:
 
+{{{
 <Location />
 Order Deny,Allow
 Deny From All
 Allow from 127.0.0.1
 Allow from 192.168.1.0/24 #your ip area.
 </Location>
+}}}
 
 Helpfull information for Steve disciple:
 
