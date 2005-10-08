@@ -27,12 +27,12 @@ in /etc/printcap.
 = Requirements =
 
    * Supported router by OpenWrt with USB and/or parport (f. e.
-     the Asus WL-500g has both USB and parport)
+   the Asus WL-500g has both USB and parport)
    * a recent OpenWrt version installed (at least White Russian RC4)
-     with already configured USB and/or parport modules
+   with already configured USB and/or parport modules
    * GNU/Linux or Windows clients to connect to your printer server
    * a printer (which has a printer driver that allows to make RAW
-     socket connections via the TCP/IP protocol)
+   socket connections via the TCP/IP protocol)
 
 
 = Installation =
