@@ -113,10 +113,23 @@ Please fill this section with some useful content.
 == Windows clients ==
 
 
-=== Windows XP Home/Professional ===
 
-Please fill this section with some useful content.
+=== Windows 2000/XP Home/Professional ===
 
+NOTE: I have only tested this with Windows 2000 Professional, I just assume it works the same with XP and the Home versions.
+
+ * Install your printer software as you would if it were a local printer.
+ * Go to your printer properties in the control panel/printer settings.
+ * Select the tab "Ports".
+ * Select "Add Port".
+ * Select "Standard TCP/IP Port" and click on "New Port...".
+ * Follow the wizard. In the field "Printer Name or IP Address", enter the IP Address of your router.
+ * Windows will send a couple of UDP packets to port 161 of the Router. You can safely discard them.
+ * You will need to select a Device Type. Select "Custom" and click "Settings...".
+ * Be Sure the Protocol is "Raw" and the Port Number is either 9100 (for parallel port printers) or 9101 (for usb printers).
+ * Finish the Settings wizard and close the Add Port window. The newly created Port should now be selected.
+ * You printer should be configred.  Be sure that your firewall allows communication to port 9100 or 9101 respectively. 
+ * You may print a test page to see if all went well.
 
 = Not supported printers =
 
