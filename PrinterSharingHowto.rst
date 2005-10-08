@@ -45,7 +45,7 @@ repository with the command:
 
 {{{
 ipkg install http://downloads.openwrt.org/people/nico/testing/ \
-        mipsel/packages/p910nd_0.7-1_mipsel.ipk
+        mipsel/packages/p910nd_0.7-2_mipsel.ipk
 }}}
 
 '''TIP:''' These binary packages from Nico's repository can be used
