@@ -6,7 +6,7 @@
 If you want to share printers with other PCs (clients) in your
 network, then this is the right howto for you. It was written
 for the small {{{p910nd}}} non-spooling printer server.
-An alternative would be using the cups package (which is also available) but
+An alternative would be using the {{{cups}}} package (which is also available) but
 in my opinion it's too much for the average OpenWrt device (mostly because
 it needs to cache the print jobs before sending them and because there's
 not much space for that left without additional storage space).
