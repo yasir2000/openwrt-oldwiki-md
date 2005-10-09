@@ -32,8 +32,8 @@ in /etc/printcap.
    with already configured USB and/or parport modules and the
    {{{p910nd}}} package (which is not yet included in White Russian)
    * GNU/Linux or Windows clients to connect to your printer server
-   * a USB or parallel printer (I tested this with a noname USB-to-Parport
-   adapter too, works perfect!)
+   * a USB or parallel printer ('''TIP:''' I tested this with a noname
+   USB-to-Parport adapter/converter too, works perfect!)
 
 
 = Installation =
