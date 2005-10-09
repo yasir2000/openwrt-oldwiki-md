@@ -99,7 +99,7 @@ is 9000 for a USB printer on the device {{{/dev/usb/lp0}}}.
 You can check the ports on which {{{p910nd}}} is listening on with
 the command {{{netstat -an}}} executed on the router.
 
-[[BR]]
+[[BR]][[BR]][[BR]]
 
 We need your help here!
 
