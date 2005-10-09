@@ -100,7 +100,7 @@ same on your operating system.
 is 9000 for a USB printer on the device {{{/dev/usb/lp0}}}.
 
 You can check the ports on which {{{p910nd}}} is listening on with
-the command {{{netstan -an}}} executed on the router.
+the command {{{netstat -an}}} executed on the router.
 
 
 == Linux clients ==
