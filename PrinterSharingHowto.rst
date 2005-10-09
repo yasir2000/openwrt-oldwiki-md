@@ -58,16 +58,39 @@ The {{{p910nd}}} package will be included in White Russian RC4.
 = Configuring the printer daemon =
 
 Edit the file {{{/etc/default/p910nd}}} to your needs. The file is
-well commented.
+well commented. The default file looks like that:
+
+{{{
+cat /etc/default/p910nd
+}}}
+
+{{{
+# printing port list, in the form "number [options]"
+# where:
+#  - number is the port number in the range [0-9]
+#    the p910nd daemon will listen on tcp port 9100+number
+#  - options can be :
+#    -b to turn on bidirectional copying.
+#    -f to specify a different printer device.
+#
+0  -b -f /dev/usb/lp0
+}}}
+
+You can run more than one printer at the same time. For example
+one on USB and the other on the parport ({{{1  -b -f /dev/printers/0}}})
+interface.
 
 Save it and start the {{{p910nd}}} daemon with:
 
 {{{
-/etc/init.d/S70p910nd start
+/etc/init.d/p910nd start
 }}}
 
-You can run more than one printer at the same time. For example
-one on USB and the other on the parport interface.
+To make the printer server start on bootup do:
+
+{{{
+ln -s /etc/init.d/p910nd /etc/init.d/S70p910nd
+{{{
 
 
 = Configure the clients for printing =
@@ -99,13 +122,13 @@ Please fill this section with some useful content.
 
 Please translate this to english. Thanks.
 
-[[BR]]- Start kprinter
-[[BR]]- Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
-[[BR]]- Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
-[[BR]]- Bei Port 9100 (for LPT) bzw. 9100 (for USB) eingeben / Weiter
-[[BR]]- Hersteller und Modell auswählen / Weiter
-[[BR]]- Bei Treiberauswahl den empfohlenen auswählen / Weiter
-[[BR]]- You can new print a test page or change the Einstellungen / Weiter
+ * Start kprinter
+ * Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
+ * Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
+ * Bei Port 9100 (for LPT) bzw. 9100 (for USB) eingeben / Weiter
+ * Hersteller und Modell auswählen / Weiter
+ * Bei Treiberauswahl den empfohlenen auswählen / Weiter
+ * You can new print a test page or change the Einstellungen / Weiter
 
 
 === Gnome ===
@@ -116,23 +139,29 @@ Please fill this section with some useful content.
 == Windows clients ==
 
 
-
 === Windows 2000/XP Home/Professional ===
 
-NOTE: I have only tested this with Windows 2000 Professional, I just assume it works the same with XP and the Home versions.
+'''NOTE:''' I have only tested this with Windows 2000 Professional, I just
+assume it works the same with XP and the Home versions.
 
  * Install your printer software as you would if it were a local printer.
  * Go to your printer properties in the control panel/printer settings.
  * Select the tab "Ports".
  * Select "Add Port".
  * Select "Standard TCP/IP Port" and click on "New Port...".
- * Follow the wizard. In the field "Printer Name or IP Address", enter the IP Address of your router.
- * Windows will send a couple of UDP packets to port 161 of the Router. You can safely discard them.
+ * Follow the wizard. In the field "Printer Name or IP Address", enter the
+ IP Address of your router.
+ * Windows will send a couple of UDP packets to port 161 of the Router. You
+ can safely discard them.
  * You will need to select a Device Type. Select "Custom" and click "Settings...".
- * Be Sure the Protocol is "Raw" and the Port Number is either 9100 (for parallel port printers) or 9101 (for usb printers).
- * Finish the Settings wizard and close the Add Port window. The newly created Port should now be selected.
- * You printer should be configred.  Be sure that your firewall allows communication to port 9100 or 9101 respectively. 
+ * Be Sure the Protocol is "Raw" and the Port Number is either 9100 (for parallel
+ port printers) or 9101 (for usb printers).
+ * Finish the Settings wizard and close the Add Port window. The newly created Port
+ should now be selected.
+ * You printer should be configred.  Be sure that your firewall allows communication
+ to port 9100 or 9101 respectively. 
  * You may print a test page to see if all went well.
+
 
 = Not supported printers =
 
