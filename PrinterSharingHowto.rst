@@ -1,6 +1,3 @@
-/!\ '''This page is still under development!''' /!\
-
-
 [[TableOfContents]]
 
 
@@ -114,7 +111,7 @@ Please update this section with more client configurations. This
 should include a short list howto configure a client. Please do not
 use screenshots.
 
-Thanks for your help.
+Thanks.
 
 === CUPS ===
 
@@ -126,7 +123,7 @@ Please fill this section with some useful content.
 Please translate this to english. Thanks.
 
  * Start kprinter
- * Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
+ * Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP) / Weiter
  * Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
  * Bei Port den soeben configurierten eingeben eingeben / Weiter
  * Hersteller und Modell auswählen / Weiter
