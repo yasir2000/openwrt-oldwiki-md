@@ -84,11 +84,7 @@ Save it and start the {{{p910nd}}} daemon with:
 /etc/init.d/p910nd start
 }}}
 
-To make the printer server start on bootup do:
-
-{{{
-ln -s /etc/init.d/p910nd /etc/init.d/S70p910nd
-}}}
+I will startup automatically on the next reboot.
 
 
 = Configure the clients for printing =
