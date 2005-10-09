@@ -84,7 +84,7 @@ Save it and start the {{{p910nd}}} daemon with:
 /etc/init.d/p910nd start
 }}}
 
-I will startup automatically on the next reboot.
+It will start up automatically on the next reboot.
 
 
 = Configure the clients for printing =
