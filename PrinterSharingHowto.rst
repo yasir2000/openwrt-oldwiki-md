@@ -99,7 +99,7 @@ Here I would demonstrate you, how to configure the printer driver
 on your client. It could be that these steps are not exactly the
 same on your operating system.
 
-'''NOTE:''' Remember the ports you configured above. Default Port
+'''NOTE:''' Remember the ports you configured above. Default port
 is 9000 for a USB printer on the device {{{/dev/usb/lp0}}}.
 
 You can check the ports on which {{{p910nd}}} is listening on with
