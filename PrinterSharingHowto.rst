@@ -154,11 +154,11 @@ assume it works the same with XP and the Home versions.
  * Windows will send a couple of UDP packets to port 161 of the Router. You
  can safely discard them.
  * You will need to select a Device Type. Select "Custom" and click "Settings...".
- * Be sure the protocol is "Raw" and the port number is correct (f. e. 9100).
+ * Be sure the protocol is "Raw" and the port number is correct (i.e. 9100).
  * Finish the Settings wizard and close the Add Port window. The newly created Port
  should now be selected.
- * You printer should be configred. Be sure that your firewall allows communication
- to that port numbers respectively.
+ * You printer should be configred now. Be sure that your firewall allows communication
+ to the chosen port.
  * You may print a test page to see if all went well.
 
 
