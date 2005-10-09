@@ -159,7 +159,7 @@ assume it works the same with XP and the Home versions.
  * Finish the Settings wizard and close the Add Port window. The newly created Port
  should now be selected.
  * You printer should be configred. Be sure that your firewall allows communication
- to that port numbers respectively. 
+ to that port numbers respectively.
  * You may print a test page to see if all went well.
 
 
