@@ -77,7 +77,7 @@ cat /etc/default/p910nd
 }}}
 
 You can run more than one printer at the same time. For example
-one on USB and the other on the parport ({{{1  -b -f /dev/printers/0}}})
+one on USB and the other on the parport ({{{f. e. 1  -b -f /dev/printers/0}}})
 interface.
 
 Save it and start the {{{p910nd}}} daemon with:
@@ -99,8 +99,11 @@ Here I would demonstrate you, how to configure the printer driver
 on your client. It could be that these steps are not exactly the
 same on your operating system.
 
-'''NOTE:''' Port 9101 is USB connections and port 9100 is for parallel
-port (LPT) connections.
+'''NOTE:''' Remember the ports you configured above. Default Port
+is 9000 for a USB printer on the device {{{/dev/usb/lp0}}}.
+
+You can check the ports on which {{{p910nd}}} is listening on with
+the command {{{netstan -an}}} executed on the router.
 
 
 == Linux clients ==
@@ -125,7 +128,7 @@ Please translate this to english. Thanks.
  * Start kprinter
  * Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP), Weiter
  * Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
- * Bei Port 9100 (for LPT) bzw. 9100 (for USB) eingeben / Weiter
+ * Bei Port den soeben configurierten eingeben eingeben / Weiter
  * Hersteller und Modell auswählen / Weiter
  * Bei Treiberauswahl den empfohlenen auswählen / Weiter
  * You can new print a test page or change the Einstellungen / Weiter
@@ -150,16 +153,15 @@ assume it works the same with XP and the Home versions.
  * Select "Add Port".
  * Select "Standard TCP/IP Port" and click on "New Port...".
  * Follow the wizard. In the field "Printer Name or IP Address", enter the
- IP Address of your router.
+ IP address of your router.
  * Windows will send a couple of UDP packets to port 161 of the Router. You
  can safely discard them.
  * You will need to select a Device Type. Select "Custom" and click "Settings...".
- * Be Sure the Protocol is "Raw" and the Port Number is either 9100 (for parallel
- port printers) or 9101 (for usb printers).
+ * Be sure the protocol is "Raw" and the port number is correct (f. e. 9100).
  * Finish the Settings wizard and close the Add Port window. The newly created Port
  should now be selected.
- * You printer should be configred.  Be sure that your firewall allows communication
- to port 9100 or 9101 respectively. 
+ * You printer should be configred. Be sure that your firewall allows communication
+ to that port numbers respectively. 
  * You may print a test page to see if all went well.
 
 
