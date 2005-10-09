@@ -77,7 +77,7 @@ cat /etc/default/p910nd
 }}}
 
 You can run more than one printer at the same time. For example
-one on USB and the other on the parport ({{{f. e. 1  -b -f /dev/printers/0}}})
+one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}})
 interface.
 
 Save it and start the {{{p910nd}}} daemon with:
