@@ -179,8 +179,26 @@ The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of Gene
 
 The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED pins. The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin). 
 
-=== Installing on a wrt54g version 3 ===
-*to be written, in the meantime you can find [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ version 3 info] here
+=== Installing on a wrt54g version 3 and 3.1 ===
+*to be written, in the meantime you can find [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ version 3 info] here.
+
+Basically the same as above, but different GPIO points on the board.
+
+Power - 3.3v (red), and GND (black). I looped through the board for strength of connection:
+
+[http://www.ethernal.org/wrt54g/pics/power.jpg]
+
+GPIO 3, as mentioned in the URL above, on the right hand side of the amber LED:
+
+[http://www.ethernal.org/wrt54g/pics/button.jpg]
+
+GPIO 4 and 7:
+
+[http://www.ethernal.org/wrt54g/pics/underside.jpg]
+
+GPIO 5 - definitely right next to the "RA10" label:
+
+[http://www.ethernal.org/wrt54g/pics/gpio5.jpg]
 === Porting to other platforms ===
 *almost done being written
 
