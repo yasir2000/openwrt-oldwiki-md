@@ -90,7 +90,7 @@ To make the printer server start on bootup do:
 
 {{{
 ln -s /etc/init.d/p910nd /etc/init.d/S70p910nd
-{{{
+}}}
 
 
 = Configure the clients for printing =
