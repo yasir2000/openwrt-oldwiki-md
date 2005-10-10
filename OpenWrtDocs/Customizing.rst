@@ -205,6 +205,13 @@ GPIO 5 - definitely right next to the "RA10" label:
 == USB ==
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
+
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 If your WRT* has a USB port, you could attach a lot of USB devices.
 
  * http://www.linux-usb.org/
@@ -213,19 +220,28 @@ If your WRT* has a USB port, you could attach a lot of USB devices.
 
 === add USB to your Siemens SE505  ===
 On the side with the powerplug you will find some 'C's
+
 - add C906 with 100µF 16Volt
+
 - add C986 with 10µF  16Volt
+
 - add U981 with an LM7805 
+
 This will support the +5 Volt to your USB-Port.
 
+
+
 Go to the other side of the PCB wehre the antenna is placed.
+
 - add wire to F51 as Fuse 
+
 - add to 'R' about 15kOhm to R723 and R724
+
 - shorten R733 R734
+
 - put an USB-Plug to J51
 
 Thats all.
-
 
 
 === USB Hard Drive ===
