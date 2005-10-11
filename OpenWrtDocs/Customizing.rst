@@ -203,15 +203,6 @@ GPIO 5 - definitely right next to the "RA10" label:
 *almost done being written
 
 == USB ==
-
-
-
----- /!\ '''Edit conflict - other version:''' ----
-
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 If your WRT* has a USB port, you could attach a lot of USB devices.
 
  * http://www.linux-usb.org/
