@@ -185,7 +185,7 @@ mv hello_2.1.1-4.diff 100-hello.patch
 
 == Compiling ==
 
-=== Compiling (the normal way) ===
+=== The normal way ===
 
 The {{{make}}} command below compiles every package that you have created in the
 {{{package}}} directory.
@@ -205,7 +205,7 @@ cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 }}}
 
 
-=== Compiling (packages from CVS) ===
+=== Packages from CVS ===
 
 Under development.
 
