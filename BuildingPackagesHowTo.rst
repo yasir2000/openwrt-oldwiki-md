@@ -212,10 +212,10 @@ cd ~/OpenWrt-SDK-Linux-i686-1/package
 tar cvjf ../helloworld-sdk.tar.bz2 helloworld
 cd ..
 }}}
-[http://openwrt.ertl-net.net/downloads/test/counter-BuildingPackagesHowTo.gif]
 
 
 = Links =
 
 Full buildroot documentation:
 [[BR]]- [http://downloads.openwrt.org/docs/buildroot-documentation.html]
+[http://openwrt.ertl-net.net/downloads/test/counter-BuildingPackagesHowTo.gif]
