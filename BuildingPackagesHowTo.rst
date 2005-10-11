@@ -192,6 +192,14 @@ gunzip hello_2.1.1-4.diff.gz
 mv hello_2.1.1-4.diff 100-hello.patch
 }}}
 
+'''TIP:''' You can apply as many patches as you like. To apply them in a special
+order name them like:
+
+{{{
+100-xxx.patch
+200-xxx.patch
+}}}
+
 
 == Compiling ==
 
