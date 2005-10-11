@@ -59,6 +59,16 @@ ipkg; Control file which contains information about your package
 patches; Patch files for example 100-foo.patch
 }}}
 
+'''TIP:''' To compile more than one package in a special order do:
+
+{{{
+cd ~/OpenWrt-SDK-Linux-i686-1
+mkdir -p package/100-packagename/ipkg
+mkdir -p package/100-packagename/patches
+mkdir -p package/200-packagename/ipkg
+mkdir -p package/200-packagename/patches
+}}}
+
 
 == Creating the required files ==
 
