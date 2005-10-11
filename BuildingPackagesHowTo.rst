@@ -10,10 +10,6 @@ When using the SDK you don't require a full buildroot. The SDK is
 a stripped down version of it, which includes the toolchain and all the
 required library and header files to cross-compile applications for OpenWrt.
 
-Since the usage of the SDK is similar to the buildroot also look at
-the buildroot documentation which can be found at:
-http://downloads.openwrt.org/docs/buildroot-documentation.html
-
 
 = Requirements =
 
@@ -217,3 +213,9 @@ tar cvjf ../helloworld-sdk.tar.bz2 helloworld
 cd ..
 }}}
 [http://openwrt.ertl-net.net/downloads/test/counter-BuildingPackagesHowTo.gif]
+
+
+= Links =
+
+Full buildroot documentation:
+[[BR]]- [http://downloads.openwrt.org/docs/buildroot-documentation.html]
