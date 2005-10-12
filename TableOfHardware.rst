@@ -1,5 +1,6 @@
 This is a table of all supported devices as of 2005/10/12. Legend:
 
+
  * '''Supported''' - supported in "White Russian"
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
