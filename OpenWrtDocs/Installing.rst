@@ -113,6 +113,18 @@ Some machines will disable the ethernet when the router is powered off and not e
 
 Windows 2000 and Windows XP have a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware.
 
+Windows 2000/XP TFTP Client short Instructions
+
+ * Open two command windows (Start-Run-Enter "cmd")
+ * In one window, type "ping -t 192.168.1.1" and press enter. 192.168.1.1 is the router IP.
+ * Ping will continuously try to contact the wrt. Keep this running
+ * In the other window, prepare the tftp command "tftp -i 192.168.1.1 PUT OpenWrt-gs-code.bin". Do not press enter yet!
+ * Now you may plug in the router (unplug it first if it was plugged).
+ * In the ping window it will start saying "Hardware Error"
+ * Return to the tftp window. As soon as the ping window starts to answer again, press enter in the tftp window.
+ * The image should now be flashed without multiple tries.
+ * If ping starts with "Hardware Error", then starts to answer, and then returns to  "Hardware Error" again for a short moment, you waited too long.
+
 == Linksys WRT54G and WRT54GS ==
 
 To use the TFTP method above you need to enable boot_wait. Plug your ethernet cable into one of the LAN ports.  Once enabled, the router will wait for ~3 seconds for a firmware before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0) address for the purpose of reflashing. 
