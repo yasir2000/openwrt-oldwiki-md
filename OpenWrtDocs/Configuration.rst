@@ -484,6 +484,7 @@ Examples:
 ||Central Time||CST6CDT||
 ||Eastern Time||EST5EDT||
 ||Atlantic Time||AST4ADT||
+||<rowspan=7>Asia||Jakarta||WIB-7||
 Please update and include your Time Zone.[[BR]]
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
