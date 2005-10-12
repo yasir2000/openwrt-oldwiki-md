@@ -37,6 +37,7 @@ And your mount command would be:
 {{{
 mount -t cifs //my-pc/share /mnt/point -o unc=//my-pc\\share,ip=192.168.1.100,credentials=/etc/my-pc.cifs
 }}}
+~-'''Nico:''' this does not work for me, with cifsmount installled or not.-~
 
 Note the {{{\}}} separator in {{{unc}}} is escaped ({{{\\}}}) because it is interpreted by the shell.
 
