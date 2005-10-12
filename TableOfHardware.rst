@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2005/8/28. Legend:
+This is a table of all supported devices as of 2005/10/12. Legend:
 
  * '''Supported''' - supported in "White Russian"
  * '''Partial''' - partially supported, no support for the wireless card.
