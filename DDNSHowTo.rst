@@ -142,7 +142,7 @@ cat >/etc/init.d/ez-ipupdate
 }}}
 
 {{{
-!/bin/sh
+#!/bin/sh
 
 BIN=ez-ipupdate
 CONF=/etc/$BIN.conf
