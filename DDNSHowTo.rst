@@ -135,7 +135,46 @@ If {{{/etc/ppp/ip-up}}} does not look like the above one, you have to edit the f
 manually with the {{{vi}}} editor.
 
 
-== Via a init script ==
+== Via init script ==
+
+{{{
+cat >/etc/init.d/ez-ipupdate
+}}}
+
+{{{
+!/bin/sh
+
+BIN=ez-ipupdate
+CONF=/etc/$BIN.conf
+RUN_D=/var/run
+PID_F=$RUN_D/$BIN.pid
+[ -f $CONF ] || exit
+
+case $1 in
+ start)
+  mkdir -p $RUN_D
+  $BIN -c $CONF
+  ;;
+ stop)
+  [ -f $PID_F ] && kill $(cat $PID_F)
+  ;;
+ *)
+  echo "usage: $0 (start|stop)"
+  exit 1
+esac
+
+exit $?
+}}}
+
+{{{
+chmod +x /etc/init.d/ez-ipupdate
+}}}
+
+To start it automatically on booting do:
+
+{{{
+ln -s /etc/init.d/ez-ipupdate /etc/init.d/S80ez-ipupdate
+}}}
 
 
 == Via a cronjob ==
