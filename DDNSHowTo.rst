@@ -135,6 +135,9 @@ If {{{/etc/ppp/ip-up}}} does not look like the above one, you have to edit the f
 manually with the {{{vi}}} editor.
 
 
+== Via a init script ==
+
+
 == Via a cronjob ==
 
 This updates your DDNS account on a specified time via {{{crond}}}. You have to
