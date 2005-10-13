@@ -166,6 +166,8 @@ esac
 exit $?
 }}}
 
+After saving the file {{{/etc/init.d/ez-ipupdate}}} set the executable bit on it.
+
 {{{
 chmod +x /etc/init.d/ez-ipupdate
 }}}
