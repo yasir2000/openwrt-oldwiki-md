@@ -1,12 +1,8 @@
 #acl All:read mbm:write Kaloz:write nbd:write wbx:write
 
-OpenWrt is a non-profit opensource project. Like others, we also need donations to be able to support more devices, and to track down and fix bugs.
-
-If You want to donate any of these devices, or anything else, please contact us at openwrt-devel@openwrt.org
-
+OpenWrt is a non-profit opensource project. We use donations to help support more devices and to track down bugs on existing devices. If you want to donate any devices, or if you have questions about our donations please contact us at openwrt-devel@openwrt.org
 
 Currently we are looking for the following devices:
-
 
 ===== For bug-fixing: =====
 
@@ -51,5 +47,4 @@ TI AR7 platform:
  * Linksys ADSL2MUE
 
 
-
-Please note, that we prefer "classic" donations (eg. non-returnable ones), as we can continue to work on the devices later, and fix bugs. However, if needed, we can arrange other ways, too.
+/!\ Please note, that the devices are typically not returned. If you need the device returned please be sure to sure to write that in your email so we can make special arrangements.
