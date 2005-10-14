@@ -38,13 +38,14 @@ chmod -x /etc/init.d/S50dnsmasq
 When your configuration was set to routed client mode before, you need to add
 the wireless interface to the bridge again and remove it from the wan interface.
 
-/!\ '''IMPORTANT:''' Use the correct network interface names for your hardware version.
-Check the interface names at [:OpenWrtDocs/Configuration#NetworkInterfaceNames].
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface names]
+for your hardware version.
 
 {{{
 nvram set lan_ifnames="vlan0 eth1"
 nvram set wan_ifname=vlan1
 }}}
+
 
 === Routed client mode ===
 
@@ -53,8 +54,8 @@ and the LAN ports. Note that we are using the {{{wan_ifname}}} to refer to
 the wireless connection; this will save you from having to change
 the firewall script.
 
-/!\ '''IMPORTANT:''' Use the correct network interface names for your hardware version.
-Check the interface names at [:OpenWrtDocs/Configuration#NetworkInterfaceNames].
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface names]
+for your hardware version.
 
 {{{
 nvram set lan_ifname=br0
