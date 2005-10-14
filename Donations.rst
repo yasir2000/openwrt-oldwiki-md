@@ -35,6 +35,21 @@ x86 platform:
  * Soekris boards
  * VIA EPIA boards
 
-Intel IXP platform:
+Intel IXP(XScale) 4xx platform:
 
  * Linksys WRV54G (both v1 and v2 versions)
+ * Netgear WG302
+ * Netgear WGM124
+
+Broadcom BCM47xx/53xx platform:
+
+ * Linksys WRT54G3G
+
+TI AR7 platform:
+
+ * Linksys WRTP54G
+ * Linksys ADSL2MUE
+
+
+
+Please note, that we prefer "classic" donations (eg. non-returnable ones), as we can continue to work on the devices later, and fix bugs. However, if needed, we can arrange other ways, too.
