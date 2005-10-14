@@ -337,7 +337,7 @@ meaning that the jffs2 driver found non-jffs2 data on the partition, which is tr
 Theese messages would come again after a reboot, until all jffs2 area has been written at least once.
 You can use {{{dd}}} to achieve this :
 {{{
-# dd if=/dev/random of=/dummy bs=128k
+# dd if=/dev/urandom of=/dummy bs=128k
 ...
 # rm /dummy
 }}}
