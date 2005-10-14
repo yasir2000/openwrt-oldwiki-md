@@ -64,5 +64,17 @@ code (flash read/write) and return the resulting data via the JTAG cable.
 
 -- zt8qmwz [[DateTime(2005-10-14T19:54:47Z)]]
 
+'''hairydairymaid'''  (time of last update: [[DateTime(2005-10-14T20:00:00Z)]])
+
+There are some other ways to utilize basic JTAG functions to detemine to validity of the JTAG cabling; however, in the software you have there are not really those facilities.  There are no inherent JTAG commands to view the amount of RAM or anything like that.  Things are not at a high level at all.  Think of Data and Address lines and toggling those in such a fashion as to form some valid instructions to force on the bus for the processor to execute.
+
+You are kinda on track with the interpretation of how things might work in a PrAcc type access.  What really happens is this:  
+
+The EJTAG block (when using NON-DMA access) can initiate on-chip peripheral transfers as a SLAVE UNIT connected to the on-chip bus. The MIPS CPU can then execute code taken from the EJTAG Probe and it can access data (via load or store) which is located on the EJTAG Probe. This occurs in a serial way through the EJTAG interface: the core can thus execute instructions e.g. debug monitor code, without occupying the user’s memory.
+
+Well, since I don't have any AR7 based unit to use for this, I am writing PrAcc routines against a WRT54Gv2.0 (instead of the DMA that I already did) just as "something" to use.  I have been able to successfully get "Word Size Reads" working as expected.  I have started the "Word Size Writes" and will follow with half-word variants (needed for flash chip routines).  Let me tell you... if you thought the debrick utility was slow using parallel JTAG and EJTAG 2.0 DMA reads/writes... grab War and Peace, take a vacation, grow older, whatever!  I successfully read out the CFE bootloader area (256K) using PrAcc routines and it took about 20-25 minutes.  With DMA it is a good deal faster.  Unfortunately, many MIPS processors only support the newer EJTAG 2.5/2.6 debug units and thus no DMA support. (at least Broadcom was good for something on the bcm47xx series chips!)
+
+-- hairydairymaid
+
 ----
 CategoryHomepage
