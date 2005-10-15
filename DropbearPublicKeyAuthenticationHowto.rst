@@ -88,10 +88,12 @@ chmod -R 0700 /root
 
 
 == Change root's home directory ==
-Now it's time to change the root's home directory. This is necessary, because the standard
-home directory for root ({{{/tmp}}}) does not have the right permissions.
+Now it's time to change the root's home directory. This is necessary, because
+the standard home directory for root ({{{/tmp}}}) does not have the right
+permissions.
 
-To do this, you have to edit the {{{/etc/passwd}}} file. It should look similar the one below.
+To do this, you have to edit the {{{/etc/passwd}}} file. It should look similar
+the one below.
 
 {{{
 cat /etc/passwd
@@ -101,6 +103,11 @@ cat /etc/passwd
 root:!:0:0:root:/root:/bin/ash
 nobody:*:65534:65534:nobody:/var:/bin/false
 }}}
+
+/!\ '''NOTE:''' This will change in the upcoming White Russian RC4 release.
+It's already changed in the stable White Russian CVS branch. The
+{{{authorized_keys}}} file will than be stored in the {{{/etc/dropbear}}}
+directory.
 
 
 == Add the Public Keys to authorized_keys ==
