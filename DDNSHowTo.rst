@@ -199,8 +199,8 @@ Insert a line like this:
 0 22 * * * /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
-When finished do ESC and :wq to save it. You can check it with {{{crontab -l}}}.
-This will execute ez-ipupdate every day at 10:00 pm.
+When finished do {{{ESC}}} and {{{:wq}}} to save it. You can check it with
+{{{crontab -l}}}. This will execute {{{ez-ipupdate}}} every day at 10:00 pm.
 
 There are some cron job calculators around the Internet. They maybe helpful
 for you. One of them is http://www.csgnetwork.com/crongen.html.
