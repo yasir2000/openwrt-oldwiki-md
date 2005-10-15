@@ -26,18 +26,18 @@ ipkg install ez-ipupdate
 
 ez-ipupdate can be used with the following services:
 
-    * http://www.ez-ip.net
-    * http://www.justlinux.com
-    * http://www.dhs.org
-    * http://www.dyndns.org
-    * http://www.ods.org
-    * http://gnudip.cheapnet.net (GNUDip)
-    * http://www.dyn.ca (GNUDip)
-    * http://www.tzo.com
-    * http://www.easydns.com
-    * http://www.dyns.cx
-    * http://www.hn.org
-    * http://www.zoneedit.com
+ * http://www.ez-ip.net
+ * http://www.justlinux.com
+ * http://www.dhs.org
+ * http://www.dyndns.org
+ * http://www.ods.org
+ * http://gnudip.cheapnet.net (GNUDip)
+ * http://www.dyn.ca (GNUDip)
+ * http://www.tzo.com
+ * http://www.easydns.com
+ * http://www.dyns.cx
+ * http://www.hn.org
+ * http://www.zoneedit.com
 
 
 == Creating the configuration file ==
@@ -105,7 +105,7 @@ The main configuration is done now.
 == Manually via the command line ==
 
 {{{
-/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf
+/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf
 }}}
 
 
@@ -117,7 +117,7 @@ To get this working you need to have PPP installed and configured on your router
 {{{
 test -d /etc/ppp || mkdir -p /etc/ppp
 test -f /etc/ppp/ip-up || \
-        echo -e "#/bin/sh\n\n/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &" \
+        echo -e "#/bin/sh\n\n/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &" \
         > /etc/ppp/ip-up
 chmod a+x /etc/ppp/ip-up
 }}}
@@ -131,7 +131,7 @@ cat /etc/ppp/ip-up
 {{{
 #!/bin/sh
 
-/usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &
+/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
 If {{{/etc/ppp/ip-up}}} does not look like the above one, you have to edit the file
@@ -141,7 +141,7 @@ manually with the {{{vi}}} editor.
 == Via init script ==
 
 {{{
-cat >/etc/init.d/ez-ipupdate
+cat > /etc/init.d/ez-ipupdate
 }}}
 
 {{{
@@ -196,7 +196,7 @@ crontab -e
 Insert a line like this:
 
 {{{
-0 22 * * * /usr/bin/ez-ipupdate -c /etc/ez-ipupdate.conf &
+0 22 * * * /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
 When finished do ESC and :wq to save it. You can check it with {{{crontab -l}}}.
