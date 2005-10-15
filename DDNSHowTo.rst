@@ -59,7 +59,7 @@ cache-file=/tmp/ez-ipup
 pid-file=/var/run/ez-ipupdate.pid
 }}}
 
-/!\ '''NOTE:''' {{{interface=eth0}}: use {{{ppp0}}} for PPP based
+/!\ '''NOTE:''' {{{interface=eth0}}}: use {{{ppp0}}} for PPP based
 stuff and {{{vlan1}}} for DHCP stuff.
 
 The list of allowed parameters in the configuration file are:
