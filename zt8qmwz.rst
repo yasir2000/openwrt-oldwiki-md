@@ -258,4 +258,62 @@ Regards,
 -- ["zt8qmwz"] [[DateTime(2005-10-16T12:12:25Z)]]
 
 ----
+
+'''hairydairymaid'''  (time of last update: [[DateTime(2005-10-16T11:39:00Z)]])
+
+It sure appears your JTAG cabling needs a little adjustment somewhere.  I suspected the ID CODE of 0x100f looked very fishy.  I seems at the moment that is not talking properly.  I'll look at the mappings for you in a bit.
+
+On another note... the code you provided is close and I did cut and paste into my program here for comparison.  The only thing I changed was the part below:
+
+{{{
+    // EJTAG DMA Support
+    tmp = features & (1u << 14);
+    printf("    EJTAG DMA Support: ");
+    if (tmp == 0)
+        //printf("Unknown (%d is a reserved value)\n", tmp);
+        printf("Yes\n", tmp);
+    else
+        printf("No\n");
+}}}
+
+Since bit 14 of the IMPLEMTNATION register denoted DMA support (0 = yes)(1 = no).  In the 2.5 and 2.6 standards they just call it "reserved" (since they don't implement DMA in those versions).  I have a much more detailed routine that does that which is helpful, but not needed when things are really working.  Now that PrAcc routines might be in there - I'll use the "DMA Support" bit as the driver.
+
+Here are the results I get against a Linksys WRT54Gv2.0 board:
+
+{{{
+====================================
+WRT54G/GS EJTAG DeBrick Utility v4.3
+====================================
+
+
+Probing bus...
+
+CHIP ID: 00010100011100010010000101111111 (1471217F)
+*** Found a Broadcom BCM4712 Rev 1 CPU chip ***
+
+
+Checking for implemented EJTAG features...
+IMPCODE: 00000000100000000000100100000100 (00800904)
+    EJTAG Version: 1 or 2.0
+    EJTAG DMA Support: Yes
+
+Issuing Processor / Peripheral Reset...
+Done
+
+Enabling Memory Writes...
+Clearing Watchdog...
+Halting Processor...
+Probing Flash...
+}}}
+
+As you can see it does indeed get the proper data... which is another indicator we need to get your JTAG cabling correct.  It may be some needed pullups or pulldowns be in place or removed.  Or it could be just crossed lines. Or it could be solder not making good contact.  That is what we need to focus on at the moment.
+
+I have added all the PrAcc rotuines for word and half word reads and writes.  I can fully read and write to Intel flash chips here using PrAcc routines.  I still need to add a little code for the AMD and SST style flash chips.  This is needed since the DMA effectively use byte lanes when the sending the flash commands and PrAcc routines need to be ever so slightly different.  Also need to do some code cleanup.  I have hand tweaked some of the MIPS assembly instructions to reduce the number needed to be sent to a minimum and that has helped speedwise of the PrAcc routines; however they are still slower than DMA routines (to be expected).
+
+If you can focus on getting your JTAG cable working and reading what looks like a valid CHIP ID CODE that will be a big help.  In trying - try adjusting the instruction_length variable from say a length 3 up thru 10 (valid ranges are really 5 to 8 if I recall), and recompile and try each value checking the CHIP ID CODE for something useful.
+
+-- hairydairymaid
+
+----
+
 CategoryHomepage
