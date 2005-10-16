@@ -276,7 +276,7 @@ On another note... the code you provided is close and I did cut and paste into m
         printf("No\n");
 }}}
 
-Since bit 14 of the IMPLEMTNATION register denoted DMA support (0 = yes)(1 = no).  In the 2.5 and 2.6 standards they just call it "reserved" (since they don't implement DMA in those versions).  I have a much more detailed routine that does that which is helpful, but not needed when things are really working.  Now that PrAcc routines might be in there - I'll use the "DMA Support" bit as the driver.
+Since bit 14 of the IMPLEMENTATION register denoted DMA support (0 = yes)(1 = no).  In the 2.5 and 2.6 standards they just call it "reserved" (since they don't implement DMA in those versions).  I have a much more detailed routine that does that which is helpful, but not needed when things are really working.  Now that PrAcc routines might be in there - I'll use the "DMA Support" bit as the driver.
 
 Here are the results I get against a Linksys WRT54Gv2.0 board:
 
