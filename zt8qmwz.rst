@@ -22,7 +22,7 @@ in MIPS instructions over EJTAG in order for the debugging unit to actually exec
 those instructions and they have to be formed in such a way as to meaningfully run code that
 will read and write the desired regions.  This is not as easy as DMA access; however, it is doable.
 zt8qmwz - please triple check JTAG wiring there, especially since I am doing this blind without
-any equipment in front of me.  In the meantime, I'll start on the MIPS isntructions needed for
+any equipment in front of me.  In the meantime, I'll start on the MIPS instructions needed for
 this little exercise.
 
 ----
@@ -261,7 +261,7 @@ Regards,
 
 '''hairydairymaid'''  (time of last update: [[DateTime(2005-10-16T11:39:00Z)]])
 
-It sure appears your JTAG cabling needs a little adjustment somewhere.  I suspected the ID CODE of 0x100f looked very fishy.  I seems at the moment that is not talking properly.  I'll look at the mappings for you in a bit.
+It sure appears your JTAG cabling needs a little adjustment somewhere.  I suspected the ID CODE of 0x100f looked very fishy.  It seems at the moment that is not talking properly.  I'll look at the mappings for you in a bit.
 
 On another note... the code you provided is close and I did cut and paste into my program here for comparison.  The only thing I changed was the part below:
 
