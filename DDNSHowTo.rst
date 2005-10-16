@@ -117,7 +117,7 @@ To get this working you need to have PPP installed and configured on your router
 {{{
 test -d /etc/ppp || mkdir -p /etc/ppp
 test -f /etc/ppp/ip-up || \
-        echo -e "#/bin/sh\n\n/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &" \
+        echo -e "#!/bin/sh\n\n/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &" \
         > /etc/ppp/ip-up
 chmod a+x /etc/ppp/ip-up
 }}}
