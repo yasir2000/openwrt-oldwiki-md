@@ -39,8 +39,11 @@ to `/etc/init.d/rcS`.
 
 If you want to log to a remote system, add `-R <hostname>` to the `syslogd` line in `/etc/inittab`.  In this case you don't need to add the `mkdir /var/log` command to the startup.  However, you will need to tell the remote system to listen for the log messages.  On my (Red Hat) Linux system that requires adding the `-r` flag to the syslogd startup (which I did by editing `/etc/sysconfig/syslog`).  You may need to check the `man` page for your host `syslogd` program.
 
-If you want both local and remote logging, add `-L -R <hostname>` to the `syslogd` line in `/etc/inittab`.
-
+If you want both local and remote logging, add `-L -R <hostname>` to the `syslogd` line in `/etc/inittab`. 
+Update: the existing rcS file in whiterussian rc3 reads the nvram variable "log_ipaddr", so remote logging gets activated by doing{{{
+nvram set log_ipaddr=<your syslogd ip>
+nvram commit
+}}}
 
 = Networking =
 == Individual control of all network devices ==
