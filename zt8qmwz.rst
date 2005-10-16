@@ -80,7 +80,7 @@ Well, since I don't have any AR7 based unit to use for this, I am writing PrAcc 
 
 ----
 
-'''zt8qmwz''' (time of last update: [[DateTime(2005-10-16T11:59:29Z)]])
+'''zt8qmwz''' (time of last update: [[DateTime(2005-10-16T12:12:25Z)]])
 
 hairydairymaid,
 
@@ -246,8 +246,16 @@ diff -u debrick.orig/wrt54g.h debrick/wrt54g.h
  void clockin(int tms, int tdi);
 }}}
 
+Oh, and by the way, (as I mentioned in the patch,) it looks like DMA is coming back
+as an optional feature in future EJTAG versions. And regarding the difference of
+speed between PrAcc and DMA methods, my guess is that most people would probably
+prefer *some* (even slow) way of recovering bricked routers (based on recent MIPS
+processors) rather than dumping them in the garbage. No matter how slow PrAcc routines
+are, it is nice to hear good news from your side.
 
--- ["zt8qmwz"] [[DateTime(2005-10-16T11:59:29Z)]]
+Regards,
+
+-- ["zt8qmwz"] [[DateTime(2005-10-16T12:12:25Z)]]
 
 ----
 CategoryHomepage
