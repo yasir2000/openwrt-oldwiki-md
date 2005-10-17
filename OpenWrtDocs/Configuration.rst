@@ -552,26 +552,14 @@ Keep in mind that this information was found using trial-and-error-methods, so i
 
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
-=== CUPSD ===
+=== CUPS - Printing system with spooling ===
 
-Known bugs:
+You can not print a testpage on the local cups, because this would need to have ghostscript installed on your embedded system.
 
-Tespage printing doesn´t work. This is due to missing of the .css file from which will generate the Testpage.
+If you have a special Postscript Printer Description (ppd) file for your printer, copy it to /usr/share/cups/model/
+and restart cupsd. Cups will install it in /etc/cups/ppd and you can choose it via the web interface. (192.168.1.1:631)
 
-Wrong permissions:
-
-You have to replace
-
-{{{
-<Location /> 
-AuthType Basic 
-AuthClass System 
-Order Allow,Deny 
-Allow From All 
-</Location> 
-}}}
-
-with:
+If you have problems with permissions, try to change /etc/cups/cupsd.conf to fit your local TCP/IP network:
 
 {{{
 <Location />
@@ -582,9 +570,8 @@ Allow from 192.168.1.0/24 #your ip area.
 </Location>
 }}}
 
-Helpfull information for Steve disciple:
-
-Its all you have to do. If you want to connect, your macosx with your mac you have to use the extended printer settings. If you use the standard printer settings and add an ipp printer, macosx will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
+MacOS X tip:
+Configure your extended printer settings. If you use the standard printer settings and add an ipp printer, macosx will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
 
 = Hardware =
 
