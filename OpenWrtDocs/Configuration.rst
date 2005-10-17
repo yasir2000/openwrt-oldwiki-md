@@ -82,7 +82,7 @@ The ''ifup lan'' command will bring up the interface specified by lan_ifname. No
 
 It's important to remember that it's the <name>_ifname that specifies the interfaces, the <name> compontent itself has almost no value. This means that if you changed lan_ifname to be the internet port, vlan1, then ''ifup lan'' would bring up the internet port, not the lan ports (despite using the command ''ifup lan'' and using the lan_ variables). Also, it means that you can create any <name> variables you want, foo_ifname, foo_proto .... and they would be used by ''ifup foo''.
 
-The only <name> with any significance is '''wan''', used by the /etc/S45firewall script. The firewall script will NAT traffic through the wan_ifname, blocking connections to wan_ifname.
+The only <name> with any significance is '''wan''', used by the /etc/init.d/S45firewall script. The firewall script will NAT traffic through the wan_ifname, blocking connections to wan_ifname.
 
 Further information about the variables used can be found at [:OpenWrtNVRAM]
 
