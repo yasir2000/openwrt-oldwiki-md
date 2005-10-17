@@ -327,6 +327,7 @@ It was probably because of the detection code for BCM4702 Chip which also uses a
 instruction length of 5.
 
 Here is the output of the hacked wrt54g:
+(Edit: I mean the debrick program, not the router!)
 
 {{{
 ====================================
