@@ -40,6 +40,7 @@ Intel IXP(XScale) 4xx platform:
 Broadcom BCM47xx/53xx platform:
 
  * Linksys WRT54G3G
+ * Linksys WTR54GS
 
 TI AR7 platform:
 
