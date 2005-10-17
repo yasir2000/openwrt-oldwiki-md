@@ -316,4 +316,44 @@ If you can focus on getting your JTAG cable working and reading what looks like 
 
 ----
 
+'''zt8qmwz''' (time of last update: [[DateTime(2005-10-17T08:13:08Z)]])
+
+hairydairymaid,
+
+I have good news! I followed your advice and tried instruction lengths other 
+than 8 bits. And guess what, this router (or TI AR7, rather) uses an 
+instruction length of 5! I have no idea why the chip ID reads succeeded before...
+It was probably because of the detection code for BCM4702 Chip which also uses an 
+instruction length of 5.
+
+Here is the output of the hacked wrt54g:
+
+{{{
+====================================
+WRT54G/GS EJTAG DeBrick Utility v4.1
+====================================
+
+
+Probing bus...
+
+Instruction length: 5
+CHIP ID: 00000000000000000001000000001111 (0000100F)
+
+Checking for implemented EJTAG features...
+IMPCODE: 01000001010000000100000000000000 (41404000)
+    EJTAG Version: 2.6
+    EJTAG DMA Support: No
+}}}
+
+
+I feel happy now!
+
+Regards,
+
+-- ["zt8qmwz"] [[DateTime(2005-10-17T08:13:08Z)]]
+
+Note: This should also confirm the chip ID of TI AR7.
+
+----
+
 CategoryHomepage
