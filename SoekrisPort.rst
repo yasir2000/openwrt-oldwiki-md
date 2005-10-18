@@ -64,6 +64,12 @@ Use {{{cp}}} or {{{scp}}} to install the linux kernel on the boot partition :
 
 === Installing the JFFS2 image ===
 
+If the root partition is larger than the jffs2 image, it should first be 'erased'
+to avoid a bunch of warnings about invalid jffs2 sectors:
+{{{
+# perl -e '$buf = "\xff" x 4096; while (print $buf) {}' > /dev/sda2
+}}}
+
 Use {{{dd}}} to transfer the jffs2 image on the root partition :
 {{{
 # dd if=./bin/openwrt-soekris-2.4-jffs2-8MB.img of=/dev/sda2
@@ -71,7 +77,6 @@ Use {{{dd}}} to transfer the jffs2 image on the root partition :
 2048+0 records out
 1048576 bytes transferred in 1.453255 seconds (721536 bytes/sec)
 }}}
-
 
 === Configuring GRUB ===
 
