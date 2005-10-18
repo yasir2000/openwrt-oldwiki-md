@@ -100,6 +100,11 @@ boot
 
 }}}
 
+If you use a WRAP board instead of a Soekris, add
+{{{
+reboot=bios
+}}}
+to the kernel command line, as the WRAP has no keyboard controller that would be needed for hard reboot.
 
 === Checking ===
 
