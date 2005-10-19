@@ -50,6 +50,9 @@ To log to a remote Syslog server set:
 nvram set log_ipaddr=aaa.bbb.ccc.ddd
 }}}
 
+Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote Syslog
+server where you want to log to.
+
 
 == How do I have it do something every YYY seconds/minutes? ==
 
