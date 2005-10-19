@@ -6,10 +6,10 @@
 ##
 
 = OpenWRT =
- * [:OpenWrtDocs] Documentation
- * [:OpenWrtHowTo] Many nice Howtos about OpenWrt
- * [:OpenWrtFaq] Frequently abused questions from the forum
- * [:OpenWrtLinks] External articles, howtos, OpenWrt applications, ..
+ * [:OpenWrtDocs] - Documentation
+ * [:OpenWrtHowTo] - Many nice Howtos about OpenWrt
+ * [:OpenWrtFaq] - Frequently abused questions from the forum
+ * [:OpenWrtLinks] - External articles, howtos, OpenWrt applications, ..
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
  * [:OpenWrtPackages] - A list of packages for OpenWrt
