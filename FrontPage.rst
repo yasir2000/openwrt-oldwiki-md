@@ -1,9 +1,9 @@
 #acl Known:read,write All:read
 ##language:e
 #pragma section-numbers off
-## 
+##
 ## Note: we don't want to lock down the frontpage; please don't spam it
-## 
+##
 
 = OpenWRT =
  * [:OpenWrtDocs] Documentation
@@ -11,8 +11,8 @@
  * [:OpenWrtFaq] Frequently abused questions from the forum
  * [:OpenWrtLinks] External articles, howtos, OpenWrt applications, ..
  * [http://openwrt.org/support How to get help and support]
- * [http://forum.openwrt.org/ Visit the forums] 
- * [http://tracker.openwrt.org/ Package Tracker] List of packages for openwrt (see also [:OpenWrtPackages])
+ * [http://forum.openwrt.org/ Visit the forums]
+ * [:OpenWrtPackages] packages for OpenWrt
 
 ----
 Interesting starting points:
