@@ -162,13 +162,3 @@ to report.
 == Where is the buildroot documentation? ==
 
 See [http://downloads.openwrt.org/docs/buildroot-documentation.html buildroot documentation].
-
-== Why do I get a 404 error when compiling OpenWrt? ==
-
-The build process uses a number of external sources; any changes to the URLs that these
-sources are fetched from will easily break the buildroot process, usually resulting in many
-complaints and bug reports. The OpenWrt developers are not fond of editing old builds to
-correct broken URLs and do not consider these bugs as such; either download the file from
-an alternate source and place it in dl subdirectory or use the [WWW] CVS copy of OpenWRT's buildroot.
-
-For fixes and workarounds, check out the [WWW] OpenWRT Bug Page.
