@@ -12,7 +12,7 @@
  * [:OpenWrtLinks] External articles, howtos, OpenWrt applications, ..
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
- * [:OpenWrtPackages:Packages] for OpenWrt
+ * [:OpenWrtPackages] - A list of packages for OpenWrt
 
 ----
 Interesting starting points:
