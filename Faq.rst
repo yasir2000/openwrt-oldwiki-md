@@ -7,15 +7,17 @@ White Russian release /!\
 
 = Installation =
 
-== Which image should I use ==
+== Will OpenWrt run on <fill in the blank> ? ==
+
+== How do I identify my hardware version? ==
+
+== Which image should I use? ==
 
 == Do I need to run firstboot on every boot? ==
 
 
 
 = Misc =
-
-== Will OpenWrt run on <fill in the blank> ? ==
 
 == How do I change NVRAM settings? ==
 
@@ -49,9 +51,9 @@ White Russian release /!\
 
 === How do I configure PPPOE? ===
 
-=== How do I configure PPTP ===
+=== How do I configure PPTP? ===
 
-=== How do I configure DHCP ===
+=== How do I configure DHCP? ===
 
 
 
