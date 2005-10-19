@@ -108,11 +108,23 @@ ipkg install nas
 Now set some NVRAM variables:
 
 {{{
-
+wl0_akm=psk
+wl0_crypto=tkip
+wl0_wpa_psk=<your_preshared_key>
 }}}
+
+Replace {{{<your_preshared_key>}}} to appropriate.
+
+'''NOTE:''' The length of the {{{wl0_wpa_psk}}} NVRAM variable must be at least 8 chars
+up to 63 chars.
+
+For details and howto set WPA2 or AES encryption see [:OpenWrtDocs/Configuration].
 
 
 === How can I put it in Client Mode? ===
+
+See [:ClientModeHowto].
+
 
 === How can I expand my network (aka repeater) with two wrt54g(s) devices ===
 
