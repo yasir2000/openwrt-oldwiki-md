@@ -106,19 +106,58 @@ See [:BuildingPackagesHowTo].
 
 == Requirements for compiling OpenWrt ==
 
-For compiling OpenWrt (from CVS or from the tarball form the stable release) you need
-at least a recent GNU/Linux distribution and the following programs installed:
+For compiling OpenWrt (from CVS or from the tarball, both the White Russian stable release)
+you need at least a recent GNU/Linux distribution and the following programs installed:
 
 {{{
 gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev and
-libc headers.
+libc headers
 }}}
 
 When you get error messages related to libnvram, upgrade {{{make}}} to version 3.80.
-If that is also not working patch {{{make}}} 3.80 with the Debian patches.
+If that is not working as expected patch {{{make}}} 3.80 with the
+[http://ftp.debian.org/debian/pool/main/m/make/make_3.80-9.diff.gz Debian make patches].
+
+Required disc space:
+
+||Branch||Min.||Max.||
+||Stable||x GB||x GB||
+||Development|||x GB||x GB||
 
 
 == Where is the CVS repository ? ==
+
+'''Stable Release'''
+
+At the moment we have no stable supported release. You can get release candidates for
+the next stable OpenWrt release in binary format: [http://downloads.openwrt.org/whiterussian/].
+
+'''Stable Source'''
+
+The stable source code can be found in the above directory or from our CVS repository.
+This is not recommended for beginners; we will not troubleshoot failed compiles.
+
+{{{
+cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co -r whiterussian openwrt
+}}}
+
+Viewcvs is available too for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=whiterussian#dirlist browsing]
+in the stable CVS branch.
+
+'''Development'''
+
+Development take place in CVS. You get the source via:
+
+{{{
+cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
+}}}
+
+Viewcvs is available too for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=HEAD#dirlist browsing]
+in the developmant CVS branch.
+
+If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC channel
+to report.
+
 
 == Where is the buildroot documentation? ==
 
