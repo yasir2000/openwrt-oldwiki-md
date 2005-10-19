@@ -203,8 +203,6 @@ nvram commit
 }}}
 
 
-=== Can I eliminate BSSID partitioning in a network of OpenWrt nodes? ===
-
 === What is the difference between wl0_* and wl_* variables? ===
 
 Use the {{{wl0_}}} variables.
