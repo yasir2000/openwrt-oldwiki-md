@@ -322,7 +322,7 @@ If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC ch
 to report.
 
 
-== What are the *.mk files in buildroot? / What options can I change in the Makefile? =
+== What are the *.mk files in buildroot? / What options can I change in the Makefile? ==
 
 
 == Where is the buildroot documentation? ==
