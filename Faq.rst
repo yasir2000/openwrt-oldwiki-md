@@ -118,11 +118,11 @@ When you get error messages related to libnvram, upgrade {{{make}}} to version 3
 If that is not working as expected patch {{{make}}} 3.80 with the
 [http://ftp.debian.org/debian/pool/main/m/make/make_3.80-9.diff.gz Debian make patches].
 
-Required disc space:
+Approximately required disc space for compiling OpenWrt:
 
-||Branch||Min.||Max.||
-||Stable||x GB||x GB||
-||Development|||x GB||x GB||
+||'''Branch'''||'''Min.'''||'''Max.'''||
+||Stable Source||1.5 GB||3.5 GB||
+||Development||x||x||
 
 
 == Where is the CVS repository ? ==
@@ -141,8 +141,8 @@ This is not recommended for beginners; we will not troubleshoot failed compiles.
 cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co -r whiterussian openwrt
 }}}
 
-Viewcvs is available too for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=whiterussian#dirlist browsing]
-in the stable CVS branch.
+Viewcvs is available for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=whiterussian#dirlist browsing]
+the stable source CVS branch.
 
 '''Development'''
 
@@ -152,8 +152,8 @@ Development take place in CVS. You get the source via:
 cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
 }}}
 
-Viewcvs is available too for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=HEAD#dirlist browsing]
-in the developmant CVS branch.
+Viewcvs is available for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=HEAD#dirlist browsing]
+the developmant CVS branch.
 
 If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC channel
 to report.
