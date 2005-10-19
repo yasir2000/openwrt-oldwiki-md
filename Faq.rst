@@ -135,9 +135,28 @@ For details and howto configure WPA2 or AES encryption see [:OpenWrtDocs/Configu
 See [:ClientModeHowto].
 
 
-=== How can I expand my network (aka repeater) with two wrt54g(s) devices ===
+=== Wireless Distribution System (WDS) / Repeater / Bridge ===
 
-=== Creating a repeater with WDS ===
+This is done again by setting up some NVRAM variables.
+
+{{{
+nvram set wl0_lazywds=0
+nvram set wl0_wds=aa:bb:cc:dd:ee:ff
+nvram commit
+}}}
+
+Replace {{{aa:bb:cc:dd:ee:ff}}} with the MAC address of the other router you would
+like to connect via WDS.
+
+If the other router is running OpenWrt too you can get the MAC address from output of:
+
+{{{
+iwconfig eth1
+}}}
+
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
+for your hardware.
+
 
 === How do I disable ESSID broadcast? ===
 
