@@ -44,6 +44,12 @@ White Russian release /!\
 
 For reading syslog messages, use the {{{logread}}} program.
 
+To log to a remote Syslog server set:
+
+{{{
+nvram set log_ipaddr=aaa.bbb.ccc.ddd
+}}}
+
 
 == How do I have it do something every YYY seconds/minutes? ==
 
@@ -118,7 +124,7 @@ Replace {{{<your_preshared_key>}}} to appropriate.
 '''NOTE:''' The length of the {{{wl0_wpa_psk}}} NVRAM variable must be at least 8 chars
 up to 63 chars.
 
-For details and howto set WPA2 or AES encryption see [:OpenWrtDocs/Configuration].
+For details and howto configure WPA2 or AES encryption see [:OpenWrtDocs/Configuration].
 
 
 === How can I put it in Client Mode? ===
