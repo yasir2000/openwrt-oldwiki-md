@@ -96,7 +96,7 @@ The length of the key must be exact 26 HEX digits than you have a 128 bit WEP ke
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect
 the key length correctly.
 
-To save these settings and have the wep key set each bootup, save the changes to nvram:
+To save these settings and have the WEP key set each bootup, save the changes to nvram:
 
 {{{
 nvram commit
