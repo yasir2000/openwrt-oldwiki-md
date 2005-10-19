@@ -56,7 +56,11 @@ server where you want to log to.
 
 == How do I have it do something every YYY seconds/minutes? ==
 
-== My WRT54Gv2.2 seems to reboot upon heavy wlan traffic ==
+== My Linksys WRT54G and WRT54GS routers seems to reboot upon heavy network traffic ==
+
+== What's magic behind /sbin/wifi is doing? ==
+
+== How do I open a WRT54G/WRT54GS? ==
 
 
 = Networking =
@@ -183,7 +187,7 @@ ifdown wifi
 nvram set wl0_closed=1
 }}}
 
-After this, you still send out a beacons. This beacon is sent every 100 ms
+After this, you still send out a beacon. This beacon is sent every 100 ms
 (0.1 seconds). To change the beacon interval to 1 second you do:
 
 {{{
