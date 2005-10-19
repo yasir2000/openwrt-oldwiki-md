@@ -49,17 +49,19 @@ White Russian release /!\
 
 = Networking =
 
-== How do I create a DHCP server? ==
+== Misc ==
 
-== dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ==
+=== How do I create a DHCP server? ===
 
-== How do I use it as a router, instead of a bridge? ==
+=== dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ===
 
-== How do I set the timezone and make it stick between reboots? ==
+=== How do I use it as a router, instead of a bridge? ===
 
-== What is br0? ==
+=== How do I set the timezone and make it stick between reboots? ===
 
-== What are all these vlans, how do I get rid of them? ==
+=== What is br0? ===
+
+=== What are all these vlans, how do I get rid of them? ===
 
 
 == Local Area Network (LAN) ==
