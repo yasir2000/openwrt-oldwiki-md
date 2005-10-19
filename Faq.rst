@@ -3,22 +3,22 @@ White Russian release /!\
 
 Describe Faq here.
 
-Installation
+= Installation =
 
-= Which image should I use =
-
-
-
-Network
-
-= What are these VLANs? =
+== Which image should I use ==
 
 
-Wireless
 
-= Howto enable WEP =
+= Network =
+
+== What are these VLANs? ==
 
 
-Development
+= Wireless =
 
-= How can I create packages =
+== Howto enable WEP ==
+
+
+= Development =
+
+== How can I create packages ==
