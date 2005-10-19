@@ -21,14 +21,22 @@ White Russian release /!\
 
 == What TFTP client should I use to flash my Wrt? ==
 
+== Can I flash the OpenWrt image when I changed the LAN IP? ==
+
 
 = Misc =
 
+== Where can I find the FAQ? ==
+
 == How do I change NVRAM settings? ==
+
+== What is left behind, when erasing the flash? ==
 
 == Where can I find packages? ==
 
 == Why isn't a package for ____ available? ==
+
+== How much space is available for the JFFS2 partition? ==
 
 == How do I reflash / How do I revert back to my previous firmware? ==
 
@@ -56,11 +64,13 @@ server where you want to log to.
 
 == How do I have it do something every YYY seconds/minutes? ==
 
-== My Linksys WRT54G and WRT54GS routers seems to reboot upon heavy network traffic ==
+== My Linksys WRT54G and WRT54GS routers seems to reboot or is unstable upon heavy network traffic ==
 
 == What's magic behind /sbin/wifi is doing? ==
 
 == How do I open a WRT54G/WRT54GS? ==
+
+== When using the ssh client from OpenWrt, I get the following message : "no auths methods could be used" ==
 
 
 = Networking =
@@ -310,6 +320,9 @@ the developmant CVS branch.
 
 If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC channel
 to report.
+
+
+== What are the *.mk files in buildroot? / What options can I change in the Makefile? =
 
 
 == Where is the buildroot documentation? ==
