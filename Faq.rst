@@ -32,7 +32,7 @@ White Russian release /!\
 
 == How do I reflash / How do I revert back to my previous firmware? ==
 
-== Does OpenWrt have a web interface (webif)? ==
+== Does OpenWrt have a web interface (webif) GUI? ==
 
 == Why is the OpenWrt firmware so bare? ==
 
