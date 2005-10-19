@@ -51,6 +51,10 @@ Puting information about that in /etc/hosts file, and format is
 192.168.1.1 router.lan router
 }}}
 
+dnsmasq needs read permission on /etc/hosts (check your logs if you can't resolve hostnames from your clients)
+{{{
+chmod +r /etc/hosts
+}}}
 
 === Static IP-Address (leases) based on the MAC-Address of the client ===
 
