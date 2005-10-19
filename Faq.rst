@@ -42,6 +42,9 @@ White Russian release /!\
 
 == How do I access the syslog messages? ==
 
+For reading syslog messages, use the {{{logread}}} program.
+
+
 == How do I have it do something every YYY seconds/minutes? ==
 
 == My WRT54Gv2.2 seems to reboot upon heavy wlan traffic ==
@@ -71,7 +74,43 @@ White Russian release /!\
 
 === Howto enable WEP ===
 
+{{{
+ifdown wifi
+nvram set wl0_wep=enabled
+nvram set wl0_key=1
+nvram set wl0_key1=DEADBEEF12345DEADBEEF12345
+ifup wifi; /sbin/wifi
+}}}
+
+The WEP key {{{wl0_key1}}} must be in '''HEX''' format (allowed HEX digits are 0-9a-f).
+The length of the key must be exact 26 HEX digits than you have a 128 bit WEP key.
+Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect
+the key length correctly.
+
+To save these settings and have the wep key set each bootup, save the changes to nvram:
+
+{{{
+nvram commit
+}}}
+
+See [:OpenWrtDocs/Configuration] for details.
+
+
 === How do I use Wi-Fi Protected Access (WPA)? ===
+
+You have to install the {{{nas}}} package (which provides WPA encryption) if not already
+done with:
+
+{{{
+ipkg install nas
+}}}
+
+Now set some NVRAM variables:
+
+{{{
+
+}}}
+
 
 === How can I put it in Client Mode? ===
 
@@ -88,7 +127,30 @@ White Russian release /!\
 
 == Internet connection (WAN) ==
 
-=== How do I configure PPPOE? ===
+=== How do I configure PPPoE? ===
+
+That's ease. Just set some NVRAM variables.
+
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
+for your hardware version in the {{{pppoe_ifname}}} NVRAM variable.
+
+{{{
+nvram set wan_ifname=ppp0
+nvram set wan_proto=pppoe
+nvram set ppp_mtu=1492 # The MTU of your ISP
+nvram set pppoe_ifname=vlan1
+nvram set ppp_username=<your_isp_login>
+nvram set ppp_passwd=<your_isp_password>
+nvram commit
+}}}
+
+When done bring up the WAN connection with:
+
+{{{
+ifup wan
+}}}
+
+See [:OpenWrtDocs/Configuration] for details.
 
 === How do I configure PPTP? ===
 
