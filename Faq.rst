@@ -150,7 +150,7 @@ INTERNET-----WRT54G_1- - - - - -WRT54G_2 - - - - - Wireless Clients
 - - - Wlan link
 }}}
 
-In WDS you can connect wireless clients to the AP. In Client Mode this
+With WDS you can connect wireless clients to the AP. In client mode this
 is not possible.
 
 This is done again by setting up some NVRAM variables.
@@ -177,6 +177,31 @@ See [:OpenWrtDocs/Configuration] for details.
 
 
 === How do I disable ESSID broadcast? ===
+
+{{{
+ifdown wifi
+nvram set wl0_closed=1
+}}}
+
+After this, you still send out a beacons. This beacon is sent every 100 ms
+(0.1 seconds). To change the beacon interval to 1 second you do:
+
+{{{
+nvram set wl0_bcn=1000
+}}}
+
+After that bring the WIFI interface up again with:
+
+{{{
+ifup wifi; /sbin/wifi
+}}}
+
+To keep the settings over a reboot run:
+
+{{{
+nvram commit
+}}}
+
 
 === Can I eliminate BSSID partitioning in a network of OpenWrt nodes? ===
 
