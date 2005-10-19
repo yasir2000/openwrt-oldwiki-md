@@ -145,6 +145,10 @@ See [:ClientModeHowto].
 
 === What is the difference between wl0_* and wl_* variables? ===
 
+Use the {{{wl0_}}} variables.
+
+The {{{wl_}}} variables are obsolete and unused.
+
 
 == Internet connection (WAN) ==
 
