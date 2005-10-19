@@ -98,9 +98,25 @@ White Russian release /!\
 
 = Development =
 
+
 == How do I create a package? ==
 
+See [:BuildingPackagesHowTo].
+
+
 == Requirements for compiling OpenWrt ==
+
+For compiling OpenWrt (from CVS or from the tarball form the stable release) you need
+at least a recent GNU/Linux distribution and the following programs installed:
+
+{{{
+gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev and
+libc headers.
+}}}
+
+When you get error messages related to libnvram, upgrade {{{make}}} to version 3.80.
+If that is also not working patch {{{make}}} 3.80 with the Debian patches.
+
 
 == Where is the CVS repository ? ==
 
