@@ -173,6 +173,8 @@ iwconfig eth1
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
 for your hardware.
 
+See [:OpenWrtDocs/Configuration] for details.
+
 
 === How do I disable ESSID broadcast? ===
 
