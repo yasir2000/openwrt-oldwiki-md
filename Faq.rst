@@ -9,7 +9,7 @@ Describe Faq here.
 
 
 
-= Network =
+= Network (LAN) =
 
 == What are these VLANs? ==
 
@@ -17,6 +17,12 @@ Describe Faq here.
 = Wireless =
 
 == Howto enable WEP ==
+
+== How do I use Wi-Fi Protected Access (WPA)? ==
+
+== How can I put it in Client Mode? ==
+
+== Creating a repeater with WDS ==
 
 
 = Development =
