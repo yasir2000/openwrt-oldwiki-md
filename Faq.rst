@@ -137,6 +137,22 @@ See [:ClientModeHowto].
 
 === Wireless Distribution System (WDS) / Repeater / Bridge ===
 
+This is an ASCII art for what WDS can be useful.
+
+{{{
+                / - - - Wireless Clients
+               |
+INTERNET-----WRT54G_1- - - - - -WRT54G_2 - - - - - Wireless Clients
+             | | | |            | | | |
+            4 clients          4 clients
+
+----- Cable link
+- - - Wlan link
+}}}
+
+In WDS you can connect wireless clients to the AP. In Client Mode this
+is not possible.
+
 This is done again by setting up some NVRAM variables.
 
 {{{
