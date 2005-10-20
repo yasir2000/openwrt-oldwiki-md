@@ -436,6 +436,9 @@ point for documenation is [http://www.netfilter.org/documentation/].
 
 == How do I use it as a router, instead of a bridge? ==
 
+See [:OpenWrtDocs/Configuration].
+
+
 == How do I set the timezone and make it stick between reboots? ==
 
 OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
