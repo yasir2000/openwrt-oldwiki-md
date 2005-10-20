@@ -2,7 +2,7 @@
 White Russian release /!\
 
 
-/!\ '''NOTE:''' This FAQ is not yet verified by the OpenWrt maintainers, it may
+/!\ '''WANING:''' This FAQ is not yet verified by the OpenWrt maintainers, it may
 contain bugs /!\
 
 
