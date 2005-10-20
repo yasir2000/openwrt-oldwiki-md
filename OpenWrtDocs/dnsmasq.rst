@@ -33,7 +33,9 @@ An initial symptom of this problem is that DNS forwarding doesn't seem to work a
 logread |grep dnsmasq|less
 }}}
 
-The problem lies in that the init script for dnsmasq expects the nvram variable, dhcp_start, to be in an integer format instead of an IP. For example, if your starting address is 192.168.1.100, your ending address is 192.168.1.150, and your network is simply 192.168.1.0/255.255.255.0 try this:
+The problem lies in that the init script for dnsmasq expects the nvram variable, dhcp_start, to be in an integer format instead of an IP. Variable dhcp_start defines offset from beginning of your network adresses and variable dhcp_num defines how many IP adresses to use in DHCP pool. DHCP pool consists of adresses NETWORK+dhcp_start..NETWORK+dhcp_start+dhcp_num.
+
+Example 1: Your network is 192.168.1.0/255.255.255.0, your starting address is 192.168.1.100, your ending address is 192.168.1.150 try this:
 
 {{{
 nvram set dhcp_start=100
@@ -42,6 +44,14 @@ nvram commit
 /etc/init.d/S50dnsmasq restart
 }}}
 
+Example 2: Your network is 192.168.10.40/255.255.255.248, your starting address is 192.168.10.42, your ending address is 192.168.10.45 try this:
+
+{{{
+nvram set dhcp_start=2
+nvram set dhcp_num=3
+nvram commit
+/etc/init.d/S50dnsmasq restart
+}}}
 
 === Where to set names for private IP address ===
 Puting information about that in /etc/hosts file, and format is
