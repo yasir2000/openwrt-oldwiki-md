@@ -574,8 +574,9 @@ Allow from 192.168.1.0/24 #your ip area.
 MacOS X tip:
 Configure your extended printer settings. If you use the standard printer settings and add an ipp printer, macosx will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
 
-= libssl =
-Under RC3, use libopenssl
+=== libssl ===
+
+With RC3 or later, use libopenssl
 
 = Hardware =
 
