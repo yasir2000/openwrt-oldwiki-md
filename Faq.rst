@@ -218,7 +218,7 @@ The source code for {{{/sbin/wifi}}} is available in CVS.
 
 == How do I open a WRT54G/WRT54GS? ==
 
-/!\ '''WARNING''' Opening the case will void your warranty; if you're running
+/!\ '''WARNING:''' Opening the case will void your warranty; if you're running
 a third party firmware you have already voided your warranty.
 
 Linksys uses a screwless case, the blue front panel holds the case together.
