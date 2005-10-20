@@ -183,6 +183,8 @@ This ejtag layout should support all ar7 based boards with a 14 pin jtag pinout.
 
 Since DMA Routines do NOT exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
 
+[http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for D-Link DSL-30xT], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
+
 == ADSL2MUE Serial Console ==
   
 
