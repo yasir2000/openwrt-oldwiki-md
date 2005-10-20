@@ -55,7 +55,7 @@ vi /etc/ipkg.conf
 
 Now you can edit the files with an text editor.
 
-'''NOTE:''' On JFFS2 images you can edit the files like on every other linux system.
+'''NOTE:''' On JFFS2 images you can edit the files like on every other Linux system.
 
 See [:OpenWrtDocs/Using] for details.
 
@@ -155,7 +155,7 @@ ipkg list_installed
 {{{ipkg update}}}.
 
 
-Sites with OpenWrt compatible IPKG packages are listed in [OpenWrtPackages].
+Sites with OpenWrt compatible IPKG packages are listed in [:OpenWrtPackages].
 
 
 == Why isn't a package for ____ available? ==
