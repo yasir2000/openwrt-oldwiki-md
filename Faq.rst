@@ -83,8 +83,8 @@ mtd unlock mtd4
 mount -t jffs2 /dev/mtdblock/4 /jffs
 }}}
 
-/!\ WRT54GS v2.0: Holding down the reset button for 5 seconds during power up will erase
-all nvram variables and restore defaults.
+/!\ '''WARNING:''' WRT54GS v2.0: Holding down the reset button for 5 seconds during
+power up will erase all NVRAM variables and restore defaults.
 
 '''TIP:''' It's possible that you can't ping or telnet into the router in failsafe mode.
 This is because you have old entries in the ARP cache table. You can delete the entries
@@ -367,7 +367,7 @@ PasswordAuthentication yes
 
 = Networking =
 
-== How do I create a DHCP/DNS server? ==
+== How do I create a DHCP server? ==
 
 The [http://thekelleys.org.uk/dnsmasq/doc.html dnsmasq] program acts as
 DNS and DHCP server in OpenWrt.
@@ -397,6 +397,11 @@ killall -9 dnsmasq; /etc/init.d/S50dnsmasq
 == How do I use it as a router, instead of a bridge? ==
 
 == How do I set the timezone and make it stick between reboots? ==
+
+OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
+
+For details on configuring your timezone see [:OpenWrtDocs/Configuration].
+
 
 == What is br0? ==
 
