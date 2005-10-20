@@ -152,7 +152,58 @@ server where you want to log to.
 
 == How do I have it do something every YYY seconds/minutes? ==
 
-== My Linksys WRT54G and WRT54GS routers seems to reboot or is unstable upon heavy network traffic ==
+== My Linksys WRT54G and WRT54GS routers seems to be unstable on heavy network traffic ==
+
+The core developer nbd wrote a script that fixes this problem.
+
+The script should do exactly what the Linksys firmware does to fix the
+instability problems on WRT54G v2.2+, WRT54GS v1.1+.
+
+The problem that's fixed by this script has been reported in several forms:
+1) Crashes on high network/wireless load
+2) Abnormal program errors
+3) Random source/destination ports added to iptables rules with -p tcp
+
+If you have one of these problems, please consider trying ouy my script at
+[http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh].
+
+/!\ '''WARNING:''' Please only use this script to set the NVRAM variables on the
+listed Linksys routers above. Please do '''NOT''' set them manually or on
+any non Linksys router.
+
+To execute the script on the router do:
+
+{{{
+cd /tmp
+wget http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh
+chmod a+x /tmp/linksys-fixup.sh
+/tmp/linksys-fixup.sh
+}}}
+
+The {{{linksys-fixup.sh}}} script is not commiting the changes to NVRAM.
+So you have to do this with:
+
+{{{
+nvram commit
+}}}
+
+The changes the script made take only affect if you reboot or power cycle
+the router after committing.
+
+/!\ '''WARNING:''' It may contain bugs, may not work at all or may even brick
+your router Just run it, then do nvram commit and reboot your router
+afterwards.
+
+/!\ '''WARNING:''' It has been reported that even this moderate increase to
+{{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
+making it practically impossible to reach the console. Have your JTAG cable
+ready in any case! Please do '''NOT''' set them manually or on any '''non'''
+Linksys router.
+
+You should also read the
+[http://forum.openwrt.org/viewtopic.php?id=2874 The "My router is unstable" thread...]
+on the forum.
+
 
 == What's magic behind /sbin/wifi is doing? ==
 
