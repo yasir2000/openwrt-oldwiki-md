@@ -32,6 +32,11 @@ output shows the hardware version.
 == Which image should I use? ==
 
 
+== How do I install/flash OpenWrt? ==
+
+See [:http://wiki.openwrt.org/OpenWrtDocs/Installing]
+
+
 == Do I need to run firstboot on every boot? ==
 
 No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating the
@@ -362,9 +367,32 @@ PasswordAuthentication yes
 
 = Networking =
 
-== How do I create a DHCP server? ==
+== How do I create a DHCP/DNS server? ==
+
+The [http://thekelleys.org.uk/dnsmasq/doc.html dnsmasq] program acts as
+DNS and DHCP server in OpenWrt.
+
+By default it hands out IP addresses from {{{192.168.1.100}}} up to
+{{{192.168.1.250}}}
+
+To change this you have to set two NVRAM variables.
+
+{{{
+nvram set dhcp_start=<start_number>
+nvram set dhcp_num=<number_of_hosts>
+nvram commit
+}}}
+
+and restart {{{dnsmasq}}} with:
+
+{{{
+killall -9 dnsmasq; /etc/init.d/S50dnsmasq
+}}}
+
 
 == dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ==
+
+== Where should I put custom firewall rules? ==
 
 == How do I use it as a router, instead of a bridge? ==
 
@@ -372,7 +400,7 @@ PasswordAuthentication yes
 
 == What is br0? ==
 
-== What are all these vlans, how do I get rid of them? ==
+== What are all these VLANs, how do I get rid of them? ==
 
 
 
