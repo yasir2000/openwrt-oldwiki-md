@@ -2,6 +2,9 @@
 White Russian release /!\
 
 
+/!\ This howto is not yet verified by the OpenWrt maintainers, it may contain bug /!\
+
+
 [[TableOfContents]]
 
 
