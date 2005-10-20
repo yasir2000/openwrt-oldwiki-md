@@ -34,7 +34,7 @@ output shows the hardware version.
 
 == How do I install/flash OpenWrt? ==
 
-See [:OpenWrtDocs/Installing]
+See [:OpenWrtDocs/Installing].
 
 
 == Do I need to run firstboot on every boot? ==
