@@ -142,7 +142,7 @@ See [:OpenWrtNVRAM].
 {{{mtd}}} will leave the bootloader and NVRAM settings untouched.
 
 
-== How do I clean up the NVRAM variables (the safe way) ==
+== How do I clean up the NVRAM variables (the safe way)? ==
 
 If you had installed other firmware before you may have probably more than
 400 NVRAM variables. The most of these NVRAM variables are not nessesary for
