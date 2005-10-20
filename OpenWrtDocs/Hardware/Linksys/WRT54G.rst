@@ -67,7 +67,7 @@ boardnum=42}}}
 /!\ '''To take the front cover off of this unit you must first remove the small screws under the rubber covers of the front feet!'''
 
 ==== WRT54G v5 ====
-Initial reports are that this version has switched to a non-Linux OS.  It appears from pictures that it is nearly identicle to v4 with an updated rev on the processor.  It is unknown at this time if v5 can be supported by OpenWRT.
+Initial reports are that this version has switched to a non-Linux OS.  It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash and less ram. It is unknown at this time if v5 can be supported by OpenWRT.
 
 === Table summary ===
 
