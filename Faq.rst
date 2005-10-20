@@ -142,6 +142,34 @@ See [:OpenWrtNVRAM].
 {{{mtd}}} will leave the bootloader and NVRAM settings untouched.
 
 
+== Clean up the NVRAM variables ==
+
+If you had installed other firmware before you may have probably more than
+400 NVRAM variables.
+
+To cleanup this variables (the safe way) use nbd's NVRAM cleanup script found
+at [http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh].
+
+{{{
+cd /tmp
+wget http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh
+chmod a+x /tmp/nvram-clean.sh
+/tmp/nvram-clean.sh
+}}}
+
+Watch out the before and after size. That is how much the script cleaned up.
+
+The {{{nvram-clean.sh}}} script is not commiting the changes to NVRAM.
+So you have to do this with:
+
+{{{
+nvram commit
+}}}
+
+The changes the script made take only affect if you reboot or power cycle
+the router after committing.
+
+
 == Where can I find packages? ==
 
 All packages included in the stable White Russian release can be listed with:
@@ -272,35 +300,6 @@ OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
 Linux system.
 
 See [:HowtoEnableCron] for details.
-
-
-== Clean up the NVRAM variables ==
-
-If you had installed other firmware before you may have probably more than
-400 NVRAM variables.
-
-To cleanup this variables (the safe way) use nbd's NVRAM cleanup script found
-at [http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh].
-
-{{{
-cd /tmp
-wget http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh
-chmod a+x /tmp/nvram-clean.sh
-/tmp/nvram-clean.sh
-}}}
-
-Watch out the before and after size. That is how much the script cleaned up.
-
-The {{{nvram-clean.sh}}} script is not commiting the changes to NVRAM.
-So you have to do this with:
-
-{{{
-nvram commit
-}}}
-
-The changes the script made take only affect if you reboot or power cycle
-the router after committing.
-
 
 
 == My Linksys WRT54G or WRT54GS routers seems to be unstable ==
