@@ -405,10 +405,8 @@ PasswordAuthentication yes
 == How do I create a DHCP server? ==
 
 The [http://thekelleys.org.uk/dnsmasq/doc.html dnsmasq] program acts as
-DNS and DHCP server in OpenWrt.
-
-By default it hands out IP addresses from {{{192.168.1.100}}} up to
-{{{192.168.1.250}}}
+DNS and DHCP server in OpenWrt. By default it hands out IP addresses from
+{{{192.168.1.100}}} to {{{192.168.1.250}}}.
 
 To change this you have to set two NVRAM variables.
 
