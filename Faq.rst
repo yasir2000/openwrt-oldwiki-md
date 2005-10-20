@@ -31,6 +31,8 @@ output shows the hardware version.
 
 == Which image should I use? ==
 
+Please read the [http://downloads.openwrt.org/whiterussian/00-README 00-README] file.
+
 
 == How do I install/flash OpenWrt? ==
 
