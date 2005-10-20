@@ -429,7 +429,7 @@ killall -9 dnsmasq; /etc/init.d/S50dnsmasq
 
 == Where should I put custom firewall rules? ==
 
-They go into the file /etc/firewall.user. This file has a view examples in it as well.
+They go into the file {{{/etc/firewall.user}}}. This file has a view examples in it as well.
 
 Since OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
 point for documenation is [http://www.netfilter.org/documentation/].
