@@ -106,9 +106,9 @@ On Windows operating systems use one of the following:
 
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
 
-'''NOTE:''' On bootup it's always {{{192.168.1.1}}}, so flash it with
-this LAN IP! The default LAN IP address could be different on some
-routers.
+On bootup it's always {{{192.168.1.1}}}, so flash it with this LAN IP!
+
+'''NOTE:''' The default LAN IP address could be different on some routers.
 
 
 = Misc =
