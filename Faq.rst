@@ -61,14 +61,14 @@ See [:OpenWrtDocs/Using] for details.
 
 == How do I recover / boot in failsafe mode? ==
 
-If you should screw up JFFS2 or the network settings in NVRAM you can use OpenWrt's
-failsafe mode to recover. The DMZ LED will light up during boot, hold down the reset
-button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode. While in
-failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run entirely
-from SquashFS and the LAN will be forced to {{{192.168.1.1}}}  with a MAC address of
-{{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this procedure: Plug in the
-power cable, wait for 3 seconds, then start pressing the reset button and hold it down
-for another 10-15 seconds. You should be in failsafe mode, then.
+If you should screw up the JFFS2 part or the network settings in NVRAM you can use
+OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down
+the reset button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode.
+While in failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run
+entirely from SquashFS and the LAN will be forced to {{{192.168.1.1}}}  with a MAC
+address of {{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this procedure:
+Plug in the power cable, wait for 3 seconds, then start pressing the reset button and
+hold it down for another 10-15 seconds. You should be in failsafe mode, then.
 
 The JFFS2 filesystem can be unlocked and mounted as follows:
 
@@ -89,7 +89,7 @@ On *nix operating systems use:
 arp -d *
 }}}
 
-On the Windows operating system open a CMD console and do:
+On Windows operating systems open a CMD console and do:
 {{{
 C:\> arp -d *
 }}}
@@ -97,7 +97,19 @@ C:\> arp -d *
 
 == What TFTP client should I use to flash my Wrt? ==
 
+In GNU/Linux and other *ixes, use the {{{atftp}}} client.
+
+On Windows operating systems use one of the following:
+
+- tftpd32 from [http://perso.wanadoo.fr/philippe.jounin/tftpd32.html]
+- or the included one (on the CMD console)
+
+
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
+
+'''NOTE:''' On bootup it's always {{{192.168.1.1}}}, so flash it with
+this LAN IP! The default LAN IP address could be different on some
+routers.
 
 
 = Misc =
