@@ -197,9 +197,9 @@ your router.
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
 making it practically impossible to reach the console. Have your JTAG cable
-ready in any case! Please do '''NOT''' set the NVRAM variables
-or parts of them included in the script manually or on any '''non'''
-Linksys router.
+ready in any case! Btw. generelly manually overlocking a router using the
+{{{clkfreq}}} NVRAM variable is a bad hack/idea. So again, don't overclock
+your router manually!
 
 You should also read the
 [http://forum.openwrt.org/viewtopic.php?id=2874 The "My router is unstable" thread...]
