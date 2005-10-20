@@ -7,7 +7,7 @@
  * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
  * [http://www.aztech.com/DSL-600EW.htm Aztech DSL 600EW] (has USB)
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
- * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-G664T)
+ * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-300T, DSL-302T, DSL-500T, DSL-502T, DSL-G664T)
  * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
  * Linksys [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]
  * Linksys WRTP54G
