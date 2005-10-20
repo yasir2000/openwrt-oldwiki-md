@@ -142,10 +142,12 @@ See [:OpenWrtNVRAM].
 {{{mtd}}} will leave the bootloader and NVRAM settings untouched.
 
 
-== Clean up the NVRAM variables ==
+== How do I clean up the NVRAM variables (the safe way) ==
 
 If you had installed other firmware before you may have probably more than
-400 NVRAM variables.
+400 NVRAM variables. The most of these NVRAM variables are not nessesary for
+OpenWrt. So you can delete them with the {{{nvram-clean.sh}}} script and have
+a more readable NVRAM dump.
 
 To cleanup this variables (the safe way) use nbd's NVRAM cleanup script found
 at [http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh].
