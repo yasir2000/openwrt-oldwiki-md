@@ -405,9 +405,6 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
 Viewcvs is available for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=HEAD#dirlist browsing]
 the developmant CVS branch.
 
-If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC
-channel to report.
-
 
 == Should I report bugs releated to the buildroot system ==
 
