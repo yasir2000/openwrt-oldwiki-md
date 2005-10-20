@@ -143,11 +143,62 @@ Sites with OpenWrt compatible IPKG packages are listed in [OpenWrtPackages].
 
 == Why isn't a package for ____ available? ==
 
+Good question. The most likely answer is that nobody has needed that package
+yet or that nobody has had time to package it.
+
+ * Wait until the package becomes available
+ * Package it yourself (using the [:BuildingPackagesHowTo:OpenWrt SDK])
+ * Find/Pay someone to package it for you
+
+
 == How much space is available for the JFFS2 partition? ==
+
+ * On systems with a 4 MB flash: roughly 2 MB
+ * On systems with a 8 MB flash: roughly 6 MB
+
+The actual size allocated to the partition will vary slightly depending on
+the OpenWrt build. JFFS2 uses compression, the amount of data that can be
+stored on that partition will be higher than the above values.
+
 
 == How do I reflash / How do I revert back to my previous firmware? ==
 
+Make sure you have set {{{boot_wait=on}}}. To verify this do:
+
+{{{
+nvram get boot_wait
+}}}
+
+should return {{{on}}}. You can set {{{boot_wait=on}}} to on by doing:
+
+{{{
+nvram set boot_wait=on
+nvram commit
+}}}
+
+When this is done you can follow the [:OpenWrtDocs/Deinstalling] page.
+
+
 == Does OpenWrt have a web interface (webif) GUI? ==
+
+Not yet. The upcoming OpenWrt White Russian 1.0 release will have
+a web interface.
+
+Nbd is currently working on one. The latest release can always be installed
+from [http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk] via:
+
+{{{
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk
+}}}
+
+'''NOTE:''' This web interface is in development. Basic features should work.
+It will only work on a recent OpenWrt White Russian release candidate.
+
+The OpenWrt web interface is based on a set of shell and AWK script and
+the form processing is done with [http://haserl.sourceforge.net/ haserl].
+
+A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html].
+
 
 == Why is the OpenWrt firmware so bare? ==
 
