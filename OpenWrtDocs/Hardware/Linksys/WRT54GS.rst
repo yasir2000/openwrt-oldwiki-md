@@ -34,15 +34,9 @@ Serial Number begining CGN60
 
 Supported in RC3 and later.
 
----- /!\ '''Edit conflict - other version:''' ----
 my WRT54GS V4 has 8mb flash
 and 32mb ram, only first relase of wrt54gs v4 had 4mb/16mb 
 
----- /!\ '''Edit conflict - your version:''' ----
-my WRT54GS V4 has 8mb flash
-and 32mb ram, only first relase of wrt54gs v4 had 4mb/16mb 
-
----- /!\ '''End of edit conflict''' ----
 === Detailed hardware info ===
 
 ==== Motherboard photos ====
