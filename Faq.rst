@@ -167,9 +167,10 @@ The problem that's fixed by this script has been reported in several forms:
 If you have one of these problems, please consider trying out my script at
 [http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh].
 
-/!\ '''WARNING:''' Please only use this script to set the NVRAM variables on the
-listed Linksys routers above. Please do '''NOT''' set them manually or on
-any '''non''' Linksys router.
+/!\ '''WARNING:''' Only use this script to set the NVRAM variables on the
+listed Linksys routers above. Please do '''NOT''' set the NVRAM variables
+or parts of them included in the script manually or on any '''non'''
+Linksys router.
 
 To execute the script on the router do:
 
@@ -196,7 +197,8 @@ your router.
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
 making it practically impossible to reach the console. Have your JTAG cable
-ready in any case! Please do '''NOT''' set them manually or on any '''non'''
+ready in any case! Please do '''NOT''' set the NVRAM variables
+or parts of them included in the script manually or on any '''non'''
 Linksys router.
 
 You should also read the
