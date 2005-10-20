@@ -405,11 +405,19 @@ cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
 Viewcvs is available for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=HEAD#dirlist browsing]
 the developmant CVS branch.
 
-If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC channel
-to report.
+If you find any bugs, please use our [http://forum.openwrt.org/ forum] or IRC
+channel to report.
 
 
-== What are the *.mk files in buildroot? / What options can I change in the Makefile? ==
+== Should I report bugs releated to the buildroot system ==
+
+Yes. If you find any bugs, please use our [http://forum.openwrt.org/ forum] or
+send a report to openwrt-devel@openwrt.org or use IRC channel to report. You
+can send patches for the bugs as well.
+
+/!\ '''NOTE:''' Changes to the buildroot system or the associated {{{Makefiles}}}
+could break the compile process. Please do not submit bug reports against modified
+copies of buildroot. Thanks.
 
 
 == Where is the buildroot documentation? ==
