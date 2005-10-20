@@ -31,7 +31,7 @@ output shows the hardware version.
 
 == Which image should I use? ==
 
-Please read the [http://downloads.openwrt.org/whiterussian/00-README 00-README] file.
+See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 
 
 == How do I install/flash OpenWrt? ==
@@ -595,10 +595,13 @@ for your hardware version in the {{{pppoe_ifname}}} NVRAM variable.
 {{{
 nvram set wan_ifname=ppp0
 nvram set wan_proto=pppoe
+nvram set ppp_idletime=10
 nvram set ppp_mtu=1492 # The MTU of your ISP
-nvram set pppoe_ifname=vlan1
-nvram set ppp_username=<your_isp_login>
 nvram set ppp_passwd=<your_isp_password>
+nvram set ppp_redial=demand
+nvram set ppp_redialperiod=15
+nvram set ppp_username=<your_isp_login>
+nvram set pppoe_ifname=vlan1
 nvram commit
 }}}
 
