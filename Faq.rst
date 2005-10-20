@@ -82,7 +82,7 @@ all nvram variables and restore defaults.
 
 '''TIP:''' It's possible that you can't ping or telnet into the router in failsafe mode.
 This is because you have old entries in the ARP cache table. You can delete the entries
-in the ARP cache.
+in the ARP cache with:
 
 On *nix operating systems use:
 {{{
@@ -100,9 +100,8 @@ C:\> arp -d *
 In GNU/Linux and other *ixes, use the {{{atftp}}} client.
 
 On Windows operating systems use one of the following:
-
-- tftpd32 from [http://perso.wanadoo.fr/philippe.jounin/tftpd32.html]
-- or the included one (on the CMD console)
+ * tftpd32 from [http://perso.wanadoo.fr/philippe.jounin/tftpd32.html]
+ * or the included one (on the CMD console)
 
 
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
