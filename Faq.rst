@@ -172,7 +172,7 @@ The changes the script made take only affect if you reboot or power cycle
 the router after committing.
 
 
-== How often can I write to the flash chip ==
+== How often can I write on the flash chip? ==
 
 About 1.000.000 to 10.000.000 times.
 
