@@ -439,6 +439,14 @@ Since OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good star
 point for documenation is [http://www.netfilter.org/documentation/].
 
 
+== Does OpenWrt support QoS/Traffic shaping? ==
+
+Yes. But there is currently no script for easy QoS configuration.
+
+QoS in OpenWrt in the future will be based on {{{tc}}}, HFSC and
+[http://l7-filter.sourceforge.net/ Layer 7 filters].
+
+
 == How do I use it as a router, instead of a bridge? ==
 
 See [:OpenWrtDocs/Configuration].
