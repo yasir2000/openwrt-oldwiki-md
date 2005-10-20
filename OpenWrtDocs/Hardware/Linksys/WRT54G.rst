@@ -16,6 +16,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3||CDF80xxxxxxx||<:> {X} ||<:> (./) ||
 ||WRT54G v3.1 (AU?)||CDF90xxxxxxx||<:> {X} ||<:> (./) ||
 ||WRT54G v4||CDFA0xxxxxxx||<:> {X} ||<:> ? ||
+||WRT54G v5||CDFB0xxxxxxx||  ||  ||
 
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
@@ -64,6 +65,9 @@ boardflags=0x0118
 boardnum=42}}}
 
 /!\ '''To take the front cover off of this unit you must first remove the small screws under the rubber covers of the front feet!'''
+
+==== WRT54G v5 ====
+Initial reports are that this version has switched to a non-Linux OS.  It appears from pictures that it is nearly identicle to v4 with an updated rev on the processor.  It is unknown at this time if v5 can be supported by OpenWRT.
 
 === Table summary ===
 
