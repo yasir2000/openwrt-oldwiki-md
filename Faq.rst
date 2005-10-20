@@ -422,8 +422,7 @@ and restart {{{dnsmasq}}} with:
 killall -9 dnsmasq; /etc/init.d/S50dnsmasq
 }}}
 
-For more details on howto configure static IP addresses see
-[:http://wiki.openwrt.org/OpenWrtDocs/dnsmasq].
+For more details on howto configure static IP addresses see [:OpenWrtDocs/dnsmasq].
 
 
 == Where should I put custom firewall rules? ==
