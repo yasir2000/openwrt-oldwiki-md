@@ -422,8 +422,9 @@ and restart {{{dnsmasq}}} with:
 killall -9 dnsmasq; /etc/init.d/S50dnsmasq
 }}}
 
+For more details on howto configure static IP addresses see
+[:http://wiki.openwrt.org/OpenWrtDocs/dnsmasq].
 
-== dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ==
 
 == Where should I put custom firewall rules? ==
 
@@ -444,8 +445,8 @@ For details on configuring your timezone see [:OpenWrtDocs/Configuration].
 
 == What is br0? ==
 
-== What are all these VLANs, how do I get rid of them? ==
-
+By default the LAN ports and the wireless are bridged together as the virtual
+interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
 
 
 == Howto enable WEP ==
