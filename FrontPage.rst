@@ -5,7 +5,7 @@
 ## Note: we don't want to lock down the frontpage; please don't spam it
 ##
 
-= OpenWRT =
+= OpenWrt =
  * [:OpenWrtDocs] - Documentation
  * [:OpenWrtHowTo] - Many nice Howtos about OpenWrt
  * [:OpenWrtFaq] - Frequently abused questions from the forum
