@@ -274,6 +274,35 @@ Linux system.
 See [:HowtoEnableCron] for details.
 
 
+== Clean up the NVRAM variables ==
+
+If you had installed other firmware before you may have probably more than
+400 NVRAM variables.
+
+To cleanup this variables (the safe way) use nbd's NVRAM cleanup script found
+at [http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh].
+
+{{{
+cd /tmp
+wget http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh
+chmod a+x /tmp/nvram-clean.sh
+/tmp/nvram-clean.sh
+}}}
+
+Watch out the before and after size. That is how much the script cleaned up.
+
+The {{{nvram-clean.sh}}} script is not commiting the changes to NVRAM.
+So you have to do this with:
+
+{{{
+nvram commit
+}}}
+
+The changes the script made take only affect if you reboot or power cycle
+the router after committing.
+
+
+
 == My Linksys WRT54G or WRT54GS routers seems to be unstable ==
 
 The core developer nbd wrote a script that should fix this problems.
@@ -328,7 +357,7 @@ You should also read the
 on the forum.
 
 
-== What's magic behind /sbin/wifi is doing? ==
+== What's the magic behind /sbin/wifi is doing? ==
 
 The {{{/sbin/wifi}}} program reads the wireless {{{wl0_}}} settings from
 NVRAM and reconfigures the Broadcom wireless driver ({{{wl.o}}}). This is
@@ -393,6 +422,12 @@ killall -9 dnsmasq; /etc/init.d/S50dnsmasq
 == dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ==
 
 == Where should I put custom firewall rules? ==
+
+They go into the file /etc/firewall.user. This file has a view examples in it as well.
+
+Since OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
+point for documenation is [http://www.netfilter.org/documentation/].
+
 
 == How do I use it as a router, instead of a bridge? ==
 
