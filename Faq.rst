@@ -122,6 +122,25 @@ On bootup it's always {{{192.168.1.1}}}, so flash it with this LAN IP!
 
 == Where can I find packages? ==
 
+All packages included in the stable White Russian release can be listed with:
+
+{{{
+ipkg list | more
+}}}
+
+A list of installed packages can be displayed with:
+
+{{{
+ipkg list_installed
+}}}
+
+'''TIP:''' If there are no package descriptions listed you have to run
+{{{ipkg update}}}.
+
+
+Sites with OpenWrt compatible IPKG packages are listed in [OpenWrtPackages].
+
+
 == Why isn't a package for ____ available? ==
 
 == How much space is available for the JFFS2 partition? ==
