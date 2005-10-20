@@ -35,7 +35,8 @@ output shows the hardware version.
 == Do I need to run firstboot on every boot? ==
 
 No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating the
-directory structure; you only need to run it after upgrading the firmware.
+directory structure; you only need to run it after upgrading the firmware or if you
+like to restore the default filesystem.
 
 
 == How do I edit files on the SquashFS image? ==
@@ -162,27 +163,21 @@ server where you want to log to.
 
 = Networking =
 
-== Misc ==
+== How do I create a DHCP server? ==
 
-=== How do I create a DHCP server? ===
+== dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ==
 
-=== dnsmasq responds to (local) DHCP requests but not DNS queries. What do I do? ===
+== How do I use it as a router, instead of a bridge? ==
 
-=== How do I use it as a router, instead of a bridge? ===
+== How do I set the timezone and make it stick between reboots? ==
 
-=== How do I set the timezone and make it stick between reboots? ===
+== What is br0? ==
 
-=== What is br0? ===
-
-=== What are all these vlans, how do I get rid of them? ===
+== What are all these vlans, how do I get rid of them? ==
 
 
-== Local Area Network (LAN) ==
 
-
-== Wireless ==
-
-=== Howto enable WEP ===
+== Howto enable WEP ==
 
 {{{
 ifdown wifi
@@ -206,7 +201,7 @@ nvram commit
 See [:OpenWrtDocs/Configuration] for details.
 
 
-=== How do I use Wi-Fi Protected Access (WPA)? ===
+== How do I use Wi-Fi Protected Access (WPA)? ==
 
 You have to install the {{{nas}}} package (which provides WPA encryption) if not already
 done with:
@@ -231,14 +226,14 @@ up to 63 chars.
 For details and howto configure WPA2 or AES encryption see [:OpenWrtDocs/Configuration].
 
 
-=== How can I put it in Client Mode? ===
+== How can I put it in Client Mode? ==
 
 OpenWrt can be configured as Bridged Client Mode or Routed Client Mode.
 
 For more details on configuring the WRT as a wireless client, see [:ClientModeHowto].
 
 
-=== Wireless Distribution System (WDS) / Repeater / Bridge ===
+== Wireless Distribution System (WDS) / Repeater / Bridge ==
 
 This is an ASCII art for what WDS can be useful.
 
@@ -279,7 +274,7 @@ for your hardware.
 See [:OpenWrtDocs/Configuration] for details.
 
 
-=== How do I disable ESSID broadcast? ===
+== How do I disable ESSID broadcast? ==
 
 {{{
 ifdown wifi
@@ -306,16 +301,15 @@ nvram commit
 }}}
 
 
-=== What is the difference between wl0_* and wl_* variables? ===
+== What is the difference between wl0_* and wl_* variables? ==
 
 Use the {{{wl0_}}} variables.
 
 The {{{wl_}}} variables are obsolete and unused.
 
 
-== Internet connection (WAN) ==
 
-=== How do I configure PPPoE? ===
+== How do I configure PPPoE? ==
 
 That's ease. Just set some NVRAM variables.
 
@@ -340,9 +334,9 @@ ifup wan
 
 See [:OpenWrtDocs/Configuration] for details.
 
-=== How do I configure PPTP? ===
+== How do I configure PPTP? ==
 
-=== How do I configure DHCP? ===
+== How do I configure DHCP? ==
 
 
 
