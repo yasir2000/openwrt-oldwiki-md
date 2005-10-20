@@ -9,15 +9,91 @@ White Russian release /!\
 
 == Will OpenWrt run on <fill in the blank> ? ==
 
+Please check [:OpenWrtDocs/Hardware] and the [:TableOfHardware] for the list of
+supported units.
+
+
 == How do I identify my hardware version? ==
+
+It's pretty simple, look on the bottom by the model number and there will be a
+revision on the Linksys sticker. The exceptions are the v1.0 and the WRT54GS
+which don't list their revision. The v1.0 can be easily identified by the 3 LEDs
+per port (and a MiniPCI card and AMD flash chip if you open it). In v1.1 they
+switched to 1 LED per port (and removed the MiniPCI and switched to an intel flash),
+v2.0 brought the change from 125Mhz to 200Mhz and the WRT54GS adds more memory
+(total of 32 MB) and flash (8 MB).
+
+If you haven't installed OpenWrt yet, another way of identifying the hardware is to
+open the page [http://192.168.1.1/SysInfo.htm] (where {{{192.168.1.1}}} should be
+replaced with the IP address of your WRT54G or WRT54GS). The last line in the
+output shows the hardware version.
+
 
 == Which image should I use? ==
 
+
 == Do I need to run firstboot on every boot? ==
 
-== How do I edit files on the filesystem? ==
+No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating the
+directory structure; you only need to run it after upgrading the firmware.
 
-== How do I recover / boot failsafe? ==
+
+== How do I edit files on the SquashFS image? ==
+
+By default all files on the SquashFS image are actually symlinks to the real
+(readonly) files over on {{{/rom}}}, to edit a file you will need to delete
+the symlink and copy the file from {{{/rom}}}.
+
+Example:
+
+{{{
+rm /etc/ipkg.conf
+cp /rom/etc/ipkg.conf /etc/ipkg.conf
+vi /etc/ipkg.conf
+}}}
+
+Now you can edit the files with an text editor.
+
+'''NOTE:''' On JFFS2 images you can edit the files like on every other linux system.
+
+See [:OpenWrtDocs/Using] for details.
+
+
+== How do I recover / boot in failsafe mode? ==
+
+If you should screw up JFFS2 or the network settings in NVRAM you can use OpenWrt's
+failsafe mode to recover. The DMZ LED will light up during boot, hold down the reset
+button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode. While in
+failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run entirely
+from SquashFS and the LAN will be forced to {{{192.168.1.1}}}  with a MAC address of
+{{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this procedure: Plug in the
+power cable, wait for 3 seconds, then start pressing the reset button and hold it down
+for another 10-15 seconds. You should be in failsafe mode, then.
+
+The JFFS2 filesystem can be unlocked and mounted as follows:
+
+{{{
+mtd unlock mtd4
+mount -t jffs2 /dev/mtdblock/4 /jffs
+}}}
+
+/!\ WRT54GS v2.0: Holding down the reset button for 5 seconds during power up will erase
+all nvram variables and restore defaults.
+
+'''TIP:''' It's possible that you can't ping or telnet into the router in failsafe mode.
+This is because you have old entries in the ARP cache table. You can delete the entries
+in the ARP cache.
+
+On *nix operating systems use:
+{{{
+arp -d *
+}}}
+
+On the Windows operating system open a CMD console and do:
+{{{
+C:\> arp -d *
+}}}
+
 
 == What TFTP client should I use to flash my Wrt? ==
 
