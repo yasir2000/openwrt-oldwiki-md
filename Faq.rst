@@ -152,9 +152,9 @@ server where you want to log to.
 
 == How do I have it do something every YYY seconds/minutes? ==
 
-== My Linksys WRT54G and WRT54GS routers seems to be unstable on heavy network traffic ==
+== My Linksys WRT54G or WRT54GS routers seems to be unstable ==
 
-The core developer nbd wrote a script that fixes this problem.
+The core developer nbd wrote a script that should fix this problems.
 
 The script should do exactly what the Linksys firmware does to fix the
 instability problems on WRT54G v2.2+, WRT54GS v1.1+.
@@ -208,9 +208,39 @@ on the forum.
 
 == What's magic behind /sbin/wifi is doing? ==
 
+The {{{/sbin/wifi}}} program reads the wireless {{{wl0_}}} settings from
+NVRAM and reconfigures the Broadcom wireless driver ({{{wl.o}}}). This is
+because the Broadcom wireless driver wants the NVRAM variables in a special
+order.
+
+The source code for {{{/sbin/wifi}}} is available in CVS.
+
+
 == How do I open a WRT54G/WRT54GS? ==
 
-== When using the ssh client from OpenWrt, I get the following message : "no auths methods could be used" ==
+/!\ '''WARNING''' Opening the case will void your warranty; if you're running
+a third party firmware you have already voided your warranty.
+
+Linksys uses a screwless case, the blue front panel holds the case together.
+Remove the antennas then pull the blue panel off, the remaining pieces will
+slide apart. See [http://voidmain.is-a-geek.net/redhat/wrt54g_revival.html pictures].
+
+The easy way to open the case is to get a firm grip on one of the blue legs
+and one of the grey legs and quickly yank apart, it will take some force to
+open the WRT54G for the first time.
+
+Some cases have screws.
+
+
+== When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used" ==
+
+The message {{{no auths methods could be used}}} is related to the following
+utilization: {{{dropbear}}} as SSH client and {{{openssh}}} as {{{sshd}}}
+server, basically, activating this option in {{{/etc/ssh/sshd_config works}}}:
+
+{{{
+PasswordAuthentication yes
+}}}
 
 
 = Networking =
