@@ -164,7 +164,7 @@ The problem that's fixed by this script has been reported in several forms:
 [[BR]]2) Abnormal program errors
 [[BR]]3) Random source/destination ports added to iptables rules with -p tcp
 
-If you have one of these problems, please consider trying ouy my script at
+If you have one of these problems, please consider trying out my script at
 [http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh].
 
 /!\ '''WARNING:''' Please only use this script to set the NVRAM variables on the
@@ -191,8 +191,7 @@ The changes the script made take only affect if you reboot or power cycle
 the router after committing.
 
 /!\ '''WARNING:''' It may contain bugs, may not work at all or may even brick
-your router Just run it, then do nvram commit and reboot your router
-afterwards.
+your router.
 
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
