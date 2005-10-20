@@ -116,9 +116,26 @@ On bootup it's always {{{192.168.1.1}}}, so flash it with this LAN IP!
 
 == Where can I find the FAQ? ==
 
+This is the FAQ; you'd be amazed at how many people ask where the FAQ is,
+even after being told that question is answered in the FAQ itself.
+
+
 == How do I change NVRAM settings? ==
 
+{{{
+nvram show
+nvram get variable
+nvram set variable=value
+nvram commit (to save the changes)
+}}}
+
+See [:OpenWrtNVRAM].
+
+
 == What is left behind, when erasing the flash? ==
+
+{{{mtd}}} will leave the bootloader and NVRAM settings untouched.
+
 
 == Where can I find packages? ==
 
@@ -203,9 +220,32 @@ A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wirele
 
 == Why is the OpenWrt firmware so bare? ==
 
+OpenWrt's design philosophy is to not lock the user down to a particular set of
+features but rather to provide a base framework which can be endlessly customized
+through it's package support and writable JFFS2 filesystem. The firmware itself
+contains a minimal "core" filesystem with the intent on giving as much space as
+possible to the JFFS2 filesystem; the core provides minimal functionality while
+the JFFS2 filesystem allows the user to add software packages and modify the core
+scripts. The use of a package system allows the user to customize the set of
+features required with regard to available space, without wasting space on unused
+features.
+
+As an example, the typical WRT54G contains 4 MB of flash while the WRT54GS contains
+8 MB of flash. The typical firmware is intended to fit on a WRT54G, leaving 4 MB of
+flash completely unused on the WRT54GS. With OpenWrt, the JFFS2 partition will
+inherit the extra 4 MB of space, allowing more packages and thus more features.
+
+
 == Who maintains OpenWrt? ==
 
-== How do I open a WRT54G/WRT54GS ? ==
+OpenWrt is the collaboration of many people. The two people responsible for the
+creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking
+fans). The primary (possibly only) maintainer of the OpenWrt project and this website
+is mbm, who you can often find lurking in the forums and IRC channel. Due to popular
+request there is an amazon wishlist for mbm [http://www.amazon.com/gp/registry/3K14VKJP7FYUJ here].
+
+(Groz is currently missing in action, yet occasionally submits broken CVS code ;) )
+
 
 == How do I access the syslog messages? ==
 
@@ -222,6 +262,12 @@ server where you want to log to.
 
 
 == How do I have it do something every YYY seconds/minutes? ==
+
+OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
+Linux system.
+
+See [:HowtoEnableCron] for details.
+
 
 == My Linksys WRT54G or WRT54GS routers seems to be unstable ==
 
