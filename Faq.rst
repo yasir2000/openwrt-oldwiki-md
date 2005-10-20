@@ -453,7 +453,7 @@ By default the LAN ports and the wireless are bridged together as the virtual
 interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
 
 
-== Howto enable WEP ==
+== Howto enable WEP encryption? ==
 
 {{{
 ifdown wifi
