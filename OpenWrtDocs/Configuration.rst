@@ -578,7 +578,7 @@ Configure your extended printer settings. If you use the standard printer settin
 
 With RC3 or later, use libopenssl
 
-= Building your own packages =
+== Building your own packages ==
 
 To build your own packages for OpenWRT, you will need the WRT SDK. See ["BuildingPackagesHowTo"]
 
