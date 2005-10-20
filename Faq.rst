@@ -172,6 +172,11 @@ The changes the script made take only affect if you reboot or power cycle
 the router after committing.
 
 
+== How often can I write to the flash chip ==
+
+About 1.000.000 to 10.000.000 times.
+
+
 == Where can I find packages? ==
 
 All packages included in the stable White Russian release can be listed with:
