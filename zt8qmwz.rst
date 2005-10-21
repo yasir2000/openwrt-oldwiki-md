@@ -356,5 +356,18 @@ Regards,
 Note: This should also confirm the chip ID of TI AR7.
 
 ----
+'''AlecV''' (time of last update: [[DateTime(2005-10-22T04:39:00Z)]])
 
+Hi, All!
+
+Try this links: [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for D-Link DSL-30xT], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian, but I hope you cold understand at least some words).
+
+The '''OCD Debugger''' works ans '''OCD Flash''' works too. BUT! You need a full WIGGLER cable, instead of your favorite "Xilix DLC parallel cable III" mage with 5 resistors... ;)
+
+I've tested it with ADM5120 CPU (another MIPS with EJTAG 2.6) and found it working, even single Step debug works. My expiriments are descibed there: http://www.norocketscience.com/forum/topic.asp?TOPIC_ID=67
+You could find my WIGGLER schematic variant there too.
+
+I hope it helps. I have an AR7 router too and will test it ASAP.
+
+----
 CategoryHomepage
