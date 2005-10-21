@@ -29,10 +29,10 @@ After the partition is mounted, you can edit the files in /jffs. If you run firs
 Note: if you cannot figure out how to put your device into failsafe mode then remember that you can always modify the boot scripts in the source. So if you want to boot failsafe mode, you might edit your buildroot/build_mipsel/root/etc/preinit to something like this:
 {{{
 #!/bin/sh
-mount none /proc -t proc              
+mount none /proc -t proc
 mount none /tmp -t ramfs
-export FAILSAFE=true                  
-exec /sbin/init         
+export FAILSAFE=true
+exec /sbin/init
 }}}
 Build a new image by typing make in the buildroot directory, install the modified firmware and boot the device. This forces your device to boot in FAILSAFE every time. So in order to boot in normal mode, you'll have to undo the changes you've made to the preinit file.
 
@@ -164,7 +164,7 @@ The requested address, 1100 gets seen as 1110; a request for address 12 got turn
 
 Result: It's actually impossible to read the value at 12 in this case, and it's likely that address 14 holds a different value. If this were a firmware, the bootloader would attempt to verify the firmware on bootup with a CRC check, mangling the addresses would change the data read and the CRC wouldn't match.
 
-In the end, there's nothing really magical about pins 15-16; you can pick any address lines and short them and ''something'' will happen; if you didn't short the addresses of the bootloader there's a good chance it'll boot up and wait for a firmware. 
+In the end, there's nothing really magical about pins 15-16; you can pick any address lines and short them and ''something'' will happen; if you didn't short the addresses of the bootloader there's a good chance it'll boot up and wait for a firmware.
 
 = Using the system logs for additional troubleshooting =
 
@@ -172,7 +172,7 @@ Modern versions of OpenWRT use S10boot to start a syslogd.  If a daemon is misbe
 
 = Some routers have screws =
 
-At least Linksys WRT54GS v2.0 and Linksys WAG54G have screws hidden under the two front feet! 
+At least Linksys WRT54GS v2.0 and Linksys WAG54G have screws hidden under the two front feet!
 
 If you're having trouble popping open your router to get at the internals, it's probably because there are screws hidden under the the two front feet in the blue part of the case. DO NOT apply extra force to open these models without checking for the prescence of screws!
 
@@ -204,8 +204,8 @@ eth%d: 3.90.37.0 driver failed with code 23
 }}}
 If you have a WRT54GS v1.1, you may try to add the following variables :
 {{{
-wl0id=0x4320 
-wl0gpio2=0 
+wl0id=0x4320
+wl0gpio2=0
 wl0gpio3=0
 }}}
 and try to load the wl.o module :
@@ -218,6 +218,26 @@ Another way to fix this problem should be to flash a "working" linksys firmware,
 = Source port mismatch with atftp =
 
 If you get 'source port mismatch, check bypassedtimeout: retrying...' error when trying to upload firmware, there is probably something wrong with your arp table. First try clearing it by using 'arp -d 192.168.1.1' and retry. You can check which mac address your computer sees with 'arp -a'. If clearing didn't help, you can also try setting MAC address (under MAC address clone in basic setup) to mac address that your computer sees. Upload should work afterwards. I had this problem with wrt54gs.
+
+= Known incompatibility with World of Warcraft =
+
+The current OpenWRT image ("White Russian", aka RC3) has a known incompatibility with World of Warcraft when executing on some versions of the Linksys WRT54G(S).  ([http://forums.worldofwarcraft.com/thread.aspx?FN=wow-tech-support&T=117416&P=1 Symptoms]) This bug also exists in all but some of the most recent official firmware releases from Linksys.  The precise nature of the problem has not been widely disclosed; however, corruption of TCP stream data passing through the router appears to be the root cause.
+
+The precise root cause of the data corruption is not known.   It is theorized that the following patch, one of the differences between the different Linksys source releases, ''may'' correct the problem:
+
+{{{
+--- linux.old/net/ipv4/netfilter/ip_conntrack_core.c       2003-08-12 13:33:45.000000000 +0200
++++ linux.new/net/ipv4/netfilter/ip_conntrack_core.c       2004-08-29 18:30:19.000000000 +0200
+@@ -751,7 +751,7 @@
+        atomic_inc(&ip_conntrack_count);
+        WRITE_UNLOCK(&ip_conntrack_lock);
+
+-       if (expected && expected->expectfn)
++       if (expected && is_confirmed(expected->expectant) && expected->expectfn)
+                expected->expectfn(conntrack);
+        return &conntrack->tuplehash[IP_CT_DIR_ORIGINAL];
+ }
+}}}
 
 = Getting help =
 Still stuck? see [http://openwrt.org/support] for information on where to get help.
