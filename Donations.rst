@@ -41,11 +41,19 @@ Broadcom BCM47xx/53xx platform:
 
  * Linksys WRT54G3G
  * Linksys WTR54GS
+ * Linksys WRTSL54GS
 
 TI AR7 platform:
 
  * Linksys WRTP54G
  * Linksys ADSL2MUE
+
+===== For other networking card support: =====
+
+ * Atheros based mini-PCI cards
+ * Cisco mini-PCI cards
+ * Prism (both 11 and 54Mbit) mini-PCI cards
+
 
 
 /!\ Please note, that the devices are typically not returned. If you need the device returned please be sure to sure to write that in your email so we can make special arrangements.
