@@ -3,20 +3,20 @@
 
 === Hardware versions ===
 
-There are currently seven versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0, v3.1, v4.00). With the exception of v4.00 devices (it is currently marked as untested for White Russian RC1), the WRT54G units are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is off by default on these routers, so you should turn it on. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
+There are currently seven versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0, v3.1, v4.00). With the exception of v5 devices the WRT54G units are supported by OpenWrt 1.0 (White Russian) and later. {{{boot_wait}}} is off by default on these routers, so you should turn it on. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
 ===== Identification by S/N =====
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''OpenWRT'''||
-||'''Model'''||'''S/N'''||'''CVS'''||'''EXP'''||
+||'''Model'''||'''S/N'''||'''White Russian'''||'''CVS'''||
 ||<(|2>WRT54G v1.1||CDF20xxxxxxx||<:|2> (./) ||<:|2> (./) ||
 ||CDF30xxxxxxx||
 ||WRT54G v2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v2.2||CDF70xxxxxxx||<:> {X} ||<:> (./) ||
-||WRT54G v3||CDF80xxxxxxx||<:> {X} ||<:> (./) ||
-||WRT54G v3.1 (AU?)||CDF90xxxxxxx||<:> {X} ||<:> (./) ||
-||WRT54G v4||CDFA0xxxxxxx||<:> {X} ||<:> ? ||
-||WRT54G v5||CDFB0xxxxxxx||  ||  ||
+||WRT54G v2.2||CDF70xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v3||CDF80xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v3.1 (AU?)||CDF90xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v4||CDFA0xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v5||CDFB0xxxxxxx||<:> {X} ||<:> {X} ||
 
 ==== WRT54G v1.0 ====
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM.
