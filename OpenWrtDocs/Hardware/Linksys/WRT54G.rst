@@ -8,7 +8,7 @@ There are currently eight versions of the WRT54G (v1.0, v1.1, v2.0, v2.2, v3.0, 
 ===== Identification by S/N =====
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''OpenWRT'''||
-||'''Model'''||'''S/N'''||'''White Russian'''||'''CVS'''||
+||'''Model'''||'''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
 ||<(|2>WRT54G v1.1||CDF20xxxxxxx||<:|2> (./) ||<:|2> (./) ||
 ||CDF30xxxxxxx||
 ||WRT54G v2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
@@ -85,22 +85,13 @@ how to get info :
 ||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
-||WRT54GS v1.0      || 0x10         ||  0x0101       ||  0x0388        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||
-||WRT54GS v1.1      || 0x10         ||  0x0708       ||  0x0318        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||
-||WRT54GS v2.0      ||    ?         ||       ?       ||  ?             ||  ?             ||  ?           ||       -         || -             ||
-||WRT54GS v2.1      ||    ?         ||       ?       ||  ?             ||  ?             ||  ?           ||       -         || -             ||
-||Allnet all0277   || 0x10         ||  bcm94710dev   ||  0x0388        ||  0              ||  42          ||       4         || BCM4710 V0.0  ||
-||Buffalo WBR-54G   || 0x10         ||  bcm94710ap   ||  0x0188        ||  2              ||  42          ||       -         || -             ||
-||Toshiba WRC1000   || -            ||  bcm94710r4   ||  -             ||  -              ||  100         ||       -         || -             ||
-||Buffalo WBR2-G54S || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  00          ||       -         || -             ||
-||Asus WL-500G Deluxe|| 0x10        ||  bcm95365r    ||      -         ||       -         ||  45          ||       5         || BCM3302 V0.7 ||
-||Asus WL-500G          ||               || bcm94710dev ||                  ||                 ||  asusX    ||                  || BCM4710 V0.0 ||
 
 *other variables (nvram) of interest :  boot_ver, pmon_ver, firmware_version, os_version
 
 
-please complete this table. Look at this thread : http://openwrt.org/forum/viewtopic.php?pid=8127#p8127
-May be this table should move up to OpenWrtDocs/Hardware.
+Please complete this table. Look at the
+[http://openwrt.org/forum/viewtopic.php?pid=8127#p8127 Determining WRT54G/GS model using nvram variables]
+thread. May be this table should move up to [:OpenWrtDocs/Hardware].
 
 
 === Hardware hacking ===
