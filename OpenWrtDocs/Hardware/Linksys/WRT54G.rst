@@ -99,13 +99,13 @@ boardflags=0x0118
 boardnum=42
 }}}
 
-/!\ '''To take the front cover off of this unit you must first remove the small screws
-under the rubber covers of the front feet!'''
+/!\ '''NOTE:''' To take the front cover off of this unit you must first remove the small
+screws under the rubber covers of the front feet!
 
 
 ==== WRT54G v5 ====
 
-/!\ '''NOTE:''' OpenWrt does '''NOT''' currently support the WRT54G '''v5'''!
+/!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''v5'''!
 
 Initial reports are that this version has switched to a non-Linux OS (VxWorks).  It appears
 from pictures that it is nearly identical to v4 with an updated rev on the processor, less
