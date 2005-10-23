@@ -46,7 +46,7 @@ This script is tested on a v.1 unit!
 
  5., If you have problems, send your comments to slapic@linux.co.hu.
 
- 6., If you're familiar with WiKi, customize this page to look better.
+ 6., If you're familiar with Wiki, customize this page to look better.
 
 
 == Warning: your WAP54G doesn't have much flash! (and can get stuck because of that) ==
