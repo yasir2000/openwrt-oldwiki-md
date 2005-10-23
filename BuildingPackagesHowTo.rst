@@ -224,11 +224,6 @@ cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 }}}
 
 
-=== Packages from CVS ===
-
-Under development.
-
-
 = Contribute your new ported program =
 
 When you like you can contribute your program/package to the OpenWrt community.
