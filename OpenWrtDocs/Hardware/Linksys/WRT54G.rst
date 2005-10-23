@@ -17,7 +17,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''OpenWRT'''||
 ||'''Model'''||'''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
-||WRT54G v1.0||?||<:> (./) ||<:> (./) ||
+||WRT54G v1.0||CDF0xxxxxxx||<:> (./) ||<:> (./) ||
 ||<(|2>WRT54G v1.1||CDF20xxxxxxx||<:|2> (./) ||<:|2> (./) ||
 ||CDF30xxxxxxx||
 ||WRT54G v2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
