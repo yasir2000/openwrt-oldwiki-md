@@ -202,9 +202,7 @@ order name them like:
 }}}
 
 
-== Compiling ==
-
-=== The normal way ===
+== Compile the package ==
 
 The {{{make}}} command below compiles every package that you have created in the
 {{{package}}} directory.
