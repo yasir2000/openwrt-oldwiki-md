@@ -18,14 +18,14 @@ the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''OpenWRT'''||
 ||'''Model'''||'''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
 ||WRT54G v1.0||CDF0xxxxxxx||<:> (./) ||<:> (./) ||
-||<(|2>WRT54G v1.1||CDF20xxxxxxx||<:|2> (./) ||<:|2> (./) ||
-||CDF30xxxxxxx||
-||WRT54G v2||CDF50xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v2.2||CDF70xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v3||CDF80xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v3.1 (AU?)||CDF90xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v4||CDFA0xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v5||CDFB0xxxxxxx||<:> {X} ||<:> {X} ||
+||<(|2>WRT54G v1.1||CDF2xxxxxxx||<:|2> (./) ||<:|2> (./) ||
+||CDF3xxxxxxx||
+||WRT54G v2||CDF5xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v2.2||CDF7xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v3||CDF8xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v3.1 (AU?)||CDF9xxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v4||CDFAxxxxxxx||<:> (./) ||<:> (./) ||
+||WRT54G v5||CDFBxxxxxxx||<:> {X} ||<:> {X} ||
 
 
 ==== WRT54G v1.0 ====
