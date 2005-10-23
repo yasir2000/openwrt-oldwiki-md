@@ -168,7 +168,12 @@ Here you should create a list of printers which are '''not''' working
 with the {{{p910nd}}} package. Please include manufacturer, model,
 interface (USB/Parport), driver working  and some short comment.
 
-Please update this section with some useful content.
+The combination Windows 2000 with a canon pixma iP4000 seems not to 
+work with bidirectional mode. If your printer dosent work, try disabling 
+bidirectional mode.
+
+
+Please add not working combinations here.
 
 
 = Links =
