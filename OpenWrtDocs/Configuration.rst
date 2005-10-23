@@ -578,6 +578,10 @@ Configure your extended printer settings. If you use the standard printer settin
 
 With RC3 or later, use libopenssl
 
+=== Wake on LAN ===
+
+If you have trouble using [http://tracker.openwrt.org/packages/list.php?name=wol wol] to wake up your PC give [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ ether-wake] a try. Since ether-wake uses an ehternet frame instead of an UDP packet it might be what you're looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
+
 == Building your own packages ==
 
 To build your own packages for OpenWRT, you will need the WRT SDK. See ["BuildingPackagesHowTo"]
