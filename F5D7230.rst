@@ -34,7 +34,7 @@ There are a number of public forums and web sites where the installation of open
  2. http://melbourne.wireless.vic.asn.au/wiki/?minitar :: Melbourne Wireless - Old Site
  3. http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html :: Comp Sys MAX232 Adapters
  4. http://www.theforestnetworking.com/sveasoft/serial.php :: WRT54G & WRT54GS Serial Adaptor
-
+ 5. http://hamburg.freifunk.net/twiki/bin/view/Technisches/BasteleienUndBausaetze Serial mods. (german)
 
 === Hardware Pages ===
 
