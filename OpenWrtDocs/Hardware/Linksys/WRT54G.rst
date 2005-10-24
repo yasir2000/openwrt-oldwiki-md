@@ -1,5 +1,8 @@
 '''Linksys WRT54G'''
+
+
 [[TableOfContents]]
+
 
 === Hardware versions ===
 
@@ -120,7 +123,7 @@ flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be suppor
 
 === Table summary ===
 
-How to get info :
+How to get info:
 
  * board info: {{{nvram show | grep board | sort}}}[[BR]]
  * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
