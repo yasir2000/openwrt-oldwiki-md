@@ -242,10 +242,10 @@ nvram commit
 When this is done you can follow the [:OpenWrtDocs/Deinstalling] page.
 
 
-== Does OpenWrt have a web interface (webif) GUI? ==
+== Does OpenWrt have a web interface? ==
 
 Not yet. The upcoming OpenWrt White Russian 1.0 release will have
-a web interface.
+a web interface (called webif).
 
 Nbd is currently working on one. The latest release can always be installed
 from [http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk] via:
