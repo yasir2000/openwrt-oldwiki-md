@@ -4,7 +4,7 @@
 === Hardware versions ===
 
 There are currently eight versions of the WRT54G (v1.0, v1.1, v2.0, v2.2,
-v3.0, v3.1, v4.00). With the exception of v5 devices the WRT54G units are
+v3.0, v3.1, v4.00, v5). With the exception of v5 devices the WRT54G units are
 supported by OpenWrt 1.0 (White Russian) and later. {{{boot_wait}}} is off
 by default on these routers, so you should turn it on. The version number
 is found on the label on the bottom of the front part of the case below the
@@ -80,10 +80,13 @@ boardflags=0x0118
 ==== WRT54G v3.0 & WRT54G v3.1 ====
 
 This unit is just like v2.2 except it has an extra button on the left
-front panel behind a Cisco logo. This button can be illuminated by either a yellow or white LED, and is used for the "Secure Easy Setup" encryption setup feature.
+front panel behind a Cisco logo. This button can be illuminated by either
+a yellow or white LED, and is used for the "Secure Easy Setup" encryption
+setup feature.
 
 /!\ '''NOTE:''' To take the front cover off of v3.1, you must first remove the small
 screws under the rubber covers of the front feet!
+
 
 ==== WRT54G v4.00 ====
 
