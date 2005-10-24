@@ -48,6 +48,10 @@ TI AR7 platform:
  * Linksys WRTP54G
  * Linksys ADSL2MUE
 
+AMD Alchemy platform:
+
+ * 4G Systeme Meshcube
+
 ===== For other networking card support: =====
 
  * Atheros based mini-PCI cards
