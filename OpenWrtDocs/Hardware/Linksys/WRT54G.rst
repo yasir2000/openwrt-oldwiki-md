@@ -7,11 +7,11 @@
 === Hardware versions ===
 
 There are currently eight versions of the WRT54G (v1.0, v1.1, v2.0, v2.2,
-v3.0, v3.1, v4.00, v5). With the exception of v5 devices the WRT54G units are
-supported by OpenWrt 1.0 (White Russian) and later. {{{boot_wait}}} is off
-by default on these routers, so you should turn it on. The version number
-is found on the label on the bottom of the front part of the case below the
-Linksys logo.
+v3.0, v3.1, v4.00, v5). With the exception of v5 devices the WRT54G units
+are full supported by OpenWrt 1.0 (White Russian) and later. {{{boot_wait}}}
+is off by default on these routers, so you should turn it on. The version
+number is found on the label on the bottom of the front part of the case
+below the Linksys logo.
 
 
 ===== Identification by S/N =====
