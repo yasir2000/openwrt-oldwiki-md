@@ -79,9 +79,11 @@ boardflags=0x0118
 
 ==== WRT54G v3.0 & WRT54G v3.1 ====
 
-This unit is just like the v2.2 Except it has an extra reboot button on the left
-front panel behind a Cisco logo.
+This unit is just like v2.2 except it has an extra button on the left
+front panel behind a Cisco logo. This button can be illuminated by either a yellow or white LED, and is used for the "Secure Easy Setup" encryption setup feature.
 
+/!\ '''NOTE:''' To take the front cover off of v3.1, you must first remove the small
+screws under the rubber covers of the front feet!
 
 ==== WRT54G v4.00 ====
 
