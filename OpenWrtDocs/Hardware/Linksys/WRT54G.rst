@@ -45,12 +45,6 @@ The WRT54G v1.1 is based on the Broadcom 4710 board. It has a 125 MHz CPU, 4 MB
 flash and 16 MB SDRAM. The wireless NIC is soldered to the board. The switch is
 an ADM6996.
 
-Hardware informations (NVRAM):
-
-{{{
-boardtype=bcm94710dev
-}}}
-
 
 ==== WRT54G v2.0 ====
 
@@ -58,26 +52,12 @@ The WRT54G v2.0 is based on the Broadcom 4712 board. It has a 200 MHz CPU, 4 MB
 flash and 16 MB SDRAM. The wireless NIC is integrated to the board. The switch is
 an ADM6996.
 
-Hardware informations (NVRAM):
-
-{{{
-boardtype=0x0101
-boardflags=0x0188
-}}}
-
 
 ==== WRT54G v2.2 ====
 
 The WRT54G v2.2 is based on the Broadcom 4712 board. It has a 200 MHz CPU, 4 MB
 flash and 16 MB DDR-SDRAM. The wireless NIC is integrated to the board. The switch
 is a BCM5325.
-
-Hardware informations (NVRAM):
-
-{{{
-boardtype=0x0708
-boardflags=0x0118
-}}}
 
 
 ==== WRT54G v3.0 & WRT54G v3.1 ====
@@ -95,16 +75,6 @@ screws under the rubber covers of the front feet!
 New more integrated board layout
 ([http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6#wrt54g4 photos here]),
 switch is now in SoC.
-
-Hardware informations (NVRAM):
-
-{{{
-boardrev=0x10
-boardtype=0x0708
-boardflags2=0
-boardflags=0x0118
-boardnum=42
-}}}
 
 /!\ '''NOTE:''' To take the front cover off of this unit you must first remove the small
 screws under the rubber covers of the front feet!
