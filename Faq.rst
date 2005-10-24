@@ -1,8 +1,8 @@
-/!\ '''NOTE:''' This is going to be the new FAQ for the stable OpenWrt
+/!\ '''NOTE:''' This is going to be the new FAQ for the stable !OpenWrt
 White Russian release /!\
 
 
-/!\ '''WANING:''' This FAQ is not yet verified by the OpenWrt maintainers, it may
+/!\ '''WANING:''' This FAQ is not yet verified by the !OpenWrt maintainers, it may
 contain bugs /!\
 
 
@@ -220,7 +220,7 @@ yet or that nobody has had time to package it.
  * On systems with a 8 MB flash: roughly 6 MB
 
 The actual size allocated to the partition will vary slightly depending on
-the OpenWrt build. JFFS2 uses compression, the amount of data that can be
+the !OpenWrt build. JFFS2 uses compression, the amount of data that can be
 stored on that partition will be higher than the above values.
 
 
