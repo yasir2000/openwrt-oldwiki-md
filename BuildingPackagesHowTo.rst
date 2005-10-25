@@ -1,14 +1,17 @@
-OpenWrt SDK Howto
+'''!OpenWrt building packages howto'''
+
+
 [[TableOfContents]]
+
 
 = About the OpenWrt SDK =
 
 This howto is for people who would like to port/package applications
-to OpenWrt with the OpenWrt Software Development Kit (SDK).
+to OpenWrt with the !OpenWrt Software Development Kit (SDK).
 
 When using the SDK you don't require a full buildroot. The SDK is
 a stripped down version of it, which includes the toolchain and all the
-required library and header files to cross-compile applications for OpenWrt.
+required library and header files to cross-compile applications for !OpenWrt.
 
 
 = Requirements =
@@ -19,10 +22,11 @@ required library and header files to cross-compile applications for OpenWrt.
 
 = Using the OpenWrt SDK =
 
-'''TIP:''' Before you begin porting your own package to OpenWrt, check if it
-has not been already done by someone else. To check that look at
-[http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/package/?only_with_tag=HEAD].
-Don't do the work twice.
+'''TIP:''' Before you begin porting your own package to !OpenWrt, check if it
+has not been already done by someone else. To check that
+[http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/package/?only_with_tag=HEAD browse the CVS repository]
+via VIEWCVS in your web broswer and see if the package is already there. Don't
+do the work twice.
 
 Let's start with porting and packaging the well known "Hello world"
 program as an example.
@@ -30,7 +34,7 @@ program as an example.
 
 == Obtaining and installing the SDK ==
 
-The SDK could be downloaded from http://downloads.openwrt.org/whiterussian/
+The SDK could be downloaded from [http://downloads.openwrt.org/whiterussian/].
 
 Download it into your home directory (don't use the root account) and untar
 the tarball. After that change into the new directory.
@@ -213,7 +217,7 @@ make clean && make compile
 }}}
 
 
-When the compiling is finished you have a ready to use ipkg package for OpenWrt
+When the compiling is finished you have a ready to use ipkg package for !OpenWrt
 in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
 
 {{{
@@ -224,8 +228,8 @@ cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 
 = Contribute your new ported program =
 
-When you like you can contribute your program/package to the OpenWrt community.
-It may be included in further versions of OpenWrt.
+When you like you can contribute your program/package to the !OpenWrt community.
+It may be included in further versions of !OpenWrt.
 
 To do this create a tarball from your {{{package}}} directory, and send the tarball
 to openwrt-devel@openwrt.org .
