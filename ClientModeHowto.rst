@@ -10,7 +10,7 @@ in the forum may also be useful to understand things.
 == Configuring client mode ==
 
 You need to have a recent version of OpenWrt White Russian installed.
-This Howto was written for RC3.
+This howto was written for RC3 and later versions.
 
 The first step would be changing the WRT's behavior from AP to client
 mode (station/client mode or {{{sta}}} for short):
@@ -146,7 +146,7 @@ nvram commit
 
 == Some more configuration ==
 
-When you set an interface to DHCP, OpenWrt runs the DHCP client on that
+When you set an interface to DHCP, !OpenWrt runs the DHCP client on that
 interface automatically at boot time. If you want to re-run the dhcp
 client, for example because you joined another network, you can either
 reboot, or you can run the {{{ifup}}} command:
