@@ -83,6 +83,17 @@ Additional packages can be found through [http://tracker.openwrt.org Nico's pack
 
 If you have USB storage, or install packages to a destination other than root, the shell script ipkg-link will create automatic symlinks to the root filesystem for those packages.  See the info on ipkg-link on the UsbStorageHowto
 
+== Proxying ipkg ==
+
+To use ipkg through a proxy, add the following to /etc/ipkg.conf
+
+{{{option http_proxy http://aaa.bbb.ccc.ddd:port/
+option ftp_proxy ftp://aaa.bbb.ccc.ddd:port/}}}
+
+these are for if you need authentication 
+
+{{{option proxy_username xxxx
+option proxy_password xxxx}}}
 
 = Configuration =
 See [:OpenWrtDocs/Configuration]
