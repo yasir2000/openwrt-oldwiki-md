@@ -1,3 +1,6 @@
+'''Printer sharing howto'''
+
+
 [[TableOfContents]]
 
 
@@ -19,7 +22,7 @@ a TCP connection on port 910n (where n=0, 1, or 2 for lp0, 1 and 2
 respectively). p910nd is particularly useful for diskless Linux
 workstations booted via Etherboot that have a printer hanging off
 them. Common Unix Printing System (CUPS) supports this protocol, it's
-called the AppSocket protocol and has the scheme socket://. LPRng also
+called the !AppSocket protocol and has the scheme socket://. LPRng also
 supports this protocol and the syntax is lp=remotehost%9100
 in /etc/printcap.
 
@@ -38,19 +41,21 @@ in /etc/printcap.
 
 = Installation =
 
-For now please install the {{{p910nd}}} package from Nico's testing
-repository with the command:
+For now please install the {{{p910nd}}} package from
+[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository]
+with the command:
 
 {{{
 ipkg install http://downloads.openwrt.org/people/nico/testing/ \
         mipsel/packages/p910nd_0.7-2_mipsel.ipk
 }}}
 
-'''TIP:''' These binary packages from Nico's repository can be used
-in the stable White Russian release (except the kmod-* and kernel
-packages).
+'''TIP:''' These binary packages from
+[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository] can be used
+in the stable White Russian release (except the kmod-* and kernel packages).
 
-The {{{p910nd}}} package will be included in White Russian RC4.
+The {{{p910nd}}} package will be included in the upcoming White Russian
+RC4 release.
 
 
 = Configuring the printer daemon =
@@ -168,8 +173,8 @@ Here you should create a list of printers which are '''not''' working
 with the {{{p910nd}}} package. Please include manufacturer, model,
 interface (USB/Parport), driver working  and some short comment.
 
-The combination Windows 2000 with a canon pixma iP4000 seems not to 
-work with bidirectional mode. If your printer dosent work, try disabling 
+The combination Windows 2000 with a canon pixma iP4000 seems not to
+work with bidirectional mode. If your printer dosent work, try disabling
 bidirectional mode.
 
 
