@@ -21,8 +21,8 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
-          
-root@OpenWrt:/# 
+
+root@OpenWrt:/#
 }}}
 
 The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly commandline interface. With no packages installed, the firmware will simply configure the network interfaces, setup a basic NAT/firewall and load the telnet server and dnsmasq (a combination dns forwarder and dhcp server).
@@ -83,17 +83,31 @@ Additional packages can be found through [http://tracker.openwrt.org Nico's pack
 
 If you have USB storage, or install packages to a destination other than root, the shell script ipkg-link will create automatic symlinks to the root filesystem for those packages.  See the info on ipkg-link on the UsbStorageHowto
 
+
 == Proxying ipkg ==
 
 To use ipkg through a proxy, add the following to /etc/ipkg.conf
 
-{{{option http_proxy http://aaa.bbb.ccc.ddd:port/
-option ftp_proxy ftp://aaa.bbb.ccc.ddd:port/}}}
+{{{
+option http_proxy http://aaa.bbb.ccc.ddd:port/
+option ftp_proxy ftp://aaa.bbb.ccc.ddd:port/
+}}}
 
-these are for if you need authentication 
+these are for if you need authentication
 
-{{{option proxy_username xxxx
-option proxy_password xxxx}}}
+{{{
+option proxy_username xxxx
+option proxy_password xxxx
+}}}
+
+If the authentication with the above options in {{{/etc/ipkg.conf}}}
+is not working try the following format:
+
+{{{
+option http_proxy http://username:password@aaa.bbb.ccc.ddd:port/
+option ftp_proxy http://username:password@aaa.bbb.ccc.ddd:port/
+}}}
+
 
 = Configuration =
 See [:OpenWrtDocs/Configuration]
