@@ -1,15 +1,19 @@
-[:OpenWrtDocs]
+/!\ '''I'm currently updating this howto to White Russian RC3.
+Most things found here are obsolete.''' /!\
+
+
 [[TableOfContents]]
+
 
 = How do I enable the USB stick on Asus WL-500g / Asus WL500g Deluxe? =
 
-Good idea is to read http://rotz.org/archives/2005/03/wl500g_usb_stic.html
-
-Also, if using a multi-card reader read http://www.cs.sfu.ca/~ggbaker/personal/cf-linux
+Good idea is to read [http://rotz.org/archives/2005/03/wl500g_usb_stic.html].
+If using a multi-card reader see [http://www.cs.sfu.ca/~ggbaker/personal/cf-linux].
 
 You can see which packages are available:
+
 {{{
-root@OpenWrt:~#ipkg list | grep USB
+ipkg list | grep usb
 kmod-usb-core - Kernel Support for USB
 kmod-usb-ohci - Kernel driver for OHCI USB controllers
 kmod-usb-printer - Kernel modules for USB Printer support
@@ -20,11 +24,14 @@ libusb - a Library for accessing Linux USB devices
 lsusb - A program to list USB devices
 }}}
 
-For Asus WL500g:
-Install these packages: 
-{{{ipkg install kmod-usb-core kmod-usb-uhci kmod-usb-storage}}}
+For Asus WL-500G install these packages:
 
-and add next lines to /etc/modules
+{{{
+ipkg install kmod-usb-core kmod-usb-uhci kmod-usb-storage
+}}}
+
+and add next lines to {{{/etc/modules}}}
+
 {{{
 scsi_mod max_scsi_luns=8
 sd_mod
@@ -35,21 +42,26 @@ usb-ohci
 usb-storage
 }}}
 
-The ''max_scsi_luns=8'' bit is needed for multi-card readers.
+'''TIP:''' The {{{max_scsi_luns=8}}} bit is needed for multi-card readers.
 
-Some models of the Asus WL-500g use an ohci controller - so you need to load the usb-ohci module, not uhci.
+Some models of the Asus WL-500G use an OHCI controller - so you need to load
+the {{{usb-ohci}}} module, not the UHCI modules.
 
-NOTE:
-Since the WhiteRussian-RC2 release of OpenWRT modules listed in the /etc/modules.d directory are loaded automatically (although the /etc/modules file is still also used). Thus you probably do not need to explicitly state the modules to load in /etc/modules.
+'''NOTE:''' Since the White Russian RC2 release of !OpenWrt modules listed in
+the {{{/etc/modules.d}}} directory are loaded automatically (although the
+{{{/etc/modules}}} file is still used). Thus you probably do not need to
+explicitly state the modules to load in {{{/etc/modules}}}.
 
+For Asus WL-500G Deluxe:
 
+If you plan to use USB 2.0 only devices install these packages:
 
-For Asus WL-500g Deluxe: 
+{{{
+ipkg install kmod-usb2 kmod-usb-storage kmod-usb-core
+}}}
 
-If you plan to use USB 2.0 only devices install these packages: 
-{{{ipkg install kmod-usb2 kmod-usb-storage}}} ({{{kmod-usb-core}}} will added as dependency)
+and add next lines to {{{/etc/modules}}}
 
-and add next lines to /etc/modules
 {{{
 scsi_mod max_scsi_luns=8
 sd_mod
@@ -60,9 +72,13 @@ usb-storage
 }}}
 
 If you want use your old USB 1.1 stick with USB 2.0 you must also install:
-{{{ipkg install kmod-usb-uhci}}}
 
-and then and add next line to /etc/modules
+{{{
+ipkg install kmod-usb-uhci
+}}}
+
+and then and add next line to {{{/etc/modules}}}
+
 {{{
 uhci
 }}}
@@ -77,13 +93,30 @@ uhci
 usb-storage
 }}}
 
-You can use command {{{vi /etc/modules}}} or {{{echo -e "usbcore\nehci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 2.0 and {{{echo -e "usbcore\nehci\nuhci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules}}} for USB 1.1. Either reboot or load the modules in this order manually with insmod.
+You can use the command {{{vi /etc/modules}}} or for USB 2.0
 
-NOTE: since Whiterussian RC2 ehci is replaced by ehci-hcd.
+{{{
+echo -e "usbcore\nehci\nscsi_mod\nsd_mod\nsg\nusb-storage\n">> /etc/modules
+}}}
 
-Now check if your OpenWrt sees your USB stick/device (of course inserting it into your ASUS): {{{dmesg}}}
+and for USB 1.1
+
+{{{
+echo -e "usbcore\nehci\nuhci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules
+}}}
+
+Now either reboot or load the modules in this order manually with {{{insmod}}}.
+
+'''NOTE:''' Since White Russian RC2 {{{ehci}}} is replaced by {{{ehci-hcd}}}.
+
+Now check if your !OpenWrt sees your USB stick/device (of course inserting it into
+your ASUS).
 
 If it correct you should see similar to below
+
+{{{
+dmesg
+}}}
 
 {{{
 usb.c: registered new driver usbdevfs
@@ -117,52 +150,77 @@ USB Mass Storage support registered.
 }}}
 
 Install a filesystem kernel module:
- * ext2/3: {{{ipkg install kmod-ext2 kmod-ext3}}} and add {{{ext2 jbd ext3}}} to /etc/modules
- * vfat (filesystem generally used in usb sticks and older windows): {{{ipkg install kmod-vfat}}} and add {{{fat vfat}}} to /etc/modules
+ * EXT2/EXT3: {{{ipkg install kmod-ext2 kmod-ext3}}} and add {{{ext2 jbd ext3}}} to
+ {{{/etc/modules}}}
+ * VFAT (filesystem generally used in USB sticks and older windows): {{{ipkg install kmod-vfat}}}
+ and add {{{fat vfat}}} to /etc/modules
 
-Next you can mount and use your USB stick (with relevant modul for your file system in memory and created directory for mount): {{{mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt}}}
+Next you can mount and use your USB stick (with relevant modul for your file system in
+memory and created directory for mount):
+
+{{{
+mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
+}}}
 
 
-= How do I boot from USB stick on ASUS WL-500gx (WL-500g Deluxe, wl500gx) ? =
-This guide assumes that you're using a jffs root, with squashfs root some steps might be a little different.
-See http://forum.openwrt.org/viewtopic.php?pid=11211 if you want to use squashfs.
+= How do I boot from USB stick on ASUS WL-500gx (WL-500G Deluxe, WL-500GX)? =
 
-For this to work you need the same kernel modules for USB as described above. You also need the modules for the ext3 filesystem: 
+This guide assumes that you are using a JFFS2 root, with SquashFS root some steps
+might be a little different. See [http://forum.openwrt.org/viewtopic.php?pid=11211]
+if you want to use SquashFS.
+
+For this to work you need the same kernel modules for USB as described above. You
+also need the modules for the EXT3 filesystem:
+
 {{{
 ipkg install kmod-ext2 kmod-ext3
 }}}
 
-The next step is to partition the USB stick and create an ext3fs partition. This requires fdisk. As fdisk isn't included in the default OpenWrt distribution, you'll have to either build it yourself and include fdisk, or use Linux on a desktop computer. (A Linux Live CD works fine). This is the command for doing it from OpenWrt:
+The next step is to partition the USB stick and create an EXT3 FS partition. This
+requires {{{fdisk}}}. As {{{fdisk}}} isn't included in the default !OpenWrt distribution,
+you'll have to either build it yourself and include {{{fdisk}}}, or use Linux on a
+desktop computer. (A Linux Live CD works fine). This is the command for doing it from
+!OpenWrt:
+
 {{{
 fdisk /dev/scsi/host0/bus0/target0/lun0/disc
 }}}
 
 From a desktop Linux distribution, it's more like:
+
 {{{
 fdisk /dev/sda
 }}}
-/!\ ''Make sure you're modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB stick might be at /dev/sdb or /dev/sdb (and so on) instead!''
+/!\ '''NOTE:''' Make sure you are modifying the right device. If you have any other USB
+drives, or a SCSI or SATA drive, your USB stick might be at {{{/dev/sdb}}} or {{{/dev/sdb}}}
+(and so on) instead!
 
-For more information about using fdisk, see: http://www.tldp.org/HOWTO/Partition/partition-5.html
+For more information about using {{{fdisk}}}, see [http://www.tldp.org/HOWTO/Partition/partition-5.html].
 
 Next, "format" the newly created partition
 
-OpenWrt:
+!On OpenWrt:
+
 {{{
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
-Desktop Linux:
+
+On desktop Linux:
+
 {{{
 mke2fs -j /dev/sda
 }}}
-Same warning as above applies here.
 
-Make sure you have /usb and /mnt directories on the jffs partition:
+/!\ '''NOTE:''' Same warning as above applies here.
+
+Make sure you have {{{/usb}}} and {{{/mnt}}} directories on the JFFS2 partition:
+
 {{{
 mkdir /usb /mnt
 }}}
 
 Now, we will copy everything from the flash to the USB:
+
 {{{
 # load modules
 insmod jbd && insmod ext3
@@ -176,12 +234,15 @@ mkdir -p /mnt/tmp && mkdir -p /mnt/dev && mkdir -p /mnt/proc && mkdir -p /mnt/jf
 umount /mnt
 }}}
 
-Next, remove /sbin/init from the jffs partition (this is just a symlink to busybox anyway):
+Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to
+!BusyBox anyway):
+
 {{{
 rm /sbin/init
 }}}
 
 And replace it with this script:
+
 {{{
 #!/bin/sh
 boot_dev="/dev/scsi/host0/bus0/target0/lun0/part1"
@@ -212,9 +273,12 @@ fi
 # finally, run the real init (from usb hopefully).
 exec /bin/busybox init
 }}}
-/!\ ''If you use USB 2.0 you have to replace the line '''insmod uhci && sleep 2s''' by '''insmod ehci-hcd && sleep 2s'''.''
 
-Make sure your new /sbin/init is executable:
+/!\ '''NOTE:''' If you use USB 2.0 you have to replace the line {{{insmod uhci && sleep 2s}}}
+by {{{insmod ehci-hcd && sleep 2s}}}.
+
+Make sure your new {{{/sbin/init}}} is executable:
+
 {{{
 chmod a+x /sbin/init
 }}}
@@ -244,7 +308,7 @@ setdest () {
                         DEST=$i
                 fi
         done
-        
+
         if [ "x$DEST" = "x" ]; then
                 echo "Can not locate $PACKAGE."
                 echo "Check /etc/ipkg.conf for correct dest listings";
@@ -256,7 +320,7 @@ setdest () {
 
 addlinks () {
         setdest;
-        
+
         cat $DEST/usr/lib/ipkg/info/$PACKAGE.list | while read LINE; do
                 SRC=$LINE
                 DST=`echo $SRC | sed "s|$DEST||"`
@@ -285,13 +349,13 @@ addlinks () {
                                 echo "Source directory $SRC does not exist"
                         fi
                 fi
-        done 
-        
+        done
+
 }
 
 removelinks () {
         setdest;
-        
+
         cat $DEST/usr/lib/ipkg/info/$PACKAGE.list | while read LINE; do
                 SRC=$LINE
                 DST=`echo $LINE | sed "s|$DEST||"`
@@ -308,53 +372,53 @@ removelinks () {
                         else
                                 echo "$DST does not exist"
                         fi
-                fi          
-        done                
-                            
-}                           
-                            
-mountdest () {              
-        test -d $PACKAGE    
-        if [ $? = 1 ]; then 
+                fi
+        done
+
+}
+
+mountdest () {
+        test -d $PACKAGE
+        if [ $? = 1 ]; then
                 echo "Mount point does not exist"
-                exit 1      
-        fi                  
-                            
+                exit 1
+        fi
+
         for i in $PACKAGE/usr/lib/ipkg/info/*.list; do
                 $0 add `basename $i .list`
-        done                
-}                           
-                            
-umountdest () {             
-        test -d $PACKAGE    
-        if [ $? = 1 ]; then 
+        done
+}
+
+umountdest () {
+        test -d $PACKAGE
+        if [ $? = 1 ]; then
                 echo "Mount point does not exist"
-                exit 1      
-        fi                  
-                            
+                exit 1
+        fi
+
         for i in $PACKAGE/usr/lib/ipkg/info/*.list; do
                 $0 remove `basename $i .list`
-        done                
-}                           
-                            
-case "$COMMAND" in          
-  add)                      
-        addlinks            
-  ;;                        
-                            
-  remove)                   
-        removelinks         
-  ;;                        
-                            
-  mount)                    
-        mountdest           
-  ;;                        
-                            
-  umount)                   
-        umountdest          
-  ;;                        
-                            
-  *)                        
+        done
+}
+
+case "$COMMAND" in
+  add)
+        addlinks
+  ;;
+
+  remove)
+        removelinks
+  ;;
+
+  mount)
+        mountdest
+  ;;
+
+  umount)
+        umountdest
+  ;;
+
+  *)
         echo "Usage: $0 <cmd> <target>"
         echo "       Commands: add, remove, mount, umount"
         echo "       Targets: <package>, <mount point>"
@@ -362,13 +426,13 @@ case "$COMMAND" in
         echo "Example:  $0 remove kismet-server"
         echo "Example:  $0 mount /mnt/usb"
         echo "Example:  $0 umount /mnt/usb"
-        exit 1              
-        ;;                  
-                            
-esac                        
-                            
-exit 0                      
-                             
+        exit 1
+        ;;
+
+esac
+
+exit 0
+
 }}}
 
 Send questions/bugs on this script to Matt Barclay mbarclay (at) openfbo dot com
