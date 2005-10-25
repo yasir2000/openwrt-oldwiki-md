@@ -3,13 +3,14 @@
 If you want to use OpenWrt to connect to another access point (AP) or
 computer rather than to use it as an AP, follow the next steps.
 
-This [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151] thread
-in the forum may also be useful to understand things.
+To understand the client mode better, you may be should read the
+[http://forum.openwrt.org/viewtopic.php?pid=13151#p13151 Setting up OpenWrt in client mode]
+thread in the forum.
 
 
 == Configuring client mode ==
 
-You need to have a recent version of OpenWrt White Russian installed.
+You need to have a recent version of !OpenWrt White Russian installed.
 This howto was written for RC3 and later versions.
 
 The first step would be changing the WRT's behavior from AP to client
