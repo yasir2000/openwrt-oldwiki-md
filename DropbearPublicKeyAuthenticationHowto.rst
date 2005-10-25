@@ -1,32 +1,40 @@
+'''Dropbear public key authentication howto'''
+
+
 [[TableOfContents]]
 
 
 = Why Public Key Authentication with Dropbear =
+
 There are several resons for using public key authentication. Most important would be adding
 more security, you like to get rid of entering your password everytime you login to your
 router or you like to automate things like file transfers using SCP (Secure Copy).
 
 
 = Requirements =
+
   * A recent OpenWrt version (>= White Russian RC3) installed on your router.
   * SSH client software to connect to the Dropbear SSH server (see the links at the
   end of this document)
 
 
 = Installation =
+
 No ipkg package installation is necessary. Dropbear is installed as the default
-SSH server in OpenWrt.
+SSH server in !OpenWrt.
 
 
 = Configuration =
 
 
 == Generate the Public and Private Key pairs ==
+
 Now we create our public and private key pairs. I show you how to create them
 using Linux and Windows. In the same step we copy the public key onto the router.
 
 
 === With the OpenSSH client ===
+
 On Linux open a shell and type:
 
 {{{
@@ -44,6 +52,7 @@ SSH connection to it.
 
 
 === With PuTTY on Windows ===
+
 Start the PuTTY Key Generator with {{{puttygen.exe}}}. Click on the button Generate.
 
   * After that click on the "Save public key" button. Save the public key in a file
@@ -77,6 +86,7 @@ SSH connection to it.
 
 
 == Create the directories ==
+
 Create the following directories (on the router) and set their permissions. They are
 required later.
 
@@ -88,6 +98,7 @@ chmod -R 0700 /root
 
 
 == Change root's home directory ==
+
 Now it's time to change the root's home directory. This is necessary, because
 the standard home directory for root ({{{/tmp}}}) does not have the right
 permissions.
@@ -112,6 +123,7 @@ home directory anymore.
 
 
 == Add the Public Keys to authorized_keys ==
+
 Once we have this we want to save our public key into the authorized keys
 file (on the server) which can be done easily as follows. Your generated
 key will look similar to the one below.
@@ -147,11 +159,13 @@ You can repeat this step with every new public key. It gets appended to the
 
 
 = Connecting to OpenWrt with Public Key =
+
 If you did everything right, you can now login using your keys. It will
 never ask you for a password.
 
 
 == Using the OpenSSH client ==
+
 {{{
 openwrt-dev@debian:~/.ssh$ ssh root@192.168.1.1
 
@@ -181,6 +195,7 @@ openwrt-dev@debian:~/.ssh$ ssh -vv root@192.168.1.1
 
 
 == Using PuTTY on Windows ==
+
 Start {{{putty.exe}}} and do the following:
  * Session / Host Name (or IP address), enter {{{192.168.1.1}}} (your router's IP address)
  * Connection / Data / Login details, Auto-login username is {{{root}}}
@@ -205,6 +220,7 @@ C:\> putty.exe @OpenWrt-Session
 
 
 == Disable password login ==
+
 For more security you can disable Dropbear's password login. This is done
 by adding the {{{-s}}} parameter to Dropbear. Modify the last line in the
 {{{/etc/init.d/S50dropbear}}} init script.
@@ -223,12 +239,13 @@ Now it's time to reboot.
 
 
 = Links =
+
 The free OpenSSH client and server
-[[BR]]- http://www.openssh.org/
+[[BR]]- [http://www.openssh.org/]
 
 PuTTY is a free implementation of Telnet and SSH for Win32 ({{{puttygen.exe}}},
 {{{putty.exe}}} and {{{pscp.exe}}})
-[[BR]]- http://www.chiark.greenend.org.uk/~sgtatham/putty/
+[[BR]]- [http://www.chiark.greenend.org.uk/~sgtatham/putty/]
 
 Key authentication
-[[BR]]- http://en.wikipedia.org/wiki/Key_authentication
+[[BR]]- [http://en.wikipedia.org/wiki/Key_authentication]
