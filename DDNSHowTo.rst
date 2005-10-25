@@ -1,4 +1,8 @@
+'''DDNS howto'''
+
+
 [[TableOfContents]]
+
 
 = About Dynamic DNS (DDNS) =
 
@@ -6,13 +10,14 @@ The DDNS service is for etablishing connections from computers on
 the Internet to your computer. This is useful if you want to run
 server software on your computer and only have a dynamic IP.
 
-OpenWrt uses ez-ipupdate for providing DDNS service.
+!OpenWrt uses the package {{{ez-ipupdate}}} for providing DDNS
+service.
 
 
 = Requirements =
 
 A recent OpenWrt version. This howto was written for the
-'White Russian RC3' release.
+'White Russian RC3' and later releases.
 
 
 = Installation =
@@ -203,7 +208,7 @@ When finished do {{{ESC}}} and {{{:wq}}} to save it. You can check it with
 {{{crontab -l}}}. This will execute {{{ez-ipupdate}}} every day at 10:00 pm.
 
 There are some cron job calculators around the Internet. They maybe helpful
-for you. One of them is http://www.csgnetwork.com/crongen.html.
+for you. One of them is [http://www.csgnetwork.com/crongen.html].
 
 
 == Debugging ==
@@ -221,9 +226,9 @@ The dump of my {{{/tmp/ez-ipup}}} file:
 1127182459,aaa.bbb.ccc.ddd
 }}}
 
-The first number is a Unix timestamp. And aaa.bbb.ccc.ddd is your current
-IP address. You can checkout your current IP address with
-http://www.whatismyip.com/ or http://www.whatismyip.org/.
+The first number is a Unix timestamp. And {{{aaa.bbb.ccc.ddd}}} is your current
+IP address. You can checkout your current IP address with [http://www.whatismyip.com/]
+or [http://www.whatismyip.org/].
 
 For advanced debugging enable the {{{debug}}} parameter in the configuration file.
 
@@ -232,5 +237,5 @@ For advanced debugging enable the {{{debug}}} parameter in the configuration fil
 
 For more details please have a look at the links below.
 
-[[BR]]- http://en.wikipedia.org/wiki/Ddns
-[[BR]]- http://www.ez-ipupdate.com/
+[[BR]]- [http://en.wikipedia.org/wiki/Ddns]
+[[BR]]- [http://www.ez-ipupdate.com/]
