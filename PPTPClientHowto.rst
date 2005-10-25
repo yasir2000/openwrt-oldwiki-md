@@ -286,3 +286,71 @@ you have to add a line in the ''/etc/ppp/options.pptp''
 {{{
 mppe required,no40,no56,stateless
 }}}
+
+== Addendum: scripts ==
+Using just the iptables command in the ip-up and ip-down script returns error code 127, which basicly means the command failed. Using the full name /usr/sbin/iptables in stead of it's short name works fine. I also added some logging to /var/log/ppp. Note: I'm not used to programming bash...
+
+
+=== /etc/ppp/ip-up ===
+{{{
+#!/bin/sh
+# parameters
+# $1 the interface name used by pppd (e.g. ppp3)
+# $2 the tty device name
+# $3 the tty device speed
+# $4 the local IP address for the interface
+# $5 the remote IP address
+# $6 the parameter specified by the 'ipparam' option to pppd
+
+logfile=/var/log/ppp
+echo `date` >> $logfile
+echo " $0 $1 $2 $3 $4 $5 $6" >> $logfile
+
+case "$6" in
+ peer-name1)
+  A="/usr/sbin/iptables -t filter -I FORWARD -o $1 -j ACCEPT"
+  B="/usr/sbin/iptables -t nat -A POSTROUTING -o $1 -j MASQUERADE"
+  C="/sbin/route add -net 10.0.0.0 netmask 255.0.0.0 $1"
+  $A
+  echo " $? $A" >> $logfile
+  $B
+  echo " $? $B" >> $logfile
+  $C
+  echo " $? $C" >> $logfile
+  ;;
+ *)
+esac
+exit 0
+}}}
+
+=== /etc/ppp/ip-down ===
+{{{
+#!/bin/sh
+# parameters
+# $1 the interface name used by pppd (e.g. ppp3)
+# $2 the tty device name
+# $3 the tty device speed
+# $4 the local IP address for the interface
+# $5 the remote IP address
+# $6 the parameter specified by the 'ipparam' option to pppd
+
+logfile=/var/log/ppp
+echo `date` >> $logfile
+echo " $0 $1 $2 $3 $4 $5 $6" >> $logfile
+
+case "$6" in
+ peer-name1)
+   A="/usr/sbin/iptables -t filter -D FORWARD -o $1 -j ACCEPT"
+   B="/usr/sbin/iptables -t nat -D POSTROUTING -o $1 -j MASQUERADE"
+   C="/sbin/route del -net 10.0.0.0 netmask 255.0.0.0 $1"
+   $A
+   echo " $? $A" >> $logfile
+   $B
+   echo " $? $B" >> $logfile
+   $C
+   echo " $? $C" >> $logfile
+   ;;
+ *)
+esac
+exit 0
+}}}
