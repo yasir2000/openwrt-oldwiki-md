@@ -1,4 +1,5 @@
-OpenWrt Image Builder Howto
+'''!OpenWrt Image Builder howto'''
+
 
 [[TableOfContents]]
 
@@ -6,7 +7,7 @@ OpenWrt Image Builder Howto
 = About the OpenWrt Image Builder =
 
 This guide should process you in building your own individual custom
-OpenWrt firmware images by using the OpenWrt Image Builder.
+OpenWrt firmware images by using the !OpenWrt Image Builder.
 
 Why custom images?
 [[BR]]These images are for people who want to do less configuration on the
@@ -15,6 +16,7 @@ purposes. This list could be continued by your own ideas.
 
 
 = Requirements =
+
    * a recent GNU/Linux distribution
 
    ... to be continued ...
@@ -23,16 +25,17 @@ purposes. This list could be continued by your own ideas.
 = Using the OpenWrt Image Builder =
 
 If you just like to see how the default images (default, micro and pptp
-included in the Image Builder) gets build, only follow the next step
-{{{3.1 Obtaining and installing the Image Builder}}} and the step
-{{{3.5 Building the image}}}.
+included in the Image Builder) gets build, continue with the steps
+[:ImageBuilderHowTo#Obtaining_and_installing_the_Image_Builder:3.1 Obtaining and installing the Image Builder]
+and [:ImageBuilderHowTo#Building_the_image:3.5 Building the image].
 
 Everyone else should follow point by point on this howto.
 
 
+[[Anchor(Obtaining_and_installing_the_Image_Builder)]]
 == Obtaining and installing the Image Builder ==
 
-The Image Builder could be downloaded from http://downloads.openwrt.org/whiterussian/.
+The Image Builder could be downloaded from [http://downloads.openwrt.org/whiterussian/].
 
 Download it into your home directory (don't use the root account) and untar the
 tarball. After that change into the new directory.
@@ -166,6 +169,7 @@ touch files.my-image/etc/example.txt
 You can copy or create files, directories and links as you like.
 
 
+[[Anchor(Building_the_image)]]
 == Building the image ==
 
 That's very easy. Just type {{{make}}} and all images you defined in the
@@ -318,5 +322,5 @@ interested in. These are:
 ||build_mipsel/linux-2.4-brcm/root/||Contains the files and directories which goes into the image (willbe deleted everytime a new image gets build)||
 ||files/||Files, directories and links in here would go into every image. Existing ones are replaced.||
 ||files.<image_name>/||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones are replaced.||
-||packages/||In here are all OpenWrt packages you can include in the image.||
+||packages/||In here are all !OpenWrt packages you can include in the image.||
 [http://openwrt.ertl-net.net/downloads/test/counter-ImageBuilderHowTo.gif]
