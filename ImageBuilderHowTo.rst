@@ -49,6 +49,7 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 }}}
 
 
+[[Anchor(The_package_lists)]]
 == The package lists ==
 
 Now you are ready to build your own images. By default the Image Builder
@@ -118,7 +119,7 @@ haserl
 That's all.
 
 If you don't need any special tweaks you can go ahead with
-{{{3.5 Building the image}}}.
+[:ImageBuilderHowTo#Building_the_image:3.5 Building the image].
 
 
 == Additional packages ==
@@ -126,7 +127,7 @@ If you don't need any special tweaks you can go ahead with
 When you have additional packages which are not listed (f.e. {{{nas}}}) in the
 {{{packages}}} directory you can add them by copying the package directly into
 the {{{packages}}} directory. After that add the package as described in
-{{{3.2 The package lists}}} above.
+[:ImageBuilderHowTo#The_package_lists:3.2 The package lists] above.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -311,6 +312,7 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 
      This is how you called/named your image. For example lists/default.brcm-2.4,
      here "default" is the {{{<image_name>}}}
+
 
 == Important directories ==
 
