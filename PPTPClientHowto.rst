@@ -291,13 +291,10 @@ mppe required,no40,no56,stateless
 == Addendum: scripts ==
 Using just the iptables command in the ip-up and ip-down script returns error code 127, which basicly means the command failed. Using the full name /usr/sbin/iptables in stead of it's short name works fine. I also added some logging to /var/log/ppp.
 
-Note1: There is no iptables command that allows ""incoming"" connections in these scripts, feel free to add it
-Note2: You will probably have to change the 10.0.0.0/8 remote subnet
-Note3: I'm not used to programming shell scripts, so any improvments are welcome: loops, shared headers (you know, like C/C++ header files)
-
-== Addendum: scripts ==
-Using just the iptables command in the ip-up and ip-down script returns error code 127, which basicly means the command failed. Using the full name /usr/sbin/iptables in stead of it's short name works fine. I also added some logging to /var/log/ppp. Note: I'm not used to programming bash...
-
+* Notes:
+ 1. There is no iptables command that allows ""incoming"" connections in these scripts, feel free to add it
+ 2. You will probably have to change the 10.0.0.0/8 remote subnet
+ 3. I'm not used to programming shell scripts, so any improvments are welcome: loops, shared headers (you know, like C/C++ header files)
 
 === /etc/ppp/ip-up ===
 {{{
