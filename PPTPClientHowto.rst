@@ -1,5 +1,6 @@
 #format wiki
 #language en
+[[TableOfContents]]
 == OpenWrt PPTP Client ==
 This mini howto discusses how to configure your router as a PPTP client to connect to an MS VPN PPTP server.
 
@@ -139,6 +140,8 @@ esac
 exit 0
 }}}
 Substitute ''peer-name1'', with the value given to ipparam above in the peer-file. Since we are configuring the first VPN link, you probably do not ''peer-name2'', it is included here as a template when adding another link. For now, remove it. Also, remove ''<commands here>>'', these will be replaced with actual commands below.
+
+When you use commands in these scripts, be sure to either use their full path or add `/usr/sbin` and `/sbin` to the ''PATH'' first.  pppd intentionally restricts the ''PATH'' available to the scripts for security reasons.
 
 === iptables (firewall) rules ===
 To update your firewall rules when the connection is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above.
@@ -288,13 +291,17 @@ mppe required,no40,no56,stateless
 }}}
 
 
-== Addendum: scripts ==
-Using just the iptables command in the ip-up and ip-down script returns error code 127, which basicly means the command failed. Using the full name /usr/sbin/iptables in stead of it's short name works fine. I also added some logging to /var/log/ppp.
+== Example Scripts ==
 
-* Notes:
- 1. There is no iptables command that allows ""incoming"" connections in these scripts, feel free to add it
- 2. You will probably have to change the 10.0.0.0/8 remote subnet
- 3. I'm not used to programming shell scripts, so any improvments are welcome: loops, shared headers (you know, like C/C++ header files)
+These example scripts show how to configure ''iptables'' rules when a tunnel comes up or goes down.
+
+Several things to note about the scripts:
+ 1. the ''iptables'' and ''route'' commands were entered in full path format, if this isn't done the scripts silently fail with a 127 exit code reported by ''pppd'',
+ 1. logging is done to to `/var/log/ppp` using ''echo'',
+ 1. incoming connections aren't enabled, add ''iptables'' rules if you need them,
+ 1. change the 10.0.0.0/8 remote subnet according to your needs.
+
+Improvements are welcome.
 
 === /etc/ppp/ip-up ===
 {{{
@@ -308,8 +315,7 @@ Using just the iptables command in the ip-up and ip-down script returns error co
 # $6 the parameter specified by the 'ipparam' option to pppd
 
 logfile=/var/log/ppp
-echo `date` >> $logfile
-echo " $0 $1 $2 $3 $4 $5 $6" >> $logfile
+echo "`date` $0 $1 $2 $3 $4 $5 $6" >> $logfile
 
 case "$6" in
  peer-name1)
@@ -340,8 +346,7 @@ exit 0
 # $6 the parameter specified by the 'ipparam' option to pppd
 
 logfile=/var/log/ppp
-echo `date` >> $logfile
-echo " $0 $1 $2 $3 $4 $5 $6" >> $logfile
+echo "`date` $0 $1 $2 $3 $4 $5 $6" >> $logfile
 
 case "$6" in
  peer-name1)
