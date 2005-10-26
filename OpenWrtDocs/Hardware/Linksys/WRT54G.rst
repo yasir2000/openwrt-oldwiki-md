@@ -1,4 +1,4 @@
-## Please add only OpenWrt and WRT54g related things to this page! Thanks.
+# Please add only OpenWrt and WRT54G related things to this page! Thanks.
 
 '''Linksys WRT54G'''
 
@@ -91,9 +91,9 @@ from pictures that it is nearly identical to v4 with an updated rev on the proce
 flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by
 !OpenWrt.
 
-## #######################
-##
-## Last sentence removed because it does NOT have something to do with OpenWrt.
+# #######################
+#
+# Last sentence removed because it does NOT have something to do with OpenWrt.
 
 
 === Table summary ===
