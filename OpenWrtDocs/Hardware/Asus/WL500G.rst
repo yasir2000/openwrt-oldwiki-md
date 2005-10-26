@@ -6,9 +6,9 @@ WL-500G R2.40 is based on the Broadcom BCM4702KBP. Ethernet Switch is BCM5325. I
 
 Another [http://wl500g.info/showthread.php?t=8 discussion] and more photos. Hmm... R2.40 which based on the BCM4333KPB.
 
-It has an USB v1.1 port and a LPT parallel port ([http://www.attansic.com.tw/english/products/pdf/AT7601F_1.0.pdf Attansic AT761F] ). The wireless NIC is a Broadcom Mini-PCI card WL-120G.
+It has an USB 1.1 port and a LPT parallel port ([http://www.attansic.com.tw/english/products/pdf/AT7601F_1.0.pdf Attansic AT761F] ). The wireless NIC is a Broadcom Mini-PCI card WL-120G.
 
-There is '''no''' Serial port connector, external NS16c550 required.
+There is '''no''' serial port connector, external NS16c550 required.
 
 '''boot_wait''' is on by default.
 
