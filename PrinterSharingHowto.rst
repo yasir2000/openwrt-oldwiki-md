@@ -41,7 +41,24 @@ in /etc/printcap.
 
 = Installation =
 
-For now please install the {{{p910nd}}} package from
+To use an USB printer you must first add support for USB printers. 
+First follow UsbStorageHowto to install the USB controller modules 
+if you haven't already done so. You dont need {{{usb-storage}}} for the 
+printer to work.
+
+Additionally, you need the {{{usb-printer}}} module which you can install with ipkg as follows:
+
+{{{
+ipkg install kmod-usb-printer
+}}}
+
+Now plug in the printer, run dmesg and check for the following lines
+{{{
+<someone insert those lines here please>
+}}}
+
+Now you can proceed with installing the printer daemon. For now please 
+install the {{{p910nd}}} package from 
 [http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository]
 with the command:
 
