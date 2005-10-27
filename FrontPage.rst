@@ -9,7 +9,7 @@
 
  * [:OpenWrtDocs] - Documentation
  * [:OpenWrtHowTo] - Many nice Howtos about !OpenWrt
- * [:OpenWrtFaq] - Frequently abused questions from the forum
+ * [:Faq] - Frequently abused questions from the forum (the obsolete [:OpenWrtFaq])
  * [:OpenWrtLinks] - External articles, howtos, !OpenWrt applications, ..
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
