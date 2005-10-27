@@ -81,14 +81,14 @@ address of {{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this proced
 Plug in the power cable, wait for 3 seconds, then start pressing the reset button and
 hold it down for another 10-15 seconds. You should be in failsafe mode, then.
 
-'''NOTE:''' The firstboot check does the following:
+'''NOTE:''' The {{{firstboot}}} check does the following:
  * check reset button
  * turn on dmz
  * wait 1 second
  * check if reset changed
 
-/!\ '''WARNING''' Some models will erase NVRAM if you're holding the reset button before
-the firmware boots -- wait for the DMZ led.
+/!\ '''WARNING:''' Some models will erase NVRAM if you're holding the reset button before
+the firmware boots -- wait for the DMZ LED.
 
 The JFFS2 filesystem can be unlocked and mounted as follows:
 
@@ -100,10 +100,10 @@ mount -t jffs2 /dev/mtdblock/4 /jffs
 or
 
 {{{
-mount_root
+/sbin/mount_root
 }}}
 
-/!\ '''TIP: flush your arp cache.''' The bootloader and the firmware both use the network
+/!\ '''TIP: Flush your arp cache.''' The bootloader and the firmware both use the network
 but they might not use the same MAC addresses. If you're constantly pinging the router then
 your computer might cache the MAC address (ARP) of the bootloader making it impossible to ping
 OpenWrt. You can delete the entries in the ARP cache with:
