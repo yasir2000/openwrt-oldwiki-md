@@ -104,10 +104,10 @@ or
 mount_root
 }}}
 
-/!\ '''TIP: flush your arp cache.''' The bootloader and the firmware both use the network but
-they might not use the same MAC addresses. If you're constantly pinging the router then your computer
-might cache the MAC address (ARP) of the bootloader making it impossible to ping OpenWrt. You can delete the entries
-in the ARP cache with:
+/!\ '''TIP: flush your arp cache.''' The bootloader and the firmware both use the network
+but they might not use the same MAC addresses. If you're constantly pinging the router then
+your computer might cache the MAC address (ARP) of the bootloader making it impossible to ping
+OpenWrt. You can delete the entries in the ARP cache with:
 
 On *nix operating systems use:
 {{{
@@ -131,8 +131,10 @@ On Windows operating systems use one of the following:
 
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
 
-Linksys routers are always 192.168.1.1 for the bootloader's tftp.
+Linksys routers are always 192.168.1.1 for the bootloader's TFTP.
 See [:OpenWrtDocs/Installing] for more information.
+
+
 
 = Misc =
 
@@ -208,8 +210,8 @@ ipkg list_installed
 '''TIP:''' If there are no package descriptions listed you have to run
 {{{ipkg update}}}.
 
-
-OpenWrt compatible IPKG packages can be found using http://tracker.openwrt.org/
+OpenWrt compatible IPKG packages can be found using the
+[http://tracker.openwrt.org/ package tracker].
 
 
 == Why isn't a package for ____ available? ==
@@ -300,7 +302,8 @@ request there is an amazon wishlist for mbm [http://www.amazon.com/gp/registry/3
 
 (Groz is currently missing in action, yet occasionally submits broken CVS code ;) )
 
-/!\ Note: this information is outdated
+/!\ '''Note:''' this information is outdated.
+
 
 == How do I access the syslog messages? ==
 
@@ -456,7 +459,7 @@ QoS in OpenWrt in the future will be based on {{{tc}}}, HFSC and
 [http://l7-filter.sourceforge.net/ Layer 7 filters].
 
 
-== How do I route wireless instead of a bridging lan and wifi? ==
+== How do I route wireless instead of a bridging LAN and WIFI? ==
 
 See [:OpenWrtDocs/Configuration].
 
