@@ -43,8 +43,10 @@ See [:OpenWrtDocs/Installing].
 
 No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating the
 directory structure; you only need to run it after upgrading the firmware or if you
-like to restore the default filesystem. Note: the firstboot script doesn't do anything
-if you're using one of the jffs2 only images.
+like to restore the default filesystem.
+
+'''NOTE:''' The {{{firstboot}}} script doesn't do anything if you're using one of the
+JFFS2 only images.
 
 
 == How do I edit files on the SquashFS image? ==
