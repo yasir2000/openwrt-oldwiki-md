@@ -2,10 +2,6 @@
 White Russian release /!\
 
 
-/!\ '''WANING:''' This FAQ is not yet verified by the !OpenWrt maintainers, it may
-contain bugs /!\
-
-
 [[TableOfContents]]
 
 
@@ -19,13 +15,14 @@ supported units.
 
 == How do I identify my hardware version? ==
 
-It's pretty simple, look on the bottom by the model number and there will be a
-revision on the Linksys sticker. The exceptions are the v1.0 and the WRT54GS
-which don't list their revision. The v1.0 can be easily identified by the 3 LEDs
-per port (and a MiniPCI card and AMD flash chip if you open it). In v1.1 they
-switched to 1 LED per port (and removed the MiniPCI and switched to an intel flash),
-v2.0 brought the change from 125Mhz to 200Mhz and the WRT54GS adds more memory
-(total of 32 MB) and flash (8 MB).
+The model and version numbers are always printed on the unit.
+
+'''Linksys models'''
+
+For linksys models look on the bottom for a silver and black linksys sticker and find the
+words "Model No". The model number will be printed followed by a "vN.N" where "N.N" is the
+version. The exception to this is the v1.0 revisions, "v1.0" is never printed; if you don't
+see a version number it's a v1.0.
 
 If you haven't installed OpenWrt yet, another way of identifying the hardware is to
 open the page [http://192.168.1.1/SysInfo.htm] (where {{{192.168.1.1}}} should be
@@ -47,7 +44,8 @@ See [:OpenWrtDocs/Installing].
 
 No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating the
 directory structure; you only need to run it after upgrading the firmware or if you
-like to restore the default filesystem.
+like to restore the default filesystem. Note: the firstboot script doesn't do anything
+if you're using one of the jffs2 only images.
 
 
 == How do I edit files on the SquashFS image? ==
@@ -73,7 +71,7 @@ See [:OpenWrtDocs/Using] for details.
 
 == How do I recover / boot in failsafe mode? ==
 
-If you should screw up the JFFS2 part or the network settings in NVRAM you can use
+If you screw up the JFFS2 part or the network settings in NVRAM you can use
 OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down
 the reset button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode.
 While in failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run
@@ -82,6 +80,17 @@ address of {{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this proced
 Plug in the power cable, wait for 3 seconds, then start pressing the reset button and
 hold it down for another 10-15 seconds. You should be in failsafe mode, then.
 
+{{{
+Note: the firstboot check does the following -
+- check reset button
+- turn on dmz
+- wait 1 second
+- check if reset changed
+}}}
+
+/!\ '''WARNING''' Some models will erase NVRAM if you're holding the reset button before
+the firmware boots -- wait for the DMZ led.
+
 The JFFS2 filesystem can be unlocked and mounted as follows:
 
 {{{
@@ -89,11 +98,15 @@ mtd unlock mtd4
 mount -t jffs2 /dev/mtdblock/4 /jffs
 }}}
 
-/!\ '''WARNING:''' WRT54GS v2.0: Holding down the reset button for 5 seconds during
-power up will erase all NVRAM variables and restore defaults.
+or
 
-'''TIP:''' It's possible that you can't ping or telnet into the router in failsafe mode.
-This is because you have old entries in the ARP cache table. You can delete the entries
+{{{
+mount_root
+}}}
+
+/!\ '''TIP: flush your arp cache.''' The bootloader and the firmware both use the network but
+they might not use the same MAC addresses. If you're constantly pinging the router then your computer
+might cache the MAC address (ARP) of the bootloader making it impossible to ping OpenWrt. You can delete the entries
 in the ARP cache with:
 
 On *nix operating systems use:
@@ -118,10 +131,8 @@ On Windows operating systems use one of the following:
 
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
 
-On bootup it's always {{{192.168.1.1}}}, so flash it with this LAN IP!
-
-'''NOTE:''' The default LAN IP address could be different on some routers.
-
+Linksys routers are always 192.168.1.1 for the bootloader's tftp.
+See [:OpenWrtDocs/Installing] for more information.
 
 = Misc =
 
@@ -174,13 +185,10 @@ So you have to do this with:
 nvram commit
 }}}
 
-The changes the script made take only affect if you reboot or power cycle
-the router after committing.
-
 
 == How often can I write on the flash chip? ==
 
-About 1.000.000 to 10.000.000 times.
+About 100.000 to 1.000.000 times, minimum.
 
 
 == Where can I find packages? ==
@@ -201,7 +209,7 @@ ipkg list_installed
 {{{ipkg update}}}.
 
 
-Sites with OpenWrt compatible IPKG packages are listed in [:OpenWrtPackages].
+OpenWrt compatible IPKG packages can be found using http://tracker.openwrt.org/
 
 
 == Why isn't a package for ____ available? ==
@@ -292,12 +300,13 @@ request there is an amazon wishlist for mbm [http://www.amazon.com/gp/registry/3
 
 (Groz is currently missing in action, yet occasionally submits broken CVS code ;) )
 
+/!\ Note: this information is outdated
 
 == How do I access the syslog messages? ==
 
-For reading syslog messages, use the {{{logread}}} program.
+Use the {{{logread}}} program to read syslog messages.
 
-To log to a remote Syslog server set:
+To log to a remote Syslog server use:
 
 {{{
 nvram set log_ipaddr=aaa.bbb.ccc.ddd
@@ -447,7 +456,7 @@ QoS in OpenWrt in the future will be based on {{{tc}}}, HFSC and
 [http://l7-filter.sourceforge.net/ Layer 7 filters].
 
 
-== How do I use it as a router, instead of a bridge? ==
+== How do I route wireless instead of a bridging lan and wifi? ==
 
 See [:OpenWrtDocs/Configuration].
 
