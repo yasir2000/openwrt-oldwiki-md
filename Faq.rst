@@ -34,7 +34,15 @@ output shows the hardware version.
 See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 
 
+== Who should NOT install OpenWrt? ==
+
+Please do '''NOT''' install OpenWrt if you don't know anything on GNU/Linux and shells.
+
+
 == How do I install/flash OpenWrt? ==
+
+'''NOTE:''' Before you install !OpenWrt make sure you have at least basic GNU/Linux
+knowledge and *nix shell skills.
 
 See [:OpenWrtDocs/Installing].
 
