@@ -410,7 +410,7 @@ Some cases have screws.
 
 The message {{{no auths methods could be used}}} is related to the following
 utilization: {{{dropbear}}} as SSH client and {{{openssh}}} as {{{sshd}}}
-server, basically, activating this option in {{{/etc/ssh/sshd_config works}}}:
+server, basically, activating this option in {{{/etc/ssh/sshd_config}}} works:
 
 {{{
 PasswordAuthentication yes
