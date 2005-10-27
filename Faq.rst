@@ -463,11 +463,11 @@ QoS in OpenWrt in the future will be based on {{{tc}}}, HFSC and
 See [:OpenWrtDocs/Configuration].
 
 
-== How do I set the timezone and make it stick between reboots? ==
+== How do I set the time zone and make it stick between reboots? ==
 
-OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
+OpenWrt stores the time zone in the {{{/etc/TZ}}} file.
 
-For details on configuring your timezone see [:OpenWrtDocs/Configuration].
+For details on configuring your time zone see [:OpenWrtDocs/Configuration].
 
 
 == What is br0? ==
@@ -482,14 +482,14 @@ interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
 ifdown wifi
 nvram set wl0_wep=enabled
 nvram set wl0_key=1
-nvram set wl0_key1=DEADBEEF12345DEADBEEF12345
+nvram set wl0_key1=deadbeef12345deadbeef12345
 ifup wifi; /sbin/wifi
 }}}
 
-The WEP key {{{wl0_key1}}} must be in '''HEX''' format (allowed HEX digits are 0-9a-f).
-The length of the key must be exact 26 HEX digits than you have a 128 bit WEP key.
-Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect
-the key length correctly.
+The WEP key {{{wl0_key1}}} must be in '''HEX''' format (allowed HEX digits are 0-9
+and a-f lower case). The length of the key must be exact 26 HEX digits than you have
+a 128 bit WEP key. Avoid using WEP keys with 00 at the end, otherwise the driver won't
+be able to detect the key length correctly.
 
 To save these settings and have the WEP key set each bootup, save the changes to nvram:
 
