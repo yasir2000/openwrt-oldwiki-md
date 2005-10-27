@@ -83,7 +83,7 @@ hold it down for another 10-15 seconds. You should be in failsafe mode, then.
 
 '''NOTE:''' The {{{firstboot}}} check does the following:
  * check reset button
- * turn on dmz
+ * turn on DMZ
  * wait 1 second
  * check if reset changed
 
