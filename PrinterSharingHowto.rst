@@ -56,7 +56,11 @@ ipkg install kmod-usb-printer
 Now plug in the printer, run {{{dmesg}}} and check for the following lines
 
 {{{
-<someone insert those lines here please>
+hub.c: new USB device 01:02.0-1, assigned address 2
+printer.c: usblp0: USB Bidirectional printer dev 2 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
+usb.c: USB disconnect on device 01:02.0-1 address 2
+hub.c: new USB device 01:02.0-1, assigned address 3
+printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
 }}}
 
 Now you can proceed with installing the printer daemon. For now please
