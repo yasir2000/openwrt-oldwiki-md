@@ -81,13 +81,11 @@ address of {{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this proced
 Plug in the power cable, wait for 3 seconds, then start pressing the reset button and
 hold it down for another 10-15 seconds. You should be in failsafe mode, then.
 
-{{{
-Note: the firstboot check does the following -
-- check reset button
-- turn on dmz
-- wait 1 second
-- check if reset changed
-}}}
+'''NOTE:''' The firstboot check does the following:
+ * check reset button
+ * turn on dmz
+ * wait 1 second
+ * check if reset changed
 
 /!\ '''WARNING''' Some models will erase NVRAM if you're holding the reset button before
 the firmware boots -- wait for the DMZ led.
