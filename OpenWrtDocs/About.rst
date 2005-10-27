@@ -32,4 +32,4 @@ In the beginning of 2005 some new developers has joined the small developer team
 
 = Where is the FAQ? =
 
-Here: [:Faq]
+See [:Faq].
