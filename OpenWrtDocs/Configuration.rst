@@ -414,20 +414,23 @@ Documentation with discovered feature can be found at ["OpenWrtDocs/nas"] .
 
 === wl ===
 
-'''wl''' is a proprietary Linksys binary tool for setting the parameters of the wireless interface.
+'''wl''' is a proprietary Linksys binary tool for setting the parameters of the
+wireless interface and should NOT be used when ever possible.
 
 Documentation with discovered feature can be found at ["OpenWrtDocs/wl"] .
 
-=== TimeZone and NTP ===
+=== Time zone and NTP ===
 
-To set a Time Zone type something like the following line in /etc/profile:
+To set a time zone use the {{{/etc/TZ}}} file. Copy & paste the time zones from the
+table below into the file. In this exampel it is donw with {{{echo}}} command.
+
 {{{
-export TZ="CET-1CETDST"
+echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 }}}
-''note: This sets TimeZome to GMT+1''
 
-If you want to use a TimeClient to Syncronize, use rdate
-for that (Note: rdate uses port 37/tcp on remote host). Create a file in /etc/init.d/ called S51rdate, with the contents:
+If you want to use a !TimeClient to syncronize, use {{{rdate}}} or the {{{ntpclient}}}
+package for that (Note: {{{rdate}}} uses port 37/tcp on remote host). Create a file
+in {{{/etc/init.d/}}} called {{{S51rdate}}}, with the contents:
 
 {{{
 #!/bin/sh
@@ -440,13 +443,9 @@ save it, and then type this at a prompt to make it executable:
 chmod a+x /etc/init.d/S51rdate
 }}}
 
-Putting a TimeZone entry for the Systemlogger could also be an good idea
-simply put a line like something in /etc/TZ:
-
-{{{
-CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00
-}}}
-''note: this sets TimeZone for CET/CEST (Central European Time UTC+1 / Central European Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October at 03:00) of DST (Daylight Saving Time).''
+'''NOTE:''' this sets the time zone for CET/CEST (Central European Time UTC+1 / Central European
+Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
+at 03:00) of DST (Daylight Saving Time).
 
 More can be found here: http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640
 and: http://openwrt.org/forum/viewtopic.php?id=131
@@ -484,9 +483,10 @@ Examples:
 ||Central Time||CST6CDT||
 ||Eastern Time||EST5EDT||
 ||Atlantic Time||AST4ADT||
-||<rowspan=7>Asia||Jakarta||WIB-7||
+||<rowspan=6>Asia||Jakarta||WIB-7||
 Please update and include your Time Zone.[[BR]]
 You can find more on timezones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
+
 
 === Crontab ===
 HowtoEnableCron
