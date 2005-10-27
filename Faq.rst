@@ -1,4 +1,4 @@
-'''New FAQ for the stable !OpenWrt White Russian release.'''
+'''New FAQ for the stable !OpenWrt White Russian release candidates.'''
 
 
 [[TableOfContents]]
