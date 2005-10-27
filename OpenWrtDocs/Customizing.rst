@@ -300,7 +300,12 @@ http://www.winischhofer.at/linuxsisusbvga.shtml
 
 According to [http://www.pcisig.com/specifications/conventional/mini_pci/ PCI-SIG]: ''The Mini PCI specification defines an alternate implementation for small form factor PCI cards referred to in this specification as a Mini PCI card. This specification uses a qualified subset of the same signal protocol, electrical definitions, and configuration definitions as the Conventional PCI Specification.''
 
-In other words it is a compact 3.3V version of venerable PCI. Many Mini PCI devices are available today: sound cards, IDE/ATA and SATA controllers, and even accelerated SVGA cards. For example: [http://www.globalamericaninc.com/other/mini_PCI_&_AGP.php miniPCI and miniAGP Cards].
+In other words it is a compact 3.3V version of venerable PCI. Many Mini PCI devices are available today: sound cards, IDE/ATA and SATA controllers, and even accelerated SVGA cards. For example:
+
+ * [http://www.globalamericaninc.com/other/mini_PCI_&_AGP.php miniPCI and miniAGP Cards]
+ * ADLINK [http://www.adlinktech.com/products/LonglifeEmbedded/mPCI-8219.htm Single Channel Ultra160 SCSI]
+ * ADLINK [http://www.adlinktech.com/products/LonglifeEmbedded/mPCI-8220.htm Dual Intel 82559 10/100Mbps Ethernet]
+ * Kontron [http://www.kontron.com.tw/products/HTML/accessory/accessory.htm MiniPCI cards]
 
 It is possible to remove a Wi-Fi Mini PCI card and insert another device. Fortunately, some A/G dual-standart WRT* models have two Mini PCI slots.
 
