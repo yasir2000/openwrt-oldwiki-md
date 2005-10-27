@@ -1,5 +1,4 @@
-/!\ '''NOTE:''' This is going to be the new FAQ for the stable !OpenWrt
-White Russian release /!\
+'''New FAQ for the stable !OpenWrt White Russian release.'''
 
 
 [[TableOfContents]]
