@@ -322,7 +322,7 @@ If it could not boot from the USB device it will boot normaly from
 the file system found on the flash as fallback.
 
 
-4.3 Installing and using IPKG packages in mount point other than root
+== Installing and using IPKG packages in mount point other than root ==
 
 /!\ '''NOTE:''' This is not tested. Please report if it's working for
 you.
