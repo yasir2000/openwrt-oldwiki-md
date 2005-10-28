@@ -2,117 +2,91 @@
 Most things found here are obsolete.''' /!\
 
 
+'''USB storage howto'''
+
+
 [[TableOfContents]]
 
 
-= How do I enable the USB stick on Asus WL-500g / Asus WL500g Deluxe? =
+= Why USB storage? =
 
-Good idea is to read [http://rotz.org/archives/2005/03/wl500g_usb_stic.html].
-If using a multi-card reader see [http://www.cs.sfu.ca/~ggbaker/personal/cf-linux].
+It's useful to extend the storage capacity of your USB enabled Wrt
+router f. e. making a central file server. This can easily be done
+with connecting USB storage devices (like a USB stick or a external
+USB harddisc) to the USB port on your router.
 
-You can see which packages are available:
 
-{{{
-ipkg list | grep usb
-kmod-usb-core - Kernel Support for USB
-kmod-usb-ohci - Kernel driver for OHCI USB controllers
-kmod-usb-printer - Kernel modules for USB Printer support
-kmod-usb-storage - Kernel modules for USB storage support
-kmod-usb-uhci - Kernel driver for UHCI USB controllers
-kmod-usb2 - Kernel driver for USB2 controllers
-libusb - a Library for accessing Linux USB devices
-lsusb - A program to list USB devices
-}}}
+= Requirements =
 
-For Asus WL-500G install these packages:
+ * Supported router by OpenWrt with USB (f. e. the Asus WL-500G or
+ the Asus WL-500G deluxe)
+ * a recent !OpenWrt version installed (at least White Russian RC3)
+ * some sort of a USB storage device supported by Linux
+ * a USB hub (optional) to add more USB ports/devices
 
-{{{
-ipkg install kmod-usb-core kmod-usb-uhci kmod-usb-storage
-}}}
 
-and add next lines to {{{/etc/modules}}}
+= Installation =
 
-{{{
-scsi_mod max_scsi_luns=8
-sd_mod
-sg
-usbcore
-uhci
-usb-ohci
-usb-storage
-}}}
+'''TIP:''' Some routers are USB 1.1 and 2.0 compatible. To use both
+devices with both versions install the modules for USB 1.1 and 2.0.
 
-'''TIP:''' The {{{max_scsi_luns=8}}} bit is needed for multi-card readers.
 
-Some models of the Asus WL-500G use an OHCI controller - so you need to load
-the {{{usb-ohci}}} module, not the UHCI modules.
+== General modules for USB ==
 
-'''NOTE:''' Since the White Russian RC2 release of !OpenWrt modules listed in
-the {{{/etc/modules.d}}} directory are loaded automatically (although the
-{{{/etc/modules}}} file is still used). Thus you probably do not need to
-explicitly state the modules to load in {{{/etc/modules}}}.
-
-For Asus WL-500G Deluxe:
-
-If you plan to use USB 2.0 only devices install these packages:
+This is a base module for USB support. It's required for both USB
+versions.
 
 {{{
-ipkg install kmod-usb2 kmod-usb-storage kmod-usb-core
+ipkg install kmod-usb-core
 }}}
 
-and add next lines to {{{/etc/modules}}}
 
-{{{
-scsi_mod max_scsi_luns=8
-sd_mod
-sg
-usbcore
-ehci
-usb-storage
-}}}
+== Modules for USB 1.1 ==
 
-If you want use your old USB 1.1 stick with USB 2.0 you must also install:
+For USB 1.1 you need to install
 
 {{{
 ipkg install kmod-usb-uhci
 }}}
 
-and then and add next line to {{{/etc/modules}}}
+'''TIP:''' Most USB chips have UHCI controllers. If that is not
+working for you install the {{{kmod-usb-ohci}}} package instead of
+the {{{kmod-usb-uhci}}} one!
+
+
+== Modules for USB 2.0 ==
+
+This package includes the modules for USB 2.0
 
 {{{
-uhci
-}}}
-then your /etc/modules looks like
-{{{
-scsi_mod max_scsi_luns=8
-sd_mod
-sg
-usbcore
-ehci-hcd
-uhci
-usb-storage
+ipkg install kmod-usb2
 }}}
 
-You can use the command {{{vi /etc/modules}}} or for USB 2.0
+
+== Modules for storage ==
+
+To add storage support finally install
 
 {{{
-echo -e "usbcore\nehci\nscsi_mod\nsd_mod\nsg\nusb-storage\n">> /etc/modules
+ipkg install kmod-usb-storage
 }}}
 
-and for USB 1.1
+
+== Clean up ==
+
+'''TIP:''' The {{{max_scsi_luns=8}}} bit is needed for multi-card
+readers and should set in the {{{/etc/modules}}} file.
+
+!OpenWrt uses {{{/etc/modules.d}}} directory to load the modules
+automatically on the next reboot. So reboot the router with
 
 {{{
-echo -e "usbcore\nehci\nuhci\nscsi_mod\nsd_mod\nsg\nusb-storage\n" >> /etc/modules
+reboot
 }}}
 
-Now either reboot or load the modules in this order manually with {{{insmod}}}.
-
-'''NOTE:''' Since White Russian RC2 {{{ehci}}} is replaced by {{{ehci-hcd}}}.
-
-Now check if your !OpenWrt sees your USB stick/device (of course inserting it into
-your ASUS).
-
-If it correct you should see similar to below
+Now check if !OpenWrt sees your USB device (of course inserting it
+into your Wrt router). If it's correct you should see similar messages
+as on the {{{dmesg}}} dump below.
 
 {{{
 dmesg
@@ -137,7 +111,7 @@ usb.c: USB device 2 (vend/prod 0xd7d/0x100) is not claimed by any active driver.
 Initializing USB Mass Storage driver...
 usb.c: registered new driver usb-storage
 scsi0 : SCSI emulation for USB Mass Storage devices
-  Vendor: Apacer    Model: HandyDrive        Rev: 1.05
+  Vendor: Apacer    Model: Drive             Rev: 1.05
   Type:   Direct-Access                      ANSI SCSI revision: 02
 Attached scsi removable disk sda at scsi0, channel 0, id 0, lun 0
 SCSI device sda: 256000 512-byte hdwr sectors (131 MB)
@@ -149,81 +123,136 @@ USB Mass Storage device found at 2
 USB Mass Storage support registered.
 }}}
 
-Install a filesystem kernel module:
- * EXT2/EXT3: {{{ipkg install kmod-ext2 kmod-ext3}}} and add {{{ext2 jbd ext3}}} to
- {{{/etc/modules}}}
- * VFAT (filesystem generally used in USB sticks and older windows): {{{ipkg install kmod-vfat}}}
- and add {{{fat vfat}}} to /etc/modules
 
-Next you can mount and use your USB stick (with relevant modul for your file system in
-memory and created directory for mount):
+= Configuration =
+
+== Usage as a storage device to extent storage ==
+
+First install the kernel file system modules, for example:
+
+{{{
+ipkg install kmod-vfat
+reboot
+}}}
+
+'''TIP:''' The modules can also be loaded using {{{insmod}}} to avoid
+rebooting.
+
+'''TIP:''' You can install support for more file systems by installing
+the correct packages.
+
+||'''File system'''||'''Package name'''||'''Comment'''||
+||VFAT/MSDOS||kmod-vfat||File system generally used in USB devices and older windows||
+||EXT2||kmod-ext2||||
+||EXT3||kmod-ext3||||
+
+Now install the {{{fdisk}}} tool which is not included by default in
+!OpenWrt with
+
+{{{
+ipkg install http://downloads.openwrt.org/people/nico/ \
+        testing/mipsel/packages/fdisk_2.12r-1_mipsel.ipk
+}}}
+
+Create the {{{/mnt}}} directory fot the mount point on the flash
+
+{{{
+mkdir -p /mnt
+}}}
+
+Check what partition you like to mount from your USB device
+
+{{{
+fdisk -l
+}}}
+
+Finally you can mount and use your USB device (with relevant modul for
+your file system in memory and created directory for mount):
 
 {{{
 mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 }}}
 
+Now, be happy and use your USB device like on every other GNU/Linux
+system.
 
-= How do I boot from USB stick on ASUS WL-500gx (WL-500G Deluxe, WL-500GX)? =
 
-This guide assumes that you are using a JFFS2 root, with SquashFS root some steps
-might be a little different. See [http://forum.openwrt.org/viewtopic.php?pid=11211]
-if you want to use SquashFS.
+== How do I boot from the USB device ==
 
-For this to work you need the same kernel modules for USB as described above. You
-also need the modules for the EXT3 filesystem:
+This guide assumes that you are using a JFFS2 only image, with SquashFS
+images some steps might be a little different. See
+[http://forum.openwrt.org/viewtopic.php?pid=11211] if you want to use
+SquashFS.
+
+For this to work you need the same kernel modules for USB as described
+above. You also need the modules for the EXT3 filesystem:
 
 {{{
 ipkg install kmod-ext2 kmod-ext3
 }}}
 
-The next step is to partition the USB stick and create an EXT3 FS partition. This
-requires {{{fdisk}}}. As {{{fdisk}}} isn't included in the default !OpenWrt distribution,
-you'll have to either build it yourself and include {{{fdisk}}}, or use Linux on a
-desktop computer. (A Linux Live CD works fine). This is the command for doing it from
-!OpenWrt:
+The next step is to partition the USB device and create an EXT3 FS
+partition. This requires {{{fdisk}}} (install it as described above).
+You can do the partioning in !OpenWrt it self or on a normal PC.
+
+'''In !OpenWrt do'''
 
 {{{
 fdisk /dev/scsi/host0/bus0/target0/lun0/disc
 }}}
 
-From a desktop Linux distribution, it's more like:
+'''On a GNU/Linux desktop PC do'''
 
 {{{
 fdisk /dev/sda
 }}}
-/!\ '''NOTE:''' Make sure you are modifying the right device. If you have any other USB
-drives, or a SCSI or SATA drive, your USB stick might be at {{{/dev/sdb}}} or {{{/dev/sdb}}}
-(and so on) instead!
 
-For more information about using {{{fdisk}}}, see [http://www.tldp.org/HOWTO/Partition/partition-5.html].
+/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If
+you have any other USB drives, or a SCSI or SATA drive, your USB device
+might be at {{{/dev/sdb}}} or {{{/dev/sdb}}} (and so on) instead!
 
-Next, "format" the newly created partition
+For more information about using {{{fdisk}}}, see
+[http://www.tldp.org/HOWTO/Partition/partition-5.html].
 
-!On OpenWrt:
+Next, "format" the newly created partition.
+
+'''In !OpenWrt do'''
+
+For doing this in !OpenWrt you first have to install the
+{{{e2fsprogs}}} package.
+
+{{{
+ipkg install http://downloads.openwrt.org/people/nico/ \
+        testing/mipsel/packages/e2fsprogs_1.38-1_mipsel.ipk
+}}}
+
+Than "format" your partition with
 
 {{{
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
 
-On desktop Linux:
+'''On a GNU/Linux desktop PC do'''
 
 {{{
 mke2fs -j /dev/sda
 }}}
 
-/!\ '''NOTE:''' Same warning as above applies here.
+/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If
+you have any other USB drives, or a SCSI or SATA drive, your USB device
+might be at {{{/dev/sdb}}} or {{{/dev/sdb}}} (and so on) instead!
 
-Make sure you have {{{/usb}}} and {{{/mnt}}} directories on the JFFS2 partition:
+Make sure you have {{{/usb}}} and {{{/mnt}}} directories on the JFFS2
+partition:
 
 {{{
-mkdir /usb /mnt
+mkdir -p /usb /mnt
 }}}
 
-Now, we will copy everything from the flash to the USB:
+Now, we will copy everything from the flash to the USB device (make sure
+the EXT3 modules are loaded):
 
 {{{
-# load modules
-insmod jbd && insmod ext3
 # mount it
 mount -t ext3 /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 # copy everything
@@ -234,8 +263,8 @@ mkdir -p /mnt/tmp && mkdir -p /mnt/dev && mkdir -p /mnt/proc && mkdir -p /mnt/jf
 umount /mnt
 }}}
 
-Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to
-!BusyBox anyway):
+Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just
+a symlink to !BusyBox anyway):
 
 {{{
 rm /sbin/init
@@ -245,11 +274,14 @@ And replace it with this script:
 
 {{{
 #!/bin/sh
+
+# change this to your boot partition
 boot_dev="/dev/scsi/host0/bus0/target0/lun0/part1"
 
 # install needed modules for usb and the ext3 filesystem
 insmod usbcore
 insmod uhci && sleep 2s
+# insmod ehci-hcd && sleep 2s
 insmod scsi_mod && insmod sd_mod && insmod sg && insmod usb-storage
 insmod ext2 && insmod jbd && insmod ext3
 sleep 2s
@@ -259,23 +291,23 @@ mount -t ext3 -o rw "$boot_dev" /usb
 
 # if everything looks ok, do the pivot root
 if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
-   pivot_root /usb /usb/jffs
-   mount none /proc -t proc
-   mount none /dev -t devfs
-   mount none /tmp -t tmpfs size=50%
-   mkdir -p /dev/pts
-   mount none /dev/pts -t devpts
-   umount /jffs/proc /jffs/dev/pts
-   sleep 1s
-   umount /jffs/tmp /jffs/dev
+ pivot_root /usb /usb/jffs
+ mount none /proc -t proc
+ mount none /dev -t devfs
+ mount none /tmp -t tmpfs size=50%
+ mkdir -p /dev/pts
+ mount none /dev/pts -t devpts
+ umount /jffs/proc /jffs/dev/pts
+ sleep 1s
+ umount /jffs/tmp /jffs/dev
 fi
 
-# finally, run the real init (from usb hopefully).
+# finally, run the real init (from USB hopefully).
 exec /bin/busybox init
 }}}
 
-/!\ '''NOTE:''' If you use USB 2.0 you have to replace the line {{{insmod uhci && sleep 2s}}}
-by {{{insmod ehci-hcd && sleep 2s}}}.
+/!\ '''NOTE:''' If you use USB 2.0 you have to replace the line
+{{{insmod uhci && sleep 2s}}} by {{{insmod ehci-hcd && sleep 2s}}}.
 
 Make sure your new {{{/sbin/init}}} is executable:
 
@@ -283,21 +315,33 @@ Make sure your new {{{/sbin/init}}} is executable:
 chmod a+x /sbin/init
 }}}
 
-Now just reboot, and it should boot from the USB storage automatically.
+Now just reboot, and if you did everything right it should boot from
+the USB device automatically.
 
-= Installing and using ipkgs in mount point other than root with ipkg-link =
+If it could not boot from the USB device it will boot normaly from
+the file system found on the flash as fallback.
 
-Configure ipkg for a non-root destination
+
+4.3 Installing and using IPKG packages in mount point other than root
+
+/!\ '''NOTE:''' This is not tested. Please report if it's working for
+you.
+
+Configure {{{ipkg}}} for a non-root destination
+
 {{{
 echo dest usb /mnt/usb >> /etc/ipkg.conf
 }}}
 
 then install a package to a non-root destination
+
 {{{
 ipkg -dest usb install kismet-server
 }}}
 
-copy and paste this script into /bin/ipkg-link (or somewhere in your $PATH
+copy and paste this script into {{{/bin/ipkg-link}}} (or somewhere in
+your $PATH)
+
 {{{
 COMMAND=$1
 PACKAGE=$2
@@ -432,27 +476,47 @@ case "$COMMAND" in
 esac
 
 exit 0
-
 }}}
 
-Send questions/bugs on this script to Matt Barclay mbarclay (at) openfbo dot com
+Make sure the {{{/bin/ipkg-link}}} script is executable:
+
+{{{
+chmod a+x /bin/ipkg
+}}}
+
+Send questions/bugs on this script to [mbarclay@openfbo.com Matt Barclay].
+
+An example:
 
 Link a single package to root:
+
 {{{
 ipkg-link add kismet-server
 }}}
 
 Link all packages on a mount point to root:
+
 {{{
 ipkg-link mount /mnt/usb
 }}}
 
 Remove symlinks:
+
 {{{
 ipkg-link remove kismet-server
 }}}
 
 Remove all symlinks for all packages:
+
 {{{
 ipkg-link umount /mnt/usb
 }}}
+
+
+= Links =
+
+ * Linux USB
+ http://www.linux-usb.org/
+
+ * Linux USB device support
+ http://www.linux-usb.org/devices.html
