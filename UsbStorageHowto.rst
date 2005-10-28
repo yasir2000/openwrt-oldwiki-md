@@ -179,9 +179,9 @@ system or create a file server using Samba.
 == How do I boot from the USB device ==
 
 This guide assumes that you are using a JFFS2 only image, with SquashFS
-images some steps might be a little different. See
-[http://forum.openwrt.org/viewtopic.php?pid=11211] if you want to use
-SquashFS.
+images some steps might be a little different. See the
+[http://forum.openwrt.org/viewtopic.php?pid=11211 Booting from USB - pivot_root always ends in neverland :-(]
+thread if you want to use SquashFS.
 
 For this to work you need the same kernel modules for USB as described
 above. You also need the modules for the EXT3 filesystem:
