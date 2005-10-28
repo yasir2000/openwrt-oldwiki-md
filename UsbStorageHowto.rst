@@ -484,7 +484,7 @@ Make sure the {{{/bin/ipkg-link}}} script is executable:
 chmod a+x /bin/ipkg
 }}}
 
-Send questions/bugs on this script to [mbarclay@openfbo.com Matt Barclay].
+Send questions/bugs on this script to mbarclay@openfbo.com (Matt Barclay).
 
 An example:
 
@@ -516,7 +516,7 @@ ipkg-link umount /mnt/usb
 = Links =
 
  * Linux USB
- http://www.linux-usb.org/
+ [[BR]]http://www.linux-usb.org/
 
  * Linux USB device support
- http://www.linux-usb.org/devices.html
+ [[BR]]http://www.linux-usb.org/devices.html
