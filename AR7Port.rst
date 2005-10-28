@@ -49,7 +49,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * '''arch/mips/lib/promlib.c''': see above.
 
 
-   * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way.
+   * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way. enrik: done. nbd has patch.
 
 
    * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.) -- nbd: for halt, you probably only need __cli() + while(1); z3ro: there are some tnetd functions for halt... hopefully we can use the code from these without needing all of the tnetd code.
