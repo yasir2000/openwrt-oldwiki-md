@@ -338,8 +338,8 @@ then install a package to a non-root destination
 ipkg -dest usb install kismet-server
 }}}
 
-copy and paste this script into {{{/bin/ipkg-link}}} (or somewhere in
-your $PATH)
+Copy & paste this script into {{{/bin/ipkg-link}}} (or somewhere in
+your {{{$PATH}}}).
 
 {{{
 COMMAND=$1
