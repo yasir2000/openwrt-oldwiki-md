@@ -477,15 +477,15 @@ esac
 exit 0
 }}}
 
+Send questions/bugs on this script to mbarclay@openfbo.com (Matt Barclay).
+
 Make sure the {{{/bin/ipkg-link}}} script is executable:
 
 {{{
 chmod a+x /bin/ipkg
 }}}
 
-Send questions/bugs on this script to mbarclay@openfbo.com (Matt Barclay).
-
-An example:
+Examples:
 
 Link a single package to root:
 
@@ -515,7 +515,7 @@ ipkg-link umount /mnt/usb
 = Links =
 
  * Linux USB
- [[BR]]http://www.linux-usb.org/
+ [[BR]]- http://www.linux-usb.org/
 
  * Linux USB device support
- [[BR]]http://www.linux-usb.org/devices.html
+ [[BR]]- http://www.linux-usb.org/devices.html
