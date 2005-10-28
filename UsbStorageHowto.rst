@@ -1,4 +1,4 @@
-/!\ '''It's not veryfied yet by one of the developers!''' /!\
+/!\ '''It's not verified yet by one of the developers!''' /!\
 
 
 '''USB storage howto'''
