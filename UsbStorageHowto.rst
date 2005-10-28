@@ -1,5 +1,4 @@
-/!\ '''I'm currently updating this howto to White Russian RC3.
-Most things found here are obsolete.''' /!\
+/!\ '''It's not veryfied yet by one of the developers!''' /!\
 
 
 '''USB storage howto'''
