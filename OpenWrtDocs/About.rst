@@ -33,3 +33,30 @@ In the beginning of 2005 some new developers has joined the small developer team
 = Where is the FAQ? =
 
 See [:Faq].
+
+
+= Other documentation - How Tos =
+
+    The following How Tos are available:
+
+ * [:MiniHowtos] - A collection of small howtos
+ * [:BuildingPackagesHowTo] - Build your own IPKG package with the !OpenWrt SDK
+ * [:ImageBuilderHowTo] - Build your own images with the !OpenWrt Image Builder
+ * [:ClientModeHowto]
+ * [:DDNSHowTo] - Update your Dynamic DNS (DDNS) account on various services
+ * [:DropbearPublicKeyAuthenticationHowto] - Using the !OpenWrt SSH server (Dropbear) with public key authentication
+ * [:PrinterSharingHowto] - Share the printer in your LAN with !OpenWrt
+ * [:HotspotOpenvpnHowto]
+ * [:HowtoEnableCron]
+ * [:HowtoVlans]
+ * [:IPv6 howto]
+ * [:PPTPClientHowto]
+ * [:PPTPDHowto] - Howto setup the Point-to-Point tunneling protocol daemon/server
+ * [:PublishYourWANIp]
+ * [:RemoteFileSystemHowTo]
+ * [:TransparentFirewall]
+ * [:UsbStorageHowto]
+ * [:UsbAudioHowto]
+ * [:WAP54GHowto]
+
+For complete list of HowTos, see [:OpenWrtHowTo]
