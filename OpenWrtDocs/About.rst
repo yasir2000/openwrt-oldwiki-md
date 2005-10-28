@@ -4,6 +4,8 @@
 ##
 ## If someone can come up with a better reason to run openwrt, please edit that section
 ##
+## This page is reserved for the HISTORY and DEVELOPMENT of OpenWrt
+##
 
 [:OpenWrtDocs]
 [[TableOfContents]]
@@ -29,34 +31,3 @@ The project started in January 2004. The first OpenWrt versions were based on Li
 This version is known as OpenWrt "stable" and was widely in use. There are still many OpenWrt applications, like the Freifunk-Firmware or Sip@Home, which are based on this version.
 
 In the beginning of 2005 some new developers has joined the small developer team. After some month of closed development the team decided to publish the first "experimental" versions of OpenWrt. The experimental version use a heavily customized buildsystem based on buildroot2 from the uclibc project. OpenWrt uses official linux kernel sources (2.4.30) and only add patches for the system on chip and drivers for the network interfaces. The developer team try to reimplement most of the proprietary code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to program the VLAN capable switch (robocfg). The codename of the first OpenWrt release is "White Russian" a popular cocktail. OpenWrt 1.0 is planned for the end of 2005.  
-
-= Where is the FAQ? =
-
-See [:Faq].
-
-
-= Other documentation - How Tos =
-
-    The following How Tos are available:
-
- * [:MiniHowtos] - A collection of small howtos
- * [:BuildingPackagesHowTo] - Build your own IPKG package with the !OpenWrt SDK
- * [:ImageBuilderHowTo] - Build your own images with the !OpenWrt Image Builder
- * [:ClientModeHowto]
- * [:DDNSHowTo] - Update your Dynamic DNS (DDNS) account on various services
- * [:DropbearPublicKeyAuthenticationHowto] - Using the !OpenWrt SSH server (Dropbear) with public key authentication
- * [:PrinterSharingHowto] - Share the printer in your LAN with !OpenWrt
- * [:HotspotOpenvpnHowto]
- * [:HowtoEnableCron]
- * [:HowtoVlans]
- * [:IPv6 howto]
- * [:PPTPClientHowto]
- * [:PPTPDHowto] - Howto setup the Point-to-Point tunneling protocol daemon/server
- * [:PublishYourWANIp]
- * [:RemoteFileSystemHowTo]
- * [:TransparentFirewall]
- * [:UsbStorageHowto]
- * [:UsbAudioHowto]
- * [:WAP54GHowto]
-
-For complete list of HowTos, see [:OpenWrtHowTo]
