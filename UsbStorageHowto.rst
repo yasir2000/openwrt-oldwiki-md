@@ -482,10 +482,10 @@ Send questions/bugs on this script to mbarclay@openfbo.com (Matt Barclay).
 Make sure the {{{/bin/ipkg-link}}} script is executable:
 
 {{{
-chmod a+x /bin/ipkg
+chmod a+x /bin/ipkg-link
 }}}
 
-Examples:
+Examples howto use the script:
 
 Link a single package to root:
 
