@@ -142,7 +142,7 @@ rebooting.
 the correct packages.
 
 ||'''File system'''||'''Package name'''||'''Comment'''||
-||VFAT/MSDOS||kmod-vfat||File system generally used in USB devices and older windows||
+||VFAT/MSDOS||kmod-vfat||File system generally used in USB devices and older Windows||
 ||EXT2||kmod-ext2||||
 ||EXT3||kmod-ext3||||
 
@@ -173,8 +173,8 @@ your file system in memory and created directory for mount):
 mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 }}}
 
-Now, be happy and use your USB device like on every other GNU/Linux
-system.
+Be happy and use your USB device like on every other GNU/Linux
+system or create a file server using Samba.
 
 
 == How do I boot from the USB device ==
