@@ -45,6 +45,7 @@ The names of the network interfaces will depend largely on what hardware OpenWrt
 ||Buffalo||WBR2-G54|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Buffalo||WBR2-G54S|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Buffalo||WLA-G54|| ||eth0||N/A||eth2||No WAN port on this device||
+||Buffalo||WZR-RS-G54||  ||eth0||eth1||eth2||no vlan support (switch BCM5325A2KQM)||
 ||Motorola||WR850G||v3||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Microsoft||MN700||v.x||eth0||eth1||eth2|| ||
 ||Siemens||SE505||v1||eth0||eth1||eth2|| ||
