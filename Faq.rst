@@ -665,7 +665,7 @@ The {{{wl_}}} variables are obsolete and unused.
 
 == How do I configure PPPoE? ==
 
-That's ease. Just set some NVRAM variables.
+That's easy. Just set some NVRAM variables.
 
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
 for your hardware version in the {{{pppoe_ifname}}} NVRAM variable.
