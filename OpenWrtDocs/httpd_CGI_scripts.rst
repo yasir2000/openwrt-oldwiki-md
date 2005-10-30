@@ -1,6 +1,6 @@
 = BusyBox httpd CGI scripts =
 
-Daemon expect that CGI script is in subdirectory '''cgi-bin''' under main web directory set by options ''-h'' (default /www and CGI in /www/cgi-bin).
+The http daemon expects that CGI script is in subdirectory '''cgi-bin''' under main web directory set by options ''-h'' (default /www and CGI in /www/cgi-bin).
 CGI script must have permision for execute (min mode 700).
 
 == CGI ==
