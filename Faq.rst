@@ -508,6 +508,9 @@ See [:OpenWrtDocs/Configuration].
 
 OpenWrt stores the time zone in the {{{/etc/TZ}}} file.
 
+'''NOTE:''' Most routers does '''NOT''' have a CMOS hardware clock. That means
+you have to sync the time after every reboot.
+
 For details on configuring your time zone see [:OpenWrtDocs/Configuration].
 
 
