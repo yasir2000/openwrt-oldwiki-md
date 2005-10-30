@@ -663,9 +663,9 @@ The {{{wl_}}} variables are obsolete and unused.
 
 
 
-== How do I configure PPPoE? ==
+== How do I configure PPPoE for Internet access? ==
 
-That's easy. Just set some NVRAM variables.
+That's easy. Just set some NVRAM variables. And plug your DSL modem into the WAN port.
 
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
 for your hardware version in the {{{pppoe_ifname}}} NVRAM variable.
@@ -691,16 +691,16 @@ ifup wan
 
 See [:OpenWrtDocs/Configuration] for details.
 
-== How do I configure PPTP? ==
+== How do I configure PPTP for Internet access? ==
 
 
-== How do I configure DHCP? ==
+== How do I configure DHCP for Internet access? ==
 
-By default !OpenWrt will listen on the WAN interface for a another DHCP
-server in your LAN.
+By default !OpenWrt will listen on the WAN interface for a another DHCP server in
+your LAN. Use this kind of Internet access f. e. if you have a cable modem.
 
 When you have configured PPPoE before than set the following NVRAM variables
-to activate DHCP on the WAN interface
+to activate DHCP on the WAN interface. 
 
 {{{
 nvram set wan_ifname=<your_WAN_interface_name>
