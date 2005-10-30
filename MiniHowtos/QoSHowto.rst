@@ -1,3 +1,5 @@
+/!\ This page is currently under construction /!\
+
 = Qos MiniHowto =
 
 == Boring Intro and Dry Theory ==
