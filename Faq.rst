@@ -556,9 +556,10 @@ ipkg install nas
 Now set some NVRAM variables:
 
 {{{
-wl0_akm=psk
-wl0_crypto=tkip
-wl0_wpa_psk=<your_preshared_key>
+nvram set wl0_akm=psk
+nvram set wl0_crypto=tkip
+nvram set wl0_wpa_psk=<your_preshared_key>
+nvram commit
 }}}
 
 Replace {{{<your_preshared_key>}}} to appropriate.
@@ -572,7 +573,8 @@ Start WPA with
 /etc/init.d/S41wpa
 }}}
 
-Check with the {{{ps}}} command if there is a {{{nas}}} process running.
+Check with the {{{ps}}} command if there is a {{{nas}}} process running. If it's not working
+try rebooting the router.
 
 For details and howto configure WPA2 or AES encryption see [:OpenWrtDocs/Configuration].
 
@@ -608,6 +610,7 @@ This is done again by setting up some NVRAM variables.
 nvram set wl0_lazywds=0
 nvram set wl0_wds=aa:bb:cc:dd:ee:ff
 nvram commit
+ifup wifi; /sbin/wifi
 }}}
 
 Replace {{{aa:bb:cc:dd:ee:ff}}} with the MAC address of the other router you would
