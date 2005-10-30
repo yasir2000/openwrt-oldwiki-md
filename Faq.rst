@@ -171,6 +171,30 @@ nvram set variable="aa:bb:cc:dd:ee:ff aa:bb:cc:dd:ee:ff"
 See [:OpenWrtNVRAM].
 
 
+== How to create a NVRAM dump for debugging? ==
+
+Sometimes it's useful to have a dump of the NVRAM variables to show them other
+people for debugging. This can be done with
+
+{{{
+nvram show 2>&1 | sort | more
+}}}
+
+I would prefer
+
+{{{
+strings /dev/nvram | sort | more
+}}}
+
+Use {{{more}}} to list the output page by page. You can also save the dump into a
+file. Use {{{>/tmp/nvram-dump.txt}}} instead of {{{more}}}. Than SCP the file to
+another computer.
+
+'''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel, for that use
+a pastebin service like [http://www.pastebin.ca/] or [http://www.pastebin.com/].
+Only post the URL on IRC.
+
+
 == What is left behind, when erasing the flash? ==
 
 {{{mtd}}} will leave the bootloader and NVRAM settings untouched.
