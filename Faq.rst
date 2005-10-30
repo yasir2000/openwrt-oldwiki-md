@@ -691,8 +691,6 @@ ifup wan
 
 See [:OpenWrtDocs/Configuration] for details.
 
-== How do I configure PPTP for Internet access? ==
-
 
 == How do I configure DHCP for Internet access? ==
 
@@ -716,6 +714,9 @@ When done bring up the WAN connection with:
 {{{
 ifup wan
 }}}
+
+
+== How do I configure PPTP for Internet access? ==
 
 
 
