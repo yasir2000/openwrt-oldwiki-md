@@ -191,9 +191,9 @@ strings /dev/nvram | sort | more
 text file. Use {{{>/tmp/nvram-dump.txt}}} instead of {{{more}}}. Than SCP the file
 to another computer.
 
-'''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel, for that use
-a pastebin service like [http://www.pastebin.ca/] or [http://www.pastebin.com/].
-Only post the URL on IRC.
+'''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel , for that use
+a pastebin service like [http://www.pastebin.ca/ pastebin.ca] or
+[http://www.pastebin.com/ pastebin.com]. Only post the URL on IRC.
 
 
 == What is left behind, when erasing the flash? ==
