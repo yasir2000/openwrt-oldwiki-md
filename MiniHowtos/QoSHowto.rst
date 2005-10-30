@@ -29,3 +29,7 @@ To be honest, and candid, most of the time you do not want download (or ingress)
 Last but not least... it should be mentioned, exactly how the queing is performed.  Most default queues are "fifo" meaning first-in first-out.  You get in line and get processed in the order by which you came.  This describes the queing discipline, as well as the type of queue.  There are other algorithims for queing disciplines, other types, such as htb (Hierarchichal Token Bucket) and hfsc (Hierarchical Fair Service Curve).
 
 == QoS in OpenWRT ==
+
+I went from not having a QoS option (well, to be honest, the tools were always there, just needed a sane script) to having two options.  Debate as to which is the "better" one is probably not important.  I'd personally call them "two great ways to do it".
+
+One involves nbd's qosif scripts.  And the other involves ctshaper, a script written by Carlos Rodrigues, based on wondershaper.
