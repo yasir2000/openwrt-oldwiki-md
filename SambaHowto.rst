@@ -49,7 +49,7 @@ ipkg install http://downloads.openwrt.org/people/nico/ \
 The default Samba configuration uses the {{{/tmp}}} directory
 for storage.
 
-/!\ '''WANING:''' All data is lost in {{{/tmp}}} after a reboot.
+/!\ '''WARNING:''' All data is lost in {{{/tmp}}} after a reboot.
 
 To change settings edit the {{{/etc/samba/smb.conf}}} file.
 
