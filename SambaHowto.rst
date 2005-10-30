@@ -84,7 +84,7 @@ smbclient //<server_name>/<share> -U <username>
 Connect with {{{smbfs}}}:
 
 {{{
-smbclient //<server_name>/<share> -U <username>
+smbmount //<server_name>/<share> /<local_mount_point> -o username=<username>
 }}}
 
 
