@@ -4,7 +4,7 @@
 [[TableOfContents]]
 
 
-= Why USB storage? =
+= Intro =
 
 It's useful to extend the storage capacity of your USB enabled Wrt
 router f. e. making a central file server. This can easily be done
