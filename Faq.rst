@@ -693,12 +693,27 @@ See [:OpenWrtDocs/Configuration] for details.
 
 == How do I configure PPTP? ==
 
+
 == How do I configure DHCP? ==
+
+By default !OpenWrt will listen on the WAN interface for a another DHCP
+server in your LAN.
+
+When you have configured PPPoE before than set the following NVRAM variables
+to activate DHCP on the WAN interface
+
+{{{
+nvram set wan_ifname=<your_WAN_interface_name>
+nvram set wan_proto=dhcp
+nvram commit
+}}}
+
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
+for your hardware.
 
 
 
 = Development =
-
 
 == How do I create a package? ==
 
