@@ -711,6 +711,13 @@ nvram commit
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
 for your hardware.
 
+When done bring up the WAN connection with:
+
+{{{
+ifup wan
+}}}
+
+
 
 
 = Development =
