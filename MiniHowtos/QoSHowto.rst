@@ -28,4 +28,4 @@ To be honest, and candid, most of the time you do not want download (or ingress)
 
 Last but not least... it should be mentioned, exactly how the queing is performed.  Most default queues are "fifo" meaning first-in first-out.  You get in line and get processed in the order by which you came.  This describes the queing discipline, as well as the type of queue.  There are other algorithims for queing disciplines, other types, such as htb (Hierarchichal Token Bucket) and hfsc (Hierarchical Fair Service Curve).
 
-= QoS in OpenWRT =
+== QoS in OpenWRT ==
