@@ -75,7 +75,8 @@ ipkg install kmod-usb-storage
 == Clean up ==
 
 '''TIP:''' The {{{max_scsi_luns=8}}} bit is needed for multi-card
-readers and should set in the {{{/etc/modules}}} file.
+readers and should be added to the end of the scsi_mod line in the
+{{{/etc/modules.d/60-usb-storage}}} file.
 
 !OpenWrt uses {{{/etc/modules.d}}} directory to load the modules
 automatically on the next reboot. So reboot the router with
