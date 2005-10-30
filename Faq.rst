@@ -304,8 +304,9 @@ from [http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk] via:
 ipkg install http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk
 }}}
 
-'''NOTE:''' This web interface is in development. Basic features should work.
-It will only work on a recent OpenWrt White Russian release candidate.
+'''NOTE:''' This web interface is in development. Basic features like firmware
+upgrade, Internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
+work. It will only work on OpenWrt White Russian RC3 and later.
 
 The OpenWrt web interface is based on a set of shell and AWK scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
