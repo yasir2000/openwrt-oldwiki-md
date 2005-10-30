@@ -161,6 +161,13 @@ nvram set variable=value
 nvram commit (to save the changes)
 }}}
 
+'''TIP:''' Use quotes when you have f. e. a list of MAC addresses or interface
+names seperated by space.
+
+{{{
+nvram set variable="aa:bb:cc:dd:ee:ff aa:bb:cc:dd:ee:ff"
+}}}
+
 See [:OpenWrtNVRAM].
 
 
