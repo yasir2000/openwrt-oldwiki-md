@@ -113,7 +113,7 @@ Some machines will disable the ethernet when the router is powered off and not e
 
 Windows 2000 and Windows XP have a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware. 
 
-Important: Make sure your personal firewall is disabled for this part. Some personal firewalls will not give any indication that they have blocked the tftp client. Please bear in mind that you should only be connected to the wrt54g router when your personal firewall is disabled to avoid any nastiness. Do NOT forget to enable your personal firewall back when you are done.
+"'Important:"' Make sure your personal firewall is disabled for this part. Some personal firewalls will not give any indication that they have blocked the tftp client. Please bear in mind that you should only be connected to the router when your personal firewall is disabled to avoid any nastiness. Do NOT forget to enable your personal firewall back when you are done.
 
 Windows 2000/XP TFTP Client short Instructions
 
