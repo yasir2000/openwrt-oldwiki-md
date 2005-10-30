@@ -153,7 +153,7 @@ ipkg install http://downloads.openwrt.org/people/nico/ \
         testing/mipsel/packages/fdisk_2.12r-1_mipsel.ipk
 }}}
 
-Create the {{{/mnt}}} directory fot the mount point on the flash
+Create the {{{/mnt}}} directory for the mount point on the flash
 
 {{{
 mkdir -p /mnt
