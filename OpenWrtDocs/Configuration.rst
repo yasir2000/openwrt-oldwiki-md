@@ -314,7 +314,7 @@ robocfg switch disable vlans enable reset vlan 0 ports "1 2 3 4 5t" vlan 1 ports
 == Basic settings ==
 
 || '''NVRAM variable''' || '''Description''' ||
-|| wl0_mode  || '''ap''' = Access Point (master mode), '''sta''' Client mode ||
+|| wl0_mode  || '''ap''' = Access Point (master mode), '''sta''' = Client mode ||
 || wl0_ssid  || ESSID ||
 || wl0_infra || '''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
 || wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
