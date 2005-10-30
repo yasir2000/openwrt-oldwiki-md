@@ -63,7 +63,7 @@ Start Samba with
 = Clients =
 
 '''NOTE:''' In the default config file all users are only able to
-read on the share, since all users all use the {{{nobody}}} account.
+read on the share, since all users use the {{{nobody}}} account.
 You can change this in the {{{/etc/samba/smb.conf}}} file.
 
 
