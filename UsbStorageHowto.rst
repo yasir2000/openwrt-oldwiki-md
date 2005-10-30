@@ -17,8 +17,8 @@ USB harddisc) to the USB port on your router.
 
 = Requirements =
 
- * Supported router by OpenWrt with USB (f. e. the Asus WL-500G or
- the Asus WL-500G deluxe)
+ * Supported router by OpenWrt with USB (f. e. the Asus [:OpenWrtDocs/Hardware/Asus/WL500G:WL-500G] or
+ the Asus [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500G deluxe])
  * a recent !OpenWrt version installed (at least White Russian RC3)
  * some kind of a USB storage device (a USB stick or a external USB
  harddisc) supported by Linux
