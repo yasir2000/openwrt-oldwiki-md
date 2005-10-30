@@ -125,7 +125,7 @@ USB Mass Storage support registered.
 
 = Configuration =
 
-== Usage as a storage device to extent storage ==
+== Usage as a storage device to extend storage ==
 
 First install the kernel file system modules, for example:
 
