@@ -186,9 +186,10 @@ I would prefer
 strings /dev/nvram | sort | more
 }}}
 
-Use {{{more}}} to list the output page by page. You can also save the dump into a
-file. Use {{{>/tmp/nvram-dump.txt}}} instead of {{{more}}}. Than SCP the file to
-another computer.
+{{{sort}}} will sort the list alphabetically to make it easier to read. Use
+{{{more}}} to list the output page by page. You can also save the dump into a
+text file. Use {{{>/tmp/nvram-dump.txt}}} instead of {{{more}}}. Than SCP the file
+to another computer.
 
 '''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel, for that use
 a pastebin service like [http://www.pastebin.ca/] or [http://www.pastebin.com/].
