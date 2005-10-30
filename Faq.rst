@@ -308,6 +308,9 @@ ipkg install http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk
 upgrade, Internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
 work. It will only run on OpenWrt White Russian RC3 and later.
 
+'''TIP:''' The web interface will be included by default in the upcoming !OpenWrt
+White Russian RC4 and later versions.
+
 The OpenWrt web interface is based on a set of shell and AWK scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the BusyBox HTTPD server.
