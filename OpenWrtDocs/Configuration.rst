@@ -345,9 +345,9 @@ More information is on ["OpenWrtDocs/nas"]. (solve problem with WhiteRussian RC2
 || '''NVRAM variable''' || '''Description''' ||
 ||<rowspan=6> wl0_akm || '''open''' = No WPA ||
 ||  '''psk''' = WPA Personal/PSK (Preshared Key) ||
-||  '''wpa''' WPA with a RADIUS server ||
+||  '''wpa''' = WPA with a RADIUS server ||
 ||  '''psk2''' = WPA2 PSK ||
-||  '''wpa2''' WPA2 with RADIUS ||
+||  '''wpa2''' = WPA2 with RADIUS ||
 ||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 ||
 ||<rowspan=3> wl0_crypto || '''tkip''' = RC4 encryption ||
 ||  '''aes''' = AES encryption ||
@@ -386,7 +386,7 @@ If you activate both you will double the pain to find a problem.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 
 /!\ Note: if you broke up your bridge as detailed in
-"To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better no what you are doing...
+"To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better know what you are doing...
 
 == OpenWrt as client / wireless bridge ==
 
