@@ -141,7 +141,7 @@ So, '''qosif''' in three steps:
 
 ==== Notes and Caveats ====
 
-* This script will probably morph into a package in the future.
-* There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
-* Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net].
-* You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
+ * This script will probably morph into a package in the future.
+ * There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
+ * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net].
+ * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
