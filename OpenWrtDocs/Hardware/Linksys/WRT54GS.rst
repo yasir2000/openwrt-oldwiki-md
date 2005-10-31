@@ -6,10 +6,10 @@
 
 === Hardware versions ===
 
-There are six versions of the WRT54GS. All of them are based on the 4712 board. They
-have a 200 MHz CPU, 8 MB flash and 32 MB RAM (except v4). You can get the version number
-from the sticker on the bottom of the device. All revisions are supported by OpenWrt 1.0
-(White Russian) and later.
+There are six versions of the WRT54GS. All of them are based on the 4712 board (with the
+exception of v3.0 & v4.0). They have a 200 MHz CPU, 8 MB flash and 32 MB RAM (except v4).
+You can get the version number from the sticker on the bottom of the device. All revisions
+are supported by OpenWrt 1.0 (White Russian) and later.
 
 
 ===== Identification by S/N =====
@@ -49,10 +49,12 @@ The WRT54GS v2.1 also uses a BCM5325EKQM switch and a BCM4712LKFB processor.
 
 ==== WRT54GS v3.0 ====
 
-The WRT54GS v3.0 uses a Broadcom 5352 CPU with integrated Switch.
+The WRT54GS v3.0 uses a Broadcom 5352 CPU with integrated switch.
 
 
 ==== WRT54GS v4.0 ====
+
+The WRT54GS v4.0 uses a Bradcom 5352 CPU with integrated switch.
 
 '''NOTE:''' v4.0 only has 4 MB Flash and 16 MB RAM. Half of prior versions.
 Some WRT54GS v4 has 8 MB flash and 32 MB RAM, only first relase of WRT54GS v4
