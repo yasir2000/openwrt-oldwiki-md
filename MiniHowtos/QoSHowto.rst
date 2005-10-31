@@ -67,3 +67,30 @@ awk -v device=vlan1 -v linespeed=512 -f genscript.awk config > S55qos
 
 cp S55qos config firewall.awk /etc/init.d/
 }}}
+
+Which leaves us with the format of the `config` file.  It's formatted in stanzas (I did say that nbd guy was pretty clever, right?) and the stanzas can be broken down into policies and marking rules.
+
+For example, the first three stanzas (or blocks) are policies:
+
+{{{
+class:Priority
+maxdelay:30
+rate:60
+priority
+end
+
+class:Normal
+maxdelay:100
+limit:95
+rate:30
+normal
+end
+
+class:Bulk
+maxdelay:1000
+rate:10
+limit:80
+default
+bulk
+end
+}}}
