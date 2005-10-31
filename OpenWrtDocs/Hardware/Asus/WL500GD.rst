@@ -1,9 +1,14 @@
+'''Asus WL-500g Deluxe'''
+
+
 = Asus WL-500g Deluxe =
 
 The WL-500g Deluxe is based on the Broadcom 5365 board. It has a 200 MHz CPU, 4 MB
 flash and 32 MB RAM (on a few older units only 16 MB is enabled by default). The
 wireless NIC is integrated to the board, and it also has a VIA USB 2.0 controller.
 The {{{boot_wait}}} NVRAM variable is on by default.
+
+The router is sometimes called Asus WL-500GX.
 
 
 == Software overview ==
@@ -13,6 +18,17 @@ The unit is supported in OpenWrt 1.0 (White Russian) and later.
 '''TIP:''' You can use the Asus software restoration Windows tool from the CD which
 comes with the router to flash !OpenWrt TRX firmware images or restore the original
 firmware.
+
+
+== Serial Console ==
+
+See [http://wl500g.info/showthread.php?t=1993].
+
+
+== USB Storage ==
+
+For information about how to use a USB storage device (such as a memory stick or a hard
+drive) and even boot from it, see [:UsbStorageHowto].
 
 
 == Hardware overview ==
@@ -54,15 +70,3 @@ Devices that pop up on the MII bus, accesible via the mac core:
 bcm5325e or compatible, MII (MDC/MDIO)  5 ports switch
 
 }}}
-
-
-== Serial Console ==
-
-See [http://wl500g.info/showthread.php?t=1993].
-
-
-
-== USB Storage ==
-
-For information about how to use a USB storage device (such as a memory stick or a hard
-drive) and even boot from it, see [:UsbStorageHowto].
