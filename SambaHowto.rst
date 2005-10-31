@@ -1,7 +1,7 @@
 /!\ '''This howto is under development''' /!\
 
 
-'''Share files on your network with Samba'''
+'''Samba howto'''
 
 
 [[TableOfContents]]
