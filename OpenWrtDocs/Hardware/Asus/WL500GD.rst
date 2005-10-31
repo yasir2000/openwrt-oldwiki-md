@@ -1,6 +1,9 @@
 '''Asus WL-500g Deluxe'''
 
 
+[[TableOfContents]]
+
+
 = Asus WL-500g Deluxe =
 
 The WL-500g Deluxe is based on the Broadcom 5365 board. It has a 200 MHz CPU, 4 MB
@@ -11,7 +14,7 @@ The {{{boot_wait}}} NVRAM variable is on by default.
 The router is sometimes called Asus WL-500GX.
 
 
-== Software overview ==
+= Software overview =
 
 The unit is supported in OpenWrt 1.0 (White Russian) and later.
 
@@ -31,7 +34,7 @@ For information about how to use a USB storage device (such as a memory stick or
 drive) and even boot from it, see [:UsbStorageHowto].
 
 
-== Hardware overview ==
+= Hardware overview =
 
 {{{
 Devices that pop up on the Silicon backplane, these are emulated as PCI devices on bus 0:
