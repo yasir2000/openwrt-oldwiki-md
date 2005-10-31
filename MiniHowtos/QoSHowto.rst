@@ -145,3 +145,46 @@ So, '''qosif''' in three steps:
  * There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
  * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net].
  * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
+
+=== ctshaper ===
+
+First, download the script from [http://students.fct.unl.pt/~cer09566/ctshaper/ this link].  I made it work for me with a few changes.
+
+I chose not to use the install script.  I changed the following values in the '''ctshaper''' file:
+
+{{{
+
+from:
+
+#!/bin/bash
+
+to:
+
+#!/bin/ash
+
+
+from:
+
+TC="/sbin/tc"
+
+to:
+
+TC="/usr/sbin/tc"
+
+
+from:
+
+source ${CONFIG_FILE}
+
+to: 
+
+. ${CONFIG_FILE}
+
+
+from:
+
+DEFAULT_RATE=$[${UPLINK} - ${CLASS1_RATE} - ${CLASS2_RATE} - ${CLASS3_RATE}]
+
+to:
+
+DEFAULT_RATE=$((${UPLINK} - ${CLASS1_RATE} - ${CLASS2_RATE} - ${CLASS3_RATE}))
