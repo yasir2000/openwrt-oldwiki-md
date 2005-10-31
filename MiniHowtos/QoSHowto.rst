@@ -128,3 +128,7 @@ classify:Normal
 dest:*:tcp:993
 end
 }}}
+
+These are pretty self explainatory as well.  The first line is how to classify the traffic.  The second line, how to define the traffic.  And the third line, the end which denotes the end of the stanza.
+
+Take the third example.  Anything with a destination of udp/53 or udp/5190 (dns and aim, respectively), will be classified as Priority.  Pretty simple, huh?
