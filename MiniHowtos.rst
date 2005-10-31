@@ -247,7 +247,7 @@ I put the links in here because many people asking for such a solution based on 
 
 ''Share your internet access! This firmware turns any WLAN router with openwrt: Linksys
 WRT54g/gs into a hotspot for free or fee. Easy web interface. No PC needed. Welcome page,
-RADIUS/NoCatsplash, can use server for reports,online voucher sales,monitoring.''
+RADIUS/!NoCatsplash, can use server for reports,online voucher sales,monitoring.''
 
 For details please see, [http://sourceforge.net/projects/hotspot-zone HOTSPOT-ZONE] and
 [http://www.hot-spot-zone.de/hsz/ipkg/].
