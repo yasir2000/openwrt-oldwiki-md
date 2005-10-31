@@ -36,4 +36,16 @@ I went from not having a QoS option (well, to be honest, the tools were always t
 
 One involves nbd's qosif scripts.  And the other involves ctshaper, a script written by Carlos Rodrigues, based on wondershaper.
 
-Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.  
+Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.
+
+=== qosif ===
+
+If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts.  The archive is located [http://openwrt.inf.fh-brs.de/~nbd/qosif.tar.gz here] and contains four files.  
+
+
+{{ 
+config
+firewall.awk
+genscript.awk
+test.sh
+}}
