@@ -1,4 +1,4 @@
-/!\ '''This howto is under development''' /!\
+/!\ This howto is under development /!\
 
 
 '''Samba howto'''
