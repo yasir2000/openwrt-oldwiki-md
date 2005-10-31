@@ -25,7 +25,8 @@ stty -F /dev/tts/1 speed 115200
 
 Note that both UART ports share one interrupt.
 
-German People could also take a look at the Page from freifunk hamburg: http://hamburg.freifunk.net/twiki/bin/view/Technisches/WRT54gSerielleSchnittstelle
+German People could also take a look at the Page from freifunk hamburg:
+[http://hamburg.freifunk.net/twiki/bin/view/Technisches/WRT54gSerielleSchnittstelle]
 
 
 == Single-port serial modification ==
