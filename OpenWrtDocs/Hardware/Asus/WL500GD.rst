@@ -23,12 +23,12 @@ comes with the router to flash !OpenWrt TRX firmware images or restore the origi
 firmware.
 
 
-== Serial Console ==
+== Serial console ==
 
 See [http://wl500g.info/showthread.php?t=1993].
 
 
-== USB Storage ==
+== USB storage ==
 
 For information about how to use a USB storage device (such as a memory stick or a hard
 drive) and even boot from it, see [:UsbStorageHowto].
