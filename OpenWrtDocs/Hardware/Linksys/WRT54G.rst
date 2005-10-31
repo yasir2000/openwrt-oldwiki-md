@@ -21,17 +21,18 @@ below the Linksys logo.
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
-||'''Model'''||'''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
-||<(|2>WRT54G v1.0||CDF0xxxxxxx||<:|2> (./) ||<:|2> (./) ||
-||CDF1xxxxxxx||
-||<(|2>WRT54G v1.1||CDF2xxxxxxx||<:|2> (./) ||<:|2> (./) ||
-||CDF3xxxxxxx||
-||WRT54G v2||CDF5xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v2.2||CDF7xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v3||CDF8xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v3.1 (AU?)||CDF9xxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v4||CDFAxxxxxxx||<:> (./) ||<:> (./) ||
-||WRT54G v5||CDFBxxxxxxx||<:> {X} ||<:> {X} ||
+||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
+||<(|2>WRT54G v1.0||<:> CDF0||<:|2> (./) ||<:|2> (./) ||
+||<:> CDF1||
+||<(|3>WRT54G v1.1||<:> CDF2||<:|3> (./) ||<:|3> (./) ||
+||<:> CDF3||
+||<:> CDF4||
+||WRT54G v2||<:> CDF5||<:> (./) ||<:> (./) ||
+||WRT54G v2.2||<:> CDF7||<:> (./) ||<:> (./) ||
+||WRT54G v3||<:> CDF8||<:> (./) ||<:> (./) ||
+||WRT54G v3.1 (AU?)||<:> CDF9||<:> (./) ||<:> (./) ||
+||WRT54G v4||<:> CDFA||<:> (./) ||<:> (./) ||
+||WRT54G v5||<:> CDFB||<:> {X} ||<:> {X} ||
 
 
 ==== WRT54G v1.0 ====
