@@ -1,6 +1,3 @@
-'''Client mode howto'''
-
-
 = Client Mode =
 
 If you want to use OpenWrt to connect to another access point (AP) or
