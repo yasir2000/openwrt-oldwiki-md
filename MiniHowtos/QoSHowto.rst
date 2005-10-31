@@ -96,3 +96,35 @@ end
 }}}
 
 This first part of the config file sets up our 3 buckets.  "Class" names the policy, "maxdelay" is the maximum delay we would like to craft (in ms).  "Rate" and "limit" are pretty self-explainatory, in kbits/sec.  Last but not least, is the type of queue (priority, normal, bulk) and of course the end of the config file.
+
+The last half of the config file crafts the rules for marking, in iptables:
+
+{{{
+classify:Bulk
+layer7:edonkey
+end
+
+classify:Bulk
+src:192.168.1.20:tcp:80
+end
+
+classify:Priority
+dest:*:udp:53,5190
+end
+
+classify:Priority
+dest:*:tcp:22,53,5190
+end
+
+classify:Priority
+src:*:tcp:60168
+end
+
+classify:Priority
+src:*:udp:60168
+end
+
+classify:Normal
+dest:*:tcp:993
+end
+}}}
