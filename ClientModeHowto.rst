@@ -1,3 +1,6 @@
+'''Client mode howto'''
+
+
 = Client Mode =
 
 If you want to use OpenWrt to connect to another access point (AP) or
@@ -50,7 +53,7 @@ nvram set wan_ifname=vlan1
 
 === Routed client mode ===
 
-Now we are breaking down the default bridge between the wifi interface
+Now we are breaking down the default bridge between the wireless interface
 and the LAN ports. Note that we are using the {{{wan_ifname}}} to refer to
 the wireless connection; this will save you from having to change
 the firewall script.
