@@ -132,3 +132,9 @@ end
 These are pretty self explainatory as well.  The first line is how to classify the traffic.  The second line, how to define the traffic.  And the third line, the end which denotes the end of the stanza.
 
 Take the third example.  Anything with a destination of udp/53 or udp/5190 (dns and aim, respectively), will be classified as Priority.  Pretty simple, huh?
+
+So, '''qosif''' in three steps:
+
+ * modify `config` file to suit your needs, designating policies (buckets) and traffic.
+ * either modify `test.sh` or write one line command to generate your script, outputing to a file (S55qos for example)
+ * copy `config`, `firewall.awk` and `S55qos` (or whatever you called your output file) to `/etc/init.d/` or other sane place, for running automatically or manually
