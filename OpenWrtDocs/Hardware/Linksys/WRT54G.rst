@@ -69,8 +69,8 @@ This unit is just like v2.2 except it has an extra button on the left front pane
 behind a Cisco logo. This button can be illuminated by either a yellow or white
 LED, and is used for the "Secure Easy Setup" encryption setup feature.
 
-/!\ '''NOTE:''' To take the front cover off of v3.1, you must first remove the small
-screws under the rubber covers of the front feet!
+To take the front cover off of v3.1, you must first remove the small screws under the
+rubber covers of the front feet!
 
 
 ==== WRT54G v4.00 ====
@@ -79,8 +79,8 @@ New more integrated board layout
 ([http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6#wrt54g4 photos here]),
 switch is now in SoC.
 
-/!\ '''NOTE:''' To take the front cover off of this unit you must first remove the small
-screws under the rubber covers of the front feet!
+To take the front cover off of this unit you must first remove the small screws under the
+rubber covers of the front feet!
 
 
 ==== WRT54G v5 ====
@@ -91,10 +91,6 @@ Initial reports are that this version has switched to a non-Linux OS (!VxWorks).
 from pictures that it is nearly identical to v4 with an updated rev on the processor, less
 flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by
 !OpenWrt.
-
-## #######################
-##
-## Last sentence removed because it does NOT have something to do with OpenWrt.
 
 
 === Table summary ===
