@@ -34,7 +34,7 @@ Last but not least... it should be mentioned, exactly how the queing is performe
 
 I went from not having a QoS option (well, to be honest, the tools were always there, just needed a sane script) to having two options.  Debate as to which is the "better" one is probably not important.  I'd personally call them "two great ways to do it".
 
-One involves nbd's qosif scripts.  And the other involves ctshaper, a script written by Carlos Rodrigues, based on wondershaper.
+One involves nbd's qosif scripts.  And the other involves ctshaper, a script written by Carlos Rodrigues, based on wondershaper.  These two guys deserve the credit for the scripts I'm going to mention.
 
 Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.
 
@@ -149,7 +149,7 @@ So, '''qosif''' in three steps:
 
 === ctshaper ===
 
-First, download the script from [http://students.fct.unl.pt/~cer09566/ctshaper/ this link].  I made it work for me with a few changes.
+First, download the script from [http://students.fct.unl.pt/~cer09566/ctshaper/ this link].  Tarball is at the bottom of the page.  I made it work for me with a few changes.
 
 I chose not to use the install script.  I changed the following values in the '''ctshaper''' file:
 
