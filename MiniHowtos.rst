@@ -241,7 +241,7 @@ And RRDCollect [http://openwrt.brainabuse.de/rrdcollect/readme.html] will even p
 the status graphs on the WRT itself, without the need for a collecting host.
 
 
-== OpenWrt + Chillspot solution ==
+== OpenWrt + Chillispot solution ==
 
 I put the links in here because many people asking for such a solution based on !OpenWrt.
 
