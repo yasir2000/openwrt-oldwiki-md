@@ -11,7 +11,8 @@ The {{{boot_wait}}} NVRAM variable is on by default.
 The unit is supported in OpenWrt 1.0 (White Russian) and later.
 
 '''TIP:''' You can use the Asus software restoration Windows tool from the CD which
-comes with the router to flash TRX firmware images from !OpenWrt.
+comes with the router to flash !OpenWrt TRX firmware images or restore the original
+firmware.
 
 
 == Hardware overview ==
