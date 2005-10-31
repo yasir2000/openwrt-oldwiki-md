@@ -1,4 +1,4 @@
-/!\ This howto is under development /!\
+/!\ This page is under development /!\
 
 
 '''Samba howto'''
