@@ -139,7 +139,7 @@ dhcp-option=lan,6,10.10.6.1
 --
 Nico
 
-== Using the wireless interface in client-mode (for wan) ==
+== Using the wireless interface in client mode (for wan) ==
 
 To convert a router using standard configuration into a NATing wireless client, you
 can use the ["wl_utility"]:
