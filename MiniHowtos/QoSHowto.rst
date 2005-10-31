@@ -241,7 +241,7 @@ esac
 exit $?
 }}}
 
-That's it!  Now when you reboot, your QoS will be applied at bootup.  Notice, with this setup, you must mark your own packets, possibly in `firewall.user`.
+That's it!  Now when you reboot, your QoS will be applied at bootup.  Notice, with this setup, you must mark your own packets, possibly in `/etc/firewall.user`.
 
 Try issuing the command `ctshaper status` to see current configuration.
 
