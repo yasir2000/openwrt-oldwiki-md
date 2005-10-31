@@ -7,8 +7,8 @@
 === Hardware versions ===
 
 There are six versions of the WRT54GS. All of them are based on the 4712 board. They
-have a 200 MHz CPU, 8 MB flash and 32 MB RAM. You can get the version number from
-the sticker on the bottom of the device. All revisions are supported by OpenWrt 1.0
+have a 200 MHz CPU, 8 MB flash and 32 MB RAM (except v4). You can get the version number
+from the sticker on the bottom of the device. All revisions are supported by OpenWrt 1.0
 (White Russian) and later.
 
 
