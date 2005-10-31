@@ -153,7 +153,6 @@ First, download the script from [http://students.fct.unl.pt/~cer09566/ctshaper/ 
 I chose not to use the install script.  I changed the following values in the '''ctshaper''' file:
 
 {{{
-
 from:
 
 #!/bin/bash
@@ -188,3 +187,55 @@ DEFAULT_RATE=$[${UPLINK} - ${CLASS1_RATE} - ${CLASS2_RATE} - ${CLASS3_RATE}]
 to:
 
 DEFAULT_RATE=$((${UPLINK} - ${CLASS1_RATE} - ${CLASS2_RATE} - ${CLASS3_RATE}))
+}}}
+
+I then copied it to `/usr/sbin/ctshaper` on the OpenWRT router.
+
+Next, modify `ctshaper.conf` to suit your needs, and copy over to `/etc/ctshaper/ctshaper.conf` on the router.
+
+Then, I made a file called `S75qos` and put it in `/etc/init.d/` ... it's just a copy of the `crond` init script, modified a bit:
+
+{{{
+#!/bin/sh
+#
+# Starts ctshaper
+#
+
+mods="sch_sfq sch_ingress sch_htb cls_u32 cls_fw"
+
+start() {
+        echo "Starting ctshaper: "
+        for m in $mods
+          do insmod $m >/dev/null 2>&1
+        done
+        /usr/sbin/ctshaper start
+}
+stop() {
+        echo "Stopping ctshaper: "
+        /usr/sbin/ctshaper stop
+        for m in $mods
+          do rmmod $m >/dev/null 2>&1
+        done
+}
+restart() {
+        stop
+        start
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        restart
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
+}}}
