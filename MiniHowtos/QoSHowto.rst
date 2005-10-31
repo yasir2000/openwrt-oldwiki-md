@@ -138,3 +138,10 @@ So, '''qosif''' in three steps:
  * modify `config` file to suit your needs, designating policies (buckets) and traffic.
  * either modify `test.sh` or write one line command to generate your script, outputing to a file (`S55qos` for example)
  * copy `config`, `firewall.awk` and `S55qos` (or whatever you called your output file) to `/etc/init.d/` or other sane place, for running automatically or manually
+
+==== Notes and Caveats ====
+
+This script will probably morph into a package in the future.
+There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
+Rules like the first ''edonkey'' one above require the L7 filter package.
+You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
