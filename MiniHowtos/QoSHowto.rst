@@ -43,9 +43,9 @@ Perhaps I can outline the pros and cons of each.  But there's a few things you w
 If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts.  The archive is located [http://openwrt.inf.fh-brs.de/~nbd/qosif.tar.gz here] and contains four files.  
 
 
-{{ 
+{{{
 config
 firewall.awk
 genscript.awk
 test.sh
-}}
+}}}
