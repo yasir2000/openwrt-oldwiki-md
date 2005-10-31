@@ -136,8 +136,8 @@ Take the third example.  Anything with a destination of udp/53 or udp/5190 (dns 
 So, '''qosif''' in three steps:
 
  * modify `config` file to suit your needs, designating policies (buckets) and traffic.
- * either modify `test.sh` or write one line command to generate your script, outputing to a file (`S55qos` for example)
- * copy `config`, `firewall.awk` and `S55qos` (or whatever you called your output file) to `/etc/init.d/` or other sane place, for running automatically or manually
+ * either modify `test.sh` or write one line command to generate your script, outputing to a file (`S55qos` for example).
+ * copy `config`, `firewall.awk` and `S55qos` (or whatever you called your output file) to `/etc/init.d/` or other sane place, for running automatically or manually.
 
 ==== Notes and Caveats ====
 
