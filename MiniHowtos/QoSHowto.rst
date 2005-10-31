@@ -94,3 +94,5 @@ default
 bulk
 end
 }}}
+
+This first part of the config file sets up our 3 buckets.  "Class" names the policy, "maxdelay" is the maximum delay we would like to craft (in ms).  "Rate" and "limit" are pretty self-explainatory, in kbits/sec.  Last but not least, is the type of queue (priority, normal, bulk) and of course the end of the config file.
