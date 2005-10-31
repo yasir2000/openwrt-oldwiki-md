@@ -4,7 +4,7 @@ The SoekrisPort is an attempt to use OpenWrt on PC-based embedded computer board
 
 The net4801 has a CompactFlash socket, as well as an IDE interface for 2.5" HDD. The installation procedure described here is for CF setup. You can use whatever size (from 8MB to 1GB) for your CF.
 
-The kernel, images and packages are available in my [http://openwrt.org/downloads/people/nico/testing/i386/ download] directory.
+The kernel, images and packages are available in my [http://openwrt.org/downloads/people/nico/testing/x86/ download] directory.
 
 
 == Installation ==
