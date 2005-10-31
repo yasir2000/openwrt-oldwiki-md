@@ -49,3 +49,21 @@ firewall.awk
 genscript.awk
 test.sh
 }}}
+
+The file `test.sh` is just a simple one line awk script:
+
+{{{
+awk -v device=ppp0 -v linespeed=128 -f genscript.awk config
+}}}
+
+This runs awk, setting two variables, the first "device" being the device that QoS will be applied on.  For me, this would be the WAN interface, or vlan1.  (Might differ depending on your hardware revision).  The second variable is linespeed.  Appearently this is for a 128kbit uplink.  Mine would be 512, for example.
+
+It then passes these variables to the "genscript.awk" file, running it on the "config" file.  Firewall.awk is called from within genscript.awk.
+
+So, all one needs to do, is copy these files over to the router, and either edit test.sh with your own values, or enter the one line command by itself, using your own values.  If you redirect the output, you have a nice Qos script.  Note that it requires firewall.awk.  
+
+{{{
+awk -v device=vlan1 -v linespeed=512 -f genscript.awk config > S55qos 
+
+cp S55qos config firewall.awk /etc/init.d/
+}}}
