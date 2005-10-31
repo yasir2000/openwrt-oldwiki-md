@@ -6,7 +6,7 @@ wireless NIC is integrated to the board, and it also has a VIA USB 2.0 controlle
 The {{{boot_wait}}} NVRAM variable is on by default.
 
 
-== Software Overview ==
+== Software overview ==
 
 The unit is supported in OpenWrt 1.0 (White Russian) and later.
 
