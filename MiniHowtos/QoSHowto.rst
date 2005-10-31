@@ -145,6 +145,7 @@ So, '''qosif''' in three steps:
  * There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
  * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net].
  * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
+ * Based on `hfsc` packet scheduler, not `htb`.  You may be more familiar with one over the other.
 
 === ctshaper ===
 
@@ -239,3 +240,13 @@ esac
 
 exit $?
 }}}
+
+That's it!  Now when you reboot, your QoS will be applied at bootup.  Notice, with this setup, you must mark your own packets, possibly in `firewall.user`.
+
+Try issuing the command `ctshaper status` to see current configuration.
+
+==== Notes and Caveats ====
+ 
+ * As I said, it requires you to mark your own packets.  Not as elegant as the '''qosif''' script, but it works.
+ * Necessary to modify it a bit first to get it working.
+ * Based on `htb` packet scheduler, not `hfsc`.  
