@@ -118,7 +118,7 @@ arp -d *
 
 On Windows operating systems open a CMD console and do:
 {{{
-C:\> arp -d *
+C:\> arp -d 192.168.1.1
 }}}
 
 
