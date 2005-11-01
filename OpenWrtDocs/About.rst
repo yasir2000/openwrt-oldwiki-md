@@ -11,7 +11,9 @@
 [[TableOfContents]]
 = About OpenWrt =
 
-With the release of the Linux sources for the Linksys WRT54G/GS series of routers came a number of modified firmwares to extend functionality in various ways. Each firmware was 99% stock sources and 1% added functionality, and each firmware attempted to cater to a certain market segment with the functionality that they provided. The downsides were twofold, one - it was often difficult to find a firmware with the combination of functionality desired (leading to forks and yet more custom firmwares) and two - all the firmwares were based on the original Linksys sources which were far behind mainstream Linux development.
+With the release of the Linux sources for the Linksys WRT54G/GS series of routers came a number of modified firmwares to extend functionality in various ways. Each firmware was 99% stock sources and 1% added functionality, and each firmware attempted to cater to a certain market segment with the functionality that they provided. The downsides were twofold:
+ 1. It was often difficult to find a firmware with the combination of functionality desired (leading to forks and yet more custom firmwares)
+ 1. All the firmwares were based on the original Linksys sources which were far behind mainstream Linux development.
 
 OpenWrt takes a different route, instead of starting out with the Linksys sources, the development started with a clean slate. Piece by piece software was added to bring the functionality back to that of the stock firmware, using the most recent versions available. What makes OpenWrt really unique though is the fact it employs a writable filesystem so the firmware is no longer a static compilation of software but can instead be dynamically adjusted to fit the particular needs of the situation. In short, the device is turned into a mini linux PC with OpenWrt acting as the distribution, complete with almost all traditional linux commands and a package management system for easily loading on extra software and features. 
 
