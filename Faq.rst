@@ -315,8 +315,7 @@ The !OpenWrt web interface is based on a set of shell and AWK scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the !BusyBox HTTPD server.
 
-A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html]
-and [http://nbd.name/qos1.png].
+A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html].
 
 
 == Why is the OpenWrt firmware so bare? ==
