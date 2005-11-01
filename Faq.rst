@@ -521,7 +521,7 @@ LINESPEED=576
 Next edit the {{{/etc/config/qos}}} file. In this config file you will
 make the QoS configuration. It has some examples in it.
 
-Now create a directory for the L7 filters.
+If you use L7 filter in config file, you must create a directory and download protocol files on [http://l7-filter.sourceforge.net/protocols Layer 7 filters].
 
 {{{
 mkdir -p /etc/l7-protocols
