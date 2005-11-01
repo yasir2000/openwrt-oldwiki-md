@@ -141,6 +141,9 @@ Nico
 
 == Using the wireless interface in client mode (for wan) ==
 
+'''NOTE:''' This information provided here is obsolete. See [:ClientModeHowto].
+
+
 To convert a router using standard configuration into a NATing wireless client, you
 can use the ["wl_utility"]:
 {{{
