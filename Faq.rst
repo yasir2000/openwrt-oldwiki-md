@@ -315,7 +315,8 @@ The !OpenWrt web interface is based on a set of shell and AWK scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the !BusyBox HTTPD server.
 
-A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html].
+A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html]
+and [http://nbd.name/qos1.png].
 
 
 == Why is the OpenWrt firmware so bare? ==
@@ -521,7 +522,10 @@ LINESPEED=576
 Next edit the {{{/etc/config/qos}}} file. In this config file you will
 make the QoS configuration. It has some examples in it.
 
-If you use L7 filter in config file, you must create a directory and download protocol files on [http://l7-filter.sourceforge.net/protocols Layer 7 filters].
+If you are using L7 filter in the config file, you must create a directory
+and download protocol files ({{{.pat}}}) from
+[http://l7-filter.sourceforge.net/protocols Layer 7 filters] into the
+{{{/etc/l7-protocols}}} directory.
 
 {{{
 mkdir -p /etc/l7-protocols
