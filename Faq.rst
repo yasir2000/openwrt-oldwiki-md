@@ -495,12 +495,47 @@ Since OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good star
 point for documenation is [http://www.netfilter.org/documentation/].
 
 
-== Does OpenWrt support QoS/Traffic shaping? ==
+== How do i configure QoS/Traffic shaping in OpenWrt? ==
 
-Yes. But there is currently no script for easy QoS configuration.
+QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
 
-QoS in OpenWrt in the future will be based on {{{tc}}}, HFSC and
-[http://l7-filter.sourceforge.net/ Layer 7 filters].
+You have to install
+
+{{{
+ipkg install tc kmod-sched iptables-extra
+}}}
+
+when that is done, download and install the {{{qos-scripts}}} package.
+
+{{{
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.01_all.ipk
+}}}
+
+Edit your linespeed in {{{/etc/init.d/S46qos}}}. Enter the upload speed of
+your Internet connection in kbit/s.
+
+{{{
+LINESPEED=576
+}}}
+
+Next edit the {{{/etc/config/qos}}} file. In this config file you will
+make the QoS configuration. It has some examples in it.
+
+Now create a directory for the L7 filters.
+
+{{{
+mkdir -p /etc/l7-protocols
+}}}
+
+Finally start QoS manually with
+
+{{{
+/etc/init.d/S46qos
+}}}
+
+or alternativly via {{{/etc/ppp/ip-up}}} script.
+
+For more information see [:MiniHowtos/QoSHowto].
 
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
@@ -750,7 +785,7 @@ Approximately required disc space for compiling OpenWrt:
 
 ||'''Branch'''||'''Min.'''||'''Max.'''||
 ||Stable Source||1.5 GB||3.5 GB||
-||Development||x||x||
+||Development||x||3.8 GB||
 
 
 == Where is the CVS repository ? ==
