@@ -1,6 +1,3 @@
-/!\ This page is under development /!\
-
-
 '''Samba howto'''
 
 
