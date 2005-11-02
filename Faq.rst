@@ -498,6 +498,7 @@ point for documenation is [http://www.netfilter.org/documentation/].
 == How do I configure QoS/Traffic shaping in OpenWrt? ==
 
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
+This script is only shaping on your upstream.
 
 You have to install
 
