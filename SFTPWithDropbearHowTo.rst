@@ -49,7 +49,8 @@ ln -s /usr/lib/sftp-server /usr/libexec/sftp-server
 = Windows SFTP clients =
 
 Once both SSH and SFTP are installed you will be able to securely access the routers
-files via a secure connection. Two of the most popular clients that support SFTP are the [http://www.chiark.greenend.org.uk/~sgtatham/putty/ Putty SFTP client] and the
+files via a secure connection. Two of the most popular clients that support SFTP are the
+[http://www.chiark.greenend.org.uk/~sgtatham/putty/ Putty SFTP client] and the
 [http://filezilla.sourceforge.net/ FileZilla] graphical client. While the !FileZilla
 client is actually built upon the Putty client they will be treated here as if they are
 two distinct clients.
