@@ -14,7 +14,7 @@ NVRAM stands for Non-Volatile RAM, in this case the last 64K of the flash chip u
 
 {{{#!CSV
 Command; Description
-nvram show | sort | less; Display everything in nvram
+nvram show | sort | less; Display everything in NVRAM
 nvram get boot_wait; Get a specific variable
 nvram set boot_wait=on; Set a value
 nvram set lan_ifnames="vlan0 vlan1 vlan2"; set multiple values to one param
@@ -24,14 +24,16 @@ nvram commit; Write changes to the flash chip (otherwise only stored in RAM)
 
 A complete list of nvram options can be found at [:OpenWrtNVRAM].
 
+
 = Network configuration =
 
 '''Quick overview of the router architecture:'''
 
 The WRT54G is made up of an Ethernet switch, a wireless access point and a router chip that connects them together.
 
-[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png]
-[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png]
+Diagrams of the intertal switch architectures on
+ * [http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png WRT54G v2/v3 & WRT54GS v1/v2]
+ * [http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png WRT54G v4 & WRT54GS v3]
 
 [[BR]][[Anchor(NetworkInterfaceNames)]]
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
