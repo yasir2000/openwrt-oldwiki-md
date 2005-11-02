@@ -31,11 +31,13 @@ A complete list of nvram options can be found at [:OpenWrtNVRAM].
 
 The WRT54G is made up of an Ethernet switch, a wireless access point and a router chip that connects them together.
 
-Diagrams of the intertal switch architectures on
- * [http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png WRT54G v2/v3 & WRT54GS v1/v2]
- * [http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png WRT54G v4 & WRT54GS v3]
+Diagrams of the intertal switch architectures on can be found on the following table
 
-[[BR]][[Anchor(NetworkInterfaceNames)]]
+||'''Device & Version'''||||
+||WRT54G v2/v3 & WRT54GS v1/v2||[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png Switch diagram]||
+||WRT54G v4 & WRT54GS v3||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram]||
+
+[[Anchor(NetworkInterfaceNames)]]
 The names of the network interfaces will depend largely on what hardware OpenWrt is run on.
 ||'''Manufacturer'''||'''Model'''||'''Hardware version'''||'''LAN'''||'''WAN'''||'''WIFI'''||'''Comments'''||
 ||Linksys||WRT54G||v1.x||vlan2||vlan1||eth2|| ||
