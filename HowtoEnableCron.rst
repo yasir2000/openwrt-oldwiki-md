@@ -1,59 +1,44 @@
-I set up cron in order to publish my IP on the internet when it changes. You may know some more useful tasks for cron on your router.  An easy way to do this is as follows:
+'''HowtoEnableCron'''
 
-Lets say you want to run checkmyip every hour.  To do that, create the following script as `/etc/init.d/S51crond`:
 
-{{{
-#!/bin/sh
-# start crond
-mkdir -p /var/spool/cron/crontabs
-echo "0 * * * * /usr/bin/checkmyip" > /var/spool/cron/crontabs/root
-/usr/sbin/crond
-}}}
+[[TableOfContents]]
 
-Set the permissions so it can be executed directly:
 
-{{{
-chmod 755 /etc/init.d/S51crond
-}}}
+= Introduction =
 
-Now either run the command /etc/init.d/S51crond manually or reboot your router to activate crond.
+Cron jobs are useful to repeat things on configurable intervals. For example
+you can update your IP address on a [:DDNSHowTo:DDNS service] or you can sync
+the routers time with {{{rdate}}} once a day.
 
-Replace the echo line with the cron job you want to add. If you want to add more lines to that, just add additional echo lines using ">>" instead of ">" in the command in order to append lines to the end of the cron file.
+You may know some more useful tasks for cron on your Wrt router.
 
-Alternately, create /etc/spool/cron/crontabs and use the following script:
 
-{{{
-#!/bin/sh
-# start crond
-/usr/sbin/crond -c /etc/spool/cron/crontabs
-}}}
+= Requirements =
 
-This will leave all changes in place between reboots. All cronjobs go in the /etc/spool/cron/crontabs/root file.
+ * a standard OpenWrt White Russian installation (works with all release
+ candidates)
+ * {{{rdate}}} or the {{{ntpclient}}} (both optional) to sync the time on your
+ router
 
-You can also use the 'crontab -e' command to make your changes this way.
 
-'''Troubleshooting:'''
+= Installation =
 
-If crond says "Ignoring 'root'" then create /etc/passwd and /etc/group with an entry for root.
+{{{Crond}}} is installed by default. !OpenWrt uses the !BusyBox {{{crond}}}.
 
-/etc/passwd:
-{{{
-root:x:0:0:root:/:/bin/sh
-}}}
 
-and /etc/group:
+= Configuration =
+
+== Create a init script for crond ==
+
+First you have to create a init script so that {{{crond}}} will start up
+automatically on each bootup of your router. We call it {{{S51crond}}} and it
+should go in the {{{/etc/init.d}}} directory. To create it via copy & paste
+do:
 
 {{{
-root:x:0:
+cat > /etc/init.d/S51crond
 }}}
 
-Also, make sure you have the clock set correctly on your router!  An easy way to do this is to do this:
-
-{{{
-rdate tock.usno.navy.mil
-}}}
-
-Here is one more way that this can be accomplished:
 {{{
 #!/bin/sh
 #
@@ -64,37 +49,86 @@ mkdir -p /var/spool/cron
 ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
 
 start() {
-        echo -n "Starting crond: "
-        /usr/sbin/crond
-        touch /var/lock/crond
-        echo "OK"
+ echo -n "Starting crond: "
+ /usr/sbin/crond
+ touch /var/lock/crond
+ echo "OK"
 }
+
 stop() {
-        echo -n "Stopping crond: "
-        killall crond
-        rm -f /var/lock/crond
-        echo "OK"
+ echo -n "Stopping crond: "
+ killall crond
+ rm -f /var/lock/crond
+ echo "OK"
 }
+
 restart() {
-        stop
-        start
+ stop
+ start
 }
 
 case "$1" in
-  start)
-        start
-        ;;
-  stop)
-        stop
-        ;;
-  restart|reload)
-        restart
-        ;;
-  *)
-        echo $"Usage: $0 {start|stop|restart}"
-        exit 1
+ start)
+  start
+  ;;
+ stop)
+  stop
+  ;;
+ restart|reload)
+  restart
+  ;;
+ *)
+  echo $"Usage: $0 {start|stop|restart}"
+  exit 1
 esac
 
 exit $?
 }}}
-This will symlink /var/spool/cron/crontabs to /etc/spool/cron/crontabs so that your crontabs will stay effective across reboots.  As well, 'crontab -e' will work correctly, regardless of your user.
+
+After pasting it, press {{{ENTER}}} and then hit {{{CTRL+D}}} keys to save the
+file.
+
+Now make sure the init script executable and start it with
+
+{{{
+chmod a+x /etc/init.d/S51crond
+/etc/init.d/S51crond start
+}}}
+
+
+== Creating a cron job ==
+
+The cron jobs are saved in the {{{/etc/spool/cron/crontabs/root}}} file.
+You have two ways on adding a cron job to {{{crond}}}.
+
+The first one is just to create the {{{root}}} file with {{{echo}}} like this:
+
+{{{
+echo "0 * * * * /usr/sbin/rdate tock.usno.navy.mil" >> /var/spool/cron/crontabs/root
+}}}
+
+or use {{{crontab -e}}} (calls the {{{vi}}} editor) to edit the cron job file.
+Copy & paste
+
+{{{
+0 * * * * /usr/sbin/rdate tock.usno.navy.mil
+}}}
+
+than hit {{{ESC}}} and enter {{{:wq}}} to save the file.
+
+The example cron job will sync the routers time every hour using {{{rdate}}}.
+
+When done you can list the cron jobs with
+
+{{{
+root@OpenWrt:/# crontab -l
+0 * * * * /usr/bin/myprogram
+}}}
+
+That's it.
+
+
+= Links =
+
+ * Cron job calculator
+ - [http://www.csgnetwork.com/crongen.html]
