@@ -1,3 +1,9 @@
+## ##############################################
+## Tip: Please write the howto more generic because OpenWrt runs on
+## more routers than just the WRT54G and use a linebreak on char 80 makes
+## the page source a lot easier to read and editable. Again thanks for your
+## help!
+
 '''Aircrack Quick Guide for the WRT54G'''
 
 
