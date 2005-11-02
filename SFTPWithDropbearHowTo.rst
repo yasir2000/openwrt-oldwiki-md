@@ -61,7 +61,8 @@ The !FileZilla client is an ideal choice for most Windows users. The graphical i
 and relatively small learning curve allows the user to begin actively using the software
 immediately.
 
-See the [http://sourceforge.net/project/showfiles.php?group_id=21558 download page] and the [http://sourceforge.net/forum/?group_id=21558 user’s forum].
+See the [http://sourceforge.net/project/showfiles.php?group_id=21558 download page] and the
+[http://sourceforge.net/forum/?group_id=21558 user’s forum].
 
 
 == Putty SFTP ==
