@@ -498,7 +498,7 @@ point for documenation is [http://www.netfilter.org/documentation/].
 == How do I configure QoS/Traffic shaping in OpenWrt? ==
 
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
-This script is only shaping on your upstream.
+This script is only shaping on your uplink.
 
 You have to install
 
@@ -513,7 +513,7 @@ ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.01_all.ipk
 }}}
 
 Edit your linespeed in {{{/etc/init.d/S46qos}}}. Enter the upload speed of
-your Internet connection in kbit/s.
+your Internet connection in kbit.
 
 {{{
 LINESPEED=576
