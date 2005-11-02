@@ -23,7 +23,7 @@ At the moment the distribution contains more than 100 software packages. Further
 a build system, which may be used to create modified firmware from source. Porting of new software packages is simplified with the use of the SDK.
 
 If you aren't up to the task or simply don't need a real, full blooded Linux, here are some alternatives:
-* [http://www.seattlewireless.net/index.cgi/LinksysWrt54g#head-c8ffcfc4b9ddb0bd95c3d4e4b1faf349738899f1 Seattle Wireless's Customized Firmware Listing]
+ * [http://www.seattlewireless.net/index.cgi/LinksysWrt54g#head-c8ffcfc4b9ddb0bd95c3d4e4b1faf349738899f1 Seattle Wireless's Customized Firmware Listing]
 
 = OpenWrt Version History =
 The project started in January 2004. The first OpenWrt versions were based on Linksys original GPL sources for WRT54g and a buildroot from the uclibc project.  This version is known as OpenWrt "stable" and was widely in use. There are still many OpenWrt applications, like the Freifunk-Firmware or Sip@Home, which are based on this version.
