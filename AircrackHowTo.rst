@@ -21,7 +21,7 @@ The official page for Aircrack is currently [http://www.cr0.net:8040/code/networ
       * wl
 
  * A place to store large files (i.e. an NFS drive, or a CIFS drive)
-      * Please refer to [RemoteFileSystemHowTo] for instructions on how to do this
+      * Please refer to [:RemoteFileSystemHowTo] for instructions on how to do this
 
 = Installation =
 
