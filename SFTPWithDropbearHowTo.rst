@@ -61,8 +61,7 @@ The !FileZilla client is an ideal choice for most Windows users. The graphical i
 and relatively small learning curve allows the user to begin actively using the software
 immediately.
 
-The download page is [http://sourceforge.net/project/showfiles.php?group_id=21558 here].
-The user’s forum is [http://filezilla.sourceforge.net/forum/ here].
+See the [http://sourceforge.net/project/showfiles.php?group_id=21558 download page] and the [http://sourceforge.net/project/showfiles.php?group_id=21558 user’s forum].
 
 
 == Putty SFTP ==
@@ -71,5 +70,6 @@ Called PSFTP the Putty SFTP client is a robust and stable implementation of the 
 transfer protocol. While good, Putty's client is command-line based.  If you are used to
 graphical clients, use !FileZilla instead.
 
-Putty's download page is [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html here].
-Putty's documentation page is [http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html here].
+
+See Putty's [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html download page] and
+Putty's [http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html documentation page].
