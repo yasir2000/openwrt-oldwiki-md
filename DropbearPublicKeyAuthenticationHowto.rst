@@ -225,11 +225,11 @@ For more security you can disable Dropbear's password login. This is done
 by adding the {{{-s}}} parameter to Dropbear. Modify the last line in the
 {{{/etc/init.d/S50dropbear}}} init script.
 
-The the last line should look like:
-
 {{{
 cat /etc/init.d/S50dropbear
 }}}
+
+The the last line should look like:
 
 {{{
 /usr/sbin/dropbear -s
