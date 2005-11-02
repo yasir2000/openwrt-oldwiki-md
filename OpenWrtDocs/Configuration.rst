@@ -174,6 +174,8 @@ When the et module (ethernet driver) loads it will read from vlan0ports to vlan1
 
 PVID represents the primary vlan id, in other words if a packet doesn't have a vlan tag, which vlan does it belong to? The ethernet driver handles this rather trivially, in the case of vlan0ports="1 2 3 4 5*", ports 1-4 are set to PVID 0 (vlan0). Since the wrt needs to recieve packets from both the LAN (vlan0) and the WAN (vlan1), port 5 is a special case appearing in both vlan0ports and vlan1ports. This is where the '*' is used -- it determines the PVID of port 5, which is also the only port not to untag packets (for hopefully obvious reasons).
 
+Remark to "*": On ASUS-500GX is possible make external port tagged in this way vlan0ports="1t 2 5*". This is syntax like robocfg tool. Tested on WhiteRussianRC2, may be possible on all BCM5325 HWs. "*" have no effect, maybe exist for compatibility
+
 The second variable, vlan0hwname is used by the network configuration program (or script in the case of openwrt) to determine the parent interface. This should be set to "et0" meaning the interface matching et0macaddr.
 
 '''Sample configurations'''
