@@ -125,7 +125,7 @@ crontab -l
 }}}
 
 {{{
-0 * * * * /usr/bin/myprogram
+0 * * * * /usr/sbin/rdate tock.usno.navy.mil
 }}}
 
 That's it.
