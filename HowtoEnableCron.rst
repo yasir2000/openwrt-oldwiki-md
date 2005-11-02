@@ -121,7 +121,10 @@ The example cron job will sync the routers time every hour using {{{rdate}}}.
 When done you can list the cron jobs with
 
 {{{
-root@OpenWrt:/# crontab -l
+crontab -l
+}}}
+
+{{{
 0 * * * * /usr/bin/myprogram
 }}}
 
