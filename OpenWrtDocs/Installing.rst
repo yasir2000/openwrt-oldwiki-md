@@ -12,28 +12,12 @@ See [:TableOfHardware]
 
 '''Stable Release'''
 
-At the moment we have no stable supported release. You can get release candidates for the next stable OpenWrt release in binary format:
+You can get release candidates for the next OpenWrt release (Codename whiterussian):
 [http://downloads.openwrt.org/whiterussian/ http://downloads.openwrt.org/whiterussian/]
 
-'''Stable Source'''
+'''Getting the Source and Buildsystem'''
 
-The stable source code can be found in the above directory or from our CVS repository. This is not recommended for beginners; we will not troubleshoot failed compiles.
-
-{{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co -r whiterussian openwrt
-}}}
-
-'''Development'''
-
-Development take place in CVS. You get the source via:
-
-{{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
-}}}
-
-If you find any bugs, please use our forum or irc channel to report.
-
-You may find some binary snapshots in the directories of our developers http://downloads.openwrt.org/people/
+Take a look at our development platform [http://dev.openwrt.org/ http://dev.openwrt.org/]
 
 = Installing OpenWrt =
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
