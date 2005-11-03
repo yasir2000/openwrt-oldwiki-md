@@ -11,6 +11,7 @@ This how-to is a work in progress - at least until I get everything working on m
  1. Delete /etc/init.d/S45firewall
  1. Delete /etc/init.d/S50dnsmasq
  1. Install nas and wl
+ 1. Install parprouted (from http://downloads.openwrt.org/people/nico/testing/mipsel/packages/)
  1. Set NVRAM
     * Networking:
         * wl0_mode=sta
@@ -24,21 +25,38 @@ This how-to is a work in progress - at least until I get everything working on m
         * (This seems to be required to enable EAPOL negotiation to succeed.)
         * Note: These interface names are specific to the WRT54G and other related models but maybe not yours.
         * lan_ifname=vlan0 ''(Oddly, eth0 here seems not to work.)''
-        * wan_ifname=eth1 ''(You can use wlan or wifi instead, but edit S40network to match)''
-    * DHCP on wireless side:
-        * wan_proto=dhcp
+        * wifi_ifname=eth1
+    * Enable DHCP on wireless side:
+        * wifi_proto=dhcp
  1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
+ 1. Double-check everything, mentally prepare yourself for a bricking.  (Failsafe mode should still work fine, but who knows?  I bricked mine more than once figuring all of this out.)
+ 1. nvram commit
+ 1. reboot
 
-== Results?? ==
+== Testing it out ==
 
-At this point (after committing nvram and rebooting, and crossing your fingers) you should have a connection established to the wireless network (check with iwconfig eth1, wl assoclist, and wl sta_info ''AP MAC address'' - the status should be ASSOCIATED AUTHENTICATED AUTHORIZED).
+At this point, you should have a more or less working wireless bridge: plug something in the LAN port and it'll be virtually connected to the same network as your other wireless clients.
 
-Unfortunately the last bit -- actually setting up the bridging -- still eludes me.  Using br0 causes the WPA negotiation to fail and the wireless interface to remain unconnected.
+As noted in the parprouted documentation, broadcasting will not cross the bridge.  In particular, that means that DHCP will need to be relayed explicitly using dhrelay or similar.  (I haven't gotten around to doing this yet.)
 
-Some forum posts suggest that true bridging will not work due to limitations of 802.11 and that some tricks are required.  One idea is to clone the MAC address of the single machine plugged into the wired side of the bridge on the wireless interface of the bridge.  Of course, this allows only one machine to be connected.  Another idea is to enable proxy ARP and manually route each IP address in the subnet that's active.  This is unfortunate.  I haven't tried either yet.
+== Troubleshooting ==
 
-== Data ==
+This section needs to be expanded.  If you try this and it doesn't work, please list some things you tried (and why) here for the benefit of future readers.
+
+ * Check that the wireless connection is up:
+    1. Set a machine to a static IP address on the same subnet as the lan_ipaddr and ssh in.
+    1. Try ''wl assoclist'' to see if the bridge has associated with the AP.  (The AP's MAC address appears if so.)
+    1. Try ''wl sta_info <AP MAC address>'' to see how far the connection has gone.
+        * ASSOCIATED AUTHENTICATED AUTHORIZED is fully connected on the transport layer.
+        * ASSOCIATED AUTHENTICATED probably means the encryption is not correct; double-check the wl0_akm and wl0_crypto and wl0_psk_key variables.
+    1. Look at ''iwconfig eth1'' - the Encryption: field should show a key, not "off".
+
+== Confirmation ==
+
+If you follow this how-to, please note here if it worked or didn't work for you!
+
+== Appendix: Data Listings ==
 
 {{{
 root@OpenWRT:~# nvram show | sort
@@ -52,8 +70,8 @@ lan_proto=static
 vlan0hwname=et0                             # I changed this to enable all LAN ports to
 vlan0ports=4 3 2 1 0 5*                     # be available for use
 ...
-wan_ifname=eth1
-wan_proto=dhcp
+wifi_ifname=eth1
+wifi_proto=dhcp
 ...
 wl0_akm=psk2
 wl0_crypto=aes+tkip
