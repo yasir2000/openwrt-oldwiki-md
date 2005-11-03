@@ -20,8 +20,8 @@ USB harddisc) to the USB port on your router.
  * a recent !OpenWrt version installed (at least White Russian RC3)
  * some kind of a USB storage device (a USB stick or a external USB
  harddisc) supported by Linux
- * a USB hub (optional) to add more USB ports, it's probably a good
- idea to use a USB hub with a PSU.
+ * a USB hub (optional) to add more USB ports (it's probably a good
+ idea to use an active USB hub with it's own PSU)
 
 
 = Installation =
