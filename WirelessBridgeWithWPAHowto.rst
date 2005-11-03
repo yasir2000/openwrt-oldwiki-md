@@ -5,7 +5,7 @@ This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -
 
 Although it's very easy to set up client mode on an unsecured network (see ClientModeHowto) it's not a great idea to leave your network unprotected.  It turns out that client mode on a WPA network is not quite as easy.
 
-This how-to is a work in progress - at least until I get everything working on my install!  All of the information was gleaned from the OpenWRT wiki and posts made in forum.openwrt.org and I thank the multitude of unattributed contributors.
+This how-to is a work in progress - at least until I get everything working on my install!  All of the information was gleaned from the OpenWRT wiki and posts made in forum.openwrt.org and dozens of other web sites and I thank the multitude of unattributed contributors for sharing their knowledge.
 
 == Instructions (to be expanded + completed) ==
  1. Delete /etc/init.d/S45firewall
