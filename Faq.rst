@@ -461,6 +461,20 @@ server, basically, activating this option in {{{/etc/ssh/sshd_config}}} works:
 PasswordAuthentication yes
 }}}
 
+== My Linksys is unstable - what to do? ==
+Posted by nbd: http://forum.openwrt.org/viewtopic.php?id=2874
+{{{
+I just wrote a script that should do exactly what the Linksys firmware does to fix the instability problems on WRT54G v2.2+, WRT54GS v1.1+.
+The problem that's fixed by this script has been reported in several forms:
+1) Crashes on high network/wireless load
+2) Abnormal program errors
+3) Random source/destination ports added to iptables rules with -p tcp
+
+If you have one of these problems, please consider trying ouy my script at http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh
+
+WARNING: It may contain bugs, may not work at all or [u]may even brick your router[/u]
+Just run it, then do nvram commit and reboot your router afterwards.
+}}}
 
 = Networking =
 
