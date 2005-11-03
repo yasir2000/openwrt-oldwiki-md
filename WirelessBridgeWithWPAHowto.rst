@@ -24,7 +24,9 @@ This how-to is a work in progress - at least until I get everything working on m
         * (This seems to be required to enable EAPOL negotiation to succeed.)
         * Note: These interface names are specific to the WRT54G and other related models but maybe not yours.
         * lan_ifname=vlan0 '''(Oddly, eth0 here seems not to work.)'''
-        * wan_ifname=eth1
+        * wan_ifname=eth1 '''(You can use wlan or wifi instead, but edit S40network to match)'''
+    * DHCP on wireless side:
+        * wan_proto=dhcp
  1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
     * Whether this should be run before or after S40network remains to be seen
@@ -37,6 +39,32 @@ Unfortunately the last bit -- actually setting up the bridging -- still eludes m
 
 Some forum posts suggest that true bridging will not work due to limitations of 802.11 and that some tricks are required.  One idea is to clone the MAC address of the single machine plugged into the wired side of the bridge on the wireless interface of the bridge.  Of course, this allows only one machine to be connected.  Another idea is to enable proxy ARP and manually route each IP address in the subnet that's active.  This is unfortunate.  I haven't tried either yet.
 
-== Extra notes ==
+== Data ==
 
-Using DHCP to obtain an address from the wireless network works, however it takes a ''very long time'' after starting up (and the DMZ light turning off) before it will occur successfully.  This is because the key negotiation for the wireless network does not complete for a while after udhcpc starts up.  Moving the supplicant startup to 38 then sleeping (or waiting for iwconfig to show the connection is up) might be a good idea.
+{{{
+root@OpenWRT:~# nvram show | sort
+...
+lan_ifname=vlan0
+lan_ifnames=vlan0 eth1 eth2                 # This is set by S05nvram and is not needed
+lan_ipaddr=192.168.1.1                      # This doesn't matter
+lan_netmask=255.255.255.0
+lan_proto=static
+...
+vlan0hwname=et0                             # I changed this to enable all LAN ports to
+vlan0ports=4 3 2 1 0 5*                     # be available for use
+...
+wan_ifname=vlan1
+wan_proto=dhcp
+...
+wl0_akm=psk2
+wl0_crypto=aes+tkip
+wl0_ifname=eth1
+wl0_infra=1
+wl0_mode=sta
+wl0_radio=1
+wl0_ssid=<< SSID >>
+wl0_wpa_psk=<< PSK >>
+..
+wan_ifname=eth1
+wan_proto=dhcp
+}}}
