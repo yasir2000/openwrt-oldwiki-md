@@ -64,7 +64,5 @@ wl0_mode=sta
 wl0_radio=1
 wl0_ssid=<< SSID >>
 wl0_wpa_psk=<< PSK >>
-..
-wan_ifname=eth1
-wan_proto=dhcp
+...
 }}}
