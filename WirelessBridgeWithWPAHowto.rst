@@ -34,3 +34,7 @@ This how-to is a work in progress - at least until I get everything working on m
 At this point, you should have a connection established to the wireless network (check with iwconfig eth1, wl assoclist, and wl sta_info ''AP MAC address'' - the status should be ASSOCIATED AUTHENTICATED AUTHORIZED).
 
 Unfortunately the last bit -- actually setting up the bridging -- still eludes me.  Using the br0 causes the EAPOL negotiation to come out of the wired side and the wireless side to remain unconnected.
+
+== Extra notes ==
+
+Using DHCP to obtain an address from the wireless network works, however it takes a ''very long time'' after starting up (and the DMZ light turning off) before it will occur successfully.  This is because the key negotiation for the wireless network does not complete for a while after udhcpc starts up.  Moving the supplicant startup to 38 then sleeping (or waiting for iwconfig to show the connection is up) might be a good idea.
