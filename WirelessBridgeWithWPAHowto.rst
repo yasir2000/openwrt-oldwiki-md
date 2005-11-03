@@ -30,7 +30,7 @@ This how-to is a work in progress - at least until I get everything working on m
         * wifi_proto=dhcp
  1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
- 1. Double-check everything, mentally prepare yourself for a bricking.  (Failsafe mode should still work fine, but who knows?  I bricked mine more than once figuring all of this out.)
+ 1. Double-check everything, then mentally prepare yourself for a bricking.  (Failsafe mode should still work fine, but who knows?  I bricked mine enough times while figuring all of this out that the circuit board is sitting naked on top of a stack of paper as I type this.)
  1. nvram commit
  1. reboot
 
@@ -39,6 +39,10 @@ This how-to is a work in progress - at least until I get everything working on m
 At this point, you should have a more or less working wireless bridge: plug something in the LAN port and it'll be virtually connected to the same network as your other wireless clients.
 
 As noted in the parprouted documentation, broadcasting will not cross the bridge.  In particular, that means that DHCP will need to be relayed explicitly using dhrelay or similar.  (I haven't gotten around to doing this yet.)
+
+If nothing seems to work, try clearing your arp cache: arp -d
+
+If still nothing seems to work, go grab a coffee and come back - the DHCP seems to take a while due to a timing conflict between the interface coming up, udhcpc making DHCP requests, and nas configuring the encryption.
 
 == Troubleshooting ==
 
