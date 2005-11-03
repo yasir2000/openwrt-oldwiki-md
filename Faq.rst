@@ -344,7 +344,7 @@ fans). The primary (possibly only) maintainer of the OpenWrt project and this we
 is mbm, who you can often find lurking in the forums and IRC channel. Due to popular
 request there is an amazon wishlist for mbm [http://www.amazon.com/gp/registry/3K14VKJP7FYUJ here].
 
-(Groz is currently missing in action, yet occasionally submits broken CVS code ;) )
+(Groz is currently missing in action, yet occasionally submits broken SVN code ;) )
 
 /!\ '''Note:''' this information is outdated.
 
@@ -432,7 +432,7 @@ NVRAM and reconfigures the Broadcom wireless driver ({{{wl.o}}}). This is
 because the Broadcom wireless driver wants the NVRAM variables in a special
 order.
 
-The source code for {{{/sbin/wifi}}} is available in CVS.
+The source code for {{{/sbin/wifi}}} is available in SVN.
 
 
 == How do I open a WRT54G/WRT54GS? ==
@@ -765,7 +765,7 @@ ifup wan
 
 = Development =
 
-See also the !OpenWrt [http://dev.openwrt.org/ development center] website. Here you can browse
+See also the !OpenWrt [http://dev.openwrt.org/ development center] website. There you can browse
 the source code and send reproducible bugs with the ticket system (in trac).
 
 
@@ -776,7 +776,7 @@ See [:BuildingPackagesHowTo].
 
 == Requirements for compiling OpenWrt ==
 
-For compiling OpenWrt (from CVS or from the tarball, both the White Russian stable release)
+For compiling OpenWrt (from SVN or from the tarball, both the White Russian stable release)
 you need at least a recent GNU/Linux distribution and the following programs installed:
 
 {{{
@@ -806,7 +806,7 @@ the next stable OpenWrt release in binary format: [http://downloads.openwrt.org/
 
 '''Stable Source'''
 
-The stable source code can be found in the above directory or from our CVS repository.
+The stable source code can be found in the above directory or from our SVN repository.
 This is not recommended for beginners; we will not troubleshoot failed compiles.
 
 {{{
@@ -817,7 +817,7 @@ svn co http://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 
 '''Development'''
 
-Development take place in CVS. You get the source via:
+Development take place in SVN. You get the source via:
 
 {{{
 svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
