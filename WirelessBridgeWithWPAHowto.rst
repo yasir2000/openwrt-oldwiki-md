@@ -53,7 +53,7 @@ lan_proto=static
 vlan0hwname=et0                             # I changed this to enable all LAN ports to
 vlan0ports=4 3 2 1 0 5*                     # be available for use
 ...
-wan_ifname=vlan1
+wan_ifname=eth1
 wan_proto=dhcp
 ...
 wl0_akm=psk2
