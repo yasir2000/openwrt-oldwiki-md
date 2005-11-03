@@ -1,7 +1,7 @@
-= Work in progress: Setting up OpenWRT to be a wireless bridge on a WPA-PSK wireless network =
+= Work in progress: Setting up OpenWRT to be a wireless bridge on a WPA2-PSK wireless network =
 
 == Rationale ==
-This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -- to be a wireless bridge.  The goal is to end up with a plain bridge, no WDS, no routing, no anything except for holding one IP for administration, on a WPA-PSK enabled wireless network.
+This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -- to be a wireless bridge.  The goal is to end up with a plain bridge, no WDS, no routing, no anything except for holding one IP for administration, on a WPA2-PSK enabled wireless network.
 
 Although it's very easy to set up client mode on an unsecured network (see ClientModeHowto) it's not a great idea to leave your network unprotected.  It turns out that client mode on a WPA network is not quite as easy.
 
@@ -14,16 +14,15 @@ This how-to is a work in progress - at least until I get everything working on m
  1. Set NVRAM
     * Networking:
         * wl0_mode=sta
-        * wl0_akm=psk
-            * psk also should be permitted, but it doesn't work
+        * wl0_akm=psk2
+            * psk is also acceptable, but use wl0_crypto=tkip
             * "psk psk2" will not work - pick only one
-        * wl0_crypto=tkip
-            * aes also should be permitted, but it doesn't work
-            * aes+tkip will not work - pick only one
-        *  wl0_wpa_psk=''your psk''
+        * wl0_crypto=aes+tkip
+            * This is the group=tkip, pairwise=aes mix that is commonly used
+        *  wl0_wpa_psk=''your psk'' (ASCII)
     * Break the bridge:
-        * (This is required to prevent EAPOL negotiation from happening on the wired side... unfortunate - possibly a nas-only problem?)
-        * '''Note:''' These are specific to the WRT54G and other related models but maybe not yours.
+        * (This seems to be required to enable EAPOL negotiation to succeed.)
+        * '''Note:''' These interface names are specific to the WRT54G and other related models but maybe not yours.
         * lan_ifname=br0
         * lan_ifnames=vlan0
         * wan_ifname=eth1
@@ -36,6 +35,8 @@ This how-to is a work in progress - at least until I get everything working on m
 At this point, you should have a connection established to the wireless network (check with iwconfig eth1, wl assoclist, and wl sta_info ''AP MAC address'' - the status should be ASSOCIATED AUTHENTICATED AUTHORIZED).
 
 Unfortunately the last bit -- actually setting up the bridging -- still eludes me.  Using the br0 causes the EAPOL negotiation to come out of the wired side and the wireless side to remain unconnected.
+
+Some forum posts suggest that true bridging will not work due to limitations of 802.11 and that some tricks are required.  One idea is to clone the MAC address of the single machine plugged into the wired side of the bridge on the wireless interface of the bridge.  Of course, this allows only one machine to be connected.  Another idea is to enable proxy ARP and manually route each IP address in the subnet that's active.  This is unfortunate.  I haven't tried either yet.
 
 == Extra notes ==
 
