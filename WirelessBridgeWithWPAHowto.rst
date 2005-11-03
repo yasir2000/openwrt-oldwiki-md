@@ -27,9 +27,9 @@ This how-to is a work in progress - at least until I get everything working on m
         * lan_ifname=br0
         * lan_ifnames=vlan0
         * wan_ifname=eth1
- 1. Edit /etc/init.d/S41wpa and rename it to S39wpa-supplicant
+ 1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
-    * Things seem to work better if nas is started before S40networking
+    * Whether this should be run before or after S40network remains to be seen
 
 == Results?? ==
 
