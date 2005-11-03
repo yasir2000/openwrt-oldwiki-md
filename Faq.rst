@@ -765,6 +765,10 @@ ifup wan
 
 = Development =
 
+See also the !OpenWrt [http://dev.openwrt.org/ development center] website. Here you can browse
+the source code and send reproducible bugs with the ticket system (in trac).
+
+
 == How do I create a package? ==
 
 See [:BuildingPackagesHowTo].
@@ -791,7 +795,9 @@ Approximately required disc space for compiling OpenWrt:
 ||Development||x||3.8 GB||
 
 
-== Where is the CVS repository ? ==
+== Where is the SVN repository ? ==
+
+!OpenWrt switched from CVS to subversion (SVN).
 
 '''Stable Release'''
 
@@ -804,22 +810,20 @@ The stable source code can be found in the above directory or from our CVS repos
 This is not recommended for beginners; we will not troubleshoot failed compiles.
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co -r whiterussian openwrt
+svn co http://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 }}}
 
-Viewcvs is available for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=whiterussian#dirlist browsing]
-the stable source CVS branch.
+[http://dev.openwrt.org/browser/branches/whiterussian/openwrt/ Browse] the stable source SVN branch.
 
 '''Development'''
 
 Development take place in CVS. You get the source via:
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt -z3 co openwrt
+svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
 }}}
 
-Viewcvs is available for [http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/?only_with_tag=HEAD#dirlist browsing]
-the developmant CVS branch.
+[http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the developmant SVN branch.
 
 
 == Should I report bugs releated to the buildroot system ==
