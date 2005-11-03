@@ -29,13 +29,12 @@ This how-to is a work in progress - at least until I get everything working on m
         * wan_proto=dhcp
  1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
-    * Whether this should be run before or after S40network remains to be seen
 
 == Results?? ==
 
-At this point, you should have a connection established to the wireless network (check with iwconfig eth1, wl assoclist, and wl sta_info ''AP MAC address'' - the status should be ASSOCIATED AUTHENTICATED AUTHORIZED).
+At this point (after committing nvram and rebooting, and crossing your fingers) you should have a connection established to the wireless network (check with iwconfig eth1, wl assoclist, and wl sta_info ''AP MAC address'' - the status should be ASSOCIATED AUTHENTICATED AUTHORIZED).
 
-Unfortunately the last bit -- actually setting up the bridging -- still eludes me.  Using the br0 causes the EAPOL negotiation to come out of the wired side and the wireless side to remain unconnected.
+Unfortunately the last bit -- actually setting up the bridging -- still eludes me.  Using br0 causes the WPA negotiation to fail and the wireless interface to remain unconnected.
 
 Some forum posts suggest that true bridging will not work due to limitations of 802.11 and that some tricks are required.  One idea is to clone the MAC address of the single machine plugged into the wired side of the bridge on the wireless interface of the bridge.  Of course, this allows only one machine to be connected.  Another idea is to enable proxy ARP and manually route each IP address in the subnet that's active.  This is unfortunate.  I haven't tried either yet.
 
