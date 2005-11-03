@@ -14,10 +14,12 @@ This how-to is a work in progress - at least until I get everything working on m
  1. Set NVRAM
     * Networking:
         * wl0_mode=sta
-        * wl0_akm=psk2
-            * psk is also permitted, but ''not'' "psk psk2" - pick only one
-        * wl0_crypto=aes
-            * tkip is also permitted, but ''not'' aes+tkip - pick only one
+        * wl0_akm=psk
+            * psk also should be permitted, but it doesn't work
+            * "psk psk2" will not work - pick only one
+        * wl0_crypto=tkip
+            * aes also should be permitted, but it doesn't work
+            * aes+tkip will not work - pick only one
         *  wl0_wpa_psk=''your psk''
     * Break the bridge:
         * (This is required to prevent EAPOL negotiation from happening on the wired side... unfortunate - possibly a nas-only problem?)
