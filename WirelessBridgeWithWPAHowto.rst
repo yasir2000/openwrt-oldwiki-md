@@ -23,8 +23,8 @@ This how-to is a work in progress - at least until I get everything working on m
     * Break the bridge:
         * (This seems to be required to enable EAPOL negotiation to succeed.)
         * Note: These interface names are specific to the WRT54G and other related models but maybe not yours.
-        * lan_ifname=vlan0 '''(Oddly, eth0 here seems not to work.)'''
-        * wan_ifname=eth1 '''(You can use wlan or wifi instead, but edit S40network to match)'''
+        * lan_ifname=vlan0 ''(Oddly, eth0 here seems not to work.)''
+        * wan_ifname=eth1 ''(You can use wlan or wifi instead, but edit S40network to match)''
     * DHCP on wireless side:
         * wan_proto=dhcp
  1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
