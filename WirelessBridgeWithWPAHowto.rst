@@ -22,9 +22,8 @@ This how-to is a work in progress - at least until I get everything working on m
         *  wl0_wpa_psk=''your psk'' (ASCII)
     * Break the bridge:
         * (This seems to be required to enable EAPOL negotiation to succeed.)
-        * '''Note:''' These interface names are specific to the WRT54G and other related models but maybe not yours.
-        * lan_ifname=br0
-        * lan_ifnames=vlan0
+        * Note: These interface names are specific to the WRT54G and other related models but maybe not yours.
+        * lan_ifname=vlan0 '''(Oddly, eth0 here seems not to work.)'''
         * wan_ifname=eth1
  1. Edit /etc/init.d/S41wpa and rename it S41wpa-supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
