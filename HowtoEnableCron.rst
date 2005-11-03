@@ -88,7 +88,7 @@ exit $?
 After pasting it, press {{{ENTER}}} and then hit {{{CTRL+D}}} keys to save the
 file.
 
-Now make sure the init script executable and start it with
+Now make sure the init script is executable and start it with
 
 {{{
 chmod a+x /etc/init.d/S51crond
