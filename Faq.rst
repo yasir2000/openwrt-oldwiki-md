@@ -795,7 +795,7 @@ Approximately required disc space for compiling OpenWrt:
 ||Development||x||3.8 GB||
 
 
-== Where is the SVN repository ? ==
+== Where is the subversion (SVN) repository ? ==
 
 !OpenWrt switched from CVS to subversion (SVN).
 
