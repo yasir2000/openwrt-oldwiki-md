@@ -14,6 +14,7 @@
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
  * [:OpenWrtPackages] - A list of packages for !OpenWrt
+ * [http://dev.openwrt.org/ OpenWrt development center] - Send bug reports, browse the source code ..
 
 ----
 
