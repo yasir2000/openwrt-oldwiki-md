@@ -832,9 +832,10 @@ svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
 
 == Should I report bugs releated to the buildroot system ==
 
-Yes. If you find any bugs, please use our [http://forum.openwrt.org/ forum] or
-send a report to openwrt-devel@openwrt.org or use IRC channel to report. You
-can send patches for the bugs as well.
+Please send reproducible bugs to our [http://dev.openwrt.org/report ticket system].
+
+Yes. If you find any bugs, please use our [http://dev.openwrt.org/report ticket system]
+or send a report to openwrt-devel@openwrt.org. You can send patches for the bugs as well.
 
 /!\ '''NOTE:''' Changes to the buildroot system or the associated {{{Makefiles}}}
 could break the compile process. Please do not submit bug reports against modified
