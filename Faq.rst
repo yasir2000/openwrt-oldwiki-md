@@ -764,6 +764,46 @@ ifup wan
 
 == How do I configure PPTP for Internet access? ==
 
+Install the {{{pptp}}} package via
+
+{{{
+ipkg install pptp
+}}}
+
+'''TIP:''' If you have no Internet connection for installing the package, you can flash nbd's
+PPTP optimized snapshot images (with preinstalled PPTP packages instead of PPPoE packages) from his
+[http://downloads.openwrt.org/people/nbd/whiterussian/pptp/ download directory] (nbd's snapshot
+images are builds from the stable White Russian SVN branch).
+
+When you have done this set the following NVRAM variables.
+
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name]
+for your hardware version in the {{{pptp_ifname}}} NVRAM variable.
+
+{{{
+nvram set wan_proto=pptp
+nvram set wan_ifname=ppp0
+nvram set pptp_ifname=<your_WAN_interface_name>
+nvram set pptp_proto=static
+nvram set pptp_server_ip=<pptp_server_ip_from_your_isp>
+nvram set ppp_username=<your_isp_login>
+nvram set ppp_passwd=<your_isp_password>
+nvram set ppp_redialperiod=30
+nvram set ppp_idletime=5
+nvram set ppp_mtu=1492 # The MTU of your ISP
+nvram set wan_ipaddr=<your_wan_ip>
+nvram set wan_netmask=255.255.255.0
+nvram commit
+}}}
+
+Than bring up your WAN interface where your modem is connected to via:
+
+{{{
+ifup wan
+}}}
+
+For more information see the [:PPTPClientHowto].
+
 
 
 
