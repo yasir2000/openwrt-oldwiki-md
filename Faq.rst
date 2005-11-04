@@ -718,7 +718,6 @@ nvram set wan_proto=pppoe
 nvram set ppp_idletime=10
 nvram set ppp_mtu=1492 # The MTU of your ISP
 nvram set ppp_passwd=<your_isp_password>
-nvram set ppp_redial=demand
 nvram set ppp_redialperiod=15
 nvram set ppp_username=<your_isp_login>
 nvram set pppoe_ifname=<your_WAN_interface_name>
