@@ -832,8 +832,6 @@ svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
 
 == Should I report bugs releated to the buildroot system ==
 
-Please send reproducible bugs to our [http://dev.openwrt.org/report ticket system].
-
 Yes. If you find any bugs, please use our [http://dev.openwrt.org/report ticket system]
 or send a report to openwrt-devel@openwrt.org. You can send patches for the bugs as well.
 
