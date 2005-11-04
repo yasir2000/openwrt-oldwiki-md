@@ -196,6 +196,11 @@ a pastebin service like [http://www.pastebin.ca/ pastebin.ca] or
 [http://www.pastebin.com/ pastebin.com]. Only post the URL on IRC.
 
 
+== Where should I send bug reports? ==
+
+Please send reproducible bugs to our [http://dev.openwrt.org/report ticket system].
+
+
 == What is left behind, when erasing the flash? ==
 
 {{{mtd}}} will leave the bootloader and NVRAM settings untouched.
