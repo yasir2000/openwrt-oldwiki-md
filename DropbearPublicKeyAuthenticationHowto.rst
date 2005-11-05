@@ -60,7 +60,8 @@ Start the PuTTY Key Generator with {{{puttygen.exe}}}. Click on the button Gener
   * Now save your private key by clicking on "Save private key". Save it to a file
   called {{{OpenWrt-Private-Key.ppk}}}.
 
-[http://openwrt.ertl-net.net/downloads/test/putty-key-generator.jpg]
+See the example PuTTY Key Generator
+[http://openwrt.ertl-net.net/downloads/test/putty-key-generator.jpg screenshot].
 
 The public key in PuTTY looks like (the keys are all in one line, without linebreaks):
 
@@ -204,9 +205,8 @@ Start {{{putty.exe}}} and do the following:
  * Session / Load- save or delete a stored session, enter {{{OpenWrt-Session}}} in Saved Sessions
  and click the Save button
 
-When this is done click on the Open button, and a similar window as the one below will popup.[[BR]]
-
-[http://openwrt.ertl-net.net/downloads/test/putty-dropbear-connection.jpg]
+When this is done click on the Open button, and a similar window similar to
+[http://openwrt.ertl-net.net/downloads/test/putty-dropbear-connection.jpg this] will popup.[[BR]]
 
 '''TIP:''' To make a PuTTY shortcut with an automatically login, create one and append the saved
 session with an {{{@}}} sign, for example call PuTTY with:
