@@ -370,4 +370,15 @@ You could find my WIGGLER schematic variant there too.
 I hope it helps. I have an AR7 router too and will test it ASAP.
 
 ----
+
+'''hairydairymaid'''  (time of last update: [[DateTime(2005-11-05T12:00:00Z)]])
+
+The PrAcc programing for the debrick utility has been done for a while and is working as expected.  All operations are working as expected on the test boards I have here... which, unfortunately, none are TI AR7 based boards... so we'll need some testing done elsewhere.
+
+zt8qmwz, I have sent you a version to test out for me and we'll see how that goes.  If all goes well then I'll probably be set to go ahead release a new version of the debrick utility very shortly.
+
+Cheers,
+-hairydairymaid
+
+----
 CategoryHomepage
