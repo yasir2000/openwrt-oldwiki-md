@@ -24,9 +24,9 @@ required library and header files to cross-compile applications for !OpenWrt.
 
 '''TIP:''' Before you begin porting your own package to !OpenWrt, check if it
 has not been already done by someone else. To check that
-[http://openwrt.org/cgi-bin/viewcvs.cgi/openwrt/package/?only_with_tag=HEAD browse the CVS repository]
-via VIEWCVS in your web broswer and see if the package is already there. Don't
-do the work twice.
+[http://dev.openwrt.org/browser/trunk/openwrt/package/ browse the subversion repository]
+of the development version in your web broswer and see if the package is already there.
+Don't do the work twice.
 
 Let's start with porting and packaging the well known "Hello world"
 program as an example.
