@@ -23,7 +23,14 @@ words "Model No". The model number will be printed followed by a "vN.N" where "N
 version. The exception to this is the v1.0 revisions, "v1.0" is never printed; if you don't
 see a version number it's a v1.0.
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 If you haven't installed !OpenWrt yet, another way of identifying the hardware is to
+
+---- /!\ '''Edit conflict - your version:''' ----
+If you haven't installed !OpenWrt yet, another way of identifying the hardware is to
+
+---- /!\ '''End of edit conflict''' ----
 open the page [http://192.168.1.1/SysInfo.htm] (where {{{192.168.1.1}}} should be
 replaced with the IP address of your WRT54G or WRT54GS). The last line in the
 output shows the hardware version.
@@ -76,7 +83,14 @@ See [:OpenWrtDocs/Using] for details.
 == How do I recover / boot in failsafe mode? ==
 
 If you screw up the JFFS2 part or the network settings in NVRAM you can use
+
+---- /!\ '''Edit conflict - other version:''' ----
 !OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down
+
+---- /!\ '''Edit conflict - your version:''' ----
+!OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down
+
+---- /!\ '''End of edit conflict''' ----
 the reset button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode.
 While in failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run
 entirely from SquashFS and the LAN will be forced to {{{192.168.1.1}}}  with a MAC
@@ -148,7 +162,14 @@ even after being told that question is answered in the FAQ itself.
 
 == When should I NOT install OpenWrt? ==
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 Please do '''NOT''' install OpenWrt if you don't know anything about GNU/Linux and
+
+---- /!\ '''Edit conflict - your version:''' ----
+Please do '''NOT''' install OpenWrt if you don't know anything about GNU/Linux and
+
+---- /!\ '''End of edit conflict''' ----
 shells.
 
 
@@ -310,13 +331,27 @@ ipkg install http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk
 }}}
 
 '''NOTE:''' This web interface is in development. Basic features like firmware
+
+---- /!\ '''Edit conflict - other version:''' ----
 upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
+
+---- /!\ '''Edit conflict - your version:''' ----
+upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
+
+---- /!\ '''End of edit conflict''' ----
 work. It will only run on !OpenWrt White Russian RC3 and later.
 
 '''TIP:''' The web interface will be included by default in the upcoming !OpenWrt
 White Russian RC4 and later versions.
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 The !OpenWrt web interface is based on a set of shell and awk scripts and
+
+---- /!\ '''Edit conflict - your version:''' ----
+The !OpenWrt web interface is based on a set of shell and awk scripts and
+
+---- /!\ '''End of edit conflict''' ----
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the !BusyBox HTTPD server.
 
@@ -326,7 +361,14 @@ A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wirele
 == Why is the OpenWrt firmware so bare? ==
 
 OpenWrt's design philosophy is to not lock the user down to a particular set of
+
+---- /!\ '''Edit conflict - other version:''' ----
 features but rather to provide a basic framework which can be endlessly customized
+
+---- /!\ '''Edit conflict - your version:''' ----
+features but rather to provide a basic framework which can be endlessly customized
+
+---- /!\ '''End of edit conflict''' ----
 through it's package support and writable JFFS2 filesystem. The firmware itself
 contains a minimal "core" filesystem with the intent on giving as much space as
 possible to the JFFS2 filesystem; the core provides minimal functionality while
@@ -343,6 +385,8 @@ inherit the extra 4 MB of space, allowing more packages and thus more features.
 
 == Who maintains OpenWrt? ==
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 !OpenWrt is the collaboration of many people. The two people responsible for the
 creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking
 fans). The core developers with write access to the subversion repository are:
@@ -355,23 +399,59 @@ Waldemar Brodkorb <wbx>
 Felix Fietkau <nbd>
 }}}
 
+---- /!\ '''Edit conflict - your version:''' ----
+!OpenWrt is the collaboration of many people. The two people responsible for the
+creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking
+fans). The core developers with write access to the subversion repository are:
+
+{{{
+Mike Baker <mbm>
+Kaloz Imre <Kaloz>
+Nicolas Thill <Nico>
+Waldemar Brodkorb <wbx>
+Felix Fietkau <nbd>
+}}}
+
+---- /!\ '''End of edit conflict''' ----
+
 == How do I access the syslog messages? ==
 
 Use the {{{logread}}} program to read syslog messages.
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 To log to a remote syslog server use:
+
+---- /!\ '''Edit conflict - your version:''' ----
+To log to a remote syslog server use:
+
+---- /!\ '''End of edit conflict''' ----
 
 {{{
 nvram set log_ipaddr=aaa.bbb.ccc.ddd
 }}}
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote syslog
+
+---- /!\ '''Edit conflict - your version:''' ----
+Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote syslog
+
+---- /!\ '''End of edit conflict''' ----
 server where you want to log to.
 
 
 == How do I have it do something every YYY seconds/minutes? ==
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 !OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
+
+---- /!\ '''Edit conflict - your version:''' ----
+!OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
+
+---- /!\ '''End of edit conflict''' ----
 Linux system.
 
 See [:HowtoEnableCron] for details.
@@ -389,7 +469,14 @@ The problem that's fixed by this script has been reported in several forms:
 [[BR]]2) Abnormal program errors
 [[BR]]3) Random source/destination ports added to iptables rules with -p tcp
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 If you have one of these problems, please consider trying out the script at
+
+---- /!\ '''Edit conflict - your version:''' ----
+If you have one of these problems, please consider trying out the script at
+
+---- /!\ '''End of edit conflict''' ----
 [http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh].
 
 /!\ '''WARNING:''' Only use this script to set the NVRAM variables on the
@@ -422,7 +509,14 @@ your router.
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
 making it practically impossible to reach the console. Have your JTAG cable
+
+---- /!\ '''Edit conflict - other version:''' ----
 ready in any case! Btw. generally manually overlocking a router using the
+
+---- /!\ '''Edit conflict - your version:''' ----
+ready in any case! Btw. generally manually overlocking a router using the
+
+---- /!\ '''End of edit conflict''' ----
 {{{clkfreq}}} NVRAM variable is a bad hack/idea. So again, don't overclock
 your router manually!
 
@@ -457,7 +551,14 @@ open the WRT54G for the first time.
 Some cases have screws.
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 == When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used". ==
+
+---- /!\ '''Edit conflict - your version:''' ----
+== When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used". ==
+
+---- /!\ '''End of edit conflict''' ----
 
 The message {{{no auths methods could be used}}} is related to the following
 utilization: {{{dropbear}}} as SSH client and {{{openssh}}} as {{{sshd}}}
@@ -472,7 +573,14 @@ PasswordAuthentication yes
 == How do I create a DHCP server? ==
 
 The [http://thekelleys.org.uk/dnsmasq/doc.html dnsmasq] program acts as
+
+---- /!\ '''Edit conflict - other version:''' ----
 DNS and DHCP server in !OpenWrt. By default it hands out IP addresses from
+
+---- /!\ '''Edit conflict - your version:''' ----
+DNS and DHCP server in !OpenWrt. By default it hands out IP addresses from
+
+---- /!\ '''End of edit conflict''' ----
 {{{192.168.1.100}}} to {{{192.168.1.250}}}.
 
 To change this you have to set two NVRAM variables.
@@ -494,10 +602,20 @@ For more details on howto configure static IP addresses see [:OpenWrtDocs/dnsmas
 
 == Where should I put custom firewall rules? ==
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 They go into the file {{{/etc/firewall.user}}}. This file has a few examples in it as well.
 
 Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
 point for documentation is [http://www.netfilter.org/documentation/].
+
+---- /!\ '''Edit conflict - your version:''' ----
+They go into the file {{{/etc/firewall.user}}}. This file has a few examples in it as well.
+
+Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
+point for documentation is [http://www.netfilter.org/documentation/].
+
+---- /!\ '''End of edit conflict''' ----
 
 
 == How do I configure QoS/Traffic shaping in OpenWrt? ==
@@ -518,7 +636,14 @@ ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.01_all.ipk
 }}}
 
 Edit your linespeed in {{{/etc/init.d/S46qos}}}. Enter the upload speed of
+
+---- /!\ '''Edit conflict - other version:''' ----
 your internet connection in kbit.
+
+---- /!\ '''Edit conflict - your version:''' ----
+your internet connection in kbit.
+
+---- /!\ '''End of edit conflict''' ----
 
 {{{
 LINESPEED=576
@@ -552,31 +677,69 @@ For more information see [:MiniHowtos/QoSHowto].
 See [:OpenWrtDocs/Configuration].
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 == How do I set the timezone and make it stick between reboots? ==
 
 !OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
 
+---- /!\ '''Edit conflict - your version:''' ----
+== How do I set the timezone and make it stick between reboots? ==
+
+!OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
+
+---- /!\ '''End of edit conflict''' ----
+
 '''NOTE:''' Most routers does '''NOT''' have a CMOS hardware clock. That means
 you have to sync the time after every reboot.
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 For details on configuring your timezone see [:OpenWrtDocs/Configuration].
+
+---- /!\ '''Edit conflict - your version:''' ----
+For details on configuring your timezone see [:OpenWrtDocs/Configuration].
+
+---- /!\ '''End of edit conflict''' ----
 
 
 == What is br0? ==
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 By default the LAN ports and the wireless interface are bridged together as the virtual
+
+---- /!\ '''Edit conflict - your version:''' ----
+By default the LAN ports and the wireless interface are bridged together as the virtual
+
+---- /!\ '''End of edit conflict''' ----
 interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 == How do I enable WEP encryption? ==
+
+---- /!\ '''Edit conflict - your version:''' ----
+== How do I enable WEP encryption? ==
+
+---- /!\ '''End of edit conflict''' ----
 
 {{{
 ifdown wifi
 nvram set wl0_wep=enabled
 nvram set wl0_key=1
 nvram set wl0_key1=deadbeef12345deadbeef12345
+
+---- /!\ '''Edit conflict - other version:''' ----
 ifup wifi
 /sbin/wifi
+
+---- /!\ '''Edit conflict - your version:''' ----
+ifup wifi
+/sbin/wifi
+
+---- /!\ '''End of edit conflict''' ----
 }}}
 
 The WEP key {{{wl0_key1}}} must be in '''HEX''' format (allowed HEX digits are 0-9
@@ -740,10 +903,20 @@ ifup wan
 See [:OpenWrtDocs/Configuration] for details.
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 == How do I configure DHCP for internet access? ==
 
 By default !OpenWrt will listen on the WAN interface for a another DHCP server in
 your LAN. Use this kind of internet access f.e. if you have a cable modem.
+
+---- /!\ '''Edit conflict - your version:''' ----
+== How do I configure DHCP for internet access? ==
+
+By default !OpenWrt will listen on the WAN interface for a another DHCP server in
+your LAN. Use this kind of internet access f.e. if you have a cable modem.
+
+---- /!\ '''End of edit conflict''' ----
 
 When you have configured PPPoE before than set the following NVRAM variables
 to activate DHCP on the WAN interface.
@@ -764,7 +937,14 @@ ifup wan
 }}}
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 == How do I configure PPTP for internet access? ==
+
+---- /!\ '''Edit conflict - your version:''' ----
+== How do I configure PPTP for internet access? ==
+
+---- /!\ '''End of edit conflict''' ----
 
 Install the {{{pptp}}} package via
 
@@ -869,7 +1049,14 @@ Development take place in SVN. You get the source via:
 svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
 }}}
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 [http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
+
+---- /!\ '''Edit conflict - your version:''' ----
+[http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
+
+---- /!\ '''End of edit conflict''' ----
 
 
 == Should I report bugs releated to the buildroot system ==
