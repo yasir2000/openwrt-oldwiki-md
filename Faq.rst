@@ -23,7 +23,7 @@ words "Model No". The model number will be printed followed by a "vN.N" where "N
 version. The exception to this is the v1.0 revisions, "v1.0" is never printed; if you don't
 see a version number it's a v1.0.
 
-If you haven't installed OpenWrt yet, another way of identifying the hardware is to
+If you haven't installed !OpenWrt yet, another way of identifying the hardware is to
 open the page [http://192.168.1.1/SysInfo.htm] (where {{{192.168.1.1}}} should be
 replaced with the IP address of your WRT54G or WRT54GS). The last line in the
 output shows the hardware version.
@@ -76,7 +76,7 @@ See [:OpenWrtDocs/Using] for details.
 == How do I recover / boot in failsafe mode? ==
 
 If you screw up the JFFS2 part or the network settings in NVRAM you can use
-OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down
+!OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down
 the reset button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode.
 While in failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run
 entirely from SquashFS and the LAN will be forced to {{{192.168.1.1}}}  with a MAC
@@ -148,7 +148,7 @@ even after being told that question is answered in the FAQ itself.
 
 == When should I NOT install OpenWrt? ==
 
-Please do '''NOT''' install OpenWrt if you don't know anything on GNU/Linux and
+Please do '''NOT''' install OpenWrt if you don't know anything about GNU/Linux and
 shells.
 
 
@@ -310,13 +310,13 @@ ipkg install http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk
 }}}
 
 '''NOTE:''' This web interface is in development. Basic features like firmware
-upgrade, Internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
+upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
 work. It will only run on !OpenWrt White Russian RC3 and later.
 
 '''TIP:''' The web interface will be included by default in the upcoming !OpenWrt
 White Russian RC4 and later versions.
 
-The !OpenWrt web interface is based on a set of shell and AWK scripts and
+The !OpenWrt web interface is based on a set of shell and awk scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the !BusyBox HTTPD server.
 
@@ -326,7 +326,7 @@ A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wirele
 == Why is the OpenWrt firmware so bare? ==
 
 OpenWrt's design philosophy is to not lock the user down to a particular set of
-features but rather to provide a base framework which can be endlessly customized
+features but rather to provide a basic framework which can be endlessly customized
 through it's package support and writable JFFS2 filesystem. The firmware itself
 contains a minimal "core" filesystem with the intent on giving as much space as
 possible to the JFFS2 filesystem; the core provides minimal functionality while
@@ -343,34 +343,35 @@ inherit the extra 4 MB of space, allowing more packages and thus more features.
 
 == Who maintains OpenWrt? ==
 
-OpenWrt is the collaboration of many people. The two people responsible for the
+!OpenWrt is the collaboration of many people. The two people responsible for the
 creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking
-fans). The primary (possibly only) maintainer of the OpenWrt project and this website
-is mbm, who you can often find lurking in the forums and IRC channel. Due to popular
-request there is an amazon wishlist for mbm [http://www.amazon.com/gp/registry/3K14VKJP7FYUJ here].
+fans). The core developers with write access to the subversion repository are:
 
-(Groz is currently missing in action, yet occasionally submits broken SVN code ;) )
-
-/!\ '''Note:''' this information is outdated.
-
+{{{
+Mike Baker <mbm>
+Kaloz Imre <Kaloz>
+Nicolas Thill <Nico>
+Waldemar Brodkorb <wbx>
+Felix Fietkau <nbd>
+}}}
 
 == How do I access the syslog messages? ==
 
 Use the {{{logread}}} program to read syslog messages.
 
-To log to a remote Syslog server use:
+To log to a remote syslog server use:
 
 {{{
 nvram set log_ipaddr=aaa.bbb.ccc.ddd
 }}}
 
-Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote Syslog
+Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote syslog
 server where you want to log to.
 
 
 == How do I have it do something every YYY seconds/minutes? ==
 
-OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
+!OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
 Linux system.
 
 See [:HowtoEnableCron] for details.
@@ -388,7 +389,7 @@ The problem that's fixed by this script has been reported in several forms:
 [[BR]]2) Abnormal program errors
 [[BR]]3) Random source/destination ports added to iptables rules with -p tcp
 
-If you have one of these problems, please consider trying out my script at
+If you have one of these problems, please consider trying out the script at
 [http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh].
 
 /!\ '''WARNING:''' Only use this script to set the NVRAM variables on the
@@ -421,7 +422,7 @@ your router.
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
 making it practically impossible to reach the console. Have your JTAG cable
-ready in any case! Btw. generelly manually overlocking a router using the
+ready in any case! Btw. generally manually overlocking a router using the
 {{{clkfreq}}} NVRAM variable is a bad hack/idea. So again, don't overclock
 your router manually!
 
@@ -456,7 +457,7 @@ open the WRT54G for the first time.
 Some cases have screws.
 
 
-== When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used" ==
+== When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used". ==
 
 The message {{{no auths methods could be used}}} is related to the following
 utilization: {{{dropbear}}} as SSH client and {{{openssh}}} as {{{sshd}}}
@@ -471,7 +472,7 @@ PasswordAuthentication yes
 == How do I create a DHCP server? ==
 
 The [http://thekelleys.org.uk/dnsmasq/doc.html dnsmasq] program acts as
-DNS and DHCP server in OpenWrt. By default it hands out IP addresses from
+DNS and DHCP server in !OpenWrt. By default it hands out IP addresses from
 {{{192.168.1.100}}} to {{{192.168.1.250}}}.
 
 To change this you have to set two NVRAM variables.
@@ -493,10 +494,10 @@ For more details on howto configure static IP addresses see [:OpenWrtDocs/dnsmas
 
 == Where should I put custom firewall rules? ==
 
-They go into the file {{{/etc/firewall.user}}}. This file has a view examples in it as well.
+They go into the file {{{/etc/firewall.user}}}. This file has a few examples in it as well.
 
-Since OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
-point for documenation is [http://www.netfilter.org/documentation/].
+Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
+point for documentation is [http://www.netfilter.org/documentation/].
 
 
 == How do I configure QoS/Traffic shaping in OpenWrt? ==
@@ -517,7 +518,7 @@ ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.01_all.ipk
 }}}
 
 Edit your linespeed in {{{/etc/init.d/S46qos}}}. Enter the upload speed of
-your Internet connection in kbit.
+your internet connection in kbit.
 
 {{{
 LINESPEED=576
@@ -551,30 +552,31 @@ For more information see [:MiniHowtos/QoSHowto].
 See [:OpenWrtDocs/Configuration].
 
 
-== How do I set the time zone and make it stick between reboots? ==
+== How do I set the timezone and make it stick between reboots? ==
 
-OpenWrt stores the time zone in the {{{/etc/TZ}}} file.
+!OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
 
 '''NOTE:''' Most routers does '''NOT''' have a CMOS hardware clock. That means
 you have to sync the time after every reboot.
 
-For details on configuring your time zone see [:OpenWrtDocs/Configuration].
+For details on configuring your timezone see [:OpenWrtDocs/Configuration].
 
 
 == What is br0? ==
 
-By default the LAN ports and the wireless are bridged together as the virtual
+By default the LAN ports and the wireless interface are bridged together as the virtual
 interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
 
 
-== Howto enable WEP encryption? ==
+== How do I enable WEP encryption? ==
 
 {{{
 ifdown wifi
 nvram set wl0_wep=enabled
 nvram set wl0_key=1
 nvram set wl0_key1=deadbeef12345deadbeef12345
-ifup wifi; /sbin/wifi
+ifup wifi
+/sbin/wifi
 }}}
 
 The WEP key {{{wl0_key1}}} must be in '''HEX''' format (allowed HEX digits are 0-9
@@ -738,10 +740,10 @@ ifup wan
 See [:OpenWrtDocs/Configuration] for details.
 
 
-== How do I configure DHCP for Internet access? ==
+== How do I configure DHCP for internet access? ==
 
 By default !OpenWrt will listen on the WAN interface for a another DHCP server in
-your LAN. Use this kind of Internet access f. e. if you have a cable modem.
+your LAN. Use this kind of internet access f.e. if you have a cable modem.
 
 When you have configured PPPoE before than set the following NVRAM variables
 to activate DHCP on the WAN interface.
@@ -762,7 +764,7 @@ ifup wan
 }}}
 
 
-== How do I configure PPTP for Internet access? ==
+== How do I configure PPTP for internet access? ==
 
 Install the {{{pptp}}} package via
 
@@ -867,7 +869,7 @@ Development take place in SVN. You get the source via:
 svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
 }}}
 
-[http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the developmant SVN branch.
+[http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
 
 
 == Should I report bugs releated to the buildroot system ==
