@@ -147,8 +147,7 @@ This is the FAQ; you'd be amazed at how many people ask where the FAQ is,
 even after being told that question is answered in the FAQ itself.
 
 
-== When should I NOT install !OpenWrt? ==
-
+== When should I NOT install OpenWrt? ==
 
 Please do '''NOT''' install !OpenWrt if you don't know anything about GNU/Linux and
 shells.
@@ -346,7 +345,6 @@ inherit the extra 4 MB of space, allowing more packages and thus more features.
 
 == Who maintains OpenWrt? ==
 
-
 !OpenWrt is the collaboration of many people. The two people responsible for the
 creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking
 fans). The core developers with write access to the subversion repository are:
@@ -370,13 +368,11 @@ To log to a remote syslog server use:
 nvram set log_ipaddr=aaa.bbb.ccc.ddd
 }}}
 
-
 Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote syslog
 server where you want to log to.
 
 
 == How do I have it do something every YYY seconds/minutes? ==
-
 
 !OpenWrt uses {{{crond}}}. So you have to setup a cronjob like on every
 Linux system.
@@ -430,7 +426,6 @@ your router.
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
 making it practically impossible to reach the console. Have your JTAG cable
-
 ready in any case! Btw. generally manually overlocking a router using the
 {{{clkfreq}}} NVRAM variable is a bad hack/idea. So again, don't overclock
 your router manually!
@@ -466,7 +461,6 @@ open the WRT54G for the first time.
 Some cases have screws.
 
 
-
 == When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used". ==
 
 The message {{{no auths methods could be used}}} is related to the following
@@ -476,6 +470,9 @@ server, basically, activating this option in {{{/etc/ssh/sshd_config}}} works:
 {{{
 PasswordAuthentication yes
 }}}
+
+
+
 
 = Networking =
 
@@ -504,7 +501,6 @@ For more details on howto configure static IP addresses see [:OpenWrtDocs/dnsmas
 
 
 == Where should I put custom firewall rules? ==
-
 
 They go into the file {{{/etc/firewall.user}}}. This file has a few examples in it as well.
 
@@ -563,6 +559,7 @@ For more information see [:MiniHowtos/QoSHowto].
 
 See [:OpenWrtDocs/Configuration].
 
+
 == How do I set the timezone and make it stick between reboots? ==
 
 !OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
@@ -572,8 +569,8 @@ you have to sync the time after every reboot.
 
 For details on configuring your timezone see [:OpenWrtDocs/Configuration].
 
-== What is br0? ==
 
+== What is br0? ==
 
 By default the LAN ports and the wireless interface are bridged together as the virtual
 interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
@@ -643,7 +640,7 @@ For details and howto configure WPA2 or AES encryption see [:OpenWrtDocs/Configu
 
 OpenWrt can be configured as Bridged Client Mode or Routed Client Mode.
 
-For more details on configuring the WRT as a wireless client, see [:ClientModeHowto].
+For more details on configuring the Wrt as a wireless client, see [:ClientModeHowto].
 
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
@@ -722,7 +719,6 @@ Use the {{{wl0_}}} variables.
 The {{{wl_}}} variables are obsolete and unused.
 
 
-
 == How do I configure PPPoE for Internet access? ==
 
 That's easy. Just set some NVRAM variables and plug your DSL modem into the WAN port.
@@ -773,7 +769,6 @@ When done bring up the WAN connection with:
 {{{
 ifup wan
 }}}
-
 
 
 == How do I configure PPTP for internet access? ==
@@ -834,7 +829,7 @@ See [:BuildingPackagesHowTo].
 
 == Requirements for compiling OpenWrt ==
 
-For compiling OpenWrt (from SVN or from the tarball, both the White Russian stable release)
+For compiling !OpenWrt (from SVN or from the tarball, both the White Russian stable release)
 you need at least a recent GNU/Linux distribution and the following programs installed:
 
 {{{
@@ -850,7 +845,7 @@ Approximately required disc space for compiling OpenWrt:
 
 ||'''Branch'''||'''Min.'''||'''Max.'''||
 ||Stable Source||1.5 GB||3.5 GB||
-||Development||x||3.8 GB||
+||Development||?||3.8 GB||
 
 
 == Where is the subversion (SVN) repository ? ==
@@ -882,7 +877,6 @@ svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
 }}}
 
 [http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
-
 
 
 == Should I report bugs releated to the buildroot system ==
