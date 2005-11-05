@@ -41,11 +41,10 @@ At the moment we have no stable supported release.
 
 '''Development'''
 
-Development takes place in CVS. You get the source via:
+Development takes place in SVN. You get the source via:
 
 {{{
-cvs -d:pserver:anonymous@openwrt.org:/openwrt login
-cvs -d:pserver:anonymous@openwrt.org:/openwrt co openwrt
+svn checkout http://svn.openwrt.org/openwrt/trunk/openwrt .
 }}}
 
 /!\ Note: Currently the AR7 code is disabled in the menu, as it is currently work in progress.
