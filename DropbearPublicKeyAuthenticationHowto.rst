@@ -117,7 +117,7 @@ nobody:*:65534:65534:nobody:/var:/bin/false
 }}}
 
 /!\ '''NOTE:''' This will change in the upcoming White Russian RC4 release.
-It's already changed in the stable White Russian CVS branch. The
+It's already changed in the stable White Russian SVN branch. The
 {{{authorized_keys}}} file will than be stored in the {{{/etc/dropbear}}}
 directory. So, on any later versions there is no need to change root's
 home directory anymore.
