@@ -77,9 +77,6 @@ ipkg install http://downloads.openwrt.org/people/nico/testing/ \
 [http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository] can be used
 in the stable White Russian release (except the kmod-* and kernel packages).
 
-The {{{p910nd}}} package will be included in the upcoming White Russian
-RC4 release.
-
 
 = Configuring the printer daemon =
 
