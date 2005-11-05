@@ -855,7 +855,7 @@ Approximately required disc space for compiling OpenWrt:
 '''Stable Release'''
 
 At the moment we have no stable supported release. You can get release candidates for
-the next stable OpenWrt release in binary format: [http://downloads.openwrt.org/whiterussian/].
+the next stable !OpenWrt release in binary format: [http://downloads.openwrt.org/whiterussian/].
 
 '''Stable Source'''
 
