@@ -5,7 +5,7 @@ The wireless NIC is an Atheros mini-PCI, and it also has an USB2.0 controller.
 
 == Status of OpenWrt ==
 
-We now have a working Kernel 2.6.12.5 in CVS development tree. For trying a snapshot of OpenWrt you need
+We now have a working Kernel 2.6.12.5 in our development tree. For trying a snapshot of OpenWrt you need
 a serial connection. You will find snapshots here: http://downloads.openwrt.org/people/wbx/netgear/
 
 You can flash the snapshots via tftp. You need to run a tftp server on your local PC connected to the wan port of the Netgear router.
@@ -20,20 +20,11 @@ flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 Flashing may take over a minute. After that you can use "`reboot`" to start OpenWrt.
 
 Please only use these snapshots if you like to help to get this OpenWrt port working. There is still a lot of work. See the TODO list.
-If you have any suggestions or patches for CVS HEAD, please send wbx (wbx@openwrt.org) an e-Mail.
+If you have any suggestions or patches, please send wbx (wbx@openwrt.org) an e-Mail.
 
 TODO:
- * integration of kernel 2.6 to buildsystem [done]
- * integration of kernel drivers, thx jolt [done]
- * LZMA Loader [done]
- * new Flash Map driver [done]
- * network driver [done]
- * OpenWrt startup scripts [done]
- * pppoe [done]
- * update with mtd and trx files [done]
- * vlan configuration [done]
  * reset button driver [need to be ported to 2.6]
- * wireless driver [need to be tested, sometimes kernel oops if iwconfig is used, need new wificonf in HEAD, -> nbd ]
+ * wireless driver [sometimes kernel oops if iwconfig is used]
  * usb driver [ehci needs to be fixed]
   * ehci driver is not working (writing to high speed devices freeze the usb stack) and gives the following error:
   {{{
