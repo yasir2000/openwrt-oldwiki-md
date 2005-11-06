@@ -49,7 +49,7 @@ mkdir -p /var/spool/cron
 mkdir -p /var/lock
 if [ ! -e /var/spool/cron/crontabs ]
 then
-  ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
+ ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
 fi
 
 start() {
