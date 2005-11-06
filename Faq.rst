@@ -138,6 +138,11 @@ Linksys routers are always 192.168.1.1 for the bootloader's TFTP.
 See [:OpenWrtDocs/Installing] for more information.
 
 
+== Reflash with "mtd -e linux -r write file.trx linux" fails with "no valid command given" ==
+
+
+
+
 
 = Misc =
 
