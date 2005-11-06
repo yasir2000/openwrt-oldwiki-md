@@ -80,7 +80,7 @@ data in the unread area of the image.
 
 == Serial console ==
 
-Default parameters for the serial console are 115200 N81 You need a
+Default parameters for the serial console are 115200 N81. You need a
 [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip to get the console
 working.
 
