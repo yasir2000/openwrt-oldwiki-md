@@ -46,7 +46,11 @@ cat > /etc/init.d/S51crond
 #
 mkdir -p /etc/spool/cron/crontabs
 mkdir -p /var/spool/cron
-ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
+mkdir -p /var/lock
+if [ ! -e /var/spool/cron/crontabs ]
+then
+  ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
+fi
 
 start() {
  echo -n "Starting crond: "
