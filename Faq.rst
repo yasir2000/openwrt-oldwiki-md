@@ -515,7 +515,7 @@ For more details on howto configure static IP addresses see [:OpenWrtDocs/dnsmas
 == Where should I put custom firewall rules? ==
 
 They go into the file {{{/etc/firewall.user}}}. This file has a few examples in it as well.
-Don't forget to rerun the {{{/etc/firewall.user}} scirpt to activate your changes.
+Don't forget to rerun the {{{/etc/firewall.user}}} scirpt to activate your changes.
 
 {{{/etc/firewall.user}}} gets called from the {{{/etc/init.d/S45firewall}}} script on each
 reboot.
