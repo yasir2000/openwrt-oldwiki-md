@@ -562,9 +562,6 @@ Allow from 192.168.1.0/24 #your ip area.
 MacOS X tip:
 Configure your extended printer settings. If you use the standard printer settings and add an ipp printer, macosx will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
 
-=== libssl ===
-
-With RC3 or later, use libopenssl
 
 === Wake on LAN ===
 
@@ -573,7 +570,7 @@ If you have trouble using [http://tracker.openwrt.org/packages/list.php?name=wol
 
 == Building your own packages ==
 
-To build your own packages for !OpenWrt with the SDK. See [:BuildingPackagesHowTo]
+To build your own packages for !OpenWrt with the SDK, see [:BuildingPackagesHowTo].
 
 
 = Hardware =
