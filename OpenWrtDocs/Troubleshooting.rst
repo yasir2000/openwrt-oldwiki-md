@@ -121,47 +121,53 @@ configuration. Everything should work now.
 
 == Software based method ==
 
+'''Linksys models'''
+
 If you've followed the instructions and warnings you should have {{{boot_wait}}}
 set to on. With {{{boot_wait}}} on, each time the router boots you will have
 roughly 3 seconds to send a new firmware using TFTP. Use a standard TFTP client
 to send the firmware in binary mode to {{{192.168.1.1}}}. Due to limitations in
 the bootloader, this firmware will have to be under 3 MB in size.
 
-See ["OpenWrtDocs/Installing"]
+'''Motorola models'''
 
-/!\  The Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] may wait for
-an image on {{{192.168.10.1}}}.
+The Motorola WR850G may wait for an image on {{{192.168.10.1}}}.
 
-/!\  The ASUS WL-300G does not have a DMZ LED: Press the reset button for 2
-seconds just after the AIR LED lights, or maybe the LAN LED. At some point it
-works, anyway.
+'''Asus models'''
+
+The Asus models does not have a DMZ LED. Press the reset button for 2 seconds just
+after the AIR LED lights, or maybe the LAN LED. At some point it works, anyway.
+
+See [:OpenWrtDocs/Installing] generic installation instructions.
 
 
 == JTAG adaptor method ==
 
-/!\ '''WARNING:''' You are now leaving the safe grounds of warranty coverage. /!\
+/!\ '''WARNING:''' You are now leaving the safe grounds of warranty coverage.
+
+'''Linksys models'''
 
 You still don't want to short any pins on your precious router. Thats nasty
 disgusting behaviour. A lot better way to get a Flash into your wrecked piece
 of hardware, is to build your own JTAG adaptor. It's easy, you can make it in a
 jiffy using spare parts from the bottom of your messy drawer. You need:
 
- 1. 4 100R resistors
- 1. 1 male SUB-D 25 plug
- 1. If you want to do it right, a 12-way IDC-Connector plug (these are the ones
+ * 4 100R resistors
+ * 1 male SUB-D 25 plug
+ * If you want to do it right, a 12-way IDC-Connector plug (these are the ones
  who look like the HDD-Cables)
- 1. A 12-way ribbon cable for above
- 1. The boyfriend of that IDC-Connector for the PCB
- 1. HairyD''''''airyMaids
+ * A 12-way ribbon cable for above
+ * The boyfriend of that IDC-Connector for the PCB
+ * HairyD''''''airyMaids
  [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a
  debrick utility and instructions how to connect everything together
  ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror]).
- 1. A Linksys WRT54G with a broken flash and the desperate feeling that you
- can't make it any worse.
+ * A Linksys WRT54G/WRT54GS router with a broken flash and the desperate feeling
+ that you can't make it any worse.
 
 It is basically like this:
 
-/!\ '''NOTE:''' The diagram below is as if you were looking at your computer's
+'''NOTE:''' The diagram below is as if you were looking at your computer's
 parallel port head on. If you are going to solder directly to a male connector,
 pay close attention to the pin numbers as they will be in a different
 orientation on the male connector. When looking at the back of the male
@@ -194,40 +200,39 @@ Parport
 JTAG
 }}}
 
-Or a more modern version if you prefer:
-
-[http://downloads.openwrt.org/inh/reference/JTAGschem.png]
+Or a more [http://downloads.openwrt.org/inh/reference/JTAGschem.png modern version]
+if you prefer.
 
 Use the pin numbers on the parallel port connector, and the pin numbers on
-the Wrt PCB, as they are all correct.
-Note: Pin 12 is assumed to be grounded. If it is not grounded on your Wrt, you
-may safely connect the wire indicated on pin 12 to any grounded even-numbered
-pin on the Wrt's JTAG connector.
+the Linksys PCB, as they are all correct.
+
+'''Note #1:''' Pin 12 is assumed to be grounded. If it is not grounded on your Linksys,
+you may safely connect the wire indicated on pin 12 to any grounded even-numbered pin on
+the Linksys JTAG connector.
+
+'''Note #2:''' I had to enable ppdev in the kernel to use the program by hairydairymaid
+with GNU/Linux. Working versions of the CFE can be found in
+[http://downloads.openwrt.org/people/inh/cfe/ inh's] download directory, information about
+changing the CFE are available at [:OpenWrtDocs/Customizing: OpenWrtDocs/Customizing].
+
+'''Note #3:''' I had to disable i2c-parport support in my kernel - because I always got
+the kernel message {{{all devices in use}}} when trying to access the parport.
 
 Oh, and by the way, this cable is a good thing to have anyway, because many
-embedded devices feature that JTAG-interface e.g. HP's IPAQ has one as well, so
+embedded devices feature that JTAG interface e.g. HP's IPAQ has one as well, so
 if you dare to open it, you can do lots of
-[http://openwince.sourceforge.net/jtag/iPAQ-3600/ "funky things with your
-IPAQ"]
+[http://openwince.sourceforge.net/jtag/iPAQ-3600/ funky things with your IPAQ].
 
 [http://openwince.sourceforge.net/jtag/ Openwince/JTAG] calls this cable as
 "Xilinx DLC5 JTAG Parallel Cable III" but since this variant isn't buffered,
 the length of this cable must not exceed 10 cm.
-
-Note: I had to enable ppdev in the kernel to use the program by hairydairymaid
-with linux. Working versions of the CFE can be found at
-[http://downloads.openwrt.org/people/inh/cfe/], information about changing the
-CFE are available at [http://wiki.openwrt.org/OpenWrtDocs/Customizing].
-
-Note: I had to disable i2c-parport support in my kernel - because i always got
-the kernel message "all devices in use" when trying to access the parport.
 
 
 = Problems going from JFFS2 to SquashFS or problems booting after reflashing =
 
 /!\ '''IMPORTANT:'''  This section assumes you have taken care of backup - follow
 this procedure without backing up properly first, and your JFFS2 files are
-gone!''
+gone!
 
 There are only two times when the JFFS2 partition gets formatted:
 
@@ -243,8 +248,8 @@ or when the JFFS2 partition has been overwritten due to a larger firmware.
 
 There's two ways to avoid the above issue:
 
- * If you haven't yet reflashed, reflash using the command {{{mtd -e linux -r
- write openwrt-xxxx.trx linux}}}. The {{{-e linux}}} tells {{{mtd}}} to erase
+ * If you haven't yet reflashed, reflash using the command {{{mtd -e linux -r write openwrt-xxxx.trx linux}}}.
+ The {{{-e linux}}} tells {{{mtd}}} to erase
  any existing data; !OpenWrt will be unable to find a JFFS2 partition at bootup
  and the firstboot script will be called to create a JFFS2 partition.
  * If you have reflashed with SquashFS and the device is unbootable then what's
