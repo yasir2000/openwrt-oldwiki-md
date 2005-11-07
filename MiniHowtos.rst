@@ -178,11 +178,6 @@ If you do end up with a 'dead' WRT unit due to not enabling `boot_wait`, there's
 Please see [http://voidmain.is-a-geek.net:81/redhat/wrt54g_revival.html VoidMain's WRT54G Revival Page].
 
 
-'''Gentoo users''':
-Please see [http://openwrt.org/Bugs#head-da30ad09c6ea6ec4e0ced6241dcbf480c57af867 this thread]
-for details about TFTP clients.
-
-
 == CFE/PMON TFTP maximum image size limitation ==
 
 There is a physical limit of approximately 3,141,632 bytes that `CFE/PMON` will accept
