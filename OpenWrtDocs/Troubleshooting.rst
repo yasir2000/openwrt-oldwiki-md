@@ -17,7 +17,8 @@ the developers''' /!\
 
 If you've broken one of the startup scripts, firewalled yourself or corrupted
 the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Remember
-failsafe mode is only working when you have installed one of the SquashFS images.
+failsafe mode is only working when you have installed one of the SquashFS images
+and the {{{boot_wait}}} NVRAM variable is set to on.
 
 /!\ The act of switching between a normal boot and failsafe mode could change
 your MAC address! This will invalidate the ARP cache of the workstation you're
