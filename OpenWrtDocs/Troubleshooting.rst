@@ -48,7 +48,7 @@ partition. Additionally, various network settings will be overridden forcing
 the router to {{{192.168.1.1}}}.
 
 If you want to completely erase the JFFS2 partition, removing all packages you
-can run firstboot.
+can run {{{firstboot}}}.
 
 If you want to attempt to fix the JFFS2 partition, mount it with the following
 commands:
