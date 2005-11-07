@@ -42,21 +42,21 @@ installed, the firmware will simply configure the network interfaces, setup a
 basic NAT/firewall and load the telnet server and dnsmasq (a combination DNS
 forwarder and DHCP server).
 
-'''Why no telnet password?'''
+'''Why no telnet password?'''[[BR]]
 Telnet is an insecure protocol with no encryption, we try to make a point of
 this insecurity by not enabling a password. If you're in an environment that
 requires password protection we suggest setting a password with the {{{passwd}}}
 command, which will disable the telnet server and enable the Dropbear SSH
 server.
 
-'''What if I can't get in?'''
+'''What if I can't get in?'''[[BR]]
 The problem is caused when the JFFS2 partition (see below) is detected but
 unusable, either the result of previous !OpenWrt installation or occasionally
 just caused by a brand new router. Simply boot into
 [:OpenWrtDocs/Troubleshooting: failsafe mode] and run {{{firstboot}}} to reformat
 the JFFS2 partition.
 
-'''What if I can not access telnet when first booting?'''
+'''What if I can not access telnet when first booting?'''[[BR]]
 This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, disable them.
 
