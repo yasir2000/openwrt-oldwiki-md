@@ -103,3 +103,40 @@ use the line below in your {{{/etc/ethers}}} file
 }}}
 
 Put the hostname for that IP address in the {{{/etc/hosts}}} file.
+
+
+=== Configuring dnsmasq to use different IP ranges for wired and wireless ===
+
+Suppose you have the following:
+
+{{{
+vlan0     Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
+          inet addr:192.168.1.1    Bcast:192.168.1.255    Mask:255.255.255.0
+
+eth1      Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
+          inet addr:10.75.9.1      Bcast:10.75.9.255      Mask:255.255.255.0
+}}}
+
+Simply put 2 "dhcp-rage" options in your {{{/etc/dnsmasq.conf}}} file:
+
+{{{
+# dhcp-range=[network-id,]<start-addr>,<end-addr>[[,<netmask>],<broadcast>][,<default lease time>]
+dhcp-range=lan,192.168.1.101,192.168.1.104,255.255.255.0,24h
+dhcp-range=wlan,10.75.9.111,10.75.9.119,255.255.255.0,2h
+}}}
+
+You can then use the different "network-id" values with "dhcp-option" to customize the
+options your DHCP server will supply to your wired and wireless DHCP clients.
+
+for example
+
+{{{
+#set the default route for dhcp clients on the wlan side to 10.10.6.33
+dhcp-option=wlan,3,10.10.6.33
+#set the dns server for the dhcp clients on the wlan side to 10.10.6.33
+dhcp-option=wlan,6,10.10.6.33
+#set the default route for dhcp clients on the lan side to 10.10.6.1
+dhcp-option=lan,3,10.10.6.1
+#set the dns server for the dhcp clients on the lan side to 10.10.6.1
+dhcp-option=lan,6,10.10.6.1
+}}}
