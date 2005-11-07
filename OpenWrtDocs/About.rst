@@ -45,7 +45,7 @@ the use of the SDK.
 = OpenWrt Version History =
 
 The project started in January 2004. The first !OpenWrt versions were based on Linksys original GPL
-sources for WRT54g and a buildroot from the uclibc project. This version is known as !OpenWrt "stable"
+sources for WRT54G and a buildroot from the uclibc project. This version is known as !OpenWrt "stable"
 and was widely in use. There are still many !OpenWrt applications, like the Freifunk-Firmware or
 Sip@Home, which are based on this version.
 
