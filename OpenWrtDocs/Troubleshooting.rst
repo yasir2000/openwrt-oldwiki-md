@@ -70,13 +70,15 @@ to scripts will be lost)
 example Asus WL-500g and the Motorola WR850G bootloader will not recreate
 default values, avoid deleting NVRAM.
 
+To clean the NVRAM variables the safe way see the !OpenWrt [:Faq].
+
 If you're having trouble setting up some feature of your router (wireless, LAN
 ports, etc) and for some reason all of the documentation here just isn't
 working for you, it's sometimes best to start from scratch with a default
 configuration. Sometimes the various firmwares you try will add conflicting
-settings to NVRAM that will need to be flushed (to clean the NVRAM the safe way
-see the [:Faq]). Erasing NVRAM ensures there aren't any errant settings confusing
-your poor confused router. Run this command to restore your NVRAM to defaults:
+settings to NVRAM that will need to be flushed. Erasing NVRAM ensures there
+aren't any errant settings confusing your poor confused router. Run this command
+to restore your NVRAM to defaults:
 
 {{{
 mtd -r erase nvram
