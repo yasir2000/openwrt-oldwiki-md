@@ -74,7 +74,7 @@ chmod +r /etc/hosts
 }}}
 
 
-=== Static IP-Address (leases) based on the MAC-Address of the client ===
+=== Static IP address (leases) based on the MAC address of the client ===
 
 '''NOTE:''' There is a known bug in dnsmasq. dnsmasq can't read the
 {{{/etc/ethers}}} file because it runs as user nobody. Nbd fixed that
@@ -90,8 +90,7 @@ ipkg -force-overwrite -force-reinstall install \
 }}}
 
 '''TIP:''' When you get errors while installing the package from the URL above
-please read the
-[http://forum.openwrt.org/viewtopic.php?pid=14578#p14578 dnsmasq - how to set domain name?]
+please read the [http://forum.openwrt.org/viewtopic.php?pid=14578#p14578 dnsmasq - how to set domain name?]
 thread.
 
 When a client should get always the same IP address from the DHCP server then
