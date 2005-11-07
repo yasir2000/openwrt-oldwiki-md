@@ -90,7 +90,7 @@ nvram commit
 == Statistics solution ==
 
 If you want statistics for multiple routers, with a simple web interface install the
-rrdtool and rrdcollect with the example packages from
+RRDtool and RRDcollect with the example packages from
 [http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing directory].
 
 And rrdcollect will even produce the status graphs on the Wrt itself, without the need
@@ -112,15 +112,6 @@ For details please see, [http://sourceforge.net/projects/hotspot-zone HOTSPOT-ZO
 maurice.schoenmakers@hot-spot-zone.de, thanks.
 
 Thanks to M (nick on IRC).
-
-
-= Useful details =
-
-[:EditingRomFiles] Howto edit the original files that are read-only in the ROM image
-
-[:HowtoEnableCron] Enable cron to run scheduled tasks
-
-[:PublishYourWANIp] Howto publish your WAN IP address to a webserver instead of using DynDNS
 
 
 == boot_wait - What it is, and how it works ==
