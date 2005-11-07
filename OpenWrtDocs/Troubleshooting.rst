@@ -22,7 +22,7 @@ failsafe mode is only working when you have installed one of the SquashFS images
 /!\ The act of switching between a normal boot and failsafe mode could change
 your MAC address! This will invalidate the ARP cache of the workstation you're
 using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}},
-see the !OpenWrt [:FaQ] howto delete your ARP cache.
+see the !OpenWrt [:Faq] howto delete your ARP cache.
 
 
 == Howto get into failsafe mode ==
