@@ -5,8 +5,8 @@
 ##
 
 
-/!\ ''' This page is currently in a clean up and reorganization process (I update it to
-be more recent and more generic)''' /!\
+/!\ ''' Clean up and reorganization process is DONE. It's not yet verified by
+the developers''' /!\
 
 
 [:OpenWrtDocs]
