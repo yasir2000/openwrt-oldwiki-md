@@ -22,7 +22,7 @@ failsafe mode is only working when you have installed one of the SquashFS images
 /!\ The act of switching between a normal boot and failsafe mode could change
 your MAC address! This will invalidate the ARP cache of the workstation you're
 using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}},
-check the cache with {{{arp -a}}} and delete it with {{{arp -d 192.168.1.1}}}.
+see the !OpenWrt [:FaQ] howto delete your ARP cache.
 
 
 == Howto get into failsafe mode ==
@@ -58,7 +58,7 @@ mtd unlock /dev/mtd/4
 mount -t jffs2 /dev/mtdblock/4 /jffs
 }}}
 
-After the partition is mounted, you can edit the files in /jffs. If you run
+After the partition is mounted, you can edit the files in {{{/jffs}}}. If you run
 firstboot with the JFFS2 partition mounted, it will not format the partition,
 but it will overwrite files with symlinks. (Packages will be preserved, changes
 to scripts will be lost)
