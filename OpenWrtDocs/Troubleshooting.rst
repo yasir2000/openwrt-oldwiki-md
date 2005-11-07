@@ -39,8 +39,6 @@ Holding the reset button before the DMZ LED can reset NVRAM.
 
 Plug in the power, wait 2 secs. Then start pressing reset button for 10-15 seconds.
 
-The Asus models does not have a DMZ LED.
-
 
 == What should I do in failsafe mode? ==
 
