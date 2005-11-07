@@ -100,7 +100,7 @@ the JFFS2 partition, particularly useful when upgrading from previous !OpenWrt
 versions with different filesystem layouts.
 
 
-= Editing Files =
+= Editing files =
 
 On JFFS2 firmware images, the whole root filesystem is writable, however on the
 SquashFS builds you need some extra steps to edit the default configuration
