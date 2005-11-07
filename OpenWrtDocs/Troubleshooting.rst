@@ -35,13 +35,11 @@ done right the DMZ LED will quickly flash 3 times every second.
 
 Holding the reset button before the DMZ LED can reset NVRAM.
 
-'''Asus models'''
+'''Other non-Linksys models'''
 
 Plug in the power, wait 2 secs. Then start pressing reset button for 10-15 seconds.
 
 The Asus models does not have a DMZ LED.
-
-'''Motorola models'''
 
 
 == What should I do in failsafe mode? ==
