@@ -93,7 +93,7 @@ If you want statistics for multiple routers, with a simple web interface install
 RRDtool and RRDcollect with the example packages from
 [http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing directory].
 
-And rrdcollect will even produce the status graphs on the Wrt itself, without the need
+And RRDcollect will even produce the status graphs on the Wrt itself, without the need
 for a collecting host.
 
 
