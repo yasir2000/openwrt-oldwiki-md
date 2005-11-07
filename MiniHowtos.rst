@@ -114,6 +114,8 @@ maurice.schoenmakers@hot-spot-zone.de, thanks.
 Thanks to M (nick on IRC).
 
 
+= Useful details =
+
 == boot_wait - What it is, and how it works ==
 
 Information here was verified with a WRT54G 1.0.  There are minor changes with each
