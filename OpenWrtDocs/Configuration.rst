@@ -502,30 +502,9 @@ HowtoEnableCron
 
 
 === PPPoE Internet Connection ===
-Be sure you have the pppoe modules/packages installed!
 
-Set the nvram according to
-{{{
-nvram set wan_ifname=ppp0
-nvram set wan_proto=pppoe
-nvram set ppp_mtu=1492 # The MTU of your ISP
-nvram set pppoe_ifname=vlan1 # For WRT54GS only. This should be your wan port.
-nvram set ppp_username=your_isp_login
-nvram set ppp_passwd=your_isp_password
-nvram commit
-}}}
-and reboot.
+See the !OpenWrt [:Faq].
 
-Use ifconfig (device ppp0) or ping to determine the link is up. If there is no link enable '''debug''' in ''/etc/ppp/options'' and use '''logread''' to check the error messages.
-
-If you have services (vpn, ntpd) that should be started after the link is up, put the start-scripts in ''/etc/ppp/ip-up'' (don't forget to chmod +x).
-For example:
-{{{
-#!/bin/sh
-
-sh /etc/init.d/S55ntpd start
-/usr/sbin/openvpn /etc/openvpn.conf
-}}}
 
 === Access to syslog ===
 If you want to read the syslog messages, use the '''logread''' tool.
