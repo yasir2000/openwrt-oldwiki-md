@@ -570,12 +570,14 @@ With RC3 or later, use libopenssl
 
 If you have trouble using [http://tracker.openwrt.org/packages/list.php?name=wol wol] to wake up your PC give [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ ether-wake] a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
 
+
 == Building your own packages ==
 
-To build your own packages for OpenWRT, you will need the WRT SDK. See ["BuildingPackagesHowTo"]
+To build your own packages for !OpenWrt with the SDK. See [:BuildingPackagesHowTo]
+
 
 = Hardware =
 
 == LED ==
 
-Document can be found at ["wrtLEDCodes"]
+Document can be found at [:wrtLEDCodes].
