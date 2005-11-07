@@ -243,11 +243,6 @@ Thanks to M (nick on IRC).
 [:PublishYourWANIp] Howto publish your WAN IP address to a webserver instead of using DynDNS
 
 
-== Build fails with "404 File Not Found" errors ==
-
-Please see the [http://openwrt.org/Bugs OpenWRT Bugs Page] for further details and workarounds.
-
-
 == boot_wait - What it is, and how it works ==
 
 Information here was verified with a WRT54G 1.0.  There are minor changes with each
@@ -323,11 +318,12 @@ out `Boot program checksum is invalid` during `PMON`, and drop you to the `CFE>`
 image that accepts a full-size image. This is like how LILO works'' -- Micksa
 
 
-== backing up the jffs2 partition ==
+== backing up the JFFS2 partition ==
 
 {{{
 mount /dev/mtdblock/4 /jffs
 cd /jffs
 tar jcvf /tmp/backup.tar.bz2 .
 }}}
+
 Then using nfs or dropbear's scp to copy /tmp/backup.tar.gz to a safe place.
