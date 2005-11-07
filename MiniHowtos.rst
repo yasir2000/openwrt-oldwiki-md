@@ -101,8 +101,8 @@ nvram set lan_ifname=vlan0
 nvram commit
 }}}
 
-Now when you reboot , the wireless device (eth1) can be individually controlled using
-the nvram variables (wl*) or ifconfig/iwconfig.
+Now when you reboot, the wireless device (eth1) can be individually controlled using
+the NVRAM variables ({{{wl_*}}})or ifconfig/iwconfig.
 
 
 === Configuring dnsmasq to use different ip ranges for wired and wireless ===
