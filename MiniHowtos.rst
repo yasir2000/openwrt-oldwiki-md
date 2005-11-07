@@ -5,10 +5,10 @@
 
 == Dual-port serial modification ==
 
-If you want to [wiki:OpenWrtDocs/Customizing add two serial ports] to your Gv2 or
-GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial
-Port Mod] for thorough details.  This will enable you to have a serial port intended
-as a hardware serial console, as well as a serial port for a modem or other device.
+If you want to [:OpenWrtDocs/Customizing: add two serial ports] to your Gv2 or
+GS, please see [http://www.rwhitby.net/wrt54gs/serial.html Rod Whitby's Dual Serial Port Mod]
+for thorough details.  This will enable you to have a serial port intended as a
+hardware serial console, as well as a serial port for a modem or other device.
 
 (Note that Rod's instructions are for the version 3 PCB in the AD233BK kit. The version
 3 PCB mislabelled Cts and Rts, putting them around the wrong way. The version 4 labelling
@@ -19,6 +19,7 @@ work)
 To get decent, usable performance out of the second serial port, you need to install the
 setserial package and rebuild busybox to add the stty program. The following will get you
 a second port at maximum speed:
+
 {{{
 setserial /dev/tts/1 port 0xB8000400 irq 3
 stty -F /dev/tts/1 speed 115200
@@ -26,13 +27,13 @@ stty -F /dev/tts/1 speed 115200
 
 Note that both UART ports share one interrupt.
 
-German People could also take a look at the Page from freifunk hamburg:
-[http://hamburg.freifunk.net/twiki/bin/view/Technisches/WRT54gSerielleSchnittstelle]
+German People could also take a look at the page from
+[http://hamburg.freifunk.net/twiki/bin/view/Technisches/WRT54gSerielleSchnittstelle freifunk hamburg].
 
 
 == Single-port serial modification ==
 
-If you're only interested in having serial console working on your Gv2 or GS, check out
+If you're only interested in having serial console working on your G v2 or GS, check out
 [http://jdc.parodius.com/wrt54g/serial.html koitsu's Single-Port Serial Modification] page.
 This page includes links to online sites that sell the necessary hardware for both his and
 Rod's modifications, as well as a (soon-to-be-written) walk-through of how to do the mod.
@@ -41,7 +42,7 @@ Pictures are also provided.
 
 = Software =
 
-This section should describe commonly-used packages, built-in Busybox tweaks, and things
+This section should describe commonly-used packages, built-in !BusyBox tweaks, and things
 of that nature.
 
 
@@ -86,26 +87,7 @@ nvram commit
 
 = Networking =
 
-== Individual control of all network devices ==
-
-(Author: Andrew Hodel)
-The WRT54G has 2 physical network devices, eth0 (wired) and eth1 (wireless), however
-eth0 is split into 2 VLANs. vlan0 is the virtual device that can be accessed from the
-4 LAN ports, and vlan1 is the WAN port on the box.
-
-With the default configuration, eth1 and vlan0 are bridged as device br0. In order to
-disable this device, simply change the nvram setting lan_ifname:
-
-{{{
-nvram set lan_ifname=vlan0
-nvram commit
-}}}
-
-Now when you reboot, the wireless device (eth1) can be individually controlled using
-the NVRAM variables ({{{wl0_*}}})or ifconfig/iwconfig.
-
-
-=== Configuring dnsmasq to use different ip ranges for wired and wireless ===
+== Configuring dnsmasq to use different ip ranges for wired and wireless ==
 
 Suppose you have the following :
 {{{
