@@ -23,7 +23,6 @@ words "Model No". The model number will be printed followed by a "vN.N" where "N
 version. The exception to this is the v1.0 revisions, "v1.0" is never printed; if you don't
 see a version number it's a v1.0.
 
-
 If you haven't installed !OpenWrt yet, another way of identifying the hardware is to
 open the page [http://192.168.1.1/SysInfo.htm] (where {{{192.168.1.1}}} should be
 replaced with the IP address of your WRT54G or WRT54GS). The last line in the
@@ -516,6 +515,10 @@ For more details on howto configure static IP addresses see [:OpenWrtDocs/dnsmas
 == Where should I put custom firewall rules? ==
 
 They go into the file {{{/etc/firewall.user}}}. This file has a few examples in it as well.
+Don't forget to rerun the {{{/etc/firewall.user}} scirpt to activate your changes.
+
+{{{/etc/firewall.user}}} gets called from the {{{/etc/init.d/S45firewall}}} script on each
+reboot.
 
 Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting
 point for documentation is [http://www.netfilter.org/documentation/].
