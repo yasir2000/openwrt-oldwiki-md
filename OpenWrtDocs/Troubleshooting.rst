@@ -253,37 +253,6 @@ There's two ways to avoid the above issue:
  you can run {{{firstboot}}} manually.
 
 
-= Known incompatibility with World of Warcraft =
-
-The current !OpenWrt image (White Russian RC3) has a known incompatibility with
-World of Warcraft when executing on some versions of the Linksys WRT54G(S).
-([http://forums.worldofwarcraft.com/thread.aspx?FN=wow-tech-support&T=117416&P=1
- Symptoms]) This bug also exists in all but some of the most recent official
-firmware releases from Linksys routers. The precise nature of the problem has not
-been widely disclosed; however, corruption of TCP stream data passing through the
-router appears to be the root cause.
-
-The precise root cause of the data corruption is not known.  It is theorized
-that the following patch, one of the differences between the different Linksys
-source releases, ''may'' correct the problem:
-
-{{{
---- linux.old/net/ipv4/netfilter/ip_conntrack_core.c       2003-08-12
-13:33:45.000000000 +0200
-+++ linux.new/net/ipv4/netfilter/ip_conntrack_core.c       2004-08-29
-18:30:19.000000000 +0200
-@@ -751,7 +751,7 @@
-        atomic_inc(&ip_conntrack_count);
-        WRITE_UNLOCK(&ip_conntrack_lock);
-
--       if (expected && expected->expectfn)
-+       if (expected && is_confirmed(expected->expectant) && expected->expectfn)
-                expected->expectfn(conntrack);
-        return &conntrack->tuplehash[IP_CT_DIR_ORIGINAL];
- }
-}}}
-
-
 = Getting help =
 
 Still stuck? See [http://openwrt.org/support how to get help and support] for
