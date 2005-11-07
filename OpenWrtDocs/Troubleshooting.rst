@@ -30,9 +30,6 @@ check the cache with {{{arp -a}}} and delete it with {{{arp -d 192.168.1.1}}}.
 
 /!\ Holding the reset button before the DMZ LED can reset NVRAM.
 
-/!\ The Asus WL-300G does not have a DMZ LED: press the reset button for 2
-seconds just after the AIR LED lights, or maybe the LAN led. At some point it
-works, anyway.
 
 When in failsafe, the system will boot using only the files contained within
 the firmware (the SquashFS partition) ignoring any changes made to the JFFS2
@@ -77,6 +74,8 @@ the changes you've made to the {{{preinit}}} file.
 
 The failsafe mode doesn't work on Asus routers.
 
+The Asus WL-300G does not have a DMZ LED. press the reset button for 2 seconds
+just after the AIR LED lights, or maybe the LAN led. At some point it works, anyway.
 
 '''Motorola models'''
 
