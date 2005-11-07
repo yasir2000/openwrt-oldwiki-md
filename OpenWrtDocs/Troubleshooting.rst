@@ -73,14 +73,18 @@ modified firmware and boot the device. This forces your device to boot in
 failsafe every time. So in order to boot in normal mode, you'll have to undo
 the changes you've made to the {{{preinit}}} file.
 
-Asus WL-500g units seem to respond only on the WAN port when booted in failsafe
-mode. Asus WL-300g responds only on the LAN port in failsafe mode.
+'''Asus models'''
+
+The failsafe mode doesn't work on Asus routers.
+
+
+'''Motorola models'''
 
 
 = Resetting to defaults =
 
 /!\ '''NOTE:''' Resetting the NVRAM is not a good idea on every model, for
-example Asus WL-500g (and the Motorola WR850G) bootloader will not recreate
+example Asus WL-500g and the Motorola WR850G bootloader will not recreate
 default values, avoid deleting NVRAM.
 
 If you're having trouble setting up some feature of your router (wireless, LAN
@@ -93,7 +97,6 @@ to restore your NVRAM to defaults:
 
 {{{
 mtd -r erase nvram
-reboot
 }}}
 
 This will clear out the NVRAM partition and reboot ({{{-r}}}) the router, the
@@ -101,20 +104,6 @@ bootloader will create a new NVRAM partition with default settings after the
 reboot. Remember to set {{{boot_wait}}} back on after you reboot your router --
 trying to do it before rebooting will just write your old settings (cached in
 memory) back to the flash.
-
-To reset changes you've made to the !OpenWrt filesystem, run
-
-{{{
-firstboot
-}}}
-
-If firstboot is run while the JFFS2 filesystem is mounted (eg. non-failsafe
-mode) it will skip formatting and only reset changed files to their defaults.
-(Files are overwritten with symlinks to their original copy in {{{/rom}}}; extra
-files and packages are left intact)
-
-After these two steps, you'll have a router with a pristine unchanged
-configuration. Everything should work now.
 
 
 = Recovering from bad firmware =
@@ -129,16 +118,23 @@ roughly 3 seconds to send a new firmware using TFTP. Use a standard TFTP client
 to send the firmware in binary mode to {{{192.168.1.1}}}. Due to limitations in
 the bootloader, this firmware will have to be under 3 MB in size.
 
-'''Motorola models'''
-
-The Motorola WR850G may wait for an image on {{{192.168.10.1}}}.
-
 '''Asus models'''
 
 The Asus models does not have a DMZ LED. Press the reset button for 2 seconds just
 after the AIR LED lights, or maybe the LAN LED. At some point it works, anyway.
 
-See [:OpenWrtDocs/Installing] generic installation instructions.
+Asus WL-500g units seem to respond only on the WAN port when booted in failsafe
+mode. Asus WL-300g responds only on the LAN port in failsafe mode.
+
+You can use the Asus software restoration Windows tool from the CD which comes with
+the router to flash !OpenWrt TRX firmware images or restore the original firmware.
+
+'''Motorola models'''
+
+The Motorola WR850G may wait for an image on {{{192.168.10.1}}}.
+
+
+[[BR]]See [:OpenWrtDocs/Installing] generic installation instructions.
 
 
 == JTAG adaptor method ==
