@@ -93,25 +93,16 @@ memory) back to the flash.
 
 = Recovering from bad firmware =
 
-== Software based method ==
+See [:OpenWrtDocs/Installing] for generic installation instructions.
 
-See [:OpenWrtDocs/Installing] generic installation instructions.
+
+== Software based method ==
 
 '''Linksys models'''
 
-If you've followed the instructions and warnings you should have {{{boot_wait}}}
-set to on. With {{{boot_wait}}} on, each time the router boots you will have
-roughly 3 seconds to send a new firmware using TFTP. Use a standard TFTP client
-to send the firmware in binary mode to {{{192.168.1.1}}}. Due to limitations in
-the bootloader, this firmware will have to be under 3 MB in size.
+Reflash the unit using the TFTP method.
 
 '''Asus models'''
-
-The Asus models does not have a DMZ LED. Press the reset button for 2 seconds just
-after the AIR LED lights, or maybe the LAN LED. At some point it works, anyway.
-
-Asus WL-500g units seem to respond only on the WAN port when booted in failsafe
-mode. Asus WL-300g responds only on the LAN port in failsafe mode.
 
 You can use the Asus software restoration Windows tool from the CD which comes with
 the router to flash !OpenWrt TRX firmware images or restore the original firmware.
