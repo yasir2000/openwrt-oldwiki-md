@@ -33,14 +33,13 @@ To get into failsafe on Linksys models, plug in the router and wait for the DMZ
 LED to light then immediately press and hold the reset button for 2 seconds. If
 done right the DMZ LED will quickly flash 3 times every second.
 
-/!\ '''NOTE:''' Holding the reset button before the DMZ LED can reset NVRAM.
-
+Holding the reset button before the DMZ LED can reset NVRAM.
 
 '''Asus models'''
 
-The Asus models does not have a DMZ LED. Plug in the power, wait 2 secs. Then
-start pressing reset button for 10-15 seconds.
+Plug in the power, wait 2 secs. Then start pressing reset button for 10-15 seconds.
 
+The Asus models does not have a DMZ LED.
 
 '''Motorola models'''
 
