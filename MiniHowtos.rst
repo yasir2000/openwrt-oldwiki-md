@@ -89,9 +89,9 @@ nvram commit
 == Individual control of all network devices ==
 
 (Author: Andrew Hodel)
-The wrt54g has 2 physical network devices, eth0(wired) and eth1(wireless), however
-eth0 is split into 2 vlans.  vlan0 is the virtual device that can be accessed from the
-4 lan ports, and vlan1 is the WAN port on the box.
+The WRT54G has 2 physical network devices, eth0 (wired) and eth1 (wireless), however
+eth0 is split into 2 VLANs. vlan0 is the virtual device that can be accessed from the
+4 LAN ports, and vlan1 is the WAN port on the box.
 
 With the default configuration, eth1 and vlan0 are bridged as device br0. In order to
 disable this device, simply change the nvram setting lan_ifname:
@@ -102,7 +102,7 @@ nvram commit
 }}}
 
 Now when you reboot, the wireless device (eth1) can be individually controlled using
-the NVRAM variables ({{{wl_*}}})or ifconfig/iwconfig.
+the NVRAM variables ({{{wl0_*}}})or ifconfig/iwconfig.
 
 
 === Configuring dnsmasq to use different ip ranges for wired and wireless ===
@@ -318,7 +318,7 @@ out `Boot program checksum is invalid` during `PMON`, and drop you to the `CFE>`
 image that accepts a full-size image. This is like how LILO works'' -- Micksa
 
 
-== backing up the JFFS2 partition ==
+== Backing up the JFFS2 partition ==
 
 {{{
 mount /dev/mtdblock/4 /jffs
