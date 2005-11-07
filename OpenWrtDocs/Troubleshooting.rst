@@ -15,21 +15,35 @@ be more recent and more generic)''' /!\
 
 = Failsafe mode =
 
-'''Linksys models'''
-
 If you've broken one of the startup scripts, firewalled yourself or corrupted
-the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. To
-get into failsafe, plug in the router and wait for the DMZ LED to light then
-immediately press and hold the reset button for 2 seconds. If done right the
-DMZ LED will quickly flash 3 times every second.
+the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
-/!\ The act of switching between a normal boot and failsafe mode could
-change your MAC address!  This will invalidate the ARP cache of the workstation
-you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}},
+/!\ The act of switching between a normal boot and failsafe mode could change
+your MAC address! This will invalidate the ARP cache of the workstation you're
+using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}},
 check the cache with {{{arp -a}}} and delete it with {{{arp -d 192.168.1.1}}}.
 
-/!\ Holding the reset button before the DMZ LED can reset NVRAM.
 
+== Howto get into failsafe mode on ==
+=== Linksys models ===
+
+To get into failsafe on Linksys models, plug in the router and wait for the DMZ
+LED to light then immediately press and hold the reset button for 2 seconds. If
+done right the DMZ LED will quickly flash 3 times every second.
+
+/!\ '''NOTE:''' Holding the reset button before the DMZ LED can reset NVRAM.
+
+
+=== Asus models ===
+
+The Asus models does not have a DMZ LED. Plug in the power, wait 2 secs. Then
+start pressing reset button for 10-15 seconds.
+
+
+=== Motorola models ===
+
+
+== What should I do in failsafe mode? ==
 
 When in failsafe, the system will boot using only the files contained within
 the firmware (the SquashFS partition) ignoring any changes made to the JFFS2
@@ -70,14 +84,6 @@ modified firmware and boot the device. This forces your device to boot in
 failsafe every time. So in order to boot in normal mode, you'll have to undo
 the changes you've made to the {{{preinit}}} file.
 
-'''Asus models'''
-
-The failsafe mode doesn't work on Asus routers.
-
-The Asus WL-300G does not have a DMZ LED. press the reset button for 2 seconds
-just after the AIR LED lights, or maybe the LAN led. At some point it works, anyway.
-
-'''Motorola models'''
 
 
 = Resetting to defaults =
