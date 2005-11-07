@@ -128,13 +128,13 @@ The syntax of the `static_route` NVRAM variable is as follows:
 So, for example, to set a static route to 10.1.2.0/255.255.255.0 via vlan1, use:
 
 {{{
-@OpenWrt:/# nvram set static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1
+nvram set static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1
 }}}
 
 This will make 10.1.2.0 directly connected. To route via a router, use:
 
 {{{
-@OpenWrt:/# nvram set static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1
+nvram set static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1
 }}}
 
 This will use vlan1 to send packets to 10.1.2.0 via router 192.168.1.1
