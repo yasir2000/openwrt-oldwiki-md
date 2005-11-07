@@ -127,14 +127,13 @@ jiffy using spare parts from the bottom of your messy drawer. You need:
  * 1 male SUB-D 25 plug
  * If you want to do it right, a 12-way IDC-Connector plug (these are the ones
  who look like the HDD-Cables)
- * A 12-way ribbon cable for above
+ * A 12-way ribbon cable for above (the JTAG cable should not exceed the length of 10 cm)
  * The boyfriend of that IDC-Connector for the PCB
- * HairyD''''''airyMaids
- [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip "zip-file"] with a
- debrick utility and instructions how to connect everything together
- ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror]).
+ * !HairyDairyMaids [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip debrick utility]
+ ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror])
+ and instructions how to connect everything together
  * A Linksys WRT54G/WRT54GS router with a broken flash and the desperate feeling
- that you can't make it any worse.
+ that you can't make it any worse
 
 It is basically like this:
 
