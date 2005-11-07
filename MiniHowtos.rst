@@ -87,12 +87,14 @@ nvram commit
 
 = Networking =
 
-== Alternative statistics solution ==
+== Statistics solution ==
 
-If you want statistics for multiple routers, with simple PHP interface, you can also try [http://pjf.dotgeek.org/downloads/openwrt/statswrt-0.1.tar.gz].
-Another project with pretty much the same focus is OpenWRT-stats [http://sf.net/projects/openwrt-stats].
-And RRDCollect [http://openwrt.brainabuse.de/rrdcollect/readme.html] will even produce
-the status graphs on the WRT itself, without the need for a collecting host.
+If you want statistics for multiple routers, with a simple web interface install the
+rrdtool and rrdcollect with the example packages from
+[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing directory].
+
+And rrdcollect will even produce the status graphs on the Wrt itself, without the need
+for a collecting host.
 
 
 == OpenWrt + Chillispot solution ==
