@@ -44,7 +44,7 @@ commands:
 
 {{{
 mtd unlock /dev/mtd/4
-mount -t JFFS2 /dev/mtdblock/4 /jffs
+mount -t jffs2 /dev/mtdblock/4 /jffs
 }}}
 
 After the partition is mounted, you can edit the files in /jffs. If you run
@@ -109,6 +109,8 @@ memory) back to the flash.
 
 == Software based method ==
 
+See [:OpenWrtDocs/Installing] generic installation instructions.
+
 '''Linksys models'''
 
 If you've followed the instructions and warnings you should have {{{boot_wait}}}
@@ -131,9 +133,6 @@ the router to flash !OpenWrt TRX firmware images or restore the original firmwar
 '''Motorola models'''
 
 The Motorola WR850G may wait for an image on {{{192.168.10.1}}}.
-
-
-[[BR]]See [:OpenWrtDocs/Installing] generic installation instructions.
 
 
 == JTAG adaptor method ==
@@ -244,9 +243,9 @@ or when the JFFS2 partition has been overwritten due to a larger firmware.
 There's two ways to avoid the above issue:
 
  * If you haven't yet reflashed, reflash using the command {{{mtd -e linux -r write openwrt-xxxx.trx linux}}}.
- The {{{-e linux}}} tells {{{mtd}}} to erase
- any existing data; !OpenWrt will be unable to find a JFFS2 partition at bootup
- and the firstboot script will be called to create a JFFS2 partition.
+ The {{{-e linux}}} tells {{{mtd}}} to erase any existing data; !OpenWrt will be
+ unable to find a JFFS2 partition at bootup  and the firstboot script will be
+ called to create a JFFS2 partition.
  * If you have reflashed with SquashFS and the device is unbootable then what's
  happened is !OpenWrt has detected the JFFS2 partition and attempted to boot it
  and crashed. Booting into failsafe mode will allow you into the device where
