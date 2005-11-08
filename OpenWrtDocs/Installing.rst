@@ -86,6 +86,14 @@ MacTFTP Client commands: (For use with OS X. tftp in terminal did not work for m
  * Click on start while applying power to the WRT54G
 }}}
 
+Another mac OS X note: I was able to get OS X to use tftp to flash a WRT54G V2. The trick seems to be that OS X takes a a few seconds to configure the network connection when the router is powered on. My fix was to configure the Ethernet tab of 'built-in ethernet' (System Prefences, Network) to: 
+
+ *Configure: Manual(Advanced)
+ *Speed: 10baseT/UTP
+ *Duplex: full-duplex
+
+This seems to reduce the startup time of the ethernet port. On the second try the tftp methode worked (where the 10+ tries before the fix did not). I also disabled the AirPort during this procedure.
+
 Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
 
 ||'''TFTP Error'''||'''Reason'''||
