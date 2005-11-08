@@ -1,4 +1,3 @@
-
 = Viewsonic WAPBR-100 (A.K.A. VS10407) Howto =
 
 = Specifications =
@@ -33,7 +32,7 @@ This unit DOES have fw-conf.asp to enable changing options for downgrading and a
 = Notes =
 = My ImageBuilder list =
 
-{ { {
+ { { { 
 base-files
 base-files-brcm
 bridge
@@ -53,7 +52,7 @@ nvram
 uclibc
 wireless-tools
 wificonf
-} } }
+ } } } 
 
 This includes functionality to mount a cifs filesystem and mount a ext2 filesystem stored there (in a file) via loop.
 
