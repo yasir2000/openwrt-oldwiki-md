@@ -4,7 +4,7 @@ NOTE: If you brick your WAP54G, don't flame me. This works for me, but this does
 
 '''!!!WARNING!!!'''
 I know two different WAP54G models. Look at the rear of your AP. If the reset button is close to the left antenna, your AP will accept OpenWRT.
-If the reset button is next to the ethernet connector (left side of the ethernet connector), you'll brick your AP with OpenWRT. This version of WAP54G only works with the original Linksys firmwares (except 2.06) for me. If you install the Mustdie or Freya firmwares (based on 2.06), your LAN will not work, but WLAN will, so that you can upload a different firmware via WLAN. If you install OpenWRT, both LAN and WLAN will die.
+If the reset button is next to the ethernet connector (left side of the ethernet connector), you'll brick your AP with OpenWRT (**unless using patches made by nbd**). If you install OpenWRT without these patches, both LAN and WLAN will die. See bottom section for v2 instructions and info.
 '''!!!WARNING!!!'''
 
  1., Enable boot_wait. I did this by installing Sveasoft Freya firmware and enabling telnet on the web page, so that I got a prompt on the AP. telnet to the AP and issue the following two commands: ''nvram set boot_wait=on; nvram commit''. Before flashing openwrt, make sure the AP is in AP mode and you can connect it via wireless! Test it or you'll brick your AP!
@@ -92,3 +92,17 @@ I was about to trash the device but am happy to have searched a little further o
 By the way, also Sveasoft's Freya software was not functional on this device; the LAN was dead but the WLAN was not. Hence this could be easily restored from the Freya web interface by forcing a system reset (pressing the reset button some 5 seconds or so) and accessing the device and web interface from a client tuned to channel 6 with a 'linksys' ssid and all security turned off.
 Hope this can revive your WAP54G !!
 martin, portugal
+
+== WAP54G v2 ==
+After reading the above on v1, and seeing I had a v2... I knew there had to be a way ;) Here's my (Curto) experiences..
+
+I was running mustdie based on 2.07, but obviously wanted more control.
+I updated to linksys 2.08 (2.07 does not have http://router/fw-conf.asp ... so this update is required).
+I then proceeded to attempt to flash with rc3 of white russian (brcm build)... which bricked my AP. The lights seemed to randomly flash, the connection would appear to go up and down every second or so (watching the connection from my windows xp laptop) and it could not be pinged, tftp'd, or telnet'd to.
+******WARNING****** THIS STEP IS NOT GUARANTEED TO WORK AND COULD FRY YOUR UNIT ******WARNING******
+I had read about shorting pins on the flash chip, so while it was turned on, I started a tftp transfer of the stock 2.08 firmware and shorted pins 15 & 16 on the flash chip (intel chip on the underside of the board)... and it worked! The transfer went through.
+However, the unit still would not ping... so I did this procedure a second time... this time it worked.
+I then downloaded the 2.08 source from linksys and tinkered with for a bit before nbd informed me he had a patch for kmod-diag to make it work on the v2 WAP54G.
+I obtained he binary release, and flashed it via the web interface... and it worked perfect.
+I have since downloaded his customized image builder kit and made by own firmware (with cif, ext2, and loop support so I can have a remotely hosted filesystem... which will be in another document).
+His files are available from http://downloads.openwrt.org/people/nbd/whiterussian/
