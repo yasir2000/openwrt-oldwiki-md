@@ -207,16 +207,18 @@ Then, I made a file called `S75qos` and put it in `/etc/init.d/` ... it's just a
 
 mods="sch_sfq sch_ingress sch_htb cls_u32 cls_fw"
 
+CTSHAPER=/usr/sbin/ctshaper
+
 start() {
         echo "Starting ctshaper: "
         for m in $mods
           do insmod $m >/dev/null 2>&1
         done
-        /usr/sbin/ctshaper start
+        $CTSHAPER start
 }
 stop() {
         echo "Stopping ctshaper: "
-        /usr/sbin/ctshaper stop
+        $CTSHAPER stop
         for m in $mods
           do rmmod $m >/dev/null 2>&1
         done
@@ -224,6 +226,9 @@ stop() {
 restart() {
         stop
         start
+}
+status() {
+        $CTSHAPER status
 }
 
 case "$1" in
@@ -236,8 +241,11 @@ case "$1" in
   restart|reload)
         restart
         ;;
+  status)
+        status
+        ;;
   *)
-        echo $"Usage: $0 {start|stop|restart}"
+        echo $"Usage: $0 {start|stop|restart|status}"
         exit 1
 esac
 
