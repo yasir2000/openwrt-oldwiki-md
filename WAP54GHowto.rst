@@ -96,15 +96,23 @@ martin, portugal
 == WAP54G v2 ==
 After reading the above on v1, and seeing I had a v2... I knew there had to be a way ;) Here's my (Curto) experiences..
 
-* I was running mustdie based on 2.07, but obviously wanted more control.
-* I updated to linksys 2.08 (2.07 does not have http://router/fw-conf.asp ... so this update is required).
-* I then proceeded to attempt to flash with rc3 of white russian (brcm build)... which bricked my AP. The lights seemed to randomly flash, the connection would appear to go up and down every second or so (watching the connection from my windows xp laptop) and it could not be pinged, tftp'd, or telnet'd to.
-* ******WARNING****** THIS STEP IS NOT GUARANTEED TO WORK AND COULD FRY YOUR UNIT ******WARNING******
-* I had read about shorting pins on the flash chip, so while it was turned on, I started a tftp transfer of the stock 2.08 firmware and shorted pins 15 & 16 on the flash chip (intel chip on the underside of the board)... and it worked! The transfer went through.
-* However, the unit still would not ping... so I did this procedure a second time... this time it worked.
-* I then downloaded the 2.08 source from linksys and tinkered with for a bit before nbd informed me he had a patch for kmod-diag to make it work on the v2 WAP54G.
-* I obtained he binary release, and flashed it via the web interface... and it worked perfect.
-* I have since downloaded his customized image builder kit and made by own firmware (with cif, ext2, and loop support so I can have a remotely hosted filesystem... which will be in another document).
+I was running mustdie based on 2.07, but obviously wanted more control.
+
+I updated to linksys 2.08 (2.07 does not have http://router/fw-conf.asp ... so this update is required).
+
+I then proceeded to attempt to flash with rc3 of white russian (brcm build)... which bricked my AP. The lights seemed to randomly flash, the connection would appear to go up and down every second or so (watching the connection from my windows xp laptop) and it could not be pinged, tftp'd, or telnet'd to.
+
+******WARNING****** THIS STEP IS NOT GUARANTEED TO WORK AND COULD FRY YOUR UNIT ******WARNING******
+
+I had read about shorting pins on the flash chip, so while it was turned on, I started a tftp transfer of the stock 2.08 firmware and shorted pins 15 & 16 on the flash chip (intel chip on the underside of the board)... and it worked! The transfer went through.
+
+However, the unit still would not ping... so I did this procedure a second time... this time it worked.
+
+I then downloaded the 2.08 source from linksys and tinkered with for a bit before nbd informed me he had a patch for kmod-diag to make it work on the v2 WAP54G.
+
+I obtained he binary release, and flashed it via the web interface... and it worked perfect.
+
+I have since downloaded his customized image builder kit and made by own firmware (with cif, ext2, and loop support so I can have a remotely hosted filesystem... which will be in another document).
 
 
 His files are available from http://downloads.openwrt.org/people/nbd/whiterussian/
