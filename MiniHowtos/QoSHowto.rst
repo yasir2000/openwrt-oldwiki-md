@@ -253,3 +253,44 @@ Try issuing the command `ctshaper status` to see current configuration.
  * As I said, it requires you to mark your own packets.  Not as elegant as the '''qosif''' script, but it works.
  * Necessary to modify it a bit first to get it working.
  * Based on `htb` packet scheduler, not `hfsc`.  
+
+==== Iptables packet marking ====
+
+Here are some examples for marking traffic with iptables - only needed when using the ctshaper script.
+
+In this example, the packets are marked as follows:
+{{{
+1: ICMP, SSH
+2: IRC, Quake1, Skype to Skype calls
+3: All other traffic (the default priority)
+4: p2p (Bittorrent, Direct Connect)
+}}}
+
+The example goes as follows:
+{{{
+#load the layer7 iptables module
+insmod ipt_layer7
+
+#flushing chain
+iptables -t mangle -F PREROUTING
+
+iptables -t mangle -A PREROUTING -p icmp -j MARK --set-mark 1
+iptables -t mangle -A PREROUTING -p tcp --dport 22 -j MARK --set-mark 1
+iptables -t mangle -A PREROUTING -p tcp --sport 22 -j MARK --set-mark 1
+
+#quake
+iptables -t mangle -A PREROUTING -p udp --dport 26000 -j MARK --set-mark 2
+iptables -t mangle -A PREROUTING -p udp --sport 26000 -j MARK --set-mark 2
+
+#irc
+iptables -t mangle -A PREROUTING -m layer7 --l7proto irc -j MARK --set-mark 2
+#skype to skype VoIP calls
+iptables -t mangle -A PREROUTING -m layer7 --l7proto skypetoskype -j MARK --set-mark 2
+
+#all unmarked packets
+iptables -t mangle -A PREROUTING -m mark --mark 0 -j MARK --set-mark 3
+
+#p2p
+iptables -t mangle -A PREROUTING -m layer7 --l7proto bittorrent -j MARK --set-mark 4
+iptables -t mangle -A PREROUTING -m layer7 --l7proto directconnect -j MARK --set-mark 4
+}}}
