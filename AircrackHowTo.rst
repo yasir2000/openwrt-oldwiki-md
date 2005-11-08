@@ -90,7 +90,6 @@ During capture, the user can run the aircrack program on the {{{test.cap}}} file
 interfering with eachother.
 
 Once you have enough packets logged just hit {{{CTRL+C}}} to quit airodump.
-If you get stumped, there are lots of good resources at the official aircrack [http://www.cr0.net:8040/code/network/aircrack/ website].
 
 
 = Airodump Usage =
@@ -98,3 +97,9 @@ If you get stumped, there are lots of good resources at the official aircrack [h
 {{{
 usage: airodump <interface name or pcap filename> <output prefix> <channel> [IVs flag]
 }}}
+
+
+= Links =
+
+ *If you get stumped, there are lots of good resources at the official aircrack [http://www.cr0.net:8040/code/network/aircrack/ website]
+ *Aircrack discussion forums are [http://100h.org/forums/ here]
