@@ -101,5 +101,5 @@ usage: airodump <interface name or pcap filename> <output prefix> <channel> [IVs
 
 = Links =
 
- *If you get stumped, there are lots of good resources at the official aircrack [http://www.cr0.net:8040/code/network/aircrack/ website]
+ *If you get stuck on something, there are lots of good resources at the official aircrack [http://www.cr0.net:8040/code/network/aircrack/ website]
  *Aircrack discussion forums are [http://100h.org/forums/ here]
