@@ -119,3 +119,4 @@ This is a table of all supported devices as of 2005/10/12. Legend:
 ||Trendnet||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus]|| || ||4MB|| || || || || || || ||Untested||
 ||US Robotics||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || ||2MB|| || || ||on|| || || ||Supported||
 ||US Robotics||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461]|| ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||2MB||8MB||integrated Broadcom||integrated into CPU||on|| || ||1x v2.0||Untested||
+||Viewsonic||[WAPBR-100, A.K.A VS10407]|| ||||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2MB||8MB||BCM2050KMI||None||off||Maybe||No||No||WiP||
