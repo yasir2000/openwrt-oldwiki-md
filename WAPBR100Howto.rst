@@ -1,7 +1,7 @@
-=====Viewsonic WAPBR-100 (A.K.A. VS10407) Howto=====
+===== Viewsonic WAPBR-100 (A.K.A. VS10407) Howto =====
 
-==Specifications==
-=Hardware=
+== Specifications ==
+= Hardware =
 
  *Processor: BCM4712KPB
  *Ethernet: one port
@@ -22,12 +22,12 @@ This unit DOES have fw-conf.asp to enable changing options for downgrading and a
  *Goto http://192.168.90.2/fw-conf.asp (substitute your device's IP obviously) and disable the firmware header verification.
  *Get a WAP54G patched image from http://downloads.openwrt.org/people/nbd/whiterussian/ (must be squashfs) or build your own using the ImageBuilder there (kudos to nbd for the patch!!!). Make sure its small :) I suggest building a basic image (at most the size of the 'micro' image) and then seeing how much space you have free...
 
-=Installation=
+= Installation =
  *Upload the firmware using the web interface on the unit. I know its normal to use TFTP, but I could not find a way to enable boot_wait.
  *Let it finish... and voila... your new device should now be running OpenWRT!
 
-==Notes==
-=My ImageBuilder list=
+== Notes ==
+= My ImageBuilder list =
 { { {
 base-files
 base-files-brcm
@@ -52,6 +52,6 @@ wificonf
 
 This includes functionality to mount a cifs filesystem and mount a ext2 filesystem stored there (in a file) via loop.
 
-=Images of the unit=
+= Images of the unit =
 
 See http://curto.us/WAPBR-100/
