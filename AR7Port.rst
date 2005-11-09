@@ -8,6 +8,7 @@
  * [http://www.aztech.com/DSL-600EW.htm Aztech DSL 600EW] (has USB)
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
  * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-300T, DSL-302T, DSL-500T, DSL-502T, DSL-G664T)
+ * !LevelOne 4-port 10/100 Mbps ADSL Router [http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] and [http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B]
  * !LevelOne Wireless ADSL Router [http://www.level1.com/products3.php?sklop=12&id=540548 WBR-3407A] and [http://www.level1.com/products3.php?sklop=12&id=540549 WBR-3407B] , GPL Sourcecode for [ftp://ftp.level1.com/gpl/WBR-3407A%28GPL%29_2004-07-28.zip WBR-3407A] and [ftp://ftp.level1.com/gpl/WBR-3407B%28GPL%29_2004-07-28.zip WBR-3407B] 
  * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
  * Linksys [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]
