@@ -65,7 +65,7 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 == Boot sequence ==
 
-Most AR7 hardware uses adam2 as the bootloader. The following sequence details how the hardware boots.
+Most AR7 hardware uses ["ADAM2"] as the bootloader. The following sequence details how the hardware boots.
 
  * Switch on
  * 2 seconds while bootloader initialises
