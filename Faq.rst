@@ -908,3 +908,10 @@ copies of buildroot. Thanks.
 == Where is the buildroot documentation? ==
 
 See [http://downloads.openwrt.org/docs/buildroot-documentation.html buildroot documentation].
+
+
+== What's the deal with FCC-allowed transmit power levels in the ISM band? ==
+
+In particular, please note that if a system is communicating with only one other system (e.g., in STA mode), you are not limited to 36dBm EIRP.  See FCC part 15 excerpt here:
+
+http://www.qsl.net/kb9mwr/projects/wireless/part15.html
