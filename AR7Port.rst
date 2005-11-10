@@ -48,17 +48,7 @@ Here's what we have integrated so far:
 
 I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work, so that they can be removed.
 
-   * '''arch/mips/ar7/printf.c''': not inline with the generic '''arch/mips/mips-boards/generic/printf.c''', and requires '''arch/mips/lib/promlib.c''' to have an #ifndef CONFIG_AR7 around the entire file. enrik: done. nbd has patch.
-   * '''arch/mips/lib/promlib.c''': see above.
-
-
-   * '''arch/mips/ar7/irq.c''': not inline with the generic irc.c files for any of the other platforms under arch/mips, this still uses the (very) old way of dealing with irq's - not the new, standard way. enrik: done. nbd has patch.
-
-
    * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.) -- nbd: for halt, you probably only need {{{ __cli() + while(1); }}} z3ro: there are some tnetd functions for halt... hopefully we can use the code from these without needing all of the tnetd code. enrik: I have some improvements for the code including a jump back to ADAM2 on halt. Will send patch soon.
-
-   * '''arch/mips/kernel/traps.c''', '''arch/mips/mm/tlb-r4k.c''': "KSEG0+CONFIG_AR7_MEMORY" in traps.c:set_except_vector(), an extra memcpy for except_vec4 (dedicated interrupt) this might go away once we have proper irq code. See above. (irq.c) enrik: the extra vectors at CONFIG_AR7_MEMORY aren't needed at all. AR7 exceptions live at 0x80000000 like on other MIPSen, too. (The 4k of internal RAM seem to be there ... guess why). The problem is vec4 at 0x80000200, which is patched to a "short" jump within set_exception. Alas, 0x94xxxxxx where our code lives isn't reachable via a short jump! If we use a long jump in case the handler address is > 0x0fffffff, everything is fine. In fact, the unpatched vec4 handler in head.S uses a long jump to 0x94000200 as trampoline. This makes the whole thing work right now: 0x80000200 jumps to 0x94000200 which jumps to the handler using a short jump in turn. nbd has patch.
-
 
    * '''arch/mips/kernel/setup.c''': We have some #ifdef CONFIG_AR7 ... #else ... #endif because of the memory offset, we should use the generics here and modify the functions in mm/bootmem.c (this will kill some #ifdef CONFIG_AR7's in other files, too.)
    * '''arch/mips/mm/init.c''': These #ifdef CONFIG_AR7's are related to not having the proper code in mm/bootmem.c, see previous list item. enrik: I have generalized the arch/mips/kernel and .../setup code to always use the more general bootmem-functions and done some initialization cleanup, too. Will send patch soon.
