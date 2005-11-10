@@ -41,7 +41,8 @@ Here's what we have integrated so far:
    * The VLYNQ bus works
    * The LZMA loader works and is integrated
    * Support for WAG354G is integrated, still needs testing...
-   * '''NEW:''' ADSL works! New init scripts for PPPoE are integrated.
+   * ADSL works! New init scripts for PPPoE are integrated.
+   * Scripts for flashing DSL-G664T and G604T
 
 == Bugs / Ugly-Hacks ==
 
@@ -66,10 +67,10 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 
 == TODO ==
 
-   * Complete the init scripts, remove nvram dependencies
+   * Complete the init scripts, remove nvram dependencies where they are still present...
    * Test WAG354G support
    * Fix the wireless driver
-   * Figure out an user-friendly way of upgrading the DSL-G664T,G604T - this device can only upgrade kernel and FS separeately over the web interface (this will NOT work with OpenWrt). 
+   * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
 
 == Firmware/Bootloader ==
 
