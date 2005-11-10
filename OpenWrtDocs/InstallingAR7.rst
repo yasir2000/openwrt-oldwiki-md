@@ -84,44 +84,6 @@ Depending on which router you have will depend on what method you can use to fla
 
 The methods below can also be used to flash the official firmware back on to the router if required.
 
-=== Flashing via ftp method ===
-
-First you will need to obtain the appropriate version of OpenWrt for your router. In this case you will need to obtain two files, the kernel image, and the rootfs image. You have a choice of using squashfs or jffs2 for the rootfs.
-
-The basic procedure of using a ftp client to upload a new firmware to your router is as follows:
-
- * First start with the router switched off.
- * Turn on your router
- * Wait 3 seconds
- * Initiate a connection with your ftp client. Using the router's address (usually 192.168.1.1), username adam2, and password adam2.
- * Set mode to binary
- * Enter the following command in your ftp client: quote MEDIA FLSH
- * Put the kernel image. eg: put "openwrt-ar7-zimage.bin" "openwrt-ar7-zimage.bin mtd1"
- * Put the rootfs image. eg: put "openwrt-ar7-rootfs.bin" "openwrt-ar7-rootfs.bin mtd0"  ### TODO FILENAME ###
- * Enter the following command in your ftp client: quote REBOOT
-
-'''Example using ftp (linux)'''
-{{{
-ftp
-}}}
-Turn on router, and wait 3 seconds.
-{{{
-ftp> open 192.168.1.1
-}}}
-Enter username and password, both are adam2
-{{{
-ftp> binary
-ftp> quote MEDIA FLSH
-ftp> put "openwrt-ar7-zimage.bin" "openwrt-ar7-zimage.bin mtd1"
-ftp> put "openwrt-ar7-rootfs.bin" "openwrt-ar7-rootfs.bin mtd0"  ### TODO FILENAME ###
-ftp> quote REBOOT
-ftp> quit
-}}}
-
-For more detailed infomation about adam2's ftp capabilities, have a look at:
-
-[http://www.seattlewireless.net/index.cgi/ADAM2]
-
 === Flashing via ftp: one image file ===
 
 ADAM2 stores the mtd partition layout in env variables. Depending on your hardware, there will be different numbers of mtd partitions with slightly different layout. Most devices have separated partitions for the kernel and the filesystem, which is not supported by OpenWrt. But it is possible to add a partition where kernel and rootfs will be together.
