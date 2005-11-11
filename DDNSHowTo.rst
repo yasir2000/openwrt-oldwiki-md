@@ -60,6 +60,8 @@ service-type=zoneedit
 user=myname:mypassword
 interface=eth0
 host=mydomain.com
+
+# Do not change the lines below
 cache-file=/tmp/ez-ipup
 pid-file=/var/run/ez-ipupdate.pid
 }}}
