@@ -53,6 +53,8 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * '''arch/mips/kernel/setup.c''': We have some #ifdef CONFIG_AR7 ... #else ... #endif because of the memory offset, we should use the generics here and modify the functions in mm/bootmem.c (this will kill some #ifdef CONFIG_AR7's in other files, too.)
    * '''arch/mips/mm/init.c''': These #ifdef CONFIG_AR7's are related to not having the proper code in mm/bootmem.c, see previous list item. enrik: I have generalized the arch/mips/kernel and .../setup code to always use the more general bootmem-functions and done some initialization cleanup, too. Will send patch soon.
 
+   * LED/pin driver is in a mess. Proc entry is named /proc/led/led instead of /proc/led_mod/led as was in original 2.4.17_mvl21-malta-mips_fp_le kernel, writing to in does nonthing, reading leads to "Unable to handle kernel paging request" exception. Entry /proc/led_mod/ar7reset, that was present in original kernel and was reading state of "reset" pin in back of device, is completely missing.
+
    * Please document any more bugs/ugly-hacks found.
 
 == TODO ==
