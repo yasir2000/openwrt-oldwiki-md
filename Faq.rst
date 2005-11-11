@@ -146,8 +146,6 @@ Linksys routers are always 192.168.1.1 for the bootloader's TFTP.
 See [:OpenWrtDocs/Installing] for more information.
 
 
-## == Reflash with "mtd -e linux -r write file.trx linux" fails with "no valid command given" ==
-
 
 
 
@@ -212,6 +210,23 @@ a pastebin service like [http://www.pastebin.ca/ pastebin.ca] or
 == Where should I send bug reports? ==
 
 Please send reproducible bugs to our [http://dev.openwrt.org/report ticket system].
+
+
+== How do I find out the installed OpenWrt version ==
+
+On newer versions do {{{cat /etc/banner}}} and watch for a line like
+
+{{{
+WHITE RUSSIAN (RC3) -------------------------------
+}}}
+
+On older versions you have to run {{{busybox}}} again and check the line with the
+date in it.
+
+{{{
+root@OpenWrt:~# busybox
+BusyBox v1.00 (2005.10.10-12:42+0000) multi-call binary
+}}}
 
 
 == What is left behind, when erasing the flash? ==
