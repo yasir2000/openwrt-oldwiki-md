@@ -16,7 +16,7 @@ This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -
   * No wireless repeater on this end *
 }}}
 
-It's very easy to set up client mode on an unsecured network - see ClientModeHowto for example.  It turns out, however, that client mode on a WPA network is not quite as easy, and setting it up as a bridge is a bit tricky, too.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, it's too easy for clients to jump on the repeater side of the network and cause a loss in throughput.
+It's very easy to set up client mode on an unsecured network - see ClientModeHowto for example.  It turns out, however, that client mode on a WPA network is not quite as easy, and setting it up as a bridge is a bit tricky, too.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput.
 
 Most of the information was gleaned from the OpenWRT wiki and posts made in http://forum.openwrt.org and dozens of other web sites, and I thank the multitude of unattributed contributors for sharing their knowledge.
 
@@ -39,10 +39,11 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
             * "psk psk2" will not work - pick only one
         * wl0_crypto=aes+tkip
             * This is the group=tkip, pairwise=aes mix that is commonly used
-        *  wl0_wpa_psk=''(your psk)'' (in ASCII)
+        *  wl0_wpa_psk=''<your psk>'' (in ASCII)
     * Break the bridge:
         * Note:
-            * The built-in bridge would see a mix of encrypted and unencrypted frames, so the bridge needs to be done in software.
+            * The built-in hardware bridge would see a mix of encrypted and unencrypted frames, so the bridging needs to be done in software.
+            * If you are using vlan1 (or whatever wan_ifname is) then you will need to unset wan_ifname and change the failsafes in S05nvram.
             * Change these interface names to match your hardware - these work for the WRT54G v4 and similar hardware.
         * lan_ifname=vlan0 ''(Oddly, eth0 here seems not to work.)''
         * wifi_ifname=eth1
