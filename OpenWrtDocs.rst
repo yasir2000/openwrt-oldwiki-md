@@ -39,5 +39,3 @@ To use the OpenWrtDocs without internet connection, you can download the latest
 
 [http://namica.de/OpenWrtDocumentationPDFs/OpenWRTDocumentation-2005-10-18.pdf OpenWRTDocumentationPDF]
 from 2005-10-18.
-
-----
