@@ -1,16 +1,20 @@
-= Backing up and Restoring your OpenWRT box =
+= Backing up and Restoring your OpenWrt box =
 
-Not much attention seems to have been paid to the backup and restore of an OpenWRT box.  Sure, you can go
+Not much attention seems to have been paid to the backup and restore of an !OpenWrt box.
+Sure, you can go
 
 {{{
 nvram show > /tmp/log
 }}}
 
-and back that up, and maybe back up your /etc, but what if you've done all sorts of customising all over your file system?
+and back that up, and maybe back up your {{{/etc}}}, but what if you've done all sorts of
+customising all over your file system?
 
 This is what I came up with from my experimenting.
 
-Comments appreciated.  If this method is a Bad Idea and there is a nicer way, please share it with us all.
+Comments appreciated. If this method is a Bad Idea and there is a nicer way, please share
+it with us all.
+
 
 == Backing up ==
 
@@ -21,8 +25,10 @@ ssh root@wrt "dd if=/dev/mtdblock/3" > wrt-nvram.bin
 
 easy!
 
-Of course you can use a shell script and the well known tar to backup your files and some system informations too.
-In the example below i installed the package wput, to upload the backup to my main FTP server.
+Of course you can use a shell script and the well known tar to backup your files and
+some system informations too. In the example below i installed the package wput, to
+upload the backup to my main FTP server.
+
 {{{
 #!/bin/sh
 
@@ -57,36 +63,43 @@ tar czf /tmp/backupfiles/$REMOTEFILE2 /bin/ /dev/ /etc/ /jffs/ /lib/ /rom/ /sbin
 sleep 3
 
 # now upload the tar file to your prefered FTP server
-# for the options i used with wput type wput --help 
+# for the options i used with wput type wput --help
 /usr/bin/wput -R -v -t 2 -B /tmp/backupfiles/$REMOTEFILE2 ftp://FTPUSERNAME:FTPPASSWORD@FTPSERVER/$REMOTEFILE2
 
 # remove the backup directory (if wanted) to free space
 rm -r /tmp/backupfiles
-
 }}}
 
 
 == Restoring ==
 
-I'll assume you need a full restore, ie you've totally botched your box, and you have either restored to factory firmware, or bought a new box :)
+/!\ '''WARNING:''' Only restore the NVRAM partition '''only''' on the same Wrt router
+where you did the backup!
 
-1. install standard openwrt firmware on your box, if you haven't already.  Set up a password so you can use scp:
+I'll assume you need a full restore, i. e. you've totally botched your box, and you
+have either restored to factory firmware, or bought a new box :)
+
+1. install standard openwrt firmware on your box, if you haven't already. Set up a
+password so you can use scp:
 
 {{{
 telnet 192.168.1.1
 passwd
 }}}
 
-2.
+2. Transfer the file
+
 {{{
 scp wrt-backup.trx wrt-nvram.bin root@192.168.1.1:/tmp
 }}}
 
 3. On the wrt box:
+
 {{{
 dd if=/tmp/wrt-nvram.bin of=/dev/mtdblock/3
 mtd -r write /tmp/wrt-backup.trx linux
 }}}
 
-Be careful with that first command, I don't know what happens if you accidentally write to /dev/mtdblock/2.
-The second command will take a minute or so to flash the rest and then reboot.
+Be careful with that first command, I don't know what happens if you accidentally write
+to {{{/dev/mtdblock/2}}}. The second command will take a minute or so to flash the rest
+and then reboot.
