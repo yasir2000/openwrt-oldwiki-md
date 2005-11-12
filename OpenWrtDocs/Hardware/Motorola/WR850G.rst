@@ -39,12 +39,16 @@ The WR850G v3 version is housed in black pastic and has a hard wired non removab
 === Finding the serial ports on the WR850G ===
 First serial port:
 
- * Open the WR850G. The plastic is hard and the clips are strong - use force!
- * Attach a serial cable to the serial connector - it's a 9-pin connector with two rows, one with 5 pins and one with 4 pins. I recommend using a [http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort cell phone data cable] - they're cheap and do the voltage conversions with no assembly required.
-  * Pin 1 (square hole): Data out of WR850G
-  * Pin 7 (three pins over from pin 1): Data into WR850G
-  * Pin 6 (two pins down, one across from pin 1): Ground
-  * Port setting is 115200, N, 8, 1, no flow control.
+ * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial is labelled RJP1, pinout as follows:
+
+{{{
+        o
+      o o - RX
+GND - o o
+      o o
+VCC - o o - TX
+}}}
+
 
 Second serial port:
 
