@@ -214,19 +214,29 @@ Please send reproducible bugs to our [http://dev.openwrt.org/report ticket syste
 
 == How do I find out the installed OpenWrt version ==
 
-On newer versions do {{{cat /etc/banner}}} and watch for a line like
+Check if you have a file {{{/etc/banner}}}. Do
+
+{{{
+cat /etc/banner
+}}}
+
+and watch for a line like this:
 
 {{{
 WHITE RUSSIAN (RC3) -------------------------------
 }}}
 
-On older versions you have to run {{{busybox}}} again and check the line with the
-date in it.
+If you don't have that file execute
 
 {{{
-root@OpenWrt:~# busybox
+busybox 2>&1 | grep ^Busybox
+}}}
+
+{{{
 BusyBox v1.00 (2005.10.10-12:42+0000) multi-call binary
 }}}
+
+Your version is based on the reported date where !BusyBox has been compiled.
 
 
 == What is left behind, when erasing the flash? ==
