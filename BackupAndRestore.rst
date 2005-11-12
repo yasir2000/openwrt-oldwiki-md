@@ -73,8 +73,9 @@ rm -r /tmp/backupfiles
 
 == Restoring ==
 
-/!\ '''WARNING:''' Only restore the NVRAM partition '''only''' on the same Wrt router
-where you did the backup!
+/!\ '''WARNING:''' Restore the NVRAM partition '''only''' on the same Wrt router where
+you did the backup! Btw. it's not a good idea to backup this partition, restoring the
+NVRAM partition can brick your router.
 
 I'll assume you need a full restore, i. e. you've totally botched your box, and you
 have either restored to factory firmware, or bought a new box :)
