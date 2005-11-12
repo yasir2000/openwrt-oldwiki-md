@@ -634,7 +634,7 @@ reboot
 }}}
 
 Now check the MAC address on the your WAN interface with the {{{ifconfig}}} command.
-Your WAN interface should have the MAC address shich you set in the NVRAM variable above.
+Your WAN interface should have the MAC address which you set in the NVRAM variable above.
 
 
 == How do I enable WEP encryption? ==
