@@ -426,8 +426,6 @@ Documentation with discovered feature can be found at ["OpenWrtDocs/nas"] .
 '''wl''' is a proprietary Linksys binary tool for setting the parameters of the
 wireless interface and should NOT be used when ever possible.
 
-Documentation with discovered feature can be found at ["OpenWrtDocs/wl"] .
-
 === Time zone and NTP ===
 
 To set a time zone use the {{{/etc/TZ}}} file. Copy & paste the time zones from the
