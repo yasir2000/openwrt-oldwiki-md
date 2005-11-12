@@ -421,10 +421,6 @@ Documentation can be found at ["OpenWrtDocs/dnsmasq"]
 
 Documentation with discovered feature can be found at ["OpenWrtDocs/nas"] .
 
-=== wl ===
-
-'''wl''' is a proprietary Linksys binary tool for setting the parameters of the
-wireless interface and should NOT be used when ever possible.
 
 === Time zone and NTP ===
 
