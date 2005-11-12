@@ -617,6 +617,26 @@ By default the LAN ports and the wireless interface are bridged together as the 
 interface {{{br0}}}, allowing the LAN and wireless to share the same IP range.
 
 
+== How do I configure MAC address cloning in OpenWrt? ==
+
+To enable MAC address cloning in !OpenWrt on the WAN interface you have to set the
+{{{wan_hwaddr}}} NVRAM variable.
+
+{{{
+nvram set wan_hwaddr="aa:bb:cc:dd:ee:ff"
+nvram commit
+}}}
+
+After that reboot your Wrt router.
+
+{{{
+reboot
+}}}
+
+Now check the MAC address on the your WAN interface with the {{{ifconfig}}} command.
+Your WAN interface should have the MAC address shich you set in the NVRAM variable above.
+
+
 == How do I enable WEP encryption? ==
 
 {{{
