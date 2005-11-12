@@ -138,13 +138,13 @@ nvram set wl0_key1=<WEP key in hex format>
 ifup wan; /sbin/wifi
 }}}
 
-For more information on setting up a wired-wireless bridge with encryption, please see ["WirelessBridgeWithWPAHowto"].
-
 Don't forget to commit if you want your settings to survive a reboot:
 
 {{{
 nvram commit
 }}}
+
+For more information on setting up a wired-wireless bridge with encryption, please see [:WirelessBridgeWithWPAHowto].
 
 
 == Some more configuration ==
