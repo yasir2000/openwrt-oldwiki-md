@@ -9,34 +9,34 @@ Serial ports allow you to do a myriad of things, including connect to your compu
 
 === Finding Serial Console ===
 
-(stealed from the [:AR7Port:AR7Port] page) The method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection. 
+(stealed from the [:AR7Port:AR7Port] page) The method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
 
-Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything. 
+Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
-A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;) 
+A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
 
 Unfortunately, BCM4702KPB SoC shares some UART pins with Ethernet0 port, so UART is disabled via GPIO. You have to use '''external''' 3.3V LVTTL or CMOS NS16c550-compatible UART or DUART for devices based on this SoC (i.e. [:WAP54GHowto:WAP54Gv1], Belkin F5D7330 or Asus [:OpenWrtDocs/Hardware/Asus/WL300G:WL-300G]). (Philips [http://www.semiconductors.philips.com/pip/SC16C550IA44.html SC16c550]). Use a 12.75 MHz (25.5MHz/2) crystal for 115200 baud (the UART clock divider is 7). There is the large 20-pin jumper block connected to the CPU I/O data lines, which can be connected to an external UART.
 
 {{{
               -----
-   D0      1>| 0 o | 20  A0  
-   D1      2 | o o | 19  A1 
-   D2      3 | o o | 18  A2 
-   D3      4 | o o | 17  CHSL 
-   D4      5 | o o | 16  /CS 
-   D5      6 | o o | 15  /RD 
-   D6      7 | o o | 14  /WR 
-   D7      8 | o o | 13  MR 
+   D0      1>| 0 o | 20  A0
+   D1      2 | o o | 19  A1
+   D2      3 | o o | 18  A2
+   D3      4 | o o | 17  CHSL
+   D4      5 | o o | 16  /CS
+   D5      6 | o o | 15  /RD
+   D6      7 | o o | 14  /WR
+   D7      8 | o o | 13  MR
    VDD     9 | o o | 12  INTR1, INTR2
 VSS (GND) 10 | o o | 11  SIN
-              -----  
+              -----
 }}}
 
 ASUS WL-500b/g: http://wl500g.info/showthread.php?t=587&page=1&pp=15
 
 === Home-made RS-232 kit ===
 
-'''Background''' 
+'''Background'''
 
 Most OpenWrt compatible devices have one or two serial ports on the router's pcb (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
@@ -68,7 +68,7 @@ Minicom
 
 '''Introduction'''
 
-This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3. 
+This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
 === Installing on a wrt54g version 2 and 2.2 ===
 ''The following is the guide from [http://kiel.kool.dk:27 kiel.kool.dk] by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
@@ -113,7 +113,7 @@ This project is for people who would like to add a little storage to their Links
  I then used my multimeter to detect the pin toggling between 0V and 3.3V every second.  I seriously recommend that you do this to verify which pins you are working on prior to doing any soldering.
 
 '''For Version 2.2 hardware:'''
-  GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find 
+  GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find
   GPIO 5 next to the RA10 Text label.
   GPIO 4 is located near the RA13 Text label (near to the Power LED)
 [http://nanl.de/nanl/bildchen/gpio_3_5_mini.jpg]
@@ -197,7 +197,7 @@ The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of Gene
 ||GPIO 6||Input||Reset button||
 ||GPIO 7||Output||DMZ LED||
 
-The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED pins. The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin). 
+The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED pins. The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
 
 === Installing on a wrt54g version 3 and 3.1 ===
 *to be written, in the meantime you can find [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ version 3 info] here.
@@ -236,7 +236,7 @@ On the side with the powerplug you will find some 'C's
 
 - add C986 with 10µF  16Volt
 
-- add U981 with an LM7805 
+- add U981 with an LM7805
 
 This will support the +5 Volt to your USB-Port.
 
@@ -244,7 +244,7 @@ This will support the +5 Volt to your USB-Port.
 
 Go to the other side of the PCB wehre the antenna is placed.
 
-- add wire to F51 as Fuse 
+- add wire to F51 as Fuse
 
 - add to 'R' about 15kOhm to R723 and R724
 
@@ -263,7 +263,7 @@ All "USB Mass Storage" class devices will work too: USB-to-IDE, some cellphones,
 
 === USB Serial port/Modem ===
 
-It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors. 
+It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors.
 
 Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convertor (i.e. [http://gimel.esc.cam.ac.uk/james/resources/pl2303/ Prolific PL2303]).
 
@@ -332,8 +332,9 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
  * Catalyst [http://www.getcatalyst.com/adapter_moreInfo_pci2mini3-3.html PCI2MINI3-3], [http://www.getcatalyst.com/adapter_moreInfo_pci2mini3-5.html PCI2MINI3-5]
 
 == Adding a GPS ==
-[http://iboone.net/albums/2005-10-29/IMGP2949.sized.jpg]
 ''Adding a GPS to your router may seem like an odd idea, but it does have it's uses. If you like to war drive, this combined with the SD card mod would let you simply plug in the router to your cigarette lighter and go, logging the networks to the sd card. It also isn't a hard mod to do. Depending on your GPS, this may be as simple as soldering 3 wires to your router. In my case it was a little more complicated, but by no means hard. It was just like adding a serial port, but instead of adding the serial port, I added the GPS.''
+
+See the [http://iboone.net/albums/2005-10-29/IMGP2949.sized.jpg picture].
 
 A package for gpsd is available in [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ Nico's test repository].
 
@@ -343,12 +344,15 @@ A package for gpsd is available in [http://openwrt.org/downloads/people/nico/tes
 
 
 == Adding an LCD ==
-[http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg]
+See the [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture].
+
 == Adding VGA Output ==
-[http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg]
-[http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg]
+See the [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg picture]
+and this [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg picture]
+
 == Adding Second Reset Button (v2.2 only) ==
 [http://www.duff.dk/wrt54gs/pics/02_Covox_Top.jpg]
+
 == Adding Sound Output ==
 [http://www.duff.dk/wrt54gs/pics/07_Finished_product.jpg]
 
@@ -365,7 +369,7 @@ i2c bus allows you to extend the IO ability beyond just 8 bits of IO.
 Inital docs are here http://www.byteclub.net/wiki/index.php?title=Wrt54g
 
 == Power Over Ethernet/Power Requirements ==
-The internal voltage regulators on the WRT54g (version 3) are made by Anachip Corp. http://www.anachip.com 
+The internal voltage regulators on the WRT54g (version 3) are made by Anachip Corp. http://www.anachip.com
 
 The 1509-33 is actually a AP1509 part, and is the 3.3V regulator.
 
@@ -415,7 +419,7 @@ gzip -d gpio.tar.gz
 tar xvf gpio.tar
 mv gpio /usr/sbin
 mv loadmon.sh /usr/sbin
-}}} 
+}}}
 
 Now that everything is in place, you need to edit your configuration files to start up the script manually when the router boots. To do this, create a script in /etc/init.d to start loadmon.sh. Here's a simple way to do that:
 {{{
@@ -491,7 +495,7 @@ Simple enough! If your router was unstable with high traffic loads before, you s
 
 While a 16mHz increase doesn't seem like much, it works wonders for the router. But what if you want to go faster? Setting clkfreq to 220 locks up the router, and then you are stuck with having to use the JTAG method to de-brick. That is, of course,  assuming you didn't change the default values in the CFE file, in which case all you have to do is reboot with the reset button held in... see the 'changing cfe defaults' guide)
 
-Anyways, back on topic.. More speed! 
+Anyways, back on topic.. More speed!
 The trick with making it run faster is setting the right clkfreq values. The wrong ones turn your router into a brick. Here is a list of values that are known to work: 192,200,216,228,240,252,264,272,280,288,300
 
 I've personally tested all of them on my wrt54g version 3, and they all worked. There is one caveat however; values above 264 seem to have no change. By checking the cpuinfo, it still reports the BogoMIPS as 264, even if clkfreq is set above that. To check your cpuinfo, type:
@@ -543,7 +547,7 @@ You can also mix and match values. I've personally found that setting MIPSclock 
 
 '''Conclusion'''
 
-The clock seems to still remain somewhat of a mystery. With the recently discovered SBclock, and table of usable values, overclocking is a much more feasible and safe mod than it used to be. 
+The clock seems to still remain somewhat of a mystery. With the recently discovered SBclock, and table of usable values, overclocking is a much more feasible and safe mod than it used to be.
 
 '''Troubleshooting'''
 
@@ -655,7 +659,7 @@ By default most firmwares has pmon partition write protected, i.e. you can't fla
 +++ linux-2.4.30/arch/mips/bcm947xx/setup.c	2005-09-21 13:48:46.853425632 -0400
 @@ -174,7 +174,7 @@
  #ifdef CONFIG_MTD_PARTITIONS
- 
+
  static struct mtd_partition bcm947xx_parts[] = {
 -	{ name: "pmon",	offset: 0, size: 0, mask_flags: MTD_WRITEABLE, },
 +	{ name: "pmon",	offset: 0, size: 0 /*, mask_flags: MTD_WRITEABLE,*/ },
