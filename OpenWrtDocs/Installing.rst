@@ -1,12 +1,18 @@
 #acl Known:read,write All:read
-##   
+##
 ## Note: these pages document the firmware itself, not packages
 ##       questions/comments should be posted to the forum
-##        
+##
+
+
 [:OpenWrtDocs]
 [[TableOfContents]]
+
+
 = Will OpenWrt work on my hardware ? =
-See [:TableOfHardware]
+
+See [:TableOfHardware].
+
 
 = Obtaining the firmware =
 
@@ -19,22 +25,38 @@ You can get release candidates for the next OpenWrt release (Codename whiterussi
 
 Take a look at our development platform [http://dev.openwrt.org/ http://dev.openwrt.org/]
 
+
 = Installing OpenWrt =
+
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
 
-OpenWrt is an unofficial firmware which is neither endorsed or supported by the vendor of your router. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL]. You can always flash back your original firmware, so please be sure you have it downloaded and saved locally.
+!OpenWrt is an unofficial firmware which is neither endorsed or supported by the
+vendor of your router. OpenWrt is provided "AS IS" and without any warranty under
+the terms of the [http://www.gnu.org/copyleft/gpl.html GPL]. You can always flash
+back your original firmware, so please be sure you have it downloaded and saved locally.
 
-To avoid potentially serious damage to your router caused by an unbootable firmware you should read the documentation for your specific router model.
+To avoid potentially serious damage to your router caused by an unbootable firmware you
+should read the documentation for your specific router model.
 
 /!\ '''We strongly suggest you also read [:OpenWrtDocs/Troubleshooting] before installing'''
 
-/!\ '''The jffs2 versions of  may take several minutes for the first bootup and will require a reboot before being usable'''
+/!\ '''The jffs2 versions of  may take several minutes for the first bootup and will require
+a reboot before being usable'''
+
 
 == General instructions (router specific instructions later) ==
 
-Although you can install the firmware  through more traditional means (via webpage), we recommend that you use TFTP for your first install. This is '''NOT''' a requirement, simply a damned good idea; if anything goes wrong you can just TFTP the old firmware back.
+Although you can install the firmware  through more traditional means (via webpage), we
+recommend that you use TFTP for your first install. This is '''NOT''' a requirement, simply a
+damned good idea; if anything goes wrong you can just TFTP the old firmware back.
 
-When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based routers use ["ADAM2"].  
+When the device boots it runs a bootloader. It's the responsibility of this bootloader to
+perform basic system initialization along with validating and loading the actual firmware;
+think of it as the BIOS of the device before control is passed over to the operating system.
+Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt
+and wait for a new firmware to be uploaded over the network. The type of the preinstalled
+bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment
+(older Boards use PMON), Texas Instruments based routers use ["ADAM2"].
 
 The basic procedure of using a tftp client to upload a new firmware to your router:
   * unplug the power to your router
@@ -46,12 +68,15 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
   * plug your router, while having the tftp client running and constantly probing for a connection
   * the tftp client will receive an ack from the bootloader and starts sending the firmware
 
-/!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred. DO NOT unplug the router, it will automatically reboot into the new firmware.''' 
+/!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred.
+DO NOT unplug the router, it will automatically reboot into the new firmware.'''
 
-On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup it will turn the DMZ led off. Sometimes automatic rebooting does not work, so you can 
+On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup
+it will turn the DMZ led off. Sometimes automatic rebooting does not work, so you can
 safely reboot after 5 minutes.
 
-The tftp commands vary across different implementations. Here are two examples, netkit's tftp client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
+The tftp commands vary across different implementations. Here are two examples, netkit's TFTP
+client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
 netkit's tftp commands:
 {{{
@@ -63,10 +88,17 @@ tftp> trace
 Packet tracing on.
 tftp> put openwrt-xxx-x.x-xxx.bin
 }}}
-Setting "rexmt 1" will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug in your box after typing the commands, and as soon as the bootloader starts to listen, your client will successfully connect and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a separate window and enter the line "put openwrt-xxx-x.x-xxx.bin" as the colons stop running over your terminal when you power-recycle your router. 
+
+Setting "rexmt 1" will cause the tftp client to constantly retry to send the file
+to the given address. As advised above, plug in your box after typing the commands,
+and as soon as the bootloader starts to listen, your client will successfully connect
+and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a separate
+window and enter the line "put openwrt-xxx-x.x-xxx.bin" as the colons stop running over
+your terminal when you power-recycle your router.
 
 Advanced TFTP commands:
-{{{ 
+
+{{{
 atftp
 tftp> connect 192.168.1.1
 tftp> mode octet
@@ -79,6 +111,7 @@ atftp --trace --option "timeout 1" --option "mode octet" --put --local-file open
 }}}
 
 MacTFTP Client commands: (For use with OS X. tftp in terminal did not work for me)
+
 {{{Download MacTFTP Client [http://www.mactechnologies.com/pages/downld.html]
  * Choose Send
  * Address: 192.168.1.1
@@ -86,26 +119,43 @@ MacTFTP Client commands: (For use with OS X. tftp in terminal did not work for m
  * Click on start while applying power to the WRT54G
 }}}
 
-Another mac OS X note: I was able to get OS X to use tftp to flash a WRT54G V2. The trick seems to be that OS X takes a a few seconds to configure the network connection when the router is powered on. My fix was to configure the Ethernet tab of 'built-in ethernet' (System Prefences, Network) to: 
+Another MacOS X note: I was able to get OS X to use tftp to flash a WRT54G V2. The
+trick seems to be that OS X takes a a few seconds to configure the network connection
+when the router is powered on. My fix was to configure the Ethernet tab of 'built-in
+ethernet' (System Prefences, Network) to:
 
  *Configure: Manual(Advanced)
  *Speed: 10baseT/UTP
  *Duplex: full-duplex
 
-This seems to reduce the startup time of the ethernet port. On the second try the tftp methode worked (where the 10+ tries before the fix did not). I also disabled the AirPort during this procedure.
+This seems to reduce the startup time of the ethernet port. On the second try the TFTP
+methode worked (where the 10+ tries before the fix did not). I also disabled the AirPort
+during this procedure.
 
-Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP. Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
+Please note, netkit tftp has failed to work for some people. Try to use Advanced TFTP.
+Don't forget about your firewall settings, if you use one. It is best to run the "put"
+command and then immediately apply power to the router, since the upload window is extremely
+short and very early in boot.
 
 ||'''TFTP Error'''||'''Reason'''||
 ||Code pattern is incorrect||The firmware image you're uploading was intended for a different model.||
 ||Invalid Password||The firmware has booted and you're connected to a password protected tftp server contained in the firmware, not the bootloader's tftp server.||
 ||Timeout||Ping to verify the router is online[[BR]]Try a different tftp client (some are known not to work properly)||
 
-Some machines will disable the ethernet when the router is powered off and not enable it until after the router has been powered on for a few seconds. If you're consistantly getting "Invalid Password" failures try connecting your computer and the router to a hub or switch.  Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
+Some machines will disable the ethernet when the router is powered off and not enable
+it until after the router has been powered on for a few seconds. If you're consistantly
+getting "Invalid Password" failures try connecting your computer and the router to a hub
+or switch. Doing so will keep the link up and prevent the computer from disabling its
+interface while the router is off.
 
-Windows 2000 and Windows XP have a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used] to flash with OpenWrt firmware. 
+Windows 2000 and Windows XP have a TFTP client, and it [http://martybugs.net/wireless/openwrt/flash.cgi can be used]
+to flash with !OpenWrt firmware.
 
-'''Important:''' Make sure your personal firewall is disabled for this part. Some personal firewalls will not give any indication that they have blocked the tftp client. Please bear in mind that you should only be connected to the router when your personal firewall is disabled to avoid any nastiness. Do NOT forget to enable your personal firewall back when you are done.
+'''Important:''' Make sure your personal firewall is disabled for this part. Some personal
+firewalls will not give any indication that they have blocked the tftp client. Please bear
+in mind that you should only be connected to the router when your personal firewall is
+disabled to avoid any nastiness. Do NOT forget to enable your personal firewall back when
+you are done.
 
 Windows 2000/XP TFTP Client short Instructions
 
@@ -119,13 +169,17 @@ Windows 2000/XP TFTP Client short Instructions
  * The image should now be flashed without multiple tries.
  * If ping starts with "Hardware Error", then starts to answer, and then returns to  "Hardware Error" again for a short moment, you waited too long.
 
+
 == Linksys WRT54G and WRT54GS ==
 
-To use the TFTP method above you need to enable boot_wait. Plug your ethernet cable into one of the LAN ports.  Once enabled, the router will wait for ~3 seconds for a firmware before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0) address for the purpose of reflashing. Also be sure the 192.168.1.x subnet is connected to LAN port 1 of the router.
+To use the TFTP method above you need to enable boot_wait. Plug your ethernet cable into
+one of the LAN ports.  Once enabled, the router will wait for ~3 seconds for a firmware
+before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of
+configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0)
+address for the purpose of reflashing. Also be sure the 192.168.1.x subnet is connected to
+LAN port 1 of the router.
 
 /!\ '''Do not use the Linksys TFTP program. IT WILL NOT WORK.'''
-
-
 
 ||'''Model'''||'''Firmware (JFFS2)'''||'''Firmware (SQUASHFS)'''||
 ||WRT54G||openwrt-wrt54g-jffs2.bin||openwrt-wrt54g-squashfs.bin||
@@ -151,11 +205,20 @@ Jffs2 files:
 
 For more information, see the README file that comes with the release.
 
+
 === Enabling boot_wait ===
 
-If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below.  '''You find ping.asp by navigating through the administration page and selecting diagnostics.'''.  
+If the boot_wait variable is set, the bootup process is delayed by few seconds allowing
+a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait
+variable is done through a bug in the Ping.asp administration page by pinging the certain
+"addresses" listed below.  '''You find ping.asp by navigating through the administration
+page and selecting diagnostics.'''.
 
-First, for this to work the '''internet port must have a valid ip address''', either from dhcp or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
+First, for this to work the '''internet port must have a valid ip address''', either from
+DHCP or manually configured from the main page - the port itself doesn't need to be connected
+unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed
+below, one line at a time into the "IP Address" field, pressing the Ping button after each
+entry.
 
 /!\ '''The last versions of the firmware to support the Ping.asp bug described below are [ftp://ftp.linksys.com/pub/network/WRT54GV2_3.01.3_US_code.zip 3.01.3] for the WRT54G (up to/including v3.0) and [ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.zip 3.37.2] for the WRT54GS (up to/including v2.0). Downgrading to these firmwares is required to enable boot_wait.'''
 
@@ -170,13 +233,25 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 ;*/n${IFS}show>tmp/ping.log
 }}}
 
-When you get to the last command the ping window should be filled with a long list of variables including '''boot_wait=on''' somewhere in that list.
+When you get to the last command the ping window should be filled with a long list
+of variables including '''boot_wait=on''' somewhere in that list.
 
-This ping exploit definitely works with ALL WRT54G/GS VERSIONS. You must have an address on the WAN port.  In the Setup/Basic Setup/Internet Setup section you may wish to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2.  Those values are meaningless; you'll be overwriting them soon with new firmware. Note: flashing a Linksys WRT54GS v1.1 by using TFTP is only possible using the Port 1 of the switch!
+This ping exploit definitely works with ALL WRT54G/GS VERSIONS. You must have an
+address on the WAN port. In the Setup/Basic Setup/Internet Setup section you may wish
+to select Static IP and set IP=10.0.0.1, Mask=255.0.0.0, Gateway=10.0.0.2. Those values
+are meaningless; you'll be overwriting them soon with new firmware. Note: flashing a
+Linksys WRT54GS v1.1 by using TFTP is only possible using the Port 1 of the switch!
 
-You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover] script to make ping hack in a single command (need a shell command line interpreter). This script expects to find the to-be flashed firmware in a file called '''openwrt-g-code.bin''', which is in the ''current'' directory.
+You can also use the [https://aachen.uni-dsl.de/download/wrt/Snapshots/rev121/buildroot-rev121/takeover takeover]
+script to make ping hack in a single command (need a shell command line interpreter).
+This script expects to find the to-be flashed firmware in a file called '''openwrt-g-code.bin''',
+which is in the ''current'' directory.
 
-There is another bug still present in Ping.asp (firmware revision 3.03.1) where you can put your shell code into the ping_times variable. See http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=448 This means you don't have to downgrade your firmware first and it removes the input size restrictions so you can use more obvious shell commands like:
+There is another bug still present in Ping.asp (firmware revision 3.03.1) where you can
+put your shell code into the ping_times variable. See
+[http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=448] This means you
+don't have to downgrade your firmware first and it removes the input size restrictions so
+you can use more obvious shell commands like:
 
 {{{
 `/usr/sbin/nvram set boot_wait=on`
@@ -184,33 +259,43 @@ There is another bug still present in Ping.asp (firmware revision 3.03.1) where 
 `/usr/sbin/nvram show > /tmp/ping.log`
 }}}
 
-For instance, if you are in Unix and have Perl and LWP installed, you may issue this command:
+For instance, if you are in Unix and have Perl and LWP installed, you may issue this
+command:
 
 {{{
 echo 'submit_button=Ping&submit_type=start&action=Apply&change_action=gozila_cgi&ping_ip=10.0.0.1&ping_times=`/usr/sbin/nvram show > /tmp/ping.log`'|POST -C admin:admin http://192.168.1.1/apply.cgi
 }}}
 
+
 === Setting boot_wait from a serial connection ===
 
-With a serial connection to your WRT, you don't have to use the ping bug or change your Linksys firmware. You can set boot_wait from the console, using the commands
+With a serial connection to your WRT, you don't have to use the ping bug or change
+your Linksys firmware. You can set boot_wait from the console, using the commands
+
 {{{
 #nvram set boot_wait=on
 #nvram get boot_wait           (just to confirm, should respond with "on")
 #nvram commit                  (takes a few seconds to complete)
 }}}
 
-You can also set boot_wait from the CFE boot loader (to enter CFE, reboot the router with "# reboot" while hitting "Ctrl C" continously)
+You can also set boot_wait from the CFE boot loader (to enter CFE, reboot the router with
+"# reboot" while hitting "CTRL-C" continously)
+
 {{{
 CFE> nvram set boot_wait=on
 CFE> nvram get boot_wait           (just to confirm, should respond with "on")
 CFE> nvram commit                  (takes a few seconds to complete)
 }}}
 
+
 == ASUS WL-500G and WL-300G ==
 
-Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
+Pull the plug, press and hold the reset button, plug the device and wait until the
+PWR LED starts flashing slowly (almost immediately). Now release the reset button and
+upload the firmware by TFTP using the following commands:
 
 TFTP commands:
+
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -219,50 +304,71 @@ tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
 tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/utils/flash.sh].
+After this, wait until the PWR LED stops flashing and the device to reboot and you
+should be set. There's also nice shell script doing this work for you to be at
+[http://openwrt.org/downloads/utils/flash.sh].
 
-As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
+As an alternative (or if this installation routine doesn't do the trick for you) you
+can always use the ASUS Recovery tool from your utilities CD to upload your !OpenWrt
+firmware.
 
-Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500G:WL-500G]/[:OpenWrtDocs/Hardware/Asus/WL300G:WL-300G] doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
+Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500G:WL-500G]/[:OpenWrtDocs/Hardware/Asus/WL300G:WL-300G]
+doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems
+to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if
+you've got problems flashing your firmware.
 
-There are several helpful tutorials especially for the ASUS routers at http://www.macsat.com.
+There are several helpful tutorials especially for the ASUS routers at
+[http://www.macsat.com].
+
 
 == ASUS WL-500G Deluxe ==
 
-This device is based on the Broadcom chipset so the openwrt-brcm-x image is required. Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
+This device is based on the Broadcom chipset so the openwrt-brcm-x image is required.
+Pull the plug, press and hold the reset button, plug the device and wait until the
+PWR LED starts flashing slowly (almost immediately). Now release the reset button and
+upload the firmware by TFTP using the following commands:
 
 TFTP commands:
+
 {{{
 tftp 192.168.1.1
 tftp> binary
 tftp> trace
-tftp> put openwrt-xxx-x.x-xxx.trx 
+tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at [http://openwrt.org/downloads/utils/flash.sh]. This script is also included in the source under scripts/flash.sh.
+After this, wait until the PWR LED stops flashing and the device to reboot and you should
+be set. There's also nice shell script doing this work for you to be at
+[http://openwrt.org/downloads/utils/flash.sh]. This script is also included in the source
+under scripts/flash.sh.
 
-As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your openwrt firmware.
+As an alternative (or if this installation routine doesn't do the trick for you) you can
+always use the ASUS Recovery tool from your utilities CD to upload your !OpenWrt firmware.
 
-Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500GD] doesn't revert to the 192.168.1.1 address when starting the bootloader, but use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware. 
+Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500GD] doesn't revert
+to the 192.168.1.1 address when starting the bootloader, but use the LAN IP address set in
+NVRAM, so try this address or use the recovery tool if you've got problems flashing your
+firmware.
 
 
 == Siemens Gigaset SE505 ==
 
-The installation procedure is essentially the same as the generic one described above. The only differences are that the bootloader listens based on nvram lan_ipaddr= variable (default: 192.168.2.1) and the IP of the machine sending the new firmware has to be 192.168.x.100 or the router will only accept the first packet.
-boot_wait is enabled by default on these devices.
+The installation procedure is essentially the same as the generic one described above.
+The only differences are that the bootloader listens based on nvram lan_ipaddr= variable
+(default: 192.168.2.1) and the IP of the machine sending the new firmware has to be
+192.168.x.100 or the router will only accept the first packet. boot_wait is enabled by
+default on these devices.
 
 You can erase nvram settings by pressing reset button while powering on the router.
 
-Starting with WHITE RUSSIAN (RC2) the bug is fixed. So from this release of OpenWrt everything works just fine.
+Starting with WHITE RUSSIAN (RC2) the bug is fixed. So from this release of !OpenWrt
+everything works just fine.
 
-
-== Siemens Gigaset SE551 ==
-
-boot_wait seems to be disabled by default on these devices.
 
 == Motorola WR850G ==
 
-Flashing the Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] is fairly easy.  Just follow these easy steps!
+Flashing the Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] is fairly easy.
+Just follow these easy steps!
 
  1. Use the web interface to set the router's IP address to 192.168.1.1.  This will mitigate the issue where dnsmasq doesn't properly read the subnet from the configuration.
  2. Download the motorola firmware image (either the squashfs or the jffs2-8mb version) from the website. (Note: The motorola has 4mb flash, but requires the 8mb version.  This is due to the paging size of the flash rom that is used, and is not related to the ignominously confusing names used for the files.  At the moment the motorola-jffs2-4mb is entirely useless [64k page size, 8mb is 128k page size].)
@@ -274,30 +380,54 @@ Flashing the Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] is fairly e
 
 /!\ '''If you're using TFTP to flash the firmware, put to the host 192.168.10.1.'''
 
+
 == Buffalo Airstation WLA-G54 ==
-This device is based on the Broadcom chipset so the openwrt-brcm-x image is required. The web interface will not allow you to install the openwrt firmware so you will need to use tftp. Pull the power plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware. This unit keeps the IP address that it was set to whilst in this mode. Factory setting is 192.168.11.2.
+
+This device is based on the Broadcom chipset so the openwrt-brcm-x image is required.
+The web interface will not allow you to install the openwrt firmware so you will need
+to use tftp. Pull the power plug, press and hold the reset button, plug the device and
+wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset
+button and upload the firmware. This unit keeps the IP address that it was set to whilst
+in this mode. Factory setting is 192.168.11.2.
 
 TFTP commands:
+
 {{{
 tftp 192.168.11.2
 tftp> binary
 tftp> trace
 tftp> rexmt 1
 tftp> timeout 60
-tftp> put openwrt-xxx-x.x-xxx.trx 
+tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.11.2 or whatever the unit was set to prior to the installation.
+After this, wait until the PWR LED stops flashing and the device to reboot and you should
+be set. You should be able to telnet to 192.168.11.2 or whatever the unit was set to prior
+to the installation.
+
 
 == Buffalo AirStation WBR2-G54S ==
-Here too you need an openwrt-brcm-*.trx image.  The device has boot_wait=on by default, so you can just begin sending the file from your TFTP client, power up the device, and let it install.  The TFTP loader uses the IP address to which you've configured the device; 192.168.11.1 by default.  If you ping the device, the TFTP loader will respond with TTL=100, but both the Buffalo firmware and OpenWRT will respond with TTL=64.
 
-The firmware provided by Buffalo has some extra headers at the beginning.  If you load it via TFTP, you must first remove the extras so that the file begins with "HDR0".  Otherwise, it won't boot (but you can still replace it via TFTP).
+Here too you need an openwrt-brcm-*.trx image. The device has boot_wait=on by default, so
+you can just begin sending the file from your TFTP client, power up the device, and let it
+install. The TFTP loader uses the IP address to which you've configured the device; 192.168.11.1
+by default.  If you ping the device, the TFTP loader will respond with TTL=100, but both the
+Buffalo firmware and !OpenWrt will respond with TTL=64.
 
-With the Buffalo firmware (at least version 2.30), if you save the settings to a file, it will obfuscate the output by inverting each bit.  To undo this and see the NV-RAM settings, filter the file through: perl -pe 's/(.)/chr(ord($1)^0xFF)/seg; tr/\0/\n/'
+The firmware provided by Buffalo has some extra headers at the beginning.  If you load it via
+TFTP, you must first remove the extras so that the file begins with "HDR0". Otherwise, it won't
+boot (but you can still replace it via TFTP).
+
+With the Buffalo firmware (at least version 2.30), if you save the settings to a file, it will
+obfuscate the output by inverting each bit.  To undo this and see the NV-RAM settings, filter
+the file through: perl -pe 's/(.)/chr(ord($1)^0xFF)/seg; tr/\0/\n/'
+
 
 = Using OpenWrt =
-Please see [:OpenWrtDocs/Using]
+
+See [:OpenWrtDocs/Using].
+
 
 = Troubleshooting =
-If you have any trouble flashing to OpenWrt please refer to [:OpenWrtDocs/Troubleshooting]
+
+If you have any trouble flashing to !OpenWrt please refer to [:OpenWrtDocs/Troubleshooting].
