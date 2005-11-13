@@ -108,6 +108,7 @@ This is a table of all supported devices as of 2005/10/12. Legend:
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||Supported||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||integrated Broadcom||ADM6996L||on||Yes||Yes||1x v1.1 (easy mod)||Supported||
 ||Siemens||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
+||Siemens||SE551|| || || || || || ||off || || ||1x v2.0 ||Untested||
 ||Simpletech||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz|| ||32MB||None||None|| ||Yes||Yes||2x v2.0||Untested||
 ||Sitecom||WL-111|| || || || || || || || || || ||Untested||
 ||TCOM||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHZ||2MB||16MB||ACX111 mini-PCI||None|| ||Yes|| ||No||[wiki:AR7Port WiP]||
