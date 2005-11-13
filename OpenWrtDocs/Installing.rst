@@ -255,6 +255,11 @@ You can erase nvram settings by pressing reset button while powering on the rout
 
 Starting with WHITE RUSSIAN (RC2) the bug is fixed. So from this release of OpenWrt everything works just fine.
 
+
+== Siemens Gigaset SE551 ==
+
+boot_wait seems to be disabled by default on these devices.
+
 == Motorola WR850G ==
 
 Flashing the Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] is fairly easy.  Just follow these easy steps!
