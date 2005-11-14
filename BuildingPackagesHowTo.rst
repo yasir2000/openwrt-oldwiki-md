@@ -90,6 +90,7 @@ You can also create your own files in the {{{package/helloworld}}} directory (fo
 That files you can access in your {{{package/Makefile}}} with {{{./filename}}} and copy it
 to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
+
 === package/helloworld/Config.in ===
 
 {{{
@@ -108,6 +109,10 @@ config BR2_PACKAGE_HELLO
 
 
 === package/helloworld/Makefile ===
+
+'''TIP:''' Use the {{{md5sum}}} *nix command to create the {{{PKG_MD5SUM}}} from
+the original tarball. Use {{{@SF/hello}}} for the {{{PKG_SOURCE_URL}}} when your
+program has a download location on Sourceforge.
 
 {{{
 include $(TOPDIR)/rules.mk
