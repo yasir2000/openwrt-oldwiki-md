@@ -146,7 +146,8 @@ Don't forget to commit if you want your settings to survive a reboot:
 nvram commit
 }}}
 
-For more information on setting up a wired-wireless bridge with encryption, please see [:WirelessBridgeWithWPAHowto].
+For more information on setting up a wired-wireless bridge with encryption,
+please see [:WirelessBridgeWithWPAHowto].
 
 
 == Some more configuration ==
