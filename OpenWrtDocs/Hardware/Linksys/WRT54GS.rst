@@ -54,7 +54,7 @@ The WRT54GS v3.0 uses a Broadcom 5352 CPU with integrated switch.
 
 ==== WRT54GS v4.0 ====
 
-The WRT54GS v4.0 uses a Bradcom 5352 CPU with integrated switch.
+The WRT54GS v4.0 uses a Broadcom 5352 CPU with integrated switch.
 
 '''NOTE:''' v4.0 only has 4 MB Flash and 16 MB RAM. Half of prior versions.
 Some WRT54GS v4 has 8 MB flash and 32 MB RAM, only first relase of WRT54GS v4
