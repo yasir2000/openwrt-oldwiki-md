@@ -111,8 +111,8 @@ config BR2_PACKAGE_HELLO
 === package/helloworld/Makefile ===
 
 '''TIP:''' Use the {{{md5sum}}} *nix command to create the {{{PKG_MD5SUM}}} from
-the original tarball. Use {{{@SF/hello}}} for the {{{PKG_SOURCE_URL}}} when your
-program has a download location on Sourceforge.
+the original tarball. Use {{{@SF/hello}}} (choose a random Sourceforge mirror) for
+the {{{PKG_SOURCE_URL}}} when your program has a download location on Sourceforge.
 
 {{{
 include $(TOPDIR)/rules.mk
