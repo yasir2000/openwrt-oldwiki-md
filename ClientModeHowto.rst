@@ -14,10 +14,10 @@ You need to have a recent version of !OpenWrt White Russian installed.
 This howto was written for RC3 and later versions.
 
 The first step would be changing the WRT's behavior from AP to client
-mode (station/client mode or {{{sta}}} for short):
+mode (station/client mode or {{{wet}}} for short):
 
 {{{
-nvram set wl0_mode=sta
+nvram set wl0_mode=wet
 }}}
 
 '''NOTE:''' As soon as your AP is in client mode you _can't_ connect any
