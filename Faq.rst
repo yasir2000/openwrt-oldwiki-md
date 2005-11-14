@@ -479,7 +479,8 @@ NVRAM and reconfigures the Broadcom wireless driver ({{{wl.o}}}). This is
 because the Broadcom wireless driver wants the NVRAM variables in a special
 order.
 
-The source code for {{{/sbin/wifi}}} is available in SVN.
+The source code for {{{/sbin/wifi}}} is available in SVN. Browse the
+[https://dev.openwrt.org/file/branches/whiterussian/openwrt/package/wificonf/wificonf.c wificonf.c source].
 
 
 == How do I open a WRT54G/WRT54GS? ==
