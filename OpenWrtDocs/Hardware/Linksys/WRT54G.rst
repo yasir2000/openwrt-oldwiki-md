@@ -103,14 +103,14 @@ This device seems to be a normal WRT54G with a cardbus. It's used by Vodafone fo
 UMTS networks. The PC card is:
 
 {{{
-Mr-packet root@OpenWrt:/# cardctl info
-Mr-packet PRODID_1="Novatel Wireless"
-Mr-packet PRODID_2="Merlin UMTS Modem"
-Mr-packet PRODID_3="U630"
-Mr-packet PRODID_4=""
-Mr-packet MANFID=00a4,0276
-Mr-packet FUNCID=2
-Mr-packet root@OpenWrt:/#
+root@OpenWrt:/# cardctl info
+PRODID_1="Novatel Wireless"
+PRODID_2="Merlin UMTS Modem"
+PRODID_3="U630"
+PRODID_4=""
+MANFID=00a4,0276
+FUNCID=2
+root@OpenWrt:/#
 }}}
 
 Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support on WRT54G3G]
