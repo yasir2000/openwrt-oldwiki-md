@@ -34,7 +34,7 @@ the box, below the UPC barcode.
 ||WRT54G v4||<:> CDFA||<:> (./) ||<:> (./) ||
 ||WRT54G v5||<:> CDFB||<:> {X} ||<:> {X} ||
 ||WRT54G 3G|| ||<:> (./) ||<:> (./) ||
-||WRT54G GL|| ||<:> {X} ||<:> {X} ||
+||WRT54G L|| ||<:> {X} ||<:> {X} ||
 
 
 ==== WRT54G v1.0 ====
@@ -120,7 +120,7 @@ thread in the forum if you have more details.
 Please contribute useful information here.
 
 
-==== WRT54G GL ====
+==== WRT54G L ====
 
 /!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''GL'''!
 
