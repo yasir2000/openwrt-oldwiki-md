@@ -122,7 +122,7 @@ Please contribute useful information here.
 
 ==== WRT54G L ====
 
-/!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''GL'''!
+/!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''L'''!
 
 First reports are that it's a normal WRT54 v4. Only difference is that it runs GNU/Linux.
 
