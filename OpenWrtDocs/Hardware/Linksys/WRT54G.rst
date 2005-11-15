@@ -124,7 +124,7 @@ Please contribute useful information here.
 
 /!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''L'''!
 
-First reports are that it's a normal WRT54 v4. Only difference is that it runs GNU/Linux.
+First reports are that it's a normal WRT54G v4 which it runs GNU/Linux.
 
 When you like you can [:Donations:donate] one to the !OpenWrt community.
 
