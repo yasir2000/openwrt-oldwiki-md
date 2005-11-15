@@ -33,6 +33,8 @@ the box, below the UPC barcode.
 ||WRT54G v3.1 (AU? and UK)||<:> CDF9||<:> (./) ||<:> (./) ||
 ||WRT54G v4||<:> CDFA||<:> (./) ||<:> (./) ||
 ||WRT54G v5||<:> CDFB||<:> {X} ||<:> {X} ||
+||WRT54G 3G|| ||<:> (./) ||<:> (./) ||
+||WRT54G GL|| ||<:> {X} ||<:> {X} ||
 
 
 ==== WRT54G v1.0 ====
@@ -91,6 +93,42 @@ Initial reports are that this version has switched to a non-Linux OS (!VxWorks).
 from pictures that it is nearly identical to v4 with an updated rev on the processor, less
 flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by
 !OpenWrt.
+
+
+==== WRT54G 3G ====
+
+/!\ '''NOTE:''' This device is not yet fully supported.
+
+This device seems to be a normal WRT54G with a cardbus. It's used by Vodafone for their 3G
+UMTS networks. The PC card is:
+
+{{{
+Mr-packet root@OpenWrt:/# cardctl info
+Mr-packet PRODID_1="Novatel Wireless"
+Mr-packet PRODID_2="Merlin UMTS Modem"
+Mr-packet PRODID_3="U630"
+Mr-packet PRODID_4=""
+Mr-packet MANFID=00a4,0276
+Mr-packet FUNCID=2
+Mr-packet root@OpenWrt:/#
+}}}
+
+Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support on WRT54G3G]
+thread or the [http://forum.openwrt.org/viewtopic.php?id=3220 WRT54G with 3G interface?]
+thread in the forum if you have more details.
+
+Please contribute useful information here.
+
+
+==== WRT54G GL ====
+
+/!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''GL'''!
+
+First reports are that it's a normal WRT54 v4. Only difference is that it runs GNU/Linux.
+
+When you like you can [:Donations:donate] one to the !OpenWrt community.
+
+Please contribute useful information here.
 
 
 === Table summary ===
