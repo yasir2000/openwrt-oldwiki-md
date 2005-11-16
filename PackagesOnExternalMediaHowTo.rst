@@ -71,7 +71,7 @@ To mount the drive automatically on boot, use the following command:
 echo 'mount /dev/mmc/disc0/part1 /mnt/sd' > /etc/init.d/S20externalmount
 }}}
 
-== Configuring ipkg ==
+= Configuring ipkg =
 To install packages to the external drive, add the following line in 
 /etc/ipkg.conf
 {{{
@@ -82,7 +82,7 @@ Where the syntax of the above line is "dest [name of destination]
 The "name of destination" can be anything you want, I chose "sd" as 
 I am using the SD card.
 
-== Modifying Your Environment ==
+= Modifying Your Environment =
 In the file /etc/profile, modify the line that reads
 {{{
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin
