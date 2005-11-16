@@ -12,7 +12,14 @@
 [[TableOfContents]]
 
 
-= About OpenWrt for sagar =
+= About OpenWrt =
+
+With the release of the Linux sources for the Linksys WRT54G/GS series of routers came
+a number of modified firmwares to extend functionality in various ways. Each firmware was
+99% stock sources and 1% added functionality, and each firmware attempted to cater to a
+certain market segment with the functionality that they provided. The downsides were twofold:
+ 1. It was often difficult to find a firmware with the combination of functionality desired (leading to forks and yet more custom firmwares)
+ 1. All the firmwares were based on the original Linksys sources which were far behind mainstream GNU/Linux development.
 
 !OpenWrt takes a different route, instead of starting out with the Linksys sources, the
 development started with a clean slate. Piece by piece software was added to bring the
