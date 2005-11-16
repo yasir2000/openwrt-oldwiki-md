@@ -200,32 +200,6 @@ bidirectional mode.
 
 Please add not working combinations here.
 
-= Printing with, but without CUPS =
-
-You're using cups or similar things in your entire network, but don't have space left
-on your OpenWRT device? Well, you can still print with the help of netcat and a tiny
-script that just pipes incoming data from a special tcp port to the hardware port of
-your openwrt device.
-
-Make a script (let's name it "simpleprint"), put it in /usr/sbin, set a chmod and you're
-done.
-
-{{{
-echo '
-#!/bin/ash
-while [ 1 ]; do nc -l -p 567 > /dev/printers/0; done;
-' > /usr/sbin/simpleprint
-chmod 755 /usr/sbin/simpleprint
-}}}
-
-Now all you have to do is set up the printer on the hosts you want to send printjobs from
-(e.g. socket://1.2.3.4:567 on your cups-using hosts).
-
-Remember: This is DAIM insecure since everybody can send data to the port from anywhere and
-unencrypted. Make sure you have proper iptables rules.  E.g.:
-{{{
-iptables -A INPUT -i ! ethlan -p tcp --dport 567 -j DROP # ethlan is your lan interface
-}}}
 
 = Links =
 
