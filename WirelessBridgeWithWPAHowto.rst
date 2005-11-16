@@ -24,7 +24,7 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
  1. Install wl
  1. Install nas
  1. Install dhcp-forwarder
- 1. Install parprouted (from http://downloads.openwrt.org/people/nico/testing/mipsel/packages/)
+ 1. Install libpthread and parprouted (from http://downloads.openwrt.org/people/nico/testing/mipsel/packages/)
  1. Delete /etc/init.d/S45firewall
  1. Delete /etc/init.d/S50dnsmasq
  1. Delete /etc/init.d/dhcp-fwd
@@ -33,6 +33,9 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
  1. Create /etc/init.d/S47sleep (code below)
  1. Set NVRAM
     * Networking:
+        * wl0_radio=1
+        * wl0_infra=1
+        * wl0_ssid=''<your SSID>''
         * wl0_mode=sta
         * wl0_akm=psk2
             * psk is also acceptable, but use wl0_crypto=tkip
@@ -51,6 +54,7 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
         * wifi_proto=dhcp
     * Put all LAN ports on vlan0:
         * unset vlan1ports
+        * unset vlan1hwname
         * vlan0ports="4 3 2 1 0 5*"
  1. Edit /etc/init.d/S41wpa and rename it S41supplicant
     * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
