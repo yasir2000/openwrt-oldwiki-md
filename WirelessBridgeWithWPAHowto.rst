@@ -31,6 +31,10 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
  1. Delete /etc/dhcp-fwd.conf
  1. Create /etc/init.d/S50dhcp-fwd (code below)
  1. Create /etc/init.d/S47sleep (code below)
+ 1. Edit /etc/init.d/S41wpa and rename it S41supplicant
+    * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
+        * On two separate lines, this text must be deleted:
+        * ${wifi_ifname:+ -l ${wifi_ifname}}
  1. Set NVRAM
     * Networking:
         * wl0_radio=1
@@ -56,8 +60,6 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
         * unset vlan1ports
         * unset vlan1hwname
         * vlan0ports="4 3 2 1 0 5*"
- 1. Edit /etc/init.d/S41wpa and rename it S41supplicant
-    * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
  1. Double-check everything, then mentally prepare yourself for a bricking.  (Failsafe mode should still work fine, but who knows?  I bricked mine enough times while figuring all of this out that the circuit board is sitting naked on top of a stack of paper as I type this.)
  1. nvram commit
  1. reboot
