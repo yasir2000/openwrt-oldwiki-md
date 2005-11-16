@@ -914,7 +914,7 @@ The stable source code can be found in the above directory or from our SVN repos
 This is not recommended for beginners; we will not troubleshoot failed compiles.
 
 {{{
-svn co http://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
+svn co https://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 }}}
 
 [http://dev.openwrt.org/browser/branches/whiterussian/openwrt/ Browse] the stable source SVN branch.
@@ -924,7 +924,7 @@ svn co http://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 Development take place in SVN. You get the source via:
 
 {{{
-svn co http://svn.openwrt.org/openwrt/trunk/openwrt/
+svn co https://svn.openwrt.org/openwrt/trunk/openwrt/
 }}}
 
 [http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
