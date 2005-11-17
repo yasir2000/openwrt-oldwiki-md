@@ -7,8 +7,8 @@ This howto describes the process of installing and using packages on external
 media.  I used this information to install packages on my SD card.
 
 == What External Media Can I Use? ==
-I used this technique for my SD card mod.  I assume that the same (or similar) 
-can be used for just about any external media but I have not tried.
+I used this technique for my SD card mod.  However, I assume that the same (or similar) 
+can be used for just about any external media, but I have not tried.
 
 = Formatting the Media =
 While this step may not be needed, I preferred to have an ext2 file system to 
