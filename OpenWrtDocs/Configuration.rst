@@ -517,7 +517,7 @@ Documentation can be found at [:OpenWrtDocs/dnsmasq].
 === Time zone and NTP ===
 
 To set a time zone use the {{{/etc/TZ}}} file. Copy & paste the time zones from the
-table below into the file. In this exampel it is donw with {{{echo}}} command.
+table below into the file. In this exampel it's done with the {{{echo}}} command.
 
 {{{
 echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
@@ -584,7 +584,8 @@ Please update and include your time zone. You can find more on time zones on
 
 
 === Crontab ===
-[:HowtoEnableCron]
+
+See [:HowtoEnableCron].
 
 
 === PPPoE Internet Connection ===
