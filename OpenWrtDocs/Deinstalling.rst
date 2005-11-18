@@ -8,7 +8,7 @@
 [[TableOfContents]]
 
 
-= How I remove OpenWrt ? =
+= How can I remove OpenWrt ? =
 
 If you are unhappy with our distribution you can go back to the original firmware
 you have used before. For that please use the following commands:
