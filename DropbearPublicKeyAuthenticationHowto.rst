@@ -7,15 +7,14 @@
 = Why Public Key Authentication with Dropbear =
 
 There are several resons for using public key authentication. Most important would be adding
-more security, you like to get rid of entering your password everytime you login to your
+more security, you like to avoid entering your password everytime you login to your
 router or you like to automate things like file transfers using SCP (Secure Copy).
 
 
 = Requirements =
 
   * A recent OpenWrt version (>= White Russian RC3) installed on your router.
-  * SSH client software to connect to the Dropbear SSH server (see the links at the
-  end of this document)
+  * SSH client software to connect to the router (see the links at the end of this document)
 
 
 = Installation =
@@ -27,15 +26,14 @@ SSH server in !OpenWrt.
 = Configuration =
 
 
-== Generate the Public and Private Key pairs ==
+== Generate the Public and Private Key pair ==
 
-Now we create our public and private key pairs. I show you how to create them
-using Linux and Windows. In the same step we copy the public key onto the router.
+Create the public and private key pair and copy it to the router. We show you how to create the key using Linux and Windows.
 
 
-=== With the OpenSSH client ===
+=== With the OpenSSH client on Linux ===
 
-On Linux open a shell and type:
+If you haven't already got a {{{.ssh/id_dsa.pub}}} file on your Linux system (not the router), open a shell and type:
 
 {{{
 ssh-keygen -t dsa
@@ -44,11 +42,11 @@ ssh-keygen -t dsa
 Next copy the public key with SCP onto the router:
 
 {{{
-scp ~/.ssh/id*.pub root@192.168.1.1:/tmp
+scp ~/.ssh/id_dsa.pub root@192.168.1.1:/tmp
 }}}
 
-You can also use copy & paste the public key to the router after making a normal password
-SSH connection to it.
+You can also copy & paste the public key to the router after making a normal password
+SSH connection to it.  The public key is in text.
 
 
 === With PuTTY on Windows ===
@@ -79,7 +77,7 @@ C:\> echo ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEAmihVmFR3GH8V0BmN0uexjxmCMenVrYUQ8O
         tEUVlkK5vL98f2xpQK5cqmu9+jFz/z/BdXycORb5cO6m28TDLRD+9Fk= rsa-key-20050927
         > OpenWrt-Public-Key.txt
 C:\> pscp.exe -scp -l root -pw <your_router_password> OpenWrt-Public-Key.txt
-        192.168.1.1:/tmp/OpenWrt-Public-Key
+        192.168.1.1:/tmp/id_rsa.pub
 }}}
 
 You can also use copy & paste the public key to the router after making a normal password
@@ -88,11 +86,9 @@ SSH connection to it.
 
 == Create the directories ==
 
-Create the following directories (on the router) and set their permissions. They are
-required later.
+Create the following directories (on the router) and set their permissions.
 
 {{{
-cd /
 mkdir -p /root/.ssh
 chmod -R 0700 /root
 }}}
@@ -100,16 +96,12 @@ chmod -R 0700 /root
 
 == Change root's home directory ==
 
-Now it's time to change the root's home directory. This is necessary, because
-the standard home directory for root ({{{/tmp}}}) does not have the right
+Change the root's home directory. This is necessary, because
+the default home directory for root ({{{/tmp}}}) does not have the right
 permissions.
 
 To do this, you have to edit the {{{/etc/passwd}}} file. It should look similar
-the one below.
-
-{{{
-cat /etc/passwd
-}}}
+to the one below.
 
 {{{
 root:!:0:0:root:/root:/bin/ash
@@ -123,52 +115,30 @@ directory. So, on any later versions there is no need to change root's
 home directory anymore.
 
 
-== Add the Public Keys to authorized_keys ==
+== Add the Public Key to authorized_keys ==
 
-Once we have this we want to save our public key into the authorized keys
-file (on the server) which can be done easily as follows. Your generated
-key will look similar to the one below.
-
-{{{
-cat ~/.ssh/id_dsa.pub
-}}}
-
-{{{
-ssh-dss AAAB3NzaC1kc3MAAACBAMJkHn6HPHRn4HVfFwx5dSeRqLhSGpceNqXNPNRe3hZMD9X5K
-ra6VJM2VanrjDmjoiK127JszXqjQaryBI58P0dZI+Ts0YchxvgKMLTt1uF5U6lWYcFDxN4eGIxoN
-SUK+Sa+HxyRmGhFgslTvLvSS0cLP0JPRF0mYbt80a1y9bFAAAAFQC5f+d+ojrcJOCRcn/7x1iOrL
-c+ZQAAAH9J27XrWdP7Ht8qG0llrzNTUczDy8uLEbJcOoljGLPGZ6BSbqgwSmpRm7D6+61tSYk5YT
-mGt59VFC1t9W+G3tNG7ZCImpgrSiHu0kQWsDzUgqxcDRRDo6aQc6BbeyKn80bnwUKBla3ebU2BFX
-u1rgGt/8Rz3Xw0Vx4jhzT35i5EAAAAgCTCSutthoRNVuC2FD7LFA8j1KT59/PMqZ/pteRd8BzhJe
-nOPK3iAhkL4sXy7EBCDyHybu8rLiY1iMKW4xtz4PWAPRy+9NJrtk4OAAvZmwb349pPEdnO/hQj7o
-3bjxMzCG05lS7dss8c1kWGvwGe5Ace8eiiGNTn68x6k33DCzwM openwrt-dev@debian
-}}}
-
-Add the public key to the {{{autorized_keys}}} on the router by doing the following:
+Add the public key to the {{{authorized_keys}}} file on the router by doing the following:
 
 {{{
 cd /root/.ssh
-mv /tmp/id_*.pub /root/.ssh
-cat id_*.pub >> authorized_keys
-chmod 0600 id_*.pub authorized_keys
+cat /tmp/id_*.pub >> authorized_keys
+chmod 0600 authorized_keys
 }}}
 
-When using Windows you have to replace the {{{id_*.pub}}} by {{{OpenWrt-Public-Key}}}.
-
-You can repeat this step with every new public key. It gets appended to the
+You can repeat this step with every new public key. Each key is appended to the
 {{{/root/.ssh/authorized_keys}}} file.
 
 
 = Connecting to OpenWrt with Public Key =
 
-If you did everything right, you can now login using your keys. It will
-never ask you for a password.
+If you did everything right, you can now login using your key. It will
+not ask you for a password.
 
 
 == Using the OpenSSH client ==
 
 {{{
-openwrt-dev@debian:~/.ssh$ ssh root@192.168.1.1
+user@host:~$ ssh root@192.168.1.1
 
 
 BusyBox v1.00 (2005.09.22-14:58+0000) Built-in shell (ash)
@@ -185,13 +155,13 @@ Enter 'help' for a list of built-in commands.
   * 1/2oz cream  milk on the top.
  ---------------------------------------------------
 root@OpenWrt:~# Connection to 192.168.1.1 closed.
-openwrt-dev@debian:~/.ssh$
+user@host:~$
 }}}
 
 When you like to get some debug messages from OpenSSH then use ssh with the {{{-vv}}} parameter:
 
 {{{
-openwrt-dev@debian:~/.ssh$ ssh -vv root@192.168.1.1
+user@host:~$ ssh -vv root@192.168.1.1
 }}}
 
 
