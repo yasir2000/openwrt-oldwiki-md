@@ -116,7 +116,7 @@ eth1      Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
           inet addr:10.75.9.1      Bcast:10.75.9.255      Mask:255.255.255.0
 }}}
 
-Simply put 2 "dhcp-rage" options in your {{{/etc/dnsmasq.conf}}} file:
+Simply put 2 "dhcp-range" options in your {{{/etc/dnsmasq.conf}}} file:
 
 {{{
 # dhcp-range=[network-id,]<start-addr>,<end-addr>[[,<netmask>],<broadcast>][,<default lease time>]
