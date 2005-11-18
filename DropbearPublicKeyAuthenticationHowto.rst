@@ -28,12 +28,14 @@ SSH server in !OpenWrt.
 
 == Generate the Public and Private Key pair ==
 
-Create the public and private key pair and copy it to the router. We show you how to create the key using Linux and Windows.
+Create the public and private key pair and copy it to the router. We show you how to
+create the key using Linux and Windows.
 
 
 === With the OpenSSH client on Linux ===
 
-If you haven't already got a {{{.ssh/id_dsa.pub}}} file on your Linux system (not the router), open a shell and type:
+If you haven't already got a {{{.ssh/id_dsa.pub}}} file on your Linux system (not the
+router), open a shell and type:
 
 {{{
 ssh-keygen -t dsa
