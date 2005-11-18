@@ -34,7 +34,7 @@ the box, below the UPC barcode.
 ||WRT54G v4||<:> CDFA||<:> (./) ||<:> (./) ||
 ||WRT54G v5||<:> CDFB||<:> {X} ||<:> {X} ||
 ||WRT54G 3G|| ||<:> (./) ||<:> (./) ||
-||WRT54G L|| ||<:> {X} ||<:> {X} ||
+||WRT54G L|| ||<:> (./) ||<:> (./) ||
 
 
 ==== WRT54G v1.0 ====
@@ -122,13 +122,10 @@ Please contribute useful information here.
 
 ==== WRT54G L ====
 
-/!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''L'''!
+First reports are that it's a normal WRT54G v4 with 4 MB flash and 16 MB RAM which it runs
+GNU/Linux.
 
-First reports are that it's a normal WRT54G v4 which it runs GNU/Linux.
-
-When you like you can [:Donations:donate] one to the !OpenWrt community.
-
-Please contribute useful information here.
+See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum.
 
 
 === Table summary ===
@@ -146,6 +143,8 @@ How to get info:
 ||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
+||WRT54G 3G         ||              ||               ||                ||                 ||              ||                 ||                 ||
+||WRT54G L          ||              ||               ||                ||                 ||              ||                 ||                 ||
 
 Other NVRAM variables of interest :  boot_ver, pmon_ver, firmware_version, os_version
 
