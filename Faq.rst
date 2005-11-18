@@ -552,12 +552,13 @@ point for documentation is [http://www.netfilter.org/documentation/].
 
 == How do I configure QoS aka traffic shaping in OpenWrt? ==
 
-A word of caution : it seems a few users have been experiencing some WAN connection loss at precise intervals 
-(like every four hours) with this package. It seems to be pretty rare, but remember this warning in case it happens to 
-you after the script is installed. In fact if your configuration is sensible to the bug it's easy to spot since 
-if you get your WAN ip via DHCP you won't be able to renew it once the /etc/init.d/Sxqos script has been run. 
-(So there is a big chance that the only users who have a problem with qos-scripts are those who get their adress 
-with DHCP...)
+A word of caution: It seems a few users have been experiencing some WAN connection loss
+at precise intervals (like every four hours) with this package. It seems to be pretty rare,
+but remember this warning in case it happens to you after the script is installed. In fact
+if your configuration is sensible to the bug it's easy to spot since if you get your WAN IP
+via DHCP you won't be able to renew it once the {{{/etc/init.d/S46qos}}} script has been run.
+(So there is a big chance that the only users who have a problem with qos-scripts are those
+who get their address with DHCP...)
 
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
 This script is only shaping on your uplink.
