@@ -135,8 +135,8 @@ How to get info:
  * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||
-||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42           ||       4         || BCM4702KPB ?  ||
-||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42           ||       5         || BCM4710 V0.0  ||
+||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       4         || BCM4702KPB ?  ||
+||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       5         || BCM4710 V0.0  ||
 ||WRT54G v2.0       ||     -        ||  0x0101       ||  0x0188        ||       -         ||      -       ||       -         || BCM3302 V0.7  ||
 ||WRT54G v2.2       ||     -        ||  0x0708       ||  0x0118        ||       -         ||      -       ||       7         || -             ||
 ||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
@@ -165,4 +165,5 @@ If you have a look at the WRT54G v2.2 board, you can find on the left corner, ne
 LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the
 second reset button you can find on WRT54G v3.0, except that it has not been soldered.
 
-Many versions of this model have a (possibly unpopulated) serial header, for more info see [http://www.rwhitby.net/wrt54gs/serial.html].
+Many versions of this model have a (possibly unpopulated) serial header, for more info see
+[http://www.rwhitby.net/wrt54gs/serial.html].
