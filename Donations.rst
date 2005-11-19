@@ -6,7 +6,6 @@ Currently we are looking for the following devices:
 
 ===== For bug-fixing: =====
 
- * Motorola WRG850G (any version)
  * Buffalo devices
 
 ===== For new ports: =====
@@ -15,6 +14,7 @@ Realtek RTL865x platform:
 
  * D-Link DI-624M
  * D-Link DI-634M
+ * Linksys WAP54GX
  * Linksys WRT54GX v2
  * Linksys WRT54GX2
 
@@ -42,6 +42,7 @@ Broadcom BCM47xx/53xx platform:
  * Linksys WRT54G3G
  * Linksys WTR54GS
  * Linksys WRTSL54GS
+ * Maxtor Shared Storage (any size, even without HDD)
 
 TI AR7 platform:
 
