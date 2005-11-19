@@ -25,7 +25,7 @@ required library and header files to cross-compile applications for !OpenWrt.
 '''TIP:''' Before you begin porting your own package to !OpenWrt, check if it
 has not been already done by someone else. To check that
 [http://dev.openwrt.org/browser/trunk/openwrt/package/ browse the subversion repository]
-of the development version in your web broswer and see if the package is already there.
+of the development version in your web browser and see if the package is already there.
 Don't do the work twice.
 
 Let's start with porting and packaging the well known "Hello world"
@@ -34,14 +34,14 @@ program as an example.
 
 == Obtaining and installing the SDK ==
 
-The SDK could be downloaded from [http://downloads.openwrt.org/whiterussian/].
+The SDK can be downloaded from [http://downloads.openwrt.org/whiterussian/].
 
 Download it into your home directory (don't use the root account) and untar
 the tarball. After that change into the new directory.
 
 {{{
 cd ~
-wget http://downloads.openwrt.org/whiterussian/rc2/bin/OpenWrt-SDK-Linux-i686-1.tar.bz2
+wget http://downloads.openwrt.org/whiterussian/rc3/bin/OpenWrt-SDK-Linux-i686-1.tar.bz2
 bzcat OpenWrt-SDK-Linux-i686-1.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-SDK-Linux-i686-1
 }}}
@@ -110,9 +110,9 @@ config BR2_PACKAGE_HELLO
 
 === package/helloworld/Makefile ===
 
-'''TIP:''' Use the {{{md5sum}}} *nix command to create the {{{PKG_MD5SUM}}} from
-the original tarball. Use {{{@SF/hello}}} (choose a random Sourceforge mirror) for
-the {{{PKG_SOURCE_URL}}} when your program has a download location on Sourceforge.
+'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from
+the original tarball. Use {{{@SF/hello}}} (choose a random SourceForge mirror) for
+the {{{PKG_SOURCE_URL}}} when your program has a download location on SourceForge.
 
 {{{
 include $(TOPDIR)/rules.mk
