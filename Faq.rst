@@ -172,8 +172,8 @@ nvram set variable=value
 nvram commit (to save the changes)
 }}}
 
-'''TIP:''' Use quotes when you have f. e. a list of MAC addresses or interface
-names seperated by space.
+'''TIP:''' Use quotes when you have a list of MAC addresses or interface
+names separated by space.  For example:
 
 {{{
 nvram set variable="aa:bb:cc:dd:ee:ff aa:bb:cc:dd:ee:ff"
@@ -185,13 +185,13 @@ See [:OpenWrtNVRAM].
 == How to create a NVRAM dump for debugging? ==
 
 Sometimes it's useful to have a dump of the NVRAM variables to show them other
-people for debugging. This can be done with
+people for debugging. This can be done with:
 
 {{{
 nvram show 2>&1 | sort | more
 }}}
 
-I would prefer
+or even:
 
 {{{
 strings /dev/nvram | sort | more
@@ -199,10 +199,10 @@ strings /dev/nvram | sort | more
 
 {{{sort}}} will sort the list alphabetically to make it easier to read. Use
 {{{more}}} to list the output page by page. You can also save the dump into a
-text file. Use {{{>/tmp/nvram-dump.txt}}} instead of {{{more}}}. Than SCP the file
+text file. Use {{{> /tmp/nvram-dump.txt}}} instead of {{{more}}}. Then SCP the file
 to another computer.
 
-'''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel , for that use
+'''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel, for that use
 a pastebin service like [http://www.pastebin.ca/ pastebin.ca] or
 [http://www.pastebin.com/ pastebin.com]. Only post the URL on IRC.
 
