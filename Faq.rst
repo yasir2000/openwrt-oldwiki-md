@@ -397,7 +397,9 @@ Felix Fietkau <nbd>
 
 == How do I access the syslog messages? ==
 
-Use the {{{logread}}} program to read syslog messages.
+Use the {{{logread}}} program to read syslog messages. Syslog stores the
+messages in the Wrt's RAM. When the specified part of the RAM gets full
+syslog deletes the old messages.
 
 To log to a remote syslog server use:
 
