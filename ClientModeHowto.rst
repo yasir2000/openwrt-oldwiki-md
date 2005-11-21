@@ -14,10 +14,14 @@ To understand the client mode better, you may be should read the
 thread in the forum.
 
 
-== Configuring client mode ==
+== Requirements ==
 
-You need to have a recent version of !OpenWrt White Russian installed.
-This howto was written for RC3 and later versions.
+ * You need to have a recent version of !OpenWrt White Russian installed (at least RC3 or
+ later versions)
+ * An access point where you can connect your Wrt to
+
+
+== Configuring client mode ==
 
 The first step would be changing the Wrt's behavior from AP to client
 mode (station/client mode or {{{wet}}} for short):
