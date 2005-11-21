@@ -1,3 +1,9 @@
+'''Client mode howto'''
+
+
+[[TableOfContents]]
+
+
 = Client Mode =
 
 If you want to use OpenWrt to connect to another access point (AP) or
@@ -146,9 +152,6 @@ Don't forget to commit if you want your settings to survive a reboot:
 nvram commit
 }}}
 
-For more information on setting up a wired-wireless bridge with encryption,
-please see [:WirelessBridgeWithWPAHowto].
-
 
 == Some more configuration ==
 
@@ -162,4 +165,10 @@ ifup wan; /sbin/wifi
 }}}
 
 This will set up the wireless interface according to your nvram settings.
-[http://openwrt.ertl-net.net/downloads/test/counter-ClientModeHowto.gif]
+
+
+= Links =
+
+ * Detailed information on setting up a wired-wireless bridge with encryption
+ [[BR]]- [:WirelessBridgeWithWPAHowto].
+ [http://openwrt.ertl-net.net/downloads/test/counter-ClientModeHowto.gif]
