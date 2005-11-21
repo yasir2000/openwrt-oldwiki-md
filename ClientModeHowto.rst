@@ -170,5 +170,5 @@ This will set up the wireless interface according to your nvram settings.
 = Links =
 
  * Detailed information on setting up a wired-wireless bridge with encryption
- [[BR]]- [:WirelessBridgeWithWPAHowto].
+ [[BR]]- [:WirelessBridgeWithWPAHowto]
  [http://openwrt.ertl-net.net/downloads/test/counter-ClientModeHowto.gif]
