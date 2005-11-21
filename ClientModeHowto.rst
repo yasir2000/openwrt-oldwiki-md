@@ -18,6 +18,7 @@ thread in the forum.
 
  * You need to have a recent version of !OpenWrt White Russian installed (at least RC3 or
  later versions)
+ * A Wrt router (which acts as your client)
  * An access point where you can connect your Wrt to
 
 
