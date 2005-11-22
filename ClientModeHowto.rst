@@ -156,7 +156,7 @@ Don't forget to commit if you want your settings to survive a reboot:
 nvram commit
 }}}
 
-'''NOTE:''' After lots of tests with nbd's latest pre-rc4 image from (18-Nov-2005)
+'''NOTE:''' After lots of tests with nbd's latest pre-rc4 image (from 18-Nov-2005)
 it seems that WPA2 (tkip) in (at least) bridged client mode is still broken. Normal
 WPA (tkip) and WEP encryption works fine.
 
