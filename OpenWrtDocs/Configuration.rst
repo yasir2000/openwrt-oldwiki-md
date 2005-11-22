@@ -190,6 +190,7 @@ lan_ifnames=vlan0 eth2 eth3
 
 
 == The ethernet switch ==
+[[Anchor(EthernetSwitch)]]
 
 The WRT54G is essentially a WAP54G (wireless access point) with a 6 port switch. There's
 only one physical ethernet connection and that's wired internally into port 5 of the switch;
