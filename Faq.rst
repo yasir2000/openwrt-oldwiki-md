@@ -772,7 +772,7 @@ nvram commit
 }}}
 
 
-== Why does it report 255mW / 31 dBm for the wireless txpwr? ==
+== Why does it report 255 mW / 31 dBm for the wireless txpwr? ==
 
 It lies.
 
