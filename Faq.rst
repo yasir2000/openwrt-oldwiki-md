@@ -148,7 +148,6 @@ See [:OpenWrtDocs/Installing] for more information.
 
 
 
-
 = Misc =
 
 == Where can I find the FAQ? ==
@@ -511,15 +510,8 @@ server, basically, activating this option in {{{/etc/ssh/sshd_config}}} works:
 PasswordAuthentication yes
 }}}
 
-== Why does it report 255mW / 31 dBm for the wireless txpwr? ==
 
-It lies.
 
-The txpwr is not actually 255, 255 is just the target value. The actual value will be capped by the driver to a maximum of maximum of pa0maxpwr (unless you turn on the override). This is the exact same way it's handled in the OEM firmwares. (Chances are that we'll just set it to pa0maxpwr in future releases to finally kill this question)
-
-== Can I adjust the transmit power? ==
-
-Yes, but cranking the power to the maximum won't help you any. You might transmit farther but the noise level will be higher (and will probably bleed into the neighbouring channels) and your recieve sensitivity won't be improved any, limiting your distance. If you want better range go buy better antennas.
 
 = Networking =
 
@@ -778,6 +770,25 @@ To keep the settings over a reboot run:
 {{{
 nvram commit
 }}}
+
+
+== Why does it report 255mW / 31 dBm for the wireless txpwr? ==
+
+It lies.
+
+The txpwr is not actually 255, 255 is just the target value. The actual value will
+be capped by the driver to a maximum of maximum of {{{pa0maxpwr}}} (unless you turn
+on the override). This is the exact same way it's handled in the OEM firmwares.
+(Chances are that we'll just set it to {{{pa0maxpwr}}} in future releases to finally
+kill this question)
+
+
+== Can I adjust the transmit power? ==
+
+Yes, but cranking the power to the maximum won't help you any. You might transmit farther
+but the noise level will be higher (and will probably bleed into the neighbouring channels)
+and your recieve sensitivity won't be improved any, limiting your distance. If you want better
+range go buy better antennas.
 
 
 == What is the difference between wl0_* and wl_* variables? ==
