@@ -64,6 +64,12 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
  1. nvram commit
  1. reboot
 
+{i} FIXME: DHCP over the bridge works for me without setting up a dhcp forwarder (OpenWRT 1.0-RC3 on Linksys WRT54GS V4)
+And why break the bridge? I did not and everything works...
+
+-- MarcSchiffbauer [[DateTime(2005-11-23T14:17:24Z)]]
+
+
 == S47sleep ==
 
 {{{
