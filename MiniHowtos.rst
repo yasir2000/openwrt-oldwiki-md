@@ -130,7 +130,7 @@ If you want to find out what your default gateway is, put this info into a scrip
 
 netstat -rn | grep UG|tail -1 | awk '{print $2}'
 }}}
-and then you can call the script from another script by typing `whatismygw`.  Little note about this script: if you do a netstat -rn, you can see that the thing flagged UG is your gateway (G stands for gateway) which is why UG is grepped.  
+and then you can call the script from another script by typing `whatismygw`.
 
 finally, if you want the mac address of your wan gateway (your cable modem or the like) put this info into a script at /usr/bin/whatismygwmac
 {{{
