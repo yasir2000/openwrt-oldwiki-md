@@ -66,9 +66,9 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
 
 {i} FIXME: DHCP over the bridge works for me without setting up a dhcp forwarder (OpenWRT 1.0-RC3 on Linksys WRT54GS V4)
 And why break the bridge? I did not and everything works...
-
 -- MarcSchiffbauer [[DateTime(2005-11-23T14:17:24Z)]]
 
+Are you using WPA2?  The hardware bridge works fine without encryption; and if you're using the hardware bridge, broadcasting (such as for DHCP) will also work fine.  When I have br0 connecting eth1+vlan0, with WPA2, the encryption negotiation fails.  I'd be very happy if this weren't the case! -- ["wmono"] [[DateTime(2005-11-23T17:44:06Z)]]
 
 == S47sleep ==
 
