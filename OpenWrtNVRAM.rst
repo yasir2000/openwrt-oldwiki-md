@@ -145,3 +145,8 @@ As of the most recent CVS build, all values must be present. The networking scri
 == NVRAM committing ==
 
 When you set/get nvram settings, you are get/setting them in RAM. "nvram commit" writes them persistenly to the flash. But you don't have to commit in order to test, in fact it's safer not to. You can save your settings to RAM, check them out by ifdown/ifup'ing all your interfaces, and then "nvram commit" them if they are to your liking. If not, you can reboot and you're back to the last working configuration you had.
+
+
+== Applying changes to wireless settings ==
+
+To apply the changes made to the nvram settings that start with '''`wl0_`''' (e.g. to the `wl0_maclist` entry) run the '''`wifi`''' command (or '''`wl`''' if you have not installed the wificonf package) to reconfigure the Broadcom `wl.o` module in the kernel.
