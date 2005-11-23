@@ -35,6 +35,8 @@ nvram set wl0_mode=wet
 '''NOTE:''' As soon as your AP is in client mode you _can't_ connect any
 wireless clients to it anymore because it's not in AP mode ({{{wl0_mode=ap}}}).
 
+There are two different client modes: bridged and routed.  They are mutually
+exclusive.
 
 === Bridged client mode ===
 
@@ -62,7 +64,7 @@ nvram set wan_ifname=vlan1
 
 === Routed client mode ===
 
-Now we are breaking down the default bridge between the wireless interface
+Routed client mode breaks down the default bridge between the wireless interface
 and the LAN ports. Note that we are using the {{{wan_ifname}}} to refer to
 the wireless connection; this will save you from having to change
 the firewall script.
