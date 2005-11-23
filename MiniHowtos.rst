@@ -113,6 +113,40 @@ maurice.schoenmakers@hot-spot-zone.de, thanks.
 
 Thanks to M (nick on IRC).
 
+== Quick info about your connection ==
+Followed are a couple of scripts that are useful when writing other scripts.  They help you determine your ip, gateway and gateway mac.  With a little modification, they can be adapted to do other stuff
+
+Putting this script in /usr/bin/whatismyip will allow you to check your ip just by typing "whatismyip {interface}"
+{{{
+#!/bin/sh
+
+ifconfig $1 | grep "inet addr" | awk '{print $2}' | awk -F ':' '{print $2}'
+}}}
+If you want to lock the thing to only check a certain interface, replace the $1 with the interface name.  I do it this way because I can easily find out my ip in scripts by typing `whatismyip vlan1` rather than hoping I remembered the sequence right.
+
+If you want to find out what your default gateway is, put this info into a script at /usr/bin/whatismygw
+{{{
+#!/bin/sh
+
+netstat -rn | grep UG|tail -1 | awk '{print $2}'
+}}}
+and then you can call the script from another script by typing `whatismygw`.  Little note about this script: if you do a netstat -rn, you can see that the thing flagged UG is your gateway (G stands for gateway) which is why UG is grepped.  
+
+finally, if you want the mac address of your wan gateway (your cable modem or the like) put this info into a script at /usr/bin/whatismygwmac
+{{{
+#!/bin/sh
+
+arping -fq -I vlan1 `whatismygw`
+
+cat /proc/net/arp | grep `whatismygw` | awk '{print $4}'
+}}}
+you can see where the whatismygw script is called inside this other script.  In the arping line, -f means stop after first response and -q means quiet (so that the only thing returned by the script is the mac address).  -I is the interface you are choosing to ping out on.  You actually don't have to set the interface but if you don't set an interface, it can take a good 30 seconds for this script to work and you have to put a sleep inbetween line 3 and 5.
+
+Hopefully you know to chmod the scripts so they are executable, but if not the command looks like this:
+{{{
+chmod a+x {thescriptname}
+}}}
+You don't have to give them the names that I did, nor do you have to put them in /usr/bin/ to work - that is just the way I did it.  Please edit this if you see errors related to my ability to form coherant sentences or if you know a better way to do this.
 
 = Useful details =
 
