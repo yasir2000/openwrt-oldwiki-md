@@ -354,8 +354,9 @@ The !OpenWrt web interface is based on a set of shell and awk scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the !BusyBox HTTPD server.
 
-'''TIP:''' When you prefer the pure CLI instead of the webif you can use the {{{micro}}}
-image or create your own images without the haserl, webif package using the !OpenWrt
+'''TIP:''' You still can configure everything in the pure CLI (command line interface) too.
+If you prefer this way than do so. When you like images without the haserl and webif packages
+use either the {{{micro}}} image or create your own images using the !OpenWrt
 [:ImageBuilderHowTo:Image Builder].
 
 
