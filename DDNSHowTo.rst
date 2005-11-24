@@ -116,32 +116,28 @@ The main configuration is done now.
 }}}
 
 
-== Via the /etc/ppp/ip-up script ==
+== Via the /etc/hotplug.d/iface directory ==
 
 This updates your DDNS every time a PPP connection was etablished.
 To get this working you need to have PPP installed and configured on your router.
 
 {{{
-test -d /etc/ppp || mkdir -p /etc/ppp
-test -f /etc/ppp/ip-up || \
-        echo -e "#!/bin/sh\n\n/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &" \
-        > /etc/ppp/ip-up
-chmod a+x /etc/ppp/ip-up
+test -d /etc/hotplug.d/iface || mkdir /etc/hotplug.d/iface
+test -f /etc/hotplug.d/iface/ez-update || \
+  echo -e '[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &' \
+  > /etc/hotplug.d/iface/ez-update
 }}}
 
 [[BR]]
 
 {{{
-cat /etc/ppp/ip-up
+cat /etc/hotplug.d/iface/ez-update
 }}}
-
 {{{
-#!/bin/sh
-
-/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
-If {{{/etc/ppp/ip-up}}} does not look like the above one, you have to edit the file
+If {{{/etc/hotplug.d/iface/ez-update}}} does not look like the above one, you have to edit the file
 manually with the {{{vi}}} editor.
 
 
