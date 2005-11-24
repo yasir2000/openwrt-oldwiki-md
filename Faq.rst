@@ -519,21 +519,16 @@ QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net
 This script is only shaping on your uplink. The QoS package only works in
 White Russian RC4 and later version.
 
-You have to install
-
-{{{
-ipkg install tc kmod-sched iptables-mod-extra
-}}}
-
-when that is done, download and install the {{{qos-scripts}}} package.
+Download and install the {{{qos-scripts}}} package:
 
 {{{
 ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.2_all.ipk
 }}}
 
-Now edit the {{{/etc/config/qos}}} file. In this config file you will
-make the QoS configuration. It has some examples and the syntax description
-in it.
+Then edit the {{{/etc/config/qos-wan}}} file.  This file has a number of
+examples and the syntax description in it. Be sure to uncomment the
+{{{option:enabled}}} line and set the {{{option:upload}}} and
+{{{option:download}}} correctly.
 
 If you're using L7 filters in the config file you have to install the
 {{{iptables-mod-filter}}} package. This package contains a few L7 filters.
@@ -546,7 +541,7 @@ Finally start QoS with
 ifdown wan && ifup wan
 }}}
 
-This calles the QoS script via the new hotplug stuff.
+This calls the QoS script via the new hotplug stuff.
 
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
