@@ -492,8 +492,7 @@ etter know what you are doing...
 
 == OpenWrt as client / wireless bridge ==
 
-Starting with White Russian RC2 basically the only thing you have to do is to switch
-the WL mode like with the bridge:
+The only thing you have to do is to switch the WL mode like with the bridge:
 
 {{{
 nvram set wl0_mode=sta
