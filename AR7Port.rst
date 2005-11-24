@@ -28,16 +28,16 @@ See [:OpenWrtDocs/InstallingAR7] if you are brave enough to test it.
 
 == Finished tasks ==
 
-Our Kernel support for AR7 is in CVS HEAD and disabled by default.
+Our Kernel support for AR7 is in SVN trunk and disabled by default.
 Here's what we have integrated so far:
 
    * A kernel that boots up to the part where it tries to mount the root filesystem
    * A simple mtd flash map driver that uses the boot loader's partition map
    * Running a shell with a modified OpenWrt rootfs works!
-   * We have working (and free) drivers for Ethernet and ADSL in CVS!
+   * We have working (and free) drivers for Ethernet and ADSL in SVN!
    * The flash map driver is working, but needs more testing
    * We have the source for the TI WLAN driver
-   * With the new stuff in CVS, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
+   * With the new stuff in SVN, it now sets up the networking stuff, so you can log in via telnet on 192.168.1.1 (or whatever you configured in menuconfig). That can be changed in /etc/config/network
    * The VLYNQ bus works
    * The LZMA loader works and is integrated
    * Support for WAG354G is integrated, still needs testing...
