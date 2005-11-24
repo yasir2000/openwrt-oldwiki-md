@@ -48,6 +48,10 @@ See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 '''NOTE:''' Before you install !OpenWrt make sure you have at least basic GNU/Linux
 knowledge and *nix shell skills.
 
+'''TIP:''' You can flash the White Russian RC4 images ({{{*.bin}}}) directly from the
+other web interfaces now. It should to be safe even without {{{boot_wait=on}}}. But
+there is no garantee it will work.
+
 See [:OpenWrtDocs/Installing].
 
 
@@ -222,7 +226,7 @@ cat /etc/banner
 and watch for a line like this:
 
 {{{
-WHITE RUSSIAN (RC3) -------------------------------
+WHITE RUSSIAN (RC4) -------------------------------
 }}}
 
 If you don't have that file execute
@@ -336,29 +340,23 @@ When this is done you can follow the [:OpenWrtDocs/Deinstalling] page.
 
 == Does OpenWrt have a web interface? ==
 
-'''Not yet.''' The upcoming OpenWrt White Russian 1.0 release will have
-a web interface (called webif).
+'''Yes.''' The {{{default}}} and {{{pptp}}} optimized images will have the web interface
+(called !OpenWrt Administrative Console or webif for short) integrated.
 
-Nbd is currently working on one. The latest release can always be installed
-from [http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk] via:
+A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html].
 
-{{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/webif-test_1.ipk
-}}}
+Nbd will add more features in the future. We're looking for some webif developers too.
 
 '''NOTE:''' This web interface is in development. Basic features like firmware
-upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration should
-work. It will only run on !OpenWrt White Russian RC3 and later.
-
-'''TIP:''' The web interface will be included by default in the upcoming !OpenWrt
-White Russian RC4 and later versions.
-
+upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration works.
 
 The !OpenWrt web interface is based on a set of shell and awk scripts and
 the form processing is done with [http://haserl.sourceforge.net/ haserl].
 It uses the !BusyBox HTTPD server.
 
-A "Screenshot" is a available at [http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html].
+'''TIP:''' When you prefer the pure CLI instead of the webif you can use the {{{micro}}}
+image or create your own images without the haserl, webif package using the !OpenWrt
+[:ImageBuilderHowTo:Image Builder].
 
 
 == Why is the OpenWrt firmware so bare? ==
@@ -409,6 +407,8 @@ nvram set log_ipaddr=aaa.bbb.ccc.ddd
 Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote syslog
 server where you want to log to.
 
+See [:MiniHowtos] for details on remote logging.
+
 
 == How do I have it do something every YYY seconds/minutes? ==
 
@@ -420,46 +420,11 @@ See [:HowtoEnableCron] for details.
 
 == My Linksys WRT54G or WRT54GS routers seems to be unstable! ==
 
-The core developer nbd wrote a script that should fix this problems.
+The core developer nbd wrote a script that should fix this problems. This
+script is included in White Russian RC4 and later.
 
 The script should do exactly what the Linksys firmware does to fix the
 instability problems on WRT54G v2.2+, WRT54GS v1.1+.
-
-The problem that's fixed by this script has been reported in several forms:
-[[BR]]1) Crashes on high network/wireless load
-[[BR]]2) Abnormal program errors
-[[BR]]3) Random source/destination ports added to iptables rules with -p tcp
-
-If you have one of these problems, please consider trying out the script at
-
-[http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh].
-
-/!\ '''WARNING:''' Only use this script to set the NVRAM variables on the
-listed Linksys routers above. Please do '''NOT''' set the NVRAM variables
-or parts of them included in the script manually or on any '''non'''
-Linksys router.
-
-To execute the script on the router do:
-
-{{{
-cd /tmp
-wget http://openwrt.inf.fh-brs.de/~nbd/linksys-fixup.sh
-chmod a+x /tmp/linksys-fixup.sh
-/tmp/linksys-fixup.sh
-}}}
-
-The {{{linksys-fixup.sh}}} script is not commiting the changes to NVRAM.
-So you have to do this with:
-
-{{{
-nvram commit
-}}}
-
-The changes the script made take only affect if you reboot or power cycle
-the router after committing.
-
-/!\ '''WARNING:''' It may contain bugs, may not work at all or may even brick
-your router.
 
 /!\ '''WARNING:''' It has been reported that even this moderate increase to
 {{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
@@ -467,10 +432,6 @@ making it practically impossible to reach the console. Have your JTAG cable
 ready in any case! Btw. generally manually overlocking a router using the
 {{{clkfreq}}} NVRAM variable is a bad hack/idea. So again, don't overclock
 your router manually!
-
-You should also read the
-[http://forum.openwrt.org/viewtopic.php?id=2874 The "My router is unstable" thread...]
-on the forum.
 
 
 == What's the magic behind /sbin/wifi is doing? ==
@@ -553,16 +514,9 @@ point for documentation is [http://www.netfilter.org/documentation/].
 
 == How do I configure QoS aka traffic shaping in OpenWrt? ==
 
-A word of caution: It seems a few users have been experiencing some WAN connection loss
-at precise intervals (like every four hours) with this package. It seems to be pretty rare,
-but remember this warning in case it happens to you after the script is installed. In fact
-if your configuration is sensible to the bug it's easy to spot since if you get your WAN IP
-via DHCP you won't be able to renew it once the {{{/etc/init.d/S46qos}}} script has been run.
-(So there is a big chance that the only users who have a problem with qos-scripts are those
-who get their address with DHCP...)
-
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
-This script is only shaping on your uplink.
+This script is only shaping on your uplink. The QoS package only works in
+White Russian RC4 and later version.
 
 You have to install
 
@@ -573,37 +527,25 @@ ipkg install tc kmod-sched iptables-extra
 when that is done, download and install the {{{qos-scripts}}} package.
 
 {{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.01_all.ipk
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.2_all.ipk
 }}}
 
-Edit your linespeed in {{{/etc/init.d/S46qos}}}. Enter the upload speed of
-your internet connection in kbit.
+Now edit the {{{/etc/config/qos}}} file. In this config file you will
+make the QoS configuration. It has some examples and the syntax description
+in it.
+
+If you're using L7 filters in the config file you have to install the
+{{{iptables-mod-filter}}} package. This package contains a few L7 filters.
+Alternativly you can download extra filters from [http://l7-filter.sourceforge.net/protocols Layer 7 filters]
+and save the {{{.pat}}} files into the {{{/etc/l7-protocols}}} directory.
+
+Finally start QoS with
 
 {{{
-LINESPEED=576
+ifdown wan && ifup wan
 }}}
 
-Next edit the {{{/etc/config/qos}}} file. In this config file you will
-make the QoS configuration. It has some examples in it.
-
-If you are using L7 filter in the config file, you must create a directory
-and download protocol files ({{{.pat}}}) from
-[http://l7-filter.sourceforge.net/protocols Layer 7 filters] into the
-{{{/etc/l7-protocols}}} directory.
-
-{{{
-mkdir -p /etc/l7-protocols
-}}}
-
-Finally start QoS manually with
-
-{{{
-/etc/init.d/S46qos
-}}}
-
-or alternativly via {{{/etc/ppp/ip-up}}} script.
-
-For more information see [:MiniHowtos/QoSHowto].
+This calles the QoS script via the new hotplug stuff.
 
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
@@ -793,9 +735,7 @@ range go buy better antennas.
 
 == What is the difference between wl0_* and wl_* variables? ==
 
-Use the {{{wl0_}}} variables.
-
-The {{{wl_}}} variables are obsolete and unused.
+Use the {{{wl0_*}}} variables. The {{{wl_*}}} variables are obsolete and unused.
 
 
 == How do I configure PPPoE for Internet access? ==
@@ -858,10 +798,9 @@ Install the {{{pptp}}} package via
 ipkg install pptp
 }}}
 
-'''TIP:''' If you have no Internet connection for installing the package, you can flash nbd's
-PPTP optimized snapshot images (with preinstalled PPTP packages instead of PPPoE packages) from his
-[http://downloads.openwrt.org/people/nbd/whiterussian/pptp/ download directory] (nbd's snapshot
-images are builds from the stable White Russian SVN branch).
+'''TIP:''' If you have no Internet connection for installing the package, you can flash the
+PPTP optimized images (with preinstalled PPTP packages instead of PPPoE packages) from his
+[http://downloads.openwrt.org/whiterussian/newest/pptp/ download directory].
 
 When you have done this set the following NVRAM variables.
 
