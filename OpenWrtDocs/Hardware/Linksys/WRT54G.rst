@@ -20,7 +20,7 @@ front part of the case below the Linksys logo.
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
-||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
+||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Development[[BR]]Kamikaze'''||
 ||<(|2>WRT54G v1.0||<:> CDF0||<:|2> (./) ||<:|2> (./) ||
 ||<:> CDF1||
 ||<(|3>WRT54G v1.1||<:> CDF2||<:|3> (./) ||<:|3> (./) ||
