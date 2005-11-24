@@ -42,7 +42,7 @@ the tarball. After that change into the new directory.
 
 {{{
 cd ~
-wget http://downloads.openwrt.org/whiterussian/newest/bin/OpenWrt-SDK-Linux-i686-1.tar.bz2
+wget http://downloads.openwrt.org/whiterussian/newest/OpenWrt-SDK-Linux-i686-1.tar.bz2
 bzcat OpenWrt-SDK-Linux-i686-1.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-SDK-Linux-i686-1
 }}}
