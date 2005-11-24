@@ -116,29 +116,31 @@ The main configuration is done now.
 }}}
 
 
-== Via the /etc/hotplug.d/iface directory ==
+== Via hotplug ==
 
 This updates your DDNS every time a PPP connection was etablished.
 To get this working you need to have PPP installed and configured on your router.
 
 {{{
-test -d /etc/hotplug.d/iface || mkdir /etc/hotplug.d/iface
-test -f /etc/hotplug.d/iface/ez-update || \
-  echo -e '[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &' \
-  > /etc/hotplug.d/iface/ez-update
+mkdir -p /etc/hotplug.d/iface
 }}}
-
-[[BR]]
 
 {{{
-cat /etc/hotplug.d/iface/ez-update
+cat > /etc/hotplug.d/iface/15-ez-ipupdate
 }}}
+
 {{{
 [ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
-If {{{/etc/hotplug.d/iface/ez-update}}} does not look like the above one, you have to edit the file
-manually with the {{{vi}}} editor.
+If {{{/etc/hotplug.d/iface/15-ez-ipupdate}}} does not look like the above one, you
+have to edit the file manually with the {{{vi}}} editor.
+
+To update your DDNS account do:
+
+{{{
+ifdown wan && ifup wan
+}}}
 
 
 == Via init script ==
