@@ -18,7 +18,7 @@ required library and header files to cross-compile applications for !OpenWrt.
 
  * a recent GNU/Linux distribution
  * GNU Make (at least 3.80 with the Debian patch)
-... to be continued ...
+ ... to be continued ...
 
 
 = Using the OpenWrt SDK =
@@ -35,7 +35,7 @@ program as an example.
 
 == Obtaining and installing the SDK ==
 
-The SDK can be downloaded from [http://downloads.openwrt.org/whiterussian/].
+The SDK can be downloaded from [http://downloads.openwrt.org/whiterussian/newest/].
 
 Download it into your home directory (don't use the root account) and untar
 the tarball. After that change into the new directory.
