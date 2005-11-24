@@ -525,7 +525,7 @@ Download and install the {{{qos-scripts}}} package:
 ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.2_all.ipk
 }}}
 
-Then edit the {{{/etc/config/qos-wan}}} file.  This file has a number of
+Then edit {{{/etc/config/qos-wan}}}.  This file has a number of
 examples and the syntax description in it. Be sure to uncomment the
 {{{option:enabled}}} line and set the {{{option:upload}}} and
 {{{option:download}}} correctly.
@@ -541,7 +541,7 @@ Finally start QoS with
 ifdown wan && ifup wan
 }}}
 
-This calls the QoS script via the new hotplug stuff.
+This calls the QoS script via the hotplug code.
 
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
