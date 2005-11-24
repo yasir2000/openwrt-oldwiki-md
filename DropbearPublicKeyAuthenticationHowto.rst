@@ -86,49 +86,18 @@ You can also use copy & paste the public key to the router after making a normal
 SSH connection to it.
 
 
-== Create the directories ==
-
-Create the following directories (on the router) and set their permissions.
-
-{{{
-mkdir -p /root/.ssh
-chmod -R 0700 /root
-}}}
-
-
-== Change root's home directory ==
-
-Change the root's home directory. This is necessary, because
-the default home directory for root ({{{/tmp}}}) does not have the right
-permissions.
-
-To do this, you have to edit the {{{/etc/passwd}}} file. It should look similar
-to the one below.
-
-{{{
-root:!:0:0:root:/root:/bin/ash
-nobody:*:65534:65534:nobody:/var:/bin/false
-}}}
-
-/!\ '''NOTE:''' This will change in the upcoming White Russian RC4 release.
-It's already changed in the stable White Russian SVN branch. The
-{{{authorized_keys}}} file will than be stored in the {{{/etc/dropbear}}}
-directory. So, on any later versions there is no need to change root's
-home directory anymore.
-
-
 == Add the Public Key to authorized_keys ==
 
 Add the public key to the {{{authorized_keys}}} file on the router by doing the following:
 
 {{{
-cd /root/.ssh
+cd /etc/dropbear
 cat /tmp/id_*.pub >> authorized_keys
 chmod 0600 authorized_keys
 }}}
 
 You can repeat this step with every new public key. Each key is appended to the
-{{{/root/.ssh/authorized_keys}}} file.
+{{{/etc/dropbear/authorized_keys}}} file.
 
 
 = Connecting to OpenWrt with Public Key =
@@ -151,7 +120,7 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- WHITE RUSSIAN (RC3) -------------------------------
+ WHITE RUSSIAN (RC4) -------------------------------
   * 2 oz Vodka   Mix the Vodka and Kahlua together
   * 1 oz Kahlua  over ice, then float the cream or
   * 1/2oz cream  milk on the top.
