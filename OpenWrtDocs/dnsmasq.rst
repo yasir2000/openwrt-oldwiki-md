@@ -76,32 +76,15 @@ chmod +r /etc/hosts
 
 === Static IP address (leases) based on the MAC address of the client ===
 
-'''NOTE:''' There is a known bug in dnsmasq. dnsmasq can't read the
-{{{/etc/ethers}}} file because it runs as user nobody. Nbd fixed that
-bug in versions later than "White Russian RC4" and it is already fixed
-in "White Russian CVS".
-
-To get rid of this bug, just do:
-
-{{{
-ipkg -force-overwrite -force-reinstall install \
-        http://downloads.openwrt.org/people/nbd/ \
-        whiterussian/packages/dnsmasq_2.22-2_mipsel.ipk
-}}}
-
-'''TIP:''' When you get errors while installing the package from the URL above
-please read the [http://forum.openwrt.org/viewtopic.php?pid=14578#p14578 dnsmasq - how to set domain name?]
-thread.
-
 When a client should get always the same IP address from the DHCP server then
-use the line below in your {{{/etc/ethers}}} file
+use the line below in your {{{/etc/ethers}}} file.
 
 {{{
 # <mac> <ip>
 00:aa:bb:cc:dd:ee 192.168.1.2
 }}}
 
-Put the hostname for that IP address in the {{{/etc/hosts}}} file.
+Put the hostname for this IP address in the {{{/etc/hosts}}} file.
 
 
 === Configuring dnsmasq to use different IP ranges for wired and wireless ===
