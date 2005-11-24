@@ -232,7 +232,7 @@ WHITE RUSSIAN (RC4) -------------------------------
 If you don't have that file execute
 
 {{{
-busybox 2>&1 | grep ^Busybox
+busybox 2>&1 | grep -i ^busybox
 }}}
 
 {{{
