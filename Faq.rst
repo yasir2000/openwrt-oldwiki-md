@@ -522,7 +522,7 @@ White Russian RC4 and later version.
 You have to install
 
 {{{
-ipkg install tc kmod-sched iptables-extra
+ipkg install tc kmod-sched iptables-mod-extra
 }}}
 
 when that is done, download and install the {{{qos-scripts}}} package.
