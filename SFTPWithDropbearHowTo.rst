@@ -35,8 +35,7 @@ daemon and activate the SSH daemon.
 
 = Installing the SFTP module =
 
-Once the SSH daemon is working it is now time to begin installing the SFTP portion. To
-do this enter the following commands
+To install the SFTP portion enter the following commands:
 
 {{{
 ipkg update
