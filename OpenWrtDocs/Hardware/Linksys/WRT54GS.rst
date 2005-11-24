@@ -80,8 +80,8 @@ In idle mode, radio off: 0.36 A
 In idle mode, radio on: 0.45 A
 
 ('''NOTE:''' this also means one can follow the boot process nicely from the current
-draw... perhaps this could be usefull in debugging? Morse error messages on the amp
-meter, I think I'm getting carried away).
+draw... perhaps this could be usefull in debugging? Morse error messages on the
+Ammeter, I think I'm getting carried away).
 
 Inserting or retracting a networking cable gives a ~2 s peak of 0.02 A
 
