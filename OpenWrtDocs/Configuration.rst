@@ -532,6 +532,13 @@ in {{{/etc/init.d/}}} called {{{S51rdate}}}, with the contents:
 /usr/sbin/rdate 128.138.140.44
 }}}
 
+or, if you are using ntpclient:
+
+{{{
+#! /bin/sh
+ntpclient -s -h pool.ntp.org >/dev/null
+}}}
+
 save it, and then type this at a prompt to make it executable:
 
 {{{
