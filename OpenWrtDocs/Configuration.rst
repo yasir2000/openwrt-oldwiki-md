@@ -524,26 +524,25 @@ echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 }}}
 
 If you want to use a !TimeClient to syncronize, use {{{rdate}}} or the {{{ntpclient}}}
-package for that (Note: {{{rdate}}} uses port 37/tcp on remote host). Create a file
-in {{{/etc/init.d/}}} called {{{S51rdate}}}, with the contents:
+package. (Note: {{{rdate}}} uses port 37/tcp on remote host.)
+
+If using rdate (note: it uses port 37/tcp on the remote host.), create the
+file {{{/etc/init.d/S51rdate}}} with the contents:
 
 {{{
 #!/bin/sh
 /usr/sbin/rdate 128.138.140.44
 }}}
 
-or, if you are using ntpclient:
-
-{{{
-#! /bin/sh
-ntpclient -s -h pool.ntp.org >/dev/null
-}}}
-
-save it, and then type this at a prompt to make it executable:
+save it, and make it executable:
 
 {{{
 chmod a+x /etc/init.d/S51rdate
 }}}
+
+{{{ntpclient}}} will automatically synchronize the hardware clock when a link is brought
+up.  By default, it contacts pool.ntp.org, however, this can be overridden by setting the
+{{{ntp_server}}} nvram variable to the desired host.
 
 '''NOTE:''' This sets the time zone for CET/CEST (Central European Time UTC+1 / Central European
 Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
