@@ -1,8 +1,8 @@
 = USB Audio Support =
 
-USB Capable routers such as the Asus WL-500g/gx support USB Audio adapters to turn your router into a networked music player.
+USB capable routers such as the Asus WL-500g/gx support USB Audio adapters to turn your router into a networked music player.
 
-USB Audio support entered OpenWRT CVS around Sept 2005, at the time of writing it is not included in any releases (eg. White Russian).
+USB Audio support is included in OpenWrt Kamikaze and higher.
 
 To use USB Audio you will need to build your own firmware using buildroot CVS.
 
@@ -20,8 +20,7 @@ Support for USB Soundcards ('''KMOD_USB_AUDIO'''):
 
 kmod-alsa ('''KMOD_ALSA'''):
 
-    This is an alternative to KMOD_USB_AUDIO which cross-compiles the latest ALSA drivers. This package includes all the alsa modules (snd_*) requred for USB Audio support including OSS emulation. These drivers take up more space (and ram) than the OSS one, but they may provide better support and/or performance over kernel OSS. (they do for me)
-
+    This is an alternative to KMOD_USB_AUDIO which cross-compiles the latest ALSA drivers. This package includes all the alsa modules (snd_*) requred for USB Audio support including OSS emulation. These drivers take up more space (and ram) than the OSS one, but they may provide better support and/or performance over kernel OSS.
 You may build both oss and alsa as packages but only one can be used at a time.
 
 = Applications =
