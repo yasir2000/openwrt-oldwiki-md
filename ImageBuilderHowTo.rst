@@ -43,7 +43,7 @@ tarball. After that change into the new directory.
 {{{
 cd ~
 wget http://downloads.openwrt.org/whiterussian/ \
-        rc3/bin/OpenWrt-ImageBuilder-Linux-i686.tar.bz2
+        newest/OpenWrt-ImageBuilder-Linux-i686.tar.bz2
 bzcat OpenWrt-ImageBuilder-Linux-i686.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 }}}
