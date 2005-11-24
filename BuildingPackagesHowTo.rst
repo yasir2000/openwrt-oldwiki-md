@@ -18,7 +18,8 @@ required library and header files to cross-compile applications for !OpenWrt.
 
  * a recent GNU/Linux distribution
  * GNU Make (at least 3.80 with the Debian patch)
- [[BR]]... to be continued ...
+
+ ... to be continued ...
 
 
 = Using the OpenWrt SDK =
