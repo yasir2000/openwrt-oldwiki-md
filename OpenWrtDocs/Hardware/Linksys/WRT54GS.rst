@@ -17,7 +17,7 @@ are supported by OpenWrt 1.0 (White Russian) and later.
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
-||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Unstable[[BR]]development'''||
+||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Development[[BR]]Kamikaze'''||
 ||<(|2>WRT54GS v1.0||<:> CGN0||<:|2> (./) ||<:|2> (./) ||
 ||<:> CGN1||
 ||WRT54GS v1.1||<:> CGN2||<:> (./) ||<:> (./) ||
