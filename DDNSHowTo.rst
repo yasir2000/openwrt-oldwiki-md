@@ -118,8 +118,8 @@ The main configuration is done now.
 
 == Via hotplug (recommended) ==
 
-This updates your DDNS every time a PPP connection was etablished.
-To get this working you need to have PPP installed and configured on your router.
+This updates your DDNS every time a WAN connection gets etablished.
+To get this working you need to do the following:
 
 {{{
 mkdir -p /etc/hotplug.d/iface
