@@ -8,7 +8,7 @@
 
 This HOWTO explains how to configure SFTP for use with the Dropbear SSH package.
 Dropbear is typically used because of its small size and pre-installation in White
-Russian RC3.
+Russian.
 
 
 == What is SFTP? ==
@@ -20,7 +20,7 @@ transfer both passwords and file data over an encrypted link.
 
 = Activating Dropbear =
 
-Dropbear is a small SSH daemon that comes pre-installed on White Russian RC3. However,
+Dropbear is a small SSH daemon that comes pre-installed on White Russian. However,
 while Dropbear comes pre-installed it is not active by default. To activate Dropbear
 use the following command
 
