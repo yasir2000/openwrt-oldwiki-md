@@ -17,9 +17,9 @@ purposes. This list could be continued by your own ideas.
 
 = Requirements =
 
-   * a recent GNU/Linux distribution
+ * a recent GNU/Linux distribution
 
-   ... to be continued ...
+ ... to be continued ...
 
 
 = Using the OpenWrt Image Builder =
@@ -35,7 +35,7 @@ Everyone else should follow point by point on this howto.
 [[Anchor(Obtaining_and_installing_the_Image_Builder)]]
 == Obtaining and installing the Image Builder ==
 
-The Image Builder could be downloaded from [http://downloads.openwrt.org/whiterussian/].
+The Image Builder could be downloaded from [http://downloads.openwrt.org/whiterussian/newest/].
 
 Download it into your home directory (don't use the root account) and untar the
 tarball. After that change into the new directory.
