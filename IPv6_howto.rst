@@ -538,3 +538,5 @@ You need to add
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 }}}
 to your enable script to enable ipv6 forwarding before you can run radvd.
+
+How would i go about setting up radvd to announce an v6 address (6to4), derived from an DHCP assigned v4 address (it changes every few weeks)?
