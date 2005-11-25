@@ -184,6 +184,14 @@ You will need to do this a few times in /sbin/shorewall and /usr/share/firewall.
 === Configuration ===
 This is the important part. Before we can use the shorewall firewall we will have to configure it so that it works on the OpenWRT set of interfaces, and also add any firewall rules that we may wish to have.
 
+(Added by AndrewSteele: It's worth noting that you'll get strange errors like this:
+{{{
+Adding Common Rules
+iptables: No chain/target/match by that name
+   ERROR: Command "/usr/sbin/iptables -A smurfs -s 192.168.10.255  -j  LOG  --log-level info --log-prefix "Shorewall:smurfs:DROP:"" Failed
+}}}
+If you have not loaded in the ipt_LOG module.  I've spent months (on and off) trying to crack this!)
+
 ==== Configure Logging ====
 The package we installed has been preconfigured for a LEAF router which uses the ULOG logging daemon. Thus the first change we need to make is to set shorewall to use syslogd. If you havn't already got syslogd running/configured on your system please see the mini-howto on "Setting up logging". The two files that contain the references to ULOG are: {{{
 etc/shorewall/shorewall.conf:LOGNEWNOTSYN=ULOG
