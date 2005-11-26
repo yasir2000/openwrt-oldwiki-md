@@ -191,7 +191,7 @@ Now you can start the tunnel using
 
 For '''Windows''' just right-click onto your config and choose the second point to execute the config.
 
-If you use '''MacOSX''' you should use something like TunnelBlick which is openvpn with a GUI.  Don't use it's default configuration, use the above config and add the lines:
+If you use '''MacOSX''' you should use something like Tunnelblick www.tunnelblick.net which is openvpn with a GUI.  Don't use it's default configuration, use the above config and add the lines:
 
 user nobody[[BR]]
 group nobody[[BR]]
