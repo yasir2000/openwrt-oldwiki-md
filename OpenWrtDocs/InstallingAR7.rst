@@ -44,7 +44,7 @@ At the moment we have no stable supported release.
 Development takes place in SVN. You get the source via:
 
 {{{
-svn checkout http://svn.openwrt.org/openwrt/trunk/openwrt .
+svn checkout https://svn.openwrt.org/openwrt/trunk/openwrt .
 }}}
 
 /!\ Note: Currently the AR7 code is disabled in the menu, as it is currently work in progress.
