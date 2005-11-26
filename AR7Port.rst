@@ -19,6 +19,7 @@
  * Sitecom [http://www.trasduzione.com/WL-108 WL-108]
  * TCOM [http://ar7-firmware.berlios.de Sinus 154 DSL Basic SE] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
  * TCOM [http://ar7-firmware.berlios.de Sinus 154 DSL Basic 3] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
+ * [http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Zyxel Prestige 660HW] (and possibly the whole 600 series)
 
 and many more.
 
