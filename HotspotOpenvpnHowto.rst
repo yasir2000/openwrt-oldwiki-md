@@ -146,6 +146,10 @@ iptables -A FORWARD -i vlan0 -o tun0 -j ACCEPT[[BR]]
 This has to be appended! The whole file is much longer.[[BR]]
 '''Finally you can do a last reboot.'''
 
+If you can only talk to vlan1, you may find you need to change the second line to:[[BR]]
+iptables -A FORWARD -i tun0 -o vlan0 -j ACCEPT[[BR]]
+iptables -A FORWARD -i tun0 -o vlan1 -j ACCEPT[[BR]]
+
 = Clientside =
 
 Now if you want to access the Internet from either your local network or via wifi you just have to select dhcp for your network device. To access your local network from out the wifi, the OpenVPN client has to be installed.
@@ -186,3 +190,10 @@ Now you can start the tunnel using
     openvpn --daemon --config /etc/openvpn/wlan_home.conf 
 
 For '''Windows''' just right-click onto your config and choose the second point to execute the config.
+
+If you use '''MacOSX''' you should use something like TunnelBlick which is openvpn with a GUI.  Don't use it's default configuration, use the above config and add the lines:
+
+user nobody[[BR]]
+group nobody[[BR]]
+
+(These might also be useful in your openvpn server config and linux client config).
