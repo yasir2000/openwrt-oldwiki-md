@@ -41,6 +41,23 @@ in /etc/printcap.
 
 = Installation =
 
+Now you can proceed with installing the printer daemon. For now please
+install the {{{p910nd}}} package from
+[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository]
+with the command:
+
+{{{
+ipkg install http://downloads.openwrt.org/people/nico/testing/ \
+        mipsel/packages/p910nd_0.7-2_mipsel.ipk
+}}}
+
+'''TIP:''' These binary packages from
+[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository] can be used
+in the stable White Russian release (except the kmod-* and kernel packages).
+
+
+== Printers connected via USB ==
+
 To use an USB printer you must first add support for USB printers.
 First follow [:UsbStorageHowto] to install the USB controller modules
 if you haven't already done so. You don't need {{{usb-storage}}} for the
@@ -63,19 +80,24 @@ hub.c: new USB device 01:02.0-1, assigned address 3
 printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
 }}}
 
-Now you can proceed with installing the printer daemon. For now please
-install the {{{p910nd}}} package from
-[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository]
-with the command:
+
+== Printers connected via parport (parallel port/LPT) ==
+
+When you're connecting a parport printer you must install the {{{kmod-lp}}} package
+which installs the modules for parport support.
 
 {{{
-ipkg install http://downloads.openwrt.org/people/nico/testing/ \
-        mipsel/packages/p910nd_0.7-2_mipsel.ipk
+ipkg install kmod-lp
 }}}
 
-'''TIP:''' These binary packages from
-[http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing repository] can be used
-in the stable White Russian release (except the kmod-* and kernel packages).
+Now you've to reboot your Wrt router.
+
+{{{
+reboot
+}}}
+
+When you see the file {{{/dev/printers/0}}} than the installation is done. You can also
+check the output from {{{dmesg}}}.
 
 
 = Configuring the printer daemon =
