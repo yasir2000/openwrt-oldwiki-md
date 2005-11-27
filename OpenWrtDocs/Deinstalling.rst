@@ -41,7 +41,7 @@ wget http://www.example.org/original.trx
 ./mtd.static -e linux -r write original.trx linux
 }}}
 
-If you only have a {{{.bin}}} formatted firmware file, this is not a problem, simply cut
+If you only have a Linksys {{{.bin}}} firmware file, this is not a problem, simply cut
 of the header before using the commands above:
 
 {{{
