@@ -39,15 +39,15 @@ and are prepared to do some work !OpenWrt is the fastest Linux based firmware fo
 At the moment the distribution contains more than 100 software packages. Furthermore the !OpenWrt
 community provide more add-on packages. For developers the project provides a build system, which may
 be used to create modified firmware from source. Porting of new software packages is simplified with
-the use of the SDK.
+the use of the SDK. (But you already knew that, or you else wouldn't be here)
 
 
 = OpenWrt Version History =
 
-The project started in January 2004. The first !OpenWrt versions were based on Linksys original GPL
-sources for WRT54G and a buildroot from the uclibc project. This version is known as !OpenWrt "stable"
-and was widely in use. There are still many !OpenWrt applications, like the Freifunk-Firmware or
-Sip@Home, which are based on this version.
+The project started in January 2004. The first !OpenWrt versions were based on reverse engineered copies
+the Linksys firmware, and later Linksys GPL sources for WRT54G and a buildroot from the uclibc project.
+This version was widely known as !OpenWrt "stable release" and was widely in use. There are still many
+!OpenWrt applications, like the Freifunk-Firmware or Sip@Home, which are based on this version.
 
 In the beginning of 2005 some new developers have joined the small developer team. After some month of
 closed development the team decided to publish the first "experimental" versions of !OpenWrt. The
@@ -57,4 +57,4 @@ and drivers for the network interfaces. The developer team try to reimplement mo
 code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware
 images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to
 program the VLAN capable switch (robocfg). The codename of the first !OpenWrt release is "White Russian"
-a popular cocktail. !OpenWrt 1.0 is planned for the end of 2005.
+a popular cocktail. !OpenWrt 1.0 is planned for the end of 2005. White Russian is currenly in "Release Canidate" status, with numbers like "rc3" and "rc4".
