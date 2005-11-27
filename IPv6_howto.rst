@@ -540,3 +540,23 @@ echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 to your enable script to enable ipv6 forwarding before you can run radvd.
 
 How would i go about setting up radvd to announce an v6 address (6to4), derived from an DHCP assigned v4 address (it changes every few weeks)?
+
+I found my own answer, this is how you use radvd with an 6to4 address, provided by DHCP
+
+change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101::/48 becomes 0:0:0:f101::/48, and add "Base6to4Interface ppp0;" (where ppp0 is your wan interface) to the section, and set AdvValidLifetime and AdvPreferredLifetime to a low number, so if the v4 address changes, the v6 routing info will be updated quickly, so the finished section would look something like this:
+
+{{{
+        prefix 0:0:0:f101::/48
+        {
+                AdvOnLink on;
+                AdvAutonomous on;
+                Base6to4Interface vlan1;
+
+                # Very short lifetimes for dynamic addresses
+                AdvValidLifetime 300;
+                AdvPreferredLifetime 120;
+        };
+}}}
+That assumes vlan1 is your wan interface, and that you have a /48 address (according to [http://ezine.daemonnews.org/200101/6to4.html] you do get one with 6to4)
+
+hope that helps somebody
