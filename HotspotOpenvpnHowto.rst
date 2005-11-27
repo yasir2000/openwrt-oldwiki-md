@@ -2,7 +2,6 @@
 +
 Private VPN access'''
 
-
 [[TableOfContents]]
 
 Updated 20. September 2005
@@ -49,7 +48,7 @@ The default config is a little tricky. The LAN-device (vlan0) and the WLAN-devic
 ''Note that the following commands are examples! You have to adapt them to your box. For example on some WRTs you have substitute wifi_ifname with wl0_ifname and so on.'' 
 
 
-
+ {{{
 nvram set lan_ifname=vlan0[[BR]]
 nvram set lan_proto=static[[BR]]
 nvram set lan_ipaddr=192.168.1.1[[BR]]
@@ -72,6 +71,7 @@ nvram set wl0_ssid=Hotspot[[BR]]
 nvram commit[[BR]]
 
 reboot
+}}}
 
 The box will restart and *hopefully* come up again.
 If your wlan interface (eth1) is not reachable, make sure it is ''up''.
@@ -80,120 +80,134 @@ If your wlan interface (eth1) is not reachable, make sure it is ''up''.
 == DHCP-Server ==
 The dnsmasq package in OpenWrt is responsible for the dhcpd functions. As we have a local LAN and a public WLAN we want to serve both with dynamically IP-address allocation. IP-addresses in the range between 192.168.1.200-192.168.1.250 and 192.168.2.200-192.168.2.250 are being offered.
 
-'''/etc/dnsmasq.conf'''[[BR]]
-domain-needed[[BR]]
-bogus-priv[[BR]]
-filterwin2k[[BR]]
-local=/lan/[[BR]]
-domain=lan[[BR]]
+'''/etc/dnsmasq.conf'''
+ {{{
+domain-needed
+bogus-priv
+filterwin2k
+local=/lan/
+domain=lan
 
 except-interface=vlan1
 
-dhcp-range=vlan0,192.168.1.200,192.168.1.250,255.255.255.0,3h[[BR]]
-dhcp-range=eth1,192.168.2.200,192.168.2.250,255.255.255.0,3h[[BR]]
+dhcp-range=vlan0,192.168.1.200,192.168.1.250,255.255.255.0,3h
+dhcp-range=eth1,192.168.2.200,192.168.2.250,255.255.255.0,3h
 
-dhcp-leasefile=/tmp/dhcp.leases[[BR]]
+dhcp-leasefile=/tmp/dhcp.leases
 
-dhcp-option=vlan0,3,192.168.1.1[[BR]]
-dhcp-option=vlan0,6,192.168.1.1[[BR]]
-dhcp-option=eth1,3,192.168.2.1[[BR]]
-dhcp-option=eth1,6,192.168.2.1[[BR]]
+dhcp-option=vlan0,3,192.168.1.1
+dhcp-option=vlan0,6,192.168.1.1
+dhcp-option=eth1,3,192.168.2.1
+dhcp-option=eth1,6,192.168.2.1
+}}}
 
 == OpenVPN ==
 First we should install the required software.
-
-    ipkg install openvpn 
-
+ {{{
+ipkg install openvpn 
+}}}
 Let's create the directory and a private key for our VPN.
-
-    mkdir /etc/openvpn [[BR]]
-    openvpn --genkey --secret /etc/openvpn/wlan_home.key 
-
+ {{{
+mkdir /etc/openvpn [[BR]]
+openvpn --genkey --secret /etc/openvpn/wlan_home.key 
+}}}
 Load the tunneling module and add it to the autoloader.
+ {{{
+insmod tun 
+echo "tun" » /etc/modules 
+}}}
 
-    insmod tun 
+'''/etc/openvpn/wlan_home.conf'''
+ {{{
+dev tun0
+ifconfig 192.168.3.1 192.168.3.2
+secret /etc/openvpn/wlan_home.key
+port 1194
+ping 15
+ping-restart 45
+ping-timer-rem
+persist-key
+persist-tun
+verb 3
+}}}
 
-    echo "tun" » /etc/modules 
-
-'''/etc/openvpn/wlan_home.conf'''[[BR]]
-dev tun0[[BR]]
-ifconfig 192.168.3.1 192.168.3.2[[BR]]
-secret /etc/openvpn/wlan_home.key[[BR]]
-port 1194[[BR]]
-ping 15[[BR]]
-ping-restart 45[[BR]]
-ping-timer-rem[[BR]]
-persist-key[[BR]]
-persist-tun[[BR]]
-verb 3[[BR]]
-
-'''/etc/init.d/S60openvpn'''[[BR]]
-#!/bin/sh[[BR]]
+'''/etc/init.d/S60openvpn'''
+ {{{
+#!/bin/sh
 openvpn --daemon --config /etc/openvpn/wlan_home.conf
+}}}
 
 Don't forget to assign executable rights to this file.
-
-    chmod a+x /etc/init.d/S60openvpn 
-
+ {{{
+chmod a+x /etc/init.d/S60openvpn 
+}}}
 == Iptables setup ==
-'''/etc/firewall.user'''[[BR]]
-
-[...][[BR]]
-iptables -A FORWARD -i eth1 -o ppp0 -j ACCEPT[[BR]]
-iptables -A FORWARD -i tun0 -j ACCEPT[[BR]]
-iptables -A FORWARD -i vlan0 -o tun0 -j ACCEPT[[BR]]
+'''/etc/firewall.user'''
+ {{{
+[...]
+iptables -A FORWARD -i eth1 -o ppp0 -j ACCEPT
+iptables -A FORWARD -i tun0 -j ACCEPT
+iptables -A FORWARD -i vlan0 -o tun0 -j ACCEPT
+}}}
 
 This has to be appended! The whole file is much longer.[[BR]]
 '''Finally you can do a last reboot.'''
 
-If you can only talk to vlan1, you may find you need to change the second line to:[[BR]]
-iptables -A FORWARD -i tun0 -o vlan0 -j ACCEPT[[BR]]
-iptables -A FORWARD -i tun0 -o vlan1 -j ACCEPT[[BR]]
+If you can only talk to vlan1, you may find you need to change the second line to:
+ {{{
+iptables -A FORWARD -i tun0 -o vlan0 -j ACCEPT
+iptables -A FORWARD -i tun0 -o vlan1 -j ACCEPT
+}}}
 
 = Clientside =
 
 Now if you want to access the Internet from either your local network or via wifi you just have to select dhcp for your network device. To access your local network from out the wifi, the OpenVPN client has to be installed.
 OpenVPN
 Install the fitting OpenVPN client for your operating system. Copy the /etc/openvpn/wlan_home.key file from the Wrt to your client. We prefer using scp.
+ {{{
+scp 192.168.1.1:/etc/openvpn/wlan_home.key /etc/openvpn/ 
+}}}
 
-    scp 192.168.1.1:/etc/openvpn/wlan_home.key /etc/openvpn/ 
-
-If you're using M$ Windows copy the file to "C:\Program Files\OpenVPN\config". [[BR]]
+If you're using M$ Windows copy the file to "C:\Program Files\OpenVPN\config". 
 
 Now create the config file.
 
 '''/etc/openvpn/wlan_home.conf''' or [[BR]] 
-'''C:\Program Files\OpenVPN\config\wlan_home.conf'''[[BR]]
-dev tun[[BR]]
-remote 192.168.2.1[[BR]]
-ifconfig 192.168.3.2 192.168.3.1[[BR]]
-secret wlan_home.key[[BR]]
-port 1194[[BR]]
-route-gateway 192.168.3.1[[BR]]
-route 0.0.0.0 0.0.0.0[[BR]]
-redirect-gateway[[BR]]
+'''C:\Program Files\OpenVPN\config\wlan_home.conf'''
+ {{{
+dev tun
+remote 192.168.2.1
+ifconfig 192.168.3.2 192.168.3.1
+secret wlan_home.key
+port 1194
+route-gateway 192.168.3.1
+route 0.0.0.0 0.0.0.0
+redirect-gateway
 	
-ping 15[[BR]]
-ping-restart 45[[BR]]
-ping-timer-rem[[BR]]
-persist-tun[[BR]]
-persist-key[[BR]]
+ping 15
+ping-restart 45
+ping-timer-rem
+persist-tun
+persist-key
 
-verb 3[[BR]]
+verb 3
+}}}
 
 Using '''Linux''' you have to load the tunnel module.
-
-    modprobe tun 
-
+ {{{
+modprobe tun 
+}}}
 Now you can start the tunnel using
-
-    openvpn --daemon --config /etc/openvpn/wlan_home.conf 
-
+ {{{
+openvpn --daemon --config /etc/openvpn/wlan_home.conf 
+}}}
 For '''Windows''' just right-click onto your config and choose the second point to execute the config.
 
-If you use '''MacOSX''' you should use something like Tunnelblick www.tunnelblick.net which is openvpn with a GUI.  Don't use it's default configuration, use the above config and add the lines:
+If you use '''MacOSX''' you should use something like Tunnelblick www.tunnelblick.net which is OpenVPN with a GUI.  Don't use it's default configuration, use the above config and add the lines:
 
-user nobody[[BR]]
-group nobody[[BR]]
+ {{{
+user nobody
+group nobody
+}}}
 
-(These might also be useful in your openvpn server config and linux client config).
+(These might also be useful in your OpenVPN server config and linux client config).
