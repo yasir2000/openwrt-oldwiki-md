@@ -195,6 +195,22 @@ if you dare to open it, you can do lots of
 the length of this cable must not exceed 10 cm.
 
 
+'''Siemens models '''
+
+On Siemens SE505 v2 models the JTAG connector is labeled J7.   
+{{{
+JTAG connector J7
+  
+   2   1
+    o o
+    o o-TDO
+    o o-TDI
+    o o-TCK
+GND-o o-TMS
+  10   9
+
+}}}
+
 = Problems going from JFFS2 to SquashFS or problems booting after reflashing =
 
 /!\ '''IMPORTANT:'''  This section assumes you have taken care of backup - follow
