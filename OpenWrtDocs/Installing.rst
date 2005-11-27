@@ -14,6 +14,7 @@
 /!\ '''WARNING''' !OpenWrt is a '''COMMAND LINE''' GNU/Linux distribution. It comes with
 '''NO WARRANTY''' and '''NO TECHNICAL SUPPORT'''.
 
+!OpenWrt is free software, provided AS-IS under the the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
 
 = Will OpenWrt work on my hardware ? =
 
