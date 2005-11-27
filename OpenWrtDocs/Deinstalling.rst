@@ -25,13 +25,12 @@ mtd -e linux -r write original.trx linux
 }}}
 
 Replace the file {{{original.trx}}} with the filename of the firmware you like to
-install. "linux" is the partition you need to write. {{{-e linux}}} will remove old
-stuff, before writing the new image. {{{-r}}} will reboot the router after successfully
-writing the file.
+install. This will erase the flash (-e linux) and write the new image. The -r will
+reboot the router after successfully writing the file.
 
-When you get a error message on the above {{{mtd}}} command like "invalied parameter" you
+If you get a error message on the above {{{mtd}}} command like "no valid command given" you
 are using an old version of {{{mtd}}} which doesn't support the {{{-r}}} or {{{-e}}}
-parameters. In this case use the newer statically compiled version ({{{mtd.static}}}).
+parameters. Download a newer statically compiled version ({{{mtd.static}}}):
 
 {{{
 cd /tmp
