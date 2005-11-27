@@ -9,6 +9,12 @@
 [[TableOfContents]]
 
 
+= BIG FAT WARNING =
+
+/!\ '''WARNING''' !OpenWrt is a '''COMMAND LINE''' GNU/Linux distribution. It comes with
+'''NO WARRANTY''' and '''NO TECHNICAL SUPPORT'''.
+
+
 = Will OpenWrt work on my hardware ? =
 
 See [:TableOfHardware].
