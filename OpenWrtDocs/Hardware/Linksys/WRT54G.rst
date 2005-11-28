@@ -86,10 +86,11 @@ rubber covers of the front feet!
 
 ==== WRT54G v5 ====
 
-/!\ '''NOTE:''' !OpenWrt does '''NOT''' currently support the WRT54G '''v5'''!
+/!\ '''NOTE:''' WRT54G V5 IS '''NOT''' SUPPORTED. IT WILL NEVER BE SUPPORTED. WE ARE SICK OF
+HEARING ABOUT THE V5!
 
-Initial reports are that this version has switched to a non-Linux OS (!VxWorks).  It appears
-from pictures that it is nearly identical to v4 with an updated rev on the processor, less
+This version has switched to a proprietary non-Linux OS (!VxWorks). It appears from
+pictures that it is nearly identical to v4 with an updated rev on the processor, less
 flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by
 !OpenWrt.
 
