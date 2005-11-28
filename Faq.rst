@@ -125,13 +125,15 @@ your computer might cache the MAC address (ARP) of the bootloader making it impo
 OpenWrt. You can delete the entries in the ARP cache with:
 
 On *nix operating systems use:
+
 {{{
-arp -d *
+arp -d 192.168.1.1
 }}}
 
 On Windows operating systems open a CMD console and do:
+
 {{{
-C:\> arp -d 192.168.1.1
+C:\>arp -d 192.168.1.1
 }}}
 
 
