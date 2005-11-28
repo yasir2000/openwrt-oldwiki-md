@@ -256,9 +256,9 @@ openvpn --daemon --config /etc/openvpn/wlan_home.conf
 For '''Windows''' just right-click onto your config and choose the second point to
 execute the config.
 
-If you use '''MacOSX''' you should use something like [www.tunnelblick.net Tunnelblick] which
-is OpenVPN with a GUI. Don't use it's default configuration, use the above config and add the
-lines:
+If you use '''MacOSX''' you should use something like [http://www.tunnelblick.net Tunnelblick]
+which is OpenVPN with a GUI. Don't use it's default configuration, use the above config and add
+the lines:
 
 {{{
 user nobody
