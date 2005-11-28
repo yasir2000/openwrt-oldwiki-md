@@ -47,5 +47,8 @@ If you want to help and got some basic kernel hacking knowledge, you should star
 All the kernel and image stuff is in the target/ subdirectory.
 
 All the sources we have for this platform is at http://downloads.openwrt.org/reference/
+Others source code could be found on ftp://ftp.gpl-devices.org/pub/platforms/Atheros_531x_and_231x/  .
+Note that D-link_DWL-2210AP/v1.0.2.8/dwl2210ap-source_1.0.2.8.tar.gz seems to include more kernel code than mips-linux-2.4.25.tar.bz2 one (ethernet stuff).
+
 
 AR531x/231x-specific kernel patches will go into {{{target/linux/linux-2.4/patches/ar531x}}}. The build system part that constructs the firmware images for AR531x based routers will be in {{{target/linux/image/ar531x}}}.
