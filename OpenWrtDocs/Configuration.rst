@@ -576,7 +576,7 @@ Examples:
 ||Prague, Czech Republic||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Roma, Italy||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
-||New Zealand||Auckland,Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
+||New Zealand||Auckland, Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
 ||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
 ||Alaska Time||AKST9AKDT||
 ||Pacific Time||PST8PDT||
@@ -585,7 +585,7 @@ Examples:
 ||Eastern Time||EST5EDT||
 ||Atlantic Time||AST4ADT||
 ||Asia||Jakarta||WIB-7||
-||South America||Brazil/São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
+||South America||Brazil, São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
 
 Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
