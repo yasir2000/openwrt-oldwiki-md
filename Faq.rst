@@ -35,7 +35,7 @@ output shows the hardware version.
 
 Both the SquashFS and JFFS2 filesystems use heavy compression to save disk (flash)
 space. The choice of layouts really depends on usage patterns. At this point, the
-recommended install is the SquashFS version wich will provide you with failsafe mode
+recommended install is the SquashFS version which will provide you with failsafe mode
 and a slightly better compression ratio than the JFFS2 partitions. Should you feel
 the need to switch over to JFFS2 later, the {{{jffs2root}}} script can be run -- the
 reverse can't be said.
