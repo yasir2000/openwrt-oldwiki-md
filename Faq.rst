@@ -43,6 +43,16 @@ reverse can't be said.
 See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 
 
+== Why so many folders (bin, default, micro, pptp)? ==
+
+Same firmware, only a different set of preinstalled packages.
+
+||'''Folder'''||'''Description'''||'''Package list'''||
+||bin=default||standard image||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, libgcc, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools, zlib||
+||micro||the minimal set of packages||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg, iptables, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-wlcompat, libgcc, mtd, nvram, uclibc, wireless-tools, wificonf, zlib||
+||pptp||includes support for PPTP||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, libgcc, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools, zlib||
+
+
 == How do I install/flash OpenWrt? ==
 
 '''NOTE:''' Before you install !OpenWrt make sure you have at least basic GNU/Linux
