@@ -585,7 +585,7 @@ Examples:
 ||Eastern Time||EST5EDT||
 ||Atlantic Time||AST4ADT||
 ||Asia||Jakarta||WIB-7||
-||South America||Brazil||BRST+3BRDT+2,M10.3.0,M2.3.0||
+||South America||Brazil/São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
 
 Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
