@@ -1,6 +1,4 @@
-'''Hotspot with OpenWrt
-+
-Private VPN access'''
+'''Hotspot with !OpenWrt + Private VPN access'''
 
 [[TableOfContents]]
 
@@ -23,7 +21,7 @@ With this document we want to describe how to set up a hotspot using an accesspo
 with !OpenWrt. A very important aspect when you decide to open your wireless network for
 everyone often is, that you still want to use it for your own purpose. This might be accessing
 a local file- or printserver or anything else not everybody in front of your house should be
-able to see and to use. Also your own connection should be encrypted. WEP-encryption is not
+able to see and to use. Also your own connection should be encrypted. WEP encryption is not
 only quite insecure but would also conflict with the idea of an open hotspot. So we decided to
 create a VPN using OpenVPN.
 
@@ -57,21 +55,21 @@ I will install them later with ipkg.
 
 = OpenWrt =
 
-Our configuration has been tested with the Linksys WRT54g versions 2.0 and 2.2. If you use
+Our configuration has been tested with the Linksys WRT54G versions 2.0 and 2.2. If you use
 other hardware please mind that the interface names may be changed. Assuming your !OpenWrt
-installation is untouched your box is reachable via telnet on 192.168.1.1. The first thing to
-do is to set a password. Log into your box, type "passwd" and set your new root password.
-After doing so disconnect and reconnect via ssh.
+installation is untouched your box is reachable via telnet on {{{192.168.1.1}}}. The first
+thing to do is to set a password. Log into your box, type {{{passwd}}} and set your new root
+password. After doing so disconnect and reconnect via SSH.
 
 
 == Network devices ==
 
-The default config is a little tricky. The LAN-device (vlan0) and the WLAN-device (eth1) are
+The default config is a little tricky. The LAN device (vlan0) and the WLAN device (eth1) are
 bridged together to "br0". But as we want to have separated nets for those devices, we have
 to split them. Also the Internet (WAN) device has to be configured.
-''Note that the following commands are examples! You have to adapt them to your box. For example
-on some Wrt's you have substitute wifi_ifname with wl0_ifname and so on.''
 
+'''Note:''' that the following commands are examples! You have to adapt them to your box. For
+example on some Wrt's you have substitute {{{wifi_ifname}}} with {{{wl0_ifname}}} and so on.
 
 {{{
 nvram set lan_ifname=vlan0
@@ -98,15 +96,15 @@ nvram commit
 reboot
 }}}
 
-The box will restart and *hopefully* come up again.
-If your wlan interface (eth1) is not reachable, make sure it is ''up''.
+The box will restart and *hopefully* come up again. If your WLAN interface (eth1) is not
+reachable, make sure it is ''up''.
 
 
 == DHCP-Server ==
 
-The dnsmasq package in !OpenWrt is responsible for the dhcpd functions. As we have a
-local LAN and a public WLAN we want to serve both with dynamically IP-address allocation.
-IP addresses in the range between 192.168.1.200-192.168.1.250 and 192.168.2.200-192.168.2.250
+The dnsmasq package in !OpenWrt is responsible for the DHCPD functions. As we have a
+local LAN and a public WLAN we want to serve both with dynamically IP address allocation.
+IP addresses in the range between {{{192.168.1.200-192.168.1.250}}} and {{{192.168.2.200-192.168.2.250}}}
 are being offered.
 
 '''/etc/dnsmasq.conf'''
@@ -194,7 +192,7 @@ iptables -A FORWARD -i tun0 -j ACCEPT
 iptables -A FORWARD -i vlan0 -o tun0 -j ACCEPT
 }}}
 
-This has to be appended! The whole file is much longer.[[BR]]
+This has to be appended! The whole file is much longer.
 
 '''Finally you can do a last reboot.'''
 
@@ -208,22 +206,21 @@ iptables -A FORWARD -i tun0 -o vlan1 -j ACCEPT
 
 = Clientside =
 
-Now if you want to access the Internet from either your local network or via wifi
-you just have to select dhcp for your network device. To access your local network
+Now if you want to access the internet from either your local network or via wifi
+you just have to select DHCP for your network device. To access your local network
 from out the wifi, the OpenVPN client has to be installed. OpenVPN Install the fitting
-OpenVPN client for your operating system. Copy the /etc/openvpn/wlan_home.key file from
-the Wrt to your client. We prefer using SCP.
+OpenVPN client for your operating system. Copy the {{{/etc/openvpn/wlan_home.key}}} file
+from the Wrt to your client. We prefer using SCP.
 
 {{{
 scp 192.168.1.1:/etc/openvpn/wlan_home.key /etc/openvpn/
 }}}
 
-If you're using MS Windows copy the file to "C:\Program Files\OpenVPN\config".
+If you're using MS Windows copy the file to {{{C:\Program Files\OpenVPN\config}}}.
 
 Now create the config file.
 
-'''/etc/openvpn/wlan_home.conf''' or [[BR]]
-'''C:\Program Files\OpenVPN\config\wlan_home.conf'''
+'''/etc/openvpn/wlan_home.conf''' or '''C:\Program Files\OpenVPN\config\wlan_home.conf'''
 
 {{{
 dev tun
@@ -259,9 +256,9 @@ openvpn --daemon --config /etc/openvpn/wlan_home.conf
 For '''Windows''' just right-click onto your config and choose the second point to
 execute the config.
 
-If you use '''MacOSX''' you should use something like Tunnelblick www.tunnelblick.net which
-is OpenVPN with a GUI.  Don't use it's default configuration, use the above config and add
-the lines:
+If you use '''MacOSX''' you should use something like [www.tunnelblick.net Tunnelblick] which
+is OpenVPN with a GUI. Don't use it's default configuration, use the above config and add the
+lines:
 
 {{{
 user nobody
