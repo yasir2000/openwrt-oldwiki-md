@@ -385,6 +385,8 @@ Just follow these easy steps!
  7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1) /!\ '''NOTE:''' It has been reported that v2 of the WR850G will '''NOT''' reset the nvram after erasing it, leaving the unit bricked.  So proceed with caution!
 
 /!\ '''If you're using TFTP to flash the firmware, put to the host 192.168.10.1.'''
+/!\ '''I left the host as 192.168.10.1 and it was fine on my WRT850G V2.'''
+
 
 
 == Buffalo Airstation WLA-G54 ==
