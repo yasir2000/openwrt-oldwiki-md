@@ -9,7 +9,7 @@
 
 === by device model name ===
 
-See here [:OpenWrtDocs/InstallingAR7#head-c4b218f29067ebd2e50fb42617c6a9f4228834d4] (NOTE: default ADAM2 IP shown, it can be changed)
+See here [:OpenWrtDocs/InstallingAR7#head-c4b218f29067ebd2e50fb42617c6a9f4228834d4] (NOTE: default [:ADAM2] IP shown, it can be changed)
 
 === by telnet with original firmware ===
 
