@@ -399,9 +399,11 @@ fans). The core developers with write access to the subversion repository are:
 {{{
 Mike Baker <mbm>
 Imre Kaloz <Kaloz>
-Nicolas Thill <Nico>
 Waldemar Brodkorb <wbx>
+Nicolas Thill <Nico>
 Felix Fietkau <nbd>
+Florian Fainelli <florian>
+Oliver Ertl <olli04>
 }}}
 
 
