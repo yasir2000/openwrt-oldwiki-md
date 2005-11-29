@@ -70,6 +70,9 @@ And why break the bridge? I did not and everything works...
 
 Are you using WPA2?  The hardware bridge works fine without encryption; and if you're using the hardware bridge, broadcasting (such as for DHCP) will also work fine.  When I have br0 connecting eth1+vlan0, with WPA2, the encryption negotiation fails.  I'd be very happy if this weren't the case! -- ["wmono"] [[DateTime(2005-11-23T17:44:06Z)]]
 
+I saw the same thing. Everything configured, no joy, broke the bridge and rebooted, connected. Funny thing is my other AP in AP mode, both running WR RC4, doesn't have a problem with the bridge intact. I'm going to investigate soon, but for now it seems like ["wmono"]'s right.
+-- PeterKahle [[DateTime]]
+
 == S47sleep ==
 
 {{{
