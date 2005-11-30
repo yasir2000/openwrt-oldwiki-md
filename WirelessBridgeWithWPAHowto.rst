@@ -73,6 +73,9 @@ Are you using WPA2?  The hardware bridge works fine without encryption; and if y
 I saw the same thing. Everything configured, no joy, broke the bridge and rebooted, connected. Funny thing is my other AP in AP mode, both running WR RC4, doesn't have a problem with the bridge intact. I'm going to investigate soon, but for now it seems like ["wmono"]'s right.
 -- PeterKahle [[DateTime]]
 
+OK, I stand corrected. It seems to work. I'm using WPA, not WPA2, but somehow it's working. Only setting differences are lan_ifname=br0, lan_ifnames=vlan0 eth1, wl0_mode=wet, wl0_akm=psk, and wl0_crypto=tkip. I may try WPA2 later, but for now this is good enough.
+-- PeterKahle [[DateTime]]
+
 == S47sleep ==
 
 {{{
