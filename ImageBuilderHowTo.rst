@@ -57,15 +57,22 @@ builds three types of images. They're default, micro and pptp. In the
 file {{{lists/<image_name>.brcm-2.4}}} are the packages defined which go into
 the image. It will use the ipkg packages out of the {{{packages}}} directory.
 
-When removing packages just remove the package name from the
+When removing packages just remove the line with the package name from the
 {{{<image_name>.brcm-2.4}}} file.
 
 '''NOTE:''' Dependencies are not automatically resolved for ipkg packages by
 the Image Builder.
 
-Let's start with an example by adding the haserl package into your new
-image.
+Let's start with an example by adding the nas package into your new image.
 
+First download the nas package into the {{{pacakges}}} directory since it's not
+included by default.
+
+{{{
+cd ~/OpenWrt-ImageBuilder-Linux-i686/packages
+wget http://downloads.openwrt.org/whiterussian/packages/non-free/ \
+        nas_3.90.37-13_mipsel.ipk
+}}}
 
 Create a new package list by copying the default one:
 
@@ -75,15 +82,14 @@ cd lists
 cp -v default.brcm-2.4 my-image.brcm-2.4
 }}}
 
-
 Now edit {{{my-image.brcm-2.4}}} with your favourite editor or just append the
-haserl package with:
+nas package with:
 
 {{{
-echo "haserl" >> my-image.brcm-2.4
+echo "nas" >> my-image.brcm-2.4
 }}}
 
-The {{{my-image.brcm-2.4}}} file should look like this after appending haserl:
+The {{{my-image.brcm-2.4}}} file should look like this after appending nas:
 
 {{{
 cat my-image.brcm-2.4
@@ -113,7 +119,7 @@ uclibc
 wireless-tools
 wificonf
 zlib
-haserl
+nas
 }}}
 
 That's all.
@@ -130,10 +136,9 @@ the {{{packages}}} directory. After that add the package as described in
 [:ImageBuilderHowTo#The_package_lists:3.2 The package lists] above.
 
 {{{
-cd ~/OpenWrt-ImageBuilder-Linux-i686
-wget http://downloads.openwrt.org/whiterussian/ \
-        packages/non-free/nas_3.90.37-7_mipsel.ipk
-mv -v nas_3.90.37-7_mipsel.ipk packages/
+cd ~/OpenWrt-ImageBuilder-Linux-i686/packages
+wget http://downloads.openwrt.org/whiterussian/packages/non-free/ \
+        nas_3.90.37-13_mipsel.ipk
 }}}
 
 
@@ -145,7 +150,7 @@ in the images with your own.
 You've two options here.
 
 
-{{{files}}} directory:[[BR]]
+'''files directory:'''[[BR]]
 Files, directories and links in here would go into every image. Existing
 ones are replaced.
 
@@ -156,7 +161,7 @@ mkdir -p files/etc
 touch files/etc/example.txt
 }}}
 
-{{{files.<image_name>}}} directory:[[BR]]
+'''files.<image_name> directory:'''[[BR]]
 Files, directories and links in here would only go into the image you
 defined by {{{<image_name>}}}. Existing ones are replaced.
 
@@ -237,8 +242,8 @@ Unpacking wificonf...Done.
 Configuring wificonf...Done.
 Unpacking zlib...Done.
 Configuring zlib...Done.
-Unpacking haserl...Done.
-Configuring haserl...Done.
+Unpacking nas...Done.
+Configuring nas...Done.
 mjn3's trx replacement - v0.81.1
 mjn3's addpattern replacement - v0.81
 writing firmware v4.20.6 on 5/9/19 (y/m/d)
