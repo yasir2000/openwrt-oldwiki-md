@@ -63,9 +63,8 @@ to scripts will be lost)
 
 = Resetting to defaults =
 
-/!\ '''NOTE:''' Resetting the NVRAM is not a good idea on every model, for
-example Asus WL-500g and the Motorola WR850G bootloader will not recreate
-default values, avoid deleting NVRAM.
+/!\ '''NOTE: Resetting NVRAM this way will actually cause more problems than it solves. For
+example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values and will not boot properly after being reset.'''
 
 To clean the NVRAM variables the safe way see the !OpenWrt [:Faq].
 
