@@ -65,7 +65,7 @@ the Image Builder.
 
 Let's start with an example by adding the nas package into your new image.
 
-First download the nas package into the {{{pacakges}}} directory since it's not
+First download the nas package into the {{{packages}}} directory since it's not
 included by default.
 
 {{{
