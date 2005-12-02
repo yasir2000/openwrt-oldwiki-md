@@ -235,6 +235,8 @@ entry.
 
 /!\ '''Ping bug still exists in firmware 4.20.6 on hardware 4.0 and firmware 4.20.7 on hardware 2.0, but it is necessary to use the ping_times variation on the hack, plus some stripping of javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
 
+/!\ '''WRT54GSv4 w/ firmware 1.05.x does NOT have the Ping bug, so this won't work.  Instead go get the _v4 version of the firmware from the image site and install it using the Linksys 'Upgrade Firmware' web interface.'''
+
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
 ;*/n${IFS}set${IFS}boot_wait=on
