@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2005/10/12. Legend:
+This is a table of all supported devices as of 2005/12/02. Legend:
 
  * '''Supported''' - supported in "White Russian"
  * '''Partial''' - partially supported, no support for the wireless card.
@@ -27,7 +27,8 @@ This is a table of all supported devices as of 2005/10/12. Legend:
 ||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=179477 F5D7231-4]||1102||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2 MB||8 MB||integrated Broadcom||BCM5325|| || || || ||[wiki:F5D7231 Untested]||
 ||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=184855 F5D7231-4P]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2 MB||16 MB||integrated Broadcom||ADM6996L|| || || ||1x v1.1||[wiki:F5D7231 Untested]||
 ||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=154416 F5D7330]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2 MB||8 MB||Broadcom mini-PCI||None|| || || || ||Untested||
-||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on||Yes||No||No||Untested||
+||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||4MB||16MB||Airgo mini-PCI||BCM5325||on||Yes||No||No||Untested||
+||Belkin||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4]||2||Realtek 8651B @ 200MHz||4MB||16MB||Airgo mini-PCI|| ||N/A||Yes||No||No||WiP||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||No||Supported||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=24&categoryid=6 WBR2-B11]|| || ||4MB|| || || || || || || ||Untested||
 ||Buffalo||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||No||Supported||
