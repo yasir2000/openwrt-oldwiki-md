@@ -44,6 +44,7 @@ ioctl_internal_command: <0 0 0 0> return code = 8000002
     ASC=0x0 ASCQ=0x0
   }}}
   * OHCI driver is working, try kmod-ohci
+ * fix networking by getting hotplug system to work on non-nvram systems
  * webupgrade from original firmware [need a CRC header]
 
 
