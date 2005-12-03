@@ -116,8 +116,8 @@ This project is for people who would like to add a little storage to their Links
   GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find
   GPIO 5 next to the RA10 Text label.
   GPIO 4 is located near the RA13 Text label (near to the Power LED)
-[http://nanl.de/nanl/bildchen/gpio_3_5_mini.jpg]
- This is a picture of the GPIO 3+5 for wrt-Version 2.2 taken from http://nanl.de/nanl/
+[http://www.linuxbench.org/wrt54g/wrt54gs.jpg]
+ This is a picture of the GPIO 3+5 for wrt-Version 2.2 taken from http://linuxbench.org
 
 Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
    2. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
