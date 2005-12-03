@@ -424,17 +424,18 @@ Note: You do not require the wondershaper.
 ==== Shorewall Configuration ====
 Shorewall has the ability to setup all of the traffic shaping items; however, the package that is available for the openwrt doesnt seem to setup the classes or qdisc portions.  (only the tcrules file is processed), so we will use a combination of a manually setup tcstart script and the tcrules processed by shorewall.
 ===== /etc/shorewall/modules =====
-Add the following lines to this file to add the required support
+Add the following lines to this file to add the required support{{{
  * loadmodule ipt_LOG  # Take care of logging issues noted above
-
+}}}
 ===== /etc/shorewall/shorewall.conf =====
-set the following:
+set the following:{{{
  * TC_ENABLED=Yes
  * CLEAR_TC=Yes
-
+}}}
 ===== /etc/shorewall/tcrules =====
 It is important to note that the '''Marks''' here are in decimal; however in the TCStart Script they are in hexdecimal: Thus 16 dec = 10 hex, 48 dec = 30 hex.
 Set the following:
+{{{
 #MARK           SOURCE          DEST            PROTO   PORT(S) CLIENT  USER
 #                                                               PORT(S)
 # Allow good pings -- Doesnt work in OpenWRT ??
@@ -455,9 +456,10 @@ Set the following:
 48              192.168.20.169  0.0.0.0/0       udp
 # Everything else
 # Caught in the "default"
-
+}}}
 ===== /etc/shorewall/tcstart =====
 This script will be called by shorewall automagically and needs to have chmod 744 set on it.
+{{{
 #!/bin/ash
 # Wonder Shaper
 # please read the README before filling out these values
@@ -530,7 +532,7 @@ tc qdisc add dev $DEV parent 1:30 handle 30: sfq perturb 10
 tc filter add dev $DEV parent 1: protocol ip handle 0x30 fw flowid 1:30
 tc filter add dev $DEV parent 1: protocol ip handle 0x20 fw flowid 1:20
 tc filter add dev $DEV parent 1: protocol ip handle 0x10 fw flowid 1:10
-
+}}}
 ===== Useful commands =====
   * tcstart status  -- This will give you the status of your "buckets"
   * iptabiles --show -t mangle  -- This will show you your "marking rules" for bucket sorting
