@@ -12,13 +12,13 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == 3COM ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRWE554G72TU 3CRWE554G72TU-US]|| || || || || || || || || ||No||untested||
 
 
 == ALLNET ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL] (aka [http://www.sercomm.com/IP505AB.htm Sercomm IP505] ???)|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHZ||2MB||8MB|| || || || || || ||[wiki:AR7Port WiP]||
 ||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???)||v2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHZ||2MB||16MB||ACX-111||Marvell 88E6060|| ||Yes||No||No||[wiki:AR7Port WiP]||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||ADMtek ADM6996||on|| || ||No||Supported||
@@ -26,7 +26,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Asus ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=41&l3=0&model=60&modelmenu=1 WL-300G]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||integrated Broadcom||None||on|| || ||No||[wiki:OpenWrtDocs/Hardware/Asus/WL300G Supported]||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500B]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||1x v1.1||[wiki:OpenWrtDocs/Hardware/Asus/WL500B Supported]||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500B]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Ralink mini-PCI||BCM5325||on|| || ||1x v1.1||[wiki:OpenWrtDocs/Hardware/Asus/WL500B Untested]||
@@ -40,7 +40,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Belkin ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136486 F5D7130]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz|| || ||Broadcom mini-PCI||None|| || || || ||Untested||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4]||pre 1444||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| || || || || ||[wiki:F5D7230 Untested]||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4]||from 1444||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2MB||8MB||integrated Broadcom||BCM5325|| ||Yes||No|| ||[wiki:F5D7230 No]||
@@ -53,7 +53,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Buffalo ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||No||Supported||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=24&categoryid=6 WBR2-B11]|| || ||4MB|| || || || || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on|| || ||No||Supported||
@@ -79,20 +79,20 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Dell ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||Truemobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||off|| || || ||Supported||
 
 
 == D-Link ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.dlink.com/products/?pid=372 DSL-G604T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @ 150MHz||4MB||16MB||ACX111||IP175A||[:ADAM2]||Yes|| ||No||[wiki:AR7Port WiP]||
 ||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @ 150MHz||4MB||16MB||ACX111||IP175A||[:ADAM2]||Yes|| ||No||[wiki:AR7Port WiP]||
 
 
 == Linksys ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7]@150mhz||4MB||16MB ||None ||None ||[:PSPBoot] ||Yes|| ||v1.1 ||[wiki:AR7Port WiP]||
 ||WRT54AG|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism mini-PCI|| || || || || ||Partial 802.11a/b/g||
 ||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G]||2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @ 150MHz||4MB||16MB||TI ACX111|| ||[:ADAM2]||Yes|| || ||[wiki:AR7Port WiP]||
@@ -116,7 +116,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 ||WRT54GL|| ||Broadcom 5352 @ 200MHz||4MB||16MB||integrated Broadcom||Broadcom BCM2050||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54G Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=679 WRT54GC]||1.0||Marvell|| || || || || || || || ||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GC No]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=662 WRT54GP2-AT]||1.0||Marvell|| || || || || || || || ||No||
-||Linksys||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||integrated Broadcom||ADM6996L||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||1.1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||2.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||2.1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||integrated Broadcom||BCM5325||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
@@ -131,19 +131,19 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Maxtor ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.ba88f6d7cf664718376049b291346068/?channelpath=/en_us/Products/Network%20Storage/Maxtor%20Shared%20Storage%20Family/Maxtor%20Shared%20Storage Shared Storage]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz||2MB||32MB||None||None|| ||Yes||No||2x v2.0||Untested||
 
 
 == Microsoft ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||doesn't exist||No||Yes||No||[wiki:OpenWrtDocs/Hardware/Microsoft Supported]||
 
 
 == Motorola ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125Mhz||4MB||16MB||Broadcom mini-PCI||None|| || || || ||Untested||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200Mhz||2MB||8MB||integrated Broadcom||None|| ||Yes||No||No||Untested||
 ||[http://broadband.motorola.com/consumers/products/wa840gp/default.asp WA840GP]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||2MB||8MB||integrated Broadcom||None|| ||Yes||No||No||Untested||
@@ -157,7 +157,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Netgear ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G]|| 2 || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHZ || 4MB || 16MB || ACX111 mini-PCI || Marvell 88E6060 || || Yes || No || No || [wiki:AR7Port WiP] ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2MB|| ||Atheros & Broadcom mini-PCI||BCM5325|| || || || ||Untested||
 ||[http://www.netgear.com/products/details/WG602.php WG602]||3||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||2MB||8MB||integrated Broadcom||None||on||Yes||Yes||No ||No||
@@ -170,7 +170,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Rovatek ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB|| ||None|| || || || ||Untested||
 ||[http://www.ravo.hu/spec/W54-RT.html W54-RT]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||Supported (no leds)||
 ||RT210w|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI||BCM5325||on||No||No||No||Supported||
@@ -178,7 +178,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Siemens ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom mini-PCI|| ||on|| || || ||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||integrated Broadcom||ADM6996L||on||Yes||Yes||1x v1.1 (easy mod)||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
@@ -187,38 +187,38 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Simpletech ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz|| ||32MB||None||None|| ||Yes||Yes||2x v2.0||Untested||
 
 
 == Sitecom ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||WL-111|| || || || || || || || || || ||Untested||
 
 
 == Soekris Engineering ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.soekris.com/ net4801]|| ||@266MHz|| ||128MB|| || || ||Yes||No||1x v1.1||[:SoekrisPort:WiP]||
 
 
 == T-Com ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHZ||2MB||16MB||ACX111 mini-PCI||None|| ||Yes|| ||No||[wiki:AR7Port WiP]||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHZ||2MB||16MB||ACX111 mini-PCI||None|| ||Yes|| ||No||[wiki:AR7Port WiP]||
 
 
 == Toshiba ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||WRC-1000|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism mini-PCI|| || || || || ||Partial, needs [http://hostap.epitest.fi/ hostap]||
 
 
 == Trendnet ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB]|| || ||2MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || ||2MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
@@ -227,18 +227,18 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == US Robotics ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || ||2MB|| || || ||on|| || || ||Supported||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461]|| ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||2MB||8MB||integrated Broadcom||integrated into CPU||on|| || ||1x v2.0||Untested||
 
 
 == Viewsonic ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||WAPBR-100, A.K.A VS10407|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2MB||8MB||BCM2050KMI||None||off||Maybe||No||No||WiP||
 
 
 == Zyxel ==
 
-||Model||Version||Platform & Frequency||Flash||RAM||Wireless NIC||Switch||boot_wait||Serial||JTAG||USB||Status||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7 (TNETD7300)] @160MHZ||16MB||8MB||[http://acx100.sourceforge.net/ ACX111](TNETW1130) mini-PCI||Infineon ADM6996L|| ||Maybe||No||No||[wiki:AR7Port WiP]||
