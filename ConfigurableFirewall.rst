@@ -389,3 +389,153 @@ mv /etc/init.d/shorewall /etc/init.d/S45shorewall
 }}}
 
 And we are finally done :) . Reboot the router and cross your fingers...
+
+== Adding Traffic Shaping ==
+Note: I am a newbie when it comes to TC and shorewall, but what I have works so here it is:
+
+=== About Traffic Shaping ===
+It is important to note that when you are running services that are very time/bandwidth sensitive that QoS or traffic shaping is very important.  The rules below are a good example to customize to your requirements; however, I will describe the design point that I used as I think it will match most people's requirements.
+
+==== Traffic Shaping in General ====
+The simple way of thinking of traffic shaping is this:  Consider all your traffic coming into a "router" of sorts.  This Router is aware of the types of traffic and will seperate it into a series of buckets.   The buckets all have a hole in the bottom to allow this sorted traffic through; however, these are special holes:
+ * If bucket 1 has traffic in it, that traffic will flow, ignoring any traffic sitting in bucket 2 or 3.
+ * If bucket 1 is empty, and bucket 2 has traffic.  Bucket 2's traffic will flow ignoring bucket 3 and,
+ * If bucket 1 and 2 are empty, then the traffic in bucket 3 will flow.
+
+Thus 1 will always get priority.
+
+==== My Setup ====
+ * I run a network where my main phone line is based on VoIP with an asterisk server and multiple internal and external extensions.
+ * I run a webserver, mail server and other standard services
+ * I run a few workstations that browse the internet
+ * I have a system that is dedicated to P2P applications
+
+Obviously I want my voice converstaions to be perfect and uninterrupted, and my P2P applications to use only unused bandwidth and not impact any of my other communications.  Thus here is how I will make 3 buckets to prioritize my traffic:
+ 1.#1 VoIP traffic
+ # Default traffic
+ # P2P traffic
+
+=== OpenWRT Configuration ===
+""Requirements:""
+- tc
+- shorewall
+Note: You do not require the wondershaper.
+
+==== Shorewall Configuration ====
+Shorewall has the ability to setup all of the traffic shaping items; however, the package that is available for the openwrt doesnt seem to setup the classes or qdisc portions.  (only the tcrules file is processed), so we will use a combination of a manually setup tcstart script and the tcrules processed by shorewall.
+===== /etc/shorewall/modules =====
+Add the following lines to this file to add the required support
+ * loadmodule ipt_LOG  # Take care of logging issues noted above
+
+===== /etc/shorewall/shorewall.conf =====
+set the following:
+ * TC_ENABLED=Yes
+ * CLEAR_TC=Yes
+
+===== /etc/shorewall/tcrules =====
+It is important to note that the "Marks" here are in decimal; however in the TCStart Script they are in hexdecimal: Thus 16 dec = 10 hex, 48 dec = 30 hex.
+Set the following:
+#MARK           SOURCE          DEST            PROTO   PORT(S) CLIENT  USER
+#                                                               PORT(S)
+# Allow good pings -- Doesnt work in OpenWRT ??
+#1:P            0.0.0.0/0       0.0.0.0/0       icmp    echo-request
+#1:P            0.0.0.0/0       0.0.0.0/0       icmp    echo-reply
+# VOIP is highest priority
+16              192.168.20.3    0.0.0.0/0       udp     5060,4569,10000:20000
+# Primus VOIP also highest
+16              192.168.20.15   0.0.0.0/0       udp
+16              192.168.20.15   0.0.0.0/0       tcp
+# Add the primus router here too
+
+# P2P is lowest class traffic
+##Azuerus on linux vm
+48              0.0.0.0/0       0.0.0.0/0       tcp     9000:9010
+48              0.0.0.0/0       0.0.0.0/0       udp     9000:9010
+48              192.168.20.169  0.0.0.0/0       tcp
+48              192.168.20.169  0.0.0.0/0       udp
+# Everything else
+# Caught in the "default"
+
+===== /etc/shorewall/tcstart =====
+This script will be called by shorewall automagically and needs to have chmod 744 set on it.
+#!/bin/ash
+# Wonder Shaper
+# please read the README before filling out these values
+#
+# Set the following values to somewhat less than your actual download
+# and uplink speed. In kilobits. Also set the device that is to be shaped.
+
+DOWNLINK=5000
+UPLINK=650
+DEV=vlan1
+
+if [ "$1" = "status" ]
+then
+        tc -s qdisc ls dev $DEV
+        tc -s class ls dev $DEV
+exit
+fi
+
+# clean existing down- and uplink qdiscs, hide errors
+tc qdisc del dev $DEV root    2> /dev/null > /dev/null
+tc qdisc del dev $DEV ingress 2> /dev/null > /dev/null
+
+if [ "$1" = "stop" ]
+then
+        exit
+fi
+#Inserting various kernel modules -- Load better in /etc/shorwall/modules ??
+insmod ipt_TOS
+insmod ipt_tos
+insmod ipt_length
+insmod sch_prio
+insmod sch_red
+insmod sch_htb
+insmod sch_sfq
+insmod sch_ingress
+insmod cls_tcindex
+insmod cls_fw
+insmod cls_route
+insmod cls_u32
+
+###### uplink
+# install root HTB, point default traffic to 1:20:
+tc qdisc add dev $DEV root handle 1: htb default 20
+
+# shape everything at $UPLINK speed - this prevents huge queues in your
+# DSL modem which destroy latency:
+tc class add dev $DEV parent 1: classid 1:1 htb rate ${UPLINK}kbit burst 6k
+
+# high prio class 1:10, med 1:20, and bulk 1:30:
+tc class add dev $DEV parent 1:1 classid 1:10 htb rate ${UPLINK}kbit burst 6k prio 0
+
+#Ash shell doesnt allow math in the string below, so I am using the let command
+let RATE=9*$UPLINK/10
+tc class add dev $DEV parent 1:1 classid 1:20 htb rate ${UPLINK}kbit burst 6k prio 1
+
+let RATE2=8*$UPLINK/10
+tc class add dev $DEV parent 1:1 classid 1:30 htb rate ${RATE2}kbit ceil ${RATE}kbit bu
+
+# all get Stochastic Fairness:
+tc qdisc add dev $DEV parent 1:10 handle 10: sfq perturb 10
+tc qdisc add dev $DEV parent 1:20 handle 20: sfq perturb 10
+tc qdisc add dev $DEV parent 1:30 handle 30: sfq perturb 10
+
+# a different method of setting Fairness:  Dont know which is better
+#tc qdisc add dev $DEV parent 1:10 handle 10: red limit 400000b min 10000b max 50000b a
+#tc qdisc add dev $DEV parent 1:20 handle 20: red limit 400000b min 10000b max 50000b a
+#tc qdisc add dev $DEV parent 1:30 handle 30: red limit 400000b min 10000b max 50000b a
+
+# Setup filtering where handle 0x10 0x20 and 0x30 the hex versions of the marks defined in tcrules
+tc filter add dev $DEV parent 1: protocol ip handle 0x30 fw flowid 1:30
+tc filter add dev $DEV parent 1: protocol ip handle 0x20 fw flowid 1:20
+tc filter add dev $DEV parent 1: protocol ip handle 0x10 fw flowid 1:10
+
+===== Useful commands =====
+  * tcstart status  -- This will give you the status of your "buckets"
+  * iptabiles --show -t mangle  -- This will show you your "marking rules" for bucket sorting
+
+===== Other useful points =====
+Notice that we are only shaping outgoing traffic -- As it may make sense to shape incoming traffic, you need to stop and think a moment.   We need to receive the incoming traffic before we can shape it, and our LAN is not bandwidth limited like our WAN connection, so why bother shape it?  We have already received it...
+
+Thankfully 95% of our latency issues surround two things: 1) incoming connection rate and 2) upload rate.   For 1, with proper configuration of our p2p clients we can handle this.  For 2, the above script works well.
