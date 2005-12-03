@@ -411,12 +411,12 @@ Thus 1 will always get priority.
  * I have a system that is dedicated to P2P applications
 
 Obviously I want my voice converstaions to be perfect and uninterrupted, and my P2P applications to use only unused bandwidth and not impact any of my other communications.  Thus here is how I will make 3 buckets to prioritize my traffic:
- 1.#1 VoIP traffic
- # Default traffic
- # P2P traffic
+ 1. VoIP traffic
+ 2. Default traffic
+ 3. P2P traffic
 
 === OpenWRT Configuration ===
-""Requirements:""
+ '''Requirements:'''
 - tc
 - shorewall
 Note: You do not require the wondershaper.
@@ -433,7 +433,7 @@ set the following:
  * CLEAR_TC=Yes
 
 ===== /etc/shorewall/tcrules =====
-It is important to note that the "Marks" here are in decimal; however in the TCStart Script they are in hexdecimal: Thus 16 dec = 10 hex, 48 dec = 30 hex.
+It is important to note that the '''Marks''' here are in decimal; however in the TCStart Script they are in hexdecimal: Thus 16 dec = 10 hex, 48 dec = 30 hex.
 Set the following:
 #MARK           SOURCE          DEST            PROTO   PORT(S) CLIENT  USER
 #                                                               PORT(S)
