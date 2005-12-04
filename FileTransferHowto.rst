@@ -15,7 +15,7 @@ or install extra packages offline.
 
  * You need to have !OpenWrt installed (should work with almost any version,
  old ones too)
- * The programs for the method you've choosed
+ * The programs for the method you've choosed installed on your PC
 
 
 = Methods to transfer files =
