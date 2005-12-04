@@ -24,6 +24,8 @@ flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
 Flashing may take over a minute. After that you can use {{{reboot}}} to start !OpenWrt.
 
+Also note that if you are building from SVN (as of 2005-12-02 / rev2577), you will break the firmware on your router, and not be able to boot again, nor recover the firmware at all. Apparently, OpenWRT runs {{{mtd unlock}}} and then {{{mtd erase}}} on a flash partition which contains the CFE on the WGT634U. '''Beware!'''
+
 Please only use these snapshots if you like to help to get this !OpenWrt port working.
 There is still a lot of work. See the TODO list.
 
