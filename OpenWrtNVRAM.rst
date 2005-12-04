@@ -3,56 +3,31 @@
 == General Settings ==
 The WRT54G requires LAN and WAN settings at the least to properly boot. The specific settings/names are listed below, but this a bit of an overview:
 
-There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVRAM variables are NONSTANDARD, intended to be used when lan_ifnames doesn't bridge lan and wireless. Most people should leave the wifi_* variables unset)]]. For each one of these categories you may set the following variables (ie lan_ifname, wan_ifname, wifi_ifname)wl0_key
+There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVRAM variables are NONSTANDARD, intended to be used when lan_ifnames doesn't bridge lan and wireless. Most people should leave the wifi_* variables unset)]]. For each one of these categories you may set the following variables (ie lan_ifname, wan_ifname, wifi_ifname)
+
 ||'''Setting'''||'''Meaning/Purpose'''||
 ||'''*_ifname'''||The name of the interface which will be used for this category||
 ||'''*_ifnames'''||If the _ifname is a bridge (br0) then _ifnames is the interfaces to be bridged||
 ||'''*_proto'''||''static'', ''dhcp'' or ''none''. Method used to configure the interface||
 ||'''*_ipaddr'''||IP address to use if _proto is static||
 ||'''*_netmask'''||netmask to use if _proto is static (X.X.X.X notation)||
+||'''*_gateway'''||gateway to use if _proto is static (X.X.X.X notation)||
+||'''*_dns'''||dns to use if _proto is static (X.X.X.X notation)||
 ||'''*_stp'''||Enable spanning tree if _ifname is a bridge (0 or 1)||
 
-== LAN Configuration ==
-The LAN settings used are:
-
-||'''NVRAM Setting'''||'''Meaning'''||
-||'''lan_ifname'''||The interface name to assign to the LAN segments (wireless and switch ports). This should be ''br0''||
-||'''lan_ifnames'''||This is set to the interfaces you wish to bridge together into one LAN (recommend ''vlan0 eth1 eth2 eth3'')(use  ''vlan2 eth1 eth2 eth3'' with rev.1.1 routers)||
-||'''lan_hwnames'''||The hardware driver names for this interface||
-||'''lan_proto'''||How to assign the LAN address. (This will be forced to ''static'' by networking.sh[[FootNote(Often lan_proto is incorrectly set to ''dhcp'' but configured as static, networking.sh compensates by forcing lan_proto=static, edit networking.sh if you wish to use dhcp)]])||
-||'''lan_ipaddr'''||LAN IP Address to be used for the 4 port switch and the wireless. This is the internal IP of the router.||
-||'''lan_netmask'''||The Netmask (255.255.255.0 format) for the LAN IP you have assigned.||
-||'''lan_stp'''||Whether or not to enable Spanning Tree Protocol on the bridge device (bridging the wireless and LAN segments) (0 (default) or 1)||
-||'''lan_gateway'''||The IP address of the LAN gateway.||
-
+== misc ==
 DHCP Settings:
 ||'''NVRAM Setting'''||'''Meaning'''||
 ||'''dhcp_start'''||The starting IP address for DHCP assignments||
 ||'''dhcp_num'''||The number of addresses in DHCP pool||
 
-== WAN Configuration ==
-The WAN settings used are:
-
-||'''NVRAM Setting'''||'''Meaning'''||
-||'''wan_ifname'''||The interface name to assign to the WAN. This should be ''vlan1''||
-||'''wan_ifnames'''||Ignored since wan_ifname isn't a bridge device||
-||'''wan_proto'''||How to assign the WAN address. This should be ''static'' or ''dhcp'' (The Linksys firmware also uses pppoe and disabled)||
-||'''wan_ipaddr'''||Public IP address to be assigned to the router. This is the external IP of the router, and the IP which masquerading/NAT will use. (wan_proto=static only)||
-||'''wan_netmask'''||The Netmask (255.255.255.0 format) for the WAN IP you have assigned. (wan_proto=static only)||
-||'''wan_gateway'''||The default gateway to setup via the WAN port. (wan_proto=static only)||
-||'''wan_dns'''||The DNS server to use on the WAN interface. (wan_proto=static only)||
+Hostname:
 ||'''wan_hostname'''||The hostname of your router.||
 
 == Wireless Configuration ==
-Although the wifi_* variables can be used to configure the network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge you can use the following settings:
-||'''wifi_ifname'''||The wireless interface (eth1 or eth2 depending on hardware revision)||
-||'''wifi_proto'''||''static'' or ''dhcp'', method used to configure the interface||
-||'''wifi_ipaddr'''||IP address to use if wifi_proto is static||
-||'''wifi_netmask'''||netmask to use if wifi_proto is static (X.X.X.X notation)||
-
+Although the wifi_* variables can be used to configure the network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge configure the wifi_* variables according to the general settings above.
 
 '''Note:''' There are wl_* and wl0_* variables; the wl_* variables are obsoleted and were replaced by wl0_*.
-
 
 ||'''NVRAM Setting'''||'''Meaning'''||
 ||'''wl0_ifname'''||Set by wlconf to the name of the ethernet interface (eth1, eth2)||
@@ -65,9 +40,6 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_macmode'''||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist||
 ||'''wl0_maclist'''||List of space separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: 00:02:2D:08:E2:1D ||
 ||'''wl0_radio'''||Enable / disable the radio (1=enable)||
-||'''wl0_phytypes'''||Supported 802.11 modes, automatically set by wlconf||
-||'''wl0_phytype'''||Attempt these 802.11 modes||
-||'''wl0_corerev'''||Set by wlconf to the wireless revision, (4:v1.0 hardware, 7:v2,gs)||
 ||'''wl0_channel'''||The channel to use (1-13 worldwide, 1-11 USA/Canada, default 6, 0=auto channel)||
 ||||'''Note:''' Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region!||
 ||'''wl0_gmode'''||Set 54g modes (0=Legacy B, 1=auto, 2=G only, 3=B deferred, 4=performance, 5=LRS, 6=afterburner)||
@@ -104,6 +76,11 @@ For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(''1=enable / 0=disable'')||
 ||'''wl0_wds'''||Space separated list of WDS member MAC addresses (xx:xx:xx:xx:xx:xx notation)||
 '''NOTE:''' if you want to use a wrt54gs as a WDS client with '''wl0_wds''' set, the '''wl0_gmode''' setting must not be in afterburner (6) mode (apparently no linksys speedboost is available for WDS clients).  Also, '''wl0_mode''' should be set to ''ap''.
+
+Misc:
+||'''wl0_phytypes'''||Supported 802.11 modes, automatically set by wlconf||
+||'''wl0_phytype'''||Attempt these 802.11 modes||
+||'''wl0_corerev'''||Set by wlconf to the wireless revision, (4:v1.0 hardware, 7:v2,gs)||
 
 == VLAN Settings ==
 Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
