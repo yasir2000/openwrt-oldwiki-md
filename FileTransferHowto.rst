@@ -13,7 +13,7 @@ or install extra packages offline.
 
 = Requirements =
 
- * You need to have a !OpenWrt installed (should work with almost any version,
+ * You need to have !OpenWrt installed (should work with almost any version,
  old ones too)
  * The programs for the method you've choosed
 
