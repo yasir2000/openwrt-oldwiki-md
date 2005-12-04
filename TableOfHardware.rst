@@ -165,7 +165,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 ||[http://www.netgear.com/products/details/WGR614.php WGR614]||5||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||1MB||8MB||integrated Broadcom||integrated into CPU||on|| || ||No||No||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614]||6||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||1MB||8MB||integrated Broadcom||integrated into CPU||Unknown|| || ||No||No||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624]||1||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz||4MB||16MB||integrated Atheros||Marvell||doesn't exist||Yes||Yes||No||[wiki:AtherosPort WiP]||
-||[http://www.netgear.com/products/details/WGT634U.php WGT634U]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365P] @ 200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x v2.0||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/WGT634U WiP]||
+||[http://www.netgear.com/products/details/WGT634U.php WGT634U]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365P] @ 200MHz||8MB||32MB||Atheros mini-PCI||integrated into CPU||doesn't exist||Yes||No||1x v2.0||[wiki:Self:OpenWrtDocs/Hardware/Netgear/WGT634U WiP]||
 
 
 == Rovatek ==
