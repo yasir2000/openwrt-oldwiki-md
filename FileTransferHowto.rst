@@ -6,7 +6,7 @@
 
 = Introduction =
 
-Sometimes it's useful to transfer files between your PC and the Wrt
+Sometimes it's useful to exchange files between your PC and the Wrt
 router. This is the case when you like to make a backup of some files
 or install extra packages offline.
 
