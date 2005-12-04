@@ -24,16 +24,16 @@ flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
 Flashing may take over a minute. After that you can use {{{reboot}}} to start !OpenWrt.
 
-Also note that if you are building from SVN (as of 2005-12-02 / rev2577), you will break the firmware on your router, and not be able to boot again, nor recover the firmware at all. Apparently, OpenWRT runs {{{mtd unlock}}} and then {{{mtd erase}}} on a flash partition which contains the CFE on the WGT634U. '''Beware!'''
+PLEASE DO NOT BUILD ON YOUR OWN! Serial console is configured on 2.6 for Linksys routers. As soon as nvram kernel stuff is ported
+to 2.6 we will have usable buildroot again for 2.6 brcm images.
 
-Please only use these snapshots if you like to help to get this !OpenWrt port working.
-There is still a lot of work. See the TODO list.
-
-If you have any suggestions or patches, please send wbx (wbx@openwrt.org) an e-Mail.
-
+Please only use snapshots! OTHERWISE YOU WILL BRICK YOUR ROUTER!
 
 == TODO ==
-
+ 
+ * kernel update to 2.6.14+
+ * udev support
+ * nvram support with udev
  * reset button driver [need to be ported to 2.6]
  * wireless driver [sometimes kernel oops if iwconfig is used]
  * USB driver [EHCI needs to be fixed]
