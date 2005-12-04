@@ -435,18 +435,8 @@ See [:HowtoEnableCron] for details.
 
 == My Linksys WRT54G or WRT54GS routers seems to be unstable! ==
 
-The core developer nbd wrote a script that should fix this problems. This
-script is included in White Russian RC4 and later.
-
-The script should do exactly what the Linksys firmware does to fix the
-instability problems on WRT54G v2.2+, WRT54GS v1.1+.
-
-/!\ '''WARNING:''' It has been reported that even this moderate increase to
-{{{clkfreq}}} has caused problems. A WRT54G v2.0 went into endless reboots,
-making it practically impossible to reach the console. Have your JTAG cable
-ready in any case! Btw. generally manually overlocking a router using the
-{{{clkfreq}}} NVRAM variable is a bad hack/idea. So again, don't overclock
-your router manually!
+An update (reflsah) to White Russian RC4 (and later versions) will fix the
+instability problems on the Linksys WRT54G v2.2+ and WRT54GS v1.1+ routers.
 
 
 == What's the magic behind /sbin/wifi is doing? ==
