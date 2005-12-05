@@ -54,7 +54,7 @@ fi
 
 start() {
  echo -n "Starting crond: "
- /usr/sbin/crond
+ /usr/sbin/crond -c /vat/spool/cron/crontabs
  touch /var/lock/crond
  echo "OK"
 }
@@ -99,6 +99,17 @@ chmod a+x /etc/init.d/S51crond
 /etc/init.d/S51crond start
 }}}
 
+== Testing crond (optional) ==
+
+Create a minute job in roots crontab file:
+{{{
+echo "*/1 * * * * echo date>>/tmp/crontest" >> /var/spool/cron/crontabs/root
+}}}
+
+Wait a minute, an see /tmp/crontest file:
+{{{
+cat /tmp/crontest
+}}}
 
 == Creating a cron job ==
 
@@ -108,14 +119,14 @@ You have two ways on adding a cron job to {{{crond}}}.
 The first one is just to create the {{{root}}} file with {{{echo}}} like this:
 
 {{{
-echo "0 * * * * root /usr/sbin/rdate time.fu-berlin.de" >> /var/spool/cron/crontabs/root
+echo "0 * * * * /usr/sbin/rdate time.fu-berlin.de" >> /var/spool/cron/crontabs/root
 }}}
 
 or use {{{crontab -e}}} (calls the {{{vi}}} editor) to edit the cron job file.
 Copy & paste
 
 {{{
-0 * * * * root /usr/sbin/rdate time.fu-berlin.de
+0 * * * * /usr/sbin/rdate time.fu-berlin.de
 }}}
 
 than hit {{{ESC}}} and enter {{{:wq}}} to save the file.
@@ -129,7 +140,7 @@ crontab -l
 }}}
 
 {{{
-0 * * * * root /usr/sbin/rdate time.fu-berlin.de
+0 * * * * /usr/sbin/rdate time.fu-berlin.de
 }}}
 
 That's it.
