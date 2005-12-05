@@ -51,7 +51,7 @@ This version was widely known as !OpenWrt "stable release" and was widely in use
 
 In the beginning of 2005 some new developers have joined the small developer team. After some month of
 closed development the team decided to publish the first "experimental" versions of !OpenWrt. The
-experimental version use a heavily customized buildsystem based on buildroot2 from the uclibc project.
+experimental versions use a heavily customized buildsystem based on buildroot2 from the uclibc project.
 !OpenWrt uses official GNU/Linux kernel sources (2.4.30) and only add patches for the system on chip
 and drivers for the network interfaces. The developer team try to reimplement most of the proprietary
 code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware
