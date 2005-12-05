@@ -108,14 +108,14 @@ You have two ways on adding a cron job to {{{crond}}}.
 The first one is just to create the {{{root}}} file with {{{echo}}} like this:
 
 {{{
-echo "0 * * * * /usr/sbin/rdate time.fu-berlin.de" >> /var/spool/cron/crontabs/root
+echo "0 * * * * root /usr/sbin/rdate time.fu-berlin.de" >> /var/spool/cron/crontabs/root
 }}}
 
 or use {{{crontab -e}}} (calls the {{{vi}}} editor) to edit the cron job file.
 Copy & paste
 
 {{{
-0 * * * * /usr/sbin/rdate time.fu-berlin.de
+0 * * * * root /usr/sbin/rdate time.fu-berlin.de
 }}}
 
 than hit {{{ESC}}} and enter {{{:wq}}} to save the file.
@@ -129,7 +129,7 @@ crontab -l
 }}}
 
 {{{
-0 * * * * /usr/sbin/rdate time.fu-berlin.de
+0 * * * * root /usr/sbin/rdate time.fu-berlin.de
 }}}
 
 That's it.
