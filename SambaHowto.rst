@@ -94,6 +94,13 @@ workgroup name in Windows is {{{WORKGROUP}}}).
 
 == MacOS X clients ==
 
+In the Finder, press Command-K for the mount popup.  In the Server Address text box, type:
+
+{{{
+smb://<server_ip>/<share>
+}}}
+
+You may press the "+" sign to save this in your list.  Press "Browse" to see all shares on a server, or "Connect" to mount the share.  You'll see the icon appear on the desktop, and the share will be mounted in /Volumes.
 
 = Links =
 
