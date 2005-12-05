@@ -74,3 +74,14 @@ graphical clients, use !FileZilla instead.
 
 See Putty's [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html download page] and
 Putty's [http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html documentation page].
+
+
+== WinSCP ==
+
+WinSCP is a Windows program that makes use of code from Simon Tatham's "Putty". It provides a GUI and can be either installed or run from a stand-alone exe without installation.
+
+WinSCP has a shell extension, which is only available if the software is installed on the client machine, that will allow drag-and-drop usability from the WinSCP window to almost any other Explorer windows. For example, one could drag firewall.conf straight to the desktop.
+
+However, if the non-installation method is chosen, e.g., it is run solely from the exe, then drag-and-drop capabilities will be restricted to within the WinSCP window only. The WinSCP windows can provide an interface either like Norton Comander (r) or like Windows (r) Explorer.
+
+The software is free and open-source. You can download it [http://winscp.net/eng/download.php here] or visit the [http://winscp.net/eng/index.php home page].
