@@ -99,17 +99,21 @@ chmod a+x /etc/init.d/S51crond
 /etc/init.d/S51crond start
 }}}
 
+
 == Testing crond (optional) ==
 
 Create a minute job in roots crontab file:
+
 {{{
-echo "*/1 * * * * echo date>>/tmp/crontest" >> /var/spool/cron/crontabs/root
+echo "*/1 * * * * echo date >> /tmp/crontest" >> /var/spool/cron/crontabs/root
 }}}
 
-Wait a minute, an see /tmp/crontest file:
+Wait a minute, an see {{{/tmp/crontest}}} file:
+
 {{{
 cat /tmp/crontest
 }}}
+
 
 == Creating a cron job ==
 
