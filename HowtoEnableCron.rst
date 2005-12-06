@@ -102,13 +102,13 @@ chmod a+x /etc/init.d/S51crond
 
 == Testing crond (optional) ==
 
-Create a minute job in roots crontab file:
+Create a minute job in the root crontab file:
 
 {{{
-echo "*/1 * * * * echo date >> /tmp/crontest" >> /var/spool/cron/crontabs/root
+echo "*/1 * * * * date > /tmp/crontest" >> /var/spool/cron/crontabs/root
 }}}
 
-Wait a minute, an see {{{/tmp/crontest}}} file:
+Wait a minute, and see {{{/tmp/crontest}}} file:
 
 {{{
 cat /tmp/crontest
@@ -117,8 +117,9 @@ cat /tmp/crontest
 
 == Creating a cron job ==
 
-The cron jobs are saved in the {{{/etc/spool/cron/crontabs/root}}} file.
-You have two ways on adding a cron job to {{{crond}}}.
+The cron jobs are defined in the {{{/etc/spool/cron/crontabs/root}}} file. 
+{{{crond}}} reads the file.
+You have two ways on adding a cron job to this file.
 
 The first one is just to create the {{{root}}} file with {{{echo}}} like this:
 
