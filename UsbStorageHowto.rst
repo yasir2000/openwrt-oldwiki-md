@@ -315,8 +315,9 @@ Make sure your new {{{/sbin/init}}} is executable:
 chmod a+x /sbin/init
 }}}
 
-/!\ '''IMPORTANT:''' Problems with booting from USB storage were reported when using White Russian rc4, where USB hotplugging was introduced.
-If you encounter problems as well, try to disable USB hotplug!
+/!\ '''IMPORTANT:''' Problems with booting from USB storage were reported
+when using White Russian RC4 (or later versions), where USB hotplugging was
+introduced. If you encounter problems as well, try to disable USB hotplug!
 
 Now just reboot, and if you did everything right it should boot from
 the USB device automatically.
