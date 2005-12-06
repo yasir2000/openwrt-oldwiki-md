@@ -54,7 +54,7 @@ fi
 
 start() {
  echo -n "Starting crond: "
- /usr/sbin/crond -c /vat/spool/cron/crontabs
+ /usr/sbin/crond -c /var/spool/cron/crontabs
  touch /var/lock/crond
  echo "OK"
 }
