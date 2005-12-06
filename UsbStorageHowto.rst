@@ -226,7 +226,7 @@ ipkg install http://downloads.openwrt.org/people/nico/ \
         testing/mipsel/packages/e2fsprogs_1.38-1_mipsel.ipk
 }}}
 
-Than "format" your partition with
+Then "format" your partition with
 
 {{{
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
@@ -314,6 +314,9 @@ Make sure your new {{{/sbin/init}}} is executable:
 {{{
 chmod a+x /sbin/init
 }}}
+
+/!\ '''IMPORTANT:''' Problems with booting from USB storage were reported when using White Russian rc4, where USB hotplugging was introduced.
+If you encounter problems as well, try to disable USB hotplug!
 
 Now just reboot, and if you did everything right it should boot from
 the USB device automatically.
