@@ -23,23 +23,24 @@ where low resource use and ease of configuration are important.
 
 == Web Interface Notes ==
 
-Your ethers and hosts files can now be modified through the WhiteRussian web interface.
-While you'll still need to manually setup your {{{/etc/dnsmasq.conf}}} file for things
-like domains, you can do simple configuration through the web interface.
+Your {{{/etc/ethers}}} and {{{/etc/hosts}}} files can now be modified through the
+White Russian web interface. While you'll still need to manually setup your
+{{{/etc/dnsmasq.conf}}} file for things like domains, you can do simple configuration
+through the web interface.
 
 
 == DNS Names ==
 
-DNS entries are configured through the {{{/etc/hosts}}} file.  dnsmasq will pickup these
+DNS entries are configured through the {{{/etc/hosts}}} file. dnsmasq will pickup these
 entries and use them when answering DNS queries on your network.
 
-Format :
+Format:
 
 {{{
 [IP_address] host_name host_name_short ...
 }}}
 
-Example :
+Example:
 
 {{{
 192.168.1.1 router OpenWrt localhost
@@ -59,7 +60,7 @@ local=/lan/
 domain=lan
 }}}
 
-You can change this to whatever you'd like your home domain to be.  Also, if you want your
+You can change this to whatever you'd like your home domain to be. Also, if you want your
 hosts to be available via your home domain without having to specify the domain in your
 {{{/etc/hosts}}} file, add the {{{expand-hosts}}} directive to your {{{/etc/dnsmasq.conf}}}
 file.
