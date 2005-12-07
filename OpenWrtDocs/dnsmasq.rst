@@ -1,20 +1,50 @@
 = dnsmasq =
+Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is designed to provide DNS and, optionally, DHCP, to a small network. It can serve the names of local machines which are not in the global DNS. The DHCP server integrates with the DNS server and allows machines with DHCP-allocated addresses to appear in the DNS with names configured either in each host or in a central configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP for network booting of diskless machines.
 
-Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is
-designed to provide DNS and, optionally, DHCP, to a small network. It can serve
-the names of local machines which are not in the global DNS. The DHCP server
-integrates with the DNS server and allows machines with DHCP-allocated addresses
-to appear in the DNS with names configured either in each host or in a central
-configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP
-for network booting of diskless machines.
+Dnsmasq is targeted at home networks using NAT and connected to the internet via a modem, cable-modem or ADSL connection but would be a good choice for any small network where low resource use and ease of configuration are important.
 
-Dnsmasq is targeted at home networks using NAT and connected to the internet
-via a modem, cable-modem or ADSL connection but would be a good choice for any
-small network where low resource use and ease of configuration are important.
+= Basic Configuration =
+== Web Interface Notes ==
+Your ethers and hosts files can now be modified through the WhiteRussian web interface.  While you'll still need to manually setup your {{{/etc/dnsmasq.conf}}} file for things like domains, you can do simple configuration through the web interface.
+
+== DNS Names ==
+DNS entries are configured through the {{{/etc/hosts}}} file.  dnsmasq will pickup these entries and use them when answering DNS queries on your network.
+
+Format :
+{{{
+[IP_address] host_name host_name_short ...
+}}}
+
+Example :
+{{{
+192.168.1.1 router OpenWrt localhost
+}}}
+
+== DNS Local Domain ==
+By default, dnsmasq comes configured to put your hosts into the {{{.lan}}} domain.  This is specified in the configuration file as :
+{{{
+# allow /etc/hosts and dhcp lookups via *.lan
+local=/lan/
+domain=lan
+}}}
+
+You can change this to whatever you'd like your home domain to be.  Also, if you want your hosts to be available via your home domain without having to specify the domain in your {{{/etc/hosts}}} file, add the {{{expand-hosts}}} directive to your {{{/etc/dnsmasq.conf}}} file.
+
+== Pre-WhiteRussian v4 Notes ==
+dnsmasq needs read permission on {{{/etc/hosts}}} (check your logs if you can't resolve hostnames from your clients)
+
+{{{
+chmod +r /etc/hosts
+}}}
+
+== Related Links ==
+ * Homepage
+  * http://thekelleys.org.uk/dnsmasq/doc.html
+ * Tutorial
+  * http://www.enterprisenetworkingplanet.com/netos/article.php/3377351
 
 
-== FAQ ==
-
+= FAQ =
 === Problem: on starting, dnsmasq reports something like, "Syntax error: network+192.168.1.100" ===
 
 An initial symptom of this problem is that DNS forwarding doesn't seem to work
@@ -52,40 +82,6 @@ nvram set dhcp_num=3
 nvram commit
 killall -9 dnsmasq ; /etc/init.d/S50dnsmasq
 }}}
-
-
-=== Where to set names for private IP address ===
-
-Puting information about that in {{{/etc/hosts}}} file, and format is
-
-{{{
-[IP_address] host_name host_name_short ...
-}}}
-
-{{{
-192.168.1.1 router.lan router
-}}}
-
-dnsmasq needs read permission on {{{/etc/hosts}}} (check your logs if you
-can't resolve hostnames from your clients)
-
-{{{
-chmod +r /etc/hosts
-}}}
-
-
-=== Static IP address (leases) based on the MAC address of the client ===
-
-When a client should get always the same IP address from the DHCP server then
-use the line below in your {{{/etc/ethers}}} file.
-
-{{{
-# <mac> <ip>
-00:aa:bb:cc:dd:ee 192.168.1.2
-}}}
-
-Put the hostname for this IP address in the {{{/etc/hosts}}} file.
-
 
 === Configuring dnsmasq to use different IP ranges for wired and wireless ===
 
