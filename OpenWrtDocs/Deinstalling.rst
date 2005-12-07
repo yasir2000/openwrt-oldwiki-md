@@ -40,8 +40,9 @@ wget http://www.example.org/original.trx
 ./mtd.static -e linux -r write original.trx linux
 }}}
 
-[http://forum.openwrt.org/viewtopic.php?id=3474 PLEASE READ - Common mistakes] thread section
-2 also. It describes when you should use the {{{openwrt-brcm-2.4-squashfs.trx}}} image.
+'''TIP:''' [http://forum.openwrt.org/viewtopic.php?id=3474 PLEASE READ - Common mistakes]
+thread section 2 also. It describes when you should use the {{{openwrt-brcm-2.4-squashfs.trx}}}
+image.
 
 If you only have a Linksys {{{.bin}}} firmware file, this is not a problem, simply cut
 of the header before using the commands above:
