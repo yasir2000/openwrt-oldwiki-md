@@ -8,6 +8,7 @@
 '''Supported hardware'''
 
 ||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''ADAM2 IP'''||'''Code Pattern'''||
+||Actiontec||GT701-WG|| ||ftp||192.168.0.1|| ||
 ||ALLNet||ALL130DSL|| || || || ||
 ||D-Link||DSL-G500T/G504T|| ||ftp||10.8.8.8|| ||
 ||D-Link||DSL-G604T/G664T|| ||ftp||5.8.8.8|| ||
@@ -21,6 +22,7 @@
 ||TCOM||Sinus 154 DSL Basic SE|| || || || ||
 ||TCOM||Sinus 154 DSL Basic 3|| || || || ||
 
+## Actiontec GT701-WG = ADAM2 Revision 0.22.02
 ## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
 ## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
 ## Linksys WAG54G V2-DE = ADAM2 Revision 
