@@ -1,7 +1,9 @@
-= dnsmasq =
+= Introduction =
 Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is designed to provide DNS and, optionally, DHCP, to a small network. It can serve the names of local machines which are not in the global DNS. The DHCP server integrates with the DNS server and allows machines with DHCP-allocated addresses to appear in the DNS with names configured either in each host or in a central configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP for network booting of diskless machines.
 
 Dnsmasq is targeted at home networks using NAT and connected to the internet via a modem, cable-modem or ADSL connection but would be a good choice for any small network where low resource use and ease of configuration are important.
+
+[[TableOfContents]]
 
 = Basic Configuration =
 == Web Interface Notes ==
@@ -45,7 +47,7 @@ chmod +r /etc/hosts
 
 
 = FAQ =
-=== Problem: on starting, dnsmasq reports something like, "Syntax error: network+192.168.1.100" ===
+== Problem: on starting, dnsmasq reports something like, "Syntax error: network+192.168.1.100" ==
 
 An initial symptom of this problem is that DNS forwarding doesn't seem to work
 and a call to {{{ps -A}}} reports that dnsmasq isn't running. Check the output
@@ -83,7 +85,7 @@ nvram commit
 killall -9 dnsmasq ; /etc/init.d/S50dnsmasq
 }}}
 
-=== Configuring dnsmasq to use different IP ranges for wired and wireless ===
+== Configuring dnsmasq to use different IP ranges for wired and wireless ==
 
 Suppose you have the following:
 
