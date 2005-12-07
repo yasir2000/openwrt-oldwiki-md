@@ -20,6 +20,8 @@ Format :
 Example :
 {{{
 192.168.1.1 router OpenWrt localhost
+192.168.1.2 ubuntu-desktop
+192.168.1.3 ubuntu-laptop
 }}}
 
 == DNS Local Domain ==
@@ -31,6 +33,10 @@ domain=lan
 }}}
 
 You can change this to whatever you'd like your home domain to be.  Also, if you want your hosts to be available via your home domain without having to specify the domain in your {{{/etc/hosts}}} file, add the {{{expand-hosts}}} directive to your {{{/etc/dnsmasq.conf}}} file.
+
+As an example, without {{{expand-hosts}}}, you can only reach {{{router, ubuntu-desktop, and ubuntu-laptop}}}.  With {{{expand-hosts}}} on, you can reach {{{router, router.lan, ubuntu-desktop, ubuntu-desktop.lan, etc}}}.  This probably matches what you're looking for anyway.
+
+Without this setting, you'll have to add {{{.lan}}} entries to your host file.
 
 == Pre-WhiteRussian v4 Notes ==
 dnsmasq needs read permission on {{{/etc/hosts}}} (check your logs if you can't resolve hostnames from your clients)
