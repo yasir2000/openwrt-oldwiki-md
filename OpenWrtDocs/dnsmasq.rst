@@ -1,51 +1,88 @@
-= Introduction =
-Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is designed to provide DNS and, optionally, DHCP, to a small network. It can serve the names of local machines which are not in the global DNS. The DHCP server integrates with the DNS server and allows machines with DHCP-allocated addresses to appear in the DNS with names configured either in each host or in a central configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP for network booting of diskless machines.
+'''dnsmasq'''
 
-Dnsmasq is targeted at home networks using NAT and connected to the internet via a modem, cable-modem or ADSL connection but would be a good choice for any small network where low resource use and ease of configuration are important.
 
 [[TableOfContents]]
 
+
+= Introduction =
+
+Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is
+designed to provide DNS and, optionally, DHCP, to a small network. It can serve
+the names of local machines which are not in the global DNS. The DHCP server
+integrates with the DNS server and allows machines with DHCP-allocated addresses
+to appear in the DNS with names configured either in each host or in a central
+configuration file. Dnsmasq supports static and dynamic DHCP leases and BOOTP for
+network booting of diskless machines.
+
+Dnsmasq is targeted at home networks using NAT and connected to the internet via a
+modem, cable-modem or ADSL connection but would be a good choice for any small network
+where low resource use and ease of configuration are important.
+
+
 = Basic Configuration =
+
 == Web Interface Notes ==
-Your ethers and hosts files can now be modified through the WhiteRussian web interface.  While you'll still need to manually setup your {{{/etc/dnsmasq.conf}}} file for things like domains, you can do simple configuration through the web interface.
+
+Your ethers and hosts files can now be modified through the WhiteRussian web interface.
+While you'll still need to manually setup your {{{/etc/dnsmasq.conf}}} file for things
+like domains, you can do simple configuration through the web interface.
+
 
 == DNS Names ==
-DNS entries are configured through the {{{/etc/hosts}}} file.  dnsmasq will pickup these entries and use them when answering DNS queries on your network.
+
+DNS entries are configured through the {{{/etc/hosts}}} file.  dnsmasq will pickup these
+entries and use them when answering DNS queries on your network.
 
 Format :
+
 {{{
 [IP_address] host_name host_name_short ...
 }}}
 
 Example :
+
 {{{
 192.168.1.1 router OpenWrt localhost
 192.168.1.2 ubuntu-desktop
 192.168.1.3 ubuntu-laptop
 }}}
 
+
 == DNS Local Domain ==
-By default, dnsmasq comes configured to put your hosts into the {{{.lan}}} domain.  This is specified in the configuration file as :
+
+By default, dnsmasq comes configured to put your hosts into the {{{.lan}}} domain. This is
+specified in the configuration file as :
+
 {{{
 # allow /etc/hosts and dhcp lookups via *.lan
 local=/lan/
 domain=lan
 }}}
 
-You can change this to whatever you'd like your home domain to be.  Also, if you want your hosts to be available via your home domain without having to specify the domain in your {{{/etc/hosts}}} file, add the {{{expand-hosts}}} directive to your {{{/etc/dnsmasq.conf}}} file.
+You can change this to whatever you'd like your home domain to be.  Also, if you want your
+hosts to be available via your home domain without having to specify the domain in your
+{{{/etc/hosts}}} file, add the {{{expand-hosts}}} directive to your {{{/etc/dnsmasq.conf}}}
+file.
 
-As an example, without {{{expand-hosts}}}, you can only reach {{{router, ubuntu-desktop, and ubuntu-laptop}}}.  With {{{expand-hosts}}} on, you can reach {{{router, router.lan, ubuntu-desktop, ubuntu-desktop.lan, etc}}}.  This probably matches what you're looking for anyway.
+As an example, without {{{expand-hosts}}}, you can only reach {{{router, ubuntu-desktop and ubuntu-laptop}}}.
+With {{{expand-hosts}}} on, you can reach {{{router, router.lan, ubuntu-desktop, ubuntu-desktop.lan, etc}}}.
+This probably matches what you're looking for anyway.
 
 Without this setting, you'll have to add {{{.lan}}} entries to your host file.
 
-== Pre-WhiteRussian v4 Notes ==
-dnsmasq needs read permission on {{{/etc/hosts}}} (check your logs if you can't resolve hostnames from your clients)
+
+== Pre White Russian v4 Notes ==
+
+dnsmasq needs read permission on {{{/etc/hosts}}} (check your logs if you can't resolve hostnames
+from your clients)
 
 {{{
 chmod +r /etc/hosts
 }}}
 
+
 == Related Links ==
+
  * Homepage
   * http://thekelleys.org.uk/dnsmasq/doc.html
  * Tutorial
@@ -53,6 +90,7 @@ chmod +r /etc/hosts
 
 
 = FAQ =
+
 == Problem: on starting, dnsmasq reports something like, "Syntax error: network+192.168.1.100" ==
 
 An initial symptom of this problem is that DNS forwarding doesn't seem to work
@@ -90,6 +128,7 @@ nvram set dhcp_num=3
 nvram commit
 killall -9 dnsmasq ; /etc/init.d/S50dnsmasq
 }}}
+
 
 == Configuring dnsmasq to use different IP ranges for wired and wireless ==
 
