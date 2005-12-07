@@ -65,6 +65,8 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Fix the wireless driver
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
 
+See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
+
 == Firmware/Bootloader ==
 
 There are at least 3 variants
@@ -89,7 +91,7 @@ All the kernel and image stuff is in the target/ subdirectory.
 
 AR7-specific kernel patches go into {{{target/linux/linux-2.4/patches/ar7}}}. The build system part that constructs the firmware images for AR7 based routers is in {{{target/linux/image/ar7}}}. You can also find the kernel loader there.
 
-If you'd like to help out and maybe have a patch or two, please talk to one of the developers working on this via IRC in the OpenWrt channel. Some people working on this are: nbd, wbx, wickus, z3ro, ralf, mache, and ydef.
+If you'd like to help out and maybe have a patch or two, please talk to one of the developers working on this via IRC in the OpenWrt channel. Some people working on this are: nbd, wbx, wickus, z3ro, ralf, mache, sw_ and ydef.
 
 
 = Other stuff =
