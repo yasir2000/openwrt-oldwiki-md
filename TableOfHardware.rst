@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2005/12/02. Legend:
+This is a table of all supported devices as of 2005/12/07. Legend:
 
  * '''Supported''' - supported in "White Russian"
  * '''Partial''' - partially supported, no support for the wireless card.
@@ -17,7 +17,7 @@ This is a table of all supported devices as of 2005/12/02. Legend:
 
 == Actiontec ==
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||GT701-WG|| || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHz||4MiB||16MiB||ACX111|| ||["ADAM2"]||Yes|| || ||[wiki:Self:AR7Port Untested]||
+||GT701-WG|| || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7] @150MHz||4MiB||16MiB||ACX111|| ||["ADAM2"]||Yes|| || ||[wiki:Self:AR7Port WiP]||
 
 == ALLNET ==
 
