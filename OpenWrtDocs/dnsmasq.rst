@@ -72,7 +72,7 @@ This probably matches what you're looking for anyway.
 Without this setting, you'll have to add {{{.lan}}} entries to your host file.
 
 
-== Pre White Russian v4 Notes ==
+== Pre White Russian RC4 Notes ==
 
 dnsmasq needs read permission on {{{/etc/hosts}}} (check your logs if you can't resolve hostnames
 from your clients)
