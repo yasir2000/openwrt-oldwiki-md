@@ -12,9 +12,8 @@
 = Failsafe mode =
 
 If you've broken one of the startup scripts, firewalled yourself or corrupted
-the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Remember
-failsafe mode is only working when you have installed one of the SquashFS images
-and the {{{boot_wait}}} NVRAM variable is set to on.
+the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Full
+failsafe mode is only working when you have installed one of the SquashFS images.
 
 /!\ The act of switching between a normal boot and failsafe mode could change
 your MAC address! This will invalidate the ARP cache of the workstation you're
@@ -23,6 +22,9 @@ see the !OpenWrt [:Faq] howto delete your ARP cache.
 
 
 == Howto get into failsafe mode ==
+
+'''TIP:''' The only function for the reset button in !OpenWrt is to enter into
+failsafe mode (it doesn't reset the NVRAM).
 
 '''Linksys models'''
 
@@ -196,10 +198,10 @@ the length of this cable must not exceed 10 cm.
 
 '''Siemens models '''
 
-On Siemens SE505 v2 models the JTAG connector is labeled J7.   
+On Siemens SE505 v2 models the JTAG connector is labeled J7.
 {{{
 JTAG connector J7
-  
+
    2   1
     o o
     o o-TDO
