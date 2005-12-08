@@ -133,6 +133,12 @@ cat > /etc/hotplug.d/iface/15-ez-ipupdate
 [ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf &
 }}}
 
+You have give execution rights for {{{15-ez-ipupdate}}}:
+
+{{{
+chmod 755 /etc/hotplug.d/iface/15-ez-ipupdate
+}}}
+
 If {{{/etc/hotplug.d/iface/15-ez-ipupdate}}} does not look like the above one, you
 have to edit the file manually with the {{{vi}}} editor.
 
