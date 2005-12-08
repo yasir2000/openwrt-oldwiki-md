@@ -38,7 +38,7 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=409&modelmenu=1 WL-530G]|| ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8510] @160MHz||4MB||16MB||integrated||integrated||N/A||No||No||No||WiP||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=359&modelmenu=1 WL-500G Deluxe]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz||4MB||32MB||integrated Broadcom||integrated into CPU||on||Yes||No||2x v2.0||[wiki:OpenWrtDocs/Hardware/Asus/WL500GD Supported]||
 ||WL-700G|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300MHz|| || || || || || || ||3x v2.0||Untested||
-||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||integrated Broadcom||None||on|| || ||1x v1.1||Supported (incl. IDE)||
+||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||integrated Broadcom||None||on|| || ||1x v1.1||Supported (IDE: large disks seem not to work)||
 
 
 == Belkin ==
