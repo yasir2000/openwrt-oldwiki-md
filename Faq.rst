@@ -4,6 +4,8 @@
 [[TableOfContents]]
 
 
+####################################################
+
 = Installation =
 
 == Will OpenWrt run on <fill in the blank> ? ==
@@ -477,7 +479,7 @@ PasswordAuthentication yes
 }}}
 
 
-
+####################################################
 
 = Networking =
 
@@ -526,7 +528,7 @@ White Russian RC4 and later version.
 Download and install the {{{qos-scripts}}} package:
 
 {{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.2_all.ipk
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.3_all.ipk
 }}}
 
 Then edit {{{/etc/config/qos-wan}}}.  This file has a number of
@@ -833,6 +835,7 @@ For more information see the [:PPTPClientHowto].
 
 
 
+####################################################
 
 = Development =
 
