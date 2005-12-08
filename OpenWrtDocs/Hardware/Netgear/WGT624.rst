@@ -487,3 +487,65 @@ Code: 00409821  3c168017  8ec213c0 <0c0161ae> 8c440014  104000ae  00408021  0c01
 Kernel panic: Attempted to kill the idle task!
 In idle task - not syncing
 }}}
+
+== Problems with the WGT624v3 ==
+
+The WGT634v3 has an AR2316A part that doesn't seem to work with the
+build process above. Using the recommended toolchain (gcc version 2.96-mips3264-000710)
+and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
+
+{{{
+
+ar531xPlus rev 0x00000087 firmware startup...
+
+
+Atheros AR5001AP default version 4.0.0.167
+
+
+ 0
+auto-booting...
+
+Attached TCP/IP interface to et0.
+Attaching network interface lo0... done.
+Loading... 1861632
+Starting at 0x80124040...
+
+
+
+Invalid CPU access:  AHBERR0 - 0x00000003 AHBERR4 - 0x00000145 at phys addr 0x18300004 read 2
+
+Data bus error
+Exception Program Counter: 0x801334c4
+Status Register: 0x10008400
+Cause Register: 0x1080041c
+Error address: 0x00000000, Error ID: 0x0000
+Task: 0x80fca1d0 ""
+80127344: 8013343c (431021, ac520000, 1620ffae, 2209025)
+80127344: 8013343c (3c038014, 27de0001, 1e1080, 2463be40)
+80127344: 8013343c (1040000c, 3c048014, 82420000, 10400006)
+80127344: 8013343c (afa20010, 1000000c, ac520000, 2bc20008)
+80127344: 8013343c (3c048014, 8fa20010, 26f70001, 24420004)
+80127344: 8013343c (2405003d, 10400009, 2ae20008, 10400015)
+80127344: 8013343c (2402025, 14400018, 2402025, c041592)
+
+... (continues)
+
+80127344: 8013343c (80124040, 0, 78, 80ef86b4)
+80127344: 8013343c (0, 0, 0, 0)
+
+$0    =        0   t0    = 80123fe0   s0    = 80123bef   t8    =        0
+at    =        0   t1    = 801c87fc   s1    = 80ffa4b0   t9    =        0
+v0    =        0   t2    = 80f0de90   s2    =        1   k0    =        0
+v1    = 801d0000   t3    = 80f0de90   s3    = 80ffa4e0   k1    =        0
+a0    = 801c85e3   t4    = 80fb8bd4   s4    = 80123bef   gp    = 80122000
+a1    = 80000ff0   t5    =        0   s5    = 80ffa504   sp    = 801239a0
+a2    = 801c85d0   t6    =    ba704   s6    =        1   s8    =        1
+a3    = 80001000   t7    =        0   s7    = 80efba66   ra    = 8012734c
+divlo = cccccccd   divhi =        0   sr    = 10008400   pc    = 80e98660
+
+
+}}}
+
+Can anyone post a working kernel binary for the 624v1, to double check it's not a build problem?
+Maybe this is why the Netgear v1/v2 firmware is incompatible with the v3. Perhaps the ar531xPlus
+needs a different patch.
