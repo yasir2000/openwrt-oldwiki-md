@@ -66,7 +66,8 @@ to scripts will be lost)
 = Resetting to defaults =
 
 /!\ '''NOTE: Resetting NVRAM this way will actually cause more problems than it solves. For
-example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values and will not boot properly after being reset.'''
+example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values
+and will not boot properly after being reset.'''
 
 To clean the NVRAM variables the safe way see the !OpenWrt [:Faq].
 
@@ -96,18 +97,10 @@ See [:OpenWrtDocs/Installing] for generic installation instructions.
 
 == Software based method ==
 
-'''Linksys models'''
-
 Reflash the unit using the TFTP method.
 
-'''Asus models'''
 
-You can use the Asus software restoration Windows tool from the CD which comes with
-the router to flash !OpenWrt TRX firmware images or restore the original firmware.
-
-'''Motorola models'''
-
-The Motorola WR850G may wait for an image on {{{192.168.10.1}}}.
+== Serial console ==
 
 
 == JTAG adaptor method ==
