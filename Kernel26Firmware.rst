@@ -56,6 +56,18 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
  There is already a very promising Broadcom WLAN driver project at [http://sourceforge.net/projects/linux-bcom4301/], they document the chipsets specifications.
  The actual specifications can be found at [http://bcm-specs.sipsolutions.net] and the project which actually writes the driver at [http://bcm43xx.berlios.de/].
 
+ * '''use some binary driver from broadcom 2.6 tree.'''
+ ftp://ftp.gpl-devices.org/pub/vendors/Hitachi/AH4021/AH4021-firmware-v36.tar.gz is a 2.6.8 kernel with some broadcom binaries :
+ {{{
+bcmdrivers/broadcom/atm/impl1/blaadd96348GWV.o_save
+bcmdrivers/broadcom/char/adsl/impl1/adsldd96348GWV.o_save
+bcmdrivers/broadcom/char/atmapi/impl1/atmapi96348GWV.o_save
+bcmdrivers/broadcom/char/bcmprocfs/impl1/bcmprocfs96348GWV.o_save
+bcmdrivers/broadcom/net/enet/impl2/bcm_enet96348GWV.o_save
+bcmdrivers/broadcom/net/usb/impl2/bcm_usb96348GWV.o_save
+bcmdrivers/broadcom/net/wl/impl1/wl96348GWV.o_save
+}}}
+
 /!\ As there is no contact info here, I've put this here as a sidenote - check Jolt's 2.6 port - http://cvs.berlios.de/cgi-bin/viewcvs.cgi/tuxap/kernel/ - Kaloz
 
 == A more specific TODO ==
