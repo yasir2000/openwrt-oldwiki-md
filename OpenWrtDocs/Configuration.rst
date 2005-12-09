@@ -188,6 +188,7 @@ wan_proto=dhcp
 lan_ifnames=vlan0 eth2 eth3
 }}}
 
+'''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
 == The ethernet switch ==
 [[Anchor(EthernetSwitch)]]
