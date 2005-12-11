@@ -102,6 +102,27 @@ Reflash the unit using the TFTP method.
 
 == Serial console ==
 
+Set {{{boot_wait=on}}} in the CFE and than TFTP the firmware image.
+
+{{{
+CFE> nvram set boot_wait=on
+*** command status = 0
+CFE> nvram commit
+*** command status = 0
+CFE>
+}}}
+
+After this use the normal TFTP instructions found in [:OpenWrtDocs/Installing].
+
+On Linksys models you can use another way too. Setup a local TFTP server on your
+PC and do execute the following commands inside the CFE
+
+{{{
+CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
+CFE> et up
+CFE> flash -noheader 192.168.1.2:/openwrt-brcm-2.4-squashfs.trx flash1.trx
+}}}
+
 
 == JTAG adaptor method ==
 
