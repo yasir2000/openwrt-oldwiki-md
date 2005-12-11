@@ -7,9 +7,22 @@ Some LED sequences explained.
 ||'''on'''||LED stays on||
 ||'''off'''||LED stays off||
 
+=== POWER flashes ===
+||POWER||flashes.||
+
+'''''Reason''''':[[BR]]
+The power led can flash for a number of reasons; a flashing power led by itself is rarely cause for concern. The power led will flash on bootup until the firmware stops the flashing, but it may start flashing again with certain wireless settings (eg: configured as wifi client, not connected)
+
+
+=== DMZ lights ===
+||DMZ||on||
+
+'''''Reason''''':[[BR]]
+!OpenWrt uses the DMZ led to signal bootup. Once the kernel has booted !OpenWrt will turn on the DMZ led; it won't turn off again until after !OpenWrt has processed all the startup scripts in /etc/init.d. If it doesn't turn off then there is a problem with one of the startup scripts.
+
 === POWER flashes, DMZ alternates ===
 ||POWER||flashes.||
-||DMZ||alternates at about '''20''' seconds.||
+||DMZ||alternates slowly||
 
 '''''Reason''''':[[BR]]
 You flashed a '''corrupt''' image.[[BR]]
