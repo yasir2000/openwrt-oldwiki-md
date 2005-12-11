@@ -367,7 +367,7 @@ robocfg switch disable
 robocfg vlans enable reset
 robocfg vlan 0 ports "0 1 2 3 4 5t"
 robocfg switch enable
-vconfig eth0 0
+vconfig add eth0 0
 ifconfig vlan0 xx.xx.xx.xx netmask xx.xx.xx.xx
 ifconfig vlan0 up
 }}}
