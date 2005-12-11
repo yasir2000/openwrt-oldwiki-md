@@ -241,7 +241,7 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 ||WAPBR-100, A.K.A VS10407|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2MB||8MB||BCM2050KMI||None||off||Maybe||No||No||WiP||
 
 
-== Zyxel ==
+== ZyXEL ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7 (TNETD7300)] @160MHZ||16MB||8MB||[http://acx100.sourceforge.net/ ACX111](TNETW1130) mini-PCI||Infineon ADM6996L|| ||Maybe||No||No||[wiki:AR7Port WiP]||
+||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments Sangam/AR7 (TNETD7300)] @160MHZ||8MB||16MB||[http://acx100.sourceforge.net/ ACX111](TNETW1130) mini-PCI||Infineon ADM6996L|| ||Maybe||No||No||[wiki:AR7Port WiP]||
