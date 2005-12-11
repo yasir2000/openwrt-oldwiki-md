@@ -280,25 +280,29 @@ The example goes as follows:
 insmod ipt_layer7
 
 #flushing chain
-iptables -t mangle -F PREROUTING
+iptables -t mangle -F POSTROUTING
 
-iptables -t mangle -A PREROUTING -p icmp -j MARK --set-mark 1
-iptables -t mangle -A PREROUTING -p tcp --dport 22 -j MARK --set-mark 1
-iptables -t mangle -A PREROUTING -p tcp --sport 22 -j MARK --set-mark 1
+iptables -t mangle -A POSTROUTING -o $WAN -p icmp -j MARK --set-mark 1
+iptables -t mangle -A POSTROUTING -o $WAN -p tcp --dport 22 -j MARK --set-mark 1
+iptables -t mangle -A POSTROUTING -o $WAN -p tcp --sport 22 -j MARK --set-mark 1
 
 #quake
-iptables -t mangle -A PREROUTING -p udp --dport 26000 -j MARK --set-mark 2
-iptables -t mangle -A PREROUTING -p udp --sport 26000 -j MARK --set-mark 2
+iptables -t mangle -A POSTROUTING -o $WAN -p udp --dport 26000 -j MARK --set-mark 2
+iptables -t mangle -A POSTROUTING -o $WAN -p udp --sport 26000 -j MARK --set-mark 2
 
 #irc
-iptables -t mangle -A PREROUTING -m layer7 --l7proto irc -j MARK --set-mark 2
+iptables -t mangle -A POSTROUTING -o $WAN -m layer7 --l7proto irc -j MARK --set-mark 2
 #skype to skype VoIP calls
-iptables -t mangle -A PREROUTING -m layer7 --l7proto skypetoskype -j MARK --set-mark 2
+iptables -t mangle -A POSTROUTING -o $WAN -m layer7 --l7proto skypetoskype -j MARK --set-mark 2
 
 #all unmarked packets
-iptables -t mangle -A PREROUTING -m mark --mark 0 -j MARK --set-mark 3
+iptables -t mangle -A POSTROUTING -o $WAN -m mark --mark 0 -j MARK --set-mark 3
 
 #p2p
-iptables -t mangle -A PREROUTING -m layer7 --l7proto bittorrent -j MARK --set-mark 4
-iptables -t mangle -A PREROUTING -m layer7 --l7proto directconnect -j MARK --set-mark 4
+iptables -t mangle -A POSTROUTING -o $WAN -m layer7 --l7proto bittorrent -j MARK --set-mark 4
+iptables -t mangle -A POSTROUTING -o $WAN -m layer7 --l7proto directconnect -j MARK --set-mark 4
 }}}
+
+Note that you could mark the packets in any of the mangle table's chains, however most likely the best choice would be POSTROUTING, as used in this example. There are two reasons for that:
+ * You only need to match packets going out on the WAN interface, so you can use the -o parameter (which doesn't exist in PREROUTING).
+ * You also match locally generated packets (which isn't true for the FORWARD chain).
