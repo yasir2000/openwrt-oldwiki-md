@@ -102,7 +102,8 @@ Reflash the unit using the TFTP method.
 
 == Serial console ==
 
-Set {{{boot_wait=on}}} in the CFE and than TFTP the firmware image.
+Set {{{boot_wait=on}}} in the CFE and than TFTP the firmware image. To enter the 
+CFE hit {{{CRTL-C}}} right after power on.
 
 {{{
 CFE> nvram set boot_wait=on
