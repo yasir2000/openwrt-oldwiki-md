@@ -40,9 +40,12 @@ Intel IXP(XScale) 4xx platform:
 Broadcom BCM47xx/53xx platform:
 
  * Linksys WRT54G3G
- * Linksys WTR54GS
  * Linksys WRTSL54GS
  * Maxtor Shared Storage (any size, even without HDD)
+
+Broadcom BCM63xx platform:
+
+ * Wanadoo Livebox
 
 TI AR7 platform:
 
