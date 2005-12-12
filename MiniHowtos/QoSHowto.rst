@@ -163,7 +163,7 @@ from:
 
 to:
 
-#!/bin/ash
+#!/bin/sh
 
 
 from:
