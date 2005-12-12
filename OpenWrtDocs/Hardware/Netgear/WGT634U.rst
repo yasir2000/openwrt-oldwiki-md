@@ -1,4 +1,4 @@
-'''Netgear WGT634U'''
+= Netgear WGT634U =
 
 The WGT634U is based on the Broadcom 5365P board. It has a 200 MHz CPU, 8 MB flash
 and 32 MB RAM. The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g as well as '''802.11a''' modes, and it also has an USB 2.0
@@ -83,23 +83,23 @@ data in the unread area of the image.
 
 == Serial console ==
 
-Default parameters for the serial console are 115200 N81. You need a
+Default parameters for the serial console on J7 are 115200 N81. You need a
 [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip to get the console
 working.
 
-J6 (left from J7) looks like a second serial port, but has no header on it.
+J6 (left from J7) is a second serial port, but has no header on it. It has the same pinout as J7.
 
 {{{
 ------------------------------------------
 | |     |    LAN-Ports   |          |    |
 |       ------------------               |
 |                                        |
-|                                        |
-|                                VCC .   |
-|                                TX  .   |
-|                                RX  .   |
-|                                GND .   |
-|                                    J7  |
+|        USB                             |
+|                         VCC .  VCC .   |
+|  WiFi                    TX .  TX  .   |
+|                 CPU      RX .  RX  .   |
+|         RAM             GND .  GND .   |
+|                             J6     J7  |
 |                           FLASH        |
 |                                        |
 ------------------------------------------
