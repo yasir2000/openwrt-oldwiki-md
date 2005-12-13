@@ -144,7 +144,7 @@ How to get info:
 ||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G 3G         ||              ||               ||                ||                 ||              ||                 ||                 ||
-||WRT54G L          ||              ||               ||                ||                 ||              ||                 ||                 ||
+||WRT54G L          || 0x10         ||  0x0467       ||  0x2558        ||  0              ||  42          || 9                ||                 ||
 
 Other NVRAM variables of interest :  boot_ver, pmon_ver, firmware_version, os_version
 
