@@ -12,7 +12,7 @@ of choice.
 ||mtd1||`0x90010000`||`0x900d0000`||kernel||
 ||mtd2||`0x90000000`||`0x90010000`||["ADAM2"]||
 ||mtd3||`0x903f0000`||`0x90400000`||ADAM2 environment variables followed by `config.xml`||
-||mtd4||`0x903e0000`||`0x903f0000`||unknown/unused (32 zeros followed entirely by ones)||
+||mtd4||`0x903e0000`||`0x903f0000`||unknown/unused (32 zero bits followed entirely by ones)||
 
 The physical order of these partitions is:
  1. mtd2
