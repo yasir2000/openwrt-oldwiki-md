@@ -33,6 +33,10 @@ To get started, click a link below.
 '''[:OpenWrtDocs/Customizing: OpenWrt Customization]'''
 [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
+'''[:OpenWrtDocs/Hardware: Hardware Information]'''
+[[Include(OpenWrtDocs/Hardware,,titlesonly)]]
+
+
 ----
 
 To use the OpenWrtDocs without internet connection, you can download the latest
