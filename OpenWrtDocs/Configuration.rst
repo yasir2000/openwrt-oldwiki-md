@@ -228,7 +228,7 @@ reasons).
 
 Remark to "*": On ASUS-500GX is possible make external port tagged in this way vlan0ports="1t 2 5*".
 This is syntax like robocfg tool. Tested on White Russian RC2, may be possible on all BCM5325
-HWs. "*" have no effect, maybe exist for compatibility
+HWs. "*" have no effect, maybe exist for compatibility. This behaviour is at least confirmed with WRT54G(v3.1) and WRT54GS(v2.1) and White Russian RC3.
 
 The second variable, vlan0hwname is used by the network configuration program (or script in
 the case of !OpenWrt) to determine the parent interface. This should be set to "et0" meaning
