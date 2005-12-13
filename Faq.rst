@@ -610,7 +610,7 @@ nvram commit
 See [:OpenWrtDocs/Configuration] for details.
 
 
-== How do I use Wi-Fi Protected Access (WPA)? ==
+== How do I use WiFi Protected Access (WPA)? ==
 
 You have to install the {{{nas}}} package (which provides WPA encryption) if not already
 done with:
