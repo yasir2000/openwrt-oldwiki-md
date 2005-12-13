@@ -435,12 +435,6 @@ Linux system.
 See [:HowtoEnableCron] for details.
 
 
-== My Linksys WRT54G or WRT54GS routers seems to be unstable! ==
-
-An update (reflsah) to White Russian RC4 (and later versions) will fix the
-instability problems on the Linksys WRT54G v2.2+ and WRT54GS v1.1+ routers.
-
-
 == What's the magic behind /sbin/wifi is doing? ==
 
 The {{{/sbin/wifi}}} program reads the wireless {{{wl0_}}} settings from
