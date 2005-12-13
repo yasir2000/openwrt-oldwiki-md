@@ -1,8 +1,8 @@
 = Netgear WGT634U =
 
 The WGT634U is based on the Broadcom 5365P board. It has a 200 MHz CPU, 8 MB flash
-and 32 MB RAM. The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g as well as '''802.11a''' modes, and it also has an USB 2.0
-controller.
+and 32 MB RAM. The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and it
+also has an USB 2.0 controller.
 
 
 == Status of OpenWrt ==
