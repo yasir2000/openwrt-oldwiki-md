@@ -136,7 +136,7 @@ More options can be found via {{{ipkg --help}}}.
 
 Additional packages can be found through the [http://tracker.openwrt.org package tracker];
 these packages can be installed using {{{ipkg install http://example.com/package.ipk}}}
-or by adding the the source repository to your {{{/etc/ipkg.conf}}}.
+or by adding the source repository to your {{{/etc/ipkg.conf}}}.
 
 If you have USB storage, or install packages to a destination other than root,
 the shell script {{{ipkg-link}}} will create automatic symlinks to the root
