@@ -75,6 +75,22 @@ $
 }}}
 
 == Serial Port ==
-Information about the serial port can be found at [wiki:SeattleWireless:ActiontecGT701 SeattleWireless].
+Information about the serial port can be found at
+[wiki:SeattleWireless:ActiontecGT701 SeattleWireless].
+It is duplicated here.
+{{{
+          SoC            |
+  Flash                  |
+             JP603       |
+       # # # # # #       |
+_________________________|
+
+       G T R   V
+       N X X   C
+       D       C
+}}}
+The serial port needs a level converter chip to be used with a RS232 port.
+The logic level is 3.3v. The parameters are `38400-N-1`.
+
 == Misc ==
 http://forum.openwrt.org/viewtopic.php?id=2446
