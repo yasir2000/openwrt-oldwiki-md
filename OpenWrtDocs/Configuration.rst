@@ -413,6 +413,9 @@ robocfg switch disable vlans enable reset vlan 0 ports "1 2 3 4 5t" vlan 1 ports
 
 See [:OpenWrtNVRAM] for more NVRAM settings.
 
+== MAC filter ==
+
+|| '''NVRAM variable''' || '''Description''' ||
 
 == WEP encryption ==
 
