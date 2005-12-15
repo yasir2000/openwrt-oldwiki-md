@@ -1,7 +1,5 @@
 '''USB storage howto'''
 
-Needs Updating for rc4, which has hotplug now.
-
 [[TableOfContents]]
 
 
