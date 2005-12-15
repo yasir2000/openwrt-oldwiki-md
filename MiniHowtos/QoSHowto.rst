@@ -43,7 +43,7 @@ Perhaps I can outline the pros and cons of each.  But there's a few things you w
 (''I need to update this section for qos-scripts package.'')
 ----
 
-If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.  The archive is located [http://openwrt.inf.fh-brs.de/~nbd/qosif.tar.gz here] and contains four files. 
+If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.  The archive is located [http://openwrt.inf.fh-brs.de/~nbd/qosif.tar.gz here] (NOTE: The requested URL /~nbd/qosif.tar.gz was not found on this server. Please update URL.) and contains four files. 
 
 
 {{{
