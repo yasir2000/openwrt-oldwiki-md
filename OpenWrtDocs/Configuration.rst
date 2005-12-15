@@ -416,6 +416,8 @@ See [:OpenWrtNVRAM] for more NVRAM settings.
 == MAC filter ==
 
 || '''NVRAM variable''' || '''Description''' ||
+||'''wl0_macmode'''||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist||
+||'''wl0_maclist'''||List of space separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: 00:02:2D:08:E2:1D ||
 
 == WEP encryption ==
 
