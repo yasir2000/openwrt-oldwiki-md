@@ -6,7 +6,7 @@
 [http://focus.ti.com/pdfs/bcg/ar7wi_fact_sheet.pdf AR7]  is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including
  * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
  * [http://www.aztech.com/DSL-600EW.htm Aztech DSL 600EW] (has USB)
- * Castlenet AR800 AS800 and ASW800 series modems
+ * [http://www.castlenet.com.tw/products/XDSL/AS800%20Series.htm Castlenet AR800 AS800 and ASW800 series modems]ASW has wireless
  * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
  * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-300T, DSL-302T, DSL-500T, DSL-502T, DSL-G664T)
  * !LevelOne 4-port 10/100 Mbps ADSL Router [http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] and [http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B]
