@@ -331,11 +331,11 @@ Now that the switch has been configured to tag the appropriate packets, the VLAN
 created using the vconfig command:
 
 {{{
-vconfig add et0 0
-vconfig add et0 1
-vconfig add et0 2
-vconfig add et0 3
-vconfig add et0 4
+vconfig add eth0 0
+vconfig add eth0 1
+vconfig add eth0 2
+vconfig add eth0 3
+vconfig add eth0 4
 }}}
 
 Now VLANs 0-4 have been created, and these can be seen with the "ifconfig -a" command.
@@ -368,7 +368,7 @@ robocfg switch disable
 robocfg vlans enable reset
 robocfg vlan 0 ports "0 1 2 3 4 5t"
 robocfg switch enable
-vconfig add et0 0
+vconfig add eth0 0
 ifconfig vlan0 xx.xx.xx.xx netmask xx.xx.xx.xx
 ifconfig vlan0 up
 }}}
