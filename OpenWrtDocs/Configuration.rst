@@ -168,7 +168,7 @@ lan_proto=dhcp
 }}}
 
 To separate the LAN from the WIFI (LAN as 192.168.1.25/24, wireless as 192.168.2.25/24,
-WAN as DHTP, remove your WIFI interface (eth1 on v2/3 linksys routers) from the lan_ifnames
+WAN as DHCP, remove your WIFI interface (eth1 on v2/3 linksys routers) from the lan_ifnames
 variable):
 
 {{{
