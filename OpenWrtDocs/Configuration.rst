@@ -86,6 +86,7 @@ NVRAM; Description
 <name>_netmask; netmask (x.x.x.x)
 <name>_gateway; Default Gateway (x.x.x.x)
 <name>_dns; DNS server (x.x.x.x)
+<name>_hostname; hostname requested with dhcp
 }}}
 
 The command ''ifup <name>'' will configure the interface defined by <name>_ifname according
