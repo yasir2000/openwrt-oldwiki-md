@@ -3,30 +3,13 @@
 
 == What is this AR7 stuff? ==
 
-[http://focus.ti.com/pdfs/bcg/ar7wi_fact_sheet.pdf AR7]  is a router platform by Texas Instruments, which is used for routers and ADSL gateways, including
- * [http://www.seattlewireless.net/index.cgi/ActiontecGT701 Actiontec GT-701]
- * [http://www.aztech.com/DSL-600EW.htm Aztech DSL 600EW] (has USB)
- * [http://www.wehavemorefun.de/fritzbox/ AVM Fritz!Box] (German language)
- * [http://www.castlenet.com.tw/products/XDSL/AS800%20Series.htm Castlenet AR800 AS800 and ASW800 series modems] ASW has wireless
- * [http://www.seattlewireless.net/index.cgi/DlinkDslG604t D-Link DSL-G604T] (and DSL-300T, DSL-302T, DSL-500T, DSL-502T, DSL-G664T)
- * !LevelOne 4-port 10/100 Mbps ADSL Router [http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] and [http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B]
- * !LevelOne Wireless ADSL Router [http://www.level1.com/products3.php?sklop=12&id=540548 WBR-3407A] and [http://www.level1.com/products3.php?sklop=12&id=540549 WBR-3407B] , GPL Sourcecode for [ftp://ftp.level1.com/gpl/WBR-3407A%28GPL%29_2004-07-28.zip WBR-3407A] and [ftp://ftp.level1.com/gpl/WBR-3407B%28GPL%29_2004-07-28.zip WBR-3407B] 
- * Linksys WAG54G v2 (Note: v1 '''DOES NOT''' run Linux and is therefor unsupported)
- * Linksys [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]
- * Linksys WRTP54G
- * Netcomm NB5 (Aztech DSL600EW)
- * [http://www.seattlewireless.net/index.cgi/NetgearDG834G Netgear DG834G]
- * Siemens [http://bs.netgaroo.com/sx541/ SX541] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
- * Sitecom [http://www.trasduzione.com/WL-108 WL-108]
- * TCOM [http://ar7-firmware.berlios.de Sinus 154 DSL Basic SE] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
- * TCOM [http://ar7-firmware.berlios.de Sinus 154 DSL Basic 3] (uses realtime OS (SOHO.BIN) and BRN Boot Loader from the Broad Net Technology, Inc.)
- * [http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Zyxel Prestige 660HW] (and possibly the whole 600 series)
+[http://focus.ti.com/pdfs/bcg/ar7wi_fact_sheet.pdf AR7]  is a router platform by Texas
+Instruments, which is used for routers and ADSL gateways.
 
-and many more.
-
-http://www.linux-mips.org/wiki/AR7
+For AR7 based routers are supported in the !OpenWrt Kamikaze branch see the [:TableOfHardware]
 
 See [:OpenWrtDocs/InstallingAR7] if you are brave enough to test it.
+
 
 == Finished tasks ==
 
@@ -131,7 +114,7 @@ Terminal Settings should be: 38400 8N1, no hard- or software flow control.
 
 
 == WRTP54G Serial Console ==
-  
+
 
 {{{________________________________________
 |                                         |
@@ -185,7 +168,7 @@ Since DMA Routines do NOT exist for this ejtag version (compared to ejtag v2.0 s
 [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for D-Link DSL-30xT], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
 
 == ADSL2MUE Serial Console ==
-  
+
 
 {{{________________________________________
 |                                         |
@@ -251,7 +234,7 @@ The console is located aproximately in center of a board, it's JP5, the only 5-p
 == Netgear DG834G v2 Serial Console ==
 
 
-{{{ 
+{{{
 
 |                                       led
 |         Pin 4: RX      ----> ()       |
