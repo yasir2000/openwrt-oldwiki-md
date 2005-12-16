@@ -7,7 +7,7 @@
 
 '''Supported hardware'''
 
-To see on which routers !OpenWrt Kamikaze works see the [:TableOfHardware].
+See the [:TableOfHardware].
 
 
 = Obtaining the firmware =
