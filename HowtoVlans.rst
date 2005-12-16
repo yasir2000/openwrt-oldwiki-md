@@ -7,6 +7,8 @@
 '''Response to Answer:''' admcfg may be obsolete, and is buggy (the ARP bug is annoying), but the vlanxxxx variables don't provide all of the needed configuration options for the ADM switch in a WRT54G. For example, I have found no way to make port 0 (the WAN port) a TAGGED port. At first I thought that the * used in the vlanXports variables might help, but it simply defines the default PVID for a port that exists in multiple vlans. In single AP networks, there probably would never be a need to configure tagged vlans, but if you are trying to use multiple APs and want to segment your WiFi, and still use the ethernet ports, then as best I can tell admcfg is the only way to go. And lastly, the vlanxxxx variables don't do anything until you reset the router, which means you could easily brick your wrt (only cracking open the case can save it then).
 '''Remark to Response to Answer:''' On ASUS-500GX is possible make external port tagged in this way 'nvram set vlan0ports="1t 2 5*"'. This is syntax like robocfg tool. Tested on WhiteRussianRC2, may be possible on all BCM5325 HWs
 
+'''Comment:''' I found source for adm6996.o, which is apparently like the adm.o kernel module with /proc interface, so it doesn't need a separate utility. The location is http://nthill.free.fr/openwrt/sources/adm6996/
+
 == Intro ==
 The author of this Howto had a need to use VLAN support to keep wifi and wired traffic separate on his network. There are other, more reliable ways of achieving this, but none came anywhere close in cost to using a WRT. Even a small name-brand switch that supports VLANs will run you a fairly high price.
 
