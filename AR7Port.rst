@@ -6,7 +6,7 @@
 [http://focus.ti.com/pdfs/bcg/ar7wi_fact_sheet.pdf AR7]  is a router platform by Texas
 Instruments, which is used for routers and ADSL gateways.
 
-To see on which routers !OpenWrt Kamikaze works see the [:TableOfHardware].
+See the [:TableOfHardware] for supported AR7 routers.
 
 See [:OpenWrtDocs/InstallingAR7] if you are brave enough to test it.
 
