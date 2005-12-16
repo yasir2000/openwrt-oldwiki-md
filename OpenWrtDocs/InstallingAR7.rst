@@ -7,29 +7,8 @@
 
 '''Supported hardware'''
 
-||'''Manufacturer'''||'''Model'''||'''Version'''||'''Method'''||'''ADAM2 IP'''||'''Code Pattern'''||
-||[:OpenWrtDocs/Hardware/Actiontec: Actiontec]||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG: GT701-WG]|| ||ftp||192.168.0.1|| ||
-||ALLNet||ALL130DSL|| || || || ||
-||D-Link||DSL-G500T/G504T|| ||ftp||10.8.8.8|| ||
-||D-Link||DSL-G604T/G664T|| ||ftp||5.8.8.8|| ||
-||[:OpenWrtDocs/Hardware/Linksys: Linksys]||[:OpenWrtDocs/Hardware/Linksys/WAG54G: WAG54G]||V2-AU||ftp|| ||WAG2||
-||Linksys||WAG54G||V2-DE||tftp|| ||WA22||
-||Linksys||WAG54G||V2-EU||linksys-tftp|| ||WA21||
-||Linksys||WAG54G||V2-FR|| || ||WA21||
-||Linksys||WAG54G||V2-UK||tftp|| ||WA21||
-||Linksys||WRTP54G|| || || || ||
-||Linksys||AG241|| ||tftp|| ||AG1B||
-||TCOM||Sinus 154 DSL Basic SE|| || || || ||
-||TCOM||Sinus 154 DSL Basic 3|| || || || ||
+To see on which routers !OpenWrt Kamikaze works see the [:TableOfHardware].
 
-## Actiontec GT701-WG = ADAM2 Revision 0.22.02
-## D-Link DSL-G664T/EU V.A1 = ADAM2 Revision 0.22.02
-## Linksys WAG54G V2-AU = ADAM2 Revision 0.22.06
-## Linksys WAG54G V2-DE = ADAM2 Revision 
-## Linksys WAG54G V2-EU = ADAM2 Revision 0.22.12
-## Linksys WAG54G V2-UK = ADAM2 Revision 0.22.12
-
-* If the tftp method doesn't work, try using the linksys-tftp method
 
 = Obtaining the firmware =
 
