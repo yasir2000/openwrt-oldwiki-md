@@ -58,7 +58,7 @@ the JFFS2 partition.
 
 '''What if I can not access telnet when first booting?'''[[BR]]
 This may very well be a problem with your firewall settings in linux or
-windows. If you have any firewalls, disable them.
+windows. If you have any firewalls, you may disable them.
 
 /!\ '''WARNING:''' Do this only if you know what you are doing and can restore
 your iptables rules effortlessly. In GNU/Linux, you can flush iptables firewall
@@ -71,6 +71,25 @@ iptables -P FORWARD ACCEPT
 iptables -F
 }}}
 
+However, if you think that keeping your existing rules is wiser, you should
+insert the following rules at position 1 of your tables:
+
+{{{
+iptables -I INPUT ACCEPT
+iptables -I OUTPUT ACCEPT
+iptables -I FORWARD ACCEPT
+}}}
+
+Later it is possible to "effortlessly" restore the previous behavior by 
+deleting those three rules:
+
+{{{
+iptables -D INPUT 1
+iptables -D OUTPUT 1
+iptables -D FORWARD 1
+}}}
+
+In any case, it is better to fix your rules (see http://www.netfilter.org/).
 
 = Firstboot / JFFS2 =
 
