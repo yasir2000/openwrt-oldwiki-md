@@ -7,11 +7,15 @@ also has an USB 2.0 controller.
 
 == Status of OpenWrt ==
 
-We now have a working Kernel 2.6.12.5 in our development tree. For trying a snapshot
-of OpenWrt you need a serial connection. You will find snapshots here:
-[http://downloads.openwrt.org/people/wbx/netgear/]
+The kernel boots on the system, we have drivers for the ethernet interface (b44). 
+We are working on including a new switch driver (robocfg will be obsolete). We have 
+drivers for the wireless radio (madwifi). Recently we updated to 2.6.15rc5 to play with 2.6 
+on Linksys hardware. The OpenWrt port is still unusable for users!
 
-You can flash the snapshots via TFTP. You need to run a TFTP server on your local PC
+If you want to help with development, attach a serial console and build an image from
+subversion. Choose brcm-2.6 in make menuconfig.
+
+Images can be flashed via TFTP. You need to run a TFTP server on your local PC
 connected to the WAN port of the Netgear router. To get into the bootloader of the
 router by holding down {{{CTRL+C}}} while power on. The following CFE command is used
 to write the snapshots ({{{.bin}}} files) to the flash. Your PC is configured as
@@ -24,17 +28,8 @@ flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
 
 Flashing may take over a minute. After that you can use {{{reboot}}} to start !OpenWrt.
 
-PLEASE DO NOT BUILD ON YOUR OWN! Serial console is configured on 2.6 for Linksys routers. As soon as nvram kernel stuff is ported
-to 2.6 we will have usable buildroot again for 2.6 brcm images.
-
-Please only use snapshots! OTHERWISE YOU WILL BRICK YOUR ROUTER!
-
 == TODO ==
  
- * kernel update to 2.6.14+
- * udev support
- * nvram support with udev
- * reset button driver [need to be ported to 2.6]
  * wireless driver [sometimes kernel oops if iwconfig is used]
  * USB driver [EHCI needs to be fixed]
   * EHCI driver is not working (writing to high speed devices freeze the USB stack) and
@@ -45,8 +40,8 @@ ioctl_internal_command: <0 0 0 0> return code = 8000002
    : Current: sense key=0x0
     ASC=0x0 ASCQ=0x0
   }}}
-  * OHCI driver is working, try kmod-ohci
  * fix networking by getting hotplug system to work on non-nvram systems
+ * reset button driver [need to be ported to 2.6]
  * webupgrade from original firmware [need a CRC header]
 
 
