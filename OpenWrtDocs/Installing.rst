@@ -15,8 +15,12 @@
 /!\ '''WARNING  !OpenWrt is a COMMAND LINE  GNU/Linux distribution. It comes with
 NO WARRANTY and NO TECHNICAL SUPPORT. Loading !OpenWrt WILL VOID YOUR WARRANTY.''' /!\
 
-!OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
+!OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License.
+Users are expected to have working knowledge of the GNU/Linux command line and basic networking
+concepts. Support may be provided on a voluntary basis by developers and fellow users, but
+support is not guaranteed.
 ------------
+
 
 = Will OpenWrt work on my hardware ? =
 
@@ -29,6 +33,12 @@ See [:TableOfHardware].
 
 You can get release candidates for the next OpenWrt release (Codename whiterussian):
 [http://downloads.openwrt.org/whiterussian/ http://downloads.openwrt.org/whiterussian/]
+
+After downloading the firmware image you should make sure that the file is not corrupt.
+This can be verified by comparing the md5sum from your downloaded image with the md5sum listed
+in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found
+in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe]
+for GNU/Linux systems use the {{{md5sum}}} command.
 
 '''Getting the Source and Buildsystem'''
 
@@ -48,9 +58,6 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 should read the documentation for your specific router model.
 
 /!\ '''We strongly suggest you also read [:OpenWrtDocs/Troubleshooting] before installing'''
-
-/!\ '''The jffs2 versions of  may take several minutes for the first bootup and will require
-a reboot before being usable'''
 
 
 == General instructions (router specific instructions later) ==
@@ -80,14 +87,15 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
 /!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred.
 DO NOT unplug the router, it will automatically reboot into the new firmware.'''
 
-On routers with a DMZ led, OpenWrt will light the DMZ led while booting, after bootup
-it will turn the DMZ led off. Sometimes automatic rebooting does not work, so you can
-safely reboot after 5 minutes.
+On routers with a DMZ LED, !OpenWrt will light the DMZ LED while booting, after the bootup scriptes
+are finished it will turn off the DMZ LED. Sometimes automatic rebooting does not work, so you can
+safely reboot (power cycle) after waiting 5 minutes.
 
-The tftp commands vary across different implementations. Here are two examples, netkit's TFTP
+The TFTP commands vary across different implementations. Here are two examples, netkit's TFTP
 client and Advanced TFTP (available from: [ftp://ftp.mamalinux.com/pub/atftp/])
 
 netkit's tftp commands:
+
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -133,9 +141,9 @@ trick seems to be that OS X takes a a few seconds to configure the network conne
 when the router is powered on. My fix was to configure the Ethernet tab of 'built-in
 ethernet' (System Prefences, Network) to:
 
- *Configure: Manual(Advanced)
- *Speed: 10baseT/UTP
- *Duplex: full-duplex
+ * Configure: Manual (Advanced)
+ * Speed: 10 BaseT/UTP
+ * Duplex: full-duplex
 
 This seems to reduce the startup time of the ethernet port. On the second try the TFTP
 methode worked (where the 10+ tries before the fix did not). I also disabled the AirPort
@@ -190,29 +198,30 @@ LAN port 1 of the router.
 
 /!\ '''Do not use the Linksys TFTP program. IT WILL NOT WORK.'''
 
-||'''Model'''||'''Firmware (JFFS2)'''||'''Firmware (SQUASHFS)'''||
-||WRT54G||openwrt-wrt54g-jffs2.bin||openwrt-wrt54g-squashfs.bin||
-||WRT54GS||openwrt-wrt54gs-jffs2.bin||openwrt-wrt54gs-squashfs.bin||
+||'''Model'''||'''Firmware (SquashFS)'''||'''Firmware (JFFS2)'''||
+||WRT54G||openwrt-wrt54g-squashfs.bin||openwrt-wrt54g-jffs2.bin||
+||WRT54GS||openwrt-wrt54gs-squashfs.bin||openwrt-wrt54gs-jffs2.bin||
 
-Squashfs files:
+SquashFS files:
     The firmwares with "squashfs" in the filename use a combination of
-    a readonly squashfs partition and a writable jffs2 partition. This
+    a readonly SquashFS partition and a writable JFFS2 partition. This
     gives you a /rom with all the files that shipped with the firmware
     and a writable root containing symlinks to /rom. This is considered
     the standard install.
 
-Jffs2 files:
-    The firmwares with "jffs2" in the name are jffs2 only; all of the
+JFFS2 files:
+    The firmwares with "jffs2" in the name are JFFS2 only; all of the
     files are fully writable. The "4M" and "8M" in the filenames is a
     reference to the flash block size; most 4M flash chips use a block
     size of 64k while most 8M chips tend to use a 128k block size --
-    there are some exceptions. The jffs2 partition needs to be formatted
+    there are some exceptions. The JFFS2 partition needs to be formatted
     for the correct block size and hence the two versions.
 
-    The jffs2 versions are for experienced users only -- these firmwares
+    The JFFS2 versions are for experienced users only -- these firmwares
     only have minimal support for failsafe mode.
 
-For more information, see the README file that comes with the release.
+For more information, see the [http://downloads.openwrt.org/whiterussian/00-README 00-README]
+file that comes with the release.
 
 
 === Enabling boot_wait ===
@@ -229,13 +238,22 @@ unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each li
 below, one line at a time into the "IP Address" field, pressing the Ping button after each
 entry.
 
-/!\ '''The last versions of the firmware to support the Ping.asp bug described below are [ftp://ftp.linksys.com/pub/network/WRT54GV2_3.01.3_US_code.zip 3.01.3] for the WRT54G (up to/including v3.0) and [ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.zip 3.37.2] for the WRT54GS (up to/including v2.0). Downgrading to these firmwares is required to enable boot_wait.'''
+/!\ '''The last versions of the firmware to support the Ping.asp bug described below are [ftp://ftp.linksys.com/pub/network/WRT54GV2_3.01.3_US_code.zip 3.01.3] for the WRT54G (up
+to/including v3.0) and [ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.zip 3.37.2]
+for the WRT54GS (up to/including v2.0). Downgrading to these firmwares is required to enable
+boot_wait.'''
 
-/!\ '''I have a WRT54GS 1.1 with a firmware version 4.50 - the Ping.asp trick worked for me without downgrading the firmware! This seems to work as well with the WRT54G V3.1 with firmware V4.01.2. If you are lazy, like me, it may worth a try.'''
+/!\ '''I have a WRT54GS 1.1 with a firmware version 4.50 - the Ping.asp trick worked for me
+without downgrading the firmware! This seems to work as well with the WRT54G V3.1 with firmware
+V4.01.2. If you are lazy, like me, it may worth a try.'''
 
-/!\ '''Ping bug still exists in firmware 4.20.6 on hardware 4.0 and firmware 4.20.7 on hardware 2.0, but it is necessary to use the ping_times variation on the hack, plus some stripping of javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
+/!\ '''Ping bug still exists in firmware 4.20.6 on hardware 4.0 and firmware 4.20.7 on hardware
+2.0, but it is necessary to use the ping_times variation on the hack, plus some stripping of
+javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
 
-/!\ '''WRT54GSv4 w/ firmware 1.05.x does NOT have the Ping bug, so this won't work.  Instead go get the _v4 version of the firmware from the image site and install it using the Linksys 'Upgrade Firmware' web interface.'''
+/!\ '''WRT54GSv4 w/ firmware 1.05.x does NOT have the Ping bug, so this won't work. Instead go get
+the _v4 version of the firmware from the image site and install it using the Linksys 'Upgrade
+Firmware' web interface.'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
@@ -290,12 +308,12 @@ your Linksys firmware. You can set boot_wait from the console, using the command
 }}}
 
 You can also set boot_wait from the CFE boot loader (to enter CFE, reboot the router with
-"# reboot" while hitting "CTRL-C" continously)
+"# reboot" while hitting {{{CTRL-C}}} continously)
 
 {{{
 CFE> nvram set boot_wait=on
-CFE> nvram get boot_wait           (just to confirm, should respond with "on")
-CFE> nvram commit                  (takes a few seconds to complete)
+CFE> nvram get boot_wait       (just to confirm, should respond with "on")
+CFE> nvram commit              (takes a few seconds to complete)
 }}}
 
 
@@ -378,17 +396,16 @@ You can erase nvram settings by pressing reset button while powering on the rout
 Flashing the Motorola [:OpenWrtDocs/Hardware/Motorola/WR850G:WR850G] is fairly easy.
 Just follow these easy steps!
 
- 1. Use the web interface to set the router's IP address to 192.168.1.1.  This will mitigate the issue where dnsmasq doesn't properly read the subnet from the configuration.
+ 1. Use the web interface to set the router's IP address to 192.168.1.1. This will mitigatethe issue where dnsmasq doesn't properly read the subnet from the configuration.
  2. Download the motorola firmware image (either the squashfs or the jffs2-8mb version) from the website. (Note: The motorola has 4mb flash, but requires the 8mb version.  This is due to the paging size of the flash rom that is used, and is not related to the ignominously confusing names used for the files.  At the moment the motorola-jffs2-4mb is entirely useless [64k page size, 8mb is 128k page size].)
  3. Change the extension of the firmware image to .trx, because the Motorola web interface will not accept files with different extensions.
- 4. Use the Control Panel -> Firmware page of the Motorola web interface to upload OpenWRT.  The power light on the WR850G will flash between red and green.  DO NOT INTERRUPT THE POWER TO THE WR850G WHILE THIS IS HAPPENING.  Doing so has been shown by the state of California to cause birth defects such as low birth weight, miscarriage, and the Black Lung.
+ 4. Use the Control Panel -> Firmware page of the Motorola web interface to upload !OpenWrt. The power light on the WR850G will flash between red and green.  DO NOT INTERRUPT THE POWER TO THE WR850G WHILE THIS IS HAPPENING. Doing so has been shown by the state of California to cause birth defects such as low birth weight, miscarriage, and the Black Lung.
  5. You will receive a message in your browser telling you the flash is complete and that you should restart the router.  Do so, either using the web interface or power cycling the router.
  6. When you're finished, telnet to 192.168.1.1, issue the 'reboot' command if you're using jffs2, and change your password to activate dropbear.
  7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1) /!\ '''NOTE:''' It has been reported that v2 of the WR850G will '''NOT''' reset the nvram after erasing it, leaving the unit bricked.  So proceed with caution!
 
 /!\ '''If you're using TFTP to flash the firmware, put to the host 192.168.10.1.'''
 /!\ '''I left the host as 192.168.10.1 and it was fine on my WRT850G V2.'''
-
 
 
 == Buffalo Airstation WLA-G54 ==
