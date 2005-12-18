@@ -71,16 +71,16 @@ iptables -P FORWARD ACCEPT
 iptables -F
 }}}
 
-However, if you think that keeping your existing rules is wiser, you should
-insert the following rules at position 1 of your tables:
+Or, you may keep your existing rules by inserting the following rules at 
+position 1 of your tables:
 
 {{{
-iptables -I INPUT ACCEPT
-iptables -I OUTPUT ACCEPT
-iptables -I FORWARD ACCEPT
+iptables -I INPUT -j ACCEPT
+iptables -I OUTPUT -j ACCEPT
+iptables -I FORWARD -j ACCEPT
 }}}
 
-Later it is possible to "effortlessly" restore the previous behavior by 
+Later it is possible to restore the previous behavior by 
 deleting those three rules:
 
 {{{
