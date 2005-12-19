@@ -366,6 +366,11 @@ tftp> trace
 tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
+TFTP in windows 2000, windows XP
+{{{
+tftp -i 192.168.1.1 PUT openwrt-xxx-x.x-xxx.trx
+}}}
+
 After this, wait until the PWR LED stops flashing and the device to reboot and you should
 be set. There's also nice shell script doing this work for you to be at
 [http://openwrt.org/downloads/utils/flash.sh]. This script is also included in the source
