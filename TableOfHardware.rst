@@ -87,8 +87,10 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 == D-Link ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.dlink.com/products/?pid=372 DSL-G604T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111||IP175A||[:ADAM2]||Yes|| ||No||[wiki:AR7Port WiP]||
-||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111||IP175A||[:ADAM2]||Yes|| ||No||[wiki:AR7Port WiP]||
+||DSL-G500T|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||None||None||[:ADAM2]||Yes||Yes||Can be soldered-in||[wiki:AR7Port WiP]||
+||[http://www.dlink.com/products/?pid=373 DSL-G504T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||None||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
+||[http://www.dlink.com/products/?pid=372 DSL-G604T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
+||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
 
 
 == Linksys ==
