@@ -9,6 +9,11 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 
 [[TableOfContents]]
 
+== 3Com ==
+
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router]|| ||  [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz||1MB||4Mb||Marvell 88E6060||None||Unknown||Unknown||Unknown||No||Not as yet: ARM core, can run ulinux||
+
 
 == Actiontec ==
 
@@ -239,3 +244,5 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300)] @160MHZ||8MB||16MB||TI ACX111 (mini-PCI)||ADM6996L|| ||Maybe||No||No||Untested||
+----
+CategoryCategory
