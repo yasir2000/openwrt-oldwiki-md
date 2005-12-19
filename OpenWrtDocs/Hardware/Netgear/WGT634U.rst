@@ -71,10 +71,18 @@ Programming...done. 4194304 bytes written
 CFE> reset
 }}}
 
-Because it seems CFEs TFTP client will only read 4194304 bytes from the TFTP server, version
-1.4.1.10 will not work using this method. It just happens that 1.4.1.9 doesn't have important
-data in the unread area of the image.
+Because it seems CFEs TFTP client will only read 4194304 bytes from the TFTP server, version 1.4.1.10 will not work using this method.  To get around the 4MB limit, we can split larger images into smaller chunks and then use the -offset flag to flash the parts.  E.g. 
 
+{{{
+CFE> flash -noheader tftp_host:foo.img.1 flash0.os
+Reading tftp_host:foo.img.1: Done. 3932160 bytes read
+Programming...done. 3932160 bytes written
+*** command status = 0
+CFE> flash -noheader -offset=3932160 tftp_host:foo.img.2 flash0.os
+Reading tftp_host:foo.img.2: Done. 786256 bytes read
+Programming...done. 786256 bytes written
+*** command status = 0
+}}}
 
 == Serial console ==
 
