@@ -1,6 +1,6 @@
 This is a table of all supported devices as of 2005/12/07. Legend:
 
- * '''Supported''' - supported in "White Russian"
+ * '''Supported''' - supported in White Russian (AR7 devices only supported in Kamikaze)
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (for additional hardware support, the developers are always happy to accept donations)
  * '''No''' - confirmed that this device is not supported yet
