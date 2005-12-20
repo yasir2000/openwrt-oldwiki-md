@@ -68,7 +68,7 @@ If you think trojans are bad now, wait until everyone is running uPnP on their f
 
 === So what should I do? ===
 
-Quite simply, if you do not have a drastic need to use MSN audio and video conversations, do NOT run the IGD/uPnP on your router.  There are currently no other major applications that support or need uPnP, although I believe BitTorrent is about to support it.
+Quite simply, if you do not have a drastic need to use MSN audio and video conversations, do NOT run the IGD/uPnP on your router.  There are currently not many applications that support or need uPnP, although the [http://azureus.sourceforge.net/ Azureus] BitTorrent client is one.
 
 === I think I need uPnP, but the gurus will flame me in the forums for using it!! ===
 
