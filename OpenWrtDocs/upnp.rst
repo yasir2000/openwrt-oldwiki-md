@@ -21,7 +21,7 @@ uPnP can be installed to run on your WRT.  Information in this guide assumes you
 
 === What are my options ===
 
-You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this [http://forum.openwrt.org/viewtopic.php?id=85 thread.]
+You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this [http://forum.openwrt.org/viewtopic.php?id=85 thread.]  Some problems have been reported with the pre-compiled '''upnp''' binary, in another [http://forum.openwrt.org/viewtopic.php?id=3451 thread.]
 
 The pre-compiled Linksys binary is more elegant (read that as "three binary files and one script").  With the Linksys binary, you are also able to manually open ports in your firewall via Windows using the Internet Gateway Properties page.  You cannot currently do this with Linux-IGD.
 
