@@ -514,6 +514,7 @@ Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/
 = ToDo =
  * list of IPv6 ready application available in OpenWrt
  * start/stop radvd when connection goes up/down
+ * provide IPv6 support to PPP
 
 = Questions =
 Any ideas?
