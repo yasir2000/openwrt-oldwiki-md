@@ -9,10 +9,11 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 
 [[TableOfContents]]
 
+
 == 3Com ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router]|| ||  [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz||1MB||4Mb||Marvell 88E6060||None||Unknown||Unknown||Unknown||No||Not as yet: ARM core, can run ulinux||
+||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router]|| ||  [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz||1MB||4Mb||Marvell 88E6060||None||Unknown||Unknown||Unknown||No||No||
 
 
 == Actiontec ==
