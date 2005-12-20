@@ -9,7 +9,7 @@ We begin by installing the necessary packages. All packages mentioned are includ
 ipkg install kmod-mppe kmod-crypto pptpd
 }}}
 
-Now we should have all necessary modules and a typo that has not been fixed in RC2 or RC3. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
+Now we should have all necessary modules and a typo that has not been fixed in RC2 or RC3.  The typo does NOT exist in RC4 so you can skip this step. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
 {{{
 for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
   insmod $m >/dev/null 2>&1
