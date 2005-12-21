@@ -44,7 +44,8 @@ Plug in the power, wait 2 secs. Then start pressing reset button for 10-15 secon
 When in failsafe, the system will boot using only the files contained within
 the firmware (the SquashFS partition) ignoring any changes made to the JFFS2
 partition. Additionally, various network settings will be overridden forcing
-the router to {{{192.168.1.1}}}.
+the router to {{{192.168.1.1}}}. Telnet to this address will work without a 
+password in this mode.
 
 If you want to completely erase the JFFS2 partition, removing all packages you
 can run {{{firstboot}}}.
