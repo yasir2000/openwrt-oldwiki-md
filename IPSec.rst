@@ -87,6 +87,12 @@ proxyarp
 connect-delay 5000
 }}}
 
-now update chap-secrets according to your needs.
+now update /etc/ppp/chap-secrets according to your needs:
+this one is mine:
+{{{
+#USERNAME  PROVIDER  PASSWORD  IPADDRESS
+<user>     *         "<password>" *
+}}}
+
 
 pray!
