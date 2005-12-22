@@ -469,98 +469,6 @@ See [:TransparentFirewall]
 
 
 = Firmware =
-== Overclocking ==
-''Overclocking the WRT has been a very sought-after mod. Many people overclock their home PCs, and now I will tell you how to overclock your OpenWrt router. Please read the "troubleshooting" section at the bottom of this document, it contains important information on things you should do before trying to overclock.''
-
-'''Background Info'''
-
-Many people know that by setting the nvram variable clkfreq, you can overclock your router. Many people also know that Linksys actually released a beta firmware, changing clkfreq to 216 to fix stability issues. That quick fix actually works quite well, as many people can tell you. Linksys also released a lesser-known beta firmware that set clkfreq to 240. There are also a few things discovered by [mbm] and I that seem to affect performance. First off, you can NOT set clkfreq to any number you want. It is very selective, and only certain values work. Also, there are 2 clocks you can adjust. This was previously unknown (read: another OpenWrt first.)
-
-'''NOTE: While many people have had success with this, some have not. It is HIGHLY recommended that you flash the modified CFE images I (inh) provide at [http://downloads.openwrt.org/inh/cfe/] in case something goes wrong. Otherwise you will have to setup a JTAG cable to debrick. Even the moderate/simple overclocking suggested here has been reported to fail. Even though the clock rate is valid (like the 216 stability fix), it has caused a router to constantly reboot.'''
-
-'''Simple Overclocking'''
-
-As stated earlier, Linksys released firmware that made their routers run at 216 MHz instead of 200 to fix stability issues. You too can do this simple overclock to make your router run much more solidly. Here is all you have to do.
-
-At the OpenWrt prompt, type:
-{{{
-nvram set clkfreq=216
-nvram commit
-}}}
-
-Thats it! Reboot your router by either unplugging it and plugging it back in, or by typing:
-{{{
-reboot
-}}}
-Simple enough! If your router was unstable with high traffic loads before, you should be much more stable now :)
-
-'''Moderate Overclocking'''
-
-While a 16mHz increase doesn't seem like much, it works wonders for the router. But what if you want to go faster? Setting clkfreq to 220 locks up the router, and then you are stuck with having to use the JTAG method to de-brick. That is, of course,  assuming you didn't change the default values in the CFE file, in which case all you have to do is reboot with the reset button held in... see the 'changing cfe defaults' guide)
-
-Anyways, back on topic.. More speed!
-The trick with making it run faster is setting the right clkfreq values. The wrong ones turn your router into a brick. Here is a list of values that are known to work: 192,200,216,228,240,252,264,272,280,288,300
-
-I've personally tested all of them on my wrt54g version 3, and they all worked. There is one caveat however; values above 264 seem to have no change. By checking the cpuinfo, it still reports the BogoMIPS as 264, even if clkfreq is set above that. To check your cpuinfo, type:
-{{{
-cat /proc/cpuinfo
-}}}
-
-Try the values, test your performance, or just bask in all your overclocking glory :)
-
-'''Advanced Overclocking'''
-
-This is the good stuff, especially if you have done the MMC/SD card mod, as it boosts the read/write speeds from 200 kilobytes a second to over 330 :D
-
-In addition to setting clkfreq to a higher number, there is also another clock that can be controlled. This is called the sb clock, and is believed to be the clock that controls the speed of the data transfer between different areas of the Broadcom CPU. To set it, you set clkfreq like this:
-{{{
-nvram set clkfreq=MIPSclock,SBclock
-}}}
-
-For example, the following does the same as if you were to set clkfreq to 264:
-{{{
-nvram set clkfreq=264,132
-}}}
-
-MIPSclock is the standard clock you change when setting clkfreq with one value. The second number you set it to is the aforementioned SBclock. The SBclock, just like the MIPSclock, only has certain values that can be used, or it will brick your router. Here's a table:
-
-||MIPSclock||||SBclock||
-||||||||
-||192||||96||
-||200||||100||
-||216||||108||
-||228||||101333333||
-||228||||114||
-||240||||120||
-||252||||126||
-||264||||132||
-||272||||116571428||
-||280||||120||
-||288||||123428571||
-||300||||120||
-
-/!\ '''Some users have reported problems going above 240; you will need a JTAG cable to erase nvram if the clkfreq setting doesn't work.'''
-
-Those are all values known to work. You can either set just the MIPSclock by using that value, or set both MIPS and SB clocks by using:
-{{{
-nvram set clkfreq=MIPSclock,sbclock
-}}}
-
-You can also mix and match values. I've personally found that setting MIPSclock to 300 and SBclock to 96, I get much better performance.
-
-'''Conclusion'''
-
-The clock seems to still remain somewhat of a mystery. With the recently discovered SBclock, and table of usable values, overclocking is a much more feasible and safe mod than it used to be.
-
-'''Troubleshooting'''
-
-Possible NEW Recovery Method (no jtag from RawDigits):
-I set my wrt to 264 MHz today (didn't read well enough before trying this) which resulted in a router constantly rebooting.  I noticed that the number of seconds I could ping the router got progressively shorter after each boot, so I thought heat might be at fault here.  I placed my WRT in the freezer, and then ran a power cord and cat5 to it.  This resulted in a stable WRT at the higher frequency, allowing me to reset the NVRAM var for clkfreq.  The WRT is now running at its friendly 200 MHz with no issues whatsoever.  Let me know if this works for you (rawdigits@hotmail.com).
-
-One another method (also no jtag and no freezer need):
-With my Linksys WRT54G2 I downloaded my complet nvram to my desktop computer first. I try to overclock with clkfreq=216. I realized that the router make booting again and again. But I managed to debrick it. I unplug the router's power supply, press and hold down the reset button, then plug in. In the next seconds the nvram will be erased and fill up with default settings. My router boots after normally. After all I have to do only to set up the original nvram settings from my downloaded one. (szimszon@integrity.hu)
-
-Setting an invalid clkfreq value can have a very undesirable effect: complete router lockup, AKA 'bricking.' Normally bricking isn't that bad of a thing. You can simply use the [http://openwrt.org/OpenWrtDocs/Troubleshooting#head-d1e14acb3488c8f4b91727d72dce9f59583f9d65 JTAG method] to de-brick. When setting clkfreq values, however, you must take extra care. If you set an invalid window, you have a VERY VERY small time frame to get the jtag to erase the nvram before the CPU locks up. Rough estimates give a window of 1/2 second. If you have ever had to do this, it is a very big annoyance. A better solution is to add the nvram value reset_gpio to the default nvram stored in the cfe. By setting the right value to reset_gpio, and flashing the modified cfe back on to your router, if you do set a wrong clkfreq value, all you have to do is reset with the reset button held in, and everything will reset back to defaults. Details on  this method can be found [http://openwrt.org/OpenWrtDocs/Customizing#head-50e9ee3f70e5d5229aeade4c624b965b24de5967 here].
 
 == Changing CFE defaults ==
 ''The following is a guide from http://wl500g.dyndns.org/wrt54g.html that I've copied here, with added commentary. I am not the original author, that credit goes to Oleg.''
@@ -693,9 +601,4 @@ Posted: 2005-04-03
 
 == Customizing Firmware Image ==
 
-It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files.  For example, it's easy to move the root home directory to /root, pre-load an .ssh/authorized_keys file, and modify /etc/passwd to include a stock password and point the root home directory at /root instead of the default /tmp.  To do this you will need a Linux system and to download the source tar file.  Extract this tar file, cd into the "openwrt" directory and look in the "docs" subdirectory.  Documentation for customizing the image is located there.
-
-The short form is that you first run "make" and will be presented with a configuration like the normal Linux kernel menuconfig.  Use this to select various software packages and configurations.  When done, customize the base file-system by modifying the filesystem image under "package/base-files/default/", and then run "make" again.  This will run quite a while, well over an hour on a Pentium M 1.8 system.  When complete, your customized firmware will be in the "bin" subdirectory, ready to install.  If you make changes to the filesystem image, you'll need to regenerate the firmware with "make target_prepare target_install".  If you remove files, you will need to remove them from "build_mipsel/root" as well, or they will persist across new firmware image builds.
-
-= Downloads =
-== Programs ==
+It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files. Please use the !OpenWrt [:ImageBuilderHowTo:Image Builder].
