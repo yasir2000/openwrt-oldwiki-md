@@ -509,7 +509,8 @@ nvram set wl0_mode=sta
 
 For more information, see [:ClientModeHowto].
 
-
+== WLAN secured by IPSec ==
+See [:IPSec] Section for further information.
 
 
 = Software configuration =
