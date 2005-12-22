@@ -1,6 +1,6 @@
 '''IPSec Howto'''
 
-This section is under a first and raw version - Please correct, annotate - but not complain yet.
+'''NOTE:''' This section is under development- Please correct, annotate - but do not complain yet.
 
 
 [[TableOfContents]]
