@@ -227,7 +227,7 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || ||2MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus]|| || ||4MB|| || || || || || || ||Untested||
-
+||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP]|| || || || || || || || || || ||Untested||
 
 == US Robotics ==
 
