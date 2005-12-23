@@ -7,7 +7,10 @@
 
 
 = Plain IPSec =
-(edit me - I won't cover this section)
+## expand this section to actually say something useful
+## 1. separate wired and wireless
+## 1. install openswan and ipsec-tools (there is not yet a package of ipsec-tools)
+## 1. configure similar to http://www.netbsd.org/Documentation/network/ipsec/#sample_leaftunnel
 
 = L2TP over IPSec =
 Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very useful and detailed description on how to setup l2tp over ipsec
