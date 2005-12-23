@@ -1,5 +1,7 @@
 '''Motorola WR850G'''
 
+[[TableOfContents]]
+
 === Hardware versions ===
 
 The WR850G has three different versions (v1, v2, v3).
@@ -97,3 +99,17 @@ While the first serial port is easy to find (and described in the "non-experimen
  * The reason we use leads 15-16 is because those address lines are right at the beginning of the kernel firmware area in the flash chip, and if the CFE/bootloader detects a corrupted kernel, it will automatically go into a TFTP receiving mode.
 
  '' (Originally posted by [http://forum.openwrt.org/viewtopic.php?pid=10048#p10048 killerbobjr] ) ''
+
+=== Opening the WR850G case ===
+
+This is a very hard-to-open case, really.
+
+ * Take that 1 screw off, preferably with a torx screwdriver.
+
+ * Then you could pry the rest of it open with a screw driver while breaking the plastic hooks.
+
+'''OR'''
+
+ * Use a strong thin narrow blade (for ex. a sparkplug gapper) to press the plastic hook in while you pry it open with a screw driver. Make the sparkplug gapper look like a 2 prong fork at the end separated by about 2mm. Each prong should be about 1.5mm.
+
+''Note: you must apply a lot of force, you will feel like it's going to break but it will finally pop open, ideally. YMMV.''
