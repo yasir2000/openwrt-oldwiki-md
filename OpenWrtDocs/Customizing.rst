@@ -240,6 +240,8 @@ Generic modules are in the following packages:
 
 - kmod-usb-ohci or kmod-usb-uhci or kmod-usb2 (depends on hardware)
 
+Details instructions can be found in ["UsbStorageHowto"].
+
 === add USB to your Siemens SE505  ===
 On the side with the powerplug you will find some 'C's
 
