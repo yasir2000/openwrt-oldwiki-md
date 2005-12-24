@@ -231,6 +231,14 @@ If your WRT* has a USB port, you could attach a lot of USB devices.
  * http://www.linux-usb.org/
  * [http://www.nslu2-linux.org/wiki/Info/USBDeviceSupport USBDeviceSupport] @NSLU2 Linux
 
+=== First steps ===
+First of all you should check if the necessary USB-kernel-modules are installed (check /lib/modules/<kernel-version> for usb*.o) and loaded (lsmod is doing this).
+
+Generic modules are in the following packages:
+
+- kmod-usb-core
+
+- kmod-usb-ohci or kmod-usb-uhci or kmod-usb2 (depends on hardware)
 
 === add USB to your Siemens SE505  ===
 On the side with the powerplug you will find some 'C's
