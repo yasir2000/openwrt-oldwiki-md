@@ -102,7 +102,7 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 == Linksys ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||None ||None ||[:PSPBoot] ||Yes|| ||v1.1 ||[wiki:AR7Port WiP]||
+||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||None ||None ||[:PSPBoot] ||Yes||Yes||v1.1 ||[wiki:AR7Port WiP]||
 ||WRT54AG|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism (mini-PCI)|| || || || || ||Partial 802.11a/b/g||
 ||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G]||2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111|| ||[:ADAM2]||Yes|| || ||[wiki:AR7Port WiP]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||None||off|| || || ||WiP||
