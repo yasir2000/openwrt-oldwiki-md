@@ -168,6 +168,7 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G]|| 2 || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ || 4MB || 16MB || ACX111 (mini-PCI) || Marvell 88E6060 || || Yes || No || No || [wiki:AR7Port WiP] ||
+||[http://www.netgear.com/products/details/DG834GT.php DG834GT]|| || BCM6348 @ 256MHz || 4MB || 16MB || Atheros mini-PCI || BCM5325 || || Yes || || No || No ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2MB|| ||Atheros & Broadcom (mini-PCI)||BCM5325|| || || || ||Untested||
 ||[http://www.netgear.com/products/details/WG602.php WG602]||3||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||2MB||8MB||Broadcom (integrated)||None||on||Yes||Yes||No ||No||
 ||[http://www.netgear.com/products/details/WGR101.php WGR101]|| ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz||1MB||4Mb||Marvell 88E6060||None||Unknown||Unknown||Unknown||No||Not as yet: ARM core, can run ulinux||
