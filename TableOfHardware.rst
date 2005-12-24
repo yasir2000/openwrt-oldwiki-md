@@ -87,7 +87,7 @@ This is a table of all supported devices as of 2005/12/07. Legend:
 == Dell ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||Truemobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| ||off|| || || ||Supported||
+||Truemobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| ||off|| || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300: Supported]||
 
 
 == D-Link ==
