@@ -208,6 +208,7 @@ SquashFS files:
     gives you a /rom with all the files that shipped with the firmware
     and a writable root containing symlinks to /rom. This is considered
     the standard install.
+
     Note that this image has almost the same functionality as JFFS2
     image and is much more secure.
 
@@ -256,6 +257,8 @@ javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=vie
 /!\ '''WRT54GSv4 w/ firmware 1.05.x does NOT have the Ping bug, so this won't work. Instead go get
 the _v4 version of the firmware from the image site and install it using the Linksys 'Upgrade
 Firmware' web interface.'''
+
+/!\ '''WRT54GLv1 with firmware 4.30.0 DE do sopport this ping trick. Just use linux, set your static IP 192.168.1.2 and then use "ping -r -I <interface_name> -i 0.1" before turning your wrt54gl on. This initial gap is about 1 second long and it can be difficult under windows.'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
