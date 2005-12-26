@@ -208,6 +208,8 @@ SquashFS files:
     gives you a /rom with all the files that shipped with the firmware
     and a writable root containing symlinks to /rom. This is considered
     the standard install.
+    Note that this image has almost the same functionality as JFFS2
+    image and is much more secure.
 
 JFFS2 files:
     The firmwares with "jffs2" in the name are JFFS2 only; all of the
