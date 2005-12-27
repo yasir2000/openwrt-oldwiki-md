@@ -55,9 +55,13 @@ See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
 
 There are at least 3 variants
 
- * Telogy Networks, Inc ["ADAM2"] + Linux - most AR7 devices
+ * Telogy Networks, Inc ["ADAM2"] + Linux - most Linux based AR7 devices
  * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, WRTP54G, ADSL2MUE, maybe others?
- * Broad Net Technology, Inc. BRN bootloader and realtime OS (SOHO.BIN)
+ * Broad Net Technology, Inc. BRN bootloader and VxWorks (realtime OS with SOHO.BIN) - most (all?) VxWorks based devices, e.g. Sinus 154 DSL Basic, Siemens SX 541.
+
+Note: Even on VxWorks based routers with the BRN bootloader, it is possible to install Linux and OpenWrt!
+See http://forum.openwrt.org/viewtopic.php?id=2654 for more details.
+
 
 There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
 TFTP is probably specific to CyberTAN-based stuff (almost exclusively Linksys). All other vendors seem to use FTP
