@@ -47,6 +47,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Complete the init scripts, remove nvram dependencies where they are still present...
    * Test WAG354G support
    * Fix the wireless driver
+   * Fix VLYNQ interrupt and reset handling (needed for the wireless driver). See http://forum.openwrt.org/viewtopic.php?id=2654 for possible patches.
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
@@ -61,7 +62,6 @@ There are at least 3 variants
 
 Note: Even on VxWorks based routers with the BRN bootloader, it is possible to install Linux and OpenWrt!
 See http://forum.openwrt.org/viewtopic.php?id=2654 for more details.
-
 
 There are also at least two variants of ADAM2. My version (0.22.06) allows flashing of each mtdblock by ftp, others have reported they must flash a complete image via '''t'''ftp
 TFTP is probably specific to CyberTAN-based stuff (almost exclusively Linksys). All other vendors seem to use FTP
