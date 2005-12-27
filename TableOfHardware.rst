@@ -179,7 +179,7 @@ This is a table of all supported devices as of 2005/12/25. Legend:
 ||[http://www.netgear.com/products/details/WGT634U.php WGT634U]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365P] @ 200MHz||8MB||32MB||Atheros (mini-PCI)||in CPU||N/A||Yes||No||1x v2.0||[wiki:Self:OpenWrtDocs/Hardware/Netgear/WGT634U WiP]||
 ||[http://netgear.com/products/details/WPNT834.php WPNT834]|| ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz||4MB||32MB||Airgo (mini-PCI)||integrated Realtek||N/A|| || ||No||No||
 
-== Rovatek ==
+== Ravotek ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB|| ||None|| || || || ||Untested||
