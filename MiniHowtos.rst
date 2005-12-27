@@ -148,6 +148,10 @@ chmod a+x {thescriptname}
 }}}
 You don't have to give them the names that I did, nor do you have to put them in /usr/bin/ to work - that is just the way I did it.  Please edit this if you see errors related to my ability to form coherant sentences or if you know a better way to do this.
 
+== Simplified Firewall ==
+
+There is a modified version of /etc/firewall.user in SimpleFirewall.
+
 = Useful details =
 
 == boot_wait - What it is, and how it works ==
