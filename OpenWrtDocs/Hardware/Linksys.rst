@@ -2,3 +2,5 @@
 = Linksys hardware notes =
 
 [[PageList(OpenWrtDocs/Hardware/Linksys)]]
+----
+CategoryBrand
