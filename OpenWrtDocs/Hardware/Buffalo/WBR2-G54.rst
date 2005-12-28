@@ -1,9 +1,9 @@
 '''Buffalo WBR2-G54'''
 
 The WBR2-G54 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb RAM.
-The wireless NIC is integrated to the board. boot_wait is on by default.
+The wireless NIC is integrated to the board. `boot_wait` is on by default.
 
-Please keep in mind that for now we can't control the leds.
+Please keep in mind that for now we can't control the LEDs.
 If you brick WBR2-G54 and need to restore to factory settings you should use 2.32 firmware as others wil not work (constant reboots).
 
 /!\ '''This router sits on 192.168.11.1 as default, but flashable always on the last IP You have set up, so You have to TFTP to that address.'''
@@ -22,3 +22,5 @@ GND   o
 }}}
 
 J10 is the usual EJTAG.
+----
+CategoryModel
