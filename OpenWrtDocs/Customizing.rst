@@ -373,7 +373,7 @@ See also: http://wiki.openwrt.org/UsbAudioHowto
 == Adding a Power Button ==
 == Adding a Power Reset Button ==
 == Making it Mobile ==
-[http://yasha.okshtein.net/wrt54g/4m.jpg]
+[http://www.ranvik.net/privat/yasha/pics/4m.jpg]
 
 [http://yasha.okshtein.net/wrt54g/] How to Mobilize a WRT54g
 == Adding i2c bus ==
