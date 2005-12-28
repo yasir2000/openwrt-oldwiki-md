@@ -124,9 +124,6 @@ Proceed by soldering a wire to each of the 6 solder points. Pay special attentio
    3. Mount the card reader somewhere inside your router. We chose the right hand side of the top cover, using double sided duct tape to make it stick and drilled a small slot to allow cards to be inserted and removed with the cover closed. See the picture links at the top of the page to see what this looks like and check this picture of the actual hole.
    4. That was easy. We are now ready for the software part.
 
-'''For Version 4 hardware'''
-see [https://pg21.org/wiki/index.php/WRT54GS here] on my wiki. I havent'found all about it though
-
 '''Software'''
 
 First of all we suggest that you configure a kernel with support for MSDOS partitions and VFAT. Partition support must be built into the kernel whereas VFAT can be built both as a module or into the kernel. These are some things you may want to include in your .config:
@@ -222,6 +219,11 @@ GPIO 4 and 7:
 GPIO 5 - definitely right next to the "RA10" label:
 
 [http://www.ethernal.org/wrt54g/pics/gpio5.jpg]
+
+=== Installing on a wrt54g version 4 and wrt54gl ===
+
+Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly.  Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
+
 === Porting to other platforms ===
 *almost done being written
 
