@@ -26,3 +26,5 @@ nvram set lan_ifname=eth0
 nvram commit
 reboot
 }}}
+----
+CategoryModel
