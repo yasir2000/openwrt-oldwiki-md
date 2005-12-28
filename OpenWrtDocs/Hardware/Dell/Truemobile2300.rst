@@ -23,3 +23,5 @@ serial lines.  Further investigation will be required.
 Dell has released source code of the Dell !TrueMobile 2300 (Broadcom based) here:
 
 http://linux.dell.com/files/truemobile/tm2300/Linux_source_code.tar.gz
+----
+CategoryModel
