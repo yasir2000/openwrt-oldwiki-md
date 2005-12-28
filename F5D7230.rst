@@ -3,13 +3,13 @@
 
 A lot of information is being discussed, and development is taking place, on the Belkin F5D7230-4.  There is interest in having an open firmware running on this platform.  As OpenWRT is the starting point for most new Broadcom customers, and as OpenWRT's FAQ links to this page, hopefully, information can be provided here to those who have purchased Belkin's as well as those wanting to contribute to opening this platform.
  
-NOTE: OpenWRT *will not run* on these boxes! They have only 2MB flash. OpenWRT images are 4MB and 8MB. You do the math.
+NOTE: OpenWRT '''will not run''' on these boxes! They have only 2MB flash. OpenWRT images are 4MB and 8MB. You do the math.
 
 NOTE2: Pre-1444 hardware versions do have 4 MB flash and 16 MB RAM ...
 
-NOTE3: F5D7231-4 seems to have the same firmware. Hardware looks exactly the same. There even is a procedure to convert a 7230 v1444 into a 7231. (just change the firmware(look in seattle wireless wiki))
+NOTE3: F5D7231-4 seems to have the same firmware. Hardware looks exactly the same. There even is a procedure to convert a 7230 v1444 into a 7231. (just change the firmware (look in [wiki:SeattleWireless:FrontPage Seattle Wireless] wiki))
 
-NOTE4: The Siemens SE505 (v2) is nearly exact the same router. It has fewer RAM (8MB) but more flash (4MB). Flashing a Belkin firmware is possible on the Siemens. The LED control is different though.
+NOTE4: The Siemens [:OpenWrtDocs/Hardware/Siemens/SE505: SE505] (v2) is nearly exact the same router. It has fewer RAM (8MB) but more flash (4MB). Flashing a Belkin firmware is possible on the Siemens. The LED control is different though.
 
 == Links ==
 
@@ -145,3 +145,5 @@ Document URL;
 
 Document URL;
   http://midnightcode.org/papers/OpenWRT%20on%20the%20Belkin%20F5D7230-4%20%20-%20Broadcom%20Firmware.pdf
+----
+CategoryModel
