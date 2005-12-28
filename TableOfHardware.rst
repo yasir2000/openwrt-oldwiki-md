@@ -64,32 +64,31 @@ This is a table of all supported devices as of 2005/12/25. Legend:
 ||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || ||No||Supported||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=24&categoryid=6 WBR2-B11]|| || ||4MB|| || || || || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || ||No||Supported||
-||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes||No||Supported||
+||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes||No||[:OpenWrtDocs/Hardware/Buffalo/WBR2-G54: Supported]||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=79&categoryid=6 WBR2-G54S]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes||No||Supported||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=117&categoryid=6 WHR-G54S]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz|| || ||Broadcom (integrated)||in CPU|| ||Yes||Yes||No||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=115&categoryid=6 WHR-HP-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz|| || ||Broadcom (integrated)||in CPU|| ||Yes||Yes||No||Untested||
 ||WHR2-G54|| || ||4MB|| || || || || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54]|| || ||4MB|| || || || || || || ||Untested||
 ||WHR3-AG54|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||4MB||64MB||Broadcom (mini-PCI)|| || || || || ||Untested||
-||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || || ||Supported||
+||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54: Supported]||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=13 WLA-G54C]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB|| || ||None|| || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=70 WLA2-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||None||off|| || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=92&categoryid=6 WLA2-G54C]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4Mb||16Mb||Broadcom (integrated)||None|| ||Yes||Yes|| ||Untested||
-||[http://www.buffalotech.com/products/product-detail.php?productid=90&categoryid=6 WLA2-G54L]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes|| ||Supported||
+||[http://www.buffalotech.com/products/product-detail.php?productid=90&categoryid=6 WLA2-G54L]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes|| ||[:OpenWrtDocs/Hardware/Buffalo/WLA2-G54L: Supported]||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=35 WLI-TX1-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||None|| || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=44 WLI2-TX1-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||None|| || || || ||Untested||
 ||WLI2-TX1-AG54|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||None|| || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=102&categoryid=6 WZR-G108]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||8Mb|| ||Airgo (mini-PCI)|| || || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=109&categoryid=6 WZR-HP-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||4MB|| ||Broadcom (mini-PCI)||BCM5325|| || || || ||Untested||
-||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||8MB||64MB||Broadcom (mini-PCI)||BCM5325||on|| || || ||WiP||
+||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||8MB||64MB||Broadcom (mini-PCI)||BCM5325||on|| || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54: WiP]||
 
 
 == Dell ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||Truemobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| BCM5325 ||off|| || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300: Supported]||
-
-
+## ||!TrueMobile 1184|| ||Samsung ARM|| || ||integrated 11b|| KS8995E ||N/A|| || || || no ||
+||!TrueMobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| BCM5325 ||off|| || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300: Supported]||
 == D-Link ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
