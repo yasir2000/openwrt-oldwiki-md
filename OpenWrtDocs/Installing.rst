@@ -254,6 +254,8 @@ V4.01.2. If you are lazy, like me, it may worth a try.'''
 2.0, but it is necessary to use the ping_times variation on the hack, plus some stripping of
 javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
 
+/!\ '''WRT54GSv4 w/ firmware 1.05.2, I was able to activate the boot_wait using Uranium235's script without downgrade.  Read Uranium235 post [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492].'''
+
 /!\ '''WRT54GSv4 w/ firmware 1.05.x does NOT have the Ping bug, so this won't work. Instead go get
 the _v4 version of the firmware from the image site and install it using the Linksys 'Upgrade
 Firmware' web interface.'''
