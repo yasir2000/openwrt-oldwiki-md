@@ -116,3 +116,5 @@ at keeping the voltage...
 We have run a Wrt for 6 weeks on a lead-acid battery, charger, generator combination
 with no problems. Power was cut due to legal problems concerning the site the AP was on.
 The only time the unit was down was when we had power restored.
+----
+CategoryModel
