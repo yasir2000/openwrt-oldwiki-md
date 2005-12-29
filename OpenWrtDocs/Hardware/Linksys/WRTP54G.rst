@@ -1,3 +1,4 @@
+= Linksys WRTP54G =
 The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP enabled routers based on the TI AR7 chipsets.
 
 || ||'''WRTP54G''' http://www1.linksys.com/products/image180/WRTP54G.jpg ||'''RTP300''' http://www1.linksys.com/products/image180/RTP300.jpg||
@@ -27,5 +28,60 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
 See also:
 [:AR7Port]
+
+= Pinouts =
+== WRTP54G Serial Console ==
+
+{{{________________________________________
+|                                         |
+|                                         led
+|                   Pin 1: GND   ---> @   |
+|                                         led
+|         Pin 2: Not Connected   ---> @   |
+|                                         led
+|                   Pin 3: RX   ----> @   |                 Front of WRTP54G
+|                                         led
+|                   Pin 4: TX   ----> @   |
+|                                         |
+|                   Pin 5: VCC  ----> @   led
+|                                         |
+|                                         |
+|                                         |
+ \________________________________________|
+}}}
+The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54gv2m.  The board layout differs slightly, although enough that the serial and jtag headers are positioned parallel to the front of the unit as opposed to the perpendicular alignment on the wag54gv2
+
+== WRTP54G JTAG Pinout ==
+
+{{{
+__________________________________________
+|                     J3                  |
+|                                         led
+| Pin 1: TRST  ----> @   @ <-- Pin 2:GND  |
+|                                         led
+| Pin 3: TDI   ----> @   @ <-- Pin 4:GND  |
+|                                         led
+| Pin 5: TDO   ----> @   @ <-- Pin 6:GND  |
+|                                         led
+| Pin 7: TMS   ----> @   @ <-- Pin 8:GND  |   Front of WRTP54G
+|                                         |
+| Pin 9: TCK   ----> @   @ <-- Pin 10:GND led
+|                                         |
+| Pin 11:RST   ----> @   @ <-- Pin 12:NC  |
+|                                         |
+| Pin 13:DINT  ----> @   @ <-- Pin 14:VIO*|
+ \________________________________________|
+
+    *voltage reference @ 3.3 volts
+}}}
+
+The AR7 is based on ejtag version 2.6.
+
+This ejtag layout should support all ar7 based boards with a 14 pin jtag pinout.  The same cable as used for the standard wrt54g (based on the xilinx III/dlc-5) as demonstrated by !HairyDairyMaid can be constructed and is well documented.  Debug INT pin 13 is optional and pin 14 can be left unhooked for passive cabling.
+
+Since DMA Routines do '''not''' exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
+
+[http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
+
 ----
-CategoryModel
+CategoryModel ["CategoryAR7Device"]
