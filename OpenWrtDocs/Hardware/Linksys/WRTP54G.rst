@@ -11,9 +11,13 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 || || http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img <- matches with source archive ||
 || || http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.55-r051013.img <- latest in the field ||
 
-The WRTP54G and RTP300 both run dropbear SSH and some time ago root access was gained to an RTP300 system. 
+The WRTP54G and RTP300 both run dropbear SSH and some time ago root access was gained to an RTP300 box.
+ 
 The nearly complete contents of that router's file system were extracted and stored here: http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip
+
 All of the entries in the /proc directory were cat-ed out to a log file found here: http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt
+
+An number of the common montavista router linux tools are found (cm_logic, webcm, etc)... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/index.php?page=hacking_actiontec
 
 See also:
 http://wiki.openwrt.org/AR7Port
