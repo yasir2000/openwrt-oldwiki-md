@@ -1,4 +1,4 @@
-=== BEFSR41 ===
+= Linksys BEFSR41 =
 There are a few versions of the hardware.
 
 == Revision 2 ==
@@ -25,7 +25,7 @@ To extract some interesting firmware internals:
 
 wget ftp://ftp.linksys.com/pub/network/BEFSR41V3_v1.05.00_code.bin
 
-dd if=BEFSR41V3_v1.05.00_code.bin of=output.bz2 bs=16 skip=13 seek=0
+dd if=BEFS!R41V3_v1.05.00_code.bin of=output.bz2 bs=16 skip=13 seek=0
 
 then you end up with a bzip2 (100k block size compressed) file that has garbage at the end of it.
 
@@ -36,3 +36,5 @@ we can safetly ignore the junk at the end and decompress.
 bunzip2 output.bz2
 
 now this file has strings we can see in a hex editor. interesting!
+----
+CategoryModel
