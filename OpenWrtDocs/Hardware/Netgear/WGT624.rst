@@ -549,3 +549,5 @@ divlo = cccccccd   divhi =        0   sr    = 10008400   pc    = 80e98660
 Can anyone post a working kernel binary for the 624v1, to double check it's not a build problem?
 Maybe this is why the Netgear v1/v2 firmware is incompatible with the v3. Perhaps the ar531xPlus
 needs a different patch.
+----
+CategoryModel
