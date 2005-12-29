@@ -42,3 +42,5 @@ More stuff about the router:
  * I'll add pictures soon, too.
 
 I really like this device: it's small and uses only 3.3v. I'd really love to get OpenWrt on it, possibly for a future version of my [http://yasha.okshtein.net/wrt54g Wifi Car]. Any takers? The router is quite cheap at $39 (i got it for $29 on Black Friday), but at that price, most users would opt for other, fully supported, routers.
+----
+CategoryModel
