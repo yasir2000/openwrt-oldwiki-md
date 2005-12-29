@@ -14,6 +14,8 @@ and later. {{{boot_wait}}} is off by default on these routers, so you should
 turn it on. The version number is found on the label on the bottom of the
 front part of the case below the Linksys logo.
 
+Some consider the [:OpenWrtDocs/Hardware/Linksys/WRT54GL: WRT54GL] and
+[:OpenWrtDocs/Hardware/Linksys/WRT54G3G: WRT54G3G] versions of this model.
 
 ===== Identification by S/N =====
 
@@ -32,8 +34,6 @@ the box, below the UPC barcode.
 ||WRT54G v3.1 (AU? and UK)||<:> CDF9||<:> (./) ||<:> (./) ||
 ||WRT54G v4||<:> CDFA||<:> (./) ||<:> (./) ||
 ||WRT54G v5||<:> CDFB||<:> {X} ||<:> {X} ||
-||WRT54G 3G|| ||<:> (./) ||<:> (./) ||
-||WRT54G L||<:> CL7A ||<:> (./) ||<:> (./) ||
 
 
 ==== WRT54G v1.0 ====
@@ -89,44 +89,10 @@ rubber covers of the front feet!
 /!\ '''NOTE:''' WRT54G V5 IS '''NOT''' SUPPORTED. IT WILL NEVER BE SUPPORTED. WE ARE SICK OF
 HEARING ABOUT THE V5!
 
-This version has switched to a proprietary non-Linux OS (!VxWorks). It appears from
+This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from
 pictures that it is nearly identical to v4 with an updated rev on the processor, less
 flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by
 !OpenWrt.
-
-
-==== WRT54G 3G ====
-
-/!\ '''NOTE:''' This device is not yet fully supported.
-
-This device seems to be a normal WRT54G with a cardbus. It's used by Vodafone for their 3G
-UMTS networks. The PC card is:
-
-{{{
-root@OpenWrt:/# cardctl info
-PRODID_1="Novatel Wireless"
-PRODID_2="Merlin UMTS Modem"
-PRODID_3="U630"
-PRODID_4=""
-MANFID=00a4,0276
-FUNCID=2
-root@OpenWrt:/#
-}}}
-
-Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support on WRT54G3G]
-thread or the [http://forum.openwrt.org/viewtopic.php?id=3220 WRT54G with 3G interface?]
-thread in the forum if you have more details.
-
-Please contribute useful information here.
-
-
-==== WRT54G L ====
-
-First reports are that it's a normal WRT54G v4 with 4 MB flash and 16 MB RAM which it runs
-GNU/Linux.
-
-See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum.
-
 
 === Table summary ===
 
@@ -143,8 +109,6 @@ How to get info:
 ||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
 ||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
-||WRT54G 3G         ||              ||               ||                ||                 ||              ||                 ||                 ||
-||WRT54G L          || 0x10         ||  0x0467       ||  0x2558        ||  0              ||  42          || 9                || BCM3302 V0.8  ||
 
 Other NVRAM variables of interest :  boot_ver, pmon_ver, firmware_version, os_version
 
@@ -168,3 +132,5 @@ second reset button you can find on WRT54G v3.0, except that it has not been sol
 
 Many versions of this model have a (possibly unpopulated) serial header, for more info see
 [http://www.rwhitby.net/wrt54gs/serial.html].
+----
+CategoryModel
