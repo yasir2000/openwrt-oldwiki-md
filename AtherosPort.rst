@@ -37,8 +37,8 @@ There is an accesspoint device sold in the Czech Republic which is also based on
 
 There are at least 2 variants
 
- * VxWorx' own bootloader - most Atheros devices
- * RedBoot
+ * VxWorx' own bootloader - most Atheros devices (There is a description of the basic workings on the [:OpenWrtDocs/Hardware/Netgear/WGT624:Netgear WGT624] page.)
+ * RedBoot - the [http://sources.redhat.com/ecos/docs-latest/redboot/redboot-guide.html manual] is very good.
 
 
 = How to help =
