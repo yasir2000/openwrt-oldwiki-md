@@ -16,7 +16,7 @@ The WRT54GC is the 'Compact' version of the WRT54G. It has a built-in antenna as
 Chips (from the FCC Internal photos)
  * Marvel 88E6060 Fast Ethernet switch [http://www.marvell.com/products/switching/linkstreet/88E6060.jsp Manufacturer Product Page]
  * Etrontech EM636165TS 2MB chips (two on board) [http://www.etron.com/img/pdf/SDRAM/16Mb/Em636165(Rev%201.8).pdf Manufacturer Product Page (PDF)]
- * MX B051011
+ * Macronix LV29800BTTC-70 FLASH Low Voltage 8MB Rev B Top Boot TSOP Commercial 70ns [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/57C05F76471CEE8F48256FCD000320A1/$File/MX29LV800CT-B-1.1.pdf?OpenElement Manufacturer Product Page (PDF)]
 
 [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=507960&native_or_pdf=pdf FCC Internal photo (PDF)]
 
@@ -36,9 +36,9 @@ Having spent about seven hours trying to take the thing out of its case, here's 
 
 More stuff about the router:
 
- * The chip that's unrecognizable in the FCC photos is an MX B051011. The next three lines read: 29LVB00BTTC-70, 2l375900, and TAIWAN. Google doesn't know the B051011 so i'm kinda lost. Anyone?
+ * The chip that's unrecognizable in the FCC photos has been identified as Macronix FLASH, 8MB. See the full PDF at [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/57C05F76471CEE8F48256FCD000320A1/$File/MX29LV800CT-B-1.1.pdf?OpenElement here (PDF)]. Very detailed. Thank you, Macronix. Now if only you were easier to find... P.S. Thanks to <LostFrog> for ID'ing manufacturer.
  * The power LED actually has two LEDs in one package: an orange and a green.
- * There doesn't appear to be JTAG, but there is a solderpad area. I'll test it for serial, but for now is classified as "unknown".
+ * There doesn't appear to be JTAG, but there is a solderpad area. I'll test it for serial, but for now is classified as "unknown". Pin 11 seems to have some plusing output by the piezo buzzer test. I'll dig up some MAX233's and see what it says.
  * I'll add pictures soon, too.
 
 I really like this device: it's small and uses only 3.3v. I'd really love to get OpenWrt on it, possibly for a future version of my [http://yasha.okshtein.net/wrt54g Wifi Car]. Any takers? The router is quite cheap at $39 (i got it for $29 on Black Friday), but at that price, most users would opt for other, fully supported, routers.
