@@ -9,3 +9,5 @@ Serial port is JP1, pinout as follows:
 GND - o o
       JP1
 }}}
+----
+CategoryModel
