@@ -23,4 +23,4 @@ Voltage reference is 3.3 volts and it is set by default at 38400,8,N,1.
 Mine already had a connector soldered just like to ones we usually see on computer boards as CPU/NB fan connector.
 
 ----
-["CategoryAR7Device"]
+["CategoryAR7Device"] CategoryModel
