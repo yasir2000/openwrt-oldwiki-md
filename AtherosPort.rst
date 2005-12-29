@@ -6,7 +6,7 @@
 The AR531x and 231x is a router platform by Atheros, which is used for dual-band and single-band 108Mb/s routers, including
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWGR614 WGR614]v3.
  * [:OpenWrtDocs/Hardware/Netgear/WGT624:Netgear WGT624] [http://www.netgear.com/products/details/WGT624.php Product link]
- * [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Linksys WRT55AG v2] (Note: v1 '''IS Broadcom based''', so this porting effort doesn't have anything to do with it.)
+ * [:OpenWrtDocs/Hardware/Linksys/WRT55AG:Linksys WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (Note: v1 '''IS Broadcom based''', so this porting effort doesn't have anything to do with it.)
  * [http://www.dlink.com/products/?sec=0&pid=316 D-Link DI-524], at least HW rev C1, but it only has 8MiB RAM and 1MiB ROM (see [http://www.kollasch.net/JonathanKollasch/WirelessEquipmentPhotos here])
  * [http://support.dlink.com/products/view.asp?productid=DWL%2D2210AP D-Link DWL-2210AP], at least according to [http://devicescape.com Devicescape]
 
@@ -52,3 +52,14 @@ Note that D-link_DWL-2210AP/v1.0.2.8/dwl2210ap-source_1.0.2.8.tar.gz seems to in
 
 
 AR531x/231x-specific kernel patches will go into {{{target/linux/linux-2.4/patches/ar531x}}}. The build system part that constructs the firmware images for AR531x based routers will be in {{{target/linux/image/ar531x}}}.
+
+== Work Done currently ==
+
+The architecture files are updated and in the openwrt buildroot. At present it is not fully integrated, it defaults to using the AP30 configuration, and the ethernet driver is not optional. Support for ar5315 series CPUs is not present.
+
+There are patches in {{{target/linux/linux-2.4/patches/ar531x}}}, the config file for the kernel in {{{target/linux/linux-2.4/config}}}.
+
+Patches still to be applied:
+    Madwifi specifying AHB instead of PCI -- in queue
+
+    Removal of PCI based packages as ar5312 series CPU's lack have PCI.
