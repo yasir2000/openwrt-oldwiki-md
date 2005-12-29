@@ -28,3 +28,5 @@ Eg.
  Sent 1585152 bytes in 5.2 seconds
 
  tftp> get REBOOT
+----
+CategoryModel
