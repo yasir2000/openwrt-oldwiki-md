@@ -162,7 +162,17 @@ Thanks.
 
 === CUPS ===
 
-Please fill this section with some useful content.
+Assuming the printer driver is installed locally, it's a simple matter of entering http://localhost:631 in your favorite web-browser, and pressing add printer under the "Printers" pane. Then:
+
+ * Enter something into the information fields and press continue. 
+ * Select "Internet Printing Protocol (IPP)" and press continue.
+ * Write "socket://<ip to router>:<listening port of router>". Here you have to fill in the appropriate info in the <> fields. Press continue.
+ * Select the appropriate manufacturer and press continue.
+ * Select the appropriate printer and press continue.
+ * Voila...
+
+Then you use your new printer like you would a local one.
+
 
 
 === kprinter (KDE) ===
