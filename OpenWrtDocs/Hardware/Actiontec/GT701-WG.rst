@@ -95,4 +95,4 @@ The logic level is 3.3v. The parameters are `38400-N-1`.
 == Misc ==
 http://forum.openwrt.org/viewtopic.php?id=2446
 ----
-CategoryModel
+CategoryModel ["CategoryAR7Device"]
