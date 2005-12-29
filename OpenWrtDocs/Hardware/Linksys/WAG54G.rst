@@ -1,4 +1,4 @@
-= WAG54G =
+= Linksys WAG54G =
 
 == Serial Console ==
 
@@ -22,3 +22,5 @@
 }}}
 
 The settings for the serial console are "38400 8N1", with hardware and software flow control both disabled.
+----
+CategoryModel
