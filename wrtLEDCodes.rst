@@ -45,6 +45,62 @@ The values are bitfields, so add up the ones you want in the table below to cont
 
 For example, if you want the power LED to flash (0x04) and the DMZ LED to light up (0x01) you'd echo "0x05" > /proc/sys/diag
 
+== More Control of the LEDs ==
+More control of the LEDs can be done with the [http://downloads.openwrt.org/utils/gpio.tar.gz GPIO] utility.  You can use wget to download it directly to your router.  
+I've found ''*cough* *cough* thanks dd-wrt *cough* *cough* a list that works pretty well for me.  I am testing this on a WRT54g V3, and cannot verify what else it works on, but I'll post what ''others'' have said.
+
+I've found one thing funny about the way the gpio works in junction with the LEDs... ''disabled = on'', and ''enabled = off'.  Don't ask me why... I don't know.
+
+All you need to do is pick a pin from the list:
+
+||Pin||Purpose||Supported Routers||
+||0||WLAN LED||*||
+||1||Power LED||*||
+||2||Cisco White LED||*||
+||3||Cisco Amber LED||*||
+||4||''NOT A LED''||*||
+||5||Unknown... Seems to cycle all the LED colors disabled.||*||
+||6||''NOT A LED''||*||
+||7||DMZ LED||*||
+
+and type:
+
+'''gpio disable ''{PIN}'''''
+
+to turn it on, and/or:
+
+'''gpio enable ''{PIN}'''''
+
+to turn it back off.
+
+Here's an example I use in my router (the Cisco White LED turns on when someone is ssh'd into my router):
+{{{
+#!/bin/sh 
+
+led=2
+interval=5 
+
+
+on=0
+/sbin/gpio enable $led 
+
+while sleep $interval 
+do 
+   users=$(/bin/netstat -t 2> /dev/null | /bin/grep :22 | /usr/bin/wc -l) 
+
+   if [ $users -gt 0 ]; then 
+      if [ $on -eq 0 ]; then 
+          /sbin/gpio disable $led
+          on=1 
+      fi 
+   else 
+      if [ $on -eq 1 ]; then 
+          /sbin/gpio enable $led
+          on=0 
+      fi 
+   fi 
+done
+}}}
 ----
 ----
 CategoryCategory
