@@ -39,7 +39,8 @@ More stuff about the router:
  * The chip that's unrecognizable in the FCC photos has been identified as Macronix FLASH, 8MB. See the full PDF at [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/57C05F76471CEE8F48256FCD000320A1/$File/MX29LV800CT-B-1.1.pdf?OpenElement here (PDF)]. Very detailed. Thank you, Macronix. Now if only you were easier to find... P.S. Thanks to <LostFrog> for ID'ing manufacturer.
  * The power LED actually has two LEDs in one package: an orange and a green.
  * There doesn't appear to be JTAG, but there is a solderpad area. I'll test it for serial, but for now is classified as "unknown". Pin 11 seems to have some plusing output by the piezo buzzer test. I'll dig up some MAX233's and see what it says.
- * I'll add pictures soon, too.
+
+Pictures and more information available on my website: [http://yasha.okshtein.net/wrt54gc/ http://yasha.okshtein.net/wrt54gc/].
 
 I really like this device: it's small and uses only 3.3v. I'd really love to get OpenWrt on it, possibly for a future version of my [http://yasha.okshtein.net/wrt54g Wifi Car]. Any takers? The router is quite cheap at $39 (i got it for $29 on Black Friday), but at that price, most users would opt for other, fully supported, routers.
 ----
