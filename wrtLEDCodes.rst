@@ -47,7 +47,7 @@ For example, if you want the power LED to flash (0x04) and the DMZ LED to light 
 
 == More Control of the LEDs ==
 More control of the LEDs can be done with the [http://downloads.openwrt.org/utils/gpio.tar.gz GPIO] utility.  You can use wget to download it directly to your router.  
-I've found ''*cough* *cough* thanks dd-wrt *cough* *cough* a list that works pretty well for me.  I am testing this on a WRT54g V3, and cannot verify what else it works on, but I'll post what ''others'' have said.
+I've found ''*cough* *cough* thanks dd-wrt *cough* *cough*'' a list that works pretty well for me.  I am testing this on a WRT54g V3, and cannot verify what else it works on, but I'll post what ''others'' have said.
 
 I've found one thing funny about the way the gpio works in junction with the LEDs... ''disabled = on'', and ''enabled = off''.  Don't ask me why... I don't know.
 
