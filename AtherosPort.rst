@@ -62,4 +62,6 @@ There are patches in {{{target/linux/linux-2.4/patches/ar531x}}}, the config fil
 Patches still to be applied:
     Madwifi specifying AHB instead of PCI -- in queue
 
-    Removal of PCI based packages as ar5312 series CPU's lack have PCI.
+    Removal of PCI based packages as ar5312 series CPU's lack PCI.
+----
+CategoryOpenWrtPort
