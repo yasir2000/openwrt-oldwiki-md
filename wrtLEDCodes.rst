@@ -73,7 +73,7 @@ to turn it on, and/or:
 
 to turn it back off.
 
-Here's an example I use in my router (the Cisco White LED turns on when someone is ssh'd into my router):
+Here's an example I use in my router (the Cisco White LED turns on when someone is ssh-ing into my router):
 {{{
 #!/bin/sh 
 
