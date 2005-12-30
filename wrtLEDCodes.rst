@@ -56,7 +56,7 @@ All you need to do is pick a pin from the list:
 ||Pin||Purpose||Supported Routers||
 ||0||WLAN LED||*||
 ||1||Power LED||*||
-||2||Cisco White LED||WRT54g V3 (V3+ must have the Cisco LED/Button)||
+||2||Cisco White LED||WRT54g V3 (V3+? must have the Cisco LED/Button)||
 ||3||Cisco Amber LED||Same as pin 2||
 ||4||''NOT A LED'' Input from CISCO button||Same as pin 2||
 ||5||Unknown... Seems to cycle all the LED colors disabled.||*||
