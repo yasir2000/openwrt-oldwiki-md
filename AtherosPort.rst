@@ -9,6 +9,8 @@ The AR531x and 231x is a router platform by Atheros, which is used for dual-band
  * [:OpenWrtDocs/Hardware/Linksys/WRT55AG:Linksys WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (Note: v1 '''IS Broadcom based''', so this porting effort doesn't have anything to do with it.)
  * [http://www.dlink.com/products/?sec=0&pid=316 D-Link DI-524], at least HW rev C1, but it only has 8MiB RAM and 1MiB ROM (see [http://www.kollasch.net/JonathanKollasch/WirelessEquipmentPhotos here])
  * [http://support.dlink.com/products/view.asp?productid=DWL%2D2210AP D-Link DWL-2210AP], at least according to [http://devicescape.com Devicescape]
+ * Senao NL-5354 AP1 Aries2 dual band AP (AR5312+AR5112+AR2112)
+ * Senao NL-3054 AP3 Aries2 (AR2313+AR2112 radio)
 
 and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
 
