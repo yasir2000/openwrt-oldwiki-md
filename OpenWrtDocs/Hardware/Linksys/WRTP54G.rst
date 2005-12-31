@@ -45,7 +45,7 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 Notes:
  * A dump of all the RTP300's blocks is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the the FS dump made available earlier (which contained only files from the mounted root).
  * All memory blocks are padded at the ends with ASCII 255 characters (Hex FF).
- * mtd0 ''root'' is mounted as / (squashfs file system) since ''/proc/version'' is {{{Linux version 2.4.17_mvl21-malta-mips_fp_le (myron@dhcp-2123-3084) (gcc version 2.95.3 20010315 (release/MontaVista)) #1 Thu Oct 13 10:23:23 CST 2005}}} this FS is most likely a 1.x sqaushfs image like that in the Actiontec [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/GT701-WG GT701].
+ * mtd0 ''root'' is mounted as / (squashfs file system) since ''/proc/version'' is {{{Linux version 2.4.17_mvl21-malta-mips_fp_le (myron@dhcp-2123-3084) (gcc version 2.95.3 20010315 (release/MontaVista)) #1 Thu Oct 13 10:23:23 CST 2005}}} this FS is most likely a 1.x sqaushfs image like that in the Actiontec [:OpenWrtDocs/Hardware/Actiontec/GT701-WG: GT701-WG].
  * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
  * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a [:PSPBoot] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
 
