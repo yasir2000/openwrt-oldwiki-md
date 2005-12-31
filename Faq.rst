@@ -667,10 +667,10 @@ INTERNET-----WRT54G_1- - - - - -WRT54G_2 - - - - - Wireless Clients
 - - - Wlan link
 }}}
 
-With WDS you can connect wireless clients to the AP. In client mode this
+With WDS you can connect wireless clients to all APs. In client mode this
 is not possible.
 
-This is done again by setting up some NVRAM variables.
+This is done again by setting up some NVRAM variables in WRT54G_2.
 
 {{{
 nvram set wl0_lazywds=0
@@ -679,8 +679,9 @@ nvram commit
 ifup wifi; /sbin/wifi
 }}}
 
-Replace {{{aa:bb:cc:dd:ee:ff}}} with the MAC address of the other router you would
-like to connect via WDS.
+Replace {{{aa:bb:cc:dd:ee:ff}}} with the MAC address of the router you would
+like to connect via WDS. In this example the MAC of WRT54G_1. There is no need 
+to change the NVRAM variables in WRT54G_1.
 
 If the other router is running OpenWrt too you can get the MAC address from output of:
 
