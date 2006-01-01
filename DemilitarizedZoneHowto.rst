@@ -87,6 +87,8 @@ the {{{/etc/init.d/S40network}}} file and add {{{ifup dmz}}} after the line {{{i
 {{{
 [..]
 iptables -A forwarding_rule -i vlan2 -o $WAN -j ACCEPT
+iptables -A forwarding_rule -i vlan2 -o br0   -j ACCEPT
+iptables -A forwarding_rule -i br0   -o vlan2 -j ACCEPT
 
 ### Port forwarding
 # http to DMZ
