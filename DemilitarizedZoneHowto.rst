@@ -76,9 +76,8 @@ dmz_proto=static
 
 == Modify the init scripts ==
 
-Next is to change your init scripts to bring up the DMZ on every reboot.
-You have to edit the /etc/init.d/S40network file and add {{{ifup dmz}}}
-after the line {{{ifup wan}}}.
+Next is to change your init scripts to bring up the DMZ on every reboot. You have to edit
+the {{{/etc/init.d/S40network}}} file and add {{{ifup dmz}}} after the line {{{ifup wan}}}.
 
 
 == Configure the firewall ==
