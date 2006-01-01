@@ -33,7 +33,7 @@ br0:   LAN (Ports 1 to 3) and WiFi
 
 vlan1: IP address from DHCP, PPPoE, static, ..
 vlan2: 192.168.2.1 (192.168.2.0/24)
-br0:   192.168.1.1 (192.168.1.0/25)
+br0:   192.168.1.1 (192.168.1.0/24)
 }}}
 
 
