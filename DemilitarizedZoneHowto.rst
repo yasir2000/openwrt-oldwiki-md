@@ -65,11 +65,13 @@ vlan2 for our DMZ.
 
 Set the following:
 
+{{{
 dmz_ifname=vlan2
 dmz_ifnames=vlan2
 dmz_ipaddr=192.168.2.1
 dmz_netmask=255.255.255.0
 dmz_proto=static
+}}}
 
 
 == Modify the init scripts ==
