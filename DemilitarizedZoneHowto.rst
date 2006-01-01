@@ -6,7 +6,7 @@
 
 = Introduction =
 
-Lot's of users requested a howto on IRC and the forum for a sample
+Lots of users requested a howto on IRC and the forum for a sample
 demilitarized zone configuration using !OpenWrt. Well, here is the
 howto. Take it AS-IS. If you don't like how it's written please feel
 free to change it.
