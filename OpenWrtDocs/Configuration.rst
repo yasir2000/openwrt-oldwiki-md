@@ -496,7 +496,7 @@ If you activate both you will double the pain to find a problem.
 WIFI" above, this will not just work, since you no longer have a br0 device. You will have
 to add a bridge to one of your devices again, and create appropriate firewall rules, to make
 things work. There are currently no detailed instructions on how to set this up, so you
-etter know what you are doing...
+better know what you are doing...
 
 
 == OpenWrt as client / wireless bridge ==
