@@ -39,7 +39,7 @@ and are prepared to do some work !OpenWrt is the fastest Linux based firmware fo
 At the moment the distribution contains more than 100 software packages. Furthermore the !OpenWrt
 community provide more add-on packages. For developers the project provides a build system, which may
 be used to create modified firmware from source. Porting of new software packages is simplified with
-the use of the SDK. (But you already knew that, or you else wouldn't be here)
+the use of the SDK. 
 
 
 = OpenWrt Version History =
