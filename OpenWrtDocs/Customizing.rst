@@ -409,6 +409,7 @@ Busybox Configuration - Networking Utilities - ifupdown = N
 == Software Tools ==
 === Networking ===
 ||[http://www.hetos.de/bwlog.html WRTbwlog]||A tool that shows internet traffic on all wired and wireless interfaces, as well as many other useful and related functions||
+||BandwithTestPage||A simple CGI script for testing the instantaneous bandwidth to the wireless router||
 === System ===
 === Wireless ===
 ||[http://wiviz.natetrue.com WiViz]||A very nice wireless network visualization tool||
