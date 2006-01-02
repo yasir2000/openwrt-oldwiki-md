@@ -250,6 +250,10 @@ cd ..
 
 = Links =
 
+
+You can find an useful reference for the packaging process in nbd's paper to the 'OpenWrt Hacking' talk on the 22C3:
+[[BR]]- [http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf]
+
 Full buildroot documentation (for compiling kernel modules and such things,
 for the rest the SDK should be used)
 [[BR]]- [http://downloads.openwrt.org/docs/buildroot-documentation.html]
