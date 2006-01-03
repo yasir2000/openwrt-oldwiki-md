@@ -414,7 +414,7 @@ Just follow these easy steps!
  4. Use the Control Panel -> Firmware page of the Motorola web interface to upload !OpenWrt. The power light on the WR850G will flash between red and green.  DO NOT INTERRUPT THE POWER TO THE WR850G WHILE THIS IS HAPPENING. Doing so has been shown by the state of California to cause birth defects such as low birth weight, miscarriage, and the Black Lung.
  5. You will receive a message in your browser telling you the flash is complete and that you should restart the router.  Do so, either using the web interface or power cycling the router.
  6. When you're finished, telnet to 192.168.1.1, issue the 'reboot' command if you're using jffs2, and change your password to activate dropbear.
- 7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1) /!\ 
+ 7. If you're having trouble getting an IP, try setting your IP manually to 192.168.1.2.  Sometimes dnsmasq doesn't work properly with the WR850G routers. An nvram reset ((('mtd erase nvram; reboot'))) may solve this issue (Note: erasing nvram resets the router's IP to 192.168.10.1) /!\ '''NOTE:''' user reports that v2 resets the router's IP to 192.168.1.1
 
 /!\ '''If you're using TFTP to flash the firmware, put to the host 192.168.10.1.'''
 /!\ '''I left the host as 192.168.10.1 and it was fine on my WRT850G V2.'''
