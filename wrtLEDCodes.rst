@@ -53,15 +53,15 @@ I've found one thing funny about the way the gpio works in junction with the LED
 
 All you need to do is pick a pin from the list:
 
-||Pin||Purpose||Supported Routers||
-||0||WLAN LED||*||
-||1||Power LED||*||
-||2||Cisco White LED||WRT54g V3 (V3+? must have the Cisco LED/Button)||
-||3||Cisco Amber LED||Same as pin 2||
-||4||''NOT A LED'' Input from CISCO button||Same as pin 2||
-||5||Unknown... Seems to cycle all the LED colors disabled.||*||
-||6||''NOT A LED'' Input from Reset button||*||
-||7||DMZ LED||*||
+||Pin||Wl500gx||other||Supported Routers||
+||0||Power LED||WLAN LED||*||
+||1||J1 GPIO1||Power LED||*||
+||2||etc47xx Reset||Cisco White LED||WRT54g V3 (V3+? must have the Cisco LED/Button)||
+||3||?||Cisco Amber LED||Same as pin 2||
+||4||?||''NOT A LED'' Input from CISCO button||Same as pin 2||
+||5||J1 GPIO5||Unknown... Seems to cycle all the LED colors disabled.||*||
+||6||etc47xx Reset||''NOT A LED'' Input from Reset button||*||
+||7||J1 GPIO7||DMZ LED||*||
 
 and type:
 
