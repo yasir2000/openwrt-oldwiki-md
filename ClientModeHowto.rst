@@ -32,7 +32,7 @@ nvram set wl0_mode=wet
 
 '''TIP:''' When {{{wet}}} mode is not working for you try {{{sta}}} mode instead.
 
-'''NOTE:''' As soon as your AP is in client mode you _can't_ connect any
+'''NOTE:''' As soon as your AP is in client mode you ''can't'' connect any
 wireless clients to it anymore because it's not in AP mode ({{{wl0_mode=ap}}}).
 Also note that '''wl0''' above is WL in lower case followed by Zero.
 
