@@ -53,7 +53,7 @@ I've found one thing funny about the way the gpio works in junction with the LED
 
 All you need to do is pick a pin from the list:
 
-||Pin||Wl500gx||other||Supported Routers||
+||Pin||Wl500gx||Other purpose||Supported Routers||
 ||0||Power LED||WLAN LED||*||
 ||1||J1 GPIO1||Power LED||*||
 ||2||etc47xx Reset||Cisco White LED||WRT54g V3 (V3+? must have the Cisco LED/Button)||
