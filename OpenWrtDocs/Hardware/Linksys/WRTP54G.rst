@@ -20,7 +20,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * Source code is incomplete, it's missing some of the binary files (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
 
- * The nearly complete contents of a RTP300 router's mounted file system were extracted and stored [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
+ * The nearly complete contents of a RTP300 router's mounted file system were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
 
  * All of the entries in the ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
 
