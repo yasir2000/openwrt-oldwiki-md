@@ -1,13 +1,15 @@
 #pragma section-numbers off
 [[TableOfContents]]
 = Actiontec GT701-WG =
+http://actiontec.com/products/broadband/54mbps_wireless_gateway_1p/images/prod_shot.gif
+
 The [http://www.actiontec.com Actiontec] [wiki:SeattleWireless:ActiontecGT701 GT701-WG]
 is a TI AR7-based device. Thus ["AR7Port"] is compatible with these devices.
 This model is distributed by [http://www.qwest.com Qwest] as their current modem
 of choice.
 
 == Flash Map ==
-||partition||start||end||description||
+||'''partition'''||'''start'''||'''end'''||'''description'''||
 ||mtd0||`0x900d0000`||`0x903e0000`||squashfs filesystem||
 ||mtd1||`0x90010000`||`0x900d0000`||kernel||
 ||mtd2||`0x90000000`||`0x90010000`||["ADAM2"]||
@@ -28,6 +30,8 @@ List of commands to be issued before flashing using the FTP method as directed i
  3. flash to mtd5 instead of mtd4
 
 == Restoring Qwest Firmware ==
+http://www.qwest.com/internethelp/images/dsl_modem_lrg.jpg
+
 First obtain and extract
 http://www.qwest.com/internethelp/modems/gt701/docs/gt701_wg_qw04_3_60_2_0_6_3_recovery.zip.
 The files you need are in the "gt701-wg qw04-3.60.2.0.6.3_recovery/image" directory.
@@ -79,8 +83,8 @@ Information about the serial port can be found at
 [wiki:SeattleWireless:ActiontecGT701 SeattleWireless].
 It is duplicated here.
 {{{
-          SoC            |
-  Flash                  |
+      SoC                |
+Flash                    |
              JP603       |
        # # # # # #       |
 _________________________|
@@ -93,6 +97,15 @@ The serial port needs a level converter chip to be used with a RS232 port.
 The logic level is 3.3v. The parameters are `38400-N-1`.
 
 == Misc ==
-http://forum.openwrt.org/viewtopic.php?id=2446
+=== Forum Posts ===
+ * http://forum.openwrt.org/viewtopic.php?id=2446
+=== Photos ===
+http://www.qwest.com/dsl/customerservice/actiontecGT701-WG.jpg
+
+
+
+http://users-www.kollasch.net/~jakllsch/photos/Actiontec%20GT701-WG/inside_small.jpg
+
+Additional high-res photos can be found at http://users-www.kollasch.net/~jakllsch/photos/Actiontec%20GT701-WG/.
 ----
 CategoryModel ["CategoryAR7Device"]
