@@ -57,5 +57,5 @@ and drivers for the network interfaces. The developer team try to reimplement mo
 code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware
 images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to
 program the VLAN capable switch (robocfg). The codename of the first !OpenWrt release is "White Russian"
-a popular cocktail. !OpenWrt 1.0 is planned for sometime in the unforseeable future. White Russian is
+a popular cocktail. !OpenWrt 1.0 is planned for sometime in the future. White Russian is
 currenly in "Release Canidate" status, with numbers like "rc3" and "rc4".
