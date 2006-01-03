@@ -14,17 +14,17 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
 '''Notes'''
 
- * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the archive name: _cyt_).
+ * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
 
- * The WRTP54G and RTP300 both run dropbear SSH and some time ago root access was gained to an RTP300 box.
+ * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago root access was gained to a RTP300 box.
 
  * Source code is incomplete, it's missing some of the binary files (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
 
- * The nearly complete contents of that router's file system were extracted and stored [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
+ * The nearly complete contents of a RTP300 router's mounted file system were extracted and stored [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
 
  * All of the entries in the ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
 
- * A number of the common montavista router linux tools are found (cm_logic, webcm, etc) on these routers... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/index.php?page=hacking_actiontec
+ * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/index.php?page=hacking_actiontec
 
 See also:
 [:AR7Port]
