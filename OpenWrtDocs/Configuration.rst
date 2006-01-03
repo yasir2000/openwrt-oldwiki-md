@@ -215,14 +215,14 @@ earlier, it's not set.
 
 When the et module (ethernet driver) loads it will read from vlan0ports to vlan15ports,
 behind the scenes the ethernet driver is using these variables to generate a more complex
-configuration which will be sent to the switch. When packets are recieved from external
+configuration which will be sent to the switch. When packets are received from external
 devices they need to be assigned a vlan id, and when packets are sent to those external
 devices the VLAN tags need to be removed.
 
 PVID represents the primary VLAN id, in other words if a packet doesn't have a VLAN tag,
 which VLAN does it belong to? The ethernet driver handles this rather trivially, in the
 case of vlan0ports="1 2 3 4 5*", ports 1-4 are set to PVID 0 (vlan0). Since the wrt needs
-to recieve packets from both the LAN (vlan0) and the WAN (vlan1), port 5 is a special case
+to receive packets from both the LAN (vlan0) and the WAN (vlan1), port 5 is a special case
 appearing in both vlan0ports and vlan1ports. This is where the '*' is used -- it determines
 the PVID of port 5, which is also the only port not to untag packets (for hopefully obvious
 reasons).
