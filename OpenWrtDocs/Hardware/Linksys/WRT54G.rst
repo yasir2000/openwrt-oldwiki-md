@@ -101,16 +101,16 @@ How to get info:
  * board info: {{{nvram show | grep board | sort}}}[[BR]]
  * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
 
-||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||
-||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       4         || BCM4702KPB ?  ||
-||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       5         || BCM4710 V0.0  ||
-||WRT54G v2.0       || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  42          ||       -         || BCM3302 V0.7  ||
-||WRT54G v2.2       ||     -        ||  0x0708       ||  0x0118        ||       -         ||      -       ||       7         || -             ||
-||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
-||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
-||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7 ||
+||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||'''boot_ver'''||'''pmon_ver'''||
+||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       4         || BCM4702KPB ?  ||       -      ||       -      ||
+||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       5         || BCM4710 V0.0  ||       -      ||       -      ||
+||WRT54G v2.0       || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  42          ||       -         || BCM3302 V0.7  ||  v2.3        ||  3.51.21.0   ||
+||WRT54G v2.2       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||  v3.4        ||  3.61.13.0   ||
+||WRT54G v3.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||       -      ||       -      ||
+||WRT54G v3.1 (AU?) || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||       -      ||       -      ||
+||WRT54G v4.0       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||       -      ||       -      ||
 
-Other NVRAM variables of interest :  boot_ver, pmon_ver, firmware_version, os_version
+Other NVRAM variables of interest :  firmware_version, os_version
 
 Please complete this table. Look at the
 [http://openwrt.org/forum/viewtopic.php?pid=8127#p8127 Determining WRT54G/GS model using nvram variables]
