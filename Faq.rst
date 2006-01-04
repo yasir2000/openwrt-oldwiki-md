@@ -155,7 +155,7 @@ In GNU/Linux and other *ixes, use the {{{atftp}}} client.
 
 On Windows operating systems use one of the following:
  * tftpd32 from [http://perso.wanadoo.fr/philippe.jounin/tftpd32.html]
- * or the included one (on the CMD console)
+ * or the [http://martybugs.net/wireless/openwrt/flash.cgi included one] (on the CMD console)
 
 
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
