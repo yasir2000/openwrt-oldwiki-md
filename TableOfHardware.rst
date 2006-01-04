@@ -249,5 +249,6 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300)] @160MHZ||8MB||16MB||TI ACX111 (mini-PCI)||ADM6996L|| ||Maybe||No||No||Untested||
+||[http://www.zyxel.com/product/model.php?indexcate=1030617987&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 623R-T7]|| ||[http://www.trendchip.com.tw/product/eng_product1.html TrendChip TC3160]||2MB||8MB|| || || ? || ? || ? ||Device Port||Unsupported||
 ----
 CategoryCategory CategoryCategory
