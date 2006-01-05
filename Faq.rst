@@ -50,9 +50,9 @@ See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 Same firmware, only a different set of preinstalled packages.
 
 ||'''Folder'''||'''Description'''||'''Package list'''||
-||bin=default||standard image||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, libgcc, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools, zlib||
-||micro||the minimal set of packages||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg, iptables, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-wlcompat, libgcc, mtd, nvram, uclibc, wireless-tools, wificonf, zlib||
-||pptp||includes support for PPTP||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, libgcc, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools, zlib||
+||bin=default||standard image||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, libgcc, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools, zlib||
+||micro||the minimal set of packages||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-wlcompat, libgcc, mtd, nvram, uclibc, wificonf, zlib||
+||pptp||includes support for PPTP||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, libgcc, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools, zlib||
 
 
 == How do I install/flash OpenWrt? ==
@@ -680,7 +680,7 @@ ifup wifi; /sbin/wifi
 }}}
 
 Replace {{{aa:bb:cc:dd:ee:ff}}} with the MAC address of the router you would
-like to connect via WDS. In this example the MAC of WRT54G_1. There is no need 
+like to connect via WDS. In this example the MAC of WRT54G_1. There is no need
 to change the NVRAM variables in WRT54G_1.
 
 If the other router is running OpenWrt too you can get the MAC address from output of:
