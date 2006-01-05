@@ -80,6 +80,7 @@ While the first serial port is easy to find (and described in the "non-experimen
 
 
 = Debricking a WR850G that did _NOT_ have "boot_wait" set to "on" =
+/!\ WARNING: Using this "pin shorting" method is no longer officially supported by OpenWrt.  You risk damage to your router if you try this method.  The preferred method of debricking is with a serial console.
  '' Note: These instructions are Windows-centered ''
  1. Unplug the Wr850G and open it up -- unscrew the one torx screw in the back (you can use a hex key driver if that's handy), then pop open the cover.  You will have to CAREFULLY pry the top off with quite a bit of force.  Use your fingers.  If it feels like you're about to break it, don't worry, it's pretty tough -- just try to not bend the top, which will stress crack the plastic.
  1. Locate the flash chip (right next to the internal antenna).  On mine it's an Intel T!E28F320.  All the V3 WR850G's have this.  If it's an older V2 or V1, it might have an AMD chip.
