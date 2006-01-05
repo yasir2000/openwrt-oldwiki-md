@@ -13,7 +13,7 @@ router or you like to automate things like file transfers using SCP (Secure Copy
 
 = Requirements =
 
-  * A recent OpenWrt version (>= White Russian RC3) installed on your router.
+  * A recent OpenWrt version (>= White Russian RC4) installed on your router.
   * SSH client software to connect to the router (see the links at the end of this document)
 
 
