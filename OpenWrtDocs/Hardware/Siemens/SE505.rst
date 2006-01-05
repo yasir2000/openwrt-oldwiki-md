@@ -1,5 +1,7 @@
 '''Siemens SE505'''
 
+SE505 product page is now located at http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation%253A-5_pageType%253Adownloads_imagePos%253A0,00.html#content
+
 There are currently two versions of the SE505:
 
 /!\ '''boot_wait is on by default on both versions.'''
@@ -24,5 +26,9 @@ There are some problems (LEDs? default NVRAM?) getting OpenWrt to work on the ne
 
 The PCB of the SE505 v2 looks very like the Belkin F5D7230 v1440 (2MB flash) and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens http://communications.siemens.com/repository/695/69584/Gigaset_SE505_3.01.05_English.exe using http://midnightcode.org/projects/pluto/code/belky-0.5.c
 and a second busybox is easy. Tips: SeattleWireless:Belkin_20F5D7230_2d4 (shell on the box).
+
+
+
+
 ----
 CategoryModel
