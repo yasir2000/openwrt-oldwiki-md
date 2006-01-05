@@ -31,72 +31,31 @@ You may know some more useful tasks for cron on your Wrt router.
 == Create a init script for crond ==
 
 First you have to create a init script so that {{{crond}}} will start up
-automatically on each bootup of your router. We call it {{{S51crond}}} and it
+automatically on each bootup of your router. We call it {{{S60crond}}} and it
 should go in the {{{/etc/init.d}}} directory. To create it via copy & paste
 do:
 
 {{{
-cat > /etc/init.d/S51crond
+cat > /etc/init.d/S60crond
 }}}
 
 {{{
 #!/bin/sh
-#
-# crond           Starts crond
-#
-mkdir -p /etc/spool/cron/crontabs
-mkdir -p /var/spool/cron
-mkdir -p /var/lock
-if [ ! -e /var/spool/cron/crontabs ]
-then
- ln -s /etc/spool/cron/crontabs/ /var/spool/cron/crontabs
-fi
-
-start() {
- echo -n "Starting crond: "
- /usr/sbin/crond -c /var/spool/cron/crontabs
- touch /var/lock/crond
- echo "OK"
-}
-
-stop() {
- echo -n "Stopping crond: "
- killall crond
- rm -f /var/lock/crond
- echo "OK"
-}
-
-restart() {
- stop
- start
-}
-
-case "$1" in
- start)
-  start
-  ;;
- stop)
-  stop
-  ;;
- restart|reload)
-  restart
-  ;;
- *)
-  echo $"Usage: $0 {start|stop|restart}"
-  exit 1
-esac
-
-exit $?
+[ -d /etc/crontabs ] || mkdir -p /etc/crontabs
+[ -e /var/spool/cron/crontabs ] || {
+        mkdir -p /var/spool/cron
+        ln -s /etc/crontabs /var/spool/cron/crontabs
+} && crond -c /etc/crontabs
 }}}
 
-After pasting it, press {{{ENTER}}} and then hit {{{CTRL+D}}} keys to save the
+After pasting it, press {{{ENTER}}} and then hit {{{CTRL-D}}} keys to save the
 file.
 
 Now make sure the init script is executable and start it with
 
 {{{
-chmod a+x /etc/init.d/S51crond
-/etc/init.d/S51crond start
+chmod a+x /etc/init.d/S60crond
+/etc/init.d/S60crond start
 }}}
 
 
@@ -117,7 +76,7 @@ cat /tmp/crontest
 
 == Creating a cron job ==
 
-The cron jobs are defined in the {{{/etc/spool/cron/crontabs/root}}} file. 
+The cron jobs are defined in the {{{/etc/spool/cron/crontabs/root}}} file.
 {{{crond}}} reads the file.
 You have two ways on adding a cron job to this file.
 
