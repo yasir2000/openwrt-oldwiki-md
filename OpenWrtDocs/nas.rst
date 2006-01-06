@@ -8,7 +8,7 @@
 == Where to get the nas binary? ==
 
 The nas binary can be found at: http://downloads.openwrt.org/whiterussian/packages/non-free
-If you use old version of firmware, pleas upgrade.
+If you use old version of firmware, please upgrade.
 
 == How to configure? ==
 
