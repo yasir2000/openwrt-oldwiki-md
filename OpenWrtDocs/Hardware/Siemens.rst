@@ -4,4 +4,4 @@
  * [:OpenWrtDocs/Hardware/Siemens/SE551: SE551]
  * [:OpenWrtDocs/Hardware/Siemens/SX541: SX541]
 ----
-CategoryBrand ["CategoryAR7Device"]
+CategoryBrand
