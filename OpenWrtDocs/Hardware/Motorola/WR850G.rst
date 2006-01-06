@@ -27,12 +27,22 @@ G-Link GL!T5640L16-6TC is a 8MB chip.  Your router should have two of these.  Ch
 
 The WR850G v3 version is housed in black pastic and has a hard wired non removable (without desoldering) antenna.
 
+
+= Obtaining Official Motorola Firmware =
+
+If you ever need to revert your router to official Motorola firmware, it can be downloaded from their website.  The downloaded `.exe` files are self-extracting `.zip`'s; any unzipping software should be able to handle them.  They contain a `.trx` firmware file, as well as `.pdf` documentation.
+
+ * [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850G_4.03.exe Version 4.03] is useful for its debug mode, which was dropped in later versions.
+ * [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850_6.1.4.exe Version 6.1.4] is the current version (as of Jan 2006) 
+ * [http://broadband.motorola.com/consumers/support/default.asp?SupportSection=HomeNetworking Motorola's Support Site] has links only to their ''current'' firmware version.  Note that you need to scroll down to the WR850G section.
+
+
 = How To Enable Boot Wait =
 
- * Reset router to default with  [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850G_4.03.exe firmware 4.03]
- * Login to the router's web page and go to /frame_debug.asp
- * Type in: nvram set boot_wait=on
- * Type in: nvram commit
+ * Install Motorola Firmware Version 4.03 onto the router. (see above)
+ * Login to the router's web page and go to `/frame_debug.asp`
+ * Type in: `nvram set boot_wait=on`
+ * Type in: `nvram commit`
  * Reboot and do tftp. 
 
 /!\ Some users report that boot_wait only functions for one reboot after setting it from the web interface.
