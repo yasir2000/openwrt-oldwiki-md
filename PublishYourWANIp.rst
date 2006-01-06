@@ -44,13 +44,16 @@ If it shows an IP address and a creation date then check out HowtoEnableCron to 
 Another way would be running the script within an ip-up script that gets called every time the WAN interface is brought up.
 
 
-Here's a trivial script to update dyndns.org accounts for those using pppoe. Install this on your router and call from /etc/ppp/ip-up. {{{
+Here's a trivial script to update dyndns.org accounts. If you are using PPPoE, you may install this on your router and call from /etc/ppp/ip-up. You can also have it update on boot if your router is configured by DHCP, by running it from a script in /etc/init.d sometime after the network is configured. Finally, you might want to consider having it run from cron periodically since DynDNS.org kills free accounts if not updated frequently enough.
+
+{{{
 #!/bin/sh
 
 LOGGING_TAG="dyndns-updater"
 ACCOUNT=$(nvram get ddns_username)
 PASS=$(nvram get ddns_passwd)
 DOMAIN=$(nvram get ddns_hostname)
+IFACE=ppp0
 #EXAMPLES:
 #DOMAIN="mysubdomain.is-a-geek.net"
 #DOMAIN="mysubdomain.dyndns.org"
@@ -75,7 +78,7 @@ rm -f /tmp/dyndns.org-answer
 
 #update the ip address ...
 #first get current address
-IP=$(ifconfig ppp0 | grep "inet addr" | awk '{print $2}' | awk -F ':' '{print $2}')
+IP=$(ifconfig ${IFACE} | grep "inet addr" | awk '{print $2}' | awk -F ':' '{print $2}')
 
 if [ "${IP}" = "" ]; then
   logger -t ${LOGGING_TAG} -- "Couldn't get ip address for ppp0."
