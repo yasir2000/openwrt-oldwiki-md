@@ -69,10 +69,11 @@ While the first serial port is easy to find (and described in the "non-experimen
 
 
 
-= Reverting an RC1 or RC2 WR850G to the original Motorola firmware =
+= Reverting an OpenWRT WR850G to the Official Motorola Firmware =
  '' Note: These instructions are Windows-centered ''
- 1. Open up a hex editor and load in the Motorola firmware (I use HHD).
- 1. Delete the first eight bytes (everything before "HDR0") and save.
+ 1. Obtain a Motorola `.trx` firmware file (see above, Obtaining Official Motorola Firmware)
+ 1. Edit the file to remove Motorola's 8 byte header (everything before "HDR0").  This can be done with a hex editor (such as HHD for Windows) or with the Unix `dd(1)` command: {{{
+ $ dd if=WR850G_V403.trx of=WR850G_V403.stripped.trx ibs=1 skip=8 }}}
  1. Make sure your "boot_wait" NVRAM value is set to "on" and saved (I use "Putty" for telneting/ssh).
  1. Set your local machine's IP address to 192.168.10.5 (or anything between 192.168.10.2 and 192.168.10.254) and mask to 255.255.255.0.
  1. Open up a console window and change to the directory the Motorola firmware is in.
