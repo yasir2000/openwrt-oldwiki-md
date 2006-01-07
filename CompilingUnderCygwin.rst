@@ -77,15 +77,13 @@ and the patching worked. Thanks tojoie!
 The same patching must also be done to the following two files, at least:
 
 {{{
-Yasha@RLunitBeta ~/openwrt
 $ dos2unix target/linux/linux-2.4/patches/generic/105-netfilter_TTL.patch
 target/linux/linux-2.4/patches/generic/105-netfilter_TTL.patch: done.
 
-Yasha@RLunitBeta ~/openwrt
 $ dos2unix target/linux/linux-2.4/patches/generic/000-linux_mips.patch
 target/linux/linux-2.4/patches/generic/000-linux_mips.patch: done.
 }}}
 
 That's all I have so far. If you have any ideas, find Flyashi on #openwrt. I'd appreciate the help... thanks!
 
-Oh and HUGE thanks to Eagle_Fire for most of these insructions! And tojoe for the ptach file fix. Thanks guys!
+Oh and HUGE thanks to Eagle_Fire for most of these insructions! And tojoe for the patch file fix. Thanks guys!
