@@ -220,7 +220,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == T-Com ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 (mini-PCI)||None|| ||Yes|| ||No||[:AR7Port: WiP]||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 (mini-PCI)||None|| ||Yes|| ||No||[:AR7Port: WiP]||
 
