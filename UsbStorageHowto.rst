@@ -316,7 +316,9 @@ chmod a+x /sbin/init
 
 /!\ '''IMPORTANT:''' Problems with booting from USB storage were reported
 when using White Russian RC4 (or later versions), where USB hotplugging was
-introduced. If you encounter problems as well, try to disable USB hotplug!
+introduced. If you encounter problems as well, try to disable USB hotplug! 
+This can be done by removing the file {{{/etc/hotplug.d/usb/01-mount}}} 
+(which is a symlink to {{{/rom/etc/hotplug.d/usb/01-mount}}})
 
 Now just reboot, and if you did everything right it should boot from
 the USB device automatically.
