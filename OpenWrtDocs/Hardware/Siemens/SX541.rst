@@ -125,7 +125,7 @@ Code: 000418c0  24840001  00621021 <ac420000> 8e0225a4  00621821  ac630004
 8ca22594  0905eec5
 Kernel panic: Attempted to kill init!
 
-when a the sx was powerd on we get this bootlog:
+when the sx was powerd on we get this bootlog:
 
 Jump to address 0x94200000 ...
 Launching kernel decompressor.
