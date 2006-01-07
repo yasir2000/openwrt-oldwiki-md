@@ -49,6 +49,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Fix the wireless driver
    * Fix VLYNQ interrupt and reset handling (needed for the wireless driver). See http://forum.openwrt.org/viewtopic.php?id=2654 for possible patches.
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
+   * Get voicedump (VP101X120C) supported (Voice over ip on Siemens and smc based hardware)
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
 
