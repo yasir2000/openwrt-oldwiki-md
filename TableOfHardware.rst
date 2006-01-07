@@ -204,12 +204,13 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 ||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz|| ||32MB||None||None|| ||Yes||Yes||2x v2.0||Untested||
 
 
-
 == SMC ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://smc.com/ SMC7908VoWBRB EU ]|| 
-exas Instruments AR7] @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||Marvell 88E6060 || ||Yes|| ||Yes||[:AR7Port: WiP]||
+||Texas Instruments AR7 @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||switch 8port Marvell??? || ||Yes|| ||Yes||[:AR7Port: WiP]||
+
+---- /!\ '''End of edit conflict''' ----
 
 == Soekris Engineering ==
 
