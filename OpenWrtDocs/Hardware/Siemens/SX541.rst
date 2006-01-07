@@ -14,7 +14,9 @@ http://www.ip-phone-forum.de/showthread.php?t=90353
 information to the "project" hacking the siemens can be found here
 http://www.ip-phone-forum.de/showthread.php?t=72010
 
-bootlogs of current wip status:
+bootlog of current wip status:
+
+
 Done!
 Do you want to execute the uploaded code? (Y/n)
 Jump to address 0x94200000 ...
