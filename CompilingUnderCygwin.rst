@@ -2,9 +2,9 @@
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
 === Requirements ===
-* [http://www.cygwin.com/ Cygwin]
-* Some updated libaries. You can get these from either a Linux machine that has/can compile OpenWrt, or if you ask Eagle_Fire nicely, he might send you his.
-* [Make 3.81 Beta 4]
+ * [http://www.cygwin.com/ Cygwin] 
+ * Some updated libaries. You can get these from either a Linux machine that has/can compile OpenWrt, or if you ask Eagle_Fire nicely, he might send you his.
+ * [Make 3.81 Beta 4]
 
 === More Prerequisites ===
 * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
