@@ -27,7 +27,7 @@ The official page for Aircrack is [http://www.cr0.net:8040/code/network/aircrack
 
 = Requirements =
 
- * A WRT54G/S
+ * A WRT54G/S in client mode [:ClientModeHowto]
  * The following packages and the packages they depend upon
  * aircrack
  * the {{{wl}}} utility
@@ -63,6 +63,7 @@ wl monitor 1
 ifup prism0
 }}}
 
+To be able to change channels and sniff on all channels, you must have the router in client mode: [:ClientModeHowto]
 
 = Start Capturing =
 
