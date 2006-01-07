@@ -3,7 +3,11 @@ This is still a work in progress. To date, I do not believe that the complete im
 
 === Requirements ===
  * [http://www.cygwin.com/ Cygwin] 
- * Some updated libaries. You can get these from either a Linux machine that has/can compile OpenWrt, or if you ask Eagle_Fire nicely, he might send you his.
+ * Some updated header files. You can get these from either a Linux machine that has/can compile OpenWrt, or you can grab them from Nate True's website, below.
+  * /usr/include/elf.h
+  * /usr/include/byteswap.h
+  * /usr/include/bits/*
+  * Note that these files are likely to need to be from a system of the same CPU type.  For the Intel x86 32-bit or compatible architecture, you can download the headers here: http://devices.natetrue.com/openwrt/cygwin-include-x86.zip
  * [ftp://alpha.gnu.org/gnu/make/ Make 3.81 Beta 4]
 
 === More Prerequisites ===
@@ -23,7 +27,7 @@ Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colo
  1. ./configure
  2. make
  3. make install
- 4. cp make.exe /usr/local/bim/make
+ 4. cp make.exe /usr/bin
 
  * The libraries. Having no available Linux box (my current one had hard drive troubles), I scrabled around websites, mostly www.opensolaris.org, looking for whichever file Cygwin complianed about. Eagle_Fire was nice enough to send me his. Thanks again!
 
