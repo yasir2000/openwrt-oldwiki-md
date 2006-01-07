@@ -4,7 +4,7 @@ This is still a work in progress. To date, I do not believe that the complete im
 === Requirements ===
  * [http://www.cygwin.com/ Cygwin] 
  * Some updated libaries. You can get these from either a Linux machine that has/can compile OpenWrt, or if you ask Eagle_Fire nicely, he might send you his.
- * [Make 3.81 Beta 4]
+ * [ftp://alpha.gnu.org/gnu/make/ Make 3.81 Beta 4]
 
 === More Prerequisites ===
  * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
