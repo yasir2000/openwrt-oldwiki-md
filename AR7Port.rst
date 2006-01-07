@@ -59,7 +59,7 @@ There are at least 3 variants
 
  * Telogy Networks, Inc ["ADAM2"] + Linux - most Linux based AR7 devices
  * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, WRTP54G, ADSL2MUE, maybe others?
- * Broad Net Technology, Inc. BRN bootloader and VxWorks (realtime OS with SOHO.BIN) - most (all?) VxWorks based devices, e.g. Sinus 154 DSL Basic, Siemens SX 541.
+ * Broad Net Technology, Inc. BRN bootloader and VxWorks (realtime OS with SOHO.BIN) - most (all?) VxWorks based devices, e.g. Sinus 154 DSL Basic, Siemens SX 541, SMC SMC7908VoWBRB EU
 
 Note: Even on VxWorks based routers with the BRN bootloader, it is possible to install Linux and OpenWrt!
 See http://forum.openwrt.org/viewtopic.php?id=2654 for more details.
