@@ -210,7 +210,6 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 ||[http://smc.com/ SMC7908VoWBRB EU ]|| 
 ||Texas Instruments AR7 @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||switch 8port Marvell??? || ||Yes|| ||Yes||[:AR7Port: WiP]||
 
----- /!\ '''End of edit conflict''' ----
 
 == Soekris Engineering ==
 
