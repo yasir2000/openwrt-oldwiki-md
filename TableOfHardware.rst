@@ -12,18 +12,18 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == 3Com ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router]|| ||  [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz||1MB||4Mb||Marvell 88E6060||None||Unknown||Unknown||Unknown||No||No||
 
 
 == Actiontec ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||GT701-WG|| || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz||4MiB||16MiB||TI ACX111|| ||["ADAM2"]||Yes|| || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG: WiP]||
 
 == ALLNET ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL] (aka [http://www.sercomm.com/IP505AB.htm Sercomm IP505] ???)|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||8MB|| || || || || || ||[wiki:AR7Port WiP]||
 ||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???)||v2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||ACX-111||Marvell 88E6060|| ||Yes||No||No||[wiki:AR7Port WiP]||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||ADMtek ADM6996||on|| || ||No||Supported||
@@ -31,7 +31,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Asus ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=41&l3=0&model=60&modelmenu=1 WL-300g]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (integrated)||None||on|| || ||No||[:OpenWrtDocs/Hardware/Asus/WL300G: Supported]||
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&model=58&modelmenu=1 WL-330]|| ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8500] ||1MB||8MB|| Marvell (integrated 88W8000)||None|| ||No ||No ||No|| No ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500b]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || ||1x v1.1||[:OpenWrtDocs/Hardware/Asus/WL500B: Supported]||
@@ -47,7 +47,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Belkin ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136486 F5D7130]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz|| || ||Broadcom (mini-PCI)||None|| || || || ||Untested||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4]||pre 1444||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| || || || || ||[wiki:F5D7230 Untested]||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4]||from 1444||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2MB||8MB||Broadcom (integrated)||BCM5325|| ||Yes||No|| ||[wiki:F5D7230 No]||
@@ -60,7 +60,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Buffalo ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || ||No||Supported||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=24&categoryid=6 WBR2-B11]|| || ||4MB|| || || || || || || ||Untested||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on|| || ||No||Supported||
@@ -86,14 +86,14 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Dell ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ##||!TrueMobile 1184|| ||Samsung ARM|| || ||integrated 11b||KS8995E||N/A|| || || ||no||
 ||!TrueMobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||off|| || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300: Supported]||
 
 
 == D-Link ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||DSL-G500T|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||None||None||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
 ||[http://www.dlink.com/products/?pid=373 DSL-G504T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||None||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
 ||[http://www.dlink.com/products/?pid=372 DSL-G604T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
@@ -102,7 +102,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Linksys ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||None ||None ||[:PSPBoot] ||Yes||Yes||v1.1 ||[wiki:AR7Port WiP]||
 ||WRT54AG|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism (mini-PCI)|| || || || || ||Partial 802.11a/b/g||
 ||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G]||2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111|| ||[:ADAM2]||Yes|| || ||[wiki:AR7Port WiP]||
@@ -141,19 +141,19 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Maxtor ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.ba88f6d7cf664718376049b291346068/?channelpath=/en_us/Products/Network%20Storage/Maxtor%20Shared%20Storage%20Family/Maxtor%20Shared%20Storage Shared Storage]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz||2MB||32MB||None||None|| ||Yes||No||2x v2.0||Untested||
 
 
 == Microsoft ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||N/A||No||Yes||No||[:OpenWrtDocs/Hardware/Microsoft: Supported]||
 
 
 == Motorola ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125Mhz||4MB||16MB||Broadcom (mini-PCI)||None|| || || || ||Untested||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200Mhz||2MB||8MB||Broadcom (integrated)||None|| ||Yes||No||No||Untested||
 ||[http://broadband.motorola.com/consumers/products/wa840gp/default.asp WA840GP]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||2MB||8MB||Broadcom (integrated)||None|| ||Yes||No||No||Untested||
@@ -167,7 +167,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Netgear ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G]|| 2 || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ || 4MB || 16MB || ACX111 (mini-PCI) || Marvell 88E6060 || || Yes || No || No || [wiki:AR7Port WiP] ||
 ||[http://www.netgear.com/products/details/DG834GT.php DG834GT]|| || BCM6348 @ 256MHz || 4MB || 16MB || Atheros mini-PCI || BCM5325 || || Yes || || No || No ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2MB|| ||Atheros & Broadcom (mini-PCI)||BCM5325|| || || || ||Untested||
@@ -182,7 +182,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Ravotek ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB|| ||None|| || || || ||Untested||
 ||[http://www.ravo.hu/spec/W54-RT.html W54-RT]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| ||on|| || || ||Supported (no leds)||
 ||RT210w|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||BCM5325||on||No||No||No||Supported||
@@ -190,7 +190,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Siemens ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| ||on|| || || ||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes||1x v1.1 (easy mod)||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
@@ -200,13 +200,13 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Simpletech ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server]|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz|| ||32MB||None||None|| ||Yes||Yes||2x v2.0||Untested||
 
 
 == SMC ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://smc.com/ SMC7908VoWBRB  ] || || Texas Instruments AR7 @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||switch 8port Marvell??? || ||Yes|| ||Yes||[:AR7Port: WiP]||
 
 
@@ -214,7 +214,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Soekris Engineering ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.soekris.com/ net4801]|| ||@266MHz|| ||128MB|| || || ||Yes||No||1x v1.1||[:SoekrisPort: WiP]||
 
 
@@ -227,13 +227,13 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == Toshiba ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||WRC-1000|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism2 (mini-PCI)||Kendin KS8995E||on|| || ||no||Partial, needs [http://hostap.epitest.fi/ hostap] WiP [Nico, Polarwolf]||
 
 
 == Trendnet ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB]|| || ||2MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || ||2MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
@@ -242,21 +242,21 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 
 == US Robotics ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || ||2MB|| || || ||on|| || || ||Supported||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461]|| ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||2MB||8MB||Broadcom (integrated)||in CPU||on|| || ||1x v2.0||Untested||
 
 
 == Viewsonic ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||WAPBR-100, A.K.A VS10407|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||2MB||8MB||BCM2050KMI||None||off||Maybe||No||No||WiP||
 ||WR100|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz||4MiB||8MiB||Broadcom (integrated)||ADM6996L||off||unknown||Yes||No||Supported||
 
 
 == ZyXEL ==
 
-||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||'''Voip'''||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300)] @160MHZ||8MB||16MB||TI ACX111 (mini-PCI)||ADM6996L|| ||Maybe||No||No||Untested||
 ||[http://www.zyxel.com/product/model.php?indexcate=1030617987&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 623R-T7]|| ||[http://www.trendchip.com.tw/product/eng_product1.html TrendChip TC3160]||2MB||8MB|| || || ? || ? || ? ||Device Port||Unsupported||
 ----
