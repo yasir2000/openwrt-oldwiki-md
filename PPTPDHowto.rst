@@ -90,6 +90,9 @@ in the logs. The kernel will now answer arp requests for the clients connected t
 iptables        -A forwarding_rule -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
 iptables        -A output_rule     -o ppp+ -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
 iptables        -A input_rule      -i ppp+ -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
+
+# allow VPN connections to get out WAN interface (to internet)
+iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT
 }}}
 
 
