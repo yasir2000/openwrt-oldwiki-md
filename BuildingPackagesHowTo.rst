@@ -97,16 +97,19 @@ to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
 {{{
 config BR2_PACKAGE_HELLO
-        tristate "hello - The classic greeting, and a good example"
+        prompt "hello............................. The classic greeting, and a good example"
+        tristae
         default m if CONFIG_DEVEL
         help
-        The GNU hello program produces a familiar, friendly greeting.  It
-        allows non-programmers to use a classic computer science tool which
-        would otherwise be unavailable to them.
-        .
-        Seriously, though: this is an example of how to do a Debian package.
-        It is the Debian version of the GNU Project's `hello world' program
-        (which is itself an example for the GNU Project).
+              The GNU hello program produces a familiar, friendly greeting.  It
+              allows non-programmers to use a classic computer science tool which
+              would otherwise be unavailable to them.
+              .
+              Seriously, though: this is an example of how to do a Debian package.
+              It is the Debian version of the GNU Project's `hello world' program
+              (which is itself an example for the GNU Project).
+
+              http://www.wheretofindpackage.tld
 }}}
 
 
