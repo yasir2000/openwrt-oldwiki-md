@@ -67,3 +67,5 @@ Hunk #1 FAILED at 288.
 Eagle_Fire got it to work by manually applying the patch, and editing the makefile to remove the automatic patching. I haven't tried it yet.
 
 That's about it. If you have any ideas, find Flyashi on #openwrt. I'd appreciate the help... thanks!
+
+Oh and HUGE thanks to Eagle_Fire for most of these insructions!
