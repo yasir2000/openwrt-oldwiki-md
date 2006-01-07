@@ -51,13 +51,8 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
    * Get voicedump (VP101X120C) supported (Voice over ip chip on Siemens and SMC based hardware)
 
----- /!\ '''Edit conflict - other version:''' ----
-   * Get Marvel 88C6060 switch supported (on sx541 and smc)
-
----- /!\ '''Edit conflict - your version:''' ----
    * Get Marvel 88E6060 switch supported (on sx541 and smc)
 
----- /!\ '''End of edit conflict''' ----
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
 
