@@ -18,7 +18,7 @@ Kernel crashes only when a reboot via  serial console was done.
 
 bootlog of current wip status:
 
-
+{{{
 Done!
 Do you want to execute the uploaded code? (Y/n)
 Jump to address 0x94200000 ...
@@ -239,7 +239,7 @@ VFS: Unable to mount root fs via NFS, trying floppy.
 VFS: Cannot open root device "nfs" or 02:00
 Please append a correct "root=" boot option
 Kernel panic: VFS: Unable to mount root fs on 02:00
-
+}}}
 
 
 == Serial Console ==
