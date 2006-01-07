@@ -30,6 +30,8 @@ svn checkout https://svn.openwrt.org/openwrt/trunk/openwrt .
 
 /!\ Note: Currently the AR7 code is disabled in the menu, as it is currently work in progress.
 
+/!\ Note: patches to boot siemens and smc devices can be found http://ar7-firmware.berlios.de/openwrt/patches.html.en
+
 = Installing OpenWrt =
 
 == Disclaimer ==
