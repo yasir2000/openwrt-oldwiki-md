@@ -64,8 +64,16 @@ patching file SRC/7zip/Compress/LZMA/LZMADecoder.cpp
 Hunk #1 FAILED at 288.
 }}}
 
-Eagle_Fire got it to work by manually applying the patch, and editing the makefile to remove the automatic patching. I haven't tried it yet.
+Eagle_Fire got it to work by manually applying the patch, and editing the makefile to remove the automatic patching. I got it to work a different way.
+
+I was manually applying the patch, and noticed ^M's at the end of the patch file. tojoe on IRC told me that they were misinterpreted linebreaks, and dos2unix fixed that. I ran:
+{{{
+$ dos2unix target/lzma/lzma-406-zlib-stream.patch
+target/lzma/lzma-406-zlib-stream.patch: done.
+}}}
+
+and the patching worked. Thanks tojoie!
 
 That's about it. If you have any ideas, find Flyashi on #openwrt. I'd appreciate the help... thanks!
 
-Oh and HUGE thanks to Eagle_Fire for most of these insructions!
+Oh and HUGE thanks to Eagle_Fire for most of these insructions! And tojoe for the ptach file fix. Thanks guys!
