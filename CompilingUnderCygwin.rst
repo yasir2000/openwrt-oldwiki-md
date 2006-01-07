@@ -7,7 +7,7 @@ This is still a work in progress. To date, I do not believe that the complete im
  * [Make 3.81 Beta 4]
 
 === More Prerequisites ===
-* In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
+ * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
 {{{
 $ which find
 /usr/bin/find
@@ -19,13 +19,13 @@ $ export PATH=/usr/bin/:$PATH
 Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colon-separated directories.
 * Right-click on "My Computer" and go to Properties, then Advanced, and click "Environment Variables". On the bottom window, "System Variables", find "PATH". Click "Edit" and add your cygwin bin directory, by default C:\cygwin\bin\, to the beginning of the path, remembering to add a semicolon after the path.
 
-* Compile and copy make. Four steps:
-1. ./configure
-2. make
-3. make install
-4. cp make.exe /usr/local/bim/make
+ * Compile and copy make. Four steps:
+ 1. ./configure
+ 2. make
+ 3. make install
+ 4. cp make.exe /usr/local/bim/make
 
-* The libraries. Having no available Linux box (my current one had hard drive troubles), I scrabled around websites, mostly www.opensolaris.org, looking for whichever file Cygwin complianed about. Eagle_Fire was nice enough to send me his. Thanks again!
+ * The libraries. Having no available Linux box (my current one had hard drive troubles), I scrabled around websites, mostly www.opensolaris.org, looking for whichever file Cygwin complianed about. Eagle_Fire was nice enough to send me his. Thanks again!
 
 === Compiling ===
 
