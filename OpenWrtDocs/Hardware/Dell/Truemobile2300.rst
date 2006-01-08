@@ -1,6 +1,6 @@
 = Description =
 
-The Dell !TrueMobile 2300 is based on the BCM4702KPB SoC, a Mini-PCI BCM94306MP
+The Dell !TrueMobile 2300 is based on the BCM4702KPB SoC, a BCM94306MP Mini-PCI
 radio and a BCM5325MA2KQM switch.  In many respects it is similar to the
 [:OpenWrtDocs/Hardware/Linksys/WRT54G: Linksys WRT54G] v1.  Like most
 BCM4710-based platforms the stock firmware is Linux-based. The device
@@ -9,14 +9,15 @@ also contains the defacto standard of 4MiB Flash and 16MiB RAM.
 = Installing OpenWrt =
 
 The initial installation of OpenWrt is accomplished by uploading a
-.trx image through the Dell firmware.  Once OpenWrt is installed
+`.trx` image through the Dell firmware.  After OpenWrt is installed
 it is a good idea to set the ''boot_wait'' NVRAM variable to ''on''.
 
-= Serial port? =
+= Serial port =
 
-It is unknown if a serial header exists on this model.  There is an
-unpopulated header near the Flash IC that may contain JTAG and/or
-serial lines.  Further investigation will be required.
+Because this is a BCM4702KPB-based model, the multi-use pins used by the serial port
+are already in use by an Ethernet port.  It may however be possible to add a UART
+(see [:OpenWrtDocs/Customizing]) if the header by the flash chip is an IO bus.
+The other posibility is that this header is JTAG.
 
 = Sources =
 
@@ -53,8 +54,9 @@ watchdog=1000
 }}}
 
 Your NVRAM will be set to this if the firmware finds the NVRAM partition corrupt.
-Also, these variables are likely essential to the boards functioning,
-so it's a good idea not to unset them.
+
+Most of these variables must not be changed or unset.
+It should be safe to change the `lan_`* variables however.
 
 ----
 CategoryModel
