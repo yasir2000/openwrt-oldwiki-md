@@ -2,7 +2,8 @@
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
 === Requirements ===
- * OpenWrt SDK [http://downloads.openwrt.org/whiterussian/newest/].
+ * At first we obviously need [http://www.cygwin.com/ Cygwin] 
+ * and the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt SDK].
 
 {{{
 cd ~
@@ -12,7 +13,6 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 }}}
 
 
- * [http://www.cygwin.com/ Cygwin] 
  * Some updated header files. You can get these from either a Linux machine that has/can compile OpenWrt, or you can grab them from Nate True's website, below.
   * /usr/include/elf.h
   * /usr/include/byteswap.h
