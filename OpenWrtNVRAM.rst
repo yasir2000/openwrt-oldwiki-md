@@ -24,8 +24,6 @@ DHCP Settings:
 Hostname:
 ||'''wan_hostname'''||The hostname of your router.||
 
-CPU:
-||'''clkfreq'''||CPU frequency. '''WARNING: Change this and you will fry your router! We'd rather you didn't touch it at all.''' Overclocking a router is dangerous and stupid. You can set it to exactly 216 only if you experience [http://forum.openwrt.org/viewtopic.php?id=1384 crashes while transfering large files]. We strongly recommend having a JTAG cable nearby when attempting to change this.||
 
 == Wireless Configuration ==
 Although the wifi_* variables can be used to configure the network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge (which you MUST do to use ad-hoc mode) configure the wifi_* variables according to the general settings above.
