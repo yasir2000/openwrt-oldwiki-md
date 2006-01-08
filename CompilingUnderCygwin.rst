@@ -2,12 +2,8 @@
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
 === Requirements ===
- * At first we obviously need [http://www.cygwin.com/ Cygwin].  Required packages are at least
-  * gcc
-  * vim
-  * wget
-  * ncurses-devel
-  * perl
+ * At first we obviously need [http://www.cygwin.com/ Cygwin].  Required packages are at least (gcc, vim, wget, unzip, ncurses-devel, perl).
+
  * and the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt source].
 
 {{{
@@ -24,11 +20,20 @@ wget ftp://alpha.gnu.org/gnu/make/make-3.81beta4.tar.bz2
 tar -xvjf make-3.81beta4.tar.bz2
 }}}
 
- * Some updated header files. You can get these from either a Linux machine that has/can compile OpenWrt, or you can grab them from Nate True's website, below.
+ * Some updated header files. 
   * /usr/include/elf.h
   * /usr/include/byteswap.h
   * /usr/include/bits/*
-  * Note that these files are likely to need to be from a system of the same CPU type.  For the Intel x86 32-bit or compatible architecture, you can download the headers here: http://devices.natetrue.com/openwrt/cygwin-include-x86.zip
+You can get these from either a Linux machine that has/can compile OpenWrt, or you can grab them from Nate True's website [http://devices.natetrue.com/openwrt/cygwin-include-x86.zip].  Note that these files are likely to need to be from a system of the same CPU type.  The ones on Nate True's site are for the Intel x86 32-bit or compatible architecture.
+
+{{{
+cd ~
+wget http://devices.natetrue.com/openwrt/cygwin-include-x86.zip
+cd /usr/include
+unzip ~/cygwin-include-x86.zip
+cd ~
+}}}
+
 
 === More Prerequisites ===
  * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
