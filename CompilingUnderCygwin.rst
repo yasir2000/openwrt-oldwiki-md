@@ -2,7 +2,12 @@
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
 === Requirements ===
- * At first we obviously need [http://www.cygwin.com/ Cygwin] 
+ * At first we obviously need [http://www.cygwin.com/ Cygwin].  Required packages are at least
+  * gcc
+  * vim
+  * wget
+  * ncurses-devel
+  * perl
  * and the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt source].
 
 {{{
@@ -49,10 +54,20 @@ Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colo
 
 === Compiling ===
 
-If you did this right, you should get past the inital startup and it'll start downloading the kernel. It kept going for about an hour and a half. It failed after building the cross compiler, while building the debugger. If this is all you need.. fine. I'm going for gold. It fails because it expects gdb to be called gdb, instead it's called gdb.exe. To fix this, edit openwrt/toolchain/gdb/Makefile
+ * Start the configuration
+{{{
+$ make menuconfig
+}}}
+
+ * Start compiling
+{{{
+$ make
+}}}
+
+ * If you did this right, you should get past the inital startup and it'll start downloading the kernel. It kept going for about an hour and a half. It failed after building the cross compiler, while building the debugger. If this is all you need.. fine. I'm going for gold. It fails because it expects gdb to be called gdb, instead it's called gdb.exe. To fix this, edit openwrt/toolchain/gdb/Makefile
 
 {{{
-$ vim ~/openwrt/toolchain/gdb/Makefile
+$ vi ~/openwrt/toolchain/gdb/Makefile
 }}}
 
 Here's the problem area:
