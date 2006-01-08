@@ -9,16 +9,21 @@ This is still a work in progress. To date, I do not believe that the complete im
 cd ~
 wget http://downloads.openwrt.org/whiterussian/newest/OpenWrt-SDK-Linux-i686-1.tar.bz2
 tar -xvjf OpenWrt-SDK-Linux-i686-1.tar.bz2
-cd ~/OpenWrt-SDK-Linux-i686-1
 }}}
 
+ * A really up to date make version: [ftp://alpha.gnu.org/gnu/make/ Make 3.81 Beta 4]
+
+{{{
+cd ~
+wget ftp://alpha.gnu.org/gnu/make/make-3.81beta4.tar.bz2
+tar -xvjf make-3.81beta4.tar.bz2
+}}}
 
  * Some updated header files. You can get these from either a Linux machine that has/can compile OpenWrt, or you can grab them from Nate True's website, below.
   * /usr/include/elf.h
   * /usr/include/byteswap.h
   * /usr/include/bits/*
   * Note that these files are likely to need to be from a system of the same CPU type.  For the Intel x86 32-bit or compatible architecture, you can download the headers here: http://devices.natetrue.com/openwrt/cygwin-include-x86.zip
- * [ftp://alpha.gnu.org/gnu/make/ Make 3.81 Beta 4]
 
 === More Prerequisites ===
  * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
