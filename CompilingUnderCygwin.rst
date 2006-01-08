@@ -2,7 +2,7 @@
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
 === Setup cygwin ===
- * Obviously we need [http://www.cygwin.com/ Cygwin].  Required packages are at least gcc, vim, wget, unzip, ncurses-devel, perl, patch and make.
+ * Obviously we need [http://www.cygwin.com/ Cygwin].  Required packages are at least tar, sed, flex, gcc, vim, wget, unzip, ncurses-devel, perl, patch and make.
 
  * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
 {{{
