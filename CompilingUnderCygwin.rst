@@ -2,6 +2,16 @@
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
 === Requirements ===
+ * OpenWrt SDK [http://downloads.openwrt.org/whiterussian/newest/].
+
+{{{
+cd ~
+wget http://downloads.openwrt.org/whiterussian/newest/OpenWrt-SDK-Linux-i686-1.tar.bz2
+tar -xvjf OpenWrt-SDK-Linux-i686-1.tar.bz2
+cd ~/OpenWrt-SDK-Linux-i686-1
+}}}
+
+
  * [http://www.cygwin.com/ Cygwin] 
  * Some updated header files. You can get these from either a Linux machine that has/can compile OpenWrt, or you can grab them from Nate True's website, below.
   * /usr/include/elf.h
@@ -21,7 +31,8 @@ If you get Windows find, then you have to change the path. You can do this insid
 $ export PATH=/usr/bin/:$PATH
 }}}
 Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colon-separated directories.
-* Right-click on "My Computer" and go to Properties, then Advanced, and click "Environment Variables". On the bottom window, "System Variables", find "PATH". Click "Edit" and add your cygwin bin directory, by default C:\cygwin\bin\, to the beginning of the path, remembering to add a semicolon after the path.
+
+ * Right-click on "My Computer" and go to Properties, then Advanced, and click "Environment Variables". On the bottom window, "System Variables", find "PATH". Click "Edit" and add your cygwin bin directory, by default C:\cygwin\bin\, to the beginning of the path, remembering to add a semicolon after the path.
 
  * Compile and copy make. Four steps:
  1. ./configure
