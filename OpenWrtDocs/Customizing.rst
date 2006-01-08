@@ -1,11 +1,40 @@
 [[TableOfContents]]
 = Disclaimer =
-The contents of this section of the wiki can have serious consequences. While every effort has been made to test and verify the items herein, if executed incorrectly, or if you just happen to have a bad day you COULD SERIOUSLY DAMAGE YOUR HARDWARE. Neither I (inh) nor anyone else will be held responsible for anything you do.
+The contents of this section of the wiki can have serious consequences. While every effort has been made to test and verify the items herein, if executed incorrectly, or if you just happen to have a bad day you '''COULD SERIOUSLY DAMAGE YOUR HARDWARE'''. Neither I (inh) nor anyone else will be held responsible for anything you do.
 
 = Hardware =
 == Serial Console ==
 
-Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together.. This mod doesn't *add* serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
+Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together. This mod doesn't '''add''' serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
+
+=== Serial port pinouts ===
+Pinouts for your model can often be found on your model's page in [:CategoryModel].
+
+=== Home-made RS-232 kit ===
+
+'''Background'''
+
+Most OpenWrt compatible devices have one or two serial ports on the router's PCB (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+
+http://jdc.parodius.com/wrt54g/serial.html
+
+http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
+
+http://www.rwhitby.net/wrt54gs/serial.html
+
+=== USB Kit ===
+
+A USB based data cable for a mobile cell phone is another possibility.
+
+http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
+
+   note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
+
+=== Terminal software ===
+
+ * Hyperterm (comes with many versions of MS Windows)
+ * Minicom (for POSIX systems)
+ * cu(1) (part of the Taylor UUCP package, for POSIX systems)
 
 === Finding Serial Console ===
 
@@ -14,6 +43,8 @@ Serial ports allow you to do a myriad of things, including connect to your compu
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;)
+
+=== Adding a UART to some BCM4702KPB-based boards ===
 
 Unfortunately, BCM4702KPB SoC shares some UART pins with Ethernet0 port, so UART is disabled via GPIO. You have to use '''external''' 3.3V LVTTL or CMOS NS16c550-compatible UART or DUART for devices based on this SoC (i.e. [:WAP54GHowto:WAP54Gv1], Belkin F5D7330 or Asus [:OpenWrtDocs/Hardware/Asus/WL300G:WL-300G]). (Philips [http://www.semiconductors.philips.com/pip/SC16C550IA44.html SC16c550]). Use a 12.75 MHz (25.5MHz/2) crystal for 115200 baud (the UART clock divider is 7). There is the large 20-pin jumper block connected to the CPU I/O data lines, which can be connected to an external UART.
 
@@ -33,35 +64,6 @@ VSS (GND) 10 | o o | 11  SIN
 }}}
 
 ASUS WL-500b/g: http://wl500g.info/showthread.php?t=587&page=1&pp=15
-
-=== Home-made RS-232 kit ===
-
-'''Background'''
-
-Most OpenWrt compatible devices have one or two serial ports on the router's pcb (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
-
-http://jdc.parodius.com/wrt54g/serial.html
-
-http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
-
-=== USB Kit ===
-
-A USB based data cable for a mobile cell phone is another possibility.
-
-http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
-
-   note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
-
-
-=== Adding Dual Serial Ports ===
-
-http://www.rwhitby.net/wrt54gs/serial.html
-
-=== Terminal software ===
-
-Hyperterm
-
-Minicom
 
 == Adding an MMC/SD Card ==
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk:27 kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
