@@ -24,6 +24,9 @@ DHCP Settings:
 Hostname:
 ||'''wan_hostname'''||The hostname of your router.||
 
+CPU:
+||''clkfreq''||CPU frequency. Set it too high and you'll fry your router. Try setting it to 216 if you experience some crashes.||
+
 == Wireless Configuration ==
 Although the wifi_* variables can be used to configure the network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge (which you MUST do to use ad-hoc mode) configure the wifi_* variables according to the general settings above.
 
