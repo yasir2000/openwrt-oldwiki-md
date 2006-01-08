@@ -1,10 +1,25 @@
 == Compiling under Cygwin ==
 This is still a work in progress. To date, I do not believe that the complete image has been build under Cygwin. I can get past the toolchain build, so that you can cross-compile your programs. 
 
-=== Requirements ===
- * At first we obviously need [http://www.cygwin.com/ Cygwin].  Required packages are at least (gcc, vim, wget, unzip, ncurses-devel, perl).
+=== Setup cygwin ===
+ * Obviously we need [http://www.cygwin.com/ Cygwin].  Required packages are at least gcc, vim, wget, unzip, ncurses-devel, perl, patch and make.
 
- * and the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt source].
+ * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
+{{{
+$ which find
+/usr/bin/find
+}}}
+If you get Windows find, then you have to change the path. You can do this inside Cygwin, but your changes will be temporary: just type
+{{{
+$ export PATH=/usr/bin/:$PATH
+}}}
+Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colon-separated directories.
+
+ * Right-click on "My Computer" and go to Properties, then Advanced, and click "Environment Variables". On the bottom window, "System Variables", find "PATH". Click "Edit" and add your cygwin bin directory, by default C:\cygwin\bin\, to the beginning of the path, remembering to add a semicolon after the path.
+
+=== What else do we need ===
+
+ * Obviously the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt source].
 
 {{{
 cd ~
@@ -18,6 +33,13 @@ tar -xvjf whiterussian_rc4.tar.bz2
 cd ~
 wget ftp://alpha.gnu.org/gnu/make/make-3.81beta4.tar.bz2
 tar -xvjf make-3.81beta4.tar.bz2
+
+cd make-3.81beta4
+./configure
+make
+make install
+cp make.exe /usr/bin
+cd ~
 }}}
 
  * Some updated header files. 
@@ -34,27 +56,6 @@ unzip ~/cygwin-include-x86.zip
 cd ~
 }}}
 
-
-=== More Prerequisites ===
- * In Cygwin, make sure that /bin or /usr/bin comes before Windows. This defaults for some, not for others. You can verify this with "which find":
-{{{
-$ which find
-/usr/bin/find
-}}}
-If you get Windows find, then you have to change the path. You can do this inside Cygwin, but your changes will be temporary: just type
-{{{
-$ export PATH=/usr/bin/:$PATH
-}}}
-Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colon-separated directories.
-
- * Right-click on "My Computer" and go to Properties, then Advanced, and click "Environment Variables". On the bottom window, "System Variables", find "PATH". Click "Edit" and add your cygwin bin directory, by default C:\cygwin\bin\, to the beginning of the path, remembering to add a semicolon after the path.
-
- * Compile and copy make. Four steps:
- 1. ./configure
- 2. make
- 3. make install
- 4. cp make.exe /usr/bin
-
  * The libraries. Having no available Linux box (my current one had hard drive troubles), I scrabled around websites, mostly www.opensolaris.org, looking for whichever file Cygwin complianed about. Eagle_Fire was nice enough to send me his. Thanks again!
 
 === Compiling ===
@@ -63,6 +64,7 @@ Now if you "echo $PATH" you should get /usr/bin/: as the first of a list of colo
 {{{
 $ make menuconfig
 }}}
+Leave all defaults and save the configuration to the default file.
 
  * Start compiling
 {{{
