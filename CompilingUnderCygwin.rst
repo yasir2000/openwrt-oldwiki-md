@@ -3,12 +3,12 @@ This is still a work in progress. To date, I do not believe that the complete im
 
 === Requirements ===
  * At first we obviously need [http://www.cygwin.com/ Cygwin] 
- * and the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt Image builder].
+ * and the [http://downloads.openwrt.org/whiterussian/newest/ OpenWrt source].
 
 {{{
 cd ~
-wget http://downloads.openwrt.org/whiterussian/newest/OpenWrt-ImageBuilder-Linux-i686.tar.bz2
-tar -xvjf OpenWrt-ImageBuilder-Linux-i686.tar.bz2
+wget http://downloads.openwrt.org/whiterussian/newest/whiterussian_rc4.tar.bz2
+tar -xvjf whiterussian_rc4.tar.bz2
 }}}
 
  * A really up to date make version: [ftp://alpha.gnu.org/gnu/make/ Make 3.81 Beta 4]
