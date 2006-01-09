@@ -43,6 +43,7 @@ APM9435[[BR]]
 P-Channel Enhancement Mode MOSFET
 
 10Pin Connector (JTag ? Serial ?)
+
 ||Function||Pin#||Pin#||Function||
 ||Connected 0V||1||2||NC||
 ||Connected 3.1V||3||4||NC||
