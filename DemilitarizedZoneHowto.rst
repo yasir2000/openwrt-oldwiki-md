@@ -14,6 +14,9 @@ free to change it.
 This example is tested with a WRT54GS v1.0 and a standard White Russian
 RC4 image.
 
+(Note for users looking to duplicate the poorly-named DMZ feature found on most native firmwares - just skip straight to step 2.4.
+This is not as proper, but allows for a "moving DMZ host", which may not be limited to a given port.  - MarkZiesemer)
+
 This document is written for experienced users only.
 
 {{{
@@ -99,11 +102,16 @@ iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.2.2
 iptables        -A forwarding_rule -i $WAN -d 192.168.2.2 -j ACCEPT
 }}}
 
+Note that most of this already exists in the default firewall.user, and only needs to be uncommented, with the IP edited as necessary.
+
+(Can't edit the file?  Check the [http://wiki.openwrt.org/Faq#head-74da83e07a26f01d739113dad7d8aaa31aae24e7 Faq].)
 
 == Clean up ==
 
 Now it's time to commit the changes and a reboot your router which hopefully
-comes up again with a vlan2 interface (check it with {{{ifconfig}}}.
+comes up again with a vlan2 interface (check it with {{{ifconfig}}}).
+
+(If firewall.user is all that has changed, "{{{sh /etc/firewall.user}}}" will do nicely; no reboot required.)
 
 
 = Testing =
