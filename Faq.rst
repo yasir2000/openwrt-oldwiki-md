@@ -516,9 +516,9 @@ point for documentation is [http://www.netfilter.org/documentation/].
 == How do I configure QoS aka traffic shaping in OpenWrt? ==
 
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
-This script is only shaping on your uplink. The QoS package only works in
-White Russian RC4 and later version. With the qosfw-scripts package (version 0.4 and later) it's
-also possible to setup simple port forwarding rules in in the config file.
+This script is only shaping on your uplink. The QoS package only works in White Russian RC4 and
+later version. With the {{{qosfw-scripts}}} package (version 0.4 and later) it's also possible to
+setup simple port forwarding rules in in the config file.
 
 Download and install the {{{qosfw-scripts}}} package:
 
