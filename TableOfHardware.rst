@@ -194,7 +194,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"]
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)|| ||on|| || || ||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes||1x v1.1 (easy mod)||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
-||SE551|| || || ||16MB || || ||off || || ||1x v2.0 ||Untested||
+||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551]|| ||AR5312? @240MHz||2MB||16MB|| ||ADM6996||n/a|| || ||1x v2.0||Untested||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||Marvell 88E6060 || ||Yes|| ||Yes||[:AR7Port: WiP]||VP101X120C||
 
 
