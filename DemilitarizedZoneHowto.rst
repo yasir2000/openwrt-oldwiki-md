@@ -102,16 +102,19 @@ iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.2.2
 iptables        -A forwarding_rule -i $WAN -d 192.168.2.2 -j ACCEPT
 }}}
 
-Note that most of this already exists in the default firewall.user, and only needs to be uncommented, with the IP edited as necessary.
+Note that most of this already exists in the default {{{/etc/firewall.user}}}, and only needs to be
+uncommented, with the IP edited as necessary.
 
-(Can't edit the file?  Check the [http://wiki.openwrt.org/Faq#head-74da83e07a26f01d739113dad7d8aaa31aae24e7 Faq].)
+(Can't edit the file?  Check the [http://wiki.openwrt.org/Faq FAQ].)
+
 
 == Clean up ==
 
 Now it's time to commit the changes and a reboot your router which hopefully
 comes up again with a vlan2 interface (check it with {{{ifconfig}}}).
 
-(If firewall.user is all that has changed, "{{{sh /etc/firewall.user}}}" will do nicely; no reboot required.)
+(If {{{firewall.user}}} is all that has changed, {{{/etc/firewall.user}}} will do nicely; no reboot
+required.)
 
 
 = Testing =
