@@ -517,18 +517,21 @@ point for documentation is [http://www.netfilter.org/documentation/].
 
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters].
 This script is only shaping on your uplink. The QoS package only works in
-White Russian RC4 and later version.
+White Russian RC4 and later version. With the qosfw-scripts package (version 0.4 and later) it's
+also possible to setup simple port forwarding rules in in the config file.
 
-Download and install the {{{qos-scripts}}} package:
+Download and install the {{{qosfw-scripts}}} package:
 
 {{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.3_all.ipk
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.4_all.ipk
 }}}
 
-Then edit {{{/etc/config/qos-wan}}}.  This file has a number of
-examples and the syntax description in it. Be sure to uncomment the
-{{{option:enabled}}} line and set the {{{option:upload}}} and
-{{{option:download}}} correctly.
+Then edit {{{/etc/config/qos-wan}}}. This file has a number of examples and the syntax
+description in it. Be sure to uncomment the {{{option:enabled}}} line and set the
+{{{option:upload}}} and {{{option:download}}} correctly.
+
+If you don't configure port forwarding in {{{/etc/config/qos-wan}}} than you can make use
+{{{/etc/firewall.user}}} as normal for iptables rules.
 
 If you're using L7 filters in the config file you have to install the
 {{{iptables-mod-filter}}} package. This package contains a few L7 filters.
