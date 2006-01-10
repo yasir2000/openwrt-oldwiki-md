@@ -73,6 +73,11 @@ LED, and is used for the "Secure Easy Setup" encryption setup feature.
 To take the front cover off of v3.1, you must first remove the small screws under the
 rubber covers of the front feet!
 
+If you have such a thing you can try 
+http://192.168.1.1/Cysaja.asp
+to identify
+
+There is "Module Name=WRT54G; Firmware Version=v4.01.1,..." or something like that. 
 
 ==== WRT54G v4.00 ====
 
