@@ -94,18 +94,17 @@ In any case, it is better to fix your rules (see http://www.netfilter.org/).
 The following applies only to the SquashFS images of !OpenWrt. The JFFS2 images
 just need an extra reboot, so you don't have to run {{{firstboot}}} yourself.
 
-The !OpenWrt firmware contains two pieces, a kernel and a readonly filesystem
-embeded in the firmare known as SquashFS. The job of the firstboot script is to
-make a secondary, writable JFFS2 filesystem out of the free space in flash.
+The !OpenWrt firmware contains two pieces, a kernel and a read-only filesystem
+embedded in the firmware known as SquashFS. The job of the firstboot script is to
+make a secondary, writable, JFFS2 filesystem out of the free space in flash.
 
-When !OpenWrt boots it will check for the existance of a JFFS2 partition and
+When !OpenWrt boots it will check for the existence of a JFFS2 partition and
 attempt to boot from that, otherwise it will boot from the SquashFS filesystem.
 The lack of a JFFS2 partition will ''automatically'' trigger the firstboot
 script which will run in the background, creating a JFFS2 filesystem and
 populating it with symbolic links to the SquashFS filesystem (which is now
 remounted to the {{{/rom}}} directory). The effect of this is that the root
-filesystem will suddenly appear to be writable shortly after bootup, this can
-be verified with the mount command:
+filesystem will suddenly appear to be writable shortly after bootup.  This can be verified with the `mount` command:
 
 {{{
 /dev/mtdblock/4 on / type jffs2 (rw)
