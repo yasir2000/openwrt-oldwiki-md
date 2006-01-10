@@ -113,6 +113,9 @@ and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a s
 window and enter the line "put openwrt-xxx-x.x-xxx.bin" as the colons stop running over
 your terminal when you power-recycle your router.
 
+Note: for some versions of the CFE bootloader, the last line may need to be
+"put openwrt-xxx-x.x-xxx.bin code.bin". 
+
 Advanced TFTP commands:
 
 {{{
