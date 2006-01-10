@@ -310,9 +310,6 @@ ipkg list_installed
 '''TIP:''' If there are no package descriptions listed you have to run
 {{{ipkg update}}}.
 
-OpenWrt compatible IPKG packages can be found using the
-[http://tracker.openwrt.org/ package tracker].
-
 
 == Why isn't a package for ____ available? ==
 
