@@ -71,7 +71,7 @@ iptables -P FORWARD ACCEPT
 iptables -F
 }}}
 
-Or, you may keep your existing rules by inserting the following rules at 
+Or, you may keep your existing rules by inserting the following rules at
 position 1 of your tables:
 
 {{{
@@ -80,7 +80,7 @@ iptables -I OUTPUT -j ACCEPT
 iptables -I FORWARD -j ACCEPT
 }}}
 
-Later it is possible to restore the previous behavior by 
+Later it is possible to restore the previous behavior by
 deleting those three rules:
 
 {{{
@@ -152,10 +152,6 @@ will recognise the similarities)
 ||ipkg remove dropbear||Remove the dropbear package||
 
 More options can be found via {{{ipkg --help}}}.
-
-Additional packages can be found through the [http://tracker.openwrt.org package tracker];
-these packages can be installed using {{{ipkg install http://example.com/package.ipk}}}
-or by adding the source repository to your {{{/etc/ipkg.conf}}}.
 
 If you have USB storage, or install packages to a destination other than root,
 the shell script {{{ipkg-link}}} will create automatic symlinks to the root
