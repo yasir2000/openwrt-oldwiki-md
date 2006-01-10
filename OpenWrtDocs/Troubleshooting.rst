@@ -48,8 +48,7 @@ partition. Additionally, various network settings will be overridden forcing
 the router to {{{192.168.1.1}}}. Telnet to this address will work without a 
 password in this mode.
 
-If you want to completely erase the JFFS2 partition, removing all packages you
-can run {{{firstboot}}}.
+If you want to completely erase the JFFS2 partition, removing all packages, you can run {{{firstboot}}}.
 
 If you want to attempt to fix the JFFS2 partition, mount it with the following
 commands:
