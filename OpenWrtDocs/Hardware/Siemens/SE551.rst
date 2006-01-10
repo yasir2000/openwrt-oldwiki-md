@@ -9,9 +9,13 @@ Up to now I would consider SE551 as unsupported as there is no possibility to up
 = Product infos =
 
 ... can be found here: [http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html][[BR]]
-Siemens open source software repository is located here: [http://now-portal.c-lab.de/projects/gigaset/]
+Siemens open source software repository is located here: [http://now-portal.c-lab.de/projects/gigaset/][[BR]]
+This router seems however to have a propiertary OS instead.
 
 = Hardware found in device =
+
+{{{ar531xPlus rev 0x00000087 boot loader startup...}}}
+So AtherosPort seems like the right place
 
 It seems, that flash memory is integrated into CPU. [[BR]]
 CPU is covered by a soldered in heat sink, so I can not find out cpu version.
