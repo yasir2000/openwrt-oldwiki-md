@@ -17,7 +17,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
 
- * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago root access was gained to a RTP300 box.
+ * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago 'root' access was gained to a RTP300 box using the Admin account (Admin is uid 0).
 
  * Source code is incomplete, it's missing some of the binary files (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
 
