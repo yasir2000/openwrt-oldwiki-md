@@ -18,26 +18,26 @@ failsafe mode is only working when you have installed one of the SquashFS images
 /!\ The act of switching between a normal boot and failsafe mode could change
 your MAC address! This will invalidate the ARP cache of the workstation you're
 using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}},
-see the !OpenWrt [:Faq] howto delete your ARP cache.
+see the !OpenWrt [:Faq] to learn how to flush your ARP cache.
 
 
-== Howto get into failsafe mode ==
+== How to get into failsafe mode ==
 
-'''TIP:''' The only function for the reset button in !OpenWrt is to enter into
-failsafe mode (it doesn't reset the NVRAM).
+## TODO: The Faq article "How do I recover / boot in failsafe mode?" is redundant of this.  These need to be merged.
+
+'''TIP:''' !OpenWrt ''itself'' uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will ''not'' reset the NVRAM.  The ''bootloader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
 
 '''Linksys models'''
 
-To get into failsafe on Linksys models, plug in the router and wait for the DMZ
-LED to light then immediately press and hold the reset button for 2 seconds. If
+Plug in the router and wait for the DMZ
+LED to light up.  Then immediately press and hold the reset button for 2 seconds. If
 done right the DMZ LED will quickly flash 3 times every second.
 
-Holding the reset button before the DMZ LED can reset NVRAM.
-Reseting NVRAM will brick some models.
+/!\ Holding the reset button ''before'' the DMZ LED turns on (i.e. when the bootloader is still running) can reset the NVRAM.  Resetting the NVRAM will brick some models.
 
-'''Other non-Linksys models'''
+'''Non-Linksys models'''
 
-Plug in the power, wait 2 secs. Then start pressing reset button for 10-15 seconds.
+Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
 
 
 == What should I do in failsafe mode? ==
