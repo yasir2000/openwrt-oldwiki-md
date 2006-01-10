@@ -39,7 +39,7 @@ root@OpenWrt:~#
 The firmware itself is designed to occupy as little space as possible while
 still providing a reasonably friendly commandline interface. With no packages
 installed, the firmware will simply configure the network interfaces, setup a
-basic NAT/firewall and load the telnet server and dnsmasq (a combination DNS
+basic NAT/firewall, and load the telnet server and dnsmasq (a combination DNS
 forwarder and DHCP server).
 
 '''Why no telnet password?'''[[BR]]
@@ -60,10 +60,8 @@ the JFFS2 partition.
 This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, you may disable them.
 
-/!\ '''WARNING:''' Do this only if you know what you are doing and can restore
-your iptables rules effortlessly. In GNU/Linux, you can flush iptables firewall
-settings by issuing the following series of commands:
-
+In GNU/Linux, you can flush iptables firewall settings by issuing the following series of commands:[[BR]]
+/!\ '''WARNING:''' Do this only if you know what you are doing and can restore your iptables rules effortlessly. 
 {{{
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
