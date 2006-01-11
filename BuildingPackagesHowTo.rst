@@ -226,6 +226,8 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 make clean && make compile
 }}}
 
+'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make "this page"].
+
 
 When the compiling is finished you have a ready to use ipkg package for !OpenWrt
 in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
