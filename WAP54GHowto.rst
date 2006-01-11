@@ -59,6 +59,14 @@ The error message you get (quite paradoxical if you aks me):
 root@OpenWrt:/# rm /usr/man/man8/openvpn.8
 rm: unable to remove `/usr/man/man8/openvpn.8': No space left on device
 }}}
+
+Alternatively you might be able to use the following:
+{{{
+root@OpenWrt:/# > /usr/man/man8/openvpn.8
+}}}
+
+That should make some space available so you can rm the files.
+
 As far as I know, the system should still work (you should be able to telnet/SSH it) but you won't be able to change any of its configuration but the nvram variables.
 
 If you can tftp with boot_wait on, you should be able to install a new openWRT image, but I don't know if new install will reformat the jffs2 partition.
