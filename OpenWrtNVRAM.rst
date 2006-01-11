@@ -41,8 +41,8 @@ Although the wifi_* variables can be used to configure the network settings of t
 ||'''wl0_macmode'''||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist||
 ||'''wl0_maclist'''||List of space separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: 00:02:2D:08:E2:1D ||
 ||'''wl0_radio'''||Enable / disable the radio (1=enable)||
-||'''wl0_channel'''||The channel to use (1-13 worldwide, 1-11 USA/Canada, default 6, 0=auto channel)||
-||||'''Note:''' Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region!||
+||'''wl0_channel'''||The channel to use (default 6, 0=auto channel)||
+||||'''Note:'''Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region.  Permitted channel usage is as follows: Africa/Asia/Australia/Europe/South­ America: 1 - 13, Canada/United States: 1 - 11, France: 11 - 13, Israel: 5 - 7, Japan: 1 - 14, Mexico: 11||
 ||'''wl0_gmode'''||Set 54g modes (0=Legacy B, 1=auto, 2=G only, 3=B deferred, 4=performance, 5=LRS, 6=afterburner)||
 ||||'''Note:''' It may be necessary to use Legacy mode if you want older wireless devices to associate with a WRT access point.||
 ||'''wl0_gmode_protection'''|| ||
