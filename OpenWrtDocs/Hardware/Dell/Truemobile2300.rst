@@ -12,6 +12,8 @@ The initial installation of OpenWrt is accomplished by uploading a
 `.trx` image through the Dell firmware.  After OpenWrt is installed
 it is a good idea to set the ''boot_wait'' NVRAM variable to ''on''.
 
+When TFTPing to a router with ''boot_wait=on'' also use a `.trx` image.
+
 = Serial port =
 
 Because this is a BCM4702KPB-based model, the multi-use pins used by the serial port
