@@ -140,7 +140,7 @@ On *nix operating systems use:
 
 {{{
 arp -d 192.168.1.1
-}}} Note: this requires root privileages. As normal user, you may simple use a broadcast ping to force an arp-cache update (abort with Ctrl-C):
+}}} Note: this requires root privileges. As normal user, you may simple use a broadcast ping to force an arp-cache update (abort with Ctrl-C):
 {{{
 ping -b 192.168.1.0
 }}} 
