@@ -30,7 +30,6 @@ Flashing may take over a minute. After that you can use {{{reboot}}} to start !O
 
 == TODO ==
  
- * add new switch drivers and test on 2.4/2.6
  * wireless driver [sometimes kernel oops if iwconfig is used]
  * USB driver [EHCI needs to be fixed]
   * EHCI driver is not working (writing to high speed devices freeze the USB stack) and
@@ -41,7 +40,6 @@ ioctl_internal_command: <0 0 0 0> return code = 8000002
    : Current: sense key=0x0
     ASC=0x0 ASCQ=0x0
   }}}
- * fix networking by getting hotplug system to work on non-nvram systems
  * reset button driver [need to be ported to 2.6]
  * webupgrade from original firmware [need a CRC header]
 
