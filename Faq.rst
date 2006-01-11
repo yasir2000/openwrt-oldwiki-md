@@ -402,7 +402,7 @@ Waldemar Brodkorb <wbx>
 Nicolas Thill <Nico>
 Felix Fietkau <nbd>
 Florian Fainelli <florian>
-Oliver Ertl <olli04>
+Oliver Ertl <olli>
 }}}
 
 
