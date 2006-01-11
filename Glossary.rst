@@ -20,7 +20,7 @@ seconds immediately after the DMZ LED lights up during boot. While in failsafe,
 
 ===== firstboot =====
 
-Initializes the JFFS2 partition. It is normally run automatically
+A script which initializes the JFFS2 partition. It is normally run automatically
 the first time !OpenWrt is booted, but can be run manually to reset the JFFS2 partition.
 
 
