@@ -88,6 +88,8 @@ chmod +r /etc/hosts
   * http://thekelleys.org.uk/dnsmasq/doc.html
  * Tutorial
   * http://www.enterprisenetworkingplanet.com/netos/article.php/3377351
+ * Tutorial
+  * http://martybugs.net/wireless/openwrt/dnsmasq.cgi
 
 
 = FAQ =
