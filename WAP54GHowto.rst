@@ -101,7 +101,30 @@ By the way, also Sveasoft's Freya software was not functional on this device; th
 Hope this can revive your WAP54G !!
 martin, portugal
 
-== WAP54G v2 ==
+= This is a mini-howto for people who want to use OpenWRT on WAP54G v2 =
+
+As you can read on [http://forum.openwrt.org/viewtopic.php?id=3431 WAP54G v2 issues - "Read-only file system"] thread in the forum, Openwrt, specificaly:[[BR]]
+[http://downloads.openwrt.org/whiterussian/rc4/default/openwrt-wap54g-squashfs.trx][[BR]]
+get installed fine on the WAP54G v2, but give you a read-only file system, so you won't be able to modify any configuration file, you can't even activate root passwd, so you can't use web interfase neither.
+
+Just telnet and any configuration based on nvram.
+
+This is my work around:
+  * You have to follow [http://wiki.openwrt.org/ImageBuilderHowTo ImageBuilderHowTo], in order to create an image with modyfied /etc files.
+  * Copy all /etc, from an already installed WAP54G, to the PC where you are going to create your images.
+  * To activate ssh and access to the web interfase
+    * Put a hash of you passwd on /etc/passwd
+    * Put this line on /etc/httpd.conf
+     cgi-bin/webif:root:HASH
+    * Create dss and rsa keys, and put it on /etc/dropbear. For this I use /etc/init.d/S50dropbear, but you have to modify it, in order to use /tmp/dropbear instead of /etc/dropbear, cause remember all you file system is read-only, except /tmp.
+  * Make any other configuration (for example)
+    * edit /etc/dnsmasq.conf to adjust the range[[BR]]
+    * edit /etc/hosts and add your hosts[[BR]]
+    *create /etc/resolv.conf and put your nameserver
+
+If you have problems, send your comments to tuxerg@gmail.com, and/or post on [http://forum.openwrt.org/viewtopic.php?id=3431 WAP54G v2 issues - "Read-only file system"].
+
+== Reviving a brick WAP54G v2 ==
 After reading the above on v1, and seeing I had a v2... I knew there had to be a way ;) Here's my (Curto) experiences..
 
 I was running mustdie based on 2.07, but obviously wanted more control.
