@@ -84,7 +84,7 @@ Misc:
 ||'''wl0_corerev'''||Set by wlconf to the wireless revision, (4:v1.0 hardware, 7:v2,gs)||
 
 == VLAN Settings ==
-Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
+Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan'' settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
 
 Be sure the NVRAM has settings for the following, and the recommended defaults:
 
