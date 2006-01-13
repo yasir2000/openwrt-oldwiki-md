@@ -569,7 +569,7 @@ Examples:
 ||Adelaide||CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00||
 ||Darwin||CST-9:30||
 ||Hobart||EST-10EDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00||
-||<rowspan=18>Europe||Amsterdam, Netherlands||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||<rowspan=19>Europe||Amsterdam, Netherlands||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Athens, Greece||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00||
 ||Barcelona, Spain||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Berlin, Germany||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
@@ -586,6 +586,7 @@ Examples:
 ||Paris, France||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Prague, Czech Republic||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Roma, Italy||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||St.Petersburg, Russia||MST-3MDT-4,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||New Zealand||Auckland, Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
 ||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
