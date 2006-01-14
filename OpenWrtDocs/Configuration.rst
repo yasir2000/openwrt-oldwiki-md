@@ -192,6 +192,7 @@ lan_ifnames=vlan0 eth2 eth3
 
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
+
 == The ethernet switch ==
 [[Anchor(EthernetSwitch)]]
 
@@ -230,7 +231,8 @@ reasons).
 
 Remark to "*": On ASUS-500GX is possible make external port tagged in this way vlan0ports="1t 2 5*".
 This is syntax like robocfg tool. Tested on White Russian RC2, may be possible on all BCM5325
-HWs. "*" have no effect, maybe exist for compatibility. This behaviour is at least confirmed with WRT54G(v3.1) and WRT54GS(v2.1) and White Russian RC3.
+HWs. "*" have no effect, maybe exist for compatibility. This behaviour is at least confirmed with
+WRT54G(v3.1) and WRT54GS(v2.1) and White Russian RC3.
 
 The second variable, vlan0hwname is used by the network configuration program (or script in
 the case of !OpenWrt) to determine the parent interface. This should be set to "et0" meaning
@@ -270,6 +272,14 @@ v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 
 
 === Using Robocfg ===
+
+/!\ Robocfg and admcfg is obsolete.
+
+White Russian (upcoming RC5 and all later versions) will use a new ethernet driver (b44) and
+switch driver to configure the switch and VLANs. The switch driver will be configured by a
+/proc/switch interface. This driver works for ROBO and ADMTEK switches.
+
+[[BR]][[BR]][[BR]]
 
 Robocfg is a utility written by Oleg Vdovikin to enable the hardware configuration
 of the Broadcom BCM5325E/536x VLAN enabled 6-port ethernet switch.  When used properly,
