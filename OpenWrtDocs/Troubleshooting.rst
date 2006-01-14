@@ -127,6 +127,15 @@ CFE> et up
 CFE> flash -noheader 192.168.1.2:/openwrt-brcm-2.4-squashfs.trx flash1.trx
 }}}
 
+A simpler method is to have the CFE go into a voluntary boot_wait TFTP reception in this manner:
+
+{{{
+CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
+CFE> et up
+CFE> flash -noheader : flash1.trx
+}}}
+
+The CFE will enter TFTP receptive mode after that command.
 
 == JTAG adaptor method ==
 
