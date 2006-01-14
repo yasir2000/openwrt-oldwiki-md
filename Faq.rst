@@ -729,7 +729,8 @@ kill this question)
 == Can I adjust the transmit power? ==
 
 Yes, but cranking the power to the maximum won't help you any. You might transmit farther
-but the noise level will be higher (and will probably bleed into the neighbouring channels)
+but the noise level will be higher (and will probably bleed into the neighbouring channels; 
+that looks like [http://wl500g.info/showthread.php?t=12&page=2 this] then)
 and your recieve sensitivity won't be improved any, limiting your distance. If you want better
 range go buy better antennas.
 
