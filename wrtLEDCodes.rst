@@ -102,5 +102,55 @@ do
 done
 }}}
 ----
+Here is another example of a script that watches certain parameters and controls the lights on the front appropriately. It set to turn on the amber light when a PPTP VPN connection is active and the white light when an SSH session is active. Additionally, it doesn't give a rip about the status of any LED before issuing the gpio command.
+
+I run this script on a WRT54G hardware v4.
+
+It is based off of the script above; I have modified it to watch for the VPN connection. I have also changed it so that it will look only at connections reported by netstat as being active:
+
+{{{
+#!/bin/sh
+
+ssh=2
+vpn=3
+interval=1
+
+/sbin/gpio enable $ssh
+/sbin/gpio enable $vpn
+
+while sleep $interval
+do
+
+#check for ssh
+users=$(/bin/netstat -t 2> /dev/null | /bin/grep :22 | /bin/grep ESTAB | /usr/bin/wc -l)
+if [ $users -gt 0 ]; then
+/sbin/gpio disable $ssh
+else
+/sbin/gpio enable $ssh
+fi
+
+#check for vpn
+users=$(/bin/netstat -t 2> /dev/null | /bin/grep :1723 | /bin/grep ESTAB | /usr/bin/wc -l)
+if [ $users -gt 0 ]; then
+/sbin/gpio disable $vpn
+else
+/sbin/gpio enable $vpn
+fi
+done
+}}}
+
+I put the script in /sbin on my router and called it monitor. Don't forget that to make it executable, you'll need to
+{{{
+chmod +x /sbin/monitor
+}}}
+
+I'm no Linux expert (by any means); however, a method that works to make the script operate when the router is started/rebooted would be to create (for example) a script in /etc/init.d/. I called mine S52monitor. Again, don't forget to make it executable. Here's what I put in my script:
+{{{
+#! /bin/sh
+/sbin/monitor &
+}}}
+
+The ampersand causes the script to run in the background, which allows the router to continue to boot.
+
 ----
 CategoryCategory
