@@ -37,7 +37,7 @@ A complete list of nvram options can be found at [:OpenWrtNVRAM].
 The WRT54G is made up of an Ethernet switch, a wireless access point and a router chip
 that connects them together.
 
-Diagrams of the intertal switch architectures on can be found on the following table
+Diagrams of the internal switch architectures on can be found on the following table
 
 ||'''Device & Version'''||||
 ||WRT54G v2/v3 & WRT54GS v1/v2||[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png Switch diagram]||
