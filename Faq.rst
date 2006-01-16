@@ -143,7 +143,7 @@ arp -d 192.168.1.1
 }}} Note: this requires root privileges. As normal user, you may simple use a broadcast ping to force an arp-cache update (abort with Ctrl-C):
 {{{
 ping -b 192.168.1.0
-}}} 
+}}}
 
 On Windows operating systems open a CMD console and do:
 
@@ -525,7 +525,7 @@ setup simple port forwarding rules in in the config file.
 Download and install the {{{qosfw-scripts}}} package:
 
 {{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.4_all.ipk
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk
 }}}
 
 Then edit {{{/etc/config/qos-wan}}}. This file has a number of examples and the syntax
@@ -729,7 +729,7 @@ kill this question)
 == Can I adjust the transmit power? ==
 
 Yes, but cranking the power to the maximum won't help you any. You might transmit farther
-but the noise level will be higher (and will probably bleed into the neighbouring channels; 
+but the noise level will be higher (and will probably bleed into the neighbouring channels;
 that looks like [http://wl500g.info/showthread.php?t=12&page=2 this] then)
 and your recieve sensitivity won't be improved any, limiting your distance. If you want better
 range go buy better antennas.
