@@ -124,5 +124,20 @@ This is a very hard-to-open case, really.
  * Use a strong thin narrow blade (for ex. a sparkplug gapper) to press the plastic hook in while you pry it open with a screw driver. Make the sparkplug gapper look like a 2 prong fork at the end separated by about 2mm. Each prong should be about 1.5mm.
 
 ''Note: you must apply a lot of force, you will feel like it's going to break but it will finally pop open, ideally. YMMV.''
+
+= GPIO info =
+
+Light layout is 7 lights:
+Power, Modem, Wireless, 4x LAN.  All capable of bi-color, at least the LEDs are.
+
+gpio 7 controls the red half of the "Modem" light (0=on, 1=switch-controlled)
+gpio 6 controls the green half of the "Modem" light (0=on, 1=off, hi-z=switch-controlled) - not sure if this will fry the switch if overridden.  Couple seconds didn't hurt it.
+gpio 5 is the reset button (0=pressed, 1=not)
+gpio 4 appears disconnected (pin is floating)
+gpio 3 always returns 1, setting value doesn't alter that.
+gpio 2 appears disconnected (pin is floating)
+gpio 1 is the "Power" light color.  (0=red, 1=green)
+gpio 0 is the "Wireless" light.  (0=green, 1=off)
+
 ----
 CategoryModel
