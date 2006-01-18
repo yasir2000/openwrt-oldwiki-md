@@ -77,9 +77,11 @@ to avoid a bunch of warnings about invalid jffs2 sectors:
 # perl -e '$buf = "\xff" x 4096; while (print $buf) {}' > /dev/sda2
 }}}
 
+Downloade the JFFS2 file: http://downloads.openwrt.org/people/nico/testing/x86-2.4/openwrt-x86-2.4-jffs2-8MB.img
+
 Use {{{dd}}} to transfer the jffs2 image on the root partition :
 {{{
-# dd if=./bin/openwrt-soekris-2.4-jffs2-8MB.img of=/dev/sda2
+# dd if=openwrt-x86-2.4-jffs2-8MB.img of=/dev/sda2
 2048+0 records in
 2048+0 records out
 1048576 bytes transferred in 1.453255 seconds (721536 bytes/sec)
