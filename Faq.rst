@@ -871,13 +871,6 @@ Approximately required disc space for compiling OpenWrt:
 
 == Where is the subversion (SVN) repository ? ==
 
-!OpenWrt switched from CVS to subversion (SVN).
-
-'''Stable Release'''
-
-At the moment we have no stable supported release. You can get release candidates for
-the next stable !OpenWrt release in binary format: [http://downloads.openwrt.org/whiterussian/].
-
 '''Stable Source'''
 
 The stable source code can be found in the above directory or from our SVN repository.
@@ -890,6 +883,9 @@ svn co https://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 [http://dev.openwrt.org/browser/branches/whiterussian/openwrt/ Browse] the stable source SVN branch.
 
 '''Development'''
+
+/!\ '''WARNING:''' Please never use any image of Kamikaze, if you have no access to serial console. The
+chance to brick your router with the development version is very high.
 
 Development take place in SVN. You get the source via:
 
