@@ -435,7 +435,7 @@ Linux system.
 See [:HowtoEnableCron] for details.
 
 
-== What's the magic behind /sbin/wifi is doing? ==
+== What does /sbin/wifi do? ==
 
 The {{{/sbin/wifi}}} program reads the wireless {{{wl0_}}} settings from
 NVRAM and reconfigures the Broadcom wireless driver ({{{wl.o}}}). This is
