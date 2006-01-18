@@ -29,6 +29,11 @@ Units = cylinders of 720 * 512 = 368640 bytes
 
 }}}
 
+Or you can use {{{cfdisk}}} to create more easily two partitions:
+
+{{{
+cfdisk /dev/sda
+}}}
 
 === Formatting the boot partition ===
 
