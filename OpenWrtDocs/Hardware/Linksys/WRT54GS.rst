@@ -25,6 +25,7 @@ the box, below the UPC barcode.
 ||WRT54GS v2.1||<:> CGN4||<:> (./) ||<:> (./) ||
 ||WRT54GS v3.0||<:> CGN5||<:> (./) ||<:> (./) ||
 ||WRT54GS v4.0||<:> CGN6||<:> (./) ||<:> (./) ||
+||WRT54GS v5||<:> CGN7||<:> {X} ||<:> {X} ||
 
 
 ==== WRT54GS v1.0 ====
@@ -59,6 +60,13 @@ The WRT54GS v4.0 uses a Broadcom 5352 CPU with integrated switch.
 '''NOTE:''' v4.0 only has 4 MB Flash and 16 MB RAM. Half of prior versions.
 Some WRT54GS v4 has 8 MB flash and 32 MB RAM, only first relase of WRT54GS v4
 had 4MB/16MB.
+
+
+==== WRT54GS v5 ====
+
+For details please see:
+[[BR]]- [http://forum.openwrt.org/viewtopic.php?pid=19281 WRT54GS going to VxWorks now also....] and
+[[BR]]- [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12183&start=0&postdays=0&postorder=asc&highlight= WRT54GS- New Serial Number? CGN7?]
 
 
 === Detailed hardware info ===
