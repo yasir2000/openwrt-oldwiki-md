@@ -4,8 +4,8 @@ The SoekrisPort is an attempt to use OpenWrt on PC-based embedded computer board
 
 The net4801 has a CompactFlash socket, as well as an IDE interface for 2.5" HDD. The installation procedure described here is for CF setup. You can use whatever size (from 8MB to 1GB) for your CF.
 
-The kernel, images and packages are available in my [http://openwrt.org/downloads/people/nico/testing/x86/ download] directory.
-
+== Download ==
+http://downloads.openwrt.org/people/nico/testing/x86-2.4/
 
 == Installation ==
 I assume the CF is available on a linux system, using a card reader for example. The block device for the CF on this system is {{{/dev/sda}}} and will be mounted on {{{/mnt/cf}}}. The CF will be setup with the GRUB bootloader, an OpenWrt linux kernel and an OpenWrt JFFS2 image, mounted using MTD block emulation.
