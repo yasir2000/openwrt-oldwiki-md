@@ -61,9 +61,11 @@ Use {{{grub-install}}} to install the GRUB bootloader on the boot partition :
 
 === Installing the kernel ===
 
-Use {{{cp}}} or {{{scp}}} to install the linux kernel on the boot partition :
+Dowload the kernel: http://downloads.openwrt.org/people/nico/testing/x86-2.4/openwrt-x86-2.4-vmlinuz
+
+Use {{{cp}}} to install the linux kernel on the boot partition :
 {{{
-# cp ./bin/openwrt-soekris-2.4-vmlinuz /mnt/cf/boot/
+# cp openwrt-x86-2.4-vmlinuz /mnt/cf/boot/
 }}}
 
 
