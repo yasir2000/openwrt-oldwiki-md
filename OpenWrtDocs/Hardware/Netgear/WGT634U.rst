@@ -60,6 +60,7 @@ method that I used (if your method is better, please replace this --RussellSenio
 
   * attach a serial console cable to the wgt634u
   * attach ethernet to the WAN port (next to the USB socket)
+    NOTE: as of current Kamikaze (svn 3009) once installed the WAN port becomes the one closest to the POWER connector
   * hold down {{{CTRL-C}}} while inserting power to enter CFE
   * configure ethernet from CFE (I have a dhcp server that does the work for me):
 
