@@ -21,7 +21,23 @@ Serial console is located near the LEDs on a 2x2 pin header. Pinout as follows:
         1        (LEDs)
 }}}
 
-... to be continued
+== Control room ==
+
+The board has no JTAG interface, only a jumper header near the LEDs, which keeps the bootloader from booting the kernel and gives a CLI, if shorted. 
+
+{{{
+
+screenshot to come...
+
+}}}
+
+Through RS-232 upload it accepts S-format (SREC), which can be created with 'objcopy'. Ethernet boot requires a running NFS server on a box, and some extra options from the DHCP server. These are 'filename' (the file that will be downloaded), 'root-path' (the host and directory it will mount), 'hostname', option-128 (no idea what this is) and option-129 (kernel parameters can be set up in this).
+IMHO it is a very expensive method to implement an almost complete NFS client and not using TFTP, but hell, they know what they're doing... Either way, I'm impressed how they were able to stuff everything into that 32Kb bootloader...
+
+== SH IPL (the bootloader) ==
+
+An opensource bootloader which is distributed under LGPL. Some of the Linux-SH project member said that Gigabyte might have modified the bootloader to have MD5 checksum support in it - this might be true, because I haven't found any mention of this in the source, and Gigabyte did not reply to my question regarding to this.
+The latest version I found is available at http://trash.uid0.hu/openwrt/sh-ipl-021028.tar.bz2 , if anyone is interested. 
 
 == boot.log ==
 
