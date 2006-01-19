@@ -33,9 +33,10 @@ The WR850G v3 version is housed in black pastic and has a hard wired non removab
 If you ever need to revert your router to official Motorola firmware, it can be downloaded from their website.  The downloaded `.exe` files are self-extracting `.zip`'s; any unzipping software should be able to handle them.  They contain a `.trx` firmware file, as well as `.pdf` documentation.
 
  * [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850G_4.03.exe Version 4.03] is useful for its debug mode, which was dropped in later versions.
+ * [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850G_5.13.exe Version 5.13]
  * [http://broadband.motorola.com/consumers/products/WR850g/downloads/Motorola_WR850_6.1.4.exe Version 6.1.4] is the current version (as of Jan 2006) 
  * [http://broadband.motorola.com/consumers/support/default.asp?SupportSection=HomeNetworking Motorola's Support Site] has links only to their ''current'' firmware version.  Note that you need to scroll down to the WR850G section.
-
+ * [http://broadband.motorola.com/consumers/support/gpl_codes.asp Source Code] (currently for [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.12_GPL.tgz 5.12], [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.13_GPL.tgz 5.13], and [http://broadband.motorola.com/consumers/support/GPL/WR850G_V6.1.4_GPL.tgz 6.1.4])
 
 = How To Enable Boot Wait =
 
