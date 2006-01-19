@@ -1,3 +1,5 @@
+#acl Known: All: 
+##
 == Specs ==
 
 (Most of the info is from http://forum.openwrt.org/viewtopic.php?id=354)
@@ -31,6 +33,8 @@ screenshot to come...
 
 }}}
 
+Another way of stopping the bootloader is to upload a badly checksummed kernel or rootfs, IPL will stop also if the checksums are not the same. See below about checksumming.
+
 Through RS-232 upload it accepts S-format (SREC), which can be created with 'objcopy'. Ethernet boot requires a running NFS server on a box, and some extra options from the DHCP server. These are 'filename' (the file that will be downloaded), 'root-path' (the host and directory it will mount), 'hostname', option-128 (no idea what this is) and option-129 (kernel parameters can be set up in this).
 IMHO it is a very expensive method to implement an almost complete NFS client and not using TFTP, but hell, they know what they're doing... Either way, I'm impressed how they were able to stuff everything into that 32Kb bootloader...
 
@@ -38,6 +42,13 @@ IMHO it is a very expensive method to implement an almost complete NFS client an
 
 An opensource bootloader which is distributed under LGPL. Some of the Linux-SH project member said that Gigabyte might have modified the bootloader to have MD5 checksum support in it - this might be true, because I haven't found any mention of this in the source, and Gigabyte did not reply to my question regarding to this.
 The latest version I found is available at http://trash.uid0.hu/openwrt/sh-ipl-021028.tar.bz2 , if anyone is interested. 
+
+== Pointers ==
+
+Some URLs which worth reading
+ * http://www.m17n.org/linux-sh/
+ * http://www.linux-sh.org/shwiki/FrontPage
+
 
 == boot.log ==
 
