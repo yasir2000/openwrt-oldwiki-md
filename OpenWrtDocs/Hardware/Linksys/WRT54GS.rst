@@ -64,8 +64,16 @@ had 4MB/16MB.
 
 ==== WRT54GS v5 ====
 
-For details please see:
-[[BR]]- [http://forum.openwrt.org/viewtopic.php?pid=19281 WRT54GS going to VxWorks now also....] and
+/!\ '''NOTE:''' WRT54GS V5 IS '''NOT''' SUPPORTED. IT WILL NEVER BE SUPPORTED. WE ARE SICK OF
+HEARING ABOUT THE V5!
+
+This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It has less
+flash (2 MB) and less RAM (16 MB). It is unknown at this time if v5 can be supported by
+!OpenWrt.
+
+For further informations please see:
+[[BR]]- [http://www.linksysinfo.org/modules.php?name=News&file=article&sid=474 WRT54GS Now Runs VxWorks too!?]
+[[BR]]- [http://forum.openwrt.org/viewtopic.php?pid=19281 WRT54GS going to VxWorks now also....]
 [[BR]]- [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12183&start=0&postdays=0&postorder=asc&highlight= WRT54GS- New Serial Number? CGN7?]
 
 
