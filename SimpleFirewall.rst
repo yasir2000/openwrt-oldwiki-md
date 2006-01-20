@@ -25,7 +25,9 @@ forward_port 10000:10099 workstation1
 forward_port 10100:10199 laptop1
 forward_port 10200:10299 laptop2
 }}}
-And here's the extremely simple firewall library that it uses:  (Sadly it does require that you maintain an /etc/hosts file in order to make it work)
+And here's the extremely simple firewall library that it uses:  (Sadly it does require that you maintain an /etc/hosts file in order to make it work.)
+
+'''Note:''' if you plan on pasting this script into an ssh window, note that the character quoted in the {{{cut}}} command below should probably be a tab, not a space (unless you use spaces to format your /etc/hosts file).
 {{{
 #!/bin/sh
 
@@ -55,6 +57,9 @@ allow_port () {
 
 sucky_resolve () {
     HOSTNAME=$1
+    ###
+    # Note: character below should be a tab or a space, depending on how
+    # your /etc/hosts file is formatted.  webif uses tabs.
     grep $HOSTNAME /etc/hosts | cut -f 1 -d ' '
 }
 
