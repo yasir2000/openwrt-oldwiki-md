@@ -58,9 +58,7 @@ allow_port () {
 sucky_resolve () {
     HOSTNAME=$1
     ###
-    # Note: character below should be a tab or a space, depending on how
-    # your /etc/hosts file is formatted.  webif uses tabs.
-    grep $HOSTNAME /etc/hosts | cut -f 1 -d ' '
+    grep $HOSTNAME /etc/hosts | awk '{ print $1 }'
 }
 
 forward_port() {
