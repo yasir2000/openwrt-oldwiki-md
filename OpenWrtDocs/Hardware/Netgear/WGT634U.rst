@@ -10,40 +10,33 @@ also has an USB 2.0 controller.
 The kernel boots on the system, we have drivers for the ethernet interface (b44) and
 the new switch driver is integrated (robocfg will be obsolete). We have drivers for the
 wireless radio (madwifi). Recently we updated to 2.6.15 to play with 2.6 on Linksys
-hardware. The !OpenWrt port is still unusable for users!
+hardware. The !OpenWrt port is still unusable!
 
 If you want to help with development, attach a serial console and build an image from
-Subversion (Kamikaze). Choose brcm-2.6 in make menuconfig.
+Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig.
 
 Images can be flashed via TFTP. You need to run a TFTP server on your local PC
-connected to the WAN port of the Netgear router. To get into the bootloader of the
-router by holding down {{{CTRL-C}}} while power on. The following CFE command is used
-to write the snapshots ({{{.bin}}} files) to the flash. Your PC is configured as
-{{{192.168.1.2}}}.
+connected to the WAN port of the Netgear router. To get into the bootloader
+hold down {{{CTRL-C}}} while power on. The following CFE command is used
+to write the  ({{{openwrt-wgt634u-2.6-jffs2.bin}}} or ({{{openwrt-wgt634u-2.4-jffs2.bin}}} file to the flash. 
+Your PC is configured as {{{192.168.1.2}}}.
 
 {{{
 ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
-flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-squashfs.bin flash0.os
+flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-jffs2.bin flash0.os
 }}}
 
 Flashing may take over a minute. After that you can use {{{reboot}}} to start !OpenWrt.
 
+Please always use the newest subversion code. 
+
+Report any bugs via the https://dev.openwrt.org
 
 == TODO ==
 
- * wireless driver [sometimes kernel oops if iwconfig is used]
- * USB driver [EHCI needs to be fixed]
-  * EHCI driver is not working (writing to high speed devices freeze the USB stack) and
-  gives the following error:
-  {{{
-root@OpenWrt:/# mount -t ext3 /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
-ioctl_internal_command: <0 0 0 0> return code = 8000002
-   : Current: sense key=0x0
-    ASC=0x0 ASCQ=0x0
-  }}}
- * reset button driver [need to be ported to 2.6]
+ * general testing of all features and base functions
  * webupgrade from original firmware [need a CRC header]
-
+ * reset button driver [need to be ported to 2.6]
 
 == Configuration ==
 
@@ -97,9 +90,6 @@ Programming...done. 1892352 bytes written
   {{{
 CFE> reboot
 }}}
-
-  * NOTE: r2794 booted for me; r2836 kernel panic'd with "Kernel panic - not syncing: Attempted to kill init!"
-
 
 == Restoring original firmware ==
 
