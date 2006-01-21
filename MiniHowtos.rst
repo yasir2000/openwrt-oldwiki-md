@@ -96,6 +96,7 @@ RRDtool and RRDcollect with the example packages from
 And RRDcollect will even produce the status graphs on the Wrt itself, without the need
 for a collecting host.
 
+/!\ Can somebody provide steps to run RRD? Thanks.
 
 == OpenWrt + Chillispot solution ==
 
