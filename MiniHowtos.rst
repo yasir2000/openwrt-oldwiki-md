@@ -153,6 +153,55 @@ You don't have to give them the names that I did, nor do you have to put them in
 
 There is a modified version of /etc/firewall.user in SimpleFirewall.
 
+== Monitoring signal strengths of nearby access points in client mode ==
+You can use scripts to monitor the nearby access points in a readable ascii format like below: {{{
+Date: Sun Jan 16 08:31:06 UTC 2000
+Channel Signal  Noise  SNR      ESSID
+------- ------  -----  ---      ------------------
+ 1      -67     -90     23      Default
+ 11     -45     -78     33      Linksys
+}}}
+
+Note that ''SNR'' is calculated by subtracting ''Signal'' from ''Noise''.
+
+'''Requirements''':
+ * `microperl` needs to be installed
+ * WRT should be running in the client-mode
+
+'''Steps''':
+ * Create `monitor.pl` file under `/sbin`. Contents are as follows: {{{
+open(INP, '-') or die "Couldn't read from STD input!\n";
+
+my $line = ""; my $essid = ""; my $channel = "";
+my $signal = ""; my $noise = ""; my $snr = "";
+
+print "Channel Signal  Noise  SNR\tESSID\n";
+print "------- ------  -----  ---\t------------------\n";
+
+while ($line = <INP>) {
+   if ($line =~ m/ESSID:"(.*)"/) {
+      $essid = $1;
+   }
+   elsif ($line =~ m/Channel:(\d+)/) {
+      $channel = $1;
+   }
+   elsif ($line =~ m/Quality.*Signal level:-(\d+) .*Noise level:-(\d+)/) {
+      $signal = $1;
+      $noise = $2;
+      $snr = $2 - $1;
+      print " $channel\t-$signal\t-$noise\t$snr\t$essid\n";
+   }
+}
+}}}
+ * create `wstat.sh` under `/sbin`: {{{
+#!/bin/sh
+echo -n "Date: "; date
+iwlist eth1 scanning | microperl /sbin/monitor.pl
+}}}
+ * Make both of them executable, i.e. `chmod 755 <filename>`
+
+'''Usage''':
+ * Run the script by calling `wstat.sh`
 = Useful details =
 
 == boot_wait - What it is, and how it works ==
