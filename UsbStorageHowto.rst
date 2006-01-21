@@ -44,7 +44,9 @@ the {{{kmod-usb-uhci}}} one!
 
 == Modules for USB 2.0 ==
 
-This package includes the modules for USB 2.0
+This package includes the modules for USB 2.0. Support for Kernel 2.4
+in White Russian is broken. Please see ticket
+[https://dev.openwrt.org/ticket/121 #121] for details.
 
 {{{
 ipkg install kmod-usb2
