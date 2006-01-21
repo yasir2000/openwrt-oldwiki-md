@@ -29,16 +29,6 @@ USB harddisc) to the USB port on your router.
 devices with both versions install the modules for USB 1.1 and 2.0.
 
 
-== General modules for USB ==
-
-This is a base module for USB support. It's required for both USB
-versions.
-
-{{{
-ipkg install kmod-usb-core
-}}}
-
-
 == Modules for USB 1.1 ==
 
 For USB 1.1 you need to install
@@ -234,7 +224,7 @@ mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 '''On a GNU/Linux desktop PC do'''
 
 {{{
-mke2fs -j /dev/sda
+mke2fs -j /dev/sda1
 }}}
 
 /!\ '''IMPORTANT:''' Make sure you are modifying the right device. If
@@ -316,8 +306,8 @@ chmod a+x /sbin/init
 
 /!\ '''IMPORTANT:''' Problems with booting from USB storage were reported
 when using White Russian RC4 (or later versions), where USB hotplugging was
-introduced. If you encounter problems as well, try to disable USB hotplug! 
-This can be done by removing the file {{{/etc/hotplug.d/usb/01-mount}}} 
+introduced. If you encounter problems as well, try to disable USB hotplug!
+This can be done by removing the file {{{/etc/hotplug.d/usb/01-mount}}}
 (which is a symlink to {{{/rom/etc/hotplug.d/usb/01-mount}}})
 
 Now just reboot, and if you did everything right it should boot from
