@@ -152,4 +152,5 @@ His files are available from http://downloads.openwrt.org/people/nbd/whiterussia
 = WAP54G v3 =
 
 You can upload rc4 default wap54g build via  webinterface. Same limitations as above for v2.
+
 crodler 
