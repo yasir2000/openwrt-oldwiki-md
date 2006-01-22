@@ -40,117 +40,113 @@ One involves nbd's qosif scripts.  And the other involves ctshaper, a script wri
 
 Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.
 
-=== qosif (now qos-scripts package) ===
+=== qosfw-scripts package (was qosif) ===
 
-(''I need to update this section for qos-scripts package.'')
+(''Somewhat updated for qosfw-scripts, could use some editing'')
 ----
 
-If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.  The archive is located [http://openwrt.inf.fh-brs.de/~nbd/qosif.tar.gz here] (NOTE: The requested URL /~nbd/qosif.tar.gz was not found on server. Try [http://openwrt.inf.fh-brs.de/~nbd/ directory]. This wiki page need more update.) and contains four files.
+If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.  
 
-
-{{{
-config
-firewall.awk
-genscript.awk
-test.sh
-}}}
-
-The file `test.sh` is just a simple one line awk script:
+Install qosfw-scripts with {{{ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk}}} (you many want to check [http://openwrt.inf.fh-brs.de/~nbd/ here] for a newer update.
 
 {{{
-awk -v device=ppp0 -v linespeed=128 -f genscript.awk config
+/etc/config/firewall
+/etc/config/qos-wan
+/etc/hotplug.d/iface/10-qos
+/usr/lib/qosfw/qos.awk
+/usr/lib/qosfw/common.awk
+/usr/lib/qosfw/firewall.awk
+/usr/lib/qosfw/fw.sh
 }}}
 
-This runs awk, setting two variables, the first "device" being the device that QoS will be applied on.  For me, this would be the WAN interface, or vlan1.  (Might differ depending on your hardware revision).  The second variable is linespeed.  Appearently this is for a 128kbit uplink.  Mine would be 512, for example.
-
-It then passes these variables to the "genscript.awk" file, running it on the "config" file.  Firewall.awk is called from within genscript.awk.
-
-So, all one needs to do, is copy these files over to the router, and either edit test.sh with your own values, or enter the one line command by itself, using your own values.  If you redirect the output, you have a nice Qos script.  Note that it requires firewall.awk.
-
-{{{
-awk -v device=vlan1 -v linespeed=512 -f genscript.awk config > S55qos
-
-cp S55qos config firewall.awk /etc/init.d/
-}}}
+The files in /usr/lib/qosfw do the heavy lifting. 
+`/etc/hotplug.d/iface/10-qos` is run everytime an interface is brought up, and looks for a qos-[interface] file in `/etc/config`, if it finds one then it'll setup the qos settings for that interface.
 
 Which leaves us with the format of the `config` file.  It's formatted in stanzas (I did say that nbd guy was pretty clever, right?) and the stanzas can be broken down into policies and marking rules.
 
-For example, the first three stanzas (or blocks) are policies:
+For example, the first four stanzas (or blocks) are policies:
 
 {{{
 class:Priority
-maxdelay:30
-rate:60
-priority
-end
-
-class:Normal
-maxdelay:100
-limit:95
-rate:30
-normal
-end
-
-class:Bulk
-maxdelay:1000
-rate:10
-limit:80
-default
-bulk
+pktsize:150        
+pktdelay:10                            
+avgrate:20 
+share:75                                                 
+end                                           
+               
+class:VOIP                                 
+pktsize:200                                                          
+pktdelay:10                              
+avgrate:30                                   
+share:75                                    
+end                                                               
+                                         
+class:Normal                
+pktsize:1500    
+pktdelay:30                                 
+avgrate:10                                                         
+share:50                 
+end                                                            
+                                                              
+class:Bulk                                                      
+share:10                       
+limit:90                                  
 end
 }}}
 
-This first part of the config file sets up our 3 buckets.  "Class" names the policy, "maxdelay" is the maximum delay we would like to craft (in ms).  "Rate" and "limit" are pretty self-explainatory, in kbits/sec.  Last but not least, is the type of queue (priority, normal, bulk) and of course the end of the config file.
+This first part of the config file sets up our 4 buckets.  (''Fix this to correspond to pktsize/pktdelay/avgrate/share'') "Class" names the policy, "maxdelay" is the maximum delay we would like to craft (in ms).  "Rate" and "limit" are pretty self-explainatory, in kbits/sec.  Last but not least, is the type of queue (priority, normal, bulk) and of course the end of the config file.
 
-The last half of the config file crafts the rules for marking, in iptables:
+The next section of the config file crafts the rules for marking, in iptables:
 
 {{{
-classify:Bulk
-layer7:edonkey
-end
-
-classify:Bulk
-src:192.168.1.20:tcp:80
-end
-
-classify:Priority
-dest:*:udp:53,5190
-end
-
-classify:Priority
-dest:*:tcp:22,53,5190
-end
-
-classify:Priority
-src:*:tcp:60168
-end
-
-classify:Priority
-src:*:udp:60168
-end
-
-classify:Normal
-dest:*:tcp:993
-end
+classify:Bulk:layer7=edonkey
+classify:Priority:proto=udp dport=53,5190
+classify:Priority:proto=tcp dport=22,53,5190
+#classify:VOIP:proto=tcp sport=60168
+#classify:VOIP:proto=udp sport=60168
 }}}
 
-These are pretty self explainatory as well.  The first line is how to classify the traffic.  The second line, how to define the traffic.  And the third line, the end which denotes the end of the stanza.
+These are pretty self explainatory as well.  The first line uses a layer7 filter (the patterns for these are stored in /etc/l7-protocols, see [http://l7-filter.sourceforge.net/protocols l7-filter] for more) to classify edonkey traffic as bulk. The others all classify by port 
+numbers.
 
-Take the third example.  Anything with a destination of udp/53 or udp/5190 (dns and aim, respectively), will be classified as Priority.  Pretty simple, huh?
+Take the second and third examples.  Anything with a destination of udp/53 or udp/5190 (dns and aim, respectively), will be classified as Priority.  Pretty simple, huh?
 
-So, '''qosif''' in three steps:
+Next, we enable qos, and set the up/downstream bandwidth
+{{{
+#option:enabled
+option:upload:128
+option:download:1024
+}}}
 
- * modify `config` file to suit your needs, designating policies (buckets) and traffic.
- * either modify `test.sh` or write one line command to generate your script, outputing to a file (`S55qos` for example).
- * copy `config`, `firewall.awk` and `S55qos` (or whatever you called your output file) to `/etc/init.d/` or other sane place, for running automatically or manually.
+Uncomment the option:enabled line, or else you'll wonder why this isn't doing anything.
+The upload and download lines should be set to your connection speeds in kbps.
+
+(''TODO: document this section'')
+{{{
+option:priority:Priority
+option:bulk:Bulk
+option:defaultlow:Normal
+option:default:Bulk
+option:bulk_dl:Normal:10
+}}}
+
+Finally to activate your settings run ` ifdown wan && ifup wan `. 
+
+You can see what commands the script is running by looking at `/tmp/.qos-wan.sh`. You can get an idea of how much traffic is hitting each of your rules with `iptables -t mangle -L -v`
+
+So, '''qosfw''' in three steps:
+
+ * install the package
+ * modify `/etc/config/qos-wan` to suit your needs, don't forget the option:enabled line
+ * `ifdown wan && ifup wan` to activate
 
 ==== Notes and Caveats ====
 
- * This script will probably morph into a package in the future.
  * There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
- * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net].
+ * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net] (this is now a dependency of the package).
  * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
  * Based on `hfsc` packet scheduler, not `htb`.  You may be more familiar with one over the other.
+ * See http://forum.openwrt.org/viewtopic.php?id=3847 for a possible issue with the full link speed not being used when using this script (v0.4&0.5) in some instances.
 
 === ctshaper ===
 
