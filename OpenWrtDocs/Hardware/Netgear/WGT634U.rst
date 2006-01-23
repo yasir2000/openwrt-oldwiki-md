@@ -15,8 +15,8 @@ hardware. The !OpenWrt port is still unusable!
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig.
 
-Images can be flashed via TFTP. You need to run a TFTP server on your local PC
-connected to the WAN port of the Netgear router. To get into the bootloader
+Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server on your
+local PC connected to the WAN port of the Netgear router. To get into the bootloader
 hold down {{{CTRL-C}}} while power on. The following CFE command is used
 to write the  ({{{openwrt-wgt634u-2.6-jffs2.bin}}} or ({{{openwrt-wgt634u-2.4-jffs2.bin}}} file to the flash. 
 Your PC is configured as {{{192.168.1.2}}}.
