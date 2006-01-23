@@ -279,7 +279,9 @@ White Russian (upcoming RC5 and all later versions) will use a new ethernet driv
 switch driver to configure the switch and VLANs. The switch driver will be configured by a
 /proc/switch interface. This driver works for ROBO and ADMTEK switches.
 
-[[BR]][[BR]][[BR]]
+[[BR]][[BR]]
+--------
+[[BR]]
 
 Robocfg is a utility written by Oleg Vdovikin to enable the hardware configuration
 of the Broadcom BCM5325E/536x VLAN enabled 6-port ethernet switch.  When used properly,
