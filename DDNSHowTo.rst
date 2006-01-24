@@ -167,10 +167,10 @@ PID_F=$RUN_D/$BIN.pid
 case $1 in
  start)
   mkdir -p $RUN_D
-  $BIN -c $CONF
+  $BIN -d -c $CONF
   ;;
  stop)
-  [ -f $PID_F ] && kill $(cat $PID_F)
+  [ -f $PID_F ] && kill -9 $(cat $PID_F)
   ;;
  *)
   echo "usage: $0 (start|stop)"
