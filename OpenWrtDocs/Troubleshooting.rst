@@ -155,7 +155,7 @@ jiffy using spare parts from the bottom of your messy drawer. You need:
  * A 12-way ribbon cable for above (the JTAG cable should not exceed the length of 10 cm)
  * The boyfriend of that IDC-Connector for the PCB
  * !HairyDairyMaids [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip debrick utility]
- ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror])
+ ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror]) or a more recent version from [http://downloads.openwrt.org/utils/ Downloads]
  and instructions how to connect everything together
  * A Linksys WRT54G/WRT54GS router with a broken flash and the desperate feeling
  that you can't make it any worse
