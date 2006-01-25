@@ -34,7 +34,7 @@ In this example, a configuration using a X.509 PKI is being used. Shared key is 
 In this example, the hostname is used as common name for the central station and the email address for the road warrior. Some hints on how to use openssl to manage a PKI can be found at http://www.natecarlson.com/linux/ipsec-x509.php or http://freifunk.net/wiki/X509
 ### Please replace the second link if you find a similar tutorial in English language
 
-On the OpenWRT box, copy the CA certificate to /etc/ipsec.d/cacerts, the road warrior certificate to /etc/ipsec.d/certs/roadwarrior.pem and the private key to /etc/ipsec.d/private/roadwarriorkey.pem
+On the OpenWRT box, copy the CA certificate to /etc/ipsec.d/cacerts/cacert.pem, the road warrior certificate to /etc/ipsec.d/certs/roadwarrior.pem and the private key to /etc/ipsec.d/private/roadwarriorkey.pem
 
 === Create /etc/ipsec.conf ===
 
