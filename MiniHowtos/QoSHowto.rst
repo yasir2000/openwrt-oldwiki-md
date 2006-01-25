@@ -146,7 +146,6 @@ So, '''qosfw''' in three steps:
  * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net] (this is now a dependency of the package).
  * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
  * Based on `hfsc` packet scheduler, not `htb`.  You may be more familiar with one over the other.
- * See http://forum.openwrt.org/viewtopic.php?id=3847 for a possible issue with the full link speed not being used when using this script (v0.4&0.5) in some instances.
 
 === ctshaper ===
 
