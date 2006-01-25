@@ -134,7 +134,7 @@ As of Whiterussian RC4, to fix a bug replace /etc/hotplug.d/iface/10-ntpclient b
 
 === Startup files ===
 
-Optionally remove /etc/init.d/30ipsec, as this script is not really needed in this setup.
+Optionally remove /etc/init.d/60ipsec, as this script is not really needed in this setup.
 
 = L2TP over IPSec =
 Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very useful and detailed description on how to setup l2tp over ipsec
