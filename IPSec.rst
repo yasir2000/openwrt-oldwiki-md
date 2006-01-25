@@ -7,10 +7,111 @@
 
 
 = Plain IPSec =
-## expand this section to actually say something useful
-## 1. separate wired and wireless
-## 1. install openswan and ipsec-tools (there is not yet a package of ipsec-tools)
-## 1. configure similar to http://www.netbsd.org/Documentation/network/ipsec/#sample_leaftunnel
+
+This configuration assumes an OpenWRT router with dynamic Internet connection using DSL and a central site with fixed IP addresses (typical road warrior scenario). The goal is to set up IPSEC between both sites so the LAN and/or WIFI connected to the OpenWRT router can talk to the LAN connected to the central IPSEC gatway. For the sample configuration we assume the following setup:
+
+||central site IP address||1.2.3.4||
+||central site LAN||192.168.2.0/24||
+||central site name||central.site.vpn||
+||road warrior LAN||192.168.1.0/24||
+||road warrior email||road@warrior.vpn||
+
+== Optionally devide wireless from wired network ==
+
+If LAN and WIFI should be handled differently by the central site, it makes sense to seperate them and use two differnet IPSEC tunnels.
+
+== Install openswan ==
+{{{
+ipkg install openswan kmod_openswan ntpclient
+}}}
+
+== Configuration ==
+
+In this example, a configuration using a X.509 PKI is being used. Shared key is not really useful for road warrior setups, as it would require all road warriors to use the same shared key.
+
+1. Create CA and certificates for all gateways. 
+
+In this example, i used the hostname as common name for the central station and the email address for the road warrior. Some hints can be found at http://www.natecarlson.com/linux/ipsec-x509.php or http://freifunk.net/wiki/X509
+### Please replace the second link if you find a similar tutorial in English language
+
+On the OpenWRT box, copy the CA certificate to /etc/ipsec.d/cacerts, the road warrior certificate to /etc/ipsec.d/certs/roadwarrior.pem and the private key to /etc/ipsec.d/private/roadwarriorkey.pem
+
+2. Create /etc/ipsec.conf
+
+A sample configuration is:
+{{{
+version 2.0     # conforms to second version of ipsec.conf specification
+
+# basic configuration
+config setup
+        # plutodebug / klipsdebug = "all", "none" or a combation from below:
+        # "raw crypt parsing emitting control klips pfkey natt x509 private"
+        # eg:
+        plutodebug="none"
+        klipsdebug="none"
+        #
+        # Only enable klipsdebug=all if you are a developer
+        #
+        # NAT-TRAVERSAL support, see README.NAT-Traversal
+        nat_traversal=no
+        # virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%4:172.16.0.0/12
+        interfaces=%defaultroute
+
+conn colab
+        authby=rsasig
+        esp=aes-sha1
+        right=1.2.3.4
+        rightsubnet=192.168.2.0/24
+        rightrsasigkey=%cert
+        rightid=@central.site.vpn
+        left=%defaultroute
+        leftsubnet=192.168.1.0/24
+        leftrsasigkey=%cert
+        leftid=road@warrior.vpn
+        leftcert=roadwarrior.pem
+        dpddelay=5
+        dpdtimeout=15
+        dpdaction=restart
+        auto=start
+        #keylife=20m
+        keyingtries=%forever
+
+#Disable Opportunistic Encryption
+include /etc/ipsec.d/examples/no_oe.conf
+}}}
+
+3. Create /etc/ipsec.secrets
+
+This file contains the name of the private key file and the passphrase needed to open the file:
+{{{
+: RSA roadwarriorkey.pem "passphrase"
+}}}
+
+4. Make sure the permissions of /etc/ipsec.secrets and /etc/ipsec.d/private/* allow read access only to root (chmod 400).
+
+5. Configure the hotplug system to start and stop OpenSWAN each time the DSL connection is cut off by the provider:
+
+/etc/hotplug.d/iface/30-ipsec
+{{{
+#!/bin/sh
+
+if [ "$PROTO" != "ppp" ]; then exit; fi
+
+USER=root
+export USER
+
+case "$ACTION" in
+        ifup)
+                /etc/rc.d/init.d/ipsec start
+                ;;
+        ifdown)
+                /etc/rc.d/init.d/ipsec stop
+esac
+}}}
+
+6. As of Whiterussian RC4, to fix a bug replace /etc/hotplug.d/iface/10-ntpclient by https://dev.openwrt.org/file/trunk/openwrt/package/ntpclient/files/ntpclient.init.
+
+7. Optionally remove /etc/init.d/30ipsec, as this script is not really needed in this setup.
 
 = L2TP over IPSec =
 Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very useful and detailed description on how to setup l2tp over ipsec
