@@ -113,7 +113,21 @@ case "$ACTION" in
 esac
 }}}
 
+=== Firewall ===
 
+Make sure to open your firewall for ESP and ISAKMP traffic (and maybe NAT-T if your setup requires nat-traversal) and disable NAT for
+the LAN of the central site:
+
+Example /etc/firewall.user:
+{{{
+iptables -A input_rule -p esp -s 1.2.3.4              -j ACCEPT  # allow IPSEC
+iptables -A input_rule -p udp -s 1.2.3.4 --dport 500  -j ACCEPT  # allow ISAKMP
+iptables -A input_rule -p udp -s 1.2.3.4 --dport 4500 -j ACCEPT  # allow NAT-T
+iptables -t nat -A postrouting_rule -d 192.168.2.0/24 -j ACCEPT
+# Allow any traffic between road warrior LAN and central LAN
+#iptables -A forwarding_rule -i $LAN -o ipsec0 -j ACCEPT
+#iptables -A forwarding_rule -i ipsec0 -o $LAN -j ACCEPT
+}}}
 === Bugfix (for RC4) ===
 
 As of Whiterussian RC4, to fix a bug replace /etc/hotplug.d/iface/10-ntpclient by https://dev.openwrt.org/file/trunk/openwrt/package/ntpclient/files/ntpclient.init.
