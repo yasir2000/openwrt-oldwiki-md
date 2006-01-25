@@ -29,14 +29,14 @@ ipkg install openswan kmod_openswan ntpclient
 
 In this example, a configuration using a X.509 PKI is being used. Shared key is not really useful for road warrior setups, as it would require all road warriors to use the same shared key.
 
-1. Create CA and certificates for all gateways. 
+=== Create CA and certificates for all gateways ===
 
 In this example, i used the hostname as common name for the central station and the email address for the road warrior. Some hints can be found at http://www.natecarlson.com/linux/ipsec-x509.php or http://freifunk.net/wiki/X509
 ### Please replace the second link if you find a similar tutorial in English language
 
 On the OpenWRT box, copy the CA certificate to /etc/ipsec.d/cacerts, the road warrior certificate to /etc/ipsec.d/certs/roadwarrior.pem and the private key to /etc/ipsec.d/private/roadwarriorkey.pem
 
-2. Create /etc/ipsec.conf
+=== Create /etc/ipsec.conf ===
 
 A sample configuration is:
 {{{
@@ -80,16 +80,20 @@ conn colab
 include /etc/ipsec.d/examples/no_oe.conf
 }}}
 
-3. Create /etc/ipsec.secrets
+=== Create /etc/ipsec.secrets ===
 
 This file contains the name of the private key file and the passphrase needed to open the file:
 {{{
 : RSA roadwarriorkey.pem "passphrase"
 }}}
 
-4. Make sure the permissions of /etc/ipsec.secrets and /etc/ipsec.d/private/* allow read access only to root (chmod 400).
+=== Permissions ===
 
-5. Configure the hotplug system to start and stop OpenSWAN each time the DSL connection is cut off by the provider:
+Make sure the permissions of /etc/ipsec.secrets and /etc/ipsec.d/private/* allow read access only to root (chmod 400).
+
+=== Hotplug ===
+
+Configure the hotplug system to start and stop OpenSWAN each time the DSL connection is cut off by the provider:
 
 /etc/hotplug.d/iface/30-ipsec
 {{{
@@ -109,9 +113,14 @@ case "$ACTION" in
 esac
 }}}
 
-6. As of Whiterussian RC4, to fix a bug replace /etc/hotplug.d/iface/10-ntpclient by https://dev.openwrt.org/file/trunk/openwrt/package/ntpclient/files/ntpclient.init.
 
-7. Optionally remove /etc/init.d/30ipsec, as this script is not really needed in this setup.
+=== Bugfix (for RC4) ===
+
+As of Whiterussian RC4, to fix a bug replace /etc/hotplug.d/iface/10-ntpclient by https://dev.openwrt.org/file/trunk/openwrt/package/ntpclient/files/ntpclient.init.
+
+=== Startup files ===
+
+Optionally remove /etc/init.d/30ipsec, as this script is not really needed in this setup.
 
 = L2TP over IPSec =
 Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very useful and detailed description on how to setup l2tp over ipsec
