@@ -110,6 +110,7 @@ case "$ACTION" in
                 ;;
         ifdown)
                 /etc/rc.d/init.d/ipsec stop
+                ;;
 esac
 }}}
 
