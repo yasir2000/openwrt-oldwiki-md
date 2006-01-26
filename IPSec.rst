@@ -57,7 +57,7 @@ config setup
         # virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%4:172.16.0.0/12
         interfaces=%defaultroute
 
-conn colab
+conn central
         authby=rsasig
         esp=aes-sha1
         right=1.2.3.4
