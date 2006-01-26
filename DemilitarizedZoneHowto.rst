@@ -53,11 +53,11 @@ The configuration is easily done by changing the vlan* NVRAM variables.
 
 {{{
 vlan0hwname=et0
-vlan0ports=1 2 3 5*
+vlan0ports="1 2 3 5*"
 vlan1hwname=et0
-vlan1ports=0 5
+vlan1ports="0 5"
 vlan2hwname=et0
-vlan2ports=4 5
+vlan2ports="4 5"
 }}}
 
 The {{{vlan2hwname}}} and {{{vlan2ports}}} NVRAM variables creates the new
