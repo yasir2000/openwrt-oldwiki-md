@@ -548,7 +548,7 @@ ifup wan
 
 This calls the QoS script via the hotplug code.
 
-To show the Qos related rules execute:
+To show the QoS related rules execute:
 
 {{{
 iptables -L -v -t mangle
