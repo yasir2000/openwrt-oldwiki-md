@@ -104,7 +104,7 @@ timeout 5
 
 title   OpenWrt
 root    (hd0,0)
-kernel  /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 root=/dev/mtdblock0 rootfstype=jffs2 init=/etc/preinit noinitrd console=ttyS0,19200n8
+kernel  /boot/openwrt-x86-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 root=/dev/mtdblock0 rootfstype=jffs2 init=/etc/preinit noinitrd console=ttyS0,19200n8
 boot
 
 }}}
@@ -135,7 +135,7 @@ Use {{{find}}} or {{{ls}}} and check that you have something like that :
     21    9 -rw-r--r--   1 root     root         9216 Sep 21 02:07 ./boot/grub/reiserfs_stage1_5
     22   10 -rw-r--r--   1 root     root         9288 Sep 21 02:07 ./boot/grub/xfs_stage1_5
     11    1 -rw-r--r--   1 root     root          279 Sep 21 02:18 ./boot/grub/menu.lst
-    23  690 -rw-r--r--   1 root     root       701778 Sep 21 02:19 ./boot/openwrt-soekris-2.4-vmlinuz
+    23  690 -rw-r--r--   1 root     root       701778 Sep 21 02:19 ./boot/openwrt-x86-2.4-vmlinuz
 }}}
 
 
@@ -233,7 +233,7 @@ OpenWrt is booting...
 
 root (hd0,0)
  Filesystem type is ext2fs, partition type 0x83
-kernel /boot/openwrt-soekris-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 
+kernel /boot/openwrt-x86-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 
 root=/dev/mtdblock0 init=/etc/preinit noinitrd console=ttyS0,19200n8
    [Linux-bzImage, setup=0xa00, size=0xaa952]
 boot
