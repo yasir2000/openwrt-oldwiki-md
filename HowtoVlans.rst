@@ -134,6 +134,8 @@ NOTE: The IPs are different in these two blocks, that is the only difference.
 
 Now, this builds on the section above, so if you haven't got that working (namely tagging on port0), then this most certainly will not work either. However, if you have done things right, then a normal machine plugged into port 3 of either switch should be able to ARP both router's and their IP addresses. Unfortunately, there seems to be a glitch somewhere, because you can now ARP all of the IP address active on both devices. I have read somewhere that there is a glitch in admcfg that creates the ARP bridging, though I haven't confirmed this.
 
+'''Are you sure the subnet masks above are correct? This example would mean all VLANs are actually the same network. This should explain the problem with your arp issue since all ports are members of the same broadcast domain (10.x.x.x). Try using a netmask of 255.255.255.0 to create your separate networks 10.0.0.x, 10.0.3.x, 10.0.4.x'''
+
 == Problems ==
  *it seems that busybox and possibly some other apps on these devices wont pick up the additional interfaces and IPs, hence not being able to just use `ping` as a sure way to verify things (it works sometimes).
  *I can't seem to make certain vlans go away on certain ports. I haven't figured out WHY it's like this, and it is very inconsistent.
