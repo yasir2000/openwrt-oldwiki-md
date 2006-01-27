@@ -1,3 +1,10 @@
+/!\ robocfg and admcfg is obsolete.
+
+White Russian (upcoming RC5 and all later versions) will use a new ethernet driver (b44) and switch driver to configure the switch and VLANs. The switch driver will be configured by a /proc/switch interface. This driver works for ROBO and ADMTEK switches.
+The switch driver needs to be documented.
+
+--------
+
 = Howto: VLANS on the WRT54G =
 
 '''Request for help!''' I have been searching for a copy of the admcfg source, and have yet to find it. The only documentation I found was in google's cache, unfortunately google doesn't seem to cache tgz files. Please email be if you know where I can get a copy: bhook(at)kssb(dot)net.
@@ -48,7 +55,7 @@ admcfg [<port> [option]]
 
             PVID:X - set the primary vlan id
 
-            vlanX - set the vlan mappings 
+            vlanX - set the vlan mappings
 
 
 So, in theory, a command like `admcfg port0 TAG` should enable VLAN tagging on our trunk, then it would just be a matter of resetting some nvram values, or, as a safer alternative, using the admcfg utility to set which ports are members of which vlans (a power cycle will flush the setting from admcfg).
@@ -160,7 +167,7 @@ Now, this builds on the section above, so if you haven't got that working (namel
 `insmod adm.o    #loads admcfg module`
 
 `#`
- 
+
 `admcfg port0 PVID:1 vlan1   #sets port0 (internet) #leave that as vlan1.`
 
 `admcfg port1 PVID:0 vlan0   #sets port1 as vlan0`
@@ -172,7 +179,7 @@ Now, this builds on the section above, so if you haven't got that working (namel
 `admcfg port4 PVID:4 vlan4   #sets port4 as vlan4`
 
 `#`
- 
+
 `vconfig add eth0 0  #creates vlans`
 
 `vconfig add eth0 1`
@@ -184,7 +191,7 @@ Now, this builds on the section above, so if you haven't got that working (namel
 `vconfig add eth0 4`
 
 `#`
- 
+
 `#assign ip addresses`
 
 `ifconfig vlan1 192.168.2.1 netmask 255.255.255.0 broadcast 192.168.2.255 up #iport labeled internet`
@@ -197,7 +204,7 @@ Now, this builds on the section above, so if you haven't got that working (namel
 
 `ifconfig vlan4 192.168.5.1 netmask 255.255.255.0  broadcast 192.168.5.255 up #port labeled port4`
 
-`#` 
+`#`
 
 `ifconfig eth1 192.168.6.1 netmask 255.255.255.0 broadcast 192.168.6.255 up #wireless port`
 
