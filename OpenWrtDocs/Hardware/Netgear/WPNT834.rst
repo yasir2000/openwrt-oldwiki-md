@@ -14,6 +14,8 @@ This is an RTL8651B-based router with an Airgo mini-PCI card, 4Mb flash and 32Mb
 
 == Serial ==
 
+Settings: 38400, 8N1
+
 {{{
 
   o   o   o   o              (no voltage)
