@@ -21,13 +21,13 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == Actiontec ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||GT701-WG|| || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz||4MB||16MB||TI ACX111|| ||["ADAM2"]||Yes|| || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG: WiP]||
+||GT701-WG|| || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz||4MB||16MB||TI ACX111 ([:VLYNQ])|| ||["ADAM2"]||Yes|| || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG: WiP]||
 
 == ALLNET ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL] (aka [http://www.sercomm.com/IP505AB.htm Sercomm IP505] ???)|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||8MB|| || || || || || ||[wiki:AR7Port WiP]||
-||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???)||v2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||ACX-111||Marvell 88E6060|| ||Yes||No||No||[wiki:AR7Port WiP]||
+||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???)||v2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 ([:VLYNQ])||Marvell 88E6060|| ||Yes||No||No||[wiki:AR7Port WiP]||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (mini-PCI)||ADMtek ADM6996||on|| || ||No||Supported||
 
 
@@ -98,8 +98,8 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||DSL-G500T|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||None||None||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
 ||[http://www.dlink.com/products/?pid=373 DSL-G504T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||None||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
-||[http://www.dlink.com/products/?pid=372 DSL-G604T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111 (mini-PCI)||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
-||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111 (mini-PCI)||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
+||[http://www.dlink.com/products/?pid=372 DSL-G604T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111 ([:VLYNQ])||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
+||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111 ([:VLYNQ])||IP175A||[:ADAM2]||Yes||Yes||No||[wiki:AR7Port WiP]||
 
 
 == Linksys ==
@@ -107,7 +107,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||None ||None ||[:PSPBoot] ||Yes||Yes||v1.1 ||[wiki:AR7Port WiP]||
 ||WRT54AG|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Prism (mini-PCI)|| || || || || ||Partial||
-||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G]||2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111 (mini-PCI)||ADM6996L||[:ADAM2]||Yes|| || ||[wiki:AR7Port WiP]||
+||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G]||2||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz||4MB||16MB||TI ACX111 ([:VLYNQ])||ADM6996L||[:ADAM2]||Yes|| || ||[wiki:AR7Port WiP]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2MB||8MB||Broadcom (mini-PCI)||None||off||No UART||No||No||[wiki:WAP54GHowto WiP]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G]||1.1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB?||16MB?||Broadcom (integrated)||None||off|| || || ||WiP||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G]||2.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||2MB||16MB||Broadcom (integrated)||None||off||Yes||Yes||No||WiP||
@@ -138,7 +138,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=670 WRT54GX]||2.0||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz||8MB||32MB||Airgo (mini-PCI)||in CPU||N/A|| || ||No||No||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Atheros & Broadcom (mini-PCI)||BCM5325||off|| || || ||Untested||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||2.0||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz||4MB||16MB||integrated Atheros||KS8995M||N/A||Yes||Yes||No||[:AtherosPort: WiP]||
-||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=692 WRTP54G]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||TI ACX111 ||ADM6996L ||[:PSPBoot] ||Yes ||Yes || ||[:AR7Port: WiP]||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=692 WRTP54G]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||TI ACX111 ([:VLYNQ])||ADM6996L ||[:PSPBoot] ||Yes ||Yes || ||[:AR7Port: WiP]||
 ||[http://www.linksys.com/servlet/Satellite?childpagename=US%2FLayout&packedargs=c%3DL_Product_C2%26cid%3D1137028967848&pagename=Linksys%2FCommon%2FVisitorWrapper WRTSL54GS]|| || || || || || || || || || ||Untested||
 
 
@@ -183,7 +183,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == Netgear ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.netgear.com/products/details/DG834G.php DG834G]|| 2 || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ || 4MB || 16MB || ACX111 (mini-PCI) || Marvell 88E6060 || || Yes || No || No || [wiki:AR7Port WiP] ||
+||[http://www.netgear.com/products/details/DG834G.php DG834G]|| 2 || [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ || 4MB || 16MB || ACX111 ([:VLYNQ]) || Marvell 88E6060 || || Yes || No || No || [wiki:AR7Port WiP] ||
 ||[http://www.netgear.com/products/details/DG834GT.php DG834GT]|| || BCM6348 @ 256MHz || 4MB || 16MB || Atheros mini-PCI || BCM5325 || || Yes || || No || No ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||2MB|| ||Atheros & Broadcom (mini-PCI)||BCM5325|| || || || ||Untested||
 ||[http://www.netgear.com/products/details/WG602.php WG602]||3||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||2MB||8MB||Broadcom (integrated)||None||on||Yes||Yes||No||Untested||
@@ -210,7 +210,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15702_rArNrNrNrN,00.html SE505]||2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||8MB||Broadcom (integrated)||ADM6996L||on||Yes||Yes||1x v1.1 (easy mod)||Supported||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550]|| || ||4MB|| || || || || || || ||Untested||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551]|| ||AR5312? @240MHz||2MB||16MB|| ||ADM6996||N/A||Yes||Yes||1x v2.0||No||
-||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||Marvell 88E6060 || ||Yes|| ||Yes||[:AR7Port: WiP]||
+||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2 MB||32 (?) MB||TI ACX111 ([:VLYNQ])||Marvell 88E6060 || ||Yes|| ||Yes||[:AR7Port: WiP]||
 
 
 == Simpletech ==
@@ -222,7 +222,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == SMC ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://smc.com/ SMC7908VoWBRB  ] || || Texas Instruments AR7 @150MHZ||2 MB||32 (?) MB||TI ACX111 mini-PCI||switch 8port Marvell??? || ||Yes|| ||Yes||[:AR7Port: WiP]||
+||[http://smc.com/ SMC7908VoWBRB  ] || || Texas Instruments AR7 @150MHZ||2 MB||32 (?) MB||TI ACX111 ([:VLYNQ])||switch 8port Marvell??? || ||Yes|| ||Yes||[:AR7Port: WiP]||
 
 
 == Soekris Engineering ==
@@ -234,8 +234,8 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == T-Com ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 (mini-PCI)||None|| ||Yes|| ||No||[:AR7Port: WiP]||
-||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 (mini-PCI)||None|| ||Yes|| ||No||[:AR7Port: WiP]||
+||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 ([:VLYNQ])||None|| ||Yes|| ||No||[:AR7Port: WiP]||
+||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||2MB||16MB||TI ACX111 ([:VLYNQ])||None|| ||Yes|| ||No||[:AR7Port: WiP]||
 
 
 == Toshiba ==
@@ -270,5 +270,5 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == ZyXEL ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300)] @160MHZ||8MB||16MB||TI ACX111 (mini-PCI)||ADM6996L||[:Bootbase]||Yes||No||No||Untested||
+||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300)] @160MHZ||8MB||16MB||TI ACX111 ([:VLYNQ])||ADM6996L||[:Bootbase]||Yes||No||No||Untested||
 ----
