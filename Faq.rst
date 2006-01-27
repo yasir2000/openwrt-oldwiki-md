@@ -543,10 +543,16 @@ and save the {{{.pat}}} files into the {{{/etc/l7-protocols}}} directory.
 Finally start QoS with
 
 {{{
-ifdown wan && ifup wan
+ifup wan
 }}}
 
 This calls the QoS script via the hotplug code.
+
+To show the Qos related rules execute:
+
+{{{
+iptables -L -v -t mangle
+}}}
 
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
