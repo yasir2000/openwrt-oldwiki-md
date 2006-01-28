@@ -11,8 +11,8 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.43:||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.43-r050816.img Firmware Image] No Source|| ||
 ||1.00.45:|| ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.45-r050823.img Firmware Image] No Source||
 ||1.00.55:||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.55-r051013.img Firmware Image] No Source||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.55-r051013.img Firmware Image] No Source||
-||1.00.58:||Firmware Image  No Source||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.58-r051202.img Firmware Image] No Source||
-
+||1.00.58:||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.58-r051202.img Firmware Image] No Source||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.58-r051202.img Firmware Image] No Source||
+||1.00.60:||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] No Source||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] No Source||
 '''Notes'''
 
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
