@@ -28,7 +28,7 @@ ipkg install kmod-ipv6
 == Install the routing software ==
 To configure the interfaces and the routing tables we need the new iputils. Additionally we need the route advertising daemon to propagate the IPv6 route to our local subnet.
 {{{
-ipkg install ip radvd
+ipkg install radvd
 }}}
 
 == Install the ip6tables kernel modules ==
