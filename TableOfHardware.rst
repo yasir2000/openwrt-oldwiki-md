@@ -251,7 +251,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus]|| || ||2MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP]|| || ||4MB|| || || || || || || ||Untested||
 ||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus]|| || ||4MB|| || || || || || || ||Untested||
-||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP]|| ||Marvell 88W8510-BAN|| ||8MB|| ||Marvell 88E6060-RCJ|| || || ||No||Untested||
+||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP]|| ||Marvell 88W8510-BAN||1MB||8MB|| ||Marvell 88E6060-RCJ|| || || ||No||Untested||
 
 == US Robotics ==
 
