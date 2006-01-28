@@ -6,7 +6,7 @@
 Email: [[MailTo(jochen AT SPAMFREE scram DOT de)]][[BR]]
 Website: http://jochen.scram.de
 
-I use ["WhiteRussian RC4"] on a
+I use Whiterussian RC4 on a
 [wiki:Self:OpenWrtDocs/Hardware/Microsoft Microsoft MN-700]
 for PPPoE, IPv4 NAT and IPv6 router as well as IPSEC VPN gateway.
 I also use OpenWrt on four
