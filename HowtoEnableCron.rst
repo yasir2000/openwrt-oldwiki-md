@@ -64,7 +64,7 @@ chmod a+x /etc/init.d/S60crond
 Create a minute job in the root crontab file:
 
 {{{
-echo "*/1 * * * * date > /tmp/crontest" >> /var/spool/cron/crontabs/root
+echo "*/1 * * * * date > /tmp/crontest" >> /etc/crontabs/root
 }}}
 
 Wait a minute, and see {{{/tmp/crontest}}} file:
@@ -76,14 +76,13 @@ cat /tmp/crontest
 
 == Creating a cron job ==
 
-The cron jobs are defined in the {{{/etc/spool/cron/crontabs/root}}} file.
-{{{crond}}} reads the file.
-You have two ways on adding a cron job to this file.
+The cron jobs are defined in the {{{/etc/crontabs/root}}} file.
+{{{crond}}} reads the file. You have two ways on adding a cron job to this file.
 
 The first one is just to create the {{{root}}} file with {{{echo}}} like this:
 
 {{{
-echo "0 * * * * /usr/sbin/rdate time.fu-berlin.de" >> /var/spool/cron/crontabs/root
+echo "0 * * * * /usr/sbin/rdate time.fu-berlin.de" >> /etc/crontabs/root
 }}}
 
 or use {{{crontab -e}}} (calls the {{{vi}}} editor) to edit the cron job file.
