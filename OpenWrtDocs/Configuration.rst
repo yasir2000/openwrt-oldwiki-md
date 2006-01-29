@@ -550,7 +550,7 @@ If you want to use a !TimeClient to syncronize, use {{{rdate}}} or the {{{ntpcli
 package. (Note: {{{rdate}}} uses port 37/tcp on remote host.)
 
 If using rdate (note: it uses port 37/tcp on the remote host.), create the
-file {{{/etc/init.d/S51rdate}}} with the contents:
+file {{{/etc/init.d/S42rdate}}} with the contents:
 
 {{{
 #!/bin/sh
