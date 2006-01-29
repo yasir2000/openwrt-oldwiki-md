@@ -39,6 +39,16 @@ mount -t cifs //my-pc/share /mnt/point -o unc=//my-pc\\share,ip=192.168.1.100,cr
 }}}
 ~-'''Nico:''' this does not work for me, with cifsmount installled or not.-~
 
+In RC4:
+with cifsmount installed mount.cifs //192.168.1.100/share /mnt/point -o user=xxx pass=xxx work.
+mount -t cifs comes back with an invalid argument.
+
+Once mounted with mount.cifs.
+mount -t cifs returns:
+//192.168.1.77/HDD_1_1_1 on /mnt type cifs (rw,mand,nodiratime,unc=\\192.168.1.100\share,username=root,domain=,rsize=16384,wsize=16384)
+
+Something isn't quite right but you can make it work'ish (no fstab, no style points.)
+
 Note the {{{\}}} separator in {{{unc}}} is escaped ({{{\\}}}) because it is interpreted by the shell.
 
 == NFS ==
