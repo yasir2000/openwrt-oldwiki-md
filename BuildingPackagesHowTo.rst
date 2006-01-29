@@ -226,8 +226,8 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 make clean && make compile
 }}}
 
-'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make "this page"].
-For Slackware users there is a fixed make package [http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz "here"] and sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ "here"].
+'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make this page].
+For Slackware users there is a fixed make package [http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
 
 When the compiling is finished you have a ready to use ipkg package for !OpenWrt
 in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
