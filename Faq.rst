@@ -167,6 +167,11 @@ Linksys routers are always 192.168.1.1 for the bootloader's TFTP.
 See [:OpenWrtDocs/Installing] for more information.
 
 
+== How do I convert a .bin image to .trx to use with mtd? ==
+
+Remove the first 32 bytes of the bin to make a trx file (dd if=firmware.bin of=firmware.trx bs=32 skip=1)
+
+
 
 
 = Misc =
