@@ -62,7 +62,7 @@ To run syslogd and klogd you should edit `/etc/inittab` and add the following tw
 }}}
 
 This tells `syslogd` to write the log file to `/var/log/messages`.  However, note that `/var`
-is linked to `/tmp` but we need to create `/var/log` at boot time.  Do that by adding:
+is linked to `/tmp` but we may need to create `/var/log` at boot time if it is not already automatically created.  Do that by adding:
 {{{
 mkdir /var/log
 }}}
@@ -72,8 +72,7 @@ If you want to log to a remote system, add `-R <hostname>` to the `syslogd` line
 `/etc/inittab`.  In this case you don't need to add the `mkdir /var/log` command to the
 startup.  However, you will need to tell the remote system to listen for the log messages.
 On my (Red Hat) Linux system that requires adding the `-r` flag to the syslogd startup
-(which I did by editing `/etc/sysconfig/syslog`).  You may need to check the `man` page
-for your host `syslogd` program.
+(which I did by editing `/etc/sysconfig/syslog`). Also, on my (Red Hat) Linux system the log messages received from the remote system appear in `/var/log/messages` interspersed with the local messages.  You may need to check the `man` page for your host `syslogd` program.
 
 If you want both local and remote logging, add `-L -R <hostname>` to the `syslogd` line
 in `/etc/inittab`.
@@ -113,7 +112,6 @@ For details please see, [http://sourceforge.net/projects/hotspot-zone HOTSPOT-ZO
 maurice.schoenmakers@hot-spot-zone.de, thanks.
 
 Thanks to M (nick on IRC).
-
 == Quick info about your connection ==
 Followed are a couple of scripts that are useful when writing other scripts.  They help you determine your ip, gateway and gateway mac.  With a little modification, they can be adapted to do other stuff
 
