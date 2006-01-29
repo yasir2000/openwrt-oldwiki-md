@@ -560,7 +560,7 @@ file {{{/etc/init.d/S42rdate}}} with the contents:
 save it, and make it executable:
 
 {{{
-chmod a+x /etc/init.d/S51rdate
+chmod a+x /etc/init.d/S42rdate
 }}}
 
 {{{ntpclient}}} will automatically synchronize the hardware clock when a link is brought
