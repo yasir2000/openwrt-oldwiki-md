@@ -20,6 +20,7 @@
  * erase NVRAM
  * set `clkfreq` to to something other than what it's already set to
  * unset `clkfreq`
+ * unset `et0macaddr`, and probably most other et0 variables
  * change or unset any variable starting with `sdram_`
  * change `lan_ipaddr` to some unuseable address (like 127.0.0.0/8 or 0.0.0.0/8 or 224.0.0.0/3)
  * changing anything you're not 100% sure '''won't''' make the router inaccessible (assume most undocumented variables are dangerous)
