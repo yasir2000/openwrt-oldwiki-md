@@ -392,3 +392,5 @@ mtd4                  0x90020000,0x90400000
 ----
 ----
 ["CategoryAR7Device"]
+----
+CategoryModel
