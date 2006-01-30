@@ -88,7 +88,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == Castlenet ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||4MB||8MB||TI ACX111 - TNETW1130GVF ([:VLYNQ])||Marvell 88E6060||[:ADAM2]||Yes||Yes||1x v1.1?||[wiki:AR7Port WiP]||
+||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||4MB||16MB||TI ACX111 - TNETW1130GVF ([:VLYNQ])||Marvell 88E6060||[:ADAM2]||Yes||Yes||1x v1.1?||[wiki:AR7Port WiP]||
 
 == Dell ==
 
