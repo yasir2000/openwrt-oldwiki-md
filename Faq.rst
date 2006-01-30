@@ -169,8 +169,9 @@ See [:OpenWrtDocs/Installing] for more information.
 
 == How do I convert a .bin image to .trx to use with mtd? ==
 
-Remove the first 32 bytes of the bin to make a trx file (dd if=firmware.bin of=firmware.trx bs=32 skip=1)
+"You need to convert the bin (eg. openwrt-wrt54g-squashfs.bin) file to a trx file before reflashing"
 
+'''WRONG!''' The openwrt-brcm-squashfs.trx is a generic trx file that will work on any supported broadcom platform. The openwrt-wrt54g-squashfs.bin is just "bin header + openwrt-brcm-squashfs.trx', the bin header just contains the firmware version number and what models the firmware can be loaded on; the bin header is only used for verification before writing the trx data to the flash. The mtd utility writes the given file to flash without verifying it; use one of the openwrt-brcm-squashfs.trx when using mtd. Converting the openwrt-wrt54g-squashfs.bin file back to a trx is just plain ignorant.
 
 
 
