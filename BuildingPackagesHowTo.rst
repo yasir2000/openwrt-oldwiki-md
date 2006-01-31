@@ -262,4 +262,3 @@ You can find an useful reference for the packaging process in nbd's paper to the
 Full buildroot documentation (for compiling kernel modules and such things,
 for the rest the SDK should be used)
 [[BR]]- [http://downloads.openwrt.org/docs/buildroot-documentation.html]
-[http://openwrt.ertl-net.net/downloads/test/counter-BuildingPackagesHowTo.gif]
