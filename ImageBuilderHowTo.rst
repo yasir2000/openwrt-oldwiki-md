@@ -330,4 +330,3 @@ interested in. These are:
 ||files/||Files, directories and links in here would go into every image. Existing ones are replaced.||
 ||files.<image_name>/||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones are replaced.||
 ||packages/||In here are all !OpenWrt packages you can include in the image.||
-[http://openwrt.ertl-net.net/downloads/test/counter-ImageBuilderHowTo.gif]
