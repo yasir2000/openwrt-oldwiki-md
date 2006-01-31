@@ -394,6 +394,11 @@ The 1509-50 is actually a AP1509 part as well, and is the 5.0V regulator.
 
 The minimum operating voltage of the 5V regulator is 7VDC, absolute maximum is 24VDC, per the datasheet http://www.anachip.com/downloads/datasheets/power/sw_reg/AP1509.pdf
 
+== WRT Datalogger and Water tank Leve Monitor ==
+
+Using Maxim / Dallas 1-wire devices it is simple to turn a OpenWrt platform into a datalogger. This project is looking at the level of water in a tank, but its trival to do all sorts of other things with this.
+
+http://www.frazer.net.nz/wrting/wrtprojects.htm
 
 = Software =
 == Things not to compile in ==
