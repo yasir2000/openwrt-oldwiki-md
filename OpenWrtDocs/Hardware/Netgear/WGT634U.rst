@@ -32,66 +32,23 @@ IP {{{192.168.1.1}}}
 == Upgrading using the serial console ==
 
 Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server on your
-local PC connected to the WAN port of the Netgear router. To get into the bootloader
-hold down {{{CTRL-C}}} while power on. The following CFE command is used
-to write the  ({{{openwrt-wgt634u-2.6-jffs2.bin}}} or ({{{openwrt-wgt634u-2.4-jffs2.bin}}} file to the flash. 
-Your PC is configured as {{{192.168.1.2}}}.
-
-{{{
-ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
-flash -noheader 192.168.1.2:openwrt-wgt634u-2.6-jffs2.bin flash0.os
-}}}
-
-Flashing may take over a minute. After that you can use {{{reboot}}} to start !OpenWrt.
-
-Please always use the newest subversion code. 
-
-Report any bugs via the https://dev.openwrt.org
-
-== TODO ==
-
- * general testing of all features and base functions
- * reset button driver [need to be ported to 2.6]
-
-== Configuration ==
-
-The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration.
-Everything is configured in {{{/etc}}}. For network configuration please modify
-{{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please
-back it up. You eventually need it to restore your original firmware.
-
-
-=== This Works For Me ===
-
-I have successfully flashed the experimental Kamikaze tree to the WGT. Here is the
-method that I used (if your method is better, please replace this --RussellSenior):
+local PC.
 
   * attach a serial console cable to the wgt634u
   * attach ethernet to the WAN port (next to the USB socket)
-    NOTE: as of current Kamikaze (svn 3009) once installed the WAN port becomes the one closest to the POWER connector
   * hold down {{{CTRL-C}}} while inserting power to enter CFE
-  * configure ethernet from CFE (I have a dhcp server that does the work for me):
+  * configure ethernet from CFE (e.g. with a local DHCP server):
 
   {{{CFE> ifconfig eth0 -auto
 Device eth0:  hwaddr 00-0F-B5-97-1C-3D, ipaddr 192.168.0.200, mask 255.255.255.0
         gateway 192.168.0.1, nameserver 192.168.0.1, domain foo.com
 *** command status = 0}}}
 
-  * on the host machine, construct an erasing image in two parts, sized to be TFTP-able:
-  {{{$ dd bs=128k if=/dev/zero count=30 | tr '\000' '\377' > wipe-1.img
-$ dd bs=128k if=/dev/zero count=29 | tr '\000' '\377' > wipe-2.img}}}
+  * for manual configuration use something like this:
 
-  * put the wipe-1.img and wipe-2.img into the right place. I used tftpd-hpa, which on Debian uses /var/lib/tftpboot/ by default.  I put the wipe-*.img files and the buildroot's bin/openwrt-wgt634u-2.6-squashfs.bin in /var/lib/tftpboot/wgt634u/. My tftp server is at 192.168.0.3.
-
-  * from CFE, flash the wipe images in turn:
-  {{{CFE> flash -noheader 192.168.0.3:wgt634u/wipe-1.img flash0.os
-Reading 192.168.0.3:wgt634u/wipe-1.img: Done. 3932160 bytes read
-Programming...done. 3932160 bytes written
-*** command status = 0
-CFE> flash -noheader -offset=3932160 192.168.0.3:wgt634u/wipe-2.img flash0.os
-Reading 192.168.0.3:wgt634u/wipe-2.img: Done. 3801088 bytes read
-Programming...done. 3801088 bytes written
-*** command status = 0}}}
+  {{{
+ifconfig eth0 -addr=192.168.1.250 -mask=255.255.255.0
+}}}
 
   * then, flash the new squashfs.bin image:
 
@@ -105,6 +62,13 @@ Programming...done. 1892352 bytes written
   {{{
 CFE> reboot
 }}}
+
+
+Flashing may take over a minute. After that you can use {{{reboot}}} to start !OpenWrt.
+
+Please always use the newest subversion code. 
+
+Report any bugs via the https://dev.openwrt.org
 
 == Restoring original firmware ==
 
@@ -136,6 +100,14 @@ Reading tftp_host:foo.img.2: Done. 786256 bytes read
 Programming...done. 786256 bytes written
 *** command status = 0
 }}}
+
+
+== Configuration ==
+
+The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration.
+Everything is configured in {{{/etc}}}. For network configuration please modify
+{{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please
+back it up. You eventually need it to restore your original firmware.
 
 
 == Serial console ==
