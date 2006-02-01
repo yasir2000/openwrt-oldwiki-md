@@ -37,6 +37,11 @@ The label on the bottom reads just "Model No WAP54G", version 1.0 is not marked.
 
 Version 1.0 is really special edition: full of bugs, easy to brick. Better stay away. If you insist, read carefully [:OpenWrtDocs/Hardware/Linksys/WAP54Gv10]
 
+==== WAP54G v1.1 ====
+==== WAP54G v2.0 ====
+==== WAP54G v3.0 ====
+
+
 === Table summary ===
 
 How to get info:
