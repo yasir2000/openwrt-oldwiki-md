@@ -107,7 +107,7 @@ Programming...done. 3932160 bytes written
 dd if=wgt634u_1_4_1_10.img of=foo.img.1 bs=3932160 skip=1
 }}}
 
-  * flash the second part of the image
+  * flash the second part of the image, use the correct offset
   {{{CFE> flash -noheader -offset=3932160 tftp_host:foo.img.1 flash0.os
 Reading tftp_host:foo.img.2: Done. 786256 bytes read
 Programming...done. 786256 bytes written
