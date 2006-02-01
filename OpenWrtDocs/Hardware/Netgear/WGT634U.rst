@@ -10,10 +10,26 @@ also has an USB 2.0 controller.
 The kernel boots on the system, we have drivers for the ethernet interface (b44) and
 the new switch driver is integrated (robocfg will be obsolete). We have drivers for the
 wireless radio (madwifi). Recently we updated to 2.6.15 to play with 2.6 on Linksys
-hardware. The !OpenWrt port is still unusable!
+hardware. 
 
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig.
+
+
+== Upgrading using the web interface ==
+
+If you want to upgrade to OpenWrt using the web interface, you need to download a special
+config file and upload it to your router using the '''Backup Settings''' option.
+
+The file is available here: http://downloads.openwrt.org/utils/wgt634u-upgrade.cfg
+
+After that, clear your browser cache, give the router some time to reboot, and then you should
+find a new entry in the menu bar, called '''Upgrade to OpenWrt'''. Use this function to upload
+the OpenWrt WGT634U image to the router. After a while it should be reachable under the default
+IP {{{192.168.1.1}}}
+
+
+== Upgrading using the serial console ==
 
 Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server on your
 local PC connected to the WAN port of the Netgear router. To get into the bootloader
@@ -35,7 +51,6 @@ Report any bugs via the https://dev.openwrt.org
 == TODO ==
 
  * general testing of all features and base functions
- * webupgrade from original firmware [need a CRC header]
  * reset button driver [need to be ported to 2.6]
 
 == Configuration ==
