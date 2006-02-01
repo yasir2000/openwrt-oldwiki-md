@@ -45,7 +45,7 @@ How to get info:
  * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||'''boot_ver'''||'''pmon_ver'''||
-||WAP54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||   2          ||       4         ||  BCM4702KPB   ||       -      ||    5.3.22    ||
+||WAP54G v1.0       ||     -        || bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr_in_nvram:\r]''' ||      -         ||       -         || 2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr_in_nvram:\r]''' ||       4         ||  BCM4702KPB   ||       -      ||    5.3.22    ||
 
 Other NVRAM variables of interest :  firmware_version, os_version
 
