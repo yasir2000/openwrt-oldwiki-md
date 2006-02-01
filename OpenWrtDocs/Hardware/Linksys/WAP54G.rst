@@ -69,7 +69,7 @@ If the boot_wait variable is set, the bootup process is delayed by few seconds a
 a new firmware to be installed through the bootloader using tftp. There is no ping in web
 interface so "ping bug" method of WRT54G do not work.
 
-==== Using restore ====
+==== Using configuration restore ====
 Download one of mini configs:
 
 [http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07_config.bin config.bin] for worlwide firmwares version 2.0x
