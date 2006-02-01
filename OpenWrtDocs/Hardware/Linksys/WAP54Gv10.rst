@@ -53,7 +53,7 @@ Fortunately TFTP protocol can be violated to transfer an image without any feedb
 It is the only way how to use boot_wait without dismounting device or flashing PMON.
 See http://forum.openwrt.org/viewtopic.php?id=3591
 
-
+[[Anchor(cr_in_nvram)]]
 == DOSish NVRAM defaults ==
 
 Most of NVRAM default values are stored with '\r' (CR) character appended.
@@ -61,5 +61,5 @@ This can also make a big problem in firmware as the device is not identified cor
 
 TO DEVELOPERS:
 Take extra care when testing NVRAM values, especially boardtype and boardnum
-Command nvram get and nvram show is now patched to filter out apended '\r'.
-You have to filter out '\r' in C code using value returned by nvram_get().
+Command `nvram get` and `nvram show` is now patched to filter out apended '\r'.
+You have to filter out '\r' in C code using value returned by `nvram_get()`.
