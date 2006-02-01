@@ -2,6 +2,8 @@
 
 This info is relevant '''ONLY''' to the version 1.0 of WAP54G.
 
+See also more general page [:OpenWrtDocs/Hardware/Linksys/WAP54G]
+
 == Problem of PCB design ==
 
 There is missing weak pulldown on pin 5 ISO/RXER of AC101L PHY chip.
@@ -55,7 +57,7 @@ See http://forum.openwrt.org/viewtopic.php?id=3591
 == DOSish NVRAM defaults ==
 
 Most of NVRAM default values are stored with '\r' (CR) character appended.
-This can also make big problem in firmware as the device is not identified correctly.
+This can also make a big problem in firmware as the device is not identified correctly.
 
 TO DEVELOPERS:
 Take extra care when testing NVRAM values, especially boardtype and boardnum
