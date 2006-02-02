@@ -79,7 +79,7 @@ To put the WE800G into the routed client mode you have to remove WLAN from LAN a
 Note: There is no WAN interface, use WIFI instead (wifi_ipaddr; wifi_netmask; wifi_proto; ...).
 
 == Bridged Client Mode ==
-To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into WET mode. [http://woz.gs/wifi/openwrtbridge.html]
+To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into WET mode. [http://woz.gs/wifi/openwrtbridge.html] [http://forum.openwrt.org/viewtopic.php?pid=6246#p6246]
 
  * nvram set lan_ifnames="eth1 eth2"
  * nvram set lan_ifname=br0
