@@ -62,13 +62,22 @@ The web upgrade likely does not work (even if to rename the .bin to .trx), but T
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is bridge port.
 
 = Client Mode =
-Out of box the WE800G is set to client mode, but it does not work - you can ping the box from both sides just fine, but it does not let any of these packet to travel over the defined bridge. 
+Out of box the WE800G is set to client mode, but it does not work - you can ping the box from both sides just fine, but it does not let any of these packet to travel over the defined bridge. More of it below. 
 
 == Routed Client Mode ==
+To put the WE800G into the routed client mode you have to remove WLAN from LAN and WLAN port bridge, add separate wifi device and put the radio into WET mode.
 
+ * nvram set lan_ifnames="eth1"
+ * nvram set lan_ifname=br0
+ * nvram set wifi_ifname=eth2
+ * nvram set wl0_ssid="MY_AP"
+ * nvram set wl0_mode=sta
+
+ * nvram commit
+ * reboot
 
 == Bridged Client Mode ==
-To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into WET mode.
+To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into STA mode.
 
  * nvram set lan_ifnames="eth1 eth2"
  * nvram set lan_ifname=br0
@@ -83,8 +92,19 @@ To put the WE800G into the bridged client mode you have to bridge LAN and WLAN p
 Note: Somehow I didn't get this mode going before I installed and then removed the WL package. I wonder why?
 
 = AP Mode =
+Freshly updated WE800G should go into AP mode (bridged) just by setting the AP mode (nvram set wl0_mode=ap; nvram commit; reboot).
 
 == Routed AP Mode ==
+To put the WE800G into the routed AP mode you have to remove WLAN from LAN and WLAN port bridge, add separate wifi device and put the radio into AP mode.
+
+ * nvram set lan_ifnames="eth1"
+ * nvram set lan_ifname=br0
+ * nvram set wifi_ifname=eth2
+ * nvram set wl0_ssid="MY_AP"
+ * nvram set wl0_mode=ap
+
+ * nvram commit
+ * reboot
 
 == Bridged AP Mode ==
 To put the WE800G into the bridged AP mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into AP mode.
