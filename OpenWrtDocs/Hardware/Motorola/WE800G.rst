@@ -59,7 +59,7 @@ The web upgrade likely does not work (even if to rename the .bin to .trx), but T
 
 
 = Port layout =
-The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is bridge port.
+The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
 
 = Client Mode =
 Out of box the WE800G is set to client mode, but it does not work - you can ping the box from both sides just fine, but it does not let any of these packet to travel over the defined bridge. More of it below. 
