@@ -98,7 +98,7 @@ to your {{{$(PKG_INSTALL_DIR)}}} directory.
 {{{
 config BR2_PACKAGE_HELLO
         prompt "hello............................. The classic greeting, and a good example"
-        tristae
+        tristate
         default m if CONFIG_DEVEL
         help
               The GNU hello program produces a familiar, friendly greeting.  It
