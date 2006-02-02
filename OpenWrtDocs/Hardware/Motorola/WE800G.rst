@@ -65,7 +65,7 @@ The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector
 Out of box the WE800G is set to client mode, but it does not work - you can ping the box from both sides just fine, but it does not let any of these packet to travel over the defined bridge. More of it below. 
 
 == Routed Client Mode ==
-To put the WE800G into the routed client mode you have to remove WLAN from LAN and WLAN port bridge, add separate wifi device and put the radio into WET mode.
+To put the WE800G into the routed client mode you have to remove WLAN from LAN and WLAN port bridge, add separate wifi device and put the radio into STA mode.
 
  * nvram set lan_ifnames="eth1"
  * nvram set lan_ifname=br0
@@ -77,7 +77,7 @@ To put the WE800G into the routed client mode you have to remove WLAN from LAN a
  * reboot
 
 == Bridged Client Mode ==
-To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into STA mode.
+To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into WET mode.
 
  * nvram set lan_ifnames="eth1 eth2"
  * nvram set lan_ifname=br0
