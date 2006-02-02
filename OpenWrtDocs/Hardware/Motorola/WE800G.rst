@@ -76,6 +76,8 @@ To put the WE800G into the routed client mode you have to remove WLAN from LAN a
  * nvram commit
  * reboot
 
+Note: There is no WAN interface, use WIFI instead (wifi_ipaddr; wifi_netmask; wifi_proto; ...).
+
 == Bridged Client Mode ==
 To put the WE800G into the bridged client mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into WET mode.
 
@@ -89,7 +91,8 @@ To put the WE800G into the bridged client mode you have to bridge LAN and WLAN p
  * nvram commit
  * reboot
 
-Note: Somehow I didn't get this mode going before I installed and then removed the WL package. I wonder why?
+Note1: Somehow I didn't get this mode going before I installed and then removed the WL package. I wonder why?
+Note2: There is no WAN interface, you have to set LAN parameters (lan_ipaddr; lan_netmask; lan_proto; ...).
 
 = AP Mode =
 Freshly updated WE800G should go into AP mode (bridged) just by setting the AP mode (nvram set wl0_mode=ap; nvram commit; reboot).
@@ -106,6 +109,8 @@ To put the WE800G into the routed AP mode you have to remove WLAN from LAN and W
  * nvram commit
  * reboot
 
+Note: There is no WAN interface, use WIFI instead (wifi_ipaddr; wifi_netmask; wifi_proto; ...).
+
 == Bridged AP Mode ==
 To put the WE800G into the bridged AP mode you have to bridge LAN and WLAN port, disable separate wifi device and put the radio into AP mode.
 
@@ -118,6 +123,8 @@ To put the WE800G into the bridged AP mode you have to bridge LAN and WLAN port,
 
  * nvram commit
  * reboot
+
+Note: There is no WAN interface, you have to set LAN parameters (lan_ipaddr; lan_netmask; lan_proto; ...).
 
 ----
 CategoryModel
