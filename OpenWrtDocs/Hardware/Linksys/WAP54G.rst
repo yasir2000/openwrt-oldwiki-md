@@ -19,7 +19,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the bottom side of the box.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
 ||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Development[[BR]]Kamikaze'''||
-||WAP54G v1.0||<:> MDG0||<:> WiP ||<:> WiP ||
+||WAP54G v1.0||<:> MDG0||<:> WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||<:> WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||
 ||WAP54G v1.1|| ? ||<:> ? ||<:> ? ||
 ||WAP54G v2|| ? ||<:> WiP ||<:> WiP ||
 ||WAP54G v3|| ? ||<:> WiP ||<:> WiP ||
@@ -72,19 +72,19 @@ interface so "ping bug" method of WRT54G do not work.
 ==== Using configuration restore ====
 Download one of mini configs:
 
-[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07_config.bin config.bin] for worldwide firmware version 2.0x
+[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07_config.bin config.bin] for LinkSys worldwide firmware versions 2.0x and 3.0x
 
-[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07eu_config.bin config.bin] for EU firmware version 2.0x
+[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07eu_config.bin config.bin] for LinkSys EU firmware versions 2.0x and 3.0x
 
 Use web interface, navigate to <Setup> <Password> [Restore] and upload `config.bin`.
 This config changes just `boot_wait=on`, other configuration stays unchanged.
 
-Verify that setting worked by navigating to
+Verify that setting has worked by navigating to
 http://192.168.1.245/apply.cgi?action=Nvram
 
-Tested only on original LinkSys firmwares version 2.07. Please report success on other fw versions.
+Tested only on original LinkSys firmwares version 2.07, 2.07EU, 3.04. Please report success on other fw versions.
 
-This method is known '''not to work on fw 1.0x'''
+This method is known '''not to work on LinkSys fw 1.0x'''
 
 
 ==== Setting boot_wait from a serial connection ====
