@@ -200,6 +200,37 @@ iwlist eth1 scanning | microperl /sbin/monitor.pl
 
 '''Usage''':
  * Run the script by calling `wstat.sh`
+
+=== Ash alternative ===
+You may also run this shell (ash) script which relies on the [http://downloads.openwrt.org/whiterussian/packages/non-free/ non-free wl package]:
+{{{#!/bin/sh
+wl scan 2> /dev/null
+
+if [ "watch" = "$1" ]; then
+        clear
+        date
+        echo
+else
+        sleep 1
+fi
+
+wl scanresults | \
+sed 's/Ad Hoc/AdHoc/;s/"//g' | \
+awk '
+/^SSID/ { SSID=$0 };
+/^Mode/ { SIG=$4; NOISE=$7; CHAN=$10 };
+/WEP/ { SSID=SSID "*" };
+/AdHoc/ { SSID=SSID "%" };
+/^BSSID/ { printf "%- 22s Sig/Noise: %4d/%- 4d (%3d) Chan: %d\n",
+ SSID, SIG, NOISE, -1*(NOISE-SIG), CHAN}' | \
+sort
+
+if [ "watch" = "$1" ]; then
+        sleep 7
+        exec $0 watch
+fi}}}
+
+
 = Useful details =
 
 == boot_wait - What it is, and how it works ==
