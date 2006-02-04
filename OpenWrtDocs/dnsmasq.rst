@@ -168,3 +168,21 @@ dhcp-option=lan,3,10.10.6.1
 #set the dns server for the dhcp clients on the lan side to 10.10.6.1
 dhcp-option=lan,6,10.10.6.1
 }}}
+
+== Configuring dnsmasq to associate client hostnames with DHCP-supplied IP addresses ==
+
+You will need the following lines in your {{{/etc/dnsmasq.conf}}} file:
+(Adjust IP address if your router is not 192.168.1.1)
+
+{{{
+dhcp-option=3,192.168.1.1
+dhcp-option=6,192.168.1.1
+}}}
+
+That's it for dnsmasq on the router. The trick is that the DHCP client must send its hostname during the DHCP negotiation. The {{{dhclient.conf}}} file, which may be in {{{/etc/}}} (debian) or {{{/etc/dhcp3/}}} (kubuntu), needs to have a single line uncommented and edited:
+
+{{{
+send host-name "hostname";
+}}}
+
+Save the file, then restart the interface. Repeat on all client systems.
