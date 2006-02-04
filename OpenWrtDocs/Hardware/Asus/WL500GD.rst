@@ -11,7 +11,7 @@ flash and 32 MB RAM (on a few older units only 16 MB is enabled by default). The
 wireless NIC is integrated to the board, and it also has a VIA USB 2.0 controller.
 The {{{boot_wait}}} NVRAM variable is on by default.
 
-The router is sometimes called Asus WL-500GX.
+The router is sometimes called Asus WL-500GX. Asus WL-500g Deluxe V is also usable for OpenWRT. 
 
 
 = Software overview =
