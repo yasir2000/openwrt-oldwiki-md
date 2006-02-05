@@ -122,7 +122,7 @@ As of the most recent CVS build, all values must be present. The networking scri
 To add multiple routes, seperate each route formatted as above with a space. To avoid the shell truncating after the first space, you need to quote:
 
 {{{
-nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan 110.1.3.0:255.255.255.0:192.168.1.1:1:vlan1"
+nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1"
 }}}
 
 == NVRAM committing ==
