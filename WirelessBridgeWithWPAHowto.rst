@@ -256,7 +256,7 @@ echo ${DIAG} > /proc/sys/diag
 
 and dropping the S47sleep script all together.
 
-This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  I found that the S47sleep script did always wait long enough.  An improvement to this change would be to add a counter that would cause the script to abort if the interface was not configured within a reasonable amount of time.  Occasionally, if I misconfigured the router (or if it could not connect to the AP) it would get stuck waiting
+This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  I found that the S47sleep script did not always wait long enough.  An improvement to this change would be to add a counter that would cause the script to abort if the interface was not configured within a reasonable amount of time.  Occasionally, if I misconfigured the router (or if it could not connect to the AP) it would get stuck waiting
 
 == Appendix: Sample NVRAM configuration ==
 
