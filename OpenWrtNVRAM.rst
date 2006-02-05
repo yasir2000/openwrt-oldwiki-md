@@ -119,6 +119,11 @@ This will use vlan1 to send packets to 10.1.2.0 via router 192.168.1.1
 
 As of the most recent CVS build, all values must be present. The networking script doesn't detect missing values, and will thererfore not create the route if the syntax is incorrect (things missing, etc.).
 
+To add multiple routes, seperate each route formatted as above with a space. To avoid the shell truncating after the first space, you need to quote:
+
+{{{
+nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan 110.1.3.0:255.255.255.0:192.168.1.1:1:vlan1"
+}}}
 
 == NVRAM committing ==
 
