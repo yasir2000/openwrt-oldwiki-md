@@ -219,6 +219,45 @@ This section needs to be expanded.  If you try this and it doesn't work, please 
 
 If you follow this how-to, please note here if it worked or didn't work for you!
 
+=== WRT54GL ===
+
+I got this working on a pair of WRT54GLs.  This was my first openWRT hack, so it took a little longer then it should have, but I eventually got it working.  I'm currently using WPA (PSK) +tkip, when I get a chance I'll try enabling aes.  I modified the S50dhcp-fwd command by changing this:
+
+{{{
+GIADDR=`ifconfig \
+        | awk 'BEGIN { RS="\n\n" } /^'${WIFI_IF}' / { print $7 }' \
+        | cut -d ':' -f 2`
+
+if [ "$GIADDR" = "" ]; then
+        logger -s "Unable to detect GIADDR - no IP address on $IFACE?"
+        exit 1
+fi
+}}}
+
+to
+
+{{{
+getip () {
+        GIADDR=`ifconfig ${WIFI_IF} | awk '/inet addr:/ { print $2 }' | cut -d ':' -f 2`
+}
+
+DIAG=`cat /proc/sys/diag`
+echo 0x05 > /proc/sys/diag
+getip
+
+while [ "$GIADDR" = "" ];
+do
+        sleep 5
+        getip
+done
+
+echo ${DIAG} > /proc/sys/diag
+}}}
+
+and dropping the S47sleep script all together.
+
+This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  I found that the S47sleep script did always wait long enough.  An improvement to this change would be to add a counter that would cause the script to abort if the interface was not configured within a reasonable amount of time.  Occasionally, if I misconfigured the router (or if it could not connect to the AP) it would get stuck waiting
+
 == Appendix: Sample NVRAM configuration ==
 
 {{{
