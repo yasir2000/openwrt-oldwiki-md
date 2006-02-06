@@ -96,7 +96,10 @@ To put the WE800G into the bridged client mode you have to bridge LAN and WLAN p
  * reboot
 
 Note1: Somehow I didn't get this mode going before I installed and then removed the WL package. I wonder why?
+
 Note2: There is no WAN interface, you have to set LAN parameters (lan_ipaddr; lan_netmask; lan_proto; ... [:OpenWrtNVRAM: variables]).
+
+Note3: The "nvram set wl0_wet=1" does prove helpful in client mode, but do not leave it is for other modes as this will make the box unstable, use "nvram unset wl0_wet".
 
 = AP Mode =
 Freshly updated WE800G should go into AP mode (bridged) just by setting the AP mode (nvram set wl0_mode=ap; nvram commit; reboot).
