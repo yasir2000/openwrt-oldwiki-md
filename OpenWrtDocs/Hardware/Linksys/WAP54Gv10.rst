@@ -13,6 +13,8 @@ It means that ethernet driver not aware of that problem can receive only. Transm
 
 That is why some firmwares (even one version from LinkSys probably) do not work.
 
+Possibly not all v1.0 devices suffer from this problem.
+
 === Software workaround ===
 
 Driver should reset "isolate" state of PHY chip.
