@@ -264,6 +264,7 @@ the _v4 version of the firmware from the image site and install it using the Lin
 Firmware' web interface.'''
 
 /!\ '''WRT54GLv1 with firmware 4.30.0 DE do support this ping trick. Just use linux, set your static IP 192.168.1.2 and then use "ping -r -I <interface_name> -i 0.1 192.168.1.1" before turning your wrt54gl on. This initial gap is about 1 second long and it can be difficult under windows.'''
+/!\ '''WRT54GLv1 with firmware 4.30.0 Just use "Firmware upgrade page'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
