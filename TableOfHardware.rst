@@ -90,6 +90,11 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ||4MB||16MB||TI ACX111 - TNETW1130GVF ([:VLYNQ])||Marvell 88E6060||[:ADAM2]||Yes||Yes||1x v1.1?||[wiki:AR7Port WiP]||
 
+== Comtrend ==
+
+||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
+||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+]|| ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz || 4MB || 16MB || Broadcom mini-PCI ||  || || No || || No || No ||
+
 == Dell ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
@@ -262,6 +267,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430]|| || ||2MB|| || || ||on|| || || ||Supported||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461]|| ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||2MB||8MB||Broadcom (integrated)||in CPU||on|| || ||1x v2.0||Untested||
+||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg USR9108]|| ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz || 4MB || 16MB || mini-PCI || || || No || || Yes || No ||
 
 
 == Viewsonic ==
