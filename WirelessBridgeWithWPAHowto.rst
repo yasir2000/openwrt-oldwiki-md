@@ -245,18 +245,37 @@ DIAG=`cat /proc/sys/diag`
 echo 0x05 > /proc/sys/diag
 getip
 
-while [ "$GIADDR" = "" ];
-do
-        sleep 5
-        getip
-done
+i=1                                                                             
+while [ $i -lt 120 ]                                                            
+do                                                                              
+        if [ x"$GIADDR" != x ];                                                 
+        then                                                                    
+                break;                                                          
+        fi                                                                      
+                                                                                
+        i = `expr $i + 1`                                                       
+        sleep 1                                                                 
+        getip                                                                   
+done                                                                            
 
 echo ${DIAG} > /proc/sys/diag
+
+if [ x"$GIADDR" = x ];                                                          
+then                                                                            
+        echo "Error could not determine IP for ${WIFI_IF}" > $CFG_FILE          
+        exit 0                                                                  
+fi                                                                              
 }}}
 
-and dropping the S47sleep script all together.
+and dropping the S47sleep script all together.  For this to work, you need to create the following symbolic link:
 
-This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  I found that the S47sleep script did not always wait long enough.  An improvement to this change would be to add a counter that would cause the script to abort if the interface was not configured within a reasonable amount of time.  Occasionally, if I misconfigured the router (or if it could not connect to the AP) it would get stuck waiting
+{{{
+ln -s /bin/busybox /bin/expr
+}}}
+
+This enables the expr functionality of busybox, which is required to maintain the counter in the script.
+
+This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  After 120 seconds it gives up and exits.  I found that the S47sleep script did not always wait long enough.  
 
 == Appendix: Sample NVRAM configuration ==
 
