@@ -3,8 +3,7 @@
 #pragma section-numbers off
 == Jonathan A. Kollasch ==
 
-Email: [[MailTo(jakllsch AT SPAMFREE kollasch DOT net)]][[BR]]
-Website: http://www.kollasch.net/JonathanKollasch
+Website: http://jakllsch.kollasch.net/JonathanKollasch
 
 I use ["AR7Port"] on a
 [wiki:Self:OpenWrtDocs/Hardware/Actiontec/GT701-WG Actiontec GT701-WG]
