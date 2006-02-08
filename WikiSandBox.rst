@@ -45,6 +45,8 @@ http://moinmoin.wikiwikiweb.de/ [http://www.python.org/ Python]
 
 someone@the.inter.net
 
+["lowercase"]
+["lowercase and with spaces"]
 
 === Image Link ===
 http://c2.com/sig/wiki.gif
@@ -108,7 +110,7 @@ Testing ...
 == Heading test 2 ==
 === Heading test 3 ===
 
-This is a link to:
+Playing with different ways to link:
  * TinyproxyPackage
  * [[tinyproxy]]
  * [tinyproxy]
@@ -117,3 +119,5 @@ This is a link to:
  * OpenWrtDocs/Configuration
  * PackageTinyproxy
  * tinyproxy
+ * ["tinyproxy"]
+ * ["all lowercase and with spaces"]
