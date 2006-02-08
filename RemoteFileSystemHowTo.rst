@@ -127,7 +127,7 @@ To see what is wrong (forces kernel debug output too):
 {{{
 shfsmount -vvv user@host /mnt/shfs
 }}}
-Mount without password using identy file
+Mount without password using identity file
 {{{
 shfsmount --cmd="ssh -i /identity/file/path %u@%h /bin/bash" user@host:/tmp /mnt/shfs/
 }}}
