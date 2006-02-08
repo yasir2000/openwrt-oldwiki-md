@@ -108,4 +108,10 @@ Testing ...
 == Heading test 2 ==
 === Heading test 3 ===
 
-This is a link to Tinyproxy or [tinyproxy]
+This is a link to:
+ * TinyproxyPackage
+ * [[tinyproxy]]
+ * [tinyproxy]
+ * Package/tinyproxy
+ * [Configuration]
+ * OpenWrtDocs/Configuration
