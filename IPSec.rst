@@ -140,11 +140,19 @@ Optionally remove /etc/init.d/60ipsec, as this script is not really needed in th
 = L2TP over IPSec =
 Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very useful and detailed description on how to setup l2tp over ipsec
 
+Instructions are for rc4 on a wrt54gs1.1
+
 == Devide Wireless from wired network ==
 
-== Install openswan ==
+== Needed Packages ==
+You need to install OpenSwan, the OpenSwan-Kernel-Module and the L2TPd:
 {{{
-ipkg install openswan kmod_openswan
+ipkg install openswan kmod_openswan l2tpd
+}}}
+
+To debug your setup it is a good idea to install tcpdump and nmap right away:
+{{{
+ipkg install tcpdump nmap
 }}}
 
 Adapt ipsec.conf
