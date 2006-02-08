@@ -156,8 +156,8 @@ To debug your setup it is a good idea to install tcpdump and nmap right away:
 ipkg install tcpdump nmap
 }}}
 
-== Config IPSec ==
-Adapt ipsec.conf
+== Configure IPSec ==
+Modify ipsec.conf
 A good start is:
 {{{
 config setup
@@ -183,9 +183,9 @@ include /etc/ipsec.d/examples/no_oe.conf
 explain options here.
 
 
-== Config l2tpd ==
+== Configure l2tpd ==
 
-Config l2tpd according to your needs
+Configure l2tpd according to your needs
 /etc/l2tpd/l2tpd.conf might be a good start - which is not sure since l2tpd doesn't work yet
 {{{
 [global]
