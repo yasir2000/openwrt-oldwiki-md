@@ -142,7 +142,8 @@ Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very usef
 
 Instructions are for rc4 on a wrt54gs1.1
 
-== Devide Wireless from wired network ==
+== Devide wireless from wired network ==
+Devide the wireless from the wired network as described in Self:Configuration
 
 == Needed Packages ==
 You need to install OpenSwan, the OpenSwan-Kernel-Module and the L2TPd:
@@ -155,6 +156,7 @@ To debug your setup it is a good idea to install tcpdump and nmap right away:
 ipkg install tcpdump nmap
 }}}
 
+== Config IPSec ==
 Adapt ipsec.conf
 A good start is:
 {{{
@@ -181,11 +183,7 @@ include /etc/ipsec.d/examples/no_oe.conf
 explain options here.
 
 
-== Install l2tpd ==
-Get l2tpd from http://www.linuxops.net/ipkg/l2tpd_0.69_mipsel.ipk and install
-{{{
-ipkg install l2tpd_0.69_mipsel.ipk
-}}}
+== Config l2tpd ==
 
 Config l2tpd according to your needs
 /etc/l2tpd/l2tpd.conf might be a good start - which is not sure since l2tpd doesn't work yet
@@ -230,5 +228,5 @@ this one is mine:
 <user>     *         "<password>" *
 }}}
 
-
+== Aftermath ==
 pray!
