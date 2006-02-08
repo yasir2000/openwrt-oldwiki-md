@@ -115,3 +115,5 @@ This is a link to:
  * Package/tinyproxy
  * [Configuration]
  * OpenWrtDocs/Configuration
+ * PackageTinyproxy
+ * tinyproxy
