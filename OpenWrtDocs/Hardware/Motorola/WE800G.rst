@@ -57,7 +57,8 @@ Note: Verify if the boot_wait was indeed set or not with the "nvram get boot_wai
  * As soon as you see the ping response from the WE800G, hit ENTER for the TFTP upload command;
  * If the upload went fine then you'll see "Transfer successful" message;
  * If you get "timed out" message then repeat the process;
- * After successful flashing wait for some minutes to let the OpenWRT to finish it's upgrade procedures and then reboot the box;
+ * After successful flashing wait for some minutes to let the OpenWRT to finish it's upgrade procedures;
+ * Reboot the WE800G or you get wierd permission or other type of errors when you try to change the configuration of this WE800G;
 
 Note: After upgrade the IP address of WE800G is set to 192.168.1.1/24.
 
