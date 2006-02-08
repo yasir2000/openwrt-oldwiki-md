@@ -107,3 +107,5 @@ Testing ...
 = Heading test 1 =
 == Heading test 2 ==
 === Heading test 3 ===
+
+This is a link to Tinyproxy or [tinyproxy]
