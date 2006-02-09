@@ -76,6 +76,9 @@ I saw the same thing. Everything configured, no joy, broke the bridge and reboot
 OK, I stand corrected. It seems to work. I'm using WPA, not WPA2, but somehow it's working. Only setting differences are lan_ifname=br0, lan_ifnames=vlan0 eth1, wl0_mode=wet, wl0_akm=psk, and wl0_crypto=tkip. I may try WPA2 later, but for now this is good enough.
 -- PeterKahle [[DateTime(2005-12-01T06:54:02Z)]]
 
+It seems either possible to run the bridge with WPA (as reported by PeterKahle) or to use WPA2 in wet mode without a layer 2 bridge (but you can still use IP forwarding and ARP proxy; lan_ifname=vlan0 wifi_ifname=eth1 wl0_mode=wet wl0_akm=psk2 wl0_crypto=aes+tkip)
+-- GeorgLukas [[DateTime(2006-02-09T12:34:23Z)]]
+
 == S47sleep ==
 
 {{{
