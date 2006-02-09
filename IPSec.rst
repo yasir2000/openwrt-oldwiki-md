@@ -151,10 +151,30 @@ You need to install OpenSwan, the OpenSwan-Kernel-Module and the L2TPd:
 ipkg install openswan kmod_openswan l2tpd
 }}}
 
+== Helpful things ==
 To debug your setup it is a good idea to install tcpdump and nmap right away:
 {{{
 ipkg install tcpdump nmap
 }}}
+
+Another thing which makes it much make it much easier to find out what is going on
+is inspecting the syslog. In plain rc4 syslogd isn't started at boot-time nor is there a console to view the log (if you didn't solder your serial connection already). Fortunately syslogd can log to another machine running syslogd... Windows and OS X guys i leave you alone here...
+On our ''linux'' box we restart syslogd with remote logging enabled:
+{{{
+killall syslogd
+syslogd -r
+}}}
+
+Now lets view the syslog:
+{{{
+tail -f /var/log/syslog
+}}}
+
+So we either start it each time we reboot the router or we make a new init-script.
+{{{
+syslogd -R 192.168.1.2
+}}}
+
 
 == Configure IPSec ==
 Modify ipsec.conf
@@ -182,7 +202,15 @@ include /etc/ipsec.d/examples/no_oe.conf
 
 explain options here.
 
+Now lets see wether this part is working:
+Reboot and bring up tcpdump on the ipsec interface
+{{{
+tcpdump -i ipsec0
+}}}
 
+Now - when you connect to your wrt using your favorite ipsec/l2tp client it should not work yet - but in case you set things up correctly you should see incoming packages on ipsec0.
+
+ 
 == Configure l2tpd ==
 
 Configure l2tpd according to your needs
