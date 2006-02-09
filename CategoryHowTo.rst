@@ -1,7 +1,7 @@
 #format wiki
 #language en
 
-These are the HOWTO documents available on this wiki:
+These are the !HowTo documents available on this wiki:
 
 
 [[PageList(HowTo)]]
