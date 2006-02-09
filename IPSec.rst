@@ -142,8 +142,8 @@ Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very usef
 
 Instructions are for rc4 on a wrt54gs1.1
 
-== Devide wireless from wired network ==
-Devide the wireless from the wired network as described in Self:Configuration
+== Divide wireless from wired network ==
+Divide the wireless from the wired network as described in Self:Configuration
 
 == Needed Packages ==
 You need to install OpenSwan, the OpenSwan-Kernel-Module and the L2TPd:
