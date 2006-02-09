@@ -28,7 +28,7 @@ Settings: 38400, 8N1
 
 == man wpnt834 ==
 
-The firmware supplied by Netgear is rather crappy (we're talking about 1.0.24). Strange hickups in the connection, DHCP filtering, impossibility to associate to the AP with anything else than the WPNT511 (an Airgo-based card).
+The firmware supplied by Netgear is rather crappy, though this is associated with the crappy Airgo driver for sure (we're talking about 1.0.34). Strange hickups in the connection, bad performance even with Netgear's own WPNT511 card...
 
 GPL tarball is available at ftp://downloads.netgear.com/files/GPL/wpnt834_1.0_34.tar.gz, pictures of the device and the board at http://trash.uid0.hu/openwrt/wpnt834.
 
