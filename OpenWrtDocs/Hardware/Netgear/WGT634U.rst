@@ -159,7 +159,7 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
  * External developer's Wiki
  [[BR]]- [http://wgt634u.nomis52.net/]
 
- * OpenWGT project
+ * OpenWGT project (this project is discontinued)
  [[BR]]- [http://openwgt.informatik.hu-berlin.de/]
 
  * Another firmware project
