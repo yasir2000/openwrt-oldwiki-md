@@ -27,6 +27,8 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/index.php?page=hacking_actiontec
 
+ * A channel on Freenode[irc://irc.freenode.net] #wrtp54g is where those devoted to hacking the #wrtp54g and #rtp300 hang out.
+
 See also:
 [:AR7Port]
 
