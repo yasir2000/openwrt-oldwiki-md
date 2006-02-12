@@ -148,7 +148,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Atheros & Broadcom (mini-PCI)||BCM5325||off|| || || ||Untested||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||2.0||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz||4MB||16MB||integrated Atheros||KS8995M||N/A||Yes||Yes||No||[:AtherosPort: WiP]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=692 WRTP54G]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||TI ACX111 ([:VLYNQ])||ADM6996L ||[:PSPBoot] ||Yes ||Yes || ||[:AR7Port: WiP]||
-||[http://www.linksys.com/servlet/Satellite?childpagename=US%2FLayout&packedargs=c%3DL_Product_C2%26cid%3D1137028967848&pagename=Linksys%2FCommon%2FVisitorWrapper WRTSL54GS]|| || || || || || || || || || ||Untested||
+||[http://www.linksys.com/servlet/Satellite?childpagename=US%2FLayout&packedargs=c%3DL_Product_C2%26cid%3D1137028967848&pagename=Linksys%2FCommon%2FVisitorWrapper WRTSL54GS]|| || || || || || || || || ||v2.0||Untested||
 
 
 == Maxtor ==
