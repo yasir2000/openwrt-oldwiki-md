@@ -99,6 +99,7 @@ nvram commit
 reboot
 }}}
 
+Note: The Asus WL-HDD (and possibly other units without built-in switch) will not be able to be configured as a router (client or otherwise) with default OpenWrt firmware(using RC4). This is due to the /etc/init.d/S05nvram startup script that checks the unit type and configures two necessary parameters back to settings for bridge mode. Searching for WLHDD and commenting out that particular case will allow your settings for routing to remain after next reboot, and thus allow the unit to be configured as a router.
 
 == Finding and joining networks ==
 
@@ -182,3 +183,5 @@ This will set up the wireless interface according to your nvram settings.
 
  * Detailed information on setting up a wired-wireless bridge with encryption
  [[BR]]- [:WirelessBridgeWithWPAHowto]
+----
+CategoryHowTo
