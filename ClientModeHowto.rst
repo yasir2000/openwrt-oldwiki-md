@@ -101,13 +101,6 @@ reboot
 
 Note: The Asus WL-HDD (and possibly other units without built-in switch) will not be able to be configured as a router (client or otherwise) with default OpenWrt firmware(using RC4). This is due to the /etc/init.d/S05nvram startup script that checks the unit type and configures two necessary parameters back to settings for bridge mode. Searching for WLHDD and commenting out that particular case will allow your settings for routing to remain after next reboot, and thus allow the unit to be configured as a router.
 
----- /!\ '''Edit conflict - other version:''' ----
-Note: The Asus WL-HDD (and possibly other units without built-in switch) will not be able to be configured as a router (client or otherwise) with default OpenWrt firmware(using RC4). This is due to the /etc/init.d/S05nvram startup script that checks the unit type and configures two necessary parameters back to settings for bridge mode. Searching for WLHDD and commenting out that particular case will allow your settings for routing to remain after next reboot, and thus allow the unit to be configured as a router.
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
-
 == Finding and joining networks ==
 
 You can now scan for nearby access points. If {{{iwlist}}} doesn't find any
