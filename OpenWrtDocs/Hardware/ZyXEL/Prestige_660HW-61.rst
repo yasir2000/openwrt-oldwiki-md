@@ -5,12 +5,15 @@ It uses [:Bootbase] as the bootloader. There's a detailed [http://www.adslayuda.
 
 == Serial Console ==
 
-You can build a serial cable using the above [ http://www.adslayuda.com/Zyxel650-9.html example session url ] plus [http://www.adslayuda.com/index.php?name=PNphpBB2&file=viewtopic&t=53480 some forum posts] (spanish) showing how to use various mobile cables. This way, you don't need to buy a MAX232 chip plus capacitors to do the TTL level conversion (*DO NOT* connect your PC's serial port directly !).
+You can build a serial cable using the above [http://www.adslayuda.com/Zyxel650-9.html example session url] plus [http://www.adslayuda.com/index.php?name=PNphpBB2&file=viewtopic&t=53480 some forum posts] (spanish) showing how to use various mobile cables. This way, you don't need to buy a MAX232 chip plus capacitors to do the TTL level conversion.
 
 I used a SIEMENS S55 slim lumberg [http://pinouts.ru/data/siemens_c55_pinout.shtml cable] to do the thrick.
 
+/!\ '''DO NOT try to connect your PC's serial port to the router directly !'''
+
 === Router startup through serial console ===
 
+{{{
 Bootbase Version: V1.06 | 04/01/2004 11:22:33
 RAM: Size = 16384 Kbytes
 DRAM POST: Testing: 16384K
@@ -22,6 +25,7 @@ ZyNOS Version: V3.40(PE.7) | 09/29/2004  17:42:50
 Press any key to enter debug mode within 3 seconds.
 ................<ENTER>
 Enter Debug Mode
+}}}
 
 === Enabling privileged commands ===
 
