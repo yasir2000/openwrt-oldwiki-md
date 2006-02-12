@@ -27,6 +27,10 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/index.php?page=hacking_actiontec
 
+ * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
+
+ * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The drivers are proprietary.
+
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
 
 See also:
@@ -152,6 +156,5 @@ This ejtag layout should support all ar7 based boards with a 14 pin jtag pinout.
 Since DMA Routines do '''not''' exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
 
 [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
-
 ----
 CategoryModel ["CategoryAR7Device"]
