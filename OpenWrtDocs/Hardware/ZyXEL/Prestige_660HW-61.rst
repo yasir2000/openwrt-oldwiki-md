@@ -170,10 +170,10 @@ B0037CF0: 65 3D 32 5C 45 5B 6D 3A-69 73 3D 5C 45 5B 31 3B   e=2\E[m:is=\E[1;
 
 == Original Firmware files ==
 
-Downloaded from official ZyXEL website:
+[ftp://ftp.europe.zyxel.com/P660HW-61/firmware/P660HW-61_V3.40(PE.10)C0_Standard.zip Firmware] downloaded from official ZyXEL website:
 
-340PE10C0.rom = Router configuration, coincides with "4: DbgArea" shown above. You can retrieve this file from your router using the ATTD BootBase command.
-340PE10C0.bin   = Router firmware, my guess is that it goes from "7: HTPCode(ROMBIN)" until "13: RasCode(ROMBIN)" plus additional header info (tbd).
+'''340PE10C0.rom:''' Router configuration, coincides with "4: DbgArea" shown above. You can retrieve this file from your router using the ATTD [:BootBase] command.
+'''340PE10C0.bin:''' Router firmware, my guess is that it goes from "7: HTPCode(ROMBIN)" until "13: RasCode(ROMBIN)" plus additional header info (tbd).
 
 ----
 CategoryModel ["CategoryAR7Device"]
