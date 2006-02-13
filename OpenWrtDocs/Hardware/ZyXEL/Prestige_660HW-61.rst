@@ -100,7 +100,6 @@ int main (int argc, char* argv[]) {
 
 }}}
 
-
 == Memory layout ==
 
 Bootbase provides a powerful flashing/debugging console, for instance, the ATMP command shows us how is the memory allocated. Later on, you can use the ATDUx,y command to dump memory contents starting at x plus an y offset:
@@ -169,6 +168,12 @@ B0037CF0: 65 3D 32 5C 45 5B 6D 3A-69 73 3D 5C 45 5B 31 3B   e=2\E[m:is=\E[1;
 < Press any key to Continue, ESC to Quit >
 }}}
 
+== Original Firmware files ==
+
+Downloaded from official ZyXEL website:
+
+340PE10C0.rom = Router configuration, coincides with "4: DbgArea" shown above. You can retrieve this file from your router using the ATTD BootBase command.
+340PE10C0.bin   = Router firmware, my guess is that it goes from "7: HTPCode(ROMBIN)" until "13: RasCode(ROMBIN)" plus additional header info (tbd).
 
 ----
 CategoryModel ["CategoryAR7Device"]
