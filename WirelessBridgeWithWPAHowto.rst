@@ -16,7 +16,9 @@ This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -
   * No wireless repeater on this end *
 }}}
 
-It's very easy to set up client mode on an unsecured network - see ClientModeHowto for example - and also with WEP or WPA1. It turns out, however, that client mode on a WPA2 network is not quite as easy, and setting it up as a bridge is a bit tricky, too.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput.
+It's very easy to set up bridged client mode ({{{wl0_mode=wet}}}) on an unsecured network - see ClientModeHowto for example - and this also works with WEP or WPA1. You can also set up routed client mode ({{{wl0_mode=sta}}}) on a WPA2 network; in this case, the Wrt LAN ports must be on a different subnet to the wifi network.
+
+It turns out, however, that bridged client mode on a WPA2 network is not quite as easy.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput. ''Note: There are some reports that this doesn't work any more under RC4''
 
 Most of the information was gleaned from the OpenWRT wiki and posts made in http://forum.openwrt.org and dozens of other web sites, and I thank the multitude of unattributed contributors for sharing their knowledge.
 
@@ -78,6 +80,8 @@ OK, I stand corrected. It seems to work. I'm using WPA, not WPA2, but somehow it
 
 It seems either possible to run the bridge with WPA (as reported by PeterKahle) or to use WPA2 in wet mode without a layer 2 bridge (but you can still use IP forwarding and ARP proxy; lan_ifname=vlan0 wifi_ifname=eth1 wl0_mode=wet wl0_akm=psk2 wl0_crypto=aes+tkip)
 -- GeorgLukas [[DateTime(2006-02-09T12:34:23Z)]]
+
+Should that be wl0_mode=sta not wl0_mode=wet? I tidied the ''rationale'' section to make it clear this procedure is only needed for WPA2 together with bridged client mode. I have tested WPA1 bridged client, and WPA2 routed client, and both worked without this procedure. In fact, calling this "WPA2 bridged client" is rather misleading; the box is still really a router, it's just using ARP trickery to fake itself as the next-hop. It's not a genuine bridge, since non-IP frames would not be passed. -- BrianCandler
 
 == S47sleep ==
 
