@@ -48,7 +48,7 @@ exclusive.
 
 In bridged client mode, all computers connected to the client will be
 connected to the subnet of the access point you are connecting to (no
-firewalling, unless you use brtables).
+firewalling, unless you use ebtables).
 
 When using the bridged client mode, you should disable the DNS/DHCP server:
 
