@@ -189,7 +189,7 @@ Save the file, then restart the interface. Repeat on all client systems.
 
 == Configuring dnsmasq to broadcast WINS server information ==
 
-You will need the following line in your {{{/etc/dnsmasz.conf}}} file:
+You will need the following line in your {{{/etc/dnsmasq.conf}}} file:
 (Adjust IP address if your WINS server is not 192.168.1.2)
 
 {{{
