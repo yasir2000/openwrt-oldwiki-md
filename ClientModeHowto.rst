@@ -24,13 +24,18 @@ thread in the forum.
 == Configuring client mode ==
 
 The first step would be changing the Wrt's behavior from AP to client
-mode (station/client mode or {{{wet}}} for short):
+mode.
 
 {{{
-nvram set wl0_mode=wet
+nvram set wl0_mode=wet         # bridged client
+OR
+nvram set wl0_mode=sta         # routed client
 }}}
 
-'''TIP:''' When {{{wet}}} mode is not working for you try {{{sta}}} mode instead.
+If you are going to leave the wireless interface bridged to the LAN on br0,
+then you should choose {{{wet}}}. If you are going to configure Wrt as a router,
+so that the wireless interface is a pure client and the LAN is on a
+completely different subnet, then choose {{{sta}}}.
 
 '''NOTE:''' As soon as your AP is in client mode you ''can't'' connect any
 wireless clients to it anymore because it's not in AP mode ({{{wl0_mode=ap}}}).
@@ -43,7 +48,7 @@ exclusive.
 
 In bridged client mode, all computers connected to the client will be
 connected to the subnet of the access point you are connecting to (no
-firewalling).
+firewalling, unless you use brtables).
 
 When using the bridged client mode, you should disable the DNS/DHCP server:
 
@@ -76,7 +81,7 @@ for your hardware version.
 {{{
 nvram set lan_ifname=br0
 nvram set lan_ifnames=vlan0
-nvram set wan_ifname=eth1
+nvram set wan_ifname=eth1         # the wireless interface
 }}}
 
 Then configure the interfaces normally. For example, assuming the wifi
@@ -184,12 +189,5 @@ This will set up the wireless interface according to your nvram settings.
  * Detailed information on setting up a wired-wireless bridge with encryption
  [[BR]]- [:WirelessBridgeWithWPAHowto]
 
----- /!\ '''Edit conflict - other version:''' ----
 ----
 CategoryHowTo
-
----- /!\ '''Edit conflict - your version:''' ----
-----
-CategoryHowTo
-
----- /!\ '''End of edit conflict''' ----
