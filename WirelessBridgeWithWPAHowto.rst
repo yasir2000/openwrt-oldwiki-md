@@ -1,7 +1,7 @@
 = Setting up OpenWRT to be a wireless bridge on a WPA2-PSK wireless network =
 
 == Rationale ==
-This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -- to be a wireless bridge to an existing wireless network.  The goal is to end up with a plain bridge, no WDS, no routing, no anything except for holding one IP for administration, on a WPA2-PSK enabled wireless network.  This allows the following network configuration:
+This page describes how to set up an OpenWRT install -- White Russian RC3 on a WRT54G v4 in my case -- to be a wireless bridge to an existing wireless network.  The goal is to end up with a plain bridge (or get as close as possible to one), with no WDS, no routing, no anything except for holding one IP for administration, on a WPA2-PSK enabled wireless network.  This allows the following network configuration:
 
 {{{
     +---------+                                   +--------------+
@@ -16,9 +16,9 @@ This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -
   * No wireless repeater on this end *
 }}}
 
-It's very easy to set up bridged client mode ({{{wl0_mode=wet}}}) on an unsecured network - see ClientModeHowto for example - and this also works with WEP or WPA1. You can also set up routed client mode ({{{wl0_mode=sta}}}) on a WPA2 network; in this case, the Wrt LAN ports must be on a different subnet to the wifi network.
+It's very easy to set up bridged client mode ({{{wl0_mode=wet}}}) on an unsecured network - see ClientModeHowto for example - and this also works with WEP or WPA1. You can also set up routed client mode ({{{wl0_mode=sta}}}) on a WPA2 network; in this case, the LAN ports must be on a different subnet from the !WiFi network.
 
-It turns out, however, that bridged client mode on a WPA2 network is not quite as easy.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput. ''Note: There are some reports that this doesn't work any more under RC4''
+It turns out, however, that bridged client mode on a WPA2 network is not quite as easy.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput. ''Note: There are some reports that this doesn't work any more under RC4.''
 
 Most of the information was gleaned from the OpenWRT wiki and posts made in http://forum.openwrt.org and dozens of other web sites, and I thank the multitude of unattributed contributors for sharing their knowledge.
 
@@ -82,6 +82,8 @@ It seems either possible to run the bridge with WPA (as reported by PeterKahle) 
 -- GeorgLukas [[DateTime(2006-02-09T12:34:23Z)]]
 
 Should that be wl0_mode=sta not wl0_mode=wet? I tidied the ''rationale'' section to make it clear this procedure is only needed for WPA2 together with bridged client mode. I have tested WPA1 bridged client, and WPA2 routed client, and both worked without this procedure. In fact, calling this "WPA2 bridged client" is rather misleading; the box is still really a router, it's just using ARP trickery to fake itself as the next-hop. It's not a genuine bridge, since non-IP frames would not be passed. -- BrianCandler
+
+Thanks BrianCandler, you're quite right: this is not really a bridge, but I think it's close as one can get without the use of wet mode.  If you (or anyone else) can make a proper bridge using WPA2 then please replace this page with instructions on how to do so. -- [[wmono]] [[DateTime]]
 
 == S47sleep ==
 
