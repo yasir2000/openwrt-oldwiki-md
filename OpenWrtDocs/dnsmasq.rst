@@ -186,3 +186,14 @@ send host-name "hostname";
 }}}
 
 Save the file, then restart the interface. Repeat on all client systems.
+
+== Configuring dnsmasq to broadcast WINS server information ==
+
+You will need the following line in your {{{/etc/dnsmasz.conf}}} file:
+(Adjust IP address if your WINS server is not 192.168.1.2)
+
+{{{
+dhcp-option=44,192.168.1.2
+}}}
+
+Now as your machines release and renew DHCP information they will obtain the address of the WINS server automatically.
