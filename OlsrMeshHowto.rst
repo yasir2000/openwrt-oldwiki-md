@@ -1,4 +1,3 @@
-
 The following are the steps to have a Mesh Network with using Openwrt firmware on Linksys WRT54GL wifi routers running the Olsr protocol :
 
 
@@ -75,11 +74,6 @@ So to enable DHCP on wifi since I need that more edit
 
 iface=lan         <---#change this to wifi as iface=wifi #
 
-
-
-……….
-
-REST SCRIPT FOLLOWS AS IT IS
 
 
 ……….
@@ -202,7 +196,9 @@ nodes are up and running olsr
 
 
 Reference::
+
 www.olsr.org  :Read main thesis and rfc 
+
 http://wiki.openwrt.org/OpenWrtDocs :Everything and anything in it
 
 ----
