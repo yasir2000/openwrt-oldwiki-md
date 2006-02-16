@@ -16,7 +16,7 @@ This page describes how to set up an OpenWRT install -- a WRT54G v4 in my case -
   * No wireless repeater on this end *
 }}}
 
-It's very easy to set up client mode on an unsecured network - see ClientModeHowto for example.  It turns out, however, that client mode on a WPA network is not quite as easy, and setting it up as a bridge is a bit tricky, too.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput.
+It's very easy to set up client mode on an unsecured network - see ClientModeHowto for example - and also with WEP or WPA1. It turns out, however, that client mode on a WPA2 network is not quite as easy, and setting it up as a bridge is a bit tricky, too.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput.
 
 Most of the information was gleaned from the OpenWRT wiki and posts made in http://forum.openwrt.org and dozens of other web sites, and I thank the multitude of unattributed contributors for sharing their knowledge.
 
