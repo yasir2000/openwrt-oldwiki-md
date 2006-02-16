@@ -83,7 +83,7 @@ It seems either possible to run the bridge with WPA (as reported by PeterKahle) 
 
 Should that be wl0_mode=sta not wl0_mode=wet? I tidied the ''rationale'' section to make it clear this procedure is only needed for WPA2 together with bridged client mode. I have tested WPA1 bridged client, and WPA2 routed client, and both worked without this procedure. In fact, calling this "WPA2 bridged client" is rather misleading; the box is still really a router, it's just using ARP trickery to fake itself as the next-hop. It's not a genuine bridge, since non-IP frames would not be passed. -- BrianCandler
 
-Thanks BrianCandler, you're quite right: this is not really a bridge, but I think it's close as one can get without the use of wet mode.  If you (or anyone else) can make a proper bridge using WPA2 then please replace this page with instructions on how to do so. -- [[wmono]] [[DateTime]]
+Thanks BrianCandler, you're quite right: this is not really a bridge, but I think it's close as one can get without the use of wet mode.  If you (or anyone else) can make a proper bridge using WPA2 then please replace this page with instructions on how to do so. -- ["wmono"] [[DateTime]]
 
 == S47sleep ==
 
