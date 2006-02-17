@@ -1,9 +1,24 @@
 [[TableOfContents]]
 
-== General Settings ==
-The WRT54G requires LAN and WAN settings at the least to properly boot. The specific settings/names are listed below, but this a bit of an overview:
+== IP Interface Settings ==
 
-There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVRAM variables are NONSTANDARD, intended to be used when lan_ifnames doesn't bridge lan and wireless. Most people should leave the wifi_* variables unset)]]. For each one of these categories you may set the following variables (ie lan_ifname, wan_ifname, wifi_ifname)
+In order to configure the IP interfaces on the system, a number of settings are grouped into "bundles" sharing the same prefix. The default bundles are called "lan", "wan" and "wifi", but those names have no special significance other than the fact that the startup script looks for bundles with these names. They might as well have been called "rod", "jane" and "freddy". In fact, let's demonstrate that:
+
+{{{
+freddy_ifname=vlan2
+freddy_proto=static
+freddy_ipaddr=192.168.100.100
+freddy_netmask=255.255.255.0
+freddy_gateway=192.168.100.1
+}}}
+
+In order to trigger the configuration of this interface, you'd type {{{ifup freddy}}}. This would configure the kernel IP interface {{{vlan2}}} with the given IP address and netmask, and also insert a defaultroute to 192.168.100.1 via this interface.
+
+(Note: if you are perverse enough actually to want to call your IP interfaces "rod", "jane" and "freddy", you will have to modify {{{/etc/init.d/S40network}}} to call ifup appropriately. This is a useful thing to do if you want to configure extra IP interfaces on your system. You might want to separate off one of your ethernet ports and call it "dmz", for example)
+
+So, let's be sensible and stick to the default "wan", "lan" and "wifi". The WRT54G requires LAN and WAN settings at least to boot properly. Since the "lan" bundle normally consists of the LAN ports bridged together with the wifi interface on the same subnet, most people should leave the wifi_* variables UNSET.
+
+For each bundle you may set the following variables (ie lan_ifname, wan_ifname, wifi_ifname)
 
 ||'''Setting'''||'''Meaning/Purpose'''||
 ||'''*_ifname'''||The name of the interface which will be used for this category||
@@ -15,18 +30,81 @@ There are 3 categories of interfaces, lan, wan and wifi[[FootNote(The wifi_* NVR
 ||'''*_dns'''||dns to use if _proto is static (X.X.X.X notation)||
 ||'''*_stp'''||Enable spanning tree if _ifname is a bridge (0 or 1)||
 
-== misc ==
-DHCP Settings:
-||'''NVRAM Setting'''||'''Meaning'''||
-||'''dhcp_start'''||The starting IP address for DHCP assignments||
-||'''dhcp_num'''||The number of addresses in DHCP pool||
+Don't set {{{*_gateway}}} more than once, or use {{{*_proto=dhcp}}} on more than one interface, or you'll find yourself with multiple default routes inserted which is probably not what you want.
 
-Hostname:
-||'''wan_hostname'''||The hostname of your router.||
+After changing any of these settings, type {{{ifup foo}}} (where foo is one of lan, wan, wifi etc as appropriate)
 
+== Bridging ==
+
+You can create a layer 2 (ethernet) bridge between two or more interfaces by setting {{{foo_ifname=br0}}} and {{{foo_ifnames=iface1 iface2 iface3...}}}. Typically you will see something similar to this in your default settings:
+
+{{{
+lan_ifname=br0
+lan_ifnames=vlan0 eth1
+lan_ipaddr=192.168.1.1
+lan_netmask=255.255.255.0
+lan_proto=static
+lan_stp=1
+}}}
+
+In this case, the IP address is assigned to the bridge device (br0), and the bridge device connects interfaces vlan0 and eth1, corresponding to LAN ports 1-4 and the wireless interface respectively.
+
+Note: the [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface names] corresponding to physical ports on the Wrt vary from one brand and model of router to another. Your particular device may use different settings to those shown above.
+
+== VLAN Settings ==
+
+Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan'' settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
+
+Be sure the NVRAM has settings for the following, and the recommended defaults:
+
+||'''NVRAM Setting'''||'''Recommended Value'''||
+||'''vlan0hwname'''||et0||
+||'''vlan0ports'''||1 2 3 4 5*||
+||'''vlan1hwname'''||et0||
+||'''vlan1ports'''||0 5||
+
+In other words, an interface called "vlan0" is linked to port 0 of the internal switch (typically labelled "WAN" on the box), and an interface called "vlan1" is linked to ports 1-4 of the internal switch (typically labelled "LAN 1-4" on the box, although you may find that switch ports 1-4 are actually labelled LAN 4-1). Port 5 of the internal switch carries all VLANs tagged (that's what the asterisk is for) to the real interface et(h)0.
+
+{{{
+PHYSICALLY:
+                   tagged     +-------------------+
+            eth0 ============ | 5      SWITCH     |
+                              | 4   3   2   1   0 |
+                              +-------------------+
+                                |   |   |   |   |
+                                ...LAN 1-4...  WAN
+
+LOGICALLY:
+            vlan0 ------------- LAN 1-4
+            vlan1 ------------- WAN
+}}}
+
+If the NVRAM is set with those values, then the recommended values for '''wan_ifnames''' and '''lan_ifnames''' will be correct. Note that by changing the ports around, you are able to change which port is the WAN port and so on, but that isn't a very good idea in general.
+
+Now let's say you want to syphon off the port labelled "LAN 1" as a DMZ port on a separate subnet. On an Asus router this is actually switch port 4. So you'd reconfigure as:
+
+||'''vlan0hwname'''||et0||
+||'''vlan0ports'''||1 2 3 5*||
+||'''vlan1hwname'''||et0||
+||'''vlan1ports'''||0 5||
+||'''vlan2hwname'''||et0||
+||'''vlan2ports'''||4 5||
+
+Once you've done this, you can configure interface {{{vlan2}}} with its own IP address on its own subnet, and Wrt will route between them.
+
+{{{
+dmz_ifname=vlan2
+dmz_ipaddr=192.168.2.1
+dmz_netmask=255.255.255.0
+dmz_proto=static
+}}}
+
+Type {{{ifup dmz}}} to perform the configuration, and modify {{{/etc/init.d/S40network}}} so that this is done when your box is next rebooted too. See DemilitarizedZoneHowto for more details.
 
 == Wireless Configuration ==
-Although the wifi_* variables can be used to configure the network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge (which you MUST do to use ad-hoc mode) configure the wifi_* variables according to the general settings above.
+Although the wifi_* variables can be used to configure the IP network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge (which you MUST do to use ad-hoc mode) configure the wifi_* variables according to the general settings above.
+
+There are separate variables called wl0_* which configure the characteristics of the ''physical'' wireless interface - which are applicable whether or not the wifi interface is bridged or a separate IP network.
 
 '''Note:''' There are wl_* and wl0_* variables; the wl_* variables are obsoleted and were replaced by wl0_*.
 
@@ -83,18 +161,7 @@ Misc:
 ||'''wl0_phytype'''||Attempt these 802.11 modes||
 ||'''wl0_corerev'''||Set by wlconf to the wireless revision, (4:v1.0 hardware, 7:v2,gs)||
 
-== VLAN Settings ==
-Because of the way the interfaces are done in hardware (one interface, multiple ports), there are required ''vlan'' settings for the device. If these aren't set to the proper values, then the interfaces will not be assigned correctly. Note that if you're using ''admcfg'' or similar, this may not apply to you. (I'm not sure).
-
-Be sure the NVRAM has settings for the following, and the recommended defaults:
-
-||'''NVRAM Setting'''||'''Recommended Value'''||
-||'''vlan0hwname'''||et0||
-||'''vlan0ports'''||1 2 3 4 5*||
-||'''vlan1hwname'''||et0||
-||'''vlan1ports'''||0 5||
-
-If the NVRAM is set with those values, then the recommended values for '''wan_ifnames''' and '''lan_ifnames''' will be correct. Note that by changing the ports around, you are able to change which port is the WAN port and so on, but that isn't a very good idea in general.
+In summary, you could find the wifi interface known by three different identifiers: as {{{wl0_*}}} for the physical interface settings, as {{{wifi_*}}} for its IP settings if it's on a separate subnet, and as {{{eth1}}} or {{{eth2}}} to the kernel, depending on your hardware. Confused? :-)
 
 == Static Routes ==
 Static routes are a bit uglier to maintain, but they are still maintainable. There is only one NVRAM setting for them: '''`static_route`'''. This contains all the static routes to be added upon boot-up.
@@ -125,10 +192,25 @@ To add multiple routes, seperate each route formatted as above with a space. To 
 nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1"
 }}}
 
+== misc ==
+
+DHCP Settings:
+||'''NVRAM Setting'''||'''Meaning'''||
+||'''dhcp_start'''||The starting offset for DHCP assignments||
+||'''dhcp_num'''||The number of addresses in DHCP pool||
+
+BEWARE (1): OpenWrt currently requires {{{dhcp_start}}} to be a numeric offset, e.g. "50", which is added to your {{{lan_ifname}}} IP address to form the start of the DHCP range. Your standard firmware may have left this set to an IP address, e.g. "192.168.1.50". This won't work; dnsmasq will fail to start and you will lose both DHCP and DNS service.
+
+Hopefully this will be fixed in future; this way of working is especially awkward if you have a high IP address for your Wrt box (e.g. 192.168.1.254) and want the DHCP range to be beneath it. Furthermore, the startup script S50dnsmasq does not allow for the possibility that you might want to run DHCP servers on multiple interfaces, or that you might want to run it on a different interface than lan_*
+
+BEWARE (2): Unsetting these values will not stop the dhcp server from running; it will use default values of dhcp_start=100 and dhcp_num=150. To turn off the dhcp server, use {{{chmod -x /etc/init.d/S50dnsmasq}}} [jffs2 systems] or {{{rm /etc/init.d/S50dnsmasq}}} [squashfs systems]
+
+Hostname:
+||'''wan_hostname'''||The hostname of your router.||
+
 == NVRAM committing ==
 
 When you set/get nvram settings, you are get/setting them in RAM. "nvram commit" writes them persistenly to the flash. But you don't have to commit in order to test, in fact it's safer not to because the flash memory has a limited write cycle life. (Don't be scared though, it's something like 1000-10.000 times; still better to only save it when really needed!) You can save your settings to RAM, check them out by ifdown/ifup'ing all your interfaces, and then "nvram commit" them if they are to your liking. If not, you can reboot and you're back to the last working configuration you had.
-
 
 == Applying changes to wireless settings ==
 
