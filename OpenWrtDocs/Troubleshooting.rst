@@ -68,7 +68,8 @@ to scripts will be lost)
 
 /!\ '''NOTE: Resetting NVRAM this way will actually cause more problems than it solves. For
 example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values
-and will not boot properly after being reset.'''
+and will not boot properly after being reset.
+If you do this on a Siemens SE505 V1, your router will not be accessible to you anymore! You will have to reflash it with the stock firmware on ip address 192.168.1.1 (NOT 192.168.2.1 as the installation procedure says!!)'''
 
 To clean the NVRAM variables the safe way see the !OpenWrt [:Faq].
 
@@ -89,6 +90,8 @@ bootloader will create a new NVRAM partition with default settings after the
 reboot. Remember to set {{{boot_wait}}} back on after you reboot your router --
 trying to do it before rebooting will just write your old settings (cached in
 memory) back to the flash.
+
+To reset NVRAM settings on a Siemens SE505 V1 simply press reset after you plug it in and release as soon as one of the leds starts flashing very fast.
 
 
 = Recovering from bad firmware =
