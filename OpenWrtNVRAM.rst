@@ -63,7 +63,7 @@ Be sure the NVRAM has settings for the following, and the recommended defaults:
 ||'''vlan1hwname'''||et0||
 ||'''vlan1ports'''||0 5||
 
-In other words, an interface called "vlan0" is linked to port 0 of the internal switch (typically labelled "WAN" on the box), and an interface called "vlan1" is linked to ports 1-4 of the internal switch (typically labelled "LAN 1-4" on the box, although you may find that switch ports 1-4 are actually labelled LAN 4-1). Port 5 of the internal switch carries all VLANs tagged (that's what the asterisk is for) to the real interface et(h)0.
+In other words, an interface called "vlan0" is linked to ports 1-4 of the internal switch (typically labelled "LAN 1-4" on the box, although you may find that they are in reverse order),and an interface called "vlan1" is linked to port 0 of the internal switch (typically labelled "WAN" on the box). Port 5 of the internal switch carries all VLANs tagged (that's what the asterisk is for) to the real interface et(h)0.
 
 {{{
 PHYSICALLY:
@@ -100,6 +100,8 @@ dmz_proto=static
 }}}
 
 Type {{{ifup dmz}}} to perform the configuration, and modify {{{/etc/init.d/S40network}}} so that this is done when your box is next rebooted too. See DemilitarizedZoneHowto for more details.
+
+Another possibility is that if you don't need a separate WAN port, you could get rid of vlan1 and configure vlan0 so that all 5 ports are on the LAN subnet. Going to the other extreme, you could configure five separate vlans and have a five-port ethernet router.
 
 == Wireless Configuration ==
 Although the wifi_* variables can be used to configure the IP network settings of the wireless interface, the default setting is to include the wireless interface in lan_ifnames and leave the wifi_* variables unset. If you remove the wireless interface from the lan bridge (which you MUST do to use ad-hoc mode) configure the wifi_* variables according to the general settings above.
