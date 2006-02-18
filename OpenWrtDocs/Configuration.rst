@@ -522,6 +522,8 @@ nvram set wl0_mode=sta
 
 For more information, see [:ClientModeHowto].
 
+Note: Bridge mode only works for me by setting wl0_mode=wet. My device is Asus WL-HDD.
+
 == WLAN secured by IPSec ==
 See [:IPSec] Section for further information.
 
