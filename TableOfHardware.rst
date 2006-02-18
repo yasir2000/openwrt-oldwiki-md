@@ -116,7 +116,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz|| || || none || || || || || ||[wiki:AR7Port WiP]||
 ||[http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz|| || || none || || || || || ||[wiki:AR7Port WiP]||
 ||[http://www.level1.com/products3.php?sklop=12&id=540548 WBR-3407A]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz|| || || || || || || || ||[wiki:AR7Port WiP]||
-||[http://www.level1.com/products3.php?sklop=12&id=540549 WBR-3407A]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz|| || || || || || || || ||[wiki:AR7Port WiP]||
+||[http://www.level1.com/products3.php?sklop=12&id=540549 WBR-3407B]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz|| || || || || || || || ||[wiki:AR7Port WiP]||
 
 
 == Linksys ==
