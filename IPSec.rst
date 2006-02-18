@@ -22,7 +22,7 @@ If LAN and WIFI should be handled differently by the central site, it makes sens
 
 == Install openswan ==
 {{{
-ipkg install openswan kmod_openswan ntpclient
+ipkg install openswan kmod-openswan ntpclient
 }}}
 
 == Configuration ==
@@ -148,7 +148,7 @@ Divide the wireless from the wired network as described in Self:Configuration
 == Needed Packages ==
 You need to install OpenSwan, the OpenSwan-Kernel-Module and the L2TPd:
 {{{
-ipkg install openswan kmod_openswan l2tpd
+ipkg install openswan kmod-openswan l2tpd
 }}}
 
 == Helpful things ==
