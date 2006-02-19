@@ -201,11 +201,9 @@ DHCP Settings:
 ||'''dhcp_start'''||The starting offset for DHCP assignments||
 ||'''dhcp_num'''||The number of addresses in DHCP pool||
 
-BEWARE (1): OpenWrt currently requires {{{dhcp_start}}} to be a numeric offset, e.g. "50", which is added to your {{{lan_ifname}}} IP address to form the start of the DHCP range. Your standard firmware may have left this set to an IP address, e.g. "192.168.1.50". This won't work; dnsmasq will fail to start and you will lose both DHCP and DNS service.
+Unsetting these values will not stop the dhcp server from running; it will use default values of dhcp_start=100 and dhcp_num=150. To turn off the dhcp server, use {{{chmod -x /etc/init.d/S50dnsmasq}}} [jffs2 systems] or {{{rm /etc/init.d/S50dnsmasq}}} [squashfs systems]
 
-Hopefully this will be fixed in future; this way of working is especially awkward if you have a high IP address for your Wrt box (e.g. 192.168.1.254) and want the DHCP range to be beneath it. Furthermore, the startup script S50dnsmasq does not allow for the possibility that you might want to run DHCP servers on multiple interfaces, or that you might want to run it on a different interface than lan_*
-
-BEWARE (2): Unsetting these values will not stop the dhcp server from running; it will use default values of dhcp_start=100 and dhcp_num=150. To turn off the dhcp server, use {{{chmod -x /etc/init.d/S50dnsmasq}}} [jffs2 systems] or {{{rm /etc/init.d/S50dnsmasq}}} [squashfs systems]
+NOTE: In the unlikely event you're using a lan_netmask other than 255.255.255.0, be aware that {{{dhcp_start}}} is an offset into your network segment, as described by {{{int2ip(ip2int(lan_ipaddr)&ip2int(lan_netmask))}}}.  Furthermore, the startup script S50dnsmasq does not allow for the possibility that you might want to run DHCP servers on multiple interfaces, or that you might want to run it on a different interface than lan_*
 
 Hostname:
 ||'''wan_hostname'''||The hostname of your router.||
