@@ -166,6 +166,7 @@ http://www.snort.org/docs/snortdb/snortdb_faq.html#faq_b4
 http://lists.gnumonks.org/pipermail/ulogd/2004-January/000494.html
 
 TODO: mac addr in table schema should be pgsql's native mac addr type, but ULOGD is sending it as "XX:XX:XX:XX:XX:XX:XX:XX " with a space at the end which throws everything off
+TODO: clean this page up!  SERIOUSLY!
 }}}
 ----
 CategoryHowTo
