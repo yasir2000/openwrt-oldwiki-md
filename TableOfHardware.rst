@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2006/01/16.
+This is a table of all supported devices as of 2006/02/19.
 
 Status Legend:
 
@@ -43,6 +43,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=492&modelmenu=1 WL-520g]|| ||Broadcom 5350 @ 200MHz||2MB||8MB||Broadcom (integrated)||in CPU||on|| || ||No||[:OpenWrtDocs/Hardware/Asus/WL520G: Untested]||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=409&modelmenu=1 WL-530g]|| ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8510] @160MHz||4MB||16MB||Marvell (integrated)||in CPU||on||No||No||No||WiP||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=796&modelmenu=1 WL-550gE]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz|| || ||Broadcom (integrated)||in CPU||on|| || ||No||Untested||
+||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1038&modelmenu=1 WL-566gM]|| || || || || || || || || || ||Untested||
 ||WL-700g|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300MHz|| || || || || || || ||3x v2.0||Untested||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz||4MB||16MB||Broadcom (integrated)||None||on|| || ||1x v1.1||Supported||
 
@@ -137,11 +138,11 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G]||2.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||ADM6996L||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54G Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G]||2.2||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||BCM5325||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54G Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G]||3.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||BCM5325||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54G Supported]||
-||[https://www.warcom.com.au/shop/flypage/wireles_access_point/1205 WRT54G]||3.1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 216MHz||4MB||16MB||Broadcom (integrated)||BCM5325||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54G: Supported]||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G]||3.1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 216MHz||4MB||16MB||Broadcom (integrated)||BCM5325||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54G: Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G]||4.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||4MB||16MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54G: Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G]||5.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||2MB||8MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54G: No]||
 ||WRT54G3G|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||4MB||16MB||Broadcom (integrated)||Broadcom (integrated)||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54G3G: WiP]||
-||WRT54GL|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||4MB||16MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54GL: Supported]||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1133202177241&pagename=Linksys%2FCommon%2FVisitorWrapper WRT54GL]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||4MB||16MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54GL: Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=679 WRT54GC]||1.0||Marvell||1MB||4MB||in SoC||88E6060||N/A||No||No||No||[:OpenWrtDocs/Hardware/Linksys/WRT54GC: No]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=662 WRT54GP]||1.0||Marvell|| || || || || || || || ||No||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||Broadcom (integrated)||ADM6996L||off||Yes||Yes||No||[:OpenWrtDocs/Hardware/Linksys/WRT54GS: Supported]||
@@ -150,13 +151,16 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||2.1||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz||8MB||32MB||Broadcom (integrated)||BCM5325||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||3.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||8MB||32MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||4.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||4MB||16MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS Supported]||
-||WRT54GS||5.0|| ||2MB||16MB|| || || || || || ||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS No]||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS]||5.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz||2MB||16MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||[wiki:OpenWrtDocs/Hardware/Linksys/WRT54GS No]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=670 WRT54GX]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||4MB||16MB||Airgo (mini-PCI)||BCM5325||on||Yes||No||No||Partial||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=670 WRT54GX]||2.0||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz||8MB||32MB||Airgo (mini-PCI)||in CPU||N/A|| || ||No||No||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1124916804580&pagename=Linksys%2FCommon%2FVisitorWrapper WRT54GX2]|| ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz|| || ||Airgo (mini-PCI)||in CPU||N/A|| || ||No||No||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1130279435381&pagename=Linksys%2FCommon%2FVisitorWrapper WRT54GX4]|| ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz|| || ||Airgo (mini-PCI)||in CPU||N/A|| || ||No||No||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||1.0||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Atheros & Broadcom (mini-PCI)||BCM5325||off|| || || ||Untested||
-||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||2.0||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz||4MB||16MB||integrated Atheros||KS8995M||N/A||Yes||Yes||No||[:AtherosPort: WiP]||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG]||2.0||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz||4MB||16MB||Atheros (integrated)||KS8995M||N/A||Yes||Yes||No||[:AtherosPort: WiP]||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=692 WRTP54G]|| ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz||4MB||16MB ||TI ACX111 ([:VLYNQ])||ADM6996L ||[:PSPBoot] ||Yes ||Yes || ||[:AR7Port: WiP]||
-||[http://www.linksys.com/servlet/Satellite?childpagename=US%2FLayout&packedargs=c%3DL_Product_C2%26cid%3D1137028967848&pagename=Linksys%2FCommon%2FVisitorWrapper WRTSL54GS]|| || || || || || || || || ||v2.0||Untested||
+||[http://www.linksys.com/servlet/Satellite?childpagename=US%2FLayout&packedargs=c%3DL_Product_C2%26cid%3D1137028967848&pagename=Linksys%2FCommon%2FVisitorWrapper WRTSL54GS]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||8MB||32MB||Broadcom (integrated)||BCM5325||off|| || ||1x v2.0||Supported||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1122062241008&pagename=Linksys%2FCommon%2FVisitorWrapper WTR54GS]|| ||Broadcom 5350 @ 200MHz||4MB||16MB||Broadcom (integrated)||in CPU||off||Yes||Yes||No||WiP||
 
 
 == Maxtor ==
@@ -173,11 +177,12 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == Mikrotik ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://routerboard.com/rb200.html RouterBoard 230]|| || ||None, CF slot only||So-DIMM slot||2 mini-PCI slots||None||N/A||Yes||No||No||[:SoekrisPort: WiP]||
-||[http://routerboard.com/rb500.html RouterBoard 511]|| ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||None, CF slot only||32MB||1 mini-PCI slot||None||N/A||Yes||No||No||WiP||
-||[http://routerboard.com/rb500.html RouterBoard 512]|| ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||None, CF slot only||32MB||2 mini-PCI slots||None||N/A||Yes||No||No||WiP||
-||[http://routerboard.com/rb500.html RouterBoard 532]||1||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||64MB + CF slot||32MB||2 mini-PCI slots||None, 3 ethernet interfaces||N/A||Yes||No||No||WiP||
-||[http://routerboard.com/rb500.html RouterBoard 532]||2||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||128MB + CF slot||32MB||2 mini-PCI slots||None, 3 ethernet interfaces||N/A||Yes||No||No||WiP||
+||[http://routerboard.com/rb100.html RouterBoard 111]|| ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=%2Fep%2Fchannel%2FproductOverview.jsp&pageTypeId=17099 Infineon ADM5120]||64MB||16MB||mini-PCI slot||None||N/A||Yes||No||No||No||
+||[http://routerboard.com/rb100.html RouterBoard 112]|| ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=%2Fep%2Fchannel%2FproductOverview.jsp&pageTypeId=17099 Infineon ADM5120]||64MB||16MB||2 mini-PCI slots||None||N/A||Yes||No||No||No||
+||[http://routerboard.com/rb200.html RouterBoard 230]|| ||NSC SC1100||None, CF slot/IDE||So-DIMM slot||mini-PCI slot and 2x cardbus||None||N/A||Yes||No||1x v1.1||[:SoekrisPort: WiP]||
+||[http://routerboard.com/rb500.html RouterBoard 511]|| ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||64MB/128MB + CF slot||32MB||1 mini-PCI slot||None||N/A||Yes||No||No||WiP||
+||[http://routerboard.com/rb500.html RouterBoard 512]|| ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||64MB/128MB + CF slot||32MB||2 mini-PCI slots||None||N/A||Yes||No||No||WiP||
+||[http://routerboard.com/rb500.html RouterBoard 532]|| ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||64MB/128MB + CF slot||32MB||2 mini-PCI slots||None, 3 ethernet interfaces||N/A||Yes||No||No||WiP||
 ||[http://routerboard.com/rb500.html RouterBoard 532a]|| ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434]||128MB + CF slot||64MB||2 mini-PCI slots||None, 3 ethernet interfaces||N/A||Yes||No||No||WiP||
 
 
