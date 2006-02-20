@@ -25,6 +25,6 @@ What to do if you brick it!
 
 Note that this procedure does not appear to work without some header information in the image.idts334 file
 
-More information can be found at Seattle Wireless http://www.seattlewireless.net/NetgearWG602 and Embedded Linux forum http://216.218.185.154/cgi-bin/board/UltraBoard.pl?Action=ShowPost&Board=general&Post=198&Idle=0&Sort=0&Order=Descend&Page=0&Session=
+More information can be found at [http://www.seattlewireless.net/NetgearWG602 Seattle Wireless] and [http://216.218.185.154/cgi-bin/board/UltraBoard.pl?Action=ShowPost&Board=general&Post=198 Embedded Linux forum]
 ----
 CategoryModel
