@@ -12,7 +12,7 @@ also has an USB 2.0 controller.
 
 The kernel boots on the system, we have drivers for the ethernet interface (b44) and
 the new switch driver is integrated (robocfg will be obsolete). We have drivers for the
-wireless radio (madwifi-ng). The Kernel is 2.6.15.1.
+wireless radio (madwifi-ng). The Kernel is 2.6.15.3.
 
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig.
