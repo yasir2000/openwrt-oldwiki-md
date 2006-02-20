@@ -8,7 +8,7 @@ Status Legend:
  * '''No''' - confirmed that this device is not supported
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
 
-See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], CategotyCategory
+See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], CategoryCategory
 
 [[TableOfContents]]
 
