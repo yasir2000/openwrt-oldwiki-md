@@ -5,6 +5,7 @@ initially it is bound to 192.168.2.1.[[BR]]
 It is also not possible to upload openwrt image via web interface. This aborts with an error.[[BR]]
 Up to now I would consider SE551 as unsupported as there is no possibility to upload firmware to the device.[[BR]]
 /!\ Find additional information on http://opossum.rat.at/~anno/SE551/
+(URL doesn't work at the moment)
 
 = Product infos =
 
@@ -18,7 +19,10 @@ This router seems however to have a propiertary OS instead.
 So AtherosPort seems like the right place
 
 It seems, that flash memory is integrated into CPU. [[BR]]
-CPU is covered by a soldered in heat sink, so I can not find out cpu version.
+CPU is an AR2316A Atheros Chipset and covered by a soldered-in heatsink
+
+Infineon (ADMTek) ADM6996Lc [[BR]]
+Ethernet Switch
 
 VIA Vectro VT6212L[[BR]]
 USB 2.0 Controller
