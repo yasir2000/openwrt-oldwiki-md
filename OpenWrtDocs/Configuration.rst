@@ -61,6 +61,7 @@ The names of the network interfaces will depend largely on what hardware !OpenWr
 ||Dell||!TrueMobile 2300||  ||eth0||eth1||eth2||BCM5325MA2KQM switch||
 ||Motorola||WR850G||v3||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Microsoft||MN700||v.x||eth0||eth1||eth2|| ||
+||Netgear||WGT-634U|| ||vlan0||vlan1||ath0||eth0 is the whole switch, with lan and wan ports||
 ||Siemens||SE505||v1||eth0||eth1||eth2|| ||
 ||Siemens||SE505||v2||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 Please update to include other models.
