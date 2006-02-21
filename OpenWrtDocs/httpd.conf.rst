@@ -46,7 +46,7 @@
 # Note:
 # A:*
 # D:* 
-# Mean dany ALL !!!!
+# Mean deny ALL !!!!
 #
 
 A:*
@@ -105,4 +105,4 @@ A:*
 }}}
 
 
-'''httpd''' will work without configuration file, also you may delete all comments (line start with #) if you need place on disk.
+'''httpd''' will work without a configuration file. You may also want to delete all comments (lines that start with #) to save space on the disk.
