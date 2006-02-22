@@ -165,8 +165,11 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
  * Another firmware project
  [[BR]]- [http://router.4th.be/]
 
+
 = End Of Life =
-I got confirmation from Janine Bodwin of NetGear that the wgt634u was EOL'ed on 1-Oct-2005
+
+I got confirmation from Janine Bodwin of NetGear that the WGT634U was EOL'ed on 01-Oct-2005
+
 
 ----
 CategoryModel
