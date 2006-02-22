@@ -45,8 +45,8 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=796&modelmenu=1 WL-550gE]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz|| || ||Broadcom (integrated)||in CPU||on|| || ||No||Untested||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1038&modelmenu=1 WL-566gM]|| || || || || || || || || || ||Untested||
 ||WL-700g|| ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300MHz|| || || || || || || ||3x v2.0||Untested||
-||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz||4MB||16MB||Broadcom (integrated)||None||on|| || ||1x v1.1||Supported||
-
+||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz||4MB||16MB||Broadcom (integrated)||None||on|| || ||1x v1.1||Supported||
+||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD]||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz||4MB||16MB||Broadcom (integrated)||None||on|| || ||1x v1.1||Supported||
 
 == Belkin ==
 
