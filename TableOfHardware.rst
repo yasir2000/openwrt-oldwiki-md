@@ -94,7 +94,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 == Comtrend ==
 
 ||'''Model'''||'''Version'''||'''Platform & Frequency'''||'''Flash'''||'''RAM'''||'''Wireless NIC'''||'''Switch'''||'''boot_wait'''||'''Serial'''||'''JTAG'''||'''USB'''||'''Status'''||
-||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+]|| ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz || 4MB || 16MB || Broadcom mini-PCI ||  || || No || || No || No ||
+||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+]|| ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz || 4MB || 16MB || Broadcom mini-PCI BCM4306 ||  || || No || || No || No ||
 
 == Dell ==
 
