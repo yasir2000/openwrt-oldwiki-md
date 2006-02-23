@@ -216,7 +216,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.netgear.com/products/details/WGR614.php WGR614]||6||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz||1MB||8MB||in CPU||in CPU|| || || ||No||No||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624]||1||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz||4MB||16MB||integrated Atheros||Marvell||N/A||Yes||Yes||No||[wiki:Self:OpenWrtDocs/Hardware/Netgear/WGT624 WiP]||
 ||[http://www.netgear.com/products/details/WGT634U.php WGT634U]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz||8MB||32MB||Atheros (mini-PCI)||in CPU||N/A||Yes||No||1x v2.0||[wiki:Self:OpenWrtDocs/Hardware/Netgear/WGT634U WiP]||
-||[http://netgear.com/products/details/WPN824.php WPN824]|| || || || || || || || || || ||[wiki:Self:OpenWrtDocs/Hardware/Netgear/WPN824 Untested]||
+||[http://netgear.com/products/details/WPN824.php WPN824]|| || Atheros 2313 || || || || || || || || ||[wiki:Self:OpenWrtDocs/Hardware/Netgear/WPN824 Untested]||
 ||[http://netgear.com/products/details/WPNT834.php WPNT834]|| ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz||4MB||32MB||Airgo (mini-PCI)||integrated Realtek||N/A|| || ||No||No||
 
 == Ravotek ==
