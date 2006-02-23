@@ -9,5 +9,8 @@ Serial port is JP1, pinout as follows:
 GND - o o
       JP1
 }}}
+
+[http://www.dslreports.com/forum/remark,14001273 Description of serial port on WPN824]
+
 ----
 CategoryModel
