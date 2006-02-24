@@ -86,11 +86,11 @@ translate the leading spaces into tabs.
 unexpand --first-only - | cat >package/helloworld/Config.in
 }}}
 
-After pasting it, press {{{ENTER}}} and then {{{CTRL+D}}} keys to save the file.
+After pasting it, press {{{ENTER}}} and then {{{CTRL-D}}} keys to save the file.
 
 You can also create your own files in the {{{package/helloworld}}} directory (for example config
-files). That files you can access in your {{{package/Makefile}}} with {{{./filename}}} and copy it
-to your {{{$(PKG_INSTALL_DIR)}}} directory.
+files). That files you can access in your {{{package/hellowrold/Makefile}}} with {{{./filename}}}
+and copy it to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
 
 === package/helloworld/Config.in ===
@@ -252,7 +252,7 @@ cd ..
 = Links =
 
 
-You can find an useful reference for the packaging process in nbd's paper to the 'OpenWrt Hacking'
+You can find an useful reference for the packaging process in nbd's paper to the '!OpenWrt Hacking'
 talk on the 22C3:
 [[BR]]- [http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf]
 
