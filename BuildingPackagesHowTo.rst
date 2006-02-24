@@ -89,7 +89,7 @@ unexpand --first-only - | cat >package/helloworld/Config.in
 After pasting it, press {{{ENTER}}} and then {{{CTRL-D}}} keys to save the file.
 
 You can also create your own files in the {{{package/helloworld}}} directory (for example config
-files). That files you can access in your {{{package/hellowrold/Makefile}}} with {{{./filename}}}
+files). That files you can access in your {{{package/helloworld/Makefile}}} with {{{./filename}}}
 and copy it to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
 
