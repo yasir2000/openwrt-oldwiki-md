@@ -183,16 +183,7 @@ mostlyclean:
 Package: hello
 Priority: optional
 Section: misc
-Maintainer: Name <maintainer@example.com>
-Source: http://ftp.debian.org/debian/pool/main/h/hello
-Description: The classic greeting, and a good example
-        The GNU hello program produces a familiar, friendly greeting.  It
-        allows non-programmers to use a classic computer science tool which
-        would otherwise be unavailable to them.
-        .
-        Seriously, though: this is an example of how to do a Debian package.
-        It is the Debian version of the GNU Project's `hello world' program
-        (which is itself an example for the GNU Project).
+Description: The GNU hello world program
 }}}
 
 
