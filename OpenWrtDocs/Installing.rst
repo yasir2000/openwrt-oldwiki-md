@@ -269,7 +269,8 @@ Firmware' web interface.'''
 
 /!\ '''WRT54GLv1 with firmware 4.30.0 Just use "Firmware upgrade page"'''
 
-/!\ '''WRT54GLv1 with firmware downgraded to 4.20.7 also allows you to just use "Firmware upgrade page"'''
+/!\ '''WRT54GLv1 with firmware downgraded to 4.20.7 also allows you to just use "Firmware upgrade page".  It also supports the ping_times
+variation of the hack.'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
