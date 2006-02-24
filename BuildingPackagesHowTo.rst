@@ -79,8 +79,8 @@ mkdir -p package/200-packagename/patches
 
 == Creating the required files ==
 
-'''TIP:''' When creating the files via copy & paste use the Unix command
-{{{unexpand}}} to translate the leading spaces into tabs.
+'''TIP:''' When creating the files via copy & paste use the Unix command {{{unexpand}}} to
+translate the leading spaces into tabs.
 
 {{{
 unexpand --first-only - | cat >package/helloworld/Config.in
@@ -88,8 +88,8 @@ unexpand --first-only - | cat >package/helloworld/Config.in
 
 After pasting it, press {{{ENTER}}} and then {{{CTRL+D}}} keys to save the file.
 
-You can also create your own files in the {{{package/helloworld}}} directory (for example config files).
-That files you can access in your {{{package/Makefile}}} with {{{./filename}}} and copy it
+You can also create your own files in the {{{package/helloworld}}} directory (for example config
+files). That files you can access in your {{{package/Makefile}}} with {{{./filename}}} and copy it
 to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
 
@@ -115,9 +115,9 @@ config BR2_PACKAGE_HELLO
 
 === package/helloworld/Makefile ===
 
-'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from
-the original tarball. Use {{{@SF/hello}}} (choose a random SourceForge mirror) for
-the {{{PKG_SOURCE_URL}}} when your program has a download location on SourceForge.
+'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball.
+Use {{{@SF/hello}}} (choose a random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your
+program has a download location on !SourceForge.
 
 {{{
 include $(TOPDIR)/rules.mk
@@ -132,6 +132,7 @@ PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
         http://ftp.gnu.org/gnu/hello
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_CAT:=zcat
+
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
 
@@ -198,8 +199,8 @@ gunzip hello_2.1.1-4.diff.gz
 mv hello_2.1.1-4.diff 100-hello.patch
 }}}
 
-'''TIP:''' You can apply as many patches as you like. To apply them in a special
-order name them like:
+'''TIP:''' You can apply as many patches as you like. To apply them in a special order name them
+like:
 
 {{{
 100-xxx.patch
@@ -217,8 +218,12 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 make clean && make compile
 }}}
 
-'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make this page].
-For Slackware users there is a fixed make package [http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
+'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted"
+message while making, see [http://gamecontractor.org/Make this page].
+
+For Slackware users there is a fixed make package
+[http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and
+sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
 
 When the compiling is finished you have a ready to use ipkg package for !OpenWrt
 in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
@@ -247,7 +252,8 @@ cd ..
 = Links =
 
 
-You can find an useful reference for the packaging process in nbd's paper to the 'OpenWrt Hacking' talk on the 22C3:
+You can find an useful reference for the packaging process in nbd's paper to the 'OpenWrt Hacking'
+talk on the 22C3:
 [[BR]]- [http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf]
 
 Full buildroot documentation (for compiling kernel modules and such things,
