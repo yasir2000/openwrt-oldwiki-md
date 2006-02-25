@@ -711,6 +711,10 @@ a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might
 looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool]
 before shutting down your PC.
 
+=== NFS ===
+
+You need to install kmod-nfs and portmap to be able to mount remote NFS file systems.
+
 
 == Building your own packages ==
 
