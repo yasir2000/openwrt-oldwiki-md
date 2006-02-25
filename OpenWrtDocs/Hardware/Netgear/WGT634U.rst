@@ -129,7 +129,7 @@ back it up. You eventually need it to restore your original firmware.
 
 = Serial console =
 
-Default parameters for the serial console on J7 are 115200 N81. You need a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip (or one of the alternatives, such as cell phone data cables) to get the console working.
+Default parameters for the serial console on J7 are 115200 N81. You can build a suitable serial console using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  You can also build a serial console cable using a cell phone data cable.  For example, the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected.  Plug into your linux box's USB port and connect minicom to /dev/ttyUSBn.
 
 J6 (left from J7) is a second serial port, but has no header on it. It has the same pinout as J7.
 
