@@ -25,6 +25,12 @@ ipkg update
 ipkg install vsftpd
 }}}
 
+Due to a bug that the packagemanager needs to learn about, you have to execute the followring commands:
+
+{{{
+(cd /etc/init.d/;mv vsftpd S50vsftpd)
+}}}
+
 Once done all that is needed is a restart to activate the FTP daemon.
 {{{
 reboot
