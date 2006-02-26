@@ -602,6 +602,7 @@ Examples:
 ||Paris, France||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Prague, Czech Republic||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Roma, Italy||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||Moscow, Russia||MSK-3MSD,M3.5.0/2,M10.5.0/3||
 ||St.Petersburg, Russia||MST-3MDT,M3.5.0/2,M10.5.0/3||
 ||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||New Zealand||Auckland, Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
