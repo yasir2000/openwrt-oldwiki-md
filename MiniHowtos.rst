@@ -56,6 +56,13 @@ a remote system.  The local file option is very easy but because it is stored in
 go away whenever the router reboots.  Using a remote system allows the output to be saved
 for ever.
 
+Update: the existing rcS file in whiterussian rc3 (and newer) reads the nvram variable "log_ipaddr",
+so remote logging gets activated by simply doing
+{{{
+nvram set log_ipaddr=<your syslogd ip>
+nvram commit
+}}}
+
 To run syslogd and klogd you should edit `/etc/inittab` and add the following two lines:{{{
 ::respawn:/sbin/syslogd -n
 ::respawn:/sbin/klogd -n
@@ -76,13 +83,6 @@ On my (Red Hat) Linux system that requires adding the `-r` flag to the syslogd s
 
 If you want both local and remote logging, add `-L -R <hostname>` to the `syslogd` line
 in `/etc/inittab`.
-Update: the existing rcS file in whiterussian rc3 reads the nvram variable "log_ipaddr",
-so remote logging gets activated by doing
-{{{
-nvram set log_ipaddr=<your syslogd ip>
-nvram commit
-}}}
-
 
 = Networking =
 
