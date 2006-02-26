@@ -65,7 +65,7 @@ chmod a+x /etc/init.d/S60crond
 Create a minute job in the root crontab file:
 
 {{{
-echo "*/1 * * * * date > /tmp/crontest" >> /etc/crontabs/root
+echo "*/1 * * * * /bin/date > /tmp/crontest" >> /etc/crontabs/root
 }}}
 
 Wait a minute, and see {{{/tmp/crontest}}} file:
