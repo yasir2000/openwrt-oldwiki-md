@@ -258,5 +258,9 @@ wlan0 ->
 
 - Analog Microelectronics, Inc. (AME)
 [[BR]]http://www.analogmicro.com
+
+==== Booting Linux ====
+See http://www.not404.com/cgi-bin/trac.fcgi/wiki/OpenWRT/Atheros/Linksys/WRT55AGv2 link for more info.
+
 ----
 CategoryModel
