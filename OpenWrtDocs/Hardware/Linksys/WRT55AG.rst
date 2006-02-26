@@ -28,7 +28,7 @@
  To complete confusion there is [http://www.linksys.com/international/firmware.asp?intfwid=91&coid=6 another firmware page], where the current version 1.30 can be downloaded. There is no changelog.
   
 ===== Dissassembly instruction =====
- Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/wrt55ag_v2-deconstruction/"] 
+ Detailed and correct Information, even the default webinterface are available at the openwrt site: ["downloads/reference/wrt55ag_v2-deconstruction/"] 
  The antenna is not detachable (in contrast to WRT54G(S), those have RP-TNC). There are two radios soldered onto the PCB, the chipset is made by Atheros. It differs quite much from the version 1.0 
 
 ===== Hardware notes =====
