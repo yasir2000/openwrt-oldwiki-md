@@ -49,7 +49,7 @@ Generally you want to run a command like this on either a regular basis or trigg
 {{{
 getzone domain.test 192.168.1.2 > /etc/maradns/db.domain.test
 }}}
-Where `domain.test` is the domain name, `192.168.1.2` is the primary name server and `db.domain.test` is the filename of the zonefile.  The HowtoEnableCron document explains how to configure cron on your OpenWrt system.
+Where `domain.test` is the domain name, `192.168.1.2` is the primary name server and `db.domain.test` is the filename of the zonefile. You will also have to restart maradns and/or zoneserver after you transferred to zones.  The HowtoEnableCron document explains how to configure cron on your OpenWrt system.
 
 = dnsmasq Considerations =
 If your MaraDNS machine also provides DHCP services, you probably use dnsmasq for that task. dnsmasq also provides DNS services and there is no way to shut that part off. To avoid errors about ports being already in use, you have to change to default bahaviour of dnsmasq. More informatio about dnsmasq in general can be found at OpenWrtDocs/dnsmasq.
@@ -62,6 +62,43 @@ port=5353
 Change that to any free, unused port you like and use your packet filter to block traffic to that port.
 
 == Separating internal and external DNS ==
-It is possible to run dnsmasq and MaraDNS concurrently and have both listen on different interfaces. This allows for the seperation of internal and external DNS services. [http://forum.openwrt.org/viewtopic.php?id=4558 This forum thread] describes details.
+It is possible to run dnsmasq and MaraDNS concurrently and have both listen on different interfaces. This allows for the seperation of internal and external DNS services, as detailed by synthrax on [http://forum.openwrt.org/viewtopic.php?id=4558 this post]:
+
+I have both maradns and dnsmasq running on port 53. maradns serves public dns at the wan interface and dnsmasq takes care of the private subnet. in order for both to get along, you have to start maradns BEFORE dnsmasq.
+
+Additionally, you need to have the line:
+{{{
+bind_address="external_ip"
+}}}
+in your mararc file. To start the two name servers, i slightly modified /etc/init.d/S50dnsmasq:
+
+{{{
+#!/bin/sh
+. /etc/functions.sh
+
+# maradns stuff starts here
+publicip=$(whatismyip vlan1)
+zonefile=/etc/maradns/my_dns_zone
+cat $zonefile.template |sed s/external_ip/$publicip/ > $zonefile.zone
+cat /etc/maradns/mararc.template |sed s/external_ip/$publicip/ > /etc/mararc
+/usr/sbin/maradns >/var/log/maradns 2>&1 &
+# maradns stuff ends here
+
+# interface to use for DHCP
+iface=lan
+[...the script continues...]
+}}}
+
+this script does the following things:
+ 1. it determines my external (wan) IP with a script i got from the openwrt wiki (whatismyip)
+ 2. it rewrites my maradns zone file to insert the external ip (just put "external_ip" in place of the actual ip in the zone template)
+ 3. it rewrites mararc to insert the correct IP in "bind_address=..."
+ 4. finally, it starts maradns
+
+After maradns has started, port 53 of the external iface will be "occupied", which dnsmasq will complain about in the syslog ("[dnsmasq] setting --bind-interfaces option because of OS limitations"). you can safely ignore this message or you could probably start dnsmasq explicitly with the --bind-interfaces option to get rid of the message. i didn't, as i'm too lazy
+
+BTW: this works fine for me, as my internet provider does (almost) never change my assigned IP. if you have a provider which changes your ip with every dhcp lease period or so, you would probably need to place something similar in /etc/hotplug.d/iface (or i don't know where)
+
+
 ----
 CategoryHowTo
