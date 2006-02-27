@@ -617,6 +617,7 @@ Examples:
 ||Singapore||SGT-8||
 ||Ulaanbaatar, Mongolia||ULAT-8ULAST,M3.5.0/2,M9.5.0/2||
 ||South America||Brazil, São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
+||South America||Argentina||UTC+3||
 
 Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
