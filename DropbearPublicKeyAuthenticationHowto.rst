@@ -178,6 +178,24 @@ The the last line should look like:
 
 Now it's time to reboot.
 
+= Troubleshooting =
+
+Make sure the /etc/dropbear directory is chmodded 0700 and the /etc/dropbear/authorized_keys file 0600.
+
+{{{
+root@OpenWrt:~# ls -l /etc/|grep dropbear
+drwx------    1 root     root            0 Feb 28 15:26 dropbear
+}}}
+{{{
+root@OpenWrt:~# ls -l /etc/dropbear/|grep authorized
+-rw-------    1 root     root          626 Feb 28 15:31 authorized_keys
+}}}
+
+If you see anything different than the above you can try these commands.
+{{{
+chmod 0700 /etc/dropbear
+chmod 0600 /etc/dropbear/authorized_keys
+}}}
 
 = Links =
 
