@@ -5,7 +5,7 @@ phone to attach to the internet, for mobile WiFi! Not a new idea, but much easie
 Items that I had:
    1. WRTSL54GS with OpenWRT
 
-   2. Nokia 6230 cellphone with data server
+   2. Nokia 6230 cellphone with Cingular MediaWorks data service
 
    3. USB data cable that connects to POP-port on phone
 
