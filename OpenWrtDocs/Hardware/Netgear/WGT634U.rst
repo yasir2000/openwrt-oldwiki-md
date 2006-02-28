@@ -134,10 +134,13 @@ bootline such as:
 console=ttyS1,115200 root=/dev/scsi/host0/bus0/target0/lun0/part1 rootdelay=20 rw
 
 
-However, here is a script for using the usb drive as root without having to recompile
-and using the default 2.6 images provided by flyashi @  http://flyashi.dyndns.org:81/bin
+However, here is a script for using the usb drive as root without having to recompile using the default 2.6 images provided by flyashi @  http://flyashi.dyndns.org:81/bin
+
 If you want to utilize a swap partition when customizing this script, as I have, remember
 that you need the swap-utils package loaded as well.
+
+[bold]MAKE SURE YOU READ THROUGH THE SCRIPT BEFORE COPYING AND EXECUTING IT BLINDLY!  There
+are custom variables at the top that you'll need to make sure complies with the partition table on the usb drive you are using[/bold]
 
 
 It is necessary to have the minimum of the following modules loaded as well:
