@@ -3,11 +3,11 @@ my thoughts turned to the many uses for the USB port. One obvious one was using 
 phone to attach to the internet, for mobile WiFi! Not a new idea, but much easier to implement now.
 
 Items that I had:
-1. WRTSL54GS with OpenWRT
+   1. WRTSL54GS with OpenWRT
 
-2. Nokia 6230 cellphone with data server
+   2. Nokia 6230 cellphone with data server
 
-3. USB data cable that connects to POP-port on phone
+   3. USB data cable that connects to POP-port on phone
 
 ''Steps:''
 
@@ -39,7 +39,7 @@ usbserial vendor=0x421 product=0x40f
 4) Install microcrom so we can check things out
 {{{
 # ipkg install microcom
-reboot
+# reboot
 }}}
 
 5) Login again, check
