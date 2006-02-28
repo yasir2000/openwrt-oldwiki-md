@@ -176,17 +176,23 @@ ppp_async
 slhc
 }}}
 
-== Create directory for lock file ==
+== Lock file directory creation ==
 If we are going to have the "lock" option in the config file, we need it created.
-So add a line with the other mkdir near the top of S10boot file:
+So add a startup script that ensures this:
 {{{
-root@OpenWrt:~# vi /etc/init.d/S10boot
+root@OpenWrt:~# vi /etc/init.d/S80ppp
 mkdir -p /var/lock
+}}}
+
+== WAN interface change ==
+{{{
+root@OpenWrt:~# nvram set wan_ifname=ppp0
+root@OpenWrt:~# nvram commit
+root@OpenWrt:~# reboot
 }}}
 
 == Time for test drive! ==
 {{{
-root@OpenWRT:~# reboot
 root@OpenWrt:~# pppd call cingular debug nodetach
 (output)
 }}}
