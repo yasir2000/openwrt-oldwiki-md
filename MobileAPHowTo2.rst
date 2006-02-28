@@ -64,9 +64,6 @@ Hit ~x to get out of microcom
 
 = PPP conectivity =
 
-This part took some Googling. Finally I found a good page that I used as the basis:
-[http://www.advantedgecomputing.com/opensource/gc83linux.html]
-
 == Install PPP ==
 {{{
 root@OpenWrt:~# ipkg install kmod-ppp
@@ -76,6 +73,10 @@ root@OpenWrt:~# reboot
 }}}
 
 == PPP config file ==
+
+This part took some Googling. Finally I found a good page that I used as the basis:
+[http://www.advantedgecomputing.com/opensource/gc83linux.html]
+
 {{{
 root@OpenWrt:~# vi /etc/ppp/peers/cingular
 # information about your device
