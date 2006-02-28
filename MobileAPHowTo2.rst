@@ -195,7 +195,6 @@ ppp0      Link encap:Point-Point Protocol
           RX bytes:64 (64.0 B)  TX bytes:82 (82.0 B)
 }}}
 
-= Usage =
 
 ----
 CategoryHowTo
