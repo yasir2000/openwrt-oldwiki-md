@@ -23,7 +23,7 @@ root@OpenWrt:~# ipkg install kmod-usb-serial
 root@OpenWrt:~# insmod usbserial
 }}}
 
-== See if cellphone recognized ==
+== Verify that cellular phone is recognized ==
 
 {{{
 root@OpenWrt:~# logread | tail
