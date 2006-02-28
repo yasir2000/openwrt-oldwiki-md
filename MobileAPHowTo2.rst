@@ -69,6 +69,7 @@ Hit ~x to get out of microcom
 root@OpenWrt:~# ipkg install kmod-ppp
 root@OpenWrt:~# ipkg install ppp
 root@OpenWrt:~# ipkg install chat
+root@OpenWrt:~# reboot
 }}}
 
 == PPP config file ==
@@ -151,7 +152,21 @@ OK AT+IFC=2,2
 #AT&FE0S0=0
 }}}
 
+== PPP device setup ===
+First attempt to use our setup will give an error, unless we fix it.
+{{{
+root@OpenWrt:~# pppd call cingular
+pppd: pppd is unable to open the /dev/ppp device.
+You need to create the /dev/ppp device node by
+executing the following command as root:
+        mknod /dev/ppp c 108 0
+root@OpenWrt:~# ipkg install 
+root@OpenWrt:~# mknod /dev/ppp c 108 0
+}}}
+
 == Time for test drive! ==
+{{{
+root@OpenWrt:~# pppd call cingular
 
 ----
 CategoryHowTo
