@@ -7,7 +7,7 @@ Soon after receiving the new WRTSL54GS and getting OpenWRT running on it (thanks
 my thoughts turned to the many uses for the USB port. One obvious one was using a
 cellular phone to attach to the internet, for mobile WiFi! Not a new idea, but much easier to implement now.
 
-I should say UP FRONT that all cellular data networks have latency that just blows. 
+I should say up front that all cellular data networks have latency that just blows. 
 Pings of 500ms to 2000ms on a ping are not unusual. So don't expect it to replace
 your landline. But there are certain good uses for it, like setting up quick connectivity for a few people at an event. Or mounted in an automobile for my own example, totally mobile hotspot! Once you do get a response, throughput can be pretty good. But you definitely want to use dnsmasq, and any other caching mechanism you
 can get your hands on, to keep things as local as possible.
