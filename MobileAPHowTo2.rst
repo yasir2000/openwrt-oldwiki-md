@@ -174,14 +174,19 @@ root@OpenWrt:~# vi /etc/modules.d/70-ppp
 ppp_generic
 ppp_async
 slhc
+}}}
+
+== Create directory for lock file ==
+If we are going to have the "lock" option in the config file, we need it created.
+So add a line with the other mkdir near the top of S10boot file:
+{{{
 root@OpenWrt:~# vi /etc/init.d/S10boot
-mkdir -p /var/log
-''mkdir -p /var/lock''
-touch /var/log/wtmp
+mkdir -p /var/lock
 }}}
 
 == Time for test drive! ==
 {{{
+root@OpenWRT:~# reboot
 root@OpenWrt:~# pppd call cingular debug nodetach
 (output)
 }}}
