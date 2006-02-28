@@ -126,6 +126,84 @@ Everything is configured in {{{/etc}}}. For network configuration please modify
 {{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please
 back it up. You eventually need it to restore your original firmware.
 
+= Using usb drive for Root =
+
+Normally, using the usb drive for root requires making a custom image with a proper
+bootline such as:
+
+console=ttyS1,115200 root=/dev/scsi/host0/bus0/target0/lun0/part1 rootdelay=20 rw
+
+
+However, here is a script for using the usb drive as root without having to recompile
+and using the default 2.6 images provided by flyashi @  http://flyashi.dyndns.org:81/bin
+If you want to utilize a swap partition when customizing this script, as I have, remember
+that you need the swap-utils package loaded as well.
+
+
+It is necessary to have the minimum of the following modules loaded as well:
+
+ehci_hcd 25744 0 - Live 0xc020d000
+uhci_hcd 27792 0 - Live 0xc0205000
+usb_storage 27440 3 - Live 0xc00a0000
+sd_mod 12080 4 - Live 0xc0079000
+scsi_mod 71360 2 usb_storage,sd_mod, Live 0xc0171000
+usbcore 103584 4 ehci_hcd,uhci_hcd,usb_storage, Live 0xc0226000
+
+
+Create this script script called /linuxrc in the root directory, and remember to customize the
+variables according to the partitions on your usb drive.  The current variables assume three partitions on the drive with the second partition being a swap partition.
+
+#!/bin/sh
+#/linuxrc script to mount usb drive as root and pivot current root to /jffs
+
+#it is important that you customize these settings to fit your drive!
+boot_dev="/dev/discs/disc0/part1"
+swap_dev="/dev/discs/disc0/part2"
+usb_dev="/dev/discs/disc0/part3"
+
+# mount the usb stick
+mount -t ext3 -o rw "$boot_dev" /usb
+
+# if everything looks ok, do the pivot root
+if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
+        pivot_root /usb /usb/jffs
+
+        umount /jffs/proc/bus/usb
+        umount /jffs/proc
+        umount /jffs/dev/pts
+        sleep 1s
+        mv /jffs/tmp/* /tmp
+        umount /jffs/tmp
+        umount /jffs/dev
+        umount /jffs/sys
+
+        mount none /proc -t proc
+        mount none /dev -t devfs
+        mount none /tmp -t tmpfs size=50%
+        mkdir -p /dev/pts
+        mount none /dev/pts -t devpts
+
+   swapon "$swap_dev"
+   mount -t sysfs sys /sys
+   mount -t ext3 -o rw "$usb_dev" /mnt/usb
+   mount -o bind,ro /mnt/usb/snapshot /snapshot
+
+fi
+
+# finally, run the real init (from USB hopefully).
+exec /bin/busybox init
+
+----------------------------------------------------------------------------------------
+
+We're not done yet, it's also imperative that you add a line into your init scripts to execute
+this script, so add the following line to the end of the /etc/init.d/S99done file:
+
+[ -f /linuxrc ] && . /linuxrc
+
+There!  Now when you go to reboot, your usb drive will be mounted as root as according to the linuxrc script.
+
+
+
 
 = Serial console =
 
