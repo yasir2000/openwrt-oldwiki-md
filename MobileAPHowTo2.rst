@@ -71,7 +71,7 @@ root@OpenWrt:~# ipkg install ppp
 root@OpenWrt:~# ipkg install chat
 }}}
 
-== Need a config file ==
+== PPP config file ==
 {{{
 root@OpenWrt:~# vi /etc/ppp/peers/cingular
 # information about your device
@@ -107,7 +107,7 @@ maxfail 0 # do not stop retrying connection
 connect '/usr/sbin/chat -v -V -t3 -f /etc/ppp/peers/chat-cingular'
 }}}
 
-== Time for a chat script ==
+== PPP Chat script ==
 {{{
 root@OpenWrt:~# vi /etc/ppp/peers/chat-cingular
 #
