@@ -17,11 +17,13 @@ insmod usbserial
 2) Get cellphone recognized
 
 logread shows recognized, but not fully:
+{{{
 Jan  1 00:33:01 (none) kern.info kernel: hub.c: new USB device 01:02.0-1, assigned address 2
 Jan  1 00:33:01 (none) kern.warn kernel: usb.c: USB device 2 (vend/prod 0x421/0x40f) is not claimed by any active driver.
 Jan  1 00:39:01 (none) kern.info kernel: usb.c: registered new driver serial
 Jan  1 00:39:01 (none) kern.info kernel: usbserial.c: USB Serial support registered for Generic
 Jan  1 00:39:01 (none) kern.info kernel: usbserial.c: USB Serial Driver core v1.4
+}}}
 
 Those vendor and product numbers, we must do something with them.....
 
@@ -34,11 +36,12 @@ ipkg install microcom
 reboot
 
 5) Login again, check
+{{{
 microcom -D/dev/usb/tts/0
 AT
 
 OK
-
+}}}
 :)
 
 ----
