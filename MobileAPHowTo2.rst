@@ -174,7 +174,10 @@ root@OpenWrt:~# vi /etc/modules.d/70-ppp
 ppp_generic
 ppp_async
 slhc
-
+root@OpenWrt:~# vi /etc/init.d/S10boot
+mkdir -p /var/log
+''mkdir -p /var/lock''
+touch /var/log/wtmp
 }}}
 
 == Time for test drive! ==
