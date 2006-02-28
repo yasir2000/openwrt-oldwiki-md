@@ -152,7 +152,7 @@ OK AT+IFC=2,2
 #AT&FE0S0=0
 }}}
 
-== PPP device setup ===
+== PPP device setup ==
 First attempt to use our setup will give an error, unless we fix it.
 {{{
 root@OpenWrt:~# pppd call cingular
@@ -166,7 +166,7 @@ root@OpenWrt:~# mknod /dev/ppp c 108 0
 
 == Time for test drive! ==
 {{{
-root@OpenWrt:~# pppd call cingular
-
+root@OpenWrt:~# pppd call cingular debug nodetach
+}}}
 ----
 CategoryHowTo
