@@ -172,6 +172,7 @@ executing the following command as root:
 root@OpenWrt:~# insmod ppp_generic
 root@OpenWrt:~# insmod ppp_async
 root@OpenWrt:~# insmod slhc
+root@OpenWrt:~# mkdir /var/lock
 }}}
 
 == Time for test drive! ==
@@ -180,7 +181,7 @@ root@OpenWrt:~# pppd call cingular debug nodetach
 (output)
 }}}
 
-Hopefully you made woo-hoo noises at this point as you watched it successfully connect.
+Hopefully you made WOO-HOO noises at this point as you watched it successfully connect.
 
 == Check connectity ==
 {{{
