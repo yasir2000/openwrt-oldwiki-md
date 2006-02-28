@@ -10,7 +10,9 @@ phone to attach to the internet, for mobile WiFi! Not a new idea, but much easie
 I should say UP FRONT that all cellular data networks have latency that just blows. From 500ms to 2000ms
 on a ping is not unusual. So don't expect it to replace your landline. But there are certain good
 uses for it, like setting up quick connectivity for a few people at an event. Or mounted in an
-automobile for my own example, totally mobile hotspot!
+automobile for my own example, totally mobile hotspot! Once you do get a response, data flows 
+pretty well, but you definitely want to use dnsmasq and any other caching mechanism you can get
+your hands on to keep things as local as possible.
 
 = Items used =
 
