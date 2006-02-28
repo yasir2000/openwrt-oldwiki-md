@@ -38,13 +38,13 @@ usbserial vendor=0x421 product=0x40f
 
 4) Install microcrom so we can check things out
 {{{
-ipkg install microcom
+# ipkg install microcom
 reboot
 }}}
 
 5) Login again, check
 {{{
-microcom -D/dev/usb/tts/0
+# microcom -D/dev/usb/tts/0
 AT
 
 OK
