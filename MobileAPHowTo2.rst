@@ -32,7 +32,7 @@ Those vendor and product numbers, we must do something with them.....
 
 3) Modify usb-serial options
 {{{
-vi /etc/modules.d/70-usb-serial
+# vi /etc/modules.d/70-usb-serial
 usbserial vendor=0x421 product=0x40f
 }}}
 
