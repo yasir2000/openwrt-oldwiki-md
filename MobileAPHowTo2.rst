@@ -1,6 +1,6 @@
 Vincent Fox, Feb 26 2006
 
-= Summary =
+= Objective =
 Mobile WiFi!
 
 == Background ==
@@ -15,7 +15,7 @@ Items that I had:
 
    3. USB data cable that connects to POP-port on phone
 
-== ''Steps:''==
+== Steps: ==
 
 1) Need to get USB-serial module installed
 {{{
