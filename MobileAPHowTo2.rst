@@ -187,6 +187,7 @@ mkdir -p /var/lock
 == WAN interface change ==
 First thing, let's unplug the WAN port ethernet line used for all this setup work.
 {{{
+root@OpenWrt:~# nvram set wan_device=ppp0
 root@OpenWrt:~# nvram set wan_ifname=ppp0
 root@OpenWrt:~# nvram commit
 root@OpenWrt:~# reboot
@@ -215,7 +216,8 @@ ppp0      Link encap:Point-Point Protocol
 ''Now ping some hosts, hit the Internet, and off ya go!''
 
 ToDo:
-Something a little more automated for attach. Perhaps a script so that NoCatSplash
+   1. firewall fixes so attached clients work
+   2. Something a little more automated for attach. Perhaps a script so that NoCatSplash
 takes you to a Connect/Disconnect page.
 
 
