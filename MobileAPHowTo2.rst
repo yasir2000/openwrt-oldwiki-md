@@ -216,9 +216,10 @@ ppp0      Link encap:Point-Point Protocol
 ''Now ping some hosts, hit the Internet, and off ya go!''
 
 ToDo:
-   1. firewall fixes so attached clients work
-   2. Something a little more automated for attach. Perhaps a script so that NoCatSplash
-takes you to a Connect/Disconnect page.
+   1. Clean up this page
+   2. Reference that some packages came from different "people" directories on download site
+   3. Something a little more automated for attach. Perhaps a script so that NoCatSplash
+      takes you to a Connect/Disconnect page.
 
 
 
