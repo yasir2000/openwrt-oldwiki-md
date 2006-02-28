@@ -140,17 +140,18 @@ If you want to utilize a swap partition when customizing this script, as I have,
 that you need the swap-utils package loaded as well.
 
 '''MAKE SURE YOU READ THROUGH THE SCRIPT BEFORE COPYING AND EXECUTING IT BLINDLY!  There
-are custom variables at the top that you'll need to make sure complies with the partition table on the usb drive you are using'''
+are custom variables at the top that you'll need to make sure complies with the partition table on the usb drive you are using.'''
 
 
-It is necessary to have the minimum of the following modules loaded as well:
+You should have the minimum of the following modules loaded as well:
 
-ehci_hcd 25744 0 - Live 0xc020d000
-uhci_hcd 27792 0 - Live 0xc0205000
-usb_storage 27440 3 - Live 0xc00a0000
-sd_mod 12080 4 - Live 0xc0079000
-scsi_mod 71360 2 usb_storage,sd_mod, Live 0xc0171000
-usbcore 103584 4 ehci_hcd,uhci_hcd,usb_storage, Live 0xc0226000
+   ehci_hcd 
+   uhci_hcd  
+   usb_storage 
+   sd_mod 
+   scsi_mod 
+   usbcore 
+ 
 
 
 Create this script script called /linuxrc in the root directory, and remember to customize the
