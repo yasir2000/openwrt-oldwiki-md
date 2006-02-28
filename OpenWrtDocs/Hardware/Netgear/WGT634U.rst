@@ -139,8 +139,8 @@ However, here is a script for using the usb drive as root without having to reco
 If you want to utilize a swap partition when customizing this script, as I have, remember
 that you need the swap-utils package loaded as well.
 
-"""MAKE SURE YOU READ THROUGH THE SCRIPT BEFORE COPYING AND EXECUTING IT BLINDLY!  There
-are custom variables at the top that you'll need to make sure complies with the partition table on the usb drive you are using"""
+'''MAKE SURE YOU READ THROUGH THE SCRIPT BEFORE COPYING AND EXECUTING IT BLINDLY!  There
+are custom variables at the top that you'll need to make sure complies with the partition table on the usb drive you are using'''
 
 
 It is necessary to have the minimum of the following modules loaded as well:
