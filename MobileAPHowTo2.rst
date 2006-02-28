@@ -3,27 +3,27 @@ Vincent Fox, Feb 26 2006
 = Objective =
 Mobile WiFi!
 
-== Background ==
 Soon after receiving the new WRTSL54GS and getting OpenWRT running on it (thanks Kaloz)
 my thoughts turned to the many uses for the USB port. One obvious one was using a cellular
 phone to attach to the internet, for mobile WiFi! Not a new idea, but much easier to implement now.
 
-Items that I had:
+= Items used =
+
    1. WRTSL54GS with OpenWRT
 
    2. Nokia 6230 cellphone with Cingular EDGE/GPRS data service
 
    3. USB data cable that connects to POP-port on phone
 
-== Steps: ==
+= Basic connectivity to phone =
 
-1) Need to get USB-serial module installed
+== Need to get USB-serial module installed ==
 {{{
 root@OpenWrt:~# ipkg install kmod-usb-serial
 root@OpenWrt:~# insmod usbserial
 }}}
 
-2) See if cellphone recognized
+== See if cellphone recognized ==
 
 {{{
 root@OpenWrt:~# logread | tail
@@ -36,19 +36,19 @@ Jan  1 00:39:01 (none) kern.info kernel: usbserial.c: USB Serial Driver core v1.
 
 Those vendor and product numbers, we must do something with them.....
 
-3) Modify usb-serial options
+== Modify usb-serial options ==
 {{{
 root@OpenWrt:~# vi /etc/modules.d/70-usb-serial
 usbserial vendor=0x421 product=0x40f
 }}}
 
-4) Install microcrom so we can check things out
+== Install microcrom so we can check things out ==
 {{{
 root@OpenWrt:~# ipkg install microcom
 root@OpenWrt:~# reboot
 }}}
 
-5) Login again, check by typing AT to modem, see if it responds OK
+== Login again, check by typing AT to modem, see if it responds OK ==
 {{{
 root@OpenWrt:~# microcom -D/dev/usb/tts/0
 AT
@@ -61,13 +61,16 @@ OK
 
 Hit ~x to get out of microcom
 
-6) Now we need to install PPP
+
+= PPP conectivity =
+
+== Install PPP ==
 {{{
 root@OpenWrt:~# ipkg install kmod-ppp
 root@OpenWrt:~# ipkg install ppp
 }}}
 
-7) Need a config file
+== Need a config file ==
 {{{
 root@OpenWrt:~# vi /etc/ppp/peers/cingular
 # information about your device
@@ -103,10 +106,11 @@ maxfail 0 # do not stop retrying connection
 connect '/usr/sbin/chat -v -V -t3 -f /etc/ppp/peers/chat-cingular'
 }}}
 
-8) Time for a chat script
+== Time for a chat script ==
 {{{
 root@OpenWrt:~# vi /etc/ppp/peers/chat-cingular
 
 }}}
+
 ----
 CategoryHowTo
