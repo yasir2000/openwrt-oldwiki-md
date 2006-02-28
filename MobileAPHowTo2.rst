@@ -68,6 +68,7 @@ Hit ~x to get out of microcom
 {{{
 root@OpenWrt:~# ipkg install kmod-ppp
 root@OpenWrt:~# ipkg install ppp
+root@OpenWrt:~# ipkg install chat
 }}}
 
 == Need a config file ==
