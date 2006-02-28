@@ -5,7 +5,7 @@ phone to attach to the internet, for mobile WiFi! Not a new idea, but much easie
 Items that I had:
    1. WRTSL54GS with OpenWRT
 
-   2. Nokia 6230 cellphone with Cingular GPRS data service
+   2. Nokia 6230 cellphone with Cingular EDGE/GPRS data service
 
    3. USB data cable that connects to POP-port on phone
 
@@ -48,8 +48,17 @@ usbserial vendor=0x421 product=0x40f
 AT
 
 OK
+
 }}}
+
 :)
 
+Hit ~x to get out of microcom
+
+6) Now we need to install PPP
+{{{
+# ipkg install kmod-ppp
+# ipkg install ppp
+}}}
 ----
 CategoryHowTo
