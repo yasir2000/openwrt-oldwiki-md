@@ -110,8 +110,48 @@ connect '/usr/sbin/chat -v -V -t3 -f /etc/ppp/peers/chat-cingular'
 == Time for a chat script ==
 {{{
 root@OpenWrt:~# vi /etc/ppp/peers/chat-cingular
+#
+SAY 'Starting GPRS connect script...\n'
+SAY '\n'
+# ispauth CHAP # define auth method (optional)
 
+SAY 'Setting the abort string\n'
+SAY '\n'
+
+# Abort String ---------------------------------
+
+#ABORT BUSY ABORT 'NO CARRIER' ABORT VOICE ABORT 'NO DIALTONE'
+ABORT 'NO DIAL TONE' ABORT 'NO ANSWER' ABORT DELAYED
+#TIMEOUT 10
+#ABORT 'BUSY' ABORT 'NO ANSWER' ABORT 'NO CARRIER'
+
+# ----------------------------------------------
+SAY 'Initializing modem\n'
+
+# Modem Initialization -------------------------
+#'' ATZ
+# Eo=No echo, V1=English result codes
+#OK 'ATE0V1'
+'' AT+cfun=1
+OK AT+cfun=1
+OK AT+cgreg=1
+OK AT
+#TIMEOUT 40
+# ----------------------------------------------
+
+# Additional initialization (optional) ---------
+# /begin att
+OK AT&F&D2&C1E0V1S0=0
+OK AT+IFC=2,2
+OK ATS0=0
+OK AT
+OK AT&F&D2&C1E0V1S0=0
+OK AT+IFC=2,2
+# /end att
+#AT&FE0S0=0
 }}}
+
+== Time for test drive! ==
 
 ----
 CategoryHowTo
