@@ -9,15 +9,15 @@ phone to attach to the internet, for mobile WiFi! Not a new idea, but much easie
 
 = Items used =
 
-   1. WRTSL54GS with OpenWRT
+   WRTSL54GS with OpenWRT
 
-   2. Nokia 6230 cellphone with Cingular EDGE/GPRS data service
+   Nokia 6230 cellphone with Cingular EDGE/GPRS data service
 
-   3. USB data cable that connects to POP-port on phone
+   USB data cable that connects to POP-port on phone
 
 = Basic connectivity to phone =
 
-== Need to get USB-serial module installed ==
+== Install USB-serial module ==
 {{{
 root@OpenWrt:~# ipkg install kmod-usb-serial
 root@OpenWrt:~# insmod usbserial
