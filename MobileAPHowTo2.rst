@@ -176,6 +176,7 @@ So add a startup script that ensures this:
 {{{
 root@OpenWrt:~# vi /etc/init.d/S80ppp
 mkdir -p /var/lock
+root@OpenWrt:~# chmod +x /etc/init.d/S80ppp
 }}}
 
 == WAN interface change ==
