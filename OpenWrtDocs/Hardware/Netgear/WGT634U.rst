@@ -152,9 +152,7 @@ You should have the minimum of the following modules loaded as well:
  *scsi_mod 
  *usbcore 
  
-
-
-Create this script script called /linuxrc in the root directory, and remember to customize the
+First create a /usb directory under the root directory and cut and paste this script i call linuxrc also under the root directory, and remember to customize the
 variables according to the partitions on your usb drive.  The current variables assume three partitions on the drive with the second partition being a swap partition.
 
 #!/bin/sh
@@ -195,9 +193,8 @@ if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
 fi
 
 # finally, run the real init (from USB hopefully).
-exec /bin/busybox init
+ exec /bin/busybox init
 
-----------------------------------------------------------------------------------------
 
 We're not done yet, it's also imperative that you add a line into your init scripts to execute
 this script, so add the following line to the end of the /etc/init.d/S99done file:
