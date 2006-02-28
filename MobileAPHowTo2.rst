@@ -160,13 +160,32 @@ pppd: pppd is unable to open the /dev/ppp device.
 You need to create the /dev/ppp device node by
 executing the following command as root:
         mknod /dev/ppp c 108 0
-root@OpenWrt:~# ipkg install 
-root@OpenWrt:~# mknod /dev/ppp c 108 0
+root@OpenWrt:~# insmod ppp_generic
+root@OpenWrt:~# insmod ppp_async
+root@OpenWrt:~# insmod slhc
 }}}
 
 == Time for test drive! ==
 {{{
 root@OpenWrt:~# pppd call cingular debug nodetach
+(output)
 }}}
+
+Hopefully you made woo-hoo noises at this point as you watched it successfully connect.
+
+== Check connectity ===
+{{{
+root@OpenWrt:~# ifconfig ppp0
+ppp0      Link encap:Point-Point Protocol
+          inet addr:166.172.48.113  P-t-P:10.6.6.6  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3
+          RX bytes:64 (64.0 B)  TX bytes:82 (82.0 B)
+}}}
+
+= Usage =
+
 ----
 CategoryHowTo
