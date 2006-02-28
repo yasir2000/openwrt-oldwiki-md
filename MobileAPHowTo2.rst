@@ -169,10 +169,12 @@ pppd: pppd is unable to open the /dev/ppp device.
 You need to create the /dev/ppp device node by
 executing the following command as root:
         mknod /dev/ppp c 108 0
-root@OpenWrt:~# insmod ppp_generic
-root@OpenWrt:~# insmod ppp_async
-root@OpenWrt:~# insmod slhc
 root@OpenWrt:~# mkdir /var/lock
+root@OpenWrt:~# vi /etc/modules.d/70-ppp
+ppp_generic
+ppp_async
+slhc
+
 }}}
 
 == Time for test drive! ==
