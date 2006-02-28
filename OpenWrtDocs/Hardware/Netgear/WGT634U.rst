@@ -145,12 +145,12 @@ are custom variables at the top that you'll need to make sure complies with the 
 
 You should have the minimum of the following modules loaded as well:
 
-   ehci_hcd 
-   uhci_hcd  
-   usb_storage 
-   sd_mod 
-   scsi_mod 
-   usbcore 
+ *ehci_hcd 
+ *uhci_hcd  
+ *usb_storage 
+ *sd_mod 
+ *scsi_mod 
+ *usbcore 
  
 
 
