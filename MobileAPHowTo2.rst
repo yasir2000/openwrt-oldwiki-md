@@ -100,15 +100,9 @@ lock # lock the serial port when in use
 noauth # don't expect peer to authenticate
 persist # re-dial connection if dial fails
 
-# Leave uncommented, at least until your connection works consistently
-debug # provides verbose output to stderr
-
-# ---------------------------------------------------------------
-# Uncomment this option if you don't have the screen window manager
-# screen is a helpful tool
-# it can be obtained from http://www.gnu.org/software/screen
-
-nodetach # do not allow terminal to detach
+# Uncomment next 2 lines for debugging
+#debug
+#nodetach
 
 ipcp-max-configure 20 # increase the maximum IPCP config requests
 maxfail 0 # do not stop retrying connection
@@ -211,17 +205,37 @@ ppp0      Link encap:Point-Point Protocol
           TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:3
           RX bytes:64 (64.0 B)  TX bytes:82 (82.0 B)
+root@OpenWrt:~# netstat -nr
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+10.6.6.6        0.0.0.0         255.255.255.255 UH        0 0          0 ppp0
+192.168.1.0     0.0.0.0         255.255.255.0   U         0 0          0 br0
+0.0.0.0         10.6.6.6        0.0.0.0         UG        0 0          0 ppp0
+root@OpenWrt:~# ping -c 4 www.gatech.edu
+PING www.gatech.edu (130.207.165.120): 56 data bytes
+64 bytes from 130.207.165.120: icmp_seq=0 ttl=243 time=836.0 ms
+64 bytes from 130.207.165.120: icmp_seq=1 ttl=243 time=676.3 ms
+64 bytes from 130.207.165.120: icmp_seq=2 ttl=243 time=738.1 ms
+64 bytes from 130.207.165.120: icmp_seq=3 ttl=243 time=680.0 ms
+
+--- www.gatech.edu ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 676.3/732.6/836.0 ms
 }}}
 
-''Now ping some hosts, hit the Internet, and off ya go!''
+= Usage =
+All you should need to do is ssh in, and execute:
+{{{
+root@OpenWrt:~# pppd call cingular
+}}}
+
+I am adding this last few lines of text, using the Nokia PPP connection :)
 
 ToDo:
    1. Clean up this page
    2. Reference that some packages came from different "people" directories on download site
    3. Something a little more automated for attach. Perhaps a script so that NoCatSplash
       takes you to a Connect/Disconnect page.
-
-
 
 ----
 CategoryHowTo
