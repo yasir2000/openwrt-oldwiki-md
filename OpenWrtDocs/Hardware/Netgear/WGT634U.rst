@@ -192,8 +192,7 @@ if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
 
 fi
 
-# finally, run the real init (from USB hopefully).
- exec /bin/busybox init
+exec /bin/busybox init
 
 
 We're not done yet, it's also imperative that you add a line into your init scripts to execute
