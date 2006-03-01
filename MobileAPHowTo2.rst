@@ -180,7 +180,7 @@ root@OpenWrt:~# chmod +x /etc/init.d/S80ppp
 }}}
 
 == WAN interface change ==
-First thing, let's unplug the WAN port ethernet line used for all this setup work.
+Time to cut the umbilical cord. Unplug the WAN port ethernet line used for all this setup work.
 {{{
 root@OpenWrt:~# nvram set wan_device=ppp0
 root@OpenWrt:~# nvram set wan_ifname=ppp0
