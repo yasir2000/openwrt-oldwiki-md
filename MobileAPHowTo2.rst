@@ -14,7 +14,7 @@ can get your hands on, to keep things as local as possible.
 
 = Items used =
 
-   WRTSL54GS with OpenWRT
+   Linksys WRTSL54GS with OpenWRT
 
    Nokia 6230 cellphone with Cingular EDGE/GPRS data service
 
