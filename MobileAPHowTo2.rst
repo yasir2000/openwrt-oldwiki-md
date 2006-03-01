@@ -4,7 +4,7 @@ Vincent Fox, Feb 26 2006
 Mobile WiFi!
 
 Soon after receiving the new Linksys WRTSL54GS (note the SL in the middle) and getting OpenWRT running on it
-(thanks Kaloz), my first thought was "could they make a more awkward product-name?". After that I turned
+(thanks Kaloz), my first thought was "what an awkward product-name!"  After that I turned
 to the many uses for the USB port. One obvious one was using a cellular phone to attach to the internet, for
 mobile WiFi! Not a new idea, but much easier to implement now.
 
