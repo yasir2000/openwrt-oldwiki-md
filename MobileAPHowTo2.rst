@@ -237,5 +237,7 @@ Caveats:
 
  1. Some packages came from different "people" directories on download site. I didn't keep very good track of which came from where, but what didn't come from the kaloz or stable trees, probably came from nico.
  2. A NoCatSplash page with buttons for Connect/Disconnect would be handy.
+ 3. Be nice to have the "Internet" port on or blinking or something when dialed up, as a reminder.
+
 ----
 CategoryHowTo
