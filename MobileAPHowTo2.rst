@@ -241,7 +241,7 @@ I am adding this last few lines of text, using the Nokia PPP connection :)
 
  1. Some packages came from different "people" directories on download site. I didn't keep very good track of which came from where, but what didn't come from the kaloz or stable trees, probably came from nico. At this moment nbd seems to have the most complete selection, so if I were to start over I'd try to install everything from the nbd build directory.
  2. A NoCatSplash page with buttons for Connect/Disconnect would be handy.
- 3. Want the "Internet" LED on or blinking when dialed up, as a reminder. Haven't figured out how to to do that yet.
+ 3. Want the "Internet" LED on or blinking when dialed up, as a reminder. Or use SES button/LED for connect/disconnect and indication.
  4. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
 
 ----
