@@ -90,7 +90,7 @@ This part took some Googling. Finally I found a good page that I used as the bas
 root@OpenWrt:~# vi /etc/ppp/peers/cingular
 # information about your device
 /dev/usb/tts/0 # device file assigned to Nokia 6230
-115200 # slower negotiation speed
+230400 # DTE speed
 # Initial authentication
 user ISPDA@CINGULARGPRS.COM # username (data acceleration)
 password CINGULAR1 # a common GPRS/EDGE password
