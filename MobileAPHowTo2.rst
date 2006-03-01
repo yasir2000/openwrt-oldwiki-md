@@ -3,9 +3,9 @@ Vincent Fox, Feb 26 2006
 = Objective =
 Mobile WiFi!
 
-Soon after receiving the new Linksys WRTSL54GS (note the SL in the middle) and getting OpenWRT running on it
-(thanks Kaloz), my first thought was "what an awkward product-name!". I just call it SL to keep it short.
-After that I turned to the many uses for the USB port. One obvious one was using a cellular phone to attach to
+Soon after receiving the new Linksys WRTSL54GS (SL for short) and getting OpenWRT running on it
+(thanks Kaloz), my first thought was "what an awkward product-name!".  Second thought was the
+the many uses for the USB port. One obvious one was using a cellular phone to attach to
 the internet, for mobile WiFi! Not a new idea, but much easier to implement now.
 
 I should say up front that all cellular data networks have latency that just blows. 
