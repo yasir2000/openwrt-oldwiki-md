@@ -171,8 +171,9 @@ slhc
 }}}
 
 == Lock file directory creation ==
-If we are going to have the "lock" option in the config file, we need it created.
-So add a startup script that ensures this:
+If we are going to have the "lock" option in the config file, we need the
+/var/lock directory created. By nature OpenWRT recreates /var on each boot.
+So add a startup script that ensures it is created on each boot.
 {{{
 root@OpenWrt:~# vi /etc/init.d/S80ppp
 mkdir -p /var/lock
