@@ -17,7 +17,7 @@ can get your hands on, to keep things as local as possible.
 
    Linksys WRTSL54GS with OpenWRT
 
-   Nokia 6230 cellphone with Cingular EDGE/GPRS MediaNet unlimited data package
+   Nokia 6230 cellphone with Cingular EDGE/GPRS "Media Net" package with unlimited data
 
    USB data cable that connects to POP-port on phone
 
