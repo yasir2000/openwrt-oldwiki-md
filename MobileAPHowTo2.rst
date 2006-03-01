@@ -232,11 +232,11 @@ root@OpenWrt:~# pppd call cingular
 
 I am adding this last few lines of text, using the Nokia PPP connection :)
 
-ToDo:
-   1. Clean up this page
-   2. Reference that some packages came from different "people" directories on download site
-   3. Something a little more automated for attach. Perhaps a script so that NoCatSplash
-      takes you to a Connect/Disconnect page.
+Caveats:
 
+ 1. Some packages came from different "people" directories on download site.
+I didn't keep very good track of which came from where, but what didn't come
+from the kaloz or stable trees, probably came from nico.
+ 2. A NoCatSplash page with buttons for Connect/Disconnect would be handy.
 ----
 CategoryHowTo
