@@ -493,7 +493,7 @@ WDS access to your AP. wl0_wds functions as an access list of peers to accept co
 and peers to try to connect to; the peers will either need the mac address of your AP in their
 wl0_wds list, or wl0_lazywds enabled.
 
-Easy steps for a successfull WDS:
+Easy steps for a successful WDS:
 
 First do it without wireless protection and then activate the protection.
 If you activate both you will double the pain to find a problem.
@@ -505,6 +505,8 @@ If you activate both you will double the pain to find a problem.
  1. Have you commited your values? Do it. And reboot.
  1. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
+
+'''NOTE:''' Using a WRT54GS v4, I discovered wl0_hwaddr to be empty by default. The workaround was to clear wl0_wds and set wl0_lazywds to 1 on both routers. It may be possible to set wl0_hwaddr manually and use the above method, which would be more secure.
 
 /!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the
 WIFI" above, this will not just work, since you no longer have a br0 device. You will have
