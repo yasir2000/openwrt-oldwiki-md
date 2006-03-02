@@ -12,7 +12,7 @@
 = Using OpenWrt for the first time =
 
 !OpenWrt uses the DMZ LED to signal bootup, turning the LED on while booting and
-off once completely booted. Once booted, you should be able to ssh into the
+off once completely booted. Once booted, you should be able to telnet into the
 router using the last address it was configured for.
 
 {{{
@@ -55,6 +55,9 @@ this insecurity by not enabling a password. If you're in an environment that
 requires password protection we suggest setting a password with the {{{passwd}}}
 command, which will disable the telnet server and enable the Dropbear SSH
 server.
+
+'''When I upgraded I get "Access Denied" after I enter my password in SSH?'''[[BR]]
+After upgrading to RC4 and later, the filesystem is rewritten as part of the reflash process so that if the firmware size has increased the filesystem will not be corrupted.  This resets the filesystem and the method of command-line access reverts to telnet.  That is, you must telnet into the router on the last address it was configured for.
 
 '''What if I can't get in?'''[[BR]]
 The problem is caused when the JFFS2 partition (see below) is detected but
