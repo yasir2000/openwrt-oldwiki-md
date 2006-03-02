@@ -12,15 +12,18 @@
 = Using OpenWrt for the first time =
 
 !OpenWrt uses the DMZ LED to signal bootup, turning the LED on while booting and
-off once completely booted. Once booted, you should be able to telnet into the
+off once completely booted. Once booted, you should be able to ssh into the
 router using the last address it was configured for.
 
 {{{
-Trying 192.168.1.1...
-Connected to 192.168.1.1.
-Escape character is '^]'.
+The authenticity of host '192.168.1.1 (192.168.1.1)' can't be established.
+RSA key fingerprint is 5a:cb:6f:5a:99:7d:5e:2a:aa:28:20:42:ef:86:60:01.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.1' (RSA) to the list of known hosts.
+root@192.168.1.1's password:
 
-BusyBox v1.00 (2005.09.22-14:58+0000) Built-in shell (ash)
+
+BusyBox v1.00 (2005.11.23-21:46+0000) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
 
   _______                     ________        __
@@ -28,7 +31,7 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- WHITE RUSSIAN  ------------------------------------
+ WHITE RUSSIAN (RC4) -------------------------------
   * 2 oz Vodka   Mix the Vodka and Kahlua together
   * 1 oz Kahlua  over ice, then float the cream or
   * 1/2oz cream  milk on the top.
