@@ -41,7 +41,7 @@ Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 s
 
 '''All Models (pre-RC5+)'''
 
-Download and run a copy of recvudp (file location TBA) on your client machine - the program opens a blank window and listens on UDP port 4919.  Set the client IP address to be on the same network as router address 192.168.1.1.
+Download and run a copy of [https://dev.openwrt.org/ticket/255 recvudp] on your client machine - the program opens a blank window and listens on UDP port 4919.  Set the client IP address to be on the same network as router address 192.168.1.1.
 Plug in the router and wait for a message to appear in the recvudp program window:
 
 {{{
