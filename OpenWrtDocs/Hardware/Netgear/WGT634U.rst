@@ -13,8 +13,12 @@ The kernel boots on the system, we have drivers for the ethernet interface (b44)
 the new switch driver is integrated (robocfg will be obsolete). We have drivers for the
 wireless radio (madwifi-ng). The Kernel is 2.6.15.3.
 
+At present, Yasha has been kind enough to provide 2.6 images of the latest bleeding edge svn source recompiled daily at:
+
+[http://flyashi.dyndns.org:81/]
+
 If you want to help with development, attach a serial console and build an image from
-Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig.
+Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at [http://forum.openwrt.org/viewforum.php?id=3] regarding the wgt634u.
 
 Please always use the newest subversion code. Report any bugs via the
 [https://dev.openwrt.org ticket system].
@@ -34,8 +38,7 @@ find a new entry in the menu bar, called '''Upgrade to !OpenWrt'''. Use this fun
 the !OpenWrt WGT634U image to the router. After a while it should be reachable under the default
 IP {{{192.168.1.1}}}
 
-
-== Using the serial console ==
+== Using Serial Console ==
 
 Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server on your
 local PC.
