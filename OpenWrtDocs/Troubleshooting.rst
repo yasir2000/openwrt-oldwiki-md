@@ -39,6 +39,25 @@ done right the DMZ LED will quickly flash 3 times every second.
 
 Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
 
+'''All Models (pre-RC5+)'''
+
+Download and run a copy of recvudp (file location TBA) on your client machine - the program opens a blank window and listens on UDP port 4919.  Set the client IP address to be on the same network as router address 192.168.1.1.
+Plug in the router and wait for a message to appear in the recvudp program window:
+
+{{{
+Msg from 192.168.1.1: Press reset now, to enter Failsafe!
+}}}
+
+Immediately press and hold the reset button for 2 seconds. If successful the following message appears:
+
+{{{
+Msg from 192.168.1.1: Entering Failsafe!
+}}}
+
+The router is now in failsafe mode.
+
+If "Entering Failsafe!" message does not appear then you have missed the short time slot when OpenWrt can recognize the reset button (or not held down the reset button long enough).  If there are no messages (blank window) check the client's network and firewall settings to ensure that UDP port 4919 is open and accessible.
+
 
 == What should I do in failsafe mode? ==
 
