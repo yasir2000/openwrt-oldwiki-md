@@ -41,8 +41,11 @@ Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 s
 
 '''All Models (pre-RC5+)'''
 
-Download and run a copy of [https://dev.openwrt.org/ticket/255 recvudp] on your client machine - the program opens a blank window and listens on UDP port 4919.  Set the client IP address to be on the same network as router address 192.168.1.1.
-Plug in the router and wait for a message to appear in the recvudp program window:
+Download and run recvudp utility found here [https://dev.openwrt.org/ticket/255 recvudp] on your
+client machine - the program opens a blank window and listens on UDP port 4919.  Set the client to
+a static IP in the failsafe subnet range. The router will come up as 192.168.1.1 so 192.168.1.10
+for example is good. Plug in the router and wait for the go signal. Do NOT press reset before you
+get this:
 
 {{{
 Msg from 192.168.1.1: Press reset now, to enter Failsafe!
