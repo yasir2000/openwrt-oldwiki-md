@@ -45,10 +45,6 @@ installed, the firmware will simply configure the network interfaces, setup a
 basic NAT/firewall, and load the telnet server and dnsmasq (a combination DNS
 forwarder and DHCP server).
 
-/!\ '''WARNING:''' My WRT54GL did not work properly after installing OpenWrt
-RC4 (specifically it did not receive DHCP answers). Cleaning the NVRAM in a
-safe way as described in the !OpenWrt [:Faq] resolved the problem.
-
 '''Why no telnet password?'''[[BR]]
 Telnet is an insecure protocol with no encryption, we try to make a point of
 this insecurity by not enabling a password. If you're in an environment that
