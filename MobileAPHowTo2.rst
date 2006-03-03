@@ -245,4 +245,4 @@ I am adding this last few lines of text, using the Nokia PPP connection :)
  4. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
 
 ----
-CategoryHowTo CategoryHowTo
+CategoryHowTo
