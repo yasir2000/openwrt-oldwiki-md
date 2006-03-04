@@ -341,7 +341,7 @@ CFE> nvram commit              (takes a few seconds to complete)
 }}}
 
 
-== ASUS WL-500G and WL-300G ==
+== ASUS WL-HDD, WL-500G and WL-300G ==
 
 Pull the plug, press and hold the reset button, plug the device and wait until the
 PWR LED starts flashing slowly (almost immediately). Now release the reset button and
