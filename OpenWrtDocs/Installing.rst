@@ -44,6 +44,13 @@ for GNU/Linux systems use the {{{md5sum}}} command.
 
 Take a look at our development platform [http://dev.openwrt.org/ http://dev.openwrt.org/]
 
+'''Unstable Release'''
+
+At present, Yasha has been kind enough to provide 2.6 images of the latest bleeding edge svn source recompiled daily at:
+
+[http://flyashi.dyndns.org:81/]
+
+If you would like to help debug by testing these images, please be sure to have a SERIAL CONSOLE attached as networking will not always work out of the box.  Please post your feedback of bugs/issues you may discover to forum. 
 
 = Installing OpenWrt =
 
