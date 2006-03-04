@@ -377,37 +377,47 @@ There are several helpful tutorials especially for the ASUS routers at
 == ASUS WL-500G Deluxe ==
 
 This device is based on the Broadcom chipset so the openwrt-brcm-x image is required.
-Pull the plug, press and hold the reset button, plug the device and wait until the
-PWR LED starts flashing slowly (almost immediately). Now release the reset button and
-upload the firmware by TFTP using the following commands:
 
-TFTP commands:
+Enable '''Failure Mode''' - remove the power, press and hold the reset button while returning power. Within a few seconds the PWR LED starts flashing slowly (once second on, one second off). Release the reset button and continue.
+
+You should be able to ping the unit:
+
+{{{
+ping 192.168.1.1
+}}}
+
+/!\ Note, the ASUS WL-500GD doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
+
+(!) If you can’t ping the unit retry enabling "'Failure Mode'", even if the LED is blinking it sometimes does not respond. Turn it off and then on first. You can even do a factory reset.
+=== Send image with TFTP ===
 
 {{{
 tftp 192.168.1.1
 tftp> binary
 tftp> trace
-tftp> put openwrt-xxx-x.x-xxx.trx
+tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
+tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 }}}
 
-TFTP in windows 2000, windows XP
-{{{
-tftp -i 192.168.1.1 PUT openwrt-xxx-x.x-xxx.trx
-}}}
+After this, wait for the PWR LED to stop flashing and the device to reboot and you should be set. There's also nice shell script to do this work for you at http://openwrt.org/downloads/utils/flash.sh. This script is also included in the source under scripts/flash.sh.
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should
-be set. There's also nice shell script doing this work for you to be at
-[http://openwrt.org/downloads/utils/flash.sh]. This script is also included in the source
-under scripts/flash.sh.
+=== Send image with Firmware Restoration technique ===
 
-As an alternative (or if this installation routine doesn't do the trick for you) you can
-always use the ASUS Recovery tool from your utilities CD to upload your !OpenWrt firmware.
+You can use the ASUS Firmware Restoration tool to send am image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site.
 
-Another thing is that the ASUS [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500GD] doesn't revert
-to the 192.168.1.1 address when starting the bootloader, but use the LAN IP address set in
-NVRAM, so try this address or use the recovery tool if you've got problems flashing your
-firmware.
+/!\ Before you start the Firmware Restoration tool, disable all interfaces on the PC except for the one connected to the Router. The software seems to pick an interface at random.
 
+Put the Router in '''Failure Mode''' (see above) and start the '''Firmware Restoration''' program. Select the desired firmware and click on Upload. The software will search for the router - the status is ''Connect to the wireless device'', it will do this for about 32 seconds.
+
+/!\ The software will only find the router if it is in recovery mode.
+
+The tool provides status as it works:
+
+    * Uploading (LAN interface LED blinks during transfer)
+    * Recovery is in progress
+    * Success 
+
+After this you should be able to connect to the Router.
 
 == Siemens Gigaset SE505 ==
 
