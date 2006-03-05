@@ -5,7 +5,7 @@ initially it is bound to 192.168.2.1.[[BR]]
 It is also not possible to upload openwrt image via web interface. This aborts with an error.[[BR]]
 Up to now I would consider SE551 as unsupported as there is no possibility to upload firmware to the device.[[BR]]
 /!\ Find additional information on http://opossum.rat.at/~anno/SE551/
-(URL doesn't work at the moment)
+
 
 = Product infos =
 
