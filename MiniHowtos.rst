@@ -97,6 +97,8 @@ for a collecting host.
 
 /!\ Can somebody provide steps to run RRD? Thanks.
 
+For monitoring your traffic have a look at RrdTrafficWatch
+
 == OpenWrt + Chillispot solution ==
 
 I put the links in here because many people asking for such a solution based on !OpenWrt.
