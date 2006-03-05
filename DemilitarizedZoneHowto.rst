@@ -98,7 +98,9 @@ That's it. Have fun!
 = Links =
  * [http://en.wikipedia.org/wiki/Demilitarized_zone_(computing) Demilitarized zone (computing)]
 
-= Misc. =Easy way to put any host in DMZ mode=
+= Misc. Easy way to put any host in DMZ mode =
+
+
 Prerequisite:
 
  * Tested under WRTSL54GS. Comparable router recommended.
@@ -133,15 +135,11 @@ Instructions:
 ||<tablewidth="200px" tablestyle="">nano /etc/firewall.user ||
 
 
-5a. If it says it is Read-Only, just delete and it make a new copy. 
+5a. If it says it is Read-Only, just delete and it make a new copy.
 
 5b. Type:
 
-
-||<tablewidth="200px" tablealign="">rm /etc/firewall.user||
-
-
-
+||<tablewidth="200px" tablestyle="">rm /etc/firewall.user ||
 
 
 ||cp /rom/etc/firewall.user /etc/ ||
