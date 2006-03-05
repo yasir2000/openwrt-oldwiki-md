@@ -111,3 +111,18 @@ echo "</body></html>"  >> /tmp/rrd/index.html
 }}}
 
 This script will create und update the rrd-database for each mac found in /proc/net/arp. If a host is not online no update will be performed. This will safe some cpu-cycles :) . traff_graph stores the rrd-db, the created pictures/graphs and the index.html for viewing the graphs in /tmp/rrd. This means, after a reboot all information is lost and you will start at 0.
+
+Now you can test traff_graph. Make sure, you have only a single traffic-chain/host in your iptable rules. You can list ist with
+{{{
+iptables -L traffic -vx}}}
+Now run traff_graph. This will need a while... get a coffee ;-)
+Add traff_graph to your crontab and run it every 5 minutes. For viewing the graphs you have to add an symlink in /www wich points to /tmp/rrd. 
+{{{
+cd /www
+ln -s /tmp/rrd/ traffic }}}
+
+crontab:
+{{{
+# why does */12 not work???
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /traff_graph 2>&1 > /dev/null }}}
+
