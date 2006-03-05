@@ -98,18 +98,16 @@ That's it. Have fun!
 = Links =
  * [http://en.wikipedia.org/wiki/Demilitarized_zone_(computing) Demilitarized zone (computing)]
 
-
-
 = Misc. =Easy way to put any host in DMZ mode= =
-||<tablewidth="369px" tableheight="183px" tablealign=""bgcolor="#ffff99">'''Prerequisites:'''
-||
+Prerequisite:
 
+ * Tested under WRTSL54GS. Comparable router recommended.
 
+ * OpenWRT WhiteRussian RC4
 
-
+ * Assumes text editor nano is installed
 
 Instructions:
-
 
 1.Login to your router via SSH.
 
@@ -117,30 +115,34 @@ Instructions:
 
 3.You should see the follow variables: "dmz_enable" and "dmz_ipaddr"
 
-4.Type: nvram set dmz_enable=1 
-
+4.Type: nvram set dmz_enable=1
 
 4-a. Type: nvram set dmz_ipaddr=<your LAN host IP here>
 
+5.Now, you have to go edit your iptables. Type: nano /etc/firewall.user
 
-
-
-5.Now, you have to go edit your iptables. Type: nano /etc/firewall.user 5a. If it says it is Read-Only, just delete and it make a new copy. 
-
+5a. If it says it is Read-Only, just delete and it make a new copy.
 
 5b. rm /etc/firewall.user
-       cp /rom/etc/firewall.user /etc/
 
- . 
+ . cp /rom/etc/firewall.user /etc/
 
 6.You should see this in firewall script:
 
 ### DMZ (should be placed after port forwarding / accept rules)
-# iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.2
-# iptables        -A forwarding_rule -i $WAN -d 192.168.1.2 -j ACCEPT7.Change those lines to suit your needs. Comment out # to have the line in effect. Just change 192.168.1.2 part to the value that "dmz_ipaddr" has. For example: 
+# iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.2# iptables        -A forwarding_rule -i $WAN -d 192.168.1.2 -j ACCEPT 
+
+7.Change those lines to suit your needs. Comment out # to have the line in effect. Just change 192.168.1.2 part to the value that "dmz_ipaddr" has. For example:
 
 ### DMZ (should be placed after port forwarding / accept rules)
+||<tablewidth="633px" tableheight="65px" tablestyle="">iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.101 ||
+|| iptables        -A forwarding_rule -i $WAN -d 192.168.1.101 -j ACCEPT ||
+
+
 iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.101
-iptables        -A forwarding_rule -i $WAN -d 192.168.1.101 -j ACCEPT8.Now client 192.168.1.101 in under DMZ. 
+
+ . iptables        -A forwarding_rule -i $WAN -d 192.168.1.101 -j ACCEPT
+
+8.Now client 192.168.1.101 in under DMZ.
 
 ENJOY!
