@@ -111,26 +111,47 @@ Instructions:
 
 1.Login to your router via SSH.
 
-2.Type: nvram show | grep "dmz"
+2.Type:
+
+||<tablewidth="200px" tablestyle="">nvram show | grep "dmz" ||
+
 
 3.You should see the follow variables: "dmz_enable" and "dmz_ipaddr"
 
-4.Type: nvram set dmz_enable=1
+4.Type:
 
-4-a. Type: nvram set dmz_ipaddr=<your LAN host IP here>
+||<tablewidth="200px" tablestyle="">nvram set dmz_enable=1 ||
 
-5.Now, you have to go edit your iptables. Type: nano /etc/firewall.user
+
+4-a. Type:
+
+||<tablewidth="381px" tableheight="46px" tablestyle="">nvram set dmz_ipaddr=<your LAN host IP here> ||
+
+
+5.Now, you have to go edit your iptables. Type:
+
+||<tablewidth="200px" tablestyle="">nano /etc/firewall.user ||
+
+
+nano /etc/firewall.user
 
 5a. If it says it is Read-Only, just delete and it make a new copy.
 
-5b. rm /etc/firewall.user
+5b. Type:
 
- . cp /rom/etc/firewall.user /etc/
+ . ||<tablewidth="242px" tableheight="44px" tablestyle="">rm /etc/firewall.user ||
+
+
+
+||cp /rom/etc/firewall.user /etc/ ||
+
 
 6.You should see this in firewall script:
 
 ### DMZ (should be placed after port forwarding / accept rules)
-# iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.2# iptables        -A forwarding_rule -i $WAN -d 192.168.1.2 -j ACCEPT 
+||<tablewidth="720px" tableheight="65px" tablestyle=""># iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.2 ||
+||# iptables -A forwarding_rule -i $WAN -d 192.168.1.2 -j ACCEPT ||
+
 
 7.Change those lines to suit your needs. Comment out # to have the line in effect. Just change 192.168.1.2 part to the value that "dmz_ipaddr" has. For example:
 
@@ -138,10 +159,6 @@ Instructions:
 ||<tablewidth="633px" tableheight="65px" tablestyle="">iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.101 ||
 || iptables        -A forwarding_rule -i $WAN -d 192.168.1.101 -j ACCEPT ||
 
-
-iptables -t nat -A prerouting_rule -i $WAN -j DNAT --to 192.168.1.101
-
- . iptables        -A forwarding_rule -i $WAN -d 192.168.1.101 -j ACCEPT
 
 8.Now client 192.168.1.101 in under DMZ.
 
