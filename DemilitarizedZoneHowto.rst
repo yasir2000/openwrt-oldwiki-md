@@ -133,13 +133,14 @@ Instructions:
 ||<tablewidth="200px" tablestyle="">nano /etc/firewall.user ||
 
 
-nano /etc/firewall.user
-
-5a. If it says it is Read-Only, just delete and it make a new copy.
+5a. If it says it is Read-Only, just delete and it make a new copy. 
 
 5b. Type:
 
- . ||<tablewidth="242px" tableheight="44px" tablestyle="">rm /etc/firewall.user ||
+
+||<tablewidth="200px" tablealign="">rm /etc/firewall.user||
+
+
 
 
 
