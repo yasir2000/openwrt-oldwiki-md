@@ -98,7 +98,7 @@ That's it. Have fun!
 = Links =
  * [http://en.wikipedia.org/wiki/Demilitarized_zone_(computing) Demilitarized zone (computing)]
 
-= Misc. =Easy way to put any host in DMZ mode= =
+= Misc. =Easy way to put any host in DMZ mode=
 Prerequisite:
 
  * Tested under WRTSL54GS. Comparable router recommended.
