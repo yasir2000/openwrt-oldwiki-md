@@ -32,7 +32,7 @@ Place the following script in /sbin or where you like
 {{{
 #!/bin/sh
 
-# traff_graph version 0.01 by twist
+# traff_graph version 0.0.2 by twist
 # script for monitoring mac-based traffic on an openwrt-box
 # comments, suggestion, patches .... --> twist _at_ evilhome _dot_ de
 
@@ -43,11 +43,19 @@ fi
 
 iptables -L traffic -vnxZ -t filter > /tmp/traffic.tmp
 
-echo "<html><head><title>traffic @ tuxland</title></head><body>" > /tmp/rrd/index.html
+ALL_UP=0
+ALL_DOWN=0
+INDEX="<html><head><title>traffic @ tuxland</title></head><body>"
 
-# $1 = ImageFile , $2 = Time in secs to go back , $3 = RRDfil , $4 = GraphText 
+# $1 = ImageFile, $2 = Time in secs to go back, $3 = RRDfile, $4 = GraphText
 CreateGraph ()
 {
+        # only run, if no other rrdtool is running
+        if [ -n "$(ps | grep rrdtool | grep -v grep)" ]
+        then
+                return
+        fi
+
         rrdtool graph "${1}" -a PNG -s -"${2}" -w 550 -h 240 -v "bytes/s" \
                 'DEF:in='${3}':down:AVERAGE' \
                 'DEF:out='${3}':up:AVERAGE' \
@@ -71,14 +79,19 @@ do
         IP=$(cat /proc/net/arp | grep $MAC | awk '{print $1}')
         # no better way??? i hate this
         NAME=$(nslookup $IP | grep "Name:" | awk '{print $2}')
-        # debug
         # echo "mac: $MAC ip: $IP_ name: $NAME"
+
+        UP=$(cat /tmp/traffic.tmp | awk '{print $2 " " $7}' | grep $IP | awk '{print $1}')
+        UP=$(($UP+0))
+        ALL_UP=$(($ALL_UP+$UP))
+        DOWN=$(cat /tmp/traffic.tmp | awk '{print $2 " " $8}' | grep $IP | awk '{print $1}')
+        DOWN=$(($DOWN+0))
+        ALL_DOWN=$(($ALL_DOWN+$DOWN))
 
         # create db if not exists
         if [ ! -e /tmp/rrd/${MAC_}.rrd ]
         then
-                # debug
-                # echo "creating new /tmp/rrd/${MAC_}.rrd"
+                # echo creating /tmp/rrd/${MAC_}.rrd
                 iptables -A traffic -s $IP
                 iptables -A traffic -d $IP
 
@@ -90,36 +103,45 @@ do
                         RRA:AVERAGE:0.5:12:6360
         fi
 
-        UP=$(cat /tmp/traffic.tmp | awk '{print $2 " " $7}' | grep $IP | awk '{print $1}')
-        UP=$(($UP+0))
-        DOWN=$(cat /tmp/traffic.tmp | awk '{print $2 " " $8}' | grep $IP | awk '{print $1}')
-        DOWN=$(($DOWN+0))
-
-        # debug
         # echo "up: $UP down: $DOWN"
         rrdtool update /tmp/rrd/${MAC_}.rrd N:$UP:$DOWN
 
-        # traffic/day
         CreateGraph "/tmp/rrd/${MAC_}.day.png" 86400 /tmp/rrd/${MAC_}.rrd "IP: $IP MAC: $MAC_ Host: $NAME"
-        echo "<img src='${MAC_}.day.png'><br>" >> /tmp/rrd/index.html
+        INDEX=$INDEX"<img src='${MAC_}.day.png'><br>"
 
         # traffic/week
         # i don´t use this
         # CreateGraph "/tmp/rrd/${MAC_}.week.png" 604800 /tmp/rrd/${MAC_}.rrd "IP: $IP MAC: $MAC_ Host: $NAME"
-        # echo "<img src='${MAC_}.week.png'><br>" >> /tmp/rrd/index.html
+        # INDEX=$INDEX"<img src='${MAC_}.week.png'><br>"
 
 done
 
-echo "</body></html>"  >> /tmp/rrd/index.html
+# build sum-graph
+if [ ! -e /tmp/rrd/all.rrd ]
+then
+        rrdtool create /tmp/rrd/all.rrd -s 300 \
+                DS:up:ABSOLUTE:600:0:600000000 \
+                DS:down:ABSOLUTE:600:0:600000000 \
+                RRA:AVERAGE:0.5:1:2016 \
+                RRA:AVERAGE:0.5:3:2688 \
+                RRA:AVERAGE:0.5:12:6360
+fi
+
+rrdtool update /tmp/rrd/all.rrd N:$ALL_UP:$ALL_DOWN
+CreateGraph /tmp/rrd/all.png 86400 /tmp/rrd/all.rrd "all traffic from tuxland"
+
+INDEX=$INDEX"<br><img src='all.png'></body></html>"
+
+echo $INDEX > /tmp/rrd/index.html
 }}}
 
-This script will create und update the rrd-database for each mac found in /proc/net/arp. If a host is not online no update will be performed. This will safe some cpu-cycles :) . traff_graph stores the rrd-db, the created pictures/graphs and the index.html for viewing the graphs in /tmp/rrd. This means, after a reboot all information is lost and you will start at 0.
+This script will create and update the rrd-database for each mac found in /proc/net/arp. If a host is not online no update will be performed. This will safe some cpu-cycles :) . traff_graph stores the rrd-db, the created pictures/graphs and the index.html for viewing the graphs in /tmp/rrd. This means, after a reboot all informations are lost and you will start at 0.
 
 Now you can test traff_graph. Make sure, you have only a single traffic-chain/host in your iptable rules. You can list ist with
 {{{
 iptables -L traffic -vx}}}
 Now run traff_graph. This will need a while... get a coffee ;-)
-Add traff_graph to your crontab and run it every 5 minutes. For viewing the graphs you have to add an symlink in /www wich points to /tmp/rrd. 
+Add traff_graph to your crontab and run it every 5 minutes. Be carefull not to monitore to much hosts since rrdtool graph needs a lot of time. For viewing the graphs you have to add an symlink in /www wich points to /tmp/rrd. 
 {{{
 cd /www
 ln -s /tmp/rrd/ traffic }}}
