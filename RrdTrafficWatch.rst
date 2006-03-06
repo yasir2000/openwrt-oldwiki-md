@@ -1,25 +1,28 @@
 = Downloading needed things =
 
-* first you have to add Nico's testing directory to your /etc/ipkg.conf
+ * first you have to add Nico's testing directory to your /etc/ipkg.conf
   add
   {{{
   src unstable http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ }}}
   to your ipkg.conf
 
-* update your ipkg database and install the needed rrdtool
+ * update your ipkg database and install the needed rrdtool
   {{{
   ipkg update
   ipkg rrdtool }}}
   now you should have rrdtool and rrdupdate installed
 
-* have a look if your iptables are able to monitor traffic
+ * have a look if your iptables are able to monitor traffic
   {{{
   iptables -N traffic
   iptables -F traffic
   iptables -I FORWARD -j traffic }}}
+
   if you receive an error make sure
   * you have all necessary packages installed (I think, kmod-ipt-ipopt is needed for traffic)
   * the kernel-modules are loaded
+  * make sure, that the traffic-chain exists after booting. (Just add the iptable-commands to a start-up script. Remember to load the needed kernel-modules befor running the iptable-stuff)
+
   now you are capable to monitor traffic with iptables
 
 = Using the traff_graph - script =
@@ -125,4 +128,3 @@ crontab:
 {{{
 # why does */12 not work???
 0,5,10,15,20,25,30,35,40,45,50,55 * * * * /traff_graph 2>&1 > /dev/null }}}
-
