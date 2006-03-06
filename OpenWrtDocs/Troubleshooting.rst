@@ -41,8 +41,20 @@ Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 s
 
 '''All Models (pre-RC5+)'''
 
-Download and run recvudp utility found here [https://dev.openwrt.org/ticket/255 recvudp] on your
-client machine - the program opens a blank window and listens on UDP port 4919.  Set the client to
+Download and run recvudp utility.
+
+Source code: [http://downloads.openwrt.org/people/nbd/recvudp.c recvudp.c]
+
+Binaries:
+[http://f.fainelli.free.fr/openwrt/recvudp-win32.zip Windows32]
+[http://f.fainelli.free.fr/openwrt/recvudp-macosx.tar.gz MacOSX]
+[http://openwrt.inf.fh-brs.de/~olli/recvudp (K)ubuntu]
+[http://f.fainelli.free.fr/openwrt/recvudp-amd64.tar.gz AMD64-Linux]
+[http://f.fainelli.free.fr/recvudp-linuxppc.tar.gz LinuxPPC]
+[http://f.fainelli.free.fr/openwrt/recvudp-freebsd-i386.tar.gz FreeBSD]
+[http://f.fainelli.free.fr/openwrt/recvudp-macosx-universal.tar.gz MacOSX-universal]
+
+The recvudp program opens a blank window and listens on UDP port 4919.  Set the client to
 a static IP in the failsafe subnet range. The router will come up as 192.168.1.1 so 192.168.1.10
 for example is good. Plug in the router and wait for the go signal. Do NOT press reset before you
 get this:
@@ -61,6 +73,7 @@ The router is now in failsafe mode.
 
 If "Entering Failsafe!" message does not appear then you have missed the short time slot when OpenWrt can recognize the reset button (or not held down the reset button long enough).  If there are no messages (blank window) check the client's network and firewall settings to ensure that UDP port 4919 is open and accessible.
 
+Note: This was originally followed in [https://dev.openwrt.org/ticket/255 Trac#255]
 
 == What should I do in failsafe mode? ==
 
