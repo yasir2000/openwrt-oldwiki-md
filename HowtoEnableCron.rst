@@ -31,7 +31,7 @@ You may know some more useful tasks for cron on your Wrt router.
 == Create a init script for crond ==
 
 First you have to modify the init script so that {{{crond}}} will start up
-automatically on each bootup of your router. This because RC4 hasn't a correct
+automatically on each bootup of your router. This because RC4 doesn't have a correct
 {{{S60crond}}} script in the {{{/etc/init.d}}} directory.
 Remove the link and copy paste this into it.
 do:
