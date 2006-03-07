@@ -33,10 +33,10 @@ config file and upload it to your router using the '''Backup Settings''' option.
 
 The file is available here: http://downloads.openwrt.org/utils/wgt634u-upgrade.cfg
 
-After that, clear your browser cache, give the router some time to reboot, and then you should
-find a new entry in the menu bar, called '''Upgrade to !OpenWrt'''. Use this function to upload
-the !OpenWrt WGT634U image to the router. After a while it should be reachable under the default
-IP {{{192.168.1.1}}}
+After that, ''clear your browser cache'', give the router some time to reboot, and then you should
+find a new entry in the menu bar, called '''Upgrade to !OpenWrt'''.  Use this function to upload the !OpenWrt WGT634U image to the router.  Note:  After that custom configuration file is uploaded and the router reboots, you will be unable to obtain a DHCP address from the machine.  Set a static IP for the network interface you have connected to the router.
+
+After a while (and we mean ''a while'') it should be reachable under the default IP {{{192.168.1.1}}}.  Do '''not''' classify the router as dead until you have given it 10 minutes, rebooted it, and given it 10 more.
 
 == Using Serial Console ==
 
@@ -127,6 +127,23 @@ The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration
 Everything is configured in {{{/etc}}}. For network configuration please modify
 {{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please
 back it up. You eventually need it to restore your original firmware.
+
+== Client-mode for the wireless card ==
+
+The WGT634U also supports client-mode (aka managed mode). You need kmod-madwifi, which is probably already installed since it's selected by default.
+
+Modes cannot be changed with iwconfig. You need wlanconfig. For help run it without parameters.
+
+The usual commands would probably be:
+
+{{{
+ifconfig ath0 down    # if it isn't already down
+wlanconfig destroy ath0
+wlanconfig ath0 create wlandev wifi0 wlanmode sta
+iwconfig ath0 essid your_essid
+}}}
+
+You can then configure ath0 as usual with ifconfig and iwconfig. Iwconfig will display Mode: Managed, but the card will be in client-mode.
 
 = Using usb drive for Root =
 
