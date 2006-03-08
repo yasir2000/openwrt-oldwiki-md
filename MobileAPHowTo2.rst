@@ -58,10 +58,9 @@ usbserial vendor=0x421 product=0x40f
 == Install microcrom so we can check things out ==
 {{{
 root@OpenWrt:~# ipkg install microcom
-root@OpenWrt:~# reboot
 }}}
 
-== Login again, check by typing AT to modem, see if it responds OK ==
+== Verify we can talk to phone, by typing AT to modem, see if it responds OK ==
 {{{
 root@OpenWrt:~# microcom -D/dev/usb/tts/0
 AT
