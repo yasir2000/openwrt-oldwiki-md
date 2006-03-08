@@ -242,12 +242,11 @@ root@OpenWrt:~# pppd call cingular
 
 I am adding this last few lines of text, using the Nokia PPP connection :)
 
-= Caveats =
+= Notes =
 
- 1. Some packages came from different "people" directories on download site. Firmware image from Kaloz directory. I didn't keep very good track of which additional package came from where, but what didn't come from the kaloz or stable trees, probably came from nico.
- 2. A NoCatSplash page with buttons for Connect/Disconnect would be handy.
- 3. Want the "Internet" LED on or blinking when dialed up, as a reminder. Or use SES button/LED for connect/disconnect and indication.
- 4. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
+ 1. Tested with firmware from people/nbd directory, -preRC5 version dated March 8.
+
+ 2. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
 
 ----
 CategoryHowTo
