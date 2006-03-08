@@ -26,16 +26,20 @@ can get your hands on, to keep things as local as possible.
 
 = Basic connectivity to phone =
 
+== USB modules ==
+
 == Install USB-serial module ==
+First we need to install some kernel modules.
 {{{
+root@OpenWrt:~# ipkg install kmod-usb-ohci
 root@OpenWrt:~# ipkg install kmod-usb-serial
-root@OpenWrt:~# insmod usbserial
+root@OpenWrt:~# reboot
 }}}
 
 == Verify that cellular phone is recognized ==
 
 {{{
-root@OpenWrt:~# logread | tail
+root@OpenWrt:~# logread | grep USB
 Jan  1 00:33:01 (none) kern.info kernel: hub.c: new USB device 01:02.0-1, assigned address 2
 Jan  1 00:33:01 (none) kern.warn kernel: usb.c: USB device 2 (vend/prod 0x421/0x40f) is not claimed by any active driver.
 Jan  1 00:39:01 (none) kern.info kernel: usb.c: registered new driver serial
