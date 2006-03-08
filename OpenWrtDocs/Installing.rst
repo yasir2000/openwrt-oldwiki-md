@@ -7,7 +7,7 @@ OpenWrtDocs [[TableOfContents]]
 
 = BIG FAT WARNING =
 ----------
- /!\ '''WARNING  !OpenWrt is a COMMAND LINE  GNU/Linux distribution. It comes with NO WARRANTY and NO TECHNICAL SUPPORT. Loading !OpenWrt WILL VOID YOUR WARRANTY.''' /!\
+ . /!\ '''WARNING  !OpenWrt is a COMMAND LINE  GNU/Linux distribution. It comes with NO WARRANTY and NO TECHNICAL SUPPORT. Loading !OpenWrt WILL VOID YOUR WARRANTY.''' /!\ 
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
 
@@ -64,7 +64,6 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
 On routers with a DMZ LED, !OpenWrt will light the DMZ LED while booting, after the bootup scriptes are finished it will turn off the DMZ LED. Sometimes automatic rebooting does not work, so you can safely reboot (power cycle) after waiting 5 minutes.
 
 The TFTP commands vary across different implementations. Here are two examples, netkit's TFTP client and Advanced TFTP.  (Note that Advanced TFTP used to be available from ftp://ftp.mamalinux.com/pub/atftp/ but that server seems to have gone offline permanently.  Please post another source for it if you know where one is!)
-
 
 netkit's tftp commands:
 
@@ -152,13 +151,11 @@ To use the TFTP method above you need to enable boot_wait. Plug your ethernet ca
 
 SquashFS files:
 
- . The firmwares with "squashfs" in the filename use a combination of a readonly SquashFS partition and a writable JFFS2 partition. This gives you a /rom with all the files that shipped with the firmware and a writable root containing symlinks to /rom. This is considered the standard install.
- Note that this image has almost the same functionality as JFFS2 image and is much more secure.
+ . The firmwares with "squashfs" in the filename use a combination of a readonly SquashFS partition and a writable JFFS2 partition. This gives you a /rom with all the files that shipped with the firmware and a writable root containing symlinks to /rom. This is considered the standard install. Note that this image has almost the same functionality as JFFS2 image and is much more secure.
 
 JFFS2 files:
 
- . The firmwares with "jffs2" in the name are JFFS2 only; all of the files are fully writable. The "4M" and "8M" in the filenames is a reference to the flash block size; most 4M flash chips use a block size of 64k while most 8M chips tend to use a 128k block size -- there are some exceptions. The JFFS2 partition needs to be formatted for the correct block size and hence the two versions.
- The JFFS2 versions are for experienced users only -- these firmwares only have minimal support for failsafe mode.
+ . The firmwares with "jffs2" in the name are JFFS2 only; all of the files are fully writable. The "4M" and "8M" in the filenames is a reference to the flash block size; most 4M flash chips use a block size of 64k while most 8M chips tend to use a 128k block size -- there are some exceptions. The JFFS2 partition needs to be formatted for the correct block size and hence the two versions. The JFFS2 versions are for experienced users only -- these firmwares only have minimal support for failsafe mode.
 
 For more information, see the [http://downloads.openwrt.org/whiterussian/00-README 00-README] file that comes with the release.
 
@@ -183,8 +180,7 @@ First, for this to work the '''internet port must have a valid ip address''', ei
 
 /!\ '''WRT54GLv1 with firmware 4.30.0 Just use "Firmware upgrade page"'''
 
-/!\ '''WRT54GLv1 with firmware downgraded to 4.20.7 also allows you to just use "Firmware upgrade page".  It also supports the ping_times variation of the hack.
-'''
+/!\ '''WRT54GLv1 with firmware downgraded to 4.20.7 also allows you to just use "Firmware upgrade page".  It also supports the ping_times variation of the hack. '''
 
 /!\ '''WRT54GSv2.1 with firmware 4.70.6 allows you to use the "Firmware upgrade page".  It also supports enabling boot_wait through use of Uranium235's script (link is above).'''
 
@@ -329,6 +325,13 @@ tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
 After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.11.2 or whatever the unit was set to prior to the installation.
+
+'''Does not work on the Buffalo WLA2-G54C. The boot loader keeps the ip set before uploading OpenWrt so was able to TFTP the Buffalo firmware back after removing the relevant parts in a hex editor.'''
+
+WLA2-G54C has the following chips inside, Broadcom BCM4712KPB, Intel TE28F320 flash.
+
+I tried the openwrt-brcm-2.4-squashfs.trx file which I presume is the correct one.
+
 
 == Buffalo AirStation WBR2-G54S ==
 Here too you need an openwrt-brcm-*.trx image. The device has boot_wait=on by default, so you can just begin sending the file from your TFTP client, power up the device, and let it install. The TFTP loader uses the IP address to which you've configured the device; 192.168.11.1 by default.  If you ping the device, the TFTP loader will respond with TTL=100, but both the Buffalo firmware and !OpenWrt will respond with TTL=64.
