@@ -27,7 +27,7 @@ see the !OpenWrt [:Faq] to learn how to flush your ARP cache.
 
 '''TIP:''' !OpenWrt ''itself'' uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will ''not'' reset the NVRAM.  The ''bootloader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
 
-'''Linksys models'''
+=== Linksys models ===
 
 Plug in the router and wait for the DMZ
 LED to light up.  Then immediately press and hold the reset button for 2 seconds. If
@@ -35,11 +35,13 @@ done right the DMZ LED will quickly flash 3 times every second.
 
 /!\ Holding the reset button ''before'' the DMZ LED turns on (i.e. when the bootloader is still running) can reset the NVRAM.  Resetting the NVRAM will brick some models.
 
-'''Non-Linksys models'''
+
+=== Non-Linksys models ===
 
 Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
 
-'''All Models (pre-RC5+)'''
+
+=== All Models (pre-RC5+) ===
 
 Download and run recvudp utility.
 
@@ -73,7 +75,7 @@ The router is now in failsafe mode.
 
 If "Entering Failsafe!" message does not appear then you have missed the short time slot when !OpenWrt can recognize the reset button (or not held down the reset button long enough).  If there are no messages (blank window) check the client's network and firewall settings to ensure that UDP port 4919 is open and accessible.
 
-Note: This was originally followed in [https://dev.openwrt.org/ticket/255 Trac#255]
+Note: This was originally followed in [https://dev.openwrt.org/ticket/255 ticket #255]
 
 == What should I do in failsafe mode? ==
 
