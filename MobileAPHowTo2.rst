@@ -47,7 +47,7 @@ Those vendor and product numbers, we must do something with them.....
 
 == Modify usb-serial options ==
 {{{
-root@OpenWrt:~# vi /etc/modules.d/70-usb-serial
+root@OpenWrt:~# vi /etc/modules.d/*-usb-serial
 usbserial vendor=0x421 product=0x40f
 }}}
 
