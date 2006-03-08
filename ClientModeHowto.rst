@@ -6,7 +6,6 @@ If you want to use OpenWrt to connect your router to another access point (AP) o
 
 Reading the [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151 Setting up OpenWrt in client mode] thread in the forum might help your understanding of Client Mode a bit.
 
-
 == Requirements ==
  * You need to have a recent version of !OpenWrt White Russian (at least RC3) installed
  * A Wrt router (which acts as your client)
@@ -30,13 +29,16 @@ There are two different client modes: bridged and routed.  They are mutually exc
 === Bridged client mode ===
 In bridged client mode, all computers connected to the client will be connected to the subnet of the access point you are connecting to (no firewalling, unless you use ebtables).
 
-When using the bridged client mode, you should disable the DNS/DHCP server:
+When using the bridged client mode, you should disable the DNS/DHCP server:  If the "chmod" command fails and reports a read-only file system you will have to remove it instead (you can always put it back since it's just a symlink to the real script).
+
 
 {{{
 chmod -x /etc/init.d/S50dnsmasq
+OR
+rm /etc/init.d/S50dnsmasq
 }}}
 
-When your configuration was set to routed client mode before, you need to add the wireless interface to the bridge again and remove it from the wan interface.
+If your configuration was previously set to "routed" client mode, you'll need to add the wireless interface to the bridge again and remove it from the wan interface.
 
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface names] for your hardware version.
 
@@ -145,4 +147,4 @@ This will set up the wireless interface according to your nvram settings.
  * Detailed information on setting up a wired-wireless bridge with encryption [[BR]]- ["WirelessBridgeWithWPAHowto"]
 
 ----
- CategoryHowTo
+ . CategoryHowTo 
