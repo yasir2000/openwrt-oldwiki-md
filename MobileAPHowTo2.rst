@@ -53,6 +53,7 @@ Those vendor and product numbers, we must do something with them.....
 {{{
 root@OpenWrt:~# vi /etc/modules.d/*-usb-serial
 usbserial vendor=0x421 product=0x40f
+root@OpenWrt:~# reboot
 }}}
 
 == Install microcrom so we can check things out ==
