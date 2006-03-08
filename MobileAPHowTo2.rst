@@ -180,6 +180,7 @@ If we are going to have the "lock" option in the config file, we need the
 So add a startup script that ensures it is created on each boot.
 {{{
 root@OpenWrt:~# vi /etc/init.d/S80ppp
+#!/bin/sh
 mkdir -p /var/lock
 root@OpenWrt:~# chmod +x /etc/init.d/S80ppp
 }}}
