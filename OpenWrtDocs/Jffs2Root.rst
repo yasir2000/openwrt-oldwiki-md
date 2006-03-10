@@ -17,6 +17,8 @@ This Jffs2 filesystem is initialised with softlinks that point back to the Squas
 The Jffs2 filesystem is normally preserved after firmware upgrades (although it will be lost if the image gets significantly larger).
 This layout has the advantage of preserving changes at the cost of some extra complexity (all the softlinks) and some small amount of wasted space (ROM files which are replaced still take up space).
 
+    Note: as of White Russian RC4, the jffs2 filesystem is [http://forum.openwrt.org/viewtopic.php?pid=22502 always reinitialised] when you replace the squashfs filesystem.
+
 If you use the Jffs2 root, you end up with a single filesystem containing all the files stored in the Flash RAM.
 This filesystem is writeable but all changes are lost if the firmware is upgraded.
 
