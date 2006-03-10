@@ -53,6 +53,22 @@ Adam2_AR7RD >
 see here for more details:
 http://www.seattlewireless.net/index.cgi/ADAM2
 
+=== by adam itself ===
+
+adam2 listen UDP port 5035. It is possible to send packet
+192.168.0.2:5035 > 255.255.255.255:5035
+00001602 01000000 00000000 00000000
+
+and get responce like:
+
+10.8.8.8:5035 > 192.168.0.2:5035
+00001602 02000000 0808080a 00000000
+
+0a080808 - IP address of ADAM
+160202 - ADAM' version (0.22.02 in this example). Adam send info only if version in requesting package the same as it's native version (i.e. 0.22.XX for example).
+
+For version 0.22 it is possible to use "adam2app.exe" TI service utility http://star.oai.pp.ru/jtag/adam2-oleg.zip
+
 == Restoring mtd3 partition ==
 
 Use telnet to port 21 to access ADAM2, than type in "USER adam2" and hit enter, next type "PASS adam2" and hit enter once more. Full transcript will be like this:
