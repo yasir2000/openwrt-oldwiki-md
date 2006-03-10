@@ -99,5 +99,17 @@ This ejtag layout should support all ar7 based boards with a 14 pin jtag pinout.
 Since DMA Routines do NOT exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
 
 [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for D-Link DSL-30xT], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
+
+it is possible to use latest jtag-tools (GPL) with EJTAG driver included to work with flash on AR7 based boards http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip It works with Xilinx-cable (5 resistors) http://openwince.sourceforge.net/jtag/iPAQ-3600/images/interface.png http://openwince.sourceforge.net/jtag/iPAQ-3600/images/14.jpg
+
+commands example for Dlink DSL-500T router:
+
+jtag> cable parallel 0x378 DLC5
+jtag> detect
+jtag> detectflash 0x30000000 1
+jtag> readmem 0x30000000 0x400000 dsl-500t-fullflash.img
+jtag> flashmem 0x30000000 adam2.img
+
+
 ----
 CategoryOpenWrtPort
