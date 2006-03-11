@@ -60,13 +60,13 @@ cd ~
 
 === Compiling ===
 
- * Start the configuration
+==== Start the configuration ====
 {{{
 $ make menuconfig
 }}}
 Leave all defaults and save the configuration to the default file.
 
- * Start compiling
+==== Start compiling ====
 {{{
 $ make
 }}}
@@ -97,6 +97,8 @@ Change line 47, adding ".exe" to the end:
 
 This will get you past the GDB, and it'll fail while patching the LZMA files.
 
+==== Patching ====
+
 {{{
 #
 patch -d /home/Yasha/openwrt/build_mipsel/lzma -p1 < lzma-406-zlib-stream.patch
@@ -125,6 +127,29 @@ target/linux/linux-2.4/patches/generic/105-netfilter_TTL.patch: done.
 $ dos2unix target/linux/linux-2.4/patches/generic/000-linux_mips.patch
 target/linux/linux-2.4/patches/generic/000-linux_mips.patch: done.
 }}}
+
+Or just use:
+{{{
+target/linux/linux-2.4/patches/generic/*.patch
+}}}
+
+==== Patching the patches ====
+
+Then the patches need to be patched. Yes! This is because the file ipt_CONNMARK.c is the same ipt_connmark.c under windows, but not under Linux.
+I did this with vi for "105-netfilter_TTL.patch" with
+{{{
+:1,$s/ipt_TTL\./ipt_TTL_target\./gIc
+}}}
+
+And for "112-netfilter_connmark.patch" with
+{{{
+:1,$s/ipt_CONNMARK\./ipt_CONNMARK_target\./gIc
+:1,$s/ipt_TTL\.o/ipt_TTL_target\.o/gIc
+}}}
+
+That brought me through the patching.
+
+BUT the error is caused for more files because there are more of them having the same name in uppercase and lowercase. So an unpack script is needed to unpack "linux-2.4.30.tar.bz2" to give these files an differnt name. Then this script needs to be injected into the existing Makefiles.
 
 That's all I have so far. If you have any ideas, find Flyashi on #openwrt. I'd appreciate the help... thanks!
 
