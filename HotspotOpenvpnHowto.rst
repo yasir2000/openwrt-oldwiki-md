@@ -25,6 +25,7 @@ able to see and to use. Also your own connection should be encrypted. WEP encryp
 only quite insecure but would also conflict with the idea of an open hotspot. So we decided to
 create a VPN using OpenVPN.
 
+(Note that this setup allows a single client to get access to the network behind the VPN, using a static key...)
 
 = Network =
 
