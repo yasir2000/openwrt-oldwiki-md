@@ -40,7 +40,7 @@ _______________________________________
 
 The console is located aproximately in center of a board, it's JP5, the only 5-pin 2,54mm-step connector. Usualy it is already soldered-in. Voltage reference is 3.3 volts and it is set by default at 38400,8,N,1.
 
-== JTAG port pinout ==
+= JTAG port pinout =
 JP1 connector on the DSL-500T,DSL-504T and DSL-G604T board is AR7 MIPS core EJTAG. Usualy it is not soldered in, so solder in 7x2 2,54 mm DIL header here first.
 
 Xilinx cable to LPT port and pinout
