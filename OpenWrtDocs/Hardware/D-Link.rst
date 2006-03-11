@@ -1,6 +1,6 @@
 = D-Link hardware notes =
 [[PageList(OpenWrtDocs/Hardware/D-Link)]]
-= Shared Information =
+= Serial port pinout =
 == DSL-G300T/302T/500T serial pinout ==
 {{{
  ___________________________________ 
@@ -40,19 +40,21 @@ _______________________________________
 
 The console is located aproximately in center of a board, it's JP5, the only 5-pin 2,54mm-step connector. Usualy it is already soldered-in. Voltage reference is 3.3 volts and it is set by default at 38400,8,N,1.
 
-== DSL-500T pinout ==
-JP1 connector on the board is AR7 EJTAG.
+== JTAG port pinout ==
+JP1 connector on the DSL-500T,DSL-504T and DSL-G604T board is AR7 MIPS core EJTAG. Usualy it is not soldered in, so solder in 7x2 2,54 mm DIL header here first.
 
 Xilinx cable to LPT port and pinout
 
 {{{
-LPT (pin)----------- EJTAG JP1(pin)
-2  <- 100om -> 2 (TDI)
-3  <- 100om -> 5 (TCK)
-4  <- 100om -> 4 (TMS)
-13 <- 51om -> 3 (TDO)
-20,25 <------> 12 (GND)
-               connect JTAG pins 1<-100om->8
+LPT (pin)------- EJTAG JP1(pin)
+2  <- 100 Ohm -> 2 (TDI)
+3  <- 100 Ohm -> 5 (TCK)
+4  <- 100 Ohm -> 4 (TMS)
+13 <- 51 Ohm  -> 3 (TDO)
+20 <--*--------> 12 (GND)
+25 <--+
+     +100 Ohm -> 1 (connect JTAG pins 1<-100om->8)
+     +---------> 8
 }}}
 
 ----
