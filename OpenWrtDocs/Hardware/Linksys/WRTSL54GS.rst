@@ -9,5 +9,5 @@ forum post: http://forum.openwrt.org/viewtopic.php?id=3529
 
 === Firmware Download ===
 
-* nbd: http://openwrt.inf.fh-brs.de/~nbd/wrtsl/ - this one has correct failsafe lan ports...
-* kaloz: http://downloads.openwrt.org/people/kaloz/2006-02-06/
+ * nbd: http://openwrt.inf.fh-brs.de/~nbd/wrtsl/ - this one has correct failsafe lan ports...
+ * kaloz: http://downloads.openwrt.org/people/kaloz/2006-02-06/
