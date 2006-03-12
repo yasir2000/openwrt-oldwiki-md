@@ -275,6 +275,8 @@ tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 
 After this, wait for the PWR LED to stop flashing and the device to reboot and you should be set. There's also nice shell script to do this work for you at http://openwrt.org/downloads/utils/flash.sh. This script is also included in the source under scripts/flash.sh.
 
+(!) Some devices don't require you to download the firmware first (in fact, it doesn't work at all). So don't worry if the router won't reply to the {{{get}}} but accepts the {{{put}}}. You can even leave out the {{{ASUSSPACELINK}}}. For some reason though, the device doesn't reboot after flashing. Just wait a little, unplug the power and reconnect. After a while (1-2 minutes), the WLAN LED should light and OpenWRT is up and running.
+
 === Send image with Firmware Restoration technique ===
 You can use the ASUS Firmware Restoration tool to send am image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site.
 
