@@ -6,12 +6,12 @@
 
 = About the OpenWrt Image Builder =
 
-This guide should process you in building your own individual custom
+This guide should guide you in building your own individual custom
 OpenWrt firmware images by using the !OpenWrt Image Builder.
 
 Why custom images?
 [[BR]]These images are for people who want to do less configuration on the
-router or want to distribute the images for friends or for backup
+router itself, or who want to distribute the images to friends, or for backup
 purposes. This list could be continued by your own ideas.
 
 
@@ -24,18 +24,18 @@ purposes. This list could be continued by your own ideas.
 
 = Using the OpenWrt Image Builder =
 
-If you just like to see how the default images (default, micro and pptp
-included in the Image Builder) gets build, continue with the steps
+If you just want to see how the default images (default, micro and pptp
+included in the Image Builder) get built, continue with the steps
 [:ImageBuilderHowTo#Obtaining_and_installing_the_Image_Builder:3.1 Obtaining and installing the Image Builder]
 and [:ImageBuilderHowTo#Building_the_image:3.5 Building the image].
 
-Everyone else should follow point by point on this howto.
+Everyone else should follow step-by-step in this HOWTO.
 
 
 [[Anchor(Obtaining_and_installing_the_Image_Builder)]]
 == Obtaining and installing the Image Builder ==
 
-The Image Builder could be downloaded from [http://downloads.openwrt.org/whiterussian/newest/].
+The Image Builder can be downloaded from [http://downloads.openwrt.org/whiterussian/newest/].
 
 Download it into your home directory (don't use the root account) and untar the
 tarball. After that change into the new directory.
@@ -53,15 +53,15 @@ cd ~/OpenWrt-ImageBuilder-Linux-i686
 == The package lists ==
 
 Now you are ready to build your own images. By default the Image Builder
-builds three types of images. They're default, micro and pptp. In the
+builds three types of images: default, micro and pptp. In the
 file {{{lists/<image_name>.brcm-2.4}}} are the packages defined which go into
-the image. It will use the ipkg packages out of the {{{packages}}} directory.
+the image. It will use the ipkg packages from the {{{packages}}} directory.
 
 When removing packages just remove the line with the package name from the
 {{{<image_name>.brcm-2.4}}} file.
 
 '''NOTE:''' Dependencies are not automatically resolved for ipkg packages by
-the Image Builder.
+ the Image Builder.
 
 Let's start with an example by adding the nas package into your new image.
 
@@ -82,7 +82,7 @@ cd lists
 cp -v default.brcm-2.4 my-image.brcm-2.4
 }}}
 
-Now edit {{{my-image.brcm-2.4}}} with your favourite editor or just append the
+Now edit {{{my-image.brcm-2.4}}} with your favorite editor or just append the
 nas package with:
 
 {{{
@@ -130,7 +130,7 @@ If you don't need any special tweaks you can go ahead with
 
 == Additional packages ==
 
-When you have additional packages which are not listed (f.e. {{{nas}}}) in the
+When you have additional packages which are not listed (e.g. {{{nas}}}) in the
 {{{packages}}} directory you can add them by copying the package directly into
 the {{{packages}}} directory. After that add the package as described in
 [:ImageBuilderHowTo#The_package_lists:3.2 The package lists] above.
@@ -147,7 +147,7 @@ wget http://downloads.openwrt.org/whiterussian/packages/non-free/ \
 Sometimes it's useful to add and/or replace files, directories and links
 in the images with your own.
 
-You've two options here.
+You have two options here.
 
 
 '''files directory:'''[[BR]]
@@ -162,7 +162,7 @@ touch files/etc/example.txt
 }}}
 
 '''files.<image_name> directory:'''[[BR]]
-Files, directories and links in here would only go into the image you
+Files, directories and links in here will only go into the image you
 defined by {{{<image_name>}}}. Existing ones are replaced.
 
 {{{
@@ -178,15 +178,15 @@ You can copy or create files, directories and links as you like.
 [[Anchor(Building_the_image)]]
 == Building the image ==
 
-That's very easy. Just type {{{make}}} and all images you defined in the
-{{{lists}}} directory gets build.
+This is easy. Just type {{{make}}} and all images you defined in the
+{{{lists}}} directory get built.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 make clean && make
 }}}
 
-All builded images can be found in the {{{bin/<image_name>}}} directory.
+All built images can be found in the {{{bin/<image_name>}}} directory.
 
 
 Building the images looks like this (here only for the image {{{my-image}}}):
