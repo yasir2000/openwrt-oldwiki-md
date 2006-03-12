@@ -161,6 +161,41 @@ OK AT&F&D2&C1E0V1S0=0
 OK AT+IFC=2,2
 # /end att
 #AT&FE0S0=0
+#AT&F0&D2+IFC=2,2V1Q0XIS0=0S7=50+CMEE=1
+
+# ----------------------------------------------
+
+SAY '\n'
+SAY 'Setting APN\n'
+
+# Set Access Point Name (APN) ------------------
+# Incorrect APN or CGDCONT variable is a
+# frequent cause of peer LCP TermReqs
+# So try each setting at least once! =)
+
+#REG:\s1 AT+cgdcont=1,"IP","proxy"
+#OK 'AT+CGDCONT=0,"IP","proxy"'
+#OK 'AT+CGDCONT=1,"IP","proxy"'
+#OK 'AT+CGDCONT=2,"IP","proxy"'
+#OK 'AT+CGDCONT=0,"IP","isp.cingular"'
+OK 'AT+CGDCONT=1,"IP","isp.cingular"'
+#OK 'AT+CGDCONT=2,"IP","isp.cingular"'
+
+# ----------------------------------------------
+
+SAY '\n'
+SAY 'Dialing...\n'
+# Dial the ISP ---------------------------------
+# a few different dial commands are shown
+# the default should work fine
+
+#REG:\s1 'ATD*99***1#'
+OK ATDT*99***1#
+#OK ATD*99***1#
+#OK ATD*99#
+#OK 'ATD*##***##'
+#OK
+CONNECT ' '
 }}}
 
 == PPP device setup ==
