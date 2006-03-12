@@ -173,9 +173,9 @@ executing the following command as root:
         mknod /dev/ppp c 108 0
 root@OpenWrt:~# mkdir /var/lock
 root@OpenWrt:~# vi /etc/modules.d/70-ppp
+slhc
 ppp_generic
 ppp_async
-slhc
 }}}
 
 == Lock file directory creation ==
