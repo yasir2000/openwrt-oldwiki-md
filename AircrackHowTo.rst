@@ -22,7 +22,7 @@ penetration/security testing.
 
 == Where is the Official Homepage? ==
 
-The official page for Aircrack is [http://www.cr0.net:8040/code/network/aircrack/ here].
+The official page for Aircrack is [http://www.aircrack-ng.org here].
 
 
 = Requirements =
@@ -102,5 +102,6 @@ usage: airodump <interface name or pcap filename> <output prefix> <channel> [IVs
 
 = Links =
 
- *If you get stuck on something, there are lots of good resources at the official aircrack [http://www.cr0.net:8040/code/network/aircrack/ website]
- *Aircrack discussion forums are [http://100h.org/forums/ here]
+ *If you get stuck on something, there are lots of good resources at the official aircrack [http://www.aircrack-ng.org website]
+ *Aircrack discussion forums are [http://tinyshell.be/aircrackng/forum/ here] 
+ *You can also join the channel #aircrack-ng on Freenode IRC (irc.freenode.net)
