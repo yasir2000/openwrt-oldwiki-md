@@ -14,8 +14,8 @@ Additional hardware note: Looks like the SL hardware maps differently from previ
 ||3              ||           2||
 ||2              ||           1||
 ||1              ||           0||
-||(CPU)          ||           4||
-||Internet       ||           5||
+||(CPU)          ||           5||
+||Internet       ||           4||
 
 
 = More information =
