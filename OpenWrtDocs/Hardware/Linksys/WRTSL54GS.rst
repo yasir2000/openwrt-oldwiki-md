@@ -9,13 +9,13 @@ One note is the atenna is **not** detachable any more.
 == port mapping ==
 
 Additional hardware note: Looks like the SL hardware maps differently from previous units:
-external-port#    internal#
-4                         3
-3                         2
-2                         1
-1                         0
-(CPU)                5
-Internet              4
+||external-port# ||   internal#||
+||4              ||           3||
+||3              ||           2||
+||2              ||           1||
+||1              ||           0||
+||(CPU)          ||           4||
+||Internet       ||           5||
 
 
 = More information =
