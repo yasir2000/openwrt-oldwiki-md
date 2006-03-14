@@ -91,6 +91,7 @@ This part took some Googling. Finally I found a good page that I used as the bas
 [http://www.advantedgecomputing.com/opensource/gc83linux.html]
 
 {{{
+root@OpenWrt:~# mkdir /etc/ppp/peers
 root@OpenWrt:~# vi /etc/ppp/peers/cingular
 # information about your device
 /dev/usb/tts/0 # device file assigned to Nokia 6230
