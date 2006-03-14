@@ -4,7 +4,7 @@
 = Hardware versions =
 There is only one version of the WRTSL54GS. They have a 266 MHz CPU, 8 MB flash and 32 MB RAM. It's supported by OpenWrt whiterussian pre-RC5 and later.
 
-One note is the atenna is **not** detachable any more.
+One note is the antenna is **not** detachable.
 
 == port mapping ==
 
@@ -23,5 +23,5 @@ forum post: http://forum.openwrt.org/viewtopic.php?id=3529
 
 = Firmware download =
 
- * nbd: http://openwrt.inf.fh-brs.de/~nbd/wrtsl/ - this one has correct failsafe lan ports...
- * kaloz: http://downloads.openwrt.org/people/kaloz/2006-02-06/
+March 8 or later pre-RC5 builds work fine. Until RC5 is released, use SVN or a snapshot from
+ * nbd: http://downloads.openwrt.org/people/nbd/whiterussian/
