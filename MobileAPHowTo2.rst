@@ -281,7 +281,7 @@ I am adding this last few lines of text, using the Nokia PPP connection :)
 = Misc =
 How about a little script to monitor the SES button and connect?
 {{{
-root@OpenWrt:~# vi dialmon
+root@OpenWrt:~# vi /usr/sbin/dialmon
 #!/bin/sh
 junk=0
 until [ $junk -eq 1 ]
@@ -292,7 +292,7 @@ done
 # turn on white LED in SES button
 echo 32 > /proc/sys/diag
 /usr/sbin/pppd call cingular
-root@OpenWrt:~# chmod +x dialmon
+root@OpenWrt:~# chmod +x /usr/sbin/dialmon
 }}}
 Let's use SES amber to show connect status. Add echo to these files:
 {{{
@@ -303,7 +303,7 @@ root@OpenWrt:~# cp /rom/etc/ppp/ip-down .
 root@OpenWrt:~# vi /etc/ppp/ip-up
 #!/bin/sh
 [ -z "$6" ] || env -i ACTION="ifup" INTERFACE="$6" PROTO=ppp /sbin/hotplug "iface"
-echo 36 > /proc/sys/diag
+echo 33 > /proc/sys/diag
 root@OpenWrt:~# vi /etc/ppp/ip-down
 #!/bin/sh
 [ -z "$6" ] || env -i ACTION="ifdown" INTERFACE="$6" PROTO=ppp /sbin/hotplug "iface"
