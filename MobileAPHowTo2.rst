@@ -296,6 +296,10 @@ root@OpenWrt:~# chmod +x dialmon
 }}}
 Let's use SES amber to show connect status. Add echo to these files:
 {{{
+root@OpenWrt:~# cd /etc/ppp
+root@OpenWrt:~# rm ip-up ip-down
+root@OpenWrt:~# cp /rom/etc/ppp/ip-ip .
+root@OpenWrt:~# cp /rom/etc/ppp/ip-down .
 root@OpenWrt:~# vi /etc/ppp/ip-up
 #!/bin/sh
 [ -z "$6" ] || env -i ACTION="ifup" INTERFACE="$6" PROTO=ppp /sbin/hotplug "iface"
