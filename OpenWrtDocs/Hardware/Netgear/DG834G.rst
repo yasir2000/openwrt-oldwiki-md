@@ -32,11 +32,11 @@ If your new md5sum matches up ok then you should copy the patched mtd2.bin over 
 == MTD Layout ==
 '''Please confirm these values for yourself.  Writing over the wrong mtd block could brick your router'''
 {{{
-mtd0                  0x900d0000,0x903e0000
-mtd1                  0x90020000,0x900d0000
-mtd2                  0x90000000,0x90020000
-mtd3                  0x903e0000,0x903f0000
-mtd4                  0x903f0000,0x90400000
+mtd0	0x900d0000,0x903e0000	Kernel or disk
+mtd1	0x90020000,0x900d0000	Kernel or disk
+mtd2	0x90000000,0x90020000	ADAM2
+mtd3	0x903e0000,0x903f0000	Probably Netgear firmware config
+mtd4	0x903f0000,0x90400000	Probably ADAM2 config
 }}}
 (Note: mtd1 precedes mtd0)
 
