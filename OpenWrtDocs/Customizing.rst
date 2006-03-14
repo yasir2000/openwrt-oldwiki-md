@@ -7,6 +7,8 @@ The contents of this section of the wiki can have serious consequences. While ev
 
 Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together. This mod doesn't '''add''' serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
 
+For the developer, a serial port will also allow you to recover a bricked router when all other methods have failed (tftp, failsafe mode, shorting pins, etc.)
+
 === Serial port pinouts ===
 Pinouts for your model can often be found on your model's page in [:CategoryModel].
 
@@ -14,7 +16,7 @@ Pinouts for your model can often be found on your model's page in [:CategoryMode
 
 '''Background'''
 
-Most OpenWrt compatible devices have one or two serial ports on the router's PCB (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The newest (and IMHO best) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+Most OpenWrt compatible devices have one or two serial ports on the router's PCB (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The best (IMHO) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 http://jdc.parodius.com/wrt54g/serial.html
 
@@ -28,7 +30,7 @@ A USB based data cable for a mobile cell phone is another possibility.
 
 http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
-   note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
+note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
 
 === Terminal software ===
 
@@ -38,7 +40,7 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 === Finding Serial Console ===
 
-(stealed from the [:AR7Port:AR7Port] page) The method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
+(stolen from the [:AR7Port:AR7Port] page) This method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
 
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
