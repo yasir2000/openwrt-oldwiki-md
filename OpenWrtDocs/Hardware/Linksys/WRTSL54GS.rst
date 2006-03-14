@@ -6,9 +6,10 @@ There is only one version of the WRTSL54GS. They have a 266 MHz CPU, 8 MB flash 
 
 One note is the antenna is **not** detachable.
 
-== port mapping ==
+= port mapping =
 
-Additional hardware note: Looks like the SL hardware maps differently from previous units:
+There are 3 eth interfaces, and ports map like so:
+
 ||external-port# ||   internal#||
 ||4              ||           3||
 ||3              ||           2||
@@ -17,6 +18,9 @@ Additional hardware note: Looks like the SL hardware maps differently from previ
 ||(CPU)          ||           5||
 ||Internet       ||           4||
 
+= Board info and CPU model =
+||'''Model'''||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardnum'''||'''wl0_corerev'''||'''cpu  model'''||
+||WRTSL54GS||0x10||0x042f||0x0018||42||9||BCM4704 rev8||
 
 = More information =
 forum post: http://forum.openwrt.org/viewtopic.php?id=3529
