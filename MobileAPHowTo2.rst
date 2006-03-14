@@ -1,5 +1,7 @@
 Vincent Fox, Feb 26 2006
 
+[[TableOfContents]]
+
 = Objective =
 Mobile WiFi!
 
@@ -22,7 +24,7 @@ can get your hands on, to keep things as local as possible.
 
    Nokia 6230 cellphone with Cingular EDGE/GPRS "Media Net" package with unlimited data
 
-   USB data cable that connects to POP-port on phone
+   Nokia DKU-2 USB data cable that connects to POP-port on phone
 
 = Basic connectivity to phone =
 
