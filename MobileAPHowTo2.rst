@@ -314,7 +314,7 @@ Now just run "dialmon &", and push the button!
 
 = Notes =
 
- 1. Tested with firmware from people/nbd directory, -preRC5 version dated March 8.
+ 1. Tested with firmware from people/nbd directory, -preRC5 version dated March 13 2006.
 
  2. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
 
