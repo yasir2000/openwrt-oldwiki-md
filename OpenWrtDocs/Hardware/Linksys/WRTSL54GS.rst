@@ -4,7 +4,7 @@
 = Hardware versions =
 There is only one version of the WRTSL54GS. They have a 266 MHz CPU, 8 MB flash and 32 MB RAM. It's supported by OpenWrt whiterussian pre-RC5 and later.
 
-One note is the antenna is **not** detachable.
+Note is the antenna is **not** detachable.
 
 = port mapping =
 
@@ -23,7 +23,12 @@ There are 3 eth interfaces, and ports map like so:
 ||WRTSL54GS||0x10||0x042f||0x0018||42||9||BCM4704 rev8||
 
 = More information =
-forum post: http://forum.openwrt.org/viewtopic.php?id=3529
+forum posts:
+
+Original exploration thread  http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12538
+
+Spillover into OpenWRT  http://forum.openwrt.org/viewtopic.php?id=3529
+
 
 = Firmware download =
 
