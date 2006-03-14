@@ -278,6 +278,36 @@ root@OpenWrt:~# pppd call cingular
 
 I am adding this last few lines of text, using the Nokia PPP connection :)
 
+= Misc =
+How about a little script to monitor the SES button and connect?
+{{{
+root@OpenWrt:~# vi dialmon
+#!/bin/sh
+junk=0
+until [ $junk -eq 1 ]
+do
+        sleep 1
+        read junk </proc/sys/button
+done
+# turn on white LED in SES button
+echo 32 > /proc/sys/diag
+/usr/sbin/pppd call cingular
+root@OpenWrt:~# chmod +x dialmon
+}}}
+Let's use SES amber to show connect status. Add echo to these files:
+{{{
+root@OpenWrt:~# vi /etc/ppp/ip-up
+#!/bin/sh
+[ -z "$6" ] || env -i ACTION="ifup" INTERFACE="$6" PROTO=ppp /sbin/hotplug "iface"
+echo 36 > /proc/sys/diag
+root@OpenWrt:~# vi /etc/ppp/ip-down
+#!/bin/sh
+[ -z "$6" ] || env -i ACTION="ifdown" INTERFACE="$6" PROTO=ppp /sbin/hotplug "iface"
+echo 0 >/proc/sys/diag
+}}}
+
+Now just run "dialmon &", and push the button!
+
 = Notes =
 
  1. Tested with firmware from people/nbd directory, -preRC5 version dated March 8.
