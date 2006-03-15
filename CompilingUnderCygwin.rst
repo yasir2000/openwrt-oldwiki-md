@@ -147,9 +147,16 @@ And for "112-netfilter_connmark.patch" with
 :1,$s/ipt_TTL\.o/ipt_TTL_target\.o/gIc
 }}}
 
-That brought me through the patching.
+That brought me through the patching. (Maybe - i can't remember if not - see  below)
 
 BUT the error is caused for more files because there are more of them having the same name in uppercase and lowercase. So an unpack script is needed to unpack "linux-2.4.30.tar.bz2" to give these files an differnt name. Then this script needs to be injected into the existing Makefiles.
+
+----
+
+I've written an makefile that does the most oft the patching. Some of the Makefiles need to be patched too. It's not tested for correct handling with directorys (may not work when openwrt tar is unpacked into a different directory, but it should). And, against my hope there are some include files from real linuxes needed for compilation.
+So i need someone with some time to test this, having an real linux available for bringing this hole thing to end. Mail me if you want the files.
+
+----
 
 That's all I have so far. If you have any ideas, find Flyashi on #openwrt. I'd appreciate the help... thanks!
 
