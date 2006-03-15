@@ -2,46 +2,16 @@
 #language en
 [[TableOfContents]]
 == OpenWrt PPTP Client ==
-This mini howto discusses how to configure your router as a PPTP client to connect to an MS VPN PPTP server.
+This mini howto discusses how to configure your router as a PPTP client to connect to a PPTP server such as MS VPN.
 
 == Requirements ==
-To enable your OpenWrt router to communicate with a Microsoft server using MPPE/MPPC you need to install the following packages:
- * Kernel modules
-  1. kmod-gre - 2.4.30-brcm-1 - Kernel GRE tunneling support
-  1. kmod-mppe - 2.4.30-brcm-1 - Microsoft PPP Encryption/Compression support
-  1. kmod-ppp - 2.4.30-brcm-1 - PPP support
-  1. kmod-crypto - 2.4.30-brcm-1 - CryptoAPI kernel modules
- * pppd and pptp
-  1. ppp - 2.4.3-4 - a PPP (Point-to-Point Protocol) daemon (with MPPE/MPPC support)
-  2. pptp - 1.6.0-1 - a Point-to-Point Tunneling Protocol (PPTP) client
-
-To verify whether these packages are already installed, execute:
+Install the ''pptp'' package, and all required packages will be installed:
 {{{
-for i in kmod-gre kmod-mppe kmod-ppp kmod-crypto ppp pptp; do ipkg list_installed $i; done
-}}}
-Only when a package is installed it will be output by the previous shell command. Compare it with the requirements and update/install as necessary.
+ipkg install pptp}}}
 
 == Configuration ==
 
-=== Loading necessary modules ===
-The modules may be loaded through /etc/modules.d. Create a file named ''20-pptp'' in that directory specifying the modules one per line, as follows
-{{{
-# in file /etc/modules.d/20-pptp
-arc4
-sha1
-ip_gre
-slhc
-ppp_generic
-ppp_mppe_mppc
-ppp_async
-}}}
-
-The pptp or pppd package may already be loading these modules for you.  Check the startup scripts in {{{/etc/init.d}}} whether these modules are being loaded by executing, for instance {{{grep ppp_generic /etc/init.d/S*}}}.
-
-
-=== Options ===
-
-==== /etc/ppp/options.pptp ====
+=== /etc/ppp/options.pptp ===
 If the file /etc/ppp/options.pptp does not already exist, create one with the generic pptp options required to establish a link with the VPN server.
 
 There are several options, see the manual page, here are some that worked well for us:
@@ -56,7 +26,7 @@ There are several options, see the manual page, here are some that worked well f
  * persist - ''do not exit after a connection is terminated; instead try to reopen the connection''
  * mppe required,no40,no56 - ''forces 128-bit MPPE''
 
-==== /etc/ppp/peers/peer_name ====
+=== /etc/ppp/peers/peer_name ===
 Go to the /etc/ppp/peers directory and create a file named after the peer:
 {{{
 cd /etc/ppp/peers
@@ -93,15 +63,14 @@ Substitute ''name'' with the one chosen for the peer-file. This is used as a par
 
 Any other pppd/pptp options not considered generic (usable by all pptp connections) should go below the above options in the peer-file. To enable on demand "dialling" for example; add ''persist'', ''demand'' and ''idle 3600'', to make the router disconnect after one hour of inactivity and bring it back up again once the link is required.
 
-==== /etc/ppp/chap-secrets ====
+=== /etc/ppp/chap-secrets ===
 Now it is time to define the password for the ''DOMAIN\\Username'' used above. To set this user's password to ''Password'', add the following to the /etc/ppp/chap-secrets file:
 {{{
 DOMAIN\\Username PPTP Password *
 }}}
 Subsitute ''Domain\\Username'' and ''Password'' above according to your requirements. It is important the username matches the name is used in the peer-file above. Hence, if no ''DOMAIN\\'' was used, do not enter one here either.
 
-=== Scripts ===
-==== /etc/ppp/ip-up and /etc/ppp/ip-down ====
+=== /etc/ppp/ip-up and /etc/ppp/ip-down ===
 This file, /etc/ppp/ip-up is a shell script which is executed upon establishment with the VPN server. It is nice to be able to configure iptables or routing once the link is available and remove that configuration once the link is taken down.
 
 Create the files and set execute permission if they do not already exist:
