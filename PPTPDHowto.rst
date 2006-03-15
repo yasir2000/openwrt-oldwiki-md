@@ -4,9 +4,9 @@ This HOWTO describes how to install and configure ''pptpd'' on OpenWrt.
 
 == Installing pptpd ==
 
-Install the necessary packages. To allow clients to use encryption get the corresponding ''kmod-mppe'' and ''kmod-crypto'' packages as well as the ''pptpd'' package.
+Install the ''pptpd'' package. This will also install ''kmod-mppe'' and ''kmod-crypto'' packages if they are not present.
 {{{
-ipkg install kmod-mppe kmod-crypto pptpd
+ipkg install pptpd
 }}}
 
 == Configuring pptpd ==
