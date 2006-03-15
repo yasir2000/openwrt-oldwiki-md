@@ -141,7 +141,7 @@ on your client. It could be that these steps are not exactly the
 same on your operating system.
 
 '''NOTE:''' Remember the ports you configured above. Default is port
-9000 for a USB printer on the device {{{/dev/usb/lp0}}}.
+9100 for a USB printer on the device {{{/dev/usb/lp0}}}.
 
 You can check the ports on which {{{p910nd}}} is listening on with
 the command {{{netstat -an}}} executed on the router.
