@@ -27,10 +27,6 @@ There are 3 eth interfaces, and ports map like so:
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
 ||JP3(ttyS1)||3.3v||TX||RX||NC||GND||
 
-You can get the MAX233 parts kit here:
-http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
-Recent information was, an extra $6 added to kit price on request for an assembled version.
-
 == JTAG ==
 2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
 
@@ -49,6 +45,9 @@ Original exploration thread  http://www.linksysinfo.org/modules.php?name=Forums&
 
 Spillover into OpenWRT  http://forum.openwrt.org/viewtopic.php?id=3529
 
+You can get the MAX233 parts kit here:
+http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
+Recent information was, an extra $6 added to kit price on request for an assembled version.
 
 = Firmware download =
 
