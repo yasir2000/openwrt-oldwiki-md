@@ -31,7 +31,7 @@ There are 3 eth interfaces, and ports map like so:
 2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
 
 == LED10 ==
-The LED10 location at front of board contains no LED. Usable by GPIO functions for 1-Wire or similar.
+The LED10 location at front of board contains no LED. Perhaps it is usable by GPIO functions for 1-Wire or similar.
 
 = Board info and CPU model =
 ||'''Model'''||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardnum'''||'''wl0_corerev'''||'''cpu  model'''||
