@@ -22,14 +22,17 @@ The package installs without running ''pptpd'' on boot.  To configure !OpenWrt t
 {{{
 cd /etc/init.d && mv pptpd S50pptpd}}}
 
+''rcS'' only runs scripts with file names that start with an uppercase ''S''.
+
 == Configure Tunnel Local IP Address ==
 
 The default IP address of the server end of the tunnel is 172.16.1.1, and is set in the file ''/etc/ppp/options.pptpd'', with a colon after it, like this:
 {{{
 172.16.1.1:}}}
 
-Change this if you want a different IP address.  There is no need to restart ''pptpd'' if you change this file.
-See ''man pppd'' on a Linux system for more information on this file.
+Change this if you want a different IP address.
+There is no need to restart ''pptpd'' if you change this file, because it is used by ''pppd'' as soon as the next connection arrives.
+The file contains options for ''pppd'', see ''man pppd'' on a Linux system for more information on the options available.
 
 == Configure Tunnel Remote IP Addresses ==
 
@@ -37,28 +40,34 @@ Add lines to ''/etc/ppp/chap-secrets'' for each client. The format is:
 {{{
 username provider password ipaddress}}}
 
-Specify the IP address for every client.
+Add an IP address for every client.
 An example ''chap-secrets'' looks like this:
 {{{
 vpnuser pptp-server vpnpassword 172.16.1.2}}}
 
-See ''man pppd'' on a Linux system for more information on this file.  Take care that the provider field matches the ''name'' option in ''/etc/ppp/options.pptpd''.  The default is ''pptp-server''.
+See ''man pppd'' on a Linux system for more information on this file.
+Take care that the provider field matches the ''name'' option in ''/etc/ppp/options.pptpd''.
+The default is ''pptp-server''.
 
 == Test Connection ==
 
-Direct a client to connect to the PPTP server, using the username and password you set in ''chap-secrets''.
+Tell a client to connect to the PPTP server, using the username and password you set in ''chap-secrets''.
+
+The connection should work, ping between the client and the server should work, but you may have to do some more configuring to let the client use your PPTP server as a gateway to the internet, or to see inside your LAN.  See the routing section below.
 
 == Configure Debug Logging ==
 
 If you have problems making a connection, increase the amount of information logged:
- * edit ''/etc/pptpd.conf'' and add the line ''debug'', and restart ''pptpd'' using ''/etc/init.d/pptpd stop'' followed by ''/etc/init.d/pptpd start''
- * edit ''/etc/ppp/options.pptpd'' and add the line ''debug'', and the line ''logfile "/tmp/pptpd.log"'' ... these changes take effect on next client connection, there is no need to restart ''pptpd''
+ * edit ''/etc/pptpd.conf'' and add the line ''debug'', and restart ''pptpd'' using ''/etc/init.d/pptpd stop'' followed by ''/etc/init.d/pptpd start'',
+ * edit ''/etc/ppp/options.pptpd'' and add the line ''debug'', and the line ''logfile "/tmp/pptpd.log"'' ... these changes take effect on next client connection, there is no need to restart ''pptpd''.
+
+To understand the ''pppd'' debug log, read these key sections of the PPTP Client Diagnosis HOWTO:
+ * [http://pptpclient.sourceforge.net/howto-diagnosis.phtml#confreqacknakrej What does ConfReq, ConfAck, ConfNak, and ConfRej mean?]
+ * [http://pptpclient.sourceforge.net/howto-diagnosis.phtml#mppe_bits What are those CCP MPPE bitmasks?]
 
 == Configure iptables Rules ==
 
-If you have no iptables configuration, this section is not necessary.
-
-Open TCP port 1723 to accept the PPTP control connections, and open protocol 47 for the data stream, so add in ''/etc/firewall.user'':
+If you have not done any ''iptables'' configuration since installing, this section is not necessary.  But if you have taken control of your ''iptables'' configuration to ''DROP'' anything you don't allow, the test connection may have failed, and you may need to open TCP port 1723 to accept the PPTP control connections, and open protocol 47 for the data stream, so add in ''/etc/firewall.user'':
 
 {{{
 ### Allow PPTP control connections from WAN
@@ -96,8 +105,8 @@ iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT
 
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
 
-For a Windows XP client HOWTO see here: [http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html]
+There is a [http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html Windows XP client HOWTO] that may help.
 
-Information on the PPTP Linux client can be found here: [http://pptpclient.sourceforge.net/] or check the appropriate ["PPTPClientHowto"].
+There is also the [http://pptpclient.sourceforge.net/ PPTP Client for Linux] or check the !OpenWrt  ["PPTPClientHowto"].
 
-## reviewed 2006-03-15 by james.cameron@hp.com, the current pptpd maintainer, against pptpd 1.2.3-2 ipk
+## reviewed 2006-03-16 by james.cameron@hp.com, the current pptpd maintainer, against pptpd 1.2.3-2 ipk
