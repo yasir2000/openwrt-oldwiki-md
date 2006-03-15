@@ -1,4 +1,4 @@
-'''''Retrieve the firmware and decomrpess it'''''[[BR]]
+'''''Retrieve the firmware and decompress it'''''[[BR]]
 {{{# mkdir /tmp/buffalo; cd /tmp/buffalo
 # wget -q http://www.buffalotech.com/downloads/WZR-RS-G54_2%5B1%5D.32_1.00.zip
 # unzip -q WZR-RS-G54_2\[1\].32_1.00.zip}}}
