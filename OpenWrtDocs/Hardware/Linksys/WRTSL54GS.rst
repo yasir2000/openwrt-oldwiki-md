@@ -38,7 +38,8 @@ The LED10 location at front of board contains no LED. Usable by GPIO functions f
 ||WRTSL54GS||0x10||0x042f||0x0018||42||9||BCM4704 rev8||
 
 = More information =
-forum posts:
+
+Autopsy photos http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=36
 
 Original exploration thread  http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12538
 
