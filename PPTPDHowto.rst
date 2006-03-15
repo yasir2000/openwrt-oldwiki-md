@@ -6,39 +6,29 @@ This HOWTO describes how to install and configure ''pptpd'' on OpenWrt.
 
 Install the ''pptpd'' package. This will also install ''kmod-mppe'' and ''kmod-crypto'' packages if they are not present.
 {{{
-ipkg install pptpd
-}}}
+ipkg install pptpd}}}
 
-== Configuring pptpd ==
-
-Look at ''/etc/pptpd.conf''.
-
-Take note of the commented ''debug'' option. Uncomment that line for debugging purposes if you have trouble.
-
-Change ''/etc/ppp/options.pptpd'' to suit your needs. Again start by uncommenting the debug option and the logfile option. Since pptpd was built with the "--with-pppd-ip-alloc" configure flag the only way to specify a local IP is with the "<ipaddress>:" line. Change that line to the IP address you want to give the server end of your PPTP tunnel, in our example options.pptpd begins:
+== Start pptpd ==
 {{{
-debug
-logfile /tmp/pptp-server.log
-192.168.0.1:
-.
-.
-.
-}}}
+/etc/init.d/pptpd start}}}
 
-For PPTP clients to be able to connect we need to set the usernames and passwords in /etc/ppp/chap-secrets. The format is:
-{{{
-username provider password ipaddress
-}}}
+== Configuring pptpd (Normal Operation) ==
 
-We have to specify the ipaddress for every client since pptpd ignores the remoteip option in pptpd.conf (due to ''--with-pppd-ip-alloc''). An example chap-secrets looks like this:
-{{{
-vpnuser * vpnpassword 192.168.0.101
-}}}
+The default IP address of the server end of the tunnel is 172.16.1.1, and is set in the file ''/etc/ppp/options.pptpd'' .  Change this if you want a different IP address.  There is no need to restart ''pptpd'' if you change this file.
 
-We are now set and ready to give pptpd a first try. So either insmod all modules and start pptpd or just call the startup script and take a look at the logs if pptpd is starting correctly.
+Add a line to ''/etc/ppp/chap-secrets''. The format is:
 {{{
-/etc/init.d/S51pptpd start
-}}}
+username provider password ipaddress}}}
+
+Specify the ipaddress for every client.
+An example chap-secrets looks like this:
+{{{
+vpnuser * vpnpassword 172.16.1.2}}}
+
+== Configuring pptpd (Debugging) ==
+
+ * edit ''/etc/pptpd.conf'' and add the line ''debug'', and restart ''pptpd'' using ''/etc/init.d/pptpd stop'' followed by ''/etc/init.d/pptpd start''
+ * edit ''/etc/ppp/options.pptpd'' and add the line ''debug'', and the line ''logfile "/tmp/pptpd.log"'' ... these changes take effect on next client connection, there is no need to restart ''pptpd''
 
 == Rules for iptables ==
 
