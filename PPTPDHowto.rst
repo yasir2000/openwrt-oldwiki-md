@@ -1,38 +1,21 @@
 == PPTPD on OpenWrt ==
 
-This howto describes how to install and configure pptpd on OpenWrt.
+This HOWTO describes how to install and configure ''pptpd'' on OpenWrt.
 
 == Installing pptpd ==
 
-We begin by installing the necessary packages. All packages mentioned are included in Whiterussian RC2 and RC3. To allow clients to use proper encryption we get the corresponding kmod-mppe and kmod-crypto packages as well as the pptpd package.
+Install the necessary packages. To allow clients to use encryption get the corresponding ''kmod-mppe'' and ''kmod-crypto'' packages as well as the ''pptpd'' package.
 {{{
 ipkg install kmod-mppe kmod-crypto pptpd
 }}}
 
-Now we should have all necessary modules and a typo that has not been fixed in RC2 or RC3.  The typo does NOT exist in RC4 so you can skip this step. The typo is hidden in /etc/init.d/pptpd where in the following line "shlc" should be "slhc". So we go ahead and change it:
-{{{
-for m in arc4 sha1 slhc ppp_generic ppp_async ppp_mppe_mppc; do
-  insmod $m >/dev/null 2>&1
-}}}
-
-While we are at it we mark the startup script executable and put it so that it will load on boot.
-
-{{{
-chmod a+x /etc/init.d/pptpd
-ln -s /etc/init.d/pptpd /etc/init.d/S51pptpd
-}}}
-
 == Configuring pptpd ==
 
-First we take a look at /etc/pptpd.conf where we see the options parameter pointing to a nonexistent file so we change that to /etc/ppp/options.pptpd.
+Look at ''/etc/pptpd.conf''.
 
-{{{
-option /etc/ppp/options.pptpd
-}}}
+Take note of the commented ''debug'' option. Uncomment that line for debugging purposes if you have trouble.
 
-Also take note of the commented debug option. We uncomment that line for debugging purpose.
-
-Next we change /etc/ppp/options.pptpd to suit our needs. Again start by uncommenting the debug option and the logfile option. Since pptpd was built with the "--with-pppd-ip-alloc" configure flag the only way to specify a local IP is with the "<ipaddress>:" line. Change that line to the IP address you want to give the server end of your PPTP tunnel, in our example options.pptpd begins:
+Change ''/etc/ppp/options.pptpd'' to suit your needs. Again start by uncommenting the debug option and the logfile option. Since pptpd was built with the "--with-pppd-ip-alloc" configure flag the only way to specify a local IP is with the "<ipaddress>:" line. Change that line to the IP address you want to give the server end of your PPTP tunnel, in our example options.pptpd begins:
 {{{
 debug
 logfile /tmp/pptp-server.log
@@ -54,7 +37,7 @@ vpnuser * vpnpassword 192.168.0.101
 
 We are now set and ready to give pptpd a first try. So either insmod all modules and start pptpd or just call the startup script and take a look at the logs if pptpd is starting correctly.
 {{{
-/etc/init.d/S51pptpd
+/etc/init.d/S51pptpd start
 }}}
 
 == Rules for iptables ==
@@ -98,7 +81,7 @@ iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT
 
 == Finally ==
 
-Congratulations, you have now set up your own pptpd and can start connecting with PPTP clients. Don't forget to comment out the debug options in the appropriate config files again.
+Congratulations, you have now set up your own ''pptpd'' and can start connecting with PPTP clients. Don't forget to comment out the debug options in the appropriate config files again.
 
 
 == Troubleshooting and further information ==
@@ -109,4 +92,4 @@ For a Windows XP client howto see here: [http://www.windowsecurity.com/articles/
 
 Information on the PPTP Linux client can be found here: [http://pptpclient.sourceforge.net/] or check the appropriate ["PPTPClientHowto"].
 
-# reviewed 2005-10-03 by james.cameron@hp.com, the current pptpd maintainer
+## reviewed 2006-03-15 by james.cameron@hp.com, the current pptpd maintainer
