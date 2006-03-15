@@ -27,6 +27,9 @@ There are 3 eth interfaces, and ports map like so:
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
 ||JP3(ttyS1)||3.3v||TX||RX||NC||GND||
 
+You can get the MAX233 parts kit here: http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
+The Forest Networking sells a completely assembled single-serial port adapter here: http://www.theforestnetworking.com/hardware.php
+
 == JTAG ==
 2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
 
