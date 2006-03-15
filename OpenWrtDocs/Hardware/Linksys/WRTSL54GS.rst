@@ -29,9 +29,7 @@ There are 3 eth interfaces, and ports map like so:
 
 You can get the MAX233 parts kit here:
 http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
-
-The Forest Networking sells an assembled single-serial port adapter here:
-http://www.theforestnetworking.com/hardware.php
+Recent information was, an extra $6 added to kit price on request for an assembled version.
 
 == JTAG ==
 2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
