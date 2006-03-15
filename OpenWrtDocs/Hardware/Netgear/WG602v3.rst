@@ -21,7 +21,12 @@ What to do if you brick it!
 
 Eg.
 
- . % tftp tftp> connect 192.168.0.227 tftp> binary tftp> put image.idts334 Sent 1585152 bytes in 5.2 seconds tftp> get REBOOT
+ . % tftp
+tftp> connect 192.168.0.227 
+tftp> binary 
+tftp> put image.idts334 
+Sent 1585152 bytes in 5.2 seconds 
+tftp> get REBOOT
 
 ----
- . CategoryModel   
+ . CategoryModel    
