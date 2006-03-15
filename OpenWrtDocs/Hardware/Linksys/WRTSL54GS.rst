@@ -4,7 +4,7 @@
 = Hardware versions =
 There is only one version of the WRTSL54GS. They have a 266 MHz CPU, 8 MB flash and 32 MB RAM. It's supported by OpenWrt whiterussian pre-RC5 and later.
 
-Note is the antenna is **not** detachable.
+Note the antenna is *NOT* removable in this model
 
 = port mapping =
 
@@ -27,8 +27,11 @@ There are 3 eth interfaces, and ports map like so:
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
 ||JP3(ttyS1)||3.3v||TX||RX||NC||GND||
 
-You can get the MAX233 parts kit here: http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
-The Forest Networking sells a completely assembled single-serial port adapter here: http://www.theforestnetworking.com/hardware.php
+You can get the MAX233 parts kit here:
+http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
+
+The Forest Networking sells an assembled single-serial port adapter here:
+http://www.theforestnetworking.com/hardware.php
 
 == JTAG ==
 2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
