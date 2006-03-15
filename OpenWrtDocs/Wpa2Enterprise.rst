@@ -27,7 +27,7 @@ Using ipkg, get all the freeradius-* packages. You'll need to edit four files: c
 This just needs to match the value for wl0_radius_key:
 {{{
 client 127.0.0.1 {
-        secret          = veujVawriEefVemDagg
+        secret          = myVeryLongSecretString
         shortname       = localhost
         nastype     = other     # localhost isn't usually a NAS...
 }
