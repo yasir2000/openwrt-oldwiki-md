@@ -15,6 +15,8 @@ If you use old version of firmware, please upgrade.
 
 If you installed the nas binary using the package indicated above, an install script is automatically added to the router. You can use the nvram to configure the nas options.
 
+For a working Freeradius configuration for use with the Radius-enabled modes, see [:OpenWrtDocs/Wpa2Enterprise]
+
 ||'''Setting'''||'''nvram'''||'''Description'''||
 ||Wireless mode||wl0_mode||Using 'sta' will put the device in supplicant mode (client), otherwise it will be an authenticator (server).||
 ||SSID||wl0_ssid||The SSID configured for the wireless||
