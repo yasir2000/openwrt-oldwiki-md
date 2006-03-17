@@ -320,5 +320,7 @@ Now just run "dialmon &", and push the button!
 
  2. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
 
+ 3. This document for the SL was inspired by Nate True's page: http://devices.natetrue.com/mobileap/
+
 ----
 CategoryHowTo
