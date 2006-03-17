@@ -204,6 +204,12 @@ conn L2TP-PSK
 include /etc/ipsec.d/examples/no_oe.conf
 }}}
 
+Now add the following line to /etc/ipsec.secrets
+{{{
+192.168.2.1 %any: PSK "this-is-a-test-i-will-change-it-later"
+}}}
+
+
 explain options here.
 
 Now lets see wether this part is working:
