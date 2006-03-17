@@ -142,6 +142,9 @@ Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very usef
 
 Instructions are for rc4 on a wrt54gs1.1
 
+The wrt has 192.168.1.1 on at least one wired-ports, the rig you're using to configure the stuff has 192.168.1.2 on the wire.
+The wrt has 192.168.2.1 on the wireless interface, where your testrig hast 192.168.2.2. During the following description I will rely on this scheme.
+
 == Divide wireless from wired network ==
 Divide the wireless from the wired network as described in Self:Configuration
 
@@ -177,7 +180,8 @@ syslogd -R 192.168.1.2
 
 
 == Configure IPSec ==
-Modify ipsec.conf
+Modify/Create  /etc/ipsec.conf
+
 A good start is:
 {{{
 config setup
@@ -190,7 +194,7 @@ conn L2TP-PSK
         pfs=no
         rekey=no
         keyingtries=3
-        left=10.0.1.1
+        left=192.168.2.1
         leftprotoport=17/1701
         right=%any
         rightprotoport=17/%any
@@ -219,8 +223,8 @@ Configure l2tpd according to your needs
 [global]
 
 [lns default]
-ip range = 10.10.0.201-10.10.0.220
-local ip = 10.10.0.199
+ip range = 192.168.2.201-192.168.2.220
+local ip = 192.168.2.200
 require chap = yes
 refuse pap = yes
 require authentication = yes
