@@ -14,7 +14,7 @@ Samba offers a lot more options but this would be out of the scope of this howto
  * some kind of a external storage device (optional)
 
 = Installation =
-Samba is not included by default in!OpenWrt White Russian. So you have to install it from the [:OpenWrtPackages:backports repository] with:
+Samba is not included by default in !OpenWrt White Russian. So you have to install it from the [:OpenWrtPackages:backports repository] with:
 
 {{{
 ipkg install samba
