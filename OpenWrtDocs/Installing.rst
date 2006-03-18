@@ -32,7 +32,7 @@ At present, Yasha has been kind enough to provide 2.6 images of the latest bleed
 
 http://flyashi.dyndns.org:81/
 
-Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to cry "bricks", Yasha has had to make the section containing the bleeding edge firmware image downloads password protected. If you have done the serial mod, are comfortable in linux, and would like access to this section feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.  Once again:
+Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to cry bricks, Yasha has had to make the section containing the bleeding edge firmware image downloads password protected. If you have done the serial mod, are comfortable in linux, and would like access to this section feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.  Once again:
 
 '''~+EXPECT THE UNSTABLE IMAGES WILL BRICK YOUR ROUTER!!!+~'''
 
