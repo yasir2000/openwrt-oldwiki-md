@@ -11,11 +11,13 @@ and 32 MB RAM. The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and
 
 The kernel boots on the system, we have drivers for the ethernet interface (b44) and
 the new switch driver is integrated (robocfg will be obsolete). We have drivers for the
-wireless radio (madwifi-ng). The Kernel is 2.6.15.3.
+wireless radio (madwifi-ng). The Kernel is 2.6.15.6.
 
 At present, Yasha has been kind enough to provide 2.6 images of the latest bleeding edge svn source recompiled daily at:
 
 [http://flyashi.dyndns.org:81/]
+
+Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to cry "bricks", Yasha has had to make the section containing the bleeding edge firmware image downloads password protected.  If you have done the serial mod, are comfortable in linux, and would like access to this section feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.
 
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at [http://forum.openwrt.org/viewforum.php?id=3] regarding the wgt634u.
