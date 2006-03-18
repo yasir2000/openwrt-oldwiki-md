@@ -250,6 +250,16 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
    |    |     |     |     |     |     |
 }}}
 
+= Mini-PCI =
+
+The mini-pci card has been confirmed to be replaceable with an atheros AR5212 A/B/G Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
+
+== Antenna Mod ==
+
+The non-detachable antenna, should you choose to remove the mini-pci card, requires finesse and some efforts to remove without
+damage to the router frame, as the author of this section was successfully able to do.  If an easier method for removing the antenna is discovered please feel free to make changes as appropriate.  Before attempting to remove the antenna, the mini-pci card must be removed from its slot or it will interfere with this procedure.
+
+The portion of the antenna on the outside of the router must be pushed successfully through its opening completely to the internal side in order to be successfully removed.  This requires the removal of the rubber lip at the base of the antenna's external side as well as various bumps meant as catches that exist along the stem of the antenna.  Slowly twist the antenna counter-clockwise while pushing it through the opening.  The author of this section used needle nosed pliers to successfully twist the antenna since a strong grip of its rubber texture is required.
 
 = Other projects and information =
 
