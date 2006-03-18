@@ -19,7 +19,7 @@
   iptables -I FORWARD -j traffic }}}
 
   if you receive an error make sure
-  * you have all necessary packages installed (I think, kmod-ipt-ipopt is needed for traffic)
+  * you have all necessary packages installed
   * the kernel-modules are loaded
   * make sure, that the traffic-chain exists after booting. (Just add the iptable-commands to a start-up script. Remember to load the needed kernel-modules befor running the iptable-stuff)
 
