@@ -17,13 +17,16 @@ forward_port 465 server
 # register_dmz server
 
 # forward workstation port for application development
-forward_port 8080 workstation1
+#forward_port 8080 workstation1
 
 # forward a few utility port-ranges to make it easier to deal with
 # bittorrent configurations and the like
 forward_port 10000:10099 workstation1
 forward_port 10100:10199 laptop1
 forward_port 10200:10299 laptop2
+
+### Translate port for client machines.
+translate_port 8080 workstation1 80
 }}}
 And here's the extremely simple firewall library that it uses:  (Sadly it does require that you maintain an /etc/hosts file in order to make it work.)
 
@@ -69,6 +72,17 @@ forward_port() {
     echo "FORWARDING $ALLOWPORT TO $ALLOWHOSTNAME ($ALLOWHOST)"
     iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport $ALLOWPORT -j DNAT --to $ALLOWHOST
     iptables        -A forwarding_rule -i $WAN -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j ACCEPT
+}
+
+translate_port() {
+    ALLOWPORT=$1
+    ALLOWHOSTNAME=$2
+    ALLOWHOSTPORT=$3
+    ALLOWHOST=`sucky_resolve $ALLOWHOSTNAME`
+
+    echo "TRANSLATING $ALLOWPORT TO $ALLOWHOSTNAME ($ALLOWHOST:$ALLOWHOSTPORT)"
+    iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport $ALLOWPORT -j DNAT --to $ALLOWHOST:$ALLOWHOSTPORT
+    iptables        -A forwarding_rule -i $WAN -p tcp --dport $ALLOWHOSTPORT -d $ALLOWHOST -j ACCEPT
 }
 
 register_dmz () {
