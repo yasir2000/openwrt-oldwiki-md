@@ -252,7 +252,7 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
    |    |     |     |     |     |     |
 }}}
 
-= Mini-PCI =
+= Mini-PCI Upgrade =
 
 The mini-pci card has been confirmed to be replaceable with an atheros AR5212 A/B/G Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
 
