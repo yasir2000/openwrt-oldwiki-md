@@ -262,7 +262,7 @@ The non-detachable antenna need only be replaced if you wish to add a type anten
 
 The portion of the antenna on the outside of the router must be pushed successfully through its opening completely to the internal side in order to be successfully removed.  This requires the removal of the rubber lip at the base of the antenna's external side as well as various bumps meant as catches that exist along the stem of the antenna.  Slowly twist the antenna counter-clockwise while pushing it through the opening.  
 
-'''''A strong exertion of force is required during the twisting of the antenna'''''
+'''''A strong exertion of force is required during the twisting of the antenna'''''.
 
 The author of this section used needle nosed pliers to successfully twist the antenna since a strong grip of its rubber texture is required, and a pair of wire cutters to snip off the portions of the rubber lip base and catches.
 
