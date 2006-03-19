@@ -27,6 +27,14 @@ There are 3 eth interfaces, and ports map like so:
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
 ||JP3(ttyS1)||3.3v||TX||RX||NC||GND||
 
+To check current serial port setting:
+{{{
+root@OpenWRT:~# cat /proc/tty/driver/serial
+serinfo:1.0 driver:5.05c revision:2001-07-08
+0: uart:16550A port:B8000300 irq:3 baud:114583 tx:5108 rx:129 RTS|DTR
+1: uart:16550A port:B8000400 irq:3 baud:9593 tx:0 rx:0 CTS|DSR|CD
+}}}
+
 == JTAG ==
 2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
 
