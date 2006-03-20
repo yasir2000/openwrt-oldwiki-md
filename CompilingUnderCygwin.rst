@@ -154,7 +154,7 @@ BUT the error is caused for more files because there are more of them having the
 ----
 
 I've written an makefile that does the most oft the patching. Some of the Makefiles need to be patched too. It's not tested for correct handling with directorys (may not work when openwrt tar is unpacked into a different directory, but it should). And, against my hope there are some include files from real linuxes needed for compilation.
-So i need someone with some time to test this, having an real linux available for bringing this hole thing to end. Mail me if you want the files.
+So i need someone with some time to test this, having an real linux available for bringing this hole thing to end. Mail me (m_kanter {[alt/gr][q]} web {.} de) if you want the files.
 
 ----
 
