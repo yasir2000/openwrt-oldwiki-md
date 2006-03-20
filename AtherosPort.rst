@@ -44,6 +44,7 @@ There are at least 2 variants
 
  * VxWorx' own bootloader - most Atheros devices (There is a description of the basic workings on the [:OpenWrtDocs/Hardware/Netgear/WGT624:Netgear WGT624] page.)
  * RedBoot - the [http://sources.redhat.com/ecos/docs-latest/redboot/redboot-guide.html manual] is very good.
+ * NetBoot - the standart loader in dwl7100ap allowed boot firmware image via network from tftp server direct to ram - this method is useful for testing, but can used for real work...
 
 
 = How to help =
