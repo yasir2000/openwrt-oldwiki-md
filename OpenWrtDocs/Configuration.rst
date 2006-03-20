@@ -612,7 +612,7 @@ Examples:
 ||St.Petersburg, Russia||MST-3MDT,M3.5.0/2,M10.5.0/3||
 ||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||New Zealand||Auckland, Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
-||<rowspan=7>USA & Canada||Hawaii Time||HAW10||
+||<rowspan=7>USA & Canada^1^||Hawaii Time||HAW10||
 ||Alaska Time||AKST9AKDT||
 ||Pacific Time||PST8PDT||
 ||Mountain Time||MST7MDT||
@@ -628,6 +628,7 @@ Examples:
 Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
+^1^in August of 2005, President Bush passed the ''Energy Policy Act'', which, among other things, changes the time change dates for daylight saving time from the first Sunday in April to the second Sunday in March and from the last Sunday in October to the first Sunday in November. This pattern starts in 2007, however, and Congress still has time to revert the DST back. As such, these changes have not yet been incorporated into mainline uClibc (which provides the time functions for the C library used by OpenWrt). Therefore, it might be a good idea to change {{{/etc/TZ}}} explicitly (around mid-November 2006) to reflect this change (i.e., instead of {{{EST5EDT}}} write {{{EST5EDT,M3.5.0,M9.1.0}}}).
 
 === Crontab ===
 
@@ -648,7 +649,7 @@ If you want to read the syslog messages, use the '''logread''' tool.
 
 === httpd ===
 
-'''httpd''' is the binary, part of !BusyBox, tool that start http daemon.
+'''httpd''', part of !BusyBox, is the binary tool that starts the http daemon.
 
 Documentation can be found at [:OpenWrtDocs/httpd].
 
