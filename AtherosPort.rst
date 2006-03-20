@@ -13,7 +13,7 @@ The AR531x and 231x is a router platform by Atheros, which is used for dual-band
  * Senao NL-3054 AP3 Aries2 (AR2313+AR2112 radio)
  * Trendnet TEW-510APB [http://www.trendware.com/sp/products/TEW-510APB.htm]
  * Dlink DWL7100AP [http://www.dlink.com/products/?pid=304]
-   Dlink inside: http://wiki.openwrt.org/AtherosPort?action=AttachFile&do=view&target=dwl7100AP.jpg
+   Dlink inside: [http://wiki.openwrt.org/AtherosPort?action=AttachFile&do=view&target=dwl7100AP.jpg]
 
 and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
 
