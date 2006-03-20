@@ -17,7 +17,7 @@ At present, Yasha has been kind enough to provide 2.6 images of the latest bleed
 
 [http://flyashi.dyndns.org:81/]
 
-Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to cry "bricks", Yasha has had to make the section containing the bleeding edge firmware image downloads password protected.  If you have done the serial mod, are comfortable in linux, and would like access to this section feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.
+Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to '''cry bricks''', Yasha has had to make the section containing the bleeding edge firmware image downloads password protected.  If you have done the serial mod, are comfortable in linux, and would like access to this section feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.
 
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at [http://forum.openwrt.org/viewforum.php?id=3] regarding the wgt634u.
@@ -258,7 +258,7 @@ The mini-pci card has been confirmed to be replaceable with an atheros AR5212 AB
 
 == Antenna Mod ==
 
-The non-detachable antenna need only be replaced if you wish to add a type antenna for frequencies outside of the B/G range after upgrading the mini-pci card since it requires finesse and some efforts to remove without damage to the router frame.  If the desire is only to add a greater strength b/g antenna, it is recommended to use the hirose connector available on the auxillary pad of the default atheros mini-pci card and string the wire through one of the 16 air vent holes availble at the rear of the unit above the usb jack.  If an easier method for removing the antenna is discovered please feel free to make changes as appropriate.  Before attempting to remove the antenna, the mini-pci card must be removed from its slot or it will interfere with this procedure.
+The non-detachable antenna need only be replaced if you wish to add a type antenna for frequencies outside of the B/G range after upgrading the mini-pci card since it requires finesse and some efforts to remove without damage to the router frame.  If the desire is only to add a greater strength b/g antenna, it is recommended to use the hirose connector available on the auxillary pad of the default atheros mini-pci card and string the wire through one of the 16 air vent holes available at the rear of the unit above the usb jack.  If an easier method for removing the antenna is discovered please feel free to make changes as appropriate.  Before attempting to remove the antenna, the mini-pci card must be removed from its slot or it will interfere with this procedure.
 
 The portion of the antenna on the outside of the router must be pushed successfully through its opening completely to the internal side in order to be successfully removed.  This requires the removal of the rubber lip at the base of the antenna's external side as well as various bumps meant as catches that exist along the stem of the antenna.  Slowly twist the antenna counter-clockwise while pushing it through the opening.  
 
