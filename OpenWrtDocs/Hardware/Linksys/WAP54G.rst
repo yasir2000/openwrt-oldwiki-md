@@ -10,7 +10,7 @@ See the Seattle Wireless page: SeattleWireless:WAP54G. Also see ["WAP54GHowto"].
 ===== Identification by S/N =====
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bottom side of the box.
 
-||||<style="TEXT-ALIGN: center"> (!) '''Please contribute to this list.''' (!) ||||<style="TEXT-ALIGN: center">'''!OpenWrt''' ||
+|||| (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt''' ||
 ||'''Model''' ||<style="TEXT-ALIGN: center">'''S/N''' ||<style="TEXT-ALIGN: center">'''Stable[[BR]]White Russian''' ||<style="TEXT-ALIGN: center">'''Development[[BR]]Kamikaze'''||
 ||WAP54G v1.0 ||<style="TEXT-ALIGN: center">MDG0 ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||
 ||WAP54G v1.1 ||? ||<style="TEXT-ALIGN: center">? ||<style="TEXT-ALIGN: center">? ||
@@ -33,10 +33,10 @@ Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbr
 
 ==== WAP54G v1.1 ====
 ==== WAP54G v2.0 ====
-According to Freifunk there are two sub versions:
+According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] there are two sub versions:
 
- * 4 Mb AMD flash memory, 16 Mb RAM and 7 LEDs on front panel
- * 2 Mb Intel flash memory, 8 Mb RAM and 3 LEDs on front panel
+ * 4 MB AMD flash memory, 16 MB RAM and 7 LEDs on front panel
+ * 2 MB Intel flash memory, 8 MB RAM and 3 LEDs on front panel
 
 ==== WAP54G v3.0 ====
 === Table summary ===
