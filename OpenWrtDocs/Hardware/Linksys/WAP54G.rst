@@ -33,7 +33,7 @@ Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbr
 
 ==== WAP54G v1.1 ====
 ==== WAP54G v2.0 ====
-According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] there are two sub versions:
+According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] there are two subversions:
 
  * 4 MB AMD flash memory, 16 MB RAM and 7 LEDs on front panel
  * 2 MB Intel flash memory, 8 MB RAM and 3 LEDs on front panel
