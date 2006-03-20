@@ -12,7 +12,8 @@ The AR531x and 231x is a router platform by Atheros, which is used for dual-band
  * Senao NL-5354 AP1 Aries2 dual band AP (AR5312+AR5112+AR2112)
  * Senao NL-3054 AP3 Aries2 (AR2313+AR2112 radio)
  * Trendnet TEW-510APB [http://www.trendware.com/sp/products/TEW-510APB.htm]
-
+ * Dlink DWL7100AP [http://www.dlink.com/products/?pid=304]
+   Dlink inside: dwl7100AP.jpg
 and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
 
 The guys over at [http://www.jungo.com/openrg/download/jungo_software_specification.pdf Jungo] claim to support the AR531X/AR2313:
