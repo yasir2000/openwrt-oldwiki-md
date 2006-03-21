@@ -1,10 +1,10 @@
 == Introduction ==
 
 === What we want to do ===
-I am using my Linksys WRT54GS as a switch with build-in AP by default. I wanted a way to switch back to it's original router function without any time consuming configuration changes every time. In addition, I wanted a, as I call it, lanparty mode for using the WRT on a LAN-party. 
+I am using my Linksys WRT54GS as a switch with build-in AP by default. I wanted a way to switch back to it's original router function without any time consuming configuration changes every time. In addition, I wanted a, as I call it, lanparty mode for using the WRT on a LAN-party (without internet). 
 This HowTo describes a mechanism for easy switching between the different modes. At the end, you can just write "switchmode lanparty", unplug the power cable, go to your friend's LANparty, plug in again and have fun... ;)
 
-Here is an short summary for the different modes I am using:
+Here is a short summary for the different modes I am using:
 
  * Switch mode:
    * WAN disabled, using all 5 ports for LAN
@@ -37,7 +37,7 @@ cp /rom/etc/init.d/S50httpd /etc/init.d/
 }}}
  * Then, we need to comment/remove the following (well known? ;) ) line from from '''''/etc/init.d/S05nvram''''': {{{
 nvram set lan_proto="static" }}}    
- * If you want a separate "lanparty" webserver as I do, just create a /www2 dir and save the following init-script as /etc/init.d/S50httpd2: {{{
+ * If you want a separate "lanparty" webserver as I do, just create a /www2 dir and save the following init-script as /etc/init.d/S50httpd2. Otherwise, remove the appropriate lines from the script below. {{{
 #!/bin/sh
 httpd -p 80 -h /www2 -r OpenWrt
 }}}
