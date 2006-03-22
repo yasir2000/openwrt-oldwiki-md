@@ -18,7 +18,7 @@ See TableOfHardware.
 = Obtaining the firmware =
 '''Stable Release'''
 
-You can get release candidates for the next OpenWrt release (Codename whiterussian): http://downloads.openwrt.org/whiterussian/
+You can get release candidates for the next OpenWrt release (Codename whiterussian): http://downloads.openwrt.org/whiterussian/ . For a description of the different images and their contents and usage, see the [:Faq].
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
