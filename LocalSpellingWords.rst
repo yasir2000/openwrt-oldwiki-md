@@ -118,3 +118,5 @@ Butterfly consider Controller Controlling Converter cpu Currently Describe Enhan
 antenna appear binary board box brick Broadcom button bytes Category connect connector datasheet dead design download Eg Instead integrated Intel intel issue latest mode Model Netgear new ns pdf populated Power power procedure put putting recovering Recovery reset Rev seconds unit while worked
 
 mini model modules move near non nvram os proc processor
+
+However label later layout left like Linksys nearly number proprietary
