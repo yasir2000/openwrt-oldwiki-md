@@ -540,7 +540,7 @@ See [:IPSec] Section for further information.
 
 === dnsmasq ===
 
-Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server.
+Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP server.
 
 Documentation can be found at [:OpenWrtDocs/dnsmasq].
 
@@ -687,7 +687,7 @@ Documentation and the background of uPnP can be found at [:OpenWrtDocs/upnp]
 
 === CUPS - Printing system with spooling ===
 
-You can not print a testpage on the local cups, because this would need to have ghostscript
+You can't print a testpage on the local cups, because this would need to have ghostscript
 installed on your embedded system.
 
 If you have a special Postscript Printer Description (ppd) file for your printer, copy it
