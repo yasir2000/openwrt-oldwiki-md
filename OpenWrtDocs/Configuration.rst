@@ -275,7 +275,7 @@ v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 
 === Using Robocfg ===
 
-/!\ Robocfg and admcfg is obsolete.
+/!\ Robocfg and admcfg are obsolete.
 
 White Russian (upcoming RC5 and all later versions) will use a new ethernet driver (b44) and
 switch driver to configure the switch and VLANs. The switch driver will be configured by a
