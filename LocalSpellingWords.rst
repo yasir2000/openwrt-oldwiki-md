@@ -138,3 +138,5 @@ Determining Easy extra identical Identification Secure serial table
 covers
 
 hacking header identify screws soldered some Some variables work
+
+cpuinfo illuminated list locked logo Look look photos pictures
