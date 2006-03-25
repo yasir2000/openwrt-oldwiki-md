@@ -28,10 +28,6 @@ There are different pre-compiled firmware images for every supported router mode
 ||micro ||the minimal set of packages no webif||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, mtd, nvram, uclibc, wificonf||
 ||pptp ||standard image with pptp and webif ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools||
 
-
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
 You can choose between two different types of firmware images, squashfs or JFFS2 root filesystem. Squashfs does higher compression, but is read-only. If you choose this image type, you can not update any base packages without reflashing or loosing of a lot of space. The rest of the flash will be used for a writable JFFS2 filesystem. JFFS2 does not compress as well as squashfs, but you have 
 a complete writable root filesystem. It is your choice!  
 
@@ -51,7 +47,6 @@ Installation via Webupgrade of the original firmware:
 ||openwrt-wr850g-xxxx.bin||Motorola WR850g||
 
 
----- /!\ '''End of edit conflict''' ----
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
 '''Getting the buildsystem'''
