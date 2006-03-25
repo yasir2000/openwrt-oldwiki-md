@@ -62,5 +62,5 @@ a popular cocktail. !OpenWrt 1.0 is released if it is stable enough for most of 
 currenly in "Release Candidate" status, with numbers like "rc3" and "rc4".
 
 The development of the next release is taken place in our subversion repository. It will contain support for many
-more embedded boards (Texas Instruments AR7 (MIPS), Soekris (X86), Aruba (MIPS), Routerboard (MIPS), ...). Its codename
+more embedded boards (Texas Instruments AR7 (MIPS), Soekris (x86), Aruba (MIPS), Routerboard (MIPS), ...). Its codename
 is Kamikaze. 
