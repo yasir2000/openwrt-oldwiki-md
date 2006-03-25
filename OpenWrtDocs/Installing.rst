@@ -6,14 +6,12 @@
 OpenWrtDocs [[TableOfContents]]
 
 = Introduction =
-----------
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.. 
 
 /!\ '''WARNING  LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
 
 
-----------
 = Will OpenWrt work on my hardware? =
 See TableOfHardware.
 
