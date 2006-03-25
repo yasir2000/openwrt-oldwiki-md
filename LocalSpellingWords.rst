@@ -136,3 +136,5 @@ contribute corner cover forum
 Determining Easy extra identical Identification Secure serial table
 
 covers
+
+hacking header identify screws soldered some Some variables work
