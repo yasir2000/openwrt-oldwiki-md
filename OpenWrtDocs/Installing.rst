@@ -19,11 +19,18 @@ See TableOfHardware.
 = Obtaining the firmware =
 '''Stable Release'''
 
-You can get release candidates for the next OpenWrt release (Codename whiterussian): http://downloads.openwrt.org/whiterussian/ . For a description of the different images and their contents and usage, see the [:Faq].
+You can get release candidates for the next OpenWrt release (Codename whiterussian): http://downloads.openwrt.org/whiterussian/ . 
+
+There are different pre-compiled firmware images for every supported router model:
+
+||'''Folder''' ||'''Description''' ||'''Package list''' ||
+||bin=default ||standard image with pppoe and webif||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, libgcc, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools||
+||micro ||the minimal set of packages no webif||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-wlcompat, libgcc, mtd, nvram, uclibc, wificonf||
+||pptp ||standard image with pptp and webif ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, libgcc, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools||
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
-'''Getting the Source and Buildsystem'''
+'''Getting the buildsystem'''
 
 Take a look at our development platform at http://dev.openwrt.org/
 
