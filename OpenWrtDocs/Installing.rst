@@ -10,8 +10,6 @@ OpenWrtDocs [[TableOfContents]]
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
 
-. /!\ '''WARNING  !OpenWrt is a GNU/Linux distribution. It comes with NO WARRANTY and NO TECHNICAL SUPPORT. Loading !OpenWrt WILL VOID YOUR WARRANTY.''' /!\ 
-
 ----------
 = Will OpenWrt work on my hardware? =
 See TableOfHardware.
@@ -167,26 +165,6 @@ For more information, see the [http://downloads.openwrt.org/whiterussian/00-READ
 If the boot_wait variable is set, the bootup process is delayed by few seconds allowing a new firmware to be installed through the bootloader using tftp. Setting of the boot_wait variable is done through a bug in the Ping.asp administration page by pinging the certain "addresses" listed below.  '''You find ping.asp by navigating through the administration page and selecting diagnostics.'''.
 
 First, for this to work the '''internet port must have a valid ip address''', either from DHCP or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
-
-/!\ '''The last versions of the firmware to support the Ping.asp bug described below are [ftp://ftp.linksys.com/pub/network/WRT54GV2_3.01.3_US_code.zip 3.01.3] for the WRT54G (up to/including v3.0) and [ftp://ftp.linksys.com/pub/network/WRT54GS_3.37.2_US_code.zip 3.37.2] for the WRT54GS (up to/including v2.0). Downgrading to these firmwares is required to enable boot_wait.'''
-
-/!\ '''I have a WRT54GS 1.1 with a firmware version 4.50 - the Ping.asp trick worked for me without downgrading the firmware! This seems to work as well with the WRT54G V3.1 with firmware V4.00.7 or V4.01.2. If you are lazy, like me, it may worth a try.'''
-
-/!\ '''Ping bug still exists in firmware 4.20.6 on hardware 4.0 and firmware 4.20.7 on hardware 2.0, but it is necessary to use the ping_times variation on the hack, plus some stripping of javascript. Details [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492#37492 here].'''
-
-/!\ '''WRT54GSv4 w/ firmware 1.05.2, I was able to activate the boot_wait using Uranium235's script without downgrade.  Read Uranium235 post http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&p=37492.'''
-
-/!\ '''WRT54GSv4 w/ firmware 1.05.2, I wasn't able to activate boot_wait using any of the ping hacks. Instead flashing openwrt-wrt54gs_v4-squashfs.bin via Linksys web interface worked out just fine for me.'''
-
-/!\ '''WRT54GSv4 w/ firmware 1.05.x does NOT have the Ping bug, so this won't work. Instead go get the _v4 version of the firmware from the image site and install it using the Linksys 'Upgrade Firmware' web interface.'''
-
-/!\ '''WRT54GLv1 with firmware 4.30.0 DE do support this ping trick. Just use linux, set your static IP 192.168.1.2 and then use "ping -r -I <interface_name> -i 0.1 192.168.1.1" before turning your wrt54gl on. This initial gap is about 1 second long and it can be difficult under windows.'''
-
-/!\ '''WRT54GLv1 with firmware 4.30.0 Just use "Firmware upgrade page"'''
-
-/!\ '''WRT54GLv1 with firmware downgraded to 4.20.7 also allows you to just use "Firmware upgrade page".  It also supports the ping_times variation of the hack. '''
-
-/!\ '''WRT54GSv2.1 with firmware 4.70.6 allows you to use the "Firmware upgrade page".  It also supports enabling boot_wait through use of Uranium235's script (link is above).'''
 
 {{{
 ;cp${IFS}*/*/nvram${IFS}/tmp/n
