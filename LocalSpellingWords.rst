@@ -140,3 +140,5 @@ covers
 hacking header identify screws soldered some Some variables work
 
 cpuinfo illuminated list locked logo Look look photos pictures
+
+Cisco Content give grep Kamikaze pins
