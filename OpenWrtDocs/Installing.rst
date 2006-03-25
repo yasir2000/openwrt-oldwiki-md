@@ -38,7 +38,7 @@ Choose the right firmware image for your router model and installation method, x
 
 Installation via Webupgrade of the original firmware:
 ||'''Filename'''||'''Models'''||
-||openwrt-brcm-2.4-xxxx-4MB.trx||Asus WL500g, Asus WL500gx, Buffalo AirStation WBR2-G54S||
+||openwrt-brcm-2.4-xxxx-4MB.trx||Asus WL500g, Asus WL500gx, Buffalo !AirStation WBR2-G54S||
 ||openwrt-wrt54g-xxxx.bin||Linksys WRT54G (v1.0,v1.1,v2.0,v2.2,v3,v4)||
 ||openwrt-wrt54gs-xxxx.bin||Linksys WRT54GS (v1.0, v1.1, v2, v3)||
 ||openwrt-wrt54gs_v4-xxxx.bin||Linksys WRT54GS v4||
@@ -46,6 +46,12 @@ Installation via Webupgrade of the original firmware:
 ||openwrt-wa840g-xxxx.bin||Motorola WA840g||
 ||openwrt-we800g-xxxx.bin||Motorola WE800g||
 ||openwrt-wr850g-xxxx.bin||Motorola WR850g||
+
+Installation via !OpenWrt administrative console or mtd command line tool:
+||'''Filename'''||'''Models'''||
+||openwrt-brcm-2.4-jffs2-4MB.trx||mostly all models with 4MB flash size||
+||openwrt-brcm-2.4-jffs2-8MB.trx||mostly all models with 8MB flash size||
+||openwrt-brcm-2.4-squashfs.trx||all models||
 
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
