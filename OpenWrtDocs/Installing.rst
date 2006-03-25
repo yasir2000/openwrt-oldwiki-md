@@ -5,14 +5,15 @@
 ##
 OpenWrtDocs [[TableOfContents]]
 
-= BIG FAT WARNING =
+= Introduction =
 ----------
- . /!\ '''WARNING  !OpenWrt is a COMMAND LINE  GNU/Linux distribution. It comes with NO WARRANTY and NO TECHNICAL SUPPORT. Loading !OpenWrt WILL VOID YOUR WARRANTY.''' /!\ 
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
 
+. /!\ '''WARNING  !OpenWrt is a GNU/Linux distribution. It comes with NO WARRANTY and NO TECHNICAL SUPPORT. Loading !OpenWrt WILL VOID YOUR WARRANTY.''' /!\ 
+
 ----------
-= Will OpenWrt work on my hardware ? =
+= Will OpenWrt work on my hardware? =
 See TableOfHardware.
 
 = Obtaining the firmware =
@@ -24,20 +25,7 @@ After downloading the firmware image you should make sure that the file is not c
 
 '''Getting the Source and Buildsystem'''
 
-Take a look at our development platform http://dev.openwrt.org/
-
-'''Unstable Release'''
-
-At present, Yasha has been kind enough to provide 2.6 images of the latest bleeding edge svn source recompiled daily at:
-
-http://flyashi.dyndns.org:81/
-
-Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to cry bricks, Yasha has had to make the section containing the bleeding edge firmware image downloads password protected. If you have done the serial mod, are comfortable in linux, and would like access to this section feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.  Once again:
-
-'''~+EXPECT THE UNSTABLE IMAGES WILL BRICK YOUR ROUTER!!!+~'''
-
-If you would like to help debug by testing these images, please be sure to have a SERIAL CONSOLE attached as networking will not always work out of the box.  Please post your feedback of bugs/issues you may discover to forum.
-
+Take a look at our development platform at http://dev.openwrt.org/
 
 = Installing OpenWrt =
 /!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
@@ -49,6 +37,7 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 /!\ '''We strongly suggest you also read ["OpenWrtDocs/Troubleshooting"] before installing'''
 
 == General instructions (router specific instructions later) ==
+
 Although you can install the firmware  through more traditional means (via webpage), we recommend that you use TFTP for your first install. This is '''NOT''' a requirement, simply a damned good idea; if anything goes wrong you can just TFTP the old firmware back.
 
 When the device boots it runs a bootloader. It's the responsibility of this bootloader to perform basic system initialization along with validating and loading the actual firmware; think of it as the BIOS of the device before control is passed over to the operating system. Should the firmware fail to pass a CRC check, the bootloader will presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. The type of the preinstalled bootloader depends on your model. Broadcom based routers use CFE - Common Firmware Environment (older Boards use PMON), Texas Instruments based routers use ["ADAM2"].
@@ -145,6 +134,7 @@ Windows 2000/XP TFTP Client short Instructions
  * If ping starts with "Hardware Error", then starts to answer, and then returns to  "Hardware Error" again for a short moment, you waited too long.
 
 == Linksys WRT54G and WRT54GS ==
+
 To use the TFTP method above you need to enable boot_wait. Plug your ethernet cable into one of the LAN ports.  Once enabled, the router will wait for ~3 seconds for a firmware before booting. While in boot_wait the router is '''always 192.168.1.1, regardless of configuration''' --  you'll have to force your computer to use 192.168.1.x (netmask 255.255.255.0) address for the purpose of reflashing. Also be sure the 192.168.1.x subnet is connected to LAN port 1 of the router.
 
 /!\ '''Do not use the Linksys TFTP program. IT WILL NOT WORK.'''
