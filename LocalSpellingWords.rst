@@ -116,3 +116,5 @@ advantage Aircrack aircrack Airodump airodump amount another Another Begin cap c
 Butterfly consider Controller Controlling Converter cpu Currently Describe Enhancement error find firmware heat image memory Mode now off out Pin possible reboot Regulator respond seems Siemens sink tftp turned unsupported upload
 
 antenna appear binary board box brick Broadcom button bytes Category connect connector datasheet dead design download Eg Instead integrated Intel intel issue latest mode Model Netgear new ns pdf populated Power power procedure put putting recovering Recovery reset Rev seconds unit while worked
+
+mini model modules move near non nvram os proc processor
