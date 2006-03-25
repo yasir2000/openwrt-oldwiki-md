@@ -21,13 +21,37 @@ You can get the latest OpenWrt White Russian at: http://downloads.openwrt.org/wh
 
 Please test our release candidates and report back any problems, so that we can actually release OpenWrt 1.0. 
 
-There are different pre-compiled firmware images for every supported router model:
+There are different pre-compiled firmware images for every supported router model in these folders:
 
 ||'''Folder''' ||'''Description''' ||'''Package list''' ||
 ||bin=default ||standard image with pppoe and webif||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools||
 ||micro ||the minimal set of packages no webif||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, mtd, nvram, uclibc, wificonf||
 ||pptp ||standard image with pptp and webif ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools||
 
+
+---- /!\ '''Edit conflict - other version:''' ----
+
+---- /!\ '''Edit conflict - your version:''' ----
+You can choose between two different types of firmware images, squashfs or JFFS2 root filesystem. Squashfs does higher compression, but is read-only. If you choose this image type, you can not update any base packages without reflashing or loosing of a lot of space. The rest of the flash will be used for a writable JFFS2 filesystem. JFFS2 does not compress as well as squashfs, but you have 
+a complete writable root filesystem. It is your choice!  
+
+. /!\ '''WARNING  !OpenWrt prior rc5 has no failsafe mode for JFFS2 firmware images.''' /!\
+
+Choose the right firmware image for your router model and installation method, xxxx stands for the root filesystem type.
+
+Installation via Webupgrade of the original firmware:
+||'''Filename'''||'''Models'''||
+||openwrt-brcm-2.4-xxxx-4MB.trx||Asus WL500g, Asus WL500gx, Buffalo AirStation WBR2-G54S||
+||openwrt-wrt54g-xxxx.bin||Linksys WRT54G (v1.0,v1.1,v2.0,v2.2,v3,v4)||
+||openwrt-wrt54gs-xxxx.bin||Linksys WRT54GS (v1.0, v1.1, v2, v3)||
+||openwrt-wrt54gs_v4-xxxx.bin||Linksys WRT54GS v4||
+||openwrt-wrtsl54gs-xxxx.bin||Linksys WRTSL54GS||
+||openwrt-wa840g-xxxx.bin||Motorola WA840g||
+||openwrt-we800g-xxxx.bin||Motorola WE800g||
+||openwrt-wr850g-xxxx.bin||Motorola WR850g||
+
+
+---- /!\ '''End of edit conflict''' ----
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
 '''Getting the buildsystem'''
@@ -166,8 +190,6 @@ If the boot_wait variable is set, the bootup process is delayed by few seconds a
 
 First, for this to work the '''internet port must have a valid ip address''', either from DHCP or manually configured from the main page - the port itself doesn't need to be connected unless using dhcp. Next, navigate to the Ping.asp page and enter exactly each line listed below, one line at a time into the "IP Address" field, pressing the Ping button after each entry.
 
-{{{
-;cp${IFS}*/*/nvram${IFS}/tmp/n
 ;*/n${IFS}set${IFS}boot_wait=on
 ;*/n${IFS}commit
 ;*/n${IFS}show>tmp/ping.log
