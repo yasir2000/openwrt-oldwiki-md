@@ -35,7 +35,8 @@ and a package management system for easily loading on extra software and feature
 
 Because GNU/Linux gives us the power to do what we need with cheap hardware while avoiding proprietary,
 rigid software. !OpenWrt isn't for the faint of heart, but if you honestly need a barebones GNU/Linux
-and are prepared to do some work !OpenWrt is the fastest Linux based firmware for the Linksys Wrt's.
+and are prepared to do some work !OpenWrt is the fastest Linux based firmware a lot of 
+wireless lan routers.
 At the moment the distribution contains more than 100 software packages. Furthermore the !OpenWrt
 community provide more add-on packages. For developers the project provides a build system, which may
 be used to create modified firmware from source. Porting of new software packages is simplified with
@@ -44,18 +45,22 @@ the use of the SDK.
 
 = OpenWrt Version History =
 
-The project started in January 2004. The first !OpenWrt versions were based on reverse engineered copies of
-the Linksys firmware, and later Linksys GPL sources for WRT54G and a buildroot from the uclibc project.
+The project started in January 2004. The first !OpenWrt versions were based on 
+Linksys GPL sources for WRT54G and a buildroot from the uclibc project.
 This version was widely known as !OpenWrt "stable release" and was widely in use. There are still many
 !OpenWrt applications, like the Freifunk-Firmware or Sip@Home, which are based on this version.
 
-In the beginning of 2005 some new developers have joined the small developer team. After some months of
+In the beginning of 2005 some new developers have joined the team. After some months of
 closed development the team decided to publish the first "experimental" versions of !OpenWrt. The
 experimental versions use a heavily customized buildsystem based on buildroot2 from the uclibc project.
-!OpenWrt uses official GNU/Linux kernel sources (2.4.30) and only add patches for the system on chip
+!OpenWrt uses official GNU/Linux kernel sources and only add patches for the system on chip
 and drivers for the network interfaces. The developer team try to reimplement most of the proprietary
 code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware
 images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to
-program the VLAN capable switch (robocfg). The codename of the first !OpenWrt release is "White Russian"
-a popular cocktail. !OpenWrt 1.0 is planned for sometime in the future. White Russian is
-currenly in "Release Canidate" status, with numbers like "rc3" and "rc4".
+program the VLAN capable switch via the proc filesystem. The codename of the first !OpenWrt release is "White Russian"
+a popular cocktail. !OpenWrt 1.0 is released if it is stable enough for most of our users. White Russian is
+currenly in "Release Candidate" status, with numbers like "rc3" and "rc4".
+
+The development of the next release is taken place in our subversion repository. It will contain support for many
+more embedded boards (Texas Instruments AR7 (MIPS), Soekris (X86), Aruba (MIPS), Routerboard (MIPS), ...). Its codename
+is Kamikaze. 
