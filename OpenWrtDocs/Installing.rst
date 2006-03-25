@@ -49,10 +49,11 @@ Installation via Webupgrade of the original firmware:
 
 Installation via !OpenWrt administrative console or mtd command line tool:
 ||'''Filename'''||'''Models'''||
-||openwrt-brcm-2.4-jffs2-4MB.trx||mostly all models with 4MB flash size||
-||openwrt-brcm-2.4-jffs2-8MB.trx||mostly all models with 8MB flash size||
+||openwrt-brcm-2.4-jffs2-4MB.trx||mostly all models with 4MB flash size *||
+||openwrt-brcm-2.4-jffs2-8MB.trx||mostly all models with 8MB flash size *||
 ||openwrt-brcm-2.4-squashfs.trx||all models||
 
+* Who remembers which model has a 4 MB flash with 128 Kbyte erasesize?
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
