@@ -8,7 +8,10 @@ OpenWrtDocs [[TableOfContents]]
 = Introduction =
 ----------
 
-!OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
+!OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Users are expected to have working knowledge of the GNU/Linux command line and basic networking concepts. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.. 
+
+/!\ '''WARNING  LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
+
 
 ----------
 = Will OpenWrt work on my hardware? =
@@ -31,7 +34,7 @@ There are different pre-compiled firmware images for every supported router mode
 You can choose between two different types of firmware images, squashfs or JFFS2 root filesystem. Squashfs does higher compression, but is read-only. If you choose this image type, you can not update any base packages without reflashing or loosing of a lot of space. The rest of the flash will be used for a writable JFFS2 filesystem. JFFS2 does not compress as well as squashfs, but you have 
 a complete writable root filesystem. It is your choice!  
 
-. /!\ '''WARNING  !OpenWrt prior rc5 has no failsafe mode for JFFS2 firmware images.''' /!\
+. /!\ '''WARNING  !OpenWrt White Russian prior rc5 has no failsafe mode for JFFS2 firmware images.''' /!\
 
 Choose the right firmware image for your router model and installation method, xxxx stands for the root filesystem type.
 
