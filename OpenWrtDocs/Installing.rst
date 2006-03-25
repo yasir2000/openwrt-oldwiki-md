@@ -12,7 +12,7 @@ OpenWrtDocs [[TableOfContents]]
 /!\ '''WARNING  LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
 
 
-= Will OpenWrt work on my hardware? =
+= Supported hardware =
 See TableOfHardware.
 
 = Obtaining the firmware =
