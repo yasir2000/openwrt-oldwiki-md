@@ -70,7 +70,7 @@ This unit is just like v2.2 except it has an extra button on the left front pane
 behind a Cisco logo. This button can be illuminated by either a yellow or white
 LED, and is used for the "Secure Easy Setup" encryption setup feature.
 
-To take the front cover off of v3.1, you must first remove the small screws under the
+To remove the front cover from a v3.1, you must first remove the small screws under the
 rubber covers of the front feet!
 
 If you have such a thing you can try 
@@ -85,7 +85,7 @@ New more integrated board layout
 ([http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6#wrt54g4 photos here]),
 switch is now in SoC.
 
-To take the front cover off of this unit you must first remove the small screws under the
+To remove the front cover from this unit you must first remove the small screws under the
 rubber covers of the front feet!
 
 
@@ -128,8 +128,8 @@ There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory
 they are locked to 16 MB. You can unlock the remaining memory with changing some of the
 variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
-/!\ '''NOTE:''' However, there are no guaranties, that these will work, and changing the
-memory configuration on a non-XH unit will give You a brick. Check the forums for more info.
+/!\ '''NOTE:''' However, there are no guaranties that these will work, and changing the
+memory configuration on a non-XH unit will give you a brick. Check the forums for more info.
 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power
 LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the
