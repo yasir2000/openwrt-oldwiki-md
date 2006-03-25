@@ -154,3 +154,5 @@ repository rigid route started starting status subversion support system taken u
 embedded employs experimental extend fact faint firmwares forks free Freifunk heavily moment months provide provided situation yet
 
 honestly images inside instead management market modified
+
+attempted available avoiding barebones beginning build capable combination community developers January patches
