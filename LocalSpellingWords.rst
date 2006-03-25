@@ -126,3 +126,5 @@ possibly printed setup showpage supported switched unlock white width
 v1 v2 v3 v4 v5
 
 boardtype bottom but card complete currently enabled front full interest revision rubber
+
+appears barcode been empty except exception feature feet identifying remaining remove Russian sort turn under units unknown unpopulated
