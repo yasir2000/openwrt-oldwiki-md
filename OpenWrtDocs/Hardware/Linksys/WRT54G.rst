@@ -104,7 +104,7 @@ flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be suppor
 How to get info:
 
  * board info: {{{nvram show | grep board | sort}}}[[BR]]
- * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
+ * cpu model: {{{grep cpu /proc/cpuinfo}}}
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||'''boot_ver'''||'''pmon_ver'''||
 ||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       4         || BCM4702KPB ?  ||       -      ||       -      ||
