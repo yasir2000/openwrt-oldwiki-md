@@ -35,7 +35,7 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- WHITE RUSSIAN (RC4) -------------------------------
+ WHITE RUSSIAN -------------------------------------
   * 2 oz Vodka   Mix the Vodka and Kahlua together
   * 1 oz Kahlua  over ice, then float the cream or
   * 1/2oz cream  milk on the top.
@@ -141,8 +141,3 @@ is not working try the following format:
 option http_proxy http://username:password@aaa.bbb.ccc.ddd:port/
 option ftp_proxy http://username:password@aaa.bbb.ccc.ddd:port/
 }}}
-
-
-= Configuration =
-
-See [:OpenWrtDocs/Configuration].
