@@ -51,49 +51,7 @@ Now you can edit the files with an text editor.
 See ["OpenWrtDocs/Using"] for details.
 
 == How do I recover / boot in failsafe mode? ==
-If you screw up the JFFS2 part or the network settings in NVRAM you can use !OpenWrt's failsafe mode to recover. The DMZ LED will light up during boot, hold down the reset button for 1-2 seconds as the DMZ LED lights up to boot into failsafe mode. While in failsafe mode OpenWrt will not mount the JFFS2 partition and will instead run entirely from SquashFS and the LAN will be forced to {{{192.168.1.1}}}  with a MAC address of {{{00:0B:AD:0A:DD:00}}}. If you don't have a DMZ LED, use this procedure: Plug in the power cable, wait for 3 seconds, then start pressing the reset button and hold it down for another 10-15 seconds. You should be in failsafe mode, then.
-
-'''NOTE:''' The {{{firstboot}}} check does the following:
-
- * check reset button
- * turn on DMZ
- * wait 1 second
- * check if reset changed
-
-/!\ '''WARNING:''' Some models will erase NVRAM if you're holding the reset button before the firmware boots -- wait for the DMZ LED.
-
-The JFFS2 filesystem can be unlocked and mounted as follows:
-
-{{{
-mtd unlock mtd4
-mount -t jffs2 /dev/mtdblock/4 /jffs
-}}}
-
-or
-
-{{{
-/sbin/mount_root
-}}}
-
-/!\ '''TIP: Flush your arp cache.''' The bootloader and the firmware both use the network but they might not use the same MAC addresses. If you're constantly pinging the router then your computer might cache the MAC address (ARP) of the bootloader making it impossible to ping OpenWrt. You can delete the entries in the ARP cache with:
-
-On *nix operating systems use:
-
-{{{
-arp -d 192.168.1.1
-}}}
-
- . Note: this requires root privileges. As normal user, you may simple use a broadcast ping to force an arp-cache update (abort with Ctrl-C):
-
-{{{
-ping -b 192.168.1.0
-}}}
-
-On Windows operating systems open a CMD console and do:
-
-{{{
-C:\>arp -d 192.168.1.1
-}}}
+See["OpenWrtDocs/Troubleshooting"].
 
 == What TFTP client should I use to flash my Wrt? ==
 In GNU/Linux and other *ixes, use the {{{atftp}}} client.
