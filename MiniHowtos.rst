@@ -314,3 +314,17 @@ tar jcvf /tmp/backup.tar.bz2 .
 }}}
 
 Then using nfs or dropbear's scp to copy /tmp/backup.tar.gz to a safe place.
+
+== Making the reset button reset the router! ==
+To make the reset button reset the router, i wrote a simple script to poll the reset button. Put this in /etc/init.d/S09resetbutton
+{{{
+while [ true ]; do
+        sleep 1
+        if [ `cat /proc/sys/reset` = "1" ]; then
+                echo "0x01" > /proc/sys/diag
+                echo "Rebooting"
+                reboot
+        fi
+done &
+}}}
+Don't forget to chmod a+x it!
