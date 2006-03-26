@@ -127,14 +127,14 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 /!\ '''We strongly suggest you also read ["OpenWrtDocs/Troubleshooting"] before installing'''
 
-= Upgrading from previos OpenWrt install =
+= Upgrading from previous OpenWrt install =
 
 == Backup /etc changes and package list ==
 
 Before you upgrade, please consider making a backup of your /etc 
 directory and then write down the list of packages installed.
 
-/!\ '''Reflashing with OpenWrt -WILL RESET THE FILESYSTEM- ''' /!\
+/!\ '''Reflashing with OpenWrt WILL RESET THE FILESYSTEM''' /!\
 
 All the changes you have made to the configuration files and all
 the packages you have been installed will be purged and replaced
