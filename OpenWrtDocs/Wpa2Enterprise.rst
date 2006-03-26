@@ -99,6 +99,7 @@ modules {
                 usersfile = ${confdir}/users
                 compat = no
         }
+}
 authorize {
 
         files
