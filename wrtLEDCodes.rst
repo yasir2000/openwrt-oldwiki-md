@@ -45,5 +45,14 @@ The values are bitfields, so add up the ones you want in the table below to cont
 
 For example, if you want the power LED to flash (0x04) and the DMZ LED to light up (0x01) you'd echo "0x05" > /proc/sys/diag
 
+On pre-RC5, the CISCO LED on some linksys routers is now supported. Here's a table of bitfields that work for me
+
+||Value||Action||Known to work with||
+||0x00||Defaults||-||
+||0x01||DMZ LED on||WRT54G v1.1, v2.0, v3.0, v4.0 and WRT54GS||
+||0x04||Power LED flashing||WRT54G v1.1, v2.0, v3.0, v4.0 and WRT54GS||
+||0x08||White Cisco LED ON||WRT54GS v4.0||
+||0x10||Orange Cisco LED ON||WRT54GS v4.0||
+
 ----
 CategoryCategory
