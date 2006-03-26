@@ -173,7 +173,7 @@ cat /etc/banner
 and watch for a line like this:
 
 {{{
-WHITE RUSSIAN (RC4) -------------------------------
+WHITE RUSSIAN (RC5) -------------------------------
 }}}
 
 If you don't have that file execute
@@ -357,12 +357,12 @@ Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good sta
 '''TIP:''' If you install {{{qosfw-scripts}}} than it's easier to configure port forwarding.
 
 == How do I configure QoS aka traffic shaping in OpenWrt? ==
-QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters]. This script is only shaping on your uplink. The QoS package only works in White Russian RC4 and later version. With the {{{qosfw-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
+QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters]. This script is only shaping on your uplink. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
 
-Download and install the {{{qosfw-scripts}}} package:
+Download and install the {{{qos-scripts}}} package:
 
 {{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk
+ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.6.1_all.ipk
 }}}
 
 Then edit {{{/etc/config/qos-wan}}}. This file has a number of examples and the syntax description in it. Be sure to uncomment the {{{option:enabled}}} line and set the {{{option:upload}}} and {{{option:download}}} correctly.
