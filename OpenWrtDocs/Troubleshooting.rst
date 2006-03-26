@@ -100,6 +100,15 @@ firstboot with the JFFS2 partition mounted, it will not format the partition,
 but it will overwrite files with symlinks. (Packages will be preserved, changes
 to scripts will be lost)
 
+=== JFFS2 images ===
+unlike the SquashFS images, the JFFS2 images boot failsave with the JFFS filesystem / mounted read only.
+You can make changes to nvram ok,  but can't make changes to scripts etc.
+To make the root filesystem read/write, you need to remount it with the following command:
+
+{{{
+/sbin/mount_root
+}}}
+
 
 = Resetting to defaults =
 
