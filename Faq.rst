@@ -261,10 +261,6 @@ When this is done you can follow the ["OpenWrtDocs/Deinstalling"] page.
 == Does OpenWrt have a web interface? ==
 '''Yes.''' The {{{default}}} and {{{pptp}}} optimized images will have the web interface (called !OpenWrt Administrative Console or webif for short) integrated.
 
-Nbd will add more features in the future. We're looking for some webif developers too.
-
-'''NOTE:''' This web interface is in development. Basic features like firmware upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration works.
-
 The !OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with [http://haserl.sourceforge.net/ haserl]. It uses the !BusyBox HTTPD server.
 
 '''TIP:''' You still can configure everything in the pure CLI (command line interface) too. If you prefer this way than do so. When you like images without the haserl and webif packages use either the {{{micro}}} image or create your own images using the !OpenWrt [:ImageBuilderHowTo:Image Builder].
