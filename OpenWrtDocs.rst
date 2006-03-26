@@ -21,6 +21,9 @@ To get started, click a link below.
 '''[:OpenWrtDocs/Configuration: OpenWrt Configuration]'''
 [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
 
+'''[:OpenWrtDocs/Packages: OpenWrt Addon Packages]'''
+[[Include(OpenWrtDocs/Packages,,titlesonly)]]
+
 '''[:OpenWrtDocs/Customizing: OpenWrt Customization]'''
 [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
