@@ -134,6 +134,13 @@ addon package, you need to freshen the package list with
 root@OpenWrt:~# ipkg update
 }}}
 
+'''Upgrade with ipkg'''
+
+Never ipkg upgrade a whole release. You can upgrade addon-packages, but you should always reflash if you switching between
+releases and release candidates.
+
+'''ipkg-link'''[[BR]]
+
 If you have USB storage, or install packages to a destination other than root,
 the shell script {{{ipkg-link}}} will create automatic symlinks to the root
 filesystem for those packages. See the info on {{{ipkg-link}}} on the
