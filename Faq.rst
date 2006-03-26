@@ -1,7 +1,6 @@
 '''New FAQ for the stable !OpenWrt White Russian release candidates.'''
 
-[[TableOfContents]]
-####################################################
+[[TableOfContents]]## ##################################################
 = Installation =
 == Will OpenWrt run on <fill in the blank> ? ==
 Please check ["OpenWrtDocs/Hardware"] and the TableOfHardware for the list of supported units.
@@ -26,15 +25,15 @@ See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 Same firmware, only a different set of preinstalled packages.
 
 ||'''Folder''' ||'''Description''' ||'''Package list''' ||
-||bin=default ||standard image ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, libgcc, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools, zlib ||
-||micro ||the minimal set of packages ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-wlcompat, libgcc, mtd, nvram, uclibc, wificonf, zlib ||
-||pptp ||includes support for PPTP ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-et, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, libgcc, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools, zlib ||
+||bin=default ||standard image ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-switch, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools ||
+||micro ||the minimal set of packages ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-brcm-wl, kmod-diag, kmod-switch, kmod-wlcompat, mtd, nvram, uclibc, wificonf ||
+||pptp ||includes support for PPTP ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-switch, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools ||
 
 
 == How do I install/flash OpenWrt? ==
 '''NOTE:''' Before you install !OpenWrt make sure you have at least basic GNU/Linux knowledge and *nix shell skills.
 
-'''TIP:''' You can flash the White Russian RC4 images ({{{*.bin}}}) directly from the other web interfaces now. It should to be safe even without {{{boot_wait=on}}}. But there is no garantee it will work.
+'''TIP:''' You can flash the White Russian images ({{{*.bin}}}) directly from the other web interfaces now. It should to be safe even without {{{boot_wait=on}}}. But there is no garantee it will work.
 
 See ["OpenWrtDocs/Installing"].
 
@@ -193,7 +192,7 @@ Your version is based on the reported date where !BusyBox has been compiled.
 {{{mtd}}} will leave the bootloader and NVRAM settings untouched.
 
 == How do I clean up the NVRAM variables (the safe way)? ==
-If you have used other firmware in the past you probably have more than 400 NVRAM variables. Most of these NVRAM variables are not necessary for OpenWrt. You can safely delete them with the {{{nvram-clean.sh}}} script and have a more readable NVRAM dump.
+If you have used other firmware in the past you probably have more than 400 NVRAM variables. Most of these NVRAM variables are not necessary for !OpenWrt. You can safely delete them with the {{{nvram-clean.sh}}} script and have a more readable NVRAM dump.
 
 To safely clean up these variables use nbd's NVRAM cleanup script found at http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh.
 
@@ -262,8 +261,6 @@ When this is done you can follow the ["OpenWrtDocs/Deinstalling"] page.
 == Does OpenWrt have a web interface? ==
 '''Yes.''' The {{{default}}} and {{{pptp}}} optimized images will have the web interface (called !OpenWrt Administrative Console or webif for short) integrated.
 
-A screenshot used to be available at http://openwrt.inf.fh-brs.de/~nbd/webif/wireless-config.sh.html but it seems to have disappeared.
-
 Nbd will add more features in the future. We're looking for some webif developers too.
 
 '''NOTE:''' This web interface is in development. Basic features like firmware upgrade, internet configuration (PPPoE, DHCP, ...) and WLAN configuration works.
@@ -273,9 +270,9 @@ The !OpenWrt web interface is based on a set of shell and awk scripts and the fo
 '''TIP:''' You still can configure everything in the pure CLI (command line interface) too. If you prefer this way than do so. When you like images without the haserl and webif packages use either the {{{micro}}} image or create your own images using the !OpenWrt [:ImageBuilderHowTo:Image Builder].
 
 == Why is the OpenWrt firmware so bare? ==
-OpenWrt's design philosophy is to not lock the user down to a particular set of features but rather to provide a basic framework which can be endlessly customized through it's package support and writable JFFS2 filesystem. The firmware itself contains a minimal "core" filesystem with the intent on giving as much space as possible to the JFFS2 filesystem; the core provides minimal functionality while the JFFS2 filesystem allows the user to add software packages and modify the core scripts. The use of a package system allows the user to customize the set of features required with regard to available space, without wasting space on unused features.
+!OpenWrt's design philosophy is to not lock the user down to a particular set of features but rather to provide a basic framework which can be endlessly customized through it's package support and writable JFFS2 filesystem. The firmware itself contains a minimal "core" filesystem with the intent on giving as much space as possible to the JFFS2 filesystem; the core provides minimal functionality while the JFFS2 filesystem allows the user to add software packages and modify the core scripts. The use of a package system allows the user to customize the set of features required with regard to available space, without wasting space on unused features.
 
-As an example, the typical WRT54G contains 4 MB of flash while the WRT54GS contains 8 MB of flash. The typical firmware is intended to fit on a WRT54G, leaving 4 MB of flash completely unused on the WRT54GS. With OpenWrt, the JFFS2 partition will inherit the extra 4 MB of space, allowing more packages and thus more features.
+As an example, the typical WRT54G contains 4 MB of flash while the WRT54GS contains 8 MB of flash. The typical firmware is intended to fit on a WRT54G, leaving 4 MB of flash completely unused on the WRT54GS. With !OpenWrt, the JFFS2 partition will inherit the extra 4 MB of space, allowing more packages and thus more features.
 
 == Who maintains OpenWrt? ==
 !OpenWrt is the collaboration of many people. The two people responsible for the creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking fans). The core developers with write access to the subversion repository are:
@@ -327,7 +324,7 @@ The message {{{no auths methods could be used}}} is related to the following uti
 PasswordAuthentication yes
 }}}
 
-####################################################
+## ##################################################
 = Networking =
 == How do I create a DHCP server? ==
 The [http://thekelleys.org.uk/dnsmasq/doc.html dnsmasq] program acts as DNS and DHCP server in !OpenWrt. By default it hands out IP addresses from
@@ -526,7 +523,7 @@ nvram commit
 == Why does it report 255 mW / 31 dBm for the wireless txpwr? ==
 It lies.
 
-The txpwr is not actually 255, 255 is just the target value. The actual value will be capped by the driver to a maximum of maximum of {{{pa0maxpwr}}} (unless you turn on the override). This is the exact same way it's handled in the OEM firmwares. (Chances are that we'll just set it to {{{pa0maxpwr}}} in future releases to finally kill this question)
+The txpwr is not actually 255, 255 is just the target value. The actual value will be capped by the driver to a maximum of maximum of {{{pa0maxpwr}}} (unless you turn on the override). This is the exact same way it's handled in the OEM firmwares. (Chances are that we'll just set it to {{{pa0maxpwr}}} in future releases to finally kill this question).
 
 == Can I adjust the transmit power? ==
 Yes, but cranking the power to the maximum won't help you any. You might transmit farther but the noise level will be higher (and will probably bleed into the neighbouring channels; that looks like [http://wl500g.info/showthread.php?t=12&page=2 this] then) and your recieve sensitivity won't be improved any, limiting your distance. If you want better range go buy better antennas.
@@ -615,7 +612,7 @@ ifup wan
 
 For more information see the ["PPTPClientHowto"].
 
-####################################################
+## ##################################################
 = Development =
 See also the !OpenWrt [http://dev.openwrt.org/ development center] website. There you can browse the source code and send reproducible bugs with the ticket system (in trac).
 
