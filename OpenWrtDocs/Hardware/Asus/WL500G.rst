@@ -8,7 +8,7 @@ RAM: 16 MB
 Wireless: Mini-PCI Broadcom WL-120G 
 Ethernet: two network interface, one for 4 LAN ports, one for WAN port, no VLAN tagging
 external USB 1.1 port  
-external LPT port [http://www.attansic.com.tw/english/products/pdf/AT7601F_1.0.pdf Attansic AT761F] 
+external LPT port (Attansic AT761F http://www.attansic.com.tw/english/products/pdf/AT7601F_1.0.pdf)
 no serial port, external UART needed  
 no jtag
 }}}
