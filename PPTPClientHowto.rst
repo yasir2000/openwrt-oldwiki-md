@@ -2,7 +2,7 @@
 #language en
 [[TableOfContents]]
 == OpenWrt PPTP Client ==
-This mini howto discusses how to configure your router as a PPTP client to connect to a PPTP server such as MS VPN.
+How to configure your router as a PPTP client to connect to a PPTP server such as MS VPN.
 
 == Requirements ==
 
@@ -11,12 +11,18 @@ Install the ''pptp'' package, and all required packages will be installed:
 {{{
 ipkg install pptp}}}
 
-
 === Modules ===
-In order to have MPPE encryption you must have the following modules loaded:
+If you wish to use encryption, add the following lines to ''/etc/modules'':
 {{{
-ppp_mppe_mppc arc4 sha1}}}
+ppp_mppe_mppc
+arc4
+sha1}}}
 
+then either reboot or load the modules this once:
+{{{
+insmod ppp_mppe_mppc
+insmod arc4
+insmod sha1}}}
 
 == Configuration ==
 
