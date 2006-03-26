@@ -40,6 +40,8 @@ reflashing.
 ||bin=default||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools||
 ||pptp||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools||
 
+== TRX vs. BIN ==
+
 That explains the directories, now what the hell are the files?
 There's two types of files, the "trx" files and the "bin"
 files; the bin files simply repackage the trx in the vendor's
@@ -78,13 +80,15 @@ can't be used directly.
      This is also a trx file, but with a Motorola header
      added to the start of the file, making it a valid
      firmware file for a Motorola device.
+
+== SquashFS vs. JFFS2 ==
      
 That's a ton of files, what's with the "<type>"?
 !OpenWrt gives you your choice of root filesystems; you can either
 have the root filesystem as Squashfs or JFFS2, We'll explain both.
 If you don't understand, or can't decide, pick Squashfs.
 
-  Squashfs
+  SquashFS
     The files marked squashfs include a small compressed filesystem
     within the firmware itself. The disadvantage is that Squashfs is
     a readonly filesystem, so a separate JFFS2 partition has to be
@@ -125,7 +129,7 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 = Upgrading from previos OpenWrt install =
 
-=== Backup /etc changes and package list ===
+== Backup /etc changes and package list ==
 
 Before you upgrade, please consider making a backup of your /etc 
 directory and then write down the list of packages installed.
