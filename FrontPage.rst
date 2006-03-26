@@ -7,11 +7,10 @@
 
 = OpenWrt =
 
- * [:OpenWrtDocs] - Documentation
+ * [:OpenWrtDocs] - Documentation for !OpenWrt Linux distribution 
  * [:OpenWrtHowTo] - Many nice Howtos about !OpenWrt
- * [:Faq] - Frequently asked questions
+ * [:Faq] - Frequently Asked Questions
  * [:OpenWrtLinks] - External articles, howtos, !OpenWrt applications, ..
- * [:OpenWrtPackages] - A list of packages for !OpenWrt
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
  * [http://dev.openwrt.org/ OpenWrt development center] - Send bug reports, browse the source code, ..
