@@ -272,6 +272,7 @@ vlan2hwname=et0
 It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least the WRT54GS
 v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 
+OpenWrtRoboCfg
 
 === Using Robocfg ===
 
@@ -530,22 +531,29 @@ For more information, see [:ClientModeHowto].
 
 Note: Bridge mode only works for me by setting wl0_mode=wet. My device is Asus WL-HDD.
 
-== WLAN secured by IPSec ==
-See [:IPSec] Section for further information.
+= Base system configuration =
 
+== Busybox - The Swiss Army Knife of Embedded Linux ==
 
-= Software configuration =
+== Cron - job scheduler ==
 
-== System ==
+See [:HowtoEnableCron].
 
-=== dnsmasq ===
+== Syslog - Logging ==
+
+If you want to read the syslog messages, use the '''logread''' tool.
+
+== dropbear - Secure Shell server ==
+
+== iptables - Firewall ==
+
+== dnsmasq - DNS and DHCP server ==
 
 Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP server.
 
 Documentation can be found at [:OpenWrtDocs/dnsmasq].
 
-
-=== Time zone and NTP ===
+== Timezone and NTP ==
 
 To set a time zone use the {{{/etc/TZ}}} file. Copy & paste the time zones from the
 table below into the file. In this example it's done with the {{{echo}}} command.
@@ -629,109 +637,3 @@ Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
 ^1^in August of 2005, President Bush passed the [http://www.fedcenter.gov/_kd/Items/actions.cfm?action=Show&item_id=2969&destination=ShowItem Energy Policy Act], which, among other things, changes the time change dates for daylight saving time from the first Sunday in April to the second Sunday in March and from the last Sunday in October to the first Sunday in November. This pattern starts in 2007, however, and Congress still has time to revert the DST back. As such, these changes have not yet been incorporated into mainline uClibc (which provides the time functions for the C library used by OpenWrt). Therefore, it might be a good idea to change {{{/etc/TZ}}} explicitly (around mid-November 2006) to reflect this change (i.e., instead of {{{EST5EDT}}} write {{{EST5EDT,M3.5.0,M9.1.0}}}).
-
-=== Crontab ===
-
-See [:HowtoEnableCron].
-
-
-=== PPPoE Internet Connection ===
-
-See the !OpenWrt [:Faq].
-
-
-=== Access to syslog ===
-
-If you want to read the syslog messages, use the '''logread''' tool.
-
-
-== Applications ==
-
-=== httpd ===
-
-'''httpd''', part of !BusyBox, is the binary tool that starts the http daemon.
-
-Documentation can be found at [:OpenWrtDocs/httpd].
-
-
-=== socks-Proxy ===
-
-There is a Socks-proxy available for !OpenWrt, it is called '''srelay''' (Find via the
-package tracker). However, there is no documentation for this package. So, here is a
-quick guide:
-
-Srelay comes with a configuration file: /etc/srelay.conf (surprise surprise). It has some
-examples, but basically you will want to do this:
-
-{{{
-192.168.1.0/24 any -
-}}}
-
-This should give every computer in the 192.168.1.0 subnet access to srelay while keeping
-everything else out.
-
-Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about the
-available options with '''srelay -h'''.
-
-Keep in mind that this information was found using trial-and-error-methods, so it might
-still be faulty or have unwanted side effects.
-
-
-=== uPnP ===
-
-'''uPnP''' is Universal Plug and Play.  You can use either the LinkSys binary from the
-original firmware or the compiled version.
-
-Documentation and the background of uPnP can be found at [:OpenWrtDocs/upnp]
-
-
-=== CUPS - Printing system with spooling ===
-
-You can't print a testpage on the local cups, because this would need to have ghostscript
-installed on your embedded system.
-
-If you have a special Postscript Printer Description (ppd) file for your printer, copy it
-to /usr/share/cups/model/ and restart cupsd. Cups will install it in /etc/cups/ppd and you
-can choose it via the web interface. (192.168.1.1:631)
-
-If you have problems with permissions, try to change /etc/cups/cupsd.conf to fit your local
-TCP/IP network:
-
-{{{
-<Location />
-Order Deny,Allow
-Deny From All
-Allow from 127.0.0.1
-Allow from 192.168.1.0/24 #your ip area.
-</Location>
-}}}
-
-MacOS X tip:
-Configure your extended printer settings. If you use the standard printer settings and add
-an IPP printer, MacOS X will add after the server adress /ipp . But this class etc. does
-not exist on your cupsd.
-
-
-=== Wake on LAN ===
-
-If you have trouble using [http://tracker.openwrt.org/packages/list.php?name=wol wol] to
-wake up your PC give [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ ether-wake]
-a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're
-looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool]
-before shutting down your PC.
-
-=== NFS ===
-
-You need to install kmod-nfs and portmap to be able to mount remote NFS file systems.
-
-
-== Building your own packages ==
-
-To build your own packages for !OpenWrt with the SDK, see [:BuildingPackagesHowTo].
-
-
-= Hardware =
-
-== LED ==
-
-Document can be found at [:wrtLEDCodes].
