@@ -8,6 +8,8 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 
+= Setting a password =
+
 Once !OpenWrt booted the first time, you have the possibility to secure the access to your router with a password.
 Depending which version you have installed, you can set the password either via !OpenWrt WebIf or via telnet.
 
@@ -76,7 +78,9 @@ This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, you may disable them.
 
 = Notes about SquashFS firmware =
+
 '''Firstboot'''[[BR]]
+
 The !OpenWrt firmware contains two pieces: a kernel and a read-only filesystem
 (embedded in the firmware) known as SquashFS. Because the SquashFS filesystem
 is readonly, a second filesystem has to be created using JFFS2.
