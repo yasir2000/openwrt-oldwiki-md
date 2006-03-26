@@ -5,9 +5,18 @@
 This mini howto discusses how to configure your router as a PPTP client to connect to a PPTP server such as MS VPN.
 
 == Requirements ==
+
+=== Packages ===
 Install the ''pptp'' package, and all required packages will be installed:
 {{{
 ipkg install pptp}}}
+
+
+=== Modules ===
+In order to have MPPE encryption you must have the following modules loaded:
+{{{
+ppp_mppe_mppc arc4 sha1}}}
+
 
 == Configuration ==
 
