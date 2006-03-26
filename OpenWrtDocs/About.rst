@@ -59,7 +59,7 @@ code inside the GPL tarballs of the different vendors. There are free tools for 
 images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to
 program the VLAN capable switch via the proc filesystem. The codename of the first !OpenWrt release is "White Russian"
 a popular cocktail. !OpenWrt 1.0 is released if it is stable enough for most of our users. White Russian is
-currenly in "Release Candidate" status, with numbers like "rc3" and "rc4".
+currently in "Release Candidate" status, with numbers like "rc3" and "rc4".
 
 The development of the next release is taken place in our subversion repository. It will contain support for many
 more embedded boards (Texas Instruments AR7 (MIPS), Soekris (x86), Aruba (MIPS), Routerboard (MIPS), ...). Its codename
