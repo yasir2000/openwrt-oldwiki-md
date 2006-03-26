@@ -76,7 +76,7 @@ This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, you may disable them.
 
 = Notes about SquashFS firmware =
-== Firstboot ==
+'''Firstboot'''[[BR]]
 The !OpenWrt firmware contains two pieces: a kernel and a read-only filesystem
 (embedded in the firmware) known as SquashFS. Because the SquashFS filesystem
 is readonly, a second filesystem has to be created using JFFS2.
@@ -91,7 +91,7 @@ remounted to the {{{/rom}}} directory).
 If at any time you wish to revert files back to their original condition
 (in other words, recreate the symlinks to /rom), just run {{{firstboot}}}.
 
-== Editing files ==
+'''Editing files'''[[BR]]
 
 Since the filesystem is a collection of symlinks to a readonly filesystem,
 you can't simply edit files -- they're readonly. Instead you have to delete
@@ -136,7 +136,7 @@ filesystem for those packages. See the info on {{{ipkg-link}}} on the
 [:UsbStorageHowto].
 
 
-== Proxying ipkg ==
+'''Proxy support'''[[BR]]
 
 To use {{{ipkg}}} through a proxy, add the following to {{{/etc/ipkg.conf}}}
 
