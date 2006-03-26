@@ -16,9 +16,8 @@ OpenWrtDocs [[TableOfContents]]
 See TableOfHardware.
 
 = Obtaining the firmware =
-'''Stable Release'''
 
-You can get the latest OpenWrt White Russian at: http://downloads.openwrt.org/whiterussian/
+You can get the latest OpenWrt White Russian at: http://downloads.openwrt.org/whiterussian/newest/
 
 Please test our release candidates and report back any problems, so that we can actually release OpenWrt 1.0. 
 
@@ -57,14 +56,14 @@ Installation via !OpenWrt administrative console or mtd command line tool:
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/default/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
-'''Getting the buildsystem'''
-
-Take a look at our development platform at http://dev.openwrt.org/
-
 = Installing OpenWrt =
-/!\ '''LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY'''
 
-!OpenWrt is an unofficial firmware which is neither endorsed or supported by the vendor of your router. OpenWrt is provided "AS IS" and without any warranty under the terms of the [http://www.gnu.org/copyleft/gpl.html GPL]. You can always flash back your original firmware, so please be sure you have it downloaded and saved locally.
+You can reinstall your original firmware, so please be sure you have it downloaded and saved on your PC.
+
+If you are extremely cautious or try to install a self compiled or modified version of OpenWrt White Russian, please consider
+to use the [OpenWrtViaTftp] installation method. For some of the hardware models we support, this requires special requirements.
+
+Please take a look at the documentation for your specific model. [OpenWrtHardwareOverview]
 
 To avoid potentially serious damage to your router caused by an unbootable firmware you should read the documentation for your specific router model.
 
