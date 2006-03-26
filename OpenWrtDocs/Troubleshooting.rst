@@ -12,7 +12,7 @@ If you've broken one of the startup scripts, firewalled yourself or corrupted th
 
 == How to get into failsafe mode ==
 ## TODO: The Faq article "How do I recover / boot in failsafe mode?" is redundant of this.  These need to be merged.
-'''TIP:'''!OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will''not''reset the NVRAM.  The''bootloader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that!OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
+'''TIP: '''!OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will''not''reset the NVRAM.  The''bootloader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
 === All Models (RC5+) ===
 Download and run recvudp utility.
 
