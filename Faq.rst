@@ -1,6 +1,6 @@
 '''New FAQ for the stable !OpenWrt White Russian release candidates.'''
 
-[[TableOfContents]]## ##################################################
+[[TableOfContents]]
 = Installation =
 == Will OpenWrt run on <fill in the blank> ? ==
 Please check ["OpenWrtDocs/Hardware"] and the TableOfHardware for the list of supported units.
