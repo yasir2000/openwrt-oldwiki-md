@@ -8,12 +8,13 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 
+Once !OpenWrt booted the first time, you have the possibility to secure the access to your router with a password.
+Depending which version you have installed, you can set the password either via !OpenWrt WebIf or via telnet.
 
-= Using OpenWrt for the first time =
+On routers with DMZ LED !OpenWrt uses the LED to signal bootup, turning the LED on while booting and
+off once completely booted. 
 
-!OpenWrt uses the DMZ LED to signal bootup, turning the LED on while booting and
-off once completely booted. Once booted, you should be able to telnet into the
-router using the last address it was configured for.
+Once booted, you should be able to telnet into the router using the last address it was configured for:
 
 {{{
 telnet 192.168.1.1
@@ -40,33 +41,44 @@ Enter 'help' for a list of built-in commands.
   * 1 oz Kahlua  over ice, then float the cream or
   * 1/2oz cream  milk on the top.
  ---------------------------------------------------
-root@OpenWrt:~#
+root@OpenWrt:~# passwd
+Changing password for root
+Enter the new password (minimum of 5, maximum of 8 characters)
+Please use a combination of upper and lower case letters and numbers.
+Enter new password: 
+Re-enter new password:
+Password changed.
+root@OpenWrt:~# 
 }}}
 
+After the next reboot, the telnet port will be closed and you can only login
+via secure shell or webif (if installed).
+
 The firmware itself is designed to occupy as little space as possible while
-still providing a reasonably friendly commandline interface. With no packages
+still providing a reasonably friendly commandline interface or webadministration 
+interface. With no packages
 installed, the firmware will simply configure the network interfaces, setup a
-basic NAT/firewall, and load the telnet server and dnsmasq (a combination DNS
+basic NAT/firewall, and load the secure shell server and dnsmasq (a combination DNS
 forwarder and DHCP server).
 
-'''Why no telnet password?'''[[BR]]
-Telnet is an insecure protocol with no encryption, we try to make a point of
-this insecurity by not enabling a password. If you're in an environment that
+'''Why no default password?'''[[BR]]
+Telnet and HTTP are insecure protocols with no encryption, we try to make a point of
+this insecurity by not enabling a default password. If you are in an environment that
 requires password protection we suggest setting a password with the {{{passwd}}}
 command, which will disable the telnet server and enable the Dropbear SSH
 server.
 
 '''When I upgraded I get "Access Denied" after I enter my password in SSH?'''[[BR]]
-After upgrading to RC4 and later, the filesystem is rewritten as part of the reflash process so that if the firmware size has increased the filesystem will not be corrupted.  This resets the filesystem and the method of command-line access reverts to telnet.  That is, you must telnet into the router on the last address it was configured for.
+After upgrading !OpenWrt, the filesystem is rewritten as part of the reflash process so that if the firmware size has increased the filesystem will not be corrupted.  This resets the filesystem and the method of command-line access reverts to telnet.  That is, you must telnet into the router on the last address it was configured for.
 
 '''What if I can not access telnet when first booting?'''[[BR]]
 This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, you may disable them.
 
-= SQUASHFS Firmware =
+= Notes about SquashFS firmware =
 == Firstboot ==
 The !OpenWrt firmware contains two pieces: a kernel and a read-only filesystem
-(embedded in the firmware) known as SquashFS. Because the squashfs filesystem
+(embedded in the firmware) known as SquashFS. Because the SquashFS filesystem
 is readonly, a second filesystem has to be created using JFFS2.
 
 When !OpenWrt boots it will check for the existence of a JFFS2 partition and
@@ -92,13 +104,13 @@ cp /rom/etc/ipkg.conf /etc/ipkg.conf
 vim /etc/ipkg.conf
 }}}
 
-= JFFS2 Firmware =
+= Notes about JFFS2 firmware =
 
 The JFFS2 firmware will be READONLY when you boot it the first time, this is due
 to the method used to create the filesystem; you must perform an extra REBOOT
 after installing the firmware.
 
-= ipkg =
+= Package management =
 
 The ipkg utility is a lightweight package manager used to download and install
 !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}}
@@ -111,6 +123,12 @@ will recognise the similarities)
 ||ipkg remove dropbear||Remove the dropbear package||
 
 More options can be found via {{{ipkg --help}}}.
+
+The configuration file for ipkg is {{{/etc/ipkg.conf}}}. Before you can install any
+addon package, you need to freshen the package list with 
+{{{
+root@OpenWrt:~# ipkg update
+}}}
 
 If you have USB storage, or install packages to a destination other than root,
 the shell script {{{ipkg-link}}} will create automatic symlinks to the root
