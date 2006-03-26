@@ -5,8 +5,6 @@
 ##
 OpenWrtDocs [[TableOfContents]]
 
-= Introduction =
-
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. We are expect that you have knowledge about GNU/Linux and basic networking concepts, before you install !OpenWrt on your router. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed. 
 
 /!\ '''WARNING  LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
@@ -64,13 +62,7 @@ then use the webupgrade of the preinstalled firmware. Be sure that your power su
 If you are unhappy with OpenWrt, you can always reinstall your original firmware. Please be sure you have it downloaded and saved on your PC.
 
 If you are extremely cautious or try to install a self compiled or modified version of OpenWrt White Russian, please consider
-to use the OpenWrtViaTftp installation method. For some of the hardware models we support, this requires special requirements.
-To avoid potentially serious damage to your router caused by an unbootable firmware you always should read the documentation for your specific router model. (see OpenWrtHardwareOverview)
+to use the OpenWrtViaTftp installation method. For some of the hardware models it has special requirements.
+To avoid potentially serious damage to your router caused by an unbootable firmware you always should read the documentation for your specific router model, see OpenWrtHardwareOverview.
 
 /!\ '''We strongly suggest you also read ["OpenWrtDocs/Troubleshooting"] before installing'''
-
-= Using OpenWrt =
-See ["OpenWrtDocs/Using"].
-
-= Troubleshooting =
-If you have any trouble flashing to !OpenWrt please refer to ["OpenWrtDocs/Troubleshooting"].
