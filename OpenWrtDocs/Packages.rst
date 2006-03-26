@@ -1,6 +1,30 @@
-Describe OpenWrtDocs/Packages here.
+== Official packages ==
+The[http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable White Russian release. Please use the official packages whenever possible.
 
-=== uPnP ===
+{{{
+src whiterussian http://downloads.openwrt.org/whiterussian/packages
+src non-free http://downloads.openwrt.org/whiterussian/packages/non-free
+}}}
+
+'''TIP:''' If you copy & paste into your {{{/etc/ipkg.conf}}} file, make sure that you don't get a trailing space. If you do, {{{ipkg update}}} will look like it's updating but files will not be created in {{{/usr/lib/ipkg/lists}}}.
+
+== Backports ==
+Some useful packages have been backported from the development branch (trunk) to White Russian. See the [http://downloads.openwrt.org/backports/00-README readme] file for more details.
+
+To use the packages from the backports repository you have to edit your {{{/etc/ipkg.conf}}} and add:
+
+{{{
+src backports http://downloads.openwrt.org/backports
+}}}
+
+Now run {{{ipkg update}}} and you will see new packages.
+
+== Third party packages ==
+'''NOTE:''' Third party packages are not supported.
+
+== Documentation for specific packages ==
+
+'''uPnP'''[[BR]]
 
 '''uPnP''' is Universal Plug and Play.  You can use either the LinkSys binary from the
 original firmware or the compiled version.
@@ -8,7 +32,7 @@ original firmware or the compiled version.
 Documentation and the background of uPnP can be found at [:OpenWrtDocs/upnp]
 
 
-=== CUPS - Printing system with spooling ===
+'''CUPS - Printing system with spooling'''[[BR]]
 
 You can't print a testpage on the local cups, because this would need to have ghostscript
 installed on your embedded system.
@@ -35,25 +59,21 @@ an IPP printer, MacOS X will add after the server adress /ipp . But this class e
 not exist on your cupsd.
 
 
-=== Wake on LAN ===
+'''ether-wake/wol - Wake on LAN'''[[BR]]
 
-If you have trouble using [http://tracker.openwrt.org/packages/list.php?name=wol wol] to
-wake up your PC give [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ ether-wake]
+If you have trouble using wol to wake up your PC give ether-wake
 a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're
 looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool]
 before shutting down your PC.
 
-=== NFS ===
 
-You need to install kmod-nfs and portmap to be able to mount remote NFS file systems.
+'''srelay - socks proxy'''[[BR]]
 
-=== socks-Proxy ===
-
-There is a Socks-proxy available for !OpenWrt, it is called '''srelay''' (Find via the
+There is a socks proxy available for !OpenWrt, it is called '''srelay''' (Find via the
 package tracker). However, there is no documentation for this package. So, here is a
 quick guide:
 
-Srelay comes with a configuration file: /etc/srelay.conf (surprise surprise). It has some
+Srelay comes with a configuration file: /etc/srelay.conf. It has some
 examples, but basically you will want to do this:
 
 {{{
@@ -69,6 +89,6 @@ available options with '''srelay -h'''.
 Keep in mind that this information was found using trial-and-error-methods, so it might
 still be faulty or have unwanted side effects.
 
-=== Building your own packages ===
+== Building your own packages ==
 
-To build your own packages for !OpenWrt with the SDK, see [:BuildingPackagesHowTo].
+To build your own packages for !OpenWrt use the SDK, see [:BuildingPackagesHowTo].
