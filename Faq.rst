@@ -21,15 +21,6 @@ Both the SquashFS and JFFS2 filesystems use heavy compression to save disk (flas
 
 See [http://downloads.openwrt.org/whiterussian/00-README 00-README].
 
-== Why so many folders (bin, default, micro, pptp)? ==
-Same firmware, only a different set of preinstalled packages.
-
-||'''Folder''' ||'''Description''' ||'''Package list''' ||
-||bin=default ||standard image ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-switch, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools ||
-||micro ||the minimal set of packages ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-brcm-wl, kmod-diag, kmod-switch, kmod-wlcompat, mtd, nvram, uclibc, wificonf ||
-||pptp ||includes support for PPTP ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-switch, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools ||
-
-
 == How do I install/flash OpenWrt? ==
 '''NOTE:''' Before you install !OpenWrt make sure you have at least basic GNU/Linux knowledge and *nix shell skills.
 
