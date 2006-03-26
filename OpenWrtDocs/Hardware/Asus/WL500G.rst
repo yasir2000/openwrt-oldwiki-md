@@ -1,30 +1,50 @@
 '''Asus WL-500G'''
 
-The WL-500G is based on the Broadcom 4710 board. It has a 125 MHz CPU, 4 MB flash and 16 MB RAM.
-
-WL-500G R2.40 is based on the Broadcom BCM4702KBP. Ethernet Switch is BCM5325. It has 4 MB FLASH and 16 MB DRAM. [http://www.nag.ru/goodies/foto/wireless/asus_wl_500g/asus_wl_500g.html photos]
-
-Another [http://wl500g.info/showthread.php?t=8 discussion] and more photos. Hmm... R2.40 variant which based on the BCM4333KPB.
-
-It has an USB 1.1 port and a LPT parallel port ([http://www.attansic.com.tw/english/products/pdf/AT7601F_1.0.pdf Attansic AT761F] ). The wireless NIC is a Broadcom card WL-120G in the Mini-PCI slot.
-
-There is '''no''' serial port connector, external NS16c550 required.
-
-No JTAG connector, but there are some pins on the back on the PCB, labelled as TIP23... . May be this is JTAG. Pinout is unknown at the present time.
+{{{
+System-On-Chip:  Broadcom 4710 
+CPU Speed: 125 Mhz
+Flash size: 4 MB
+RAM: 16 MB
+Wireless: Mini-PCI Broadcom WL-120G 
+Ethernet: two network interface, one for 4 LAN ports, one for WAN port, no VLAN tagging
+external USB 1.1 port  
+external LPT port [http://www.attansic.com.tw/english/products/pdf/AT7601F_1.0.pdf Attansic AT761F] 
+no serial port, external UART needed  
+no jtag
+}}}
 
 '''boot_wait''' is on by default.
 
-The integrated switch does not support VLAN tagging.
-There are two ethernet network interfaces, one for the 4 LAN ports and one for the WAN port.
+'''TFTP Installation notes'''
+
+Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
+
+TFTP commands:
+
+{{{
+tftp 192.168.1.1
+tftp> binary
+tftp> trace
+tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
+tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
+}}}
+
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at http://openwrt.org/downloads/utils/flash.sh.
+
+As an alternative (or if this installation routine doesn't do the trick for you) you can always use the ASUS Recovery tool from your utilities CD to upload your !OpenWrt firmware.
+
+Another thing is that the Asus WL500g doesn't seem to revert to the 192.168.1.1 address when starting the bootloader, but seems to use the LAN IP address set in NVRAM, so try this address or use the recovery tool if you've got problems flashing your firmware.
+
+'''Splitting the bridge between LAN and WLAN'''
 
 The LAN device is eth0, the WAN interface is eth1 and the WLAN interface is eth2.
-
-To make the WL-500G distinguish between the LAN and WLAN devices, do the following:
+To make the WL-500G distinguish between the LAN and WLAN device, do the following:
 
 {{{
 nvram set lan_ifname=eth0
 nvram commit
 reboot
 }}}
+
 ----
 CategoryModel
