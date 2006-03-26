@@ -11,7 +11,6 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 
-
 = NVRAM =
 
 NVRAM stands for Non-Volatile RAM, in this case the last 64K of the flash chip used to
@@ -74,7 +73,7 @@ lan port or on the wan port. Then the switch tags the packages (with VLAN), so L
 is able to see the difference and that way we have the vlan devices, which describe wan
 or lan port.
 
-[[BR]]The basic (802.3) network configuration is handled by a series of NVRAM variables:
+[[BR]]The basic network configuration is handled by a series of NVRAM variables:
 
 {{{#!CSV
 NVRAM; Description
@@ -83,7 +82,7 @@ NVRAM; Description
 <name>_proto; The protocol which will be used to configure an IP
             ; static: Manual configuration (see below)
             ; dhcp: Perform a DHCP request
-            ; pppoe: Create a ppp tunnel (requires pppoecd package)
+            ; pppoe: Create a ppp tunnel
 <name>_ipaddr; ip address (x.x.x.x)
 <name>_netmask; netmask (x.x.x.x)
 <name>_gateway; Default Gateway (x.x.x.x)
@@ -120,7 +119,7 @@ Further information about the variables used can be found at [:OpenWrtNVRAM].
 Don't forget to check the [:OpenWrtFaq] for information about howto setup PPPoE etc.
 
 
-== Sample network configurations ==
+'''Sample network configurations'''
 
 For client mode configuration (rather than AP mode), see this page: [:ClientModeHowto].
 
@@ -374,7 +373,7 @@ things work. There are currently no detailed instructions on how to set this up,
 better know what you are doing...
 
 
-== OpenWrt as client / wireless bridge ==
+== Wireless client / wireless bridge ==
 
 The only thing you have to do is to switch the WL mode like with the bridge:
 
