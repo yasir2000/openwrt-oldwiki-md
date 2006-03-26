@@ -51,7 +51,7 @@ Now you can edit the files with an text editor.
 See ["OpenWrtDocs/Using"] for details.
 
 == How do I recover / boot in failsafe mode? ==
-See["OpenWrtDocs/Troubleshooting"].
+See ["OpenWrtDocs/Troubleshooting"].
 
 == What TFTP client should I use to flash my Wrt? ==
 In GNU/Linux and other *ixes, use the {{{atftp}}} client.
