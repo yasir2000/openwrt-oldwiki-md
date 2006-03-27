@@ -21,21 +21,21 @@ To get started, click a link below.
 '''[:OpenWrtDocs/Configuration: OpenWrt Configuration]'''
 [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
 
+'''[:OpenWrtDocs/Troubleshooting: Troubleshooting OpenWrt]'''
+[[Include(OpenWrtDocs/Troubleshooting,,titlesonly)]]
+
 '''[:OpenWrtDocs/Packages: OpenWrt Addon Packages]'''
 [[Include(OpenWrtDocs/Packages,,titlesonly)]]
+
+----
+'''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
+[[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
 
 '''[:OpenWrtDocs/Customizing: OpenWrt Customization]'''
 [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
-'''[:OpenWrtDocs/Troubleshooting: Troubleshooting OpenWrt]'''
-[[Include(OpenWrtDocs/Troubleshooting,,titlesonly)]]
-
-'''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
-[[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
-
 '''[:OpenWrtDocs/Hardware: Hardware Information]'''
 [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
-
 
 ----
 
