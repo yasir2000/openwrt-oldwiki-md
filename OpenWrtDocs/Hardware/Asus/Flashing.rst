@@ -1,11 +1,10 @@
 '''Flashing Asus products'''
 
-The {{{boot_wait}}} NVRAM variable is on by default for Asus products compatible with OpenWrt. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''safe''' on these unit. 
+The {{{boot_wait}}} NVRAM variable is on by default for Asus products compatible with OpenWrt. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''safe''' on these unit.
 
 '''Enabling Failsafe Mode'''
 
 This is done by removing the power, and pressing and holding the reset button while returning power. Within a few seconds the PWR LED starts flashing slowly (once second on, one second off). Once the LED is flashing the reset button can be released.
-
 
 '''TFTP Installation notes'''
 
@@ -17,13 +16,15 @@ ping -t <ip-address>
 
 Default IP adresses for Asus products:
 
-*WL-500gx: 192.168.1.1
-*WL-HDD: 192.168.1.220
-...
+
+ * WL-500gx: 192.168.1.1
+ * WL-HDD: 192.168.1.220
+ 
 
 (!) Even if the LED is blinking it sometimes does not respond. If you can’t ping the unit try reenabling "'Failsafe Mode'". You can even do a factory reset.
 
 Send image with TFTP:
+
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -34,7 +35,6 @@ tftp> put openwrt-xxx-x.x-xxx.trx
 After this, wait for the PWR LED to stop flashing and the device to reboot and you should be set. There's also nice shell script to do this work for you at http://openwrt.org/downloads/utils/flash.sh. This script is also included in the source under scripts/flash.sh.
 
 For some reason though, the device doesn't reboot after flashing. Just wait 5 minutes, unplug the power and reconnect. After a while (1-2 minutes), the WLAN LED should light and OpenWRT is up and running.
-
 
 '''Send image with Firmware Restoration technique'''
 
@@ -54,7 +54,6 @@ The tool provides status as it works:
 
 After this you should be able to connect to the Router.
 
-
 '''If the Firmware Recovery utility doesn't work'''
 
 Several Asus products are not able to be flashed directly using tftp due to them requiring special commands before entering flashing mode. Others refuse to accept a firmware using the accompanying Firmware Recovery utility as well, ironically. There are two possible solutions to this problem.
@@ -64,6 +63,7 @@ Several Asus products are not able to be flashed directly using tftp due to them
 After putting the device in Failsafe Mode, issue the following commands:
 
 TFTP commands:
+
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -76,7 +76,6 @@ After this, wait until the PWR LED stops flashing and the device to reboot and y
 
 There's also nice shell script doing this work for you to be at http://openwrt.org/downloads/utils/flash.sh.
 
-
 ''Using Firmware Recovery utility to prepare unit for new firmware''
 
 First enter Failsafe Mode. Start the Firmware Recovery utility, select a firmware and click the Upload button. The unit will, of course, not be able to flash the firmware, but you should notice that the LED is no longer blinking. Wait until the utility times out after 31 seconds, then issue the following command:
@@ -85,7 +84,7 @@ First enter Failsafe Mode. Start the Firmware Recovery utility, select a firmwar
 tftp -i <ip-address> PUT openwrt-xxx-x.x-xxx.trx
 }}}
 
-if you selected the same firmware in the Firmware Recovery utility that you are trying to upload, you will need to close the utility so the file is available to be uploaded with tftp.
+/!\If you selected the same firmware in the Firmware Recovery utility that you are trying to upload, you will need to close the utility so the file is available to be uploaded with tftp.
 
 Replace <ip-address> with the units IP address ('<' and '>' should not be part of the command) and make sure you are either in the same directory as the firmware, or you designate the correct to the firmware. After a second or two a message stating the transfer was successful should appear.
 
@@ -93,4 +92,4 @@ The unit should restart on it's own. If are unable to contact the unit after a f
 
 '''Serial console'''
 
-See [http://wl500g.info/showthread.php?t=1993].
+See http://wl500g.info/showthread.php?t=1993.
