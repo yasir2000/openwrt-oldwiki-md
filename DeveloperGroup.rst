@@ -10,7 +10,7 @@ List of developers:
  * nbd
  * nico
 
-(this is an ACL, please view the raw page for more information)
+(this is an ACL, please view the [:DeveloperGroup?action=raw: raw page] for more information)
 
 ## To restrict a page so it can only be viewed by the
 ## above developers, change the first line to the acl
