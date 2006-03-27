@@ -11,7 +11,9 @@ Install the ''pptp'', ''kmod-mppe'' and ''kmod-crypto'' package:
 {{{
 ipkg install pptp kmod-mppe kmod-crypto}}}
 
-## valid as of RC5, for build micro it pulls in kmod-gre, kmod-ppp, and ppp.
+:-) While the ''pptp'' package is installed already if you are using the White Russian RC5 ''pptp'' build version of !OpenWrt, but you still need to install ''kmod-mppe'' and ''kmod-crypto'' for encryption and compression support.
+
+## valid as of RC5, for build micro and bin ipkg pulls in pptp, kmod-mppe, kmod-crypto, kmod-gre, kmod-ppp, and ppp, for build pptp ipkg pulls in only kmod-mppe and kmod-crypto.
 
 === Modules ===
 
@@ -50,7 +52,7 @@ See ticket [https://dev.openwrt.org/ticket/412 #412].
 
 === /etc/ppp/options.pptp ===
 
-This file was provided by the ''pptp'' package, and works as-is.  It sets the options for all tunnels initiated from your router.
+This file is provided by the ''pptp'' package, and works as-is.  It sets the options for all tunnels initiated from your router.
 
 ## valid as of RC5
 
@@ -64,7 +66,7 @@ There's no need to change the file now, but there are several options you can ch
 
 === /etc/ppp/peers/peer_name ===
 
-Make the /etc/ppp/peers directory and create a file named after the peer:
+Make the ''/etc/ppp/peers directory'' and create a file named after the peer:
 {{{
 mkdir -p /etc/ppp/peers
 cd /etc/ppp/peers
@@ -72,7 +74,7 @@ touch peer_name
 chmod 600 peer_name}}}
 Substitute ''peer_name'' above with a descriptive one for the link you are trying to establish.
 
-## valid as of RC5, the /etc/ppp/peers directory does not exist until created
+## valid as of RC5, the /etc/ppp/peers directory does not exist until created, and doesn't need group or other access
 
 The file created defines the link with the VPN server and there are a few necessary options. Edit and add the following to your peer-file:
 {{{
@@ -105,19 +107,21 @@ Any other ''pppd''/''pptp'' options not considered generic (usable by all PPTP c
 
 The ''/etc/ppp/chap-secrets'' file contains a list of usernames and passwords for use by ''pppd''.
 
-/!\ For the ''bin'' build of !OpenWrt, the file may start out being a symbolic link to /rom, if so remove the link and create a new file, ''chmod 600''.
+/!\ For the ''bin'' and ''pptp'' builds of !OpenWrt, the file will start out being a symbolic link to a template in ''/rom'', so remove the link, copy the template, and make sure it is ''chmod 600''.
 
 Add the following to the ''/etc/ppp/chap-secrets'' file:
 {{{
 DOMAIN\\Username peer_name Password *}}}
 
-Substitute ''DOMAIN\\Username''. It is important that this match the ''name'' in the ''/etc/ppp/peers/peer_name'' file above. So, if no ''DOMAIN\\'' was used, do not enter one here either.
+There are four fields separated by spaces:
 
-Substitute ''peer_name'' with whatever you used for ''remotename'' in the ''/etc/ppp/peers/peer_name'' file.
+ * substitute ''DOMAIN\\Username''. It is important that this match the ''name'' in the ''/etc/ppp/peers/peer_name'' file above. So, if no ''DOMAIN\\'' was used, do not enter one here either.
 
-Substitute ''Password'' with the password given to you by the owner of the PPTP server.  If the password contains blanks or special characters, enclose it in double-quotes, "like this".
+ * substitute ''peer_name'' with whatever you used for ''remotename'' in the ''/etc/ppp/peers/peer_name'' file.
 
-The asterisk tells ''pppd'' that this tunnel may use any IP address.  Normally the PPTP server determines the address.
+ * substitute ''Password'' with the password given to you by the owner of the PPTP server.  If the password contains blanks or special characters, enclose it in double-quotes, "like this".
+
+ * the asterisk tells ''pppd'' that this tunnel may use any IP address.  Normally the PPTP server determines the address.
 
 == Testing a Tunnel ==
 
