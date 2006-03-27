@@ -15,7 +15,7 @@ ipkg update
 ipkg install vpnc
 }}}
 
-It'll check for dependencies and get all the packages it needs from the alphacore repository.
+It'll check for dependencies and get all the packages it needs.
 
 == Configure ==
 Create a configfile for VPNC:
@@ -70,4 +70,4 @@ iptables -t nat -A postrouting_rule -o tun0 -j MASQUERADE;
 Now save the file and you're done. Execute this script to create a transparant VPNC-connection. Happy surfing.
 
 ----
- . CategoryHowTo 
+ . CategoryHowTo  
