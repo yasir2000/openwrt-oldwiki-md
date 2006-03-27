@@ -13,7 +13,7 @@ no serial port, external UART needed
 no jtag
 }}}
 
-'''boot_wait''' is on by default.
+The {{{boot_wait}}} NVRAM variable is on by default.
 
 '''TFTP Installation notes'''
 
