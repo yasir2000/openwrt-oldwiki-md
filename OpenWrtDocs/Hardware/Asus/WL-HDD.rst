@@ -16,7 +16,7 @@ Serial: no
 JTAG: no
 }}}
 
-The boot_wait NVRAM variable is on by default. Resetting to factory defaults via reset button or mtd erase nvram is '''not save''' on this unit.
+The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 '''IDE drivers and usage'''
 
