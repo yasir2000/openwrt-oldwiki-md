@@ -1,5 +1,5 @@
-= How To: VPNC on your OpenWRT router =
-Some people, like students from Ghent University, Belgium, need to connect with a Cisco VPN server in order to connect to the internet. It's an ideal task for an OpenWRT router to make that connection and share it with all the connected PC's. The only drawback is that VPNC is quite needy and on my Asus WL-500G Deluxe (300Mhz) it maxes out at 30KB/s (VPNC then uses 99% of CPU resources).
+= How To: VPNC on your OpenWrt router =
+Some people, like students from Ghent University, Belgium, need to connect with a Cisco VPN server in order to connect to the internet. It's an ideal task for an !OpenWrt router to make that connection and share it with all the connected PC's. The only drawback is that VPNC is quite needy and on my Asus WL-500G Deluxe (300Mhz) it maxes out at 30KB/s (VPNC then uses 99% of CPU resources).
 
 == Getting VPNC ==
 The VPNC package has been backported for !OpenWrt White Russian. Just add the following line to /etc/ipkg.conf:
@@ -70,4 +70,4 @@ iptables -t nat -A postrouting_rule -o tun0 -j MASQUERADE;
 Now save the file and you're done. Execute this script to create a transparant VPNC-connection. Happy surfing.
 
 ----
- . CategoryHowTo  
+ . CategoryHowTo    
