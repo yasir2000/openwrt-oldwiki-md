@@ -24,6 +24,8 @@ insmod ppp_mppe_mppc
 insmod arc4
 insmod sha1}}}
 
+See ticket [https://dev.openwrt.org/ticket/412 #412].
+
 == Configuration ==
 
 === /etc/ppp/options.pptp ===
