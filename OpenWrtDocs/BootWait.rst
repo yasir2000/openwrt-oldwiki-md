@@ -48,3 +48,10 @@ CFE> nvram set boot_wait=on
 CFE> nvram get boot_wait       (just to confirm, should respond with "on")
 CFE> nvram commit              (takes a few seconds to complete)
 }}}
+
+Or via PMON (older models, hit {{{CTRL-C}}} repeatedly during powerup or reboot)
+
+{{{
+PMON> set boot_wait on
+PMON> set nvram boot_wait
+}}}
