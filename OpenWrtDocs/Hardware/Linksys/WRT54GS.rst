@@ -1,18 +1,11 @@
 '''Linksys WRT54GS'''
 
-
-[[TableOfContents]]
-
-
-=== Hardware versions ===
-
-There are six versions of the WRT54GS. All of them are based on the 4712 board (with the
+There are many versions of the WRT54GS. All of them are based on the 4712 board (with the
 exception of v3.0 & v4.0). They have a 200 MHz CPU, 8 MB flash and 32 MB RAM (except v4).
 You can get the version number from the sticker on the bottom of the device. All revisions
-are supported by OpenWrt 1.0 (White Russian) and later.
+are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is '''off''' by default on these routers, so you should turn it on, see [:OpenWrtDocs/BootWait].
 
-
-===== Identification by S/N =====
+'''Identification by S/N'''
 
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
@@ -28,41 +21,43 @@ the box, below the UPC barcode.
 ||WRT54GS v5||<:> CGN7||<:> {X} ||<:> {X} ||
 
 
-==== WRT54GS v1.0 ====
+'''WRT54GS v1.0'''
 
 The WRT54GS v1.0 uses an ADM6996 switch and SDRAM.
+Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
 
-==== WRT54GS v1.1 ====
+'''WRT54GS v1.1'''
 
 The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM.
+Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
-
-==== WRT54GS v2.0 ====
+'''WRT54GS v2.0'''
 
 The WRT54GS v2.0 uses a BCM5325EKQM switch and a BCM4712LKFB processor.
+Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
-
-==== WRT54GS v2.1 ====
+'''WRT54GS v2.1'''
 
 The WRT54GS v2.1 also uses a BCM5325EKQM switch and a BCM4712LKFB processor.
+Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
-
-==== WRT54GS v3.0 ====
+'''WRT54GS v3.0'''
 
 The WRT54GS v3.0 uses a Broadcom 5352 CPU with integrated switch.
+Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
-
-==== WRT54GS v4.0 ====
+'''WRT54GS v4.0'''
 
 The WRT54GS v4.0 uses a Broadcom 5352 CPU with integrated switch.
 
 '''NOTE:''' v4.0 only has 4 MB Flash and 16 MB RAM. Half of prior versions.
 Some WRT54GS v4 has 8 MB flash and 32 MB RAM, only first relase of WRT54GS v4
 had 4MB/16MB.
+Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
 
-==== WRT54GS v5 ====
+'''WRT54GS v5'''
 
 /!\ '''NOTE:''' WRT54GS V5 IS '''NOT''' SUPPORTED. IT WILL NEVER BE SUPPORTED. WE ARE SICK OF
 HEARING ABOUT THE V5!
@@ -77,20 +72,18 @@ For further informations please see:
 [[BR]]- [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12183&start=0&postdays=0&postorder=asc&highlight= WRT54GS- New Serial Number? CGN7?]
 
 
-=== Detailed hardware info ===
-
-==== Motherboard photos ====
+'''Motherboard photos'''
 
 Nice hardware info with precise [http://wiki.version6.net/WRT54GS pictures].
 
 
-==== Power requirements ====
+'''Power requirements'''
 
 The following tests were conducted on a Linksys WRT54GS v2.0 hardware platform,
 hooked up to a lab PSU. All measurements are accurate +/-0.01 A
 
 
-===== Normal operation =====
+'''Normal operation'''
 
 In idle mode, radio off: 0.36 A
 In idle mode, radio on: 0.45 A
@@ -115,7 +108,7 @@ maximum operating input voltage of 22 V so theoretically, anything below that sh
 ok.
 
 
-===== Battery tests =====
+''' Battery tests'''
 
 The measurements above show the wrt should behave exellent on batteries.
 
