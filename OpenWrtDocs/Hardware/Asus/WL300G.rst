@@ -16,7 +16,7 @@ JTAG: no
 802.3af Power over Ethernet: yes
 }}}
 
-The boot_wait NVRAM variable is on by default. Resetting to factory defaults via reset button or mtd erase nvram is not save on this unit.
+The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 The unit is similar to [:OpenWrtDocs/Hardware/Asus/WL500G], but without WAN port, LPT, USB and DMZ LED.
 
