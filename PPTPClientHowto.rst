@@ -11,7 +11,7 @@ Install the ''pptp'', ''kmod-mppe'' and ''kmod-crypto'' package:
 {{{
 ipkg install pptp kmod-mppe kmod-crypto}}}
 
-:-) While the ''pptp'' package is installed already if you are using the White Russian RC5 ''pptp'' build version of !OpenWrt, but you still need to install ''kmod-mppe'' and ''kmod-crypto'' for encryption and compression support.
+:-) While the ''pptp'' package is installed already if you are using the White Russian RC5 ''pptp'' build of !OpenWrt, you still need to install ''kmod-mppe'' and ''kmod-crypto'' for encryption and compression support.
 
 ## valid as of RC5, for build micro and bin ipkg pulls in pptp, kmod-mppe, kmod-crypto, kmod-gre, kmod-ppp, and ppp, for build pptp ipkg pulls in only kmod-mppe and kmod-crypto.
 
@@ -29,7 +29,7 @@ slhc
 ppp_generic
 ppp_async}}}
 
-If you wish to use encryption or compression, add the following lines to ''/etc/modules'':
+If you need to use encryption or compression, add the following lines to ''/etc/modules'':
 {{{
 ppp_mppe_mppc
 arc4
@@ -57,12 +57,13 @@ This file is provided by the ''pptp'' package, and works as-is.  It sets the opt
 ## valid as of RC5
 
 There's no need to change the file now, but there are several options you can change later if you like, see the manual page for ''pppd'':
- * lcp-echo-failure n - ''maximum number of times to retry, before considering the link to be dead''
- * lcp-echo-interval n - ''time between each echo attempt in seconds''
- * idle n - ''should the connection be terminated upon inactivity, set to 0 to disable''
- * refuse-eap - ''this option may be required to authenticate with some recent servers, if you get EAP error messages in the debug log, use this option''
- * persist - ''do not exit after a connection is terminated; instead try to reopen the connection''
- * mppe required,no40,no56 - ''forces 128-bit MPPE''
+||'''Option'''||'''Purpose'''||
+||''lcp-echo-failure'' n||keep-alive, maximum number of echo attempts before considering the link to be dead||
+||''lcp-echo-interval'' n||keep-alive, time between each echo attempt in seconds||
+||''idle'' n||terminated tunnel after ''n'' seconds of inactivity, set to 0 to disable||
+||''refuse-eap''||refuse to authenticate using EAP, needed with some recent servers, try it if you see EAP responses in debug log||
+||''persist''||do not exit after a connection is terminated; instead try to reopen the connection||
+||''mppe required,no40,no56''||forces 128-bit encryption||
 
 === /etc/ppp/peers/peer_name ===
 
