@@ -1,5 +1,7 @@
 '''Asus WL-500G'''
 
+The router is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
+
 {{{
 System-On-Chip:  Broadcom 4710 
 CPU Speed: 125 Mhz
