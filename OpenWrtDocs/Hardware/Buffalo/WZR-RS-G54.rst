@@ -25,7 +25,9 @@ LEDs don't work the usual way (Power doesn't blink during flashing). Once restar
 
 Download firmware from www.buffalotech.com, unpack the zip. Firmware has some magic header, which has to be stripped off to get TRX image. For the firmware version 2.43 I used this command to strip 37 bytes of rubbish at the beginning of the file:
 
-{{{# dd if=WZR-RS-G54_2.43_1.03-US_US-uclibc of=firmware.trx bs=37 skip=1}}}
+{{{ 
+# dd if=WZR-RS-G54_2.43_1.03-US_US-uclibc of=firmware.trx bs=37 skip=1 
+}}}
 
 Anyway, check that '''HDR''' string is directly at the very beginning of the image file. If it's not, firmware image will be rejected.
 
