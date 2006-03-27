@@ -5,8 +5,10 @@ OpenWrt is a non-profit opensource project. We use donations to help support mor
 Currently we are looking for the following devices:
 
 ===== For bug-fixing: =====
-
+ * Siemens SE505v1 and v2
+ * Asus WL500b v2, Asus WL-HDD, Asus WL520
  * Buffalo devices
+ * Motorola devices
 
 ===== For new ports: =====
 
