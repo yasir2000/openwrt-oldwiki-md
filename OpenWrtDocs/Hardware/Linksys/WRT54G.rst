@@ -4,7 +4,7 @@
 
 There are currently many versions of the WRT54G. With the exception of v5
 devices the WRT54G units are supported by OpenWrt 1.0 (White Russian)
-and later. {{{boot_wait}}} is off by default on these routers, so you should
+and later. {{{boot_wait}}} is '''off''' by default on these routers, so you should
 turn it on. The version number is found on the label on the bottom of the
 front part of the case below the Linksys logo.
 
@@ -98,28 +98,29 @@ the box, below the UPC barcode.
 
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125 MHz CPU, 4 MB
 flash and 16 MB SDRAM. The wireless NIC is a mini-PCI card. The switch is an
-ADM6996.
+ADM6996. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 
 ==== WRT54G v1.1 ====
 
 The WRT54G v1.1 is based on the Broadcom 4710 board. It has a 125 MHz CPU, 4 MB
 flash and 16 MB SDRAM. The wireless NIC is soldered to the board. The switch is
-an ADM6996.
+an ADM6996. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
+
 
 
 ==== WRT54G v2.0 ====
 
 The WRT54G v2.0 is based on the Broadcom 4712 board. It has a 200 MHz CPU, 4 MB
 flash and 16 MB SDRAM. The wireless NIC is integrated to the board. The switch is
-an ADM6996.
+an ADM6996. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 
 ==== WRT54G v2.2 ====
 
 The WRT54G v2.2 is based on the Broadcom 4712 board. It has a 200 MHz CPU, 4 MB
 flash and 16 MB DDR-SDRAM. The wireless NIC is integrated to the board. The switch
-is a BCM5325.
+is a BCM5325. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 
 ==== WRT54G v3.0 & WRT54G v3.1 ====
@@ -127,6 +128,7 @@ is a BCM5325.
 This unit is just like v2.2 except it has an extra button on the left front panel
 behind a Cisco logo. This button can be illuminated by either a yellow or white
 LED, and is used for the "Secure Easy Setup" encryption setup feature.
+Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 To remove the front cover from a v3.1, you must first remove the small screws under the
 rubber covers of the front feet!
@@ -145,7 +147,7 @@ switch is now in SoC.
 
 To remove the front cover from this unit you must first remove the small screws under the
 rubber covers of the front feet!
-
+Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
 ==== WRT54G v5 ====
 
