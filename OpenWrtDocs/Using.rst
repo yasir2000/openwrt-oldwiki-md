@@ -8,12 +8,7 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 
-= Setting a password =
-
-Once !OpenWrt booted the first time, you have the possibility to secure the access to your router with a password.
-Depending which version you have installed, you can set the password either via !OpenWrt WebIf or via telnet.
-
-On routers with DMZ LED !OpenWrt uses the LED to signal bootup, turning the LED on while booting and
+On routers with DMZ LED !OpenWrt will use the LED to signal bootup, turning the LED on while booting and
 off once completely booted. 
 
 Once booted, you should be able to telnet into the router using the last address it was configured for:
@@ -53,29 +48,19 @@ Password changed.
 root@OpenWrt:~# 
 }}}
 
-After the next reboot, the telnet port will be closed and you can only login
-via secure shell or webif (if installed).
+= Setting a password =
 
-The firmware itself is designed to occupy as little space as possible while
-still providing a reasonably friendly commandline interface or webadministration 
-interface. With no packages
-installed, the firmware will simply configure the network interfaces, setup a
-basic NAT/firewall, and load the secure shell server and dnsmasq (a combination DNS
-forwarder and DHCP server).
+At this point we strongly suggest setting a password. Depending which firmware image you have installed, you can set the password either via !OpenWrt WebIf or via telnet using the {{{passwd}}} command. After setting the password, any attempt to telnet in will result in a "Login failed" message.
 
 '''Why no default password?'''[[BR]]
-Telnet and HTTP are insecure protocols with no encryption, we try to make a point of
-this insecurity by not enabling a default password. If you are in an environment that
-requires password protection we suggest setting a password with the {{{passwd}}}
-command, which will disable the telnet server and enable the Dropbear SSH
-server.
-
-'''When I upgraded I get "Access Denied" after I enter my password in SSH?'''[[BR]]
-After upgrading !OpenWrt, the filesystem is rewritten as part of the reflash process so that if the firmware size has increased the filesystem will not be corrupted.  This resets the filesystem and the method of command-line access reverts to telnet.  That is, you must telnet into the router on the last address it was configured for.
+People are lazy. We don't want to give people a false sense of security by creating a password that everyone knows. We want to make sure you know that it's insecure by not even prompting for it.
 
 '''What if I can not access telnet when first booting?'''[[BR]]
 This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, you may disable them.
+
+'''Why does it reject my password or display SSH warnings after upgrading?'''[[BR]]
+Upgrading !OpenWrt completely replaces the filesystem. This means that your previous password and ssh keys will be erased and you will have to set your password again.
 
 = Notes about SquashFS firmware =
 
@@ -83,7 +68,8 @@ windows. If you have any firewalls, you may disable them.
 
 The !OpenWrt firmware contains two pieces: a kernel and a read-only filesystem
 (embedded in the firmware) known as SquashFS. Because the SquashFS filesystem
-is readonly, a second filesystem has to be created using JFFS2.
+is readonly, a second writable filesystem has to be created using JFFS2 to hold
+your changes.
 
 When !OpenWrt boots it will check for the existence of a JFFS2 partition and
 attempt to boot from that, otherwise it will boot from the SquashFS filesystem.
@@ -120,6 +106,13 @@ The ipkg utility is a lightweight package manager used to download and install
 !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}}
 will recognise the similarities)
 
+The firmware itself is designed to occupy as little space as possible while
+still providing a reasonably friendly commandline interface or webadministration 
+interface. With no packages
+installed, the firmware will simply configure the network interfaces, setup a
+basic NAT/firewall, and load the secure shell server and dnsmasq (a combination DNS
+forwarder and DHCP server).
+
 ||'''Command'''||'''Description'''||
 ||ipkg update||Download a list of packages available||
 ||ipkg list||View the list of packages||
@@ -136,8 +129,7 @@ root@OpenWrt:~# ipkg update
 
 '''Upgrade with ipkg'''
 
-Never ipkg upgrade a whole release. You can upgrade addon-packages, but you should always reflash if you switching between
-releases and release candidates.
+Never ipkg upgrade a whole release. You can upgrade addon-packages, but you should always reflash if you switching between releases and release candidates.
 
 '''ipkg-link'''[[BR]]
 
@@ -145,7 +137,6 @@ If you have USB storage, or install packages to a destination other than root,
 the shell script {{{ipkg-link}}} will create automatic symlinks to the root
 filesystem for those packages. See the info on {{{ipkg-link}}} on the
 [:UsbStorageHowto].
-
 
 '''Proxy support'''[[BR]]
 
