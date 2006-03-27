@@ -1,4 +1,4 @@
-#acl All:read mbm:write Kaloz:write nbd:write wbx:write Nico:write
+#acl DeveloperGroup:read,write All:read
 
 OpenWrt is a non-profit opensource project. We use donations to help support more devices and to track down bugs on existing devices. If you want to donate any devices, or if you have questions about our donations please contact us at openwrt-devel@openwrt.org
 
