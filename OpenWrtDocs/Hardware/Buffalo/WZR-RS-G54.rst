@@ -38,7 +38,7 @@ Once converted to TRX format, the image can be flashed any way - TFTP, by mtd or
 
 === I erased NVRAM and now I can't access the device ===
 
-OK, you've done exactly what you were warned not to do... Anyway, there's possibility to revive the thing. All you have to do is to connect to the device via Wifi - IP is 192.168.11.1 - and login via telnet or SSH. Once in, run these commands:
+OK, you've done exactly what you were warned not to do... Anyway, there's possibility to revive the thing. All you have to do is to connect to the device via Wifi - IP is 192.168.11.1, SSID is OpenWrt - and login via telnet or SSH. Once in, run these commands:
 
 {{{nvram set wl0_ifname=eth2
 nvram set lan_ifname=br0
@@ -47,6 +47,8 @@ nvram set wan_device=eth1
 nvram set wan_ifname=eth1}}}
 
 This will create bridge from LAN an Wifi, WAN will stay separate. Bridge IP is 192.168.11.1 by default, WAN IP is retrieved by DHCP. Current Whiterussian (RC5) doesn't set these values correctly by itself, you have to help it a bit.
+
+
 
 
 
