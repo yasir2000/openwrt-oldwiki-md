@@ -14,7 +14,7 @@ After enabling Failsafe Mode you should be able to ping the unit. Asus products 
 ping -t <ip-address>
 }}}
 
-Default IP adresses for Asus products:
+Factory IP adresses for Asus products:
 
 
  * WL-500gx: 192.168.1.1
