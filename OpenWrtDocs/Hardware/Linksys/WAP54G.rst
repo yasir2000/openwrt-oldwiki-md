@@ -12,7 +12,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 
 |||| (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt''' ||
 ||'''Model''' ||<style="TEXT-ALIGN: center">'''S/N''' ||<style="TEXT-ALIGN: center">'''Stable[[BR]]White Russian''' ||<style="TEXT-ALIGN: center">'''Development[[BR]]Kamikaze'''||
-||WAP54G v1.0 ||<style="TEXT-ALIGN: center">MDG0 ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||
+||WAP54G v1.0 ||<style="TEXT-ALIGN: center">MDG0 ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||
 ||WAP54G v1.1 ||? ||<style="TEXT-ALIGN: center">? ||<style="TEXT-ALIGN: center">? ||
 ||WAP54G v2 ||<style="TEXT-ALIGN: center">MDG2 ||<style="TEXT-ALIGN: center">WiP ||<style="TEXT-ALIGN: center">WiP ||
 ||WAP54G v3 ||<style="TEXT-ALIGN: center">MDG3 ||<style="TEXT-ALIGN: center">WiP ||<style="TEXT-ALIGN: center">WiP ||
