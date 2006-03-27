@@ -1,4 +1,6 @@
-The {{{boot_wait}}} NVRAM variable is on by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''safe''' on this unit. 
+'''Flashing Asus products'''
+
+The {{{boot_wait}}} NVRAM variable is on by default for Asus products compatible with OpenWrt. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''safe''' on these unit. 
 
 The router is sometimes called Asus WL-500GX or Asus WL-500g Deluxe V.
 
