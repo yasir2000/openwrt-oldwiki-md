@@ -14,20 +14,23 @@ Samba offers a lot more options but this would be out of the scope of this howto
  * some kind of a external storage device (optional)
 
 = Installation =
-The Samba package has been backported for !OpenWrt White Russian. So you can install it from the [:OpenWrtPackages:backports repository]. Just add the following line to /etc/ipkg.conf: 
+The Samba package has been backported for !OpenWrt White Russian. So you can install it from the backports repository. Just add the following line to /etc/ipkg.conf:
 
 {{{
 src backports http://downloads.openwrt.org/backports/rc5
 }}}
 
-Next, update ipkg and install samba by typing (you'll need internet-access for this): 
+Next, update ipkg and install samba by typing (you'll need internet-access for this):
 
 {{{
 ipkg update
 ipkg install samba
 }}}
 
-It'll check for dependencies and get all the packages it needs.'''TIP:''' A Samba client package is available too.
+It'll check for dependencies and get all the packages it needs.'''
+'''
+
+'''TIP:''' A Samba client package is available too.
 
 = Configuration =
 The default Samba configuration uses the {{{/tmp}}} directory for storage.
