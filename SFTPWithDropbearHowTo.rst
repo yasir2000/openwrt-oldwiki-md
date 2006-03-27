@@ -45,6 +45,15 @@ ln -s /usr/lib/sftp-server /usr/libexec/sftp-server
 }}}
 You may need to get and install libopenssl also before installing the openssh-sftp-server package.
 
+For RC5 and later it is sufficient to just
+
+{{{
+ipkg update
+ipkg install openssh-sftp-server
+}}}
+
+The needed directory and the link will be created automatically.
+
 
 = Windows SFTP clients =
 
