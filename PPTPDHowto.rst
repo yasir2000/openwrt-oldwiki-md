@@ -14,15 +14,7 @@ This will also install ''kmod-mppe'' and ''kmod-crypto'' packages if they are no
 
 The package installs without running ''pptpd''.  To start it this once:
 {{{
-/etc/init.d/pptpd start}}}
-
-== Configure OpenWrt to start on reboot ==
-
-The package installs without running ''pptpd'' on boot.  To configure !OpenWrt to start ''pptpd'' on boot, move the script so that ''rcS'' runs it:
-{{{
-cd /etc/init.d && mv pptpd S50pptpd}}}
-
-''rcS'' only runs scripts with file names that start with an uppercase ''S''.
+/etc/init.d/S50pptpd start}}}
 
 == Configure Tunnel Local IP Address ==
 
@@ -48,6 +40,8 @@ vpnuser pptp-server vpnpassword 172.16.1.2}}}
 See ''man pppd'' on a Linux system for more information on this file.
 Take care that the provider field matches the ''name'' option in ''/etc/ppp/options.pptpd''.
 The default is ''pptp-server''.
+
+/!\ It is important to set an IP address rather than use the default asterisk.  If you use an asterisk, the peer may propose it's own address, which could cause a routing loop.  This results in very large transmit counters on ''ifconfig ppp0'' and a badly performing router, as it spends all it's time trying to move packets through the loop.
 
 == Test Connection ==
 
@@ -109,4 +103,4 @@ There is a [http://www.windowsecurity.com/articles/Configure-VPN-Connection-Wind
 
 There is also the [http://pptpclient.sourceforge.net/ PPTP Client for Linux] or check the !OpenWrt  ["PPTPClientHowto"].
 
-## reviewed 2006-03-16 by james.cameron@hp.com, the current pptpd maintainer, against pptpd 1.2.3-2 ipk
+## reviewed 2006-03-27 by james.cameron@hp.com, the current pptpd maintainer, against White Russian RC5 and pptpd 1.2.3-2 ipk
