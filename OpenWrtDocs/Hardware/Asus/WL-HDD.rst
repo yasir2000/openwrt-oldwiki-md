@@ -1,12 +1,24 @@
-= Asus WL-HDD =
+'''Asus WL-HDD'''
 
-The WL-HDD contains an IDE controller and a connector for a 2.5" disk drive. It has one Ethernet port and a !WiFi device, along with USB 1.1
+The device is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
 
-== Installing OpenWrt ==
+{{{
+Bootloader: CFE 
+System-On-Chip:  Broadcom
+CPU Speed: 200 Mhz
+Flash size: 4 MB
+RAM: 16 MB
+Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
+Ethernet: 1x network controller, no switch
+IDE-Controller: Yes
+USB: 1x USB 1.1   
+Serial: no
+JTAG: no
+}}}
 
-Follow the instructions in [:OpenWrtDocs/Installing:] ([http://wiki.openwrt.org/OpenWrtDocs/Installing#head-1ef14adf63da4e6b832bc324de813b846883e78a deep link])
+The boot_wait NVRAM variable is on by default. Resetting to factory defaults via reset button or mtd erase nvram is '''not save''' on this unit.
 
-== IDE device configuration ==
+'''IDE drivers and usage'''
 
 To get the IDE device working, you should install the following packages:
 
@@ -20,7 +32,6 @@ ide-core
 pdc202xx_old
 ide-detect
 ide-disk
-et
 wl
 jbd
 ext3
@@ -28,7 +39,7 @@ ext3
 
 The device still is missing '''fdisk''' and '''mkfs.*'''
 
-== USB configuration ==
+'''USB drivers and usage'''
 
 Run the following to install the modules and tools:
 {{{
