@@ -7,9 +7,9 @@ How to configure your router as a PPTP client to connect to a PPTP server such a
 == Requirements ==
 
 === Packages ===
-Install the ''pptp'' package, and all required packages will be installed:
+Install the ''pptp'', ''kmod-mppe'' and ''kmod-crypto'' package:
 {{{
-ipkg install pptp}}}
+ipkg install pptp kmod-mppe kmod-crypto}}}
 
 === Modules ===
 If you wish to use encryption, add the following lines to ''/etc/modules'':
