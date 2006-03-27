@@ -56,7 +56,7 @@ After this you should be able to connect to the Router.
 
 Several Asus products are not able to be flashed directly using tftp due to them requiring special commands to enable them to accept a new firmware. Others refuse to accept a firmware using the accompanying Firmware Recovery utility as well, ironically.
 
-Units known to requite special command:
+Units known to require special command:
 
  * WL-300g
  * WL-500g
