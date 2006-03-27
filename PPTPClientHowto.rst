@@ -11,7 +11,7 @@ Install the ''pptp'', ''kmod-mppe'' and ''kmod-crypto'' package:
 {{{
 ipkg install pptp kmod-mppe kmod-crypto}}}
 
-## valid as of RC5
+## valid as of RC5, for build micro it pulls in kmod-gre, kmod-ppp, and ppp.
 
 === Modules ===
 
@@ -69,7 +69,7 @@ Make the /etc/ppp/peers directory and create a file named after the peer:
 mkdir -p /etc/ppp/peers
 cd /etc/ppp/peers
 touch peer_name
-chmod 644 peer_name}}}
+chmod 600 peer_name}}}
 Substitute ''peer_name'' above with a descriptive one for the link you are trying to establish.
 
 ## valid as of RC5, the /etc/ppp/peers directory does not exist until created
@@ -77,7 +77,7 @@ Substitute ''peer_name'' above with a descriptive one for the link you are tryin
 The file created defines the link with the VPN server and there are a few necessary options. Edit and add the following to your peer-file:
 {{{
 pty "pptp hostnameOrIp --nolaunchpppd"}}}
-Here we instruct pppd to launch pptp for us to communicate with the VPN server. Substitute ''hostnameOrIp'' with the DNS record or IP-address of the VPN server you want to connect to.
+Here we instruct ''pppd'' to launch ''pptp'' to communicate with the VPN server. Substitute ''hostnameOrIp'' with the DNS hostname or IP-address of the VPN server you want to connect to.
 
 {{{
 mppe required,stateless}}}
@@ -85,7 +85,7 @@ Require that the connection be encrypted, using stateless encryption.  Most tunn
 
 {{{
 name DOMAIN\\Username}}}
-Define the username for the VPN-connection (the password is stored in ''chap-secrets'', see below). Substitute ''DOMAIN'' with the Windows Domain your user belongs to or remove ''DOMAIN\\'' if none is required. Also subsitute ''Username'' above with the user you want to use to connect with the VPN server.
+Define the username for the VPN-connection (the password is stored in ''chap-secrets'', see below). Substitute ''DOMAIN'' with the Windows Domain your user belongs to or remove ''DOMAIN\\'' if none is required. Also substitute ''Username'' above with the user you want to use to connect with the VPN server.
 
 {{{
 remotename peer_name}}}
@@ -99,11 +99,13 @@ Instruct ''pppd'' to load the generic options provided by the ''pptp'' package.
 ipparam name}}}
 This is optional.  Substitute ''name'' with the one chosen for the peer-file. This is used as a parameter to the ''ip-up'' and ''ip-down'' script executed upon connection and tear down of the link. Hence, you can write that script to behave differently depending on which peer we are connecting to or disconnecting from.
 
-Any other pppd/pptp options not considered generic (usable by all pptp connections) should go below the above options in the peer-file. To enable on demand "dialling" for example; add ''persist'', ''demand'' and ''idle 3600'', to make the router disconnect after one hour of inactivity and bring it back up again once the link is required.
+Any other ''pppd''/''pptp'' options not considered generic (usable by all PPTP connections) should go below the above options in the peer-file. To enable on demand "dialling" for example; add ''persist'', ''demand'' and ''idle 3600'', to make the router disconnect after one hour of inactivity and bring it back up again once the link is required.
 
 === /etc/ppp/chap-secrets ===
 
-The ''/etc/ppp/chap-secrets'' file contains a list of usernames and passwords for use by ''pppd''.  The file may start out being a symbolic link to /rom, if so remove the link and create a new file, ''chmod 600''.
+The ''/etc/ppp/chap-secrets'' file contains a list of usernames and passwords for use by ''pppd''.
+
+/!\ For the ''bin'' build of !OpenWrt, the file may start out being a symbolic link to /rom, if so remove the link and create a new file, ''chmod 600''.
 
 Add the following to the ''/etc/ppp/chap-secrets'' file:
 {{{
@@ -115,13 +117,30 @@ Substitute ''peer_name'' with whatever you used for ''remotename'' in the ''/etc
 
 Substitute ''Password'' with the password given to you by the owner of the PPTP server.  If the password contains blanks or special characters, enclose it in double-quotes, "like this".
 
+The asterisk tells ''pppd'' that this tunnel may use any IP address.  Normally the PPTP server determines the address.
+
 == Testing a Tunnel ==
 
-The ''pppd'' command is used to start a tunnel. The syntax is ''pppd call peername'', where ''peername'' is one of the peer files in ''/etc/ppp/peers''.
+The ''pppd'' command is used to start a tunnel. The syntax is ''pppd call peername'', where ''peername'' is one of the peer files in ''/etc/ppp/peers'':
+{{{
+pppd call peername updetach}}}
+
+||'''Option'''||'''Purpose'''||
+||''call'' name||obtain options from file ''/etc/ppp/peers/''name||
+||''updetach''||wait until the connection is made and then detach process from terminal||
+
+To stop the tunnel, kill the ''pppd'' process:
+{{{
+killall pppd}}}
 
 To test a tunnel and send debug output to the console, enter from the command prompt:
 {{{
-pppd call peername debug nodetach}}}
+pppd call peername debug dump nodetach}}}
+
+||'''Option'''||'''Purpose'''||
+||''debug''||display what is happening during negotation||
+||''dump''||display the ''pppd'' options and where they came from||
+||''nodetach''||do not detach the process from terminal once link is started||
 
 The output of a successful connection may look as follows:
 {{{
