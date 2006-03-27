@@ -86,7 +86,7 @@ tftp -i <ip-address> PUT openwrt-xxx-x.x-xxx.trx
 
 /!\ If you selected the same firmware in the Firmware Recovery utility that you are trying to upload, you will need to close the utility so the file is available to be uploaded with tftp.
 
-Replace <ip-address> with the units IP address ('<' and '>' should not be part of the command) and make sure you are either in the same directory as the firmware, or you designate the correct to the firmware. After a second or two a message stating the transfer was successful should appear.
+Replace <ip-address> with the units IP address ('<' and '>' should not be part of the command) and make sure you are either in the same directory as the firmware, or you designate the correct path to the firmware. After a second or two a message stating the transfer was successful should appear.
 
 The unit should restart on it's own. If are unable to contact the unit after a few minutes, restart it.
 
