@@ -23,7 +23,7 @@ et driver was patched in version kernel-source-et-0.13.tar.gz
 
 b44 driver was patched in svn r2932.
 
-OpenWrt White Russian RC5 will hopefully include the patch.
+OpenWrt White Russian RC5 is patched but workaround is not activated due to [#cr_in_nvram DOSish nvram defaults]. RC6 will hopefully sort it out.
 
 === PMON ===
 
