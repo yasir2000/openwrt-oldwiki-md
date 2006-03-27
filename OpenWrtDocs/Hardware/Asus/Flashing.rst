@@ -1,6 +1,6 @@
 '''Flashing Asus products'''
 
-The {{{boot_wait}}} NVRAM variable is on by default for Asus products compatible with OpenWrt. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''safe''' on these unit.
+The {{{boot_wait}}} NVRAM variable is '''on''' by default for Asus products compatible with !OpenWrt. 
 
 '''Enabling Failsafe Mode'''
 
@@ -21,10 +21,9 @@ Factory IP adresses for Asus products:
  * WL-HDD: 192.168.1.220
  
 
-(!) Even if the LED is blinking it sometimes does not respond. If you can’t ping the unit try reenabling "'Failsafe Mode'". You can even do a factory reset.
+(!) Even if the LED is blinking it sometimes does not respond. If you can’t ping the unit try reenabling "'Failsafe Mode'". 
 
 Send image with TFTP:
-
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -89,7 +88,3 @@ tftp -i <ip-address> PUT openwrt-xxx-x.x-xxx.trx
 Replace <ip-address> with the units IP address ('<' and '>' should not be part of the command) and make sure you are either in the same directory as the firmware, or you designate the correct path to the firmware. After a second or two a message stating the transfer was successful should appear.
 
 The unit should restart on it's own. If are unable to contact the unit after a few minutes, restart it.
-
-'''Serial console'''
-
-See http://wl500g.info/showthread.php?t=1993.
