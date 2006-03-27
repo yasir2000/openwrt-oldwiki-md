@@ -8,6 +8,8 @@
 [:OpenWrtDocs]
 [[TableOfContents]]
 
+= Bootup =
+
 On routers with DMZ LED !OpenWrt will use the LED to signal bootup, turning the LED on while booting and
 off once completely booted. 
 
@@ -55,9 +57,12 @@ At this point we strongly suggest setting a password. Depending which firmware i
 '''Why no default password?'''[[BR]]
 People are lazy. We don't want to give people a false sense of security by creating a password that everyone knows. We want to make sure you know that it's insecure by not even prompting for it.
 
-'''What if I can not access telnet when first booting?'''[[BR]]
+'''What if I can't access telnet when first booting?'''[[BR]]
 This may very well be a problem with your firewall settings in linux or
 windows. If you have any firewalls, you may disable them.
+
+'''What if I can't access SSH after setting a password?'''[[BR]]
+Try again after a minute or two. On the first bootup OpenWrt will be busy setting up the filesystem and generating SSH keys; the SSH server won't start until after the keys have been generated.
 
 '''Why does it reject my password or display SSH warnings after upgrading?'''[[BR]]
 Upgrading !OpenWrt completely replaces the filesystem. This means that your previous password and ssh keys will be erased and you will have to set your password again.
