@@ -17,8 +17,8 @@ ping -t <ip-address>
 
 Default IP adresses for Asus products:
 
-WL-500gx: 192.168.1.1
-WL-HDD: 192.168.1.220
+*WL-500gx: 192.168.1.1
+*WL-HDD: 192.168.1.220
 ...
 
 (!) Even if the LED is blinking it sometimes does not respond. If you can’t ping the unit try reenabling "'Failsafe Mode'". You can even do a factory reset.
@@ -84,6 +84,8 @@ First enter Failsafe Mode. Start the Firmware Recovery utility, select a firmwar
 {{{
 tftp -i <ip-address> PUT openwrt-xxx-x.x-xxx.trx
 }}}
+
+if you selected the same firmware in the Firmware Recovery utility that you are trying to upload, you will need to close the utility so the file is available to be uploaded with tftp.
 
 Replace <ip-address> with the units IP address ('<' and '>' should not be part of the command) and make sure you are either in the same directory as the firmware, or you designate the correct to the firmware. After a second or two a message stating the transfer was successful should appear.
 
