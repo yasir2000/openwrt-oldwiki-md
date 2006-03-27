@@ -153,6 +153,8 @@ For WEP:
 ||'''wl0_wep'''||enabled/disabled||
 ||'''wl0_key1 ... wl0_key4'''||WEP keys (example: ''wl0_key1=DEADBEEF12'')[[FootNote(64bit/128bit wep is autodetected based on key length. For 64bit use 5/10 chars and for 128bit 13/26 chars len keys)]]||
 ||'''wl0_key'''||primary key index: the wl0_key[1234] used (values: ''1'',''2'',''3'',''4'')||
+||'''wl0_auth'''||enabled (shared key) /disabled (open); the 'shared key' option is the most vulnerable WEP option as it most facilitates an intruder due to a fundamental security flaw in WEP. The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic.||
+
 
 For WDS:
 ||'''wl0_lazywds'''||Set lazywds mode - dynamically grant WDS to anyone(''1=enable / 0=disable'')||
