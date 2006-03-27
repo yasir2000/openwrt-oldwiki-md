@@ -11,7 +11,7 @@ Flash size: 4 MB
 RAM: 32 MB (some older units have only 16 MB enabled)
 Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
 Ethernet: Robo switch BCM5325e
-USB: 2xUSB 2.0   
+USB: 2x USB 2.0   
 Serial: yes
 JTAG: no
 }}}
@@ -46,7 +46,9 @@ After this, wait for the PWR LED to stop flashing and the device to reboot and y
 
 For some reason though, the device doesn't reboot after flashing. Just wait 5 minutes, unplug the power and reconnect. After a while (1-2 minutes), the WLAN LED should light and OpenWRT is up and running.
 
+
 '''Send image with Firmware Restoration technique'''
+
 You can use the ASUS Firmware Restoration tool to send am image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site.
 
 /!\ Before you start the Firmware Restoration tool, disable all interfaces on the PC except for the one connected to the Router. The software seems to pick an interface at random.
