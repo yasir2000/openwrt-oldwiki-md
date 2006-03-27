@@ -4,13 +4,17 @@
 
 There are currently many versions of the WRT54G. With the exception of v5
 devices the WRT54G units are supported by OpenWrt 1.0 (White Russian)
-and later. {{{boot_wait}}} is '''off''' by default on these routers, so you should
-turn it on. The version number is found on the label on the bottom of the
+and later. The version number is found on the label on the bottom of the
 front part of the case below the Linksys logo.
+
+{{{boot_wait}}} is '''off''' by default on these routers, so you should
+turn it on, see [:OpenWrtDocs/BootWait].
 
 [[TableOfContents]]
 
 === Setting boot_wait to on ===
+
+see 
 
 '''Ping.asp Bug'''
 
