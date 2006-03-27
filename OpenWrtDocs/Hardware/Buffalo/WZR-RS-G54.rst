@@ -34,7 +34,7 @@ Once converted to TRX format, the image can be flashed any way - TFTP, by mtd or
 
 == Troubleshooting ==
 
-'''I erased NVRAM and now I can't access the device'''
+=== I erased NVRAM and now I can't access the device ===
 
 OK, you've done exactly what you were warned not to do... Anyway, there's possibility to revive the thing. All you have to do is to connect to the device via Wifi - IP is 192.168.11.1 - and login via telnet or SSH. Once in, run these commands:
 
