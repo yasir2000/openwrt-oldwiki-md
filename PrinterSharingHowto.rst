@@ -13,13 +13,20 @@ From the p910nd man page: p910nd is a small printer daemon intended for diskless
  * a USB or parallel printer ('''TIP:''' I tested this with a noname USB-to-Parport adapter/converter too, works perfect!)
 
 = Installation =
-Now you can proceed with installing the printer daemon. Please use the {{{p910nd}}} package from the [:OpenWrtPackages:backports repository].
-
-Install it with:
+The p910nd package has been backported for !OpenWrt White Russian. So you can install it from the backports repository. Just add the following line to /etc/ipkg.conf:
 
 {{{
+src backports http://downloads.openwrt.org/backports/rc5
+}}}
+
+Next, update ipkg and install p910nd by typing (you'll need internet-access for this):
+
+{{{
+ipkg update
 ipkg install p910nd
 }}}
+
+It'll check for dependencies and get all the packages it needs.
 
 == Printers connected via USB ==
 To use an USB printer you must first add support for USB printers. First follow UsbStorageHowto to install the USB controller modules if you haven't already done so. You don't need {{{usb-storage}}} for the printer to work.
@@ -92,7 +99,6 @@ Here I would demonstrate you, how to configure the printer driver on your client
 You can check the ports on which {{{p910nd}}} is listening on with the command {{{netstat -an}}} executed on the router.
 
 [[BR]][[BR]][[BR]]We need your help here!Please update this section with more client configurations. This should include a short list howto configure a client. Please do not use screenshots.Thanks.
-
 == Linux clients ==
 === CUPS ===
 Assuming the printer driver is installed locally, it's a simple matter of entering http://localhost:631 in your favorite web-browser, and pressing add printer under the "Printers" pane. Then:
