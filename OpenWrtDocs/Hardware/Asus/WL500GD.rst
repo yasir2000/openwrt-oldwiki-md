@@ -4,18 +4,19 @@ The router is supported in OpenWrt 1.0 (White Russian) and later.
 You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
 
 {{{
+Bootloader: CFE 
 System-On-Chip:  Broadcom 5365
 CPU Speed: 200 Mhz
 Flash size: 4 MB
 RAM: 32 MB (some older units have only 16 MB enabled)
 Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
 Ethernet: Robo switch BCM5325e
-two external USB 2.0 ports   
-serial port accessable
-no jtag
+USB: 2xUSB 2.0   
+Serial: yes
+JTAG: no
 }}}
 
-The {{{boot_wait}}} NVRAM variable is on by default.
+The {{{boot_wait}}} NVRAM variable is on by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''save''' on this unit. 
 
 The router is sometimes called Asus WL-500GX or Asus WL-500g Deluxe V.
 
