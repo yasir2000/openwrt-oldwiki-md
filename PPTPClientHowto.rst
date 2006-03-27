@@ -46,7 +46,7 @@ See ticket [https://dev.openwrt.org/ticket/412 #412].
 
 ## valid as of RC5
 
-== Configuration ==
+== Configuring a Tunnel ==
 
 === /etc/ppp/options.pptp ===
 
@@ -107,8 +107,7 @@ The ''/etc/ppp/chap-secrets'' file contains a list of usernames and passwords fo
 
 Add the following to the ''/etc/ppp/chap-secrets'' file:
 {{{
-DOMAIN\\Username peer_name Password *
-}}}
+DOMAIN\\Username peer_name Password *}}}
 
 Substitute ''DOMAIN\\Username''. It is important that this match the ''name'' in the ''/etc/ppp/peers/peer_name'' file above. So, if no ''DOMAIN\\'' was used, do not enter one here either.
 
@@ -116,107 +115,13 @@ Substitute ''peer_name'' with whatever you used for ''remotename'' in the ''/etc
 
 Substitute ''Password'' with the password given to you by the owner of the PPTP server.  If the password contains blanks or special characters, enclose it in double-quotes, "like this".
 
-=== /etc/ppp/ip-up and /etc/ppp/ip-down ===
-This file, /etc/ppp/ip-up is a shell script which is executed upon establishment with the VPN server. It is nice to be able to configure iptables or routing once the link is available and remove that configuration once the link is taken down.
+== Testing a Tunnel ==
 
-Create the files and set execute permission if they do not already exist:
+The ''pppd'' command is used to start a tunnel. The syntax is ''pppd call peername'', where ''peername'' is one of the peer files in ''/etc/ppp/peers''.
+
+To test a tunnel and send debug output to the console, enter from the command prompt:
 {{{
-touch /etc/ppp/ip-up
-chmod 755 /etc/ppp/ip-up
-touch /etc/ppp/ip-down
-chmod 755 /etc/ppp/ip-down
-}}}
-
-Edit the files and add the following preamble. ''#!/bin/sh'' is required as the first line, to enable execution of the script. The other text, is good as a reminder of the parameters used when pppd calls these scripts.
-{{{
-#!/bin/sh
-# parameters
-# $1 the interface name used by pppd (e.g. ppp3)
-# $2 the tty device name
-# $3 the tty device speed
-# $4 the local IP address for the interface
-# $5 the remote IP address
-# $6 the parameter specified by the 'ipparam' option to pppd
-}}}
-
-As you can see it is the sixth parameter which is defined by ipparam in the peer-file above. It is a useful parameter to distinguish the scripts behaviour depending on which link we are bringing up or down.
-
-A generic structure for the ip-up and ip-down script shall check the ''$6'' parameter to match with an appropriate code section through a ''case'' branch as follows:
-{{{
-case "$6" in
- peer-name1)
-  <commands here>
-  ;;
- peer-name2)
-  <commands here>
-  ;;
- *)
-esac
-exit 0
-}}}
-Substitute ''peer-name1'', with the value given to ipparam above in the peer-file. Since we are configuring the first VPN link, you probably do not ''peer-name2'', it is included here as a template when adding another link. For now, remove it. Also, remove ''<commands here>>'', these will be replaced with actual commands below.
-
-When you use commands in these scripts, be sure to either use their full path or add `/usr/sbin` and `/sbin` to the ''PATH'' first.  pppd intentionally restricts the ''PATH'' available to the scripts for security reasons.
-
-=== iptables (firewall) rules ===
-To update your firewall rules when the connection is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above.
-
-To allow outgoing communication with the VPN link add the following to ip-up:
-{{{
-iptables -A forwarding_rule -o $1 -j ACCEPT
-}}}
-
-Likewise, if we want to allow incoming traffic from the VPN link add to ip-up:
-{{{
-iptables -A forwarding_rule -i $1 -j ACCEPT
-}}}
-
-To enable masquerading (NAT) to the VPN network add to ip-up:
-{{{
-iptables -t nat -A postrouting_rule -o $1 -j MASQUERADE
-}}}
-Masquerading does not require {{{iptables -A forwarding_rule -i $1 -j ACCEPT}}} as described above. It is only required if the other end of the VPN-link will send traffic to our network. Incoming traffic requires the other end of the VPN link to know about our (local) network topology either through static routes or by other means (routing protocols such as RIP and OSPF).
-
-When adding (inserting) into the iptables ruleset, we need a corresponding removal in ip-down when the link is taken down. Simply add the same command as above into ip-down substituting ''-A'' with ''-D'':
-{{{
-iptables -D forwarding_rule -o $1 -j ACCEPT
-iptables -D forwarding_rule -i $1 -j ACCEPT
-iptables -t nat -D postrouting_rule -o $1 -j MASQUERADE
-}}}
-
-=== static routing ===
-This howto assumes you will not use the VPN-link as a default route. Instead each relevant network will be added to the static routing table of the OpenWrt router. Other means, such as routing protocols could likely be used. Please update this Wiki if you have any good ideas regarding this.
-
-To add a network to the routing table for the VPN-link we again go to the ip-up script and add the route. The general syntax is:
-{{{
-route add -net <network-address> netmask <network-netmask> $1
-}}}
-Subsititue ''<network-address>'' with one you want to reach through the VPN-link. Also, ''<network-netmask>'' should be replaced with the appropriate value.
-
-For example, to make network 192.168.0.0 with a netmask of 255.255.255.0 reachable, add:
-{{{
-route add -net 192.168.0.0 netmask 255.255.255.0 $1
-}}}
-
-Again, a corresponding route ''delete'' command should be added to the ip-down script. To delete a network from the routing table, replace ''add'' with ''del'' and also remove ''$1'' at the end of the command, since it is not needed.
-
-To continue the example above, deleting the route added by ip-up for the 192.168.0.0/255.255.255.0 network:
-{{{
-route del -net 192.168.0.0 netmask 255.255.255.0
-}}}
-If entered in ip-down for the appropriate link, the 192.168.0.0/24-network will be removed from the static routing table when the link is taken down.
-
-=== static routing for all packets ===
-
-(It should be possible to direct all packets into the tunnel, if that's what you want. But be careful; if you direct the tunnel's packets as well, you'll end up with a routing loop and nothing will work.  To avoid this, add a static route for your tunnel server using the network interface.  Then add a default route that directs everything else to the tunnel network interface. The static host route takes priority over the default route, avoiding the  loop.  -- JamesCameron, PPTP Linux maintainer.)
-
-== Testing the link ==
-The pppd command is used to enable a link. The syntax pppd call peername, where peername is one of the peers in /etc/ppp/peers, tries to bring the link up.
-
-To test a link and send debug output to the console, enter from the command prompt:
-{{{
-pppd call peername debug nodetach
-}}}
+pppd call peername debug nodetach}}}
 
 The output of a successful connection may look as follows:
 {{{
@@ -257,20 +162,108 @@ rcvd [IPCP ConfAck id=0x3 <addr 192.168.0.2>]
 local IP address 192.168.0.2
 remote IP address 192.168.0.1
 Script /etc/ppp/ip-up started (pid 872)
-Script /etc/ppp/ip-up finished (pid 872), status = 0x0
-}}}
+Script /etc/ppp/ip-up finished (pid 872), status = 0x0}}}
 
-If problems arise, from here search the pppd and pptp documentation and forums, since there is already tons of information available.
+If problems arise, from here search the ''pppd'' and ''pptp'' documentation and forums, since there is already tons of information available.
+
+== Configuring Routing ==
+
+=== /etc/ppp/ip-up and /etc/ppp/ip-down ===
+
+The file ''/etc/ppp/ip-up'' is a shell script which is executed when the tunnel is started.. It is nice to be able to configure ''iptables'' or routing once the tunnel is up and remove that configuration once the tunnel is taken down.
+
+Create the files and set execute permission if they do not already exist:
+{{{
+touch /etc/ppp/ip-up
+chmod 755 /etc/ppp/ip-up
+touch /etc/ppp/ip-down
+chmod 755 /etc/ppp/ip-down}}}
+
+Edit the files and add the following preamble. ''#!/bin/sh'' is required as the first line, to enable execution of the script. The other text, is good as a reminder of the parameters used when pppd calls these scripts.
+{{{
+#!/bin/sh
+# parameters
+# $1 the interface name used by pppd (e.g. ppp3)
+# $2 the tty device name
+# $3 the tty device speed
+# $4 the local IP address for the interface
+# $5 the remote IP address
+# $6 the parameter specified by the 'ipparam' option to pppd}}}
+
+It is the sixth parameter which is defined by ''ipparam'' in the peer-file above. It is a useful parameter to distinguish the scripts behaviour depending on which tunnel or PPP connection we are bringing up or down.
+
+A generic structure for the ip-up and ip-down script shall check the ''$6'' parameter to match with an appropriate code section through a ''case'' branch as follows:
+{{{
+case "$6" in
+ peer-name1)
+  <commands here>
+  ;;
+ peer-name2)
+  <commands here>
+  ;;
+ *)
+esac
+exit 0
+}}}
+Substitute ''peer-name1'', with the value given to ''ipparam'' above in the peer-file. Since we are configuring the first VPN link, you probably do not ''peer-name2'', it is included here as a template when adding another link. For now, remove it. Also, remove ''<commands here>>'', these will be replaced with actual commands below.
+
+When you use commands in these scripts, be sure to either use their full path or add `/usr/sbin` and `/sbin` to the ''PATH'' first.  pppd intentionally restricts the ''PATH'' available to the scripts for security reasons.
+
+=== iptables (firewall) rules ===
+To update your firewall rules when the tunnel is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above.
+
+To allow outgoing communication with the tunnel add the following to ''ip-up'':
+{{{
+iptables -A forwarding_rule -o $1 -j ACCEPT}}}
+
+Likewise, if we want to allow incoming traffic from the tunnel add to ''ip-up'':
+{{{
+iptables -A forwarding_rule -i $1 -j ACCEPT}}}
+
+To enable masquerading (NAT) to the network beyond the tunnel add to ip-up:
+{{{
+iptables -t nat -A postrouting_rule -o $1 -j MASQUERADE}}}
+
+Masquerading does not require {{{iptables -A forwarding_rule -i $1 -j ACCEPT}}} as described above. It is only required if the other end of the tunnel will send traffic to our network. Incoming traffic requires the other end of the tunnel to know about our local network topology either through static routes or by other means (routing protocols such as RIP and OSPF).
+
+When adding (inserting) into the ''iptables'' ruleset, we need a corresponding removal in ''ip-down'' when the tunnel is taken down. Simply add the same command as above into ip-down substituting ''-A'' with ''-D'':
+{{{
+iptables -D forwarding_rule -o $1 -j ACCEPT
+iptables -D forwarding_rule -i $1 -j ACCEPT
+iptables -t nat -D postrouting_rule -o $1 -j MASQUERADE}}}
+
+=== static routing ===
+This howto assumes you will not use the tunnel as a default route. Instead each relevant network will be added to the static routing table of the OpenWrt router. Other means, such as routing protocols could likely be used. Please update this Wiki if you have any good ideas regarding this.
+
+To add a network to the routing table for the tunnel we again go to the ''ip-up'' script and add the route. The general syntax is:
+{{{
+route add -net <network-address> netmask <network-netmask> $1}}}
+Subsititue ''<network-address>'' with one you want to reach through the VPN-link. Also, ''<network-netmask>'' should be replaced with the appropriate value.
+
+For example, to make network 192.168.0.0 with a netmask of 255.255.255.0 reachable, add:
+{{{
+route add -net 192.168.0.0 netmask 255.255.255.0 $1}}}
+
+Again, a corresponding route ''delete'' command should be added to the ''ip-down'' script. To delete a network from the routing table, replace ''add'' with ''del'' and also remove ''$1'' at the end of the command, since it is not needed.
+
+To continue the example above, deleting the route added by ''ip-up'' for the 192.168.0.0/255.255.255.0 network:
+{{{
+route del -net 192.168.0.0 netmask 255.255.255.0}}}
+If entered in ''ip-down'' for the appropriate link, the 192.168.0.0/24-network will be removed from the static routing table when the link is taken down.
+
+=== static routing for all packets ===
+
+(It should be possible to direct all packets into the tunnel, if that's what you want. But be careful; if you direct the tunnel's packets as well, you'll end up with a routing loop and nothing will work.  To avoid this, add a static route for your tunnel server using the network interface.  Then add a default route that directs everything else to the tunnel network interface. The static host route takes priority over the default route, avoiding the  loop.  -- JamesCameron, PPTP Linux maintainer.)
 
 == Connecting on startup ==
-To connect instantly as the router boots, add the ''pppd call peername'' command to the start script in {{{/etc/init.d/}}}. If a connection cannot be made with the VPN-server as the WAN link may not be active yet, either experiment with a sleep prior to calling pppd or come up with a better solution (see on demand dial below as well).
+To connect instantly as the router boots, add the ''pppd call peername'' command to a start script in {{{/etc/init.d/}}}. If a connection cannot be made with the VPN-server as the WAN link may not be active yet, either experiment with a sleep prior to calling ''pppd'' or come up with a better solution (see on demand dial below as well).
 
 == On demand "dial" ==
-pppd supports bringing a link up when it is needed. This requires that the static routes are already in place, prior to establishing the connection. Hence, it wont help adding them to ip-up. Instead these routes need to be entered in the start script loading the required modules above.
+''pppd'' supports bringing a link up when it is needed. This requires that the static routes are already in place, prior to establishing the connection. Hence, it wont help adding them to ''ip-up''. Instead these routes need to be entered in the start script.
 
 Edit the start script in {{{/etc/init.d/}}} and add the required networks through route add for the link in question.
 
-Consider the example, where we have a peer defined in /etc/ppp/peers called peer1. Then, when establishing the link in demand dial mode, we sleep for a bit, then add the static routes in question.
+Consider the example, where we have a peer defined in {{{/etc/ppp/peers}}} called peer1. Then, when establishing the link in demand dial mode, we sleep for a bit, then add the static routes in question.
 {{{
 pppd call peer1 persist demand idle 3600
 sleep 2
