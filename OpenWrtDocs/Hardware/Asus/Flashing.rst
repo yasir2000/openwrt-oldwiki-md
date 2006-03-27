@@ -1,6 +1,6 @@
 '''Flashing Asus products'''
 
-The {{{boot_wait}}} NVRAM variable is '''on''' by default for Asus products compatible with !OpenWrt. 
+The {{{boot_wait}}} NVRAM variable is '''on''' by default for Asus products compatible with !OpenWrt.
 
 '''Enabling Failsafe Mode'''
 
@@ -16,14 +16,13 @@ ping -t <ip-address>
 
 Factory IP adresses for Asus products:
 
-
  * WL-500gx: 192.168.1.1
  * WL-HDD: 192.168.1.220
- 
 
-(!) Even if the LED is blinking it sometimes does not respond. If you can’t ping the unit try reenabling "'Failsafe Mode'". 
+(!) Even if the LED is blinking it sometimes does not respond. If you can’t ping the unit try reenabling "'Failsafe Mode'".
 
 Send image with TFTP:
+
 {{{
 tftp 192.168.1.1
 tftp> binary
@@ -55,7 +54,15 @@ After this you should be able to connect to the Router.
 
 '''If the Firmware Recovery utility doesn't work'''
 
-Several Asus products are not able to be flashed directly using tftp due to them requiring special commands before entering flashing mode. Others refuse to accept a firmware using the accompanying Firmware Recovery utility as well, ironically. There are two possible solutions to this problem.
+Several Asus products are not able to be flashed directly using tftp due to them requiring special commands to enable them to accept a new firmware. Others refuse to accept a firmware using the accompanying Firmware Recovery utility as well, ironically.
+
+Units known to requite special command:
+
+ * WL-300g
+ * WL-500g
+ * WL-HDD 
+
+There are two possible workarounds to this problem.
 
 ''TFTP with control commands''
 
