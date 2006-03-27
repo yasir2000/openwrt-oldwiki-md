@@ -16,7 +16,7 @@ ipkg install pptp kmod-mppe kmod-crypto}}}
 === Modules ===
 
 ||'''Feature'''||'''Required Modules'''||
-||Minimum PPTP support||slhc ppp_generic||
+||Minimum PPTP support||slhc ppp_generic ppp_async||
 ||Encryption or compression||sha1 arc4 ppp_mppe_mppc||
 
 ## valid as of RC5
@@ -24,7 +24,8 @@ ipkg install pptp kmod-mppe kmod-crypto}}}
 At minimum, add the following lines to ''/etc/modules'':
 {{{
 slhc
-ppp_generic}}}
+ppp_generic
+ppp_async}}}
 
 If you wish to use encryption or compression, add the following lines to ''/etc/modules'':
 {{{
@@ -36,74 +37,80 @@ then either reboot or load the modules this once:
 {{{
 insmod slhc
 insmod ppp_generic
+insmod ppp_async
 insmod ppp_mppe_mppc
 insmod arc4
 insmod sha1}}}
 
 See ticket [https://dev.openwrt.org/ticket/412 #412].
 
+## valid as of RC5
+
 == Configuration ==
 
 === /etc/ppp/options.pptp ===
-If the file /etc/ppp/options.pptp does not already exist, create one with the generic pptp options required to establish a link with the VPN server.
 
-There are several options, see the manual page, here are some that worked well for us:
- * lock
- * noauth - ''do not require the server to authenticate with us''
- * nobsdcomp - ''disables BSD-Compress compression;''
- * nodeflate - ''disables Deflate compression''
+This file was provided by the ''pptp'' package, and works as-is.  It sets the options for all tunnels initiated from your router.
+
+## valid as of RC5
+
+There's no need to change the file now, but there are several options you can change later if you like, see the manual page for ''pppd'':
  * lcp-echo-failure n - ''maximum number of times to retry, before considering the link to be dead''
  * lcp-echo-interval n - ''time between each echo attempt in seconds''
  * idle n - ''should the connection be terminated upon inactivity, set to 0 to disable''
- * refuse-eap - ''this option was required to authenticate with the server, if you get EAP error messages in the debug log, use this option''
+ * refuse-eap - ''this option may be required to authenticate with some recent servers, if you get EAP error messages in the debug log, use this option''
  * persist - ''do not exit after a connection is terminated; instead try to reopen the connection''
  * mppe required,no40,no56 - ''forces 128-bit MPPE''
 
 === /etc/ppp/peers/peer_name ===
+
 Make the /etc/ppp/peers directory and create a file named after the peer:
 {{{
 mkdir -p /etc/ppp/peers
 cd /etc/ppp/peers
 touch peer_name
-chmod 644 peer_name
-}}}
+chmod 644 peer_name}}}
 Substitute ''peer_name'' above with a descriptive one for the link you are trying to establish.
 
-The file created defines the link with the VPN server and there are a few necessary options to enable pptp links. Edit and add the following to your peer-file:
+## valid as of RC5, the /etc/ppp/peers directory does not exist until created
+
+The file created defines the link with the VPN server and there are a few necessary options. Edit and add the following to your peer-file:
 {{{
-pty "pptp hostnameOrIp --nolaunchpppd"
-}}}
+pty "pptp hostnameOrIp --nolaunchpppd"}}}
 Here we instruct pppd to launch pptp for us to communicate with the VPN server. Substitute ''hostnameOrIp'' with the DNS record or IP-address of the VPN server you want to connect to.
 
 {{{
-name DOMAIN\\Username
-}}}
-Define the username for the VPN-connection (the password is stored elsewhere, see below). Substitute ''DOMAIN'' with the Windows Domain your user belongs to or remove ''DOMAIN\\'' if none is required. Also subsitute ''Username'' above with the user you want to use to connect with the VPN server.
+mppe required,stateless}}}
+Require that the connection be encrypted, using stateless encryption.  Most tunnel servers require encryption, so try this first, and if you get a warning suggesting that the server doesn't want MPPE, then remove this line.
 
 {{{
-remotename peer_name
-}}}
+name DOMAIN\\Username}}}
+Define the username for the VPN-connection (the password is stored in ''chap-secrets'', see below). Substitute ''DOMAIN'' with the Windows Domain your user belongs to or remove ''DOMAIN\\'' if none is required. Also subsitute ''Username'' above with the user you want to use to connect with the VPN server.
+
+{{{
+remotename peer_name}}}
 Add this to properly specify the account and password in ''chap-secrets'' (see below).
 
 {{{
-file /etc/ppp/options.pptp
-}}}
-Instruct ''pppd'' to load the generic options defined above.
+file /etc/ppp/options.pptp}}}
+Instruct ''pppd'' to load the generic options provided by the ''pptp'' package.
 
 {{{
-ipparam name
-}}}
-Substitute ''name'' with the one chosen for the peer-file. This is used as a parameter to the ''ip-up'' and ''ip-down'' script executed upon connection and tear down of the link. Hence, you can write that script to behave differently depending on which peer we are connecting to or disconnecting from.
+ipparam name}}}
+This is optional.  Substitute ''name'' with the one chosen for the peer-file. This is used as a parameter to the ''ip-up'' and ''ip-down'' script executed upon connection and tear down of the link. Hence, you can write that script to behave differently depending on which peer we are connecting to or disconnecting from.
 
 Any other pppd/pptp options not considered generic (usable by all pptp connections) should go below the above options in the peer-file. To enable on demand "dialling" for example; add ''persist'', ''demand'' and ''idle 3600'', to make the router disconnect after one hour of inactivity and bring it back up again once the link is required.
 
 === /etc/ppp/chap-secrets ===
+
+The ''/etc/ppp/chap-secrets'' file contains a list of usernames and passwords for use by ''pppd''.  The file may start out being a symbolic link to /rom, if so remove the link and create a new file, ''chmod 600''.
+
 Add the following to the ''/etc/ppp/chap-secrets'' file:
 {{{
 DOMAIN\\Username peer_name Password *
 }}}
 
-Substitute ''DOMAIN\\Username''. It is important this matches the ''name'' in the ''/etc/ppp/peers/peer_name'' file above. So, if no ''DOMAIN\\'' was used, do not enter one here either.
+Substitute ''DOMAIN\\Username''. It is important that this match the ''name'' in the ''/etc/ppp/peers/peer_name'' file above. So, if no ''DOMAIN\\'' was used, do not enter one here either.
 
 Substitute ''peer_name'' with whatever you used for ''remotename'' in the ''/etc/ppp/peers/peer_name'' file.
 
