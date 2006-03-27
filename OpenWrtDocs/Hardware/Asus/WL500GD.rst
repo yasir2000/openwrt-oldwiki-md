@@ -1,6 +1,6 @@
 '''Asus WL-500g Deluxe'''
 
-The router is supported in OpenWrt 1.0 (White Russian) and later. 
+The device is supported in OpenWrt 1.0 (White Russian) and later. 
 You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
 
 {{{
@@ -16,7 +16,7 @@ Serial: yes
 JTAG: no
 }}}
 
-The {{{boot_wait}}} NVRAM variable is on by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''save''' on this unit. 
+The {{{boot_wait}}} NVRAM variable is on by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''safe''' on this unit. 
 
 The router is sometimes called Asus WL-500GX or Asus WL-500g Deluxe V.
 
