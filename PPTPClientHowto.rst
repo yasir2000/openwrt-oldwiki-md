@@ -11,8 +11,20 @@ Install the ''pptp'', ''kmod-mppe'' and ''kmod-crypto'' package:
 {{{
 ipkg install pptp kmod-mppe kmod-crypto}}}
 
+## valid as of RC5
+
 === Modules ===
-If you wish to use encryption, add the following lines to ''/etc/modules'':
+
+||'''Feature'''||'''Required Modules'''||
+||Minimum PPTP support||slhc ppp_generic||
+||Encryption or compression||sha1 arc4 ppp_mppe_mppc||
+
+At minimum, add the following lines to ''/etc/modules'':
+{{{
+slhc
+ppp_generic}}}
+
+If you wish to use encryption or compression, add the following lines to ''/etc/modules'':
 {{{
 ppp_mppe_mppc
 arc4
@@ -20,6 +32,8 @@ sha1}}}
 
 then either reboot or load the modules this once:
 {{{
+insmod slhc
+insmod ppp_generic
 insmod ppp_mppe_mppc
 insmod arc4
 insmod sha1}}}
