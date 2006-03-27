@@ -19,6 +19,8 @@ ipkg install pptp kmod-mppe kmod-crypto}}}
 ||Minimum PPTP support||slhc ppp_generic||
 ||Encryption or compression||sha1 arc4 ppp_mppe_mppc||
 
+## valid as of RC5
+
 At minimum, add the following lines to ''/etc/modules'':
 {{{
 slhc
@@ -58,8 +60,9 @@ There are several options, see the manual page, here are some that worked well f
  * mppe required,no40,no56 - ''forces 128-bit MPPE''
 
 === /etc/ppp/peers/peer_name ===
-Go to the /etc/ppp/peers directory and create a file named after the peer:
+Make the /etc/ppp/peers directory and create a file named after the peer:
 {{{
+mkdir -p /etc/ppp/peers
 cd /etc/ppp/peers
 touch peer_name
 chmod 644 peer_name
@@ -75,17 +78,17 @@ Here we instruct pppd to launch pptp for us to communicate with the VPN server. 
 {{{
 name DOMAIN\\Username
 }}}
-Define the username for the VPN-connection (the password is stored elsewhere, see below). Substitute DOMAIN with the Windows Domain your user belongs to or remove ''DOMAIN\\'' if none is required. Also subsitute ''Username'' above with the user you want to use to connect with the VPN server.
+Define the username for the VPN-connection (the password is stored elsewhere, see below). Substitute ''DOMAIN'' with the Windows Domain your user belongs to or remove ''DOMAIN\\'' if none is required. Also subsitute ''Username'' above with the user you want to use to connect with the VPN server.
 
 {{{
-remotename PPTP
+remotename peer_name
 }}}
 Add this to properly specify the account and password in ''chap-secrets'' (see below).
 
 {{{
 file /etc/ppp/options.pptp
 }}}
-Instruct pppd to load the generic options defined above.
+Instruct ''pppd'' to load the generic options defined above.
 
 {{{
 ipparam name
@@ -95,11 +98,16 @@ Substitute ''name'' with the one chosen for the peer-file. This is used as a par
 Any other pppd/pptp options not considered generic (usable by all pptp connections) should go below the above options in the peer-file. To enable on demand "dialling" for example; add ''persist'', ''demand'' and ''idle 3600'', to make the router disconnect after one hour of inactivity and bring it back up again once the link is required.
 
 === /etc/ppp/chap-secrets ===
-Now it is time to define the password for the ''DOMAIN\\Username'' used above. To set this user's password to ''Password'', add the following to the /etc/ppp/chap-secrets file:
+Add the following to the ''/etc/ppp/chap-secrets'' file:
 {{{
-DOMAIN\\Username PPTP Password *
+DOMAIN\\Username peer_name Password *
 }}}
-Subsitute ''Domain\\Username'' and ''Password'' above according to your requirements. It is important the username matches the name is used in the peer-file above. Hence, if no ''DOMAIN\\'' was used, do not enter one here either.
+
+Substitute ''DOMAIN\\Username''. It is important this matches the ''name'' in the ''/etc/ppp/peers/peer_name'' file above. So, if no ''DOMAIN\\'' was used, do not enter one here either.
+
+Substitute ''peer_name'' with whatever you used for ''remotename'' in the ''/etc/ppp/peers/peer_name'' file.
+
+Substitute ''Password'' with the password given to you by the owner of the PPTP server.  If the password contains blanks or special characters, enclose it in double-quotes, "like this".
 
 === /etc/ppp/ip-up and /etc/ppp/ip-down ===
 This file, /etc/ppp/ip-up is a shell script which is executed upon establishment with the VPN server. It is nice to be able to configure iptables or routing once the link is available and remove that configuration once the link is taken down.
