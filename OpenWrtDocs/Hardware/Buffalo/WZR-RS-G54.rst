@@ -1,3 +1,55 @@
+= Buffalo WZR-RS-G54 =
+
+The device is supported by OpenWRT WhiteRussian-RC4 and later (earlier untested). 
+
+The boot_wait NVRAM variable is on by default. Resetting to factory defaults via mtd erase nvram is ''NOT'' safe on this unit (applies to Whiterussian RC5 and earlier). '''DON'T EVER erase nvram unless you want to run into trouble'''.
+
+== TFTP installation notes ==
+
+When installing, make sure you use either '''openwrt-brcm-2.4-jffs2-4MB.trx''' (although the device has 8MB FLASH) or '''openwrt-brcm-2.4-squashfs.trx'''. Forget about '''*bin''' firmwares, device won't accept them.
+
+/!\ Note, the Buffalo WZR-RS-G54 doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
+
+Send image with TFTP:
+{{{
+tftp 192.168.12.1
+tftp> binary
+tftp> trace
+tftp> rexmt 1
+tftp> put openwrt-xxx-x.x-xxx.trx
+}}}
+
+LEDs don't work the usual way (Power doesn't blink during flashing). Once restarted, Diag LED will turn on and blink occasionaly, however during boot-up or normal operation of OpenWRT firmware it's always ON. Don't worry about this fact, everything is under control.
+
+== Reverting to original firmware ==
+
+Download firmware from www.buffalotech.com, unpack the zip. Firmware has some magic header, which has to be stripped off to get TRX image. For the firmware version 2.43 I used this command to strip 37 bytes of rubbish at the beginning of the file:
+
+{{{# dd if=WZR-RS-G54_2.43_1.03-US_US-uclibc of=firmware.trx bs=37 skip=1}}}
+
+Anyway, check that '''HDR''' string is directly at the very beginning of the image file. If it's not, firmware image will be rejected.
+
+Once converted to TRX format, the image can be flashed any way - TFTP, by mtd or via web interface.
+
+
+== Troubleshooting ==
+
+'''I erased NVRAM and now I can't access the device'''
+
+OK, you've done exactly what you were warned not to do... Anyway, there's possibility to revive the thing. All you have to do is to connect to the device via Wifi - IP is 192.168.11.1 - and login via telnet or SSH. Once in, run these commands:
+
+{{{nvram set wl0_ifname=eth2
+nvram set lan_ifname=br0
+nvram set lan_ifnames="eth0 eth2"
+nvram set wan_device=eth1
+nvram set wan_ifname=eth1}}}
+
+This will create bridge from LAN an Wifi, WAN will stay separate. Bridge IP is 192.168.11.1 by default, WAN IP is retrieved by DHCP. Current Whiterussian (RC5) doesn't set these values correctly by itself, you have to help it a bit.
+
+
+
+= Original page contents =
+
 '''''Retrieve the firmware and decompress it'''''[[BR]]
 {{{# mkdir /tmp/buffalo; cd /tmp/buffalo
 # wget -q http://www.buffalotech.com/downloads/WZR-RS-G54_2%5B1%5D.32_1.00.zip
