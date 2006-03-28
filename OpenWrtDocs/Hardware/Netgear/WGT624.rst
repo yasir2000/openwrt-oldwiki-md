@@ -490,7 +490,7 @@ In idle task - not syncing
 
 == Problems with the WGT624v3 ==
 
-The WGT634v3 has an AR2316A part that doesn't seem to work with the
+The WGT624v3 has an AR2316A part that doesn't seem to work with the
 build process above. Using the recommended toolchain (gcc version 2.96-mips3264-000710)
 and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
 
