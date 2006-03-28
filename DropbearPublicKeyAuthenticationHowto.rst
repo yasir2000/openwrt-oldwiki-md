@@ -7,6 +7,7 @@
   * less times for it to be seen on your fingers by others,
   * easier to automate things like SCP or remote commands,
  * the password is no longer sent encrypted to !OpenWrt,
+  * less likely for an eavesdropper to capture it,
  * allows you to turn off password authentication,
   * impossible for an attacker to guess your password on !OpenWrt.
 
@@ -34,8 +35,8 @@ You can also copy & paste the public key into !OpenWrt after making a normal pas
 == Using PuTTY on Windows ==
  * Start the PuTTY Key Generator with {{{puttygen.exe}}}.
  * Click on the button ''Generate''.
- * Click on "Save public key". Save the public key in a file called {{{OpenWrt-Public-Key}}}.
- * Click on "Save private key". Save the private key in a file called {{OpenWrt-Private-Key.ppk}}}.
+ * Click on ''Save public key''. Save the public key in a file called {{{OpenWrt-Public-Key}}}.
+ * Click on ''Save private key''. Save the private key in a file called {{OpenWrt-Private-Key.ppk}}}.
 
 A public key looks like (the text is all one, without linebreaks):
 
@@ -59,7 +60,7 @@ C:\> pscp.exe -scp -l root -pw <your_router_password> OpenWrt-Public-Key.txt
 
 You can also use copy & paste the public key to !OpenWrt after making a normal password SSH connection to it.
 
-= Create authorized_keys ==
+= Create authorized_keys =
 
 Add the public key to the {{{authorized_keys}}} file on !OpenWrt by doing the following:
 
