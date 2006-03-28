@@ -7,9 +7,7 @@
 = Introduction =
 
 This HOWTO explains how to configure SFTP for use with the Dropbear SSH package.
-Dropbear is typically used because of its small size and pre-installation in White
-Russian.
-
+Dropbear is typically used because of its small size.  It is pre-installed on !OpenWrt.
 
 == What is SFTP? ==
 
@@ -17,43 +15,33 @@ Secure File Transfer Protocol or SFTP is a protocol that was incorporated as par
 of SSH. The idea behind SFTP is to have all of the features that FTP has, but
 transfer both passwords and file data over an encrypted link.
 
-
 = Activating Dropbear =
 
-Dropbear is a small SSH daemon that comes pre-installed on White Russian. However,
-while Dropbear comes pre-installed it is not active by default. To activate Dropbear
-use the following command
+Dropbear is a small SSH daemon that comes pre-installed on !OpenWrt. However,
+it is not active by default. To activate Dropbear, change the password.
+You can do this on the web interface, or use the shell command:
 
 {{{
-passwd
-}}}
+passwd}}}
 
-After you enter this command, you will be prompted to input the password that you want
-to assign the user {{{root}}}. Once this is done, White Russian will disable the telnet
-daemon and activate the SSH daemon.
-
+You will be prompted for a new {{{root}}} password, along with a verification prompt.
+Once this is done, !OpenWrt will disable the telnet daemon and activate the
+Dropbear SSH daemon.
 
 = Installing the SFTP module =
 
-To install the SFTP portion enter the following commands:
+Update the package list and install the ''openssh-sftp-server'' package.  You can do this on the web interface, using ''System'' - ''Installed Software'', ''Update package lists'', then ''Install'' the ''openssh-sftp-server'' package.  Or use the shell prompt:
 
 {{{
 ipkg update
-ipkg install openssh-sftp-server
+ipkg install openssh-sftp-server}}}
+
+For RC4 and earlier, you may need to install ''libopenssl'' and create a directory and link:
+{{{
+ipkg update
+ipkg install libopenssl openssh-sftp-server
 mkdir -p /usr/libexec
-ln -s /usr/lib/sftp-server /usr/libexec/sftp-server
-}}}
-You may need to get and install libopenssl also before installing the openssh-sftp-server package.
-
-For RC5 and later it is sufficient to just
-
-{{{
-ipkg update
-ipkg install openssh-sftp-server
-}}}
-
-The needed directory and the link will be created automatically.
-
+ln -s /usr/lib/sftp-server /usr/libexec/sftp-server}}}
 
 = Windows SFTP clients =
 
