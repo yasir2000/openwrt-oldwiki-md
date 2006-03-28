@@ -300,7 +300,7 @@ After changes run /sbin/wifi to activate them
 || wl0_key[1..4] || WEP key in hexadecimal format (allowed hex chars are 0-9a-f). '''Example:''' nvram set wl0_key1=0D77F08849E4B1D839C9489A48 ||
 
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the
-key length correctly. A 128 bit WEP key must be 26 hex digits long.
+key length correctly. A 128 bit WEP key must be 26 hex digits long ; string key format is also supported : '''nvram set wl0_key1='s:my string key'''
 
 Setting up WPA will override any WEP settings.
 
@@ -398,6 +398,8 @@ See [:HowtoEnableCron].
 If you want to read the syslog messages, use the '''logread''' tool.
 
 == dropbear - Secure Shell server ==
+
+For ssh autologin, put you keys in /etc/dropbear/authorized_keys ; keys need to be converted from openssh format to dropbear format with dropbearconvert command.
 
 == iptables - Firewall ==
 
