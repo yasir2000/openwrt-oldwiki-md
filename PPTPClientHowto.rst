@@ -2,7 +2,10 @@
 #language en
 [[TableOfContents]]
 == OpenWrt PPTP Client ==
+
 How to configure your router as a PPTP client to connect to a PPTP server such as MS VPN.
+
+/!\ If your service provider needs you to use PPTP for internet access, see the simpler [:Faq] answer ''How do I configure PPTP for internet access?''
 
 == Requirements ==
 
