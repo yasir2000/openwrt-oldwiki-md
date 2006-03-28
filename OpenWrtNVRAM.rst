@@ -130,7 +130,7 @@ There are separate variables called wl0_* which configure the characteristics of
 ||'''wl0_plcphdr'''||preamble. long: use long or short preamble, *: use short preamble||
 ||'''wl0_rate'''||Set rate in 500 Kbps units (0=auto)||
 ||'''wl0_frag'''||Set fragmentation threshold (default 2346)||
-||'''wl0_rts'''||Set RTS threshold (default 2347)||
+||'''wl0_rts'''||Set RTS threshold (256-2347 default 2347)||
 ||'''wl0_dtim'''||Set DTIM period (default 1)||
 ||'''wl0_bcn'''||Set beacon period (default 100)||
 ||'''wl0_frameburst'''||(on/off) enable/disable frameburst||
