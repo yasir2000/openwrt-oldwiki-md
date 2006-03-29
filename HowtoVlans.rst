@@ -1,6 +1,6 @@
 /!\ robocfg and admcfg is obsolete.
 
-White Russian (upcoming RC5 and all later versions) will use a new ethernet driver (b44) and switch driver to configure the switch and VLANs. The switch driver will be configured by a /proc/switch interface. This driver works for ROBO and ADMTEK switches.
+White Russian (RC5 and all later versions) will use a new ethernet driver (b44) and switch driver to configure the switch and VLANs. The switch driver will be configured by a /proc/switch interface. This driver works for ROBO and ADMTEK switches.
 The switch driver needs to be documented.
 
 --------
