@@ -4,7 +4,7 @@
 = About the OpenWrt Image Builder =
 This guide should guide you in building your own individual custom OpenWrt firmware images by using the !OpenWrt Image Builder.
 
-Why custom images?
+Why custom images?[[BR]]
 These images are for people who want to do less configuration on the router itself, or who want to distribute the images to friends, or for backup purposes. This list could be continued by your own ideas.
 
 = Requirements =
