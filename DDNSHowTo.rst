@@ -192,7 +192,7 @@ To start it automatically on booting do:
 ln -s /etc/init.d/ez-ipupdate /etc/init.d/S80ez-ipupdate
 }}}
 
-ez-ipupdate will now be started as a daemon when OpenWrt is started and update IP address automatically when needed.
+ez-ipupdate will now be run as a daemon when OpenWrt is started and update IP address automatically when needed.
 
 == Via a cronjob ==
 
