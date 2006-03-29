@@ -180,7 +180,7 @@ esac
 exit $?
 }}}
 
-After saving the file {{{/etc/init.d/ez-ipupdate}}} set the executable bit on it. ez-ipupdate will now be started as a daemon when OpenWrt is started and update IP address automatically when needed.
+After saving the file {{{/etc/init.d/ez-ipupdate}}} set the executable bit on it.
 
 {{{
 chmod +x /etc/init.d/ez-ipupdate
@@ -192,6 +192,7 @@ To start it automatically on booting do:
 ln -s /etc/init.d/ez-ipupdate /etc/init.d/S80ez-ipupdate
 }}}
 
+ez-ipupdate will now be started as a daemon when OpenWrt is started and update IP address automatically when needed.
 
 == Via a cronjob ==
 
