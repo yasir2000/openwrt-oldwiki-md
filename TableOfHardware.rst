@@ -64,7 +64,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || ||No ||Supported ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WBR2-G54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=79&categoryid=6 WBR2-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||Supported ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=117&categoryid=6 WHR-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S:Supported]||
+||[http://www.buffalotech.com/products/product-detail.php?productid=117&categoryid=6 WHR-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=115&categoryid=6 WHR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz || || ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||Untested ||
 ||WHR2-G54 || || ||4MB || || || || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54] || || ||4MB || || || || || || || ||Untested ||
@@ -94,7 +94,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 
 == Dell ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||!TrueMobile 2300|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||off || || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300:Supported] ||
+||!TrueMobile 2300 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||off || || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300:Supported] ||
 
 
 == D-Link ==
@@ -104,6 +104,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.dlink.com/products/?pid=372 DSL-G604T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||16MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
+
 
 ----
 == LevelOne ==
