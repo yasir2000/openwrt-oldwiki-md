@@ -1,44 +1,27 @@
 '''!OpenWrt Image Builder howto'''
 
-
 [[TableOfContents]]
-
-
 = About the OpenWrt Image Builder =
-
-This guide should guide you in building your own individual custom
-OpenWrt firmware images by using the !OpenWrt Image Builder.
+This guide should guide you in building your own individual custom OpenWrt firmware images by using the !OpenWrt Image Builder.
 
 Why custom images?
-[[BR]]These images are for people who want to do less configuration on the
-router itself, or who want to distribute the images to friends, or for backup
-purposes. This list could be continued by your own ideas.
-
+These images are for people who want to do less configuration on the router itself, or who want to distribute the images to friends, or for backup purposes. This list could be continued by your own ideas.
 
 = Requirements =
-
  * a recent GNU/Linux distribution
 
- ... to be continued ...
-
+ . .. to be continued ...
 
 = Using the OpenWrt Image Builder =
-
-If you just want to see how the default images (default, micro and pptp
-included in the Image Builder) get built, continue with the steps
-[:ImageBuilderHowTo#Obtaining_and_installing_the_Image_Builder:3.1 Obtaining and installing the Image Builder]
-and [:ImageBuilderHowTo#Building_the_image:3.5 Building the image].
+If you just want to see how the default images (default, micro and pptp included in the Image Builder) get built, continue with the steps [:ImageBuilderHowTo#Obtaining and installing the Image Builder:3.1 Obtaining and installing the Image Builder] and [:ImageBuilderHowTo#Building the image:3.5 Building the image].
 
 Everyone else should follow step-by-step in this HOWTO.
 
-
 [[Anchor(Obtaining_and_installing_the_Image_Builder)]]
 == Obtaining and installing the Image Builder ==
+The Image Builder can be downloaded from http://downloads.openwrt.org/whiterussian/newest/.
 
-The Image Builder can be downloaded from [http://downloads.openwrt.org/whiterussian/newest/].
-
-Download it into your home directory (don't use the root account) and untar the
-tarball. After that change into the new directory.
+Download it into your home directory (don't use the root account) and untar the tarball. After that change into the new directory.
 
 {{{
 cd ~
@@ -48,30 +31,24 @@ bzcat OpenWrt-ImageBuilder-Linux-i686.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 }}}
 
-
 [[Anchor(The_package_lists)]]
 == The package lists ==
+Now you are ready to build your own images. By default the Image Builder builds three types of images: default, micro and pptp. In the file {{{lists/<image_name>.brcm-2.4}}} are the packages defined which go into the image. It will use the ipkg packages from the {{{packages}}} directory.
 
-Now you are ready to build your own images. By default the Image Builder
-builds three types of images: default, micro and pptp. In the
-file {{{lists/<image_name>.brcm-2.4}}} are the packages defined which go into
-the image. It will use the ipkg packages from the {{{packages}}} directory.
-
-When removing packages just remove the line with the package name from the
-{{{<image_name>.brcm-2.4}}} file.
+When removing packages just remove the line with the package name from the {{{<image_name>.brcm-2.4}}} file.
 
 '''NOTE:''' Dependencies are not automatically resolved for ipkg packages by
- the Image Builder.
+
+ . the Image Builder.
 
 Let's start with an example by adding the nas package into your new image.
 
-First download the nas package into the {{{packages}}} directory since it's not
-included by default.
+First download the nas package into the {{{packages}}} directory since it's not included by default.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686/packages
 wget http://downloads.openwrt.org/whiterussian/packages/non-free/ \
-        nas_3.90.37-13_mipsel.ipk
+        nas_3.90.37-16_mipsel.ipk
 }}}
 
 Create a new package list by copying the default one:
@@ -82,8 +59,7 @@ cd lists
 cp -v default.brcm-2.4 my-image.brcm-2.4
 }}}
 
-Now edit {{{my-image.brcm-2.4}}} with your favorite editor or just append the
-nas package with:
+Now edit {{{my-image.brcm-2.4}}} with your favorite editor or just append the nas package with:
 
 {{{
 echo "nas" >> my-image.brcm-2.4
@@ -124,16 +100,10 @@ nas
 
 That's all.
 
-If you don't need any special tweaks you can go ahead with
-[:ImageBuilderHowTo#Building_the_image:3.5 Building the image].
-
+If you don't need any special tweaks you can go ahead with [:ImageBuilderHowTo#Building the image:3.5 Building the image].
 
 == Additional packages ==
-
-When you have additional packages which are not listed (e.g. {{{nas}}}) in the
-{{{packages}}} directory you can add them by copying the package directly into
-the {{{packages}}} directory. After that add the package as described in
-[:ImageBuilderHowTo#The_package_lists:3.2 The package lists] above.
+When you have additional packages which are not listed (e.g. {{{nas}}}) in the {{{packages}}} directory you can add them by copying the package directly into the {{{packages}}} directory. After that add the package as described in [:ImageBuilderHowTo#The package lists:3.2 The package lists] above.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686/packages
@@ -141,18 +111,12 @@ wget http://downloads.openwrt.org/whiterussian/packages/non-free/ \
         nas_3.90.37-13_mipsel.ipk
 }}}
 
-
 == Custom files ==
-
-Sometimes it's useful to add and/or replace files, directories and links
-in the images with your own.
+Sometimes it's useful to add and/or replace files, directories and links in the images with your own.
 
 You have two options here.
 
-
-'''files directory:'''[[BR]]
-Files, directories and links in here would go into every image. Existing
-ones are replaced.
+'''files directory:'''[[BR]] Files, directories and links in here would go into every image. Existing ones are replaced.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -161,9 +125,7 @@ mkdir -p files/etc
 touch files/etc/example.txt
 }}}
 
-'''files.<image_name> directory:'''[[BR]]
-Files, directories and links in here will only go into the image you
-defined by {{{<image_name>}}}. Existing ones are replaced.
+'''files.<image_name> directory:'''[[BR]] Files, directories and links in here will only go into the image you defined by {{{<image_name>}}}. Existing ones are replaced.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
@@ -174,20 +136,16 @@ touch files.my-image/etc/example.txt
 
 You can copy or create files, directories and links as you like.
 
-
 [[Anchor(Building_the_image)]]
 == Building the image ==
-
-This is easy. Just type {{{make}}} and all images you defined in the
-{{{lists}}} directory get built.
+This is easy. Just type {{{make}}} and all images you defined in the {{{lists}}} directory get built.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
-make clean && make
+make clean all
 }}}
 
 All built images can be found in the {{{bin/<image_name>}}} directory.
-
 
 Building the images looks like this (here only for the image {{{my-image}}}):
 
@@ -310,23 +268,16 @@ drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
 -rw-r--r--  1 user user 1577984 2005-09-19 20:14 openwrt-wrt54gs_v4-squashfs.bin
 }}}
 
-
 = Some more information =
-
-   * <image_name>
-
-     This is how you called/named your image. For example lists/default.brcm-2.4,
-     here "default" is the {{{<image_name>}}}
-
+ * <image_name>
+  . This is how you called/named your image. For example lists/default.brcm-2.4, here "default" is the {{{<image_name>}}}
 
 == Important directories ==
+Some directories inside the Image Builder in which you would be interested in. These are:
 
-Some directories inside the Image Builder in which you would be
-interested in. These are:
-
-||'''Directory'''||'''Description'''||
-||bin/<image_name>/||Contains directories with the firmware images||
-||build_mipsel/linux-2.4-brcm/root/||Contains the files and directories which goes into the image (willbe deleted everytime a new image gets build)||
-||files/||Files, directories and links in here would go into every image. Existing ones are replaced.||
-||files.<image_name>/||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones are replaced.||
-||packages/||In here are all !OpenWrt packages you can include in the image.||
+||'''Directory''' ||'''Description''' ||
+||bin/<image_name>/ ||Contains directories with the firmware images ||
+||build_mipsel/linux-2.4-brcm/root/ ||Contains the files and directories which goes into the image (willbe deleted everytime a new image gets build) ||
+||files/ ||Files, directories and links in here would go into every image. Existing ones are replaced. ||
+||files.<image_name>/ ||Files, directories and links in here would go only into the image you defined by <image_name>. Existing ones are replaced. ||
+||packages/ ||In here are all !OpenWrt packages you can include in the image. ||
