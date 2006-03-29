@@ -316,13 +316,13 @@ More information is on [:OpenWrtDocs/nas].
 See [:OpenWrtDocs/Wpa2Enterprise] for a detailed setup using Freeradius for user authentication.
 
 || '''NVRAM variable''' || '''Description''' ||
-||<rowspan=6> wl0_akm || '''open''' = No WPA ||
+||<|6> wl0_akm || '''open''' = No WPA ||
 ||  '''psk''' = WPA Personal/PSK (Preshared Key) ||
 ||  '''wpa''' = WPA with a RADIUS server ||
 ||  '''psk2''' = WPA2 PSK ||
 ||  '''wpa2''' = WPA2 with RADIUS ||
 ||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 ||
-||<rowspan=3> wl0_crypto || '''tkip''' = RC4 encryption ||
+||<|3> wl0_crypto || '''tkip''' = RC4 encryption ||
 ||  '''aes''' = AES encryption ||
 ||  '''aes+tkip''' = support both ||
 || wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
@@ -448,13 +448,13 @@ More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id259
 and [http://openwrt.org/forum/viewtopic.php?id=131].
 
 Examples:
-||<rowspan=6>Australia||Melbourne,Canberra,Sydney||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
+||<|6>Australia||Melbourne,Canberra,Sydney||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00||
 ||Perth||WST-8||
 ||Brisbane||EST-10||
 ||Adelaide||CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00||
 ||Darwin||CST-9:30||
 ||Hobart||EST-10EDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00||
-||<rowspan=20>Europe||Amsterdam, Netherlands||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
+||<|21>Europe||Amsterdam, Netherlands||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Athens, Greece||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00||
 ||Barcelona, Spain||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||Berlin, Germany||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
@@ -476,18 +476,18 @@ Examples:
 ||St.Petersburg, Russia||MST-3MDT,M3.5.0/2,M10.5.0/3||
 ||Stockholm, Sweden||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00||
 ||New Zealand||Auckland, Wellington||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00||
-||<rowspan=7>USA & Canada^1^||Hawaii Time||HAW10||
+||<|7>USA & Canada^1^||Hawaii Time||HAW10||
 ||Alaska Time||AKST9AKDT||
 ||Pacific Time||PST8PDT||
 ||Mountain Time||MST7MDT||
 ||Central Time||CST6CDT||
 ||Eastern Time||EST5EDT||
 ||Atlantic Time||AST4ADT||
-||<rowspan=3>Asia||Jakarta||WIB-7||
+||<|3>Asia||Jakarta||WIB-7||
 ||Singapore||SGT-8||
 ||Ulaanbaatar, Mongolia||ULAT-8ULAST,M3.5.0/2,M9.5.0/2||
-||South America||Brazil, São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
-||South America||Argentina||UTC+3||
+||<|2>South America||Brazil, São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
+||Argentina||UTC+3||
 
 Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
