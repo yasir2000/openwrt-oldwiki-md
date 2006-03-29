@@ -4,8 +4,7 @@
 = About the OpenWrt Image Builder =
 This guide should guide you in building your own individual custom OpenWrt firmware images by using the !OpenWrt Image Builder.
 
-Why custom images?[[BR]]
-These images are for people who want to do less configuration on the router itself, or who want to distribute the images to friends, or for backup purposes. This list could be continued by your own ideas.
+Why custom images?[[BR]] These images are for people who want to do less configuration on the router itself, or who want to distribute the images to friends, or for backup purposes. This list could be continued by your own ideas.
 
 = Requirements =
  * a recent GNU/Linux distribution
@@ -13,7 +12,7 @@ These images are for people who want to do less configuration on the router itse
  . .. to be continued ...
 
 = Using the OpenWrt Image Builder =
-If you just want to see how the default images (default, micro and pptp included in the Image Builder) get built, continue with the steps [:ImageBuilderHowTo#Obtaining and installing the Image Builder:3.1 Obtaining and installing the Image Builder] and [:ImageBuilderHowTo#Building the image:3.5 Building the image].
+If you just want to see how the default images (default, micro and pptp included in the Image Builder) get built, continue with the steps [:ImageBuilderHowTo#Obtaining+and+installing+the+Image+Builder:3.1 Obtaining and installing the Image Builder] and [:ImageBuilderHowTo#Building+the+image:3.5 Building the image].
 
 Everyone else should follow step-by-step in this HOWTO.
 
@@ -72,6 +71,8 @@ cat my-image.brcm-2.4
 }}}
 
 {{{
+# This is a comment line
+
 base-files
 base-files-brcm
 bridge
@@ -100,10 +101,10 @@ nas
 
 That's all.
 
-If you don't need any special tweaks you can go ahead with [:ImageBuilderHowTo#Building the image:3.5 Building the image].
+If you don't need any special tweaks you can go ahead with [:ImageBuilderHowTo#Building+the+image:3.5 Building the image].
 
 == Additional packages ==
-When you have additional packages which are not listed (e.g. {{{nas}}}) in the {{{packages}}} directory you can add them by copying the package directly into the {{{packages}}} directory. After that add the package as described in [:ImageBuilderHowTo#The package lists:3.2 The package lists] above.
+When you have additional packages which are not listed (e.g. {{{nas}}}) in the {{{packages}}} directory you can add them by copying the package directly into the {{{packages}}} directory. After that add the package as described in [:ImageBuilderHowTo#The+package+lists:3.2 The package lists] above.
 
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686/packages
