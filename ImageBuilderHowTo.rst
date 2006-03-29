@@ -36,9 +36,7 @@ Now you are ready to build your own images. By default the Image Builder builds 
 
 When removing packages just remove the line with the package name from the {{{<image_name>.brcm-2.4}}} file.
 
-'''NOTE:''' Dependencies are not automatically resolved for ipkg packages by
-
- . the Image Builder.
+'''NOTE:''' Dependencies are not automatically resolved for ipkg packages by the Image Builder.
 
 Let's start with an example by adding the nas package into your new image.
 
@@ -110,7 +108,7 @@ When you have additional packages which are not listed (e.g. {{{nas}}}) in the {
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686/packages
 wget http://downloads.openwrt.org/whiterussian/packages/non-free/ \
-        nas_3.90.37-13_mipsel.ipk
+        nas_3.90.37-16_mipsel.ipk
 }}}
 
 == Custom files ==
