@@ -23,7 +23,10 @@ ipkg install kmod-usb-uhci
 '''TIP:''' Most USB chips have UHCI controllers. If that is not working for you install the {{{kmod-usb-ohci}}} package instead of the {{{kmod-usb-uhci}}} one!
 
 == Modules for USB 2.0 ==
-This package includes the modules for USB 2.0. Support for Kernel 2.4 in White Russian is broken.
+This package includes the modules for USB 2.0.
+
+'''NOTE:''' USB 2.0 support in White Russian is broken. There are some threads in the forum and some tickets as well if you like to read about what happens.
+
 
 {{{
 ipkg install kmod-usb2
