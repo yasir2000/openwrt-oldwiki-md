@@ -276,7 +276,7 @@ v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 == Basic settings ==
 
 || '''NVRAM variable''' || '''Description''' ||
-|| wl0_mode  || '''ap''' = Access Point (master mode), '''sta''' = Client mode ||
+|| wl0_mode  || '''ap''' = Access Point (master mode), '''sta''' = Routing client mode, '''wet''' = Bridged client mode||
 || wl0_ssid  || ESSID ||
 || wl0_infra || '''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
 || wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
