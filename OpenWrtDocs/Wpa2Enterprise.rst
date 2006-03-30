@@ -16,7 +16,10 @@ wl0_wep=aes+tkip
 
 Two mysteries here:
 1. Although the [:OpenWrtDocs/Configuration#WPA] docs say that `wl0_auth_mode` is deprecated, [http://www.bingner.com/openwrt/wpa.html this page] linked from the forums suggested it should be either `psk` or `radius`.  It didn't seem to hurt anything, and I didn't get it working until I set it to radius, so perhaps there's something there.
+
 2. My device has both `wl_` and `wl0_` prefix variables; I set both of them out of superstition but only list the wl0_ ones above.  Anyone know why this is so?
+
+The wl_* nvram variables are left over from the default firmware and are not used with OpenWrt, as stated elsewhere in the documentation.
 
 Don't forget to `nvram commit` ! 
 
