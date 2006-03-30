@@ -101,7 +101,7 @@ reboot
 ||EXT3 ||kmod-ext3 || ||
 
 
-Now install the {{{fdisk}}} package from the White Russian's backports repository. How to use the backports repository see [../../../OpenWrtDocs/Packages OpenWrtDocs/Packages].
+Now install the {{{fdisk}}} package from the White Russian's backports repository. How to use the backports repository see [:OpenWrtDocs/Packages:OpenWrtDocs/Packages].
 
 {{{
 ipkg install fdisk
@@ -158,7 +158,7 @@ Next, "format" the newly created partition.
 
 '''In !OpenWrt do'''
 
-For doing this in !OpenWrt you first have to install the {{{e2fsprogs}}} package from the White Russian's backports repository. How to use the backports repository see [../../../OpenWrtDocs/Packages OpenWrtDocs/Packages].
+For doing this in !OpenWrt you first have to install the {{{e2fsprogs}}} package from the White Russian's backports repository. How to use the backports repository see [:OpenWrtDocs/Packages:OpenWrtDocs/Packages].
 
 {{{
 ipkg install e2fsprogs
