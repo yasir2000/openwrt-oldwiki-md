@@ -20,7 +20,7 @@ Two mysteries here:
 
 2. My device has both `wl_` and `wl0_` prefix variables; I set both of them out of superstition but only list the wl0_ ones above.  Anyone know why this is so?
 
-{The wl_* nvram variables are left over from the default firmware and are not used with OpenWrt, as stated elsewhere in the documentation.}
+{{The wl_* nvram variables are left over from the default firmware and are not used with OpenWrt, as stated elsewhere in the documentation.}}
 
 Don't forget to `nvram commit` ! 
 
