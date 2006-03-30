@@ -1,22 +1,3 @@
-{{{
- for privoxy}}}
-
-{{{
-headers
-}}}
-
-{{{
-headers
-}}}
-
-{{{
-headers
-}}}
-
-{{{
-headers
-}}}
-
 '''New FAQ for the stable !OpenWrt White Russian release candidates.'''
 
 [[TableOfContents]]
