@@ -23,7 +23,7 @@ ipkg install kmod-usb-uhci
 '''TIP:''' Most USB chips have UHCI controllers. If that is not working for you install the {{{kmod-usb-ohci}}} package instead of the {{{kmod-usb-uhci}}} one!
 
 == Modules for USB 2.0 ==
-This package includes the modules for USB 2.0. Support for Kernel 2.4 in White Russian is broken. Please see ticket [https://dev.openwrt.org/ticket/121 #121] for details.
+This package includes the modules for USB 2.0. Support for Kernel 2.4 in White Russian is broken.
 
 {{{
 ipkg install kmod-usb2
@@ -101,7 +101,7 @@ reboot
 ||EXT3 ||kmod-ext3 || ||
 
 
-Now install the {{{fdisk}}} package from the White Russian's backports repository. How to use the backports repository see [:OpenWrtDocs/Packages:OpenWrtDocs/Packages].
+Now install the {{{fdisk}}} package from the White Russian's backports repository. How to use the backports repository see ["OpenWrtDocs/Packages"].
 
 {{{
 ipkg install fdisk
@@ -158,7 +158,7 @@ Next, "format" the newly created partition.
 
 '''In !OpenWrt do'''
 
-For doing this in !OpenWrt you first have to install the {{{e2fsprogs}}} package from the White Russian's backports repository. How to use the backports repository see [:OpenWrtDocs/Packages:OpenWrtDocs/Packages].
+For doing this in !OpenWrt you first have to install the {{{e2fsprogs}}} package from the White Russian's backports repository. How to use the backports repository see ["OpenWrtDocs/Packages"].
 
 {{{
 ipkg install e2fsprogs
