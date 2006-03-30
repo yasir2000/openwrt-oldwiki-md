@@ -8,7 +8,7 @@ System-On-Chip:  Broadcom 6348
 CPU Speed: 200 Mhz (assumed: BogoMIPS=239.20 XTAL=66Mhz)
 Flash size: 8 MB
 RAM: 32 MB
-Wireless: integrated Airgo MIMO 802.11b/g Wireless LAN Controller
+Wireless: Mini-PCI Airgo MIMO 802.11b/g Wireless LAN Controller
 Ethernet: Unknown switch
 USB: None
 ADSL: 2/2+
@@ -26,7 +26,7 @@ We can build custom firmwares that will upload via the regular web interface.
 Analysis of WAG54GX2_A_V1.00.01.img
 -----------------------------------
 00010100:0035d100:gzip cramfs on /tmp/fs1
-00400000:-        :CFE bootloader 0
+00400000:-       :CFE bootloader 0
 00404a84:00404a84:CFE bootloader 1 (lzma compressed)
 00410000:00410100:Firmware header
    FW_BCM.vendor = Broadcom Corporatio
