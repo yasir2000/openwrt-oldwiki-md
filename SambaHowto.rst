@@ -9,26 +9,14 @@ I decided to package Samba 2.0.x version of it to !OpenWrt, because the newer ve
 Samba offers a lot more options but this would be out of the scope of this howto. For more information on Samba please see the links at the button.
 
 = Requirements =
- * supported router by !OpenWrt
- * a recent OpenWrt version installed (at least White Russian RC3)
- * some kind of a external storage device (optional)
+ * a device supported by !OpenWrt
+ * a recent !OpenWrt version installed (at least White Russian RC3)
+ * some kind of a storage device (optional)
 
 = Installation =
-The Samba package has been backported for !OpenWrt White Russian. So you can install it from the backports repository. Just add the following line to /etc/ipkg.conf:
-
+Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
 {{{
-src backports http://downloads.openwrt.org/backports/rc5
-}}}
-
-Next, update ipkg and install samba by typing (you'll need internet-access for this):
-
-{{{
-ipkg update
-ipkg install samba
-}}}
-
-It'll check for dependencies and get all the packages it needs.'''
-'''
+ipkg install samba}}}
 
 '''TIP:''' A Samba client package is available too.
 
@@ -42,8 +30,7 @@ To change settings edit the {{{/etc/samba/smb.conf}}} file.
 Start Samba with
 
 {{{
-/etc/init.d/samba start
-}}}
+/etc/init.d/samba start}}}
 
 = Clients =
 '''NOTE:''' In the default config file all users are only able to read on the share, since all users use the {{{nobody}}} account. You can change this in the {{{/etc/samba/smb.conf}}} file.
@@ -52,20 +39,17 @@ Start Samba with
 List shares with {{{smbclient}}}:
 
 {{{
-smbclient -L <server_name> -N
-}}}
+smbclient -L <server_name> -N}}}
 
 Connect to a Samba share with:
 
 {{{
-smbclient //<server_name>/<share> -U <username>
-}}}
+smbclient //<server_name>/<share> -U <username>}}}
 
 Connect with {{{smbfs}}}:
 
 {{{
-smbmount //<server_name>/<share> /<local_mount_point> -o username=<username>
-}}}
+smbmount //<server_name>/<share> /<local_mount_point> -o username=<username>}}}
 
 == Windows clients ==
 Now you should be able to browse your share called {{{tmp}}} from any computer that is a member of {{{OpenWrt}}} workgroup (the default workgroup name in Windows is {{{WORKGROUP}}}).
@@ -74,8 +58,7 @@ Now you should be able to browse your share called {{{tmp}}} from any computer t
 In the Finder, press Command-K for the mount popup.  In the Server Address text box, type:
 
 {{{
-smb://<server_ip>/<share>
-}}}
+smb://<server_ip>/<share>}}}
 
 You may press the "+" sign to save this in your list.  Press "Browse" to see all shares on a server, or "Connect" to mount the share.  You'll see the icon appear on the desktop, and the share will be mounted in /Volumes.
 
