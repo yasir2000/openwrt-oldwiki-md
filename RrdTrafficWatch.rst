@@ -9,7 +9,7 @@
  * update your ipkg database and install the needed rrdtool
   {{{
   ipkg update
-  ipkg rrdtool }}}
+  ipkg install rrdtool }}}
   now you should have rrdtool and rrdupdate installed
 
  * have a look if your iptables are able to monitor traffic
@@ -36,6 +36,8 @@ Place the following script in /sbin or where you like
 # script for monitoring mac-based traffic on an openwrt-box
 # comments, suggestion, patches .... --> twist _at_ evilhome _dot_ de
 
+SITENAME="tuxland"      # change for your site
+
 if [ ! -d /tmp/rrd ]
 then
         mkdir /tmp/rrd
@@ -45,7 +47,7 @@ iptables -L traffic -vnxZ -t filter > /tmp/traffic.tmp
 
 ALL_UP=0
 ALL_DOWN=0
-INDEX="<html><head><title>traffic @ tuxland</title></head><body>"
+INDEX="<html><head><title>traffic @ $SITENAME</title></head><body>"
 
 # $1 = ImageFile, $2 = Time in secs to go back, $3 = RRDfile, $4 = GraphText
 CreateGraph ()
@@ -128,7 +130,7 @@ then
 fi
 
 rrdtool update /tmp/rrd/all.rrd N:$ALL_UP:$ALL_DOWN
-CreateGraph /tmp/rrd/all.png 86400 /tmp/rrd/all.rrd "all traffic from tuxland"
+CreateGraph /tmp/rrd/all.png 86400 /tmp/rrd/all.rrd "all traffic from $SITENAME"
 
 INDEX=$INDEX"<br><img src='all.png'></body></html>"
 
@@ -137,11 +139,11 @@ echo $INDEX > /tmp/rrd/index.html
 
 This script will create and update the rrd-database for each mac found in /proc/net/arp. If a host is not online no update will be performed. This will safe some cpu-cycles :) . traff_graph stores the rrd-db, the created pictures/graphs and the index.html for viewing the graphs in /tmp/rrd. This means, after a reboot all informations are lost and you will start at 0.
 
-Now you can test traff_graph. Make sure, you have only a single traffic-chain/host in your iptable rules. You can list ist with
+Now you can test traff_graph. Make sure, you have only a single traffic-chain/host in your iptable rules. You can list this with
 {{{
 iptables -L traffic -vx}}}
 Now run traff_graph. This will need a while... get a coffee ;-)
-Add traff_graph to your crontab and run it every 5 minutes. Be carefull not to monitore to much hosts since rrdtool graph needs a lot of time. For viewing the graphs you have to add an symlink in /www wich points to /tmp/rrd. 
+Add traff_graph to your crontab and run it every 5 minutes. Be carefull not to monitore to much hosts since rrdtool graph needs a lot of time. For viewing the graphs you have to add an symlink in /www which points to /tmp/rrd. 
 {{{
 cd /www
 ln -s /tmp/rrd/ traffic }}}
@@ -149,4 +151,4 @@ ln -s /tmp/rrd/ traffic }}}
 crontab:
 {{{
 # why does */12 not work???
-0,5,10,15,20,25,30,35,40,45,50,55 * * * * /traff_graph 2>&1 > /dev/null }}}
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /sbin/traff_graph 2>&1 > /dev/null }}}
