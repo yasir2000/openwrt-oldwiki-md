@@ -1,33 +1,55 @@
 = Downloading needed things =
-
  * first you have to add Nico's testing directory to your /etc/ipkg.conf
-  add
+  . add
   {{{
   src unstable http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ }}}
   to your ipkg.conf
 
  * update your ipkg database and install the needed rrdtool
-  {{{
+  . {{{
   ipkg update
   ipkg install rrdtool }}}
   now you should have rrdtool and rrdupdate installed
 
  * have a look if your iptables are able to monitor traffic
-  {{{
+  . {{{
   iptables -N traffic
   iptables -F traffic
   iptables -I FORWARD -j traffic }}}
-
   if you receive an error make sure
   * you have all necessary packages installed
   * the kernel-modules are loaded
   * make sure, that the traffic-chain exists after booting. (Just add the iptable-commands to a start-up script. Remember to load the needed kernel-modules befor running the iptable-stuff)
 
+  *To Create the start-up script:
+  {{{
+  cat > /etc/init.d/S50rrd
+  }}}
+
+  {{{
+  #!/bin/sh
+  iptables -N traffic
+  iptables -F traffic
+  iptables -I FORWARD -j traffic
+  }}}
+
+  After pasting it, press {{{ENTER}}} and then hit {{{CTRL-D}}} keys to save the file.
+
+  Now make sure the init script is executable and start it with
+
+  {{{
+  chmod a+x /etc/init.d/S50rrd
+  /etc/init.d/S50rrd start
+  }}}
+
   now you are capable to monitor traffic with iptables
 
 = Using the traff_graph - script =
-
 Place the following script in /sbin or where you like
+
+{{{
+cat > /sbin/traff_graph
+}}}
 
 {{{
 #!/bin/sh
@@ -137,18 +159,31 @@ INDEX=$INDEX"<br><img src='all.png'></body></html>"
 echo $INDEX > /tmp/rrd/index.html
 }}}
 
+Make the file executable
+{{{
+chmod a+x /sbin/traff_graph
+}}}
+
 This script will create and update the rrd-database for each mac found in /proc/net/arp. If a host is not online no update will be performed. This will safe some cpu-cycles :) . traff_graph stores the rrd-db, the created pictures/graphs and the index.html for viewing the graphs in /tmp/rrd. This means, after a reboot all informations are lost and you will start at 0.
 
 Now you can test traff_graph. Make sure, you have only a single traffic-chain/host in your iptable rules. You can list this with
+
 {{{
 iptables -L traffic -vx}}}
-Now run traff_graph. This will need a while... get a coffee ;-)
-Add traff_graph to your crontab and run it every 5 minutes. Be carefull not to monitore to much hosts since rrdtool graph needs a lot of time. For viewing the graphs you have to add an symlink in /www which points to /tmp/rrd. 
+
+Now run traff_graph. This will need a while... get a coffee ;-) Add traff_graph to your crontab and run it every 5 minutes. Be carefull not to monitore to much hosts since rrdtool graph needs a lot of time. For viewing the graphs you have to add an symlink in /www which points to /tmp/rrd.
+
 {{{
 cd /www
 ln -s /tmp/rrd/ traffic }}}
 
-crontab:
+everything will be available via 
 {{{
-# why does */12 not work???
+http://192.168.0.1/traffic/ }}}
+
+To schedule an update every 5 minutes, use crontab. 
+
+Add this to the /etc/crontabs/root file :
+{{{
+# run trafic graph every 5 minutes. (why does */12 not work???)
 0,5,10,15,20,25,30,35,40,45,50,55 * * * * /sbin/traff_graph> /dev/null 2>&1 }}}
