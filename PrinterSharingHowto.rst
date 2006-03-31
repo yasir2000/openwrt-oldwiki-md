@@ -2,31 +2,22 @@
 
 [[TableOfContents]]
 = Why should I use printer sharing? What is that? =
-If you want to share printers with other PCs (clients) in your network, then this is the right howto for you. It was written for the small {{{p910nd}}} non-spooling printer server. An alternative would be using the {{{cups}}} package (which is also available) but in my opinion it's too much for the average OpenWrt device (mostly because it needs to cache the print jobs before sending them and because there's not much space for that left without additional storage space).
+If you want to share printers with other PCs (clients) in your network, then this is the right howto for you. It was written for the small {{{p910nd}}} non-spooling printer server. An alternative would be using the {{{cups}}} package (which is also available) but in my opinion it's too much for the average !OpenWrt device (mostly because it needs to cache the print jobs before sending them and because there's not much space for that left without additional storage space).
 
 From the p910nd man page: p910nd is a small printer daemon intended for diskless workstations that does not spool to disk but passes the job directly to the printer. Normally a lpr daemon on a spooling host connects to it with a TCP connection on port 910n (where n=0, 1, or 2 for lp0, 1 and 2 respectively). p910nd is particularly useful for diskless Linux workstations booted via Etherboot that have a printer hanging off them. Common Unix Printing System (CUPS) supports this protocol, it's called the !AppSocket protocol and has the scheme socket://. LPRng also supports this protocol and the syntax is lp=remotehost%9100 in /etc/printcap.
 
 = Requirements =
- * Supported router by OpenWrt with USB and/or parport (the Asus WL-500g has both USB and parport)
- * a recent OpenWrt version installed (at least White Russian RC3) with already configured USB and/or parport modules and the {{{p910nd}}} package (which is not yet included in White Russian)
+ * a device supported by !OpenWrt with USB and/or parport (the Asus WL-500g has both USB and parport)
+ * a recent !OpenWrt version installed (at least White Russian RC3)
+ * configured USB and/or parport modules
+ * the {{{p910nd}}} package (which is not yet included in White Russian)
  * GNU/Linux or Windows clients to connect to your printer server
  * a USB or parallel printer ('''TIP:''' I tested this with a noname USB-to-Parport adapter/converter too, works perfect!)
 
 = Installation =
-The p910nd package has been backported for !OpenWrt White Russian. So you can install it from the backports repository. Just add the following line to /etc/ipkg.conf:
-
+Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
 {{{
-src backports http://downloads.openwrt.org/backports/rc5
-}}}
-
-Next, update ipkg and install p910nd by typing (you'll need internet-access for this):
-
-{{{
-ipkg update
-ipkg install p910nd
-}}}
-
-It'll check for dependencies and get all the packages it needs.
+ipkg install p910nd}}}
 
 == Printers connected via USB ==
 To use an USB printer you must first add support for USB printers. First follow UsbStorageHowto to install the USB controller modules if you haven't already done so. You don't need {{{usb-storage}}} for the printer to work.
@@ -34,31 +25,27 @@ To use an USB printer you must first add support for USB printers. First follow 
 Additionally, you need the {{{usb-printer}}} module which you can install with {{{ipkg}}} as follows:
 
 {{{
-ipkg install kmod-usb-printer
-}}}
+ipkg install kmod-usb-printer}}}
 
-Now plug in the printer, run {{{dmesg}}} and check for the following lines
+Now plug in the printer, run {{{dmesg}}} and check for the following lines:
 
 {{{
 hub.c: new USB device 01:02.0-1, assigned address 2
 printer.c: usblp0: USB Bidirectional printer dev 2 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
 usb.c: USB disconnect on device 01:02.0-1 address 2
 hub.c: new USB device 01:02.0-1, assigned address 3
-printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
-}}}
+printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094}}}
 
 == Printers connected via parport (parallel port/LPT) ==
 When you're connecting a parport printer you must install the {{{kmod-lp}}} package which installs the modules for parport support.
 
 {{{
-ipkg install kmod-lp
-}}}
+ipkg install kmod-lp}}}
 
 Now you've to reboot your Wrt router.
 
 {{{
-reboot
-}}}
+reboot}}}
 
 When you see the file {{{/dev/printers/0}}} than the installation is done. You can also check the output from {{{dmesg}}}.
 
@@ -66,8 +53,7 @@ When you see the file {{{/dev/printers/0}}} than the installation is done. You c
 Edit the file {{{/etc/default/p910nd}}} to your needs. The file is well commented. The default file looks like that:
 
 {{{
-cat /etc/default/p910nd
-}}}
+cat /etc/default/p910nd}}}
 
 {{{
 # printing port list, in the form "number [options]"
@@ -78,16 +64,14 @@ cat /etc/default/p910nd
 #    -b to turn on bidirectional copying.
 #    -f to specify a different printer device.
 #
-0  -b -f /dev/usb/lp0
-}}}
+0  -b -f /dev/usb/lp0}}}
 
 You can run more than one printer at the same time. For example one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}}) interface.
 
 Save it and start the {{{p910nd}}} daemon with:
 
 {{{
-/etc/init.d/p910nd start
-}}}
+/etc/init.d/p910nd start}}}
 
 It will start up automatically on the next reboot.
 
