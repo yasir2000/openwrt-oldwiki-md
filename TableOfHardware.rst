@@ -79,7 +79,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||WLI2-TX1-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=102&categoryid=6 WZR-G108] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8Mb || ||Airgo (mini-PCI) || || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=109&categoryid=6 WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB || ||Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:WiP] ||
+||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
 
 
 == Castlenet ==
