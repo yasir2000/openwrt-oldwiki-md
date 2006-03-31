@@ -486,7 +486,7 @@ Examples:
 ||<|3>Asia||Jakarta||WIB-7||
 ||Singapore||SGT-8||
 ||Ulaanbaatar, Mongolia||ULAT-8ULAST,M3.5.0/2,M9.5.0/2||
-||<|2>Central and South America||Brazil, São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
+||<|3>Central and South America||Brazil, São Paulo||BRST+3BRDT+2,M10.3.0,M2.3.0||
 ||Argentina||UTC+3||
 ||Central America||CST+6||
 
