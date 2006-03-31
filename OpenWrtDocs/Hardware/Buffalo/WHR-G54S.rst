@@ -103,4 +103,10 @@ The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory 
 
 From experience, it has been harder to find non-Rev 5 WRTG54 routers in the major chain stores, here is a picture of the Buffalo WHR-G54S Retail box:
 
-attachment:WHR-G54S_Retailbox.jpg
+attachment:WHR-G54S_Retailbox.jpg 
+
+
+Here is a shot of the model number found on the bottom of the box:
+
+attachment:Boxbottom_modelnum.jpg
+
