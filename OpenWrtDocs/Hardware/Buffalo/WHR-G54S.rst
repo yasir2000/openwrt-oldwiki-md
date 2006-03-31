@@ -101,6 +101,7 @@ vlan0: dev_set_allmulti(master, 1)
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit.
 
-From experience, it has been harder to find non-Rev 5 WRTG54 routers in the major chain stores, here is a picture of the Buffalo WHR-G54S Retail box:
+From experience, it has been harder to find non-Rev 5 WRTG54 routers in the major chain stores, here is a picture of the Buffalo WHR-G54S Retail box: 
 
-attachment:C:\Home\DVogt\My Office Documents\My Scans\2006-03 (Mar)\scan0001.jpg
+
+attachment:WHR-G54S_RetailBox.jpg
