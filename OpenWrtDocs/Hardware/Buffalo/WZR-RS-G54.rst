@@ -2,7 +2,7 @@
 
 The device is supported by OpenWRT WhiteRussian-RC4 and later (earlier untested). 
 
-The boot_wait NVRAM variable is on by default. Resetting to factory defaults via '''mtd erase nvram''' is ''NOT'' safe on this unit (applies to Whiterussian RC5 and earlier). '''DON'T EVER erase nvram unless you want to run into trouble'''.
+The boot_wait NVRAM variable is on by default. Resetting to factory defaults via ''mtd erase nvram'' is '''NOT''' safe on this unit (applies to Whiterussian RC5 and earlier).
 
 == TFTP installation notes ==
 
