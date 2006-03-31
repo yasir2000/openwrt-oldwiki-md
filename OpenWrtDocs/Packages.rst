@@ -1,17 +1,17 @@
 == Official packages ==
-The[http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable White Russian release. Please use the official packages whenever possible.
+The [http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable White Russian release. Please use the official packages whenever possible.  The {{{/etc/ipkg.conf}}} file should have these lines:
 
 {{{
 src whiterussian http://downloads.openwrt.org/whiterussian/packages
 src non-free http://downloads.openwrt.org/whiterussian/packages/non-free
 }}}
 
-'''TIP:''' If you copy & paste into your {{{/etc/ipkg.conf}}} file, make sure that you don't get a trailing space. If you do, {{{ipkg update}}} will look like it's updating but files will not be created in {{{/usr/lib/ipkg/lists}}}.
+'''TIP:''' If you copy & paste this into your {{{/etc/ipkg.conf}}} file, make sure that you don't get a trailing space. If you do, {{{ipkg update}}} will look like it's updating but files will not be created in {{{/usr/lib/ipkg/lists}}}.
 
 == Backports ==
-Some useful packages have been backported from the development branch (trunk) to White Russian. See the [http://downloads.openwrt.org/backports/00-README readme] file for more details.
+Some useful packages have been backported from the development branch (trunk) to White Russian. See the [http://downloads.openwrt.org/backports/rc5/00-README RC5 00-README] file for more details.
 
-To use the packages from the backports repository you have to edit your {{{/etc/ipkg.conf}}} and add:
+To use the packages from the backports repository edit {{{/etc/ipkg.conf}}} and add:
 
 {{{
 src backports http://downloads.openwrt.org/backports/rc5
