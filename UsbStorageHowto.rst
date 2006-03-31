@@ -244,6 +244,8 @@ exec /bin/busybox init
 
 /!\ '''NOTE:''' If you use USB 2.0 you have to replace the line {{{insmod uhci && sleep 2s}}} by {{{insmod ehci-hcd && sleep 2s}}}.
 
+/!\ '''NOTE:''' If you use OHCI USB Chips you have to replace the line {{{insmod uhci && sleep 2s}}} by {{{insmod usb-ohci && sleep 2s}}}.
+
 Make sure your new {{{/sbin/init}}} is executable:
 
 {{{
