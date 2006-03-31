@@ -151,4 +151,4 @@ ln -s /tmp/rrd/ traffic }}}
 crontab:
 {{{
 # why does */12 not work???
-0,5,10,15,20,25,30,35,40,45,50,55 * * * * /sbin/traff_graph 2>&1 > /dev/null }}}
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /sbin/traff_graph> /dev/null 2>&1 }}}
