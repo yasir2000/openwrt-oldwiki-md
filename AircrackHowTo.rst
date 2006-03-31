@@ -23,33 +23,23 @@ The official page for Aircrack is [http://www.aircrack-ng.org here].
  * Please refer to the RemoteFileSystemHowTo for instructions on how to set this up
 
 = Installation =
-Aircrack can easily be installed using White Russian's RC5 backports repository. Just add the following line to /etc/ipkg.conf: 
+Aircrack can easily be installed using !OpenWrt backports repository.  See ["OpenWrtDocs/Packages"]
+for how to configure your device to use the repository, then install aircrack by typing:
 
 {{{
-src backports http://downloads.openwrt.org/backports/rc5
-}}}
+ipkg install aircrack}}}
 
-Next, update ipkg and install aircrack by typing:
-
-{{{
-ipkg update
-ipkg install aircrack
-}}}
-
-Another utility that is necessary to capture wireless traffic is {{{wl}}}. This can be installed through ssh by using the following commands:
-
+Another utility that is necessary to capture wireless traffic is {{{wl}}}. This can be installed by typing:
 
 {{{
-ipkg install wl
-}}}
+ipkg install wl}}}
 
 = Configuring Your WRT54G/S to Monitor =
 Now that Aircrack is installed and ready to start capturing traffic, you have to tell your WRT54G/S to listen to all traffic and not just traffic of its own. To do this you will use the {{{wl}}} utility:
 
 {{{
 wl monitor 1
-ifup prism0
-}}}
+ifup prism0}}}
 
 To be able to change channels and sniff on all channels, you must have the router in client mode: ClientModeHowto
 
@@ -59,8 +49,7 @@ Begin by changing into the directory that you want to store the dump file in. Th
 Once you are in the directory that you want to store the dump file in, run the following commands:
 
 {{{
-airodump prism0 test 0 1
-}}}
+airodump prism0 test 0 1}}}
 
 What the above command does is:
 
@@ -79,8 +68,7 @@ Once you have enough packets logged just hit {{{CTRL+C}}} to quit airodump.
 
 = Airodump Usage =
 {{{
-usage: airodump <interface name or pcap filename> <output prefix> <channel> [IVs flag]
-}}}
+usage: airodump <interface name or pcap filename> <output prefix> <channel> [IVs flag]}}}
 
 = Links =
  * If you get stuck on something, there are lots of good resources at the official aircrack [http://www.aircrack-ng.org website]
