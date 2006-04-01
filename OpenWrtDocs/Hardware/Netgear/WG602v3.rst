@@ -13,10 +13,9 @@ How to upload a firmware via TFTP:
 
  1. Download the latest firmware from Netgear. Currently (1/4/2006) it is version [ftp://downloads.netgear.com/files/wg602v3_v1_0_5.zip 1.0.5]. Unzip it.
 
- 1. Reboot the wg602v3. Either power off and power on, Power off the device and power on while depressing the reset button for 2 seconds
+ 1. Reboot the wg602v3: Power off the device and power on while depressing the reset button for 5 seconds.
 
- 1. tftp to the box; set binary mode; and upload the firmare file as image.idts334
-You have a very limited time to do this, so it may actually work better to first issue the tftp command, and then reboot the AP.
+ 1. tftp to the box; set binary mode; and upload the firmare file as image.idts334 . You have a very limited time to do this, so it may actually work better to first issue the tftp command, and then reboot the AP.
 
  1. If the upload is successful, the AP will reboot itself and load the new firmware.
 
