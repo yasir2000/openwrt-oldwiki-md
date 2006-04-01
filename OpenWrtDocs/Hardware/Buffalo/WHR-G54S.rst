@@ -1,7 +1,21 @@
 '''Buffalo WHR-G54S'''
 
-The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
+----
+ /!\ '''Edit conflict - other version:'''
 
+----
+ The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
+
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+ The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
+
+----
+ /!\ '''End of edit conflict'''
+
+----
 {{{
 Bootloader: CFE 
 System-On-Chip:  Broadcom 5352
@@ -15,6 +29,14 @@ JTAG: yes
 
 --------------> output from dmesg <---------------
 
+
+---- /!\ '''Edit conflict - other version:''' ----
+--------------> output from dmesg <---------------
+
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 Setting the PFC value as 0x15
 Determined physical RAM map:
  memory: 01000000 @ 00000000 (usable)
@@ -103,19 +125,41 @@ vlan0: dev_set_allmulti(master, 1)
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit.
 
-From experience, it has become increasingly hard to find non-Rev 5 LinkSys WRTG54 routers in the major chain stores.  To help you locate this model, which so far has worked and has just been changed to Supported status for OpenWRT, here is a picture of the Buffalo WHR-G54S Retail box:
+----
+ /!\ '''Edit conflict - other version:'''
 
-
-
+----
+ From experience, it has become increasingly hard to find non-Rev 5 LinkSys WRTG54 routers in the major chain stores.  To help you locate this model, which so far has worked and has just been changed to Supported status for OpenWRT, here is a picture of the Buffalo WHR-G54S Retail box:
 
 attachment:WHR-G54S_Retailbox.jpg
 
+----
+ /!\ '''Edit conflict - your version:'''
 
+----
+ From experience, it has become increasingly hard to find non-Rev 5 LinkSys WRTG54 routers in the major chain stores.  To help you locate this model, which so far has worked and has just been changed to Supported status for OpenWRT, here is a picture of the Buffalo WHR-G54S Retail box:
 
+attachment:WHR-G54S_Retailbox.jpg
 
-Here is a shot of the model number found on the bottom of the box:
+----
+ /!\ '''End of edit conflict'''
 
+----
+Here is a shot of the model number found on the bottom of the box: 
 
+----
+ /!\ '''Edit conflict - other version:'''
 
+----
+attachment:Boxbottom_modelnum.jpg 
 
-attachment:Boxbottom_modelnum.jpg
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+attachment:Boxbottom_modelnum.jpg 
+
+----
+ /!\ '''End of edit conflict'''
+
+----
