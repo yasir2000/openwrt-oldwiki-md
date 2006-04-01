@@ -5,8 +5,7 @@
 
 '''Welcome to the new wiki version of the !OpenWrt userguide.'''
 
-To get started, click a link below.
-
+RTFM:
 ----
 
 '''[:OpenWrtDocs/About: About OpenWrt]'''
@@ -27,6 +26,7 @@ To get started, click a link below.
 '''[:OpenWrtDocs/Packages: OpenWrt Addon Packages]'''
 [[Include(OpenWrtDocs/Packages,,titlesonly)]]
 
+Additional documentation:
 ----
 '''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
 [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
