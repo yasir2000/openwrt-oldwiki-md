@@ -11,23 +11,25 @@ It has a populated UART1 connector, and un-populated UART0 and JTAG.The wireless
 == Recovery procedure ==
 How to upload a firmware via TFTP:
 
- 1. Download the latest firmware from Netgear. Currently (1/4/2006) it is version [ftp://downloads.netgear.com/files/wg602v3_v1_0_5.zip 1.0.5]. Unzip it.
+ 1. Download the latest firmware from Netgear. Currently (2 April 2006) it is version [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8-rc3].
 
  1. Reboot the wg602v3: power off the device and power on while depressing the reset button for 5 seconds.
 
- 1. tftp to the box; set binary mode; and upload the firmare file as `image.idts334` . You have a very limited time to do this, so it may actually work better to first issue the tftp command, and then reboot the wg602v3.
+ 1. tftp to the box, set binary mode, and upload the firmare file as {{{image.idts334}}} . You have a very limited time to do this, so it may actually work better to first issue the tftp command, and then reboot the wg602v3.
 
  1. If the upload is successful, the wg602v3 will program the flash and load the new firmware.
 
 Eg. (linux)
 
- {{{ $ tftp -m binary -c put wg602v3-V1.0.5.trx image.idts334
-Sent 1585152 bytes in 5.2 seconds }}}
+ {{{
+$ tftp -m binary -c put wg602v3_1_0_8.trx image.idts334 
+Sent 1634304 bytes in 5.8 seconds }}}
 
 Eg. (windows)
 
- {{{ C:\...\> tftp -i 192.168.0.227 put wg602v3-V1.0.5.trx image.idts334
-Transfer successful: 1585152 bytes in 10 seconds, 158515 bytes/s }}}
+ {{{
+C:\...\> tftp -i 192.168.0.227 put wg602v3_1_0_8.trx image.idts334 
+Transfer successful: 1634304 bytes in 11 seconds, 148573 bytes/s }}}
 
 ----
- . CategoryModel    
+ . CategoryModel     
