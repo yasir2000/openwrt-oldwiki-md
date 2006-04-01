@@ -37,6 +37,8 @@ Additional documentation:
 '''[:OpenWrtDocs/Hardware: Hardware Information]'''
 [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
 
-----
 
-To use the OpenWrtDocs without internet connection, you can download the latest [http://www.namica.de/documentations/openwrt/ OpenWrtDocs for offline use].
+#### Removed; offline documentation is always too far behind current documentation ####
+##
+## To use the OpenWrtDocs without internet connection, you can download the latest
+## [http://www.namica.de/documentations/openwrt/ OpenWrtDocs for offline use].
