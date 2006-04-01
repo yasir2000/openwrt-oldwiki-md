@@ -31,5 +31,20 @@ Eg. (windows)
 C:\...\> tftp -i 192.168.0.227 put wg602v3_1_0_8.trx image.idts334 
 Transfer successful: 1634304 bytes in 11 seconds, 148573 bytes/s }}}
 
+== Netgear Firmware ==
+
+Binary firmare releases:
+ * [ftp://downloads.netgear.com/files/wg602v3_V1_0_4.trx 1.0.4]
+ * [ftp://downloads.netgear.com/files/wg602v3_v1_0_5.zip 1.0.5]
+ * [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8 rc3]
+
+GPL source code releases:
+ * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL.tar.gz 1.0.4]
+ * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL-v1.0.5.tgz 1.0.5]
+ * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL-v1.0.6.tgz 1.0.6]
+ * [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.0.8RC3-GPL.tar.gz 1.0.8 rc3]
+
+Some models shipped with a binary version of the 1.0.6 firmware, but such version is not available for download from Netgear support site.
+
 ----
  . CategoryModel     
