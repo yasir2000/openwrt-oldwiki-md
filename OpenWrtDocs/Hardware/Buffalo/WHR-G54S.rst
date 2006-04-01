@@ -1,6 +1,6 @@
 '''Buffalo WHR-G54S'''
 
-The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only as the Buffalo Firmware loader has some kind of encryption.
+The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
 
 {{{
 Bootloader: CFE 
@@ -12,6 +12,8 @@ Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
 Ethernet: ?
 Serial: yes
 JTAG: yes
+
+--------------> output from dmesg <---------------
 
 Setting the PFC value as 0x15
 Determined physical RAM map:
@@ -101,12 +103,19 @@ vlan0: dev_set_allmulti(master, 1)
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit.
 
-From experience, it has been harder to find non-Rev 5 WRTG54 routers in the major chain stores, here is a picture of the Buffalo WHR-G54S Retail box:
+From experience, it has become increasingly hard to find non-Rev 5 LinkSys WRTG54 routers in the major chain stores.  To help you locate this model, which so far has worked and has just been changed to Supported status for OpenWRT, here is a picture of the Buffalo WHR-G54S Retail box:
 
-attachment:WHR-G54S_Retailbox.jpg 
+
+
+
+attachment:WHR-G54S_Retailbox.jpg
+
+
 
 
 Here is a shot of the model number found on the bottom of the box:
 
-attachment:Boxbottom_modelnum.jpg
 
+
+
+attachment:Boxbottom_modelnum.jpg
