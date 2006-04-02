@@ -180,6 +180,10 @@ Oh, and by the way, this cable is a good thing to have anyway, because many embe
 
 [http://openwince.sourceforge.net/jtag/ Openwince/JTAG] calls this cable as "Xilinx DLC5 JTAG Parallel Cable III" but since this variant isn't buffered, the length of this cable must not exceed 10 cm.
 
+'''Additional Information'''
+
+The [:JTAG Cables: JTAG Cables] page addresses issues that may be encountered with the above type of cable when used with the de-bricking utility program.
+
 '''Siemens models '''
 
 On Siemens SE505 v2 models the JTAG connector is labeled J7.
