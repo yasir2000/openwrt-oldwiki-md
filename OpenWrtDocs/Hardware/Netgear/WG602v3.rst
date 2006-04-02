@@ -50,7 +50,25 @@ GPL source code releases:
 Some models shipped with a binary version of the 1.0.6 firmware, but such version is not available for download from Netgear support site.
 
 == OpenWRT ==
-This model uses a version of the CFE bootloader 192k bytes long instead of 256k bytes, so the flash mapping is not compatible with !WhiteRussian RC5 - it won't boot into the kernel:
+
+=== Serial console ===
+This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT kernel config accordingly, and rebuild.
+For White Russian, the file to modify is `target/linux/linux-2.4/config/brcm`, while for Kamikaze it is `target/linux/brcm-2.4/config`. In both, you need to change
+{{{
+...
+CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS0,115200"
+...
+}}}
+into
+{{{
+...
+CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS1,115200"
+...
+}}}
+
+=== White Russian RC5 ===
+
+This model uses a version of the CFE bootloader 192k bytes long instead of 256k bytes, so the flash mapping is not compatible with White Russian RC5 - it won't boot into the kernel:
 
  . {{{
 ***************************
@@ -64,6 +82,8 @@ Entry at 0x80001000
 Closing network.
 Starting program at 0x80001000
 }}}
+
+=== Kamikaze ===
 
 Kamikaze works better, and gets into the kernel, but then gets a bus error while dealing with eth0:
  . {{{
@@ -182,7 +202,6 @@ Call Trace:   [<800c5f94>] [<800ad47c>] [<80150000>] [<800ad720>] [<800ad870>]
 
 Code: 00452021  3c020006  34458db9 <8c820000> 11200005  00461024  1040000f  00000000  0802ae77
 }}}
-Well, work in progress...
 
 ----
  . CategoryModel      
