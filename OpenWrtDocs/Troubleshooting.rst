@@ -51,14 +51,13 @@ When in failsafe, the system will boot using only the files contained within the
 
 If you want to completely erase the JFFS2 partition, removing all packages, you can run {{{firstboot}}}.
 
-If you want to attempt to fix the JFFS2 partition, mount it with the following commands:
+If you want to attempt to fix the JFFS2 partition, mount it with the following command:
 
 {{{
-mtd unlock /dev/mtd/4
-mount -t jffs2 /dev/mtdblock/4 /jffs
+/sbin/mount_root
 }}}
 
-After the partition is mounted, you can edit the files in {{{/jffs}}}. If you run firstboot with the JFFS2 partition mounted, it will not format the partition, but it will overwrite files with symlinks. (Packages will be preserved, changes to scripts will be lost)
+After running the command your / will be jffs2. If you run firstboot with the JFFS2 partition mounted, it will not format the partition, but it will overwrite files with symlinks. (Packages will be preserved, changes to scripts will be lost)
 
 === JFFS2 images ===
 unlike the SquashFS images, the JFFS2 images boot failsave with the JFFS filesystem / mounted read only. You can make changes to nvram ok,  but can't make changes to scripts etc. To make the root filesystem read/write, you need to remount it with the following command:
@@ -200,21 +199,6 @@ GND-o o-TMS
   10   9
 
 }}}
-
-= Problems going from JFFS2 to SquashFS or problems booting after reflashing =
-/!\ '''IMPORTANT:'''  This section assumes you have taken care of backup - follow this procedure without backing up properly first, and your JFFS2 files are gone!
-
-There are only two times when the JFFS2 partition gets formatted:
-
- * If you flash to a JFFS2 firmware, the JFFS2 partition is always formatted the first time the device boots (hence the extra reboot)
- * If you use SquashFS and {{{/sbin/mount_root}}} is unable to pivot the root to the JFFS2 filesystem
-
-In all other instances (with the exception of failsafe), !OpenWrt will assume that the JFFS2 partition is valid and attempt to use it. This creates a problem when either the filesystem layout changes and the JFFS2 symlinks are invalid, or when the JFFS2 partition has been overwritten due to a larger firmware.
-
-There's two ways to avoid the above issue:
-
- * If you haven't yet reflashed, reflash using the command {{{mtd -e linux -r write openwrt-xxxx.trx linux}}}. The {{{-e linux}}} tells {{{mtd}}} to erase any existing data; !OpenWrt will be unable to find a JFFS2 partition at bootup  and the firstboot script will be called to create a JFFS2 partition.
- * If you have reflashed with SquashFS and the device is unbootable then what's happened is !OpenWrt has detected the JFFS2 partition and attempted to boot it and crashed. Booting into failsafe mode will allow you into the device where you can run {{{firstboot}}} manually.
 
 = Getting help =
 Still stuck? See [http://openwrt.org/support how to get help and support] for information on where to get further help.
