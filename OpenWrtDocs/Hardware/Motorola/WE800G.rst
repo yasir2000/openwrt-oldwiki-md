@@ -65,7 +65,7 @@ Note: After upgrade the IP address of WE800G is set to 192.168.1.1/24.
 
 = Upgrade from previous versions of OpenWRT =
 
-Web based upgrade from pre-RC5 to RC5 failed with this message:
+Web based upgrade from pre-RC5 to RC5 failed for me with this message:
 {{{
 Firmware Upgrade
 
@@ -76,7 +76,7 @@ dd if=firmware.bin of=firmware.trx bs=32 skip=1
 TRX check failed!
 done.
 }}}
-And failed even after making the proposed .bin to .trx conversation.
+And still failed after making the proposed .bin to .trx conversation.
 
 Only way to upgrade the firmware is the TFTP based upgrade as was described above.
 
