@@ -147,6 +147,36 @@ So, '''qosfw''' in three steps:
  * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
  * Based on `hfsc` packet scheduler, not `htb`.  You may be more familiar with one over the other.
 
+==== Show QoS Packet info on the webif ====
+
+If you want to show the output of `iptables -t mangle -L -v` on the webif, put this into /www/cgi-bin/webif/QoS.sh
+Note: This has only been tested on nbd's pre-RC5, so if it dosen't work on your version of openwrt, change this to reflect that.
+
+{{{
+#!/usr/bin/webif-page
+<?
+. /usr/lib/webif/webif.sh
+
+header "Status" "QoS Packets" "@TR<<QoS Packets>>"
+?>
+<table style="width: 90%; text-align: left;" border="0" cellpadding="2" cellspacing="2" align="center">
+<tbody>
+        <tr>
+                <th><b>@TR<<QoS Packets|Quality Of Service Packet Info>></b></th>
+        </tr>
+        <tr>
+                <td><pre><? iptables -t mangle -L -v ?></pre></td>
+        </tr>
+</tbody>
+</table>
+<? footer ?>
+<!--
+##WEBIF:name:Status:4:QoS Packets
+-->
+}}}
+
+Then chmod a+x it.
+
 === ctshaper ===
 
 /!\ '''NOTE:''' ctshaper is not supported by the !OpenWrt developers!
