@@ -68,7 +68,8 @@ CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit 
 
 === White Russian RC5 ===
 
-This model uses a version of the CFE bootloader 192k bytes long instead of 256k bytes, so the flash mapping is not compatible with White Russian RC5 - it won't boot into the kernel:
+The CFE bootloader used in the wg602v3 has a size of 192k bytes instead of 256k bytes.
+The flash layout used in White Russian is not compatible with it - it won't even boot into the kernel:
 
  . {{{
 ***************************
@@ -82,6 +83,8 @@ Entry at 0x80001000
 Closing network.
 Starting program at 0x80001000
 }}}
+
+And here it gets stuck.
 
 === Kamikaze ===
 
