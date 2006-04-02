@@ -21,27 +21,21 @@
   * the kernel-modules are loaded
   * make sure, that the traffic-chain exists after booting. (Just add the iptable-commands to a start-up script. Remember to load the needed kernel-modules befor running the iptable-stuff)
 
-  *To Create the start-up script:
+  * To Create the start-up script:
   {{{
   cat > /etc/init.d/S50rrd
   }}}
-
   {{{
   #!/bin/sh
   iptables -N traffic
   iptables -F traffic
   iptables -I FORWARD -j traffic
   }}}
-
-  After pasting it, press {{{ENTER}}} and then hit {{{CTRL-D}}} keys to save the file.
-
-  Now make sure the init script is executable and start it with
-
+  After pasting it, press {{{ENTER}}} and then hit {{{CTRL-D}}} keys to save the file. Now make sure the init script is executable and start it with
   {{{
   chmod a+x /etc/init.d/S50rrd
   /etc/init.d/S50rrd start
   }}}
-
   now you are capable to monitor traffic with iptables
 
 = Using the traff_graph - script =
@@ -60,10 +54,7 @@ cat > /sbin/traff_graph
 
 SITENAME="tuxland"      # change for your site
 
-if [ ! -d /tmp/rrd ]
-then
-        mkdir /tmp/rrd
-fi
+mkdir -p /tmp/rrd
 
 iptables -L traffic -vnxZ -t filter > /tmp/traffic.tmp
 
@@ -75,8 +66,7 @@ INDEX="<html><head><title>traffic @ $SITENAME</title></head><body>"
 CreateGraph ()
 {
         # only run, if no other rrdtool is running
-        if [ -n "$(ps | grep rrdtool | grep -v grep)" ]
-        then
+        if [ -n "$(ps | grep rrdtool | grep -v grep)" ] ; then
                 return
         fi
 
@@ -97,12 +87,11 @@ CreateGraph ()
                 'HRULE:0#000000' -t "${4}"
 }
 
-for MAC in $(cat /proc/net/arp | grep -v address | awk '{print $4}')
-do
+for MAC in $(cat /proc/net/arp | grep -v address | awk '{print $4}') ; do
         MAC_=$(echo $MAC | sed 's/:/-/g')
         IP=$(cat /proc/net/arp | grep $MAC | awk '{print $1}')
-        # no better way??? i hate this
-        NAME=$(nslookup $IP | grep "Name:" | awk '{print $2}')
+        # This assumes that a local dns server (like dnsmasq) is running
+        NAME=$(nslookup $IP 127.0.0.1 | grep "Name:" | awk '{print $2}')
         # echo "mac: $MAC ip: $IP_ name: $NAME"
 
         UP=$(cat /tmp/traffic.tmp | awk '{print $2 " " $7}' | grep $IP | awk '{print $1}')
@@ -113,8 +102,7 @@ do
         ALL_DOWN=$(($ALL_DOWN+$DOWN))
 
         # create db if not exists
-        if [ ! -e /tmp/rrd/${MAC_}.rrd ]
-        then
+        if [ ! -e /tmp/rrd/${MAC_}.rrd ] ; then
                 # echo creating /tmp/rrd/${MAC_}.rrd
                 iptables -A traffic -s $IP
                 iptables -A traffic -d $IP
@@ -137,12 +125,10 @@ do
         # i don´t use this
         # CreateGraph "/tmp/rrd/${MAC_}.week.png" 604800 /tmp/rrd/${MAC_}.rrd "IP: $IP MAC: $MAC_ Host: $NAME"
         # INDEX=$INDEX"<img src='${MAC_}.week.png'><br>"
-
 done
 
 # build sum-graph
-if [ ! -e /tmp/rrd/all.rrd ]
-then
+if [ ! -e /tmp/rrd/all.rrd ] ; then
         rrdtool create /tmp/rrd/all.rrd -s 300 \
                 DS:up:ABSOLUTE:600:0:600000000 \
                 DS:down:ABSOLUTE:600:0:600000000 \
@@ -160,6 +146,7 @@ echo $INDEX > /tmp/rrd/index.html
 }}}
 
 Make the file executable
+
 {{{
 chmod a+x /sbin/traff_graph
 }}}
@@ -177,13 +164,15 @@ Now run traff_graph. This will need a while... get a coffee ;-) Add traff_graph 
 cd /www
 ln -s /tmp/rrd/ traffic }}}
 
-everything will be available via 
+everything will be available via
+
 {{{
 http://192.168.0.1/traffic/ }}}
 
-To schedule an update every 5 minutes, use crontab. 
+To schedule an update every 5 minutes, use crontab.
 
 Add this to the /etc/crontabs/root file :
+
 {{{
 # run trafic graph every 5 minutes. (why does */12 not work???)
 0,5,10,15,20,25,30,35,40,45,50,55 * * * * /sbin/traff_graph> /dev/null 2>&1 }}}
