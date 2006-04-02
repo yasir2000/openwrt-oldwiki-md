@@ -3,15 +3,11 @@
 = Preface =
 This HOWTO describes how to setup IPv6 on your OpenWrt based router. 
 
-It is based on the OpenWrt [http://openwrt.org/downloads/experimental/ experimental] version. 
-
 There is 2 big different steps :
   1. setup a working ipv6 connection on the OpenWRT router. This can either be:
       * using a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric]).
       * using 6to4, a standard encapsulation protocol for IPv6 over IPv4
   2. propagate the IPv6 subnet to the LAN with radvd
-
-
 
 = Install necessary software =
 To use IPv6 we need the following modules:
@@ -44,15 +40,11 @@ ipkg install ip6tables
 
 = Setup software =
 == Kernel ==
-Load the ipv6 module into the kernel:
+The ipv6 module is automatically loaded at boot time, if you don't want to reboot issue
 {{{
 insmod ipv6
 }}}
-
-If you want to load ipv6 module at boot time, just add 'ipv6' to /etc/modules:
-{{{
-echo ipv6 >> /etc/modules
-}}}
+to load the ipv6 module into the kernel.
 
 After this your router has IPv6 support. To check this you could use ifconfig to validate the ::1/128 IPv6 address is assigned to the loopback device.
 {{{
@@ -415,7 +407,7 @@ Interface configuration of a client machine:
 
 Now you have 6to4 installed on your OpenWrt router with a radvd server, you can enable IPv6 on your Windows box by typing
 {{{
-ipv6 install
+netsh interface ipv6 install
 }}}
 at the command prompt. This will install IPv6 and you will get a 6to4 address. However Windows will only use it to communicate with
 other 6to4 addresses or other IPv6 only hosts by default (it will prefer IPv4 otherwise). To force IPv6 with dual stack non-6to4 hosts, use this:
@@ -510,32 +502,7 @@ Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/
  * provide IPv6 support to PPP
 
 = Questions =
-Any ideas?
-{{{
-@ap:/# ping6 fe80::20d:88ff:fea6:f554
-Segmentation fault
-@ap:/#
-}}}
-
-You probably have an ipv6.o which is incompatible with your version of the openwrt kernel. You should use kernel and modules from the same source; mixing them might not work (and probably does not).
-
-Thanks - this worked!
-
-{{{
-May 20 01:29:22 wrt54gs radvd[376]: version 0.7.2 started
-May 20 01:29:22 wrt54gs radvd[376]: IPv6 forwarding setting is: 0, should be 1
-May 20 01:29:22 wrt54gs radvd[376]: IPv6 forwarding seems to be disabled, exiting
-}}}
-
-You need to add
-{{{
-echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
-}}}
-to your enable script to enable ipv6 forwarding before you can run radvd.
-
 How would i go about setting up radvd to announce an v6 address (6to4), derived from an DHCP assigned v4 address (it changes every few weeks)?
-
-I found my own answer, this is how you use radvd with an 6to4 address, provided by DHCP
 
 change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101::/48 becomes 0:0:0:f101::/48, and add "Base6to4Interface ppp0;" (where ppp0 is your wan interface) to the section, and set AdvValidLifetime and AdvPreferredLifetime to a low number, so if the v4 address changes, the v6 routing info will be updated quickly, so the finished section would look something like this:
 
@@ -552,5 +519,3 @@ change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101:
         };
 }}}
 That assumes vlan1 is your wan interface, and that you have a /48 address (according to [http://ezine.daemonnews.org/200101/6to4.html] you do get one with 6to4)
-
-hope that helps somebody
