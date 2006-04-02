@@ -63,6 +63,24 @@ Note: If you see "on" then the boot_wait was set successfully. If not the repeat
 
 Note: After upgrade the IP address of WE800G is set to 192.168.1.1/24.
 
+= Upgrade from previous versions of OpenWRT =
+
+Web based upgrade from pre-RC5 to RC5 failed with this message:
+{{{
+Firmware Upgrade
+
+Bad trx header
+If this is a firmware in bin format, like some of the
+original firmware files are, use following command to convert to trx:
+dd if=firmware.bin of=firmware.trx bs=32 skip=1
+TRX check failed!
+done.
+}}}
+And failed even after making the proposed .bin to .trx conversation.
+
+Only way to upgrade the firmware is the TFTP based upgrade as was described above.
+
+Note: The WEB based firmware upgrade does not work even after the upgrade to RC5.
 
 = Port layout =
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
