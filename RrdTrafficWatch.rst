@@ -175,4 +175,4 @@ Add this to the /etc/crontabs/root file :
 
 {{{
 # run trafic graph every 5 minutes. (why does */12 not work???)
-0,5,10,15,20,25,30,35,40,45,50,55 * * * * /sbin/traff_graph> /dev/null 2>&1 }}}
+*/5 * * * * /sbin/traff_graph > /dev/null 2>&1}}}
