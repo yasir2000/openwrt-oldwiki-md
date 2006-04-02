@@ -174,5 +174,5 @@ To schedule an update every 5 minutes, use crontab.
 Add this to the /etc/crontabs/root file :
 
 {{{
-# run trafic graph every 5 minutes. (why does */12 not work???)
-*/5 * * * * /sbin/traff_graph > /dev/null 2>&1}}}
+# create traffic graphs every 5 minutes (i.e. run if minutes mod 5 == 0)
+0/5 * * * * /sbin/traff_graph > /dev/null 2>&1}}}
