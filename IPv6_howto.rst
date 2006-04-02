@@ -204,46 +204,38 @@ esac
 
 == 6to4 tunnel with an Internet connection that uses PPP ==
 If you connect to your ISP using PPP (usually PPPoE):
-When the ppp interface comes up, the ppp daemon calls the ip-up script, when it goes down the ip-down script. To place these scripts in /etc/ppp/ you must create a symbolic link from /tmp/ppp to /etc/ppp:
+When the ppp interface comes up, the ppp daemon calls the /etc/ppp/ip-up script, when it goes down the /etc/ppp/ip-down script. Those scripts call /etc/hotplug.d/iface/* with the appropriate parameters.
+
+To set up ipv6 support write /etc/hotplug.d/iface/10-ipv6
 {{{
-mkdir /etc/ppp
-ln -s /etc/ppp /tmp/ppp
+. /etc/functions.sh
+NAME=ipv6
+COMMAND=/usr/sbin/ip
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && {
+        [ -x $COMMAND ] && {
+                IFNAME=$(nvram get ${INTERFACE}_ifname)
+                IPV4=$(ip addr show $IFNAME | grep inet | cut -f6 -d' ')
+                IPV6PREFIX=$(echo $IPV4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }')
+                ip tunnel add tun6to4 mode sit ttl 64 remote any local $IPV4
+                ip link set dev tun6to4 up
+                ip -6 addr add ${IPV6PREFIX}::1/16 dev tun6to4
+                ip -6 route add 2000::/3 via ::192.88.99.1 dev tun6to4 metric 1
+                ip -6 addr add ${IPV6PREFIX}:5678::1/64 dev br0
+        } &
+}
+
+[ "$ACTION" = "ifdown" -a "$INTERFACE" = "wan" ] && {
+        [ -x $COMMAND ] && {
+                IFNAME=$(nvram get ${INTERFACE}_ifname)
+                IPV4=$(ip addr show $IFNAME | grep inet | cut -f6 -d' ')
+                IPV6PREFIX=$(echo $IPV4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }')
+                ip -6 addr del ${IPV6PREFIX}:5678::1/64 dev br0
+                ip -6 route flush dev tun6to4
+                ip link set dev tun6to4 down
+                ip tunnel del tun6to4
+        } &
+}
 }}}
-
-The content of the /etc/ppp/ip-up script:
-{{{
-#!/bin/sh
-
-# set default route
-sbin/route add default ppp0
-
-# 6to4 tunnel
-ipv4=$4
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
-
-ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
-ip link set dev tun6to4 up
-ip -6 addr add ${ipv6prefix}::1/16 dev tun6to4
-ip -6 route add 2000::/3 via ::192.88.99.1 dev tun6to4 metric 1
-
-ip -6 addr add ${ipv6prefix}:5678::1/64 dev vlan2
-}}}
-
-When the link goes down, the tunnel should be removed via /etc/ppp/ip-down
-{{{
-#!/bin/sh
-
-# 6to4 tunnel
-ipv4=$4
-ipv6prefix=`echo $ipv4 | awk -F. '{ printf "2002:%02x%02x:%02x%02x", $1, $2, $3, $4 }'`
-
-ip -6 addr del ${ipv6prefix}:5678::1/64 dev vlan2
-
-ip -6 route flush dev tun6to4
-ip link set dev tun6to4 down
-ip tunnel del tun6to4
-}}}
-
 
 == Static tunnel to SixXS.net ==
 ''Note: this script should works with any Tunnel Broker''
