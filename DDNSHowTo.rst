@@ -183,4 +183,5 @@ For advanced debugging enable the {{{debug}}} parameter in the configuration fil
 = Useful links =
 For more details please have a look at the links below.
 
-[[BR]]-http://en.wikipedia.org/wiki/Ddns[[BR]]-http://www.ez-ipupdate.com/
+http://en.wikipedia.org/wiki/Ddns
+http://www.ez-ipupdate.com/
