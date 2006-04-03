@@ -27,7 +27,6 @@ This package includes the modules for USB 2.0.
 
 '''NOTE:''' USB 2.0 support in White Russian is broken. There are some threads in the forum and some tickets as well if you like to read about what happens.
 
-
 {{{
 ipkg install kmod-usb2
 }}}
@@ -172,6 +171,21 @@ Then "format" your partition with
 {{{
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
+
+If you keep getting errors like
+
+{{{
+Creating journal (4096 blocks): mke2fs: No such file or directory
+        while trying to create journal
+}}}
+
+You may need to create a symlink to /proc/mounts:
+
+{{{
+ln -s /proc/mounts /etc/mtab
+}}}
+
+This usually does the trick.''' '''
 
 '''On a GNU/Linux desktop PC do'''
 
