@@ -44,6 +44,26 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 
+== AVM ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||FRITZ!Box SL || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box 2030 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box 2070 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box SL WLAN || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box WLAN 3030 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box WLAN 3050 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box WLAN 3070 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon ata || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon 5010 (analog) || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon 5012 (ISDN) || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon 5050 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN 7050 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN 7140 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN 7170 || ||? ||? || ? || || || || || || || Untested ||
+
+
 
 == Belkin ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
