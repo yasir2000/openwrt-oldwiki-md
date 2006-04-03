@@ -444,6 +444,16 @@ up.  By default, it contacts pool.ntp.org, however, this can be overridden by se
 Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
 at 03:00) of DST (Daylight Saving Time).
 
+=== Getting the correct time ===
+
+The usage of OpenVPN requires a correct time setting on all machines that want to build a tunnel between them. That means you have to get the right time at the startup procedure of the router. With the ntpclient application you can obtain the correct time. I have inserted the following line into the S50services startup script:
+
+{{{
+ntpclient -s -h ntp1.ptb.de
+}}}
+
+You should take one ntp server which is located close to your router. In Germany where the time is made ;-)) the PTB Braunschweig is one server you can trust. This configuration leads to the effect that every time the router is turned on a connection to your ISP is made to get the right time.
+
 More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640]
 and [http://openwrt.org/forum/viewtopic.php?id=131].
 
