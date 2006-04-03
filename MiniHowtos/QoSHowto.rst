@@ -150,7 +150,7 @@ So, '''qosfw''' in three steps:
 ==== Show QoS Packet info on the webif ====
 
 If you want to show the output of `iptables -t mangle -L -v` on the webif, put this into /www/cgi-bin/webif/QoS.sh
-Note: This has only been tested on nbd's pre-RC5 and RC5, so if it dosen't work on your version of openwrt, change this to reflect that.
+Note: This has only been tested on nbd's pre-RC5 and RC5, so if it doesn't work on your version of !OpenWrt, change this to reflect that.
 
 {{{
 #!/usr/bin/webif-page
