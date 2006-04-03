@@ -13,8 +13,8 @@ are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is '''off''' b
 
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
-||||<tablestyle="width 60%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
-||'''Model'''||<:> '''S/N'''||<:>  '''White Russian[[BR]]RC4'''||<:>  '''White Russian[[BR]]RC5'''||<:>  '''Development[[BR]]Kamikaze'''||
+||||<tablestyle="width 60%"> (!) '''Please contribute to this list.''' (!) ||||||'''!OpenWrt'''||
+||'''Model'''||<:> '''S/N'''||<:>'''White Russian[[BR]]RC4'''||<:>'''White Russian[[BR]]RC5'''||<:>  '''Development[[BR]]Kamikaze'''||
 ||<(|2>WRT54GS v1.0||<:> CGN0||<:|2> (./) ||<:|2>   ||<:|2> (./) ||
 ||<:> CGN1||
 ||WRT54GS v1.1||<:> CGN2||<:> (./) ||<:>  ||<:> (./) ||
@@ -130,4 +130,4 @@ We have run a Wrt for 6 weeks on a lead-acid battery, charger, generator combina
 with no problems. Power was cut due to legal problems concerning the site the AP was on.
 The only time the unit was down was when we had power restored.
 ----
-CategoryModel
+CategoryModel CategoryModel
