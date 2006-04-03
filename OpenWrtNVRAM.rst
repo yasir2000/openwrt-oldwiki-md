@@ -36,11 +36,11 @@ After changing any of these settings, type {{{ifup foo}}} (where foo is one of l
 
 == Bridging ==
 
-You can create a layer 2 (ethernet) bridge between two or more interfaces by setting {{{foo_ifname=br0}}} and {{{foo_ifnames=iface1 iface2 iface3...}}}. Typically you will see something similar to this in your default settings:
+You can create a layer 2 (ethernet) bridge between two or more interfaces by setting {{{foo_ifname=br0}}} and {{{foo_ifnames="iface1 iface2 iface3..."}}}. Typically you will see something similar to this in your default settings:
 
 {{{
 lan_ifname=br0
-lan_ifnames=vlan0 eth1
+lan_ifnames="vlan0 eth1"
 lan_ipaddr=192.168.1.1
 lan_netmask=255.255.255.0
 lan_proto=static
