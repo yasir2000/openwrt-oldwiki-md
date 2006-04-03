@@ -18,6 +18,10 @@ JTAG: no
 
 The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
+'''Installation'''
+
+See OpenWrtDocs/Hardware/Asus/Flashing
+
 '''IDE drivers and usage'''
 
 To get the IDE device working, you should install the following packages:
