@@ -83,7 +83,7 @@ The JFFS2 firmware will be READONLY when you boot it the first time, this is due
 = Package management =
 The ipkg utility is a lightweight package manager used to download and install !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}} will recognise the similarities)
 
-The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly commandline interface or webadministration  interface. With no packages installed, the firmware will simply configure the network interfaces, setup a basic NAT/firewall, and load the secure shell server and dnsmasq (a combination DNS forwarder and DHCP server).
+The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly command line interface or web administration interface. With no packages installed, !OpenWrt will configure the network interfaces, setup a basic NAT firewall, a secure shell server, a DNS forwarder and DHCP server.
 
 ||'''Command''' ||'''Description''' ||
 ||ipkg update ||Download a list of packages available ||
