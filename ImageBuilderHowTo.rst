@@ -251,21 +251,27 @@ And here are the results (your new images):
 {{{
 cd ~/OpenWrt-ImageBuilder-Linux-i686
 ls -al bin/my-image/
-total 23024
-drwxr-xr-x  2 user user    4096 2005-09-19 20:14 .
-drwxr-xr-x  3 user user    4096 2005-09-19 20:14 ..
--rw-r--r--  1 user user 2228224 2005-09-19 20:14 openwrt-brcm-2.4-jffs2-4MB.trx
--rw-r--r--  1 user user 2228224 2005-09-19 20:14 openwrt-brcm-2.4-jffs2-8MB.trx
--rw-r--r--  1 user user 1576960 2005-09-19 20:14 openwrt-brcm-2.4-squashfs.trx
--rw-r--r--  1 user user 2228232 2005-09-19 20:14 openwrt-motorola-jffs2-4MB.bin
--rw-r--r--  1 user user 2228232 2005-09-19 20:14 openwrt-motorola-jffs2-8MB.bin
--rw-r--r--  1 user user 1576968 2005-09-19 20:14 openwrt-motorola-squashfs.bin
--rw-r--r--  1 user user 2229248 2005-09-19 20:14 openwrt-wrt54g-jffs2.bin
--rw-r--r--  1 user user 2229248 2005-09-19 20:14 openwrt-wrt54gs-jffs2.bin
--rw-r--r--  1 user user 1577984 2005-09-19 20:14 openwrt-wrt54g-squashfs.bin
--rw-r--r--  1 user user 1577984 2005-09-19 20:14 openwrt-wrt54gs-squashfs.bin
--rw-r--r--  1 user user 2229248 2005-09-19 20:14 openwrt-wrt54gs_v4-jffs2.bin
--rw-r--r--  1 user user 1577984 2005-09-19 20:14 openwrt-wrt54gs_v4-squashfs.bin
+total 34532
+-rw-r--r--  1 user users 2162688 2006-03-30 12:53 openwrt-brcm-2.4-jffs2-4MB.trx
+-rw-r--r--  1 user users 2097152 2006-03-30 12:53 openwrt-brcm-2.4-jffs2-8MB.trx
+-rw-r--r--  1 user users 1531904 2006-03-30 12:54 openwrt-brcm-2.4-squashfs.trx
+-rw-r--r--  1 user users 2162696 2006-03-30 12:53 openwrt-wa840g-jffs2.bin
+-rw-r--r--  1 user users 1531912 2006-03-30 12:54 openwrt-wa840g-squashfs.bin
+-rw-r--r--  1 user users 2162696 2006-03-30 12:53 openwrt-we800g-jffs2.bin
+-rw-r--r--  1 user users 1531912 2006-03-30 12:54 openwrt-we800g-squashfs.bin
+-rw-r--r--  1 user users 2162696 2006-03-30 12:53 openwrt-wr850g-jffs2.bin
+-rw-r--r--  1 user users 1531912 2006-03-30 12:54 openwrt-wr850g-squashfs.bin
+-rw-r--r--  1 user users 2163712 2006-03-30 12:53 openwrt-wrt54g3g-jffs2.bin
+-rw-r--r--  1 user users 1532928 2006-03-30 12:54 openwrt-wrt54g3g-squashfs.bin
+-rw-r--r--  1 user users 2163712 2006-03-30 12:53 openwrt-wrt54g-jffs2.bin
+-rw-r--r--  1 user users 2098176 2006-03-30 12:53 openwrt-wrt54gs-jffs2.bin
+-rw-r--r--  1 user users 1532928 2006-03-30 12:54 openwrt-wrt54g-squashfs.bin
+-rw-r--r--  1 user users 1532928 2006-03-30 12:54 openwrt-wrt54gs-squashfs.bin
+-rw-r--r--  1 user users 2163712 2006-03-30 12:53 openwrt-wrt54gs_v4-jffs2.bin
+-rw-r--r--  1 user users 1532928 2006-03-30 12:54 openwrt-wrt54gs_v4-squashfs.bin
+-rw-r--r--  1 user users 2098176 2006-03-30 12:53 openwrt-wrtsl54gs-jffs2.bin
+-rw-r--r--  1 user users 1532928 2006-03-30 12:54 openwrt-wrtsl54gs-squashfs.bin
+
 }}}
 
 = Some more information =
