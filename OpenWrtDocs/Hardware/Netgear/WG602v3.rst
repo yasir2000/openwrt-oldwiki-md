@@ -122,8 +122,33 @@ And here it gets stuck.
 
 === Kamikaze ===
 
-Kamikaze works better, and gets into the kernel, but then gets a bus error/segmentation fault running ifconfig:
+As of revision 3577 (4/4/2006), Kamikaze appears to be working.
+I haven't tested the network yet, but it boots without issues through the kernel, init, to a working shell:
  . {{{
+CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
+Build Date: ¤G  9¤¿ 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
+Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
+
+Initializing Arena
+Initializing Devices.
+et0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.80.13.0
+rndis0: Broadcom USB RNDIS Network Adapter (P-t-P)
+CPU type 0x29008: 200MHz
+Total memory: 2000 Kbytes
+
+Total memory used by CFE:  0x80300000 - 0x803A44F0 (673008)
+Initialized Data:          0x8033A860 - 0x8033CCE0 (9344)
+BSS Area:                  0x8033CCE0 - 0x8033E4F0 (6160)
+Local Heap:                0x8033E4F0 - 0x803A24F0 (409600)
+Stack Area:                0x803A24F0 - 0x803A44F0 (8192)
+Text (code) segment:       0x80300000 - 0x8033A860 (239712)
+Boot area (physical):      0x003A5000 - 0x003E5000
+Relocation Factor:         I:00000000 - D:00000000
+
+Device eth0:  hwaddr 00-14-6C-38-DA-E7, ipaddr 192.168.0.227, mask 255.255.255.0
+        gateway not set, nameserver not set
+Reading :: Failed.: Timeout occured
+Loader:raw Filesys:raw Dev:flash0.os File: Options:(null)
 ***************************
 ****  MAC Client V1.0  ****
 ***************************
@@ -137,7 +162,7 @@ Starting program at 0x80001000
 CPU revision is: 00029008
 Primary instruction cache 16kB, physically tagged, 2-way, linesize 16 bytes.
 Primary data cache 8kB, 2-way, linesize 16 bytes.
-Linux version 2.4.32 (fwyzard@grid006.fi.infn.it) (gcc version 3.4.4 (OpenWrt-2.0)) #2 Sun Apr 2 03:32:01 CEST 2006
+Linux version 2.4.32 (fwyzard@grid006.fi.infn.it) (gcc version 3.4.4 (OpenWrt-2.0)) #2 Sun Apr 2 18:35:07 CEST 2006
 Setting the PFC to its default value
 Determined physical RAM map:
  memory: 00800000 @ 00000000 (usable)
@@ -180,10 +205,10 @@ bootloader size: 196608
 Creating 5 MTD partitions on "Physically mapped flash":
 0x00000000-0x00030000 : "cfe"
 0x00030000-0x001f0000 : "linux"
-0x000ac800-0x00199000 : "rootfs"
+0x000ac800-0x00164000 : "rootfs"
 mtd: partition "rootfs" doesn't start on an erase block boundary -- force read-only
 0x001f0000-0x00200000 : "nvram"
-0x001a0000-0x001f0000 : "OpenWrt"
+0x00170000-0x001f0000 : "OpenWrt"
 sflash: found no supported devices
 Initializing Cryptographic API
 NET4: Linux TCP/IP 1.0 for NET4.0
@@ -202,45 +227,28 @@ Freeing unused kernel memory: 88k freed
 Algorithmics/MIPS FPU Emulator v1.5
 diag boardtype: 00000456
 Unlocking OpenWrt ...
-pivot_root: pivot_root: No such file or directory
-mount: Mounting none on /proc failed: Device or resource busy
-mount: Mounting none on /dev failed: Device or resource busy
-umount: Couldn't umount /rom/proc: No such file or directory
 umount: Couldn't umount /rom/dev: No such file or directory
-firstboot has already been run
-jffs2 partition is mounted, only resetting files
-creating directories... done
-setting up symlinks... done
-init started:  BusyBox v1.1.0 (2006.04.02-01:25+0000) multi-call binary
-jffs2.bbc: SIZE compression mode activated.
-Probing device eth0: found!
-Probing device eth0: found!
-Oops in traps.c::do_be, line 385:
-$0 : 00000000 1000fc00 00060000 000f3800 b8001428 00068db9 80000000 00000064
-$8 : 00000000 00000001 00000001 80196e50 00000301 1000fc00 00000000 00000001
-$16: 80763d60 00000100 80763c00 80763d60 803a1eb0 00000000 00000000 00008914
-$24: ba2e8ba3 801a25d4                   803a0000 803a1da0 7fff7c88 800aba90
-Hi : 00000000
-Lo : 00000000
-epc   : 800ab9b4    Not tainted
-Status: 1000fc02
-Cause : 0000801c
-PrId  : 00029008
-Process ifconfig (pid: 525, stackpage=803a0000)
-Stack:    800c5f94 00000000 00000001 00000000 00000001 00008914 800ad47c
- 80763d60 80150000 80763d60 80763c00 00000000 80763c00 800ad720 00000000
- 00008914 00000001 80763d60 80763d60 00000000 80763c00 00000000 803a1eb0
- 800ad870 00000099 80028300 80763d60 00000000 80763d60 00000000 80763d60
- 800adfa4 00000004 00499ddc 803e9d20 801f80e4 80763c00 00499ddc 80763c00
- 00000000 ...
-Call Trace:   [<800c5f94>] [<800ad47c>] [<80150000>] [<800ad720>] [<800ad870>]
- [<80028300>] [<800adfa4>] [<800ca820>] [<800cc044>] [<8010c2a0>] [<80048f78>]
- [<800c2f64>] [<80008a60>] [<8005b79c>]
+init started:  BusyBox v1.1.0 (2006.04.02-16:26+0000) multi-call binary
 
-Code: 00452021  3c020006  34458db9 <8c820000> 11200005  00461024  1040000f  00000000  0802ae77
+Please press Enter to activate this console. jffs2.bbc: SIZE compression mode activated.
+
+
+
+BusyBox v1.1.0 (2006.04.02-16:26+0000) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r3577) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
 }}}
-
-However, you should get a running serial console to fiddle around.
 
 ----
  . CategoryModel      
