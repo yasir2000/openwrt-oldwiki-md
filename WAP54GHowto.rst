@@ -154,3 +154,23 @@ His files are available from http://downloads.openwrt.org/people/nbd/whiterussia
 You can upload rc4 default wap54g build via  webinterface. Same limitations as above for v2.
 
 crodler 
+
+== Reviving a brick WAP54G v3 ==
+
+After flashing a wrong .trx, the v3 went dead completely, no WLAN / LAN anymore. I start listening via the serial, and it turned out to be a problem with pflash, which wasn't able to access the flash chip. The v3 version has NO intel flash chip anymore, instead a SST brand chip (namely SST39VF160-70-4c-eke) is used. Things got worse: Shortening pin15 / 16 on the flash chip (see above) did NOT work either. However, there's a workaround for that:
+
+What you do when shortening the pins is nothing more than generating a checksum error during load (as wrong data is accessed while shortening the A18 address line). If this happens, the device starts to listen on its default IP for a new firmware image. 
+
+By comparing the intel / SST datasheets, you'll discover that both chips are not completely pin compatible. On the v3 PCB, Pin 15 simply has no connection, so you'll need to:
+
+- Find a point to get GND on the v3 PCB. Many possibilities, e. g. the metal plating of the "easy secure" button, the outer rim of the TNC connector, etc ...
+
+- Use some wire, connect a needle or something similar thin to the other end. Push it GENTLY on pin 16 of the flash chip. To find the pin, count to the right starting at the dot on the chip. Take your time here. If you're not sure you got it right, double check. Using a wrong pin may destroy the voltage regulator(s) and / or other circuitry on the PCB or cause other havoc.
+
+- Turn on the power on the WAP54. Wait a brief period (>2 secs). Remove the pin16 short.
+
+- Use a .trx file of your choice. I used [http://downloads.openwrt.org/whiterussian/rc4/default/openwrt-wap54g-squashfs.trx][[BR]], which seems to work.
+
+- (Windows related) Start a DOS prompt. Type "tftp -i 192.168.1.245 put <path and filename of your trx>. You may check if the WAP54 has entered the desired state by pinging 192.168.1.245. If you get replies, hit enter. Wait a brief period (>2 minutes) until programming has finished. 
+
+-> Steeve
