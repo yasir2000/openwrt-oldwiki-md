@@ -411,44 +411,43 @@ Documentation can be found at [:OpenWrtDocs/dnsmasq].
 
 == Time ==
 
-Most devices supported by !OpenWrt have no real-time clock onboard,
-and so must either obtain the date and time at boot or run at the default date and time of 2000-01-01.
+Most devices supported by !OpenWrt have no real-time clock hardware onboard,
+and must get the date and time at boot or use the default of 2000-01-01.
 
 You must have the correct time to use OpenVPN on !OpenWrt.
 
-You may use either '''rdate''' or '''ntpdate'''.
+You may use either ''ntpclient'' or ''rdate''.
 
-=== rdate ===
+'''ntpclient'''
 
-'''rdate''' synchronises the system time to the time on a remote host using the '''time''' protocol on TCP port 37.  It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator.  It will slowly drift.
+The ''ntpclient'' package will maintain the system time using the Network Time Protocol (NTP) while a link is up that provides a default route.  If the link goes down, the kernel maintains the time based on the processor oscillator, and it will slowly drift.  If the link comes back up, the system time will be resynchronised.
+
+||'''NVRAM Setting'''||'''Default Value'''||'''Meaning'''||
+||'''ntp_server'''||pool.ntp.org||host name or IP address of NTP server to use when default route begins||
+
+You may wish to choose an NTP server close to your router.
+
+You may use the ''openntpd'' package to provide NTP service to other hosts.
+
+''rdate'''
+
+The ''rdate'' command synchronises the system time to the time on a remote host
+using the time protocol on TCP port 37.  It is normally used once during boot, and
+then the kernel maintains the time based on the processor oscillator.
+It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
 
 Create the file {{{/etc/init.d/S42rdate}}} with the contents:
-
 {{{
 #!/bin/sh
-/usr/sbin/rdate 128.138.140.44}}}
+/usr/sbin/rdate HOST}}}
 
-make it executable:
-
+replacing HOST with the IP address or host name of the time server, then make it executable:
 {{{
 chmod a+x /etc/init.d/S42rdate}}}
 
 then either reboot or run it this once:
 {{{
 /etc/init.d/S41rdate}}}
-
-=== ntp ===
-
-{{{ntpclient}}} will automatically synchronize the hardware clock when a link is brought
-up.  By default, it contacts pool.ntp.org, however, this can be overridden by setting the
-{{{ntp_server}}} nvram variable to the desired host.
-
-With the ntpclient application you can obtain the correct time. You may insert the following line into the S50services startup script:
-
-{{{
-ntpclient -s -h ntp1.ptb.de}}}
-
-Choose an NTP server close to your router. In Germany where the time is made ;-)) the PTB Braunschweig is one server you can trust. This configuration leads to the effect that every time the router is turned on a connection to your ISP is made to get the right time.
 
 == Timezone ==
 
@@ -515,4 +514,4 @@ Examples:
 Please update and include your time zone. You can find more on time zones on
 [http://www.timeanddate.com/worldclock/ timeanddate.com].
 
-^1^in August of 2005, President Bush passed the [http://www.fedcenter.gov/_kd/Items/actions.cfm?action=Show&item_id=2969&destination=ShowItem Energy Policy Act], which, among other things, changes the time change dates for daylight saving time from the first Sunday in April to the second Sunday in March and from the last Sunday in October to the first Sunday in November. This pattern starts in 2007, however, and Congress still has time to revert the DST back. As such, these changes have not yet been incorporated into mainline uClibc (which provides the time functions for the C library used by OpenWrt). Therefore, it might be a good idea to change {{{/etc/TZ}}} explicitly (around mid-November 2006) to reflect this change (i.e., instead of {{{EST5EDT}}} write {{{EST5EDT,M3.2.0,M9.1.0}}}).
+^1^in August of 2005, the United States President Bush passed the [http://www.fedcenter.gov/_kd/Items/actions.cfm?action=Show&item_id=2969&destination=ShowItem Energy Policy Act], which, among other things, changes the time change dates for daylight saving time from the first Sunday in April to the second Sunday in March and from the last Sunday in October to the first Sunday in November. This pattern starts in 2007, however, and Congress still has time to revert the DST back. As such, these changes have not yet been incorporated into mainline uClibc (which provides the time functions for the C library used by OpenWrt). Therefore, it might be a good idea to change {{{/etc/TZ}}} explicitly (around mid-November 2006) to reflect this change (i.e., instead of {{{EST5EDT}}} write {{{EST5EDT,M3.2.0,M9.1.0}}}).
