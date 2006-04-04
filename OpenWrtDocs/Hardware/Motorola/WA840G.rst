@@ -5,7 +5,7 @@ To get the OpenWRT going on that box follow the [:OpenWrtDocs/Hardware/Motorola/
 Just use openwrt-wa840g-<type>.bin firmware images.
 
 == Making images ==
-It's necessary to modify the image builder to make a usable image for the WA840G.
+It's necessary to modify the image builder (the one in the source distribution, not ImageBuilder) to make a usable image for the WA840G.
 
 Modify motorola-bin.c in {OpenWRT path}/target/utils/src/ by changing line 95 to "firmware->flags = ntohl(0x10577040);"(find the 5 in the number and change it to a 4).
 
