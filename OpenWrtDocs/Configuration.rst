@@ -409,7 +409,50 @@ Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP server.
 
 Documentation can be found at [:OpenWrtDocs/dnsmasq].
 
-== Timezone and NTP ==
+== Time ==
+
+Most devices supported by !OpenWrt have no real-time clock onboard,
+and so must either obtain the date and time at boot or run at the default date and time of 2000-01-01.
+
+You must have the correct time to use OpenVPN on !OpenWrt.
+
+You may use either '''rdate''' or '''ntpdate'''.
+
+=== rdate ===
+
+'''rdate''' synchronises the system time to the time on a remote host using the '''time''' protocol on TCP port 37.  It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator.  It will slowly drift.
+
+Create the file {{{/etc/init.d/S42rdate}}} with the contents:
+
+{{{
+#!/bin/sh
+/usr/sbin/rdate 128.138.140.44}}}
+
+make it executable:
+
+{{{
+chmod a+x /etc/init.d/S42rdate}}}
+
+then either reboot or run it this once:
+{{{
+/etc/init.d/S41rdate}}}
+
+=== ntp ===
+
+{{{ntpclient}}} will automatically synchronize the hardware clock when a link is brought
+up.  By default, it contacts pool.ntp.org, however, this can be overridden by setting the
+{{{ntp_server}}} nvram variable to the desired host.
+
+With the ntpclient application you can obtain the correct time. You may insert the following line into the S50services startup script:
+
+{{{
+ntpclient -s -h ntp1.ptb.de}}}
+
+Choose an NTP server close to your router. In Germany where the time is made ;-)) the PTB Braunschweig is one server you can trust. This configuration leads to the effect that every time the router is turned on a connection to your ISP is made to get the right time.
+
+== Timezone ==
+
+Without a time zone set, !OpenWrt will display UTC.
 
 To set a time zone use the {{{/etc/TZ}}} file. Copy & paste the time zones from the
 table below into the file. In this example it's done with the {{{echo}}} command.
@@ -418,41 +461,10 @@ table below into the file. In this example it's done with the {{{echo}}} command
 echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 }}}
 
-If you want to use a !TimeClient to syncronize, use {{{rdate}}} or the {{{ntpclient}}}
-package. (Note: {{{rdate}}} uses port 37/tcp on remote host.)
-
-If using rdate (note: it uses port 37/tcp on the remote host.), create the
-file {{{/etc/init.d/S42rdate}}} with the contents:
-
-{{{
-#!/bin/sh
-/usr/sbin/rdate 128.138.140.44
-}}}
-
-save it, and make it executable:
-
-
-{{{
-chmod a+x /etc/init.d/S42rdate
-}}}
-
-{{{ntpclient}}} will automatically synchronize the hardware clock when a link is brought
-up.  By default, it contacts pool.ntp.org, however, this can be overridden by setting the
-{{{ntp_server}}} nvram variable to the desired host.
 
 '''NOTE:''' This sets the time zone for CET/CEST (Central European Time UTC+1 / Central European
 Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
 at 03:00) of DST (Daylight Saving Time).
-
-=== Getting the correct time ===
-
-The usage of OpenVPN requires a correct time setting on all machines that want to build a tunnel between them. That means you have to get the right time at the startup procedure of the router. With the ntpclient application you can obtain the correct time. I have inserted the following line into the S50services startup script:
-
-{{{
-ntpclient -s -h ntp1.ptb.de
-}}}
-
-You should take one ntp server which is located close to your router. In Germany where the time is made ;-)) the PTB Braunschweig is one server you can trust. This configuration leads to the effect that every time the router is turned on a connection to your ISP is made to get the right time.
 
 More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640]
 and [http://openwrt.org/forum/viewtopic.php?id=131].
