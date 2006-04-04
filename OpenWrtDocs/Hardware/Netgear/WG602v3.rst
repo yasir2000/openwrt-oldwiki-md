@@ -52,8 +52,11 @@ Some models shipped with a binary version of the 1.0.6 firmware, but such versio
 == OpenWRT ==
 
 === Serial console ===
-This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT kernel config accordingly, and rebuild.
-For White Russian, the file to modify is `target/linux/linux-2.4/config/brcm`, while for Kamikaze it is `target/linux/brcm-2.4/config`. In both, you need to change
+This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT configuration accordingly, and rebuild.
+The serial port is used for two independent purposes: displaying the kernel boot messages and providing shell access to your box. 
+
+The kernel console configuration is provided by its command line arguments, defined at configuraion time in the CONFIG_CMDLINE config variable.
+For White Russian, the file to modify is `target/linux/linux-2.4/config/brcm`, while for Kamikaze 2.4 it is `target/linux/brcm-2.4/config`. In both, you need to change
 {{{
 ...
 CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS0,115200"
@@ -65,6 +68,24 @@ into
 CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS1,115200"
 ...
 }}}
+
+Console access to the AP can be enabled both on ttyS0 and ttyS1. The shell is started by `/sbin/init` after the kernel has booted, as configured in `/etc/inittab`. The file to modify for Kamikaze is `package/base-files/default/etc/inittab`. Change
+{{{
+::sysinit:/etc/init.d/rcS
+::shutdown:/sbin/halt
+tts/0::askfirst:/bin/ash --login
+#tts/1::askfirst:/bin/ash --login
+}}}
+into
+{{{
+::sysinit:/etc/init.d/rcS
+::shutdown:/sbin/halt
+#tts/0::askfirst:/bin/ash --login
+tts/1::askfirst:/bin/ash --login
+}}}
+You can leave both entries uncommented, if for any reason you want console access on both ports.
+
+If you have already built your firmware once, you can just edit `build_mipsel/root/etc/inittab` and do a `make target/install`. These changes however will be lost if you do a full rebuild.
 
 === White Russian RC5 ===
 
@@ -88,7 +109,7 @@ And here it gets stuck.
 
 === Kamikaze ===
 
-Kamikaze works better, and gets into the kernel, but then gets a bus error while dealing with eth0:
+Kamikaze works better, and gets into the kernel, but then gets a bus error/segmentation fault running ifconfig:
  . {{{
 ***************************
 ****  MAC Client V1.0  ****
@@ -205,6 +226,8 @@ Call Trace:   [<800c5f94>] [<800ad47c>] [<80150000>] [<800ad720>] [<800ad870>]
 
 Code: 00452021  3c020006  34458db9 <8c820000> 11200005  00461024  1040000f  00000000  0802ae77
 }}}
+
+However, you should get a running serial console to fiddle around.
 
 ----
  . CategoryModel      
