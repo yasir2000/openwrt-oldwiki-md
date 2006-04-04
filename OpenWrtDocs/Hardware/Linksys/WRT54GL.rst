@@ -1,6 +1,6 @@
 = Linksys WRT54GL =
 The WRT54GL is basically a v4 [:OpenWrtDocs/Hardware/Linksys/WRT54G: WRT54G] that still runs Linux.
-The only know version of this model has a serial number starting with `CL7A`. 
+The only known version of this model has a serial number starting with `CL7A`. 
 See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum.
 = Other Info =
 == Supported Versions ==
