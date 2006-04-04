@@ -395,11 +395,13 @@ See [:HowtoEnableCron].
 
 == syslog - Logging ==
 
-If you want to read the syslog messages, use the '''logread''' tool.
+To read the syslog messages, use the '''logread''' command.
+See MiniHowtos to set up remote logging.
 
 == dropbear - Secure Shell server ==
 
-For ssh autologin, put you keys in /etc/dropbear/authorized_keys ; keys need to be converted from openssh format to dropbear format with dropbearconvert command.
+For SSH login without password, put your keys in /etc/dropbear/authorized_keys.
+See DropbearPublicKeyAuthenticationHowto.
 
 == iptables - Firewall ==
 
@@ -449,7 +451,7 @@ chmod a+x /etc/init.d/S42rdate}}}
 
 then either reboot or run it this once:
 {{{
-/etc/init.d/S41rdate}}}
+/etc/init.d/S42rdate}}}
 
 == Timezone ==
 
