@@ -422,14 +422,16 @@ You may use either ''ntpclient'' or ''rdate''.
 
 The ''ntpclient'' package will maintain the system time using the Network Time Protocol (NTP) while a link is up that provides a default route.  If the link goes down, the kernel maintains the time based on the processor oscillator, and it will slowly drift.  If the link comes back up, the system time will be resynchronised.
 
-||'''NVRAM Setting'''||'''Default Value'''||'''Meaning'''||
-||'''ntp_server'''||pool.ntp.org||host name or IP address of NTP server to use when default route begins||
+Install the package, reboot, and then check the system time.
 
 You may wish to choose an NTP server close to your router.
 
+||'''NVRAM Setting'''||'''Default Value'''||'''Meaning'''||
+||'''ntp_server'''||pool.ntp.org||host name or IP address of NTP server to use when default route begins||
+
 You may use the ''openntpd'' package to provide NTP service to other hosts.
 
-''rdate'''
+'''rdate'''
 
 The ''rdate'' command synchronises the system time to the time on a remote host
 using the time protocol on TCP port 37.  It is normally used once during boot, and
