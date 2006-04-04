@@ -69,7 +69,20 @@ CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit 
 ...
 }}}
 
-Console access to the AP can be enabled both on ttyS0 and ttyS1. The shell is started by `/sbin/init` after the kernel has booted, as configured in `/etc/inittab`. The file to modify for Kamikaze is `package/base-files/default/etc/inittab`. Change
+Console access to the AP can be enabled both on ttyS0 and ttyS1. The shell is started by `/sbin/init` after the kernel has booted, as configured in `/etc/inittab`. The file to modify is `package/base-files/default/etc/inittab`. 
+
+For White Russian RC5, change
+{{{
+::sysinit:/etc/init.d/rcS
+tts/0::askfirst:/bin/ash --login
+}}}
+into
+{{{
+::sysinit:/etc/init.d/rcS
+tts/1::askfirst:/bin/ash --login
+}}}
+
+For Kamikaze, change:
 {{{
 ::sysinit:/etc/init.d/rcS
 ::shutdown:/sbin/halt
