@@ -88,3 +88,7 @@ JamesCameron tested a device as follows:
 ||active||0.91A||running an md5sum of a large file on disk drive||
 ||standby||0.48A||disk drive in host-directed standby mode, using ''hdparm -y'', further access by kernel spun the drive up||
 ||sleep||0.48A||disk drive in host-directed sleep mode, using ''hdparm -Y'', no apparent effect on power, but prevented further access to drive by kernel||
+
+
+----
+CategoryModel
