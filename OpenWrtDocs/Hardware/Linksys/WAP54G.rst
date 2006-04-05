@@ -39,17 +39,35 @@ According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] th
  * 2 MB Intel flash memory, 8 MB RAM and 3 LEDs on front panel
 
 ==== WAP54G v3.0 ====
+'''Outside:'''
+Label on the bottom reads: "WAP54G ver:3". The serial number starts with: "MDG3"
+It features three LED's on the front panel: Power/Act/Link, colored red/green/yellow. There's also a "Easy secure" button to the front. On the back, there's one power connector, a single LAN connector, a reset button (in this order, counted from left). This version has 2MB of flash, and 8 MB of RAM.
+ 
+'''Inside:'''
+The same Broadcom CPU is used that can be found in the WRT54GS V4, labeled: BCM 5352EKPB, 200MHz. The same applies to the LAN: It's connected to the CPU after decoupling, no additional hardware used. Wireless circuitry on the PCB, no mini-PCI. A JTAG header seems to be there, as well as a RS232 header. However, to use the 2nd RS232, you'll need to solder two 0 Ohm bridge dummy SMD resistors. SMD0805 package should do here.  
+
+The flash chip is NOT a intel one, as one might expect. It's a SST SST39VF160-70-4c-eke 16MBit instead, and it's NOT completely pin compatible to the intel 28F160C3 found on V2. Reviving the V3 therefor needs a different approach, see [http://wiki.openwrt.org/WAP54GHowto].
+
+Both antennas are connected via coax cable to the back, no PBC mounted TNC connectors here. Cheap micro coax is used for this, the lines are quite long. Nifty new feature on the v3 PCB: Resoldering a single capacitor from the currently used microstrip to a 3rd one prior to the antenna switch ending with solder pads, where a (probably better and shorter) coax cable can be soldered with your connector of choice on the other end.
+
+PCB measurements: ~ 12 cm x 10 cm
+
+'''Power:'''
+The WAP54G v3 needs much less current than it's brothers WRT54G(/S), about half (250 .. 350 mA on 12V DC). According to this, the shipped power brick only yields 500mA/12V max, compared to 1A/12V max for the WRT series.
+
+'''OpenWRT:'''
+With only 2MB of flash and 8MB of RAM, things may get tricky when using OpenWRT. However, the [http://downloads.openwrt.org/whiterussian/rc4/default/openwrt-wap54g-squashfs.trx] image seemed to work. I tried to delete some files on /rom/, which worked, too. However, don't expect too much, there's not much space left, probably not enough to install the packages of your choice.
+
 === Table summary ===
 How to get info:
 
  * board info: {{{nvram show | grep board | sort}}}[[BR]]
+ * version info: {{{nvram show | grep ver | sort}}}[[BR]]
  * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
 
-||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||
-||WAP54G v1.0 ||- ||bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||- ||- ||2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||4 ||BCM4702KPB ||- ||5.3.22 ||
-
-
-Other NVRAM variables of interest : firmware_version, os_version
+||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||'''os_version''' ||'''firmware_version''' ||
+||WAP54G v1.0 ||- ||bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||- ||- ||2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||4 ||BCM4702KPB ||- ||5.3.22 ||- ||- ||
+||WAP54G v3 || 0x13 || 0x0467 || 0x0758 || - || WAP54GV3_8M_0614 || - || BCM3302 V0.8(?) || - || CFE 3.91.39.0 || 3.91.39.0 || v3.05.03(EU) ||
 
 Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?pid=8127#p8127 Determining WRT54G/GS model using nvram variables] thread. May be this table should move up to ["OpenWrtDocs/Hardware"].
 
@@ -59,9 +77,9 @@ If the boot_wait variable is set, the bootup process is delayed by few seconds a
 ==== Using configuration restore ====
 Download one of mini configs:
 
-[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07_config.bin config.bin] for LinkSys worldwide firmware versions 2.0x and 3.0x
+[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07_config.bin config.bin] for LinkSys worldwide firmware versions 2.0x
 
-[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07eu_config.bin config.bin] for LinkSys EU firmware versions 2.0x and 3.0x
+[http://www.volny.cz/vanekt/openwrt/boot_wait_on_wap54g_fw2.07eu_config.bin config.bin] for LinkSys EU firmware versions 2.0x
 
 Use web interface, navigate to <Setup> <Password> [Restore] and upload {{{config.bin}}}. This config changes just {{{boot_wait=on}}}, other configuration stays unchanged.
 
@@ -69,7 +87,7 @@ Verify that setting has worked by navigating to http://192.168.1.245/apply.cgi?a
 
 Tested only on original LinkSys firmwares version 2.07, 2.07EU, 3.04. Please report success on other fw versions.
 
-This method is known '''not to work on LinkSys fw 1.0x'''
+This method is known '''not to work on LinkSys fw 1.0x''', nor on '''fw 3.05'''
 
 ==== Setting boot_wait from a serial connection ====
 Same as for [:OpenWrtDocs/Installing:WRT54G].
