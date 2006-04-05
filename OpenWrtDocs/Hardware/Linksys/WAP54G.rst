@@ -48,7 +48,7 @@ The same Broadcom CPU is used that can be found in the WRT54GS V4, labeled: BCM 
 
 The flash chip is NOT a intel one, as one might expect. It's a SST SST39VF160-70-4c-eke 16MBit instead, and it's NOT completely pin compatible to the intel 28F160C3 found on V2. Reviving the V3 therefor needs a different approach, see [http://wiki.openwrt.org/WAP54GHowto].
 
-Both antennas are connected via coax cable to the back, no PBC mounted TNC connectors here. Cheap micro coax is used for this, the lines are quite long. Nifty new feature on the v3 PCB: Resoldering a single capacitor from the currently used microstrip to a 3rd one prior to the antenna switch ending with solder pads, where a (probably better and shorter) coax cable can be soldered with your connector of choice on the other end.
+Both antennas are connected via coax cable to the back TNC connectors, so no PBC mounted connectors here. Cheap micro coax is used for this, the lines are quite long. Nifty new feature on the v3 PCB: Resoldering a single capacitor from the currently used microstrip to a 3rd one prior to the antenna switch ending with solder pads, where a (probably better and shorter) coax cable can be soldered with your connector of choice on the other end.
 
 PCB measurements: ~ 12 cm x 10 cm
 
