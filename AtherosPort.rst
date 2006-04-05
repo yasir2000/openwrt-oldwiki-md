@@ -77,7 +77,15 @@ Patches still to be applied:
 
 == Image ==
 
-Hi, Oleg, it seems, that you managed to prepare the attachment:vmlinux image, thanks a lot! Could you tell a bit more about it? Especially I'm interested, whether is it suitable at least for testing with XtendLan WDAP-1001 alias TrendNet TEW-510APB alias AW-6660 alias WRTA-119AG_V01 dual APs. There are a few photos attached..
+Hi, Oleg, it seems, that you managed to prepare the attachment:vmlinux image, thanks a lot! Could you tell a bit more about it? Especially I'm interested, whether is it suitable at least for testing with the following (internally identical) dual APs:
+
+ * TrendNet TEW-510APB 
+ * Tonze AW-6660 
+ * SparkLAN WX-7800A
+ * XtendLan WDAP-1001 
+ * WRTA-119AG_V01
+ 
+There are a few photos TEW-510APB and WDAP-1001 attached..
 
 ----
 CategoryOpenWrtPort
