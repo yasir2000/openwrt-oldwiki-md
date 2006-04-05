@@ -14,15 +14,15 @@ are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is '''off''' b
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
 ||||<tablestyle="width 60%"> (!) '''Please contribute to this list.''' (!) ||||||'''!OpenWrt'''||
-||'''Model'''||<:> '''S/N'''||<:>'''White Russian[[BR]]RC4'''||<:>'''White Russian[[BR]]RC5'''||<:>  '''Development[[BR]]Kamikaze'''||
-||<(|2>WRT54GS v1.0||<:> CGN0||<:|2> (./) ||<:|2>   ||<:|2> (./) ||
+||'''Model'''||<:> '''S/N'''||<:>'''Stable[[BR]]White Russian'''||<:>  '''Development[[BR]]Kamikaze'''||
+||<(|2>WRT54GS v1.0||<:> CGN0||<:|2> (./) ||<:|2> (./) ||
 ||<:> CGN1||
-||WRT54GS v1.1||<:> CGN2||<:> (./) ||<:> (./) ||<:> (./) ||
-||WRT54GS v2.0||<:> CGN3||<:> (./) ||<:>  ||<:> (./) ||
-||WRT54GS v2.1||<:> CGN4||<:> (./) ||<:> (./) ||<:> (./) ||
-||WRT54GS v3.0||<:> CGN5||<:> (./) ||<:>  ||<:> (./) ||
-||WRT54GS v4.0||<:> CGN6||<:> (./) ||<:> (./) ||<:> (./) ||
-||WRT54GS v5||<:> CGN7||<:> {X} ||<:> {X} ||<:> {X} ||
+||WRT54GS v1.1||<:> CGN2||<:> (./) ||<:> (./) ||
+||WRT54GS v2.0||<:> CGN3||<:> (./) ||<:> (./) ||
+||WRT54GS v2.1||<:> CGN4||<:> (./) ||<:> (./) ||
+||WRT54GS v3.0||<:> CGN5||<:> (./) ||<:> (./) ||
+||WRT54GS v4.0||<:> CGN6||<:> (./) ||<:> (./) ||
+||WRT54GS v5||<:> CGN7||<:> {X} ||<:> {X} ||
 
 
 === WRT54GS v1.0 ===
