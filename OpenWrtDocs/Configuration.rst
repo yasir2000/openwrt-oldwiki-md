@@ -194,7 +194,7 @@ lan_ifnames=vlan0 eth2 eth3
 
 = Ethernet switch configuration =
 
-FIXME 
+FIXME
 
 OpenWrtRoboCfg
 
@@ -309,9 +309,9 @@ Setting up WPA will override any WEP settings.
 
 For enabling WPA, you need to install the nas package. When you enable or disable WPA
 settings, you should make sure that the NVRAM variable '''wl0_auth_mode''' is unset,
-because it is obsolete. 
+because it is obsolete.
 
-More information is on [:OpenWrtDocs/nas]. 
+More information is on [:OpenWrtDocs/nas].
 
 See [:OpenWrtDocs/Wpa2Enterprise] for a detailed setup using Freeradius for user authentication.
 
@@ -462,6 +462,12 @@ table below into the file. In this example it's done with the {{{echo}}} command
 
 {{{
 echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
+}}}
+
+Also is is good idea to put this somewhere in {{{/etc/profile}}} file:
+
+{{{
+[ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)
 }}}
 
 
