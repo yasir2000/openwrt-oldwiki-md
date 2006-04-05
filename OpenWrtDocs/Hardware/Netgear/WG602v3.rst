@@ -21,14 +21,14 @@ How to upload a firmware via TFTP:
 
 Eg. (linux)
 
- . {{{
+ {{{
 $ tftp -m binary -c put wg602v3_1_0_8.trx image.idts334 
 Sent 1634304 bytes in 5.8 seconds
 }}}
 
 Eg. (windows)
 
- . {{{
+ {{{
 C:\...\> tftp -i 192.168.0.227 put wg602v3_1_0_8.trx image.idts334 
 Transfer successful: 1634304 bytes in 11 seconds, 148573 bytes/s
 }}}
@@ -55,7 +55,7 @@ This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usua
 
 The kernel console configuration is provided by its command line arguments, defined at configuraion time in the CONFIG_CMDLINE config variable. For White Russian, the file to modify is {{{target/linux/linux-2.4/config/brcm}}}, while for Kamikaze 2.4 it is {{{target/linux/brcm-2.4/config}}}. In both, you need to change
 
-{{{
+ {{{
 ...
 CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS0,115200"
 ...
@@ -63,7 +63,7 @@ CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit 
 
 into
 
-{{{
+ {{{
 ...
 CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS1,115200"
 ...
@@ -73,21 +73,21 @@ Console access to the AP can be enabled both on ttyS0 and ttyS1. The shell is st
 
 For White Russian RC5, change
 
-{{{
+ {{{
 ::sysinit:/etc/init.d/rcS
 tts/0::askfirst:/bin/ash --login
 }}}
 
 into
 
-{{{
+ {{{
 ::sysinit:/etc/init.d/rcS
 tts/1::askfirst:/bin/ash --login
 }}}
 
 For Kamikaze, change:
 
-{{{
+ {{{
 ::sysinit:/etc/init.d/rcS
 ::shutdown:/sbin/halt
 tts/0::askfirst:/bin/ash --login
@@ -96,7 +96,7 @@ tts/0::askfirst:/bin/ash --login
 
 into
 
-{{{
+ {{{
 ::sysinit:/etc/init.d/rcS
 ::shutdown:/sbin/halt
 #tts/0::askfirst:/bin/ash --login
@@ -110,7 +110,7 @@ If you have already built your firmware once, you can just edit {{{build_mipsel/
 === White Russian RC5 ===
 I haven't managed to get White Russian RC5+ (revision 3587) to boot properly on the WG602v3. I gat a lot of messages like
 
-{{{
+ {{{
 CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
 Build Date: ¤G  9¤¿ 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
@@ -580,7 +580,7 @@ and then the kernel hangs with "no init found".
 As of revision 3586, Kamikaze appears to be basically working except for /sbin/ifconfig. 
 If you remove it from your root image, Kamikaze will boot without issues through the kernel, init, to a working shell.
 
- . {{{
+ {{{
 CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
 Build Date: ¤G  9¤¿ 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
@@ -707,7 +707,7 @@ root@OpenWrt:/#
 }}}
 
 Running `/sbin/ifconfig` will give a bus error the 1st time, and lock the system the 2nd time:
- . {{{
+ {{{
 root@OpenWrt:/# /rom/sbin/ifconfig eth0 up 192.168.0.227 mask 255.255.255.0
 Data bus error, epc == 800ab9b4, ra == 800aba90
 Oops in traps.c::do_be, line 385:
