@@ -464,7 +464,7 @@ table below into the file. In this example it's done with the {{{echo}}} command
 echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 }}}
 
-Also is is good idea to put this somewhere in {{{/etc/profile}}} file:
+Also it is good idea to put this somewhere in {{{/etc/profile}}} file:
 
 {{{
 [ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)
