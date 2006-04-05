@@ -8,6 +8,7 @@ Configure your device to use the backports repository, see ["OpenWrtDocs/Package
 ipkg install vpnc}}}
 
 == Configure ==
+=== VPNC Configuration ===
 Create a configfile for VPNC:
 
 {{{
@@ -15,7 +16,20 @@ vim /etc/vpnc.conf}}}
 
 And insert the parameters for your connection in there. These parameters are normally given by your sysadmin.
 
-## it isn't clear what should be in the file vpnc.conf
+Here is an example vpnc.conf:
+{{{
+Interface name tun0
+IPSec gateway 157.193.46.4
+IPSec ID ipsecclient
+IPSec secret cisco123
+Xauth username Yourusername
+Xauth password Yourpassword}}}
+
+Note on the first line that we'll be giving the interface we're creating the name '''tun0''', this is important for routing, we'll get there in a minute. the IP-address after ''IPSec gateway'' is the address of the VPN-server. The '''IPSec ID''' and '''IPSec secret''' must be given to you by your sysadmin, or try these values as defaults.
+
+Obviously, '''Yourusername''' and '''Yourpassword''' need to be replaced by your username and password respectively. If you don't feel comfortable with having your password in a plain text file for everyone to see, you can remove the last line. VPNC will then prompt you for the password everytime you connect.
+
+=== Connection Script ===
 
 You'll need to create a shellscript to set up the routes, so type:
 
@@ -31,7 +45,7 @@ First, you'll need a route to the VPNC server so that it knows where to find it 
 # Add route to the VPNC server
 route add 157.193.46.4 gw 172.16.70.254 vlan1;}}}
 
-Here, 157.193.46.4 is the VPNC server and 172.16.70.254 is the gateway. Change vlan1 into whatever your WAN-port is named.
+Here, 157.193.46.4 is again the VPNC server and 172.16.70.254 is the gateway. Change vlan1 into whatever your WAN-port is named.
 
 Next, start VPNC
 
@@ -39,14 +53,14 @@ Next, start VPNC
 # Start VPNC
 vpnc;}}}
 
-Now we need to tell the router to route all traffic over this connection...:
+Now we need to tell the router to route all traffic over this connection. Notice the use of '''tun0''', the interface-name we gave to the VPNC-connection in vpnc.conf:
 
 {{{
 # Add route to use VPNC for everything
 route add default tun0;}}}
 
 == Sharing the connection ==
-That's that, but now you need to tell the router to share the internet connection. It takes a bit of ''iptables'' magic:
+That's that, but now you need to tell the router to share the internet connection. It takes a bit of ''iptables'' magic. Note the use of '''tun0''' here as well:
 
 {{{
 iptables -A forwarding_rule -o tun0 -j ACCEPT;
