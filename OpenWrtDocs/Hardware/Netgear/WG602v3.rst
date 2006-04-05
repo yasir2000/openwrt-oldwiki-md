@@ -102,27 +102,15 @@ If you have already built your firmware once, you can just edit `build_mipsel/ro
 
 === White Russian RC5 ===
 
-The CFE bootloader used in the wg602v3 has a size of 192k bytes instead of 256k bytes.
-The flash layout used in White Russian is not compatible with it - it won't even boot into the kernel:
-
- . {{{
-***************************
-****  MAC Client V1.0  ****
-***************************
-MAC exist at least one
-system ethernet mac exist and not default....
-Skip mac client process.....
-Loading: .. 3732 bytes read
-Entry at 0x80001000
-Closing network.
-Starting program at 0x80001000
+I haven't managed to get White Russian RC5+ (revision 3587) to boot properly on the WG602v3. I gat a lot of messages like
+{{{
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x001f0000: 0x4c46 instead
 }}}
-
-And here it gets stuck.
+and then the kernel hangs with "no init found".
 
 === Kamikaze ===
 
-As of revision 3577 (4/4/2006), Kamikaze appears to be working.
+As of revision 3577, Kamikaze appears to be working.
 I haven't tested the network yet, but it boots without issues through the kernel, init, to a working shell:
  . {{{
 CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
