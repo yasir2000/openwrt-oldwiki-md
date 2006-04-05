@@ -27,7 +27,7 @@ Xauth password Yourpassword}}}
 
 Note on the first line that we'll be giving the interface we're creating the name '''tun0''', this is important for routing, we'll get there in a minute. the IP-address after ''IPSec gateway'' is the address of the VPN-server. The '''IPSec ID''' and '''IPSec secret''' must be given to you by your sysadmin, or try these values as defaults.
 
-Obviously, '''Yourusername''' and '''Yourpassword''' need to be replaced by your username and password respectively. If you don't feel comfortable with having your password in a plain text file for everyone to see, you can remove the last line. VPNC will then prompt you for the password everytime you connect.
+Obviously, '''Yourusername''' and '''Yourpassword''' need to be replaced by your username and password respectively. If you don't feel comfortable with having your password in a plain text file for everyone to see, you can remove the last line. VPNC will then prompt you for the password every time you connect.
 
 === Connection Script ===
 
@@ -70,4 +70,4 @@ iptables -t nat -A postrouting_rule -o tun0 -j MASQUERADE;}}}
 Now save the file and you're done. Execute this script to create a transparant VPNC-connection. Happy surfing.
 
 ----
-CategoryHowTo    
+CategoryHowTo CategoryHowTo
