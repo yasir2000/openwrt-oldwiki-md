@@ -40,12 +40,17 @@ There is an accesspoint device sold in the Czech Republic which is also based on
 
 == Firmware/Bootloader ==
 
-There are at least 2 variants
+There are at least 3 variants
 
  * VxWorx' own bootloader - most Atheros devices (There is a description of the basic workings on the [:OpenWrtDocs/Hardware/Netgear/WGT624:Netgear WGT624] page.)
  * RedBoot - the [http://sources.redhat.com/ecos/docs-latest/redboot/redboot-guide.html manual] is very good.
  * NetBoot - the standart loader in dwl7100ap allowed boot firmware image via network from tftp server direct to ram - this method is useful for testing, but can used for real work...
 
+== JTAG ==
+
+Atheros 531x/231x use standart MIPS EJTAG v2.6 and most of devices use a 14-pin EJTAG header. See a [:JTAG_Cables] for more info on using JTAG.
+
+The latest [http://openwince.sourceforge.net/jtag/ Openwince JTAG] fork contains support for the Atheros chips. The CVS snapshot may be found there: [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]
 
 = How to help =
 
