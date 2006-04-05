@@ -50,68 +50,78 @@ GPL source code releases:
 Some models shipped with a binary version of the 1.0.6 firmware, but such version is not available for download from Netgear support site.
 
 == OpenWRT ==
-
 === Serial console ===
-This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT configuration accordingly, and rebuild.
-The serial port is used for two independent purposes: displaying the kernel boot messages and providing shell access to your box. 
+This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT configuration accordingly, and rebuild. The serial port is used for two independent purposes: displaying the kernel boot messages and providing shell access to your box.
 
-The kernel console configuration is provided by its command line arguments, defined at configuraion time in the CONFIG_CMDLINE config variable.
-For White Russian, the file to modify is `target/linux/linux-2.4/config/brcm`, while for Kamikaze 2.4 it is `target/linux/brcm-2.4/config`. In both, you need to change
+The kernel console configuration is provided by its command line arguments, defined at configuraion time in the CONFIG_CMDLINE config variable. For White Russian, the file to modify is {{{target/linux/linux-2.4/config/brcm}}}, while for Kamikaze 2.4 it is {{{target/linux/brcm-2.4/config}}}. In both, you need to change
+
 {{{
 ...
 CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS0,115200"
 ...
 }}}
+
 into
+
 {{{
 ...
 CONFIG_CMDLINE="root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit noinitrd console=ttyS1,115200"
 ...
 }}}
 
-Console access to the AP can be enabled both on ttyS0 and ttyS1. The shell is started by `/sbin/init` after the kernel has booted, as configured in `/etc/inittab`. The file to modify is `package/base-files/default/etc/inittab`. 
+Console access to the AP can be enabled both on ttyS0 and ttyS1. The shell is started by {{{/sbin/init}}} after the kernel has booted, as configured in {{{/etc/inittab}}}. The file to modify is {{{package/base-files/default/etc/inittab}}}.
 
 For White Russian RC5, change
+
 {{{
 ::sysinit:/etc/init.d/rcS
 tts/0::askfirst:/bin/ash --login
 }}}
+
 into
+
 {{{
 ::sysinit:/etc/init.d/rcS
 tts/1::askfirst:/bin/ash --login
 }}}
 
 For Kamikaze, change:
+
 {{{
 ::sysinit:/etc/init.d/rcS
 ::shutdown:/sbin/halt
 tts/0::askfirst:/bin/ash --login
 #tts/1::askfirst:/bin/ash --login
 }}}
+
 into
+
 {{{
 ::sysinit:/etc/init.d/rcS
 ::shutdown:/sbin/halt
 #tts/0::askfirst:/bin/ash --login
 tts/1::askfirst:/bin/ash --login
 }}}
+
 You can leave both entries uncommented, if for any reason you want console access on both ports.
 
-If you have already built your firmware once, you can just edit `build_mipsel/root/etc/inittab` and do a `make target/install`. These changes however will be lost if you do a full rebuild.
+If you have already built your firmware once, you can just edit {{{build_mipsel/root/etc/inittab}}} and do a {{{make target/install}}}. These changes however will be lost if you do a full rebuild.
 
 === White Russian RC5 ===
-
 I haven't managed to get White Russian RC5+ (revision 3587) to boot properly on the WG602v3. I gat a lot of messages like
+
 {{{
 jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x001f0000: 0x4c46 instead
 }}}
+
 and then the kernel hangs with "no init found".
 
 === Kamikaze ===
+'''Update: the result below is not reproducible - even using the same trx image, I get the booting process stuck with a bus error now !
+'''More work to be done...
 
-As of revision 3577, Kamikaze appears to be working.
-I haven't tested the network yet, but it boots without issues through the kernel, init, to a working shell:
+As of revision 3577, Kamikaze appears to be working. I haven't tested the network yet, but it boots without issues through the kernel, init, to a working shell:
+
  . {{{
 CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
 Build Date: ¤G  9¤¿ 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
@@ -239,4 +249,4 @@ root@OpenWrt:/#
 }}}
 
 ----
-CategoryModel
+ CategoryModel
