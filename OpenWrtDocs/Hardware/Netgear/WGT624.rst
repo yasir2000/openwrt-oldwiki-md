@@ -1,8 +1,5 @@
 [[TableOfContents]]
-
 = Netgear WGT624 =
-
-
 the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
 == Specs for WGT624 Rev1 ==
@@ -23,13 +20,13 @@ Some photos are here: http://home.fhtw-berlin.de/~s0502837/wgt624/
 It got populated Serial and JTAG-Headers.
 
 Serial-Layout:
+
  * Pin  1 +3.3V
  * Pin  3 RX
  * Pin  9 TX
  * Pin 12 GND
 
-Serial header is the 12 pin header near the power plug. JTAG is near the antenna.
-Serial pin 1 is the pin nearest to the cpu.
+Serial header is the 12 pin header near the power plug. JTAG is near the antenna. Serial pin 1 is the pin nearest to the cpu.
 
 I wanted to buy a prolific USB to serial cellphone cable at ebay, but they sent me an Silicon Labs cable. This chipset is finally supported in 2.6.12. Works great (usb 2-1.2: CP2101 converter now attached to ttyUSB0)
 
@@ -38,8 +35,8 @@ Set your serial terminal (i.e. minicom) to 9600 8N1, I enabled software flow con
 Serial login is 'Gearguy' password is 'Geardog'
 
 == VxWorks ==
-
 it is running VxWorks and a rather crappy webinterface, so it makes tons of sense to port linux to it.
+
 {{{
 U12H01700> windsh
 
@@ -52,9 +49,9 @@ tffs:(0,0):/fl/APIMG1 e=192.168.1.20:0xffffff00 f=0x8 o=et
 value = 70 = 0x46 = 'F'
 }}}
 
-
 == Firmware ==
 My WGT624 came with firmware 4.2.7 which introduces problems with further upgrades because it changes the board id. Therefore 4.2.7 isn't avaible, but if you got this firmware version, you can fix it, if you interrupt the bootloader by pressing ESC immediatly after powering up. It will look like this:
+
 {{{
 ar531x rev 0x00005743 firmware startup...
 SDRAM TEST...PASSED
@@ -86,12 +83,11 @@ watchdg: enabled
 
 This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it was on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can change this board ID with pressing 'B' on the bootprompt.
 
-
 == Boot via TFTP ==
-
 this is only theoretical at the moment:
 
 the default boot parameters are:
+
 {{{
  $dev(0,procnum)host:/file h=# e=# b=# g=# u=usr [pw=passwd] f=# 
                            tn=targetname s=script o=other 
@@ -122,6 +118,7 @@ other (o)            : et
 So we will have to set the boot device to et0, the flags to 0x80 (use tftp) and the /tftpboot/kernelimage
 
 I just tried the following
+
 {{{
 [Boot]: p
 
@@ -135,12 +132,16 @@ host inet (h)        : 192.168.1.2
 flags (f)            : 0x88 
 other (o)            : et
 }}}
+
 host name and host inet should point to the tftp server. If everything went good, you should see something like this on your tftp-server:
+
 {{{
 Aug 28 14:16:16 duron in.tftpd[3758]: RRQ from 192.168.1.20 filename /tftpboot/image 
 Aug 28 14:16:16 duron in.tftpd[3758]: sending NAK (1, File not found) to 192.168.1.20
 }}}
+
 and on your WGT624
+
 {{{
 [Boot]: @
 Attached TCP/IP interface to et0.
@@ -153,14 +154,15 @@ Error loading file: errno = 0x610001.
 }}}
 
 == Kernel ==
-Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches. 
-According to arch/mips/ar531x/README.BUILD, I've downloaded:
+Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches.  According to arch/mips/ar531x/README.BUILD, I've downloaded:
 
 ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm
+
 {{{
 $ mips-linux-gcc --version
 2.96-mips3264-000710
 }}}
+
 It's a good start to reproduce the very same environment, as they did in order to exclude all problems that might occur while porting to a newer compiler or kernel.
 
 {{{
@@ -180,7 +182,6 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
 mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 $ cp vmlinux /tftpboot/image
 }}}
-
 
 {{{
 [Boot]: @
@@ -270,6 +271,7 @@ Enter 'help' for a list of built-in commands.
 I thought it'd be nice if there were some more apps like dd in order to extract the mtds. It should be possible to get networking running via the built-in atheros-wifi-drivers. That could make it possible to transfer the mtd images to another computer with dd and this ath0.
 
 I wanted to get a openwrt root filesystem for this AP, but OpenWRT doesn't support big endian mipses out of the box, so you have to run a make menuconfig, select all your busybox stuff, and make it static! After you've saved your config, open the .config with an editor and replace all occurences of mipsel with mips, and comment out all the kernel stuff as there isn't yet any kernel support for AR531x yet. It should look like this:
+
 {{{
 #
 # Kernel Configuration / Device Support
@@ -295,8 +297,8 @@ gzip -9 ramdisk
 rebuild your kernel and you'll get a vmlinux with a builtin ramdisk with this new busybox.
 
 == MadWifi ==
-
 As I want to export the images via the ath0, I have to get a wlan working, but for now there is a problem with this binary-driver:
+
 {{{
 BusyBox v1.00 (2005.09.04-01:01+0000) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
@@ -316,7 +318,9 @@ ath0      Link encap:Ethernet  HWaddr 00:09:5B:87:DE:AC
 <4>ath0: hardware error; resetting
 ...
 }}}
+
 Fortunatly there is an opensource madwifi driver. Download that driver:
+
 {{{
 cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/madwifi co madwifi
 cd madwifi
@@ -328,7 +332,9 @@ Checking if all requirements are met... FAILED
 Please enable crypto API.
 make: *** [configcheck] Error 1
 }}}
+
 So we have to recompile the kernel with the crypto API. As I don't know which crypto stuff is actually necessary, I include all (except of HMAC, that doesn't compile). I don't care about the size for now. So add this to your .config:
+
 {{{
 #
 # Cryptographic options
@@ -359,14 +365,18 @@ CONFIG_CRYPTO_TEST=y
 }}}
 
 Now the madwifi sources compile fine, you have to copy the needed modules from the source tree to the ramdisk:
+
 {{{
 ath/ath_pci.o
 ath_hal/ath_hal.o
 ath_rate/onoe/ath_rate_onoe.o
 net80211/{wlan.o,wlan_wep.o,wlan_tkip.o,wlan_ccmp.o,wlan_acl.o,wlan_xauth.o}
 }}}
-You might want to strip these modules with ${TOOLPREFIX}strip -S. I just wanted to copy these files to the ramdisk, but I discovered that there is an ath_lbus and not an ath_pci. Google doesn't know anything about this lbus stuff, but it seems as they use some esoteric bus system. I'm a bit stumped.
-I tried the pci modules nevertheless, but they don't seem to work:
+
+You might want to strip these modules with ${TOOLPREFIX}strip -S. I just wanted to copy these files to the ramdisk, but I discovered that there is an ath_lbus and not an ath_pci. Google doesn't know anything about this lbus stuff, but it seems as they use some esoteric bus system. I'm a bit stumped. I tried the pci modules nevertheless, but they don't seem to work:
+
+[http://modular.fas.harvard.edu/t42/madwifi/Makefile.inc This]'' speaks of "lbus". Could someone more knowledgable than I see if this might help?''
+
 {{{
 lsmod
 Module                  Size  Used by    Tainted: P  
@@ -385,23 +395,22 @@ lo        Link encap:Local Loopback
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
-          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-}}}
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)}}}
 
 == porting to a newer kernel ==
-
 I've downloaded the current 2.4 mips kernel via cvs and the newest [ftp://ftp.mips.com/pub/tools/software/sde-for-linux/6.02.03-1/mips-sdelinux-v6.02.03-1.i386.rpm official mips (big endian) crosscompiler]:
+
 {{{
 $ mips-linux-gcc --version
 mips-linux-gcc (GCC) 3.4.4 mipssde-6.02.03-20050629
 }}}
 
-ths over at #mipslinux explains:
-"In a hosted (i.e. userland) environment the compiler is free to transform libc calls. Goes horribly wrong in the kernel, which doesn't implement libc. :-)"
+ths over at #mipslinux explains: "In a hosted (i.e. userland) environment the compiler is free to transform libc calls. Goes horribly wrong in the kernel, which doesn't implement libc. :-)"
 
 This happens with GCC 3.4, so add -ffreestanding to the GCCFLAGS in arch/mips/Makefile.
 
 Someone might wonder, why I only copy and do not patch, but it's just because there aren't any two-way-differences in the files, so copying does the job.
+
 {{{
 cvs -d :pserver:cvs@ftp.linux-mips.org:/home/cvs co -r linux_2_4 linux
 cp -a mips-linux-2.4.25/arch/mips/ar531x/ linux/arch/mips/
@@ -430,7 +439,6 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
         -o vmlinux
 mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 }}}
-
 
 {{{
 [Boot]: @
@@ -489,13 +497,9 @@ In idle task - not syncing
 }}}
 
 == Problems with the WGT624v3 ==
-
-The WGT624v3 has an AR2316A part that doesn't seem to work with the
-build process above. Using the recommended toolchain (gcc version 2.96-mips3264-000710)
-and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
+The WGT624v3 has an AR2316A part that doesn't seem to work with the build process above. Using the recommended toolchain (gcc version 2.96-mips3264-000710) and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
 
 {{{
-
 ar531xPlus rev 0x00000087 firmware startup...
 
 
@@ -546,8 +550,7 @@ divlo = cccccccd   divhi =        0   sr    = 10008400   pc    = 80e98660
 
 }}}
 
-Can anyone post a working kernel binary for the 624v1, to double check it's not a build problem?
-Maybe this is why the Netgear v1/v2 firmware is incompatible with the v3. Perhaps the ar531xPlus
-needs a different patch.
+Can anyone post a working kernel binary for the 624v1, to double check it's not a build problem? Maybe this is why the Netgear v1/v2 firmware is incompatible with the v3. Perhaps the ar531xPlus needs a different patch.
+
 ----
-CategoryModel
+ . CategoryModel 
