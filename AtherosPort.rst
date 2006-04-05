@@ -11,9 +11,16 @@ The AR531x and 231x is a router platform by Atheros, which is used for dual-band
  * [http://support.dlink.com/products/view.asp?productid=DWL%2D2210AP D-Link DWL-2210AP], at least according to [http://devicescape.com Devicescape]
  * Senao NL-5354 AP1 Aries2 dual band AP (AR5312+AR5112+AR2112)
  * Senao NL-3054 AP3 Aries2 (AR2313+AR2112 radio)
- * Trendnet TEW-510APB [http://www.trendware.com/sp/products/TEW-510APB.htm]
  * Dlink DWL7100AP [http://www.dlink.com/products/?pid=304]
    Dlink inside: [http://wiki.openwrt.org/AtherosPort?action=AttachFile&do=view&target=dwl7100AP.jpg]
+
+OEM dual APs, internally identical:
+
+ * TrendNet TEW-510APB [http://www.trendware.com/sp/products/TEW-510APB.htm]
+ * Tonze AW-6660 
+ * SparkLAN WX-7800A
+ * XtendLan WDAP-1001 
+ * WRTA-119AG_V01
 
 and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
 
@@ -77,15 +84,7 @@ Patches still to be applied:
 
 == Image ==
 
-Hi, Oleg, it seems, that you managed to prepare the attachment:vmlinux image, thanks a lot! Could you tell a bit more about it? Especially I'm interested, whether is it suitable at least for testing with the following (internally identical) dual APs:
-
- * TrendNet TEW-510APB 
- * Tonze AW-6660 
- * SparkLAN WX-7800A
- * XtendLan WDAP-1001 
- * WRTA-119AG_V01
- 
-There are a few photos TEW-510APB and WDAP-1001 attached..
+Hi, Oleg, it seems, that you managed to prepare the attachment:vmlinux image, thanks a lot! Could you tell a bit more about it? Especially I'm interested, whether is it suitable at least for testing with the dual APs like TrendNet TEW-510APB. There are a few photos of TEW-510APB and WDAP-1001 attached..
 
 ----
 CategoryOpenWrtPort
