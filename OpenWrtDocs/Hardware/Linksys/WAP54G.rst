@@ -55,9 +55,6 @@ PCB measurements: ~ 12 cm x 10 cm
 '''Power:'''
 The WAP54G v3 needs much less current than it's brothers WRT54G(/S), about half (250 .. 350 mA on 12V DC). According to this, the shipped power brick only yields 500mA/12V max, compared to 1A/12V max for the WRT series.
 
-'''OpenWRT:'''
-With only 2MB of flash and 8MB of RAM, things may get tricky when using OpenWRT. However, the [http://downloads.openwrt.org/whiterussian/rc4/default/openwrt-wap54g-squashfs.trx] image seemed to work. I tried to delete some files on /rom/, which worked, too. However, don't expect too much, there's not much space left, probably not enough to install the packages of your choice.
-
 === Table summary ===
 How to get info:
 
