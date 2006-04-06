@@ -1,73 +1,92 @@
-= How To: VPNC on your OpenWrt router =
+'''How To: VPNC on !OpenWrt'''
+
 Some people, like students from Ghent University, Belgium, need to connect with a Cisco VPN server in order to connect to the internet. It's an ideal task for an !OpenWrt router to make that connection and share it with all the connected PC's. The only drawback is that VPNC is quite needy and on my Asus WL-500G Deluxe (300Mhz) it maxes out at 30KB/s (VPNC then uses 99% of CPU resources).
 
-== Getting VPNC ==
+= Installation =
 Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
 
 {{{
 ipkg install vpnc}}}
 
-== Configure ==
-=== VPNC Configuration ===
-Create a configfile for VPNC:
+= Configuration =
+
+Create a configuration file:
 
 {{{
-vim /etc/vpnc.conf}}}
+vi /etc/vpnc.conf}}}
 
 And insert the parameters for your connection in there. These parameters are normally given by your sysadmin.
 
-Here is an example vpnc.conf:
+Here is an example ''vpnc.conf'':
 {{{
 Interface name tun0
 IPSec gateway 157.193.46.4
 IPSec ID ipsecclient
 IPSec secret cisco123
-Xauth username Yourusername
-Xauth password Yourpassword}}}
+Xauth username YOURUSERNAME
+Xauth password YOURPASSWORD}}}
 
-Note on the first line that we'll be giving the interface we're creating the name '''tun0''', this is important for routing, we'll get there in a minute. the IP-address after ''IPSec gateway'' is the address of the VPN-server. The '''IPSec ID''' and '''IPSec secret''' must be given to you by your sysadmin, or try these values as defaults.
+Note on the first line that we'll be giving the interface we're creating the name ''tun0'', this is important for routing, we'll get there in a minute. the IP-address after ''IPSec gateway'' is the address of the VPN-server. The ''IPSec ID'' and ''IPSec secret'' must be given to you by your sysadmin, or try these values as defaults.
 
-Obviously, '''Yourusername''' and '''Yourpassword''' need to be replaced by your username and password respectively. If you don't feel comfortable with having your password in a plain text file for everyone to see, you can remove the last line. VPNC will then prompt you for the password every time you connect.
+Change '''YOURUSERNAME''' and '''YOURPASSWORD''' to your username and password respectively. If you don't feel comfortable with having your password in a plain text file on your !OpenWrt device, you can remove the ''Xauth password'' line, then VPNC will prompt you for the password every time you connect.
 
-=== Connection Script ===
+= Writing a Start Script =
 
-You'll need to create a shellscript to set up the routes, so type:
+A start script configures routing for VPNC, starts the connection, and then optionally shares the connection.
+
+== Preparation ==
+Create a shell script, for example:
 
 {{{
 mkdir /etc/vpn
 touch /etc/vpn/initvpn.sh
 chmod a+x /etc/vpn/initvpn.sh
-vim /etc/vpn/initvpn.sh}}}
+vi /etc/vpn/initvpn.sh}}}
 
-First, you'll need a route to the VPNC server so that it knows where to find it after it has established the connection:
+== Create Route to VPNC Server ==
+
+You'll need a route to the VPNC server so that it knows where to find it after it has established the connection, so add these commands to the script:
 
 {{{
+#!/bin/sh
 # Add route to the VPNC server
 route add 157.193.46.4 gw 172.16.70.254 vlan1;}}}
 
 Here, 157.193.46.4 is again the VPNC server and 172.16.70.254 is the gateway. Change vlan1 into whatever your WAN-port is named.
 
-Next, start VPNC
+== Starting VPNC ==
+
+Next, add to the script the command to start VPNC:
 
 {{{
 # Start VPNC
 vpnc;}}}
 
-Now we need to tell the router to route all traffic over this connection. Notice the use of '''tun0''', the interface-name we gave to the VPNC-connection in vpnc.conf:
+== Create Route for All Traffic ==
+
+Tell the router to route all traffic over this connection, add to the script:
 
 {{{
-# Add route to use VPNC for everything
+# Add route to use VPN for everything
 route add default tun0;}}}
 
-== Sharing the connection ==
-That's that, but now you need to tell the router to share the internet connection. It takes a bit of ''iptables'' magic. Note the use of '''tun0''' here as well:
+Note the use of ''tun0'', the ''interface name'' in ''vpnc.conf''.
+
+== Sharing the VPN ==
+Tell the router to share the VPN connection to its clients. It takes a bit of ''iptables'' magic.  Add to the script:
 
 {{{
+# Share the VPN connection
 iptables -A forwarding_rule -o tun0 -j ACCEPT;
 iptables -A forwarding_rule -i tun0 -j ACCEPT;
 iptables -t nat -A postrouting_rule -o tun0 -j MASQUERADE;}}}
 
-Now save the file and you're done. Execute this script to create a transparant VPNC-connection. Happy surfing.
+Note the use of ''tun0'' here as well.
 
+== Testing ==
+Save the script.  Execute the script to start the connection.
+
+{{{
+/etc/vpn/initvpn.sh}}}
 ----
-CategoryHowTo CategoryHowTo
+CategoryHowTo
