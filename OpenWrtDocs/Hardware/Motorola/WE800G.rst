@@ -81,6 +81,7 @@ And still failed after making the proposed .bin to .trx conversation.
 Only way to upgrade the firmware is the TFTP based upgrade as was described above.
 
 Note: The WEB based firmware upgrade does not work even after the upgrade to RC5.
+[https://dev.openwrt.org/ticket/447]
 
 = Port layout =
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
