@@ -397,8 +397,8 @@ ipkg install http://www.ethernal.org/openwrt/cisco-button_0.1-3_mipsel.ipk
 
 Reboot:
 {{{
-root@OpenWrt:~# sync
-root@OpenWrt:~# reboot
+sync
+reboot
 }}}
 
 = Basic system configuration and usage =
