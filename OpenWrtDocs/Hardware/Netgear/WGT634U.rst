@@ -16,9 +16,9 @@ wireless radio (madwifi-ng). The Kernel is 2.6.15.6.
 
 At present, Yasha has been kind enough to provide 2.6 images of the latest bleeding edge svn source recompiled daily at:
 
-[http://flyashi.dyndns.org:81/]
+[http://flyashi.dyndns.org:81/bin/]
 
-Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to '''cry bricks''', Yasha has had to make the section containing the bleeding edge firmware image downloads password protected.  If you have done the serial mod, are comfortable in linux, and don't mind setting up your own independent tftp server so that you can upgrade the image through the CFE shell, feel free to drop into the freenode #openwrt channel and ask Yasha or Ydef for the password.
+Unfortunately, due to the proliferation of noobs attempting to install bleeding edge images and subsequently flood the channel to '''cry bricks''', Yasha has had to make the section containing the bleeding edge firmware image downloads password protected.  If you have done the serial mod, are comfortable in linux, and don't mind setting up your own independent tftp server so that you can upgrade the image through the CFE shell, feel free to drop into the freenode #openwrt channel and ask Flyashi or Ydef for the password.
 
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at [http://forum.openwrt.org/viewforum.php?id=3] regarding the wgt634u.
@@ -268,6 +268,9 @@ The portion of the antenna on the outside of the router must be pushed successfu
 The author of this section used needle nosed pliers to successfully twist the antenna since a strong grip of its rubber texture is required, and a pair of wire cutters to snip off the portions of the rubber lip base and catches.
 
 = Other projects and information =
+
+ * A WGT-oriented Kamikaze wiki:
+ [[BR]]- [http://openwrt.pbwiki.com/]
 
  * More info in the forum:
  [[BR]]- [http://openwrt.org/forum/viewtopic.php?id=33]
