@@ -489,6 +489,7 @@ Also it is a good idea to put this somewhere in {{{/etc/profile}}} file:
 [ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)}}}
 ## does anyone know why this is so?  it seems to work fine without it!  webif shows immediate change.  if TZ environment variable is not present, uClibc reads /etc/TZ -- Quozl
 ## I like it this way because you may be ssh-ing into a box from another time zone and your ssh-client will use the box'es TZ rather than your local. -- AnthonyOZ
+## Thanks AnthonyOZ. Are you using dropbear on OpenWrt? I've tested this just now by SSH'ing into OpenWrt from a box which has a different TZ, even one specificially driven on command line (e.g. TZ=GMT ssh root@openwrt) but every time it uses /etc/TZ.  We can talk by mail if you like.  quozl@us.netrek.org or qz@hp.com.  Or reply here.
 
 More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640]
 and [http://openwrt.org/forum/viewtopic.php?id=131].
