@@ -385,6 +385,22 @@ For more information, see [:ClientModeHowto].
 
 Note: Bridge mode only works for me by setting wl0_mode=wet. My device is Asus WL-HDD.
 
+== SecureEasySetup button (a.k.a. CISCO button) ==
+
+You may use SES button to bring WiFi connectivity ON or OFF operatively.
+
+Login into {{{webif}}} and select "System->Installed Software" page. Update the package list and install {{{libgcc}}}. Then use {{{dropbear}}} to install these two packages:
+{{{
+ipkg install http://www.ethernal.org/openwrt/gpio_0.1-1_mipsel.ipk
+ipkg install http://www.ethernal.org/openwrt/cisco-button_0.1-3_mipsel.ipk
+}}}
+
+Reboot:
+{{{
+root@OpenWrt:~# sync
+root@OpenWrt:~# reboot
+}}}
+
 = Basic system configuration and usage =
 
 == busybox - The Swiss Army Knife of Embedded Linux ==
@@ -468,10 +484,11 @@ echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
 at 03:00) of DST (Daylight Saving Time).
 
-Also it is good idea to put this somewhere in {{{/etc/profile}}} file:
+Also it is a good idea to put this somewhere in {{{/etc/profile}}} file:
 {{{
 [ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)}}}
 ## does anyone know why this is so?  it seems to work fine without it!  webif shows immediate change.  if TZ environment variable is not present, uClibc reads /etc/TZ -- Quozl
+## I like it this way because you may be ssh-ing into a box from another time zone and your ssh-client will use the box'es TZ rather than your local. -- AnthonyOZ
 
 More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640]
 and [http://openwrt.org/forum/viewtopic.php?id=131].
