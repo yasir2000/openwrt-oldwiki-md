@@ -464,16 +464,14 @@ table below into the file. In this example it's done with the {{{echo}}} command
 echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 }}}
 
-Also it is good idea to put this somewhere in {{{/etc/profile}}} file:
-
-{{{
-[ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)
-}}}
-
-
 '''NOTE:''' This sets the time zone for CET/CEST (Central European Time UTC+1 / Central European
 Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
 at 03:00) of DST (Daylight Saving Time).
+
+Also it is good idea to put this somewhere in {{{/etc/profile}}} file:
+{{{
+[ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)}}}
+## does anyone know why this is so?  it seems to work fine without it!  webif shows immediate change.  if TZ environment variable is not present, uClibc reads /etc/TZ -- Quozl
 
 More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640]
 and [http://openwrt.org/forum/viewtopic.php?id=131].
