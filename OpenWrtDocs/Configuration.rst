@@ -387,7 +387,7 @@ Note: Bridge mode only works for me by setting wl0_mode=wet. My device is Asus W
 
 == SecureEasySetup button (a.k.a. CISCO button) ==
 
-You may use SES button to bring WiFi connectivity ON or OFF operatively.
+You may use SES button to bring wireless connectivity ON or OFF operatively.
 
 Login into {{{webif}}} and select "System->Installed Software" page. Update the package list and install {{{libgcc}}}. Then use {{{dropbear}}} to install these two packages:
 {{{
