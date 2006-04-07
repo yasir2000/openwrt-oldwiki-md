@@ -108,6 +108,8 @@ cat > /etc/init.d/ez-ipupdate
 {{{
 #!/bin/sh
 
+#ip-ezupdate requires the interface on the command line in daemon mode
+INT=eth0
 BIN=ez-ipupdate
 CONF=/etc/$BIN.conf
 RUN_D=/var/run
@@ -117,7 +119,7 @@ PID_F=$RUN_D/$BIN.pid
 case $1 in
  start)
   mkdir -p $RUN_D
-  $BIN -d -c $CONF
+  $BIN -d -i $INT -c $CONF
   ;;
  stop)
   [ -f $PID_F ] && kill -9 $(cat $PID_F)
@@ -143,6 +145,12 @@ ln -s /etc/init.d/ez-ipupdate /etc/init.d/S80ez-ipupdate
 }}}
 
 ez-ipupdate will now be run as a daemon when OpenWrt is started and update IP address automatically when needed.
+
+To start it now, do:
+
+{{{
+/etc/init.d/ez-ipupdate start
+}}}
 
 == Via a cronjob ==
 This updates your DDNS account on a specified time via {{{crond}}}. You have to configure HowtoEnableCron before you continue.
