@@ -41,7 +41,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * Netgear [:OpenWrtDocs/Hardware/Netgear/WGT624: WGT624] [http://www.netgear.com/products/details/WGT624.php Product link]
  * Senao NL-5354 AP1 Aries2 dual band AP (AR5312+AR5112+AR2112)
  * Senao NL-3054 AP3 Aries2 (AR2313+AR2112 radio)
- * Winstron CA8-4/CE8-1 aka Ovislink WLA-5000AP, !LinkPro WLT-108AAP, Diswire CAP2/5
+ * Winstron CA8-4/CE8-1 aka Ovislink WLA-5000AP, !LinkPro WLT-108AAP, Diswire CAP2/5, AirCA8
  * Winstron CR8-2 aka !LinkPro WLT-108AAR
  
 OEM dual APs, internally identical:
