@@ -2,15 +2,16 @@
 
 The AR531x/231x is a platform by Atheros, which is used for dual-band and single-band 108Mb/s routers and accesspoints. It is also refered as a ''WiSoC - Wireless System-on-a-Chip'', and the radio inside often refered as ''RoC - Radio-on-a-Chip''.
 
-== Atheros chipset generations/evolution ==
+== Atheros !WiSoC generations/evolution ==
 
 1. AR5001 generation (802.11a only)
  * [http://www.atheros.com/pt/ar5001A.html AR5001AP] (AR5311 CPU + AR5111 5GHz RoC)
 
 2. AR5002 generation (first dual-band designs)
- * [http://www.atheros.com/pt/AR5002AP-2XBulletin.htm AR5002AP-2X] (AR5312 CPU + AR5112 2.4/5GHz RoC + AR2112 2.4GHz RoC)
- * [http://www.atheros.com/pt/AR5002AP-XBulletin.htm AR5002AP-X] (AR2312 CPU + AR5112 2.4/5GHz RoC)
+ * AR5002AP-A (AR2312 CPU + AR5122 5GHz RoC)
  * [http://www.atheros.com/pt/AR5002AP-GBulletin.htm AR5002AP-G] (AR2312 CPU + AR2112 2.4GHz RoC)
+ * [http://www.atheros.com/pt/AR5002AP-XBulletin.htm AR5002AP-X] (AR2312 CPU + AR5112 2.4/5GHz RoC)
+ * [http://www.atheros.com/pt/AR5002AP-2XBulletin.htm AR5002AP-2X] (AR5312 CPU + AR5112 2.4/5GHz RoC + AR2112 2.4GHz RoC)
 
 3-4. AR5003 and AR5004 generation (Super-AG technology)
 ''The AR5003 got merged into the AR5004. The new !WiSoCs are/were in production, but they were not announced.''
