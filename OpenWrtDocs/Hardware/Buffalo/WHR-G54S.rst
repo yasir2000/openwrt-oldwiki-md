@@ -106,22 +106,3 @@ vlan0: dev_set_allmulti(master, 1)
 }}}
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit.
-
-----
-----
- . From experience, it has become increasingly hard to find non-version 5 LinkSys WRTG54 routers in the major chain stores.  To help you locate this model, which so far has worked and has also just been changed to Supported status for OpenWRT, here is a picture of the Buffalo WHR-G54S Retail box: 
-
-attachment:WHR-G54S_Retailbox.jpg
-
-----
-----
-----
-----
- . Here is a shot of the bottom of the box with the model number shown on the right hand side:
-'''''' 
-
-----
- attachment:Boxbottom_modelnum.jpg
-
-----
-----
