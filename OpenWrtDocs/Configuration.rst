@@ -380,12 +380,11 @@ better know what you are doing...
 The only thing you have to do is to switch the WL mode like with the bridge:
 
 {{{
-nvram set wl0_mode=sta
+nvram set wl0_mode=wet
 }}}
 
 For more information, see [:ClientModeHowto].
 
-Note: Bridge mode only works for me by setting wl0_mode=wet. My device is Asus WL-HDD.
 
 == SecureEasySetup button (a.k.a. CISCO button) ==
 
