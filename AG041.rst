@@ -13,6 +13,16 @@ with a working console, press a key to get available commands
 
 "mread 0 10" displays reset, abort & SWI exception handler locations. SWI is hooked to reset switch. use "mwrite 8 <location>" to hook this handler.
 
-attachment:AG041App.py is a file to download images from your AG041. I'm new to python, so it's not great. You need to manually specify the port. To download the bootloader, set the base address to 0x80000000.
+attachment:ImageDump.py is a script to download images from your AG041. I'm new to python, so it's not great.
+
+ImageDump.py [-p<port>] [-b<base>] [fileName]
+
+||||||<style="text-align: center;">'''Parameters''' ||
+||port ||Comm Port ||0 (=COMM1) ||
+||base ||Base Address on Target of Image ||0x0 ||
+||fileName ||Output Filename on Host ||code.bin ||
 
 
+python imageDump.py -b0x80000000 flashImage.bin
+
+will download the bootloader from flash into flashImage.bin via COM1
