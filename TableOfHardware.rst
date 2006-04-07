@@ -44,7 +44,6 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 
-
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||FRITZ!Box SL || ||? ||? || ? || || || || || || || Untested ||
@@ -63,6 +62,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||FRITZ!Box Fon WLAN 7050 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon WLAN 7140 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon WLAN 7170 || ||? ||? || ? || || || || || || || Untested ||
+
 
 
 == Belkin ==
@@ -196,8 +196,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://routerboard.com/rb200.html RouterBoard 230] || ||NSC SC1100 ||None, CF slot/IDE ||So-DIMM slot ||mini-PCI slot and 2x cardbus ||None ||N/A ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
 ||[http://routerboard.com/rb500.html RouterBoard 511] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||1 mini-PCI slot ||None ||N/A ||Yes ||No ||No ||WiP ||
 ||[http://routerboard.com/rb500.html RouterBoard 512] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||WiP ||
-||[http://routerboard.com/rb500.html RouterBoard 532] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP, [http://artax.karlin.mff.cuni.cz/~zajio1am/texts/debian_sarge_on_rb532.html Debian]
-||
+||[http://routerboard.com/rb500.html RouterBoard 532] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP ||
 ||[http://routerboard.com/rb500.html RouterBoard 532a] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||128MB + CF slot ||64MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP ||
 
 
