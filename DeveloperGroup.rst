@@ -5,7 +5,7 @@
 
 List of developers:
  * mbm
- * kaloz
+ * Kaloz
  * wbx
  * nbd
  * nico
