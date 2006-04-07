@@ -10,12 +10,12 @@ See the Seattle Wireless page: SeattleWireless:WAP54G. Also see ["WAP54GHowto"].
 ===== Identification by S/N =====
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bottom side of the box.
 
-|||| (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt''' ||
-||'''Model''' ||<style="TEXT-ALIGN: center">'''S/N''' ||<style="TEXT-ALIGN: center">'''Stable[[BR]]White Russian''' ||<style="TEXT-ALIGN: center">'''Development[[BR]]Kamikaze'''||
-||WAP54G v1.0 ||<style="TEXT-ALIGN: center">MDG0 ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! ||<style="TEXT-ALIGN: center">WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||
-||WAP54G v1.1 ||? ||<style="TEXT-ALIGN: center">? ||<style="TEXT-ALIGN: center">? ||
-||WAP54G v2 ||<style="TEXT-ALIGN: center">MDG2 ||<style="TEXT-ALIGN: center">WiP ||<style="TEXT-ALIGN: center">WiP ||
-||WAP54G v3 ||<style="TEXT-ALIGN: center">MDG3 ||<style="TEXT-ALIGN: center">WiP ||<style="TEXT-ALIGN: center">WiP ||
+||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
+||'''Model''' ||'''S/N''' ||'''Stable[[BR]]White Russian''' ||'''Development[[BR]]Kamikaze'''||
+||WAP54G v1.0 ||MDG0 ||WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! ||WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! ||
+||WAP54G v1.1 ||? ||? ||? ||
+||WAP54G v2 ||MDG2 ||WiP ||WiP ||
+||WAP54G v3 ||MDG3 ||WiP ||WiP ||
 
 
 ==== WAP54G v1.0 ====
@@ -39,21 +39,17 @@ According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] th
  * 2 MB Intel flash memory, 8 MB RAM and 3 LEDs on front panel
 
 ==== WAP54G v3.0 ====
-'''Outside:'''
-Label on the bottom reads: "WAP54G ver:3". The serial number starts with: "MDG3"
-It features three LED's on the front panel: Power/Act/Link, colored red/green/yellow. There's also a "Easy secure" button to the front. On the back, there's one power connector, a single LAN connector, a reset button (in this order, counted from left). This version has 2MB of flash, and 8 MB of RAM.
- 
-'''Inside:'''
-The same Broadcom CPU is used that can be found in the WRT54GS V4, labeled: BCM 5352EKPB, 200MHz. The same applies to the LAN: It's connected to the CPU after decoupling, no additional hardware used. Wireless circuitry on the PCB, no mini-PCI. A JTAG header seems to be there, as well as a RS232 header. However, to use the 2nd RS232, you'll need to solder two 0 Ohm bridge dummy SMD resistors. SMD0805 package should do here.  
+'''Outside:''' Label on the bottom reads: "WAP54G ver:3". The serial number starts with: "MDG3" It features three LED's on the front panel: Power/Act/Link, colored red/green/yellow. There's also a "Easy secure" button to the front. On the back, there's one power connector, a single LAN connector, a reset button (in this order, counted from left). This version has 2MB of flash, and 8 MB of RAM.
 
-The flash chip is NOT a intel one, as one might expect. It's a SST SST39VF160-70-4c-eke 16MBit instead, and it's NOT completely pin compatible to the intel 28F160C3 found on V2. Reviving the V3 therefor needs a different approach, see [http://wiki.openwrt.org/WAP54GHowto].
+'''Inside:''' The same Broadcom CPU is used that can be found in the WRT54GS V4, labeled: BCM 5352EKPB, 200MHz. The same applies to the LAN: It's connected to the CPU after decoupling, no additional hardware used. Wireless circuitry on the PCB, no mini-PCI. A JTAG header seems to be there, as well as a RS232 header. However, to use the 2nd RS232, you'll need to solder two 0 Ohm bridge dummy SMD resistors. SMD0805 package should do here.
+
+The flash chip is NOT a intel one, as one might expect. It's a SST SST39VF160-70-4c-eke 16MBit instead, and it's NOT completely pin compatible to the intel 28F160C3 found on V2. Reviving the V3 therefor needs a different approach, see http://wiki.openwrt.org/WAP54GHowto.
 
 Both antennas are connected via coax cable to the back TNC connectors, so no PBC mounted connectors here. Cheap micro coax is used for this, the lines are quite long. Nifty new feature on the v3 PCB: Resoldering a single capacitor from the currently used microstrip to a 3rd one prior to the antenna switch ending with solder pads, where a (probably better and shorter) coax cable can be soldered with your connector of choice on the other end.
 
 PCB measurements: ~ 12 cm x 10 cm
 
-'''Power:'''
-The WAP54G v3 needs much less current than it's brothers WRT54G(/S), about half (250 .. 350 mA on 12V DC). According to this, the shipped power brick only yields 500mA/12V max, compared to 1A/12V max for the WRT series.
+'''Power:''' The WAP54G v3 needs much less current than it's brothers WRT54G(/S), about half (250 .. 350 mA on 12V DC). According to this, the shipped power brick only yields 500mA/12V max, compared to 1A/12V max for the WRT series.
 
 === Table summary ===
 How to get info:
@@ -64,7 +60,9 @@ How to get info:
 
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||'''os_version''' ||'''firmware_version''' ||
 ||WAP54G v1.0 ||- ||bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||- ||- ||2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||4 ||BCM4702KPB ||- ||5.3.22 ||- ||- ||
+||<^>WAP54G v2||<^>0x10||<^>0x0446||<^>8||<^>0||<^>1024||<^>7||<^>BCM3302 V0.7||<^> ||<^>CFE version 1.0.37||<^> ||<^> ||
 ||WAP54G v3 || 0x13 || 0x0467 || 0x0758 || - || WAP54GV3_8M_0614 || - || BCM3302 V0.8(?) || - || CFE 3.91.39.0 || 3.91.39.0 || v3.05.03(EU) ||
+
 
 Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?pid=8127#p8127 Determining WRT54G/GS model using nvram variables] thread. May be this table should move up to ["OpenWrtDocs/Hardware"].
 
@@ -93,4 +91,4 @@ Same as for [:OpenWrtDocs/Installing:WRT54G].
 telnet to the device and use nvram command.
 
 ----
-CategoryModel
+ CategoryModel
