@@ -1,7 +1,7 @@
 '''Netgear WG602 v3'''
 
 == Hardware ==
-The WG602 v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 2Mb flash and 8Mb RAM, and a detachable antenna.
+The WG602 v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 2MB flash and 8MB RAM, and a detachable antenna.
 
  * Flash: Intel TE 28F160C3 BDBD70 ([http://download.intel.com/design/flcomp/datashts/29064523.pdf datasheet], [http://download.intel.com/design/flcomp/specupdt/29793814.pdf update]): 16 Mbit
 
