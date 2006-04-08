@@ -307,7 +307,7 @@ QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net
 Download and install the {{{qos-scripts}}} package:
 
 {{{
-ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos-scripts_0.6.1_all.ipk
+ipkg install http://downloads.openwrt.org/people/nbd/qos/qos-scripts_0.7.1_all.ipk
 }}}
 
 Then edit {{{/etc/config/qos-wan}}}. This file has a number of examples and the syntax description in it. Be sure to uncomment the {{{option:enabled}}} line and set the {{{option:upload}}} and {{{option:download}}} correctly.
@@ -599,8 +599,7 @@ svn co https://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 Development take place in SVN. You get the source via:
 
 {{{
-svn co https://svn.openwrt.org/openwrt/trunk/openwrt/
-}}}
+svn co https://svn.openwrt.org/openwrt/trunk/openwrt/}}}
 
 [http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
 
