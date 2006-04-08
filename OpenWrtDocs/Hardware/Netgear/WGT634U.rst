@@ -264,10 +264,10 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
 ||`p`||power/status leds||
 ||`i`||port 4||
 ||`w`||wireless||
-||`1`||port 0||
-||`2`||port 1||
-||`3`||port 2||
-||`4`||port 3||
+||`1`||port 3||
+||`2`||port 2||
+||`3`||port 1||
+||`4`||port 0||
 ||SoC||port 5||
 
 = Mini-PCI Upgrade =
