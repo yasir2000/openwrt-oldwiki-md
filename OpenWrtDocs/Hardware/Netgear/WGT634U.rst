@@ -3,7 +3,7 @@
 
 = Netgear WGT634U =
 
-The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a builtin IPSEC co-processor, allowing encrypted VPN's (up to AES256) a bonus of a perfomance boost upto 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce.  It also comes standard with 8 MB flash and 32 MB RAM.
+The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a builtin IPSEC co-processor, allowing encrypted VPN's (up to AES256) a bonus of a perfomance boost upto 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce. It also comes standard with 8 MB flash and 32 MB RAM.
 
 The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and has a [http://www.hirose.co.uk/productreleases/ms156.htm MS-156] test point and a soldered antenna.  The WGT634U also has an USB 2.0 controller.
 
@@ -148,7 +148,7 @@ iwconfig ath0 essid your_essid
 
 You can then configure ath0 as usual with ifconfig and iwconfig. Iwconfig will display Mode: Managed, but the card will be in client-mode.
 
-= Using usb drive for Root =
+= Using USB drive for Root =
 
 Normally, using the usb drive for root requires making a custom image with a proper
 bootline such as:
@@ -253,6 +253,23 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
    |    |     |     |     |     |     |
 }}}
 
+= Switch port map =
+
+{{{
+--------------------------
+| NETGEAR  p i w 1 2 3 4 |
+--------------------------
+}}}
+
+||`p`||power/status leds||
+||`i`||port 4||
+||`w`||wireless||
+||`1`||port 0||
+||`2`||port 1||
+||`3`||port 2||
+||`4`||port 3||
+||SoC||port 5||
+
 = Mini-PCI Upgrade =
 
 The mini-pci card has been confirmed to be replaceable with an atheros AR5212 ABG Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
@@ -284,10 +301,9 @@ The author of this section used needle nosed pliers to successfully twist the an
  * Another firmware project
  [[BR]]- [http://router.4th.be/]
 
-
 = End Of Life =
 
-I got confirmation from Janine Bodwin of NetGear that the WGT634U was EOL'ed on 01-Oct-2005
+I got confirmation from Janine Bodwin of Netgear that the WGT634U was EOL'ed on 01-Oct-2005
 
 
 ----
