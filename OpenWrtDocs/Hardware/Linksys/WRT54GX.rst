@@ -31,8 +31,8 @@ Serial port (JP1, 38400bps):
 {{{
 GND  o
 TX   o
-RX   o
 VCC  o
+RX   o
 
 LEDS
 }}}
