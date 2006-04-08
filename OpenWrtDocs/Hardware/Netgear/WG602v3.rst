@@ -34,20 +34,20 @@ Transfer successful: 1634304 bytes in 11 seconds, 148573 bytes/s
 }}}
 
 == Netgear Firmware ==
-Binary firmare releases:
+Binary firmare releases can be found on the Netgear [http://kbserver.netgear.com/products/wg602v3.asp WG602v3 support] web page:
 
  * [ftp://downloads.netgear.com/files/wg602v3_V1_0_4.trx 1.0.4]
  * [ftp://downloads.netgear.com/files/wg602v3_v1_0_5.zip 1.0.5]
  * [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8 rc3]
 
-GPL source code releases:
+GPL source code releases are available from the Netgear [http://kbserver.netgear.com/kb_web_files/n101238.asp GPL Open Source code] web page:
 
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL.tar.gz 1.0.4]
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL-v1.0.5.tgz 1.0.5]
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL-v1.0.6.tgz 1.0.6]
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.0.8RC3-GPL.tar.gz 1.0.8 rc3]
 
-Some models shipped with a binary version of the 1.0.6 firmware, but such version is not available for download from Netgear support site.
+Some models shipped with a binary version of the 1.0.6 firmware, but such version is not available for download from the Netgear support site.
 
 == OpenWRT ==
 === Serial console ===
