@@ -23,7 +23,7 @@ How to upload a firmware via TFTP:
 Eg. (linux)
 
  . {{{
-$ tftp -m binary -c put wg602v3_1_0_8.trx image.idts334 
+$ tftp -m binary 192.168.0.227 -c put wg602v3_1_0_8.trx image.idts334 
 Sent 1634304 bytes in 5.8 seconds
 }}}
 
