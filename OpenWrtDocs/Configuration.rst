@@ -298,7 +298,7 @@ After changes run /sbin/wifi to activate them
 || wl0_wep || '''disabled''' = disabled WEP, '''enabled''' = enable WEP ||
 || wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
 || wl0_key[1..4] || WEP key in hexadecimal format (allowed hex chars are 0-9a-f). '''Example:''' nvram set wl0_key1=0D77F08849E4B1D839C9489A48 ||
-|| wl0_auth || '''1''' (shared key) / '''0''' (open); the 'shared key' option is the most vulnerable WEP option as it most facilitates an intruder due to a fundamental security flaw in WEP. The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic.||
+|| wl0_auth || '''1''' (shared key) / '''0''' (open); the 'shared key' option is not recommended as it allows an intruder to exploit a fundamental security flaw in WEP (WPA was introduced as the better system; see below). The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic. ||
 
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the
 key length correctly. A 128 bit WEP key must be 26 hex digits long ; string key format is also supported : '''nvram set wl0_key1='s:my string key' '''
