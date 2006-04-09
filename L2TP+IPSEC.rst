@@ -123,6 +123,17 @@ connect-delay 5000
 duffy     *         "duck" *
 }}}
 
+== Load Modules ==
+add the following lines to /etc/modules and reboot (or load the modules via insmod and skip reboot)
+{{{
+slhc
+ppp_generic
+ppp_async
+}}}
+
+
+== RUN ==
+
 Now (hopefully) everything is set up and we have to test it:
 run the l2tpd:
 {{{
@@ -135,63 +146,39 @@ If I proceed as described above trying to connect results in the following error
 Note that l2tpd reports as 0.69 but what I installed is 0.70pre3 from svn revision 3600:
 
 {{{
-l2tpd -D
+# l2tpd -D
 This binary does not support kernel L2TP.
-l2tpd version 0.69 started on OpenWrt PID:1333
+l2tpd version 0.69 started on OpenWrt PID:1418
 Linux version 2.4.30 on a mips, listening on IP address 0.0.0.0, port 1701
-handle_avps: handling avp's for tunnel 54237, call 0
+handle_avps: handling avp's for tunnel 27418, call 0
 message_type_avp: message type 1 (Start-Control-Connection-Request)
 protocol_version_avp: peer is using version 1, revision 0.
 framing_caps_avp: supported peer frames:async sync
 hostname_avp: peer reports hostname ''
-assigned_tunnel_avp: using peer's tunnel 2
+assigned_tunnel_avp: using peer's tunnel 3
 receive_window_size_avp: peer wants RWS of 4.  Will use flow control.
-handle_avps: handling avp's for tunnel 41865, call 0
-message_type_avp: message type 1 (Start-Control-Connection-Request)
-protocol_version_avp: peer is using version 1, revision 0.
-framing_caps_avp: supported peer frames:async sync
-hostname_avp: peer reports hostname ''
-assigned_tunnel_avp: using peer's tunnel 2
-receive_window_size_avp: peer wants RWS of 4.  Will use flow control.
-control_finish: Peer requested tunnel 2 twice, ignoring second one.
-handle_avps: handling avp's for tunnel 18730, call 17209
-message_type_avp: message type 1 (Start-Control-Connection-Request)
-protocol_version_avp: peer is using version 1, revision 0.
-framing_caps_avp: supported peer frames:async sync
-hostname_avp: peer reports hostname ''
-assigned_tunnel_avp: using peer's tunnel 2
-receive_window_size_avp: peer wants RWS of 4.  Will use flow control.
-control_finish: Peer requested tunnel 2 twice, ignoring second one.
-handle_avps: handling avp's for tunnel 21434, call 3855
-message_type_avp: message type 1 (Start-Control-Connection-Request)
-protocol_version_avp: peer is using version 1, revision 0.
-framing_caps_avp: supported peer frames:async sync
-hostname_avp: peer reports hostname ''
-assigned_tunnel_avp: using peer's tunnel 2
-receive_window_size_avp: peer wants RWS of 4.  Will use flow control.
-control_finish: Peer requested tunnel 2 twice, ignoring second one.
-handle_avps: handling avp's for tunnel 54237, call 0
+handle_avps: handling avp's for tunnel 27418, call 0
 message_type_avp: message type 3 (Start-Control-Connection-Connected)
-control_finish: Connection established to 10.1.10.143, 51581.  Local: 54237, Remote: 2.  LNS session is 'default'
-handle_avps: handling avp's for tunnel 54237, call 0
+control_finish: Connection established to 10.1.10.143, 51758.  Local: 27418, Remote: 3.  LNS session is 'default'
+handle_avps: handling avp's for tunnel 27418, call 0
 message_type_avp: message type 10 (Incoming-Call-Request)
 message_type_avp: new incoming call
-assigned_session_avp: assigned session id: 24475
+assigned_session_avp: assigned session id: 26142
 call_serno_avp: serial number is 1
-handle_avps: handling avp's for tunnel 54237, call 33986
+handle_avps: handling avp's for tunnel 27418, call 59222
 message_type_avp: message type 12 (Incoming-Call-Connected)
 tx_speed_avp: transmit baud rate is 1000000
 frame_type_avp: peer uses:async frames
-control_finish: Call established with 10.1.10.143, Local: 33986, Remote: 24475, Serial: 1
-child_handler : pppd exited for call 24475 with code 4
-call_close: Call 33986 to 10.1.10.143 disconnected
-handle_avps: handling avp's for tunnel 54237, call 33986
+control_finish: Call established with 10.1.10.143, Local: 59222, Remote: 26142, Serial: 1
+handle_avps: handling avp's for tunnel 27418, call 59222
 message_type_avp: message type 14 (Call-Disconnect-Notify)
-assigned_session_avp: assigned session id: 24475
-result_code_avp: peer closing for reason 3 (Call disconnected for administrative reasons), error = 33986 ()
+assigned_session_avp: assigned session id: 26142
+result_code_avp: peer closing for reason 3 (Call disconnected for administrative reasons), error = 0 ()
 control_finish: Peer tried to disconnect without specifying call ID
-check_control: Received out of order control packet on tunnel 2 (got 4, expected 5)
+check_control: Received out of order control packet on tunnel 3 (got 4, expected 5)
+handle_packet: bad control packet!
+check_control: Received out of order control packet on tunnel 3 (got 4, expected 5)
 handle_packet: bad control packet!
 death_handler: Fatal signal 2 received
-call_close : Connection 2 closed to 10.1.10.143, port 51581 (Server closing)
+call_close : Connection 3 closed to 10.1.10.143, port 51758 (Server closing)
 }}}
