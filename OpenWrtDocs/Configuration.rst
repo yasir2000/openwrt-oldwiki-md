@@ -435,7 +435,7 @@ and must get the date and time at boot or use the default of 2000-01-01.
 
 You must have the correct time to use OpenVPN on !OpenWrt.
 
-You may use either ''ntpclient'', ''rdate'' or ''htpdate''.
+You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''.
 
 '''ntpclient'''
 
@@ -485,6 +485,9 @@ htpdate -s HOSTNAME}}}
 Configure ''/etc/default/htpdate'' with a set of servers to probe.
 
 Rename ''/etc/init.d/htpdate'' to ''/etc/init.d/S41htpdate''.
+
+## TODO: add openntpd explanation, 
+## openntpd could be useful for distributing NTP services further to clients near to the !OpenWrt system.
 
 == Timezone ==
 
