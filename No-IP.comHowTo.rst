@@ -1,4 +1,4 @@
-'''DDNS howto'''
+'''No-IP.com howto'''
 
 [[TableOfContents]]
 = About No-IP.com DDNS =
