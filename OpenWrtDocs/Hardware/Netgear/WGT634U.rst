@@ -141,7 +141,7 @@ The usual commands would probably be:
 
 {{{
 ifconfig ath0 down    # if it isn't already down
-wlanconfig destroy ath0
+wlanconfig ath0 destroy
 wlanconfig ath0 create wlandev wifi0 wlanmode sta
 iwconfig ath0 essid your_essid
 }}}
