@@ -307,7 +307,7 @@ QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net
 Download and install the {{{qos-scripts}}} package:
 
 {{{
-ipkg install http://downloads.openwrt.org/people/nbd/qos/qos-scripts_0.7.1_all.ipk
+ipkg install http://downloads.openwrt.org/people/nbd/qos/qos-scripts_0.7.2_all.ipk
 }}}
 
 Then edit {{{/etc/config/qos-wan}}}. This file has a number of examples and the syntax description in it. Be sure to uncomment the {{{option:enabled}}} line and set the {{{option:upload}}} and {{{option:download}}} correctly.
