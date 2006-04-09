@@ -103,6 +103,12 @@ martin, portugal
 
 = This is a mini-howto for people who want to use OpenWRT on WAP54G v2 =
 
+Update for Whiterussian RC5
+
+The [http://downloads.openwrt.org/whiterussian/rc5/micro/openwrt-brcm-2.4-squashfs.trx micro] image of Whiterussian RC5 gives a full working system on WAP54Gv.2, no more read only file system!!
+
+The following refer to WAP54G, I don't know if it should be erase.
+
 As you can read on [http://forum.openwrt.org/viewtopic.php?id=3431 WAP54G v2 issues - "Read-only file system"] thread in the forum, Openwrt, specificaly:[[BR]]
 [http://downloads.openwrt.org/whiterussian/rc4/default/openwrt-wap54g-squashfs.trx][[BR]]
 get installed fine on the WAP54G v2, but give you a read-only file system, so you won't be able to modify any configuration file, you can't even activate root passwd, so you can't use web interfase neither.
