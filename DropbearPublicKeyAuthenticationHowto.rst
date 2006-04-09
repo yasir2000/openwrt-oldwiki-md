@@ -36,7 +36,7 @@ You can also copy & paste the public key into !OpenWrt after making a normal pas
  * Start the PuTTY Key Generator with {{{puttygen.exe}}}.
  * Click on the button ''Generate''.
  * Click on ''Save public key''. Save the public key in a file called {{{OpenWrt-Public-Key}}}.
- * Click on ''Save private key''. Save the private key in a file called {{OpenWrt-Private-Key.ppk}}}.
+ * Click on ''Save private key''. Save the private key in a file called {{{OpenWrt-Private-Key.ppk}}}.
 
 A public key looks like (the text is all one, without linebreaks):
 
