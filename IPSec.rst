@@ -1,6 +1,6 @@
 '''IPSec Howto'''
 
-This section contains information on howto setup Plain IPSec as protection for your WLAN. It provides a clean & simple protection mechanism with a high level of security. For Windows and OS X Clients another way might be more comfortable since both, Windows and OS X, don't come with graphical clients (and that is what these users are used to) for plain IPSec. These Platforms provide another mechanism of protection using L2TP over IPSEC.
+This section contains information on howto setup Plain IPSec as protection for your WLAN. It provides a clean & simple protection mechanism with a high level of security. For Windows and OS X Clients another way might be more comfortable since both, Windows and OS X, don't come with graphical clients (and that is what these users are used to) for plain IPSec. These Platforms provide another mechanism of protection using [:L2TP+IPSEC].
 
 [[TableOfContents]]
 
