@@ -574,15 +574,30 @@ Mounted devfs on /dev
 Freeing unused kernel memory: 80k freed
 Kernel panic: No init found.  Try passing init= option to kernel.
 }}}
-
 and then the kernel hangs with "no init found".
 
-=== Kamikaze ===
-As of revision 3586, Kamikaze appears to be basically working except for /sbin/ifconfig.  If you remove it from your root image, Kamikaze will boot without issues through the kernel, init, to a working shell.
+I asume the problem is in the mtd layout:
+ . {{{
+0x00000000-0x00040000 : "pmon"
+0x00040000-0x001f0000 : "linux"
+0x00000000-0x00200000 : "rootfs"
+0x001f0000-0x00200000 : "nvram"
+0x00000000-0x001f0000 : "OpenWrt"
+}}}
+The issue is in the areas assigned to the "rootfs" (the squashfs-lzma readonly filesystem) and the "OpenWrt" (the j2ffs filesystem) sections: these are definetly wrong, using the full 0x00000000-0x001f0000 area.
 
+Also, notice that the "pmon" section (the bootloader) incorrectly takes 256kB instead of 192kB.
+
+
+=== Kamikaze ===
+As of revision 3603, Kamikaze appears to be basically working except for the eth0 module.
+Because of it, /sbin/ifconfig hangs, and the boot process doesn't complete (eg., firstboot is never called, and the j2ffs partition never made active).
+If you remove /sbin/ifconfig from your root image, Kamikaze will boot without issues through the kernel, init, to a working shell.
+
+Actually, you may have to remove some stuff in ordeer to free RAM and Flash space, as this access point is very limited. Anyway, you can get:
  . {{{
 CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
-Build Date: ¤G  9¤¿ 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
+Build Date: ¤G  9¤ë 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
 
 Initializing Arena
@@ -618,7 +633,7 @@ Starting program at 0x80001000
 CPU revision is: 00029008
 Primary instruction cache 16kB, physically tagged, 2-way, linesize 16 bytes.
 Primary data cache 8kB, 2-way, linesize 16 bytes.
-Linux version 2.4.32 (fwyzard@grid006.fi.infn.it) (gcc version 3.4.4 (OpenWrt-2.0)) #3 Wed Apr 5 13:50:06 CEST 2006
+Linux version 2.4.32 (fwyzard@grid006.fi.infn.it) (gcc version 3.4.4 (OpenWrt-2.0)) #2 Sun Apr 9 19:11:36 CEST 2006
 Setting the PFC to its default value
 Determined physical RAM map:
  memory: 00800000 @ 00000000 (usable)
@@ -630,7 +645,7 @@ Kernel command line: root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/pre
 CPU: BCM5350 rev 0 at 200 MHz
 Using 100.000 MHz high precision timer.
 Calibrating delay loop... 199.47 BogoMIPS
-Memory: 6148k/8192k available (1421k kernel code, 2044k reserved, 100k data, 88k init, 0k highmem)
+Memory: 6156k/8192k available (1414k kernel code, 2036k reserved, 100k data, 88k init, 0k highmem)
 Dentry cache hash table entries: 1024 (order: 1, 8192 bytes)
 Inode cache hash table entries: 512 (order: 0, 4096 bytes)
 Mount cache hash table entries: 512 (order: 0, 4096 bytes)
@@ -661,10 +676,10 @@ bootloader size: 196608
 Creating 5 MTD partitions on "Physically mapped flash":
 0x00000000-0x00030000 : "cfe"
 0x00030000-0x001f0000 : "linux"
-0x000ac800-0x0016a000 : "rootfs"
+0x000ac000-0x00150000 : "rootfs"
 mtd: partition "rootfs" doesn't start on an erase block boundary -- force read-only
 0x001f0000-0x00200000 : "nvram"
-0x00170000-0x001f0000 : "OpenWrt"
+0x00150000-0x001f0000 : "OpenWrt"
 sflash: found no supported devices
 Initializing Cryptographic API
 NET4: Linux TCP/IP 1.0 for NET4.0
@@ -681,16 +696,19 @@ VFS: Mounted root (squashfs filesystem) readonly.
 Mounted devfs on /dev
 Freeing unused kernel memory: 88k freed
 Algorithmics/MIPS FPU Emulator v1.5
-diag boardtype: 00000456
-Unlocking OpenWrt ...
-umount: Couldn't umount /rom/dev: No such file or directory
-init started:  BusyBox v1.1.1 (2006.04.04-16:53+0000) multi-call binary
+Unlocking linux ...
+switching to jffs2
+mount: Mounting /rom/sys on /sys failed: Invalid argument
+init started:  BusyBox v1.1.1 (2006.04.09-17:01+0000) multi-call binary
+ipcalc: bad IP address:
 
 Please press Enter to activate this console. jffs2.bbc: SIZE compression mode activated.
+eth1: Broadcom BCM4320 802.11 Wireless Controller 3.90.37.0
+loop: loaded (max 8 devices)
 
 
 
-BusyBox v1.1.1 (2006.04.04-16:53+0000) Built-in shell (ash)
+BusyBox v1.1.1 (2006.04.09-17:01+0000) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
 
   _______                     ________        __
@@ -698,7 +716,7 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (bleeding edge, r3586) -------------------
+ KAMIKAZE (bleeding edge, r3603) -------------------
   * 10 oz Vodka       Shake well with ice and strain
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
@@ -706,36 +724,11 @@ Enter 'help' for a list of built-in commands.
 root@OpenWrt:/#
 }}}
 
-Running {{{/sbin/ifconfig}}} will give a bus error the 1st time, and lock the system the 2nd time:
-
+You can add {{{/sbin/ifconfig}}} back later simply with:
  . {{{
-root@OpenWrt:/# /rom/sbin/ifconfig eth0 up 192.168.0.227 mask 255.255.255.0
-Data bus error, epc == 800ab9b4, ra == 800aba90
-Oops in traps.c::do_be, line 385:
-$0 : 00000000 1000fc00 00060000 000f3800 b8001428 00068db9 80000000 00000064
-$8 : 00000000 00000001 00000001 80196e50 0000032d 1000fc00 00000000 00000001
-$16: 80763d60 00000100 80763c00 80763d60 80441eb0 00000000 00000000 00008914
-$24: ba2e8ba3 801a25d4                   80440000 80441da0 7fff7c38 800aba90
-Hi : 00000000
-Lo : 00000000
-epc   : 800ab9b4    Not tainted
-Status: 1000fc02
-Cause : 0000801c
-PrId  : 00029008
-Process ifconfig (pid: 353, stackpage=80440000)
-Stack:    800c5f94 00000000 00000001 00000000 00000001 00008914 800ad47c
- 80763d60 80150000 80763d60 80763c00 00000000 80763c00 800ad720 00000000
- 00008914 00000001 80763d60 80763d60 00000000 80763c00 00000000 80441eb0
- 800ad870 0000009a 80028300 80763d60 00000000 80763d60 00000000 80763d60
- 800adfa4 00000004 0049acb0 805332c0 801f8034 80763c00 0049acb0 80763c00
- 00000000 ...
-Call Trace:   [<800c5f94>] [<800ad47c>] [<80150000>] [<800ad720>] [<800ad870>]
- [<80028300>] [<800adfa4>] [<800ca820>] [<800cc044>] [<8010c2a0>] [<80048f78>]
- [<800c2f64>] [<80008a60>] [<8005b79c>]
-
-Code: 00452021  3c020006  34458db9 <8c820000> 11200005  00461024  1040000f  00000000  0802ae77
-Segmentation fault
+root@OpenWrt:/# ln -s /bin/busybox /sbin/ifconfig
 }}}
+
 
 ----
  . CategoryModel 
