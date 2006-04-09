@@ -7,7 +7,9 @@ The DDNS service is for etablishing connections from computers on the Internet t
 !OpenWrt uses the package {{{ez-ipupdate}}} for providing DDNS service.
 
 = Requirements =
-A recent OpenWrt version. This howto was written for the 'White Russian RC3' and later releases. An account with a compatible DDNS service (see Configuration)
+A recent OpenWrt version. This howto was written for the 'White Russian RC3' and later releases.
+
+An account with a compatible DDNS service (see Configuration)
 
 = Installation =
 {{{
