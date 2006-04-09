@@ -7,7 +7,7 @@ The DDNS service is for etablishing connections from computers on the Internet t
 !OpenWrt uses the package {{{ez-ipupdate}}} for providing DDNS service.
 
 = Requirements =
-A recent OpenWrt version. This howto was written for the 'White Russian RC3' and later releases.
+A recent OpenWrt version. This howto was written for the 'White Russian RC3' and later releases. An account with a compatible DDNS service (see Configuration)
 
 = Installation =
 {{{
@@ -29,6 +29,8 @@ ez-ipupdate can be used with the following services:
  * http://www.dyns.cx
  * http://www.hn.org
  * http://www.zoneedit.com
+
+ez-ipupdate cannot be used with No-IP.com's service. For that use the [:No-IP.comHowTo:noip client]
 
 == Creating the configuration file ==
 Easiest way to use ez-ipupdate is creating a configuration file. We call the file {{{/etc/ez-ipupdate.conf}}}. You can choose any other name.
@@ -191,5 +193,4 @@ For advanced debugging enable the {{{debug}}} parameter in the configuration fil
 = Useful links =
 For more details please have a look at the links below.
 
-http://en.wikipedia.org/wiki/Ddns
-http://www.ez-ipupdate.com/
+http://en.wikipedia.org/wiki/Ddns http://www.ez-ipupdate.com/
