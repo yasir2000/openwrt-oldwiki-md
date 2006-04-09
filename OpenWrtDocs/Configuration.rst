@@ -312,6 +312,8 @@ For enabling WPA, you need to install the nas package. When you enable or disabl
 settings, you should make sure that the NVRAM variable '''wl0_auth_mode''' is unset,
 because it is obsolete.
 
+'''YOU HAVE TO INSTALL THE NAS PACKAGE''' ( {{{ipkg install nas}}} )
+
 More information is on [:OpenWrtDocs/nas].
 
 See [:OpenWrtDocs/Wpa2Enterprise] for a detailed setup using Freeradius for user authentication.
