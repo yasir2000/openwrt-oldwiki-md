@@ -52,6 +52,7 @@ The names of the network interfaces will depend largely on what hardware !OpenWr
 ||Asus||WL-300g|| ||eth0||None||eth2|| ||
 ||Asus||WL-500g|| ||eth0||eth1||eth2|| ||
 ||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
+||Asus||Wl-HDD|| ||eth1||N/A||eth2||No switch and no WAN port||
 ||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
 ||Buffalo||WBR2-G54|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
 ||Buffalo||WBR2-G54S|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
