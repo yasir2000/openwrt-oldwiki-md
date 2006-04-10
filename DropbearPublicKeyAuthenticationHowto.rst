@@ -130,7 +130,7 @@ The the last line should look like:
 Now it's time to reboot.
 
 = Troubleshooting =
-Make sure the /etc/dropbear directory is chmodded 0700 and the {{{/etc/dropbear/authorized_keys}}} file 0600.
+Make sure the {{{/etc/dropbear}}} directory is {{{chmod}}}ed 0700 and the {{{/etc/dropbear/authorized_keys}}} file 0600.
 
 {{{
 root@OpenWrt:~# ls -l /etc/|grep dropbear
