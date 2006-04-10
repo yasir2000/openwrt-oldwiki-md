@@ -1,6 +1,6 @@
 = Linksys WAG54GX2 =
 
-The device is NOT supported in OpenWrt.
+The device is NOT supported in OpenWrt. The internals are strikingly similar to the [:OpenWrtDocs/Hardware/Netgear/DG834GT: DG834GT].
 
 {{{
 Bootloader     : CFE version 1.0.37-5.11 for BCM96348 (32bit,SP,BE)
