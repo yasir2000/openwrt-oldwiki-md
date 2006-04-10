@@ -1,24 +1,24 @@
-'''Linksys WAG54GX2'''
+= Linksys WAG54GX2 =
 
 The device is NOT supported in OpenWrt.
 
 {{{
-Bootloader: CFE
-System-On-Chip:  Broadcom 6348
-CPU Speed: 200 Mhz (assumed: BogoMIPS=239.20 XTAL=66Mhz)
-Flash size: 8 MB
-RAM: 32 MB
-Wireless: Mini-PCI Airgo MIMO 802.11b/g Wireless LAN Controller
-Ethernet: Unknown switch
-USB: None
-ADSL: 2/2+
-Serial: tbd
-JTAG: tbd
+Bootloader     : CFE version 1.0.37-5.11 for BCM96348 (32bit,SP,BE)
+System-On-Chip : Broadcom 6348 (CPU type 0x29107)
+CPU Speed      : 240MHz, Bus: 133MHz, Ref: 26MHz
+Flash size     : 8 MB
+RAM            : 32 MB
+Wireless       : Mini-PCI Airgo MIMO 802.11b/g Wireless LAN Controller
+Ethernet       : Unknown switch
+USB            : None
+ADSL           : 2/2+
+Serial         : yes J503
+JTAG           : assumed on J201
 }}}
 
 The {{{boot_wait}}} NVRAM variable is not defined.
 
-'''Firmware notes'''
+== Firmware notes ==
 
 We can build custom firmwares that will upload via the regular web interface.
 
@@ -48,13 +48,22 @@ Analysis of WAG54GX2_A_V1.00.01.img
 }}}
 
 
+== Serial Console ==
+Serial console confirmed on J503.
+||'''pin'''||'''signal'''||
+||1||GND||
+||2||TX||
+||3||VCC||
+||4||RX||
 
-'''Serial console/JTAG'''
 
-The device has an internal 12-pins connector and a 4 pins connector. At least a serial console would be supported I think.
+== JTAG ==
+The device has an internal 12-pins connector on J201 although not confirmed this should be for JTAG.
 
 
-'''Appendix - dmesg'''
+== Appendix ==
+
+=== dmesg ===
 
 {{{
 flash device_id = (0x22c9)
