@@ -46,7 +46,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||FRITZ!Box SL || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box SL || ||? ||? || ? || || || || || || || [:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
 ||FRITZ!Box 2030 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box 2070 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box SL WLAN || ||? ||? || ? || || || || || || || Untested ||
