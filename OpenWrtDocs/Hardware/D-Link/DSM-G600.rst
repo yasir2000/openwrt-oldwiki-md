@@ -8,7 +8,7 @@ There are two known hardware versions with different chipsets available:
 
 ||'''Model'''||'''S/N'''||'''CPU'''||'''Wireless'''||'''boot loader'''||'''Flash'''||'''RAM'''||'''status'''||
 ||A||{{{B2AD}}}||XScale IXP4xx||Atheros AR5213A||??||16MB||64MB||[http://forum.openwrt.org/viewtopic.php?id=4338 forum discussion]||
-||B1||{{{BA6Q}}}||MPC8245||Ralink RT25xx||U-Boot||xxMB||32MB||[http://forum.openwrt.org/viewtopic.php?id=4275 forum discussion]||
+||B1||{{{BA6Q}}}||MPC8245||Ralink RT25xx||U-Boot||4MB||32MB||[http://forum.openwrt.org/viewtopic.php?id=4275 forum discussion]||
 
 == Further sources ==
 
