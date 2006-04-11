@@ -85,6 +85,13 @@ packets pass:
 {{{
 iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 }}}
+
+If your Openwrt is also a NAT you should add the following to prevent protocol 41 (6in4) to get listed on the NAT table. Otherwise your tunnel goes down after some time.
+{{{
+iptables -t nat -D POSTROUTING -o $WAN -j MASQUERADE
+iptables -t nat -A POSTROUTING --protocol ! 41 -o $WAN -j MASQUERADE
+}}}
+
 You need to place it into the right position of your firewall script (eg: just after/before "iptables -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
