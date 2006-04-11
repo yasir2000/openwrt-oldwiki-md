@@ -182,4 +182,4 @@ To put the WE800G into the bridged AP mode you have to bridge LAN and WLAN port,
 Note: There is no WAN interface, only LAN is in use. You may need to set lan_proto, lan_ipaddr, lan_netmask, lan_gateway, ... [:OpenWrtNVRAM:variables].
 
 ----
- . CategoryModel    
+CategoryModel
