@@ -94,21 +94,25 @@ Mode-specific information can be found on that model's page. See ["CategoryAR7De
 
 The AR7 is based on ejtag version 2.6.
 
-This ejtag layout should support all ar7 based boards with a 14 pin jtag pinout.  The same cable as used for the standard wrt54g (based on the xilinx III/dlc-5) as demonstrated by HairyDairyMaid can be constructed and is well documented.  Debug INT pin 13 is optional and pin 14 can be left unhooked for passive cabling.
+This EJTAG layout should support all AR7 based boards with a 14 pin jtag pinout.  The same cable as used for the standard wrt54g (based on the xilinx III/dlc-5) as demonstrated by HairyDairyMaid can be constructed and is well documented.  Debug INT pin 13 is optional and pin 14 can be left unhooked for passive cabling.
 
 Since DMA Routines do NOT exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
 
 [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for D-Link DSL-30xT], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
 
-it is possible to use latest jtag-tools (GPL) with EJTAG driver included to work with flash on AR7 based boards http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip It works with Xilinx-cable (5 resistors) http://openwince.sourceforge.net/jtag/iPAQ-3600/images/interface.png http://openwince.sourceforge.net/jtag/iPAQ-3600/images/14.jpg
+http://openwince.sourceforge.net/jtag/iPAQ-3600/images/interface.png
+
+it is possible to use latest jtag-tools (GPL) with EJTAG driver included to work with flash on AR7 based boards http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip It works with Xilinx-cable (5 resistors)  http://openwince.sourceforge.net/jtag/iPAQ-3600/images/14.jpg
+
+See a [:JTAG_Cables] page for more info
 
 commands example for Dlink DSL-500T router:
 
-jtag> cable parallel 0x378 DLC5
+{{{jtag> cable parallel 0x378 DLC5
 jtag> detect
 jtag> detectflash 0x30000000 1
 jtag> readmem 0x30000000 0x400000 dsl-500t-fullflash.img
-jtag> flashmem 0x30000000 adam2.img
+jtag> flashmem 0x30000000 adam2.img}}}
 
 
 ----
