@@ -1,7 +1,17 @@
 '''Netgear WG602 v2'''
 
 == Hardware ==
-The WG602 v2 appears to be based on an Intersil Prims chip. It has 2MB flash and 8MB RAM, and a detachable antenna.
+The WG602 v2 appears to be based on an Intersil Prims chip:
+ . {{{
+# cat /proc/cpuinfo
+Processor       : ARM ARM946 rev 1 (v5l)
+BogoMIPS        : 71.88
+Hardware        : ISL3893
+Revision        : 0000
+Serial          : 0000000000000000
+}}}
+
+It has 2MB flash and 8MB RAM, and a detachable antenna.
 
  * Flash: Macronix 29LV160 ATTC-90 ([http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/7F9AFF543602ACAB48256FCD0002EA5C/$File/MX29LV160CT-B-1.2.pdf?OpenElement datasheet]): 16 Mbit
 
