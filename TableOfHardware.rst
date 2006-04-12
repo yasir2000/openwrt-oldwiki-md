@@ -57,11 +57,11 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||FRITZ!Box Fon 5010 (analog) || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon 5012 (ISDN) || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon 5050 || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon WLAN || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon WLAN 7050 || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon WLAN 7140 || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon WLAN 7170 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon 5050 || ||ar7@150mhz ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4 || 16 || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4 || 16 || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz||8|| 32 || || || || || || || Untested ||
+||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8 || 32 || || || || || || || Untested ||
 
 
 
