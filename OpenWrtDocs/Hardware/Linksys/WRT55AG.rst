@@ -260,7 +260,7 @@ wlan0 ->
 [[BR]]http://www.analogmicro.com
 
 
-===== As Bridge =====
+==== As Bridge ====
 Check it out, though -- from the extended menu, it looks like you can set the Operation Mode on these devices through the Serial Port:
 
 set operationMode ap               -- Operating as Access Point
