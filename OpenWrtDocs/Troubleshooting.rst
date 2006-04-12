@@ -183,22 +183,5 @@ Oh, and by the way, this cable is a good thing to have anyway, because many embe
 
 The [:JTAG Cables: JTAG Cables] page addresses issues that may be encountered with the above type of cable when used with the de-bricking utility program.
 
-'''Siemens models '''
-
-On Siemens SE505 v2 models the JTAG connector is labeled J7.
-
-{{{
-JTAG connector J7
-
-   2   1
-    o o
-    o o-TDO
-    o o-TDI
-    o o-TCK
-GND-o o-TMS
-  10   9
-
-}}}
-
 = Getting help =
 Still stuck? See [http://openwrt.org/support how to get help and support] for information on where to get further help.
