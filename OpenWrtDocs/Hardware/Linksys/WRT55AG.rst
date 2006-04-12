@@ -259,6 +259,19 @@ wlan0 ->
 - Analog Microelectronics, Inc. (AME)
 [[BR]]http://www.analogmicro.com
 
+
+===== As Bridge =====
+Check it out, though -- from the extended menu, it looks like you can set the Operation Mode on these devices through the Serial Port:
+
+set operationMode ap               -- Operating as Access Point
+set operationMode sta              -- Operating as Wireless Client
+set operationMode ppt              -- Operating as Wireless Bridge
+set operationMode mpt              -- Operating as Multi-point Bridge
+set operationMode repeater         -- Operating as Wireless Repeater
+
+Hmm -- Maybe one could get this running as a Dual-Channel Wireless Bridge without OpenWRT? :-D 
+
+
 ==== Booting Linux ====
 See http://www.not404.com/cgi-bin/trac.fcgi/wiki/OpenWRT/Atheros/Linksys/WRT55AGv2 link for more info.
 
