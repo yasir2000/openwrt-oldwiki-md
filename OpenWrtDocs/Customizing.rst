@@ -40,6 +40,7 @@ note: For the serial console on a WRT54G with a USB cell phone cable, the follow
 === Terminal software ===
  * Hyperterm (comes with many versions of MS Windows)
  * Minicom (for POSIX systems)
+ * [http://efault.net/npat/hacks/picocom/ picocom]
  * cu(1) (part of the Taylor UUCP package, for POSIX systems)
 
 === Finding Serial Console ===
