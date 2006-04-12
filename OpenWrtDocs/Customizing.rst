@@ -23,10 +23,10 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 http://www.rwhitby.net/wrt54gs/serial.html
 
 
-This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name. There are some kits availables.
+This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name. You can also search for MAX232 Kits. There are some kits availables.
 
 
- * [http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem Ebay],
+ * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
  * http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
 
