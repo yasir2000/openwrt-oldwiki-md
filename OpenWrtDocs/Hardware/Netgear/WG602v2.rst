@@ -12,7 +12,7 @@ Revision        : 0000
 Serial          : 0000000000000000
 }}}
 
-It has 2MB flash and 8MB RAM, and a detachable antenna.
+It has 2MB flash and 8MB RAM,Ruben Faelens and a detachable antenna.
 
  * Flash: Macronix 29LV160 ATTC-90 ([http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/7F9AFF543602ACAB48256FCD0002EA5C/$File/MX29LV160CT-B-1.2.pdf?OpenElement datasheet]): 16 Mbit
 
@@ -37,11 +37,11 @@ Unsupported.
 
 [http://www.warp.at/projects/wg602.html warp at article] on building and booting via TFTP your firmware for the Netgear WG602 v2.
 [http://appeltaart.mine.nu/wiki/index.php/ISL3893 Appletaart wiki] for ISL3893 based Accss Points.
- [http://isl3893.sourceforge.net/ ISL3893 page] on SourceForge. 
+[http://isl3893.sourceforge.net/ ISL3893 page] on SourceForge. 
 The Prism 54 project [http://prism54.org/ web site]. 
 SoftMAC Prism [http://jbnote.free.fr/islsm/doku.php?id=documentation:isl38xx_hardware documentation].
- [http://www.seattlewireless.net/ISL3893 ISL3893] and [http://www.seattlewireless.net/NetgearWG602v2 WG602v2] documentation at SeattleWireless.
- [http://www.student.kuleuven.ac.be/~s0169612/isl3893.html ISL3893] development by Ruben Faelens.
+[http://www.seattlewireless.net/ISL3893 ISL3893] and [http://www.seattlewireless.net/NetgearWG602v2 WG602v2] documentation at SeattleWireless.
+[http://www.student.kuleuven.ac.be/~s0169612/isl3893.html ISL3893] development by Ruben Faelens.
 
 ----
  CategoryModel
