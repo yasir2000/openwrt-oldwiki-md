@@ -7,7 +7,7 @@ See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
 ||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Development[[BR]]Kamikaze'''||
 ||WRT54GL v1||<:> CL7A ||<:> (./) ||<:> (./) ||
-||WRT54GL v1.1||<:> CL7B ||<:> ? ||<:> ? ||
+||WRT54GL v1.1||<:> CL7B ||<:> (./) (see http://forum.openwrt.org/viewtopic.php?pid=25017) ||<:> ? ||
 
 == Board info and CPU model ==
 ||'''Model'''||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu  model'''||
