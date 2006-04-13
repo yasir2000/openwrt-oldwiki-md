@@ -30,5 +30,18 @@ GPL source code releases are available from the Netgear [http://kbserver.netgear
 
 == OpenWRT ==
 Unsupported.
+
+== Links ==
+
+...in random order...
+
+[http://www.warp.at/projects/wg602.html warp at article] on building and booting via TFTP your firmware for the Netgear WG602 v2.
+[http://appeltaart.mine.nu/wiki/index.php/ISL3893 Appletaart wiki] for ISL3893 based Accss Points.
+[http://isl3893.sourceforge.net/ ISL3893 page] on SourceForge.
+The Prism 54 project [http://prism54.org/ web site].
+SoftMAC Prism [http://jbnote.free.fr/islsm/doku.php?id=documentation:isl38xx_hardware documentation].
+[http://www.seattlewireless.net/ISL3893 ISL3893] and [http://www.seattlewireless.net/NetgearWG602v2 WG602v2] documentation at SeattleWireless.
+[http://www.student.kuleuven.ac.be/~s0169612/isl3893.html ISL3893] development by Ruben Faelens.
+
 ----
 CategoryModel
