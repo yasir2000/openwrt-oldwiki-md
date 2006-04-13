@@ -29,6 +29,6 @@ GPL source code releases are available from the Netgear [http://kbserver.netgear
  * [ftp://downloads.netgear.com/files/GPL/wg602-code-3.2rc6.tar.bz2 3.2 rc6]
 
 == OpenWRT ==
-Yet untested.
+Unsupported.
 ----
 CategoryModel
