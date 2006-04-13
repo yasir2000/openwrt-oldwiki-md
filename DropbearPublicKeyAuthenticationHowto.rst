@@ -131,6 +131,10 @@ Now it's time to reboot.
 
 If everything works as expected you may delete {{{/etc/init.d/S50telnet}}} script so that already disabled {{{telnetd}}} daemon does not start any more.
 
+{{{rm /etc/init.d/S50telnet}}}
+
+The next reboot will free some CPU resources for you.
+
 = Troubleshooting =
 Make sure the {{{/etc/dropbear}}} directory is {{{chmod}}}ed 0700 and the {{{/etc/dropbear/authorized_keys}}} file 0600.
 
