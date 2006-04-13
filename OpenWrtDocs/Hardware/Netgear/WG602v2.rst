@@ -39,7 +39,7 @@ Unsupported.
 
 [http://appeltaart.mine.nu/wiki/index.php/ISL3893 Appletaart wiki] for ISL3893 based Accss Points.
 
-[http://isl3893.sourceforge.net/ ISL3893 page] on SourceForge. 
+[http://isl3893.sourceforge.net/ ISL3893 page] on !SourceForge. 
 
 The Prism 54 project [http://prism54.org/ web site]. 
 
