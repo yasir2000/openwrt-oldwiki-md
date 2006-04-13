@@ -129,6 +129,8 @@ The the last line should look like:
 
 Now it's time to reboot.
 
+If everything works as expected you may delete {{{/etc/init.d/S50telnet}}} script so that already disabled {{{telnetd}}} daemon does not start any more.
+
 = Troubleshooting =
 Make sure the {{{/etc/dropbear}}} directory is {{{chmod}}}ed 0700 and the {{{/etc/dropbear/authorized_keys}}} file 0600.
 
