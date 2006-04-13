@@ -131,7 +131,8 @@ Now it's time to reboot.
 
 If everything works as expected you may delete {{{/etc/init.d/S50telnet}}} script so that already disabled {{{telnetd}}} daemon does not start any more.
 
-{{{rm /etc/init.d/S50telnet}}}
+{{{
+rm /etc/init.d/S50telnet}}}
 
 The next reboot will free some CPU resources for you.
 
