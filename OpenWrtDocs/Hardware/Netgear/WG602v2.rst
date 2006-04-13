@@ -2,6 +2,7 @@
 
 == Hardware ==
 The WG602 v2 appears to be based on an Intersil Prims chip:
+
  . {{{
 # cat /proc/cpuinfo
 Processor       : ARM ARM946 rev 1 (v5l)
@@ -17,7 +18,7 @@ It has 2MB flash and 8MB RAM, and a detachable antenna.
 
  * RAM: !EtronTech EM638165TS-7 ([http://www.etron.com/manager/uploads/EM638165_v17.pdf datasheet]): 64Mbit (4M x 16) 7 ns (143 MHz) low power SDRAM
 
-It has a populated UART connector, and un-populated JTAG. 
+It has a populated UART connector, and un-populated JTAG.
 
 == Netgear Firmware ==
 Binary firmare releases can be found on the Netgear [http://kbserver.netgear.com/products/WG602v2.asp WG602v2 support] web page:
@@ -32,16 +33,15 @@ GPL source code releases are available from the Netgear [http://kbserver.netgear
 Unsupported.
 
 == Links ==
-
 ...in random order...
 
 [http://www.warp.at/projects/wg602.html warp at article] on building and booting via TFTP your firmware for the Netgear WG602 v2.
 [http://appeltaart.mine.nu/wiki/index.php/ISL3893 Appletaart wiki] for ISL3893 based Accss Points.
-[http://isl3893.sourceforge.net/ ISL3893 page] on SourceForge.
-The Prism 54 project [http://prism54.org/ web site].
+ [http://isl3893.sourceforge.net/ ISL3893 page] on SourceForge. 
+The Prism 54 project [http://prism54.org/ web site]. 
 SoftMAC Prism [http://jbnote.free.fr/islsm/doku.php?id=documentation:isl38xx_hardware documentation].
-[http://www.seattlewireless.net/ISL3893 ISL3893] and [http://www.seattlewireless.net/NetgearWG602v2 WG602v2] documentation at SeattleWireless.
-[http://www.student.kuleuven.ac.be/~s0169612/isl3893.html ISL3893] development by Ruben Faelens.
+ [http://www.seattlewireless.net/ISL3893 ISL3893] and [http://www.seattlewireless.net/NetgearWG602v2 WG602v2] documentation at SeattleWireless.
+ [http://www.student.kuleuven.ac.be/~s0169612/isl3893.html ISL3893] development by Ruben Faelens.
 
 ----
-CategoryModel
+ CategoryModel
