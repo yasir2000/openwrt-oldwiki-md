@@ -10,7 +10,7 @@ Well OLSR is one of the routing protocol available for Mobile Adhoc Network(MANE
 
 Actually if the objective is just to have a quick mesh you should be looking at Freifunk firmware or [:http:what-a-mesh] firmware which is openwrt+olsr. But if you want to do it all your self which was as in my case you can follow the below methods
 
-'''__HOW TO:____'''__ __ __ __
+'''__HOW TO:__''' __ __ __ __
 
 1.The Base Configuration:
 
@@ -41,4 +41,4 @@ Refrence::
 http://wiki.openwrt.org/OpenWrtDocs :Everything and anything in it
 
 ----
- . CategoryHowTo    
+ . CategoryHowTo     
