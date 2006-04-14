@@ -108,7 +108,7 @@ idlist8 = 0
 idlist9 = 0
 }}}
 
-Everything is pretty straightforward, the one thing you may want to take note of are the lines: viewerport = 5800 serverport = 5900 The viewerport is the port on the wan side which your viewer will connect to. The serverport is the port on the lan side whuch the repeater will connect to the server on.
+Everything is pretty straightforward, the one thing you may want to take note of are the lines: viewerport = 5800 serverport = 5900 The viewerport is the port on the wan side which your viewer will connect to. The serverport is the port on the lan side which the repeater will connect to the server on.
 
 = Usage =
 NOTE: This is INCOMPATIBLE with the Java based viewer. You MUST use a vnc viewer that supports proxy servers in order to use this repeater.
