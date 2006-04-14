@@ -24,7 +24,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
 
- * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://unix.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
+ * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
 
  * All of the entries in the ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
 
