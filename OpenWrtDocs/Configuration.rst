@@ -388,23 +388,9 @@ nvram set wl0_mode=wet
 
 For more information, see [:ClientModeHowto].
 
-
-== SecureEasySetup button (a.k.a. CISCO button) ==
-
-You may use SES button to bring wireless connectivity ON or OFF conviniently.
-For more information have a look at the "Packages" file at http://www.ethernal.org/openwrt/
-
-Login into {{{webif}}} and select "System->Installed Software" page. Update the package list and install {{{libgcc}}}. Then use {{{dropbear}}} to install these two packages:
-{{{
-ipkg install http://www.ethernal.org/openwrt/gpio_0.1-1_mipsel.ipk
-ipkg install http://www.ethernal.org/openwrt/cisco-button_0.1-3_mipsel.ipk
-}}}
-
-Reboot:
-{{{
-sync
-reboot
-}}}
+## == SecureEasySetup button (a.k.a. CISCO button) ==
+##
+## obsolete text removed - please use the /proc/sys/diag and /proc/sys/button interfaces
 
 = Basic system configuration and usage =
 
