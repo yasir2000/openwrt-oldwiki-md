@@ -38,7 +38,18 @@ serinfo:1.0 driver:5.05c revision:2001-07-08
 If you are going to work much with the serial ports, recommend to use the buildroot kit to build a firmware with BusyBox including the optional stty, getty, setserial, and maybe login programs.
 
 == JTAG ==
-2 locations on back of board with JTAG markings, but does not account for all pins needed. Hypothesis of user bbarrett at DSLreports.com was that Linksys uses a "bed of nail" test fixture and the contact points are scattered and not all labelled.
+No JTAG header is available.  However, all basic pins are present on test points: 
+inline:wrtsl54gs_jtag.jpg
+
+SRST and TRST haven't been identified, but ignoring them doesn't prevent JTAG to operate.
+
+Be warned that soldering or probing on test points is fairly tricky.
+
+Both Xilinx and Wiggler cables should work - see [http://wiki.openwrt.org/JTAG_Cables this] wiki entry.
+
+HairyDairyMaid's debricker is working, but currently requires /skipdetect and instrlen:8 options since the 4704 isn't in the list of supported processors.  The 28F640J3 flash in the SL is in the known part list of the debricker.
+
+A JTAG discussion thread is [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=14754 here].
 
 == LED10 ==
 The LED10 location at front of board contains no LED. Perhaps it is usable by GPIO functions for 1-Wire or similar.
