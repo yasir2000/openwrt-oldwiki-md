@@ -114,7 +114,7 @@ The serverport is the port on the lan side whuch the repeater will connect to th
 = Usage =
 NOTE: This is INCOMPATIBLE with the Java based viewer. You MUST use a vnc viewer that supports proxy servers in order to use this repeater.
 
-In order to use the repeater, (sa I said above) you're viewer must support a proxy server. A great viewer I suggest is the standalone viewer available from [http://ultravnc.sourceforge.net/ ultravnc]: Get it [http://prdownloads.sourceforge.net/ultravnc/UltraVnc-Viewer-101.zip?download here]. The proxy server will be configured to be your wan address (Dyndns is good for this) and the port the repeater is running on (ex. home.dyndns.org:5800). The server address is the LOCAL address of the computer you want to connect to (ex. 192.168.1.2).
+In order to use the repeater, (as I said above) you're viewer must support a proxy server. A great viewer I suggest is the standalone viewer available from [http://ultravnc.sourceforge.net/ ultravnc]: Get it [http://prdownloads.sourceforge.net/ultravnc/UltraVnc-Viewer-101.zip?download here]. The proxy server will be configured to be your wan address (Dyndns is good for this) and the port the repeater is running on (ex. home.dyndns.org:5800). The server address is the LOCAL address of the computer you want to connect to (ex. 192.168.1.2).
 
 That's it!
 
