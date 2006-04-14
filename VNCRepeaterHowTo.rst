@@ -120,5 +120,5 @@ That's it!
 
 = Notes =
 
-I hope you find the repeater useful, i decided to port it to the !OpenWrt (MANY thanks to florian_ for helping to get it to compile) cuz i really needed it (i want to get rid of my server).
+I hope you find the repeater useful, i decided to port it to the !OpenWrt cuz i have been working to get rid of my server and replace it with my router. (many thanks to florian_ for helping to get it to compile)
 If you have any comments/suggestions, you can reach me at the [http://forum.openwrt.org/profile.php?id=4786 forum]
