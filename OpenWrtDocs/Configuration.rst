@@ -1,7 +1,8 @@
 #acl Known:read,write All:read
 ##
 ## Note: these pages document the firmware itself, not packages
-##       questions/comments should be posted to the forum
+##       QUESTIONS AND COMMENTS SHOULD BE POSTED TO THE FORUM
+##       DO NOT ADD "On my router..." COMMENTS TO THIS PAGE
 ##
 ## THIS PAGE DOCUMENTS THE FIRMWARE, NOT PACKAGES
 ## DO NOT ADD PACKAGE DOCUMENTATION/CONFIGURATION TO THIS PAGE
@@ -369,8 +370,6 @@ If you activate both you will double the pain to find a problem.
  1. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 
-'''NOTE:''' Using a WRT54GS v4, I discovered wl0_hwaddr to be empty by default. The workaround was to clear wl0_wds and set wl0_lazywds to 1 on both routers. It may be possible to set wl0_hwaddr manually and use the above method, which would be more secure.
-
 /!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the
 WIFI" above, this will not just work, since you no longer have a br0 device. You will have
 to add a bridge to one of your devices again, and create appropriate firewall rules, to make
@@ -493,13 +492,6 @@ echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 '''NOTE:''' This sets the time zone for CET/CEST (Central European Time UTC+1 / Central European
 Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October
 at 03:00) of DST (Daylight Saving Time).
-
-Also it is a good idea to put this somewhere in {{{/etc/profile}}} file:
-{{{
-[ -f /etc/TZ ] && export TZ=$(cat /etc/TZ)}}}
-## does anyone know why this is so?  it seems to work fine without it!  webif shows immediate change.  if TZ environment variable is not present, uClibc reads /etc/TZ -- Quozl
-## I like it this way because you may be ssh-ing into a box from another time zone and your ssh-client will use the box'es TZ rather than your local. -- AnthonyOZ
-## Thanks AnthonyOZ. Are you using dropbear on OpenWrt? I've tested this just now by SSH'ing into OpenWrt from a box which has a different TZ, even one specificially driven on command line (e.g. TZ=GMT ssh root@openwrt) but every time it uses /etc/TZ.  We can talk by mail if you like.  quozl@us.netrek.org or qz@hp.com.  Or reply here.
 
 More can be found here [http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640]
 and [http://openwrt.org/forum/viewtopic.php?id=131].
