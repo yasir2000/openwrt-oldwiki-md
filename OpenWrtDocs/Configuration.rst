@@ -392,6 +392,7 @@ For more information, see [:ClientModeHowto].
 == SecureEasySetup button (a.k.a. CISCO button) ==
 
 You may use SES button to bring wireless connectivity ON or OFF conviniently.
+For more information have a look at the "Packages" file at http://www.ethernal.org/openwrt/
 
 Login into {{{webif}}} and select "System->Installed Software" page. Update the package list and install {{{libgcc}}}. Then use {{{dropbear}}} to install these two packages:
 {{{
