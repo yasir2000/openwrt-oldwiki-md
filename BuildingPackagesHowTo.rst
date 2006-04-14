@@ -30,6 +30,7 @@ has not been already done by someone else. To check that
 of the development version in your web browser and see if the package is already there.
 Don't do the work twice.
 
+
 Let's start with porting and packaging the well known "Hello world"
 program as an example.
 
@@ -115,9 +116,23 @@ config BR2_PACKAGE_HELLO
 
 === package/helloworld/Makefile ===
 
+The Makefile rely one the way the software you want to package is shipped. Basically we can divide the software into 2 main categories :
+
+    * C (or ANSI-C) programs
+        * shipped with configure script
+        * shipped with Makefile script (with references to gcc or $(CC) )
+        * sources files only
+    * C++ programs
+        * potentially uClibc++ linkables
+        * not uClibc++ linkables
+
+
 '''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball.
 Use {{{@SF/hello}}} (choose a random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your
 program has a download location on !SourceForge.
+
+
+=== Sample Makefile for C/C++ programs shipped with configure script ===
 
 {{{
 include $(TOPDIR)/rules.mk
@@ -154,6 +169,8 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
                         --without-libiconv-prefix \
                         --without-libintl-prefix \
                         --disable-nls \
+                        <Add here software specific configurable options
+                          accessibles through : ./configure --help >
         );
         touch $@
 
@@ -163,12 +180,12 @@ $(PKG_BUILD_DIR)/.built:
         $(MAKE) -C $(PKG_BUILD_DIR)/src \
                 $(TARGET_CONFIGURE_OPTS) \
                 prefix="$(PKG_INSTALL_DIR)/usr"
-        cp -fpR $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
         touch $@
 
 $(IPKG_HELLO):
         install -d -m0755 $(IDIR_HELLO)/usr/bin
-        cp -fpR $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
         $(RSTRIP) $(IDIR_HELLO)
         $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
 
@@ -176,6 +193,168 @@ mostlyclean:
         make -C $(PKG_BUILD_DIR) clean
         rm $(PKG_BUILD_DIR)/.built
 }}}
+
+=== Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC) ===
+
+If you Makefile contains harcoded "gcc" commands, then you will have to patch the makefile and replace gcc with $(CC) in order to define at "make time" the cross-compiler to use.
+
+{{{
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        #Since there is no configure script, we can directly go to the building step
+        touch $@
+
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(MAKE) -C $(PKG_BUILD_DIR)/src \
+                CC=$(TARGET_CC) \ #Note here that we pass cross-compiler as default compiler to use
+                $(TARGET_CONFIGURE_OPTS) \
+                prefix="$(PKG_INSTALL_DIR)/usr"
+        $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built
+}}}
+
+=== Sample Makefile for C/C++ programs without makefiles (usually one or two source files) ===
+
+{{{
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        #Since there is no configure script, we can directly go to the building step
+        touch $@
+
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(TARGET_CC) $(PKG_BUILD_DIR)/$(PKG_NAME).c -o $(PKG_BUILD_DIR)/$(PKG_NAME) -lyourlib #Note we directly call the cross-compiler and define its output
+        $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built
+}}}
+
+=== Sample Makefile for C++ shipped with configure script, and uClibc++ linkables ===
+
+{{{
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        (cd $(PKG_BUILD_DIR); \
+                $(TARGET_CONFIGURE_OPTS) \
+                CFLAGS="$(TARGET_CFLAGS)" \
+                CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
+                LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
+                ./configure \
+                        CXXFLAGS="$(TARGET_CFLAGS) -fno-builtin -fno-rtti -nostdinc++" \
+                        CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
+                        LDFLAGS="-nodefaultlibs -L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \ #do not use default libraries since we want uClibc++ linking
+                        LIBS="-luClibc++ -lc -lm -lgcc" \ # You may need to add other libraries : lpcap, lssl ... #
+                        --target=$(GNU_TARGET_NAME) \
+                        --host=$(GNU_TARGET_NAME) \
+                        --build=$(GNU_HOST_NAME) \
+                        --prefix=/usr \
+                        --without-libiconv-prefix \
+                        --without-libintl-prefix \
+                        --disable-nls \
+                        <Add here software specific configurable options
+                          accessibles through : ./configure --help >
+        );
+        touch $@
+
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(MAKE) -C $(PKG_BUILD_DIR)/src \
+                $(TARGET_CONFIGURE_OPTS) \
+                prefix="$(PKG_INSTALL_DIR)/usr"
+        $(CC) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built
+}}}
+
 
 
 === package/helloworld/ipkg/hello.control ===
