@@ -7,16 +7,19 @@ I'm sure many of you are asking, "What is a VNC Repeater?" Well, say you have 2 
 Full documentation on the repeater is available at [http://ultravnc.sourceforge.net/addons/repeater.html ultravnc]
 
 = Installation =
-To install the repeater, simply type
+Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
+
 {{{
-ipkg install http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/vncrepeater_0.12-2_mipsel.ipk
+ipkg install vncrepeater
 }}}
+
 You may want to check if a new version is available [http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/ here]
 
 = Configuration =
 Configuration is pretty straightforward, The file /etc/vncrepeater.conf is the config file. (please note that I know about the ^M charachters you see when editing the file in vim and I am working to fix it)
 
 The config file is as follows:
+
 {{{
 [general]
 ;Ports
@@ -105,11 +108,7 @@ idlist8 = 0
 idlist9 = 0
 }}}
 
-Everything is pretty straightforward, the one thing you may want to take note of are the lines:
-viewerport = 5800
-serverport = 5900
-The viewerport is the port on the wan side which your viewer will connect to.
-The serverport is the port on the lan side whuch the repeater will connect to the server on.
+Everything is pretty straightforward, the one thing you may want to take note of are the lines: viewerport = 5800 serverport = 5900 The viewerport is the port on the wan side which your viewer will connect to. The serverport is the port on the lan side whuch the repeater will connect to the server on.
 
 = Usage =
 NOTE: This is INCOMPATIBLE with the Java based viewer. You MUST use a vnc viewer that supports proxy servers in order to use this repeater.
@@ -119,6 +118,4 @@ In order to use the repeater, (as I said above) you're viewer must support a pro
 That's it!
 
 = Notes =
-
-I hope you find the repeater useful, i decided to port it to the !OpenWrt cuz i have been working to get rid of my server and replace it with my router. (many thanks to florian_ for helping to get it to compile)
-If you have any comments/suggestions, you can reach me at the [http://forum.openwrt.org/profile.php?id=4786 forum]
+I hope you find the repeater useful, i decided to port it to the !OpenWrt cuz i have been working to get rid of my server and replace it with my router. (many thanks to florian_ for helping to get it to compile) If you have any comments/suggestions, you can reach me at the [http://forum.openwrt.org/profile.php?id=4786 forum]
