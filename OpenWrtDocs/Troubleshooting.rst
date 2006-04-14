@@ -18,7 +18,9 @@ Download and run recvudp utility.
 
 Source code: [http://downloads.openwrt.org/people/nbd/recvudp.c recvudp.c]
 
-Binaries: [http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx.tar.gz MacOSX] [http://openwrt.inf.fh-brs.de/~olli/recvudp GNU/Linux (x86)] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
+Binaries:
+[http://openwrt.inf.fh-brs.de/~olli/recvudp GNU/Linux (x86)] 
+[http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
 
 The recvudp program opens a blank window and listens on UDP port 4919. Set the client to a static IP in the failsafe subnet range. The router will come up as 192.168.1.1 so 192.168.1.10 for example is good. Plug in the router and wait for the go signal. Do NOT press reset before you get this:
 
