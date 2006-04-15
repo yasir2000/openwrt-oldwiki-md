@@ -8,7 +8,7 @@ Actually if the objective is just to have a quick mesh you should be looking at 
 
 The Network
 
-                        
+       {{{                 
 
 
                                   Wired to Lan Client (HNA4)
@@ -22,6 +22,8 @@ The Network
 
 
 
+
+      }}}   
 Both Nodes(WRTs) need to have olsr installed.Same is the case for any n number of nodes participating.OLSR has to run on WIFI interface running it on wired interface is optional tho it wont be of much help.The non olsr interfaces (like WAN and wired client in the above case) are added by entering the network/ip address in the HNA4  field of the olsrd.conf file.
 
 __'''HOW TO''' __ __ __ __ __ __ __
