@@ -1,6 +1,6 @@
 '''NOTE:''' This section is under development- Please correct, annotate - but do not complain yet.
 
-'''Caution:''' This Setup needs to be chcecked.
+'''Caution:''' This Setup needs to be checked.
 
 = Introduction =
 The howto part of this section can be read as a description howto get as far as got configuring l2tp over ipsec. Corrections are highly appreciated.
