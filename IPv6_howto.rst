@@ -1,16 +1,17 @@
 [[TableOfContents]]
-
 = Preface =
-This HOWTO describes how to setup IPv6 on your OpenWrt based router. 
+This HOWTO describes how to setup IPv6 on your OpenWrt based router.
 
 There is 2 big different steps :
-  1. setup a working ipv6 connection on the OpenWRT router. This can either be:
-      * using a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric]).
-      * using 6to4, a standard encapsulation protocol for IPv6 over IPv4
-  2. propagate the IPv6 subnet to the LAN with radvd
+
+ 1. setup a working ipv6 connection on the OpenWRT router. This can either be:
+  * using a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric]).
+  * using 6to4, a standard encapsulation protocol for IPv6 over IPv4
+ 1. propagate the IPv6 subnet to the LAN with radvd
 
 = Install necessary software =
 To use IPv6 we need the following modules:
+
  * IPv6 kernel module (always)
  * IPv6 routing software (always, to configure IPv6 routing)
  * ip6tables kernel modules (optional, if you need an IPv6 firewall)
@@ -23,6 +24,7 @@ ipkg install kmod-ipv6
 
 == Install the routing software ==
 To configure the interfaces and the routing tables we need the new iputils. Additionally we need the route advertising daemon to propagate the IPv6 route to our local subnet.
+
 {{{
 ipkg install radvd
 ipkg install ip
@@ -41,12 +43,15 @@ ipkg install ip6tables
 = Setup software =
 == Kernel ==
 The ipv6 module is automatically loaded at boot time, if you don't want to reboot issue
+
 {{{
 insmod ipv6
 }}}
+
 to load the ipv6 module into the kernel.
 
 After this your router has IPv6 support. To check this you could use ifconfig to validate the ::1/128 IPv6 address is assigned to the loopback device.
+
 {{{
 # ifconfig lo 
 lo        Link encap:Local Loopback  
@@ -59,14 +64,15 @@ lo        Link encap:Local Loopback
           RX bytes:10395 (10.1 KiB)  TX bytes:10395 (10.1 KiB)
 }}}
 
-
 Optionally, you can load the ip6table modules into the kernel
+
 {{{
 insmod ip6_tables
 insmod ip6table_filter
 }}}
 
 To check the installation of ip6tables you can use the ip6tables show command.
+
 {{{
 # ip6tables -L
 Chain INPUT (policy ACCEPT)
@@ -80,13 +86,14 @@ target     prot opt source               destination
 }}}
 
 == IPTables ==
-In my firewall script I had to add the following rule to let the encapsulated
-packets pass:
+In my firewall script I had to add the following rule to let the encapsulated packets pass:
+
 {{{
 iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 }}}
 
 If your Openwrt is also a NAT you should add the following to prevent protocol 41 (6in4) to get listed on the NAT table. Otherwise your tunnel goes down after some time.
+
 {{{
 iptables -t nat -D POSTROUTING -o $WAN -j MASQUERADE
 iptables -t nat -A POSTROUTING --protocol ! 41 -o $WAN -j MASQUERADE
@@ -95,12 +102,9 @@ iptables -t nat -A POSTROUTING --protocol ! 41 -o $WAN -j MASQUERADE
 You need to place it into the right position of your firewall script (eg: just after/before "iptables -A INPUT -p 47 -j ACCEPT" ).
 
 = Setup IPv6 connectivity =
-
-You can choose between using 6to4 (standard, works from anywhere) or a SixXS tunnel (if you are near a Point of Presence).
-6to4 is probably the quickest to setup at first.
+You can choose between using 6to4 (standard, works from anywhere) or a SixXS tunnel (if you are near a Point of Presence). 6to4 is probably the quickest to setup at first.
 
 == 6to4 with a direct connection to the Internet ==
-
 This applies e.g. if you WAN port (on vlan1) receives an public IPv4 address through DHCP or is assigned a static public IPv4 address.
 
 To have the 6to4 tunnel start up automatically on boot, copy this script in ''/etc/init.d/S42tun6to4'':
@@ -202,10 +206,10 @@ esac
 }}}
 
 == 6to4 tunnel with an Internet connection that uses PPP ==
-If you connect to your ISP using PPP (usually PPPoE):
-When the ppp interface comes up, the ppp daemon calls the /etc/ppp/ip-up script, when it goes down the /etc/ppp/ip-down script. Those scripts call /etc/hotplug.d/iface/* with the appropriate parameters.
+If you connect to your ISP using PPP (usually PPPoE): When the ppp interface comes up, the ppp daemon calls the /etc/ppp/ip-up script, when it goes down the /etc/ppp/ip-down script. Those scripts call /etc/hotplug.d/iface/* with the appropriate parameters.
 
 To set up ipv6 support write /etc/hotplug.d/iface/10-ipv6
+
 {{{
 . /etc/functions.sh
 NAME=ipv6
@@ -238,6 +242,7 @@ COMMAND=/usr/sbin/ip
 
 == Static tunnel to SixXS.net ==
 ''Note: this script should works with any Tunnel Broker''
+
 ----
 {{{
 #!/bin/sh
@@ -249,28 +254,28 @@ REMTUN=SixXS IPv6 Endpoint
 
 case $1 in
 start)
-	echo -n "Starting SixXS.Net IPv6 tunnel: "
-	ip tunnel add sixxs mode sit local $LOCALIP remote $POPIP
-	ip link set sixxs up
-	ip link set mtu 1280 dev sixxs
-	ip tunnel change sixxs ttl 64
-	ip -6 addr add $LOCTUN/64 dev sixxs
-	ip -6 ro add default via $REMTUN dev sixxs
-	echo "Done."
-	;;
+        echo -n "Starting SixXS.Net IPv6 tunnel: "
+        ip tunnel add sixxs mode sit local $LOCALIP remote $POPIP
+        ip link set sixxs up
+        ip link set mtu 1280 dev sixxs
+        ip tunnel change sixxs ttl 64
+        ip -6 addr add $LOCTUN/64 dev sixxs
+        ip -6 ro add default via $REMTUN dev sixxs
+        echo "Done."
+        ;;
 stop)
-	echo -n "Stopping SixXS.Net IPv6 tunnel: "
-	ip link set sixxs down
-	ip tunnel del sixxs
-	echo "Done."
-	;;
+        echo -n "Stopping SixXS.Net IPv6 tunnel: "
+        ip link set sixxs down
+        ip tunnel del sixxs
+        echo "Done."
+        ;;
 restart)
-	$0 stop
-	$0 start
-	;;
+        $0 stop
+        $0 start
+        ;;
 *)
-	echo "Usage: $0 {start | stop | restart}"
-	;;
+        echo "Usage: $0 {start | stop | restart}"
+        ;;
 esac
 exit 0
 }}}
@@ -281,29 +286,28 @@ ipkg install aiccu
 }}}
 
 Edit /etc/aiccu.conf :
+
  * put your login/passwd
  * configure "ipv4_interface" (usually vlan1)
  * comment the "tunnel_id" line if you have only one tunnel
 
-/!\  From the SixXS documentation :
-'''Keep your machine NTP synced, if the timestamp difference is bigger than 120
-seconds the heartbeat will be silently dropped. Note also that you need to select
-the correct time zone.'''
+/!\  From the SixXS documentation : '''Keep your machine NTP synced, if the timestamp difference is bigger than 120 seconds the heartbeat will be silently dropped. Note also that you need to select the correct time zone.'''
 
 This can be solved by installing ntpclient (to correctly set the clock on boot) and openntpd (to manage the drift).
 
 Now start the sixxs client :
+
 {{{
 aiccu start
 }}}
 
 If it doesn't work use {{{logread}}} to see what occurs
 
-
 = IPv6 on the LAN =
 At this point I suppose that you have a working ipv6 connection on the wrt, that you can ''ping6 www.kame.net'' without error.
 
-Using our mythical `2001:db8:0:f101::/64` network, we would put in /etc/radvd.conf the following lines:
+Using our mythical {{{2001:db8:0:f101::/64}}} network, we would put in /etc/radvd.conf the following lines:
+
 {{{
 # For more examples, see the radvd documentation.
 
@@ -320,19 +324,23 @@ interface br0
 };
 }}}
 
-Now we add `2001:db8:0:f101::1` to br0 & forward our delegated /64 subnet to br0 :
+Now we add {{{2001:db8:0:f101::1}}} to br0 & forward our delegated /64 subnet to br0 :
+
 {{{
 ip -6 addr add 2001:db8:0:f101::1/64 dev br0
 }}}
 
 After all this you can start the daemon:
+
 {{{
 /etc/init.d/S51radvd start
 }}}
+
 You can listen to its advertisments via the ''radvdump'' program.
 
 = Example for debugging purposes =
 Interface configuration:
+
 {{{
 root@OpenWrt:~# ip addr show
 1: lo: <LOOPBACK,UP> mtu 16436 qdisc noqueue
@@ -367,6 +375,7 @@ root@OpenWrt:~# ip addr show
 }}}
 
 Routing table:
+
 {{{
 root@OpenWrt:~# ip route show
 192.168.1.0/24 dev br0  proto kernel  scope link  src 192.168.1.1
@@ -392,6 +401,7 @@ default via 2001:6f8:202:e::1 dev sixxs  metric 1024  mtu 1280 advmss 1220
 }}}
 
 Interface configuration of a client machine:
+
 {{{
 ~$ ip addr show
 1: lo: <LOOPBACK,UP> mtu 16436 qdisc noqueue
@@ -411,13 +421,14 @@ Interface configuration of a client machine:
 }}}
 
 = Using IPv6 by default with Windows XP =
-
 Now you have 6to4 installed on your OpenWrt router with a radvd server, you can enable IPv6 on your Windows box by typing
+
 {{{
 netsh interface ipv6 install
 }}}
-at the command prompt. This will install IPv6 and you will get a 6to4 address. However Windows will only use it to communicate with
-other 6to4 addresses or other IPv6 only hosts by default (it will prefer IPv4 otherwise). To force IPv6 with dual stack non-6to4 hosts, use this:
+
+at the command prompt. This will install IPv6 and you will get a 6to4 address. However Windows will only use it to communicate with other 6to4 addresses or other IPv6 only hosts by default (it will prefer IPv4 otherwise). To force IPv6 with dual stack non-6to4 hosts, use this:
+
 {{{
 C:\>netsh
 netsh>interface ipv6
@@ -507,6 +518,7 @@ Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/
  * list of IPv6 ready application available in OpenWrt
  * start/stop radvd when connection goes up/down
  * provide IPv6 support to PPP
+ * add firewall rules for incoming IPv6 connections
 
 = Questions =
 How would i go about setting up radvd to announce an v6 address (6to4), derived from an DHCP assigned v4 address (it changes every few weeks)?
@@ -525,4 +537,5 @@ change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101:
                 AdvPreferredLifetime 120;
         };
 }}}
-That assumes vlan1 is your wan interface, and that you have a /48 address (according to [http://ezine.daemonnews.org/200101/6to4.html] you do get one with 6to4)
+
+That assumes vlan1 is your wan interface, and that you have a /48 address (according to http://ezine.daemonnews.org/200101/6to4.html you do get one with 6to4)
