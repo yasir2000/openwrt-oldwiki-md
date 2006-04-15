@@ -6,6 +6,32 @@ Well OLSR is one of the routing protocol available for Mobile Adhoc Network(MANE
 
 Actually if the objective is just to have a quick mesh you should be looking at Freifunk firmware or [:http:what-a-mesh] firmware which is openwrt+olsr. But if you want to do it all your self which was as in my case you can follow the below methods
 
+
+The Network
+
+
+                {{          
+
+
+                                                                    Wired to Lan Client (HNA4)
+                       (WAN)                                                 |
+                                                                                   / 
+ Internet---------->Node1-  -  -  -- -  -- -- ---   --  -- Node2 
+                                                     ^                           \ -  -  -  -- wifi to Client (Olsr/Non Olsr running client)
+                                                     | 
+                                                     |
+                                            Wifi Link with olsr 
+
+
+
+                      }}
+Both Nodes(WRTs) need to have olsr installed.Same is the case for any n number of nodes participating.OLSR has to run on WIFI interface running it on wired interface is optional tho it wont be of much help.The non olsr interfaces (like WAN and wired client in the above case) are added by entering the network/ip address in the HNA4  field of the olsrd.conf file.
+
+
+
+
+
+
 __'''HOW TO''' __ __ __ __ __ __ __
 
 1.The Base Configuration:
@@ -37,4 +63,4 @@ Refrence::
 http://wiki.openwrt.org/OpenWrtDocs :Everything and anything in it
 
 ----
- . CategoryHowTo         
+ . CategoryHowTo          
