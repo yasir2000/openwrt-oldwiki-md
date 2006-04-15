@@ -8,8 +8,15 @@ Actually if the objective is just to have a quick mesh you should be looking at 
 
 The Network
 
- . {{{
-                                   Wired to Lan Client (HNA4)                 (WAN)                    |                    |                     /   Internet---------->Node1- - - - - - -Node2                              ^           \ - - wifi to Client (Olsr/Non Olsr running client)                             |                              |                      Wifi LAN Link with olsr            }}}
+ {{{                           Wired to Lan Client (HNA4)
+                   (WAN)           |
+                     |             / 
+ Internet---------->Node1- - - - Node2 
+                      ^           \ - - wifi to Client (Olsr/Non Olsr running client)
+                      | 
+                      |
+               Wifi Link with olsr      
+ }}}
 
 Both Nodes(WRTs) need to have olsr installed.Same is the case for any n number of nodes participating.OLSR has to run on WIFI interface running it on wired interface is optional tho it wont be of much help.The non olsr interfaces (like WAN and wired client in the above case) are added by entering the network/ip address in the HNA4  field of the olsrd.conf file.
 
@@ -52,27 +59,19 @@ Now as the bridge br0 is broken we have to add a few lines into firewalll script
  iptables -t nat -F prerouting_rule
  iptables -t nat -F postrouting_rule
 
-
-
 # For forwarding WAN (internet) to WIFI
 
  iptables -A forwarding_rule -i $WAN  -o $WIFI  -j  ACCEPT 
 
 
-
-
-
 #For forwarding  LAN & WIFI in nodes
  
-
- iptables -A forwarding_rule -i $LAN  -o $WIFI  -j  ACCEPT
+iptables -A forwarding_rule -i $LAN  -o $WIFI  -j  ACCEPT
 
  
- #For WIFI clients to connect to node
+#For WIFI clients to connect to node
  
- iptables -A forwarding_rule -i $WIFI  -o $WIFI  -j  ACCEPT
-
-
+iptables -A forwarding_rule -i $WIFI  -o $WIFI  -j  ACCEPT
 
 
 #For connecting a Wired Lan client of node 1 to wired client of node 2
