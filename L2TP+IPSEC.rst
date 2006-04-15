@@ -1,48 +1,52 @@
 '''NOTE:''' This section is under development- Please correct, annotate - but do not complain yet.
 
-'''Caution:''' This Setup doesn't work yet.
+'''Caution:''' This Setup needs to be chcecked.
 
 = Introduction =
 The howto part of this section can be read as a description howto get as far as got configuring l2tp over ipsec. Corrections are highly appreciated.
 
-At the moment the l2tp-daemon is causing trouble. So the ipsec section is kept as easy as possible just to be able to communicate with l2tpd.
+The l2tp-daemon used to cause trouble. So the ipsec section is kept as easy as possible just to be able to communicate with l2tpd.
 
 [[TableOfContents]]
-
 = Howto =
 Read http://www.jacco2.dds.nl/networking/freeswan-l2tp.html which is a very useful and detailed description on how to setup l2tp over ipsec
 
 Instructions are for rc5 on a wrt54gs1.1
 
-
-
 == Divide wireless from wired network ==
-Divide the wireless from the wired network as described in [:Configuration]
+Divide the wireless from the wired network as described in ["Configuration"]
 
 == Base Configuration ==
-The wrt has 10.1.1.1 on at least one wired-port, the rig you're using to configure the stuff has 10.1.1.2 on the wire.
-The wrt has 10.1.10.1 on the wireless interface, where your test rig has 10.1.10.2. 
-Netmasks are 255.255.255.0 in both cases - Firewall is set up to allow everything.
+The wrt has 10.1.1.1 on at least one wired-port, the rig you're using to configure the stuff has 10.1.1.2 on the wire. The wrt has 10.1.10.1 on the wireless interface, where your test rig has 10.1.10.2.  Netmasks are 255.255.255.0 in both cases - Firewall is set up to allow everything.
 
 The following relies on this configuration.
 
-
 == Needed Packages ==
-You need to install OpenSwan, the OpenSwan-Kernel-Module and the L2TPd:
+You need to install OpenSwan, the OpenSwan-Kernel-Module
+
 {{{
-ipkg install openswan kmod-openswan l2tpd
-}}}
+ipkg install openswan kmod-openswan l2tpd}}}
+
+Aslo install the  L2TPd package. Use patched version:
+
+{{{
+ipkg install http://psg.com/~brian/software/openwrt/l2tpd_0.70pre-2_mipsel.ipk}}}
 
 == Debug stuff which is not needed for the real setup ==
-To debug your setup it is a good idea to install tcpdump and nmap right away:
+To debug your setup it is a good idea to install tcpdump and nmap right away (if You have enough space):
+
 {{{
 ipkg install tcpdump nmap
 }}}
 
-Having syslogd running to log events from the router to your rig is a good idea too. Howto set this up is beyond the scope of this document.
+Also helpful thing is watching the syslog.
+
+{{{
+syslog}}}
 
 == Configure IPSec ==
 ipsec.conf should look like this:
+
 {{{
 config setup
         interfaces="ipsec0=eth1"
@@ -65,25 +69,34 @@ include /etc/ipsec.d/examples/no_oe.conf
 }}}
 
 /etc/ipsec.secrets
+
 {{{
 10.1.10.1 %any: PSK "this-is-a-test-i-will-change-it-later"
 }}}
 
+Very important thing is to make it readable to root only.
+
+{{{
+chmod 400 /etc/ipsec.secrets}}}
 
 It's time for a first test:
 
-Now lets see wether this part is working:
-Reboot and bring up tcpdump on the ipsec interface
+Now lets see wether this part is working: Reboot and bring up tcpdump on the ipsec interface
+
 {{{
 tcpdump -i ipsec0
 }}}
 
 Now - when you connect to your wrt using your l2tp/ipsec client it should not work yet - but in case you set things up correctly you should see incoming packages on ipsec0.
 
- 
-== Configure l2tpd ==
+If You don't have tcpdump installed You can just check ipsec0 statistics for that:
 
-/etc/l2tpd/l2tpd.conf 
+{{{
+ifconfig ipsec0}}}
+
+== Configure l2tpd ==
+/etc/l2tpd/l2tpd.conf
+
 {{{
 [global]
 
@@ -100,6 +113,7 @@ length bit = yes
 }}}
 
 /etc/ppp/options.l2tpd
+
 {{{
 ipcp-accept-local
 ipcp-accept-remote
@@ -118,6 +132,7 @@ connect-delay 5000
 }}}
 
 /etc/ppp/chap-secrets
+
 {{{
 #USERNAME  PROVIDER  PASSWORD  IPADDRESS
 duffy     *         "duck" *
@@ -125,60 +140,33 @@ duffy     *         "duck" *
 
 == Load Modules ==
 add the following lines to /etc/modules and reboot (or load the modules via insmod and skip reboot)
+
 {{{
 slhc
 ppp_generic
 ppp_async
 }}}
 
-
 == RUN ==
+Now (hopefully) everything is set up and we have to test it: run the l2tpd:
 
-Now (hopefully) everything is set up and we have to test it:
-run the l2tpd:
 {{{
 l2tpd -D
 }}}
 
-= Errors =
-
-If I proceed as described above trying to connect results in the following error:
-Note that l2tpd reports as 0.69 but what I installed is 0.70pre3 from svn revision 3600:
+If everyhing works fine You can start the deamon using init script:
 
 {{{
-# l2tpd -D
-This binary does not support kernel L2TP.
-l2tpd version 0.69 started on OpenWrt PID:1418
-Linux version 2.4.30 on a mips, listening on IP address 0.0.0.0, port 1701
-handle_avps: handling avp's for tunnel 27418, call 0
-message_type_avp: message type 1 (Start-Control-Connection-Request)
-protocol_version_avp: peer is using version 1, revision 0.
-framing_caps_avp: supported peer frames:async sync
-hostname_avp: peer reports hostname ''
-assigned_tunnel_avp: using peer's tunnel 3
-receive_window_size_avp: peer wants RWS of 4.  Will use flow control.
-handle_avps: handling avp's for tunnel 27418, call 0
-message_type_avp: message type 3 (Start-Control-Connection-Connected)
-control_finish: Connection established to 10.1.10.143, 51758.  Local: 27418, Remote: 3.  LNS session is 'default'
-handle_avps: handling avp's for tunnel 27418, call 0
-message_type_avp: message type 10 (Incoming-Call-Request)
-message_type_avp: new incoming call
-assigned_session_avp: assigned session id: 26142
-call_serno_avp: serial number is 1
-handle_avps: handling avp's for tunnel 27418, call 59222
-message_type_avp: message type 12 (Incoming-Call-Connected)
-tx_speed_avp: transmit baud rate is 1000000
-frame_type_avp: peer uses:async frames
-control_finish: Call established with 10.1.10.143, Local: 59222, Remote: 26142, Serial: 1
-handle_avps: handling avp's for tunnel 27418, call 59222
-message_type_avp: message type 14 (Call-Disconnect-Notify)
-assigned_session_avp: assigned session id: 26142
-result_code_avp: peer closing for reason 3 (Call disconnected for administrative reasons), error = 0 ()
-control_finish: Peer tried to disconnect without specifying call ID
-check_control: Received out of order control packet on tunnel 3 (got 4, expected 5)
-handle_packet: bad control packet!
-check_control: Received out of order control packet on tunnel 3 (got 4, expected 5)
-handle_packet: bad control packet!
-death_handler: Fatal signal 2 received
-call_close : Connection 3 closed to 10.1.10.143, port 51758 (Server closing)
-}}}
+/etc/init.d/l2tpd start}}}
+
+= Todo =
+Make ipsec use certificates.
+
+Make l2tpd start at boot ( probably just change the name of init script).
+
+Show how to configure ipsec to listen of more than one interface.
+
+Client configuration.
+
+= Errors =
+Hopefully You shouldn't get any.
