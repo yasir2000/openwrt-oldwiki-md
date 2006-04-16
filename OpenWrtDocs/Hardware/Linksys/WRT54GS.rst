@@ -23,6 +23,7 @@ the box, below the UPC barcode.
 ||WRT54GS v3.0||<:> CGN5||<:> (./) ||<:> (./) ||
 ||WRT54GS v4.0||<:> CGN6||<:> (./) ||<:> (./) ||
 ||WRT54GS v5||<:> CGN7||<:> {X} ||<:> {X} ||
+||WRT54GS v5.1||<:> CGN8||<:> {X} ||<:> {X} ||
 
 
 === WRT54GS v1.0 ===
