@@ -274,6 +274,8 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
 
 The mini-pci card has been confirmed to be replaceable with an atheros AR5212 ABG Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
 
+There seems to be some restriction to the power available to the mini-pci port. I've confirmed good driver compatibility with ubnt.com's SR2 and SR5, but at default (full) power levels significantly increased packet loss (15%, link runs solid with sub 0.1% loss @ 15 dBm)) is observed.  Use of a 16V/1.5A wall transformer did not improve performance.
+
 == Antenna Mod ==
 
 The non-detachable antenna need only be replaced if you wish to add a type antenna for frequencies outside of the B/G range after upgrading the mini-pci card since it requires finesse and some efforts to remove without damage to the router frame.  If the desire is only to add a greater strength b/g antenna, it is recommended to use the hirose connector available on the auxillary pad of the default atheros mini-pci card and string the wire through one of the 16 air vent holes available at the rear of the unit above the usb jack.  If an easier method for removing the antenna is discovered please feel free to make changes as appropriate.  Before attempting to remove the antenna, the mini-pci card must be removed from its slot or it will interfere with this procedure.
