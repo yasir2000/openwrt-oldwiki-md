@@ -145,4 +145,19 @@ apconfd: Initialization complete.
 SIOCDELRT: No such process
 apconfd: dhcpc: Interface br0 obtained lease on 192.168.1.116.
 SIOCDELRT: No such process
+
+BusyBox v0.60.1 (2004.03.05-23:52+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+
+# cat /proc/interrupts
+  0:          0   csr
+  1:         14   csr
+  2:         11   csr
+  3:          0   ixp425_eth
+  5:      35467   IXP425 Timer 1
+ 13:         39   serial
+ 18:    1400047   ixp425_eth
+ 28:      92429   ar5211
+Err:          0
+
 }}}
