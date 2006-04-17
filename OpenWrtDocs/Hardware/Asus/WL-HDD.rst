@@ -28,7 +28,7 @@ See IdeStorageHowTo then LocalFileSystemHowTo.
 
 '''USB drivers and usage'''
 
-See UsbStorageHowTo then LocalFileSystemHowTo.
+See UsbStorageHowto then LocalFileSystemHowTo.
 
 Run the following to install the modules and tools:
 {{{
