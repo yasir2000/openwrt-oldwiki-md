@@ -100,4 +100,4 @@ Refrence::
 http://wiki.openwrt.org/OpenWrtDocs :Everything and anything in it
 
 ----
- . CategoryHowTo              
+CategoryHowTo
