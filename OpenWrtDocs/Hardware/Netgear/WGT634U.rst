@@ -278,13 +278,8 @@ There seems to be some restriction to the power available to the mini-pci port. 
 
 == Antenna Mod ==
 
-The non-detachable antenna need only be replaced if you wish to add a type antenna for frequencies outside of the B/G range after upgrading the mini-pci card since it requires finesse and some efforts to remove without damage to the router frame.  If the desire is only to add a greater strength b/g antenna, it is recommended to use the hirose connector available on the auxillary pad of the default atheros mini-pci card and string the wire through one of the 16 air vent holes available at the rear of the unit above the usb jack.  If an easier method for removing the antenna is discovered please feel free to make changes as appropriate.  Before attempting to remove the antenna, the mini-pci card must be removed from its slot or it will interfere with this procedure.
+The WGT634U comes equipped with an integrated antenna, which is soldered to the radio.  If you wish to use a different antenna, the most practical solution is to unsolder the pigtail and disassemble the antenna and collar.  Once the pigtail end is freed from the radio, it is a fairly simple task to remove both the antenna and the collar.  The Hirose test point is not a suitable attachment for a new pigtail.  The connector is not readily available and is not designed for attaching a permanent antenna.  Better is to solder on a new pigtail and run the coax outside the case where an antenna or more robust antenna coax can be attached.  See [http://cipheralgo.org/~jason/solder_b.jpg this picture] for an example of how it might be done.
 
-The portion of the antenna on the outside of the router must be pushed successfully through its opening completely to the internal side in order to be successfully removed.  This requires the removal of the rubber lip at the base of the antenna's external side as well as various bumps meant as catches that exist along the stem of the antenna.  Slowly twist the antenna counter-clockwise while pushing it through the opening.  
-
-'''''A strong exertion of force is required during the twisting of the antenna'''''.
-
-The author of this section used needle nosed pliers to successfully twist the antenna since a strong grip of its rubber texture is required, and a pair of wire cutters to snip off the portions of the rubber lip base and catches.
 
 = Other projects and information =
 
