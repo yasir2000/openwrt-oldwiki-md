@@ -10,14 +10,14 @@ This HOWTO describes how to manage local filesystems on your router, and how you
 
  * some !OpenWrt devices can support USB storage based filesystems, see UsbStorageHowto for how to configure !OpenWrt for USB storage,
 
- * some !OpenWrt devices can support IDE storage based filesystems, examples include [OpenWrtDocs/Hardware/Asus/WL-HDD Asus WL-HDD]
+ * some !OpenWrt devices can support IDE storage based filesystems, see IdeStorageHowTo for how to configure !OpenWrt for IDE storage,
 
 == Configure Block Device ==
 
  * skip this section if you wish to use the memory or flash filesystem,
  * for USB storage, see UsbStorageHowto,
- * for IDE storage, see IDEStorageHowTo,
- * regardless of method, ''/proc/partitions'' must show the unpartitioned disk space, for example for an 80GB IDE disk on an Asus WL-HDD:
+ * for IDE storage, see IdeStorageHowTo,
+ * for USB or IDE, the file ''/proc/partitions'' will show the unpartitioned disk space, for example for an 80GB IDE disk on an Asus WL-HDD:
  {{{
 major minor  #blocks  name
 
@@ -25,6 +25,7 @@ major minor  #blocks  name
 }}}
 
 == Partition Block Device ==
+
  * install the ''fdisk'' package from backports,
 ## make standard reference to backports
  * run ''fdisk BLOCKDEVICE'',
