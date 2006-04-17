@@ -24,26 +24,11 @@ See OpenWrtDocs/Hardware/Asus/Flashing
 
 '''IDE drivers and usage'''
 
-To get the IDE device working, you should install the following packages:
-
-{{{
-  ipkg install kmod-ide kmod-ext3 nfs-server
-}}}
-
-Further you have to load the kernel modules in the correct order. My '''/etc/modules''' looks like this:
-{{{
-ide-core
-pdc202xx_old
-ide-detect
-ide-disk
-wl
-jbd
-ext3
-}}}
-
-The device still is missing '''fdisk''' and '''mkfs.*'''
+See IdeStorageHowTo then LocalFileSystemHowTo.
 
 '''USB drivers and usage'''
+
+See UsbStorageHowTo then LocalFileSystemHowTo.
 
 Run the following to install the modules and tools:
 {{{
