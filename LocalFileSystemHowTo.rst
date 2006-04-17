@@ -32,7 +32,7 @@ major minor  #blocks  name
 
  * configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the ''fdisk'' package:
  {{{
-ipkg install ''fdisk''
+ipkg install fdisk
 }}}
  * run ''fdisk BLOCKDEVICE'',
  * create partitions, write, exit,
@@ -57,7 +57,7 @@ major minor  #blocks  name
 
  * configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the ''e2fsprogs'' package:
  {{{
-ipkg install ''e2fsprogs''
+ipkg install e2fsprogs
 }}}
  * create a symbolic link required by ''mke2fs'', using the command ''ln -s /proc/mounts /etc/mtab'',
  * run ''mke2fs -j PARTITION'', where PARTITION is the partition block device you wish to use for the filesystem,
