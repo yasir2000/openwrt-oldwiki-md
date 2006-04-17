@@ -2,13 +2,19 @@
 
 [[TableOfContents]]
 = Hardware versions =
-There is only one version of the WRTSL54GS. They have a 266 MHz CPU, 8 MB flash and 32 MB RAM. It's supported by OpenWrt whiterussian pre-RC5 and later.
+There is only one version of the WRTSL54GS. It has a 266 MHz CPU, 8 MB flash and 32 MB RAM. Supported by whiterussian RC5 and later.
 
 Note the antenna is *NOT* removable in this model
 
 = port mapping =
 
-There are 3 eth interfaces, and ports map like so:
+There are 3 eth interfaces, unlike many WRT units so it is faster on WAN-LAN switching.
+
+eth0=LAN
+eth1=WAN
+eth2=WiFi
+
+Ports map like so:
 
 ||external-port# ||   internal#||
 ||4              ||           3||
@@ -72,5 +78,4 @@ Recent information was, an extra $6 added to kit price on request for an assembl
 
 = Firmware download =
 
-March 8 or later pre-RC5 builds work fine. Until RC5 is released, use SVN or a snapshot from
- * nbd: http://downloads.openwrt.org/people/nbd/whiterussian/
+Recommend to use WhiteRussian RC5 or later.
