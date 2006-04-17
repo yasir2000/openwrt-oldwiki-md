@@ -137,9 +137,6 @@ BusyBox v1.00 (2005.10.10-12:42+0000) multi-call binary
 
 Your version is based on the reported date where !BusyBox has been compiled.
 
-== What is left behind when the flash is erased? ==
-{{{mtd}}} will leave the bootloader and NVRAM settings untouched.
-
 == How do I clean up the NVRAM variables (the safe way)? ==
 If you have used other firmware in the past you probably have more than 400 NVRAM variables. Most of these NVRAM variables are not necessary for !OpenWrt. You can safely delete them with the {{{nvram-clean.sh}}} script and have a more readable NVRAM dump.
 
@@ -256,11 +253,11 @@ The {{{/sbin/wifi}}} program reads the wireless {{{wl0_}}} settings from NVRAM a
 The source code for {{{/sbin/wifi}}} is available in SVN. Browse the [https://dev.openwrt.org/file/branches/whiterussian/openwrt/package/wificonf/wificonf.c wificonf.c source].
 
 == How do I open a WRT54G/WRT54GS? ==
-/!\ '''WARNING:''' Opening the case will void your warranty.  Note that if you're running third party firmware you've already voided the warranty. ;-)
+/!\ '''WARNING:''' Opening the case will void your warranty.  (If you're running third party firmware you've already voided the warranty. ;-) )
 
-For the most part Linksys uses a screwless case, although some models (unspecified as to exactly which ones) do have screws.  On the screwless cases the blue front panel holds everything together. Remove the antennas then pull the blue panel off.  The remaining pieces will then slide apart. See [http://voidmain.is-a-geek.net/redhat/wrt54g_revival.html pictures].
+For the most part Linksys uses a screwless case, although some models (unspecified as to exactly which ones) do have screws.  The blue front panel holds everything together, occasionally there are screws under the front two rubber feet. Remove the antennas then pull the blue panel off.  The remaining pieces will then slide apart. See [http://voidmain.is-a-geek.net/redhat/wrt54g_revival.html pictures].
 
-The easiest way to open the case is to get a firm grip on one of the blue legs and one of the grey legs and quickly yank apart.  It will take some force to open the WRT54G for the first time, so be gentle but firm.  Apply enough force, but not too much.
+The easiest way to open the case is to get a firm grip on one of the blue legs and one of the grey legs and quickly yank apart.  It will take some force to open the WRT54G for the first time, so be gentle but firm.  Apply enough force, but not too much. If it doesn't come apart check for screws under the front feet.
 
 == When using the SSH client from OpenWrt, I get the following message: "no auths methods could be used". ==
 The message {{{no auths methods could be used}}} is related to the following utilization: {{{dropbear}}} as SSH client and {{{openssh}}} as {{{sshd}}} server, basically, activating this option in {{{/etc/ssh/sshd_config}}} works:
@@ -460,11 +457,6 @@ To keep the settings over a reboot run:
 {{{
 nvram commit
 }}}
-
-== Why does it report 255 mW / 31 dBm for the wireless txpwr? ==
-It lies.
-
-The txpwr is not actually 255, 255 is just the target value. The actual value will be capped by the driver to a maximum of maximum of {{{pa0maxpwr}}} (unless you turn on the override). This is the exact same way it's handled in the OEM firmwares. (Chances are that we'll just set it to {{{pa0maxpwr}}} in future releases to finally kill this question).
 
 == Can I adjust the transmit power? ==
 Yes, but cranking the power to the maximum won't help you any. You might transmit farther but the noise level will be higher (and will probably bleed into the neighbouring channels; that looks like [http://wl500g.info/showthread.php?t=12&page=2 this] then) and your recieve sensitivity won't be improved any, limiting your distance. If you want better range go buy better antennas.
