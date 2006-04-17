@@ -59,7 +59,7 @@ Pavia
 ||FRITZ!Box WLAN 3050 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon ata || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon 5010 (analog) || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon 5010 (analog) || ||ar7@150mhz ||4MB || 16MB || None || || || || || None || Untested ||
 ||FRITZ!Box Fon 5012 (ISDN) || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon 5050 || ||ar7@150mhz ||? || ? || || || || || || || Untested ||
