@@ -26,8 +26,10 @@ major minor  #blocks  name
 
 == Partition Block Device ==
 
- * install the ''fdisk'' package from backports,
-## make standard reference to backports
+ * configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the ''fdisk'' package:
+ {{{
+ipkg install ''fdisk''
+}}}
  * run ''fdisk BLOCKDEVICE'',
  * create partitions, write, exit,
  * check that ''/proc/partitions'' has been updated to show the partitions created, for example:
@@ -49,7 +51,10 @@ major minor  #blocks  name
 
 == Create Filesystem ==
 
- * install the ''e2fsprogs'' package,
+ * configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the ''e2fsprogs'' package:
+ {{{
+ipkg install ''e2fsprogs''
+}}}
  * create a symbolic link required by ''mke2fs'', using the command ''ln -s /proc/mounts /etc/mtab'',
  * run ''mke2fs -j PARTITION'', where PARTITION is the partition block device you wish to use for the filesystem,
 
