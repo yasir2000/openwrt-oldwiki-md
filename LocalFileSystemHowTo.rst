@@ -1,8 +1,12 @@
 OpenWrtDocs [[TableOfContents]]
 
-== Intro ==
+== Introduction ==
 
-This HOWTO describes how to manage local filesystems on your router, and how you can access this filesystem on remote machines.  There are several types of local filesystem:
+This HOWTO describes how to manage local filesystems on your router, and how you can access this filesystem on remote machines.
+
+== Creating Local Filesystem ==
+
+There are several types of local filesystem:
 
  * all !OpenWrt devices can support a small memory based filesystem, the contents of which are lost on reboot ... create files in /tmp,
 
@@ -12,9 +16,9 @@ This HOWTO describes how to manage local filesystems on your router, and how you
 
  * some !OpenWrt devices can support IDE storage based filesystems, see IdeStorageHowTo for how to configure !OpenWrt for IDE storage,
 
-== Configure Block Device ==
+=== Configure Block Device ===
 
- * skip this section if you wish to use the memory or flash filesystem,
+ * skip this subsection if you wish to use the memory or flash filesystem,
  * for USB storage, see UsbStorageHowto,
  * for IDE storage, see IdeStorageHowTo,
  * for USB or IDE, the file ''/proc/partitions'' will show the unpartitioned disk space, for example for an 80GB IDE disk on an Asus WL-HDD:
@@ -24,7 +28,7 @@ major minor  #blocks  name
    3     0   78150744 ide/host0/bus0/target0/lun0/disc
 }}}
 
-== Partition Block Device ==
+=== Partition Block Device ===
 
  * configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the ''fdisk'' package:
  {{{
@@ -42,14 +46,14 @@ major minor  #blocks  name
    3     3      40162 ide/host0/bus0/target0/lun0/part3
 }}}
 
-== Configure Swap Partition (Optional) ==
+=== Configure Swap Partition (Optional) ===
 
  * install the ''swap-utils'' package,
  * run ''mkswap PARTITION'', where PARTITION is the partition block device you wish to use as swap partition,
  * write an init.d script to run ''swapon PARTITION'',
  * test the script before rebooting,
 
-== Create Filesystem ==
+=== Create Filesystem ===
 
  * configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the ''e2fsprogs'' package:
  {{{
@@ -58,20 +62,20 @@ ipkg install ''e2fsprogs''
  * create a symbolic link required by ''mke2fs'', using the command ''ln -s /proc/mounts /etc/mtab'',
  * run ''mke2fs -j PARTITION'', where PARTITION is the partition block device you wish to use for the filesystem,
 
-== Check Filesystem on Reboot ==
+=== Check Filesystem on Reboot ===
 
  * write an init.d script to run ''e2fsck PARTITION'',
  * test the script before rebooting,
  * ''e2fsck'' may fail on large disks if there is not enough memory, consider adding a swap partition, even if it is only used during ''e2fsck'',
 
-== Mount Filesystem on Reboot ==
+=== Mount Filesystem on Reboot ===
 
  * write an init.d script to run ''mount -t ext3 PARTITION'',
  * test the script before rebooting,
 
-== Configure Remote Access ==
+== Sharing Local Filesystem ==
 
-You may wish to be able to access the !OpenWrt local filesystem from remote hosts.
+You may wish to be able to access the !OpenWrt local filesystem from remote hosts.  There are several methods available.
 
 === NFS ===
 
