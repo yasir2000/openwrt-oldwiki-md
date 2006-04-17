@@ -53,19 +53,23 @@ The names of the network interfaces will depend largely on what hardware !OpenWr
 ||Linksys||WRTSL54GS|| ||eth0||eth1||eth2||Someone should double check this||
 ||Asus||WL-300g|| ||eth0||None||eth2|| ||
 ||Asus||WL-500g|| ||eth0||eth1||eth2|| ||
-||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
+||Asus||WL-500g Deluxe|| ||vlan0||vlan1||eth1||note^1^||
 ||Asus||Wl-HDD|| ||eth1||N/A||eth2||No switch and no WAN port||
 ||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
-||Buffalo||WBR2-G54|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
-||Buffalo||WBR2-G54S|| ||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
+||Buffalo||WBR2-G54|| ||vlan0||vlan1||eth1||note^1^||
+||Buffalo||WBR2-G54S|| ||vlan0||vlan1||eth1||note^1^||
 ||Buffalo||WLA-G54|| ||eth0||N/A||eth2||No WAN port on this device||
 ||Buffalo||WZR-RS-G54||  ||eth0||eth1||eth2||no vlan support (switch BCM5325A2KQM)||
 ||Dell||!TrueMobile 2300||  ||eth0||eth1||eth2||BCM5325MA2KQM switch||
-||Motorola||WR850G||v3||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
+||Motorola||WR850G||v3||vlan0||vlan1||eth1||note^1^||
 ||Microsoft||MN700||v.x||eth0||eth1||eth2|| ||
-||Netgear||WGT-634U|| ||vlan0||vlan1||ath0||eth0 is the whole switch, with lan and wan ports||
+||Netgear||WGT-634U|| ||vlan0||vlan1||ath0||note^1^||
 ||Siemens||SE505||v1||eth0||eth1||eth2|| ||
-||Siemens||SE505||v2||vlan0||vlan1||eth1||eth0 is the whole switch, with lan and wan ports||
+||Siemens||SE505||v2||vlan0||vlan1||eth1||note^1^||
+
+note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted.
+
+
 Please update to include other models.
 
 '''NOTE:''' LAN and WIFI are bridged together in br0 by default, on some devices WAN
