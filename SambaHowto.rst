@@ -1,12 +1,12 @@
-'''Samba howto'''
+'''Samba HowTo'''
 
 [[TableOfContents]]
 = Intro =
-This howto shows you how to give all users on your network a shared drive where they can read and write files aka a file server, using the Linux implementation of Windows networking (NetBIOS/SMB) - called Samba.
+This shows you how to give all users on your network a shared drive where they can read and write files.  We use Samba, the Open Source implementation of Windows networking (NetBIOS/SMB).
 
-I decided to package Samba 2.0.x version of it to !OpenWrt, because the newer versions are just overkill for a Wrt router.
+Samba 2.0.x was packaged for !OpenWrt, because the newer versions are overkill for the CPU and memory available on a typical device.
 
-Samba offers a lot more options but this would be out of the scope of this howto. For more information on Samba please see the links at the button.
+Samba offers a lot more options but this would be out of the scope. For more information on Samba see the links at the button.
 
 = Requirements =
  * a device supported by !OpenWrt
@@ -23,7 +23,7 @@ ipkg install samba}}}
 = Configuration =
 The default Samba configuration uses the {{{/tmp}}} directory for storage.
 
-/!\ '''WARNING:''' All data is lost in {{{/tmp}}} after a reboot.
+/!\ '''WARNING:''' All data is lost in {{{/tmp}}} after a reboot.  See LocalFileSystemHowTo for alternative storage options.
 
 To change settings edit the {{{/etc/samba/smb.conf}}} file.
 
@@ -63,8 +63,12 @@ smb://<server_ip>/<share>}}}
 You may press the "+" sign to save this in your list.  Press "Browse" to see all shares on a server, or "Connect" to mount the share.  You'll see the icon appear on the desktop, and the share will be mounted in /Volumes.
 
 = Links =
- * Samba homepage [[BR]]- http://www.samba.org/
+ * [http://www.samba.org/ Samba]
 
- * USB storage howto - Extend the storage capacity of your USB enabled Wrt router [[BR]]- UsbStorageHowto
+ * UsbStorageHowto
+
+ * IdeStorageHowTo
+
+ * LocalFileSystemHowTo - configuring local storage,
 
  * Parts of this documentation are taken from [[BR]]- http://www.macsat.com/OpenWRT/samba.php
