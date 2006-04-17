@@ -5,7 +5,7 @@
 
 '''Welcome to the new wiki version of the !OpenWrt userguide.'''
 
-RTFM:
+RTFM: Read the !OpenWrt ["Faq"] first!
 ----
 
 '''[:OpenWrtDocs/About: About OpenWrt]'''
