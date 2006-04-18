@@ -15,6 +15,10 @@ ipkg install vncrepeater
 
 You may want to check if a new version is available [http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/ here]
 
+Edit: This is only a temporary thing... my linux box is down, so I can't send package updates to the dev team. Thus, the vncrepeater in the backports is an old version. Go [http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/ here] for the latest version. (if you are on the dev team, I can tell u what to change, but I can't do a subversion diff (it's not a big change) (eatnubmer1@gmail.com).
+
+Also, the package setup in trunk is wrong for compiling. If you want to compile that, the URL of the tar.gz file is [http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/0.12-1/src/vncrepeater-0.12.tar.gz this]
+
 = Configuration =
 Configuration is pretty straightforward, The file /etc/vncrepeater.conf is the config file. (please note that I know about the ^M charachters you see when editing the file in vim and I am working to fix it)
 
