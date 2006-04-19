@@ -239,6 +239,7 @@ COMMAND=/usr/sbin/ip
         } &
 }
 }}}
+'''Warning:''' use {{{ prefix 0:0:0:5678::/64 }}} in your /etc/radvd.conf. The subnet 5678 is hardcoded in this script.
 
 == Static tunnel to SixXS.net ==
 ''Note: this script should works with any Tunnel Broker''
