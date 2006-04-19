@@ -3,10 +3,13 @@
 ## Note: questions/comments should be posted to the forum
 ##
 
-'''Welcome to the new wiki version of the !OpenWrt userguide.'''
 
-RTFM: Read the !OpenWrt ["Faq"] first!
-----
+= About this manual =
+This is a wiki, a set of documents written by the OpenWrt developers and community. Nearly every page on this site can be edited, you just need to [:/UserPreferences: create an account].
+
+If you have any questions about anything in the manual, please post a message in the [:http://forum.openwrt.org/: forums].
+
+== RTFM - The OpenWrt manual ==
 
 '''[:OpenWrtDocs/About: About OpenWrt]'''
 [[Include(OpenWrtDocs/About,,titlesonly)]]
@@ -26,8 +29,11 @@ RTFM: Read the !OpenWrt ["Faq"] first!
 '''[:OpenWrtDocs/Packages: OpenWrt Addon Packages]'''
 [[Include(OpenWrtDocs/Packages,,titlesonly)]]
 
-Additional documentation:
-----
+= Appendix: FAQ =
+'''[:Faq: FAQ]'''
+[[Include(Faq,,titlesonly)]]
+
+= Appendix: Additional documentation =
 '''[:OpenWrtDocs/Deinstalling: Deinstalling OpenWrt]'''
 [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
 
@@ -36,9 +42,3 @@ Additional documentation:
 
 '''[:OpenWrtDocs/Hardware: Hardware Information]'''
 [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
-
-
-#### Removed; offline documentation is always too far behind current documentation ####
-##
-## To use the OpenWrtDocs without internet connection, you can download the latest
-## [http://www.namica.de/documentations/openwrt/ OpenWrtDocs for offline use].
