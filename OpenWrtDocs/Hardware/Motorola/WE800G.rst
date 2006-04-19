@@ -111,7 +111,7 @@ Only way to upgrade the firmware is the TFTP based upgrade as was described abov
 
 Note: The WEB based firmware upgrade does not work even after the upgrade to RC5. https://dev.openwrt.org/ticket/447
 
-= failsafe mode =
+= Failsafe Mode =
 
 [:Troubleshooting:troubleshooting]
 
