@@ -82,6 +82,8 @@ The web upgrade likely does not work (even if to rename the .bin to .trx), but T
 
 Note: If you see "on" then the boot_wait was set successfully. If not the repeat the procedure.
 
+Note: If you are using Windows then for the next step place a switch between your computer and your WE800G.
+
  * Start pinging the WE800G on one command prompt window (under Windows: "ping 192.168.30.1 -t");
  * Type the TFTP upload command to the next command prompt window (under Windows: "tftp -i 192.168.30.1 put openwrt-we800g-jffs2.bin" or "tftp -i 192.168.30.1 put openwrt-we800g-squashfs.bin");
  * Unplug/replug the WE800G power;
