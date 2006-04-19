@@ -1,7 +1,7 @@
 = Motorola WE800G =
 [[TableOfContents]]
 = Hardware versions =
-The WE800G has three different versions - v1 and v2.
+The WE800G has two different versions - v1 and v2.
 
 == WE800G v1 ==
 The WE800G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is a mini-PCI card. The mini-PCI card is BCM94306MP and if you happen to brick the box itself then at least it is reusable in your laptop.
