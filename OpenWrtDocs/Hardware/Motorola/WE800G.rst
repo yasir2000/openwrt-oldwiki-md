@@ -113,7 +113,7 @@ Note: The WEB based firmware upgrade does not work even after the upgrade to RC5
 
 = Failsafe Mode =
 
-[:Troubleshooting:troubleshooting]
+[:OpenWrtDocs/Troubleshooting:troubleshooting]
 
 = Port layout =
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
