@@ -89,9 +89,14 @@ Note: If you see "on" then the boot_wait was set successfully. If not the repeat
  * If the upload went fine then you'll see "Transfer successful" message;
  * If you get "timed out" message then repeat the process;
  * After successful flashing wait for some minutes to let the OpenWRT to finish it's upgrade procedures;
- * Unplug/replug the power of the WE800G or you get wierd permission or other type of errors when you try to change the configuration of this WE800G;
 
-Note: After upgrade the IP address of WE800G is set to 192.168.1.1/24.
+Note: After upgrade the IP address of WE800G is set to 192.168.1.1/24 and the box should start answering to pings on that address.
+
+ * Unplug/replug the power of the WE800G or you get wierd permission or other type of errors when you try to change the configuration of this WE800G;
+ * Telnet into the box to verify that the OpenWRT is up and running and then unplug/replug the power of the box again;
+ * Now you can telnet into it again to set the system password (passwd command) or use your browser to do it;
+
+Note: After you set the password you'll not be able to telnet into the WE800G again, you have to use ssh or browser.
 
 = Upgrade from previous versions of OpenWRT =
 Web based upgrade from pre-RC5 to RC5 failed for me with this message:
