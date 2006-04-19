@@ -73,6 +73,8 @@ Imre Kaloz added WE800G and WA800G support to pre-RC5 and this has found it's wa
 
  * http://downloads.openwrt.org/whiterussian/rc5/
 
+Note: The WE800G v1 has plenty of flash and memory and it is capable of accepting firmware of the "bin" directory.
+
 The web upgrade likely does not work (even if to rename the .bin to .trx), but TFTP [OpenWrtViaTftp] will upload it just fine.
 
  * Set your computer into the same IP subnet (WE800G default IP address is 192.168.30.1 and netmask is 255.255.255.0);
