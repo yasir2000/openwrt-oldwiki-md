@@ -47,7 +47,7 @@ Perhaps I can outline the pros and cons of each.  But there's a few things you w
 
 If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.  
 
-Install qosfw-scripts with {{{ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk}}} (you many want to check [http://openwrt.inf.fh-brs.de/~nbd/ here] for a newer update.
+Install qosfw-scripts with {{{ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk}}} (you many want to check [http://openwrt.inf.fh-brs.de/~nbd/ here] or [http://downloads.openwrt.org/people/nbd/qos/ here] for a newer update).
 
 {{{
 /etc/config/firewall
