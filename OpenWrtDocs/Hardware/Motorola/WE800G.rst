@@ -82,7 +82,7 @@ Note: The WE800G v1 has plenty of flash and memory and it is capable of acceptin
 
 Note: If you see "on" then the boot_wait was set successfully. If not the repeat the procedure.
  * Rename .bin firmware image to .trx;
- * Upload the .trx image (Control Panel->Firmware Upgrade);
+ * Upload the .trx image (CONTROL PANEL->FIRMWARE UPDATE);
  * Wait for couple minutes to get a message "Upgrade Complete, Please press Restart button."
  * Press "Restart" button in the left side of the Motorola config screen;
 Note: After successful flashing the IP address of WE800G will be set to 192.168.1.1/24 and the box should start answering to pings on that address.
