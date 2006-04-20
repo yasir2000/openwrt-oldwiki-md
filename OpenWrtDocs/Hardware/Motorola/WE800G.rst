@@ -85,9 +85,8 @@ Note: If you see "on" then the boot_wait was set successfully. If not the repeat
  * Upload the .trx image (CONTROL PANEL->FIRMWARE UPDATE);
  * Wait for couple minutes to get a message "Upgrade Complete, Please press Restart button."
  * Press "Restart" button in the left side of the Motorola config screen;
-Note: After successful flashing the IP address of WE800G will be set to 192.168.1.1/24 and the box should start answering to pings on that address.
-
- * After successful flashing wait for some minutes to let the OpenWRT to finish all it's upgrade procedures;
+ * After flashing the IP address of WE800G will be set to 192.168.1.1/24 and the box should start answering to pings on that address;
+ * Wait for some minutes to let the OpenWRT to finish all it's upgrade procedures;
  * Unplug/replug the power of the WE800G or you get wierd permission or other type of errors when you try to change the configuration of this WE800G;
  * Telnet into the box to verify that the OpenWRT is up and running and then unplug/replug the power of the box again;
  * Now you can telnet into it again to set the system password (passwd command) or use your browser to do it;
@@ -110,10 +109,8 @@ Note: If you are using Windows then for the next step place a switch between you
  * As soon as you see the ping response from the WE800G, hit ENTER for the TFTP upload command;
  * If the upload went fine then you'll see "Transfer successful" message;
  * If you get "timed out" message then repeat the process;
-
-Note: After successful flashing the IP address of WE800G will be set to 192.168.1.1/24 and the box should start answering to pings on that address.
-
- * After successful flashing wait for some minutes to let the OpenWRT to finish all it's upgrade procedures;
+ * After flashing the IP address of WE800G will be set to 192.168.1.1/24 and the box should start answering to pings on that address;
+ * Wait for some minutes to let the OpenWRT to finish all it's upgrade procedures;
  * Unplug/replug the power of the WE800G or you get wierd permission or other type of errors when you try to change the configuration of this WE800G;
  * Telnet into the box to verify that the OpenWRT is up and running and then unplug/replug the power of the box again;
  * Now you can telnet into it again to set the system password (passwd command) or use your browser to do it;
