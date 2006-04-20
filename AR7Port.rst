@@ -52,6 +52,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Get voicedump (VP101X120C) supported (Voice over ip chip on Siemens and SMC based hardware)
 
    * Get Marvel 88E6060 switch supported (on sx541,smc and castlenet)
+     sources are in avm current open source.
 
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
