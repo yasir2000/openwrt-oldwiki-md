@@ -65,8 +65,8 @@ Pavia
 ||FRITZ!Box Fon 5050 || ||ar7@150mhz ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4 || 16 ||acx111 mini-pci|| || || || || || Untested ||
 ||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4 || 16 ||acx111 mini-pci || || || || || || Untested ||
-||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz||8|| 32 ||acx111 on-board ||ADMtek ADM6996|| || || || 1.1 || Untested ||
-||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8 || 32 ||ac111 on-oard||ADMtek ADM6996|| || || || 1.1 || Untested ||
+||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz||8|| 32 ||acx111 on-board ||ADMtek ADM6996|| || ||yes|| 1.1 || Untested ||
+||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8 || 32 ||ac111 on-oard||ADMtek ADM6996|| || ||yes|| 1.1 || Untested ||
 
 
 
