@@ -164,6 +164,9 @@ Make ipsec use certificates.
 
 Make l2tpd start at boot ( probably just change the name of init script).
 
+Update the /etc/firewall.user script
+
+
 Show how to configure ipsec to listen of more than one interface.
 
 Client configuration.
