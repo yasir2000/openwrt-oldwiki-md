@@ -127,7 +127,7 @@ The CFE will enter TFTP receptive mode after that command.
 
 '''Linksys models'''
 
-You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A lot better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG adaptor. It's easy, you can make it in a jiffy using spare parts from the bottom of your messy drawer. You need:
+You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A much better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG adaptor. It's easy, you can make it in a jiffy using spare parts from the bottom of your messy drawer. You need:
 
  * 4 100R resistors
  * 1 male SUB-D 25 plug
