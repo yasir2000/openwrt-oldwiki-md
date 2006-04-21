@@ -214,6 +214,10 @@ mkdir -p /mnt/tmp && mkdir -p /mnt/dev && mkdir -p /mnt/proc && mkdir -p /mnt/jf
 umount /mnt
 }}}
 
+
+'''TIP:''' I´m using an Asus500g Deluxe with WhiteRussian rc5 and had to remove "/etc/hotplug.d/usb/01-mount" to get the right mount to /mnt
+
+
 Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to !BusyBox anyway):
 
 {{{
@@ -463,3 +467,5 @@ ipkg-link umount /mnt/usb
  * Linux USB [[BR]]- http://www.linux-usb.org/
 
  * Linux USB device support [[BR]]- http://www.linux-usb.org/devices.html
+----
+CategoryHowTo CategoryHowTo
