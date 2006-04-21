@@ -1,46 +1,26 @@
 '''!OpenWrt building packages howto'''
 
-
 [[TableOfContents]]
-
-
 = About the OpenWrt SDK =
+This howto is for people who would like to port/package applications to OpenWrt with the !OpenWrt Software Development Kit (SDK).
 
-This howto is for people who would like to port/package applications
-to OpenWrt with the !OpenWrt Software Development Kit (SDK).
-
-When using the SDK you don't require a full buildroot. The SDK is
-a stripped down version of it, which includes the toolchain and all the
-required library and header files to cross-compile applications for !OpenWrt.
-
+When using the SDK you don't require a full buildroot. The SDK is a stripped down version of it, which includes the toolchain and all the required library and header files to cross-compile applications for !OpenWrt.
 
 = Requirements =
-
  * a recent GNU/Linux distribution
  * GNU Make (at least 3.80 with the Debian patch)
 
- ... to be continued ...
-
+ . .. to be continued ...
 
 = Using the OpenWrt SDK =
+'''TIP:''' Before you begin porting your own package to !OpenWrt, check if it has not been already done by someone else. To check that [http://dev.openwrt.org/browser/trunk/openwrt/package/ browse the subversion repository] of the development version in your web browser and see if the package is already there. Don't do the work twice.
 
-'''TIP:''' Before you begin porting your own package to !OpenWrt, check if it
-has not been already done by someone else. To check that
-[http://dev.openwrt.org/browser/trunk/openwrt/package/ browse the subversion repository]
-of the development version in your web browser and see if the package is already there.
-Don't do the work twice.
-
-
-Let's start with porting and packaging the well known "Hello world"
-program as an example.
-
+Let's start with porting and packaging the well known "Hello world" program as an example.
 
 == Obtaining and installing the SDK ==
+The SDK can be downloaded from http://downloads.openwrt.org/whiterussian/newest/.
 
-The SDK can be downloaded from [http://downloads.openwrt.org/whiterussian/newest/].
-
-Download it into your home directory (don't use the root account) and untar
-the tarball. After that change into the new directory.
+Download it into your home directory (don't use the root account) and untar the tarball. After that change into the new directory.
 
 {{{
 cd ~
@@ -49,9 +29,7 @@ bzcat OpenWrt-SDK-Linux-i686-1.tar.bz2 | tar -xvf -
 cd ~/OpenWrt-SDK-Linux-i686-1
 }}}
 
-
 == Creating the directories ==
-
 Create the following directories:
 
 {{{
@@ -61,7 +39,9 @@ mkdir -p package/helloworld/patches
 }}}
 
 Directories and their contents:
-{{{#!CSV
+
+{{{
+#!CSV 
 Directory; Description
 ipkg; Control file which contains information about your package
 patches; Patch files for example 100-foo.patch
@@ -77,11 +57,8 @@ mkdir -p package/200-packagename/ipkg
 mkdir -p package/200-packagename/patches
 }}}
 
-
 == Creating the required files ==
-
-'''TIP:''' When creating the files via copy & paste use the Unix command {{{unexpand}}} to
-translate the leading spaces into tabs.
+'''TIP:''' When creating the files via copy & paste use the Unix command {{{unexpand}}} to translate the leading spaces into tabs.
 
 {{{
 unexpand --first-only - | cat >package/helloworld/Config.in
@@ -89,13 +66,9 @@ unexpand --first-only - | cat >package/helloworld/Config.in
 
 After pasting it, press {{{ENTER}}} and then {{{CTRL-D}}} keys to save the file.
 
-You can also create your own files in the {{{package/helloworld}}} directory (for example config
-files). That files you can access in your {{{package/helloworld/Makefile}}} with {{{./filename}}}
-and copy it to your {{{$(PKG_INSTALL_DIR)}}} directory.
-
+You can also create your own files in the {{{package/helloworld}}} directory (for example config files). That files you can access in your {{{package/helloworld/Makefile}}} with {{{./filename}}} and copy it to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
 === package/helloworld/Config.in ===
-
 {{{
 config BR2_PACKAGE_HELLO
         prompt "hello............................. The classic greeting, and a good example"
@@ -113,27 +86,20 @@ config BR2_PACKAGE_HELLO
               http://www.wheretofindpackage.tld
 }}}
 
-
 === package/helloworld/Makefile ===
-
 The Makefile rely one the way the software you want to package is shipped. Basically we can divide the software into 2 main categories :
 
-    * C (or ANSI-C) programs
-        * shipped with configure script
-        * shipped with Makefile script (with references to gcc or $(CC) )
-        * sources files only
-    * C++ programs
-        * potentially uClibc++ linkables
-        * not uClibc++ linkables
+ * C (or ANSI-C) programs
+  * shipped with configure script
+  * shipped with Makefile script (with references to gcc or $(CC) )
+  * sources files only
+ * C++ programs
+  * potentially uClibc++ linkables
+  * not uClibc++ linkables
 
-
-'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball.
-Use {{{@SF/hello}}} (choose a random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your
-program has a download location on !SourceForge.
-
+'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball. Use {{{@SF/hello}}} (choose a random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your program has a download location on !SourceForge.
 
 === Sample Makefile for C/C++ programs shipped with configure script ===
-
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -195,7 +161,6 @@ mostlyclean:
 }}}
 
 === Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC) ===
-
 If you Makefile contains harcoded "gcc" commands, then you will have to patch the makefile and replace gcc with $(CC) in order to define at "make time" the cross-compiler to use.
 
 {{{
@@ -245,7 +210,6 @@ mostlyclean:
 }}}
 
 === Sample Makefile for C/C++ programs without makefiles (usually one or two source files) ===
-
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -290,7 +254,6 @@ mostlyclean:
 }}}
 
 === Sample Makefile for C++ shipped with configure script, and uClibc++ linkables ===
-
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -355,10 +318,7 @@ mostlyclean:
         rm $(PKG_BUILD_DIR)/.built
 }}}
 
-
-
 === package/helloworld/ipkg/hello.control ===
-
 {{{
 Package: hello
 Priority: optional
@@ -366,9 +326,7 @@ Section: misc
 Description: The GNU hello world program
 }}}
 
-
 === package/helloworld/patches/100-hello.patch ===
-
 This example will also work without the Debian patch. So you can skip this point.
 
 {{{
@@ -378,63 +336,45 @@ gunzip hello_2.1.1-4.diff.gz
 mv hello_2.1.1-4.diff 100-hello.patch
 }}}
 
-'''TIP:''' You can apply as many patches as you like. To apply them in a special order name them
-like:
+'''TIP:''' You can apply as many patches as you like. To apply them in a special order name them like:
 
 {{{
 100-xxx.patch
 200-xxx.patch
 }}}
 
-
 == Compile the package ==
-
-The {{{make}}} command below compiles every package that you have created in the
-{{{package}}} directory.
+The {{{make}}} command below compiles every package that you have created in the {{{package}}} directory.
 
 {{{
 cd ~/OpenWrt-SDK-Linux-i686-1
 make clean && make compile
 }}}
 
-'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted"
-message while making, see [http://gamecontractor.org/Make this page].
+'''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make this page].
 
-For Slackware users there is a fixed make package
-[http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and
-sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
+For Slackware users there is a fixed make package [http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
 
-When the compiling is finished you have a ready to use ipkg package for !OpenWrt
-in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
+When the compiling is finished you have a ready to use ipkg package for !OpenWrt in the {{{~/OpenWrt-SDK-Linux-i686-1/bin/packages}}} directory.
 
 {{{
 cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
 -rw-r--r--  1 openwrt-dev openwrt-dev 3976 Sep 14 13:03 hello_2.1.1-1_mipsel.ipk
 }}}
 
-
 = Contribute your new ported program =
+When you like you can contribute your program/package to the !OpenWrt community. It may be included in further versions of !OpenWrt.
 
-When you like you can contribute your program/package to the !OpenWrt community.
-It may be included in further versions of !OpenWrt.
-
-To do this create a tarball from your {{{package}}} directory, and send the tarball
-to openwrt-devel@openwrt.org .
+To do this create a patch from your {{{package/<PKG_NAME>}}} directory with:
 
 {{{
-cd ~/OpenWrt-SDK-Linux-i686-1/package
-tar cvjf ../helloworld-sdk.tar.bz2 helloworld
-cd ..
+cd ~/OpenWrt-SDK-Linux-i686-1
+diff -ruN package/<PKG_NAME>.orig package/<PKG_NAME> > <PKG_NAME>-<PKG_VERSION>.patch
 }}}
 
+Once you have created a patch [https://dev.openwrt.org/newticket open a ticket] and submit your new package (the patch).
 
 = Links =
+You can find an useful reference for the packaging process in nbd's paper to the '!OpenWrt Hacking' talk on the 22C3: [[BR]]- http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf
 
-
-You can find an useful reference for the packaging process in nbd's paper to the '!OpenWrt Hacking'
-talk on the 22C3:
-[[BR]]- [http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf]
-
-Full buildroot documentation (for compiling kernel modules and such things,
-for the rest the SDK should be used)
-[[BR]]- [http://downloads.openwrt.org/docs/buildroot-documentation.html]
+Full buildroot documentation (for compiling kernel modules and such things, for the rest the SDK should be used) [[BR]]- http://downloads.openwrt.org/docs/buildroot-documentation.html
