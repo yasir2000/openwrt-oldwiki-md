@@ -68,7 +68,7 @@ Pavia
 ||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz||8|| 32 ||acx111 on-board ||ADMtek ADM6996|| ||yes|| || 1.1 || Untested ||
 ||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8 || 32 ||ac111 on-oard||ADMtek ADM6996|| ||yes|| || 1.1 || Untested ||
 
-detailed information about avm's memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
+detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
 
 
 
