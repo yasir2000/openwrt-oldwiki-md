@@ -214,9 +214,7 @@ mkdir -p /mnt/tmp && mkdir -p /mnt/dev && mkdir -p /mnt/proc && mkdir -p /mnt/jf
 umount /mnt
 }}}
 
-
-'''TIP:''' I´m using an Asus500g Deluxe with WhiteRussian rc5 and had to remove "/etc/hotplug.d/usb/01-mount" to get the right mount to /mnt
-
+/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support.  If you encounter problems as well, try disabling USB hotplug. This can be done by removing the file {{{/etc/hotplug.d/usb/01-mount}}} (which is a symlink to {{{/rom/etc/hotplug.d/usb/01-mount}}}).  This fixed the problem for one reader on an Asus 500g Deluxe with WhiteRussian RC5.
 
 Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to !BusyBox anyway):
 
@@ -269,8 +267,6 @@ Make sure your new {{{/sbin/init}}} is executable:
 {{{
 chmod a+x /sbin/init
 }}}
-
-/!\ '''IMPORTANT:''' Problems with booting from USB storage were reported when using White Russian RC4 (or later versions), where USB hotplugging was introduced. If you encounter problems as well, try to disable USB hotplug! This can be done by removing the file {{{/etc/hotplug.d/usb/01-mount}}} (which is a symlink to {{{/rom/etc/hotplug.d/usb/01-mount}}})
 
 Now just reboot, and if you did everything right it should boot from the USB device automatically.
 
@@ -468,4 +464,4 @@ ipkg-link umount /mnt/usb
 
  * Linux USB device support [[BR]]- http://www.linux-usb.org/devices.html
 ----
-CategoryHowTo CategoryHowTo
+CategoryHowTo
