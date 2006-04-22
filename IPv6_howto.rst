@@ -42,7 +42,7 @@ ipkg install ip6tables
 
 = Setup software =
 == Kernel ==
-The ipv6 module is automatically loaded at boot time, if you don't want to reboot issue
+The ipv6 module is automatically loaded at boot time via ''/etc/modules.d/20-ipv6'', if you don't want to reboot issue
 
 {{{
 insmod ipv6
@@ -64,11 +64,17 @@ lo        Link encap:Local Loopback
           RX bytes:10395 (10.1 KiB)  TX bytes:10395 (10.1 KiB)
 }}}
 
-Optionally, you can load the ip6table modules into the kernel
+Optionally, you can load the ip6table modules into the kernel by issuing the following:
 
 {{{
 insmod ip6_tables
 insmod ip6table_filter
+}}}
+
+To load ip6tables at boot, add the following to ''/etc/modules.d/20-ipv6'' or ''/etc/modules''
+{{{
+ip6_tables
+ip6table_filter
 }}}
 
 To check the installation of ip6tables you can use the ip6tables show command.
