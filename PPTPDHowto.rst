@@ -43,17 +43,17 @@ The default is ''pptp-server''.
 
 /!\ It is important to set an IP address rather than use the default asterisk.  If you use an asterisk, the peer may propose it's own address, which could cause a routing loop.  This results in very large transmit counters on ''ifconfig ppp0'' and a badly performing router, as it spends all it's time trying to move packets through the loop.
 
-== Test Connection ==
+== Configure Firewall ==
 
-/!\ By default the firewall rules of OpenWRT will not allow your client to connect.  To allow connections to the router using PPTP port 1723 go into your /etc/firewall.user file and add the following:
+For your security !OpenWrt will accept connection from a client on the LAN or wireless interfaces, but not on the WAN interface. If your client is to connect on the WAN interface, edit the ''/etc/firewall.user'' file and add the following:
 {{{
 ### Allow PPTP control connections from WAN
 iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 1723 -j ACCEPT
-iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
+iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT}}}
 
-}}}
+## FIXME: add what to do to make these rules active, reboot or ifdown/ifup wan?
 
-
+== Test Connection ==
 
 Tell a client to connect to the PPTP server, using the username and password you set in ''chap-secrets''.
 
