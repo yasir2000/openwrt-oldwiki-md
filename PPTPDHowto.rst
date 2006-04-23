@@ -45,6 +45,16 @@ The default is ''pptp-server''.
 
 == Test Connection ==
 
+/!\ By default the firewall rules of OpenWRT will not allow your client to connect.  To allow connections to the router using PPTP port 1723 go into your /etc/firewall.user file and add the following:
+{{{
+### Allow PPTP control connections from WAN
+iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 1723 -j ACCEPT
+iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
+
+}}}
+
+
+
 Tell a client to connect to the PPTP server, using the username and password you set in ''chap-secrets''.
 
 The connection should work, ping between the client and the server should work, but you may have to do some more configuring to let the client use your PPTP server as a gateway to the internet, or to see inside your LAN.  See the routing section below.
