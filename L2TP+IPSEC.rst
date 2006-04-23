@@ -42,7 +42,7 @@ ipkg install tcpdump nmap
 Also helpful thing is watching the syslog.
 
 {{{
-syslog}}}
+logread}}}
 
 == Configure IPSec ==
 ipsec.conf should look like this:
@@ -165,7 +165,6 @@ Make ipsec use certificates.
 Make l2tpd start at boot ( probably just change the name of init script).
 
 Update the /etc/firewall.user script
-
 
 Show how to configure ipsec to listen of more than one interface.
 
