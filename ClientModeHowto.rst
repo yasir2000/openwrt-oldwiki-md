@@ -2,7 +2,8 @@
 
 [[TableOfContents]]
 = Client Mode =
-If you want to use OpenWrt to connect your router to another access point (AP) or computer rather than it as AP, follow the next steps.
+
+If you want to use OpenWrt to connect your router to another access point (AP) or computer rather than run it as an AP itself, follow these steps.
 
 Reading the [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151 Setting up OpenWrt in client mode] thread in the forum might help your understanding of Client Mode a bit.
 
