@@ -45,11 +45,17 @@ The default is ''pptp-server''.
 
 == Configure Firewall ==
 
-For your security !OpenWrt will accept connection from a client on the LAN or wireless interfaces, but not on the WAN interface. If your client is to connect on the WAN interface, edit the ''/etc/firewall.user'' file and add the following:
+For your security !OpenWrt will ignore connections on the WAN interface, but accept connection from a client on the LAN or wireless interfaces.  If your client is to connect on the WAN interface, edit the ''/etc/firewall.user'' file and add the following:
+
 {{{
 ### Allow PPTP control connections from WAN
 iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 1723 -j ACCEPT
-iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT}}}
+iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
+
+### Allow GRE protocol (used by PPTP data stream)
+iptables        -A output_rule             -p 47               -j ACCEPT
+iptables        -A input_rule              -p 47               -j ACCEPT
+}}}
 
 ## FIXME: add what to do to make these rules active, reboot or ifdown/ifup wan?
 
@@ -68,20 +74,6 @@ If you have problems making a connection, increase the amount of information log
 To understand the ''pppd'' debug log, read these key sections of the PPTP Client Diagnosis HOWTO:
  * [http://pptpclient.sourceforge.net/howto-diagnosis.phtml#confreqacknakrej What does ConfReq, ConfAck, ConfNak, and ConfRej mean?]
  * [http://pptpclient.sourceforge.net/howto-diagnosis.phtml#mppe_bits What are those CCP MPPE bitmasks?]
-
-== Configure iptables Rules ==
-
-If you have not done any ''iptables'' configuration since installing, this section is not necessary.  But if you have taken control of your ''iptables'' configuration to ''DROP'' anything you don't allow, the test connection may have failed, and you may need to open TCP port 1723 to accept the PPTP control connections, and open protocol 47 for the data stream, so add in ''/etc/firewall.user'':
-
-{{{
-### Allow PPTP control connections from WAN
-iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 1723 -j ACCEPT
-iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
-
-### Allow GRE protocol (used by PPTP data stream)
-iptables        -A output_rule             -p 47               -j ACCEPT
-iptables        -A input_rule              -p 47               -j ACCEPT
-}}}
 
 == Configure Routing ==
 
