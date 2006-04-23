@@ -47,8 +47,12 @@ Analysis of WAG54GX2_A_V1.00.01.img
 005b610c:-       :lzma compressed kernel
 }}}
 
+== connectors ==
+The serial console can best be reached fron the bottom of the PCB.
 
-== Serial Console ==
+attachment:connector.jpg
+
+=== Serial Console ===
 Serial console confirmed on J503.
 ||'''pin'''||'''signal'''||
 ||1||GND||
@@ -56,9 +60,8 @@ Serial console confirmed on J503.
 ||3||VCC||
 ||4||RX||
 
-attachment:connector.jpg
 
-== JTAG ==
+=== JTAG ===
 The device has an internal 12-pins connector on J201 although not confirmed this should be for JTAG.
 
 
