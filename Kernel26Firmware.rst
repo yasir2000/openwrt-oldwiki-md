@@ -16,7 +16,7 @@ This page is dedicated to the creation of an experimental 2.6 kernel release.
 
  In cooperation with [http://handhelds.org/cgi-bin/cvsweb.cgi/linux/kernel26/] or [http://www.linux-mips.org/cvsweb/linux/]
 
- * '''Setup of a basic stucture for broadcom architecture [LinuxMipsCodingGuidelines]'''
+ * '''Setup of a basic structure for broadcom architecture [LinuxMipsCodingGuidelines]'''
 
  arch/mips/mips-boards/broadcom/platform-asus.c ...
 
