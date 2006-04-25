@@ -417,6 +417,40 @@ See DropbearPublicKeyAuthenticationHowto.
 
 == iptables - Firewall ==
 
+The rules and some small samples for your firewall can be found in /etc/firewall.user.  If you want to make changes to this file, you'll have to remove it first, since it is actually a symlink to /rom/etc/firewall.user.
+
+{{{
+ls -l /etc/firewall.user
+rm /etc/firewall.user
+cp /rom/etc/firewall.user /etc
+}}}
+
+Be sure to read the notes about the firewall rules before changing anything.  The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN.  You will have to access the router from outside to verify the setup.
+
+The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept.  In the case given, it will open up port 22 and accept connections using dropbear (the SSH server).  Just delete the '''#''' sign in front of the two rules to enable access.
+
+If you wanted to open up any other ports for the router to listen to, just copy those two lines and change just the port number from 22 to something else.
+
+The second section, '''Port forwarding''' is for accepting incoming connections from the WAN (outside the router) and sending the requests to a networked device on your LAN (inside your router).
+
+Before setting up any port forwarding, you'll have to install some OpenWRT packages first, such as iptables-nat and ip (any others?).
+
+In the example provided, if someone on the Internet were to connect to your router on port 8080, it would forward them to port 80 on whatever computer / device had the IP address of 192.168.1.2.
+
+If you are running a webserver on that address, and want to listen on port 80 instead, change the 8080 on the first line.
+
+The same is true for any other ports you'd want to forward to your LAN.  Just follow the example as a guide.
+
+The last section, '''DMZ''' is sending all connections to a port not specified in the rules above to a certain IP address.  If you do decide to use this, it would be a good idea to have a firewall managing the ports on the destination.  The DMZ can be considered a simple way to let another computer handle the firewall rules, if you don't want to configure them on OpenWRT and at the same time you want to send all connections to one device.
+
+Once you're finished making changes to your firewall, restart it by running the init script:
+
+{{{
+/etc/init.d/S45firewall restart
+}}}
+
+Remember to test the changes outside your LAN!
+
 == dnsmasq - DNS and DHCP server ==
 
 Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP server.
