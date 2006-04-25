@@ -590,11 +590,14 @@ Also, notice that the "pmon" section (the bootloader) incorrectly takes 256kB in
 
 
 === Kamikaze ===
-As of revision 3603, Kamikaze appears to be basically working except for the eth0 module.
-Because of it, /sbin/ifconfig hangs, and the boot process doesn't complete (eg., firstboot is never called, and the j2ffs partition never made active).
-If you remove /sbin/ifconfig from your root image, Kamikaze will boot without issues through the kernel, init, to a working shell.
+As of revision 3603, Kamikaze appears to be very basically working. This access point have quite little RAM and flash space, so you need to srip something out of the standard image - dropbear is a good candidate, at least while setting things up.
 
-Actually, you may have to remove some stuff in ordeer to free RAM and Flash space, as this access point is very limited. Anyway, you can get:
+The main rpblem at the moment is that ifconfig crashes when trying to set up eth0: the first time you'll get a bus error / segmentation fault, the second time the system hangs.
+
+Because of thid the System V (/etc/init.d/S*) boot process doesn't complete: firstboot is never called, and the j2ffs partition never created / made active.
+If you call /etc/init.d/S98done by hand to create it, and remove ifconfig from the j2ffs partition, you'll get to a working shell without issues.
+
+Actually, you may have to remove some stuff in order to free RAM and flash space, as this access point is very limited. Anyway, you can get:
  . {{{
 CFE version 1.0.37.6 for BCM947XX (32bit,SP,LE)
 Build Date: ¤G  9¤ë 14 13:30:06 CST 2004 (alfa@localhost.localdomain)
@@ -728,7 +731,6 @@ You can add {{{/sbin/ifconfig}}} back later simply with:
  . {{{
 root@OpenWrt:/# ln -s /bin/busybox /sbin/ifconfig
 }}}
-
 
 ----
  . CategoryModel 
