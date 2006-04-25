@@ -85,6 +85,9 @@ Should that be wl0_mode=sta not wl0_mode=wet? I tidied the ''rationale'' section
 
 Thanks BrianCandler, you're quite right: this is not really a bridge, but I think it's close as one can get without the use of wet mode.  If you (or anyone else) can make a proper bridge using WPA2 then please replace this page with instructions on how to do so. -- ["wmono"] [[DateTime]]
 
+Turns out that even wet mode is not a true bridge - it does ARP masquerading. See 
+http://forum.openwrt.org/viewtopic.php?id=5105 -- BrianCandler [[DateTime(2006-04-25T08:12:00Z)]]
+
 == S47sleep ==
 
 {{{
