@@ -20,7 +20,7 @@ Edit: This is only a temporary thing... my linux box is down, so I can't send pa
 Also, the package setup in trunk is wrong for compiling. If you want to compile that, the URL of the tar.gz file is [http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/0.12-1/src/vncrepeater-0.12.tar.gz this]
 
 = Configuration =
-Configuration is pretty straightforward, The file /etc/vncrepeater.conf is the config file. (please note that I know about the ^M charachters you see when editing the file in vim and I am working to fix it)
+Configuration is pretty straightforward, The file /etc/vncrepeater.conf is the config file. (please note that I know about the ^M charachters you see when editing the file in vim. You can either remove them or leave them as is. They will not appear in the next version.)
 
 The config file is as follows:
 
