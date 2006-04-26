@@ -57,7 +57,7 @@ iptables        -A output_rule             -p 47               -j ACCEPT
 iptables        -A input_rule              -p 47               -j ACCEPT
 }}}
 
-## FIXME: add what to do to make these rules active, reboot or ifdown/ifup wan?
+See the ["OpenWrtDocs/Configuration"] section ''iptables  - Firewall'' for more help with firewall configuration.
 
 == Test Connection ==
 
