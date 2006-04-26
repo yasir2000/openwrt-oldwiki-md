@@ -135,9 +135,9 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
                         --without-libiconv-prefix \
                         --without-libintl-prefix \
                         --disable-nls \
-                        <Add here software specific configurable options
-                          accessibles through : ./configure --help >
         );
+        ## Add software specific configurable options above
+        ## See : ./configure --help
         touch $@
 
 $(PKG_BUILD_DIR)/.built:
@@ -163,6 +163,7 @@ mostlyclean:
 === Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC) ===
 If you Makefile contains harcoded "gcc" commands, then you will have to patch the makefile and replace gcc with $(CC) in order to define at "make time" the cross-compiler to use.
 
+/!\ '''Note this Makefile is provided as an example only; it will not compile
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -191,8 +192,9 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
 $(PKG_BUILD_DIR)/.built:
         rm -rf $(PKG_INSTALL_DIR)
         mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        #Note here that we pass cross-compiler as default compiler to use
         $(MAKE) -C $(PKG_BUILD_DIR)/src \
-                CC=$(TARGET_CC) \ #Note here that we pass cross-compiler as default compiler to use
+                CC=$(TARGET_CC) \
                 $(TARGET_CONFIGURE_OPTS) \
                 prefix="$(PKG_INSTALL_DIR)/usr"
         $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
@@ -210,6 +212,8 @@ mostlyclean:
 }}}
 
 === Sample Makefile for C/C++ programs without makefiles (usually one or two source files) ===
+
+/!\ '''Note this Makefile is provided as an example only; it will not compile
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -238,7 +242,7 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
 $(PKG_BUILD_DIR)/.built:
         rm -rf $(PKG_INSTALL_DIR)
         mkdir -p $(PKG_INSTALL_DIR)/usr/bin
-        $(TARGET_CC) $(PKG_BUILD_DIR)/$(PKG_NAME).c -o $(PKG_BUILD_DIR)/$(PKG_NAME) -lyourlib #Note we directly call the cross-compiler and define its output
+        $(TARGET_CC) $(PKG_BUILD_DIR)/src/$(PKG_NAME).c -o $(PKG_BUILD_DIR)/$(PKG_NAME) ## -lyourlib #Note we directly call the cross-compiler and define its output
         $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
         touch $@
 
@@ -254,6 +258,8 @@ mostlyclean:
 }}}
 
 === Sample Makefile for C++ shipped with configure script, and uClibc++ linkables ===
+
+/!\ '''Note this Makefile is provided as an example only; it will not compile
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -293,9 +299,10 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
                         --without-libiconv-prefix \
                         --without-libintl-prefix \
                         --disable-nls \
-                        <Add here software specific configurable options
-                          accessibles through : ./configure --help >
         );
+        ## Add software specific configurable options above
+        ## See : ./configure --help
+
         touch $@
 
 $(PKG_BUILD_DIR)/.built:
