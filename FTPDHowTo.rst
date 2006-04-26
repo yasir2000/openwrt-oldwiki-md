@@ -37,23 +37,19 @@ reboot
 }}}
 
 = Opening the Firewall to Allow Public Access =
-Allowing public access to a non-secured FTP server is not a good idea.  If you
-intend to use FTP over the internet please see [:SFTPWithDropbearHowTo].
+Allowing public access to a non-secured FTP server is not a good idea, as mentioned above.  It is better to use [SFTPWithDropbearHowTo] SFTP.
  
 Nevertheless there are some instances where allowing public access to FTP is
 necessary.
-For those instances adding the following lines to /etc/firewall.user will allow
-FTP to get through the firewall.
+Add the following lines to /etc/firewall.user to allow
+FTP from the WAN:
 {{{
 ### Allow FTP on the WAN interface
 iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 21 -j ACCEPT
 iptables        -A input_rule      -i $WAN -p tcp --dport 21 -j ACCEPT
 }}}
 
-Execute the following line or reboot to implement the firewall change
-{{{
-sh /etc/firewall.user
-}}}
+See the ["OpenWrtDocs/Configuration"] section ''iptables  - Firewall'' for more help with firewall configuration.
 
 = What is My Username and Password? =
 Your username is {{{root}}} and your password is the password you set with the
