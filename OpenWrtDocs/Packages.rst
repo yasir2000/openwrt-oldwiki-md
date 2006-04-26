@@ -66,9 +66,17 @@ Srelay comes with a configuration file: /etc/srelay.conf. It has some examples, 
 
 This should give every computer in the 192.168.1.0 subnet access to srelay while keeping everything else out.
 
+Another interpretation about the config file is that it configures proxy chaining. You can specify what the next proxy hop should be for a specific destination. If you want srelay to directly connect to any destination you can use a config file like this:
+{{{
+# destination                  port range      next-hop/port
+0.0.0.0                          any
+}}}
+
 Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about the available options with '''srelay -h'''.
 
 Keep in mind that this information was found using trial-and-error-methods, so it might still be faulty or have unwanted side effects.
+
+
 
 == Building your own packages ==
 To build your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
