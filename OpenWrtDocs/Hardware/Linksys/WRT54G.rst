@@ -107,7 +107,7 @@ How to get info:
  * cpu model: {{{grep cpu /proc/cpuinfo}}}
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||'''boot_ver'''||'''pmon_ver'''||
-||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       4         || BCM4702KPB ?  ||       -      ||       -      ||
+||WRT54G v1.0       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       4         || BCM4710 V0.0  ||  v1.0        ||  3.11.30.5   ||
 ||WRT54G v1.1       ||     -        ||  bcm94710dev  ||      -         ||       -         ||  42          ||       5         || BCM4710 V0.0  ||       -      ||       -      ||
 ||WRT54G v2.0       || 0x10         ||  0x0101       ||  0x0188        ||  0              ||  42          ||       -         || BCM3302 V0.7  ||  v2.3        ||  3.51.21.0   ||
 ||WRT54G v2.2       || 0x10         ||  0x0708       ||  0x0118        ||  0              ||  42          ||       7         || BCM3302 V0.7  ||  v3.4        ||  3.61.13.0   ||
