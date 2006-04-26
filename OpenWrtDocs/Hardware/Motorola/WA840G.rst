@@ -4,6 +4,8 @@ To get the OpenWRT going on that box follow the [:OpenWrtDocs/Hardware/Motorola/
 
 Just use openwrt-wa840g-<type>.bin firmware images.
 
+Note: The WA840G IP address after the update is 192.168.10.1/24.
+
 == Making images ==
 It's necessary to modify the image builder (the one in the source distribution, not ImageBuilder) to make a usable image for the WA840G.
 
