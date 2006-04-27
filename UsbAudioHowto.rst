@@ -42,6 +42,12 @@ Any USB Audio device supported by linux should work with OpenWRT. I have succesf
 http://users.tpg.com.au/davico/images/usbsoundcard_1.jpg
 http://users.tpg.com.au/davico/images/usbsoundcard_2.jpg
 
+= Bugs =
+
+== White Russian RC5 ==
+
+If you get "strcpy" as unresolved symbol when loading soundcore.o put attachment:999-soundcore_strcpy.patch into the directory `target/linux/linux-2.4/patches/generic` of your build tree, rebuild the firmware and reinstall the kernel module. Without the patch a bug in GCC's optimizer may be triggered.
+
 = Future =
 
 I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by roku, linksys, netgear, philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
