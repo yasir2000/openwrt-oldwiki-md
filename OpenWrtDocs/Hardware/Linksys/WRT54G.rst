@@ -137,5 +137,16 @@ second reset button you can find on WRT54G v3.0, except that it has not been sol
 
 Many versions of this model have a (possibly unpopulated) serial header, for more info see
 [http://www.rwhitby.net/wrt54gs/serial.html].
+
+'''Opening the case'''
+
+'''WRT54G v1.0'''
+
+Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c530e26278d85d701631ff here] for instructions and [http://seattlewireless.net/~mattw/photos/linksyswrt54g/gallery/ here] for pictures. A 9/16 socket wrench or similar tool can be used to remove the antenna.
+
+'''WRT54G v3.1'''
+
+Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
+
 ----
 CategoryModel
