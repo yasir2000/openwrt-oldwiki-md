@@ -226,7 +226,6 @@ Waldemar Brodkorb <wbx>
 Nicolas Thill <Nico>
 Felix Fietkau <nbd>
 Florian Fainelli <florian>
-Oliver Ertl <olli>
 }}}
 
 == How do I access the syslog messages? ==
