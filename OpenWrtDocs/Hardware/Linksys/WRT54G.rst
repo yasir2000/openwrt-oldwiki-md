@@ -138,6 +138,12 @@ second reset button you can find on WRT54G v3.0, except that it has not been sol
 Many versions of this model have a (possibly unpopulated) serial header, for more info see
 [http://www.rwhitby.net/wrt54gs/serial.html].
 
+||Pin 1||3.3V||Pin 2||3.3V||
+||Pin 3||Tx (ttyS1)||Pin 4||Tx (ttyS0)||
+||Pin 5||Rx (ttyS1)||Pin 6||Rx (ttyS0)||
+||Pin 7||NC||Pin 8||NC||
+||Pin 9||GND||Pin 10||GND||
+
 '''Opening the case'''
 
 '''WRT54G v1.0'''
