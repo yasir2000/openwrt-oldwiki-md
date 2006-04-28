@@ -23,8 +23,7 @@ Unfortunately, due to the proliferation of noobs attempting to install bleeding 
 If you want to help with development, attach a serial console and build an image from
 Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at [http://forum.openwrt.org/viewforum.php?id=3] regarding the wgt634u.
 
-Please always use the newest subversion code. Report any bugs via the
-[https://dev.openwrt.org ticket system].
+Please always use the newest subversion code. Report any bugs via the [https://dev.openwrt.org ticket system].
 
 If you do choose to install the latest kamakazi build either provided by yasha or built yourself the latest and most up to date documentation regarding kamakzi on the wgt634u can be found here:
 
