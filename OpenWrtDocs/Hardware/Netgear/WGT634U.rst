@@ -26,6 +26,9 @@ Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, 
 Please always use the newest subversion code. Report any bugs via the
 [https://dev.openwrt.org ticket system].
 
+If you do choose to install the latest kamakazi build either provided by yasha or built yourself the latest and most up to date documentation regarding kamakzi on the wgt634u can be found here:
+
+"http://openwrt.pbwiki.com/"
 
 = Installing OpenWrt =
 
