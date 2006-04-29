@@ -14,57 +14,21 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 
 '''Performance of IO (IDE, USB, Disk)'''
 
-||<tablewidth="800px" tablealign="">'''Tester
-'''||'''Time to run
-'''||'''Version of bench
-'''||'''Device
-'''||'''CPU
-'''||'''Freq
-'''||'''Link to HW page
-'''||
-||
-||jecuendet
-||13s
-||0.1
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
-||
+TODO, which bench to use?
+
+||<tablewidth="800px" tablealign="">'''Date'''||'''Tester'''||'''Time to run'''||'''Version of bench'''||'''Device'''||'''CPU'''||'''Freq'''||'''Link to HW page'''||
+|| || || || || || || || ||
+|| || || || || || || || ||
+|| || || || || || || || ||
+
+
+== How to compile and run the benchmark ==
+
+1. you need to download it: here
+2. Compile it
+ cd <...>/OpenWrt-SDK-Linux-i686-1
+ staging_dir_mipsel/bin/mipsel-linux-gcc -o openwrt_cpu_bench openwrt_cpu_bench.c 
+  => This will produce a binary openwrt_cpu_bench
+3. Copy it to your device
+4. Run it: ./openwrt_cpu_bench
+5. Report in the table above the time it took to run
