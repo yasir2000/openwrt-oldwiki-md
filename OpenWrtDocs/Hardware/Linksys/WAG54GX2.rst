@@ -9,7 +9,7 @@ CPU Speed      : 240MHz, Bus: 133MHz, Ref: 26MHz
 Flash size     : 8 MB
 RAM            : 32 MB
 Wireless       : Mini-PCI Airgo MIMO 802.11b/g Wireless LAN Controller
-Ethernet       : Unknown switch
+Ethernet       : Unknown, switch BCM5325
 USB            : None
 ADSL           : 2/2+
 Serial         : yes J503
