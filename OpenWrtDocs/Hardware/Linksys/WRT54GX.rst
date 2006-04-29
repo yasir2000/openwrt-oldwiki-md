@@ -29,10 +29,10 @@ JTAG: ?
 
 Serial port (JP1, 38400bps):
 {{{
-VCC  o
-GND  o
-TX   o
 RX   o
+TX   o
+GND  o
+VCC  o
 
 LEDS
 }}}
