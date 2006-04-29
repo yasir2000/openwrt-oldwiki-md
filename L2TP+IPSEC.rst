@@ -22,9 +22,9 @@ The wrt has 10.1.1.1 on at least one wired-port, the rig you're using to configu
 The following relies on this configuration.
 
 == Needed Packages ==
-You need to install OpenSwan
+You need to install OpenSwan and the OpenSwan Kernel-Modules
 {{{
-ipkg install openswan}}}
+ipkg install openswan kmod-openswan}}}
 
 Aslo install the  L2TPd package. Use patched version:
 
