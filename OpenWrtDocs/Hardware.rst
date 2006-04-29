@@ -22,6 +22,11 @@ Possibly if you buy us one ....
 When you like to help, please see [:Donations].
 
 
+==== Hardware performance ====
+
+What is the performance (CPU, disk) of each device [:HardwarePerformance].
+
+
 ==== How can I identify which hardware I have? ====
 
 ===== Linksys models =====
