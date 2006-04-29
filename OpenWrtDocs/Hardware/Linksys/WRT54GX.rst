@@ -29,9 +29,9 @@ JTAG: ?
 
 Serial port (JP1, 38400bps):
 {{{
+VCC  o
 GND  o
 TX   o
-VCC  o
 RX   o
 
 LEDS
