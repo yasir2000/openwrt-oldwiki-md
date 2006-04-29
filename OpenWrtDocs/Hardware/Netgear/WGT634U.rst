@@ -34,7 +34,9 @@ If you do choose to install the latest kamakazi build either provided by yasha o
 == Using Netgear's web interface ==
 
 If you want to upgrade to !OpenWrt using the web interface, you need to download a special
-config file and upload it to your router using the '''Backup Settings''' option.
+config file and upload it to your router using the '''Backup Settings''' option. The supplied
+config file is for version 1.4.1.10 of the netgear supplied firmware. If the version number
+doesn't match the version number of the config file it will just not 'take'
 
 The file is available here: http://downloads.openwrt.org/utils/wgt634u-upgrade.cfg
 
