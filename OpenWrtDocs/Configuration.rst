@@ -569,6 +569,7 @@ Examples:
 ||Alaska Time||AKST9AKDT||
 ||Pacific Time||PST8PDT||
 ||Mountain Time||MST7MDT||
+||Mountain Time (Arizona, no DST)||MST7||
 ||Central Time||CST6CDT||
 ||Eastern Time||EST5EDT||
 ||Atlantic Time||AST4ADT||
