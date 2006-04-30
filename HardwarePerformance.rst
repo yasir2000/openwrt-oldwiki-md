@@ -4,11 +4,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 == Devices performance table ==
 '''Performance of CPU / Memory'''
 ||<tablewidth="800px" tablealign="">'''Date'''||'''Tester'''||'''Time for mem'''||'''Time for pi'''||'''Time for e'''||'''Version of bench'''||'''Device'''||'''CPU'''||'''CPU Freq'''||'''Link to HW page'''||
-|| 01-05-2006 || jecuendet || 7s || 14s || 16s || v0.1 || ASUS WL-500G || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500G ||
-|| || || || || || || || ||
-|| || || || || || || || ||
-|| || || || || || || || ||
-|| || || || || || || || ||
+|| 2006-05-01 || jecuendet || 7s || 14s || 16s || v0.1 || ASUS WL-500G || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500G ||
 
 
 
