@@ -13,9 +13,6 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 TODO, which bench to use?
 
 ||<tablewidth="800px" tablealign="">'''Date'''||'''Tester'''||'''Time to run'''||'''Version of bench'''||'''Device'''||'''CPU'''||'''Freq'''||'''Link to HW page'''||
-|| || || || || || || || ||
-|| || || || || || || || ||
-|| || || || || || || || ||
 
 
 == How to compile and run the benchmark ==
