@@ -313,6 +313,8 @@ If it doesn't work use {{{logread}}} to see what occurs
 = IPv6 on the LAN =
 At this point I suppose that you have a working ipv6 connection on the wrt, that you can ''ping6 www.kame.net'' without error.
 
+'''Note: When using a SixXS tunnel (and probably others), only ::1 (the PoP) and ::2 (your endpoint) can be used as the rest is not routed!  Therefore, you need to request a subnet and enable it before you are able to utilize radvd.'''
+
 Using our mythical {{{2001:db8:0:f101::/64}}} network, we would put in /etc/radvd.conf the following lines:
 
 {{{
@@ -331,7 +333,7 @@ interface br0
 };
 }}}
 
-Now we add {{{2001:db8:0:f101::1}}} to br0 & forward our delegated /64 subnet to br0 :
+Now we add {{{2001:db8:0:f101::1}}} to br0 using the command below.  To keep the changes at boot add it to the ''/etc/init.d/S40network'' script.  Forwarding of our delegated /64 subnet to br0 is done automatically in ''S51radvd''
 
 {{{
 ip -6 addr add 2001:db8:0:f101::1/64 dev br0
