@@ -157,7 +157,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=538 WAP55AG] ||2.0 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz || || ||Atheros (integrated) ||None ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?prid=558&scid=38 WGA54G] || || || || || || || || || || ||Untested ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=38&prid=629 WRE54G] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Yes ||No ||No ||Untested ||
-||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||ADM6996L ||off ||No UART || || ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||ADM6996L ||off ||Space for UART (surface mount) || || ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||1.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||off ||No UART ||Yes || ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||2.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||2.2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
@@ -268,7 +268,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.soekris.com/ net4801] || ||@266MHz || ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
+||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
 
 
 == T-Com ==
