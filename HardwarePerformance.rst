@@ -22,9 +22,11 @@ TODO, which bench to use?
 
  1. you need to download it: attachment:openwrt_cpu_bench.cpp
  2. Compile it
+{{{
     cd <...>/OpenWrt-SDK-Linux-i686-1
     staging_dir_mipsel/bin/mipsel-linux-gcc -o openwrt_cpu_bench openwrt_cpu_bench.cpp
        => This will produce a binary openwrt_cpu_bench
+}}}
  3. Copy it to your device
- 4. Run it: ./openwrt_cpu_bench
+ 4. Run it: '''./openwrt_cpu_bench'''
  5. Report in the table above the time it took to run
