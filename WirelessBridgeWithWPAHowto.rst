@@ -26,7 +26,7 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
  1. Install wl
  1. Install nas
  1. Install dhcp-forwarder
- 1. Install libpthread and parprouted (from http://downloads.openwrt.org/people/nico/testing/mipsel/packages/)
+ 1. Install libpthread and parprouted (from http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ no longer existing?)
  1. Delete /etc/init.d/S45firewall
  1. Delete /etc/init.d/S50dnsmasq
  1. Delete /etc/init.d/dhcp-fwd
