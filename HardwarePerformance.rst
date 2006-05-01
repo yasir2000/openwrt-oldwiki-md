@@ -40,8 +40,8 @@ TODO, which bench to use?
 
 == Versions of the benchmark ==
 
- v0.1 : Initial revision
- v0.2 : ???
- v0.3 : Various bug fixes
- v0.4 : Added floating point calculation
- v0.5 : Corrected pi benchamrk
+ * v0.1 : Initial revision
+ * v0.2 : ???
+ * v0.3 : Various bug fixes
+ * v0.4 : Added floating point calculation
+ * v0.5 : Corrected pi benchamrk
