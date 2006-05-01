@@ -9,7 +9,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || arteqw || 7.2s || 1.6s || 16.1s || v0.3 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
 || 2006-05-01 || mauritzius || 11.1s || 3.0s || 31.1s || v0.3 || Asus WL-500g || BCM4710 V0.0 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500G ||
 || 2006-05-01 || Ultimo || 7.5s || 1.6s || 15.8s || v0.3 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL ||
-|| 20060-05-01 || hoerchen || 9.8s || 2.6s || 29.9s || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
+|| 2006-05-01 || hoerchen || 9.8s || 2.6s || 29.9s || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
 
 
 '''Performance of IO (IDE, USB, Disk)'''
