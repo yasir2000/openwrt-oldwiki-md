@@ -1,5 +1,3 @@
-Describe InstallingWrt54gl here.
-
 OpenWrtDocs [[TableOfContents]]
 
 
