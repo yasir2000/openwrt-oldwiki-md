@@ -138,6 +138,14 @@ For this to work you need the same kernel modules for USB as described above. Yo
 ipkg install kmod-ext2 kmod-ext3
 }}}
 
+After installing the modules, you should either reboot the device or load the installed modules manually:
+
+{{{
+insmod ext2
+insmod jbd
+insmod ext3
+}}}
+
 The next step is to partition the USB device and create an EXT3 FS partition. This requires {{{fdisk}}} (install it as described above). You can do the partioning in !OpenWrt it self or on a normal PC.
 
 '''In !OpenWrt do'''
