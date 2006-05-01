@@ -32,4 +32,5 @@ TODO, which bench to use?
  3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v03.bin
  3. Copy it to your device
  3. Run it: '''./openwrt_cpu_bench'''
+ 3. Run it 2 more times and report the average of the 3 runs
  3. Report in the table above the time it took to run
