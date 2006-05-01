@@ -12,6 +12,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
 || 2006-05-01 || pyllyukko || 7.7s || 14.6s || 16.2s || 9.4s || v0.5 || WRT54GS v4 || BCM3302 V0.8 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GS ||
 || 2006-05-01 || charles || 5.9s || 10.9s || 12.2s || 6.9s || v0.5 || WRTSL54GS || BCM4704 || 266MHz ||http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTSL54GS ||
+||<style="vertical-align: top;">2006-05-01 ||<style="vertical-align: top;">yans ||<style="vertical-align: top;">7.2s ||<style="vertical-align: top;">14.4s ||<style="vertical-align: top;">16.1s ||<style="vertical-align: top;">11.4s ||<style="vertical-align: top;"> v0.5 ||<style="vertical-align: top;">WR850Gv3 ||<style="vertical-align: top;">BCM3302 V0.7 ||<style="vertical-align: top;"> 200MHz ||<style="vertical-align: top;">http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
 
 
 '''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
@@ -33,15 +34,14 @@ TODO, which bench to use?
        => This will produce a binary openwrt_cpu_bench
        => Be careful to add -O0, we don't want to check compiler optimization but CPU capabilities
 }}}
+
  3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v05.bin
  3. Copy it to your device
  3. Run it: '''./openwrt_cpu_bench_vXX.bin'''
  3. Run it 2 more times and report the average of the 3 runs
  3. Report in the table above the time it took to run
 
-
 == Versions of the benchmark ==
-
  * v0.1 : Initial revision
  * v0.2 : ???
  * v0.3 : Various bug fixes
