@@ -12,7 +12,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || hoerchen || 9.8s || 2.6s || 29.9s || || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
 || 2006-05-01 || pyllyukko || 7.7s || 1.6s || 16.2s || 9.4s || v0.4 || WRT54GS v4 || BCM3302 V0.8 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GS ||
 
-jecuendet: would be very cool if a NSLU2 owner could bench it and report results!
+'''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
 
 '''Performance of IO (IDE, USB, Disk)'''
 
@@ -40,8 +40,8 @@ TODO, which bench to use?
 
 == Versions of the benchmark ==
 
-v0.1 : Initial revision
-v0.2 : ???
-v0.3 : Various bug fixes
-v0.4 : Added floating point calculation
-v0.5 : Corrected pi benchamrk
+ v0.1 : Initial revision
+ v0.2 : ???
+ v0.3 : Various bug fixes
+ v0.4 : Added floating point calculation
+ v0.5 : Corrected pi benchamrk
