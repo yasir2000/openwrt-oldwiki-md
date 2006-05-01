@@ -24,7 +24,7 @@ TODO, which bench to use?
     staging_dir_mipsel/bin/mipsel-linux-gcc -o openwrt_cpu_bench openwrt_cpu_bench.c
        => This will produce a binary openwrt_cpu_bench
 }}}
- 3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench.bin
+ 3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v03.bin
  3. Copy it to your device
  3. Run it: '''./openwrt_cpu_bench'''
  3. Report in the table above the time it took to run
