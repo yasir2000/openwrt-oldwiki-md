@@ -19,6 +19,13 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 
 '''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
 
+- Running the benchmark on the NSLU2 results in an segmentation fault error.
+If i ltrace it, i get this error in an infinit loop:
+{{{
+.unexpected breakpoint at 0x8394
+__libc_start_main(36108, 1, 0xbee5bae4, 37120, 37208Error: call nesting too deep!
+}}}
+
 '''Performance of IO (IDE, USB, Disk)'''
 
 TODO, which bench to use?
