@@ -16,7 +16,7 @@ TODO, which bench to use?
 
 
 == How to compile and run the benchmark ==
- 1. you need to download it: attachment:openwrt_cpu_bench.c
+ 1. you need to download it: attachment:openwrt_cpu_bench_v03.c
  1. Compile it
 
 {{{
