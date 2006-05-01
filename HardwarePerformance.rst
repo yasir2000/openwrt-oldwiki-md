@@ -6,7 +6,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 
 ||'''Date''' ||'''Tester''' ||'''Time for mem''' ||'''Time for pi''' || '''Time for e''' || '''Time for float''' || '''Version of bench''' ||'''Device''' ||'''CPU''' ||'''CPU Freq''' ||'''Link to HW page''' ||
 || 2006-05-01 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500GD ||
-|| 2006-05-01 || arteqw || 7.2s || 1.6s || 16.1s || || v0.3 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
+|| 2006-05-01 || arteqw || 7.3s || 14.5s || 16.1s || 11.3s || v0.5 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
 || 2006-05-01 || mauritzius || 10.3s || 25.3s || 30.9s || 15.1s || v0.5 || Asus WL-500g || BCM4710 V0.0 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500G ||
 || 2006-05-01 || Ultimo || 7.5s || 1.6s || 15.8s || || v0.3 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL ||
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
