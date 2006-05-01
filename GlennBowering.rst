@@ -7,4 +7,4 @@ Email: [[MailTo(you AT SPAMFREE example DOT com)]]
 ...
 
 ----
-InstallOnWRT54GL
+InstallingWrt54gl
