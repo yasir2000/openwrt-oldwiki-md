@@ -12,8 +12,8 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
 || 2006-05-01 || pyllyukko || 7.7s || 14.6s || 16.2s || 9.4s || v0.5 || WRT54GS v4 || BCM3302 V0.8 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GS ||
 || 2006-05-01 || charles || 5.9s || 10.9s || 12.2s || 6.9s || v0.5 || WRTSL54GS || BCM4704 || 266MHz ||http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTSL54GS ||
-||<style="vertical-align: top;">2006-05-01 ||<style="vertical-align: top;">yans ||<style="vertical-align: top;">7.2s ||<style="vertical-align: top;">14.4s ||<style="vertical-align: top;">16.1s ||<style="vertical-align: top;">11.4s ||<style="vertical-align: top;"> v0.5 ||<style="vertical-align: top;">WR850Gv3 ||<style="vertical-align: top;">BCM3302 V0.7 ||<style="vertical-align: top;"> 200MHz ||<style="vertical-align: top;">http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
-
+||2006-05-01 ||yans ||7.2s ||14.4s ||16.1s ||11.4s || v0.5 ||WR850Gv3 ||BCM3302 V0.7 || 200MHz ||http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
+|| 2006-05-01 || cabo || 6.4s || 13.2s || 14.7s || 10.2s || v0.5 || WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || [:OpenWrtDocs/Hardware/Linksys/WRT54GS] ||
 
 '''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
 
