@@ -34,3 +34,12 @@ TODO, which bench to use?
  3. Run it: '''./openwrt_cpu_bench_XX.bin'''
  3. Run it 2 more times and report the average of the 3 runs
  3. Report in the table above the time it took to run
+
+
+== Versions of the benchmark ==
+
+v0.1 : Initial revision
+v0.2 : ???
+v0.3 : Various bug fixes
+v0.4 : Added floating point calculation
+v0.5 : Corrected pi benchamrk
