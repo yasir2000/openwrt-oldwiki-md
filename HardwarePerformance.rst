@@ -6,7 +6,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 
 ||'''Date''' ||'''Tester''' ||'''Time for mem''' ||'''Time for pi''' ||'''Time for e''' ||'''Version of bench''' ||'''Device''' ||'''CPU''' ||'''CPU Freq''' ||'''Link to HW page''' ||
 || 2006-05-01 || jecuendet || 7s || 1.6s || 15.9s || v0.3 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500GD ||
-|| 2006-05-01 || arteqw || 7.2s || 1.6s || 16.1s || v0.3 || ''Motorola WR850G v2'' || ''BCM3302 V0.7'' || ''200MHz'' || ''http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G'' ||
+|| 2006-05-01 || arteqw || 7.2s || 1.6s || 16.1s || v0.3 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
 
 
 '''Performance of IO (IDE, USB, Disk)'''
