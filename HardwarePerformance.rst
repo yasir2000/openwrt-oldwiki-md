@@ -10,6 +10,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || mauritzius || 11.1s || 3.0s || 31.1s || || v0.3 || Asus WL-500g || BCM4710 V0.0 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500G ||
 || 2006-05-01 || Ultimo || 7.5s || 1.6s || 15.8s || || v0.3 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL ||
 || 2006-05-01 || hoerchen || 9.8s || 2.6s || 29.9s || || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
+|| 2006-05-01 || pyllyukko || 7.7s || 1.6s || 16.2s || 9.4s || v0.4 || WRT54GS v4 || BCM3302 V0.8 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GS ||
 
 jecuendet: would be very cool if a NSLU2 owner could bench it and report results!
 
