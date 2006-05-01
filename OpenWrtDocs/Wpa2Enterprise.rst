@@ -71,10 +71,32 @@ This file is included by radiusd.conf. Here's mine, stripped of all comments and
 
 The freeradius-samplecerts ipkg will install some 'snakeoil' certificates that you can use if you want; I already had a CA set up at work using the excellent [http://devel.it.su.se/pub/jsp/polopoly.jsp?d=1026&a=3290 CSP package] so I just generated a new one for my server. Although the comments in the distributed file suggest not using MD5 as an EAP type, pre-WinXP-SP2 machines only know how to do MD5 (reference: [http://www.freeradius.org/doc/EAP-MD5.html freeradius.org doc]), so I've enabled it.
 
+You may need to create a random file (on another machine) as using /dev/random caused radiusd to hang. To do this run the following command and copy the resulting file back
+{{{
+openssl rand -out random 102400
+}}}
+
 === radiusd.conf ===
 Huge file as distributed. I've massively cut mine down to save space and cut out things that the freeradius ipkg doesn't support (all the backends, proxying, neato logging, etc do not work). It's still quite long, but here are JUST THE IMPORTANT PARTS. I'll attach the real file to this wiki page for downloading.
 
 {{{
+prefix = /usr
+exec_prefix = /usr
+sysconfdir = /etc
+localstatedir = /var
+sbindir = /usr/sbin
+logdir = ${localstatedir}/log/radius
+raddbdir = /etc/freeradius
+radacctdir = ${logdir}/radacct
+confdir = ${raddbdir}
+run_dir = ${localstatedir}/run
+
+listen {
+        ipaddr = *
+        port = 0
+        type = auth
+}
+
 thread pool {
         start_servers = 1
         max_servers = 4
@@ -82,15 +104,18 @@ thread pool {
         max_spare_servers = 3
         max_requests_per_server = 0
 }
-$INCLUDE  ${confdir}/clients.conf
-modules {
 
+$INCLUDE  ${confdir}/clients.conf
+
+modules {
         pap {
                 encryption_scheme = clear
         }
+
         chap {
                 authtype = CHAP
         }
+
         mschap {
                 authtype = MS-CHAP
                 with_ntdomain_hack = yes
@@ -98,17 +123,20 @@ modules {
 
         mschapv2 {
         }
+
         $INCLUDE ${confdir}/eap.conf
+
         files {
                 usersfile = ${confdir}/users
                 compat = no
         }
 }
-authorize {
 
+authorize {
         files
         eap
 }
+
 authenticate {
         eap
 }
@@ -125,11 +153,12 @@ DEFAULT Group == "disabled", Auth-Type := Reject
 mysername    User-Password == "mySeekritPassword"
 }}}
 
+You will also need to create empty acct_user and preproxy_user files (ie just touch them).
+
+Note that it is advisable to read all of the radiusd output and check for errors as they may cause radiusd to crash later even though it looks like it's working.
+
 == Client Configuration ==
 For my MacBook Pro, I had to pick the 802.1X type manually in System Preferences - Network - AirPort - Edit (SSID). I Picked ""Wireless Security"": WPA2 Enterprise, put username and password, and picked ""802.1X Configuration"": TTLS - PAP.  This forced it to use the cleartext password in the users file.
 
 == Debugging ==
 Run radiusd in full-monty debug mode: {{{/usr/sbin/radiusd -X -A}}} and you'll see each packet come in and each step of the transaction. Very helpful because the WRT doesn't tell you nuffin' !
-
-== Caution ==
-I just tried this and it crashes Free``Radius.. I did a bit of debugging on a Real PC (tm) and found it tries to deref a pointer when checking nospace_* and lower_*. This is strange because adding them to the config doesn't fix it, and in any case they should have non-NULL default values. I patched for this on my Real PC(tm) but couldn't get my WRT to talk to it properly (it sent challenges but they never seemed to get back to the WRT). Anyway YMMV, perhaps the original author can comment? I have v1.0.5 on the WRT and 1.1.1 on the Real PC.
