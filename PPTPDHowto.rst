@@ -89,13 +89,15 @@ found interface vlan0 for proxy arp
 in the logs. The kernel will now answer arp requests for the clients connected through the PPTP tunnel and thus the packets are routed correctly to either the ppp+ device or vlan0. We will have to add additional iptables rules of course (again given without any guarantee of safety, please correct this if you know better):
 {{{
 ### VPN Section
-iptables        -A forwarding_rule -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
-iptables        -A output_rule     -o ppp+ -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
-iptables        -A input_rule      -i ppp+ -s 192.168.1.0/24 -d 192.168.1.0/24 -j ACCEPT
+iptables        -A forwarding_rule -s 192.168.0.0/24 -d 192.168.0.0/24 -j ACCEPT
+iptables        -A output_rule     -o ppp+ -s 192.168.0.0/24 -d 192.168.0.0/24 -j ACCEPT
+iptables        -A input_rule      -i ppp+ -s 192.168.0.0/24 -d 192.168.0.0/24 -j ACCEPT
 
 # allow VPN connections to get out WAN interface (to internet)
 iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT
 }}}
+
+NOTE:  The ip address range in the iptables section above is the LAN ip address range.
 
 == Troubleshooting ==
 
