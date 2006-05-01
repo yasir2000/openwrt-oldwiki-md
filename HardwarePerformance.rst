@@ -21,17 +21,18 @@ TODO, which bench to use?
 
 
 == How to compile and run the benchmark ==
- 1. you need to download it: attachment:openwrt_cpu_bench_v04.c
+ 1. you need to download it: attachment:openwrt_cpu_bench_v05.c
  1. Compile it
 
 {{{
     cd <...>/OpenWrt-SDK-Linux-i686-1
-    staging_dir_mipsel/bin/mipsel-linux-gcc -o openwrt_cpu_bench openwrt_cpu_bench.c
+    staging_dir_mipsel/bin/mipsel-linux-gcc -O0 -o openwrt_cpu_bench openwrt_cpu_bench_vXX.c
        => This will produce a binary openwrt_cpu_bench
+       => Be careful to add -O0, we don't want to check compiler optimization but CPU capabilities
 }}}
- 3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v04.bin
+ 3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v05.bin
  3. Copy it to your device
- 3. Run it: '''./openwrt_cpu_bench_XX.bin'''
+ 3. Run it: '''./openwrt_cpu_bench_vXX.bin'''
  3. Run it 2 more times and report the average of the 3 runs
  3. Report in the table above the time it took to run
 
