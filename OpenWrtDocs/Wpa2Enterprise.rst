@@ -130,3 +130,6 @@ For my MacBook Pro, I had to pick the 802.1X type manually in System Preferences
 
 == Debugging ==
 Run radiusd in full-monty debug mode: {{{/usr/sbin/radiusd -X -A}}} and you'll see each packet come in and each step of the transaction. Very helpful because the WRT doesn't tell you nuffin' !
+
+== Caution ==
+I just tried this and it crashes Free``Radius.. I did a bit of debugging on a Real PC (tm) and found it tries to deref a pointer when checking nospace_* and lower_*. This is strange because adding them to the config doesn't fix it, and in any case they should have non-NULL default values. I patched for this on my Real PC(tm) but couldn't get my WRT to talk to it properly (it sent challenges but they never seemed to get back to the WRT). Anyway YMMV, perhaps the original author can comment? I have v1.0.5 on the WRT and 1.1.1 on the Real PC.
