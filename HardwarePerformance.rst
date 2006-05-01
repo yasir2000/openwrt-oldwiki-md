@@ -8,12 +8,12 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500GD ||
 || 2006-05-01 || arteqw || 7.3s || 14.5s || 16.1s || 11.3s || v0.5 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
 || 2006-05-01 || mauritzius || 10.3s || 25.3s || 30.9s || 15.1s || v0.5 || Asus WL-500g || BCM4710 V0.0 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500G ||
-|| 2006-05-01 || Ultimo || 7.5s || 1.6s || 15.8s || || v0.3 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL ||
+|| 2006-05-01 || Ultimo || 7.5s || 1.6s || 15.8s || || v0.3 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54GL] ||
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || Microsoft MN-700 || BCM4710 || 125MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Microsoft ||
-|| 2006-05-01 || pyllyukko || 7.7s || 14.6s || 16.2s || 9.4s || v0.5 || WRT54GS v4 || BCM3302 V0.8 || 200MHz || http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GS ||
+|| 2006-05-01 || pyllyukko || 7.7s || 14.6s || 16.2s || 9.4s || v0.5 || WRT54GS v4 || BCM3302 V0.8 || 200MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54GS] ||
 || 2006-05-01 || charles || 5.9s || 10.9s || 12.2s || 6.9s || v0.5 || WRTSL54GS || BCM4704 || 266MHz ||http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTSL54GS ||
 ||2006-05-01 ||yans ||7.2s ||14.4s ||16.1s ||11.4s || v0.5 ||WR850Gv3 ||BCM3302 V0.7 || 200MHz ||http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G ||
-|| 2006-05-01 || cabo || 6.4s || 13.2s || 14.7s || 10.2s || v0.5 || WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || [:OpenWrtDocs/Hardware/Linksys/WRT54GS] ||
+|| 2006-05-01 || cabo || 6.4s || 13.2s || 14.6s || 10.2s || v0.5 || WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || [:OpenWrtDocs/Hardware/Linksys/WRT54GS] ||
 
 '''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
 
