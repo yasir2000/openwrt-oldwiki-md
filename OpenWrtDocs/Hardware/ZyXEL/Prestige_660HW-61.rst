@@ -68,6 +68,13 @@ Thanks (again) to adslayuda for the [http://www.adslayuda.com/Zyxel650-9.html ho
 #define magic2  7
 #define atse_length 12  /* ATSE command, ZyNOS seed password length */
 
+#define WORD_LENGTH (8*sizeof(value))
+int ror(unsigned int value, int places)
+{
+  return (value>>places)|(value<<(WORD_LENGTH-places));
+}
+
+
 int main (int argc, char* argv[]) {
 
         char *seed, a[7], c[3];
@@ -83,20 +90,21 @@ int main (int argc, char* argv[]) {
         }
 
         seed = argv[1];
-        strncpy (a, seed , 6);
-        e = strtol(a,NULL,16);
 
-        strncpy (c, seed + strlen(seed)-2, 2);
-        d = strtol(c,NULL,16) & magic2;
-        b = e + magic1;
+        strncpy (a, seed , 6);  //a="ersten" 3Bytes vom seed
+        e = strtol(a,NULL,16);  //e=a
 
-        b = ( b >> d ) | (( b & d ) << (sizeof(int)*8 - d));
+        strncpy (c, seed + strlen(seed)-2, 2); //c= last 2 bytes of seed?
+        d = strtol(c,NULL,16) & magic2; //d="last byte" AND 7
+        b = e + magic1; //
 
+        b = ror(b,d);
         password = b ^ e;
-        printf("ATEN 1,%X\n", password);
+        printf("\nATEN 1,%X\n", password);
 
         return 0;
 }
+
 
 }}}
 
