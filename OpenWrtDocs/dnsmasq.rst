@@ -136,3 +136,13 @@ dhcp-option=44,192.168.1.2
 }}}
 
 Now as your machines release and renew DHCP information they will obtain the address of the WINS server automatically.
+
+== SIP-Phones and dnsmasq ==
+By default, the option {{{filterwin2k}}} in dnsmasq is activated, which seems to 
+cause dnsmasq to block any queries for {{{SRV}}} records. {{{SRV))) records are
+'''not''' only used by windows computers to find the domaincontroller and such,
+they are also used by e.g SIP-Phones to find the server responsible for a given
+domain ({{{SRV}}} records are a kind of generalized {{{MX}}} records). Therefore,
+the {{{filterwin2k}}} options needs to be disabled (commented out in
+{{{/etc/dnsmasq.conf}}}) in order to let SIP-Phones work that use dnsmasq as their
+DNS server.
