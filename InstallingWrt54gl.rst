@@ -19,7 +19,7 @@ The WRT54GL !LinkSys router was used for this particular installation.  The spec
 
 The Firmware version as of the latest WRT54GL models as of April 2006 is v4.30.0.  Do not be concerned with the which version you have.  You may want to take note of which version you have in case you would like to re-install it (although, even that doesn't matter as you can just go to the !LinkSys website to download the latest and greatest), however, unlike what some people say about rolling back versions to take advantage of the infamous "ping exploit"... well, that's just not needed.  Any version should work fine.
 
-For any of those people interested in connecting serial ports to the WRT54GL.  Single and dual serial boards are available.  Two serial connections can be created used for sure.
+For any of those people interested in connecting serial ports to the WRT54GL.  Single and dual serial boards are available.  Two serial connections can be created using a dual serial board.
 
 = Installing OpenWrt =
 We are installing !OpenWrt on the !LinkSys WRT54GL router. 
