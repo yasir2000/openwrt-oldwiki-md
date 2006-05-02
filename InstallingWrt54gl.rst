@@ -77,7 +77,7 @@ So you have the !OpenWrt firmware image downloaded and have confirmed it isn't c
 
 You have two choices for installation, both methods work on both Linux and Windows.  You can can use the LinkSys Web Interface for installing !OpenWrt or you can use tftp to install !OpenWrt.
 
-If you are not compiling your own !OpenWrt source code, simply install !OpenWrt using the Routers Web Interface (this is simple... brief instructions below).  In fact, even if you plan on installing your own self compiled !OpenWrt source code it is easier to install an official version of !OpenWrt first.  Why you ask?  It's all about boot_wait.
+If you are not compiling your own !OpenWrt source code, simply install !OpenWrt using the Routers Web Interface (this is simple... brief instructions below).  In fact, even if you plan on installing your own self compiled !OpenWrt source code it is easier to install an official version of !OpenWrt first using the Router's Web Interface.  Why you ask?  It's all about boot_wait.
 
 By default, boot_wait is "off" on the WRT54GL routers, in fact, most routers have boot_wait "off" by default.  Turning boot_wait "on" simply increases the time it takes to boot.  Why is this relevant you may ask?  Well, try using tftp to install !OpenWrt and you'll find out.  Some people claim that atftp for linux is quicker than tftp for windows, this is not necessarily true although the 'a' in atftp does stand for "advanced".  If you try to install !OpenWrt using tftp on windows, using tftp on Linux or atftp on Linux you get the same error.
 
@@ -86,3 +86,19 @@ By default, boot_wait is "off" on the WRT54GL routers, in fact, most routers hav
 This happens because tftp client cannot access the router's server.  Why? Because there is a small window of opportunity to connect and install !OpenWrt using tftp and as fast as you try to be it is near impossible to catch without knowing the trick.  Turning Boot_wait "on" increases that window of opportunity and makes it easier to catch and install !OpenWrt using ftp, however, turning Boot_wait "on" is a task in itself and varies across routers.  Apparently, on some routers you can install older firmware that enables a ping exploit where commands can be typed directly into the routers Web Interface to turn Boot_wait "on" or "off".  This does not work with WRT54GL so do not try to roll back the firmware, it is not recommended.  In fact, turning Boot_wait "on" for installing !OpenWrt on the WRT54GL using tftp is not necessary (but it helps).  Apparently Boot_wait can be turned on through a serial console and the serial port, however, I have not yet attempted the task, for more information read page http://wiki.openwrt.org/OpenWrtDocs/BootWait?highlight=%28bootwait%29
 
 So, it is recommended that you install an official version of !OpenWrt first using the Router's Web Interface before using tftp to install your own self compiled version.  This is because once you have installed !OpenWrt you can access its Web Interface and turn Boot_wait "on".  Then you can use tftp and have a much easier time installing !OpenWrt.  This is one of the easiest ways to turn on the Boot_wait option.  Hopefully, it saves you hours of searching the forums.
+
+Just so that you know. You do not need the Boot_wait option on to successfully install !OpenWrt using tftp.  It does make it easier but it's not necessary.  The trick is to press the reset button and timing.  Run the ftp client, power up the WRT54GL router and hit the reset button.  If that doesn't work the first time, try again, but it does work.
+
+=== Router Web Interface Installation ===
+To install !Open Wrt using the router's web interface simply access the web interface page at 192.168.1.1, go to system - > administration - > firmware upgrade.  Locate the !OpenWrt Firmware Image file and that's it.  Be sure that the power supply is stable and not disconnected during transfer.  After your installation depending on the type of !OpenWrt you chose you may need to restart you router.
+
+=== tftp Installation ===
+tftp is mainly recommended for those looking to install their own self compiled images of !OpenWrt, because it can also be used to recover from a problem and allow you to put on another Firmware Image, whether it is !OpenWrt or the original from !LinkSys.  This is only relevant in the event that something happens to the router, the install was interrupted or the code causes the router to crash.  You can then use tftp to reflash the router with another firmware.  If something happens to you router the Web Interface may not be available to you.  This is where tftp shines!
+
+To install !OpenWrt using atftp on Linux type the command:
+
+atftp --trace --option "timeout 1" --option "mode octet" --put --local-file openwrt-xxx-x.x-xxx.bin 192.168.1.1
+
+Next power up your router, and hit your reset button.  If it doesn't work keep trying.  If you have the "Boot_wait" option "on" you can probably turn the router on first, then run the atftp client and skip hitting the reset button.
+
+For more information on installing !OpenWrt using tftp visit OpenWrtViaTftp
