@@ -10,7 +10,9 @@ The latest version of !OpenWrt is also know as White Russian, however, !OpenWrt 
 
 = Introduction =
 This guide is intended for beginners to Linux and/or !OpenWrt.  This guide is dedicated to the installation of !OpenWrt on the !LinkSys WRT54GL router and the experiences gained by the installation.  
-Installation of !OpenWrt on the WRT54GL is possible, either through the Firmware upgrade web interface on the !LinkSys router or through tftp on Windows or Linux.  The easiest method by far is installation through the web interface, mainly because of the small window of opportunity to connect and transfer !OpenWrt using tftp.  The problems of using tftp for installation on the  Wrt54GL and how to overcome those problems are discussed here as well.  Even though this document focuses on the WRT54GL it is also relevant to the installation of !OpenWrt in general.  So if you are new to Linux and !OpenWrt, you will save time reading this document, especially if you are interested in compiling/building your own !OpenWrt source for installation and are interested in using tftp for installing.
+Installation of !OpenWrt on the WRT54GL is possible, either through the Firmware upgrade web interface on the !LinkSys router or through tftp on Windows or Linux.  The easiest method by far is installation through the web interface, mainly because of the small window of opportunity to connect and transfer !OpenWrt using tftp.  The problems of using tftp for installation on the  Wrt54GL and how to overcome those problems are discussed here as well.  
+
+Even though this document focuses on the WRT54GL it is also relevant to the installation of !OpenWrt in general.  So if you are new to Linux and !OpenWrt, you will save time reading this document, especially if you are interested in compiling/building your own !OpenWrt source for installation and are interested in using tftp for installing.
 
 = LinkSys Wrt54GL Hardware =
 The WRT54GL !LinkSys router was used for this particular installation.  The specs of this router are as follows which has been taken from the TableOfHardware page.
