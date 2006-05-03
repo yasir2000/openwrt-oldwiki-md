@@ -14,18 +14,12 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || charles || 5.9s || 10.9s || 12.2s || 6.9s || v0.5 || || WRTSL54GS || BCM4704 || 266MHz || [:OpenWrtDocs/Hardware/Linksys/WRTSL54GS] ||
 ||2006-05-01 ||yans ||7.2s ||14.4s ||16.1s ||11.4s || v0.5 || ||WR850Gv3 ||BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Motorola/WR850G] ||
 || 2006-05-01 || cabo || 6.4s || 13.2s || 14.6s || 10.2s || v0.5 || || WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || [:OpenWrtDocs/Hardware/Linksys/WRT54GS] ||
-|| 2006-05-02 || evildevil || 7.7s || 15.2s || 16.9s || 10.3s || v0.5 || || Netgear WGT634U || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Netgear/WGT634U:] ||
+|| 2006-05-02 || evildevil || 7.7s || 15.2s || 16.9s || 10.3s || v0.5 || Kamikaze || Netgear WGT634U || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Netgear/WGT634U:] ||
 || 2006-05-02 || pkirchhofer || 15.8s || n/a || 63.5s || 8.0s || v0.5 || || Linksys NSLU2 || XScale-IXP420 || 133 MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
-|| 2006-04-02 || evildevil || 6.7s || 13.5s || 15.0s || 8.0s || v0.5 || || WRT54G v3.1 || BCM3302 V0.7 || 216MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54G:] ||
-
+|| 2006-04-02 || evildevil || 6.7s || 13.5s || 15.0s || 8.0s || v0.5 || DD-WRT2.3 || WRT54G v3.1 || BCM3302 V0.7 || 216MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54G:] ||
+|| 2006-05-03 || evildevil || 5.3s || 29.8s || 27.0s || 4.0s || v0.6 || Debianlug Sid || Linksys NSLU2 || XScale-IXP420 || 266MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
 '''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
 
-- Running the benchmark on the NSLU2 results in an segmentation fault error.
-If i ltrace it, i get this error in an infinit loop:
-{{{
-.unexpected breakpoint at 0x8394
-__libc_start_main(36108, 1, 0xbee5bae4, 37120, 37208Error: call nesting too deep!
-}}}
 
 '''pkirchhofer''': benchmark crashs on my NSLU2 with
 {{{
