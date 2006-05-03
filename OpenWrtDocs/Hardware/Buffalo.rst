@@ -7,5 +7,6 @@
  * [:OpenWrtDocs/Hardware/Buffalo/WLA-G54C: WLA-G54C]
  * [:OpenWrtDocs/Hardware/Buffalo/WLA2-G54L: WLA2-G54L]
  * [:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54: WZR-RS-G54]
+ * [:OpenWrtDocs/Hardware/Buffalo/WHR3-G54: WHR3-G54]
 ----
 CategoryBrand
