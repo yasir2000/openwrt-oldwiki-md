@@ -39,11 +39,18 @@ client 127.0.0.1 {
 This file is included by radiusd.conf. Here's mine, stripped of all comments and blanks.
 
 {{{
+       md5 {
+       }
+
+       mschapv2 {
+       }
+
        eap {
                 default_eap_type = ttls
                 timer_expire     = 60
                 ignore_unknown_eap_types = no
                 cisco_accounting_username_bug = no
+
 
                 tls {
                         private_key_password = seekritpassword
