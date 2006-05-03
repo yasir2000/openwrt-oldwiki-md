@@ -5,7 +5,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 '''Performance of CPU / Memory'''
 
 ||'''Date''' ||'''Tester''' ||'''Time for mem''' ||'''Time for pi''' || '''Time for e''' || '''Time for float''' || '''Bench version''' || '''OS''' ||'''Device''' ||'''CPU''' ||'''CPU Freq''' ||'''Link to HW page''' ||
-|| 2006-05-01 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.5 || WhiteRussian || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Asus/WL500GD] ||
+|| 2006-05-01 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.6 || WhiteRussian RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Asus/WL500GD] ||
 || 2006-05-01 || arteqw || 7.3s || 14.5s || 16.1s || 11.3s || v0.5 || WR RC5 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Motorola/WR850G] ||
 || 2006-05-01 || mauritzius || 10.3s || 25.3s || 30.9s || 15.1s || v0.5 || || Asus WL-500g || BCM4710 V0.0 || 125MHz || [:OpenWrtDocs/Hardware/Asus/WL500G] ||
 || 2006-05-02 || Ultimo || 7.5s || 14.2s || 15.8s || 9.1s || v0.5 || WR RC5 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54GL] ||
@@ -18,21 +18,8 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-02 || pkirchhofer || 15.8s || n/a || 63.5s || 8.0s || v0.5 || Debonaras || Linksys NSLU2 || XScale-IXP420 || 133MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
 || 2006-04-02 || evildevil || 6.7s || 13.5s || 15.0s || 8.0s || v0.5 || DD-WRT2.3 || WRT54G v3.1 || BCM3302 V0.7 || 216MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54G:] ||
 || 2006-05-03 || evildevil || 5.3s || 29.8s || 27.0s || 4.0s || v0.6 || Debianlug Sid || Linksys NSLU2 || XScale-IXP420 || 266MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
-'''jecuendet''': would be very cool if a NSLU2 owner could bench it and report results!
 
 
-'''pkirchhofer''': benchmark crashs on my NSLU2 with
-{{{
-Program received signal SIGSEGV, Segmentation fault.
-0x00008b7c in run_compute_pi () at openwrt_cpu_bench_v05.c:170
-170                             f[b++]=a/5;
-(gdb) print b
-$1 = 1074173284
-(gdb) print a
-$2 = 10000
-}}}
-
-All other benchmarks (mem, e, float) run fine.
 
 '''Performance of IO (IDE, USB, Disk)'''
 
@@ -64,3 +51,4 @@ TODO, which bench to use?
  * v0.3 : Various bug fixes
  * v0.4 : Added floating point calculation
  * v0.5 : Corrected pi benchamrk
+ * v0.6 : Initialization of variables for gcc on NSLU2
