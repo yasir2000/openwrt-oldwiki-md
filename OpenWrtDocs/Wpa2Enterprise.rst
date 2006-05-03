@@ -157,10 +157,11 @@ You will also need to create empty acct_user and preproxy_user files (ie just to
 
 Note that it is advisable to read all of the radiusd output and check for errors as they may cause radiusd to crash later even though it looks like it's working.
 
-== Client Configuration (MacOSX) ==
+== Client Configuration ==
+=== MacOSX ===
 For my MacBook Pro, I had to pick the 802.1X type manually in System Preferences - Network - AirPort - Edit (SSID). I Picked ""Wireless Security"": WPA2 Enterprise, put username and password, and picked ""802.1X Configuration"": TTLS - PAP.  This forced it to use the cleartext password in the users file.
 
-== Client Configuration (FreeBSD) ==
+=== FreeBSD ===
 Create a wpa_supplicant.conf file like so..
 {{{
 network={
