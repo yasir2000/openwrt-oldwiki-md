@@ -39,12 +39,11 @@ This file is included by radiusd.conf. Here's mine, stripped of all comments and
 
 {{{
        eap {
-                default_eap_type = tls
+                default_eap_type = ttls
                 timer_expire     = 60
                 ignore_unknown_eap_types = no
                 cisco_accounting_username_bug = no
-                md5 {
-                }
+
                 tls {
                         private_key_password = seekritpassword
                         private_key_file = ${raddbdir}/certs/14.key
@@ -54,16 +53,16 @@ This file is included by radiusd.conf. Here's mine, stripped of all comments and
                         random_file = ${raddbdir}/certs/random
                         fragment_size = 1024
                 }
+
                 ttls {
                         default_eap_type = md5
                         copy_request_to_tunnel = no
                         use_tunneled_reply = no
 
                 }
+
                  peap {
                         default_eap_type = mschapv2
-                }
-                mschapv2 {
                 }
 
         }
@@ -157,8 +156,24 @@ You will also need to create empty acct_user and preproxy_user files (ie just to
 
 Note that it is advisable to read all of the radiusd output and check for errors as they may cause radiusd to crash later even though it looks like it's working.
 
-== Client Configuration ==
+== Client Configuration (MacOSX) ==
 For my MacBook Pro, I had to pick the 802.1X type manually in System Preferences - Network - AirPort - Edit (SSID). I Picked ""Wireless Security"": WPA2 Enterprise, put username and password, and picked ""802.1X Configuration"": TTLS - PAP.  This forced it to use the cleartext password in the users file.
+
+== Client Configuration (FreeBSD) ==
+Create a wpa_supplicant.conf file like so..
+{{{
+network={
+        ssid="myNetworksSSID"
+        scan_ssid=1
+        key_mgmt=WPA-EAP
+        identity="myusername"
+        password="mySeekritPassword"
+}
+}}}
+
+You will need to load some wlan modules (ie wlan_ccmp).
 
 == Debugging ==
 Run radiusd in full-monty debug mode: {{{/usr/sbin/radiusd -X -A}}} and you'll see each packet come in and each step of the transaction. Very helpful because the WRT doesn't tell you nuffin' !
+
+Running wpa_supplicant by hand initially is advisable.
