@@ -244,7 +244,7 @@ root@OpenWrt:~# pppd call cingular debug nodetach
 
 Hopefully you made WOO-HOO noises at this point as you watched it successfully connect.
 
-== Check connectity ==
+== Check connectivity ==
 {{{
 root@OpenWrt:~# ifconfig ppp0
 ppp0      Link encap:Point-Point Protocol
