@@ -18,6 +18,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-02 || pkirchhofer || 15.8s || n/a || 63.5s || 8.0s || v0.5 || Debonaras || Linksys NSLU2 || XScale-IXP420 || 133MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
 || 2006-04-02 || evildevil || 6.7s || 13.5s || 15.0s || 8.0s || v0.5 || DD-WRT2.3 || WRT54G v3.1 || BCM3302 V0.7 || 216MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-03 || evildevil || 5.3s || 29.8s || 27.0s || 4.0s || v0.6 || Debianlug Sid || Linksys NSLU2 || XScale-IXP420 || 266MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
+|| 2006-05-03 || ''PhilipPemberton'' || 9.1s || 48.4s || 33.8s || 4.1s || v0.6 || OpenDebianSlug Sarge (Debonaras), 2.6.16rc4 kernel || Linksys NSLU2 || XScale-IXP420 || 266MHz || http://www.nslu2-linux.org/wiki/Info/HomePage ||
 
 
 '''Performance of IO (IDE, USB, Disk)'''
