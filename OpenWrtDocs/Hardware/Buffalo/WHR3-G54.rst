@@ -1,6 +1,6 @@
 LAN = br0 = eth0 eth2
-WAN : eth1
-Wifi : eth2
+WAN = eth1
+Wifi = eth2
 
 
 CPU revision is: 00029006
