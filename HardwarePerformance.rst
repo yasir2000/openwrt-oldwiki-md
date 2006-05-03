@@ -5,7 +5,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 '''Performance of CPU / Memory'''
 
 ||'''Date''' ||'''Tester''' ||'''Time for mem''' ||'''Time for pi''' || '''Time for e''' || '''Time for float''' || '''Bench version''' || '''OS''' ||'''Device''' ||'''CPU''' ||'''CPU Freq''' ||'''Link to HW page''' ||
-|| 2006-05-01 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.6 || WhiteRussian RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Asus/WL500GD] ||
+|| 2006-05-03 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.6 || WhiteRussian RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Asus/WL500GD] ||
 || 2006-05-01 || arteqw || 7.3s || 14.5s || 16.1s || 11.3s || v0.5 || WR RC5 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Motorola/WR850G] ||
 || 2006-05-01 || mauritzius || 10.3s || 25.3s || 30.9s || 15.1s || v0.5 || || Asus WL-500g || BCM4710 V0.0 || 125MHz || [:OpenWrtDocs/Hardware/Asus/WL500G] ||
 || 2006-05-02 || Ultimo || 7.5s || 14.2s || 15.8s || 9.1s || v0.5 || WR RC5 || WRT54GL v1 || BCM3302 V0.7 || 200MHz || [:OpenWrtDocs/Hardware/Linksys/WRT54GL] ||
@@ -29,7 +29,7 @@ TODO, which bench to use?
 
 
 == How to compile and run the benchmark ==
- 1. you need to download it: attachment:openwrt_cpu_bench_v05.c
+ 1. you need to download it: attachment:openwrt_cpu_bench_v06.c
  1. Compile it
 
 {{{
@@ -39,7 +39,7 @@ TODO, which bench to use?
        => Be careful to add -O0, we don't want to check compiler optimization but CPU capabilities
 }}}
 
- 3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v05.bin
+ 3. Or download it precompiled for mipsel here: attachment:openwrt_cpu_bench_v06.bin
  3. Copy it to your device
  3. Run it: '''./openwrt_cpu_bench_vXX.bin'''
  3. Run it 2 more times and report the average of the 3 runs
