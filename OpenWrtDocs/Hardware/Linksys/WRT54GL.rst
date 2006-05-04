@@ -3,6 +3,8 @@ The WRT54GL is basically a v4 [:OpenWrtDocs/Hardware/Linksys/WRT54G: WRT54G] tha
 The only known version of this model has a serial number starting with `CL7A`. There is a German (and Polish so i assume it is EU version) Version of the WRT54GL v.1.1 with a serial number starting with `CL7B`.
 See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum.
 The tricky part is that sticker on the box says it is WRT54GL (any version) and FCCID sticker says it is WRT54GV40 - so it is for sure the 54G v4.0).
+Another thing - i am not sure about this but i see that v1.1 has flashing easy setup button and if i remember correctly v1.0 has just same button with no flashing at all - maybe this is the "hardware" change that made linksys say it is v1.1 not v1.0 (to be confirmed)
+
 = Other Info =
 == Supported Versions ==
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
