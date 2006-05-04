@@ -85,7 +85,7 @@ While the first serial port is easy to find (and described in the "non-experimen
  1. Unplug your WR850G and plug it back in.  You now will have the old firmware.
  1. Reset your local machine's IP address and mask back to where it was (DHCP on my machine, for example).
 
- '' (Originally posted by [http://forum.openwrt.org/viewtopic.php?pid=10048#p10048 killerbobjr] ) ''
+ '' (Originally posted by [http://forum.openwrt.org/viewtopic.php?pid=10048#p10048 killerbobjr] modifyed for AMD by sapier) ''
 
 = Debricking a WR850G that has "boot_wait" set to "on" =
  1. Follow either the intructions above to revert to original firmware or  ["OpenWrtDocs/Installing"] install a new openwrt firmware.
