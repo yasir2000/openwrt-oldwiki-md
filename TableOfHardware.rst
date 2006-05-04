@@ -136,6 +136,9 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||16MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 
+== Gigabyte ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] || ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB || mini-PCI || IC+ IP175A || ||No ||Yes || Space for connector || ||
 
 ----
 == LevelOne ==
