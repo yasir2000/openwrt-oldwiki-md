@@ -20,6 +20,7 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || mauritzius || 10.3s || 25.3s || 30.9s || 15.1s || v0.5 || (unknown) || Asus WL-500g || BCM4710 V0.0 || 125MHz || ["OpenWrtDocs/Hardware/Asus/WL500G"] ||
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || (unknown) || Microsoft MN-700 || BCM4710 || 125MHz || ["OpenWrtDocs/Hardware/Microsoft"] ||
 || 2006-05-02 || pkirchhofer || 15.8s || n/a || 63.5s || 8.0s || v0.5 || Debonaras || Linksys NSLU2 || XScale-IXP420 || 133MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX]||
+|| 2006-05-04 || LinuxInside || 7.6s || 12.6s || 14.5s || 7.6s || v0.6 || (unknown) || Linksys WAG54GX2 || BCM3302 V0.7 || 240Mhz || ["OpenWrtDocs/Hardware/Linksys/WAG54GX2"] ||
 
 
 '''Performance of IO (IDE, USB, Disk)'''
