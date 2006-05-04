@@ -9,6 +9,7 @@ OpenWrtDocs [[TableOfContents]]
 
 /!\ '''WARNING  LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
 
+'''If you have WRT54G v1 and cant get tftp to work try uploading the original firmware then from the webpage on that (192.168.1.1) upload the Opwnwrt firmware. ''' 
 
 = Supported hardware =
 See TableOfHardware.
