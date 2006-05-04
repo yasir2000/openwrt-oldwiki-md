@@ -35,7 +35,7 @@ root@OpenWrt:/#
 It is supposed to have the integrated wireless NIC, less memory and less flash, but I haven't seen one to comment.
 The v2 of WE800G is supposed to have a serial port as well.
 
-I think I have the version 2.   I cannot see any different outside and inside.  It also has the same mini-PCI card; however, It only has 2Mb flash and 8Mb SDRAM. It is not that useful even using the micro version of OpenWRT.
+goodnewscd added: I have the version 2.   I cannot see any different between v1 and v2 from outside.  It also has the same mini-PCI card; however, it only has 2Mb flash and 8Mb SDRAM. It is not that useful even using the micro version of OpenWRT. I have to build my only "super-micro" version.
 [http://i3.tinypic.com/x4kxzq.jpg/ Main PCB - Back]
 [http://i2.tinypic.com/x4ky6q.jpg/ Main PCB - Front]
 [http://i1.tinypic.com/x4ky94.jpg/ MiniPCI]
