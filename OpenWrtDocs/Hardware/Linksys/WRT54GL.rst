@@ -1,9 +1,7 @@
 = Linksys WRT54GL =
-The WRT54GL is basically a v4 [:OpenWrtDocs/Hardware/Linksys/WRT54G: WRT54G] that still runs Linux.
-The only known version of this model has a serial number starting with `CL7A`. There is a German (and Polish so i assume it is EU version) Version of the WRT54GL v.1.1 with a serial number starting with `CL7B`.
-See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum.
-The tricky part is that sticker on the box says it is WRT54GL (any version) and FCCID sticker says it is WRT54GV40 - so it is for sure the 54G v4.0).
-Another thing - i am not sure about this but i see that v1.1 has flashing easy setup button and if i remember correctly v1.0 has just same button with no flashing at all - maybe this is the "hardware" change that made linksys say it is v1.1 not v1.0 (to be confirmed)
+The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G: WRT54G] that still runs Linux.
+The only known version of this model has serial numbers starting with `CL7A`. There is a German version (and Polish, so it may be the EU version) of the WRT54GL, v1.1, that has serial numbers starting with `CL7B`.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum.
+The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.  The WRT54GL has 16MB of RAM and 8MB of flash memory.
 
 = Other Info =
 == Supported Versions ==
