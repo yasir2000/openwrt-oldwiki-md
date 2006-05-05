@@ -35,6 +35,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
 
  * D-Link [http://www.dlink.com/products/?sec=0&pid=316 DI-524], at least HW rev C1, but it only has 8MB RAM and 1MB ROM)
  * D-Link [http://support.dlink.com/products/view.asp?productid=DWL%2D2210AP DWL-2210AP] (AR2313)
+ * D-Link [http://www.dlink.com/products/?pid=292 DWL-2100AP] (AR5002AP-G : core AR2312@180/240MHz, radio AR2112)
  * D-Link [http://www.dlink.com/products/?pid=304 DWL-7100AP] (AR5002AP-2X)
  * Linksys [:OpenWrtDocs/Hardware/Linksys/WRT55AG: WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (AR5002AP-2X)
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWGR614 WGR614]v3.
