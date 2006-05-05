@@ -50,7 +50,7 @@ vfat
 
 '''Internal Images'''
 
-["AsusWLHDDInternalImages"]
+[:OpenWrtDocs/Hardware/Asus/WL-HDD/InternalImages:Internal Images]
 
 
 '''Power Consumption'''
