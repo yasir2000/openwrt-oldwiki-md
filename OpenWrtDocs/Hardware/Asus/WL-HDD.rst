@@ -50,7 +50,7 @@ vfat
 
 '''Internal Images'''
 
-AsusWLHDDInternalImages
+["AsusWLHDDInternalImages"]
 
 
 '''Power Consumption'''
