@@ -1,4 +1,10 @@
 = Linksys ADSL2MUE =
+
+== Opening the ADSL2MUE ==
+
+To reach the serial console you have to first unscrew the unit. Underneath the little rubber feet under the blue part of the unit there are two tiny
+screws. Gently remove the little rubber feet and you can open the unit.
+
 == ADSL2MUE Serial Console ==
 
 {{{
