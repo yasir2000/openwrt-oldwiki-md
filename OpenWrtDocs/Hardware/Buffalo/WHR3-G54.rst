@@ -1,8 +1,10 @@
+{{{
 LAN = br0 = eth0 eth2
 WAN = eth1
 Wifi = eth2
+}}}
 
-
+{{{
 CPU revision is: 00029006
 Primary instruction cache 16kB, physically tagged, 2-way, linesize 16 bytes.
 Primary data cache 16kB, 2-way, linesize 16 bytes.
@@ -124,3 +126,4 @@ CSLIP: code copyright 1989 Regents of the University of California
 PPP generic driver version 2.4.2
 b44: eth1: Link is up at 100 Mbps, full duplex.
 b44: eth1: Flow control is off for TX and off for RX.
+}}}
