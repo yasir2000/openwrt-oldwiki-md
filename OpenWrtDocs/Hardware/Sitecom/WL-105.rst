@@ -9,7 +9,7 @@ attachment:wl-105b-casing.jpg
 
 === Opening the WL-105b ===
 
-Underneath the little rubber feet there are four screws that need to be removed to be able to open the unit.
+Underneath the little rubber feet there are four screws that need to be removed to open the unit.
 
 === The board of the WL-105b ===
 
