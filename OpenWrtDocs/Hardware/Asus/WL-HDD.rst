@@ -47,6 +47,12 @@ fat
 vfat
 }}}
 
+
+'''Internal Images'''
+
+AsusWLHDDInternalImages
+
+
 '''Power Consumption'''
 
 The device ships with a 2A 5V switch-mode power supply terminating to a DC plug.
