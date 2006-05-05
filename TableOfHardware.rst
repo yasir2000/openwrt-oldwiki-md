@@ -271,7 +271,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 
 == Sitecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-|| WL-105b || 1 || Broadcom 4702 || || || Broadcom (mini-PCI) || || || || || || Untested ||
+|| [http://www.sitecom.com/drivers_result.php?groupid=5&productid=184 WL-105] || b || Broadcom 4702 || || || Broadcom (mini-PCI) || || || || || No || Untested ||
 
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
