@@ -295,7 +295,7 @@ They go into the file {{{/etc/firewall.user}}}. This file has a few examples in 
 
 Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting point for documentation is http://www.netfilter.org/documentation/.
 
-'''TIP:''' If you install {{{qosfw-scripts}}} than it's easier to configure port forwarding.
+'''TIP:''' If you install {{{qosfw-scripts}}} then it's easier to configure port forwarding.
 
 == How do I configure QoS aka traffic shaping in OpenWrt? ==
 QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters]. This script is only shaping on your uplink. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
