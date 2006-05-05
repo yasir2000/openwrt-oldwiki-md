@@ -1,7 +1,7 @@
 === Sitecom WL-105 ===
 
-The Sitecom WL-105 is a 54 Mbit wireless access point. There are two types which are completely different. The "b" version is
-Linux based.
+The Sitecom WL-105 is a 54 Mbit wireless access point. There are two types which are completely different. Both are Linux
+based. The older "b" version is based on a Broadcom 4702 chipset.
 
 === Opening the unit ===
 
