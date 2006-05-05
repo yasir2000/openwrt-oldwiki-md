@@ -6,7 +6,8 @@
 #language en
 
 
-test
+
+attachment:WL_HDD_top.jpg
 
 
 '''List of pages in this category:'''
