@@ -45,7 +45,7 @@ br0:   192.168.1.1 (192.168.1.0/24)
 == Create a new vlan ==
 
 You now have to decide which one of the LAN ports on the back of your router
-you wan't to use for the demilitarized zone. On this page it's LAN port 4.
+you want to use for the demilitarized zone. On this page it's LAN port 4.
 
 The configuration is easily done by changing the vlan* NVRAM variables.
 
@@ -121,7 +121,7 @@ required.)
 
 First make sure your vlan2 interface is up and pingable on the router. Next
 thing you could try is to hook up a PC or another Wrt to the LAN port 4 and see if
-you can reach it's httpd server.
+you can reach its httpd server.
 
 That's it. Have fun!
 
