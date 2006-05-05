@@ -11,8 +11,10 @@ attachment:wl-105b-casing.jpg
 
 Underneath the little rubber feet there are four screws that need to be removed to be able to open the unit.
 
-=== The board ===
+=== The board of the WL-105b ===
 
 On the board there is one mini-PCI card, which is 802.11g. There is room for another mini-PCI card. This device is also sold by other companies,
 which market it specifically as a machine that can do both 802.11a and 802.11b or 802.11g. The other mini-PCI slot is used for the 802.11a card.
-Searching on the Internet for WX-5520A gives a few results. Apparently both Gemtek and GenuineKorea sell the same device as Sitecom.
+Searching on the Internet for WX-5520A gives a few results. Apparently both Gemtek and Genuin Korea sell the same device as Sitecom.
+
+attachment:wl-105b-board.jpg
