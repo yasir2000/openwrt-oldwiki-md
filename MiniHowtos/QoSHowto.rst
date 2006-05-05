@@ -119,7 +119,7 @@ option:download:1024
 }}}
 
 Uncomment the option:enabled line, or else you'll wonder why this isn't doing anything.
-The upload and download lines should be set to your connection speeds in kbps.
+The upload and download lines should be set slightly lower (1 to 2%) than your connection speeds in kbps. This ensures that no packets ever end up queued in your modem, while still nearly maximising the available bandwidth.
 
 (''TODO: document this section'')
 {{{
