@@ -195,7 +195,7 @@ wifi_netmask=255.255.255.0
 wan_ifname=vlan1
 wan_proto=dhcp
 
-lan_ifnames=vlan0 eth2 eth3
+lan_ifnames="vlan0 vlan1 eth1"
 }}}
 
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
