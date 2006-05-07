@@ -10,16 +10,16 @@ This page is dedicated to performance of small devices running OpenWRT (or simil
 || 2006-05-01 || cabo || 6.4s || 13.2s || 14.6s || 10.2s || v0.5 || (unknown) || Linksys WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || ["OpenWrtDocs/Hardware/Linksys/WRT54GS"] ||
 || 2006-04-02 || evildevil || 6.7s || 13.5s || 15.0s || 8.0s || v0.5 || DD-WRT2.3 || Linksys WRT54G v3.1 || BCM3302 V0.7 || 216MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-03 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.6 || OpenWRT RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Asus/WL500GD"] ||
-|| 2006-05-01 || yans || 7.2s || 14.4s ||16.1s ||11.4s || v0.5 || (unknown) || Motorola WR850Gv3 ||BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Motorola/WR850G"] ||
-|| 2006-05-04 || ''MickeyMouse'' || 7.2s || 14.5s || 16.2s || 11.4s || v0.6 || OpenWRT RC5 || Linksys WRT54G v2.2 || BCM3302 V0.7 || 200Mhz|| ["OpenWrtDocs/Hardware/Linksys/WRT54G"]||
+|| 2006-05-01 || yans || 7.2s || 14.4s ||16.1s ||11.4s || v0.5 || OpenWRT RC5 || Motorola WR850Gv3 ||BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Motorola/WR850G"] ||
+|| 2006-05-04 || ''MickeyMouse'' || 7.2s || 14.5s || 16.2s || 11.4s || v0.6 || OpenWRT RC5 || Linksys WRT54G v2.2 || BCM3302 V0.7 || 200Mhz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-01 || arteqw || 7.3s || 14.5s || 16.1s || 11.3s || v0.5 || OpenWRT RC5 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Motorola/WR850G"] ||
 || 2006-05-02 || Ultimo || 7.5s || 14.2s || 15.8s || 9.1s || v0.5 || OpenWRT RC5 || Linksys WRT54GL v1 || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
-|| 2006-05-01 || pyllyukko || 7.7s || 14.6s || 16.2s || 9.4s || v0.5 || (unknown)|| Linksys WRT54GS v4 || BCM3302 V0.8 || 200MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GS"] ||
+|| 2006-05-01 || pyllyukko || 7.7s || 14.6s || 16.2s || 9.4s || v0.5 || (unknown) || Linksys WRT54GS v4 || BCM3302 V0.8 || 200MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GS"] ||
 || 2006-05-02 || evildevil || 7.7s || 15.2s || 16.9s || 10.3s || v0.5 || Kamikaze || Netgear WGT634U || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Netgear/WGT634U"] ||
 || 2006-05-03 || ''PhilipPemberton'' || 9.1s || 48.4s || 33.8s || 4.1s || v0.6 || !OpenDebianSlug Sarge (Debonaras), 2.6.16rc4 kernel || Linksys NSLU2 || XScale-IXP420 || 266MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX] ||
 || 2006-05-01 || mauritzius || 10.3s || 25.3s || 30.9s || 15.1s || v0.5 || (unknown) || Asus WL-500g || BCM4710 V0.0 || 125MHz || ["OpenWrtDocs/Hardware/Asus/WL500G"] ||
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || (unknown) || Microsoft MN-700 || BCM4710 || 125MHz || ["OpenWrtDocs/Hardware/Microsoft"] ||
-|| 2006-05-02 || pkirchhofer || 9.3s || 61.4s || 52.4s || 8.0s || v0.6 || Debonaras (gcc-3.4) || Linksys NSLU2 || XScale-IXP420 || 133MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX]||
+|| 2006-05-02 || pkirchhofer || 9.3s || 61.4s || 52.4s || 8.0s || v0.6 || Debonaras (gcc-3.4) || Linksys NSLU2 || XScale-IXP420 || 133MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX] ||
 || 2006-05-04 || LinuxInside || 7.6s || 12.6s || 14.5s || 7.6s || v0.6 || (unknown) || Linksys WAG54GX2 || BCM3302 V0.7 || 240Mhz || ["OpenWrtDocs/Hardware/Linksys/WAG54GX2"] ||
 
 
