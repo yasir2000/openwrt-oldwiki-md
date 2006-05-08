@@ -5,8 +5,8 @@ It is compatible with DOCSIS and EuroDOCSIS standards.
 Opening the box is very easy, just two screws and no clip to pop nor seal to break.
 
  *Main Chip : Broadcom QAMLink® BCM3348KPB w/ 24MHz quartz, which indicates 192MHz or 240MHz operation
- *RAM : 8MB SDRAM (Nanya NT5SV4M16DT-6K)
- *Flash : 4MB (AMD/Spansion AM29DL323G B-90EI
+ *RAM : 8MB SDRAM (Nanya [http://www.nanya.com/e-htm/page3/data/NT5SV4M16DT.pdf NT5SV4M16DT-6K])
+ *Flash : 4MB (AMD/Spansion [http://www.spansion.com/products/Am29DL323G.html AM29DL323GB-90EI])
  *Cable Tuner : Broadcom BCM3415KQTE (with a heatsink)
 
 The board has several pin headers soldered, and two of them ar labelled as UART on the silkscreen.
