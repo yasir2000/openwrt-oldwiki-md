@@ -2,9 +2,10 @@ The Thomson '''TCM390''' is a cable modem based on Broadcom BCM3348 chip. It has
 It is compatible with DOCSIS and EuroDOCSIS standards.
 
 = Hardware description =
-Opening the box is very easy, just two screws and no clip to pop nor seal to break.
+Opening the box is very easy, just two screws and no clip to pop nor seal to break. 
+The board is labelled ACM6048EB rev 1.02, with CE and FCC logos and "made in Taiwan" mention.
 
- *Main Chip : Broadcom QAMLink® BCM3348KPB w/ 24MHz quartz, which indicates 192MHz or 240MHz operation
+ *Main Chip : Broadcom QAMLink® BCM3348KPB w/ 24MHz quartz, which may indicate 192MHz or 240MHz operation
  *RAM : 8MB SDRAM (Nanya [http://www.nanya.com/e-htm/page3/data/NT5SV4M16DT.pdf NT5SV4M16DT-6K])
  *Flash : 4MB (AMD/Spansion [http://www.spansion.com/products/Am29DL323G.html AM29DL323GB-90EI])
  *Cable Tuner : Broadcom BCM3415KQTE (with a heatsink)
@@ -13,10 +14,13 @@ The board has several pin headers soldered, and two of them ar labelled as UART 
 
  *J-UART has 4 pins : pin 1 = Vcc(3V3), pin2 = Tx, pin3 = Rx, pin4 = GND
  *JP-UART2 has 4 pins : pin 1 = Rx, pin2 = Tx, pin3 = GND, pin4 = Vcc(3V3)
- *J22 has 8 pins, unknown usage
+ *J22 has 8 pins, unknown usage.
  *J201 has 10 pins, and may be a JTAG connector (with all even-numbered pins tied to GND)
- *J1 has 2 pins, unknown usage
+ *J1 has 2 pins, unknown usage. Looks like a jumper header, but both pins show 0V on the voltmeter.
 
+A second Flash footprint (TSOP48) linked to the used one is available, and according to the BCM3348 product brief (the only publicly-available documentation of this chip) the EBI bus which hosts the Flash is PCMCIA compatible. Therefore, an hardware hack may consist of hooking peripherals on this bus.
+
+= Serial access =
 At bootup, a serial console (115200 baud, 8N1 Ansi) connected to UART1 connector, shows the following messages : 
 {{{Detected CPU .............. BCM3348A1
 Ebi Initialized .....................000002020000001C
@@ -88,3 +92,22 @@ Executing Image 2...
 
 Obviously, the two images in Flash are the same : identical CRC, size and buil time.
 Entering '1', '2', or 'p' within 2 seconds seems to have no action.
+
+UART2 seems to be directly connected to UART1, as it delivers the same bootup messages and ohmmeter test shows pin-to-pin connection. It may just be a different pinout for the same signals.
+
+= Ethernet Access =
+An nmap port scan shows a web server listening on 192.168.27.43 port 80.
+{{{$ nmap 192.168.27.43
+Starting nmap 3.81 ( http://www.insecure.org/nmap/ )
+Interesting ports on 192.168.27.43:
+(The 1660 ports scanned but not shown below are in state: filtered)
+PORT    STATE  SERVICE
+80/tcp  open   http
+113/tcp closed auth
+554/tcp open   rtsp
+
+Nmap finished: 1 IP address (1 host up) scanned in 30.065 seconds}}}
+but direct acces to this address gets "forbidden" http error.
+{{{Forbidden
+You don't have permission to access this file on this server.
+Cheyenne/2.0.36 Server at localhost Port 80}}}
