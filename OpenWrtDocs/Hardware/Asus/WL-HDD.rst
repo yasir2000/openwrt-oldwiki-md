@@ -20,7 +20,7 @@ The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaul
 
 '''Installation'''
 
-See OpenWrtDocs/Hardware/Asus/Flashing
+See  [:OpenWrtDocs/Hardware/Asus/Flashing: Hardware/Asus/Flashing].
 
 '''IDE drivers and usage'''
 
