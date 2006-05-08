@@ -22,9 +22,7 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 http://www.rwhitby.net/wrt54gs/serial.html
 
-
 This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name. You can also search for MAX232 Kits. There are some kits availables.
-
 
  * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
@@ -100,7 +98,7 @@ This project is for people who would like to add a little storage to their Links
 
  1. For the SD card to work we need to attach 6 wires inside the router. This drawing of the SD card should give an idea of the pins that come into play:
 
-||<style="text-align: center;"|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif ||1. CS - Chip Select for the SD card ||GPIO7 ||
+||<style="TEXT-ALIGN: center"|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif ||1. CS - Chip Select for the SD card ||GPIO7 ||
 ||2. DI - Data in on the SD card. ||GPIO5 ||
 ||3. VSS - Ground is a good thing ||GND ||
 ||4. VDD - We need power of course. 3.3V will do the job ||3.3v ||
@@ -114,11 +112,11 @@ This project is for people who would like to add a little storage to their Links
   1. [http://kiel.kool.dk:27/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
   1. [http://kiel.kool.dk:27/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
- . '''Further note for V2 hardware:''' It is worth double-checking the GPIO pin allocations on RP3.  The picture above was not correct for my V2 WRT54G.  The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture. ''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched.) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]]  A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe.  I toggled the pins with the following single line in the shell (example for GPIO 5): ''
+ . '''Further note for V2 hardware:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture. ''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched.) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]] A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5): ''
 
  . {{{
  while true; do gpio enable 5; sleep 1; gpio disable 5; sleep 1; done}}}
- I then used my multimeter to detect the pin toggling between 0V and 3.3V every second.  I seriously recommend that you do this to verify which pins you are working on prior to doing any soldering.
+ I then used my multimeter to detect the pin toggling between 0V and 3.3V every second. I seriously recommend that you do this to verify which pins you are working on prior to doing any soldering.
 
 '''For Version 2.2 hardware:'''
 
@@ -130,9 +128,9 @@ This project is for people who would like to add a little storage to their Links
 
 Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
 
- 2. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
- 2. Mount the card reader somewhere inside your router. We chose the right hand side of the top cover, using double sided duct tape to make it stick and drilled a small slot to allow cards to be inserted and removed with the cover closed. See the picture links at the top of the page to see what this looks like and check this picture of the actual hole.
- 2. That was easy. We are now ready for the software part.
+ 1. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
+ 1. Mount the card reader somewhere inside your router. We chose the right hand side of the top cover, using double sided duct tape to make it stick and drilled a small slot to allow cards to be inserted and removed with the cover closed. See the picture links at the top of the page to see what this looks like and check this picture of the actual hole.
+ 1. That was easy. We are now ready for the software part.
 
 '''Software'''
 
@@ -233,7 +231,7 @@ GPIO 5 - definitely right next to the "RA10" label:
 [http://www.ethernal.org/wrt54g/pics/gpio5.jpg]
 
 === Installing on a wrt54g version 4 and wrt54gl ===
-Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly.  Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
+Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
 
 === Porting to other platforms ===
 *almost done being written
@@ -260,7 +258,7 @@ On the side with the powerplug you will find some 'C's
 
 - add C906 with 100µF 16Volt
 
-- add C986 with 10µF  16Volt
+- add C986 with 10µF 16Volt
 
 - add U981 with an LM7805
 
@@ -342,7 +340,7 @@ It is possible to remove a Wi-Fi Mini PCI card and insert another device. Fortun
 Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with your Mini PCI-equipped hardware using Mini PCI-to-PCI converter. Information on some Mini PCI-to-PCI converters can be found here:
 
  * [http://www.interfacemasters.com/products/pci_tools/mini_pci_to_pci/ IM300 Mini PCI Type III to PCI Adapter Card]
- * [http://www.interfacemasters.com/products/pci_tools/im380/index.html IM380 Mini PCI Type III to PCI Adapter Card ] with '''two''' PCI slots, one 3.3V and one 5V --- check out juicy pictures! :)
+ * [http://www.interfacemasters.com/products/pci_tools/im380/index.html IM380 Mini PCI Type III to PCI Adapter Card ]with '''two''' PCI slots, one 3.3V and one 5V --- check out juicy pictures! :)
  * [http://www.costronic.com/ Costronic's] Mini PCI-to-PCI [http://www.costronic.com/Eindexp.htm#Mini%20PCI CV09MP-P] series.
  * Catalyst [http://www.getcatalyst.com/adapter_moreInfo_pci2mini3-3.html PCI2MINI3-3], [http://www.getcatalyst.com/adapter_moreInfo_pci2mini3-5.html PCI2MINI3-5]
 
@@ -354,7 +352,7 @@ See a [http://iboone.net/blog.bin/IMGP2949.JPG picture] or [http://iboone.net/bl
 A package for gpsd is available in [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ Nico's test repository].
 
 == Adding a Weather Station ==
-Connect a WX200 / WM918 / WMR918 / WMR968 weather station '' http://david.zope.nl/hardware/wl500g/wx200wl500g/ ''
+Connect a WX200 / WM918 / WMR918 / WMR968 weather station ''http://david.zope.nl/hardware/wl500g/wx200wl500g/ ''
 
 == Adding an LCD ==
 See the [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture].
@@ -396,6 +394,15 @@ Using Maxim / Dallas 1-wire devices it is simple to turn a OpenWrt platform into
 
 http://www.frazer.net.nz/wrting/wrtprojects.htm
 
+== WRT54G3G on 3G/UMTS, using Merlin U630 Card ==
+The WRT54G3G, has a PCMCIA slot on it.  Linksys created this beast for Vodafone, as a kind of take anywhere wireless access point.    The Merlin U630 card essentially presents itself as a serial modem.  By loading the appropriate modules, and setting up ppp, you can make this work under OpenWRT.
+
+The standard White Russian binarys don't contain all of the required bits in order to get it to work. You will need to compile your own binarys, using buildroot.
+
+ You will need to include kmod-pcmcia-serial, and kmod-ppp.
+
+
+
 = Software =
 == Things not to compile in ==
 When you change things in the configs yourself, only active the following if you realy know what you are doing.
@@ -411,7 +418,7 @@ Busybox Configuration - Networking Utilities - ifupdown = N
 == Software Tools ==
 === Networking ===
 ||[http://www.hetos.de/bwlog.html WRTbwlog] ||A tool that shows internet traffic on all wired and wireless interfaces, as well as many other useful and related functions ||
-||BandwithTestPage ||A simple CGI script for testing the instantaneous bandwidth to the wireless router.  Just drop into /www/cgi-bin and chmod+x. ||
+||BandwithTestPage ||A simple CGI script for testing the instantaneous bandwidth to the wireless router. Just drop into /www/cgi-bin and chmod+x. ||
 
 
 === System ===
@@ -426,7 +433,7 @@ See ClientModeHowto
 
 === System ===
 ==== LED System Load Monitor ====
-Credit goes to SeRi for starting this mod. He had it use the wrt's white and amber LEDs (version 3 only) to show system load.  I thought it was a very nifty mod, but I couldn't use it, as the white and amber LEDs are used for the read/write lines on the SD card mod. So what did I do? I modded the mod of course! Now anyone with a spare LED can use this mod. you just need to set the correct GPIO pin. For wrt54g's version 2-3, gpio 7 is for the DMZ LED, which is what I use. You can modify the source accordingly. This will flash the LED once per second under normal useage, twice per second under medium load, and when there is a high load on the system, the LED flashes 3 times per second.'' ''
+Credit goes to SeRi for starting this mod. He had it use the wrt's white and amber LEDs (version 3 only) to show system load. I thought it was a very nifty mod, but I couldn't use it, as the white and amber LEDs are used for the read/write lines on the SD card mod. So what did I do? I modded the mod of course! Now anyone with a spare LED can use this mod. you just need to set the correct GPIO pin. For wrt54g's version 2-3, gpio 7 is for the DMZ LED, which is what I use. You can modify the source accordingly. This will flash the LED once per second under normal useage, twice per second under medium load, and when there is a high load on the system, the LED flashes 3 times per second.'' ''
 
 '''NOTE: You will need to compile your kernel with the Busybox option for usleep enabled. This is what is used for the LED strobing'''
 
@@ -454,7 +461,7 @@ chmod +x /etc/init.d/S60loadmon
 
 Now reboot and test it out :)
 
-If you dont want to build your own firmware, and you own a router with the white and orange lights, you can try this script.  It will show the white light if load is low, white and orange at medium load, and orange at high load:
+If you dont want to build your own firmware, and you own a router with the white and orange lights, you can try this script. It will show the white light if load is low, white and orange at medium load, and orange at high load:
 
 {{{
 #!/bin/sh
@@ -513,7 +520,7 @@ scp root@<router ip>:/tmp/cfe.bin /directory/on/your/computer
 scp root@<router ip>:/tmp/cfe.txt /directory/on/your/computer
 }}}
 
-'' Check cfe.txt, it should look like this (this is from v.2.2): ''
+''Check cfe.txt, it should look like this (this is from v.2.2): ''
 
 {{{
 boardtype=0x0708
@@ -611,7 +618,7 @@ mtd unlock pmon
 mtd write -f /tmp/cfe_new.bin pmon
 }}}
 
-I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting '' ''
+I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting ''''
 
 '''Checking it'''
 
