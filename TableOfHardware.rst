@@ -291,7 +291,8 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||TCM390 (Cable modem) || || Broadcom 3348 @ 200MHz ||4MB ||8MB ||n/a ||n/a || || yes || || || Work in progress ||
+||TCM390 (Cable modem) || || Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || || yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
+
 
 == Toshiba ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
