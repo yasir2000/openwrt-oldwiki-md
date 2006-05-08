@@ -5,19 +5,23 @@ OpenWrt is a non-profit opensource project. We use donations to help support mor
 Currently we are looking for the following devices:
 
 ===== For bug-fixing: =====
+
  * Siemens SE505v1 and v2
- * Asus WL500b v2, Asus WL-HDD, Asus WL520
+ * Asus WL500b v2, Asus WL-HDD, Asus WL-520g
  * Buffalo devices
  * Motorola devices
 
 ===== For new ports: =====
+
+Broadcom BCM47xx/53xx platform:
+
+ * Draft-N router (preferably Netgear WNR854T, or Buffalo WZR-300N, Linksys WRT300N, Netgear WNR834B)
 
 Realtek RTL865x platform:
 
  * D-Link DI-624M
  * D-Link DI-634M
  * Linksys WAP54GX
- * Linksys WRT54GX v2
  * Linksys WRT54GX2
 
 Atheros AR531x/231x platform:
@@ -38,12 +42,6 @@ Intel IXP(XScale) 4xx platform:
  * Linksys WRV54G (both v1 and v2 versions)
  * Netgear WG302
  * Netgear WGM124
-
-Broadcom BCM47xx/53xx platform:
-
- * Linksys WRT54G3G
- * Linksys WRTSL54GS
- * Maxtor Shared Storage (any size, even without HDD)
 
 Broadcom BCM63xx platform:
 
