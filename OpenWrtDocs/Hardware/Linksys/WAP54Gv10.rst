@@ -13,7 +13,7 @@ It means that ethernet driver not aware of that problem can receive only. Transm
 
 That is why some firmwares (even one version from LinkSys probably) do not work.
 
-Possibly not all v1.0 devices suffer from this problem.
+Not all v1.0 devices suffer from this problem because it is triggered by logic value read from floating CMOS input - and it can read mostly low, mostly high or random at all.
 
 === Software workaround ===
 
