@@ -9,12 +9,14 @@ The WG602 v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 2MB flash
 
 It has a populated UART1 connector, and un-populated UART0 and JTAG.The wireless NIC is integrated on the board. Does not appear to use boot wait. Instead the following procedure worked for recovering a dead unit and may be useful in putting new firmware on the unit:
 
+May want to follow this thread: [http://forum.openwrt.org/viewtopic.php?id=4039 Devices with 2 MB flash]
+
 == Recovery procedure ==
 How to upload a firmware via TFTP:
 
  1. Download the latest firmware from Netgear. Currently (2 April 2006) it is version [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8-rc3].
 
- 1. Reboot the wg602v3: power off the device and power on while depressing the reset button for 5 seconds.
+ 1. Reboot the wg602v3: power off the device and power on while pressing the reset button for 5 seconds, until the wireless activity LED starts blinking.
 
  1. tftp to the box, set binary mode, and upload the firmare file as {{{image.idts334}}} . You have a very limited time to do this, so it may actually work better to first issue the tftp command, and then reboot the wg602v3.
 
