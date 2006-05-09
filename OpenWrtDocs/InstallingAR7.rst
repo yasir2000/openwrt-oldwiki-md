@@ -46,6 +46,9 @@ To avoid potentially serious damage to your router caused by an unbootable firmw
 
 /!\ '''The jffs2 versions of OpenWrt may take several minutes for the first bootup and will require a reboot before being usable'''
 
+== Model specific information ==
+See [:CategoryAR7Device]
+
 == Boot sequence ==
 
 Most AR7 hardware uses ["ADAM2"] as the bootloader. The following sequence details how the hardware boots.
