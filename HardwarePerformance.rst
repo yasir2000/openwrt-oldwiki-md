@@ -1,5 +1,5 @@
 = Hardware performance of devices running under OpenWRT =
-This page is dedicated to performance of small devices running OpenWRT (or similar distro, unslung for example)
+This page is useless
 
 == Devices performance table ==
 '''Performance of CPU / Memory'''
