@@ -375,6 +375,9 @@ See also: http://wiki.openwrt.org/UsbAudioHowto
 
 http://yasha.okshtein.net/wrt54g/ How to Mobilize a WRT54g
 
+extending this idea further is another project using a WRT54G3G and controlling the car over a UMTS network. 
+[http://www.frazer.net.nz/wrting/images/IMG_3494.jpg]
+
 == Adding i2c bus ==
 i2c bus allows you to extend the IO ability beyond just 8 bits of IO.
 
