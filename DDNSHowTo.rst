@@ -19,7 +19,6 @@ ipkg install ez-ipupdate
 = Configuration =
 ez-ipupdate can be used with the following services:
 
- * http://www.ez-ip.net
  * http://www.justlinux.com
  * http://www.dhs.org
  * http://www.dyndns.org
@@ -29,8 +28,9 @@ ez-ipupdate can be used with the following services:
  * http://www.tzo.com
  * http://www.easydns.com
  * http://www.dyns.cx
- * http://www.hn.org
  * http://www.zoneedit.com
+ * http://www.ez-ip.net (Looks dead - domain squatter...)
+ * http://www.hn.org (Closed according to notice on site.)
 
 ez-ipupdate cannot be used with No-IP.com's service. For that use the [:No-IP.comHowTo:noip client]
 
