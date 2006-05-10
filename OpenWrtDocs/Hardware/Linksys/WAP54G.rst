@@ -12,7 +12,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||'''S/N''' ||'''Stable[[BR]]White Russian''' ||'''Development[[BR]]Kamikaze'''||
-||WAP54G v1.0 ||MDG0 ||WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install.||WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||
+||WAP54G v1.0 ||MDG0 ||WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||
 ||WAP54G v1.1 ||? ||? ||? ||
 ||WAP54G v2 ||MDG2 ||WiP ||WiP ||
 ||WAP54G v3 ||MDG3 ||WiP ||WiP ||
@@ -62,11 +62,7 @@ How to get info:
 
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||'''os_version''' ||'''firmware_version''' ||
 ||WAP54G v1.0 ||- ||bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||- ||- ||2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||4 ||BCM4702KPB ||- ||5.3.22 ||- ||- ||
-
-
-||<style="vertical-align: top;">WAP54G v2 ||<style="vertical-align: top;">0x10 ||<style="vertical-align: top;">0x0446 ||<style="vertical-align: top;">8 ||<style="vertical-align: top;">0 ||<style="vertical-align: top;">1024 ||<style="vertical-align: top;">7 ||<style="vertical-align: top;">BCM3302 V0.7 ||<style="vertical-align: top;">-||<style="vertical-align: top;">CFE 3.51.21.0
-
-||3.51.21.0 ||- ||
+||<style="vertical-align: top;">WAP54G v2 ||<style="vertical-align: top;">0x10 ||<style="vertical-align: top;">0x0446 ||<style="vertical-align: top;">8 ||<style="vertical-align: top;">0 ||<style="vertical-align: top;">1024 ||<style="vertical-align: top;">7 ||<style="vertical-align: top;">BCM3302 V0.7 ||<style="vertical-align: top;">-||<style="vertical-align: top;">CFE 3.51.21.0||3.51.21.0 ||- ||
 ||WAP54G v3 || 0x13 || 0x0467 || 0x0758 || - || WAP54GV3_8M_0614 || - || BCM3302 V0.8(?) || - || CFE 3.91.39.0 || 3.91.39.0 || v3.05.03(EU) ||
 
 
@@ -97,4 +93,4 @@ Same as for [:OpenWrtDocs/Installing:WRT54G].
 telnet to the device and use nvram command.
 
 ----
- . CategoryModel 
+ . CategoryModel  
