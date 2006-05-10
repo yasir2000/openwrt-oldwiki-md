@@ -1,7 +1,7 @@
 = Hardware performance of devices running under OpenWRT =
  This page is useless
 
- [jec] You can say that it's useless for '''you'''. This is perhaps useful for others...
+ [jecuendet] You can say that it's useless for '''you'''. This is perhaps useful for others...
  At least, if you want to evaluate Router performance (OpenVPN, SSH, ...), then the CPU is '''really''' important. That's probably the bottleneck on those devices.
  Knowing what each device can deliver, is at least an important point for choosing one.
 
