@@ -31,7 +31,7 @@ There is no JTAG header.
 
 To take the front cover off of this unit you must first remove the small screws under the rubber covers of the front feet!
 
-Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbrick. Better stay away. If you insist, read carefully ["OpenWrtDocs/Hardware/Linksys/WAP54Gv10"]
+Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbrick. Better stay away. If you insist, read carefully ["OpenWrtDocs/Hardware/Linksys/WAP54Gv10"] and ["WAP54GHowto"].
 
 ==== WAP54G v1.1 ====
 ==== WAP54G v2.0 ====
@@ -62,7 +62,7 @@ How to get info:
 
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||'''os_version''' ||'''firmware_version''' ||
 ||WAP54G v1.0 ||- ||bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||- ||- ||2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||4 ||BCM4702KPB ||- ||5.3.22 ||- ||- ||
-||<style="vertical-align: top;">WAP54G v2 ||<style="vertical-align: top;">0x10 ||<style="vertical-align: top;">0x0446 ||<style="vertical-align: top;">8 ||<style="vertical-align: top;">0 ||<style="vertical-align: top;">1024 ||<style="vertical-align: top;">7 ||<style="vertical-align: top;">BCM3302 V0.7 ||<style="vertical-align: top;">-||<style="vertical-align: top;">CFE 3.51.21.0||3.51.21.0 ||- ||
+||WAP54G v2 ||0x10 ||0x0446 ||8 ||0 ||1024 ||7 ||BCM3302 V0.7 ||- ||CFE 3.51.21.0 ||3.51.21.0 ||- ||
 ||WAP54G v3 || 0x13 || 0x0467 || 0x0758 || - || WAP54GV3_8M_0614 || - || BCM3302 V0.8(?) || - || CFE 3.91.39.0 || 3.91.39.0 || v3.05.03(EU) ||
 
 
@@ -93,4 +93,4 @@ Same as for [:OpenWrtDocs/Installing:WRT54G].
 telnet to the device and use nvram command.
 
 ----
- . CategoryModel  
+ . CategoryModel   
