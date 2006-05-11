@@ -15,7 +15,7 @@ The board has several pin headers soldered, and two of them ar labelled as UART 
  *J-UART has 4 pins : pin 1 = Vcc(3V3), pin2 = Tx, pin3 = Rx, pin4 = GND
  *JP-UART2 has 4 pins : pin 1 = Rx, pin2 = Tx, pin3 = GND, pin4 = Vcc(3V3)
  *J22 has 8 pins, unknown usage.
- *J201 has 10 pins, and may be a JTAG connector (with all even-numbered pins tied to GND)
+ *J201 has 10 pins, and may be a JTAG connector (with all even-numbered pins tied to GND). According to http://lauterbach.com/admips3.gif and an ohmmeter, we can suppose pin1 = /TRST, pin3 = TDI, pin5 = TDO, pin7 = TMS, pin9 = TCK and all others are GND.
  *J1 has 2 pins, unknown usage. Looks like a jumper header, but both pins show 0V on the voltmeter.
 
 A second Flash footprint (TSOP48) linked to the used one is available, and according to the BCM3348 product brief (the only publicly-available documentation of this chip) the EBI bus which hosts the Flash is PCMCIA compatible. Therefore, an hardware hack may consist of hooking peripherals on this bus.
