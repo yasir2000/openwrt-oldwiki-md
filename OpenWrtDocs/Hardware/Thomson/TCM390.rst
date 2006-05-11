@@ -22,7 +22,7 @@ http://lauterbach.com/admips3.gif
 A second Flash footprint (TSOP48) linked to the used one is available, and according to the BCM3348 product brief (the only publicly-available documentation of this chip) the EBI bus which hosts the Flash is PCMCIA compatible. Therefore, an hardware hack may consist of hooking peripherals on this bus.
 
 = Serial access =
-At bootup, a serial console (115200 baud, 8N1 Ansi) connected to UART1 connector thru a MAX232 interface, shows the following messages : 
+At bootup, a serial console (115200 baud, 8N1 Ansi, no flow control) connected to UART1 connector thru a MAX232 interface, shows the following messages : 
 {{{Detected CPU .............. BCM3348A1
 Ebi Initialized .....................000002020000001C
 Sdram Initialized....................
