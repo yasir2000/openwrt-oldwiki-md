@@ -169,6 +169,34 @@ You will also need to create empty acct_user and preproxy_user files (ie just to
 
 Note that it is advisable to read all of the radiusd output and check for errors as they may cause radiusd to crash later even though it looks like it's working.
 
+== LDAP Authentication ==
+You can use an LDAP server as a backend for FreeRadius - I use """OpenLDAP""" and the smbldap tools to allow Samba to act as a PDC and to allow users to have a unified password system. I modified the configuration like so..
+
+Edit ldap.attrmap and change the LM/NT-Password lines to look like..
+{{{
+checkItem       LM-Password                     sambaLMPassword
+checkItem       NT-Password                     sambaNTPassword
+}}}
+
+Edit radiusd.conf and put this after the chap entry
+{{{
+        ldap {
+                server = "ldap.mydomain.com"
+                identity = "cn=Manager,dc=mydomain,dc=com"
+                password = mymanagerpassword
+                basedn = "dc=mydomain,dc=com"
+                filter = "(uid=%{Stripped-User-Name:-%{User-Name}})"
+        }
+}}}
+
+Add 'ldap' in the authorize section after 'files'.
+Add the following to the authenticate section before MS-Chap
+{{{
+        Auth-Type LDAP {
+                ldap
+        }
+}}}
+
 == Client Configuration ==
 === MacOSX ===
 For my MacBook Pro, I had to pick the 802.1X type manually in System Preferences - Network - AirPort - Edit (SSID). I Picked ""Wireless Security"": WPA2 Enterprise, put username and password, and picked ""802.1X Configuration"": TTLS - PAP.  This forced it to use the cleartext password in the users file.
@@ -184,6 +212,12 @@ network={
         password="mySeekritPassword"
 }
 }}}
+
+If you are using LDAP you will need to specify the following as well
+{{{
+        phase2="auth=PAP"
+}}}
+(or MSCHAPV2)
 
 You will need to load some wlan modules (ie wlan_ccmp).
 
