@@ -25,6 +25,7 @@
 || 2006-05-01 || hoerchen || 12.5s || 30.6s || 38.39s || 19.2s || v0.3 || (unknown) || Microsoft MN-700 || BCM4710 || 125MHz || ["OpenWrtDocs/Hardware/Microsoft"] ||
 || 2006-05-02 || pkirchhofer || 9.3s || 61.4s || 52.4s || 8.0s || v0.6 || Debonaras (gcc-3.4) || Linksys NSLU2 || XScale-IXP420 || 133MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX] ||
 || 2006-05-04 || LinuxInside || 7.6s || 12.6s || 14.5s || 7.6s || v0.6 || (unknown) || Linksys WAG54GX2 || BCM3302 V0.7 || 240Mhz || ["OpenWrtDocs/Hardware/Linksys/WAG54GX2"] ||
+|| 2006-05-11 || ArteQ || 10.5s || 24.7s || 30.2s || 13.0s || v0.6 || Oleg 1.9.2.7-7c || ASUS Wl500g || BCM4710 V0.0 || 125MHz || ["OpenWrtDocs/Hardware/Asus/WL500G"] ||
 
 
 '''Performance of IO (IDE, USB, Disk)'''
