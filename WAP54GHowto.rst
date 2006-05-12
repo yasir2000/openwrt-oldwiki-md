@@ -224,3 +224,10 @@ By comparing the intel / SST datasheets, you'll discover that both chips are not
 - (Windows related) Start a DOS prompt. Type "tftp -i 192.168.1.245 put <path and filename of your trx>. You may check if the WAP54 has entered the desired state by pinging 192.168.1.245. If you get replies, hit enter. Wait a brief period (>2 minutes) until programming has finished.
 
 -> Steeve
+
+Use the following interface names:
+{{{
+nvram set lan_ifname=eth1
+nvram set wan_ifname=vlan0
+nvram commit
+}}}
