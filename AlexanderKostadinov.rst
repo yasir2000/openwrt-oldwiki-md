@@ -3,7 +3,8 @@
 == Alexander Kostadinov ==
 Homepage: http://avalon.friendofpooh.com
 
-Email: avalon at friendofpooh dot com
+Email: avalon at sameplace
+
 
 ----
- . CategoryHomepage    
+ . CategoryHomepage     
