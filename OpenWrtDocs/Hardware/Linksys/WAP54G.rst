@@ -33,6 +33,9 @@ To take the front cover off of this unit you must first remove the small screws 
 
 Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbrick. Better stay away. If you insist, read carefully ["OpenWrtDocs/Hardware/Linksys/WAP54Gv10"] and ["WAP54GHowto"].
 
+But if you understand what you are doing and not just follow point by point instructions, it is highly possible to succeed. Read everything from the wiki pages and documentation, make your strategy and you will not regret.
+
+
 ==== WAP54G v1.1 ====
 ==== WAP54G v2.0 ====
 According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] there are two subversions:
@@ -93,4 +96,4 @@ Same as for [:OpenWrtDocs/Installing:WRT54G].
 telnet to the device and use nvram command.
 
 ----
- . CategoryModel   
+ . CategoryModel    
