@@ -92,6 +92,62 @@ Information on flash layout and the 'mtd' command can be found in this post by m
 
 PS: alternatively, you can fill up the flash of your WAP54G on purpose to lock it and be certain nobody is going to modify your configurations files without knowing this trick and formating the whole partition. This is called 'security through obscurity' and I do not advise it!
 
+== Another experience (by AlexanderKostadinov) ==
+I installed RC4 on 2 devices and RC5 on 2 devices. All with the reset button next to the ethernet connector. I observed 3 types of behavior.
+=== Install original linksys 1.09.01 firmware (if yours is older) ===
+=== Install HyperWAP 1.0 ===
+You can use any trusted firmware to enable boot_wait (preferably Feya), because HyperWAP has no telnet and no way to modify manually nvram variables. In this howto I will share my own experience but in this point I want to tell a better way if someone is willing to take the risk of trying it.
+If you are not willing to try it on your own then skip to the next point! So if you use the Feya, issue in the telnet sessuon:
+
+||nvram set boot_wait=on||
+||nvram set boardtype=bcm94710dev||
+||nvram set boardnum=2||
+||nvram commit||
+||reboot||
+
+If you used HyperWAP then download the configuration as config.bin for example and edit it with an editor that don't modify some symbols on saving (hex editor,mcedit,...).
+It contains nulls then pairs "variable=value[null]", so I guess that it is possible to move boardtype and boardnum at the end, remove the "\r" as last simbol in the value and add the needed number of nulls to the end (must be 2 for 2 variables). Now restore the configuration to the devices.
+
+Now you must be able to upgrade directly to RC5 with the micro image. As I said before '''this is untested'''.
+
+=== Test if boot_wait is working with RC4 ===
+'''From this point first be sure to have wireless connection to the device/devices'''.
+RC4 firmware has a modified micro image for wap54G. You must upgrade first to it if you didn't modified boardtype and boardnum variables before.
+If you can upload it by TFTP, you are lucky, so telnet to the unit.
+'''Now skip one point.'''
+=== workaround boot_wait problem ===
+As I said before, you must have wireless connection to the device, so update to RC4 with the webif. 
+You may be able to access the device through lan ar maybe only through wireless port or maybe you just bricked your device. I installed only 4 devices and all are well working now, but you should be warned.
+So telnet to the device.
+=== nvram variables ===
+||nvram set boardtype=bcm94710dev||
+||nvram set boardnum=2||
+||nvram commit||
+||reboot||
+This will tell RC5 firmware to use a workaround for v1.0 devices and not brick them.
+=== install RC5 ===
+I used [ImageBuilderHowTo] to make a customized RC5 image with iptables, dhcp and maybe something else removed, but I think that the micto image should work fine. All my devices have 4MB flash, but some maybe have only 2MB...
+Use brcm-2.4-squashfs.trx.
+If you have boot_wait working, go without fear with tftp and your box should be working.
+Else use mtd utility to upgrade. Now you should have RC5 working...
+=== Some important notes ===
+Board variables are needed to enable workarounds-see [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAP54Gv10].
+
+Maybe some devices have only 2MB flash and not 4MB.
+
+Somethimes boot_wait works, but PMON resets some variables to the default (boot_wait=off), because some other variable/variables are with some value (see [http://forum.openwrt.org/viewtopic.php?pid=26835#p26835]). I don't know how to solve this problem nor which variables make this mess. The unit is fully working, but you cannot use boot_wait.
+
+This is why I recommend not using HyperWAP but Feya ot some other telnet capable firmware, where you can check these possibilities with dmesg and nvram utilities. This is to be sure in the success in 2 out of 3 possibilities. 
+
+If you have a working boot_wait, I'm sure (99%) that you will not brick your unit, but if boot_wait remains on after reboot, but tftp is not working then I recommend usind the hardware patch in [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAP54Gv10] to be insured.
+=== Another note ===
+Wap54G v1.0 is full of bugs, but if you are carefull and understand what you are doing, It is very likely to succeed installing OpenWRT.
+
+I hope that I helped you in understanding the issues with these units although I have written the howto section in very limmited time so maybe ununderstandible.
+
+If you have questions, suggestions or comments about '''this section''' of the howto, you can freely contact me via mail [AlexanderKostadinov].
+You are free to correct any gramatical mistakes made by me :)
+
 == Reviving a brick WAP54G v1 ==
 After flashing a recent (mid december 2004) snapshot of openwrt-linux.trx into my WAP54G (v1) the device went dead, no WLAN nor LAN activity and both the power and diag LEDs permanently on. Yes, I ignored warnings like in this thread, stupid, stupid.  Did some more searching on the net and found the WRT54G trick to short pins 15 and 16 of the flash memory during power-on. But with my WAP54G this produced after appr. one second of pinging without reply on 192.168.1.1. indeed some ping responses but then the responses stop and nothing more can be done, regardless whether the short has been removed during the ping responses. The device does not enter a tftd wait state.  Then searched further on the net amd applied to the WAP54G a trick described for the WRT54G by Sveasoft. I applied from a windows system from a DOS window the command tftp -i 192.168.1.1 PUT <<PC-local path to a Linksys recent .trx for the WAP54G v1>> a fraction of a second after applying DC power to the device. A fraction being literally something around half a second. This worked !!!! Give the device time to re-install itself after the tftpd has announced a successful data transfer. Of course make sure that the PC has connectivity to the 192.168.1.x subnet. I was about to trash the device but am happy to have searched a little further on the net. By the way, also Sveasoft's Freya software was not functional on this device; the LAN was dead but the WLAN was not. Hence this could be easily restored from the Freya web interface by forcing a system reset (pressing the reset button some 5 seconds or so) and accessing the device and web interface from a client tuned to channel 6 with a 'linksys' ssid and all security turned off. Hope this can revive your WAP54G !! martin, portugal
 
