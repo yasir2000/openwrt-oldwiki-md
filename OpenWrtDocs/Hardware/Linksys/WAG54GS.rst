@@ -1,5 +1,6 @@
-= Linksys WAG54GS =
+'''Linksys WAG54GS'''
 
+=== Details ===
 {{{
 Bootloader     : CFE version 1.0.37-5.11 for BCM96348 (32bit,SP,BE)
 System-On-Chip : Broadcom 6348 (CPU type 0x29107)
@@ -14,7 +15,7 @@ Serial         : yes (J503)
 JTAG           : assumed on J201
 }}}
 
-= Serial console =
+=== Serial console ===
 
 Pinout as follows:
 
@@ -27,11 +28,11 @@ GND TX VCC RX
      Leds
 }}}
 
-= Shell access =
+=== Shell access ===
 
 Serial console, or http://192.168.1.1/setup.cgi?todo=debug (turn on telnet server)
 
-= Bootlog =
+=== Bootlog ===
 
 Note: Yeah, those bears are really there :)
 
