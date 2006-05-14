@@ -78,6 +78,12 @@ There are two ADAM2 environment controlling boot process:
  * autoload_timeout = N sec.
 
 
+= Emulation =
+
+You can use the MIPS emulator QEMU to emulate an AR7 based router in software.
+See http://forum.openwrt.org/viewtopic.php?id=5488 for more details.
+
+
 = How to help =
 
 If you want to help and got some basic kernel hacking knowledge, you should start by familiarizing yourself with the OpenWrt build system. It now has support for building images for non-broadcom hardware.
