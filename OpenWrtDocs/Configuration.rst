@@ -343,6 +343,26 @@ See [:OpenWrtDocs/Wpa2Enterprise] for a detailed setup using Freeradius for user
 || wl0_radius_port || Port# to connect... ||
 || wl0_auth|| '''0''' ||
 
+== A note on encryption with WDS ==
+WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless.
+WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal)
+no configuration is required.
+
+In order to use WPA encryption with your WDS link, some further comfiguration is required.
+It appears that the web interface in OpenWRT White Russian RC5 does not know about this, so
+the configuration must be done manually.  In addition to the nvram values listed above, you
+must also set the following in nvram:
+
+|| '''NVRAM variable''' || '''Description''' ||
+|| wl0_wds_wpa_psk || Your wireless password ||
+|| wl0_wds_akm || The key type ||
+|| wl0_wds_crypto || The algorithm ||
+
+Note that it appears that there is a bug in nas that prevents WPA2 from working properly with
+WDS.  It is known that WPA1 works.
+
+Remember that the non-free package NAS must be installed for WPA to work.
+
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 
