@@ -98,7 +98,7 @@ This project is for people who would like to add a little storage to their Links
 
  1. For the SD card to work we need to attach 6 wires inside the router. This drawing of the SD card should give an idea of the pins that come into play:
 
-||<style="TEXT-ALIGN: center"|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif ||1. CS - Chip Select for the SD card ||GPIO7 ||
+||<style="text-align: center;"|7> http://downloads.OpenWrt.org/inh/reference/mmc.gif ||1. CS - Chip Select for the SD card ||GPIO7 ||
 ||2. DI - Data in on the SD card. ||GPIO5 ||
 ||3. VSS - Ground is a good thing ||GND ||
 ||4. VDD - We need power of course. 3.3V will do the job ||3.3v ||
@@ -351,6 +351,8 @@ See a [http://iboone.net/blog.bin/IMGP2949.JPG picture] or [http://iboone.net/bl
 
 A package for gpsd is available in [http://openwrt.org/downloads/people/nico/testing/mipsel/packages/ Nico's test repository].
 
+A HowTo for adding a GPS to the WRT54G [http://www.frontiernet.net/~beakmyn/OpenWRT%20Kimset%20Server.htm http://www.frontiernet.net/~beakmyn/OpenWRT 20Kimset 20Server.htm]
+
 == Adding a Weather Station ==
 Connect a WX200 / WM918 / WMR918 / WMR968 weather station ''http://david.zope.nl/hardware/wl500g/wx200wl500g/ ''
 
@@ -375,8 +377,7 @@ See also: http://wiki.openwrt.org/UsbAudioHowto
 
 http://yasha.okshtein.net/wrt54g/ How to Mobilize a WRT54g
 
-extending this idea further is another project using a WRT54G3G and controlling the car over a UMTS network. 
-[http://www.frazer.net.nz/wrting/images/IMG_3494.jpg]
+extending this idea further is another project using a WRT54G3G and controlling the car over a UMTS network.  [http://www.frazer.net.nz/wrting/images/IMG_3494.jpg]
 
 == Adding i2c bus ==
 i2c bus allows you to extend the IO ability beyond just 8 bits of IO.
@@ -402,9 +403,7 @@ The WRT54G3G, has a PCMCIA slot on it.  Linksys created this beast for Vodafone,
 
 The standard White Russian binarys don't contain all of the required bits in order to get it to work. You will need to compile your own binarys, using buildroot.
 
- You will need to include kmod-pcmcia-serial, and kmod-ppp.
-
-
+ . You will need to include kmod-pcmcia-serial, and kmod-ppp.
 
 = Software =
 == Things not to compile in ==
@@ -621,9 +620,9 @@ mtd unlock pmon
 mtd write -f /tmp/cfe_new.bin pmon
 }}}
 
-I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting ''''
+I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting '''' '''
 
-'''Checking it'''
+Checking it''' '''
 
 Embedded nvram is only used, when real nvram is either corrupted or empty (CRC/magic checks fails), so you will need to erase nvram or to reset to defaults. With OpenWrt type this:
 
@@ -635,3 +634,6 @@ Then cross your fingers and reboot your unit. And remember - I'm not responsible
 
 == Customizing Firmware Image ==
 It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files. Please use the !OpenWrt [:ImageBuilderHowTo:Image Builder].
+
+----
+ CategoryHowTo CategoryHowTo
