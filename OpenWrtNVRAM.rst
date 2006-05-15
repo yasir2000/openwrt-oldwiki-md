@@ -124,10 +124,11 @@ There are separate variables called wl0_* which configure the characteristics of
 ||||<style="text-align: center;">'''Note:'''Please take note of the appropriate range of channels for your country.  Many 802.11 client adapters can detect an AP on a channel that is not available in your country but will refuse to associate with it.  This can be very confusing and frustrating if you have set your OpenWRT radio to an channel which is not permitted in your region.  Permitted channel usage is as follows: Africa/Asia/Australia/Europe/South­ America: 1 - 13, Canada/United States: 1 - 11, France: 11 - 13, Israel: 5 - 7, Japan: 1 - 14, Mexico: 11 ||
 ||'''wl0_gmode''' ||Set 54g modes (0=Legacy B, 1=auto, 2=G only, 3=B deferred, 4=performance, 5=LRS, 6=afterburner) ||
 ||||<style="text-align: center;">'''Note:''' It may be necessary to use Legacy mode if you want older wireless devices to associate with a WRT access point.  If wl0_gmode is not set, the wireless adapter will operate as if it were set to 0. ||
-||'''wl0_gmode_protection''' || ||
+||'''wl0_gmode_protection''' ||For situations where not all wifi stations hear each other||
 ||'''wl0_rateset''' ||all ||
 ||'''wl0_plcphdr''' ||preamble. long: use long or short preamble, *: use short preamble ||
 ||'''wl0_rate''' ||Set rate in 500 Kbps units (0=auto) ||
+||'''wl0_txpower'''||Set transmit power in miliwatts (in RC5 maybe not work)||
 ||'''wl0_frag''' ||Set fragmentation threshold (default 2346) ||
 ||'''wl0_rts''' ||Set RTS threshold (256-2347 default 2347) ||
 ||'''wl0_dtim''' ||Set DTIM period (default 1) ||
@@ -136,12 +137,12 @@ There are separate variables called wl0_* which configure the characteristics of
 ||'''wl0_antdiv''' ||Select antenna (''-1=auto, 0=main''[near power jack]'', 1=aux''[near reset button]'', 3=diversity'') Starting with WRT54G v2.0 and WRT54GS V1.1 these are reversed 0=''[near reset button]'' and 1=''[near power jack]'' ||
 ||'''wl0_ssid''' ||Set the SSID of the Wrt54g ||
 ||'''wl0_distance''' || (per Whiterussian RC5) Adjusts timing for signal propagation time. Unit: [m] (one-way). Setting this variable overrules setting of shortslot/longslot timing. Setting this variable is only needed over distances greater than appr. 1.5 km. The need usually shows when communication throughput is very low although the ratio of signal strength to noise is good. ||
-||'''wl0_wdstimeout''' ||if set, it will enable the WDS watchdog (e. g. wl0_wdstimeout=180, value is in seconds)||
+||'''wl0_wdstimeout''' ||if set, it will enable the WDS watchdog (e. g. wl0_wdstimeout=180, value is in seconds) ||
 
 
 For WPA: (See ["OpenWrtDocs/Configuration"] on how to enable WPA on current snapshots)
 
-||'''wl0_auth_mode''' ||obsolete, use '''wl0_akm''' ||
+||'''wl0_auth_mode''' ||obsolete, use '''wl0_akm''' NOTE: set to psk or radius because some configurations don't work without it. See [http://www.bingner.com/openwrt/wpa.html], [http://wiki.openwrt.org/OpenWrtDocs/Wpa2Enterprise] or maybe you can use some other wpa supplicant instead of nas||
 ||'''wl0_akm''' ||''open,wpa,psk,wpa2,psk2'' ||
 ||'''wl0_wpa_psk''' ||WPA pre-shared key ||
 ||'''wl0_wpa_gtk_rekey''' ||WPA GTK rekey interval ||
