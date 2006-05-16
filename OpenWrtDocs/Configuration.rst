@@ -29,6 +29,7 @@ nvram commit; Write changes to the flash chip (otherwise only stored in RAM)
 
 A complete list of nvram options can be found at [:OpenWrtNVRAM].
 
+'''NOTE:''' flashing your router with tftp won't work unless boot_wait is set to on! tftp is your last software based recovery option if failsafe mode fails!
 
 = Network configuration =
 
