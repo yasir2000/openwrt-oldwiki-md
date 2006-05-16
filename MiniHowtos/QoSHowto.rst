@@ -1,11 +1,8 @@
 /!\ '''This page is currently under construction''' /!\
 
 [[TableOfContents]]
-
 = Qos MiniHowto =
-
 == Boring Intro and Dry Theory ==
-
 Someone once said technical guys hate writing documentation.  I guess they were right.  Disclaimer: I'm a network nerd and admin at an ISP.  My hope is I'll start this and someone will jump in and clean it up. If you already know what it is, and don't want to ridicule me, you can skip this part.
 
 Anyhow.  This document will outline a bit what QoS is, and two great ways to do it.  As far as I was concerned, it was the single most important feature of the (or any) router.  It allows for bandwidth management and prioritization.
@@ -33,7 +30,6 @@ To be honest, and candid, most of the time you do not want download (or ingress)
 Last but not least... it should be mentioned, exactly how the queing is performed.  Most default queues are "fifo" meaning first-in first-out.  You get in line and get processed in the order by which you came.  This describes the queing discipline, as well as the type of queue.  There are other algorithims for queing disciplines, other types, such as htb ([http://luxik.cdi.cz/~devik/qos/htb/ Hierarchichal Token Bucket]) and hfsc ([http://www.cs.cmu.edu/~hzhang/HFSC/main.html Hierarchical Fair Service Curve]).  For more information on queues and advanced routing in general, see [http://lartc.org/ Linux Advanced Routing & Traffic Control].  Note these are also referred to as "packet schedulers".
 
 == QoS in OpenWrt ==
-
 I went from not having a QoS option (well, to be honest, the tools were always there, just needed a sane script) to having two options.  Debate as to which is the "better" one is probably not important.  I'd personally call them "two great ways to do it".
 
 One involves nbd's qosif scripts.  And the other involves ctshaper, a script written by Carlos Rodrigues, based on wondershaper.  These two guys deserve the credit for the scripts I'm going to mention.
@@ -41,11 +37,10 @@ One involves nbd's qosif scripts.  And the other involves ctshaper, a script wri
 Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.
 
 === qosfw-scripts package (was qosif) ===
-
 (''Somewhat updated for qosfw-scripts, could use some editing'')
-----
 
-If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.  
+----
+If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.   
 
 Install qosfw-scripts with {{{ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk}}} (you many want to check [http://openwrt.inf.fh-brs.de/~nbd/ here] or [http://downloads.openwrt.org/people/nbd/qos/ here] for a newer update).
 
@@ -59,10 +54,9 @@ Install qosfw-scripts with {{{ipkg install http://openwrt.inf.fh-brs.de/~nbd/qos
 /usr/lib/qosfw/fw.sh
 }}}
 
-The files in /usr/lib/qosfw do the heavy lifting. 
-`/etc/hotplug.d/iface/10-qos` is run everytime an interface is brought up, and looks for a qos-[interface] file in `/etc/config`, if it finds one then it'll setup the qos settings for that interface.
+The files in /usr/lib/qosfw do the heavy lifting.  {{{/etc/hotplug.d/iface/10-qos}}} is run everytime an interface is brought up, and looks for a qos-[interface] file in {{{/etc/config}}}, if it finds one then it'll setup the qos settings for that interface.
 
-Which leaves us with the format of the `config` file.  It's formatted in stanzas (I did say that nbd guy was pretty clever, right?) and the stanzas can be broken down into policies and marking rules.
+Which leaves us with the format of the {{{config}}} file.  It's formatted in stanzas (I did say that nbd guy was pretty clever, right?) and the stanzas can be broken down into policies and marking rules.
 
 For example, the first four stanzas (or blocks) are policies:
 
@@ -106,22 +100,22 @@ classify:Priority:proto=tcp dport=22,53,5190
 #classify:VOIP:proto=udp sport=60168
 }}}
 
-These are pretty self explainatory as well.  The first line uses a layer7 filter (the patterns for these are stored in /etc/l7-protocols, see [http://l7-filter.sourceforge.net/protocols l7-filter] for more) to classify edonkey traffic as bulk. The others all classify by port 
-numbers.
+These are pretty self explainatory as well.  The first line uses a layer7 filter (the patterns for these are stored in /etc/l7-protocols, see [http://l7-filter.sourceforge.net/protocols l7-filter] for more) to classify edonkey traffic as bulk. The others all classify by port  numbers.
 
 Take the second and third examples.  Anything with a destination of udp/53 or udp/5190 (dns and aim, respectively), will be classified as Priority.  Pretty simple, huh?
 
 Next, we enable qos, and set the up/downstream bandwidth
+
 {{{
 #option:enabled
 option:upload:128
 option:download:1024
 }}}
 
-Uncomment the option:enabled line, or else you'll wonder why this isn't doing anything.
-The upload and download lines should be set slightly lower (1 to 2%) than your connection speeds in kbps. This ensures that no packets ever end up queued in your modem, while still nearly maximising the available bandwidth.
+Uncomment the option:enabled line, or else you'll wonder why this isn't doing anything. The upload and download lines should be set slightly lower (1 to 2%) than your connection speeds in kbps. This ensures that no packets ever end up queued in your modem, while still nearly maximising the available bandwidth.
 
 (''TODO: document this section'')
+
 {{{
 option:priority:Priority
 option:bulk:Bulk
@@ -130,27 +124,24 @@ option:default:Bulk
 option:bulk_dl:Normal:10
 }}}
 
-Finally to activate your settings run ` ifdown wan && ifup wan `. 
+Finally to activate your settings run {{{ ifdown wan && ifup wan }}}.
 
-You can see what commands the script is running by looking at `/tmp/.qos-wan.sh`. You can get an idea of how much traffic is hitting each of your rules with `iptables -t mangle -L -v`
+You can see what commands the script is running by looking at {{{/tmp/.qos-wan.sh}}}. You can get an idea of how much traffic is hitting each of your rules with {{{iptables -t mangle -L -v}}}
 
 So, '''qosfw''' in three steps:
 
  * install the package
- * modify `/etc/config/qos-wan` to suit your needs, don't forget the option:enabled line
- * `ifdown wan && ifup wan` to activate
+ * modify {{{/etc/config/qos-wan}}} to suit your needs, don't forget the option:enabled line
+ * {{{ifdown wan && ifup wan}}} to activate
 
 ==== Notes and Caveats ====
-
  * There is no ingress capabilities.  As I mentioned earlier, most people won't want that anyhow.
- * Rules like the first ''edonkey'' one above require the L7 filter from [http://l7-filter.sourceforge.net] (this is now a dependency of the package).
+ * Rules like the first ''edonkey'' one above require the L7 filter from http://l7-filter.sourceforge.net (this is now a dependency of the package).
  * You might need other packages, like the ''iptables-extra'' package for fancy marking of packets.
- * Based on `hfsc` packet scheduler, not `htb`.  You may be more familiar with one over the other.
+ * Based on {{{hfsc}}} packet scheduler, not {{{htb}}}.  You may be more familiar with one over the other.
 
 ==== Show QoS Packet info on the webif ====
-
-If you want to show the output of `iptables -t mangle -L -v` on the webif, put this into /www/cgi-bin/webif/QoS.sh
-Note: This has only been tested on nbd's pre-RC5 and RC5, so if it doesn't work on your version of !OpenWrt, change this to reflect that.
+If you want to show the output of {{{iptables -t mangle -L -v}}} on the webif, put this into /www/cgi-bin/webif/QoS.sh Note: This has only been tested on nbd's pre-RC5 and RC5, so if it doesn't work on your version of !OpenWrt, change this to reflect that.
 
 {{{
 #!/usr/bin/webif-page
@@ -178,7 +169,6 @@ header "Status" "QoS Packets" "@TR<<QoS Packets>>"
 Then chmod a+x it.
 
 === ctshaper ===
-
 /!\ '''NOTE:''' ctshaper is not supported by the !OpenWrt developers!
 
 First, download the script from [http://students.fct.unl.pt/~cer09566/ctshaper/ this link].  Tarball is at the bottom of the page.  I made it work for me with a few changes.
@@ -222,11 +212,11 @@ to:
 DEFAULT_RATE=$((${UPLINK} - ${CLASS1_RATE} - ${CLASS2_RATE} - ${CLASS3_RATE}))
 }}}
 
-I then copied it to `/usr/sbin/ctshaper` on the OpenWRT router.
+I then copied it to {{{/usr/sbin/ctshaper}}} on the OpenWRT router.
 
-Next, modify `ctshaper.conf` to suit your needs, and copy over to `/etc/ctshaper/ctshaper.conf` on the router.
+Next, modify {{{ctshaper.conf}}} to suit your needs, and copy over to {{{/etc/ctshaper/ctshaper.conf}}} on the router.
 
-Then, I made a file called `S75qos` and put it in `/etc/init.d/` ... it's just a copy of the `crond` init script, modified a bit:
+Then, I made a file called {{{S75qos}}} and put it in {{{/etc/init.d/}}} ... it's just a copy of the {{{crond}}} init script, modified a bit:
 
 {{{
 #!/bin/sh
@@ -281,21 +271,20 @@ esac
 exit $?
 }}}
 
-That's it!  Now when you reboot, your QoS will be applied at bootup.  Notice, with this setup, you must mark your own packets, possibly in `/etc/firewall.user`.
+That's it!  Now when you reboot, your QoS will be applied at bootup.  Notice, with this setup, you must mark your own packets, possibly in {{{/etc/firewall.user}}}.
 
-Try issuing the command `ctshaper status` to see current configuration.
+Try issuing the command {{{ctshaper status}}} to see current configuration.
 
 ==== Notes and Caveats ====
-
  * As I said, it requires you to mark your own packets.  Not as elegant as the '''qosif''' script, but it works.
  * Necessary to modify it a bit first to get it working.
- * Based on `htb` packet scheduler, not `hfsc`.
+ * Based on {{{htb}}} packet scheduler, not {{{hfsc}}}.
 
 ==== Iptables packet marking ====
-
 Here are some examples for marking traffic with iptables - only needed when using the ctshaper script.
 
 In this example, the packets are marked as follows:
+
 {{{
 1: ICMP, SSH
 2: IRC, Quake1, Skype to Skype calls
@@ -304,6 +293,7 @@ In this example, the packets are marked as follows:
 }}}
 
 The example goes as follows:
+
 {{{
 #load the layer7 iptables module
 insmod ipt_layer7
@@ -333,5 +323,23 @@ iptables -t mangle -A POSTROUTING -o $WAN -m layer7 --l7proto directconnect -j M
 }}}
 
 Note that you could mark the packets in any of the mangle table's chains, however most likely the best choice would be POSTROUTING, as used in this example. There are two reasons for that:
+
  * You only need to match packets going out on the WAN interface, so you can use the -o parameter (which doesn't exist in PREROUTING).
  * You also match locally generated packets (which isn't true for the FORWARD chain).
+
+=== Another Qos Package ===
+Searching in the forums'''''''''[http://forum.openwrt.org/profile.php?id=4425 rudy]'''made this package:
+
+http://forum.openwrt.org/viewtopic.php?pid=26979#p26979
+
+The best feature: Qos on downloads :)
+The objective:
+'''Comfortably surf the web while running several p2p apps at unthrottled speeds
+
+'''http://forum.openwrt.org/viewtopic.php?id=4112
+
+Run:
+{{{
+ipkg install http://files.eschauzier.org/qos-re_1.0_all.ipk}}}
+
+[http://files.eschauzier.org/qos.gif]
