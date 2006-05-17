@@ -9,6 +9,7 @@
 '''Performance of CPU / Memory'''
 
 ||'''Date''' ||'''Tester''' ||'''Time for mem''' ||'''Time for pi''' || '''Time for e''' || '''Time for float''' || '''Bench version''' || '''OS''' ||'''Device''' ||'''CPU''' ||'''CPU Freq''' ||'''Link to HW page''' ||
+|| 2006-05-16 || Figurehead || 6.9s || 13.7s || 15.4s || 10.8s || v0.6 || OpenWrt RC5 || Linksys WRT54G v3.1 || BCM3302 V0.7 || 216MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-03 || evildevil || 5.3s || 29.8s || 27.0s || 4.0s || v0.6 || !DebianSlug Sid || Linksys NSLU2 || XScale-IXP420 || 266MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX] ||
 || 2006-05-09 || CharlesAmos || 5.9s || 11.0s || 12.2s || 6.8s || v0.6 || OpenWRT pre-RC5 || Linksys WRTSL54GS || BCM4704 || 266MHz || ["OpenWrtDocs/Hardware/Linksys/WRTSL54GS"] ||
 || 2006-05-01 || cabo || 6.4s || 13.2s || 14.6s || 10.2s || v0.5 || (unknown) || Linksys WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || ["OpenWrtDocs/Hardware/Linksys/WRT54GS"] ||
