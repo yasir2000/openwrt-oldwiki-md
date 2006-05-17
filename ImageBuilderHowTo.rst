@@ -8,7 +8,7 @@ Why custom images?[[BR]] These images are for people who want to do less configu
 
 = Requirements =
  * a recent GNU/Linux distribution
-
+ * a non root account (if you use root, generated image wont work)
  . .. to be continued ...
 
 = Using the OpenWrt Image Builder =
