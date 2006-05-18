@@ -110,6 +110,17 @@ Please translate this to english. Thanks.
 === Gnome ===
 Please fill this section with some useful content.
 
+==OS X==
+For OS X (I'm using version 10.4.6):
+
+ * select system preferences
+ * Print & Fax
+ * Click on + button
+ * Click on IP Printer
+ * set Protocol: HP Jet Direct - Socket, Address: <ipaddr>:<port> and then select brand and printer.
+ * Type a name if you don't want the IP address for a name.
+ * close the Printer Browser.
+
 == Windows clients ==
 === Windows 2000/XP Home/Professional ===
 '''NOTE:''' I have only tested this with Windows 2000 Professional, I just assume it works the same with XP and the Home versions.
