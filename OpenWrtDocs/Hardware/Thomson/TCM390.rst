@@ -1,4 +1,7 @@
-The Thomson '''TCM390''' is a cable modem based on Broadcom BCM3348 chip. It has no wireless capabilities, and provides just USB slave and Ethernet connectivity. It is compatible with DOCSIS and EuroDOCSIS standards.
+The Thomson '''TCM390''' is a cable modem based on Broadcom BCM3348 chip. It has no wireless capabilities, and provides just USB slave and Ethernet connectivity. It is compatible with DOCSIS and EuroDOCSIS standards. 
+
+Front panel : standby switch, 5 leds.
+Back panel : power supply (9V DC), Ethernet port (RJ45), USB slave port, reset switch, HF/cable connector.
 
 = Hardware description =
 Opening the box is very easy, just two screws and no clip to pop nor seal to break.  The board is labelled ACM6048EB rev 1.02, with CE and FCC logos and "made in Taiwan" mention.
@@ -97,7 +100,8 @@ Executing Image 2...
 3348
 }}}
 
-Obviously, the two images in Flash are the same : identical CRC, size and buil time. Entering '1', '2', or 'p' within 2 seconds seems to have no action.
+Obviously, the two images in Flash are the same : identical CRC, size and build time. Entering '1', '2', or 'p' within 2 seconds seems to have no action.
+The name "vxram_sto.bin" looks like a VxWorks ramdisk image (just because of the "vx", yes it's a small clue).
 
 UART2 seems to be directly connected to UART1, as it delivers the same bootup messages and ohmmeter test shows pin-to-pin connection. It may just be a different pinout for the same signals.
 
