@@ -14,7 +14,7 @@ Pinouts for your model can often be found on your model's page in CategoryModel.
 === Home-made RS-232 kit ===
 '''Background'''
 
-Most OpenWrt compatible devices have one or two serial ports on the router's PCB (printed circuit board.) The problem is they operate on 3.3v, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12v. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The best (IMHO) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+Most OpenWrt compatible devices have one or two serial ports on the router's PCB (printed circuit board.) The problem is they operate on 3.3V, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12V. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The best (IMHO) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 http://jdc.parodius.com/wrt54g/serial.html
 
