@@ -16,6 +16,7 @@ From the p910nd man page: p910nd is a small printer daemon intended for diskless
 
 = Installation =
 Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
+
 {{{
 ipkg install p910nd}}}
 
@@ -110,8 +111,8 @@ Please translate this to english. Thanks.
 === Gnome ===
 Please fill this section with some useful content.
 
-==OS X==
-For OS X (I'm using version 10.4.6):
+== OS X ==
+=== Version 10.4.6 ===
 
  * select system preferences
  * Print & Fax
