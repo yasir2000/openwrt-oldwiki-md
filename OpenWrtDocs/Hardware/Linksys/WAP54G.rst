@@ -14,7 +14,8 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||'''Model''' ||'''S/N''' ||'''Stable[[BR]]White Russian''' ||'''Development[[BR]]Kamikaze'''||
 ||WAP54G v1.0 ||MDG0 ||WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||
 ||WAP54G v1.1 ||? ||? ||? ||
-||WAP54G v2 ||MDG2 ||WiP ||WiP ||
+||WAP54G v2 ||MDG2 || RC5 micro image works with default nvram.
+||WiP ||
 ||WAP54G v3 ||MDG3 ||WiP ||WiP ||
 
 
@@ -34,7 +35,6 @@ To take the front cover off of this unit you must first remove the small screws 
 Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbrick. Better stay away. If you insist, read carefully ["OpenWrtDocs/Hardware/Linksys/WAP54Gv10"] and ["WAP54GHowto"].
 
 But if you understand what you are doing and not just follow point by point instructions, it is highly possible to succeed. Read everything from the wiki pages and documentation, make your strategy and you will not regret.
-
 
 ==== WAP54G v1.1 ====
 ==== WAP54G v2.0 ====
@@ -96,4 +96,4 @@ Same as for [:OpenWrtDocs/Installing:WRT54G].
 telnet to the device and use nvram command.
 
 ----
- . CategoryModel    
+ . CategoryModel     
