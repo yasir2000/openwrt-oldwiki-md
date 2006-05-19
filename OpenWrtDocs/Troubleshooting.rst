@@ -87,7 +87,7 @@ To reset NVRAM settings on a Siemens SE505 V1 simply press reset after you plug 
 See ["OpenWrtDocs/Installing"] for generic installation instructions.
 
 == Software based method ==
-Reflash the unit using the TFTP method.
+Reflash the unit using the [:OpenWrtViaTftp: TFTP] method.
 
 == Serial console ==
 Important information about connecting a serial console can be found in ["OpenWrtDocs/Customizing"].
