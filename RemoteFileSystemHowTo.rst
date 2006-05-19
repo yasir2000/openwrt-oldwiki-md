@@ -19,7 +19,7 @@ Then load the {{{cifs}}} module:
 insmod cifs
 }}}
 
-~-'''Note:''' this module is automagically loaded at boot after the {{{kmod-cifs}}} package is installed.-~
+~-'''Note:''' this module is automatically loaded at boot after the {{{kmod-cifs}}} package is installed.-~
 
 Then you can mount the remote filesystem:
 
