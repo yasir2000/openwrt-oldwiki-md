@@ -8,26 +8,27 @@ Status Legend:
  * '''No''' - confirmed that this device is not supported
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
 
-See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], CategoryCategory
-Pavia
-[[TableOfContents]]
+See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], CategoryCategory Pavia [[TableOfContents]]
+
 == 3Com ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4Mb ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
 
-== 4G Systeme ==
 
+== 4G Systeme ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.meshcube.org/index_e.html AccessCube] || MTX-1||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz || 32MB || 64Mb ||Atheros Mini-PCI|| None || N/A || Yes || Yes || Yes || WiP ||
+||[http://www.meshcube.org/index_e.html AccessCube] || MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz || 32MB || 64Mb ||Atheros Mini-PCI || None || N/A || Yes || Yes || Yes || WiP ||
 
 
 == Actiontec ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||GT701-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG:WiP] ||
 
+
 == Airlink101 ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||AR420W || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? || No || ||
+
 
 == ALLNET ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -44,7 +45,7 @@ Pavia
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=62&modelmenu=1 WL-500b] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Ralink (mini-PCI) ||BCM5325 ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL500B:Untested] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=61&modelmenu=1 WL-500g] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL500G:Supported] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=359&modelmenu=1 WL-500g Deluxe] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz ||4MB ||32MB ||Broadcom (integrated) ||in CPU ||on ||Yes ||No ||2x v2.0 ||[:OpenWrtDocs/Hardware/Asus/WL500GD:Supported] ||
-||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1121&modelmenu=1 WL-500g Premium]|| ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz||8MB||32MB||Broadcom mini-PCI||BCM5325||on ||Yes ||No ||2x v2.0 ||Untested||
+||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1121&modelmenu=1 WL-500g Premium] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8MB ||32MB ||Broadcom mini-PCI ||BCM5325 ||on ||Yes ||No ||2x v2.0 ||Untested ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=492&modelmenu=1 WL-520g] || ||Broadcom 5350 @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on || || ||No ||[:OpenWrtDocs/Hardware/Asus/WL520G:Untested] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=409&modelmenu=1 WL-530g] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8510] @160MHz ||4MB ||16MB ||Marvell (integrated) ||in CPU ||on ||No ||No ||No ||WiP ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=796&modelmenu=1 WL-550gE] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz || || ||Broadcom (integrated) ||in CPU ||on || || ||No ||Untested ||
@@ -53,28 +54,28 @@ Pavia
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 
+
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||FRITZ!Box SL || ||?|| 2MB || ? || None || || || || || || [:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
+||FRITZ!Box SL || ||? || 2MB || ? || None || || || || || || [:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
 ||FRITZ!Box 2030 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box 2070 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box SL WLAN || ||? ||? || ? ||acx111 mini-pci || || || || || || Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box WLAN 3050 || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon ata || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box Fon ata || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
 ||FRITZ!Box Fon 5010 (analog) || ||ar7@150mhz ||4MB || 16MB || None || || || || || None || Untested ||
 ||FRITZ!Box Fon 5012 (ISDN) || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon || ||? ||? || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon 5050 || ||ar7@150mhz ||? || ? || || || || || || || Untested ||
-||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4 || 16 ||acx111 mini-pci|| || ||yes|| || || Untested ||
-||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4 || 16 ||acx111 mini-pci || || ||yes|| || || Untested ||
-||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz||8|| 32 ||acx111 on-board ||ADMtek ADM6996|| ||yes|| || 1.1 || Untested ||
-||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8 || 32 ||ac111 on-oard||ADMtek ADM6996|| ||yes|| || 1.1 || Untested ||
+||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4 || 16 ||acx111 mini-pci || || ||yes || || || Untested ||
+||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4 || 16 ||acx111 mini-pci || || ||yes || || || Untested ||
+||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz ||8 || 32 ||acx111 on-board ||ADMtek ADM6996 || ||yes || || 1.1 || Untested ||
+||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8 || 32 ||ac111 on-oard ||ADMtek ADM6996 || ||yes || || 1.1 || Untested ||
+
 
 detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
-
-
 
 == Belkin ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -101,7 +102,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) || BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
 ||WHR3-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB ||64MB ||Broadcom (mini-PCI) || || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=13 WLA-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB || ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54C:Untested]||
+||[http://www.buffalotech.com/products/product-detail.php?productid=13 WLA-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB || ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54C:Untested] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=70 WLA2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||off || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=92&categoryid=6 WLA2-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4Mb ||16Mb ||Broadcom (integrated) ||None || ||Yes ||Yes || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=90&categoryid=6 WLA2-G54L] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes || ||[:OpenWrtDocs/Hardware/Buffalo/WLA2-G54L:Supported] ||
@@ -137,14 +138,17 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||?? ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||16MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 
+
 == Gateway ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_g_wap&seg=sb 7001]||802.11g||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz||8MB||32MB||Atheros mini-PCI||None||N/A||Yes||Yes||None||WiP||
-||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_ag_wap&seg=sb 7001]||802.11a+g||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz||8MB||32MB||2x Atheros mini-PCI||None||N/A||Yes||Yes||None||WiP||
+||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_g_wap&seg=sb 7001] ||802.11g ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||Atheros mini-PCI ||None ||N/A ||Yes ||Yes ||None ||WiP ||
+||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_ag_wap&seg=sb 7001] ||802.11a+g ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||2x Atheros mini-PCI ||None ||N/A ||Yes ||Yes ||None ||WiP ||
+
 
 == Gigabyte ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] ||1.0 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB || mini-PCI || IC+ IP175A || ||No ||Yes || Space for connector || ||
+
 
 ----
 == LevelOne ==
@@ -158,9 +162,9 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 == Linksys ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz ||4MB ||16MB ||None ||None ||["PSPBoot"] ||Yes ||Yes ||v1.1 ||[:AR7Port:WiP] ||
-||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1130276770694&pagename=Linksys%2FCommon%2FVisitorWrapper AG241] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16 MB || none ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
-||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1115416832835&pagename=Linksys%2FCommon%2FVisitorWrapper RT042]|| ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz||8MB||16 MB||None||2x ADM6996L||N/A||Yes||Yes||None||WiP||
-||[http://www-uk.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=UK%2FLayout&cid=1123521940633&pagename=Linksys%2FCommon%2FVisitorWrapper WAG354G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16 MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1130276770694&pagename=Linksys/Common/VisitorWrapper AG241] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16 MB || none ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416832835&pagename=Linksys/Common/VisitorWrapper RT042] || ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||8MB ||16 MB ||None ||2x ADM6996L ||N/A ||Yes ||Yes ||None ||WiP ||
+||[http://www-uk.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=UK/Layout&cid=1123521940633&pagename=Linksys/Common/VisitorWrapper WAG354G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16 MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
 ||WRT54AG || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism (mini-PCI) || || || || || ||Partial ||
 ||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB / 8MB ||16 MB / 32MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
 ||WAG54GS || || [http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 Broadcom 6348] @ 240MHz ||4MB ||16MB ||Integrated Broadcom 4318 ||BCM5325 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:No] ||
@@ -201,7 +205,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Atheros & Broadcom (mini-PCI) ||BCM5325 ||off || || || ||Untested ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG] ||2.0 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz ||4MB ||16MB ||Atheros (integrated) ||KS8995M ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=692 WRTP54G] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["PSPBoot"] ||Yes ||Yes || ||[:AR7Port:WiP] ||
-||[http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=c=L_Product_C2&cid=1137028967848&pagename=Linksys/Common/VisitorWrapper WRTSL54GS] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||32MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes||Yes||1x v2.0 ||[:OpenWrtDocs/Hardware/Linksys/WRTSL54GS:Supported] ||
+||[http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=c=L_Product_C2&cid=1137028967848&pagename=Linksys/Common/VisitorWrapper WRTSL54GS] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||32MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes ||Yes ||1x v2.0 ||[:OpenWrtDocs/Hardware/Linksys/WRTSL54GS:Supported] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1122062241008&pagename=Linksys/Common/VisitorWrapper WTR54GS] || ||Broadcom 5350 @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||WiP ||
 
 
@@ -278,9 +282,11 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz || ||32MB ||None ||None || ||Yes ||Yes ||2x v2.0 ||Untested ||
 
+
 == Sitecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 || [http://www.sitecom.com/drivers_result.php?groupid=5&productid=184 WL-105] || b || Broadcom 4702 || || || Broadcom (mini-PCI) || || || || || No || Untested ||
+
 
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -327,7 +333,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 == Viewsonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WAPBR-100, A.K.A VS10407 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Maybe ||No ||No ||WiP ||
-||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off || Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed||
+||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off || Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
 
 
 == ZyXEL ==
