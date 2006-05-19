@@ -109,10 +109,12 @@ SETENV mtd4,0x90010000,0x903f0000
 After that, we can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd4}}} via ftp:
 
 '''Not all AR7 devices will use mtd4.  Double check which mtd you are flashing.'''
+
+'''Replace X with the correct mtd.'''
 {{{
 ftp> binary
 ftp> quote MEDIA FLSH
-ftp> put "openwrt-ar7-2.4-squashfs.bin" "openwrt-ar7-2.4-squashfs.bin mtd4"
+ftp> put "openwrt-ar7-2.4-squashfs.bin" "openwrt-ar7-2.4-squashfs.bin mtdX"
 ftp> quote REBOOT
 ftp> quit
 }}}
