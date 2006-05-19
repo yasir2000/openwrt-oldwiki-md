@@ -157,6 +157,8 @@ The {{{nvram-clean.sh}}} script does not commit the changes to NVRAM so you will
 nvram commit
 }}}
 
+Hint: If you have configured your box in client mode (doesn't matter if bridged or routed) and defined a "static_route", this entry will be deleted by the nvram-clean-script.
+
 == How often can I write on the flash chip? ==
 Flash devices can be written to, at minimum, anywhere between 100,000 and 1,000,000 times (according to the manufacturers).
 
