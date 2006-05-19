@@ -1,6 +1,6 @@
 = Linksys WAG354G =
 
-''''WARNING'''' This page is a work in progress.  So far I (IanJackson) am just collecting information found in various other places (eg, IRC logs) together.
+'''WARNING''' This page is a work in progress.  So far I (IanJackson) am just collecting information found in various other places (eg, IRC logs) together.
 
 Bootloader: PSPBoot
 Firmware image: *-WA31.bin
