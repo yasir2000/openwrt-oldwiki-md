@@ -37,7 +37,7 @@ reboot
 }}}
 
 = Opening the Firewall to Allow Public Access =
-Allowing public access to a non-secured FTP server is not a good idea, as mentioned above.  It is better to use [SFTPWithDropbearHowTo] SFTP.
+Allowing public access to a non-secured FTP server is not a good idea, as mentioned above.  It is better to use [:SFTPWithDropbearHowTo] SFTP.
  
 Nevertheless there are some instances where allowing public access to FTP is
 necessary.
