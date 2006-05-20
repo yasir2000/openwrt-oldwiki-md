@@ -86,8 +86,8 @@ can't be used directly.
      
 That's a ton of files, what's with the "<type>"?
 !OpenWrt gives you your choice of root filesystems; you can either
-have the root filesystem as Squashfs or JFFS2, We'll explain both.
-If you don't understand, or can't decide, pick Squashfs.
+have the root filesystem as SquashFS or JFFS2, We'll explain both.
+'''If you don't understand, or can't decide, pick SquashFS.'''
 
   SquashFS
     The files marked squashfs include a small compressed filesystem
