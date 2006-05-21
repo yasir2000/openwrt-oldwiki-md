@@ -62,7 +62,7 @@ had 4MB/16MB.
 Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
 
-=== WRT54GS v5 ===
+=== WRT54GS v5 & v5.1 ===
 
 /!\ '''NOTE:''' WRT54GS V5 IS '''NOT''' SUPPORTED. IT WILL NEVER BE SUPPORTED. WE ARE SICK OF
 HEARING ABOUT THE V5!
@@ -75,6 +75,7 @@ For further informations please see:
 [[BR]]- [http://www.linksysinfo.org/modules.php?name=News&file=article&sid=474 WRT54GS Now Runs VxWorks too!?]
 [[BR]]- [http://forum.openwrt.org/viewtopic.php?pid=19281 WRT54GS going to VxWorks now also....]
 [[BR]]- [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12183&start=0&postdays=0&postorder=asc&highlight= WRT54GS- New Serial Number? CGN7?]
+[[BR]]- [http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G Currently only a downstripped DD-WRT is supported on WRT54G/GS v5 and v5.1] - GS only 8 MB memory supported due to lack of proper bootloader
 
 
 == Internal Photos ==
