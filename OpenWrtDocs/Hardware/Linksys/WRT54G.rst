@@ -99,6 +99,8 @@ pictures that it is nearly identical to v4 with an updated rev on the processor,
 flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by
 !OpenWrt.
 
+[http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G Currently only a downstripped DD-WRT is supported on WRT54G/GS v5 and v5.1]
+
 '''Table summary'''
 
 How to get info:
