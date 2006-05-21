@@ -9,6 +9,8 @@ Known problems:
 
 * `Crashes occasionally' for some people or with some devices.  Currently not known whether this is a hardware problem.
 
-* Using the tftp procedure to upload an openwrt image seems to disable the tftp facility in PSPBoot, so that future upgrades have to be done from within openwrt.
+* Using the tftp procedure to upload an openwrt image seems for some people to disable the tftp facility in PSPBoot, so that future upgrades have to be done from within openwrt.  However this didn't happen to me -IanJackson.
+
+
 ----
 ["CategoryAR7Device"]
