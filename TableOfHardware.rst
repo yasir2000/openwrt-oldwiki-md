@@ -57,18 +57,18 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||FRITZ!Box SL || ||? || 2MB || ? || None || || || || || || [:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-||FRITZ!Box 2030 || ||? ||? || ? || || || || || || || Untested ||
-||FRITZ!Box 2070 || ||? ||? || ? || || || || || || || Untested ||
+||FRITZ!Box SL || ||? || 2MB || 8MB || None || || || || || || [:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
+||FRITZ!Box 2030 || ||? ||? || ? || None || || || || || || Untested ||
+||FRITZ!Box 2070 || ||? ||? || ? || None || || || || || || Untested ||
 ||FRITZ!Box SL WLAN || ||? ||4MB || ? ||acx111 mini-pci || || || || || || Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||4MB || ? || || || || || || || Untested ||
 ||FRITZ!Box WLAN 3050 || ||? ||4MB || ? || || || || || || || Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||4MB || ? || || || || || || || Untested ||
 ||FRITZ!Box Fon ata || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
 ||FRITZ!Box Fon 5010 (analog) || ||ar7@150mhz ||4MB || 16MB || None || || || || || None || Untested ||
-||FRITZ!Box Fon 5012 (ISDN) || ||? ||4MB || ? || || || || || || || Untested ||
-||FRITZ!Box Fon || ||? ||4MB || ? || || || || || || || Untested ||
-||FRITZ!Box Fon 5050 || ||ar7@150mhz ||4MB || ? || || || || || || || Untested ||
+||FRITZ!Box Fon 5012 (ISDN) || ||? ||4MB || ? || None || || || || || || Untested ||
+||FRITZ!Box Fon || ||ar7@150mhz ||4MB || 16MB || None || || || || || || Untested ||
+||FRITZ!Box Fon 5050 || ||ar7@150mhz ||4MB || 16MB || None || || || || || || Untested ||
 ||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4MB || 16MB ||acx111 mini-pci || || ||yes || || || Untested ||
 ||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4MB || 16MB ||acx111 mini-pci || || ||yes || || || Untested ||
 ||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz ||8MB || 32MB ||acx111 on-board ||ADMtek ADM6996 || ||yes || || 1.1 || Untested ||
