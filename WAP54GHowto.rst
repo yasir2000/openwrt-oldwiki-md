@@ -231,3 +231,11 @@ nvram set lan_ifname=eth1
 nvram set wan_ifname=vlan0
 nvram commit
 }}}
+
+=== Alternative Debricking ===
+
+On my WAP54g ver.3 there is a intel flash chip and the instructions above did not work. I have a serial port setup on mine so I sent ctrl-c on boot to get the CFE> boot prompt. This gave me access to the nvram and let me fix a few variables. I just had myself locked out of my WAP54g on all interfaces. You can use this to set boot wait.
+
+Another problem I've run into is that the wireless interface isn't starting up correctly on boot. I've installed the wl binary and this lets me shut the wireless down and bring it back up(wl up & wl down) after this the interface works fine. The only problem is that you need to set the lan interface to eth0 so you can telnet into the router. 
+
+-> Garak
