@@ -165,9 +165,6 @@ Parport
  2            12
 JTAG
 
-Some notes:
-* Resistors of 100 - 300 ohm should work fine as well.
-* WRT54G JTAG pins 2, 4, 6, 8, 10, 12 are all grounded. Some schematics show connecting jtag pin 6 and 12 to dsub-25 22 and 25, instead of just pin 12. Either way, it ought to work and connecting any even numbered JTAG pins to the ground should be fine.
 }}}
 
 Or a more [http://downloads.openwrt.org/inh/reference/JTAGschem.png modern version] if you prefer.
@@ -180,7 +177,11 @@ Use the pin numbers on the parallel port connector, and the pin numbers on the L
 
 '''Note #3:''' I had to disable i2c-parport support in my kernel - because I always got the kernel message {{{all devices in use}}} when trying to access the parport.
 
-Oh, and by the way, this cable is a good thing to have anyway, because many embedded devices feature that JTAG interface e.g. HP's IPAQ has one as well, so if you dare to open it, you can do lots of [http://openwince.sourceforge.net/jtag/iPAQ-3600/ funky things with your IPAQ].
+'''Note #4: '''If 100 ohm resistors aren't available, 200 or 300 ohm resistors ought to work fine.
+
+
+Oh, and by the way, this cable is a good thing to have anyway, because many embedded devices feature that JTAG interface e.g. HP's IPAQ has one as well, so if you dare to open it, you can do lots of [http://openwince.sourceforge.net/jtag/iPAQ-3600/ funky things with your IPAQ] or with your Motorola Surfboard 4100/4200/5100 cable modem.
+
 
 [http://openwince.sourceforge.net/jtag/ Openwince/JTAG] calls this cable as "Xilinx DLC5 JTAG Parallel Cable III" but since this variant isn't buffered, the length of this cable must not exceed 10 cm.
 
