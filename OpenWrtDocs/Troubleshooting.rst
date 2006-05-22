@@ -18,9 +18,7 @@ Download and run recvudp utility.
 
 Source code: [http://downloads.openwrt.org/people/nbd/recvudp.c recvudp.c]
 
-Binaries:
-[http://openwrt.inf.fh-brs.de/~olli/recvudp GNU/Linux (x86)] 
-[http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
+Binaries: [http://openwrt.inf.fh-brs.de/~olli/recvudp GNU/Linux (x86)]  [http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
 
 The recvudp program opens a blank window and listens on UDP port 4919. Set the client to a static IP in the failsafe subnet range. The router will come up as 192.168.1.1 so 192.168.1.10 for example is good. Plug in the router and wait for the go signal. Do NOT press reset before you get this:
 
@@ -87,7 +85,7 @@ To reset NVRAM settings on a Siemens SE505 V1 simply press reset after you plug 
 See ["OpenWrtDocs/Installing"] for generic installation instructions.
 
 == Software based method ==
-Reflash the unit using the [:OpenWrtViaTftp: TFTP] method.
+Reflash the unit using the [:OpenWrtViaTftp:TFTP] method.
 
 == Serial console ==
 Important information about connecting a serial console can be found in ["OpenWrtDocs/Customizing"].
@@ -129,7 +127,8 @@ The CFE will enter TFTP receptive mode after that command.
 
 You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A much better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG adaptor. It's easy, you can make it in a jiffy using spare parts from the bottom of your messy drawer. You need:
 
- * 4 100R resistors
+ * 4 100R resistors  (200 ohm resistors also work, and 300 ohm likely do as well)
+
  * 1 male SUB-D 25 plug
  * If you want to do it right, a 12-way IDC-Connector plug (these are the ones who look like the HDD-Cables)
  * A 12-way ribbon cable for above (the JTAG cable should not exceed the length of 10 cm)
@@ -149,9 +148,9 @@ Parport
     | | |          |_____||
     | | |             |   |
     ^ ^ ^             |   ^
-    1 1 1             |   1
+    1 1 1             |   1 
     0 0 0             \___0___
-    0 0 0                 0   |
+    0 0 0                 0  |
     v v v                 v   |
     | | |_____            |   |
     | |___    |           |   |
@@ -165,6 +164,10 @@ Parport
   o-o-o-o-o-o_________________|
  2            12
 JTAG
+
+Some notes:
+* Resistors of 100 - 300 ohm should work fine as well.
+* WRT54G JTAG pins 2, 4, 6, 8, 10, 12 are all grounded. Some schematics show connecting jtag pin 6 and 12 to dsub-25 22 and 25, instead of just pin 12. Either way, it ought to work and connecting any even numbered JTAG pins to the ground should be fine.
 }}}
 
 Or a more [http://downloads.openwrt.org/inh/reference/JTAGschem.png modern version] if you prefer.
@@ -183,7 +186,7 @@ Oh, and by the way, this cable is a good thing to have anyway, because many embe
 
 '''Additional Information'''
 
-The [:JTAG Cables: JTAG Cables] page addresses issues that may be encountered with the above type of cable when used with the de-bricking utility program.
+The ["JTAG Cables"] page addresses issues that may be encountered with the above type of cable when used with the de-bricking utility program.
 
 = Getting help =
 Still stuck? See [http://openwrt.org/support how to get help and support] for information on where to get further help.
