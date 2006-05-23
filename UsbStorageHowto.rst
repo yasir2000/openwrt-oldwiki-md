@@ -121,7 +121,7 @@ Check what partition you like to mount from your USB device
 fdisk -l
 }}}
 
-Finally you can mount and use your USB device (with relevant modul for your file system in memory and created directory for mount):
+Finally you can mount and use your USB device (with relevant modules for your file system in memory and created directory for mount):
 
 {{{
 mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
@@ -130,7 +130,6 @@ mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 Be happy and use your USB device like on every other GNU/Linux system or create a file server using Samba.
 
 == How do I boot from the USB device ==
-This guide assumes that you are using a JFFS2 only image, with SquashFS images some steps might be a little different. See the [http://forum.openwrt.org/viewtopic.php?pid=11211 Booting from USB - pivot_root always ends in neverland :-(] thread if you want to use SquashFS.
 
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 filesystem:
 
@@ -180,33 +179,15 @@ Then "format" your partition with
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
 
-If you keep getting errors like
-
+If you keep getting errors like:
 {{{
 Creating journal (4096 blocks): mke2fs: No such file or directory
         while trying to create journal
 }}}
 
-You may need to create a symlink to /proc/mounts:
-
+then run the following command:
 {{{
 ln -s /proc/mounts /etc/mtab
-}}}
-
-This usually does the trick.''' '''
-
-'''On a GNU/Linux desktop PC do'''
-
-{{{
-mke2fs -j /dev/sda1
-}}}
-
-/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdb}}} (and so on) instead!
-
-Make sure you have {{{/usb}}} and {{{/mnt}}} directories on the JFFS2 partition:
-
-{{{
-mkdir -p /usb /mnt
 }}}
 
 Now, we will copy everything from the flash to the USB device (make sure the EXT3 modules are loaded):
@@ -214,11 +195,26 @@ Now, we will copy everything from the flash to the USB device (make sure the EXT
 {{{
 # mount it
 mount -t ext3 /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
-# copy everything
-tar cvO -C / bin/ etc/ lib/ sbin/ usr/ www/ var/ | tar x -C /mnt
-# create required dirs
-mkdir -p /mnt/tmp && mkdir -p /mnt/dev && mkdir -p /mnt/proc && mkdir -p /mnt/jffs
-# unmount
+
+# now, we need to mount the root contents somewhere so we can copy
+# them without copying /mnt and /proc to the new usb device
+
+mkdir /tmp/root
+
+# if you're using squashfs, you want to copy the squashfs contents,
+# not the jffs2 symlinks, so use the command:
+mount -o bind /rom /tmp/root
+
+# if you're using jffs2 then use the command /
+mount -o bind / /tmp/root
+
+# now /tmp/root contains the root filesystem with no extra directories mounted
+# so we just copy this to the usb device
+
+cp /tmp/root/* /mnt -a
+
+# and now we unmount both the usb and our /tmp/root
+umount /tmp/root
 umount /mnt
 }}}
 
@@ -239,36 +235,33 @@ And replace it with this script:
 boot_dev="/dev/scsi/host0/bus0/target0/lun0/part1"
 
 # install needed modules for usb and the ext3 filesystem
-insmod usbcore
-insmod uhci && sleep 2s
-# insmod ehci-hcd && sleep 2s
-insmod scsi_mod && insmod sd_mod && insmod sg && insmod usb-storage
-insmod ext2 && insmod jbd && insmod ext3
-sleep 2s
+# **NOTE** for usb2.0 replace "uhci" with "ehci-hcd"
+# **NOTE** for ohci chipsets replace "uhci" with "usb-ohci"
+
+for module in usbcore uhci scsi_mod sd_mod usb-storage jbd ext3; do {
+	insmod $module
+}; done
+
+# this may need to be higher if your disk is slow to initialize
+sleep 4s
 
 # mount the usb stick
-mount -t ext3 -o rw "$boot_dev" /usb
+mount "$boot_dev" /mnt
 
 # if everything looks ok, do the pivot root
-if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
- pivot_root /usb /usb/jffs
- mount none /proc -t proc
- mount none /dev -t devfs
- mount none /tmp -t tmpfs size=50%
- mkdir -p /dev/pts
- mount none /dev/pts -t devpts
- umount /jffs/proc /jffs/dev/pts
- sleep 1s
- umount /jffs/tmp /jffs/dev
-fi
+[ -x /mnt/sbin/init ] && {
+	mount -o move /proc /mnt/proc && \
+	pivot_root /mnt /mnt/mnt && {
+		mount -o move /mnt/dev /dev
+		mount -o move /mnt/tmp /tmp
+		mount -o move /mnt/jffs2 /jffs2 2>&-
+		mount -o move /mnt/sys /sys 2>&-
+	}
+}
 
 # finally, run the real init (from USB hopefully).
 exec /bin/busybox init
 }}}
-
-/!\ '''NOTE:''' If you use USB 2.0 you have to replace the line {{{insmod uhci && sleep 2s}}} by {{{insmod ehci-hcd && sleep 2s}}}.
-
-/!\ '''NOTE:''' If you use OHCI USB Chips you have to replace the line {{{insmod uhci && sleep 2s}}} by {{{insmod usb-ohci && sleep 2s}}}.
 
 Make sure your new {{{/sbin/init}}} is executable:
 
