@@ -33,8 +33,9 @@ How to get info:
 '''Hardware hacking'''
 
 '''Opening the case'''
+
 Pull off the blue Cover Plates on top and bottom of the Device,
-pull off the blac Fromt cover and remove the 4 Screws in Bottom.
+pull off the black Front cover and remove the 4 Screws in Bottom.
 
 
 
