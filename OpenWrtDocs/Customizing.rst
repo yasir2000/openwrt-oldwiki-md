@@ -22,7 +22,11 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 http://www.rwhitby.net/wrt54gs/serial.html
 
-This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name. You can also search for MAX232 Kits. There are some kits availables.
+This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name. You can also search for MAX232 Kits. There are some kits availables. 
+
+
+A great source for RS232-TLL convertors is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC's serial port. If you open up the cell phone cable's serial port casing and see a MAX### chip. One known chip is a MAX323 (yes 323).
+
 
  * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
@@ -363,16 +367,9 @@ See the [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture].
 See the [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg picture] and this [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg picture]
 
 == Adding Sound Output ==
-Although it is easy to add sound to a router with USB, (See the above USB section) 
-it takes some work for one without. One method which has worked successfully is to add a Covox. A 
-covox [http://en.wikipedia.org/wiki/Covox_Speech_Thing] is a simple 8-bit digital 
-to analogue converter. It was a common sound device for PCs before sound cards 
-and higher quality audio devices were cheap. On PCs it was driven by the parallel 
-port. On a router it can be driven by a serial port. All that would be necessary 
-is to convert the serial data to parallel. A shift register would work, the below 
-example uses a PIC microcontroller. 
+Although it is easy to add sound to a router with USB, (See the above USB section)  it takes some work for one without. One method which has worked successfully is to add a Covox. A  covox http://en.wikipedia.org/wiki/Covox_Speech_Thing is a simple 8-bit digital  to analogue converter. It was a common sound device for PCs before sound cards  and higher quality audio devices were cheap. On PCs it was driven by the parallel  port. On a router it can be driven by a serial port. All that would be necessary  is to convert the serial data to parallel. A shift register would work, the below  example uses a PIC microcontroller.
 
-Link: [http://www.duff.dk/wrt54gs/]
+Link: http://www.duff.dk/wrt54gs/
 
 The PIC and covox:
 
@@ -648,4 +645,4 @@ Then cross your fingers and reboot your unit. And remember - I'm not responsible
 It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files. Please use the !OpenWrt [:ImageBuilderHowTo:Image Builder].
 
 ----
- CategoryHowTo CategoryHowTo
+ . CategoryHowTo CategoryHowTo 
