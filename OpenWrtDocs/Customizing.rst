@@ -14,7 +14,7 @@ Pinouts for your model can often be found on your model's page in CategoryModel.
 === Home-made RS-232 kit ===
 '''Background'''
 
-Most OpenWrt compatible devices have one or two serial ports on the router's PCB (printed circuit board.) The problem is they operate on 3.3V, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12V. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The best (IMHO) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+Most OpenWrt compatible devices have one or two* serial ports on the router's PCB (printed circuit board). The problem is they operate on 3.3V, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12V. Luckily, this is more common a thing than you would think, and as such, Maxim (no, not the magazine) has made a few handy little ICs for us to use. The best (IMHO) is the MAX233, or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 http://jdc.parodius.com/wrt54g/serial.html
 
@@ -36,6 +36,7 @@ You can also search for MAX232 Kits. There are some kits availables.
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
  * http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
 
+*'''Note: '''The WRT54G/GS CFE may only emit messages on TTSY0. This is the serial port that uses even numbered pins, therefore starting at pin 2. This has not been verified yet, but the author of this note spent hours trying to get boot messages to appear on TTSY1, before trying TTSY0 with instant success.
 === USB Kit ===
 A USB based data cable for a mobile cell phone is another possibility.
 
@@ -649,4 +650,4 @@ Then cross your fingers and reboot your unit. And remember - I'm not responsible
 It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files. Please use the !OpenWrt [:ImageBuilderHowTo:Image Builder].
 
 ----
- . CategoryHowTo CategoryHowTo    
+ . CategoryHowTo CategoryHowTo     
