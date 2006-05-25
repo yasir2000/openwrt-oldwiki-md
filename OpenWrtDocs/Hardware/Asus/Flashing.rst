@@ -36,7 +36,7 @@ For some reason, though, the device doesn't reboot after flashing. Just wait 5 m
 
 '''Send image with Firmware Restoration technique'''
 
-You can use the ASUS Firmware Restoration tool to send an image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD ?? or available from the ASUS web site?? (haven't been able to find this).
+You can use the ASUS Firmware Restoration tool to send an image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site ''('''For the WL-HDD:''' Go to '''www.asus.com''', click on '''Download''', search for '''WL-HDD''', click on '''Utilities''' and download the program in the language of your choice. Part of the program is the Firmware Restoration tool)''
 
 /!\ Before you start the Firmware Restoration tool, disable all interfaces on the PC except for the one connected to the Router. The software seems to pick an interface at random.
 
