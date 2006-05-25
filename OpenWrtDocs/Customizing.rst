@@ -22,11 +22,14 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 http://www.rwhitby.net/wrt54gs/serial.html
 
-This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name. You can also search for MAX232 Kits. There are some kits availables. 
-
+This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name.
 
 A great source for RS232-TLL convertors is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC's serial port. If you open up the cell phone cable's serial port casing and see a MAX### chip. One known chip is a MAX323 (yes 323).
 
+If you've found a good cell phone cable to use, you merely need to determine which wires are the VCC, GND, TX, and RX connections. There should be no need to modify the PCB embedded in the cable. 
+
+
+You can also search for MAX232 Kits. There are some kits availables.
 
  * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
@@ -645,4 +648,4 @@ Then cross your fingers and reboot your unit. And remember - I'm not responsible
 It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files. Please use the !OpenWrt [:ImageBuilderHowTo:Image Builder].
 
 ----
- . CategoryHowTo CategoryHowTo 
+ . CategoryHowTo CategoryHowTo  
