@@ -131,7 +131,14 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 
 == D-Link ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status'''  ||
+
+---- /!\ '''Edit conflict - other version:''' ----
 ||[http://www.dlink.com/products/?pid=316 DI-524] || [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006G.htm Atheros 2315] || 1M x 16 Bit x 4 Banks (ESMT M12L64164A) || ? ||Atheros (integrated) || Marvell 88E6060 || ? || ? || ? ||No ||[:AtherosPort:WiP] ||
+
+---- /!\ '''Edit conflict - your version:''' ----
+||[http://www.dlink.com/products/?pid=316 DI-524] || [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006G.htm Atheros 2315] || [http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 1M x 16 Bit x 4 Banks (ESMT M12L64164A)] || ? ||Atheros (integrated) || Marvell 88E6060 || ? || ? || ? ||No ||[:AtherosPort:WiP] ||
+
+---- /!\ '''End of edit conflict''' ----
 ||DSL-G500T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=373 DSL-G504T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] It's runs ok ||
 ||[http://www.dlink.com/products/?pid=372 DSL-G604T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
