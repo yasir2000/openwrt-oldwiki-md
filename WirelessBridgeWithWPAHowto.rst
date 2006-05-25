@@ -81,10 +81,7 @@ Thanks BrianCandler, you're quite right: this is not really a bridge, but I thin
 
 Turns out that even wet mode is not a true bridge - it does ARP masquerading. See  http://forum.openwrt.org/viewtopic.php?id=5105 -- BrianCandler [[DateTime(2006-04-25T08:12:00Z)]]
 
-Thank you guys, this howto work perfectly for me with white russian 4. To make this a bit simple I use a static IP for the wlan if, so I don't need to wait and I remove the sleep script. -- RafMazBrianCandler [[DateTime]]
-
-
-
+Thank you guys, this howto work perfectly for me with white russian 4. To make this a bit simple I use a static IP for the wlan if, so I don't need to wait and I remove the sleep script. -- [:RafMazBrianCandler:RafMaz] [[DateTime]]
 
 == S47sleep ==
 {{{
