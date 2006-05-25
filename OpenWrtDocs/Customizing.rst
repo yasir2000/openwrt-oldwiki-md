@@ -26,10 +26,9 @@ This electronic adaptator is call RS232-TLL converter. You can find it at many p
 
 A great source for RS232-TLL convertors is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC's serial port. Many people already have such a cable laying around, or can buy one fairly cheap. It is much easier than building the necessary circuit yourself.
 
+If you open up the cell phone cable's serial port casing and see a MAX### chip, it's probably the cable you need. One known chip is a MAX323 (yes, 323).
 
-If you open up the cell phone cable's serial port casing and see a MAX### chip. One known chip is a MAX323 (yes, 323).
-
-If you've found a good cell phone cable to use, you merely need to determine which wires are the VCC, GND, TX, and RX connections. There should be no need to modify the PCB embedded in the cable.
+If you've found a good cell phone cable to use, you merely need to determine which wires are the VCC, GND, TX, and RX connections. Usually the VCC is red and the GND is black, but the other colors may vary (though blue and orange are common). There should be no need to modify the PCB embedded in the cable.
 
 You can also search for MAX232 Kits. There are some kits availables.
 
@@ -650,4 +649,4 @@ Then cross your fingers and reboot your unit. And remember - I'm not responsible
 It is relatively easy to create a custom firmware image which is pre-loaded with particular software packages and your own files. Please use the !OpenWrt [:ImageBuilderHowTo:Image Builder].
 
 ----
- . CategoryHowTo CategoryHowTo   
+ . CategoryHowTo CategoryHowTo    
