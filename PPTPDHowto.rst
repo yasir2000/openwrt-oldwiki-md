@@ -97,6 +97,13 @@ iptables        -A input_rule      -i ppp+ -s 192.168.0.0/24 -d 192.168.0.0/24 -
 iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT
 }}}
 
+I had better luck with this:
+{{{
+### VPN Section
+iptables        -A forwarding_rule -s 172.16.1.0/24 -d 192.168.1.0/24 -j ACCEPT
+iptables        -A forwarding_rule -s 192.168.1.0/24 -d 172.16.1.0/24 -j ACCEPT
+}}}
+It alows two way communication.
 NOTE:  The ip address range in the iptables section above is the LAN ip address range.
 
 == Troubleshooting ==
