@@ -1,5 +1,4 @@
 = Setting up OpenWRT to be a wireless bridge on a WPA2-PSK wireless network =
-
 == Rationale ==
 This page describes how to set up an OpenWRT install -- White Russian RC3 on a WRT54G v4 in my case -- to be a wireless bridge to an existing wireless network.  The goal is to end up with a plain bridge (or get as close as possible to one), with no WDS, no routing, no anything except for holding one IP for administration, on a WPA2-PSK enabled wireless network.  This allows the following network configuration:
 
@@ -34,62 +33,60 @@ Most of the information was gleaned from the OpenWRT wiki and posts made in http
  1. Create /etc/init.d/S50dhcp-fwd (code below)
  1. Create /etc/init.d/S47sleep (code below)
  1. Edit /etc/init.d/S41wpa and rename it S41supplicant
-    * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
-        * On two separate lines, this text must be deleted:
-        * ${wifi_ifname:+ -l ${wifi_ifname}}
+  * Remove the -l parameter from nas - it does not work in Supplicant mode (see ["OpenWrtDocs/nas"])
+   * On two separate lines, this text must be deleted:
+   * ${wifi_ifname:+ -l ${wifi_ifname}}
  1. Set NVRAM
-    * Networking:
-        * wl0_radio=1
-        * wl0_infra=1
-        * wl0_ssid=''<your SSID>''
-        * wl0_mode=sta
-        * wl0_akm=psk2
-            * psk is also acceptable, but use wl0_crypto=tkip
-            * "psk psk2" will not work - pick only one
-        * wl0_crypto=aes+tkip
-            * This is the group=tkip, pairwise=aes mix that is commonly used
-        *  wl0_wpa_psk=''<your psk>'' (in ASCII)
-    * Break the bridge:
-        * Note:
-            * The built-in hardware bridge would see a mix of encrypted and unencrypted frames, so the bridging needs to be done in software.
-            * If you are using vlan1 (or whatever wan_ifname is) then you will need to unset wan_ifname and change the failsafes in S05nvram.
-            * Change these interface names to match your hardware - these work for the WRT54G v4 and similar hardware.
-        * lan_ifname=vlan0 ''(Oddly, eth0 here seems not to work.)''
-        * wifi_ifname=eth1
-    * Enable DHCP on wireless side:
-        * wifi_proto=dhcp
-    * Put all LAN ports on vlan0:
-        * unset vlan1ports
-        * unset vlan1hwname
-        * vlan0ports="4 3 2 1 0 5*"
+  * Networking:
+   * wl0_radio=1
+   * wl0_infra=1
+   * wl0_ssid=''<your SSID>''
+   * wl0_mode=sta
+   * wl0_akm=psk2
+    * psk is also acceptable, but use wl0_crypto=tkip
+    * "psk psk2" will not work - pick only one
+   * wl0_crypto=aes+tkip
+    * This is the group=tkip, pairwise=aes mix that is commonly used
+   * wl0_wpa_psk=''<your psk>'' (in ASCII)
+  * Break the bridge:
+   * Note:
+    * The built-in hardware bridge would see a mix of encrypted and unencrypted frames, so the bridging needs to be done in software.
+    * If you are using vlan1 (or whatever wan_ifname is) then you will need to unset wan_ifname and change the failsafes in S05nvram.
+    * Change these interface names to match your hardware - these work for the WRT54G v4 and similar hardware.
+   * lan_ifname=vlan0 ''(Oddly, eth0 here seems not to work.)''
+   * wifi_ifname=eth1
+  * Enable DHCP on wireless side:
+   * wifi_proto=dhcp
+  * Put all LAN ports on vlan0:
+   * unset vlan1ports
+   * unset vlan1hwname
+   * vlan0ports="4 3 2 1 0 5*"
  1. Double-check everything, then mentally prepare yourself for a bricking.  (Failsafe mode should still work fine, but who knows?  I bricked mine enough times while figuring all of this out that the circuit board is sitting naked on top of a stack of paper as I type this.)
  1. nvram commit
  1. reboot
 
-{i} FIXME: DHCP over the bridge works for me without setting up a dhcp forwarder (OpenWRT 1.0-RC3 on Linksys WRT54GS V4)
-And why break the bridge? I did not and everything works...
--- MarcSchiffbauer [[DateTime(2005-11-23T14:17:24Z)]]
+{i} FIXME: DHCP over the bridge works for me without setting up a dhcp forwarder (OpenWRT 1.0-RC3 on Linksys WRT54GS V4) And why break the bridge? I did not and everything works... -- MarcSchiffbauer [[DateTime(2005-11-23T14:17:24Z)]]
 
 Are you using WPA2?  The hardware bridge works fine without encryption; and if you're using the hardware bridge, broadcasting (such as for DHCP) will also work fine.  When I have br0 connecting eth1+vlan0, with WPA2, the encryption negotiation fails.  I'd be very happy if this weren't the case! -- ["wmono"] [[DateTime(2005-11-23T17:44:06Z)]]
 
-I saw the same thing. Everything configured, no joy, broke the bridge and rebooted, connected. Funny thing is my other AP in AP mode, both running WR RC4, doesn't have a problem with the bridge intact. I'm going to investigate soon, but for now it seems like ["wmono"]'s right.
--- PeterKahle [[DateTime(2005-11-30T04:50:35Z)]]
+I saw the same thing. Everything configured, no joy, broke the bridge and rebooted, connected. Funny thing is my other AP in AP mode, both running WR RC4, doesn't have a problem with the bridge intact. I'm going to investigate soon, but for now it seems like ["wmono"]'s right. -- PeterKahle [[DateTime(2005-11-30T04:50:35Z)]]
 
-OK, I stand corrected. It seems to work. I'm using WPA, not WPA2, but somehow it's working. Only setting differences are lan_ifname=br0, lan_ifnames=vlan0 eth1, wl0_mode=wet, wl0_akm=psk, and wl0_crypto=tkip. I may try WPA2 later, but for now this is good enough.
--- PeterKahle [[DateTime(2005-12-01T06:54:02Z)]]
+OK, I stand corrected. It seems to work. I'm using WPA, not WPA2, but somehow it's working. Only setting differences are lan_ifname=br0, lan_ifnames=vlan0 eth1, wl0_mode=wet, wl0_akm=psk, and wl0_crypto=tkip. I may try WPA2 later, but for now this is good enough. -- PeterKahle [[DateTime(2005-12-01T06:54:02Z)]]
 
-It seems either possible to run the bridge with WPA (as reported by PeterKahle) or to use WPA2 in wet mode without a layer 2 bridge (but you can still use IP forwarding and ARP proxy; lan_ifname=vlan0 wifi_ifname=eth1 wl0_mode=wet wl0_akm=psk2 wl0_crypto=aes+tkip)
--- GeorgLukas [[DateTime(2006-02-09T12:34:23Z)]]
+It seems either possible to run the bridge with WPA (as reported by PeterKahle) or to use WPA2 in wet mode without a layer 2 bridge (but you can still use IP forwarding and ARP proxy; lan_ifname=vlan0 wifi_ifname=eth1 wl0_mode=wet wl0_akm=psk2 wl0_crypto=aes+tkip) -- GeorgLukas [[DateTime(2006-02-09T12:34:23Z)]]
 
 Should that be wl0_mode=sta not wl0_mode=wet? I tidied the ''rationale'' section to make it clear this procedure is only needed for WPA2 together with bridged client mode. I have tested WPA1 bridged client, and WPA2 routed client, and both worked without this procedure. In fact, calling this "WPA2 bridged client" is rather misleading; the box is still really a router, it's just using ARP trickery to fake itself as the next-hop. It's not a genuine bridge, since non-IP frames would not be passed. -- BrianCandler
 
 Thanks BrianCandler, you're quite right: this is not really a bridge, but I think it's close as one can get without the use of wet mode.  If you (or anyone else) can make a proper bridge using WPA2 then please replace this page with instructions on how to do so. -- ["wmono"] [[DateTime]]
 
-Turns out that even wet mode is not a true bridge - it does ARP masquerading. See 
-http://forum.openwrt.org/viewtopic.php?id=5105 -- BrianCandler [[DateTime(2006-04-25T08:12:00Z)]]
+Turns out that even wet mode is not a true bridge - it does ARP masquerading. See  http://forum.openwrt.org/viewtopic.php?id=5105 -- BrianCandler [[DateTime(2006-04-25T08:12:00Z)]]
+
+Thank you guys, this howto work perfectly for me with white russian 4. To make this a bit simple I use a static IP for the wlan if, so I don't need to wait and I remove the sleep script. -- RafMazBrianCandler [[DateTime]]
+
+
+
 
 == S47sleep ==
-
 {{{
 #!/bin/sh
 # S47sleep - Delay before starting services
@@ -105,7 +102,6 @@ echo ${DIAG} > /proc/sys/diag
 }}}
 
 == S50dhcp-fwd ==
-
 The DHCP forwarder (dhcp-fwd) configuration file contains several hard-coded values that are better being detected from NVRAM and the current network configuration.  This start-up script queries those sources and writes a configuration file tailored to the current environment, then starts dhcp-fwd using that configuration file.
 
 {{{
@@ -208,7 +204,6 @@ exit $?
 }}}
 
 == Testing it out ==
-
 At this point, you should have a more or less working wireless bridge: plug something in the LAN port and it'll be virtually connected to the same network as your other wireless clients.
 
 Note the delay in starting up - if there's a power failure to the bridge, the DHCP clients behnid the bridge must be willing to wait a while before giving up on getting a lease.  On UNIX, this may involve adding a S47sleep-like script on the client hosts, too.  Windows systems may have problems with this arrangement.
@@ -216,23 +211,20 @@ Note the delay in starting up - if there's a power failure to the bridge, the DH
 As noted in the parprouted documentation, broadcasting will not cross the bridge.  DHCP relaying was added as a special case.  If you have other applications that use broadcast, you'll have to work around those, too.
 
 == Troubleshooting ==
-
 This section needs to be expanded.  If you try this and it doesn't work, please list some things you tried (and why) here for the benefit of future readers.
 
  * Check that the wireless connection is up:
-    1. Set a machine to a static IP address on the same subnet as the lan_ipaddr and ssh in.
-    1. Try ''wl assoclist'' to see if the bridge has associated with the AP.  (The AP's MAC address appears if so.)
-    1. Try ''wl sta_info <AP MAC address>'' to see how far the connection has gone.
-        * ASSOCIATED AUTHENTICATED AUTHORIZED is fully connected on the transport layer.
-        * ASSOCIATED AUTHENTICATED probably means the encryption is not correct; double-check the wl0_akm and wl0_crypto and wl0_psk_key variables.
-    1. Look at ''iwconfig eth1'' - the Encryption: field should show a key, not "off".
+  1. Set a machine to a static IP address on the same subnet as the lan_ipaddr and ssh in.
+  1. Try ''wl assoclist'' to see if the bridge has associated with the AP.  (The AP's MAC address appears if so.)
+  1. Try ''wl sta_info <AP MAC address>'' to see how far the connection has gone.
+   * ASSOCIATED AUTHENTICATED AUTHORIZED is fully connected on the transport layer.
+   * ASSOCIATED AUTHENTICATED probably means the encryption is not correct; double-check the wl0_akm and wl0_crypto and wl0_psk_key variables.
+  1. Look at ''iwconfig eth1'' - the Encryption: field should show a key, not "off".
 
 == Confirmation ==
-
 If you follow this how-to, please note here if it worked or didn't work for you!
 
 === WRT54GL ===
-
 I got this working on a pair of WRT54GLs.  This was my first openWRT hack, so it took a little longer then it should have, but I eventually got it working.  I'm currently using WPA (PSK) +tkip, when I get a chance I'll try enabling aes.  I modified the S50dhcp-fwd command by changing this:
 
 {{{
@@ -287,10 +279,9 @@ ln -s /bin/busybox /bin/expr
 
 This enables the expr functionality of busybox, which is required to maintain the counter in the script.
 
-This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  After 120 seconds it gives up and exits.  I found that the S47sleep script did not always wait long enough.  
+This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  After 120 seconds it gives up and exits.  I found that the S47sleep script did not always wait long enough.
 
 == Appendix: Sample NVRAM configuration ==
-
 {{{
 root@OpenWRT:~# nvram show | sort
 ...
