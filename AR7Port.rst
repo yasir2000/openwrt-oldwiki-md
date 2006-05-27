@@ -95,7 +95,7 @@ If you'd like to help out and maybe have a patch or two, please talk to one of t
 
 == IRC ==
 
-There is a specifically targeted #ar7 irc channel complementary to #openwrt on Freenet where those devoted to hacking ar7 based routers go to hang out.
+There is a specifically targeted #ar7 irc channel complementary to #openwrt on Freenode where those devoted to hacking ar7 based routers go to hang out.
 
 = Other stuff =
 == Model-specific information ==
