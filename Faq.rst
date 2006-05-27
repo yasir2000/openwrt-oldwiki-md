@@ -546,6 +546,16 @@ ifup wan
 
 For more information see the ["PPTPClientHowto"].
 
+== iptables -F locks you out of telnet/ssh ==
+The default policy on the filter table is DROP.
+
+If you want to experiment with iptables while logged in via telnet/ssh,  run the following iptables commands:
+
+{{{
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT}}}
+
 ## ##################################################
 = Development =
 See also the !OpenWrt [http://dev.openwrt.org/ development center] website. There you can browse the source code and send reproducible bugs with the ticket system (in trac).
