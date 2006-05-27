@@ -18,7 +18,7 @@ The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaul
 
 '''TFTP installation notes'''
 
-This device is based on the Broadcom chipset so the openwrt-brcm-<t<pe>.trx image is required. The web interface will not allow you to install the openwrt firmware so you will need to use tftp. Pull the power plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware. This unit keeps the IP address that it was set to whilst in this mode. Factory setting is 192.168.11.2.
+This device is based on the Broadcom chipset so the openwrt-brcm-<t<pe>.trx image is required. The web interface will not allow you to install the openwrt firmware so you will need to use tftp. Pull the power plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware. This unit keeps the IP address that it was set to whilst in this mode. Factory setting is 192.168.11.1.
 
 TFTP commands:
 
@@ -31,7 +31,7 @@ tftp> timeout 60
 tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
-After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.11.2 or whatever the unit was set to prior to the installation.
+After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. You should be able to telnet to 192.168.11.1 or whatever the unit was set to prior to the installation.
 
 ----
 CategoryModel
