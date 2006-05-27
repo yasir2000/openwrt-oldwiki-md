@@ -93,6 +93,9 @@ AR7-specific kernel patches go into {{{target/linux/linux-2.4/patches/ar7}}}. Th
 
 If you'd like to help out and maybe have a patch or two, please talk to one of the developers working on this via IRC in the OpenWrt channel. Some people working on this are: nbd, wbx, wickus, z3ro, ralf, mache, sw_ and ydef.
 
+== IRC ==
+
+There is a specifically targeted #ar7 irc channel complementary to #openwrt on Freenet where those devoted to hacking ar7 based routers go to hang out.
 
 = Other stuff =
 == Model-specific information ==
