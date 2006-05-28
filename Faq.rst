@@ -140,11 +140,11 @@ Your version is based on the reported date where !BusyBox has been compiled.
 == How do I clean up the NVRAM variables (the safe way)? ==
 If you have used other firmware in the past you probably have more than 400 NVRAM variables. Most of these NVRAM variables are not necessary for !OpenWrt. You can safely delete them with the {{{nvram-clean.sh}}} script and have a more readable NVRAM dump.
 
-To safely clean up these variables use nbd's NVRAM cleanup script found at http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh.
+To safely clean up these variables use nbd's NVRAM cleanup script found at http://downloads.openwrt.org/people/kaloz/nvram-clean.sh
 
 {{{
 cd /tmp
-wget http://openwrt.inf.fh-brs.de/~nbd/nvram-clean.sh
+wget http://downloads.openwrt.org/people/kaloz/nvram-clean.sh
 chmod a+x /tmp/nvram-clean.sh
 /tmp/nvram-clean.sh
 }}}
