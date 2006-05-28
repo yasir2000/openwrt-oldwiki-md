@@ -111,6 +111,8 @@ After that, we can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd4}}} via ft
 '''Not all AR7 devices will use mtd4.  Double check which mtd you are flashing.'''
 
 '''Replace X with the correct mtd.'''
+
+'''During the pause before the upload, ADAM2 erases the mtd block (I think)'''
 {{{
 ftp> binary
 ftp> quote MEDIA FLSH
