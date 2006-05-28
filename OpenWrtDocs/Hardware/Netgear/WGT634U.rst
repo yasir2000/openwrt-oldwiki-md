@@ -250,6 +250,8 @@ The WGT634U comes equipped with an integrated antenna, which is soldered to the 
 = Other projects and information =
  * A WGT-oriented Kamikaze wiki: [[BR]]- http://openwrt.pbwiki.com/
 
+ * A Debian on WGT project: [[BR]] - http://www.cyrius.com/debian/bcm947xx/wgt634u/
+
  * More info in the forum: [[BR]]- http://openwrt.org/forum/viewtopic.php?id=33
 
  * External developer's Wiki [[BR]]- http://wgt634u.nomis52.net/
