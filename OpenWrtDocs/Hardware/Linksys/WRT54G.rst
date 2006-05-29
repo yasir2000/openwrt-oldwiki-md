@@ -80,7 +80,7 @@ Other NVRAM variables of interest :  firmware_version, os_version
 Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?pid=8127#p8127 Determining WRT54G/GS model using nvram variables] thread. May be this table should move up to ["OpenWrtDocs/Hardware"].
 
 == Overclocking ==
-These models can be overclocked, though it should not be done if you don't have a serial or JTAG cable to recover in case things go horribly wrong.
+These models can be overclocked, though it should not be done if you don't have a JTAG cable to recover in case things go horribly wrong.
 
 === Overclocking for the v4 and v5 ===
 The WRT54G v4 and WRT54G v5 are different from the v2 and v3 models in that they have a BCM5352/BCM3302 revision v0.8 (instead of v0.7). This processor defaults to 200mhz with an sbclock setting of 100mhz. The highest valid CPU frequency for this processor is 250mhz, which yields an sbclock frequency of 125mhz.
@@ -117,7 +117,7 @@ The CFE of these units handles overclocking very well and will simply reject val
 
 If things do go wrong, the WRT54G v4 and WRT54G v5 do reset the clkfreq variable to the default of 200mhz when the reset button is held down for 30 seconds. Other versions with different CFEs may not do this.
 
-If the clock frequency results in an unstable processor, there may be only a few seconds to initiate a serial console or JTAG based nvram erase.
+If the clock frequency results in an unstable processor, there may be only a few seconds to initiate a JTAG based nvram erase.
 
 === Overclocking for the v2, v2.2, and v3 ===
 Other models reportedly run up to 300mhz and use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a 30 second reset. Be even more careful with these models.
@@ -151,4 +151,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel            
+ . CategoryModel             
