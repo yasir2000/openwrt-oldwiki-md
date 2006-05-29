@@ -12,19 +12,19 @@ Some consider the ["L"] and ["3G"] versions of this model.
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
 
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' ||<style="text-align: center;"> '''S/N''' ||<style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze'''||
-||<style="text-align: left;"|2>WRT54G v1.0 ||<style="text-align: center;"> CDF0 ||<style="text-align: center;"|2> (./) ||<style="text-align: center;"|2> (./) ||
-||<style="text-align: center;"> CDF1 ||
-||<style="text-align: left;"|3>WRT54G v1.1 ||<style="text-align: center;"> CDF2 ||<style="text-align: center;"|3> (./) ||<style="text-align: center;"|3> (./) ||
-||<style="text-align: center;"> CDF3 ||
-||<style="text-align: center;"> CDF4 ||
-||WRT54G v2 ||<style="text-align: center;"> CDF5 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G v2.2 ||<style="text-align: center;"> CDF7 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G v3 ||<style="text-align: center;"> CDF8 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G v3.1 (AU?, DE, and UK) ||<style="text-align: center;"> CDF9 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G v4 ||<style="text-align: center;"> CDFA ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G v5 ||<style="text-align: center;"> CDFB ||<style="text-align: center;"> {X} ||<style="text-align: center;"> {X} ||
-||WRT54G v6||<style="text-align: center;">CDFD||<style="text-align: center;"> {X} ||<style="text-align: center;"> {X} ||
+||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
+||<style="text-align: center;"|2>WRT54G v1.0 || CDF0 ||<style="text-align: center;"|2> (./) ||<style="text-align: center;"|2> (./) ||
+|| CDF1 ||
+||<style="text-align: center;"|3>WRT54G v1.1 || CDF2 ||<style="text-align: center;"|3> (./) ||<style="text-align: center;"|3> (./) ||
+|| CDF3 ||
+|| CDF4 ||
+||WRT54G v2 || CDF5 || (./) || (./) ||
+||WRT54G v2.2 || CDF7 || (./) || (./) ||
+||WRT54G v3 || CDF8 || (./) || (./) ||
+||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
+||WRT54G v4 || CDFA || (./) || (./) ||
+||WRT54G v5 || CDFB || {X} || {X} ||
+||WRT54G v6 ||CDFD || {X} || {X} ||
 
 
 '''WRT54G v1.0'''
@@ -81,7 +81,7 @@ How to get info:
 ||WRT54G v2.2 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||  v3.4 ||  3.61.13.0 ||
 ||WRT54G v3.0 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||       - ||       - ||
 ||WRT54G v3.1 (AU?) || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||       - ||       - ||
-||WRT54G v4.0 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.8 ||       - ||       - ||
+||WRT54G v4.0 || 0x10 ||  0x0467 ||  0x2558 ||  0 ||  42 ||       7 || BCM3302 V0.8 ||       - ||       - ||
 
 
 Other NVRAM variables of interest :  firmware_version, os_version
@@ -116,4 +116,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- CategoryModel
+ . CategoryModel 
