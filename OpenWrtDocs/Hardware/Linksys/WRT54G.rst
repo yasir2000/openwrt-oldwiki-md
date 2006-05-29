@@ -98,22 +98,24 @@ nvram set clkfreq=250
 nvram commit
 reboot }}}
 
-==== Valid frequencies ====
-  CPU   SBCLOCK
-  183   0.92
-  187   0.94
-  198   0.98
-  200   100   
-  216   108   
-  225   113   
-  233   116   
-  237   119   
-  240   120   
-  250   125
+==== Valid Frequencies ====
+||||'''tablewidth="200px" tablealign=""BCM5352/BCM3302 r0.8 frequencies (rounded)'''||
+||CPU||SB||
+||183||.92||
+||187||.94||
+||198||.98||
+||'''200'''||'''100'''||
+||216||108||
+||225||113||
+||233||116||
+||237||119||
+||240||120||
+||250||125||
+
+
 
 ==== Recovery From a Bad Overclock ====
 The CFE of these units handles overclocking very well and will simply reject values greater than 250mhz and find a closest match to values less than or equal to 250mhz. Therefore, it is unlikely you'll brick your router. However, be careful just in case you have a different CFE or this information is incorrect!
-
 
 If things do go wrong, the WRT54G v4 and WRT54G v5 do reset the clkfreq variable to the default of 200mhz when the reset button is held down for 30 seconds. Other versions with different CFEs may not do this.
 
@@ -151,4 +153,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel        
+ . CategoryModel         
