@@ -12,9 +12,9 @@ Some consider the ["L"] and ["3G"] versions of this model.
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
 
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
-||WRT54G v1.0 || CDF0,CDF1 || (./) || (./) ||
-||WRT54G v1.1 || CDF2,CDF3,CDF4 || (./) || (./) ||
+||'''Model''' || '''S/N Prefix''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
+||WRT54G v1.0 || CDF0 or CDF1 || (./) || (./) ||
+||WRT54G v1.1 || CDF2 or CDF3 or CDF4 || (./) || (./) ||
 ||WRT54G v2 || CDF5 || (./) || (./) ||
 ||WRT54G v2.2 || CDF7 || (./) || (./) ||
 ||WRT54G v3 || CDF8 || (./) || (./) ||
@@ -50,11 +50,15 @@ If you have such a thing you can try  http://192.168.1.1/Cysaja.asp to identify
 
 There is "Module Name=WRT54G; Firmware Version=v4.01.1,..." or something like that.
 
+This board has a BCM3302 processor, revision 0.7.
+
 '''WRT54G v4.0'''
 
 New more integrated board layout ([http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6#wrt54g4 photos here]), switch is now in SoC.
 
-To remove the front cover from this unit you must first remove the small screws under the rubber covers of the front feet! Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
+To remove the front cover from this unit you simply pop the front of the case off after removing the antennas. There are no screws! Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
+
+This board has a BCM3302 processor, revision 0.8.
 
 '''WRT54G v5, v5.1, and v6'''
 
@@ -113,4 +117,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel 
+ . CategoryModel  
