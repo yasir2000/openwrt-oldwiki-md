@@ -99,17 +99,17 @@ nvram commit
 reboot }}}
 
 ==== Valid BCM5352/BCM3302 r0.8 (WRT54G v4 and v5) Frequencies ====
-||__'''CPU'''__ ||__'''SB'''__ ||
-||183 ||92 ||
-||187 ||94 ||
-||198 ||98 ||
-||200 (def.)||100 ||
-||216 ||108 ||
-||225 ||113 ||
-||233 ||116 ||
-||237 ||119 ||
-||240 ||120 ||
-||250 ||125 ||
+||__'''CPU'''__ ||__'''SB'''__ || __'''Note'''__ ||
+||183 ||92 || ||
+||187 ||94 || ||
+||198 ||98 || || 
+||200 ||100 || default ||
+||216 ||108 || ||
+||225 ||113 || ||
+||233 ||116 || ||
+||237 ||119 || ||
+||240 ||120 || ||
+||250 ||125 || ||
 
 
 ==== Recovery From a Bad Overclock ====
@@ -123,17 +123,16 @@ If the clock frequency results in an unstable processor, there may be only a few
 Other models use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a nvram reset. Be even more careful with these versions of the WRT54G.
 
 ==== Valid BCM5352/BCM3302 r0.7 Frequencies (WRT54G v2 - v3) ====
-||__'''CPU'''__ ||__'''SB'''__ ||
-||192 ||96 ||
-||200 (def.) ||100 ||
-||216 ||108 ||
-||228 
-||114 ||
-||240 ||120 ||
-||252 ||126 ||
-||264 ||132 ||
-||280 ||120 ||
-||300 ||120 ||
+||__'''CPU'''__ ||__'''SB'''__ || __'''Note'''__ ||
+||192 ||96 || ||
+||200 ||100 || default ||
+||216 ||108 || ||
+||228 ||114 || ||
+||240 ||120 || ||
+||252 ||126 || ||
+||264 ||132 || ||
+||280 ||120 || ||
+||300 ||120 || ||
 
 
 === Overclocking for the v1 ===
