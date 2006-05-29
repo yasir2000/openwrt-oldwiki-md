@@ -98,20 +98,18 @@ nvram set clkfreq=250
 nvram commit
 reboot }}}
 
-==== Valid Frequencies ====
-||||'''tablewidth="200px" tablealign=""BCM5352/BCM3302 r0.8 frequencies (rounded)'''||
-||CPU||SB||
-||183||.92||
-||187||.94||
-||198||.98||
-||'''200'''||'''100'''||
-||216||108||
-||225||113||
-||233||116||
-||237||119||
-||240||120||
-||250||125||
-
+==== Valid BCM5352/BCM3302 r0.8 Frequencies ====
+||__'''CPU'''__ ||__'''SB'''__ ||
+||183 ||.92 ||
+||187 ||.94 ||
+||198 ||.98 ||
+||200 (def.)||100||
+||216 ||108 ||
+||225 ||113 ||
+||233 ||116 ||
+||237 ||119 ||
+||240 ||120 ||
+||250 ||125 ||
 
 
 ==== Recovery From a Bad Overclock ====
@@ -153,4 +151,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel         
+ . CategoryModel           
