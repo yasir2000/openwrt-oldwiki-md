@@ -13,11 +13,8 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
-||<style="text-align: center;"|2>WRT54G v1.0 || CDF0 ||<style="text-align: center;"|2> (./) ||<style="text-align: center;"|2> (./) ||
-|| CDF1 ||
-||<style="text-align: center;"|3>WRT54G v1.1 || CDF2 ||<style="text-align: center;"|3> (./) ||<style="text-align: center;"|3> (./) ||
-|| CDF3 ||
-|| CDF4 ||
+||WRT54G v1.0 || CDF0,CDF1 || (./) || (./) ||
+||WRT54G v1.1 || CDF2,CDF3,CDF4 || (./) || (./) ||
 ||WRT54G v2 || CDF5 || (./) || (./) ||
 ||WRT54G v2.2 || CDF7 || (./) || (./) ||
 ||WRT54G v3 || CDF8 || (./) || (./) ||
