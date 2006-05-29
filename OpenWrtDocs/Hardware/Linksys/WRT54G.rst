@@ -48,7 +48,7 @@ This board has a BCM3302 processor, revision 0.7.
 === WRT54G v4.0 ===
 New more integrated board layout ([http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6#wrt54g4 photos here]), switch is now in SoC.
 
-To remove the front cover from this unit you simply pop the front of the case off after removing the antennas. There are no screws! Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
+To remove the front cover from this unit you simply pop the front of the case off after removing the antennas. There are no screws! Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
 This board has a BCM3302 processor, revision 0.8.
 
@@ -89,17 +89,21 @@ Although the v4 and v5 will boot up to frequencies greater than 250mhz (for exam
 
 To determine the actual clock frequency, use 'cat /proc/cpuinfo' or examine the first few lines of the output from 'dmsg'.
 
-
 Although it is common practice to set the nvram clkfreq variable so that it includes the sbclock setting, the sbclock is actually ignored. For example, clkfreq=240,126 actually ends up with an sbclock setting of 120mhz, since 126mhz is not in a valid ratio with a CPU clock frequency of 240mhz. Therefore, it is recommended to not set the sbclock value (the number after the ',').
 
-Users wishing to set their WRT54G v4 or WRT54G v5 to its maximum clock frequency should execute these commands at the terminal:
+Users wishing to set their WRT54G v4 or WRT54G v5 to its maximum clock frequency should execute these commands at the terminal
 
- nvram set clkfreq=250
- nvram commit
- reboot
+{{{
+nvram set clkfreq=250
+nvram commit
+reboot }}}
 
-==== Recovery ====
+==== Recovery From a Bad Overclock ====
 The WRT54G v4 and WRT54G v5 do reset the clkfreq variable to the default of 200mhz when the reset button is held down for 30 seconds. Other models with different CFEs may not do this.
+
+If the clock frequency results in an unstable processor, there may be only a few seconds to initiate a serial console or JTAG based nvram erase.
+
+
 === Overclocking for other models ===
 Other models reportedly run up to 300mhz and use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a 30 second reset. Be even more careful with these models.
 
@@ -131,4 +135,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel   
+ . CategoryModel    
