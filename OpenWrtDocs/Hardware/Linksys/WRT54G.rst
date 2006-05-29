@@ -125,9 +125,10 @@ Other models use the commonly documented clock frequencies, with a max CPU clock
 ==== Valid BCM5352/BCM3302 r0.7 Frequencies (WRT54G v2 - v3) ====
 ||__'''CPU'''__ ||__'''SB'''__ ||
 ||192 ||96 ||
-||200 ||100 ||
+||200 (def.) ||100 ||
 ||216 ||108 ||
-||228 (def.) ||114 ||
+||228 
+||114 ||
 ||240 ||120 ||
 ||252 ||126 ||
 ||264 ||132 ||
@@ -164,4 +165,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel                
+ . CategoryModel                 
