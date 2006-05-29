@@ -89,7 +89,7 @@ Although the v4 and v5 will boot up to frequencies greater than 250mhz (for exam
 
 To determine the actual clock frequency, use 'cat /proc/cpuinfo' or examine the first few lines of the output from 'dmsg'.
 
-Although it is common practice to set the nvram clkfreq variable so that it includes the sbclock setting, the sbclock is actually ignored. For example, clkfreq=240,126 actually ends up with an sbclock setting of 120mhz, since 126mhz is not in a valid ratio with a CPU clock frequency of 240mhz. Therefore, it is recommended to not set the sbclock value (the number after the ',').
+Although it is common practice to set the nvram clkfreq variable so that it includes the sbclock setting, the sbclock is actually ignored for this processor revision since it has a locked CPU/SB clock ratio. For example, clkfreq=240,126 actually ends up with an sbclock setting of 120mhz, since 126mhz is not in a valid ratio with a CPU clock frequency of 240mhz. Therefore, it is recommended to not set the sbclock value (the number after the ',').
 
 Users wishing to set their WRT54G v4 or WRT54G v5 to its maximum clock frequency should execute these commands at the terminal
 
@@ -98,8 +98,24 @@ nvram set clkfreq=250
 nvram commit
 reboot }}}
 
+==== Valid frequencies ====
+  CPU   SBCLOCK
+  183   0.92
+  187   0.94
+  198   0.98
+  200   100   
+  216   108   
+  225   113   
+  233   116   
+  237   119   
+  240   120   
+  250   125
+
 ==== Recovery From a Bad Overclock ====
-The WRT54G v4 and WRT54G v5 do reset the clkfreq variable to the default of 200mhz when the reset button is held down for 30 seconds. Other models with different CFEs may not do this.
+The CFE of these units handles overclocking very well and will simply reject values greater than 250mhz and find a closest match to values less than or equal to 250mhz. Therefore, it is unlikely you'll brick your router. However, be careful just in case you have a different CFE or this information is incorrect!
+
+
+If things do go wrong, the WRT54G v4 and WRT54G v5 do reset the clkfreq variable to the default of 200mhz when the reset button is held down for 30 seconds. Other versions with different CFEs may not do this.
 
 If the clock frequency results in an unstable processor, there may be only a few seconds to initiate a serial console or JTAG based nvram erase.
 
@@ -135,4 +151,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel       
+ . CategoryModel        
