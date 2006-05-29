@@ -225,19 +225,19 @@ Basically the same as above, but different GPIO points on the board.
 
 Power - 3.3v (red), and GND (black). I looped through the board for strength of connection:
 
-[http://www.ethernal.org/wrt54g/pics/power.jpg]
+[http://www.otago.ac.nz/mjb/wrt54g/power.jpg]
 
 GPIO 3, as mentioned in the URL above, on the right hand side of the amber LED:
 
-[http://www.ethernal.org/wrt54g/pics/button.jpg]
+[http://www.otago.ac.nz/mjb/wrt54g/button.jpg]
 
 GPIO 4 and 7:
 
-[http://www.ethernal.org/wrt54g/pics/underside.jpg]
+[http://www.otago.ac.nz/mjb/wrt54g/underside.jpg]
 
 GPIO 5 - definitely right next to the "RA10" label:
 
-[http://www.ethernal.org/wrt54g/pics/gpio5.jpg]
+[http://www.otago.ac.nz/mjb/wrt54g/gpio5.jpg]
 
 === Installing on a wrt54g version 4 and wrt54gl ===
 Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
