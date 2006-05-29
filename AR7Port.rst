@@ -33,7 +33,7 @@ Here's what we have integrated so far:
 
 I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work, so that they can be removed.
 
-   * '''arch/mips/ar7/reset.c''': the functions are empty. Please impliment this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.) -- nbd: for halt, you probably only need {{{ __cli() + while(1); }}} z3ro: there are some tnetd functions for halt... hopefully we can use the code from these without needing all of the tnetd code. enrik: I have some improvements for the code including a jump back to ADAM2 on halt. Will send patch soon.
+   * '''arch/mips/ar7/reset.c''': the functions are empty. Please implement this '''without''' using the tnetd code, if possible. (reboot works now, shutdown/halt does not yet.) -- nbd: for halt, you probably only need {{{ __cli() + while(1); }}} z3ro: there are some tnetd functions for halt... hopefully we can use the code from these without needing all of the tnetd code. enrik: I have some improvements for the code including a jump back to ADAM2 on halt. Will send patch soon.
 
    * '''arch/mips/kernel/setup.c''': We have some #ifdef CONFIG_AR7 ... #else ... #endif because of the memory offset, we should use the generics here and modify the functions in mm/bootmem.c (this will kill some #ifdef CONFIG_AR7's in other files, too.)
    * '''arch/mips/mm/init.c''': These #ifdef CONFIG_AR7's are related to not having the proper code in mm/bootmem.c, see previous list item. enrik: I have generalized the arch/mips/kernel and .../setup code to always use the more general bootmem-functions and done some initialization cleanup, too. Will send patch soon.
