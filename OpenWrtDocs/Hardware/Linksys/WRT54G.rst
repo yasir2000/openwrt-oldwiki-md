@@ -98,7 +98,7 @@ nvram set clkfreq=250
 nvram commit
 reboot }}}
 
-==== Valid BCM5352/BCM3302 r0.8 Frequencies ====
+==== Valid BCM5352/BCM3302 r0.8 (WRT54G v4 and v5) Frequencies ====
 ||__'''CPU'''__ ||__'''SB'''__ ||
 ||183 ||92 ||
 ||187 ||94 ||
@@ -121,6 +121,18 @@ If the clock frequency results in an unstable processor, there may be only a few
 
 === Overclocking for the v2, v2.2, and v3 ===
 Other models reportedly run up to 300mhz and use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a 30 second reset. Be even more careful with these models.
+
+==== Valid BCM5352/BCM3302 r0.7 Frequencies (WRT54G v2 - v3) ====
+||__'''CPU'''__ ||__'''SB'''__ ||
+||192 ||96 ||
+||200 ||100 ||
+||216 ||108 ||
+||228 (def.) ||114 ||
+||240 ||120 ||
+||252 ||126 ||
+||264 ||132 ||
+||280 ||120 ||
+||300 ||120 ||
 
 === Overclocking for the v1 ===
 This processor runs at 125mhz by default. Overclocking is reported to not be possible, but this has not been confirmed.
@@ -151,4 +163,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel              
+ . CategoryModel               
