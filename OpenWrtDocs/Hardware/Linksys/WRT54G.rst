@@ -91,9 +91,6 @@ To determine the actual clock frequency, use 'cat /proc/cpuinfo' or examine the 
 
 Although it is common practice to set the nvram clkfreq variable so that it includes the sbclock setting, the sbclock is actually ignored. For example, clkfreq=240,126 actually ends up with an sbclock setting of 120mhz, since 126mhz is not in a valid ratio with a CPU clock frequency of 240mhz. Therefore, it is recommended to not set the sbclock value (the number after the ',').
 
-Additionally, it should be noted that on these models the clock frequency is selected by finding the first frequency in the table of valid frequencies that is equal to or greater than the value indicated by the nvram clkfreq variable. Therefore, if you set an invalid clock frequency less than 250mhz, it will boot to the next greater valid frequency.
-
-
 Users wishing to set their WRT54G v4 or WRT54G v5 to its maximum clock frequency should execute these commands at the terminal
 
 {{{
@@ -138,4 +135,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel      
+ . CategoryModel       
