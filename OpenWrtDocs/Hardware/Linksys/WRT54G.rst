@@ -103,12 +103,11 @@ The WRT54G v4 and WRT54G v5 do reset the clkfreq variable to the default of 200m
 
 If the clock frequency results in an unstable processor, there may be only a few seconds to initiate a serial console or JTAG based nvram erase.
 
-
-=== Overclocking for other models ===
+=== Overclocking for the v2, v2.2, and v3 ===
 Other models reportedly run up to 300mhz and use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a 30 second reset. Be even more careful with these models.
 
-TODO: Document these versions more.
-
+=== Overclocking for the v1 ===
+This processor runs at 125mhz by default. Overclocking is reported to not be possible, but this has not been confirmed.
 == Hardware hacking ==
 There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory, but they are locked to 16 MB. You can unlock the remaining memory with changing some of the variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
@@ -135,4 +134,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel    
+ . CategoryModel     
