@@ -138,13 +138,15 @@ Other models use the commonly documented clock frequencies, with a max CPU clock
 This processor runs at 125mhz by default. Overclocking is reported to not be possible, but this has not been confirmed.
 
 == Hardware hacking ==
-There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory, but they are locked to 16 MB. You can unlock the remaining memory with changing some of the variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
+=== Opening the case ===
+==== WRT54G v1.0 ====
+Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c530e26278d85d701631ff here] for instructions and [http://seattlewireless.net/~mattw/photos/linksyswrt54g/gallery/ here] for pictures. A 9/16 socket wrench or similar tool can be used to remove the antenna.
 
-/!\ '''NOTE:''' However, there are no guaranties that these will work, and changing the memory configuration on a non-XH unit will give you a brick. Check the forums for more info.
+==== WRT54G v3.1 and later ====
+Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
-If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the second reset button you can find on WRT54G v3.0, except that it has not been soldered.
-
-Many versions of this model have an unpopulated serial header that offers two serial ports. For more info see http://www.rwhitby.net/wrt54gs/serial.html.
+=== Serial Ports ===
+Most (all?) versions of this model have an unpopulated 10-pin header that exposes two serial ports. The pins are defined as:
 
 ||Pin 1 ||3.3V ||Pin 2 ||3.3V ||
 ||Pin 3 ||Tx (ttyS1) ||Pin 4 ||Tx (ttyS0) ||
@@ -153,18 +155,28 @@ Many versions of this model have an unpopulated serial header that offers two se
 ||Pin 9 ||GND ||Pin 10 ||GND ||
 
 
-
 The CFE and OpenWRT use ttyS0 to emit boot and log messages. OpenWRT offers shell acess through ttyS0 by simply pressing <ENTER> to activation the console.
 
-The serial port settings are 115k, 8, N, 1 with no flow control.
-=== Opening the case ===
-'''WRT54G v1.0'''
+The serial port settings are 115k, 8, N, 1 with no flow control. 
 
-Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c530e26278d85d701631ff here] for instructions and [http://seattlewireless.net/~mattw/photos/linksyswrt54g/gallery/ here] for pictures. A 9/16 socket wrench or similar tool can be used to remove the antenna.
 
-'''WRT54G v3.1'''
+For more info see http://www.rwhitby.net/wrt54gs/serial.html.
 
-Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
+=== JTAG ===
+A 12-pin unpopulated JTAG header is included on all versions of this router. It is usually found beside the serial port headers.
+
+A simple unbuffered JTAG cable works fine. See HairyDairyMaid's WRT54G Debricking Tool for pin defintions, cable schematics, and software to utilize the JTAG interface.
+=== WRT54G v2.0 revision XH RAM Increase ===
+There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory, but they are locked to 16 MB. You can unlock the remaining memory with changing some of the variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
+
+/!\ '''NOTE:''' However, there are no guaranties that these will work, and changing the memory configuration on a non-XH unit will give you a brick. Check the forums for more info.
+
+=== SES Button ===
+The SES Button was introduced in the WRT54G v3.0, though a firmware upgrade for the WRT54G v2.0 enabled it for that version too.
+
+
+If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the SES button you can find on WRT54G v3.0 and above, except that it has not been soldered.
+
 
 ----
- . CategoryModel                       
+ . CategoryModel                        
