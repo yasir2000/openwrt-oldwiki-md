@@ -40,6 +40,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * Linksys [:OpenWrtDocs/Hardware/Linksys/WRT55AG: WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (AR5002AP-2X)
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWGR614 WGR614]v3.
  * Netgear [:OpenWrtDocs/Hardware/Netgear/WGT624: WGT624] [http://www.netgear.com/products/details/WGT624.php Product link] (AR5002AP-G)
+ * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWG102 WG102] (AR2313)
  * Senao NL-5354 AP1 Aries2 (AR5002AP-2X)
  * Senao NL-3054 AP3 Aries2 (AR2313)
  * Siemens [:OpenWrtDocs/Hardware/Siemens/SE551: SE551] (AR2316)
