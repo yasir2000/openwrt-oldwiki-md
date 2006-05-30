@@ -144,7 +144,7 @@ There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory
 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the second reset button you can find on WRT54G v3.0, except that it has not been soldered.
 
-Many versions of this model have a (possibly unpopulated) serial header, for more info see http://www.rwhitby.net/wrt54gs/serial.html.
+Many versions of this model have an unpopulated serial header that offers two serial ports. For more info see http://www.rwhitby.net/wrt54gs/serial.html.
 
 ||Pin 1 ||3.3V ||Pin 2 ||3.3V ||
 ||Pin 3 ||Tx (ttyS1) ||Pin 4 ||Tx (ttyS0) ||
@@ -153,6 +153,10 @@ Many versions of this model have a (possibly unpopulated) serial header, for mor
 ||Pin 9 ||GND ||Pin 10 ||GND ||
 
 
+
+The CFE and OpenWRT use ttyS0 to emit boot and log messages. OpenWRT offers shell acess through ttyS0 by simply pressing <ENTER> to activation the console.
+
+The serial port settings are 115k, 8, N, 1 with no flow control.
 === Opening the case ===
 '''WRT54G v1.0'''
 
@@ -163,4 +167,4 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 ----
- . CategoryModel                      
+ . CategoryModel                       
