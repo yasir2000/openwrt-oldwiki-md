@@ -19,7 +19,9 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
 ||WRT54G v4 || CDFA || (./) || (./) ||
 ||WRT54G v5 || CDFB || {X} || {X} ||
-||WRT54G v6 ||CDFD || {X} || {X} ||
+||WRT54G v5.1 ||CDFC (?)
+|| {X} || {X} ||
+||WRT54G v6||CDFD|| {X} || {X} ||
 
 
 === WRT54G v1.0 ===
@@ -53,11 +55,13 @@ To remove the front cover from this unit you simply pop the front of the case of
 This board has a BCM3302 processor, revision 0.8.
 
 === WRT54G v5, v5.1, and v6 ===
-/!\ '''NOTE:''' WRT54G V5 IS '''NOT''' SUPPORTED. IT WILL NEVER BE SUPPORTED. WE ARE SICK OF HEARING ABOUT THE V5!
+/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' SUPPORTED. THEY WILL NEVER BE SUPPORTED. DO NOT ASK FOR THEM TO BE SUPPORTED! 
 
-This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). It is unknown at this time if v5 can be supported by !OpenWrt.
 
-[http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G Currently only a downstripped DD-WRT is supported on WRT54G/GS v5 and v5.1]
+This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). The v5 and later models could be supported by OpenWrt, but most useful features of OpenWrt would have to be cut and barely enough room to run the OS would exist. Furthermore, the CFE would likely have to be updated via JTAG.
+
+[http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G Currently only a downstripped DD-WRT is supported on WRT54G/GS v5, v5.1, and v6.] However, it requires a JTAG cable to replace the CFE with a version capable of loading a linux kernel. It does work though, and the box performs suprisingly well for basic functionality.
+
 
 === Table summary ===
 How to get info:
@@ -66,13 +70,16 @@ How to get info:
  * cpu model: {{{grep cpu /proc/cpuinfo}}}
 
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||
-||WRT54G v1.0 ||     - ||  bcm94710dev ||      - ||       - ||  42 ||       4 || BCM4710 V0.0 ||  v1.0 ||  3.11.30.5 ||
-||WRT54G v1.1 ||     - ||  bcm94710dev ||      - ||       - ||  42 ||       5 || BCM4710 V0.0 ||       - ||       - ||
+||WRT54G v1.0 ||-- ||  bcm94710dev ||      - ||-- ||  42 ||       4 || BCM4710 V0.0 ||  v1.0 ||  3.11.30.5 ||
+||WRT54G v1.1 ||-- ||  bcm94710dev ||      - ||-- ||  42 ||       5 || BCM4710 V0.0 ||-- ||-- ||
 ||WRT54G v2.0 || 0x10 ||  0x0101 ||  0x0188 ||  0 ||  42 ||       - || BCM3302 V0.7 ||  v2.1, v2.3 ||  3.51.21.0 ||
 ||WRT54G v2.2 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||  v3.4 ||  3.61.13.0 ||
-||WRT54G v3.0 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||       - ||       - ||
-||WRT54G v3.1 (AU?) || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||       - ||       - ||
+||WRT54G v3.0 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||-- ||-- ||
+||WRT54G v3.1 (AU?) || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||-- ||-- ||
 ||WRT54G v4.0 || 0x10 ||  0x0467 ||  0x2558 ||  0 ||  42 ||       7 || BCM3302 V0.8 ||v3.6 ||       - ||
+||WRT54G v5.0||---||--||--||--||--||--|| BCM3302 V0.8||--||--||
+||WRT54G v5.1||---||--||--||--||--||--||--||--||--||
+||WRT54G v6.0||--||--||--||--||--||--||--||--||--||
 
 
 Other NVRAM variables of interest :  firmware_version, os_version
@@ -157,8 +164,7 @@ Most (all?) versions of this model have an unpopulated 10-pin header that expose
 
 The CFE and OpenWRT use ttyS0 to emit boot and log messages. OpenWRT offers shell acess through ttyS0 by simply pressing <ENTER> to activation the console.
 
-The serial port settings are 115k, 8, N, 1 with no flow control. 
-
+The serial port settings are 115k, 8, N, 1 with no flow control.
 
 For more info see http://www.rwhitby.net/wrt54gs/serial.html.
 
@@ -166,6 +172,7 @@ For more info see http://www.rwhitby.net/wrt54gs/serial.html.
 A 12-pin unpopulated JTAG header is included on all versions of this router. It is usually found beside the serial port headers.
 
 A simple unbuffered JTAG cable works fine. See HairyDairyMaid's WRT54G Debricking Tool for pin defintions, cable schematics, and software to utilize the JTAG interface.
+
 === WRT54G v2.0 revision XH RAM Increase ===
 There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory, but they are locked to 16 MB. You can unlock the remaining memory with changing some of the variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
@@ -174,9 +181,7 @@ There are revision XH units of the WRT54G v2.0. These units have 32 MB of memory
 === SES Button ===
 The SES Button was introduced in the WRT54G v3.0, though a firmware upgrade for the WRT54G v2.0 enabled it for that version too.
 
-
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the SES button you can find on WRT54G v3.0 and above, except that it has not been soldered.
 
-
 ----
- . CategoryModel                        
+ . CategoryModel                         
