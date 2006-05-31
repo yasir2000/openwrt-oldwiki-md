@@ -82,7 +82,6 @@ Putting this script in /usr/bin/whatismyip will allow you to check your ip just 
 {{{
 #!/bin/sh
 
-ifconfig $1 | grep "inet addr" | awk '{print $2}' | awk -F ':' '{print $2}'
 ifconfig $1 | awk '/inet addr/ {printf "%s\n", substr($2,6)}'
 }}}
 
@@ -93,7 +92,7 @@ If you want to find out what your default gateway is, put this info into a scrip
 {{{
 #!/bin/sh
 
-netstat -rn | grep UG|tail -1 | awk '{print $2}'
+netstat -rn | awk '/^0\.0\.0\.0/ {print $2}'
 }}}
 
 and then you can call the script from another script by typing {{{whatismygw}}}.
