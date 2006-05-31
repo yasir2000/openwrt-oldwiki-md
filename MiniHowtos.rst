@@ -83,6 +83,7 @@ Putting this script in /usr/bin/whatismyip will allow you to check your ip just 
 #!/bin/sh
 
 ifconfig $1 | grep "inet addr" | awk '{print $2}' | awk -F ':' '{print $2}'
+ifconfig $1 | awk '/inet addr/ {printf "%s\n", substr($2,6)}'
 }}}
 
 If you want to lock the thing to only check a certain interface, replace the $1 with the interface name.  I do it this way because I can easily find out my ip in scripts by typing {{{whatismyip vlan1}}} rather than hoping I remembered the sequence right.
