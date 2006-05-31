@@ -214,7 +214,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 == Maxtor ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.ba88f6d7cf664718376049b291346068/?channelpath=/en_us/Products/Network%20Storage/Maxtor%20Shared%20Storage%20Family/Maxtor%20Shared%20Storage Shared Storage] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||Untested ||
-
+||[http://www.maxtor.com/portal/site/Maxtor/menuitem.5d2b41d3cef51dfe29dd10a191346068/?channelpath=%2Fen_us%2FSupport%2FProduct+Support%2FNetwork+Storage%2FMaxtor+Shared+Storage+Family%2FMaxtor+Shared+Storage+Plus Shared Storage Plus] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||[:OpenWrtDocs/Hardware/Maxtor:UnTested] ||
 
 == Microsoft ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
