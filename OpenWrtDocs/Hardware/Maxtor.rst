@@ -13,7 +13,7 @@ Serial port 3V J10:
  2. RX
  3. TX
  4. GND
-Pins need to be soldered.
+Pins need to be soldered. Communication 115200 8N1
 
 == Software ==
 GPL [http://downloads.maxtor.com/downloads/_files/maxtor/en_us/downloads/mxo_fw_src_1.2.2.tgz Firmware source] from Maxtor
