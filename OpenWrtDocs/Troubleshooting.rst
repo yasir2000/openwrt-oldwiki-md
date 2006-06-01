@@ -130,17 +130,25 @@ The CFE will enter TFTP receptive mode after that command.
 
  * turn the router off, attach the jtag cable
  * turn it on, and issue one command
- 
+
+{{{
 wrt54 -erase:nvram
+}}}
 will delete the nvram, if you just borked the nvram, you will be done here.
 
+{{{
 wrt54 -erase:kernel
+}}}
 if you've borked the kernel, you have to delete the kernel, in order to flash a new one
 
+{{{
 wrt54 -erase:cfe
+}}}
 if you managed to crap the cfe, you can delete it
 
+{{{
 wrt54 -flash:cfe
+}}}
 if you have the appropriate CFE.BIN image for your router in the same dir as the debrick utility, this will flash the router with the new cfe.
 Once you've flashed a CFE with boot_wait enabled, you can use tftp to upload a new kernel.
 
