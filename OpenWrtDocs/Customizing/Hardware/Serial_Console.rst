@@ -11,24 +11,17 @@ Pinouts for your model can often be found on your model's page in CategoryModel.
 == USB Kit ==
 A USB based data cable for a mobile cell phone is another possibility.
 
-
 note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
 
 Compatible Radio Shack (Future Dial) "Mobile Phone Data Cables":
 
-   - LG Models 1200, VI5225, VX4500, VX4600, VX600
-   - Audiovox Models 8200, 8500 and 8600
-   - Nokia Models 3285 and 5185
-   - Cable 22 (For Nokia 3100, 3200, 3585i, 3588 and others with Nokia 14-pin pop-port)
+ . - LG Models 1200, VI5225, VX4500, VX4600, VX600 - Audiovox Models 8200, 8500 and 8600 - Nokia Models 3285 and 5185 - Cable 22 (For Nokia 3100, 3200, 3585i, 3588 and others with Nokia 14-pin pop-port)
 
-   
-goobay 
-   - Datacable for Nokia 6210, 6250, 6310, 6310i, 7110
+goobay
 
-
+ . - Datacable for Nokia 6210, 6250, 6310, 6310i, 7110
 
 reference: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
-
 
 == Home-made RS-232 kit ==
 '''Background'''
@@ -55,7 +48,7 @@ You can also search for MAX232 Kits. There are some kits availables.
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
  * http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
 
-*'''Note: '''The WRT54G/GS CFE may only emit messages on TTSY0. This is the serial port that uses even numbered pins, therefore starting at pin 2. This has not been verified yet, but the author of this note spent hours trying to get boot messages to appear on TTSY1, before trying TTSY0 with instant success.
+*'''Note: '''The WRT54G/GS CFE only emit messages on TTSY0. This is the serial port that uses even numbered pins, therefore starting at pin 2. 
 
 
 == Terminal software ==
@@ -63,9 +56,10 @@ You can also search for MAX232 Kits. There are some kits availables.
  * Minicom (for POSIX systems)
  * [http://efault.net/npat/hacks/picocom/ picocom]
  * cu(1) (part of the Taylor UUCP package, for POSIX systems)
+ * Tutty (a branch of Putty)
 
 == Finding Serial Console ==
-(stolen from the ["AR7Port"] page) This method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
+First, check the OpenWRT wiki page describing your hardware and do a google search. Most of the time, the serial port(s), if they exist, have already been documented by others.(stolen from the ["AR7Port"] page) This method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
 
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
