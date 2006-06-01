@@ -29,5 +29,5 @@ The contents of this section of the wiki can have serious consequences. While ev
      * Wireless
        * [http://wiviz.natetrue.com WiViz] - A very nice wireless network visualization tool ||
    
-= Firmware = 
+= Firmware =
   * [:OpenWrtDocs/Customizing/Firmware/CFE] The guide howto gain access to and use the common firmware enviroment
