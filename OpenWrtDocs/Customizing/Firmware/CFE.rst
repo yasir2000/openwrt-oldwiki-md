@@ -1,4 +1,4 @@
-= CFE = 
+= CFE - Common Firmware Enviroment =
 
 == Docs ==
 http://melbourne.wireless.org.au/files/wrt54/cfe.pdf
