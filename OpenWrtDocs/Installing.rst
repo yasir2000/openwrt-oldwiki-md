@@ -122,9 +122,17 @@ then use the webupgrade of the preinstalled firmware. Be sure that your power su
 
 If you are not happy with !OpenWrt, you can always reinstall your original firmware. Please be sure you have it downloaded and saved on your PC.
 
+== via tftp ==
 If you are extremely cautious or try to install a self compiled or modified version of OpenWrt White Russian, please consider
 to use the OpenWrtViaTftp installation method. For some of the hardware models it has special requirements.
 To avoid potentially serious damage to your router caused by an unbootable firmware you always should read the documentation for your specific router model, see [:CategoryModel].
+
+== via CFE ==
+If you already got the serial cable, you'll know howto do it, nevertheless ... go [:OpenWrtDocs/Installing/CFE]
+
+
+== via JTAG ==
+It's not recommended to flash the kernel image via jtag, as it will take more than 2 hours, but it is possible  [:OpenWrtDocs/Installing/JTAG]
 
 /!\ '''We strongly suggest you also read ["OpenWrtDocs/Troubleshooting"] before installing'''
 
