@@ -124,70 +124,26 @@ The CFE will enter TFTP receptive mode after that command.
 /!\ '''WARNING:''' You are now leaving the safe grounds of warranty coverage.
 
 '''Linksys models'''
+ * refer to [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] howto create a JTAG cable
+ * get !HairyDairyMaids [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip debrick utility] ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror]) or a more recent version from [http://downloads.openwrt.org/utils/ Downloads] and instructions how to connect everything together
+ * get a working version of the CFE for your WRT from [http://downloads.openwrt.org/people/inh/cfe/ inh's] download directory
 
-You still don't want to short any pins on your precious router. Thats nasty disgusting behaviour. A much better way to get a Flash into your wrecked piece of hardware, is to build your own JTAG adaptor. It's easy, you can make it in a jiffy using spare parts from the bottom of your messy drawer. You need:
+ * turn the router off, attach the jtag cable
+ * turn it on, and issue one command
+ 
+wrt54 -erase:nvram
+will delete the nvram, if you just borked the nvram, you will be done here.
 
- * 4 100R resistors  (200 ohm resistors also work, and 300 ohm likely do as well)
+wrt54 -erase:kernel
+if you've borked the kernel, you have to delete the kernel, in order to flash a new one
 
- * 1 male SUB-D 25 plug
- * If you want to do it right, a 12-way IDC-Connector plug (these are the ones who look like the HDD-Cables)
- * A 12-way ribbon cable for above (the JTAG cable should not exceed the length of 10 cm)
- * The boyfriend of that IDC-Connector for the PCB
- * !HairyDairyMaids [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip debrick utility] ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror]) or a more recent version from [http://downloads.openwrt.org/utils/ Downloads] and instructions how to connect everything together
- * A Linksys WRT54G/WRT54GS router with a broken flash and the desperate feeling that you can't make it any worse
+wrt54 -erase:cfe
+if you managed to crap the cfe, you can delete it
 
-It is basically like this:
+wrt54 -flash:cfe
+if you have the appropriate CFE.BIN image for your router in the same dir as the debrick utility, this will flash the router with the new cfe.
+Once you've flashed a CFE with boot_wait enabled, you can use tftp to upload a new kernel.
 
-'''NOTE:''' The diagram below is as if you were looking at your computer's parallel port head on. If you are going to solder directly to a male connector, pay close attention to the pin numbers as they will be in a different orientation on the male connector. When looking at the back of the male connector (where you solder wires to) pin 13 is on the far left, while 1 is on the right.
-
-{{{
-Parport
- 1                          13
-  o o o o o o o o o o o o o
-14 o|o|o|o o o o o o o o o|25
-    | | |          |_____||
-    | | |             |   |
-    ^ ^ ^             |   ^
-    1 1 1             |   1 
-    0 0 0             \___0___
-    0 0 0                 0  |
-    v v v                 v   |
-    | | |_____            |   |
-    | |___    |           |   |
-    |     |   |           |   |
-    |     |   |           |   |
-    |     |   |           |   |
- 1  |     |   |11         |   |
-  o o o o o o |           |   |
-      | |_____|           |   |
-      |___________________|   |
-  o-o-o-o-o-o_________________|
- 2            12
-JTAG
-
-}}}
-
-Or a more [http://downloads.openwrt.org/inh/reference/JTAGschem.png modern version] if you prefer.
-
-Use the pin numbers on the parallel port connector, and the pin numbers on the Linksys PCB, as they are all correct.
-
-'''Note #1:''' Pin 12 is assumed to be grounded. If it is not grounded on your Linksys, you may safely connect the wire indicated on pin 12 to any grounded even-numbered pin on the Linksys JTAG connector.
-
-'''Note #2:''' I had to enable ppdev in the kernel to use the program by hairydairymaid with GNU/Linux. Working versions of the CFE can be found in [http://downloads.openwrt.org/people/inh/cfe/ inh's] download directory, information about changing the CFE are available at ["OpenWrtDocs/Customizing"].
-
-'''Note #3:''' I had to disable i2c-parport support in my kernel - because I always got the kernel message {{{all devices in use}}} when trying to access the parport.
-
-'''Note #4: '''If 100 ohm resistors aren't available, 200 or 300 ohm resistors ought to work fine.
-
-
-Oh, and by the way, this cable is a good thing to have anyway, because many embedded devices feature that JTAG interface e.g. HP's IPAQ has one as well, so if you dare to open it, you can do lots of [http://openwince.sourceforge.net/jtag/iPAQ-3600/ funky things with your IPAQ] or with your Motorola Surfboard 4100/4200/5100 cable modem.
-
-
-[http://openwince.sourceforge.net/jtag/ Openwince/JTAG] calls this cable as "Xilinx DLC5 JTAG Parallel Cable III" but since this variant isn't buffered, the length of this cable must not exceed 10 cm.
-
-'''Additional Information'''
-
-The ["JTAG Cables"] page addresses issues that may be encountered with the above type of cable when used with the de-bricking utility program.
 
 = Getting help =
 Still stuck? See [http://openwrt.org/support how to get help and support] for information on where to get further help.
