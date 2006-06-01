@@ -1,7 +1,10 @@
 = CFE - Common Firmware Enviroment =
 
-== Docs ==
+== Using the CFE ==
 http://melbourne.wireless.org.au/files/wrt54/cfe.pdf
+
+
+
 
 == Changing CFE defaults ==
 The following is a guide from http://wl500g.dyndns.org/wrt54g.html that I've copied here, with added commentary. I am not the original author, that credit goes to Oleg.'' ''
@@ -10,7 +13,7 @@ Copyright (c) 2005 Oleg I. Vdovikin IMPORTANT: This information provided AS IS, 
 
 The wrt54g v.2.2 unit was kindly donated to me by maxx, the member of the forum.chupa.nl forum. I would like to publically say thank you to him.
 
-'''Extracting default values'''
+=== Extracting default values ===
 
 Telnet/ssh to your router running your favorite firmware and type the following
 
@@ -74,7 +77,7 @@ watchdog=5000
 bootnv_ver=2
 }}}
 
-'''Changing defaults'''
+=== Changing defaults ===
 
 Open cfe.txt using text editor and change defaults in the way you like (but be extremely careful, as some changes could prevent device from booting and you will need to use JTAG cable to bring it back to life). For me I've decided to enable both Afterburner (Speedbooster) and set boot_wait to on by default, so reset to default no longer messes the things, so I've applied this pseudo-patch (please note, that I've added bit 0x200 to boardflags to enable afterburner):
 
@@ -89,7 +92,7 @@ To make life easier for me, I added "reset_gpio=6" to the cfe.txt file. This way
 
 If you do not understand some things in this file, do not try to edit it. This is also applies to afterburner. I've also tried to change default lan_ipaddr, but this does not work in the way I expect: CFE started to answer to ping request to new lan_ipaddr, but it does not accept tftp transfers...
 
-'''Creating new CFE image'''
+=== Creating new CFE image ===
 
 You will need a nvserial utility which comes with several GPL tarballs. Linksys supplies it in the wrt54g.1.42.3, wrt54g.1.42.2, wap55ag.1.07, wap54gv2.2.06. Launch nvserial in the way like this on your x86 linux box: You can get nvserial from http://downloads.openwrt.org/people/inh/programs/nvserial'' ''
 
@@ -117,7 +120,7 @@ By default most firmwares has pmon partition write protected, i.e. you can't fla
         { name: "nvram", offset: 0, size: 0, },
 }}}
 
-'''Flashing new CFE image'''
+=== Flashing new CFE image ===
 
 So, once you've recompiled and flashed your new firmware you need you upgrade CFE. This process is dangerous, as flash failure during it will prevent your unit from booting. Copy cfe_new.bin to your wrt54g and flash it. The exact commands are dependent on the firmware. With OpenWrt I've used the following:
 
@@ -128,7 +131,7 @@ mtd write -f /tmp/cfe_new.bin pmon
 
 I recommend using the JTAG cable method for re-flashing your CFE. If something were to go wrong, you would end up needing the JTAG cable anyways. It's really cheap and easy to build, and makes it possible to recover from almost any error you make when writing to the flash. Check out http://openwrt.org/OpenWrtDocs/Troubleshooting '''' '''
 
-Checking it''' '''
+=== Checking it ===
 
 Embedded nvram is only used, when real nvram is either corrupted or empty (CRC/magic checks fails), so you will need to erase nvram or to reset to defaults. With OpenWrt type this:
 
