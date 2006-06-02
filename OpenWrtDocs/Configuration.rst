@@ -51,7 +51,7 @@ The names of the network interfaces will depend largely on what hardware !OpenWr
 ||Linksys||WRT54G||v1.x||vlan2||vlan1||eth2|| ||
 ||Linksys||WRT54G||v2.x/v3.x/v4.0||vlan0||vlan1||eth1|| ||
 ||Linksys||WRT54GL||v1.0||vlan0||vlan1||eth1|| ||
-||Linksys||WRT54GL||v1.1||vlan0||vlan1||eth1|| Second attempt. br0 prob shouldn't go here ||
+||Linksys||WRT54GL||v1.1||vlan0||vlan1||eth1|| ||
 ||Linksys||WRT54GS||v1.x/v2.x/v3/v4||vlan0||vlan1||eth1|| ||
 ||Linksys||WRTSL54GS|| ||eth0||eth1||eth2||Someone should double check this||
 ||Asus||WL-300g|| ||eth0||None||eth2|| ||
