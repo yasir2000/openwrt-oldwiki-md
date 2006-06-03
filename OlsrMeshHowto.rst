@@ -1,6 +1,6 @@
 __'''Introduction'''__
 
-Mesh networks are networks which are self arranging and auto configure them selves on basis of topology changes in cases like one node fails or a a new route emerges or a low traffic route is availble etc.The concept of mesh network is not new Internet is a huge mesh network in itself.So whats new? Well mesh networks with wireless simply rocxx.
+Mesh networks are networks which are self arranging and auto configure them selves on basis of topology changes in cases like one node fails or a a new route emerges or a low traffic route is available etc.The concept of mesh network is not new Internet is a huge mesh network in itself.So whats new? Well mesh networks with wireless simply rocxx.
 
 Well OLSR is one of the routing protocol available for Mobile Adhoc Network(MANET) or rather is general terms a wireless Mesh network.The OLSR code developed by [http://www.olsr.org Andreas Tønnesen] is the best suited for our case.
 
@@ -93,7 +93,7 @@ Well if you need olsr to run on the startup then we have to make a startup scrip
 
 [Todo: explanation of HNA4  ,plugins ,negetive weights etc ]
 
-Refrence::
+Reference::
 
 [http://www.olsr.org www.olsr.org] :Read main thesis and rfc
 
