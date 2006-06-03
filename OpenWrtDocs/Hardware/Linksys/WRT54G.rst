@@ -20,7 +20,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v4 || CDFA || (./) || (./) ||
 ||WRT54G v5 || CDFB || {X} || {X} ||
 ||WRT54G v5.1 || -- || {X} || {X} ||
-||WRT54G v6||CDFD|| {X} || {X} ||
+||WRT54G v6 ||CDFD || {X} || {X} ||
 
 
 === WRT54G v1.0 ===
@@ -54,13 +54,11 @@ To remove the front cover from this unit you simply pop the front of the case of
 This board has a BCM3302 processor, revision 0.8.
 
 === WRT54G v5, v5.1, and v6 ===
-/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' SUPPORTED. THEY WILL NEVER BE SUPPORTED. DO NOT ASK FOR THEM TO BE SUPPORTED! 
-
+/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' SUPPORTED. THEY WILL NEVER BE SUPPORTED. DO NOT ASK FOR THEM TO BE SUPPORTED!
 
 This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). The v5 and later models could be supported by OpenWrt, but most useful features of OpenWrt would have to be cut and barely enough room to run the OS would exist. Furthermore, the CFE would likely have to be updated via JTAG.
 
 [http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G Currently only a downstripped DD-WRT is supported on WRT54G/GS v5, v5.1, and v6.] However, it requires a JTAG cable to replace the CFE with a version capable of loading a linux kernel. It does work though, and the box performs suprisingly well for basic functionality.
-
 
 === Table summary ===
 How to get info:
@@ -76,9 +74,9 @@ How to get info:
 ||WRT54G v3.0 || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||-- ||-- ||
 ||WRT54G v3.1 (AU?) || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||-- ||-- ||
 ||WRT54G v4.0 || 0x10 ||  0x0467 ||  0x2558 ||  0 ||  42 ||       7 || BCM3302 V0.8 ||v3.6 ||       - ||
-||WRT54G v5.0||---||--||--||--||--||--|| BCM3302 V0.8||--||--||
-||WRT54G v5.1||---||--||--||--||--||--||--||--||--||
-||WRT54G v6.0||--||--||--||--||--||--||--||--||--||
+||WRT54G v5.0 ||--- ||-- ||-- ||-- ||-- ||-- || BCM3302 V0.8 ||-- ||-- ||
+||WRT54G v5.1 ||--- ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||
+||WRT54G v6.0 ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||
 
 
 Other NVRAM variables of interest :  firmware_version, os_version
@@ -88,6 +86,19 @@ Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?
 == Overclocking ==
 These models can be overclocked, though it should not be done if you don't have a JTAG cable to recover in case things go horribly wrong.
 
+=== Why overclock? ===
+'''The argument for:'''
+Even if your processor average load is low, this doesn't mean you won't benefit from overclocking. A load average is an average use over a period of time. However, at any given time a processor is either actively executing pertinent code or its not. So at any given moment it's all or none. This means that, in theory, operations can be sped up in cases where the CPU is the bottleneck.
+
+One example is that those users who've added SD card mods to their WRT54G/S see gains in I/O speed proportional to the CPU/SB clock speed. Furthermore, webif, scripts, and everything CPU or memory dependent should run proportionally faster to the amount the CPU/SB clock is increased.
+
+Even Linksys overclocked the WRT54GS v2.x to 216mhz to fix a bug with the system memory, so clearly it's not such a risk to overclock these boxes. Since they have a set of frequencies they are allowed to run at, one wonders if Broadcom hasn't designed them to run at these frequencies when proper cooling is applied.
+
+Most importantly though, why not overclock these units if they run perfectly stable when overclocked? With proper cooling mods these processors can run fine even at their maximum frequencies (depending on the CPU).
+
+'''The argument against:
+
+'''Most people aren't doing things with their WRT54G/S that will be substantially affected by increases in CPU/SB clock speed, so why risk the stability of your box by overclocking it?
 === Overclocking for the v4 and v5 ===
 The WRT54G v4 and WRT54G v5 are different from the v2 and v3 models in that they have a BCM5352/BCM3302 revision v0.8 (instead of v0.7). This processor defaults to 200mhz with an sbclock setting of 100mhz. The highest valid CPU frequency for this processor is 250mhz, which yields an sbclock frequency of 125mhz.
 
@@ -117,6 +128,9 @@ reboot }}}
 ||250 ||125 || ||
 
 
+==== Overclocking Experiences ====
+1.) I've had a WRT54G v4 running at the maximum valid frequency of 250mhz for a couple weeks with no stability problems. I do have a heat-sink (though not a very good one since it only partially covers the CPU) and a fan installed internally. The box ends up running quite cool.
+2.) I've had a WRT54G v5 running at 240mhz for a couple weeks with no stability problems. It has a heat-sink but no fan. It does get pretty hot. 250mhz seemed to be less stable after the unit heated up. A fan addition should allow the v5 to run as well as the v4 mentioned above at 250mhz.
 ==== Recovery From a Bad Overclock ====
 The CFE of these units handles overclocking very well and will simply reject values greater than 250mhz and find a closest match to values less than or equal to 250mhz. Therefore, it is unlikely you'll brick your router. However, be careful just in case you have a different CFE or this information is incorrect!
 
@@ -183,4 +197,4 @@ The SES Button was introduced in the WRT54G v3.0, though a firmware upgrade for 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the SES button you can find on WRT54G v3.0 and above, except that it has not been soldered.
 
 ----
- . CategoryModel                         
+ . CategoryModel                          
