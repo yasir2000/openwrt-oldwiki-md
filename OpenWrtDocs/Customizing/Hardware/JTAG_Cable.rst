@@ -120,4 +120,5 @@ Personally, as an engineer, I prefer the buffered cable and would not use an unb
  * [http://forum.amilda.org/viewtopic.php?id=43 Two examples] of successful Wiggler-style cable projects
  * [http://midge.vlad.org.ua/forum/viewtopic.php?t=121 Debrick example] using OpenwinCE with EJTAG driver.
  * [http://openwince.sourceforge.net/jtag/ Openwince JTAG], "Supported hardware" section for other types of the JTAG cables.
+ * [http://www.k9spud.com/jtag/ K9SPUD JTAG] another Wiggler schematic
  * a discussion at [:zt8qmwz] homepage about implementing EJTAG PRAcc in the Hairydairymaid De-brick utility
