@@ -87,7 +87,9 @@ Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?
 These models can be overclocked, though it should not be done if you don't have a JTAG cable to recover in case things go horribly wrong.
 
 === Why overclock? ===
-'''The argument for:'''
+'''The argument for:''' 
+
+
 Even if your processor average load is low, this doesn't mean you won't benefit from overclocking. A load average is an average use over a period of time. However, at any given time a processor is either actively executing pertinent code or its not. So at any given moment it's all or none. This means that, in theory, operations can be sped up in cases where the CPU is the bottleneck.
 
 One example is that those users who've added SD card mods to their WRT54G/S see gains in I/O speed proportional to the CPU/SB clock speed. Furthermore, webif, scripts, and everything CPU or memory dependent should run proportionally faster to the amount the CPU/SB clock is increased.
@@ -96,9 +98,10 @@ Even Linksys overclocked the WRT54GS v2.x to 216mhz to fix a bug with the system
 
 Most importantly though, why not overclock these units if they run perfectly stable when overclocked? With proper cooling mods these processors can run fine even at their maximum frequencies (depending on the CPU).
 
-'''The argument against:
+'''The argument against: '''
 
-'''Most people aren't doing things with their WRT54G/S that will be substantially affected by increases in CPU/SB clock speed, so why risk the stability of your box by overclocking it?
+Most people aren't doing things with their WRT54G/S that will be substantially affected by increases in CPU/SB clock speed, so why risk the stability of your box by overclocking it?
+
 === Overclocking for the v4 and v5 ===
 The WRT54G v4 and WRT54G v5 are different from the v2 and v3 models in that they have a BCM5352/BCM3302 revision v0.8 (instead of v0.7). This processor defaults to 200mhz with an sbclock setting of 100mhz. The highest valid CPU frequency for this processor is 250mhz, which yields an sbclock frequency of 125mhz.
 
@@ -129,8 +132,8 @@ reboot }}}
 
 
 ==== Overclocking Experiences ====
-1.) I've had a WRT54G v4 running at the maximum valid frequency of 250mhz for a couple weeks with no stability problems. I do have a heat-sink (though not a very good one since it only partially covers the CPU) and a fan installed internally. The box ends up running quite cool.
-2.) I've had a WRT54G v5 running at 240mhz for a couple weeks with no stability problems. It has a heat-sink but no fan. It does get pretty hot. 250mhz seemed to be less stable after the unit heated up. A fan addition should allow the v5 to run as well as the v4 mentioned above at 250mhz.
+1.) I've had a WRT54G v4 running at the maximum valid frequency of 250mhz for a couple weeks with no stability problems. I do have a heat-sink (though not a very good one since it only partially covers the CPU) and a fan installed internally. The box ends up running quite cool. 2.) I've had a WRT54G v5 running at 240mhz for a couple weeks with no stability problems. It has a heat-sink but no fan. It does get pretty hot. 250mhz seemed to be less stable after the unit heated up. A fan addition should allow the v5 to run as well as the v4 mentioned above at 250mhz.
+
 ==== Recovery From a Bad Overclock ====
 The CFE of these units handles overclocking very well and will simply reject values greater than 250mhz and find a closest match to values less than or equal to 250mhz. Therefore, it is unlikely you'll brick your router. However, be careful just in case you have a different CFE or this information is incorrect!
 
@@ -197,4 +200,4 @@ The SES Button was introduced in the WRT54G v3.0, though a firmware upgrade for 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the SES button you can find on WRT54G v3.0 and above, except that it has not been soldered.
 
 ----
- . CategoryModel                          
+ . CategoryModel                           
