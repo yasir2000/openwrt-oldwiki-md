@@ -30,9 +30,9 @@ This is a SoC with a Lexra LX5280 32-bit MIPS core, with MMU and with a 6-port f
 
 See [:TableOfHardware]
 
- * Belkin F5D8230-4
- * Linksys WRT54GX2, WRT54GX4, WRT54GXv2
- * Netgear WPNT834 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/WPNT834 wiki]  [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
+ * Belkin !F5D8230-4
+ * Linksys  WRT54GX2, WRT54GX4, [wiki:Self:OpenWrtDocs/Hardware/Linksys/WRT54GX WRT54GXv2]
+ * [wiki:Self:OpenWrtDocs/Hardware/Netgear/WPNT834 Netgear WPNT834]  [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
 
 
 == TODO ==
