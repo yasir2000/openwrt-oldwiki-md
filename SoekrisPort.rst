@@ -40,6 +40,7 @@ cfdisk /dev/sda
 Use {{{mke2fs}}} to create a linux ext2 filesystem on the boot partition :
 {{{
 # mke2fs /dev/sda1
+# tune2fs -c 0 /dev/sda1
 }}}
 
 
