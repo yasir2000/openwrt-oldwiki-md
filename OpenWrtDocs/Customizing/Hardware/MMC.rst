@@ -1,12 +1,12 @@
 = Adding an MMC/SD Card =
-''This is one very cool mod! Credit goes to [http://kiel.kool.dk:27 kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
+''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
 
 '''Introduction'''
 
 This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
 == Installing on a wrt54g version 2 and 2.2 ==
-''The following is the guide from [http://kiel.kool.dk:27 kiel.kool.dk] by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
+''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
 
 ''I added now comments for WRT HW-version 2.2 where the GPIO locations are different, but the general procedure is the same.''
 
@@ -14,8 +14,8 @@ This project is for people who would like to add a little storage to their Links
 
 '''Pictures'''
 
- * [http://kiel.kool.dk:27/pics/AllSolderingDone.jpg The insides of the router with SD card reader installed]
- * [http://kiel.kool.dk:27/pics/Reuter_complete.jpg The finished product with SD card reader installed]
+ * [http://kiel.kool.dk/pics/AllSolderingDone.jpg The insides of the router with SD card reader installed]
+ * [http://kiel.kool.dk/pics/Reuter_complete.jpg The finished product with SD card reader installed]
 
 '''What you need'''
 
@@ -38,9 +38,9 @@ This project is for people who would like to add a little storage to their Links
 
 
  . We will be driving the SD card in SPI mode, meaning that only one of the four data out pins are used (pin 7). Obtaining the specs for driving the card in the native SD mode is VERY costly and furthermore the limited number of GPIO pins available inside the router also mandates the use of some sort of serial protocol. The two VSS pins can simply be wired together for this project (VSS2 is used to control the sleep mode of the card). With this in mind lets look at the solder points in the router.
-  1. [http://kiel.kool.dk:27/pics/solderpoint_1_annotated.jpg The first three solder points] are located at RP3
-  1. [http://kiel.kool.dk:27/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
-  1. [http://kiel.kool.dk:27/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
+  1. [http://kiel.kool.dk/pics/solderpoint_1_annotated.jpg The first three solder points] are located at RP3
+  1. [http://kiel.kool.dk/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
+  1. [http://kiel.kool.dk/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
  . '''Further note for V2 hardware:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture. ''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched.) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]] A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5): ''
 
@@ -74,7 +74,7 @@ CONFIG_MSDOS_FS=y
 CONFIG_VFAT_FS=y
 }}}
 
-Now get the [http://kiel.kool.dk:27/mmc.c driver] and the [http://kiel.kool.dk:27/Makefile Makefile]. You will need to modify the Makefile to point to where your OpenWRT linux kernel headers are and also the mipsel compiler location. When that is done just type make (ignore the warnings - they are OK).
+Now get the [http://kiel.kool.dk/mmc.c driver] and the [http://kiel.kool.dk/Makefile Makefile]. You will need to modify the Makefile to point to where your OpenWRT linux kernel headers are and also the mipsel compiler location. When that is done just type make (ignore the warnings - they are OK).
 
 The module is now ready to be inserted. Make sure a card is placed in the reader and then load the module. Check with dmesg that everything went OK, and hopefully you should now have some new devices in /dev/mmc/... Here is a little snippet of a "conversation" with the router
 
