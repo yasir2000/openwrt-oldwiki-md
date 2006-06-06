@@ -46,6 +46,18 @@ Apart from this, the hardware is identical - even down to the PCB part numbers. 
 
 The PCB has the J25 header that contains the pins needed for a serial port, but does not appear to have any provision for JTAG. 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
+This needs to be clarified - I have two of these units - one has a 4/16MB configuration (shipped with V2.0 firmware) and the other is 2/8MB (shipped with 2.09 firmware).
+
+Apart from this, the hardware is identical - even down to the PCB part numbers.  The 4/16 unit has an AMD AM29LV320DB-90 flash and a pair of AMIC A43L2616V-6 1Mx16x4 SDRAMS.  The 2/8 unit has a Fujitsu 29LV160BE-70 flash and a pair of Dynachips D98SD6416AH-6 (1Mx16x2?) SDRAMS.
+
+The PCB has the J25 header that contains the pins needed for a serial port, but does not appear to have any provision for JTAG. 
+
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 {{{
 root@OpenWrt:/proc# cat cpuinfo
 system type             : Broadcom BCM947XX
