@@ -53,7 +53,7 @@ The names of the network interfaces will depend largely on what hardware !OpenWr
 ||Linksys||WRT54GL||v1.0||vlan0||vlan1||eth1|| ||
 ||Linksys||WRT54GL||v1.1||vlan0||vlan1||eth1|| LAN is ports 0-3, WAN is port 4 ||
 ||Linksys||WRT54GS||v1.x/v2.x/v3/v4||vlan0||vlan1||eth1|| ||
-||Linksys||WRTSL54GS|| ||eth0||eth1||eth2||Someone should double check this||
+||Linksys||WRTSL54GS|| ||eth0||eth1||eth2|| ||
 ||Linksys||WAP54G|| ||br0||N/A||eth1||Someone should double check this too||
 ||Asus||WL-300g|| ||eth0||None||eth2|| ||
 ||Asus||WL-500g|| ||eth0||eth1||eth2|| ||
