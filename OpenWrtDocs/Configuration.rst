@@ -62,6 +62,7 @@ The names of the network interfaces will depend largely on what hardware !OpenWr
 ||Buffalo||WBR-G54|| ||eth0||eth1||eth2|| ||
 ||Buffalo||WBR2-G54|| ||vlan0||vlan1||eth1||note^1^||
 ||Buffalo||WBR2-G54S|| ||vlan0||vlan1||eth1||note^1^||
+||Buffalo||WHR-G54S|| ||vlan0||vlan1||eth1||note^1^||
 ||Buffalo||WLA-G54|| ||eth0||N/A||eth2||No WAN port on this device||
 ||Buffalo||WZR-RS-G54||  ||eth0||eth1||eth2||no vlan support (switch BCM5325A2KQM)||
 ||Buffalo||WHR3-G54||  ||eth0||eth1||eth2||no vlan support (switch BCM5325A2KQM)||
