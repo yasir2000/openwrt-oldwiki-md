@@ -10,8 +10,7 @@
 Many routers can be overclocked, though it should not be done if you don't have a JTAG cable to recover in case things go horribly wrong.
 
 === Why overclock? ===
-==== The argument for: ====
-
+==== The argument for ====
 
 Even if your processor average load is low, this doesn't mean you won't benefit from overclocking. A load average is an average use over a period of time. However, at any given time a processor is either actively executing pertinent code or its not. So at any given moment it's all or none. This means that, in theory, operations can be sped up in cases where the CPU is the bottleneck.
 
@@ -21,7 +20,7 @@ Even Linksys overclocked the WRT54GS v2.x to 216mhz to fix a bug with the system
 
 Most importantly though, why not overclock these units if they run perfectly stable when overclocked? With proper cooling mods these processors can run fine even at their maximum frequencies (depending on the CPU).
 
-==== The argument against: ====
+==== The argument against ====
 
 Most people aren't doing things with their WRT54G/S that will be substantially affected by increases in CPU/SB clock speed, so why risk the stability of your box by overclocking it?
 
