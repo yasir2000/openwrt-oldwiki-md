@@ -6,6 +6,7 @@ The contents of this section of the wiki can have serious consequences. While ev
  
   * [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] Howto create a JTAG cable to revive a WRT
   * [:OpenWrtDocs/Customizing/Hardware/Serial_Console] Howto attach a serial console via usb or parallel port to your wrt
+  * [:OpenWrtDocs/Customizing/Hardware/Overclocking] Overclocking can increase performance in a number of areas
   * [:OpenWrtDocs/Customizing/Hardware/USB] USB is pretty powerfull, read about attaching webcams, harddisks etc via usb
   * [:OpenWrtDocs/Customizing/Hardware/UART] if you know what UART is you may want to read this
   * [:OpenWrtDocs/Customizing/Hardware/MMC] add a multimedia card or sd card to increase your storage volume
