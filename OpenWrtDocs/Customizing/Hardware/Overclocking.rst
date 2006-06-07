@@ -61,7 +61,7 @@ reboot }}}
 
 
 ==== Overclocking Experiences ====
-* I've had a WRT54G v4 running at the maximum valid frequency of 250mhz for a couple weeks with no stability problems. I do have a heat-sink (though not a very good one since it only partially covers the CPU) and a fan installed internally. The box ends up running quite cool. 2.) I've had a WRT54G v5 running at 240mhz for a couple weeks with no stability problems. It has a heat-sink but no fan. It does get pretty hot. 250mhz seemed to be less stable after the unit heated up. A fan addition should allow the v5 to run as well as the v4 mentioned above at 250mhz.
+ * I've had a WRT54G v4 running at the maximum valid frequency of 250mhz for a couple weeks with no stability problems. I do have a heat-sink (though not a very good one since it only partially covers the CPU) and a fan installed internally. The box ends up running quite cool. 2.) I've had a WRT54G v5 running at 240mhz for a couple weeks with no stability problems. It has a heat-sink but no fan. It does get pretty hot. 250mhz seemed to be less stable after the unit heated up. A fan addition should allow the v5 to run as well as the v4 mentioned above at 250mhz.
 
 ==== Recovery From a Bad Overclock ====
 The CFE of these units handles overclocking very well and will simply reject values greater than 250mhz and find a closest match to values less than or equal to 250mhz. Therefore, it is unlikely you'll brick your router. However, be careful just in case you have a different CFE or this information is incorrect!
