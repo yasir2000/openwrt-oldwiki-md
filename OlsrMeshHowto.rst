@@ -8,7 +8,8 @@ Actually if the objective is just to have a quick mesh you should be looking at 
 
 __'''The Network'''__
 
- {{{                           Wired to Lan Client (HNA4)
+ . {{{
+                          Wired to Lan Client (HNA4) 
                    (WAN)           |
                      |             / 
  Internet---------->Node1- - - - Node2 
@@ -42,8 +43,7 @@ __'''HOW TO''' __ __ __ __ __ __ __
 
  . Then you just need to run the command olsrd and it should take the default values and run.
 
-3. Modifying  /etc./firewall.user      for OLSR network
-Now as the bridge br0 is broken we have to add a few lines into firewalll scripts so as to have proper functioning.The following are basic rules required
+3. Modifying  /etc./firewall.user      for OLSR network Now as the bridge br0 is broken we have to add a few lines into firewalll scripts so as to have proper functioning.The following are basic rules required
 
 {{{
 #!/bin/sh
@@ -63,6 +63,9 @@ Now as the bridge br0 is broken we have to add a few lines into firewalll script
 
  iptables -A forwarding_rule -i $WAN  -o $WIFI  -j  ACCEPT 
 
+# 
+
+ iptables -A forwarding_rule -i $WIFI  -o $WAN  -j  ACCEPT 
 
 #For forwarding  LAN & WIFI in nodes
  
@@ -100,4 +103,4 @@ Reference::
 http://wiki.openwrt.org/OpenWrtDocs :Everything and anything in it
 
 ----
-CategoryHowTo
+ . CategoryHowTo 
