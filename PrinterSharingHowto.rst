@@ -111,14 +111,13 @@ Please translate this to english. Thanks.
 === Gnome ===
  * Select System -> Administration -> Printing
  * Select New Printer
- * Select Network Printer and "HP JetDirect"
+ * Select Network Printer and "HP !JetDirect"
  * Enter your WRT's IP address and port 9100.
  * Select your printer's make and model. Continue forward and apply settings.
  * Check the properties to ensure you are using A4 or US Letter size as appropriate.
 
 == OS X ==
 === Version 10.4.6 ===
-
  * select system preferences
  * Print & Fax
  * Click on + button
