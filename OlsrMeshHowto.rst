@@ -63,7 +63,7 @@ __'''HOW TO''' __ __ __ __ __ __ __
 
  iptables -A forwarding_rule -i $WAN  -o $WIFI  -j  ACCEPT 
 
-# After testing the above setting setting and not getting it to work I used the following line which seems to work fine. I remember noticing a comment somewhere stating that using '-i $WAN' is ignored, which could have been the cause. Notice that they are opposite.
+# READER'S NOTE: After testing the above setting setting and not getting it to work I used the following line which seems to work fine. I remember noticing a comment somewhere stating that using '-i $WAN' is ignored, which could have been the cause. Notice that they are opposite. If only one of these settings are truely correct, please verify and remove the offending line.
 
  iptables -A forwarding_rule -i $WIFI  -o $WAN  -j  ACCEPT 
 
