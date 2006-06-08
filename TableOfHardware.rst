@@ -142,8 +142,8 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 
 == Edimax ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104K] || ? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||WiP ||
-||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104KP] || ? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||Yes ||WiP ||
+||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104K] || ? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
+||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104KP] || ? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||Yes ||[:Edimax:WiP] ||
 
 
 == Gateway ==
