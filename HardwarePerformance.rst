@@ -18,11 +18,11 @@ I'm also not a fan of the "many processors can be safely overclocked" mentality.
 
 Ah, I understand your argument now, and it does have merit. 
 
-However, not all entries in this table are comparing the same hardware. It is slightly helpful to compare two different architectures or processors to see which may perform best at CPU or memory intensive tasks (at least, to the best this ynthetic benchmark may tell us).
+However, not all entries in this table are comparing the same hardware. It is slightly helpful to compare two different architectures or processors to see which may perform best at CPU or memory intensive tasks (at least, to the best this synthetic benchmark may tell us).
 
-The differences in performance on identical models (with identical clocks) is probably due to their load when tested, or something else. Although the differences are not great, you are right that this does indicate the benchmark isn't 100%. However, it's close enough for now, until someone develops a better benchmark (or better recommended testing procedures).
+The differences in performance on identical models (with identical clocks) is probably due to their load at the time of the testing, or something else. Although the differences are not great, you are right that this does indicate the benchmark isn't 100%. However, it's close enough for now, until someone develops a better benchmark (or better recommended testing procedures).
 
-The author recommends averaging 3 tests, yet the program encourages pasting the results of a single run. I think the benchmark could be improved by running the tests multiple times and finding an average. This change would probably yield closer results for identical models.
+The author recommends averaging 3 tests, yet the program encourages pasting the results of a single run. I think the benchmark could be improved by running the tests multiple times and finding an average. This change would probably yield closer results for identical models. I may make this change myself if the author doesn't.
 
 So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to present your opinions here as well as my own. Please induldge us and let this page live on with your noted, and quite valid, concerns. 
 
