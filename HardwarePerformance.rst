@@ -1,9 +1,8 @@
 = Hardware performance of devices running under OpenWRT =
- This page is useless
 
- [jecuendet] You can say that it's useless for '''you'''. This is perhaps useful for others...
- At least, if you want to evaluate Router performance (OpenVPN, SSH, ...), then the CPU is '''really''' important. That's probably the bottleneck on those devices.
- Knowing what each device can deliver, is at least an important point for choosing one.
+Although some people believe that these devices are not dependent on their CPU speed due to the commonly low load averages, this is not necessarily true. A processor at any moment is either executing applicable code or not, essentially ON or OFF. Load averages are averages over time. Therefore, increased processor (and memory) clocks can decrease latency, speed execution of scripts and programs, and increase I/O.
+
+Additionally, many processors can be safely overclocked. See [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Overclocking this page] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
 
 == Devices performance table ==
 '''Performance of CPU / Memory'''
