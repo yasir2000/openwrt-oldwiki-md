@@ -2,7 +2,7 @@
 
 Although some people believe that these devices are not dependent on their CPU speed due to the commonly low load averages, this is not necessarily true. A processor at any moment is either executing applicable code or not, essentially ON or OFF. Load averages are averages over time. Therefore, increased processor (and memory) clocks can decrease latency, speed execution of scripts and programs, and increase I/O.
 
-Additionally, many processors can be safely overclocked. See [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Overclocking this page] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
+Additionally, many processors can be overclocked (though this operation has some risk and should not be attempted lightly). See [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Overclocking this page] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
 
 ---
 
@@ -13,6 +13,22 @@ Almost all the boards in question are the exact same hardware, they're even base
 I'm also not a fan of the "many processors can be safely overclocked" mentality. Yes you can easily change the clock frequency by setting an nvram variable, and it may even work on some boards. The problem is what happens when it doesn't work -- that's where the whole "safe" concept fails, because when it doesn't work there's often no easy or safe way to reset it, you actually have to pull apart the device and connect up a JTAG cable to reset the configuration.
 
 - mbm
+
+---
+
+Ah, I understand your argument now, and it does have merit. 
+
+However, not all entries in this table are comparing the same hardware. It is slightly helpful to compare two different architectures or processors to see which may perform best at CPU or memory intensive tasks (at least, to the best this ynthetic benchmark may tell us).
+
+The differences in performance on identical models (with identical clocks) is probably due to their load when tested, or something else. Although the differences are not great, you are right that this does indicate the benchmark isn't 100%. However, it's close enough for now, until someone develops a better benchmark (or better recommended testing procedures).
+
+The author recommends averaging 3 tests, yet the program encourages pasting the results of a single run. I think the benchmark could be improved by running the tests multiple times and finding an average. This change would probably yield closer results for identical models.
+
+So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to present your opinions here as well as my own. Please induldge us and let this page live on with your noted, and quite valid, concerns. 
+
+-jcollake
+
+--
 
 == Devices performance table ==
 '''Performance of CPU / Memory'''
