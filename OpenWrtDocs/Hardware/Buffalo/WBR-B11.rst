@@ -23,7 +23,7 @@ HDR0}}}
 http://blueflubberball.de/buffalo-WBR-B11/openwrt-brcm-2.4-squashfs.trx.png
 
 ----
- . We just add the part before HDR0 to the OpenWRT Firmware. Take into account that the filelen value will be different.  
+We just add the part before HDR0 to the OpenWRT Firmware. Take into account that the filelen value will be different.     
 
 The original Firmware is a total of 3469346 long. Difference of 34 charachters which is exactly the part before the HDR0.
 
@@ -59,8 +59,11 @@ Welcome to OpenWRT RC5.
 You are done. :)
 
 ----
- Haven't opened it yet so no clue about JTAG nor SERIAL. Have fun
+Haven't opened it yet so no clue about JTAG nor SERIAL. Have fun 
 
 If any questions arise, want pretty pictures or whatnot. Send me an E-Mail. stacato [at] gmail [dOt] com
 
-Cheers,
+Cheers, stacato
+
+----
+P.S.: This process should be the same for the WBR-G54 since it supposedly is the exact same device just with a different mini-PCI card. 
