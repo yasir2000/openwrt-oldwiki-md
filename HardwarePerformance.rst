@@ -4,6 +4,16 @@ Although some people believe that these devices are not dependent on their CPU s
 
 Additionally, many processors can be safely overclocked. See [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Overclocking this page] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
 
+---
+
+No, this page is still useless; we're not arguing over what a load average is or what a benchmark is for. We're simply pointing out the absurdity of this benchmark.
+
+Almost all the boards in question are the exact same hardware, they're even based off of the same schematics, otherwise known as a reference design. It doesn't matter what the brand name on the box is; you're comparing a board with a 200Mhz Broadcom mips chip to another board with a 200Mhz Broadcom mips chip and expecting to see dramatic differences. Worse is the fact that you're actually seeing differences between two benchmarks being run on identical models -- this alone should tell you that the testing conditions are flawed.
+
+I'm also not a fan of the "many processors can be safely overclocked" mentality. Yes you can easily change the clock frequency by setting an nvram variable, and it may even work on some boards. The problem is what happens when it doesn't work -- that's where the whole "safe" concept fails, because when it doesn't work there's often no easy or safe way to reset it, you actually have to pull apart the device and connect up a JTAG cable to reset the configuration.
+
+- mbm
+
 == Devices performance table ==
 '''Performance of CPU / Memory'''
 
