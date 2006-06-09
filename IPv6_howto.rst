@@ -337,6 +337,10 @@ Now we add {{{2001:db8:0:f101::1}}} to br0 using the command below.  To keep the
 
 {{{
 ip -6 addr add 2001:db8:0:f101::1/64 dev br0
+
+In the /etc/init.d/S51radvd we have to add an route in case the aiccu is used:
+ip -6 route add 2001:db8:0:f101::1/64 dev br0
+
 }}}
 
 After all this you can start the daemon:
