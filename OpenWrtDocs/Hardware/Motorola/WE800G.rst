@@ -1,10 +1,12 @@
 = Motorola WE800G =
 [[TableOfContents]]
 = Hardware versions =
-The WE800G has two different versions - v1 and v2.
+There are three different WE800G hardware versions - two types of v1 (with differing memory sizes) and v2.
 
 == WE800G v1 ==
-The WE800G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is a mini-PCI card. The mini-PCI card is BCM94306MP and if you happen to brick the box itself then at least it is reusable in your laptop.
+The WE800G v1 is based on the Broadcom 4710 reference design. It has a 125MHz BCM4702 CPU, and the radio is based on a BCM4306 on a mini-PCI card. The early production units were equipped with 4MB flash and 16MB SDRAM, but this was reduced to 2MB and 8MB in the later production - it appears to be impossible to tell which variant you have from outside the box. 
+
+There is a connector that has the required signals for connecting a serial port (you need an external UART and line driver), but no JTAG connector (the signals are there, but on tiny SMT resistors).
 
 {{{
 root@OpenWrt:/# cat /proc/cpuinfo
@@ -32,8 +34,10 @@ root@OpenWrt:/#
 }}}
 
 == WE800G v2 ==
-It is supposed to have the integrated wireless NIC, less memory and less flash, but I haven't seen one to comment.
-The v2 of WE800G is supposed to have a serial port as well.
+This is based on the BCM4712 reference design - the mini-PCI card has been deleted, and the RF components moved to the main PCB - it also has soldered antenna connectors, rather than the pluggable ones in the V1.x.  CPU clock is 200MHz, Flash is 2MB and SDRAM is 8MB. 
+
+This version has the UART built into the chip, and only requires an external line driver for a serial port.  It has no JTAG connector, and I couldn't locate the signals.
+
 
 goodnewscd added: I have the version 2.   I cannot see any different between v1 and v2 from outside.  It also has the same mini-PCI card; however, it only has 2Mb flash and 8Mb SDRAM. It is not that useful even using the micro version of OpenWRT. I have to build my only "super-micro" version.
 [http://i3.tinypic.com/x4kxzq.jpg/ Main PCB - Back]
