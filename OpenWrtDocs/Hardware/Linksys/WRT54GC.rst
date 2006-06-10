@@ -43,5 +43,19 @@ More stuff about the router:
 Pictures and more information available on my website: [http://yasha.okshtein.net/wrt54gc/ http://yasha.okshtein.net/wrt54gc/].
 
 I really like this device: it's small and uses only 3.3v. I'd really love to get OpenWrt on it, possibly for a future version of my [http://yasha.okshtein.net/wrt54g Wifi Car]. Any takers? The router is quite cheap at $39 (i got it for $29 on Black Friday), but at that price, most users would opt for other, fully supported, routers.
+
+Little test : 
+chtitux@localhost ~/src $ nmap 192.168.2.1  -p 80 -A
+Starting Nmap 4.01 ( http://www.insecure.org/nmap/ ) at 2006-06-10 19:15 CEST
+Interesting ports on 192.168.2.1:
+PORT   STATE SERVICE VERSION
+80/tcp open  http?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at http://www.insecure.org/cgi-bin/servicefp-submit.cgi :
+SF-Port80-TCP:V=4.01%I=7%D=6/10%Time=448AFE26%P=i686-pc-linux-gnu%r(GetReq
+SF:uest,8A,"HTTP/1\.0\x20401\x20Unauthorized\r\nServer:\x20IP_SHARER\x20WE
+SF:B\x201\.0\r\nWWW-Authenticate:\x20Basic\x20realm=\"WRT54GC\"\r\nContent
+SF:-type:\x20text/html\r\n\r\n401\x20Unauthorized");
+
+
 ----
 CategoryModel
