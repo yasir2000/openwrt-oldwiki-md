@@ -18,3 +18,7 @@ which market it specifically as a machine that can do both 802.11a and 802.11b o
 Searching on the Internet for WX-5520A gives a few results. Apparently both Gemtek and Genuin Korea sell the same device as Sitecom.
 
 attachment:wl-105b-board.jpg
+
+=== WL-105b firmware ===
+
+The official firmware from the Sitecom website is in trx format.
