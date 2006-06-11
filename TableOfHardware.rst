@@ -29,6 +29,9 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||AR420W || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? || No || ||
 
+== A-Link ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.a-link.com/WL54AP2.html WL54AP2] ||  ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] ||  ||  ||  ||[  http://www.realtek.com.tw/products/products1-2.aspx?modelid=2004082 RTL8305SC] ||  ||  ||  ||  ||  ||
 
 == ALLNET ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
