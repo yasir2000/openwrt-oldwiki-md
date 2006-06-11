@@ -62,10 +62,10 @@ Found in Linksys routers such as the WRT54G and WRT54GS, the 12-pin header has t
  TCK    9  10 GND
  nSRST 11  12 GND}}}
 
-Seems, this header comes from the ARM world.
+Seems, this header is a truncated version of the full EJTAG header.
 
 === 14 Pin Header ===
-Found in Edimax routers (and other brands that are Edimax clones), the 14-pin header has the following arrangement of JTAG signals and pins:
+This header is fully MIPS EJTAG 2.6 compatible and described in the EJTAG 2.6 standart. Found in Edimax routers (and other brands that are Edimax clones), the 14-pin header has the following arrangement of JTAG signals and pins:
 
 {{{
  nTRST  1   2 GND
@@ -78,14 +78,12 @@ Found in Edimax routers (and other brands that are Edimax clones), the 14-pin he
 
 A buffered cable such as the Wiggler requires an external Vcc voltage supply.  The 14-pin header conveniently supplies this voltage on pin 14.  The typical unbuffered cable, however, does not require an external voltage in order to function. Formally, the pin 14 is called VREF and used to indicate a JTAG signal levels: 5V, 3.3V or 2.5V. On the most devices this pin is tied to the device's Vcc and may be used to power a buffer IC chip (and to generate an appropriate levels as result). Note that the 12-pin JTAG header arrangement does not provide Vcc.
 
-This header is fully MIPS EJTAG 2.6 compatible and described in the EJTAG 2.6 standart.
-
 == Software ==
 The most famous software for JTAG is probably the Linksys De-Brick Utility by Hairydairymaid (aka Lightbulb).  As of 1 April 2006 the most recent version is v4.5.  You can [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v45.zip download it from the OpenWrt site].  Virtually everyone who uses this software opts for an unbuffered cable, and the software itself, by default, expects this type of cable to be used.
 
 The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS routers.  It will ''not'' help you de-brick other routers that are not based on Broadcom CPUs (e.g. Edimax and its clones).
 
-Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]
+Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]. One more snapshot with corrected Flash block mapping may be found there: [http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip]. To access a Flash chip in 8-, 16- or 32-bit mode via EJTAG, use 0x1fc00000, 0x3fc00000 and 0x5fc00000 addresses respectively.
 
 === Using a Buffered Cable with the De-Brick Utility ===
 Inside the zip file download for the [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v45.zip Hairydairymaid WRT54G Debrick Utility] there is a PDF file that describes the software and how to use it.  He specifically talks about using an unbuffered cable and pointedly notes that the cable he uses does '''not''' tie pin 1 of the JTAG header to anything.
