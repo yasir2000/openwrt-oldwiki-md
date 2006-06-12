@@ -4,9 +4,9 @@
 
 = Linksys WRT54GS =
 
-There are many versions of the WRT54GS. All of them are based on the 4712 board (with the
-exception of v3.0 & v4.0). They have a 200 MHz CPU, 8 MB flash and 32 MB RAM (except v4).
-You can get the version number from the sticker on the bottom of the device. All revisions
+There are many versions of the WRT54GS. Models up to and including version 2.1 are based on the 4712 board; they have a 200 MHz CPU, 8 MB flash and 32 MB RAM.
+Version 3.0 and later models use the 5352 board; these have varying amounts of flash (see the Linksys WRT54GS entries in [:TableOfHardware]).
+You can get the version number from the sticker on the bottom of the device. Revisions up to 4.0
 are supported by OpenWrt 1.0 (White Russian) and later. boot_wait is '''off''' by default on these routers, so you should turn it on, see [:OpenWrtDocs/BootWait].
 
 == Identification by S/N ==
