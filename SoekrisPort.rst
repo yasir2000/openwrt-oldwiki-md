@@ -370,5 +370,9 @@ You can use {{{dd}}} to achieve this :
   * Use nvram alternatives
   * Test various CF size and eraseblock size
   * Avoid / suppress the jffs2_scan_eraseblock message
+
+== See also ==
+
+ * [http://dev.gentoo.org/~brix/papers/net4801/net4801.html GNU/Linux on a Soekris net4801]
 ----
 CategoryOpenWrtPort
