@@ -97,7 +97,7 @@ root@OpenWrt:~# mkdir /etc/ppp/peers
 root@OpenWrt:~# vi /etc/ppp/peers/cingular
 # information about your device
 /dev/usb/tts/0 # device file assigned to Nokia 6230
-460800 # DTE speed
+115200 # DTE speed
 # Initial authentication
 user ISPDA@CINGULARGPRS.COM # username (data acceleration)
 password CINGULAR1 # a common GPRS/EDGE password
@@ -314,13 +314,15 @@ echo 0 >/proc/sys/diag
 
 Now just run "dialmon &", and push the button!
 
+I have this setup in my automobile, with the dialmon script set to run on boot. I suppose I should recode dialmon to also perform disconnect on another button-press, but I usually just cut power to the unit when I am done.
+
 = Notes =
 
- 1. Tested with firmware from people/nbd directory, -preRC5 version dated March 13 2006.
+ 1. This document for the SL was inspired by Nate True's page: http://devices.natetrue.com/mobileap/
 
  2. Would be nice to have a local clock source, as the SL has no clock and comes up with wrong time at boot. PPP does note the large time disparity in the logs. You can sync after connecting with rdate or ntpclient, obvious place to append this is in /etc/ppp/ip-up.
 
- 3. This document for the SL was inspired by Nate True's page: http://devices.natetrue.com/mobileap/
+
 
 ----
 CategoryHowTo
