@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2006/05/05.
+This is a table of all supported devices as of 2006/06/13.
 
 Status Legend:
 
@@ -103,7 +103,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||[http://www.buffalotech.com/products/product-detail.php?productid=115&categoryid=6 WHR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||Supported ||
 ||WHR2-G54 || || ||4MB || || || || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) || BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
-||WHR3-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB ||64MB ||Broadcom (mini-PCI) || || || || || ||Untested ||
+||WHR3-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) || || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-AG54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=13 WLA-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB || ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54C:Untested] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=70 WLA2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||off || || || ||Untested ||
