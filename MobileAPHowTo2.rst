@@ -20,7 +20,7 @@ can get your hands on, to keep things as local as possible.
 
 = Items used =
 
-   Linksys WRTSL54GS with OpenWRT
+   Linksys WRTSL54GS with OpenWRT WhiteRussian RC5
 
    Nokia 6230 cellphone with Cingular EDGE/GPRS "Media Net" package with unlimited data
 
