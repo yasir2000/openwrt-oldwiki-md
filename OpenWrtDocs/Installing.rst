@@ -124,7 +124,7 @@ If you are not happy with !OpenWrt, you can always reinstall your original firmw
 
 == via tftp ==
 If you are extremely cautious or try to install a self compiled or modified version of OpenWrt White Russian, please consider
-to use the OpenWrtViaTftp installation method. For some of the hardware models it has special requirements.
+using the OpenWrtViaTftp installation method. For some of the hardware models it has special requirements.
 To avoid potentially serious damage to your router caused by an unbootable firmware you always should read the documentation for your specific router model, see [:CategoryModel].
 
 == via CFE ==
