@@ -47,6 +47,8 @@ nvram set clkfreq=250
 nvram commit
 reboot }}}
 
+A project to modify the CFE of these units to allow overclocking to frequencies higher than 250mhz is under way [http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G here]. This page also contains additional information about overclocking BCM3302 r0.8 boards.
+
 ==== Valid BCM5352/BCM3302 r0.8 (WRT54G v4 and v5) Frequencies ====
 ||__'''CPU'''__ ||__'''SB'''__ || __'''Note'''__ ||
 ||183 ||92 || ||
@@ -88,3 +90,6 @@ Other models use the commonly documented clock frequencies, with a max CPU clock
 
 === Overclocking for the WRT54G/GS v1, v1.1 ===
 This processor runs at 125mhz by default. Overclocking is reported to not be possible, but this has not been confirmed.
+
+== External Links ==
+[http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G Overclocking the BCM3302 0.8]
