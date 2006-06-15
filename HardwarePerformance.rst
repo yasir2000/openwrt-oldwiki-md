@@ -54,9 +54,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 || 2006-05-04 || LinuxInside || 7.6s || 12.6s || 14.5s || 7.6s || v0.6 || (unknown) || Linksys WAG54GX2 || BCM3302 V0.7 || 240Mhz || ["OpenWrtDocs/Hardware/Linksys/WAG54GX2"] ||
 || 2006-05-11 || ArteQ || 10.5s || 24.7s || 30.2s || 13.0s || v0.6 || Oleg 1.9.2.7-7c || ASUS Wl500g || BCM4710 V0.0 || 125MHz || ["OpenWrtDocs/Hardware/Asus/WL500G"] ||
 || 2006-06-09 || Loloke || 5.7s || 10.6s || 11.8s || 6.6s || v0.6 || OpenWRT RC5 || Linksys WRTSL54GS || BCM4704 || 266MHz || ["OpenWrtDocs/Hardware/Linksys/WRTSL54GS"] ||
-
-
-'''Performance of IO (IDE, USB, Disk)'''
+|| 2000-06-15 || achim71000 || 5.5s || 10.6s || 11.8s || 6.7s || v0.6 || OpenWRT RC5 || ASUS Wl500gP || BCM4704 || 266MHZ || ["OpenWrtDocs/Hardware/Asus/WL500GP"] ||
 
 TODO, which bench to use?
 
