@@ -302,11 +302,14 @@ In order to use WPA encryption with your WDS link, some further configuration is
 || wl0_wds_wpa_psk || Your wireless password ||
 || wl0_wds_akm || The key type (i.e. psk) ||
 || wl0_wds_crypto || The algorithm (i.e. aes) ||
-
+|| wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
 
 Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS.  It is known that WPA1 works.
 
 Remember that the non-free package NAS must be installed for WPA to work.  It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain.  Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
+
+To get a successful WDS connection by using WPA you have to make sure that the endpoints use the same ssid. If you still want to keep each router's ssid, use the wl0_wds_ssid variable.
+
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 !OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
