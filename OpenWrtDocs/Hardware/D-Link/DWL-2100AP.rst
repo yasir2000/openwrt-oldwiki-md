@@ -19,7 +19,7 @@ Based on an A2 version.
 
 === Serial ===
 
-JP1 (12-pin, without headers) seems to be the serial port.  Seems to be wired very similarly to the serial port in the [:OpenWrtDocs/Hardware/Netgear/WPN824: Netgear WPN824] (also AR2313) and 
+JP1 (12-pin, without headers) is the serial port.  It's wired very similarly to the serial port in the [:OpenWrtDocs/Hardware/Netgear/WPN824: Netgear WPN824] (also AR2313) and 
 [:OpenWrtDocs/Hardware/Netgear/WGT624: Netgear WGT624] (AR231'''2''') 
 
 {{{
@@ -32,6 +32,45 @@ JP1 (12-pin, without headers) seems to be the serial port.  Seems to be wired ve
 GND? - () () - GND?
 }}}
 
+Some resistors (R264, R273, R275) are missing, so the serial port won't work.  I've bridged them with solder (since I don't have access to SMT equipment), and it seems like it's working.
+
 === JTAG ===
 
 J1 (14-pin, without headers) seems to be the JTAG port.  Probably standard EJTAG 2.6 layout.
+
+== Software ==
+
+The AP ships with VxWorks.  Bootup is as follows:
+
+{{{
+ar531x rev 0x00005850 firmware startup...
+SDRAM TEST...PASSED
+
+
+
+  WAP-G02A  Boot Procedure                       V1.0
+---------------------------------------------------------
+  Start ..Boot.B12..
+
+Atheros AR5001AP default version 3.0.0.43A
+
+
+ 0
+auto-booting...
+
+Attaching to TFFS... done.
+Loading /fl/APIMG1...
+
+  Please wait, loading  image ...
+
+  image check ok!!!
+
+/fl/  - Volume is OK
+Reading Configuration File "/fl/apcfg".
+Configuration file checksum: 6c9d89 is good
+Attaching interface lo0...done
+vxWorksTftpPackageInit: init. finish & success!
+wireless access point starting...
+wlan1 Ready
+Ready
+}}}
