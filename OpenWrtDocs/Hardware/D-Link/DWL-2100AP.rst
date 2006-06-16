@@ -19,7 +19,18 @@ Based on an A2 version.
 
 === Serial ===
 
-JP1 (12-pin, without headers) seems to be the serial port.  Probably wired the same as in the [:OpenWrtDocs/Hardware/Netgear/WGT624: Netgear WGT624], which is an AR231'''2''' design.
+JP1 (12-pin, without headers) seems to be the serial port.  Seems to be wired very similarly to the serial port in the [:OpenWrtDocs/Hardware/Netgear/WPN824: Netgear WPN824] (also AR2313) and 
+[:OpenWrtDocs/Hardware/Netgear/WGT624: Netgear WGT624] (AR231'''2''') 
+
+{{{
+       1    JP1
+ VCC - [] () - VCC
+  RX - () ()
+       () ()
+       () ()
+  TX - () ()
+GND? - () () - GND?
+}}}
 
 === JTAG ===
 
