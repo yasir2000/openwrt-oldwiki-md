@@ -5,8 +5,8 @@ This is an RTL8651B-based router with an Airgo mini-PCI card, 4Mb flash and 32Mb
 == Specs ==
 
  * SoC: Realtek RTL8651B
- * Flash: 4Mb (MX 29LV320ABTC-90G)
- * Memory: 32Mb (2x V54C3128164VBI7)
+ * Flash: 4MB (MX 29LV320ABTC-90G)
+ * Memory: 32MB (2x V54C3128164VBI7)
  * Wireless card: Airgo AGN303BB-00 (PCI ID: 17cb:0002)
  * Switch: integrated into SoC
  * 2 integrated antennas, 1 RP-SMA connector
@@ -377,3 +377,8 @@ Mode - 0 cpBitmap - 0, cbMode - 1 cbState - 3, rfcsState - 0
 WSM radio 0 reset completed.
 
 }}}
+
+== Porting OpenWrt ==
+
+The stock firmware seems to be uClinux based, which makes it hard to use as a base for OpenWrt.
+See http://forum.openwrt.org/viewtopic.php?id=4001&p=2 for more information.
