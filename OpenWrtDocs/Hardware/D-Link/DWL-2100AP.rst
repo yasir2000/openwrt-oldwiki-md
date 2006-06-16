@@ -74,3 +74,17 @@ wireless access point starting...
 wlan1 Ready
 Ready
 }}}
+
+The boot loader can be interrupted by pressing Esc.  Initial boot settings are:
+
+{{{
+[Boot]: p
+
+boot device          : tffs:
+unit number          : 0
+processor number     : 0
+file name            : /fl/APIMG1
+inet on ethernet (e) : 192.168.1.20:0xffffff00
+flags (f)            : 0x0
+other (o)            : ae
+}}}
