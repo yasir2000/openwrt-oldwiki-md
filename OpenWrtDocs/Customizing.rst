@@ -19,7 +19,7 @@ The contents of this section of the wiki can have serious consequences. While ev
   * [:OpenWrtDocs/Customizing/Hardware/Power_over_Ethernet] Power Over Ethernet/Power Requirements
   * [http://www.frazer.net.nz/wrting/wrtprojects.htm] WRT Datalogger and Water tank Leve Monitor =
   * [:OpenWrtDocs/Customizing/Hardware/UMTS] Power Over Ethernet/Power Requirements
-
+  * [http://pobletewireless.blogspot.com/2006/05/monta-un-conector-sma-reverse-en-tu.html] Add a SMA-R connector to your WRT54G
 
 = Software =
   * Networking
