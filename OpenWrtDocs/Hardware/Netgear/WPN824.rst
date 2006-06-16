@@ -5,6 +5,7 @@ Serial port is JP1, pinout as follows:
       o o - VCC
  RX - o o
       o o
+      o o
  TX - o o
 GND - o o
       JP1
