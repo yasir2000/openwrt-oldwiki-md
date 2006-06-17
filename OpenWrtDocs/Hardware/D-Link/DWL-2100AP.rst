@@ -42,6 +42,8 @@ J1 (14-pin, without headers) seems to be the JTAG port.  Probably standard EJTAG
 
 == Software ==
 
+=== Standard D-Link firmware ===
+
 The AP ships with VxWorks.  Bootup is as follows:
 
 {{{
@@ -90,3 +92,42 @@ inet on ethernet (e) : 192.168.1.20:0xffffff00
 flags (f)            : 0x0
 other (o)            : ae
 }}}
+
+I've tried changing the boot settings to get it to netboot via TFTP unsuccessfully, but found that entering the command line below works.  ae is the Atheros Ethernet driver, 1 is the unit number of the Ethernet interface (the DWL-2100AP has unit 1, but no unit 0), 0 is the CPU number, desktoppc is the name of the TFTP server (doesn't seem to matter much), vmlinux is the filename, h sets the IP address of the TFTP server, e sets the IP address and netmask of the Ethernet interface, and f sets the flags to use TFTP.
+
+{{{
+$ae(1,0)desktoppc:vmlinux h=192.168.0.1 e=192.168.0.2:0xffffff00 f=0x80
+}}}
+
+=== DeviceScape Linux ===
+
+I've tried building a kernel as described on the [:OpenWrtDocs/Hardware/Netgear/WGT624: Netgear WGT624] page, but shortly after init, the system crashes and reboots:
+
+{{{
+init started:  BusyBox v1.00-pre10 (2004.06.09-17:51+0000) multi-call binary
+Starting pid 10, console /dev/co<6>wlan: 0.7.3.1 BETA
+nsole: '/etc/rc.d/rcS'
+Load MADWiFi wlan module
+Using ../../lib/modules/2.4.25<6>ath_hal: 0.9.9.2
+/net/wlan.o
+Load MADWiFi Atheros HAL module
+Using ../../lib/mo<6>ath_pci: 0.8.5.5 BETA
+<4>AHB interrupt: PROCADDR=0x18500014  PROC1=0x80000a16  DMAADDR=0x00000000  DMA1=0x00000000
+ar531x rev 0x00005850 firmware startup...
+SDRAM TEST...PASSED
+}}}
+
+However, the source download for the DWL-2210AP firmware (from the [ftp://ftp.dlink.com/GPL D-Link GPL download site]) is also based on DeviceScape and seems to include support for the DWL-2100AP:
+
+{{{
+*
+* Atheros board selection
+*
+Board type (AP30, AP31, CA8-4, CA8-5, DWL2100, DWL2210, LM-WES900a, USI-AP3x, WGT624) [CONFIG_WES900A] (NEW)
+}}}
+
+I need to check what changes that option makes.
+
+=== OpenWRT ===
+
+Later....
