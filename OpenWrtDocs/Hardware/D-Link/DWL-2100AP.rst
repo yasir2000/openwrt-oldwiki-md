@@ -15,6 +15,8 @@ Based on an A2 version.
  * External antenna on RP-SMA connector
  * Internal antenna
 
+It seems to be based on the Atheros AP43 or AP48 reference design (not sure what the difference between those two is).
+
 == Interfaces ==
 
 === Serial ===
