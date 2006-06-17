@@ -44,5 +44,3 @@ VespaTS:
 Couldn't get PPPOE to work. To get pppoe running I had to change again some settings:
 
 wan_device=eth0      (it was set to vlan1)
-
-(don't forget to nvram commit & reboot afterwards)
