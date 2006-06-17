@@ -37,3 +37,12 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
 (don't forget to commit/reboot)
 
 '''Please write some more info on the WL-500gP!'''
+
+
+
+VespaTS:
+Couldn't get PPPOE to work. To get pppoe running I had to change again some settings:
+
+wan_device=eth0      (it was set to vlan1)
+
+(don't forget to nvram commit & reboot afterwards)
