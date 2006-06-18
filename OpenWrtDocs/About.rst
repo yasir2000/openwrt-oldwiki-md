@@ -64,3 +64,14 @@ currently in "Release Candidate" status, with numbers like "rc3" and "rc4".
 The development of the next release is taking place in our subversion repository. It will contain support for many
 more embedded boards (Texas Instruments AR7 (MIPS), Soekris (x86), Aruba (MIPS), Routerboard (MIPS), ...). Its codename
 is Kamikaze. 
+
+== Versions of OpenWrt based on the BusyBox builds ==
+
+|| '''Timestamp''' || '''Version''' ||
+|| 2005.02.02-09:17+0000 || Before experimental ||
+|| 2005.06.25-07:50+0000 || White Russian RC1 ||
+|| 2005.07.18-21:49+0000 || White Russian RC2 ||
+|| 2005.09.14-15:55+0000 || White Russian RC3 ||
+|| 2005.11.23-21:46+0000 || White Russian RC4 ||
+|| 2006.01.27-21:42+0000 || White Russian PRE-RC5 ||
+|| 2006.03.27-00:00+0000 || White Russian RC5 ||
