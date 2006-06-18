@@ -117,7 +117,9 @@ ar531x rev 0x00005850 firmware startup...
 SDRAM TEST...PASSED
 }}}
 
-However, the source download for the DWL-2210AP firmware (from the [ftp://ftp.dlink.com/GPL D-Link GPL download site]) is also based on DeviceScape and seems to include support for the DWL-2100AP:
+=== DWL-2210AP firmware ===
+
+However, the source download for the DWL-2210AP 1.0.2.8 firmware (from the [ftp://ftp.dlink.com/GPL D-Link GPL download site]) is also based on DeviceScape and seems to include support for the DWL-2100AP:
 
 {{{
 *
@@ -126,7 +128,9 @@ However, the source download for the DWL-2210AP firmware (from the [ftp://ftp.dl
 Board type (AP30, AP31, CA8-4, CA8-5, DWL2100, DWL2210, LM-WES900a, USI-AP3x, WGT624) [CONFIG_WES900A] (NEW)
 }}}
 
-I need to check what changes that option makes.
+(I need to check what changes that option makes.)
+
+It seems that the DWL-2100AP firmware's kernel directory (dwl2210-source/apps/atheros/linux) was composed of Linux 2.4.24pre2, patched with Atheros' LBSP patches (which are still in arch/mips/ar531x/DIFFS), and patched with ebtables-brnf-5_vs_2.4.24.diff.gz (from http://prdownloads.sourceforge.net/ebtables/).  That doesn't explain all the changes from 2.4.24pre2, and they're perhaps the most interesting.
 
 === OpenWRT ===
 
