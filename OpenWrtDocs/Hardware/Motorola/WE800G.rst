@@ -1,12 +1,27 @@
 = Motorola WE800G =
 [[TableOfContents]]
 = Hardware versions =
-There are three different WE800G hardware versions - two types of v1 (with differing memory sizes) and v2.
+There are two different basic WE800G hardware versions - v1 and v2.  The v2 units are identified as such on the part number label and as part of the FCC ID.
 
 == WE800G v1 ==
-The WE800G v1 is based on the Broadcom 4710 reference design. It has a 125MHz BCM4702 CPU, and the radio is based on a BCM4306 on a mini-PCI card. The early production units were equipped with 4MB flash and 16MB SDRAM, but this was reduced to 2MB and 8MB in the later production - it appears to be impossible to tell which variant you have from outside the box. 
+The WE800G v1 is based on the Broadcom 4710 reference design. It has a 125MHz BCM4702 CPU, and the radio is based on a BCM4306 on a mini-PCI card. The original production units had 4MB of flash and 16MB of SDRAM - the later ones have a 2MB flash and report 8MB of SDRAM. If you are not sure what variant you have, then connect to the router using the web interface, log in, and change the "frames.asp" in the URL to "frame_debug.asp" - in the command box, enter "cat /proc/mtd" to get the flash info, and "cat /proc/meminfo" for the RAM.
 
-There is a connector that has the required signals for connecting a serial port (you need an external UART and line driver), but no JTAG connector (the signals are there, but on tiny SMT resistors).
+It's also worth noting that some of the "2/8MB" units really have 16MB of RAM - but don't try to enable it without physically checking the part numbers on the RAM chips - if your chips are "AMIC A43L2616V-6" or "Dynachips D98SD6416AH-6" you can use the following commands:
+
+{{{
+nvram set sdram_init=0x0419
+nvram commit
+}}}
+
+To enable the other 8MB.  DONT DO THIS WITHOUT CHECKING THE RAM PART NUMBERS - it will create a permanent brick out of your router. This setting needs to be repeated if you erase the nvram, since the PMON default is 0x0019.
+
+There is a connector that has the required signals for connecting a serial port (you need an external UART and line driver), but no JTAG connector.  TMS/TCK/TDI/TDO are present on some SMT resistors near the CPU, but I could not even get as far as reading the CPU ID - it's possible that nTRST is strapped on the PCB and holding the test controller in reset.
+
+Here are some protographs of the PCB (This is a 2MB flash / 16MB RAM version) - the 4MB/16MB version looks identical apart from the Flash part number.
+
+[http://i3.tinypic.com/x4kxzq.jpg/ Main PCB - Back]
+[http://i2.tinypic.com/x4ky6q.jpg/ Main PCB - Front]
+[http://i1.tinypic.com/x4ky94.jpg/ MiniPCI]
 
 {{{
 root@OpenWrt:/# cat /proc/cpuinfo
@@ -37,18 +52,6 @@ root@OpenWrt:/#
 This is based on the BCM4712 reference design - the mini-PCI card has been deleted, and the RF components moved to the main PCB - it also has soldered antenna connectors, rather than the pluggable ones in the V1.x.  CPU clock is 200MHz, Flash is 2MB and SDRAM is 8MB. 
 
 This version has the UART built into the chip, and only requires an external line driver for a serial port.  It has no JTAG connector, and I couldn't locate the signals.
-
-
-goodnewscd added: I have the version 2.   I cannot see any different between v1 and v2 from outside.  It also has the same mini-PCI card; however, it only has 2Mb flash and 8Mb SDRAM. It is not that useful even using the micro version of OpenWRT. I have to build my only "super-micro" version.
-[http://i3.tinypic.com/x4kxzq.jpg/ Main PCB - Back]
-[http://i2.tinypic.com/x4ky6q.jpg/ Main PCB - Front]
-[http://i1.tinypic.com/x4ky94.jpg/ MiniPCI]
-
-This needs to be clarified - I have two of these units - one has a 4/16MB configuration (shipped with V2.0 firmware) and the other is 2/8MB (shipped with 2.09 firmware).
-
-Apart from this, the hardware is identical - even down to the PCB part numbers.  The 4/16 unit has an AMD AM29LV320DB-90 flash and a pair of AMIC A43L2616V-6 1Mx16x4 SDRAMS.  The 2/8 unit has a Fujitsu 29LV160BE-70 flash and a pair of Dynachips D98SD6416AH-6 (1Mx16x2?) SDRAMS.
-
-The PCB has the J25 header that contains the pins needed for a serial port, but does not appear to have any provision for JTAG. 
 
 {{{
 root@OpenWrt:/proc# cat cpuinfo
