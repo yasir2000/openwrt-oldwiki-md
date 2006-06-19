@@ -22,6 +22,8 @@ The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaul
 
 See  [:OpenWrtDocs/Hardware/Asus/Flashing: Hardware/Asus/Flashing].
 
+'''WARNING:''' After installation, you must manually perform "nvram set wan_proto=none; nvram commit". Otherwise you will have a spurious dhcp client running on eth1, which is actually the LAN interface, and this can cause problems. See https://dev.openwrt.org/ticket/580
+
 '''IDE drivers and usage'''
 
 See IdeStorageHowTo then LocalFileSystemHowTo.
