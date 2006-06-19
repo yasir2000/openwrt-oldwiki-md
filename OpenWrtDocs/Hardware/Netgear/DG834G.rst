@@ -18,7 +18,7 @@ address sticker on my unit. It's the only header I could find; only 4 pins and w
 == ADAM2 ==
 The DG834(G) bootloader, ADAM2, calculates a checksum of the image in flash memory.  If this checksum fails, the router won't boot.  OpenWRT does not include this checksum (stored in the image), although it could be added.  [http://members.iinet.net.au/~mlanagan/] is a tool that builds custom firmware with this checksum.  The following instructions, however, disable the checksum verification.
 
-Taken from [http://www.earth.li/~noodles/blog/dg834g-openwrt.html] and [http://www.earth.li/~noodles/hardware-dg834g.html]
+Taken from [http://www.earth.li/~noodles/blog/dg834g/dg834g-openwrt.html] and [http://www.earth.li/~noodles/hardware-dg834g.html]
 ----
 Backing up the flash is probably a good move; if you do cd /tmp ; mini_httpd -p 1080 while connected via telnet you'll start up a httpd on port 1080. You can then do cat /dev/mtdblock/2 > /tmp/mtd2.bin which will dump the ADAM2 partition to a file, which can be obtained with wget http://192.168.0.1:1080/mtd2.bin from your desktop machine. Repeat this for devices 0 through 4 and you'll get the entire set.
 
