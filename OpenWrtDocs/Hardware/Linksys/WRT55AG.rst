@@ -18,7 +18,7 @@
  For version [http://www.linksys.com/download/firmware.asp?fwid=181 1.20] there is only a binary version (GPL violation?)
 
 ==== WRT55AG v2.0 ====
- It seems as if this version uses VxWorks as most Atheros based routers do. So there is '''no OpenSource Firmware''' available :-(
+ It seems as if this version uses VxWorks as most Atheros based routers do. So there is '''no OpenSource Firmware''' available :-(  See [:AtherosPort] for more details.
 
 ===== Official Linksys Firmware =====
  The current (3rd of June, 2005) version is 1.10 and can be obtained from the linksys website. [[BR]]
