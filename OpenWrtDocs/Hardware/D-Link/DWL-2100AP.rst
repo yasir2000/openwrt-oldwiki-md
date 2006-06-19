@@ -141,6 +141,13 @@ It seems that the DWL-2100AP firmware's kernel directory (dwl2210-source/apps/at
 
 That doesn't explain all the changes from 2.4.24pre2, and they're perhaps the most interesting.
 
+==== Rebuilding with a newer kernel ====
+
+I'm attempting to reapply the patches to 2.4.33rc1.
+ * copied the arch/mips/ar531x directory
+ * applying the ar531x/DIFFS is simple (hunk 1 in config-shared.in.diff needs to be done by hand)
+ * of the unexplained changes, many have already been applied in 2.4.33rc1, and most of the others apply relatively easily.
+
 === OpenWRT ===
 
 Later....
