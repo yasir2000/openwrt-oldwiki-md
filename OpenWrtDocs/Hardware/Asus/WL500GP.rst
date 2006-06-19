@@ -23,7 +23,7 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
 
   Since this router was not in the "supported" category when RC5 was released... there are a few things to change:
 
-   nvram set lan_ifnames=vlan0 eth2
+   nvram set lan_ifnames="vlan0 eth2"
 
    nvram set wlan_ifname=eth2
   
