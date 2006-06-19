@@ -424,7 +424,7 @@ INTERNET-----WRT54G_1- - - - - -WRT54G_2 - - - - - Wireless Clients
 
 With WDS you can connect wireless clients to all APs. In client mode this is not possible.
 
-For connection of two AP together, both machines has be set up.
+For connection of two AP together, both machines have to be set up.
 
 {{{
 nvram set wl0_lazywds=0
