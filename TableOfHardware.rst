@@ -29,9 +29,11 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||AR420W || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? || No || ||
 
+
 == A-Link ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.a-link.com/WL54AP2.html WL54AP2] ||  ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] || 2MB(?) || ? || ? ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2004082 Realtek RTL8305SC] || ? || possibly || possibly ||  ||  ||
+||[http://www.a-link.com/WL54AP2.html WL54AP2] || ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] || 2MB(?) || ? || ? ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2004082 Realtek RTL8305SC] || ? || possibly || possibly || || ||
+
 
 == ALLNET ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -197,6 +199,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||3.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 216MHz ||4MB ||16MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||4.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||5.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:No] ||
+||<style="vertical-align: top;">[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||<style="vertical-align: top;">6.0 ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:OpenWrtDocs/Hardware/Linksys/WRT54G:No] ||
 ||WRT54G3G || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||Broadcom (integrated) ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G3G:WiP] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1133202177241&pagename=Linksys/Common/VisitorWrapper WRT54GL] || 1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GL:Supported] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&amp;cid=1133202177241&pagename=Linksys/Common/VisitorWrapper WRT54GL] || 1.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GL:Supported] ||
@@ -359,6 +362,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 == ZyXEL ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300)] @160MHZ ||8MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["Bootbase"] ||Yes ||No ||No ||Untested ||
-||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040812093058&CategoryGroupNo=6D5363B7-46E4-47AE-9D01-DC4878CE5CE8 Prestige 662HW-61] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300)] ||  ||32MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["Bootbase"] ||Yes, console/aux port allready in router ||Possibly ||No ||Untested ||
+||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040812093058&CategoryGroupNo=6D5363B7-46E4-47AE-9D01-DC4878CE5CE8 Prestige 662HW-61] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300)] || ||32MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["Bootbase"] ||Yes, console/aux port allready in router ||Possibly ||No ||Untested ||
+
 
 ----
