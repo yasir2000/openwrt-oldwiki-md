@@ -22,7 +22,7 @@ The switch is an Broadcom BCM5325 FKQMG.
 
 '''WRT300N v2.0'''
 
-The WRT300N v2.0 is based on the Intel IXP420 cpu. It has 4Mb of flash. It has a Marvell 88E6060 switch chip. The wireless is provided by a mini-pci card containing an ar5416 MAC.
+The WRT300N v2.0 is based on the Intel IXP420 cpu which is part of the IXP425 family. The cpu runs at 266Mhz.  It has 4Mb of flash and 16Mb of RAM. It has a Marvell 88E6060 switch chip. The wireless is provided by a mini-pci card containing an ar5416 MAC. It is running linux out of the box.
 
 
 '''Table summary'''
@@ -43,6 +43,15 @@ How to get info:
 Pull off the blue Cover Plates on top and bottom of the Device,
 pull off the black Front cover and remove the 4 Screws in Bottom.
 
+
+'''WRT300N v2 Serial Console'''
+
+There aren't many connector slots on the board. The serial console (JP1) is just above the flash chip on the same side as the power connector. Console speed is 115200,8n1
+
+ () Vcc
+ () RX
+ () TX
+ () GND
 
 
 ----
