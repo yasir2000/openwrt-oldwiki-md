@@ -1,10 +1,9 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Your Name ==
-
+== Romain Deparis ==
 Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
 
 ...
 
 ----
-CategoryHomepage
+ CategoryHomepage
