@@ -45,5 +45,8 @@ Couldn't get PPPOE to work. To get pppoe running I had to change again some sett
 
 wan_device=eth0      (it was set to vlan1)
 
+
+***Caution**
+I've (thecompwiz)been having troubles if I set wan_proto=none  It appears as if it breaks the vlan0.
 ----
 CategoryModel
