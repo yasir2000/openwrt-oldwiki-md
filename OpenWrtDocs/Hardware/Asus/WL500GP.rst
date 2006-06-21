@@ -6,7 +6,8 @@ Here are some links to forum threads related to the WL-500gP:
  * [http://forum.openwrt.org/viewtopic.php?id=6071 CPU Power]
  * [http://forum.openwrt.org/viewtopic.php?id=5688 Some more compatiblity information]
 
- So far, very few problems with the wl-500gP
+
+So far, very few problems with the wl-500gP
 
 the reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
@@ -44,6 +45,8 @@ VespaTS:
 Couldn't get PPPOE to work. To get pppoe running I had to change again some settings:
 
 wan_device=eth0      (it was set to vlan1)
+
+Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
 
 
 ***Caution**
