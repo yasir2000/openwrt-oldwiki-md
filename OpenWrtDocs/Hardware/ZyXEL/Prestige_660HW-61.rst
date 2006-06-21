@@ -1,13 +1,13 @@
 = Prestige 660HW-61 =
 
 The device is based on Texas Instruments AR7, so you need the AR7Port in OpenWrt trunk.
-It uses [:Bootbase] as the bootloader. There's a detailed [http://www.adslayuda.com/Zyxel650-9.html example session] (spanish) of flashing the router firmware+bootbase available.
+It uses [:Bootbase] as the bootloader. There's a detailed [http://www.adslayuda.com/Zyxel650-9.html example session] (spanish) of flashing the router firmware+bootbase available. Another very excellent guide to flash the firmware (german) can be found [http://www.stkaiser.de/anleitung/ here] based on [http://www.dslrouter-hilfe.de/forum/showpost.php?p=49041&postcount=36 this article].
 
 == Serial Console ==
 
 You can build a serial cable using the above [http://www.adslayuda.com/Zyxel650-9.html example session url] plus [http://www.adslayuda.com/index.php?name=PNphpBB2&file=viewtopic&t=53480 some forum posts] (spanish) showing how to use various mobile cables. This way, you don't need to buy a MAX232 chip plus capacitors to do the TTL level conversion.
 
-I used a SIEMENS S55 slim lumberg [http://pinouts.ru/data/siemens_c55_pinout.shtml cable] to do the thrick.
+I used a SIEMENS S55 slim lumberg [http://pinouts.ru/data/siemens_c55_pinout.shtml cable] to do the trick.
 
 /!\ '''DO NOT try to connect your PC's serial port to the router directly !'''
 
@@ -107,6 +107,9 @@ int main (int argc, char* argv[]) {
 
 
 }}}
+
+There is also a small windows tool called [http://www.adslayuda.com/descargas/routers/zyxel650/configuracion/ZynPass1.2.zip ZynPass] which calculates the password.
+
 
 == Memory layout ==
 
