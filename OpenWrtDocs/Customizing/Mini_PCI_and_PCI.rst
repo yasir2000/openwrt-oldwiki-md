@@ -8,6 +8,7 @@ In other words it is a compact 3.3V version of venerable PCI. Many Mini PCI devi
  * ADLINK [http://www.adlinktech.com/products/LonglifeEmbedded/mPCI-8220.htm Dual Intel 82559 10/100Mbps Ethernet]
  * Advantech MiniPCI [http://www.advantech.com/products/model.asp?Category_ID=1-1TZTRY&PD= cards]
  * Kontron [http://www.kontron.com.tw/products/HTML/accessory/accessory.htm MiniPCI cards]
+ * Meshcube [http://www.meshcube.org/meshwiki/MiniPciCards MiniPCI Cards]
 
 It is possible to remove a Wi-Fi Mini PCI card and insert another device. Fortunately, some A/G dual-standart WRT* models have two Mini PCI slots.
 
