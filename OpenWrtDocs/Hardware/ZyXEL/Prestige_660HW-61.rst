@@ -5,9 +5,9 @@ It uses [:Bootbase] as the bootloader. There's a detailed [http://www.adslayuda.
 
 == Serial Console ==
 
-You can build a serial cable using the above [http://www.adslayuda.com/Zyxel650-9.html example session url] plus [http://www.adslayuda.com/index.php?name=PNphpBB2&file=viewtopic&t=53480 some forum posts] (spanish) showing how to use various mobile cables. This way, you don't need to buy a MAX232 chip plus capacitors to do the TTL level conversion.
+You can build a serial cable using the above [http://www.adslayuda.com/Zyxel650-9.html example session url] plus [http://www.adslayuda.com/index.php?name=PNphpBB2&file=viewtopic&t=53480 some forum posts] (spanish) showing how to use various mobile cables. This way, you don't need to buy a [http://www.adslayuda.com/ar03/img/rs232_zyxel_prestige_660hw-61.jpg MAX232 chip] plus capacitors to do the TTL level conversion.
 
-I used a SIEMENS S55 slim lumberg [http://pinouts.ru/data/siemens_c55_pinout.shtml cable] to do the trick.
+I used a SIEMENS S55 slim lumberg [http://pinouts.ru/data/siemens_c55_pinout.shtml cable] to do the trick. Also described in this (german) [http://www.dslrouter-hilfe.de/forum/showpost.php?p=48972 forum post].
 
 /!\ '''DO NOT try to connect your PC's serial port to the router directly !'''
 
