@@ -1,4 +1,4 @@
-= Prestige 660HW-61 =
+= Prestige 660HW-xx =
 
 The device is based on Texas Instruments [http://www.linux-mips.org/wiki/AR7 AR7], so you need the [:AR7Port] in OpenWrt trunk.
 It uses [:Bootbase] as the bootloader. There are detailed guides to flash the firmware available [http://www.adslayuda.com/Zyxel650-9.html here] (spanish) [http://www.stkaiser.de/anleitung/ here] (german) and [http://www.dslrouter-hilfe.de/forum/showpost.php?p=49041&postcount=36 here] (german).
