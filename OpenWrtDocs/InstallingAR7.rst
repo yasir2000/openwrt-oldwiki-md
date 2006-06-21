@@ -64,7 +64,7 @@ Some AR7 hardware uses a different bootloader from Broad Net Technologies.
 See [http://ar7-firmware.berlios.de/openwrt/] for modifications which support
 this kind of hardware.
 
-ZyXEL's [:OpenWrtDocs/Hardware/ZyXEL/Prestige_660HW-61] even uses [:Bootbase] as Bootloader.
+ZyXEL's Prestige 660HW-xx Series even use [:Bootbase] as Bootloader. See [:OpenWrtDocs/Hardware/ZyXEL/Prestige_660HW-61] for details.
 
 == Flashing using the bootloader ==
 
