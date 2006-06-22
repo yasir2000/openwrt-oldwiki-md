@@ -139,24 +139,10 @@ Note: If you are using Windows then for the next step place a switch between you
 Note: After you set the password you'll not be able to telnet into the WE800G again, you have to use ssh or browser.
 
 = Upgrade from previous versions of OpenWRT =
-Web based upgrade from pre-RC5 to RC5 failed for me with this message:
+You can upgrade the WE800G either by the webif interface (by browser) or by the TFTP.
+Web based upgrade works with post-RC5 just fine if you use the pre built .trx image like openwrt-brcm-2.4-squashfs.trx. 
 
-{{{
-Firmware Upgrade
-
-Bad trx header
-If this is a firmware in bin format, like some of the
-original firmware files are, use following command to convert to trx:
-dd if=firmware.bin of=firmware.trx bs=32 skip=1
-TRX check failed!
-done.
-}}}
-
-And still failed after making the proposed .bin to .trx conversation.
-
-Only way to upgrade the firmware is the TFTP based upgrade as was described above.
-
-Note: The WEB based firmware upgrade does not work even after the upgrade to RC5. https://dev.openwrt.org/ticket/447
+Note: Do not forget to unplug/replug the power of the device as described over the TFTP upgrade procedure.
 
 = The Failsafe Mode and other interesting stuff =
 
