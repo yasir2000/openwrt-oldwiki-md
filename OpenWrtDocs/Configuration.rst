@@ -39,9 +39,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
 
 
-[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware !OpenWrt is run on.
-
-||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
+[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on.||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
 ||Linksys ||WRT54G ||v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRT54GL ||v1.0 ||vlan0 ||vlan1 ||eth1 || ||
@@ -52,7 +50,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
-||Asus ||WL-500g Premium || ||vlan0 ||eth1 ||eth2 ||Someone should check this ||
+||Asus ||WL-500g Premium || ||vlan0 ||eth0 ||eth2 ||Verified WAN and Wifi, not sure about note^1^ ||
 ||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
@@ -304,12 +302,12 @@ In order to use WPA encryption with your WDS link, some further configuration is
 || wl0_wds_crypto || The algorithm (i.e. aes) ||
 || wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
 
+
 Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS.  It is known that WPA1 works.
 
 Remember that the non-free package NAS must be installed for WPA to work.  It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain.  Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
 
 To get a successful WDS connection by using WPA you have to make sure that the endpoints use the same ssid. If you still want to keep each router's ssid, use the wl0_wds_ssid variable.
-
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 !OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
