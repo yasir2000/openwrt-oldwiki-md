@@ -90,6 +90,17 @@ The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS ro
 
 Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]. One more snapshot with corrected Flash block mapping may be found there: http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip. To access a Flash chip in 8-, 16- or 32-bit mode via EJTAG, use 0x1fc00000, 0x3fc00000 and 0x5fc00000 addresses respectively.
 
+{{{jtag> print
+No. Manufacturer Part Stepping Instruction Register
+---------------------------------------------------------------------------------------------
+0 Lexra LX5280 1 BYPASS BR
+
+Active bus:
+*0: EJTAG compatible bus driver via PrAcc (JTAG part No. 0)
+start: 0x00000000, length: 0x20000000, data width: 8 bit
+start: 0x20000000, length: 0x20000000, data width: 16 bit
+start: 0x40000000, length: 0x20000000, data width: 32 bit}}}
+
 === Using a Buffered Cable with the De-Brick Utility ===
 Inside the zip file download for the [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v45.zip Hairydairymaid WRT54G Debrick Utility] there is a PDF file that describes the software and how to use it. He specifically talks about using an unbuffered cable and pointedly notes that the cable he uses does '''not''' tie pin 1 of the JTAG header to anything.
 
