@@ -100,11 +100,11 @@ have the root filesystem as SquashFS or JFFS2, We'll explain both.
 
   JFFS2
     The files marked JFFS2 make the entire filesystem JFFS2. The
-    disadvantage is that this takes slightly more space; the
-    advantage is that changes to included files nolonger leaves
+    disadvantage is that this takes a few hundred kilobytes more space; the
+    advantage is that changes to included files no longer leaves
     behind an old copy on the readonly filesystem.
 
-/!\ '''The JFFS2 firmware uses an extra setup step which requires an ADDITIONAL REBOOT before the filesystem can be used.''' /!\
+/!\ '''The JFFS2 firmware uses an extra setup step which requires an ADDITIONAL REBOOT before the filesystem can be used. Therefore, immediately after installation, you should telnet into your router and run "reboot".''' /!\
 
     The "4M" and "8M" in the filename indicate the flash type,
     either a 64k erase block or a 128k erase block respectively.
