@@ -56,23 +56,23 @@ atftp --trace --option "timeout 1" --option "mode octet" --put --local-file open
 
 == MacOS X ==
 
-MacTFTP Client commands: (For use with OS X. tftp in terminal did not work for me)
+On Mac OS X, you should be able to flash the router with the command line tftp client, which behaves identically to netkit's tftp above.
 
-{{{
-Download MacTFTP Client [http://www.mactechnologies.com/pages/downld.html] 
+Some people have had problems with the command line tftp client, however, and recommend using [http://www.mactechnologies.com/pages/downld.html MacTFTP] instead:
+
+ * Download, install, and open MacTFTP
  * Choose Send
  * Address: 192.168.1.1
  * Choose the openwrt-xxx-x.x-xxx.bin file
  * Click on start while applying power to the WRT54G
-}}}
 
-Another MacOS X note: I was able to get OS X to use tftp to flash a WRT54G V2. The trick seems to be that OS X takes a a few seconds to configure the network connection when the router is powered on. My fix was to configure the Ethernet tab of 'built-in ethernet' (System Prefences, Network) to:
+Many Macs will disable the Ethernet card when the router is powered off and will take too long to re-enable the card, causing the TFTP transfer to fail with an "Invalid Password" error. Many people have had success if they manually configure their network card (in the "Ethernet" tab of "Built-in Ethernet" in System Preferences' Network panel) to:
 
  * Configure: Manual (Advanced)
  * Speed: 10 BaseT/UTP
  * Duplex: full-duplex
 
-This seems to reduce the startup time of the ethernet port. On the second try the TFTP methode worked (where the 10+ tries before the fix did not). I also disabled the AirPort during this procedure.
+Alternatively, you can connect the router to the Mac via a hub or switch; see [#Troubleshooting below] for more information.
 
 == Windows 2000/XP ==
 
