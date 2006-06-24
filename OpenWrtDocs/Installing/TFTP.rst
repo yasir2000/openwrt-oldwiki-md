@@ -72,7 +72,7 @@ Many Macs will disable the Ethernet card when the router is powered off and will
  * Speed: 10 BaseT/UTP
  * Duplex: full-duplex
 
-Alternatively, you can connect the router to the Mac via a hub or switch; see [#Troubleshooting below] for more information.
+Alternatively, you can connect the router to the Mac via a hub or switch; see below for more information.
 
 == Windows 2000/XP ==
 
