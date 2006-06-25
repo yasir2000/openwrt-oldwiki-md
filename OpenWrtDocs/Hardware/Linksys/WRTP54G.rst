@@ -28,7 +28,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * All of the entries in the ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
 
- * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/index.php?page=hacking_actiontec
+ * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html
 
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
 
