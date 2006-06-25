@@ -228,9 +228,9 @@ Please let me know if you want any additional information posted here.
 
 === Network ===
 
-Here is where it gets a little more confusing. First of all I do not know where people saw an eth2 on a WL-500gP. I am using the factory nvram (except the 2 changes for the 32MB memory visibility) and I never had an eth2 on mine. 
+Here is where it gets a little more confusing. First of all I do not know where people saw an eth2 on a WL-500gP. I am using the factory nvram (except the two changes for the 32MB memory visibility) and I never had an eth2 on mine. Was it under WhiteRussian rather than kamikaze? 
 
-Basically the setup appears to be exactlly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see here ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. Interface eth1 of the router goes to the wifi. So here if what I have setup:
+Basically the setup appears to be exactly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. Interface eth1 of the router goes to the wifi. So here if what I have setup:
 
  * VLANs
 
@@ -300,7 +300,7 @@ vlan1     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
 
 }}}
 
-Note that network 192.168.15.0/24 is my actual LAN network connected to the WAN port while 192.168.1.0/24 is the development network connect to LAN port 1 for firmware upload from my linux box. They both work fine this way.
+Note that network 192.168.15.0/24 is my actual LAN network connected to the WAN port while 192.168.1.0/24 is the development network connected to LAN port 1 for firmware upload from my linux box. They both work fine this way.
 
 {{{
 root@OpenWrt:~# brctl show
