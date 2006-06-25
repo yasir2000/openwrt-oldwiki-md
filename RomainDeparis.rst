@@ -578,18 +578,15 @@ Maintainer: rdeparis
 Description: firmware loader for EZ-USB devices
 }}}
 
-Now all you have to do is integrate this package to the kamikaze build system. Add the following lines to the corresponding files directly under package/:
+Now all you have to do is to integrate this package to the kamikaze build system. Add the following lines to the corresponding files directly under package/:
 
- * Config.in
+ * Config.in (somewhere under the menu "Utilities" for instance)
 
 {{{
-menu "Utilities"
-...
 source "package/fxload/Config.in"
-...
 }}}
 
- * Makefile:
+ * Makefile
 
 {{{
 package-$(BR2_PACKAGE_FXLOAD) += fxload
