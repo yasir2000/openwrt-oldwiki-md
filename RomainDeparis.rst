@@ -11,12 +11,12 @@ Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
 Or leave me a message at the end of this page with the following syntax:
 {{{
 ----
-Just saying Hi! -- WikiHome
+Just saying Hi! -- JohnDoe
 }}}
 
 == Asus WL-500g Premium ==
 
-I use only kamikaze brcm2.6 on SquashFS. I just add some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
+'''I use only kamikaze brcm-2.6 on SquashFS'''. I also add some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
 
 As mentionned on the ["OpenWrtDocs/Hardware/Asus/WL500GP"] page, I only use tftp to upload the firmware. Router does not reboot automatically after the upload.
 
