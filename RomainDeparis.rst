@@ -253,7 +253,7 @@ VLAN 0 is native on LAN switchports 1,2,3 and 4 and tagged on switchport 5.
 
 VLAN 1 is native on WAN swithport 0 and tagged on switchport 5.
 
-On the router you get the trunking VLANs from switchport 5 on virtual interface vlan0 and vlan1 from eth0.
+On the router you get the trunking VLANs from switchport 5 on virtual interfaces vlan0 and vlan1 from eth0.
 
  * Interfaces
 
@@ -317,7 +317,7 @@ bridge name     bridge id               STP enabled     interfaces
 br0             8000.00173197929a       no              vlan0
 }}}
 
-Note that I removed eth1 from br0 as I have no clue what it is and where it leads to and I had the b44 switch bug with it anyway:
+Note that I removed eth1 from br0 as I have no clue what it is and where it leads and I had the b44 switch bug with it anyway:
 
 {{{
 b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.
