@@ -21,7 +21,7 @@ Just saying Hi! -- JohnDoe
 [[Anchor(Asus)]]
 == Asus WL-500g Premium ==
 
-'''I use only kamikaze brcm-2.6 on SquashFS'''. I also add some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
+'''I use only kamikaze brcm-2.6 on SquashFS'''. I also add some basic customization on which packages are installed and some simple patches to support extra USB hardware.
 
 As mentionned on the ["OpenWrtDocs/Hardware/Asus/WL500GP"] page, I only use tftp to upload the firmware. Router does not reboot automatically after the upload.
 
@@ -444,6 +444,8 @@ If you want a more interesting USB device support example, check below.
 [[Anchor(Linksys)]]
 == Linksys WRTSL54GS ==
 
+=== Todo ===
+
 /!\ Untested so far
 
 [[Anchor(wis-go7007)]]
@@ -454,21 +456,51 @@ The idea here is to add support to OpenWRT for hardware accelerated encoding dev
 http://oss.wischip.com/tv402u.jpg
 
 For more info on the Plextor:
- http://www.plextor.com/english/products/TV402U.htm
+http://www.plextor.com/english/products/TV402U.htm
 
 Fortunately the driver for the GO7007 chipset it is based on is OpenSource.
 
 For more info on the GO7007 driver:
- http://oss.wischip.com/
+http://oss.wischip.com/
 
-In the next section I assume that you know how to tweak kamikaze and that you have a working copy of the SVN trunk. For more info check the wiki documentation:
- BuildingPackagesHowTo
-and the development documentation
+In the next sections I assume that you know how to tweak kamikaze and that you have a working copy of the SVN trunk. For more info check the wiki documentation BuildingPackagesHowTo and the development documentation
  https://dev.openwrt.org/browser/trunk/openwrt/docs/buildroot-documentation.html?format=raw
 
-Kernel module wis-go7007
+=== Requirements ===
+
+From the README file distributed with the GO7007 driver archive, we can summarize the requirements as following:
+
+ * Linux kernel 2.6.10 or later
+ * USB 2.0 support
+ * Kernel options:
+  * CONFIG_HOTPLUG           - Support for hot-pluggable devices
+  * CONFIG_MODULES           - Enable loadable module support
+  * CONFIG_KMOD              - Automatic kernel module loading
+  * CONFIG_FW_LOADER         - Hotplug firmware loading support
+  * CONFIG_I2C               - I2C support
+  * CONFIG_VIDEO_DEV         - Video For Linux
+  * CONFIG_SOUND             - Sound card support
+  * CONFIG_SND               - Advanced Linux Sound Architecture
+  * CONFIG_USB               - Support for Host-side USB
+  * CONFIG_USB_DEVICEFS      - USB device filesystem
+  * CONFIG_USB_EHCI_HCD      - EHCI HCD (USB 2.0) support
+  * CONFIG_SND_MIXER_OSS     - OSS Mixer API
+  * CONFIG_SND_PCM_OSS       - OSS PCM (digital audio) API
+ * Hotplug scripts
+ * The FXload utility
+
+As of today kamikaze comes with Linux kernel 2.6.16 and with built-in USB 2.0 support, so the first two requirements are met. Kernel options setup is documented and we will configure them later. 
+
+OpenWRT also includes a minimalist Hotplug emulation that works just fine and that we will use for firmware auto-loading. The only unmet requirement is the FXload utility.
 
 
+
+=== Kernel module wis-go7007 ===
+
+
+
+
+=== User application wis-streamer ===
 
 ----
  CategoryHomepage
