@@ -321,7 +321,105 @@ So I added extra checks in hotplug.d/net/* to forget all about eth1 for now :)
 
 Let us know if your network setup on your WL-500gP is consistent with this one as we should update the official wiki pages then.
 
-...
+=== PCI / USB ===
+
+Now that the basics are ok, let us play with the juicy parts, the add-ons. Here is what we can see on the buses.
+
+ * PCI
+
+{{{
+root@OpenWrt:~# lspci -v
+00:00.0 FLASH memory: Broadcom Corporation Sentry5 Chipcommon I/O Controller (rev 08)
+        Flags: fast devsel, IRQ 3
+        Memory at 18000000 (32-bit, non-prefetchable) [disabled] [size=4K]
+        [virtual] Expansion ROM at 18009000 [disabled] [size=2K]
+
+00:01.0 Ethernet controller: Broadcom Corporation Sentry5 Ethernet Controller (rev 08)
+        Flags: bus master, fast devsel, latency 64, IRQ 4
+        Memory at 18001000 (32-bit, non-prefetchable) [size=4K]
+        [virtual] Expansion ROM at 18009800 [disabled] [size=2K]
+
+00:02.0 Ethernet controller: Broadcom Corporation Sentry5 Ethernet Controller (rev 08)
+        Flags: bus master, fast devsel, latency 64, IRQ 5
+        Memory at 18002000 (32-bit, non-prefetchable) [size=4K]
+        [virtual] Expansion ROM at 1800a000 [disabled] [size=2K]
+
+00:03.0 USB Controller: Broadcom Corporation Sentry5 USB Controller (rev 08) (prog-if 10 [OHCI])
+        Flags: fast devsel, IRQ 6
+        Memory at 18003000 (32-bit, non-prefetchable) [disabled] [size=4K]
+        [virtual] Expansion ROM at 1800a800 [disabled] [size=2K]
+
+00:04.0 MIPS: Broadcom Corporation Sentry5 PCI Bridge (rev 08)
+        Flags: fast devsel, IRQ 2
+        Memory at 18004000 (32-bit, non-prefetchable) [disabled] [size=4K]
+        [virtual] Expansion ROM at 1800b000 [disabled] [size=2K]
+
+00:05.0 MIPS: Broadcom Corporation BCM3302 Sentry5 MIPS32 CPU (rev 08)
+        Flags: fast devsel, IRQ 2
+        Memory at 18005000 (32-bit, non-prefetchable) [disabled] [size=4K]
+        [virtual] Expansion ROM at 1800b800 [disabled] [size=2K]
+
+00:06.0 Modem: Broadcom Corporation BCM47xx V.92 56k modem (rev 08) (prog-if 00 [Generic])
+        Flags: fast devsel, IRQ 2
+        Memory at 18006000 (32-bit, non-prefetchable) [size=4K]
+        [virtual] Expansion ROM at 1800c000 [disabled] [size=2K]
+
+00:07.0 Network and computing encryption device: Broadcom Corporation Sentry5 Crypto Accelerator (rev 08)
+        Flags: fast devsel, IRQ 2
+        Memory at 18007000 (32-bit, non-prefetchable) [disabled] [size=4K]
+        [virtual] Expansion ROM at 1800c800 [disabled] [size=2K]
+
+00:08.0 RAM memory: Broadcom Corporation Sentry5 DDR/SDR RAM Controller (rev 08)
+        Flags: fast devsel, IRQ 3
+        Memory at 18008000 (32-bit, non-prefetchable) [disabled] [size=4K]
+        [virtual] Expansion ROM at 1800d000 [disabled] [size=2K]
+
+01:00.0 Host bridge: Broadcom Corporation BCM4704 PCI to SB Bridge
+        Subsystem: Broadcom Corporation BCM4704 PCI to SB Bridge
+        Flags: bus master, fast devsel, latency 64, IRQ 2
+        Memory at <unassigned> (32-bit, prefetchable)
+
+01:02.0 Network controller: Broadcom Corporation BCM4318 [AirForce One 54g] 802.11g Wireless LAN Controller (rev 02)
+        Subsystem: ASUSTeK Computer Inc. Unknown device 120f
+        Flags: fast devsel, IRQ 2
+        Memory at 40000000 (32-bit, non-prefetchable) [disabled] [size=8K]
+
+01:03.0 USB Controller: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller (rev 61) (prog-if 00 [UHCI])
+        Subsystem: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller
+        Flags: medium devsel, IRQ 2
+        I/O ports at <ignored> [disabled]
+        Capabilities: [80] Power Management version 2
+
+01:03.1 USB Controller: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller (rev 61) (prog-if 00 [UHCI])
+        Subsystem: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller
+        Flags: medium devsel, IRQ 2
+        I/O ports at <ignored> [disabled]
+        Capabilities: [80] Power Management version 2
+
+01:03.2 USB Controller: VIA Technologies, Inc. USB 2.0 (rev 63) (prog-if 20 [EHCI])
+        Subsystem: VIA Technologies, Inc. USB 2.0
+        Flags: bus master, medium devsel, latency 22, IRQ 2
+        Memory at 40000000 (32-bit, non-prefetchable) [size=256]
+        Capabilities: [80] Power Management version 2
+}}}
+
+Notice the "Broadcom Corporation Sentry5 Crypto Accelerator". I guess this is the hardware encryption module for IPSEC VPN terminations. I am sure we can do something fun with this.
+
+ * USB 2.0
+
+{{{
+root@OpenWrt:~# lsusb
+Bus 001 Device 002: ID 0457:0151 Silicon Integrated Systems Corp.
+Bus 001 Device 001: ID 0000:0000
+}}}
+
+Device 002 is a 1GB USB2 key
+
+/!\ More to come
+
+== Linksys WRTSL54GS ==
+
+/!\ Untested so far
 
 ----
  CategoryHomepage
