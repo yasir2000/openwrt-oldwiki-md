@@ -267,6 +267,14 @@ eth0      Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
           RX bytes:61059 (59.6 KiB)  TX bytes:81305 (79.3 KiB)
           Interrupt:4
 
+eth1      Link encap:Ethernet  HWaddr 40:10:18:00:00:2D
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:5
+
 lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING  MTU:16436  Metric:1
@@ -294,6 +302,14 @@ vlan1     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
 Note that network 192.168.15.0/24 is my actual LAN connected to the WAN port while 192.168.1.0/24 is the development LAN connect to LAN port 1 for firmware upload from my linux box. They both work fine this way.
 
 As expected we get the WAN port on interface vlan1 and the LAN ports are bridged with br0 over vlan0 along with eth1 for the wifi.
+
+I have not bothered with wifi yet, so I cannot confirm anything about wifi. As fas as I can see from the forums it seems pretty messy with the bcm43xx-d80211 driver. I did have the b44 switch bug
+
+{{{
+b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.
+}}}
+
+So I added extra checks in hotplug.d/net/* to forget all about eth1 :)
 
 Let us know if your network setup on your WL-500gP is consistent with this one as we should update the official wiki pages then.
 
