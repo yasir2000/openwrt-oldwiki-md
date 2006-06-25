@@ -500,10 +500,14 @@ Below is the set of files to create under package/fxload/:
 
 {{{
 package/fxload/:
-Config.in  Makefile  ipkg
+total 12
+-rw-r--r--  1 user users  374 Jun 24 12:50 Config.in
+-rw-r--r--  1 user users 1030 Jun 24 12:50 Makefile
+drwxr-xr-x  2 user users 4096 Jun 24 12:50 ipkg
 
 package/fxload/ipkg:
-fxload.control
+total 4
+-rw-r--r--  1 user users 117 Jun 24 12:50 fxload.control
 }}}
 
 And their content:
@@ -698,6 +702,159 @@ diff -NurbB -x .svn kamikaze.orig/trunk/openwrt/target/linux/brcm-2.6/config kam
  # Video Adapters
 }}}
 
+Now create the wis-go7007 package under target/linux/package:
+
+{{{
+target/linux/package/wis-go7007/:
+total 16
+-rw-r--r--  1 user users  599 Jun 24 12:49 Config.in
+-rw-r--r--  1 user users 1868 Jun 24 15:05 Makefile
+drwxr-xr-x  2 user users 4096 Jun 24 12:49 files
+drwxr-xr-x  2 user users 4096 Jun 24 12:49 ipkg
+
+target/linux/package/wis-go7007/files:
+total 8
+-rw-r--r--  1 user users   80 Jun 24 12:49 go7007.modules
+-rw-r--r--  1 user users 1286 Jun 24 12:49 modules.dep
+
+target/linux/package/wis-go7007/ipkg:
+total 4
+-rw-r--r--  1 user users 151 Jun 24 12:49 kmod-go7007.control
+}}}
+
+With the folowing files content:
+
+ * Config.in
+
+{{{
+config BR2_PACKAGE_KMOD_GO7007
+        prompt "kmod-go7007....................... GO7007 chipset support (Plextor ConvertX...)"
+        tristate
+        default y
+        depends BR2_LINUX_2_6_X86 || BR2_LINUX_2_6_BRCM
+        select BR2_PACKAGE_KMOD_USB2
+        select BR2_PACKAGE_KMOD_VIDEODEV
+        select BR2_PACKAGE_KMOD_ALSA
+        help
+          Linux kernel module for the GO7007 which delivers compressed video via
+          the Video4Linux2 API and uncompressed audio via the ALSA API.
+
+          http://oss.wischip.com/
+
+          DEPENDS: BR2_PACKAGE_KMOD_USB2
+                   BR2_PACKAGE_KMOD_VIDEODEV
+                   BR2_PACKAGE_KMOD_ALSA
+}}}
+
+ * Makefile
+
+{{{
+# $Id: Makefile 3526 2006-06-24 21:29:01 rdeparis $
+
+include $(TOPDIR)/rules.mk
+include ../../rules.mk
+
+PKG_NAME:=wis-go7007-linux
+PKG_VERSION:=0.9.8
+PKG_RELEASE:=1
+PKG_MD5SUM:=dbeaceae423972140d6a5107a1f586ec
+
+PKG_SOURCE_URL:=http://oss.wischip.com
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_CAT:=bzcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,KMOD_GO7007,kmod-go7007,\
+         $(LINUX_VERSION)+$(PKG_VERSION)-$(BOARD)-$(PKG_RELEASE),\
+         $(ARCH),kernel ($(LINUX_VERSION)-$(BOARD)-$(LINUX_RELEASE))))
+
+$(PKG_BUILD_DIR)/.configured:
+        (cd $(PKG_BUILD_DIR); \
+                touch kernel/.configured \
+        );
+        touch $@
+
+$(PKG_BUILD_DIR)/.built:
+        $(MAKE) -C $(LINUX_DIR)/ \
+                ARCH="$(LINUX_KARCH)" \
+                CROSS_COMPILE="$(TARGET_CROSS)" \
+                SUBDIRS="$(PKG_BUILD_DIR)/kernel" \
+                modules
+        sed -e s/@FIRMWARE_DIR@/\\/lib\\/firmware/ \
+                -e s/@FXLOAD@/\\/usr\\/sbin\\/fxload/ \
+                <$(PKG_BUILD_DIR)/hotplug/wis-ezusb.in \
+                >$(PKG_BUILD_DIR)/hotplug/wis-ezusb
+        touch $@
+
+$(IPKG_KMOD_GO7007):
+        install -m0644 $(PKG_BUILD_DIR)/include/*.h \
+                $(LINUX_DIR)/include/linux
+        install -d -m0755 $(IDIR_KMOD_GO7007)/lib/firmware/ezusb
+        install -m0644 $(PKG_BUILD_DIR)/firmware/*.bin \
+                $(IDIR_KMOD_GO7007)/lib/firmware
+        install -m0644 $(PKG_BUILD_DIR)/firmware/ezusb/*.hex \
+                $(IDIR_KMOD_GO7007)/lib/firmware/ezusb
+        install -d -m0755 $(IDIR_KMOD_GO7007)/etc/hotplug.d/usb
+        install -m0755 $(PKG_BUILD_DIR)/hotplug/wis-ezusb \
+                $(IDIR_KMOD_GO7007)/etc/hotplug.d/usb/90-ezusb
+        install -d -m0755 $(IDIR_KMOD_GO7007)/lib/modules/$(LINUX_VERSION)
+        install -m0644 ./files/modules.dep \
+                $(IDIR_KMOD_GO7007)/lib/modules/$(LINUX_VERSION)/
+        install -m0644 $(PKG_BUILD_DIR)/kernel/*.$(LINUX_KMOD_SUFFIX) \
+                $(IDIR_KMOD_GO7007)/lib/modules/$(LINUX_VERSION)/
+        $(IPKG_BUILD) $(IDIR_KMOD_GO7007) $(PACKAGE_DIR)
+}}}
+
+ * go7007.modules
+
+{{{
+v4l2-common
+snd-go7007
+go7007
+go7007-usb
+wis-saa7115
+wis-uda1342
+wis-sony-tuner
+}}}
+
+Note that this file was used before I start using modprobe so it is unused for now.
+
+ * modules.dep
+
+{{{
+/lib/modules/2.6.16.7/wis-sony-tuner.ko: /lib/modules/2.6.16.7/go7007.ko /lib/modules/2.6.16.7/v4l2-common.ko
+/lib/modules/2.6.16.7/wis-uda1342.ko: /lib/modules/2.6.16.7/go7007.ko
+/lib/modules/2.6.16.7/wis-saa7115.ko: /lib/modules/2.6.16.7/go7007.ko
+/lib/modules/2.6.16.7/go7007-usb.ko: /lib/modules/2.6.16.7/go7007.ko /lib/modules/2.6.16.7/usbcore.ko
+/lib/modules/2.6.16.7/go7007.ko: /lib/modules/2.6.16.7/snd-go7007.ko /lib/modules/2.6.16.7/v4l2-common.ko /lib/modules/2.6.16.7/videodev.ko
+/lib/modules/2.6.16.7/snd-go7007.ko:
+/lib/modules/2.6.16.7/v4l2-common.ko:
+/lib/modules/2.6.16.7/videodev.ko:
+/lib/modules/2.6.16.7/ehci-hcd.ko:
+/lib/modules/2.6.16.7/usbcore.ko:
+}}}
+
+Note that not all actual dependencies are listed as most modules are loaded at boot time and would only generate insmod "Success error". This is the module.dep file you want it you leave /etc/modules/* files alone.
+
+ * kmod-go7007.control
+
+{{{
+Package: kmod-go7007
+Priority: optional
+Section: sys
+Maintener: rdeparis
+Depends: kmod-usb2, kmod-videodev, kmod-alsa
+Description: GO7007 Linux driver
+}}}
+
+As far as the integration to the kamikaze build system is concerned, there nothing to do for Config.in as all subdirectories under target/linux/packages are automatically scanned. You do need to edit the corresponding Makefile adding the following line:
+
+{{{
+package-$(BR2_PACKAGE_KMOD_GO7007) += wis-go7007
+}}}
 
 === User application wis-streamer ===
 
