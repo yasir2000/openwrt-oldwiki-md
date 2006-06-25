@@ -2,6 +2,8 @@
 #format wiki
 == Introduction ==
 
+''This is a WorkInProgress, please bare with me until it is fully fool-proofed and spell-checked.''
+
 I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router / firewall / server combo and it always worked fine even with a DNS local authority / cache and a Squid cache for the LAN, but it was a little slowish so I switched back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default).
 
 Recently I have been playing with USB toys so I got an Asus WL-500g Premium and a Linksys WRTSL54G. So far I have only been messing aroung with the Asus, the only real difference being it has 2 USB ports while the Linksys has only one. Below are my experiments with the Asus, and since they are with kamikaze rather than WhiteRussian RC5 I will not make changes to the official wiki pages.
@@ -874,10 +876,7 @@ kmod-videodev_2.6.16.7-brcm-1_mipsel.ipk
 
 Copy them to your router, install them with ipkg and reboot.
 
-/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are design we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could introduce locks at boot time. So to keep things easy and simple, we use modprobe, which is a lot cleaner anyway.
-
-
-
+/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are design we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could also introduce deadlocks at boot time. So in order to keep things easy and simple we use modprobe, which is a lot cleaner anyway :)
 
 
 
