@@ -614,7 +614,89 @@ We now have FXload.
 
 === Kernel module wis-go7007 ===
 
+Before we get to the actual driver compilation we need to enable a couple of kernel options. Almost all the required options are present in kamikaze except CONFIG_KMOD and CONFIG_I2C. Unfortunately I2C core support triggers some more options that needs to be disabled.
 
+Here is the diff against the stock bcrm-2.6 config:
+
+{{{
+diff -NurbB -x .svn kamikaze.orig/trunk/openwrt/target/linux/brcm-2.6/config kamikaze.devel/trunk/openwrt/target/linux/brcm-2.
+6/config
+--- kamikaze.orig/trunk/openwrt/target/linux/brcm-2.6/config    2006-06-17 14:13:12.000000000 -0400
++++ kamikaze.devel/trunk/openwrt/target/linux/brcm-2.6/config   2006-06-24 11:37:40.000000000 -0400
+@@ -183,7 +183,7 @@
+ CONFIG_OBSOLETE_MODPARM=y
+ # CONFIG_MODVERSIONS is not set
+ # CONFIG_MODULE_SRCVERSION_ALL is not set
+-# CONFIG_KMOD is not set
++CONFIG_KMOD=y
+
+ #
+ # Block layer
+@@ -1118,7 +1118,45 @@
+ #
+ # I2C support
+ #
+-# CONFIG_I2C is not set
++CONFIG_I2C=y
++CONFIG_I2C_CHARDEV=n
++CONFIG_I2C_ALGOBIT=n
++CONFIG_I2C_ALGOPCF=n
++CONFIG_I2C_ALGOPCA=n
++CONFIG_I2C_ALI1535=n
++CONFIG_I2C_ALI1563=n
++CONFIG_I2C_ALI15X3=n
++CONFIG_I2C_AMD756=n
++CONFIG_I2C_AMD8111=n
++CONFIG_I2C_I801=n
++CONFIG_I2C_I810=n
++CONFIG_I2C_PIIX4=n
++CONFIG_I2C_NFORCE2=n
++CONFIG_I2C_PARPORT_LIGHT=n
++CONFIG_I2C_PROSAVAGE=n
++CONFIG_I2C_SAVAGE4=n
++CONFIG_SCx200_ACB=n
++CONFIG_I2C_SIS5595=n
++CONFIG_I2C_SIS630=n
++CONFIG_I2C_SIS96X=n
++CONFIG_I2C_STUB=n
++CONFIG_I2C_VIA=n
++CONFIG_I2C_VIAPRO=n
++CONFIG_I2C_VOODOO3=n
++CONFIG_I2C_PCA_ISA=n
++CONFIG_SENSORS_DS1337=n
++CONFIG_SENSORS_DS1374=n
++CONFIG_SENSORS_EEPROM=n
++CONFIG_SENSORS_PCF8574=n
++CONFIG_SENSORS_PCA9539=n
++CONFIG_SENSORS_PCF8591=n
++CONFIG_SENSORS_RTC8564=n
++CONFIG_SENSORS_MAX6875=n
++CONFIG_RTC_X1205_I2C=n
++CONFIG_I2C_DEBUG_CORE=n
++CONFIG_I2C_DEBUG_ALGO=n
++CONFIG_I2C_DEBUG_BUS=n
++CONFIG_I2C_DEBUG_CHIP=n
+
+ #
+ # SPI support
+@@ -1153,6 +1191,16 @@
+ #
+ # Video For Linux
+ #
++CONFIG_VIDEO_BT848=n
++CONFIG_VIDEO_SAA5246A=n
++CONFIG_VIDEO_SAA5249=n
++CONFIG_TUNER_3036=n
++CONFIG_VIDEO_SAA7134=n
++CONFIG_VIDEO_CX88=n
++CONFIG_VIDEO_EM28XX=n
++CONFIG_VIDEO_OVCAMCHIP=n
++CONFIG_VIDEO_AUDIO_DECODER=n
++CONFIG_VIDEO_DECODER=n
+
+ #
+ # Video Adapters
+}}}
 
 
 === User application wis-streamer ===
