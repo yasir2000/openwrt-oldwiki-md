@@ -30,6 +30,8 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
+I saw someone somewhere commenting on this and complaining about his WL-500gP not running at 266MHz. Those are BogoMIPS?
+
 {{{
 root@OpenWrt:~# cat /proc/meminfo
 MemTotal:        30024 kB
@@ -56,6 +58,10 @@ VmallocTotal:  1048560 kB
 VmallocUsed:      1428 kB
 VmallocChunk:  1047028 kB
 }}}
+
+As we can see we do have 32MB, but I had to use the trick from the Hardware page:
+nvram set sdram_init=0x0009
+nvram set sdram_ncdl=0 
 
 {{{
 root@OpenWrt:~# lsmod
@@ -199,7 +205,6 @@ ehci_hcd 0000:01:03.2: USB 2.0 started, EHCI 1.00, driver 10 Dec 2004
 usb usb1: configuration #1 chosen from 1 choice
 hub 1-0:1.0: USB hub found
 hub 1-0:1.0: 4 ports detected
-Linux video capture interface: v1.00
 usb 1-1: new high speed USB device using ehci_hcd and address 2
 usb 1-1: configuration #1 chosen from 1 choice
 usb 1-2: new high speed USB device using ehci_hcd and address 3
@@ -207,7 +212,7 @@ usb 1-2: configuration #1 chosen from 1 choice
 usbcore: registered new driver snd-usb-audio
 }}}
 
-
+=== Network ===
 
 Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
 
