@@ -236,9 +236,9 @@ Please let me know if you want any additional information posted here.
 
 === Network ===
 
-Here is where it gets a little more confusing. First of all I do not know where people see an eth2 on a WL-500gP. I am using the factory nvram (except the two changes for the 32MB memory visibility) and I never had an eth2 on mine. Was it under WhiteRussian rather than kamikaze? Where/What is eth1 then?
+Here is where it gets a little more confusing. First of all some people see an eth2 on a WL-500gP. I am using the factory nvram (except the two changes for the 32MB memory visibility) and I only have eth1. Probably depends on nvram / scripts. Was it under WhiteRussian rather than kamikaze? Where/What is eth1 then?
 
-Basically the setup appears to be exactly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. Interface eth1 of the router goes to the wifi. So here if what I have setup:
+Basically the setup appears to be exactly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. Interface eth1 (or eth2) of the router goes to the wifi. So here is what I have setup:
 
  * VLANs
 
