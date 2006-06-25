@@ -403,7 +403,7 @@ root@OpenWrt:~# lspci -v
         Capabilities: [80] Power Management version 2
 }}}
 
-Notice the "Broadcom Corporation Sentry5 Crypto Accelerator". I guess this is the hardware encryption module for IPSEC VPN terminations. I am sure we can do something fun with this.
+Notice the "Broadcom Corporation Sentry5 Crypto Accelerator". Is it some hardware encryption module for IPSEC VPN terminations? Or is it just for vendor internal function support? I am sure we can do something fun with this.
 
  * USB 2.0
 
