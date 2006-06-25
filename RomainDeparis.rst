@@ -309,7 +309,7 @@ vlan1     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
 }}}
 
 Note that network 192.168.15.0/24 is my actual LAN network connected to the WAN port while 192.168.1.0/24 is the development network connected to LAN port 1 for firmware upload from my linux box. They both work fine this way.
-As expected we get the WAN port on interface vlan1 and the LAN ports are bridged with br0 over vlan0:
+As expected we get the WAN port on interface vlan1 and the LAN ports uplink is bridged with br0 over vlan0:
 
 {{{
 root@OpenWrt:~# brctl show
