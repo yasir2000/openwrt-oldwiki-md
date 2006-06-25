@@ -317,15 +317,15 @@ bridge name     bridge id               STP enabled     interfaces
 br0             8000.00173197929a       no              vlan0
 }}}
 
-Note that I removed eth1 from br0 as I have no clue what it is and where it leads and I had the b44 switch bug with it anyway:
+Note that I removed eth1 from br0 (and from hotplug altogether) as I have no clue what it is and where it leads and I had the b44 timeout flood messages with it anyway:
 
 {{{
 b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.
 }}}
 
-So I added extra checks in hotplug.d/net/* to forget all about eth1 for now :)
+So I added extra checks in /etc/hotplug.d/net/* to forget all about eth1 for now :)
 
-I have not bothered at all with wifi yet, so I cannot confirm anything about wifi. As far as I can see from the forums it seems pretty messy with the bcm43xx-d80211 driver. Following kernel numbering the wifi interface is expected to be on eth2 so if you get wifi to work you want to add eth2 to br0.
+I have not bothered at all with wifi yet, so I cannot confirm anything about wifi. As far as I can see from the forums it seems pretty messy with the bcm43xx-d80211 driver. Following kernel numbering the wifi interface is expected to be on eth2 so if you get wifi to work you want to add eth2 to br0 and consider it your wlan interface.
 
 /!\ Todo: bother with wifi...
 
