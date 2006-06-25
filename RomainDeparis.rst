@@ -1,6 +1,6 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Intro ==
+== Introduction ==
 
 I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router / firewall / server combo and it always worked fine even with a DNS local authority / cache and a Squid cache for the LAN, but it was a little slowish so I switched back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default).
 
@@ -223,6 +223,8 @@ usb 1-2: new high speed USB device using ehci_hcd and address 3
 usb 1-2: configuration #1 chosen from 1 choice
 usbcore: registered new driver snd-usb-audio
 }}}
+
+Note that eth1 was disabled on this trace, see below.
 
 Please let me know if you want any additional information posted here.
 
