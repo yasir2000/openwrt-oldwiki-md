@@ -236,9 +236,9 @@ Please let me know if you want any additional information posted here.
 
 === Network ===
 
-Here is where it gets a little more confusing. First of all some people see an eth2 on a WL-500gP. I am using the factory nvram (except the two changes for the 32MB memory visibility) and I only have eth1. Probably depends on nvram / scripts. Was it under WhiteRussian rather than kamikaze? Where/What is eth1 then?
+Here is where things get a little more confusing. The switch part is fairly clear but the router has one more interface than expected.
 
-Basically the setup appears to be exactly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. Interface eth1 (or eth2) of the router goes to the wifi. So here is what I have setup:
+Basically the switch setup appears to be exactly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. So here is what I have setup:
 
  * VLANs
 
@@ -309,17 +309,15 @@ vlan1     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
 }}}
 
 Note that network 192.168.15.0/24 is my actual LAN network connected to the WAN port while 192.168.1.0/24 is the development network connected to LAN port 1 for firmware upload from my linux box. They both work fine this way.
+As expected we get the WAN port on interface vlan1 and the LAN ports are bridged with br0 over vlan0:
 
 {{{
 root@OpenWrt:~# brctl show
 bridge name     bridge id               STP enabled     interfaces
 br0             8000.00173197929a       no              vlan0
-                                                        eth1
 }}}
 
-As expected we get the WAN port on interface vlan1 and the LAN ports are bridged with br0 over vlan0 along with eth1 for the wifi.
-
-I have not bothered with wifi yet, so I cannot confirm anything about wifi. As fas as I can see from the forums it seems pretty messy with the bcm43xx-d80211 driver. I did have the b44 switch bug
+Note that I removed eth1 from br0 as I have no clue what it is and where it leads to and I had the b44 switch bug with it anyway:
 
 {{{
 b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.
@@ -327,7 +325,7 @@ b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.
 
 So I added extra checks in hotplug.d/net/* to forget all about eth1 for now :)
 
-Let us know if your network setup on your WL-500gP is consistent with this one as we should update the official wiki pages then.
+I have not bothered at all with wifi yet, so I cannot confirm anything about wifi. As far as I can see from the forums it seems pretty messy with the bcm43xx-d80211 driver. Following kernel numbering the wifi interface is expected to be on eth2 so if you get wifi to work you want to add eth2 to br0.
 
 === PCI / USB ===
 
@@ -410,6 +408,17 @@ root@OpenWrt:~# lspci -v
         Memory at 40000000 (32-bit, non-prefetchable) [size=256]
         Capabilities: [80] Power Management version 2
 }}}
+
+If we look at the network devices, we do see 2 wired ethernet controllers
+
+{{{
+root@OpenWrt:~# ls -la /sys/devices/pci0000\:00/0000\:00\:01.0/ | grep net
+lrwxrwxrwx    1 root     root            0 Jan  1 00:11 net:eth0 -> ../../../class/net/eth0
+root@OpenWrt:~# ls -la /sys/devices/pci0000\:00/0000\:00\:02.0/ | grep net
+lrwxrwxrwx    1 root     root            0 Jan  1 00:11 net:eth1 -> ../../../class/net/eth1
+}}}
+
+They are the two mapped to eth0 and eth1.
 
 Notice the "Broadcom Corporation Sentry5 Crypto Accelerator". Is it some hardware encryption module for IPSEC VPN terminations? Or is it just for vendor internal function support? I am sure we can do something fun with this.
 
