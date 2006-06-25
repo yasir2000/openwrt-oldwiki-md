@@ -327,6 +327,8 @@ So I added extra checks in hotplug.d/net/* to forget all about eth1 for now :)
 
 I have not bothered at all with wifi yet, so I cannot confirm anything about wifi. As far as I can see from the forums it seems pretty messy with the bcm43xx-d80211 driver. Following kernel numbering the wifi interface is expected to be on eth2 so if you get wifi to work you want to add eth2 to br0.
 
+/!\ Todo: bother with wifi...
+
 === PCI / USB ===
 
 Now that the basics are ok, let us play with the juicy parts, the add-ons. Here is what we can see on the buses.
