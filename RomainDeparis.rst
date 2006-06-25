@@ -578,12 +578,29 @@ Maintainer: rdeparis
 Description: firmware loader for EZ-USB devices
 }}}
 
-This will produce the following package under bin/packages:
+Now all you have to do is integrate this package to the kamikaze build system. Add the following lines to the corresponding files directly under package/:
+
+ * Config.in
+
+{{{
+menu "Utilities"
+...
+source "package/fxload/Config.in"
+...
+}}}
+
+ * Makefile:
+
+{{{
+package-$(BR2_PACKAGE_FXLOAD) += fxload
+}}}
+
+All this should produce the following package under bin/packages when you ''make'':
 {{{
 fxload_2002_04_11-1_mipsel.ipk
 }}}
 
-Copy it to your router (I make intense use of public key authentication and SCP :)) and install with ipkg. Try to launch it to make sure the compilation worked okay:
+Copy it to your router (I make intense use of public key authentication and SCP) and install with ipkg. Try to launch FXload to make sure the compilation worked okay:
 
 {{{
 root@OpenWrt:~# fxload
