@@ -458,9 +458,7 @@ http://oss.wischip.com/tv402u.jpg
 For more info on the Plextor:
 http://www.plextor.com/english/products/TV402U.htm
 
-Fortunately the driver for the GO7007 chipset it is based on is OpenSource.
-
-For more info on the GO7007 driver:
+Fortunately the driver for the GO7007 chipset it is based on is Open Source Software. For more info on this driver:
 http://oss.wischip.com/
 
 In the next sections I assume that you know how to tweak kamikaze and that you have a working copy of the SVN trunk. For more info check the wiki documentation BuildingPackagesHowTo and the development documentation
@@ -491,9 +489,114 @@ From the README file distributed with the GO7007 driver archive, we can summariz
 
 As of today kamikaze comes with Linux kernel 2.6.16 and with built-in USB 2.0 support, so the first two requirements are met. Kernel options setup is documented and we will configure them later. 
 
-OpenWRT also includes a minimalist Hotplug emulation that works just fine and that we will use for firmware auto-loading. The only unmet requirement is the FXload utility.
+OpenWRT also includes a minimalist Hotplug emulation that works just fine and that we will use for firmware auto-loading. The only unmet requirement is the FXload utility used to upload the firmware to the EZ-USB device.
 
+=== FXload utility ===
 
+FXload is available from the SourceForge website for Linux-hotplug:
+http://prdownloads.sourceforge.net/linux-hotplug/
+
+Below is the set of files to create under package/fxload/:
+
+{{{
+package/fxload/:
+Config.in  Makefile  ipkg
+
+package/fxload/ipkg:
+fxload.control
+}}}
+
+And their content:
+
+ * Config.in
+
+{{{
+config BR2_PACKAGE_FXLOAD
+        prompt "fxload............................ firmware loader for EZ-USB devices"
+        tristate
+        default y
+        help
+          This program is conveniently able to download firmware into FX and FX2
+          EZ-USB devices, as well as the original AnchorChips EZ-USB.  It is
+          intended to be invoked by hotplug scripts when the unprogrammed device
+          appears on the bus.
+}}}
+
+ * Makefile
+
+{{{
+# $Id: Makefile 3112 2006-06-18 23:33:19Z rdeparis $
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=fxload
+PKG_VERSION:=2002_04_11
+PKG_RELEASE:=1
+PKG_MD5SUM:=cafd71a5bff0c57bcd248273b2541c05
+
+PKG_SOURCE_URL:=@SF/linux-hotplug
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,FXLOAD,fxload,$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        (cd $(PKG_BUILD_DIR); \
+                \
+        );
+        touch $@
+
+$(PKG_BUILD_DIR)/.built: $(PKG_BUILD_DIR)/.configured
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)
+        $(MAKE) -C $(PKG_BUILD_DIR) \
+                CC="$(TARGET_CC)" \
+                CFLAGS="$(TARGET_CFLAGS)" \
+                DESTDIR="$(PKG_INSTALL_DIR)" \
+                all
+        touch $@
+
+$(IPKG_FXLOAD):
+        install -d -m0755 $(IDIR_FXLOAD)/usr/sbin
+        $(CP) $(PKG_BUILD_DIR)/fxload $(IDIR_FXLOAD)/usr/sbin/
+        $(RSTRIP) $(IDIR_FXLOAD)
+        $(IPKG_BUILD) $(IDIR_FXLOAD) $(PACKAGE_DIR)
+}}}
+
+ * fxload.control
+
+{{{
+Package: fxload
+Priority: optional
+Section: sys
+Maintainer: rdeparis
+Description: firmware loader for EZ-USB devices
+}}}
+
+This will produce the following package under bin/packages:
+{{{
+fxload_2002_04_11-1_mipsel.ipk
+}}}
+
+Copy it to your router (I make intense use of public key authentication and SCP :)) and install with ipkg. Try to launch it to make sure the compilation worked okay:
+
+{{{
+root@OpenWrt:~# fxload
+no device specified!
+usage: fxload [-vV] [-t type] [-D devpath]
+                [-I firmware_hexfile] [-s loader] [-c config_byte]
+                [-L link] [-m mode]
+... [-D devpath] overrides DEVICE= in env
+... device types:  one of an21, fx, fx2
+... at least one of -I, -L, -m is required
+}}}
+
+We now have FXload.
 
 === Kernel module wis-go7007 ===
 
