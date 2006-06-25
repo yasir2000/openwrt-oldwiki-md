@@ -449,10 +449,26 @@ If you want a more interesting USB device support example, check below.
 [[Anchor(wis-go7007)]]
 == GO7007 devices support ==
 
-The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U that I have. Fortunately the driver for the GO7007 chipset it is based on is OpenSource.
+The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U that I have.
 
-For more info on the GO7007:
-http://oss.wischip.com/
+http://oss.wischip.com/tv402u.jpg
+
+For more info on the Plextor:
+ http://www.plextor.com/english/products/TV402U.htm
+
+Fortunately the driver for the GO7007 chipset it is based on is OpenSource.
+
+For more info on the GO7007 driver:
+ http://oss.wischip.com/
+
+In the next section I assume that you know how to tweak kamikaze and that you have a working copy of the SVN trunk. For more info check the wiki documentation:
+ BuildingPackagesHowTo
+and the development documentation
+ https://dev.openwrt.org/browser/trunk/openwrt/docs/buildroot-documentation.html?format=raw
+
+Kernel module wis-go7007
+
+
 
 ----
  CategoryHomepage
