@@ -39,7 +39,9 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
 
 
-[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on.||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
+[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on.
+
+||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
 ||Linksys ||WRT54G ||v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRT54GL ||v1.0 ||vlan0 ||vlan1 ||eth1 || ||
@@ -50,7 +52,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
-||Asus ||WL-500g Premium || ||vlan0 ||eth0 ||eth2 ||Verified WAN and Wifi, not sure about note^1^ ||
+||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^||
 ||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
@@ -68,6 +70,8 @@ Diagrams of the internal switch architectures can be found via the following tab
 
 
 note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted.
+
+note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
 
 Please update to include other models.
 
