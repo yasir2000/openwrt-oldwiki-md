@@ -616,7 +616,7 @@ usage: fxload [-vV] [-t type] [-D devpath]
 
 We now have FXload.
 
-=== Kernel module wis-go7007 ===
+=== Kernel and system setup ===
 
 Before we get to the actual driver compilation we need to enable a couple of kernel options. Almost all the required options are present in kamikaze except CONFIG_KMOD and CONFIG_I2C. Unfortunately I2C core support triggers some more options that needs to be disabled.
 
@@ -702,7 +702,13 @@ diff -NurbB -x .svn kamikaze.orig/trunk/openwrt/target/linux/brcm-2.6/config kam
  # Video Adapters
 }}}
 
-Now create the wis-go7007 package under target/linux/package:
+You need to ''make menuconfig'' and enable at least modprobe under busybox configuration. This is necessary for modules and their dependencies to automagically load with CONFIG_KMOD. That is usually when I tweak the image to remove most of the packages I will not use and add others usefull (lspci, lsusb, lsmod...).
+
+Do not forget to ''make'' and upload the new firmware to your router.
+
+=== Kernel module wis-go7007 ===
+
+Create the wis-go7007 package under target/linux/package:
 
 {{{
 target/linux/package/wis-go7007/:
@@ -837,7 +843,7 @@ Note that this file was used before I start using modprobe so it is unused for n
 /lib/modules/2.6.16.7/usbcore.ko:
 }}}
 
-Note that not all actual dependencies are listed as most modules are loaded at boot time and would only generate insmod "Success error". This is the module.dep file you want it you leave /etc/modules/* files alone.
+Note that not all actual dependencies are listed as most modules are loaded at boot time and would only generate insmod "Success error". This is the module.dep file you want it you leave the /etc/modules.d/* files alone.
 
  * kmod-go7007.control
 
@@ -855,6 +861,25 @@ As far as the integration to the kamikaze build system is concerned, there nothi
 {{{
 package-$(BR2_PACKAGE_KMOD_GO7007) += wis-go7007
 }}}
+
+After you ''make'' you should have among other packages the followings under bin/packages:
+
+{{{
+kmod-alsa_2.6.16.7+1.0.11rc4-brcm-1_mipsel.ipk
+kmod-go7007_2.6.16.7+0.9.8-brcm-1_mipsel.ipk
+kmod-usb-core_2.6.16.7-brcm-1_mipsel.ipk
+kmod-usb2_2.6.16.7-brcm-1_mipsel.ipk 
+kmod-videodev_2.6.16.7-brcm-1_mipsel.ipk
+}}}
+
+Copy them to your router, install them with ipkg and reboot.
+
+/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are design we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could introduce locks at boot time. So to keep things easy and simple, we use modprobe, which is a lot cleaner anyway.
+
+
+
+
+
 
 === User application wis-streamer ===
 
