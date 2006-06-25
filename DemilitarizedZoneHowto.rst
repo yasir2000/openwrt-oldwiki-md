@@ -52,12 +52,12 @@ The configuration is easily done by changing the vlan* NVRAM variables.
 /!\ '''WARNING:''' Doublecheck these settings before commit them!
 
 {{{
-vlan0hwname=et0
-vlan0ports="1 2 3 5*"
-vlan1hwname=et0
-vlan1ports="0 5"
-vlan2hwname=et0
-vlan2ports="4 5"
+nvram set vlan0hwname=et0
+nvram set vlan0ports="1 2 3 5*"
+nvram set vlan1hwname=et0
+nvram set vlan1ports="0 5"
+nvram set vlan2hwname=et0
+nvram set vlan2ports="4 5"
 }}}
 
 The {{{vlan2hwname}}} and {{{vlan2ports}}} NVRAM variables creates the new
@@ -69,11 +69,11 @@ vlan2 for our DMZ.
 Set the following:
 
 {{{
-dmz_ifname=vlan2
-dmz_ifnames=vlan2
-dmz_ipaddr=192.168.2.1
-dmz_netmask=255.255.255.0
-dmz_proto=static
+nvram set dmz_ifname=vlan2
+nvram set dmz_ifnames=vlan2
+nvram set dmz_ipaddr=192.168.2.1
+nvram set dmz_netmask=255.255.255.0
+nvram set dmz_proto=static
 }}}
 
 
