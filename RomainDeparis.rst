@@ -2,17 +2,21 @@
 #format wiki
 == Intro ==
 
-I have been using a Linksys WRT54GS-Rev0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router/firewall/server combo and it always worked fine even with a DNS local authority/cache and a Squid cache for the LAN, but it was a little slowish so I switch back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default, not sure now).
+I have been using a Linksys WRT54GS-Rev0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router / firewall / server combo and it always worked fine even with a DNS local authority / cache and a Squid cache for the LAN, but it was a little slowish so I switched back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default, not sure now).
 
 Recently I have been playing with USB toys so I got an Asus WL-500g Premium and a Linksys WRTSL54G. So far I have only been messing aroung with the Asus, the only real difference being it has 2 USB ports while the Linksys has only one. Below are my experiments with the Asus, and since they are mysteriously not completely consistent with what I have seen around the wiki and forums I will not make changes to the official wiki pages until more people try it out.
 
+Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
+
 == Asus WL-500g Premium ==
 
-I only use kamikaze with some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
+I use kamikaze with some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
 
+As mentionned on the ["OpenWrtDocs/Hardware/Asus/WL500GP"] page, I only use tftp to upload the firmware. Router does not reboot automatically after the upload.
 
+=== CPU / Memory / Modules ===
 
-=== CPU/Memory/Drivers ===
+ * CPU
 
 {{{
 root@OpenWrt:~# cat /proc/cpuinfo
@@ -30,7 +34,9 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
-I saw someone somewhere commenting on this and complaining about his WL-500gP not running at 266MHz. Those are BogoMIPS?
+I saw someone somewhere commenting on this and complaining about his WL-500gP not running at 266MHz. Those are measured BogoMIPS.
+
+ * Memory
 
 {{{
 root@OpenWrt:~# cat /proc/meminfo
@@ -60,8 +66,12 @@ VmallocChunk:  1047028 kB
 }}}
 
 As we can see we do have 32MB, but I had to use the trick from the Hardware page:
+{{{
 nvram set sdram_init=0x0009
 nvram set sdram_ncdl=0 
+}}}
+
+ * Modules
 
 {{{
 root@OpenWrt:~# lsmod
@@ -93,6 +103,8 @@ wlan                  169696  9 wlan_xauth,wlan_wep,wlan_tkip,wlan_ccmp,wlan_acl
 switch_robo             3984  0
 switch_core             5056  1 switch_robo
 }}}
+
+ * And the summary
 
 {{{
 root@OpenWrt:~# dmesg
@@ -212,9 +224,78 @@ usb 1-2: configuration #1 chosen from 1 choice
 usbcore: registered new driver snd-usb-audio
 }}}
 
+Please let me know if you want any additional information posted here.
+
 === Network ===
 
-Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
+Here is where it gets a little more confusing. First of all I do not know where people saw an eth2 on a WL-500gP. I am using the factory nvram (except the 2 changes for the 32MB memory visibility) and I never had an eth2 on mine. 
+
+Basically the setup appears to be exactlly the same as the WRT54G v2/v3 & WRT54GS v1/v2 (see here ["OpenWrtDocs/Configuration#NetworkInterfaceNames"]). I would say switchports 1 to 4 are the four LAN ports, switchport 0 is the separate WAN port and switchport 5 is the uplink to the eth0 interface of the router. Interface eth1 of the router goes to the wifi. So here if what I have setup:
+
+ * VLANs
+
+{{{
+root@OpenWrt:~# cat /proc/switch/eth0/vlan/0/ports
+1       2       3       4       5t*
+root@OpenWrt:~# cat /proc/switch/eth0/vlan/1/ports
+0       5t
+}}}
+
+VLAN 0 is native on LAN switchports 1,2,3 and 4 and tagged on switchport 5.
+
+VLAN 1 is native on WAN swithport 0 and tagged on switchport 5.
+
+On the router you get the trunking VLANs from switchport 5 on virtual interface vlan0 and vlan1 from eth0.
+
+ * Interfaces
+
+{{{
+root@OpenWrt:~# ifconfig
+br0       Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:692 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:529 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:61059 (59.6 KiB)  TX bytes:81305 (79.3 KiB)
+          Interrupt:4
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+vlan0     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+vlan1     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
+          inet addr:192.168.15.50  Bcast:192.168.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:702 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:535 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:49313 (48.1 KiB)  TX bytes:79765 (77.8 KiB)
+}}}
+
+Note that network 192.168.15.0/24 is my actual LAN connected to the WAN port while 192.168.1.0/24 is the development LAN connect to LAN port 1 for firmware upload from my linux box. They both work fine this way.
+
+As expected we get the WAN port on interface vlan1 and the LAN ports are bridged with br0 over vlan0 along with eth1 for the wifi.
+
+Let us know if your network setup on your WL-500gP is consistent with this one as we should update the official wiki pages then.
 
 ...
 
