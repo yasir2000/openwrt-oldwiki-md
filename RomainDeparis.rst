@@ -16,7 +16,7 @@ Or leave me a message at the end of this page with the following syntax:
 Just saying Hi! -- JohnDoe
 }}}
 
-== Asus WL-500g Premium ==
+[[anchor(Asus)]]== Asus WL-500g Premium ==
 
 '''I use only kamikaze brcm-2.6 on SquashFS'''. I also add some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
 
@@ -438,12 +438,11 @@ Device 002 is a 1GB USB2 key
 
 /!\ More to come
 
-== Linksys WRTSL54GS ==
+[[anchor(Linksys)]]== Linksys WRTSL54GS ==
 
 /!\ Untested so far
 
-[[anchor:"wis-go7007"]]
-== GO7007 chipset support ==
+[[anchor(wis-go7007)]]== GO7007 chipset support ==
 
 
 ----
