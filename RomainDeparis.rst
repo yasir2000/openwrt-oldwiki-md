@@ -409,7 +409,7 @@ root@OpenWrt:~# lspci -v
         Capabilities: [80] Power Management version 2
 }}}
 
-If we look at the network devices, we do see 2 wired ethernet controllers
+If we look at the network devices, we do see 2 wired ethernet controllers:
 
 {{{
 root@OpenWrt:~# ls -la /sys/devices/pci0000\:00/0000\:00\:01.0/ | grep net
@@ -420,7 +420,7 @@ lrwxrwxrwx    1 root     root            0 Jan  1 00:11 net:eth1 -> ../../../cla
 
 They are the two mapped to eth0 and eth1.
 
-Notice the "Broadcom Corporation Sentry5 Crypto Accelerator". Is it some hardware encryption module for IPSEC VPN terminations? Or is it just for vendor internal function support? I am sure we can do something fun with this.
+Notice the "Broadcom Corporation Sentry5 Crypto Accelerator". Is it some hardware encryption module for IPSEC VPN terminations? Or is it just for vendor internal function support? I am sure we can do something fun with this. Also there appears to be a V.92 56k modem inside too. I really need to open that box :)
 
  * USB 2.0
 
