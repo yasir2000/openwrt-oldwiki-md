@@ -174,3 +174,5 @@ applications
 widely
 
 buildroot buildroot2 buildsystem
+
+Alabama author bluebox Cartography Geology Helpdesk installing planning polarized projects Recreation recreation soldering spcsys Specialized together trapped upgrades webpages
