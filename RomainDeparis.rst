@@ -261,14 +261,14 @@ br0       Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
 
 eth0      Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
           UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
-          RX packets:692 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:529 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:22 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:27 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
-          RX bytes:61059 (59.6 KiB)  TX bytes:81305 (79.3 KiB)
+          RX bytes:4049 (3.9 KiB)  TX bytes:4115 (4.0 KiB)
           Interrupt:4
 
 eth1      Link encap:Ethernet  HWaddr 40:10:18:00:00:2D
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
@@ -293,13 +293,21 @@ vlan0     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
 vlan1     Link encap:Ethernet  HWaddr 00:17:31:97:92:9A
           inet addr:192.168.15.50  Bcast:192.168.15.255  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:702 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:535 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:32 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:32 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
-          RX bytes:49313 (48.1 KiB)  TX bytes:79765 (77.8 KiB)
+          RX bytes:4363 (4.2 KiB)  TX bytes:4535 (4.4 KiB)
+
 }}}
 
-Note that network 192.168.15.0/24 is my actual LAN connected to the WAN port while 192.168.1.0/24 is the development LAN connect to LAN port 1 for firmware upload from my linux box. They both work fine this way.
+Note that network 192.168.15.0/24 is my actual LAN network connected to the WAN port while 192.168.1.0/24 is the development network connect to LAN port 1 for firmware upload from my linux box. They both work fine this way.
+
+{{{
+root@OpenWrt:~# brctl show
+bridge name     bridge id               STP enabled     interfaces
+br0             8000.00173197929a       no              vlan0
+                                                        eth1
+}}}
 
 As expected we get the WAN port on interface vlan1 and the LAN ports are bridged with br0 over vlan0 along with eth1 for the wifi.
 
@@ -309,7 +317,7 @@ I have not bothered with wifi yet, so I cannot confirm anything about wifi. As f
 b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.
 }}}
 
-So I added extra checks in hotplug.d/net/* to forget all about eth1 :)
+So I added extra checks in hotplug.d/net/* to forget all about eth1 for now :)
 
 Let us know if your network setup on your WL-500gP is consistent with this one as we should update the official wiki pages then.
 
