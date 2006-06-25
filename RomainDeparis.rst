@@ -6,7 +6,7 @@ I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since 
 
 Recently I have been playing with USB toys so I got an Asus WL-500g Premium and a Linksys WRTSL54G. So far I have only been messing aroung with the Asus, the only real difference being it has 2 USB ports while the Linksys has only one. Below are my experiments with the Asus, and since they are with kamikaze rather than WhiteRussian RC5 I will not make changes to the official wiki pages.
 
-If you already know everything about running kamikaze on your latest router and have your own OpenWRT firmware optimized to the latest byte, you may want to jump to the real added value of this page, '''support for the GO7007 chipset based devices like the Plextor ConvertX PX-TV402U''': wis-go7007
+If you already know everything about running kamikaze on your latest router and have your own OpenWRT firmware optimized to the latest byte, you may want to jump to the real added value of this page, '''support for the GO7007 chipset based devices like the Plextor ConvertX PX-TV402U''': [:OpenWrtDocs/RomainDeparis#wis-go7007:GO7007]
 
 Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
 
