@@ -6,7 +6,9 @@ I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since 
 
 Recently I have been playing with USB toys so I got an Asus WL-500g Premium and a Linksys WRTSL54G. So far I have only been messing aroung with the Asus, the only real difference being it has 2 USB ports while the Linksys has only one. Below are my experiments with the Asus, and since they are with kamikaze rather than WhiteRussian RC5 I will not make changes to the official wiki pages.
 
-If you already know everything about running kamikaze on your latest router and have your own OpenWRT firmware optimized to the latest byte, you may want to jump to the real added value of this page, '''support for the GO7007 chipset based devices like the Plextor ConvertX PX-TV402U''': [:OpenWrtDocs/RomainDeparis#wis-go7007:GO7007]
+If you already know everything about running kamikaze on your latest router and have your own OpenWRT firmware optimized to the latest byte, you may want to jump to the real added value of this page, '''support for the [:OpenWrtDocs/RomainDeparis#wis-go7007:GO7007] chipset based devices like the Plextor ConvertX PX-TV402U'''.
+
+[[TableOfContents]]
 
 Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
 
@@ -16,7 +18,8 @@ Or leave me a message at the end of this page with the following syntax:
 Just saying Hi! -- JohnDoe
 }}}
 
-[[anchor(Asus)]]== Asus WL-500g Premium ==
+[[Anchor(Asus)]]
+== Asus WL-500g Premium ==
 
 '''I use only kamikaze brcm-2.6 on SquashFS'''. I also add some basic customization on which packages are installed and some simple patches to support extra USB hardware. Should it ever come to something interesting I will post that here.
 
@@ -438,11 +441,13 @@ Device 002 is a 1GB USB2 key
 
 /!\ More to come
 
-[[anchor(Linksys)]]== Linksys WRTSL54GS ==
+[[Anchor(Linksys)]]
+== Linksys WRTSL54GS ==
 
 /!\ Untested so far
 
-[[anchor(wis-go7007)]]== GO7007 chipset support ==
+[[Anchor(wis-go7007)]]
+== GO7007 chipset support ==
 
 
 ----
