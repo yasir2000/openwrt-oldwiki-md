@@ -396,7 +396,7 @@ Note that this file was used before I start using modprobe so it is unused for n
 /lib/modules/2.6.16.7/usbcore.ko:
 }}}
 
-Note that not all actual dependencies are listed as most modules are loaded at boot time and would only generate insmod "Success error". This is the module.dep file you want it you leave the /etc/modules.d/* files alone.
+Note that '''not''' all actual dependencies are listed as most modules are loaded at boot time and would only generate insmod "Success error". This is the module.dep file you want if you leave the /etc/modules.d/* files alone.
 
  * kmod-go7007.control
 
