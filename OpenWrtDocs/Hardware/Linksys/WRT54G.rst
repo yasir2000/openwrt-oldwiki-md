@@ -18,10 +18,11 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3 || CDF8 || (./) || (./) ||
 ||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
 ||WRT54G v4 || CDFA || (./) || (./) ||
-||WRT54G v5 || CDFB || {X} || {X} ||
+||WRT54G v5 *|| CDFB || {X}  || {X} ||
 ||WRT54G v5.1 || -- || {X} || {X} ||
-||WRT54G v6 ||CDFD || {X} || {X} ||
+||WRT54G v6 *||CDFD || {X}  || {X} ||
 
+*Not officitally supported but will work, see below
 
 === WRT54G v1.0 ===
 The WRT54G v1.0 is based on the Broadcom 4710 board. It has a 125 MHz CPU, 4 MB flash and 16 MB SDRAM. The wireless NIC is a mini-PCI card. The switch is an ADM6996. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
@@ -55,11 +56,14 @@ To remove the front cover from this unit you simply pop the front of the case of
 This board has a BCM3302 processor, revision 0.8.
 
 === WRT54G v5, v5.1, and v6 ===
-/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' SUPPORTED. THEY WILL NEVER BE SUPPORTED. DO NOT ASK FOR THEM TO BE SUPPORTED!
+/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' OFFICIALLY SUPPORTED. THEY WILL NEVER BE SUPPORTED. DO NOT ASK FOR THEM TO BE SUPPORTED!
+
+Update: Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. 
 
 This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). The v5 and later models could be supported by OpenWrt, but most useful features of OpenWrt would have to be cut and barely enough room to run the OS would exist. Furthermore, the CFE would likely have to be updated via JTAG.
 
-[http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G Currently only a downstripped DD-WRT is supported on WRT54G/GS v5, v5.1, and v6.] However, it requires a JTAG cable to replace the CFE with a version capable of loading a linux kernel. It does work though, and the box performs suprisingly well for basic functionality.
+[http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G A downstripped DD-WRT is supported on WRT54G/GS v5, v5.1, and v6.] However, it requires a JTAG cable to replace the CFE with a version capable of loading a linux kernel. It does work though, and the box performs suprisingly well for basic functionality. 
+
 
 === Table summary ===
 How to get info:
