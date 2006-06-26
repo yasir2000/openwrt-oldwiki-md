@@ -14,7 +14,7 @@
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
  * [http://dev.openwrt.org/ OpenWrt development center] - Send bug reports, browse the source code, ..
-
+ * [http://www.wildcatwireless.net/wrt54g/ Download Packages]
 ----
 
 Interesting starting points:
