@@ -58,5 +58,8 @@ SF:B\x201\.0\r\nWWW-Authenticate:\x20Basic\x20realm=\"WRT54GC\"\r\nContent
 SF:-type:\x20text/html\r\n\r\n401\x20Unauthorized");}}}
 
 It's a linux-based  ?
+
+'''Linux-Based?''' No. It's returning part of your User-Agent message, or some other message that identifies the host OS type of the originating message. All it tells us is that your computer is i686-pc-linux-gnu, but tells us nothing of the router. At 1MB FLASH, my money's on !VxDoesntWorks.
+
 ----
  CategoryModel
