@@ -784,6 +784,134 @@ Copy them to your router, and install them with ipkg.
 
 /!\ Now do not try it as is just yet as it will segfault :( I have a problem somewhere with the ALSA OSS emulation. After I disabled audio altogether in the source code, video actually works fine for me. I am working on it, please be patient and let me know if you find something before I do.
 
+----
+
+This is a temporary section until sound support is fixed. It will contain extra info to help debugging.
+
+First I compared with a working setup on a Debian 2.6.16-1-686 GNU/Linux. Here are the info I get on the WRT:
+
+ * ALSA global
+
+{{{
+root@OpenWrt:~# cat /proc/asound/cards 
+ 0 [PXTV402        ]: go7007 - Plextor PX-TV402
+                      Plextor PX-TV402
+root@OpenWrt:~# cat /proc/asound/devices 
+  0: [ 0]   : control
+ 24: [ 0- 0]: digital audio capture
+ 33:        : timer
+root@OpenWrt:~# cat /proc/asound/modules 
+ 0 snd_go7007
+root@OpenWrt:~# cat /proc/asound/pcm     
+00-00: go7007 :  : capture 1
+root@OpenWrt:~# cat /proc/asound/timers 
+G0: system timer : 1000.000us (10000000 ticks)
+P0-0-1: PCM capture 0-0-1 : SLAVE
+root@OpenWrt:~# cat /proc/asound/version 
+Advanced Linux Sound Architecture Driver Version 1.0.11rc4.
+Compiled on Jun 24 2006 for kernel 2.6.16.7.
+}}}
+
+ * ALSA PXTV402
+
+{{{
+root@OpenWrt:~# cat /proc/asound/card0/id 
+PXTV402
+root@OpenWrt:~# cat /proc/asound/card0/oss_mixer 
+VOLUME "" 0
+BASS "" 0
+TREBLE "" 0
+SYNTH "" 0
+PCM "" 0
+SPEAKER "" 0
+LINE "" 0
+MIC "" 0
+CD "" 0
+IMIX "" 0
+ALTPCM "" 0
+RECLEV "" 0
+IGAIN "" 0
+OGAIN "" 0
+LINE1 "" 0
+LINE2 "" 0
+LINE3 "" 0
+DIGITAL1 "" 0
+DIGITAL2 "" 0
+DIGITAL3 "" 0
+PHONEIN "" 0
+PHONEOUT "" 0
+VIDEO "" 0
+RADIO "" 0
+MONITOR "" 0
+root@OpenWrt:~# cat /proc/asound/card0/pcm0c/info 
+card: 0
+device: 0
+subdevice: 0
+stream: CAPTURE
+id: go7007
+name: 
+subname: subdevice #0
+class: 0
+subclass: 0
+subdevices_count: 1
+subdevices_avail: 1
+root@OpenWrt:~# cat /proc/asound/card0/pcm0c/oss 
+root@OpenWrt:~# cat /proc/asound/card0/pcm0c/sub0/hw_params 
+closed
+root@OpenWrt:~# cat /proc/asound/card0/pcm0c/sub0/info 
+card: 0
+device: 0
+subdevice: 0
+stream: CAPTURE
+id: go7007
+name: 
+subname: subdevice #0
+class: 0
+subclass: 0
+subdevices_count: 1
+subdevices_avail: 1
+root@OpenWrt:~# cat /proc/asound/card0/pcm0c/sub0/status 
+closed
+root@OpenWrt:~# cat /proc/asound/card0/pcm0c/sub0/sw_params 
+closed
+}}}
+
+ * OSS
+
+{{{
+root@OpenWrt:~# cat /proc/asound/oss/devices 
+  0: [0- 0]: mixer
+  3: [0- 0]: digital audio
+  4: [0- 0]: digital audio
+root@OpenWrt:~# cat /proc/asound/oss/sndstat 
+Sound Driver:3.8.1a-980706 (ALSA v1.0.11rc4 emulation code)
+Kernel: Linux OpenWrt 2.6.16.7 #1 Sat Jun 24 14:43:51 EDT 2006 mips
+Config options: 0
+
+Installed drivers: 
+Type 10: ALSA emulation
+
+Card config: 
+Plextor PX-TV402
+
+Audio devices:
+0: 
+
+Synth devices: NOT ENABLED IN CONFIG
+
+Midi devices: NOT ENABLED IN CONFIG
+
+Timers:
+7: system timer
+
+Mixers:
+0: mixer00
+}}}
+
+I do not see any difference with a working setup so far.
+
+----
+
 === How to use it ===
 
 The Plextor actually has 3 input ports.
