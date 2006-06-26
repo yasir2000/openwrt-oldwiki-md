@@ -56,7 +56,7 @@ To remove the front cover from this unit you simply pop the front of the case of
 This board has a BCM3302 processor, revision 0.8.
 
 === WRT54G v5, v5.1, and v6 ===
-/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' OFFICIALLY SUPPORTED. THEY WILL NEVER BE SUPPORTED. DO NOT ASK FOR THEM TO BE SUPPORTED!
+/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' OFFICIALLY SUPPORTED. 
 
 Update: Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. 
 
