@@ -463,6 +463,8 @@ http://www.plextor.com/english/products/TV402U.htm
 Fortunately the driver for the GO7007 chipset it is based on is Open Source Software. For more info on this driver:
 http://oss.wischip.com/
 
+The GO7007 video part uses Video4Linux2 API and the audio part uses ALSA OSS emulation.
+
 In the next sections I assume that you know how to tweak kamikaze and that you have a working copy of the SVN trunk. For more info check the wiki documentation BuildingPackagesHowTo and the development documentation
  https://dev.openwrt.org/browser/trunk/openwrt/docs/buildroot-documentation.html?format=raw
 
@@ -876,9 +878,90 @@ kmod-videodev_2.6.16.7-brcm-1_mipsel.ipk
 
 Copy them to your router, install them with ipkg and reboot.
 
-/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are design we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could also introduce deadlocks at boot time. So in order to keep things easy and simple we use modprobe, which is a lot cleaner anyway :)
+/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are design we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could also introduce deadlocks at boot time. So in order to keep things easy and simple we use modprobe, which is a lot cleaner anyway.
 
+Now it is time to test the hardware:
 
+{{{
+root@OpenWrt:~# modprobe go7007-usb
+root@OpenWrt:~#
+}}}
+
+You should not have any error message :) Check dmesg:
+
+{{{
+go7007-usb: probing new GO7007 USB board
+go7007: registering new Plextor PX-TV402U-NA
+wis-saa7115: initializing SAA7115 at address 32 on WIS GO7007SB EZ-USB
+wis-uda1342: initializing UDA1342 at address 26 on WIS GO7007SB EZ-USB
+wis-sony-tuner: initializing tuner at address 96 on WIS GO7007SB EZ-USB
+wis-sony-tuner: type set to 202 (Sony NTSC (BTF-PB463Z))
+usbcore: registered new driver go7007
+}}}
+
+Here is the complete list of relevant modules now loaded:
+
+{{{
+wis_sony_tuner          5904  0
+wis_uda1342             1568  0
+wis_saa7115             3936  0
+go7007_usb             10288  0
+go7007                 53728  4 wis_sony_tuner,wis_uda1342,wis_saa7115,go7007_usb
+snd_go7007              2448  1 go7007
+v4l2_common             5312  2 wis_sony_tuner,go7007
+snd_pcm_oss            38880  0
+snd_mixer_oss          14496  1 snd_pcm_oss
+snd_usb_audio          54016  0
+snd_hwdep               5136  1 snd_usb_audio
+snd_usb_lib            11424  1 snd_usb_audio
+snd_rawmidi            16352  1 snd_usb_lib
+snd_pcm                65440  3 snd_go7007,snd_pcm_oss,snd_usb_audio
+snd_timer              16496  1 snd_pcm
+snd                    36352  9 snd_go7007,snd_pcm_oss,snd_mixer_oss,snd_usb_audio,snd_hwdep,snd_usb_lib,snd_rawmidi,snd_pcm,snd_timer
+snd_page_alloc          5136  1 snd_pcm
+videodev                5472  1 go7007
+ehci_hcd               25072  0
+usbcore               106448  5 go7007_usb,snd_usb_audio,snd_usb_lib,ehci_hcd
+soundcore               4816  1 snd
+}}}
+
+Check the USB bus:
+
+{{{
+root@OpenWrt:~# lsusb
+Bus 001 Device 004: ID 093b:a104 Plextor Corp.
+Bus 001 Device 002: ID 0457:0151 Silicon Integrated Systems Corp.
+Bus 001 Device 001: ID 0000:0000
+}}}
+
+Device 002 is still my USB2 1GB key. Device 004 is our Plextor ConvertX.
+
+Check the ALSA and video4linux integration:
+
+{{{
+root@OpenWrt:~# cat /sys/class/video4linux/video0/name
+go7007
+root@OpenWrt:~# cat /proc/asound/oss/devices
+  0: [0- 0]: mixer
+  3: [0- 0]: digital audio
+  4: [0- 0]: digital audio
+}}}
+
+Finally check the device files automagically created by kamikaze udev:
+{{{
+root@OpenWrt:~# ls -la /dev/v4l/
+drwxr-xr-x    1 root     root            0 Jan  1  1970 .
+drwxr-xr-x    1 root     root            0 Jan  1  1970 ..
+crw-------    1 root     root      81,   0 Jan  1  1970 video0
+root@OpenWrt:~# ls -la /dev/sound/
+drwxr-xr-x    1 root     root            0 Jan  1  1970 .
+drwxr-xr-x    1 root     root            0 Jan  1  1970 ..
+crw-------    1 root     root      14,   4 Jan  1  1970 audio
+crw-------    1 root     root      14,   3 Jan  1  1970 dsp
+crw-------    1 root     root      14,   0 Jan  1  1970 mixer
+}}}
+
+All set!
 
 === User application wis-streamer ===
 
