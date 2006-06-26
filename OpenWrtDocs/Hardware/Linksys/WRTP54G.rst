@@ -18,21 +18,21 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
 
- * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago 'root' access was gained to a RTP300 box using the Admin account (Admin is uid 0).
+ * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago 'root' access was gained to a RTP300 box using the Admin account (Admin is uid 0).  (Could somebody clarify this statement?  Was this due to some special circumstance or is it something we can reproduce?)
 
- * Source code is incomplete, it's missing some of the binary files (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
+ * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
 
  * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
 
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
 
- * All of the entries in the ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
+ * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
 
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html
 
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
 
- * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The drivers are proprietary.
+ * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The driver source code has not been released.
 
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
 
