@@ -1233,7 +1233,7 @@ wis-streamer_2006.06.14-1_mipsel.ipk
 
 Copy them to your router, and install them with ipkg.
 
-/!\ Now do not try it as it will segfault :( I have a problem somewhere with the ALSA OSS emulation. After I disabled audio altogether in the source code, video actually works fine for me. I am working on it, please be patient and let me know if you find something before I do.
+/!\ Now do not try it as is just yet as it will segfault :( I have a problem somewhere with the ALSA OSS emulation. After I disabled audio altogether in the source code, video actually works fine for me. I am working on it, please be patient and let me know if you find something before I do.
 
 === How to use it ===
 
