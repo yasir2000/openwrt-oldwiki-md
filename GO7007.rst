@@ -1,3 +1,5 @@
+For generic info on the OpenWRT devices used, check [:OpenWrtDocs/RomainDeparis:this]
+
 == GO7007 devices support ==
 
 The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U that I have.
