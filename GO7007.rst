@@ -1,4 +1,4 @@
-For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54G), check [:RomainDeparis:this] first.
+For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54G) and their configuration, check [:RomainDeparis:this] first.
 
 == GO7007 devices support ==
 
