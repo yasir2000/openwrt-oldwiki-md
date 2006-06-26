@@ -37,7 +37,7 @@ One involves nbd's qosif scripts.  And the other involves ctshaper, a script wri
 Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.
 
 === qosfw-scripts package (was qosif) ===
-(''Somewhat updated for qosfw-scripts, could use some editing'')
+(''Somewhat updated for qosfw-scripts, could use some editing - especially now qosfw-scripts doesn't seem to exist any more!'')
 
 ----
 If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.   
