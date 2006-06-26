@@ -908,7 +908,7 @@ Mixers:
 0: mixer00
 }}}
 
-I do not see any difference with a working setup so far.
+I do not see any difference with a working setup so far (except this is ALSA Driver Version 1.0.11rc4 while the working one is rc2, as a very last resort I will try this after checking the changelogs).
 
 ----
 
