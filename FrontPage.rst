@@ -10,11 +10,12 @@
  * [:OpenWrtDocs] - Documentation for !OpenWrt Linux distribution 
  * [:OpenWrtHowTo] - Many nice Howtos about !OpenWrt
  * [:Faq] - Frequently Asked Questions
+ * [http://www.wildcatwireless.net/wrt54g/ Download Packages]
  * [:OpenWrtLinks] - External articles, howtos, !OpenWrt applications, ..
  * [http://openwrt.org/support How to get help and support]
  * [http://forum.openwrt.org/ Visit the forums]
  * [http://dev.openwrt.org/ OpenWrt development center] - Send bug reports, browse the source code, ..
- * [http://www.wildcatwireless.net/wrt54g/ Download Packages]
+
 ----
 
 Interesting starting points:
