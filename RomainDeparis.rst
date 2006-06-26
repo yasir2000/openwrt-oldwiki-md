@@ -2,7 +2,7 @@
 #format wiki
 == Introduction ==
 
-''This is a WorkInProgress, please bare with me until it is fully fool-proofed and spell-checked.''
+''This is a work-in-progress, please bare with me until it is fully fool-proofed and spell-checked.''
 
 I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router / firewall / server combo and it always worked fine even with a DNS local authority / cache and a Squid cache for the LAN, but it was a little slowish so I switched back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default).
 
@@ -458,10 +458,10 @@ The idea here is to add support to OpenWRT for hardware accelerated encoding dev
 http://oss.wischip.com/tv402u.jpg
 
 For more info on the Plextor:
-http://www.plextor.com/english/products/TV402U.htm
+ http://www.plextor.com/english/products/TV402U.htm
 
 Fortunately the driver for the GO7007 chipset it is based on is Open Source Software. For more info on this driver:
-http://oss.wischip.com/
+ http://oss.wischip.com/
 
 The GO7007 video part uses Video4Linux2 API and the audio part uses ALSA OSS emulation.
 
@@ -969,13 +969,16 @@ Now that we have in-kernel support for the hardware, we need a user-space applic
 
 ==== Spook ====
 
-I have a working build of spook but I need to clean-up the package files before I post them here.
+I have a working build of spook but I need to clean-up the package files before I post them here. Also spook requires some simple tuning of uClibc (+CSRC+= fpmacros.c nan.c s_rint.c e_hypot.c w_hypot.c s_floorf.c s_ceilf.c).
 
 ==== wis-streamer ====
 
-wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first.
+wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first. More info is available here:
+ http://www.live555.com/wis-streamer/
 
-Create the live555 package under package/:
+All the live555 software is written in C++ so you will need to ''make menuconfig'' and enable uClibc++ before you continue.
+
+Create the live555 directory under package/:
 
 {{{
 package/live555:
@@ -1046,7 +1049,205 @@ This patch only disables the test suite that comes with live555 as examples.
 
 Note that there is no Config.in nor ipkg control file as this package is only used to support wis-streamer. It is hidden from the package system but still uses the build system.
 
+Now create the wis-streamer package:
 
+{{{
+package/wis-streamer/:
+total 16
+-rw-r--r--  1 user users  286 Jun 24 12:50 Config.in
+-rw-r--r--  1 user users 1004 Jun 24 12:50 Makefile
+drwxr-xr-x  2 user users 4096 Jun 24 12:50 ipkg
+drwxr-xr-x  2 user users 4096 Jun 24 12:50 patches
+
+package/wis-streamer/ipkg:
+total 4
+-rw-r--r--  1 user users 175 Jun 24 12:50 wis-streamer.control
+
+package/wis-streamer/patches:
+total 4
+-rw-r--r--  1 user users 2362 Jun 24 12:50 100-wis-streamer.patch
+}}}
+
+With the following files content:
+
+ * Config.in
+
+{{{
+config BR2_PACKAGE_WIS_STREAMER
+        prompt "wis-streamer...................... Streaming Server for the WIS GO7007"
+        tristate
+        default y
+        select BR2_PACKAGE_KMOD_GO7007
+        help
+          An Open Source Streaming Server for the WIS GO7007 Encoder Driver
+
+          http://www.live555.com/wis-streamer/
+}}}
+
+ * Makefile
+
+{{{
+# $Id: Makefile 3121 2006-02-03 08:31:25Z rdeparis $
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=wis-streamer
+PKG_VERSION:=2006.06.14
+PKG_RELEASE:=1
+PKG_MD5SUM:=77fa57f6731bcaaa1a0358882fc8647d
+
+PKG_SOURCE_URL:=http://www.live555.com/wis-streamer/source
+PKG_SOURCE:=$(PKG_NAME).tar.gz
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,WIS_STREAMER,wis-streamer,$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+
+$(PKG_BUILD_DIR)/.configured:
+        (cd $(PKG_BUILD_DIR); \
+                \
+        )
+        touch $@
+
+$(PKG_BUILD_DIR)/.built:
+        $(MAKE) -C $(PKG_BUILD_DIR) \
+                $(TARGET_CONFIGURE_OPTS) \
+                CPLUSPLUS="$(TARGET_CROSS)g++" \
+                LDFLAGS="-nodefaultlibs \
+                        -L$(STAGING_DIR)/usr/lib \
+                        -L$(STAGING_DIR)/lib \
+                        -luClibc++ -lc -lm -lgcc"
+        touch $@
+
+$(IPKG_WIS_STREAMER):
+        install -d -m0755 $(IDIR_WIS_STREAMER)/usr/bin
+        $(CP) $(PKG_BUILD_DIR)/wis-streamer $(IDIR_WIS_STREAMER)/usr/bin/
+        $(RSTRIP) $(IDIR_WIS_STREAMER)
+        $(IPKG_BUILD) $(IDIR_WIS_STREAMER) $(PACKAGE_DIR)
+}}}
+
+ * wis-streamer.control
+
+{{{
+Package: wis-streamer
+Priority: optional
+Section: sys
+Depends: kmod-go7007
+Maintainer: rdeparis
+Description: An Open Source Streaming Server for the WIS GO7007 Encoder Driver
+}}}
+
+ * 100-wis-streamer.patch
+
+{{{
+diff -NurbB wis-streamer.orig/AMREncoder/Makefile wis-streamer/AMREncoder/Makefile
+--- wis-streamer.orig/AMREncoder/Makefile       2006-06-22 20:49:20.000000000 -0400
++++ wis-streamer/AMREncoder/Makefile    2006-06-22 20:50:07.000000000 -0400
+@@ -4,7 +4,6 @@
+
+ CC = gcc
+ CPLUSPLUS = g++
+-LD = ld -r -Bstatic
+
+ INCLUDES = -I .
+
+@@ -13,7 +12,7 @@
+ OBJS = fixed.o interf_enc.o sp_enc.o table.o
+
+ libAMREncoder.a: $(OBJS)
+-       $(LD) -o libAMREncoder.a $(OBJS)
++       $(LD) -r -Bstatic -o libAMREncoder.a $(OBJS)
+
+ interf_enc.c:                          interf_enc.h interf_rom.h
+ interf_enc.h:                          sp_enc.h
+diff -NurbB wis-streamer.orig/Makefile wis-streamer/Makefile
+--- wis-streamer.orig/Makefile  2006-06-22 20:49:20.000000000 -0400
++++ wis-streamer/Makefile       2006-06-22 20:50:27.000000000 -0400
+@@ -30,7 +30,7 @@
+        MPEG2TransportStreamAccumulator.o WISMPEG2TransportStreamServerMediaSubsession.o
+
+ wis-streamer: $(OBJS) AMREncoder/libAMREncoder.a
+-       $(CPLUSPLUS) $(CFLAGS) -o wis-streamer $(OBJS) $(LIBS)
++       $(CPLUSPLUS) $(CFLAGS) -o wis-streamer $(OBJS) $(LIBS) $(LDFLAGS)
+
+ AMREncoder/libAMREncoder.a:
+        cd AMREncoder; $(MAKE)
+diff -NurbB wis-streamer.orig/WISInput.cpp wis-streamer/WISInput.cpp
+--- wis-streamer.orig/WISInput.cpp      2006-06-22 20:49:20.000000000 -0400
++++ wis-streamer/WISInput.cpp   2006-06-22 21:37:49.000000000 -0400
+@@ -173,7 +173,7 @@
+
+     // Open it:
+     char vDeviceName[PATH_MAX];
+-    snprintf(vDeviceName, sizeof vDeviceName, "/dev/video%d", i);
++    snprintf(vDeviceName, sizeof vDeviceName, "/dev/v4l/video%d", i);
+     fOurVideoFileNo = open(vDeviceName, O_RDWR);
+     if (fOurVideoFileNo < 0) {
+       err(env) << "Unable to open \"" << vDeviceName << "\""; printErr(env);
+@@ -205,6 +205,7 @@
+     char line[128];
+     while (fgets(line, sizeof line, file) != NULL) {
+       int m, n;
++      if (strstr(line, "digital audio") == NULL) continue;
+       if (sscanf(line, "%d: [%u-%*u]: digital audio\n", &m, &n) != 2) continue;
+       if (n == i) {
+        minor = m;
+@@ -246,7 +247,7 @@
+
+     // Open it:
+     char aDeviceName[PATH_MAX];
+-    snprintf(aDeviceName, sizeof aDeviceName, "/dev/%s", ent->d_name);
++    snprintf(aDeviceName, sizeof aDeviceName, "/dev/sound/%s", ent->d_name);
+     fOurAudioFileNo = open(aDeviceName, O_RDONLY);
+     if (fOurAudioFileNo < 0) {
+       err(env) << "Unable to open \"" << aDeviceName << "\""; printErr(env);
+}}}
+
+This patch corrects some compilation flags necessary for cross-compiling to MIPS and adapts the paths for device files which are not using /dev/video0 and /dev/dsp but /dev/v4l/video0 and /dev/sound/dsp respectively.
+
+Modify the package files for build system integration:
+
+ * Config.in (somewhere under menu "Multimedia" for instance)
+
+{{{
+source "package/wis-streamer/Config.in"
+}}}
+
+ * Makefile
+
+{{{
+package-$(BR2_PACKAGE_WIS_STREAMER) += live555 wis-streamer
+}}}
+
+Notice we include live555 as it directly supports wis-streamer only as mentionned above. I know mainteners are going to complain :)
+
+After the usual make you should have the following extra packages:
+
+{{{
+uclibc++_0.1.11-1_mipsel.ipk
+wis-streamer_2006.06.14-1_mipsel.ipk
+}}}
+
+Copy them to your router, and install them with ipkg.
+
+/!\ Now do not try it as it will segfault :( I have a problem somewhere with the ALSA OSS emulation. After I disabled audio altogether in the source code, video actually works fine for me. I am working on it, please be patient and let me know if you find something before I do.
+
+=== How to use it ===
+
+The Plextor actually has 3 input ports.
+
+In the front we have S-Video and composite plugs:
+
+http://www.plextor.com/english/products/images/PX-TV402.back.gif
+
+In the back we have the antenna / cable plug:
+
+http://www.plextor.com/english/products/images/PX-TV402.back2s.gif
+
+/!\ To be completed 
 
 ----
  CategoryHomepage
