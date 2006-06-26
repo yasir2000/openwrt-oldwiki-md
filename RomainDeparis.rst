@@ -2,7 +2,7 @@
 #format wiki
 == Introduction ==
 
-''This is a work-in-progress, please bare with me until it is fully fool-proofed and spell-checked.''
+''06/25/2006: This is a work-in-progress, please bare with me until it is fully fool-proofed and spell-checked.''
 
 I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router / firewall / server combo and it always worked fine even with a DNS local authority / cache and a Squid cache for the LAN, but it was a little slowish so I switched back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default).
 
@@ -12,12 +12,14 @@ If you already know everything about running kamikaze on your latest router and 
 
 [[TableOfContents]]
 
+To contact me:
+
 Email: [[MailTo(romain DOT deparis AT SPAMFREE gmail DOT com)]]
 
 Or leave me a message at the end of this page with the following syntax:
 {{{
 ----
-Just saying Hi! -- JohnDoe
+I have your solution! -- JohnDoe
 }}}
 
 [[Anchor(Asus)]]
