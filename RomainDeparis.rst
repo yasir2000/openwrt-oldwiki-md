@@ -710,7 +710,7 @@ You need to ''make menuconfig'' and enable at least modprobe under busybox confi
 
 Do not forget to ''make'' and upload the new firmware to your router.
 
-=== Kernel module wis-go7007 ===
+=== Kernel module ===
 
 Create the wis-go7007 package under target/linux/package:
 
@@ -878,7 +878,7 @@ kmod-videodev_2.6.16.7-brcm-1_mipsel.ipk
 
 Copy them to your router, install them with ipkg and reboot.
 
-/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are design we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could also introduce deadlocks at boot time. So in order to keep things easy and simple we use modprobe, which is a lot cleaner anyway.
+/!\ Note on GO7007 modules loading: only ALSA, videodev and USB should load automatically at boot time, not GO7007. We could use the same principle with GO7007 but it is not that simple. The GO7007 device configuration is a two steps firmware loading process. First we load the EZ-USB firmware to the box, the box reboots, and then we have a limited time to upload the actual GO7007 code to the driver. With the way hotplug and the boot scripts are designed we end up having a race condition between the USB devices configuration and the modules loading. So you may either miss the second firmware upload or have the box reboot before the modules are loaded. This could be resolved with checks within the scripts but this could also introduce deadlocks at boot time. So in order to keep things easy and simple we use modprobe, which is a lot cleaner anyway.
 
 Now it is time to test the hardware:
 
@@ -936,7 +936,7 @@ Bus 001 Device 001: ID 0000:0000
 
 Device 002 is still my USB2 1GB key. Device 004 is our Plextor ConvertX.
 
-Check the ALSA and video4linux integration:
+Check the V4L2 and ALSA integration:
 
 {{{
 root@OpenWrt:~# cat /sys/class/video4linux/video0/name
@@ -963,7 +963,90 @@ crw-------    1 root     root      14,   0 Jan  1  1970 mixer
 
 All set!
 
-=== User application wis-streamer ===
+=== User applications ===
+
+Now that we have in-kernel support for the hardware, we need a user-space application to do something with it. As mentionned on the GO7007 website, not many applications support the compressed video. MythTV is huge (with the MySQL backend and the nice GUI) and I doubt we can fit it all on a WRT. We are left with spook and wis-streamer, which both compile fine.
+
+==== Spook ====
+
+I have a working build of spook but I need to clean-up the package files before I post them here.
+
+==== wis-streamer ====
+
+wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first.
+
+Create the live555 package under package/:
+
+{{{
+package/live555:
+total 8
+-rw-r--r--  1 user users  732 Jun 24 14:36 Makefile
+drwxr-xr-x  2 user users 4096 Jun 24 12:50 patches
+
+package/live555/patches:
+total 4
+-rw-r--r--  1 user users 376 Jun 24 12:50 100-live.patch
+}}}
+
+With the following files content:
+
+ * Makefile
+
+{{{
+# $Id: Makefile 3121 2006-02-03 08:31:25Z rdeparis $
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=live555
+PKG_VERSION:=latest
+PKG_RELEASE:=1
+PKG_MD5SUM:=c38d967bdf5396342a55925a4b7efd75
+
+PKG_SOURCE_URL:=http://www.live555.com/liveMedia/public
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/live
+
+include $(TOPDIR)/package/rules.mk
+
+$(eval $(call PKG_template,LIVE555,live555,$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+
+$(PKG_BUILD_DIR)/.configured:
+        (cd $(PKG_BUILD_DIR); \
+                ./genMakefiles uClinux \
+        )
+        touch $@
+
+$(PKG_BUILD_DIR)/.built: $(PKG_BUILD_DIR)/.configured
+        $(MAKE) -C $(PKG_BUILD_DIR) \
+                $(TARGET_CONFIGURE_OPTS) \
+                CC=$(TARGET_CC)
+        touch $@
+
+compile-targets: $(PKG_BUILD_DIR)/.built
+}}}
+
+ * 100-live.patch
+{{{
+diff -NurbB live.orig/Makefile.tail live/Makefile.tail
+--- live.orig/Makefile.tail     2006-06-22 20:11:46.000000000 -0400
++++ live/Makefile.tail  2006-06-22 20:16:35.000000000 -0400
+@@ -15,8 +15,7 @@
+ ALL =  $(LIVEMEDIA_LIB) \
+        $(GROUPSOCK_LIB) \
+        $(USAGE_ENVIRONMENT_LIB) \
+-       $(BASIC_USAGE_ENVIRONMENT_LIB) \
+-       $(TESTPROGS_APP)
++       $(BASIC_USAGE_ENVIRONMENT_LIB)
+ all:   $(ALL)
+}}}
+
+This patch only disables the test suite that comes with live555 as examples.
+
+Note that there is no Config.in nor ipkg control file as this package is only used to support wis-streamer. It is hidden from the package system but still uses the build system.
+
+
 
 ----
  CategoryHomepage
