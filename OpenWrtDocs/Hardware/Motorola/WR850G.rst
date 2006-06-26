@@ -74,7 +74,7 @@ While the first serial port is easy to find (and described in the "non-experimen
  '' Note: These instructions are Windows-centered ''
  1. Obtain a Motorola `.trx` firmware file (see above, Obtaining Official Motorola Firmware)
  1. Edit the file to remove Motorola's 8 byte header (everything before "HDR0").  This can be done with a hex editor (such as HHD for Windows) or with the Unix `dd(1)` command: {{{
- $ dd if=WR850G_V403.trx of=WR850G_V403.stripped.trx ibs=1 skip=8 }}}
+ $ dd if=WR850G_V403.trx of=WR850G_V403.stripped.trx ibs=1 skip=8 }}} Note: At least some bootloader version does not work with such a stripped file but will instead take the unstripped .trx-file. If flashing does not work in the later steps, try again without this step.
  1. Make sure your "boot_wait" NVRAM value is set to "on" and saved (I use "Putty" for telneting/ssh).
  1. Set your local machine's IP address to 192.168.10.5 (or anything between 192.168.10.2 and 192.168.10.254) and mask to 255.255.255.0.
  1. Open up a console window and change to the directory the Motorola firmware is in.
