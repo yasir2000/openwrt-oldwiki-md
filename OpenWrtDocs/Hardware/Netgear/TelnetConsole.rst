@@ -1,3 +1,6 @@
+[[TableOfContents]]
+----
+
 = Telnet Console =
 
 Some [OpenWrtDocs/Hardware/Netgear Netgear] routers run a telnet daemon which can be accessed from any computer on its local subnet after unlocking it (see below). The following devices are currently known or assumed to support this:
