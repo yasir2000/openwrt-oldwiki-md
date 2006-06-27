@@ -47,8 +47,6 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
-I saw someone somewhere commenting on this and complaining about his WL-500gP not running at 266MHz. Those are measured BogoMIPS.
-
  * Memory
 
 {{{
