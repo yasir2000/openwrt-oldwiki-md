@@ -1,6 +1,6 @@
 '''[http://www.netgear.com Netgear] hardware notes'''
 
-Documents on the following Netgear models are currently available:
+The following information on Netgear routers is currently available:
 [[PageList(regex:^OpenWrtDocs/Hardware/Netgear/.*)]]
 
 ----
