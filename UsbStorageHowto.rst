@@ -130,7 +130,6 @@ mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 Be happy and use your USB device like on every other GNU/Linux system or create a file server using Samba.
 
 == How do I boot from the USB device ==
-
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 filesystem:
 
 {{{
@@ -180,12 +179,14 @@ mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
 
 If you keep getting errors like:
+
 {{{
 Creating journal (4096 blocks): mke2fs: No such file or directory
         while trying to create journal
 }}}
 
 then run the following command:
+
 {{{
 ln -s /proc/mounts /etc/mtab
 }}}
@@ -218,7 +219,11 @@ umount /tmp/root
 umount /mnt
 }}}
 
-/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support.  If you encounter problems as well, try disabling USB hotplug. This can be done by removing the file {{{/etc/hotplug.d/usb/01-mount}}} (which is a symlink to {{{/rom/etc/hotplug.d/usb/01-mount}}}).  This fixed the problem for one reader on an Asus 500g Deluxe with WhiteRussian RC5.
+/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support.  If you encounter problems as well, try disabling USB hotplug.
+
+As earlier stated on this page (to remove {{{/etc/hotplug.d/usb/01-mount}}}) is NOT a good idea, as this is where usbfs is mounted, so usb-storage might work fine but lsusb wohn't list your devices, and most software using USB won't be able to find devices since /proc/bus/usb will remain empty?
+
+So either remove the file and mount usbfs somewhere else, or everything inside except the line which goes: [ -f /proc/bus/usb/devices ] || mount -t usbfs none /proc/bus/usb
 
 Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to !BusyBox anyway):
 
@@ -239,7 +244,7 @@ boot_dev="/dev/scsi/host0/bus0/target0/lun0/part1"
 # **NOTE** for ohci chipsets replace "uhci" with "usb-ohci"
 
 for module in usbcore uhci scsi_mod sd_mod usb-storage jbd ext3; do {
-	insmod $module
+        insmod $module
 }; done
 
 # this may need to be higher if your disk is slow to initialize
@@ -250,13 +255,13 @@ mount "$boot_dev" /mnt
 
 # if everything looks ok, do the pivot root
 [ -x /mnt/sbin/init ] && {
-	mount -o move /proc /mnt/proc && \
-	pivot_root /mnt /mnt/mnt && {
-		mount -o move /mnt/dev /dev
-		mount -o move /mnt/tmp /tmp
-		mount -o move /mnt/jffs2 /jffs2 2>&-
-		mount -o move /mnt/sys /sys 2>&-
-	}
+        mount -o move /proc /mnt/proc && \
+        pivot_root /mnt /mnt/mnt && {
+                mount -o move /mnt/dev /dev
+                mount -o move /mnt/tmp /tmp
+                mount -o move /mnt/jffs2 /jffs2 2>&-
+                mount -o move /mnt/sys /sys 2>&-
+        }
 }
 
 # finally, run the real init (from USB hopefully).
@@ -464,5 +469,6 @@ ipkg-link umount /mnt/usb
  * Linux USB [[BR]]- http://www.linux-usb.org/
 
  * Linux USB device support [[BR]]- http://www.linux-usb.org/devices.html
+
 ----
-CategoryHowTo
+ . CategoryHowTo  
