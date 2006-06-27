@@ -41,8 +41,6 @@ U12H02900>
  * For available commands, type `help` or `?`. To quit the console, type `exit`.
 
 
-
-
 === On Un*x ===
 Netgear uses free software to make their products, but has not provided information or free software tools to enable them to be used. One needs to either use the Windows binary-only program or reverse engineer its operation in order to discover what magic packets Netgears' tool sends to the router to enable the telnet interface.
 
@@ -56,7 +54,9 @@ Source code for a 'C' re-implementation of telnetenable.exe's algorithms has bee
 Please read the README file contained in the [attachment:telnetenable.zip attached ZIP archive].
 
 
-== The algorythm ==
+
+
+== The algorithm ==
 
 A probe packet is built using the data supplied on the command line, and is then signed using the RCA MD5 hashing algorithm. After signing, the entire probe packet is encrypted using the Blowfish algorithm, using a private key.
 
