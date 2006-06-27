@@ -2,7 +2,7 @@ For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54
 
 == GO7007 devices support ==
 
-The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U that I have.
+The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U. This can be used on pretty much any OpenWRT-compatible router with at least one USB2 connector.
 
 http://oss.wischip.com/tv402u.jpg
 
