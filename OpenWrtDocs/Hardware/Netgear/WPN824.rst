@@ -13,5 +13,7 @@ GND - o o
 
 [http://www.dslreports.com/forum/remark,14001273 Description of serial port on WPN824]
 
+[OpenWrtDocs/Hardware/Netgear/TelnetConsole Telnet access on WPN824]
+
 ----
 CategoryModel
