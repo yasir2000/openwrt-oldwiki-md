@@ -161,3 +161,42 @@ Enter 'help' for a list of built-in commands.
 Err:          0
 
 }}}
+
+The above dmesg was from a 7001 b/g   Here is a diff against the dmesg from a 7001 a/b/g
+{{{
+42a43,44
+> PCI Autoconfig: Found Bus 0, Device 2, Function 0
+> PCI Autoconfig: BAR 0, Mem, size=0x10000, address=0x4bfe0000
+96a99,102
+> Attach AR5212 0x13 0xc1942920
+> wlan0 revisions: mac 5.9 phy 4.3 analog 3.6 eeprom 4.8
+> ar5211 hwaddr: **:**:**:**:**:**
+> ar5211 wlan1.11: Device at 0x4bfe0000, IRQ 27
+100a107,109
+> device wlan1 is already a member of a bridge; can't enslave it to bridge br0.
+> SIOCGIFFLAGS: No such device
+> SIOCSIFADDR: No such device
+109a119
+> device wlan1 is already a member of a bridge; can't enslave it to bridge br0.
+111a122,124
+> device wlan1 is already a member of a bridge; can't enslave it to bridge br0.
+> bridge brguest doesn't exist!
+> bridge brguest doesn't exist!
+114d126
+< SIOCADDRT: Network is unreachable
+116,118d127
+< SIOCDELRT: No such process
+< apconfd: dhcpc: Interface br0 obtained lease on 192.168.1.116.
+< SIOCDELRT: No such process
+128,131c139,143
+<   5:      35467   IXP425 Timer 1
+<  13:         39   serial
+<  18:    1400047   ixp425_eth
+<  28:      92429   ar5211
+---
+>   5:       3814   IXP425 Timer 1
+>  13:         95   serial
+>  18:     140382   ixp425_eth
+>  27:       1326   ar5211
+>  28:       9293   ar5211
+}}}
