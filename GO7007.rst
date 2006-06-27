@@ -498,13 +498,9 @@ root@OpenWrt:~# cat /proc/asound/oss/devices
 
 Finally check the device files automagically created by kamikaze udev:
 {{{
-root@OpenWrt:~# ls -la /dev/v4l/
-drwxr-xr-x    1 root     root            0 Jan  1  1970 .
-drwxr-xr-x    1 root     root            0 Jan  1  1970 ..
+root@OpenWrt:~# ls -l /dev/v4l/
 crw-------    1 root     root      81,   0 Jan  1  1970 video0
-root@OpenWrt:~# ls -la /dev/sound/
-drwxr-xr-x    1 root     root            0 Jan  1  1970 .
-drwxr-xr-x    1 root     root            0 Jan  1  1970 ..
+root@OpenWrt:~# ls -l /dev/sound/
 crw-------    1 root     root      14,   4 Jan  1  1970 audio
 crw-------    1 root     root      14,   3 Jan  1  1970 dsp
 crw-------    1 root     root      14,   0 Jan  1  1970 mixer
