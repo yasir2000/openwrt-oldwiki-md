@@ -56,7 +56,7 @@ Source code for a 'C' re-implementation of telnetenable.exe's algorithms has bee
 Please read the README file contained in the [attachment:telnetenable.zip attached ZIP archive].
 
 
-==== The algorythm ====
+== The algorythm ==
 
 A probe packet is built using the data supplied on the command line, and is then signed using the RCA MD5 hashing algorithm. After signing, the entire probe packet is encrypted using the Blowfish algorithm, using a private key.
 
