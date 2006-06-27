@@ -43,9 +43,19 @@ U12H02900>
 === On Un*x ===
 Netgear uses free software to make their products, but has not provided information or free software tools to enable them to be used. One needs to either use the Windows binary-only program or reverse engineer its operation in order to discover what magic packets Netgears' tool sends to the router to enable the telnet interface.
 
-Unfortunately, there is no ready to go tool for Un*x, - yet. However, thanks to yoshac_at_member_dot_fsf_dot_org the following could be determined on the data format and transforms performed by Netgears' telnetEnable.exe and a work is in progress to implement the entire tool as open source:
+Unfortunately, there is no ready to go tool for Un*x, - yet. However, thanks to yoshac_at_member_dot_fsf_dot_org, the Windows telnetenable has been reverse engineered. 
+The following could be determined on the data format and transforms performed by Netgears' telnetEnable.exe and a work is in progress to implement the entire tool as open source. The current implementation is attached to this document.
 
-A probe packet is built using the data supplied on the command line, and is then signed using the RCA MD5 hashing algorithm.  After signing, the entire probe packet is encrypted using the Blowfish algorithm, using a private key.
+==== Download ====
+
+Source code for a 'C' re-implementation of telnetenable.exe's algorithms has been released by yoshac_at_member_dot_fsf_dot_org under the GPL, for use as the basis of a Un*x version of the tool currently in development. The resulting telnetenable binary will operate exactly the same as the original Windows tool, except that it currently does not actually send the raw TCP frame to the router. Network support is left as an exercise for the reader ;-)
+
+Please read the README file contained in that attached ZIP archive.
+
+
+==== The algorythm ====
+
+A probe packet is built using the data supplied on the command line, and is then signed using the RCA MD5 hashing algorithm. After signing, the entire probe packet is encrypted using the Blowfish algorithm, using a private key.
 
 The probe packet payload format is as follows:
 
@@ -69,5 +79,3 @@ The entire probe payload (including the reserved area, which is always null for 
 The encrypted probe packet is then sent to telnet port (23) on the router using raw TCP sockets in the standard manner. Curiously, the telnetenable.exe program also includes the necessary support to decode packets incoming from the router, but there does not appear to be any two-way handshake implemented, it is simple a raw TCP send from the client to the router.
 
 Note: The encrypted probe packet is sized as char output_Buf[0x640] but only an encoded data length of size of 0x80 appears to be used by the code. It is unknown what other capabilities may be similarly enabled via the 'reserved' field, or by other passwords.
-
-[ Source code for a 'C' re-implementation of these algorithms has been released by yoshac under the GPL, for use as the basis of a Un*x version of the tool currently in development. Instructions and download here: http://seattlewireless.net/telnetenable.c ]
