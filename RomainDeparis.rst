@@ -2,13 +2,13 @@
 #format wiki
 == Introduction ==
 
-=== Background ===
-
 I have been using a Linksys WRT54GS-v1.0 with OpenWRT for some time now - since early RC3 if I remember correctly. It used to be my Internet router / firewall / server combo and it always worked fine even with a DNS local authority / cache and a Squid cache for the LAN, but it was a little slowish so I switched back to a laptop for this part. I still use the WRT54GS with OpenWRT - now in RC5 - as my wireless-G AP with WPA2 and MAC filtering. It was pretty much as secure as one can easily get for a long time (MS Win did not even support WPA2 by default).
 
 Recently I have been playing with USB toys so I got an Asus WL-500g Premium and a Linksys WRTSL54G. So far I have only been messing aroung with the Asus, the only real difference being it has 2 USB ports while the Linksys has only one. Below are my experiments with the Asus, and since they are with kamikaze rather than WhiteRussian RC5 I will not make changes to the official wiki pages.
 
 If you already know everything about running kamikaze on your latest router and have your own OpenWRT firmware optimized to the latest byte, you may want to jump to the real added value of this page, '''support for the [:GO7007:GO7007] chipset based devices like the Plextor ConvertX PX-TV402U'''.
+
+[[TableOfContents]]
 
 To contact me:
 
@@ -19,14 +19,6 @@ Or leave me a message at the end of this page with the following syntax (you may
 ----
 I have your solution! -- JohnDoe
 }}}
-
-=== Content ===
-
-[[TableOfContents]]
-
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1121&modelmenu=1 WL-500g Premium] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||32MB ||Broadcom mini-PCI ||BCM5325 ||on ||Yes ||No ||2x v2.0 ||No || [:OpenWrtDocs/Hardware/Asus/WL500GP:Supported] (with customizations only) ||
-||[http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=c=L_Product_C2&cid=1137028967848&pagename=Linksys/Common/VisitorWrapper WRTSL54GS] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||32MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes ||Yes ||1x v2.0 ||[:OpenWrtDocs/Hardware/Linksys/WRTSL54GS:Supported] ||
 
 [[Anchor(Asus)]]
 == Asus WL-500g Premium ==
