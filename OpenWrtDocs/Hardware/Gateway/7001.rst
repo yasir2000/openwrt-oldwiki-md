@@ -162,7 +162,7 @@ Err:          0
 
 }}}
 
-The above dmesg was from a 7001 b/g   Here is a diff against the dmesg from a 7001 a/b/g
+The above dmesg was from a 7001 b/g.   Here is a diff against the dmesg from a 7001 a/b/g
 {{{
 42a43,44
 > PCI Autoconfig: Found Bus 0, Device 2, Function 0
