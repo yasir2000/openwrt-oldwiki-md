@@ -50,5 +50,5 @@ On RC5, the CISCO LED found on some linksys routers is now supported. Here's a t
 ||0x00 ||Defaults ||- ||
 ||0x01 ||DMZ LED on ||WRT54G v1.1, v2.0, v3.0, v4.0 and WRT54GS ||
 ||0x04 ||Power LED flashing ||WRT54G v1.1, v2.0, v3.0, v4.0 and WRT54GS ||
-||0x08 ||White Cisco LED ON ||WRT54GS v4.0, WRT54GL||
-||0x10 ||Orange Cisco LED ON ||WRT54GS v4.0, WRT54GL||
+||0x08 ||White Cisco LED ON ||WRT54G v3.1, WRT54GS v4.0, WRT54GL||
+||0x10 ||Orange Cisco LED ON ||WRT54G v3.1, WRT54GS v4.0, WRT54GL||
