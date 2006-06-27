@@ -50,7 +50,7 @@ The following could be determined on the data format and transforms performed by
 
 Source code for a 'C' re-implementation of telnetenable.exe's algorithms has been released by yoshac_at_member_dot_fsf_dot_org under the GPL, for use as the basis of a Un*x version of the tool currently in development. The resulting telnetenable binary will operate exactly the same as the original Windows tool, except that it currently does not actually send the raw TCP frame to the router. Network support is left as an exercise for the reader ;-)
 
-Please read the README file contained in that attached ZIP archive.
+Please read the README file contained in the [attachment:telnetenable.zip attached ZIP archive].
 
 
 ==== The algorythm ====
