@@ -3,10 +3,17 @@
 Some people, like students from Ghent University, Belgium, need to connect with a Cisco VPN server in order to connect to the internet. It's an ideal task for an !OpenWrt router to make that connection and share it with all the connected PC's. The only drawback is that VPNC is quite needy and on my Asus WL-500G Deluxe (300Mhz) it maxes out at 30KB/s (VPNC then uses 99% of CPU resources).
 
 = Installation =
-Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
+Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the packages:
 
 {{{
-ipkg install vpnc}}}
+ipkg install vpnc
+ipkg install libgcrypt
+ipkg install kmod-tun}}}
+
+After the kmod-tun is installed a reboot is required.
+
+{{{
+reboot}}}
 
 = Configuration =
 
@@ -19,74 +26,179 @@ And insert the parameters for your connection in there. These parameters are nor
 
 Here is an example ''vpnc.conf'':
 {{{
-Interface name tun0
 IPSec gateway 157.193.46.4
 IPSec ID ipsecclient
 IPSec secret cisco123
 Xauth username YOURUSERNAME
 Xauth password YOURPASSWORD}}}
 
-Note on the first line that we'll be giving the interface we're creating the name ''tun0'', this is important for routing, we'll get there in a minute. the IP-address after ''IPSec gateway'' is the address of the VPN-server. The ''IPSec ID'' and ''IPSec secret'' must be given to you by your sysadmin, or try these values as defaults.
+The IP-address after ''IPSec gateway'' is the address of the VPN-server. The ''IPSec ID'' and ''IPSec secret'' must be given to you by your sysadmin, or try these values as defaults.
 
 Change '''YOURUSERNAME''' and '''YOURPASSWORD''' to your username and password respectively. If you don't feel comfortable with having your password in a plain text file on your !OpenWrt device, you can remove the ''Xauth password'' line, then VPNC will prompt you for the password every time you connect.
 
-= Writing a Start Script =
+= vpnc-script =
+VPNC automatically calls /etc/vpnc/vpnc-script to handle most of the maintenance operations like routing table and resolv.conf updates when a connection is established or broken. Unfortunately, the standard vpnc-script included with VPNC 0.3.3 won't run on OpenWRT's ash shell without a couple of changes. The modified script can be [http://www.dades.ca/openwrt/vpnc-script downloaded] or you can apply the changes shown below.
 
-A start script configures routing for VPNC, starts the connection, and then optionally shares the connection.
+The stock script uses a c-style "for" expression that we'll replace with an equivalent "while".
 
-== Preparation ==
-Create a shell script, for example:
+The first location is in the "do_connect" function (approx. line 222) and the part we care about looks like this:
+{{{
+for ((i = 0 ; i < CISCO_SPLIT_INC ; i++ )) ; do
+    eval NETWORK="\${CISCO_SPLIT_INC_${i}_ADDR}"
+    eval NETMASK="\${CISCO_SPLIT_INC_${i}_MASK}"
+    eval NETMASKLEN="\${CISCO_SPLIT_INC_${i}_MASKLEN}"
+    set_network_route "$NETWORK" "$NETMASK" "$NETMASKLEN"
+done}}}
+
+Change the first line and insert a line just above the "done" so you end up with this:
+{{{
+i=0 ; while [ "$i" -lt "$CISCO_SPLIT_INC" ] ; do
+    eval NETWORK="\${CISCO_SPLIT_INC_${i}_ADDR}"
+    eval NETMASK="\${CISCO_SPLIT_INC_${i}_MASK}"
+    eval NETMASKLEN="\${CISCO_SPLIT_INC_${i}_MASKLEN}"
+    set_network_route "$NETWORK" "$NETMASK" "$NETMASKLEN"
+    i=$(($i + 1))
+done}}}
+
+A similar pair of changes are required in the do_disconnect function just below the last change.
 
 {{{
-mkdir /etc/vpn
-touch /etc/vpn/initvpn.sh
-chmod a+x /etc/vpn/initvpn.sh
-vi /etc/vpn/initvpn.sh}}}
+for ((i = 0 ; i < CISCO_SPLIT_INC ; i++ )) ; do
+    eval NETWORK="\${CISCO_SPLIT_INC_${i}_ADDR}"
+    eval NETMASK="\${CISCO_SPLIT_INC_${i}_MASK}"
+    eval NETMASKLEN="\${CISCO_SPLIT_INC_${i}_MASKLEN}"
+    del_network_route "$NETWORK" "$NETMASK" "$NETMASKLEN"
+done}}}
 
-== Create Route to VPNC Server ==
+Change to:
 
-You'll need a route to the VPNC server so that it knows where to find it after it has established the connection, so add these commands to the script:
+{{{
+i=0 ; while [ "$i" -lt "$CISCO_SPLIT_INC" ] ; do
+    eval NETWORK="\${CISCO_SPLIT_INC_${i}_ADDR}"
+    eval NETMASK="\${CISCO_SPLIT_INC_${i}_MASK}"
+    eval NETMASKLEN="\${CISCO_SPLIT_INC_${i}_MASKLEN}"
+    del_network_route "$NETWORK" "$NETMASK" "$NETMASKLEN"
+    i=$(($i + 1))
+done}}}
 
+= Start-up Script =
+This script can either be placed in the /etc/init.d directory if you'd like the VPN to come up automatically or another location if you want manual control over the starting of the VPN.
+
+It is a good idea to create the /var/run/vpnc directory in the start-up script as this is where vpnc will attempt to store original versions of the files it changes.
+
+For automatic start, place this in /etc/init.d/S75vpnc:
 {{{
 #!/bin/sh
-# Add route to the VPNC server
-route add 157.193.46.4 gw 172.16.70.254 vlan1;}}}
+mkdir -p -m777 /var/run/vpnc
+vpnc /etc/vpnc/vpnc.conf}}}
 
-Here, 157.193.46.4 is again the VPNC server and 172.16.70.254 is the gateway. Change vlan1 into whatever your WAN-port is named.
-
-== Starting VPNC ==
-
-Next, add to the script the command to start VPNC:
-
+= Testing =
+Save the script and execute it to start the connection.
 {{{
-# Start VPNC
-vpnc;}}}
+/etc/init.d/S75vpnc}}}
 
-== Create Route for All Traffic ==
+= Sharing the VPN - Optional =
+An additional change to vpnc-script is required to share the VPN with the router's clients. These changes are already in the modified file [http://www.dades.ca/openwrt/vpnc-script here].
 
-Tell the router to route all traffic over this connection, add to the script:
 
+Add these two functions to the /etc/vpnc-script:
 {{{
-# Add route to use VPN for everything
-route add default tun0;}}}
+start_vpn_nat() {
+        iptables -A forwarding_rule -o tun0 -j ACCEPT
+        iptables -A forwarding_rule -i tun0 -j ACCEPT
+        iptables -t nat -A postrouting_rule -o tun0 -j MASQUERADE
+}
 
-Note the use of ''tun0'', the ''interface name'' in ''vpnc.conf''.
+stop_vpn_nat() {
+        iptables -t nat -D postrouting_rule -o tun0 -j MASQUERADE
+        iptables -D forwarding_rule -i tun0 -j ACCEPT
+        iptables -D forwarding_rule -o tun0 -j ACCEPT
+}
+}}}
 
-== Sharing the VPN ==
-Tell the router to share the VPN connection to its clients. It takes a bit of ''iptables'' magic.  Add to the script:
-
+These functions should be called right after the connection is established and just before it is torn down. The "connect" and "disconnect" cases at the end of the vpnc-script should be modified to look like this if you want to share the vpn:
 {{{
-# Share the VPN connection
-iptables -A forwarding_rule -o tun0 -j ACCEPT;
-iptables -A forwarding_rule -i tun0 -j ACCEPT;
-iptables -t nat -A postrouting_rule -o tun0 -j MASQUERADE;}}}
+connect)
+    do_connect
+    start_vpn_nat
+    ;;
+disconnect)
+    stop_vpn_nat
+    do_disconnect
+    ;;}}}
 
-Note the use of ''tun0'' here as well.
-
-== Testing ==
-Save the script.  Execute the script to start the connection.
-
+The connection can be stopped by killing the vpnc process and then restarted:
 {{{
-/etc/vpn/initvpn.sh}}}
+kill `cat /var/run/vpnc/pid`
+/etc/init.d/S75vpnc}}}
+
+= Visual Indicator - Optional =
+With RC5, the Cisco LED that is on some Linksys units can be used as an up/down/error indicator. If you [http://www.dades.ca/openwrt/vpnc-script downloaded] the modified vpnc-script then you already have these changes and can skip down to S99done below.
+
+== vpnc-script changes ==
+Add these functions to the vpnc-script:
+{{{
+# LED Codes
+# 0x01 - DMZ
+# 0x04 - Power flashing
+# 0x08 - Cisco White
+# 0x10 - Cisco Orange
+#
+pend=0x10
+conn=0x08
+vpn_led_pending() {
+        ledstat=`cat /proc/sys/diag`
+        ledstat=$(($ledstat | $pend))
+        echo "$ledstat" >/proc/sys/diag
+}
+
+vpn_led_connected() {
+        ledstat=`cat /proc/sys/diag`
+        ledstat=$(($ledstat ^ $pend))
+        ledstat=$(($ledstat | $conn))
+        echo "$ledstat" >/proc/sys/diag
+}
+
+vpn_led_disconnected() {
+        ledstat=`cat /proc/sys/diag`
+        ledstat=$(($ledstat ^ $conn))
+        echo "$ledstat" >/proc/sys/diag
+}
+}}}
+
+And finally, add calls to these functions in the pre-init, connect, and disconnect cases at the bottom of the script:
+{{{
+pre-init)
+    vpn_led_pending
+    do_pre_init
+    ;;
+connect)
+    do_connect
+    start_vpn_nat
+    vpn_led_connected
+    ;;
+disconnect)
+    stop_vpn_nat
+    do_disconnect
+    vpn_led_disconnected
+    ;;}}}
+
+== S99done ==
+At the end of the boot process, the S99done script is called and one of the things it does is turn off all the controllable LED indicators. We need to change it to only turn off the DMZ LED to indicate Linux is finished booting without changing the other indicators. You can make the changes below or [http://www.dades.ca/openwrt/S99done download] a modified copy.
+
+The last two lines of the file are:
+{{{
+# set leds to normal state
+echo "0x00" > /proc/sys/diag}}}
+
+Change to:
+{{{
+# set leds to normal state
+# remove DMZ
+ledstat=`cat /proc/sys/diag`
+ledstat=$(($ledstat ^ 0x01))
+echo "$ledstat" > /proc/sys/diag}}}
+
+
 ----
 CategoryHowTo
