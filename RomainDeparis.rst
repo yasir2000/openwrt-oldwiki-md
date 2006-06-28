@@ -720,7 +720,7 @@ vlan1     Link encap:Ethernet  HWaddr 00:16:B6:06:8F:8E
           RX bytes:0 (0.0 B)  TX bytes:5346 (5.2 KiB)
 }}}
 
-== PCI / USB ===
+=== PCI / USB ===
 
  * PCI
 
