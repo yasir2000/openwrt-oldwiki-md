@@ -18,9 +18,9 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3 || CDF8 || (./) || (./) ||
 ||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
 ||WRT54G v4 || CDFA || (./) || (./) ||
-||WRT54G v5 *|| CDFB || {X}  || {X} ||
+||WRT54G v5 *|| CDFB || (./)  || {X} ||
 ||WRT54G v5.1 || -- || {X} || {X} ||
-||WRT54G v6 *||CDFD || {X}  || {X} ||
+||WRT54G v6 *||CDFD || (./)  || {X} ||
 
 *Not officitally supported but will work, see below
 
@@ -58,7 +58,7 @@ This board has a BCM3302 processor, revision 0.8.
 === WRT54G v5, v5.1, and v6 ===
 /!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' OFFICIALLY SUPPORTED. 
 
-Update: Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. 
+Update: Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. Apparently, the White Russion RC5 micro release will work without modifications. 
 
 This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). The v5 and later models could be supported by OpenWrt, but most useful features of OpenWrt would have to be cut and barely enough room to run the OS would exist. Furthermore, the CFE would likely have to be updated via JTAG.
 
