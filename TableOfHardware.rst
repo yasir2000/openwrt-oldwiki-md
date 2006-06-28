@@ -83,6 +83,12 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 
 detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
 
+== Aztech ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+
+Official product information at http://www.aztech.com.sg/prod_adsl.html
+Aztech is commonly being used in Malaysia and Singapore.
+
 == Belkin ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136486 F5D7130] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz || || ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
