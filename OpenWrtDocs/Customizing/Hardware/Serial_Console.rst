@@ -34,9 +34,9 @@ http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 http://www.rwhitby.net/wrt54gs/serial.html
 
-This electronic adaptator is call RS232-TLL converter. You can find it at many places whith this name.
+This electronic adaptator is call RS232-TTL converter. You can find it at many places whith this name.
 
-A great source for RS232-TLL convertors is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC's serial port. Many people already have such a cable laying around, or can buy one fairly cheap. It is much easier than building the necessary circuit yourself.
+A great source for RS232-TTL convertors is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC's serial port. Many people already have such a cable laying around, or can buy one fairly cheap. It is much easier than building the necessary circuit yourself.
 
 If you open up the cell phone cable's serial port casing and see a MAX### chip, it's probably the cable you need. One known chip is a MAX323 (yes, 323).
 
