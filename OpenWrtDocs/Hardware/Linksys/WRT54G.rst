@@ -56,14 +56,8 @@ To remove the front cover from this unit you simply pop the front of the case of
 This board has a BCM3302 processor, revision 0.8.
 
 === WRT54G v5, v5.1, and v6 ===
-/!\ '''NOTE:''' WRT54G V5 AND ABOVE ARE '''NOT''' OFFICIALLY SUPPORTED. 
 
-Update: Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. Apparently, the White Russion RC5 micro release will work without modifications. 
-
-This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). The v5 and later models could be supported by OpenWrt, but most useful features of OpenWrt would have to be cut and barely enough room to run the OS would exist. Furthermore, the CFE would likely have to be updated via JTAG.
-
-[http://wrt-wiki.bsr-clan.de/index.php?title=Flash_Your_Version_5_WRT54G A downstripped DD-WRT is supported on WRT54G/GS v5, v5.1, and v6.] However, it requires a JTAG cable to replace the CFE with a version capable of loading a linux kernel. It does work though, and the box performs suprisingly well for basic functionality. 
-
+This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. Apparently, the White Russion RC5 micro release will work without modifications. 
 
 === Table summary ===
 How to get info:
