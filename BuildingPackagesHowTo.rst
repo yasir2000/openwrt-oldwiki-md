@@ -381,6 +381,83 @@ diff -ruN package/<PKG_NAME>.orig package/<PKG_NAME> > <PKG_NAME>-<PKG_VERSION>.
 
 Once you have created a patch [https://dev.openwrt.org/newticket open a ticket] and submit your new package (the patch).
 
+= Native Development =
+You need 150Mb storage unit (USB or SD Card)
+
+- Download the file [http://www.uclibc.org/downloads/root_fs_mipsel.ext2.bz2 Native Mipsel Toolchain] (24Mb)
+
+- Bunzip2 (120mb) it to the storage unit in a ext2 partition.
+
+- unmount partition
+
+- Execute this script, I have it at /sbin/devel.sh
+{{{
+#!/bin/sh
+killall logger
+killall syslogd
+killall telnetd
+killall crond
+killall klogd
+killall udhcpc
+killall httpd
+rmmod ext3
+rmmod jbd
+
+mount /dev/mmc/disc0/part1 /mnt -o noatime async
+swapoff -a
+mkswap  /dev/mmc/disc0/part2
+swapon  /dev/mmc/disc0/part2
+mount -o move /dev /mnt/dev
+rm -r /dev
+ln -s /mnt/dev /dev
+
+mount -o move /tmp /mnt/tmp
+rm -r /tmp
+ln -s /mnt/tmp /tmp
+
+mount -o move /proc /mnt/proc
+rm -r /proc
+ln -s /mnt/proc /proc
+
+echo " *** exit *** to back - Para volver al sistema"
+chroot /mnt/ /bin/ash -
+echo " *** Me are here again - De vuelta al sistema original ***"
+
+rm /tmp
+rm /dev
+mkdir /tmp
+mkdir /dev
+mount -o move /mnt/tmp/ /tmp/
+mount -o move /mnt/dev/ /dev/
+mkdir proc2
+mount -o move /mnt/proc/ /proc2/
+rm /proc
+ln -s /proc2 /proc
+umount /mnt
+swapoff -a
+}}}
+- Go /home
+
+- download the source. Example: [http://www.didiwiki.org/sources/didiwiki-0.5.tar.gz Didiwiki-0.5.tar.gz] from [http://www.didiwiki.org]
+
+- tar -xvzf didiwiki-0.5.tar.gz
+
+- cd didiwiki-0.5
+
+- configure     (1 minute)
+
+- make          (1 minute)
+
+- You have your new Binary in the SRC directory (didiwiki)
+
+- copy it to the /tmp directori
+
+- type exit
+
+You have the binary in /tmp directory. copy it to /usr/bin
+
+The result [http://gepage.googlepages.com/didiwiki.mipsel.binary.gz didiwiki.mipsel.binary.gz] a small wiki for our router at 8000 port. If you don't use storage unit, you must create /home to store new pages. /home/.didiwiki/*
+
 = Links =
 You can find an useful reference for the packaging process in nbd's paper to the '!OpenWrt Hacking' talk on the 22C3: [[BR]]- http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf
 
