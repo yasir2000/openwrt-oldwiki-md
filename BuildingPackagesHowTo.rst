@@ -393,48 +393,34 @@ You need 150Mb storage unit (USB or SD Card)
 - Execute this script, I have it at /sbin/devel.sh
 {{{
 #!/bin/sh
-killall logger
-killall syslogd
-killall telnetd
-killall crond
-killall klogd
-killall udhcpc
-killall httpd
-rmmod ext3
-rmmod jbd
+# Kill unusefull tasks (uncoment it) we need memory
+#killall logger
+#killall syslogd
+#killall telnetd
+#killall crond
+#killall klogd
+#killall udhcpc
+#killall httpd
+#rmmod ext3
+#rmmod jbd
 
+#My SD card have 2 partitions 1.ext2  2.swap
+########### Change this line to your system
 mount /dev/mmc/disc0/part1 /mnt -o noatime async
-swapoff -a
-mkswap  /dev/mmc/disc0/part2
-swapon  /dev/mmc/disc0/part2
-mount -o move /dev /mnt/dev
-rm -r /dev
-ln -s /mnt/dev /dev
+
+# Swap for large sources. I have 30Mb
+#swapoff -a
+#mkswap  /dev/mmc/disc0/part2
+#swapon  /dev/mmc/disc0/part2
 
 mount -o move /tmp /mnt/tmp
-rm -r /tmp
-ln -s /mnt/tmp /tmp
-
-mount -o move /proc /mnt/proc
-rm -r /proc
-ln -s /mnt/proc /proc
 
 echo " *** exit *** to back - Para volver al sistema"
 chroot /mnt/ /bin/ash -
 echo " *** Me are here again - De vuelta al sistema original ***"
 
-rm /tmp
-rm /dev
-mkdir /tmp
-mkdir /dev
 mount -o move /mnt/tmp/ /tmp/
-mount -o move /mnt/dev/ /dev/
-mkdir proc2
-mount -o move /mnt/proc/ /proc2/
-rm /proc
-ln -s /proc2 /proc
 umount /mnt
-swapoff -a
 }}}
 - Go /home
 
