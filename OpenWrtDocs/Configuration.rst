@@ -510,7 +510,7 @@ Examples:
 ||St.Petersburg, Russia ||MST-3MDT,M3.5.0/2,M10.5.0/3 ||
 ||Stockholm, Sweden ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||New Zealand ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
-||<style="text-align: center;"|7>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
+||<style="text-align: center;"|10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
 ||Alaska Time ||AKST9AKDT ||
 ||Pacific Time ||PST8PDT ||
 ||Mountain Time ||MST7MDT ||
@@ -518,6 +518,8 @@ Examples:
 ||Central Time ||CST6CDT ||
 ||Eastern Time ||EST5EDT ||
 ||Atlantic Time ||AST4ADT ||
+||Atlantic Time (New Brunswick) ||AST4ADT,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
+||Newfoundland Time ||NST+3:30NDT+2:30,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
 ||<style="text-align: center;"|3>Asia ||Jakarta ||WIB-7 ||
 ||Singapore ||SGT-8 ||
 ||Ulaanbaatar, Mongolia ||ULAT-8ULAST,M3.5.0/2,M9.5.0/2 ||
