@@ -6,6 +6,7 @@ Performance Reports
  - On Asus WL-500G Deluxe (300Mhz) it maxes out at 30KB/s.
  - With a Asus WL-500gPremium (266Mhz) I got 250KB/s.
  - Tested WRT54GSv4 (200MHz) with Ethernet connection to Cisco Pix, 1des encryption, from NAT'd client behind WRT to ftp server behind Pix. 2.3 Mbps down and 1.9Mbps up. }}}
+ - WRT54GL v1.1 (200mhz) - scp test at 45Kbytes a second with  31% CPU usage..
 
 = Installation =
 Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the packages:
