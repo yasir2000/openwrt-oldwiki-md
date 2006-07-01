@@ -17,7 +17,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 
 == 4G Systeme ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64Mb ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||WiP ||
+||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64Mb ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Supported||
 
 
 == Actiontec ==
