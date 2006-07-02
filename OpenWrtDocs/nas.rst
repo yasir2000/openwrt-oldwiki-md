@@ -2,7 +2,7 @@
 
 '''nas''' is the proprietary binary tool that sets up dynamic encryption (WEP/WPA) on the wireless device.
 
-''note:'' normally '''nas''' is called by the S41wpa script in /etc/init.d. This Script composes the command by reading the corresponding nvram variables (wl0_ssid, wl0_akm, wl0_crypto,...).
+''note:'' normally '''nas''' is called by the S41wpa script in /etc/init.d. This Script composes the command by reading the corresponding nvram variables (wl0_ssid, wl0_akm, wl0_crypto,...). If nas do not start on router reboot, try to start it manually with one of the commandlines from this page (see below) and watch out for errors. If it reports no error it should start on reboot from now on...
 
 ''note:'' '''nas''' is not used in client bridging mode (i.e. the wireless interface is a client to a remote access point and it is bridged to the LAN port). This mode is configured by `wl0_mode=wet`. In this case the chipset driver's built-in supplicant is used, configured by `/sbin/wifi` from the wificonfig package. It reads the nvram variables itself.
 
