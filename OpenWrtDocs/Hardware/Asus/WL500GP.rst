@@ -51,5 +51,11 @@ Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInt
 
 ***Caution**
 I've (thecompwiz)been having troubles if I set wan_proto=none  It appears as if it breaks the vlan0.
+
+== trunc with Kernel 2.6 ==
+ * '''P:''' The line ''b44: eth1: BUG!  Timeout waiting for bit 80000000 of register 428 to clear.'' may appear in log.
+ * '''S:''' As writen in http://forum.openwrt.org/viewtopic.php?pid=29017 this can be fixed by editing /etc/init.d/S10boot
+
+
 ----
 CategoryModel
