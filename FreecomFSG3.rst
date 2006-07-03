@@ -18,15 +18,14 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * Onboard RTC with removable battery on I2C bus
 
 == Software ==
-FSG-3 uses RedBoot bootloader and runs bigendian SnapGear Linux 3.1.6 based on 2.4.27 kernel. Freecom told they're going to upgrade to 2.6 kernel during 2006.
-
-There's various add-ons and GPL download on [http://www.openfsg.com/ http://www.openfsg.com]
+ * FSG-3 uses RedBoot bootloader and runs bigendian SnapGear Linux 3.1.6 based on 2.4.27 kernel. Freecom told they're going to upgrade to 2.6 kernel during 2006.
+ * There's various add-ons and GPL download on [http://www.openfsg.com/ http://www.openfsg.com]
 
 == Notes ==
  * Holding reset button while powering on enables recovery mode. FSG requests IP using bootp and tries to load zImage-recovery with tftp from bootp server.
  * RedBoot incorrectly reports Coyote machine ID to Linux kernel
- * Fan is noisy but can be slowed down using software but it causes higher internal temperatures.
- * At least 250GB model I bought came with internal PATA HDD. I don't know if others are PATA too or maybe SATA.
+ * Fan is noisy. It can be slowed down using software but it causes higher internal temperatures.
+ * At least 250GB model came with internal Samsung 7200rpm 8MB PATA HDD. I don't know if others are PATA too or maybe SATA.
 
 == Links ==
  * Official Freecom support site: http://www.openfsg.com
