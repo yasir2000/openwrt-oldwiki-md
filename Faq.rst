@@ -300,29 +300,7 @@ Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good sta
 '''TIP:''' If you install {{{qosfw-scripts}}} then it's easier to configure port forwarding.
 
 == How do I configure QoS aka traffic shaping in OpenWrt? ==
-QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters]. This script is only shaping on your uplink. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
-
-Download and install the {{{qos-scripts}}} package from http://downloads.openwrt.org/people/nbd/qos/
-
-Then edit {{{/etc/config/qos-wan}}}. This file has a number of examples and the syntax description in it. Be sure to uncomment the {{{option:enabled}}} line and set the {{{option:upload}}} and {{{option:download}}} correctly.
-
-If you don't configure port forwarding in {{{/etc/config/qos-wan}}} than you can make use {{{/etc/firewall.user}}} as normal for iptables rules.
-
-If you're using L7 filters in the config file you have to install the {{{iptables-mod-filter}}} package. This package contains a few L7 filters. Alternativly you can download extra filters from [http://l7-filter.sourceforge.net/protocols Layer 7 filters] and save the {{{.pat}}} files into the {{{/etc/l7-protocols}}} directory.
-
-Finally start QoS with
-
-{{{
-ifup wan
-}}}
-
-This calls the QoS script via the hotplug code.
-
-To show the QoS related rules execute:
-
-{{{
-iptables -L -v -t mangle
-}}}
+See ["MiniHowtos/QoSHowto"].
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
 See ["OpenWrtDocs/Configuration"].
