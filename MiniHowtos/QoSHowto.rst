@@ -1,8 +1,9 @@
-/!\ '''This page is currently under construction''' /!\
+/!\ '''This page needs an update!''' /!\
 
 [[TableOfContents]]
 = Qos MiniHowto =
 == Boring Intro and Dry Theory ==
+/!\ '''This page needs an update!''' /!\
 Someone once said technical guys hate writing documentation.  I guess they were right.  Disclaimer: I'm a network nerd and admin at an ISP.  My hope is I'll start this and someone will jump in and clean it up. If you already know what it is, and don't want to ridicule me, you can skip this part.
 
 Anyhow.  This document will outline a bit what QoS is, and two great ways to do it.  As far as I was concerned, it was the single most important feature of the (or any) router.  It allows for bandwidth management and prioritization.
@@ -30,17 +31,44 @@ To be honest, and candid, most of the time you do not want download (or ingress)
 Last but not least... it should be mentioned, exactly how the queing is performed.  Most default queues are "fifo" meaning first-in first-out.  You get in line and get processed in the order by which you came.  This describes the queing discipline, as well as the type of queue.  There are other algorithims for queing disciplines, other types, such as htb ([http://luxik.cdi.cz/~devik/qos/htb/ Hierarchichal Token Bucket]) and hfsc ([http://www.cs.cmu.edu/~hzhang/HFSC/main.html Hierarchical Fair Service Curve]).  For more information on queues and advanced routing in general, see [http://lartc.org/ Linux Advanced Routing & Traffic Control].  Note these are also referred to as "packet schedulers".
 
 == QoS in OpenWrt ==
-I went from not having a QoS option (well, to be honest, the tools were always there, just needed a sane script) to having two options.  Debate as to which is the "better" one is probably not important.  I'd personally call them "two great ways to do it".
+'''New 2006-07-02''' QoS in OpenWrt can be done with nbd's '''qos-scripts''' package. The other options mentioned here are outdated, as far as I can see. So only try them if you know what you are doing!
+Inexperienced users should stick with '''qos-scripts'''.
 
+Old text (please delete if appropriate!): ''I went from not having a QoS option (well, to be honest, the tools were always there, just needed a sane script) to having two options.  Debate as to which is the "better" one is probably not important.  I'd personally call them "two great ways to do it".
 One involves nbd's qosif scripts.  And the other involves ctshaper, a script written by Carlos Rodrigues, based on wondershaper.  These two guys deserve the credit for the scripts I'm going to mention.
+Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.''
 
-Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.
+=== qos-scripts package ===
+QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters]. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
 
-=== qosfw-scripts package (was qosif) ===
+Download and install the {{{qos-scripts}}} package from http://downloads.openwrt.org/people/nbd/qos/
+
+Then edit {{{/etc/config/qos}}}. This file has a number of examples and the syntax description in it. Be sure to set the {{{option:upload}}} and {{{option:download}}} correctly, as the package is enabled by default!
+
+If you don't configure port forwarding in {{{/etc/config/qos}}} then you can use {{{/etc/firewall.user}}} as normal for iptables rules.
+
+{{{qos-scripts}}} depends on the {{{iptables-mod-filter}}} package, so you can use L7 filters with extra configuration. This package contains a few L7 filters. Alternativly you can download extra filters from [http://l7-filter.sourceforge.net/protocols Layer 7 filters] and save the {{{.pat}}} files into the {{{/etc/l7-protocols}}} directory.
+
+Finally start QoS with
+
+{{{
+ifup wan
+}}}
+
+This calls the QoS script via the hotplug code.
+
+To show the QoS related rules execute:
+
+{{{
+iptables -L -v -t mangle
+}}}
+
+=== outdated - qosfw-scripts package (was qosif) ===
+/!\ '''This page needs an update!''' /!\
 (''Somewhat updated for qosfw-scripts, could use some editing - especially now qosfw-scripts doesn't seem to exist any more!'')
 
 ----
-If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.   
+If looking at someone's code, you can peer into their minds, then there's much to be said about these scripts. It's small, fast, efficient, and does just about all the heavy lifting for you.
 
 Install qosfw-scripts with {{{ipkg install http://openwrt.inf.fh-brs.de/~nbd/qosfw-scripts_0.5_all.ipk}}} (you many want to check [http://openwrt.inf.fh-brs.de/~nbd/ here] or [http://downloads.openwrt.org/people/nbd/qos/ here] for a newer update).
 
@@ -62,29 +90,29 @@ For example, the first four stanzas (or blocks) are policies:
 
 {{{
 class:Priority
-pktsize:150        
-pktdelay:10                            
-avgrate:20 
-share:75                                                 
-end                                           
-               
-class:VOIP                                 
-pktsize:200                                                          
-pktdelay:10                              
-avgrate:30                                   
-share:75                                    
-end                                                               
-                                         
-class:Normal                
-pktsize:1500    
-pktdelay:30                                 
-avgrate:10                                                         
-share:50                 
-end                                                            
-                                                              
-class:Bulk                                                      
-share:10                       
-limit:90                                  
+pktsize:150
+pktdelay:10
+avgrate:20
+share:75
+end
+
+class:VOIP
+pktsize:200
+pktdelay:10
+avgrate:30
+share:75
+end
+
+class:Normal
+pktsize:1500
+pktdelay:30
+avgrate:10
+share:50
+end
+
+class:Bulk
+share:10
+limit:90
 end
 }}}
 
@@ -168,7 +196,8 @@ header "Status" "QoS Packets" "@TR<<QoS Packets>>"
 
 Then chmod a+x it.
 
-=== ctshaper ===
+=== unsupported - ctshaper ===
+/!\ '''This page needs an update!''' /!\
 /!\ '''NOTE:''' ctshaper is not supported by the !OpenWrt developers!
 
 First, download the script from [http://students.fct.unl.pt/~cer09566/ctshaper/ this link].  Tarball is at the bottom of the page.  I made it work for me with a few changes.
