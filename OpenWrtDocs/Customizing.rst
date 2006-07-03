@@ -30,6 +30,7 @@ The contents of this section of the wiki can have serious consequences. While ev
      * [:OpenWrtDocs/Customizing/SysLoadLED]
      * Wireless
        * [http://wiviz.natetrue.com WiViz] - A very nice wireless network visualization tool ||
+       * [http://www.bolkesteijn.nl/blog/static.php?page=openwrtstuff WifiToggle] WRT54GL switching wifi on/off by front EasySetup button
    
 = Firmware =
   * [:OpenWrtDocs/Customizing/Firmware/CFE] The guide howto gain access to and use the common firmware enviroment
