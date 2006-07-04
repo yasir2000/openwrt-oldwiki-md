@@ -11,5 +11,5 @@ Embeded "OpenWrt" devices which have USB v2.0
 ||'''RAM MB''' ||32 ||32 ||64 ||32 ||32 ||32 ||16 ||32 ||8 ||
 ||'''Boot_wait ''' ||On ||On ||On ||Off ||? ||N/A ||N/A ||? ||On ||
 ||'''[wiki:WikiPedia:http://en.wikipedia.org/wiki/Mini_PCI Mini-PCI] or integrated NIC ''' ||Integrated ||Mini-PCI ||Integrated ||Integrated ||? ||Mini-PCI ||? ||None ||Integrated ||
-||'''hwCrypt in CPU ''' ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] (only model '''F'''?) ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] (only model '''F'''?) ||No ||No ||No? ||No ||No ||
+||'''[http://forum.openwrt.org/viewtopic.php?id=5688&p=3 hw accel crypto] ?''' ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ?(model '''F'''?) ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ?   (model '''F'''?) ||No ||No ||No? ||No ||No ||
 ||'''IDE or SATA''' ||No ||No ||IDE, 3,5" ||No ||No ||No ||No ||No ||No ||
