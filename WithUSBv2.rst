@@ -13,3 +13,6 @@ Embeded "OpenWrt" devices which offer USB v2.0 support
 ||'''[wiki:WikiPedia:http://en.wikipedia.org/wiki/Mini_PCI Mini-PCI] or integrated NIC ''' ||Integrated ||Mini-PCI ||Integrated ||Integrated ||? ||Mini-PCI ||? ||None ||Integrated ||
 ||'''[http://forum.openwrt.org/viewtopic.php?id=5688&p=3 hw accel crypto] ?''' ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ?(model '''F'''?) ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ? (model '''F'''?) ||No ||No ||No? ||No ||No ||
 ||'''IDE or SATA''' ||No ||No ||IDE, 3,5" ||No ||No ||No ||No ||No ||No ||
+||<^>'''Dimensions '''(L*W*H)mm''''''||<^>185 * 205 * 36
+||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||
+||<^>'''Weight''' (g)||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||<^> ||
