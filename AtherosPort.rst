@@ -71,7 +71,8 @@ There are at least 3 variants
 
  * !VxWorks' own bootloader - most Atheros devices (There is a description of the basic workings on the [:OpenWrtDocs/Hardware/Netgear/WGT624:Netgear WGT624] page.)
  * !RedBoot - the [http://sources.redhat.com/ecos/docs-latest/redboot/redboot-guide.html manual] is very good.
- * !NetBoot - the standart loader in dwl7100ap allowed boot firmware image via network from tftp server direct to ram - this method is useful for testing, but can used for real work...
+ * !NetBoot - the standard loader in dwl7100ap allowed boot firmware image via network from tftp server direct to ram - this method is useful for testing, but can not be used for real work...
+ * ThreadX - D-Link uses OS called ThreadX on lowend 1M flash + 8M RAM models. They have custom boot loader that doesn't output anything sensible to serial port but does have recovery mode so you can upload firmware using browser.
 
 == JTAG ==
 
