@@ -10,6 +10,8 @@ It's useful to extend the storage capacity of your USB enabled Wrt router f. e. 
  * some kind of a USB storage device (a USB stick or a external USB harddisc) supported by Linux
  * a USB hub (optional) to add more USB ports (it's probably a good idea to use an active USB hub with it's own PSU)
 
+'''NOTE: '''[:WithUSBv2:Devices supporting USB v2.0]
+
 = Installation =
 '''TIP:''' Some routers are USB 1.1 and 2.0 compatible. To use both devices with both versions install the modules for USB 1.1 and 2.0.
 
@@ -219,7 +221,7 @@ umount /tmp/root
 umount /mnt
 }}}
 
-/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support.  If you encounter problems as well, try disabling USB hotplug.
+/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support. If you encounter problems as well, try disabling USB hotplug.
 
 As earlier stated on this page (to remove {{{/etc/hotplug.d/usb/01-mount}}}) is NOT a good idea, as this is where usbfs is mounted, so usb-storage might work fine but lsusb wohn't list your devices, and most software using USB won't be able to find devices since /proc/bus/usb will remain empty?
 
@@ -471,4 +473,4 @@ ipkg-link umount /mnt/usb
  * Linux USB device support [[BR]]- http://www.linux-usb.org/devices.html
 
 ----
- . CategoryHowTo  
+ . CategoryHowTo 
