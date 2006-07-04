@@ -348,6 +348,11 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
 
 
+== Topcom ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://tools.topcom.net/datasheets/Skyr@cer%20WBR%20254g%20-%20E.pdf Skyr@cer WBR 254G] || V1.0 ||Marvell 88W8510-BAN ||1MB ||8MB ||Marvell 88W8000-NNC ||Marvell 88E6060-RCJ || || ||Probably ||No ||No ||
+
+
 == Toshiba ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WRC-1000 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism2 (mini-PCI) ||Kendin KS8995E ||on || || ||no ||Partial ||
