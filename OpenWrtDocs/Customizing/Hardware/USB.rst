@@ -4,6 +4,8 @@ If your WRT* has a USB port, you could attach a lot of USB devices.
  * http://www.linux-usb.org/
  * [http://www.nslu2-linux.org/wiki/Info/USBDeviceSupport USBDeviceSupport] @NSLU2 Linux
 
+'''NOTE:''' [:WithUSBv2:USB v2.0 devices]
+
 == First steps ==
 First of all you should check if the necessary USB-kernel-modules are installed (check /lib/modules/<kernel-version> for usb*.o) and loaded (lsmod is doing this).
 
@@ -48,7 +50,7 @@ It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors.
 
 Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convertor (i.e. [http://gimel.esc.cam.ac.uk/james/resources/pl2303/ Prolific PL2303]).
 
-refer to [:OpenWrtDocs/Customizing/Serial_Console] for further information about serial console.
+refer to ["OpenWrtDocs/Customizing/Serial Console"] for further information about serial console.
 
 === USB Webcam ===
 Check out this page: http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
