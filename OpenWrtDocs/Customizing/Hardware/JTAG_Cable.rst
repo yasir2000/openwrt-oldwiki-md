@@ -2,7 +2,7 @@
 #pragma keywords JTAG, Linksys, debrick, de-brick, Hairydairymaid
 #pragma description This page talks about different types of JTAG cables.
 = JTAG Cables =
-This page discusses two popular types of JTAG cables and provides a few tips on how to use a buffered Wiggler-type cable with Hairydairymaid's debrick utility.
+This page discusses two popular types of [wiki:WikiPedia:jtag JTAG] cables and provides a few tips on how to use a buffered Wiggler-type cable with Hairydairymaid's debrick utility.
 
 == Several Types of Cables ==
 There are several different types of cables that are popular for hooking up to JTAG headers inside consumer electronic equipment. Most of these rely on a regular PC's parallel port to drive the JTAG signal lines. There are vendors of commercial JTAG cables that sell them at extravagent prices. For the home user or hobbyist, however, a better choice is usually to construct a cable at home from commonly available parts.
@@ -86,11 +86,12 @@ The most famous software for JTAG is probably the Linksys De-Brick Utility by Ha
 
 The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS routers. It will ''not'' help you de-brick other routers that are not based on Broadcom CPUs (e.g. Edimax and its clones).
 
-'''''[Edit by hairydairymaid - the v4.5 debrick utility WILL and CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch.  It is not limited to WRT54G/GS units.] '''''
+'''''[Edit by hairydairymaid - the v4.5 debrick utility WILL and CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch. It is not limited to WRT54G/GS units.] '''''
 
 Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]. One more snapshot with corrected Flash block mapping may be found there: http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip. To access a Flash chip in 8-, 16- or 32-bit mode via EJTAG, use 0x1fc00000, 0x3fc00000 and 0x5fc00000 addresses respectively.
 
-{{{jtag> print
+{{{
+jtag> print 
 No. Manufacturer Part Stepping Instruction Register
 ---------------------------------------------------------------------------------------------
 0 Lexra LX5280 1 BYPASS BR
