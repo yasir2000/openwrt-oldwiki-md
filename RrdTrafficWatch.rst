@@ -4,6 +4,11 @@
   {{{
   src unstable http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ }}}
   to your ipkg.conf
+  . '''The URL above is not valid!'''
+  . Use
+  {{{
+  src unstable http://home.mag.cx/openwrt/packages/ }}}
+  instead
 
  * update your ipkg database and install the needed rrdtool
   . {{{
