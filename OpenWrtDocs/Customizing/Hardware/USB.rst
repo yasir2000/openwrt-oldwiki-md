@@ -4,7 +4,7 @@ If your WRT* has a USB port, you could attach a lot of USB devices.
  * http://www.linux-usb.org/
  * [http://www.nslu2-linux.org/wiki/Info/USBDeviceSupport USBDeviceSupport] @NSLU2 Linux
 
-'''NOTE:''' [:WithUSBv2:USB v2.0 devices]
+'''NOTE:''' "OpenWrt" devices offering [:WithUSBv2:USB v2.0 support].
 
 == First steps ==
 First of all you should check if the necessary USB-kernel-modules are installed (check /lib/modules/<kernel-version> for usb*.o) and loaded (lsmod is doing this).
