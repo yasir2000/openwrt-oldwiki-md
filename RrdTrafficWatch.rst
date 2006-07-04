@@ -99,10 +99,10 @@ for MAC in $(cat /proc/net/arp | grep -v address | awk '{print $4}') ; do
         NAME=$(nslookup $IP 127.0.0.1 | grep "Name:" | awk '{print $2}')
         # echo "mac: $MAC ip: $IP_ name: $NAME"
 
-        UP=$(cat /tmp/traffic.tmp | awk '{print $2 " " $7}' | grep $IP | awk '{print $1}')
+        UP=$(cat /tmp/traffic.tmp | awk '{print $2 " " $7}' | grep $IP | awk '{print $1}' | tr -d '\n' )
         UP=$(($UP+0))
         ALL_UP=$(($ALL_UP+$UP))
-        DOWN=$(cat /tmp/traffic.tmp | awk '{print $2 " " $8}' | grep $IP | awk '{print $1}')
+        DOWN=$(cat /tmp/traffic.tmp | awk '{print $2 " " $8}' | grep $IP | awk '{print $1}' | tr -d '\n' )
         DOWN=$(($DOWN+0))
         ALL_DOWN=$(($ALL_DOWN+$DOWN))
 
