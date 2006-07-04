@@ -2,14 +2,14 @@ Embeded "OpenWrt" devices which have USB v2.0
 
 || ||'''Asus ''' ||'''Asus ''' ||'''Asus ''' ||'''Linksys ''' ||'''Maxtor ''' ||'''Netgear ''' ||'''Siemens ''' ||'''Simpletech ''' ||'''US Robotics ''' ||
 ||'''''' ||'''WL-500G Deluxe ''' ||'''WL-500G Premium ''' ||'''WL-700gE ''' ||'''WRTSL54GS ''' ||'''Shared Storage (+plus) ''' ||'''WGT634U ''' ||'''SE551 ''' ||'''Simpleshare Office Storage Server ''' ||'''USR5461 ''' ||
-||'''Supported ''' ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Untested ||<style="TEXT-ALIGN: right">WiP ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">Untested ||<style="TEXT-ALIGN: right">Untested ||
-||'''USB v2.0 ports ''' ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">3 ||<style="TEXT-ALIGN: right">1 ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">1 ||<style="TEXT-ALIGN: right">1 ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">1 ||
-||'''Serial ''' ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">? ||
-||'''JTAG ''' ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">Yes ||<style="TEXT-ALIGN: right">? ||
-||'''MHz ''' ||<style="TEXT-ALIGN: right">200 ||<style="TEXT-ALIGN: right">266 ||<style="TEXT-ALIGN: right">300 ||<style="TEXT-ALIGN: right">266 ||<style="TEXT-ALIGN: right">300 ||<style="TEXT-ALIGN: right">200 ||<style="TEXT-ALIGN: right">240 ||<style="TEXT-ALIGN: right">300 ||<style="TEXT-ALIGN: right">200 ||
-||'''Flash MB ''' ||<style="TEXT-ALIGN: right">4 ||<style="TEXT-ALIGN: right">8 ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">8 ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">8 ||<style="TEXT-ALIGN: right">2 ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">2 ||
-||'''RAM MB''' ||<style="TEXT-ALIGN: right">32 ||<style="TEXT-ALIGN: right">32 ||<style="TEXT-ALIGN: right">64 ||<style="TEXT-ALIGN: right">32 ||<style="TEXT-ALIGN: right">32 ||<style="TEXT-ALIGN: right">32 ||<style="TEXT-ALIGN: right">16 ||<style="TEXT-ALIGN: right">32 ||<style="TEXT-ALIGN: right">8 ||
-||'''Boot_wait ''' ||<style="TEXT-ALIGN: right">On ||<style="TEXT-ALIGN: right">On ||<style="TEXT-ALIGN: right">On ||<style="TEXT-ALIGN: right">Off ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">N/A ||<style="TEXT-ALIGN: right">N/A ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">On ||
-||'''Mini-PCI or integrated NIC ''' ||<style="TEXT-ALIGN: right">Integrated ||<style="TEXT-ALIGN: right">Mini-PCI ||<style="TEXT-ALIGN: right">Integrated ||<style="TEXT-ALIGN: right">Integrated ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">Mini-PCI ||<style="TEXT-ALIGN: right">? ||<style="TEXT-ALIGN: right">None ||<style="TEXT-ALIGN: right">Integrated ||
-||'''hwCrypt in CPU ''' ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">Not working ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">Not working ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No? ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||
-||'''IDE or SATA''' ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">IDE, 3,5" ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||<style="TEXT-ALIGN: right">No ||
+||'''Supported''' (by OpenWrt) ||Yes ||Yes ||? ||Yes ||Untested ||WiP ||No ||Untested ||Untested ||
+||'''USB v2.0 ports ''' ||2 ||2 ||3 ||1 ||2 ||1 ||1 ||2 ||1 ||
+||'''Serial ''' ||Yes ||Yes ||? ||Yes ||Yes ||Yes ||Yes ||Yes ||? ||
+||'''JTAG ''' ||No ||No ||? ||Yes ||Yes ||No ||Yes ||Yes ||? ||
+||'''MHz ''' ||200 ||266 ||300 ||266 ||300 ||200 ||240 ||300 ||200 ||
+||'''Flash MB ''' ||4 ||8 ||2 ||8 ||2 ||8 ||2 ||? ||2 ||
+||'''RAM MB''' ||32 ||32 ||64 ||32 ||32 ||32 ||16 ||32 ||8 ||
+||'''Boot_wait ''' ||On ||On ||On ||Off ||? ||N/A ||N/A ||? ||On ||
+||'''Mini-PCI or integrated NIC ''' ||Integrated ||Mini-PCI ||Integrated ||Integrated ||? ||Mini-PCI ||? ||None ||Integrated ||
+||'''hwCrypt in CPU ''' ||No ||Not working ||No ||Not working ||No ||No ||No? ||No ||No ||
+||'''IDE or SATA''' ||No ||No ||IDE, 3,5" ||No ||No ||No ||No ||No ||No ||
