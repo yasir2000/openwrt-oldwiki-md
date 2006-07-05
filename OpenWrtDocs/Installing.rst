@@ -35,7 +35,7 @@ White Russian ships in several variations, each with a slightly different set of
 
 
 == TRX vs. BIN ==
-That explains the directories, now what the hell are the files? There's two types of files, the "trx" files and the "bin" files; the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx file can't be used directly.
+That explains the directories, now what the hell are the files? They are [wiki:WikiPedia:Disk_image disk image]s. There's two types of files, the "trx" files and the "bin" files; the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx file can't be used directly.
 
  . openwrt-brcm-2.4-<type>.trx
   . This is the firmware in raw format, exactly as it will be written to the flash. This format is used when upgrading from within OpenWrt or during the initial install on one of the following:
