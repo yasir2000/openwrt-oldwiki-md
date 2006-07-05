@@ -149,6 +149,7 @@ Here you should create a list of printers which are '''not''' working with the {
 The combination Windows 2000 with a canon pixma iP4000 seems not to work with bidirectional mode. If your printer dosent work, try disabling bidirectional mode.
 
 Please add not working combinations here.
+Konica Minolta PagePro 1300W doesn't seem to work in bidirectional mode under win xp.
 
 = Links =
 - http://etherboot.sourceforge.net/p910nd/ [[BR]]- http://wl500g.dyndns.org/printing/ [[BR]]- http://wl500g.dyndns.org/
