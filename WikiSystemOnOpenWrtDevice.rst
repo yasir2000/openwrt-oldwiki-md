@@ -2,7 +2,7 @@
 Is there any wiki systems that can be [http://forum.openwrt.org/viewtopic.php?id=6324 installed on OpenWrt device]?
 
 ----
- . Small table pulling small wiki systems (some of them, see [wiki:WikiPedia:List_of_wiki_software list of wiki systems]) together:   
+ . Small table pulling small wiki systems (some of them, see [wiki:WikiPedia:List_of_wiki_software list of wiki systems]) together:    
 
 || ||'''Written ''''''with''' ||'''Flat file or''' '''database''' ||'''Requirements''' (server) ||'''Requirements''' (client) ||'''GPL''' ||'''Other info''' ||
 ||[http://leaf-project.org/ Leaf-project]s [http://http://leaf-project.org/devel/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=91&MMN_position=92:86 muwiki] (plugin) || || || ||No || ||Uses 'WikiPedia:sed' as rendering engine. ||
@@ -16,6 +16,6 @@ Is there any wiki systems that can be [http://forum.openwrt.org/viewtopic.php?id
 Please update! :)
 
 ----
- Looks like DidiWiki would be small enough to fit on OpenWrt systems flash memory.
+Looks like DidiWiki would be small enough to fit on OpenWrt systems flash memory. 
 
-Also, DidiWiki doesn't have any library requirements.
+Also, DidiWiki doesn't have any library requirements. Some more comparison... [http://www.wikimatrix.org WikiMatrix]
