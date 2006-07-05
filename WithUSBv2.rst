@@ -11,7 +11,7 @@ Embedded "OpenWrt" devices which offer USB v2.0 support
 ||'''RAM MB''' ||32 ||32 ||64 ||64 ||32 ||32 ||32 ||16 ||32 ||8 ||
 ||'''Boot_wait ''' ||On ||On ||On ||N/A ||Off ||? ||N/A ||N/A ||? ||On ||
 ||'''[wiki:WikiPedia:http://en.wikipedia.org/wiki/Mini_PCI Mini-PCI] or integrated WLAN''' ||Integrated ||Mini-PCI ||Integrated ||Empty Mini-PCI ||Integrated ||? ||Mini-PCI ||? ||None ||Integrated ||
-||'''[http://forum.openwrt.org/viewtopic.php?id=5688&p=3 hw accel crypto] ?''' ||No ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ?(model '''F'''?) ||No ||Yes ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ? (model '''F'''?) ||No ||No ||No? ||No ||No ||
+||[:HardwareAcceleratedCrypto:HarwareAcceleratedCrypto] ||No? ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ?(model '''F'''?) ||No? ||Yes ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 4704] ? (model '''F'''?) ||No ||No ||No? ||No ||No ||
 ||'''IDE or SATA''' ||No ||No ||IDE, 3,5" ||3,5" PATA and external eSATA ||No ||No ||No ||No ||No ||No ||
-||'''Dimension''' (mm) ||185*205 *36 || || ||140*175*44 ||140*140*27 ||||<style="TEXT-ALIGN: center"> || || || || ||
+||'''Dimension''' (mm) ||185*205 *36 || || ||140*175*44 ||140*140*27 ||||<style="text-align: center;"> || || || || ||
 ||'''Weight''' (g) ||500 g || || ||950 g ||270 g || || || || || ||
