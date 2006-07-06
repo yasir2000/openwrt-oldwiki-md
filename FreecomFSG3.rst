@@ -14,7 +14,7 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * Small approx. 3cm * 3cm fan
  * JTAG connector (pin-out unknown)
  * TTL serial connector (another empty pads next to it, maybe second serial port)
- * Winbond environment monitoring chip with three temperature sensors and fan RPM monitoring+control
+ * Winbond W83782D environment monitoring chip with three temperature sensors and fan RPM monitoring+control
  * Onboard RTC with removable battery on I2C bus
 
 == Software ==
