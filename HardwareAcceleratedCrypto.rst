@@ -12,3 +12,5 @@ Datasheets:
 [http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf 94704AGR-PB00-R.pdf]
 
 [http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf 5365_5365P-PB01-R.pdf]
+
+[http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForceBrochure.pdf]
