@@ -4,12 +4,12 @@ The BCM47xx/53xx (all xx models?) used by some of the platforms (Asus WL500GD/X,
 The specification(s?) states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration with the blowfish encryption throughput is only ~0,4MB/s.
 
 ----
-[http://forum.openwrt.org/viewtopic.php?id=5032 Discussion] about hardware accelerated crypto. 
+[http://forum.openwrt.org/viewtopic.php?id=5032 Discussion] about hardware accelerated crypto.
 
 Various versions of [http://80.81.183.101/openwrt/bcm5820/ BCM5820 driver sources].
 
 ----
-[http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForce] says there are WEP 128, AES OCB and AES CCM accelerated by hardware. 
+[http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForce] says there are WEP 128, AES OCB and AES CCM accelerated by hardware.
 
 || ||Accelerations ||Datasheet ||
 ||BCM94704 ||WEP 128, AES OCB AES CCM, ||[http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf 94704AGR-PB00-R.pdf] ||
