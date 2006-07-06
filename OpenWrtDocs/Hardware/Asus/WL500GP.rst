@@ -6,9 +6,8 @@ Here are some links to forum threads related to the WL-500gP:
  * [http://forum.openwrt.org/viewtopic.php?id=6071 CPU Power]
  * [http://forum.openwrt.org/viewtopic.php?id=5688 Some more compatiblity information]
 
-So far, very few problems with the wl-500gP
-
-the reset button does not work (due largely to mis-mapped /proc/sys/reset)
+=== Few problems with the WL-500gP ===
+The reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
 gpio 0 = RESTORE button (reset) (00 = unpressed, 01 = pressed)
 
@@ -21,20 +20,20 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
 
 (don't forget to commit nvram changes)
 
- * ***WARNING*** I cannot guarentee this will always work, or that it will work in your case... nor will I ever guarentee anything you do. That being said, the WL500gP is supposed to have 32mb RAM... and if you poke arround, you may notice that you are only seeing 16mb ram... there are a few nvram settings that need to be changed:
+ * ***WARNING*** I cannot guarentee this will always work, or that it will work in your case... nor will I ever guarentee anything you do. That being said, the WL-500gP is supposed to have 32mb RAM... and if you poke arround, you may notice that you are only seeing 16mb ram... there are a few nvram settings that need to be changed:
   . nvram set sdram_init=0x0009 nvram set sdram_ncdl=0
 
 (don't forget to commit/reboot)
 
-'''Please write some more info on the WL-500gP!'''
+''''''
 
-FCC ID: MSQWL500GP
+=== More info of WL-500gP ===
+FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
 
-[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
+HardwareAcceleratedCrypto
 
-Is there [http://forum.openwrt.org/viewtopic.php?id=5688&p=3 harware acceleration for crypto]? What circuit makes this possible?
-
-VespaTS: Couldn't get PPPOE to work. To get pppoe running I had to change again some settings:
+----
+VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
 
 wan_device=eth0 (it was set to vlan1)
 
@@ -42,7 +41,7 @@ Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInt
 
 ***Caution** I've (thecompwiz)been having troubles if I set wan_proto=none It appears as if it breaks the vlan0.
 
-== trunc with Kernel 2.6 * ==
+== Trunc with Kernel 2.6 * ==
 '''P:''' The line ''b44: eth1: BUG! Timeout waiting for bit 80000000 of register 428 to clear.'' may appear in log.
 
 '''S:''' As writen in http://forum.openwrt.org/viewtopic.php?pid=29017 this can be fixed by editing /etc/init.d/S10boot
