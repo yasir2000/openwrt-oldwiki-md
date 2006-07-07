@@ -78,6 +78,9 @@ To install !OpenWrt on a supported device (see TableOfHardware), download the co
 
 If you are not happy with !OpenWrt, you can always reinstall your original firmware. Please be sure you have it downloaded and saved on your PC.
 
+== via vendor supplied web interface ==
+This is the easiest method on supported devices. This method works fine for Linksys WRT54GL (see http://wiki.openwrt.org/InstallingWrt54gl#head-01985ece7d7673e68766ec20d4667677cfffc7ac). This method requires that the original web interface is available and might not work in case you are trying to repair a previously botched install or other abnormal situations.
+
 == via tftp ==
 If you are extremely cautious or try to install a self compiled or modified version of OpenWrt White Russian, please consider using the OpenWrtViaTftp installation method. For some of the hardware models it has special requirements. To avoid potentially serious damage to your router caused by an unbootable firmware you always should read the documentation for your specific router model, see CategoryModel.
 
