@@ -132,7 +132,7 @@ Personally, as an engineer, I prefer the buffered cable and would not use an unb
 
 == Links ==
  * [:OpenWrtDocs/Troubleshooting#head-2905e5d0dd7320ac475dd4aa53c0c4ea93ffbadd:Troubleshooting OpenWrt (JTAG Section)]
- * [http://www.linux-mips.org/wiki/Adm5120#JTAG Some notes about EJTAG on ADM5120 devices] at the Linux-MIPS wiki
+ * [http://www.linux-mips.org/wiki/JTAG EJTAG] at the Linux-MIPS wiki
  * [http://www.mips.com/content/Documentation/MIPSDocumentation/EJTAG/doclibrary EJTAG Specification] from MIPS Technologies, Inc. (free registration required)
  * [http://forum.amilda.org/viewtopic.php?id=43 Two examples] of successful Wiggler-style cable projects
  * [http://midge.vlad.org.ua/forum/viewtopic.php?t=121 Debrick example] using OpenwinCE with EJTAG driver.
