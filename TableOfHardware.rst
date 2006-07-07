@@ -17,7 +17,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 
 == 4G Systeme ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64Mb ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Supported||
+||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64Mb ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Supported ||
 
 
 == Actiontec ==
@@ -59,7 +59,7 @@ See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], Catego
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=979&modelmenu=1 WL-700gE] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300MHz ||2MB ||64MB || || || || || ||3x v2.0 ||3.5" 160GB ||Untested ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4702] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
-||[:OpenWrtDocs/Hardware/Asus/AAM6020VI:AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
+||["OpenWrtDocs/Hardware/Asus/AAM6020VI"] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
 
 
 == AVM ==
@@ -117,7 +117,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=13 WLA-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB || ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54C:Untested] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=70 WLA2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||off || || || ||Untested ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=92&categoryid=6 WLA2-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4Mb ||16Mb ||Broadcom (integrated) ||None || ||Yes ||Yes || ||Untested ||
+||[http://www.buffalotech.com/products/product-detail.php?productid=92&categoryid=6 WLA2-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4Mb ||16Mb ||Broadcom (integrated) ||None || ||Yes ||Yes || ||["Supported"] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=90&categoryid=6 WLA2-G54L] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes || ||[:OpenWrtDocs/Hardware/Buffalo/WLA2-G54L:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=35 WLI-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=44 WLI2-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
@@ -162,7 +162,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 
 == Freecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' || '''Other''' ||'''Status''' ||
-||[http://www.freecom.com/ecProduct_detail.asp?ID=2347 FSG-3] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||64MB ||N/A (Empty mini-PCI) ||RTL8305SB ||N/A ||Yes ||Yes ||2.0 || SATA+PATA||[:FreecomFSG3:WiP] ||
+||[http://www.freecom.com/ecProduct_detail.asp?ID=2347 FSG-3] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||64MB ||N/A (Empty mini-PCI) ||RTL8305SB ||N/A ||Yes ||Yes ||2.0 || SATA+PATA ||[:FreecomFSG3:WiP] ||
 
 
 == Gateway ==
