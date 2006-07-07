@@ -42,6 +42,7 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * At least 250GB model came with internal Samsung 7200rpm 8MB PATA HDD. I don't know if other models are PATA or SATA.
 
 == Links ==
+ * http://www.nslu2-linux.org/ Linux on the ARM-based NASes
  * Official Freecom support site: http://www.openfsg.com
  * Sales page: http://www.freecom.com/ecProduct_detail.asp?ID=2347
  * Internal photos: http://80.81.183.101/fsg3/
