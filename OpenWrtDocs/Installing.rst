@@ -95,6 +95,7 @@ It's not recommended to flash the kernel image via jtag, as it will take more th
 = Upgrading from previous OpenWrt install =
 == Backup /etc changes and package list ==
 Before you upgrade, please consider making a backup of your /etc directory and then write down the list of packages installed.
+Alternatively, you can back up the file {{{/usr/lib/ipkg/status}}}.
 
 /!\ '''Reflashing with OpenWrt WILL RESET THE FILESYSTEM''' /!\
 
