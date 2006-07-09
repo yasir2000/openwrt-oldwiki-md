@@ -166,7 +166,9 @@ Since DMA Routines do '''not''' exist for this ejtag version (compared to ejtag 
 
 The JTAG utility authored by HairyDairyMaid that is in common use as a debugger for the wrt54g originally did not support the v2.6 routines due to the need to rewrite the prAcc routines.  After some lobbying, he has purportedly added support that is *supposed* to work with the wrtp54g as well as other ar7 based routers although at last check (which was some while ago) this additional feature had yet to be successfully confirmed to work as intended, although I had heard through a third party that it had in fact worked this needs to be confirmed by someone on this page with firsthand knowledge.
 
-[http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
+ * [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device]
+ * [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
+ * [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] guide
 
 ----
  CategoryModel ["CategoryAR7Device"]
