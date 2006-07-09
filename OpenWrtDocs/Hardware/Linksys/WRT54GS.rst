@@ -59,7 +59,7 @@ The WRT54GS v4.0 uses a Broadcom 5352 CPU with integrated switch.
 {{{
 Bootloader     : CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
 System-On-Chip : Broadcom 5352EKPB
-CPU Speed      : ?
+CPU Speed      : 200 MHz
 Flash size     : 4 MB (Intel TE28F320)
 RAM            : 16 MB (Hynix HY5DU281622ET)
 Wireless       : Integrated Broadcom BCM2050KML
