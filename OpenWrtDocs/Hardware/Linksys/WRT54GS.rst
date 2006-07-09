@@ -57,7 +57,7 @@ Resetting to factory defaults via reset button or mtd erase nvram is '''not safe
 The WRT54GS v4.0 uses a Broadcom 5352 CPU with integrated switch.
 
 {{{
-Bootloader     : CFE
+Bootloader     : CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
 System-On-Chip : Broadcom 5352EKPB
 CPU Speed      : ?
 Flash size     : 4 MB (Intel TE28F320)
