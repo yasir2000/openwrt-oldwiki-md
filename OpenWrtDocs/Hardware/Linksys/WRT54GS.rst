@@ -62,7 +62,7 @@ System-On-Chip : Broadcom 5352EKPB
 CPU Speed      : ?
 Flash size     : 4 MB (Intel TE28F320)
 RAM            : 16 MB (Hynix HY5DU281622ET)
-Wireless       : Integrated
+Wireless       : Integrated Broadcom BCM2050KML
 Switch         : Built-in
 USB            : None
 Serial         : yes (JP2)
