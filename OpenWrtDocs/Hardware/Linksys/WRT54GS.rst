@@ -56,6 +56,19 @@ Resetting to factory defaults via reset button or mtd erase nvram is '''not safe
 
 The WRT54GS v4.0 uses a Broadcom 5352 CPU with integrated switch.
 
+{{{
+Bootloader     : CFE
+System-On-Chip : Broadcom 5352EKPB
+CPU Speed      : ?
+Flash size     : 4 MB (Intel TE28F320)
+RAM            : 16 MB (Hynix HY5DU281622ET)
+Wireless       : Integrated
+Switch         : Built-in
+USB            : None
+Serial         : yes (JP2)
+JTAG           : assumed on JP1
+}}}
+
 '''NOTE:''' v4.0 only has 4 MB Flash and 16 MB RAM. Half of prior versions.
 Some WRT54GS v4 has 8 MB flash and 32 MB RAM, only first relase of WRT54GS v4
 had 4MB/16MB.
