@@ -119,4 +119,4 @@ To reflash from within !OpenWrt you will need to use a trx file:
 
  . {{{mtd -r write firmware.trx linux}}}
 
-The "-r" will force an automatic reboot after the reflashing.
+The "-r" will force an automatic reboot after the reflashing. See also: BackupAndRestore.
