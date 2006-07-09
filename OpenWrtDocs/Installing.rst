@@ -95,7 +95,7 @@ It's not recommended to flash the kernel image via jtag, as it will take more th
 = Upgrading from previous OpenWrt install =
 == Backup /etc changes and package list ==
 Before you upgrade, please consider making a backup of your /etc directory and then write down the list of packages installed.
-Alternatively, you can back up the file {{{/usr/lib/ipkg/status}}}.
+Alternatively, you can back up the package list by saving a copy of the file {{{/usr/lib/ipkg/status}}}.
 
 /!\ '''Reflashing with OpenWrt WILL RESET THE FILESYSTEM''' /!\
 
@@ -106,13 +106,17 @@ NVRAM is NOT modified by a reflash. Any NVRAM values will remain intact after re
 == Backing up the old OpenWrt as a firmware image ==
 To backup an existing !OpenWrt install, use the command:
 
- . dd if=/dev/mtdblock/1 of=/tmp/firmware.trx
+ . {{{dd if=/dev/mtdblock/1 of=/tmp/firmware.trx}}}
 
 This will produce a pseudo-trx file containing the firmware (trx) followed by a dump of the JFFS2 filesystem -- basically everything except the bootloader and NVRAM. Copy this to a safe place and only restore it to a device with the same size flash chip.
+
+If you don't have enough space to backup the firmware to /tmp, you can use ssh from another machine. Replace {{{$GATEWAY}}} with the hostname or IP address of your !OpenWrt system:
+
+ . {{{ssh $GATEWAY 'dd if=/dev/mtdblock/1' > firmware-backup.trx}}}
 
 == Upgrading / Restoring ==
 To reflash from within !OpenWrt you will need to use a trx file:
 
- . mtd -r write firmware.trx linux
+ . {{{mtd -r write firmware.trx linux}}}
 
 The "-r" will force an automatic reboot after the reflashing.
