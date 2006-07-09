@@ -13,7 +13,7 @@ The support for Broadcom 63xx is at this state :
 
 == TODO ==
 
-   * Fix MTD/Flash map driver (need special table for CFE and RedBoot devices)
+   * Fix MTD/Flash map driver (need special table for CFE and [http://sources.redhat.com/ecos/docs-latest/redboot/redboot-guide.html RedBoot] devices)
    * Try to run binary drivers with CONFIG_VERSIONING set on
 
 == Firmware/Bootloader ==
