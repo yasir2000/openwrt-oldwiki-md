@@ -162,7 +162,9 @@ The AR7 implements ejtag version 2.6.
 
 This ejtag layout should work with all ar7 based boards with a 14 pin jtag pinout.  The same cable as used for the wrt54g (based on the xilinx III/dlc-5) as demonstrated by !HairyDairyMaid can be constructed and is well documented.  Debug INT pin 13 is optional and pin 14 can be left unhooked for passive cabling.
 
-Since DMA Routines do '''not''' exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.  (Can someone clarify this?  It sounds like some unnamed ejtag utility program does not yet work with this router.)
+Since DMA Routines do '''not''' exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
+
+The JTAG utility authored by HairyDairyMaid that is in common use as a debugger for the wrt54g originally did not support the v2.6 routines due to the need to rewrite the prAcc routines.  After some lobbying, he has purportedly added support that is *supposed* to work with the wrtp54g as well as other ar7 based routers although at last check (which was some while ago) this additional feature had yet to be successfully confirmed to work as intended, although I had heard through a third party that it had in fact worked this needs to be confirmed by someone on this page with firsthand knowledge.
 
 [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device], [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
 
