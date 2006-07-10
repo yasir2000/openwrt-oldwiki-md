@@ -29,6 +29,19 @@ the box, below the UPC barcode.
 === WRT54GS v1.0 ===
 
 The WRT54GS v1.0 uses an ADM6996 switch and SDRAM.
+
+{{{
+System-On-Chip : Broadcom 4712KPB
+Flash size     : 8 MB Intel
+RAM            : 32 MB (2 x EtronTech EM639165TS-7, PC133/CL3 8M x 16bits SDRAM)
+Wireless       : Integrated Broadcom BCM2050KML
+Switch         : ADMtek ADM6996L 5 port 10/100 switch
+USB            : None
+Serial         : yes
+JTAG           : yes
+}}}
+
+
 Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
 
