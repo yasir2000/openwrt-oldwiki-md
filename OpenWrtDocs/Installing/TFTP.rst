@@ -17,6 +17,8 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
 
 /!\ '''Please be patient, the reflashing occurs AFTER the firmware has been transferred. DO NOT unplug the router, it will automatically reboot into the new firmware.'''
 
+/!\ '''Note that the nvram IP address will not be used by the bootloader: instead, the router will revert to the factory default, which is usually {{{192.168.1.1}}}'''
+
 On routers with a DMZ LED, !OpenWrt will light the DMZ LED while booting, after the bootup scripts are finished it will turn off the DMZ LED. Sometimes automatic rebooting does not work, so you can safely reboot (power cycle) after waiting 6 minutes.
 
 The TFTP commands vary across different implementations. Here are some examples:
