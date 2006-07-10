@@ -108,6 +108,8 @@ For further informations please see:
 
 Hardware info with detailed [http://wiki.version6.net/WRT54GS pictures].
 
+[http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=6 Autopsy: Linksys WRT54G and WRT54GS Hardware Versions Under the Knife]
+
 
 == Power Consumption ==
 
