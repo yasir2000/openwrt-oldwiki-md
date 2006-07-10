@@ -24,15 +24,18 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
 == Status ==
  * 2.6.16 patched and running (based on SlugOS 3.10-beta)
  * Network interfaces and switch work (0,1,2=LAN, 3=LAN/NPE, 4=WAN)
+ * MAC addresses for network interfaces correctly read from flash
  * SATA and PATA disks work (with slightly modified Fedora Core 4 patch from VIA)
  * USB ports work with stock USB drivers
- * WIFI card on Mini-PCI slot detected by kernel (Tried with Atheros and Intel, haven't tried loading drivers yet)
+ * WIFI card on Mini-PCI slot detected by kernel (Tested with Atheros and Intel, haven't tried loading drivers yet)
  * Freecom registered proper ARM Linux machine ID for FSG-3 (1091)
+ * I2C, RTC, sensors and FAN rpm control working with stock drivers
 
 == ToDo ==
- * Find out how GPIO's are routed (buttons, leds)
- * RTC (opensource driver found, but not same that Freecom uses)
- * lm_sensors (chip itself is supported but we're missing Freecom specific patches)
+ * Enable buttons (GPIO's known, need to adapt NSLU2 code)
+ * Leds (Connected to expansion bus, needs some new code to support)
+ * Hardware crypto (Driver downloadable from Intel but does it work in Little-Endian mode?)
+ * Passing arguments from RedBoot to 2.6 kernel causes crash. Works with stock Freecom 2.4 kernel.
  * OpenWrt support (Waiting for buildroot-ng XScale support) 
 
 == Notes ==
