@@ -8,7 +8,7 @@ With a serial connection to your WRT, you don't have to use the ping bug or chan
 #nvram commit                  (takes a few seconds to complete)
 }}}
 
-You can also set boot_wait from the CFE boot loader (to enter CFE, reboot the router with "# reboot" while hitting {{{CTRL-C}}} continously)
+You can also set boot_wait from the [:OpenWrtDocs/Customizing/Firmware/CFE:CFE] boot loader (to enter CFE, reboot the router with "# reboot" while hitting {{{CTRL-C}}} continously)
 
 {{{
 CFE> nvram set boot_wait=on
