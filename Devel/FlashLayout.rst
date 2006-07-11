@@ -8,7 +8,7 @@ Everything is stored on the flash chip. The size of the flash chip depends on wh
 
 There's no actual partition table, the layout is simply hardcoded.
 
-The first 256k is reserved for the bootloader, either cfe or pmon. Both bootloaders are identical as far as the user is concerned, performing the task of initializing the hardware, validating and loading the firmware. If boot_wait is set or the firmware fails to validate or boot then the bootloader is also responsible for the tftp server that allows the firmware to be recovered.
+The first 256k is reserved for the bootloader, either [:OpenWrtDocs/Customizing/Firmware/CFE:CFE] or PMON. Both bootloaders are identical as far as the user is concerned, performing the task of initializing the hardware, validating and loading the firmware. If boot_wait is set or the firmware fails to validate or boot then the bootloader is also responsible for the tftp server that allows the firmware to be recovered.
 
 The last 64k is reserved for nvram, holding the configuration for the router. As a precaution, if nvram doesn't exist it gets automatically created by the bootloader using defaults stored in the bootloader.
 
@@ -32,7 +32,7 @@ If you're paying close attention, you might notice that the sizes actually add u
 
 {{{[pmon][linux [rootfs][OpenWrt]][nvram]}}}
 
-The bootloader from the previous diagram has been replaced by "pmon" -- pmon is just the name of the partition, we don't bother to check if it actually is pmon or cfe. Nvram is still at the end and the space beteen has been replaced by "linux".
+The bootloader from the previous diagram has been replaced by "pmon" -- pmon is just the name of the partition, we don't bother to check if it actually is PMON or CFE. Nvram is still at the end and the space beteen has been replaced by "linux".
 
 The linux partition is more than just the firmware, it's the entire space between the bootloader and the nvram. At the start of the linux partition is the actual firmware which contains the kernel and squashfs filesystem.
 
