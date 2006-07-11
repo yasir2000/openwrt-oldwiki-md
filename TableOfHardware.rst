@@ -154,6 +154,12 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB ||16MB ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
 
 
+== Dynalink ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 RTA230] ||? ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] ||4MB ||16MB ||No ||No ||Yes ||Yes ||Yes ||1x 1.1 ||Preliminary support in Kamikaze ||
+||[http://www.dynalink.com.au/modemsadsl_dis.htm?prod=RTA770W RTA770W] ||? ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] ||4MB ||16MB ||BCM4306 (mini-PCI) ||BCM5325 ||Yes ||Yes ||Yes ||?? ||Preliminary support in Kamikaze ||
+
+
 == Edimax ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104K] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
@@ -311,7 +317,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on || || || ||Supported ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||1x v1.1 (easy mod) ||Supported ||
-||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html SE515] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] ||4MB ||16MB ||Broadcom BCM4306 (mini-PCI) ||BCM5325 || || || ||1x v1.1 (?) ||Untested ||
+||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html SE515] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] ||4MB ||16MB ||Broadcom BCM4306 (mini-PCI) ||BCM5325 || || || ||1x v1.1 (?) ||Preliminary support in Kamikaze ||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550] || || ||4MB || || || || || || || ||Untested ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||N/A ||Yes ||Yes ||1x v2.0 ||No ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes || ||Yes ||[:AR7Port:WiP] ||
