@@ -322,6 +322,8 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||N/A ||Yes ||Yes ||1x v2.0 ||No ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes || ||Yes ||[:AR7Port:WiP] ||
 
+The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, they just changed the case and the firmware)
+
 
 == Simpletech ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
