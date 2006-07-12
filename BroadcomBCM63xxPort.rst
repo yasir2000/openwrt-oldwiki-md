@@ -5,6 +5,21 @@
 
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC] integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 
+Known 6345 platforms*:
+||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
+||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA77W] ||
+||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html Siemens SE515] ||
+
+Known 6348 platforms*:
+||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536+] ||
+||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:Linksys WAG54GS] ||
+||[:OpenWrtDocs/Hardware/Linksys/WAG54GX2:Linksys WAG54GX2] ||
+||[:OpenWrtDocs/Hardware/Netgear/DG834GT:Netgear DG834GT] ||
+||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg US Robotics USR9108] ||
+||[:OpenWrtDocs/Hardware/Huawei/EchoLife_HG520:Huawei EchoLife HG520] ||
+
+* If no dedicated Openwrt page is found an external link is supplied
+
 == Finished tasks ==
 
 The support for Broadcom 63xx is at this state :
@@ -22,8 +37,8 @@ Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-
 
 = How to help =
 
-   * Create valid firmware images. 
+   * Create valid firmware images.
 
    * Test the currently merged kernel in order to see if it boots on CFE based boards. It currently does not receives the MTD map from RedBoot (maybe wrong sector number).
 ----
-CategoryOpenWrtPort
+CategoryOpenWrtPort CategoryOpenWrtPort
