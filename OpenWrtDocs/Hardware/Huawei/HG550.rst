@@ -2,7 +2,7 @@ Décrire ici « OpenWrtDocs/Hardware/Huawei/HG550 ».
 
 = Home Gateway 550 Huawei ( 9Box ) =
 == Pictures: ==
-http://rapaces.zehome.com/autophoto/9Box//IMG_0215.JPG attachment:rapaces.zehome.com/autophoto/9Box//IMG_0212.JPG
+http://rapaces.zehome.com/autophoto/9Box/IMG_0215.JPG attachment:http://rapaces.zehome.com/autophoto/9Box/IMG_0212.JPG
 
 
 == Informations: ==
