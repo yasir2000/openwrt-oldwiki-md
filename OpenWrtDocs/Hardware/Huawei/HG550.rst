@@ -1,8 +1,7 @@
 = Home Gateway 550 Huawei ( 9Box ) =
 == Pictures: ==
-http://rapaces.zehome.com/autophoto/9Box/IMG_0215.JPG 
-http://rapaces.zehome.com/autophoto/9Box/IMG_0212.JPG
-
+http://hindukush.zehome.com/~ed/9box1.jpg
+http://hindukush.zehome.com/~ed/9box2.jpg
 
 == Informations: ==
 This box is used by 9Telecom, French ISP.
