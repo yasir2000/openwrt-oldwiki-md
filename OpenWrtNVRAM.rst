@@ -135,6 +135,7 @@ There are separate variables called wl0_* which configure the characteristics of
 ||'''wl0_bcn''' ||Set beacon period (default 100) ||
 ||'''wl0_frameburst''' ||(on/off) enable/disable frameburst ||
 ||'''wl0_antdiv''' ||Select antenna (''-1=auto, 0=main''[near power jack]'', 1=aux''[near reset button]'', 3=diversity'') Starting with WRT54G v2.0 and WRT54GS V1.1 these are reversed 0=''[near reset button]'' and 1=''[near power jack]'' ||
+||'''wl0_txant''' ||See wl -h||
 ||'''wl0_ssid''' ||Set the SSID of the Wrt54g ||
 ||'''wl0_distance''' || (per Whiterussian RC5) Adjusts timing for signal propagation time. Unit: [m] (one-way). Setting this variable overrules setting of shortslot/longslot timing. Setting this variable is only needed over distances greater than appr. 1.5 km. The need usually shows when communication throughput is very low although the ratio of signal strength to noise is good. ||
 ||'''wl0_wdstimeout''' ||if set, it will enable the WDS watchdog (e. g. wl0_wdstimeout=180, value is in seconds) ||
