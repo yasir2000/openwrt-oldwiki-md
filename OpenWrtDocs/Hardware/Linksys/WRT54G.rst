@@ -19,7 +19,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
 ||WRT54G v4 || CDFA || (./) || (./) ||
 ||WRT54G v5 *|| CDFB || (./)  || {X} ||
-||WRT54G v5.1* || CDFC || {./} || {X} ||
+||WRT54G v5.1* || CDFC || (./) || {X} ||
 ||WRT54G v6 *||CDFD || (./)  || {X} ||
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
