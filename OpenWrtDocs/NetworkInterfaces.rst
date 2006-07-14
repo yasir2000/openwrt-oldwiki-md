@@ -25,7 +25,7 @@ The subject of VLANs can get very complicated and extensive, but this quick summ
 === VLAN Trunking ===
 If you have a switch with multiple VLANs, you may want to attach a device (such as another switch) that needs to talk to more than one VLAN. This could be a firewall, which will take packets from one VLAN, filter them, then pass them to another VLAN. Alternatively, you might have a second switch that has the same two VLANs on them, and you want to two switches to exchange packets between each other for both VLANs, whilst maintaining the separation.
 
-This is done with a process known as trunking. One port on the switch must be configured as a trunk port, and this port will have connectivity to all VLANS for which it's set to be a trunk port. If you have a switch with 3 VLANs, you can configure one (or more) trunk port(s) to have connectivity to all VLANs, or just a subset of the VLANs.
+Rather than wasting ports by using separate ports per VLAN, we use a process known as trunking. One port on the switch must be configured as a trunk port, and this port will have connectivity to all VLANS for which it's set to be a trunk port. If you have a switch with 3 VLANs, you can configure one (or more) trunk port(s) to have connectivity to all VLANs, or just a subset of the VLANs.
 
 How does the switch maintain isolation with this port? This is done with "tagging". Every packet sent or received from the trunk port has a little tag attached to it, indicating what VLAN it is for or from. So a device receiving packets looks at the tag to see what VLAN that packet is from. When the device sends traffic to the switch, it will add a tag itself, and the switch will look at the tag and send the packet to the VLAN indicated.
 
