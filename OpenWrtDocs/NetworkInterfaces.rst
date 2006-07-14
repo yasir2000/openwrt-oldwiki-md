@@ -42,7 +42,7 @@ One useful feature of bridging is that the Linux box which is doing the bridging
 This knowledge of bridges is important below.
 
 == Interfaces under OpenWRT ==
-
+=== Architecture ===
 An OpenWRT box is actually three devices in one. It consists of a VLAN-configurable switch, a wireless port, and a Linux host. The switch and host are connected by one internal "wire", over which VLAN tagged packets are exchanged. All of the physical ethernet ports on the box are just ports on a single internal switch. VLANs are then used to separate the ports into groups. The diagram below shows the architecture.
 
 attachment:ASUS-Internals-default-sm.png
