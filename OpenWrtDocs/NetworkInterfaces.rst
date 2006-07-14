@@ -38,7 +38,7 @@ One useful feature of bridging is that the Linux box which is doing the bridging
 
 This knowledge of bridges is important below.
 
-=== Interfaces under OpenWRT ===
+== Interfaces under OpenWRT ==
 
 An OpenWRT box is actually two devices in one. It consists of a VLAN-configurable switch and a Linux host. The switch and host are connected by one internal "wire", over which VLAN tagged packets are exchanged. All of the physical ethernet ports on the box are ports on a single internal switch. VLANs are then used to separate the ports into groups. The diagram below shows the architecture.
 
@@ -54,7 +54,7 @@ The vlan0 interface is done a bit differently. By default, the wifi interface (e
 
 There's also another interface visible from the shell - "eth1". This doesn't appear to be linked to anything, and is probably an unused wire on the ethernet controller, so it's ignored in all configuration.
 
-== Interface configuration ==
+=== Interface configuration ===
 With a knowledge of how interface are partitioned, it's now easier to understand how to configure interfaces under OpenWRT.
 
 The following block configured the physical ports into VLANS:
@@ -95,7 +95,7 @@ The variable "lan_ifname", which sets the actual interface to configure the IP p
 
 That's basically how the entire network device architecture is on this box. Below is an example of adding another VLAN.
 
-== DMZ Vlan ==
+=== DMZ Vlan ===
 
 If you're running some public servers and are security concious, you'll probably want to make use of DMZ (Demilitarised Zone). This is a third VLAN in a network, configured with different rules to the internal secure network. Generally the DMZ is configured to allow access to certain ports from the internet that wouldn't normally be allowed to inside hosts.
 
