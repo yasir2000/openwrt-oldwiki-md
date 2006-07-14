@@ -57,7 +57,7 @@ Under OpenWRT, the vlan1 interface is then usually configured with the WAN ip ad
 
 The vlan0 interface is done a bit differently. By default, the wifi interface (eth2) is bridged to the LAN ports, ie any host associated on the wireless port is automatically in the same VLAN/subnet as hosts on the LAN ports. This is done with bridging (see above). As described above, when a bridge is created, a new logical interface is created, called br0, and also as above, this br0 interface is the one that needs to have any IP address configured. So, by default, vlan0 does not have an IP address configured, instead, the LAN interface address is configured on the br0 interface.
 
-There's also another interface visible from the shell - "eth1". This doesn't appear to be linked to anything, and is probably an unused wire on the ethernet controller, so it's ignored in all configuration. Pretend it doesn't exist. :)
+There's also another interface visible from the shell - "eth1". This doesn't appear to be linked to anything, and is probably an unused wire on the ethernet controller, so it's ignored in all configuration. Pretend it doesn't exist. :) "'This is the case on the Asus WL-500gP, it may differ on other models'"
 
 === Interface configuration ===
 With a knowledge of how interfaces are partitioned, it's now easier to understand how to configure interfaces under OpenWRT.
