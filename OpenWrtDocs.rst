@@ -42,3 +42,6 @@ Please read the manual. If you have any questions about anything in the manual, 
 
 '''[:OpenWrtDocs/Hardware: Hardware Information]'''
 [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
+
+'''[:OpenWrtDocs/NetworkInterfaces: Understanding Network Interfaces]'''
+[[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]]
