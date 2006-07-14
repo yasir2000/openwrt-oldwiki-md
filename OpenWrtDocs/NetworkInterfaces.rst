@@ -104,9 +104,9 @@ That's basically how the entire network device architecture is on this box. Belo
 
 See also DemilitarizedZoneHowto
 
-If you're running some public servers and are security concious, you'll probably want to make use of DMZ (Demilitarised Zone). This is a third VLAN in a network, configured with different rules to the internal secure network. Generally the DMZ is configured to allow access to certain ports from the internet that wouldn't normally be allowed to inside hosts.
+If you're running some public servers and are security concious, you'll probably want to make use of a DMZ (Demilitarised Zone). This is a third VLAN in a network, configured with different rules to the internal secure network. Generally the DMZ is configured to allow access to certain ports from the internet that wouldn't normally be allowed to inside hosts.
 
-Under OpenWRT, a DMZ is easy to configure. A third VLAN is created, and one or more physical ports is mapped to this VLAN, then suitable firewall rules are created for this VLAN. The pictur below shows how a DMZ configuration would look inside the device:
+Under OpenWRT, a DMZ is easy to configure. A third VLAN is created, and one or more physical ports are mapped to this VLAN, then suitable firewall rules are created for this VLAN. The picture below shows how a DMZ configuration would look inside the device:
 
 attachment:ASUS-Internals-dmz.png
 
