@@ -69,7 +69,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Siemens ||SE505 ||v2 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 
 
-note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted. See NetworkInterfaces
+note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted. See [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces]
 
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
 
