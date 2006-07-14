@@ -34,7 +34,7 @@ You can see that a device such as a firewall will see each separate VLAN as if i
 
 An OpenWRT box is actually two devices in one. It consists of a VLAN-configurable switch and a Linux host. The switch and host are connected by one internal "wire", over which VLAN tagged packets are exchanged. All of the physical ethernet ports on the box are ports on a single internal switch. VLANs are then used to separate the ports into groups. The diagram below shows the architecture.
 
-attachment: ASUS-Internals-default.png
+attachment:ASUS-Internals-default.png
 
 By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN0, and this is labelled on the chassis as WAN. Ports 1-4 are configured as VLAN1, labelled as LAN1-4.
 
