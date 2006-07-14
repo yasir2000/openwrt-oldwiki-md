@@ -160,7 +160,7 @@ fdisk /dev/scsi/host0/bus0/target0/lun0/disc
 fdisk /dev/sda
 }}}
 
-/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdb}}} (and so on) instead!
+/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdc}}} (and so on) instead!
 
 For more information about using {{{fdisk}}}, see http://www.tldp.org/HOWTO/Partition/partition-5.html.
 
