@@ -1,4 +1,4 @@
-= Interfaces on the ASUS WL-500GP (and others) =
+= Understanding Network Interfaces =
 This page describes the network interface mapping on the Asus WL-500GP, and probably also describes most other OpenWRT compatible networking devices. The goal is to help users understand how the complex mix of ports, vlans, bridges and interfaces actually all tie together. It's focussed on the WL-500G Premium, but is probably also valid for Linksys boxes, however interface numbers might differ.
 
 In this page, "the OpenWRT" refers to any such supported network device running OpenWRT that has a similar network config.
@@ -38,7 +38,7 @@ One useful feature of bridging is that the Linux box which is doing the bridging
 
 This knowledge of bridges is important below.
 
-== Interfaces under OpenWRT ==
+=== Interfaces under OpenWRT ===
 
 An OpenWRT box is actually two devices in one. It consists of a VLAN-configurable switch and a Linux host. The switch and host are connected by one internal "wire", over which VLAN tagged packets are exchanged. All of the physical ethernet ports on the box are ports on a single internal switch. VLANs are then used to separate the ports into groups. The diagram below shows the architecture.
 
@@ -106,13 +106,15 @@ attachment:ASUS-Internals-dmz.png
 The configuration lines that would be changed for this are:
 
 {{{
-vlan0ports=3 4 5*
+vlan0ports=2 3 4 5*
 vlan2hwname=et0
-vlan2ports=1 2 5*
+vlan2ports=1 5*
 dmz_ifname=vlan2
 dmz_proto=static
 dmz_ipaddr=192.168.1.0
 dmz_netmask=255.255.255.0
 }}}
 
-This configuration firstly changes the vlan0 to exclude ports 1&2 which will be our DMZ ports. Then the DMZ vlan is created, with ports 1, 2 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
+This configuration firstly changes the vlan0 to exclude port 1 which will be our DMZ ports. Then the DMZ vlan is created, with ports 1 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
+
+You could even add more DMZ interfaces - you've got a total of six interfaces to play with (including the wireless port) so what we see is that this device is capable of some very impressive routing features - the limit is your imagination.
