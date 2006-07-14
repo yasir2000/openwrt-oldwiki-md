@@ -35,7 +35,7 @@ You can see that a device such as a firewall will see each separate VLAN as if i
 
 === Bridging ===
 
-Under Linux, a bridge is a link between two ethernet interfaces in such a way as to link them together to the same LAN. If you have a Linux box with two ethernet interfaces, then connect each interface to separate switches, the two switches are effectively linked together as if they're connected with a cable. You can also link together a wired ethernet interface with a wireless interface - the two are then linked together, much like a wireless AP or bridge.
+In networking, a bridge is a link between two ethernet interfaces in such a way as to link them together to the same LAN. If you have a box with two ethernet interfaces, then connect each interface to separate switches, the two switches are effectively linked together as if they're connected with a cable. You can also link together a wired ethernet interface with a wireless interface - the two are then linked together, much like a wireless AP or bridge.
 
 One useful feature of bridging is that the Linux box which is doing the bridging can listen to and send its own traffic. It does this by creating another interface. If you link eth0 and eth1, they will be bound to an interface br0 (or br1, etc). You can then assign an IP address to br0 and it will behave like a normal network interface attached to this bridged network. You cannot configure an IP address on the bridge members (eth0 or eth1), it needs to be done on the bridge interface.
 
