@@ -1,9 +1,12 @@
-= Understanding Network Interfaces =
+'''Understanding Network Interfaces'''
+
+[[TableOfContents]]
+
 This page describes the network interface mapping on the Asus WL-500GP, and probably also describes most other OpenWRT compatible networking devices. The goal is to help users understand how the complex mix of ports, vlans, bridges and interfaces actually all tie together. It's focussed on the WL-500G Premium, but is probably also valid for Linksys boxes, however interface numbers might differ.
 
 In this page, "the OpenWRT" refers to any such supported network device running OpenWRT that has a similar network config.
 
-== Understanding VLANs ==
+== VLAN and bridging concepts ==
 === Basics ===
 Before getting too far into the details, it's important to know what VLANs are and how they work.
 
@@ -30,7 +33,7 @@ In the example of an attached firewall, a packet coming in from the internal LAN
 
 You can see that a device such as a firewall will see each separate VLAN as if it's a different network interface. The internal VLAN is like a NIC on the inside of the network, and the external interface behaves just like a NIC on the outside. Because of this, most hosts and firewalls that support VLAN tags are setup such that each VLAN tag is as if it was another separate network interface, even though it's the same physical wire.
 
-== Bridging ==
+=== Bridging ===
 
 Under Linux, a bridge is a link between two ethernet interfaces in such a way as to link them together to the same LAN. If you have a Linux box with two ethernet interfaces, then connect each interface to separate switches, the two switches are effectively linked together as if they're connected with a cable. You can also link together a wired ethernet interface with a wireless interface - the two are then linked together, much like a wireless AP or bridge.
 
@@ -40,24 +43,26 @@ This knowledge of bridges is important below.
 
 == Interfaces under OpenWRT ==
 
-An OpenWRT box is actually two devices in one. It consists of a VLAN-configurable switch and a Linux host. The switch and host are connected by one internal "wire", over which VLAN tagged packets are exchanged. All of the physical ethernet ports on the box are ports on a single internal switch. VLANs are then used to separate the ports into groups. The diagram below shows the architecture.
+An OpenWRT box is actually three devices in one. It consists of a VLAN-configurable switch, a wireless port, and a Linux host. The switch and host are connected by one internal "wire", over which VLAN tagged packets are exchanged. All of the physical ethernet ports on the box are just ports on a single internal switch. VLANs are then used to separate the ports into groups. The diagram below shows the architecture.
 
 attachment:ASUS-Internals-default-sm.png
 
-By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN0, and this is labelled on the chassis as WAN. Ports 1-4 are configured as VLAN1, labelled as LAN1-4.
+By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN1, and this is labelled on the case as WAN. Ports 1-4 are configured as VLAN1, labelled on the case as LAN1-4. If you wanted, you could actually configure the WAN port as a LAN port, and a LAN port as the WAN port - the label on the chassis simply shows the WAN port in the default config.
 
 There is an internal port, Port 5, which has a VLAN-tagged connection into the Linux internals. This port is linked to 'eth0' on the Asus WL-500gP. 'eth0' is not configured with an IP address - the kernel takes the raw packets from eth0 and using the VLAN tags, it sorts the packets from VLAN0 and VLAN1. Packets to/from VLAN1 are then mapped to a logical interface called 'vlan1', and packets to/from VLAN0 are mapped to a logical interface called 'vlan0'.
 
+There is another channel that's not shown here, which is used to configure the switch itself. The link used to send this configuration is not shown, and is a separate logical device under Linux.
+
 Under OpenWRT, the vlan1 interface is then usually configured with the WAN ip address, and all configuration that applies to the WAN interface (eg iptables rules and routes) are applied to the vlan1 interface.
 
-The vlan0 interface is done a bit differently. By default, the wifi interface (eth2) is bridged to the LAN ports, ie any host associated on the wireless port is automatically in the same VLAN/subnet as hosts on the LAN ports. This is done with bridging (see above). As described above, when a bridge is created, a new logical interface is created, called br0, and also as above, this br0 interface is the one that needs to have any IP address configured. So, by default, vlan0 does not have an IP address configure, instead, the LAN interface address is configured on the br0 interface.
+The vlan0 interface is done a bit differently. By default, the wifi interface (eth2) is bridged to the LAN ports, ie any host associated on the wireless port is automatically in the same VLAN/subnet as hosts on the LAN ports. This is done with bridging (see above). As described above, when a bridge is created, a new logical interface is created, called br0, and also as above, this br0 interface is the one that needs to have any IP address configured. So, by default, vlan0 does not have an IP address configured, instead, the LAN interface address is configured on the br0 interface.
 
-There's also another interface visible from the shell - "eth1". This doesn't appear to be linked to anything, and is probably an unused wire on the ethernet controller, so it's ignored in all configuration.
+There's also another interface visible from the shell - "eth1". This doesn't appear to be linked to anything, and is probably an unused wire on the ethernet controller, so it's ignored in all configuration. Pretend it doesn't exist. :)
 
 === Interface configuration ===
-With a knowledge of how interface are partitioned, it's now easier to understand how to configure interfaces under OpenWRT.
+With a knowledge of how interfaces are partitioned, it's now easier to understand how to configure interfaces under OpenWRT.
 
-The following block configured the physical ports into VLANS:
+The following block configures the physical ports into VLANS:
 
 {{{
 vlan0hwname=et0
@@ -70,7 +75,7 @@ The "hwname" part is always "et0". The device "et0" is the switch itself and tel
 
 The ports then are configured. The vlan0 (LAN) is configured with four ports, plus the internal tagged port, port 5. The vlan1 (WAN) is configured with only the one port, plus also the tagged port.
 
-This configuration then gives us "vlan0", tied to the WAN port, and "vlan1" tied to the other ports.
+This configuration then gives us "vlan0", tied to the WAN port, and "vlan1" tied to the other ports. As mentioned earlier, you can change any other port to be the WAN port - just set the vlan1 port to be something else, not that you really need to!
 
 The WAN port is then configured with an IP address and mapped to the logical 'wan' interface name:
 
@@ -97,6 +102,8 @@ That's basically how the entire network device architecture is on this box. Belo
 
 === DMZ Vlan ===
 
+See also DemilitarizedZoneHowto
+
 If you're running some public servers and are security concious, you'll probably want to make use of DMZ (Demilitarised Zone). This is a third VLAN in a network, configured with different rules to the internal secure network. Generally the DMZ is configured to allow access to certain ports from the internet that wouldn't normally be allowed to inside hosts.
 
 Under OpenWRT, a DMZ is easy to configure. A third VLAN is created, and one or more physical ports is mapped to this VLAN, then suitable firewall rules are created for this VLAN. The pictur below shows how a DMZ configuration would look inside the device:
@@ -115,6 +122,6 @@ dmz_ipaddr=192.168.1.0
 dmz_netmask=255.255.255.0
 }}}
 
-This configuration firstly changes the vlan0 to exclude port 1 which will be our DMZ ports. Then the DMZ vlan is created, with ports 1 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
+This configuration firstly changes the vlan0 to exclude port 1 which will be our DMZ port. Then the DMZ vlan is created, with ports 1 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
 
 You could even add more DMZ interfaces - you've got a total of six interfaces to play with (including the wireless port) so what we see is that this device is capable of some very impressive routing features - the limit is your imagination.
