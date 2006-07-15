@@ -5,7 +5,7 @@ The device is supported in OpenWrt 1.0 (White Russian) and later. You need to in
 {{{
 Bootloader: CFE 
 System-On-Chip:  Broadcom BCM4702KPB
-CPU Speed: 125 Mhz
+CPU Speed: 200 MHz (125 for some)
 Flash size: 4 MB, MX 29LV320ATTC-90
 RAM: 16 MB, Hynix HY57V283220T-7
 Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
