@@ -408,7 +408,7 @@ Documentation can be found at ["OpenWrtDocs/dnsmasq"].
 == Time ==
 Most devices supported by !OpenWrt have no real-time clock hardware onboard, and must get the date and time at boot or use the default of 2000-01-01.
 
-You must have the correct time to use OpenVPN on !OpenWrt.
+You must have the correct time to use OpenVPN on !OpenWrt. The same applies to other tools using CA certificates such as wget and curl.
 
 You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''.
 
