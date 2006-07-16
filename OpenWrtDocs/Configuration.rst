@@ -38,8 +38,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||WRT54G v2/v3 & WRT54GS v1/v2 ||[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png Switch diagram] ||
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
 
-
-[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on.
+[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on. A more detailed explanation of the networking internals is on the page [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces]
 
 ||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
@@ -69,7 +68,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Siemens ||SE505 ||v2 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 
 
-note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted. See [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces]
+note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted.
 
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
 
