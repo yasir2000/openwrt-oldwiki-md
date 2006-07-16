@@ -123,10 +123,10 @@ There is a modified version of /etc/firewall.user in SimpleFirewall.
 == IPSec pass-through ==
 The stock wrt54gl router software has the ability to perform ipsec pass-through.  This is useful if you are running a VPN client behind your NATed wrt54gl router.  By default, the openwrt install does not provide ipsec passthrough.  If you need this feature, add the following rules to the bottom of your /etc/firewall.user file:
 
-iptables -t nat -A postrouting_rule -p 50 -j ACCEPT
-iptables -t nat -A postrouting_rule -p 51 -j ACCEPT
+iptables -t nat -A postrouting_rule -p 50 -j ACCEPT iptables -t nat -A postrouting_rule -p 51 -j ACCEPT
 
 This will enable ipsec pass-through.  Protocol 50 is ESP and protocol 51 is AH.
+
 == Monitoring signal strengths of nearby access points in client mode ==
 You can use scripts to monitor the nearby access points in a readable ascii format like below:
 
@@ -251,6 +251,8 @@ Then using nfs or dropbear's scp to copy /tmp/backup.tar.gz to a safe place.
 
 == Making the reset button reset the router! ==
 To make the reset button reset the router, i wrote a simple script to poll the reset button. Put this in /etc/init.d/S09resetbutton
+
+If you have the Cysco Systems button on the front and would rather use that, you can simply change the {{{cat /proc/sys/reset}}} to {{{cat/proc/button}}}.
 
 {{{
 #!/bin/sh
