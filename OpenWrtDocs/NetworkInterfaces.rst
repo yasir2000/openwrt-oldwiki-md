@@ -47,7 +47,7 @@ An OpenWRT box is actually three devices in one. It consists of a VLAN-configura
 
 attachment:ASUS-Internals-default-sm.png
 
-By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN1, and this is labelled on the case as WAN. Ports 1-4 are configured as VLAN1, labelled on the case as LAN1-4. If you wanted, you could actually configure the WAN port as a LAN port, and a LAN port as the WAN port - the label on the chassis simply shows the WAN port in the default config.
+By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN1, and this is labelled on the case as WAN. Ports 1-4 are configured as VLAN0, labelled on the case as LAN1-4. If you wanted, you could actually configure the WAN port as a LAN port, and a LAN port as the WAN port - the label on the chassis simply shows the WAN port in the default config.
 
 There is an internal port, Port 5, which has a VLAN-tagged connection into the Linux internals. This port is linked to 'eth0' on the Asus WL-500gP. 'eth0' is not configured with an IP address - the kernel takes the raw packets from eth0 and using the VLAN tags, it sorts the packets from VLAN0 and VLAN1. Packets to/from VLAN1 are then mapped to a logical interface called 'vlan1', and packets to/from VLAN0 are mapped to a logical interface called 'vlan0'.
 
