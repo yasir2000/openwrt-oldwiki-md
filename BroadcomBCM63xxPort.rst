@@ -7,7 +7,7 @@
 
 Known 6345 platforms*:
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
-||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA77W] ||
+||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA770W] ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html Siemens SE515] ||
 
 Known 6348 platforms*:
@@ -17,6 +17,7 @@ Known 6348 platforms*:
 ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:Netgear DG834GT] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg US Robotics USR9108] ||
 ||[:OpenWrtDocs/Hardware/Huawei/EchoLife_HG520:Huawei EchoLife HG520] ||
+||[:OpenWrtDocs/Hardware/Huawei/HG550:Huawei EchoLife HG550] ||
 
 * If no dedicated Openwrt page is found an external link is supplied
 
@@ -41,4 +42,4 @@ Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-
 
    * Test the currently merged kernel in order to see if it boots on CFE based boards. It currently does not receives the MTD map from RedBoot (maybe wrong sector number).
 ----
-CategoryOpenWrtPort CategoryOpenWrtPort
+CategoryOpenWrtPort
