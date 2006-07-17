@@ -317,14 +317,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Siemens ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on || || || ||Supported ||
-
----- /!\ '''Edit conflict - other version:''' ----
-||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||1x v1.1 (easy mod) ||Supported (rc4, prolems with rc5)||
-
----- /!\ '''Edit conflict - your version:''' ----
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||1x v1.1 (easy mod) ||Supported (rc4, problems with rc5)||
-
----- /!\ '''End of edit conflict''' ----
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html SE515] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] ||4MB ||16MB ||Broadcom BCM4306 (mini-PCI) ||BCM5325 || || || ||1x v1.1 (?) ||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:WiP] ||
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550] || || ||4MB || || || || || || || ||Untested ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||N/A ||Yes ||Yes ||1x v2.0 ||No ||
