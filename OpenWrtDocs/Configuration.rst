@@ -448,7 +448,8 @@ then either reboot or run it this once:
 
 '''htpdate'''
 
-The ''htpdate'' package synchronises the time using innocuous web page requests as if it is a web browser.  It obtains the time from part of the HTTP header reply sent by web servers.
+The ''htpdate'' package synchronises the time using innocuous web page requests as if it is a web browser.  It obtains the time from part of the HTTP header reply sent by web servers. Note that you might have some trouble with htpdate reporting "No server suitable for synchronization found" if the date of the router is initially set to the default of 2000-01-01. Simply try to run "date 010100002006" or something before htpdate.
+
 
 Install the ''htpdate'' package using ''ipkg'':
 
