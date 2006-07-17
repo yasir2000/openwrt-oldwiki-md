@@ -14,6 +14,27 @@ For Linksys models look on the bottom for a silver and black linksys sticker and
 
 If you haven't installed !OpenWrt yet, another way of identifying the hardware is to open the page http://192.168.1.1/SysInfo.htm (where {{{192.168.1.1}}} should be replaced with the IP address of your WRT54G or WRT54GS). The last line in the output shows the hardware version.
 
+Linksys routers can also be identified by the first 4 characters/digits of the Serial Number:
+
+WRT54G Models:
+
+|| '''Serial No.''' || '''Hardware Ver.''' ||
+|| CDF0 || v1.0 ||
+|| CDF1 || v1.0 ||
+|| CDF2 || v1.1 ||
+|| CDF3 || v1.1 ||
+|| CDF5 || v2.0 ||
+|| CDF7 || v2.2 ||
+|| CDF8 || v3.0 ||
+
+WRT54GS Models:
+
+|| '''Serial No.''' || '''Hardware Ver.''' ||
+|| CGN0 || v1.0 ||
+|| CGN1 || v1.0 ||
+|| CGN2 || v1.1 ||
+|| CGN3 || v2.0 ||
+
 == Which image should I use? ==
 '''Deciding on a filesystem layout'''
 
