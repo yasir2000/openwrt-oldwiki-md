@@ -127,7 +127,7 @@ As I said before, you must have wireless connection to the device, so update to 
 This will tell RC5 firmware to use a workaround for v1.0 devices and not brick them.
 
 === install RC5 ===
-I used [ImageBuilderHowTo] to make a customized RC5 image with iptables, dhcp and maybe something else removed, but I think that the micto image should work fine. All my devices have 4MB flash, but some maybe have only 2MB... Use brcm-2.4-squashfs.trx. If you have boot_wait working, go without fear with tftp and your box should be working. Else use mtd utility to upgrade. Now you should have RC5 working...
+I used [ImageBuilderHowTo] to make a customized RC5 image (attachment:openwrt-RC5-custom-brcm-2.4-squashfs.trx) with iptables, dhcp and maybe something else removed, but I think that the micro image should work fine. All my devices have 4MB flash, but some maybe have only 2MB... Use brcm-2.4-squashfs.trx. If you have boot_wait working, go without fear with tftp and your box should be working. Else use mtd utility to upgrade. Now you should have RC5 working...
 
 === Some important notes ===
 Board variables are needed to enable workarounds-see http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAP54Gv10.
