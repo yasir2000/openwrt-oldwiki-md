@@ -26,6 +26,16 @@ WRT54G Models:
 || CDF5 || v2.0 ||
 || CDF7 || v2.2 ||
 || CDF8 || v3.0 ||
+|| CDF9 || v3.1 ||
+|| CDFA || v4.0 ||
+|| CDFB || v5.0 ||
+|| CDFC || v6.0 ||
+
+WRT54GL Models:
+
+|| '''Serial No.''' || '''Hardware Ver.''' ||
+|| CL7A || v1.0 ||
+|| CL7B || v1.1 ||
 
 WRT54GS Models:
 
@@ -34,6 +44,12 @@ WRT54GS Models:
 || CGN1 || v1.0 ||
 || CGN2 || v1.1 ||
 || CGN3 || v2.0 ||
+|| CGN4 || v2.1 ||
+|| CGN5 || v3.0 ||
+|| CGN6 || v4.0 ||
+|| CGN7 || v5.0 ||
+|| CGN8 || v5.0 ||
+
 
 == Which image should I use? ==
 '''Deciding on a filesystem layout'''
