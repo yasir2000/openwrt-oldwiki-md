@@ -76,7 +76,7 @@ Please update to include other models.
 
 '''NOTE:''' LAN and WIFI are bridged together in br0 by default, on some devices WAN can be eth1 and LAN eth0.
 
-In general, the switch works the following way: It recieves data (physical) on either lan port or on the wan port. Then the switch tags the packages (with VLAN), so Linux is able to see the difference and that way we have the vlan devices, which describe wan or lan port.
+In general, the switch works the following way: It receives data (physical) on either lan port or on the wan port. Then the switch tags the packages (with VLAN), so Linux is able to see the difference and that way we have the vlan devices, which describe wan or lan port.
 
 [[BR]]The basic network configuration is handled by a series of NVRAM variables:{{{
 #!CSV 
