@@ -106,7 +106,9 @@ For further informations please see:
 
 == Internal Photos ==
 
-Hardware info with detailed [http://wiki.version6.net/WRT54GS pictures].
+Hardware info with detailed pictures. 
+
+[http://wiki.version6.net/WRT54GS]
 
 [http://www.linksysinfo.org/portal/forums/showthread.php?t=47124 Autopsy: Linksys WRT54G and WRT54GS Hardware Versions Under the Knife]
 
