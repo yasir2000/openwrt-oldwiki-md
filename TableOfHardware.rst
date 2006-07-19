@@ -132,6 +132,11 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
 
 
+== Compex ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.compex.com.sg/home/products1.asp?20050721032253 WP54G] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||Supported ||
+||[http://www.compex.com.sg/home/products1.asp?20060103501729 WP54AG] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||Supported ||
+
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
