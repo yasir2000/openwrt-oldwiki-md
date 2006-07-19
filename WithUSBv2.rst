@@ -10,7 +10,7 @@ Embedded "OpenWrt" devices which offer USB v2.0 support
 ||'''Flash MB ''' ||4 ||8 ||2 ||4 ||8 ||2 ||8 ||2 ||? ||2 ||
 ||'''RAM MB''' ||32 ||32 ||64 ||64 ||32 ||32 ||32 ||16 ||32 ||8 ||
 ||'''Boot_wait ''' ||On ||On ||On ||N/A ||Off ||? ||N/A ||N/A ||? ||On ||
-||'''[wiki:WikiPedia:http://en.wikipedia.org/wiki/Mini_PCI Mini-PCI] or integrated WLAN''' ||Integrated ||Mini-PCI ||Integrated ||Empty Mini-PCI ||Integrated ||? ||Mini-PCI ||? ||None ||Integrated ||
+||'''[wiki:WikiPedia:http://en.wikipedia.org/wiki/MiniPCI Mini-PCI] or integrated WLAN''' ||Integrated ||Mini-PCI ||Integrated ||Empty Mini-PCI ||Integrated ||? ||Mini-PCI ||? ||None ||Integrated ||
 ||[:HardwareAcceleratedCrypto:HarwareAcceleratedCrypto] ||BCM5365 ||BCM94704 ||? ||Yes ||BCM94704 ||? ||BCM5365 ||? ||? ||? ||
 ||'''IDE or SATA''' ||No ||No ||IDE, 3,5" ||3,5" PATA and external eSATA ||No ||No ||No ||No ||No ||No ||
 ||'''Dimension''' (mm) ||185*205*36 ||162*215*43 || ||140*175*44 ||140*140*27 || ||120*175*28 || ||
