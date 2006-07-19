@@ -1,5 +1,5 @@
 = Freecom FSG-3 =
-Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT currently support this device.''' However, there's XScale port in progress by Kaloz. It's not targeted for FSG-3, but when ready it should be fairly easy to add FSG-3 specific features. Freecom has shown friendly attitude towards opensource community and they're willing to help us with few restrictions (no additional warranty replacements due to hacked devices, no extra tech support questions due to customizations and no unfair advantage provided to competitors).
+Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT currently support this device.''' However, there's an XScale port in progress by Kaloz; it's not targeted to FSG-3, but when it's ready it should be fairly easy to add FSG-3 specific features to it. Freecom has shown a friendly attitude towards the opensource community and they're willing to help us with few restrictions (no additional warranty replacements due to hacked devices, no extra tech support questions due to customizations and no unfair advantage provided to competitors).
 
 == Hardware ==
  * Intel XScale IXP422 at 266MHz with hardware encryption
