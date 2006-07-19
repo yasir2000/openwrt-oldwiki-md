@@ -5,6 +5,8 @@
  * [:OpenWrtDocs/Hardware/Asus/WL500B: WL-500B]
  * [:OpenWrtDocs/Hardware/Asus/WL500G: WL-500G]
  * [:OpenWrtDocs/Hardware/Asus/WL500GD: WL-500G Deluxe]
+ * [:OpenWrtDocs/Hardware/Asus/WL500GP: WL-500G Premium]
+ * [:OpenWrtDocs/Hardware/Asus/WL700gE: WL-700gE]
  * [:OpenWrtDocs/Hardware/Asus/AAM6020VI: AAM6020VI]
 ''Other''
  * [:OpenWrtDocs/Hardware/Asus/Flashing: Flashing]
