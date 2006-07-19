@@ -68,7 +68,7 @@ vlan1hwname=et0
 vlan1ports="0 5*"
 }}}
 
-The "hwname" part is always "et0". The device "et0" is the switch itself and tells the system which switch to configure with VLANS. As there's only one switch, this must always be set to "et0".
+The "hwname" part is always "et0". The device "et0" is the switch itself and tells the system which switch to configure with VLANS. As there's only one switch, this must always be set to "et0". If you do not include port 5 in the VLAN then the traffic will remain on the switch and will never be seen by the cpu.
 
 The ports then are configured. The vlan0 (LAN) is configured with four ports, plus the internal tagged port, port 5. The vlan1 (WAN) is configured with only the one port, plus also the tagged port.
 
@@ -89,7 +89,7 @@ Next the LAN side is configured. Because of the bridging, there's an extra step,
 lan_ifname=br0
 lan_ifnames="vlan0 eth2"
 lan_proto=static
-lan_ipaddr=10.0.0.1
+lan_ipaddr=w.x.y.z
 lan_netmask=255.255.255.0
 }}}
 
