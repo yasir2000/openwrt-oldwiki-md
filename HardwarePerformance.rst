@@ -41,6 +41,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 || 2006-05-01 || cabo || 6.4s || 13.2s || 14.6s || 10.2s || v0.5 || (unknown) || Linksys WRT54GS 1.0 || BCM3302 V0.7 || 216MHZ || ["OpenWrtDocs/Hardware/Linksys/WRT54GS"] ||
 || 2006-04-02 || evildevil || 6.7s || 13.5s || 15.0s || 8.0s || v0.5 || DD-WRT2.3 || Linksys WRT54G v3.1 || BCM3302 V0.7 || 216MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-03 || jecuendet || 7.2s || 14.3s || 16.8s || 12.1s || v0.6 || OpenWRT RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Asus/WL500GD"] ||
+|| 2006-07-19 || DurvalMenezes || 7.2s || 14.2s || 15.8s || 11.3s || v0.6 || OpenWRT RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Asus/WL500GD"] ||
 || 2006-05-01 || yans || 7.2s || 14.4s ||16.1s ||11.4s || v0.5 || OpenWRT RC5 || Motorola WR850Gv3 ||BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Motorola/WR850G"] ||
 || 2006-05-04 || ''MickeyMouse'' || 7.2s || 14.5s || 16.2s || 11.4s || v0.6 || OpenWRT RC5 || Linksys WRT54G v2.2 || BCM3302 V0.7 || 200Mhz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-01 || arteqw || 7.3s || 14.5s || 16.1s || 11.3s || v0.5 || OpenWRT RC5 || Motorola WR850G v2 || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Motorola/WR850G"] ||
