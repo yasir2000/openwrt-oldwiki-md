@@ -17,13 +17,7 @@ There are a many varians of the LPT-to-JTAG cables. All of them are different in
 
 === Unbuffered Cable, Xilinx DLC5 Cable III ===
 
----- /!\ '''Edit conflict - other version:''' ----
 This is the simplest type of JTAG cable, the easiest to construct and the cheapest to make. The original cable was introduced by Xilinx and has a full name "[http://toolbox.xilinx.com/docsan/3_1i/pdf/docs/jtg/jtg.pdf Xilinx DLC5 JTAG Parallel Cable III]". Someone removed a buffer and changed it with a four 100 Ohm resistor. Popularized by the Hairydairymaid de-brick utility software for Linksys routers, many people have successfully built their own unbuffered JTAG cable. It consists of only a few cheap resistors, a 25-pin parallel port connector and a ribbon-cable with a 12-pin connector that slides onto a header soldered onto the PCB found inside the cases of Linksys WRT54G and WRT54GS routers. The chief limitation of this type of cable is that it must be very short; the length must be 6 inches or less (15 cm) to avoid problems with electrical noise.
-
----- /!\ '''Edit conflict - your version:''' ----
-This is the simplest type of JTAG cable, the easiest to construct and the cheapest to make. The original cable was introduced by Xilinx and has a full name "[http://toolbox.xilinx.com/docsan/3_1i/pdf/docs/jtg/jtg.pdf Xilinx DLC5 JTAG Parallel Cable III]". Someone removed a buffer and changed it with a four 100 Ohm resistor. Popularized by the Hairydairymaid de-brick utility software for Linksys routers, many people have successfully built their own unbuffered JTAG cable. It consists of only a few cheap resistors, a 25-pin parallel port connector and a ribbon-cable with a 12-pin connector that slides onto a header soldered onto the PCB found inside the cases of Linksys WRT54G and WRT54GS routers. The chief limitation of this type of cable is that it must be very short; the length must be 6 inches or less (15 cm) to avoid problems with electrical noise.
-
----- /!\ '''End of edit conflict''' ----
 
 attachment:JTAGunbuffered.png
 
