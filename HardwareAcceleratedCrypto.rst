@@ -11,7 +11,7 @@ Various versions of [http://80.81.183.101/openwrt/bcm5820/ BCM5820 driver source
 ----
 [http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForce] says there are WEP 128, AES OCB and AES CCM accelerated by hardware.
 
-||Circuit/CPU ||Accelerations ||Datasheet ||
+||Circuit/CPU ||Accelerations ||Datasheet[[FootNote(These contain absolutely no programming information)]] ||
 ||BCM94704AGR ||WEP 128, AES OCB AES CCM, ||[http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf 94704AGR-PB00-R.pdf] ||
 ||BCM?4704P ||WEP 128, AES OCB, AES CCM, VPN ||[http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf 94704AGR-PB00-R.pdf] ||
 ||BCM5365 ||AES (up to 256-bit CTR and CBC modes), DES, 3DES (CBC), HMAC-SHA1, HMAC-MD5, SHA1 and MD5. IPSec encryption and single pass authentication. ||[http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf 5365_5365P-PB01-R.pdf] ||
