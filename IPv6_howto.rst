@@ -545,7 +545,7 @@ change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101:
         {
                 AdvOnLink on;
                 AdvAutonomous on;
-                Base6to4Interface vlan1;
+                Base6to4Interface ppp0;
 
                 # Very short lifetimes for dynamic addresses
                 AdvValidLifetime 300;
@@ -553,4 +553,4 @@ change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101:
         };
 }}}
 
-That assumes vlan1 is your wan interface, and that you have a /48 address (according to http://ezine.daemonnews.org/200101/6to4.html you do get one with 6to4)
+That assumes ppp0 is your wan interface, and that you have a /48 address (according to http://ezine.daemonnews.org/200101/6to4.html you do get one with 6to4)
