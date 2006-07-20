@@ -297,7 +297,7 @@ See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user au
 == A note on encryption with WDS ==
 WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
 
-In order to use WPA encryption with your WDS link, some further configuration is required. It appears that the web interface in OpenWRT White Russian RC5 does not know about this, so the configuration must be done manually.  In addition to the nvram values listed above, you must also set the following in nvram:
+When using WPA with WDS, the simplest method is to ensure that both routers are using the same ESSID and WDS settings; if so, you don't need to set any additional variables besides '''wl0_wds'''. However, some people may want to use different encryption for the WDS link than for clients, or different ESSIDs for different routers; if so, there are a number of wds_specific nvram variables that can be set; ensure that all WDS peers have the same values for these variables. If the variables are unset (as they are by default), WDS will use the same encryption settings as used for clients.
 
 || '''NVRAM variable''' || '''Description''' ||
 || wl0_wds_wpa_psk || Your wireless password ||
@@ -305,12 +305,11 @@ In order to use WPA encryption with your WDS link, some further configuration is
 || wl0_wds_crypto || The algorithm (i.e. aes) ||
 || wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
 
+If using WDS between routers with different ESSIDs, you should all of their '''wl0_wds_ssid''' variables to the ESSID of ''one'' of the routers, so that they will be able to talk to each other.
 
 Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS.  It is known that WPA1 works.
 
 Remember that the non-free package NAS must be installed for WPA to work.  It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain.  Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
-
-To get a successful WDS connection by using WPA you have to make sure that the endpoints use the same ssid. If you still want to keep each router's ssid, use the wl0_wds_ssid variable.
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 !OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
