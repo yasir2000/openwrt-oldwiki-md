@@ -16,8 +16,7 @@ Driving a JTAG interface through the parallel port on a PC is a slow proposition
 There are a many varians of the LPT-to-JTAG cables. All of them are different in the LPT pins -to- JTAG pins mapping and may be in the buffered and unbuffered variant.
 
 === Unbuffered Cable, Xilinx DLC5 Cable III ===
-
-This is the simplest type of JTAG cable, the easiest to construct and the cheapest to make. The original cable was introduced by Xilinx and has a full name "[http://toolbox.xilinx.com/docsan/3_1i/pdf/docs/jtg/jtg.pdf Xilinx DLC5 JTAG Parallel Cable III]". Someone removed a buffer and changed it with a four 100 Ohm resistor. Popularized by the Hairydairymaid de-brick utility software for Linksys routers, many people have successfully built their own unbuffered JTAG cable. It consists of only a few cheap resistors, a 25-pin parallel port connector and a ribbon-cable with a 12-pin connector that slides onto a header soldered onto the PCB found inside the cases of Linksys WRT54G and WRT54GS routers. The chief limitation of this type of cable is that it must be very short; the length must be 6 inches or less (15 cm) to avoid problems with electrical noise.
+This is the simplest type of JTAG cable, the easiest to construct and the cheapest to make. The original cable was introduces by Xilinx and has a full name "[http://toolbox.xilinx.com/docsan/3_1i/pdf/docs/jtg/jtg.pdf Xilinx DLC5 JTAG Parallel Cable III]". Someone removed a buffer and changed it with a four 100 Ohm resistor. Popularized by the Hairydairymaid de-brick utility software for Linksys routers, many people have successfully built their own unbuffered JTAG cable. It consists of only a few cheap resistors, a 25-pin parallel port connector and a ribbon-cable with a 12-pin connector that slides onto a header soldered onto the PCB found inside the cases of Linksys WRT54G and WRT54GS routers. The chief limitation of this type of cable is that it must be very short; the length must be 6 inches or less (15 cm) to avoid problems with electrical noise.
 
 attachment:JTAGunbuffered.png
 
@@ -101,4 +100,42 @@ Active bus:
 *0: EJTAG compatible bus driver via PrAcc (JTAG part No. 0)
 start: 0x00000000, length: 0x20000000, data width: 8 bit
 start: 0x20000000, length: 0x20000000, data width: 16 bit
-start: 0x40000000, length: 0x20000000, data width%3
+start: 0x40000000, length: 0x20000000, data width: 32 bit}}}
+
+=== Using a Buffered Cable with the De-Brick Utility ===
+Inside the zip file download for the [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v45.zip Hairydairymaid WRT54G Debrick Utility] there is a PDF file that describes the software and how to use it. He specifically talks about using an unbuffered cable and pointedly notes that the cable he uses does '''not''' tie pin 1 of the JTAG header to anything.
+
+That's all well and good for an unbuffered cable, but if you ''do'' happen to have a buffered Wiggler-style cable then you ''will'' have to deal with the nTRST signal. The Hairydairymaid software doesn't account for that signal line since the recommended cable doesn't carry it, but your Wiggler-style cable ''does'' use that signal and the debrick utility will ''not'' work out-of-the-box with a Wiggler-style cable as a result. The reason for this is because the software leaves the output for the nTRST line at logic-level 0, which means the signal coming out of your cable to the JTAG header will always be asserted, and as a result the JTAG circuitry inside your router will forever be resetting itself.
+
+Hairydairymaid notes in one of his files (wrt54g.h) that there are a few changes to make if you're using a Wiggler-style buffered cable, but those changes alone are not enough. In order to use a Wiggler-style cable with the debrick utility there are a couple of other changes you will need to make.
+
+First and foremost is an external voltage supply. Vcc from the Linksys board must be brought to the Wiggler interface. Usually this means an extra jumper wire in addition to the 14-connector ribbon cable. Note that if your Wiggler cable has a 14-pin connector that pins 13 and 14 in it will not be connected to anything on the Linksys board. Pins 1 through 12 correspond properly to the signals on the 12-pin Linksys JTAG header, but positions 13 and 14 will not be connected to anything at all. On most Linksys routers there is another connector near the JTAG header that can be used to connect two serial ports to the router. This is typically a 10-pin header and, fortunately for us, pins 1 and 2 of this serial port header carry Vcc at 3.3 volts. This is perfect, and all that needs to be done is to run a jumper wire from one of those pins into your homemade Wiggler circuit at any appropriate spot where Vcc is called for. If you build your own cable from Alec's schematic then you should know where those spots are. Alternatively, you could also run a short jumper from pin 1 or 2 of the serial port header to the open hole of the ribbon cable connector at position 14. That might actually be the best choice.
+
+Second is the software. File 'wrt54g.c' must be modified so that logic-level 1 is always output to pin 1 of the JTAG header. Alternatively you could just not connect pin 1 to anything, but then your cable wouldn't be a true Wiggler clone anymore. Ensuring that nTRST is always a '1' will prevent the JTAG circuitry on your device from being in a constant state of 'reset'.
+
+Another change to the software is not directly related to the cable per-se. Some have observed that certain Intel flash chips are not successfully erased by the debrick utility. I believe that is because there is a time delay that must be observed after commanding a block of flash memory to be erased that is not observed by the program. I had this problem, specifically, on a WRT54GS v2.1 router with an Intel StrataFlash 28F640J3 chip. The datasheet for this chip states that it may take up to 5 seconds for an "erase block" command to complete. The software should account for this delay.
+
+The following patch file addresses the issues outlined above. It should be applied to version 4.5 of Hairydairymaid's de-brick utility. It modified both 'wrt54g.h' and 'wrt54g.c'. The changes are not that extreme and less than 35 lines altogether are modified (or added; no lines are deleted).
+
+'''''[NOTE by hairydairymaid - while this patch will not harm anything - it is not needed. Intel flash chips (and most others) have a built in "pin toggle" mechanism that fires when the specific write or erase has finished. Various flash chip erases/writes can and do take different times but waiting for that "pin toggle" is the proper way to account for things (not by just waiting x seconds) and it is exactly how the debrick utility operates and virtually all proper flashing routines are written. Use what works for you.]'''''
+
+--------
+attachment:debrick-wiggler.patch.gz
+
+--------
+Please note that the above gzipped patch file uses Unix-style line endings. The de-brick utility source code files use DOS-style line endings. This shouldn't be a problem but if you gunzip the patch file and open it in a DOS or Windows editor it may look strange.
+
+== Summary ==
+I was trying to revive a bricked Linksys WRT54GS one day and couldn't get Hairydairymaid's utility to work. I was on a Linux system and had other software called "jtag tools" which I obtained from the [http://openwince.sourceforge.net/jtag/ openwince JTAG site]. That program was able to detect the BCM4712 processor inside my router. The de-brick utility, however, kept telling me that my cable was bad. I knew the cable was not the problem since jtag tools was working flawlessly and a couple of days worth of investigation led me to the solution I have presented here. After I tweaked the de-brick utility source code I was able to successfully re-flash my WRT54GS router.
+
+Personally, as an engineer, I prefer the buffered cable and would not use an unbuffered cable even though hundreds of other people have used them without any problems. A Wiggler-style cable can also be used for other devices that adhere to the JTAG specification. I'm not sure about the unbuffered type of cable. I hope this writeup will help anyone who has had trouble using a buffered JTAG cable and the Hairydairymaid software together, or who might want a cable that will almost certainly work with devices besides just Linksys routers.
+
+== Links ==
+ * [:OpenWrtDocs/Troubleshooting#head-2905e5d0dd7320ac475dd4aa53c0c4ea93ffbadd:Troubleshooting OpenWrt (JTAG Section)]
+ * [http://www.linux-mips.org/wiki/JTAG EJTAG] at the Linux-MIPS wiki
+ * [http://www.mips.com/content/Documentation/MIPSDocumentation/EJTAG/doclibrary EJTAG Specification] from MIPS Technologies, Inc. (free registration required)
+ * [http://forum.amilda.org/viewtopic.php?id=43 Two examples] of successful Wiggler-style cable projects
+ * [http://midge.vlad.org.ua/forum/viewtopic.php?t=121 Debrick example] using OpenwinCE with EJTAG driver.
+ * [http://openwince.sourceforge.net/jtag/ Openwince JTAG], "Supported hardware" section for other types of the JTAG cables.
+ * [http://www.k9spud.com/jtag/ K9SPUD JTAG] another Wiggler schematic
+ * a discussion at ["zt8qmwz"] homepage about implementing EJTAG PRAcc in the Hairydairymaid De-brick utility
