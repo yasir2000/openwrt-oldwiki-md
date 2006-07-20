@@ -4,7 +4,7 @@ The device is currently (July 2006) unsupported in OpenWrt 1.0 (White Russian) a
 == Hardware ==
  * Broadcom 4780 (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
  * 2MB FLASH (MX 29LV160CT1C-90G) and 64MB RAM (2 * Samsung K4H561638F-UCCC)
- * VIA USB 2.0 controller (VT6212L)
+ * VIA USB 2.0 controller (VT6212L), 3 external USB connectors, one internal (pads on PCB) 
  * Acard PATA controller (ATP865-B) and Hitachi 160GB 7200rpm PATA disk (HDT722516DLAT80)
  * Empty mini-pci header on PCB (not usable on stock enclosure and missing mini-pci connector itself)
  * Broadcom switch, 4 LAN, 1 WAN (BCM5325EKQMG)
