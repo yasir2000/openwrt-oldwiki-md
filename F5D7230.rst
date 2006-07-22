@@ -13,6 +13,32 @@ NOTE4: The Siemens [:OpenWrtDocs/Hardware/Siemens/SE505: SE505] (v2) is nearly e
 
 NOTE5: See http://forum.openwrt.org/viewtopic.php?id=4929 for info on using OpenWRT with the v2000 revision.
 
+NOTE6: A cut down version of RC5 will run on the v1444. Use the 4MB JFFS2 images. (Must be below 2MB) - star882
+
+== GPIO ==
+
+For v1444:
+|| GPIO0 || "Connected" LED ||
+|| GPIO1 || EESK (on one end of R658 on the back near the switch chip) ||
+|| GPIO2 || EECS (on one end of R656 on the back near the switch chip) ||
+|| GPIO3 || "WLAN" LED ||
+|| GPIO4 || RC (on one end of R603 on the back near the switch chip) ||
+|| GPIO5 || "Power" LED ||
+|| GPIO6 || EEDI (on one end of R652 on the back near the switch chip) ||
+|| GPIO7 || Reset button ||
+
+GPIO7 can be used for a different purpose by removing C365 (v1444) or C367 (v2000) from the board (near the memory chips and JTAG connector on a v1444, near reset button on a v2000). This will disconnect the watchdog circuit from the reset button. (Pull the plug to do a soft reset, use serial interface to do a hard reset.)
+
+Credit to:
+
+The OpenWRT community for making OpenWRT.
+
+Belkin for making a nice, cheap router.
+
+Nicole for Bluetoothing me the GPIO utility.
+
+star882 for contributing her knowledge of electronics to this site and probing the wiring. :)
+
 == Links ==
 
 There are a number of public forums and web sites where the installation of open source firmware for the Belkin F5D7230-4 is being discussed and published.
