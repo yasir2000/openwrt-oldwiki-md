@@ -59,7 +59,7 @@ nvram set lan_ifnames=vlan0
 nvram set wan_ifname=eth1         # the wireless interface
 }}}
 
-Then configure the interfaces normally. For example, assuming the wifi interface uses DHCP and the LAN interface has the static IP address {{{192.168.2.1}}}:
+Then configure the interfaces normally. Be sure not to use the same subnet for lan and wlan. For example, assuming the wifi interface uses DHCP and the LAN interface is choosen to have the static IP address {{{192.168.2.1}}}:
 
 {{{
 nvram set lan_ipaddr=192.168.2.1
