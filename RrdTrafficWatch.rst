@@ -13,7 +13,7 @@
  * update your ipkg database and install the needed rrdtool
   . {{{
   ipkg update
-  ipkg install rrdtool }}}
+  ipkg install rrdtool1 }}}
   now you should have rrdtool and rrdupdate installed
 
  * have a look if your iptables are able to monitor traffic
