@@ -130,6 +130,7 @@ The CFE will enter TFTP receptive mode after that command.
 
  * turn the router off, attach the jtag cable
  * turn it on, and issue one command
+ * don't hurry, sometimes you'll need to wait a bit
 
 {{{
 wrt54 -erase:nvram
@@ -151,6 +152,8 @@ wrt54 -flash:cfe
 }}}
 if you have the appropriate CFE.BIN image for your router in the same dir as the debrick utility, this will flash the router with the new cfe.
 Once you've flashed a CFE with boot_wait enabled, you can use tftp to upload a new kernel.
+
+On Linux, don't forget to unload 'lp' module and load 'ppdev'.
 
 
 = Getting help =
