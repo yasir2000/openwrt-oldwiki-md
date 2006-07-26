@@ -37,6 +37,8 @@ VCC  o
 LEDS
 }}}
 
+The ROME bootloader seems to want gzip'ed images. Unfortunately, it looks like images produced by the uClinux-dist are not accepted yet. Maybe it just returns the same error message.
+
 Bootlog :
 
 {{{
