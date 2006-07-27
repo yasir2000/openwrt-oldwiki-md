@@ -10,11 +10,12 @@ For information on the internal network architecture and how physical ports map 
 If you look at "dmesg", for example, there's only 16MB of RAM. Specs says there should be 32MB.
 
  . This is how you get all 32MB for use:
- . .
-  . nvram set sdram_init=0x0009
-  . nvram set sdram_ncdl=0
-  . nvram commit
-  . reboot
+{{{
+root@OpenWrt:~/# nvram set sdram_init=0x0009
+root@OpenWrt:~/# nvram set sdram_ncdl=0
+root@OpenWrt:~/# nvram commit
+root@OpenWrt:~/# reboot
+}}}
 == Few problems with the WL-500gP ==
 The reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
