@@ -140,7 +140,7 @@ will delete the nvram, if you just borked the nvram, you will be done here.
 {{{
 wrt54g -erase:kernel
 }}}
-if you've borked the kernel, you have to delete the kernel, in order to flash a new one
+if you've borken the kernel, you have to delete the kernel, in order to flash a new one
 
 {{{
 wrt54g -erase:cfe
