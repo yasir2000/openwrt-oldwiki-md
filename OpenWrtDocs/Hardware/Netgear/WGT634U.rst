@@ -14,6 +14,8 @@ If you want to help with development, attach a serial console and build an image
 
 Please always use the newest subversion code. Report any bugs via the [https://dev.openwrt.org ticket system].
 
+You could use the buildroot-ng branch, but many "nice to have" packages may not be available (as of now).
+
 = Installing OpenWrt =
 == Using Netgear's web interface ==
 If you want to upgrade to !OpenWrt using the web interface, you need to download a special config file and upload it to your router using the '''Backup Settings''' option. The supplied config file is for version 1.4.1.10 of the netgear supplied firmware. If the version number doesn't match the version number of the config file it will just not 'take'
