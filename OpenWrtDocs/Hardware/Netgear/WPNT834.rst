@@ -382,3 +382,5 @@ WSM radio 0 reset completed.
 
 The stock firmware seems to be uClinux based, which makes it hard to use as a base for OpenWrt.
 See http://forum.openwrt.org/viewtopic.php?id=4001&p=2 for more information.
+
+Hence there is a MMU, the portage can be done. Anyway, there are several problems that I have faced creating custom images. In particular, I cannont load custom gziped kernel.
