@@ -163,7 +163,7 @@ mostlyclean:
 === Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC) ===
 If you Makefile contains harcoded "gcc" commands, then you will have to patch the makefile and replace gcc with $(CC) in order to define at "make time" the cross-compiler to use.
 
-/!\ '''Note this Makefile is provided as an example only; it will not compile
+/!\ '''Note this Makefile is provided as an example only; it will not compile'''
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -213,7 +213,7 @@ mostlyclean:
 
 === Sample Makefile for C/C++ programs without makefiles (usually one or two source files) ===
 
-/!\ '''Note this Makefile is provided as an example only; it will not compile
+/!\ '''Note this Makefile is provided as an example only; it will not compile'''
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -259,7 +259,7 @@ mostlyclean:
 
 === Sample Makefile for C++ shipped with configure script, and uClibc++ linkables ===
 
-/!\ '''Note this Makefile is provided as an example only; it will not compile
+/!\ '''Note this Makefile is provided as an example only; it will not compile'''
 {{{
 include $(TOPDIR)/rules.mk
 
@@ -326,12 +326,28 @@ mostlyclean:
 }}}
 
 === package/helloworld/ipkg/hello.control ===
+
+The control file, as you might have guessed, controls the package information reported by ipkg.
+
+Anyone familiar with Debian packaging will be aware of the format - a deeper description than provided here is available in the [http://handhelds.org/moin/moin.cgi/BuildingIpkgs ipkg documentation].
+
 {{{
 Package: hello
 Priority: optional
 Section: misc
 Description: The GNU hello world program
 }}}
+
+The following fields are available:
+  '''Package''' - should be the package name, as in the Makefile.
+
+  '''Priority''' - should be set to ''optional'' for almost all packages.
+
+  '''Section''' - indicates the type of package - useful sections include ''comm'', ''editors'', ''graphics'', ''libs'', ''net'', ''text'', ''web'', or if you can't decide, ''misc''.
+
+  '''Description''' - a short description of the package. (You can include a longer description here in a similar manner to the help text in Config.in. Start a new line after the short description, and use a line containing a single full stop ('.') as a replacement for blank lines.
+
+  '''Depends''' (not in the example above) - a list of package names that this package ''requires'' to operate. Use package names without versions here where possible (e.g. ''openssh-client'').
 
 === package/helloworld/patches/100-hello.patch ===
 This example will also work without the Debian patch. So you can skip this point.
