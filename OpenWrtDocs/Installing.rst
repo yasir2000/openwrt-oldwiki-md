@@ -35,7 +35,7 @@ White Russian ships in several variations, each with a slightly different set of
 
 
 == TRX vs. BIN ==
-That explains the directories, now what the hell are the files? They are [wiki:WikiPedia:Disk_image disk image]s. There's two types of files, the "trx" files and the "bin" files; the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx file can't be used directly.
+That explains the directories, now what the hell are the files? They are [wiki:WikiPedia:Disk_image disk image]s. There's two types of files, the "trx" files and the "bin" files; the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx file can't be used directly. Older versions of mtd will choke on bin files, so if your upgrading from an existing OpenWRT it's wise to use the trx files.
 
  . openwrt-brcm-2.4-<type>.trx
   . This is the firmware in raw format, exactly as it will be written to the flash. This format is used when upgrading from within OpenWrt or during the initial install on one of the following:
@@ -56,6 +56,8 @@ That explains the directories, now what the hell are the files? They are [wiki:W
     * Linksys WRTSL54GS
  openwrt-wa840g-<type>.bin; openwrt-we800g-<type>.bin; openwrt-wr850g-<type>.bin
   . This is also a trx file, but with a Motorola header added to the start of the file, making it a valid firmware file for a Motorola device.
+
+There are only 3 *.trx files. You can tell which trx file goes with your hardware by comparing the file sizes of the *.bin for your hardware and the *.trx files. 
 
 == SquashFS vs. JFFS2 ==
 That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS.'''
