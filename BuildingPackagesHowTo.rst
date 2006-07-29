@@ -350,7 +350,9 @@ The following fields are available:
   '''Depends''' (not in the example above) - a list of package names that this package ''requires'' to operate. Use package names without versions here where possible (e.g. ''openssh-client'').
 
 === package/helloworld/patches/100-hello.patch ===
-This example will also work without the Debian patch. So you can skip this point.
+This example applies a Debian patch, which isn't essential for (so you can skip this point).
+
+Other Linux and free UNIX distributions are often an excellent source of patches for non-portable programs. You might like to try searching for packages from [http://packages.ubuntu.com/dapper/source/ Ubuntu], [http://sources.gentoo.org/ Gentoo], or [http://www.freshports.org/ FreeBSD's Ports].
 
 {{{
 cd package/helloworld/patches
