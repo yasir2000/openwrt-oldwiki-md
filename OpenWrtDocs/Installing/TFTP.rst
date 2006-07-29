@@ -19,7 +19,7 @@ The basic procedure of using a tftp client to upload a new firmware to your rout
 
 /!\ '''Note that the nvram IP address will not be used by the bootloader: instead, the router will revert to the factory default, which is usually {{{192.168.1.1}}}'''
 
-/!\ '''Putting a hub or switch between the WRT device and the computer where the TFTP client runs will make sure that the local computer link is up before the boot_wait period is passed. This is a requirement to make TFTP work on computers where the local link is brought up to slow.'''
+/!\ '''Putting a hub or switch between the WRT device and the computer where the TFTP client runs will make sure that the local computer link is up before the boot_wait period is passed. This is a requirement to make TFTP work on computers where the local link is brought up too slow.'''
 
 On routers with a DMZ LED, !OpenWrt will light the DMZ LED while booting, after the bootup scripts are finished it will turn off the DMZ LED. Sometimes automatic rebooting does not work, so you can safely reboot (power cycle) after waiting 6 minutes.
 
