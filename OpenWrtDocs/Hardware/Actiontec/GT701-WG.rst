@@ -1,12 +1,10 @@
 #pragma section-numbers off
 [[TableOfContents]]
 = Actiontec GT701-WG =
-http://actiontec.com/products/broadband/54mbps_wireless_gateway_1p/images/prod_shot.gif
-
 The [http://www.actiontec.com Actiontec] [wiki:SeattleWireless:ActiontecGT701 GT701-WG]
 is a TI AR7-based device. Thus ["AR7Port"] is compatible with these devices.
-This model is distributed by [http://www.qwest.com Qwest] as their current modem
-of choice.
+This model was at one time distributed by [http://www.qwest.com Qwest]
+as their current modem of choice.
 
 == Flash Map ==
 ||'''partition'''||'''start'''||'''end'''||'''description'''||
@@ -30,7 +28,7 @@ List of commands to be issued before flashing using the FTP method as directed i
  3. flash to mtd5 instead of mtd4
 
 == Restoring Qwest Firmware ==
-http://www.qwest.com/internethelp/images/dsl_modem_lrg.jpg
+http://user.kollasch.net/jakllsch/photos/Actiontec%20GT701-WG/qwest_outside_small.jpg
 
 First obtain and extract
 http://www.qwest.com/internethelp/modems/gt701/docs/gt701_wg_qw04_3_60_2_0_6_3_recovery.zip.
@@ -100,12 +98,11 @@ The logic level is 3.3v. The parameters are `38400-N-1`.
 === Forum Posts ===
  * http://forum.openwrt.org/viewtopic.php?id=2446
 === Photos ===
-http://www.qwest.com/dsl/customerservice/actiontecGT701-WG.jpg
+http://user.kollasch.net/jakllsch/photos/Actiontec%20GT701-WG/actiontecGT701-WG.jpg
+http://user.kollasch.net/jakllsch/photos/Actiontec%20GT701-WG/inside_small.jpg
 
 
-
-http://users-www.kollasch.net/~jakllsch/photos/Actiontec%20GT701-WG/inside_small.jpg
-
-Additional high-res photos can be found at http://users-www.kollasch.net/~jakllsch/photos/Actiontec%20GT701-WG/.
+Additional high-res photos can be found at 
+http://user.kollasch.net/jakllsch/photos/Actiontec%20GT701-WG/
 ----
 CategoryModel ["CategoryAR7Device"]
