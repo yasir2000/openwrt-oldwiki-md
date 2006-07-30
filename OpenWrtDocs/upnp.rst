@@ -33,7 +33,8 @@ You can get Stephane Coulon's compiled version of libupnp from the following lin
 
 [http://perso.wanadoo.fr/Stephane.Coulon/OpenWRT/libupnp_1.2.1a_mipsel.ipk]
 
-A fixed version of the Linux IGD package which installs without error and does not require any configuration can be from the following location:
+A fixed version of the Linux IGD package which installs without error and does not require any configuration can be from the following location: 
+
 [http://members.optusnet.com.au/edwardluck/openwrt/packages/linux-igd_1.0.1.ipk]
 
 The libpthread package is already part of the OpenWRT package tree, but if you want to download it manually you can go [http://downloads.openwrt.org/whiterussian/packages/libpthread_0.9.27-1_mipsel.ipk here]
