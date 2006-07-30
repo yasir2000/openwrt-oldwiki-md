@@ -25,7 +25,7 @@ Previously (in OpenWRT versions RC4 and earlier) it was possible to use the Link
 
 === Where do I get the packages? ===
 
-'''NOTE:''' The Linux IGD package may currently not install correctly for you.  A fix has been found for this, and a new package should be released shortly once the package maintainer has been notified of the fix.
+'''NOTE:''' The Linux IGD package may currently not install correctly for you.  A fix has been found for this, and a new package should be released shortly once the package maintainer has been notified of the fix. See the following [http://forum.openwrt.org/viewtopic.php?pid=30650#p30650 thread] for details.
 
 The Linux IGD daemon consists of three required packages.  First up is the '''libpthread''' package, followed by the '''libupnp''' package, and finally the '''linux-igd''' package.
 
