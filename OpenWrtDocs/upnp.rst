@@ -21,26 +21,21 @@ uPnP can be installed to run on your WRT.  Information in this guide assumes you
 
 === What are my options ===
 
-You can either use the pre-compiled '''upnp''' binary from the Linksys firmware or the source-compiled copy of the Linux-IGD project as provided by yani.  More information on both is available in this [http://forum.openwrt.org/viewtopic.php?id=85 thread.]  Some problems have been reported with the pre-compiled '''upnp''' binary, in another [http://forum.openwrt.org/viewtopic.php?id=3451 thread.]
+Previously (in OpenWRT versions RC4 and earlier) it was possible to use the Linksys upnp daemon which was extracted directly from their firmware image.  However, since the release of OpenWRT RC5 this no longer works.  There is now a package available for the Linux IGD daemon which is the only working option for RC5, but will also work in the earlier releases of OpenWRT.  Since it is not based on any Linksys/Broadcom sourcecode, it will be the best solution to use for all future releases of OpenWRT.
 
-The pre-compiled Linksys binary is more elegant (read that as "three binary files and one script").  With the Linksys binary, you are also able to manually open ports in your firewall via Windows using the Internet Gateway Properties page.  You cannot currently do this with Linux-IGD.
+=== Where do I get the packages? ===
 
-The Linux-IGD code is more generic and your mileage may vary on getting it to talk to IPTables (the firewall software) to open the required ports.  It also will not let you open ports in the firewall via Windows.  uPnP on Linux has traditionally had problems with telling IPTables what to do; in particular some implementations of the IGD on Linux have either failed to make changes to IPTables or made changes to the INPUT table as opposed to the FORWARDING table.  Unless you're an IPTables geek this can be hard to trace.
+'''NOTE:''' The Linux IGD package may currently not install correctly for you.  A fix has been found for this, and a new package should be released shortly once the package maintainer has been notified of the fix.
 
-'''Disclaimer:''' The Linksys binary upnp overwrites the existing libshared.so file that is included with OpenWRT.  This file is also used by the nvram package, however you must install the upnp version for upnp to work.  To make this happen, use the following command:
+The Linux IGD daemon consists of three required packages.  First up is the '''libpthread''' package, followed by the '''libupnp''' package, and finally the '''linux-igd''' package.
 
-{{{
-ipkg install -force-overwrite upnp-linksys_4.20.7_mipsel.ipk
-}}}
+You can get Stephane Coulon's compiled version of libupnp and the Linux-IGD daemon from the following links:
 
-=== Where do I get the binaries? ===
+[http://perso.wanadoo.fr/Stephane.Coulon/OpenWRT/libupnp_1.2.1a_mipsel.ipk]
 
-You can get yani's compiled version of the Linux-IGD daemon from his [http://openwrt.wojjie.net website.]
+[http://perso.wanadoo.fr/Stephane.Coulon/OpenWRT/linux-igd_1.0.1-cvs_mipsel-linux.ipk]
 
-The package for the Linksys binary is available [http://members.optusnet.com.au/edwardluck/openwrt/packages/ here].
-
-There is also a manual installation version (tarball) [http://members.optusnet.com.au/edwardluck/openwrt/packages/upnp-manual/ here].  Instructions for the manual version are [http://members.optusnet.com.au/edwardluck/openwrt/packages/upnp-manual/README here].
-
+The libpthread package is already part of the OpenWRT package tree, but if you want to download it manually you can go [http://downloads.openwrt.org/whiterussian/packages/libpthread_0.9.27-1_mipsel.ipk here]
 
 == Overview of Universal Plug & Play ==
 
