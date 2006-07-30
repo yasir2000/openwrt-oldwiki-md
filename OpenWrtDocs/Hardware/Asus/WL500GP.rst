@@ -4,7 +4,7 @@ The Asus WL-500g Premium seems to be supported by OpenWrt.
 It's possible (and really easy) to use manufacturers own web interface (at 192.168.1.1) to download OpenWrt into the WL-500gP box. This way at least [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) is working.
 
 ==== Network ====
-For information on the internal network architecture and how physical ports map to vlans and bridges, see OpenWrtDocs NetworkInterfaces
+For information on the internal network architecture and how physical ports map to vlans and bridges, see [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces]
 
 ==== Missing some RAM ====
 If you look at "dmesg", for example, there's only 16MB of RAM. Specs says there should be 32MB.
