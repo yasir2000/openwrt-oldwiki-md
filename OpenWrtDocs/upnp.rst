@@ -25,15 +25,13 @@ Previously (in OpenWRT versions RC4 and earlier) it was possible to use the Link
 
 === Where do I get the packages? ===
 
-'''NOTE:''' The Linux IGD package may currently not install correctly for you.  A fix has been found for this, and a new package should be released shortly once the package maintainer has been notified of the fix. See the following [http://forum.openwrt.org/viewtopic.php?pid=30650#p30650 thread] for details.
-
 The Linux IGD daemon consists of three required packages.  First up is the '''libpthread''' package, followed by the '''libupnp''' package, and finally the '''linux-igd''' package.
 
 You can get Stephane Coulon's compiled version of libupnp from the following link:
 
 [http://perso.wanadoo.fr/Stephane.Coulon/OpenWRT/libupnp_1.2.1a_mipsel.ipk]
 
-A fixed version of the Linux IGD package which installs without error and does not require any configuration can be from the following location: 
+A fixed version of the Stephane's Linux IGD package which installs without error and does not require any configuration can be downloaded from the following location: 
 
 [http://members.optusnet.com.au/edwardluck/openwrt/packages/linux-igd_1.0.1.ipk]
 
