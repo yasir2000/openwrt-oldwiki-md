@@ -27,7 +27,7 @@ If you want to develop new packages or try really experimental software you can 
 == Documentation for specific packages ==
 === uPnP ===
 
-'''uPnP''' is Universal Plug and Play.  You can use either the LinkSys binary from the original firmware or the compiled version.
+'''uPnP''' is Universal Plug and Play.  OpenWRT now has a working Linux-IGD package available which works with MSN Messenger for audio & video conversations.
 
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
