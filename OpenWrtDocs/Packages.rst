@@ -25,13 +25,13 @@ Now run {{{ipkg update}}} and you will see new packages.
 If you want to develop new packages or try really experimental software you can search third party packages with http://www.ipkg.be/ ... but even so '''remember that third party packages are not supported'''. Third party packages are untested by !OpenWrt and they can mess or even brick you router. Most of the !OpenWrt developers do not want to support or give help for these packages anyway on any conditions. So if you really want to use or develop them do it with you own risk and please, don't try to get help from !OpenWrt if these packages not do not work, you are really on your own!  Best idea is to ask the person who released the package.
 
 == Documentation for specific packages ==
-'''uPnP'''[[BR]]
+=== uPnP ===
 
 '''uPnP''' is Universal Plug and Play.  You can use either the LinkSys binary from the original firmware or the compiled version.
 
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
-'''CUPS - Printing system with spooling'''[[BR]]
+=== CUPS - Printing system with spooling ===
 
 You can't print a testpage on the local cups, because this would need to have ghostscript installed on your embedded system.
 
@@ -50,11 +50,11 @@ Allow from 192.168.1.0/24 #your ip area.
 
 MacOS X tip: Configure your extended printer settings. If you use the standard printer settings and add an IPP printer, MacOS X will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
 
-'''ether-wake/wol - Wake on LAN'''[[BR]]
+=== ether-wake/wol - Wake on LAN ===
 
 If you have trouble using wol to wake up your PC give ether-wake a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
 
-'''srelay - socks proxy'''[[BR]]
+=== srelay - socks proxy ===
 
 There is a socks proxy available for !OpenWrt, it is called '''srelay''' (Find via the package tracker). However, there is no documentation for this package. So, here is a quick guide:
 
