@@ -57,7 +57,7 @@ That explains the directories, now what the hell are the files? They are [wiki:W
  openwrt-wa840g-<type>.bin; openwrt-we800g-<type>.bin; openwrt-wr850g-<type>.bin
   . This is also a trx file, but with a Motorola header added to the start of the file, making it a valid firmware file for a Motorola device.
 
-There are only 3 *.trx files. You can tell which trx file goes with your hardware by comparing the file sizes of the *.bin for your hardware and the *.trx files. 
+There are 3 trx files, found in the micro, pptp and bin directories. Size restrictions aside, it doesn't matter which directory you pick, although if your device only has 2M of flash you will need to use micro. As for which trx file to use, we strongly suggest using the squashfs for reasons explained below.
 
 == SquashFS vs. JFFS2 ==
 That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS.'''
