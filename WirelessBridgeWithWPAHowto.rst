@@ -278,6 +278,39 @@ This enables the expr functionality of busybox, which is required to maintain th
 
 This change causes the S50dhcp-fwd script to wait until the wireless network interface has an ip before continuing.  After 120 seconds it gives up and exits.  I found that the S47sleep script did not always wait long enough.
 
+=== WRT54GL (EU model, version 1.1, serial CL7B*) ===
+
+After some screaming and shouting, I also managed to have the same setup on my WRT54GL running White Russian RC5. It was anything but painless, though. Here are some notes for those who wish to avoid some pain:
+
+ 1. The first attempt ended in a mess, there were way too many unused and apparently contradictory nvram variables flying around. Since it is considered safe for this model -- which is apparently identical to a WRT54G v4.0 (see http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54G) -- a "mtd erase nvram" brought things back to zero before the second attempt. After my experience, I would at least recommend a cleanup the "safe way" (see http://wiki.openwrt.org/Faq item 2.7).
+
+ 2. It took quite a while to find a setting that would work for WPA/WPA2 authentication. WEP always worked without any problems, but it seemed impossible to set up WPA PSK authentication. Although everything looked fine, the encryption key simply never got set (see above for the troubleshooting on encryption). Some attempts brought error messages that looked obscure, but did not help  much. The short version is: I '''seriously''' recommend to systematically try all combinations before changing the other settings substantially. In my case the only combination that works is WPA2-PSK with AES. Here is the nvram dump of the wireless settings for your reference:
+
+  {{{
+wifi_dns=192.168.1.1
+wifi_gateway=192.168.1.1
+wifi_ifname=eth1
+wifi_ipaddr=192.168.1.2
+wifi_netmask=255.255.255.0
+wifi_proto=static
+wl0_akm=psk2
+wl0_crypto=aes
+wl0_ifname=eth1
+wl0_infra=1
+wl0_mode=sta
+wl0_radio=1
+wl0_ssid=<my essid>
+wl0_wpa_psk=<my ASCII psk>
+  }}}
+
+ 3. I also made the same modifications you can see in the WRT54GL experience report, and much for the same reasons. They seemed to improve the situation.
+
+ 4. Final caveat: the parprouted configuration in /etc/default/parprouted needed some tweaking to get its information from nvram instead of expecting it in environment variables. Otherwise it won't start.
+
+Here is where it leaves the Bridge HOWTO, I guess, but I'll still share the last point:
+
+ 5. Ultimately I decided that I did not feel comfortable with the ARP fiddling. I saw some strange network hickups and bandwidth problems. So I ended up removing the parprouted and dhcp-forwarder, configuring the device as a router between two subnets in 192.168.*.* and setting up dnsmasq for DHCP serving and DNS caching. This now works stable and fast as far as current experience goes.
+
 == Appendix: Sample NVRAM configuration ==
 {{{
 root@OpenWRT:~# nvram show | sort
