@@ -133,8 +133,8 @@ On "Supplicant"/"Client" side -l <lan> option can't be used.
 
 == More info ==
 
-For more detail please read forum post
-
-http://forum.openwrt.org/viewtopic.php?id=1836
+For more detail please read forum post http://forum.openwrt.org/viewtopic.php?id=1836
 
 For more detail about "Supplicant"/"Client" mode see http://forum.openwrt.org/viewtopic.php?pid=10703
+
+Unfortunately nas often (favorably so in supplicant mode) seems to fail without giving an error, it simply does not work. Sometimes trying all the permutations of WPA/WPA2 AES/TKIP/AES+TKIP works, sometimes it does not. Better debugging facilities seem desperately needed. Also see http://forum.openwrt.org/viewtopic.php?pid=31430
