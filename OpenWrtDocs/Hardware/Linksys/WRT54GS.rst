@@ -25,6 +25,8 @@ the box, below the UPC barcode.
 ||WRT54GS v5||<:> CGN7||<:> {X} ||<:> {X} ||
 ||WRT54GS v5.1||<:> CGN8||<:> {X} ||<:> {X} ||
 
+The WRT54GS-CA is identical to the WRT54GS, but it has packaging and documentation for the Canadian market.  This serial number information applies to the WRT54GS-CA.
+
 
 === WRT54GS v1.0 ===
 
