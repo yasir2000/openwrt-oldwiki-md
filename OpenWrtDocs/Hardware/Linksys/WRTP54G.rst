@@ -56,8 +56,9 @@ The PSPBOOT boot loader and a set of environment variables, some of which are us
 
 At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.  The difference between the setenv and the setpermenv commands is unknown.
 
-After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env.  Reading the file returns the environment, one variable per line, with a tab between name and value.  Writing a line in the same format changes a variable, as long as it is not read-only.  A space may be substituted for a tab when writing.
-Here is a sample boot environment as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.{{{
+After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env.  Reading the file returns the environment, one variable per line, with a tab between name and value.  Writing a line in the same format changes a variable, as long as it is not read-only.  A space may be substituted for a tab when writing. Here is a sample boot environment as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.
+
+{{{
 BUILD_OPS 0x541
 bootloaderVersion 1.3.3.11.2.6
 HWRevision 1.00.03
@@ -99,8 +100,7 @@ ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
 HWA_1 00:13:10:AC:02:AA
 BOOTCFG m:f:"IMAGE_A"}}}
-= Pinouts =
-== WRTP54G Serial Console ==
+= Serial Console =
 {{{
 ________________________________________
 |                                         |
@@ -109,7 +109,7 @@ ________________________________________
 |                                         led
 |         Pin 2: Not Connected   ---> @   |
 |                                         led
-|                   Pin 3: RX   ----> @   |                 Front of WRTP54G
+|                   Pin 3: RX   ----> @   |                 Front of RTP300 or WRTP54G
 |                                         led
 |                   Pin 4: TX   ----> @   |
 |                                         |
@@ -119,7 +119,14 @@ ________________________________________
 |                                         |
  \________________________________________|
 }}}
-The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54gv2m.  The board layout differs slightly, although enough that the serial and jtag headers are positioned parallel to the front of the unit as opposed to the perpendicular alignment on the wag54gv2
+The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control.  These settings may be changable by setting the boot environment variable MODETTY.
+
+The serial port is the boot loader console.  If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot and receive a boot loader prompt.
+Most if not all firmwares allow login on the serial port once they are booted.  Some run /bin/login whereas others simply run /bin/sh.  The 3.1.10 firmware which is floating around the internet accepts "Admin" as a username with a blank password.  Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
+{{{
+# echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
+= JTAG =
+JTAG is a standard way to gain access to the system bus of an embedded device.  It can be used to reprogram the flash even if the boot loader has been damaged.
 
 == WRTP54G JTAG Pinout ==
 {{{
