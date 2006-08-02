@@ -132,6 +132,9 @@ ________________________________________
 |                                         |
  \________________________________________|
 }}}
+
+Do not connect the router's serial port directly to your computer's RS232 port.  The signal voltage levels are not the same and you may damage the router's serial port.  This is because your computer's serial port has a line driver which converts the computer's signal voltage levels to RS232 levels while the line driver was left out of the router to save money.  So, you will have to attach a line driver to your router and plug your computer into the line driver.  If you are handy with a soldering iron you can order a AD233AK 233A kit and assemble it to make a line driver.
+
 The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control.  These settings may be changable by setting the boot environment variable MODETTY.
 
 The serial port is the boot loader console.  If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot and receive a boot loader prompt. Most if not all firmwares allow login on the serial port once they are booted.  Some run /bin/login whereas others simply run /bin/sh.  The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password.  Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
