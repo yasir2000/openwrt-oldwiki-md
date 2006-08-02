@@ -51,12 +51,21 @@ Notes:
  * mtd0 ''root'' is mounted as / (squashfs file system) since ''/proc/version'' is {{{Linux version 2.4.17_mvl21-malta-mips_fp_le (myron@dhcp-2123-3084) (gcc version 2.95.3 20010315 (release/MontaVista)) #1 Thu Oct 13 10:23:23 CST 2005}}} this FS is most likely a 1.x sqaushfs image like that in the Actiontec ["OpenWrtDocs/Hardware/Actiontec/GT701-WG"].
  * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
  * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a ["PSPBoot"] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
+= Firmware Update File Format =
+Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
+* The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
+* Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
+* Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash.
+* The squashfs for the root filesystem starts at offset 0x02200000 (576K into the file) and continues to the end of the file (which the exception noted below).
+* If the file is to be written directly into flash it must be 3,866,624 bytes long.  The web interface require an eight bit CRC at the end for a total of 3,866,632 bytes.
 = Boot Loader Environment =
 The PSPBOOT boot loader and a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
 At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.  The difference between the setenv and the setpermenv commands is unknown.
 
-After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env.  Reading the file returns the environment, one variable per line, with a tab between name and value.  Writing a line in the same format changes a variable, as long as it is not read-only.  A space may be substituted for a tab when writing. Here is a sample boot environment as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.
+After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env.  Reading the file returns the environment, one variable per line, with a tab between name and value.  Writing a line in the same format changes a variable, as long as it is not read-only.  A space may be substituted for a tab when writing.
+
+Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.
 
 {{{
 BUILD_OPS 0x541
@@ -121,8 +130,8 @@ ________________________________________
 }}}
 The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control.  These settings may be changable by setting the boot environment variable MODETTY.
 
-The serial port is the boot loader console.  If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot and receive a boot loader prompt.
-Most if not all firmwares allow login on the serial port once they are booted.  Some run /bin/login whereas others simply run /bin/sh.  The 3.1.10 firmware which is floating around the internet accepts "Admin" as a username with a blank password.  Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
+The serial port is the boot loader console.  If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot and receive a boot loader prompt. Most if not all firmwares allow login on the serial port once they are booted.  Some run /bin/login whereas others simply run /bin/sh.  The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password.  Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
+
 {{{
 # echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
 = JTAG =
