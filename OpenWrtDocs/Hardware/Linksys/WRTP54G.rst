@@ -51,13 +51,15 @@ Notes:
  * mtd0 ''root'' is mounted as / (squashfs file system) since ''/proc/version'' is {{{Linux version 2.4.17_mvl21-malta-mips_fp_le (myron@dhcp-2123-3084) (gcc version 2.95.3 20010315 (release/MontaVista)) #1 Thu Oct 13 10:23:23 CST 2005}}} this FS is most likely a 1.x sqaushfs image like that in the Actiontec ["OpenWrtDocs/Hardware/Actiontec/GT701-WG"].
  * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
  * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a ["PSPBoot"] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
+
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
-* The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
-* Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
-* Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash.
-* The squashfs for the root filesystem starts at offset 0x02200000 (576K into the file) and continues to the end of the file (which the exception noted below).
-* If the file is to be written directly into flash it must be 3,866,624 bytes long.  The web interface require an eight bit CRC at the end for a total of 3,866,632 bytes.
+ * The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
+ * Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
+ * Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash.
+ * The squashfs for the root filesystem starts at offset 0x02200000 (576K into the file) and continues to the end of the file (which the exception noted below).
+ * If the file is to be written directly into flash it must be 3,866,624 bytes long.  The web interface require an eight bit CRC at the end for a total of 3,866,632 bytes.
+
 = Boot Loader Environment =
 The PSPBOOT boot loader and a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
