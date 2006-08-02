@@ -57,7 +57,9 @@ Here is a partial description of the format of the firmware update file format w
  * The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
  * Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
  * Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash.
- * The squashfs for the root filesystem starts at offset 0x02200000 (576K into the file) and continues to the end of the file (which the exception noted below).
+ * Bytes 0x70--0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
+ * Something which may be the kernel but is more likely a second-stage boot loader starts at offset 0x10000.
+ * The squashfs for the root filesystem starts at offset 0x90000 (576K into the file) and continues to the end of the file (which the exception noted below).  The first four bytes of the squashfs are "hsqs".
  * If the file is to be written directly into flash it must be 3,866,624 bytes long.  The web interface require an eight bit CRC at the end for a total of 3,866,632 bytes.
 
 = Boot Loader Environment =
