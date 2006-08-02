@@ -133,7 +133,7 @@ Don't forget to commit if you want your settings to survive a reboot:
 nvram commit
 }}}
 
-'''NOTE:''' After lots of tests with nbd's latest pre-rc4 image (from 18-Nov-2005) it seems that WPA2 (tkip) in client mode is still broken. Normal WPA (tkip) and WEP encryption works fine.
+'''NOTE:''' WPA2 in client mode is broken in RC4 and RC5.  On the Wireless Configuration page of the web interface, disable the WPA2 checkbox.  WPA1 and WEP still work properly in RC4 and RC5.
 
 == Some more configuration ==
 When you set an interface to DHCP, !OpenWrt runs the DHCP client on that interface automatically at boot time. If you want to re-run the dhcp client, for example because you joined another network, you can either reboot, or you can run the {{{ifup}}} command:
