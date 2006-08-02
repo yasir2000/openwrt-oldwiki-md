@@ -52,7 +52,7 @@ Notes:
  * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
  * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a ["PSPBoot"] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
 
-= Firmware Update File Format =or you will not be able to load 
+= Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
  * The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
  * Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
@@ -72,7 +72,7 @@ After boot, the boot environment can be read and written through the pseudo-file
 Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.
 
 {{{
-BUILD_OPS 0x541grep '128\.95' /etc/dhcpd.conf
+BUILD_OPS 0x541
 bootloaderVersion 1.3.3.11.2.6
 HWRevision 1.00.03
 max_try 4
@@ -97,13 +97,13 @@ SUBNET_MASK 255.255.255.0
 MAC_PORT 0
 MEMS Z0x01000000
 FLASHS Z0x00800000
-MODETTY 0115200,n,8,1,hw
+MODETTY 0115200,n,8,1,hwor you will not be able to load 
 CPUFREQ 162500000
-SYSFREQ 125000000grep '128\.95' /etc/dhcpd.conf
+SYSFREQ 125000000
 PROMPT (psbl)
 IPA 192.168.6.15
 IPA_GATEWAY 192.168.6.254
-ProductID CYLLgrep '128\.95' /etc/dhcpd.conf
+ProductID CYLL
 CONSOLE_STATE locked
 TFTPU_STATE OFF
 SerialNumber CJM00E5xxxxx
@@ -111,7 +111,7 @@ HASH_DIR 8wA2fClJsg
 CRYPT_KEY 47035165D59457E16ACA0EFC747AC05C9985F36DDD60B5641B25E1EC581AEFE3
 ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
-HWA_1 00:13:10:AC:02:AAor you will not be able to load 
+HWA_1 00:13:10:AC:02:AA
 BOOTCFG m:f:"IMAGE_A"}}}
 
 == CONSOLE_STATE ==
@@ -139,6 +139,12 @@ setenv IPA 192.168.15.1
 fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
+
+== BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
+
+The firmware to be booted is defined by BOOTCFG.  The significance of the m and the f are unknown.  The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.
+
+Unfortunately, there does not seem to be a direct and reliable way to set BOOTCFG.  If there are two firmwares installed and one formats the image partition of the one named in BOOTCFG, BOOTCFG will automatically switch to the other one.
 
 = Serial Console =
 {{{
