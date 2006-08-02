@@ -1,6 +1,5 @@
 = Linksys WRTP54G =
 The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP enabled routers based on the TI AR7 chipsets.
-
 || ||'''WRTP54G''' http://www1.linksys.com/products/image180/WRTP54G.jpg ||'''RTP300''' http://www1.linksys.com/products/image180/RTP300.jpg ||
 ||Base Hardware ||1 Ethernet uplink port, 4x 10/100MBps switch ports, 2 phone jacks || 1 Ethernet uplink port, 4x 10/100MBps switch ports, 2 phone jacks ||
 ||Wifi Support: ||54MBps 802.11b/g || None ||
@@ -19,35 +18,23 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 '''Notes'''
 
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
-
  * In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
-
  * The "admin" account does not have sufficient privileges to reflash the firmware.  If your router is configured to be "provisioned" by Vonage, let it connect to the Internet in order to download its configuration from Vonage's server.  The Vonage configuration has a user named "user" with a password of "tivonpw".  The user "user" can reflash the firmware.  (That is right, user has more access than admin.)  After logging in as admin/admin change the URL to http://192.168.15.1/update.html.  At the new password prompt enter "user" and "tivonpw".  A web form for uploading the new firmware will pop up.
-
  * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago 'root' access was gained to a RTP300 box using the Admin account (Admin is uid 0).  (Could somebody clarify this statement?  Was this due to some special circumstance or is it something we can reproduce?)
-
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
-
  * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
-
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
-
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
-
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html
-
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
-
  * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The driver source code has not been released.
-
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
-
 See also: ["AR7Port"]
 
 = Memory layout of RTP300 =
 == /proc/mtd ==
 {{{
-dev:    size   erasesize  name 
+dev:    size   erasesize  name
 mtd0: 00320000 00010000 "root"                           (3MB - 3,276,800 bytes)
 mtd1: 00080000 00010000 "RESERVED_PRIMARY_KERNEL"        (512K - 524,288 bytes)
 mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB -3,276,800 bytes)
@@ -57,7 +44,6 @@ mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
 mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
 mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
-
 Notes:
 
  * A dump of all the RTP300's blocks is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the the FS dump made available earlier (which contained only files from the mounted root).
@@ -65,11 +51,13 @@ Notes:
  * mtd0 ''root'' is mounted as / (squashfs file system) since ''/proc/version'' is {{{Linux version 2.4.17_mvl21-malta-mips_fp_le (myron@dhcp-2123-3084) (gcc version 2.95.3 20010315 (release/MontaVista)) #1 Thu Oct 13 10:23:23 CST 2005}}} this FS is most likely a 1.x sqaushfs image like that in the Actiontec ["OpenWrtDocs/Hardware/Actiontec/GT701-WG"].
  * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
  * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a ["PSPBoot"] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
+= Boot Loader Environment =
+The PSPBOOT boot loader and a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
-== /proc/ticfg/env ==
-(HWA_0, HWA_1, and SerialNumber have been anonymized)
+At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.  The difference between the setenv and the setpermenv commands is unknown.
 
-{{{
+After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env.  Reading the file returns the environment, one variable per line, with a tab between name and value.  Writing a line in the same format changes a variable, as long as it is not read-only.  A space may be substituted for a tab when writing.
+Here is a sample boot environment as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.{{{
 BUILD_OPS 0x541
 bootloaderVersion 1.3.3.11.2.6
 HWRevision 1.00.03
@@ -111,11 +99,10 @@ ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
 HWA_1 00:13:10:AC:02:AA
 BOOTCFG m:f:"IMAGE_A"}}}
-
 = Pinouts =
 == WRTP54G Serial Console ==
 {{{
-________________________________________ 
+________________________________________
 |                                         |
 |                                         led
 |                   Pin 1: GND   ---> @   |
@@ -132,7 +119,6 @@ ________________________________________
 |                                         |
  \________________________________________|
 }}}
-
 The WRTP54G is *almost* a photo replica of the wag54gv2 hence the fccid of wag54gv2m.  The board layout differs slightly, although enough that the serial and jtag headers are positioned parallel to the front of the unit as opposed to the perpendicular alignment on the wag54gv2
 
 == WRTP54G JTAG Pinout ==
@@ -154,10 +140,8 @@ __________________________________________
 |                                         |
 | Pin 13:DINT  ----> @   @ <-- Pin 14:VIO*|
  \________________________________________|
-
     *voltage reference @ 3.3 volts
 }}}
-
 The AR7 implements ejtag version 2.6.
 
 This ejtag layout should work with all ar7 based boards with a 14 pin jtag pinout.  The same cable as used for the wrt54g (based on the xilinx III/dlc-5) as demonstrated by !HairyDairyMaid can be constructed and is well documented.  Debug INT pin 13 is optional and pin 14 can be left unhooked for passive cabling.
@@ -168,7 +152,6 @@ The JTAG utility authored by HairyDairyMaid that is in common use as a debugger 
 
  * [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device]
  * [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
- * [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] guide
-
+ * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
 ----
- CategoryModel ["CategoryAR7Device"]
+ . CategoryModel ["CategoryAR7Device"]
