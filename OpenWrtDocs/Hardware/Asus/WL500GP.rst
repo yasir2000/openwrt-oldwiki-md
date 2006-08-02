@@ -29,6 +29,9 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
   . nvram set lan_ifnames="vlan0 eth2" nvram set wlan_ifname=eth2
 (don't forget to commit WikiPedia:nvram changes)
 
+=== Wrong vlan ports ===
+I was unable to ping my ADSL modem (some Alcatel) connected to the WAN port. The problem was the vlan configuration. `nvram get vlan1ports` showed `"0 5u"` (could anyone describe what this means?). I changed it to `"0 5*"` (like the config of vlan0) and this solved my problem.
+
 ----
  . VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
 wan_device=eth0 (it was set to vlan1)
