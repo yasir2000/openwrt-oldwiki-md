@@ -52,7 +52,7 @@ Notes:
  * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
  * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a ["PSPBoot"] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
 
-= Firmware Update File Format =
+= Firmware Update File Format =or you will not be able to load 
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
  * The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
  * Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
@@ -111,7 +111,7 @@ HASH_DIR 8wA2fClJsg
 CRYPT_KEY 47035165D59457E16ACA0EFC747AC05C9985F36DDD60B5641B25E1EC581AEFE3
 ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
-HWA_1 00:13:10:AC:02:AA
+HWA_1 00:13:10:AC:02:AAor you will not be able to load 
 BOOTCFG m:f:"IMAGE_A"}}}
 
 == CONSOLE_STATE ==
@@ -125,6 +125,20 @@ These variables define the IP settings used by the tftp command.  It makes sense
 == ProductID ==
 
 This is a four character code which identifies the hardware.  For the RTP300 it is CYLL.  For the WRTP54G it is appearently CYWM.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to load it.
+
+== IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
+
+The router has room for two firmwares and a configuration area for each.  Factory defaults can be restored by formatting the configuration area of the currently active firmware.  (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.)  The command to clear the conifguration area of the first firmware is:
+
+{{{fmt CONFIG_A}}}
+
+A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  If you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
+
+{{{
+setenv IPA 192.168.15.1
+fmt IMAGE_A
+tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
+}}}
 
 = Serial Console =
 {{{
