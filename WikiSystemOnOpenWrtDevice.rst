@@ -6,7 +6,7 @@ Is there any wiki systems that can be [http://forum.openwrt.org/viewtopic.php?id
 || ||'''Written ''''''with''' ||'''Flat file or''' '''database''' ||'''Requirements''' (server) ||'''Requirements''' (client) ||'''GPL''' ||'''Tested?'''||'''Other info''' ||
 ||[http://leaf-project.org/ Leaf-project]s [http://http://leaf-project.org/devel/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=91&MMN_position=92:86 muwiki] (plugin) || || || ||No || || ||Uses 'WikiPedia:sed' as rendering engine. ||
 ||[http://www.tiddlywiki.com/ TiddlyWiki] || || || ||[wiki:WikiPedia:JavaScript Javascript] || || ||Router only saves updated contents. ||
-||[http://didiwiki.org/ DidiWiki] ||C ||Flat files ||libgcc package||No ||Yes || ||Very small ~25kB. See BuildingPackagesHowTo for instructions and bianary link. ||
+||[http://didiwiki.org/ DidiWiki] ||C ||Flat files ||libgcc package||No ||Yes ||Works. ||Very small ~25kB and fast. See BuildingPackagesHowTo for instructions and bianary link. ||
 ||[http://www.oddmuse.org/cgi-bin/wiki Oddmuse wiki engine] ||Perl ||Flat files ||Perl? ||No || || ||Based on UseModWiki||
 ||[http://pmwiki.org/ PmWiki] ||PHP ||Flat files ||PHP 4.1.x >= ||No ||Yes || ||Needs more space than OpenWrt Flash mems have. ||
 ||[http://www.wikini.net/wakka.php?wiki=HomePage WikiNi] || || || || || || || ||
