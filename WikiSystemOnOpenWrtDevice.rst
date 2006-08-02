@@ -12,7 +12,7 @@ Is there any wiki systems that can be [http://forum.openwrt.org/viewtopic.php?id
 ||[http://www.wikini.net/wakka.php?wiki=HomePage WikiNi] || || || || || || || ||
 ||[http://www.usemod.com/cgi-bin/wiki.pl?UseModWiki UseModWiki]||Perl||Flat files||Perl||No|| || ||Try MicroPerl||
 ||[http://wikish.do.homeunix.org/ WikiSH] ||Awk ||Flat files ||None ||No || || ||Small and designed for embedded systems. Awk is part of OpenWrt. Based on [http://awkiawki.bogosoft.com AwkiAwki] ||
-||[http://www.awk-scripting.de/cgi/wiki.cgi/yawk/00-WikiIndex Yark]||Gawk||Flat files||Gawk|| || || ||OpenWrt doesn't have Gawk but a [http://www.ipkg.be/search?q=awk Mawk] package is available which may work.||
+||[http://www.awk-scripting.de/cgi/wiki.cgi/yawk/00-WikiIndex Yark]||Gawk/C||Flat files||Gawk|| || || ||OpenWrt doesn't have Gawk but a [http://www.ipkg.be/search?q=awk Mawk] package is available which may work.||
 Please update! :)
 
 ----
