@@ -72,7 +72,7 @@ After boot, the boot environment can be read and written through the pseudo-file
 Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env.  HWA_0, HWA_1, andSerialNumberhave been anonymized.
 
 {{{
-BUILD_OPS 0x541
+BUILD_OPS 0x541grep '128\.95' /etc/dhcpd.conf
 bootloaderVersion 1.3.3.11.2.6
 HWRevision 1.00.03
 max_try 4
@@ -99,11 +99,11 @@ MEMS Z0x01000000
 FLASHS Z0x00800000
 MODETTY 0115200,n,8,1,hw
 CPUFREQ 162500000
-SYSFREQ 125000000
+SYSFREQ 125000000grep '128\.95' /etc/dhcpd.conf
 PROMPT (psbl)
 IPA 192.168.6.15
 IPA_GATEWAY 192.168.6.254
-ProductID CYLL
+ProductID CYLLgrep '128\.95' /etc/dhcpd.conf
 CONSOLE_STATE locked
 TFTPU_STATE OFF
 SerialNumber CJM00E5xxxxx
@@ -113,6 +113,19 @@ ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
 HWA_1 00:13:10:AC:02:AA
 BOOTCFG m:f:"IMAGE_A"}}}
+
+== CONSOLE_STATE ==
+
+Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape.  Setting it to "unlocked" restores friendly behavior.  See the Serial Console section for a way to unlock the console.
+
+== IPA, IPA_GATEWAY, SUBNET_MASK ==
+
+These variables define the IP settings used by the tftp command.  It makes sense to change IPA to "192.168.15.1" since this is the IP address which the standard firmwares assign to the router.
+
+== ProductID ==
+
+This is a four character code which identifies the hardware.  For the RTP300 it is CYLL.  For the WRTP54G it is appearently CYWM.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to load it.
+
 = Serial Console =
 {{{
 ________________________________________
@@ -145,7 +158,7 @@ The serial port is the boot loader console.  If the boot-loader environment vari
 JTAG is a standard way to gain access to the system bus of an embedded device.  It can be used to reprogram the flash even if the boot loader has been damaged.
 
 == WRTP54G JTAG Pinout ==
-{{{
+{{{grep '128\.95' /etc/dhcpd.conf
 __________________________________________
 |                     J3                  |
 |                                         led
