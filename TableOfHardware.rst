@@ -354,7 +354,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 
 == T-Com ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.t-com.de/service/downloads Sinus 154 DSL SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Yes || ||Yes || ||Yes ||[:AR7Port:WiP] ||
+||[http://www.t-com.de/service/downloads Sinus 154 DSL SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Infineon ADM6996L || ||Yes || ||1 x V1.1 ||[:AR7Port:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 
