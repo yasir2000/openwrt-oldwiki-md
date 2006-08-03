@@ -22,5 +22,5 @@ DidiWiki (binary file is attached to this page and an ipkg is now available) fit
 You may need to add a symbolic link in /lib using ''ln -s /lib/libc.so.0 /lib/libgcc_s.so.1''
 Start with:  
   env DIDIWIKIHOME=/opt/share/.didiwiki didiwiki
-Where didiwiki is the binary file's name and .didiwiki is directory created for storing data files.
+Where didiwiki is the binary file's name and .didiwiki is a directory created for storing data files.
 Warning: If you don't start DidiWiki with the env command your pages will be saved in the home (/tmp) directory and wil be lost on rebooting!
