@@ -16,5 +16,6 @@ Is there any wiki systems that can be [http://forum.openwrt.org/viewtopic.php?id
 Please update! :)
 
 ----
- . Looks like DidiWiki would be small enough to fit on OpenWrt systems flash memory.
-Also, DidiWiki doesn't have any library requirements. Some more comparison... [http://www.wikimatrix.org WikiMatrix]
+DidiWiki (binary file is attached to this page) fits happily on an OpenWrt system's flash memory. You may need to add a symbolic link in /lib using ''ln -s /lib/libc.so.0 /lib/libgcc_s.so.1''
+
+For more wiki comparisons visit [http://www.wikimatrix.org WikiMatrix]
