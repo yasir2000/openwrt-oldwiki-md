@@ -18,7 +18,7 @@ and to make detailed comparisons visit [http://www.wikimatrix.org WikiMatrix].
 Please update! :)
 
 ----
-DidiWiki (binary file is attached to this page and an ipkg is now available) fits happily on an OpenWrt system's flash memory. 
+DidiWiki fits happily on an OpenWrt system's flash memory. 
 You may need to add a symbolic link in /lib using ''ln -s /lib/libc.so.0 /lib/libgcc_s.so.1''
 Start with:  
   env DIDIWIKIHOME=/opt/share/.didiwiki didiwiki
