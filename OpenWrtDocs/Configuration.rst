@@ -92,6 +92,7 @@ NVRAM; Description
 <name>_gateway; Default Gateway (x.x.x.x)
 <name>_dns; DNS server (x.x.x.x)
 <name>_hostname; hostname requested with dhcp
+<name>_hwaddr; MAC address (aa:bb:cc:dd:ee:ff) if you want to use a different MAC of the ROM
 }}}
 
 The command ''ifup <name>'' will configure the interface defined by <name>_ifname according to the above variables. As an example, the {{{/etc/init.d/S40network}}} script will automatically run the following commands at boot:
