@@ -46,6 +46,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 || 2006-05-02 || Ultimo || 7.5s || 14.2s || 15.8s || 9.1s || v0.5 || OpenWRT RC5 || Linksys WRT54GL v1 || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 || 2006-05-03 || ''PhilipPemberton'' || 9.1s || 48.4s || 33.8s || 4.1s || v0.6 || !OpenDebianSlug Sarge (Debonaras), 2.6.16rc4 kernel || Linksys NSLU2 || XScale-IXP420 || 266MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX] ||
 || 2006-05-04 || ''MickeyMouse'' || 7.2s || 14.5s || 16.2s || 11.4s || v0.6 || OpenWRT RC5 || Linksys WRT54G v2.2 || BCM3302 V0.7 || 200Mhz || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
+|| 2006-08-04 || ''ww'' || 6.7s || 13.4s || 15.1s || 10.3s || v0.6 || ''DD-WRT 23'' || ''Linksys WRT54G v2.2'' || ''BCM3302 V0.7'' || ''200MHz'' || ["OpenWrtDocs/Hardware/Linksys/WRT54G"] ||
 || 2006-05-04 || LinuxInside || 7.6s || 12.6s || 14.5s || 7.6s || v0.6 || (unknown) || Linksys WAG54GX2 || BCM3302 V0.7 || 240Mhz || ["OpenWrtDocs/Hardware/Linksys/WAG54GX2"] ||
 || 2006-05-11 || ArteQ || 10.5s || 24.7s || 30.2s || 13.0s || v0.6 || Oleg 1.9.2.7-7c || ASUS Wl500g || BCM4710 V0.0 || 125MHz || ["OpenWrtDocs/Hardware/Asus/WL500G"] ||
 || 2006-05-03 || evildevil || 5.3s || 29.8s || 27.0s || 4.0s || v0.6 || !DebianSlug Sid || Linksys NSLU2 || XScale-IXP420 || 266MHz || [http://www.nslu2-linux.org/wiki/Info/HomePage NSLU2-LINUX] ||
