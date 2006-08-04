@@ -10,6 +10,8 @@ If you've broken one of the startup scripts, firewalled yourself or corrupted th
 
 /!\ The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache.
 
+/!\ MAKE SURE that the client used to telnet to the router is set up for a static ip in the same group (192.168.1.x). Failsafe has no DHCP!
+
 == How to get into failsafe mode ==
 !OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will'' not ''reset the NVRAM.  The ''boot loader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
 
