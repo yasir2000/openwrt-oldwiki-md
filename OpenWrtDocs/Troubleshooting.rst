@@ -127,7 +127,7 @@ The CFE will enter TFTP receptive mode after that command.
 
 '''Linksys models'''
  * refer to [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] howto create a JTAG cable
- * get !HairyDairyMaids [http://spacetoad.com/tmp/hairydairymaid_debrickv22.zip debrick utility] ([http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ mirror]) or a more recent version from [http://downloads.openwrt.org/utils/ Downloads] and instructions how to connect everything together
+ * get !HairyDairyMaids [http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ debrick utility] or a more recent version from [http://downloads.openwrt.org/utils/ Downloads] and instructions how to connect everything together
  * get a working version of the CFE for your WRT from [http://downloads.openwrt.org/people/inh/cfe/ inh's] download directory
 
  * turn the router off, attach the jtag cable
