@@ -52,3 +52,25 @@ On RC5, the CISCO LED found on some linksys routers is now supported. Here's a t
 ||0x04 ||Power LED flashing ||WRT54G v1.1, v2.0, v3.0, v4.0 and WRT54GS ||
 ||0x08 ||White Cisco LED ON ||WRT54G v3.1, WRT54GS v4.0, WRT54GL||
 ||0x10 ||Orange Cisco LED ON ||WRT54G v3.1, WRT54GS v4.0, WRT54GL||
+
+
+
+Feel free to edit this out of here, but I put together this chart which helps me. I didn't list the values in hexadecimal as my scripts use ''cat /proc/sys/diag'' and it doesn't return a hex value. Also I see no need for the hex value as ''echo "8" > /proc/sys/diag'', etc. works just as well without me doing hex math.  Also I cannot confirm the versions these codes work for, but I'm running a v1.0 & v3.0 wrt54g.  
+
+||'''Value''' ||'''Cisco''' ||'''Power''' ||'''DMZ''' ||
+||0 (default)||Off ||On ||Off ||
+||1 ||Off ||On ||On ||
+||4 ||Off ||Flashing ||Off ||
+||5 ||Off ||Flashing ||On ||
+||8 ||White ||On ||Off ||
+||9 ||White ||On ||On ||
+||12 ||White ||Flashing ||Off ||
+||13 ||White ||Flashing ||On ||
+||16 ||Orange ||On ||Off ||
+||17 ||Orange ||On ||On ||
+||20 ||Orange ||Flashing ||Off ||
+||21 ||Orange ||Flashing ||On ||
+||24 ||White & Orange ||On ||Off ||
+||25 ||White & Orange ||On ||On ||
+||28 ||White & Orange ||Flashing ||Off ||
+||29 ||White & Orange ||Flashing ||On ||
