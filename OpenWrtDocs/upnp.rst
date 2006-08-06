@@ -5,15 +5,15 @@
 
 '''Please read the security warning before getting involved with uPnP!'''
 
-If you're a Windows user and find yourself using either MSN Messenger or Windows Messenger, you have probably already had problems getting audio and video conversations
-to work.  For various reasons (poor design probably being one of them), the multimedia features of the messenger client require that UDP and TCP ports be dynamically
-opened and closed in your firewall as these audio/video conversations are negotiated, happen, and then are finished.  
+If you're a Windows user and find yourself using either MSN Messenger or Windows Messenger, you have probably already had problems getting audio and video conversations to work.  For various reasons (poor design probably being one of them), the multimedia features of the messenger client require that UDP and TCP ports be dynamically opened and closed in your firewall as these audio/video conversations are negotiated, happen, and then are finished.  
 
 For folks running their modem (cable or DSL) directly into their PC, and using the Microsoft Windows XP Firewall (either SP1 or SP2), this is fine because the MSN Messenger software asks the firewall to open the ports and - by default - it is allowed to do so.  The same thing can be done with other "Application Aware" firewalls such as ZoneAlarm and Kerio Personal Firewall, because these tools can detect that the MSN Messenger application is trying to listen for or make connections and prompt the user to allow these activities.
 
 But this is all useless drivel for us folks running OpenWRT. As soon as you place your Internet connection behind a router/firewall, you suddenly have an application which needs the firewall to dynamically allow connections from the Internet to your PC.  This all has to happen automatically, in realtime, with no intervention by the user.  When the audio/video conversation ends, the firewall must then disallow these connections, therefore going back to its previous security configuration.
 
 MSN Messenger is uPnP aware, and will both detect and use uPnP services if they are running on your router.
+
+If you're using a Mac and are trying to run iChat AV for audio or video conferences, you're probably running into the exact same problems. iChat AV, like MSN Messenger, is also capable of using uPnP. The setup is the same as for MSN Messenger, and the same security problems are inherent for a Mac-based network as on a Windows network.
 
 == uPnP on your WRT ==
 
@@ -46,9 +46,11 @@ cd /tmp
 wget http://members.optusnet.com.au/edwardluck/openwrt/packages/libupnp_1.2.1a_mipsel.ipk
 ipkg install libupnp_1.2.1a_mipsel.ipk
 wget http://members.optusnet.com.au/edwardluck/openwrt/packages/linux-igd_1.0.1.ipk
-ipkg install linux-igd_1.0.1.ipk
+ipkg install ./linux-igd_1.0.1.ipk
 /etc/init.d/S65upnpd start
 }}}
+
+'''Note that you must install the linux_igd package specifically from the /tmp directory. Otherwise ipkg will install an earlier version which will cause some problems.'''
 
 == Overview of Universal Plug & Play ==
 
