@@ -201,12 +201,47 @@ The above dmesg was from a 7001 b/g.   Here is a diff against the dmesg from a 7
 >  28:       9293   ar5211
 }}}
 
-Flashing OpenWrt via serial console (execute the following commands):
+Flashing OpenWrt via serial console:
 {{{
-ip_address -l 192.168.1.1 -h 192.168.1.254
-load -r -b %{FREEMEMLO} openwrt-xscale-2.6-zImage
-fis create kernel (answer "y")
-load -r -b %{FREEMEMLO} openwrt-xscale-2.6-jffs2-128k.img
-fis create rootfs (answer "y")
-reset
++Ethernet eth0: MAC address 00:00:83:38:50:02
+IP: 0.0.0.0/255.255.255.0, Gateway: 0.0.0.0
+Default server: 0.0.0.0, DNS server IP: 0.0.0.0
+
+RedBoot(tm) bootstrap and debug environment [ROM]
+Red Hat certified release, version 1.92 - built 17:26:35, Dec  4 2003
+
+Platform: Gateway 7001 AP Platform (XScale)
+Copyright (C) 2000, 2001, 2002, Red Hat, Inc.
+
+RAM: 0x00000000-0x02000000, 0x0001c238-0x01fd1000 available
+FLASH: 0x50000000 - 0x50800000, 64 blocks of 0x00020000 bytes each.
+== Executing boot script in 1.000 seconds - enter ^C to abort
+^C
+RedBoot> ip_address -l 192.168.1.1 -h 192.168.1.254
+IP: 192.168.1.1/255.255.255.0, Gateway: 0.0.0.0
+Default server: 192.168.1.254, DNS server IP: 0.0.0.0
+RedBoot> load -r -b %{FREEMEMLO} openwrt-xscale-2.6-zImage
+Using default protocol (TFTP)
+Raw file loaded 0x0001c400-0x000e40b7, assumed entry at 0x0001c400
+RedBoot> fis create kernel
+An image named 'kernel' exists - continue (y/n)? y
+... Erase from 0x50040000-0x50140000: ........
+... Program from 0x0001c400-0x000e40b8 at 0x50040000: .......
+... Unlock from 0x507e0000-0x50800000: .
+... Erase from 0x507e0000-0x50800000: .
+... Program from 0x01fdf000-0x01fff000 at 0x507e0000: .
+... Lock from 0x507e0000-0x50800000: .
+RedBoot> load -r -b %{FREEMEMLO} openwrt-xscale-2.6-jffs2-128k.img
+Using default protocol (TFTP)
+Raw file loaded 0x0001c400-0x001bc3ff, assumed entry at 0x0001c400
+RedBoot> fis create rootfs
+An image named 'rootfs' exists - continue (y/n)? y
+... Erase from 0x50140000-0x504c0000: ............................
+... Program from 0x0001c400-0x001bc400 at 0x50140000: .............
+... Unlock from 0x507e0000-0x50800000: .
+... Erase from 0x507e0000-0x50800000: .
+... Program from 0x01fdf000-0x01fff000 at 0x507e0000: .
+... Lock from 0x507e0000-0x50800000: .
+RedBoot> reset
+... Resetting.
 }}}
