@@ -153,6 +153,9 @@ General instructions how to recover or repair your OpenWRT box are available ove
 = Port layout =
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
 
+/!\ The post-RC5 has introduced the ifup_interfaces NVRAM variable to the OpenWRT distribution and by default it will start the non-existent WAN interface. To set the variable run: 
+ * nvram set ifup_interfaces="lan wifi"; nvram commit
+
 = Client Mode =
 Out of box the WE800G is set to client mode, but it does not work - you can ping the box from both sides just fine, but it does not let any of these packet to travel over the defined bridge. More of it below.
 
