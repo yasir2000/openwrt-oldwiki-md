@@ -200,3 +200,13 @@ The above dmesg was from a 7001 b/g.   Here is a diff against the dmesg from a 7
 >  27:       1326   ar5211
 >  28:       9293   ar5211
 }}}
+
+Flashing OpenWrt via serial console (execute the following commands):
+{{{
+ip_address -l 192.168.1.1 -h 192.168.1.254
+load -r -b %{FREEMEMLO} openwrt-xscale-2.6-zImage
+fis create kernel (answer "y")
+load -r -b %{FREEMEMLO} openwrt-xscale-2.6-jffs2-128k.img
+fis create rootfs (answer "y")
+reset
+}}}
