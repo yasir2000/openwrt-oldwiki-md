@@ -90,7 +90,7 @@ See ["OpenWrtDocs/Installing"] for generic installation instructions.
 Reflash the unit using the [:OpenWrtViaTftp:TFTP] method.
 
 == Serial console ==
-Important information about connecting a serial console can be found in ["OpenWrtDocs/Customizing/Serial_Console"], Information about CFE can be found in ["OpenWrtDocs/Customizing/Firmware/CFE"].
+Important information about connecting a serial console can be found in ["OpenWrtDocs/Customizing/Hardware/Serial_Console"], Information about CFE can be found in ["OpenWrtDocs/Customizing/Firmware/CFE"].
 
 Set {{{boot_wait=on}}} in CFE and then TFTP the firmware image. To enter CFE hit {{{CTRL-C}}} right after power on.
 
