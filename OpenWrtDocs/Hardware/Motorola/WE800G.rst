@@ -94,7 +94,7 @@ Imre Kaloz added WE800G and WA800G support to pre-RC5 and this has found it's wa
  * RC5 http://downloads.openwrt.org/whiterussian/rc5/
  * post-RC5 http://downloads.openwrt.org/people/nbd/whiterussian/default/
 
-Note: The WE800G v1 has plenty of flash and memory and it is capable of accepting firmware of the "bin" directory. Check the firmware [:OpenWrtDocs/Installing: installing] page for firmware image differences.
+Note: The WE800G v1 has plenty of flash and memory and it is capable of accepting firmware of the "bin" directory. Check the firmware [:OpenWrtDocs/Installing: installing] page for firmware image differences. The WE800G v2 should use the "micro" images.
 
 == Web upgrade ==
 
