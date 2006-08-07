@@ -13,7 +13,7 @@ OpenWrtDocs [[TableOfContents]]
 NVRAM stands for Non-Volatile RAM, in this case the last 64K of the flash chip used to store various configuration information in a ''name=value'' format.
 
 {{{
-#!CSV 
+#!CSV
 Command; Description
 nvram show | sort | less; Display everything in NVRAM
 nvram get boot_wait; Get a specific variable
@@ -22,7 +22,6 @@ nvram set lan_ifnames="vlan0 vlan1 vlan2"; set multiple values to one param
 nvram unset foo; Delete a variable
 nvram commit; Write changes to the flash chip (otherwise only stored in RAM)
 }}}
-
 A complete list of nvram options can be found at ["OpenWrtNVRAM"].
 
 '''NOTE:''' flashing your router with tftp won't work unless boot_wait is set to on! tftp is your last software based recovery option if failsafe mode fails!
@@ -33,13 +32,12 @@ A complete list of nvram options can be found at ["OpenWrtNVRAM"].
 The WRT54G is made up of an Ethernet switch, a wireless access point and a router chip that connects them together.
 
 Diagrams of the internal switch architectures can be found via the following table
-
 ||'''Device & Version''' || ||
 ||WRT54G v2/v3 & WRT54GS v1/v2 ||[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png Switch diagram] ||
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
 
-[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on. A more detailed explanation of the networking internals is on the page [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces]
 
+[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on. A more detailed explanation of the networking internals is on the page OpenWrtDocs/NetworkInterfaces
 ||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
 ||Linksys ||WRT54G ||v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
@@ -51,7 +49,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
-||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^||
+||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ ||
 ||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
@@ -78,8 +76,10 @@ Please update to include other models.
 
 In general, the switch works the following way: It receives data (physical) on either lan port or on the wan port. Then the switch tags the packages (with VLAN), so Linux is able to see the difference and that way we have the vlan devices, which describe wan or lan port.
 
-[[BR]]The basic network configuration is handled by a series of NVRAM variables:{{{
-#!CSV 
+[[BR]]The basic network configuration is handled by a series of NVRAM variables:
+
+{{{
+#!CSV
 NVRAM; Description
 <name>_ifname; The name of the linux interface the settings apply to
 <name>_ifnames; Devices to be added to the bridge (only if the above is a bridge)
@@ -94,7 +94,6 @@ NVRAM; Description
 <name>_hostname; hostname requested with dhcp
 <name>_hwaddr; MAC address (aa:bb:cc:dd:ee:ff) if you want to use a different MAC of the ROM
 }}}
-
 The command ''ifup <name>'' will configure the interface defined by <name>_ifname according to the above variables. As an example, the {{{/etc/init.d/S40network}}} script will automatically run the following commands at boot:
 
 {{{
@@ -102,7 +101,6 @@ ifup lan
 ifup wan
 ifup wifi
 }}}
-
 The ''ifup lan'' command will bring up the interface specified by lan_ifname. Normally the lan_ifname is set to br0 which will cause it to create the bridge br0 and add the the interfaces from lan_ifnames to the bridge; lan_proto is usually static which means that br0 will have the IP address from lan_ipaddr, and so on for the rest of the variables listed above.
 
 It's important to remember that it's the <name>_ifname that specifies the interfaces, the <name> compontent itself has almost no value. This means that if you changed lan_ifname to be the internet port, vlan1, then ''ifup lan'' would bring up the internet port, not the lan ports (despite using the command ''ifup lan'' and using the lan_ variables). Also, it means that you can create any <name> variables you want, foo_ifname, foo_proto .... and they would be used by ''ifup foo''.
@@ -127,11 +125,9 @@ lan_ifnames="vlan0 eth1"
 lan_proto=static
 lan_ipaddr=192.168.1.1
 lan_netmask=255.255.255.0
-
 wan_ifname=vlan1
 wan_proto=dhcp
 }}}
-
 If you just want to use !OpenWrt as an access point you can avoid the WAN interface completely (LAN+wireless bridged as 192.168.1.25/24, routed through 192.168.1.1, WAN ignored):
 
 {{{
@@ -142,23 +138,19 @@ lan_ipaddr=192.168.1.25
 lan_netmask=255.255.255.0
 lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
-
 wan_proto=none
 }}}
-
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
 
 {{{
 # linksys bug; remove when not using static configuration for lan
 nvram set lan_proto="static"
 }}}
-
 in /etc/init.d/S05nvram (The usual story about replacing the symlink with a copy of the file before editting applies). After doing this, you need to set the appropriate nvram variable:
 
 {{{
 lan_proto=dhcp
 }}}
-
 To separate the LAN from the WIFI (LAN as 192.168.1.25/24, wireless as 192.168.2.25/24, WAN as DHCP, remove your WIFI interface (eth1 on v2/3 linksys routers) from the lan_ifnames variable):
 
 {{{
@@ -166,18 +158,14 @@ lan_ifname=vlan0
 lan_proto=static
 lan_ipaddr=192.168.1.25
 lan_netmask=255.255.255.0
-
 wifi_ifname=eth1
 wifi_proto=static
 wifi_ipaddr=192.168.2.25
 wifi_netmask=255.255.255.0
-
 wan_ifname=vlan1
 wan_proto=dhcp
-
 lan_ifnames="vlan0 vlan1 eth1"
 }}}
-
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
 = Ethernet switch configuration =
@@ -193,7 +181,6 @@ The VLAN configuration is based on two variables (per VLAN) in NVRAM.
 vlan0ports="1 2 3 4 5*" (use ports 1-4 on the back, 5 is the WRT54G itself)
 vlan0hwname=et0
 }}}
-
 (See switch diagram in section 2)
 
 This is only the case if the NVRAM variable boardflags is set. On the WRT54G V1.1 and earlier, it's not set.
@@ -216,14 +203,12 @@ vlan0hwname=et0
 vlan1ports="0 5"
 vlan1hwname=et0
 }}}
-
 All ports lan (vlan0):
 
 {{{
 vlan0ports="0 1 2 3 4 5*"
 vlan0hwname=et0
 }}}
-
 LAN (vlan0), WAN (vlan1), DMZ (vlan2):
 
 {{{
@@ -234,7 +219,6 @@ vlan1hwname=et0
 vlan2ports="3 4 5"
 vlan2hwname=et0
 }}}
-
 It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least the WRT54GS v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 
 = Wireless configuration =
@@ -245,16 +229,12 @@ It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least t
 || wl0_infra || '''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
 || wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
 || wl0_channel || 1 / 2 / 3 /.../ 11 channel ||
-
-
 See ["OpenWrtNVRAM"] for more NVRAM settings.
 
 == MAC filter ==
 || '''NVRAM variable''' || '''Description''' ||
 ||'''wl0_macmode''' ||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist ||
 ||'''wl0_maclist''' ||List of space separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
-
-
 After changes run /sbin/wifi to activate them
 
 == WEP encryption ==
@@ -263,8 +243,6 @@ After changes run /sbin/wifi to activate them
 || wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
 || wl0_key[1..4] || WEP key in hexadecimal format (allowed hex chars are 0-9a-f). '''Example:''' nvram set wl0_key1=0D77F08849E4B1D839C9489A48 ||
 || wl0_auth || '''1''' (shared key) / '''0''' (open); the 'shared key' option is not recommended as it allows an intruder to exploit a fundamental security flaw in WEP (WPA was introduced as the better system; see below). The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic. ||
-
-
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly. A 128 bit WEP key must be 26 hex digits long ; string key format is also supported : '''nvram set wl0_key1='s:my string key' '''
 
 Setting up WPA will override any WEP settings.
@@ -277,15 +255,14 @@ For enabling WPA, you need to install the nas package. When you enable or disabl
 More information is on ["OpenWrtDocs/nas"].
 
 See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user authentication.
-
 || '''NVRAM variable''' || '''Description''' ||
-||<style="text-align: center;"|6> wl0_akm || '''open''' = No WPA ||
+||<style="text-align: center;" |6> wl0_akm || '''open''' = No WPA ||
 ||  '''psk''' = WPA Personal/PSK (Preshared Key) ||
 ||  '''wpa''' = WPA with a RADIUS server ||
 ||  '''psk2''' = WPA2 PSK ||
 ||  '''wpa2''' = WPA2 with RADIUS ||
 ||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 ||
-||<style="text-align: center;"|3> wl0_crypto || '''tkip''' = RC4 encryption ||
+||<style="text-align: center;" |3> wl0_crypto || '''tkip''' = RC4 encryption ||
 ||  '''aes''' = AES encryption ||
 ||  '''aes+tkip''' = support both ||
 || wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
@@ -299,12 +276,12 @@ See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user au
 WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
 
 When using WPA with WDS, the simplest method is to ensure that both routers are using the same ESSID and WDS settings; if so, you don't need to set any additional variables besides '''wl0_wds'''. However, some people may want to use different encryption for the WDS link than for clients, or different ESSIDs for different routers; if so, there are a number of wds_specific nvram variables that can be set; ensure that all WDS peers have the same values for these variables. If the variables are unset (as they are by default), WDS will use the same encryption settings as used for clients.
-
 || '''NVRAM variable''' || '''Description''' ||
 || wl0_wds_wpa_psk || Your wireless password ||
 || wl0_wds_akm || The key type (i.e. psk) ||
 || wl0_wds_crypto || The algorithm (i.e. aes) ||
 || wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
+
 
 If using WDS between routers with different ESSIDs, you should all of their '''wl0_wds_ssid''' variables to the ESSID of ''one'' of the routers, so that they will be able to talk to each other.
 
@@ -318,12 +295,11 @@ Remember that the non-free package NAS must be installed for WPA to work.  It is
 Configuration of WDS is simple, and depends on one of two variables
 
 {{{
-#!CSV 
+#!CSV
 NVRAM; Description
 wl0_lazywds; Accept WDS connections from anyone (0:disabled 1:enabled)
 wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space separated)
 }}}
-
 For security reasons, it's recommended that you leave wl0_lazywds off and use wl0_wds to control WDS access to your AP. wl0_wds functions as an access list of peers to accept connections from and peers to try to connect to; the peers will either need the mac address of your AP in their wl0_wds list, or wl0_lazywds enabled.
 
 Easy steps for a successful WDS:
@@ -337,10 +313,9 @@ First do it without wireless protection and then activate the protection. If you
  1. Have you commited your values? Do it. And reboot.
  1. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
-
 /!\ I experienced 20% packet loss using lazywds. It went away when disabling lazywds. You have been warned!
 
-/!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better know what you are doing...
+/!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better know what you are doing...  '''Here's a hint, however:'''  You can keep the wired/wireless bridge broken and still use WDS; just recreate a bridge via the appropriate nvram variables and only add the device that connects to the network you want to bridge with the other access point (yes, a bridge with only one bridged device is legal).  The router will detect this bridge, and join the remote bridge to it automagically.
 
 == Wireless client / wireless bridge ==
 The only thing you have to do is to switch the WL mode like with the bridge:
@@ -348,7 +323,6 @@ The only thing you have to do is to switch the WL mode like with the bridge:
 {{{
 nvram set wl0_mode=wet
 }}}
-
 For more information, see ClientModeHowto.
 
 ## == SecureEasySetup button (a.k.a. CISCO button) ==
@@ -373,7 +347,6 @@ ls -l /etc/firewall.user
 rm /etc/firewall.user
 cp /rom/etc/firewall.user /etc
 }}}
-
 Be sure to read the notes about the firewall rules before changing anything.  The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN.  You will have to access the router from outside to verify the setup.
 
 The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept.  In the case given, it will open up port 22 and accept connections using dropbear (the SSH server).  Just delete the '''#''' sign in front of the two rules to enable access.
@@ -397,7 +370,6 @@ Once you're finished making changes to your firewall, restart it by running the 
 {{{
 /etc/init.d/S45firewall restart
 }}}
-
 Remember to test the changes outside your LAN!
 
 == dnsmasq - DNS and DHCP server ==
@@ -419,7 +391,6 @@ The ''ntpclient'' package will maintain the system time using the Network Time P
 Install the package, reboot, and then check the system time.
 
 You may wish to choose an NTP server close to your router.
-
 ||'''NVRAM Setting''' ||'''Default Value''' ||'''Meaning''' ||
 ||'''ntp_server''' ||pool.ntp.org ||host name or IP address of NTP server to use when default route begins ||
 
@@ -435,32 +406,26 @@ Create the file {{{/etc/init.d/S42rdate}}} with the contents:
 {{{
 #!/bin/sh
 /usr/sbin/rdate HOST}}}
-
 replacing HOST with the IP address or host name of the time server, then make it executable:
 
 {{{
 chmod a+x /etc/init.d/S42rdate}}}
-
 then either reboot or run it this once:
 
 {{{
 /etc/init.d/S42rdate}}}
-
 '''htpdate'''
 
 The ''htpdate'' package synchronises the time using innocuous web page requests as if it is a web browser.  It obtains the time from part of the HTTP header reply sent by web servers. Note that you might have some trouble with htpdate reporting "No server suitable for synchronization found" if the date of the router is initially set to the default of 2000-01-01. Simply try to run "date 010100002006" or something before htpdate.
-
 
 Install the ''htpdate'' package using ''ipkg'':
 
 {{{
 ipkg install htpdate}}}
-
 Test by asking ''htpdate'' to set the time to that provided by a remote web server:
 
 {{{
 htpdate -s HOSTNAME}}}
-
 Configure ''/etc/default/htpdate'' with a set of servers to probe.
 
 Rename ''/etc/init.d/htpdate'' to ''/etc/init.d/S41htpdate''.
@@ -475,20 +440,18 @@ To set a time zone use the {{{/etc/TZ}}} file. Copy & paste the time zones from 
 {{{
 echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 }}}
-
 '''NOTE:''' This sets the time zone for CET/CEST (Central European Time UTC+1 / Central European Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October at 03:00) of DST (Daylight Saving Time).
 
 More can be found here http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640 and http://openwrt.org/forum/viewtopic.php?id=131.
 
 Examples:
-
-||<style="text-align: center;"|6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
+||<style="text-align: center;" |6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Perth ||WST-8 ||
 ||Brisbane ||EST-10 ||
 ||Adelaide ||CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Darwin ||CST-9:30 ||
 ||Hobart ||EST-10EDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00 ||
-||<style="text-align: center;"|21>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
+||<style="text-align: center;" |21>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Athens, Greece ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||Barcelona, Spain ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Berlin, Germany ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
@@ -510,7 +473,7 @@ Examples:
 ||St.Petersburg, Russia ||MST-3MDT,M3.5.0/2,M10.5.0/3 ||
 ||Stockholm, Sweden ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||New Zealand ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
-||<style="text-align: center;"|10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
+||<style="text-align: center;" |10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
 ||Alaska Time ||AKST9AKDT ||
 ||Pacific Time ||PST8PDT ||
 ||Mountain Time ||MST7MDT ||
@@ -520,10 +483,10 @@ Examples:
 ||Atlantic Time ||AST4ADT ||
 ||Atlantic Time (New Brunswick) ||AST4ADT,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
 ||Newfoundland Time ||NST+3:30NDT+2:30,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
-||<style="text-align: center;"|3>Asia ||Jakarta ||WIB-7 ||
+||<style="text-align: center;" |3>Asia ||Jakarta ||WIB-7 ||
 ||Singapore ||SGT-8 ||
 ||Ulaanbaatar, Mongolia ||ULAT-8ULAST,M3.5.0/2,M9.5.0/2 ||
-||<style="text-align: center;"|3>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
+||<style="text-align: center;" |3>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
 ||Argentina ||UTC+3 ||
 ||Central America ||CST+6 ||
 
