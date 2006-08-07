@@ -112,7 +112,7 @@ Note: If you see "on" then the boot_wait was set successfully. If not the repeat
  * Telnet into the box to verify that the OpenWRT is up and running and then unplug/replug the power of the box again;
  * Now you can telnet into it again to set the system password (passwd command) or use your browser to do it;
 
-Note: After you set the password you'll not be able to telnet into the WE800G again, you have to use ssh or browser.
+Note: After you set the password you'll not be able to telnet into the WE800G again, you have to use ssh or browser. Username is "root".
 
 == TFTP upgrade ==
 
@@ -136,7 +136,7 @@ Note: If you are using Windows then for the next step place a switch between you
  * Telnet into the box to verify that the OpenWRT is up and running and then unplug/replug the power of the box again;
  * Now you can telnet into it again to set the system password (passwd command) or use your browser to do it;
 
-Note: After you set the password you'll not be able to telnet into the WE800G again, you have to use ssh or browser.
+Note: After you set the password you'll not be able to telnet into the WE800G again, you have to use ssh or browser. Username is "root".
 
 = Upgrade from previous versions of OpenWRT =
 You can upgrade the WE800G either by the webif interface (by browser) or by the TFTP.
