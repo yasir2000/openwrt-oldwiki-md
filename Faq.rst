@@ -29,7 +29,8 @@ WRT54G Models:
 || CDF9 || v3.1 ||
 || CDFA || v4.0 ||
 || CDFB || v5.0 ||
-|| CDFC || v6.0 ||
+|| CDFC || v5.1 ||
+|| CDFD || v6.0 ||
 
 WRT54GL Models:
 
@@ -48,7 +49,7 @@ WRT54GS Models:
 || CGN5 || v3.0 ||
 || CGN6 || v4.0 ||
 || CGN7 || v5.0 ||
-|| CGN8 || v5.0 ||
+|| CGN8 || v5.1 ||
 
 
 == Which image should I use? ==
@@ -242,6 +243,15 @@ nvram commit
 }}}
 
 When this is done you can follow the ["OpenWrtDocs/Deinstalling"] page.
+
+boot_wait indicates whether or not the boot loader (CFE) should wait a few seconds (default is 3) for a tftp transfered firmware before it loads the firmware present on the ROM. To adjust the length of time the CFE waits for this TFTP transfer, use the sparesly known wait_time variable. In example:
+
+{{{
+nvram set wait_time=30
+nvram commit
+}}}
+
+This would cause the boot_wait period to be 30 seconds, allowing plenty of time for TFTP transfer.
 
 == Does OpenWrt have a web interface? ==
 '''Yes.''' The {{{default}}} and {{{pptp}}} optimized images will have the web interface (called !OpenWrt Administrative Console or webif for short) integrated.
