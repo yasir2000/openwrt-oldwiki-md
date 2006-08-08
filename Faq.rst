@@ -244,7 +244,7 @@ nvram commit
 
 When this is done you can follow the ["OpenWrtDocs/Deinstalling"] page.
 
-boot_wait indicates whether or not the boot loader (CFE) should wait a few seconds (default is 3) for a tftp transfered firmware before it loads the firmware present on the ROM. To adjust the length of time the CFE waits for this TFTP transfer, use the sparesly known wait_time variable. In example:
+boot_wait indicates whether or not the boot loader (CFE) should wait a few seconds (default is 3) for a tftp transfered firmware before it loads the firmware present on the ROM. To adjust the length of time the CFE waits for this TFTP transfer, use the sparsely known wait_time variable. In example:
 
 {{{
 nvram set wait_time=30
