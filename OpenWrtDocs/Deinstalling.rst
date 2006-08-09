@@ -33,7 +33,7 @@ If you only have a Linksys {{{.bin}}} firmware file, this is not a problem, simp
 {{{
 dd bs=32 skip=1 if=original.bin of=original.trx
 }}}
-'''TIP: '''If your replacement firmware has a web interface, remember to flush your browser cache, sessions etc. This will avoid confusing 404 errors.
+'''TIP:''' If your replacement firmware has a web interface, remember to flush your browser cache, sessions etc. This will avoid misleading 404 errors.
 
 == Using the webif ==
 Since White Russian RC4 you can use the webif to go back to the original firmware. The webif automatically recognize if you upload a firmware image in BIN or TRX format and converts it accordingly.
