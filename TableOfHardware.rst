@@ -298,8 +298,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WRC-1000 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism2 (mini-PCI) ||Kendin KS8995E ||on || || ||no ||Partial ||
 == TP-LINK ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||TL-WR541G ||
-||[http://www.micrel.com/_PDF/Ethernet/ks8695.pdf Kendin KS8695] @ 166MHz ||2MB ||8MB ||unknow(on board) ||in CPU ||on || || ||no ||no ||
+||TL-WR541G || ||[http://www.micrel.com/_PDF/Ethernet/ks8695.pdf Kendin KS8695 ARM922T] @ 166MHz ||2MB ||8MB ||unknow(on board) ||in CPU ||on || || ||no ||no ||
 == Trendnet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB] || || ||2MB || || || || || || || ||Untested ||
