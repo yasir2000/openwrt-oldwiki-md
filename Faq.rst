@@ -627,6 +627,9 @@ svn co https://svn.openwrt.org/openwrt/trunk/openwrt/}}}
 
 [http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
 
+
+/!\ '''NOTE:''' Development has temporarily moved to the buildroot-ng branch... for development information, check: https://dev.openwrt.org .
+
 == Should I report bugs releated to the buildroot system ==
 Yes. If you find any bugs, please use our [http://dev.openwrt.org/report ticket system] or send a report to openwrt-devel@openwrt.org . You can send patches for the bugs as well.
 
