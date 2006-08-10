@@ -16,7 +16,7 @@ The reason the 2nd VPN connection won't work is simply that the ports used by th
  * Connect to your WhiteRussian 5 shell.
 
  * Assuming you have ipkg configured and the package list updated, install the kmod-ipt-nat-extra package:
-   root@OpenWrt:~# ipkg install kmod-ipt-nat-extra
+     ipkg install kmod-ipt-nat-extra
 
  * Reboot the router
 
