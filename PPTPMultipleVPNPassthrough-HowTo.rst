@@ -26,4 +26,4 @@ That's it.  Now more than one client computer can simultaneously run PPTP VPN co
 
 == Notes ==
 
-The kmod-ipt-nat-extra package installs kernel modules for more than PPTP connection tracking.  If you give an lsmod command at the router's linux command prompt you will see modules for tracking other types of connections including some related to VOIP.  You may wish to leave the unused modules out by editing the /etc/modules.d/40-ipt-nat-extra file that was also installed by the kmod-ipt-nat-extra package.
+The kmod-ipt-nat-extra package installs kernel modules for more than PPTP VPN connection tracking.  If you give an lsmod command at the router's linux command prompt you will see modules for tracking other types of connections including some related to VOIP.  You may wish to leave the unused modules out by editing the /etc/modules.d/40-ipt-nat-extra file that was also installed by the kmod-ipt-nat-extra package.
