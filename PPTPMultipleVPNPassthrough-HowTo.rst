@@ -15,9 +15,9 @@ The good news is that there is already an OpenWrt package available that provide
 
 == Procedure ==
 
- 1. Connect to your WhiteRussian 5 shell.
+ * Connect to your WhiteRussian 5 shell.
 
- Assuming you have ipkg configured and the package list updated, install the kmod-ipt-nat-extra:
+ * Assuming you have ipkg configured and the package list updated, install the kmod-ipt-nat-extra:
     ipkg install kmod-ipt-nat-extra
 
 chmod +x /etc/modules.d/40-ipt-nat-extra
