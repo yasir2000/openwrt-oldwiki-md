@@ -71,7 +71,7 @@ Leave all defaults and save the configuration to the default file.
 $ make
 }}}
 
-If make causes an error relating to wildcards, you need to edit openwrt/rules.mk
+If make shows a tar error relating to wildcards, you need to edit openwrt/rules.mk
 
 Find this section:
 
