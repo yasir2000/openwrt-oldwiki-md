@@ -71,6 +71,28 @@ Leave all defaults and save the configuration to the default file.
 $ make
 }}}
 
+If make causes an error relating to wildcards, you need to edit openwrt/rules.mk
+
+Find this section:
+
+{{{
+     ifeq ($(BR2_TAR_VERBOSITY),y)
+     TAR_OPTIONS=-xvf
+     else
+     TAR_OPTIONS=-xf
+     endif
+}}}
+
+Add "--wildcards" to two lines, as shown below.
+
+{{{
+     ifeq ($(BR2_TAR_VERBOSITY),y)
+     TAR_OPTIONS=--wildcards -xvf
+     else
+     TAR_OPTIONS=--wildcards -xf
+     endif
+}}}
+
  * If you did this right, you should get past the inital startup and it'll start downloading the kernel. It kept going for about an hour and a half. It failed after building the cross compiler, while building the debugger. If this is all you need.. fine. I'm going for gold. It fails because it expects gdb to be called gdb, instead it's called gdb.exe. To fix this, edit openwrt/toolchain/gdb/Makefile
 
 {{{
