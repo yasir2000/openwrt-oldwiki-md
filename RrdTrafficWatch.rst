@@ -9,6 +9,7 @@
   {{{
   src unstable http://home.mag.cx/openwrt/packages/ }}}
   instead
+  . '''This URL stopped working 2006-08-11'''
 
  * update your ipkg database and install the needed rrdtool
   . {{{
