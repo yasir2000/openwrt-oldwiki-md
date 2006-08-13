@@ -13,6 +13,7 @@
  * Put it in the microwave for a couple minutes (Note: may brick microwave).
  * Plug it in regularly, and then take a screwdriver to random pins of important chips.
  * Connect it directly to the power outlet. (Using ethernet ports or the power jack.)
+ * Apply a Blowtorch to it
 
 
 = by software =
