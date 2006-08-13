@@ -9,7 +9,7 @@
   {{{
   src unstable http://home.mag.cx/openwrt/packages/ }}}
   instead
-  . '''This URL stopped working 2006-08-11'''
+  . '''This URL stopped working 2006-08-11''' but you can download and install librrd and rrdtool1 from http://nthill.free.fr/openwrt/ipkg/testing/
 
  * update your ipkg database and install the needed rrdtool
   . {{{
