@@ -181,7 +181,7 @@ Add this to the /etc/crontabs/root file :
 
 {{{
 # create traffic graphs every 5 minutes (i.e. run if minutes mod 5 == 0)
-0/5 * * * * /sbin/traff_graph > /dev/null 2>&1}}}
+0-55/5 * * * * /sbin/traff_graph > /dev/null 2>&1}}}
 
 = Other links =
 [http://forum.openwrt.org/viewtopic.php?id=3741]
