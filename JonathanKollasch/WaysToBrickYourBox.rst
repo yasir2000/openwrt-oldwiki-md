@@ -10,11 +10,14 @@
  * Throw it into a volcano.
  * Use it as a step stool.
  * Hit it with a rock.
+ * Put it in the microwave for a couple minutes (Note: may brick microwave).
+ * Plug it in regularly, and then take a screwdriver to random pins of important chips.
  * Connect it directly to the power outlet. (Using ethernet ports or the power jack.)
 
 
 = by software =
  * Overwrite the firmware (f.e. ["ADAM2"]) with pr0n.
+ * Put firmware on through the wireless connection while running several microwaves and several cordless phones, halfway through unplugging the router.
 
 == via bad NVRAM ==
  * erase NVRAM
