@@ -7,6 +7,8 @@ Status Legend:
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
  * '''No''' - confirmed that this device is not supported
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
+ * '''Info entered''' - Information about the device is entered in this list, for reference.
+
 See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], CategoryCategory Pavia [[TableOfContents]]
 
 == 3Com ==
@@ -302,6 +304,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||TL-WR541G || ||[http://www.micrel.com/_PDF/Ethernet/ks8695.pdf Kendin KS8695 ARM922T] @ 166MHz ||2MB ||8MB ||unknow(on board) ||in CPU ||on || || ||no ||no ||
 == Trendnet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.trendware.com/products/TEW-211BRP.htm TEW-211BRP] ||V2.5/E ||Samsung [http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C4510B/S3C4510B.htm S3C4510B01], (PLD: MAX3000 [http://www.altera.com/literature/ds/m3000a.pdf EPM3032ALC44-10]) ||Eon Silicon Solutions [http://library.vandenzel.dyndns.org/datasheets/eon-en29f040.pdf EN29F040] 4 Megabit (512K x 8-bit) ||2* ESMT [http://www.esmt.com.tw/DB/manager/upload/M12L16161A.pdf M12L16161A] 16 Megabit (512K x 16Bit x 2Banks) Synchronous DRAM||WL-316C PCMCIA card (dual ext. antenna) ||WAN port: Realtek [http://library.vandenzel.dyndns.org/datasheets/rtl8019as.pdf RTL8019AS], LAN ports: Micrel KS8995E || ||[http://www.mcu-memory.com/datasheet/imp/uart/IMP16C550.pdf IMP16C550] (backup modem line) || || ||Info entered||
 ||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP] || ||Broadcom BCM4702KPB ||4MB || ||Broadcom BCM94306MP (MiniPCI) ||Broadcom [http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325 BCM5325A2KQM] || || || ||No ||Untested ||
