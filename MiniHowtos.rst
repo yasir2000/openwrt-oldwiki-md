@@ -249,22 +249,52 @@ tar jcvf /tmp/backup.tar.bz2 .
 
 Then using nfs or dropbear's scp to copy /tmp/backup.tar.gz to a safe place.
 
-== Making the reset button reset the router! ==
-To make the reset button reset the router, i wrote a simple script to poll the reset button. Put this in /etc/init.d/S09resetbutton
+== Using the buttons to control your router ==
 
-If you have the Cysco Systems button on the front and would rather use that, you can simply change the {{{cat /proc/sys/reset}}} to {{{cat/proc/button}}}.
+ * Reboot your router with the reset button on the back.
+ * Switch your WiFi ON and OFF by pressing the Cisco SES (Secure Easy Setup) button (if your router has one).
+ * Orange Cisco LED acknowledges the button-press event.
+
+Put this in /etc/init.d/S70buttons:
 
 {{{
 #!/bin/sh
 
-while [ true ]; do
-        sleep 1
-        if [ `cat /proc/sys/reset` = "1" ]; then
-                echo "0x01" > /proc/sys/diag
-                echo "Rebooting"
-                reboot
-        fi
+while : ; do
+  sleep 1
+  # Reset button
+  if [ $(cat /proc/sys/reset) = "1" ]; then
+    logger "Rebooting (Reset button)"
+    LEDSTATUS=$(cat /proc/sys/diag)
+    LEDSTATUS=$((LEDSTATUS | 0x10))  # Orange Cisco LED ON
+    echo $LEDSTATUS > /proc/sys/diag
+    reboot
+  fi
+
+  # Cisco button
+  if [ "$(cat /proc/sys/button)" = "1" ]; then
+    LEDSTATUS=$(cat /proc/sys/diag)
+    if [ "$(nvram get wl0_radio)" = "0" ]; then
+      logger -t wifi "Activating wi-fi (Cisco button)"
+      LEDSTATUS=$((LEDSTATUS | 0x10))  # Orange Cisco LED ON
+      echo $LEDSTATUS > /proc/sys/diag
+      nvram set wl0_radio=1
+      wifi
+    else
+      logger -t wifi "Deactivating wi-fi (Cisco button)"
+      LEDSTATUS=$((LEDSTATUS | 0x10))  # Orange Cisco LED ON
+      echo $LEDSTATUS > /proc/sys/diag
+      nvram set wl0_radio=0
+      wifi
+    fi
+    sleep 3  # just to be safe
+    #LEDSTATUS=$(cat /proc/sys/diag)
+    LEDSTATUS=$((LEDSTATUS & ~0x14))  # Power LED Flashing OFF (wl module issues?) & Orange Cisco LED OFF
+    echo $LEDSTATUS > /proc/sys/diag
+  fi
 done &
 }}}
 
-Don't forget to chmod a+x it!
+Modify the script for your needs and don't forget to '''chmod a+x''' it.
+
+See also: ["wrtLEDCodes"] and [http://forum.openwrt.org/viewtopic.php?id=5286]
