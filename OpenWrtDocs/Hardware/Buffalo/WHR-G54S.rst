@@ -5,6 +5,9 @@
  . The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx. 
 
 ----
+
+this is for devices starting with serial 3407:
+
 ----
 {{{
 Bootloader: CFE 
@@ -106,3 +109,171 @@ vlan0: dev_set_allmulti(master, 1)
 }}}
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit.
+
+-----
+
+this is for devices with serials starting 7407 (note that these devices are currently not safe to run openwrt on):
+
+----
+{{{
+CFE version 1.0.37-1.07 for BCM947XX (32bit,SP,LE)
+Build Date: 2005\uffff\uffff 10\uffff\uffff 17\uffff\uffff \uffff\uffff\uffff\uffff\uffff\uffff 04:38:11 JST (root@ifedora)
+Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
+
+Initializing Arena
+Initializing Devices.
+* cmdset: AMD Standard
+* Insaner_1 = (0xa8)
+* flashutl_cmd: type (0004), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* flashutl_cmd: type (0003), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* flashutl_cmd: type (0002), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* Flash Info. -> manufacturer (00), device (FF)
+* Flash Info. -> manufacturer2 (0000), device2 (0000)
+* Insaner_2 = (0xa8)
+* cmdset: AMD Standard
+* Insaner_1 = (0xa8)
+* flashutl_cmd: type (0004), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* flashutl_cmd: type (0003), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* flashutl_cmd: type (0002), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* Flash Info. -> manufacturer (00), device (FF)
+* Flash Info. -> manufacturer2 (0000), device2 (0000)
+* Insaner_2 = (0xa8)
+* cmdset: AMD Standard
+* Insaner_1 = (0xa8)
+* flashutl_cmd: type (0004), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* flashutl_cmd: type (0003), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* flashutl_cmd: type (0002), read_id (0090)
+ -> vendid (00C2), devid (22A8), devid2 (0000)
+* Flash Info. -> manufacturer (00), device (FF)
+* Flash Info. -> manufacturer2 (0000), device2 (0000)
+* Insaner_2 = (0xa8)
+et0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.90.39.0
+* memc_config: (00048000)
+CPU type 0x29008: 200MHz
+Total memory: 16384 KBytes
+
+Total memory used by CFE:  0x80400000 - 0x804A29A0 (666016)
+Initialized Data:          0x80438650 - 0x8043B1F0 (11168)
+BSS Area:                  0x8043B1F0 - 0x8043C9A0 (6064)
+Local Heap:                0x8043C9A0 - 0x804A09A0 (409600)
+Stack Area:                0x804A09A0 - 0x804A29A0 (8192)
+Text (code) segment:       0x80400000 - 0x80438650 (230992)
+Boot area (physical):      0x004A3000 - 0x004E3000
+Relocation Factor:         I:00000000 - D:00000000
+
+Device eth0:  hwaddr 00-16-01-11-45-00, ipaddr 192.168.11.1, mask 255.255.255.0
+        gateway not set, nameserver not set
+Wait a few seconds for an image
+Reading :: Failed.: Timeout occured
+>>> boot -raw -z -addr=0x80001000 -max=0x3a0000 flash0.os:
+Loader:raw Filesys:raw Dev:flash0.os File: Options:(null)
+Loading: ...... 1732608 bytes read
+Entry at 0x80001000
+Closing network.
+Starting program at 0x80001000
+CPU revision is: 00029008
+Primary instruction cache 16kb, linesize 16 bytes (2 ways)
+Primary data cache 8kb, linesize 16 bytes (2 ways)
+Linux version 2.4.20 (root@localhost.localdomain) (gcc version 3.3.3) #4 2005\uffff\uffff\uffff 8\uffff\uffff\uffff 11\uffff\uffff\uffff \uffff\uffff\uffff\uffff\uffff\uffff\uffff\uffff\uffff 21:50:46 JST
+Setting the PFC to its default value
+Determined physical RAM map:
+ memory: 01000000 @ 00000000 (usable)
+On node 0 totalpages: 4096
+zone(0): 4096 pages.
+zone(1): 0 pages.
+zone(2): 0 pages.
+Kernel command line: root=/dev/mtdblock2 noinitrd console=ttyS0,115200
+CPU: BCM5352 rev 0 at 200 MHz
+Calibrating delay loop... 199.47 BogoMIPS
+Memory: 14148k/16384k available (1507k kernel code, 2236k reserved, 104k data, 64k init, 0k highmem)
+Dentry cache hash table entries: 2048 (order: 2, 16384 bytes)
+Inode cache hash table entries: 1024 (order: 1, 8192 bytes)
+Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+Buffer-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Page-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Checking for 'wait' instruction...  unavailable.
+POSIX conformance testing by UNIFIX
+PCI: no core
+PCI: Fixing up bus 0
+Linux NET4.0 for Linux 2.4
+Based upon Swansea University Computer Society NET3.039
+Initializing RT netlink socket
+Starting kswapd
+devfs: v1.12c (20020818) Richard Gooch (rgooch@atnf.csiro.au)
+devfs: boot_options: 0x1
+mel_initsw: GPIO initialize done..
+BUFFALO SWICH&LED DRIVER ver 1.00
+Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI enabled
+ttyS00 at 0xb8000300 (irq = 3) is a 16550A
+ttyS01 at 0xb8000400 (irq = 0) is a 16550A
+HDLC line discipline: version $Revision$, maxframe=4096
+N_HDLC line discipline registered.
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+ Amd/Fujitsu Extended Query Table v1.1 at 0x0040
+number of CFI chips: 1
+Flash device: 0x400000 at 0x1c000000
+Physically mapped flash: cramfs filesystem found at block 1024
+Creating 4 MTD partitions on "Physically mapped flash":
+0x00000000-0x00040000 : "boot"
+0x00040000-0x003e0000 : "linux"
+0x00100000-0x003e0000 : "rootfs"
+0x003e0000-0x00400000 : "nvram"
+sflash: found no supported devices
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 1024 bind 2048)
+ip_conntrack version 2.1 (128 buckets, 1024 max) - 344 bytes per conntrack
+ip_tables: (C) 2000-2002 Netfilter core team
+*** #define HZ is (100).
+ipt_time loading
+NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+NET4: Ethernet Bridge 008 for NET4.0
+802.1Q VLAN Support v1.7 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (cramfs filesystem) readonly.
+Mounted devfs on /dev
+Freeing unused kernel memory: 64k freed
+init started:  BusyBox v1.00 (2005.08.11-13:00+0000) multi-call binary
+Algorithmics/MIPS FPU Emulator v1.5
+mount: Mounting none on / failed: Permission denied
+MidLayer.c(1878) ML_Initialize :***** Please push init button if you want to init_reboot ******
+insmod: /lib/modules/2.4.20: No such file or directory
+Using /lib/modules/kernel/drivers/net/et/et.o
+Warning: loading et will taint the kernel: no license
+  See http://www.tux.org/lkml/#export-tainted for information about tainted modules
+eth0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.130.1.10
+
+Please press Enter to activate this console. create procpoint for station information eth%d
+eth1: Broadcom BCM4318 802.11 Wireless Controller 3.130.1.10
+et0: link up (interface up)
+register_vlan_device: ALREADY had VLAN registered
+register_vlan_device: ALREADY had VLAN registered
+Performing WLC_COMMIT
+wlc_set_rate_override:35629: band 11a
+wl0: Channel Select: 10
+
+
+
+BusyBox v1.00 (2005.08.11-13:00+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+
+# ls
+bin   dev   etc   lib   mnt   proc  tmp   usr   var   www
+# * VPN Masqurade -- IPsec Support
+reg isakmp:done
+reg ESP protocol:
+reg ESP conntrack:done
+ip_nat_ipsec : isakmp : done.
+ip_nat_ipsec : esp    : done.
+}}}
