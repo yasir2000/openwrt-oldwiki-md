@@ -8,7 +8,7 @@ The specification(s?) states the hardware is able to support 75Mbps (9,4MB/s) of
 
 Various versions of [http://80.81.183.101/openwrt/bcm5820/ BCM5820 driver sources].
 
-BCM5801/BCM5805/BCM5820 Security Processor Software Refernce Library http://www.broadcom.com/products/access_request.php?category_id=0&id=7&filename=5801-5805-5820-SRL101-R.pdf
+BCM5801/BCM5805/BCM5820 Security Processor Software Reference Library http://www.broadcom.com/products/access_request.php?category_id=0&id=7&filename=5801-5805-5820-SRL101-R.pdf
 
 ----
 [http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForce] says there are WEP 128, AES OCB and AES CCM accelerated by hardware.
