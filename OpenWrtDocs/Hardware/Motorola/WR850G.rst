@@ -50,10 +50,28 @@ If you ever need to revert your router to official Motorola firmware, it can be 
 
 The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set a static IP on your router and plug in to a wired port with your PC in the IP range 192.168.10.x, then in a Windows command prompt, get "ping -t 192.168.10.1" going and power cycle the router, you should get about 4 pings on 192.168.10.1 from the bootloader '''if boot_wait is set'''.
 
-= Finding the serial ports on the WR850G =
+= Finding the serial ports on the WR850G V1 =
+Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.
+
+ * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial data and control is labeled J5, pinout as follows:
+
+{{{
+ D0 - O o - A0
+ D1 - o o - A1
+ D2 - o o - A2
+ D3 - o o - CHSL
+ D4 - o o - /CS
+ D5 - o o - /RD
+ D6 - o o - /WR
+ D7 - o o - MR
+VCC - o o - INT1
+GND - o o - SIN
+}}}
+
+= Finding the serial ports on the WR850G V2 & V3 =
 First serial port:
 
- * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial is labelled RJP1, pinout as follows:
+ * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial is labeled RJP1, pinout as follows:
 
 {{{
         o
@@ -68,7 +86,6 @@ Second serial port:
 
 While the first serial port is easy to find (and described in the "non-experimental" installation section above), the second serial port is quite well hidden.  On the bottom of the board near the serial connector you'll notice there are two small black components labeled "0".  Next to them there are solder pads where you'd expect two more "0" components to go - but they're missing!  On the set of pads away from the serial connector, the second serial port signals are exposed.  Get out your fine-tipped soldering iron and solder some fine wires to the pads opposite the serial connector.  RR93 is data out of the WR, and RR94 is data in.
 
-''' NOTE: V1 WR850G does NOT have any serial port connector!'''
 
 = Reverting an OpenWRT WR850G to the Official Motorola Firmware =
  '' Note: These instructions are Windows-centered ''
