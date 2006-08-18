@@ -153,6 +153,17 @@ This is a very hard-to-open case, really.
 Light layout is 7 lights:
 Power, Modem, Wireless, 4x LAN.  All capable of bi-color, at least the LEDs are.
 
+== WR850G ==
+ * gpio 7 controls the "Wireless" "green" light (0=off, 1=on)
+ * gpio 6 controls the "Modem" "green" light (0=on, 1=off)
+ * gpio 5 controls the "Wireless" "red" light (0=off, 1=on)
+ * gpio 4 controls the "Power" "green" light (0=on, 1=off)
+ * gpio 3 controls the "Power" "red flashing" light (0=off, 1=on/flashing)
+ * gpio 2 unknown (possibly 4port switch LEDs, 1turns all on)
+ * gpio 1 uart interrupt (if connected)
+ * gpio 0 is the reset button (0=pressed, 1=not)
+
+== WR850G V2 & V3 ==
  * gpio 7 controls the red half of the "Modem" light (0=on, 1=switch-controlled)
  * gpio 6 controls the green half of the "Modem" light (0=on, 1=off, hi-z=switch-controlled) - not sure if this will fry the switch if overridden.  Couple seconds didn't hurt it.
  * gpio 5 is the reset button (0=pressed, 1=not)
