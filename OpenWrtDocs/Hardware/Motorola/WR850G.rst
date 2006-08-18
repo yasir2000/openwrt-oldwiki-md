@@ -50,7 +50,9 @@ If you ever need to revert your router to official Motorola firmware, it can be 
 
 The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set a static IP on your router and plug in to a wired port with your PC in the IP range 192.168.10.x, then in a Windows command prompt, get "ping -t 192.168.10.1" going and power cycle the router, you should get about 4 pings on 192.168.10.1 from the bootloader '''if boot_wait is set'''.
 
-= Finding the serial ports on the WR850G V1 =
+= Finding the serial ports on the WR850G =
+
+== WR850G ==
 Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.
 
  * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial data and control is labeled J5, pinout as follows:
@@ -68,7 +70,8 @@ VCC - o o - INT1
 GND - o o - SIN
 }}}
 
-= Finding the serial ports on the WR850G V2 & V3 =
+== WR850G V2 & V3 ==
+
 First serial port:
 
  * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial is labeled RJP1, pinout as follows:
