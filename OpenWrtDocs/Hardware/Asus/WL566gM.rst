@@ -12,3 +12,4 @@ The device is currently (August 2006) unsupported in OpenWrt 1.0 (White Russian)
 
 == Links ==
  * Asus product page http://www.asus.com/products.aspx?l1=12&l2=43&l3=0&model=1038&modelmenu=1
+ * ["RTL8651BPort"]
