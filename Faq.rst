@@ -493,7 +493,7 @@ Use the {{{wl0_*}}} variables. The {{{wl_*}}} variables are obsolete and unused.
 == How do I configure PPPoE for Internet access? ==
 That's easy. Just set some NVRAM variables and plug your DSL modem into the WAN port.
 
-/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name] for your hardware version in the {{{pppoe_ifname}}} NVRAM variable.
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name] for your hardware version in the {{{pppoe_ifname}}} and {{{wan_device}}} NVRAM variables.
 
 {{{
 nvram set wan_ifname=ppp0
@@ -504,6 +504,7 @@ nvram set ppp_passwd=<your_isp_password>
 nvram set ppp_redialperiod=15
 nvram set ppp_username=<your_isp_login>
 nvram set pppoe_ifname=<your_WAN_interface_name>
+nvram set wan_device=<your_WAN_interface_name>
 nvram commit
 }}}
 
