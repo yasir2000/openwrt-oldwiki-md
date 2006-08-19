@@ -35,6 +35,7 @@ See [:TableOfHardware]
  * [wiki:Self:OpenWrtDocs/Hardware/Netgear/WPNT834 Netgear WPNT834]  [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
  * Canyon CN-WF514 (version as of 2006 spring, has firmware version 1.37) - RTL8186
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
+ * [wiki:Self:OpenWrtDocs/Hardware/Asus/WL566gM Asus WL-566gM] - RTL8651B
 
 
 == TODO ==
