@@ -32,6 +32,11 @@ Start Samba with
 {{{
 /etc/init.d/samba start}}}
 
+== localhost ==
+
+If samba does not start, try adding your router's name and ip in /etc/hosts.
+(see also http://forum.openwrt.org/viewtopic.php?id=5401)
+
 = Clients =
 '''NOTE:''' In the default config file all users are only able to read on the share, since all users use the {{{nobody}}} account. You can change this in the {{{/etc/samba/smb.conf}}} file.
 
