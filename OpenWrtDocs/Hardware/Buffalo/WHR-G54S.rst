@@ -130,7 +130,7 @@ The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory 
 
 -----
 
-this is for devices with serials starting 7407 (note that these devices are currently not safe to run openwrt on):
+this is for devices with serials starting 7407 (you can ONLY run a current SVN version on these devices. See notes above.):
 
 ----
 {{{
