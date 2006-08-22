@@ -38,4 +38,4 @@ tftp> put openwrt-xxx-x.x-xxx.trx
 After this, wait for the device to reboot and you should be set. You should be able to telnet to 192.168.11.1 or whatever the unit was set to prior to the installation.
 
 ----
-CategoryModel
+CategoryModel CategoryModel
