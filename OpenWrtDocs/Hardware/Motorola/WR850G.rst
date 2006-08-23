@@ -53,9 +53,10 @@ The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set 
 = Finding the serial ports on the WR850G =
 
 == WR850G ==
-Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.
+Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.  This information derived from [http://wl500g.info/showthread.php?t=587&page=1&pp=15 Technik]:
 
- * Open the WR850G. The plastic is hard and the clips are strong - use force! Serial data and control is labeled J5, pinout as follows:
+ * Open the WR850G. Serial data and control is labeled J5, pinout as follows:
+ * Note: This is a male, 2x20 pin connector
 
 {{{
  D0 - O o - A0
@@ -70,7 +71,10 @@ VCC - o o - INT1
 GND - o o - SIN
 }}}
 
-== WR850G V2 & V3 ==
+ * Here is a circuit to connect to this header for a serial port.  Note pin 2 here connects to pin 1 above.
+ attachment:wr850g-serial.png
+
+== WR850G v2 & v3 ==
 
 First serial port:
 
@@ -154,16 +158,16 @@ Light layout is 7 lights:
 Power, Modem, Wireless, 4x LAN.  All capable of bi-color, at least the LEDs are.
 
 == WR850G ==
- * gpio 7 controls the "Wireless" "green" light (0=off, 1=on)
- * gpio 6 controls the "Modem" "green" light (0=on, 1=off)
- * gpio 5 controls the "Wireless" "red" light (0=off, 1=on)
- * gpio 4 controls the "Power" "green" light (0=on, 1=off)
- * gpio 3 controls the "Power" "red flashing" light (0=off, 1=on/flashing)
- * gpio 2 unknown (possibly 4port switch LEDs, 1turns all on)
- * gpio 1 uart interrupt (if connected)
+ * gpio 7 controls the "Wireless" "green" light (0=on, 1=off)
+ * gpio 6 controls the "Modem" network interface (0=off, 1=on)
+ * gpio 5 controls the "Wireless" "red" light (0=on, 1=off)
+ * gpio 4 controls the "Power" "green" light (0=off, 1=on)
+ * gpio 3 controls the "Power" "red flashing" light (0=on/flashing, 1=off)
+ * gpio 2 unknown (possibly 4port switch LEDs, 1 turns all on)
+ * gpio 1 uart enable (if connected)
  * gpio 0 is the reset button (0=pressed, 1=not)
 
-== WR850G V2 & V3 ==
+== WR850G v2 & v3 ==
  * gpio 7 controls the red half of the "Modem" light (0=on, 1=switch-controlled)
  * gpio 6 controls the green half of the "Modem" light (0=on, 1=off, hi-z=switch-controlled) - not sure if this will fry the switch if overridden.  Couple seconds didn't hurt it.
  * gpio 5 is the reset button (0=pressed, 1=not)
