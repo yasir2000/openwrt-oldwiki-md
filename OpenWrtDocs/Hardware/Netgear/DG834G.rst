@@ -1,4 +1,21 @@
 = Netgear DG834G v1 =
+== Serial Console ==
+{{{
+ ________________right__________________
+|                                       \
+_power    Pin ?: ??      ----> []       
+_plug     Pin ?: ??      ----> ()       |
+|         Pin ?: ??      ----> ()       |
+|         Pin ?: ??      ----> ()       | leds
+|                           JP603       |
+|                                       |
+|                                       | Front
+
+}}}
+Looking at http://forum.openwrt.org/viewtopic.php?id=4337
+it seems the serial port is on the JP603, the same as for V2. However, this header is not at the same location, it is a the right side of the PCB, between the power plug and the eth4 led.
+More info when I solder mine...
+
 = Netgear DG834G v2 =
 == Serial Console ==
 {{{
