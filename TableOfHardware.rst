@@ -259,6 +259,10 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.netgear.com/products/details/WGT634U.php WGT634U] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz ||8MB ||32MB ||Atheros (mini-PCI) ||in CPU ||N/A ||Yes ||No ||1x v2.0 ||[:OpenWrtDocs/Hardware/Netgear/WGT634U:WiP] ||
 ||[http://netgear.com/products/details/WPN824.php WPN824] || ||Atheros 2313 || || || || || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
 ||[http://netgear.com/products/details/WPNT834.php WPNT834] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||Airgo (mini-PCI) ||integrated Realtek ||N/A || || ||No ||No ||
+== Netopia ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM]|| || || ||No ||Untested ||
+
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB || ||None || || || || ||Untested ||
