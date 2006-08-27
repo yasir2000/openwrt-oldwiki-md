@@ -324,13 +324,12 @@ You will want to break up the bridge, as explained above, as the default behavio
 
 So:
 
-1. Remove the bridge. Your 4 LAN ports are now on their own network, distinct from the local wireless network (eth1) and distinct from any WDS networks that are created.
+ * Remove the bridge. Your 4 LAN ports are now on their own network, distinct from the local wireless network (eth1) and distinct from any WDS networks that are created.
 i.e.
 {{{
 "nvram set lan_ifname=vlan0"
 }}}
-
-1. If you want to have a local wireless service, you need to setup the wireless interface. The wireless network needs to be on a distinct subnet. This isn't necessary if you are just going to route from the LAN ports, to the WDS network and not use the local wireless net. It is also not necessary if you have kept the bridge, and instead disabled the automatic addition of WDS interfaces to br0. 
+ * If you want to have a local wireless service, you need to setup the wireless interface. The wireless network needs to be on a distinct subnet. This isn't necessary if you are just going to route from the LAN ports, to the WDS network and not use the local wireless net. It is also not necessary if you have kept the bridge, and instead disabled the automatic addition of WDS interfaces to br0. 
 e.g.
 {{{
   nvram set wifi_ifname=eth1 
@@ -338,14 +337,12 @@ e.g.
   nvram set wifi_ipaddr=10.1.1.254
   nvram set wifi_netmask=255.255.255.128
 }}}
-
-1. You can then add WDS interfaces, as described above.
+ 1. You can then add WDS interfaces, as described above.
 e.g.
 {{{
 nvram set wl0_wds="00:14:12:25:CB:22 00:14:12:16:3B:28"
 }}}
-
-1. You will want to add addresses for each of these (Note the interface names, which get truncated when displayed by ifconfig, start at wds0.49153 and increment by 0.00001 for each interface). The ip range off the routed WDS links is only 2 IP addresses wide. I chose to do this with nvram variables.
+ * You will want to add addresses for each of these (Note the interface names, which get truncated when displayed by ifconfig, start at wds0.49153 and increment by 0.00001 for each interface). The ip range off the routed WDS links is only 2 IP addresses wide. I chose to do this with nvram variables.
 e.g.
 {{{
 nvram set wl0_wds1_proto=static
@@ -358,15 +355,12 @@ nvram set wl0_wds2_ifname=wds0.49154
 nvram set wl0_wds2_ipaddr=192.168.254.100
 nvram set wl0_wds2_netmask=255.255.255.252
 }}}
-
-1. Modify /etc/init.d/S40network to bring up these interfaces. You can add each one, or modify the script to look for them in the nvram, and bring each one up.
-
-I did the following:
+ * Modify /etc/init.d/S40network to bring up these interfaces. You can add each one, or modify the script to look for them in the nvram, and bring each one up. <br>I did the following:
 {{{
 nvram set wds_ifnames="wl0_wds1 wl0_wds2"
 }}}
+And modified /etc/init.d/S40network
 
-And modified /etc/init.d/S40network 
 from:
 {{{
 #!/bin/sh
@@ -407,8 +401,7 @@ case "$1" in
     ;;
 esac
 }}}
-
-1. We are not quite finished. You need to be running a routing protocol across the links, or add static routes on each router. 
+ * We are not quite finished. You need to be running a routing protocol across the links, or add static routes on each router. 
 
 
 == Wireless client / wireless bridge ==
