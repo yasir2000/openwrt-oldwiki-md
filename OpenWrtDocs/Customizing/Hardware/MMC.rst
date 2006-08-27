@@ -48,6 +48,8 @@ This project is for people who would like to add a little storage to their Links
  while true; do gpio enable 5; sleep 1; gpio disable 5; sleep 1; done}}}
  I then used my multimeter to detect the pin toggling between 0V and 3.3V every second. I seriously recommend that you do this to verify which pins you are working on prior to doing any soldering.
 
+ . On a WRT54G Version 2 the tests on GPIO4 failed. According to http://forum.openwrt.org/viewtopic.php?pid=31968 the reason is an incomplete initialization of the GPIOs. Using the mmc.o downloadable at the end of the thread the MMC is detected and working, the GPIO test is also working after loading this module.
+
 '''For Version 2.2 hardware:'''
 
  . GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find GPIO 5 next to the RA10 Text label. GPIO 4 is located near the RA13 Text label (near to the Power LED)
@@ -120,6 +122,8 @@ Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/mtdblock/4           2176      1580       596  73% /
 /dev/mmc/disc0/part1    249728     33856    215872  14% /mnt
 }}}
+
+Using OpenWRT RC5 no msdos kernel moodule is needed. The mount-option -tmsdos has to be omitted.
 
 '''A little help with kernel compilation'''
 
