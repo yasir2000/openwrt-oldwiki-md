@@ -282,7 +282,8 @@ If it could not boot from the USB device it will boot normaly from the file syst
 
 == Installing and using IPKG packages in mount point other than root ==
 /!\ '''NOTE:''' This is not tested. Please report if it's working for you.
-/!\ '''NOTE:''' PackagesOnExternalMediaHowTo contains many more infos about this.
+
+/!\ '''NOTE:''' PackagesOnExternalMediaHowTo contains additional important infos.
 
 Configure {{{ipkg}}} for a non-root destination
 
