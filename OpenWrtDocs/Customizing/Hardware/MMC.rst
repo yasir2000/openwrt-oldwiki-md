@@ -75,6 +75,7 @@ CONFIG_VFAT_FS=y
 }}}
 
 Now get the [http://kiel.kool.dk/mmc.c driver] and the [http://kiel.kool.dk/Makefile Makefile]. You will need to modify the Makefile to point to where your OpenWRT linux kernel headers are and also the mipsel compiler location. When that is done just type make (ignore the warnings - they are OK).
+But you may just as well install the freifunk-sdcard and freifunk-sdinit mmc module packages which work fine on my whiterussian RC5.
 
 The module is now ready to be inserted. Make sure a card is placed in the reader and then load the module. Check with dmesg that everything went OK, and hopefully you should now have some new devices in /dev/mmc/... Here is a little snippet of a "conversation" with the router
 
