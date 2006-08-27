@@ -403,6 +403,11 @@ esac
 }}}
  * We are not quite finished. You need to be running a routing protocol across the links, or add static routes on each router. 
 
+ * Don't forget to commit the nvram settings, e.g.
+{{{
+nvram commit
+}}}
+
 
 == Wireless client / wireless bridge ==
 The only thing you have to do is to switch the WL mode like with the bridge:
