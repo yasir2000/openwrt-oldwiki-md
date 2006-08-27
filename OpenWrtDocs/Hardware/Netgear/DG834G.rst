@@ -16,6 +16,16 @@ Looking at http://forum.openwrt.org/viewtopic.php?id=4337
 it seems the serial port is on the JP603, the same as for V2. However, this header is not at the same location, it is a the right side of the PCB, between the power plug and the eth4 led.
 More info when I solder mine...
 
+== Hardware info ==
+
+Flash: AMD AM29LV320
+
+RAM: ICSI IC42S16800-7T
+
+LAN MAC/PHY Switch: Marvell 88E6060-RCJ
+
+WLAN: TI TNETW1130 GWF
+
 = Netgear DG834G v2 =
 == Serial Console ==
 {{{
