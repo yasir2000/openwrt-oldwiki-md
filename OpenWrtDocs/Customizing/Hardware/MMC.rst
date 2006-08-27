@@ -123,7 +123,7 @@ Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/mmc/disc0/part1    249728     33856    215872  14% /mnt
 }}}
 
-Using OpenWRT RC5 no msdos kernel moodule is needed. The mount-option -tmsdos has to be omitted.
+Using OpenWRT RC5 no msdos kernel module is needed. The mount-option -tmsdos has to be omitted.
 
 '''A little help with kernel compilation'''
 
