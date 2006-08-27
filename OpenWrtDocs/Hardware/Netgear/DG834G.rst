@@ -20,7 +20,7 @@ More info when I solder mine...
 
 Flash: AMD AM29LV320
 
-RAM: ICSI IC42S16800-7T
+SDRAM: ICSI IC42S16800-7T
 
 LAN MAC/PHY Switch: Marvell 88E6060-RCJ
 
