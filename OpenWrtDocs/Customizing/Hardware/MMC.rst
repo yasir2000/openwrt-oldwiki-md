@@ -165,3 +165,7 @@ Almost the same as for version 3, except GPIO 5 seems to be missing from the boa
 
 == Porting to other platforms ==
 *almost done being written
+
+== Yay, it works, now what? ==
+
+Please see PackagesOnExternalMediaHowTo
