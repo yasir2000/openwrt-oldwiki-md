@@ -6,6 +6,13 @@ There are two different basic WE800G hardware versions - v1 and v2.  The v2 unit
 == WE800G v1 ==
 The WE800G v1 is based on the Broadcom 4710 reference design. It has a 125MHz BCM4702 CPU, and the radio is based on a BCM4306 on a mini-PCI card. The original production units had 4MB of flash and 16MB of SDRAM - the later ones have a 2MB flash and report 8MB of SDRAM. If you are not sure what variant you have, then connect to the router using the web interface, log in, and change the "frames.asp" in the URL to "frame_debug.asp" - in the command box, enter "cat /proc/mtd" to get the flash info, and "cat /proc/meminfo" for the RAM.
 
+{{{
+cat /proc/mtd
+}}}
+{{{
+cat /proc/meminfo
+}}}
+
 It's also worth noting that some of the "2/8MB" units really have 16MB of RAM - but don't try to enable it without physically checking the part numbers on the RAM chips - if your chips are "AMIC A43L2616V-6" or "Dynachips D98SD6416AH-6" you can use the following commands:
 
 {{{
