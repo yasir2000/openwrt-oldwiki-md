@@ -317,7 +317,7 @@ First do it without wireless protection and then activate the protection. If you
 
 /!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better know what you are doing...  '''Here's a hint, however:'''  You can keep the wired/wireless bridge broken and still use WDS; just recreate a bridge via the appropriate nvram variables and only add the device that connects to the network you want to bridge with the other access point (yes, a bridge with only one bridged device is legal).  The router will detect this bridge, and join the remote bridge to it automagically.
 
-== WDS Routed Networks ==
+== WDS Routed Networks (P2P) ==
 
 You might want to use routing over the WDS links, rather than bridging. This is a more complex set up. 
 You will want to break up the bridge, as explained above, as the default behaviour is to attach new WDS interfaces to the bridge. You can keep the bridge, but you will have to alter this default behaviour if you do (Which happens in /etc/hotplug.d/net/01-wds). 
