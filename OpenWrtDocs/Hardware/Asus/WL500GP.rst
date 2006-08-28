@@ -26,7 +26,8 @@ gpio 1 = Power LED (enable = off, disable = on)
 gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pressed)
 
  . It seams as tho the only method of flashing this router (at the moment) is to use a tftp client & upload firmware when the router is in diag mode. To put the router in diag mode, unplug the router & push & hold the RESTORE button then plug the router in. Wait for a slow blinking power light & presto you're in diag mode. Then tftp the image to the router. After a few minutes, unplug/plug the router. I've (thecompwiz) had to do this twice before the firmware took... but it definately works. After firmware is installed, you should be able to log into the router via telnet. Set the root password & you need to make a few nvram setting changes.... Since this router was not in the "supported" category when RC5 was released... there are a few things to change:
-  . nvram set lan_ifnames="vlan0 eth2" nvram set wlan_ifname=eth2
+  . {{{nvram set lan_ifnames="vlan0 eth2"
+nvram set wlan_ifname=eth2}}}
 (don't forget to commit WikiPedia:nvram changes)
 
 ----
@@ -41,6 +42,16 @@ Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInt
 I was unable to ping my ADSL modem (some Alcatel) connected to the WAN port. The problem was the vlan configuration. `nvram get vlan1ports` showed `"0 5u"` (could anyone describe what this means?). I changed it to `"0 5*"` (like the config of vlan0) and this solved my problem.
 
 ''''''
+
+Use the following settings in order to get the dedicated WAN port working in case of troubles:
+
+{{{nvram set wan_ifname=vlan1
+nvram set vlan1ports="0 5"}}}
+
+Maybe you also need to change the wifi settings:
+
+{{{nvram set wifi_ifname=eth2
+nvram commit}}}
 
 == WL-500gP info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
