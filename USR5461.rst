@@ -1,9 +1,9 @@
 == US Robotics 5461 ==
 
 = Hardware =
-* Macronix 29LV160CBTC-70G = 2 MB FLASH
-* ISSI IS4232200C1-6T RKKK66400D 0545 = 8MB RAM
-* Broadcom BCM5350KPB5 HT0545 P11 756443 N5A = CPU (rev 0.2 i think)
+ * Macronix 29LV160CBTC-70G = 2 MB FLASH
+ * ISSI IS4232200C1-6T RKKK66400D 0545 = 8MB RAM
+ * Broadcom BCM5350KPB5 HT0545 P11 756443 N5A = CPU (rev 0.2 i think)
 
 = Software =
 
@@ -343,6 +343,49 @@ wds0.2    Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A8
           collisions:0 txqueuelen:100
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
 
+#
+}}}
+
+Some more looking around (their firmware):
+
+{{{
+# cat /proc/cpuinfo
+system type             : Broadcom BCM5350 chip rev 0
+processor               : 0
+cpu model               : BCM3302 V0.8
+BogoMIPS                : 199.47
+wait instruction        : no
+microsecond timers      : yes
+tlb_entries             : 32
+extra interrupt vector  : no
+hardware watchpoint     : no
+VCED exceptions         : not available
+VCEI exceptions         : not available
+unaligned_instructions  : 0
+dcache hits             : 1274865508
+dcache misses           : 2091809750
+icache hits             : 92879899
+icache misses           : 874519986
+instructions            : 0
+# cat /proc/devices
+Character devices:
+  1 mem
+  2 pty/m%d
+  3 pty/s%d
+  4 tts/%d
+  5 cua/%d
+ 10 misc
+ 90 mtd
+108 ppp
+128 ptm
+136 pts/%d
+162 raw
+180 usb
+253 nvram
+254 gpio
+
+Block devices:
+ 31 mtdblock
 #
 }}}
 
