@@ -26,9 +26,24 @@ gpio 1 = Power LED (enable = off, disable = on)
 gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pressed)
 
  . It seams as tho the only method of flashing this router (at the moment) is to use a tftp client & upload firmware when the router is in diag mode. To put the router in diag mode, unplug the router & push & hold the RESTORE button then plug the router in. Wait for a slow blinking power light & presto you're in diag mode. Then tftp the image to the router. After a few minutes, unplug/plug the router. I've (thecompwiz) had to do this twice before the firmware took... but it definately works. After firmware is installed, you should be able to log into the router via telnet. Set the root password & you need to make a few nvram setting changes.... Since this router was not in the "supported" category when RC5 was released... there are a few things to change:
-  . {{{nvram set lan_ifnames="vlan0 eth2"
-nvram set wlan_ifname=eth2}}}
+  . {{{
+nvram set lan_ifnames="vlan0 eth2"
+nvram set wlan_ifname=eth2
+nvram set br0_ifnames=vlan0 eth1
+nvram set wan0_ifname=eth0
+nvram set wan_ifnames=eth0
+nvram set wl0_ifname=eth2
+nvram set lan_ifname=br0
+nvram set wifi_ifname=eth2
+nvram set wan_ifname=vlan1
+nvram set wan0_ifnames=eth0
+nvram set primary_ifname=eth0}}}
+
 (don't forget to commit WikiPedia:nvram changes)
+
+{{{
+nvram commit
+}}}
 
 ----
  . VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
@@ -46,7 +61,8 @@ I was unable to ping my ADSL modem (some Alcatel) connected to the WAN port. The
 Use the following settings in order to get the dedicated WAN port working in case of troubles:
 
 {{{nvram set wan_ifname=vlan1
-nvram set vlan1ports="0 5"}}}
+nvram set vlan1ports="0 5*"
+nvram set vlan0ports=1 2 3 4 5*}}}
 
 Maybe you also need to change the wifi settings:
 
