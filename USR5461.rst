@@ -389,6 +389,25 @@ Block devices:
 #
 }}}
 
+= Serial =
+
+{{{
+  ______________________________
+ |  LAN LEDS     PWR LEDS       |
+ |  __________                  |
+ | | RF STUFF |      _________  |
+ | |__________|     |  RAM    | |
+ |   _____   _____  |_________| |
+ |  |FLASH| |     |             |
+ |  |_____| | CPU |             |
+ |          |_____|             |
+ |                      . TX    | Serial is 115200-N-8-1
+ |                      . RX    |
+ |                      .       |
+ |                      . GND   |
+ |_|USB|_|WAN|_|  LAN  |_|R|_|P||    R = reset P = power (5v)
+
+}}}
  - Flyashi
 ----
 CategoryHomepage
