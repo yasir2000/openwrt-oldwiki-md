@@ -1,4 +1,7 @@
 == Remote backups via rsync using a WRTSL54GS router: ==
+
+(Pieces heavily adopted from the Samba, USBStorage, & DropbearPublicKeyAuthentication HowTo's)
+
  1.      Install the OpenWRT White Russian RC5 firmware on your router; DO THIS FROM A WIRED CONNECTION, NOT WIRELESSLY
 
  1. http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-wrtsl54gs-squashfs.bin
