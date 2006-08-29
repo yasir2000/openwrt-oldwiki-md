@@ -12,8 +12,8 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * Power button, Unplug button and Reset button. On PCB there's SYNC button pads
  * Six user controllable leds (HDD, power, USB, USB unplug, WAN, WLAN)
  * Small approx. 3cm * 3cm fan
- * JTAG connector (pin-out unknown)
- * TTL serial connector (another empty pads next to it, maybe second serial port)
+ * JTAG connector (pin-out available, http://www.nslu2-linux.org/wiki/FSG3/HomePage and on http://www.openfsg.com)
+ * TTL serial connector and other port configurations available at http://www.openfsg.com and on http://www.nslu2-linux.org/wiki/FSG3/HomePage 
  * Winbond W83782D environment monitoring chip with three temperature sensors and fan RPM monitoring+control
  * Onboard RTC with removable battery on I2C bus
 
@@ -42,7 +42,7 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * Holding reset button while powering on enables recovery mode. FSG requests IP using bootp and tries to load zImage-recovery with tftp from bootp server.
  * RedBoot incorrectly reports Coyote machine ID to Linux kernel
  * Fan is noisy. It can be slowed down using software but it causes higher internal temperatures.
- * At least 250GB model came with internal Samsung 7200rpm 8MB PATA HDD. I don't know if other models are PATA or SATA.
+ * At least 250GB model came with internal Samsung 7200rpm 8MB PATA HDD. I don't know if other models are PATA or SATA. -- The FSG has the possibility to use either pata or sata disks (2 SATA and 1 PATA connector) One SATA is always used for the external SATA connector. Whether PATA or SATA is used internally (and therefor which connector is mounted) is dependent on the price/performance/quality of the PATA or SATA disks at the time of production. The disks can come from any manufacturer, again depending on best price/performance/quality at the time of production. (rbar)
 
 == Links ==
  * http://www.nslu2-linux.org/ Linux on the ARM-based NASes
