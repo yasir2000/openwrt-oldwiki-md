@@ -1,5 +1,4 @@
 == Remote backups via rsync using a WRTSL54GS router: ==
-
 (Pieces heavily adopted from the Samba, USBStorage, & DropbearPublicKeyAuthentication HowTo's)
 
  1.      Install the OpenWRT White Russian RC5 firmware on your router; DO THIS FROM A WIRED CONNECTION, NOT WIRELESSLY
@@ -143,3 +142,15 @@ backuphost ~/.ssh $ chmod 0700 ~/.ssh
   . {{{
 # rsync -vv -u -a --rsh="ssh -i /etc/id_rsa" --stats --progress <source> <user>@<domain>:<destination>
   }}}
+'''Bonus: email yourself the results'''
+
+ * Install the mini-sendmail package
+  . {{{
+# ipkg install mini-sendmail }}}
+ * Create a script /etc/rsync-scrypt
+  . {{{
+#!/bin/sh
+echo Subject: Backup Complete on `date "+%m/%d/%y %l:%M %p"` > /tmp/rsync.log
+rsync -v -u -a --rsh="ssh -i /etc/id_rsa" --stats <from directory> <user>@<backup server>:<backup location> >> /tmp/rsync.log
+cat /tmp/rsync.log | sendmail -f<from email> -s<smtp server> <to email>
+rm /tmp/rsync.log }}}
