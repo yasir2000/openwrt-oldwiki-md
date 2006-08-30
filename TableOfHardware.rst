@@ -91,7 +91,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.buffalotech.com/products/product-detail.php?productid=79&categoryid=6 WBR2-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||Supported ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=117&categoryid=6 WHR-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=115&categoryid=6 WHR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||Supported ||
-||WHR2-G54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz||4MB ||64MB||Broadcom (mini-PCI)||BCM5325||on|| || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
+||WHR2-G54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
 ||WHR3-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) || || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-AG54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54:Supported] ||
@@ -261,8 +261,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://netgear.com/products/details/WPNT834.php WPNT834] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||Airgo (mini-PCI) ||integrated Realtek ||N/A || || ||No ||No ||
 == Netopia ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM]|| || || ||No ||Untested ||
-
+||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB || ||None || || || || ||Untested ||
@@ -277,6 +276,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://communications.siemens.com/cds/frontdoor/0,2241,hq_en_0_15711_rArNrNrNrN,00.html SX550] || || ||4MB || || || || || || ||Untested ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||Yes ||Yes ||1x v2.0 ||No ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 ||Yes || ||Yes ||[:AR7Port:WiP] ||
+||[http://subscriber.communications.siemens.com/subscriber_networks/4100images.shtml SpeedStream4200]||Rev.B||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ (?) ||4MB(AM29LV160MB)||8MB (IS42S16400B)|| || || ||Yes(?)||Yes||Untested||
 The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, they just changed the case and the firmware)
 
 == Simpletech ==
@@ -327,7 +327,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off ||Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
 == Yakumo ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-|| Yakumo Wireless Storage 60 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 || 60GB 2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported - identical to the ASUS WL-HDD] ||
+||Yakumo Wireless Storage 60 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||60GB 2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported - identical to the ASUS WL-HDD] ||
 == ZyXEL ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300)] @160MHZ ||8MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["Bootbase"] ||Yes ||No ||No ||Untested ||
@@ -335,7 +335,6 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=0E8EA8FA-AF7D-434F-A527-F337AB9A3A51 ZyWall P1] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||N/A ||N/A || ||Yes, via pin header on pcb || ||Yes, but believed to be just for providing power ||Info entered ||
 ----
 ----
- ["CategoryAR7Device"]
-
+ . ["CategoryAR7Device"]
 ----
- ["CategoryAR7Device"]
+ . ["CategoryAR7Device"]
