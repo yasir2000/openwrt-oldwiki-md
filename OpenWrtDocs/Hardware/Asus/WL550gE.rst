@@ -1,4 +1,4 @@
-OpenWrtDocs
+The Asus WL-500g Premium seems not to be supported by OpenWrt.
 
 WL-550gE does not seem to be supported by WhiteRussian, yet.
 
