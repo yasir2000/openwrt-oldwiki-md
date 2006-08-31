@@ -1,9 +1,9 @@
+Note:''The WHR2-G54 model is functionally similar, but is missing the AOSS button on the case''.
 {{{
 LAN = br0 = eth0 eth2
 WAN = eth1
 Wifi = eth2
 }}}
-
 {{{
 CPU revision is: 00029006
 Primary instruction cache 16kB, physically tagged, 2-way, linesize 16 bytes.
