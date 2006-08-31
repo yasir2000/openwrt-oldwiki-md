@@ -1,6 +1,6 @@
-The Asus WL-500g Premium seems not to be supported by OpenWrt.
+The Asus WL-550gE seems not to be supported by OpenWrt, yet.
 
-WL-550gE does not seem to be supported by WhiteRussian, yet.
+Flo's user report:
 
 After uploading WhiteRussian RC5 file "openwrt-brcm-2.4-jffs2-4MB.trx" the router is no longer reachable via any network interface. Rescue mode does not seem to work eighter :(
 
