@@ -4,6 +4,7 @@ The contents of this section of the wiki can have serious consequences. While ev
 
 = Hardware =
  
+  * [http://www.dpeddi.com/index.php?&sel[]=1&sel[]=8&file=wrt54g&language=en] 2 WRT54G as very long rs232 cable
   * [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] Howto create a JTAG cable to revive a WRT
   * [:OpenWrtDocs/Customizing/Hardware/Serial_Console] Howto attach a serial console via usb or parallel port to your wrt
   * [:OpenWrtDocs/Customizing/Hardware/Overclocking] Overclocking can increase performance in a number of areas
