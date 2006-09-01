@@ -78,6 +78,7 @@ nvram set wan_proto=dhcp
 nvram commit}}}
 
 To act as a DHCP-server towards LAN set the following:
+These settings are optional and not necessary for dhcp to function.
 
 {{{nvram set dhcp1_start=192.168.2.222
 nvram set dhcp_start=222 # will cause to set DHCP IP address pool begin at 192.168.x.222
