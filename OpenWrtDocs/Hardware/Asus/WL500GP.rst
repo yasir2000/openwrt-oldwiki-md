@@ -29,7 +29,7 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
   . {{{
 nvram set lan_ifnames="vlan0 eth2"
 nvram set wlan_ifname=eth2
-nvram set br0_ifnames=vlan0 eth1
+nvram set br0_ifnames="vlan0 eth1"
 nvram set wan0_ifname=eth0
 nvram set wan_ifnames=eth0
 nvram set wl0_ifname=eth2
