@@ -62,7 +62,7 @@ Use the following settings in order to get the dedicated WAN port working in cas
 
 {{{nvram set wan_ifname=vlan1
 nvram set vlan1ports="0 5*"
-nvram set vlan0ports=1 2 3 4 5*}}}
+nvram set vlan0ports="1 2 3 4 5*" }}}
 
 Maybe you also need to change the wifi settings:
 
