@@ -80,16 +80,19 @@ nvram set wan_proto=dhcp
 nvram commit}}}
 
 To act as a DHCP-server towards LAN set the following:
-These settings are optional and not necessary for dhcp to function.
+
+{{{nvram set default_lan_proto=dhcp_server
+nvram set lan_dhcp=1
+nvram set dhcp_enable_x=1
+nvram commit}}}
+
+These settings are optional and not necessary for dhcp to function:
 
 {{{nvram set dhcp1_start=192.168.2.222
 nvram set dhcp_start=222 # will cause to set DHCP IP address pool begin at 192.168.x.222
 nvram set dhcp1_end=192.168.2.254
 nvram set dhcp_end=254 # will cause to set DHCP IP address pool end at 192.168.x.254
 nvram set dhcp_lease=86400 # DHCP lease time 86400 hours
-nvram set default_lan_proto=dhcp_server
-nvram set lan_dhcp=1
-nvram set dhcp_enable_x=1
 nvram commit}}}
 
 To act as a DHCP-server towards WIFI set the following:
