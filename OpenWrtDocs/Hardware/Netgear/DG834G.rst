@@ -3,18 +3,16 @@
 {{{
  ________________right__________________
 |                                       \
-_power    Pin ?: ??      ----> []       |
-_plug     Pin ?: ??      ----> ()       |
-|         Pin ?: ??      ----> ()       |
-|         Pin ?: ??      ----> ()       | leds
+_power    Pin 1: GND     ----> []       |
+_plug     Pin 2: TX      ----> ()       |
+|         Pin 3: NC      ----> ()       |
+|         Pin 4: RX      ----> ()       | leds
 |                           JP603       |
-|                                       |
 |                                       | Front
 
 }}}
-Looking at http://forum.openwrt.org/viewtopic.php?id=4337
-it seems the serial port is on the JP603, the same as for V2. However, this header is not at the same location, it is a the right side of the PCB, between the power plug and the eth4 led.
-More info when I solder mine...
+
+The serial console port is on the JP603 as for V2, and the same pinout is used. However, this header is not at the same location, it is a the right side of the PCB, between the power plug and the eth4 led, and is oriented differently. I did not found any +5V to feed the ADM233LJ (pin compatible max233), so I used an external alim. Then minicom@115200,8N1 started to show the kernel output, and give a busybox console.
 
 == Hardware info ==
 
