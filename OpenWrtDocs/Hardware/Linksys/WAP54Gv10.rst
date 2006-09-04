@@ -23,6 +23,7 @@ et driver was patched in version kernel-source-et-0.13.tar.gz
 b44 driver was patched in svn r2932.
 
 OpenWrt White Russian RC5 is patched but workaround is not activated due to [#cr_in_nvram DOSish nvram defaults]. RC6 will hopefully sort it out.
+(Comment HansWernerHilse: In my case, RC5 answered to ARP queries. So the fix probably does work. However, RC5 bricked - temporarily - my V1.0., so I vote against it.)
 
 === PMON ===
 PMON (version 5.3.22) on 3 devices I tested has the same problem. boot_wait do not work even if properly enabled. As device has no JTAG header I am no so brave to experiment with reflashing PMON.
@@ -42,6 +43,7 @@ Add a resistor of value between 10 and 100 kohms from pin 5 of AC101L chip to th
  * Keep touching until eth initialization is done (3 seconds for PMON)
 
 If boot_wait is on, ping and tftp should work now.
+(Comment HansWernerHilse: Worked on first try. Note that my fingertip probably touched all adjacent resistors plus a whole set of pins of the AC101L, although I tried to press as lightly as possible. Note that I got the position to press upon from the description of the "Hardware Solution" above. My body was grounded during the whole procedure.)
 
 === Blind TFTP ===
 Fortunately TFTP protocol can be violated to transfer an image without any feedback from device. It is the only way how to use boot_wait without dismounting device or flashing PMON. See http://forum.openwrt.org/viewtopic.php?id=3591
