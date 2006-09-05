@@ -60,12 +60,12 @@ That explains the directories, now what the hell are the files? They are [wiki:W
 There are 3 trx files, found in the micro, pptp and bin directories. Size restrictions aside, it doesn't matter which directory you pick, although if your device only has 2M of flash you will need to use micro. As for which trx file to use, we strongly suggest using the squashfs for reasons explained below.
 
 == SquashFS vs. JFFS2 ==
-That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS.'''
+That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS (which is the most optimal choice for the vast majority of users anyway)'''
 
  . WikiPedia:SquashFS
   . The files marked squashfs include a small compressed filesystem within the firmware itself. The disadvantage is that Squashfs is a readonly filesystem, so a separate JFFS2 partition has to be used to store changes and make the filesystem appear writable; the advantage is that Squashfs gets better compression than JFFS2, and you'll always have the original files on the readonly filesystem which can be used as a boot device for recovery.
  WikiPedia:JFFS2
-  . The files marked JFFS2 make the entire filesystem JFFS2. The disadvantage is that this takes a few hundred kilobytes more space; the advantage is that changes to included files no longer leaves behind an old copy on the readonly filesystem.
+  . The files marked JFFS2 make the entire filesystem JFFS2. The disadvantage is that this takes a few hundred kilobytes more space; the advantage is that changes to included files no longer leaves behind an old copy on the readonly filesystem. There is almost always NO GOOD REASON to use JFFS2 images. OpenWrt makes the Squashfs RO partition appear writable by storing changes on the JFFS2 partition, and it is extremely rare that a person would ever change enough of the base install to make use of the SquashFs build less optimal than that of the JFFS2 builds. In short, JFFS2 images are not as optimal as SquashFs and provide no effective advantage in real-world use.
 
 /!\ '''The JFFS2 firmware uses an extra setup step which requires an ADDITIONAL REBOOT before the filesystem can be used. Therefore, immediately after installation, you should telnet into your router and run "reboot".''' /!\
 
