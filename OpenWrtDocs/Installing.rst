@@ -60,7 +60,7 @@ That explains the directories, now what the hell are the files? They are [wiki:W
 There are 3 trx files, found in the micro, pptp and bin directories. Size restrictions aside, it doesn't matter which directory you pick, although if your device only has 2M of flash you will need to use micro. As for which trx file to use, we strongly suggest using the squashfs for reasons explained below.
 
 == SquashFS vs. JFFS2 ==
-That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS (which is the most optimal choice for the vast majority of users anyway)'''
+That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS. It is the most optimal choice for the vast majority of users anyway.'''
 
  . WikiPedia:SquashFS
   . The files marked squashfs include a small compressed filesystem within the firmware itself. The disadvantage is that Squashfs is a readonly filesystem, so a separate JFFS2 partition has to be used to store changes and make the filesystem appear writable; the advantage is that Squashfs gets better compression than JFFS2, and you'll always have the original files on the readonly filesystem which can be used as a boot device for recovery.
