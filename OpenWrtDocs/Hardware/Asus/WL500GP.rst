@@ -88,11 +88,13 @@ nvram commit}}}
 
 These settings are optional and not necessary for dhcp to function:
 
-{{{nvram set dhcp1_start=192.168.1.222
-nvram set dhcp_start=222 # to set DHCP IP address pool begin at 192.168.1.222
+{{{# to set DHCP IP address pool begin at 192.168.1.222
+nvram set dhcp1_start=192.168.1.222
+nvram set dhcp_start=222
 
+# to set DHCP IP address pool end at 192.168.1.254
 nvram set dhcp1_end=192.168.1.254
-nvram set dhcp_end=254 # to set DHCP IP address pool end at 192.168.1.254
+nvram set dhcp_end=254
 
 nvram set dhcp_lease=86400 # DHCP lease time 86400 hours
 nvram commit}}}
