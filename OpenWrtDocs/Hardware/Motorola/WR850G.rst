@@ -177,5 +177,12 @@ Power, Modem, Wireless, 4x LAN.  All capable of bi-color, at least the LEDs are.
  * gpio 1 is the "Power" light color.  (0=red, 1=green)
  * gpio 0 is the "Wireless" light.  (0=green, 1=off)
 
+= LAN port layout =
+
+== WR850G v1 ==
+
+5 LAN ports are internally numbered differently despite the equipment case saying something else:
+LAN port 4=0; LAN port 3=1; LAN port 2=2; LAN port 1=3; WAN port=4
+
 ----
 CategoryModel
