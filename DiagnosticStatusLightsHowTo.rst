@@ -1,6 +1,6 @@
 '''Diagnostic Status Lights Howto'''
 
- * Many devices supported by !OpenWrt have controllable diagnostic lights, described in wrtLEDCodes. They are controllable through {{{/proc/sys/diag}}}. 
+ * Many devices supported by !OpenWrt have controllable diagnostic lights, described in ["wrtLEDCodes"]. They are controllable through {{{/proc/sys/diag}}}. 
  *A script to control diagnostic lights:
 
 {{{
