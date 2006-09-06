@@ -33,7 +33,7 @@ The first thing you want to do is make sure that your router hardware is support
 The next step is to locate the variation of !OpenWrt you want to install.  It comes in three variations located in three differen directories.  The only difference between them is that each has a slightly different set of packages installed.
 
  1. micro/ - contains the least amount of packages required for a functional system.  This one is only recommended for those experience with !OpenWrt and Linux as it does not contain a web interface to the !OpenWrt firmware.
- 2. bin/ - contains a descent amount of packages (referred to as a Standard image) needed for a functional system plus it contains a web interface and pppoe.  This one is recommended and is considered the default.
+ 2. bin/ - contains a decent amount of packages (referred to as a Standard image) needed for a functional system plus it contains a web interface and pppoe.  This one is recommended and is considered the default.
  3. pptp/ - contains almost the exact set of packages as the previous Standard image except it includes pptp and not pppoe.  It also has the web interface.
 
 If you are new to !OpenWrt then simply choose the !OpenWrt found in the bin directory.   The latest !OpenWrt files can be found at http://downloads.openwrt.org/whiterussian/newest/
