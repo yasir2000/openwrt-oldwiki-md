@@ -6,7 +6,8 @@
 {{{
 #!/bin/sh
 led=0
-read led </proc/sys/diag
+led=`cat /proc/sys/diag`
+
 # from http://wiki.openwrt.org/wrtLEDCodes
 res=0
 case "$1" in
@@ -22,9 +23,6 @@ case "$1" in
   cisco_yellow)
     res=16
   ;;
-  all)
-    res=255
-  ;;
   *)
     echo "Usage: $0 Light [on|off]"
     echo "  Light can be: "
@@ -32,15 +30,15 @@ case "$1" in
     echo "    power"
     echo "    cisco_white"
     echo "    cisco_yellow"
-    echo "    all"
     echo "  If on or off is not specified, cycles light."
     echo "Example: $0 cisco_white on"
     exit
   ;;
 esac
+
 val="0"
 case "$2" in
-  on)
+  on)   
     val=$(($res | $led))
   ;;
   off)
@@ -48,8 +46,8 @@ case "$2" in
   ;;
   *)
     if test "$(($led & $res))" -eq "$res";
-    then echo off;$0 $1 off;exit;
-    else echo on;$0 $1 on;exit;
+    then $0 $1 off;exit;
+    else $0 $1 on;exit;
     fi
   ;;
 esac
