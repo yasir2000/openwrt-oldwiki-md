@@ -9,8 +9,9 @@
  4. Configuration
     4.1 aespipe
    4.2 ssmtp/mutt
- 5. Notes
- 6. Links
+ 5. Examples
+ 6. Troubleshooting
+ 7. Links
 
 == Overview ==
 This howto describes how to mail data in a secure way.
@@ -96,7 +97,54 @@ case "$1" in
 esac
 exit 0
 }}}
+Name and copy that script somewhere suitable (e.g. /usr/bin). Now you should be able to easily encrypt and decrypt your files. Note that you need aespipe, the script and  of course the passwordfile to read those files on a different machine.
+=== ssmtp/mutt ===
+ssmtp expects its two configuration files named "revaliases" and "ssmtp.conf" under /etc/ssmtp. Both are self-explaining, so I post a basic configuration.
+{{{
+# /etc/ssmtd/ssmtp.conf
 
-to be continued (NOT YET FINISHED)
+root=arnold@gmx.net
+mailhub=mail.gmx.net:465
+rewriteDomain=gmx.net
+hostname=gmx.net
+FromLineOverride=YES
+UseTLS=YES
+#UseSTARTTLS=YES
+}}}
+{{{
+# /etc/ssmtd/revaliases
+# Format: local_account:outgoing_address:mailhub
+
+root:arnold@gmx.net:mail.gmx.net:465
+}}}
+The global configuration file for mutt is /etc/Muttrc. Here is a sufficient configuration.
+{{{
+# /etc/Muttrc
+mailboxes /tmp/mail
+
+set sendmail="/usr/bin/ssmtp -auarnold@gmx.net -ap123password456"
+set from="arnold@gmx.net"
+
+# Mail folder setup.
+set folder=/tmp/mail
+set mbox_type=mbox
+set spoolfile=+inbox
+set mbox=+received
+set postponed=+postponed
+set record=+sent
+}}}
+= Examples =
+''The scriptname is targzaes and its location is /usr/bin.''
+Encrypt and send /var/log/messages.
+{{{
+targzaes e /var/log/messages /tmp/messages.aes
+mutt -a /tmp/messages.aes -s syslog someguy@qmail.com
+}}}
+Decrypt mail attachment on a different machine where aespipe, the script and the passwordfile are available.
+{{{
+targzaes d messages.aes
+}}}
+= Troubleshooting =
+
 ----
-CategoryHowTo CategoryHowTo CategoryHowTo
+CategoryHowTo
