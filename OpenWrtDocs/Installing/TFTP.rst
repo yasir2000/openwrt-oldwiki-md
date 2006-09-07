@@ -87,8 +87,8 @@ Windows 2000 and Windows XP have a built-in TFTP client and it [http://martybugs
 Windows 2000/XP TFTP Client short Instructions
 
  * Open two command windows (Start-Run-Enter "cmd")
- * In one window, type "ping -t 192.168.1.1" and press enter. 192.168.1.1 is the router IP.
- * Ping will continuously try to contact the wrt. Keep this running
+ * In one window, type "ping -t -w 10 192.168.1.1" and press enter. 192.168.1.1 is the router IP.
+ * Ping will continuously try to contact the wrt with 10 ms timeout instead of default 4000 ms. Keep this running
  * In the other window, prepare the tftp command "tftp -i 192.168.1.1 PUT OpenWrt-gs-code.bin". Do not press enter yet!
  * Now you may plug in the router (unplug it first if it was plugged).
  * In the ping window it will start saying "Hardware Error"
