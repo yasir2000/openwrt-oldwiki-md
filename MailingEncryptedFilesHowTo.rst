@@ -145,6 +145,12 @@ Decrypt mail attachment on a different machine where aespipe, the script and the
 targzaes d messages.aes
 }}}
 = Troubleshooting =
-
+if the mailtransfer doesn't work, test ssmtp and look at logread.
+{{
+more /etc/banner | ssmtp -vvv -auarnold@gmx.net -ap123password456 someguy@gmx.net
+}}
+= Links =
+[url]http://www.mutt.org
+[url]http://loop-aes.sourceforge.net
 ----
 CategoryHowTo
