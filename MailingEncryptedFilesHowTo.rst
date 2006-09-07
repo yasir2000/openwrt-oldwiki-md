@@ -19,7 +19,7 @@ emailhub and encrypted files. Due to storage restrictions
 gnupg isn't used which otherwise would be first choice.
 
 === Security Notes ===
- * AES with 256 bit key size and SHA-512
+ * AES with 256 bit key size and SHA-512 for hashing
  * The symmetric encryption requires a password (at least 20 characters)
  * Additionally password seed and iteration count are used to slow down optimized dictionary attacks
  * SSL over SMTP und StartTLS are supported
@@ -99,4 +99,4 @@ exit 0
 
 to be continued (NOT YET FINISHED)
 ----
-CategoryHowTo CategoryHowTo
+CategoryHowTo CategoryHowTo CategoryHowTo
