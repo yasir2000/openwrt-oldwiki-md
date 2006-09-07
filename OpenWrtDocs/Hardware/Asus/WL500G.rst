@@ -20,17 +20,21 @@ The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory 
 
 '''TFTP Installation notes'''
 
+The [:OpenWrtDocs/Hardware/Asus/WL500GRecovery: WL-500G recovery] mechanism is somewhat complex. The most reliable method is to statically assign the ARP entry for the device, and use a known-to-work TFTP client (e.g. OS X's inbuilt tftp generally doesn't work; atftp on Linux does work).
+
 Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
 
-TFTP commands:
-
 {{{
-tftp 192.168.1.1
+$ sudo arp -s 192.168.1.1 00:11:2f:6a:60:13
+$ tftp 192.168.1.1
 tftp> binary
 tftp> trace
-tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
+tftp> get ASUSSPACELINKaaaa /dev/null
 tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 }}}
+
+Sidenote: the "magic string" on the end of the ASUSSPACELINK string (e.g. often quoted as "\x01\x01\xa8\xc0") is in fact meant to be the IP address to be assigned to the device, in little-endian (0x01 0x01 0xa8 0xc0 = 1 1 168 192; or IP=192.168.1.1). However, most TFTP clients interpret the string "\x01\x01\xa8\xc0" literally and you'll end up with an IP address of 49.48.120.92 being used (covert "\ x 0 1" to ASCII and reverse). The TFTP clients that work don't care about what the WL-500G thinks its IP address is, hence the "aaaa" in the example above.
+
 
 After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at http://openwrt.org/downloads/utils/flash.sh.
 
