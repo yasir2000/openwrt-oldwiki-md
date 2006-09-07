@@ -16,7 +16,7 @@ Serial: yes, with external UART
 JTAG: no
 }}}
 
-The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit. 
+The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} ''is'' safe on this unit (using {{{mtd erase nvram}}} and rebooting will revert to the settings in `/etc/nvram.overrides`).
 
 '''TFTP Installation notes'''
 
