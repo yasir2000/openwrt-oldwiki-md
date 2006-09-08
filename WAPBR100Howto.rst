@@ -52,8 +52,8 @@ libgcc
 mtd
 nvram
 uclibc
-wireless-tools
 wificonf
+wireless-tools
 }}}
 
 This includes functionality to mount a cifs filesystem and mount a ext2 filesystem stored there (in a file) via loop.
