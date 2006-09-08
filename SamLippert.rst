@@ -2,9 +2,7 @@
 #format wiki
 == Sam Lippert ==
 
-Email: [[MailTo(you AT SPAMFREE example DOT com)]]
-
-...
+Email: [[MailTo(lippertz AT SPAMFREE gmail DOT com)]]
 
 ----
 CategoryHomepage
