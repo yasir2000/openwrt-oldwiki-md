@@ -1,4 +1,6 @@
-= Viewsonic WAPBR-100 (A.K.A. VS10407) Howto =
+'''Viewsonic WAPBR-100 (A.K.A. VS10407) Howto'''
+
+[[TableOfContents]]
 
 = Specifications =
 == Hardware ==
