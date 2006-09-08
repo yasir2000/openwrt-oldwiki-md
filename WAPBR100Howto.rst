@@ -22,7 +22,7 @@ This unit DOES have fw-conf.asp to enable changing options for downgrading and a
 
  *I don't know if it's required or just simpler, but I set my unit to use a static ip (192.168.90.2 in my case).
  *Go to http://192.168.90.2/fw-conf.asp (substitute your device's IP) and disable the firmware header.
- *Get a WAP54G patched image from http://downloads.openwrt.org/people/nbd/whiterussian/ (must be squashfs) or build your own using the [:ImageBuilder:ImageBuilderHowto] there (kudos to nbd for the patch!!!). Make sure its small. I suggest building a basic image (at most the size of the 'micro' image) and then seeing how much space you have free...
+ *Get a WAP54G patched image from http://downloads.openwrt.org/people/nbd/whiterussian/ (must be squashfs) or build your own using the [:ImageBuilderHowto:ImageBuilder] there (kudos to nbd for the patch!!!). Make sure its small. I suggest building a basic image (at most the size of the 'micro' image) and then seeing how much space you have free...
 
 == Installation ==
 
