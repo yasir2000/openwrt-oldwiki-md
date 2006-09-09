@@ -13,6 +13,10 @@ Some [OpenWrtDocs/Hardware/Netgear Netgear] routers run a telnet daemon which ca
 
 Please add to this list, so people will know which are supported and which are not! 
 
+Loginname/password(casesensitive): Gearguy/Geardog
+
+The password can be changed after logging in using the `passwd` command.
+
 == Unlocking the Telnet Cosole ==
 === On Windows ===
 
@@ -83,3 +87,6 @@ The entire probe payload (including the reserved area, which is always null for 
 The encrypted probe packet is then sent to telnet port (23) on the router using raw TCP sockets in the standard manner. Curiously, the telnetenable.exe program also includes the necessary support to decode packets incoming from the router, but there does not appear to be any two-way handshake implemented, it is simple a raw TCP send from the client to the router.
 
 Note: The encrypted probe packet is sized as char output_Buf[0x640] but only an encoded data length of size of 0x80 appears to be used by the code. It is unknown what other capabilities may be similarly enabled via the 'reserved' field, or by other passwords.
+
+== Troubleshooting ==
+If you aren't able to login anymore, which may occur after firmware updates or telnet-session timeouts/connection losses, repeat the unlocking procedure.
