@@ -140,6 +140,8 @@ lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
 wan_proto=none
 }}}
+The above configuration also serves as a wireless to ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration. 
+
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
 
 {{{
