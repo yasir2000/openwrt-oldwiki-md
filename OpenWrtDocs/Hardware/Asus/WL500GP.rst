@@ -15,13 +15,13 @@ It might be possible to use manufacturers own web interface to download OpenWrt 
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
-- Unplug the power cord.
-- Push the RESTORE button using a pen or such, and keep the button pushed down.
-- Plug the power on while keeping the RESTORE button pushed for few seconds.
-- If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via tftp. See [[OpenWrtViaTftp]] for more instructions on tftp upload.
-- After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
-- Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
-- You're done! You should be able to telnet to your router and start configuring.
+ * Unplug the power cord.
+ * Push the RESTORE button using a pen or such, and keep the button pushed down.
+ * Plug the power on while keeping the RESTORE button pushed for few seconds.
+ * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via tftp. See [[OpenWrtViaTftp]] for more instructions on tftp upload.
+ * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
+ * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
+ * You're done! You should be able to telnet to your router and start configuring.
 
 == WL-500gP specific configuration ==
 
