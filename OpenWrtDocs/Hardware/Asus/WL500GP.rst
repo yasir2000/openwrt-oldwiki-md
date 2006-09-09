@@ -18,7 +18,7 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * Unplug the power cord.
  * Push the RESTORE button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the RESTORE button pushed for few seconds.
- * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via tftp. See [[OpenWrtViaTftp]] for more instructions on tftp upload.
+ * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via tftp. See OpenWrtViaTftp for more instructions on upgrading via tftp.
  * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
