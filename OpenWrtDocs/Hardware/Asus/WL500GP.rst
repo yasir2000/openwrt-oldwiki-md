@@ -2,7 +2,7 @@ The Asus WL-500g Premium seems to work with OpenWrt.
 
 == Installation ==
 
-Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to tftp (it works for sure).
+Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the tftp part (which works for sure).
 
 === Via Asus web interface ===
 
@@ -27,7 +27,9 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
 
 === Interfaces ===
 
-Before continuing, please read about the internal network architecture and how physical ports map to vlans: [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces]
+/!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0.''' /!\
+
+Before reading further, please read about the internal network architecture and how physical ports map to vlans unless you're already familiar with it. See [:OpenWrtDocs/NetworkInterfaces:NetworkInterfaces] if you feel like you could refresh your memory.
 
 When WhiteRussian RC5 was released, this router was not in the "Supported" category yet. The WAN interface for example won't work with the default settings.
 
@@ -74,8 +76,6 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
 wan_device=eth0 (it was set to vlan1)
 
 Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
-
-***Caution** I've (thecompwiz)been having troubles if I set wan_proto=none It appears as if it breaks the vlan0.
 
 === DHCP server & client settings ===
 
