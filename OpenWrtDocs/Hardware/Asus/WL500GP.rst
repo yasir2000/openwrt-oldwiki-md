@@ -8,7 +8,7 @@ Looks like most people won't be able to install OpenWrt using the Asus web inter
 
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible (and really easy) to use manufacturers own web interface (at 192.168.1.1) to download OpenWrt into the WL-500gP box. This way at least [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) is working.
+It might be possible to use manufacturers own web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.
 
 === Using diag mode and tftp ===
 
