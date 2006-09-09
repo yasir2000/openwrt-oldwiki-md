@@ -8,6 +8,7 @@ Some [OpenWrtDocs/Hardware/Netgear Netgear] routers run a telnet daemon which ca
  * WGR614 v1-4,6: unknown, may well work
  * WPN824 v1: [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
+ * WGT624 v2: known to work
  * WGT624 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
 
 Please add to this list, so people will know which are supported and which are not! 
