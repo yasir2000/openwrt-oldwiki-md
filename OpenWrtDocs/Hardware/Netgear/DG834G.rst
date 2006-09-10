@@ -4,11 +4,12 @@
  ________________right__________________
 |                                       \
 _power    Pin 1: GND     ----> []       |
-_plug     Pin 2: TX      ----> ()       |
+_plug     Pin 2: TX      ----> ()       | Front of DG834G
 |         Pin 3: NC      ----> ()       |
-|         Pin 4: RX      ----> ()       | leds
+|         Pin 4: RX      ----> ()       led
 |                           JP603       |
-|                                       | Front
+|                                       led
+|                                       |
 
 }}}
 
@@ -57,15 +58,15 @@ If your new md5sum matches up ok then you should copy the patched mtd2.bin over 
 == MTD Layout ==
 '''Please confirm these values for yourself.  Writing over the wrong mtd block could brick your router'''
 {{{
-mtd0	0x900d0000,0x903e0000	Kernel or rootfs
-mtd1	0x90020000,0x900d0000	Kernel or rootfs
+mtd0	0x900d0000,0x903e0000	RootFS
+mtd1	0x90020000,0x900d0000	Kernel
 mtd2	0x90000000,0x90020000	ADAM2
 mtd3	0x903e0000,0x903f0000	Probably Netgear firmware config
 mtd4	0x903f0000,0x90400000	Probably ADAM2 config
 }}}
-(Note: mtd1 precedes mtd0)
+(Note: mtd2 precedes mtd1, which precedes mtd0, in memory mapped adresses)
 
-The AR7 installation instructions instruct you to create mtd4, but this is already used by the DG834(G).  Instead, do this in the ADAM2 FTP/Telnet server:
+The AR7 installation instructions instruct you to create mtd4, but this is already used by the DG834(G). Instead, do this in the ADAM2 FTP/Telnet server:
 
 '''Please confirm these values for yourself.  Writing over the wrong mtd block could brick your router'''
 {{{
