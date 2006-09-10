@@ -4,8 +4,8 @@
 = Telnet Console =
 
 Some [OpenWrtDocs/Hardware/Netgear Netgear] routers run a telnet daemon which can be accessed from any computer on its local subnet after unlocking it (see below). The following devices are currently known or assumed to support this:
- * WGR614 v5: known to work
- * WGR614 v1-4,6: unknown, may well work
+ * WGR614 v5,6: known to work
+ * WGR614 v1-4: unknown, may well work
  * WPN824 v1: [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
  * WGT624 v2: known to work
