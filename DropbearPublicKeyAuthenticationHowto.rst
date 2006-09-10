@@ -115,6 +115,14 @@ Start {{{putty.exe}}} and do the following:
 C:\> putty.exe @OpenWrt-Session
 }}}
 
+== Using SSH Secure Shell Client on Windows ==
+The Only difference in OpenSSH/PuTTY and this client is, the key pair generated has a {{{--Begin}}} and {{{--End}}}, and your {{{Comment}}} with date is also added in a new line. So first generate the key by opening SSH Client from menu options select Edit->Settings->Global Settings->User Authentication->Keys
+ * Generate New will create id_dsa and id_dsa.pub
+ * Upload (will not work if sftp is not enabled on WRT) simply creates a new authorized_keys2 (in most cases there is none) with the {{{---Begin Key, Comment}}}, {{{public_key}}} and {{{---End Key}}} lines
+ * Delete everything else other than the public_key line {{{make sure its one line}}} and prepend, 'ssh-rsa' or 'ssh-dsa' (without quotes based on your key type) then save & exit.
+ * {{{
+cat tmp/.ssh/authorized_keys2 >> /etc/dropbear/authorized_keys; rm -rf /tmp/.ssh}}}
+
 = Some final tasks =
 == Disable password login ==
 For more security you can disable Dropbear's password login. This is done by adding the {{{-s}}} parameter to Dropbear. Modify the last line in the {{{/etc/init.d/S50dropbear}}} init script.
