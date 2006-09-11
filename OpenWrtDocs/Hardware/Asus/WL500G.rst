@@ -22,7 +22,7 @@ The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory 
 
 The [:OpenWrtDocs/Hardware/Asus/WL500GRecovery: WL-500G recovery] mechanism is somewhat complex. The most reliable method is to statically assign the ARP entry for the device, and use a known-to-work TFTP client (e.g. OS X's inbuilt tftp generally doesn't work; atftp on Linux does work).
 
-Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands:
+Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands (`00:11:2f:6a:60:13` is the device's MAC address, `192.168.1.1` is a free IP address on your local network):
 
 {{{
 $ sudo arp -s 192.168.1.1 00:11:2f:6a:60:13
