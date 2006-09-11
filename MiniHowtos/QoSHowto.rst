@@ -57,6 +57,13 @@ ifup wan
 
 This calls the QoS script via the hotplug code.
 
+Then do a 
+{{{
+env -i ACTION=ifup INTERFACE=wan /sbin/hotplug iface
+}}}
+
+This simulates a ifup on the WAN interface and reruns the hotplug scripts.
+
 To show the QoS related rules execute:
 
 {{{
