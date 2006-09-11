@@ -8,11 +8,11 @@ The WL-500G behaves a little differently to other OpenWRT devices: rather than u
   * it responds to some packets (e.g. ICMP ping) by simply swapping the incoming source and destination address (i.e. the source address of the response will be whatever was in the destination of the request)
  * an IP address is ''usually'' required to be assigned to the device for TFTP to work (most TFTP clients require each packet to be acknowledged)
   * the desired IP address is communicated to the router in the first TFTP message, via the TFTP get command
-   * the TFTP source file name is `ASUSSPACELINKxxxx`, where `xxxx` is the desired IP address ''in binary''. i.e. the 32 bit IP address is written as four octets, in ASCII, representing the IP address in little-endian order: so the IP address `100.99.98.97` = becomes the ASCII string `abcd` ("a" = 97 in ASCII, "d" = 100, etc).
+   * the TFTP source file name is `ASUSSPACELINKxxxx`, where `xxxx` is the desired IP address ''in binary''. i.e. the 32 bit IP address is written as four characters representing the IP address in little-endian order: so the IP address `100.99.98.97` = becomes the character string `abcd` ("a" = 97 in ASCII, "d" = 100, etc). Note that most IP addresses end up as non-printable characters (e.g. `192.`, or 0xC0, is not even ASCII), which makes using standard TFTP clients difficult.
    * the router uses the assigned address to acknowledge the TFTP get command, and the image is then written (put) via TFTP to the special destination filename `ASUSSPACELINK`
 
 For example, the operation of the Windows ASUS Recovery Utility is as follows (determined from packet traces):
- 1. the PC sends, every 5s, TFTP GET packets to the broadcast address (ff:ff:ff:ff:ff:ff / 255.255.255.255), requesting the magic string as above
+ 1. the PC sends, every 5s, TFTP GET packets to the broadcast address (ff:ff:ff:ff:ff:ff / 255.255.255.255), requesting the magic string as above (specifying a free (random?) IP address on the local network)
  2. the router responds with a TFTP Data packet and ACK with the source address set to that specified in the magic string
  3. the PC sends a TFTP WRITE request to destination file named ''ASUSSPACELINK''
  4. the router ACKnowledges the write request, and the image transfer begins
