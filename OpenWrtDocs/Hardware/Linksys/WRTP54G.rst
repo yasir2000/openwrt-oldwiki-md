@@ -15,15 +15,13 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 
-== Firmware Dumps for Study ==
 
+== Firmware Dumps for Study ==
  * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the mounted file system dumps which contain only the files from the mounted root
-
-== Notes ==
-
+== Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
  * The "admin" account does not have sufficient privileges to reflash the firmware.  If your router is configured to be "provisioned" by Vonage, let it connect to the Internet in order to download its configuration from Vonage's server.  The Vonage configuration has a user named "user" with a password of "tivonpw".  The user "user" can reflash the firmware.  (That is right, user has more access than admin.)  After logging in as admin/admin change the URL to http://192.168.15.1/update.html.  At the new password prompt enter "user" and "tivonpw".  A web form for uploading the new firmware will pop up.
@@ -48,7 +46,6 @@ mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
 mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
 mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
-
 Notes:
 
  * The flash contains space for two firmwares.  This is appearently so that the system can boot from a backup firmware firmware flashing fails.  mtd3 and mtd4 contain the two firmwares.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
@@ -56,31 +53,31 @@ Notes:
  * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.
-
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
- * The first four bytes are "CDTM".  This appearently identifies the file as a firmware.
- * Bytes 0x14--0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
- * Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash.
- * Bytes 0x70--0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
- * Something which may be the kernel but is more likely a second-stage boot loader starts at offset 0x10000.
- * The squashfs for the root filesystem starts at offset 0x90000 (576K into the file) and continues to the end of the file (which the exception noted below).  The first four bytes of the squashfs are "hsqs".
- * If the file is to be written directly into flash it must be 3,866,624 bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
 
+ * Bytes 0x00 thru 0x03 are "CDTM".  This is presumably a magic number identifying the file as a firmware.
+ * Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash.  The web interface changes this byte to 0x17 before writing the firmware into flash.
+ * Bytes 0x14 thru 0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
+ * Bytes 0x70 thru 0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
+ * Bytes 0xb0 thru ?? appear to be a partion table defining partions "kernel" and "root"
+ * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
+ * Bytes 0x010000 thru 0x08FFFF are the kernel.  Unused space at the end is filled with the value 0xFF.
+
+ * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".
+ * If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
 = Configuration File Format =
-
 The configuration of the router is stored in a single XML file.  This file is stored compressed in a raw flash partition.  If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
 The configuration can be extracted using the web interface (Administration/Management/Backup and Restore).  The configuration file produced by the backup function is incomplete.  Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
 
  * Bytes 0x0000 thru 0x0003 contain "LMMC".  This is appearently a magic number
- * Bytes 0x0004 thru 0x0005 contain are 0x00 and 0x03 respectively.  This may be a continuation of the magic number.
+ * Bytes 0x0004 thru 0x0005 are 0x00 and 0x03 respectively.  This may be a continuation of the magic number.
  * Bytes 0x0006 thru 0x0007 should be set to zero
  * Bytes 0x0008 thru 0x000B contain the length of the compressed configuration file in little-endian format
  * Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
  * Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
-
 = Boot Loader Environment =
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
@@ -132,17 +129,13 @@ ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
 HWA_1 00:13:10:AC:02:AA
 BOOTCFG m:f:"IMAGE_A"}}}
-
 == CONSOLE_STATE ==
-
 Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape.  Setting it to "unlocked" restores friendly behavior.  See the Serial Console section for a way to unlock the console.
 
 == IPA, IPA_GATEWAY, SUBNET_MASK ==
-
 These variables define the IP settings used by the tftp command.  It makes sense to change IPA to "192.168.15.1" since this is the IP address which the standard firmwares assign to the router.
 
 == ProductID ==
-
 This is a four character code which identifies the hardware.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to install it using the web interface.  If you write it to flash by some other means, PSPboot will refuse to load it.
 
 Known ProductID values:
@@ -151,11 +144,9 @@ Known ProductID values:
  * RTP300 from Vonage: CYLL
  * WRTP54G-NA: CYWM
  * WRTP54G from Vonage: ?
-
 One trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it.  (Refer to the description of the firmware update file format above.)  Loading an incompatible firmware may brick your device, so be careful.  In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset.  The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300.  It seems that a system daemon crashes when it attempts to configure the wireless hardware.  As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area.  If you do this, you will have to use a serial console to regain access.
 
 == IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
-
 The router has room for two firmwares and a configuration area for each.  Factory defaults can be restored by formatting the configuration area of the currently active firmware.  (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.)  The command to clear the conifguration area of the first firmware is:
 
 {{{fmt CONFIG_A}}}
@@ -167,12 +158,10 @@ setenv IPA 192.168.15.1
 fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
-
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
-
 The firmware to be booted is defined by BOOTCFG.  The significance of the m and the f are unknown.  The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.
 
-Unfortunately, there does not seem to be a direct and reliable way to set BOOTCFG.  If there are two firmwares installed and one formats the image partition of the one named in BOOTCFG, BOOTCFG will automatically switch to the other one.
+Unfortunately, there does not seem to be a direct and reliable way to set BOOTCFG.  But, if there are two firmwares installed and one formats the image partition of the one named in BOOTCFG, BOOTCFG will automatically switch to the other one.
 
 = Serial Console =
 {{{
@@ -193,7 +182,6 @@ ________________________________________
 |                                         |
  \________________________________________|
 }}}
-
 Do not connect the router's serial port directly to your computer's RS232 port.  The signal voltage levels are not the same and you may damage the router's serial port.  This is because your computer's serial port has a line driver which converts the computer's signal voltage levels to RS232 levels while the line driver was left out of the router to save money.  So, you will have to attach a line driver to your router and plug your computer into the line driver.  If you are handy with a soldering iron you can order a AD233AK 233A kit and assemble it to make a line driver.
 
 The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control.  These settings may be changable by setting the boot environment variable MODETTY.
@@ -206,7 +194,8 @@ The serial port is the boot loader console.  If the boot-loader environment vari
 JTAG is a standard way to gain access to the system bus of an embedded device.  It can be used to reprogram the flash even if the boot loader has been damaged.
 
 == WRTP54G JTAG Pinout ==
-{{{grep '128\.95' /etc/dhcpd.conf
+{{{
+grep '128\.95' /etc/dhcpd.conf
 __________________________________________
 |                     J3                  |
 |                                         led
