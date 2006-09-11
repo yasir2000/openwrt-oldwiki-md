@@ -47,10 +47,11 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 Notes:
 
  * A dump of all the RTP300's blocks is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the the FS dump made available earlier (which contained only files from the mounted root).
- * All memory blocks are padded at the ends with ASCII 255 characters (Hex FF).
- * mtd0 ''root'' is mounted as / (squashfs file system) since ''/proc/version'' is {{{Linux version 2.4.17_mvl21-malta-mips_fp_le (myron@dhcp-2123-3084) (gcc version 2.95.3 20010315 (release/MontaVista)) #1 Thu Oct 13 10:23:23 CST 2005}}} this FS is most likely a 1.x sqaushfs image like that in the Actiontec ["OpenWrtDocs/Hardware/Actiontec/GT701-WG"].
- * mtd5 and mtd6 begin with a "LMMC" header (hex 4C 4D 4D 43 00 03 00 00), each containing approximately 8-10kb worth of data almost the same exact size a backup config.bin file.  After removing the padding, neither file matches the config.bin taken from the running router's backup page.
- * mtd7 ''RESERVED_BOOTLOADER'' appears to contain a ["PSPBoot"] bootloader, it has all of the environment variables which are available after boot time via ''/proc/ticfg/env''
+ * Unused space at the end of memory blocks is filled with the value 0xFF.
+ * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib
+ * mtd3 and mtd4 contain the two firmwares
+ * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.
+ * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.
 
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
@@ -124,7 +125,14 @@ These variables define the IP settings used by the tftp command.  It makes sense
 
 == ProductID ==
 
-This is a four character code which identifies the hardware.  For the RTP300 it is CYLL.  For the WRTP54G it is appearently CYWM.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to load it.
+This is a four character code which identifies the hardware.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to install it using the web interface.  If you write it to flash by some other means, PSPboot will refuse to load it.
+
+Known ProductID values:
+
+* RTP300-NA: CYLM
+* RTP300 from Vonage: CYLL
+* WRTP54G-NA: CYWM
+* WRTP54G from Vonage: ?
 
 == IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
 
