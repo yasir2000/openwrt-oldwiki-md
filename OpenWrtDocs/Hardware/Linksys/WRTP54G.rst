@@ -73,13 +73,13 @@ The configuration of the router is stored in a single XML file.  This file is st
 
 The configuration can be extracted using the web interface (Administration/Management/Backup and Restore).  The configuration file produced by the backup function is incomplete.  Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
 
-* Bytes 0x0000 thru 0x0003 contain "LMMC".  This is appearently a magic number
-* Bytes 0x0004 thru 0x0005 contain are 0x00 and 0x03 respectively.  This may be a continuation of the magic number.
-* Bytes 0x0006 thru 0x0007 should be set to zero
-* Bytes 0x0008 thru 0x000B contain the length of the compressed configuration file in little-endian format
-* Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
-* Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
-* Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
+ * Bytes 0x0000 thru 0x0003 contain "LMMC".  This is appearently a magic number
+ * Bytes 0x0004 thru 0x0005 contain are 0x00 and 0x03 respectively.  This may be a continuation of the magic number.
+ * Bytes 0x0006 thru 0x0007 should be set to zero
+ * Bytes 0x0008 thru 0x000B contain the length of the compressed configuration file in little-endian format
+ * Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
+ * Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
+ * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
 
 = Boot Loader Environment =
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
