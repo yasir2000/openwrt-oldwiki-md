@@ -33,7 +33,7 @@ tftp> get ASUSSPACELINKaaaa /dev/null
 tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 }}}
 
-Sidenote: the "magic string" on the end of the ASUSSPACELINK string (e.g. often quoted as "\x01\x01\xa8\xc0") is in fact meant to be the IP address to be assigned to the device, in little-endian (0x01 0x01 0xa8 0xc0 = 1 1 168 192; or IP=192.168.1.1). However, most TFTP clients interpret the string "\x01\x01\xa8\xc0" literally and you'll end up with an IP address of 49.48.120.92 being used (covert "\ x 0 1" to ASCII and reverse). The TFTP clients that work don't care about what the WL-500G thinks its IP address is, hence the "aaaa" in the example above.
+Sidenote: the "magic string" on the end of the ASUSSPACELINK string (e.g. often quoted as "\x01\x01\xa8\xc0") is in fact meant to be the IP address to be assigned to the device, in little-endian order (0x01 0x01 0xa8 0xc0 = 1 1 168 192; or IP=192.168.1.1). However, most TFTP clients interpret the string "\x01\x01\xa8\xc0" literally and you'll end up with an IP address of 49.48.120.92 being used (convert the ASCII string "\ x 0 1" to decimal and reverse). The TFTP clients that work don't care about what the WL-500G thinks its IP address is, hence the "aaaa" in the example above.
 
 
 After this, wait until the PWR LED stops flashing and the device to reboot and you should be set. There's also nice shell script doing this work for you to be at http://openwrt.org/downloads/utils/flash.sh.
