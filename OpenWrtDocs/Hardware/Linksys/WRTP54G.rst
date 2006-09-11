@@ -46,7 +46,7 @@ mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 Notes:
 
- * A dump of all the RTP300's blocks is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the the FS dump made available earlier (which contained only files from the mounted root).
+ * A dump of all the blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the the FS dump made available earlier (which contained only files from the mounted root).
  * Unused space at the end of memory blocks is filled with the value 0xFF.
  * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib
  * mtd3 and mtd4 contain the two firmwares
@@ -61,7 +61,7 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x70--0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
  * Something which may be the kernel but is more likely a second-stage boot loader starts at offset 0x10000.
  * The squashfs for the root filesystem starts at offset 0x90000 (576K into the file) and continues to the end of the file (which the exception noted below).  The first four bytes of the squashfs are "hsqs".
- * If the file is to be written directly into flash it must be 3,866,624 bytes long.  The web interface require an eight bit CRC at the end for a total of 3,866,632 bytes.
+ * If the file is to be written directly into flash it must be 3,866,624 bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
 
 = Boot Loader Environment =
 The PSPBOOT boot loader and a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
