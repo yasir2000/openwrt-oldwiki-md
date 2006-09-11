@@ -4,6 +4,7 @@
  . The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx. 
 
 If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt.
+There is also different hardware versions with almost same serial.(Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings. 
 
 This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required. Pull the power plug, press and hold the reset ("INIT") button, start the TFTP, plug the power back in, and let go of the button. The power light does *not* flash on this unit, but the diag does. This unit keeps the IP address that it was set to while in this mode. Factory setting is 192.168.11.1.
 
