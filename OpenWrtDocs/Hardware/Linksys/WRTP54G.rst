@@ -15,23 +15,27 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 
-'''Notes'''
+== Firmware Dumps for Study ==
+
+ * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
+ * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
+ * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
+ * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the mounted file system dumps which contain only the files from the mounted root
+
+== Notes ==
 
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
  * The "admin" account does not have sufficient privileges to reflash the firmware.  If your router is configured to be "provisioned" by Vonage, let it connect to the Internet in order to download its configuration from Vonage's server.  The Vonage configuration has a user named "user" with a password of "tivonpw".  The user "user" can reflash the firmware.  (That is right, user has more access than admin.)  After logging in as admin/admin change the URL to http://192.168.15.1/update.html.  At the new password prompt enter "user" and "tivonpw".  A web form for uploading the new firmware will pop up.
  * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago 'root' access was gained to a RTP300 box using the Admin account (Admin is uid 0).  (Could somebody clarify this statement?  Was this due to some special circumstance or is it something we can reproduce?)
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.  Binaries can be found in the zip file of the FS dump below.
- * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
- * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
- * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
  * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The driver source code has not been released.
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
 See also: ["AR7Port"]
 
-= Memory layout of RTP300 =
+= Flash Memory layout of RTP300 =
 == /proc/mtd ==
 {{{
 dev:    size   erasesize  name
@@ -44,12 +48,12 @@ mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
 mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
 mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
+
 Notes:
 
- * A dump of all the blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the the FS dump made available earlier (which contained only files from the mounted root).
+ * The flash contains space for two firmwares.  This is appearently so that the system can boot from a backup firmware firmware flashing fails.  mtd3 and mtd4 contain the two firmwares.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
  * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib
- * mtd3 and mtd4 contain the two firmwares
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.
 
@@ -62,6 +66,14 @@ Here is a partial description of the format of the firmware update file format w
  * Something which may be the kernel but is more likely a second-stage boot loader starts at offset 0x10000.
  * The squashfs for the root filesystem starts at offset 0x90000 (576K into the file) and continues to the end of the file (which the exception noted below).  The first four bytes of the squashfs are "hsqs".
  * If the file is to be written directly into flash it must be 3,866,624 bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
+
+= Configuration File Format =
+
+The configuration of the router is stored in a single XML file.  This file is stored compressed in a raw flash partition.  If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
+
+The configuration can be extracted using the web interface (Administration/Management/Backup and Restore).  The configuration file produced by the backup function is incomplete.  Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
+
+
 
 = Boot Loader Environment =
 The PSPBOOT boot loader and a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
@@ -133,6 +145,8 @@ Known ProductID values:
 * RTP300 from Vonage: CYLL
 * WRTP54G-NA: CYWM
 * WRTP54G from Vonage: ?
+
+One trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it.  (Refer to the description of the firmware update file format above.)  Loading an incompatible firmware may brick your device, so be careful.  In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset.  The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300.  It seems that a system daemon crashes when it attempts to configure the wireless hardware.  As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area.  If you do this, you will have to use a serial console to regain access.
 
 == IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
 
