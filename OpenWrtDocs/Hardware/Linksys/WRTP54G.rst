@@ -256,6 +256,13 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
  # Click on Browse and choose a firmware image
  # Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
 
+If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds.  The router will restore its factory defaults and reboot.  Return to step three.
+
+If your router is running an NA firmware, the username needed in step seven is probably "Admin" (note the capital A verses the lower case a in step four).  The password will be blank.
+
+If your router has Vonage firmware on it, the procedure is slightly more complicated.  First, you should plug your router into the Internet so that it can load its configuration from Vonage's servers.  This will give you a user name of "user" and a password of "tivonpw" which you can use in step seven.  Second, there will be no "Firmware Update" tab in step six.  Instead, enter http://192.168.15.1/update.html.  (Note: this procedure is incomplete and not entirely correct.  One must at some point also go to Administration/Factory Defaults and reset the router and voice configuration to factory defaults.)
+
+If you get a page-not-found error after logging in in step seven, do not dispair.  This is bug in some firmwares.  Simply enter the address http://192.168.15.1/update.html into your browser and continue from there.
 
 == Using Firmware Update on the Provisioning Page ==
 
