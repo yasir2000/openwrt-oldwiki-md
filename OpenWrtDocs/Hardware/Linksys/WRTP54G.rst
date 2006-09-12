@@ -45,11 +45,11 @@ This user has an access level of "ROUTER".  This appears to be the level of acce
 
 == user ==
 
-This user has an access level of "USER".  Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not.
+This user has an access level of "USER".  Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not.  Level "USER" does not permit to log onto router independently.  One must first log in as a user with "ROUTER" level access and then present enter the name and password of a "USER" level user at the login prompt which appears when the "username and password supplied by your service provider" are demanded.
 
 == Admin ==
 
-This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh.  This user has the access level  "ADMIN" which also permits flashing the firmware.
+This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh.  This user has the access level  "ADMIN" which also permits flashing the firmware but does not allow independent login.
 
 = SSH Access =
 
