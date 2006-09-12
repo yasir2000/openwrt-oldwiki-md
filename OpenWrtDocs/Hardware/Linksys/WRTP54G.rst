@@ -50,15 +50,23 @@ In the default configuration, the RTP and WRTP54G have three usernames, one with
 
 All of the known firmwares have the following characteristics in common:
 
-* Linux 2.4.17 kernel with Montavista patches
-* uClibc
-* Busybox
+ * Linux 2.4.17 kernel with Montavista patches
+ * uClibc
+ * Busybox
 
 == 1.00.XX ==
 
 As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has the following distinguishing characteristics:
 
-* 
+ * Busybox is built without the more command
+ * Rotary phones work
+ * The voice status page displays very little information, basically just whether the last registration suceeded or not
+ * Voice configuration is badly broken
+ ** The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
+ ** There are no links to the voice pages
+ ** The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
+ * Distinctive ring may not work
+ * If both line are configured to connect to Asterisk and registration is used, they do not stay registered reliably
 
 == 3.1.XX ==
 
@@ -66,7 +74,11 @@ In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and 
 
 Firmware 3.1.17 has the following distinguishing characteristics:
 
-*
+ * Busybox is built with the more command
+ * Rotary phones do not work
+ * The voice static page displays a wealth of information about registration as well as current and previous calls
+ * The voice tab works and the voice pages display the top level tab bar
+ * Distrinctive ring works
 
 = Flash Memory layout of RTP300 =
 == /proc/mtd ==
