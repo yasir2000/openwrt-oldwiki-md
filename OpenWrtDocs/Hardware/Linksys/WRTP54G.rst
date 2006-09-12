@@ -25,8 +25,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
- * The WRTP54G and RTP300 both run dropbear SSH (limited to 2 concurrent connections) and some time ago 'root' access was gained to a RTP300 box using the Admin account (Admin is uid 0).  (Could somebody clarify this statement?  Was this due to some special circumstance or is it something we can reproduce?)
- * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html
+ * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html  (This page is no longer up.)
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
  * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The driver source code has not been released.
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
@@ -42,9 +41,19 @@ In the default configuration, the RTP and WRTP54G have three usernames, one with
 
 == admin ==
 
+This user has an access level of "ROUTER".  This appears to be the level of access required to log into the top page of the router.  The default password is "admin".
+
 == user ==
 
+This user has an access level of "USER".  Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not.
+
 == Admin ==
+
+This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh.  This user has the access level  "ADMIN" which also permits flashing the firmware.
+
+= SSH Access =
+
+Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server.  This feature must be enable using the web interface.  The only username in /etc/passwd is "Admin" (note the upper case A).  Reliably setting the password for this account is problematic.
 
 = The Supplied Firmwares =
 
@@ -86,7 +95,7 @@ Firmware 3.1.17 has the following distinguishing characteristics:
 dev:    size   erasesize  name
 mtd0: 00320000 00010000 "root"                           (3MB - 3,276,800 bytes)
 mtd1: 00080000 00010000 "RESERVED_PRIMARY_KERNEL"        (512K - 524,288 bytes)
-mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB -3,276,800 bytes)
+mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB - 3,276,800 bytes)
 mtd3: 003d0000 00010000 "RESERVED_PRIMARY_IMAGE"         (3.8MB - 3,997,696 bytes)
 mtd4: 003d0000 00010000 "RESERVED_SECONDARY_IMAGE"       (3.8MB - 3,997,696 bytes)
 mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
