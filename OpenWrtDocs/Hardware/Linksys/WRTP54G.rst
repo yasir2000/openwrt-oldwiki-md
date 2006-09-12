@@ -55,7 +55,9 @@ Notes:
 
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.  Some of them can be set by writing to /proc/ticfg/env.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd).  A partition must be erase before it can be written to.  Flashing firmware is fully described elsewhere in this document.
+
 = Firmware Update File Format =
+
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
  * Bytes 0x00 thru 0x03 are "CDTM".  This is presumably a magic number identifying the file as a firmware.
@@ -67,7 +69,9 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x010000 thru 0x08FFFF are the kernel.  Unused space at the end is filled with the value 0xFF.
  * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".
  * If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
+
 = Configuration File Format =
+
 The configuration of the router is stored in a single XML file.  This file is stored compressed in a raw flash partition.  If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
 The configuration can be extracted using the web interface (Administration/Management/Backup and Restore).  The configuration file produced by the backup function is incomplete.  Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
@@ -79,7 +83,9 @@ The configuration can be extracted using the web interface (Administration/Manag
  * Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
  * Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
+
 = Boot Loader Environment =
+
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
 At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.  The difference between the setenv and the setpermenv commands is unknown.
@@ -154,15 +160,6 @@ The router has room for two firmwares and a configuration area for each.  Factor
 
 Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
 
-
-
-A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  If you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
-
-{{{
-setenv IPA 192.168.15.1
-fmt IMAGE_A
-tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
-}}}
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
 The firmware to be booted is defined by BOOTCFG.  The significance of the m and the f are unknown.  The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.
 
@@ -233,3 +230,32 @@ The JTAG utility authored by HairyDairyMaid that is in common use as a debugger 
  * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
 ----
  . CategoryModel ["CategoryAR7Device"]
+
+= Firmware Flashing =
+
+There are several proven ways to write a new firmware into flash:
+
+ * Using the web interface
+ * Using firmware update on the provisioning page
+ * Using command line tools under a running firmware
+ * From the PSPBoot prompt using the serial port console
+
+It is presumably possible to write a firmware using JTAG, but so far nobody has reported success.
+
+== Using the Web Interface ==
+
+== Using Firmware Update on the Provisioning Page ==
+
+== Using command line tools ==
+
+== From the PSPBoot prompt ==
+
+The PSPBoot boot loader has predefined environment variable called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions.  A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
+
+{{{
+setenv IPA 192.168.15.1
+fmt IMAGE_A
+tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
+}}}
+
+If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
