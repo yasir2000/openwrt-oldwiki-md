@@ -39,7 +39,7 @@ One involves nbd's qosif scripts.  And the other involves ctshaper, a script wri
 Perhaps I can outline the pros and cons of each.  But there's a few things you will need to get started.  For both sets of scripts, at a bare minimum, you should have the tc, ip and kmod-sched packages.''
 
 === qos-scripts package ===
-QoS in !OpenWrt is based on {{{tc}}}, HFSC and [http://l7-filter.sourceforge.net/ Layer 7 filters]. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
+QoS in !OpenWrt is based on {{{tc}}}, [http://www.cs.cmu.edu/~hzhang/HFSC/main.html HFSC] and [http://l7-filter.sourceforge.net/ Layer 7 filters]. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
 
 Download and install the {{{qos-scripts}}} package from http://downloads.openwrt.org/people/nbd/qos/
 
