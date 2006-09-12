@@ -342,6 +342,8 @@ There are several proven ways to write a new firmware into flash:
 
 It is presumably possible to write a firmware using JTAG, but so far nobody has reported success.
 
+The PSPBoot page suggests that there is a one second window during PSPBoot startup during which a TFTP server is ready to accept a new firmware named upgrade_code.bin, but this feature does not seem to be included in the build of PSPBoot installed on the RTP300.
+
 == Using the Web Interface ==
 
 This method ranges from very easy to somewhat tricky depending on what firmware is currently installed.  The basic procedure is as follows:
