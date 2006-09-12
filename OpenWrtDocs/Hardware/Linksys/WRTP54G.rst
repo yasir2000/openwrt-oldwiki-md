@@ -91,6 +91,48 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * Distrinctive ring works
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
 
+== Programs and Files in the 3.1.XX Firmware ==
+
+ * /etc/inittab
+        Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
+
+ * /etc/init.d/rcS
+        System startup script.  Not much to see since most of the work is done by the mysterious "lightbox".
+
+ * /usr/bin/foxy
+        an HTTP proxy server which implements the "filter JavaScript"
+        and other "security" functions
+
+ * /usr/bin/wget
+        GNU Wget (why not Busybox wget?).  This is appearently used to download new firmwares.
+
+ * /usr/bin/lightbox
+        Mystery program run from /etc/init.d/rcS.  It seems that it must start most of the daemons
+
+ * /usr/bin/cm_convert
+        Converts old voice configuration to the 3.1.XX format.  Run once per boot.
+
+ * /usr/bin/cm_logic
+        Seems to load the configuration ether from a specified flash
+        block or from an XML file.
+
+ * /usr/bin/cm_config
+        Seems to have something to do with saving the current configuration
+        to flash.
+
+ * /usr/lib/updatedd
+        dynamic DNS client
+
+ * /usr/www/cgi-bin/firmwarecfg
+        Target of POST request which uploads a new firmware
+
+ * /var/upgrader (from var.tar)
+        Appearently the program which does the actual firmware flashing
+
+ * reboot
+        Restart the router
+
+
 = Flash Memory layout of RTP300 =
 == /proc/mtd ==
 {{{
@@ -324,7 +366,11 @@ If you get a page-not-found error after logging in in step seven, do not dispair
 
 == Using Firmware Update on the Provisioning Page ==
 
+(To be written.)
+
 == Using command line tools ==
+
+(To be written.)
 
 == From the PSPBoot prompt ==
 
