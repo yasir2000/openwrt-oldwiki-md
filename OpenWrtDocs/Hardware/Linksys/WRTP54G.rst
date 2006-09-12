@@ -48,11 +48,13 @@ mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 Notes:
 
- * The flash contains space for two firmwares.  This is appearently so that the system can boot from a backup firmware firmware flashing fails.  mtd3 and mtd4 contain the two firmwares.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
+ * The flash contains space for two firmwares.  This is presumably so that the system can boot from a backup firmware firmware flashing fails.  mtd3 and mtd4 contain the two firmwares.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
- * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib
- * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.
- * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.
+ * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib.  A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball.  This mksquashfs has been patched to use LZMA compression instead of Zlib.
+ * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.  The format of the compressed configuration file is described elsewhere in this document.
+
+ * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.  Some of them can be set by writing to /proc/ticfg/env.
+ * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd).  A partition must be erase before it can be written to.  Flashing firmware is fully described elsewhere in this document.
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
@@ -63,7 +65,6 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0xb0 thru ?? appear to be a partion table defining partions "kernel" and "root"
  * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
  * Bytes 0x010000 thru 0x08FFFF are the kernel.  Unused space at the end is filled with the value 0xFF.
-
  * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".
  * If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
 = Configuration File Format =
@@ -150,6 +151,10 @@ One trick a device into loading a firmware which was not intended for it by chan
 The router has room for two firmwares and a configuration area for each.  Factory defaults can be restored by formatting the configuration area of the currently active firmware.  (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.)  The command to clear the conifguration area of the first firmware is:
 
 {{{fmt CONFIG_A}}}
+
+Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
+
+
 
 A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  If you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
 
