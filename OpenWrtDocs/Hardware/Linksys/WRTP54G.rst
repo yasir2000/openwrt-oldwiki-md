@@ -62,9 +62,9 @@ As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has 
  * Rotary phones work
  * The voice status page displays very little information, basically just whether the last registration suceeded or not
  * Voice configuration is badly broken
- ** The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
- ** There are no links to the voice pages
- ** The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
+  * The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
+  * There are no links to the voice pages
+  * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
  * Distinctive ring may not work
  * If both line are configured to connect to Asterisk and registration is used, they do not stay registered reliably
 
