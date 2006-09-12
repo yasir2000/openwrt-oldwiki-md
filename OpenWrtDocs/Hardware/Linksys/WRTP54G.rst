@@ -244,13 +244,28 @@ It is presumably possible to write a firmware using JTAG, but so far nobody has 
 
 == Using the Web Interface ==
 
+This method ranges from very easy to somewhat tricky depending on what firmware is currently installed.  The basic procedure is as follows:
+
+ # Connect a computer to one of the yellow ports of the router
+ # Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
+ # Connect to http://192.168.15.1 using a web browser
+ # Log in using the default username and password of "admin" and "admin"
+ # Click on the "Administration" tab
+ # Click on the "Firmware Update" tab
+ # Log in as a user who is permitted to update the firmware (more on this below)
+ # Click on Browse and choose a firmware image
+ # Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
+
+
 == Using Firmware Update on the Provisioning Page ==
 
 == Using command line tools ==
 
 == From the PSPBoot prompt ==
 
-The PSPBoot boot loader has predefined environment variable called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions.  A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
+In order to use this method you must obtain or make a voltage converter for your router's serial port and hook it up as described in the section Serial Port.  You must also change the value of CONSOLE_STATE as described in the same section.  Since you need shell access to the router in order to change CONSOLE_STATE, you will not be able to use this method unless the existing firmware allows shell access.
+
+The PSPBoot boot loader has predefined environment variables called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions.  A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
 
 {{{
 setenv IPA 192.168.15.1
