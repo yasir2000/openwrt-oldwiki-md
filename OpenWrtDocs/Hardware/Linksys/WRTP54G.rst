@@ -76,6 +76,7 @@ As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has 
   * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
  * Distinctive ring may not work
  * If both line are configured to connect to Asterisk and registration is used, they do not stay registered reliably
+ * There are no visible settings for NAT traversal features such as NAT keepalive, an outgoing SIP proxy, or an STUN server.
 
 == 3.1.XX ==
 
@@ -88,6 +89,7 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * The voice static page displays a wealth of information about registration as well as current and previous calls
  * The voice tab works and the voice pages display the top level tab bar
  * Distrinctive ring works
+ * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
 
 = Flash Memory layout of RTP300 =
 == /proc/mtd ==
