@@ -33,6 +33,10 @@ See also: ["AR7Port"]
 = Source Code Supplied by Linksys =
 
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
+ * There appear to be pieces missing which make the code as a whole unbuildable.  At any rate, though several people in various forums have asked how to build the source code, nobody has posted instructions.
+ * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
+ * You can rebuild parts of the source code using the Montavista AR7 cross-compiler toolchain.
+ * If rebuild parts of the source code using the OpenWrt AR7 cross-compiler toolchain, you will get unusable binaries which the system mistakes for shell scripts.
 
 = Related Sites =
 
