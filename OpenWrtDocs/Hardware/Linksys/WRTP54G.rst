@@ -24,16 +24,21 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
- * In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
- * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html  (This page is no longer up.)
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
- * The telephony chipset seems to be produced by Telogy Networks (/lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/*.o). The driver source code has not been released.
+ * The telephony chip is the Legerity Le88221, part of the VE880 series.  There is a website with product liturature and example code at [http://www.legerity.com/products.php?cid=&sid=1&bpid=33]
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
 See also: ["AR7Port"]
 
 = Source Code Supplied by Linksys =
 
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
+
+== Related Sites ==
+
+ * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html  (This page is no longer up.)
+ * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: [http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb]
+ * Linux-MIPS port page about the AR7: [http://www.linux-mips.org/wiki/AR7]
+ * Some of the information on this page is derived from Linksysinfo.org: [http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html]
 
 = Accounts =
 
@@ -50,6 +55,10 @@ This user has an access level of "USER".  Oddly, this access level permits flash
 == Admin ==
 
 This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh.  This user has the access level  "ADMIN" which also permits flashing the firmware but does not allow independent login.
+
+= Web Access =
+
+The primary way to configure these devices is through a web interface.  In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
 
 = SSH Access =
 
