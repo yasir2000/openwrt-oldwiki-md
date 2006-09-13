@@ -15,70 +15,55 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 
-== Firmware Dumps for Study ==
 
+== Firmware Dumps for Study ==
  * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]!  This is different the mounted file system dumps which contain only the files from the mounted root
-
 == Misc Notes ==
-
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
- * The telephony chip is the Legerity Le88221, part of the VE880 series.  There is a website with product liturature and example code at [http://www.legerity.com/products.php?cid=&sid=1&bpid=33]
+ * The telephony chip is the Legerity Le88221, part of the VE880 series.  There is a website with product liturature and example code at http://www.legerity.com/products.php?cid=&sid=1&bpid=33
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
 See also: ["AR7Port"]
 
 = Source Code Supplied by Linksys =
-
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
  * There appear to be pieces missing which make the code as a whole unbuildable.  At any rate, though several people in various forums have asked how to build the source code, nobody has posted instructions.
  * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
  * You can rebuild parts of the source code using the Montavista AR7 cross-compiler toolchain.
  * If rebuild parts of the source code using the OpenWrt AR7 cross-compiler toolchain, you will get unusable binaries which the system mistakes for shell scripts.
-
 = Related Sites =
-
- * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: http://sub.st/articles/hacking-the-actiontec-gt701-wg-wireless-gateway.html  (This page is no longer up.)
- * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: [http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb]
- * Linux-MIPS port page about the AR7: [http://www.linux-mips.org/wiki/AR7]
- * Some of the information on this page is derived from Linksysinfo.org: [http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html]
-
+ * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: [http://sub.st/articles/hacking-the-actiontec-gt701/ http://sub.st/articles/hacking-the-actiontec-gt701/ ]
+ * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
+ * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
+ * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
 = Accounts =
-
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
-
 This user has an access level of "ROUTER".  This appears to be the level of access required to log into the top page of the router.  The default password is "admin".
 
 == user ==
-
 This user has an access level of "USER".  Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not.  Level "USER" does not permit to log onto router independently.  One must first log in as a user with "ROUTER" level access and then present enter the name and password of a "USER" level user at the login prompt which appears when the "username and password supplied by your service provider" are demanded.
 
 == Admin ==
-
 This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh.  This user has the access level  "ADMIN" which also permits flashing the firmware but does not allow independent login.
 
 = Web Access =
-
 The primary way to configure these devices is through a web interface.  In the initial configuration the LAN IP address is 192.168.15.1.  There is a web server with a management interface running on port 80.  The default username is "admin" with a password of "admin".  If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up.  Continue to hold down the reset button for about 50 seconds.
 
 = SSH Access =
-
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server.  This feature must be enable using the web interface.  The only username in /etc/passwd is "Admin" (note the upper case A).  Reliably setting the password for this account is problematic.
 
 = The Supplied Firmwares =
-
 All of the known firmwares have the following characteristics in common:
 
  * Linux 2.4.17 kernel with Montavista patches
  * uClibc
  * Busybox
-
 == 1.00.XX ==
-
 As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has the following distinguishing characteristics:
 
  * Busybox is built without the more command
@@ -91,9 +76,7 @@ As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has 
  * Distinctive ring may not work
  * If both line are configured to connect to Asterisk and registration is used, they may not stay registered reliably.  The exact circumstances under which this problem manifests itself are yet to be determined.
  * There are no visible settings for NAT traversal features such as NAT keepalive, an outgoing SIP proxy, or an STUN server.
-
 == 3.1.XX ==
-
 In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively.  Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
 
 Firmware 3.1.17 has the following distinguishing characteristics:
@@ -104,49 +87,31 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * The voice tab works and the voice pages display the top level tab bar
  * Distrinctive ring works
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
-
 == Programs and Files in the 3.1.XX Firmware ==
-
  * /etc/inittab
-        Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
-
+  . Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
  * /etc/init.d/rcS
-        System startup script.  Not much to see since most of the work is done by the mysterious "lightbox".
-
+  . System startup script.  Not much to see since most of the work is done by the mysterious "lightbox".
  * /usr/bin/foxy
-        an HTTP proxy server which implements the "filter JavaScript"
-        and other "security" functions
-
+  . an HTTP proxy server which implements the "filter JavaScript" and other "security" functions
  * /usr/bin/wget
-        GNU Wget (why not Busybox wget?).  This is appearently used to download new firmwares.
-
+  . GNU Wget (why not Busybox wget?).  This is appearently used to download new firmwares.
  * /usr/bin/lightbox
-        Mystery program run from /etc/init.d/rcS.  It seems that it must start most of the daemons
-
+  . Mystery program run from /etc/init.d/rcS.  It seems that it must start most of the daemons
  * /usr/bin/cm_convert
-        Converts old voice configuration to the 3.1.XX format.  Run once per boot.
-
+  . Converts old voice configuration to the 3.1.XX format.  Run once per boot.
  * /usr/bin/cm_logic
-        Seems to load the configuration ether from a specified flash
-        block or from an XML file.
-
+  . Seems to load the configuration ether from a specified flash block or from an XML file.
  * /usr/bin/cm_config
-        Seems to have something to do with saving the current configuration
-        to flash.
-
+  . Seems to have something to do with saving the current configuration to flash.
  * /usr/lib/updatedd
-        dynamic DNS client
-
+  . dynamic DNS client
  * /usr/www/cgi-bin/firmwarecfg
-        Target of POST request which uploads a new firmware
-
+  . Target of POST request which uploads a new firmware
  * /var/upgrader (from var.tar)
-        Appearently the program which does the actual firmware flashing
-
+  . Appearently the program which does the actual firmware flashing
  * reboot
-        Restart the router
-
-
+  . Restart the router
 = Flash Memory layout of RTP300 =
 == /proc/mtd ==
 {{{
@@ -166,12 +131,9 @@ Notes:
  * Unused space at the end of memory blocks is filled with the value 0xFF.
  * mtd0 ''root'' is mounted as /.  It is a 1.x squashfs image with LZMA compression instead of Zlib.  A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball.  This mksquashfs has been patched to use LZMA compression instead of Zlib.
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.  The format of the compressed configuration file is described elsewhere in this document.
-
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.  Some of them can be set by writing to /proc/ticfg/env.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd).  A partition must be erase before it can be written to.  Flashing firmware is fully described elsewhere in this document.
-
 = Firmware Update File Format =
-
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
  * Bytes 0x00 thru 0x03 are "CDTM".  This is presumably a magic number identifying the file as a firmware.
@@ -183,9 +145,7 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x010000 thru 0x08FFFF are the kernel.  Unused space at the end is filled with the value 0xFF.
  * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".
  * If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
-
 = Configuration File Format =
-
 The configuration of the router is stored in a single XML file.  This file is stored compressed in a raw flash partition.  If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
 The configuration can be extracted using the web interface (Administration/Management/Backup and Restore).  The configuration file produced by the backup function is incomplete.  Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
@@ -197,9 +157,7 @@ The configuration can be extracted using the web interface (Administration/Manag
  * Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
  * Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
-
 = Boot Loader Environment =
-
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
 At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.  The difference between the setenv and the setpermenv commands is unknown.
@@ -344,34 +302,22 @@ The JTAG utility authored by HairyDairyMaid that is in common use as a debugger 
  * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
 ----
  . CategoryModel ["CategoryAR7Device"]
-
 = Firmware Flashing =
-
 There are several proven ways to write a new firmware into flash:
 
  * Using the web interface
  * Using firmware update on the provisioning page
  * Using command line tools under a running firmware
  * From the PSPBoot prompt using the serial port console
-
 It is presumably possible to write a firmware using JTAG, but so far nobody has reported success.
 
 The PSPBoot page suggests that there is a one second window during PSPBoot startup during which a TFTP server is ready to accept a new firmware named upgrade_code.bin, but this feature does not seem to be included in the build of PSPBoot installed on the RTP300.
 
 == Using the Web Interface ==
-
 This method ranges from very easy to somewhat tricky depending on what firmware is currently installed.  The basic procedure is as follows:
 
- # Connect a computer to one of the yellow ports of the router
- # Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
- # Connect to http://192.168.15.1 using a web browser
- # Log in using the default username and password of "admin" and "admin"
- # Click on the "Administration" tab
- # Click on the "Firmware Update" tab
- # Log in as a user who is permitted to update the firmware (more on this below)
- # Click on Browse and choose a firmware image
- # Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
-
+ . # Connect a computer to one of the yellow ports of the router # Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
+ # Connect to http://192.168.15.1 using a web browser # Log in using the default username and password of "admin" and "admin" # Click on the "Administration" tab # Click on the "Firmware Update" tab # Log in as a user who is permitted to update the firmware (more on this below) # Click on Browse and choose a firmware image # Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds.  The router will restore its factory defaults and reboot.  Return to step three.
 
 If your router is running an NA firmware, the username needed in step seven is probably "Admin" (note the capital A verses the lower case a in step four).  The password will be blank.
@@ -381,15 +327,12 @@ If your router has Vonage firmware on it, the procedure is slightly more complic
 If you get a page-not-found error after logging in in step seven, do not dispair.  This is bug in some firmwares.  Simply enter the address http://192.168.15.1/update.html into your browser and continue from there.
 
 == Using Firmware Update on the Provisioning Page ==
-
 (To be written.)
 
 == Using command line tools ==
-
 (To be written.)
 
 == From the PSPBoot prompt ==
-
 In order to use this method you must obtain or make a voltage converter for your router's serial port and hook it up as described in the section Serial Port.  You must also change the value of CONSOLE_STATE as described in the same section.  Since you need shell access to the router in order to change CONSOLE_STATE, you will not be able to use this method unless the existing firmware allows shell access.
 
 The PSPBoot boot loader has predefined environment variables called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions.  A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP.  For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
@@ -399,5 +342,4 @@ setenv IPA 192.168.15.1
 fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
-
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
