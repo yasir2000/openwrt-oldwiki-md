@@ -76,6 +76,7 @@ As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has 
  * Distinctive ring may not work
  * If both line are configured to connect to Asterisk and registration is used, they may not stay registered reliably.  The exact circumstances under which this problem manifests itself are yet to be determined.
  * There appears to be support for NAT keepalive by sending NOTIFY messages, but it is not well labeled.  There are no visible settings for an outgoing SIP proxy or an STUN server.
+ * The default register interval is 1 minute.
 
 == 3.1.XX ==
 In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively.  Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
@@ -88,6 +89,8 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * The voice tab works and the voice pages display the top level tab bar
  * Distrinctive ring works
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
+ * The default SIP register interval is one hour.
+
 == Programs and Files in the 3.1.XX Firmware ==
  * /etc/inittab
   . Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
