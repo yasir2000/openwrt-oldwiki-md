@@ -121,6 +121,7 @@ HardwareAcceleratedCrypto
  * [http://forum.openwrt.org/viewtopic.php?id=5688 Some more compatiblity information]
  * [http://wl500g.info/forumdisplay.php?f=61 wl500g.info]
  * [http://forum.bsr-clan.de/viewtopic.php?t=8813&highlight=500 Does anyone know what exactly are the 8 (2x4) pins near the bigger capacitor on the PCB?]
+ They are 2 serial connections
  * [http://forum.openwrt.org/viewtopic.php?id=6362 configure WAN-interface]
 
 == Trunc with Kernel 2.6 ==
