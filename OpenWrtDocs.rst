@@ -39,6 +39,8 @@ Please read the manual. If you have any questions about anything in the manual, 
 [[Include(OpenWrtDocs/KamikazeConfiguration,,titlesonly)]]
 
 === Buildroot ===
+'''[:OpenWrtDocs/Buildroot: OpenWrt Buildroot]'''
+[[Include(OpenWrtDocs/Buildroot,,titlesonly)]]
 
 Both Buildroots probably need pages for:
   * acquiring via svn
@@ -46,6 +48,8 @@ Both Buildroots probably need pages for:
   * building new packages
 
 === Buildroot-ng ===
+'''[:OpenWrtDocs/BuildrootNg: OpenWrt Buildroot-ng]'''
+[[Include(OpenWrtDocs/BuildrootNg,,titlesonly)]]
 
 = Appendix: FAQ =
 '''[:Faq: FAQ]'''
