@@ -16,6 +16,13 @@ Many of the concepts from earlier versions are retained in Kamikaze.  Both lan a
 
 ==== DHCP ====
 ==== Static ====
+{{{
+config interface lan
+	option ifname	eth0
+	option proto	static
+	option ipaddr	192.168.1.1
+	option netmask	255.255.255.0
+}}}
 === PPPoE and PPPoA ===
 Normally, these are used for DSL.
 
