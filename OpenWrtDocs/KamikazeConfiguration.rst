@@ -11,9 +11,14 @@ Many of the concepts from earlier versions are retained in Kamikaze.  Both lan a
   * Some IP, netmask, etc review site
   * Some bridging and brctl info page
 === VLANs ===
-
+Since most routers use a single switch, you need to split up your WAN and LAN.
+{{{
+# Normal routing configuration for WRT54Gv3
+config switch et0
+        option vlan0    "0 1 2 3 5*"
+        option vlan1    "4 5"
+}}}
 === Ethernet ===
-
 ==== DHCP ====
 {{{
 config interface wan
