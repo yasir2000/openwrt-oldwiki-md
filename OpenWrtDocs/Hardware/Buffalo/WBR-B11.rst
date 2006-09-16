@@ -67,3 +67,14 @@ Cheers, stacato
 
 ----
 P.S.: This process should be the same for the WBR-G54 since it supposedly is the exact same device just with a different mini-PCI card. 
+
+----
+A few hints that might save you some time:
+
+ * use Internet Explorer to access the Buffalo admin page (there is a browser check - a firmware update with Firefox won't work)
+
+ * among many redundant NVRAM entries there are settings that will make S50dnsmasq fail. The following commands will fix this:
+
+{{{nvram set dhcp_num=50
+nvram set dhcp_start=101
+nvram commit}}}
