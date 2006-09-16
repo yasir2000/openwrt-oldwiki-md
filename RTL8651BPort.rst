@@ -1,24 +1,24 @@
 [[TableOfContents]]
 
 == Realtek RTL8651B SoC ==
-This is a SoC with a Lexra LX5280 32-bit MIPS core, with MMU and with a 6-port fast ethernet switch, used in routers. (For more specific details, see bottom of page.)
+This is a SoC with a Lexra LX5280 32-bit MIPS core, with MMU and with a 6-port fast ethernet switch, used in routers. Alternatively, the 818x series incorporate features suitable for SoC wireless applications. (For more specific details, see bottom of page.)
+
 
 == Earlier generations ==
-1. Realtek 8181
-
- * Lexra LX5280 core, up to 200MHz
- * no MMU
- * two ethernet MACs, WLAN
-2. Realtek 8186
-
- * Lexra LX5280 core, up to 200MHz
- * no MMU
- * WLAN, two UARTs, two Ethernet MACs, 4xPCM audio channels, crypto engine
-3. Realtek 8650/8651
+1. Realtek 8650/8651
 
  * Lexra LX4180 core, up to 96MHz
  * no MMU
- * two UARTs, 6-port fast ethernet switch, 2 PCI, PCMCIA, USB 1.1
+ * two UARTs, 2 PCI, PCMCIA, USB 1.1
+ * 6-port fast ethernet switch
+
+2. Realtek 8181
+
+ * Lexra LX5280 core, up to 200MHz
+ * no MMU
+ * UART, two ethernet MACs
+ * WLAN
+ 
 == Devices ==
 See TableOfHardware
 
@@ -37,7 +37,21 @@ See TableOfHardware
 Currently only the diff-ing is done based on 2.4.26-uc0, integration into 2.6 is in progress.
 
 == Detailed specifications ==
+Realtek 8651B
+
  * Lexra LX5280 core, up to 200MHz
  * MMU
- * two UARTs, 6-port fast ethernet switch, 4 PCI
+ * two UARTs, 4 PCI
+ * 6-port fast ethernet switch
  * switch traffic offload, crypto engine
+
+Realtek 8186
+
+ * Lexra LX5280 core, up to 200MHz
+ * MMU
+ * two Ethernet MACs
+ * WLAN
+ * crypto engine
+ * UART (second available on TFBGA package)
+ * PCI interface (TFBGA package only)
+ * 4xPCM audio channels (TFBGA package only)
