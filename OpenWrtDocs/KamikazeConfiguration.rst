@@ -38,3 +38,17 @@ ppp_mtu=1500
 }}}
 === 802.11x ===
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
+
+Default Configuration:
+{{{
+config wifi-device	wl0
+	option type	broadcom
+	option channel	5
+
+config wifi-iface
+	option device	wl0
+	option mode	ap
+	option ssid	OpenWrt
+	option hidden	0
+	option encryption none
+}}}
