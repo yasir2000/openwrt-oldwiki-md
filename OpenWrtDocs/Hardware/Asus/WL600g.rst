@@ -1,4 +1,4 @@
-=Asus WL600g=;
+= Asus WL600g =
 
 the device run linux, the firmware upgrade on [http://support.asus.com/download/download.aspx?SLanguage=en-us&model=WL-600g AsusSite]
 is a squashedfs and some other data appended to it (a kernel?)
