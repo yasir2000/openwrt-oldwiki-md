@@ -19,7 +19,7 @@ config switch et0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
-=== Ethernet ===
+=== Network Layer ===
 ==== DHCP ====
 {{{
 config interface wan
