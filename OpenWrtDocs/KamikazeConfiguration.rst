@@ -15,6 +15,12 @@ Many of the concepts from earlier versions are retained in Kamikaze.  Both lan a
 === Ethernet ===
 
 ==== DHCP ====
+{{{
+config interface wan
+	option ifname	vlan1
+	option proto	dhcp
+}}}
+
 ==== Static ====
 {{{
 config interface lan
