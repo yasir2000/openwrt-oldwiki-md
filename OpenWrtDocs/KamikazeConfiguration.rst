@@ -15,7 +15,7 @@ Many of the concepts from earlier versions are retained in Kamikaze.  Both lan a
 Since most routers use a single switch, you need to split up your WAN and LAN.
 {{{
 # Normal routing configuration for WRT54Gv3
-config switch et0
+config switch eth0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
@@ -23,14 +23,14 @@ config switch et0
 ==== DHCP ====
 {{{
 config interface wan
-	option ifname	vlan1
+	option ifname	eth0.1
 	option proto	dhcp
 }}}
 
 ==== Static ====
 {{{
 config interface lan
-	option ifname	eth0
+	option ifname	eth0.0
 	option proto	static
 	option ipaddr	192.168.1.1
 	option netmask	255.255.255.0
