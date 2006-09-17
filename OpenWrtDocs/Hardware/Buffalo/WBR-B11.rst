@@ -83,4 +83,8 @@ nvram commit}}}
 {{{root@OpenWrt:~# wl scan
 eth2: Operation not supported}}}
 
- * most commands of iwlist aren't supported either. If you don't like surprises, you might consider buying a different router.
+ * most commands of iwlist won't work 
+
+ * I should have known it from the start: no WPA either... I won't even try WDS. 
+
+What you get is a OpenWRT WEP only router. Buy a different router, if need something else.
