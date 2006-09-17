@@ -2,11 +2,9 @@
 
 http://southern-beach.dee.cc/wbr-b11/wbr-b11naka.jpg http://southern-beach.dee.cc/wbr-b11/wbr-b11mpci.jpg http://southern-beach.dee.cc/wbr-b11/wbr-b11antena.jpg
 
- * BCM4702 controler
-
  * mini-PCI WLAN card: WLI-MPCI-B11G with BCM4301
 
- * connection of self-powered USB devices might be possible (some components missing, 3.3V external router power supply)   
+ * PCB prepared for USB connection (preferably for self-powered USB devices, since the router has 3.3V external power supply)   
 
 
 === Installation of OpenWRT Firmware ===
