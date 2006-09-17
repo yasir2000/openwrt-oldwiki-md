@@ -69,7 +69,7 @@ Cheers, stacato
 P.S.: This process should be the same for the WBR-G54 since it supposedly is the exact same device just with a different mini-PCI card. 
 
 ----
-A few hints that might save you some time:
+=== More hints that might save you some time ===
 
  * use Internet Explorer to access the Buffalo admin page (there is a browser check - a firmware update with Firefox won't work)
 
@@ -78,3 +78,7 @@ A few hints that might save you some time:
 {{{nvram set dhcp_num=50
 nvram set dhcp_start=101
 nvram commit}}}
+
+ * the WL package doesn't seem to work with the built in 803.11b WLAN card. It throws the following error message:
+{{{root@OpenWrt:~# wl scan
+eth2: Operation not supported}}}
