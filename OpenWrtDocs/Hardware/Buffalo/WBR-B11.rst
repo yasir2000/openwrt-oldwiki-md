@@ -85,6 +85,6 @@ eth2: Operation not supported}}}
 
  * most commands of iwlist won't work 
 
- * I should have known it from the start: no WPA either... I won't even try WDS. 
+ * I should have known right from the start: no WPA either... I won't even try WDS. 
 
 What you get is a OpenWRT WEP only router. Buy a different router, if need something else.
