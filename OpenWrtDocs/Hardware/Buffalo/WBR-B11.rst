@@ -96,4 +96,4 @@ eth2: Operation not supported}}}
 
  * I should have known right from the start: no WPA either... I won't even try WDS. 
 
-What you get is a OpenWRT WEP only router. Buy a different router, if need something else.
+What you get is a OpenWRT WEP only router. Buy a different router, if you need something else.
