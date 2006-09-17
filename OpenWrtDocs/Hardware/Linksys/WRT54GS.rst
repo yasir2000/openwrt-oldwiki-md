@@ -6,17 +6,17 @@ There are many versions of the WRT54GS. Models up to and including version 2.1 a
 
 == Identification by S/N ==
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
-||||<tablestyle=""style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||||<style="text-align: center;">'''!OpenWrt''' ||
+||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||<style="text-align: center;"> '''S/N''' ||<style="text-align: center;">'''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
-||<style="text-align: left;" |2>WRT54GS v1.0 ||<style="text-align: center;"> CGN0 ||<style="text-align: center;" |2> (./) ||<style="text-align: center;" |2> (./) ||
+||<style="text-align: center;" |2>WRT54GS v1.0 ||<style="text-align: center;"> CGN0 ||<style="text-align: center;" |2> (./) ||<style="text-align: center;" |2> (./) ||
 ||<style="text-align: center;"> CGN1 ||
 ||WRT54GS v1.1 ||<style="text-align: center;"> CGN2 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
 ||WRT54GS v2.0 ||<style="text-align: center;"> CGN3 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
 ||WRT54GS v2.1 ||<style="text-align: center;"> CGN4 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
 ||WRT54GS v3.0 ||<style="text-align: center;"> CGN5 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
 ||WRT54GS v4.0 ||<style="text-align: center;"> CGN6 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v5 ||<style="text-align: center;"> CGN7 ||<style="text-align: center;"> {X} ||<style="text-align: center;"> {X} ||
-||WRT54GS v5.1 ||<style="text-align: center;"> CGN8 ||<style="text-align: center;"> {X} ||<style="text-align: center;"> {X} ||
+||WRT54GS v5 ||<style="text-align: center;"> CGN7 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
+||WRT54GS v5.1 ||<style="text-align: center;"> CGN8 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
 
 
 The WRT54GS-CA is identical to the WRT54GS, but it has packaging and documentation for the Canadian market.  This serial number information applies to the WRT54GS-CA.
@@ -66,9 +66,10 @@ JTAG           : assumed on JP1
 '''NOTE:''' v4.0 only has 4 MB Flash and 16 MB RAM. Half of prior versions. Some WRT54GS v4 has 8 MB flash and 32 MB RAM, only first relase of WRT54GS v4 had 4MB/16MB. Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
 === WRT54GS v5 & v5.1 ===
-This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It has less flash (2 MB) and less RAM (16 MB). The WRT54GS V5 is not officially supported, but a flashing procedure has been developed that will allow you to load a micro OpenWrt installation onto this device. For it to be of much use, packages must be pre-included in the squashfs filesystem image. For more information, see:http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE.
+This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It has less flash (2 MB) and less RAM (16 MB). The WRT54GS V5 is not officially supported, but a flashing procedure has been developed that will allow you to load a micro OpenWrt installation onto this device. For it to be of much use, packages must be pre-included in the squashfs filesystem image. For more information, see:[http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5_CFE http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE].
+
 The flashing procedure linked to above utilizes the capability of the VxWorks boot loader to flash over itself to upload a proper CFE on this unit that then allows flashing a 'normal' TRX firmware image. The new boot loader does support all 16MB of the RAM available on GS units.
-v5 series flashing technology:http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE.
+
 == Internal Photos ==
 Hardware info with detailed pictures.
 
@@ -102,4 +103,4 @@ I'm hooking up the wrt to a new, fully charged, 12V lead-acid car battery, rated
 We have run a Wrt for 6 weeks on a lead-acid battery, charger, generator combination with no problems. Power was cut due to legal problems concerning the site the AP was on. The only time the unit was down was when we had power restored.
 
 ----
- CategoryModel
+ . CategoryModel
