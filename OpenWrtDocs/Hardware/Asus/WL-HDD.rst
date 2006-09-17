@@ -49,6 +49,9 @@ fat
 vfat
 }}}
 
+'''Run root filesystem from the harddisk'''
+
+GerardBraad describes some additional steps on how to make the root filesystem run from the harddisk. These instructions can be found in the forum at http://forum.openwrt.org/viewtopic.php?id=7373
 
 '''Internal Images'''
 
