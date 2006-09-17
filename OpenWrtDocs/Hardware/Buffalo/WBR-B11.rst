@@ -1,4 +1,15 @@
-Describe OpenWrtDocs/Hardware/Buffalo/WBR-B11 here.
+=== Hardware Description ===
+
+http://southern-beach.dee.cc/wbr-b11/wbr-b11naka.jpg http://southern-beach.dee.cc/wbr-b11/wbr-b11mpci.jpg http://southern-beach.dee.cc/wbr-b11/wbr-b11antena.jpg
+
+ * BCM4702 controler
+
+ * mini-PCI WLAN card: WLI-MPCI-B11G with BCM4301
+
+ * connection of self-powered USB devices might be possible (some components missing, 3.3V external router power supply)   
+
+
+=== Installation of OpenWRT Firmware ===
 
 Where do we start. the TFTP firmware upgrade did not work for me with the openwrt-brcm-2.4-squashfs.trx as it was described to work for the WBR2-G54.
 
