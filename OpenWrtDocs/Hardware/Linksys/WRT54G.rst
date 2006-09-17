@@ -8,9 +8,8 @@ Some consider the ["L"] and ["3G"] versions of this model.
 
 == Identification by S/N ==
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
-
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' || '''S/N Prefix''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
+||'''Model''' || '''S/N Prefix''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze''' ||
 ||WRT54G v1.0 || CDF0 or CDF1 || (./) || (./) ||
 ||WRT54G v1.1 || CDF2 or CDF3 or CDF4 || (./) || (./) ||
 ||WRT54G v2 || CDF5 || (./) || (./) ||
@@ -18,9 +17,10 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3 || CDF8 || (./) || (./) ||
 ||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
 ||WRT54G v4 || CDFA || (./) || (./) ||
-||WRT54G v5 *|| CDFB || (./)  || {X} ||
+||WRT54G v5 * || CDFB || (./) || {X} ||
 ||WRT54G v5.1* || CDFC || (./) || {X} ||
-||WRT54G v6 *||CDFD || (./)  || {X} ||
+||WRT54G v6 * ||CDFD || (./) || {X} ||
+
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
 
@@ -39,8 +39,7 @@ The WRT54G v2.2 is based on the Broadcom 4712 board. It has a 200 MHz CPU, 4 MB 
 === WRT54G v3.0 & WRT54G v3.1 ===
 This unit is just like v2.2 except it has an extra button on the left front panel behind a Cisco logo. This button can be illuminated by either a yellow (amber?) or white LED, and is used for the "Secure Easy Setup" encryption setup feature. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
-To remove the front cover from a v3.1, you must first remove the small screws under the rubber covers of the front feet!
-The 3.1 model was also sold at least in limited numbers within the US (S/N table appears to state otherwise). ~~~
+To remove the front cover from a v3.1, you must first remove the small screws under the rubber covers of the front feet! The 3.1 model was also sold at least in limited numbers within the US (S/N table appears to state otherwise). ~~~
 
 If you have such a thing you can try  http://192.168.1.1/Cysaja.asp to identify
 
@@ -56,15 +55,17 @@ To remove the front cover from this unit you simply pop the front of the case of
 This board has a BCM3302 processor, revision 0.8.
 
 === WRT54G v5, v5.1, and v6 ===
+This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It has less flash (2 MB) and less RAM (8 MB). The WRT54G V5 is not officially supported, but a flashing procedure has been developed that will allow you to load a micro OpenWrt installation onto this device. For it to be of much use, packages must be pre-included in the squashfs filesystem image. For more information, see: http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE .
 
-This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It appears from pictures that it is nearly identical to v4 with an updated rev on the processor, less flash (2 MB) and less RAM (8 MB). Please see [http://forum.openwrt.org/viewtopic.php?id=6140 this thread] as db90h has managed to get White Russion RC5 as well as DD-WRT installed without the use of a JTAG cable. Apparently, the White Russion RC5 micro release will work without modifications. 
+ The flashing procedure linked to above utilizes the capability of the VxWorks boot loader to flash over itself to upload a proper CFE on this unit that then allows flashing a 'normal' TRX firmware image.
+
+ v5 series flashing technology: http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE .
 
 === Table summary ===
 How to get info:
 
  * board info: {{{nvram show | grep board | sort}}}[[BR]]
  * cpu model: {{{grep cpu /proc/cpuinfo}}}
-
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||
 ||WRT54G v1.0 ||-- ||  bcm94710dev ||      - ||-- ||  42 ||       4 || BCM4710 V0.0 ||  v1.0 ||  3.11.30.5 ||
 ||WRT54G v1.1 ||-- ||  bcm94710dev ||      - ||-- ||  42 ||       5 || BCM4710 V0.0 || v1.5 || 3.31.15.0 ||
@@ -73,10 +74,9 @@ How to get info:
 ||WRT54G v3.0 || 0x10 || 0x0708 || 0x0118 || 0 || 42 ||       7 || BCM3302 V0.7 ||-- ||-- ||
 ||WRT54G v3.1 (AU?) || 0x10 ||  0x0708 ||  0x0118 ||  0 ||  42 ||       7 || BCM3302 V0.7 ||-- ||-- ||
 ||WRT54G v4.0 || 0x10 ||  0x0467 ||  0x2558 ||  0 ||  42 ||       7 || BCM3302 V0.8 ||v3.6 ||       - ||
-||WRT54G v5.0 ||--- ||-- ||-- ||-- ||-- ||-- || BCM3302 V0.8 ||-- ||-- ||
-||WRT54G v5.1 || 0x13 || 0x0467 || 0x0758 || 0 || WRT54GV5_8M ||-- || BCM3302 V0.8 ||-- || 3.90.7.0 ||
-||WRT54G v6.0 ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||-- ||
-
+||WRT54G v5.0 || 0x13 || 0x0467 ||  0x2558 ||  0 ||42 ||       7 || BCM3302 V0.8 ||-- ||-- ||
+||WRT54G v5.1 || 0x13 || 0x0467 ||  0x2558 || 0 ||42 ||       7 || BCM3302 V0.8 ||-- || 3.90.7.0 ||
+||WRT54G v6.0 || 0x13|| 0x0467 ||  0x2558 ||  0 ||42 ||       7 || BCM3302 V0.8 ||-- ||-- ||
 WARNING: WRT54G v5.0, v5.1, and v6.0 board flags shown above may not be accurate because the CFE used to enable flashing to Windows is actually a modified WAP54Gv3 CFE, and depending on the version of the vxworks_killer used, the boardflags and other nvram variables may be different.
 
 Other NVRAM variables of interest :  firmware_version, os_version
@@ -87,8 +87,7 @@ Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?
 These models can be overclocked, though it should not be done if you don't have a JTAG cable to recover in case things go horribly wrong.
 
 === Why overclock? ===
-'''The argument for:''' 
-
+'''The argument for:'''
 
 Even if your processor average load is low, this doesn't mean you won't benefit from overclocking. A load average is an average use over a period of time. However, at any given time a processor is either actively executing pertinent code or its not. So at any given moment it's all or none. This means that, in theory, operations can be sped up in cases where the CPU is the bottleneck.
 
@@ -117,7 +116,6 @@ Users wishing to set their WRT54G v4 or WRT54G v5 to its maximum clock frequency
 nvram set clkfreq=250
 nvram commit
 reboot }}}
-
 ==== Valid BCM5352/BCM3302 r0.8 (WRT54G v4 and v5) Frequencies ====
 ||__'''CPU'''__ ||__'''SB'''__ || __'''Note'''__ ||
 ||183 ||92 || ||
@@ -129,8 +127,6 @@ reboot }}}
 ||233 ||116 || ||
 ||237 ||119 || ||
 ||250 ||125 || ||
-
-
 ==== Overclocking Experiences ====
 1.) I've had a WRT54G v4 running at the maximum valid frequency of 250mhz for a couple weeks with no stability problems. I do have a heat-sink (though not a very good one since it only partially covers the CPU) and a fan installed internally. The box ends up running quite cool. 2.) I've had a WRT54G v5 running at 240mhz for a couple weeks with no stability problems. It has a heat-sink but no fan. It does get pretty hot. 250mhz seemed to be less stable after the unit heated up. A fan addition should allow the v5 to run as well as the v4 mentioned above at 250mhz.
 
@@ -155,8 +151,6 @@ Other models use the commonly documented clock frequencies, with a max CPU clock
 ||264 ||132 || ||
 ||280 ||120 || ||
 ||300 ||120 || ||
-
-
 === Overclocking for the v1 ===
 This processor runs at 125mhz by default. Overclocking is reported to not be possible, but this has not been confirmed.
 
@@ -170,7 +164,6 @@ Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructio
 
 === Serial Ports ===
 Most (all?) versions of this model have an unpopulated 10-pin header that exposes two serial ports. The pins are defined as:
-
 ||Pin 1 ||3.3V ||Pin 2 ||3.3V ||
 ||Pin 3 ||Tx (ttyS1) ||Pin 4 ||Tx (ttyS0) ||
 ||Pin 5 ||Rx (ttyS1) ||Pin 6 ||Rx (ttyS0) ||
@@ -200,4 +193,4 @@ The SES Button was introduced in the WRT54G v3.0, though a firmware upgrade for 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the SES button you can find on WRT54G v3.0 and above, except that it has not been soldered.
 
 ----
- . CategoryModel                           
+ . CategoryModel
