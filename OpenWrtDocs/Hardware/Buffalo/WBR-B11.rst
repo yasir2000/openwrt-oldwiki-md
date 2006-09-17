@@ -69,9 +69,9 @@ Cheers, stacato
 P.S.: This process should be the same for the WBR-G54 since it supposedly is the exact same device just with a different mini-PCI card. 
 
 ----
-=== More hints that might save you some time ===
+=== Hints that might save you some time ===
 
- * use Internet Explorer to access the Buffalo admin page (there is a browser check - a firmware update with Firefox won't work)
+ * use Internet Explorer to access the Buffalo admin page (there is a browser check - a firmware update with FireFox won't work)
 
  * among many redundant NVRAM entries there are settings that will make S50dnsmasq fail. The following commands will fix this:
 
@@ -82,3 +82,5 @@ nvram commit}}}
  * the WL package doesn't seem to work with the built in 803.11b WLAN card. It throws the following error message:
 {{{root@OpenWrt:~# wl scan
 eth2: Operation not supported}}}
+
+ * most commands of iwlist aren't supported either. If you don't like surprises, you might consider buying a different router.
