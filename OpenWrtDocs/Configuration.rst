@@ -55,6 +55,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WBR2-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WHR-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
+||Buffalo||WHR-G54S||SN:7407||br0||vlan1||eth1||SVN-2006-09-15||
 ||Buffalo ||WLA-G54 || ||eth0 ||N/A ||eth2 ||No WAN port on this device ||
 ||Buffalo ||WZR-RS-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Buffalo ||WHR3-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
@@ -140,7 +141,7 @@ lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
 wan_proto=none
 }}}
-The above configuration also serves as a wireless to ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration. 
+The above configuration also serves as a wireless to ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration.
 
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
 
@@ -320,38 +321,39 @@ First do it without wireless protection and then activate the protection. If you
 /!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better know what you are doing...  '''Here's a hint, however:'''  You can keep the wired/wireless bridge broken and still use WDS; just recreate a bridge via the appropriate nvram variables and only add the device that connects to the network you want to bridge with the other access point (yes, a bridge with only one bridged device is legal).  The router will detect this bridge, and join the remote bridge to it automagically.
 
 == WDS Routed Networks (P2P) ==
-
-You might want to use routing over the WDS links, rather than bridging. This is a more complex set up. 
-You will want to break up the bridge, as explained above, as the default behaviour is to attach new WDS interfaces to the bridge. You can keep the bridge, but you will have to alter this default behaviour if you do (Which happens in /etc/hotplug.d/net/01-wds). 
+You might want to use routing over the WDS links, rather than bridging. This is a more complex set up.  You will want to break up the bridge, as explained above, as the default behaviour is to attach new WDS interfaces to the bridge. You can keep the bridge, but you will have to alter this default behaviour if you do (Which happens in /etc/hotplug.d/net/01-wds).
 
 So:
 
  * Remove the bridge. Your 4 LAN ports are now on their own network, distinct from the local wireless network (eth1) and distinct from any WDS networks that are created.
 i.e.
+
 {{{
 "nvram set lan_ifname=vlan0"
 }}}
- * If you want to have a local wireless service, you need to setup the wireless interface. The wireless network needs to be on a distinct subnet. This isn't necessary if you are just going to route from the LAN ports, to the WDS network and not use the local wireless net. It is also not necessary if you have kept the bridge, and instead disabled the automatic addition of WDS interfaces to br0. 
+ * If you want to have a local wireless service, you need to setup the wireless interface. The wireless network needs to be on a distinct subnet. This isn't necessary if you are just going to route from the LAN ports, to the WDS network and not use the local wireless net. It is also not necessary if you have kept the bridge, and instead disabled the automatic addition of WDS interfaces to br0.
 e.g.
+
 {{{
-  nvram set wifi_ifname=eth1 
+  nvram set wifi_ifname=eth1
   nvram set wifi_proto=static
   nvram set wifi_ipaddr=10.1.1.254
   nvram set wifi_netmask=255.255.255.128
 }}}
  1. You can then add WDS interfaces, as described above.
 e.g.
+
 {{{
 nvram set wl0_wds="00:14:12:25:CB:22 00:14:12:16:3B:28"
 }}}
  * You will want to add addresses for each of these (Note the interface names, which get truncated when displayed by ifconfig, start at wds0.49153 and increment by 0.00001 for each interface). The ip range off the routed WDS links is only 2 IP addresses wide. I chose to do this with nvram variables.
 e.g.
+
 {{{
 nvram set wl0_wds1_proto=static
 nvram set wl0_wds1_ifname=wds0.49153
 nvram set wl0_wds1_ipaddr=192.168.254.97
 nvram set wl0_wds1_netmask=255.255.255.252
-
 nvram set wl0_wds2_proto=static
 nvram set wl0_wds2_ifname=wds0.49154
 nvram set wl0_wds2_ipaddr=192.168.254.100
@@ -364,6 +366,7 @@ nvram set wds_ifnames="wl0_wds1 wl0_wds2"
 And modified /etc/init.d/S40network
 
 from:
+
 {{{
 #!/bin/sh
 case "$1" in
@@ -372,7 +375,7 @@ case "$1" in
     ifup wan
     ifup wifi
     wifi up
-    
+
     for route in $(nvram get static_route); do {
       eval "set $(echo $route | sed 's/:/ /g')"
       $DEBUG route add -net $1 netmask $2 gw $3 metric $4 dev $5
@@ -380,7 +383,6 @@ case "$1" in
     ;;
 esac
 }}}
-
 to:
 
 {{{
@@ -391,11 +393,9 @@ case "$1" in
     ifup wan
     ifup wifi
     wifi up
-
     for wdsif in $(nvram get wds_ifnames); do {
         ifup $wdsif
     } done
-
     for route in $(nvram get static_route); do {
       eval "set $(echo $route | sed 's/:/ /g')"
       $DEBUG route add -net $1 netmask $2 gw $3 metric $4 dev $5
@@ -403,14 +403,11 @@ case "$1" in
     ;;
 esac
 }}}
- * We are not quite finished. You need to be running a routing protocol across the links, or add static routes on each router. 
-
+ * We are not quite finished. You need to be running a routing protocol across the links, or add static routes on each router.
  * Don't forget to commit the nvram settings, e.g.
 {{{
 nvram commit
 }}}
-
-
 == Wireless client / wireless bridge ==
 The only thing you have to do is to switch the WL mode like with the bridge:
 
