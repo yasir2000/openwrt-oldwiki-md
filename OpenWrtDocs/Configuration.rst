@@ -208,6 +208,7 @@ vlan1hwname=et0
 }}}
 All ports lan (vlan0):
 
+(Hint for client mode: it may be necessary to unset vlan1ports and vlan1hwname and to set wan_device=eth1 to make DHCP work on the former WAN port)
 {{{
 vlan0ports="0 1 2 3 4 5*"
 vlan0hwname=et0
