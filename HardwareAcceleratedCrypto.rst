@@ -1,5 +1,5 @@
 == Hardware accelerated crypto ==
-Some models of the BCM47xx/48xx/53xx family support hardware accelerated encryption for IPSec, AES, DES, SHA1 calculations. Not all devices have hw crypto supporting chip. At least Asus WL500GD/X, Netgear WGT634U and Asus WL700gE do have hw crypto.
+Some models of the BCM47xx/53xx family support hardware accelerated encryption for IPSec, AES, DES, SHA1 calculations. Not all devices have hw crypto supporting chip. At least Asus WL500GD/X, Netgear WGT634U and Asus WL700gE do have hw crypto.
 
 The specification states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration using the blowfish encryption throughput is only ~0,4MB/s.
 
