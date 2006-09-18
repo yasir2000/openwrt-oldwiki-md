@@ -1,12 +1,12 @@
-== Harware accelerated crypto ==
-The BCM47xx/53xx (all xx models?) used by some of the platforms (Asus WL500GD/X, Netgear WGT634U...) have hardware accelerated encryption support for IPSec, AES, DES, SHA1, ... calculations.
+== Hardware accelerated crypto ==
+Some models of the BCM47xx/48xx/53xx family support hardware accelerated encryption for IPSec, AES, DES, SHA1 calculations. Not all devices have hw crypto supporting chip. At least Asus WL500GD/X, Netgear WGT634U and Asus WL700gE do have hw crypto.
 
-The specification(s?) states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration with the blowfish encryption throughput is only ~0,4MB/s.
+The specification states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration using the blowfish encryption throughput is only ~0,4MB/s.
 
 ----
 [http://forum.openwrt.org/viewtopic.php?id=5032 Discussion] about hardware accelerated crypto.
 
-Various versions of [http://80.81.183.101/openwrt/bcm5820/ BCM5820 driver sources].
+Various versions of [http://sukkamehulinko.romikselle.com/openwrt/bcm5820/ BCM5820 driver sources].
 
 BCM5801/BCM5805/BCM5820 Security Processor Software Reference Library http://www.broadcom.com/products/access_request.php?category_id=0&id=7&filename=5801-5805-5820-SRL101-R.pdf
 
