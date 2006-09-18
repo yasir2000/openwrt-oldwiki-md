@@ -49,5 +49,5 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * Official Freecom support site: http://www.openfsg.com
  * Sales page: http://www.freecom.com/ecProduct_detail.asp?ID=2347
  * Resellers: [http://www.mobileplanet.com/product.asp?code=129619 US] and [http://www.mobileplanet.com/product.asp?code=129619 Europe(UK)]
- * Internal photos: http://80.81.183.101/fsg3/
+ * Internal photos: http://sukkamehulinko.romikselle.com/fsg3/
  * Thread on OpenWrt forum: http://forum.openwrt.org/viewtopic.php?id=5828
