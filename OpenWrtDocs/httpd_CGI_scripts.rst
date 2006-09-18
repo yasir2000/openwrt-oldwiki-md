@@ -22,6 +22,7 @@ REQUEST_METHOD=POST
 PWD=/www/cgi-bin
 SERVER_PORT=80
 SCRIPT_NAME=/cgi-bin/test
+REMOTE_USER=[http basic auth username]
 }}}
 
 /cgi-bin/test
