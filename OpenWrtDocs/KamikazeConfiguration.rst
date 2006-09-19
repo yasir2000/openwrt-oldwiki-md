@@ -2,6 +2,12 @@
 THIS IS ALL UNTESTED.  PLEASE TRY TO CONFIRM IT FOR YOURSELF.
 == Forward / Background ==
 In the early days of OpenWRT, the only target platforms were the WRT54G and similar Broadcom based routers.  This platform had an NVRAM (much like high end, commercial routers) to store configuration information.  Up until White Russian, OpenWRT used NVRAM for configuration.  As OpenWRT expanded to new platforms without NVRAM, NVRAM was abandoned in favor of configuration files in /etc/config.  This configuration method presents related information in the same area and is much like existing *nix configuration files.
+There is an order to initialisation:
+1. CFE (bootloader) may initialise switch into VLANS based on NVRAM information
+2. Kamikaze may (will?) initialise switch into VLANS based on information in /etc/config/network (see below) - note this creates network devices with names like ''vlan0'' or ''eth0.0'' (what are they?) note also this used to be done using the ''robocfg'' utility; how is it done now? 
+3. Kamikaze may (will?) initialise the wifi card - note this can be done using ''madwifi'' and ''iwconfig'', is that what is happening during startup?
+4. Kamikaze may (will?) initialise bridges to link wireless with LAN based on information in /etc/config/network - note this can be done using the ''brctl'' utility, is this what is used during startup?
+4. Kamikaze will assign ip addresses to network devices or bridges - could be using ''brctl'' or ''ifconfig''
 
 Some older Kamikaze builds are configured like NVRAM, only with key=value pairs in the config file.
 
