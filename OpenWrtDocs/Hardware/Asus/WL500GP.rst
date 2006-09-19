@@ -31,6 +31,7 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * You're done! You should be able to telnet to your router and start configuring.
 
 === Using the Asus "firmware restoration" tool (windows only) === 
+
 * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
 * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
 * Press Upload. The router will reboot itself.
