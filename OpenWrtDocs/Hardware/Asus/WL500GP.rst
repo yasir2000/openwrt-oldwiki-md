@@ -13,9 +13,7 @@ If the tftp part fails, you can try the installation with the Asus "firmware res
 It might be possible to use manufacturers own web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface. 
 ~-Comment: From which webinterface, from asus fw version 1.9.6.9?-~
 
-
-
-=== Using diag mode and tftp === 
+=== Using diag mode and tftp ===
 
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
@@ -30,7 +28,7 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
 
-=== Using the Asus "firmware restoration" tool (windows only) === 
+=== Using the Asus firmware restoration tool (windows only) ===
 
 * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
 * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
