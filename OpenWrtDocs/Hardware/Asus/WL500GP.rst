@@ -30,10 +30,10 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
 
 === Using the Asus firmware restoration tool (windows only) ===
 
-* you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
-* Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
-* Press Upload. The router will reboot itself.
-* You can find the router on it's previous ip address (otherwise 192.168.1.1)
+ * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
+ * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
+ * Press Upload. The router will reboot itself.
+ * You can find the router on it's previous ip address (otherwise 192.168.1.1)
 
 == WL-500gP specific configuration ==
 
