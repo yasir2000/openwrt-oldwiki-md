@@ -2,8 +2,9 @@ The Asus WL-500g Premium seems to work with OpenWrt.
 
 == Installation ==
 
-Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the tftp part (which works for sure).
-From Asus Firmware 1.9.7.0 the webinterface doesn't work to upgrade to OpenWRT (bin or micro, 4Mb or 8Mb). Netkit's tftp doesn't work quit often, use atftp.
+Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the tftp part (which works for sure). 
+From Asus Firmware 1.9.7.0 the webinterface doesn't work to upgrade to OpenWRT (bin or micro, 4Mb or 8Mb). 
+If the tftp part fails, you can try the installation with the Asus "firmware restoration" tool (works like a charm, but windows only).
 
 === Via Asus web interface ===
 
@@ -14,9 +15,11 @@ It might be possible to use manufacturers own web interface to download OpenWrt 
 
 
 
-=== Using diag mode and tftp ===
+=== Using diag mode and tftp === 
 
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
+
+Netkit's tftp doesn't work quit often, use atftp.
 
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
  * Unplug the power cord.
@@ -26,6 +29,12 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
+
+=== Using the Asus "firmware restoration" tool (windows only) === 
+* you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
+* Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
+* Press Upload. The router will reboot itself.
+* You can find the router on it's previous ip address (otherwise 192.168.1.1)
 
 == WL-500gP specific configuration ==
 
