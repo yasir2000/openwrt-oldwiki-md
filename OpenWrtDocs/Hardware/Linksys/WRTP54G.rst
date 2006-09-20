@@ -367,7 +367,7 @@ The firmware should be in the same format as for upgrading through the web inter
 
 Using this procedure, you can write a firmware into one of the two firmware partitions.  Note that while you can overwrite the running firmware and reboot, it may not be a safe practice.  One can presumably overwrite the inactive firmware, but it is unclear how to then make it the active firmware.  This procedure describes how to overwrite the inactive firmware.
 
- * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.  (attachement:erase)
+ * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.  (attachement::erase)
  * Create a new firmware image.  See Firmware Upgrade File Format above.  (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
  * Download <b>erase</b> and the firmware to the router:
 {{{
