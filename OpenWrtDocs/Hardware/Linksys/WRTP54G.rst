@@ -6,7 +6,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||Linksys webpage ||[http://www1.linksys.com/products/product.asp?grid=33&prid=692 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1118334626380 Downloads] || [http://www1.linksys.com/products/product.asp?grid=33&prid=695 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1119460383933 Downloads] ||
 ||CyberTAN equiv model ||  [http://www.cybertan.com.tw/product/wgv614.asp WGV614] http://www.cybertan.com.tw/product/productpic/wgv614.jpg || [http://www.cybertan.com.tw/product/brv614.asp BRV614] http://www.cybertan.com.tw/product/productpic/brv614.jpg ||
 ||__Firmware Releases__ ||||<style="text-align: center;"> ||
-||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code] || [http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
+||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code]If both line are configured to connect to Asterisk and registration is used, they may not stay registered reliably.  The exact circumstances under which this problem manifests itself are yet to be determined. || [http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
 ||1.00.43: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.43-r050816.img Firmware Image] No Source || ||
 ||1.00.45: || ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.45-r050823.img Firmware Image] No Source ||
 ||1.00.52: || No Firmware Image [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.52/WRTP54G_v1.00.52.tgz Source Code] || No Firmware Image [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.52/RTP300_v1.00.52.tgz Source Code] ||
@@ -39,7 +39,51 @@ See also: ["AR7Port"]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
  * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
  * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
-= Accounts =
+
+= The Supplied Firmwares =
+All of the known firmwares have the following characteristics in common:
+
+ * Linux 2.4.17 kernel with Montavista patches
+ * uClibc
+ * Busybox
+
+== Characteristics of Version 1.00.XX ==
+As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has the following distinguishing characteristics:
+
+ * Busybox is built without the more command
+ * Rotary phones work
+ * The voice status page displays very little information, basically just whether the last registration suceeded or not
+ * Voice configuration is badly broken
+  * The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
+  * There are no links to the voice pages
+  * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
+ * Distinctive can be used by setting ALERT_INFO to &lt;Bellcore-dr<i>X</i>&gt; where X is 1--7.
+ * Some people have reported that the lines will not stay registered with an Asterisk server, especially if both are registered.  This is discussed below.
+ * There are no visible settings for an outgoing SIP proxy or an STUN server.  There is a setting which may be for sending NOTIFY messages to keep a NAT mapping active, but it does not seem to work.
+ * The default register interval is 1 minute.  This is rather short and may be intended to keep the NAT mapping active.
+
+If your phone lines will not register with the SIP server or will not stay registered, check these things:
+
+ * Make sure there are no DNS servers entered in the provisioning tab (may be labeled "Vonage DNS Servers")
+ * Use server names, not IP addresses.
+ * If you can, log in using SSH or the serial console and make sure /etc/resolv.conf lists only good DNS servers.
+
+== Characteristics of Version 3.1.XX ==
+
+In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively.  Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
+
+Firmware 3.1.17 has the following distinguishing characteristics:
+
+ * Busybox is built with the more command
+ * Rotary phones do not work
+ * The voice static page displays a wealth of information about registration as well as current and previous calls
+ * The voice tab works and the voice pages display the top level tab bar
+ * Distrinctive ring works
+ * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
+ * The default SIP register interval is one hour.
+
+= Accounts in the Supplied Firmwares =
+
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
@@ -56,40 +100,6 @@ The primary way to configure these devices is through a web interface.  In the i
 
 = SSH Access =
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server.  This feature must be enable using the web interface.  The only username in /etc/passwd is "Admin" (note the upper case A).  Reliably setting the password for this account is problematic.
-
-= The Supplied Firmwares =
-All of the known firmwares have the following characteristics in common:
-
- * Linux 2.4.17 kernel with Montavista patches
- * uClibc
- * Busybox
-== 1.00.XX ==
-As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has the following distinguishing characteristics:
-
- * Busybox is built without the more command
- * Rotary phones work
- * The voice status page displays very little information, basically just whether the last registration suceeded or not
- * Voice configuration is badly broken
-  * The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
-  * There are no links to the voice pages
-  * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
- * Distinctive can be used by setting ALERT_INFO to &lt;Bellcore-dr<i>X</i>&gt; where X is 1--7.
- * Some people have reported that the lines will not stay registered with an Asterisk server, especially if both are registered.  This is discussed below.
- * There are no visible settings for an outgoing SIP proxy or an STUN server.  There is a setting which may be for sending NOTIFY messages to keep a NAT mapping active, but it does not seem to work.
- * The default register interval is 1 minute.  This is rather short and may be intended to keep the NAT mapping active.
-
-== 3.1.XX ==
-In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively.  Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
-
-Firmware 3.1.17 has the following distinguishing characteristics:
-
- * Busybox is built with the more command
- * Rotary phones do not work
- * The voice static page displays a wealth of information about registration as well as current and previous calls
- * The voice tab works and the voice pages display the top level tab bar
- * Distrinctive ring works
- * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
- * The default SIP register interval is one hour.
 
 == Programs and Files in the 3.1.XX Firmware ==
  * /etc/inittab
