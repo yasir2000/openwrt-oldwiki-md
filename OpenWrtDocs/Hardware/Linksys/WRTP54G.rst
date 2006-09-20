@@ -147,6 +147,8 @@ Notes:
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file.  There is one configuration partition for each firmware.  The format of the compressed configuration file is described elsewhere in this document.
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.  The environment variables can be read from ''/proc/ticfg/env'' after boot.  Some of them can be set by writing to /proc/ticfg/env.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd).  A partition must be erase before it can be written to.  Flashing firmware is fully described elsewhere in this document.
+ * The directory /dev/ti_partitions/ contains symbolic links to serveral of the flash partitions.  The intent seems to be to give them meaningful names.
+
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
@@ -158,7 +160,14 @@ Here is a partial description of the format of the firmware update file format w
  * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
  * Bytes 0x010000 thru 0x08FFFF are the kernel.  Unused space at the end is filled with the value 0xFF.
  * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".
- * If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
+
+If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
+
+Here are some short Perl programs for manipulating firmware upgrade files:
+
+ * Set CRC: attachment:set_ti_checksum
+ * Set ProductID and flag at byte 0x0B: attachment:set_ProductID
+
 = Configuration File Format =
 The configuration of the router is stored in a single XML file.  This file is stored compressed in a raw flash partition.  If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
