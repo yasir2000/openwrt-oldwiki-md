@@ -331,7 +331,19 @@ If your router has Vonage firmware on it, the procedure is slightly more complic
 If you get a page-not-found error after logging in in step seven, do not dispair.  This is bug in some firmwares.  Simply enter the address http://192.168.15.1/update.html into your browser and continue from there.
 
 == Using Firmware Update on the Provisioning Page ==
-(To be written.)
+
+VOIP providers can configure these routers to periodically download a VOIP configuration file.  This file contains VOIP settings and login credentials for the provider's SIP server.  This process is called "provisioning".  The "provisioning" file can also instruct the router to download and install a new firmware.  The Provisioning page in the web interface can also be used to initiate this process.  This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page.  Here is the procedure for the 3.1.XX series firmware:
+
+ * Connect to the web interface and log in as admin
+ * Click on the Voice tab
+ * Click on "Admin Login" hyperlink under the second menu bar
+ * Click on the "switch to advanced view"
+ * Click on the "Provisioning" tab
+ * Enter the URL of the firmware file (HTTP is fine) in the "upgrade rule" field.
+ * Press "Save"
+ * Watch your HTTP server logs to see if the router grabs the firmware
+
+The firmware should be in the same format as for upgrading through the web interface.
 
 == Using command line tools ==
 
