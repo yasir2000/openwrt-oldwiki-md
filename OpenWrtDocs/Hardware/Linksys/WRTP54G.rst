@@ -367,7 +367,7 @@ The firmware should be in the same format as for upgrading through the web inter
 
 Using this procedure, you can write a firmware into one of the two firmware partitions.  Note that while you can overwrite the running firmware and reboot, it may not be a safe practice.  One can presumably overwrite the inactive firmware, but it is unclear how to then make it the active firmware.  This procedure describes how to overwrite the inactive firmware.
 
- * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.  (attachment:erase)
+ * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.  (attachment:flash_erase)
  * Create a new firmware image.  See Firmware Upgrade File Format above.  (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
  * Download <b>erase</b> and the firmware to the router:
 {{{
@@ -388,7 +388,13 @@ The PSPBoot boot loader has predefined environment variables called IMAGE_A and 
 
 {{{
 setenv IPA 192.168.15.1
-fmt IMAGE_A
+fmt IMAGE_A*= The Supplied Firmwares =
+All of the known firmwares have the following characteristics in common:
+
+ * Linux 2.4.17 kernel with Montavista patches
+ * uClibc
+ * Busybox
+=
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
