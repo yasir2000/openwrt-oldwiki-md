@@ -325,6 +325,7 @@ The JTAG utility authored by HairyDairyMaid that is in common use as a debugger 
  * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
 ----
  . CategoryModel ["CategoryAR7Device"]
+
 = Firmware Flashing =
 There are several proven ways to write a new firmware into flash:
 
@@ -341,13 +342,20 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
 
  * Connect a computer to one of the yellow ports of the router
  * Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
- * Connect to http://192.168.15.1 using a web browser
+ * Connect to http://192.168.15.1 using a web browser.  If it does not respond, hold down the reset button for at least five seconds.  When it reboots, try again.
  * Log in using the default username and password of "admin" and "admin"
  * Click on the "Administration" tab
- * Click on the "Firmware Update" tab
- * Log in as a user who is permitted to update the firmware (more on this below)
- * Click on Browse and choose a firmware image
+ * Click on the "Firmware Update" tab.  If there is no "Firmware Update" tab, enter http://192.168.15.1/update.html in your browser's location bar.
+ * Log in as a user who is permitted to update the firmware.  For generic firmwares, the username may be "Admin" with a blank password or "user" with a password of "user".  If your router was last used with Vonage, you can set a username of "user" and a password of "tivonpw" by following this procedure:
+ ** Plug the router into the Internet if it is not plugged in already.
+ ** Got to Administration tab and choose Factory Defaults.  Choose "Restore Router Defaults" and "Restore Voice Defaults"
+ ** Enter a username of "user" and a password of "tivonpw"
+ ** Give the router a minute to reboot and then return to step four.
+ * Click on Browse and choose a firmware image.  (If you get an error page instead of the firmware upgrade page, enter http://192.168.15.1/update.html into your browser's location bar.  Some firmwares have a broken link.)
+ * If the Internet cable is connected to the router, disconnect it.
  * Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
+ * If your router was last used with Vonage, log in again and go to Administration->Factory Defaults and reset both router and voice defaults again.  The router has two configuration areas, and the old settings may not be cleared out of active configuration area.  If they are not, the router may download and install a firmware that you do not want.
+ * Reconnect the router to the Internet.
 
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds.  The router will restore its factory defaults and reboot.  Return to step three.
 
@@ -397,13 +405,7 @@ The PSPBoot boot loader has predefined environment variables called IMAGE_A and 
 
 {{{
 setenv IPA 192.168.15.1
-fmt IMAGE_A*= The Supplied Firmwares =
-All of the known firmwares have the following characteristics in common:
-
- * Linux 2.4.17 kernel with Montavista patches
- * uClibc
- * Busybox
-=
+fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
