@@ -73,10 +73,10 @@ As of September 2006, Vonage loads firmware version 1.00.62.  This firmware has 
   * The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
   * There are no links to the voice pages
   * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
- * Distinctive ring may not work
- * If both line are configured to connect to Asterisk and registration is used, they may not stay registered reliably.  The exact circumstances under which this problem manifests itself are yet to be determined.
- * There appears to be support for NAT keepalive by sending NOTIFY messages, but it is not well labeled.  There are no visible settings for an outgoing SIP proxy or an STUN server.
- * The default register interval is 1 minute.
+ * Distinctive can be used by setting ALERT_INFO to &lt;Bellcore-dr<i>X</i>&gt; where X is 1--7.
+ * Some people have reported that the lines will not stay registered with an Asterisk server, especially if both are registered.  This is discussed below.
+ * There are no visible settings for an outgoing SIP proxy or an STUN server.  There is a setting which may be for sending NOTIFY messages to keep a NAT mapping active, but it does not seem to work.
+ * The default register interval is 1 minute.  This is rather short and may be intended to keep the NAT mapping active.
 
 == 3.1.XX ==
 In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively.  Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
