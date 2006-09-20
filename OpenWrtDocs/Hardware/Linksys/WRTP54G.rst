@@ -330,8 +330,16 @@ The PSPBoot page suggests that there is a one second window during PSPBoot start
 == Using the Web Interface ==
 This method ranges from very easy to somewhat tricky depending on what firmware is currently installed.  The basic procedure is as follows:
 
- . # Connect a computer to one of the yellow ports of the router # Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
- # Connect to http://192.168.15.1 using a web browser # Log in using the default username and password of "admin" and "admin" # Click on the "Administration" tab # Click on the "Firmware Update" tab # Log in as a user who is permitted to update the firmware (more on this below) # Click on Browse and choose a firmware image # Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
+ * Connect a computer to one of the yellow ports of the router
+ * Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
+ * Connect to http://192.168.15.1 using a web browser
+ * Log in using the default username and password of "admin" and "admin"
+ * Click on the "Administration" tab
+ * Click on the "Firmware Update" tab
+ * Log in as a user who is permitted to update the firmware (more on this below)
+ * Click on Browse and choose a firmware image
+ * Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
+
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds.  The router will restore its factory defaults and reboot.  Return to step three.
 
 If your router is running an NA firmware, the username needed in step seven is probably "Admin" (note the capital A verses the lower case a in step four).  The password will be blank.
@@ -359,16 +367,16 @@ The firmware should be in the same format as for upgrading through the web inter
 
 Using this procedure, you can write a firmware into one of the two firmware partitions.  Note that while you can overwrite the running firmware and reboot, it may not be a safe practice.  One can presumably overwrite the inactive firmware, but it is unclear how to then make it the active firmware.  This procedure describes how to overwrite the inactive firmware.
 
-* You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.
-* Create a new firmware image.  See Firmware Upgrade File Format above.  (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
-* Download <b>erase</b> and the firmware to the router:
+ * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.
+ * Create a new firmware image.  See Firmware Upgrade File Format above.  (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
+ * Download <b>erase</b> and the firmware to the router:
 {{{
 # cd /var
 # wget http://myhost/dir/erase
 # chmod 755 erase
 # wget http://myhost/dir/rtp300-XXXXX.bin
 }}}
-* Erase and write flash:
+ * Erase and write flash:
 {{{
 # /var/erase /dev/mtd/4 0 60 && dd if=/var/rtp300-XXXXX.bin of=/dev/mtd/4
 }}}
