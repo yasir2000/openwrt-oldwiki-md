@@ -166,7 +166,18 @@ Here is a partial description of the format of the firmware update file format w
 
 If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface will be eight bytes longer.
 
+== Working with the Squashfs ==
+
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  Possibly helpful information on working with Squashfs and LZMA can be found at [http://www.beyondlogic.org/nb5/squashfs_lzma.htm].  It is also possible that the WRT54G Firmware Modification Kit [http://www.bitsum.com/firmware_mod_kit.htm] would be of help.
+
+If you manage to patch your Linux kernel to include support for Squashfs with LZMA compression, you can extract and mount a firmware's root file system like this:
+
+{{{
+# dd if=fw.bin of=fw.fs bs=1024 skip=576
+# mount -o loop fw.fs /mnt
+}}}
+
+== Tools for Firmware Files ==
 
 Here are some short Perl programs for manipulating firmware upgrade files:
 
@@ -202,7 +213,7 @@ HWRevision 1.00.03
 max_try 4
 IMAGE_A 0x90020000,0x903f0000
 CONFIG_A 0x903f0000,0x90400000
-IMAGE_B 0x90400000,0x907d0000
+IMAGE_B 0x90400000,0x907d0000http://www.bitsum.com/firmware_mod_kit.htm
 CONFIG_B 0x907d0000,0x907e0000
 BOOTCFG_A m:f:"IMAGE_A"
 BOOTCFG_B m:f:"IMAGE_B"
@@ -270,7 +281,7 @@ Unfortunately, there does not seem to be a direct and reliable way to set BOOTCF
 {{{
 ________________________________________
 |                                         |
-|                                         led
+|                                         ledhttp://www.bitsum.com/firmware_mod_kit.htm
 |                   Pin 1: GND   ---> @   |
 |                                         led
 |         Pin 2: Not Connected   ---> @   |
