@@ -334,7 +334,18 @@ If you get a page-not-found error after logging in in step seven, do not dispair
 (To be written.)
 
 == Using command line tools ==
-(To be written.)
+
+Using this procedure, you can write a firmware into one of the two firmware partitions.  Note that while you can overwrite the running firmware and reboot, it may not be a safe practice.  One can presumably overwrite the inactive firmware, but it is unclear how to then make it the active firmware.  This procedure describes how to overwrite the inactive firmware.
+
+* You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router.
+* Create a new firmware image.  See Firmware Upgrade File Format above.  (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
+* Download <b>erase</b> and the firmware to the router:
+    # cd /var
+    # wget http://myhost/dir/erase
+    # chmod 755 erase
+    # wget http://myhost/dir/rtp300-XXXXX.bin
+* Flash:
+    # /var/erase /dev/mtd/4 0 60 && dd if=/var/rtp300-XXXXX.bin of=/dev/mtd/4
 
 == From the PSPBoot prompt ==
 In order to use this method you must obtain or make a voltage converter for your router's serial port and hook it up as described in the section Serial Port.  You must also change the value of CONSOLE_STATE as described in the same section.  Since you need shell access to the router in order to change CONSOLE_STATE, you will not be able to use this method unless the existing firmware allows shell access.
