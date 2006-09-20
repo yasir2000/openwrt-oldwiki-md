@@ -159,7 +159,7 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0xb0 thru ?? appear to be a partion table defining partions "kernel" and "root"
  * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
  * Bytes 0x010000 thru 0x08FFFF are the kernel.  Unused space at the end is filled with the value 0xFF.
- * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".
+ * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem.  The first four bytes of the squashfs are "hsqs".  Standard Linux kernels cannot mount this file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.
 
 If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long.  A firmware uploaded through the web interface must have an additional four byte magic number and a four byte CRC appended to it or it will be rejected.  The magic number is 0xC453DE23.
 
@@ -167,6 +167,7 @@ Here are some short Perl programs for manipulating firmware upgrade files:
 
  * Set CRC: attachment:set_ti_checksum
  * Set ProductID and flag at byte 0x0B: attachment:set_ProductID
+ * Unpack and pack firmwares: coming soon
 
 = Configuration File Format =
 The configuration of the router is stored in a single XML file.  This file is stored compressed in a raw flash partition.  If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
