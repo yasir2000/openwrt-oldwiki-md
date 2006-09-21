@@ -61,7 +61,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 || 2006-07-19 || DurvalMenezes || 7.2s || 14.2s || 15.8s || 11.3s || v0.6 || OpenWRT RC5 || ASUS WL-500GD || BCM3302 V0.7 || 200MHz || ["OpenWrtDocs/Hardware/Asus/WL500GD"] ||
 || 2006-07-20 || FrederikKlama || 5.3s || 10.5s || 11.6s || 6.6s || v0.6 || OpenWRT RC5 || ASUS WL-500gP || BCM4704 || 266MHz || ["OpenWrtDocs/Hardware/Asus/WL500GP"] ||
 || 2006-09-21 || jp || 7.7s || 14.5s || 16.1s || 9.3s || v0.6 || OpenWRT RC5 || Linksys WRT 54GL v1.0 || BCM3302 V0.8 || 200MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
-
+|| 2006-09-21 || jp || 7.0s || 13.2s || 14.7s || 8.5s || v0.6 || OpenWRT RC5 || Linksys WRT 54GL v1.0 || BCM3302 V0.8 || 216MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 TODO, which bench to use?
 
 ||'''Date''' ||'''Tester''' ||'''Time to run''' ||'''Version of bench''' ||'''Device''' ||'''CPU''' ||'''Freq''' ||'''Link to HW page''' ||
