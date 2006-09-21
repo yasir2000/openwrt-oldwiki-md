@@ -183,3 +183,6 @@ So i need someone with some time to test this, having an real linux available fo
 That's all I have so far. If you have any ideas, find Flyashi on #openwrt. I'd appreciate the help... thanks!
 
 Oh and HUGE thanks to Eagle_Fire for most of these insructions! And tojoe for the patch file fix. Thanks guys!
+
+==== note on dd and text mode files under Cygwin ====
+Cygwin is prone to "fixing" CR/LF line ends when a file is opened in text mode. Utilities can do this unexpectedly, [http://www.cygwin.com/ml/cygwin/2005-05/msg00786.html (ref)], especially if you have a text-mode mount point. In particular dd behaves this way, and this can nip you, e.g. when you follow the instructions for restoring ["WGT634U"] original firmware. Cygwin [http://www.sourceware.org/ml/cygwin-announce/2006-01/msg00019.html coreutils release 5.93-2] added dd command-line options -iflag=binary, -oflag=binary to control this. These options are not documented very well but they do the job.
