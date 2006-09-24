@@ -55,7 +55,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WBR2-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WHR-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
-||Buffalo||WHR-G54S||SN:7407||br0||vlan1||eth1||SVN-2006-09-15||
+||Buffalo ||WHR-G54S ||SN:7407 ||br0 ||vlan1 ||eth1 ||SVN-2006-09-15 ||
 ||Buffalo ||WLA-G54 || ||eth0 ||N/A ||eth2 ||No WAN port on this device ||
 ||Buffalo ||WZR-RS-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Buffalo ||WHR3-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
@@ -167,7 +167,7 @@ wifi_ipaddr=192.168.2.25
 wifi_netmask=255.255.255.0
 wan_ifname=vlan1
 wan_proto=dhcp
-lan_ifnames="vlan0 vlan1 eth1"
+lan_ifnames="vlan0"
 }}}
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
@@ -209,6 +209,7 @@ vlan1hwname=et0
 All ports lan (vlan0):
 
 (Hint for client mode: it may be necessary to unset vlan1ports and vlan1hwname and to set wan_device=eth1 to make DHCP work on the former WAN port)
+
 {{{
 vlan0ports="0 1 2 3 4 5*"
 vlan0hwname=et0
@@ -376,7 +377,6 @@ case "$1" in
     ifup wan
     ifup wifi
     wifi up
-
     for route in $(nvram get static_route); do {
       eval "set $(echo $route | sed 's/:/ /g')"
       $DEBUG route add -net $1 netmask $2 gw $3 metric $4 dev $5
