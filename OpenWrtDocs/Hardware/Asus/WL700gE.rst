@@ -16,3 +16,4 @@ The device is currently (July 2006) unsupported in OpenWrt 1.0 (White Russian) a
  * Thread on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=4883
  * User forum, includes inside pictures, Q&A, etc: http://wl700g.info/forumdisplay.php?f=87
  * Detailed inside pictures http://sukkamehulinko.romikselle.com/wl700g/
+ * Installing a SerialConsole, with detailed pictures http://www.tiedyedfreaks.org/eric/WL-700gE/
