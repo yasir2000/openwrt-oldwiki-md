@@ -15,3 +15,5 @@ Board view, component side:
   [   ] [RX] [  ] [  ] [TX] <
         [G ] [  ] [  ] [3v]
 }}}
+
+Serial connection parameters are : 38400,8N1
