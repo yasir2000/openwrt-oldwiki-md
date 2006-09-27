@@ -1,5 +1,7 @@
 '''Airlink AR525W'''
 
+GPL tarball : http://www.airlink101.com/support/files/AR525W_GPL_v1.0.38_20051222.tgz
+
 === Serial Ports ===
 This model has an unpopulated 9-pin header that exposes a 3.3V serial port. Some pins are listed below:
 
@@ -17,6 +19,8 @@ Board view, component side:
 }}}
 
 Serial connection parameters are : 38400,8N1
+
+The bootloader is RedBoot, and is a highly modified version by 'Dante'. No sources are provided yet for RedBoot, only a binary image in the GPL tarball.
 
 Boot log : 
 
