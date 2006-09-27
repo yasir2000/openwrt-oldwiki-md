@@ -7,7 +7,7 @@ In the early days of OpenWRT, the only target platforms were the WRT54G and simi
 Some older Kamikaze builds are configured like NVRAM, only with key=value pairs in the config file.
 
 
-== Order for Network Initialisation ==
+== Order for Network Initialization ==
 
 1. CFE (bootloader) may initialise switch into VLANS based on NVRAM information
 
@@ -28,13 +28,17 @@ Many of the concepts from earlier versions are retained in Kamikaze.  Both lan a
   * Some IP, netmask, etc review site
   * Some bridging and brctl info page
 === VLANs ===
-Since most routers use a single switch, you need to split up your WAN and LAN.
+Since most routers use a single switch, you need to split up your WAN and LAN.  There are some alternate configurations, like all ports switched and DMZ.
+
+See [:OpenWrtDocs/HardwareTables/switchPorts: Switch Ports]
+
 {{{
 # Normal routing configuration for WRT54Gv3
 config switch eth0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
+
 === Network Layer ===
 ==== DHCP ====
 {{{
