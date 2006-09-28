@@ -105,7 +105,7 @@ iptables        -A forwarding_rule -i $WAN -d 192.168.2.2 -j ACCEPT
 Note that most of this already exists in the default {{{/etc/firewall.user}}}, and only needs to be
 uncommented, with the IP edited as necessary.
 
-(Can't edit the file?  Check the [http://wiki.openwrt.org/Faq FAQ].)
+(Can't edit the file?  Check the [http://wiki.openwrt.org/Faq#head-74da83e07a26f01d739113dad7d8aaa31aae24e7 FAQ].)
 
 
 == Clean up ==
