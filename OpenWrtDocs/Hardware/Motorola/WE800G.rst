@@ -29,6 +29,8 @@ Here are some protographs of the PCB (This is a 2MB flash / 16MB RAM version) - 
 [http://i3.tinypic.com/x4kxzq.jpg/ Main PCB - Back]
 [http://i2.tinypic.com/x4ky6q.jpg/ Main PCB - Front]
 [http://i1.tinypic.com/x4ky94.jpg/ MiniPCI]
+[http://ra.vendomar.ee/~ivo/we800g_open.jpg Open box view]
+
 
 {{{
 root@OpenWrt:/# cat /proc/cpuinfo
