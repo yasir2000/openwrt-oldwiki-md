@@ -357,17 +357,17 @@ The PSPBoot page suggests that there is a one second window during PSPBoot start
 == Using the Web Interface ==
 This method ranges from very easy to somewhat tricky depending on what firmware is currently installed.  The basic procedure is as follows:
 
- * Connect a computer to one of the yellow ports of the router
+ 1. Connect a computer to one of the yellow ports of the router
  * Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
  * Connect to http://192.168.15.1 using a web browser.  If it does not respond, hold down the reset button for at least five seconds.  When it reboots, try again.
  * Log in using the default username and password of "admin" and "admin"
  * Click on the "Administration" tab
  * Click on the "Firmware Update" tab.  If there is no "Firmware Update" tab, enter http://192.168.15.1/update.html in your browser's location bar.
  * Log in as a user who is permitted to update the firmware.  For generic firmwares, the username may be "Admin" with a blank password or "user" with a password of "user".  If your router was last used with Vonage, you can set a username of "user" and a password of "tivonpw" by following this procedure:
-  * Plug the router into the Internet if it is not plugged in already.
+  a. Plug the router into the Internet if it is not plugged in already.
   * Got to Administration tab and choose Factory Defaults.  Choose "Restore Router Defaults" and "Restore Voice Defaults"
   * Enter a username of "user" and a password of "tivonpw"
-  * Give the router a minute to reboot and then return to step four.
+  * Give the router a minute to reboot and then return to step three.
  * Click on Browse and choose a firmware image.  (If you get an error page instead of the firmware upgrade page, enter http://192.168.15.1/update.html into your browser's location bar.  Some firmwares have a broken link.)
  * If the Internet cable is connected to the router, disconnect it.
  * Click on Update.  A progress bar will move accross the screen.  When the bar reaches about 10% the product ID will be checked.  After it reaches 100%, the CRC will be checked.  If both of these hurdles are passed, a screen will appear announcing that the device is rebooting.
