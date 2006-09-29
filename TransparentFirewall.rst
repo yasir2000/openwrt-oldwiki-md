@@ -25,18 +25,10 @@ Patching the kernel is no longer necessary with WhiteRussian RC5.  You just need
 {{{
 ebtables
 kmod-ebtables
+kmod-ipt-extra
 parprouted
 }}}
 
-Next, create the file /etc/modules.d/60-net:
-{{{
-ebtables
-ebtable_broute
-ebtable_filter
-ebtable_nat
-ebt_ip
-ebt_snat
-}}}
 
 
 === NVRAM Variables ===
@@ -44,15 +36,18 @@ ebt_snat
 The following nvram variables need to be set.  The variables set to '[set]' need to be set to your environment.
 
 {{{
-lan_gateway=[set]
-lan_netmask=[set]
-lan_ifnames=vlan0
-lan_dns=[set1] [set2] ...
-lan_proto=static
-lan_ipaddr=[set]
-lan_ifname=vlan0
 wan_proto=static
 wan_ifname=vlan1
+wan_ifnames=vlan1
+wan_ipaddr=[set]
+wan_netmask=[set]
+wan_gateway=[set]
+
+lan_proto=static
+lan_ifname=vlan0
+lan_ifnames=vlan0
+lan_ipaddr=[set]
+lan_netmask=[set]
 }}}
 
 === System Variables ===
@@ -70,10 +65,6 @@ First, the layer2 firewall:
 
 {{{
 #!/bin/ash
-#
-# This file is /etc/init.d/S44L2firewall
-
-${FAILSAFE:+exit}
 
 IFCONFIG=/sbin/ifconfig
 BRCTL=/usr/sbin/brctl
@@ -85,12 +76,13 @@ LAN_MASK=$(nvram get lan_netmask)
 LAN_MAC=$($IFCONFIG $LAN_IF | \
   /bin/grep "HWaddr" | \
   /bin/sed 's/.*HWaddr \(.*\)/\1/g')
-LAN_GW=$(nvram get lan_gateway)
 
 WAN_IF=$(nvram get wan_ifname)
+WAN_IP=$(nvram get wan_ipaddr)
 WAN_MAC=$($IFCONFIG $WAN_IF | \
   /bin/grep "HWaddr" | \
   /bin/sed 's/.*HWaddr \(.*\)/\1/g')
+WAN_GW=$(nvram get wan_gateway)
 
 BR_IF=br0
 BR_STP=off
@@ -108,30 +100,34 @@ if [ $? != 0 ]; then
   $BRCTL addbr $BR_IF
   $BRCTL stp $BR_IF $BR_STP
 
-  echo "  Adding LAN interface..."
-  $IFCONFIG $LAN_IF inet 0.0.0.0
-  $BRCTL addif $BR_IF $LAN_IF
-
   echo "  Adding WAN interface..."
-  $IFCONFIG $WAN_IF down hw ether $LAN_MAC
   $IFCONFIG $WAN_IF inet 0.0.0.0
   $BRCTL addif $BR_IF $WAN_IF
+
+  echo "  Adding LAN interface..."
+  $IFCONFIG $LAN_IF down hw ether $WAN_MAC
+  $IFCONFIG $LAN_IF inet 0.0.0.0
+  $BRCTL addif $BR_IF $LAN_IF
 
   echo "  Configuring Bridge interface..."
   $IFCONFIG $BR_IF inet 0.0.0.0 up
 
-  echo "  Configuring LAN interface..."
-  $IFCONFIG $LAN_IF inet $LAN_IP netmask 255.255.255.255
+  echo "  Configuring WAN outside interface..."
+  $IFCONFIG $WAN_IF inet $WAN_IP netmask $WAN_MASK
 
-  echo "  Configuring WAN interface..."
-  $IFCONFIG $WAN_IF inet $LAN_IP netmask $LAN_MASK
+  echo "  Configuring WAN inside interface..."
+  $IFCONFIG $LAN_IF inet $WAN_IP netmask $WAN_MASK
+
+  echo "    Configuring LAN interface..."
+  $IFCONFIG $LAN_IF:0 inet $LAN_IP netmask $LAN_MASK
 
   echo "  Adding default route..."
-  /sbin/route add default gw $LAN_GW dev $WAN_IF
+  /sbin/route add default gw $WAN_GW dev $WAN_IF
 
 else
   echo "Bridge already configured."
 fi
+
 
 echo "Configuring bridge firewall..."
 ## CLEAR TABLES
@@ -143,22 +139,29 @@ done
 # force ARP requests/replies and IP traffic to be routed on layer3
 $EBTABLES -t broute -A BROUTING -p 0x0806 -j DROP
 
-# Block IP traffic sourced outside the LAN subnet
+# Route LAN DHCP requests
+$EBTABLES -t broute -A BROUTING -p 0x0800 -i $LAN_IF --ip-protocol 17 \
+  --ip-source-port 67:68 --ip-destination-port 67:68 -j DROP
+
+# Route LAN packets
+$EBTABLES -t broute -A BROUTING -p 0x0800 -i $LAN_IF \
+  --ip-source $LAN_IP/$LAN_MASK -j DROP
+
+# Route IP traffic sourced outside the LAN subnet (blocked later)
 $EBTABLES -t filter -A FORWARD -i $WAN_IF \
-  -p 0x0800 --ip-src ! $LAN_IP/$LAN_MASK -j DROP
+  -p 0x0800 --ip-src ! $WAN_IP/$WAN_MASK -j DROP
+
+# Defined accept rule for accounting purposes
+$EBTABLES -t filter -A FORWARD -j ACCEPT
 
 # force all outgoing packets to have router's MAC address
 $EBTABLES -t nat -A POSTROUTING -o $WAN_IF -j snat --to-source $WAN_MAC
-
-
 }}}
 
 Next, the layer3 firewall:
 
 {{{
 #!/bin/sh
-
-${FAILSAFE:+exit}
 
 echo "Configuring layer3 firewall..."
 
@@ -171,9 +174,23 @@ LAN_IP=$(nvram get lan_ipaddr)
 LAN_MASK=$(nvram get lan_netmask)
 
 WAN_IF=$(nvram get wan_ifname)
+WAN_IP=$(nvram get wan_ipaddr)
+WAN_MASK=$(nvram get wan_netmask)
 
 BR_IF=br0
 BR_STP=off
+
+# Required kernel modules
+/sbin/insmod ipt_recent.o       2> /dev/null
+/sbin/insmod ipt_ttl.o          2> /dev/null
+/sbin/insmod ipt_TTL.o          2> /dev/null
+/sbin/insmod ebtables           2> /dev/null
+/sbin/insmod ebtable_broute     2> /dev/null
+/sbin/insmod ebtable_filter     2> /dev/null
+/sbin/insmod ebtable_nat        2> /dev/null
+/sbin/insmod ebt_ip             2> /dev/null
+/sbin/insmod ebt_snat           2> /dev/null
+
 
 
 ## CLEAR TABLES
@@ -182,48 +199,108 @@ for T in filter nat mangle; do
   iptables -t $T -X
 done
 
+
 ### INPUT
 ### (connections with the router as destination)
   echo "  Configuring INPUT chain..."
 
-  # allow IP packets from the LAN
-  iptables -A INPUT -s $LAN_IP/$LAN_MASK -j ACCEPT
+  # accept dhcp packets first, they dont have source IP yet
+  iptables -A INPUT -i $LAN_IF -p UDP --sport 68 --dport 67 -j ACCEPT
 
-  # base case
+  # stateful packets allowed
   iptables -A INPUT -m state --state INVALID -j DROP
   iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+  # allow packets from the private NAT LAN
+  iptables -A INPUT -i ppp+ -s $LAN_IP/$LAN_MASK -j ACCEPT
+  iptables -A INPUT -i $LAN_IF -s $LAN_IP/$LAN_MASK -j ACCEPT
+
+  # allow packets from loopback
+  iptables -A INPUT -i lo -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+
+  # Connections allowed to firewall from WAN
+  # ICMP
+  iptables -A INPUT -p ICMP -j ACCEPT
+
+  # allow IP packets from the WAN
+  iptables -A INPUT -s $WAN_IP/$WAN_MASK -j ACCEPT
+
+  # SSH
+  iptables -A INPUT -p TCP --dport 22 \
+    -m recent --name ROUTER-SSH --update --hitcount 5 --seconds 180 -j DROP
+  iptables -A INPUT -p TCP --dport 22 \
+    -m recent --name ROUTER-SSH --set -j ACCEPT
+
+  # PPTP
+  iptables -A INPUT -p TCP --dport 1723 \
+    -m recent --name ROUTER-PPTP --update --hitcount 5 --seconds 180 -j DROP
+  iptables -A INPUT -p TCP --dport 1723 \
+    -m recent --name ROUTER-PPTP --set -j ACCEPT
+  iptables -A INPUT -d $LAN_IP -p 47 -j ACCEPT
+
+  # FTP
+  iptables -A INPUT -p TCP --dport 21 \
+    -m recent --name ROUTER-FTP --update --hitcount 5 --seconds 180 -j DROP
+  iptables -A INPUT -p TCP --dport 21 \
+    -m recent --name ROUTER-FTP --set -j ACCEPT
 
   # Deny the rest
   iptables -A INPUT -j DROP
 
 
-### OUTPUT
+
+### Output
 ### (connections with the router as source)
-  echo "  Configuring OUTPUT chain..."
+  echo "  Configuring OUTPUT table..."
+  iptables -A OUTPUT -o $WAN_IF -p ICMP --icmp-type 0 -j ACCEPT
+  iptables -A OUTPUT -o $WAN_IF -p ICMP --icmp-type 8 -j ACCEPT
+  iptables -A OUTPUT -o $WAN_IF -p ICMP -j DROP
 
 
-### OUTPUT
+
+### NAT
 ### (connections with the router as source)
-  echo "  Configuring OUTPUT chain..."
+  echo "  Configuring NAT table..."
+
+  # apply NAT to local packets headed to the WAN
+  iptables -t nat -A POSTROUTING -o $WAN_IF -s $LAN_IP/$LAN_MASK -j MASQUERADE
+  iptables -t nat -A POSTROUTING -o $LAN_IF -s $LAN_IP/$LAN_MASK -j MASQUERADE
 
 
-### FORWARDING
+
+### PREROUTING
+### (packet hacks)
+
+  iptables -A PREROUTING -t mangle -d ! $LAN_IP -j TTL --ttl-inc 1
+
+
+### FORWARD
 ### (connections routed through the router)
-  echo "  Configuring FORWARDING chain..."
+  echo "  Configuring FORWARD chain..."
 
-  # allow IP packets from the LAN to the LAN
-  iptables -A FORWARD -s $LAN_IP/$LAN_MASK -d $LAN_IP/$LAN_MASK -j ACCEPT
-
-  # base case
+  # statefull packets allowed
   iptables -A FORWARD -m state --state INVALID -j DROP
-  iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pm
+  iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
   iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-  # allow
-  iptables -A FORWARD -i ! $WAN_IF -o $WAN_IF -j ACCEPT
+  # allow IP packets from the LAN to the LAN
+  iptables -A FORWARD -s $WAN_IP/$WAN_MASK -d $WAN_IP/$WAN_MASK -j ACCEPT
+
+  # allow LAN and PPP connections to LAN
+  iptables -A FORWARD -i ppp+ -o $LAN_IF -j ACCEPT
+  iptables -A FORWARD -i $LAN_IF -o $LAN_IF -j ACCEPT
+
+  # Block VPN clients from routing to the internet
+  #iptables -A FORWARD -s 128.173.94.229 -o $WAN_IF -j DROP
+
+  # allow outbound connections
+  iptables -A FORWARD -i ppp+ -o $WAN_IF -j ACCEPT
+  iptables -A FORWARD -i $LAN_IF -o $WAN_IF -j ACCEPT
+  iptables -A FORWARD -i $BR_IF -o $WAN_IF -s $LAN_IP/$LAN_MASK -j ACCEPT
 
   # Deny the rest
   iptables -A FORWARD -j DROP
+
 }}}
 
 
