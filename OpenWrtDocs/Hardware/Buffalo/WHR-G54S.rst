@@ -19,26 +19,22 @@ tftp> timeout 60
 tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
-----
+ <!> Note:
 
-Note:
+ You have to enter the 'put' command fairly quickly after plugging the power back in. Just after most of the network indicator LEDs have gone off (i.e. only the ports with cables connected should have LEDs on) would be perfect. If you get something like
 
-You have to enter the 'put' command fairly quickly after plugging the power back in. Just after most of the network indicator LEDs have gone off (i.e. only the ports with cables connected should have LEDs on) would be perfect. If you get something like
+ {{{
+ sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
+ sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
+ sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
+ sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
+ sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
+ sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
+ ...
+ Transfer timed out.
+ }}}
 
-{{{
-sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
-sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
-sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
-sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
-sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
-sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
-...
-Transfer timed out.
-}}}
-
-you were probably not quick enough. In that case, just try again.
-
-----
+ you were probably not quick enough. In that case, just try again.
 
 After this, wait for the device to reboot and you should be set. You should be able to telnet to 192.168.11.1 or whatever the unit was set to prior to the installation.
 
