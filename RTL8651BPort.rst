@@ -55,3 +55,7 @@ Realtek 8186
  * UART (second available on TFBGA package)
  * PCI interface (TFBGA package only)
  * 4xPCM audio channels (TFBGA package only)
+
+== Resources ==
+
+ * Source for GPLed code in Linksys WRT54GX2, WRT54GX4, and WRV200 is available from [http://www.linksys.com/servlet/Satellite?c=L_Content_C1&childpagename=US%2FLayout&cid=1115416836002&pagename=Linksys%2FCommon%2FVisitorWrapper Linksys "GPL Code Center"]
