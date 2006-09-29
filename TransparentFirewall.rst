@@ -88,6 +88,14 @@ BR_IF=br0
 BR_STP=off
 
 
+# Required kernel modules
+/sbin/insmod ebtables           2> /dev/null
+/sbin/insmod ebtable_broute     2> /dev/null
+/sbin/insmod ebtable_filter     2> /dev/null
+/sbin/insmod ebtable_nat        2> /dev/null
+/sbin/insmod ebt_ip             2> /dev/null
+/sbin/insmod ebt_snat           2> /dev/null
+
 
 # ===================================================
 # ORDER IS CRITICAL IN BRIDGE SETUP, DONT MUCK IT UP!
@@ -184,12 +192,6 @@ BR_STP=off
 /sbin/insmod ipt_recent.o       2> /dev/null
 /sbin/insmod ipt_ttl.o          2> /dev/null
 /sbin/insmod ipt_TTL.o          2> /dev/null
-/sbin/insmod ebtables           2> /dev/null
-/sbin/insmod ebtable_broute     2> /dev/null
-/sbin/insmod ebtable_filter     2> /dev/null
-/sbin/insmod ebtable_nat        2> /dev/null
-/sbin/insmod ebt_ip             2> /dev/null
-/sbin/insmod ebt_snat           2> /dev/null
 
 
 
