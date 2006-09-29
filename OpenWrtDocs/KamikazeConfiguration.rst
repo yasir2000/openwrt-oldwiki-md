@@ -91,3 +91,5 @@ config wifi-iface
 	option hidden	0
 	option encryption none
 }}}
+
+Currently, the only? supported type is broadcom.  Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
