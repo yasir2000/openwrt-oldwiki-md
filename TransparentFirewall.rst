@@ -34,17 +34,8 @@ ebtables
 ebtable_broute
 ebtable_filter
 ebtable_nat
-ebt_arp
-ebt_arpreply
-ebt_dnat
 ebt_ip
-ebt_log
-ebt_pkttype
-ebt_redirect
 ebt_snat
-ebt_stp
-ebt_ulog
-ebt_vlan
 }}}
 
 
