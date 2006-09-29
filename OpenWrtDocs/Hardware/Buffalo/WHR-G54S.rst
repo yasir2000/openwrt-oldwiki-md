@@ -19,7 +19,7 @@ tftp> timeout 60
 tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
----
+----
 
 Note:
 
@@ -38,7 +38,7 @@ Transfer timed out.
 
 you were probably not quick enough. In that case, just try again.
 
----
+----
 
 After this, wait for the device to reboot and you should be set. You should be able to telnet to 192.168.11.1 or whatever the unit was set to prior to the installation.
 
