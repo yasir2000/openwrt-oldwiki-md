@@ -21,7 +21,7 @@ tftp> put openwrt-xxx-x.x-xxx.trx
 
 Note:
 
-You have to enter the 'put' command fairly quick after booting plugging the power back in. Just after the most of the network indicator LEDs have gone off (i.e. only the ports with cables connected should have LEDs on) would be perfect. If you get something like
+You have to enter the 'put' command fairly quickly after plugging the power back in. Just after the most of the network indicator LEDs have gone off (i.e. only the ports with cables connected should have LEDs on) would be perfect. If you get something like
 
 {{{
 sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
