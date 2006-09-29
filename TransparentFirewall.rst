@@ -16,29 +16,37 @@ Why are the servers different?
 
 == Network Topology ==
 
-[http://support.mprg.org/openwrt/topology.jpg]
+[http://www.psyc.vt.edu/openwrt/topology.jpg]
 
 == Kernel Patching ==
 
-ebtables has been removed from the openWRT kernel for performance reasons, so you will need to build a custom firmware with ebtables in the kernel.
+Patching the kernel is no longer necessary with WhiteRussian RC5.  You just need to install the following additional packages:
 
- * Visit [http://wiki.openwrt.org/OpenWrtDocs/Installing] to download the openWRT source code.
- * Click [http://support.mprg.org/openwrt/100-ebtables.patch.txt] to download the patch.
- * Save the patch into openwrt/target/linux/linux-2.4/patches/generic/
- * Run 'make menuconfig'
- * Be sure to include bridging and ebtables in package selection and kernel configuration.
- * Run 'make'
+{{{
+ebtables
+kmod-ebtables
+parprouted
+}}}
 
-Please see other documentation on building a custom openWRT firmware if you are unfamiliar with the process.
+Next, create the file /etc/modules.d/60-net:
+{{{
+ebtables
+ebtable_broute
+ebtable_filter
+ebtable_nat
+ebt_arp
+ebt_arpreply
+ebt_dnat
+ebt_ip
+ebt_log
+ebt_pkttype
+ebt_redirect
+ebt_snat
+ebt_stp
+ebt_ulog
+ebt_vlan
+}}}
 
-Also be aware that during the build process, you will be asked if you want to include certain sections of the ebtables patch.  I just pressed 'y' every time it asked.
-
-== Setup ==
-
-
-=== Package Installation ===
-
-Be sure the following packages are installed: ebtables, ip, parprouted
 
 === NVRAM Variables ===
 
@@ -48,13 +56,12 @@ The following nvram variables need to be set.  The variables set to '[set]' need
 lan_gateway=[set]
 lan_netmask=[set]
 lan_ifnames=vlan0
-lan_dns=[set1],[set2],...
+lan_dns=[set1] [set2] ...
 lan_proto=static
 lan_ipaddr=[set]
 lan_ifname=vlan0
 wan_proto=static
 wan_ifname=vlan1
-wl0_radio=0
 }}}
 
 === System Variables ===
@@ -115,6 +122,7 @@ if [ $? != 0 ]; then
   $BRCTL addif $BR_IF $LAN_IF
 
   echo "  Adding WAN interface..."
+  $IFCONFIG $WAN_IF down hw ether $LAN_MAC
   $IFCONFIG $WAN_IF inet 0.0.0.0
   $BRCTL addif $BR_IF $WAN_IF
 
