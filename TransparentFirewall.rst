@@ -290,9 +290,6 @@ done
   iptables -A FORWARD -i ppp+ -o $LAN_IF -j ACCEPT
   iptables -A FORWARD -i $LAN_IF -o $LAN_IF -j ACCEPT
 
-  # Block VPN clients from routing to the internet
-  #iptables -A FORWARD -s 128.173.94.229 -o $WAN_IF -j DROP
-
   # allow outbound connections
   iptables -A FORWARD -i ppp+ -o $WAN_IF -j ACCEPT
   iptables -A FORWARD -i $LAN_IF -o $WAN_IF -j ACCEPT
