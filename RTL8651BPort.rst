@@ -63,7 +63,7 @@ Source Code for Manufacturers' Firmware is available from:
 
  * [:OpenWrtDocs/Hardware/Asus/WL566gM:Asus WL-566gM] '''MISSING IN ACTION'''
  * Belkin F5D8230-4 [http://www.belkin.com/support/gpl.asp]
- * Canyon CN-WF514 [http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514/Down}
+ * Canyon [http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514/Down CN-WF514]
  * D-Link DI-624M [http://support.dlink.com/faq/print.asp?productid=2081]
  * D-Link DI-634M '''MISSING IN ACTION'''
  * Edimax BR-6204Wg [http://www.edimax.com.tw/html/english/frames/b-download.htm]
