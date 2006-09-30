@@ -66,6 +66,8 @@ I'll be back after testing.
 
 = Finding the serial ports on the WR850G =
 
+*** Could you please explain why you want to find the serial ports? Is it for loading or unbricking? Is it to attach serial devices or as an alternate way of communicating with the router?
+
 == WR850G ==
 Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.  This information derived from [http://wl500g.info/showthread.php?t=587&page=1&pp=15 Technik]:
 
