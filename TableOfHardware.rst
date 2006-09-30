@@ -111,7 +111,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] || 2 (rev.AE) || [http://www.linux-mips.org/wiki/Adm5120 ADM5120 ] || 2MB || 16MB(8MB?) || || || || || || || [:Edimax:Untested] ||
-||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] || 3 || [http://www.linux-mips.org/wiki/Realtek_SOC RTL8186] || 2MB || 8MB || RTL 8186 || RTL 8305SC || || || || || [:RTL8651BPort:Untested] ||
+||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] || 3 || [http://www.linux-mips.org/wiki/Realtek_SOC RTL8186] || 2MB || 16MB || RTL 8186 || RTL 8305SC || || || || || [:RTL8651BPort:Untested] ||
 == Castlenet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
