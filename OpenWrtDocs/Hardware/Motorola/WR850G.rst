@@ -52,8 +52,16 @@ The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set 
 
 == Possible Alternate loading method ==
 *** This method has '''NOT''' been shown to work yet ** [[BR]]
-The '''nvram set boot_wait=on''' method above did not put the router into 192.168.10.1 for me so I tried the following. [[BR]]
-With the version 4.03 the control page has an option '''upgrade firmware'''. I tried this and it complained that the bin file was not a trx file. I renamed the file and it uploaded. After the upload the modem light blinked red for about a minute. I have not been able to find the IP for the device since, however it took me quite a while to find it in the first place. I have etheral protocol analyzer running and am only seeing spanning tree protocol messages from the ethernet address and about every fourth message is a ppoe query. I can't find the IP address of the router yet. Has anyone had success or failure with this method?
+The '''nvram set boot_wait=on''' method above did not put the router into 192.168.10.1 for me so I tried the following. I believe I had already upgraded my WR850g per:  [[BR]]
+WR850G 4.03 Firmware Release Notes [[BR]]
+Part Number 515750-001[[BR]]
+Product WR850G[[BR]]
+Release Version 4.03[[BR]]
+Date 05/04[[BR]]
+[[BR]]
+With the version 4.03 the control page has an option '''upgrade firmware'''. I tried this and it complained that the openwrt-wr850g-squashfs.bin file was not a trx file. I renamed the file and it uploaded. After the upload the modem light blinked red for about a minute. I have not been able to find the IP for the device since, however it took me quite a while to find it in the first place. I have etheral protocol analyzer running and am only seeing spanning tree protocol messages from the ethernet address and about every fourth message is a ppoe query. I can't find the IP address of the router yet. Has anyone had success or failure with this method? [[BR]] [[BR]]
+Further... I followed the Motorola instructions and unplugged the device and went and made tea. When I plugged it back in, I put into a different pc and using the original IP address in the brower pulled up the openwrt welcome page. BINGO and a lot easier. [[BR]]
+I'll be back after testing.
 
 
 = Finding the serial ports on the WR850G =
