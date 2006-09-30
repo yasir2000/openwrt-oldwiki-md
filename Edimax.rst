@@ -17,7 +17,7 @@ Sweex [http://sweex.com/product.asp?pid=302 LB000021]
 
 Dynamode [http://www.dynamode.net/ADSL/BR-6004.htm BR-6004] 
 
-
+See [http://www.linux-mips.org/wiki/Adm5120 Adm5120] at linux-mips.org for a list of more similar devices
 
 == Installing Firmware ==
 Currently, the only way to install OpenWRT is to build ["kamikaze"] and transfer the resutling image to the router via serial port. Please consult [http://midge.vlad.org.ua here (Midge)]. Here is a good HOWTO on installing a [http://forum.amilda.org/viewtopic.php?id=37 serial port].
