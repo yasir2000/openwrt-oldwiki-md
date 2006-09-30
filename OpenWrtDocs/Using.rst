@@ -54,6 +54,10 @@ People are lazy. We don't want to give people a false sense of security by creat
 == What if I can't access telnet when first booting? ==
 This may very well be a problem with your firewall settings in linux or windows. If you have any firewalls, you may disable them.
 
+Is the following also caused by firewall settings? I looks like an openWrt setting.[[BR]]
+Login failed. [[BR]]
+Connection closed by foreign host. [[BR]]
+
 == What if I can't access SSH after setting a password? ==
 Try again after a minute or two. On the first bootup OpenWrt will be busy setting up the filesystem and generating SSH keys; the SSH server won't start until after the keys have been generated.
 
