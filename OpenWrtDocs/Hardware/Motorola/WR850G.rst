@@ -50,8 +50,7 @@ If you ever need to revert your router to official Motorola firmware, it can be 
 
 The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set a static IP on your router and plug in to a wired port with your PC in the IP range 192.168.10.x, then in a Windows command prompt, get "ping -t 192.168.10.1" going and power cycle the router, you should get about 4 pings on 192.168.10.1 from the bootloader '''if boot_wait is set'''.
 
-== Possible Alternate loading method ==
-*** This method has '''NOT''' been shown to work yet ** [[BR]]
+== Alternate Initial Loading Method ==
 The '''nvram set boot_wait=on''' method above did not put the router into 192.168.10.1 for me so I tried the following. I believe I had already upgraded my WR850g per:  [[BR]]
 WR850G 4.03 Firmware Release Notes [[BR]]
 Part Number 515750-001[[BR]]
@@ -59,10 +58,10 @@ Product WR850G[[BR]]
 Release Version 4.03[[BR]]
 Date 05/04[[BR]]
 [[BR]]
-With the version 4.03 the control page has an option '''upgrade firmware'''. I tried this and it complained that the openwrt-wr850g-squashfs.bin file was not a trx file. I renamed the file and it uploaded. After the upload the modem light blinked red for about a minute. I have not been able to find the IP for the device since, however it took me quite a while to find it in the first place. I have etheral protocol analyzer running and am only seeing spanning tree protocol messages from the ethernet address and about every fourth message is a ppoe query. I can't find the IP address of the router yet. Has anyone had success or failure with this method? [[BR]] [[BR]]
-Further... I followed the Motorola instructions and unplugged the device and went and made tea. When I plugged it back in, I put into a different pc and using the original IP address in the brower pulled up the openwrt welcome page. BINGO and a lot easier. [[BR]]
-I'll be back after testing.
+With the version 4.03 the '''control''' page has an option '''upgrade firmware'''. I tried this and it complained that the openwrt-wr850g-squashfs.bin file was not a trx file. I renamed the file and it uploaded. After the upload the modem light blinked red for about a minute. [[BR]]
+Initially I was unable to connect to the router however, I followed the Motorola instructions and unplugged the device and went and made tea. When I plugged it back in, I put into a different pc and using the original IP address (I had used 192.168.1.5) in the brower pulled up the openwrt welcome page. BINGO and a lot easier. [[BR]]
 
+Note: When I first loaded OpenWrt, I was able to find the IP for the device. I ran etheral protocol analyzer and only saw spanning tree protocol messages from the router's ethernet mac address and about every fourth message was a ppoe query. I couldn't find the IP address of the router using etheral. [[BR]] 
 
 = Finding the serial ports on the WR850G =
 
@@ -199,6 +198,13 @@ Power, Modem, Wireless, 4x LAN.  All capable of bi-color, at least the LEDs are.
 
 5 LAN ports are internally numbered differently despite the equipment case saying something else:
 LAN port 4=0; LAN port 3=1; LAN port 2=2; LAN port 1=3; WAN port=4
+
+== WR850G V2 ==
+Free reports
+ * 14,348 total memory 9,588 used 4,760 free
+du -s reports
+ * 19,788
+So I'm guessing it has 16Meg of Ram
 
 ----
 CategoryModel
