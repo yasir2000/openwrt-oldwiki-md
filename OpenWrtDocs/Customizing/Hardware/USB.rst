@@ -3,7 +3,6 @@ If your WRT* has a USB port, you could attach a lot of USB devices.
 
  * http://www.linux-usb.org/
  * [http://www.nslu2-linux.org/wiki/Info/USBDeviceSupport USBDeviceSupport] @NSLU2 Linux
-
 '''NOTE:''' "OpenWrt" devices offering [:WithUSBv2:USB v2.0 support].
 
 == First steps ==
@@ -53,18 +52,39 @@ Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convert
 refer to ["OpenWrtDocs/Customizing/Serial Console"] for further information about serial console.
 
 === USB Webcam ===
-Check out this page: http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
+Attaching a webcam is a very common wish. Compnaies like Asus for example have integrated webcam support (ov511, pwc 8.11 --> low resultion only) to their stock firmware including motion detection and streaming ([:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500G-Deluxe]). By installing the OpenWRT firmware it is possible to circumvent disadvantages like usage of ActiveX for the webcam stream, limited resoultion etc.
 
-Asus [:OpenWrtDocs/Hardware/Asus/WL500GD:WL-500G-Deluxe] has a Webcam support and Motion Detection software in the default firmware.
+What to do:
 
-If you have a Philips-based cam (Philips and many Logitechs, also others) and a USB port, you can try the following (tested by me on an ASUS WL500GX):
+ * First step is to determine the driver that can grab pictures of the webcam. Many cameras are covered by the pwc driver or the ov511. Please consult the project websites to get a list of supported webcams or try to use them with a linux PC.
+ * Install USB modules for your AP/Router device.
+ * Install the V4L (video for linux) driver
+ * Install webcam driver.
+ * Install a programm that  takes the video from the video device and turns them into a stream, or react to movements for instance. Of course you are not limited to those examples if you are aware of another programm that can do somthing fancy with your webcam. Most likely you want to install the package "motion" since it handles the most common usages like streaming AND motion detection at once.
 
- 1. Grab the "Tom" package from here: http://wl500g.info/showpost.php?p=8610&postcount=17 (and be sure to read through some of the posts) and install it, then erase the /lib/modules/2.4.20/pwc.o file
- 1. Download the kmod-videodev and kmod-pwc packages from http://downloads.openwrt.org/people/nico/whiterussian/packages/
- 1. Install them :)
- 1. Plug in you camera and enjoy! You can use camsrv to stream images, mvc as a simple motion detector... or compile your own programs.
+For instance, if you have a Asus WL-500g Premium running OpenWRT RC5 and you want to install a Philips Webcam (like PCVC690k) to it, enter the shell of the AP and perform the following commands:
 
-Note: the video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, because of devfs. Just use the correct parameters when you invoke the programs.
+ * {{{ipkg install kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb2 kmod-videodev}}}
+ * {{{ipkg install http://naaa.de/programme/philips-webcam/philips-webcam_0.2_mipsel.ipk}}}
+ * {{{reboot}}}
+
+The webcam can be accessed at http://<IP>/CamClient.html after the device has rebooted.
+
+If you prefer MJPEG streams and motion detection at once (and a higher framerate of ~1 to 2 frames per second) use motion. Backported versions of motion can be installed with the following command:
+ * {{{ipkg install kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb2 kmod-videodev}}}
+ * {{{ipkg install http://naaa.de/programme/philips-webcam/philips-webcam_0.2_mipsel.ipk}}}
+ * {{{ipkg install http://naaa.de/programme/motion/libjpeg_6b-1_mipsel.ipk}}}
+ * {{{ipkg install http://naaa.de/programme/motion/motion_3.2.6-1_mipsel.ipk}}}
+ * {{{reboot}}}
+
+Important Hint: The video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, due of the devfs. Just use the correct parameters when you invoke the programs since most assume it to be /dev/video0. 
+
+OV511 users may have to look for modules for their cameras a little bit more, but it was done before. For those models an update of this description is needed and welcome. It's a wiki so please contribute ;-)
+
+More Links:
+ * http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
+ * http://forum.openwrt.org/viewtopic.php?id=143
+ * http://wl500g.info/showpost.php?p=8610&postcount=17 
 
 === USB Ethernet ===
 If you need one (2..3..127) additional Ethernet ports, it is possible to use USB-to-Ethernet adaptor.
