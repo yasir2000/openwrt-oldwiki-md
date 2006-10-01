@@ -46,7 +46,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * Senao NL-5354 AP1 Aries2 (AR5002AP-2X)
  * Senao NL-3054 AP3 Aries2 (AR2313)
  * Siemens [:OpenWrtDocs/Hardware/Siemens/SE551: SE551] (AR2316)
- * Wistron CA8-4/CE8-1 aka Ovislink [http://www.ovislink.com.tw/WLA5000AP.htm WLA-5000AP], !LinkPro WLT-108AAP, Diswire CAP2/5 (AR5002AP-X)
+ * Wistron [:OpenWrtDocs/Hardware/Wistron/CA8-4_CE8-1: CA8-4/CE8-1] aka Ovislink [http://www.ovislink.com.tw/WLA5000AP.htm WLA-5000AP], !LinkPro WLT-108AAP, Diswire CAP2/5 (AR5002AP-X)
  * Wistron CR8-2 aka !LinkPro WLT-108AAR (AR5002AP-2X)
  * Smc WEBT-G aka Philips SNR6500 aka Siemens Wlan Repeater 108 (AR2316)
  
