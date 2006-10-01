@@ -60,7 +60,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Buffalo ||WZR-RS-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Buffalo ||WHR3-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Dell ||!TrueMobile 2300 || ||eth0 ||eth1 ||eth2 ||BCM5325MA2KQM switch ||
-||Motorola ||WR850G ||v3 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
+||Motorola || ["WR850G"] ||v3 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Microsoft ||MN700 ||v.x ||eth0 ||eth1 ||eth2 || ||
 ||Netgear ||WGT-634U || ||vlan0 ||vlan1 ||ath0 ||note^1^ ||
 ||Siemens ||SE505 ||v1 ||eth0 ||eth1 ||eth2 || ||
