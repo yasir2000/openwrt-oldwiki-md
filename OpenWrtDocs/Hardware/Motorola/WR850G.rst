@@ -231,6 +231,7 @@ du -s reports
  * 19,788
 
 == Asterix on the WR850G ==
+Beacuse the WR850G has 16MB of memory you can run Asterix on it. [[BR]]
 http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G/Asterix
 
 = Links =
