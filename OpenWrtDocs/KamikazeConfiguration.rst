@@ -58,22 +58,12 @@ config interface lan
 === PPPoE and PPPoA ===
 Normally, these are used for DSL.
 
-These values are from an older configuration:
 {{{
-wan_proto=pppoe
-wan_ifname=ppp0
-wan_device=nas0
-atm_vpi=0
-atm_vci=35
-ppp_username=user@host.com
-ppp_passwd=password
-
-# For pppoe
-pppoe_atm=1
-ppp_mtu=1492
-
-# For pppoa
-ppp_mtu=1500
+config interface wan
+	option ifname	eth0
+	option proto	pppoe
+        option username xxxxxx
+        option password xxxxxx
 }}}
 === 802.11x ===
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
