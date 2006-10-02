@@ -144,6 +144,19 @@ rm /etc/init.d/S50telnet}}}
 
 The next reboot will free some CPU resources for you.
 
+If you are worried that you might lose your private key (thereby by locking yourself out of your router if you used dropbear's {{{-s}}} switch), one way to provide a failsafe is to run ''another'' instance of dropbear on a different port, ''without'' the {{{-s}}} switch. For example, you could leave the last line of {{{/etc/init.d/S50dropbear}}} the way it is (i.e. without the {{{-s}}} switch) and add another line which starts a second instance of dropbear:
+
+{{{
+# failsafe for local access - port 22, pw auth allowed
+/usr/sbin/dropbear
+
+# secure for remote access - port 50022, pw auth not allowed
+/usr/sbin/dropbear -s -p 50022}}}
+
+In this example, the first instance is your failsafe, which runs on port 22 and allows password login. The second instance runs on port 50022 (the port number is arbitrary -- you can choose another open port if you so desire) and does NOT allow password login. If your router is internet-facing, only open port 50022 in your firewall; if your router is ''behind'' an internet-facing router, forward to port 50022 only. In other words, just use port 22 for local access.
+
+The downside of this second instance strategy is that it takes up slightly more memory. In the future, it would be nice if {{{webif}}} could allow you to enable and disable password logins. For now, this second instance strategy works.
+
 = Troubleshooting =
 Make sure the {{{/etc/dropbear}}} directory is {{{chmod}}}ed 0700 and the {{{/etc/dropbear/authorized_keys}}} file 0600.
 
