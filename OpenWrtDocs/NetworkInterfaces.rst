@@ -10,6 +10,10 @@ Before getting too far into the details, it's important to know what VLANs are a
 
 A VLAN (Virtual LAN) is, in basic terms, a group of physial interfaces on a switch that behave as if they are a separate standalone switch. This allows us to use one physical switch, but partition it into multiple LANs, each one completely isolated from the others. The switch must support VLAN configurations - most cheap switches don't allow this, but high end manageable switches do, as does the internal switch on the OpenWRT.
 
+'''RE: The switch must support VLAN configurations - most cheap switches don't allow this, but high end manageable switches do, as does the internal switch on the OpenWRT.''' [[BR]]
+My understanding is that the switch is either a physical chip, or a section of an integrated chip, in the router. OpenWRT does control this switch. Since you have said that the switch must support VLANs; are you just saying that OpenWRT will not work on cheap switches OR are you saying that OpenWRT provides the management that makes a cheap switch perform high end functions?
+
+
 VLANs are used when you need to separate traffic between groups of devices, but you only want to use one physical switch. For example you might want one VLAN outside your firewall, for public web/mail servers, and another VLAN for your internal machines such as desktops and boxes with private data. They can't be placed on the same LAN for security reasons, so you use VLANs to isolate the groups of ports.
 
 Lets say we have a 10 port switch, and we configure ports 1-5 as VLAN1 and 6-10 as VLAN2. All devices which are plugged into ports 1 thru 5 behave as if they are on their own switch, and devices in ports 6-10 act as if they're in another switch. The main rule is that communication between ports on separate VLANs is blocked - even if you configure devices with the same subnet, they will not be reachable to devices in other VLANs.
@@ -44,7 +48,7 @@ An OpenWRT box is actually three devices in one. It consists of a VLAN-configura
 
 attachment:ASUS-Internals-default-sm.png
 
-By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN1, and this is labelled on the case as WAN. Ports 1-4 are configured as VLAN0, labelled on the case as LAN1-4. If you wanted, you could actually configure the WAN port as a LAN port, and a LAN port as the WAN port - the label on the chassis simply shows the WAN port in the default config.
+By default, the switch is partitioned into two VLANs. Port 0 is configured as VLAN1, and this is labelled on the case as WAN. Ports 1-4 are configured as VLAN0, labelled on the case as LAN1-4. If you wanted, you could actually configure the WAN port as a LAN port, and a LAN port as the WAN port - the label on the chassis simply shows the WAN port in the default config. [[BR]] '''See http://en.wikipedia.org/wiki/IEEE_802.1Q#Native_VLAN The native vlan is not tagged. Only the second VLAN needs to be tagged to separate the two data streams.'''
 
 There is an internal port, Port 5, which has a VLAN-tagged connection into the Linux internals. This port is linked to 'eth0' on the Asus WL-500gP. 'eth0' is not configured with an IP address - the kernel takes the raw packets from eth0 and using the VLAN tags, it sorts the packets from VLAN0 and VLAN1. Packets to/from VLAN1 are then mapped to a logical interface called 'vlan1', and packets to/from VLAN0 are mapped to a logical interface called 'vlan0'.
 
