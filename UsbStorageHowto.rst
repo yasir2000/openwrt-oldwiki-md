@@ -287,6 +287,8 @@ If it could not boot from the USB device it will boot normaly from the file syst
 
 /!\ '''NOTE:''' PackagesOnExternalMediaHowTo contains additional important infos.
 
+/!\ '''NOTE:''' Destination needs not to have trailing slash in order to make following script work (Nijel).
+
 Configure {{{ipkg}}} for a non-root destination
 
 {{{
