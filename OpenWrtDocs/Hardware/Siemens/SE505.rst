@@ -47,6 +47,61 @@ GND-o o-TMS
 
 }}}
 
+== Add more RAM ==
+
+The se505v2 can be easyly modded to 16 MB RAM by a some soldering work...
+The se505v2 uses one 4Mx16 SDRAM chip to get the 8 MB. it seems to be fixed to 4Mx16 by the CFE. it ignores the sdram_init value in the nvram. but it has a second RAM-place on the board.
+
+TODO to get from 8MB to 16MB on the se505v2:
+to connect the adresslines for the second RAM 
+{{{
+shorten:
+  R314
+  R315
+  R316
+  R317
+  R318
+}}}
+and solder a 4Mx16 sdram on the second RAM-spot.
+afte booting the router you should have 16MB ! :-)
+now do:
+{{{
+nvram set sdram_ncdl=0
+nvram commit
+reboot
+}}}
+to let the cfe reconfigure this value.
+this is all you have to do! no change in sdram_init, it is ignored by the CFE on this router.
+
+if anyone wants to do this to his se505v2 too: don't solder a capacitor on C319, leave it open. i soldered one and it didn't boot anymore... unsoldered it, and it worked.
+
+I do also have an se505V2 with on 4Mx16 and one 8Mx16-chip running stable since 40 days... but only 16MB recongnized (wich is already MUCH better than the original 8 MB...)
+
+TODO:
+If you solder 32 MB into the router (two 8Mx16 SDRAM), only 16MB are used. setting another sdram_init doesn't help. if anyone knows compiling the broadcom CFE... please let me know, it would be cool to boost this router to 32 MB. since it has JTAG it is no problem to play a bit...
+
+== add USB to your Siemens SE505 ==
+On the side with the powerplug you will find some 'C's
+
+- add C906 with 100µF 16Volt
+
+- add C986 with 10µF 16Volt
+
+- add U981 with an LM7805
+
+This will support the +5 Volt to your USB-Port.
+
+Go to the other side of the PCB wehre the antenna is placed.
+
+- add wire to F51 as Fuse
+
+- add to 'R' about 15kOhm to R723 and R724
+
+- shorten R733 R734
+
+- put an USB-Plug to J51
+
+Thats all.
 
 ----
 CategoryModel
