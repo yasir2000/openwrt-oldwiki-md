@@ -5,6 +5,49 @@
 ##
 OpenWrtDocs [[TableOfContents]]
 
+= Finding the IP of a lost router =
+When you can not '''ping''' your router, you need to find out what IP address  the router is using. Sometimes the IP changes after loading new firmware.
+
+== Make Coffee ==
+If you have just loaded the router, the heat from the flashing may cause the router to sleep for about 5 minutes due to the internal heat sensor. Go make coffee and come back and try again.
+
+== Default IPs ==
+Try pinging the default IPs.
+
+ . '''192.168.0.1'''  [[BR]] '''192.168.1.1'''  [[BR]] '''192.168.10.1'''
+== Arp -a ==
+Type '''arp -a'''. It will show the IPs of all machines you have been in contact with. If any of them looks new try it.
+
+== Arp -s ==
+Pick up your router, turn it over and record the mac address from the label. It will be 6 hex doublets like 00:11:22:33:44:55 Then follow either one of the following Linux or Windows instructions. Use a dummy IP like 192.168.1.13 that is suitable for your site.
+
+=== Linux ===
+In a shell type
+
+ . arp -s 192.168.1.13 00:11:22:33:44:55 [[BR]] ping 192.168.1.13
+If the mac address answers it will return the correct IP to use and you will see a redirect like this;
+
+ . ping 192.168.1.13 56 bytes of data [[BR]] ping 192.168.1.7 icmp_seq 2 Redirect Host 192.168.1.13
+Your router is at '''192.168.1.7'''
+
+=== Windows ===
+In a command/cmd/dos window type
+
+ . arp -s 192.168.1.13 00-11-22-33-44-55 [[BR]] ping 192.168.1.13
+You will see
+
+ . Reply from 192.168.1.13 Host unreachable
+Now type
+
+ . arp -a
+Look for the mac address. There will be two entries with the same address.
+
+ . 192.168.1.13  00-11-22-33-44-55 static [[BR]] 192.168.1.7   00-11-22-33-44-55 dynamic
+Your router is at '''192.168.1.7'''
+
+== Changing Ports ==
+I'm not sure if this is really true but it seems that sometimes moving the ethernet cable to a different port allows you to communicate with the router again. [[BR]] ''Please report if this works for you by editing this page when it is the '''only''' change you made.''
+
 = Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Full failsafe mode is only working when you have installed one of the SquashFS images.
 
@@ -27,13 +70,11 @@ The recvudp program opens a blank window and listens on UDP port 4919. Set the c
 {{{
 Msg from 192.168.1.1: Press reset now, to enter Failsafe!
 }}}
-
 Immediately press and hold the reset button for 2 seconds. If successful the following message appears:
 
 {{{
 Msg from 192.168.1.1: Entering Failsafe!
 }}}
-
 The router is now in failsafe mode.
 
 If "Entering Failsafe!" message does not appear then you have missed the short time slot when !OpenWrt can recognize the reset button (or not held down the reset button long enough). If there are no messages (blank window) check the client's network and firewall settings to ensure that UDP port 4919 is open and accessible.
@@ -58,7 +99,6 @@ If you want to attempt to fix the JFFS2 partition, mount it with the following c
 {{{
 /sbin/mount_root
 }}}
-
 After running the command your / will be jffs2. If you run firstboot with the JFFS2 partition mounted, it will not format the partition, but it will overwrite files with symlinks. (Packages will be preserved, changes to scripts will be lost)
 
 === JFFS2 images ===
@@ -67,7 +107,6 @@ unlike the SquashFS images, the JFFS2 images boot failsave with the JFFS filesys
 {{{
 /sbin/mount_root
 }}}
-
 = Resetting to defaults =
 /!\ '''NOTE: Resetting NVRAM this way will actually cause more problems than it solves. For example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values and will not boot properly after being reset. If you do this on a Siemens SE505 V1, your router will not be accessible to you anymore! You will have to reflash it with the stock firmware on ip address 192.168.1.1 (NOT 192.168.2.1 as the installation procedure says!!)'''
 
@@ -78,7 +117,6 @@ If you're having trouble setting up some feature of your router (wireless, LAN p
 {{{
 mtd -r erase nvram
 }}}
-
 This will clear out the NVRAM partition and reboot ({{{-r}}}) the router, the bootloader will create a new NVRAM partition with default settings after the reboot. Remember to set {{{boot_wait}}} back on after you reboot your router -- trying to do it before rebooting will just write your old settings (cached in memory) back to the flash.
 
 To reset NVRAM settings on a Siemens SE505 V1 simply press reset after you plug it in and release as soon as one of the leds starts flashing very fast.
@@ -90,7 +128,7 @@ See ["OpenWrtDocs/Installing"] for generic installation instructions.
 Reflash the unit using the [:OpenWrtViaTftp:TFTP] method.
 
 == Serial console ==
-Important information about connecting a serial console can be found in ["OpenWrtDocs/Customizing/Hardware/Serial_Console"], Information about CFE can be found in ["OpenWrtDocs/Customizing/Firmware/CFE"].
+Important information about connecting a serial console can be found in ["OpenWrtDocs/Customizing/Hardware/Serial Console"], Information about CFE can be found in ["OpenWrtDocs/Customizing/Firmware/CFE"].
 
 Set {{{boot_wait=on}}} in CFE and then TFTP the firmware image. To enter CFE hit {{{CTRL-C}}} right after power on.
 
@@ -101,7 +139,6 @@ CFE> nvram commit
 *** command status = 0
 CFE>
 }}}
-
 After this use the normal TFTP instructions found in ["OpenWrtDocs/Installing"].
 
 On Linksys models you can use another way too. Setup a local TFTP server on your PC and then execute the following commands inside CFE
@@ -111,7 +148,6 @@ CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
 CFE> et up
 CFE> flash -noheader 192.168.1.2:/openwrt-brcm-2.4-squashfs.trx flash1.trx
 }}}
-
 A simpler method is to have the CFE go into a voluntary boot_wait TFTP reception in this manner:
 
 {{{
@@ -119,21 +155,19 @@ CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0
 CFE> et up
 CFE> flash -noheader : flash1.trx
 }}}
-
 The CFE will enter TFTP receptive mode after that command.
 
 == JTAG adaptor method ==
 /!\ '''WARNING:''' You are now leaving the safe grounds of warranty coverage.
 
 '''Linksys models'''
- * refer to [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable] howto create a JTAG cable
+
+ * refer to ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] howto create a JTAG cable
  * get !HairyDairyMaids [http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ debrick utility] or a more recent version from [http://downloads.openwrt.org/utils/ Downloads] and instructions how to connect everything together
  * get a working version of the CFE for your WRT from [http://downloads.openwrt.org/people/inh/cfe/ inh's] download directory
-
  * turn the router off, attach the jtag cable
  * turn it on, and issue one command
  * don't hurry, sometimes you'll need to wait a bit
-
 {{{
 wrt54g -erase:nvram
 }}}
@@ -152,11 +186,9 @@ if you managed to crap the cfe, you can delete it
 {{{
 wrt54g -flash:cfe
 }}}
-if you have the appropriate CFE.BIN image for your router in the same dir as the debrick utility, this will flash the router with the new cfe.
-Once you've flashed a CFE with boot_wait enabled, you can use tftp to upload a new kernel.
+if you have the appropriate CFE.BIN image for your router in the same dir as the debrick utility, this will flash the router with the new cfe. Once you've flashed a CFE with boot_wait enabled, you can use tftp to upload a new kernel.
 
 On Linux, don't forget to unload 'lp' module and load 'ppdev'.
-
 
 = Getting help =
 Still stuck? See [http://openwrt.org/support how to get help and support] for information on where to get further help.
