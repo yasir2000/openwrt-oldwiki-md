@@ -20,6 +20,8 @@ The WR850G v2 is housed in gray plastic and sports a reverse SMA antenna connect
 
 /!\ Warning: It has been reported at least once that the WR850GV2 may not rewrite NVRAM once it has been erased, causing damage to the router.  However, frop and Eagle_Fire have never had issues clearing the NVRAM of a WR850Gv2 - please note that the lan_ipaddr may revert to 192.168.1.1 upon reset of NVRAM.
 
+[http://ra.vendomar.ee/%7eivo/wr850gv2_open.jpg WR850gV2 open box]
+
 == WR850G v3 ==
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
 
