@@ -14,7 +14,7 @@ See also
  * '''CategoryModel''' - For a extra details on particular models
  * '''["CategoryAR7Device"]''' - Which models use the AR7
  * '''CategoryCategory''' - For a list of lists
- * '''["OpenWRT"]''' - back to the Table of Contents
+ * '''["OpenWrtDocs"]''' - back to the Table of Contents
  
 
 
