@@ -1,14 +1,22 @@
 This is a table of all supported devices as of 2006/06/13.
 
-Status Legend:
-
+'''Status Legend''':
  * '''Supported''' - supported in White Russian
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
- * '''No''' - confirmed that this device is not supported
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
+ * '''No''' - confirmed that this device is not supported (please move to "Unsupported"}
  * '''Info entered''' - Information about the device is entered in this list, for reference.
-See also MinimumSystemRequirements, CategoryModel, ["CategoryAR7Device"], CategoryCategory Pavia [[TableOfContents]]
+
+See also
+ * '''MinimumSystemRequirements'''
+ * '''["Unsupported"]'''
+ * '''CategoryModel''' - For a extra details on particular models
+ * '''["CategoryAR7Device"]''' - Which models use the AR7
+ * '''CategoryCategory''' - For a list of lists
+ * '''["OpenWRT"]''' - back to the Table of Contents
+ 
+
 
 == 3Com ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
