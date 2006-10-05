@@ -160,7 +160,15 @@ While the first serial port is easy to find (and described in the "non-experimen
 
 = Opening the WR850G case =
 
-This is a very hard-to-open case, really.
+This is a very tricky-to-open case, really.
+
+== The easy way ==
+
+ * Take that 1 screw off, preferably with a torx screwdriver (size T8).
+
+ * There are 5 hooks what are keeping the WR850G case together. Hooks itself are put to the case cover and the hook sockets are on the bottom half of the case. Find out the place of an hook socket and press it. If the place is right then you should hear the hook to pop out the hook socket. Note: The force needed will not break the case not the socket hooks. The front 2 hooks are the hardest to open.
+
+== The hard way ==
 
  * Take that 1 screw off, preferably with a torx screwdriver (size T8).
 
