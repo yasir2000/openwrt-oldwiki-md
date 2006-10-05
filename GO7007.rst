@@ -452,88 +452,79 @@ I have a working build of spook but I need to clean-up the package files before 
 
 Since there is no Spook info right now, i will try to help out since wis-streamer also causes a kernel oops at my Asus.
 
-First clean up your source by calling "make distclean" in order to rebuild the toolchain. The change to uClibc requires this step. Then edit the file "toolchain/uClibc/patches/120-more_standard_math.patch" and add the functions "s_floorf.c s_ceilf.c" [http://openwrt.pbwiki.com/Adding_Math_Functions_To_uClibc_mathlib]
+First clean up your source by calling "make distclean" in order to rebuild the toolchain. The change to uClibc requires this step. Then edit the file "toolchain/uClibc/patches/120-more_standard_math.patch" and add the functions "s_floorf.c s_ceilf.c" http://openwrt.pbwiki.com/Adding_Math_Functions_To_uClibc_mathlib
 
 Afterwards create a package for spook:
+
 {{{
 tom@devsystem:~/trunk/openwrt$ ls -l package/spook/*
--rw-------  1 embi embi  197 2006-10-05 18:48 package/spook/Config.in
--rw-------  1 embi embi 1708 2006-10-05 19:31 package/spook/Makefile
-
+-rw-------  1 tom tom  197 2006-10-05 18:48 package/spook/Config.in
+-rw-------  1 tom tom 1708 2006-10-05 19:31 package/spook/Makefile
 package/spook/ipkg:
 total 4
--rw-------  1 embi embi 67 2006-10-05 19:21 spook.control
+-rw-------  1 tom tom 67 2006-10-05 19:21 spook.control
 }}}
-
 Makefile:
+
 {{{
 # $Id: Makefile 3121 2006-02-03 08:31:25Z tst $
-
 include $(TOPDIR)/rules.mk
-
 PKG_NAME:=spook
 PKG_VERSION:=20050207
 PKG_RELEASE:=1
 PKG_MD5SUM:=b99d55cb9b2170e4a8d592021205e1a0
-
 PKG_SOURCE_URL:=http://www.litech.org/spook/dist/
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_CAT:=bzcat
-
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
-
 include $(TOPDIR)/package/rules.mk
-
 $(eval $(call PKG_template,SPOOK,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
-
 $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
-	(cd $(PKG_BUILD_DIR); rm -rf config.cache; \
-		$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS)" \
-		CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
-		LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
-		./configure \
-			--target=$(GNU_TARGET_NAME) \
-			--host=$(GNU_TARGET_NAME) \
-			--build=$(GNU_HOST_NAME) \
-			--program-prefix="" \
-			--program-suffix="" \
-			--prefix=/usr \
-			--exec-prefix=/usr \
-			--bindir=/usr/bin \
-			--datadir=/usr/share \
-			--includedir=/usr/include \
-			--infodir=/usr/share/info \
-			--libdir=/usr/lib \
-			--libexecdir=/usr/lib \
-			--localstatedir=/var \
-			--mandir=/usr/share/man \
-			--sbindir=/usr/sbin \
-			--sysconfdir=/etc \
-			$(DISABLE_LARGEFILE) \
-			$(DISABLE_NLS) \
-			--without-libiconv-prefix \
-			--without-libintl-prefix \
-			--disable-nls \
-	);
-	touch $@
-
+        (cd $(PKG_BUILD_DIR); rm -rf config.cache; \
+                $(TARGET_CONFIGURE_OPTS) \
+                CFLAGS="$(TARGET_CFLAGS)" \
+                CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
+                LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
+                ./configure \
+                        --target=$(GNU_TARGET_NAME) \
+                        --host=$(GNU_TARGET_NAME) \
+                        --build=$(GNU_HOST_NAME) \
+                        --program-prefix="" \
+                        --program-suffix="" \
+                        --prefix=/usr \
+                        --exec-prefix=/usr \
+                        --bindir=/usr/bin \
+                        --datadir=/usr/share \
+                        --includedir=/usr/include \
+                        --infodir=/usr/share/info \
+                        --libdir=/usr/lib \
+                        --libexecdir=/usr/lib \
+                        --localstatedir=/var \
+                        --mandir=/usr/share/man \
+                        --sbindir=/usr/sbin \
+                        --sysconfdir=/etc \
+                        $(DISABLE_LARGEFILE) \
+                        $(DISABLE_NLS) \
+                        --without-libiconv-prefix \
+                        --without-libintl-prefix \
+                        --disable-nls \
+        );
+        touch $@
 $(PKG_BUILD_DIR)/.built:
-	$(MAKE) -C $(PKG_BUILD_DIR) all
-	touch $@
-
+        $(MAKE) -C $(PKG_BUILD_DIR) all
+        touch $@
 $(IPKG_SPOOK):
-	install -d -m0755 $(IDIR_SPOOK)/usr/bin
-	$(CP) -m0755 $(PKG_BUILD_DIR)/spook $(IDIR_SPOOK)/usr/bin/
-	$(RSTRIP) $(IDIR_SPOOK)
-	$(IPKG_BUILD) $(IDIR_SPOOK) $(PACKAGE_DIR)
-        
-mostlyclean:
-	$(MAKE) -C $(PKG_BUILD_DIR) clean
-	rm -f $(PKG_BUILD_DIR)/.built
-}}}
+        install -d -m0755 $(IDIR_SPOOK)/usr/bin
+        $(CP) -m0755 $(PKG_BUILD_DIR)/spook $(IDIR_SPOOK)/usr/bin/
+        $(RSTRIP) $(IDIR_SPOOK)
+        $(IPKG_BUILD) $(IDIR_SPOOK) $(PACKAGE_DIR)
 
+mostlyclean:
+        $(MAKE) -C $(PKG_BUILD_DIR) clean
+        rm -f $(PKG_BUILD_DIR)/.built
+}}}
 Config.in:
+
 {{{
 config BR2_PACKAGE_SPOOK
         prompt "spook...................... test test test Spook"
@@ -543,15 +534,14 @@ config BR2_PACKAGE_SPOOK
         help
           no help
 }}}
-
 spook.control:
+
 {{{
 Package: spook
 Priority: optional
 Section: sys
 Description: no description currently
 }}}
-
 ... To be continued ...
 
 ==== wis-streamer ====
@@ -769,7 +759,7 @@ Copy them to your router, and install them with ipkg.
 /!\ Now do not try it as is just yet as it will segfault :( I have a problem somewhere with the ALSA OSS emulation. After I disabled audio altogether in the source code, video actually works fine for me. I am working on it, please be patient and let me know if you find something before I do.
 
 ----
-This is a temporary section until sound support is fixed. It will contain extra info to help debugging.
+ This is a temporary section until sound support is fixed. It will contain extra info to help debugging.
 
 First I compared with a working setup on a Debian 2.6.16-1-686 GNU/Linux. Here are the info I get on the WRT:
 
