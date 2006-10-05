@@ -5,55 +5,12 @@
 ##
 OpenWrtDocs [[TableOfContents]]
 
-= Finding the IP of a lost router =
-When you can not '''ping''' your router, you need to find out what IP address  the router is using. Sometimes the IP changes after loading new firmware.
-
-== Make Coffee ==
-If you have just loaded the router, the heat from the flashing may cause the router to sleep for about 5 minutes due to the internal heat sensor. Go make coffee and come back and try again.
-
-== Default IPs ==
-Try pinging the default IPs.
-
- . '''192.168.0.1'''  [[BR]] '''192.168.1.1'''  [[BR]] '''192.168.10.1'''
-== Arp -a ==
-Type '''arp -a'''. It will show the IPs of all machines you have been in contact with. If any of them looks new try it.
-
-== Arp -s ==
-Pick up your router, turn it over and record the mac address from the label. It will be 6 hex doublets like 00:11:22:33:44:55 Then follow either one of the following Linux or Windows instructions. Use a dummy IP like 192.168.1.13 that is suitable for your site.
-
-=== Linux ===
-In a shell type
-
- . arp -s 192.168.1.13 00:11:22:33:44:55 [[BR]] ping 192.168.1.13
-If the mac address answers it will return the correct IP to use and you will see a redirect like this;
-
- . ping 192.168.1.13 56 bytes of data [[BR]] ping 192.168.1.7 icmp_seq 2 Redirect Host 192.168.1.13
-Your router is at '''192.168.1.7'''
-
-=== Windows ===
-In a command/cmd/dos window type
-
- . arp -s 192.168.1.13 00-11-22-33-44-55 [[BR]] ping 192.168.1.13
-You will see
-
- . Reply from 192.168.1.13 Host unreachable
-Now type
-
- . arp -a
-Look for the mac address. There will be two entries with the same address.
-
- . 192.168.1.13  00-11-22-33-44-55 static [[BR]] 192.168.1.7   00-11-22-33-44-55 dynamic
-Your router is at '''192.168.1.7'''
-
-== Changing Ports ==
-I'm not sure if this is really true but it seems that sometimes moving the ethernet cable to a different port allows you to communicate with the router again. [[BR]] ''Please report if this works for you by editing this page when it is the '''only''' change you made.''
-
 = Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Full failsafe mode is only working when you have installed one of the SquashFS images.
 
 /!\ The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache.
 
-/!\ MAKE SURE that the client used to telnet to the router is set up for a static ip in the same group (192.168.1.x). Failsafe has no DHCP!
+/!\ MAKE SURE that the client used to TELNET to the router is set up for a static ip in the same group (192.168.1.x). Failsafe has no DHCP!
 
 == How to get into failsafe mode ==
 !OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will'' not ''reset the NVRAM.  The ''boot loader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
@@ -63,7 +20,8 @@ Download and run recvudp utility.
 
 Source code: [http://downloads.openwrt.org/people/nbd/recvudp.c recvudp.c]
 
-Binaries: [http://openwrt.inf.fh-brs.de/~olli/recvudp GNU/Linux (x86)]  [http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
+Binaries: 
+[http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
 
 The recvudp program opens a blank window and listens on UDP port 4919. Set the client to a static IP in the failsafe subnet range. The router will come up as 192.168.1.1 so 192.168.1.10 for example is good. Plug in the router and wait for the go signal. Do NOT press reset before you get this:
 
