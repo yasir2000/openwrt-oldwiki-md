@@ -3,17 +3,18 @@ This is a table of all supported devices as of 2006/06/13.
 '''Status Legend''':
  * '''Supported''' - supported in White Russian
  * '''Partial''' - partially supported, no support for the wireless card.
- * '''Untested''' - should work in theory but never tested (please see ["Donations"])
+ * '''Untested''' - should work in theory but never tested (please see ["Donations"]
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
- * '''No''' - confirmed that this device is not supported (please move to "Unsupported"}
+ * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"]
  * '''Info entered''' - Information about the device is entered in this list, for reference.
 
 See also
  * '''MinimumSystemRequirements'''
  * '''["Unsupported"]'''
- * '''CategoryModel''' - For a extra details on particular models
- * '''["CategoryAR7Device"]''' - Which models use the AR7
  * '''CategoryCategory''' - For a list of lists
+ * '''CategoryModel''' - For a extra details on particular models
+ * '''CategoryOpenWrtPort''' - list of devices under test
+ * '''["CategoryAR7Device"]''' - Which models use the AR7
  * '''["OpenWrtDocs"]''' - back to the Table of Contents
  
 
