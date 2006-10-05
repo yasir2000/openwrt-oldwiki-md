@@ -48,7 +48,7 @@ If you ever need to revert your router to official Motorola firmware, it can be 
  * Type in: `nvram commit`
  * Reboot and do tftp. 
 
-/!\ Some users report that boot_wait only functions for one reboot after setting it from the web interface.
+/!\ Some users report that boot_wait only functions for one reboot after setting it from the web interface. To be sure that is the case reboot the WR850G after to "boot_wait=on" procedure and restart it. If the box is up again then issue "nvram get boot_wait" on the very same /frame_debug.asp page. To my testing the WR850G v2 does act like this.
 
 The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set a static IP on your router and plug in to a wired port with your PC in the IP range 192.168.10.x, then in a Windows command prompt, get "ping -t 192.168.10.1" going and power cycle the router, you should get about 4 pings on 192.168.10.1 from the bootloader '''if boot_wait is set'''.
 
