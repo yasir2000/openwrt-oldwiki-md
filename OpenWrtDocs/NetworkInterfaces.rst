@@ -1,6 +1,6 @@
 '''Understanding Network Interfaces'''
 
-[[TableOfContents]]This page describes the network interface mapping on the Asus WL-500GP, and probably also describes most other OpenWRT compatible networking devices. The goal is to help users understand how the complex mix of ports, vlans, bridges and interfaces actually all tie together. It's focussed on the WL-500G Premium, but is probably also valid for Linksys boxes, however interface numbers might differ.
+[[TableOfContents]]
 
 In this page, "the OpenWRT" refers to any such supported network device running OpenWRT that has a similar network config.
 
@@ -9,10 +9,6 @@ In this page, "the OpenWRT" refers to any such supported network device running 
 Before getting too far into the details, it's important to know what VLANs are and how they work.
 
 A VLAN (Virtual LAN) is, in basic terms, a group of physial interfaces on a switch that behave as if they are a separate standalone switch. This allows us to use one physical switch, but partition it into multiple LANs, each one completely isolated from the others. The switch must support VLAN configurations - most cheap switches don't allow this, but high end manageable switches do, as does the internal switch on the OpenWRT.
-
-'''RE: The switch must support VLAN configurations - most cheap switches don't allow this, but high end manageable switches do, as does the internal switch on the OpenWRT.''' [[BR]]
-My understanding is that the switch is either a physical chip, or a section of an integrated chip, in the router. OpenWRT does control this switch. Since you have said that the switch must support VLANs; are you just saying that OpenWRT will not work on cheap switches OR are you saying that OpenWRT provides the management that makes a cheap switch perform high end functions?
-
 
 VLANs are used when you need to separate traffic between groups of devices, but you only want to use one physical switch. For example you might want one VLAN outside your firewall, for public web/mail servers, and another VLAN for your internal machines such as desktops and boxes with private data. They can't be placed on the same LAN for security reasons, so you use VLANs to isolate the groups of ports.
 
