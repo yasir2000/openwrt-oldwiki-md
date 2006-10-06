@@ -1,6 +1,8 @@
 For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54G) and their configuration, check [:RomainDeparis:this] first.
 
 == GO7007 devices support ==
+'''Hint:''' Currently the driver loads but both streaming programms still do not work. Spook is on the way, wis-streamer causes a segfault and will even crash the modules with a kernel oops. We are working on it...
+
 The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U. This can be used on pretty much any OpenWRT-compatible router with at least one USB2 connector.
 
 http://oss.wischip.com/tv402u.jpg
@@ -518,7 +520,6 @@ $(IPKG_SPOOK):
         $(CP) -m0755 $(PKG_BUILD_DIR)/spook $(IDIR_SPOOK)/usr/bin/
         $(RSTRIP) $(IDIR_SPOOK)
         $(IPKG_BUILD) $(IDIR_SPOOK) $(PACKAGE_DIR)
-
 mostlyclean:
         $(MAKE) -C $(PKG_BUILD_DIR) clean
         rm -f $(PKG_BUILD_DIR)/.built
@@ -759,8 +760,7 @@ Copy them to your router, and install them with ipkg.
 /!\ Now do not try it as is just yet as it will segfault :( I have a problem somewhere with the ALSA OSS emulation. After I disabled audio altogether in the source code, video actually works fine for me. I am working on it, please be patient and let me know if you find something before I do.
 
 ----
- This is a temporary section until sound support is fixed. It will contain extra info to help debugging.
-
+ . This is a temporary section until sound support is fixed. It will contain extra info to help debugging.
 First I compared with a working setup on a Debian 2.6.16-1-686 GNU/Linux. Here are the info I get on the WRT:
 
  * ALSA global
