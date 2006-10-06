@@ -9,6 +9,8 @@ The WR850G has three different versions (v1, v2, v3).
 == WR850G v1 ==
 The WR850G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is a mini-PCI card.
 
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G?action=AttachFile&amp;do=get&amp;target=wr850gv1_open.jpg WR850gV1 open box]
+
 == WR850G v2 ==
 The WR850G v2 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM (memory addressing wraps address to ram, so when it boots, the simple memory size routine doesn't check for address wrapping, so it reports 32Mb). The wireless NIC is integrated to the board.
 
@@ -29,6 +31,7 @@ G-Link GL!T5640L16-6TC is a 8MB chip.  Your router should have two of these.  Ch
 
 The WR850G v3 version is housed in black pastic and has a hard wired non removable (without desoldering) antenna.
 
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G?action=AttachFile&amp;do=get&amp;target=wr850gv3_open.jpg WR850gV3 open box]
 
 = Obtaining Official Motorola Firmware =
 
