@@ -545,9 +545,64 @@ Priority: optional
 Section: sys
 Description: no description currently
 }}}
+
 Then enable the libpthread library and install it to your device. Using a very basic config works. The audio is broken!
 
-MPEG4 does not work without many disturbance in the video. However MJPEG works good but leads to an average bandwidth of 4MBit/s. MPEG4 generates approximatly 1MBit/s. The CPU load is quite low with about 10% (same to memory), delay is not noticable even if using mpeg4.
+{{{
+#
+
+# FrameHeap 30; # Appropriate for one video stream and one audio stream
+# FrameHeap 50 921600; # Appropriate for capturing 640x480 frames
+FrameHeap 90 921600;
+
+Port 7070;
+
+Input V4L2 {
+        Device /dev/v4l/video0;
+        InputType PAL;
+        InputPort 0;
+        Format "mpeg4"; # or mjpeg mpeg4
+        Bitrate 10000; # 1.5 Mbps (ConvertX performs poorly at low bitrates)
+        FrameSize 768 572;     # Optional
+        Output "compressed";
+}
+
+
+#Input OSS {
+#       Device /dev/sound/audio;
+#       SampleRate 16000;
+#       Output "pcm";
+#}
+
+#Encoder MP2 {
+#       Input "pcm";
+#       Output "mp2";
+#       Bitrate 384; # other valid values include 56, 64, 96, 128, 192, 256
+#}
+
+RTSP-Handler Live {
+        #
+        # No authentication
+        #
+        Path /webcam;
+
+        #
+        # Authentication with the realm "Spook" (can be anything), where
+        # the user must authenticate as "testuser" with password "testpass"
+        #
+        #Path /webcam "Spook" "testuser" "testpass";
+
+        #
+        # List of tracks in the session; will almost always be a video
+        # stream first, followed by an optional audio stream
+        #
+        Track "compressed";
+#       Track "mp2"; # un-comment this if you are using audio
+}
+
+}}}
+
+MJPEG works good but leads to an average bandwidth of 4MBit/s. MPEG4 generates approximatly 1MBit/s. The CPU load is quite low with about 10% (same to memory), delay is not noticable even if using mpeg4.
 
 ==== wis-streamer ====
 wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first. More info is available here:
