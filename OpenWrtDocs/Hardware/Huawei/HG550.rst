@@ -6,9 +6,16 @@ http://hindukush.zehome.com/~ed/9box2.jpg
 == Informations: ==
 This box is used by 9Telecom, French ISP.
 
+== Serial Pinout: ==
 
+(top - antennas)
+4 ° GND
+3 ° TX
+2 ° RX
+1 ° +5v
+(bottom - leds)
 
-
+115200,8N1
 
 == Debugging: ==
 === Bootup messages: ===
