@@ -3,8 +3,6 @@ For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54
 == GO7007 devices support ==
 '''Hint:''' Currently the driver loads and at least spook is working, but only with mjpeg and not mpeg4. Accessing the audio devices will cause a kernel crash and you have to reboot then.
 
-
-
 The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U. This can be used on pretty much any OpenWRT-compatible router with at least one USB2 connector.
 
 http://oss.wischip.com/tv402u.jpg
@@ -493,6 +491,8 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
                         --target=$(GNU_TARGET_NAME) \
                         --host=$(GNU_TARGET_NAME) \
                         --build=$(GNU_HOST_NAME) \
+                        --with-kernel-source=/home/tom/trunk/openwrt/build-mipsel/linux \:
+                        --enable-input-v4l2 \
                         --program-prefix="" \
                         --program-suffix="" \
                         --prefix=/usr \
@@ -548,6 +548,7 @@ Description: no description currently
 Then enable the libpthread library and install it to your device. Using a very basic config works. The audio is broken!
 
 MPEG4 does not work without many disturbance in the video. However MJPEG works good but leads to an average bandwidth of 4MBit/s. MPEG4 generates approximatly 1MBit/s. The CPU load is quite low with about 10% (same to memory), delay is not noticable even if using mpeg4.
+
 ==== wis-streamer ====
 wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first. More info is available here:
 
