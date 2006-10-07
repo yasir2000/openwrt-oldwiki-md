@@ -39,6 +39,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * D-Link [http://www.dlink.com/products/?pid=292 DWL-2100AP] (AR5002AP-G : core AR2312@180/240MHz, radio AR2112)
  * D-Link [http://www.dlink.com/products/?pid=304 DWL-7100AP] (AR5002AP-2X)
  * D-Link DWL-774 (AR5002AP-2X) (discontinued)
+ * LevelOne WBR-3405TX
  * Linksys [:OpenWrtDocs/Hardware/Linksys/WRT55AG: WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (AR5002AP-2X)
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWGR614 WGR614]v3.
  * Netgear [:OpenWrtDocs/Hardware/Netgear/WGT624: WGT624] [http://www.netgear.com/products/details/WGT624.php Product link] (AR5002AP-G)
@@ -58,6 +59,8 @@ OEM dual APs, internally identical:
  * !XtendLan WDAP-1001 
 
 and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp many more].
+
+[http://atheros.rapla.net/ Atheros chipsets based wireless 802.11a/b/g devices]
 
 ----
 
