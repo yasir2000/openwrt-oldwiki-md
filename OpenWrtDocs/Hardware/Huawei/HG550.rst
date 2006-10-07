@@ -8,6 +8,7 @@ This box is used by 9Telecom, French ISP.
 
 == Serial Pinout: ==
 
+{{{
 (top - antennas)
 4 ° GND
 3 ° TX
@@ -16,6 +17,7 @@ This box is used by 9Telecom, French ISP.
 (bottom - leds)
 
 115200,8N1
+}}}
 
 == Debugging: ==
 === Bootup messages: ===
