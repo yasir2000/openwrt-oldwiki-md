@@ -1,7 +1,9 @@
 For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54G) and their configuration, check [:RomainDeparis:this] first.
 
 == GO7007 devices support ==
-'''Hint:''' Currently the driver loads but both streaming programms still do not work. Spook is on the way, wis-streamer causes a segfault and will even crash the modules with a kernel oops. We are working on it...
+'''Hint:''' Currently the driver loads and at least spook is working, but only with mjpeg and not mpeg4. Accessing the audio devices will cause a kernel crash and you have to reboot then.
+
+
 
 The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U. This can be used on pretty much any OpenWRT-compatible router with at least one USB2 connector.
 
@@ -482,48 +484,47 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 include $(TOPDIR)/package/rules.mk
 $(eval $(call PKG_template,SPOOK,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
 $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
-	(cd $(PKG_BUILD_DIR); rm -rf config.cache; \
-		$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS)" \
-		CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
-		LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
-		./configure \
-			--target=$(GNU_TARGET_NAME) \
-			--host=$(GNU_TARGET_NAME) \
-			--build=$(GNU_HOST_NAME) \
-			--program-prefix="" \
-			--program-suffix="" \
-			--prefix=/usr \
-			--exec-prefix=/usr \
-			--bindir=/usr/bin \
-			--datadir=/usr/share \
-			--includedir=/usr/include \
-			--infodir=/usr/share/info \
-			--libdir=/usr/lib \
-			--libexecdir=/usr/lib \
-			--localstatedir=/var \
-			--mandir=/usr/share/man \
-			--sbindir=/usr/sbin \
-			--sysconfdir=/etc \
-			$(DISABLE_LARGEFILE) \
-			$(DISABLE_NLS) \
-			--without-libiconv-prefix \
-			--without-libintl-prefix \
-			--disable-nls \
-	);
-	touch $@
+        (cd $(PKG_BUILD_DIR); rm -rf config.cache; \
+                $(TARGET_CONFIGURE_OPTS) \
+                CFLAGS="$(TARGET_CFLAGS)" \
+                CPPFLAGS="-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include" \
+                LDFLAGS="-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib" \
+                ./configure \
+                        --target=$(GNU_TARGET_NAME) \
+                        --host=$(GNU_TARGET_NAME) \
+                        --build=$(GNU_HOST_NAME) \
+                        --program-prefix="" \
+                        --program-suffix="" \
+                        --prefix=/usr \
+                        --exec-prefix=/usr \
+                        --bindir=/usr/bin \
+                        --datadir=/usr/share \
+                        --includedir=/usr/include \
+                        --infodir=/usr/share/info \
+                        --libdir=/usr/lib \
+                        --libexecdir=/usr/lib \
+                        --localstatedir=/var \
+                        --mandir=/usr/share/man \
+                        --sbindir=/usr/sbin \
+                        --sysconfdir=/etc \
+                        $(DISABLE_LARGEFILE) \
+                        $(DISABLE_NLS) \
+                        --without-libiconv-prefix \
+                        --without-libintl-prefix \
+                        --disable-nls \
+        );
+        touch $@
 $(PKG_BUILD_DIR)/.built:
-	$(MAKE) -C $(PKG_BUILD_DIR) all
-	touch $@
+        $(MAKE) -C $(PKG_BUILD_DIR) all
+        touch $@
 $(IPKG_SPOOK):
-	install -d -m0755 $(IDIR_SPOOK)/usr/bin
-	$(CP) $(PKG_BUILD_DIR)/spook $(IDIR_SPOOK)/usr/bin/
-	$(RSTRIP) $(IDIR_SPOOK)
-	$(IPKG_BUILD) $(IDIR_SPOOK) $(PACKAGE_DIR)
-
+        install -d -m0755 $(IDIR_SPOOK)/usr/bin
+        $(CP) $(PKG_BUILD_DIR)/spook $(IDIR_SPOOK)/usr/bin/
+        $(RSTRIP) $(IDIR_SPOOK)
+        $(IPKG_BUILD) $(IDIR_SPOOK) $(PACKAGE_DIR)
 mostlyclean:
-	$(MAKE) -C $(PKG_BUILD_DIR) clean
-	rm -f $(PKG_BUILD_DIR)/.built
+        $(MAKE) -C $(PKG_BUILD_DIR) clean
+        rm -f $(PKG_BUILD_DIR)/.built
 }}}
 Config.in:
 
@@ -544,8 +545,9 @@ Priority: optional
 Section: sys
 Description: no description currently
 }}}
-... To be continued ...
+Then enable the libpthread library and install it to your device. Using a very basic config works. The audio is broken!
 
+MPEG4 does not work without many disturbance in the video. However MJPEG works good but leads to an average bandwidth of 4MBit/s. MPEG4 generates approximatly 1MBit/s. The CPU load is quite low with about 10% (same to memory), delay is not noticable even if using mpeg4.
 ==== wis-streamer ====
 wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first. More info is available here:
 
