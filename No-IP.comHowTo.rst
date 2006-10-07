@@ -12,7 +12,7 @@ A recent OpenWrt version. This howto was written using the 'White Russian RC4' l
 An account with No-IP.com
 
 = Installation =
-The {{{noip}}} package is not in the main repositories. You can either update your repository list or install directly from a URI. I did the later.
+The {{{noip}}} package is not in the main repositories. You can either update your repository list or install directly from a URI. I did the latter.
 
 {{{
 -Find the noip package in the OpenWRT Package Tracker (http://tracker.openwrt.org/packages/).
