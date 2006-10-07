@@ -40,6 +40,7 @@ Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-
 
    * Create valid firmware images.
 
-   * Test the currently merged kernel in order to see if it boots on CFE based boards. It currently does not receives the MTD map from RedBoot (maybe wrong sector number).
+   * Test the currently merged kernel in order to see if it boots on CFE based boards.
+   * It can now boot on RedBoot enabled devices, supply a valid MTD partition in the kernel command line, as well as boot_loader=RedBoot
 ----
 CategoryOpenWrtPort
