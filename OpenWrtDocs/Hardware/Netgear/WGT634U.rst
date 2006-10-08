@@ -229,6 +229,18 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
 ||{{{4}}} ||port 0 ||
 ||SoC ||port 5 ||
 
+= GPIO lines =
+Several GPIO lines appear on little gold testpoints near the Broadcom chip.
+|| GPIO bit || location ||
+|| 0x80 || TP1 ||
+|| 0x40 || TP2 ||
+|| 0x20 || TP3 ||
+|| 0x10 || TP4 ||
+|| 0x08 || U6.13 to yellow Power LED ||
+|| 0x04 || reset pushbutton ||
+|| 0x02 || TP5 ||
+|| 0x01 || ?? ||
+More info at http://openwrt.pbwiki.com/GPIO
 
 = Mini-PCI Upgrade =
 The mini-pci card has been confirmed to be replaceable with an atheros AR5212 ABG Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
