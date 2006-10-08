@@ -1,7 +1,7 @@
 For generic info on the OpenWRT devices I use (Asus WL-500gP and Linksys WRTSL54G) and their configuration, check [:RomainDeparis:this] first.
 
 == GO7007 devices support ==
-'''Hint:''' Currently the driver loads and at least spook is working, but only with mjpeg and not mpeg4. Accessing the audio devices will cause a kernel crash and you have to reboot then.
+'''Hint:''' __''Currently the driver loads and at least spook is working somehow. During the tests a memory leak was found in spook, so it will crash sooner or later. Accessing the audio devices will cause a kernel crash and you have to reboot then. But it seems to be worth the work, because video streaming requires about 10% CPU load with the current Kamikaze release that is still at 200 MHz CPU Clock. Also not much RAM is needed. Audio compression was not tested since the box always crashed when accessing audio.''__
 
 The idea here is to add support to OpenWRT for hardware accelerated encoding device like the Plextor ConvertX PX-TV402U. This can be used on pretty much any OpenWRT-compatible router with at least one USB2 connector.
 
@@ -230,7 +230,7 @@ You need to ''make menuconfig'' and enable at least modprobe under busybox confi
 Do not forget to ''make'' and upload the new firmware to your router.
 
 === Kernel module ===
-Create the wis-go7007 package under target/linux/package:
+Create the wis-go7007 package under '''target/linux/package''' (not the same package folder like using for non-kernel-related packages):
 
 {{{
 target/linux/package/wis-go7007/:
@@ -367,6 +367,7 @@ kmod-go7007_2.6.16.7+0.9.8-brcm-1_mipsel.ipk
 kmod-usb-core_2.6.16.7-brcm-1_mipsel.ipk
 kmod-usb2_2.6.16.7-brcm-1_mipsel.ipk
 kmod-videodev_2.6.16.7-brcm-1_mipsel.ipk
+kmod-soundcore??????-brcm1_mipsel.ipk
 }}}
 Copy them to your router, install them with ipkg and reboot.
 
@@ -450,13 +451,8 @@ All set!
 Now that we have in-kernel support for the hardware, we need a user-space application to do something with it. As mentionned on the GO7007 website, not many applications support the compressed video. MythTV is huge (with the MySQL backend and the nice GUI) and I doubt we can fit it all on a WRT. We are left with spook and wis-streamer, which both compile fine.
 
 ==== Spook ====
-I have a working build of spook but I need to clean-up the package files before I post them here. Also spook requires some simple tuning of uClibc (+CSRC+= fpmacros.c nan.c s_rint.c e_hypot.c w_hypot.c s_floorf.c s_ceilf.c).
-
-Since there is no Spook info right now, i will try to help out since wis-streamer also causes a kernel oops at my Asus.
-
-First clean up your source by calling "make distclean" in order to rebuild the toolchain. The change to uClibc requires this step. Then edit the file "toolchain/uClibc/patches/120-more_standard_math.patch" and add the functions "s_floorf.c s_ceilf.c" http://openwrt.pbwiki.com/Adding_Math_Functions_To_uClibc_mathlib
-
-Afterwards create a package for spook:
+'''Hint: '''__''Spook works but it eats up all memory, also the video can only be watched with mplayer, VLC and Quicktime fail due to bad/large/corrputed packets.''__
+First clean up your source by calling "make distclean" in order to rebuild the toolchain. The change to uClibc requires this step. Then edit the file "toolchain/uClibc/patches/120-more_standard_math.patch" and add the functions "s_floorf.c s_ceilf.c"http://openwrt.pbwiki.com/Adding_Math_Functions_To_uClibc_mathlibAfterwards create a package for spook:
 
 {{{
 tom@devsystem:~/trunk/openwrt$ ls -l package/spook/*
@@ -466,7 +462,7 @@ package/spook/ipkg:
 total 4
 -rw-------  1 tom tom 67 2006-10-05 19:21 spook.control
 }}}
-Makefile:
+Makefile '''(pay attention to the kernel source, i do not know the right macro)''':
 
 {{{
 # $Id: Makefile 3121 2006-02-03 08:31:25Z tst $
@@ -491,7 +487,7 @@ $(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
                         --target=$(GNU_TARGET_NAME) \
                         --host=$(GNU_TARGET_NAME) \
                         --build=$(GNU_HOST_NAME) \
-                        --with-kernel-source=/home/tom/trunk/openwrt/build-mipsel/linux \:
+                        --with-kernel-source=/home/tom/trunk/openwrt/build-mipsel/linux \
                         --enable-input-v4l2 \
                         --program-prefix="" \
                         --program-suffix="" \
@@ -545,18 +541,14 @@ Priority: optional
 Section: sys
 Description: no description currently
 }}}
-
 Then enable the libpthread library and install it to your device. Using a very basic config works. The audio is broken!
 
 {{{
 #
-
 # FrameHeap 30; # Appropriate for one video stream and one audio stream
 # FrameHeap 50 921600; # Appropriate for capturing 640x480 frames
 FrameHeap 90 921600;
-
 Port 7070;
-
 Input V4L2 {
         Device /dev/v4l/video0;
         InputType PAL;
@@ -566,32 +558,26 @@ Input V4L2 {
         FrameSize 768 572;     # Optional
         Output "compressed";
 }
-
-
 #Input OSS {
 #       Device /dev/sound/audio;
 #       SampleRate 16000;
 #       Output "pcm";
 #}
-
 #Encoder MP2 {
 #       Input "pcm";
 #       Output "mp2";
 #       Bitrate 384; # other valid values include 56, 64, 96, 128, 192, 256
 #}
-
 RTSP-Handler Live {
         #
         # No authentication
         #
         Path /webcam;
-
         #
         # Authentication with the realm "Spook" (can be anything), where
         # the user must authenticate as "testuser" with password "testpass"
         #
         #Path /webcam "Spook" "testuser" "testpass";
-
         #
         # List of tracks in the session; will almost always be a video
         # stream first, followed by an optional audio stream
@@ -599,10 +585,8 @@ RTSP-Handler Live {
         Track "compressed";
 #       Track "mp2"; # un-comment this if you are using audio
 }
-
 }}}
-
-MJPEG works good but leads to an average bandwidth of 4MBit/s. MPEG4 generates approximatly 1MBit/s. The CPU load is quite low with about 10% (same to memory), delay is not noticable even if using mpeg4.
+MJPEG works good but leads to an average bandwidth of 4MBit/s and a poor image quality. MPEG4 generates approximatly 1MBit/s. The CPU load is quite low with about 10% (same to memory), delay is not noticable even if using mpeg4.
 
 ==== wis-streamer ====
 wis-streamer is part of the "LIVE555 Streaming Media" software and as such relies on the live555 library. Let us deal with this library first. More info is available here:
