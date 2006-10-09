@@ -26,7 +26,7 @@ If you want to develop new packages or try really experimental software you can 
 
 Some common third-party packages will be mentioned in this section.
 
-== X-Wrt ==
+=== X-Wrt ===
 
 [http://www.bitsum.com/xwrt.htm X-Wrt] is a project that encompasses many packages and patches with the goal of making use of OpenWrt by end users easier.
 
