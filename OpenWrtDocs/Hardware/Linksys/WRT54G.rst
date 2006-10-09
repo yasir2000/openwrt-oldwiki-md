@@ -12,7 +12,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||'''Model''' || '''S/N Prefix''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze''' ||
 ||WRT54G v1.0 || CDF0 or CDF1 || (./) || (./) ||
 ||WRT54G v1.1 || CDF2 or CDF3 or CDF4 || (./) || (./) ||
-||WRT54G v2 || CDF5 || (./) || (./) ||
+||WRT54G v2 || CGN10 (Canada)/CDF5 || (./) || (./) ||
 ||WRT54G v2.2 || CDF7 || (./) || (./) ||
 ||WRT54G v3 || CDF8 || (./) || (./) ||
 ||WRT54G v3.1 (AU?, DE, and UK) || CDF9 || (./) || (./) ||
