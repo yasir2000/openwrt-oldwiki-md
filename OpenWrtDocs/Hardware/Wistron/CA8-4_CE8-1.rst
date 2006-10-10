@@ -21,3 +21,10 @@ Serial-Layout:
  * Pin 4:
  * Pin 5: RX
  * Pin 6: GND
+
+== Links ==
+'''Manufacturer:'''
+ * [http://www.wneweb.com/wireless/wireless_AP.htm Wistron CA8-4 PCBA]
+
+'''Access points:'''
+ * [http://airlive.com Ovislink / Airlive]: [http://www.airlive.com/WLA5000AP.htm WLA-5000AP] [http://www.ovislinkcorp.com/GPL_WLA-5000AP.zip GPL Source]
