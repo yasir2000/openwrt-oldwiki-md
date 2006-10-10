@@ -44,7 +44,9 @@ Information on X-Wrt, including links to installable packages, pre-built firmwar
 
 To install the latest daily build of webif^2^:
 
- ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
+{{{
+ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
+}}}
 
 ==== uPnP ====
 '''uPnP''' is Universal Plug and Play.  
