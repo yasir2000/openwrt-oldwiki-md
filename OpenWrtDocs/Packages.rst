@@ -18,9 +18,11 @@ src backports http://downloads.openwrt.org/backports/rc5
 Now run {{{ipkg update}}} and you will see new packages.
 
 == Third party packages ==
-'''''NOTE:''' Third party packages are not supported by the OpenWrt developers.''
+'''''NOTE:''' Third party packages are not supported by the !OpenWrt developers.''
 
-Third party packages are untested by !OpenWrt and some can even mess up or even brick you router. The !OpenWrt developers do not want to support or give help for these packages anyway on any conditions. Get help from the person who released the package, not OpenWrt developers.
+Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers. 
+
+There are countless third-party packages available. Below a few of the more common ones are listed.
 
 === X-Wrt ===
 
