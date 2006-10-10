@@ -32,11 +32,11 @@ Some common third-party packages will be mentioned in this section. There are ''
 
 '''X-Wrt Links:'''
 
- * [http://www.bitsum.com/xwrt.asp X-Wrt Base Information]
+ * [http://www.bitsum.com/xwrt.asp X-Wrt Information]
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-==== webif^2^: An ehanced HTTP based management console ====
+==== webif^2: An ehanced HTTP based management console ====
 
 '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
 
@@ -46,10 +46,10 @@ To install the latest daily build of webif^2^:
 
  ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
-=== uPnP ===
+==== uPnP ====
 '''uPnP''' is Universal Plug and Play.  
 
-OpenWRT now has a working Linux-IGD package available which works with MSN Messenger for audio & video conversations. However, OpenWrt developers disapprove of UPNP and/or the current state of UPNP packages. Therefore, you will not find UPNP packages in the OpenWrt repository. However, you may find them in the [http://www.bitsum.com/xwrt.htm X-Wrt] repository.
+OpenWrt developers disapprove of UPNP and/or the current state of UPNP packages. Therefore, you will not find UPNP packages in the OpenWrt repository. Since many users require UPNP, it has been made available in the [ftp://ftp.berlios.de/pub/xwrt X-Wrt repository].
 
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
