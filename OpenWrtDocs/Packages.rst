@@ -34,11 +34,11 @@ There are countless third-party packages available. Below a few of the more comm
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-==== webif^2: An ehanced HTTP based management console ====
+==== webif^2: Enhanced HTTP management console ====
 
 '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
 
-Information on X-Wrt, including links to installable packages, pre-built firmwares, and project hosting can be found [http://www.bitsum.com/xwrt.htm here].
+ * [http://www.bitsum.com/smf/index.php?topic=267.0 Screenshots] (not necessarily up-to-date with latest build)
 
 To install the latest daily build of webif^2^:
 
