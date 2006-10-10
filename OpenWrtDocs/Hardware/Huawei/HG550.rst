@@ -10,10 +10,10 @@ This box is used by 9Telecom, French ISP.
 
 {{{
 (top - antennas)
-4 ° GND
-3 ° TX
-2 ° RX
-1 ° +5v
+4 ° +5V
+3 ° RX
+2 ° TX
+1 ° GND
 (bottom - leds)
 
 115200,8N1
