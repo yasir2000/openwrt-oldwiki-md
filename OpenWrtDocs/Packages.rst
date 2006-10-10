@@ -22,10 +22,6 @@ Now run {{{ipkg update}}} and you will see new packages.
 
 Third party packages are untested by !OpenWrt and some can even mess up or even brick you router. The !OpenWrt developers do not want to support or give help for these packages anyway on any conditions. Get help from the person who released the package, not OpenWrt developers.
 
-== Some third-party packages ==
-
-Some common third-party packages will be mentioned in this section. There are '''many''' more packages available.
-
 === X-Wrt ===
 
 [http://www.bitsum.com/xwrt.htm X-Wrt] is a project to enhance the end user experience of OpenWrt. It is currently under active development. X-Wrt is developed by a different group than is the base OpenWrt firmware and is therefore not affiliated with OpenWrt, nor is it supported by OpenWrt. Since many users may be interested what X-Wrt has to offer, some basic information about it is included here.
