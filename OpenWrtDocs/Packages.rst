@@ -20,7 +20,7 @@ Now run {{{ipkg update}}} and you will see new packages.
 == Third party packages ==
 '''''NOTE:''' Third party packages are not supported by the OpenWrt developers.''
 
-If you want to develop new packages or try really experimental software you can search third party packages with http://www.ipkg.be/ ... but even so remember that third party packages are not supported. Third party packages are untested by !OpenWrt and some can even mess up or even brick you router. The !OpenWrt developers do not want to support or give help for these packages anyway on any conditions. Get help from the person who released the package, not OpenWrt developers.
+Third party packages are untested by !OpenWrt and some can even mess up or even brick you router. The !OpenWrt developers do not want to support or give help for these packages anyway on any conditions. Get help from the person who released the package, not OpenWrt developers.
 
 == Some third-party packages ==
 
@@ -28,15 +28,19 @@ Some common third-party packages will be mentioned in this section. There are ''
 
 === X-Wrt ===
 
-[http://www.bitsum.com/xwrt.htm X-Wrt] is a project that encompasses many packages and patches with the goal of making use of OpenWrt by end users easier.
+[http://www.bitsum.com/xwrt.htm X-Wrt] is a project to enhance the end user experience of OpenWrt. It is developed externally from OpenWrt and is not affiliated with OpenWrt itself.
 
 ==== webif^2: An ehanced HTTP based management console ====
 
-'''Status:''' Active Development and Beta Testing (quite usable)
-This is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
+'''Status:''' Active Development and Beta Testing
 
-Information on X-Wrt, including links to installable packages, pre-built firmwares, and project hosting can be found[http://www.bitsum.com/xwrt.htm here].
+'''webif^2''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
 
+Information on X-Wrt, including links to installable packages, pre-built firmwares, and project hosting can be found [http://www.bitsum.com/xwrt.htm here].
+
+Installing the latest daily build of webif^2:
+
+ ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
 === uPnP ===
 '''uPnP''' is Universal Plug and Play.  OpenWRT now has a working Linux-IGD package available which works with MSN Messenger for audio & video conversations.
@@ -83,5 +87,10 @@ Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about t
 
 Keep in mind that this information was found using trial-and-error-methods, so it might still be faulty or have unwanted side effects.
 
+== Other ==
+
+Some third-party can be searched for via http://www.ipkg.be/.
+
 == Building your own packages ==
+
 To build your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
