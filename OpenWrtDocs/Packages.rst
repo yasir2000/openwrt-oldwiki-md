@@ -47,7 +47,9 @@ To install the latest daily build of webif^2^:
  ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
 === uPnP ===
-'''uPnP''' is Universal Plug and Play.  OpenWRT now has a working Linux-IGD package available which works with MSN Messenger for audio & video conversations.
+'''uPnP''' is Universal Plug and Play.  
+
+OpenWRT now has a working Linux-IGD package available which works with MSN Messenger for audio & video conversations. However, OpenWrt developers disapprove of UPNP and/or the current state of UPNP packages. Therefore, you will not find UPNP packages in the OpenWrt repository. However, you may find them in the [http://www.bitsum.com/xwrt.htm X-Wrt] repository.
 
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
 
