@@ -18,6 +18,7 @@ Known 6348 platforms*:
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg US Robotics USR9108] ||
 ||[:OpenWrtDocs/Hardware/Huawei/EchoLife_HG520:Huawei EchoLife HG520] ||
 ||[:OpenWrtDocs/Hardware/Huawei/HG550:Huawei EchoLife HG550] ||
+||[http://www.tecomproduct.com/AH4021.htm Hitachi AH4021 (German Telekom "Speedport W500V")] ||
 
 * If no dedicated Openwrt page is found an external link is supplied
 
