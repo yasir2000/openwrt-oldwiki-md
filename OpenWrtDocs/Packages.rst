@@ -22,11 +22,21 @@ Now run {{{ipkg update}}} and you will see new packages.
 
 If you want to develop new packages or try really experimental software you can search third party packages with http://www.ipkg.be/ ... but even so remember that third party packages are not supported. Third party packages are untested by !OpenWrt and some can even mess up or even brick you router. The !OpenWrt developers do not want to support or give help for these packages anyway on any conditions. Get help from the person who released the package, not OpenWrt developers.
 
-== Documented third-party packages ==
+== Some third-party packages ==
 
-Some common third-party packages will be mentioned in this section.
+Some common third-party packages will be mentioned in this section. There are '''many''' more packages available.
 
-'''[:OpenWrtDocs/Packages/X-Wrt:X-Wrt End User Extensions]''' [[Include(OpenWrtDocs/Packages/XWrt,,titlesonly)]]
+=== X-Wrt ===
+
+[http://www.bitsum.com/xwrt.htm X-Wrt] is a project that encompasses many packages and patches with the goal of making use of OpenWrt by end users easier.
+
+==== webif^2: An ehanced HTTP based management console ====
+
+'''Status:''' Active Development and Beta Testing (quite usable)
+This is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
+
+Information on X-Wrt, including links to installable packages, pre-built firmwares, and project hosting can be found[http://www.bitsum.com/xwrt.htm here].
+
 
 === uPnP ===
 '''uPnP''' is Universal Plug and Play.  OpenWRT now has a working Linux-IGD package available which works with MSN Messenger for audio & video conversations.
