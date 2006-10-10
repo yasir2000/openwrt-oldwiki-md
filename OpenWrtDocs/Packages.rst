@@ -28,17 +28,22 @@ Some common third-party packages will be mentioned in this section. There are ''
 
 === X-Wrt ===
 
-[http://www.bitsum.com/xwrt.htm X-Wrt] is a project to enhance the end user experience of OpenWrt. It is developed externally from OpenWrt and is not affiliated with OpenWrt itself.
+[http://www.bitsum.com/xwrt.htm X-Wrt] is a project to enhance the end user experience of OpenWrt. It is developed externally not affiliated with OpenWrt. Since many users may be interested what X-Wrt has to offer, some basic information about it is included here.
 
-==== webif^2: An ehanced HTTP based management console ====
+'''X-Wrt Links:'''
+[http://www.bitsum.com/xwrt.asp X-Wrt Base Information]
+[http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
+[http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-'''Status:''' Active Development and Beta Testing
+==== webif^2^: An ehanced HTTP based management console ====
 
-'''webif^2''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
+''Under Active Development and Beta Testing''
+
+'''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
 
 Information on X-Wrt, including links to installable packages, pre-built firmwares, and project hosting can be found [http://www.bitsum.com/xwrt.htm here].
 
-Installing the latest daily build of webif^2:
+To install the latest daily build of webif^2^:
 
  ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
