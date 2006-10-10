@@ -71,7 +71,11 @@ Allow from 192.168.1.0/24 #your ip area.
 MacOS X tip: Configure your extended printer settings. If you use the standard printer settings and add an IPP printer, MacOS X will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
 
 === ether-wake/wol - Wake on LAN ===
-If you have trouble using wol to wake up your PC give ether-wake a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for. Make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
+
+If you have trouble using wol to wake up your PC ...
+ * make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
+ * play around with wol options. It seems like wol (v 0.7.1) sends the magic packet out your default gateway (WAN) if you just use wol x:x:x:x:x:x.  You need to specify the subnet and port to make it work, e.g.: wol -p 65535 -h 192.168.1.255 x:x:x:x:x:x 
+ * give ether-wake a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for. 
 
 === srelay - socks proxy ===
 There is a socks proxy available for !OpenWrt, it is called '''srelay''' (Find via the package tracker). However, there is no documentation for this package. So, here is a quick guide:
