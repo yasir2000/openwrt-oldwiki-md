@@ -4,6 +4,8 @@
 == Prerequisites ==
 Other than svn and make, you will be notified of any missing packages or libraries.
 
+If you get "ImportError: No module named distutils.core" when running make you need to install the python-devel package for you distribution.
+
 Note: make sure your system clock is set correctly.
 
   * svn
