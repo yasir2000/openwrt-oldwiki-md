@@ -6,6 +6,8 @@
 
 The WR850G has three different versions (v1, v2, v3).
 
+Is there a way of telling the version of WE850G from the outside of a sealed box?
+
 == WR850G v1 ==
 The WR850G v1 is based on the Broadcom 4710 board. It has a 125MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is a mini-PCI card.
 
