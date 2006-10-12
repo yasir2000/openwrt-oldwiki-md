@@ -1,19 +1,15 @@
 == US Robotics 5461 ==
-
 = Hardware =
  * Macronix 29LV160CBTC-70G = 2 MB FLASH
  * ISSI IS4232200C1-6T RKKK66400D 0545 = 8MB RAM
  * Broadcom BCM5350KPB5 HT0545 P11 756443 N5A = CPU (rev 0)
-
 = Software =
-
 Booting nbd's latest micro:
 
 {{{
 CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
 Build Date: Tue Mar  1 16:26:12 CST 2005 (root@localhost.localdomain)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
-
 Initializing Arena
 Initializing Devices.
 Boot partition size = 131072(0x20000)
@@ -21,7 +17,6 @@ et0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.91.37.0.1
 rndis0: Broadcom USB RNDIS Network Adapter (P-t-P)
 CPU type 0x29008: 200MHz
 Total memory: 8192 KBytes
-
 Total memory used by CFE:  0x80300000 - 0x8039A150 (631120)
 Initialized Data:          0x803302B0 - 0x803329A0 (9968)
 BSS Area:                  0x803329A0 - 0x80334150 (6064)
@@ -30,7 +25,6 @@ Stack Area:                0x80398150 - 0x8039A150 (8192)
 Text (code) segment:       0x80300000 - 0x803302B0 (197296)
 Boot area (physical):      0x0039B000 - 0x003DB000
 Relocation Factor:         I:00000000 - D:00000000
-
 CFE: Final init 0
 Device eth0:  hwaddr 00-14-C1-0B-DE-A9, ipaddr 192.168.0.109, mask 255.255.0.0
         gateway not set, nameserver not set
@@ -139,24 +133,21 @@ Stack:    800c313c 801c1514 80097288 8075776c 00000001 00008914 800aabfc
 Call Trace:   [<800c313c>] [<80097288>] [<800aabfc>] [<80150000>] [<800aaea0>]
  [<800aaff0>] [<800ab720>] [<800c7a20>] [<8001ed0c>] [<800c92ac>] [<80108920>]
  [<80109d20>] [<8010a0d4>] [<800491a8>] [<800c00e4>] [<80008a00>] [<8005bb0c>]
-
 Code: 00452021  3c020006  34458db9 <8c820000> 11200005  00461024  1040000f  0000
 0000  0802a457
 Segmentation fault
 sendto(): Network is unreachable
 sendto(): Network is unreachable
 }}}
+After applying [https://svn.openwrt.org/openwrt/branches/buildroot-ng/openwrt/target/linux/brcm-2.4/patches/010-bcm47xx-cam_absent.patch this] patch, this oops goes away, and the device works. However, the amount of flash and RAM memory is very limited, so some tradeoffs have to be made. One option is to make a tmpfs root partition instead of a jffs2 partition, and save only parts of the filesystem (e.g. /etc) as a gzipped tar file in a single 64k flash block. When the amount of free RAM is too low, the web interface will become extremely slow or will lock up the device.
 
 Booting regular firmware (Linux based):
 
 {{{
 Decompressing..........done
-
-
 CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
 Build Date: Tue Mar  1 16:26:12 CST 2005 (root@localhost.localdomain)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
-
 Initializing Arena
 Initializing Devices.
 Boot partition size = 131072(0x20000)
@@ -164,7 +155,6 @@ et0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.91.37.0.1
 rndis0: Broadcom USB RNDIS Network Adapter (P-t-P)
 CPU type 0x29008: 200MHz
 Total memory: 8192 KBytes
-
 Total memory used by CFE:  0x80300000 - 0x8039A150 (631120)
 Initialized Data:          0x803302B0 - 0x803329A0 (9968)
 BSS Area:                  0x803329A0 - 0x80334150 (6064)
@@ -173,7 +163,6 @@ Stack Area:                0x80398150 - 0x8039A150 (8192)
 Text (code) segment:       0x80300000 - 0x803302B0 (197296)
 Boot area (physical):      0x0039B000 - 0x003DB000
 Relocation Factor:         I:00000000 - D:00000000
-
 CFE: Final init 0
 Device eth0:  hwaddr 00-14-C1-0B-DE-A9, ipaddr 192.168.0.109, mask 255.255.0.0
         gateway not set, nameserver not set
@@ -277,11 +266,8 @@ connect: Network is unreachable
 Hit enter to continue...No interface specified. Quitting...
 vlan1: No such process
 Hit enter to continue...
-
-
 BusyBox v0.60.0 (2006.01.05-18:51+0000) Built-in shell (msh)
 Enter 'help' for a list of built-in commands.
-
 # # ifconfig
 br0       Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A9
           inet addr:192.168.0.109  Bcast:192.168.255.255  Mask:255.255.0.0
@@ -290,7 +276,6 @@ br0       Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A9
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
-
 eth0      Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A9
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -298,7 +283,6 @@ eth0      Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A9
           collisions:0 txqueuelen:100
           RX bytes:0 (0.0 b)  TX bytes:1910 (1.8 kb)
           Interrupt:4 Base address:0x1000
-
 eth1      Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A8
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -306,7 +290,6 @@ eth1      Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A8
           collisions:0 txqueuelen:100
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
           Interrupt:3 Base address:0x7000
-
 lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING MULTICAST  MTU:16436  Metric:1
@@ -314,38 +297,32 @@ lo        Link encap:Local Loopback
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
-
 vlan0     Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A9
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 b)  TX bytes:128 (128.0 b)
-
 vlan1     Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A9
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 b)  TX bytes:1782 (1.7 kb)
-
 wds0.1    Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A8
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:100
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
-
 wds0.2    Link encap:Ethernet  HWaddr 00:14:C1:0B:DE:A8
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:100
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
-
 #
 }}}
-
 Some more looking around (their firmware):
 
 {{{
@@ -383,14 +360,14 @@ Character devices:
 180 usb
 253 nvram
 254 gpio
-
 Block devices:
  31 mtdblock
 #
 }}}
+= Firmware upload =
+The firmware upgrade page of the original U.S.Robotics software requires a special USR firmware format, which is a TRX file with an additional 28-byte header. Look[https://dev.openwrt.org/ticket/817 here]for a convertor tool. Probably the easiest way to upload a new firmware image is via the TFTP server of the CFE bootloader. There is a small window of 2-3 seconds right after reset where CFE checks for a TFTP transfer, provided'' boot_wait ''is enabled.
 
 = Serial =
-
 {{{
   ______________________________
  |  LAN LEDS     PWR LEDS       |
@@ -406,8 +383,7 @@ Block devices:
  |                      . 3.3v  |
  |                      . GND   |
  |_|USB|_|WAN|_|  LAN  |_|R|_|P||    R = reset P = power (5v)
-
 }}}
- - Flyashi
+ . - Flyashi
 ----
-CategoryHomepage
+ . CategoryHomepage
