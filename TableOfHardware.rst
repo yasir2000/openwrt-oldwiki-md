@@ -1,24 +1,22 @@
 This is a table of all supported devices as of 2006/06/13.
 
 '''Status Legend''':
+
  * '''Supported''' - supported in White Russian
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"]
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"]
  * '''Info entered''' - Information about the device is entered in this list, for reference.
-
 See also
+
  * '''MinimumSystemRequirements'''
  * '''["Unsupported"]'''
  * '''CategoryCategory''' - For a list of lists
  * '''CategoryModel''' - For a extra details on particular models
  * '''CategoryOpenWrtPort''' - list of devices under test
  * '''["CategoryAR7Device"]''' - Which models use the AR7
- * '''["OpenWrtDocs"]''' - back to the Table of Contents
- 
-
-
+ * '''OpenWrtDocs''' - back to the Table of Contents
 == 3Com ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4Mb ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
@@ -337,7 +335,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
-||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on || || ||1x v2.0 ||[:USR5461:WiP/Not Yet] ||
+||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||1x v1.1 ||[:USR5461:WiP] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg USR9108] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||mini-PCI || || ||No || ||Yes ||No ||
 == Viewsonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
