@@ -6,7 +6,7 @@
 _power    Pin 1: GND     ----> []       |
 _plug     Pin 2: TX      ----> ()       | Front of DG834G
 |         Pin 3: NC      ----> ()       |
-|         Pin 4: RX      ----> ()       led
+ |         Pin 4: RX      ----> ()       led
 |                           JP603       |
 |                                       led
 |                                       |
@@ -43,8 +43,32 @@ The console is located roughly behind the tick led on the front left of the boar
 address sticker on my unit. It's the only header I could find; only 4 pins and wasn't soldered up at all. I took a voltage tap of an adjacent 74xx chip to power my MAX232. Settings are 115200,8,N,1.
 == ADAM2 ==
 The DG834(G) bootloader, ADAM2, calculates a checksum of the image in flash memory.  If this checksum fails, the router won't boot.  OpenWRT does not include this checksum (stored in the image), although it could be added.  [http://members.iinet.net.au/~mlanagan/] is a tool that builds custom firmware with this checksum.  The following instructions, however, disable the checksum verification.
+=== Replacing ADAM2 ===
+Partially taken from [http://www.earth.li/~noodles/blog/dg834g/dg834g-openwrt.html] and [http://www.earth.li/~noodles/hardware-dg834g.html]
+==== Getting access to your router ====
+ 1. Enable debug mode (telnet access)
+  * Go to the following URL in your router: http://192.168.0.1/setup.cgi?todo=debug
+==== Backing things up ====
+If you make a mistake, these backups are very useful.
+ 1. Telnet into your router
+  {{{
+telnet 192.168.1.1
+}}}
+ 1. Backup each mtd block.
+  {{{
+ls /dev/mtdblock
 
-Taken from [http://www.earth.li/~noodles/blog/dg834g/dg834g-openwrt.html] and [http://www.earth.li/~noodles/hardware-dg834g.html]
+dd if=/dev/mtdblock/2 of=/tmp/mtd2.bin
+...
+}}}
+ 1. Start a web server on your router so you can download your mtd images.
+  {{{
+cd /tmp
+mini_httpd -p 1080
+}}}
+ 1. Download the files you just backed up.  You can find them at http://192.168.0.1:1080/mtdX.bin.
+
+
 ----
 Backing up the flash is probably a good move; if you do cd /tmp ; mini_httpd -p 1080 while connected via telnet you'll start up a httpd on port 1080. You can then do cat /dev/mtdblock/2 > /tmp/mtd2.bin which will dump the ADAM2 partition to a file, which can be obtained with wget http://192.168.0.1:1080/mtd2.bin from your desktop machine. Repeat this for devices 0 through 4 and you'll get the entire set.
 
