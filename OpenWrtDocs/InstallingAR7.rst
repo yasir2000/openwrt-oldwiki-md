@@ -188,15 +188,17 @@ linksys-tftp> quit
 '''Tftp errors'''
 ||'''TFTP Error''' ||'''Reasons''' ||
 ||Code pattern is incorrect ||The firmware image you're uploading was intended for a different model. ||
-||<|2> Invalid Password ||The firmware has booted and you're connected to a password protected tftp server contained in the firmware. ||
+||<style="text-align: center;" |2> Invalid Password ||The firmware has booted and you're connected to a password protected tftp server contained in the firmware. ||
 ||Your router requires a tftp client using a password to upgrade via the bootloader's tftp server. ||
 ||Timeout ||You missed the window. If this persists try a different tftp client (some are known not to work properly). ||
 
 
 Some machines will disable the ethernet when the router is powered off and not enable it until after the router has been powered on for a few seconds. If you're consistently getting "Invalid Password" failures try connecting your computer and the router to a hub or switch. Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
 
-'''ADAM2 errors
-'''550 Can not erase - There are several possible causes, if you have flashed a new ADAM2 to your router with a JTAG, it may be that the new ADAM2 doesn't support your flash chip and was meant for AMD or Intel flash chips. You will need to flash the entire firmware to your router via JTAG or serial cable (faster).'''''''''Other methods of upgrading'''
+'''ADAM2 errors '''550 Can not erase - There are several possible causes, if you have flashed a new ADAM2 to your router with a JTAG, it may be that the new ADAM2 doesn't support your flash chip and was meant for AMD or Intel flash chips. You will need to flash the entire firmware to your router via JTAG or serial cable (faster).'''
+'''
+
+'''Other methods of upgrading'''
 
 While some official firmware's have a tftpd server running once loaded. It is not a recommended way to upgrade the router using this method, it has been found to be unreliable.
 
