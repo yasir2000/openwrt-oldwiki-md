@@ -34,7 +34,9 @@ This only needs to be done once and then copied to all machines to be part of th
 
 === Firewall ===
 
-First we need to make sure that OpenVPN connections to port 1194 are not blocked by the firewall on OpenWRT. Add the following two lines after the section allowing WAN SSH access:
+First we need to make sure that OpenVPN connections to port 1194 are not blocked by the firewall on OpenWRT. Add the following two lines after the section allowing WAN SSH access. 
+
+If you intend to ssh the key across the WAN, opening up SSH for WAN access can be done just now.
 
 /etc/firewall.user:
 {{{
@@ -159,7 +161,11 @@ With logread you should be able to see if it started up normally.
 
 == Configure Client ==
 
-Client configuration is pretty simple. Just place the following file in the config directory and remember to change the server IP address to match:
+Client configuration is pretty simple. First, transfer over the key file. This can be done by "scp" which is a file transfer over SSH. Example:
+
+{{{scp 192.168.1.1:/etc/openvpn/wlan_home.key /etc/openvpn/}}}
+
+Now place the following file in the config directory and remember to change the server IP address to match, as well as the secrets file. 
 
 {{{
 dev tap
