@@ -24,7 +24,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * [http://www.atheros.com/pt/AR5005VL.htm AR5005VL] (AR5513 CPU + AR5112 RoC)
 
 6. AR5006 generation (single-chip solutions)
- * [http://www.atheros.com/pt/AR5006AP-G.htm AR5006AP-G] (AR2315)
+ * [http://www.atheros.com/pt/AR5006AP-G.htm AR5006AP-G] (AR2315) - 54Mbps only
  * [http://www.atheros.com/pt/AR5006AP-GS.htm AR5006AP-GS] (AR2316)
  * AR5315
 
@@ -40,6 +40,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * D-Link [http://www.dlink.com/products/?pid=304 DWL-7100AP] (AR5002AP-2X)
  * D-Link DWL-774 (AR5002AP-2X) (discontinued)
  * Linksys [:OpenWrtDocs/Hardware/Linksys/WRT55AG: WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (AR5002AP-2X)
+ * Meraki [http://www.meraki.net/mini.html Mini] (AR2315) - source available for [http://www.meraki.net/linux Meraki's own Linux port]
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWGR614 WGR614]v3.
  * Netgear [:OpenWrtDocs/Hardware/Netgear/WGT624: WGT624] [http://www.netgear.com/products/details/WGT624.php Product link] (AR5002AP-G)
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWG102 WG102] (AR2313)
@@ -96,6 +97,8 @@ AR531x/231x-specific kernel patches will go into {{{target/linux/linux-2.4/patch
 The architecture files are updated and in the openwrt buildroot. At present it is not fully integrated, it defaults to using the AP30 configuration, and the ethernet driver is not optional. Support for ar5315 series CPUs is not present.
 
 There are patches in {{{target/linux/ar531x-2.4/patches/}}}, the config file for the kernel in {{{target/linux/ar531x-2.4/config}}}.
+
+Meraki have also posted the source for their Linux port at http://www.meraki.net/linux - this includes RedBoot and possibly the source for the AR2315 network driver.
 
 ----
 CategoryOpenWrtPort
