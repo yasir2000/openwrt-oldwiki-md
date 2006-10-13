@@ -195,8 +195,11 @@ linksys-tftp> quit
 
 Some machines will disable the ethernet when the router is powered off and not enable it until after the router has been powered on for a few seconds. If you're consistently getting "Invalid Password" failures try connecting your computer and the router to a hub or switch. Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
 
-'''ADAM2 errors '''550 Can not erase - There are several possible causes, if you have flashed a new ADAM2 to your router with a JTAG, it may be that the new ADAM2 doesn't support your flash chip and was meant for AMD or Intel flash chips. You will need to flash the entire firmware to your router via JTAG or serial cable (faster).'''
-'''
+'''ADAM2 errors '''
+
+''550 Can not erase and 550 Flash erase failed'' There are several possible causes, if you have flashed a new ADAM2 to your router with a JTAG, it may be that the new ADAM2 doesn't support writing to your flash chip, generally the Intel version is for Intel only flash chips and the AMD version also supports Atmel chips. If you get this error and haven't changed your ADAM2, it could be that you are trying to upload a firmware with a different MTD mapping, change MTD3 first and/or try to set the environment variables using SETENV.
+
+''' '''
 
 '''Other methods of upgrading'''
 
