@@ -28,7 +28,7 @@ ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
 ==== Developing the Webif ====
 
-To date, no documentation has been written on how to write webif pages. The webif system is a combination of shell, awk, html, and javascript (a little). 
+To date, no documentation has been written on how to write webif pages. The webif system is a combination of shell, awk, html, and javascript (a little). At present, all that can be suggested is to use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
 To use your router as an active development box, do the following:
 
