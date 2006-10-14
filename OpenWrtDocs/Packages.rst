@@ -33,7 +33,7 @@ There are countless third-party packages available. Below a few of the more comm
  * [http://www.bitsum.com/xwrt.asp X-Wrt Information]
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
- * ["OpenWrtDocs/xwrt" More X-Wrt Wiki]
+ * [OpenWrtDocs/xwrt]
 
 ==== webif^2: Enhanced HTTP management console ====
 
