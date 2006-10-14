@@ -70,8 +70,9 @@ That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice 
  WikiPedia:JFFS2
   . The files marked JFFS2 make the entire filesystem JFFS2. The disadvantage is that this takes a few hundred kilobytes more space; the advantage is that changes to included files no longer leaves behind an old copy on the readonly filesystem. There is almost always no good reason to use JFFS2 images. It is extremely rare that a person would ever change enough of the base install to make use of the SquashFs build less optimal than that of the JFFS2 builds. In short, JFFS2 images are not as optimal as SquashFs and provide no effective advantage in real-world use. '''Note:''' The "4M" and "8M" in the filename indicate the flash type, either a 64k erase block or a 128k erase block respectively. In most cases, this means that a 4 megabyte flash chip will use the "4M" version.
 
-/!\ '''WARNING !The JFFS2 firmware uses an extra setup step which requires an ADDITIONAL REBOOT before the filesystem can be used. Therefore, immediately after installation, you should telnet into your router and run "reboot", or just cycle the power. ''' /!\
-/!\ '''WARNING !OpenWrt White Russian has no failsafe mode for JFFS2 firmware images.''' /!\
+/!\ '''The JFFS2 firmware uses an extra setup step which requires an ADDITIONAL REBOOT before the filesystem can be used. Therefore, immediately after installation, you should telnet into your router and run "reboot", or just cycle the power. ''' /!\
+
+/!\ '''OpenWrt White Russian has no failsafe mode for JFFS2 firmware images.''' /!\
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/bin/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
