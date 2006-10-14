@@ -7,7 +7,6 @@
  * [http://www.bitsum.com/xwrt.asp X-Wrt Information]
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
- * ["OpenWrtDocs/xwrt" This X-Wrt Wiki]
 
 === Packages ===
 
