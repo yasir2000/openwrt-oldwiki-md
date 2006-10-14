@@ -50,6 +50,8 @@ Save the settings with:
 {{{
 nvram commit
 }}}
+/!\ '''Note: the {{{nvram commit}}} command will erase and rewrite a 64kB part of the flash memory. Don't do this too often since flash memories only have limited number of erase/rewrite-cycles!''' (see [http://wiki.openwrt.org/OpenWrtNVRAM#NVRAMCommitting nvram commit warning]) /!\
+
 You should be able to configure the rest of the network configuration using OpenWrt webif.
 
 Note: new vlan settings will be applied on reboot, or by some program such as RoboCfg (which isn't used by default).
