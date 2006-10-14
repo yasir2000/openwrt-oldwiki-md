@@ -42,7 +42,8 @@ That explains the directories, now what the hell are the files? They are [wiki:W
    * Asus WL500g
    * Asus WL500gx
    * Buffalo Airstation WBR2-G54S
-   * ...
+   * WRT54G v5 - v6 (only)
+   * WRT54GS v5 - v6 (only)
  * openwrt-wrt54g-<type>.bin; openwrt-wrt54gs-<type>.bin; openwrt-wrt54gs_v4-<type>.bin; openwrt-wrtsl54gs-<type>.bin
   . This is the exact same as the trx file above, with one exception -- a small header has been added to the start of the file, marking it as a valid upgrade for Linksys models. Supported models:
    * openwrt-wrt54g-<type>.bin
