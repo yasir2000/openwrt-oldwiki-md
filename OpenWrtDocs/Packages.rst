@@ -33,6 +33,7 @@ There are countless third-party packages available. Below a few of the more comm
  * [http://www.bitsum.com/xwrt.asp X-Wrt Information]
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
+ * ["OpenWrtDocs/xwrt" More X-Wrt Wiki]
 
 ==== webif^2: Enhanced HTTP management console ====
 
@@ -48,6 +49,8 @@ ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
 ==== uPnP ====
 '''uPnP''' is Universal Plug and Play.  
+
+'''WARNING: UPnP for OpenWrt is not well tested yet.'''
 
 OpenWrt developers disapprove of UPNP and/or the current state of UPNP packages. Therefore, you will not find UPNP packages in the OpenWrt repository. Since many users require UPNP, it has been made available in the [ftp://ftp.berlios.de/pub/xwrt X-Wrt repository].
 
