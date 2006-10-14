@@ -37,3 +37,7 @@ To use your router as an active development box, do the following:
   * Remove old /www and /usr/lib/webif folders (i.e. rm -rf /www).
   * Symlink the www folder on your network share to the /www folder on your router (i.e. ln -s /mnt/myshare/www /www).
   * Symlink the usr/lib/webif folder on your network share to the /usr/lib/webif folder on your router (i.e. ln -s /mnt/myshare/usr/lib/webif /usr/lib/webif).
+
+Afterwards, restart the httpd or reboot your router. 
+
+This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
