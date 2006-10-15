@@ -1,5 +1,6 @@
 = D-Link hardware notes =
 [[PageList(OpenWrtDocs/Hardware/D-Link)]]
+Dlink: support page http://support.dlink.com/products/
 = Serial port pinout =
 == DSL-G300T/302T/500T serial pinout ==
 {{{
