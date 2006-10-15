@@ -1,4 +1,5 @@
 = Work in Progress =
+Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist those working in that direction.
 
 == Details ==
 ADSL port
