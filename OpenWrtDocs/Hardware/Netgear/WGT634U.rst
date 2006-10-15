@@ -1,5 +1,7 @@
 [[TableOfContents]]
 = Netgear WGT634U =
+attachment:wgt634u.jpg
+
 The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a builtin IPSEC co-processor, allowing encrypted VPN's (up to AES256) a bonus of a perfomance boost upto 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce. It also comes standard with 8 MB flash and 32 MB RAM.
 
 The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and has a [http://www.hirose.co.uk/productreleases/ms156.htm MS-156] test point and a soldered antenna.  The WGT634U also has a USB 2.0 controller.
