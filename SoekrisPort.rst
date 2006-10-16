@@ -4,10 +4,18 @@ The SoekrisPort is an attempt to use OpenWrt on PC-based embedded computer board
 
 The net4801 has a CompactFlash socket, as well as an IDE interface for 2.5" HDD. The installation procedure described here is for CF setup. You can use whatever size (from 8MB to 1GB) for your CF.
 
-== Download ==
-http://downloads.openwrt.org/people/nico/testing/x86-2.4/
 
 == Installation ==
+
+When compiling OpenWrt, it can generate the following images (depending on your filesystem selection), which you can copy on the CF device using dd directly:
+
+openwrt-x86-2.6-jffs2-128k.image
+openwrt-x86-2.6-jffs2-64k.image
+openwrt-x86-2.6-ext2.image
+
+You no longer need to partition the CF card or create the filesystems manually
+
+== Old installation method (Only use if you know what you're doing!) ==
 I assume the CF is available on a linux system, using a card reader for example. The block device for the CF on this system is {{{/dev/sda}}} and will be mounted on {{{/mnt/cf}}}. The CF will be setup with the GRUB bootloader, an OpenWrt linux kernel and an OpenWrt JFFS2 image, mounted using MTD block emulation.
 
 === Creating the boot & root partitions ===
@@ -105,7 +113,7 @@ timeout 5
 
 title   OpenWrt
 root    (hd0,0)
-kernel  /boot/openwrt-x86-2.4-vmlinuz blkmtd_device=/dev/hda2 blkmtd_sync=1 root=/dev/mtdblock0 rootfstype=jffs2 init=/etc/preinit noinitrd console=ttyS0,19200n8
+kernel  /boot/openwrt-x86-2.6-vmlinuz block2mtd.block2mtd=/dev/hda2 root=/dev/mtdblock0 rootfstype=jffs2 init=/etc/preinit noinitrd console=ttyS0,19200n8
 boot
 
 }}}
@@ -347,29 +355,6 @@ br0: port 1(eth0) entering learning state
 br0: port 1(eth0) entering forwarding state
 br0: topology change detected, propagating
 }}}
-
-The first boot will be very long, and you will see a lot of message like 
-{{{
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0NNNNNNN: 0xNNNN instead
-}}}
-meaning that the jffs2 driver found non-jffs2 data on the partition, which is true because the image we transfered with dd was smaller than the partition.
-
-Theese messages would come again after a reboot, until all jffs2 area has been written at least once.
-You can use {{{dd}}} to achieve this :
-{{{
-# dd if=/dev/urandom of=/dummy bs=128k
-...
-# rm /dummy
-}}}
-
-
-== ToDo ==
-
-  * Test 2.6 kernel
-  * Configure network interfaces correctly
-  * Use nvram alternatives
-  * Test various CF size and eraseblock size
-  * Avoid / suppress the jffs2_scan_eraseblock message
 
 == See also ==
 
