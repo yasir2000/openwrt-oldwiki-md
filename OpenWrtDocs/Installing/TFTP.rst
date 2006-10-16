@@ -96,6 +96,8 @@ Windows 2000/XP TFTP Client short Instructions
  * The image should now be flashed without multiple tries.
  * If ping starts with "Hardware Error", then starts to answer, and then returns to  "Hardware Error" again for a short moment, you waited too long.
 
+if you have a openwrt54gl (v1.1 testet) the timespan might be very short and is located about 2 seconds after pluging in and about 1 second before the ping starts to answer.
+
 == Troubleshooting ==
 
 Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
