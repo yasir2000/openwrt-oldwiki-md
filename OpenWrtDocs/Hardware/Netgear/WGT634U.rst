@@ -127,7 +127,7 @@ Normally, using the usb drive for root requires making a custom image with a pro
 
 console=ttyS1,115200 root=/dev/scsi/host0/bus0/target0/lun0/part1 rootdelay=20 rw
 
-However, here is a script for using the usb drive as root without having to recompile using the default 2.6 images provided by flyashi @  http://flyashi.dyndns.org:81/bin
+However, here is a script for using the usb drive as root without having to recompile using the default 2.6 images.
 
 If you want to utilize a swap partition when customizing this script, as I have, remember that you need the swap-utils package loaded as well.
 
