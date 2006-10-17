@@ -1,9 +1,11 @@
 = Work in Progress =
 Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist those working in that direction.
 
-Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 Kamikaze build 5174 works on the DSL-502T AU & AT
+Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0
 
-Maybe someone can edit this properly :)
+Kamikaze build 5174 works on the DSL-502T AU & AT
+
+Maybe someone can edit this properly and give it some nice formatting :)
 
 == Specifications ==
 ADSL modem with ADSL2 support to 8Mbit/s, it has port 1 LAN port
