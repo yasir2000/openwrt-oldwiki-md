@@ -85,7 +85,9 @@ quote "SETENV mtd1,0x90010000,0x900850E0" (kernel)
 
 quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 
-DO NOT CHANGE mtd2 or mtd3 Next we must add a tichksum to our file otherwise the adam2 bootloader will reject it when we try to flash
+DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will required JTAG cable to fix it.
+
+Next we must add a tichksum to our file otherwise the adam2 bootloader will reject it when we try to flash
 
 '''Adding a checksum'''
 
@@ -111,7 +113,9 @@ quit
 
 '''Congratulations you are successful :)'''
 
-now try to get an IP from the router by using dhclient eth0 or just unsetting IP variables in XP telnet into 192.168.1.1 and you're done :)
+now try to get an IP from the router by using dhclient eth0 or just unsetting IP variables in XP
+
+you should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken)telnet into 192.168.1.1 and you're done :)
 
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
