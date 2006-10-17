@@ -71,7 +71,7 @@ The "hwname" part is always "et0". The device "et0" is the switch itself and tel
 
 The ports then are configured. The vlan0 (LAN) is configured with four ports, plus the internal tagged port, port 5. The vlan1 (WAN) is configured with only the one port, plus also the tagged port.
 
-This configuration then gives us "vlan0", tied to the WAN port, and "vlan1" tied to the other ports. As mentioned earlier, you can change any other port to be the WAN port - just set the vlan1 port to be something else, not that you really need to!
+This configuration then gives us "vlan1", tied to the WAN port, and "vlan0" tied to the other ports. As mentioned earlier, you can change any other port to be the WAN port - just set the vlan1 port to be something else, not that you really need to!
 
 The WAN port is then configured with an IP address and mapped to the logical 'wan' interface name:
 
