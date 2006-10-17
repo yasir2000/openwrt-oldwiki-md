@@ -8,7 +8,7 @@
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-==== webif^2: Enhanced HTTP management console ====
+=== webif^2: Enhanced HTTP management console ===
 
 '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
 
@@ -20,15 +20,17 @@ To install the latest daily build of webif^2^:
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 }}}
 
-==== Webif Developer Documentation ====
+=== Webif Developer Documentation ===
 
 To date, no documentation has been written on how to write webif pages. The webif system is a combination of shell, awk, html, and javascript (a little). At present, all that can be suggested is to use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
+
+==== What is a webif page? ====
 
 A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 
 The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 
-===== Using your router for real-time development =====
+==== Using your router for real-time development ====
 
 To use your router as an active development box, do the following:
 
