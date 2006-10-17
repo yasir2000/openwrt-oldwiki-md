@@ -172,13 +172,12 @@ lan_ifnames="vlan0"
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
 = Ethernet switch configuration =
-FIXME
 
-OpenWrtRoboCfg
+Most of the routers supported by OpenWrt include a builtin switch; four lan ports and one wan port. What most people don't realize is that all of these ports are actually the same interface -- there is a single 10/100 ethernet which is fed into a 6 port switch. 5 of the ports are external and make the lan and wan ports seen on the back of the router, and one port is internally wired to the router's ethernet interface.
 
-The WRT54G is essentially a WAP54G (wireless access point) with a 6 port switch. There's only one physical ethernet connection and that's wired internally into port 5 of the switch; the WAN is port 0 and the LAN is ports 1-4. The separation of the WAN and LAN interfaces is done by the switch itself. The switch has a VLAN map which tells it which VLANs can be accessed through which ports.
+The separation of lan and wan comes from the use of VLANs. By grouping ports into VLANs, the switch can be broken up into smaller virtual switches, and by adding VLAN tags to packets, OpenWrt can control which virtual switch (which ports) the packet gets routed.
 
-The VLAN configuration is based on two variables (per VLAN) in NVRAM.
+There are normally two VLANs, vlan0 and vlan1. For each VLAN, there are two nvram variables, vlan*ports and vlan*hwname. So, the variables for vlan0 might look like this:
 
 {{{
 vlan0ports="1 2 3 4 5*" (use ports 1-4 on the back, 5 is the WRT54G itself)
@@ -186,36 +185,34 @@ vlan0hwname=et0
 }}}
 (See switch diagram in section 2)
 
-This is only the case if the NVRAM variable boardflags is set. On the WRT54G V1.1 and earlier, it's not set.
+The vlan0ports variable is a space separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
 
-When the et module (ethernet driver) loads it will read from vlan0ports to vlan15ports, behind the scenes the ethernet driver is using these variables to generate a more complex configuration which will be sent to the switch. When packets are received from external devices they need to be assigned a vlan id, and when packets are sent to those external devices the VLAN tags need to be removed.
+The port numbers used in the vlan*ports may optionally include a character after the port number. If a port number is followed by a "t" then the port is tagged, a "u" means untagged.
 
-PVID represents the primary VLAN id, in other words if a packet doesn't have a VLAN tag, which VLAN does it belong to? The ethernet driver handles this rather trivially, in the case of vlan0ports="1 2 3 4 5*", ports 1-4 are set to PVID 0 (vlan0). Since the wrt needs to receive packets from both the LAN (vlan0) and the WAN (vlan1), port 5 is a special case appearing in both vlan0ports and vlan1ports. This is where the '*' is used -- it determines the PVID of port 5, which is also the only port not to untag packets (for hopefully obvious reasons).
+A "*" means that this VLAN is the primary VLAN (PVID); if a port is used in multiple vlans, packets without any VLAN information will be given to the primary VLAN for that port.
 
-Remark to "*": On ASUS-500GX is possible make external port tagged in this way vlan0ports="1t 2 5*". This is syntax like robocfg tool. Tested on White Russian RC2, may be possible on all BCM5325 HWs. "*" have no effect, maybe exist for compatibility. This behaviour is at least confirmed with WRT54G(v3.1) and WRT54GS(v2.1) and White Russian RC3.
+The second variable, vlan0hwname is used by the network configuration program (the ifup scripts) to determine the parent interface. This should be set to "et0" meaning the interface matching et0macaddr. The reason it's labeled "et0" and not "eth0" is mostly due to vxworks -- it's a legacy issue and OpenWrt keeps the "et0" name to be compatible with the existing settings.
 
-The second variable, vlan0hwname is used by the network configuration program (or script in the case of !OpenWrt) to determine the parent interface. This should be set to "et0" meaning the interface matching et0macaddr.
+As of RC4, the switch is programmed and controlled by a set of switch modules (switch-core and switch-robo or switch-adm, depending on your hardware). These switch modules will create a /proc/switch/eth0, showing the current settings for the switch. The /proc/switch/eth0/vlan/0/ports is used the exact same way as the vlan0ports nvram variable, allowing you to change the switch settings in realtime.
 
-'''Sample configurations''' (unless otherwise specified, vlan variables not shown are assumed to be unset)
+'''Sample configurations'''
+(unless otherwise specified, vlan variables not shown are assumed to be unset)
 
 Default:
-
 {{{
 vlan0ports="1 2 3 4 5*"
 vlan0hwname=et0
 vlan1ports="0 5"
 vlan1hwname=et0
 }}}
+
 All ports lan (vlan0):
-
-(Hint for client mode: it may be necessary to unset vlan1ports and vlan1hwname and to set wan_device=eth1 to make DHCP work on the former WAN port)
-
 {{{
 vlan0ports="0 1 2 3 4 5*"
 vlan0hwname=et0
 }}}
-LAN (vlan0), WAN (vlan1), DMZ (vlan2):
 
+LAN (vlan0), WAN (vlan1), DMZ (vlan2):
 {{{
 vlan0ports="1 2 5*"
 vlan0hwname=et0
@@ -224,6 +221,7 @@ vlan1hwname=et0
 vlan2ports="3 4 5"
 vlan2hwname=et0
 }}}
+
 It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least the WRT54GS v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 
 = Wireless configuration =
