@@ -116,10 +116,15 @@ You can generally use the methods on DLinks site or just change ur mtd0/1/4 vari
 
 But if you've accidentally destroyed your mtd2 adam2 bootloader or mtd3 config file you will need a JTAG cable.
 
+'''Instructions for debricking with a JTAG'''
+
+'''How to get hold of a JTAG or make one
+'''
+
 I grabbed one from ebay but you can make your own with 4/5 resistors, pin schematics are here:
 
- . http://wiki.openwrt.org/AR7Port
- http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/JTAG_Cable
+http://wiki.openwrt.org/AR7Port http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/JTAG_Cable
+
 The cable I purchased from Ebay was for the WRT54G, it had a 12 pin header, whereas my router had an already soldered 14 pin header, the WRT54G uses EJTAG 2.0 and the AR7 uses EJTAG 2.6, to make the JTAG cable work I simple connected pin 1 TRST with pin 8 VCC/VIO/VRED via a 100 ohm resistor (I didn't  bother soldering it on) and then placed the 12 pin JTAG on top squashing it into place, bending back the extra 2 pins.
 
 My pins are numbered as so:
@@ -138,7 +143,11 @@ My pins are numbered as so:
 
 7 - 8 (VIO/VCCC/VREF)
 
+'''Bios settings'''
+
 My BIOS settings for my printer port were: ECP+EPP, 0x378.
+
+'''Using the Debrick utility to restore the bootloader and config'''
 
 Once you do this you can use HairyDairyMaids debrick utility 4.8 Get it here:http://downloads.openwrt.org/utils/
 
@@ -165,6 +174,8 @@ You may not have to do /noerase /nobreak or /nocwd but /nodma is required
 Once this is done, set you lan IP as 10.8.8.1 subnet 255.0.0.0 (on Linux u need to do ifconfig eth0 10.8.8.1 to set your IP) and then reboot the router, ftp into 10.8.8.8 21 using the command prompt FTP (not anything else) and you will see an adam2 prompt (gratz!).
 
 ping 10.8.8.8 to see if adam2 is working
+
+'''Uploading the original firmware'''
 
 To get back to dlinks default firmware grab the singleimage.bin from them, if you want to flash OpenWRT see above!
 
@@ -223,5 +234,7 @@ quote "SETENV mtd3,0x903f0000,0x90400000" - configuration
 quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
 
 (p.s. the extra , is no mistake, I think it's needed)
+
+'''Congratulations your router is alive:)'''
 
 Ok so, power cycle the router and it should now work... lights should come on after 30 secs or so.
