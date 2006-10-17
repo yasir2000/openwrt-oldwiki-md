@@ -25,17 +25,6 @@ Please read the manual. If you have any questions about anything in the manual, 
 === Kamikaze (Experimental) Configuration ===
 '''[:OpenWrtDocs/KamikazeConfiguration:OpenWrt Kamikaze Configuration]''' [[Include(OpenWrtDocs/KamikazeConfiguration,,titlesonly)]]
 
-=== Buildroot ===
-'''[:OpenWrtDocs/Buildroot:OpenWrt Buildroot]''' [[Include(OpenWrtDocs/Buildroot,,titlesonly)]]
-
-Both Buildroots probably need pages for:
-
- * acquiring via svn
- * requisite packages for compiling
- * building new packages
-=== Buildroot-ng ===
-'''[:OpenWrtDocs/BuildrootNg:OpenWrt Buildroot-ng]''' [[Include(OpenWrtDocs/BuildrootNg,,titlesonly)]]
-
 = Appendix: FAQ =
 '''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
