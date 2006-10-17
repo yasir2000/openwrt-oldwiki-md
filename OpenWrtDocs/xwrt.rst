@@ -75,5 +75,3 @@ See /usr/lib/webif/functions.sh , the '_ex' functions for further information.
 Webif^2^ makes extensive use of CSS. In fact, everything style related should be defined in the CSS. Pages that define their own styles are considered non-conformant and should be changed. 
 
 The CSS is spread out over a few files in /www. The '/www/webif.css' file contains the core CSS style. Over-rides for specific browsers, like Internet Explorer, may also exist in this folder under different names. Color themes are named after their representative colors, of which there are currently 6.
-
-====
