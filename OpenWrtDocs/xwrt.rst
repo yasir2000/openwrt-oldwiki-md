@@ -16,7 +16,7 @@ The X-Wrt White Russian repository is here: ftp://ftp.berlios.de/pub/xwrt/packag
 
 ==== webif^2: Enhanced HTTP management console ====
 
-'''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
+X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs, a switchable color theme, and a number of new webif pages for both configuration and status reporting.
 
  * [http://www.bitsum.com/smf/index.php?topic=267.0 Screenshots] (not necessarily up-to-date with latest build)
 
@@ -25,6 +25,12 @@ To install the latest daily build of webif^2^:
 {{{
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 }}}
+
+==== Busybox 1.2.1 ====
+
+'''UNDER TESTING. To be released soon.'''
+
+BusyBox 1.00 has been included in White Russian RC5 and RC6. There have been many releases of Busybox since v1.00, with the current release at 1.2.1. Kamikaze uses the latest 1.2.1. For White Russian users who desire to use a newer Busybox, we've migrated this package to White Russian.
 
 ==== UPNP: Linksys's IGD ====
 
@@ -39,10 +45,6 @@ linux-igd package: ftp://ftp.berlios.de/pub/xwrt/packages/libupnp_1.2.1a_mipsel.
 This is simply a newer package than is available at the time of this writing in either White Russian or Kamikaze repositories.
 
 wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1_mipsel.ipk
-
-==== Busybox 1.2.1 ====
-
-UNDER TESTING. To be released soon.
 
 === Webif Developer Documentation ===
 
