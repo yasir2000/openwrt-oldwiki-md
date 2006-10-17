@@ -120,6 +120,9 @@ you should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
 
+See the forum for instructions on getting the ADSL interface to work:
+[http://forum.openwrt.org/viewtopic.php?id=7742 http://forum.openwrt.org/viewtopic.php?pid=35563]
+
 You can generally use the methods on DLinks site or just change ur mtd0/1/4 variables back to defaults and upload the dlink firmware.
 
 But if you've accidentally destroyed your mtd2 adam2 bootloader or mtd3 config file you will need a JTAG cable.
