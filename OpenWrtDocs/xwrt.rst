@@ -30,9 +30,9 @@ ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
 ==== Busybox 1.2.1 ====
 
-'''UNDER TESTING. To be released soon.'''
-
 BusyBox 1.00 has been included in White Russian RC5 and RC6. There have been many releases of Busybox since v1.00, with the current release at 1.2.1. Kamikaze uses the latest 1.2.1. For White Russian users who desire to use a newer Busybox, we've migrated this package to White Russian.
+
+busybox 1.2.1 package: ftp://ftp.berlios.de/pub/xwrt/packages/busybox_1.2.1-4_mipsel.ipk  
 
 ==== UPNP: Linksys's IGD ====
 
