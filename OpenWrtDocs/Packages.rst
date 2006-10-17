@@ -24,7 +24,11 @@ Third party packages are untested and unsupported by !OpenWrt, and no warranties
 
 There are countless third-party packages available. Below a few of the more common ones are listed.
 
-'''[:OpenWrtDocs/xwrt:X-Wrt]''' [[Include(OpenWrtDocs/xwrt,,)]]
+=== X-Wrt ===
+
+X-Wrt is a meta-set of packages and patches to enhance the end user experience. X-Wrt has its own sub-section of this wiki, the titles in which is shown below:
+
+[[Include(OpenWrtDocs/xwrt,,titlesonly)]]
 
 === uPnP ===
 '''uPnP''' is Universal Plug and Play.  
