@@ -8,8 +8,6 @@
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-At present, unless otherwise specified, these packages are for White Russian.
-
 ==== webif^2: Enhanced HTTP management console ====
 
 '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
@@ -22,7 +20,7 @@ To install the latest daily build of webif^2^:
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 }}}
 
-==== Developing the Webif ====
+==== Webif Developer Documentation ====
 
 To date, no documentation has been written on how to write webif pages. The webif system is a combination of shell, awk, html, and javascript (a little). At present, all that can be suggested is to use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
