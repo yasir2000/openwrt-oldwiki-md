@@ -5,7 +5,7 @@ Thanks Strider for starting the page off & thank you nbd + all the openwrt guys 
 
 Kamikaze build 5174 works on the DSL-502T AU & AT
 
-Maybe someone can edit this properly and give it some nice formatting :)
+This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
 
 == Specifications ==
 ADSL modem with ADSL2 support to 8Mbit/s, it has port 1 LAN port
@@ -118,10 +118,8 @@ But if you've accidentally destroyed your mtd2 adam2 bootloader or mtd3 config f
 
 I grabbed one from ebay but you can make your own with 4/5 resistors, pin schematics are here:
 
- http://wiki.openwrt.org/AR7Port
-
+ . http://wiki.openwrt.org/AR7Port
  http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/JTAG_Cable
-
 The cable I purchased from Ebay was for the WRT54G, it had a 12 pin header, whereas my router had an already soldered 14 pin header, the WRT54G uses EJTAG 2.0 and the AR7 uses EJTAG 2.6, to make the JTAG cable work I simple connected pin 1 TRST with pin 8 VCC/VIO/VRED via a 100 ohm resistor (I didn't  bother soldering it on) and then placed the 12 pin JTAG on top squashing it into place, bending back the extra 2 pins.
 
 My pins are numbered as so:
@@ -186,7 +184,7 @@ Name (10.8.8.8:z): adam2
 
 331 Password required for adam2.
 
- Password: 230 adam2
+Password: 230 adam2
 
 logged in.
 
@@ -212,11 +210,7 @@ ftp> quote REBOOT
 
 ---> REBOOT 221 Goodbye.
 
- But let me guess... you didn't get the firmware to upload?
-
- Did you get 550 can not erase or 550 flash erase failed I think I know why!!
-
- This is because the configuration file we just uploaded had the old firmware version 1 memory map (or you used a different map for OpenWRT) and we are trying to upload a firmware version 2 which has a different memory mapping. You can solve this by issuing SETENV commands with the correct memory mappings before uploading the firmware
+But let me guess... you didn't get the firmware to upload? Did you get 550 can not erase or 550 flash erase failed I think I know why!! This is because the configuration file we just uploaded had the old firmware version 1 memory map (or you used a different map for OpenWRT) and we are trying to upload a firmware version 2 which has a different memory mapping. You can solve this by issuing SETENV commands with the correct memory mappings before uploading the firmware
 
 quote "SETENV mtd0,0x90091000,0x903f0000" - filesystem
 
@@ -228,7 +222,6 @@ quote "SETENV mtd3,0x903f0000,0x90400000" - configuration
 
 quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
 
- (p.s. the extra , is no mistake, I think it's needed)
+(p.s. the extra , is no mistake, I think it's needed)
 
 Ok so, power cycle the router and it should now work... lights should come on after 30 secs or so.
-
