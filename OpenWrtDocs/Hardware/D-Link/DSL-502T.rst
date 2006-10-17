@@ -110,4 +110,5 @@ quit
 now try to get an IP from the router by using dhclient eth0 or just unsetting IP variables in XP telnet into 192.168.1.1 and you're done :)
 
 == How to Debrick and further information: ==
-See the forum for how to debrick the DSL-502T[[BR]]http://forum.openwrt.org/viewtopic.php?id=7742[[BR]]
+See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
+
