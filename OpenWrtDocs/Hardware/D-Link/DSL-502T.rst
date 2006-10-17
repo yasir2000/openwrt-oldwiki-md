@@ -34,27 +34,29 @@ Run make to download and compile the firmware
 '''Setting up the memory layout'''
 
 To flash your new firmware you must first understand how the memory is divided into blocks, with the default DLink firmware it is this:
-
-||||||||'''tablewidth="572px" tableheight="253px" tablealign=""Default DLink Firmware V2 map'''||
-||Name||Start||End||Description||
-||mtd0||0x90091000||0x903f0000||Filesystem||
-||mtd1||0x90010090||0x90090000||Kernel||
-||mtd2||0x90000000||0x90010000||Bootloader||
-||mtd3||0x9003f0000||0x90040000||Configuration||
-||mtd4||0x90010090||0x903f0000||fs+kernel||
+||||||||<style="text-align: center;">'''Default DLink Firmware V2 map''' ||
+||Name ||Start ||End ||Description ||
+||mtd0 ||0x90091000 ||0x903f0000 ||Filesystem ||
+||mtd1 ||0x90010090 ||0x90090000 ||Kernel ||
+||mtd2 ||0x90000000 ||0x90010000 ||Bootloader ||
+||mtd3 ||0x9003f0000 ||0x90040000 ||Configuration ||
+||mtd4 ||0x90010090 ||0x903f0000 ||fs+kernel ||
 
 
 The default firmware flashes to mtd4 It is divided like so (hex):
-||||'''tablewidth="608px" tableheight="300px" tablealign=""Default firmware map (hex)'''||
-||0-90||Header used by the web interface to verify firmware compatibility||
-||90-80FFF||Kernel with padded 0s at the end||
-||81000-20EFFF||Filesystem with padded 0s at the end||
-||20F000-20F007||Checksum made with TICHKSUM (8 bytes=16 hex chars)||
-But we are flashing OpenWRT to our router and the Openwrt-ar7-2.4-squashfs.bin is set up like this:
+||||<style="text-align: center;">'''Default firmware map (hex)''' ||
+||0-90 ||Header used by the web interface to verify firmware compatibility ||
+||90-80FFF ||Kernel with padded 0s at the end ||
+||81000-20EFFF ||Filesystem with padded 0s at the end ||
+||20F000-20F007 ||Checksum made with TICHKSUM (8 bytes=16 hex chars) ||
 
-||||'''tablewidth="478px" tableheight="204px" tablealign=""OpenWRT firmware mapping'''||
-||0 - x ||Kernel||
-||x - eof||SquashFS||
+
+But we are flashing OpenWRT to our router and the Openwrt-ar7-2.4-squashfs.bin is set up like this:
+||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
+||0 - x ||Kernel ||
+||x - eof ||SquashFS ||
+
+
 Basically OpenWRT doesn't waste space and where the kernel ends the filesystem starts.This means you need to change your mtd3 configuration variables so that the mappings are correct and the filesystem can be found by OpenWRT.
 
 Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this is the start of the squashfs.
@@ -62,40 +64,6 @@ Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for th
 In my case this position was 0x000750E0
 
 so my memory should be mapped like this:
-
-
-||||||||'''tablewidth="572px" tableheight="253px" tablealign=""OpenWRT custom kernel mapping'''||
-||Name
- ||Start
-||End
-||Description
-||
-||mtd0
-||0x900850E0
-||0x903f0000
-||Filesystem
-||
-||mtd1
-||0x90010000
-||0x900850E0
-||Kernel
-||
-||mtd2
-||0x90000000
-||0x90010000
- ||Bootloader (unchanged)
- ||
-||mtd3
-||0x9003f0000
- ||0x90040000
- ||Configuration (unchanged)
-||
-||mtd4
-||0x90010000
-||0x903f0000
-||fs+kernel
-||
-
 
 Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 21 we do
 
