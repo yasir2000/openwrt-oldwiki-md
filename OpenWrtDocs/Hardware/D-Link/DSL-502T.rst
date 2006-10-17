@@ -64,6 +64,14 @@ Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for th
 In my case this position was 0x000750E0
 
 so my memory should be mapped like this:
+||||||||<style="text-align: center;">'''Custom memory map for OpenWRT''' ||
+||Name ||Start ||End ||Description ||
+||mtd0 ||0x900850E0 ||0x903f0000 ||Filesystem ||
+||mtd1 ||0x90010000 ||0x900850E0 ||Kernel ||
+||mtd2 ||0x90000000 ||0x90010000 ||bootloader ||
+||mtd3 ||0x903f0000 ||0x90400000 ||config ||
+||mtd4 ||0x90010000 ||0x903f00000 ||Kernel + FS ||
+
 
 Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 21 we do
 
