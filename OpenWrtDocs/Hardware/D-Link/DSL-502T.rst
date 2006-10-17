@@ -3,6 +3,8 @@ Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist th
 
 Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 Kamikaze build 5174 works on the DSL-502T AU & AT
 
+Maybe someone can edit this properly :)
+
 == Specifications ==
 ADSL modem with ADSL2 support to 8Mbit/s, it has port 1 LAN port
 
@@ -13,9 +15,7 @@ SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
 CPU: TNETD7300GDU Texas Instruments AR7 MIPS based ''' '''
 
 == How to get OpenWRT onto the router: ==
-UPDATE ME: Please see the forum page below
-
-You will need to compile your own firmware, it's simple enough, if you have ubuntu grab build essentials using synaptic and also grab flex, bison and subversion Download the latest trunk using
+'''Getting and compiling the firmware'''You will need to compile your own firmware, it's simple enough, if you have ubuntu grab build essentials using synaptic and also grab flex, bison and subversion Download the latest trunk using
 
 svn co https://svn.openwrt.org/openwrt/trunk
 
@@ -27,7 +27,8 @@ Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4],
 
 Run make to download and compile the firmware
 
- . To flash your new firmware you must first understand how the memory is divided into blocks, with the default DLink firmware it is this:
+'''Setting up the memory layout'''To flash your new firmware you must first understand how the memory is divided into blocks, with the default DLink firmware it is this:
+
 mtd0 0x90091000,0x903f0000" - filesystem
 
 mtd1 0x90010090,0x90090000" - kernel
@@ -42,7 +43,7 @@ The default firmware flashes to mtd4 It is divided like so (hex):
 
 0-90 header used by the web interface to verify the firmware is compatible
 
- 90-80FFF kernel with padded 0s at the end
+90-80FFF kernel with padded 0s at the end
 
 81000-20EFFF filesystem with padded 0s
 
@@ -64,6 +65,10 @@ Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for th
 
 In my case this position was 0x000750E0 Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 21 we do
 
+user adam2
+
+pass adam2
+
 quote "SETENV mtd0,0x900850E0,0x9003f0000" (fs)
 
 quote "SETENV mtd1,0x90010000,0x900850E0" (kernel)
@@ -72,9 +77,11 @@ quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 
 DO NOT CHANGE mtd2 or mtd3 Next we must add a tichksum to our file otherwise the adam2 bootloader will reject it when we try to flash
 
-You just need to get the Source code from DLINK and find the tichksum and perhaps compile it then execute it
+'''Adding a checksum'''You just need to get the Source code from DLINK and find the tichksum and perhaps compile it then execute it
 
- Now you are ready to flash ftp into adam2
+'''Flashing the new firmware'''
+
+Now you are ready to flash ftp into adam2
 
 quote "MEDIA FLSH"
 
@@ -90,7 +97,9 @@ quote REBOOT
 
 quit
 
+'''Congratulations you are successful :)'''
+
 now try to get an IP from the router by using dhclient eth0 or just unsetting IP variables in XP telnet into 192.168.1.1 and you're done :)
 
-== How to Debrick: ==
+== How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[[BR]]http://forum.openwrt.org/viewtopic.php?id=7742[[BR]]
