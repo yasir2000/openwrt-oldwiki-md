@@ -8,7 +8,13 @@
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-=== webif^2: Enhanced HTTP management console ===
+=== X-Wrt Packages ===
+
+Packages documented here are only those in the X-Wrt repository that are not included in the OpenWrt White Russian repository, or have been updated.
+
+The X-Wrt White Russian repository is here: ftp://ftp.berlios.de/pub/xwrt/packages/
+
+==== webif^2: Enhanced HTTP management console ====
 
 '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs. 
 
@@ -19,6 +25,14 @@ To install the latest daily build of webif^2^:
 {{{
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 }}}
+
+==== UPNP: Linksys's IGD ====
+
+'''WARNING:''' Not well tested at all.
+
+You can install UPNP by installing linux-igd (and libupnp) from the X-Wrt repository.
+
+linux-igd package: ftp://ftp.berlios.de/pub/xwrt/packages/libupnp_1.2.1a_mipsel.ipk
 
 === Webif Developer Documentation ===
 
@@ -43,3 +57,23 @@ To use your router as an active development box, do the following:
 Afterwards, restart the httpd or reboot your router. 
 
 This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
+
+==== NG-style UCI config vs. nvram ====
+
+OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
+
+===== Using NVRAM config functions =====
+
+These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
+
+===== Using NG config functions =====
+
+See /usr/lib/webif/functions.sh , the '_ex' functions for further information.
+
+==== CSS ====
+
+Webif^2^ makes extensive use of CSS. In fact, everything style related should be defined in the CSS. Pages that define their own styles are considered non-conformant and should be changed. 
+
+The CSS is spread out over a few files in /www. The '/www/webif.css' file contains the core CSS style. Over-rides for specific browsers, like Internet Explorer, may also exist in this folder under different names. Color themes are named after their representative colors, of which there are currently 6.
+
+====
