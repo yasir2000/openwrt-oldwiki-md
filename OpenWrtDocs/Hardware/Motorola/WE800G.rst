@@ -22,7 +22,9 @@ nvram commit
 
 To enable the other 8MB.  DONT DO THIS WITHOUT CHECKING THE RAM PART NUMBERS - it will create a permanent brick out of your router. This setting needs to be repeated if you erase the nvram, since the PMON default is 0x0019.
 
-There is a connector that has the required signals for connecting a serial port (you need an external UART and line driver), but no JTAG connector.  TMS/TCK/TDI/TDO are present on some SMT resistors near the CPU, but I could not even get as far as reading the CPU ID - it's possible that nTRST is strapped on the PCB and holding the test controller in reset.
+There is a connector that has the required signals for connecting a serial port (you need an external UART and line driver), but no JTAG connector. 
+
+/!\ For JTAG instructions head to http://www.dd-wrt.com/phpBB2/viewtopic.php?t=5935
 
 Here are some protographs of the PCB (This is a 2MB flash / 16MB RAM version) - the 4MB/16MB version looks identical apart from the Flash part number.
 
