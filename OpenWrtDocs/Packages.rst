@@ -26,7 +26,7 @@ There are countless third-party packages available. Below a few of the more comm
 
 === X-Wrt ===
 
-X-Wrt is a meta-set of packages and patches to enhance the end user experience. X-Wrt has its own sub-section of this wiki, the titles in which is shown below:
+X-Wrt is a meta-set of packages and patches to enhance the end user experience of OpenWrt (currently White Russian only). X-Wrt has its own sub-section of this wiki, the titles of which are below:
 
 [[Include(OpenWrtDocs/xwrt,,titlesonly)]]
 
