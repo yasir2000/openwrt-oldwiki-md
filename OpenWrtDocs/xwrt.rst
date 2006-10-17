@@ -34,6 +34,16 @@ You can install UPNP by installing linux-igd (and libupnp) from the X-Wrt reposi
 
 linux-igd package: ftp://ftp.berlios.de/pub/xwrt/packages/libupnp_1.2.1a_mipsel.ipk
 
+==== Wireless tools v29 pre 10 ====
+
+This is simply a newer package than is available at the time of this writing in either White Russian or Kamikaze repositories.
+
+wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1_mipsel.ipk
+
+==== Busybox 1.2.1 ====
+
+UNDER TESTING. To be released soon.
+
 === Webif Developer Documentation ===
 
 ''This is very much a work in progress --- some inaccuracies may be present in the first drafts.''
@@ -83,4 +93,3 @@ The CSS is spread out over a few files in /www. The '/www/webif.css' file contai
 Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
 
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
-
