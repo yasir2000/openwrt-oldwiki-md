@@ -24,8 +24,6 @@ nvram commit; Write changes to the flash chip (otherwise only stored in RAM)
 }}}
 A complete list of nvram options can be found at ["OpenWrtNVRAM"].
 
-'''NOTE:''' flashing your router with tftp won't work unless boot_wait is set to on! tftp is your last software based recovery option if failsafe mode fails!
-
 = Network configuration =
 '''Quick overview of the router architecture:'''
 
@@ -35,7 +33,6 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||'''Device & Version''' || ||
 ||WRT54G v2/v3 & WRT54GS v1/v2 ||[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png Switch diagram] ||
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
-
 
 [[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on. A more detailed explanation of the networking internals is on the page OpenWrtDocs/NetworkInterfaces
 ||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
@@ -66,7 +63,6 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Siemens ||SE505 ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Siemens ||SE505 ||v2 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 
-
 note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted.
 
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
@@ -75,10 +71,7 @@ Please update to include other models.
 
 '''NOTE:''' LAN and WIFI are bridged together in br0 by default, on some devices WAN can be eth1 and LAN eth0.
 
-In general, the switch works the following way: It receives data (physical) on either lan port or on the wan port. Then the switch tags the packages (with VLAN), so Linux is able to see the difference and that way we have the vlan devices, which describe wan or lan port.
-
-[[BR]]The basic network configuration is handled by a series of NVRAM variables:
-
+The basic network configuration is handled by a series of NVRAM variables:
 {{{
 #!CSV
 NVRAM; Description
@@ -119,7 +112,6 @@ For client mode configuration (rather than AP mode), see this page: ClientModeHo
 ('''NOTE:''' these examples use WRT54G v2.x/WRT54GS v1.x interface names)
 
 The default network configuration (LAN + wireless bridged as 192.168.1.1/24, WAN as DHCP):
-
 {{{
 lan_ifname=br0
 lan_ifnames="vlan0 eth1"
@@ -129,8 +121,8 @@ lan_netmask=255.255.255.0
 wan_ifname=vlan1
 wan_proto=dhcp
 }}}
-If you just want to use !OpenWrt as an access point you can avoid the WAN interface completely (LAN+wireless bridged as 192.168.1.25/24, routed through 192.168.1.1, WAN ignored):
 
+If you just want to use !OpenWrt as an access point you can avoid the WAN interface completely (LAN+wireless bridged as 192.168.1.25/24, routed through 192.168.1.1, WAN ignored):
 {{{
 lan_ifname=br0
 lan_ifnames="vlan0 eth1"
@@ -141,10 +133,10 @@ lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
 wan_proto=none
 }}}
+
 The above configuration also serves as a wireless to ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration.
 
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
-
 {{{
 # linksys bug; remove when not using static configuration for lan
 nvram set lan_proto="static"
@@ -274,24 +266,6 @@ See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user au
 || wl0_radius_port || Port# to connect... ||
 || wl0_auth || '''0''' ||
 
-
-== A note on encryption with WDS ==
-WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
-
-When using WPA with WDS, the simplest method is to ensure that both routers are using the same ESSID and WDS settings; if so, you don't need to set any additional variables besides '''wl0_wds'''. However, some people may want to use different encryption for the WDS link than for clients, or different ESSIDs for different routers; if so, there are a number of wds_specific nvram variables that can be set; ensure that all WDS peers have the same values for these variables. If the variables are unset (as they are by default), WDS will use the same encryption settings as used for clients.
-|| '''NVRAM variable''' || '''Description''' ||
-|| wl0_wds_wpa_psk || Your wireless password ||
-|| wl0_wds_akm || The key type (i.e. psk) ||
-|| wl0_wds_crypto || The algorithm (i.e. aes) ||
-|| wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
-
-
-If using WDS between routers with different ESSIDs, you should all of their '''wl0_wds_ssid''' variables to the ESSID of ''one'' of the routers, so that they will be able to talk to each other.
-
-Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS.  It is known that WPA1 works.
-
-Remember that the non-free package NAS must be installed for WPA to work.  It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain.  Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
-
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 !OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
 
@@ -318,95 +292,54 @@ First do it without wireless protection and then activate the protection. If you
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 /!\ I experienced 20% packet loss using lazywds. It went away when disabling lazywds. You have been warned!
 
-/!\ '''NOTE:''' If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0 device. You will have to add a bridge to one of your devices again, and create appropriate firewall rules, to make things work. There are currently no detailed instructions on how to set this up, so you better know what you are doing...  '''Here's a hint, however:'''  You can keep the wired/wireless bridge broken and still use WDS; just recreate a bridge via the appropriate nvram variables and only add the device that connects to the network you want to bridge with the other access point (yes, a bridge with only one bridged device is legal).  The router will detect this bridge, and join the remote bridge to it automagically.
+/!\ '''NOTE:''' WDS requires a br0 interface. If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0. You do not need to add any interfaces to br0, the WDS interfaces will be automatically added.
 
 == WDS Routed Networks (P2P) ==
-You might want to use routing over the WDS links, rather than bridging. This is a more complex set up.  You will want to break up the bridge, as explained above, as the default behaviour is to attach new WDS interfaces to the bridge. You can keep the bridge, but you will have to alter this default behaviour if you do (Which happens in /etc/hotplug.d/net/01-wds).
 
-So:
+You might want to use routing over the WDS links, rather than bridging. You will want to break up the bridge, as explained above, and prevent wds devices from being added to the bridge by editing /etc/hotplug.d/net/01-wds.
 
- * Remove the bridge. Your 4 LAN ports are now on their own network, distinct from the local wireless network (eth1) and distinct from any WDS networks that are created.
-i.e.
 
-{{{
-"nvram set lan_ifname=vlan0"
-}}}
- * If you want to have a local wireless service, you need to setup the wireless interface. The wireless network needs to be on a distinct subnet. This isn't necessary if you are just going to route from the LAN ports, to the WDS network and not use the local wireless net. It is also not necessary if you have kept the bridge, and instead disabled the automatic addition of WDS interfaces to br0.
-e.g.
-
-{{{
-  nvram set wifi_ifname=eth1
-  nvram set wifi_proto=static
-  nvram set wifi_ipaddr=10.1.1.254
-  nvram set wifi_netmask=255.255.255.128
-}}}
- 1. You can then add WDS interfaces, as described above.
-e.g.
-
+You can then add WDS interfaces, e.g:
 {{{
 nvram set wl0_wds="00:14:12:25:CB:22 00:14:12:16:3B:28"
 }}}
- * You will want to add addresses for each of these (Note the interface names, which get truncated when displayed by ifconfig, start at wds0.49153 and increment by 0.00001 for each interface). The ip range off the routed WDS links is only 2 IP addresses wide. I chose to do this with nvram variables.
-e.g.
 
+This will give you several wds0.x interfaces (note the interface names get truncated when displayed in ifconfig -- they start at wds0.49153 and increment by 0.00001). Create a set of nvram variables for ifup, e.g:
 {{{
-nvram set wl0_wds1_proto=static
-nvram set wl0_wds1_ifname=wds0.49153
-nvram set wl0_wds1_ipaddr=192.168.254.97
-nvram set wl0_wds1_netmask=255.255.255.252
-nvram set wl0_wds2_proto=static
-nvram set wl0_wds2_ifname=wds0.49154
-nvram set wl0_wds2_ipaddr=192.168.254.100
-nvram set wl0_wds2_netmask=255.255.255.252
-}}}
- * Modify /etc/init.d/S40network to bring up these interfaces. You can add each one, or modify the script to look for them in the nvram, and bring each one up. <br>I did the following:
-{{{
-nvram set wds_ifnames="wl0_wds1 wl0_wds2"
-}}}
-And modified /etc/init.d/S40network
+nvram set wds1_proto=static
+nvram set wds1_ifname=wds0.49153
+nvram set wds1_ipaddr=192.168.254.97
+nvram set wds1_netmask=255.255.255.252
 
-from:
+nvram set wds2_proto=static
+nvram set wds2_ifname=wds0.49154
+nvram set wds2_ipaddr=192.168.254.100
+nvram set wds2_netmask=255.255.255.252
+}}}
 
+Then modify /etc/init.d/S40network to bring up these interfaces:
 {{{
-#!/bin/sh
-case "$1" in
-  start|restart)
-    ifup lan
-    ifup wan
-    ifup wifi
-    wifi up
-    for route in $(nvram get static_route); do {
-      eval "set $(echo $route | sed 's/:/ /g')"
-      $DEBUG route add -net $1 netmask $2 gw $3 metric $4 dev $5
-    } done
-    ;;
-esac
+    ifup wds1
+    ifup wds2
 }}}
-to:
 
-{{{
-#!/bin/sh
-case "$1" in
-  start|restart)
-    ifup lan
-    ifup wan
-    ifup wifi
-    wifi up
-    for wdsif in $(nvram get wds_ifnames); do {
-        ifup $wdsif
-    } done
-    for route in $(nvram get static_route); do {
-      eval "set $(echo $route | sed 's/:/ /g')"
-      $DEBUG route add -net $1 netmask $2 gw $3 metric $4 dev $5
-    } done
-    ;;
-esac
-}}}
- * We are not quite finished. You need to be running a routing protocol across the links, or add static routes on each router.
- * Don't forget to commit the nvram settings, e.g.
-{{{
-nvram commit
-}}}
+== A note on encryption with WDS ==
+WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
+
+When using WPA with WDS, the simplest method is to ensure that both routers are using the same ESSID and WDS settings; if so, you don't need to set any additional variables besides '''wl0_wds'''. However, some people may want to use different encryption for the WDS link than for clients, or different ESSIDs for different routers; if so, there are a number of wds_specific nvram variables that can be set; ensure that all WDS peers have the same values for these variables. If the variables are unset (as they are by default), WDS will use the same encryption settings as used for clients.
+|| '''NVRAM variable''' || '''Description''' ||
+|| wl0_wds_wpa_psk || Your wireless password ||
+|| wl0_wds_akm || The key type (i.e. psk) ||
+|| wl0_wds_crypto || The algorithm (i.e. aes) ||
+|| wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
+
+
+If using WDS between routers with different ESSIDs, you should all of their '''wl0_wds_ssid''' variables to the ESSID of ''one'' of the routers, so that they will be able to talk to each other.
+
+Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS.  It is known that WPA1 works.
+
+Remember that the non-free package NAS must be installed for WPA to work.  It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain.  Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
+
 == Wireless client / wireless bridge ==
 The only thing you have to do is to switch the WL mode like with the bridge:
 
@@ -415,9 +348,6 @@ nvram set wl0_mode=wet
 }}}
 For more information, see ClientModeHowto.
 
-## == SecureEasySetup button (a.k.a. CISCO button) ==
-##
-## obsolete text removed - please use the /proc/sys/diag and /proc/sys/button interfaces
 = Basic system configuration and usage =
 == busybox - The Swiss Army Knife of Embedded Linux ==
 == cron - job scheduler ==
@@ -472,20 +402,7 @@ Most devices supported by !OpenWrt have no real-time clock hardware onboard, and
 
 You must have the correct time to use OpenVPN on !OpenWrt. The same applies to other tools using CA certificates such as wget and curl.
 
-You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''.
-
-'''ntpclient'''
-
-The ''ntpclient'' package will maintain the system time using the Network Time Protocol (NTP) while a link is up that provides a default route.  If the link goes down, the kernel maintains the time based on the processor oscillator, and it will slowly drift.  If the link comes back up, the system time will be resynchronised.
-
-Install the package, reboot, and then check the system time.
-
-You may wish to choose an NTP server close to your router.
-||'''NVRAM Setting''' ||'''Default Value''' ||'''Meaning''' ||
-||'''ntp_server''' ||pool.ntp.org ||host name or IP address of NTP server to use when default route begins ||
-
-
-You may use the ''openntpd'' package to provide NTP service to other hosts.
+You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''. Only ''rdate'' is included by default.
 
 '''rdate'''
 
@@ -504,24 +421,7 @@ then either reboot or run it this once:
 
 {{{
 /etc/init.d/S42rdate}}}
-'''htpdate'''
 
-The ''htpdate'' package synchronises the time using innocuous web page requests as if it is a web browser.  It obtains the time from part of the HTTP header reply sent by web servers. Note that you might have some trouble with htpdate reporting "No server suitable for synchronization found" if the date of the router is initially set to the default of 2000-01-01. Simply try to run "date 010100002006" or something before htpdate.
-
-Install the ''htpdate'' package using ''ipkg'':
-
-{{{
-ipkg install htpdate}}}
-Test by asking ''htpdate'' to set the time to that provided by a remote web server:
-
-{{{
-htpdate -s HOSTNAME}}}
-Configure ''/etc/default/htpdate'' with a set of servers to probe.
-
-Rename ''/etc/init.d/htpdate'' to ''/etc/init.d/S41htpdate''.
-
-## TODO: add openntpd explanation,
-## openntpd could be useful for distributing NTP services further to clients near to the !OpenWrt system.
 == Timezone ==
 Without a time zone set, !OpenWrt will display UTC.
 
