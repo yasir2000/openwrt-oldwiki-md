@@ -8,7 +8,7 @@ In this page, "the OpenWRT" refers to any such supported network device running 
 === Basics ===
 Before getting too far into the details, it's important to know what VLANs are and how they work.
 
-A VLAN (Virtual LAN) is, in basic terms, a group of physial interfaces on a switch that behave as if they are a separate standalone switch. This allows us to use one physical switch, but partition it into multiple LANs, each one completely isolated from the others. The switch must support VLAN configurations - most cheap switches don't allow this, but high end manageable switches do, as does the internal switch on the OpenWRT.
+A VLAN (Virtual LAN) is, in basic terms, a group of physical interfaces on a switch that behave as if they are a separate standalone switch. This allows us to use one physical switch, but partition it into multiple LANs, each one completely isolated from the others. The switch must support VLAN configurations - most cheap switches don't allow this, but high end manageable switches do, as does the internal switch on the OpenWRT.
 
 VLANs are used when you need to separate traffic between groups of devices, but you only want to use one physical switch. For example you might want one VLAN outside your firewall, for public web/mail servers, and another VLAN for your internal machines such as desktops and boxes with private data. They can't be placed on the same LAN for security reasons, so you use VLANs to isolate the groups of ports.
 
@@ -67,7 +67,6 @@ vlan0ports="1 2 3 4 5*"
 vlan1hwname=et0
 vlan1ports="0 5*"
 }}}
-
 The "hwname" part is always "et0". The device "et0" is the switch itself and tells the system which switch to configure with VLANS. As there's only one switch, this must always be set to "et0". If you do not include port 5 in the VLAN then the traffic will remain on the switch and will never be seen by the cpu.
 
 The ports then are configured. The vlan0 (LAN) is configured with four ports, plus the internal tagged port, port 5. The vlan1 (WAN) is configured with only the one port, plus also the tagged port.
@@ -82,7 +81,6 @@ wan_ipaddr=a.b.c.d
 wan_netmask=255.255.255.0
 wan_proto=static
 }}}
-
 Next the LAN side is configured. Because of the bridging, there's an extra step, but overall it's similar:
 
 {{{
@@ -92,7 +90,6 @@ lan_proto=static
 lan_ipaddr=w.x.y.z
 lan_netmask=255.255.255.0
 }}}
-
 The variable "lan_ifname", which sets the actual interface to configure the IP parameters with, should of course be br0 for a bridged interface. Then the variable "lan_ifnames" actually sets the interfaces which are to be bound to the bridge interface, in this case the vlan0 interface and the wireless interface. The vlan0 ports were defined earlier as wired ports 1-4, so these plus the wireless interface are now one single logical LAN.
 
 That's basically how the entire network device architecture is on this box. Below is an example of adding another VLAN.
@@ -117,7 +114,6 @@ dmz_proto=static
 dmz_ipaddr=192.168.1.0
 dmz_netmask=255.255.255.0
 }}}
-
 This configuration firstly changes the vlan0 to exclude port 1 which will be our DMZ port. Then the DMZ vlan is created, with ports 1 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
 
 You could even add more DMZ interfaces - you've got a total of six interfaces to play with (including the wireless port) so what we see is that this device is capable of some very impressive routing features - the limit is your imagination.
