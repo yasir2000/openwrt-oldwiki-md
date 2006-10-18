@@ -2,6 +2,8 @@ BuildRoot refers to the organization of the Makefiles, scripts, etc. in the Open
 
 Substantial improvements to the build environment were made under the [:OpenWrtDocs/BuildrootNg:BuildrootNg] fork in August and September 2006, and these were merged back into the main Kamikaze development branch in mid-October 2006.
 
+[http://downloads.openwrt.org/docs/buildroot-documentation.html | Here] is some documentation of the earlier system (used on [:OpenWrtDocs:"White Russian"] builds). The basics remain similar.
+
 ==== Introduction to the The OpenWrt build environment ====
 
 One of the biggest challenges to getting started with embedded devices is that you just can't install a copy of Linux and expect to be able to compile a firmware. Even if you did remember to install a compiler and every development tool offered, you still wouldn't have the basic set of tools needed to produce a firmware image. The embedded device represents an entirely new hardware platform, which is incompatible with the hardware on your development machine, so in a process called cross compiling you need to produce a new compiler capable of generating code for your embedded platform, and then use it to compile a basic Linux distribution to run on your device.
