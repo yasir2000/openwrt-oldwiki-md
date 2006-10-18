@@ -66,7 +66,7 @@ The LED10 location at front of board contains no LED. Perhaps it is usable by GP
 
 = More information =
 
-Autopsy photos http://www.linksysinfo.org/modules.php?name=Content&pa=showpage&pid=36
+Autopsy photos http://www.linksysinfo.org/portal/forums/showthread.php?t=47389
 
 Original exploration thread  http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=12538
 
