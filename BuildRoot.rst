@@ -17,6 +17,14 @@ As an example, if a new kernel is released, a simple change to one of the Makefi
 
 So let's take a look at OpenWrt and see how this all works
 
+'''prerequisites'''
+
+Other than svn and make, you will be notified of any missing packages or libraries.
+
+If you get {{{ImportError: No module named distutils.core}}} when running make you need to install the python-devel package for you distribution.
+
+Note: make sure your system clock is set correctly.
+
 '''download openwrt'''
 
 This article refers to the kamikaze (trunk) version of OpenWrt, which can be downloaded via subversion using the following command:
