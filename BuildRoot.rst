@@ -15,9 +15,11 @@ OpenWrt takes a different approach to building a firmware, downloading, patching
 
 As an example, if a new kernel is released, a simple change to one of the Makefiles will download the latest kernel, patch it to run on the embedded platform and produce a new firmware image -- there's no work to be done trying to track down an unmodified copy of the existing kernel to see what changes had been made, the patches are already provided and the process ends up almost completely transparent. This doesn't just apply to the kernel, but to anything included with OpenWrt -- It's this one simple understated concept which is what allows OpenWrt to stay on the bleeding edge with the latest compilers, latest kernels and latest applications.
 
+==== Getting started with buildroot ====
+
 So let's take a look at OpenWrt and see how this all works
 
-'''prerequisites'''
+===== prerequisites =====
 
 Other than svn and make, you will be notified of any missing packages or libraries.
 
@@ -25,7 +27,7 @@ If you get {{{ImportError: No module named distutils.core}}} when running make y
 
 Note: make sure your system clock is set correctly.
 
-'''download openwrt'''
+===== download openwrt =====
 
 This article refers to the kamikaze (trunk) version of OpenWrt, which can be downloaded via subversion using the following command:
 
@@ -33,7 +35,7 @@ svn co https://svn.openwrt.org/openwrt/trunk
 
 Additionally, there's a trac interface on http://dev.openwrt.org/ which can be used to monitor svn commits and browse the sources.
 
-'''The directory structure'''
+===== The directory structure =====
 
 There are three key directories in the base:
  . toolchain
@@ -48,7 +50,7 @@ There are three key directories in the base:
 
 Both the target and package steps will use the directory "build_<arch>" as a temporary directory for compiling. Additionally, anything downloaded by the toolchain, target or package steps will be placed in the "dl" directory.
 
-'''Building openwrt'''
+==== Building openwrt ====
 
 While the OpenWrt build environment was intended mostly for developers, it also has to be simple enough that an inexperienced end user can easily build his or her own customized firmware.
 
@@ -73,7 +75,7 @@ This makes it easier to monitor which step it's actually compiling and reduces t
 
 During the build process, buildroot will download all sources to the "dl" directory and will start patching and compiling them in the "build_<arch>" directory. When finished, the resulting firmware will be in the "bin" directory and packages will be in the "bin/packages" directory.
 
-'''Creating your own packages'''
+===== Creating your own packages =====
 
 One of the things that we've attempted to do with OpenWrt's template system is make it incredibly easy to port software to OpenWrt. If you look at a typical package directory in OpenWrt you'll find two things:
 
@@ -180,7 +182,7 @@ desired. Since you only need to compile the sources once, there's one global set
 
 After you've created your package/<name>/Makefile, the new package will automatically show in the menu the next time you run "make menuconfig" and if selected will be built automatically the next time "make" is run.
 
-'''Creating packages for kernel modules'''
+===== Creating packages for kernel modules =====
 
 A kernel module <name> appears in the package/<name> directory, just as any other package does. The package/<name>/Makefile uses {{{KernelPackage/xxx}}} definitions in place of {{{Package/xxx}}}. For example, here is package/madwifi/Makefile:
 {{{
@@ -328,7 +330,7 @@ endef
 $(eval $(call KernelPackage,madwifi))
 }}}
 
-'''Troubleshooting'''
+==== Troubleshooting ====
 
 If you find your package doesn't show up in menuconfig, try the following command to see if you get the correct description:
 
@@ -341,6 +343,6 @@ If you're just having trouble getting your package to compile, there's a few sho
 
 Another nice trick is that if the source directory under build_<arch> is newer than the package directory, it won't clobber it by unpacking the sources again. If you were working on a patch you could simply edit the sources under build_<arch>/<source> and run the install command above, when satisfied, copy the patched sources elsewhere and diff them with the unpatched sources. A warning though - if you go modify anything under package/<name> it will remove the old sources and unpack a fresh copy.
 
-Final notes
+==== Final notes ====
 
 I'm always interested to hear about people's experience with OpenWrt or answer questions about it so please don't hesitate to contact me [mbm].
