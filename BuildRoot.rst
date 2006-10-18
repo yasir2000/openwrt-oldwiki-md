@@ -345,4 +345,4 @@ Another nice trick is that if the source directory under build_<arch> is newer t
 
 ==== Final notes ====
 
-I'm always interested to hear about people's experience with OpenWrt or answer questions about it so please don't hesitate to contact me [mbm].
+I'm always interested to hear about people's experience with OpenWrt or answer questions about it so please don't hesitate to contact me -[:mbm].
