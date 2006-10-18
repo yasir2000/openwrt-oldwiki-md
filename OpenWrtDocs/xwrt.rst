@@ -6,7 +6,7 @@ This page is '''NOT''' maintained by the OpenWrt developers.
 
 '''X-Wrt Links:'''
 
- * [http://www.bitsum.com/xwrt.asp X-Wrt Information]
+ * [http://www.bitsum.com/xwrt.asp X-Wrt General Information] and Webif^2 Install/Auto-Install
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
