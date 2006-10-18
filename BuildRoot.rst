@@ -1,6 +1,6 @@
-BuildRoot refers to the organization of the Makefiles, scripts, etc. in the OpenWRT development environment.
+BuildRoot refers to the organization of the Makefiles, scripts, etc. in the OpenWrt development environment.
 
-Substantial improvements to the build environment were made under the BuildrootNg fork in August and September 2006, and these were merged back into the main Kamikaze development branch in mid-October 2006.
+Substantial improvements to the build environment were made under the [:OpenWrtDocs/BuildrootNg:BuildrootNg] fork in August and September 2006, and these were merged back into the main Kamikaze development branch in mid-October 2006.
 
 ==== Introduction to the The OpenWrt build environment ====
 
