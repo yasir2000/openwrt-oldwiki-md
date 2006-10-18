@@ -637,4 +637,4 @@ Yes. If you find any bugs, please use our [http://dev.openwrt.org/report ticket 
 /!\ '''NOTE:''' Changes to the buildroot system or the associated {{{Makefiles}}} could break the compile process. Please do not submit bug reports against modified copies of buildroot. Thanks.
 
 == Where is the buildroot documentation? ==
-See [http://downloads.openwrt.org/docs/buildroot-documentation.html buildroot documentation].
+BuildRoot. Or see [http://downloads.openwrt.org/docs/buildroot-documentation.html buildroot documentation].
