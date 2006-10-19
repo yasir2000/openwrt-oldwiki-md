@@ -111,11 +111,17 @@ quote REBOOT
 
 quit
 
+'''Getting the LAN connection to work'''
+
+In adam2 you need to do quote "SETENV mac_port,1" (may be MAC_PORT) Otherwise your ethernet adapter isn't used correctly.
+
 '''Congratulations you are successful :)'''
 
 now try to get an IP from the router by using dhclient eth0 or just unsetting IP variables in XP
 
-you should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken)telnet into 192.168.1.1 and you're done :)
+You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken)telnet into 192.168.1.1 and you're done :)
+
+See the forum for instructions on getting the ADSL interface to work: http://forum.openwrt.org/viewtopic.php?pid=35563
 
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
