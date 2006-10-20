@@ -128,4 +128,8 @@ These images are simple TRX images with a small proprietary header pre-pended.
 
 On a variety of devices, even non-Broadcom devices, ASUS uses a TRX-style image with an appended proprietary version information block.
  
- 
+
+=== Building OpenWrt White Russian Sources ===
+
+See general OpenWrt documentation.
+
