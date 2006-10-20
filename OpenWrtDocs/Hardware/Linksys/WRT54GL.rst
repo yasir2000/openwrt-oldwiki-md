@@ -10,9 +10,9 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 
 
 == Board info and CPU model ==
-||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu  model''' ||'''cpu (hw) ''' ||
-||WRT54GL v1||0x10||0x467||0x2558||0||42||9||BCM3302 V0.8|| ||
-||WRT54GL v1.1||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||BCM3302 V0.8||BCM5352EK||
+||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''boot_ver''' ||'''pmon_ver''' ||'''cpu  model''' ||'''cpu (hw) ''' ||
+||WRT54GL v1||0x10||0x467||0x2558||0||42||9|| || || BCM3302 V0.8|| ||
+||WRT54GL v1.1||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7||CFE 3.91.37.0|| BCM3302 V0.8||BCM5352EK||
 
 
 ----
