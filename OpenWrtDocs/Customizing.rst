@@ -29,7 +29,7 @@ The contents of this section of the wiki can have serious consequences. While ev
     * BandwithTestPage - A simple CGI script for testing the instantaneous bandwidth to the wireless router. Just drop into /www/cgi-bin and chmod+x. 
     * TransparentFirewall
    * System 
-     * [:OpenWrtDocs/Customizing/SysLoadLED]
+     * [:OpenWrtDocs/Customizing/Software/SysLoadLED]
      * Wireless
        * [http://wiviz.natetrue.com WiViz] - A very nice wireless network visualization tool ||
        * [http://www.bolkesteijn.nl/blog/static.php?page=openwrtstuff WifiToggle] WRT54GL switching wifi on/off by front EasySetup button
