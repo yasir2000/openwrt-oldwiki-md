@@ -106,18 +106,18 @@ Different devices require different firmware images, but most Broadcom baed devi
 
 A TRX image contains up to 4 segments that can be used for any purpose. A fixed-size (4*DWORD) array of segment offsets is included in the header. OpenWrt uses the segments as shown below:
 
- Segment 1: Kernel Decompression Stub/Loader
- Segment 2: Compressed Kernel
- Segment 3: ROOTFS (Squashfs or JFFS2)
- Segment 4: unused
+ * Segment 1: Kernel Decompression Stub/Loader
+ * Segment 2: Compressed Kernel
+ * Segment 3: ROOTFS (Squashfs or JFFS2)
+ * Segment 4: unused
 
 The TRX header has a signature of 'HDR0', so you can easily identify this header when you see it. Tools to manipulate TRX images are below. All are maintained in the Firmware Modification Kit, a project created by one of the X-Wrt developers but distinct from X-Wrt.
  
- '''''ADDVER''''' - (unnecessary) Tool to append an ASUS version info header to a TRX image. Unnecessary with ASUSTRX.
- '''''ADDPATTERN''''' - Tool to prepend a Linksys WRT54G(S) style header on to a TRX image.
- '''''ASUSTRX''''' - Tool to build TRX images and *optionally* TRX images with appended ASUS version blocks. 
- '''''TRX''''' - (unnecessary) Tool to build vanilla TRX images. ASUSTRX will do the job of this tool since it produces vanilla images if no version information is provided.
- '''''UNTRX''''' - Tool to extract TRX images to their component parts.
+ * '''''ADDVER''''' - (unnecessary) Tool to append an ASUS version info header to a TRX image. Unnecessary with ASUSTRX.
+ * '''''ADDPATTERN''''' - Tool to prepend a Linksys WRT54G(S) style header on to a TRX image.
+ * '''''ASUSTRX''''' - Tool to build TRX images and *optionally* TRX images with appended ASUS version blocks. 
+ * '''''TRX''''' - (unnecessary) Tool to build vanilla TRX images. ASUSTRX will do the job of this tool since it produces vanilla images if no version information is provided.
+ * '''''UNTRX''''' - Tool to extract TRX images to their component parts.
 
 
 ==== Linksys WRT54G(S) Images ====
