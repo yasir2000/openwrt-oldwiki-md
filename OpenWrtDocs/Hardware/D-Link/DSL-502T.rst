@@ -19,6 +19,10 @@ CPU: TNETD7300GDU Texas Instruments AR7 MIPS based ''' '''
 == How to get OpenWRT onto the router: ==
 '''Getting and compiling the firmware'''
 
+I do not advise proceeding forward unless you have a JTAG cable or are willing to pay for one (around 20 USD from ebay).
+
+Although the risk of 'bricking' the router is low (as long as you follow the instructions to the letter and do not overwrite the bootloader or modem configuration file), as long as the bootloader and config file are intact the modem can always be recovered.
+
 You will need to compile your own firmware, it's simple enough, if you have ubuntu grab build essentials using synaptic and also grab flex, bison and subversion Download the latest trunk using
 
 svn co https://svn.openwrt.org/openwrt/trunk
@@ -121,7 +125,164 @@ now try to get an IP from the router by using dhclient eth0 or just unsetting IP
 
 You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken)telnet into 192.168.1.1 and you're done :)
 
-See the forum for instructions on getting the ADSL interface to work: http://forum.openwrt.org/viewtopic.php?pid=35563
+== Enabling ADSL... ==
+Please refer to this forum post for more info after reading this:http://forum.openwrt.org/viewtopic.php?pid=35563
+
+This is quite lengthy at present, we really need an init script to do this for us...
+
+'''Set up modulation'''
+
+First of all, you need to set the modulation nvram variable, you can find the modulation from your existing modem logs, MMODE usually suffices. using adam2 ftp... quote "SETENV modulation,GDMT" or GLITE or MMODE or T1413
+
+'''Compile modules'''
+
+You need to compile in the firmware for the correct annex for your modem, either A or B. (it should be ticked on the PCB if you have no idea).
+
+You must also compile in br2684ctl and it's dependency linux-atm
+
+'''Check your line is in sync'''
+
+dmesg should tell you "DSL Line in Sync"You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good, then it should say "SHOWTIME" when it is ready to work.
+
+You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised (see the US/DS connection rate values) and if it is up also check ifconfig regularly to see if you have the nas0 and ppp0 device we set up later on.
+
+'''Load the modules'''
+
+First we need to load all the modules
+
+cd /lib/modules/2.4.32
+
+insmod br2684.o #required for br2684ctl
+
+insmod slhc.o #required for ppp_generic module
+
+insmod ppp_generic.o #required for pppox module
+
+insmod ppp_async.o #may not be required
+
+insmod pppox.o #required for pppoe module
+
+insmod pppoe.o #required for pppoe interface
+
+'''Start the bridging interface'''
+
+Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and if you want to do VCMUX or LLC)
+
+You should get: RFC1483/2684 bridge: Interface "nas0" (mtu=1500, payload=bridged) created sucessfully
+
+RFC1483/2684 bridge: Communicating over ATM 0.8.35, encapsulation: LLC
+
+RFC1483/2684 bridge: Interface configured
+
+'''Set up your wan configuration'''
+
+Go to /etc/config and type vi network to edit network configuration and add: (press insert to start editing... press escape and then type :w to save and exit) (if the files are read only just rename the original and copy)
+
+config interface wan
+
+option ifname nas0
+
+option device ppp
+
+option proto pppoe
+
+option user " me@isp.com "
+
+option name " me@isp.com "
+
+option atm 1
+
+'''Bring up the bridging interface'''
+
+ifconfig nas0 up # brings up the nas0 interface
+
+'''Create the ppp device'''
+
+mknod /dev/ppp c 99 0 #creates the ppp device
+
+'''Edit the ppp options'''
+
+now we need to edit the /etc/ppp/options file, add these options
+
+lock
+
+defaultroute
+
+noipdefault
+
+noauth
+
+passive
+
+asyncmap 0
+
+name " me@isp.com "
+
+user " me@isp.com "
+
+lcp-echo-interval 2
+
+lcp-echo-failure 7
+
+plugin rp-pppoe.so
+
+mtu 1492 #I suggest setting the MTU otherwise it defaults to 1480, pppoe is usually 1492
+
+mru 1452 #Set to this to mtu -40
+
+'''Set up chap/pap authentication '''
+
+edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
+
+" me@isp.com " "*" "passwd" "*"
+
+'''Bring up the ADSL connection'''
+
+now we simply do pppd and the connection should come up... do ifconfig to check...
+
+ppp0      Link encap:Point-to-Point Protocol inet addr:61.69.250.153  P-t-P:210.8.1.19  Mask:255.255.255.255 UP
+
+POINTOPOINT RUNNING NOARP MULTICAST  MTU:1480  Metric:1
+
+RX packets:3 errors:0 dropped:0 overruns:0 frame:0
+
+TX packets:3 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:3 RX bytes:114 (114.0 B-)  TX bytes:54 (54.0 B-)
+
+if it doesn't come up do ps -ax and if you see loads of pppd then just use kill 512 etc to kill them all... also kill the br2684ctl and start again...
+
+you should now be able to ping your ISPs gateway IP from telnet, but you won't be able to lookup domain names (i.e. ping www.google.com)
+
+'''Set up DNS lookup'''
+
+you need to edit /etc/resolv.conf and add the line: search wan before you bring the interface up
+
+'''Set up forwarding'''
+
+if your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
+
+If you get any errors you may need to compile in additional NAT kernel modules.
+
+iptables -P INPUT ACCEPT
+
+iptables -P OUTPUT ACCEPT
+
+iptables -P FORWARD ACCEPT
+
+iptables --flush                           - Flush all the rules in filter and nat tables
+
+iptables --table nat --flush
+
+iptables --delete-chain                    - Delete all chains that are not in default filter and nat table
+
+iptables --table nat --delete-chain # Set up IP FORWARDing and Masquerading
+
+iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
+
+iptables --append FORWARD --in-interface eth0 -j ACCEPT         - Assuming one NIC to local LAN
+
+echo 1 > /proc/sys/net/ipv4/ip_forward     - Enables packet forwarding by kernel
+
+please note that this may not be complete and you may require additional rules to protect your router on the wan interface
 
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
