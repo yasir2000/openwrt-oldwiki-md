@@ -1,4 +1,4 @@
-This page is '''NOT''' maintained by the OpenWrt developers.
+This page is '''NOT''' maintained by the OpenWrt developers. Furthermore, it is actively under development. It is also used as a sandbox for new documentation that may eventually be moved to the primary OpenWrt documentation.
 
 == X-Wrt ==
 
@@ -97,3 +97,35 @@ The CSS is spread out over a few files in /www. The '/www/webif.css' file contai
 Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
 
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
+
+=== Firmware Image Technical Details ===
+
+...(TODO: writing up from memory, check details later)...
+
+Different devices require different firmware images, but most Broadcom baed devices compatible with OpenWrt White Russian use TRX images, or derivatives of TRX images. Often times vendors simply prepend or append a proprietary header onto a stock TRX image. Vanilla TRX images are usually named with the extension '.trx', or with 'generic' in the filename.
+
+A TRX image contains up to 4 segments that can be used for any purpose. A fixed-size (4*DWORD) array of segment offsets is included in the header. OpenWrt uses the segments as shown below:
+
+ Segment 1: Kernel Decompression Stub/Loader
+ Segment 2: Compressed Kernel
+ Segment 3: ROOTFS (Squashfs or JFFS2)
+ Segment 4: unused
+
+The TRX header has a signature of 'HDR0', so you can easily identify this header when you see it. Tools to manipulate TRX images are below. All are maintained in the Firmware Modification Kit, a project created by one of the X-Wrt developers but distinct from X-Wrt.
+ 
+ '''''ADDVER''''' - (unnecessary) Tool to append an ASUS version info header to a TRX image. Unnecessary with ASUSTRX.
+ '''''ADDPATTERN''''' - Tool to prepend a Linksys WRT54G(S) style header on to a TRX image.
+ '''''ASUSTRX''''' - Tool to build TRX images and *optionally* TRX images with appended ASUS version blocks. 
+ '''''TRX''''' - (unnecessary) Tool to build vanilla TRX images. ASUSTRX will do the job of this tool since it produces vanilla images if no version information is provided.
+ '''''UNTRX''''' - Tool to extract TRX images to their component parts.
+
+
+==== Linksys WRT54G(S) Images ====
+
+These images are simple TRX images with a small proprietary header pre-pended.
+
+==== ASUS images ====
+
+On a variety of devices, even non-Broadcom devices, ASUS uses a TRX-style image with an appended proprietary version information block.
+ 
+ 
