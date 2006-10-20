@@ -131,5 +131,10 @@ On a variety of devices, even non-Broadcom devices, ASUS uses a TRX-style image 
 
 === Building OpenWrt White Russian Sources ===
 
-See general OpenWrt documentation.
+Need a linux OS.
 
+Package pre-requisites: gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev or zlib1g-dev, and libc headers.
+
+Run 'make' to build. Run 'make menuconfig' to configure.
+
+See general OpenWrt documentation.
