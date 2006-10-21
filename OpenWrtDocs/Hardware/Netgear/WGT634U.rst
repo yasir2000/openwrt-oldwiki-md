@@ -105,6 +105,7 @@ CFE> reset
 
 = Configuration =
 The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration. Everything is configured in {{{/etc}}}. For network configuration please modify {{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please back it up. You eventually need it to restore your original firmware.
+The WGT634U uses the madwifi driver for the wireless card. See [http://madwifi.org/wiki madwifi wiki] for several examples of how to configure access point/client mode/monitor mode and the up to date docs on the madwifi driver.
 
 == Client-mode for the wireless card ==
 The WGT634U also supports client-mode (aka managed mode). You need kmod-madwifi, which is probably already installed since it's selected by default.
