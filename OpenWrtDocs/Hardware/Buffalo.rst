@@ -2,6 +2,7 @@
 '''Buffalo hardware notes'''
 
  * [:OpenWrtDocs/Hardware/Buffalo/WBR-B11: WBR-B11]
+ * [:OpenWrtDocs/Hardware/Buffalo/WBR2-B11: WBR2-B11]
  * [:OpenWrtDocs/Hardware/Buffalo/WBR-G54: WBR-G54]
  * [:OpenWrtDocs/Hardware/Buffalo/WBR2-G54: WBR2-G54]
  * [:OpenWrtDocs/Hardware/Buffalo/WLA-G54: WLA-G54]
