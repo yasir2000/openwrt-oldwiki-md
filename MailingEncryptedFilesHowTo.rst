@@ -22,7 +22,7 @@ gnupg isn't used which otherwise would be first choice.
 === Security Notes ===
  * AES with 256 bit key size and SHA-512 for hashing
  * multi-key-v3 mode (65 x 60 character long keyfile)
- * SSL over SMTP und StartTLS are supported
+ * SSL over SMTP and StartTLS are supported
 
 
 == Requirements ==
