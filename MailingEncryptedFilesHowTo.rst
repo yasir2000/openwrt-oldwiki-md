@@ -131,6 +131,7 @@ set mbox=+received
 set postponed=+postponed
 set record=+sent
 }}}
+
 = Examples =
 ''The scriptname is targzaes and its location is /usr/bin.''
 Encrypt and send /var/log/messages.
