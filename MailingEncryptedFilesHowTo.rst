@@ -21,13 +21,12 @@ gnupg isn't used which otherwise would be first choice.
 
 === Security Notes ===
  * AES with 256 bit key size and SHA-512 for hashing
- * The symmetric encryption requires a password (at least 20 characters)
- * Additionally password seed and iteration count are used to slow down optimized dictionary attacks
+ * multi-key-v3 mode (65 x 60 character long keyfile)
  * SSL over SMTP und StartTLS are supported
 
 
 == Requirements ==
- * WHITE RUSSIAN RC5
+ * White Russian RC5
  * approximately 300 kBytes (plus libpthread, libopenssl(libssl), if not installed)
  * Packages: libpthread, libopenssl(libssl), ssmtp, mutt, aespipe
 
@@ -53,21 +52,20 @@ NOTE: Don't use the ssmtp package from the official whiteRussian RC5 tree, becau
 
 == Configuration ==
 === aespipe ===
-To make things easier I've written a script which ... 
+I've written a script which ... 
  1. creates a tar archive 
  2. gzips that archive
- 3. and encrypts it with a password which is stored in a file (without any user action)
-You only have to change the values for the seed (SEEDSTR) and the passwordfile (textfile with a at least 20 characters long password in it)
+ 3. and encrypts it with a keyfile, which is in plaintext 
+All this doesn't require any user action.
+
+Create a random keyfile and use the PASSFILE= variable to point to it.
 {{{
 #!/bin/sh
 ENCRYPTION=AES256
 HASHFUNC=SHA512
-ITERCOUNTK=100
-WAITSECONDS=10
-PASSFILE=/etc/password.txt
-SEEDSTR=87nCxFIp0uAkd+Vs9FHk0hvJ
-# creates a random seed
-# head -c 18 /dev/urandom | uuencode -m - | head -n 2 | tail -n 1
+PASSFILE=/etc/wrt.key
+# to create 65 x 60 character long keyfile
+# head -c 2925 /dev/random | uuencode -m - | head -n 66 | tail -n 65 > wrt.key
 COMPRESS=gzip
 TAR=tar
 AESPIPE=aespipe
@@ -85,10 +83,10 @@ fi
 
 case "$1" in
 	d)
-		${AESPIPE} -d -p 5 -e ${ENCRYPTION} -H ${HASHFUNC} -S ${SEEDSTR} -C ${ITERCOUNTK} <${2} 5<${PASSFILE} | ${COMPRESS} -d -q | ${TAR} xvpf -
+		${AESPIPE} -d -p 5 -e ${ENCRYPTION} -H ${HASHFUNC} <${2} 5<${PASSFILE} | ${COMPRESS} -d -q | ${TAR} xvpf -
 		;;
 	e)
-		${TAR} cvf - ${2} | ${COMPRESS} | ${AESPIPE} -p 5 -e ${ENCRYPTION} -H ${HASHFUNC} -S ${SEEDSTR} -C ${ITERCOUNTK} -w ${WAITSECONDS} >${3} 5<${PASSFILE}
+		${TAR} cvf - ${2} | ${COMPRESS} | ${AESPIPE} -p 5 -e ${ENCRYPTION} -H ${HASHFUNC} >${3} 5<${PASSFILE}
 		;;
 	*)
 		usage
@@ -97,7 +95,7 @@ case "$1" in
 esac
 exit 0
 }}}
-Name and copy that script somewhere suitable (e.g. /usr/bin). Now you should be able to easily encrypt and decrypt your files. Note that you need aespipe, the script and  of course the passwordfile to read those files on a different machine.
+Name and copy that script somewhere suitable (e.g. /usr/bin). Now you should be able to easily encrypt and decrypt your files. Note that you need aespipe and the keyfile to read those files on a different machine.
 === ssmtp/mutt ===
 ssmtp expects its two configuration files named "revaliases" and "ssmtp.conf" under /etc/ssmtp. Both are self-explaining, so I post a basic configuration.
 {{{
@@ -140,7 +138,7 @@ Encrypt and send /var/log/messages.
 targzaes e /var/log/messages /tmp/messages.aes
 mutt -a /tmp/messages.aes -s syslog someguy@qmail.com
 }}}
-Decrypt mail attachment on a different machine where aespipe, the script and the passwordfile are available.
+Decrypt mail attachment on a different machine where aespipe and the keyfile are available.
 {{{
 targzaes d messages.aes
 }}}
