@@ -75,6 +75,17 @@ This makes it easier to monitor which step it's actually compiling and reduces t
 
 During the build process, buildroot will download all sources to the "dl" directory and will start patching and compiling them in the "build_<arch>" directory. When finished, the resulting firmware will be in the "bin" directory and packages will be in the "bin/packages" directory.
 
+===== Customizing the kernel options =====
+
+When buildroot first unzips the linux kernel sources to build_<arch>/linux-<kernel>-<board>/linux-<kernel-version>, it installs a default kernel .config file from target/linux/<board>-<kernel>/config . You can subsequently change the kernel configuration settings by cd'ing to the linux build directory and running make menuconfig, e.g.:
+{{{
+  cd build_mipsel/linux-2.6-brcm/linux-2.6.17
+  make ARCH=mips menuconfig
+}}}
+
+Returning to the top level directory and running 'make' should rebuild the target with the new kernel options selected as <y> installed. For <m> (loadable module) selections, you will also want to add an entry to the appropriate *.mk file in the package/kernel/modules directory. See "Creating packages for kernel modules" below.
+
+
 ===== Creating your own packages =====
 
 One of the things that we've attempted to do with OpenWrt's template system is make it incredibly easy to port software to OpenWrt. If you look at a typical package directory in OpenWrt you'll find two things:
