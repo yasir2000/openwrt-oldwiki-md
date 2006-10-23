@@ -3,8 +3,10 @@ BuildRoot refers to the organization of the Makefiles, scripts, etc. in the Open
 Substantial improvements to the build environment were made under the [:OpenWrtDocs/BuildrootNg:BuildrootNg] fork in August and September 2006, and these were merged back into the main Kamikaze development branch in mid-October 2006. This page describes the build environment ''after'' that back-merge.
 
 [http://downloads.openwrt.org/docs/buildroot-documentation.html | Here] is some documentation of the earlier system (used on [:OpenWrtDocs:"White Russian"] builds). The basics remain similar.
+----
+[[TableOfContents]]
 
-==== Introduction to the The OpenWrt build environment ====
+=== Introduction to the The OpenWrt build environment ===
 
 One of the biggest challenges to getting started with embedded devices is that you just can't install a copy of Linux and expect to be able to compile a firmware. Even if you did remember to install a compiler and every development tool offered, you still wouldn't have the basic set of tools needed to produce a firmware image. The embedded device represents an entirely new hardware platform, which is incompatible with the hardware on your development machine, so in a process called cross compiling you need to produce a new compiler capable of generating code for your embedded platform, and then use it to compile a basic Linux distribution to run on your device.
 
@@ -15,11 +17,11 @@ OpenWrt takes a different approach to building a firmware, downloading, patching
 
 As an example, if a new kernel is released, a simple change to one of the Makefiles will download the latest kernel, patch it to run on the embedded platform and produce a new firmware image -- there's no work to be done trying to track down an unmodified copy of the existing kernel to see what changes had been made, the patches are already provided and the process ends up almost completely transparent. This doesn't just apply to the kernel, but to anything included with OpenWrt -- It's this one simple understated concept which is what allows OpenWrt to stay on the bleeding edge with the latest compilers, latest kernels and latest applications.
 
-==== Getting started with buildroot ====
+=== Getting started with buildroot ===
 
 So let's take a look at OpenWrt and see how this all works
 
-===== prerequisites =====
+==== prerequisites ====
 
 Other than svn and make, you will be notified of any missing packages or libraries.
 
@@ -27,7 +29,7 @@ If you get {{{ImportError: No module named distutils.core}}} when running make y
 
 Note: make sure your system clock is set correctly.
 
-===== download openwrt =====
+==== download openwrt ====
 
 This article refers to the kamikaze (trunk) version of OpenWrt, which can be downloaded via subversion using the following command:
 
@@ -35,7 +37,7 @@ svn co https://svn.openwrt.org/openwrt/trunk
 
 Additionally, there's a trac interface on http://dev.openwrt.org/ which can be used to monitor svn commits and browse the sources.
 
-===== The directory structure =====
+==== The directory structure ====
 
 There are three key directories in the base:
  . toolchain
@@ -51,7 +53,7 @@ There are three key directories in the base:
 Both the target and package steps will use the directory "build_<arch>" as a temporary directory for compiling. Additionally, anything downloaded by the toolchain, target or package steps will be placed in the "dl" directory.
 
 [[Anchor(Buildingopenwrt)]]
-==== Building openwrt ====
+=== Building openwrt ===
 
 While the OpenWrt build environment was intended mostly for developers, it also has to be simple enough that an inexperienced end user can easily build his or her own customized firmware.
 
@@ -76,7 +78,8 @@ This makes it easier to monitor which step it's actually compiling and reduces t
 
 During the build process, buildroot will download all sources to the "dl" directory and will start patching and compiling them in the "build_<arch>" directory. When finished, the resulting firmware will be in the "bin" directory and packages will be in the "bin/packages" directory.
 
-===== Customizing the kernel options =====
+[[Anchor(Customizingthekerneloptions)]]
+==== Customizing the kernel options ====
 
 When buildroot first unzips the linux kernel sources to build_<arch>/linux-<kernel>-<board>/linux-<kernel-version>, it installs a default kernel .config file from target/linux/<board>-<kernel>/config . You can subsequently change the kernel configuration settings by cd'ing to the linux build directory and running make menuconfig, e.g.:
 {{{
@@ -89,7 +92,7 @@ Returning to the top level directory and running 'make' should rebuild the targe
 If your desired module does not appear in the OpenWrt config menu, you need to add an entry to the appropriate *.mk file in the package/kernel/modules directory. See [#Creatingpackagesforkernelmodules Creating packages for kernel modules] below.
 
 
-===== Creating your own packages =====
+==== Creating your own packages ====
 
 One of the things that we've attempted to do with OpenWrt's template system is make it incredibly easy to port software to OpenWrt. If you look at a typical package directory in OpenWrt you'll find two things:
 
@@ -140,6 +143,8 @@ endef
 $(eval $(call BuildPackage,bridge))
 }}}
 
+===== BuildPackage variables =====
+
 As you can see, there's not much work to be done; everything is hidden in other makefiles and abstracted to the point where you only need to specify a few variables.
 
  . PKG_NAME        -The name of the package, as seen via menuconfig and ipkg
@@ -156,7 +161,7 @@ The PKG_* variables define where to download the package from; @SF is a special 
 
 At the bottom of the file is where the real magic happens, "BuildPackage" is a macro setup by the earlier include statements. BuildPackage only takes one argument directly -- the name of the package to be built, in this case "bridge". All other information is taken from the define blocks. This is a way of providing a level of verbosity, it's inherently clear what the DESCRIPTION variable in Package/bridge is, which wouldn't be the case if we passed this information directly as the Nth argument to BuildPackage.
 
-BuildPackage uses the following defines:
+===== BuildPackage defines =====
 
 Package/<name>
    <name> matches the argument passed to buildroot, this describes the package
@@ -197,11 +202,11 @@ desired. Since you only need to compile the sources once, there's one global set
 After you've created your package/<name>/Makefile, the new package will automatically show in the menu the next time you run "make menuconfig" and if selected will be built automatically the next time "make" is run.
 
 [[Anchor(Creatingpackagesforkernelmodules)]]
-===== Creating packages for kernel modules =====
+==== Creating packages for kernel modules ====
 
 A [http://www.digitalhermit.com/linux/Kernel-Build-HOWTO.html kernel module] is an installable program which extends the behavior of the linux kernel. A kernel module gets loaded after the kernel itself, (e.g. using insmod).
 
-Many kernel programs are included in the linux source distribution; typically the kernel build may be configured to, for each program, (a) compile it into the kernel as a built-in, (b) compile it as a loadable kernel module, or (c) ignore it. See "customizing the kernel options" above. To include one of these programs as a loadable module, select <m> when configuring the kernel build '''''and''''' select the corresponding kernel option in the OpenWrt configuration (see [#Buildingopenwrt Building OpenWrt], above). If your favorite kernel module does not appear in the OpenWrt configuration menus, you must add a stanza to one of the files in the package/kernel/modules directory. Here is an example extracted from package/kernel/modules/other.mk:
+Many kernel programs are included in the linux source distribution; typically the kernel build may be configured to, for each program, (a) compile it into the kernel as a built-in, (b) compile it as a loadable kernel module, or (c) ignore it. See [#Customizingthekerneloptions customizing the kernel options] above. To include one of these programs as a loadable module, select <m> when configuring the kernel build '''''and''''' select the corresponding kernel option in the OpenWrt configuration (see [#Buildingopenwrt Building OpenWrt], above). If your favorite kernel module does not appear in the OpenWrt configuration menus, you must add a stanza to one of the files in the package/kernel/modules directory. Here is an example extracted from package/kernel/modules/other.mk:
 {{{
 define KernelPackage/loop
   TITLE:=Loopback device support
@@ -360,7 +365,7 @@ endef
 $(eval $(call KernelPackage,madwifi))
 }}}
 
-==== Troubleshooting ====
+=== Troubleshooting ===
 
 If you find your package doesn't show up in menuconfig, try the following command to see if you get the correct description:
 
@@ -373,6 +378,6 @@ If you're just having trouble getting your package to compile, there's a few sho
 
 Another nice trick is that if the source directory under build_<arch> is newer than the package directory, it won't clobber it by unpacking the sources again. If you were working on a patch you could simply edit the sources under build_<arch>/<source> and run the install command above, when satisfied, copy the patched sources elsewhere and diff them with the unpatched sources. A warning though - if you go modify anything under package/<name> it will remove the old sources and unpack a fresh copy.
 
-==== Final notes ====
+=== Final notes ===
 
 I'm always interested to hear about people's experience with OpenWrt or answer questions about it so please don't hesitate to contact me -[:mbm].
