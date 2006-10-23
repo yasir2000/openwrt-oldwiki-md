@@ -15,6 +15,8 @@ NOTE5: See http://forum.openwrt.org/viewtopic.php?id=4929 for info on using Open
 
 NOTE6: A cut down version of RC5 will run on the v1444. Use the 4MB JFFS2 images. (Must be below 2MB) - star882
 
+NOTE7: Use the tftp installation method. This worked with the RC5 micro firmware on a pre-v1444 device, but I expect this will work on v1444 and post-v1444 devices too. Web interface upload is problematic since Belkin use a firmware header like linksys, but OpenWRT doesn't provide firmware images for belkin. The standard openwrt-brcm-2.4-<type>.trx images get rejected by the device. Belkin's customisations to the firmware add the ability to specify nvram settings as a footer section to the firmware. It should be possible to create a Belkin specific firmware that can uploaded via the Belkin web interface by following a method similar to that in this paper http://midnightcode.org/papers/OpenWRT%20on%20the%20Belkin%20F5D7230-4.pdf
+
 == GPIO ==
 
 For v1444:
