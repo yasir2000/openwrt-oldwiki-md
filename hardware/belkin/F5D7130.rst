@@ -1,7 +1,9 @@
 = Belkin F5D7130 =
 This device is supported by OpenWRT.
-It has a 4Mb flash and 8Mb RAM
-My model is version 1010
+
+It has a 4Mb flash and 8Mb RAM.
+
+The version that I have used OpenWRT on is a version 1010, but I expect most [:hardware/belkin/F5D7130:F5D7130] should work.
 
 == How? ==
 I accidently uploaded the firmware for a [:hardware/belkin/F5D7230:F5D7230] to my [:hardware/belkin/F5D7130:F5D7130] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
