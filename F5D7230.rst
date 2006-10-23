@@ -1,4 +1,7 @@
 ##language:en
+= moved to hardware/belkin/F5D72307 =
+= Delete this page =
+
 == Overview ==
 
 A lot of information is being discussed, and development is taking place, on the Belkin F5D7230-4.  There is interest in having an open firmware running on this platform.  As OpenWRT is the starting point for most new Broadcom customers, and as OpenWRT's FAQ links to this page, hopefully, information can be provided here to those who have purchased Belkin's as well as those wanting to contribute to opening this platform.
@@ -174,4 +177,3 @@ Document URL;
 Document URL;
   http://midnightcode.org/papers/OpenWRT%20on%20the%20Belkin%20F5D7230-4%20%20-%20Broadcom%20Firmware.pdf
 ----
-CategoryModel
