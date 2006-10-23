@@ -50,6 +50,7 @@ There are three key directories in the base:
 
 Both the target and package steps will use the directory "build_<arch>" as a temporary directory for compiling. Additionally, anything downloaded by the toolchain, target or package steps will be placed in the "dl" directory.
 
+[[Anchor(Buildingopenwrt)]]
 ==== Building openwrt ====
 
 While the OpenWrt build environment was intended mostly for developers, it also has to be simple enough that an inexperienced end user can easily build his or her own customized firmware.
@@ -85,7 +86,7 @@ When buildroot first unzips the linux kernel sources to build_<arch>/linux-<kern
 
 Returning to the top level directory and running 'make' should rebuild the target with the new kernel options selected as <y> installed. For <m> (loadable module) selections, you will also want to select the appropriate option under "Kernel Modules" in the OpenWrt configuration menu.
 
-If your desired module does not appear in the OpenWrt config menu, you need to add an entry to the appropriate *.mk file in the package/kernel/modules directory. See "Creating packages for kernel modules" below.
+If your desired module does not appear in the OpenWrt config menu, you need to add an entry to the appropriate *.mk file in the package/kernel/modules directory. See [#Creatingpackagesforkernelmodules Creating packages for kernel modules] below.
 
 
 ===== Creating your own packages =====
@@ -195,11 +196,12 @@ desired. Since you only need to compile the sources once, there's one global set
 
 After you've created your package/<name>/Makefile, the new package will automatically show in the menu the next time you run "make menuconfig" and if selected will be built automatically the next time "make" is run.
 
+[[Anchor(Creatingpackagesforkernelmodules)]]
 ===== Creating packages for kernel modules =====
 
 A [http://www.digitalhermit.com/linux/Kernel-Build-HOWTO.html kernel module] is an installable program which extends the behavior of the linux kernel. A kernel module gets loaded after the kernel itself, (e.g. using insmod).
 
-Many kernel programs are included in the linux source distribution; typically the kernel build may be configured to, for each program, (a) compile it into the kernel as a built-in, (b) compile it as a loadable kernel module, or (c) ignore it. See "customizing the kernel options" above. To include one of these programs as a loadable module, select <m> when configuring the kernel build '''''and''''' select the corresponding kernel option in the OpenWrt configuration (see "building OpenWrt", above). If your favorite kernel module does not appear in the OpenWrt configuration menus, you must add a stanza to one of the files in the package/kernel/modules directory. Here is an example extracted from package/kernel/modules/other.mk:
+Many kernel programs are included in the linux source distribution; typically the kernel build may be configured to, for each program, (a) compile it into the kernel as a built-in, (b) compile it as a loadable kernel module, or (c) ignore it. See "customizing the kernel options" above. To include one of these programs as a loadable module, select <m> when configuring the kernel build '''''and''''' select the corresponding kernel option in the OpenWrt configuration (see [#Buildingopenwrt Building OpenWrt], above). If your favorite kernel module does not appear in the OpenWrt configuration menus, you must add a stanza to one of the files in the package/kernel/modules directory. Here is an example extracted from package/kernel/modules/other.mk:
 {{{
 define KernelPackage/loop
   TITLE:=Loopback device support
