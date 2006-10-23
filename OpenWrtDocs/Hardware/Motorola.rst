@@ -1,5 +1,5 @@
-''' Motorola hardware notes'''
+''' Motorola hardware'''
 
- * [:OpenWrtDocs/Hardware/Motorola/WR850G: WR850G]
+ * [PageList(OpenWrtDocs/Hardware/Motorola)]
 ----
 CategoryBrand
