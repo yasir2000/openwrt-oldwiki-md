@@ -14,3 +14,5 @@ Modify motorola-bin.c in {OpenWRT path}/target/utils/src/ by changing line 95 to
 Then go back to the OpenWRT path and run make after configuring the packages.
 
 Thanks to Brittany Benzaia for figuring this out!
+
+CategoryModel
