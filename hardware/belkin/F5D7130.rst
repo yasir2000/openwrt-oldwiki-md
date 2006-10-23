@@ -2,7 +2,7 @@
 = it was created in error - who knew capitalisation mattered even in the URL of the Wiki page? - seems obvious now, but when I created this page i didn't realise =
 = it would seem that page deleting is disabled in this wiki, so someone please delete this page for me! =
 
-'''This page has been copied to [:OpenWRTDocs/Hardware/Belkin/F5D7130:in it's proper location]'''
+'''This page has been copied to [:OpenWrtDocs/Hardware/Belkin/F5D7130:in it's proper location]'''
 
 
 
