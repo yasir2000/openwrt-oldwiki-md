@@ -1,3 +1,11 @@
+= This page needs to be deleted =
+= it was created in error - who know capitalisation even mattered in the URL of the Wiki page? - seems obvious now, but when I created this page i didn't realise =
+= looks like page deleting is disabled in this wiki, so someone please delete for me! =
+
+Page is recreated [:OpenWRTDocs/Hardware/Belkin/F5D7130:in it's proper location]
+
+
+
 = Belkin F5D7130 =
 This device is supported by OpenWRT.
 
