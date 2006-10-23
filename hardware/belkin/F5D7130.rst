@@ -4,10 +4,10 @@ It has a 4Mb flash and 8Mb RAM
 My model is version 1010
 
 == How? ==
-I accidently uploaded the firmware for a [http://wiki.openwrt.org/hardware/belkin/F5D7230 F5D7230] to my [http://wiki.openwrt.org/hardware/belkin/F5D7130 F5D7130] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
+I accidently uploaded the firmware for a [:hardware/belkin/F5D7230:F5D7230] to my [:hardware/belkin/F5D7130:F5D7130] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
 
 === Installation method ===
-I'm not sure if you need to flash the router to be a [http://wiki.openwrt.org/hardware/belkin/F5D7230 F5D7230] first of all or not, but I did. I got the firmware for that from [http://networking.belkin.com/update/files/uk/54g_router.html here] (this links to the embeded firmware update page for the UK).
+I'm not sure if you need to flash the router to be a [:hardware/belkin/F5D7230:F5D7230] first of all or not, but I did. I got the firmware for that from [http://networking.belkin.com/update/files/uk/54g_router.html here] (this links to the embeded firmware update page for the UK).
 
 Then I used the tftp method outlined in [http://midnightcode.org/papers/OpenWRT%20on%20the%20Belkin%20F5D7230-4.pdf this paper] and that was smooth. I had to adjust some of the nvram params after install, but it works fine.
 
@@ -41,4 +41,4 @@ The first boot takes a while as the SSH keys are generated so give it a couple o
  * Whilst the router ''should'' keep the ip address that it had before you installed OpenWRT try the following to:
   * 192.168.2.1 (this is the default in the manual)
   * 192.168.1.1 (I re-installed the default firmware after installing OpenWRT becuase I noticed that the nvram settings had all my old settings and I wanted to use the "restore factory defaults" facility of the original Belkin firmware to remove all the nvram settings without having to do this manually. Using "restore factory defaults" resulting in the device using 192.168.1.1 which took ages to figure out. I thought I'd briked it until I connected the router via a cross over cable to my laptop. The reason i thought I'd bricked it - my fileserver uses 192.168.1.1 so only by connecting using the crossover could I get back into the router and see that it was still alive!)
- * Once you've flashed the [http://wiki.openwrt.org/hardware/belkin/F5D7130 F5D7130] to be an [http://wiki.openwrt.org/hardware/belkin/F5D7230 F5D7230] you'll notice on the default status screen (index.html) that it says NAT disabled. If you click the word NAT it links to the admin password page which also has the NAT setting saying disabled. If you enable this you'll unlock all the firewall etc features of the [http://wiki.openwrt.org/hardware/belkin/F5D7230 F5D7230].
+ * Once you've flashed the [:hardware/belkin/F5D7130:F5D7130] to be an [:hardware/belkin/F5D7230:F5D7230] you'll notice on the default status screen (index.html) that it says NAT disabled. If you click the word NAT it links to the admin password page which also has the NAT setting saying disabled. If you enable this you'll unlock all the firewall etc features of the [:hardware/belkin/F5D7230:F5D7230].
