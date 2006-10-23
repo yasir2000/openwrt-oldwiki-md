@@ -83,7 +83,9 @@ When buildroot first unzips the linux kernel sources to build_<arch>/linux-<kern
   make ARCH=mips menuconfig
 }}}
 
-Returning to the top level directory and running 'make' should rebuild the target with the new kernel options selected as <y> installed. For <m> (loadable module) selections, you will also want to add an entry to the appropriate *.mk file in the package/kernel/modules directory. See "Creating packages for kernel modules" below.
+Returning to the top level directory and running 'make' should rebuild the target with the new kernel options selected as <y> installed. For <m> (loadable module) selections, you will also want to select the appropriate option under "Kernel Modules" in the OpenWrt configuration menu.
+
+If your desired module does not appear in the OpenWrt config menu, you need to add an entry to the appropriate *.mk file in the package/kernel/modules directory. See "Creating packages for kernel modules" below.
 
 
 ===== Creating your own packages =====
@@ -195,7 +197,22 @@ After you've created your package/<name>/Makefile, the new package will automati
 
 ===== Creating packages for kernel modules =====
 
-A kernel module <name> appears in the package/<name> directory, just as any other package does. The package/<name>/Makefile uses {{{KernelPackage/xxx}}} definitions in place of {{{Package/xxx}}}. For example, here is package/madwifi/Makefile:
+A [http://www.digitalhermit.com/linux/Kernel-Build-HOWTO.html kernel module] is an installable program which extends the behavior of the linux kernel. A kernel module gets loaded after the kernel itself, (e.g. using insmod).
+
+Many kernel programs are included in the linux source distribution; typically the kernel build may be configured to, for each program, (a) compile it into the kernel as a built-in, (b) compile it as a loadable kernel module, or (c) ignore it. See "customizing the kernel options" above. To include one of these programs as a loadable module, select <m> when configuring the kernel build '''''and''''' select the corresponding kernel option in the OpenWrt configuration (see "building OpenWrt", above). If your favorite kernel module does not appear in the OpenWrt configuration menus, you must add a stanza to one of the files in the package/kernel/modules directory. Here is an example extracted from package/kernel/modules/other.mk:
+{{{
+define KernelPackage/loop
+  TITLE:=Loopback device support
+  DESCRIPTION:=Kernel module for loopback device support
+  KCONFIG:=$(CONFIG_BLK_DEV_LOOP)
+  SUBMENU:=$(EMENU)
+  AUTOLOAD:=$(call AutoLoad,30,loop)
+  FILES:=$(MODULES_DIR)/kernel/drivers/block/loop.$(LINUX_KMOD_SUFFIX)
+endef
+$(eval $(call KernelPackage,loop))
+}}}
+
+You can also add kernel modules which are ''not'' part of the linux source distribution. In this case, a kernel module <name> appears in the package/<name> directory, just as any other package does. The package/<name>/Makefile uses {{{KernelPackage/xxx}}} definitions in place of {{{Package/xxx}}}. For example, here is package/madwifi/Makefile:
 {{{
 # 
 # Copyright (C) 2006 OpenWrt.org
