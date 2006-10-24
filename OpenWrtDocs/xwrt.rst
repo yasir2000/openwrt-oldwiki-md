@@ -54,6 +54,8 @@ wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1
 
 To date, no documentation has been written on how to write webif pages. The webif system is a combination of shell, awk, html, and javascript (a little). At present, all that can be suggested is to use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
+http://www.bitsum.com/smf/index.php?topic=330 is a bit of a start
+
 ==== What is a webif page? ====
 
 A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
