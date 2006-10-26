@@ -1,6 +1,6 @@
 #pragma section-numbers off
 [[TableOfContents]]
-= Acddon-Tech ARM8100 =
+= Addon-Tech ARM8100 =
 The [http://www.addon-tech.com AddonTech] [http://www.addon-tech.com/arm8100.html ARM8100]
 is a TI AR7-based device. Thus ["AR7Port"] is compatible with these devices.
 
