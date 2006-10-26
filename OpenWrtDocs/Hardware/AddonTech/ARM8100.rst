@@ -170,7 +170,14 @@ The parameters are `unknown`.
 
 === Photos ===
 http://www.hydraservices.com/files/addontecharm8100/pcb.jpg
+
 http://www.hydraservices.com/files/addontecharm8100/case.jpg
+
+=== Misc ===
+
+[http://www.hynix.com/datasheet/eng/dram/details/dram_01_HY57V641620HGT.jsp Spec of onboard RAM]
+
+[http://www.hynix.com/datasheet/pdf/dram/HY57V641620HG(L)T-xI(Rev1.0).pdf Datasheet for onboard RAM]
 
 ----
 CategoryModel ["CategoryAR7Device"]
