@@ -117,7 +117,7 @@ quit
 
 '''Getting the LAN connection to work'''
 
-In adam2 you need to do quote "SETENV mac_port,1" (may be MAC_PORT) Otherwise your ethernet adapter isn't used correctly.
+In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase), This option selects between internal and external PHY.
 
 '''Congratulations you are successful :)'''
 
