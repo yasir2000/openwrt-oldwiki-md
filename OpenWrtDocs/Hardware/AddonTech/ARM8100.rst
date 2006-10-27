@@ -175,7 +175,10 @@ CPU Frequency                 150 MHz
 == Flash Map ==
 
 ||'''partition'''||'''start'''||'''end'''||'''description'''||
-||mtd0||`0x????????`||`0x????????`||unknown||
+||mtd2||`0x90000000`||`0x90010000`||||
+||mtd1||`0x90010000`||`0x90090000`||||
+||mtd0||`0x90090000`||`0x901f0000`||||
+||mtd3||`0x901f0000`||`0x90200000`||||
 
 Details to follow
 
