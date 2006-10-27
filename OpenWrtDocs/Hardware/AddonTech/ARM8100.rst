@@ -134,6 +134,44 @@ Texas Instruments CPMAC driver version: 1.2
 
 }}}
 
+== Output from various ADAM2 commands on original firmware ==
+{{{
+
+Adam2_AR7RD > printenv
+memsize               0x00800000
+mtd2                  0x90000000,0x90010000
+mtd1                  0x90010000,0x90090000
+mtd0                  0x90090000,0x901f0000
+mtd3                  0x901f0000,0x90200000
+my_ipaddress          192.168.100.1
+maca                  00:30:54:40:14:54
+macc                  00:30:54:40:14:55
+usb_rndis_mac         00:30:54:40:14:56
+autoload              1
+autoload_timeout      5
+flashsize             0x00200000
+modetty0              38400,n,8,1,hw
+modetty1              38400,n,8,1,hw
+bootserport           tty0
+cpufrequency          150000000
+sysfrequency          125000000
+bootloaderVersion     0.22.03
+ProductID             AR7RD
+HWRevision            Unknown
+SerialNumber          none
+prompt                Adam2_AR7RD
+firstfreeaddress      0x9401d328
+req_fullrate_freq     125000000
+
+Adam2_AR7RD > info
+Monitor Revision              0.22.03
+Monitor Compilation time      Aug 18 2004, 10:39:16
+Endianness                    Little
+External Memory rate          Full, 16 bit wide
+CPU Frequency                 150 MHz
+
+}}}
+
 == Flash Map ==
 
 ||'''partition'''||'''start'''||'''end'''||'''description'''||
