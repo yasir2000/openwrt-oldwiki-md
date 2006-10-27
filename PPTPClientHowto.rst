@@ -102,6 +102,10 @@ file /etc/ppp/options.pptp}}}
 Instruct ''pppd'' to load the generic options provided by the ''pptp'' package.
 
 {{{
+replacedefaultroute}}}
+You need to add this line in case you use PPTP to access the Internet.
+
+{{{
 ipparam name}}}
 This is optional.  Substitute ''name'' with the one chosen for the peer-file. This is used as a parameter to the ''ip-up'' and ''ip-down'' script executed upon connection and tear down of the link. Hence, you can write that script to behave differently depending on which peer we are connecting to or disconnecting from.
 
@@ -237,7 +241,7 @@ Substitute ''peer-name1'', with the value given to ''ipparam'' above in the peer
 When you use commands in these scripts, be sure to either use their full path or add `/usr/sbin` and `/sbin` to the ''PATH'' first.  pppd intentionally restricts the ''PATH'' available to the scripts for security reasons.
 
 === iptables (firewall) rules ===
-To update your firewall rules when the tunnel is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above.
+To update your firewall rules when the tunnel is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above. Also note, all these commands you can add to something like /etc/init.d/S70routes (create it). Though you have no ppp0 interface upon ''S70routes'' execution, it will work nevetherless. In this case you also do not need to remove these rules in ip-down.
 
 To allow outgoing communication with the tunnel add the following to ''ip-up'':
 {{{
