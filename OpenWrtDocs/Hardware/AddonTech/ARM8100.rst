@@ -151,7 +151,7 @@ To follow
 
 == Serial Port ==
 
-There appears to be what looks like a serial port pin header, not sure about pinout yet
+Here's the general location of the serial port.
 
 {{{
 FLASH  RAM SoC           |
@@ -160,13 +160,16 @@ FLASH  RAM SoC           |
                JP900     |
 _________________________|
 
-       V ? ? G
-       C     N
+       V T R G
+       C X X N
        C     D
 }}}
 
-It is unknown if the serial port needs a level converter chip to be used with a RS232 port.  It probably does.
-The parameters are `unknown`.
+The serial port uses CMOS 3.3v levels.  I used a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 Max 3222] chip which converts 
+
+Here's a schematic of the circuit i used.
+
+http://www.hydraservices.com/files/addontecharm8100/router-serial-cable.png
 
 === Photos ===
 http://www.hydraservices.com/files/addontecharm8100/pcb.jpg
