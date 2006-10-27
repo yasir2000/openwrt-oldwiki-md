@@ -138,7 +138,7 @@ So for this mentioned to work, you need to add following lines to your /etc/ppp/
 {{{
 DG=10.188.0.17 #this is your default gateway
 /sbin/route del -host $5 dev ppp0 #we delete "stupid" pppd route
-/sbin/route add -host $5 gw $schluz dev vlan1 #we add route to vpn-server in case you need it}}}
+/sbin/route add -host $5 gw $DG dev vlan1 #we add route to vpn-server in case you need it}}}
 
 
 == Testing a Tunnel ==
