@@ -131,6 +131,16 @@ There are four fields separated by spaces:
 
  * the asterisk tells ''pppd'' that this tunnel may use any IP address.  Normally the PPTP server determines the address.
 
+Anyway, in many cases this is still not enough to get PPTP-internet work. Due to critical bug in ''pppd'', it create route to your pptp-server through self-established interface (ppp0). This way it gets not route to the VPN server (loop) and breaks the connection in some minutes. To prevent this, you have to delete this route upon the connection (see ip-up). If your VPN-server lies behind your default gateway (not in your subnet), you also MUST add additional route to VPN-server. This case quite common and very few routers have an ability to define a route to VPN-server.
+
+So for this mentioned to work, you need to add following lines to your /etc/ppp/ip-up:
+
+{{{
+DG=10.188.0.17 #this is your default gateway
+/sbin/route del -host $5 dev ppp0 #we delete "stupid" pppd route
+/sbin/route add -host $5 gw $schluz dev vlan1 #we add route to vpn-server in case you need it}}}
+
+
 == Testing a Tunnel ==
 
 The ''pppd'' command is used to start a tunnel. The syntax is ''pppd call peername'', where ''peername'' is one of the peer files in ''/etc/ppp/peers'':
