@@ -179,5 +179,171 @@ http://www.hydraservices.com/files/addontecharm8100/case.jpg
 
 [http://www.hynix.com/datasheet/pdf/dram/HY57V641620HG(L)T-xI(Rev1.0).pdf Datasheet for onboard RAM]
 
+=== Boot log from old firmware ===
+
+{{{
+ADAM2 Revision 0.22.03                      
+(C) Copyright 1996-2003 Texas Instruments Inc. All Rights Reserved.                                                                   
+(C) Copyright 2003 Telogy Networks, Inc.                                        
+Usage: setmfreq [-d] [-s sys_freq, in MHz] [cpu_freq, in MHz]                                                             
+Memory optimization Complete!                             
+
+Adam2_AR7RD >             
+Press any key to abort OS load, or wait 5 seconds for OS to boot...                                                                   
+Launching kernel decompressor.                              
+Starting LZMA Uncompression Algorithm.                                      
+Copyright (C) 2003 Texas Instruments Incorporated; Copyright (C) 1999-2003 Igor                                                                               
+Pavlov.       
+Compressed file is LZMA format.                               
+Kernel decompressor was successful ... launching kernel.                                                        
+
+LINUX started...                
+Config serial console: ttyS0,38400                                  
+CPU revision is: 00018448                         
+Primary instruction cache 16kb, linesize 16 bytes (4 ways)                                                          
+Primary data cache 16kb, linesize 16 bytes (4 ways)                                                   
+Number of TLB entries 16.                         
+Linux version 2.4.17_mvl21-malta-mips_fp_le (root@localhost.localdomain) (gcc ve                                                                                
+rsion 2.95.3 20010315 (release/MontaVista)) #1 Tue Nov 9 17:49:34 CST 2004                                                                          
+Determined physical RAM map:                            
+ memory: 14000000 @ 00000000 (reserved)                                       
+ memory: 00020000 @                    
+ memory: 007e0000 @ 14020000 (usable)                                     
+On node 0 totalpages: 2048                          
+zone(0): 2048 pages.                    
+zone(1): 0 pages.                 
+zone(2): 0 pages.                 
+Kernel command line:                    
+the pacing pre-scalar has been set as 600.                                          
+calculating r4koff... 000b71b0(750000)                                      
+CPU frequency 150.00 MHz                        
+Calibrating delay loop... 149.91 BogoMIPS                                         
+Freeing Adam2 reserved memory [0x14001000,0x0001f000]                                                     
+Memory: 6344k/8192k available (1443k kernel code, 1848k reserved, 119k data, 60k                                                                                
+ init)      
+Dentry-cache hash table entries: 1024 (order: 1, 8192 bytes)                                                            
+Inode-cache hash table entries: 512 (order: 0, 4096 bytes)                                                          
+Mount-cache hash table entries: 512 (order: 0, 4096 bytes)                                                          
+Buffer-cache hash table entries: 1024 (order: 0, 4096 bytes)                                                            
+Page-cache hash table entries: 2048 (order: 1, 8192 bytes)                                                          
+Checking for 'wait' instruction...  unavailable.                                                
+POSIX conformance testing by UNIFIX                                   
+Linux NET4.0 for Linux 2.4                          
+Based upon Swansea University Computer Society NET3.039                                                       
+Initializing RT netlink socket                              
+Starting kswapd               
+Disabling the Out Of Memory Killer                                  
+devfs: v1.7 (20011216) Richard Gooch (rgooch@atnf.csiro.au)                                                           
+devfs: boot_options: 0x1                        
+pty: 32 Unix98 ptys configured                              
+Serial driver version 5.05c (2001-07-08) with no serial options enabled                                                                       
+ttyS00 at 0xa8610e00 (irq = 15) is a 16550A                                           
+ttyS01 at 0xa8610f00 (irq = 16) is a 16550A                                           
+block: 64 slots per queue, batch=16                                   
+PPP generic driver version 2.4.1                                
+avalanche flash device: 0x400000 at 0x10000000.                                               
+Physically mapped flash: Found 1 x16 devices at 0x200000 in 16-bit mode                                                                       
+ Amd/Fujitsu Extended Query Table v1.0 at 0x0040                                                
+number of CFI chips: 2                      
+Looking for mtd device :mtd0:                             
+Found a mtd0 image (0x90000), with size (0x160000).                                                   
+Looking for mtd device :mtd1:                             
+Found a mtd1 image (0x10000), with size (0x80000).                                                  
+Looking for mtd device :mtd2:                             
+Found a mtd2 image (0x0), with size (0x10000).                                              
+Looking for mtd device :mtd3:                             
+Found a mtd3 image (0x1f0000), with size (0x10000).                                                   
+Looking for mtd device :mtd4:                             
+Creating 4 MTD partitions on "Physically mapped flash":                                                       
+0x00090000-0x001f0000 : "mtd0"                              
+0x00010000-0x00090000 : "mtd1"                              
+0x00000000-0x00010000 : "m                        
+0x001f0000-0x00200000 : "mtd3"                              
+NET4: Linux TCP/IP 1.0 for NET4.0                                 
+IP Protocols: ICMP, UDP, TCP, IGMP                                  
+IP: routing cache hash table of 512 buckets, 4Kbytes                                                    
+TCP: Hash tables configured (established 512 bind 512)                                                      
+Linux IP multicast router 0.06 plus PIM-SM                                          
+ip_conntrack version 2.0 (64 buckets, 512 max) - 364 bytes per conntrack                                                                        
+ip_tables: (c)2000 Netfilter core team                                      
+netfilter PSD loaded - (c) astaro AG                                    
+NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.                                                   
+NET4: Ethernet Bridge 008 for NET4.0                                    
+VFS: Mounted root (squashfs f                           
+Mounted devfs on /dev                     
+Freeing unused kernel memory: 60k freed                                       
+serial console detected.  Disabling virtual terminals.                                                      
+console=/dev/tts/0                  
+init started:  BusyBox v0.61.pre (2004.11.09-09:44+0000) multi-call binary                                                                          
+Starting pid 9, console /dev/tts/0: '/etc/init.d/rcS'                                                     
+ Standard Configuration File                            
+proc write:Calling Configuration                                
+Number of State module =  1                           
+STATE =  1          
+STATE =  2          
+STATE =  3          
+module =  2           
+STATE =  1          
+STATE =  2          
+module =  3           
+STATE =  1          
+STATE =  2          
+STATE =  3          
+module =  5           
+STATE =  1          
+STATE =  2          
+STATE =  3          
+module =  6           
+STATE =  1          
+STATE =  2          
+STATE =  3          
+Elements = 14             
+Total Length = 116                  
+Using /lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/net/avalanche_us                                                                                
+b.o   
+USB: Entering USB_init_module.                              
+USB: Error getting mac from Adam enviroment for usbrndis                                                        
+USB: Using default mac address: 00.E0.A6.66.41.EB                                                 
+USB: Use Adam2 command:                       
+USB:     setenv usb_board_mac xx.xx.xx.xx.xx.xx                                               
+USB: to set mac address                       
+vid = 0x451           
+pid = 0x6060            
+No Serial Number String present.                                
+man = Texas Instruments                       
+prod = TI RNDIS Network Adapter                               
+USB: Entering USB_Init                     
+USB: Leaving USB_Init.                      
+USB: Leaving USB_init_module.                             
+Using /lib/modules/2.4.17_mvl21-malta-mips_fp_le/kernel/drivers/atm/tiatm.o                                                                           
+registered device TI Avalanche SAR                                  
+Initializing DSL interface                          
+size=10120          
+size=38720
+size=46304
+size=45312
+Texas Instruments ATM driver: version:[4.02.04.00]
+Waiting for enter to start '/bin/sh' (pid 34, terminal /dev/tts/0)
+
+Please press Enter to activate this console. Sep  8 12:00:06 cm_monitor: Monitor
+ Starting
+Sep  8 12:00:07 cfgmgr(pppoa-102): Valid Configuration Tree
+SIOCGIFFLAGS: No such device
+Sep  8 12:00:07 cfgmgr(fdb): Firewall NAT service started
+Sep  8 12:00:07 cfgmgr(bridge): Bridge Created: br0
+device usbrndis entered promiscuous mode
+Sep  8 12:00:07 cfgmgr(bridge): Bridge Interface Added: usbrndis
+br0: port 1(usbrndis) entering learning state
+device eth0 entered promiscuous mode
+Sep  8 12:00:07 cfgmgr(bridge): Bridge Interface Added: eth0
+br0: port 2(eth0) entering learning state
+br0: port 1(usbrndis) entering forwarding state
+br0: topology change detected, propagating
+br0: port 2(eth0) entering forwarding state
+br0: topology change detected, propagating
+Sep  8 12:00:16 cfgmgr(sar): DSL Carrier is down
+}}}
+
+
 ----
 CategoryModel ["CategoryAR7Device"]
