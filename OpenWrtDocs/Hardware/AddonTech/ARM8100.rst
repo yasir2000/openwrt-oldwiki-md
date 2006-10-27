@@ -174,13 +174,15 @@ CPU Frequency                 150 MHz
 
 == Flash Map ==
 
-||'''partition'''||'''start'''||'''end'''||'''description'''||
-||mtd2||`0x90000000`||`0x90010000`||||
-||mtd1||`0x90010000`||`0x90090000`||||
-||mtd0||`0x90090000`||`0x901f0000`||||
-||mtd3||`0x901f0000`||`0x90200000`||||
+||'''partition'''||'''start'''||'''end'''||'''size'''||'''description'''||
+||mtd0||`0x90090000`||`0x901f0000`||`0x160000`||squashfs||
+||mtd1||`0x90010000`||`0x90090000`||`0x080000`||kernel||
+||mtd2||`0x90000000`||`0x90010000`||`0x010000`||ADAM2||
+||mtd3||`0x901f0000`||`0x90200000`||`0x010000`||ADAM2 environment variables||
 
-Details to follow
+Physical order of partitions on flash chip is:
+
+mtd2,mtd1,mtd0,mtd3
 
 == Installing OpenWrt ==
 
