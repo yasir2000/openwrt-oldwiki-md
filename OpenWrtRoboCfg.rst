@@ -1,4 +1,4 @@
-/!\ Robocfg will be obsolete soon.
+/!\ Robocfg will be obsolete soon. (?in which version / by what?)
 
 Robocfg is a utility written by Oleg Vdovikin to enable the hardware configuration
 of the Broadcom BCM5325E/536x VLAN enabled 6-port ethernet switch.  When used properly,
