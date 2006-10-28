@@ -33,6 +33,23 @@ Additionally XBox Live reports the router as having "Moderate" NAT which means i
 
 uPnP support appears to be non functional.  Enabling it doesn't do anything, it looks like libpthread is missing (attemping to manually start it results in an error message)
 
+== Backing up original firmware ==
+
+You can telnet to the device, login as "root" with whatever passyou use used for the admin interface, or use the console via the serial port.
+
+You can then dump each mtd block to a file and download them via a web browser pointed to the router at port 1080 using the example below.
+
+{{{
+dd if=/dev/mtdblock/0 of=/var/tmp/mtd0-squashfs.bin
+dd if=/dev/mtdblock/1 of=/var/tmp/mtd1-kernel.bin
+dd if=/dev/mtdblock/2 of=/var/tmp/mtd2-adam2.bin
+dd if=/dev/mtdblock/3 of=/var/tmp/mtd3-adam2-nvram.bin
+
+/usr/sbin/thttpd -g -d /var -u root -p 1080
+}}}
+
+You'll probably have to do mtd0 seperately as there's not enough free ram to dump them all and download them at the same time.  I (Hydra) actually had to kill the admin web server and a couple of other running programs before there was enough free ram to allow thttp to open the file and transfer it after mtd0.bin had been created!
+
 == Output from various commands on the original firmware ==
 
 {{{
