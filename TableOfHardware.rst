@@ -83,6 +83,7 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 == Aztech ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 || DSL600E  || || AR7/TNETD7300 ||2MB || 8MB || None || || ||None || ||None||Untested||
+|| DSL600EU || || AR7 || 2MB || 8MB || None || || || None || || Yes ||Untested||
 Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech is commonly being used in Malaysia and Singapore.
 
 == Belkin ==
