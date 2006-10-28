@@ -70,7 +70,7 @@ Autopsy photos http://www.linksysinfo.org/portal/forums/showthread.php?t=47389
 
 64 meg RAM upgrade: http://www.linksysinfo.org/portal/forums/showthread.php?t=46673
 
-Original exploration thread [LOST DUE TO SITE RE-ORG]
+Original exploration thread http://www.linksysinfo.org/portal/forums/showthread.php?t=43413&highlight=wrtsl54gs
 
 Spillover into OpenWRT  http://forum.openwrt.org/viewtopic.php?id=3529
 
