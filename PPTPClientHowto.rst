@@ -251,7 +251,15 @@ Substitute ''peer-name1'', with the value given to ''ipparam'' above in the peer
 When you use commands in these scripts, be sure to either use their full path or add `/usr/sbin` and `/sbin` to the ''PATH'' first.  pppd intentionally restricts the ''PATH'' available to the scripts for security reasons.
 
 === iptables (firewall) rules ===
-To update your firewall rules when the tunnel is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above. Also note, all these commands you can add to something like /etc/init.d/S70routes (create it). Though you have no ppp0 interface upon ''S70routes'' execution, it will work nevetherless. In this case you also do not need to remove these rules in ip-down.
+To update your firewall rules when the tunnel is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above. Also note, all these commands you can add to something like /etc/init.d/S70routes (create it). Though you have no ppp0 interface upon ''S70routes'' execution, it will work nevetherless. In this case you also do not need to remove these rules in ip-down. You can just add these lines to your S70routes:
+
+{{{
+iptables -A FORWARD -t filter -i br0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -t filter -i ppp0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -t nat -A POSTROUTING -o ppp0 -s 192.168.168.0/24 -d 0/0 -j MASQUERADE}}}
+
+Where 192.168.168.0/24 is your internal subnet (LAN). This, though not delicate, works for common case.
+
 
 To allow outgoing communication with the tunnel add the following to ''ip-up'':
 {{{
