@@ -47,28 +47,26 @@ Successfully terminated. [[BR]]
 
 
 3)
-For QOS script you can download this file from my website [[BR]]
-For DHCP connection [[BR]]
- wget http://www.frozenmemoirs.com/S91qos_cable
+For QOS script you can download this file [[BR]]
+Local copies [[BR]]
+. [:OpenWrtDocs/Hardware/Motorola/WR850G/Asterix/qos_cable: DHCP/Cable ] [[BR]]
+. [:OpenWrtDocs/Hardware/Motorola/WR850G/Asterix/qos_dsl: PPPOE/DSL] [[BR]]
+Original Source website [[BR]]
+For DHCP connection http://www.frozenmemoirs.com/S91qos_cable [[BR]]
+For PPPOE connection http://www.frozenmemoirs.com/S91qos_dsl
 
-OR for PPPOE connection
- wget http://www.frozenmemoirs.com/S91qos_dsl
-
-You may need to change the "DEV=" variable in the script if required. Also change "UPLINK=" to 80% of your max upload.
-
-Put this script under /etc/init.d/, also chmod a+x the script
-
+You may need to change the "DEV=" variable in the script if required. [[BR]]
+Also change "UPLINK=" to 80% of your max upload.[[BR]]
+Put this script under /etc/init.d/, also chmod a+x the script[[BR]]
 Make sure this script executes ./S91qos, coz it requres few modules to be loaded
-
-root@OpenWrt:~# '''cat /etc/modules''' [[BR]]
-wl [[BR]]
-sch_htb [[BR]]
-sch_sfq [[BR]]
-cls_u32 [[BR]]
-cls_route [[BR]]
-cls_tcindex [[BR]]
-cls_fw [[BR]]
-
+ root@OpenWrt:~# '''cat /etc/modules''' [[BR]]
+ wl [[BR]]
+ sch_htb [[BR]]
+ sch_sfq [[BR]]
+ cls_u32 [[BR]]
+ cls_route [[BR]]
+ cls_tcindex [[BR]]
+ cls_fw [[BR]]
 
 4) And finally check your quota, Voila!!! you still have around 20% of 2MB left smile [[BR]]
 root@OpenWrt:~# '''df''' [[BR]]
