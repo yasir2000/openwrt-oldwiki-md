@@ -28,7 +28,7 @@ See also
 ||GT701-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG:WiP] ||
 == Addon-Tech ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||ARM8100 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||None || Marvell 88E6060 ||["ADAM2"] ||Yes || Yes || No ||[:OpenWrtDocs/Hardware/AddonTech/ARM8100:WiP] ||
+||ARM8100 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||None ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/AddonTech/ARM8100:WiP] ||
 == Airlink101 ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||AR420W || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? ||No || ||
@@ -56,7 +56,7 @@ See also
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=409&modelmenu=1 WL-530g] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8510] @160MHz ||4MB ||16MB ||Marvell (integrated) ||in CPU ||on ||[http://www.bitsum.com/openwiking/owbase/ow.asp?WL-530G Yes] ||No ||No ||No ||[http://www.bitsum.com/openwiking/owbase/ow.asp?WL-530G WiP] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=796&modelmenu=1 WL-550gE] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||on || ||No ||2x v1.1 (on board) ||No ||[:OpenWrtDocs/Hardware/Asus/WL550gE:Untested] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1038&modelmenu=1 WL-566gM] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2006036 Realtek RTL8651B] || || ||Airgo MIMO (mini-PCI) ||in CPU || || ||No ||No ||No ||[:OpenWrtDocs/Hardware/Asus/WL566gM:Untested] ||
-||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1173&modelmenu=1 WL-600g] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256Mhz || 4MB || 16MB || || || || || ||2.0 ||No ||[:OpenWrtDocs/Hardware/Asus/WL600g:Untested] ||
+||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1173&modelmenu=1 WL-600g] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256Mhz ||4MB ||16MB || || || || || ||2.0 ||No ||[:OpenWrtDocs/Hardware/Asus/WL600g:Untested] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=979&modelmenu=1 WL-700gE] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300MHz ||2MB ||64MB || || || || || ||3x v2.0 ||3.5" 160GB ||[:OpenWrtDocs/Hardware/Asus/WL700gE:Untested] ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1 AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
@@ -82,15 +82,15 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 
 == Aztech ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-|| DSL600E  || ||TI AR7/TNETD7300 ||2MB || 8MB || None || || ||None || ||None||Untested||
-|| DSL600EU || ||TI AR7 || 2MB || 8MB || None || || || None || || Yes ||Untested||
-|| DSL600EW || ||TI AR7/TNETD7300 ||4MB ||16MB|| TI TNETW1130 || Marvell 88E6060 || ||None || ||Yes || Untested||
+||DSL600E || ||AR7 / TNETD7300 ||2MB ||8MB ||None || || || || ||None ||Untested ||
+||DSL600EU || ||AR7 ||2MB ||8MB ||None || || || || ||Yes ||Untested ||
+||DSL600EW || ||AR7 / TNETD7300 ||4MB ||16MB ||TI TNETW1130 ||Marvell 88E6060 || || || ||Yes ||Untested ||
 Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech is commonly being used in Malaysia and Singapore.
 
 == Belkin ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136486 F5D7130] ||1010 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz || || ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Belkin/F5D7130:Supported] ||
-||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4] ||pre 1444 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || || || || || ||[:OpenWrtDocs/Hardware/Belkin/F5D7230:Supported]||
+||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4] ||pre 1444 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || || || || || ||[:OpenWrtDocs/Hardware/Belkin/F5D7230:Supported] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=136493 F5D7230-4] ||from 1444 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||BCM5325 || ||Yes ||No || ||[:OpenWrtDocs/Hardware/Belkin/F5D7230:Untested] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=179477 F5D7231-4] ||1102 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||BCM5325 || || || || ||[:OpenWrtDocs/Hardware/Belkin/F5D7231:Untested] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=184855 F5D7231-4P] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||16MB ||Broadcom (integrated) ||ADM6996L || || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Belkin/F5D7231:Untested] ||
