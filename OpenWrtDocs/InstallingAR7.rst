@@ -95,6 +95,14 @@ We can also see that {{{mtd3}}} is the last partition and that there is no parti
 SETENV mtd4,0x90010000,0x903f0000
 200 SETENV command successful
 }}}
+
+Note - If you're accessing ADAM2 via the serial console you can also create MTD using a similar command (note the casing and the spaces are different)
+
+{{{
+setenv mtd4 0x90010000,0x903f0000
+}}}
+
+
 After that, we can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd4}}} via ftp:
 
 '''Not all AR7 devices will use mtd4.  Double check which mtd you are flashing.'''
