@@ -128,6 +128,9 @@ Second serial port:
 
 While the first serial port is easy to find (and described in the "non-experimental" installation section above), the second serial port is quite well hidden.  On the bottom of the board near the serial connector you'll notice there are two small black components labeled "0".  Next to them there are solder pads where you'd expect two more "0" components to go - but they're missing!  On the set of pads away from the serial connector, the second serial port signals are exposed.  Get out your fine-tipped soldering iron and solder some fine wires to the pads opposite the serial connector.  RR93 is data out of the WR, and RR94 is data in.
 
+Off Site Pictures
+http://devices.natetrue.com/mobileap/
+http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
 
 = Reverting an OpenWRT WR850G to the Official Motorola Firmware =
  '' Note: These instructions are Windows-centered ''
@@ -204,24 +207,35 @@ Light layout is 7 lights:
 Power, Modem, Wireless, 4x LAN.  All capable of bi-color, at least the LEDs are.
 
 == WR850G ==
- * gpio 7 controls the "Wireless" "green" light (0=on, 1=off)
- * gpio 6 controls the "Modem" network interface (0=off, 1=on)
- * gpio 5 controls the "Wireless" "red" light (0=on, 1=off)
- * gpio 4 controls the "Power" "green" light (0=off, 1=on)
- * gpio 3 controls the "Power" "red flashing" light (0=on/flashing, 1=off)
- * gpio 2 unknown (possibly 4port switch LEDs, 1 turns all on)
- * gpio 1 uart enable (if connected)
  * gpio 0 is the reset button (0=pressed, 1=not)
+ * gpio 1 uart enable (if connected)
+ * gpio 2 unknown (possibly 4port switch LEDs, 1 turns all on)
+ * gpio 3 controls the "Power" "red flashing" light (0=on/flashing, 1=off)
+ * gpio 4 controls the "Power" "green" light (0=off, 1=on)
+ * gpio 5 controls the "Wireless" "red" light (0=on, 1=off)
+ * gpio 6 controls the "Modem" network interface (0=off, 1=on)
+ * gpio 7 controls the "Wireless" "green" light (0=on, 1=off)
 
 == WR850G v2 & v3 ==
- * gpio 7 controls the red half of the "Modem" light (0=on, 1=switch-controlled)
- * gpio 6 controls the green half of the "Modem" light (0=on, 1=off, hi-z=switch-controlled) - not sure if this will fry the switch if overridden.  Couple seconds didn't hurt it.
- * gpio 5 is the reset button (0=pressed, 1=not)
- * gpio 4 appears to be input -short the pin to ground it reports 00 -unshort/floating it comes back to 01 
- * gpio 3 always returns 1, setting value doesn't alter that.
- * gpio 2 appears disconnected (pin is floating)
- * gpio 1 is the "Power" light color.  (0=red, 1=green)
  * gpio 0 is the "Wireless" light.  (0=green, 1=off)
+ * gpio 1 is the "Power" light color.  (0=red, 1=green)
+ * gpio 2 appears disconnected (pin is floating)
+ * gpio 3 always returns 1, setting value doesn't alter that.
+ * gpio 4 appears to be input -short the pin to ground it reports 00 -unshort/floating it comes back to 01 
+ * gpio 5 is the reset button (0=pressed, 1=not)
+ * gpio 6 controls the green half of the "Modem" light (0=on, 1=off, hi-z=switch-controlled) - not sure if this will fry the switch if overridden.  Couple seconds didn't hurt it.
+ * gpio 7 controls the red half of the "Modem" light (0=on, 1=switch-controlled)
+
+ansher [http://forum.openwrt.org/viewtopic.php?id=7207] reported he experimented with gpio3 and that the value did not change when set but did change after the next poll.[[BR]]
+He also reports the pin numbers as;
+ * PIN   GPIO      Router solder point
+ * 1     GPIO7     WAN LED(RED)
+ * 2     GPIO2     empty pad below RC117 (bottom solder pad)
+ * 3     VSS (GND)
+ * 4     VDD (3.3V)
+ * 5     GPIO3     emty pad below RC117 (top solder pad)
+ * 6     VSS2 (GND)
+ * 7     GPIO4     RR153 (top pad)
 
 = LAN port layout =
 
