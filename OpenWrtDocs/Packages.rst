@@ -22,6 +22,9 @@ Now run {{{ipkg update}}} and you will see new packages.
 
 Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers. 
 
+Here are some repositories of third party packages:
+ * [http://www.ipkg.be/]
+
 There are countless third-party packages available. Below a few of the more common ones are listed.
 
 === X-Wrt ===
