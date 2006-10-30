@@ -14,27 +14,28 @@ Another important note is that there is room for a 20-pin header on the board. I
 
 Fllowing is the room for 20-pin header, it connect to the 4M Byte flash directly,but only address line of A0 TO A3 is connected. "NC" is means that it cann't be measured.
 
-GND      CE      QD7     QD6    QD5   QD4   QD3    QD2    QD1     QD0                     
+GND      CE      QD7     QD6    QD5   QD4   QD3    QD2    QD1     QD0
 
-1        2         3      4      5     6      7     8       9      10                     
+1        2         3      4      5     6      7     8       9      10
 
-11       12       13      14     15   16     17    18      19      20                     
+11       12       13      14     15   16     17    18      19      20
 
-||GND      NC       NC      WE     OE    NC    A3     A2     A1       A0                    
+||GND      NC       NC      WE     OE    NC    A3     A2     A1       A0
 
 Who can make suggestions to repair WLA-G54C through this 20-pin heater.
 
+Some Notes From Ben:
 
-Some Addon From Ben:
-------------------------------------------------------
-I've tried to install White Russian Firmware on it by using TFTP server as suggested, no lucky at all, it seems this ap cannot handle it well, but it's possible to install latest firmware by using default buffalo httpd configuration tool. BIN file doesn't need to be encrypted, so you can create your own distribution and easily put on it, here's what i've done (you need an HEX editor to do this):
-- Download Buffalo latest firmware from their web site, keep first 35 byte from it
-- Append compiled White Russian firmware to these 35 bytes and save your own firmware file everywhere on the pc
-- Check file length, subtract 35 and put this number inside string filelen="xxx" found it first 35 bytes. Example: file size=1552390, write "filelen=1552355" string (without quotes..) where needed in its first 35 bytes and you're set, now you have your own firmware for WLA-G54C
-- Upload your new bin file with Buffalo Web Interface, it's easy to do
-- Reboot and follow OpenWRT documentation
+----------
+ I've tried to install White Russian Firmware on it by using TFTP server as suggested, no lucky at all, it seems this ap cannot handle it well, but it's possible to install latest firmware by using default buffalo httpd configuration tool. BIN file doesn't need to be encrypted, so you can create your own distribution and easily put on it, here's what i've done (you need an HEX editor to do this):
 
-Have fun
-i've enjoyed so much this distro and i'd like to contribute for a piece of hardware i can control
+ . - Download Buffalo latest firmware from their web site, keep first 35 byte from it
+ . - Append compiled White Russian firmware to these 35 bytes and save your own firmware file everywhere on the pc
+ . - Check file length, subtract 35 and put this number inside string filelen="xxx" found it first 35 bytes. Example: file size=1552390, write "filelen=1552355" string (without quotes..) where needed in its first 35 bytes and you're set, now you have your own firmware for WLA-G54C
+ . - Upload your new bin file with Buffalo Web Interface, it's easy to do
+ . - Reboot and follow OpenWRT documentation
+Now this access point is fully supported and reported as working
+
+Have fun i've enjoyed so much this distro and i'd like to contribute for a piece of hardware i can control
 
 Andrea (Ben) Benini
