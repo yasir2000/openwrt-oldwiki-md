@@ -52,9 +52,11 @@ wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1
 
 ''This is very much a work in progress --- some inaccuracies may be present in the first drafts.''
 
-To date, no documentation has been written on how to write webif pages. The webif system is a combination of shell, awk, html, and javascript (a little). At present, all that can be suggested is to use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
+The webif system is a combination of shell, awk, html, and javascript (a little). 
 
-http://www.bitsum.com/smf/index.php?topic=330 is a bit of a start
+The "Programmers Guide to Webif^2" @ http://www.bitsum.com/smf/index.php?topic=330 is now ready and contains a reasonable amount of information
+
+Use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
 ==== What is a webif page? ====
 
