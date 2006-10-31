@@ -419,6 +419,142 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#
 }}}
+
+== Getting the ADSL Working via PPPoA ==
+
+As I (Hydra) live in the UK and my ISP uses PPPoA the only thing I can test is PPPoA, other people have tested PPPoE and found it to work.
+
+At this time I'm currently unaware of how to correctly config /etc/config/network and/or any other scripts to automate the connection, hopefully someone can help me with this.
+
+Trying to find out what pppd settings to use for a PPPoA connection via way of google searches was impossible.  There appear to be loads of PPPoA HOWTO's out there but they are all very old none of them seem to go into any details about the pppd parameters.
+
+To find out what pppd settings I needed I reflashed back to my old router's firmware, then I reset my router back to it's default settings and the only thing i changed in it's config was the pppoa username and password, after which it connected itself to the internet ok.  I then used telnet to connect to the router.  I than ran {{{ps}}} to find the pid of the {{{pppd}}} program.  After I'd found the pid, (say, 374) I then would have just done {{{strings /proc/374/cmdline}}} but alas the firmware on my router didn't have strings installed.  So I went {{{cat /proc/374/cmdline > /var/tmp/pppdcmdline.bin}}} and created a webserver on the router so i could download the via http, port 8080 - {{{httpd -p 8080 -d /var/tmp}}} and then finally examine the file on a box equipped with either a hex editor or the "strings" program.
+
+The output from strings with the default PPPoA settings was as follows
+{{{
+hydra@hydra02:~/arm8100$ strings pppd-cmdline.bin
+/usr/sbin/pppd
+plugin
+pppoa
+0.38
+user
+me@myisp
+password
+mypassword
+nodetach
+defaultroute
+usepeerdns
+1500
+maxfail
+vc-encaps
+lcp-echo-failure
+lcp-echo-interval
+}}}
+
+This was when using PPPoA over VC-MUX, VCI 0, VPI 38, auto CHAP/PAP authentication.
+
+I then changed the default settings to use LLC, CHAP authentication, dial on demand and timeout from 60 to 120 and again ran strings, here's the output from which might be useful to determine what other pppd options must be catered for in any scripts.
+
+{{{
+hydra@hydra02:~/arm8100$ strings pppd-cmdline-llcchapondemandtimeout120.bin
+/usr/sbin/pppd
+plugin
+pppoa
+0.38
+user
+me@myisp
+password
+mypassword
+refuse-pap
+nodetach
+defaultroute
+usepeerdns
+1500
+maxfail
+llc-encaps
+debug
+demand
+idle
+}}}
+
+I've replaced my actual login with "me@myisp" and my actual password with "mypassword" in both outputs above.
+
+Note that there are missing numeric values for the options that numeric values, and that for some reason "mtu" wasn't shown even though it's value was.
+
+So, using the info above I tried firing up pppd using the following command line
+
+{{{
+/usr/sbin/pppd plugin /usr/lib/pppd/2.4.3/pppoatm.so 0.38 user me@myisp password mypassword nodetach defaultroute usepeerdns mtu 1500 vc-encaps debug
+}}}
+
+Of course that Didn't work as I'd forgotten to plug the adsl cable into the back of the router.  After plugging it back in and issuing the command again i was greeted with a "device in use message", so it looks like trying to start pppd without a sync'd dsl line needs a bit more work in the cleanup, maybe there's some other options that can be set which could help.
+
+After I rebooted and issued the command again to my utter amazement my router connected via PPPoA, here's the log:
+
+{{{
+Plugin /usr/lib/pppd/2.4.3/pppoatm.so loaded.
+using channel 1
+Using interface ppp0
+Connect: ppp0 <--> 0.38
+sent [LCP ConfReq id=0x1 <magic 0x7bb2d27a>]
+rcvd [LCP ConfReq id=0x89 <mru 9178> <auth chap MD5> <magic 0x1cc8b2fc>]
+sent [LCP ConfAck id=0x89 <mru 9178> <auth chap MD5> <magic 0x1cc8b2fc>]
+root@OpenWrt:/etc# sent [LCP ConfReq id=0x1 <magic 0x7bb2d27a>]
+rcvd [LCP ConfReq id=0x8a <mru 9178> <auth chap MD5> <magic 0x1cc8b2fc>]
+sent [LCP ConfAck id=0x8a <mru 9178> <auth chap MD5> <magic 0x1cc8b2fc>]
+rcvd [LCP ConfAck id=0x1 <magic 0x7bb2d27a>]
+rcvd [CHAP Challenge id=0x6a <313ed08780c0fb711f0ec7cc510c8b6aecfa28d43239fa6e3f04639cf0]
+sent [CHAP Response id=0x6a <2b173f87f95e1f7a28594305c881c4b4>, name = "me@myisp.com....]
+rcvd [CHAP Success id=0x6a ""]
+CHAP authentication succeeded
+CHAP authentication succeeded
+kernel does not support PPP filtering
+sent [IPCP ConfReq id=0x1 <compress VJ 0f 01> <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 ]
+rcvd [IPCP ConfRej id=0x1 <compress VJ 0f 01>]
+sent [IPCP ConfReq id=0x2 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
+rcvd [IPCP ConfNak id=0x2 <addr 84.9.60.50> <ms-dns1 83.146.21.5> <ms-dns3 212.158.248.6]
+sent [IPCP ConfReq id=0x3 <addr 84.9.60.50> <ms-dns1 83.146.21.5> <ms-dns3 212.158.248.6]
+rcvd [IPCP ConfAck id=0x3 <addr 84.9.60.50> <ms-dns1 83.146.21.5> <ms-dns3 212.158.248.6]
+rcvd [IPCP ConfReq id=0x1b <addr 83.146.18.41>]
+sent [IPCP ConfAck id=0x1b <addr 83.146.18.41>]
+local  IP address 84.9.60.50
+remote IP address 83.146.18.41
+primary   DNS address 83.146.21.5
+secondary DNS address 212.158.248.6
+Script /etc/ppp/ip-up started (pid 310)
+Script /etc/ppp/ip-up finished (pid 310), status = 0x1
+
+root@OpenWrt:/etc# ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:30:54:40:14:54
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Base address:0x2800
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+ppp0      Link encap:Point-to-Point Protocol
+          inet addr:84.9.60.50  P-t-P:83.146.18.41  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3
+          RX bytes:64 (64.0 B)  TX bytes:82 (82.0 B)
+}}}
+
+Now, my firmware doesn't have many packages compiled in right now, and i need to figure out which ones to use too.  But at least all the hardware appears to work so far!
+
+As a side note my router could connect to the internet ok (resolv.conf was correctly updated, too) however other machines on the lan could not so the firewall in the router (read iptables configuration) is obviously not correct, yet.
+
 == Restoring Original Firmware ==
 
 use ftp to connect to the adam2 boot loader as above, then restore your backups as follows:
