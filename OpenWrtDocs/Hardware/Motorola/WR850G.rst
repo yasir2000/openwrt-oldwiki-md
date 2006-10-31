@@ -53,8 +53,10 @@ If you ever need to revert your router to official Motorola firmware, it can be 
  * [http://broadband.motorola.com/consumers/support/default.asp?SupportSection=HomeNetworking Motorola's Support Site] has links only to their ''current'' firmware version.  Note that you need to scroll down to the WR850G section.
  * [http://broadband.motorola.com/consumers/support/gpl_codes.asp Source Code] (currently for [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.12_GPL.tgz 5.12], [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.13_GPL.tgz 5.13], and [http://broadband.motorola.com/consumers/support/GPL/WR850G_V6.1.4_GPL.tgz 6.1.4])
 
-= How To Enable Boot Wait =
+= Loading Firmware =
+Use which ever method is appropriate for you.
 
+== Enable Boot Wait ==
  * Install Motorola Firmware Version 4.03 onto the router. (see above)
  * Login to the router's web page and go to `/frame_debug.asp`
  * Type in: `nvram set boot_wait=on`
@@ -70,24 +72,27 @@ nvram set boot_wait=on; nvram commit
 
 The WR850G boot utility always comes up as 192.168.10.1. To test this, try, set a static IP on your router and plug in to a wired port with your PC in the IP range 192.168.10.x, then in a Windows command prompt, get "ping -t 192.168.10.1" going and power cycle the router, you should get about 4 pings on 192.168.10.1 from the bootloader '''if boot_wait is set'''.
 
-== Alternate Initial Loading Method ==
-The '''nvram set boot_wait=on''' method above did not put the router into 192.168.10.1 for me so I tried the following. I believe I had already upgraded my WR850g per:  [[BR]]
-WR850G 4.03 Firmware Release Notes [[BR]]
+== Loading from Motorola 4.03 ==
+My WR850g had been upgraded to:  [[BR]]
+WR850G 4.03 Firmware [[BR]]
 Part Number 515750-001[[BR]]
 Product WR850G[[BR]]
 Release Version 4.03[[BR]]
 Date 05/04[[BR]]
 [[BR]]
-With the version 4.03 the '''control''' page has an option '''upgrade firmware'''. I tried this and it complained that the openwrt-wr850g-squashfs.bin file was not a trx file. I renamed the file to .trx instead and it uploaded. After the upload the modem light blinked red for about a minute. [[BR]]
-Initially I was unable to connect to the router however, I followed the Motorola instructions and unplugged the device and went and made tea. When I plugged it back in, I put into a different pc and using the original IP address (I had used 192.168.1.5) in the brower pulled up the openwrt welcome page. BINGO and a lot easier. [[BR]]
+With firmware version 4.03 the '''control''' page has an option '''upgrade firmware'''. I tried this and it complained that the openwrt-wr850g-squashfs.bin file was not a trx file. I renamed the file to .trx instead and it uploaded. After the upload the modem light blinked red for about a minute. [[BR]]
+Initially I was unable to connect to the router however, I followed the Motorola instructions and went and made tea. I unplugged the device and plugged it back in. (Unplugging may not be necessary) While I thought this delay was due to heat, apparently it is due to some firmware initialization requirements. The IP address used prior to loading OpenWrt was retained.  I put the original IP address (I had used 192.168.1.5) in the brower and it pulled up the openwrt welcome page. A lot easier than bootwait. [[BR]]
 
-Note: When I first loaded OpenWrt, I was able to find the IP for the device. I ran etheral protocol analyzer and only saw spanning tree protocol messages from the router's ethernet mac address and about every fourth message was a ppoe query. I couldn't find the IP address of the router using etheral. [[BR]] 
+== Loading from OpenWrt ==
+Use the web interface. Go to System and Firmware Upgrade. Browse for the new firmware and click upgrade.
 
 = Finding the serial ports on the WR850G =
 
 The primary reason for finding serial ports on the router is to help in debricking.  There is no way to load firmware from the serial port.  However, given a simple typing mistake for an nvram value, you will be able to have a console shell to help fix a typo problem.  I have used my v1 serial port thousands of times already from nvram mistakes.  The most major, deleting all nvram variables (do not try this --kko).
 
 The debrick tool modification of adding a serial port is only needed when you erase or program the flash with an image, then read the image and these two don't match.  If you don't see that problem forget about the modification - You don't need it. [http://forum.openwrt.org/viewtopic.php?pid=36285#p36285 Reference]
+
+If you want to use the serial port on the router by sending messages via the network see [http://forum.openwrt.org/viewtopic.php?id=7926 Redirecting a TCP port to COM port]
 
 == WR850G ==
 Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.  This information derived from [http://wl500g.info/showthread.php?t=587&page=1&pp=15 Technik]:
