@@ -87,6 +87,8 @@ Note: When I first loaded OpenWrt, I was able to find the IP for the device. I r
 
 The primary reason for finding serial ports on the router is to help in debricking.  There is no way to load firmware from the serial port.  However, given a simple typing mistake for an nvram value, you will be able to have a console shell to help fix a typo problem.  I have used my v1 serial port thousands of times already from nvram mistakes.  The most major, deleting all nvram variables (do not try this --kko).
 
+The debrick tool modification of adding a serial port is only needed when you erase or program the flash with an image, then read the image and these two don't match.  If you don't see that problem forget about the modification - You don't need it. [http://forum.openwrt.org/viewtopic.php?pid=36285#p36285 Reference]
+
 == WR850G ==
 Version 1 of the WR850G has no onboard UART.  This means that all you have available are control and data lines on a header labeled J5.  There is no connector on these pins, so one would need to be added.  A conversion board may then be made with a UART connected to this header and will give you a serial port.  This information derived from [http://wl500g.info/showthread.php?t=587&page=1&pp=15 Technik]:
 
