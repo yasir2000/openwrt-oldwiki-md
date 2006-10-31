@@ -420,7 +420,40 @@ Enter 'help' for a list of built-in commands.
 root@OpenWrt:/#
 }}}
 == Restoring Original Firmware ==
-To follow
+
+use ftp to connect to the adam2 boot loader as above, then restore your backups as follows:
+
+{{{
+hydra@hydra02:~/arm8100$ ftp 192.168.100.1
+Connected to 192.168.100.1.
+220 ADAM2 FTP Server ready.
+Name (192.168.100.1:hydra): adam2
+331 Password required for adam2.
+Password:
+230 User adam2 successfully logged in.
+Remote system type is UNIX.
+ftp> binary
+200 Type set to I.
+ftp> quote MEDIA FLSH
+200 Media set to FLSH.
+ftp> put mtd0-squashfs.bin "mtd0-squashfs.bin mtd0"
+local: mtd0-squashfs.bin remote: mtd0-squashfs.bin mtd0
+200 Port command successful.
+150 Opening BINARY mode data connection for file transfer.
+226 Transfer complete.
+1441792 bytes sent in 13.03 secs (108.0 kB/s)
+ftp> put mtd1-kernel.bin "mtd1-kernel.bin mtd1"
+local: mtd1-kernel.bin remote: mtd1-kernel.bin mtd1
+200 Port command successful.
+150 Opening BINARY mode data connection for file transfer.
+226 Transfer complete.
+524288 bytes sent in 4.85 secs (105.6 kB/s)
+ftp> quote REBOOT
+221-Thank you for using the FTP service on ADAM2.
+221 Goodbye.
+ftp> bye
+hydra@hydra02:~/arm8100$
+}}}
 
 == Serial Port ==
 Here's the general location of the serial port.
