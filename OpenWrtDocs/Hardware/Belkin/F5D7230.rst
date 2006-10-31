@@ -51,7 +51,7 @@ There are a number of public forums and web sites where the installation of open
  1. http://www.seattlewireless.net/index.cgi/Belkin_20F5D7230_2d4 :: Seattle Wireless "Belkin F5D7230-4"
  2. http://www.broadbandreports.com/forum/remark,10837191~mode=flat~days=9999 :: Broad Band Reports "Belkin Firmware Image Header"
  3. http://www.openwrt.org/forum/viewtopic.php?t=546 :: OpenWRT "General Discussion"
- 4. http://www.chupa.nl/forum/showthread.php?t=601 :: Chupa Forum
+## 4. http://www.chupa.nl/forum/showthread.php?t=601 :: Chupa Forum
 
 === Development Pages ===
 
