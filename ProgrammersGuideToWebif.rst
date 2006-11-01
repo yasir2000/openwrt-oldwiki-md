@@ -26,12 +26,21 @@ X-ref'ed to:
 
 * OpenWrtDocs/xwrt
 
-* http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910[/url]
+* [http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910]
 
 = What IS a webif page? =
 
-A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
-The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
+A webif page is essentially an HTML page with embedded shell script. 
+
+Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
+
+The 'Save' button on a page causes a submit event which the page can handle as it loads. 
+
+When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. 
+
+Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
+
+?Is this up to date?
 
 == File and directory structure ==
 
@@ -76,9 +85,9 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 ##WEBIF:category:Reboot
 }}}
 == Hello world! ==
- The classic example - or do nothing with style
+The classic example - or do nothing with style
 
- add to .categories
+add to .categories
 {{{
 ##WEBIF:category:HelloWorld
 }}}
@@ -103,7 +112,7 @@ You just made your first do nothing Webif module !!!! Point your browser at your
 
 == Info.sh revisited ==
 
-Lobby:  ;D
+Lobby:)  
 
 Original info.sh
 {{{
@@ -236,18 +245,20 @@ Some may prefer the original, others mine: Flame at last :)
 == File and directory structure revisited ==
 Apart from the /www structure, we have
 
-/usr/lib/webif/ contains the webif core: source-able functions are defined here plus awk code
+||/usr/lib/webif/||the webif core: source-able functions are defined here plus awk code||
+||/usr/lib/webif/lang/*/common.txt||language translations for the webif||
 
-/usr/lib/webif/lang/*/common.txt language translations for the webif
-
+=== lang ===
 Ahh, localisation. So lets just quote from other sources here:
 
- Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
+Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 
- The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
+The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
 
-/usr/lib/webif
+Also, webif-page accepts any *.txt in the laungage directory.
+
+=== /usr/lib/webif ===
 
 A quick grep of the .sh files gives  an idea of the functions available:
 
@@ -255,9 +266,9 @@ A quick grep of the .sh files gives  an idea of the functions available:
 apply-hs.sh:reload_hotspot() { apply-hs.sh:reload_shape() { apply-pptp.sh:reload_pptp() { apply.sh:reload_wifi_enable() { apply.sh:reload_wifi_disable() { apply.sh:reload_network() { apply.sh:reload_wireless() { apply.sh:reload_cron() { apply.sh:reload_syslog() { apply.sh:getPID(){ apply.sh:reload_system() { apply.sh:is_read_only() { functions.sh:load_settings_ex() { functions.sh:save_setting_ex() { functions.sh:commit_settings_ex() {( functions.sh:   option_cb() { functions.sh:load_settings() { functions.sh:validate() { functions.sh:save_setting() { hs.sh:has_required_pkg() { pkgfuncs.sh:is_package_installed() { pkgfuncs.sh:install_package() { pkgfuncs.sh:remove_package() { pkgfuncs.sh:update_package_list() { pkgfuncs.sh:add_package_source() { webif.sh:empty() { webif.sh:equal() { webif.sh:neq() { webif.sh:exists() { webif.sh:categories() { webif.sh:subcategories() { webif.sh:show_validated_logo() { webif.sh:ShowWIPWarning() { webif.sh:update_changes() { webif.sh:has_pkgs() { webif.sh:mini_header() { webif.sh:header() { webif.sh:footer() { webif.sh:apply_passwd() { webif.sh:display_form() { webif.sh:list_remove() { webif.sh:handle_list() { webif.sh:is_bcm947xx() {
 }}}
 Lobby:  Now wouldn't it have been great if the the functions had started as
-
+{{{
 footer() {   # show footer and maybe do something else
-
+}}}
 Then I could have made a quick grep '()' * and documented the functions - never mind.
 
 There are also awk files.
@@ -278,18 +289,18 @@ Finally there is one csv file: timezones.csv
 
 Lobby: I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better ...
 
-== Programmer environment ==
+= Programmer environment =
 
-=== ash - the shell ===
+== ash - the shell ==
 
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 
-=== testing ===
+== testing ==
 "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
 Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change) Update: it did
 
-=== webif_latest.ipk ===
+== webif_latest.ipk ==
 
 To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
 
@@ -303,7 +314,7 @@ You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.
 
 Then you have the package and can poke around :)
 
-=== Best Programming Practises ===
+== Best Programming Practises ==
 
 Lobby: 
 
@@ -314,7 +325,7 @@ The BPP for X-Wrt are unknown but could include:
 * Indent space using  ? ? ? 
 * Don't define a css in your code as for example system-nvram.sh
 
-=== X-Wrt trunk ===
+== X-Wrt trunk ==
 
 Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
@@ -334,7 +345,7 @@ make
 
 The results are in bin
 
-== Packaging ==
+= Packaging =
 
 Under contstruction Need feedback
 
@@ -344,23 +355,43 @@ In order to make it easier to integrate your new module it is important to :
 
 From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684 / module] What happened his package in the developement tree:
 {{{
-these files have been modified: apply.sh: added reload_logwrt() function .categories: added a new menu entry "Log" webif.preinst: added the rm -f S01syslog command to make the system clear before an update
+these files have been modified:
+apply.sh: added reload_logwrt() function
+.categories: added a new menu entry "Log"
+webif.preinst: added the rm -f S01syslog command to make the system clear before an update
 
-these files have been added: added /sbin/runsyslogd: the script for launching syslogd with the right command line added file S01syslog: starting syslogd at boot-time with the options selected in webif log-browse.sh and log-setup.sh off course
+these files have been added:
+added /sbin/runsyslogd: the script for launching syslogd with the right command line
+added file S01syslog: starting syslogd at boot-time with the options selected in webif
+log-browse.sh and log-setup.sh off course
 
 Do these infos meet your needs ?
 
-About our discussion yesterday, I think that webif is modular except for the apply.sh file. I can clrify this point. In fact, we do not have a utility allowing to safely alter apply.sh (for adding or removing a service), and adding a service at preinst or postinst time seems quite difficult for me.
+About our discussion yesterday, I think that webif is modular except for the apply.sh file. I can clrify this point.
+In fact, we do not have a utility allowing to safely alter apply.sh (for adding or removing a service), and adding a service at preinst or postinst time seems quite difficult for me.
 
-You have to insert a line here to enable your function. You will find mine: HANDLERS_config='
-
- . wireless) reload_wireless;; network) reload_network;; system) reload_system;; cron) reload_cron;; syslog) reload_syslog;; wifi-enable) reload_wifi_enable;; wifi-disable) reload_wifi_disable;; hotspot) reload_hotspot;; shape) reload_shape;; pptp) reload_pptp;; log) reload_log;;
-  . ^^^^^^^^^
-' HANDLERS_file='
-
- . hosts) rm -f /etc/hosts; mv $config /etc/hosts; killall -HUP dnsmasq ;; ethers) rm -f /etc/ethers; mv $config /etc/ethers; killall -HUP dnsmasq ;;
- firewall) mv /tmp/.webif/file-firewall /etc/config/firewall && /etc/init.d/S??firewall;; dnsmasq.conf) mv /tmp/.webif/file-dnsmasq.conf /etc/dnsmasq.conf && /etc/init.d/S50dnsmasq;;
-' and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file).
+You have to insert a line here to enable your function. You will find mine:
+HANDLERS_config='
+   wireless) reload_wireless;;
+   network) reload_network;;
+   system) reload_system;;
+   cron) reload_cron;;
+   syslog) reload_syslog;;
+   wifi-enable) reload_wifi_enable;;
+   wifi-disable) reload_wifi_disable;;
+   hotspot) reload_hotspot;;
+   shape) reload_shape;;
+   pptp) reload_pptp;;
+   log) reload_log;;
+        ^^^^^^^^^
+'
+HANDLERS_file='
+   hosts) rm -f /etc/hosts; mv $config /etc/hosts; killall -HUP dnsmasq ;;
+   ethers) rm -f /etc/ethers; mv $config /etc/ethers; killall -HUP dnsmasq ;;
+   firewall) mv /tmp/.webif/file-firewall /etc/config/firewall && /etc/init.d/S??firewall;;
+   dnsmasq.conf) mv /tmp/.webif/file-dnsmasq.conf /etc/dnsmasq.conf && /etc/init.d/S50dnsmasq;;
+'
+and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file).
 }}}
 
 == NG-style UCI config vs. nvram ==
