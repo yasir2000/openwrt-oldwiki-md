@@ -1,5 +1,5 @@
 = Programmers Guide to webif^2 =
-=== by Owen Brotherwood, Denmark 2006 ===
+by Owen Brotherwood, Denmark 2006
 Thanks for feedback from: thepeople dude guymarc
 
 == Introduction ==
