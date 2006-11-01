@@ -6,7 +6,7 @@ This is a table of all supported devices as of 2006/06/13.
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
- * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"]
+ * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
  * '''Info entered''' - Information about the device is entered in this list, for reference.
 See also
 
@@ -96,7 +96,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=184855 F5D7231-4P] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||16MB ||Broadcom (integrated) ||ADM6996L || || || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Belkin/F5D7231:Untested] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=184855 F5D7231-4P] ||1001ef ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||On ||Yes || ||1x v1.1 ||[:OpenWrtDocs/Hardware/Belkin/F5D7231:Supported] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=201522&pcount=&Product_Id=154416 F5D7330] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2 MB ||8 MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
-|| F5D7633-4 || || || || || || || || || || ||Untested ||
+||F5D7633-4 || || || || || || || || || || ||Untested ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB ||16MB ||Airgo (mini-PCI) ||BCM5325 ||on ||Yes ||Yes ||No ||Untested ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||2 ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek 8651B] @ 200MHz ||4MB ||16MB ||Airgo (mini-PCI) || ||N/A ||Yes ||No ||No ||WiP ||
 == Buffalo ==
