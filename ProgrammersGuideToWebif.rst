@@ -114,127 +114,137 @@ You just made your first do nothing Webif module !!!! Point your browser at your
 
 Lobby:)  
 
-Original info.sh
-{{{
-#!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System" "@TR<<System>>" '' ''
+Have a look at your copy of info.sh (which may or may not be like the present 1 Nov 06 version)
 
-this_revision=$(cat "/www/.version")
-
-if [ -n "$FORM_update_check" ]; then
-
- . tmpfile=$(mktemp "/tmp/.webif.XXXXXX")
- wget http://ftp.berlios.de/pub/xwrt/.version -O $tmpfile 2> /dev/null >> /dev/null cat $tmpfile | grep "doesn't exist" 2>&1 >> /dev/null if [ $? = 0 ]; then
-  . revision_text="<div id=\"update-error\">ERROR CHECKING FOR UPDATE</div>"
- else
-  . latest_revision=$(cat $tmpfile) if [ "$this_revision" != "$latest_revision" ]; then
-   . revision_text="<div id=\"update-available\">webif^2 update available: r$latest_revision (you have r$this_revision)</div>"
-  else
-   . revision_text="<div id=\"update-unavailable\">You have the latest webif^2: r$latest_revision</div>"
-  fi
- fi rm -f "$tmpfile"
-fi
-
-if [ -n "$FORM_install_webif" ]; then
-
- . echo "Please wait, installation may take a minute ... <br />" echo "<pre>" ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk echo "</pre>" this_revision=$(cat "/www/.version")
-fi
-
-_version=$(nvram get firmware_version) _kversion="$( uname -srv )" _mac="$(/sbin/ifconfig eth0 | grep HWaddr | cut -b39-)" board_type=$(cat /proc/cpuinfo | sed 2,20d | cut -c16-) device_name=$(nvram get device_name) empty "$device_name" && device_name="unidentified" device_string=$(echo $device_name && ! empty $device_version && echo $device_version) user_string=$REMOTE_USER equal $user_string "" && user_string="not logged in"
-
-echo "<pre>" cat '/etc/banner' echo "</pre><br />" cat <<EOF <table> <tbody>
-
- . <tr>
-  . <td><strong>@TR<<Firmware>></strong></td><td>     </td> <td>$_firmware_name - $_firmware_subtitle $_version</td>
- </tr> <tr>
-  . <td><strong>@TR<<Webif>></strong></td><td> </td> <td>webif<sup>2</sup> r$this_revision $revision_text</td>
-<td colspan="2"> <form action="" enctype="multipart/form-data" method="post"> <input type="submit" value=" @TR<<Check_Upgrade|Check For Webif^2 Update>> " name="update_check" /> <input type="submit" value=" @TR<<Upgrade_Webif|Upgrade Webif^2>> "  name="install_webif" /> </form> </td> </tr>
-
- . <tr>
-  . <td><strong>@TR<<Kernel>></strong></td><td> </td> <td>$_kversion</td>
- </tr> <tr>
-  . <td><strong>@TR<<MAC>></strong></td><td> </td> <td>$_mac</td>
- </tr> <tr>
-  . <td><strong>@TR<<Device>></strong></td><td> </td><td> $device_string</td>
- </tr> <tr>
-  . <td><strong>@TR<<Board>></strong></td><td> </td><td> $board_type</td>
- </tr> <tr>
-  . <td><strong>@TR<<Username>></strong></td><td> </td> <td>$user_string</td>
- </tr> <tr><td><br /><br /></td></tr>
-</tbody> </table> EOF
-
-show_validated_logo footer
-
-?> <!--
-
-##WEBIF:name:Info:1:System
--->
-}}}
-Phew that was long !
+It has a lot of shell and html formatting.
 
 Now add a new shared library info.lib
 {{{#!
 # a lib to be sourced
 
-HTTP_HOME='http://ftp.berlios.de' HTTP_LATEST='/pub/xwrt/webif_latest.ipk' HTTP_VERSION='/pub/xwrt/.version' FILE_VERSION='/www/.version' THIS_VERSION="$(cat ${FILE_VERSION})"
+HTTP_HOME='http://ftp.berlios.de'
+HTTP_LATEST='/pub/xwrt/webif_latest.ipk'
+HTTP_VERSION='/pub/xwrt/.version'
+FILE_VERSION='/www/.version'
+THIS_VERSION="$(cat ${FILE_VERSION})"
 
 installupdate(){
+  LATEST_VER="${HTTP_HOME}${HTTP_LATEST}"
+  if ipkg install ${LATEST_VER};then
+    return 0
+  else
 
- . LATEST_VER="${HTTP_HOME}${HTTP_LATEST}" if ipkg install ${LATEST_VER};then
-  . return 0
- else
 :<<comment
 
-Well sh*t happens and we are now in an unknow state check: any files in /www and lib directories what do we trust so as not to leave a novice user with a 404  one could cat >/www/index.html a nice message to login and install by hand with the ipkg etc text (I keep having to go to home page as I can never remember it) Was there storage so that we could have mv /www/cgi-bin to safe and mv back again before we got here ... comment
+Well sh*t happens and we are now in an unknow state
+check: any files in /www and lib directories
+what do we trust so as not to leave a novice user with a 404 
+one could cat >/www/index.html a nice message to login and install by hand with the ipkg etc text (I keep having to go to home page as I can never remember it)
+Was there storage so that we could have mv /www/cgi-bin to safe and mv back again before we got here ...
+comment
 
- . return 1
- . fi
+    return 1
+  fi
 }
 
-chkforupdate(){
 
- . this_revision=$1 HOME_VER="${HTTP_HOME}${HTTP_VERSION}" tmpfile=$(mktemp "/tmp/webif.XXXXXX") wget -q -O $tmpfile ${HOME_VER} if [ $? = 0 ]; then
-  . latest_revision=$(cat ${tmpfile}) if [ "$this_revision" != "$latest_revision" ]; then
-   . txt="${latest_revision}" ret='0'
+chkforupdate(){
+  this_revision=$1
+
+  HOME_VER="${HTTP_HOME}${HTTP_VERSION}"
+
+  tmpfile=$(mktemp "/tmp/webif.XXXXXX")
+  wget -q -O $tmpfile ${HOME_VER}
+  if [ $? = 0 ]; then
+    latest_revision=$(cat ${tmpfile})
+    if [ "$this_revision" != "$latest_revision" ]; then
+      txt="${latest_revision}"
+      ret='0'
+    else
+      txt="${this_revision}"
+      ret='1'
+    fi
   else
-   . txt="${this_revision}" ret='1'
+    txt='0'
+    ret='1'
   fi
- else
-  . txt='0' ret='1'
- fi rm -f "$tmpfile" echo ${txt} return ${ret}
+  rm -f "$tmpfile"
+  echo ${txt}
+  return ${ret}
 }
 }}}
 Testing? - simply do  . info.lib and call the now "inbuild" function chkforupdate 1001
 
 Now for a new info.sh
 {{{
-#!/usr/bin/webif-page <? # the shelly bit ... . /usr/lib/webif/webif.sh
+#!/usr/bin/webif-page
+<?
+# the shelly bit ...
+. /usr/lib/webif/webif.sh
 
 header "Info" "System Information" "@TR<<System Information>>" '' ''
 
 . /usr/lib/webif/info.lib
 
-available_version="$(chkforupdate ${THIS_VERSION})" available_return=$?
+available_version="$(chkforupdate ${THIS_VERSION})"
+available_return=$?
 
-# some stuff that I don't look to much into ... I_Webif2=${THIS_VERSION} I_Firmware=$(nvram get firmware_version) I_Kernel="$( uname -srv )" I_MAC="$(/sbin/ifconfig eth0 | grep HWaddr | cut -b39-)" I_Board=$(cat /proc/cpuinfo | sed 2,20d | cut -c16-) I_Device=$(nvram get device_name) empty ${I_Device} && I_Device="unidentified" I_Device_String=$(echo $device_name && ! empty $device_version && echo $device_version) I_Username=$REMOTE_USER equal ${I_Username} "" && I_Username="not logged in"
+# some stuff that I don't look to much into ...
+I_Webif2=${THIS_VERSION}
+I_Firmware=$(nvram get firmware_version)
+I_Kernel="$( uname -srv )"
+I_MAC="$(/sbin/ifconfig eth0 | grep HWaddr | cut -b39-)"
+I_Board=$(cat /proc/cpuinfo | sed 2,20d | cut -c16-)
+I_Device=$(nvram get device_name)
+empty ${I_Device} && I_Device="unidentified"
+I_Device_String=$(echo $device_name && ! empty $device_version && echo $device_version)
+I_Username=$REMOTE_USER
+equal ${I_Username} "" && I_Username="not logged in"
 
 if [ -n "$FORM_install_webif" ]; then
+        echo "<pre>"
+        installupdate
+        echo "</pre>"
+#do refresh to clean System Information but how :)
+fi
 
- . echo "<pre>" installupdate echo "</pre>"
-#do refresh to clean System Information but how :) fi
+#The GUI bit ...go to it guys. This is a mockup
+cat <<EOF
+<pre>
+$(cat '/etc/banner')
+<pre>
+<br />
+<table>
+<tbody>
+$(
+# yep this should be a subroutine ...mk2colhtml...and yep I cheat :)
+for line in $(set | grep '^I_'|tr ' ' _);do
+  name=${line%%=''*}
+  name=${name#I_}
+  name=$(echo ${name}|tr _ ' ')
+  value=${line#*=''}
+  value=$(echo ${value}|tr _ ' '|tr -d \')
+  echo "<tr><td>$name</td><td>$value</td></tr>"
+done
+)
+</tbody>
+</table>
+EOF
 
-#The GUI bit ...go to it guys. This is a mockup cat <<EOF <pre> $(cat '/etc/banner') <pre> <br /> <table> <tbody> $( # yep this should be a subroutine ...mk2colhtml...and yep I cheat :) for line in $(set | grep '^I_'|tr ' ' _);do
+if [ "${available_version}" != '0' ]; then
+cat <<EOF
+<form action="" enctype="multipart/form-data" method="post">
+<input type="submit" value=" @TR<<Upgrade_Webif|Upgrade/Reinstall  Webif^2 r${available_version}>> "  name="install_webif" />
+</form>
 
- . name=${line%%=''*} name=${name#I_} name=$(echo ${name}|tr _ ' ') value=${line#*=''} value=$(echo ${value}|tr _ ' '|tr -d \') echo "<tr><td>$name</td><td>$value</td></tr>"
-done ) </tbody> </table> EOF
-
-if [ "${available_version}" != '0' ]; then cat <<EOF <form action="" enctype="multipart/form-data" method="post"> <input type="submit" value=" @TR<<Upgrade_Webif|Upgrade/Reinstall  Webif^2 r${available_version}>> "  name="install_webif" /> </form>
-
-But I think the button should be in System->Upgrade ... EOF fi
+But I think the button should be in System->Upgrade ...
+EOF
+fi
 
 footer
 
-?> <!--
-
+?>
+<!--
 ##WEBIF:name:Info:1:System Information
 -->
 }}}
@@ -410,23 +420,38 @@ Needs feedback
 
 We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
 {{{
-The CSS theme must adhere to the existing class/id structure. Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group. The class/id structure we use should be robust enough to handle various themes. In short, your CSS should adhere to the webif, not the other way around. The CSS theme must support the color switcher. We can have seperate color CSSes for each theme, but it must support all 6 colors. The CSS theme must work in IE 6, IE 7, Opera, and Firefox. You must test it in each. It will not be considered at all for the default theme if it does not work in all browsers. It will be your responsibility to fix bugs and maintain the CSS.
+The CSS theme must adhere to the existing class/id structure. 
+Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group. 
+The class/id structure we use should be robust enough to handle various themes.
+
+In short, your CSS should adhere to the webif, not the other way around. 
+The CSS theme must support the color switcher. We can have seperate color CSSes for each theme, but it must support all 6 colors. 
+
+The CSS theme must work in IE 6, IE 7, Opera, and Firefox. You must test it in each. 
+
+It will not be considered at all for the default theme if it does not work in all browsers. It will be your responsibility to fix bugs and maintain the CSS.
 }}}
 == How to create a new CSS theme ==
 
-CSS themes exist in a dedicated subdirectory of /www/themes. To add a new theme, create a subdirectory named after your theme. Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
+CSS themes exist in a dedicated subdirectory of /www/themes. 
+
+To add a new theme, create a subdirectory named after your theme. 
+
+Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
 
 == Security- last again ==
 
 Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
-The config file is in /etc/httpd.conf.  Most lines are of the form path: user:password
+The config file is in /etc/httpd.conf.  
 
-which means that to access the path the specified user & password must be provided.  The top level (/www on the file system) can be referred to as "/"  (i.e. the paths are with respect to /www). [/quote]
+Most lines are of the form path: user:password which means that to access the path the specified user & password must be provided.  
+
+The top level (/www on the file system) can be referred to as "/"  (i.e. the paths are with respect to /www). [/quote]
 
 Some people would like the first ("welcome" / status ) page not to have user/pass.
 
-The present hasn't it the past it could have been [url=http://forum.openwrt.org/viewtopic.php?pid=12670#p12670]http://forum.openwrt.org/viewtopic.php?pid=12670#p12670[/url]
+The present hasn't this, the past may have [http://forum.openwrt.org/viewtopic.php?pid=12670#p12670]
 
 == Thanks to ==
 
