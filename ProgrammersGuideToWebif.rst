@@ -1,7 +1,5 @@
 '''Programmers Guide to webif^2'''
 
- . by Owen Brotherwood, Denmark 2006
-
 [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
 Webif^2 tries to add functions that can help novice users quicker into Openwrt.
 
