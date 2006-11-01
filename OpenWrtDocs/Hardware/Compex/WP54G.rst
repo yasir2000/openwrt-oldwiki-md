@@ -111,6 +111,10 @@ TO DO: Document the actual process to revert a WP54G to standard Compex firmware
 
 Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips.
 
+The board appears to be the same as the one in [http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_1B_Bareboard_DSv2.1.pdf this photo]
+
+There is an unpopulated 2x7 jumper (JP1) and another 2x5 jumper (J1). I guess these are JTAG and serial, but are not labelled as such.
+
 '''Other links'''
 
  * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
