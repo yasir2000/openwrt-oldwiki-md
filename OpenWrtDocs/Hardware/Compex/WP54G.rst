@@ -106,3 +106,8 @@ The !ReadMe.txt file talks about using "Wiggler" as the JTAG interface, to uploa
 TO DO: Document the actual process to convert a WP54G to OpenWrt
 
 TO DO: Document the actual process to revert a WP54G to standard Compex firmware
+
+'''Other links'''
+
+ * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
+ * [http://www.seattlewireless.net/Atheros Seattle Wireless Atheros page]
