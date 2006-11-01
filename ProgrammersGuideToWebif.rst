@@ -1,7 +1,7 @@
 = Programmers Guide to webif^2 =
  by Owen Brotherwood, Denmark 2006
 
-Thanks for feedback from: thepeople dude guymarc
+
 
 [[TableOfContents(3)]]
 
@@ -157,7 +157,7 @@ show_validated_logo footer
 Phew that was long !
 
 Now add a new shared library info.lib
-{{{#!sh
+{{{#!
 # a lib to be sourced
 
 HTTP_HOME='http://ftp.berlios.de' HTTP_LATEST='/pub/xwrt/webif_latest.ipk' HTTP_VERSION='/pub/xwrt/.version' FILE_VERSION='/www/.version' THIS_VERSION="$(cat ${FILE_VERSION})"
@@ -255,49 +255,60 @@ footer() {   # show footer and maybe do something else
 Then I could have made a quick grep '()' * and documented the functions - never mind.
 
 There are also awk files.
-
+{{{
 browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
-
+}}}
 form.awk gives you predefinded forms to use in you webif page. Most of these are used like formname|input
 
 The current forms are as listed:
-
+{{{
 onchange onclick option start_form field button checkbox radio select txtfile option listedit caption string textarea progressbar password upload  submit helpitem helptext helplink checkbox end_form
-
+}}}
 Normal parameters:
-
- . # $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes
+{{{
+# $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes
+}}}
 Finally there is one csv file: timezones.csv
 
 Lobby: I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better ...
 
-ash - the shell
+== Programmer environment ==
+
+=== ash - the shell ===
 
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 
-Programmer environment
-
-"vi" can be a pain on your AP box  - test your logic as much as possible in a local bash or preferably,busybox/ash environment.
+=== testing ===
+"vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
 Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change) Update: it did
 
-webif_latest.ipk
+=== webif_latest.ipk ===
 
-To get the latest nice clean copy of webif^2 complete package on your shell programming environment: - download latest webif^2 package: ftp://ftp.berlios.de/pub/xwrt/webif_latest.ipk - tar zxvf webif_0.2-1_mipsel.ipk
+To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
+
+download latest webif^2 package: 
+
+ftp://ftp.berlios.de/pub/xwrt/webif_latest.ipk
+
+tar zxvf webif_0.2-1_mipsel.ipk
 
 You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.gz
 
 Then you have the package and can poke around :)
 
-Best Programming Practises
+=== Best Programming Practises ===
 
-Lobby: It is allways nice to get code from others but why on earth does he only use 2 spaces for indent or tab or ... Keeping BPP small and necessary speeds implementation of others code.
+Lobby: 
+
+It is allways nice to get code from others but why on earth does he only use 2 spaces for indent or tab or ... Keeping BPP small and necessary speeds implementation of others code.
 
 The BPP for X-Wrt are unknown but could include:
 
-Indent space using  ? ? ? Don't define a css in your code as for example system-nvram.sh
+* Indent space using  ? ? ? 
+* Don't define a css in your code as for example system-nvram.sh
 
-X-Wrt trunk
+=== X-Wrt trunk ===
 
 Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
@@ -317,14 +328,16 @@ make
 
 The results are in bin
 
+== Packaging ==
+
 Under contstruction Need feedback
 
 In order to make it easier to integrate your new module it is important to :
 
 ?? ?? ??
 
-From guymarc who made a http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684]module[/url] What happened to get it in the developement tree:
-
+From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684 / module] What happened his package in the developement tree:
+{{{
 these files have been modified: apply.sh: added reload_logwrt() function .categories: added a new menu entry "Log" webif.preinst: added the rm -f S01syslog command to make the system clear before an update
 
 these files have been added: added /sbin/runsyslogd: the script for launching syslogd with the right command line added file S01syslog: starting syslogd at boot-time with the options selected in webif log-browse.sh and log-setup.sh off course
@@ -342,27 +355,31 @@ You have to insert a line here to enable your function. You will find mine: HAND
  . hosts) rm -f /etc/hosts; mv $config /etc/hosts; killall -HUP dnsmasq ;; ethers) rm -f /etc/ethers; mv $config /etc/ethers; killall -HUP dnsmasq ;;
  firewall) mv /tmp/.webif/file-firewall /etc/config/firewall && /etc/init.d/S??firewall;; dnsmasq.conf) mv /tmp/.webif/file-dnsmasq.conf /etc/dnsmasq.conf && /etc/init.d/S50dnsmasq;;
 ' and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file).
+}}}
 
+== NG-style UCI config vs. nvram ==
 OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
 
-Using NVRAM config functions
+=== Using NVRAM config functions ===
 
 These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
 
-Using UCI config functions
+=== Using UCI config functions ===
 
  . See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
 Needs feedback
 
-CSS Theme Rules
+== CSS Theme Rules ==
 
 We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
-
+{{{
 The CSS theme must adhere to the existing class/id structure. Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group. The class/id structure we use should be robust enough to handle various themes. In short, your CSS should adhere to the webif, not the other way around. The CSS theme must support the color switcher. We can have seperate color CSSes for each theme, but it must support all 6 colors. The CSS theme must work in IE 6, IE 7, Opera, and Firefox. You must test it in each. It will not be considered at all for the default theme if it does not work in all browsers. It will be your responsibility to fix bugs and maintain the CSS.
-
-How to create a new CSS theme
+}}}
+== How to create a new CSS theme ==
 
 CSS themes exist in a dedicated subdirectory of /www/themes. To add a new theme, create a subdirectory named after your theme. Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
+
+== Security- last again ==
 
 Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
@@ -373,3 +390,10 @@ which means that to access the path the specified user & password must be provid
 Some people would like the first ("welcome" / status ) page not to have user/pass.
 
 The present hasn't it the past it could have been [url=http://forum.openwrt.org/viewtopic.php?pid=12670#p12670]http://forum.openwrt.org/viewtopic.php?pid=12670#p12670[/url]
+
+== Thanks to ==
+
+Thanks for feedback from: 
+* thepeople 
+* dude 
+* guymarc
