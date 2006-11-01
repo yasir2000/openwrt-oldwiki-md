@@ -1,44 +1,49 @@
-= Programmers Guide to webif^2 =
+'''Programmers Guide to webif^2'''
  by Owen Brotherwood, Denmark 2006
 
 
 
 [[TableOfContents(3)]]
 
-== Introduction ==
+= Introduction =
  http://xwrt.berlios.de/xwrt.asp is based on 'Openwrt's' web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
 
- Webif^2 tries to add functions that can help novice users quicker into Openwrt.
+Webif^2 tries to add functions that can help novice users quicker into Openwrt.
 
- An interesting [url=http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.
+An interesting [url=http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.
 
- "Programmers Guide to webif" is the only documentaion available, unless you read the code. It is the Dummy's guide based on this dummy's research as an outsider to the webif^2 developement.
+"Programmers Guide to webif" is the only documentaion available, unless you read the code. It is the Dummy's guide based on this dummy's research as an outsider to the webif^2 developement.
 
- IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0 / X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make 'OpenFriends'.
+IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0 / X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make 'OpenFriends'.
 
- OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
+OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
- Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0 / X-Wrt's forum]
+Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0 / X-Wrt's forum]
 
- Personnel comments (lobbying) and bad humour copywrong the author.
+Personnel comments (lobbying) and bad humour copywrong the author.
 
- X-ref'ed to:
+X-ref'ed to:
 
-  http://wiki.openwrt.org/OpenWrtDocs/xwrt]http://wiki.openwrt.org/OpenWrtDocs/xwrt[/url]
+* OpenWrtDocs/xwrt
 
-  http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910[/url]
+* http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910[/url]
 
-== What IS a webif page? ==
+= What IS a webif page? =
 
-   A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
+A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 
-=== File and directory structure ===
+== File and directory structure ==
 
-/www contains... index.html with redirect to cgi-bin/webif.sh css files .version the svn revision number used in update functions /cgi-bin contains...  webif.sh "exec ./webif/info.sh" /webif contains... a lot of .sh files: the fun part including info.sh .categories which we will come back to as it is a bit of hidden magic
+||<-2>/www contains...||
+||index.html      || with redirect to cgi-bin/webif.sh css files .version the svn revision number used in update functions||
+||<-2>/cgi-bin contains...||
+||webif.sh        ||"exec ./webif/info.sh" ||
+||<-2>/webif contains... ||
+||                ||a lot of .sh files: the fun part including info.sh .categories which we will come back to as it is a bit of hidden magic||
 
-==== info.sh ====
-
+=== info.sh ===
+{{{
 #!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System Information" "@TR<<System Information>>" '' ''
 
 # A lot of shell code ....
@@ -48,6 +53,7 @@ footer
 ?> <!--
 
 ##WEBIF:name:Info:1:System Information -->
+}}}
 The first line tells us that the program that does the work is a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c (when it's not compiled :) )
 
 The second line <? is a bit of magic so we can combine html and shell scripts - Its sister, ?> at the end finishes that magic show.
@@ -59,7 +65,7 @@ The fourth line gives a title  - @TR: see latter in connection with localisation
 Then a lot of nice shell scripting - header and footer are NOT football terms but examples of the nice functions we can re-use
 
 The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif - have a look in /www/cgi-bin/.catogories and there is the answer:
-
+{{{
 ##WEBIF:category:Info
 ##WEBIF:category:Status
 ##WEBIF:category:System
@@ -68,7 +74,7 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 ##WEBIF:category:HotSpot
 ##WEBIF:category:Graphs
 ##WEBIF:category:Reboot
-
+}}}
 == Hello world! ==
  The classic example - or do nothing with style
 
