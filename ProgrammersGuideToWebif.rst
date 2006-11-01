@@ -103,6 +103,15 @@ Congratulations!
 
 You just made your first do nothing Webif module !!!! Point your browser at your box (maybe reload with no cache) and see your own greeting.
 
+Hot from irc
+{{{
+(23:57:51) thepeople_work: <!--
+(23:57:51) thepeople_work:  ##WEBIF:category:HelloWorld
+(23:57:51) thepeople_work: ##WEBIF:name:HelloWorld:1:test
+(23:57:51) thepeople_work: -->
+}}}
+This will add a category and place at the end of categories...
+
 == Info.sh revisited ==
 Lobby:)
 
