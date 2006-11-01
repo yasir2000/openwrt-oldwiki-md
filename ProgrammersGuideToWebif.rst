@@ -28,16 +28,16 @@ Thanks for feedback from: thepeople dude guymarc
 
   http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910[/url]
 
-==What IS a webif page?==
+== What IS a webif page? ==
 
    A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 
-===File and directory structure===
+=== File and directory structure ===
 
 /www contains... index.html with redirect to cgi-bin/webif.sh css files .version the svn revision number used in update functions /cgi-bin contains...  webif.sh "exec ./webif/info.sh" /webif contains... a lot of .sh files: the fun part including info.sh .categories which we will come back to as it is a bit of hidden magic
 
-====info.sh====
+==== info.sh ====
 
 #!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System Information" "@TR<<System Information>>" '' ''
 
@@ -69,7 +69,7 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 ##WEBIF:category:Graphs
 ##WEBIF:category:Reboot
 
-==Hello world!==
+== Hello world! ==
  The classic example - or do nothing with style
 
  add to .categories
@@ -95,7 +95,7 @@ Congratulations!
 
 You just made your first do nothing Webif module !!!! Point your browser at your box (maybe reload with no cache) and see your own greeting.
 
-==Info.sh revisited==
+== Info.sh revisited ==
 
 Lobby:  ;D
 
@@ -157,7 +157,7 @@ show_validated_logo footer
 Phew that was long !
 
 Now add a new shared library info.lib
-{{{
+{{{#!sh
 # a lib to be sourced
 
 HTTP_HOME='http://ftp.berlios.de' HTTP_LATEST='/pub/xwrt/webif_latest.ipk' HTTP_VERSION='/pub/xwrt/.version' FILE_VERSION='/www/.version' THIS_VERSION="$(cat ${FILE_VERSION})"
@@ -227,7 +227,7 @@ Calling from info.sh would remove the most of shell from GUI code  and also make
 
 Some may prefer the original, others mine: Flame at last :)
 
-File 
+== File and directory structure revisited ==
 Apart from the /www structure, we have
 
 /usr/lib/webif/ contains the webif core: source-able functions are defined here plus awk code
@@ -236,17 +236,18 @@ Apart from the /www structure, we have
 
 Ahh, localisation. So lets just quote from other sources here:
 
- . Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
+ Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 
-The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
+ The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
 
 /usr/lib/webif
 
 A quick grep of the .sh files gives  an idea of the functions available:
 
+{{{
 apply-hs.sh:reload_hotspot() { apply-hs.sh:reload_shape() { apply-pptp.sh:reload_pptp() { apply.sh:reload_wifi_enable() { apply.sh:reload_wifi_disable() { apply.sh:reload_network() { apply.sh:reload_wireless() { apply.sh:reload_cron() { apply.sh:reload_syslog() { apply.sh:getPID(){ apply.sh:reload_system() { apply.sh:is_read_only() { functions.sh:load_settings_ex() { functions.sh:save_setting_ex() { functions.sh:commit_settings_ex() {( functions.sh:   option_cb() { functions.sh:load_settings() { functions.sh:validate() { functions.sh:save_setting() { hs.sh:has_required_pkg() { pkgfuncs.sh:is_package_installed() { pkgfuncs.sh:install_package() { pkgfuncs.sh:remove_package() { pkgfuncs.sh:update_package_list() { pkgfuncs.sh:add_package_source() { webif.sh:empty() { webif.sh:equal() { webif.sh:neq() { webif.sh:exists() { webif.sh:categories() { webif.sh:subcategories() { webif.sh:show_validated_logo() { webif.sh:ShowWIPWarning() { webif.sh:update_changes() { webif.sh:has_pkgs() { webif.sh:mini_header() { webif.sh:header() { webif.sh:footer() { webif.sh:apply_passwd() { webif.sh:display_form() { webif.sh:list_remove() { webif.sh:handle_list() { webif.sh:is_bcm947xx() {
-
+}}}
 Lobby:  Now wouldn't it have been great if the the functions had started as
 
 footer() {   # show footer and maybe do something else
