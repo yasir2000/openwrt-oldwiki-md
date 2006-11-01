@@ -107,6 +107,10 @@ TO DO: Document the actual process to convert a WP54G to OpenWrt
 
 TO DO: Document the actual process to revert a WP54G to standard Compex firmware
 
+'''Inside the box'''
+
+Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips.
+
 '''Other links'''
 
  * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
