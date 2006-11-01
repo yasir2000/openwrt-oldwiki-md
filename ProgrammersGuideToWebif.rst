@@ -17,8 +17,6 @@ X-ref'ed to:
 
 * [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
 
-* [http://forum.openwrt.org/viewtopic.php?id=7910http://forum.openwrt.org/viewtopic.php?id=7910/ Openwrt's forum]
-
 [[TableOfContents(3)]]
 
 = What IS a webif page? =
