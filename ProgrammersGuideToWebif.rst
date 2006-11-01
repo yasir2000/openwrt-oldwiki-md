@@ -431,4 +431,36 @@ Some people would like the first ("welcome" / status ) page not to have user/pas
 The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
 
 = Thanks to =
-Thanks for feedback from:  * thepeople  * dude  * guymarc
+Thanks for feedback from:  
+* thepeople  
+* dude  
+* guymarc
+
+{{{
+ Sticky:   WANTED: Web interface developers by nbd  [ 1 2 3 … 7 ]
+	160 	37594 	Yesterday 23:27:49 by stacato
+· Programmers Guide to webif^2 by oxo
+	1 	178 	Today 01:17:35 by nbd
+  FON Sourcecode has been released!! by dadaniel
+	0 	43 	Yesterday 19:11:12 by dadaniel
+  errors compiling buildroot using cygwin by hirohashi
+	0 	12 	Yesterday 16:38:43 by hirohashi
+  webif: asterisk simple managment and configuration. My contribution... by drwho  [ 1 2 ]
+	31 	2937 	Yesterday 14:59:43 by drwho
+  troubles with binaries on OpenWRT... by Dr. Morg
+	2 	107 	2006-10-31 13:37:12 by Dr. Morg
+  Moved: missing uclibc-g++ during openixp installation by kiennd
+	  	  	 
+· 2 webif pages: browsing firewall log + setting syslogd options by guymarc
+	7 	168 	2006-10-31 05:19:37 by thepeople
+  freecom FSG, endianness problem? by mangoo  [ 1 2 3 ]
+	73 	5586 	2006-10-30 23:16:22 by repvik
+  WRT54GL - Any developer interested? by ursa_major
+	3 	245 	2006-10-30 17:56:42 by TheRoDent
+· Modular webif (^2) by oxo
+	0 	76 	2006-10-30 14:37:22 by oxo
+  Asus WL600g by rootkit  [ 1 2 ]
+	28 	1568 	2006-10-30 00:17:36 by brama
+  SMS send with modem by jongerenchaos
+	0 	34 	2006-10-29 23:38:53 by jongerenchaos
+}}}
