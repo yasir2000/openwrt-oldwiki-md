@@ -2,26 +2,26 @@
 
  . by Owen Brotherwood, Denmark 2006
 
-[http://xwrt.berlios.de/xwrt.asp / Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
+[http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
 Webif^2 tries to add functions that can help novice users quicker into Openwrt.
 
 An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.
 
 "Programmers Guide to webif" is the only documentaion available, unless you read the code. It is the Dummy's guide based on this dummy's research as an outsider to the webif^2 developement.
 
-IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0 / X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make 'OpenFriends'.
+IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make 'OpenFriends'.
 
 OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
-Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0 / X-Wrt's forum]
+Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
 
 Personnel comments (lobbying) and bad humour copywrong the author.
 
 X-ref'ed to:
 
-* OpenWrtDocs/xwrt
+* [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
 
-* http://forum.openwrt.org/viewtopic.php?id=7910http://forum.openwrt.org/viewtopic.php?id=7910]
+* [http://forum.openwrt.org/viewtopic.php?id=7910http://forum.openwrt.org/viewtopic.php?id=7910/ Openwrt's forum]
 
 [[TableOfContents(3)]]
 
