@@ -119,16 +119,5 @@ bcm5325e or compatible, MII (MDC/MDIO)  5 ports switch
 
 }}}
 
-'''Restoration from bad nvram settings'''
-
-Symtom: after power up POWER LED does not light.
-
-Procedure:
- 1. Power off router
- 2. Short pin 10 (A20) on the FLASH ROM 29L320 to the ground 
- 3. Power on router shortly. Bootloader cannot correctly load nvram values and sets default values.
- 4. Unshort pin 10
- 5. Power on router. Router's lan is set to 192.168.1.1
-
 ----
 CategoryModel
