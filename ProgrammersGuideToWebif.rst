@@ -1,9 +1,7 @@
 '''Programmers Guide to webif^2'''
 
  . by Owen Brotherwood, Denmark 2006
-[[TableOfContents(3)]]
 
-= Introduction =
 [http://xwrt.berlios.de/xwrt.asp / Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
 Webif^2 tries to add functions that can help novice users quicker into Openwrt.
 
@@ -24,6 +22,8 @@ X-ref'ed to:
 * OpenWrtDocs/xwrt
 
 * http://forum.openwrt.org/viewtopic.php?id=7910http://forum.openwrt.org/viewtopic.php?id=7910]
+
+[[TableOfContents(3)]]
 
 = What IS a webif page? =
 A webif page is essentially an HTML page with embedded shell script.
