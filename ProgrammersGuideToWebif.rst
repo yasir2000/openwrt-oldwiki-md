@@ -453,8 +453,7 @@ Some people would like the first ("welcome" / status ) page not to have user/pas
 
 The present hasn't this, the past may have [http://forum.openwrt.org/viewtopic.php?pid=12670#p12670]
 
-== Thanks to ==
-
+= Thanks to =
 Thanks for feedback from: 
 * thepeople 
 * dude 
