@@ -9,13 +9,11 @@ An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ histori
 
 "Programmers Guide to webif" is the only documentaion available, unless you read the code. It is the Dummy's guide based on this dummy's research as an outsider to the webif^2 developement.
 
-IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make 'OpenFriends'.
+IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
 OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
 Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
-
-Personnel comments (lobbying) and bad humour copywrong the author.
 
 X-ref'ed to:
 
@@ -26,17 +24,19 @@ X-ref'ed to:
 [[TableOfContents(3)]]
 
 = What IS a webif page? =
+
 A webif page is essentially an HTML page with embedded shell script.
 
 Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 
+?Up to date or relevant?
+{{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 
 When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions.
 
 Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
-
-??????????Is this up to date?????????????? copied from wiki and not checked
+}}}
 
 == File and directory structure ==
 ||||/www contains... ||
@@ -244,7 +244,7 @@ Apart from the /www structure, we have
 
 === lang ===
 Ahh, localisation. So lets just quote from other sources here:
-
+{{{
 Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. 
 
 If no symbol is found, the symbol name itself is used for the text. 
@@ -252,10 +252,10 @@ If no symbol is found, the symbol name itself is used for the text.
 Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file. 
 
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
-
+}}}
 The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
 
-Also, webif-page accepts any *.txt in the laungage directory.
+Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 
 === /usr/lib/webif ===
 A quick grep of the .sh files gives  an idea of the functions available:
@@ -335,11 +335,14 @@ svn checkout svn://svn.berlios.de/xwrt/trunk
 
 cd the trunk
 
+(you could also cd package/webif to see the source package of webif^2)
+
+
 make menuconfig - just say exit and yes: then you "probably" have default config
 
 make
 
-The results are in bin
+The results are in bin 
 
 = Packaging =
 Under contstruction Need feedback
