@@ -4,7 +4,7 @@ This is a table of all supported devices as of 2006/06/13.
 
  * '''Supported''' - supported in White Russian
  * '''Partial''' - partially supported, no support for the wireless card.
- * '''Untested''' - should work in theory but never tested (please see ["Donations"]
+ * '''Untested''' - should work in theory but never tested (please see ["Donations"])
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"]
  * '''Info entered''' - Information about the device is entered in this list, for reference.
