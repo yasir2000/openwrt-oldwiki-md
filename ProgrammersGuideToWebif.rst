@@ -13,37 +13,33 @@ An interesting historical document is the Openwrt thread [url=http://forum.openw
 
 "Programmers Guide to webif" is the only documentaion available, unless you read the code. It is the Dummy's guide based on this dummy's research as an outsider to the webif^2 developement.
 
-What next
-IF you feel that you can make a difference, post a NEW topic saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make OpenFriends.
+What next IF you feel that you can make a difference, post a NEW topic saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate and make OpenFriends.
 
-OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye. [/td][/tr][/table]
+OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
+Suggestiions gratefully received  - it's always nice to read something that is nice to read.
 
-Techincal Info.;  spelling [s]mitakkes[/s] corrections and formating suggestiions gratefully received  - it's always nice to read something that is nice to read.
+Personnel comments (lobbying) and bad humour copywrong the author.
 
-Personnel comments (lobbying) and bad humour copywrong the author.[/td][/tr][/table][/td][/tr][/table]X-ref'ed to: [url=http://wiki.openwrt.org/OpenWrtDocs/xwrt]http://wiki.openwrt.org/OpenWrtDocs/xwrt[/url] [url=http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910[/url]
+X-ref'ed to:
+
+ http://wiki.openwrt.org/OpenWrtDocs/xwrt]http://wiki.openwrt.org/OpenWrtDocs/xwrt[/url]
+
+http://forum.openwrt.org/viewtopic.php?id=7910]http://forum.openwrt.org/viewtopic.php?id=7910[/url]
 
 What IS a webif page?
 
-[quote] A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
+ A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 
-The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page. [/quote]
+The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 
-[b]File and directory structure[/b]
+File and directory structure
 
-/www contains...
-index.html with redirect to cgi-bin/webif.sh
-css files
-.version the svn revision number used in update functions
-/cgi-bin contains... 
-webif.sh "exec ./webif/info.sh"
-/webif contains...
-a lot of .sh files: the fun part including info.sh
-.categories which we will come back to as it is a bit of hidden magic
+/www contains... index.html with redirect to cgi-bin/webif.sh css files .version the svn revision number used in update functions /cgi-bin contains...  webif.sh "exec ./webif/info.sh" /webif contains... a lot of .sh files: the fun part including info.sh .categories which we will come back to as it is a bit of hidden magic
 
 info.sh
 
-[code] #!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System Information" "@TR<<System Information>>" '' ''
+#!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System Information" "@TR<<System Information>>" '' ''
 
 # A lot of shell code ....
 
@@ -52,8 +48,6 @@ footer
 ?> <!--
 
 ##WEBIF:name:Info:1:System Information -->
-[/code]
-
 The first line tells us that the program that does the work is a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c (when it's not compiled :) )
 
 The second line <? is a bit of magic so we can combine html and shell scripts - Its sister, ?> at the end finishes that magic show.
@@ -66,8 +60,6 @@ Then a lot of nice shell scripting - header and footer are NOT football terms bu
 
 The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif - have a look in /www/cgi-bin/.catogories and there is the answer:
 
-[code]
-
 ##WEBIF:category:Info
 ##WEBIF:category:Status
 ##WEBIF:category:System
@@ -76,45 +68,36 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 ##WEBIF:category:HotSpot
 ##WEBIF:category:Graphs
 ##WEBIF:category:Reboot
-[/code]
-
-[hr] Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
-
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
-
-[hr]
-
+Hello world!
 The classic example - or do nothing with style
 
 add to .categories
 
-[code]##WEBIF:category:HelloWorld[/code]
+##WEBIF:category:HelloWorld
 
 cp info.sh to helloworld.sh in cgi-bin/webif
 
-alter the corresponding lines [code] header "Info" "System Information" "@TR<<System Information>>" '' ''
+alter the corresponding lines
 
-##WEBIF:name:Info:1:System Information[/code]
-to [code] header "HelloWorld" "Hello World" "@TR<<Hello World>>" '' ''
+ header "Info" "System Information" "@TR<<System Information>>" '' ''
 
-##WEBIF:name:HelloWorld:1:Hello World[/code]
+##WEBIF:name:Info:1:System Information
+to
+
+header "HelloWorld" "Hello World" "@TR<<Hello World>>" '' ''
+
+##WEBIF:name:HelloWorld:1:Hello World[
 Please remember that header text has to match the ##WEBIF line.
 
-[move]Congratulations[/move] you just made your first do nothing Webif module !!!! - point your browser at your box (maybe reload with no cache) and see your own greeting.
+Congratulations!
 
-[hr] Chapter of  [url=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/url]
+- you just made your first do nothing Webif module !!!! - point your browser at your box (maybe reload with no cache) and see your own greeting.
 
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
-
-[hr]
-
-Lobby:  ;D
+Info.sh revisitedLobby:  ;D
 
 Original info.sh
 
-[code] #!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System" "@TR<<System>>" '' ''
+#!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System" "@TR<<System>>" '' ''
 
 this_revision=$(cat "/www/.version")
 
@@ -167,13 +150,13 @@ show_validated_logo footer
 ##WEBIF:name:Info:1:System
 -->
 
-[/code]
+
 
 Phew that was long !
 
 Now add a new shared library info.lib
 
-[code] # a lib to be sourced
+# a lib to be sourced
 
 HTTP_HOME='http://ftp.berlios.de' HTTP_LATEST='/pub/xwrt/webif_latest.ipk' HTTP_VERSION='/pub/xwrt/.version' FILE_VERSION='/www/.version' THIS_VERSION="$(cat ${FILE_VERSION})"
 
@@ -201,15 +184,15 @@ chkforupdate(){
  else
   . txt='0' ret='1'
  fi rm -f "$tmpfile" echo ${txt} return ${ret}
-} [/code]
+}
 
-Heh ! that was longer and that was just the library
+
 
 Testing? - simply do  . info.lib and call the now "inbuild" function chkforupdate 1001
 
 Now for a new info.sh
 
-[code] #!/usr/bin/webif-page <? # the shelly bit ... . /usr/lib/webif/webif.sh
+#!/usr/bin/webif-page <? # the shelly bit ... . /usr/lib/webif/webif.sh
 
 header "Info" "System Information" "@TR<<System Information>>" '' ''
 
@@ -238,71 +221,69 @@ footer
 ?> <!--
 
 ##WEBIF:name:Info:1:System Information
---> [/code]
+-->
 
 Calling from info.sh would remove the most of shell from GUI code  and also make available a routine that can be called from GUI OR commandline - the best of both worlds?
 
 Some may prefer the original, others mine: Flame at last :)
 
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
-
-[hr]
-
 Apart from the /www structure, we have
 
-[table] [tr][td]/usr/lib/webif/[/td][td]contains the webif core: source-able functions are defined here plus awk code/td][/td][/tr] [tr][td]/usr/lib/webif/lang/*/common.txt[/td][td]language translations for the webif.[/td][/tr] [/table]
+/usr/lib/webif/ contains the webif core: source-able functions are defined here plus awk code
 
-Ahh, localisation. So lets just quote from other sources here: [quote] Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
+/usr/lib/webif/lang/*/common.txt language translations for the webif
 
-The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set. [/quote]
+Ahh, localisation. So lets just quote from other sources here:
+
+ Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. If no symbol is found, the symbol name itself is used for the text. Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
+
+The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 
 The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
 
-[b]/usr/lib/webif[/b]
+/usr/lib/webif
 
 A quick grep of the .sh files gives  an idea of the functions available:
 
-[code] apply-hs.sh:reload_hotspot() { apply-hs.sh:reload_shape() { apply-pptp.sh:reload_pptp() { apply.sh:reload_wifi_enable() { apply.sh:reload_wifi_disable() { apply.sh:reload_network() { apply.sh:reload_wireless() { apply.sh:reload_cron() { apply.sh:reload_syslog() { apply.sh:getPID(){ apply.sh:reload_system() { apply.sh:is_read_only() { functions.sh:load_settings_ex() { functions.sh:save_setting_ex() { functions.sh:commit_settings_ex() {( functions.sh:   option_cb() { functions.sh:load_settings() { functions.sh:validate() { functions.sh:save_setting() { hs.sh:has_required_pkg() { pkgfuncs.sh:is_package_installed() { pkgfuncs.sh:install_package() { pkgfuncs.sh:remove_package() { pkgfuncs.sh:update_package_list() { pkgfuncs.sh:add_package_source() { webif.sh:empty() { webif.sh:equal() { webif.sh:neq() { webif.sh:exists() { webif.sh:categories() { webif.sh:subcategories() { webif.sh:show_validated_logo() { webif.sh:ShowWIPWarning() { webif.sh:update_changes() { webif.sh:has_pkgs() { webif.sh:mini_header() { webif.sh:header() { webif.sh:footer() { webif.sh:apply_passwd() { webif.sh:display_form() { webif.sh:list_remove() { webif.sh:handle_list() { webif.sh:is_bcm947xx() { [/code]
+apply-hs.sh:reload_hotspot() { apply-hs.sh:reload_shape() { apply-pptp.sh:reload_pptp() { apply.sh:reload_wifi_enable() { apply.sh:reload_wifi_disable() { apply.sh:reload_network() { apply.sh:reload_wireless() { apply.sh:reload_cron() { apply.sh:reload_syslog() { apply.sh:getPID(){ apply.sh:reload_system() { apply.sh:is_read_only() { functions.sh:load_settings_ex() { functions.sh:save_setting_ex() { functions.sh:commit_settings_ex() {( functions.sh:   option_cb() { functions.sh:load_settings() { functions.sh:validate() { functions.sh:save_setting() { hs.sh:has_required_pkg() { pkgfuncs.sh:is_package_installed() { pkgfuncs.sh:install_package() { pkgfuncs.sh:remove_package() { pkgfuncs.sh:update_package_list() { pkgfuncs.sh:add_package_source() { webif.sh:empty() { webif.sh:equal() { webif.sh:neq() { webif.sh:exists() { webif.sh:categories() { webif.sh:subcategories() { webif.sh:show_validated_logo() { webif.sh:ShowWIPWarning() { webif.sh:update_changes() { webif.sh:has_pkgs() { webif.sh:mini_header() { webif.sh:header() { webif.sh:footer() { webif.sh:apply_passwd() { webif.sh:display_form() { webif.sh:list_remove() { webif.sh:handle_list() { webif.sh:is_bcm947xx() {
 
 Lobby:  Now wouldn't it have been great if the the functions had started as
 
-[code] footer() {   # show footer and maybe do something else [/code]
+footer() {   # show footer and maybe do something else
 
 Then I could have made a quick grep '()' * and documented the functions - never mind.
 
-There are also awk files. [code] browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk [/code]
+There are also awk files.
+
+browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
 
 form.awk gives you predefinded forms to use in you webif page. Most of these are used like formname|input
 
 The current forms are as listed:
 
-[code] onchange onclick option start_form field button checkbox radio select txtfile option listedit caption string textarea progressbar password upload  submit helpitem helptext helplink checkbox end_form [/code]
+onchange onclick option start_form field button checkbox radio select txtfile option listedit caption string textarea progressbar password upload  submit helpitem helptext helplink checkbox end_form
 
 Normal parameters:
 
-[code] # $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes [/code]
+ # $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes
 
 Finally there is one csv file: timezones.csv
 
 Lobby: I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better ...
 
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
 
-[hr]
 
-[u]ash - the shell[/u]
+ash - the shell
 
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 
-[u]Programmer environment[/u]
+Programmer environment
 
 "vi" can be a pain on your AP box  - test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
-Or mount the AP's filesystem on your favorit [s]typewriter[/s] [s]PC[/s] [s]MAC[/s] IBM 3270 terminal and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change)
+Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change) Update: it did
 
-[u]webif_latest.ipk[/u]
+webif_latest.ipk
 
 To get the latest nice clean copy of webif^2 complete package on your shell programming environment: - download latest webif^2 package: ftp://ftp.berlios.de/pub/xwrt/webif_latest.ipk - tar zxvf webif_0.2-1_mipsel.ipk
 
@@ -310,13 +291,15 @@ You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.
 
 Then you have the package and can poke around :)
 
-[u]Best Programming Practises[/u] Lobby: It is allways nice to get code from others but why on earth does he only use 2 spaces for indent or tab or ... Keeping BPP small and necessary speeds implementation of others code.
+Best Programming Practises
+
+Lobby: It is allways nice to get code from others but why on earth does he only use 2 spaces for indent or tab or ... Keeping BPP small and necessary speeds implementation of others code.
 
 The BPP for X-Wrt are unknown but could include:
 
-[quote] Indent space using  ? ? ? Don't define a css in your code as for example system-nvram.sh [/quote]
+Indent space using  ? ? ? Don't define a css in your code as for example system-nvram.sh
 
-[u]X-Wrt trunk[/u]
+X-Wrt trunk
 
 Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
@@ -336,18 +319,17 @@ make
 
 The results are in bin
 
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
 
-[hr]
 
-Under contstruction [glow=red,2,300]Need feedback[/glow]
+Under contstruction Need feedback
 
 In order to make it easier to integrate your new module it is important to :
 
 ?? ?? ??
 
-From guymarc who made a [url=http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684]module[/url] What happened to get it in the developement tree: [quote] these files have been modified: apply.sh: added reload_logwrt() function .categories: added a new menu entry "Log" webif.preinst: added the rm -f S01syslog command to make the system clear before an update
+From guymarc who made a http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684]module[/url] What happened to get it in the developement tree:
+
+these files have been modified: apply.sh: added reload_logwrt() function .categories: added a new menu entry "Log" webif.preinst: added the rm -f S01syslog command to make the system clear before an update
 
 these files have been added: added /sbin/runsyslogd: the script for launching syslogd with the right command line added file S01syslog: starting syslogd at boot-time with the options selected in webif log-browse.sh and log-setup.sh off course
 
@@ -363,42 +345,39 @@ You have to insert a line here to enable your function. You will find mine: HAND
 
  . hosts) rm -f /etc/hosts; mv $config /etc/hosts; killall -HUP dnsmasq ;; ethers) rm -f /etc/ethers; mv $config /etc/ethers; killall -HUP dnsmasq ;;
  firewall) mv /tmp/.webif/file-firewall /etc/config/firewall && /etc/init.d/S??firewall;; dnsmasq.conf) mv /tmp/.webif/file-dnsmasq.conf /etc/dnsmasq.conf && /etc/init.d/S50dnsmasq;;
-' and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file). [/quote]
+' and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file).
 
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
 
-[hr]
 
-[quote]OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
+OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
 
-[u]Using NVRAM config functions[/u] These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
+Using NVRAM config functions
 
-[u]Using UCI config functions[/u] See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
+These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
 
-[glow=red,2,300]Needs feedback[/glow]
+Using UCI config functions
 
-----------
- Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
+ See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
 
-[hr]
+Needs feedback
 
-[quote][u]CSS Theme Rules[/u]
+
+
+CSS Theme Rules
 
 We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
 
 The CSS theme must adhere to the existing class/id structure. Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group. The class/id structure we use should be robust enough to handle various themes. In short, your CSS should adhere to the webif, not the other way around. The CSS theme must support the color switcher. We can have seperate color CSSes for each theme, but it must support all 6 colors. The CSS theme must work in IE 6, IE 7, Opera, and Firefox. You must test it in each. It will not be considered at all for the default theme if it does not work in all browsers. It will be your responsibility to fix bugs and maintain the CSS.
 
-[u]How to create a new CSS theme[/u]
+How to create a new CSS theme
 
-CSS themes exist in a dedicated subdirectory of /www/themes. To add a new theme, create a subdirectory named after your theme. Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .[/quote]
+CSS themes exist in a dedicated subdirectory of /www/themes. To add a new theme, create a subdirectory named after your theme. Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
 
-----------
- [Chapter of  [iurl=http://www.bitsum.com/smf/index.php?topic=330.msg1585#msg1585]Programmers Guide to webif^2[/iurl]
 
-[hr]
 
-quote] Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
+
+
+Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
 The config file is in /etc/httpd.conf.  Most lines are of the form path: user:password
 
@@ -407,5 +386,3 @@ which means that to access the path the specified user & password must be provid
 Some people would like the first ("welcome" / status ) page not to have user/pass.
 
 The present hasn't it the past it could have been [url=http://forum.openwrt.org/viewtopic.php?pid=12670#p12670]http://forum.openwrt.org/viewtopic.php?pid=12670#p12670[/url]
-
-[
