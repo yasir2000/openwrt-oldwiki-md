@@ -83,3 +83,20 @@ config wifi-iface
 }}}
 
 Currently, the only? supported type is broadcom.  Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
+
+Full outline of the wifi config file is as follows:
+{{{
+config wifi-device     wifi device name
+       option type     currently only broadcom
+       option country  country code
+       option channel  1-14
+       option maxassoc Maximum number of associated clients
+
+config wifi-iface
+       option mode     ap, sta, adhoc, or wds
+       option device   wifi device name
+       option encryption none, wep, psk, psk2, wpa, wpa2
+       option key      psk, or radius shared secret
+       option server   radius server
+       option port     radius port
+}}}
