@@ -425,7 +425,7 @@ The CSS theme must support the color switcher. We can have seperate color CSSes 
 The CSS theme must work in IE 6, IE 7, Opera, and Firefox. You must test it in each.
 It will not be considered at all for the default theme if it does not work in all browsers. It will be your responsibility to fix bugs and maintain the CSS.
 }}}
-== How to create a new CSS theme ==
+=== How to create a new CSS theme ===
 CSS themes exist in a dedicated subdirectory of /www/themes.
 
 To add a new theme, create a subdirectory named after your theme.
