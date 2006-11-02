@@ -47,11 +47,17 @@ Conversly, a page should always load its settings via 'load_settings GROUP' to m
 || ||a lot of .sh files: the fun part including info.sh .categories which we will come back to as it is a bit of hidden magic ||
 === info.sh ===
 {{{
-#!/usr/bin/webif-page <? . /usr/lib/webif/webif.sh header "Info" "System Information" "@TR<<System Information>>" '' ''
+#!/usr/bin/webif-page 
+<? 
+. /usr/lib/webif/webif.sh 
+header "Info" "System Information" "@TR<<System Information>>" '' ''
+
 # A lot of shell code ....
 footer
-?> <!--
-##WEBIF:name:Info:1:System Information -->
+?> 
+<!--
+##WEBIF:name:Info:1:System Information 
+-->
 }}}
 The first line tells us that the program that does the work is a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c (when it's not compiled :) )
 
@@ -89,12 +95,14 @@ alter the corresponding lines
 
 {{{
  . header "Info" "System Information" "@TR<<System Information>>" '' ''
+
 ##WEBIF:name:Info:1:System Information
 }}}
 to
 
 {{{
 header "HelloWorld" "Hello World" "@TR<<Hello World>>" '' ''
+
 ##WEBIF:name:HelloWorld:1:Hello World
 }}}
 Please remember that header text has to match the ##WEBIF line.
