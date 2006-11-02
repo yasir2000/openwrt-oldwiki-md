@@ -17,17 +17,18 @@ irc on freenode.net channel #x-wrt
 
 X-ref'ed to:
 
-* [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
+ * [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
 
-''' Thanks to '''
+''' Thanks '''
+
 Thanks for feedback from:  
-* thepeople  
-* dude  
-* guymarc
+ * thepeople  
+ * dude  
+ * guymarc
 
 ----
 
-[[TableOfContents(3)]]
+[[TableOfContents(4)]]
 
 = What IS a webif page? =
 
@@ -150,6 +151,8 @@ The localized symbol files are, as of White Russian RC6, stored in seperate pack
 The translation is done by webif-page (the pre-processor). It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
+
+Need some form of connection/documentation how pre-processor works with busybox httpd server: probably not important here 
 
 === /usr/lib/webif ===
 A quick grep of the .sh files gives  an idea of the functions available:
