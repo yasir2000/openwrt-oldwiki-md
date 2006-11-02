@@ -303,5 +303,7 @@ Some people would like the first ("welcome" / status ) page not to have user/pas
 
 The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
 = o-o =
-[http://www.busybox.net/downloads/BusyBox.html/ busybox]
-[http://matt.ucc.asn.au/dropbear/dropbear.html/ dropbear]
+ * [http://www.busybox.net/downloads/BusyBox.html/ busybox]
+ * [http://matt.ucc.asn.au/dropbear/dropbear.html/ dropbear]
+
+= Footnotes =
