@@ -36,14 +36,14 @@ A webif page is essentially an HTML page with embedded shell script.
 
 Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 
-?Up to date or relevant- I haven't found out yet?
 {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 
 When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions.
 
 Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
-}}}
+}}}[[FootNote(Is this up to date or relevant- I haven't found out yet)]] 
+
 
 == File and directory structure ==
 ||||/www contains... ||
@@ -75,7 +75,7 @@ The second line <? is a bit of magic so we can combine html and shell scripts - 
 
 The third line means we have some nice library functions that can be drawn on in /usr/lib/webif  - there are more: have a look.
 
-The fourth line gives a title  - @TR: see latter in connection with localisation (TRanslation ?)
+The fourth line gives a title  - @TR: see latter in connection with localisation (TRanslation)
 
 Then a lot of nice shell scripting - header and footer are NOT football terms but examples of the nice functions we can re-use
 
@@ -148,56 +148,37 @@ Therefore, simply using many @TR<<text>> macros for strings is all that initiall
 
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 }}}
-The translation is done by webif-page (the pre-processor). It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
+The translation is done by webif-page (the pre-processor[[FootNote(Need some form of connection/documentation how pre-processor works with busybox httpd server: probably not important here)]]). It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
-
-Need some form of connection/documentation how pre-processor works with busybox httpd server: probably not important here 
-
 === /usr/lib/webif ===
 A quick grep of the .sh files gives  an idea of the functions available:
-
 {{{
 apply-hs.sh:reload_hotspot() { apply-hs.sh:reload_shape() { apply-pptp.sh:reload_pptp() { apply.sh:reload_wifi_enable() { apply.sh:reload_wifi_disable() { apply.sh:reload_network() { apply.sh:reload_wireless() { apply.sh:reload_cron() { apply.sh:reload_syslog() { apply.sh:getPID(){ apply.sh:reload_system() { apply.sh:is_read_only() { functions.sh:load_settings_ex() { functions.sh:save_setting_ex() { functions.sh:commit_settings_ex() {( functions.sh:   option_cb() { functions.sh:load_settings() { functions.sh:validate() { functions.sh:save_setting() { hs.sh:has_required_pkg() { pkgfuncs.sh:is_package_installed() { pkgfuncs.sh:install_package() { pkgfuncs.sh:remove_package() { pkgfuncs.sh:update_package_list() { pkgfuncs.sh:add_package_source() { webif.sh:empty() { webif.sh:equal() { webif.sh:neq() { webif.sh:exists() { webif.sh:categories() { webif.sh:subcategories() { webif.sh:show_validated_logo() { webif.sh:ShowWIPWarning() { webif.sh:update_changes() { webif.sh:has_pkgs() { webif.sh:mini_header() { webif.sh:header() { webif.sh:footer() { webif.sh:apply_passwd() { webif.sh:display_form() { webif.sh:list_remove() { webif.sh:handle_list() { webif.sh:is_bcm947xx() {
 }}}
-Lobby:  Now wouldn't it have been great if the the functions had started as
-
-{{{
-footer() {   # show footer and maybe do something else
-}}}
-Then I could have made a quick grep '()' * and documented the functions - never mind.
-
 There are also awk files.
-
 {{{
 browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
 }}}
 form.awk gives you predefinded forms to use in you webif page. Most of these are used like formname|input
 
 The current forms are as listed:
-
 {{{
 onchange onclick option start_form field button checkbox radio select txtfile option listedit caption string textarea progressbar password upload  submit helpitem helptext helplink checkbox end_form
 }}}
 Normal parameters:
-
 {{{
 # $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes
 }}}
-Finally there is one csv file: timezones.csv
-
-Lobby: I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better ...
-
+Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
 = Programmer environment =
 == ash - the shell ==
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
-
 == testing ==
 "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
 Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change)
 {{{
-
 To use your router as an active development box, do the following:
 
   * Mount an NFS or SAMBA share somewhere onto your router. (i.e. to /mnt/myshare).
@@ -210,9 +191,6 @@ Afterwards, restart the httpd or reboot your router.
 
 This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
 }}}
-
-Need some more details about the busybox httpd server (downloading and will read the src/doc). Only link to busybox which gives the command line options for httpd server.
-
 == webif_latest.ipk ==
 To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
 
@@ -225,11 +203,8 @@ tar zxvf webif_0.2-1_mipsel.ipk
 You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.gz
 
 Then you have the package and can poke around :)
-
 == X-Wrt trunk ==
-
 === Quick guide to building X-wrt ===
-
 Get the code:
 
 svn checkout svn://svn.berlios.de/xwrt/trunk
@@ -238,18 +213,15 @@ cd the trunk
 
 (you could also cd package/webif to see the source package of webif^2)
 
-
 make menuconfig - just say exit and yes: then you "probably" have default config
 
 make
 
 The results are in bin 
-
 ==== Ubuntu ====
 Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
 uuencode
-
 = Packaging =
 Under contstruction Need feedback
 
@@ -257,8 +229,7 @@ In order to make it easier to integrate your new module it is important to :
 
 ?? ?? ??
 
-From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684 / module] What happened his package in the developement tree:
-
+From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684/ module] What happened his package in the developement tree:
 {{{
 these files have been modified:
 apply.sh: added reload_logwrt() function
@@ -294,22 +265,16 @@ HANDLERS_file='
 '
 and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file).
 }}}
-
 = Diverse =
-
 == NG-style UCI config vs. nvram ==
 OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
-
 === Using NVRAM config functions ===
 These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
-
 === Using UCI config functions ===
  . See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
 Needs feedback
-
 == CSS Theme Rules ==
 We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
-
 {{{
 The CSS theme must adhere to the existing class/id structure.
 Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group.
@@ -325,11 +290,10 @@ CSS themes exist in a dedicated subdirectory of /www/themes.
 To add a new theme, create a subdirectory named after your theme.
 
 Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
-
 == Security- last again ==
 Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
-The config file is in /etc/httpd.conf.
+The config file is in /etc/httpd.conf.[[FootNote(Could do with a bit morw info with busyboxes http server)]]
 
 Most lines are of the form path: user:password which means that to access the path the specified user & password must be provided.
 
@@ -338,7 +302,6 @@ The top level (/www on the file system) can be referred to as "/"  (i.e. the pat
 Some people would like the first ("welcome" / status ) page not to have user/pass.
 
 The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
-
 = o-o =
 [http://www.busybox.net/downloads/BusyBox.html/ busybox]
 [http://matt.ucc.asn.au/dropbear/dropbear.html/ dropbear]
