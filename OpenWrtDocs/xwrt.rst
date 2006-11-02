@@ -23,13 +23,17 @@ Packages documented here are only those in the X-Wrt repository that are not inc
 The X-Wrt White Russian repository is here: ftp://ftp.berlios.de/pub/xwrt/packages/
 
 == webif^2: Enhanced HTTP management console ==
-X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly being improved. Some of the more popular additions are the real-time traffic and CPU graphs, a switchable color theme, and a number of new webif pages for both configuration and status reporting.
+X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console). 
 
- * [http://www.bitsum.com/smf/index.php?topic=267.0 Screenshots] (not necessarily up-to-date with latest build)
-{{{
-NEED NEW SCREEN SHOT
-}}}
-To install the latest daily build of webif^2^:
+It offers a large number of new features and is constantly being improved. 
+
+Some of the more popular additions are the real-time traffic and CPU graphs, a switchable color theme, and a number of new webif pages for both configuration and status reporting.
+
+attachment:Screenshot-1.png
+
+( * [http://www.bitsum.com/smf/index.php?topic=267.0 Screenshots] (not necessarily up-to-date with latest build)    )
+
+=== Install the latest daily ===
 
 {{{
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
