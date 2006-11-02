@@ -400,6 +400,9 @@ HANDLERS_file='
 '
 and then add the code of your function, reload_log() for me, in the body of the file (this can be easy if simply appended at the end of the file).
 }}}
+
+= Diverse =
+
 == NG-style UCI config vs. nvram ==
 OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
 
