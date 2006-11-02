@@ -19,6 +19,12 @@ X-ref'ed to:
 
 * [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
 
+''' Thanks to '''
+Thanks for feedback from:  
+* thepeople  
+* dude  
+* guymarc
+
 ----
 
 [[TableOfContents(3)]]
@@ -29,7 +35,7 @@ A webif page is essentially an HTML page with embedded shell script.
 
 Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 
-?Up to date or relevant?
+?Up to date or relevant- I haven't found out yet?
 {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 
@@ -40,11 +46,14 @@ Conversly, a page should always load its settings via 'load_settings GROUP' to m
 
 == File and directory structure ==
 ||||/www contains... ||
-||index.html || with redirect to cgi-bin/webif.sh css files .version the svn revision number used in update functions ||
+||index.html || with redirect to cgi-bin/webif.sh||
+|| ||css files||
+||.version|| the svn revision number used in update functions ||
 ||||/cgi-bin contains... ||
 ||webif.sh ||"exec ./webif/info.sh" ||
 ||||/webif contains... ||
-|| ||a lot of .sh files: the fun part including info.sh .categories which we will come back to as it is a bit of hidden magic ||
+|| ||a lot of .sh files: the fun part including info.sh||
+||.categories|| which we will come back to as it is a bit of hidden magic ||
 === info.sh ===
 {{{
 #!/usr/bin/webif-page 
@@ -59,7 +68,7 @@ footer
 ##WEBIF:name:Info:1:System Information 
 -->
 }}}
-The first line tells us that the program that does the work is a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c (when it's not compiled :) )
+The first line tells us that the program that is called a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c : see latter in conection with translation
 
 The second line <? is a bit of magic so we can combine html and shell scripts - Its sister, ?> at the end finishes that magic show.
 
@@ -69,7 +78,7 @@ The fourth line gives a title  - @TR: see latter in connection with localisation
 
 Then a lot of nice shell scripting - header and footer are NOT football terms but examples of the nice functions we can re-use
 
-The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif - have a look in /www/cgi-bin/.catogories and there is the answer:
+The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif.   /www/cgi-bin/.catogories contains the order of categpries.
 
 {{{
 ##WEBIF:category:Info
@@ -111,138 +120,15 @@ Congratulations!
 
 You just made your first do nothing Webif module !!!! Point your browser at your box (maybe reload with no cache) and see your own greeting.
 
-Hot from irc
+If you want, the category can be added by your script and the category will be ordered last
 {{{
-(23:57:51) thepeople_work: <!--
-(23:57:51) thepeople_work:  ##WEBIF:category:HelloWorld
-(23:57:51) thepeople_work: ##WEBIF:name:HelloWorld:1:test
-(23:57:51) thepeople_work: -->
-}}}
-This will add a category and place at the end of categories...
-
-== Info.sh revisited ==
-Lobby:)
-
-Have a look at your copy of info.sh (which may or may not be like the present 1 Nov 06 version)
-
-It has a lot of shell and html formatting.
-
-Now add a new shared library info.lib
-
-{{{
-# a lib to be sourced
-HTTP_HOME='http://ftp.berlios.de'
-HTTP_LATEST='/pub/xwrt/webif_latest.ipk'
-HTTP_VERSION='/pub/xwrt/.version'
-FILE_VERSION='/www/.version'
-THIS_VERSION="$(cat ${FILE_VERSION})"
-installupdate(){
-  LATEST_VER="${HTTP_HOME}${HTTP_LATEST}"
-  if ipkg install ${LATEST_VER};then
-    return 0
-  else
-:<<comment
-Well sh*t happens and we are now in an unknow state
-check: any files in /www and lib directories
-what do we trust so as not to leave a novice user with a 404
-one could cat >/www/index.html a nice message to login and install by hand with the ipkg etc text (I keep having to go to home page as I can never remember it)
-Was there storage so that we could have mv /www/cgi-bin to safe and mv back again before we got here ...
-comment
-    return 1
-  fi
-}
-chkforupdate(){
-  this_revision=$1
-  HOME_VER="${HTTP_HOME}${HTTP_VERSION}"
-  tmpfile=$(mktemp "/tmp/webif.XXXXXX")
-  wget -q -O $tmpfile ${HOME_VER}
-  if [ $? = 0 ]; then
-    latest_revision=$(cat ${tmpfile})
-    if [ "$this_revision" != "$latest_revision" ]; then
-      txt="${latest_revision}"
-      ret='0'
-    else
-      txt="${this_revision}"
-      ret='1'
-    fi
-  else
-    txt='0'
-    ret='1'
-  fi
-  rm -f "$tmpfile"
-  echo ${txt}
-  return ${ret}
-}
-}}}
-Testing? - simply do  . info.lib and call the now "inbuild" function chkforupdate 1001
-
-Now for a new info.sh
-
-{{{
-#!/usr/bin/webif-page
-<?
-# the shelly bit ...
-. /usr/lib/webif/webif.sh
-header "Info" "System Information" "@TR<<System Information>>" '' ''
-. /usr/lib/webif/info.lib
-available_version="$(chkforupdate ${THIS_VERSION})"
-available_return=$?
-# some stuff that I don't look to much into ...
-I_Webif2=${THIS_VERSION}
-I_Firmware=$(nvram get firmware_version)
-I_Kernel="$( uname -srv )"
-I_MAC="$(/sbin/ifconfig eth0 | grep HWaddr | cut -b39-)"
-I_Board=$(cat /proc/cpuinfo | sed 2,20d | cut -c16-)
-I_Device=$(nvram get device_name)
-empty ${I_Device} && I_Device="unidentified"
-I_Device_String=$(echo $device_name && ! empty $device_version && echo $device_version)
-I_Username=$REMOTE_USER
-equal ${I_Username} "" && I_Username="not logged in"
-if [ -n "$FORM_install_webif" ]; then
-        echo "<pre>"
-        installupdate
-        echo "</pre>"
-#do refresh to clean System Information but how :)
-fi
-#The GUI bit ...go to it guys. This is a mockup
-cat <<EOF
-<pre>
-$(cat '/etc/banner')
-<pre>
-<br />
-<table>
-<tbody>
-$(
-# yep this should be a subroutine ...mk2colhtml...and yep I cheat :)
-for line in $(set | grep '^I_'|tr ' ' _);do
-  name=${line%%=''*}
-  name=${name#I_}
-  name=$(echo ${name}|tr _ ' ')
-  value=${line#*=''}
-  value=$(echo ${value}|tr _ ' '|tr -d \')
-  echo "<tr><td>$name</td><td>$value</td></tr>"
-done
-)
-</tbody>
-</table>
-EOF
-if [ "${available_version}" != '0' ]; then
-cat <<EOF
-<form action="" enctype="multipart/form-data" method="post">
-<input type="submit" value=" @TR<<Upgrade_Webif|Upgrade/Reinstall  Webif^2 r${available_version}>> "  name="install_webif" />
-</form>
-But I think the button should be in System->Upgrade ...
-EOF
-fi
-footer
-?>
 <!--
-##WEBIF:name:Info:1:System Information
+##WEBIF:category:HelloWorld
+##WEBIF:name:HelloWorld:1:test
 -->
 }}}
-Calling from info.sh would remove the most of shell from GUI code  and also make available a routine that can be called from GUI OR commandline - the best of both worlds?
 
-Some may prefer the original, others mine: Flame at last :)
+You can now basically make any status page you want.
 
 == File and directory structure revisited ==
 Apart from the /www structure, we have
@@ -261,7 +147,7 @@ Therefore, simply using many @TR<<text>> macros for strings is all that initiall
 
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 }}}
-The translation is done by webif-page by a hash. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" (and overwrites the lang it found via nvram ...)
+The translation is done by webif-page (the pre-processor). It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 
@@ -322,6 +208,8 @@ Afterwards, restart the httpd or reboot your router.
 This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
 }}}
 
+Need some more details about the busybox httpd server (downloading and will read the src/doc). Only link to busybox which gives the command line options for httpd server.
+
 == webif_latest.ipk ==
 To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
 
@@ -335,21 +223,9 @@ You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.
 
 Then you have the package and can poke around :)
 
-== Best Programming Practises ==
-Lobby:
-
-It is allways nice to get code from others but why on earth does he only use 2 spaces for indent or tab or ... Keeping BPP small and necessary speeds implementation of others code.
-
-The BPP for X-Wrt are unknown but could include:
-
-* Indent space using  ? ? ?  * Don't define a css in your code as for example system-nvram.sh
-
 == X-Wrt trunk ==
-Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
-uuencode
-
-Quick guide to building X-wrt
+=== Quick guide to building X-wrt ===
 
 Get the code:
 
@@ -365,6 +241,11 @@ make menuconfig - just say exit and yes: then you "probably" have default config
 make
 
 The results are in bin 
+
+==== Ubuntu ====
+Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
+
+uuencode
 
 = Packaging =
 Under contstruction Need feedback
@@ -455,37 +336,6 @@ Some people would like the first ("welcome" / status ) page not to have user/pas
 
 The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
 
-= Thanks to =
-Thanks for feedback from:  
-* thepeople  
-* dude  
-* guymarc
-
-{{{
- Sticky:   WANTED: Web interface developers by nbd  [ 1 2 3 … 7 ]
-	160 	37594 	Yesterday 23:27:49 by stacato
-· Programmers Guide to webif^2 by oxo
-	1 	178 	Today 01:17:35 by nbd
-  FON Sourcecode has been released!! by dadaniel
-	0 	43 	Yesterday 19:11:12 by dadaniel
-  errors compiling buildroot using cygwin by hirohashi
-	0 	12 	Yesterday 16:38:43 by hirohashi
-  webif: asterisk simple managment and configuration. My contribution... by drwho  [ 1 2 ]
-	31 	2937 	Yesterday 14:59:43 by drwho
-  troubles with binaries on OpenWRT... by Dr. Morg
-	2 	107 	2006-10-31 13:37:12 by Dr. Morg
-  Moved: missing uclibc-g++ during openixp installation by kiennd
-	  	  	 
-· 2 webif pages: browsing firewall log + setting syslogd options by guymarc
-	7 	168 	2006-10-31 05:19:37 by thepeople
-  freecom FSG, endianness problem? by mangoo  [ 1 2 3 ]
-	73 	5586 	2006-10-30 23:16:22 by repvik
-  WRT54GL - Any developer interested? by ursa_major
-	3 	245 	2006-10-30 17:56:42 by TheRoDent
-· Modular webif (^2) by oxo
-	0 	76 	2006-10-30 14:37:22 by oxo
-  Asus WL600g by rootkit  [ 1 2 ]
-	28 	1568 	2006-10-30 00:17:36 by brama
-  SMS send with modem by jongerenchaos
-	0 	34 	2006-10-29 23:38:53 by jongerenchaos
-}}}
+= o-o =
+[http://www.busybox.net/downloads/BusyBox.html/ busybox]
+[http://matt.ucc.asn.au/dropbear/dropbear.html/ dropbear]
