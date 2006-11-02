@@ -54,8 +54,7 @@ wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1
 
 The webif system is a combination of shell, awk, html, and javascript (a little). 
 
-The "Programmers Guide to Webif^2" @ http://www.bitsum.com/smf/index.php?topic=330 is now ready and contains a reasonable amount of information.
-The "Programmers Guide to Webif^2" is moving to a new address ProgrammersGuideToWebif
+The "Programmers Guide to Webif^2" is available @ ProgrammersGuideToWebif
 
 Use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
