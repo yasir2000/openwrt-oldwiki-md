@@ -2,29 +2,35 @@
 This page is '''NOT''' maintained by the OpenWrt developers. Furthermore, it is actively under development. It is also used as a sandbox for new documentation that may eventually be moved to the primary OpenWrt documentation.
 }}}
 
-== X-Wrt ==
+'''X-Wrt''' 
 
 [http://www.bitsum.com/xwrt.htm X-Wrt] is a project to enhance the end user experience of OpenWrt. It is currently under active development. X-Wrt is developed by a different group than is the base OpenWrt firmware and is therefore not affiliated with OpenWrt, nor is it supported by OpenWrt. Since many users may be interested what X-Wrt has to offer, some basic information about it is included here.
 
-=== X-Wrt Links ===
+X-Wrt Links
 
  * [http://www.bitsum.com/xwrt.asp X-Wrt General Information] and Webif^2 Install/Auto-Install
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-[[TableOfContents(4)]]
+-------
 
-=== X-Wrt Packages ===
+[[TableOfContents(3)]]
+
+= X-Wrt Packages =
 
 Packages documented here are only those in the X-Wrt repository that are not included in the OpenWrt White Russian repository, or have been updated.
 
 The X-Wrt White Russian repository is here: ftp://ftp.berlios.de/pub/xwrt/packages/
 
-==== webif^2: Enhanced HTTP management console ====
+== webif^2: Enhanced HTTP management console ==
 
 X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console). It offers a large number of new features and is constantly  being improved. Some of the more popular additions are the real-time traffic and CPU graphs, a switchable color theme, and a number of new webif pages for both configuration and status reporting.
 
  * [http://www.bitsum.com/smf/index.php?topic=267.0 Screenshots] (not necessarily up-to-date with latest build)
+
+{{{
+NEED NEW SCREEN SHOT
+}}}
 
 To install the latest daily build of webif^2^:
 
@@ -32,7 +38,7 @@ To install the latest daily build of webif^2^:
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 }}}
 
-===== Webif Developer Documentation =====
+=== Webif Developer Documentation ===
 
 ''This is very much a work in progress --- some inaccuracies may be present in the first drafts.''
 
@@ -42,13 +48,13 @@ The "Programmers Guide to Webif^2" is available @ ProgrammersGuideToWebif. If th
 
 Apart from the Programmers Guide, use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
-==== Busybox 1.2.1 ====
+== Busybox 1.2.1 ==
 
 BusyBox 1.00 has been included in White Russian RC5 and RC6. There have been many releases of Busybox since v1.00, with the current release at 1.2.1. Kamikaze uses the latest 1.2.1. For White Russian users who desire to use a newer Busybox, we've migrated this package to White Russian.
 
 busybox 1.2.1 package: ftp://ftp.berlios.de/pub/xwrt/packages/busybox_1.2.1-5_mipsel.ipk  
 
-==== UPNP: Linksys's IGD ====
+== UPNP: Linksys's IGD ==
 
 '''WARNING:''' Not well tested at all.
 
@@ -56,13 +62,23 @@ You can install UPNP by installing linux-igd (and libupnp) from the X-Wrt reposi
 
 linux-igd package: ftp://ftp.berlios.de/pub/xwrt/packages/libupnp_1.2.1a_mipsel.ipk
 
-==== Wireless tools v29 pre 10 ====
+== Wireless tools v29 pre 10 ==
 
 This is simply a newer package than is available at the time of this writing in either White Russian or Kamikaze repositories.
 
 wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1_mipsel.ipk
 
-=== Firmware Image Technical Details ===
+= Building OpenWrt White Russian Sources =
+
+Need a linux OS.
+
+Package pre-requisites: gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev or zlib1g-dev, and libc headers.
+
+Run 'make' to build. Run 'make menuconfig' to configure.
+
+See general OpenWrt documentation.
+
+= Firmware Image Technical Details =
 
 ...(TODO: writing up from memory, check details later)...
 
@@ -84,21 +100,11 @@ The TRX header has a signature of 'HDR0', so you can easily identify this header
  * '''''UNTRX''''' - Tool to extract TRX images to their component parts.
 
 
-==== Linksys WRT54G(S) Images ====
+== Linksys WRT54G(S) Images ==
 
 These images are simple TRX images with a small proprietary header pre-pended.
 
-==== ASUS images ====
+== ASUS images ==
 
 On a variety of devices, even non-Broadcom devices, ASUS uses a TRX-style image with an appended proprietary version information block.
  
-
-=== Building OpenWrt White Russian Sources ===
-
-Need a linux OS.
-
-Package pre-requisites: gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev or zlib1g-dev, and libc headers.
-
-Run 'make' to build. Run 'make menuconfig' to configure.
-
-See general OpenWrt documentation.
