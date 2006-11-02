@@ -8,7 +8,25 @@ The manufacturer's home site is http://www.compex.com.sg/
 
 The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they have their own [http://www.cpx.cz/dls/WP54G_linux/ downloads page]
 
-The Compex-supplied firmware is actually quite powerful; version 2.xx has multi-SSID access point and a number of other operating modes. However they also [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on this unit.
+The Compex-supplied firmware is actually quite powerful; version 2.xx has multi-SSID access point and a number of other operating modes. They claim to [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on this unit.
+
+'''However, a standard WP54G *cannot* run OpenWrt'''. Here is the response I got from support when I asked what the procedure was for reflashing a standard WP54G with OpenWrt:
+
+{{{
+   We have a slight change on the board that support OpenWrt.
+
+   The change is a hardware protection chip on the board.
+
+   To install OpenWrt you need use this board with the added chip.
+
+   OpenWrt won't run in standard model without the chip.
+
+   We  normally  pre-load  OpenWrt for the board purchased and any update
+   can be downloaded.
+
+   You  can  order  these  boards  if thi customer is interested in using
+   OpenWrt.
+}}}
 
 '''Default settings'''
 
@@ -102,10 +120,6 @@ If you download the [http://www.compex.com.sg/home/OEM/Downloads/JTAG_Programmer
 }}}
 
 The !ReadMe.txt file talks about using "Wiggler" as the JTAG interface, to upload one of the .mac files which is a RAM version of their loader. Once you have done this you can use tftp to upload cfe.bin
-
-TO DO: Document the actual process to convert a WP54G to OpenWrt
-
-TO DO: Document the actual process to revert a WP54G to standard Compex firmware
 
 '''Inside the box'''
 
