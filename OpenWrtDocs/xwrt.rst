@@ -1,5 +1,7 @@
 {{{
-This page is '''NOT''' maintained by the OpenWrt developers. Furthermore, it is actively under development. It is also used as a sandbox for new documentation that may eventually be moved to the primary OpenWrt documentation.
+This page is NOT maintained by the OpenWrt developers. 
+Furthermore, it is actively under development. 
+It is also used as a sandbox for new documentation that may eventually be moved to the primary OpenWrt documentation.
 }}}
 
 '''X-Wrt''' 
