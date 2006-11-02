@@ -13,6 +13,8 @@ OR if you are a good shell programmer with no original ideas (like me), look thr
 
 Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
 
+irc on freenode.net channel #x-wrt 
+
 X-ref'ed to:
 
 * [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
