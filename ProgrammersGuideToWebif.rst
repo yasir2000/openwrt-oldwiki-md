@@ -296,7 +296,21 @@ $(<file) doesn't work $(cat file) does - apart from that very like bash but ther
 == testing ==
 "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
-Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change) Update: it did
+Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change)
+{{{
+
+To use your router as an active development box, do the following:
+
+  * Mount an NFS or SAMBA share somewhere onto your router. (i.e. to /mnt/myshare).
+  * Copy /www and /usr/lib/webif folders recursively to your network share. (i.e. cp -r /www /mnt/myshare/).
+  * Remove old /www and /usr/lib/webif folders (i.e. rm -rf /www).
+  * Symlink the www folder on your network share to the /www folder on your router (i.e. ln -s /mnt/myshare/www /www).
+  * Symlink the usr/lib/webif folder on your network share to the /usr/lib/webif folder on your router (i.e. ln -s /mnt/myshare/usr/lib/webif /usr/lib/webif).
+
+Afterwards, restart the httpd or reboot your router. 
+
+This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
+}}}
 
 == webif_latest.ipk ==
 To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
