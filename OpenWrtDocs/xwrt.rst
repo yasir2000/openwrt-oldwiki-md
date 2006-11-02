@@ -10,6 +10,8 @@ This page is '''NOT''' maintained by the OpenWrt developers. Furthermore, it is 
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
+[[TableOfContents(3)]]
+
 === X-Wrt Packages ===
 
 Packages documented here are only those in the X-Wrt repository that are not included in the OpenWrt White Russian repository, or have been updated.
