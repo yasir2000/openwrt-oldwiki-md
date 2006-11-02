@@ -12,7 +12,7 @@ This page is '''NOT''' maintained by the OpenWrt developers. Furthermore, it is 
  * [http://developer.berlios.de/projects/xwrt/ Project Hosting (repository, mailing lists, etc..)]
  * [http://www.bitsum.com/smf/index.php?board=17.0 User Forums]
 
-[[TableOfContents(3)]]
+[[TableOfContents(4)]]
 
 === X-Wrt Packages ===
 
@@ -31,6 +31,16 @@ To install the latest daily build of webif^2^:
 {{{
 ipkg install http://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 }}}
+
+===== Webif Developer Documentation =====
+
+''This is very much a work in progress --- some inaccuracies may be present in the first drafts.''
+
+The webif system is a combination of shell, awk, html, and javascript (a little). 
+
+The "Programmers Guide to Webif^2" is available @ ProgrammersGuideToWebif. If there are inaccuracies here, please participate and share your knowledge
+
+Apart from the Programmers Guide, use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
 
 ==== Busybox 1.2.1 ====
 
@@ -51,23 +61,6 @@ linux-igd package: ftp://ftp.berlios.de/pub/xwrt/packages/libupnp_1.2.1a_mipsel.
 This is simply a newer package than is available at the time of this writing in either White Russian or Kamikaze repositories.
 
 wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1_mipsel.ipk
-
-=== Webif Developer Documentation ===
-
-''This is very much a work in progress --- some inaccuracies may be present in the first drafts.''
-
-The webif system is a combination of shell, awk, html, and javascript (a little). 
-
-The "Programmers Guide to Webif^2" is available @ ProgrammersGuideToWebif. If there are inaccuracies here, please participate and share your knowledge
-
-Apart from the Programmers Guide, use the existing webif pages as guides and start playing around until you understand how the system works. It's not complex at all, but is a little different than what many may be used to - especially web developers.
-
-==== What is a webif page? ====
-
-A webif page is essentially an HTML page with embedded shell script. Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
-
-The 'Save' button on a page causes a submit event which the page can handle as it loads. When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions. Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
-
 
 === Firmware Image Technical Details ===
 
