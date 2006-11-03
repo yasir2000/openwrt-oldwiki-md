@@ -13,7 +13,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||'''S/N''' ||'''Stable[[BR]]White Russian''' ||'''Development[[BR]]Kamikaze''' ||
 ||WAP54G v1.0 ||MDG0 ||WiP [[BR]] No working official image yet! [[BR]] RC5 with default nvram bricks the device! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||WiP [[BR]] No working official image yet! [[BR]] Do NOT flash until you have serial console! [[BR]] See instructions to see if you can install. ||
-||WAP54G v1.1 ||? ||? ||? ||
+||WAP54G v1.1 ||MDG1 ||? ||? ||
 ||WAP54G v2 ||MDG2 ||RC5 micro image works with default nvram. ||WiP ||
 ||WAP54G v3 ||MDG3 ||WiP ||WiP ||
 
