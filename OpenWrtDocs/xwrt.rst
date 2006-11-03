@@ -23,9 +23,9 @@ Packages documented here are only those in the X-Wrt repository that are not inc
 The X-Wrt White Russian repository is here: ftp://ftp.berlios.de/pub/xwrt/packages/
 
 == webif^2: Enhanced HTTP management console ==
-X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console). 
+X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console).
 
-It offers a large number of new features and is constantly being improved. 
+It offers a large number of new features and is constantly being improved.
 
 Some of the more popular additions are the real-time traffic and CPU graphs, a switchable color theme, and a number of new webif pages for both configuration and status reporting.
 
@@ -99,4 +99,4 @@ These images are simple TRX images with a small proprietary header pre-pended.
 
 == ASUS images ==
 On a variety of devices, even non-Broadcom devices, ASUS uses a TRX-style image with an appended proprietary version information block.
-=Foot Notes=
+= Foot Notes =
