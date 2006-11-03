@@ -203,6 +203,91 @@ tar zxvf webif_0.2-1_mipsel.ipk
 You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.gz
 
 Then you have the package and can poke around :)
+{{{
+$ ls -R
+.:
+bin  control  debian-binary  etc  lib  postinst  preinst  sbin  usr  www
+
+./bin:
+uci
+
+./etc:
+dnsmasq.options  ez-ipupdate  functions-net.sh  functions_ex.sh  httpd.webif  init.d  ppp
+
+./etc/ez-ipupdate:
+ez-ipupdate-ok.sh
+
+./etc/init.d:
+S01syslog  S50openvpn      S60ntp          S90pptp            S90webif_firmwareid  x60cron.webif
+S41ipkg    S52ez-ipupdate  S66upnpd_webif  S90webif_deviceid  x50dnsmasq.webif
+
+./etc/ppp:
+functions.sh
+
+./lib:
+config
+
+./lib/config:
+uci-update.awk  uci.sh
+
+./sbin:
+runsyslogd
+
+./usr:
+bin  lib
+
+./usr/bin:
+bstrip  webif-page  wepkeygen
+
+./usr/lib:
+webif
+
+./usr/lib/webif:
+apply-ez-ipupdate.sh  categories.awk  form.awk      languages.awk      timezones.csv
+apply.sh              common.awk      functions.sh  pkgfuncs.sh        validate.awk
+browser.awk           editor.awk      hs.sh         subcategories.awk  webif.sh
+
+./www:
+cgi-bin  colorize.js  favicon.ico  images  index.html  svggraph  themes  webif.js
+
+./www/cgi-bin:
+webif  webif.sh
+
+./www/cgi-bin/webif:
+config.sh                network-logread-ez-ipupdate.sh        status-openvpn.sh
+data.sh                  network-logread-ez-ipupdate_frame.sh  status-pppoe.sh
+graphs-cpu.sh            network-misc.sh                       status-pptp.sh
+graphs-if.sh             network-qos.sh                        status-qos.sh
+graphs-subcategories.sh  network-services.sh                   status-usb.sh
+hs.sh                    network-vlan.sh                       status-wlan-survey.sh
+iframe.mini-info.sh      network-wakeonlan.sh                  system-confman.sh
+index.sh                 network-wan-lan.sh                    system-cron.sh
+info-about.sh            network-wifi-lan.sh                   system-crontabs.sh
+info.sh                  network-wlan-advanced.sh              system-editor.sh
+ipkg.sh                  network-wlan.sh                       system-ipkg.sh
+log-browse.sh            qos-nbd.inc                           system-nvram.sh
+log-read.sh              qos-rudy.inc                          system-password.sh
+log-read_frame.sh        reboot.sh                             system-settings.sh
+log-setup.sh             status-asterisk.sh                    system-startup.sh
+network-dhcpiface.sh     status-basic.sh                       system-upgrade.sh
+network-dhcpsettings.sh  status-connection.sh                  vpn-openvpn.sh
+network-ez-ipupdate.sh   status-conntrackread.sh               vpn-pptp.sh
+network-firewall.sh      status-interfaces.sh
+network-hosts.sh         status-leases.sh
+
+./www/images:
+openwrt-logo.png
+
+./www/svggraph:
+graph_cpu.svg  graph_if.svg
+
+./www/themes:
+xwrt
+
+./www/themes/xwrt:
+color_black.css  color_brown.css   color_green.css     color_white.css  webif.css
+color_blue.css   color_common.css  color_navyblue.css  ie_lt7.css
+}}}
 == X-Wrt trunk ==
 === Quick guide to building X-wrt ===
 Get the code:
