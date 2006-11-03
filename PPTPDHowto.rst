@@ -56,7 +56,7 @@ The connection should work, ping between the client and the server should work, 
 == Configure Debug Logging ==
 If you have problems making a connection, increase the amount of information logged:
 
- * edit ''/etc/pptpd.conf'' and add the line ''debug'', and restart ''pptpd'' using ''/etc/init.d/pptpd stop'' followed by ''/etc/init.d/pptpd start'',
+ * edit ''/etc/pptpd.conf'' and add the line ''debug'', and restart ''pptpd'' using ''/etc/init.d/S50pptpd stop'' followed by ''/etc/init.d/S50pptpd start'',
  * edit ''/etc/ppp/options.pptpd'' and add the line ''debug'', and the line ''logfile "/tmp/pptpd.log"'' ... these changes take effect on next client connection, there is no need to restart ''pptpd''.
 To understand the ''pppd'' debug log, read these key sections of the PPTP Client Diagnosis HOWTO:
 
