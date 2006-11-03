@@ -24,6 +24,9 @@ The router is sometimes called Asus WL-500GX or Asus WL-500g Deluxe V.
 
 Enable '''Failure Mode''' - remove the power, press and hold the reset button while returning power. Within a few seconds the PWR LED starts flashing slowly (once second on, one second off). Release the reset button and continue.
 
+[note by frr] Alternative approach: the WL-500GD's got a group of four LEDs on the right: LAN1 through LAN4. If you press and hold the reset button, so that it's pressed during power-up, these four LEDs become alight right from the power-up. Now pay attention: some two/three seconds after power-up, these four LEDs turn dark. Release the reset button immediately when you observe this. The WL-500GD should revert to the "Failure mode". (If you keep the button pressed, the Failure mode doesn't activate.)
+Can't say whether or not the behaviour depends on the firmware installed - may be different with the original ASUS firmware. This is the way it seems to behave with RC4 installed.
+
 You should be able to ping the unit:
 
 {{{
@@ -44,12 +47,19 @@ tftp> put openwrt-xxx-x.x-xxx.trx
 
 After this, wait for the PWR LED to stop flashing and the device to reboot and you should be set. There's also nice shell script to do this work for you at http://openwrt.org/downloads/utils/flash.sh. This script is also included in the source under scripts/flash.sh.
 
+[note by frr] It seems that on my WL-500GD with RC4 already installed, you don't need the whole script. At least the first line (the one with GET ASUSSPACELINK) seems defunct.
+All you need is the line saying
+ 
+echo -en "binary\nput $YOUR_FIRMWARE_TRX ASUSSPACELINK\nquit\n" | tftp 192.168.1.1
+
 For some reason though, the device doesn't reboot after flashing. Just wait 5 minutes, unplug the power and reconnect. After a while (1-2 minutes), the WLAN LED should light and OpenWRT is up and running.
 
 
 '''Send image with Firmware Restoration technique'''
 
-You can use the ASUS Firmware Restoration tool to send am image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site.
+You can use the ASUS Firmware Restoration tool to send an image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site.
+
+[note by frr] It seems that the restoration tool only works if you have an original ASUS firmware (re)installed. It doesn't detect the WL-500GD if it's already got OpenWRT installed (observed with an unresponsive RC4 on my box). If this is the case, perhaps your only chance is TFTP.
 
 /!\ Before you start the Firmware Restoration tool, disable all interfaces on the PC except for the one connected to the Router. The software seems to pick an interface at random.
 
