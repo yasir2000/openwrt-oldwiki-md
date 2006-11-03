@@ -138,13 +138,13 @@ First of all, you need to set the modulation nvram variable, you can find the mo
 
 You need to compile in the firmware for the correct annex for your modem, either A or B. (it should be ticked on the PCB if you have no idea).
 
-You must also compile in br2684ctl and it's dependency linux-atm
+If you're using PPPoE you must also compile in br2684ctl and it's dependency linux-atm, if you're using PPPoA you don't use br2684ctl and you don't use the nas0 device either.
 
 '''Check your line is in sync'''
 
 dmesg should tell you "DSL Line in Sync"You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good, then it should say "SHOWTIME" when it is ready to work.
 
-You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised (see the US/DS connection rate values) and if it is up also check ifconfig regularly to see if you have the nas0 and ppp0 device we set up later on.
+You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised (see the US/DS connection rate values) and if it is up also check ifconfig regularly to see if you have the nas0 and ppp0 device we set up later on.  The rest of this guide assumes you're using PPPoE.  If you're using PPPoA then search on the openwrt wiki for ARM8100 as this AR7 device is known to work with ADSL PPPoA with VC-MUX encapsulation.
 
 '''Load the modules'''
 
@@ -282,7 +282,9 @@ iptables --append FORWARD --in-interface eth0 -j ACCEPT         - Assuming one N
 
 echo 1 > /proc/sys/net/ipv4/ip_forward     - Enables packet forwarding by kernel
 
-please note that this may not be complete and you may require additional rules to protect your router on the wan interface
+please note that this may not be complete and you may require additional rules to protect your router on the wan interface - Note: don't connect to irc.freenode.net from an unfirewalled box on your lan as you might get banned for open proxies.
+
+See www.netfilter.org for full iptables documentation,  it should be noted that in recent builds of openwrt do all the setting up and enabling nat/masquerading for you if you use the "ifup wan" command with a correctly configured /etc/config/network file.
 
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
