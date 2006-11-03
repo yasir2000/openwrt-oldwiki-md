@@ -289,6 +289,32 @@ color_black.css  color_brown.css   color_green.css     color_white.css  webif.cs
 color_blue.css   color_common.css  color_navyblue.css  ie_lt7.css
 }}}
 == X-Wrt trunk ==
+== Recommendation ==
+'''The recommended thing to do...'''
+
+You do not need to flash X-Wrt to take advantage of our work. The best thing to do is flash OpenWrt White Russian, then install our packages. That is the beauty of OpenWrt, is an extensible system. Recommended instructions to install X-Wrt packages on top of OpenWrt are here: http://www.bitsum.com/xwrt.asp .
+
+'''The unrecommended thing to do...'''
+
+For those who actually want to install X-Wrt firmware images instead of OpenWrt, an action not recommended or supporrted at present, browse our ftp directory and find the .rar that contains an archive of all X-Wrt firmware images. This archive of a mere 5.5MB contains all variants of X-Wrt firmware images. Once you've downloaded it, extract it using RAR and TAR, then flash the image appropriate for your device (in accordance with the same naming rules that govern OpenWrt). If you can't figure out what this babble means, then please do not flash X-Wrt and instead see the first paragraph of this post.
+
+'''Advantages of X-Wrt over OpenWrt+Webif^2:'''
+
+
+Busybox 1.2.1 instead of Busybox 1.0.0 - for most users this hardly matters.
+More common packages included by default. Will save space flash space for most users who don't use the image builder to pre-install their desired packages.
+
+'''Disadvantages of X-Wrt over OpenWrt+Webif^2:'''
+
+
+Less well tested.
+In a state of flux at present.
+
+Things that are NOT affected:
+
+
+All X-Wrt packages work equally well either way.
+
 === Quick guide to building X-wrt ===
 Get the code:
 
