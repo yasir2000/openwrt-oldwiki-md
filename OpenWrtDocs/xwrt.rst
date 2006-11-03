@@ -65,6 +65,8 @@ This is simply a newer package than is available at the time of this writing in 
 wireless-tools: ftp://ftp.berlios.de/pub/xwrt/packages/wireless-tools_29.pre10-1_mipsel.ipk
 
 = Building OpenWrt White Russian Sources =
+??[[FootNote(Is this really needed as it can be found elsewhere)]]
+
 Need a linux OS.
 
 Package pre-requisites: gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev or zlib1g-dev, and libc headers.
@@ -74,6 +76,7 @@ Run 'make' to build. Run 'make menuconfig' to configure.
 See general OpenWrt documentation.
 
 = Firmware Image Technical Details =
+???[[FootNote(Maybe should be deleted as well ...)]]
 ...(TODO: writing up from memory, check details later)...
 
 Different devices require different firmware images, but most Broadcom baed devices compatible with OpenWrt White Russian use TRX images, or derivatives of TRX images. Often times vendors simply prepend or append a proprietary header onto a stock TRX image. Vanilla TRX images are usually named with the extension '.trx', or with 'generic' in the filename.
@@ -96,3 +99,4 @@ These images are simple TRX images with a small proprietary header pre-pended.
 
 == ASUS images ==
 On a variety of devices, even non-Broadcom devices, ASUS uses a TRX-style image with an appended proprietary version information block.
+=Foot Notes=
