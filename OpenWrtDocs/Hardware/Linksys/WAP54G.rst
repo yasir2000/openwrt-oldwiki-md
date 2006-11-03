@@ -36,6 +36,13 @@ Version 1.0 is really special edition: full of bugs, easy to brick, hard to unbr
 But if you understand what you are doing and not just follow point by point instructions, it is highly possible to succeed. Read everything from the wiki pages and documentation, make your strategy and you will not regret.
 
 ==== WAP54G v1.1 ====
+ * No version number on the bottom sticker.
+ * Serial number starts with MDG1.
+ * A couple of nvram variables differ from v1.0
+ * Mini-pci
+ * 3 lights: power, act, link
+ * Reset left of ethernet and closer to ethernet than antenna when looking at the rear.
+
 ==== WAP54G v2.0 ====
 According to [http://freifunk.net/wiki/FreifunkFirmwareEnglish Freifunk site] there are two subversions:
 
