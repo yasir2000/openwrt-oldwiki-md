@@ -61,8 +61,8 @@ How to get info:
  * version info: {{{nvram show | grep ver | sort}}}[[BR]]
  * cpu model: {{{cat /proc/cpuinfo | grep cpu}}}
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||'''os_version''' ||'''firmware_version''' ||
-||WAP54G v1.0 ||- ||bcm94710dev'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||- ||- ||2'''[:OpenWrtDocs/Hardware/Linksys/WAP54Gv10#cr+in+nvram:\r]''' ||4 ||BCM4702KPB ||- ||5.3.22 ||- ||- ||
-||WAP54G v1.1 ||- ||bcm94710dev ||- ||- ||2 ||5 ||BCM4702KPB ||- ||- ||3.61.13.0 ||v2.08.08(USA), Jan 24, 2005 ||
+||WAP54G v1.0 ||- ||bcm94710dev ||- ||- ||2 ||4 ||BCM4702KPB ||- ||5.3.22 ||- ||- ||
+||WAP54G v1.1 ||- ||bcm94710dev ||- ||- ||2 ||5 ||BCM4702KPB ||- ||{{{GemtekPmonVer = "10" ?}}} ||3.61.13.0 ||v2.08.08(USA) ||
 ||WAP54G v2 ||0x10 ||0x0446 ||8 ||0 ||1024 ||7 ||BCM3302 V0.7 ||- ||CFE 3.51.21.0 ||3.51.21.0 ||- ||
 ||WAP54G v3 || 0x13 || 0x0467 || 0x0758 || - || WAP54GV3_8M_0614 || - || BCM3302 V0.8(?) || - || CFE 3.91.39.0 || 3.91.39.0 || v3.05.03(EU) ||
 Please complete this table. Look at the [http://openwrt.org/forum/viewtopic.php?pid=8127#p8127 Determining WRT54G/GS model using nvram variables] thread. May be this table should move up to ["OpenWrtDocs/Hardware"].
@@ -84,6 +84,8 @@ Verify that setting has worked by navigating to http://192.168.1.245/apply.cgi?a
 Tested only on original LinkSys firmwares version 2.07, 2.07EU, 3.04. Please report success on other fw versions.
 
 This method is known '''not to work on LinkSys fw 1.0x''', nor on '''fw 3.05'''
+
+Works on v1.1 fw 2.08 - -- BrianWhite [[DateTime(2006-11-03T21:50:41Z)]]
 
 ==== Setting boot_wait from a serial connection ====
 Same as for [:OpenWrtDocs/Installing:WRT54G].
