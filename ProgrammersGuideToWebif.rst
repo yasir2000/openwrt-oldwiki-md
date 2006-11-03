@@ -125,7 +125,7 @@ If you want, the category can be added by your script and the category will be o
 {{{
 <!--
 ##WEBIF:category:HelloWorld
-##WEBIF:name:HelloWorld:1:test
+##WEBIF:name:HelloWorld:1:Hello World
 -->
 }}}
 
