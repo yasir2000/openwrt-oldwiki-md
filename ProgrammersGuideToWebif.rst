@@ -289,7 +289,7 @@ color_black.css  color_brown.css   color_green.css     color_white.css  webif.cs
 color_blue.css   color_common.css  color_navyblue.css  ie_lt7.css
 }}}
 == X-Wrt trunk ==
-== Recommendation ==
+=== Recommendation ===
 '''The recommended thing to do...'''
 
 You do not need to flash X-Wrt to take advantage of our work. The best thing to do is flash OpenWrt White Russian, then install our packages. That is the beauty of OpenWrt, is an extensible system. Recommended instructions to install X-Wrt packages on top of OpenWrt are here: http://www.bitsum.com/xwrt.asp .
