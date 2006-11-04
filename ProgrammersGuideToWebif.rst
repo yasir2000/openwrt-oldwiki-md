@@ -1,11 +1,15 @@
-'''Programmers Guide to webif^2'''
+'''Programmers Guide to webif(^2)'''
+
+The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the BusyBox HTTPD server. And is commonly called Webif.
 
 [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
 Webif^2 tries to add functions that can help novice users quicker into Openwrt.
 
+Much of what is included here is taken from Webif^2 code.
+
 An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.
 
-"Programmers Guide to webif" is the only documentaion available, unless you read the code. It is the Dummy's guide based on this dummy's research as an outsider to the webif^2 developement.
+"Programmers Guide to webif" is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
 IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
@@ -13,29 +17,22 @@ OR if you are a good shell programmer with no original ideas (like me), look thr
 
 Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
 
-irc on freenode.net channel #x-wrt 
+irc on:
+ * freenode.net channel #x-wrt 
 
 X-ref'ed to:
-
  * [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
-
 ''' Thanks '''
-
 Thanks for feedback from:  
  * thepeople  
  * dude  
  * guymarc
-
 ----
-
 [[TableOfContents(4)]]
-
 = What IS a webif page? =
-
 A webif page is essentially an HTML page with embedded shell script.
 
 Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
-
 {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 
@@ -43,8 +40,6 @@ When FORM_submit is not-empty, the page saves itself through a series of calls t
 
 Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 }}}[[FootNote(Is this up to date or relevant- I haven't found out yet)]] 
-
-
 == File and directory structure ==
 ||||/www contains... ||
 ||index.html || with redirect to cgi-bin/webif.sh||
@@ -63,6 +58,7 @@ Conversly, a page should always load its settings via 'load_settings GROUP' to m
 header "Info" "System Information" "@TR<<System Information>>" '' ''
 
 # A lot of shell code ....
+
 footer
 ?> 
 <!--
@@ -95,21 +91,18 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 The classic example - or do nothing with style
 
 add to .categories
-
 {{{
 ##WEBIF:category:HelloWorld
 }}}
 cp info.sh to helloworld.sh in cgi-bin/webif
 
 alter the corresponding lines
-
 {{{
  . header "Info" "System Information" "@TR<<System Information>>" '' ''
 
 ##WEBIF:name:Info:1:System Information
 }}}
 to
-
 {{{
 header "HelloWorld" "Hello World" "@TR<<Hello World>>" '' ''
 
@@ -128,15 +121,11 @@ If you want, the category can be added by your script and the category will be o
 ##WEBIF:name:HelloWorld:1:Hello World
 -->
 }}}
-
 You can now basically make any status page you want.
-
 == File and directory structure revisited ==
 Apart from the /www structure, we have
 ||/usr/lib/webif/ ||the webif core: source-able functions are defined here plus awk code ||
 ||/usr/lib/webif/lang/*/common.txt ||language translations for the webif ||
-
-
 === lang ===
 Ahh, localisation. So lets just quote from other sources here:
 {{{
@@ -148,7 +137,7 @@ Therefore, simply using many @TR<<text>> macros for strings is all that initiall
 
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 }}}
-The translation is done by webif-page (the pre-processor[[FootNote(Need some form of connection/documentation how pre-processor works with busybox httpd server: probably not important here)]]). It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
+The translation is done by webif-page. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 === /usr/lib/webif ===
@@ -189,14 +178,13 @@ This is haserl version 0.8.0
 This program runs as a cgi interpeter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
 }}}
-
 As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is the translator[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
 == ash - the shell ==
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 == testing ==
 "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
-Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on (I hope this will change)
+Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on but will make a backup in a tmp file area (until next reboot ...)
 {{{
 To use your router as an active development box, do the following:
 
@@ -331,9 +319,7 @@ In a state of flux at present.
 
 Things that are NOT affected:
 
-
 All X-Wrt packages work equally well either way.
-
 == Quick guide to building X-wrt ==
 Get the code:
 
