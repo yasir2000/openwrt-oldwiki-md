@@ -85,6 +85,7 @@ When buildroot first unzips the linux kernel sources to build_<arch>/linux-<kern
 {{{
   cd build_mipsel/linux-2.6-brcm/linux-2.6.17
   make ARCH=mips menuconfig
+  rm .image .modules
 }}}
 
 Returning to the top level directory and running 'make' should rebuild the target with the new kernel options selected as <y> installed. For <m> (loadable module) selections, you will also want to select the appropriate option under "Kernel Modules" in the OpenWrt configuration menu.
