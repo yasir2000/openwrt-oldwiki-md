@@ -288,8 +288,8 @@ xwrt
 color_black.css  color_brown.css   color_green.css     color_white.css  webif.css
 color_blue.css   color_common.css  color_navyblue.css  ie_lt7.css
 }}}
-== X-Wrt trunk ==
-=== Recommendation ===
+= X-Wrt trunk =
+== Recommendation ==
 '''The recommended thing to do...'''
 
 You do not need to flash X-Wrt to take advantage of our work. The best thing to do is flash OpenWrt White Russian, then install our packages. That is the beauty of OpenWrt, is an extensible system. Recommended instructions to install X-Wrt packages on top of OpenWrt are here: http://www.bitsum.com/xwrt.asp .
@@ -315,7 +315,7 @@ Things that are NOT affected:
 
 All X-Wrt packages work equally well either way.
 
-=== Quick guide to building X-wrt ===
+== Quick guide to building X-wrt ==
 Get the code:
 
 svn checkout svn://svn.berlios.de/xwrt/trunk
@@ -329,7 +329,7 @@ make menuconfig - just say exit and yes: then you "probably" have default config
 make
 
 The results are in bin 
-==== Ubuntu ====
+=== Ubuntu ===
 Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
 uuencode
