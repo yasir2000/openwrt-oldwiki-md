@@ -172,7 +172,7 @@ Normal parameters:
 }}}
 Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
 = Programmer environment =
-== http ===
+== http ==
 {{{
 The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the BusyBox HTTPD server.
 }}}[[footnote(From OpenWrt's Faq: still investigating)]]
