@@ -178,6 +178,9 @@ This is haserl version 0.8.0
 This program runs as a cgi interpeter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
 }}}
+{{{
+webif-page.c:   char *proc = "/usr/bin/haserl";
+}}}
 As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is the translator[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
 == ash - the shell ==
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
