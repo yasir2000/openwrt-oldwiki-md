@@ -584,6 +584,59 @@ You should then be able to ping something on the internet, e.g. {{{ping google.c
 
 I'm informed that having a correct config should allow the interface to be automatically startup upon reboot, but this does not happen for me yet.
 
+== Installing UPnP ==
+
+This is work in progress, I (hydra) and loswillios in #openwrt on freenode irc have been testing libupnp v1.3.1 and linuxigd v0.95 and I can report some success.
+
+The main reason for me even trying out OpenWRT was due to xbox live connection issues in Test Drive Unlimited which were apparently caused by a symmetric NAT and lack of UPnP.
+
+There are three packages which you need to install: libupnp, libpthread and linuxigd
+
+The arm8100 has very limited ram and flashram so to make way for them I had to disable everything except the bare minimum from the config so that the firmware image doesn't get too big and so the system has enough ram left.
+
+The links on this wiki's UPnP page to libupnp and linuxigd are older versions which probably don't work and/or might have bugs which have been fixed in later versions.
+
+You can download the package sources here:
+
+http://www.hydraservices.com/files/addontecharm8100/libupnp_1.3.1-package-src.tar
+
+and here:
+
+http://www.hydraservices.com/files/addontecharm8100/linuxigd_0.95-package-src.tar
+
+unpack them somewhere and then create symlinks from your kamikaze {{{trunk/package}}} folder to the unpacked package source folders. e.g.
+
+{{{
+cd ~/openwrt/svn/trunk/package
+ln -s ../../../3rdparty/linuxigd
+ln -s ../../../3rdparty/libupnp
+}}}
+
+then run {{{make menuconfig}}} and you should be able to find the packages and compile them into your firmware and reflash it.
+
+As of yet the init script for upnp hasn't been updated for kamikaze, so for now, here's how to start the upnp daemon (which should be done after you've brought up your ADSL link).
+
+{{{
+route add -net 239.0.0.0 netmask 255.0.0.0 eth0
+upnpd ppp0 eth0
+}}}
+
+There's a tool you can get to test your UPnP connect from a windows xp box, you can grab it here.  Make sure you enable the "upnp framework" as a firewall exception on your windows xp box though.
+
+http://noeld.com/programs.asp?cat=dstools#upnptest
+
+It should display something like this:
+
+http://www.hydraservices.com/files/addontecharm8100/arm8100-upnp1.png
+
+From Windows XP you can also create port mappings on the router, don't ask me what happens after the router is rebooted as I've not tried yet ;)
+
+Like this:
+
+http://www.hydraservices.com/files/addontecharm8100/arm8100-upnp2.png
+
+More to follow!
+
 == Restoring Original Firmware ==
 
 use ftp to connect to the adam2 boot loader as above, then restore your backups as follows:
