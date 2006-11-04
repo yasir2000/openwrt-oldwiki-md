@@ -420,7 +420,7 @@ Enter 'help' for a list of built-in commands.
 root@OpenWrt:/#
 }}}
 
-== Getting the ADSL Working via PPPoA ==
+== Getting the ADSL Working via PPPoA (Manually) ==
 
 As I (Hydra) live in the UK and my ISP uses PPPoA the only thing I can test is PPPoA, other people have tested PPPoE and found it to work.
 
@@ -554,6 +554,35 @@ ppp0      Link encap:Point-to-Point Protocol
 Now, my firmware doesn't have many packages compiled in right now, and i need to figure out which ones to use too.  But at least all the hardware appears to work so far!
 
 As a side note my router could connect to the internet ok (resolv.conf was correctly updated, too) however other machines on the lan could not so the firewall in the router (read iptables configuration) is obviously not correct, yet.
+
+== Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ==
+
+Hopefully by the time you read this the updated pppoa.sh, ppp.sh scripts will be in svn at which point you can add a "wan" section to the end of your {{{/etc/config/network}}} file that looks like this:
+
+{{{
+config interface wan
+        option ifname   ppp0
+        option username "me@myisp"
+        option password "mypassword"
+        option proto    pppoa
+        option mtu      1500
+        option mru      1500
+        option vpi      0
+        option vci      38
+        option encapsulation    vc-encaps
+}}}
+
+I've manually specified the mtr/mru here, I need to confirm if those values are correct but they may not be optimal.  They work for me and I'm including them in the example above so you can see how to adjust them.
+
+With that config file in place, and the adam2 environment variable "modulation" correctly set (using adam2 ftp issue the command {{{quote "SETENV modulation,GDMT"}}} or GLITE or MMODE or T1413) you can check the DSL is ready by checking the output of {{{cat /proc/tiatm/avsar_modem_training}}} - it should read {{{SHOWTIME}}}
+
+Now the moment of truth, issue the command "ifup wan" which will run the ifup.sh script which parses the config file and runs the relevant commands to make the PPPoA connection via ADSL.  Feel free to read the ifup.sh and other scripts, doing so will give you a better understanding of how everything works.  For example, you should be able to see that each "option" statement in the config above is eventually passed to the "pppd" program as command line parameters.
+
+After running the "{{{ifup wan}}}" command you should be able to check the status of {{{ppp0}}} using the command {{{ifconfig ppp0}}}.  The route should also be setup, you can issue the {{{route}}} command to check that you have a default route that uses the ip address if the ppp0 interface as it's gateway.  Additionally the iptables chains should have been configured correctly for you, check with {{{iptables -t nat -L -v}}} to see if you've got some rules that use the "ppp0" interface and also check {{{iptables -L -v}}} too.  Finally, your {{{/etc/resolv.conf}}} should be updated with the dns servers that pppd should have been told about by your isp during the connection.
+
+You should then be able to ping something on the internet, e.g. {{{ping google.com}}}, and have the address resolved and icmp pings replied to.
+
+I'm informed that having a correct config should allow the interface to be automatically startup upon reboot, but this does not happen for me yet.
 
 == Restoring Original Firmware ==
 
