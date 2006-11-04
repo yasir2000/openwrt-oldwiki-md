@@ -172,6 +172,10 @@ Normal parameters:
 }}}
 Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
 = Programmer environment =
+== http ===
+{{{
+The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the BusyBox HTTPD server.
+}}}[[footnote(From OpenWrt's Faq: still investigating)]]
 == ash - the shell ==
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 == testing ==
@@ -416,5 +420,6 @@ The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.ph
 = o-o =
  * [http://www.busybox.net/downloads/BusyBox.html busybox]
  * [http://matt.ucc.asn.au/dropbear/dropbear.html dropbear]
+ * [http://haserl.sourceforge.net/ haserl]
 
 = Footnotes =
