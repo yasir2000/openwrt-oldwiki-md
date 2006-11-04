@@ -172,10 +172,25 @@ Normal parameters:
 }}}
 Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
 = Programmer environment =
-== http ==
+== httpd and cgi ==
 {{{
 The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the BusyBox HTTPD server.
-}}}[[footnote(From OpenWrt's Faq: still investigating)]]
+}}}[[FootNote(From OpenWrt's Faq: still investigating)]]
+{{{
+root@oxo-t:/www/cgi-bin/webif# webif-page
+
+This is haserl version 0.8.0
+This program runs as a cgi interpeter, not interactively.
+Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
+
+root@oxo-t:/www/cgi-bin/webif# haserl
+
+This is haserl version 0.8.0
+This program runs as a cgi interpeter, not interactively.
+Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
+}}}
+
+As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is the translator[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
 == ash - the shell ==
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 == testing ==
