@@ -28,6 +28,7 @@ After that, ''clear your browser cache'', give the router some time to reboot, a
 
 After a while (and we mean ''a while'') it should be reachable under the default IP {{{192.168.1.1}}}.  Do '''not''' classify the router as dead until you have given it 10 minutes, rebooted it, and given it 10 more.
 
+
 == Using Serial Console ==
 Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server on your local PC.
 
@@ -266,7 +267,9 @@ The WGT634U comes equipped with an integrated antenna, which is soldered to the 
 
  * OpenWGT project (this project is not currently under active development) [[BR]]- http://openwgt.informatik.hu-berlin.de/
 
- * Another firmware project [[BR]]- http://router.4th.be/
+ * Another firmware project [[BR]]- http://router.4th.be/ 
+
+ * Note on uploading large images (not openwrt) to the WGT634U (from [https://dev.openwrt.org/ticket/368 Ticket#368] ) [[BR]]- When using the wgt634u web upgrader (wgt634u-upgrade.cfg), you can't upload a file of more than 5120k. This is a problem for some images, such as the MIT roofnet openwrt image. I've fixed the problem, and posted the new version to http://xa.net/wgt634u-upgrade.cfg. The fix is to change the file etc/boa/boa.conf file, set the option SinglePostLimit from 5120 to 8192
 
 = End Of Life =
 I got confirmation from Janine Bodwin of Netgear that the WGT634U was EOL'ed on 01-Oct-2005
