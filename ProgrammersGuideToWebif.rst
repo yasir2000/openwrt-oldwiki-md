@@ -5,7 +5,7 @@ The OpenWrt web interface is based on a set of shell and awk scripts and the for
 [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
 Webif^2 tries to add functions that can help novice users quicker into Openwrt.
 
-Much of what is included here is taken from Webif^2 code.
+Much of what is included here is taken from Webif^2 code at some stage of it's developement.
 
 An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.
 
@@ -424,6 +424,6 @@ The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.ph
 = o-o =
  * [http://www.busybox.net/downloads/BusyBox.html busybox]
  * [http://matt.ucc.asn.au/dropbear/dropbear.html dropbear]
- * [http://haserl.sourceforge.net/ haserl]
+ * [http://haserl.sourceforge.net/haserl.html haserl]
 
 = Footnotes =
