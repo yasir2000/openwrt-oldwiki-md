@@ -141,10 +141,52 @@ The translation is done by webif-page. It either uses a nvram get "language" (if
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 === /usr/lib/webif ===
-A quick grep of the .sh files gives  an idea of the functions available:
-{{{
-apply-hs.sh:reload_hotspot() { apply-hs.sh:reload_shape() { apply-pptp.sh:reload_pptp() { apply.sh:reload_wifi_enable() { apply.sh:reload_wifi_disable() { apply.sh:reload_network() { apply.sh:reload_wireless() { apply.sh:reload_cron() { apply.sh:reload_syslog() { apply.sh:getPID(){ apply.sh:reload_system() { apply.sh:is_read_only() { functions.sh:load_settings_ex() { functions.sh:save_setting_ex() { functions.sh:commit_settings_ex() {( functions.sh:   option_cb() { functions.sh:load_settings() { functions.sh:validate() { functions.sh:save_setting() { hs.sh:has_required_pkg() { pkgfuncs.sh:is_package_installed() { pkgfuncs.sh:install_package() { pkgfuncs.sh:remove_package() { pkgfuncs.sh:update_package_list() { pkgfuncs.sh:add_package_source() { webif.sh:empty() { webif.sh:equal() { webif.sh:neq() { webif.sh:exists() { webif.sh:categories() { webif.sh:subcategories() { webif.sh:show_validated_logo() { webif.sh:ShowWIPWarning() { webif.sh:update_changes() { webif.sh:has_pkgs() { webif.sh:mini_header() { webif.sh:header() { webif.sh:footer() { webif.sh:apply_passwd() { webif.sh:display_form() { webif.sh:list_remove() { webif.sh:handle_list() { webif.sh:is_bcm947xx() {
-}}}
+A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||\1||\2||doc||/')]] of the .sh files gives  an idea of the functions available:
+
+||apply.sh||reload_wifi_enable() ||doc||
+||apply.sh||reload_wifi_disable() ||doc||
+||apply.sh||reload_network() ||doc||
+||apply.sh||reload_wireless() ||doc||
+||apply.sh||reload_cron() ||doc||
+||apply.sh||reload_syslog() ||doc||
+||apply.sh||    getPID()||doc||
+||apply.sh||reload_system() ||doc||
+||apply.sh||is_read_only() ||doc||
+||apply.sh||reload_hotspot() ||doc||
+||apply.sh||reload_shape() ||doc||
+||apply.sh||reload_pptp() ||doc||
+||apply.sh||reload_log() ||doc||
+||functions.sh||empty() ||doc||
+||functions.sh||equal() ||doc||
+||functions.sh||neq() ||doc||
+||functions.sh||exists() ||doc||
+||functions.sh||is_bcm947xx() ||doc||
+||functions.sh||remove_lines_from_file() ||doc||
+||functions.sh||load_settings() ||doc||
+||functions.sh||validate() ||doc||
+||functions.sh||save_setting() ||doc||
+||hs.sh||has_required_pkg() ||doc||
+||pkgfuncs.sh||is_package_installed() ||doc||
+||pkgfuncs.sh||install_package() ||doc||
+||pkgfuncs.sh||remove_package() ||doc||
+||pkgfuncs.sh||update_package_list() ||doc||
+||pkgfuncs.sh||add_package_source() ||doc||
+||webif.sh||categories() ||doc||
+||webif.sh||subcategories() ||doc||
+||webif.sh||show_validated_logo() ||doc||
+||webif.sh||ShowWIPWarning() ||doc||
+||webif.sh||ShowUntestedWarning() ||doc||
+||webif.sh||update_changes() ||doc||
+||webif.sh||has_pkgs() ||doc||
+||webif.sh||mini_header() ||doc||
+||webif.sh||header() ||doc||
+||webif.sh||footer() ||doc||
+||webif.sh||apply_passwd() ||doc||
+||webif.sh||display_form() ||doc||
+||webif.sh||list_remove() ||doc||
+||webif.sh||handle_list() ||doc||
+
+
 There are also awk files.
 {{{
 browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
