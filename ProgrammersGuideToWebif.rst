@@ -1,68 +1,60 @@
 '''Programmers Guide to webif(^2)'''
 
-The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the `BusyBox` HTTPD server. And is commonly called Webif.
+ The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the `BusyBox' HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.)]]
 
-[http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel.
-Webif^2 tries to add functions that can help novice users quicker into Openwrt.
+ [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif^2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif^2 code at some stage of it's developement.
 
-Much of what is included here is taken from Webif^2 code at some stage of it's developement.
+ "Programmers Guide to webif" is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
-An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.
+ IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
-"Programmers Guide to webif" is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
+ OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
-IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
+ Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
 
-OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
-
-Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
-
-irc on:
- * freenode.net channel #x-wrt 
-
-X-ref'ed to:
- * [wiki:OpenWrtDocs/xwrt X-Wrt page on openwrt]
-''' Thanks '''
-Thanks for feedback from:  
- * thepeople  
- * dude  
+ Thanks for feedback from:
+ * thepeople
+ * dude
  * guymarc
+'''irc'''
+ * freenode.net channel #x-wrt
+'''X-ref'ed'''
+ * [:OpenWrtDocs/xwrt:X-Wrt page on openwrt]
 ----
-[[TableOfContents(4)]]
+ [[TableOfContents(4)]]
 = What IS a webif page? =
 A webif page is essentially an HTML page with embedded shell script.
 
 Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
+
 {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
-
 When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions.
-
 Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
-}}}[[FootNote(Is this up to date or relevant- I haven't found out yet)]] 
+}}}
+[[FootNote(Is this up to date or relevant- I haven't found out yet)]]
+
 == File and directory structure ==
-||||/www contains... ||
-||index.html || with redirect to cgi-bin/webif.sh||
-|| ||css files||
-||.version|| the svn revision number used in update functions ||
-||||/cgi-bin contains... ||
+||||<style="text-align: center;">/www contains... ||
+||index.html || with redirect to cgi-bin/webif.sh ||
+|| ||css files ||
+||.version || the svn revision number used in update functions ||
+||||<style="text-align: center;">/cgi-bin contains... ||
 ||webif.sh ||"exec ./webif/info.sh" ||
-||||/webif contains... ||
-|| ||a lot of .sh files: the fun part including info.sh||
-||.categories|| which we will come back to as it is a bit of hidden magic ||
+||||<style="text-align: center;">/webif contains... ||
+|| ||a lot of .sh files: the fun part including info.sh ||
+||.categories || which we will come back to as it is a bit of hidden magic ||
 === info.sh ===
 {{{
-#!/usr/bin/webif-page 
-<? 
-. /usr/lib/webif/webif.sh 
+#!/usr/bin/webif-page
+<?
+. /usr/lib/webif/webif.sh
 header "Info" "System Information" "@TR<<System Information>>" '' ''
-
 # A lot of shell code ....
-
 footer
-?> 
+?>
 <!--
-##WEBIF:name:Info:1:System Information 
+##WEBIF:name:Info:1:System Information
 -->
 }}}
 The first line tells us that the program that is called a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c : see latter in conection with translation
@@ -91,21 +83,22 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 The classic example - or do nothing with style
 
 add to .categories
+
 {{{
 ##WEBIF:category:HelloWorld
 }}}
 cp info.sh to helloworld.sh in cgi-bin/webif
 
 alter the corresponding lines
+
 {{{
  . header "Info" "System Information" "@TR<<System Information>>" '' ''
-
 ##WEBIF:name:Info:1:System Information
 }}}
 to
+
 {{{
 header "HelloWorld" "Hello World" "@TR<<Hello World>>" '' ''
-
 ##WEBIF:name:HelloWorld:1:Hello World
 }}}
 Please remember that header text has to match the ##WEBIF line.
@@ -115,6 +108,7 @@ Congratulations!
 You just made your first do nothing Webif module !!!! Point your browser at your box (maybe reload with no cache) and see your own greeting.
 
 If you want, the category can be added by your script and the category will be ordered last
+
 {{{
 <!--
 ##WEBIF:category:HelloWorld
@@ -122,97 +116,104 @@ If you want, the category can be added by your script and the category will be o
 -->
 }}}
 You can now basically make any status page you want.
+
 == File and directory structure revisited ==
 Apart from the /www structure, we have
 ||/usr/lib/webif/ ||the webif core: source-able functions are defined here plus awk code ||
 ||/usr/lib/webif/lang/*/common.txt ||language translations for the webif ||
+
+
 === lang ===
 Ahh, localisation. So lets just quote from other sources here:
+
 {{{
-Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file. 
-
-If no symbol is found, the symbol name itself is used for the text. 
-
-Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file. 
-
+Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file.
+If no symbol is found, the symbol name itself is used for the text.
+Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
 The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
 }}}
-The translation is done by webif-page. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang" 
+The translation is done by webif-page. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang"
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
+
 === /usr/lib/webif ===
 A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`doc`||/')]] of the .sh files gives  an idea of the functions available:
-||`apply.sh`||`reload_wifi_enable() `||`doc`||
-||`apply.sh`||`reload_wifi_disable() `||`doc`||
-||`apply.sh`||`reload_network() `||`doc`||
-||`apply.sh`||`reload_wireless() `||`doc`||
-||`apply.sh`||`reload_cron() `||`doc`||
-||`apply.sh`||`reload_syslog() `||`doc`||
-||`apply.sh`||` getPID()`||`doc`||
-||`apply.sh`||`reload_system() `||`doc`||
-||`apply.sh`||`is_read_only() `||`doc`||
-||`apply.sh`||`reload_hotspot() `||`doc`||
-||`apply.sh`||`reload_shape() `||`doc`||
-||`apply.sh`||`reload_pptp() `||`doc`||
-||`apply.sh`||`reload_log() `||`doc`||
-||`functions.sh`||`empty() `||`doc`||
-||`functions.sh`||`equal() `||`doc`||
-||`functions.sh`||`neq() `||`doc`||
-||`functions.sh`||`exists() `||`doc`||
-||`functions.sh`||`is_bcm947xx() `||`doc`||
-||`functions.sh`||`remove_lines_from_file() `||`doc`||
-||`functions.sh`||`load_settings() `||`doc`||
-||`functions.sh`||`validate() `||`doc`||
-||`functions.sh`||`save_setting() `||`doc`||
-||`hs.sh`||`has_required_pkg() `||`doc`||
-||`pkgfuncs.sh`||`is_package_installed() `||`doc`||
-||`pkgfuncs.sh`||`install_package() `||`doc`||
-||`pkgfuncs.sh`||`remove_package() `||`doc`||
-||`pkgfuncs.sh`||`update_package_list() `||`doc`||
-||`pkgfuncs.sh`||`add_package_source() `||`doc`||
-||`webif.sh`||`categories() `||`doc`||
-||`webif.sh`||`subcategories() `||`doc`||
-||`webif.sh`||`show_validated_logo() `||`doc`||
-||`webif.sh`||`ShowWIPWarning() `||`doc`||
-||`webif.sh`||`ShowUntestedWarning() `||`doc`||
-||`webif.sh`||`update_changes() `||`doc`||
-||`webif.sh`||`has_pkgs() `||`doc`||
-||`webif.sh`||`mini_header() `||`doc`||
-||`webif.sh`||`header() `||`doc`||
-||`webif.sh`||`footer() `||`doc`||
-||`webif.sh`||`apply_passwd() `||`doc`||
-||`webif.sh`||`display_form() `||`doc`||
-||`webif.sh`||`list_remove() `||`doc`||
-||`webif.sh`||`handle_list() `||`doc`||
+||{{{apply.sh}}} ||{{{reload_wifi_enable() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_wifi_disable() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_network() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_wireless() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_cron() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_syslog() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{ getPID()}}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_system() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{is_read_only() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_hotspot() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_shape() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_pptp() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_log() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{empty() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{equal() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{neq() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{exists() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{is_bcm947xx() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{remove_lines_from_file() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{load_settings() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{validate() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{save_setting() }}} ||{{{doc}}} ||
+||{{{hs.sh}}} ||{{{has_required_pkg() }}} ||{{{doc}}} ||
+||{{{pkgfuncs.sh}}} ||{{{is_package_installed() }}} ||{{{doc}}} ||
+||{{{pkgfuncs.sh}}} ||{{{install_package() }}} ||{{{doc}}} ||
+||{{{pkgfuncs.sh}}} ||{{{remove_package() }}} ||{{{doc}}} ||
+||{{{pkgfuncs.sh}}} ||{{{update_package_list() }}} ||{{{doc}}} ||
+||{{{pkgfuncs.sh}}} ||{{{add_package_source() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{categories() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{subcategories() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{show_validated_logo() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{ShowWIPWarning() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{ShowUntestedWarning() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{update_changes() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{has_pkgs() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{mini_header() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{header() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{footer() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{apply_passwd() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{display_form() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{list_remove() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{handle_list() }}} ||{{{doc}}} ||
+
+
 There are also awk files.
+
 {{{
 browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
 }}}
 form.awk gives you predefinded forms to use in you webif page. Most of these are used like formname|input
 
 The current forms are as listed:
+
 {{{
 onchange onclick option start_form field button checkbox radio select txtfile option listedit caption string textarea progressbar password upload  submit helpitem helptext helplink checkbox end_form
 }}}
 Normal parameters:
+
 {{{
 # $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes
 }}}
 Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
+
 = Programmer environment =
 == httpd and cgi ==
 {{{
 The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the BusyBox HTTPD server.
-}}}[[FootNote(From OpenWrt's Faq: still investigating)]]
+}}}
+[[FootNote(From OpenWrt's Faq: still investigating)]]
+
 {{{
 root@oxo-t:/www/cgi-bin/webif# webif-page
-
 This is haserl version 0.8.0
 This program runs as a cgi interpeter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
-
 root@oxo-t:/www/cgi-bin/webif# haserl
-
 This is haserl version 0.8.0
 This program runs as a cgi interpeter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
@@ -221,23 +222,23 @@ Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
 webif-page.c:   char *proc = "/usr/bin/haserl";
 }}}
 As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is the translator[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
+
 == ash - the shell ==
 $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
+
 == testing ==
 "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
 Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on but will make a backup in a tmp file area (until next reboot ...)
+
 {{{
 To use your router as an active development box, do the following:
-
   * Mount an NFS or SAMBA share somewhere onto your router. (i.e. to /mnt/myshare).
   * Copy /www and /usr/lib/webif folders recursively to your network share. (i.e. cp -r /www /mnt/myshare/).
   * Remove old /www and /usr/lib/webif folders (i.e. rm -rf /www).
   * Symlink the www folder on your network share to the /www folder on your router (i.e. ln -s /mnt/myshare/www /www).
   * Symlink the usr/lib/webif folder on your network share to the /usr/lib/webif folder on your router (i.e. ln -s /mnt/myshare/usr/lib/webif /usr/lib/webif).
-
-Afterwards, restart the httpd or reboot your router. 
-
+Afterwards, restart the httpd or reboot your router.
 This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
 }}}
 == webif_latest.ipk ==
@@ -252,56 +253,42 @@ tar zxvf webif_0.2-1_mipsel.ipk
 You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.gz
 
 Then you have the package and can poke around :)
+
 {{{
 $ ls -R
 .:
 bin  control  debian-binary  etc  lib  postinst  preinst  sbin  usr  www
-
 ./bin:
 uci
-
 ./etc:
 dnsmasq.options  ez-ipupdate  functions-net.sh  functions_ex.sh  httpd.webif  init.d  ppp
-
 ./etc/ez-ipupdate:
 ez-ipupdate-ok.sh
-
 ./etc/init.d:
 S01syslog  S50openvpn      S60ntp          S90pptp            S90webif_firmwareid  x60cron.webif
 S41ipkg    S52ez-ipupdate  S66upnpd_webif  S90webif_deviceid  x50dnsmasq.webif
-
 ./etc/ppp:
 functions.sh
-
 ./lib:
 config
-
 ./lib/config:
 uci-update.awk  uci.sh
-
 ./sbin:
 runsyslogd
-
 ./usr:
 bin  lib
-
 ./usr/bin:
 bstrip  webif-page  wepkeygen
-
 ./usr/lib:
 webif
-
 ./usr/lib/webif:
 apply-ez-ipupdate.sh  categories.awk  form.awk      languages.awk      timezones.csv
 apply.sh              common.awk      functions.sh  pkgfuncs.sh        validate.awk
 browser.awk           editor.awk      hs.sh         subcategories.awk  webif.sh
-
 ./www:
 cgi-bin  colorize.js  favicon.ico  images  index.html  svggraph  themes  webif.js
-
 ./www/cgi-bin:
 webif  webif.sh
-
 ./www/cgi-bin/webif:
 config.sh                network-logread-ez-ipupdate.sh        status-openvpn.sh
 data.sh                  network-logread-ez-ipupdate_frame.sh  status-pppoe.sh
@@ -323,16 +310,12 @@ network-dhcpsettings.sh  status-connection.sh                  vpn-openvpn.sh
 network-ez-ipupdate.sh   status-conntrackread.sh               vpn-pptp.sh
 network-firewall.sh      status-interfaces.sh
 network-hosts.sh         status-leases.sh
-
 ./www/images:
 openwrt-logo.png
-
 ./www/svggraph:
 graph_cpu.svg  graph_if.svg
-
 ./www/themes:
 xwrt
-
 ./www/themes/xwrt:
 color_black.css  color_brown.css   color_green.css     color_white.css  webif.css
 color_blue.css   color_common.css  color_navyblue.css  ie_lt7.css
@@ -349,19 +332,16 @@ For those who actually want to install X-Wrt firmware images instead of OpenWrt,
 
 '''Advantages of X-Wrt over OpenWrt+Webif^2:'''
 
-
-Busybox 1.2.1 instead of Busybox 1.0.0 - for most users this hardly matters.
-More common packages included by default. Will save space flash space for most users who don't use the image builder to pre-install their desired packages.
+Busybox 1.2.1 instead of Busybox 1.0.0 - for most users this hardly matters. More common packages included by default. Will save space flash space for most users who don't use the image builder to pre-install their desired packages.
 
 '''Disadvantages of X-Wrt over OpenWrt+Webif^2:'''
 
-
-Less well tested.
-In a state of flux at present.
+Less well tested. In a state of flux at present.
 
 Things that are NOT affected:
 
 All X-Wrt packages work equally well either way.
+
 == Quick guide to building X-wrt ==
 Get the code:
 
@@ -375,11 +355,13 @@ make menuconfig - just say exit and yes: then you "probably" have default config
 
 make
 
-The results are in bin 
+The results are in bin
+
 === Ubuntu ===
 Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
 
 uuencode
+
 = Packaging =
 Under contstruction Need feedback
 
@@ -388,6 +370,7 @@ In order to make it easier to integrate your new module it is important to :
 ?? ?? ??
 
 From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684/ module] What happened his package in the developement tree:
+
 {{{
 these files have been modified:
 apply.sh: added reload_logwrt() function
@@ -426,13 +409,17 @@ and then add the code of your function, reload_log() for me, in the body of the 
 = Diverse =
 == NG-style UCI config vs. nvram ==
 OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
+
 === Using NVRAM config functions ===
 These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
+
 === Using UCI config functions ===
  . See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
 Needs feedback
+
 == CSS Theme Rules ==
 We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
+
 {{{
 The CSS theme must adhere to the existing class/id structure.
 Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group.
@@ -448,6 +435,7 @@ CSS themes exist in a dedicated subdirectory of /www/themes.
 To add a new theme, create a subdirectory named after your theme.
 
 Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
+
 == Security- last again ==
 Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
@@ -460,9 +448,9 @@ The top level (/www on the file system) can be referred to as "/"  (i.e. the pat
 Some people would like the first ("welcome" / status ) page not to have user/pass.
 
 The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
+
 = o-o =
  * [http://www.busybox.net/downloads/BusyBox.html busybox]
  * [http://matt.ucc.asn.au/dropbear/dropbear.html dropbear]
  * [http://haserl.sourceforge.net/haserl.html haserl]
-
 = Footnotes =
