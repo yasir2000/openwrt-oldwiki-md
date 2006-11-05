@@ -2,9 +2,9 @@
 
  The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.)]]
 
- [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif^2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif ^ 2 code at some stage of it's developement.
+ [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webifv2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from webifv2 code at some stage of it's developement.
 
- "Programmers Guide to webif" is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
+ Programmers Guide to Webif is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
  IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
@@ -28,7 +28,7 @@ A webif page is essentially an HTML page with embedded shell script.
 
 Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
 
-{{{
+  {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions.
 Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
