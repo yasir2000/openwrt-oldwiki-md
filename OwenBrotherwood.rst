@@ -1,11 +1,24 @@
-##master-page:HomepageTemplate
-#format wiki
-== Your Name ==
-Owen Brotherwood
+'''Owen Brotherwood (oxo)'''
+ Hello world!
 
-Email: [[MailTo(you AT SPAMFREE example DOT com)]]
+[http://www.sitecenter.dk/o-o/sendemail/ Send email]
+---------
+[[TableOfContents(3)]]
+= Asus Premium =
+== sshing setup ==
+ {{{
+# from favorit shell box...
+DEVICE=$1
+USER='root'
 
-...
+putmypublic(){
+ DEVICE=$1
+ ssh 
+ return 0
+}
 
-----
-CategoryHomepage
+putmypublic ${DEVICE?Need device ip address}
+}}}
+= ssh =
+== o-o ==
+ [http://wiki.openwrt.org/DropbearPublicKeyAuthenticationHowto authorized_hosts]
