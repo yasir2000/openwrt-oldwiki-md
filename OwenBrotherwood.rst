@@ -151,7 +151,7 @@ or alternatively convert OpenSSH keys to Dropbear:
         mv /tmp/dropbear/dropbear_* /etc/dropbear/
 }
 }}}
-?? no public keys ???????!! :( :(
+== Public key Segmentation fault ==
  {{{
 root@oxo-t:/etc/dropbear# dropbearkey  -t dss -y -f /tmp/id_dss.pub
 Failed reading '/tmp/id_dss.pub'
