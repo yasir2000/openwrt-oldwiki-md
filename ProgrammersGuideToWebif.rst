@@ -141,8 +141,7 @@ The translation is done by webif-page. It either uses a nvram get "language" (if
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 === /usr/lib/webif ===
-A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`doc`||/'
-)]] of the .sh files gives  an idea of the functions available:
+A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`doc`||/')]] of the .sh files gives  an idea of the functions available:
 ||`apply.sh`||`reload_wifi_enable() `||`doc`||
 ||`apply.sh`||`reload_wifi_disable() `||`doc`||
 ||`apply.sh`||`reload_network() `||`doc`||
