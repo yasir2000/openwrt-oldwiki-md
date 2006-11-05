@@ -5,29 +5,52 @@
 ---------
 [[TableOfContents(3)]]
 = shellwrt =
-== sshing setup ==
+ Well multi-web needs some research ...
+== /usr/bin/shellwrt ==
+ $shellwrt root@192.168.1.1 root@192.168.1.2
  {{{
 #
+# shellwrt
 #
-#
-# from favorit shell box...
+# v000: just do keys ..
 
-MY_USER='root'
+MY_ROOT="$HOME/src/shellwrt/"
+
 MY_UNAME=$(uname -a)
 MY_SHELL=$SHELL
+MY_SHELLWRTLIB="${MY_ROOT}usr/lib/shellwrt"
+MY_LIBS='shellwrt.lib'
+
+{
+        for lib in ${MY_LIBS};do
+                . ${MY_SHELLWRTLIB}/${lib}
+        done
+
+        for device in $*;do
+                setupssh ${device} ${MY_PUBLICDIR} ${MY_PUBLICFILE} ${MY_DEVAUTDIR} ${MY_DEVAUTFILE}
+        done
+}
+}}}
+== /usr/lib/shellwrt/shellwrt.lib ==
+ {{{
+#
+#doc#shellwrt.lib
+#doc#source this file
+#todo#allow ssh from Openwrt box to Openwrt box
 
 MY_PUBLICDIR="$HOME/.ssh"
 MY_PUBLICFILE='id_dsa.pub'
 MY_DEVAUTDIR='/etc/dropbear'
 MY_DEVAUTFILE='authorized_keys'
 
-debugmy(){
+debugmy(){      #doc#todo just shoe MY_'s
         for my in ${!MY_*};do
                 eval echo ${my}
         done
+        return 0        #doc#
 }
 
-setupssh(){
+setupssh(){     #doc#scp public key to device
         MY_DEVICE=$1
         MY_PUBLICDIR=$2
         MY_PUBLICFILE=$3
@@ -47,13 +70,11 @@ setupssh(){
 
         scp ${MY_PUBLIC} ${MY_DEVICE}:${MY_TEMP}
         ssh ${MY_DEVICE} ${MY_SSHCMDS}
-        return $?
+        return $?       #doc#return $? from ssh cmd
 }
 
 {
-        for device in $*;do
-                setupssh "${MY_USER}@${device}" ${MY_PUBLICDIR} ${MY_PUBLICFILE} ${MY_DEVAUTDIR} ${MY_DEVAUTFILE}
-        done
+        return 0
 }
 }}}
 = ssh =
