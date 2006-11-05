@@ -93,10 +93,10 @@ That's all.
 
 = Siemens SE505 v3 =
 
-SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG but doesn't have a spare place for a second RAM chip.
+SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip.
 
-Retrofitting the JTAG and the USB interface is most likely possible. Replacing the RAM chip by a chip with 16MB or  32MB has not yet been reported to work, and it might require changing a new CFE. It is not known if the flash chips are currently supported by the usual JTAG tools.
+Retrofitting the JTAG and the USB interface is most likely possible. Replacing the RAM chip by a chip with 16MB or  32MB has not yet been reported to work, and it might require a new CFE. It is not known if the flash chips are supported by the current JTAG tools.
 
-It isn't clear if OpenWRT works on v3. Most reports suggest that there is a compatibility problem.
+Most reports suggest that there is are compatibility problems with OpenWRT in SE 505 v3.
 ----
  CategoryModel
