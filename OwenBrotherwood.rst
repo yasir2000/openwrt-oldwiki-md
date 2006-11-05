@@ -80,7 +80,7 @@ setupssh(){     #doc#scp public key to device
 }
 }}}
 = ssh =
-From dropbear README
+== dropbear README ==
  {{{
 In the absence of detailed documentation, some notes follow:
 ============================================================================
@@ -129,5 +129,29 @@ or alternatively convert OpenSSH keys to Dropbear:
 
 ============================================================================
 }}}
+== /etc/init.d/S50dropbear ==
+ {{{
+#!/bin/sh
+
+[ ! -f /etc/dropbear/dropbear_rsa_host_key ] && {
+        for type in rsa dss; do {
+                # check for keys
+                key=/tmp/dropbear/dropbear_${type}_host_key
+                [ ! -f $key ] && {
+                        # generate missing keys
+                        mkdir -p /tmp/dropbear
+                        [ -x /usr/bin/dropbearkey ] && {
+                                /usr/bin/dropbearkey -t $type -f $key 2>&- >&- && exec $0 $*
+                        } &
+                        exit 0
+                }
+        }; done
+        lock -w /tmp/.switch2jffs
+        mkdir -p /etc/dropbear
+        mv /tmp/dropbear/dropbear_* /etc/dropbear/
+}
+}}}
+
+?? no public keys ???????!! :( :(
 == o-o ==
  [http://wiki.openwrt.org/DropbearPublicKeyAuthenticationHowto authorized_hosts]
