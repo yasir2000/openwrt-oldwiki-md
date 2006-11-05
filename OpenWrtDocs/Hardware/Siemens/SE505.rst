@@ -2,7 +2,7 @@
 
 SE505 product page is now located at [http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation%3A-5_pageType%3Adownloads_imagePos%3A0,00.html#content http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation%253A-5_pageType%253Adownloads_imagePos%253A0,00.html#content]
 
-There are currently three versions of the SE505. Only the version SE505 V1 and  SE 505 V2 are currently known to be supported by OpenWRT. The third version is not yet reported to work.
+There are currently three versions of the SE505. Only the version SE505 v1 and  SE 505 v2 are currently known to be supported by OpenWRT. The third version, SE505 v3, has not yet been reported to work.
 
 /!\ '''boot_wait is on by default on both supported versions.'''
 
