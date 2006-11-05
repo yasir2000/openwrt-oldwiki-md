@@ -1,14 +1,14 @@
-'''Programmers Guide to webif(^2)'''
+'''Programmers Guide to Webif(^2)'''
 
  The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.)]]
 
- [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webifv2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from webifv2 code at some stage of it's developement.
+ [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif`^`2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif`^`2 code at some stage of it's developement.
 
- Programmers Guide to Webif is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
+ The "Programmers Guide to Webif" is the only documentaion available, unless you read the code... It is a Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
- IF you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
+ If you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
- OR if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
+ Or if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
 '''Feedback'''
  Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
@@ -26,15 +26,12 @@
 = What IS a webif page? =
 A webif page is essentially an HTML page with embedded shell script.
 
-Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.
-
+Core functions, like the page header/footer and settings forms are implemented by an AWK back-end. For example, see /usr/lib/webif/form.awk, which implements 'display_form' calls in the webif pages.[[FootNote(Is this up to date or relevant- I haven't found out yet, this is just taken as is from org wiki ...)]]
   {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions.
 Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 }}}
-[[FootNote(Is this up to date or relevant- I haven't found out yet)]]
-
 == File and directory structure ==
 ||||<style="text-align: center;">/www contains... ||
 ||index.html || with redirect to cgi-bin/webif.sh ||
@@ -46,7 +43,7 @@ Conversly, a page should always load its settings via 'load_settings GROUP' to m
 || ||a lot of .sh files: the fun part including info.sh ||
 ||.categories || which we will come back to as it is a bit of hidden magic ||
 === info.sh ===
-{{{
+  {{{
 #!/usr/bin/webif-page
 <?
 . /usr/lib/webif/webif.sh
@@ -58,19 +55,13 @@ footer
 ##WEBIF:name:Info:1:System Information
 -->
 }}}
-The first line tells us that the program that is called a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c : see latter in conection with translation
-
-The second line <? is a bit of magic so we can combine html and shell scripts - Its sister, ?> at the end finishes that magic show.
-
-The third line means we have some nice library functions that can be drawn on in /usr/lib/webif  - there are more: have a look.
-
-The fourth line gives a title  - @TR: see latter in connection with localisation (TRanslation)
-
-Then a lot of nice shell scripting - header and footer are NOT football terms but examples of the nice functions we can re-use
-
-The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif.   /www/cgi-bin/.catogories contains the order of categpries.
-
-{{{
+  * The first line tells us that the program that is called a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c : see latter in conection with translation
+  * The second line <? is a bit of magic so we can combine html and shell scripts - Its sister, ?> at the end finishes that magic show.
+  * The third line means we have some nice library functions that can be drawn on in /usr/lib/webif  - there are more: have a look.
+  * The fourth line gives a title  - @TR: see latter in connection with localisation (TRanslation)
+  * Then a lot of nice shell scripting - header and footer are NOT football terms but examples of the nice functions we can re-use
+  * The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif.   /www/cgi-bin/.catogories contains the order of categpries.
+  {{{
 ##WEBIF:category:Info
 ##WEBIF:category:Status
 ##WEBIF:category:System
@@ -81,42 +72,36 @@ The file closes with a cryptic ##WEBIF: which is used as housekeeping for the me
 ##WEBIF:category:Reboot
 }}}
 == Hello world! ==
-The classic example - or do nothing with style
+ The classic example - or do nothing with style
 
-add to .categories
-
-{{{
+   * add to .categories
+   {{{
 ##WEBIF:category:HelloWorld
 }}}
-cp info.sh to helloworld.sh in cgi-bin/webif
-
-alter the corresponding lines
-
-{{{
+   * cp info.sh to helloworld.sh in cgi-bin/webif
+   * alter the corresponding lines
+   {{{
  . header "Info" "System Information" "@TR<<System Information>>" '' ''
 ##WEBIF:name:Info:1:System Information
 }}}
-to
-
-{{{
+   {{{
 header "HelloWorld" "Hello World" "@TR<<Hello World>>" '' ''
 ##WEBIF:name:HelloWorld:1:Hello World
 }}}
-Please remember that header text has to match the ##WEBIF line.
+ Please remember that header text has to match the ##WEBIF line.
 
-Congratulations!
+ Congratulations, you just made your first do nothing Webif module.Point your browser at your box (maybe reload with no cache) and see your own greeting.
 
-You just made your first do nothing Webif module !!!! Point your browser at your box (maybe reload with no cache) and see your own greeting.
+ You can now basically make any status page you want.
 
-If you want, the category can be added by your script and the category will be ordered last
 
-{{{
+ If you want, the category can be added by your script and the category will be ordered last
+  {{{
 <!--
 ##WEBIF:category:HelloWorld
 ##WEBIF:name:HelloWorld:1:Hello World
 -->
 }}}
-You can now basically make any status page you want.
 == File and directory structure revisited ==
 Apart from the /www structure, we have
 ||/usr/lib/webif/ ||the webif core: source-able functions are defined here plus awk code ||
