@@ -22,7 +22,7 @@ After several bugfixes releases from WHITE RUSSIAN (RC2) works well on this rout
 = Siemens SE505 v2 =
 The current SE505 (v2) has a 200 MHz BCM4712KPB CPU, 4MB flash and 8 MB RAM on board.
 
-There are some problems (LEDs? default NVRAM?) getting OpenWrt to work on the newer hardware, see the forums.
+There are problems getting White Russian RC5 to work on the newer hardware (hardware detection, LEDs). Whiterussian RC4 micro will work. Expect poor stability when using PPPOE due to insufficient RAM.   
 
 The PCB of the SE505 v2 looks very like the Belkin F5D7230 v1440 (2MB flash) and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens http://communications.siemens.com/repository/695/69584/Gigaset_SE505_3.01.05_English.exe using http://midnightcode.org/projects/pluto/code/belky-0.5.c and a second busybox is easy. Tips: SeattleWireless:Belkin_20F5D7230_2d4 (shell on the box).
 
