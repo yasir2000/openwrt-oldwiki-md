@@ -151,11 +151,15 @@ or alternatively convert OpenSSH keys to Dropbear:
         mv /tmp/dropbear/dropbear_* /etc/dropbear/
 }
 }}}
-== Public key Segmentation fault ==
+== Public key ==
  {{{
-root@oxo-t:/etc/dropbear# dropbearkey  -t dss -y -f /tmp/id_dss.pub
-Failed reading '/tmp/id_dss.pub'
-Segmentation fault
+DROPBEARDIR='/etc/dropbear'
+DROPBEARFILE='dropbear_dss_host_key'
+DROPBEARDSS="${DROPBEARDIR}/${DROPBEARFILE}"
+DROPBEARPUB="${DROPBEARDSS}.pub"
+SEDSEARCH='ssh-dss'
+
+dropbearkey  -t dss -y -f ${DROPBEARDSS}|sed -n -e "/${SEDSEARCH}/p">${DROPBEARPUB}
 }}}
 == o-o ==
  [http://wiki.openwrt.org/DropbearPublicKeyAuthenticationHowto authorized_hosts]
