@@ -7,7 +7,9 @@
 = shellwrt =
  Well multi-web needs some research ...
 == /usr/bin/shellwrt ==
+ {{{
  $shellwrt root@192.168.1.1 root@192.168.1.2
+}}}
  {{{
 #
 # shellwrt
