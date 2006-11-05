@@ -141,52 +141,50 @@ The translation is done by webif-page. It either uses a nvram get "language" (if
 
 Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 === /usr/lib/webif ===
-A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||\1||\2||doc||/')]] of the .sh files gives  an idea of the functions available:
-
-||apply.sh||reload_wifi_enable() ||doc||
-||apply.sh||reload_wifi_disable() ||doc||
-||apply.sh||reload_network() ||doc||
-||apply.sh||reload_wireless() ||doc||
-||apply.sh||reload_cron() ||doc||
-||apply.sh||reload_syslog() ||doc||
-||apply.sh||    getPID()||doc||
-||apply.sh||reload_system() ||doc||
-||apply.sh||is_read_only() ||doc||
-||apply.sh||reload_hotspot() ||doc||
-||apply.sh||reload_shape() ||doc||
-||apply.sh||reload_pptp() ||doc||
-||apply.sh||reload_log() ||doc||
-||functions.sh||empty() ||doc||
-||functions.sh||equal() ||doc||
-||functions.sh||neq() ||doc||
-||functions.sh||exists() ||doc||
-||functions.sh||is_bcm947xx() ||doc||
-||functions.sh||remove_lines_from_file() ||doc||
-||functions.sh||load_settings() ||doc||
-||functions.sh||validate() ||doc||
-||functions.sh||save_setting() ||doc||
-||hs.sh||has_required_pkg() ||doc||
-||pkgfuncs.sh||is_package_installed() ||doc||
-||pkgfuncs.sh||install_package() ||doc||
-||pkgfuncs.sh||remove_package() ||doc||
-||pkgfuncs.sh||update_package_list() ||doc||
-||pkgfuncs.sh||add_package_source() ||doc||
-||webif.sh||categories() ||doc||
-||webif.sh||subcategories() ||doc||
-||webif.sh||show_validated_logo() ||doc||
-||webif.sh||ShowWIPWarning() ||doc||
-||webif.sh||ShowUntestedWarning() ||doc||
-||webif.sh||update_changes() ||doc||
-||webif.sh||has_pkgs() ||doc||
-||webif.sh||mini_header() ||doc||
-||webif.sh||header() ||doc||
-||webif.sh||footer() ||doc||
-||webif.sh||apply_passwd() ||doc||
-||webif.sh||display_form() ||doc||
-||webif.sh||list_remove() ||doc||
-||webif.sh||handle_list() ||doc||
-
-
+A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`doc`||/'
+)]] of the .sh files gives  an idea of the functions available:
+||`apply.sh`||`reload_wifi_enable() `||`doc`||
+||`apply.sh`||`reload_wifi_disable() `||`doc`||
+||`apply.sh`||`reload_network() `||`doc`||
+||`apply.sh`||`reload_wireless() `||`doc`||
+||`apply.sh`||`reload_cron() `||`doc`||
+||`apply.sh`||`reload_syslog() `||`doc`||
+||`apply.sh`||` getPID()`||`doc`||
+||`apply.sh`||`reload_system() `||`doc`||
+||`apply.sh`||`is_read_only() `||`doc`||
+||`apply.sh`||`reload_hotspot() `||`doc`||
+||`apply.sh`||`reload_shape() `||`doc`||
+||`apply.sh`||`reload_pptp() `||`doc`||
+||`apply.sh`||`reload_log() `||`doc`||
+||`functions.sh`||`empty() `||`doc`||
+||`functions.sh`||`equal() `||`doc`||
+||`functions.sh`||`neq() `||`doc`||
+||`functions.sh`||`exists() `||`doc`||
+||`functions.sh`||`is_bcm947xx() `||`doc`||
+||`functions.sh`||`remove_lines_from_file() `||`doc`||
+||`functions.sh`||`load_settings() `||`doc`||
+||`functions.sh`||`validate() `||`doc`||
+||`functions.sh`||`save_setting() `||`doc`||
+||`hs.sh`||`has_required_pkg() `||`doc`||
+||`pkgfuncs.sh`||`is_package_installed() `||`doc`||
+||`pkgfuncs.sh`||`install_package() `||`doc`||
+||`pkgfuncs.sh`||`remove_package() `||`doc`||
+||`pkgfuncs.sh`||`update_package_list() `||`doc`||
+||`pkgfuncs.sh`||`add_package_source() `||`doc`||
+||`webif.sh`||`categories() `||`doc`||
+||`webif.sh`||`subcategories() `||`doc`||
+||`webif.sh`||`show_validated_logo() `||`doc`||
+||`webif.sh`||`ShowWIPWarning() `||`doc`||
+||`webif.sh`||`ShowUntestedWarning() `||`doc`||
+||`webif.sh`||`update_changes() `||`doc`||
+||`webif.sh`||`has_pkgs() `||`doc`||
+||`webif.sh`||`mini_header() `||`doc`||
+||`webif.sh`||`header() `||`doc`||
+||`webif.sh`||`footer() `||`doc`||
+||`webif.sh`||`apply_passwd() `||`doc`||
+||`webif.sh`||`display_form() `||`doc`||
+||`webif.sh`||`list_remove() `||`doc`||
+||`webif.sh`||`handle_list() `||`doc`||
 There are also awk files.
 {{{
 browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
