@@ -1,8 +1,8 @@
 '''Programmers Guide to webif(^2)'''
 
- The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the `BusyBox` HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.)]]
+ The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.)]]
 
- [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif^2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif^2 code at some stage of it's developement.
+ [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif^2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif ^ 2 code at some stage of it's developement.
 
  "Programmers Guide to webif" is the only documentaion available, unless you read the code as far as I know. It is the Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
@@ -117,13 +117,10 @@ If you want, the category can be added by your script and the category will be o
 -->
 }}}
 You can now basically make any status page you want.
-
 == File and directory structure revisited ==
 Apart from the /www structure, we have
 ||/usr/lib/webif/ ||the webif core: source-able functions are defined here plus awk code ||
 ||/usr/lib/webif/lang/*/common.txt ||language translations for the webif ||
-
-
 === lang ===
 Ahh, localisation. So lets just quote from other sources here:
 
@@ -208,7 +205,6 @@ Finally there is one csv file: timezones.csv[[FootNote(I can't help but think th
 The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the BusyBox HTTPD server.
 }}}
 [[FootNote(From OpenWrt's Faq: still investigating)]]
-
 {{{
 root@oxo-t:/www/cgi-bin/webif# webif-page
 This is haserl version 0.8.0
@@ -219,19 +215,16 @@ This is haserl version 0.8.0
 This program runs as a cgi interpeter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
 }}}
+ As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is "just" the translator.[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
 {{{
 webif-page.c:   char *proc = "/usr/bin/haserl";
 }}}
-As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is the translator[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
-
 == ash - the shell ==
-$(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
-
+ $(<file) doesn't work $(cat file) does - apart from that very like bash but there are probably more gotcha's
 == testing ==
-"vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
+ "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
-Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will rm all webif files: including those you work on but will make a backup in a tmp file area (until next reboot ...)
-
+ Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will  rm all webif files: including those you work on but will make a backup in a tmp file area (until next reboot ...)
 {{{
 To use your router as an active development box, do the following:
   * Mount an NFS or SAMBA share somewhere onto your router. (i.e. to /mnt/myshare).
@@ -243,18 +236,17 @@ Afterwards, restart the httpd or reboot your router.
 This change will persist, so from now on you can work on webif pages by simply editing them on the network share. Changes are shown in real-time as you access the webif on the router.
 }}}
 == webif_latest.ipk ==
-To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
+ To get the latest nice clean copy of webif^2 complete package on your shell programming environment:
 
-download latest webif^2 package:
+  * download latest webif^2 package:
 
-ftp://ftp.berlios.de/pub/xwrt/webif_latest.ipk
+  * ftp://ftp.berlios.de/pub/xwrt/webif_latest.ipk
 
-tar zxvf webif_0.2-1_mipsel.ipk
+  * tar zxvf webif_0.2-1_mipsel.ipk
 
-You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.gz
+ You then tar zxvf the tar.gz files: ./debian-binary ./data.tar.gz ./control.tar.gz
 
-Then you have the package and can poke around :)
-
+ Then you have the package and can poke around :)
 {{{
 $ ls -R
 .:
@@ -323,55 +315,44 @@ color_blue.css   color_common.css  color_navyblue.css  ie_lt7.css
 }}}
 = X-Wrt trunk =
 == Recommendation ==
-'''The recommended thing to do...'''
+ '''The recommended thing to do...'''
 
-You do not need to flash X-Wrt to take advantage of our work. The best thing to do is flash OpenWrt White Russian, then install our packages. That is the beauty of OpenWrt, is an extensible system. Recommended instructions to install X-Wrt packages on top of OpenWrt are here: http://www.bitsum.com/xwrt.asp .
+  You do not need to flash X-Wrt to take advantage of our work. The best thing to do is flash OpenWrt White Russian, then install our packages. That is the beauty of OpenWrt, is an extensible system. Recommended instructions to install X-Wrt packages on top of OpenWrt are here: http://www.bitsum.com/xwrt.asp .
 
-'''The unrecommended thing to do...'''
+ '''The unrecommended thing to do...'''
 
-For those who actually want to install X-Wrt firmware images instead of OpenWrt, an action not recommended or supporrted at present, browse our ftp directory and find the .rar that contains an archive of all X-Wrt firmware images. This archive of a mere 5.5MB contains all variants of X-Wrt firmware images. Once you've downloaded it, extract it using RAR and TAR, then flash the image appropriate for your device (in accordance with the same naming rules that govern OpenWrt). If you can't figure out what this babble means, then please do not flash X-Wrt and instead see the first paragraph of this post.
+  For those who actually want to install X-Wrt firmware images instead of OpenWrt, an action not recommended or supporrted at present, browse our ftp directory and find the .rar that contains an archive of all X-Wrt firmware images. This archive of a mere 5.5MB contains all variants of X-Wrt firmware images. Once you've downloaded it, extract it using RAR and TAR, then flash the image appropriate for your device (in accordance with the same naming rules that govern OpenWrt). If you can't figure out what this babble means, then please do not flash X-Wrt and instead see the first paragraph of this post.
 
-'''Advantages of X-Wrt over OpenWrt+Webif^2:'''
+ '''Advantages of X-Wrt over OpenWrt+Webif^2:'''
 
-Busybox 1.2.1 instead of Busybox 1.0.0 - for most users this hardly matters. More common packages included by default. Will save space flash space for most users who don't use the image builder to pre-install their desired packages.
+  Busybox 1.2.1 instead of Busybox 1.0.0 - for most users this hardly matters. More common packages included by default. Will save space flash space for most users who don't use the image builder to pre-install their desired packages.
 
-'''Disadvantages of X-Wrt over OpenWrt+Webif^2:'''
+ '''Disadvantages of X-Wrt over OpenWrt+Webif^2:'''
 
-Less well tested. In a state of flux at present.
+  Less well tested. In a state of flux at present.
 
-Things that are NOT affected:
+ '''Things that are NOT affected'''
 
-All X-Wrt packages work equally well either way.
-
+  All X-Wrt packages work equally well either way.
 == Quick guide to building X-wrt ==
-Get the code:
-
-svn checkout svn://svn.berlios.de/xwrt/trunk
-
-cd the trunk
-
-(you could also cd package/webif to see the source package of webif^2)
-
-make menuconfig - just say exit and yes: then you "probably" have default config
-
-make
-
-The results are in bin
-
+ Get the code:
+  * svn checkout svn://svn.berlios.de/xwrt/trunk
+  * cd the trunk
+ (you could also cd package/webif to see the source package of webif^2)
+  * make menuconfig - just say exit and yes: then you "probably" have default config
+  * make
+ The results are in bin
 === Ubuntu ===
-Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
-
-uuencode
-
+ Make X-Wrt trunk needs extra pkg's compared to Openwrt on my eduubuntu:
+  * uuencode
 = Packaging =
-Under contstruction Need feedback
+ Under contstruction Need feedback
 
-In order to make it easier to integrate your new module it is important to :
+ In order to make it easier to integrate your new module it is important to :
 
 ?? ?? ??
 
-From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684/ module] What happened his package in the developement tree:
-
+ From guymarc who made a [http://www.bitsum.com/smf/index.php?topic=373.msg1684#msg1684/ module] What happened his package in the developement tree:
 {{{
 these files have been modified:
 apply.sh: added reload_logwrt() function
@@ -409,18 +390,14 @@ and then add the code of your function, reload_log() for me, in the body of the 
 }}}
 = Diverse =
 == NG-style UCI config vs. nvram ==
-OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
-
+ OpenWrt is migrating away from nvram, with it completely removed from buildroot-ng. The webif is doing the same. There are new config functions able to load and store files in the UCI config file format.
 === Using NVRAM config functions ===
-These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
-
+ These functions load and store nvram variables (untyped tuples). An example invocation of saving an nvram varaible is: 'save_setting GROUPNAME VARIABLE=VALUE'.
 === Using UCI config functions ===
- . See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
-Needs feedback
-
+ See /usr/lib/webif/functions.sh , the '_ex' functions for further information. [/quote]
+ Needs feedback
 == CSS Theme Rules ==
-We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
-
+ We now support multiple CSS themes in the webif. Contributors of new themes should adhere to these rules:
 {{{
 The CSS theme must adhere to the existing class/id structure.
 Changes to class/id names or addition of new ones should be done only if there are no other options, and requires approval of the group.
@@ -431,25 +408,23 @@ The CSS theme must work in IE 6, IE 7, Opera, and Firefox. You must test it in e
 It will not be considered at all for the default theme if it does not work in all browsers. It will be your responsibility to fix bugs and maintain the CSS.
 }}}
 === How to create a new CSS theme ===
-CSS themes exist in a dedicated subdirectory of /www/themes.
+ CSS themes exist in a dedicated subdirectory of /www/themes.
 
-To add a new theme, create a subdirectory named after your theme.
-
-Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
-
+ To add a new theme:
+  * create a subdirectory named after your theme.
+  * Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
 == Security- last again ==
-Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
+ Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
-The config file is in /etc/httpd.conf.[[FootNote(Could do with a bit morw info with busyboxes http server)]]
+ The config file is in /etc/httpd.conf.[[FootNote(Could do with a bit morw info with busyboxes http server)]]
 
-Most lines are of the form path: user:password which means that to access the path the specified user & password must be provided.
+ Most lines are of the form path: user:password which means that to access the path the specified user & password must be provided.
 
-The top level (/www on the file system) can be referred to as "/"  (i.e. the paths are with respect to /www). [/quote]
+ The top level (/www on the file system) can be referred to as "/"  (i.e. the paths are with respect to /www). [/quote]
 
-Some people would like the first ("welcome" / status ) page not to have user/pass.
+ Some people would like the first ("welcome" / status ) page not to have user/pass.
 
-The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
-
+ The present hasn't this, the past may have http://forum.openwrt.org/viewtopic.php?pid=12670#p12670
 = o-o =
  * [http://www.busybox.net/downloads/BusyBox.html busybox]
  * [http://matt.ucc.asn.au/dropbear/dropbear.html dropbear]
