@@ -1,4 +1,4 @@
-'''Owen Brotherwood (oxo)'''
+'''Owen Brotherwood (oxo), Denmark'''
  Hello world!
 
  * [http://www.sitecenter.dk/o-o/sendemail/ Send email]
