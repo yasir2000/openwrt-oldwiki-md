@@ -23,7 +23,42 @@
     * enable special things: eg USB/Printer on Asus Premium
   * be "Developer friendly"
  {{{
- $shellwrt root@192.168.1.1 root@192.168.1.2
+ $shellwrt root@192.168.1.1
+}}}
+ '''Detect ssh client'''
+ {{{
+SSHCLIENTOPENSSH='openssh'
+OPENSSHDIR="$HOME/.ssh"
+OPENSSHFILE='id_dsa.pub'
+OPENSSHPUB="${OPENSSHDIR}/${OPENSSHFILE}"
+
+setuppubdropbear(){
+        return 1
+}
+
+setuppubopenssh(){
+        return 1
+}
+
+{
+        [ -d ${OPENSSHDIR} ] && my_sshclient='openssh'
+        [ -d ${DROPBEARDIR} ] && my_sshclient='dropbear'
+
+        case $my_sshclient in
+                ${SSHCLIENTDROPBEAR})   #
+                        [ -f ${DROPBEARPUB} ] || setuppubdropbear || return 1
+                        cat ${DROPBEARPUB}
+                ;;
+                ${SSHCLIENTOPENSSH})    #
+                        [ -f ${OPENSSHPUB} ] || setuppubopenssh || return 1
+                        cat ${OPENSSHPUB}
+                ;;
+                *)              #
+                                echo >&2 SSHCLIENTUNKNOWN || return 1
+                ;;
+        esac
+        return 0
+}
 }}}
  {{{
 #
