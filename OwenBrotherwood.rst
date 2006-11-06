@@ -5,7 +5,7 @@
 ---------
 [[TableOfContents(3)]]
 = shellwrt =
- Well multi-web needs some research ...
+ Well [http://www.bitsum.com/smf/index.php?topic=332.msg1589#msg1589 multi-web] needs some research ...
 == /usr/bin/shellwrt ==
  {{{
  $shellwrt root@192.168.1.1 root@192.168.1.2
