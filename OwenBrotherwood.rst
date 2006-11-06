@@ -16,8 +16,11 @@
    * Find out which client: OpenSSH or dropbear
    * Send public keys to all boxes in WDS
   * Configuration
-   * do some things that are special per box
-   * do some things that are global for a WDS
+   * Network
+    * do some things that are special per box
+    * do some things that are global for a WDS
+   * Hardware box
+    * enable special things: eg USB/Printer on Asus Premium
   * be "Developer friendly"
  {{{
  $shellwrt root@192.168.1.1 root@192.168.1.2
