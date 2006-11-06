@@ -1,7 +1,8 @@
 '''Owen Brotherwood (oxo)'''
  Hello world!
 
-[http://www.sitecenter.dk/o-o/sendemail/ Send email]
+ * [http://www.sitecenter.dk/o-o/sendemail/ Send email]
+ * [http://www.sitecenter.dk/o-o Home Page]
 ---------
 [[TableOfContents(3)]]
 = shellwrt =
