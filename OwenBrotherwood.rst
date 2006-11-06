@@ -8,6 +8,12 @@
 = shellwrt =
  Well [http://www.bitsum.com/smf/index.php?topic=332.msg1589#msg1589 multi-web] needs some research ...
 == /usr/bin/shellwrt ==
+ shellwrt should:
+  * run on OpenWrt box or Local Pc Shell (CPU friendly for OpenWrt box ...)
+  * Find out which client: OpenSSH or dropbear
+  * Send public keys to all boxes in WDS
+  * do some things that are special per box
+  * do some things that are global for a WDS
  {{{
  $shellwrt root@192.168.1.1 root@192.168.1.2
 }}}
