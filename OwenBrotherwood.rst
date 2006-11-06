@@ -25,7 +25,8 @@
  {{{
  $shellwrt root@192.168.1.1
 }}}
- '''Detect ssh client'''
+=== Detect ssh client ===
+We "drop"bear for the time being as I cannot get Whiterussian->Whiterussian with dropbear to work, only OpenSSh works so far ...
  {{{
 SSHCLIENTOPENSSH='openssh'
 OPENSSHDIR="$HOME/.ssh"
@@ -206,16 +207,6 @@ or alternatively convert OpenSSH keys to Dropbear:
         mkdir -p /etc/dropbear
         mv /tmp/dropbear/dropbear_* /etc/dropbear/
 }
-}}}
-== Public key ==
- {{{
-DROPBEARDIR='/etc/dropbear'
-DROPBEARFILE='dropbear_dss_host_key'
-DROPBEARDSS="${DROPBEARDIR}/${DROPBEARFILE}"
-DROPBEARPUB="${DROPBEARDSS}.pub"
-SEDSEARCH='ssh-dss'
-
-dropbearkey  -t dss -y -f ${DROPBEARDSS}|sed -n -e "/${SEDSEARCH}/p">${DROPBEARPUB}
 }}}
 == o-o ==
  [http://wiki.openwrt.org/DropbearPublicKeyAuthenticationHowto authorized_hosts]
