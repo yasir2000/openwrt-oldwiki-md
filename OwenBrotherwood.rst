@@ -79,10 +79,12 @@ setupssh(){     #doc#scp public key to device
         return 0
 }
 }}}
-= ssh (dropbear)=
-It is easy to ssh from a ssh box to an OpenWrt box. However it has so far not been possible for me to ssh from an OpenWrt box to another OpenWrt box with a key :(
+= ssh (dropbear) =
+ ssh is very important in the solution: to be able to ssh with keys so no password.
 
-Maybe it is because the dropbear key generation with -y does not place a someone@somwhere at the end of the public key ...
+ It is easy to ssh from a ssh box to an OpenWrt box. However it has so far not been possible for me to ssh from an OpenWrt box to another OpenWrt box with a key :(
+
+ Maybe it is because the dropbear key generation with -y does not place a someone@somwhere at the end of the public key ...
 
 == dropbear README ==
  {{{
