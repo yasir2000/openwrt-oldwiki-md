@@ -130,14 +130,37 @@ setupssh(){     #doc#scp public key to device
         return 0
 }
 }}}
-= ssh (dropbear) =
+= ssh =
  ssh is very important in the solution: to be able to ssh with keys so no password.
 
- It is easy to ssh from a ssh box to an OpenWrt box. However it has so far not been possible for me to ssh from an OpenWrt box to another OpenWrt box with a key :(
+ It is easy to ssh from a ssh box to an OpenWrt box. However OpenWrt box to another OpenWrt box with a key is also needed.
+dropbear doesn't work openssh does.
+
+== OpenSSH ==
+Works.
+=== /etc/init.d/S50sshd ===
+ {{{#!/bin/sh
+
+for type in rsa dsa; do {
+  # check for keys
+  key=/etc/ssh/ssh_host_${type}_key
+  [ ! -f $key ] && {
+    # generate missing keys
+    [ -x /usr/bin/ssh-keygen ] && {
+      /usr/bin/ssh-keygen -N '' -t $type -f $key 2>&- >&- && exec $0 $*
+    } &
+    exit 0
+  }
+}; done
+mkdir -p /var/empty
+/usr/sbin/sshd
+}}}
+== dropbear ==
+ Doesn't work.
 
  Maybe it is because the dropbear key generation with -y does not place a someone@somwhere at the end of the public key ...
 
-== dropbear README ==
+=== dropbear README ===
  {{{
 In the absence of detailed documentation, some notes follow:
 ============================================================================
@@ -186,7 +209,7 @@ or alternatively convert OpenSSH keys to Dropbear:
 
 ============================================================================
 }}}
-== /etc/init.d/S50dropbear ==
+=== /etc/init.d/S50dropbear ===
  {{{
 #!/bin/sh
 
