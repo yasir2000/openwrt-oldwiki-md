@@ -59,6 +59,16 @@ config interface lan
 }}}
 DNS option not working in build 5195.  Had to edit ''/etc/resolv.conf'' for it to work.  Needs further testing.
 
+==== Bridging Interfaces ====
+{{{
+config interface lan
+	option type	bridge
+	option ifname	"eth0.0 ath0"
+	option proto	static
+	option ipaddr	192.168.1.1
+	option netmask	255.255.255.0
+}}}
+
 ==== Bridged xDSL ====
 {{{
 config interface wan
