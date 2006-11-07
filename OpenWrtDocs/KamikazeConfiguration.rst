@@ -52,9 +52,20 @@ config interface wan
 config interface lan
 	option ifname	eth0.0
 	option proto	static
-	option ipaddr	192.168.1.1
+	option ipaddr	192.168.1.2
 	option netmask	255.255.255.0
+	option gateway	192.168.1.1
+	option dns	192.168.1.1
 }}}
+DNS option not working in build 5195.  Had to edit ''/etc/resolv.conf'' for it to work.  Needs further testing.
+
+==== Bridged xDSL ====
+{{{
+config interface wan
+	option ifname	nas0
+	option proto	dhcp
+}}}
+
 === PPPoE and PPPoA ===
 Normally, these are used for DSL.
 
@@ -66,6 +77,9 @@ config interface wan
         option password xxxxxx
 }}}
 === 802.11x ===
+'''Note: Currently supported on Broadcom only'''
+  * /etc/config/wireless documentations https://dev.openwrt.org/browser/trunk/docs/wireless.tex
+  * Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
 
 Default Configuration:
@@ -81,8 +95,6 @@ config wifi-iface
 	option hidden	0
 	option encryption none
 }}}
-
-Currently, the only? supported type is broadcom.  Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
 
 Full outline of the wifi config file is as follows:
 {{{
