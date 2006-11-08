@@ -184,6 +184,6 @@ Reboot the router, check again.
 == ... and back again ==
 As it is now, your router is a switch with oneway connections. It acts much like a semipermiable membrane. It forbids connections from DMZ to LAN on the same subnet, but allows them from LAN to DMZ. There are lots of ways to improve. The firewall is primitive. You can add mor vlans. You can add WLAN ... 
 
-... use your immagination :-D
+... use your imagination :-D
 
 n.
