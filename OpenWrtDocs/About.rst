@@ -75,3 +75,4 @@ is Kamikaze.
 || 2005.11.23-21:46+0000 || White Russian RC4 ||
 || 2006.01.27-21:42+0000 || White Russian PRE-RC5 ||
 || 2006.03.27-00:00+0000 || White Russian RC5 ||
+|| 2006.11.07-01:40+0000 || White Russian RC6 ||
