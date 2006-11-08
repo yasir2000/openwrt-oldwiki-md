@@ -66,8 +66,6 @@ At this point you are back in the linux terminal, hit the up arrow twice to brin
 
 Timing is everything at this point.  You have to be quick.  If you take too long you will miss the window (that BOOT_WAIT gives you).  And it's easier to miss than you think.  This is why I make sure to keep the "atftp ..." command in memory.  It makes it easier and quicker to bring up.  You could very easily just have it ready in another terminal.  What ever your preference is the idea is that you have to be quick and in order to be quick you need to have the "atftp ..." command previously typed.
 
+You know you made it in time when you see your PC transfer over the image in 512mb blocks.  Wait for it to finish before doing anything else.  And make sure the power does not get disconnected.
 
-
-Next power up your router, and hit your reset button.  If it doesn't work keep trying.  If you have the "Boot_wait" option "on" you can probably turn the router on first, then run the atftp client and skip hitting the reset button.
-
-For more information on installing !OpenWrt using tftp visit OpenWrtViaTftp
+Because I deal with the JFFS2 !OpenWrt image I have an extra reboot step.  You have to wait around 30-40 seconds after the transfer is complete.  At that point you will see the power light flash on the WRT54GL router.  Only then should you power it down and power it back up (basically, turn it off and on).  At this point it is ready to go.  Telnet into it again and you're in your updated !OpenWrt.
