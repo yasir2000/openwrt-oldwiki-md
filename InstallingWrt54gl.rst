@@ -105,6 +105,6 @@ Next power up your router, and hit your reset button.  If it doesn't work keep t
 
 For more information on installing !OpenWrt using tftp visit OpenWrtViaTftp
 
-=== Other Pages By dRax ===
+= Other Pages By dRax =
 
-UpdatingWRT54GL
+UpdatingWrt54gl
