@@ -30,25 +30,44 @@ There atleast three different ways to turn BOOT_WAIT ON.
 
 1.  Easiest - Access the web interface on the WRT54GL and turn the BOOT_WAIT option on.  You should actually do this immediately after installing !OpenWrt for the first time.
 
-2.  Moderate - You can telnet into your router by typing "telnet <yourIP>" which allows you access to the console.  At this point type "nvram get BOOT_WAIT" into the console.  It will reply telling you yes or no. If it says "yes" you are fine, leave it alone.  If it says "no" type "nvram set  BOOT_WAIT=on".  To confirm, type "nvram get BOOT_WAIT=on" and verify that it says "yes".  Afterwards, you need to commit it to memory.  Type "nvram commit".  And that's it.  BOOT_WAIT is on!
+2.  Moderate - You can telnet into your router by typing "telnet 192.168.1.1" which allows you access to the console.  At this point type "nvram get BOOT_WAIT" into the console.  It will reply telling you yes or no. If it says "yes" you are fine, leave it alone.  If it says "no" type "nvram set  BOOT_WAIT=on".  To confirm, type "nvram get BOOT_WAIT=on" and verify that it says "yes".  Afterwards, you need to commit it to memory.  Type "nvram commit".  And that's it.  BOOT_WAIT is on!
 
 3.  Hard - The only reason this is hard is because the WRT54GL does not have a standard serial port ready to connect to.  You need to modify your board in order to install one.  For more information on installing a serial port to your WRT54GL check out this page InstallSerialWrt54gl.  If you have one connected simply plug it into the serial port of another PC (Linux or Windows) and open a hyperterminal.  Connect at 9600 baud and then turn on your router.  You'll notice that the everything gets dumped to the terminal including information prior to !OpenWrt loading.  Once you get access to the console follow the steps above in the Moderate section for connecting using telnet.  It's the same method at this point.
 
 
 Boot_wait console information can also be obtained from http://wiki.openwrt.org/OpenWrtDocs/BootWait?highlight=%28bootwait%29.
 
+==== tftp Transfer ====
+The reason tftp is useful is because overall it is fast, it can all be done on the command line.
 
 tftp is mainly recommended for those looking to install their own self compiled images of !OpenWrt, because it can also be used to recover from a problem and allow you to put on another Firmware Image, whether it is !OpenWrt or the original from !LinkSys.  This is only relevant in the event that something happens to the router, the install was interrupted or the code causes the router to crash.  You can then use tftp to reflash the router with another firmware.  If something happens to you router the Web Interface may not be available to you.  This is where tftp shines!
 
 atftp is the same as tftp except it's supposedly an advanced version.
 
-To install !OpenWrt using atftp on Linux type the command:
+Updating !OpenWrt is the same as installing !OpenWrt.
 
-atftp --trace --option "timeout 1" --option "mode octet" --put --local-file openwrt-xxx-x.x-xxx.bin 192.168.1.1
+This is the process I use when updating !OpenWrt.  I use a self-compiled image called JFFS2 because I want to be able to write to the system.    Set everything up so that you can telnet (or ssh) into the router.  Make the connections but do not turn your router on.
+
+On another PC with Linux open a terminal and type the following command:
+
+atftp --trace --option "timeout 1" --option "mode octet" --put --local-file openwrt-xxx-x.x-xxx.bin 192.168.1.1 (where the x's are you version)
+
+Then hit enter. (keep your router off during this)
+
+Now hit control-C to cancel.
+
+Now turn on your router.
+
+Now type "telnet 192.168.1.1"  (if it doesn't connect the first time you may have tried connecting to early, simply try again)
+
+When you are connected you should be in the !OpenWrt console,type "reboot".
+
+At this point you are back in the linux terminal, hit the up arrow twice to bring the "atftp --trace..." command back on the screen.  Hit enter.
+
+Timing is everything at this point.  You have to be quick.  If you take too long you will miss the window (that BOOT_WAIT gives you).  And it's easier to miss than you think.  This is why I make sure to keep the "atftp ..." command in memory.  It makes it easier and quicker to bring up.  You could very easily just have it ready in another terminal.  What ever your preference is the idea is that you have to be quick and in order to be quick you need to have the "atftp ..." command previously typed.
+
+
 
 Next power up your router, and hit your reset button.  If it doesn't work keep trying.  If you have the "Boot_wait" option "on" you can probably turn the router on first, then run the atftp client and skip hitting the reset button.
 
 For more information on installing !OpenWrt using tftp visit OpenWrtViaTftp
-
-= atftp Transfer
-atfp The reason tftp is useful is because it is fast and it can all be done on the command line.
