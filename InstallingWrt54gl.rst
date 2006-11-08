@@ -104,3 +104,7 @@ atftp --trace --option "timeout 1" --option "mode octet" --put --local-file open
 Next power up your router, and hit your reset button.  If it doesn't work keep trying.  If you have the "Boot_wait" option "on" you can probably turn the router on first, then run the atftp client and skip hitting the reset button.
 
 For more information on installing !OpenWrt using tftp visit OpenWrtViaTftp
+
+=== Other Pages By dRax ===
+
+UpdatingWRT54GL
