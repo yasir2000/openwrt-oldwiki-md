@@ -1,4 +1,5 @@
 [[TableOfContents]]
+
 = Netgear WGT634U =
 attachment:wgt634u.jpg
 
@@ -11,7 +12,6 @@ The kernel boots on the system, we have drivers for the ethernet interface (b44)
 
 {{{
  }}}
-
 If you want to help with development, attach a serial console and build an image from Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at http://forum.openwrt.org/viewforum.php?id=3 regarding the wgt634u.
 
 Please always use the newest subversion code. Report any bugs via the [https://dev.openwrt.org ticket system].
@@ -28,7 +28,6 @@ After that, ''clear your browser cache'', give the router some time to reboot, a
 
 After a while (and we mean ''a while'') it should be reachable under the default IP {{{192.168.1.1}}}.  Do '''not''' classify the router as dead until you have given it 10 minutes, rebooted it, and given it 10 more.
 
-
 == Using Serial Console ==
 Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server on your local PC.
 
@@ -37,28 +36,24 @@ Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server o
  * hold down {{{CTRL-C}}} while inserting power to enter CFE
  * configure ethernet from CFE (e.g. with a local DHCP server):
  {{{
-CFE> ifconfig eth0 -auto 
+CFE> ifconfig eth0 -auto
 Device eth0:  hwaddr 00-0F-B5-97-1C-3D, ipaddr 192.168.0.200, mask 255.255.255.0
         gateway 192.168.0.1, nameserver 192.168.0.1, domain foo.com
 *** command status = 0}}}
-
  * for manual configuration use something like this:
  {{{
 ifconfig eth0 -addr=192.168.1.250 -mask=255.255.255.0
 }}}
-
  * then, flash the new openwrt-wgt634u-2.6-{squashfs,jffs2}.bin image:
  {{{
-CFE> flash -noheader 192.168.0.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin flash0.os 
+CFE> flash -noheader 192.168.0.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin flash0.os
 Reading 192.168.0.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin: Done. 1892352 bytes read
 Programming...done. 1892352 bytes written
 *** command status = 0}}}
-
  * reboot with
  {{{
 CFE> reboot
 }}}
-
 Flashing may take over a minute or more. After that you can use {{{reboot}}} to start !OpenWrt.
 
 = Restoring original firmware =
@@ -68,45 +63,37 @@ To restore the original firmware a serial console is required. You can use TFTP 
  {{{
 mtd -r erase linux
 }}}
-
  * get the original firmware image from Netgear's [http://kbserver.netgear.com/products/WGT634U.asp WGT634U support web site].
-
  * set the original kernel_args and configure the network interface
  {{{
-CFE> setenv -p kernel_args "console=ttyS1,115200 root=/dev/ram0 init=linuxrc rw syst_size=8M" 
+CFE> setenv -p kernel_args "console=ttyS1,115200 root=/dev/ram0 init=linuxrc rw syst_size=8M"
 *** command status = 0
 CFE> ifconfig eth0 -addr=192.168.1.1 -mask=255.255.255.0;
 Device eth0:  hwaddr 00-0F-B5-0E-49-D6, ipaddr 192.168.1.1, mask 255.255.255.0
         gateway not set, nameserver not set
 *** command status = 0}}}
-
  * first you have to flash the full image. Notice, how many bytes it writes to the flash (in this example it wrote 3932160 bytes).
  {{{
-CFE> flash -noheader tftp_host:wgt634u_1_4_1_10.img flash0.os 
+CFE> flash -noheader tftp_host:wgt634u_1_4_1_10.img flash0.os
 Reading tftp_host:wgt634u_1_4_1_10.img: Done. 3932160 bytes read
 Programming...done. 3932160 bytes written
 *** command status = 0}}}
-
  * split the image, bs=<bytes> are the bytes you should noticed in the previous step.
  {{{
 dd if=wgt634u_1_4_1_10.img of=foo.img.1 bs=3932160 skip=1
 }}}
-
  * flash the second part of the image, use the correct offset
  {{{
-CFE> flash -noheader -offset=3932160 tftp_host:foo.img.1 flash0.os 
+CFE> flash -noheader -offset=3932160 tftp_host:foo.img.1 flash0.os
 Reading tftp_host:foo.img.2: Done. 786256 bytes read
 Programming...done. 786256 bytes written
 *** command status = 0}}}
-
  * after some minutes it's done. Finally execute
  {{{
 CFE> reset
 }}}
-
 = Configuration =
-The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration. Everything is configured in {{{/etc}}}. For network configuration please modify {{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please back it up. You eventually need it to restore your original firmware.
-The WGT634U uses the madwifi driver for the wireless card. See [http://madwifi.org/wiki madwifi wiki] for several examples of how to configure access point/client mode/monitor mode and the up to date docs on the madwifi driver.
+The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration. Everything is configured in {{{/etc}}}. For network configuration please modify {{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please back it up. You eventually need it to restore your original firmware. The WGT634U uses the madwifi driver for the wireless card. See [http://madwifi.org/wiki madwifi wiki] for several examples of how to configure access point/client mode/monitor mode and the up to date docs on the madwifi driver.
 
 == Client-mode for the wireless card ==
 The WGT634U also supports client-mode (aka managed mode). You need kmod-madwifi, which is probably already installed since it's selected by default.
@@ -121,7 +108,6 @@ wlanconfig ath0 destroy
 wlanconfig ath0 create wlandev wifi0 wlanmode sta
 iwconfig ath0 essid your_essid
 }}}
-
 You can then configure ath0 as usual with ifconfig and iwconfig. Iwconfig will display Mode: Managed, but the card will be in client-mode.
 
 = Using USB drive for Root =
@@ -143,25 +129,20 @@ You should have the minimum of the following modules loaded as well:
  * sd_mod
  * scsi_mod
  * usbcore
-
 First create a /usb directory under the root directory and cut and paste this script i call linuxrc also under the root directory, and remember to customize the variables according to the partitions on your usb drive.  The current variables assume three partitions on the drive with the second partition being a swap partition.
 
  . {{{
 #!/bin/sh
 #/linuxrc script to mount usb drive as root and pivot current root to /jffs
-
 #it is important that you customize these settings to fit your drive!
 boot_dev="/dev/discs/disc0/part1"
 swap_dev="/dev/discs/disc0/part2"
 usb_dev="/dev/discs/disc0/part3"
-
 # mount the usb stick
 mount -t ext3 -o rw "$boot_dev" /usb
-
 # if everything looks ok, do the pivot root
 if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
         pivot_root /usb /usb/jffs
-
         umount /jffs/proc/bus/usb
         umount /jffs/proc
         umount /jffs/dev/pts
@@ -170,35 +151,27 @@ if [ -x /usb/sbin/init ] && [ -d /usb/jffs ]; then
         umount /jffs/tmp
         umount /jffs/dev
         umount /jffs/sys
-
         mount none /proc -t proc
         mount none /dev -t devfs
         mount none /tmp -t tmpfs size=50%
         mkdir -p /dev/pts
         mount none /dev/pts -t devpts
-
    swapon "$swap_dev"
    mount -t sysfs sys /sys
    mount -t ext3 -o rw "$usb_dev" /mnt/usb
    mount -o bind,ro /mnt/usb/snapshot /snapshot
-
 fi
-
 exec /bin/busybox init
 }}}
-
 We're not done yet, it's also imperative that you add a line into your init scripts to execute this script, so add the following line to the end of the /etc/init.d/S99done file:
 
  . {{{
 [ -f /linuxrc ] && . /linuxrc
 }}}
-
 There!  Now when you go to reboot, your usb drive will be mounted as root as according to the linuxrc script.
 
 = Serial console =
-Default parameters for the serial console on J7 are 115200 N81. You can build a suitable serial console using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  If you want to build your own,
-a project and PCB are detailed at [http://members.shaw.ca/swstuff/wgt634u.html http://members.shaw.ca/swstuff/].
-You can also build a serial console cable using a cell phone data cable.  For example, the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected.  Plug into your linux box's USB port and connect minicom to /dev/ttyUSBn.
+Default parameters for the serial console on J7 are 115200 N81. You can build a suitable serial console using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  If you want to build your own, a project and PCB are detailed at [http://members.shaw.ca/swstuff/wgt634u.html http://members.shaw.ca/swstuff/]. You can also build a serial console cable using a cell phone data cable.  For example, the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected.  Plug into your linux box's USB port and connect minicom to /dev/ttyUSBn.
 
 J6 (left from J7) is a second serial port, but has no header on it. It has the same pinout as J7.
 
@@ -218,14 +191,12 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
 ------------------------------------------
    |    |     |     |     |     |     |
 }}}
-
 = Switch port map =
 {{{
 --------------------------
 | NETGEAR  p i w 1 2 3 4 |
 --------------------------
 }}}
-
 ||{{{p}}} ||power/status leds ||
 ||{{{i}}} ||port 4 ||
 ||{{{w}}} ||wireless ||
@@ -234,7 +205,6 @@ J6 (left from J7) is a second serial port, but has no header on it. It has the s
 ||{{{3}}} ||port 1 ||
 ||{{{4}}} ||port 0 ||
 ||SoC ||port 5 ||
-
 = GPIO lines =
 Several GPIO lines appear on little gold testpoints near the Broadcom chip.
 || GPIO bit || location ||
@@ -246,6 +216,8 @@ Several GPIO lines appear on little gold testpoints near the Broadcom chip.
 || 0x04 || reset pushbutton ||
 || 0x02 || TP5 ||
 || 0x01 || ?? ||
+
+
 More info at http://openwrt.pbwiki.com/GPIO
 
 = Mini-PCI Upgrade =
@@ -257,22 +229,16 @@ There seems to be some restriction to the power available to the mini-pci port. 
 The WGT634U comes equipped with an integrated antenna, which is soldered to the radio.  If you wish to use a different antenna, the most practical solution is to unsolder the pigtail and disassemble the antenna and collar.  Once the pigtail end is freed from the radio, it is a fairly simple task to remove both the antenna and the collar.  The Hirose test point is not a suitable attachment for a new pigtail.  The connector is not readily available and is not designed for attaching a permanent antenna.  Better is to solder on a new pigtail and run the coax outside the case where an antenna or more robust antenna coax can be attached.  See [http://cipheralgo.org/~jason/solder_b.jpg this picture] for an example of how it might be done.
 
 = Other projects and information =
+ * Some infos about setting kamikaze up [[BR]] - http://web746.webbox240.server-home.org/openwrt/
  * A WGT-oriented Kamikaze wiki: [[BR]]- http://openwrt.pbwiki.com/
-
  * A Debian on WGT project: [[BR]] - http://www.cyrius.com/debian/bcm947xx/wgt634u/
-
  * More info in the forum: [[BR]]- http://openwrt.org/forum/viewtopic.php?id=33
-
  * External developer's Wiki [[BR]]- http://wgt634u.nomis52.net/
-
  * OpenWGT project (this project is not currently under active development) [[BR]]- http://openwgt.informatik.hu-berlin.de/
-
- * Another firmware project [[BR]]- http://router.4th.be/ 
-
+ * Another firmware project [[BR]]- http://router.4th.be/
  * Note on uploading large images (not openwrt) to the WGT634U (from [https://dev.openwrt.org/ticket/368 Ticket#368] ) [[BR]]- When using the wgt634u web upgrader (wgt634u-upgrade.cfg), you can't upload a file of more than 5120k. This is a problem for some images, such as the MIT roofnet openwrt image. I've fixed the problem, and posted the new version to http://xa.net/wgt634u-upgrade.cfg. The fix is to change the file etc/boa/boa.conf file, set the option SinglePostLimit from 5120 to 8192
-
 = End Of Life =
 I got confirmation from Janine Bodwin of Netgear that the WGT634U was EOL'ed on 01-Oct-2005
 
 ----
- CategoryModel
+ . CategoryModel
