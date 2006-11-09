@@ -32,7 +32,7 @@ There atleast three different ways to turn BOOT_WAIT ON.
 
 2.  Moderate - You can telnet into your router by typing "telnet 192.168.1.1" which allows you access to the console.  At this point type "nvram get BOOT_WAIT" into the console.  It will reply telling you yes or no. If it says "yes" you are fine, leave it alone.  If it says "no" type "nvram set  BOOT_WAIT=on".  To confirm, type "nvram get BOOT_WAIT=on" and verify that it says "yes".  Afterwards, you need to commit it to memory.  Type "nvram commit".  And that's it.  BOOT_WAIT is on!
 
-3.  Hard - The only reason this is hard is because the WRT54GL does not have a standard serial port ready to connect to.  You need to modify your board in order to install one.  For more information on installing a serial port to your WRT54GL check out this page InstallSerialWrt54gl.  If you have one connected simply plug it into the serial port of another PC (Linux or Windows) and open a hyperterminal.  Connect at 9600 baud and then turn on your router.  You'll notice that the everything gets dumped to the terminal including information prior to !OpenWrt loading.  Once you get access to the console follow the steps above in the Moderate section for connecting using telnet.  It's the same method at this point.
+3.  Hard - The only reason this is hard is because the WRT54GL does not have a standard serial port ready to connect to.  You need to modify your board in order to install one.  For more information on installing a serial port to your WRT54GL check out this page SerialPortWrt54gl.  If you have one connected simply plug it into the serial port of another PC (Linux or Windows) and open a hyperterminal.  Connect at 9600 baud and then turn on your router.  You'll notice that the everything gets dumped to the terminal including information prior to !OpenWrt loading.  Once you get access to the console follow the steps above in the Moderate section for connecting using telnet.  It's the same method at this point.
 
 
 Boot_wait console information can also be obtained from http://wiki.openwrt.org/OpenWrtDocs/BootWait?highlight=%28bootwait%29.
@@ -69,3 +69,7 @@ It is important to understand that immediately after you reboot the router from 
 You know you made it in time when you see your PC transfer over the image in 512mb blocks and there could be a lot of them depending on the size of your image.  Wait for it to finish before doing anything else.  And make sure the power does not get disconnected.
 
 Because I deal with the JFFS2 !OpenWrt image I have an extra reboot step.  You have to wait around 30-40 seconds after the transfer is complete.  At that point you will see the power light flash on the WRT54GL router.  Only then should you power it down and power it back up (basically, turn it off and on).  At this point it is ready to go.  Telnet into it again and you're in your updated !OpenWrt.
+
+= Other Pages By dRax =
+
+InstallingWrt54gl
