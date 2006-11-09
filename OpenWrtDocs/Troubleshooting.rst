@@ -12,6 +12,8 @@ If you've broken one of the startup scripts, firewalled yourself or corrupted th
 
 /!\ MAKE SURE that the client used to TELNET to the router is set up for a static ip in the same group (192.168.1.x). Failsafe has no DHCP!
 
+/!\ Your router will listen on the LAN port(s) only.  You will not be able to connect via the WAN port in failsafe mode.
+
 == How to get into failsafe mode ==
 !OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will'' not ''reset the NVRAM.  The ''boot loader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
 
