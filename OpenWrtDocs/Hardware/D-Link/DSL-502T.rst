@@ -1,14 +1,14 @@
 = Work in Progress =
 Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist those working in that direction.
 
-Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0
+Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!)
 
-Kamikaze build 5174 works on the DSL-502T AU & AT
+Kamikaze builds 5174 and 5495 work on the DSL-502T AU & AT
 
 This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
 
 == Specifications ==
-ADSL modem with ADSL2 support to 8Mbit/s, it has port 1 LAN port
+ADSL modem with ADSL2 support to 8Mbit/s+, it has port 1 LAN port
 
 Flash chip: 4MBytes - Samsung K8D3216UBC a 32Mbit NOR-type Flash Memory organized as 4M x 8
 
@@ -29,7 +29,7 @@ svn co https://svn.openwrt.org/openwrt/trunk
 
 or get the same revision as myself and use
 
-svn -r 5174 co https://svn.openwrt.org/openwrt/trunk
+svn -r 5495 co https://svn.openwrt.org/openwrt/trunk
 
 Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4], quit and save the config.
 
@@ -117,7 +117,7 @@ quit
 
 '''Getting the LAN connection to work'''
 
-In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase), This option selects between internal and external PHY.
+In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS), This option selects between internal and external PHY.
 
 '''Congratulations you are successful :)'''
 
@@ -148,23 +148,25 @@ You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of workin
 
 '''Load the modules'''
 
-First we need to load all the modules
+You need to load the modules for ppp, most of these are already loaded.
 
 cd /lib/modules/2.4.32
 
-insmod br2684.o #required for br2684ctl
+insmod br2684.o
 
-insmod slhc.o #required for ppp_generic module
+insmod slhc.o
 
-insmod ppp_generic.o #required for pppox module
+insmod ppp_generic.o
 
-insmod ppp_async.o #may not be required
+insmod ppp_async.o
 
-insmod pppox.o #required for pppoe module
+insmod pppox.o #PPPoE
 
-insmod pppoe.o #required for pppoe interface
+insmod pppoe.o #PPPoE
 
-'''Start the bridging interface'''
+insmod pppoatm.o #PPPoA
+
+'''Start the bridging interface''' #PPPoE only
 
 Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and if you want to do VCMUX or LLC)
 
@@ -184,15 +186,15 @@ option ifname nas0
 
 option device ppp
 
-option proto pppoe
+option proto pppoe #change to pppoa for PPPoA (PPP over ATM)
 
-option user " me@isp.com "
+#option user " me@isp.com "
 
-option name " me@isp.com "
+#option name " me@isp.com "
 
-option atm 1
+#option atm 1
 
-'''Bring up the bridging interface'''
+'''Bring up the bridging interface''' #PPPoE only
 
 ifconfig nas0 up # brings up the nas0 interface
 
@@ -216,19 +218,21 @@ passive
 
 asyncmap 0
 
-name " me@isp.com "
+usepeerdns #important gets DNS servers from ISP and adds to resolv.conf
 
-user " me@isp.com "
+#name " me@isp.com "
 
-lcp-echo-interval 2
+user " me@isp.com " #REQUIRED FOR PAP/CHAP AUTH TO BE SUCCESSFUL
 
-lcp-echo-failure 7
+lcp-echo-interval 4
 
-plugin rp-pppoe.so
+lcp-echo-failure 20
 
-mtu 1492 #I suggest setting the MTU otherwise it defaults to 1480, pppoe is usually 1492
+#plugin rp-pppoe.so #use pppoatm.so for PPPoA  #No longer needed as we have a pppoe/pppoa script called from "ifup wan" instead
 
-mru 1452 #Set to this to mtu -40
+mtu 1492 #pppoa should be 1500
+
+mru 1452 #pppoa should be 1460
 
 '''Set up chap/pap authentication '''
 
@@ -238,7 +242,7 @@ edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
 
 '''Bring up the ADSL connection'''
 
-now we simply do pppd and the connection should come up... do ifconfig to check...
+just do "ifup wan" and it should come up, edit /lib/network/pppoe.sh or pppoa.sh to change mtu/mru (typing pppd used to bring the connection up, this doesn't work properly anymore)
 
 ppp0      Link encap:Point-to-Point Protocol inet addr:61.69.250.153  P-t-P:210.8.1.19  Mask:255.255.255.255 UP
 
@@ -254,7 +258,7 @@ you should now be able to ping your ISPs gateway IP from telnet, but you won't b
 
 '''Set up DNS lookup'''
 
-you need to edit /etc/resolv.conf and add the line: search wan before you bring the interface up
+you need to edit /etc/resolv.conf and add the lines: search wan and add a nameserver (DNS server) before you bring the interface up
 
 '''Set up forwarding'''
 
