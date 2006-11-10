@@ -151,9 +151,9 @@ A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`d
 ||{{{pkgfuncs.sh}}} ||{{{add_package_source() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{categories() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{subcategories() }}} ||{{{doc}}} ||
-||{{{webif.sh}}} ||{{{show_validated_logo() }}} ||{{{doc}}} ||
-||{{{webif.sh}}} ||{{{ShowWIPWarning() }}} ||{{{doc}}} ||
-||{{{webif.sh}}} ||{{{ShowUntestedWarning() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{show_validated_logo() }}} ||{{{Placed right above the footer on pages that pass the w3c validater.}}} ||
+||{{{webif.sh}}} ||{{{ShowWIPWarning() }}} ||{{{Placed immediately under header on pages that are a Work In Progress. }}} ||
+||{{{webif.sh}}} ||{{{ShowUntestedWarning() }}} ||{{{Placed immediately under header on pages that are are untested.}}} ||
 ||{{{webif.sh}}} ||{{{update_changes() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{has_pkgs() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{mini_header() }}} ||{{{doc}}} ||
