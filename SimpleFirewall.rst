@@ -1,4 +1,5 @@
-I need to forward and allow external access to various ports, but editing the default firewall.user is error-prone and complex.  Here's an example of what my firewall.user looks like:
+I need to forward and allow external access to various ports, but editing the default firewall.user is error-prone and complex.  Here's an example of what my firewall uses:
+file: /etc/firewall.user
 {{{
 #!/bin/sh
 . /etc/fwlib.sh
@@ -28,9 +29,23 @@ forward_port 10200:10299 laptop2
 ### Translate port for client machines.
 translate_port 8080 workstation1 80
 }}}
-And here's the extremely simple firewall library that it uses:  (Sadly it does require that you maintain an /etc/hosts file in order to make it work.)
+
+And here's the extremely simple firewall library that it uses:
 
 '''Note:''' if you plan on pasting this script into an ssh window, note that the character quoted in the {{{cut}}} command below should probably be a tab, not a space (unless you use spaces to format your /etc/hosts file). ('''''Not relevant now as cut has been replaced with awk''''')
+
+file: /etc/hosts
+
+{{{
+127.0.0.1 localhost OpenWrt
+192.168.1.100 server
+192.168.1.50 workstation1
+192.168.1.80 laptop1
+192.168.1.81 laptop2
+}}}
+
+File: /etc/fwlib.sh
+
 {{{
 #!/bin/sh
 
