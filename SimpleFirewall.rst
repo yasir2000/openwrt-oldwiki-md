@@ -30,7 +30,7 @@ translate_port 8080 workstation1 80
 }}}
 And here's the extremely simple firewall library that it uses:  (Sadly it does require that you maintain an /etc/hosts file in order to make it work.)
 
-'''Note:''' if you plan on pasting this script into an ssh window, note that the character quoted in the {{{cut}}} command below should probably be a tab, not a space (unless you use spaces to format your /etc/hosts file).
+'''Note:''' if you plan on pasting this script into an ssh window, note that the character quoted in the {{{cut}}} command below should probably be a tab, not a space (unless you use spaces to format your /etc/hosts file). ('''''Not relevant now as cut has been replaced with awk''''')
 {{{
 #!/bin/sh
 
