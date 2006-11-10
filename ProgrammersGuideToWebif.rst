@@ -398,6 +398,8 @@ It will not be considered at all for the default theme if it does not work in al
  To add a new theme:
   * create a subdirectory named after your theme.
   * Copy all CSS files from an existing theme into your new directory. Then, start modifying the CSS files. That is all there is to it .
+
+ Or, just delete the default css file and get WHITE Russian: would be nice with a choice for no css theme ...
 == Security- last again ==
  Don't forget the config file that determines what pages require a password.  It's actually determined by the busybox httpd that comes standard, but it's relevant to webif users.
 
