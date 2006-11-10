@@ -106,6 +106,7 @@ port 1194
 proto udp
 
 # "dev tap" will create an ethernet tunnel.
+# try tap0 if tap isn't working
 dev tap
 
 
