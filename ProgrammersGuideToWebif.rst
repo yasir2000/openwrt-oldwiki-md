@@ -18,7 +18,7 @@
  * dude
  * guymarc
 '''irc'''
- * freenode.net channel #x-wrt
+ * irc.freenode.net #x-wrt
 '''X-ref'ed'''
  * [:OpenWrtDocs/xwrt:X-Wrt page on openwrt]
 ----
