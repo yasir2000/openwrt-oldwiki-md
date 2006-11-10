@@ -9,11 +9,12 @@ file: /etc/firewall.user
 flush_firewall
 
 ### Ports accessible on the router from the WAN
-allow_tcp_port 22 # SSH
+# allow_tcp_port 22 # SSH
 # allow_tcp_port 465 # HTTPS
 
 ### Ports accessible from specific hosts to the router from the WAN
 allow_tcp_port_fromhost 80 remote_access # HTTP
+allow_tcp_port_fromhost 22 remote_access # HTTP
 
 ### Ports accessible to client machines.
 # forward_port 22 server
@@ -54,6 +55,7 @@ file: /etc/hosts
 192.168.1.81 laptop2
 195.xxx.xxx.xxx my_support_company
 192.168.1.55 printer_01
+195.xxx.xxx.xxx remote_access
 
 }}}
 
