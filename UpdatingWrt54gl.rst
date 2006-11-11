@@ -6,6 +6,8 @@
 = Introduction =
 This guide is intended for beginners to Linux and/or !OpenWrt.  This guide is dedicated for updating !OpenWrt on the !LinkSys WRT54GL router and the experiences gained by it.  This information is specific to the WRT54GL, however, it can be applied to all routers that are compatible with OpenWrt.  For information on installing !OpenWrt please visit InstallingWrt54gl.  This article assumes you have installed OpenWrt before as there would be no other need to update.
 
+
+
 /!\ '''Reflashing with OpenWrt WILL RESET THE FILESYSTEM''' /!\
 
 = Updating OpenWrt =
@@ -68,7 +70,7 @@ It is important to understand that immediately after you reboot the router from 
 
 You know you made it in time when you see your PC transfer over the image in 512 byte blocks and there could be a lot of them depending on the size of your image.  Wait for it to finish before doing anything else.  And make sure the power does not get disconnected.
 
-Because I deal with the JFFS2 !OpenWrt image I have an extra reboot step.  You have to wait around 30-40 seconds after the transfer is complete.  At that point you will see the power light flash on the WRT54GL router.  Only then should you power it down and power it back up (basically, turn it off and on).  At this point it is ready to go.  Telnet into it again and you're in your updated !OpenWrt.
+Depending on which version of !OpenWrt you use you may have an extra reboot step.  You should wait around 60 seconds after the transfer is complete.  Depending on which version of !OpenWrt you use it may reboot itself or you may have to power it down and power it back up (basically, turn it off and on).  Afterwards, telnet into it again and you're in your updated !OpenWrt.
 
 = Other Pages By dRax =
 
