@@ -57,7 +57,10 @@ Attaching a webcam is a very common wish. Companies like Asus for example have i
 
 What to do:
 
- * First step is to determine the driver that can grab pictures of the webcam. Many cameras are covered by the pwc driver or the ov511. Please consult the project websites to get a list of supported webcams or try to use them with a linux PC.
+ * First step is to determine the driver that can grab pictures of the webcam. Many cameras are covered by the PWC driver, the ov511 driver, or the spca5xx multi-camera driver. Please consult the project websites to get a list of supported webcams or try to use them with a linux PC.
+
+A list of cameras supported by the spca5xx driver (said to number 220 cameras) is at : http://mxhaard.free.fr/spca5xx.html
+
  * Install USB modules for your AP/Router device.
  * Install the V4L (video for linux) driver
  * Install webcam driver.
@@ -83,6 +86,8 @@ Hint: The pwc, pwcx packages were just tested with Asus WL-500gP so far. There i
 Important Hint: The video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, due of the devfs. Just use the correct parameters when you invoke the programs since most assume it to be /dev/video0.
 
 OV511 users may have to look for modules for their cameras a little bit more, but it was done before. For those models an update of this description is needed and welcome. It's a wiki so please contribute ;-)
+
+spca5xx users there is a tutorial here: http://www.macsat.com/
 
 More Links:
  * http://www.nslu2-linux.org/wiki/HowTo/AddUsbWebcam
