@@ -83,7 +83,7 @@ Do not expect to much performance like a real IP-Cam has. This solution will del
 
 Hint: The pwc, pwcx packages were just tested with Asus WL-500gP so far. There is no guarantee that your device will not break!
 
-Important Hint: The video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, due of the devfs. Just use the correct parameters when you invoke the programs since most assume it to be /dev/video0.
+Important Hint: The video device will most likely be /dev/v4l/video0 instead of the common /dev/video0, due of the devfs. Just use the correct parameters when you invoke the programs since most assume it to be /dev/video0.  You may want to symlink it with: 'ln -s /dev/v4l/video /dev/video0' as some apps will crash if they cannot find /dev/video0
 
 OV511 users may have to look for modules for their cameras a little bit more, but it was done before. For those models an update of this description is needed and welcome. It's a wiki so please contribute ;-)
 
