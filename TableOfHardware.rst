@@ -74,8 +74,8 @@ See also
 ||FRITZ!Box Fon 5012 (ISDN) || ||? ||4MB ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon || ||ar7@150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon 5050 || ||ar7@150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
-||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4MB ||16MB ||acx111 mini-pci || || ||yes || || ||Untested ||
-||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4MB ||16MB ||acx111 mini-pci || || ||yes || || ||Untested ||
+||FRITZ!Box Fon WLAN || ||ar7@150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
+||FRITZ!Box Fon WLAN 7050 || ||ar7@150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
 ||FRITZ!Box Fon WLAN 7140 || ||ar7@212mhz ||8MB ||32MB ||acx111 on-board ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
 ||FRITZ!Box Fon WLAN 7170 || ||ar7@212mhz ||8MB ||32MB ||ac111 on-oard ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
 detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
