@@ -1,14 +1,20 @@
-'''Compex WP54G'''
+'''Compex WP54-WRT'''
 
 (This page is at an early stage of development. Please feel free to update)
 
-The Compex WP54G is a small, well-made device with two ethernet ports and Atheros wireless. It can be powered via a separate 24V DC PSU, a proprietary 24V DC PoE injector or real 802.3af PoE.
+The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless. There exist several different models. 
+WP54 1B can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
+WP54 1D can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
+WP54-WRT is the same as WP54 1B board, but it has an additional hardware security chip on the board. This is the only board that can run Open-WRT.
 
-The manufacturer's home site is http://www.compex.com.sg/
+The manufacturer's home site is http://www.compex.com.sg/ . Most of the manufacturer's websites, however is at http://compex.com.sg/home/OEM/index.htm
 
 The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they have their own [http://www.cpx.cz/dls/WP54G_linux/ downloads page]
 
-The Compex-supplied firmware is actually quite powerful; version 2.xx has multi-SSID access point and a number of other operating modes. They claim to [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on this unit.
+The Compex-supplied firmware is actually quite powerful; version 2.xx has multi-SSID access point and a number of other operating modes. 
+
+
+They claim to [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on this unit.
 
 '''However, a standard WP54G *cannot* run OpenWrt'''. Here is the response I got from support when I asked what the procedure was for reflashing a standard WP54G with OpenWrt:
 
