@@ -2,37 +2,24 @@
 
 (This page is at an early stage of development. Please feel free to update)
 
-The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless. There exist several different models. 
-WP54 1B can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
-WP54 1D can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
-WP54-WRT is the same as WP54 1B board, but it has an additional hardware security chip on the board. This is the only board that can run Open-WRT.
+The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless. There exist several different models. Regarding the different models:
 
-The manufacturer's home site is http://www.compex.com.sg/ . Most of the manufacturer's websites, however is at http://compex.com.sg/home/OEM/index.htm
+{{{
+'''WP54 1B''' can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
+'''WP54 1D''' can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
+
+'''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board. This is the only board that can run Open-WRT. 
+a. Open-WRT is preloaded on the board before shipping to customers.
+b. Serial Ports is soldered onto the board.
+c. JTAG Ports is soldered onto the board.
+d. JTAG Programmer and Serial Converter is available if you purchase the development kit.
+}}}
+
+The manufacturer's home site is http://www.compex.com.sg/ . Most of the manufacturer's websites, however is at http://compex.com.sg/home/OEM/index.htm. 
 
 The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they have their own [http://www.cpx.cz/dls/WP54G_linux/ downloads page]
 
-The Compex-supplied firmware is actually quite powerful; version 2.xx has multi-SSID access point and a number of other operating modes. 
-
-
-They claim to [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on this unit.
-
-'''However, a standard WP54G *cannot* run OpenWrt'''. Here is the response I got from support when I asked what the procedure was for reflashing a standard WP54G with OpenWrt:
-
-{{{
-   We have a slight change on the board that support OpenWrt.
-
-   The change is a hardware protection chip on the board.
-
-   To install OpenWrt you need use this board with the added chip.
-
-   OpenWrt won't run in standard model without the chip.
-
-   We  normally  pre-load  OpenWrt for the board purchased and any update
-   can be downloaded.
-
-   You  can  order  these  boards  if thi customer is interested in using
-   OpenWrt.
-}}}
+They claim to [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on WP54-WRT. '''A standard WP54 Model *cannot* support Open-WRT.'''
 
 '''Default settings'''
 
@@ -133,7 +120,11 @@ Opening the unit is done by prising off the four rubber feet and removing the sm
 
 The board appears to be the same as the one in [http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_1B_Bareboard_DSv2.1.pdf this photo]
 
-There is an unpopulated 2x7 jumper (JP1) and another 2x5 jumper (J1). I guess these are JTAG and serial, but are not labelled as such.
+Newly Added:
+
+'''GPIO Bit Mapping / Serial Ports / Serial Console Settings / JTAG Ports'''
+All these information is available in the Hardware Manual that is available on the website under
+http://compex.com.sg/home/OEM/Open_wrt.htm. Look at the link, Hardware Manual.
 
 '''Other links'''
 
