@@ -359,7 +359,7 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
 
  1. Connect a computer to one of the yellow ports of the router
  * Set the computer to gets its IP address by DHCP and make sure it does so before proceeding
- * Connect to http://192.168.15.1 using a web browser.  If it does not respond, hold down the reset button for at least five seconds.  When it reboots, try again.
+ * Connect to http://192.168.15.1 using a web browser.  If it does not respond, hold down the router's reset button for at least five seconds.  When it reboots, try again.
  * Log in using the default username and password of "admin" and "admin"
  * Click on the "Administration" tab
  * Click on the "Firmware Update" tab.  If there is no "Firmware Update" tab, enter http://192.168.15.1/update.html in your browser's location bar.
