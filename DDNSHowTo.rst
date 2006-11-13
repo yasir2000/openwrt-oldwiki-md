@@ -94,7 +94,7 @@ The main configuration is done now.
 == Via hotplug (recommended) ==
 This updates your DDNS every time a WAN connection gets etablished. Since White Russian RC5 the hotplug script is included in the ez-ipupdate package.
 
-Unfortunately, as of version 3.0.11b8-2 in White Russian RC6, the hotplug script /etc/hotplug.d/iface/10-ez-ipupdate is broken, since it uses the obsolete "include /lib/network" mechanism. To make it work, you must edit it to invoke nvram directly, which is just the way the other scripts were adapted:
+Unfortunately, as of version 3.0.11b8-2 in White Russian RC6, the hotplug script {{{/etc/hotplug.d/iface/10-ez-ipupdate}}} is broken, since it uses the obsolete {{{"include /lib/network"}}} mechanism. To make it work, you must edit it to invoke {{{nvram}}} directly, which is just the way the other scripts were adapted:
 {{{
 NAME=ez-ipupdate
 CONFIG=/etc/$NAME.conf
