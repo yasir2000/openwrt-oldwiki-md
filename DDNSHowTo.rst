@@ -106,13 +106,13 @@ COMMAND=/usr/sbin/$NAME
 }
 }}}
 
-To manually update your DDNS account for a test:
+For a test run, temporarilly remove the {{{quiet}}} option from the config and do:
 
 {{{
 ifdown wan && ifup wan
 }}}
 
-You can see ez-ipupdate's output with the {{{logread}}} command (might want to temporarilly remove the {{{quiet}}} option from the config).
+You can see ez-ipupdate's output with the {{{logread}}} command.
 
 == Manually via the command line ==
 {{{
