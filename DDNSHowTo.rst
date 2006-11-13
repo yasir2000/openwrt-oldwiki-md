@@ -2,14 +2,13 @@
 
 [[TableOfContents]]
 = About Dynamic DNS (DDNS) =
-The DDNS service is for etablishing connections from computers on the Internet to your computer. This is useful if you want to run server software on your computer and only have a dynamic IP.
+The DDNS service comes in handy for establishing connections from computers on the Internet to your network at home. This is especially useful if you want to run server software or ssh on your OpenWRT and only have a dynamic IP.
 
 !OpenWrt uses the package {{{ez-ipupdate}}} for providing DDNS service.
 
 = Requirements =
-A recent OpenWrt version. This howto was written for the 'White Russian RC3' and later releases.
-
-An account with a compatible DDNS service (see Configuration)
+ * A recent OpenWrt version. This howto was written for the 'White Russian RC5' and later releases.
+ * An account with a compatible DDNS service (see Configuration)
 
 = Installation =
 {{{
@@ -35,24 +34,22 @@ ez-ipupdate can be used with the following services:
 ez-ipupdate cannot be used with No-IP.com's service. For that use the [:No-IP.comHowTo:noip client]
 
 == Creating the configuration file ==
-Easiest way to use ez-ipupdate is creating a configuration file. We call the file {{{/etc/ez-ipupdate.conf}}}. You can choose any other name.
-
-{{{
-cat > /etc/ez-ipupdate.conf
-}}}
+As of White Russian RC5, the ez-ipupdate package comes with a template configuration file in {{{/etc/ez-ipupdate.conf}}}. You must edit it to reflect your service-type, user, password and host (domain) name:
 
 {{{
 service-type=zoneedit
 user=myname:mypassword
-interface=eth0
 host=mydomain.com
+quiet
 
 # Do not change the lines below
-cache-file=/tmp/ez-ipup
+cache-file=/tmp/ez-ipupdate.cache
 pid-file=/var/run/ez-ipupdate.pid
 }}}
 
-/!\ '''NOTE:''' {{{interface=eth0}}}: use {{{ppp0}}} for PPP based stuff and {{{vlan1}}} for DHCP stuff.
+/!\ '''NOTE:''' With White Russian RC5 or newer, there is no more need for an {{{interface}}} line if you use the hotplug mechanism (which is default now). You only have to set it when using cron or daemon mode as decribed at the end of this howto.
+
+/!\ '''NOTE:''' You should point the cache-file to a permanent location in the jffs tree if your router is rebooted more often than your ip actually changes. Otherwise your previous ip is forgotten over reboots and your DDNS provider might lock you out for unneccessary updates.
 
 The list of allowed parameters in the configuration file are:
 
@@ -91,7 +88,7 @@ partner                 usage: partner=[easydns partner]
 The main configuration is done now.
 
 = Starting DDNS =
-== Via hotplug (recommended) ==
+== Via hotplug (recommended and default) ==
 This updates your DDNS every time a WAN connection gets etablished. Since White Russian RC5 the hotplug script is included in the ez-ipupdate package.
 
 Unfortunately, as of version 3.0.11b8-2 in White Russian RC6, the hotplug script {{{/etc/hotplug.d/iface/10-ez-ipupdate}}} is broken, since it uses the obsolete {{{"include /lib/network"}}} mechanism. To make it work, you must edit it to invoke {{{nvram}}} directly, which is just the way the other scripts were adapted:
@@ -109,17 +106,19 @@ COMMAND=/usr/sbin/$NAME
 }
 }}}
 
-To update your DDNS account do:
+To manually update your DDNS account for a test:
 
 {{{
 ifdown wan && ifup wan
 }}}
 
+You can see ez-ipupdate's output with the {{{logread}}} command (might want to temporarilly remove the {{{quiet}}} option from the config).
+
 == Manually via the command line ==
 {{{
-/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf}}}
+/usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf -i replacethiswithyourinterface}}}
 
-== Via init script ==
+== Via init script (obsolete) ==
 {{{
 cat > /etc/init.d/ez-ipupdate
 }}}
@@ -171,7 +170,7 @@ To start it now, do:
 /etc/init.d/ez-ipupdate start
 }}}
 
-== Via a cronjob ==
+== Via a cronjob (obsolote) ==
 This updates your DDNS account on a specified time via {{{crond}}}. You have to configure HowtoEnableCron before you continue.
 
 Do:
@@ -191,13 +190,13 @@ When finished do {{{ESC}}} and {{{:wq}}} to save it. You can check it with {{{cr
 There are some cron job calculators around the Internet. They maybe helpful for you. One of them is http://www.csgnetwork.com/crongen.html.
 
 == Debugging ==
-To check if ez-ipupdate really updated your IP look at the contents of the file {{{/tmp/ez-ipup}}}:
+To check if ez-ipupdate really updated your IP look at the contents of the file {{{/tmp/ez-ipupdate.cache}}}:
 
 {{{
-test -f /tmp/ez-ipup && cat /tmp/ez-ipup
+test -f /tmp/ez-ipupdate.cache && cat /tmp/ez-ipupdate.cache
 }}}
 
-The dump of my {{{/tmp/ez-ipup}}} file:
+The dump of my {{{/tmp/ez-ipupdate.cache}}} file:
 
 {{{
 1127182459,aaa.bbb.ccc.ddd
