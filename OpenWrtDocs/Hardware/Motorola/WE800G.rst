@@ -97,13 +97,12 @@ Motorola does not have any official firmware releases available on their website
  * [http://broadband.motorola.com/consumers/support/gpl_codes.asp Source Code] [http://broadband.motorola.com/consumers/support/GPL/WE800G_V4.04_GPL.tgz partial source of 4.04]
 
 = Flashing to OpenWRT =
-Imre Kaloz added WE800G and WA800G support to pre-RC5 and this has found it's way into the RC5 as well.
+Imre Kaloz added WE800G and WA800G support to pre-RC5 and this has found it's way into next releases as well.
 
-/!\ It is not adviced to use RC5 for WE800G https://dev.openwrt.org/ticket/504 ! Use the pre-RC5 or post-RC5 image.
+/!\ It is not adviced to use RC5 for WE800G https://dev.openwrt.org/ticket/504 ! Use the pre-RC5 or RC6 image.
 
  * pre-RC5 http://downloads.openwrt.org/people/kaloz/2006-02-06/ 
- * RC5 http://downloads.openwrt.org/whiterussian/rc5/
- * post-RC5 http://downloads.openwrt.org/people/nbd/whiterussian/default/
+ * RC6 http://downloads.openwrt.org/whiterussian/rc6/
 
 Note: The WE800G v1 has plenty of flash and memory and it is capable of accepting firmware of the "bin" directory. Check the firmware [:OpenWrtDocs/Installing: installing] page for firmware image differences. The WE800G v2 should use the "micro" images.
 
@@ -159,7 +158,7 @@ Note: Do not forget to unplug/replug the power of the device as described over t
 
 General instructions how to recover or repair your OpenWRT box are available over the [:OpenWrtDocs/Troubleshooting:troubleshooting] page.
 
-/!\ Filesafe mode on WE800G does not work in RC5 nor in any known version of the post-RC5! https://dev.openwrt.org/ticket/503
+/!\ Filesafe mode on WE800G does not work in RC6 nor in any known version of the RC! https://dev.openwrt.org/ticket/503
 
 = Port layout =
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
