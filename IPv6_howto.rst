@@ -287,6 +287,8 @@ esac
 exit 0
 }}}
 
+Note: I had to add "ttl 64" to the "ip tunnel add sixxs" line in order to be able to do traceroutes. Without it, traceroute6's did work, but slowly and with all intermediate hops missed ("* * *"). With this setting it works. -RZ
+
 == Dynamic (heartbeat) tunnel to SixXS.net ==
 {{{
 ipkg install aiccu
