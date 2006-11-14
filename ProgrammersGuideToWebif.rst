@@ -209,7 +209,7 @@ webif-page.c:   char *proc = "/usr/bin/haserl";
 == testing ==
  "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
- Or mount the AP's filesystem on your favorit computer and test on the real thing. - but beware of a gotcha: a new webif^2 will  rm all webif files: including those you work on but will make a backup in a tmp file area (until next reboot ...)
+ Or mount the AP's filesystem on your favorit computer and test on the real thing.
 {{{
 To use your router as an active development box, do the following:
   * Mount an NFS or SAMBA share somewhere onto your router. (i.e. to /mnt/myshare).
