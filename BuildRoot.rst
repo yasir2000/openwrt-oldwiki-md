@@ -379,6 +379,8 @@ If you're just having trouble getting your package to compile, there's a few sho
 
 Another nice trick is that if the source directory under build_<arch> is newer than the package directory, it won't clobber it by unpacking the sources again. If you were working on a patch you could simply edit the sources under build_<arch>/<source> and run the install command above, when satisfied, copy the patched sources elsewhere and diff them with the unpatched sources. A warning though - if you go modify anything under package/<name> it will remove the old sources and unpack a fresh copy.
 
+[http://openwrt.pbwiki.com/Useful_Trunk_Rebuild_Make_Targets Here] are some additional notes on make targets you can use when you don't want to do a full rebuild.
+
 === Final notes ===
 
 I'm always interested to hear about people's experience with OpenWrt or answer questions about it so please don't hesitate to contact me -[:mbm].
