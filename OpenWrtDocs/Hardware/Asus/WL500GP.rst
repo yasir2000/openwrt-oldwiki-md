@@ -6,7 +6,7 @@ Looks like most people won't be able to install OpenWrt using the Asus web inter
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use manufacturers own web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9?-~
+It might be possible to use manufacturers own web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: it does at least NOT work to upgrade from the web interface versions 1.9.6.9 and 1.9.7.0.-~
 
 === Using diag mode and tftp ===
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
@@ -57,6 +57,7 @@ nvram commit
 You should be able to configure the rest of the network configuration using OpenWrt webif.
 
 Note: new vlan settings will be applied on reboot. Alternatively you can issue
+
 {{{
 echo `nvram get vlan$VLAN_NUMERports` > /proc/switch/eth0/vlan/$VLAN_NUMER/ports
 }}}
@@ -88,8 +89,6 @@ VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running
 wan_device=eth0 (it was set to vlan1)
 
 Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
-
-
 
 The above does not work for me (on a clean OpenWRT squashfs firmware), I've to use these setting after configure in the web ui:
 
