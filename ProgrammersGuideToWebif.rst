@@ -121,19 +121,19 @@ Also, webif-page accepts any *.txt in the laungage directory. Which is a big hel
 
 === /usr/lib/webif ===
 A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`doc`||/'  function() {  #doc# does this   would make documentation easier ...)]] of the .sh files gives  an idea of the functions available:
-||{{{apply.sh}}} ||{{{reload_wifi_enable() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_wifi_disable() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_network() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_wireless() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_cron() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_syslog() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_wifi_enable() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_wifi_disable() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_network() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_wireless() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_cron() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_syslog() }}} ||Only to be used in apply.sh ||
 ||{{{apply.sh}}} ||{{{ getPID()}}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_system() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_system() }}} ||Only to be used in apply.sh ||
 ||{{{apply.sh}}} ||{{{is_read_only() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_hotspot() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_shape() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_pptp() }}} ||{{{doc}}} ||
-||{{{apply.sh}}} ||{{{reload_log() }}} ||{{{doc}}} ||
+||{{{apply.sh}}} ||{{{reload_hotspot() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_shape() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_pptp() }}} ||Only to be used in apply.sh ||
+||{{{apply.sh}}} ||{{{reload_log() }}} ||Only to be used in apply.sh ||
 ||{{{functions.sh}}} ||{{{empty() }}} ||{{{doc}}} ||
 ||{{{functions.sh}}} ||{{{equal() }}} ||{{{doc}}} ||
 ||{{{functions.sh}}} ||{{{neq() }}} ||{{{doc}}} ||
@@ -144,18 +144,18 @@ A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`d
 ||{{{functions.sh}}} ||{{{validate() }}} ||{{{doc}}} ||
 ||{{{functions.sh}}} ||{{{save_setting() }}} ||{{{doc}}} ||
 ||{{{hs.sh}}} ||{{{has_required_pkg() }}} ||{{{doc}}} ||
-||{{{pkgfuncs.sh}}} ||{{{is_package_installed() }}} ||{{{doc}}} ||
+||{{{pkgfuncs.sh}}} ||{{{is_package_installed() }}} ||This function will only check to see if one package is installed. It will return 0 if the package is installed. Example is_package_installed olsrd ||
 ||{{{pkgfuncs.sh}}} ||{{{install_package() }}} ||{{{doc}}} ||
 ||{{{pkgfuncs.sh}}} ||{{{remove_package() }}} ||{{{doc}}} ||
 ||{{{pkgfuncs.sh}}} ||{{{update_package_list() }}} ||{{{doc}}} ||
 ||{{{pkgfuncs.sh}}} ||{{{add_package_source() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{categories() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{subcategories() }}} ||{{{doc}}} ||
-||{{{webif.sh}}} ||{{{show_validated_logo() }}} ||{{{Placed right above the footer on pages that pass the w3c validater.}}} ||
-||{{{webif.sh}}} ||{{{ShowWIPWarning() }}} ||{{{Placed immediately under header on pages that are a Work In Progress. }}} ||
-||{{{webif.sh}}} ||{{{ShowUntestedWarning() }}} ||{{{Placed immediately under header on pages that are are untested.}}} ||
+||{{{webif.sh}}} ||{{{show_validated_logo() }}} ||Placed right above the footer on pages that pass the w3c validater. ||
+||{{{webif.sh}}} ||{{{ShowWIPWarning() }}} ||Placed immediately under header on pages that are a Work In Progress.  ||
+||{{{webif.sh}}} ||{{{ShowUntestedWarning() }}} ||Placed immediately under header on pages that are are untested. ||
 ||{{{webif.sh}}} ||{{{update_changes() }}} ||{{{doc}}} ||
-||{{{webif.sh}}} ||{{{has_pkgs() }}} ||{{{doc}}} ||
+||{{{webif.sh}}} ||{{{has_pkgs() }}} ||Used to check to see if a package is installed. If the package is not installed it will display a install message on the page, if the page is installed it will return nothing. It will except and number of packages by seperating them with a space Example: haspkgs olsrd chillispot||
 ||{{{webif.sh}}} ||{{{mini_header() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{header() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{footer() }}} ||{{{doc}}} ||
