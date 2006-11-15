@@ -6,6 +6,9 @@ It is also not possible to upload openwrt image via web interface. This aborts w
 Up to now I would consider SE551 as unsupported as there is no possibility to upload firmware to the device.[[BR]]
 /!\ Find additional information on http://opossum.rat.at/~anno/SE551/
 
+= Related Hardware =
+
+This router is identical in layout to the SMCWBR14T-G router. The only difference is that the SMC router has only 1 coil and only 3 capasitors providing less power (cheap bastards!). The USB chip and port is alsog gone missing. The firmware seems to be similar, but the SMC device has a slightly older Loader (v0.03, log similar device here [http://forum.openwrt.org/viewtopic.php?pid=36180])
 
 = Product infos =
 
