@@ -31,7 +31,7 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * You can find the router on it's previous ip address (otherwise 192.168.1.1)
 == WL-500gP specific configuration ==
 === Interfaces ===
-/!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0.''' /!\
+/!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0. Similarly forcing lan_proto=dhcp_server breaks LAN even in "diag" mode (and potentially bricks the router).''' /!\
 
 Before reading further, please read about the internal network architecture and how physical ports map to vlans unless you're already familiar with it. See OpenWrtDocs/NetworkInterfaces if you feel like you could refresh your memory.
 
@@ -132,6 +132,8 @@ nvram commit}}}
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
 
 HardwareAcceleratedCrypto
+
+It is possible to access [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Serial_Console serial console] even without opening the device by putting long sharp pins (e. g. needles) through ventilation holes. See.
 
 ----
  . Here are some links to forum threads related to the WL-500gP:
