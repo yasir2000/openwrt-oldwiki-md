@@ -77,7 +77,7 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * Busybox is built with the more command
  * Rotary phones do not work
  * The voice static page displays a wealth of information about registration as well as current and previous calls
- * NOTE: The voice pages are essentially that of Sipura's, replete with documentation 
+ * NOTE: The voice pages are essentially that of Sipura's, replete with documentation (ETSI, dialplans, etc.)
  * The voice tab works and the voice pages display the top level tab bar
  * Distrinctive ring works
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
