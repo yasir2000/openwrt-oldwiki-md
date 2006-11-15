@@ -133,7 +133,7 @@ FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?
 
 HardwareAcceleratedCrypto
 
-It is possible to access [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Serial_Console serial console] even without opening the device by putting long sharp pins (e. g. needles) through ventilation holes. See.
+It is possible to access [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Serial_Console serial console] even without opening the device by putting long sharp pins (e. g. needles) through ventilation holes.
 
 ----
  . Here are some links to forum threads related to the WL-500gP:
