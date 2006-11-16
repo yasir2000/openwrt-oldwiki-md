@@ -56,7 +56,7 @@ If you ever need to revert your router to official Motorola firmware, it can be 
 = Loading Firmware =
 Use which ever method is appropriate for you.
 
-== Enable Boot Wait ==
+== Using Boot Wait ==
  * Install Motorola Firmware Version 4.03 onto the router. (see above)
  * Login to the router's web page and go to `/frame_debug.asp`
  * Type in: `nvram set boot_wait=on`
@@ -80,8 +80,9 @@ Product WR850G[[BR]]
 Release Version 4.03[[BR]]
 Date 05/04[[BR]]
 [[BR]]
-With firmware version 4.03 the '''control''' page has an option '''upgrade firmware'''. I tried this and it complained that the openwrt-wr850g-squashfs.bin file was not a trx file. I renamed the file to .trx instead and it uploaded. After the upload the modem light blinked red for about a minute. [[BR]]
-Initially I was unable to connect to the router however, I followed the Motorola instructions and went and made tea. I unplugged the device and plugged it back in. (Unplugging may not be necessary) While I thought this delay was due to heat, apparently it is due to some firmware initialization requirements. The IP address used prior to loading OpenWrt was retained.  I put the original IP address (I had used 192.168.1.5) in the brower and it pulled up the openwrt welcome page. A lot easier than bootwait. [[BR]]
+With firmware version 4.03 the '''control''' page has an option '''upgrade firmware'''. The file for the Motorola wr850g is openwrt-wr850g-squashfs.bin however the upgrade routine requires that you rename the file to *.trx in order for it to be uploaded. After the upload the modem light blinks red for about a minute. [[BR]]
+Now you need to wait 3 to 5 minutes for the firmware to initialize. Do '''NOT''' act hastily and unplug the router. Follow the Motorola instructions and go and make tea. [[BR]]
+The IP address used prior to loading OpenWrt is retained.  I put the original IP address (I had used 192.168.1.5) in the brower and it pulled up the openwrt welcome page. A lot easier than bootwait. [[BR]]
 
 == Loading from OpenWrt ==
 Use the web interface. Go to System and Firmware Upgrade. Browse for the new firmware and click upgrade.
