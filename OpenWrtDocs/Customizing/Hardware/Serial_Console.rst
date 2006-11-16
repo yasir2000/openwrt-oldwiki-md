@@ -62,8 +62,8 @@ Make sure you reset the router after probing each pin. The bootloader/linux boot
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;-)
 
-== Accessing serial sonsole on Asus WL-500gP without opening the cover ==
-On the Asus WL-500gP design, it is possible to access serial ports without opening the device cover and warranty loss, if you will follow these instructions:
+== Accessing serial console on Asus WL-500gP without opening the cover ==
+With the Asus WL-500gP design, it is possible to access serial ports without opening the device cover and warranty loss, if you will follow these instructions:
 
  1. Connect as much cables as possible (you can easily connect LAN1 to LAN2 and LAN3 to LAN4) to make as much light inside as possible and turn on the router. With a good magnifying lens in the dark room you can easily look inside and locate serial console soldering points and its description. Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
   . {{{
@@ -75,9 +75,9 @@ RESET GND  TX1  RX1}}}
  1. Connect GND anywhere to the chassis, e. g. to the antenna screw.
  1. Now you are ready for the crucial part - connect Rx and Tx cables to the TX0 and RX0 inside the router.
  1. It takes only few minutes to prepare special pins for accessing these soldering points (see the image).
-  . attachment:/home/sb/Desktop/wl500gp_serial_tool.png
+    attachment:wl500gp_serial_tool.png
  1. Using a small lamp, verify that you are watching the right soldering point and touch it by the spike of the needle. Fasten it by the rubber band. Ensure that the spike still touches the right place and that there is no tension which can cause accidental scratching of the printed circuit, short circuit or damage of the device.
  1. Repeat the same with the second line.
  1. Prevent any shaking, connect serial cable and turn the router on.
  1. Now you are ready to start terminal emulator.
-attachment:/home/sb/Desktop/wl500gp_serial.jpg
+attachment:wl500gp_serial.jpg
