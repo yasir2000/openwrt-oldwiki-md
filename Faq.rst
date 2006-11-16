@@ -593,7 +593,7 @@ See BuildingPackagesHowTo.
 For compiling !OpenWrt (from SVN or from the tarball, both the White Russian stable release) you need at least a recent GNU/Linux distribution and the following programs installed:
 
 {{{
-gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, libz-dev and
+gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, ncurses, libz-dev and
 libc headers -- additional package dependencies: madwifi: uudecode(sharutils), privoxy: autoconf
 }}}
 
