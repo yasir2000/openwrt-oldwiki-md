@@ -73,7 +73,7 @@ RESET GND  TX1  RX1}}}
  1. Get a serial cable with the voltage converter. Note that voltage converter is a must! You will need three wires from this cable - GND, Rx, Tx.
  1. Prepare all cables you want to use during the session and connect them, connect power supply, but don't plug it to the wall yet.
  1. Connect GND anywhere to the chassis, e. g. to the antenna screw.
- 1. Now you are ready for the crucial part - connect Rx and Tx cables to the TX0 and RX0 inside the router.
+ 1. Now you are ready for the crucial part - connect Rx and Tx cables to the RX0 and TX0 inside the router.
  1. It takes only few minutes to prepare special pins for accessing these soldering points (see the image).
     attachment:wl500gp_serial_tool.png
  1. Using a small lamp, verify that you are watching the right soldering point and touch it by the spike of the needle. Fasten it by the rubber band. Ensure that the spike still touches the right place and that there is no tension which can cause accidental scratching of the printed circuit, short circuit or damage of the device.
