@@ -77,18 +77,18 @@ That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/bin/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
 = Installing OpenWrt =
-To install !OpenWrt on a supported device (see TableOfHardware), download the correct firmware for your device, verify the md5sum and then use the webupgrade of the preinstalled firmware. Be sure that your power supply is stable and do not disconnect it while flashing OpenWrt to your router. After the installation was successful, your router will be booting into your new shiny linux system.
+To install !OpenWrt on a supported device (see TableOfHardware), download the correct firmware for your device, verify the md5sum and then use the webupgrade of the preinstalled firmware. Be sure that your power supply is stable and do not disconnect it while flashing OpenWrt to your router. After the installation is successful, your router will be booting into your shiny new Linux system.
 
 If you are not happy with !OpenWrt, you can always reinstall your original firmware. Please be sure you have it downloaded and saved on your PC.
 
 == via vendor supplied web interface ==
-This is the easiest method on supported devices. This method works fine for Linksys WRT54GL (see http://wiki.openwrt.org/InstallingWrt54gl#head-01985ece7d7673e68766ec20d4667677cfffc7ac). This method requires that the original web interface is available and might not work in case you are trying to repair a previously botched install or other abnormal situations.  RussNelson reports that reflashing WRT54GL using v4.30.0 failed, but upgrading to v4.30.5 succeeded.
+This is the easiest method on supported devices. This method works fine for Linksys WRT54GL (see http://wiki.openwrt.org/InstallingWrt54gl#head-01985ece7d7673e68766ec20d4667677cfffc7ac). This method requires that the original web interface is available and might not work if you are trying to repair a previously botched install or other abnormal situations.  RussNelson reports that reflashing WRT54GL using v4.30.0 failed, but upgrading to v4.30.5 succeeded.
 
 == via tftp ==
-If you are extremely cautious or try to install a self compiled or modified version of OpenWrt White Russian, please consider using the OpenWrtViaTftp installation method. For some of the hardware models it has special requirements. To avoid potentially serious damage to your router caused by an unbootable firmware you always should read the documentation for your specific router model, see CategoryModel.
+If you are extremely cautious, or are trying to install a self-compiled or modified version of OpenWrt White Russian, please consider using the OpenWrtViaTftp installation method. For some of the hardware models they have special requirements. To avoid potentially serious damage to your router caused by an unbootable firmware you should always read the documentation for your specific router model, see CategoryModel.
 
 == via CFE ==
-If you already got the serial cable, you'll know howto do it, nevertheless ... go ["OpenWrtDocs/Installing/CFE"]
+If you already have the serial cable, you'll know how to do it, nevertheless... go ["OpenWrtDocs/Installing/CFE"]
 
 == via JTAG ==
 It's not recommended to flash the kernel image via jtag, as it will take more than 2 hours, but it is possible ["OpenWrtDocs/Installing/JTAG"]
@@ -102,7 +102,7 @@ Alternatively, you can back up the package list by saving a copy of the file {{{
 
 /!\ '''Reflashing with OpenWrt WILL RESET THE FILESYSTEM''' /!\
 
-All the changes you have made to the configuration files and all the packages you have been installed will be purged and replaced with the new firmware.
+All the changes you have made to the configuration files and all the packages that you have installed will be purged and replaced with the new firmware.
 
 NVRAM is NOT modified by a reflash. Any NVRAM values will remain intact after reflashing.
 
