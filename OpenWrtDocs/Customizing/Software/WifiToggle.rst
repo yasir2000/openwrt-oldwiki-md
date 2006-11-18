@@ -1,3 +1,4 @@
+
 In the new '''OpenWrt WhiteRussian RC6''' the release notes indicated that there's a new diag module which adds control of the leds and the buttons in '''/proc'''.
 
 Snip of release note :  '' New diag module This is what controlls the leds and the buttons; now leds are /proc/diag/led and buttons trigger hotplug scripts in /etc/hotplug.d/button. (Now you can also press any button at startup to enter failsafe mode) ''
@@ -9,7 +10,6 @@ Step 1 : As written in the release notes create a directory named '''button''' i
 Step 2 : Use you're favorite editor to create a file name '''/etc/hotplug.d/button/01-wifitoggle''' and insert the code below :
 
 if [ "$BUTTON" = "ses" ] ; then
-
  . if [ "$ACTION" = "pressed" ] ; then
   . WIFI_RADIOSTATUS=$(nvram get wl0_radio)
   . case "$WIFI_RADIOSTATUS" in
