@@ -8,20 +8,22 @@ Step 1 : As written in the release notes create a directory named '''button''' i
 
 Step 2 : Use you're favorite editor to create a file name '''/etc/hotplug.d/button/01-wifitoggle''' and insert the code below :
 
-if [ "$BUTTON" = "ses" ] ; then if [ "$ACTION" = "pressed" ] ; then . WIFI_RADIOSTATUS=$(nvram get wl0_radio)
+if [ "$BUTTON" = "ses" ] ; then
 
- . case "$WIFI_RADIOSTATUS" in
- . 0) nvram set wl0_radio=1
-  . wifi
-  echo 1 > /proc/diag/led/ses_orange ''' '''
-           ;;''' '''
+ . if [ "$ACTION" = "pressed" ] ; then
+  . WIFI_RADIOSTATUS=$(nvram get wl0_radio)
+  . case "$WIFI_RADIOSTATUS" in
+  . 0) nvram set wl0_radio=1
+   . wifi
+   echo 1 > /proc/diag/led/ses_orange  ;;
+  1) nvram set wl0_radio=0
+   . wifi
+   echo 0 > /proc/diag/led/ses_orange ;;
+  esac
+ fi
+fi
 
- . 1)      nvram set wl0_radio=0
-  . wifi
-  echo 0 > /proc/diag/led/ses_orange
- ;;
-esac
-fi fiStep 3 : test it by pressing the button on the front of the WRT54GL:-)
+Step 3 : test it by pressing the button on the front of the WRT54GL:-)
 
 Done.
 
