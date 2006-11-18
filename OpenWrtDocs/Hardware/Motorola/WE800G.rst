@@ -158,7 +158,14 @@ Note: Do not forget to unplug/replug the power of the device as described over t
 
 General instructions how to recover or repair your OpenWRT box are available over the [:OpenWrtDocs/Troubleshooting:troubleshooting] page.
 
-/!\ Filesafe mode on WE800G does not work in RC6 nor in any known version of the RC! https://dev.openwrt.org/ticket/503
+/!\ Filesafe mode on WE800G does not work in RC5 nor in any known version before it! https://dev.openwrt.org/ticket/503
+
+The RC6 should work, but not as advertised:
+Notes:
+* Holding the reset button down does nothing to help me get into the failsafe mode.
+* Holding or repeatedly pressing the reset button after the "Msg from 192.168.1.1: Press reset now, to enter Failsafe!" will do nothing to help me get into the failsafe mode.
+* Only starting the repeated pressing of the reset button as soon as the device is connected to the mains will help me into the failsafe mode.
+* The "reboot" command will not reboot the device and the device will remain in a zomby state.
 
 = Port layout =
 The WE800G has 3 LAN ports and a bridge port. The eth0 has no physical connector and is a dummy port, the eth1 is the LAN RJ45 port and the eth2 is wireless card port. The br0 is a bridge port.
