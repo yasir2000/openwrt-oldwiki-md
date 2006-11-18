@@ -104,7 +104,7 @@ root@OpenWrt:~# ipkg update
 
 '''Upgrade with ipkg'''
 
-Never ipkg upgrade a whole release. You can upgrade addon-packages, but you should always reflash if you switching between releases and release candidates.
+Never ipkg upgrade a whole release. You can upgrade addon-packages, but you should always reflash if you are switching between releases and release candidates.
 
 '''ipkg-link'''[[BR]]
 
@@ -126,7 +126,7 @@ option proxy_username xxxx
 option proxy_password xxxx
 }}}
 
-If the authentication with the above options in {{{/etc/ipkg.conf}}} is not working try the following format:
+If the authentication with the above options in {{{/etc/ipkg.conf}}} is not working, try the following format:
 
 {{{
 option http_proxy http://username:password@aaa.bbb.ccc.ddd:port/
