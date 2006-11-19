@@ -72,6 +72,14 @@ No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating 
 '''NOTE:''' The {{{firstboot}}} script doesn't do anything if you're using one of the JFFS2 only images.
 
 == How do I edit files on the SquashFS image? ==
+'''RC 6''':
+
+No special steps are required to edit files, [http://www.denx.de/wiki/bin/view/Know/MiniFOHome mini_fo] is used to overlay the SquashFS and JFFS2 partitons.
+
+When a file has is actually located in /rom is modified, it is copied to /jffs and the changes are actually applied to that file.  mini_fo will always use the /jffs version of a file over the /rom version, in order to reclaim wasted space when reverting to the /rom version, you must delete the file in /jffs
+
+'''RC 5 and earlier''':
+
 By default all files on the SquashFS image are actually symlinks to the real (readonly) files over on {{{/rom}}}, to edit a file you will need to delete the symlink and copy the file from {{{/rom}}}.
 
 Example:
