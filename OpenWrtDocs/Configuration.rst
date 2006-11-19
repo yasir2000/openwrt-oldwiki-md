@@ -423,6 +423,30 @@ then either reboot or run it this once:
 {{{
 /etc/init.d/S42rdate}}}
 
+'''ntpclient'''
+
+''ntpclient'' will synchronize the system time using the NTP protocol when the internet connection is established.
+To set it up follow this instructions :
+
+Set the ''ntp_server'' NVRAM variable to your preferred NTP server (for example the NTP server of your ISP; if no server is set, ''ntpclient'' will use ''pool.ntp.org'' as default):
+
+{{{
+nvram set ntp_server=ntp.my-isp.net
+nvram commit
+}}}
+
+Install the ''ntpclient'' package in the web interface or using the command
+{{{
+ipkg install ntpclient
+}}}
+
+''ntpclient'' will now update the system time each time the WAN connection is established.
+To set the time manually use this command line 
+{{{
+/usr/sbin/ntpclient -c 1 -d -s -h ntp.my-isp.net
+}}}
+or reboot the router. (the ''-d'' option just prints some info about what is going on, you can leave it out)
+
 == Timezone ==
 Without a time zone set, !OpenWrt will display UTC.
 
