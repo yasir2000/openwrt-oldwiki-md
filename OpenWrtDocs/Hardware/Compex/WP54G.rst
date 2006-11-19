@@ -116,7 +116,7 @@ If you download the [http://www.compex.com.sg/home/OEM/Downloads/JTAG_Programmer
 -rw-r--r--  1 root  root    1358 May 30 17:04 wp54g.mac
 }}}
 
-The !ReadMe.txt file talks about using "Wiggler" as the JTAG interface, to upload one of the .mac files which is a RAM version of their loader. Once you have done this you can use tftp to upload cfe.bin
+The !ReadMe.txt file talks about using [http://macraigor.com Macraigor] [http://macraigor.com/ocd_cmd.htm OCD Commander] to download and run RAM version of their loader via the E-JTAG interface using a [http://macraigor.com/wiggler.htm Wiggler] device. The .mac files contains commands for OCD Commander to initialize onboard memory devices, then download the loader and execute it. Once you have done this you can use tftp to upload cfe.bin
 
 You can update the bootloader from within MyLoader itself.
 
