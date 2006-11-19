@@ -15,13 +15,17 @@ c. JTAG Ports is soldered onto the board.
 d. JTAG Programmer and Serial Converter is available if you purchase the development kit.
 }}}
 
+[FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?]
+
 The manufacturer's home site is http://www.compex.com.sg/ . Most of the manufacturer's websites, however is at http://compex.com.sg/home/OEM/index.htm. 
 
 The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they have their own [http://www.cpx.cz/dls/WP54G_linux/ downloads page]
 
-They claim to [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on WP54-WRT. '''A standard WP54 Model *cannot* support Open-WRT.'''
+Compex [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on WP54-WRT only. '''A standard WP54 Model *cannot* support Open-WRT.'''
 
 '''Default settings'''
+
+[These notes refer to the Compex firmware in WP54G, not WP54-WRT]
 
 The Compex comes up by default as 192.168.168.1/24. You can login to it using a web browser, the default password is "password"
 
@@ -100,7 +104,7 @@ The file 'wp54gcmd' contains just the following line:
 flash -noheader 192.168.0.1:openwrt-wp54g-2.4-squashfs.trx flash1.trx;nvram set STARTUP="load -z -raw -max=8000 -addr=0x80001000 flash1.trx:0x1c;go";nvram commit;reset
 }}}
 
-However it's not clear how you use it.
+This appears to be a CFE command line, which presumes you have a TFTP server running on 192.168.0.1
 
 If you download the [http://www.compex.com.sg/home/OEM/Downloads/JTAG_Programmer.rar JTAG programmer codes bundle] it's another RAR file containing:
 
@@ -120,13 +124,13 @@ You can update the bootloader from within MyLoader itself.
 
 Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips. Warning: after opening the box, it's quite hard to get the LED light guide back into place properly.
 
-The board appears to be the same as the one in [http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_1B_Bareboard_DSv2.1.pdf this photo]
+A picture of the PCB is included in [http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_1B_Bareboard_DSv2.5.pdf the datasheet]
 
 Newly Added:
 
 '''GPIO Bit Mapping / Serial Ports / Serial Console Settings / JTAG Ports'''
 All these information is available in the Hardware Manual that is available on the website under
-http://compex.com.sg/home/OEM/Open_wrt.htm. Look at the link, Hardware Manual.
+http://compex.com.sg/home/OEM/Open_wrt.htm. Look at the link, Hardware Manual. [FIXME: No such link appears to exist]
 
 '''Other links'''
 
