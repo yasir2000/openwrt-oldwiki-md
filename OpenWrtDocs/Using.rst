@@ -71,6 +71,14 @@ When !OpenWrt boots it will check for the existence of a JFFS2 partition and att
 If at any time you wish to revert files back to their original condition (in other words, recreate the symlinks to /rom), just run {{{firstboot}}}.
 
 == Editing files ==
+'''RC 6''':
+
+No special steps are required to edit files, [http://www.denx.de/wiki/bin/view/Know/MiniFOHome mini_fo] is used to overlay the SquashFS and JFFS2 partitons.
+
+When a file has is actually located in /rom is modified, it is copied to /jffs and the changes are actually applied to that file. mini_fo will always use the /jffs version of a file over the /rom version, in order to reclaim wasted space when reverting to the /rom version, you must delete the file in /jffs
+
+'''RC 5 and earlier''':
+
 Since the filesystem is a collection of symlinks to a readonly filesystem, you can't simply edit files -- they're readonly. Instead you have to delete the symlink, and copy the file so you have a writable version of the file to edit:
 
 {{{
