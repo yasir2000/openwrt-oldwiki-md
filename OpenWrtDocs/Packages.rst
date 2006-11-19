@@ -1,3 +1,4 @@
+OpenWrtDocs [[TableOfContents]]
 == Official packages ==
 The [http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable White Russian release. Please use the official packages whenever possible.  The {{{/etc/ipkg.conf}}} file should have these lines:
 
@@ -31,7 +32,7 @@ There are countless third-party packages available. Below a few of the more comm
 
 X-Wrt is a meta-set of packages and patches to enhance the end user experience of OpenWrt (currently White Russian only). X-Wrt has its own sub-section of this wiki, the titles of which are below:
 
-[[Include(OpenWrtDocs/xwrt,,titlesonly)]]
+ [[Include(OpenWrtDocs/xwrt,,titlesonly)]]
 
 === uPnP ===
 '''uPnP''' is Universal Plug and Play.  
