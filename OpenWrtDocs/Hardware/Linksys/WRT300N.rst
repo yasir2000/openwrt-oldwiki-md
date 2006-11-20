@@ -8,8 +8,8 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on
 the box, below the UPC barcode.
 ||||<tablestyle="width 50%"> (!) '''Please contribute to this list.''' (!) ||||'''!OpenWrt'''||
 ||'''Model'''||<:> '''S/N'''||<:>  '''Stable[[BR]]White Russian'''||<:>  '''Development[[BR]]Kamikaze'''||
-||<(|2>WRT300N v1.0||<:> CNP01||<:|2> ( ) ||<:|2> ( ) ||
-||<(|2>WRT300N v2.0||<:> SNP00||<:|2> ( ) ||<:|2> ( ) ||
+||WRT300N v1.0||<:> CNP01|| ( ) || ( ) ||
+||WRT300N v2.0||<:> SNP00|| ( ) || ( ) ||
 
 
 
