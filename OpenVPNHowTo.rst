@@ -227,7 +227,7 @@ If your setup is working fine then the only remaining step is to automate the st
 #!/bin/sh
 #/etc/init.d/S46openvpn
 /etc/openvpnbridge
-openvpn --daemon /etc/server.ovpn
+openvpn --daemon --config /etc/server.ovpn
 }}}
 Now on a reboot, the server should come up.
 ----
