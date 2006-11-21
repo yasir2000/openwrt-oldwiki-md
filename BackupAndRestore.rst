@@ -104,3 +104,117 @@ sleep 3
 # remove the backup directory (if wanted) to free space
 rm -r /tmp/backupfiles
 }}}
+
+This is an alternative backup script based on the above one. The transfer of the archive is done via SSH instead of FTP using Publickey authentification (much more secure) and only /etc and /tmp are backup. More notes about the script can be found inside ;-).
+{{{
+#!/bin/sh
+#
+#      Copyright 2006 Enrico Tröger <enrico.troeger@uvena.de>
+#
+#      Simple backup script for OpenWRT
+#      - read the complete nvram into a file
+#      - read some system and status information into a file
+#      - backups all files in /etc
+#      - put all files into a gzipped tar archive
+#      - send the archive to a ssh server using publickey authentification
+#
+#      The script uses scp to transfer the created archive to a SSH server somewhere in the
+#      internet or your local area network. To be able to do this automatically via cron
+#      you have to create a key pair for PublicKey authentification using dropbear.
+#      Just run the following command on your OpenWRT and copy the public part of the created
+#      key (it is printed out by the command) into your ~/.ssh/authorized_keys file on the
+#      destination host. Create the key pair:
+#
+#      dropbearkey -t dss -f /etc/dropbear/id_dss
+#
+#      After doing this you should test if all works fine and then the script could be run
+#      via cron on a daily base or if your OpenWRT device isn't running 24/7 (like in my case)
+#      set the variable CHECK_RUN_SINCE_REBOOT below to "1". This causes the script to run only
+#      once and stores the state that it already ran in /tmp/backup_ran. If you reboot
+#      (or turn it off and on again) the device, this file will be deleted and then script will do
+#      the backup again. Sample cron entry for this case:
+#      0 * * * * /usr/bin/backup
+#
+#
+#      This program is free software; you can redistribute it and/or modify
+#      it under the terms of the GNU General Public License as published by
+#      the Free Software Foundation; either version 2 of the License, or
+#      (at your option) any later version.
+#
+#      This program is distributed in the hope that it will be useful,
+#      but WITHOUT ANY WARRANTY; without even the implied warranty of
+#      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#      GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#      along with this program; if not, write to the Free Software
+#      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+
+
+### configuration ###
+
+# if set to 1 the script runs only once as long as you reboot your device
+# this can be useful if your router is not running 24/7
+# the cronjob for this case should be some kind of
+# 0 * * * * /usr/bin/backup
+# so it will be run every hour but it will do the actual backup only on the first run
+CHECK_RUN_SINCE_REBOOT="1"
+
+# get the own name, to difference different WRTs
+HOST=$(nvram get wan_hostname)
+
+REMOTEFILE=/tmp/backup-$HOST.tar.gz
+
+NVRAMFILE=/tmp/nvram-$(date +%Y.%m.%d-%X)-$HOST
+SYSINFOFILE=/tmp/sysinfo-$(date +%Y.%m.%d-%X)-$HOST
+
+
+### end of configuration ###
+
+
+
+# check if we already ran since last reboot
+if [ $CHECK_RUN_SINCE_REBOOT = "1" ]
+then
+	if [ -e "/tmp/backup_ran" ]
+	then
+		# exit silently
+		exit 0;
+	else
+		# mark that we have been ran
+		touch "/tmp/backup_ran"
+	fi
+fi
+
+
+# save the nvram values
+nvram show | sort > $NVRAMFILE
+
+# save some other runtime information
+echo "ps axf" > $SYSINFOFILE
+ps axf >> $SYSINFOFILE
+echo "uptime" >> $SYSINFOFILE
+uptime >> $SYSINFOFILE
+echo "ifconfig" >> $SYSINFOFILE
+ifconfig >> $SYSINFOFILE
+echo "route -n" >> $SYSINFOFILE
+route -n >> $SYSINFOFILE
+echo "iwconfig" >> $SYSINFOFILE
+iwconfig >> $SYSINFOFILE
+
+# create the tar archive, maybe you want to backup more than /etc, so just add the directories
+cd /
+tar czf $REMOTEFILE etc/ tmp/
+
+
+# now upload the tar file to your prefered SSH server (please change username and host address)
+# (or change this line to use a FTP server or whatever)
+scp -i /etc/dropbear/id_dss $REMOTEFILE enrico@192.168.0.2:/home/enrico/
+
+
+# remove the used files
+rm -r $NVRAMFILE
+rm -r $SYSINFOFILE
+rm -r $REMOTEFILE
+}}}
