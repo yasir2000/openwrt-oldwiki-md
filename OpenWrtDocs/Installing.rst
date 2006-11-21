@@ -69,7 +69,7 @@ That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice 
 
 /!\ '''OpenWrt White Russian has no failsafe mode for JFFS2 firmware images.''' /!\
 
-After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/bin/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
+After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/bin/md5sum md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
 = Installing OpenWrt =
 To install !OpenWrt on a supported device (see TableOfHardware), download the correct firmware for your device, verify the md5sum and then use the webupgrade of the preinstalled firmware. Be sure that your power supply is stable and do not disconnect it while flashing OpenWrt to your router. After the installation is successful, your router will be booting into your shiny new Linux system.
