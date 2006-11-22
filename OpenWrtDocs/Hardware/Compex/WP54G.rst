@@ -1,21 +1,17 @@
-'''Compex WP54-WRT'''
+'''Compex WP54'''
 
 (This page is at an early stage of development. Please feel free to update)
 
 The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless. There exist several different models. Regarding the different models:
 
-{{{
-'''WP54 1B''' can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
-'''WP54 1D''' can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
-
-'''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board. This is the only board that can run Open-WRT. 
-a. Open-WRT is preloaded on the board before shipping to customers.
-b. Serial Ports is soldered onto the board.
-c. JTAG Ports is soldered onto the board.
-d. JTAG Programmer and Serial Converter is available if you purchase the development kit.
-}}}
-
-[FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?]
+ *'''WP54 1B''' can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
+ *'''WP54 1D''' can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
+ *'''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board [FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?]. This is the only board that can run OpenWrt. 
+  
+  * Open-WRT is preloaded on the board before shipping to customers.
+  * Serial Ports is soldered onto the board.
+  * JTAG Ports is soldered onto the board.
+  * JTAG Programmer and Serial Converter is available if you purchase the development kit.
 
 The manufacturer's home site is http://www.compex.com.sg/ . Most of the manufacturer's websites, however is at http://compex.com.sg/home/OEM/index.htm. 
 
@@ -126,11 +122,9 @@ Opening the unit is done by prising off the four rubber feet and removing the sm
 
 A picture of the PCB is included in [http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_1B_Bareboard_DSv2.5.pdf the datasheet]
 
-Newly Added:
-
 '''GPIO Bit Mapping / Serial Ports / Serial Console Settings / JTAG Ports'''
-All these information is available in the Hardware Manual that is available on the website under
-http://compex.com.sg/home/OEM/Open_wrt.htm. Look at the link, Hardware Manual. [FIXME: No such link appears to exist]
+
+All these information is available in the [http://www.compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual].
 
 '''Other links'''
 
