@@ -37,6 +37,7 @@ usb.c: USB disconnect on device 01:02.0-1 address 2
 hub.c: new USB device 01:02.0-1, assigned address 3
 printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094}}}
 
+
 == Printers connected via parport (parallel port/LPT) ==
 When you're connecting a parport printer you must install the {{{kmod-lp}}} package which installs the modules for parport support.
 
@@ -142,6 +143,11 @@ Please translate this to english. Thanks.
  * Finish the Settings wizard and close the Add Port window. The newly created Port should now be selected.
  * You printer should be configred now. Be sure that your firewall allows communication to the chosen port.
  * You may print a test page to see if all went well.
+
+= Troubleshooting =
+
+ * Problem : the printer status shows "Attempting to connect to socket://<ip to router>:<listening port of router>" in the client CUPS interface (http://localhost:631) and nothing works (seen on [:OpenWrtDocs/Hardware/Asus/WL500GP:WL500GP] / WhiteRussian RC6).
+ * Solution : make sure you installed both USB 1.1 and USB 2.0 modules (see UsbStorageHowto).
 
 = Not supported printers =
 Here you should create a list of printers which are '''not''' working with the {{{p910nd}}} package. Please include manufacturer, model, interface (USB/Parport), driver working  and some short comment.
