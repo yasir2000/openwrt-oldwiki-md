@@ -140,9 +140,9 @@ A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`d
 ||{{{functions.sh}}} ||{{{exists() }}} ||{{{doc}}} ||
 ||{{{functions.sh}}} ||{{{is_bcm947xx() }}} ||{{{doc}}} ||
 ||{{{functions.sh}}} ||{{{remove_lines_from_file() }}} ||{{{doc}}} ||
-||{{{functions.sh}}} ||{{{load_settings() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{load_settings() }}} ||Loads settings out of the temporary files Syntax: load_settings filename||
 ||{{{functions.sh}}} ||{{{validate() }}} ||{{{doc}}} ||
-||{{{functions.sh}}} ||{{{save_setting() }}} ||{{{doc}}} ||
+||{{{functions.sh}}} ||{{{save_setting() }}} ||Used to save nvram variables. The filename is used for the name of the temporary file used to hold the settings until they are applied. The files are stored in /tmp/.webif/ Syntax: save_setting filename nvram-variable "setting to save"  ||
 ||{{{hs.sh}}} ||{{{has_required_pkg() }}} ||{{{doc}}} ||
 ||{{{pkgfuncs.sh}}} ||{{{is_package_installed() }}} ||This function will only check to see if one package is installed. It will return 0 if the package is installed. Example is_package_installed olsrd ||
 ||{{{pkgfuncs.sh}}} ||{{{install_package() }}} ||{{{doc}}} ||
