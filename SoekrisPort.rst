@@ -358,6 +358,6 @@ br0: topology change detected, propagating
 
 == See also ==
 
- * [http://dev.gentoo.org/~brix/papers/net4801/net4801.html GNU/Linux on a Soekris net4801]
+ * [http://www.brixandersen.dk/papers/net4801/net4801.html GNU/Linux on a Soekris net4801]
 ----
 CategoryOpenWrtPort
