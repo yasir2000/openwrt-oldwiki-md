@@ -99,6 +99,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||F5D7633-4 || || || || || || || || || || ||Untested ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB ||16MB ||Airgo (mini-PCI) ||BCM5325 ||on ||Yes ||Yes ||No ||Untested ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||2 ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek 8651B] @ 200MHz ||4MB ||16MB ||Airgo (mini-PCI) || ||N/A ||Yes ||No ||No ||WiP ||
+
 == Buffalo ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11] || ||[http://www.broadcom.com/press/release.php?id=332500 Broadcom 4702] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) 803.11b ||BCM5325 ||on || || ||Space for connector ||[:OpenWrtDocs/Hardware/Buffalo/WBR-B11:Supported] ||
@@ -120,8 +121,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.buffalotech.com/products/product-detail.php?productid=44 WLI2-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
 ||WLI2-TX1-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=102&categoryid=6 WZR-G108] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8Mb || ||Airgo (mini-PCI) || || || || || ||Untested ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=109&categoryid=6 WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB || ||Broadcom (mini-PCI) ||BCM5325 || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-HP-G54:Supported]||
+||[http://www.buffalotech.com/products/product-detail.php?productid=109&categoryid=6 WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-HP-G54:Supported]||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
+
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||2 (rev.AE) ||[http://www.linux-mips.org/wiki/Adm5120 ADM5120 ] ||2MB ||16MB(8MB?) || || || || || || ||[:Edimax:Untested] ||
