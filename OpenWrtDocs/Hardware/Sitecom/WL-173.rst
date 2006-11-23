@@ -7,13 +7,10 @@ The Sitecom WL-173 is a 54 Mbit (with turbo mode) wireless broadband router. The
 There are four screws. Two are not hidden. The other screws are located underneath the little rubber feet near the front of the router.
 
 === The board and components of the WL-173 ===
-Upside:
-
  . attachment:boardWL173_s.jpg
-Downside:
+High resolution pictures upside: [attachment:boardWL173_1.jpg Part1] and [attachment:boardWL173_2.jpg Part2].
 
- . attachment:boardWL173_down.jpg
-High resolution pictures upside:[attachment:boardWL173_1.jpg Part1]and[attachment:boardWL173_2.jpg Part2].
+Low resolution picure downside: [attachment:boardWL%31%37%33%5Fdown.jpg Down]
 
  * CPU: Realtek RTL8650B at 200 MHz http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70
  * RAM: 2x PSC A2V64S40CTP á 64Mbit (?)
