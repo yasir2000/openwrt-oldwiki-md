@@ -1,9 +1,9 @@
-= Buffalo WZR-HP-G54 =
+= Buffalo WZR-RS-G54HP =
 
-Do not mix this up with WZR-RS-G54HP which is about 8 months newer:
+Looks and feels identical to ["OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54"].
+Works with WhiteRussion-RC6 (earlier untested)
+
+Do not mix this up with WZR-HP-G54 which is about 8 months older:
 http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/
 and
 http://buffalo.jp/products/catalog/item/w/wzr-hp-g54/
-
-["OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP"] is the newer model.
-The compatibility between those two models is unknown.
