@@ -7,10 +7,10 @@ The Sitecom WL-173 is a 54 Mbit (with turbo mode) wireless broadband router. The
 There are four screws. Two are not hidden. The other screws are located underneath the little rubber feet near the front of the router.
 
 === The board and components of the WL-173 ===
-__Upside:__
+Upside:
 
  . attachment:boardWL173_s.jpg
-__Downside:__
+Downside:
 
  . attachment:boardWL173_down.jpg
 High resolution pictures upside:[attachment:boardWL173_1.jpg Part1]and[attachment:boardWL173_2.jpg Part2].
