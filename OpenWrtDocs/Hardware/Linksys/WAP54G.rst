@@ -61,6 +61,10 @@ PCB measurements: ~ 12 cm x 10 cm
 
 '''Power:''' The WAP54G v3 needs much less current than it's brothers WRT54G(/S), about half (250 .. 350 mA on 12V DC). According to this, the shipped power brick only yields 500mA/12V max, compared to 1A/12V max for the WRT series.
 
+Openwrt Whiterussian RC4 works with Linksys WAP54G v3. [[BR]] 
+The problem is how to flash it, as boot_wait is disabled in official firmware.[[BR]]
+Flashing openwrt with CFE flash command works.
+
 === Table summary ===
 How to get info:
 
