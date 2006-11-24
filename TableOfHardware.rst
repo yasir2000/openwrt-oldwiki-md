@@ -99,7 +99,6 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||F5D7633-4 || || || || || || || || || || ||Untested ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB ||16MB ||Airgo (mini-PCI) ||BCM5325 ||on ||Yes ||Yes ||No ||Untested ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||2 ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek 8651B] @ 200MHz ||4MB ||16MB ||Airgo (mini-PCI) || ||N/A ||Yes ||No ||No ||WiP ||
-
 == Buffalo ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11] || ||[http://www.broadcom.com/press/release.php?id=332500 Broadcom 4702] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) 803.11b ||BCM5325 ||on || || ||Space for connector ||[:OpenWrtDocs/Hardware/Buffalo/WBR-B11:Supported] ||
@@ -121,10 +120,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.buffalotech.com/products/product-detail.php?productid=44 WLI2-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
 ||WLI2-TX1-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=102&categoryid=6 WZR-G108] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8Mb || ||Airgo (mini-PCI) || || || || || ||Untested ||
-||[http://buffalo.jp/products/catalog/item/w/wzr-hp-g54/ WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB || ||Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested||
-||[http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/ WZR-RS-G54HP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP:Supported]||
+||[http://buffalo.jp/products/catalog/item/w/wzr-hp-g54/ WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||4MB || ||Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
+||[http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/ WZR-RS-G54HP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
-
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||2 (rev.AE) ||[http://www.linux-mips.org/wiki/Adm5120 ADM5120 ] ||2MB ||16MB(8MB?) || || || || || || ||[:Edimax:Untested] ||
@@ -136,7 +134,6 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54-WRT] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Supported] only on special OpenWrt hardware variant(WP54-WRT), not standard unit ||
 ||wp11a || ||Samsung [http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C4510B/S3C4510B.htm S3C4510B01], (PLD: MAX3000 [http://www.altera.com/literature/ds/m3000a.pdf EPM3032ALC44-10]) ||8MB ||32MB ||Agere PCMCA || || || || || ||Untested ||
-
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
@@ -146,6 +143,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == D-Link ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros 2315] ||? ||[http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 1M x 16 Bit x 4 Banks (ESMT M12L64164A)] ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||? ||No ||[:AtherosPort:WiP] ||
+||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 ||DSL-G500T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=1&Sub2=2&PID=49 DSL-504T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] it runs ok ||
 ||[http://www.dlink.es/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo96h6ltbNlwaaFp7DQtFzrqzidK/IgKAdzm DSL-524T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] Untested ||
@@ -199,7 +197,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||3.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Yes ||Yes ||No ||[:WAP54GHowto:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=538 WAP55AG] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Atheros & Broadcom (mini-PCI) ||None ||off || || || ||Untested ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=538 WAP55AG] ||2.0 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz || || ||Atheros (integrated) ||None ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
-||[http://www1.linksys.com/products/product.asp?prid=558&scid=38 WGA54G] || ||ARM based||1MB||16MB||Prism54g (mini-PCI)||None|| || || ||No||[http://forum.openwrt.org/viewtopic.php?pid=35988#p35988 No] ||
+||[http://www1.linksys.com/products/product.asp?prid=558&scid=38 WGA54G] || ||ARM based ||1MB ||16MB ||Prism54g (mini-PCI) ||None || || || ||No ||[http://forum.openwrt.org/viewtopic.php?pid=35988#p35988 No] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=38&prid=629 WRE54G] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Yes ||No ||No ||Untested ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1144763513404&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper WRT300N] ||v1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||4MB ||32MB ||Broadcom (cardbus) ||BCM5325 ||off ||Yes ||Yes ||No ||WiP ||
 ||[http://www-uk.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=UK/Layout&cid=1150491114466&pagename=Linksys/Common/VisitorWrapper WRT300N] ||v2 ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||16MB ||Atheros (mini-PCI) ||88E6060 ||N/A ||Yes ||No ||No ||WiP ||
@@ -310,7 +308,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 
 == Simpletech ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz || 8MB ||32MB ||None ||None || ||Yes ||Yes ||2x v2.0 ||Untested ||
+||[http://www.simpletech.com/commercial/simpleshare/index.php Simpleshare Office Storage Server] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||8MB ||32MB ||None ||None || ||Yes ||Yes ||2x v2.0 ||Untested ||
 == Sitecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.sitecom.com/drivers_result.php?groupid=5&productid=184 WL-105] ||b ||Broadcom 4702 || || ||Broadcom (mini-PCI) || || || || ||No ||Untested ||
