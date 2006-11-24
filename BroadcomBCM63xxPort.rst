@@ -9,6 +9,9 @@ Known 6345 platforms*:
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
 ||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA770W] ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html Siemens SE515] ||
+||[http://www.zhone.com/products/6211/ Paradyne 6211-A1] ||
+||[http://www.usr.com/images/products/product-emea.asp?prod=9105 US Robotics USR9105] ||
+||[http://www.usr.com/images/products/product-emea.asp?prod=9106 US Robotics USR9106] ||
 
 Known 6348 platforms*:
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536+] ||
