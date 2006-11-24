@@ -62,7 +62,7 @@ In this firmware file (1.28) the kernel and squashfs are lzma compressed.
 There is a modified 1.28 firmware with telnet daemon. Telnet is open to WAN and not password protected so do NOT connect to the internet.
 
 Modified firmware image:
- * Version 1.28 with telnetd (by GIGA): [attachment:Sitecom_WL-173_1.28.kernel WL-173 Kernel]
+ * [attachment:WL-173_128_telnetd_by_GIGA.bin Version 1.28 with telnetd (by GIGA)]
 
 === TODO ===
  * (Integrate SSH daemon for shell access) Telnet is now implemented
