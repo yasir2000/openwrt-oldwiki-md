@@ -1,5 +1,5 @@
 === Sitecom WL-173 ===
-The Sitecom WL-173 is a 54 Mbit (with turbo mode) wireless broadband router. The original firmware is based on uClinux (Firmware 1.28). The chip used is a Realtek RTL8650B at 200 MHz. The picture was taken from a WL-173 v1 001.
+The Sitecom WL-173 is a 54 Mbit (with turbo mode) wireless broadband router. It's original firmware is based on uClinux (Firmware 1.28) and a Realtek RTL8650B chip at 200 MHz is used. The following pictures were taken from a WL-173 v1 001.
 
  . attachment:outsideWL173.jpg
 === Opening the WL-173 ===
