@@ -84,6 +84,17 @@ There is a modified 1.28 firmware with telnet daemon. Telnet is open to WAN and 
 Modified firmware image:
  * [attachment:WL-173_128_telnetd_by_GIGA.bin Version 1.28 with telnetd (by GIGA)]
 
+=== MTDs ===
+
+Is this the bootloader (?)
+
+ * [attachment:mtd0.bin MTD0]
+ * [attachment:mtd1.bin MTD1]
+ * [attachment:mtd2.bin MTD2]
+ * [attachment:mtd3.bin MTD3]
+ * [attachment:mtd4.bin MTD4]
+
+
 
 === KMSG output ===
  {{{
