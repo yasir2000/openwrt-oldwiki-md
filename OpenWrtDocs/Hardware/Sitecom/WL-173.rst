@@ -86,14 +86,14 @@ Modified firmware image:
 
 === MTDs ===
 
-Is this the bootloader (?)
+Is this the bootloader (?) "Project ROME LOADER"
 
  * [attachment:mtd0.bin MTD0]
  * [attachment:mtd1.bin MTD1]
  * [attachment:mtd2.bin MTD2]
  * [attachment:mtd3.bin MTD3]
  * [attachment:mtd4.bin MTD4]
-
+ * [attachment:mtd5.bin MTD5]
 
 
 === KMSG output ===
