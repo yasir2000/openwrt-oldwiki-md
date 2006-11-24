@@ -36,7 +36,7 @@ The support for Broadcom 63xx is at this state :
 == Firmware/Bootloader ==
 Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-in LZMA decompressor such as Siemens SE515, Free Freebox ...
 
-= Paradyne 6211-A1 JTAG & RS232 =
+== Paradyne 6211-A1 JTAG & RS232 ==
 Board image attachment:6211_A1_JTAG.jpg
 
 = How to help =
