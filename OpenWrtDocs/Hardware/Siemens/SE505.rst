@@ -40,6 +40,21 @@ JTAG connector J7
 GND-o o-TMS
   10   9
 }}}
+
+On my v2 device the serial connector is labeled J2 and has the following pinout:
+
+{{{
+serial connector J2
+
+       |---|
+front  | o | Rx
+ of    | o   Tx
+ the   | o   GND
+board  | o | 3,3V
+       |---|
+}}}
+
+
 == Add more RAM to the SE505 v2 ==
 The SE505 v2 can be easily modded to 16 MB RAM by a some soldering work... The SE505 v2 uses one 4Mx16 SDRAM chip to get the 8 MB. It seems to be fixed to 4Mx16 by the CFE. It ignores the sdram_init value in the nvram. But it has a second RAM-place on the board.
 
