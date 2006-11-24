@@ -50,7 +50,7 @@ serial connector J2
 front  | o | Rx
  of    | o   Tx
  the   | o   GND
-board  | o | 3,3V
+board  | o | ? 3,3V ?
        |---|
 }}}
 
