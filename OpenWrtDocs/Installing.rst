@@ -28,9 +28,16 @@ White Russian ships in several variations, each with a slightly different set of
  pptp/
   . Standard image (web interface, pptp)
 ||'''Folder''' ||'''Package list''' ||
-||micro ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, ipkg-sh, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, mtd, nvram, uclibc, wificonf ||
-||bin=default ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools ||
+||micro ||base-files, base-files-brcm, bridge, busy box, dns masq, dropbear, ipkg-sh, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, mtd, nvram, uclibc, wificonf ||
+||bin=default ||base-files, base-files-brcm, bridge, busybox, dns masq, dropbear, haserl, ipkg, ip tables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools ||
 ||pptp ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools ||
+
+(alternate, easier to see listing)
+||firmware||base files||base files brcm||bridge||busy box||dnsmasq||drop bear||	haserl||ipkg||iptables||iwlib||kmod switch||kmod brcm wl||kmod diag||kmod ppp||kmod gre||kmod pppoe||kmod wl compat||mtd||nv ram||ppp||ppp mod pppoe||pptp||uclib||webif||wifi conf||wireless tools ||
+||micro||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#FF0000>N||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#FF0000>N||<#FF0000>N||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#FF0000>N||
+||bin (default)||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
+||pptp||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
+
 == TRX vs. BIN ==
 That explains the directories, now what the hell are the files? They are [wiki:WikiPedia:Disk_image disk image]s. There's two types of files, the "trx" files and the "bin" files; the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx file can't be used directly. Older versions of mtd will choke on bin files, so if your upgrading from an existing OpenWRT it's wise to use the trx files. New versions of mtd when applied on bin files will guide you through what you need to do to convert trx files to mtd files.
 
