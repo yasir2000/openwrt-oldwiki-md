@@ -160,7 +160,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Edimax ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104K] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
-||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104KP] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||Yes ||[:Edimax:WiP] ||
+||[http://www.edimax.com.tw/html/english/products/BR-6104KP.htm BR-6104KP] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||Yes ||[:Edimax:WiP] ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||Realtek RTL8186 ||2MB ||8MB(16?) ||Realtek RTL8225 || || || || || ||[:RTL8651BPort:Untested] ||
 == Freecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
