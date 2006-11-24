@@ -174,9 +174,29 @@ form.awk gives you predefinded forms to use in you webif page. Most of these are
 
 The current forms are as listed:
 
-{{{
-onchange onclick option start_form field button checkbox radio select txtfile option listedit caption string textarea progressbar password upload  submit helpitem helptext helplink checkbox end_form
-}}}
+||start_form||doc||
+||onchange||doc||
+||onclick||doc||
+||option||doc||
+||field||doc||
+||button||doc||
+||checkbox||doc||
+||radio||doc||
+||select||doc||
+||txtfile||doc||
+||listedit||doc||
+||caption||doc||
+||string||doc||
+||textarea||doc||
+||progressbar||doc||
+||password||doc||
+||upload||doc||
+||submit||doc||
+||helpitem||doc||
+||helptext||doc||
+||helplink||doc||
+||end_form||doc||
+
 Normal parameters:
 
 {{{
