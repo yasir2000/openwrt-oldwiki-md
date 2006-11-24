@@ -80,7 +80,7 @@ If you are not happy with !OpenWrt, you can always reinstall your original firmw
 This is the easiest method on supported devices. This method works fine for Linksys WRT54GL (see http://wiki.openwrt.org/InstallingWrt54gl#head-01985ece7d7673e68766ec20d4667677cfffc7ac). This method requires that the original web interface is available and might not work if you are trying to repair a previously botched install or other abnormal situations.  RussNelson reports that reflashing WRT54GL using v4.30.0 failed, but upgrading to v4.30.5 succeeded.
 
 == via tftp ==
-If you are extremely cautious, or are trying to install a self-compiled or modified version of OpenWrt White Russian, please consider using the OpenWrtViaTftp installation method. For some of the hardware models they have special requirements. To avoid potentially serious damage to your router caused by an unbootable firmware you should always read the documentation for your specific router model, see ["http://wiki.openwrt.org/CategoryModel" Category Model].
+If you are extremely cautious, or are trying to install a self-compiled or modified version of OpenWrt White Russian, please consider using the OpenWrtViaTftp installation method. For some of the hardware models they have special requirements. To avoid potentially serious damage to your router caused by an unbootable firmware you should always read the documentation for your specific router model, see openwrt:CategoryModel.
 
 == via CFE ==
 If you already have the serial cable, you'll know how to do it, nevertheless... go ["OpenWrtDocs/Installing/CFE"]
