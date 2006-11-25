@@ -12,7 +12,7 @@ A VLAN (Virtual LAN) is, in basic terms, a group of physical interfaces on a swi
 
 VLANs are used when you need to separate traffic between groups of devices, but you only want to use one physical switch. For example you might want one VLAN outside your firewall, for public web/mail servers, and another VLAN for your internal machines such as desktops and boxes with private data. They can't be placed on the same LAN for security reasons, so you use VLANs to isolate the groups of ports.
 
-Lets say we have a 10 port switch, and we configure ports 1-5 as VLAN1 and 6-10 as VLAN2. All devices which are plugged into ports 1 thru 5 behave as if they are on their own switch, and devices in ports 6-10 act as if they're in another switch. The main rule is that communication between ports on separate VLANs is blocked - even if you configure devices with the same subnet, they will not be reachable to devices in other VLANs.
+Let's say we have a 10 port switch, and we configure ports 1-5 as VLAN1 and 6-10 as VLAN2. All devices which are plugged into ports 1 thru 5 behave as if they are on their own switch, and devices in ports 6-10 act as if they're in another switch. The main rule is that communication between ports on separate VLANs is blocked - even if you configure devices with the same subnet, they will not be reachable to devices in other VLANs.
 
 And of course, it's also possible to configure it differently - if you later decide you need to put another device in VLAN1 and you've only used 4 ports in VLAN2, you can reconfigure _any_ of the VLAN2 ports into VLAN1 (not just port 6). So then you might end up with VLAN1 as ports 1-5 and 8, and VLAN2 as ports 6,7,9,10.
 
@@ -97,7 +97,7 @@ That's basically how the entire network device architecture is on this box. Belo
 === DMZ Vlan ===
 See also DemilitarizedZoneHowto
 
-If you're running some public servers and are security concious, you'll probably want to make use of a DMZ (Demilitarised Zone). This is a third VLAN in a network, configured with different rules to the internal secure network. Generally the DMZ is configured to allow access to certain ports from the internet that wouldn't normally be allowed to inside hosts.
+If you're running some public servers and are security conscious, you'll probably want to make use of a DMZ (Demilitarized Zone). This is a third VLAN in a network, configured with different rules to the internal secure network. Generally the DMZ is configured to allow access to certain ports from the internet that wouldn't normally be allowed to inside hosts.
 
 Under OpenWRT, a DMZ is easy to configure. A third VLAN is created, and one or more physical ports are mapped to this VLAN, then suitable firewall rules are created for this VLAN. The picture below shows how a DMZ configuration would look inside the device:
 
