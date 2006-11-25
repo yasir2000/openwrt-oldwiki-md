@@ -232,7 +232,7 @@ lcp-echo-failure 20
 
 mtu 1492 #pppoa should be 1500
 
-mru 1452 #pppoa should be 1460
+mru 1492 #should equal MTU
 
 '''Set up chap/pap authentication '''
 
