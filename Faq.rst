@@ -130,10 +130,11 @@ nvram set variable=value
 nvram commit (to save the changes)
 }}}
 
-'''TIP:''' Use quotes when you have a list of MAC addresses or interface names separated by space.  For example:
+'''TIP:''' Use quotes when you have a list of parameters separated by space.  For example:
 
 {{{
-nvram set variable="aa:bb:cc:dd:ee:ff aa:bb:cc:dd:ee:ff"
+nvram set variable="aa:bb:cc:dd:ee:ee aa:bb:cc:dd:ee:ff"
+nvram set vlan25ports="25 26 27 28 29 30"
 }}}
 
 See ["OpenWrtNVRAM"].
