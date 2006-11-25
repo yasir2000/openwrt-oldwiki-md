@@ -91,11 +91,11 @@ quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 
 DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will required JTAG cable to fix it.
 
-Next we must add a tichksum to our file otherwise the adam2 bootloader will reject it when we try to flash
+I haven't needed to use a checksum myself but some routers may have a version of adam2 that requires each file to have one, otherwise it just rejects the file.
 
 '''Adding a checksum'''
 
-You just need to get the Source code from DLINK and find the tichksum and perhaps compile it then execute it
+TICHKSUM can be found in the GPL source code for the original firmware available on D-Links website, it may already be compiled as a mipsel binary or may be available as seperate source code.
 
 '''Flashing the new firmware'''
 
