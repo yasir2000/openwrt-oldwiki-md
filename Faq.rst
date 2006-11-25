@@ -323,6 +323,12 @@ The message {{{no auths methods could be used}}} is related to the following uti
 PasswordAuthentication yes
 }}}
 
+== How to view dhcp leases from shell ? ==
+{{{
+cat /tmp/dhcp.leases
+}}}
+
+
 ## ##################################################
 = Networking =
 == How do I create a DHCP server? ==
