@@ -16,7 +16,7 @@ Lets say we have a 10 port switch, and we configure ports 1-5 as VLAN1 and 6-10 
 
 And of course, it's also possible to configure it differently - if you later decide you need to put another device in VLAN1 and you've only used 4 ports in VLAN2, you can reconfigure _any_ of the VLAN2 ports into VLAN1 (not just port 6). So then you might end up with VLAN1 as ports 1-5 and 8, and VLAN2 as ports 6,7,9,10.
 
-The number of VLANs that you can configure on any device is only limited by the number of ports.
+The number of VLANs that you can configure on any OpenWRT device is only limited by the number of ports.
 
 The subject of VLANs can get very complicated and extensive, but this quick summary covers what's needed for using VLANs on the OpenWRT platform.
 
