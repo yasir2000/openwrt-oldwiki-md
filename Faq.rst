@@ -267,7 +267,9 @@ This would cause the boot_wait period to be 30 seconds, allowing plenty of time 
 
 The !OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with [http://haserl.sourceforge.net/ haserl]. It uses the !BusyBox HTTPD server.
 
-'''TIP:''' You still can configure everything in the pure CLI (command line interface) too. If you prefer this way than do so. When you like images without the haserl and webif packages use either the {{{micro}}} image or create your own images using the !OpenWrt [:ImageBuilderHowTo:Image Builder].
+There is a new webif now available that offers a much richer set of features than does the original webif. Called webif^2, it is part of the X-Wrt project to make OpenWrt more end user friendly. To get information on webif^2, visit http://www.x-wrt.org.
+
+'''TIP:''' You still can configure everything in the pure CLI (command line interface) too.
 
 == Why is the OpenWrt firmware so bare? ==
 !OpenWrt's design philosophy is to not lock the user down to a particular set of features but rather to provide a basic framework which can be endlessly customized through it's package support and writable JFFS2 filesystem. The firmware itself contains a minimal "core" filesystem with the intent on giving as much space as possible to the JFFS2 filesystem; the core provides minimal functionality while the JFFS2 filesystem allows the user to add software packages and modify the core scripts. The use of a package system allows the user to customize the set of features required with regard to available space, without wasting space on unused features.
