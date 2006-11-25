@@ -225,11 +225,11 @@ ipkg list_installed
 '''TIP:''' If there are no package descriptions listed you have to run {{{ipkg update}}}.
 
 == Why isn't a package for ____ available? ==
-Good question. The most likely answer is that nobody has needed that package yet or that nobody has had time to package it.
+If using White Russian, be sure you did check the backports repository and X-Wrt repository to make sure the package isn't available in either of them. Then search the forums to see if any users have created the package you want but it hasn't been added to the official repositories. If you still haven't found your package, then it may be that nobody has needed that package yet or that nobody has had time to package it. In such a case, the options you have are:
 
  * Wait until the package becomes available
  * Package it yourself (using the [:BuildingPackagesHowTo:OpenWrt SDK])
- * Find/Pay someone to package it for you
+ * Find/Pay someone to package it for you (consider soliciting in the forums)
 
 == How much space is available for the JFFS2 partition? ==
  * On systems with a 4 MB flash: roughly 2 MB
