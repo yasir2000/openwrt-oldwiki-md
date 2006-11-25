@@ -32,7 +32,7 @@ White Russian ships in several variations, each with a slightly different set of
 ||bin=default ||base-files, base-files-brcm, bridge, busybox, dns masq, dropbear, haserl, ipkg, ip tables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools ||
 ||pptp ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools ||
 
-(alternate, easier to see listing) The bin firmware is the default version.
+(alternate, easier to see listing) The bin firmware is the default version. 
 ||firmware||base files||base files brcm||bridge||busy box||dnsmasq||drop bear||	haserl||ipkg||iptables||iwlib||kmod switch||kmod brcm wl||
 ||bin||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
 ||micro||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
