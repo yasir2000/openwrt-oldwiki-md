@@ -70,7 +70,7 @@ ttyS00 at 0xb8000300 (irq = 3) is a 16550A
 ttyS01 at 0xb8000400 (irq = 0) is a 16550A
 b44.c:v0.93 (Mar, 2004)
 PCI: Setting latency timer of device 00:01.0 to 64
-eth0: Broadcom 47xx 10/100BaseT Ethernet 00:16:01:58:6d:68
+eth0: Broadcom 47xx 10/100BaseT Ethernet 00:16:01:aa:gg:hh
 Physically mapped flash: Found an alias at 0x400000 for the chip at 0x0
 Physically mapped flash: Found an alias at 0x800000 for the chip at 0x0
 Physically mapped flash: Found an alias at 0xc00000 for the chip at 0x0
