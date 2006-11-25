@@ -27,7 +27,7 @@ nvram commit
 
 Hope I did not forget anything ;-)
 
-dmesg reports:
+dmesg reports (changing MAC addr):
 
 {{{
 CPU revision is: 00029008
