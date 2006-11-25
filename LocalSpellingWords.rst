@@ -188,3 +188,5 @@ act actual adding allow allowed anything applied applies architecture Architectu
 bound boxes communication complicated configurable configured configures connectivity consists controller could details diagram earlier exchange exchanged exclude exist extensive filter group groups high host hosts including internal Internals internals isolate isolation knowledge labelled lan limited link linked little logical machines main maintain native Native pass physical platform play plugged plus Pretend probably public reachable servers side six suitable switches tagged tagging third unused very Virtual visible Vlan vlan vlan0 wan wanted wasting way wire Zone
 
 associated Basics config Demilitarized described desktops differ differently dmz firewalls four Generally getting imagination impressive indicated isolated multiple partitioned picture refers routes rules seen send sends subject subnet subset three tied total trunk trunking Trunking Understanding wikipedia
+
+easier easy effectively eth0 eth1 eth2 firstly indicating mail maintaining manageable much png quick received receiving separation sets shows single streams talk
