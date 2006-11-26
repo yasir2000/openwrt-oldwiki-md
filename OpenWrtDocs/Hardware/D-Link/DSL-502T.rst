@@ -228,6 +228,8 @@ lcp-echo-failure 20
 
 #plugin rp-pppoe.so #use pppoatm.so for PPPoA  #No longer needed as we have a pppoe/pppoa script called from "ifup wan" instead
 
+#nas0
+
 mtu 1492 #pppoa should be 1500
 
 mru 1492 #should equal MTU
