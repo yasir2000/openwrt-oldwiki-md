@@ -154,3 +154,17 @@ Device info:
             3. Need to install bulk decoupling and small-value high-freq decoupling capacitors on front (footprints are there but they are not installed)
             4. You'll obviously have to remove the bottom PCB SDRAM chips if you want to populate the top PCB with SDRAM chips.
  * 2 DDR SDRAM devices on back-side:  Mira 64Mbit/SDRAM  4M*16 P2V64S40 54-pin
+   . more details (copied from Jeremy Collake aka db90h of DD-WRT): http://www.dd-wrt.com/phpBB2/viewtopic.php?t=2542
+     . RAM : Mira p2v28s40btp [5409fa03-6]
+     . spec: http://www.deutron.com.tw/data_sheets/sdram/p2v28s_0btp11_07024.pdf
+       . P2 == mira DRAM
+       . V == LVTTL
+       . 28 == density (128mbit)
+       . S == synchronous DRAM
+       . 4 == x16 organization (4 banks - 16-bit)
+       . 0 == random column
+       . B == 3rd gen
+       . TP == TSOP(II)
+ * 2 serial ports detected, not sure if this works just yet or is electrically connected
+ * Noticed that there is an LED missing (LED4), and a series resistor (R4) is also missing.  I wonder if that can be used for GPIO and thus for the SD card slot kernel mod??
+ * Need to confirm the JTAG pinout.  It is rumored that J1 can be used for JTAG, but that's only 4 pins; JTAG needs TRST, TMS, TDI, TDO, TCK, GND
