@@ -332,6 +332,12 @@ fi
 
 fi
 
+== Troubleshooting ==
+Poor performance of the ADSL connection exists between the Netgear WPNT834 Rangemax 240 and D-Link DSL-502T, characterised by a steady but slow downstream to any connected PCs but fast upstream.
+
+The only way to solve this at present is to force the DSL-502T ethernet connection to Autonegotiate 10Mbit/s by changing one line of source code: see here:
+
+ . http://forum.openwrt.org/viewtopic.php?id=8117
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
 
