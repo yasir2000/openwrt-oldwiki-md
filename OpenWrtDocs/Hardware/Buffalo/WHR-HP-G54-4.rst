@@ -27,7 +27,10 @@ nvram commit
 
 Hope I did not forget anything ;-)
 
-dmesg reports (changing MAC addr):
+
+== JustRob's information ==
+
+dmesg output (changing MAC addr):
 
 {{{
 CPU revision is: 00029008
@@ -137,3 +140,17 @@ vlan1: add 01:00:5e:00:00:01 mcast address to master interface
 mini_fo: using base directory: /
 mini_fo: using storage directory: /jffs
 }}}
+
+
+Device info:
+
+ * 48-pin TSOP flash chip on top PCB:  Macronix MX29LV320CBTC-90G 48-pin TSOP 90ns
+ . URL: http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/209CFCBBF4BCCB9148257031002F02E6/$File/MX29LV320CTBver15.pdf
+ * 2 sets of open pads on top PCB for other SDRAM memory footprint, each 66-pin TSOP
+   . can use Micron 32Mx16 MT46V32M16TG (if same assumptions regarding other routers with similar BCM5352 processor are true for this board)
+   . Caveats:
+            1. I haven't tried this (yet)
+            2. Need VERY GOOD soldering skills, using microscope and Metcal or other SMT soldering iron
+            3. Need to install bulk decoupling and small-value high-freq decoupling capacitors on front (footprints are there but they are not installed)
+            4. You'll obviously have to remove the bottom PCB SDRAM chips if you want to populate the top PCB with SDRAM chips.
+ * 2 DDR SDRAM devices on back-side:  Mira 64Mbit/SDRAM  4M*16 P2V64S40 54-pin
