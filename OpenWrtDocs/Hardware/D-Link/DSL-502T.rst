@@ -3,7 +3,7 @@ Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist th
 
 Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!)
 
-Kamikaze builds 5174 and 5495 work on the DSL-502T AU & AT
+Kamikaze builds 5174, 5495 & 5636 work on the DSL-502T AU & AT
 
 This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
 
@@ -17,28 +17,28 @@ SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
 CPU: TNETD7300GDU Texas Instruments AR7 MIPS based ''' '''
 
 == How to get OpenWRT onto the router: ==
+'''Preamble '''
+
+I do not advise proceeding forward unless you have a JTAG cable, this allows you to recover the firmware in the device in all situations by directly talking to the mips processor and allowing you to upload a new bootloader. They are around $20 USD from Ebay
+
+Generally the risk of 'bricking' the router (i.e. deleting the bootloader and/or config file) is low. As long as instructions are followed.
+
 '''Getting and compiling the firmware'''
 
-I do not advise proceeding forward unless you have a JTAG cable or are willing to pay for one (around 20 USD from ebay).
-
-Although the risk of 'bricking' the router is low (as long as you follow the instructions to the letter and do not overwrite the bootloader or modem configuration file), as long as the bootloader and config file are intact the modem can always be recovered.
-
-You will need to compile your own firmware, it's simple enough, if you have ubuntu grab build essentials using synaptic and also grab flex, bison and subversion Download the latest trunk using
-
-svn co https://svn.openwrt.org/openwrt/trunk
+You will need to compile your own firmware, it's simple enough, this can be done using Ubuntu Linux 6.10 (Fedora Core 6 also works great) For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev' and 'subversion' Now we can download a copy of the source code from the subversion repository svn co https://svn.openwrt.org/openwrt/trunk
 
 or get the same revision as myself and use
 
-svn -r 5495 co https://svn.openwrt.org/openwrt/trunk
+svn -r 5636 co https://svn.openwrt.org/openwrt/trunk
 
 Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4], quit and save the config.
 
-Run make to download and compile the firmware
+Run make to download essential packages (approx 100MB) and compile the firmware
 
 '''Setting up the memory layout'''
 
-To flash your new firmware you must first understand how the memory is divided into blocks, with the default DLink firmware it is this:
-||||||||<style="text-align: center;">'''Default DLink Firmware V2 map''' ||
+To flash your new firmware you must first understand how the memory is divided into blocks, with the default DLink memory mappings we have:
+||||||||<style="text-align: center;">'''Default DLink V2 memory mappings''' ||
 ||Name ||Start ||End ||Description ||
 ||mtd0 ||0x90091000 ||0x903f0000 ||Filesystem ||
 ||mtd1 ||0x90010090 ||0x90090000 ||Kernel ||
@@ -47,23 +47,25 @@ To flash your new firmware you must first understand how the memory is divided i
 ||mtd4 ||0x90010090 ||0x903f0000 ||fs+kernel ||
 
 
-The default firmware flashes to mtd4 It is divided like so (hex):
-||||<style="text-align: center;">'''Default firmware map (hex)''' ||
+The default firmware flashes to mtd4, this is not a real memory block, it just spans kernel/filesystem.
+
+The default firmware file is mapped as so:
+||||<style="text-align: center;">'''Default D-Link V2 firmware memory map (hex)''' ||
 ||0-90 ||Header used by the web interface to verify firmware compatibility ||
 ||90-80FFF ||Kernel with padded 0s at the end ||
 ||81000-20EFFF ||Filesystem with padded 0s at the end ||
 ||20F000-20F007 ||Checksum made with TICHKSUM (8 bytes=16 hex chars) ||
 
 
-But we are flashing OpenWRT to our router and the Openwrt-ar7-2.4-squashfs.bin is set up like this:
+Instead of the above, we are flashing OpenWRT to the router, it does not have a header or checksum and has no space wasted by having fixed/padded partition lengths:
 ||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
 ||0 - x ||Kernel ||
 ||x - eof ||SquashFS ||
 
 
-Basically OpenWRT doesn't waste space and where the kernel ends the filesystem starts.This means you need to change your mtd3 configuration variables so that the mappings are correct and the filesystem can be found by OpenWRT.
+For OpenWRT to boot we must change our settings in the routers configuration (mtd3 config variables) to the correct values.
 
-Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this is the start of the squashfs.
+Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this is the start of the squashfs. (i.e. sqsh for big endian or hsqs for little endian)
 
 In my case this position was 0x000750E0
 
@@ -76,6 +78,8 @@ so my memory should be mapped like this:
 ||mtd3 ||0x903f0000 ||0x90400000 ||config ||
 ||mtd4 ||0x90010000 ||0x903f00000 ||Kernel + FS ||
 
+
+All we do is change the kernel and filesystem mappings and also align the mtd4 correctly.
 
 Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 21 we do
 
@@ -91,9 +95,9 @@ quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 
 DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will required JTAG cable to fix it.
 
-I haven't needed to use a checksum myself but some routers may have a version of adam2 that requires each file to have one, otherwise it just rejects the file.
-
 '''Adding a checksum'''
+
+I haven't needed to use a checksum myself but some routers may have a version of adam2 that requires each file to have one, otherwise it just rejects the file.
 
 TICHKSUM can be found in the GPL source code for the original firmware available on D-Links website, it may already be compiled as a mipsel binary or may be available as seperate source code.
 
@@ -101,48 +105,50 @@ TICHKSUM can be found in the GPL source code for the original firmware available
 
 Now you are ready to flash ftp into adam2
 
-quote "MEDIA FLSH"
+quote "MEDIA FLSH" #write to flash memory
 
-binary
+binary #binary transfer mode
 
-debug
+debug #turn debugging output on
 
-hash
+hash #print ##### when transfering
 
 put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"  (c can be anything)
 
-quote REBOOT
+quote REBOOT #tell the router to reboot
 
 quit
 
 '''Getting the LAN connection to work'''
 
+Generally the router won't work until the second bootup. But if you reboot several times and it doesn't work, you may need to enable the correct setting for the ethernet device
+
 In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS), This option selects between internal and external PHY.
 
 '''Congratulations you are successful :)'''
 
-now try to get an IP from the router by using dhclient eth0 or just unsetting IP variables in XP
+now try to get an IP from the router by using dhclient eth0 from xterm in Linux or just unsetting IP variables in XP
 
 You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken)telnet into 192.168.1.1 and you're done :)
 
 == Enabling ADSL... ==
 Please refer to this forum post for more info after reading this:http://forum.openwrt.org/viewtopic.php?pid=35563
 
-This is quite lengthy at present, we really need an init script to do this for us...
-
 '''Set up modulation'''
 
-First of all, you need to set the modulation nvram variable, you can find the modulation from your existing modem logs, MMODE usually suffices. using adam2 ftp... quote "SETENV modulation,GDMT" or GLITE or MMODE or T1413
+First of all, you need to set the modulation nvram/mtd3 variable, you can find the modulation from your existing modem logs, MMODE usually suffices. using adam2 ftp... quote "SETENV modulation,GDMT" or GLITE or MMODE or T1413
 
 '''Compile modules'''
 
-You need to compile in the firmware for the correct annex for your modem, either A or B. (it should be ticked on the PCB if you have no idea).
+You need to compile in the firmware for the correct annex for your modem, either A or B, do not compile both. (it should be ticked on the PCB if you have no idea).
 
 If you're using PPPoE you must also compile in br2684ctl and it's dependency linux-atm, if you're using PPPoA you don't use br2684ctl and you don't use the nas0 device either.
 
 '''Check your line is in sync'''
 
-dmesg should tell you "DSL Line in Sync"You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good, then it should say "SHOWTIME" when it is ready to work.
+dmesg should tell you "DSL Line in Sync"
+
+You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good, then it should say "SHOWTIME" when it is ready to work.
 
 You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised (see the US/DS connection rate values) and if it is up also check ifconfig regularly to see if you have the nas0 and ppp0 device we set up later on.  The rest of this guide assumes you're using PPPoE.  If you're using PPPoA then search on the openwrt wiki for ARM8100 as this AR7 device is known to work with ADSL PPPoA with VC-MUX encapsulation.
 
@@ -166,7 +172,7 @@ insmod pppoe.o #PPPoE
 
 insmod pppoatm.o #PPPoA
 
-'''Start the bridging interface''' #PPPoE only
+'''Start the bridging interface (PPPoE only)'''
 
 Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and if you want to do VCMUX or LLC)
 
@@ -187,12 +193,6 @@ option ifname nas0
 option device ppp
 
 option proto pppoe #change to pppoa for PPPoA (PPP over ATM)
-
-#option user " me@isp.com "
-
-#option name " me@isp.com "
-
-#option atm 1
 
 '''Bring up the bridging interface''' #PPPoE only
 
@@ -220,8 +220,6 @@ asyncmap 0
 
 usepeerdns #important gets DNS servers from ISP and adds to resolv.conf
 
-#name " me@isp.com "
-
 user " me@isp.com " #REQUIRED FOR PAP/CHAP AUTH TO BE SUCCESSFUL
 
 lcp-echo-interval 4
@@ -242,7 +240,11 @@ edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
 
 '''Bring up the ADSL connection'''
 
-just do "ifup wan" and it should come up, edit /lib/network/pppoe.sh or pppoa.sh to change mtu/mru (typing pppd used to bring the connection up, this doesn't work properly anymore)
+you should first edit /lib/network/pppoe.sh and pppoa.sh with the correct MTU/MRU values.
+
+then just do "ifup wan" and it should come up
+
+You should do ifconfig and get something like this:
 
 ppp0      Link encap:Point-to-Point Protocol inet addr:61.69.250.153  P-t-P:210.8.1.19  Mask:255.255.255.255 UP
 
@@ -254,17 +256,17 @@ TX packets:3 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:3 R
 
 if it doesn't come up do ps -ax and if you see loads of pppd then just use kill 512 etc to kill them all... also kill the br2684ctl and start again...
 
-you should now be able to ping your ISPs gateway IP from telnet, but you won't be able to lookup domain names (i.e. ping www.google.com)
+you should now be able to ping your ISPs gateway IP from telnet.
 
 '''Set up DNS lookup'''
 
-you need to edit /etc/resolv.conf and add the lines: search wan and add a nameserver (DNS server) before you bring the interface up
+normally with the usepeerdns command the DNS is set correctly, but you may need to edit /etc/resolv.conf and add the lines: search wan and you may want to add a nameserver (DNS server) before you bring the interface up
 
 '''Set up forwarding'''
 
-if your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
+if your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding and NAT in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
 
-If you get any errors you may need to compile in additional NAT kernel modules.
+As a quick test you can try this:
 
 iptables -P INPUT ACCEPT
 
@@ -288,16 +290,45 @@ echo 1 > /proc/sys/net/ipv4/ip_forward     - Enables packet forwarding by kernel
 
 please note that this may not be complete and you may require additional rules to protect your router on the wan interface - Note: don't connect to irc.freenode.net from an unfirewalled box on your lan as you might get banned for open proxies.
 
-Actually the best thing to do is to use OpenWRTs existing firewall rules and add the masquerading commands to the end of /etc/firewall.user 
+Actually the best thing to do is to use OpenWRTs existing firewall rules and add the masquerading commands to the end of /etc/firewall.user
 
-iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE 
+iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE
 
-iptables -A forwarding_rule -i eth0 -j ACCEPT 
+iptables -A forwarding_rule -i eth0 -j ACCEPT
 
 This means they will execute at bootup
 
+If you get any errors you may need to compile in additional NAT kernel modules.
+
 See www.netfilter.org for full iptables documentation, it should be noted that in recent builds of openwrt do all the setting up and enabling nat/masquerading for you if you use the "ifup wan" command with a correctly configured /etc/config/network file
 
+'''Script to bring the ADSL interface up on bootup and also check the interface is up '''
+
+Please see http://forum.openwrt.org/viewtopic.php?id=8342 for more info
+
+make a file called /etc/crontab/root and put */1 * * * * sh /etc/adsl
+
+this calls a file called /etc/adsl every minute for infinity
+
+now make a file called /etc/adsl and put
+
+#!/bin/sh
+
+MODEMSTATUS=$(cat /proc/tiatm/avsar_modem_training &> /dev/null)
+
+ADSLSTATUS=$(ps | grep pppd)
+
+ADSLSTATUSLEN={{{expr "$ADSLSTATUS" : '.*'}}}
+
+if [ "$MODEMSTATUS" = "SHOWTIME" ]; then
+
+if [[ "$ADSLSTATUSLEN" -lt "48" ]]; then #integer comparison specified
+
+ifup wan
+
+fi
+
+fi
 
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
