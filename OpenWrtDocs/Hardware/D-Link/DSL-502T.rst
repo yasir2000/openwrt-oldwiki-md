@@ -288,11 +288,10 @@ echo 1 > /proc/sys/net/ipv4/ip_forward     - Enables packet forwarding by kernel
 
 please note that this may not be complete and you may require additional rules to protect your router on the wan interface - Note: don't connect to irc.freenode.net from an unfirewalled box on your lan as you might get banned for open proxies.
 
-Ok, to add these rules to the default OpenWRT iptables settings just use vi to edit /etc/firewall.user and add these two lines (at the end of the code):
+Actually the best thing to do is to use OpenWRTs existing firewall rules and add the masquerading commands to the end of /etc/firewall.user
 iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE
 iptables -A forwarding_rule -i eth0 -j ACCEPT
-This way the rule is set each time at bootup on top of the existing OpenWRT rules.
-See www.netfilter.org for full iptables documentation,  it should be noted that in recent builds of openwrt do all the setting up and enabling nat/masquerading for you if you use the "ifup wan" command with a correctly configured /etc/config/network file.
+This means they will execute at bootupOk, to add these rules to the default OpenWRT iptables settings just use vi to edit /etc/firewall.user and add these two lines (at the end of the code): iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE iptables -A forwarding_rule -i eth0 -j ACCEPT This way the rule is set each time at bootup on top of the existing OpenWRT rules. See www.netfilter.org for full iptables documentation,  it should be noted that in recent builds of openwrt do all the setting up and enabling nat/masquerading for you if you use the "ifup wan" command with a correctly configured /etc/config/network file.
 
 == How to Debrick and further information: ==
 See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
