@@ -157,7 +157,7 @@ Device info:
    . more details (copied from Jeremy Collake aka db90h of DD-WRT): http://www.dd-wrt.com/phpBB2/viewtopic.php?t=2542
      . RAM : Mira p2v28s40btp [5409fa03-6]
      . spec: http://www.deutron.com.tw/data_sheets/sdram/p2v28s_0btp11_07024.pdf
-       . P2 == mira DRAM
+       . P2 == Mira DRAM
        . V == LVTTL
        . 28 == density (128mbit)
        . S == synchronous DRAM
@@ -167,4 +167,4 @@ Device info:
        . TP == TSOP(II)
  * 2 serial ports detected, not sure if this works just yet or is electrically connected
  * Noticed that there is an LED missing (LED4), and a series resistor (R4) is also missing.  I wonder if that can be used for GPIO and thus for the SD card slot kernel mod??
- * Need to confirm the JTAG pinout.  It is rumored that J1 can be used for JTAG, but that's only 4 pins; JTAG needs TRST, TMS, TDI, TDO, TCK, GND
+ * Need to confirm the JTAG pinout.  It is rumored that J1 can be used for JTAG, but that's only 4 pins; JTAG needs TRST, TMS, TDI, TDO, TCK, GND (but TRST isn't really needed as it just pulls/puts the device out of/in reset)
