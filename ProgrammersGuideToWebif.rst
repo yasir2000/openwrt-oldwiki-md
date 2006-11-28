@@ -181,7 +181,7 @@ The current forms are as listed:
 ||button||doc||
 ||checkbox||doc||
 ||radio||doc||
-||select||Drop down menu use the option form directly below it to add options to it Syntax: select|menu_variable|Displayed text||
+||select||Drop down menu use the option form directly below it to add options to it. menu_variable is the name of the menu, $variable is used to load which variable is currently from the options in the menu. Syntax: select|menu_variable|$variable||
 ||option||Options for the drop down menu Syntax: option|option_variable|Displayed Text||
 ||txtfile||doc||
 ||listedit||doc||
