@@ -1,17 +1,17 @@
 '''Programmers Guide to Webif(^2)'''
 
- The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558/ historical document] in the Openwrt forum.)]]
+ The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558 historical document] in the Openwrt forum.)]]
 
- [http://xwrt.berlios.de/xwrt.asp/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif`^`2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif`^`2 code at some stage of it's developement.
+ [http://www.x-wrt.org/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif`^`2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif`^`2 code at some stage of it's developement.
 
  The "Programmers Guide to Webif" is the only documentaion available, unless you read the code... It is a Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
- If you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
+ If you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0 X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
  Or if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
 '''Feedback'''
- Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0/ X-Wrt's forum]
+ Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0 X-Wrt's forum]
 
 '''Thanks for feedback from:'''
  * thepeople
@@ -177,12 +177,12 @@ The current forms are as listed:
 ||start_form||doc||
 ||onchange||doc||
 ||onclick||doc||
-||option||doc||
 ||field||doc||
 ||button||doc||
 ||checkbox||doc||
 ||radio||doc||
-||select||doc||
+||select||Drop down menu use the option form directly below it to add options to it Syntax: select|menu_variable|Displayed text||
+||option||Options for the drop down menu Syntax: option|option_variable|Displayed Text||
 ||txtfile||doc||
 ||listedit||doc||
 ||caption||doc||
