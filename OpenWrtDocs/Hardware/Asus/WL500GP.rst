@@ -47,6 +47,22 @@ nvram set lan_ifname=br0
 }}}
 This will configure LAN and WIFI to be bridged (br0) and WAN to vlan1.
 
+Also in WhiteRussian RC6, WAN does not work out of the box. You have to change vlan1ports:
+ . {{{
+# original value "0 5u" does not work
+nvram set vlan1ports="0 5*"
+}}}
+This will make vlan1 working again.
+
+Alternatively, you can live without working vlan1 interface:
+ . {{{
+# original value: "vlan1"
+nvram set wan_device=eth0
+# original value: "vlan1"
+nvram set wan_ifnames=eth0
+}}}
+This will remove vlan1 and send WAN traffic directly to eth0. In this case, you may need to replace vlan1 by eth0 in more variables (e. g. pppoe_ifname, see result of "nvram show | grep vlan1").
+
 Save the settings with:
 
 {{{
@@ -68,11 +84,22 @@ If you look at "dmesg" or "free" command's output, you will probably see that th
 
  . This is how you enable the rest of RAM:
 {{{
-root@OpenWrt:~/# nvram set sdram_init=0x0009
-root@OpenWrt:~/# nvram set sdram_ncdl=0
-root@OpenWrt:~/# nvram commit
-root@OpenWrt:~/# reboot
+nvram set sdram_init=0x0009
+nvram set sdram_ncdl=0
+nvram commit
+reboot
 }}}
+
+ . And these values defined in Asus firmware 1.9.7.2 nvram enable 32MB properly, too:
+{{{
+nvram set sdram_init=0x0009
+nvram set sdram_ncdl=0x208
+nvram commit
+reboot
+}}}
+
+Here are values from old Asus firmwares: sdram_init=0x000b, sdram_ncdl=0x307.
+
 == Few problems with the WL-500gP ==
 The reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
@@ -88,6 +115,8 @@ VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running
 
 wan_device=eth0 (it was set to vlan1)
 
+But probably better is to make vlan1 working (see above and below).
+
 Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
 
 The above does not work for me (on a clean OpenWRT squashfs firmware), I've to use these setting after configure in the web ui:
@@ -98,6 +127,12 @@ The above does not work for me (on a clean OpenWRT squashfs firmware), I've to u
 nvram set wan_ifname=ppp0
 nvram set pppoe_ifname=vlan1
 nvram set wan_device=vlan1}}}
+
+With WhiteRussian RC6, it's sufficient to set (you still have to make vlan1 working - see above):
+
+{{{
+nvram set pppoe_ifname=vlan1}}}
+
 === DHCP server & client settings ===
 To act as a DHCP-client towards WAN set the following:
 
