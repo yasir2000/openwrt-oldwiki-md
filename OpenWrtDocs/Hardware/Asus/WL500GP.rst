@@ -40,7 +40,7 @@ When WhiteRussian RC5 was released, this router was not in the "Supported" categ
 You need to make a few nvram changes before the network settings are similar as in most other routers (such as WRT54GL):
 
  . {{{
-nvram set vlan1ports="0 5*"
+nvram set vlan1ports="0 5"
 nvram set wan_ifname=vlan1
 nvram set lan_ifnames="vlan0 eth2"
 nvram set lan_ifname=br0
@@ -50,7 +50,7 @@ This will configure LAN and WIFI to be bridged (br0) and WAN to vlan1.
 Also in WhiteRussian RC6, WAN does not work out of the box. You have to change vlan1ports:
  . {{{
 # original value "0 5u" does not work
-nvram set vlan1ports="0 5*"
+nvram set vlan1ports="0 5"
 }}}
 This will make vlan1 working again.
 
