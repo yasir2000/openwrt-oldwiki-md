@@ -202,6 +202,8 @@ I have since downloaded his customized image builder kit and made by own firmwar
 
 His files are available from http://downloads.openwrt.org/people/nbd/whiterussian/
 
+A tutorial for reviving WAP54G v2 with clear pictures of the pins are here: http://www.sorgonet.com/network/wap54gbricked/
+
 = WAP54G v3 =
 You can upload rc4 default wap54g build via  webinterface. Same limitations as above for v2.
 
