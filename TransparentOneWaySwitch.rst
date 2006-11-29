@@ -181,7 +181,7 @@ iptables -I INPUT -i vlan0 -d $(nvram get lan_ipaddr) -j DROP
 
 Reboot the router, check again.
 
-If you want have Windows computers running on both vlans and you want to make NetBEUI nameresolution working (i.e. see all Computers in network neighbourhood) then you can add these 2 lines:
+If you have windows(tm) computers running on both vlans and you want to make NetBEUI name resolution working (i.e. see all computers in network neighbourhood) then you can add these 2 lines:
 
 {{{
 iptables -I FORWARD -p udp --sport 137:138 -j ACCEPT
