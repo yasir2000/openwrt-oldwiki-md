@@ -181,6 +181,15 @@ iptables -I INPUT -i vlan0 -d $(nvram get lan_ipaddr) -j DROP
 
 Reboot the router, check again.
 
+If you want have Windows computers running on both vlans and you want to make NetBEUI nameresolution working (i.e. see all Computers in network neighbourhood) then you can add these 2 lines:
+
+{{{
+iptables -I FORWARD -p udp --sport 137:138 -j ACCEPT
+iptables -I FORWARD -p udp --dport 137:138 -j ACCEPT
+}}}
+
+not perfect, but working.
+ 
 == ... and back again ==
 As it is now, your router is a switch with oneway connections. It acts much like a semipermiable membrane. It forbids connections from DMZ to LAN on the same subnet, but allows them from LAN to DMZ. There are lots of ways to improve. The firewall is primitive. You can add mor vlans. You can add WLAN ... 
 
