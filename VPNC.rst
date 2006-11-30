@@ -206,6 +206,8 @@ ledstat=`cat /proc/sys/diag`
 ledstat=$(($ledstat ^ 0x01))
 echo "$ledstat" > /proc/sys/diag}}}
 
+= Open Questions =
+How do you install packages with ipkg (["OpenWrtDocs/Packages"]) without Internet access? If you get internet access via vpnc this is a hen-and-egg-problem! Can you download the packages and upload them to the router with scp or things like that?
 
 ----
 CategoryHowTo
