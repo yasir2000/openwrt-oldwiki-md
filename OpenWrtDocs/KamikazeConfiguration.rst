@@ -91,6 +91,7 @@ config interface wan
   * /etc/config/wireless documentations https://dev.openwrt.org/browser/trunk/docs/wireless.tex
   * Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
+'''Note: bridging wireless to lan is now accomplished by insertion of 'option network "lan"' into the config wifi device section
 
 Default Configuration:
 {{{
