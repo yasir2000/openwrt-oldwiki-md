@@ -641,9 +641,9 @@ svn co https://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 Development take place in SVN. You get the source via:
 
 {{{
-svn co https://svn.openwrt.org/openwrt/trunk/openwrt/}}}
+svn co https://svn.openwrt.org/openwrt/trunk/}}}
 
-[http://dev.openwrt.org/browser/trunk/openwrt/ Browse] the development SVN branch.
+[http://dev.openwrt.org/browser/trunk/ Browse] the development SVN branch.
 
 
 /!\ '''NOTE:''' Development has temporarily moved to the buildroot-ng branch... for development information, check: https://dev.openwrt.org .
