@@ -10,7 +10,7 @@ Performance Reports
 
 
 = Installation =
-Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the packages:
+To install vpnc your !OpenWrt router needs internet - obviously you first need to connect to another network than the net you want to access with vpnc. Configure your device to use the backports repository. See ["OpenWrtDocs/Packages"] for instructions. Don't forget {{{ipkg update}}} after you added the backport repository to {{/etc/ipkg.conf}}}. Then install the packages:
 
 {{{
 ipkg install vpnc
@@ -29,7 +29,7 @@ Create a configuration file:
 {{{
 vi /etc/vpnc.conf}}}
 
-And insert the parameters for your connection in there. These parameters are normally given by your sysadmin.
+And insert the parameters for your connection in there. These parameters are normally given by your sysadmin. If you only have a {{{.pfc}}} file for the Cisco VPN client there is a perl script {{{pcf2vpn}}} to convert. Unfortunately the script is not included in vpnc backport package but in full vpnc packages and kvpnc, a KDE gui for vpnc. 
 
 Here is an example ''vpnc.conf'':
 {{{
@@ -205,9 +205,6 @@ Change to:
 ledstat=`cat /proc/sys/diag`
 ledstat=$(($ledstat ^ 0x01))
 echo "$ledstat" > /proc/sys/diag}}}
-
-= Open Questions =
-How do you install packages with ipkg (["OpenWrtDocs/Packages"]) without Internet access? If you get internet access via vpnc this is a hen-and-egg-problem! Can you download the packages and upload them to the router with scp or things like that?
 
 ----
 CategoryHowTo
