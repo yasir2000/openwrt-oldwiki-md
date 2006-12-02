@@ -46,7 +46,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
-||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ ||
+||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ note^3^||
 ||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
 ||Belkin||[:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130]||1010||eth0||vlan0||eth2||By default LAN is br0 bridging all other interfaces. eth1 is pppoe virtual interface.||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
@@ -67,6 +67,8 @@ Diagrams of the internal switch architectures can be found via the following tab
 note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted.
 
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
+
+note^3^: On some versions of ASUS WL-500G Premium with Whiterussian RC5 {{{nvram set lan_ifname=br0 ; nvram set lan_ifnames=vlan0 eth1 eth2 eth3 ; nvram set nvram set wan_device=eth0}}} might helps you for getting a working WAN connection. Please do a {{{nvram commit}}} ''after'' you now, the sequence works for you.
 
 Please update to include other models.
 
