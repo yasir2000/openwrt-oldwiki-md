@@ -138,4 +138,5 @@ Personally, as an engineer, I prefer the buffered cable and would not use an unb
  * [http://midge.vlad.org.ua/forum/viewtopic.php?t=121 Debrick example] using OpenwinCE with EJTAG driver.
  * [http://openwince.sourceforge.net/jtag/ Openwince JTAG], "Supported hardware" section for other types of the JTAG cables.
  * [http://www.k9spud.com/jtag/ K9SPUD JTAG] another Wiggler schematic
+ * [http://www.ixo.de/info/usb_jtag/ USB JTAG] a budget USB JTAG adapter
  * a discussion at ["zt8qmwz"] homepage about implementing EJTAG PRAcc in the Hairydairymaid De-brick utility
