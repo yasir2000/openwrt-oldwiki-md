@@ -140,3 +140,5 @@ Personally, as an engineer, I prefer the buffered cable and would not use an unb
  * [http://www.k9spud.com/jtag/ K9SPUD JTAG] another Wiggler schematic
  * [http://www.ixo.de/info/usb_jtag/ USB JTAG] a budget USB JTAG adapter
  * a discussion at ["zt8qmwz"] homepage about implementing EJTAG PRAcc in the Hairydairymaid De-brick utility
+ * [http://downloads.openwrt.org/utils/ HairyDairyMaid_WRT54G_Debrick_Utility]
+ * [http://ar7.wikispaces.com/JTAG AR7 JTAG]
