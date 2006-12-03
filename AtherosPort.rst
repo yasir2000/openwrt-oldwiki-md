@@ -53,7 +53,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  
 OEM dual APs, internally identical:
 
- * !TrendNet [http://www.trendware.com/sp/products/TEW-510APB.htm TEW-510APB] Atheros AR5312 SoC 220MHz
+ * !TrendNet [http://www.trendware.com/products/TEW-510APB.htm TEW-510APB] Atheros AR5312 SoC 220MHz
  * Tonze AW-6660 
  * SparkLAN WX-7800A
  * !XtendLan WDAP-1001 
