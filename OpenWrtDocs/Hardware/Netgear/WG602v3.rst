@@ -60,6 +60,18 @@ Some models shipped with a binary version of the 1.0.6 firmware, but such versio
 === Serial console ===
 This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT configuration accordingly, and rebuild. The serial port is used for two independent purposes: displaying the kernel boot messages and providing shell access to your box.
 
+=== Pinout for the UART1 connector ===
+
+Looking from the backside of the device the pinout of UART1 (J5) is
+
+ * Pin 1  =  3,3V
+ * Pin 2  =  RxD
+ * Pin 3  =  TxD
+ * Pin 4  =  Gnd
+
+Remember that you'll need one of the well-known TTL-V24 adapters to connect UART1 to a PC.
+
+
 The kernel console configuration is provided by its command line arguments, defined at configuraion time in the CONFIG_CMDLINE config variable. For White Russian, the file to modify is {{{target/linux/linux-2.4/config/brcm}}}, while for Kamikaze 2.4 it is {{{target/linux/brcm-2.4/config}}}. In both, you need to change
 
  . {{{
