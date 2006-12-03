@@ -1,6 +1,6 @@
-This page describes how to build a transparent firewall with 2 VLANs and "onway" communication. It builds a simple DMZ on the same subnet as LAN. Membership to LAN or DMZ is given by the port to which the host is connected. DMZ cannot connect or ping to LAN nor router. LAN can connect and ping to DMZ and router. 
+This page describes how to build a transparent firewall with 2 VLANs and "oneway" communication. It builds a simple DMZ on the same subnet as LAN. Membership to LAN or DMZ is given by the port to which the host is connected. DMZ cannot connect or ping to LAN nor router. LAN can connect and ping to DMZ and router. 
 
-= Transparent Onway Switch HowTo or Semipermiable Switch HowTo =
+= Transparent Oneway Switch HowTo or Semipermiable Switch HowTo =
 
 Let's build a certain kind of DMZ: 
  * anything on the same subnet
