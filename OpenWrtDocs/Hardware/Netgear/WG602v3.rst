@@ -69,6 +69,7 @@ Looking from the backside of the device the pinout of UART1 (J5) is
  * Pin 3  =  TxD
  * Pin 4  =  Gnd
 
+Serial parameters are as usual, 115200 bps, 8N1.
 Remember that you'll need one of the well-known TTL-V24 adapters to connect UART1 to a PC.
 
 
