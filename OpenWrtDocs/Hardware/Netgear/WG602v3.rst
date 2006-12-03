@@ -60,7 +60,7 @@ Some models shipped with a binary version of the 1.0.6 firmware, but such versio
 === Serial console ===
 This AP uses by default UART1 (/dev/ttyS1) as the console, while OpenWRT is usually configured to use UART0 (/dev/ttyS0). If you want to use the serial console on /dev/ttyS1, you need to modify the OpenWRT configuration accordingly, and rebuild. The serial port is used for two independent purposes: displaying the kernel boot messages and providing shell access to your box.
 
-=== Pinout for the UART1 connector ===
+==== Pinout for the UART1 connector ====
 
 Looking from the backside of the device the pinout of UART1 (J5) is
 
