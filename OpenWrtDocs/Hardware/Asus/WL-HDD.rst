@@ -3,7 +3,7 @@
 The device is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
 
 {{{
-Bootloader: CFE 
+Bootloader: PMON
 System-On-Chip:  Broadcom BCM4702KPB
 CPU Speed: 200 MHz (125 for some)
 Flash size: 4 MB, MX 29LV320ATTC-90
