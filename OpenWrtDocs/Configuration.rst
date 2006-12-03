@@ -287,7 +287,7 @@ Easy steps for a successful WDS:
 First do it without wireless protection and then activate the protection. If you activate both you will double the pain to find a problem.
 
  1. Configure the IPs of each AP - don't use the same! For easier maintenance you can use the same subnet.
- 1. Add the '''other''' APs MAC address to the list of allowed peers to each AP. With OpenWRT it's the variable wl0_wds.
+ 1. Add the '''other''' APs MAC address to the list of allowed peers to each AP. With OpenWRT it's the variable wl0_wds. Shell to each router and do ifconfig. The MAC id for eth1 is the correct MAC id to use.
  1. Disable all the unneeded services like DHCP, port forwarding, firewalling etc. '''except''' on the AP the has the internet connection. Remember: The other APs only act as the extended arm of the internet connected AP.
  1. Configure the WLAN parameters on all APs identical. That is SSID, channel, etc. - keep it simple. If you want to try boosters etc. do this later. (In [:JonathanKollasch:my] experience the SSIDs need not be identical for WDS to work, but YMMV.)
  1. Have you commited your values? Do it. And reboot.
