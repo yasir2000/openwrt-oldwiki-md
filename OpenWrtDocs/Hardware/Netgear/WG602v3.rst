@@ -14,7 +14,7 @@ May want to follow this thread: [http://forum.openwrt.org/viewtopic.php?id=4039 
 == Recovery procedure ==
 How to upload a firmware via TFTP:
 
- 1. Download the latest firmware from Netgear. Currently (2 April 2006) it is version [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8-rc3].
+ 1. Download the latest firmware from Netgear. Currently (3 Dec 2006) it is version [ftp://downloads.netgear.com/files/wg602v3_1_2_2ww.trx].
 
  1. Reboot the wg602v3: power off the device and power on while pressing the reset button for 5 seconds, until the wireless activity LED starts blinking.
 
