@@ -229,7 +229,7 @@ There seems to be some restriction to the power available to the mini-pci port. 
 The WGT634U comes equipped with an integrated antenna, which is soldered to the radio.  If you wish to use a different antenna, the most practical solution is to unsolder the pigtail and disassemble the antenna and collar.  Once the pigtail end is freed from the radio, it is a fairly simple task to remove both the antenna and the collar.  The Hirose test point is not a suitable attachment for a new pigtail.  The connector is not readily available and is not designed for attaching a permanent antenna.  Better is to solder on a new pigtail and run the coax outside the case where an antenna or more robust antenna coax can be attached.  See [http://cipheralgo.org/~jason/solder_b.jpg this picture] for an example of how it might be done.
 
 = Other projects and information =
- * Some infos about setting kamikaze up [[BR]] - http://web746.webbox240.server-home.org/openwrt/
+ * Some infos about setting up kamikaze [[BR]] - http://openwrt.loswillios.de/
  * A WGT-oriented Kamikaze wiki: [[BR]]- http://openwrt.pbwiki.com/
  * An OpenWrt-fork which concentrates on fewer routers (WGT634U included): [[BR]]- http://www.FreeWRT.org/
  * A Debian on WGT project: [[BR]] - http://www.cyrius.com/debian/bcm947xx/wgt634u/
