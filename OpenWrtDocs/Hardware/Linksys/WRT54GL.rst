@@ -15,5 +15,9 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 ||WRT54GL v1.1||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7||CFE 3.91.37.0|| BCM3302 V0.8||BCM5352EK||
 
 
+== v1.2 ==
+I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [[WRTG54GS]] which i now sucks and works. :)
+Has anyone seen a v1.2 revision to work?
+
 ----
  . CategoryModel    
