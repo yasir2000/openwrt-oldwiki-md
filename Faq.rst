@@ -504,6 +504,28 @@ nvram commit
 == Can I adjust the transmit power? ==
 Yes, but cranking the power to the maximum won't help you any. You might transmit farther but the noise level will be higher (and will probably bleed into the neighbouring channels; that looks like [http://wl500g.info/showthread.php?t=12&page=2 this] then) and your recieve sensitivity won't be improved any, limiting your distance. If you want better range go buy better antennas.
 
+== How do I see which computers are connected and at what signal strength? ==
+My awk scripting is terrible, but I hacked together a simple script to see who is connected to my network and at what signal strength.  This is useful for finding the optimal antenna orientation, too.  The response is in dBm's and a less negative number is better.  Put this script in /bin, for example.  I called it scan.sh.  Make sure to
+
+{{{
+chmod ug+x /bin/scan.sh
+}}}
+to make it executable.
+scan.sh 
+{{{
+#!/bin/sh
+for MAC in `wl assoclist | cut -d ' ' -f 2` ; do
+  echo -n 'Computer: ';
+  echo -n `cat /tmp/dhcp.leases | awk '{x=toupper($0); print x}' | grep $MAC | cut -d ' ' -f 4`;
+  echo -n ' IP: '; 
+  echo -n `cat /tmp/dhcp.leases | awk '{x=toupper($0); print x}' | grep $MAC | cut -d ' ' -f 3`;
+  echo -n ' Signal Strength: ' ;
+  echo -n `wl rssi $MAC | cut -d ' ' -f 3`;
+  echo ' dBm'
+done
+}}}
+I invite someone to clean this script up.  Only tested on White Russian pre-release 6.
+
 == What is the difference between wl0_* and wl_* variables? ==
 Use the {{{wl0_*}}} variables. The {{{wl_*}}} variables are obsolete and unused.
 
