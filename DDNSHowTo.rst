@@ -15,7 +15,7 @@ The DDNS service comes in handy for establishing connections from computers on t
 ipkg install ez-ipupdate
 }}}
 
-As of November 2006, on White Russian RC6 you must [http://wiki.openwrt.org/OpenWrtDocs/Packages#head-080d2348e16122fe98b79322c89f1adfd1d7519b enable the backport repository] (for rc6) before you can install it.
+As of November 2006, on White Russian RC6 you must [http://wiki.openwrt.org/OpenWrtDocs/Packages#head-080d2348e16122fe98b79322c89f1adfd1d7519b enable the backport repository] (for rc6) before you can install it. (''Is this backport still necessary? I installed ez-ipupdate without enabling backport and it installed successfully'')
 
 = Configuration =
 ez-ipupdate can be used with the following services:
