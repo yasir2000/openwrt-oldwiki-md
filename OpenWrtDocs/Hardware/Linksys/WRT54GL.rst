@@ -15,13 +15,13 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 ||WRT54GL v1.1||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7||CFE 3.91.37.0|| BCM3302 V0.8||BCM5352EK||
 
 == V1.1 ==
-The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically idendical to the boad used for the WRT54G v4.0 and WRT54GS 4.0
+The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically idendical to the boad used for the WRT54G v4.0 and WRT54GS 4.0 (4Mb version)
 
 {{{
 Bootloader     : CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
 System-On-Chip : Broadcom 5352EKPB
 CPU Speed      : 200 MHz
-Flash size     : 4 MB (Intel TE28F320)
+Flash size     : 4 MB (Intel TE28F320 or Samsung)
 RAM            : 16 MB (Hynix HY5DU281622ET)
 Wireless       : Integrated Broadcom BCM2050KML
 Switch         : Built-in
@@ -30,6 +30,7 @@ Serial         : yes (JP2)
 JTAG           : assumed on JP1
 }}}
 
+Latest version uses Samsung Flash.
 
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :)
