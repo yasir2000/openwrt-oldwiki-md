@@ -1,5 +1,5 @@
 = Linksys WRT54GL =
-The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}}.  As of August 2006, version 1.1 appears to be shipping worldwide.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.  The WRT54GL has 16MB of RAM and 4MB of flash memory.
+The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}}.  As of August 2006, version 1.1 appears to be shipping worldwide.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.  The WRT54GL has 16MB of RAM and 4MB of flash memory.
 
 = Other Info =
 == Supported Versions ==
@@ -15,7 +15,7 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 ||WRT54GL v1.1||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7||CFE 3.91.37.0|| BCM3302 V0.8||BCM5352EK||
 
 == V1.1 ==
-The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically idendical to the boad used for the WRT54G v4.0 and WRT54GS 4.0 (4Mb version)
+The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically idendical to the boad used for the [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] v4.0 and [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] 4.0 (4Mb version)
 
 {{{
 Bootloader     : CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
