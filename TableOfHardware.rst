@@ -175,6 +175,24 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||Untested ||
 ||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||Untested ||
 ||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||Untested ||
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
+== Gateworks ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
+||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||Untested ||
+||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||Untested ||
+||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||Untested ||
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+
+----
+ /!\ '''End of edit conflict'''
+
+----
 == Gigabyte ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] ||1.0 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB ||mini-PCI ||IC+ IP175A || ||No ||Yes ||Space for connector || ||
