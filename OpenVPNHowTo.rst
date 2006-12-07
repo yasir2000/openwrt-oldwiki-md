@@ -161,7 +161,7 @@ At this point you can start OpenVPN for testing:
 With logread you should be able to see if it started up normally.
 
 If it does start up but you do not get a connection from the WAN check if you have a line in your server config file that says: "local 192.168.1.1" and comment it out. 
-This line is marked as optional in the original OpenVPN distribution, but will not work with the settings described in this tutorial.
+This line is marked as optional in the original OpenVPN distribution, but will not work with the settings described in this howto.
 
 
 == Configure Client ==
