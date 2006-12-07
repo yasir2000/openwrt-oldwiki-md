@@ -2,7 +2,7 @@
 #format wiki
 == Allan Clark AKA ChickenAndPorn ==
 
-Email: [[MailTo(allanc@chickenandporn-DOT(wiki filter, not spam filter)-com)]]
+Email: [[MailTo(allanc@chickenandporn//dot//com)]]
 
 Dude, what's with the name?  A joke, well, stuck to me.  Note that this wiki seems to think my name is evil (it seems to not like chicken)
 
