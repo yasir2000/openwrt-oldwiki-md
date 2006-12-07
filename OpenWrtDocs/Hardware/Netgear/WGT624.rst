@@ -39,10 +39,10 @@ Serial header is the 12 pin header near the power plug. JTAG is near the antenna
 <- switch / powerplug
 
 pin 11 * * pin 12
-       * *
-       * *
-       * *
-       * *
+pin 09 * * pin 10
+pin 07 * * pin 08
+pin 05 * * pin 06
+pin 03 * * pin 04
 pin 01 * * pin 02
 
 <- ram / cpu
