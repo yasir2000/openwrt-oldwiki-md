@@ -26,7 +26,27 @@ Serial-Layout:
  * Pin  9 TX
  * Pin 12 GND
 
-Serial header is the 12 pin header near the power plug. JTAG is near the antenna. Serial pin 1 is the pin nearest to the cpu.
+Serial-Layout rev 2:
+
+ * Pin  1 +3.3V
+ * Pin  4 RX
+ * Pin 10 TX
+ * Pin 12 GND
+
+
+Serial header is the 12 pin header near the power plug. JTAG is near the antenna. Serial pin 1 is the pin nearest to the cpu, view from top.
+
+<- switch / powerplug
+
+pin 11 * * pin 12
+       * *
+       * *
+       * *
+       * *
+pin 01 * * pin 02
+
+<- ram / cpu
+
 
 I wanted to buy a prolific USB to serial cellphone cable at ebay, but they sent me an Silicon Labs cable. This chipset is finally supported in 2.6.12. Works great (usb 2-1.2: CP2101 converter now attached to ttyUSB0)
 
