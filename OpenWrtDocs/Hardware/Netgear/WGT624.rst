@@ -1,4 +1,5 @@
 [[TableOfContents]]
+
 = Netgear WGT624 =
 the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
@@ -8,12 +9,10 @@ the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS 
  * Flash: 4MB
  * RAM: 16MB
  * Switch: Marvell
-
  * One Antenna (2db)
  * 1 WAN-Ports
  * 4 LAN-Ports
  * Powersupply: 5V
-
 Some photos are here: http://home.fhtw-berlin.de/~s0502837/wgt624/
 
 == Serial ==
@@ -25,29 +24,23 @@ Serial-Layout:
  * Pin  3 RX
  * Pin  9 TX
  * Pin 12 GND
-
 Serial-Layout rev 2:
 
  * Pin  1 +3.3V
  * Pin  4 RX
  * Pin 10 TX
  * Pin 12 GND
-
-
 Serial header is the 12 pin header near the power plug. JTAG is near the antenna. Serial pin 1 is the pin nearest to the cpu, view from top.
-
+{{{
 <- switch / powerplug
-
 pin 11 * * pin 12
 pin 09 * * pin 10
 pin 07 * * pin 08
 pin 05 * * pin 06
 pin 03 * * pin 04
 pin 01 * * pin 02
-
 <- ram / cpu
-
-
+}}}
 I wanted to buy a prolific USB to serial cellphone cable at ebay, but they sent me an Silicon Labs cable. This chipset is finally supported in 2.6.12. Works great (usb 2-1.2: CP2101 converter now attached to ttyUSB0)
 
 Set your serial terminal (i.e. minicom) to 9600 8N1, I enabled software flow control, too.
@@ -59,7 +52,6 @@ it is running VxWorks and a rather crappy webinterface, so it makes tons of sens
 
 {{{
 U12H01700> windsh
-
 -> version
 VxWorks (for Atheros AR5001AP default) version VxWorks5.4.2.
 Kernel: WIND version 2.5.
@@ -68,16 +60,13 @@ Boot line:
 tffs:(0,0):/fl/APIMG1 e=192.168.1.20:0xffffff00 f=0x8 o=et
 value = 70 = 0x46 = 'F'
 }}}
-
 == Firmware ==
 My WGT624 came with firmware 4.2.7 which introduces problems with further upgrades because it changes the board id. Therefore 4.2.7 isn't avaible, but if you got this firmware version, you can fix it, if you interrupt the bootloader by pressing ESC immediatly after powering up. It will look like this:
 
 {{{
 ar531x rev 0x00005743 firmware startup...
 SDRAM TEST...PASSED
-
 Atheros AR5001AP default version 0.0.0.225
-
 [Boot]: S
 name:    Atheros AR5001AP default
 board ID:U12H017T00_NETGEAR
@@ -100,7 +89,6 @@ sysfreq: calculated 45000000 Hz
 memcap:  disabled
 watchdg: enabled
 }}}
-
 This is how it should like like, but if the board ID is like U12H013T00_NETGEAR (that's what it was on 4.2.7) it won't accept any further firmware updates, so you have to change it back to U12H017T00_NETGEAR in order to flash either 4.2.8 or the beta firmware 4.2.10. You can change this board ID with pressing 'B' on the bootprompt.
 
 == Boot via TFTP ==
@@ -109,57 +97,50 @@ this is only theoretical at the moment:
 the default boot parameters are:
 
 {{{
- $dev(0,procnum)host:/file h=# e=# b=# g=# u=usr [pw=passwd] f=# 
-                           tn=targetname s=script o=other 
- boot device: tffs=drive,removable     file name: /tffs0/vxWorks 
- Boot flags:           
-   0x02  - load local system symbols 
-   0x04  - don't autoboot 
-   0x08  - quick autoboot (no countdown) 
-   0x20  - disable login security 
-   0x40  - use bootp to get boot parameters 
-   0x80  - use tftp to get boot image 
-   0x100 - use proxy arp 
-
+ $dev(0,procnum)host:/file h=# e=# b=# g=# u=usr [pw=passwd] f=#
+                           tn=targetname s=script o=other
+ boot device: tffs=drive,removable     file name: /tffs0/vxWorks
+ Boot flags:
+   0x02  - load local system symbols
+   0x04  - don't autoboot
+   0x08  - quick autoboot (no countdown)
+   0x20  - disable login security
+   0x40  - use bootp to get boot parameters
+   0x80  - use tftp to get boot image
+   0x100 - use proxy arp
 available boot devices:Enhanced Network Devices
  et0 et1 tffs
 [Boot]: p
-
 boot device          : tffs:
-unit number          : 0 
-processor number     : 0 
+unit number          : 0
+processor number     : 0
 file name            : /fl/APIMG1
 inet on ethernet (e) : 192.168.1.20:0xffffff00
-flags (f)            : 0x8 
+flags (f)            : 0x8
 other (o)            : et
-
 }}}
-
 So we will have to set the boot device to et0, the flags to 0x80 (use tftp) and the /tftpboot/kernelimage
 
 I just tried the following
 
 {{{
 [Boot]: p
-
 boot device          : et
-unit number          : 0 
-processor number     : 0 
+unit number          : 0
+processor number     : 0
 host name            : tftpserver
 file name            : /tftpboot/image
 inet on ethernet (e) : 192.168.1.20:0xffffff00
 host inet (h)        : 192.168.1.2
-flags (f)            : 0x88 
+flags (f)            : 0x88
 other (o)            : et
 }}}
-
 host name and host inet should point to the tftp server. If everything went good, you should see something like this on your tftp-server:
 
 {{{
-Aug 28 14:16:16 duron in.tftpd[3758]: RRQ from 192.168.1.20 filename /tftpboot/image 
+Aug 28 14:16:16 duron in.tftpd[3758]: RRQ from 192.168.1.20 filename /tftpboot/image
 Aug 28 14:16:16 duron in.tftpd[3758]: sending NAK (1, File not found) to 192.168.1.20
 }}}
-
 and on your WGT624
 
 {{{
@@ -169,10 +150,8 @@ Attaching network interface lo0... done.
 Loading... Error code 1: File not found
 tftpGet: Error occurred while transferring the file.
 Erroneous header read
-
 Error loading file: errno = 0x610001.
 }}}
-
 == Kernel ==
 Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches.  According to arch/mips/ar531x/README.BUILD, I've downloaded:
 
@@ -182,7 +161,6 @@ ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm
 $ mips-linux-gcc --version
 2.96-mips3264-000710
 }}}
-
 It's a good start to reproduce the very same environment, as they did in order to exclude all problems that might occur while porting to a newer compiler or kernel.
 
 {{{
@@ -202,15 +180,12 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
 mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 $ cp vmlinux /tftpboot/image
 }}}
-
 {{{
 [Boot]: @
 Attached TCP/IP interface to et0.
 Attaching network interface lo0... done.
 Loading... 1861632
 Starting at 0x80124040...
-
-
 <4>CPU revision is: 00018009
 <4>Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
 <4>Primary data cache 16kB 4-way, linesize 16 bytes.
@@ -286,7 +261,6 @@ BusyBox v1.00-pre10 (2004.06.09-17:51+0000) Built-in shell (msh)
 Enter 'help' for a list of built-in commands.
 #
 }}}
-
 == newer busybox ==
 I thought it'd be nice if there were some more apps like dd in order to extract the mtds. It should be possible to get networking running via the built-in atheros-wifi-drivers. That could make it possible to transfer the mtd images to another computer with dd and this ath0.
 
@@ -302,7 +276,6 @@ I wanted to get a openwrt root filesystem for this AP, but OpenWRT doesn't suppo
 #BR2_TARGET_WRT54GS=y
 #BR2_TARGET_MOTOROLA=y
 }}}
-
 Then type 'make' and get a beer.
 
 {{{
@@ -313,7 +286,6 @@ cp -R openwrt/build_mips/busybox-1.00/ipkg/busybox/{bin,sbin,usr} /mnt/ramdisk
 umount /mnt/ramdisk
 gzip -9 ramdisk
 }}}
-
 rebuild your kernel and you'll get a vmlinux with a builtin ramdisk with this new busybox.
 
 == MadWifi ==
@@ -322,23 +294,20 @@ As I want to export the images via the ath0, I have to get a wlan working, but f
 {{{
 BusyBox v1.00 (2005.09.04-01:01+0000) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
 / # ifconfig ath0
-ath0      Link encap:Ethernet  HWaddr 00:09:5B:87:DE:AC  
+ath0      Link encap:Ethernet  HWaddr 00:09:5B:87:DE:AC
           BROADCAST MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:199 
+          collisions:0 txqueuelen:199
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-          Interrupt:5 Memory:b8500000-b85ffffc 
-
+          Interrupt:5 Memory:b8500000-b85ffffc
 / # ifconfig ath0 up
 <4>ath0: hardware error; resetting
 <4>ath0: hardware error; resetting
 <4>ath0: hardware error; resetting
 ...
 }}}
-
 Fortunatly there is an opensource madwifi driver. Download that driver:
 
 {{{
@@ -352,7 +321,6 @@ Checking if all requirements are met... FAILED
 Please enable crypto API.
 make: *** [configcheck] Error 1
 }}}
-
 So we have to recompile the kernel with the crypto API. As I don't know which crypto stuff is actually necessary, I include all (except of HMAC, that doesn't compile). I don't care about the size for now. So add this to your .config:
 
 {{{
@@ -383,7 +351,6 @@ CONFIG_CRYPTO_DEFLATE=y
 CONFIG_CRYPTO_MICHAEL_MIC=y
 CONFIG_CRYPTO_TEST=y
 }}}
-
 Now the madwifi sources compile fine, you have to copy the needed modules from the source tree to the ramdisk:
 
 {{{
@@ -392,14 +359,13 @@ ath_hal/ath_hal.o
 ath_rate/onoe/ath_rate_onoe.o
 net80211/{wlan.o,wlan_wep.o,wlan_tkip.o,wlan_ccmp.o,wlan_acl.o,wlan_xauth.o}
 }}}
-
 You might want to strip these modules with ${TOOLPREFIX}strip -S. I just wanted to copy these files to the ramdisk, but I discovered that there is an ath_lbus and not an ath_pci. Google doesn't know anything about this lbus stuff, but it seems as they use some esoteric bus system. I'm a bit stumped. I tried the pci modules nevertheless, but they don't seem to work:
 
 [http://modular.fas.harvard.edu/t42/madwifi/Makefile.inc This]'' speaks of "lbus". Could someone more knowledgable than I see if this might help?''
 
 {{{
 lsmod
-Module                  Size  Used by    Tainted: P  
+Module                  Size  Used by    Tainted: P
 ath_pci                43660   0 (unused)
 wlan_ccmp               4732   0 (unused)
 wlan_tkip               9980   0 (unused)
@@ -410,13 +376,12 @@ ath_rate_onoe           4172   0 [ath_pci]
 ath_hal               185152   0 [ath_pci]
 wlan                   91776   0 [ath_pci wlan_ccmp wlan_tkip wlan_wep wlan_acl wlan_xauth ath_rate_onoe]
 # ifconfig -a
-lo        Link encap:Local Loopback  
+lo        Link encap:Local Loopback
           LOOPBACK  MTU:16436  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
+          collisions:0 txqueuelen:0
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)}}}
-
 == porting to a newer kernel ==
 I've downloaded the current 2.4 mips kernel via cvs and the newest [ftp://ftp.mips.com/pub/tools/software/sde-for-linux/6.02.03-1/mips-sdelinux-v6.02.03-1.i386.rpm official mips (big endian) crosscompiler]:
 
@@ -424,7 +389,6 @@ I've downloaded the current 2.4 mips kernel via cvs and the newest [ftp://ftp.mi
 $ mips-linux-gcc --version
 mips-linux-gcc (GCC) 3.4.4 mipssde-6.02.03-20050629
 }}}
-
 ths over at #mipslinux explains: "In a hosted (i.e. userland) environment the compiler is free to transform libc calls. Goes horribly wrong in the kernel, which doesn't implement libc. :-)"
 
 This happens with GCC 3.4, so add -ffreestanding to the GCCFLAGS in arch/mips/Makefile.
@@ -448,7 +412,6 @@ cd linux
 make oldconfig
 make  ARCH=mips CROSS_COMPILE=mips-linux- dep
 make  ARCH=mips CROSS_COMPILE=mips-linux- vmlinux
-
 mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arch/mips/kernel/init_task.o init/main.o init/version.o init/do_mounts.o \
         --start-group \
         arch/mips/kernel/kernel.o arch/mips/mm/mm.o kernel/kernel.o mm/mm.o fs/fs.o ipc/ipc.o arch/mips/math-emu/fpu_emulator.o \
@@ -459,14 +422,12 @@ mips-linux-ld -G 0 -static -n -T arch/mips/ld.script arch/mips/kernel/head.o arc
         -o vmlinux
 mips-linux-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
 }}}
-
 {{{
 [Boot]: @
 Attached TCP/IP interface to et0.
 Attaching network interface lo0... done.
 Loading... 1589216
 Starting at 0x80140040...
-
 CPU revision is: 00018009
 Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
 Primary data cache 16kB, 4-way, linesize 16 bytes.
@@ -510,34 +471,23 @@ Stack:    8015c8c0 00000001 80170000 0000043f 80170000 80170000 80170000
 Call Trace:   [<80002794>] [<80125478>] [<8000922c>] [<8009e894>] [<80009cc4>]
  [<80016848>] [<80002794>] [<80125478>] [<80014c5c>] [<801254a4>] [<80004738>]
  [<80014c5c>] [<80125478>]
-
-Code: 00409821  3c168017  8ec213c0 <0c0161ae> 8c440014  104000ae  00408021  0c01260c  00402021 
+Code: 00409821  3c168017  8ec213c0 <0c0161ae> 8c440014  104000ae  00408021  0c01260c  00402021
 Kernel panic: Attempted to kill the idle task!
 In idle task - not syncing
 }}}
-
 == Problems with the WGT624v3 ==
 The WGT624v3 has an AR2316A part that doesn't seem to work with the build process above. Some autopsy photos at http://www.seiner.com/blog/Travels/?p=164 .  Using the recommended toolchain (gcc version 2.96-mips3264-000710) and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
 
 {{{
 ar531xPlus rev 0x00000087 firmware startup...
-
-
 Atheros AR5001AP default version 4.0.0.167
-
-
  0
 auto-booting...
-
 Attached TCP/IP interface to et0.
 Attaching network interface lo0... done.
 Loading... 1861632
 Starting at 0x80124040...
-
-
-
 Invalid CPU access:  AHBERR0 - 0x00000003 AHBERR4 - 0x00000145 at phys addr 0x18300004 read 2
-
 Data bus error
 Exception Program Counter: 0x801334c4
 Status Register: 0x10008400
@@ -551,12 +501,9 @@ Task: 0x80fca1d0 ""
 80127344: 8013343c (3c048014, 8fa20010, 26f70001, 24420004)
 80127344: 8013343c (2405003d, 10400009, 2ae20008, 10400015)
 80127344: 8013343c (2402025, 14400018, 2402025, c041592)
-
 ... (continues)
-
 80127344: 8013343c (80124040, 0, 78, 80ef86b4)
 80127344: 8013343c (0, 0, 0, 0)
-
 $0    =        0   t0    = 80123fe0   s0    = 80123bef   t8    =        0
 at    =        0   t1    = 801c87fc   s1    = 80ffa4b0   t9    =        0
 v0    =        0   t2    = 80f0de90   s2    =        1   k0    =        0
@@ -566,11 +513,8 @@ a1    = 80000ff0   t5    =        0   s5    = 80ffa504   sp    = 801239a0
 a2    = 801c85d0   t6    =    ba704   s6    =        1   s8    =        1
 a3    = 80001000   t7    =        0   s7    = 80efba66   ra    = 8012734c
 divlo = cccccccd   divhi =        0   sr    = 10008400   pc    = 80e98660
-
-
 }}}
-
 Can anyone post a working kernel binary for the 624v1, to double check it's not a build problem? Maybe this is why the Netgear v1/v2 firmware is incompatible with the v3. Perhaps the ar531xPlus needs a different patch.
 
 ----
- . CategoryModel 
+ . CategoryModel
