@@ -347,7 +347,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP] || ||Broadcom BCM4702KPB ||4MB || ||Broadcom BCM94306MP (MiniPCI) ||Broadcom [http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325 BCM5325A2KQM] || || || ||No ||Untested ||
-||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus] || || ||4MB || || || || || || || ||Untested ||
+||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus] || ||Broadcom BCM4712KPB ||4MB ||16M||Broadcom BCM4320 ||ADMtek ADM6996L || ||yes||yes|| ||supported with whiterussian RC6 and additional patch ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
