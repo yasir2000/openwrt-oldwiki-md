@@ -48,7 +48,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ note^3^||
 ||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
-||Belkin||[:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130]||1010||eth0||vlan0||eth2||By default LAN is br0 bridging all other interfaces. eth1 is pppoe virtual interface.||
+||Belkin||[:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130]||1010||eth0||eth1||eth2||By default, LAN is br0 bridging eth0 and eth2||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WBR2-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
