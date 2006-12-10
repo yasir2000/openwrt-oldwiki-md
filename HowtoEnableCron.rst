@@ -15,7 +15,7 @@ You may know some more useful tasks for cron on your Wrt router.
 
 nvram set cron_enable=0
 
- nvramm commit
+nvramm commit
 
 and see if it works.
 
