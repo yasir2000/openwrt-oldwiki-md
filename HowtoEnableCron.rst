@@ -11,7 +11,12 @@ You may know some more useful tasks for cron on your Wrt router.
  * {{{rdate}}} or the {{{ntpclient}}} (both optional) to sync the time on your router
 
 = Installation =
-{{{Crond}}} is installed by default. !OpenWrt uses the !BusyBox {{{crond}}}.
+{{{Crond}}} is installed by default. !OpenWrt uses the !BusyBox {{{crond}}}. I have found a bug in White Russian 5  and BusyBox 1.0 where turning the cron daemon off turns it on and vice versa. Follow the testing section below and if your test fails try this:
+
+nvram set cron_enable=0
+nvramm commit
+
+and see if it works.
 
 = Configuration =
 == Testing crond (optional) ==
