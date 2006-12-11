@@ -40,6 +40,19 @@ After this, wait for the device to reboot and you should be set. You should be a
 
 ----
 
+'''Built in Serial port on the WHR-G54S'''[[BR]]
+As with most of these AP devices the printed circuit board has the serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
+
+On the WHR-G54S locate the un-populated header block RJP1. This is in the top left of the board next to a large electrolytic capacitor. To the right of this block you will find several SM components and also un-populated pads. I used the following soldered connections onto the un-populated pads:
+
+{{{
+Left hand pad of  R46  >>  RX.    Receive data into the WHR-G54S.
+Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
+
+By default the serial port runs at 115200 8N1 using ANSI terminal emulation.
+
+----
+
 this is for devices starting with serial 3407:
 
 ----
