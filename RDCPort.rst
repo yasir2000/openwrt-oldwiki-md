@@ -4,3 +4,7 @@ The RDC port is a port of OpenWrt to the RDC R3211 SoC. This is a x86 compatible
    * Edimax BR-6216Mg
    * Gemtek WRTR-137G
    * Sitecom WL-153
+
+
+----
+CategoryOpenWrtPort
