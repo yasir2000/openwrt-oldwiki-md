@@ -173,7 +173,7 @@ http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adap
  1. Type in: "TFTP -i 192.168.10.1 PUT filename.bin" where "filename.bin" is the firmware.  '''DON'T HIT ENTER JUST YET!'''
  1. Get a sewing needle or pin.
  1. If you have an '''Intel''' flash chip, count down on the LEFT side (lettering on the chip should be upright) to lead 15.  CAREFULLY insert the sewing needle between leads 15 and 16* -- it should NOT require any force.
- 1. If you have an '''AMD''' chip, still on the LEFT side of the chip as at the intel version but try shortcircuiting pins 2/3 3/4 or 4/5 but be CAREULL too and don't shortcircuit more than one pair at once! (no guarantee that won't fry your wr850g but one of that pin combinations did it for me I don't remember which one exactly as I started 1/2 2/3 3/4 ... but it wasn't the first and I didn't try many combinations ;-) )[[BR]]
+ 1. If you have an '''AMD''' chip, still on the LEFT side of the chip as at the intel version, shortcircuit pins 9 and 10 but be CAREULL too and don't shortcircuit more than one pair at once! (I can confirm this is working on WR850G v1 with the '''AMD''' Chip) -- ["SOLiBRA"] [[DateTime(2006-12-11T23:51:31Z)]] [[BR]]
  1. My router has a '''SST 39VF3201''' chip, and I was able to get it to accept firmware by shorting pins 2 and 3. I had to get the datasheet from the SST web site and find out which pins are the address lines.[[BR]]
  1. Now plug in your WR850G while holding the needle in place.
  1. Wait two to three seconds, then remove the needle.
