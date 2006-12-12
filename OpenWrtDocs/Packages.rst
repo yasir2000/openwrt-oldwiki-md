@@ -9,12 +9,12 @@ src non-free http://downloads.openwrt.org/whiterussian/packages/non-free
 '''TIP:''' If you copy & paste this into your {{{/etc/ipkg.conf}}} file, make sure that you don't get a trailing space. If you do, {{{ipkg update}}} will look like it's updating but files will not be created in {{{/usr/lib/ipkg/lists}}}.
 
 == Backports ==
-Some useful packages have been backported from the development branch (trunk) to White Russian. See the [http://downloads.openwrt.org/backports/rc5/00-README RC5 00-README] file for more details.
+Some useful packages have been backported from the development branch (trunk) to White Russian. See the [http://downloads.openwrt.org/backports/rc6/00-README RC6 00-README] file for more details.
 
 To use the packages from the backports repository edit {{{/etc/ipkg.conf}}} and add:
 
 {{{
-src backports http://downloads.openwrt.org/backports/rc5
+src backports http://downloads.openwrt.org/backports/rc6
 }}}
 Now run {{{ipkg update}}} and you will see new packages.
 
@@ -23,13 +23,7 @@ Now run {{{ipkg update}}} and you will see new packages.
 
 Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers. 
 
-Here are some repositories of third party packages:
- * [http://www.ipkg.be/]
-
-There are countless third-party packages available. Below a few of the more common ones are listed.
-
 === webif^2: Enhanced HTTP management console ===
-
 '''webif^2^''' is a new HTTP based management console for White Russian, and soon Kamikaze. It is part of the X-Wrt project to enhance the end user experience of OpenWrt.
 
 It offers a large number of new features and is constantly being improved. Some of the many things it offers are:
@@ -42,7 +36,7 @@ It offers a large number of new features and is constantly being improved. Some 
  * Installable themes.
  * Too much to possibly list...
 
-Information and download: http://www.x-wrt.org
+[http://www.x-wrt.org Information and Download]
 
 === uPnP ===
 '''uPnP''' is Universal Plug and Play.  
