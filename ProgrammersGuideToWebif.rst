@@ -1,6 +1,6 @@
 '''Programmers Guide to Webif(^2)'''
 
- The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558 historical document] in the Openwrt forum.)]]
+The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server. And is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558 historical document] in the Openwrt forum.)]]
 
  [http://www.x-wrt.org/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif`^`2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif`^`2 code at some stage of it's developement.
 
