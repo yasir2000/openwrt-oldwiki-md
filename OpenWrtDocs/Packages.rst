@@ -19,11 +19,11 @@ src backports http://downloads.openwrt.org/backports/rc6
 Now run {{{ipkg update}}} and you will see new packages.
 
 == Third party packages ==
-'''''NOTE:''' Third party packages are not supported by the !OpenWrt developers.''
 
 Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers. 
 
 === webif^2: Enhanced HTTP management console ===
+
 '''webif^2^''' is a new HTTP based management console for White Russian, and soon Kamikaze. It is part of the X-Wrt project to enhance the end user experience of OpenWrt.
 
 It offers a large number of new features and is constantly being improved. Some of the many things it offers are:
@@ -32,13 +32,17 @@ It offers a large number of new features and is constantly being improved. Some 
  * QoS configuration
  * DHCP/Dnsmasq configuration
  * File editor/browser
- * CPU and Traffic Graphs (SVG)
+ * CPU and traffic graphs (SVG)
  * Installable themes.
+ * Etherwake/Wake-On-LAN support
+ * Hotspot management
+ * Wireless site surveys
  * Too much to possibly list...
 
 [http://www.x-wrt.org Information and Download]
 
 === uPnP ===
+
 '''uPnP''' is Universal Plug and Play.  
 
 Since many users require UPNP, it has been made available in the [ftp://ftp.berlios.de/pub/xwrt X-Wrt repository] through the miniupnpd package. This package has also been added to Kamikaze.
@@ -46,6 +50,7 @@ Since many users require UPNP, it has been made available in the [ftp://ftp.berl
 Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"], though it primarily describes the linux-igd UPNPd.
 
 === CUPS - Printing system with spooling ===
+
 You can't print a testpage on the local cups, because this would need to have ghostscript installed on your embedded system.
 
 If you have a special Postscript Printer Description (ppd) file for your printer, copy it to /usr/share/cups/model/ and restart cupsd. Cups will install it in /etc/cups/ppd and you can choose it via the web interface. (192.168.1.1:631)
@@ -67,7 +72,7 @@ MacOS X tip: Configure your extended printer settings. If you use the standard p
 If you have trouble using wol to wake up your PC ...
  * make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
  * play around with wol options. It seems like wol (v 0.7.1) sends the magic packet out your default gateway (WAN) if you just use wol x:x:x:x:x:x.  You need to specify the subnet and port to make it work, e.g.: wol -p 65535 -h 192.168.1.255 x:x:x:x:x:x 
- * give ether-wake a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for. 
+ * give ether-wake a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for.
 
 === srelay - socks proxy ===
 There is a socks proxy available for !OpenWrt, it is called '''srelay''' (Find via the package tracker). However, there is no documentation for this package. So, here is a quick guide:
