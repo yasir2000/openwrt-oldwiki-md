@@ -11,7 +11,7 @@ RDC support was started in October 2006 in the Kamikaze branch and is regarded u
 
 == Hardware differences ==
 
-The Sitecom WL-153 and Edimax BR-6216Mg (and other devices which are simply rebranded Edimax devices) seem to be equiped with just 2 MB of flash (Macronix 29LV160CBTC-70G chip). Other devices apparently have 4 MB flash.
+The Sitecom WL-153 and Edimax BR-6216Mg (and other devices which are simply rebranded Edimax devices) seem to be equiped with just 2 MB of flash (Macronix 29LV160CBTC-70G chip) and 16 MB RAM. Other devices apparently have 4 MB flash.
 
 ----
 CategoryOpenWrtPort
