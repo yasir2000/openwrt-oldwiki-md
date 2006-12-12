@@ -115,12 +115,14 @@ config wifi-device     wifi device name
        option maxassoc Maximum number of associated clients
 
 config wifi-iface
-       option network  the interface you want wifi to bridge with [e.g. "option network lan" for bridging to normal lan]
+       option network  the interface you want wifi to bridge with 
        option device   wifi device name
        option mode     ap, sta, adhoc, or wds
-       option encryption none, wep, psk, psk2, wpa, wpa2 [wpa and wpa2 are for radius config, use psk for WPA-PSK]
+       option encryption none, wep, psk, psk2, wpa, wpa2 
        option key      encryption key or radius shared secret
        option server   radius server
        option port     radius port
 }}}
-'''Note: "option network lan" is mandatory if you want your wireless network bridged to your lan.
+'''Notes:
+"option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan")
+"option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK
