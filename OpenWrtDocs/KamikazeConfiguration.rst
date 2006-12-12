@@ -124,6 +124,7 @@ config wifi-iface
        option port     radius port
 }}}
 '''Notes:
+
 "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan")
 
 "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK
