@@ -15,12 +15,9 @@ X-Wrt Links
 [[TableOfContents(3)]]
 
 = X-Wrt Packages =
-Packages documented here are only those in the X-Wrt repository that are not included in the OpenWrt White Russian repository, or have been updated.
-
-The X-Wrt White Russian repository is here: ftp://ftp.berlios.de/pub/xwrt/packages/
 
 == webif^2: Enhanced HTTP management console ==
-X-Wrt's most popular package should be mentioned first. '''webif^2^''' is an enhanced webif (HTTP based management console).
+'''webif^2^''' is an enhanced webif (HTTP based management console) for White Russian, and soon Kamikaze.
 
 It offers a large number of new features and is constantly being improved. Some of the many things it offers are:
 
