@@ -1,4 +1,4 @@
-== X-Wrt - webif^2: Enhanced HTTP management console ==
+=== webif^2: Enhanced HTTP management console ===
 
 '''webif^2^''' is a new HTTP based management console for White Russian, and soon Kamikaze. It is part of the X-Wrt project to enhance the end user experience of OpenWrt.
 
