@@ -91,7 +91,6 @@ config interface wan
   * /etc/config/wireless documentations https://dev.openwrt.org/browser/trunk/docs/wireless.tex
   * Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
-'''Note: bridging wireless to lan is now accomplished by insertion of 'option network "lan"' into the config wifi device section
 
 Default Configuration:
 {{{
@@ -111,15 +110,17 @@ Full outline of the wifi config file is as follows:
 {{{
 config wifi-device     wifi device name
        option type     currently only broadcom
-       option country  country code
+       option country  country code [not mandatory, used for setting restrictions based on country regulations]
        option channel  1-14
        option maxassoc Maximum number of associated clients
 
 config wifi-iface
-       option mode     ap, sta, adhoc, or wds
+       option network  the interface you want wifi to bridge with [e.g. "option network lan" for bridging to normal lan]
        option device   wifi device name
-       option encryption none, wep, psk, psk2, wpa, wpa2
-       option key      psk, or radius shared secret
+       option mode     ap, sta, adhoc, or wds
+       option encryption none, wep, psk, psk2, wpa, wpa2 [wpa and wpa2 are for radius config, use psk for WPA-PSK]
+       option key      encryption key or radius shared secret
        option server   radius server
        option port     radius port
 }}}
+'''Note: "option network lan" is mandatory if you want your wireless network bridged to your lan.
