@@ -28,16 +28,28 @@ Here are some repositories of third party packages:
 
 There are countless third-party packages available. Below a few of the more common ones are listed.
 
- [[Include(OpenWrtDocs/xwrt,,)]]
+=== webif^2: Enhanced HTTP management console ===
+
+'''webif^2^''' is a new HTTP based management console for White Russian, and soon Kamikaze. It is part of the X-Wrt project to enhance the end user experience of OpenWrt.
+
+It offers a large number of new features and is constantly being improved. Some of the many things it offers are:
+
+ * Firewall configuration
+ * QoS configuration
+ * DHCP/Dnsmasq configuration
+ * File editor/browser
+ * CPU and Traffic Graphs (SVG)
+ * Installable themes.
+ * Too much to possibly list...
+
+Information and download: http://www.x-wrt.org
 
 === uPnP ===
 '''uPnP''' is Universal Plug and Play.  
 
-'''WARNING: UPnP for OpenWrt is not well tested yet.'''
+Since many users require UPNP, it has been made available in the [ftp://ftp.berlios.de/pub/xwrt X-Wrt repository] through the miniupnpd package. This package has also been added to Kamikaze.
 
-OpenWrt developers disapprove of UPNP and/or the current state of UPNP packages. Therefore, you will not find UPNP packages in the OpenWrt repository. Since many users require UPNP, it has been made available in the [ftp://ftp.berlios.de/pub/xwrt X-Wrt repository].
-
-Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"]
+Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"], though it primarily describes the linux-igd UPNPd.
 
 === CUPS - Printing system with spooling ===
 You can't print a testpage on the local cups, because this would need to have ghostscript installed on your embedded system.
