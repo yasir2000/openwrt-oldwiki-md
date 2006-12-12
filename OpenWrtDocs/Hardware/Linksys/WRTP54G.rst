@@ -263,7 +263,7 @@ Known ProductID values:
  * RTP300-NA: CYLM
  * RTP300 from Vonage: CYLL
  * WRTP54G-NA: CYWM
- * WRTP54G from Vonage: ?
+ * WRTP54G from Vonage: CYWL
 One trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it.  (Refer to the description of the firmware update file format above.)  Loading an incompatible firmware may brick your device, so be careful.  In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset.  The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300.  It seems that a system daemon crashes when it attempts to configure the wireless hardware.  As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area.  If you do this, you will have to use a serial console to regain access.
 
 == IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
