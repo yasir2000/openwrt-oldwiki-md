@@ -111,7 +111,7 @@ vlan2hwname=et0
 vlan2ports="1 5*"
 dmz_ifname=vlan2
 dmz_proto=static
-dmz_ipaddr=192.168.1.0
+dmz_ipaddr=192.168.1.22
 dmz_netmask=255.255.255.0
 }}}
 This configuration firstly changes the vlan0 to exclude port 1 which will be our DMZ port. Then the DMZ vlan is created, with ports 1 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
