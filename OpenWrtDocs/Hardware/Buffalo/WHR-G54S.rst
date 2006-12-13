@@ -51,6 +51,8 @@ Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
 
 By default the serial port runs at 115200 8N1 using ANSI terminal emulation.
 
+NB: This was a device with board revision WRTB-133G_V00 190-c02-9200 (This can be seen in the top left hand corner of the PCB. All my units have started with this code and therefore I can not be sure if the board layout is different on older units.
+
 ----
 
 this is for devices starting with serial 3407:
