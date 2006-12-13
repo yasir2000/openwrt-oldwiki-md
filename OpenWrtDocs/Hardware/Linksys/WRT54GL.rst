@@ -6,7 +6,7 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
 ||WRT54GL v1 || CL7A || (./) || (./) ||
-||WRT54GL v1.1 || CL7B || (./) (see http://forum.openwrt.org/viewtopic.php?pid=25017) || ? ||
+||WRT54GL v1.1 || CL7B || (./) (see http://forum.openwrt.org/viewtopic.php?pid=25017) || (./) ||
 
 
 == Board info and CPU model ==
