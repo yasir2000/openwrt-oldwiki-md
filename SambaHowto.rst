@@ -1,4 +1,5 @@
 '''Samba HowTo'''
+(note: no longer works in rc6 due to missing libgcc_s.so.1)
 
 [[TableOfContents]]
 = Intro =
