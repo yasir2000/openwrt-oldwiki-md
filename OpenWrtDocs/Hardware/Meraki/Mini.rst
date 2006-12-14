@@ -307,11 +307,11 @@ So it looks like there are at least two different ways to download new firmware 
 
 '''ssh access'''
 
-Once the unit has picked up an IP address via DHCP, you can ssh in. The username is 'meraki' and the password is the SN displayed on the bottom of the unit, in the form XXX-XXX-XXX (including the dashes)
+Once the unit has picked up an IP address via DHCP, and you've found it (e.g. using nmap or looking at the upstream router's ARP cache), you can ssh in. The username is 'meraki' and the password is the SN displayed on the bottom of the unit, in the form XXX-XXX-XXX (including the dashes)
 
 {{{
-# ssh meraki@192.168.1.105
-meraki@192.168.1.105's password:
+# ssh meraki@x.x.x.x
+meraki@x.x.x.x's password:
 
 
 BusyBox v1.1.0 (2006.09.29-21:24+0000) Built-in shell (ash)
@@ -354,6 +354,8 @@ mtd7: 00800000 00010000 "spiflash"
 
 The root filesystem is not listed as a mount. It's writeable, but changes are lost on reboot, so presumably it's a ramdisk.
 
+The installed software is quite comprehensive, even including a ruby intepreter. Given that you have root access to the box, and can install your own programs and data in the /storage partition, you might not feel the need to install OpenWrt. But if you do, here's how to.
+
 '''!OpenWrt support'''
 
 !OpenWrt support is not currently in the main SVN repository. Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz
@@ -362,9 +364,9 @@ Follow the instructions in Meraki.README. Note that you will need to install the
 
 Sit back and expect to wait an hour or more for the build to complete.
 
-'''Install and restore procedure'''
+'''Backing up existing firmware'''
 
-The standard approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
+The standard install approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
 
 So logically you should be able to restore the device to its original state by backing these up:
 
@@ -377,8 +379,131 @@ ssh meraki@x.x.x.x 'dd if=/dev/mtd5 bs=64k' >redboot-config.bak
 
 In practice you'll probably find that part1.bak and part2.bak are identical. If you dd /dev/mtd7, you'll get an 8MB file which is the same as the first 7 partitions concatenated together.
 
-Note: the "board config" partition contains the unit's MAC address and SN (secret password); you should probably never overwrite this partition.
+Note1: the "board config" partition contains the unit's MAC address and SN (secret password); you should probably never overwrite this partition.
 
-FIXME: Instructions say "A raw ELF binary is provided for those using serial adapters". Explain how to use this.
+Note2: when comparing two different Meraki Minis, the stage2, part1 and redboot-config partitions are identical between them.
+
+'''Install procedure'''
+
+{{{
+$ scp build_ar531x/upgrade.sh meraki@x.x.x.x:
+$ ssh meraki@x.x.x.x
+...
+root@meraki-node:~# sh upgrade.sh
+upgrading stage2
+Unlocking /dev/mtd1 ...
+Erasing /dev/mtd1 ...
+7+1 records in
+7+1 records out
+checksumming part1
+upgrade.sh: upgrade.sh: 80: /usr/bin/checkpart.pl: not found
+part1 was invalid!, upgrading it first
+Unlocking /dev/mtd3 ...
+Erasing /dev/mtd3 ...
+writing part1..
+2568+1 records in
+2568+1 records out
+upgrading part2
+Unlocking /dev/mtd4 ...
+Erasing /dev/mtd4 ...
+writing part2..
+2568+1 records in
+2568+1 records out
+done
+root@meraki-node:~# Connection to x.x.x.x closed by remote host.
+}}}
+
+[note the bug in the upgrade script! It should say /usr/bin/checkpart not /usr/bin/checkpart.pl. /usr/bin/checkpart is actually written in ruby]
+
+FIXME: The readme says "A raw ELF binary is provided for those using serial adapters". Explain how to use this.
 
 FIXME: The Meraki makes TFTP and HTTP requests, can these be used?
+
+'''On first boot'''
+
+I found the machine got as far as picking up an IP address via DHCP but then immediately crashed, going into a reboot loop. On the serial port:
+
+{{{
+...
+wifi0: Use hw queue 8 for CAB traffic
+wifi0: Use hw queue 9 for beacons
+couldn't load module 'wlan_scan_sta' (-89)
+unable to load wlan_scan_sta
+wifi0: Atheros 2315 WiSoC: mem=0xb0000000, irq=3
+wlan: mac acl policy registered
+realtek setup
+
+ethmac0 link up
+eth0: up
+bss channel not setupBreak instruction in kernel code[#1]:
+Cpu 0
+$ 0   : 00000000 10009c00 00000018 80289e6c
+$ 4   : 80289e6c 81ef9ee4 00000001 80973bac
+$ 8   : 81ede518 00001103 80970000 80980000
+$12   : 80970000 00000591 00000002 2ab3be34
+$16   : 81902000 0000ffff 81800280 81e26280
+$20   : 81800280 803c3076 803c3020 81839ab0
+$24   : 00000003 c005d310
+$28   : 81838000 81839a20 81800280 c00f5898
+Hi    : 00000240
+Lo    : 000001f8
+epc   : c00f5898 ieee80211_dup_bss+0xa4/0x2b8 [wlan]     Tainted: P
+ra    : c00f5898 ieee80211_dup_bss+0xa4/0x2b8 [wlan]
+Status: 10009c03    KERNEL EXL IE
+Cause : 10800024
+PrId  : 00019064
+Modules linked in: wlan_xauth wlan_wep wlan_tkip wlan_scan_sta wlan_scan_ap wlalProcess ruby (pid: 529, threadinfo=81838000, task=81836a08)
+Stack : 00050006 81e96180 00000000 81902000 803c3076 81e26280 81839ab0 803c3020
+        c00f5d0c 002a002f 803c3076 81e26280 00000050 80938640 803c3076 81e26280
+        00000050 80938640 81e96000 c00ef798 81839af0 803872a8 803c3020 00000050
+        0000000f 00003f1d 0000000a 80980000 2aaae000 8006d080 2aaae000 803872a8
+        000c000d 000f0011 00130014 00160018 00220000 0b0b0000 64000000 00000000
+        ...
+Call Trace:
+ [<c00f5d0c>] ieee80211_add_neighbor+0x38/0x198 [wlan]
+ [<c00ef798>] ieee80211_recv_mgmt+0xec0/0x4330 [wlan]
+ [<8006d080>] __do_softirq+0x70/0x104
+ [<c0065dc0>] init_module+0xddc0/0x11838 [ath_ahb]
+ [<c00f4510>] ieee80211_input+0x1908/0x1d84 [wlan]
+ [<80048c18>] do_gettimeofday+0x30/0x138
+ [<8009f9e4>] __handle_mm_fault+0xab0/0xb04
+ [<8006cca4>] getnstimeofday+0x18/0x4c
+ [<80048c18>] do_gettimeofday+0x30/0x138
+ [<80092f2c>] __alloc_pages+0x60/0x2f0
+ [<8006cca4>] getnstimeofday+0x18/0x4c
+ [<80048c18>] do_gettimeofday+0x30/0x138
+ [<c00f4aa8>] ieee80211_input_all+0x11c/0x224 [wlan]
+ [<8008312c>] ktime_get+0x20/0x4c
+ [<c006f6a0>] ath_suspend+0x38ec/0x6324 [ath_ahb]
+ [<801c178c>] dev_watchdog+0xc0/0x1dc
+ [<8006d620>] tasklet_action+0x114/0x16c
+ [<8008b120>] handle_IRQ_event+0x68/0xe4
+ [<8006d080>] __do_softirq+0x70/0x104
+ [<8006d170>] do_softirq+0x5c/0x90
+ [<80044314>] do_IRQ+0x24/0x34
+ [<80042618>] ar531x_interrupt_receive+0xf8/0x100
+ [<80042618>] ar531x_interrupt_receive+0xf8/0x100
+ [<80052448>] r4k_flush_icache_page+0x2a8/0x2c4
+ [<8009e820>] do_wp_page+0x520/0x5ac
+ [<8004f38c>] blast_icache16+0x48/0xe8
+ [<8009f440>] __handle_mm_fault+0x50c/0xb04
+ [<8009f2fc>] __handle_mm_fault+0x3c8/0xb04
+ [<80074e34>] __group_send_sig_info+0x28/0xc0
+ [<8009d668>] unmap_vmas+0x410/0x5fc
+ [<800b4f24>] __fput+0x1f4/0x238
+ [<800b4d74>] __fput+0x44/0x238
+ [<8004dc14>] do_page_fault+0x104/0x350
+ [<800b3308>] filp_close+0x6c/0x90
+ [<800a3248>] exit_mmap+0x70/0x164
+ [<8006a004>] do_exit+0x9b0/0x9bc
+ [<80068a54>] put_files_struct+0x19c/0x214
+ [<8006a004>] do_exit+0x9b0/0x9bc
+ [<8004e394>] tlb_do_page_fault_0+0x104/0x10c
+ [<80042bb0>] syscall_exit+0x0/0x38
+
+
+Code: 244272a0  0040f809  00000000 <0200000d> 8e020000  ae1101c8  8c420238  304
+Kernel panic - not syncing: Aiee, killing interrupt handler!
+ <0>Rebooting in 3 seconds..<2>watchdog expired!
+watchdog hb: 20  ISR: 0xa1  IMR: 0x9  WD : 0x0  WDC: 0x0
+}}}
