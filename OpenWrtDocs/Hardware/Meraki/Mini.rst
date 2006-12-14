@@ -340,10 +340,45 @@ Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/mtdblock2            1024       232       792  23% /storage
 none                     14772        76     14696   1% /tmp
 df: /click: Function not implemented
+root@meraki-node:~# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00030000 00010000 "RedBoot"
+mtd1: 00020000 00010000 "stage2"
+mtd2: 00100000 00010000 "/storage"
+mtd3: 00340000 00010000 "part1"
+mtd4: 00340000 00010000 "part2"
+mtd5: 00010000 00010000 "redboot config"
+mtd6: 00020000 00010000 "board config"
+mtd7: 00800000 00010000 "spiflash"
 }}}
 
 The root filesystem is not listed as a mount. It's writeable, but changes are lost on reboot, so presumably it's a ramdisk.
 
-'''OpenWrt support'''
+'''!OpenWrt support'''
 
-OpenWrt support is not currently in the main SVN repository. Meraki distribute their own distribution at http://www.meraki.net/linux/openwrt-meraki.tar.gz
+!OpenWrt support is not currently in the main SVN repository. Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz
+
+Follow the instructions in Meraki.README. Note that you will need to install the 'flex' package first (Ubuntu: "apt-get install flex")
+
+Sit back and wait a couple of hours for the build to complete.
+
+'''Install and restore procedure'''
+
+The standard approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
+
+So logically you should be able to restore the device to its original state by backing these up:
+
+{{{
+ssh meraki@x.x.x.x 'dd if=/dev/mtd1 bs=64k' >stage2.bak
+ssh meraki@x.x.x.x 'dd if=/dev/mtd3 bs=64k' >part1.bak
+ssh meraki@x.x.x.x 'dd if=/dev/mtd4 bs=64k' >part2.bak
+ssh meraki@x.x.x.x 'dd if=/dev/mtd5 bs=64k' >redboot-config.bak
+}}}
+
+In practice you'll probably find that part1.bak and part2.bak are identical. If you dd /dev/mtd7, you'll get an 8MB file which is the same as the first 7 partitions concatenated together.
+
+Note: the "board config" partition contains the unit's MAC address and SN (secret password); you should probably never overwrite this partition.
+
+FIXME: Instructions say "A raw ELF binary is provided for those using serial adapters". Explain how to use this.
+
+FIXME: The Meraki makes TFTP and HTTP requests, can these be used?
