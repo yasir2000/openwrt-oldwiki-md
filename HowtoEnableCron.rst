@@ -13,23 +13,18 @@ You may know some more useful tasks for cron on your Wrt router.
 = Installation =
 {{{Crond}}} is installed by default. Follow the testing section below and if your test fails try this:
 
-It may be that cron is not autostarting. 
+It may be that cron is not autostarting.
 
- ps -elf | grep cron 
-
+ . ps -elf | grep cron
 Will show if Cron is running. If not, ensure the cron system gets stated at boot-time Create the file /etc/init.d/S61crond containing:
 
-  #!/bin/sh
-  crond -c /etc/crontabs -b
-
-
+ . #!/bin/sh crond -c /etc/crontabs -b
 Make the file executable :
-  chmod +x /etc/init.d/S61crond 
 
+ . chmod +x /etc/init.d/S61crond
 and see if it works.
 
 sh /etc/init.d/S61crond
-
 
 = Configuration =
 == Testing crond (optional) ==
