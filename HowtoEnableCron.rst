@@ -15,16 +15,30 @@ You may know some more useful tasks for cron on your Wrt router.
 
 It may be that cron is not autostarting.
 
- . ps -elf | grep cron
-Will show if Cron is running. If not, ensure the cron system gets stated at boot-time Create the file /etc/init.d/S61crond containing:
+{{{
+  ps -elf | grep cron
+}}}
 
- . #!/bin/sh crond -c /etc/crontabs -b
+If crond, the cron daemon is running, you will see:
+{{{
+ 1760 root        380 S   crond -c /etc/crontabs -b
+ 2260 root        292 S   grep cron
+}}}
+
+If you do not see the crond running then ensure the cron system gets stated at boot-time Create the file /etc/init.d/S61crond containing:
+{{{
+ #!/bin/sh crond -c /etc/crontabs -b
+}}}
+
 Make the file executable :
+{{{
+  chmod +x /etc/init.d/S61crond
+}}}
 
- . chmod +x /etc/init.d/S61crond
 and see if it works.
-
+{{{
 sh /etc/init.d/S61crond
+}}}
 
 = Configuration =
 == Testing crond (optional) ==
