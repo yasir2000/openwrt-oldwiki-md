@@ -358,9 +358,9 @@ The root filesystem is not listed as a mount. It's writeable, but changes are lo
 
 !OpenWrt support is not currently in the main SVN repository. Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz
 
-Follow the instructions in Meraki.README. Note that you will need to install the 'flex' package first (Ubuntu: "apt-get install flex")
+Follow the instructions in Meraki.README. Note that you will need to install the 'flex', 'sharutils' and 'gawk' packages first (Ubuntu: "apt-get install flex sharutils gawk")
 
-Sit back and wait a couple of hours for the build to complete.
+Sit back and expect to wait an hour or more for the build to complete.
 
 '''Install and restore procedure'''
 
