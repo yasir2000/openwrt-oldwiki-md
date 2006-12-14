@@ -36,7 +36,7 @@ drivers/usb/serial/ftdi_sio.c: v1.4.1:USB FTDI Serial Converters Driver
 
 It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works.
 
-(Using CentOS 4, with its 2.6.9 kernel, the USB adaptor was somewhat unreliable; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. Maybe later kernels don't have this problem)
+I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15)
 
 '''Opening the case'''
 
@@ -364,6 +364,16 @@ Follow the instructions in Meraki.README. Note that you will need to install the
 
 Sit back and expect to wait an hour or more for the build to complete.
 
+'''Risk-free test'''
+
+Set up a host system on 192.168.84.9, with either a webserver or a TFTP server.
+
+copy build_ar531x/stage2-embedded.elf to /meraki/mini.1.img under the webserver's document root, or as art_ap51.elf under the tftp server.
+
+Boot the Meraki. It should pick up this firmware and run it, without changing what's in the flash.
+
+(The webserver approach doesn't work well, at least with OpenBSD as the server; the Meraki always connects from the same source port, which means the socket gets stuck in a FIN_WAIT_2 state and subsequent connections are believed to be part of the same connection. TFTP runs over UDP and doesn't suffer this problem.)
+
 '''Backing up existing firmware'''
 
 The standard install approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
@@ -415,13 +425,11 @@ root@meraki-node:~# Connection to x.x.x.x closed by remote host.
 
 [note the bug in the upgrade script! It should say /usr/bin/checkpart not /usr/bin/checkpart.pl. /usr/bin/checkpart is actually written in ruby]
 
-FIXME: The readme says "A raw ELF binary is provided for those using serial adapters". Explain how to use this.
-
-FIXME: The Meraki makes TFTP and HTTP requests, can these be used?
+Unfortunately, this upgrade process overwrites both image partitions, so it doesn't retain a fallback image in case the one you've uploaded is broken.
 
 '''On first boot'''
 
-I found the machine got as far as picking up an IP address via DHCP but then immediately crashed, going into a reboot loop. On the serial port:
+I found the machine got as far as picking up an IP address via DHCP but shortly afterwards crashed, going into a reboot loop. On the serial port:
 
 {{{
 ...
@@ -507,3 +515,67 @@ Kernel panic - not syncing: Aiee, killing interrupt handler!
  <0>Rebooting in 3 seconds..<2>watchdog expired!
 watchdog hb: 20  ISR: 0xa1  IMR: 0x9  WD : 0x0  WDC: 0x0
 }}}
+
+Unfortunately, I had done this using the flash method rather than the failsafe method. Fortunately I had backed up the partitions.
+
+'''Restoring flash using serial console'''
+
+About 13 seconds after applying power, there is a two-second window when you can press ctrl-C to get into the boot loader.
+
+{{{
+== Executing boot script in 2.000 seconds - enter ^C to abort
+^C
+RedBoot>
+}}}
+
+The [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot User's Guide] gives some guidance as to what you can do here, although the version used by Meraki appears to be customised.
+
+The default loader config does the following (you can change this using 'fconfig' if you're really, really sure you know what you're doing)
+
+{{{
+load art_ap51.elf
+go
+load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+exec
+fis load stage2
+exec
+}}}
+
+Now, looking at the partition info above gives the following partition offsets and sizes:
+
+{{{
+                   start    size
+mtd0 RedBoot       000000   030000
+mtd1 stage2        030000   020000
+mtd2 /storage      050000   100000
+mtd3 part1         150000   340000
+mtd4 part2         490000   340000
+mtd5 redboot conf  7d0000   010000
+mtd6 board conf    7e0000   020000
+}}}
+
+Unfortunately, the Meraki's !RedBoot is missing the load -f (load to flash) command, so you first have to load to RAM and then write to flash.
+
+{{{
+RedBoot> version
+
+RedBoot(tm) bootstrap and debug environment [ROMRAM]
+Release, version V1.04 - built 12:24:00, Apr 17 2006
+
+Copyright (C) 2000, 2001, 2002, 2003, 2004 Red Hat, Inc.
+
+Board: Meraki Mini
+RAM: 0x80000000-0x82000000, [0x8003d110-0x80fe1000] available
+FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
+RedBoot> load -r -b 0x80150000 -m tftp -h 192.168.84.9 part1.bak
+Raw file loaded 0x80150000-0x8048ffff, assumed entry at 0x80150000
+RedBoot> fis write -b 0x80150000 -l 0x340000 -f 0xa8150000
+* CAUTION * about to program FLASH
+            at 0xa8150000..0xa848ffff from 0x80150000 - continue (y/n)? y
+... Erase from 0xa8150000-0xa8490000: ..........................................
+... Program from 0x80150000-0x80490000 at 0xa8150000: ..........................
+RedBoot> reset
+... Resetting.
+}}}
+
+You can repeat this for the other partitions backed up, although for me the new stage2 and redboot config partitions were fine, and I only needed to restore part1 to get my Meraki back to how it was.
