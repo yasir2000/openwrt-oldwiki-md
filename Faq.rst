@@ -210,8 +210,7 @@ ipkg list_installed
 }}}
 '''TIP:''' If there are no package descriptions listed you have to run {{{ipkg update}}}.
 
-        ipkg list_installed doesn't exist in Micro version which uses ipkg-sh (light version of ipkg).
-
+ . ipkg list_installed doesn't exist in Micro version which uses ipkg-sh (light version of ipkg).
 == Why isn't a package for ____ available? ==
 If using White Russian, be sure you did check the backports repository and X-Wrt repository to make sure the package isn't available in either of them. Then search the forums to see if any users have created the package you want but it hasn't been added to the official repositories. If you still haven't found your package, then it may be that nobody has needed that package yet or that nobody has had time to package it. In such a case, the options you have are:
 
@@ -336,6 +335,8 @@ They go into the file {{{/etc/firewall.user}}}. This file has a few examples in 
 {{{/etc/firewall.user}}} gets called from the {{{/etc/init.d/S45firewall}}} script on each reboot.
 
 Since !OpenWrt uses the standard Linux {{{iptables}}} for firewalling a good starting point for documentation is http://www.netfilter.org/documentation/.
+
+note: RC6 seems has a more easier way of configuring firewall rules. Instead of editing /etc/firewall.user, you can edit /etc/config/firewall. This seems to be used by X-wrt as well.
 
 '''TIP:''' If you install {{{qosfw-scripts}}} then it's easier to configure port forwarding.
 
