@@ -113,6 +113,7 @@ config wifi-device     wifi device name
        option country  country code [not mandatory, used for setting restrictions based on country regulations]
        option channel  1-14
        option maxassoc Maximum number of associated clients
+       option distance The distance between the ap and the furthest client in meters.
 
 config wifi-iface
        option network  the interface you want wifi to bridge with 
