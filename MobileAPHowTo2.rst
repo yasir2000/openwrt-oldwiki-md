@@ -316,6 +316,20 @@ Now just run "dialmon &", and push the button!
 
 I have this setup in my automobile, with the dialmon script set to run on boot. I suppose I should recode dialmon to also perform disconnect on another button-press, but I usually just cut power to the unit when I am done.
 
+= HotPlug =
+
+We can use hotplug capability to do the connection. A script like this:
+
+{{{
+echo 1 | /usr/sbin/pppd $TTY $SPEED \
+             lock \
+             modem \
+             name $ISP \
+             user zapp \
+             debug kdebug 3 \
+             connect '/usr/sbin/chat -v -s -f /etc/ppp/chat-sprintpcs'
+}}}
+
 = Notes =
 
  1. This document for the SL was inspired by Nate True's page: http://devices.natetrue.com/mobileap/
