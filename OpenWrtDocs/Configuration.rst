@@ -463,7 +463,7 @@ More can be found here http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594
 
 Examples:
 ||<style="text-align: center;" |6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
-||Perth ||WST-8 ||
+||Perth ||WST-8WDT-9,M12.1.0,M3.5.0/03:00:00 ||
 ||Brisbane ||EST-10 ||
 ||Adelaide ||CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Darwin ||CST-9:30 ||
