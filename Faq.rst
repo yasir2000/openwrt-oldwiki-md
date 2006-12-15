@@ -1,6 +1,7 @@
 '''New FAQ for the stable !OpenWrt White Russian release candidates.'''
 
 [[TableOfContents]]
+
 = Installation =
 == Will OpenWrt run on <fill in the blank> ? ==
 Please check ["OpenWrtDocs/Hardware"] and the TableOfHardware for the list of supported units.
@@ -17,7 +18,6 @@ If you haven't installed !OpenWrt yet, another way of identifying the hardware i
 Linksys routers can also be identified by the first 4 characters/digits of the Serial Number:
 
 WRT54G Models:
-
 || '''Serial No.''' || '''Hardware Ver.''' ||
 || CDF0 || v1.0 ||
 || CDF1 || v1.0 ||
@@ -32,14 +32,14 @@ WRT54G Models:
 || CDFC || v5.1 ||
 || CDFD || v6.0 ||
 
-WRT54GL Models:
 
+WRT54GL Models:
 || '''Serial No.''' || '''Hardware Ver.''' ||
 || CL7A || v1.0 ||
 || CL7B || v1.1 ||
 
-WRT54GS Models:
 
+WRT54GS Models:
 || '''Serial No.''' || '''Hardware Ver.''' ||
 || CGN0 || v1.0 ||
 || CGN1 || v1.0 ||
@@ -89,7 +89,6 @@ rm /etc/ipkg.conf
 cp /rom/etc/ipkg.conf /etc/ipkg.conf
 vi /etc/ipkg.conf
 }}}
-
 Now you can edit the files with an text editor.
 
 '''NOTE:''' On JFFS2 images you can edit the files like on every other Linux system.
@@ -106,7 +105,6 @@ On Windows operating systems use one of the following:
 
  * tftpd32 from http://perso.wanadoo.fr/philippe.jounin/tftpd32.html
  * or the [http://martybugs.net/wireless/openwrt/flash.cgi one included with Windows] (from the CMD console)
-
 == Can I flash the OpenWrt image when I changed the LAN IP? ==
 Linksys routers are always 192.168.1.1 for the bootloader's TFTP. See ["OpenWrtDocs/Installing"] for more information.
 
@@ -129,14 +127,12 @@ nvram get variable
 nvram set variable=value
 nvram commit (to save the changes)
 }}}
-
 '''TIP:''' Use quotes when you have a list of parameters separated by space.  For example:
 
 {{{
 nvram set variable="aa:bb:cc:dd:ee:ee aa:bb:cc:dd:ee:ff"
 nvram set vlan25ports="25 26 27 28 29 30"
 }}}
-
 See ["OpenWrtNVRAM"].
 
 == How to create a NVRAM dump for debugging? ==
@@ -145,13 +141,11 @@ Sometimes it's useful to have a dump of the NVRAM variables to show them other p
 {{{
 nvram show 2>&1 | sort | more
 }}}
-
 or even:
 
 {{{
 strings /dev/nvram | sort | more
 }}}
-
 {{{sort}}} will sort the list alphabetically to make it easier to read. Use {{{more}}} to list the output page by page. You can also save the dump into a text file. Use {{{> /tmp/nvram-dump.txt}}} instead of {{{more}}}. Then SCP the file to another computer.
 
 '''NOTE:''' Do '''NOT''' post the dump directly into the IRC channel, for that use a pastebin service like [http://www.pastebin.ca/ pastebin.ca] or [http://www.pastebin.com/ pastebin.com]. Only post the URL on IRC.
@@ -165,23 +159,19 @@ Check if you have a file {{{/etc/banner}}}. Do
 {{{
 cat /etc/banner
 }}}
-
 and watch for a line like this:
 
 {{{
 WHITE RUSSIAN (RC5) -------------------------------
 }}}
-
 If you don't have that file execute
 
 {{{
 busybox 2>&1 | grep -i ^busybox
 }}}
-
 {{{
 BusyBox v1.00 (2005.10.10-12:42+0000) multi-call binary
 }}}
-
 Your version is based on the reported date where !BusyBox has been compiled.
 
 == How do I clean up the NVRAM variables (the safe way)? ==
@@ -195,7 +185,6 @@ wget http://downloads.openwrt.org/people/kaloz/nvram-clean.sh
 chmod a+x /tmp/nvram-clean.sh
 /tmp/nvram-clean.sh
 }}}
-
 The before and after sizes will show you how much space was recovered.
 
 The {{{nvram-clean.sh}}} script does not commit the changes to NVRAM so you will have to do this manually with:
@@ -203,7 +192,6 @@ The {{{nvram-clean.sh}}} script does not commit the changes to NVRAM so you will
 {{{
 nvram commit
 }}}
-
 Hint: If you have configured your box in client mode (doesn't matter if bridged or routed) and defined a "static_route", this entry will be deleted by the nvram-clean-script.
 
 == How often can I write on the flash chip? ==
@@ -215,14 +203,14 @@ All packages included in the stable White Russian release can be listed with:
 {{{
 ipkg list | more
 }}}
-
 A list of installed packages can be displayed with:
 
 {{{
 ipkg list_installed
 }}}
-
 '''TIP:''' If there are no package descriptions listed you have to run {{{ipkg update}}}.
+
+        ipkg list_installed doesn't exist in Micro version which uses ipkg-sh (light version of ipkg).
 
 == Why isn't a package for ____ available? ==
 If using White Russian, be sure you did check the backports repository and X-Wrt repository to make sure the package isn't available in either of them. Then search the forums to see if any users have created the package you want but it hasn't been added to the official repositories. If you still haven't found your package, then it may be that nobody has needed that package yet or that nobody has had time to package it. In such a case, the options you have are:
@@ -230,11 +218,9 @@ If using White Russian, be sure you did check the backports repository and X-Wrt
  * Wait until the package becomes available
  * Package it yourself (using the [:BuildingPackagesHowTo:OpenWrt SDK])
  * Find/Pay someone to package it for you (consider soliciting in the forums)
-
 == How much space is available for the JFFS2 partition? ==
  * On systems with a 4 MB flash: roughly 2 MB
  * On systems with a 8 MB flash: roughly 6 MB
-
 The actual size allocated to the partition will vary slightly depending on the !OpenWrt build. JFFS2 uses compression, the amount of data that can be stored on that partition will be higher than the above values.
 
 == How do I reflash / How do I revert back to my previous firmware? ==
@@ -243,14 +229,12 @@ Make sure you have set {{{boot_wait=on}}}. To verify this do:
 {{{
 nvram get boot_wait
 }}}
-
 should return {{{on}}}. You can set {{{boot_wait=on}}} to on by doing:
 
 {{{
 nvram set boot_wait=on
 nvram commit
 }}}
-
 When this is done you can follow the ["OpenWrtDocs/Deinstalling"] page.
 
 boot_wait indicates whether or not the boot loader (CFE) should wait for a tftp transfered firmware before it loads the firmware present on the ROM. To adjust the length of time the CFE waits for this TFTP transfer, use the sparsely known wait_time variable. In example:
@@ -259,7 +243,6 @@ boot_wait indicates whether or not the boot loader (CFE) should wait for a tftp 
 nvram set wait_time=30
 nvram commit
 }}}
-
 This would cause the boot_wait period to be 30 seconds, allowing plenty of time for TFTP transfer. The default varies between models and versions and seems to range between 1 and 3 seconds.
 
 == Does OpenWrt have a web interface? ==
@@ -287,7 +270,6 @@ Nicolas Thill <Nico>
 Felix Fietkau <nbd>
 Florian Fainelli <florian>
 }}}
-
 == How do I access the syslog messages? ==
 Use the {{{logread}}} program to read syslog messages. Syslog stores the messages in the Wrt's RAM. When the specified part of the RAM gets full syslog deletes the old messages.
 
@@ -296,7 +278,6 @@ To log to a remote syslog server use:
 {{{
 nvram set log_ipaddr=aaa.bbb.ccc.ddd
 }}}
-
 Replace {{{aaa.bbb.ccc.ddd}}} with the IP address of your remote syslog server where you want to log to.
 
 See MiniHowtos for details on remote logging.
@@ -324,13 +305,10 @@ The message {{{no auths methods could be used}}} is related to the following uti
 {{{
 PasswordAuthentication yes
 }}}
-
 == How to view dhcp leases from shell ? ==
 {{{
 cat /tmp/dhcp.leases
 }}}
-
-
 ## ##################################################
 = Networking =
 == How do I create a DHCP server? ==
@@ -345,13 +323,11 @@ nvram set dhcp_start=<start_number>
 nvram set dhcp_num=<number_of_hosts>
 nvram commit
 }}}
-
 and restart {{{dnsmasq}}} with:
 
 {{{
 killall -9 dnsmasq; /etc/init.d/S50dnsmasq
 }}}
-
 For more details on howto configure static IP addresses see ["OpenWrtDocs/dnsmasq"].
 
 == Where should I put custom firewall rules? ==
@@ -386,13 +362,11 @@ To enable MAC address cloning in !OpenWrt on the WAN interface you have to set t
 nvram set wan_hwaddr="aa:bb:cc:dd:ee:ff"
 nvram commit
 }}}
-
 After that reboot your Wrt router.
 
 {{{
 reboot
 }}}
-
 Now check the MAC address on the your WAN interface with the {{{ifconfig}}} command. Your WAN interface should have the MAC address which you set in the NVRAM variable above.
 
 == How do I enable WEP encryption? ==
@@ -404,7 +378,6 @@ nvram set wl0_key1=deadbeef12345deadbeef12345
 ifup wifi
 /sbin/wifi
 }}}
-
 The WEP key {{{wl0_key1}}} must be in '''HEX''' format (allowed HEX digits are 0-9 and a-f lower case). The length of the key must be exact 26 HEX digits than you have a 128 bit WEP key. Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly.
 
 To save these settings and have the WEP key set each bootup, save the changes to NVRAM:
@@ -412,7 +385,6 @@ To save these settings and have the WEP key set each bootup, save the changes to
 {{{
 nvram commit
 }}}
-
 See ["OpenWrtDocs/Configuration"] for details.
 
 == How do I use WiFi Protected Access (WPA)? ==
@@ -421,7 +393,6 @@ You have to install the {{{nas}}} package (which provides WPA encryption) if not
 {{{
 ipkg install nas
 }}}
-
 Now set some NVRAM variables:
 
 {{{
@@ -430,7 +401,6 @@ nvram set wl0_crypto=tkip
 nvram set wl0_wpa_psk=<your_preshared_key>
 nvram commit
 }}}
-
 Replace {{{<your_preshared_key>}}} to appropriate.
 
 '''NOTE:''' The length of the {{{wl0_wpa_psk}}} NVRAM variable must be at least 8 chars up to 63 chars.
@@ -440,7 +410,6 @@ Start WPA with
 {{{
 /etc/init.d/S41wpa
 }}}
-
 Check with the {{{ps}}} command if there is a {{{nas}}} process running. If it's not working try rebooting the router.
 
 For details and howto configure WPA2 or AES encryption see ["OpenWrtDocs/Configuration"].
@@ -459,11 +428,9 @@ This is an ASCII art for what WDS can be useful.
 INTERNET-----WRT54G_1- - - - - -WRT54G_2 - - - - - Wireless Clients
              | | | |            | | | |
             4 clients          4 clients
-
 ----- Cable link
 - - - Wlan link
 }}}
-
 With WDS you can connect wireless clients to all APs. In client mode this is not possible.
 
 For connection of two AP together, both machines have to be set up.
@@ -474,7 +441,6 @@ nvram set wl0_wds=aa:bb:cc:dd:ee:ff
 nvram commit
 ifup wifi; /sbin/wifi
 }}}
-
 Replace {{{aa:bb:cc:dd:ee:ff}}} with the MAC address of the router you would like to connect via WDS. On WRT54G_1 set MAC of WRT54G_2 and on WRT54G_2 set MAC of WRT54G_1.
 
 If the other router is running OpenWrt too you can get the MAC address from output of:
@@ -482,7 +448,6 @@ If the other router is running OpenWrt too you can get the MAC address from outp
 {{{
 iwconfig eth1
 }}}
-
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name] for your hardware.
 
 See ["OpenWrtDocs/Configuration"] for details.
@@ -494,13 +459,11 @@ This can be done easily with
 nvram set wl0_closed=1
 /sbin/wifi
 }}}
-
 To keep the settings over a reboot run:
 
 {{{
 nvram commit
 }}}
-
 == Can I adjust the transmit power? ==
 Yes, but cranking the power to the maximum won't help you any. You might transmit farther but the noise level will be higher (and will probably bleed into the neighbouring channels; that looks like [http://wl500g.info/showthread.php?t=12&page=2 this] then) and your recieve sensitivity won't be improved any, limiting your distance. If you want better range go buy better antennas.
 
@@ -510,14 +473,14 @@ My awk scripting is terrible, but I hacked together a simple script to see who i
 {{{
 chmod ug+x /bin/scan.sh
 }}}
-to make it executable.
-scan.sh 
+to make it executable. scan.sh
+
 {{{
 #!/bin/sh
 for MAC in `wl assoclist | cut -d ' ' -f 2` ; do
   echo -n 'Computer: ';
   echo -n `cat /tmp/dhcp.leases | awk '{x=toupper($0); print x}' | grep $MAC | cut -d ' ' -f 4`;
-  echo -n ' IP: '; 
+  echo -n ' IP: ';
   echo -n `cat /tmp/dhcp.leases | awk '{x=toupper($0); print x}' | grep $MAC | cut -d ' ' -f 3`;
   echo -n ' Signal Strength: ' ;
   echo -n `wl rssi $MAC | cut -d ' ' -f 3`;
@@ -546,13 +509,11 @@ nvram set pppoe_ifname=<your_WAN_interface_name>
 nvram set wan_device=<your_WAN_interface_name>
 nvram commit
 }}}
-
 When done bring up the WAN connection with:
 
 {{{
 ifup wan
 }}}
-
 See ["OpenWrtDocs/Configuration"] for details.
 
 == How do I configure DHCP for internet access? ==
@@ -565,7 +526,6 @@ nvram set wan_ifname=<your_WAN_interface_name>
 nvram set wan_proto=dhcp
 nvram commit
 }}}
-
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name] for your hardware.
 
 When done bring up the WAN connection with:
@@ -573,14 +533,12 @@ When done bring up the WAN connection with:
 {{{
 ifup wan
 }}}
-
 == How do I configure PPTP for internet access? ==
 Install the {{{pptp}}} package via
 
 {{{
 ipkg install pptp
 }}}
-
 '''TIP:''' If you have no Internet connection for installing the package, you can flash the PPTP optimized images (with preinstalled PPTP packages instead of PPPoE packages) from his [http://downloads.openwrt.org/whiterussian/newest/pptp/ download directory].
 
 When you have done this set the following NVRAM variables.
@@ -602,13 +560,11 @@ nvram set wan_ipaddr=<your_wan_ip>
 nvram set wan_netmask=255.255.255.0
 nvram commit
 }}}
-
 Than bring up your WAN interface where your modem is connected to via:
 
 {{{
 ifup wan
 }}}
-
 For more information see the ["PPTPClientHowto"].
 
 == iptables -F locks you out of telnet/ssh ==
@@ -620,7 +576,6 @@ If you want to experiment with iptables while logged in via telnet/ssh,  run the
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT}}}
-
 ## ##################################################
 = Development =
 See also the !OpenWrt [http://dev.openwrt.org/ development center] website. There you can browse the source code and send reproducible bugs with the ticket system (in trac).
@@ -635,11 +590,9 @@ For compiling !OpenWrt (from SVN or from the tarball, both the White Russian sta
 gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, ncurses, libz-dev and
 libc headers -- additional package dependencies: madwifi: uudecode(sharutils), privoxy: autoconf pkg-config automake
 }}}
-
 When you get error messages related to libnvram, upgrade {{{make}}} to version 3.80. If that is not working as expected patch {{{make}}} 3.80 with the [http://ftp.debian.org/debian/pool/main/m/make/make_3.80-9.diff.gz Debian make patches].
 
 Approximately required disc space for compiling OpenWrt:
-
 ||'''Branch''' ||'''Min.''' ||'''Max.''' ||
 ||Stable Source ||1.5 GB ||3.5 GB ||
 ||Development ||? ||3.8 GB ||
@@ -653,7 +606,6 @@ The stable source code can be found in the above directory or from our SVN repos
 {{{
 svn co https://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 }}}
-
 [http://dev.openwrt.org/browser/branches/whiterussian/openwrt/ Browse] the stable source SVN branch.
 
 '''Development'''
@@ -664,9 +616,7 @@ Development take place in SVN. You get the source via:
 
 {{{
 svn co https://svn.openwrt.org/openwrt/trunk/}}}
-
 [http://dev.openwrt.org/browser/trunk/ Browse] the development SVN branch.
-
 
 /!\ '''NOTE:''' Development has temporarily moved to the buildroot-ng branch... for development information, check: https://dev.openwrt.org .
 
