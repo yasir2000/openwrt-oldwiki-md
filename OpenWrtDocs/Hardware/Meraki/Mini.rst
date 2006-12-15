@@ -197,113 +197,17 @@ ath0: __ieee80211_newstate: RUN -> RUN
 ...etc
 }}}
 
-Plugging in the ethernet port to another host and running tcpdump there shows the following:
+'''Network activity'''
 
-{{{
-11:23:12.830678 arp who-has 192.168.84.1 tell 192.168.84.1
-  0000: 0001 0800 0604 0001 0018 0aXX XXXX c0a8  .............???
-  0010: 5401 0000 0000 0000 c0a8 5401 0000 0000  T.......??T.....
-  0020: 0000 0000 0000 0000 0000 0000 0000       ..............
+Plugging in the ethernet port to another host and running tcpdump there while the unit is booting up shows:
 
-(8 times)
-
-11:23:19.002236 arp who-has 192.168.84.9 tell 192.168.84.1
-  0000: 0001 0800 0604 0001 0018 0aXX XXXX c0a8  .............???
-  0010: 5401 0000 0000 0000 c0a8 5409 0000 0000  T.......??T.....
-  0020: 0000 0000 0000 0000 0000 0000 0000       ..............
-
-(16 times)
-
-...Pick up IP address via DHCP
-...Send UDP packet to 64.62.142.12.7351
-...DNS lookups for config.meraki.net. and db.meraki.net.
-}}}
-
-If I set the connected host to have IP address 192.168.84.9 then I see:
-
-{{{
-11:34:36.005386 arp who-has 192.168.84.1 tell 192.168.84.1
-  0000: 0001 0800 0604 0001 0018 0aXX XXXX c0a8  .............???
-  0010: 5401 0000 0000 0000 c0a8 5401 0000 0000  T.......??T.....
-  0020: 0000 0000 0000 0000 0000 0000 0000       ..............
-
-(8 times)
-
-11:34:42.176947 arp who-has 192.168.84.9 tell 192.168.84.1
-  0000: 0001 0800 0604 0001 0018 0aXX XXXX c0a8  .............???
-  0010: 5401 0000 0000 0000 c0a8 5409 0000 0000  T.......??T.....
-  0020: 0000 0000 0000 0000 0000 0000 0000       ..............
-
-11:34:42.176953 arp reply 192.168.84.9 is-at 0:2:e3:xx:xx:xx
-  0000: 0001 0800 0604 0002 0002 e3XX XXXX c0a8  ..........?...??
-  0010: 5409 0018 0aXX XXXX c0a8 5401 0000 0000  T......???T.....
-  0020: 0000 0000 0000 0000 0000 0000 0000       ..............
-
-11:34:42.177481 192.168.84.1.7700 > 192.168.84.9.tftp: 21 RRQ "art_ap51.elf"
-  0000: 4500 0031 0000 0000 4011 5161 c0a8 5401  E..1....@.Qa??T.
-  0010: c0a8 5409 1e14 0045 001d 27c8 0001 6172  ??T....E..'?..ar
-  0020: 745f 6170 3531 2e65 6c66 004f 4354 4554  t_ap51.elf.OCTET
-  0030: 00                                       .
-
-11:34:42.181932 192.168.84.9.43846 > 192.168.84.1.7700: udp 19
-  0000: 4500 002f cb68 0000 4011 85fa c0a8 5409  E../?h..@..???T.
-  0010: c0a8 5401 ab46 1e14 001b cc0a 0005 0001  ??T.?F....?.....
-  0020: 4669 6c65 206e 6f74 2066 6f75 6e64 00    File not found.
-
-11:34:42.195173 192.168.84.1.7800 > 192.168.84.9.www: S 511237751:511237751(0) win 1472 <mss 1472>
-  0000: 4500 002c 0001 0000 4006 5170 c0a8 5401  E..,....@.Qp??T.
-  0010: c0a8 5409 1e78 0050 1e78 de77 0000 0000  ??T..x.P.x?w....
-  0020: 6002 05c0 4d47 0000 0204 05c0 0000       `..?MG.....?..
-
-11:34:42.195206 192.168.84.9.www > 192.168.84.1.7800: S 1199264634:1199264634(0) ack 511237752 win 16384 <mss 1460> (DF)
-  0000: 4500 002c b63f 4000 4006 5b31 c0a8 5409  E..,??@.@.[1??T.
-  0010: c0a8 5401 0050 1e78 477b 537a 1e78 de78  ??T..P.xG{Sz.x?x
-  0020: 6012 4000 780c 0000 0204 05b4            `.@.x......?
-
-11:34:42.198048 192.168.84.1.7800 > 192.168.84.9.www: . ack 1 win 1472
-  0000: 4500 0028 0002 0000 4006 5173 c0a8 5401  E..(....@.Qs??T.
-  0010: c0a8 5409 1e78 0050 1e78 de78 477b 537b  ??T..x.P.x?xG{S{
-  0020: 5010 05c0 ca09 0000 0000 0000 0000       P..??.........
-
-11:34:42.198122 192.168.84.1.7800 > 192.168.84.9.www: P 1:36(35) ack 1 win 1472
-  0000: 4500 004b 0003 0000 4006 514f c0a8 5401  E..K....@.QO??T.
-  0010: c0a8 5409 1e78 0050 1e78 de78 477b 537b  ??T..x.P.x?xG{S{
-  0020: 5018 05c0 ef15 0000 4745 5420 2f6d 6572  P..??...GET /mer
-  0030: 616b 692f 6d69 6e69 2e31 2e69 6d67 2048  aki/mini.1.img H
-  0040: 5454 502f 312e 300d 0a0d 0a              TTP/1.0....
-
-11:34:42.199144 192.168.84.9.www > 192.168.84.1.7800: P 1:487(486) ack 36 win 17520 (DF)
-  0000: 4500 020e b09f 4000 4006 5eef c0a8 5409  E...?.@.@.^???T.
-  0010: c0a8 5401 0050 1e78 477b 537b 1e78 de9b  ??T..P.xG{S{.x?.
-  0020: 5018 4470 6055 0000 4854 5450 2f31 2e31  P.Dp`U..HTTP/1.1
-  0030: 2034 3034 204e 6f74 2046 6f75 6e64 0d0a   404 Not Found..
-  0040: 4461 7465 3a20 5468 752c 2031 3420 4465  Date: Thu, 14 De
-  0050: 6320 3230 3036 2031 313a 3334 3a34 3220  c 2006 11:34:42
-  0060: 474d 540d 0a53 6572 7665 723a 2041 7061  GMT..Server: Apa
-  0070: 6368 652f 312e 332e 3239 2028 556e 6978  che/1.3.29 (Unix
-  0080: 2920 6d6f 645f 7373 6c2f 322e 382e 3136  ) mod_ssl/2.8.16
-  0090: 204f 7065 6e53 534c 2f30 2e39 2e37 6a0d   OpenSSL/0.9.7j.
-  00a0: 0a43 6f6e 6e65 6374 696f 6e3a 2063 6c6f  .Connection: clo
-  00b0: 7365 0d0a 436f 6e74 656e 742d 5479 7065  se..Content-Type
-  00c0: 3a20 7465 7874 2f68 746d 6c3b 2063 6861  : text/html; cha
-  00d0: 7273 6574 3d69 736f 2d38 3835 392d 310d  rset=iso-8859-1.
-<<SNIP>>
-
-11:34:42.199213 192.168.84.9.www > 192.168.84.1.7800: F 487:487(0) ack 36 win 17520 (DF)
-  0000: 4500 0028 8ab5 4000 4006 86bf c0a8 5409  E..(.?@.@..???T.
-  0010: c0a8 5401 0050 1e78 477b 5561 1e78 de9b  ??T..P.xG{Ua.x?.
-  0020: 5011 4470 894f 0000                      P.Dp.O..
-
-11:34:42.200839 192.168.84.1.7800 > 192.168.84.9.www: . ack 487 win 1472
-  0000: 4500 0028 0004 0000 4006 5171 c0a8 5401  E..(....@.Qq??T.
-  0010: c0a8 5409 1e78 0050 1e78 de9b 477b 5561  ??T..x.P.x?.G{Ua
-  0020: 5010 05c0 c800 0000 0000 0000 0000       P..??.........
-
-11:34:42.200865 192.168.84.1.7800 > 192.168.84.9.www: . ack 488 win 1472
-  0000: 4500 0028 0005 0000 4006 5170 c0a8 5401  E..(....@.Qp??T.
-  0010: c0a8 5409 1e78 0050 1e78 de9b 477b 5562  ??T..x.P.x?.G{Ub
-  0020: 5010 05c0 c7ff 0000 0000 0000 0000       P..???........
-}}}
+ 1. Unit ARPs for 192.168.84.1 eight times (checking its address is not in use by anyone else)
+ 1. Unit ARPs for 192.168.84.9. If successful:
+  1. Unit attempts to make TFTP (UDP) request to 192.168.84.9 to get '''art_ap51.elf'''
+  1. Unit attempts to make HTTP request to 192.168.84.9 to '''GET /meraki/mini.1.img'''
+ 1. Picks up new IP address via DHCP
+ 1. Sends UDP packet to 64.62.142.12:7351
+ 1. Makes DNS lookups for config.meraki.net. and db.meraki.net.
 
 So it looks like there are at least two different ways to download new firmware at power-up.
 
@@ -374,7 +278,7 @@ copy build_ar531x/stage2-embedded.elf to /meraki/mini.1.img under the webserver'
 
 Boot the Meraki. It should pick up this firmware and run it, without changing what's in the flash.
 
-(The webserver approach doesn't work well, at least with OpenBSD as the server; the Meraki always connects from the same source port, which means the socket gets stuck in a FIN_WAIT_2 state and subsequent connections are believed to be part of the same connection. TFTP runs over UDP and doesn't suffer this problem.)
+(The webserver approach doesn't always work well, at least with OpenBSD as the server; the Meraki always connects from the same source port, which means the socket gets stuck in a FIN_WAIT_2 state and subsequent connections are believed to be part of the same connection. TFTP runs over UDP and doesn't suffer this problem.)
 
 '''Backing up existing firmware'''
 
