@@ -34,6 +34,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||WRT54G v2/v3 & WRT54GS v1/v2 ||[http://voidmain.is-a-geek.net/i/WRT54_sw1_internal_architecture.png Switch diagram] ||
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
 
+
 [[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on. A more detailed explanation of the networking internals is on the page OpenWrtDocs/NetworkInterfaces
 ||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
@@ -46,9 +47,9 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
-||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ note^3^||
+||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ note^3^ ||
 ||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
-||Belkin||[:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130]||1010||eth0||eth1||eth2||By default, LAN is br0 bridging eth0 and eth2||
+||Belkin ||["OpenWrtDocs/Hardware/Belkin/F5D7130"] ||1010 ||eth0 ||eth1 ||eth2 ||By default, LAN is br0 bridging eth0 and eth2 ||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WBR2-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
@@ -64,6 +65,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Siemens ||SE505 ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Siemens ||SE505 ||v2 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 
+
 note^1^: This model uses a switch with vlan tagging; eth0 represents the connection from the router to the switch and the vlans ontop of eth0 will control which switch port(s) the packet is transmitted.
 
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
@@ -75,6 +77,7 @@ Please update to include other models.
 '''NOTE:''' LAN and WIFI are bridged together in br0 by default, on some devices WAN can be eth1 and LAN eth0.
 
 The basic network configuration is handled by a series of NVRAM variables:
+
 {{{
 #!CSV
 NVRAM; Description
@@ -115,6 +118,7 @@ For client mode configuration (rather than AP mode), see this page: ClientModeHo
 ('''NOTE:''' these examples use WRT54G v2.x/WRT54GS v1.x interface names)
 
 The default network configuration (LAN + wireless bridged as 192.168.1.1/24, WAN as DHCP):
+
 {{{
 lan_ifname=br0
 lan_ifnames="vlan0 eth1"
@@ -124,8 +128,8 @@ lan_netmask=255.255.255.0
 wan_ifname=vlan1
 wan_proto=dhcp
 }}}
-
 If you just want to use !OpenWrt as an access point you can avoid the WAN interface completely (LAN+wireless bridged as 192.168.1.25/24, routed through 192.168.1.1, WAN ignored):
+
 {{{
 lan_ifname=br0
 lan_ifnames="vlan0 eth1"
@@ -136,10 +140,10 @@ lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
 wan_proto=none
 }}}
-
 The above configuration also serves as a wireless to ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration.
 
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
+
 {{{
 # linksys bug; remove when not using static configuration for lan
 nvram set lan_proto="static"
@@ -167,7 +171,6 @@ lan_ifnames="vlan0"
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
 = Ethernet switch configuration =
-
 Most of the routers supported by OpenWrt include a builtin switch; four lan ports and one wan port. What most people don't realize is that all of these ports are actually the same interface -- there is a single 10/100 ethernet which is fed into a 6 port switch. 5 of the ports are external and make the lan and wan ports seen on the back of the router, and one port is internally wired to the router's ethernet interface.
 
 The separation of lan and wan comes from the use of VLANs. By grouping ports into VLANs, the switch can be broken up into smaller virtual switches, and by adding VLAN tags to packets, OpenWrt can control which virtual switch (which ports) the packet gets routed.
@@ -190,24 +193,24 @@ The second variable, vlan0hwname is used by the network configuration program (t
 
 As of RC4, the switch is programmed and controlled by a set of switch modules (switch-core and switch-robo or switch-adm, depending on your hardware). These switch modules will create a /proc/switch/eth0, showing the current settings for the switch. The /proc/switch/eth0/vlan/0/ports is used the exact same way as the vlan0ports nvram variable, allowing you to change the switch settings in realtime.
 
-'''Sample configurations'''
-(unless otherwise specified, vlan variables not shown are assumed to be unset)
+'''Sample configurations''' (unless otherwise specified, vlan variables not shown are assumed to be unset)
 
 Default:
+
 {{{
 vlan0ports="1 2 3 4 5*"
 vlan0hwname=et0
 vlan1ports="0 5"
 vlan1hwname=et0
 }}}
-
 All ports lan (vlan0):
+
 {{{
 vlan0ports="0 1 2 3 4 5*"
 vlan0hwname=et0
 }}}
-
 LAN (vlan0), WAN (vlan1), DMZ (vlan2):
+
 {{{
 vlan0ports="1 2 5*"
 vlan0hwname=et0
@@ -216,7 +219,6 @@ vlan1hwname=et0
 vlan2ports="3 4 5"
 vlan2hwname=et0
 }}}
-
 It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least the WRT54GS v1.0 will not accept new firmware via TFTP if port 1 is in another VLAN.
 
 = Wireless configuration =
@@ -269,6 +271,7 @@ See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user au
 || wl0_radius_port || Port# to connect... ||
 || wl0_auth || '''0''' ||
 
+
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 !OpenWrt supports the WDS protocol, which allows a point to point link to be established between two access points. By default, WDS links are added to the br0 bridge, treating them as part of the lan/wifi segment; clients will be able to seamlessly connect through either access point using wireless or the wired lan ports as if they were directly connected.
 
@@ -298,34 +301,31 @@ First do it without wireless protection and then activate the protection. If you
 /!\ '''NOTE:''' WDS requires a br0 interface. If you broke up your bridge as detailed in "To separate the LAN from the WIFI" above, this will not just work, since you no longer have a br0. You do not need to add any interfaces to br0, the WDS interfaces will be automatically added.
 
 == WDS Routed Networks (P2P) ==
-
 You might want to use routing over the WDS links, rather than bridging. You will want to break up the bridge, as explained above, and prevent wds devices from being added to the bridge by editing /etc/hotplug.d/net/01-wds.
 
-
 You can then add WDS interfaces, e.g:
+
 {{{
 nvram set wl0_wds="00:14:12:25:CB:22 00:14:12:16:3B:28"
 }}}
-
 This will give you several wds0.x interfaces (note the interface names get truncated when displayed in ifconfig -- they start at wds0.49153 and increment by 0.00001). Create a set of nvram variables for ifup, e.g:
+
 {{{
 nvram set wds1_proto=static
 nvram set wds1_ifname=wds0.49153
 nvram set wds1_ipaddr=192.168.254.97
 nvram set wds1_netmask=255.255.255.252
-
 nvram set wds2_proto=static
 nvram set wds2_ifname=wds0.49154
 nvram set wds2_ipaddr=192.168.254.100
 nvram set wds2_netmask=255.255.255.252
 }}}
-
 Then modify /etc/init.d/S40network to bring up these interfaces:
+
 {{{
     ifup wds1
     ifup wds2
 }}}
-
 == A note on encryption with WDS ==
 WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
 
@@ -424,11 +424,9 @@ then either reboot or run it this once:
 
 {{{
 /etc/init.d/S42rdate}}}
-
 '''ntpclient'''
 
-''ntpclient'' will synchronize the system time using the NTP protocol when the internet connection is established.
-To set it up follow this instructions :
+''ntpclient'' will synchronize the system time using the NTP protocol when the internet connection is established. To set it up follow this instructions :
 
 Set the ''ntp_server'' NVRAM variable to your preferred NTP server (for example the NTP server of your ISP; if no server is set, ''ntpclient'' will use ''pool.ntp.org'' as default):
 
@@ -436,14 +434,13 @@ Set the ''ntp_server'' NVRAM variable to your preferred NTP server (for example 
 nvram set ntp_server=ntp.my-isp.net
 nvram commit
 }}}
-
 Install the ''ntpclient'' package in the web interface or using the command
+
 {{{
 ipkg install ntpclient
 }}}
+''ntpclient'' will now update the system time each time the WAN connection is established. To set the time manually use this command line
 
-''ntpclient'' will now update the system time each time the WAN connection is established.
-To set the time manually use this command line 
 {{{
 /usr/sbin/ntpclient -c 1 -d -s -h ntp.my-isp.net
 }}}
@@ -460,6 +457,8 @@ echo "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" > /etc/TZ
 '''NOTE:''' This sets the time zone for CET/CEST (Central European Time UTC+1 / Central European Summer Time UTC+2) and the starting (5th week of March at 02:00) and endtime (5th week of October at 03:00) of DST (Daylight Saving Time).
 
 More can be found here http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594640 and http://openwrt.org/forum/viewtopic.php?id=131.
+
+Note: When using openNTPd on RC6, with or without X-wrt, it seems the above mentioned method doesn't survive reboot. I actually use vi created a /etc/TZ file with relevant timezone and it works well.
 
 Examples:
 ||<style="text-align: center;" |6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
