@@ -460,6 +460,13 @@ More can be found here http://leaf.sourceforge.net/doc/guide/buci-tz.html#id2594
 
 Note: When using openNTPd on RC6, with or without X-wrt, it seems the above mentioned method doesn't survive reboot. I actually use vi created a /etc/TZ file with relevant timezone and it works well.
 
+Better use this:
+
+{{{
+nvram set time_zone="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"
+nvram commit
+}}}
+
 Examples:
 ||<style="text-align: center;" |6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Perth ||WST-8WDT-9,M12.1.0,M3.5.0/03:00:00 ||
