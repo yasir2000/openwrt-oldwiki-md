@@ -28,13 +28,15 @@ tftp> put openwrt.trx ASUSSPACELINK
 so you just have to hit enter....;)
 
 If there is a timeout, unplug the power again, push the button...etc
-Eventually it will work and start uploading.
+ Eventually it will work and start uploading.
 
 ''Be aware that the actual flashing of the image will take place '''after''' the upload so just wait till it reboots!!!''
 
-have phun....
+linux rulez, have phun....
 
 Oh, and you can release the button now ;)
+
+And for those of you who ''really'' want to know what they just did: Read on....
 
 == Recovery Mode ==
 
