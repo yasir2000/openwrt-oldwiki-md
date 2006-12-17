@@ -2,6 +2,40 @@
 
 The WL-500G behaves a little differently to other OpenWRT devices: rather than use the NVRAM ''boot_wait'' variable, the loader enters "recovery mode" if the reset button is pressed when powering up. In "recovery mode" the device starts flashing the Power LED and sits and waits for a new image, sent via TFTP.
 
+== For the impatient ==
+
+Her is how it worked for me (under Debian Linux):
+
+ * Get '''A TFTP client'''. I used ATFTP for the reasons mentioned further down.
+ * Get the '''IP-Address of your router'''. In my case it was the IP-Address I assigned to it with the old firmware not the factory default (If in doubt your can check with "arp", look for your routers MAC)
+ * Get a '''OPENWRT-Firmware in raw-format''' (.trx extension!) and rename it to ''openwrt.trx'' (for less typing hassle)
+
+Start ATFTP and type the following commands at the ''tftp>'' prompt:
+{{{
+tftp> mode octet
+tftp> timeout 1
+tftp> trace on
+tftp> connect <your routers ip>  
+}}}
+
+Now you are ready to send the firmware to the router, this is the part where I had timeouts without end. Timing is very essential here!
+Unplug your routers power, push '''AND HOLD''' the reset button, as soon as the Power comes on again you better already typed
+
+{{{
+tftp> put openwrt.trx ASUSSPACELINK
+}}}
+
+so you just have to hit enter....;)
+
+If there is a timeout, unplug the power again, push the button...etc
+Eventually it will work and start uploading.
+
+''Be aware that the actual flashing of the image will take place '''after''' the upload so just wait till it reboots!!!''
+
+have phun....
+
+Oh, and you can release the button now ;)
+
 == Recovery Mode ==
 
  * the device processes any Ethernet frame addressed to it, regardless of IP address
