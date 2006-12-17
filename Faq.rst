@@ -76,7 +76,7 @@ No. {{{firstboot}}} is for formatting the JFFS2 partition on flash and creating 
 
 No special steps are required to edit files, [http://www.denx.de/wiki/bin/view/Know/MiniFOHome mini_fo] is used to overlay the SquashFS and JFFS2 partitons.
 
-When a file has is actually located in /rom is modified, it is copied to /jffs and the changes are actually applied to that file.  mini_fo will always use the /jffs version of a file over the /rom version, in order to reclaim wasted space when reverting to the /rom version, you must delete the file in /jffs
+When a file which is actually located in /rom is modified, it is copied to /jffs and the changes are actually applied to that file.  mini_fo will always use the /jffs version of a file over the /rom version, in order to reclaim wasted space when reverting to the /rom version, you must delete the file in /jffs
 
 '''RC 5 and earlier''':
 
