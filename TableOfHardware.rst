@@ -6,8 +6,10 @@ This is a table of all supported devices as of 2006/06/13.
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
+ * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the main !OpenWrt source tree
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
  * '''Info entered''' - Information about the device is entered in this list, for reference.
+
 See also
 
  * '''MinimumSystemRequirements'''
@@ -132,8 +134,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
 == Compex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54-WRT] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Supported] only on special OpenWrt hardware variant(WP54-WRT), not standard unit ||
-||wp11a || ||Samsung [http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C4510B/S3C4510B.htm S3C4510B01], (PLD: MAX3000 [http://www.altera.com/literature/ds/m3000a.pdf EPM3032ALC44-10]) ||8MB ||32MB ||Agere PCMCA || || || || || ||Untested ||
+||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54-WRT] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Forked] ||
+||[http://www.compex.com.sg/home/products1.asp?20050721032253 WP54G] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Unsupported] ||
+||WP11A || ||Samsung [http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C4510B/S3C4510B.htm S3C4510B01], (PLD: MAX3000 [http://www.altera.com/literature/ds/m3000a.pdf EPM3032ALC44-10]) ||8MB ||32MB ||Agere PCMCA || || || || || ||Untested ||
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
@@ -248,7 +251,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.5d2b41d3cef51dfe29dd10a191346068/?channelpath=/en_us/Support/Product+Support/Network+Storage/Maxtor+Shared+Storage+Family/Maxtor+Shared+Storage+Plus Shared Storage Plus] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||[:OpenWrtDocs/Hardware/Maxtor:UnTested] ||
 == Meraki ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.meraki.net/mini.html Meraki Mini] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180Mhz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||? ||No ||[:OpenWrtDocs/Hardware/Meraki/Mini:Untested] ||
+||[http://www.meraki.net/mini.html Meraki Mini] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180Mhz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||Yes ||No ||[:OpenWrtDocs/Hardware/Meraki/Mini:Forked/WiP] ||
 == Microsoft ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||N/A ||No ||Yes ||No ||[:OpenWrtDocs/Hardware/Microsoft:Supported] ||
