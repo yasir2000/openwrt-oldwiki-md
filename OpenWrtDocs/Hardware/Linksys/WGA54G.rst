@@ -35,6 +35,8 @@ BOOT>
 }}}
 
 == Serial console ==
+J10 is 3,3v TTL
+
 {{{
 |
 |                 __
