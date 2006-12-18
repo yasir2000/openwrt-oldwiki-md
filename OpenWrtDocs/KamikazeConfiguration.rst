@@ -45,7 +45,7 @@ config switch eth0
 config interface wan
 	option ifname	eth0.1
 	option proto	dhcp
-        option hostname MyRouter The is only used if the proto is dhcp otherwise it is ignored.
+        option hostname MyRouter This is only used if the proto is dhcp otherwise it is ignored.
 }}}
 
 ==== Static ====
