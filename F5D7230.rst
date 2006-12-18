@@ -1,5 +1,5 @@
 ##language:en
-= moved to hardware/belkin/F5D72307 =
+= moved to Hardware/Belkin/F5D7230 =
 = Delete this page =
 
 == Overview ==
