@@ -2,8 +2,8 @@
 If you plan on setting up a network with unusual range requirements, reviewing the technical and legal aspects can save you much frustration, time, and money.
 == Wireless Range Calculation ==
 
-[http://www.qsl.net/pa0hoo/helix_wifi/linkbudgetcalc/wlan_budgetcalc.html Online Wireless Calculator #1]
-[http://www.zytrax.com/tech/wireless/calc.htm Online Wireless Calculator #2]
+  * [http://www.qsl.net/pa0hoo/helix_wifi/linkbudgetcalc/wlan_budgetcalc.html Online Wireless Calculator #1]
+  * [http://www.zytrax.com/tech/wireless/calc.htm Online Wireless Calculator #2]
 
 == Regulatory Information ==
 We are not lawyers; all this is for convience only.
