@@ -19,7 +19,9 @@ Please read the manual. If you have any questions about anything in the manual, 
 
 '''[:OpenWrtDocs/Packages:OpenWrt Addon Packages]''' [[Include(OpenWrtDocs/Packages,,titlesonly)]]
 
-=== WhiteRussian RC5 (Stable) Configuration ===
+'''[:OpenWrtDocs/Deinstalling:Deinstalling OpenWrt]''' [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
+
+=== WhiteRussian RC6 (Stable) Configuration ===
 '''[:OpenWrtDocs/Configuration:OpenWrt WhiteRussian Configuration]''' [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
 
 === Kamikaze (Experimental) Configuration ===
@@ -33,8 +35,6 @@ Please read the manual. If you have any questions about anything in the manual, 
 '''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
 == Additional documentation ==
-'''[:OpenWrtDocs/Deinstalling:Deinstalling OpenWrt]''' [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
-
 '''[:OpenWrtDocs/Customizing:OpenWrt Customization]''' [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
 '''[:OpenWrtDocs/Hardware:Hardware Information]''' [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
