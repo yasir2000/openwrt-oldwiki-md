@@ -83,15 +83,13 @@ All we do is change the kernel and filesystem mappings and also align the mtd4 c
 
 Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 21 we do
 
+{{{
 user adam2
-
 pass adam2
-
 quote "SETENV mtd0,0x900850E0,0x9003f0000" (fs)
-
 quote "SETENV mtd1,0x90010000,0x900850E0" (kernel)
-
 quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
+}}}
 
 DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will required JTAG cable to fix it.
 
@@ -105,19 +103,15 @@ TICHKSUM can be found in the GPL source code for the original firmware available
 
 Now you are ready to flash ftp into adam2
 
+{{{
 quote "MEDIA FLSH" #write to flash memory
-
 binary #binary transfer mode
-
 debug #turn debugging output on
-
 hash #print ##### when transfering
-
 put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"  (c can be anything)
-
 quote REBOOT #tell the router to reboot
-
 quit
+}}}
 
 '''Getting the LAN connection to work'''
 
@@ -156,43 +150,39 @@ You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of workin
 
 You need to load the modules for ppp, most of these are already loaded.
 
+{{{
 cd /lib/modules/2.4.32
-
 insmod br2684.o
-
 insmod slhc.o
-
 insmod ppp_generic.o
-
 insmod ppp_async.o
-
 insmod pppox.o #PPPoE
-
 insmod pppoe.o #PPPoE
-
 insmod pppoatm.o #PPPoA
+}}}
 
 '''Start the bridging interface (PPPoE only)'''
 
 Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and if you want to do VCMUX or LLC)
 
-You should get: RFC1483/2684 bridge: Interface "nas0" (mtu=1500, payload=bridged) created sucessfully
+You should get:
 
+{{{
+RFC1483/2684 bridge: Interface "nas0" (mtu=1500, payload=bridged) created sucessfully
 RFC1483/2684 bridge: Communicating over ATM 0.8.35, encapsulation: LLC
-
 RFC1483/2684 bridge: Interface configured
+}}}
 
 '''Set up your wan configuration'''
 
 Go to /etc/config and type vi network to edit network configuration and add: (press insert to start editing... press escape and then type :w to save and exit) (if the files are read only just rename the original and copy)
 
+{{{
 config interface wan
-
 option ifname nas0
-
 option device ppp
-
 option proto pppoe #change to pppoa for PPPoA (PPP over ATM)
+}}}
 
 '''Bring up the bridging interface''' #PPPoE only
 
@@ -206,39 +196,30 @@ mknod /dev/ppp c 99 0 #creates the ppp device
 
 now we need to edit the /etc/ppp/options file, add these options
 
+{{{
 lock
-
 defaultroute
-
 noipdefault
-
 noauth
-
 passive
-
 asyncmap 0
-
 usepeerdns #important gets DNS servers from ISP and adds to resolv.conf
-
 user " me@isp.com " #REQUIRED FOR PAP/CHAP AUTH TO BE SUCCESSFUL
-
 lcp-echo-interval 4
-
 lcp-echo-failure 20
-
 #plugin rp-pppoe.so #use pppoatm.so for PPPoA  #No longer needed as we have a pppoe/pppoa script called from "ifup wan" instead
-
 #nas0
-
 mtu 1492 #pppoa should be 1500
-
 mru 1492 #should equal MTU
+}}}
 
 '''Set up chap/pap authentication '''
 
 edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
 
+{{{
 " me@isp.com " "*" "passwd" "*"
+}}}
 
 '''Bring up the ADSL connection'''
 
@@ -248,13 +229,15 @@ then just do "ifup wan" and it should come up
 
 You should do ifconfig and get something like this:
 
-ppp0      Link encap:Point-to-Point Protocol inet addr:61.69.250.153  P-t-P:210.8.1.19  Mask:255.255.255.255 UP
-
-POINTOPOINT RUNNING NOARP MULTICAST  MTU:1480  Metric:1
-
-RX packets:3 errors:0 dropped:0 overruns:0 frame:0
-
-TX packets:3 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:3 RX bytes:114 (114.0 B-)  TX bytes:54 (54.0 B-)
+{{{
+ppp0      Link encap:Point-to-Point Protocol
+          inet addr:61.69.250.153  P-t-P:210.8.1.19  Mask:255.255.255.255 UP
+          POINTOPOINT RUNNING NOARP MULTICAST  MTU:1480  Metric:1
+          RX packets:3 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3
+          RX bytes:114 (114.0 B-)  TX bytes:54 (54.0 B-)
+}}}
 
 if it doesn't come up do ps -ax and if you see loads of pppd then just use kill 512 etc to kill them all... also kill the br2684ctl and start again...
 
@@ -270,33 +253,27 @@ if your PC is directly connected via ethernet to the modem you may find that you
 
 As a quick test you can try this:
 
+{{{
 iptables -P INPUT ACCEPT
-
 iptables -P OUTPUT ACCEPT
-
 iptables -P FORWARD ACCEPT
-
-iptables --flush                           - Flush all the rules in filter and nat tables
-
+iptables --flush                           # Flush all the rules in filter and nat tables
 iptables --table nat --flush
-
-iptables --delete-chain                    - Delete all chains that are not in default filter and nat table
-
-iptables --table nat --delete-chain # Set up IP FORWARDing and Masquerading
-
+iptables --delete-chain                    # Delete all chains that are not in default filter and nat table
+iptables --table nat --delete-chain        # Set up IP FORWARDing and Masquerading
 iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
-
-iptables --append FORWARD --in-interface eth0 -j ACCEPT         - Assuming one NIC to local LAN
-
-echo 1 > /proc/sys/net/ipv4/ip_forward     - Enables packet forwarding by kernel
+iptables --append FORWARD --in-interface eth0 -j ACCEPT         # Assuming one NIC to local LAN
+echo "1" > /proc/sys/net/ipv4/ip_forward                        # Enables packet forwarding by kernel
+}}}
 
 please note that this may not be complete and you may require additional rules to protect your router on the wan interface - Note: don't connect to irc.freenode.net from an unfirewalled box on your lan as you might get banned for open proxies.
 
 Actually the best thing to do is to use OpenWRTs existing firewall rules and add the masquerading commands to the end of /etc/firewall.user
 
+{{{
 iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE
-
 iptables -A forwarding_rule -i eth0 -j ACCEPT
+}}}
 
 This means they will execute at bootup
 
@@ -314,23 +291,17 @@ this calls a file called /etc/adsl every minute for infinity
 
 now make a file called /etc/adsl and put
 
+{{{
 #!/bin/sh
-
 MODEMSTATUS=$(cat /proc/tiatm/avsar_modem_training &> /dev/null)
-
 ADSLSTATUS=$(ps | grep pppd)
-
-ADSLSTATUSLEN={{{expr "$ADSLSTATUS" : '.*'}}}
-
+ADSLSTATUSLEN=$(expr "$ADSLSTATUS" : '.*')
 if [ "$MODEMSTATUS" = "SHOWTIME" ]; then
-
 if [[ "$ADSLSTATUSLEN" -lt "48" ]]; then #integer comparison specified
-
 ifup wan
-
 fi
-
 fi
+}}}
 
 == Troubleshooting ==
 Poor performance of the ADSL connection exists between the Netgear WPNT834 Rangemax 240 and D-Link DSL-502T, characterised by poor transfer speeds which may be asynchronous in nature, many retransmits and general packet loss in TCPdump and poor telnet access/webpage access to the DSL-502T, this is caused by poor ethernet performance between the two devices. This is possibly caused by a duplex mismatch or buggy 100FD/HD code on one of the devices.
@@ -359,19 +330,15 @@ The cable I purchased from Ebay was for the WRT54G, it had a 12 pin header, wher
 
 My pins are numbered as so:
 
+{{{
 1 (TRST) - 14
-
 2 - 13
-
 3 - 12
-
 4 - 11
-
 5 - 10
-
 6 - 9
-
 7 - 8 (VIO/VCCC/VREF)
+}}}
 
 '''Bios settings'''
 
@@ -409,59 +376,43 @@ ping 10.8.8.8 to see if adam2 is working
 
 To get back to dlinks default firmware grab the singleimage.bin from them, if you want to flash OpenWRT see above!
 
+{{{
 root@ZPC:~# ftp 10.8.8.8 21
-
 ftp: connect: No route to host
-
 ftp> o
-
 (to) 10.8.8.8 21
-
 Connected to 10.8.8.8.
-
 220 ADAM2 FTP Server ready.
-
 Name (10.8.8.8:z): adam2
-
 331 Password required for adam2.
-
-Password: 230 adam2
-
-logged in.
-
-ftp> quote MEDIA FLSH 200 media set to FLASH
-
-ftp> binary 200 Type set to I.
-
-ftp> hash Hash mark printing on (1024 bytes/hash mark).
-
-ftp> debug Debugging on (debug=1).
-
+Password: adam2
+230 logged in.
+ftp> quote MEDIA FLSH
+200 media set to FLASH
+ftp> binary
+200 Type set to I.
+ftp> hash
+Hash mark printing on (1024 bytes/hash mark).
+ftp> debug
+Debugging on (debug=1).
 ftp> put "fw" "fs mtd4"
-
 local: fw remote: fs mtd4
-
 ---> PORT 10,8,8,7,170,251 200 Port command successful.
-
 ---> STOR fs mtd4 150 Opening BINARY mode
-
 226 Transfer complete. 1996699 bytes sent in 27.36 secs (71.3 kB/s)
-
 ftp> quote REBOOT
-
 ---> REBOOT 221 Goodbye.
+}}}
 
 But let me guess... you didn't get the firmware to upload? Did you get 550 can not erase or 550 flash erase failed I think I know why!! This is because the configuration file we just uploaded had the old firmware version 1 memory map (or you used a different map for OpenWRT) and we are trying to upload a firmware version 2 which has a different memory mapping. You can solve this by issuing SETENV commands with the correct memory mappings before uploading the firmware
 
+{{{
 quote "SETENV mtd0,0x90091000,0x903f0000" - filesystem
-
 quote "SETENV mtd1,0x90010090,0x90090000" - kernel
-
 quote "SETENV mtd2,0x90000000,0x90010000" - bootloader (adam2 mostly)
-
 quote "SETENV mtd3,0x903f0000,0x90400000" - configuration
-
 quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
+}}}
 
 (p.s. the extra , is no mistake, I think it's needed)
 
