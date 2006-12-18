@@ -5,6 +5,15 @@ If you plan on setting up a network with unusual range requirements, reviewing t
   * [http://www.qsl.net/pa0hoo/helix_wifi/linkbudgetcalc/wlan_budgetcalc.html Online Wireless Calculator #1]
   * [http://www.zytrax.com/tech/wireless/calc.htm Online Wireless Calculator #2]
 
+== Antennas ==
+=== Directional ===
+  * Waveguide aka Cantenna
+  * Backfire
+  * Yagi
+  * Parabolic
+
+=== Omni-directional ===
+
 == Regulatory Information ==
 We are not lawyers; all this is for convience only.
 === Australia ===
