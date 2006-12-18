@@ -25,14 +25,16 @@ Please read the manual. If you have any questions about anything in the manual, 
 === Kamikaze (Experimental) Configuration ===
 '''[:OpenWrtDocs/KamikazeConfiguration:OpenWrt Kamikaze Configuration]''' [[Include(OpenWrtDocs/KamikazeConfiguration,,titlesonly)]]
 
-= Appendix: FAQ =
+= Appendix: =
+== Networking Information ==
+'''[:OpenWrtDocs/NetworkInterfaces:Understanding Network Interfaces]''' [[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]]
+'''[:OpenWrtDocs/WirelessNetworkingBackground:Wireless Networking Background]'''
+== FAQ ==
 '''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
-= Appendix: Additional documentation =
+== Additional documentation ==
 '''[:OpenWrtDocs/Deinstalling:Deinstalling OpenWrt]''' [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
 
 '''[:OpenWrtDocs/Customizing:OpenWrt Customization]''' [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
 '''[:OpenWrtDocs/Hardware:Hardware Information]''' [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
-
-'''[:OpenWrtDocs/NetworkInterfaces:Understanding Network Interfaces]''' [[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]]
