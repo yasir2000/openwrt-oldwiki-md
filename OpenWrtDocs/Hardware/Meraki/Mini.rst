@@ -264,9 +264,24 @@ The installed software is quite comprehensive, even including a ruby intepreter.
 
 '''!OpenWrt support'''
 
-!OpenWrt support is not currently in the main SVN repository. Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz
+!OpenWrt support is not currently in the main SVN repository. Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz which at the time of writing is:
 
-Follow the instructions in Meraki.README. Note that you will need to install the 'flex', 'sharutils' and 'gawk' packages first (Ubuntu: "apt-get install flex sharutils gawk")
+{{{
+openwrt-meraki.tar.gz   30-Nov-2006 12:11
+size: 63072791
+md5sum: da71bbdd97b33bbf7dbb17c819a6c636
+}}}
+
+This contains:
+ * openwrt kamikaze forked from SVN r3586 (2006-04-02)
+ * madwifi-ng forked from SVN r1486 (2006-03-28)
+ * an entire linux kernel forked from 2.6.16.16
+ * Meraki's own 'base' directory (includes tools for building their stage2 loader and main flash image for booting with !RedBoot)
+ * Meraki's own 'base-files' directory (completely replacing the openwrt base files)
+
+Some of the changes made by Meraki are described at http://forum.openwrt.org/viewtopic.php?id=7189
+
+To build this software, follow the instructions in Meraki.README. Note that you will need to install the 'flex', 'sharutils' and 'gawk' packages first (Ubuntu: "apt-get install flex sharutils gawk")
 
 Sit back and expect to wait an hour or more for the build to complete.
 
