@@ -2,22 +2,12 @@
 If you plan on setting up a network with unusual range requirements, reviewing the technical and legal aspects can save you much frustration, time, and money.
 == Wireless Range Calculation ==
 
-  * [http://www.qsl.net/pa0hoo/helix_wifi/linkbudgetcalc/wlan_budgetcalc.html Online Wireless Calculator #1]
-  * [http://www.zytrax.com/tech/wireless/calc.htm Online Wireless Calculator #2]
-
-== Antennas ==
-=== Directional ===
-  * Waveguide aka Cantenna
-  * Backfire
-  * Yagi
-  * Parabolic
-
-=== Omni-directional ===
+[http://www.qsl.net/pa0hoo/helix_wifi/linkbudgetcalc/wlan_budgetcalc.html Online Wireless Calculator #1]
+[http://www.zytrax.com/tech/wireless/calc.htm Online Wireless Calculator #2]
 
 == Regulatory Information ==
 We are not lawyers; all this is for convience only.
 === Australia ===
-Channels 1 to 13 are permitted for 802.11bgn use. Maximum EIRP is 4W.
 === Canada ===
 === Europe ===
 1-13 are licensed for 802.11b operation, but transmitted power must be below 100 mW
