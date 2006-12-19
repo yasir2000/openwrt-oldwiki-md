@@ -28,7 +28,7 @@ Serial settings are 9600-8-N-1
 I have to power the fonera up wait for a few seconds before connecting the serial cable, otherwise it doesn't boot.
 
 
-== JTAG == 
+== JTAG ==
 There seems to be a 14 pin unpopulated jtag, but it's not that important as the redboot boatloader doesn't seem to be crippled.
 
 == Original software ==
@@ -51,4 +51,56 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 RedBoot>
 }}}
 
+=== Flash layout ===
+{{{
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
+rootfs            0xA8030000  0xA8030000  0x00700000  0x00000000
+vmlinux.bin.l7    0xA8730000  0x80041000  0x000B0000  0x80041000
+FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
+RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
+}}}
 
+== Updating / Unbricking via redboot ==
+
+On your computer:
+{{{
+$ wget -q -O - http://downloads.fon.com/firmware/current/fonera_0.7.1.1.fon | tail -c +520 - | tar xvfz -
+upgrade
+rootfs.squashfs
+kernel.lzma
+hotfix
+$ cp kernel.lzma /tftp/
+$ cp rootfs.squashfs /tftp/
+# in.tftpd -vvv -l -s /tftp/ -r blksize
+}}}
+
+On your fonera
+
+
+Enable networking (I don't have to remind you to plug your network cable in, do it? ;-)
+{{{
+RedBoot> ip_address -l 192.168.5.75/24 -h 192.168.5.2
+IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
+Default server: 192.168.5.2
+}}}
+
+Load the kernel to the ramdisk
+{{{
+RedBoot> load -r -b 0x80041000 kernel.lzma
+Using default protocol (TFTP)
+Raw file loaded 0x80041000-0x800c0fff, assumed entry at 0x80041000
+}}}
+
+the kernel is now stored in the ramdisk at address 0x80041000, we can now write the file from the ramdisk to the flash
+{{{
+RedBoot> fis create -r 0x80041000 -e 0x80041000 vmlinux.bin.l7
+An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
+... Erase from 0xa8730000-0xa87e0000: ...........
+... Program from 0x80041000-0x800c1000 at 0xa8730000: ........
+... Erase from 0xa87e0000-0xa87f0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+}}}
+
+This basically says, that it should write the content from the ramdisk at address 0x80041000 to the already existing flash image vmlinux.bin.l7 with the very same entry point for starting the kernel.
