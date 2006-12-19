@@ -107,6 +107,23 @@ An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 }}}
 
+And now the same for the rootfs:
+{{{
+RedBoot> load -r -v -b 0x80041000 rootfs.squashfs
+Using default protocol (TFTP)
+Raw file loaded 0x80041000-0x801c0fff, assumed entry at 0x80041000
+}}}
+
+And now write it to the flash:
+{{{
+RedBoot> fis create -b 0x80041000 -f 0xA8030000 -l 0x00700000 -e 0x00000000 rootfs
+An image named 'rootfs' exists - continue (y/n)? y
+... Erase from 0xa8030000-0xa8730000: ..........................................................................................................
+... Program from 0x80041000-0x80741000 at 0xa8030000: ..........................................................................................
+... Erase from 0xa87e0000-0xa87f0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+}}}
+
 This basically says, that it should write the content from the ramdisk at address 0x80041000 to the already existing flash image vmlinux.bin.l7 with the very same entry point for starting the kernel.
 
 == CPU ==
