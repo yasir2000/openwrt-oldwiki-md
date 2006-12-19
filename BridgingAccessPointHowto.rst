@@ -6,9 +6,9 @@ The goal was completely transparent bridging of all five ethernet ports and the 
 
  1. Set up the machine with White Russian, and connect the WAN port to the local network. Telnet to the address that the machine got via DHCP.
 
- 1. Get rid of the firewall/NAT: {{{rm /etc/init.d/S45firewall}}}
+ 1. Get rid of the firewall/NAT: {{{mv /etc/init.d/S45firewall /etc/init.d/K45firewall}}}
 
- 1. Get rid of DHCP: {{{rm /etc/init.d/S50dnsmasq}}}
+ 1. Get rid of DHCP: {{{mv /etc/init.d/S50dnsmasq /etc/init.d/K50dnsmasq}}}
 
  1. Undo the WAN port: {{{
 nvram set wan_proto=none
