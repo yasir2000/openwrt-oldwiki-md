@@ -4,6 +4,7 @@
 
 the Fonera is based on an Atheros System on a Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
+It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ openwrt fork]
 
 == Serial ==
 
@@ -104,3 +105,7 @@ An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 }}}
 
 This basically says, that it should write the content from the ramdisk at address 0x80041000 to the already existing flash image vmlinux.bin.l7 with the very same entry point for starting the kernel.
+
+== Ressources ==
+* [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
+* [http://log.tigerbus.de/?p=89 unbricking]
