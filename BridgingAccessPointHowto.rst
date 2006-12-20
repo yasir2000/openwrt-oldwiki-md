@@ -18,7 +18,7 @@ nvram set vlan1ports="5"
  1. Set up the LAN to use all five ports and get configured by DHCP. /!\ Remember to remove the line {{{nvram set lan_proto="static"}}} from {{{/etc/init.d/S05nvram}}} {{{
 nvram set lan_proto="dhcp"
 nvram set vlan0ports="0 1 2 3 4 5*"
-nvram set vlan0hwnam=et0
+nvram set vlan0hwname=et0
 }}}
  1. Save to flash and reboot {{{
 nvram commit
