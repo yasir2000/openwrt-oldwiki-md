@@ -70,7 +70,7 @@ note^1^: This model uses a switch with vlan tagging; eth0 represents the connect
 
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
 
-note^3^: On some versions of ASUS WL-500G Premium with Whiterussian RC5 {{{nvram set lan_ifname=br0 ; nvram set lan_ifnames=vlan0 eth1 eth2 eth3 ; nvram set nvram set wan_device=eth0}}} might helps you for getting a working WAN connection. Please do a {{{nvram commit}}} ''after'' you now, the sequence works for you.
+note^3^: On some versions of ASUS WL-500G Premium with Whiterussian RC5 {{{nvram set lan_ifname=br0 ; nvram set lan_ifnames=vlan0 eth1 eth2 eth3 ; nvram set nvram set wan_device=eth0}}} might helps you for getting a working WAN connection. Please do a {{{nvram commit}}} ''after'' you know the sequence works for you.
 
 Please update to include other models.
 
