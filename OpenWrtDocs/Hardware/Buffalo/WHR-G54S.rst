@@ -3,8 +3,7 @@
 ----
  . The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx. 
 
-If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt.
-There is also different hardware versions with almost same serial.(Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings. 
+If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings. 
 
 This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required. Pull the power plug, press and hold the reset ("INIT") button, start the TFTP, plug the power back in, and let go of the button. The power light does *not* flash on this unit, but the diag does. This unit keeps the IP address that it was set to while in this mode. Factory setting is 192.168.11.1.
 
@@ -161,7 +160,7 @@ The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory 
 
 -----
 
-this is for devices with serials starting 7407 (you can ONLY run a current SVN version on these devices. See notes above.):
+this is for devices with serials starting 7407 (you can ONLY run a current SVN version on these devices. See notes above. But RC6 seems OK):
 
 ----
 {{{
@@ -326,5 +325,19 @@ reg ESP conntrack:done
 ip_nat_ipsec : isakmp : done.
 ip_nat_ipsec : esp    : done.
 }}}
+
+I have a unit starting 7407 which is labelled "AirStation Turbo G" and "model WHR-G54S-1" on the packaging. It has a slide switch marked "BRI. / AUTO" on the side, and an "AOSS" button.
+
+Running RC6:
+
+{{{
+root@OpenWrt:/# ls -1 /proc/diag/led
+diag         # controls green "bridge" LED
+internal     # seems to do nothing
+ses          # controls orange LED next to AOSS button
+}}}
+
+The red "diag" LED comes up during power-up, but does not seem to be software controllable by !OpenWrt.
+
 ----
 CategoryModel CategoryModel
