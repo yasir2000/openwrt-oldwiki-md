@@ -57,6 +57,7 @@ GerardBraad describes some additional steps on how to make the root filesystem r
 
 [:OpenWrtDocs/Hardware/Asus/WL-HDD/InternalImages:Internal Images]
 
+If you want to open the device (maybe for exchanging the disk) remove the screws below the two little rubber-pads. Then slide the mainboard with the HD on it out of the case by carefully pulling the front plate.
 
 '''Power Consumption'''
 
