@@ -48,6 +48,13 @@ On the WHR-G54S locate the un-populated header block RJP1. This is in the top le
 Left hand pad of  R46  >>  RX.    Receive data into the WHR-G54S.
 Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
 
+|| pin 10 (missing) || pin  9 (unknown) ||
+|| pin  8 (ground)  || pin  7 (RX) ||
+|| pin  6 (ground)  || pin  5 (unknown) ||
+|| pin  4 (ground)  || pin  3 (ground)  ||
+|| pin  2 (ground)  || pin  1 (TX) ||
+|||| RJP1 ||
+
 By default the serial port runs at 115200 8N1 using ANSI terminal emulation.
 
 NB: This was a device with board revision WRTB-133G_V00 190-c02-9200 (This can be seen in the top left hand corner of the PCB. All my units have started with this code and therefore I can not be sure if the board layout is different on older units.
