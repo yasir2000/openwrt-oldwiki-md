@@ -48,6 +48,14 @@ If "Entering Failsafe!" message does not appear then you have missed the short t
 
 Note: This was originally followed in [https://dev.openwrt.org/ticket/255 ticket #255]
 
+Note: There is no need to install recvudp. On a Linux or *BSD PC just use
+
+{{{
+tcpdump -i eth0 -nX -s100 udp port 4919
+}}}
+
+On a Windows PC use Ethereal and wait for any UDP packet on port 4919.
+
 === Linksys models ===
 Plug in the router and wait for the DMZ LED to light up.  Then immediately press and hold the reset button for 2 seconds. If done right the DMZ LED will quickly flash 3 times every second.
 
