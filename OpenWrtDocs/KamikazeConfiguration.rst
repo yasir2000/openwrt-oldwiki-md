@@ -58,7 +58,7 @@ config interface lan
 	option gateway	192.168.1.1
 	option dns	192.168.1.1
 }}}
-DNS option not working in build 5195.  Had to edit ''/etc/resolv.conf'' for it to work.  Needs further testing.
+DNS option not working in build 5195.  Had to edit ''/etc/resolv.conf'' for it to work.  Needs further testing. (This is due to /etc/resolv.conf being a real file from packages/base-files, instead of a symlink to /tmp/resolv.conf)
 
 ==== Bridging Interfaces ====
 {{{
