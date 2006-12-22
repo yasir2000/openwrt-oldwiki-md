@@ -142,6 +142,13 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
+
+== OpenWrt ==
+
+It seems only a matter of time until a vanilla OpenWrt will run on this thingy.
+
+A preliminary instruction is found in the [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 forum].
+
 == Ressources ==
 * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
 * [http://log.tigerbus.de/?p=89 unbricking]
