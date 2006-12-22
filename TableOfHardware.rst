@@ -9,7 +9,6 @@ This is a table of all supported devices as of 2006/06/13.
  * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the main !OpenWrt source tree
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
  * '''Info entered''' - Information about the device is entered in this list, for reference.
-
 See also
 
  * '''MinimumSystemRequirements'''
@@ -64,8 +63,8 @@ See also
 ||[http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1 AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||FRITZ!Box SL || ||? ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-||FRITZ!Box 2030 || ||? ||? ||? ||None || || || || || ||Untested ||
+||FRITZ!Box SL || ||ar7@??mhz ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
+||FRITZ!Box 2030 || ||ar7@??mhz ||2MB ||8MB ||None || || || || || ||Untested ||
 ||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box SL WLAN || ||? ||4MB ||? ||acx111 mini-pci || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
@@ -351,7 +350,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-410APB.htm TEW-410APB] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP] || ||Broadcom BCM4702KPB ||4MB || ||Broadcom BCM94306MP (MiniPCI) ||Broadcom [http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325 BCM5325A2KQM] || || || ||No ||Untested ||
-||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus] || ||Broadcom BCM4712KPB ||4MB ||16M||Broadcom BCM4320 ||ADMtek ADM6996L || ||yes||yes|| ||supported with whiterussian RC6 and additional patch ||
+||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus] || ||Broadcom BCM4712KPB ||4MB ||16M ||Broadcom BCM4320 ||ADMtek ADM6996L || ||yes ||yes || ||supported with whiterussian RC6 and additional patch ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
