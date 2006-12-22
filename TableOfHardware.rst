@@ -67,7 +67,8 @@ See also
 ||FRITZ!Box 2030 || ||ar7@??mhz ||2MB ||8MB ||None || || || || || ||Untested ||
 ||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box SL WLAN || ||? ||4MB ||? ||acx111 mini-pci || || || || || ||Untested ||
-||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
+||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
+||FRITZ!Box WLAN 3030|| ||?||4MB||?|| || || || || || ||Untested||
 ||FRITZ!Box WLAN 3050 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box Fon ata || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
