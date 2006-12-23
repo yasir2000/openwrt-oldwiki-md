@@ -4,16 +4,13 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze'''||
+||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze''' ||
 ||WRT54GL v1 || CL7A || (./) || (./) ||
 ||WRT54GL v1.1 || CL7B || (./) (see http://forum.openwrt.org/viewtopic.php?pid=25017) || (./) ||
-
-
 == Board info and CPU model ==
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''boot_ver''' ||'''pmon_ver''' ||'''cpu  model''' ||'''cpu (hw) ''' ||
-||WRT54GL v1||0x10||0x467||0x2558||0||42||9|| || || BCM3302 V0.8|| ||
-||WRT54GL v1.1||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7||CFE 3.91.37.0|| BCM3302 V0.8||BCM5352EK||
-
+||WRT54GL v1 ||0x10 ||0x467 ||0x2558 ||0 ||42 ||9 || || || BCM3302 V0.8 || ||
+||WRT54GL v1.1 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7 ||CFE 3.91.37.0 || BCM3302 V0.8 ||BCM5352EK ||
 == V1.1 ==
 The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically idendical to the boad used for the [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] v4.0 and [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] 4.0 (4Mb version)
 
@@ -29,12 +26,12 @@ USB            : None
 Serial         : yes (JP2)
 JTAG           : assumed on JP1
 }}}
-
 Latest version uses Samsung Flash.
 
 == v1.2 ==
-I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :)
-Has anyone seen a v1.2 revision to work?
+I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
+
+I bought a WRT54GL today and received a v1.1 so I would expect that this is still the latest version. OTOH LinkSys claimed that the GL version is specifically targeted at hackers that customize their WRT, so why would they sell one that can not be customized? Did anybody else already see a v1.2 at all?  -- TorstenLandschoff
 
 ----
- . CategoryModel    
+ . CategoryModel
