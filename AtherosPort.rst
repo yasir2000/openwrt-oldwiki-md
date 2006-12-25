@@ -69,7 +69,6 @@ and [http://customerproducts.atheros.com/customerproducts/ResultsPageBasic.asp m
    * Write docs on the !VxWorks bootloader
    * Get JTAG on the go
    * Get it work, tested
-   * Remove PCI-related packages, as the !WiSoCs are using AHB bus
 
 == Firmware/Bootloader ==
 
@@ -94,11 +93,7 @@ AR531x/231x-specific kernel patches will go into {{{target/linux/linux-2.4/patch
 
 == Work done currently ==
 
-The architecture files are updated and in the openwrt buildroot. At present it is not fully integrated, it defaults to using the AP30 configuration, and the ethernet driver is not optional. Support for ar5315 series CPUs is not present.
-
-There are patches in {{{target/linux/ar531x-2.4/patches/}}}, the config file for the kernel in {{{target/linux/ar531x-2.4/config}}}.
-
-Meraki have also posted the source for their Linux port at http://www.meraki.net/linux - this includes RedBoot and possibly the source for the AR2315 network driver.
+Support for the AR2315 based devices is available in Kamikaze. Support for the older/newer designs will be added soon soon, with runtime board detection support.
 
 ----
 CategoryOpenWrtPort
