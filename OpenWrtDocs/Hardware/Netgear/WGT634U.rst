@@ -3,24 +3,20 @@
 = Netgear WGT634U =
 attachment:wgt634u.jpg
 
-The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a builtin IPSEC co-processor, allowing encrypted VPN's (up to AES256) a bonus of a perfomance boost upto 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce. It also comes standard with 8 MB flash and 32 MB RAM.
+The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a built-in IPSEC co-processor, allowing encrypted VPNs (up to AES256) a bonus of a performance boost up to 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce. It also comes standard with 8 MB flash and 32 MB RAM.
 
 The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and has a [http://www.hirose.co.uk/productreleases/ms156.htm MS-156] test point and a soldered antenna.  The WGT634U also has a USB 2.0 controller.
 
 == Status of OpenWrt ==
 The kernel boots on the system, we have drivers for the ethernet interface (b44) and the new switch driver is integrated (robocfg will be obsolete). We have drivers for the wireless radio (madwifi-ng). The Kernel is 2.6.16.7.
 
-{{{
- }}}
-If you want to help with development, attach a serial console and build an image from Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at http://forum.openwrt.org/viewforum.php?id=3 regarding the wgt634u.
+If you want to help with development, attach a serial console and build an image from Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at http://forum.openwrt.org/viewforum.php?id=3 regarding the WGT634U.
 
-Please always use the newest subversion code. Report any bugs via the [https://dev.openwrt.org ticket system].
-
-You could use the buildroot-ng branch, but many "nice to have" packages may not be available (as of now).
+Please always use the newest Subversion code. Report any bugs via the [https://dev.openwrt.org ticket system].
 
 = Installing OpenWrt =
 == Using Netgear's web interface ==
-If you want to upgrade to !OpenWrt using the web interface, you need to download a special config file and upload it to your router using the '''Backup Settings''' option. The supplied config file is for version 1.4.1.10 of the netgear supplied firmware. If the version number doesn't match the version number of the config file it will just not 'take'
+If you want to upgrade to !OpenWrt using the web interface, you need to download a special config file and upload it to your router using the '''Backup Settings''' option. The supplied config file is for version 1.4.1.10 of the Netgear supplied firmware. If the version number doesn't match the version number of the config file it will just not 'take'
 
 The file is available here: http://downloads.openwrt.org/utils/wgt634u-upgrade.cfg
 
@@ -37,8 +33,8 @@ Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server o
  * configure ethernet from CFE (e.g. with a local DHCP server):
  {{{
 CFE> ifconfig eth0 -auto
-Device eth0:  hwaddr 00-0F-B5-97-1C-3D, ipaddr 192.168.0.200, mask 255.255.255.0
-        gateway 192.168.0.1, nameserver 192.168.0.1, domain foo.com
+Device eth0:  hwaddr 00-0F-B5-97-1C-3D, ipaddr 192.168.1.250, mask 255.255.255.0
+        gateway 192.168.1.1, nameserver 192.168.1.1, domain foo.com
 *** command status = 0}}}
  * for manual configuration use something like this:
  {{{
@@ -46,8 +42,8 @@ ifconfig eth0 -addr=192.168.1.250 -mask=255.255.255.0
 }}}
  * then, flash the new openwrt-wgt634u-2.6-{squashfs,jffs2}.bin image:
  {{{
-CFE> flash -noheader 192.168.0.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin flash0.os
-Reading 192.168.0.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin: Done. 1892352 bytes read
+CFE> flash -noheader 192.168.1.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin flash0.os
+Reading 192.168.1.3:wgt634u/openwrt-wgt634u-2.6-squashfs.bin: Done. 1892352 bytes read
 Programming...done. 1892352 bytes written
 *** command status = 0}}}
  * reboot with
@@ -57,7 +53,7 @@ CFE> reboot
 Flashing may take over a minute or more. After that you can use {{{reboot}}} to start !OpenWrt.
 
 = Restoring original firmware =
-To restore the original firmware a serial console is required. You can use TFTP for the original images. It seems CFEs TFTP client will only read 4194304 bytes from the TFTP server. To get around the 4MB limit, we can split larger images into smaller chunks and then use the -offset flag to flash the parts.
+To restore the original firmware a serial console is required. You can use TFTP for the original images. It seems CFE's TFTP client will only read 4194304 bytes from the TFTP server. To get around the 4MB limit, we can split larger images into smaller chunks and then use the -offset flag to flash the parts.
 
  * boot the router normally and wipe !OpenWrt with
  {{{
