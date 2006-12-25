@@ -28,3 +28,8 @@ The official firmware from the Sitecom website is in trx format.
 Installing WhiteRussian RC5 will not work on the WL-105b. Even though it will install, it will not work afterwards. When using the squashfs image you should be able to get into failsafe mode (see ["OpenWrtDocs/Troubleshooting"]), but it looks like the reset button in this device is not recognized by OpenWrt.
 
 Reflashing the old firmware using TFTP also does not work, since the bootloader apparently does not accept TFTP packets.
+
+
+=== Quirks ===
+
+Apparently there is a whole batch of these devices that have a very poor wireless performance due to badly soldered antennas. Sitecom actually has done a recall for this when the device was released to replace the units. You might want to swap the network card and antennas or resolder.
