@@ -44,7 +44,7 @@ The IP-address after ''IPSec gateway'' is the address of the VPN-server. The ''I
 Change '''YOURUSERNAME''' and '''YOURPASSWORD''' to your username and password respectively. If you don't feel comfortable with having your password in a plain text file on your !OpenWrt device, you can remove the ''Xauth password'' line, then VPNC will prompt you for the password every time you connect.
 
 = vpnc-script =
-VPNC automatically calls /etc/vpnc/vpnc-script to handle most of the maintenance operations like routing table and resolv.conf updates when a connection is established or broken. Unfortunately, the standard vpnc-script included with VPNC 0.3.3 won't run on OpenWRT's ash shell without a couple of changes. The modified script can be [http://www.dades.ca/openwrt/vpnc-script downloaded] or you can apply the changes shown below.
+VPNC automatically calls /etc/vpnc/vpnc-script to handle most of the maintenance operations like routing table and resolv.conf updates when a connection is established or broken. Unfortunately, the standard vpnc-script included with VPNC 0.3.3 won't run on OpenWRT's ash shell without a couple of changes. The modified script can be [http://www.dades.ca/openwrt/vpnc-script downloaded] (updated version that works with the LEDs in White Russian RC6: attachment:vpnc-script) or you can apply the changes shown below.
 
 The stock script uses a c-style "for" expression that we'll replace with an equivalent "while".
 
@@ -105,7 +105,7 @@ Save the script and execute it to start the connection.
 /etc/init.d/S75vpnc}}}
 
 = Sharing the VPN - Optional =
-An additional change to vpnc-script is required to share the VPN with the router's clients. These changes are already in the modified file [http://www.dades.ca/openwrt/vpnc-script here].
+An additional change to vpnc-script is required to share the VPN with the router's clients. These changes are already in the modified file [http://www.dades.ca/openwrt/vpnc-script here] (updated version that works with the LEDs in White Russian RC6: attachment:vpnc-script).
 
 
 Add these two functions to the /etc/vpnc-script:
@@ -140,10 +140,10 @@ kill `cat /var/run/vpnc/pid`
 /etc/init.d/S75vpnc}}}
 
 = Visual Indicator - Optional =
-With RC5, the Cisco LED that is on some Linksys units can be used as an up/down/error indicator. If you [http://www.dades.ca/openwrt/vpnc-script downloaded] the modified vpnc-script then you already have these changes and can skip down to S99done below.
+With RC5 (and RC6), the Cisco LED that is on some Linksys units can be used as an up/down/error indicator. If you [http://www.dades.ca/openwrt/vpnc-script downloaded] the modified vpnc-script (or the one for RC6 attachment:vpnc-script) then you already have these changes and can skip down to S99done below.
 
 == vpnc-script changes ==
-Add these functions to the vpnc-script:
+Add these functions to the vpnc-script (for RC5 only):
 {{{
 # LED Codes
 # 0x01 - DMZ
