@@ -168,6 +168,20 @@ GPIO 5 - definitely right next to the "RA10" label:
 == Installing on a wrt54g version 4 and wrt54gl ==
 Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
 
+=== WRT54GL v1.1 ===
+
++3.3V and GND:
+
+[http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-3.3v+GND.jpg]
+
+GPIO 2 and 3:
+
+[http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-2+3.jpg]
+
+GPIO 4 and 7:
+
+[http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-4+7.jpg]
+
 == Porting to other platforms ==
 *almost done being written
 
