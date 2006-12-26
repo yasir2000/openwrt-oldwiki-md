@@ -68,7 +68,7 @@ See also
 ||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box SL WLAN || ||? ||4MB ||? ||acx111 mini-pci || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
-||FRITZ!Box WLAN 3030|| ||?||4MB||?|| || || || || || ||Untested||
+||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3050 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box Fon ata || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
@@ -304,6 +304,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB || ||None || || || || ||Untested ||
 ||[http://www.ravo.hu/spec/W54-RT.html W54-RT] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on || || || ||Supported ||
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No ||No ||No ||Supported ||
+== Senao/EnGenius ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||NL-5354AP1 ||ARIES 2||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class  @ unknown||?||?||Atheros ROC||No||On-board||?||No||[:AtherosPort:WiP]||
 == Siemens ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || || || || ||Supported ||
