@@ -588,7 +588,7 @@ See BuildingPackagesHowTo.
 For compiling !OpenWrt (from SVN or from the tarball, both the White Russian stable release) you need at least a recent GNU/Linux distribution and the following programs installed:
 
 {{{
-gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, ncurses, libz-dev and
+gcc, g++, binutils, patch, bzip2, flex, bison, make, gettext, unzip, ncurses (libncurses-dev), libz-dev and
 libc headers -- additional package dependencies: madwifi: uudecode(sharutils), privoxy: autoconf pkg-config automake
 }}}
 When you get error messages related to libnvram, upgrade {{{make}}} to version 3.80. If that is not working as expected patch {{{make}}} 3.80 with the [http://ftp.debian.org/debian/pool/main/m/make/make_3.80-9.diff.gz Debian make patches].
