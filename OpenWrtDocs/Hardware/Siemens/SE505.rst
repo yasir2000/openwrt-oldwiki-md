@@ -20,15 +20,16 @@ After several bugfixes releases from WHITE RUSSIAN (RC2) works well on this rout
 /!\ '''The IP of the machine uploading firmware has to be 192.168.x.100.''' [documented under FAQ on the Siemens site]
 
 = Siemens SE505 v2 =
-The current SE505 (v2) has a 200 MHz BCM4712KPB CPU, 4MB flash and 8 MB RAM on board.
+The SE505 (v2) has a 200 MHz BCM4712KPB CPU, 4MB flash and 8 MB RAM on board. This hardware version has been sold in important quantities as part of a ADSL package from major ISPs in Germany and Austria.
 
-There are problems getting White Russian RC5 to work on the newer hardware (hardware detection, LEDs). Whiterussian RC4 micro will work. RAM limitations will result in poor stability when using PPPOE.
+SE505V2 is very similar to [:http://wiki.openwrt.org/OpenWrtDocs/Hardware/Belkin/F5D7230:Belkin F5D7230 v1440] (2MB flash), and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens, using http://midnightcode.org/projects/pluto/code/belky-0.5.c (see SeattleWireless:Belkin_20F5D7230_2d4 "shell on the box" ).
 
-The PCB of the SE505 v2 looks very like the Belkin F5D7230 v1440 (2MB flash) and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens http://communications.siemens.com/repository/695/69584/Gigaset_SE505_3.01.05_English.exe using http://midnightcode.org/projects/pluto/code/belky-0.5.c and a second busybox is easy. Tips: SeattleWireless:Belkin_20F5D7230_2d4 (shell on the box).
+Problems with the hardware detection in Whiterussian RC5 have been fixed in RC6. The former recommendation to fall back to Whiterussian RC4 is obsolete now.
 
-'''Siemens models '''
+Whiterussian RC6 "micro" will work, but limited RAM will result in poor stability when using PPPOE.   However, as RAM upgrade to 16MByte or 32MByte, and retrofitting USB makes this cheap box an alternative to more expensive hardware with USB, like ASUS WL500G.
 
-On Siemens SE505 v2 models the JTAG connector is labeled J7.
+== Internal Connectors ==
+On Siemens SE505V2 models, the JTAG connector is labeled J7 (male 2mm connecting plug).
 
 {{{
 JTAG connector J7
@@ -40,7 +41,7 @@ GND-o o-TCK
 GND-o o-TMS
   10   9
 }}}
-The serial connector is labeled J2 and has the following pinout:
+The serial connector is labeled J2 and has the following pinout (Molex 2mm):
 
 {{{
 serial connector J2
@@ -51,9 +52,10 @@ front  | o | Rx
 board  | o | 3.3V
        |---|
 }}}
-Refer to the["Serial Console"]page for details on the necessary 3.3V / RS232C level shifter.
-== Add more RAM to the SE505 v2 ==
-The SE505 v2 can be easily modded to 16 MB RAM by a some soldering work... The SE505 v2 uses one 4Mx16 SDRAM chip to get the 8 MB. It seems to be fixed to 4Mx16 by the CFE. It ignores the sdram_init value in the nvram. But it has a second RAM-place on the board.
+Refer to the [:Serial Console:Serial Console ]page for details on the necessary 3.3V / RS232C level shifter.
+
+== RAM upgrade ==
+The SE505V2 can be easily modded to 16 MB RAM, but it requires good soldering skills. The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. RAM initialization in the CFE seems to be fixed to 4Mx16 (it gnores the sdram_init value in the nvram). However, 32MB are reported to work, when using two 16Mx16 chips.
 
 TODO to get from 8MB to 16MB on the SE505 v2: to connect the address lines for the second RAM
 
@@ -106,6 +108,7 @@ Go to the other side of the PCB where the antenna is placed.
 That's all.
 
 On the software side: the SE505V2 has a OHCI controller.
+
 = Siemens SE505 v3 =
 SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip.
 
