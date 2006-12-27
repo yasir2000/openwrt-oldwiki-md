@@ -45,7 +45,7 @@ config switch eth0
 config interface wan
 	option ifname	eth0.1
 	option proto	dhcp
-        option hostname MyRouter This is only used if the proto is dhcp otherwise it is ignored.
+        option hostname MyRouter  #This is only used if the proto is dhcp otherwise it is ignored.
 }}}
 
 ==== Static ====
@@ -58,7 +58,6 @@ config interface lan
 	option gateway	192.168.1.1
 	option dns	192.168.1.1
 }}}
-DNS option not working in build 5195.  Had to edit ''/etc/resolv.conf'' for it to work.  Needs further testing. (This is due to /etc/resolv.conf being a real file from packages/base-files, instead of a symlink to /tmp/resolv.conf)
 
 ==== Bridging Interfaces ====
 {{{
@@ -88,7 +87,7 @@ config interface wan
         option password xxxxxx
 }}}
 === 802.11x ===
-'''Note: Currently supported on Broadcom only'''
+'''Note: Currently supported on Broadcom only, although madwifi support is almost complete :)'''
   * /etc/config/wireless documentations https://dev.openwrt.org/browser/trunk/docs/wireless.tex
   * Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
