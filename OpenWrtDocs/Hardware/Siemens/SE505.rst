@@ -64,22 +64,27 @@ The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chi
 
 Instructions to upgrading from 8MB to 16MB:
 
-1) find the right SDRAM chips
-64MB to 256MB SODIMMS are a good source for SDRAM chips with a bus width of 16 bit (always check the data sheet!). Unsoldering the chips with a hot-air gun works fine (be careful not to overheat the chips!). 
+1) find the right SDRAM chips:
+64MB or 128MB SODIMMS are a good source for SDRAM chips with a bus width of 16 bit (always check the data sheet!). Unsoldering the chips with a hot-air gun works fine (be careful not to overheat the chips!). 
 
-2) solder a 4Mx16 SDRAM chip to the unpopulated RAM pads.
+2)desolder the LEDs (at least the WLAN- and the WWW-led)
 
-3) connect the address lines for the second RAM chip:
+3 clean the RAM pads using a 50W soldering iron and desoldering wick. 
+
+4) solder a 4Mx16 SDRAM chip to the unpopulated RAM pads:
+Hint: desoldering wick and a strong (50W) soldering iron works better than an expensive soldering needle! Do not overheat the pads and doubble check for short circuits between pins. 
+
+5) connect the address lines for the second RAM chip:
 
 {{{
-shorten the pads with the following labels using fine wire:
+shorten the pads with the following labels using really fine wire:
   R314
   R315
   R316
   R317
   R318
 }}}
-After booting the router you should have 16MB ! :)
+After booting the router you should have 16MB.
 
 Now do:
 
@@ -91,6 +96,8 @@ reboot
 to let the CFE reconfigure the timing value. This is all you have to do! It makes no sense to change in sdram_init, since it is ignored by the CFE of this router.
 
 Hint: don't solder a capacitor to C319! This capacitor is for fine trimming the RAM timing, and it isn't necessary for stable operation..
+
+Hint: for upgrading to 32MB you'll need two 16x16MB chips from a 4 chip 128MB, or from an 8 chip 256MB SODIMM (be extremely careful when desoldering the 4x16MB chip from the router!)
 
 TODO: If you solder 32 MB into the router (two 8Mx16 SDRAM), only 16MB will be used (32MB when upgrading with 64MB chips). According to the boot message on the serial interface, the CFE  only sees 16MB. Setting a different value to "sdram_init" doesn't help. If anyone knows how to build the Siemens / Belkin variant of the broadcom CFE, please let us know.
 
