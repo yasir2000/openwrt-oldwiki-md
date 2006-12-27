@@ -6,6 +6,15 @@ the Fonera FON2100A is based on an Atheros System on a Chip (Soc). It got a MIPS
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ openwrt fork]
 
+ * 5V power supply
+ * 1x ethernet jack
+ * antenna
+ * serial
+ * 16MB RAM
+ * 8MB Flash
+ * SPI-Bus
+
+
 == Case ==
 to open the case, remove the two feet on the opposite site to the antenna jack, they'll reveal two crosspoint screws.
 
