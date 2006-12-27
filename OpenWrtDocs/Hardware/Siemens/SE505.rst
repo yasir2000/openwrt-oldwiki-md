@@ -1,12 +1,8 @@
 '''Siemens SE505'''
 
-SE505 product page is now located at [http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation:-5_pageType:downloads_imagePos:0,00.html#content http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation%253A-5_pageType%253Adownloads_imagePos%253A0,00.html#content]
+SE505 product page is now   [http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation:-5_pageType:downloads_imagePos:0,00.html#content : located here]
 
-There are currently three versions of the SE505. Only the version SE505 v1 and  SE 505 v2 are currently known to be supported by OpenWRT. The third version, SE505 v3, has not yet been reported to work.
-
-/!\ '''boot_wait is on by default on both supported versions.'''
-
-/!\ '''These routers sit via NVRAM on 192.168.2.1 during boot_wait, so You have to TFTP to that address.'''
+There are three known versions of the SE505. Only the version SE505V1 and  SE505V2 are currently supported by OpenWRT. The third version, SE505V3, has not yet been reported to work.
 
 Another description (in German) and link to images of both versions can be found here: http://wiki.opennet-initiative.de/index.php/Siemens_SE505
 
@@ -29,6 +25,9 @@ Problems with the hardware detection in Whiterussian RC5 have been fixed in RC6.
 Whiterussian RC6 "micro" will work, but limited RAM will result in poor stability when using PPPOE. The possibility of a RAM upgrade to 16 or 32MByte, and of retrofitting USB, makes this box a cheap alternative to more expensive hardware like ASUS WL500G.
 
 __ /!\ __ '''The reset button is hardwired on the SE505V2, so there is no failsafe mode. The ''''''CFE will ''''''reset default nvram settings by pressing the reset button while turning on the router. '''
+
+__ /!\ __ '''The tftp address during boot_wait is determined by NVRAM. CFE-default is 192.168.1.1 '''
+
 
  .
 == Internal Connectors ==
@@ -59,13 +58,18 @@ Refer to the [:Serial Console:Serial Console ]page for details on the necessary 
 
 == SE505V2 Hardware Mods ==
 === RAM Upgrade ===
-The SE505V2 can be easily modded to 16 MB RAM, but it requires good soldering skills. The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. RAM initialization in the CFE seems to be fixed to 4Mx16 (it gnores the sdram_init value in the nvram). 8Mx16 chips will be used as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible.  32MB are reported to work by using two 16Mx16 chips.
+__ /!\ __ Upgrading memory will void the warranty and it requires a steady hand and good soldering skills.
+  
+The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. RAM initialization in the CFE seems to be fixed to 4Mx16 (it gnores the sdram_init value in the nvram). 8Mx16 chips will be used as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible.  32MB are reported to work by using two 16Mx16 chips.
 
 Instructions to upgrading from 8MB to 16MB:
 
-1) solder a 4Mx16 SDRAM chip to the unpopulated RAM pads.
+1) find the right SDRAM chips
+64MB to 256MB SODIMMS are a good source for SDRAM chips with a bus width of 16 bit (always check the data sheet!). Unsoldering the chips with a hot-air gun works fine (be careful not to overheat the chips!). 
 
-2) connect the address lines for the second RAM chip:
+2) solder a 4Mx16 SDRAM chip to the unpopulated RAM pads.
+
+3) connect the address lines for the second RAM chip:
 
 {{{
 shorten the pads with the following labels using fine wire:
