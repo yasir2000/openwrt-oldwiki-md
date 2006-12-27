@@ -122,6 +122,7 @@ stop_vpn_nat() {
         iptables -D forwarding_rule -o tun0 -j ACCEPT
 }
 }}}
+On new installation with WhiteRussian RC6 and vpnc-0.3.3-1 you should use "vpnlink" instead of "tun0" here.
 
 These functions should be called right after the connection is established and just before it is torn down. The "connect" and "disconnect" cases at the end of the vpnc-script should be modified to look like this if you want to share the vpn:
 {{{
