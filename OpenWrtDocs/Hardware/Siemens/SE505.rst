@@ -57,7 +57,8 @@ board  | o | 3.3V
 }}}
 Refer to the [:Serial Console:Serial Console ]page for details on the necessary 3.3V / RS232C level shifter.
 
-== RAM upgrade ==
+== SE505V2 hardware mods ==
+=== RAM upgrade ===
 The SE505V2 can be easily modded to 16 MB RAM, but it requires good soldering skills. The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. RAM initialization in the CFE seems to be fixed to 4Mx16 (it gnores the sdram_init value in the nvram). 8Mx16 chips will be used as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible.  32MB are reported to work by using two 16Mx16 chips.
 
 Instructions to upgrading from 8MB to 16MB:
@@ -89,7 +90,7 @@ Hint: don't solder a capacitor to C319! This capacitor is for fine trimming the 
 
 TODO: If you solder 32 MB into the router (two 8Mx16 SDRAM), only 16MB will be used (32MB when upgrading with 64MB chips). According to the boot message on the serial interface, the CFE  only sees 16MB. Setting a different value to "sdram_init" doesn't help. If anyone knows how to build the Siemens / Belkin variant of the broadcom CFE, please let us know.
 
-== Add USB to your Siemens SE505V2 ==
+=== Add USB to your Siemens SE505V2 ===
 The SE505V2 can be retrofitted a USB1.1 port. Note that mass storage attached to USB1.1 "full speed" is much faster than SDcards with the MMC mod, and it uses only a fraction of the CPU cycles of simulated SPI interface through GPIO. Writing to a thumb drive formated with the EXT2 is typically 10 times as fast as writing to the JFFS file system ([../../../http://forum.openwrt.org/viewtopic.php?id=8656 see forum thread])!
 
 The following USB devices have been tested with this mod : thumb drive, USB HD, RS232 interface (PL2303), USB CTC device, audio class device.
@@ -116,6 +117,23 @@ On the antenna side of the PCB add the following components:
   J51: USB-plug (Reichelt.de part# "USB AW-VL")
 }}}
 Software side: Installing USB kernel modules is simple. Note that the SE505V2 has an OHCI controller.
+
+=== reset button mod ===
+
+The reset button is hard wired to the CPU reset generator chip (7703I) by a capacitor. By removing this capacitor entering failsafe mode, as well as running scripts in /etc/hotplug.d/buttons is possible.
+
+Instructions:
+
+1) Hardware side.
+
+{{{
+Locate C365 near J7 (JTAG connector) and LED "LAN4". 
+  C365: remove
+}}}
+
+2) Software side
+
+As of Whiterussian RC6 there is no working hardware detection for SE505V2. A simple patch to diag.c will work (contact nbn or timobeil).
 
 = Siemens SE505 v3 =
 SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip.
