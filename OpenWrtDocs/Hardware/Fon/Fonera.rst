@@ -1,3 +1,5 @@
+[[TableOfContents]]
+
 = Fonera =
 
 the Fonera FON2100A is based on an Atheros System on a Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
