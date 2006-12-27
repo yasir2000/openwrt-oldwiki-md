@@ -255,7 +255,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.meraki.net/mini.html Meraki Mini] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180Mhz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||Yes ||No ||[:OpenWrtDocs/Hardware/Meraki/Mini:Forked/WiP] ||
 == Microsoft ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||N/A ||No ||Yes ||No ||[:OpenWrtDocs/Hardware/Microsoft:Supported] ||
+||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||N/A ||No ||Yes (not soldered) ||No ||[:OpenWrtDocs/Hardware/Microsoft:Supported] ||
 == Mikrotik ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://routerboard.com/rb100.html RouterBoard 111] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||mini-PCI slot ||None ||N/A ||Yes ||No ||No ||No ||
