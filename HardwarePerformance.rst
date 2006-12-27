@@ -62,6 +62,8 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 || 2006-07-20 || FrederikKlama || 5.3s || 10.5s || 11.6s || 6.6s || v0.6 || OpenWRT RC5 || ASUS WL-500gP || BCM4704 || 266MHz || ["OpenWrtDocs/Hardware/Asus/WL500GP"] ||
 || 2006-09-21 || jp || 7.7s || 14.5s || 16.1s || 9.3s || v0.6 || OpenWRT RC5 || Linksys WRT 54GL v1.0 || BCM3302 V0.8 || 200MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 || 2006-09-21 || jp || 7.0s || 13.2s || 14.7s || 8.5s || v0.6 || OpenWRT RC5 || Linksys WRT 54GL v1.0 || BCM3302 V0.8 || 216MHz || ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
+|| 2006-12-26 || malfi || 7.3s || 18.5s || 20.2s || 7.1s || v0.6 || OpenWRT trunk 2006-12-25 || Fonera Fon || AR5315 4KEc V6.4 || 183MHz ||["OpenWrtDocs/Hardware/Fon/Fonera"]  ||
+
 TODO, which bench to use?
 
 ||'''Date''' ||'''Tester''' ||'''Time to run''' ||'''Version of bench''' ||'''Device''' ||'''CPU''' ||'''Freq''' ||'''Link to HW page''' ||
