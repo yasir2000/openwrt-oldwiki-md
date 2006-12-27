@@ -75,6 +75,9 @@ FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 
+As you can see, the vmlinux.bin.l7 partition is of B0000, ergo 720896 bytes length. That means, that the kernel size should not exceed 720kb, but if it's smaller, everthing will be fine.
+Like wise the rootfs partition has a size of 0x700000 or 7340032 bytes. You've got 7.3 mb space.
+
 == Updating / Unbricking via redboot ==
 
 On your computer:
@@ -368,6 +371,35 @@ root@OpenWrt:~# mtd write /tmp/redboot_config "RedBoot config"
 
 
 You can find some informations about the openwrt development on this device [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 here].
+
+== Hacking from the inside ==
+
+If you don't want to use a serial cable, there is still a possibility to hack your fonera. You have to gain console access via any web interface exploit, like the SSID with fon wrongly escaping ', so you can get dropbear running.
+
+A running ssh shell will you allow to do the same flash update from linux, the fonera-update script does:
+{{{
+echo "Kernel image..."
+mtd -e vmlinux.bin.l7 write kernel.lzma vmlinux.bin.l7 > /dev/null 2> /dev/null
+rm kernel.lzma
+
+echo "Rootfs image..."
+mtd write rootfs.squashfs rootfs > /dev/null 2> /dev/null
+echo "Rebooting..."
+}}}
+
+The following procedure is '''untested'''!
+
+So basically you transfer the above mentioned openwrt files (kernel + rootfs) to tmp (by scp or wget) and use 
+{{{
+# mtd -e vmlinux.bin.lz write openwrt-atheros-2.6-vmlinux.lzma vmlinux.bin.lz
+# mtd write openwrt-atheros-2.6-root.jffs2-64k rootfs
+}}}
+
+This may or may not work. If it doesn't, chances are, that you bricked your fonera to the state, where you have to get serial access.! So this is disencouraged strongly by now.
+
+If the serial-less masses should get openwrt (hey, there are at least some ethical problems, right?), it  would be a good idea to reflash redboot configuration first, to allow telnet to the redboot gdb console and only then reflash it from a running linux.
+
+
 
 == Ressources ==
 * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
