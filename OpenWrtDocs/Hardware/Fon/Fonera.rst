@@ -324,6 +324,8 @@ The boot process is somehow signalled via the leds, first only the power led is 
 
 This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and ssh working, I don't need any debug-stuff in between. It's possible to unbrick the fonera with this redboot gdb console, as I can always reflash to a working firmware.
 
+== Reflash the redboot config ==
+
 As we can see via 'dmesg' there is a mtd for the redboot config:
 {{{
 <5>Creating 6 MTD partitions on "spiflash":
@@ -364,13 +366,48 @@ net_debug
 
 It should be possible to use such a file to reflash other foneras in order to gain redboot access without ever opening the case. As long as someone can gain shell access to the fonera, he could enable redboot telnet access to his fonera and fiddle around with it. With this redboot gdb console, you can always restore the original firmware, even if your fonera doesn't boot your latest linux experiment.
 
-This should be possible (but is untested right now and my really brick your fonera!) like this:
+This would be nice, but doesn't work, as the "RedBoot config" mtd partion isn't writable.
 {{{
 root@OpenWrt:~# mtd write /tmp/redboot_config "RedBoot config"
 }}}
 
+According to this [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=49585#49585 post], you can make this partition writable, if you change kernel/driver/mtd/mtdpart.c around line 463 from
+{{{
+slave->mtd.flags &= ~MTD_WRITEABLE;
+}}}
+to
+{{{ 
+slave->mtd.flags |=MTD_WRITEABLE; 
+}}}
 
-You can find some informations about the openwrt development on this device [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 here].
+So you have to reflash the kernel with a kernel image, that allows writing to the redboot config partition and then reflash that config partition in order to gain access to the redbood gdb console.
+This whole procedure is described [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=49714#49714 here].
+
+The basic steps stolen from that post are:
+{{{
+root@OpenWrt:~# cd /tmp
+root@OpenWrt:~# wget http://coppercore.net/~kevin/fon/openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma
+Connecting to coppercore.net[64.27.5.164]:80
+openwrt-ar531x-2.4-v 100% |*****************************| 512 KB 00:00 ETA
+root@OpenWrt:~# mtd -e vmlinux.bin.l7 write openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma vmlinux.bin.l7
+Unlocking vmlinux.bin.l7 ...
+Erasing vmlinux.bin.l7 ...
+Writing from openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma to vmlinux.bin.l7 ... [w]
+root@OpenWrt:~# reboot
+... wait ...
+root@OpenWrt:~# cd /tmp
+root@OpenWrt:~# wget http://coppercore.net/~kevin/fon/out.hex
+Connecting to coppercore.net[64.27.5.164]:80
+out.hex 100% |*******************************| 4096 00:00 ETA
+root@OpenWrt:~# mtd -e "RedBoot config" write out.hex "RedBoot config"
+Unlocking RedBoot config ...
+Erasing RedBoot config ...
+Writing from out.hex to RedBoot config ... [w]
+root@OpenWrt:~# reboot
+...wait...
+$ telnet 192.168.1.254 9000
+RedBoot> 
+}}}
 
 == Hacking from the inside ==
 
@@ -387,6 +424,7 @@ mtd write rootfs.squashfs rootfs > /dev/null 2> /dev/null
 echo "Rebooting..."
 }}}
 
+
 The following procedure is '''untested'''!
 
 So basically you transfer the above mentioned openwrt files (kernel + rootfs) to tmp (by scp or wget) and use 
@@ -395,6 +433,8 @@ So basically you transfer the above mentioned openwrt files (kernel + rootfs) to
 # mtd write openwrt-atheros-2.6-root.jffs2-64k rootfs
 }}}
 
+
+
 This may or may not work. If it doesn't, chances are, that you bricked your fonera to the state, where you have to get serial access.! So this is disencouraged strongly by now.
 
 If the serial-less masses should get openwrt (hey, there are at least some ethical problems, right?), it  would be a good idea to reflash redboot configuration first, to allow telnet to the redboot gdb console and only then reflash it from a running linux.
@@ -402,5 +442,8 @@ If the serial-less masses should get openwrt (hey, there are at least some ethic
 
 
 == Ressources ==
-* [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
-* [http://log.tigerbus.de/?p=89 unbricking]
+
+
+ * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 openwrt development]
+ * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
+ * [http://log.tigerbus.de/?p=89 unbricking]
