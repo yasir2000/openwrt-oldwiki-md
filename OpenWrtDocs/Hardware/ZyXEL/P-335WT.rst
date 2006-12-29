@@ -3,9 +3,12 @@ Bootloader : Bootbase
 Serial Pinout :
 
 
+{{{
  VCC  TX   RX        GND
   x    x    x    ()   x       LEDS
+}}}
 
+9600 8n1
 
 Services :
 
