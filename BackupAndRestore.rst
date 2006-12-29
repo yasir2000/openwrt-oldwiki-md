@@ -19,7 +19,16 @@ dd if=/dev/mtdblock/3 > /tmp/wrt-nvram.bin
 }}}
 
 And scp the files out. This assumes you have enough ram free on the WRT, which is
-usually the case. wrt-linux.trx contains kernel+squashfs+jffs2 one after the other.
+usually the case. 
+
+If you do not have enough free space in your /tmp fs, you can generate and copy in one operation.  Please make sure yhou use the right quotes; double quotes (") won't work.  From another workstation, and assuming that apollo is the name of your OpenWrt AP:
+
+{{{
+ssh apollo -C 'mount -o remount,ro /dev/mtdblock/4 / ; dd if=/dev/mtdblock/1 ; mount -o remount,rw /dev/mtdblock/4 /' > wrt-linux.trx
+ssh apollo -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
+}}}
+
+If you did everything right, wrt-linux.trx contains kernel+squashfs+jffs2 one after the other.
 You could back the mtd partitions separately: 2 is squashfs and 4 is jffs2. Unlike
 disk partitions mtd partitions can, and in OpenWRT do overlap: 1 includes 2 and 4.
 
