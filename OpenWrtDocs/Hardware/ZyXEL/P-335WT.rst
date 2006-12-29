@@ -21,3 +21,5 @@ Services :
 
 
 It is not possible to login via the web interface when you are logged by console, and probably vice versa.
+----
+CategoryModel ["CategoryAR7Device"]
