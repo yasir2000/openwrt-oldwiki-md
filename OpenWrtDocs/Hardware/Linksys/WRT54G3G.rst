@@ -2,9 +2,9 @@
 /!\ '''NOTE:''' This device is not yet fully supported.
 
 This device seems to be a normal [:OpenWrtDocs/Hardware/Linksys/WRT54G: WRT54G] with a !CardBus.
-It's used by Vodafone for their 3G
-UMTS networks. The PC card is:
 
+The WRT64G3G is currently marketed by:
+ * Vodafone for their 3G UMTS networks.  It uses a Merlin UMTS modem:
 {{{
 root@OpenWrt:/# cardctl info
 PRODID_1="Novatel Wireless"
@@ -15,6 +15,7 @@ MANFID=00a4,0276
 FUNCID=2
 root@OpenWrt:/#
 }}}
+ * Sprint Wireless in the US, using a modem provided by the consumer.  It is marketed towards business users.
 
 Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support on WRT54G3G]
 thread or the [http://forum.openwrt.org/viewtopic.php?id=3220 WRT54G with 3G interface?]
