@@ -168,6 +168,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104K] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6104KP.htm BR-6104KP] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||Yes ||[:Edimax:WiP] ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||Realtek RTL8186 ||2MB ||8MB(16?) ||Realtek RTL8225 || || || || || ||[:RTL8651BPort:Untested] ||
+== Fon ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
+||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||[http://tech.am/data/AC101-DS01-R.pdf Altima AC101] ||N/A ||Yes ||Yes ||NO ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera: Kamikaze Supported - WiP] ||
 == Freecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.freecom.com/ecProduct_detail.asp?ID=2347 FSG-3] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||64MB ||N/A (Empty mini-PCI) ||RTL8305SB ||N/A ||Yes ||Yes ||2.0 ||SATA+PATA ||[:FreecomFSG3:WiP] ||
