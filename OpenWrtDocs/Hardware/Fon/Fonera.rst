@@ -27,7 +27,7 @@ A look at the varius test reports and external photos shows, that this device is
 
 Copies of the mentioned FCC-documents may also be found at http://mobileaccess.de/fonera/
 
-According to OpenWRT, the output-power is set to 18dBm, in contrast to the FCC-RF-tests where an output power of almost 25dBm (actually 24.89dBm on channel 6 in 802.11g mode). Question here is, if further versions will provide an adjustable TX-Power up to that level. Is the information provided by OpenWRT of 18dBm just a hypothetical value??? I found no reference in Kamikaze yet, how to adjut it.
+According to OpenWRT, the output-power is set to 18dBm, in contrast to the FCC-RF-tests where an output power of almost 25dBm (actually 24.89dBm on channel 6 in 802.11g mode) is measured. Question here is, if further versions will provide an adjustable TX-Power up to that level. Is the information provided by OpenWRT of 18dBm just a hypothetical value??? I found no reference in Kamikaze yet, how to adjut it.
 
 Another interessting issue is the possible frequency range, as specified by Atheros itself at http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf - where the available band ranges from 2.300GHz to 2.500GHz.
 Question here is, if there will be an option to use further frequencies than the international standardized 14 Channels. In particular, there might be a very high interest e.g. from the amateur-radio community!
