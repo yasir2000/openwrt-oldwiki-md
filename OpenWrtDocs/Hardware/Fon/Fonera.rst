@@ -452,8 +452,14 @@ RedBoot> fis init
 == Resources ==
  
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
- * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 openwrt development]
+ * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 Openwrt development]
  * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
- * [http://log.tigerbus.de/?p=89 unbricking]
+ * [http://log.tigerbus.de/?p=89 Unbricking]
  * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to Redboot without the Serial Console]
  * [http://coppercore.net/~kevin/fon/ Files to get the access to Redboot without the Serial Console]
+ * [http://olsrexperiment.de/sven-ola/fonera/readme.txt Packet for Fonera by sven-ola. NOTE: If you use -ipkg remove- on the Fonera orig firmware, it will BRICK it]
+ * [http://fon.rogue.be/lafonera/ Some ipkgs for the Fonera ORGINAL firmware]
+ * [http://olsrexperiment.de/sven-ola/fonera/ Other ipkgs for the Fonera ORGINAL firmware]
+ * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html Redboot userguide]
+ * [http://wiki.ninux.org/moin.cgi/La_Fonera Misc Links (Italian language)]
+ * [http://www.tldp.org/LDP/lkmpg/ The Linux Kernel Module Programming Guide]
