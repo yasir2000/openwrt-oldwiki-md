@@ -15,6 +15,24 @@ It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who prov
  * SPI-Bus
 
 
+== Additional Comments ==
+Detailed Information may be found in the FCC database: 
+Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton (http://www.accton.com.tw/) and not - like many assume - by SMC. 
+
+A look at the varius test reports and external photos shows, that this device is provided also under the Trade(Model) Names
+
+ * ACCTON MR3201A
+ * FON FON2100A,B,C and F
+ * Edge-Core WA3101
+
+Copies of the mentioned FCC-documents may also be found at http://mobileaccess.de/fonera/
+
+According to OpenWRT, the output-power is set to 18dBm, in contrast to the FCC-RF-tests where an output power of almost 25dBm (actually 24.89dBm on channel 6 in 802.11g mode). Question here is, if further versions will provide an adjustable TX-Power up to that level. Is the information provided by OpenWRT of 18dBm just a hypothetical value??? I found no reference in Kamikaze yet, how to adjut it.
+
+Another interessting issue is the possible frequency range, as specified by Atheros itself at http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf - where the available band ranges from 2.300GHz to 2.500GHz.
+Question here is, if there will be an option to use further frequencies than the international standardized 14 Channels. In particular, there might be a very high interest e.g. from the amateur-radio community!
+
+
 == Case ==
 to open the case, remove the two feet on the opposite site to the antenna jack, they'll reveal two crosspoint screws.
 
