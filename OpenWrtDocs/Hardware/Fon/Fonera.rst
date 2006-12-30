@@ -324,6 +324,43 @@ The boot process is somehow signalled via the leds, first only the power led is 
 
 This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and ssh working, I don't need any debug-stuff in between. It's possible to unbrick the fonera with this redboot gdb console, as I can always reflash to a working firmware.
 
+== Backup your Fonera's flash ==
+
+After gaining the SSH access use these commands:
+{{{
+cd /dev/mdtblock
+httpd -p 9090
+}}}
+
+Connect to the Fonera through the private network.
+Now you can download the mtd partiotions using the addresses:
+http://192.168.10.1:9090/0ro
+http://192.168.10.1:9090/1ro
+http://192.168.10.1:9090/2ro
+http://192.168.10.1:9090/3ro
+http://192.168.10.1:9090/4ro
+http://192.168.10.1:9090/5ro
+http://192.168.10.1:9090/6ro
+http://192.168.10.1:9090/7ro
+
+Also take note of the output of the command
+{{{
+cat /proc/mtd
+}}}
+
+That should be:
+{{{
+dev:    size   erasesize  name
+mtd0: 00030000 00010000 "RedBoot"
+mtd1: 006f0000 00010000 "rootfs"
+mtd2: 00560000 00010000 "rootfs1"
+mtd3: 00010000 00010000 "config"
+mtd4: 000b0000 00010000 "vmlinux.bin.l7"
+mtd5: 0000f000 00010000 "FIS directory"
+mtd6: 00001000 00010000 "RedBoot config"
+mtd7: 00010000 00010000 "board_config"
+}}}
+
 == Reflash the redboot config ==
 
 As we can see via 'dmesg' there is a mtd for the redboot config:
