@@ -450,7 +450,7 @@ RedBoot> fis init
 }}}
 
 == Resources ==
- 
+ * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
  * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 Openwrt development]
  * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
