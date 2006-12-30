@@ -40,11 +40,12 @@ Transfer successful: 1634304 bytes in 11 seconds, 148573 bytes/s
 Binary firmare releases can be found on the Netgear [http://kbserver.netgear.com/products/wg602v3.asp WG602v3 support] web page:
 
  * [ftp://downloads.netgear.com/files/wg602v3_V1_0_4.trx 1.0.4]
- * [ftp://downloads.netgear.com/files/wg602v3_v1_0_5.zip 1.0.5]
- * [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8 rc3]
- * 1.1.0 for [ftp://downloads.netgear.com/files/wg602v3_1_1_0_na.trx North America] and [ftp://downloads.netgear.com/files/wg602v3_1_1_0_non_na.trx outside] 
+ * [ftp://downloads.netgear.com/files/wg602v3_v1_0_5.zip 1.0.5] (March 16, 2005)
+ * [ftp://downloads.netgear.com/files/wg602v3_1_0_8.trx 1.0.8 rc3] (April 1, 2006)
+ * 1.1.0 (April 5, 2006) for [ftp://downloads.netgear.com/files/wg602v3_1_1_0_na.trx North America] and [ftp://downloads.netgear.com/files/wg602v3_1_1_0_non_na.trx Worldwide] 
+ * 1.2.2 (August 30, 2006) for [ftp://downloads.netgear.com/files/wg602v3_1_2_2na.trx North America] and [ftp://downloads.netgear.com/files/wg602v3_1_2_2ww.trx Worldwide]
 
-I haven't investigated the differences between North America and non-NA versions yet.
+I haven't investigated the differences between North America and Worldwide versions yet.
 
 GPL source code releases are available from the Netgear [http://kbserver.netgear.com/kb_web_files/n101238.asp GPL Open Source code] web page:
 
@@ -52,7 +53,8 @@ GPL source code releases are available from the Netgear [http://kbserver.netgear
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL-v1.0.5.tgz 1.0.5]
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-GPL-v1.0.6.tgz 1.0.6]
  * [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.0.8RC3-GPL.tar.gz 1.0.8 rc3]
- * 1.1.0 for [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.1.0NA-GPL.tar.gz North America] and [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.1.0-GPL.tar.gz outside]
+ * 1.1.0 for [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.1.0NA-GPL.tar.gz North America] and [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.1.0-GPL.tar.gz Worldwide]
+ * 1.2.2 for [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.2.2NA-GPL.tar North America] and [ftp://downloads.netgear.com/files/GPL/wg602v3-V1.2.2-GPL.tar.gz Worldwide]
 
 Some models shipped with a binary version of the 1.0.6 firmware, but such version is not available for download from the Netgear support site.
 
