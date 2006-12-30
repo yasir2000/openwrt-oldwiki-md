@@ -157,7 +157,8 @@ The combination Windows 2000 with a canon pixma iP4000 seems not to work with bi
 Please add not working combinations here.
 
 Konica Minolta PagePro 1300W doesn't seem to work in bidirectional mode under win xp.
-Canon i560 is not working in bidirectional mode. Remove the -b option on the router and disable bidirectional mode and the Canon Status Monitor in Windows.
+
+Canon i560 is not working in bidirectional mode. Remove the -b option on the router and disable bidirectional mode and the Canon Status Monitor in Windows. Make sure that the uhci kernel module is loaded since it seems to be usb 1.1. 
 
 = Links =
 - http://etherboot.sourceforge.net/p910nd/ [[BR]]- http://wl500g.dyndns.org/printing/ [[BR]]- http://wl500g.dyndns.org/
