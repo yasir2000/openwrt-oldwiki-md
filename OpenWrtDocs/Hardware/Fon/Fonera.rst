@@ -371,19 +371,22 @@ This would be nice, but doesn't work, as the "RedBoot config" mtd partion isn't 
 root@OpenWrt:~# mtd write /tmp/redboot_config "RedBoot config"
 }}}
 
-According to this [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=49585#49585 post], you can make this partition writable, if you change kernel/driver/mtd/mtdpart.c around line 463 from
+According to this [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=49585#49585 post], you can make this partition writable, if you add in kernel/driver/mtd/mtdpart.c after line 435 
 {{{
-slave->mtd.flags &= ~MTD_WRITEABLE;
-}}}
-to
-{{{ 
-slave->mtd.flags |=MTD_WRITEABLE; 
+			if (!(slave->mtd.flags & MTD_WRITEABLE)){
+			slave->mtd.flags |= MTD_WRITEABLE;
+			printk ("mtd: partition \"%s\" was read-only -- force writable -- CAMICIA HACK\n",
+				parts[i].name);
+			}
 }}}
 
-So you have to reflash the kernel with a kernel image, that allows writing to the redboot config partition and then reflash that config partition in order to gain access to the redbood gdb console.
-This whole procedure is described [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=49714#49714 here].
+So you have to reflash the kernel with a kernel image, that allows writing to the redboot config partition and then reflash that config partition in order to gain access to the Redboot console.
 
-The basic steps stolen from that post are:
+Please note that they were not writeable for a reason. Writing "Redboot config" is probably going to reset the FIS directory because it is on the same "erase sector". This is not a major problem since with Redboot we can easily recreate them using the command ""fis init"" and to install Openwrt we must do this anyway. 
+
+This whole procedure is described [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 here].
+
+The basic steps are:
 {{{
 root@OpenWrt:~# cd /tmp
 root@OpenWrt:~# wget http://coppercore.net/~kevin/fon/openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma
@@ -406,44 +409,14 @@ Writing from out.hex to RedBoot config ... [w]
 root@OpenWrt:~# reboot
 ...wait...
 $ telnet 192.168.1.254 9000
-RedBoot> 
+RedBoot> fis init
 }}}
 
-== Hacking from the inside ==
-
-If you don't want to use a serial cable, there is still a possibility to hack your fonera. You have to gain console access via any web interface exploit, like the SSID with fon wrongly escaping ', so you can get dropbear running.
-
-A running ssh shell will you allow to do the same flash update from linux, the fonera-update script does:
-{{{
-echo "Kernel image..."
-mtd -e vmlinux.bin.l7 write kernel.lzma vmlinux.bin.l7 > /dev/null 2> /dev/null
-rm kernel.lzma
-
-echo "Rootfs image..."
-mtd write rootfs.squashfs rootfs > /dev/null 2> /dev/null
-echo "Rebooting..."
-}}}
-
-
-The following procedure is '''untested'''!
-
-So basically you transfer the above mentioned openwrt files (kernel + rootfs) to tmp (by scp or wget) and use 
-{{{
-# mtd -e vmlinux.bin.lz write openwrt-atheros-2.6-vmlinux.lzma vmlinux.bin.lz
-# mtd write openwrt-atheros-2.6-root.jffs2-64k rootfs
-}}}
-
-
-
-This may or may not work. If it doesn't, chances are, that you bricked your fonera to the state, where you have to get serial access.! So this is disencouraged strongly by now.
-
-If the serial-less masses should get openwrt (hey, there are at least some ethical problems, right?), it  would be a good idea to reflash redboot configuration first, to allow telnet to the redboot gdb console and only then reflash it from a running linux.
-
-
-
-== Ressources ==
-
-
+== Resources ==
+ 
+ * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
  * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 openwrt development]
  * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
  * [http://log.tigerbus.de/?p=89 unbricking]
+ * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to Redboot without the Serial Console]
+ * [http://coppercore.net/~kevin/fon/ Files to get the access to Redboot without the Serial Console]
