@@ -112,6 +112,16 @@ After that, we can flash {{{openwrt-ar7-2.4-squashfs.bin}}} to {{{mtd4}}} via ft
 '''During the pause before the upload, ADAM2 erases the mtd block (I think)'''
 
 {{{
+$ ftp <router>
+Connected to wrt (192.168.1.1).
+220 ADAM2 FTP Server ready.
+Name (192.168.1.1:user): adam2
+530 Please login with USER and PASS.
+SSL not available
+331 Password required for adam2.
+Password:
+230 User adam2 successfully logged in.
+
 ftp> binary
 ftp> quote MEDIA FLSH
 ftp> put "openwrt-ar7-2.4-squashfs.bin" "openwrt-ar7-2.4-squashfs.bin mtdX"
