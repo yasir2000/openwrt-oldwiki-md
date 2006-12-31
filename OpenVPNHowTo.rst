@@ -64,9 +64,6 @@ Next we need to add the script to start the bridge
 # Creates TAP devices for use by OpenVPN and bridges them into OpenWRT Bridge
 # Taken from http://openvpn.net/bridge.html
 
-# Make sure module is loaded
-insmod tun
-
 # Define Bridge Interface
 # Preexisting on OpenWRT
 br="br0"
@@ -75,22 +72,48 @@ br="br0"
 # for example tap="tap0 tap1 tap2".
 tap="tap0"
 
-# Build tap devices
-for t in $tap; do
-    openvpn --mktun --dev $t
-done
 
-# Add TAP interfaces to OpenWRT bridge
+case "$1" in
+        up)
+                # Make sure module is loaded
+                insmod tun
 
-for t in $tap; do
-    brctl addif $br $t
-done
+                # Build tap devices
+                for t in $tap; do
+                    openvpn --mktun --dev $t
+                done
 
-#Configure bridged interfaces
+                # Add TAP interfaces to OpenWRT bridge
 
-for t in $tap; do
-    ifconfig $t 0.0.0.0 promisc up
-done
+                for t in $tap; do
+                    brctl addif $br $t
+                done
+
+                #Configure bridged interfaces
+
+                for t in $tap; do
+                    ifconfig $t 0.0.0.0 promisc up
+                done
+        ;;
+        down)
+                for t in $tap; do
+                    ifconfig $t 0.0.0.0 down
+                done
+
+                for t in $tap; do
+                    brctl delif $br $t
+                done
+
+                for t in $tap; do
+                    openvpn --rmtun --dev $t
+                done
+
+                rmmod tun
+        ;;
+        *)
+                echo "$0 {up|down}"
+        ;;
+esac
 }}}
 
 This file will create the OpenVPN tap devices and add them to the default OpenWRT ethernet/wifi bridge. '''Make sure to chmod +x to ensure that it is executable'''.
@@ -229,9 +252,25 @@ If your setup is working fine then the only remaining step is to automate the st
 /etc/init.d/S46openvpn:
 {{{
 #!/bin/sh
-#/etc/init.d/S46openvpn
-/etc/openvpnbridge
-openvpn --daemon --config /etc/server.ovpn
+
+case "$1" in
+        start)
+                /etc/openvpnbridge up
+                openvpn --daemon --config /etc/server.ovpn
+        ;;
+        restart)
+                $0 stop
+                sleep 3
+                $0 start
+        ;;
+        reload)
+                killall -SIGHUP openvpn
+        ;;
+        stop)
+                killall openvpn
+                /etc/openvpnbridge down
+        ;;
+esac
 }}}
 Now on a reboot, the server should come up.
 ----
