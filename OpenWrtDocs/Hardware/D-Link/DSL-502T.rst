@@ -173,6 +173,22 @@ RFC1483/2684 bridge: Communicating over ATM 0.8.35, encapsulation: LLC
 RFC1483/2684 bridge: Interface configured
 }}}
 
+'''Choosing between VC-Mux and LLC'''
+
+To choose between VC-Mux and LLC when using PPPoE you can simply use -e 0 for LLC and -e 1 for VC-MUX
+
+For PPPoA the pppoatm plugin for pppd 2.4.3 supports the argument below, edit /lib/network/pppoa.sh
+
+{{{
+plugin pppoatm.so ${vpi:-8}.${vci:-35}
+}}}
+
+becomes
+
+{{{
+plugin pppoatm.so ${vpi:-8}.${vci:-35} vc-encaps (this is the default, for LLC use llc-encaps)
+}}}
+
 '''Set up your wan configuration'''
 
 Go to /etc/config and type vi network to edit network configuration and add: (press insert to start editing... press escape and then type :w to save and exit) (if the files are read only just rename the original and copy)
