@@ -15,7 +15,9 @@ Currently we are looking for the following devices:
 
 Broadcom BCM47xx/53xx platform:
 
- * Draft-N router (preferably Netgear WNR854T, or Buffalo WZR-300N, Linksys WRT300N, Netgear WNR834B)
+ * Linksys WRT150N
+ * Linksys WRT330N
+ * Linksys WRT350N
 
 Realtek RTL865x platform:
 
@@ -40,6 +42,7 @@ x86 platform:
 Intel IXP(XScale) 4xx platform:
 
  * Linksys WRV54G (both v1 and v2 versions)
+ * Netgear WAG302
  * Netgear WG302
  * Netgear WGM124
 
