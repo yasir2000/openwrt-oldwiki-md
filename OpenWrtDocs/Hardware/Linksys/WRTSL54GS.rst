@@ -3,10 +3,11 @@
 [[TableOfContents]]
 = Hardware versions =
 
-These models have a 266 MHz CPU.  There are 2 variants, with serial numbers starting:
+These models have a 266 MHz CPU.  There are 2 variants:
 
-||CJK0||8 MB flash||32 MB RAM|| WhiteRussian RC5 and later works.||
-||CJK1||4 MB flash||32 MB RAM|| (unverified)||
+||serial||flash||RAM  || firmware ||
+||CJK0  ||8 MB ||32 MB|| WhiteRussian RC5 and later works.||
+||CJK1  ||4 MB ||32 MB|| (unverified)||
 
 The antenna is *NOT* removable. Well not without some soldering work.
 
