@@ -60,5 +60,55 @@ Your NVRAM will be set to this if the firmware finds the NVRAM partition corrupt
 Most of these variables must not be changed or unset.
 It should be safe to change the `lan_`* variables however.
 
+Regardless of this, it is probably still unwise to use 'nvram reset' on this model. 
+
+= LAN and WAN ports =
+
+Out of the box, you may only be able to talk to a freshly converted openwrt Dell 2300 over wireless. Because of this, it's important to make sure you know the essid and any applicable WEP keys before flashing it. 
+
+It's very easy to get the LAN and WAN ports working. Simply ssh in and configure the nvram arguments: 
+
+{{{
+nvram set lan_ifnames="eth0 eth2"
+nvram set wan_ifname=eth1
+nvram commit
+}}}
+
+= Power and Wireless LEDs =
+
+Like some other non-linksys models, the 2300 has the Power and Wireless LEDs attached to GPIO pins, and does not use the 'diag' interface to control them. 
+
+A freshly flashed openwrt 2300 will boot up never lighting the Power and Wireless LEDs. This, combined with the nonfunctional ethernet ports, leads many to believe that they have bricked their Dell. 
+
+The wireless LED is on gpio pin 6, and the power LED is on gpio pin 7. 
+
+The easy way to fiddle with these is the gpio utility found here: http://downloads.openwrt.org/utils/gpio.tar.gz
+
+{{{
+cd /tmp
+wget http://downloads.openwrt.org/gpio.tar.gz
+gzip -d gpio.tar.gz
+tar xvf gpio.tar
+mv gpio /usr/sbin
+}}}
+
+Unless you're a hardware engineer it seems counter-intuitive, but with the gpio utility, the led is lit by disabling the gpio pin, and darkened by enabling the gpio pin. 
+
+Thus, to light the Power LED: 
+
+{{{
+gpio disable 7
+}}} 
+
+The manual method, as described by Oleg (of Asus firmware hacking fame) is as follows: 
+
+{{{
+The number stays for the bit number. The gpio port itself is accessible via /dev/gpio/*. You've to read outen, OR it with 0x40 (GPIO6) and write back - this should turn the led on. Then you will need to play with bit 6 in the /dev/gpio/out to change LED color.
+}}}
+
+fwiw, he was describing the Microsoft mn700 at the time. It is unclear how to change the LED color on the Dell 2300, and it doesn't appear to be possible with the gpio utility.  
+
+The Restore button is likely connected to a gpio pin as well, but the author of this section hasn't bothered to figure out which one. 
+
 ----
 CategoryModel
