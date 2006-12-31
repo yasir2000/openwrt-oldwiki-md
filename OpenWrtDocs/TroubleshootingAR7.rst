@@ -18,6 +18,12 @@ You should see something like this:
 {{{
 my_ipaddress    10.8.8.8
 }}}
+
+If it's not displayed (or just to change it), you can set it with the command:
+{{{
+# echo "my_ipaddress 192.168.0.1" > /proc/sys/dev/adam2/environment
+}}}
+
 NOTE: some devices comes with disabled telnet, you can't use this method with them
 
 === by serial console ===
