@@ -2,9 +2,12 @@
 
 [[TableOfContents]]
 = Hardware versions =
-There is only one version of the WRTSL54GS. It has a 266 MHz CPU, 8 MB flash and 32 MB RAM. Supported by whiterussian RC5 and later.
 
-Note the antenna is *NOT* removable in this model
+These models have a 266 MHz CPU.  There are 2 variants, with serial numbers starting:
+CJK0 8 MB flash and 32 MB RAM, WhiteRussian RC5 and later works.
+CJK1 4 MB flash and 32 MB RAM (unverified)
+
+The antenna is *NOT* removable. Well not without some soldering work.
 
 = port mapping =
 
