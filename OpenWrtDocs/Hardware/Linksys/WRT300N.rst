@@ -33,7 +33,7 @@ How to get info:
  * cpu model: {{{grep cpu /proc/cpuinfo}}}
 
 ||'''Model'''       ||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardflags2'''||'''boardnum'''||'''wl0_corerev'''||'''cpu model'''||'''boot_ver'''||'''pmon_ver'''||
-||WRT300N v1.0       ||     -        ||  ?  ||      -         ||       -         ||  ?          ||       ?         || BCM4704 V0.0  ||  v1.0        ||  ?        ||
+||WRT300N v1.0       ||     0x10        ||  0x0472  ||      0x0010         ||       0         ||  42          ||       11         || BCM3302 V0.6  ||  v3.9        ||  CFE 4.81.17.0        ||
 
 
 '''Hardware hacking'''
