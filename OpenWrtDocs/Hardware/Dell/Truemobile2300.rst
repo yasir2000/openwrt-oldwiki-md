@@ -76,7 +76,7 @@ nvram commit
 
 = Power and Wireless LEDs =
 
-Like some other non-linksys models, the 2300 has the Power and Wireless LEDs attached to GPIO pins, and does not use the 'diag' interface to control them. 
+Like some other non-linksys models, the 2300 is not yet detected by the diag driver in rc6, and if you want the wifi and power LEDs to light, you'll have to do it manually. 
 
 A freshly flashed openwrt 2300 will boot up never lighting the Power and Wireless LEDs. This, combined with the nonfunctional ethernet ports, leads many to believe that they have bricked their Dell. 
 
