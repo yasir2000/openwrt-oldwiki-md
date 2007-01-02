@@ -347,7 +347,25 @@ RedBoot> reset
 
 You can repeat this for the other partitions backed up. (However, after I broke my Meraki by installing firmware built from Meraki's source - see below - the new stage2 and reboot config partitions were fine, and I only needed to restore part1 to get my Meraki back to how it was)
 
+== Stage 2 boot loader ==
+
+Meraki's firmware includes a stage 2 boot loader. The source for this is in the Meraki tarball (see below) in openwrt-meraki/base/stage2. The entry point is "entry" in openwrt-meraki/base/stage2/decompress.c
+
+It reads "part1", checking for a valid CRC. If not valid it boots from "part2" instead. It also includes an LZMA decompressor. These partition locations are hard-coded into the stage2 loader itself:
+
+{{{
+#define PART1_ADDR                              0xa8150000
+#define PART2_ADDR                              0xa8490000
+}}}
+
+This means that if you want to use Meraki's stage2 loader with !OpenWrt, then:
+1. You must use the same partitioning arrangement as Meraki
+1. The kernel must be LZMA compressed
+1. If you put the code in part1 then the !OpenWrt image must contain a CRC calculated in exactly the same way as Meraki
+
 = Installing OpenWrt =
+
+== Building the image ==
 
 Support for the Atheros System-on-Chip used by the Meraki Mini was [https://dev.openwrt.org/changeset/5898 recently added] to Kamikaze SVN trunk. Hence there is currently no released code you can run; you must build it yourself from scratch.
 
@@ -362,6 +380,16 @@ openwrt-atheros-2.6-vmlinux.lzma
 }}}
 
 TODO: What to do with these? Presumably jffs2-64k is used for the root partition (erasesize=00010000)
+
+Do you use Meraki's stage2 loader, or bypass it?
+
+== Installing via ssh ==
+
+TBD
+
+== Installing via redboot and serial console ==
+
+TBD
 
 = Meraki-released source =
 
