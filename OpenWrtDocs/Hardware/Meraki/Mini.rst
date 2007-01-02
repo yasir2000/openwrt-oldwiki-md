@@ -393,7 +393,7 @@ TBD
 
 = Meraki-released source =
 
-/!\ Now that Atheros SoC support is in the main !OpenWrt tree, the rest of this page is probably not of interest to most people. However it does include the source code to build the stage 2 loader. It also serves as documentation of some of the changes Meraki had to make.
+/!\ Now that Atheros SoC support is in the main !OpenWrt tree, the rest of this page is probably not of interest to most people. However it does include the source code to build the stage 2 loader, and to build the !RedBoot config partition. It also serves as documentation of some of the changes Meraki had to make.
 
 Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz which at the time of writing is:
 
