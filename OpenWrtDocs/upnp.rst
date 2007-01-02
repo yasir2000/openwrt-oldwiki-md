@@ -21,6 +21,9 @@ uPnP can be installed to run on your WRT.  Information in this guide assumes you
 === What are my options ===
 Previously (in OpenWRT versions RC4 and earlier) it was possible to use the Linksys upnp daemon which was extracted directly from their firmware image.  However, since the release of OpenWRT RC5 this no longer works.  There is now a package available for the Linux IGD daemon which is the only working option for RC5, but will also work in the earlier releases of OpenWRT.  Since it is not based on any Linksys/Broadcom sourcecode, it will be the best solution to use for all future releases of OpenWRT.
 
+Now with WhiteRussian RC6 and kamikaze, a new UPnP Daemon is available : '''miniupnpd'''. This new daemon is smaller and should be a better fit
+for an embedded device. For more information, visit the [http://miniupnp.tuxfamily.org/ website] of miniupnpd or the [http://x-wrt.org/ X-Wrt site].
+
 === Where do I get the packages? ===
 The Linux IGD daemon consists of three required packages.  First up is the '''libpthread''' package, followed by the '''libupnp''' package, and finally the '''linux-igd''' package.
 
@@ -33,6 +36,11 @@ A fixed version of Stephane Coulons' Linux IGD package which installs without er
 http://members.optusnet.com.au/edwardluck/openwrt/packages/linux-igd_1.0.1.ipk
 
 The libpthread package is already part of the OpenWRT package tree, but if you want to download it manually you can go [http://downloads.openwrt.org/whiterussian/packages/libpthread_0.9.27-1_mipsel.ipk here]
+
+With '''miniupnpd''', Only one package is required to be installed :
+ftp://ftp.berlios.de/pub/xwrt/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
+or for kamikaze users :
+ftp://ftp.berlios.de/pub/xwrt/kamikaze/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
 
 === Installing uPnP ===
 The following shell commands will get uPnP installed and running (from the current known working locations):
