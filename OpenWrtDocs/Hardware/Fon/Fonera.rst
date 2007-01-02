@@ -481,3 +481,4 @@ RedBoot> fis init
  * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html Redboot userguide]
  * [http://wiki.ninux.org/moin.cgi/La_Fonera Misc Links (Italian language)]
  * [http://www.tldp.org/LDP/lkmpg/ The Linux Kernel Module Programming Guide]
+ * [http://ipkg.k1k2.de/packages/ Package Repository] and Images for La Fonera (see [http://www.fonboard.de/fonera-|-anderes-betriebssystem-draufflashen-t1358-s60.html#9813 Discussion] (german)).
