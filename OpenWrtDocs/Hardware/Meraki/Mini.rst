@@ -268,7 +268,7 @@ The installed software is quite comprehensive, even including a ruby intepreter.
 
 == Backing up existing firmware ==
 
-The standard install approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
+If you rebuild Meraki's own released firmware (see below), it produces a script build_ar531x/upgrade.sh which you copy to the Meraki (e.g. with scp) and then run. This script simply overwrites the "stage2", "redboot config", "part1" and "part2" partitions using dd.
 
 So logically you should be able to restore the device to its original state by backing these up:
 
@@ -365,7 +365,7 @@ TODO: What to do with these? Presumably jffs2-64k is used for the root partition
 
 = Meraki-released source =
 
-/!\ Now that Atheros SoC support is in the main !OpenWrt tree, the rest of this page is probably not of interest to most people. However it does include the source code to build !RedBoot itself from scratch, which might be useful on other platforms which need a new boot loader (Compex perhaps?). It also serves as documentation of some of the changes Meraki had to make.
+/!\ Now that Atheros SoC support is in the main !OpenWrt tree, the rest of this page is probably not of interest to most people. However it does include the source code to build the stage 2 loader. It also serves as documentation of some of the changes Meraki had to make.
 
 Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz which at the time of writing is:
 
