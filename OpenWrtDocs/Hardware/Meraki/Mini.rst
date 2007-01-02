@@ -1,4 +1,6 @@
-'''Meraki Mini'''
+[[TableOfContents(2)]]
+
+= Hardware Overview =
 
 {{{
 Bootloader: RedBoot
@@ -22,7 +24,11 @@ LAN   RX  o   Antenna
       GND o
 }}}
 
-'''Serial to USB adaptor'''
+== Opening the case ==
+
+Peel off the bottom left and top right corners of the silver label on the back of the unit, to reveal two crosspoint screws. Remove them, then prise apart the case with a screwdriver.
+
+== Serial to USB adaptor ==
 
 Meraki sell a small adaptor board (18mm x 32mm) for $29 which plugs into JP1 and has a serial to USB adaptor chip and a mini USB connector; it comes with a mini USB to normal USB cable. It appears to be powered by the host side, not the Meraki side. Plugging it into a Linux system shows:
 
@@ -38,13 +44,11 @@ It is not polarised, but the correct way round is so that it overhangs the RF mo
 
 I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15)
 
-on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacabel and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
+(on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacabel and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
 
-'''Opening the case'''
+= Standard Meraki firmware =
 
-Peel off the bottom left and top right corners of the silver label on the back of the unit, to reveal two crosspoint screws. Remove them, then prise apart the case with a screwdriver.
-
-'''Startup messages (standard firmware)'''
+== Startup messages ==
 
 [captured from serial port, with ethernet port not connected]
 
@@ -197,7 +201,7 @@ ath0: __ieee80211_newstate: RUN -> RUN
 ...etc
 }}}
 
-'''Network activity'''
+== Network activity ==
 
 Plugging in the ethernet port to another host and running tcpdump there while the unit is booting up shows:
 
@@ -211,7 +215,7 @@ Plugging in the ethernet port to another host and running tcpdump there while th
 
 So it looks like there are at least two different ways to download new firmware at power-up.
 
-'''ssh access'''
+== ssh access ==
 
 Once the unit has picked up an IP address via DHCP, and you've found it (e.g. using nmap or looking at the upstream router's ARP cache), you can ssh in. The username is 'meraki' and the password is the SN displayed on the bottom of the unit, in the form XXX-XXX-XXX (including the dashes)
 
@@ -262,9 +266,108 @@ The root filesystem is not listed as a mount. It's writeable, but changes are lo
 
 The installed software is quite comprehensive, even including a ruby intepreter. Given that you have root access to the box, and can install your own programs and data in the /storage partition, you might not feel the need to install OpenWrt. But if you do, here's how to.
 
-'''!OpenWrt support'''
+== Backing up existing firmware ==
 
-!OpenWrt support is not currently in the main SVN repository. Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz which at the time of writing is:
+The standard install approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
+
+So logically you should be able to restore the device to its original state by backing these up:
+
+{{{
+ssh meraki@x.x.x.x 'dd if=/dev/mtd1 bs=64k' >stage2.bak
+ssh meraki@x.x.x.x 'dd if=/dev/mtd3 bs=64k' >part1.bak
+ssh meraki@x.x.x.x 'dd if=/dev/mtd4 bs=64k' >part2.bak
+ssh meraki@x.x.x.x 'dd if=/dev/mtd5 bs=64k' >redboot-config.bak
+}}}
+
+In practice you'll probably find that part1.bak and part2.bak are identical. If you dd /dev/mtd7, you'll get an 8MB file which is the same as the first 7 partitions concatenated together.
+
+Note1: the "board config" partition contains the unit's MAC address and SN (secret password); you should probably never overwrite this partition.
+
+Note2: when comparing two different Meraki Minis, the stage2, part1 and redboot-config partitions are identical between them.
+
+== Restoring flash using serial console ==
+
+About 13 seconds after applying power, there is a two-second window when you can press ctrl-C to get into the boot loader.
+
+{{{
+== Executing boot script in 2.000 seconds - enter ^C to abort
+^C
+RedBoot>
+}}}
+
+The [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot User's Guide] gives some guidance as to what you can do here, although the version used by Meraki appears to be customised.
+
+The default loader config does the following (you can change this using 'fconfig' if you're really, really sure you know what you're doing)
+
+{{{
+load art_ap51.elf
+go
+load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+exec
+fis load stage2
+exec
+}}}
+
+Now, looking at the partition info above gives the following partition offsets and sizes:
+
+{{{
+                   start    size
+mtd0 RedBoot       000000   030000
+mtd1 stage2        030000   020000
+mtd2 /storage      050000   100000
+mtd3 part1         150000   340000
+mtd4 part2         490000   340000
+mtd5 redboot conf  7d0000   010000
+mtd6 board conf    7e0000   020000
+}}}
+
+Unfortunately, the Meraki's !RedBoot is missing the load -f (load to flash) command, so you first have to load to RAM and then write to flash.
+
+{{{
+RedBoot> version
+
+RedBoot(tm) bootstrap and debug environment [ROMRAM]
+Release, version V1.04 - built 12:24:00, Apr 17 2006
+
+Copyright (C) 2000, 2001, 2002, 2003, 2004 Red Hat, Inc.
+
+Board: Meraki Mini
+RAM: 0x80000000-0x82000000, [0x8003d110-0x80fe1000] available
+FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
+RedBoot> load -r -b 0x80150000 -m tftp -h 192.168.84.9 part1.bak
+Raw file loaded 0x80150000-0x8048ffff, assumed entry at 0x80150000
+RedBoot> fis write -b 0x80150000 -l 0x340000 -f 0xa8150000
+* CAUTION * about to program FLASH
+            at 0xa8150000..0xa848ffff from 0x80150000 - continue (y/n)? y
+... Erase from 0xa8150000-0xa8490000: ..........................................
+... Program from 0x80150000-0x80490000 at 0xa8150000: ..........................
+RedBoot> reset
+... Resetting.
+}}}
+
+You can repeat this for the other partitions backed up. (However, after I broke my Meraki by installing firmware built from Meraki's source - see below - the new stage2 and reboot config partitions were fine, and I only needed to restore part1 to get my Meraki back to how it was)
+
+= Installing OpenWrt =
+
+Support for the Atheros System-on-Chip used by the Meraki Mini was [https://dev.openwrt.org/changeset/5898 recently added] to Kamikaze SVN trunk. Hence there is currently no released code you can run; you must build it yourself from scratch.
+
+Check out SVN trunk, use 'make menuconfig', select Atheros 2.6 as the target, and then 'make'. When this is complete, you will have the following files in the bin/ subdirectory:
+
+{{{
+openwrt-atheros-2.6-root.jffs2-128k
+openwrt-atheros-2.6-root.jffs2-64k
+openwrt-atheros-2.6-vmlinux.elf
+openwrt-atheros-2.6-vmlinux.gz
+openwrt-atheros-2.6-vmlinux.lzma
+}}}
+
+TODO: What to do with these? Presumably jffs2-64k is used for the root partition (erasesize=00010000)
+
+= Meraki-released source =
+
+/!\ Now that Atheros SoC support is in the main !OpenWrt tree, the rest of this page is probably not of interest to most people. However it does include the source code to build !RedBoot itself from scratch, which might be useful on other platforms which need a new boot loader (Compex perhaps?). It also serves as documentation of some of the changes Meraki had to make.
+
+Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz which at the time of writing is:
 
 {{{
 openwrt-meraki.tar.gz   30-Nov-2006 12:11
@@ -285,7 +388,7 @@ To build this software, follow the instructions in Meraki.README. Note that you 
 
 Sit back and expect to wait an hour or more for the build to complete.
 
-'''Risk-free test'''
+== Risk-free test ==
 
 Set up a host system on 192.168.84.9, with either a webserver or a TFTP server.
 
@@ -295,26 +398,7 @@ Boot the Meraki. It should pick up this firmware and run it, without changing wh
 
 (The webserver approach doesn't always work well, at least with OpenBSD as the server; the Meraki always connects from the same source port, which means the socket gets stuck in a FIN_WAIT_2 state and subsequent connections are believed to be part of the same connection. TFTP runs over UDP and doesn't suffer this problem.)
 
-'''Backing up existing firmware'''
-
-The standard install approach is to copy build_ar531x/upgrade.sh to the Meraki (e.g. with scp) and then run it. This overwrites the "stage2", "redboot config", "part1" and "part2" partitions.
-
-So logically you should be able to restore the device to its original state by backing these up:
-
-{{{
-ssh meraki@x.x.x.x 'dd if=/dev/mtd1 bs=64k' >stage2.bak
-ssh meraki@x.x.x.x 'dd if=/dev/mtd3 bs=64k' >part1.bak
-ssh meraki@x.x.x.x 'dd if=/dev/mtd4 bs=64k' >part2.bak
-ssh meraki@x.x.x.x 'dd if=/dev/mtd5 bs=64k' >redboot-config.bak
-}}}
-
-In practice you'll probably find that part1.bak and part2.bak are identical. If you dd /dev/mtd7, you'll get an 8MB file which is the same as the first 7 partitions concatenated together.
-
-Note1: the "board config" partition contains the unit's MAC address and SN (secret password); you should probably never overwrite this partition.
-
-Note2: when comparing two different Meraki Minis, the stage2, part1 and redboot-config partitions are identical between them.
-
-'''Install procedure'''
+== Install procedure ==
 
 {{{
 $ scp build_ar531x/upgrade.sh meraki@x.x.x.x:
@@ -348,7 +432,7 @@ root@meraki-node:~# Connection to x.x.x.x closed by remote host.
 
 Unfortunately, this upgrade process overwrites both image partitions, so it doesn't retain a fallback image in case the one you've uploaded is broken.
 
-'''On first boot'''
+== On first boot ==
 
 I found the machine got as far as picking up an IP address via DHCP but shortly afterwards crashed, going into a reboot loop. On the serial port:
 
@@ -437,66 +521,4 @@ Kernel panic - not syncing: Aiee, killing interrupt handler!
 watchdog hb: 20  ISR: 0xa1  IMR: 0x9  WD : 0x0  WDC: 0x0
 }}}
 
-Unfortunately, I had done this using the flash method rather than the failsafe method. Fortunately I had backed up the partitions.
-
-'''Restoring flash using serial console'''
-
-About 13 seconds after applying power, there is a two-second window when you can press ctrl-C to get into the boot loader.
-
-{{{
-== Executing boot script in 2.000 seconds - enter ^C to abort
-^C
-RedBoot>
-}}}
-
-The [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot User's Guide] gives some guidance as to what you can do here, although the version used by Meraki appears to be customised.
-
-The default loader config does the following (you can change this using 'fconfig' if you're really, really sure you know what you're doing)
-
-{{{
-load art_ap51.elf
-go
-load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
-exec
-fis load stage2
-exec
-}}}
-
-Now, looking at the partition info above gives the following partition offsets and sizes:
-
-{{{
-                   start    size
-mtd0 RedBoot       000000   030000
-mtd1 stage2        030000   020000
-mtd2 /storage      050000   100000
-mtd3 part1         150000   340000
-mtd4 part2         490000   340000
-mtd5 redboot conf  7d0000   010000
-mtd6 board conf    7e0000   020000
-}}}
-
-Unfortunately, the Meraki's !RedBoot is missing the load -f (load to flash) command, so you first have to load to RAM and then write to flash.
-
-{{{
-RedBoot> version
-
-RedBoot(tm) bootstrap and debug environment [ROMRAM]
-Release, version V1.04 - built 12:24:00, Apr 17 2006
-
-Copyright (C) 2000, 2001, 2002, 2003, 2004 Red Hat, Inc.
-
-Board: Meraki Mini
-RAM: 0x80000000-0x82000000, [0x8003d110-0x80fe1000] available
-FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
-RedBoot> load -r -b 0x80150000 -m tftp -h 192.168.84.9 part1.bak
-Raw file loaded 0x80150000-0x8048ffff, assumed entry at 0x80150000
-RedBoot> fis write -b 0x80150000 -l 0x340000 -f 0xa8150000
-* CAUTION * about to program FLASH
-            at 0xa8150000..0xa848ffff from 0x80150000 - continue (y/n)? y
-... Erase from 0xa8150000-0xa8490000: ..........................................
-... Program from 0x80150000-0x80490000 at 0xa8150000: ..........................
-RedBoot> reset
-... Resetting.
-}}}
-
-You can repeat this for the other partitions backed up, although for me the new stage2 and redboot config partitions were fine, and I only needed to restore part1 to get my Meraki back to how it was.
+Unfortunately, I had installed using the flash method rather than the failsafe method. Fortunately I had backed up the partitions and was able to restore using a serial console.
