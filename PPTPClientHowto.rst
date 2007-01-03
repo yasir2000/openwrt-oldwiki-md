@@ -421,3 +421,7 @@ case "$6" in
 esac
 exit 0
 }}}
+
+== Questions ==
+
+How can I route only certain ports through the tunnel, and use my regular WAN interface for the rest of my traffic? – BjörnLindström
