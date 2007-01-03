@@ -63,7 +63,7 @@ config interface lan
 {{{
 config interface lan
 	option type	bridge
-	option ifname	"eth0.0 ath0"
+	option ifname	"eth0.0"    #See note 1 for adding a wireless interface to the bridge.
 	option proto	static
 	option ipaddr	192.168.1.1
 	option netmask	255.255.255.0
@@ -126,6 +126,6 @@ config wifi-iface
 }}}
 '''Notes:
 
-"option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan")
+1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan")
 
-"option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK
+2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK
