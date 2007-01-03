@@ -40,7 +40,7 @@ usbcore: registered new driver ftdi_sio
 drivers/usb/serial/ftdi_sio.c: v1.4.1:USB FTDI Serial Converters Driver
 }}}
 
-It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works.
+It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works.  Also make sure that you turn off flow-control.
 
 I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15). A more reliable sequence was:
  * Unplug JP1
