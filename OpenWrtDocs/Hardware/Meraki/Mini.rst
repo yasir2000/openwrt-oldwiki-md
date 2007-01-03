@@ -401,9 +401,9 @@ target/linux/atheros-2.6/patches/100-board.patch
 +    strcpy(arcs_cmdline, "console=ttyS0,9600 rootfstype=squashfs,jffs2");
 }}}
 
-You may wish to change the console speed to 115200 here to match the value used by RedBoot. Apparently it's also possible to comment this line out to allow the value provided by !RedBoot to be used instead.
+You can change the console speed to 115200 here to match the value used by RedBoot. Alternatively you can reconfigure !RedBoot to use 9600bps (see 'fconfig' below). Apparently it's also possible to comment this line out to allow the kernel command line provided by !RedBoot to be used.
 
-Also hardcoded is the FIS partition name of the root filesystem to "rootfs" - see target/linux/atheros-2.6/patches/110-spiflash.patch
+Also hardcoded is the FIS partition name of the root filesystem which is "rootfs" - see target/linux/atheros-2.6/patches/110-spiflash.patch
 {{{
 +#define ROOTFS_NAME    "rootfs"
 }}}
