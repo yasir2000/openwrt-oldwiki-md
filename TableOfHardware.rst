@@ -170,7 +170,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||Realtek RTL8186 ||2MB ||8MB(16?) ||Realtek RTL8225 || || || || || ||[:RTL8651BPort:Untested] ||
 == Fon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||[http://tech.am/data/AC101-DS01-R.pdf Altima AC101] ||N/A ||Yes ||Yes ||NO ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera: Kamikaze Supported - WiP] ||
+||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||[http://tech.am/data/AC101-DS01-R.pdf Altima AC101] ||N/A ||Yes ||Yes ||NO ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze Supported - WiP] ||
 == Freecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.freecom.com/ecProduct_detail.asp?ID=2347 FSG-3] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||64MB ||N/A (Empty mini-PCI) ||RTL8305SB ||N/A ||Yes ||Yes ||2.0 ||SATA+PATA ||[:FreecomFSG3:WiP] ||
@@ -212,7 +212,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||3.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Yes ||Yes ||No ||[:WAP54GHowto:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=538 WAP55AG] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Atheros & Broadcom (mini-PCI) ||None ||off || || || ||Untested ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=538 WAP55AG] ||2.0 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz || || ||Atheros (integrated) ||None ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
-||[http://www1.linksys.com/products/product.asp?prid=558&scid=38 WGA54G] || ||ARM based ||1MB ||16MB ||Prism54g (mini-PCI) ||None || || Yes || ||No ||[:OpenWrtDocs/Hardware/Linksys/WGA54G:No] ||
+||[http://www1.linksys.com/products/product.asp?prid=558&scid=38 WGA54G] || ||ARM based ||1MB ||16MB ||Prism54g (mini-PCI) ||None || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Linksys/WGA54G:No] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=38&prid=629 WRE54G] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Yes ||No ||No ||Untested ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1144763513404&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper WRT300N] ||v1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||4MB ||32MB ||Broadcom (cardbus) ||BCM5325 ||off ||Yes ||Yes ||No ||WiP ||
 ||[http://www-uk.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=UK/Layout&cid=1150491114466&pagename=Linksys/Common/VisitorWrapper WRT300N] ||v2 ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||16MB ||Atheros (mini-PCI) ||88E6060 ||N/A ||Yes ||No ||No ||WiP ||
@@ -305,6 +305,11 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Netopia ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
+== Philips ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||SNR6500 || ||Atheros AR2316 || || || || || ||Yes || ||No ||? ||
+
+
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB || ||None || || || || ||Untested ||
@@ -312,7 +317,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No ||No ||No ||Supported ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||NL-5354AP1 ||ARIES 2||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class  @ unknown||?||?||Atheros ROC||No||On-board||?||No||[:AtherosPort:WiP]||
+||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||? ||? ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
 == Siemens ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702.html SE505] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || || || || ||Supported ||
@@ -323,6 +328,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||Yes ||Yes ||1x v2.0 ||No ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 ||Yes || ||Yes ||[:AR7Port:WiP] ||
 ||[http://subscriber.communications.siemens.com/subscriber_networks/4100images.shtml SpeedStream4200] ||Rev.B ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ (?) ||2MB(AM29LV160MB) ||8MB (IS42S16400B) || || || ||Yes(?) ||Yes ||Untested ||
+||Gigaset wlan 108 repeater|| ||Atheros AR2316|| || || || ||Yes|| ||No||?||
 The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, they just changed the case and the firmware)
 
 == Simpletech ==
@@ -334,6 +340,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||Texas Instruments AR7 @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
+||WEBT-G|| ||Atheros AR2316|| || || || || ||Yes|| ||No||?||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
