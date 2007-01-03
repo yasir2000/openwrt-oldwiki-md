@@ -6,7 +6,7 @@ Looks like most people won't be able to install OpenWrt using the Asus web inter
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use manufacturers own web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: it does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0.-~
+It might be possible to use manufacturers own web interfalce to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: it does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0.-~
 
 === Using diag mode and tftp ===
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
@@ -18,8 +18,8 @@ Netkit's tftp doesn't work quit often, use atftp.
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
 
  * Unplug the power cord.
- * Push the RESTORE button using a pen or such, and keep the button pushed down.
- * Plug the power on while keeping the RESTORE button pushed for few seconds.
+ * Push the RESTORE (not the red EZsetup!!!!) button using a pen or such, and keep the button pushed down.
+ * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
  * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via tftp. See OpenWrtViaTftp for more instructions on upgrading via tftp.
  * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
@@ -27,6 +27,9 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
 === Using the Asus firmware restoration tool (windows only) ===
  * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
  * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
+ * Unplug the router's power cord.
+ * Push the RESTORE (not the red EZsetup!!!!) button using a pen or such, and keep the button pushed down.
+ * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
  * Press Upload. The router will reboot itself.
  * You can find the router on it's previous ip address (otherwise 192.168.1.1)
 == WL-500gP specific configuration ==
