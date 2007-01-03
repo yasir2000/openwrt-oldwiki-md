@@ -521,6 +521,63 @@ config wifi-iface
 then reboot and everthing should be working.
 
 
+
+---- /!\ '''Edit conflict - other version:''' ----
+== basic wpa config ==
+
+It's a bit harder to find the documentation for kamikaze, as the config system changed. So here's a list of config entries to use the fonera as a wpa-psk accesspoint-bridge. You can take it with your laptop and use it as a mobile ap whereever you find a rj45 plug.
+
+/etc/ipkg.conf
+{{{
+src snapshots http://ipkg.k1k2.de/packages/
+dest root /
+dest ram /tmp
+}}}
+
+{{{
+root@OpenWrt:~ install hostapd
+}}}
+
+/etc/config/network
+{{{
+# Copyright (C) 2006 OpenWrt.org
+
+config interface loopback
+        option ifname   lo
+        option proto    static
+        option ipaddr   127.0.0.1
+        option netmask  255.0.0.0
+
+config interface lan
+        option type     bridge
+        option ifname   eth0
+        option proto    dhcp
+        option hostname Freefonera
+}}}
+
+and finally /etc/config/wireless
+{{{
+config wifi-device  wifi0
+        option type     atheros
+        option channel  5
+
+config wifi-iface
+        option device   wifi0
+        option network  lan
+        option mode     'ap'
+        option ssid     Fonerafree
+        option hidden   0
+        option encryption psk
+        option key "dict-crack-me"
+}}}
+
+then reboot and everthing should be working.
+
+
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 == Resources ==
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
