@@ -132,7 +132,7 @@ mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 Be happy and use your USB device like on every other GNU/Linux system or create a file server using Samba.
 
 == How do I boot from the USB device ==
-For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 filesystem:
+For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 file system:
 
 {{{
 ipkg install kmod-ext2 kmod-ext3
@@ -221,7 +221,7 @@ umount /tmp/root
 umount /mnt
 }}}
 
-/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support. If you encounter problems as well, try disabling USB hotplug.
+/!\ Problems with booting from USB storage were reported with WhiteRussian RC4 or later, which is the version that introduced USB hotplug support. If you encounter problems as well, try disabling USB hotplug. (more info on this?)
 
 As earlier stated on this page (to remove {{{/etc/hotplug.d/usb/01-mount}}}) is NOT a good idea, as this is where usbfs is mounted, so usb-storage might work fine but lsusb wohn't list your devices, and most software using USB won't be able to find devices since /proc/bus/usb will remain empty?
 
@@ -276,9 +276,11 @@ Make sure your new {{{/sbin/init}}} is executable:
 chmod a+x /sbin/init
 }}}
 
+/!\ '''NOTE:''' some people are having trouble with startup scripts in /etc/init.d running from the router instead of the flash device. Does anyone know how to fix it?
+
 Now just reboot, and if you did everything right it should boot from the USB device automatically.
 
-If it could not boot from the USB device it will boot normaly from the file system found on the flash as fallback.
+If it could not boot from the USB device it will boot normally from the file system found on the flash as fallback.
 
 == Installing and using IPKG packages in mount point other than root ==
 /!\ '''NOTE:''' This is not tested. Please report if it's working for you.
