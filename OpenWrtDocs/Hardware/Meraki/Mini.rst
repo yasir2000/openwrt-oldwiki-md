@@ -297,17 +297,6 @@ RedBoot>
 
 The [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot User's Guide] gives some guidance as to what you can do here, although the version used by Meraki appears to be customised.
 
-The default loader config does the following (you can change this using 'fconfig' if you're really, really sure you know what you're doing)
-
-{{{
-load art_ap51.elf
-go
-load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
-exec
-fis load stage2
-exec
-}}}
-
 Now, looking at the partition info above gives the following partition offsets and sizes:
 
 {{{
@@ -347,9 +336,28 @@ RedBoot> reset
 
 You can repeat this for the other partitions backed up. (However, after I broke my Meraki by installing firmware built from Meraki's source - see below - the new stage2 and reboot config partitions were fine, and I only needed to restore part1 to get my Meraki back to how it was)
 
+== RedBoot configuration ==
+
+The default !RedBoot config does the following:
+
+{{{
+load art_ap51.elf
+go
+load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+exec
+fis load stage2
+exec
+}}}
+
+If you want to change this, you can use 'fconfig' at the serial port command prompt, which gives an interactive way to alter this.
+
+This information is stored in the 'redboot conf' partition.
+
+<b>FIXME:</b> How can you change this by writing directly to the partition, rather than using a serial port? The Meraki firmware source contains 'redconf.bin' which is written to this partition, but no tool for generating its contents from source.
+
 == Stage 2 boot loader ==
 
-Meraki's firmware includes a stage 2 boot loader. The source for this is in the Meraki tarball (see below) in openwrt-meraki/base/stage2. The entry point is "entry" in openwrt-meraki/base/stage2/decompress.c
+Meraki's firmware includes a stage 2 boot loader, run by "fis load stage2" and "exec". The source for this is in the Meraki tarball (see below) in openwrt-meraki/base/stage2. The entry point is entry() in openwrt-meraki/base/stage2/decompress.c
 
 It reads "part1", checking for a valid CRC. If not valid it boots from "part2" instead. It also includes an LZMA decompressor. These partition locations are hard-coded into the stage2 loader itself:
 
@@ -383,11 +391,15 @@ TODO: What to do with these? Presumably jffs2-64k is used for the root partition
 
 Do you use Meraki's stage2 loader, or bypass it?
 
+== Installing via redboot and serial console ==
+
+TBD
+
 == Installing via ssh ==
 
 TBD
 
-== Installing via redboot and serial console ==
+== Using a ramdisk root ==
 
 TBD
 
