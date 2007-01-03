@@ -374,8 +374,11 @@ If you find your package doesn't show up in menuconfig, try the following comman
 
 If you're just having trouble getting your package to compile, there's a few shortcuts you can take. Instead of waiting for make to get to your package, you can run one of the following:
 
-  {{{make package/<name>-clean V=99}}}
-  {{{make package/<name>-install V=99}}}
+  {{{
+make package/<name>-clean V=99
+make package/<name>-compile V=99
+make package/<name>-install V=99
+}}}
 
 Another nice trick is that if the source directory under build_<arch> is newer than the package directory, it won't clobber it by unpacking the sources again. If you were working on a patch you could simply edit the sources under build_<arch>/<source> and run the install command above, when satisfied, copy the patched sources elsewhere and diff them with the unpatched sources. A warning though - if you go modify anything under package/<name> it will remove the old sources and unpack a fresh copy.
 
