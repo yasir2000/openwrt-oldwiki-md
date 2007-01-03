@@ -11,23 +11,35 @@ These models have a 266 MHz CPU.  There are 2 variants:
 
 The antenna is *NOT* removable. Well not without some soldering work.
 
-= port mapping =
+= Interface diagram (per mbm) =
 
-There are 3 eth interfaces, unlike many WRT units so it is faster on WAN-LAN switching.
+{{{
+                     .-OpenWrt--------------------.
+                     | .-----.                    |
+                     | | br0 |--------------.     |
+                     | '-----'              |     |
+                     |    |                 |     |
+                     | .------. .------. .------. |
+                     '-| eth0 |-| eth1 |-| eth2 |-'
+                       '------' '------' '------'
+                          |        |        |
+                          |        '---.    |
+    .-switch--------------|----------. |    |
+    | .-vlan0-------------|--.       | |    |
+    | |                .--|--+-vlan1 | |    |
+    | |[0] [1] [2] [3] | [5] | [4] | | |    |
+    | '-|---|---|---|--+-----'     | | |    |
+    |   |   |   |   |  '-----------' | |    |
+    '---|---|---|---|----------------' |    |
+        |   |   |   |      .-----------'    |
+        |   |   |   |      |       .--------'
+        |   |   |   |      |       |
+    .---|---|---|---|------|-------|----.
+    |  [1] [2] [3] [4]   [wan]   [wifi] |
+    '-case------------------------------'
+}}}
 
-eth0=LAN
-eth1=WAN
-eth2=WiFi
-
-Ports map like so:
-
-||external-port# ||   internal#||
-||4              ||           3||
-||3              ||           2||
-||2              ||           1||
-||1              ||           0||
-||(CPU)          ||           5||
-||Internet       ||           4||
+Note switch port 4 is not externally available. This design is different from many units which use a single interface to handle both LAN & WAN traffic, so performance should be better.
 
 = Hack points =
 
