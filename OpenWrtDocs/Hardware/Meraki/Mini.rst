@@ -375,6 +375,8 @@ This means that if you want to use Meraki's stage2 loader with !OpenWrt, then:
  1. The kernel must be LZMA compressed in exactly the same way as Meraki
  1. If you put the code in part1 then the !OpenWrt image must contain a CRC calculated in exactly the same way as Meraki
 
+However it would be useful to retain Meraki's stage2 loader, if only because Meraki's RedBoot doesn't have an LZMA decompressor (fis load -l) which apparently Fonera does.
+
 = Installing OpenWrt =
 
 == Building the image ==
