@@ -98,6 +98,8 @@ Keep in mind that this information was found using trial-and-error-methods, so i
 
 Some third-party can be searched for via http://www.ipkg.be/.
 
+ShorewallHowTo has instructions on how to use the Shorewall firewall configuration package with !OpenWrt.
+
 == Building your own packages ==
 
 To build your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
