@@ -395,17 +395,11 @@ openwrt-atheros-2.6-vmlinux.lzma
 
 Do you use Meraki's stage2 loader, or bypass it?
 
-== Installing via redboot and serial console ==
+== Testing via RedBoot and serial console ==
 
-'''NOTE: THESE INSTRUCTIONS DO NOT WORK! Meraki support is apparently in OpenWrt but developers have not published instructions on how to use it. So this is a record of a failed attempt to try it.'''
+Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
 
-Here we assume you've built a kernel plus jffs2 root filesystem (the default). We'll put these in 'part1' and 'part2' respectively, keeping the Meraki's existing partitioning scheme.
-
-Configure your PC as 192.168.84.9 and configure it with either a tftp server
-or http server containing the files from the bin/ directory.
-
-Connect a serial port to the Meraki and power up. Keep hitting ctrl-C until
-you get to the RedBoot> prompt; this takes about 13 seconds.
+Connect a serial port to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
 
 {{{
 Board: Meraki Mini
@@ -415,6 +409,30 @@ FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
+
+Now, it should be possible to load and boot a kernel without touching your flash:
+
+{{{
+RedBoot> load -r -v -d -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
+\
+Raw file loaded 0x80041000-0x8028e085, assumed entry at 0x80041000
+RedBoot> exec -c "console=ttyS0,115200"
+Now booting linux kernel:
+ Base address 0x80030000 Entry 0x80041000
+ Cmdline : console=ttyS0,115200
+}}}
+
+'''FIXME: This does not work''' - it just freezes at this point. Need to find a way to do this successfully before trying to write to flash.
+
+== Installing via RedBoot and serial console ==
+
+'''NOTE: THESE INSTRUCTIONS DO NOT WORK! Meraki support is apparently in OpenWrt but developers have not published instructions on how to use it. So this is a record of a failed attempt to try it.'''
+
+Here we assume you've built a kernel plus jffs2 root filesystem (the default). We'll put these in 'part1' and 'part2' respectively, keeping the Meraki's existing partitioning scheme.
+
+Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
+
+Connect a serial port to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
 
 Now, the first thing to notice is that the Meraki's flash partition map doesn't include 'part1' and 'part2' entries. This is because the Meraki stage2 bootloader has these addresses hard-coded within it instead of reading the flash map (naughty).
 
