@@ -35,8 +35,7 @@ Here's the process:
 {{{
 telnetEnable.exe 192.168.1.1 000FB5A2BE26 Gearguy Geardog
 }}}
- Correct character case is important here.
-
+ . Correct character case is important here.
  * Now press Enter to run the tool. It should return to the shell pretty quickly with no error. If it takes a long time and returns a 'send failed' error message, just try again.
  * You should now be able to login to the router via telnet from any computer in your local subnet (including the one you just used to activate the listening mode). To do so, type the following (no quotes): "{{{telnet }}}", append the IP of your router and press enter (e.g. {{{telnet 192.168.1.1}}})
  * You will be prompted for a login and a password. For the login, type {{{Gearguy}}}, for the password, type {{{Geardog}}}. Correct character case is important here.
@@ -57,14 +56,11 @@ The implementation does not provide network connectivity to finish the process f
 
 {{{
 telnetenable 192.168.1.1 000FB5A2BE26 Gearguy Geardog > modpkt.pkt}}}
- Then to send the packet to the router type
-
+ . Then to send the packet to the router type
 {{{
 nc 192.168.1.1 23 < modpkt.pkt
 }}}
-Then telnet as shown above and change the password
-
-
+Then telnet as shown above.
 
 Please read the README file contained in the [attachment:telnetenable.zip attached ZIP archive].
 
@@ -92,8 +88,6 @@ The entire probe payload (including the reserved area, which is always null for 
 The encrypted probe packet is then sent to telnet port (23) on the router using raw TCP sockets in the standard manner. Curiously, the telnetenable.exe program also includes the necessary support to decode packets incoming from the router, but there does not appear to be any two-way handshake implemented, it is simple a raw TCP send from the client to the router.
 
 Note: The encrypted probe packet is sized as char output_Buf[0x640] but only an encoded data length of size of 0x80 appears to be used by the code. It is unknown what other capabilities may be similarly enabled via the 'reserved' field, or by other passwords.
-
-
 
 == Troubleshooting ==
 If you aren't able to login anymore, which may occur after firmware updates or telnet-session timeouts/connection losses, repeat the unlocking procedure.
