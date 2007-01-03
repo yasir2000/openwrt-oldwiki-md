@@ -372,10 +372,10 @@ It reads "part1", checking for a valid CRC. If not valid it boots from "part2" i
 
 This means that if you want to use Meraki's stage2 loader with !OpenWrt, then:
  1. You must use the same partitioning arrangement as Meraki
- 1. The kernel must be LZMA compressed in exactly the same way as Meraki
- 1. If you put the code in part1 then the !OpenWrt image must contain a CRC calculated in exactly the same way as Meraki
+ 1. The kernel must be LZMA compressed
+ 1. The kernel must be prepended with an 8-byte header (4 bytes length, 4 bytes bastardised CRC32 - see below)
 
-However it would be useful to retain Meraki's stage2 loader, if only because Meraki's RedBoot doesn't have an LZMA decompressor (fis load -l) which apparently Fonera does.
+It would be useful to retain Meraki's stage2 loader, if only because Meraki's RedBoot doesn't have an LZMA decompressor (fis load -l) which apparently Fonera does. It also avoids having to mess with RedBoot configuration, making it easier to install !OpenWrt without a serial port.
 
 = Installing OpenWrt =
 
@@ -393,11 +393,9 @@ openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
 
-'''FIXME:''' What to do with these? Presumably jffs2-64k is used for the root partition (erasesize=00010000)?
-
-Do you use Meraki's stage2 loader, or bypass it?
-
 == Testing via RedBoot and serial console ==
+
+This lets you test your new kernel without touching the flash.
 
 Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
 
@@ -412,7 +410,7 @@ FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
 RedBoot>
 }}}
 
-Now, it should be possible to load and boot a kernel without touching your flash:
+Now, it should be possible to load and boot a kernel over the network:
 
 {{{
 RedBoot> load -r -v -d -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
@@ -470,6 +468,8 @@ RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
 RedBoot>
 }}}
 
+== Installing a regular kernel and root filesystem ==
+
 Now we fetch the files and write them to flash (it seems 0x80041000 is the magic kernel entry point for Linux; the jffs2 partition doesn't need this but it doesn't do any harm to have it)
 
 {{{
@@ -510,42 +510,56 @@ If this had worked, you'd then use 'fconfig' to make the fis load and exec comma
 
 Note that there's 1MB of additional storage available on /dev/mtd2, which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
 
-'''FIXME:''' In principle it might be possible to use the LZMA kernel image together with the existing stage2 loader, which would avoid having to change the !RedBoot config. However I can't see how to pass the root partition as a parameter to the kernel in this case. Maybe this will only work for ramdisk kernels.
+== Installing a stage2-compatible kernel ==
 
-But in any case it doesn't seem to work:
+If you wish to continue to use Meraki's stage2 loader (which in principle is a good idea as it does LZMA decompression), then you need to prepend a header to the kernel image, containing a length and bastardised CRC. The following Perl program does this. (Meraki's own software bundle compiles a C program to calculate the CRC)
+
 {{{
-RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.lzma
-Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
-RedBoot> fis create -r 0x80041000 -e 0x80041000 part1
+#!/usr/bin/perl -w
+# This script takes an LZMA kernel image and prepends the header expected
+# by the Meraki stage2 bootloader
+# Typical usage:
+#    ./merakipart.pl ../bin/openwrt-atheros-2.6-vmlinux.lzma >part
+
+use Digest::CRC;
+open(F, $ARGV[0]) or die "$ARGV[0]: $!";
+$size = -s F;
+# Meraki's non-standard interpretation of the CRC32 algorithm
+$ctx = Digest::CRC->new(width=>32, init=>0, xorout=>0,
+                         poly=>0x04c11db7, refin=>0, refout=>0);
+$ctx->addfile(*F);
+print pack 'NN', ($size, $ctx->digest);
+seek(F,0,0);
+print <F>;
+close(F);
+}}}
+
+'''FIXME:''' vmlinux-lzma has already been rounded up to a 64K block multiple, so adding this header ought to be done first.
+
+This is good enough to convince stage2 to decompress and run it:
+
+{{{
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 part
+Raw file loaded 0x80041000-0x800f1007, assumed entry at 0x80041000
+RedBoot> fis create part1
 An image named 'part1' exists - continue (y/n)? y
 ... Erase from 0xa8150000-0xa8490000: ....................................................
-... Program from 0x80041000-0x800f1000 at 0xa8150000: ...........
+... Program from 0x80041000-0x800f1008 at 0xa8150000: ............
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
-RedBoot> fis create -r 0x80041000 -e 0x80041000 part2
-An image named 'part2' exists - continue (y/n)? y
-... Erase from 0xa8490000-0xa87d0000: ....................................................
-... Program from 0x80041000-0x800f1000 at 0xa8490000: ...........
-... Erase from 0xa87d0000-0xa87e0000: .
-... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
-RedBoot> fis list
-Name              FLASH addr  Mem addr    Length      Entry point
-RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
-stage2            0xA8030000  0x80100000  0x00020000  0x80100000
-part1             0xA8150000  0x80041000  0x00340000  0x80041000
-part2             0xA8490000  0x80041000  0x00340000  0x80041000
-FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
-RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
 RedBoot> fis load stage2
 RedBoot> exec
 Now booting linux kernel:
  Base address 0x80030000 Entry 0x80100000
  Cmdline :
 starting stage2
-reading flash at 0xa8150000 - 0x5150080... partition too big!
+reading flash at 0xa8150000 - 0xa8200000... done
+Calculating CRC... 0xf32c0ed3 - matches
+decompressing... done
+starting linux
 }}}
 
-That is, the lzma_compressed_length read by stage2 isn't what it expects.
+Unfortunately it fails at this point. (It also remains to be seen whether the kernel command line passed to stage2 is passed on to the kernel itself)
 
 == Installing via ssh ==
 
