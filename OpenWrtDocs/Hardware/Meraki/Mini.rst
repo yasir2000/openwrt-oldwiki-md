@@ -42,9 +42,13 @@ drivers/usb/serial/ftdi_sio.c: v1.4.1:USB FTDI Serial Converters Driver
 
 It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works.
 
-I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15)
+I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15). A more reliable sequence was:
+ * Unplug JP1
+ * Remove power from Meraki
+ * Re-apply power to Meraki
+ * Reconnect JP1
 
-(on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacabel and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
+on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacabel and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
 
 = Standard Meraki firmware =
 
@@ -353,7 +357,7 @@ If you want to change this, you can use 'fconfig' at the serial port command pro
 
 This information is stored in the 'redboot conf' partition.
 
-<b>FIXME:</b> How can you change this by writing directly to the partition, rather than using a serial port? The Meraki firmware source contains 'redconf.bin' which is written to this partition, but no tool for generating its contents from source.
+'''FIXME:''' How can you change this by writing directly to the partition, rather than using a serial port? The Meraki firmware source contains 'redconf.bin' which is written to this partition, but no tool for generating its contents from source.
 
 == Stage 2 boot loader ==
 
@@ -367,9 +371,9 @@ It reads "part1", checking for a valid CRC. If not valid it boots from "part2" i
 }}}
 
 This means that if you want to use Meraki's stage2 loader with !OpenWrt, then:
-1. You must use the same partitioning arrangement as Meraki
-1. The kernel must be LZMA compressed
-1. If you put the code in part1 then the !OpenWrt image must contain a CRC calculated in exactly the same way as Meraki
+ 1. You must use the same partitioning arrangement as Meraki
+ 1. The kernel must be LZMA compressed in exactly the same way as Meraki
+ 1. If you put the code in part1 then the !OpenWrt image must contain a CRC calculated in exactly the same way as Meraki
 
 = Installing OpenWrt =
 
@@ -387,13 +391,141 @@ openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
 
-TODO: What to do with these? Presumably jffs2-64k is used for the root partition (erasesize=00010000)
+'''FIXME:''' What to do with these? Presumably jffs2-64k is used for the root partition (erasesize=00010000)?
 
 Do you use Meraki's stage2 loader, or bypass it?
 
 == Installing via redboot and serial console ==
 
-TBD
+'''NOTE: THESE INSTRUCTIONS DO NOT WORK! Meraki support is apparently in OpenWrt but developers have not published instructions on how to use it. So this is a record of a failed attempt to try it.'''
+
+Here we assume you've built a kernel plus jffs2 root filesystem (the default). We'll put these in 'part1' and 'part2' respectively, keeping the Meraki's existing partitioning scheme.
+
+Configure your PC as 192.168.84.9 and configure it with either a tftp server
+or http server containing the files from the bin/ directory.
+
+Connect a serial port to the Meraki and power up. Keep hitting ctrl-C until
+you get to the RedBoot> prompt; this takes about 13 seconds.
+
+{{{
+Board: Meraki Mini
+RAM: 0x80000000-0x82000000, [0x8003d110-0x80fe1000] available
+FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
+== Executing boot script in 2.000 seconds - enter ^C to abort
+^C
+RedBoot>
+}}}
+
+Now, the first thing to notice is that the Meraki's flash partition map doesn't include 'part1' and 'part2' entries. This is because the Meraki stage2 bootloader has these addresses hard-coded within it instead of reading the flash map (naughty).
+
+{{{
+RedBoot> fis load -d part1
+No image 'part1' found
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
+stage2            0xA8030000  0x80100000  0x00020000  0x80100000
+FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
+RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
+RedBoot>
+}}}
+
+So let's create them:
+
+{{{
+RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n part1
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n part2
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
+stage2            0xA8030000  0x80100000  0x00020000  0x80100000
+part1             0xA8150000  0x80041000  0x00340000  0x80041000
+part2             0xA8490000  0x80041000  0x00340000  0x80041000
+FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
+RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
+RedBoot>
+}}}
+
+Now we fetch the files and write them to flash (it seems 0x80041000 is the magic kernel entry point for Linux; the jffs2 partition doesn't need this but it doesn't do any harm to have it)
+
+{{{
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.lzma
+Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
+RedBoot> fis create -r 0x80041000 -e 0x80041000 part1
+An image named 'part1' exists - continue (y/n)? y
+... Erase from 0xa8150000-0xa8490000: ....................................................
+... Program from 0x80041000-0x800f1000 at 0xa8150000: ...........
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-root.jffs2-64k
+Raw file loaded 0x80041000-0x801c0fff, assumed entry at 0x80041000
+RedBoot> fis create -r 0x80041000 -e 0x80041000 part2
+An image named 'part2' exists - continue (y/n)? y
+... Erase from 0xa8490000-0xa87d0000: ....................................................
+... Program from 0x80041000-0x801c1000 at 0xa8490000: ........................
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot>
+}}}
+
+You can now try to boot directly from the !RedBoot command line:
+
+{{{
+RedBoot> fis load part1
+[This takes about 5 seconds]
+RedBoot> exec -c "root=/dev/mtdblock3" -w 5
+Now booting linux kernel:
+ Base address 0x80030000 Entry 0x80041000
+ Cmdline : root=/dev/mtdblock3
+About to start execution at 0x80041000 - abort with ^C within 5 seconds
+}}}
+
+Unfortunately at this point it just seems to lock up, no further output is generated. I also tried the .gz kernel and "fis load -d part1", no difference.
+
+If this had worked, you'd then use 'fconfig' to make the fis load and exec commands happen automatically at power-up.
+
+Note that there's 1MB of additional storage available on /dev/mtd2, which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
+
+'''FIXME:''' In principle it might be possible to use the LZMA kernel image together with the existing stage2 loader, which would avoid having to change the !RedBoot config. However I can't see how to pass the root partition as a parameter to the kernel in this case. Maybe this will only work for ramdisk kernels.
+
+But in any case it doesn't seem to work:
+{{{
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.lzma
+Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
+RedBoot> fis create -r 0x80041000 -e 0x80041000 part1
+An image named 'part1' exists - continue (y/n)? y
+... Erase from 0xa8150000-0xa8490000: ....................................................
+... Program from 0x80041000-0x800f1000 at 0xa8150000: ...........
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot> fis create -r 0x80041000 -e 0x80041000 part2
+An image named 'part2' exists - continue (y/n)? y
+... Erase from 0xa8490000-0xa87d0000: ....................................................
+... Program from 0x80041000-0x800f1000 at 0xa8490000: ...........
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
+stage2            0xA8030000  0x80100000  0x00020000  0x80100000
+part1             0xA8150000  0x80041000  0x00340000  0x80041000
+part2             0xA8490000  0x80041000  0x00340000  0x80041000
+FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
+RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
+RedBoot> fis load stage2
+RedBoot> exec
+Now booting linux kernel:
+ Base address 0x80030000 Entry 0x80100000
+ Cmdline :
+starting stage2
+reading flash at 0xa8150000 - 0x5150080... partition too big!
+}}}
+
+That is, the lzma_compressed_length read by stage2 isn't what it expects.
 
 == Installing via ssh ==
 
@@ -402,6 +534,10 @@ TBD
 == Using a ramdisk root ==
 
 TBD
+
+== Using a squashfs root ==
+
+TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, which is then unioned with a writable jffs2 filesystem, as you get on Broadcom devices)
 
 = Meraki-released source =
 
