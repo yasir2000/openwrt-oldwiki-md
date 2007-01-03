@@ -393,6 +393,21 @@ openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
 
+=== Kernel parameters ===
+
+Even though RedBoot can pass a command line to the kernel, currently any user-provided value is overridden by a hardcoded string - see 
+target/linux/atheros-2.6/patches/100-board.patch
+{{{
++    strcpy(arcs_cmdline, "console=ttyS0,9600 rootfstype=squashfs,jffs2");
+}}}
+
+You may wish to change the console speed to 115200 here to match the value used by RedBoot. Apparently it's also possible to comment this line out to allow the value provided by !RedBoot to be used instead.
+
+Also hardcoded is the FIS partition name of the root filesystem to "rootfs" - see target/linux/atheros-2.6/patches/110-spiflash.patch
+{{{
++#define ROOTFS_NAME    "rootfs"
+}}}
+
 == Testing via RedBoot and serial console ==
 
 This lets you test your new kernel without touching the flash.
