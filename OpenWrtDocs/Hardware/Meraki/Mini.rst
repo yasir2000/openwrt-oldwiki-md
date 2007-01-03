@@ -424,6 +424,19 @@ Now booting linux kernel:
 
 '''FIXME: This does not work''' - it just freezes at this point. Need to find a way to do this successfully before trying to write to flash.
 
+ELF kernel doesn't work either:
+
+{{{
+RedBoot> load -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.elf
+Entry point: 0x80272000, address range: 0x80041000-0x8028e086
+RedBoot> exec
+Now booting linux kernel:
+ Base address 0x80030000 Entry 0x80272000
+ Cmdline :
+}}}
+
+(also tried 'exec 0x80041000' and 'exec "console=ttyS0,115200"')
+
 == Installing via RedBoot and serial console ==
 
 '''NOTE: THESE INSTRUCTIONS DO NOT WORK! Meraki support is apparently in OpenWrt but developers have not published instructions on how to use it. So this is a record of a failed attempt to try it.'''
