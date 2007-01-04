@@ -677,7 +677,7 @@ TBD
 
 TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
 
-= Installing or upgrading via ssh =
+= Installing via ssh =
 
 /!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you will need a serial console to fix it. Kamikaze is experimental code and you are NOT recommended to install !OpenWrt unless you have got a working serial console cable.
 
