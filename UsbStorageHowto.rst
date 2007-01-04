@@ -276,8 +276,6 @@ Make sure your new {{{/sbin/init}}} is executable:
 chmod a+x /sbin/init
 }}}
 
-/!\ '''NOTE:''' some people are having trouble with startup scripts in /etc/init.d running from the router instead of the flash device. Does anyone know how to fix it?
-
 Now just reboot, and if you did everything right it should boot from the USB device automatically.
 
 If it could not boot from the USB device it will boot normally from the file system found on the flash as fallback.
