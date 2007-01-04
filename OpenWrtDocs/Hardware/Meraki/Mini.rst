@@ -345,19 +345,33 @@ You can repeat this for the other partitions backed up. (However, after I broke 
 The default !RedBoot config does the following:
 
 {{{
-load art_ap51.elf
-go
-load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
-exec
-fis load stage2
-exec
+RedBoot> fconfig -l
+Run script at boot: true
+Boot script:
+.. check_mac
+.. load art_ap51.elf
+.. go
+.. load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+.. exec
+.. fis load stage2
+.. exec
+
+Boot script timeout (1000ms resolution): 2
+Use BOOTP for network configuration: false
+Gateway IP address: 0.0.0.0
+Local IP address: 192.168.84.1
+Local IP address mask: 255.255.255.0
+Default server IP address: 192.168.84.9
+Console baud rate: 115200
+GDB connection port: 9000
+Force console for special debug messages: false
+Network debug at boot time: false
+RedBoot>
 }}}
 
-If you want to change this, you can use 'fconfig' at the serial port command prompt, which gives an interactive way to alter this.
+If you want to change this, you can use 'fconfig' at the serial port command prompt, which prompts interactively for each item.
 
 This information is stored in the 'redboot conf' partition.
-
-'''FIXME:''' How can you change this by writing directly to the partition, rather than using a serial port? The Meraki firmware source contains 'redconf.bin' which is written to this partition, but no tool for generating its contents from source.
 
 == Stage 2 boot loader ==
 
@@ -685,9 +699,80 @@ Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-2
 
 The flash load and decompress now takes only about 7 seconds, and you can reboot without changing the !RedBoot config.
 
-= Installing without a serial console =
+= Options for installing without a serial console =
 
-/!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you will need a serial console to fix it. Kamikaze is experimental code and you should NOT install !OpenWrt unless you have got a working serial console cable.
+/!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you may need a serial console to fix it. Kamikaze is experimental code and you should NOT install !OpenWrt unless you have got a working serial console cable.
+
+== RedBoot over telnet ==
+
+It's possible to get a !RedBoot> command line over the network. There is a two-second window (!) in which you can do so. Configure your PC as 192.168.84.9 and repeatedly try to connect to port 9000 on 192.168.84.1 (just keep hitting ctrl-C, up-arrow, enter) and you should be able to manage it. If your PC is running Linux you might want to rm /etc/resolv.conf first to stop it doing reverse DNS lookups on the address.
+
+{{{
+# arp -d 192.168.84.1; telnet 192.168.84.1 9000
+192.168.84.1 (192.168.84.1) deleted
+Trying 192.168.84.1...
+^C
+# arp -d 192.168.84.1; telnet 192.168.84.1 9000
+192.168.84.1 (192.168.84.1) deleted
+Trying 192.168.84.1...
+^C
+# arp -d 192.168.84.1; telnet 192.168.84.1 9000
+192.168.84.1 (192.168.84.1) deleted
+Trying 192.168.84.1...
+Connected to 192.168.84.1.
+Escape character is '^]'.
+== Executing boot script in 1.980 seconds - enter ^C to abort
+^C^C
+RedBoot>
+}}}
+
+Once you've done this, you can use fconfig to set a longer timeout (say 10 seconds) to make this easier in future - ignore any "AHB ERROR" messages you may see.
+
+{{{
+RedBoot> fconfig
+Run script at boot: true
+Boot script:
+.. check_mac
+.. load art_ap51.elf
+.. go
+.. load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+.. exec
+.. fis load stage2
+.. exec
+Enter script, terminate with empty line
+>> check_mac
+>> load art_ap51.elf
+>> go
+>> load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+>> exec
+>> fis load stage2
+>> exec
+>>
+Boot script timeout (1000ms resolution): 2^H10
+Use BOOTP for network configuration: false
+Gateway IP address:
+Local IP address: 192.168.84.1
+Local IP address mask: 255.255.255.0
+Default server IP address: 192.168.84.9
+Console baud rate: 115200^H^H^H^H^H^H9600
+GDB connection port: 9000
+Force console for special debug messages: false
+Network debug at boot time: false
+Update RedBoot non-volatile configuration - continue (y/n)? y
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot>
+}}}
+
+You can then continue as above; in particular you should create the "linux", "rootfs" and "/storage" partitions so that they are accessible when OpenWrt is running.
+
+{{{
+RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x80041000 -n /storage
+RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n linux
+RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n rootfs
+}}}
+
+== Installing over ssh from existing firmware ==
 
 In theory it should be possible to overwrite just two partitions if your kernel is stage2-compatible:
 
@@ -699,15 +784,13 @@ Or three partitions with a standard kernel
  * /dev/mtd/4 with the rootfs
  * /dev/mtd/6 with a new !RedBoot config (fis load -d linux; exec)
 
-Unfortunately, neither of these will work with a vanilla Meraki because you'd also need to update the FIS directory to include the "rootfs" partition. (Is there a tool which runs under Linux which can do this?)
+Unfortunately, neither of these will work with a vanilla Meraki because you'd also need to update the FIS directory to label the "rootfs" partition. (Is there a tool which runs under Linux which can do this? If not you will have to use !RedBoot> as above)
 
 However, instead you can use a kernel with a ramdisk root.
 
-== Build ramdisk kernel ==
+'make menuconfig', select 'target images', select 'ramdisk'. Then 'make'.
 
-'make menuconfig', select 'target images', select 'ramdisk'. Then 'make'
-
-== Risk-free test using tftp ==
+=== Risk-free test using tftp ===
 
 Configure a PC as 192.168.84.9 with a tftp server.
 
@@ -717,7 +800,7 @@ Plug in your Meraki. Run tcpdump on the tftp server if you want to see what's ha
 
 The Meraki should fetch your kernel+ramdisk and run it. After a minute or two you should be able to telnet to 192.168.1.1. If it fails, then you just power-cycle the unit and no harm is done.
 
-== Install stage2 image ==
+=== Install stage2 image ===
 
 If you're happy with this and want to make it permanent, first you'll want to make a stage2-compatible kernel image using the Perl script given above:
 
@@ -729,7 +812,7 @@ $ ls -l bin/part-rd
 
 (Make sure this is smaller than 3.25MB)
 
-Now you'll need to overwrite the 'part1' flash partition with this file. Unfortunately you can't do this from the !OpenWrt image you've just booted over tftp, because the flash partition isn't known to it:
+Now you'll need to overwrite the 'part1' flash partition with this file. Unfortunately you can't do this from the !OpenWrt image you've just booted over tftp, because the flash partition isn't known to it, unless you used !RedBoot> to create the entry:
 
 {{{
 root@OpenWrt:~# cat /proc/mtd
@@ -766,9 +849,9 @@ root@meraki-node:~# reboot
 
 Now cross your fingers and hope that the unit comes back up on 192.168.1.1. (However, if you uploaded a broken image with a bad CRC, the Meraki stage2 bootloader should revert to the firmware in part2)
 
-'''FIXME:''' Once you're running OpenWrt, there's no way to upgrade the firmware again!! This is because !OpenWrt still is missing the necessary partition info. We really need some tool to update the FIS partition table, or else for the kernel to have hardcoded partition info as Meraki does.
+'''NOTE:''' Once you're running OpenWrt, there's no way to upgrade the firmware again!! This is because !OpenWrt still is missing the necessary partition info. So you'll still have to get to the !RedBoot> prompt to create the partition table. For this reason, I recommend using !RedBoot> to perform the installation in the first place.
 
-'''FIXME:''' Running from a ramdisk root is very limited. For example, if you use 'passwd' to set a root password, and then reboot, this is lost. It would be much better if we could have a single flash partition containing kernel + squashfs + jffs2 (unioned over the squashfs)
+'''FIXME:''' Running from a ramdisk root is very limited. For example, if you use 'passwd' to set a root password, and then reboot, this is lost. It would be better if we could have a single flash partition containing kernel + squashfs + jffs2 (unioned over the squashfs)
 
 = OpenWrt configuration =
 
