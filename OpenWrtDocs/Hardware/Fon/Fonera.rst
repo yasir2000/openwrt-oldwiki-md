@@ -58,6 +58,21 @@ Serial settings are 9600-8-N-1
 
 I have to power the fonera up wait for a few seconds before connecting the serial cable, otherwise it doesn't boot.
 
+== CPU ==
+{{{
+root@(none):/# cat /proc/cpuinfo
+system type             : Atheros AR531X_COBRA
+processor               : 0
+cpu model               : MIPS 4KEc V6.4
+BogoMIPS                : 183.50
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : no
+VCED exceptions         : not available
+VCEI exceptions         : not available
+}}}
 
 == JTAG ==
 There seems to be a 14 pin unpopulated jtag, but it's not that important as the redboot boatloader doesn't seem to be crippled.
@@ -115,6 +130,7 @@ Some people asked me how to recover a fonera, here are some methods:
     Now you have to hurry up!
     Paste "cat /proc/mtd" and press Enter (even if you don't see your pasted line)
     You should see this list:
+{{{
         dev:    size   erasesize  name
         mtd0: 00030000 00010000 "RedBoot"
         mtd1: 006f0000 00010000 "rootfs"
@@ -124,12 +140,14 @@ Some people asked me how to recover a fonera, here are some methods:
         mtd5: 0000f000 00010000 "FIS directory"
         mtd6: 00001000 00010000 "RedBoot config"
         mtd7: 00010000 00010000 "board_config"
-    
+}}}    
     Search for the "rootfs1" line and take the number of the beginning of the line (mtdX)
     
     Now you have to reboot again
     Press Enter again but now paste this line:
+{{{
     	echo -ne '\xde\xad\xc0\xde' > "/dev/mtdblock/2"
+}}}
     Make sure you're using "/dev/mtdblock/X" (the mtdX number)
     Now reset it again and you should receive this message:
     
@@ -138,11 +156,10 @@ Some people asked me how to recover a fonera, here are some methods:
         jffs2_build_filesystem(): erasing all blocks after the end marker...
         
     This takes some time but you should have a fresh fonera again.
-    
-    If this doesn't work you probably have to use a JTAG cable.
-    
+      
 === Methode 4 ===
-A way to recover it with a TFTP server and redboot is [http://log.tigerbus.de/?p=89 here]
+A way to recover it with a TFTP server and RedBoot is [http://log.tigerbus.de/?p=89 here]
+If this doesn't work you probably have to use a JTAG cable.
 
 === Methode Custumer Care ===
 
@@ -221,22 +238,6 @@ An image named 'rootfs' exists - continue (y/n)? y
 }}}
 
 This basically says, that it should write the content from the ramdisk at address 0x80041000 to the already existing flash image vmlinux.bin.l7 with the very same entry point for starting the kernel.
-
-== CPU ==
-{{{
-root@(none):/# cat /proc/cpuinfo
-system type             : Atheros AR531X_COBRA
-processor               : 0
-cpu model               : MIPS 4KEc V6.4
-BogoMIPS                : 183.50
-wait instruction        : yes
-microsecond timers      : yes
-tlb_entries             : 16
-extra interrupt vector  : yes
-hardware watchpoint     : no
-VCED exceptions         : not available
-VCEI exceptions         : not available
-}}}
 
 
 == OpenWrt ==
@@ -418,6 +419,7 @@ httpd -p 9090
 
 Connect to the Fonera through the private network.
 Now you can download the mtd partiotions using the addresses:
+{{{
 http://192.168.10.1:9090/0ro
 http://192.168.10.1:9090/1ro
 http://192.168.10.1:9090/2ro
@@ -426,6 +428,7 @@ http://192.168.10.1:9090/4ro
 http://192.168.10.1:9090/5ro
 http://192.168.10.1:9090/6ro
 http://192.168.10.1:9090/7ro
+}}}
 
 Also take note of the output of the command
 {{{
@@ -445,7 +448,8 @@ mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
 
-== Reflash the redboot config ==
+== Reflash the RedBoot Config from SSH... ==
+...in order to get the access to Redboot through an ethernet cable instead of the serial console
 
 As we can see via 'dmesg' there is a mtd for the redboot config:
 {{{
