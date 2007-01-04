@@ -707,7 +707,7 @@ However, instead you can use a kernel with a ramdisk root.
 
 'make menuconfig', select 'target images', select 'ramdisk'. Then 'make'
 
-== Risk-free test using tftp or http ==
+== Risk-free test using tftp ==
 
 Configure a PC as 192.168.84.9 with a tftp server.
 
@@ -767,6 +767,8 @@ root@meraki-node:~# reboot
 Now cross your fingers and hope that the unit comes back up on 192.168.1.1. (However, if you uploaded a broken image with a bad CRC, the Meraki stage2 bootloader should revert to the firmware in part2)
 
 '''FIXME:''' Once you're running OpenWrt, there's no way to upgrade the firmware again!! This is because !OpenWrt still is missing the necessary partition info. We really need some tool to update the FIS partition table, or else for the kernel to have hardcoded partition info as Meraki does.
+
+'''FIXME:''' Running from a ramdisk root is very limited. For example, if you use 'passwd' to set a root password, and then reboot, this is lost. It would be much better if we could have a single flash partition containing kernel + squashfs + jffs2 (unioned over the squashfs)
 
 = OpenWrt configuration =
 
