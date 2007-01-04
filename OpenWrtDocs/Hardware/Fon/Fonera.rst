@@ -96,7 +96,57 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 As you can see, the vmlinux.bin.l7 partition is of B0000, ergo 720896 bytes length. That means, that the kernel size should not exceed 720kb, but if it's smaller, everthing will be fine.
 Like wise the rootfs partition has a size of 0x700000 or 7340032 bytes. You've got 7.3 mb space.
 
-== Updating / Unbricking via redboot ==
+== Unbricking the Fonera==
+This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]
+
+Some people asked me how to recover a fonera, here are some methods:
+
+===Methode 1===
+    Press the reset button for > 15 seconds
+    This requires a working Fonera
+    Sometimes it didn't work for me.
+    
+===Methode 2===
+    Run "rm -R /jffs/*" and pull the plug
+    It should result in a reseted fonera
+    
+===Methode 3===
+    If everything fails and you killed your shell on the serial console:
+    As soon as you see "Please press Enter to activate this console." press Enter
+    Now you have to hurry up!
+    Paste "cat /proc/mtd" and press Enter (even if you don't see your pasted line)
+    You should see this list:
+        dev:    size   erasesize  name
+        mtd0: 00030000 00010000 "RedBoot"
+        mtd1: 006f0000 00010000 "rootfs"
+        mtd2: 00560000 00010000 "rootfs1"
+        mtd3: 00010000 00010000 "config"
+        mtd4: 000b0000 00010000 "vmlinux.bin.l7"
+        mtd5: 0000f000 00010000 "FIS directory"
+        mtd6: 00001000 00010000 "RedBoot config"
+        mtd7: 00010000 00010000 "board_config"
+    
+    Search for the "rootfs1" line and take the number of the beginning of the line (mtdX)
+    
+    Now you have to reboot again
+    Press Enter again but now paste this line:
+    	echo -ne '\xde\xad\xc0\xde' > "/dev/mtdblock/2"
+    Make sure you're using "/dev/mtdblock/X" (the mtdX number)
+    Now reset it again and you should receive this message:
+    
+        Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0
+        jffs2_build_filesystem(): unlocking the mtd device... done.
+        jffs2_build_filesystem(): erasing all blocks after the end marker...
+        
+    This takes some time but you should have a fresh fonera again.
+    
+    If this doesn't work you probably have to use a JTAG cable.
+    
+===Methode 4===
+	A way to recover it with a TFTP server and redboot is [http://log.tigerbus.de/?p=89 here]
+
+
+=== Updating / Unbricking via redboot ===
 
 On your computer:
 {{{
@@ -532,4 +582,5 @@ then reboot and everthing should be working.
  * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html Redboot userguide]
  * [http://wiki.ninux.org/moin.cgi/La_Fonera Misc Links (Italian language)]
  * [http://www.tldp.org/LDP/lkmpg/ The Linux Kernel Module Programming Guide]
- * [http://ipkg.k1k2.de/packages/ Package Repository] and Images for La Fonera (see [http://www.fonboard.de/fonera-|-anderes-betriebssystem-draufflashen-t1358-s60.html#9813 Discussion] (german)).
+ * [http://ipkg.k1k2.de/packages/ Package Repository] and Images for La Fonera (see [http://www.fonboard.de/fonera-|-anderes-betriebssystem-draufflashen-t1358-s60.html#9813 Discussion] (german))
+ * [http://karman.homelinux.net/blog/ Blog about Fonera] (Spanish)
