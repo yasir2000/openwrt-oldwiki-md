@@ -426,9 +426,10 @@ exit 0
 
 How can I route only certain ports through the tunnel, and use my regular WAN interface for the rest of my traffic? – BjörnLindström
 
- * the iptables ROUTE target can do this, but I don't know if it is in the !OpenWrt kernel. To redirect port 80 to exit via a PPTP tunnel interface:
+ * the iptables ROUTE target can do this, but I don't know if it is in the !OpenWrt kernel. It isn't in any of the kmod-ipt-* packages.  The module should be called ipt_ROUTE.  To redirect port 80 to exit via a PPTP tunnel interface:
  {{{
 iptables --append POSTROUTING --table mangle --protocol tcp --dport 80 --jump ROUTE --oif ppp0 --continue
 }}}
  Reference: http://www.netfilter.org/projects/patch-o-matic/pom-extra.html
+ An alternative is using prerouting packet marking and policy routing.  http://lartc.org/howto/lartc.netfilter.html
  – JamesCameron
