@@ -41,6 +41,18 @@ It offers a large number of new features and is constantly being improved. Some 
 
 [http://www.x-wrt.org Information and Download]
 
+=== Optware ===
+Large collection  of packages (600+) for routers with external storage (USB, IDE) provided by [http://www.nslu2-linux.org nslu2] project. All packages are installed into /opt directory.
+Optware features system independent uClibc library and own /opt/bin/ipkg packaging system.
+
+Optware consists of many perl and python packages. There is also complete native toolchain (optware-devel meta-package) for compiling software on router itself. 
+
+Optware runs on X-Wrt and OpenWRT RC6 firmwares with Broadcom processors (mipsel). This mainly covers Asus wireless routers with USB2 port for external hard disk attachment.
+
+See [http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable ddwrt package feed] for complete listing. 
+
+[http://www.nslu2-linux.org/wiki/FAQ/Optware-uClibcBuild Information and installation instructions]
+
 === uPnP ===
 
 '''uPnP''' is Universal Plug and Play.  
