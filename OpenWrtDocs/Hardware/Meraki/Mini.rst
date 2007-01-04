@@ -669,9 +669,31 @@ Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-2
 
 The flash load and decompress now takes only about 7 seconds, and you can reboot without changing the !RedBoot config.
 
-= Installing via ssh =
+== Using a ramdisk root ==
 
 TBD
+
+== Using a squashfs root ==
+
+TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
+
+= Installing or upgrading via ssh =
+
+/!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you will need a serial console to fix it. Kamikaze is experimental code and you are NOT recommended to install !OpenWrt unless you have got a working serial console cable.
+
+In theory it should be possible to overwrite just two partitions if your kernel is stage2-compatible:
+
+ * /dev/mtd/3 with the CRC-prefixed kernel
+ * /dev/mtd/4 with the rootfs
+
+And three partitions with a standard kernel
+ * /dev/mtd/3 with the kernel
+ * /dev/mtd/4 with the rootfs
+ * /dev/mtd/6 with a new !RedBoot config (fis load -d linux; exec)
+
+Unfortunately, neither of these will work with a vanilla Meraki because you'd also need to update the FIS directory to include the "rootfs" partition. Is there a tool which runs under Linux which can do this?
+
+However it may be possible to use a ramdisk root kernel instead.
 
 = OpenWrt configuration =
 
@@ -710,14 +732,6 @@ mount: mounting /dev/mtd/2ro on /storage failed
 }}}
 
 '''FIXME:''' Why can't I mount it?
-
-== Using a ramdisk root ==
-
-TBD
-
-== Using a squashfs root ==
-
-TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
 
 = Meraki-released source =
 
