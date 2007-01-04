@@ -1,4 +1,4 @@
-[[TableOfContents(2)]]
+[[TableOfContents(3)]]
 
 = Hardware Overview =
 
@@ -377,9 +377,7 @@ This means that if you want to use Meraki's stage2 loader with !OpenWrt, then:
 
 It would be useful to retain Meraki's stage2 loader, if only because Meraki's RedBoot doesn't have an LZMA decompressor (fis load -l) which apparently Fonera does. It also avoids having to mess with RedBoot configuration, making it easier to install !OpenWrt without a serial port.
 
-= Installing OpenWrt =
-
-== Building the image ==
+= Building OpenWrt =
 
 Support for the Atheros System-on-Chip used by the Meraki Mini was [https://dev.openwrt.org/changeset/5898 recently added] to Kamikaze SVN trunk. Hence there is currently no released code you can run; you must build it yourself from scratch.
 
@@ -393,7 +391,7 @@ openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
 
-=== Kernel parameters ===
+== Kernel parameters ==
 
 Even though RedBoot can pass a command line to the kernel, currently any user-provided value is overridden by a hardcoded string - see 
 target/linux/atheros-2.6/patches/100-board.patch
@@ -401,20 +399,16 @@ target/linux/atheros-2.6/patches/100-board.patch
 +    strcpy(arcs_cmdline, "console=ttyS0,9600 rootfstype=squashfs,jffs2");
 }}}
 
-You can change the console speed to 115200 here to match the value used by RedBoot. Alternatively you can reconfigure !RedBoot to use 9600bps (see 'fconfig' below). Apparently it's also possible to comment this line out to allow the kernel command line provided by !RedBoot to be used.
+If you wish, you can change the console speed to 115200 here to match the value used by RedBoot. Alternatively you can reconfigure !RedBoot to use 9600bps (see below). Apparently it's also possible to comment this line out to allow the kernel command line provided by !RedBoot to be used.
 
 Also hardcoded is the FIS partition name of the root filesystem which is "rootfs" - see target/linux/atheros-2.6/patches/110-spiflash.patch
 {{{
 +#define ROOTFS_NAME    "rootfs"
 }}}
 
-== Testing via RedBoot and serial console ==
+= Installing OpenWrt using serial console ==
 
-This lets you test your new kernel without touching the flash.
-
-Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
-
-Connect a serial port to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
+Connect a serial port (115200 8N1, no flow control) to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
 
 {{{
 Board: Meraki Mini
@@ -425,42 +419,37 @@ FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
 RedBoot>
 }}}
 
-Now, it should be possible to load and boot a kernel over the network:
+At this point, it's a good idea to change the serial port speed to 9600 bps, since this is the speed at which the kernel will use (unless you've modified the source)
 
 {{{
-RedBoot> load -r -v -d -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
-\
-Raw file loaded 0x80041000-0x8028e085, assumed entry at 0x80041000
-RedBoot> exec -c "console=ttyS0,115200"
-Now booting linux kernel:
- Base address 0x80030000 Entry 0x80041000
- Cmdline : console=ttyS0,115200
+RedBoot> baudrate -b 9600
+Baud rate will be changed to 9600 - update your settings
 }}}
 
-'''FIXME: This does not work''' - it just freezes at this point. Need to find a way to do this successfully before trying to write to flash.
-
-ELF kernel doesn't work either:
-
-{{{
-RedBoot> load -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.elf
-Entry point: 0x80272000, address range: 0x80041000-0x8028e086
-RedBoot> exec
-Now booting linux kernel:
- Base address 0x80030000 Entry 0x80272000
- Cmdline :
-}}}
-
-(also tried 'exec 0x80041000' and 'exec "console=ttyS0,115200"')
-
-== Installing via RedBoot and serial console ==
-
-'''NOTE: THESE INSTRUCTIONS DO NOT WORK! Meraki support is apparently in OpenWrt but developers have not published instructions on how to use it. So this is a record of a failed attempt to try it.'''
-
-Here we assume you've built a kernel plus jffs2 root filesystem (the default). We'll put these in 'part1' and 'part2' respectively, keeping the Meraki's existing partitioning scheme.
+Change your terminal's serial port speed to 9600 (Minicom: Ctrl-A P E) and hit Enter to check it's working.
 
 Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
 
-Connect a serial port to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
+== Testing kernel via tftp or http ==
+
+This lets you test your new kernel without touching the flash at all, by loading the kernel directly over the network:
+
+{{{
+RedBoot> load -r -d -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
+Raw file loaded 0x80041000-0x8028e085, assumed entry at 0x80041000
+RedBoot> exec
+Now booting linux kernel:
+ Base address 0x80030000 Entry 0x80041000
+ Cmdline :
+Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-7CPU revision is: 00019064
+... etc
+Please append a correct "root=" boot option
+Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(1,0)
+}}}
+
+This problem will go away when you have a FIS partition called "rootfs". (Or you might be able to use a ramdisk kernel)
+
+== Create flash partitions ==
 
 Now, the first thing to notice is that the Meraki's flash partition map doesn't include 'part1' and 'part2' entries. This is because the Meraki stage2 bootloader has these addresses hard-coded within it instead of reading the flash map (naughty).
 
@@ -476,45 +465,51 @@ RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
 RedBoot>
 }}}
 
-So let's create them:
+So let's create them. The name of the kernel partition doesn't matter (let's call it "linux"). However the rootfs partition must be called "rootfs" otherwise the kernel won't be able to find it.
 
 {{{
-RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n part1
+RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n linux
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
-RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n part2
+RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n rootfs
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot> fis list
 Name              FLASH addr  Mem addr    Length      Entry point
 RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
 stage2            0xA8030000  0x80100000  0x00020000  0x80100000
-part1             0xA8150000  0x80041000  0x00340000  0x80041000
-part2             0xA8490000  0x80041000  0x00340000  0x80041000
+linux             0xA8150000  0x80041000  0x00340000  0x80041000
+rootfs            0xA8490000  0x80041000  0x00340000  0x80041000
 FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
 RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
 RedBoot>
 }}}
 
-== Installing a regular kernel and root filesystem ==
+== Booting directly from RedBoot ==
+
+In this configuration, we will bypass Meraki's stage2 boot loader; RedBoot will load, decompress and run the kernel directly.
+
+Here we assume you've built a kernel plus jffs2 root filesystem (the default). We'll put these in Meraki's 'part1' and 'part2' respectively, keeping the Meraki's existing partitioning scheme. Both partitions are 3.25MB.
+
+=== Flash the kernel and root filesystem ===
 
 Now we fetch the files and write them to flash (it seems 0x80041000 is the magic kernel entry point for Linux; the jffs2 partition doesn't need this but it doesn't do any harm to have it)
 
 {{{
-RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.lzma
-Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
-RedBoot> fis create -r 0x80041000 -e 0x80041000 part1
-An image named 'part1' exists - continue (y/n)? y
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
+Raw file loaded 0x80041000-0x80140fff, assumed entry at 0x80041000
+RedBoot> fis create -r 0x80041000 -e 0x80041000 linux
+An image named 'linux' exists - continue (y/n)? y
 ... Erase from 0xa8150000-0xa8490000: ....................................................
-... Program from 0x80041000-0x800f1000 at 0xa8150000: ...........
+... Program from 0x80041000-0x80141000 at 0xa8150000: ................
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-root.jffs2-64k
 Raw file loaded 0x80041000-0x801c0fff, assumed entry at 0x80041000
-RedBoot> fis create -r 0x80041000 -e 0x80041000 part2
-An image named 'part2' exists - continue (y/n)? y
+RedBoot> fis create -r 0x80041000 -e 0x80041000 rootfs
+An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa8490000-0xa87d0000: ....................................................
-... Program from 0x80041000-0x801c1000 at 0xa8490000: ........................
+... Program from 0x80041000-0x801c1000 at 0xa8490000: ................
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot>
@@ -523,31 +518,106 @@ RedBoot>
 You can now try to boot directly from the !RedBoot command line:
 
 {{{
-RedBoot> fis load part1
-[This takes about 5 seconds]
-RedBoot> exec -c "root=/dev/mtdblock3" -w 5
+RedBoot> fis load -d linux
+[This takes about 40 seconds; RedBoot is slow to decompress!]
+Image loaded from 0x80041000-0x8028e086
+RedBoot> exec
 Now booting linux kernel:
  Base address 0x80030000 Entry 0x80041000
- Cmdline : root=/dev/mtdblock3
-About to start execution at 0x80041000 - abort with ^C within 5 seconds
+ Cmdline :
+Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-2.0)) #1 Tue Jan 2 14:07:20 GMT 2007
+...
+Jan  1 00:00:43 (none) user.info kernel: Time: MIPS clocksource has been installed.
+Jan  1 00:00:43 (none) user.warn kernel: jffs2_scan_eraseblock(): End of filesystem marker found at 0x170000
+Jan  1 00:00:43 (none) user.warn kernel: jffs2_build_filesystem(): unlocking the mtd device... done.
+Jan  1 00:00:43 (none) user.warn kernel: jffs2_build_filesystem(): erasing all blocks after the end marker... done.
+Jan  1 00:00:43 (none) user.warn kernel: VFS: Mounted root (jffs2 filesystem) readonly.
+...
+
 }}}
 
-Unfortunately at this point it just seems to lock up, no further output is generated. I also tried the .gz kernel and "fis load -d part1", no difference.
+Now hit Enter for a shell:
 
-If this had worked, you'd then use 'fconfig' to make the fis load and exec commands happen automatically at power-up.
+{{{
+Jan  1 00:01:28 (none) daemon.info init: Starting pid 67, console /dev/tts/0: '/bin/ash'
 
-Note that there's 1MB of additional storage available on /dev/mtd2, which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
 
-== Installing a stage2-compatible kernel ==
+BusyBox v1.3.1 (2007-01-02 13:55:25 GMT) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
 
-If you wish to continue to use Meraki's stage2 loader (which in principle is a good idea as it does LZMA decompression), then you need to prepend a header to the kernel image, containing a length and bastardised CRC. The following Perl program does this. (Meraki's own software bundle compiles a C program to calculate the CRC)
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r5968) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/# mount
+/dev/root on / type jffs2 (rw)
+none on /dev type devfs (rw)
+none on /proc type proc (rw)
+none on /tmp type tmpfs (rw,nosuid,nodev)
+none on /dev/pts type devpts (rw)
+none on /sys type sysfs (rw)
+root@OpenWrt:/# df -k
+Filesystem           1k-blocks      Used Available Use% Mounted on
+/dev/root                 3264      1732      1532  53% /
+root@OpenWrt:/#
+}}}
+
+=== Use fconfig to change bootup parameters ===
+
+Now you will need to change the boot script so that your new kernel is booted automatically at power-up. You can also use this as an opportunity to change the default !RedBoot serial port speed from 115200 to 9600 bps.
+
+{{{
+RedBoot> fconfig
+Run script at boot: true
+Boot script:
+.. check_mac
+.. load art_ap51.elf
+.. go
+.. load -h 192.168.84.9 -p 80 -m http /meraki/mini.1.img
+.. exec
+.. fis load stage2
+.. exec
+Enter script, terminate with empty line
+>> fis load -d kernel
+>> exec
+>>
+Boot script timeout (1000ms resolution): 2
+Use BOOTP for network configuration: false
+Gateway IP address:
+Local IP address: 192.168.84.1
+Local IP address mask: 255.255.255.0
+Default server IP address: 192.168.84.9
+Console baud rate: 9600
+GDB connection port: 9000
+Force console for special debug messages: false
+Network debug at boot time: false
+Update RedBoot non-volatile configuration - continue (y/n)? y
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot>
+}}}
+
+== Booting using Meraki stage2 loader ==
+
+Alternatively, it's possible to continue to use Meraki's stage 2 loader. This has the following advantages:
+ * It does LZMA decompression, which is faster and the kernel image is smaller
+ * It doesn't require changing the RedBoot configuration, and so is easier to do without a serial console
+ * Potentially it allows you to have two images, and boot the second if the first is corrupt (i.e. making it harder to brick the unit)
+
+To do this, you need to prepend an 8-byte header to the kernel image, containing a length and bastardised CRC. The following Perl program does this. (Meraki's own software bundle compiles a C program to calculate the CRC)
 
 {{{
 #!/usr/bin/perl -w
-# This script takes an LZMA kernel image and prepends the header expected
-# by the Meraki stage2 bootloader
+# This script takes an LZMA kernel image, prepends the header expected
+# by the Meraki stage2 bootloader, and pads to 64K
 # Typical usage:
-#    ./merakipart.pl ../bin/openwrt-atheros-2.6-vmlinux.lzma >part
+#    ./merakipart.pl ../build_mips/linux-2.6-atheros/vmlinux.bin.l7 >../bin/part
 
 use Digest::CRC;
 open(F, $ARGV[0]) or die "$ARGV[0]: $!";
@@ -560,19 +630,27 @@ print pack 'NN', ($size, $ctx->digest);
 seek(F,0,0);
 print <F>;
 close(F);
+$size += 8;
+print "\000" while ($size++ & 0xffff);
 }}}
 
-'''FIXME:''' vmlinux-lzma has already been rounded up to a 64K block multiple, so adding this header ought to be done first.
-
-This is good enough to convince stage2 to decompress and run it:
+Now you have a kernel which stage2 will happily decompress and run:
 
 {{{
 RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 part
-Raw file loaded 0x80041000-0x800f1007, assumed entry at 0x80041000
-RedBoot> fis create part1
-An image named 'part1' exists - continue (y/n)? y
+Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
+RedBoot> fis create linux
+An image named 'linux' exists - continue (y/n)? y
 ... Erase from 0xa8150000-0xa8490000: ....................................................
-... Program from 0x80041000-0x800f1008 at 0xa8150000: ............
+... Program from 0x80041000-0x800f1000 at 0xa8150000: ...........
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-root.jffs2-64k
+Raw file loaded 0x80041000-0x801c0fff, assumed entry at 0x80041000
+RedBoot> fis create -r 0x80041000 -e 0x80041000 rootfs
+An image named 'rootfs' exists - continue (y/n)? y
+... Erase from 0xa8490000-0xa87d0000: ....................................................
+... Program from 0x80041000-0x801c1000 at 0xa8490000: ................
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot> fis load stage2
@@ -581,17 +659,29 @@ Now booting linux kernel:
  Base address 0x80030000 Entry 0x80100000
  Cmdline :
 starting stage2
-reading flash at 0xa8150000 - 0xa8200000... done
-Calculating CRC... 0xf32c0ed3 - matches
+reading flash at 0xa8150000 - 0xa81fdc8e... done
+Calculating CRC... 0xf87cb83e - matches
 decompressing... done
 starting linux
+Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-2.0)) #1 Tue Jan 2 14:07:20 GMT 2007
+...
 }}}
 
-Unfortunately it fails at this point. (It also remains to be seen whether the kernel command line passed to stage2 is passed on to the kernel itself)
+The flash load and decompress now takes only about 7 seconds, and you can reboot without changing the !RedBoot config.
 
-== Installing via ssh ==
+= Installing via ssh =
 
 TBD
+
+= OpenWrt configuration =
+
+== IP ==
+
+By default, eth0 is configured as 192.168.1.1.
+
+== Storage ==
+
+Note that there's 1MB of additional storage available on /dev/mtd2, which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
 
 == Using a ramdisk root ==
 
