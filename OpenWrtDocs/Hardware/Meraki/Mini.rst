@@ -802,11 +802,12 @@ mtd5: 0000f000 00010000 "FIS directory"
 mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 root@OpenWrt:/# mkdir /storage
-root@OpenWrt:/# mount -r -t jffs2 /dev/mtd/2ro /storage
-mount: mounting /dev/mtd/2ro on /storage failed
+root@OpenWrt:/# mount -t jffs2 /dev/mtdblock/2 /storage
+root@OpenWrt:/# ls /storage
+BOOT_COUNT              config.old              random_seed
+config                  dropbear
+config.local            meraki-watchdog.status
 }}}
-
-'''FIXME:''' Why can't I mount it?
 
 = Meraki-released source =
 
