@@ -406,7 +406,7 @@ Also hardcoded is the FIS partition name of the root filesystem which is "rootfs
 +#define ROOTFS_NAME    "rootfs"
 }}}
 
-= Installing OpenWrt using serial console ==
+= Installing OpenWrt using serial console =
 
 Connect a serial port (115200 8N1, no flow control) to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
 
@@ -677,11 +677,39 @@ TBD
 
 == IP ==
 
-By default, eth0 is configured as 192.168.1.1.
+By default, eth0 is configured as 192.168.1.1. Change in /etc/config/network
 
 == Storage ==
 
-Note that there's 1MB of additional storage available on /dev/mtd2, which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
+Note that there's 1MB of additional flash available which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
+
+It's not accessible until you create a FIS partition entry for it:
+
+{{{
+RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x80041000 -n /storage
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+RedBoot>
+}}}
+
+After this:
+{{{
+root@OpenWrt:/# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00030000 00010000 "RedBoot"
+mtd1: 00020000 00010000 "stage2"
+mtd2: 00100000 00010000 "/storage"
+mtd3: 00340000 00010000 "linux"
+mtd4: 00330000 00010000 "rootfs"
+mtd5: 0000f000 00010000 "FIS directory"
+mtd6: 00001000 00010000 "RedBoot config"
+mtd7: 00010000 00010000 "board_config"
+root@OpenWrt:/# mkdir /storage
+root@OpenWrt:/# mount -r -t jffs2 /dev/mtd/2ro /storage
+mount: mounting /dev/mtd/2ro on /storage failed
+}}}
+
+'''FIXME:''' Why can't I mount it?
 
 == Using a ramdisk root ==
 
@@ -689,7 +717,7 @@ TBD
 
 == Using a squashfs root ==
 
-TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, which is then unioned with a writable jffs2 filesystem, as you get on Broadcom devices)
+TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
 
 = Meraki-released source =
 
