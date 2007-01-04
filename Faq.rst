@@ -490,6 +490,19 @@ done
 }}}
 I invite someone to clean this script up.  Only tested on White Russian pre-release 6.
 
+A somewhat cleaned up version of scan.sh with added DHCP lease expiration info:
+{{{
+#!/bin/sh
+for MAC in `wl assoclist | awk '{print $2}'`
+ do
+  echo -n "Computer: `grep -i ${MAC} /tmp/dhcp.leases | awk '{print $4}'`";
+  echo -n " IP: `grep -i ${MAC} /tmp/dhcp.leases | awk '{print $3}'`";
+  echo -n " Expires: `grep -i ${MAC} /tmp/dhcp.leases | awk '{print $1}' | awk '{print strftime("%x %X",$1)}'`" ;
+  echo -n " Signal Strength: `wl rssi $MAC | awk '{print $3}'` dBm" ;
+  echo " "
+ done
+}}}
+
 == What is the difference between wl0_* and wl_* variables? ==
 Use the {{{wl0_*}}} variables. The {{{wl_*}}} variables are obsolete and unused.
 
