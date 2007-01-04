@@ -463,7 +463,7 @@ Please append a correct "root=" boot option
 Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(1,0)
 }}}
 
-This problem will go away when you have a FIS partition called "rootfs". (Or you might be able to use a ramdisk kernel)
+This problem will go away when you have a FIS partition called "rootfs". (Or you could use a ramdisk kernel)
 
 == Create flash partitions ==
 
