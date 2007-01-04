@@ -96,21 +96,20 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 As you can see, the vmlinux.bin.l7 partition is of B0000, ergo 720896 bytes length. That means, that the kernel size should not exceed 720kb, but if it's smaller, everthing will be fine.
 Like wise the rootfs partition has a size of 0x700000 or 7340032 bytes. You've got 7.3 mb space.
 
-== Unbricking the Fonera==
+== Unbricking the Fonera ==
 This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]
 
 Some people asked me how to recover a fonera, here are some methods:
 
-===Methode 1===
+=== Methode 1 ===
     Press the reset button for > 15 seconds
-    This requires a working Fonera
-    Sometimes it didn't work for me.
+    This requires a working Fonera, and it should be on for a while.
     
-===Methode 2===
+=== Methode 2 ===
     Run "rm -R /jffs/*" and pull the plug
     It should result in a reseted fonera
     
-===Methode 3===
+=== Methode 3 ===
     If everything fails and you killed your shell on the serial console:
     As soon as you see "Please press Enter to activate this console." press Enter
     Now you have to hurry up!
@@ -142,8 +141,25 @@ Some people asked me how to recover a fonera, here are some methods:
     
     If this doesn't work you probably have to use a JTAG cable.
     
-===Methode 4===
-	A way to recover it with a TFTP server and redboot is [http://log.tigerbus.de/?p=89 here]
+=== Methode 4 ===
+A way to recover it with a TFTP server and redboot is [http://log.tigerbus.de/?p=89 here]
+
+=== Methode Custumer Care ===
+
+1. Double click the Local Area Connection icon to show the connection's Status dialog box. 
+2. Double click Internet Protocol (TCP/IP) 
+3. Click Start>Connect to>Show all connections, 
+4. Click the Use the following IP address option button and type: 
+a. IP address: 169.254.255.2 
+b. Subnet mask: 255.255.255.0 
+c. Default gateway: (leave blank) 
+d. Preferred DNS server: (leave blank) 
+e. Alternate DNS server: (leave blank) 
+5. Open your browser and type any URL (http://169.254.255.1). 
+6. You will be asked for the Username and Password. The default values are Username=admin, Password=admin. 
+7. Configure La Fonera 
+8. Turn La Fonera off and connect it to your router so you can continue working normally. 
+9. Remember to change again the values of your Local Area Network. 
 
 
 === Updating / Unbricking via redboot ===
