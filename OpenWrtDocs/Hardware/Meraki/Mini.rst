@@ -719,7 +719,7 @@ The Meraki should fetch your kernel+ramdisk and run it. After a minute or two yo
 
 == Install stage2 image ==
 
-If you're happy with this and want to make it permanent, first you'll want to make a stage2-compatible kernel image:
+If you're happy with this and want to make it permanent, first you'll want to make a stage2-compatible kernel image using the Perl script given above:
 
 {{{
 $ scripts/merakipart.pl build_mips/linux-2.6-atheros/vmlinux.bin.l7 >bin/part-rd
