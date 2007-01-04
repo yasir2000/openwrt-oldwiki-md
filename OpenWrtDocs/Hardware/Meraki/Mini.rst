@@ -406,6 +406,22 @@ Also hardcoded is the FIS partition name of the root filesystem which is "rootfs
 +#define ROOTFS_NAME    "rootfs"
 }}}
 
+== Using a ramdisk root ==
+
+If you select "target images" and change to "ramdisk" you'll get the following:
+
+{{{
+openwrt-atheros-2.6-vmlinux.elf
+openwrt-atheros-2.6-vmlinux.gz
+openwrt-atheros-2.6-vmlinux.lzma
+}}}
+
+This gives a single image which contains both the kernel and the root filesystem which runs from ramdisk. This is useful when trying to install on a machine where you don't have a serial console (see later)
+
+== Using a squashfs root ==
+
+TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
+
 = Installing OpenWrt using serial console =
 
 Connect a serial port (115200 8N1, no flow control) to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
@@ -669,31 +685,88 @@ Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-2
 
 The flash load and decompress now takes only about 7 seconds, and you can reboot without changing the !RedBoot config.
 
-== Using a ramdisk root ==
+= Installing without a serial console =
 
-TBD
-
-== Using a squashfs root ==
-
-TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
-
-= Installing via ssh =
-
-/!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you will need a serial console to fix it. Kamikaze is experimental code and you are NOT recommended to install !OpenWrt unless you have got a working serial console cable.
+/!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you will need a serial console to fix it. Kamikaze is experimental code and you should NOT install !OpenWrt unless you have got a working serial console cable.
 
 In theory it should be possible to overwrite just two partitions if your kernel is stage2-compatible:
 
  * /dev/mtd/3 with the CRC-prefixed kernel
  * /dev/mtd/4 with the rootfs
 
-And three partitions with a standard kernel
+Or three partitions with a standard kernel
  * /dev/mtd/3 with the kernel
  * /dev/mtd/4 with the rootfs
  * /dev/mtd/6 with a new !RedBoot config (fis load -d linux; exec)
 
-Unfortunately, neither of these will work with a vanilla Meraki because you'd also need to update the FIS directory to include the "rootfs" partition. Is there a tool which runs under Linux which can do this?
+Unfortunately, neither of these will work with a vanilla Meraki because you'd also need to update the FIS directory to include the "rootfs" partition. (Is there a tool which runs under Linux which can do this?)
 
-However it may be possible to use a ramdisk root kernel instead.
+However, instead you can use a kernel with a ramdisk root.
+
+== Build ramdisk kernel ==
+
+'make menuconfig', select 'target images', select 'ramdisk'. Then 'make'
+
+== Risk-free test using tftp or http ==
+
+Configure a PC as 192.168.84.9 with a tftp server.
+
+Copy bin/openwrt-atheros-2.6-vmlinux.elf to the tftp server with name "art_ap51.elf".
+
+Plug in your Meraki. Run tcpdump on the tftp server if you want to see what's happening.
+
+The Meraki should fetch your kernel+ramdisk and run it. After a minute or two you should be able to telnet to 192.168.1.1. If it fails, then you just power-cycle the unit and no harm is done.
+
+== Install stage2 image ==
+
+If you're happy with this and want to make it permanent, first you'll want to make a stage2-compatible kernel image:
+
+{{{
+$ scripts/merakipart.pl build_mips/linux-2.6-atheros/vmlinux.bin.l7 >bin/part-rd
+$ ls -l bin/part-rd
+-rw-r--r-- 1 candlerb candlerb 1966080 2007-01-04 10:35 bin/part-rd
+}}}
+
+(Make sure this is smaller than 3.25MB)
+
+Now you'll need to overwrite the 'part1' flash partition with this file. Unfortunately you can't do this from the !OpenWrt image you've just booted over tftp, because the flash partition isn't known to it:
+
+{{{
+root@OpenWrt:~# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00030000 00010000 "RedBoot"
+mtd1: 00020000 00010000 "stage2"
+mtd2: 0000f000 00010000 "FIS directory"
+mtd3: 00001000 00010000 "RedBoot config"
+mtd4: 00010000 00010000 "board_config"
+}}}
+
+So you need to:
+ * set up a DHCP server
+ * make sure the art_ap51.elf file is no longer on your tftp server (or the tftp server is no longer on 192.168.84.9)
+ * power-cycle the Meraki
+ * watch DHCP to see what IP address it picks up
+
+Now you're running the old Meraki firmware, which has the flash partitions hard-coded into it. Now you can copy the new image file, login, and write it to flash:
+
+{{{
+$ scp part-rd meraki@x.x.x.x:           # password is SN printed on bottom of box
+$ ssh meraki@x.x.x.x                    # ditto
+...
+root@meraki-node:~# cat /proc/mtd | grep part1
+mtd3: 00340000 00010000 "part1"
+root@meraki-node:~# mtd erase /dev/mtd3
+Unlocking mtd3 ...
+Erasing mtd3 ...
+root@meraki-node:~# dd if=part-rd of=/dev/mtd3 bs=1k
+1920+0 records in
+1920+0 records out
+root@meraki-node:~# reboot
+}}}
+
+Now cross your fingers and hope that the unit comes back up on 192.168.1.1. (However, if you uploaded a broken image with a bad CRC, the Meraki stage2 bootloader should revert to the firmware in part2)
+
+'''FIXME:''' Once you're running OpenWrt, there's no way to upgrade the firmware again!! This is because !OpenWrt still is missing the necessary partition info. We really need some tool to update the FIS partition table, or else for the kernel to have hardcoded partition info as Meraki does.
 
 = OpenWrt configuration =
 
