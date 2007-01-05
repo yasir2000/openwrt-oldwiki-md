@@ -22,7 +22,7 @@ For USB 1.1 you need to install
 ipkg install kmod-usb-uhci
 }}}
 
-'''TIP:''' Most USB chips have UHCI controllers. If that is not working for you install the {{{kmod-usb-ohci}}} package instead of the {{{kmod-usb-uhci}}} one. The BCM4712 will need {{{kmod-usb-ohci}}}!  
+'''TIP:''' Most USB chips have UHCI controllers. If that is not working for you install the {{{kmod-usb-ohci}}} package instead of the {{{kmod-usb-uhci}}} one. The BCM4710 and BCM4712 will need {{{kmod-usb-ohci}}}!  
 
 == Modules for USB 2.0 ==
 This package includes the modules for USB 2.0.
