@@ -64,7 +64,7 @@ If you are going to work much with the serial ports, recommend to use the buildr
 No JTAG header is available.  However, all basic pins are present on test points: 
 inline:wrtsl54gs_jtag.jpg
 
-SRST and TRST haven't been identified, but ignoring them doesn't prevent JTAG to operate.
+SRST and TRST haven't been identified, but ignoring them doesn't prevent JTAG from operating.
 
 Be warned that soldering or probing on test points is fairly tricky.
 
