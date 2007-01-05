@@ -29,7 +29,7 @@ Create a configuration file:
 {{{
 vi /etc/vpnc.conf}}}
 
-And insert the parameters for your connection in there. These parameters are normally given by your sysadmin. If you only have a {{{.pfc}}} file for the Cisco VPN client there is a perl script {{{pcf2vpn}}} to convert. Unfortunately the script is not included in vpnc backport package but in full vpnc packages and kvpnc, a KDE gui for vpnc. 
+And insert the parameters for your connection in there. These parameters are normally given by your sysadmin. If you only have a {{{.pfc}}} file for the Cisco VPN client there is a perl script {{{pcf2vpnc}}} to convert. Unfortunately the script is not included in vpnc backport package but in full vpnc packages and kvpnc, a KDE gui for vpnc.  You can also [http://svn.unix-ag.uni-kl.de/vpnc/trunk/pcf2vpnc download the pcf2vpnc source.] If you run into group password problems you may be able to decrypt your password [http://www.unix-ag.uni-kl.de/~massar/bin/cisco-decode on the web] if it does not make you uncomfortable.  
 
 Here is an example ''vpnc.conf'':
 {{{
