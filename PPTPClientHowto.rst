@@ -433,3 +433,5 @@ iptables --append POSTROUTING --table mangle --protocol tcp --dport 80 --jump RO
  Reference: http://www.netfilter.org/projects/patch-o-matic/pom-extra.html
  An alternative is using prerouting packet marking and policy routing.  http://lartc.org/howto/lartc.netfilter.html
  – JamesCameron
+
+Doec anyone have a recipe for setting up the packet marking solution on !OpenWrt. I have tried following the instructions on that page to the letter, but it just doesn't work. – BjörnLindström
