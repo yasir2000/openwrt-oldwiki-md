@@ -3,6 +3,10 @@
 The device is based on Texas Instruments [http://www.linux-mips.org/wiki/AR7 AR7], so you need the [:AR7Port] in OpenWrt trunk.
 It uses [:Bootbase] as the bootloader. There are detailed guides how to flash the firmware available [http://www.adslayuda.com/Zyxel650-9.html here] (spanish) [http://www.stkaiser.de/anleitung/ here] (german) and [http://www.dslrouter-hilfe.de/forum/showpost.php?p=49041&postcount=36 here] (german).
 
+== Status ==
+
+[http://www.ixo.de/info/zyxel_uclinux/ Kolja Waschk] had success booting uClinux kernel on previous ZyXEL Prestige router series (100, 310, 314, 316) and others.
+
 == Serial Console ==
 
 You can build a serial cable using various mobile cables as shown [http://www.adslayuda.com/index.php?name=PNphpBB2&file=viewtopic&t=53480 in this forum post] (spanish) and [http://www.stkaiser.de/anleitung/data/01_usb.html on this page] (german).
