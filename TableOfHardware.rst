@@ -72,7 +72,7 @@ See also
 ||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3050 || ||? ||4MB ||? || || || || || || ||Untested ||
-||FRITZ!Box WLAN 3130|| ||?||?||?|| || || || || || ||Untested||
+||FRITZ!Box WLAN 3130 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box Fon ata || || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
 ||FRITZ!Box Fon 5010 (analog) || ||ar7@150mhz ||4MB ||16MB ||None || || || || ||None ||Untested ||
@@ -308,7 +308,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
 == Philips ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||SNR6500 || ||Atheros AR2316 || || || || || ||Yes || ||No ||? ||
+||SNR6500 || ||Atheros AR2316 ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes, pin header soldered ||No ||? ||
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB || ||None || || || || ||Untested ||
@@ -327,7 +327,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||Yes ||Yes ||1x v2.0 ||No ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_80487_rArNrNrNrN,00.html SX541] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 ||Yes || ||Yes ||[:AR7Port:WiP] ||
 ||[http://subscriber.communications.siemens.com/subscriber_networks/4100images.shtml SpeedStream4200] ||Rev.B ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ (?) ||2MB(AM29LV160MB) ||8MB (IS42S16400B) || || || ||Yes(?) ||Yes ||Untested ||
-||Gigaset wlan 108 repeater || ||Atheros AR2316 || || || || ||Yes || ||No ||? ||
+||Gigaset wlan 108 repeater || ||Atheros AR2316 ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 ||Yes ||Yes ||No ||? ||
 The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, they just changed the case and the firmware)
 
 == Simpletech ==
@@ -339,7 +339,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||Texas Instruments AR7 @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
-||WEBT-G || ||Atheros AR2316 || || || || || ||Yes || ||No ||? ||
+||WEBT-G || ||Atheros AR2316 ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No ||? ||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
@@ -348,7 +348,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Infineon ADM6996L || ||Yes || ||1 x V1.1 ||[:AR7Port:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
-||Speedport 500V|| ||BCM6348KPB||4MB||16MB||yes||None|| ||yes|| ||yes||?||
+||Speedport 500V || ||BCM6348KPB ||4MB ||16MB ||yes ||None || ||yes || ||yes ||? ||
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
