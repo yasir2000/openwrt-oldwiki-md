@@ -12,7 +12,7 @@ Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
 Ethernet: 1x network controller, no switch
 IDE-Controller: Yes, PROMISE PDC20265R 
 USB: 1x USB 1.1   
-Serial: no
+Serial: no, but possible to add an external UART
 JTAG: no
 }}}
 
