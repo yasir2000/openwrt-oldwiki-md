@@ -7,7 +7,7 @@ These models have a 266 MHz CPU.  There are 2 variants:
 
 ||serial||flash||RAM  || firmware ||
 ||CJK0  ||8 MB ||32 MB|| WhiteRussian RC5 and later works.||
-||CJK1  ||4 MB ||32 MB|| (unverified)||
+||CJK1  ||8 MB ||32 MB|| WhiteRussian RC5 and later works.||
 
 The antenna is *NOT* removable. Well not without some soldering work.
 
