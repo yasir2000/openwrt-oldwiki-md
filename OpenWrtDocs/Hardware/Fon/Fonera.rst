@@ -38,21 +38,20 @@ to open the case, remove the two feet on the opposite site to the antenna jack, 
 
 == Serial ==
 
-It got populated serial headers
-
-    * VCC (3.3V) ? red
-    * GND ? blue
-    * RX ? white
-    * TX ? orange
-
 If the ethernet jack is in front of you, it looks like
 {{{
+VCC (3.3V) -> red
+GND        -> blue
+RX         -> white
+TX         -> orange
+
 b . o w .
 r . . . .
 
  O    O
 }}}
 
+[http://jauzsi.hu/img/others/fonera_serial.jpg Here] the picture.
 
 Serial settings are 9600-8-N-1
 
