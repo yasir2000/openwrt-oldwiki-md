@@ -614,7 +614,7 @@ Boot script:
 .. fis load stage2
 .. exec
 Enter script, terminate with empty line
->> fis load -d kernel
+>> fis load -d linux
 >> exec
 >>
 Boot script timeout (1000ms resolution): 2
