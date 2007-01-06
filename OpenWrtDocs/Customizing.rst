@@ -15,6 +15,7 @@ The contents of this section of the wiki can have serious consequences. While ev
   * [http://david.zope.nl/hardware/wl500g/wx200wl500g/] Adding a WX200 / WM918 / WMR918 / WMR968 Weather Station
   * [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture] Adding an LCD 
   * [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg picture] and [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg picture] Adding VGA Output
+  * [http://tibalfr.free.fr/pub/openwrt/54gsv2-inside.jpg picture] and [http://tibalfr.free.fr/pub/openwrt/54gsv2-front.jpg picture] Adding heatsinks, serial ports, a fan and a MMC slot
   * [http://yasha.okshtein.net/wrt54g/] How to Mobilize a WRT54g on a RC car
   * [http://www.byteclub.net/wiki/index.php?title=Wrt54g] Adding i2c bus
   * [:OpenWrtDocs/Customizing/Hardware/Power_over_Ethernet] Power Over Ethernet/Power Requirements
