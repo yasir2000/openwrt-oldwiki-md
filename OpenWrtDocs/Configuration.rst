@@ -353,6 +353,9 @@ For more information, see ClientModeHowto.
 
 = Basic system configuration and usage =
 == busybox - The Swiss Army Knife of Embedded Linux ==
+
+Provides replacements for most of the utilities usually found in GNU fileutils and shellutils. For details see [http://www.busybox.net/about.html here]
+
 == cron - job scheduler ==
 See HowtoEnableCron.
 
