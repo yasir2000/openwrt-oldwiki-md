@@ -426,12 +426,39 @@ exit 0
 
 How can I route only certain ports through the tunnel, and use my regular WAN interface for the rest of my traffic? – BjörnLindström
 
- * the iptables ROUTE target can do this, but I don't know if it is in the !OpenWrt kernel. It isn't in any of the kmod-ipt-* packages.  The module should be called ipt_ROUTE.  To redirect port 80 to exit via a PPTP tunnel interface:
+ * use prerouting packet marking and policy routing, according to the [http://lartc.org/howto/lartc.netfilter.html Linux Advanced Routing & Traffic Control HOWTO], for example:
+  * create a new routing table and add a rule to use it for packets marked with a 1:
+  {{{
+# mkdir /etc/iproute2
+# echo 201 table1 >> /etc/iproute2/rt_tables
+# ip rule add fwmark 1 table table1
+# ip rule ls
+0:  from all lookup local
+32764:  from all fwmark        1 lookup table1
+32766:  from all lookup main
+32767:  from all lookup default
+}}}
+  * set routes on the new table (here just a default route, probably should copy other entries from main routing table):
+  {{{
+# ip route add default via 192.168.0.1 dev vlan1 table table1
+# ip route list table table1
+default via 192.168.0.1 dev vlan1
+}}}
+  * Add netfilter rules to mark packets (here on TCP 80):
+  {{{
+# iptables -t mangle -A PREROUTING -p tcp --dport 80 -j MARK --set-mark 1
+# iptables -t mangle -L PREROUTING -v
+Chain PREROUTING (policy ACCEPT 5543K packets, 3265M bytes)
+pkts bytes target     prot opt in     out     source               destination 
+   20  3924 MARK       tcp  --  any    any     anywhere             anywhere            tcp dpt:80 MARK set 0x1
+}}}
+ References:
+  * http://lartc.org/howto/lartc.netfilter.html
+  * http://forum.openwrt.org/viewtopic.php?pid=40355
+
+ * the iptables ROUTE target extension can also do this, but it is not in the !OpenWrt kernel. It isn't in any of the kmod-ipt-* packages.  The module would be called ipt_ROUTE.  Using this method, to redirect port 80 to exit via a PPTP tunnel interface:
  {{{
 iptables --append POSTROUTING --table mangle --protocol tcp --dport 80 --jump ROUTE --oif ppp0 --continue
 }}}
- Reference: http://www.netfilter.org/projects/patch-o-matic/pom-extra.html
- An alternative is using prerouting packet marking and policy routing.  http://lartc.org/howto/lartc.netfilter.html
- – JamesCameron
-
-I've gotten a bit further on my quest for iproute2-based per-port routing. I'd like to hear if you have any input on this: http://forum.openwrt.org/viewtopic.php?pid=40355#p40355 – BjörnLindström
+ References:
+  * http://www.netfilter.org/projects/patch-o-matic/pom-extra.html
