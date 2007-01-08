@@ -427,6 +427,9 @@ exit 0
 How can I route only certain ports through the tunnel, and use my regular WAN interface for the rest of my traffic? – BjörnLindström
 
  * use prerouting packet marking and policy routing, according to the [http://lartc.org/howto/lartc.netfilter.html Linux Advanced Routing & Traffic Control HOWTO], for example:
+
+'''Note that this will not work on White Russian RC6''' (see http://forum.openwrt.org/viewtopic.php?pid=40355)
+
   * create a new routing table and add a rule to use it for packets marked with a 1:
   {{{
 # mkdir /etc/iproute2
@@ -452,6 +455,7 @@ Chain PREROUTING (policy ACCEPT 5543K packets, 3265M bytes)
 pkts bytes target     prot opt in     out     source               destination 
    20  3924 MARK       tcp  --  any    any     anywhere             anywhere            tcp dpt:80 MARK set 0x1
 }}}
+
  References:
   * http://lartc.org/howto/lartc.netfilter.html
   * http://forum.openwrt.org/viewtopic.php?pid=40355
