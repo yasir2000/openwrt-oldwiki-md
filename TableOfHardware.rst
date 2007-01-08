@@ -74,7 +74,7 @@ See also
 ||FRITZ!Box WLAN 3050 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3130 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
-||FRITZ!Box Fon ata || || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
+||FRITZ!Box Fon ata || ||ar7@150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
 ||FRITZ!Box Fon 5010 (analog) || ||ar7@150mhz ||4MB ||16MB ||None || || || || ||None ||Untested ||
 ||FRITZ!Box Fon 5012 (ISDN) || ||? ||4MB ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon || ||ar7@150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
