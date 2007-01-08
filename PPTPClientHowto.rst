@@ -443,7 +443,7 @@ How can I route only certain ports through the tunnel, and use my regular WAN in
 }}}
   * set routes on the new table (here just a default route, probably should copy other entries from main routing table):
   {{{
-# ip route add default via 192.168.0.1 dev vlan1 table table1
+# ip route add default dev vlan1 table table1
 # ip route list table table1
 default via 192.168.0.1 dev vlan1
 }}}
