@@ -100,14 +100,6 @@ Thus, to light the Power LED:
 gpio disable 7
 }}} 
 
-The manual method, as described by Oleg (of Asus firmware hacking fame) is as follows: 
-
-{{{
-The number stays for the bit number. The gpio port itself is accessible via /dev/gpio/*. You've to read outen, OR it with 0x40 (GPIO6) and write back - this should turn the led on. Then you will need to play with bit 6 in the /dev/gpio/out to change LED color.
-}}}
-
-fwiw, he was describing the Microsoft mn700 at the time. It is unclear how to change the LED color on the Dell 2300, and it doesn't appear to be possible with the gpio utility.  
-
 The Restore button is likely connected to a gpio pin as well, but the author of this section hasn't bothered to figure out which one. 
 
 ----
