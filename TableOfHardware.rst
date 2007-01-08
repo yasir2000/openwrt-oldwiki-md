@@ -339,7 +339,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||Texas Instruments AR7 @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
-||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No ||? ||
+||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No || [:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
@@ -393,4 +393,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . ["CategoryAR7Device"]
 ----
-CategoryModel
+ CategoryModel
