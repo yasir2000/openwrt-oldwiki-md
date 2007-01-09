@@ -97,7 +97,7 @@ reboot
 
 '''TIP:''' The modules can also be loaded using {{{insmod}}} to avoid rebooting.
 
-'''TIP:''' You can install support for more file systems by installing the correct packages.
+'''TIP:''' You can install support for more file systems by installing the appropriate packages.
 
 ||'''File system''' ||'''Package name''' ||'''Comment''' ||
 ||VFAT/MSDOS ||kmod-vfat ||File system generally used in USB devices and older Windows ||
