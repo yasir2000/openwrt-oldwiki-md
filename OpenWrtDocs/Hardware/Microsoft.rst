@@ -40,7 +40,7 @@ regulation_domain=0X30DE
 
 This was obtained by running 'strings' against /dev/mtd/0ro. macaddr values will obviously vary by whatever value you patched cfe.bin with when you jtagged your mn-700. 
 
-It still may not be safe to execute 'nvram reset' on this hardware. But hey, you have jtag. Go nuts. 
+It still may not be safe to erase the nvram on this hardware. But hey, you have jtag. Go nuts. 
 
 = Power LED =
 
@@ -48,7 +48,7 @@ As of Whiterussian RC6 the diag driver detects this router as an Asus WL500g. Th
 
 Since diag doesn't recognize the board correctly, the power LED does not light or blink. Other LEDs work fine. 
 
-The power button is GPIO 6. 
+The power led is GPIO 6. 
 
 If you wish to fiddle with it manually, the easiest method is to use the gpio utility:  http://downloads.openwrt.org/utils/gpio.tar.gz
 
