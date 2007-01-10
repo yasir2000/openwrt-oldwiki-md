@@ -46,6 +46,26 @@ What makes the Speedport W500V a quite atttractive device is the PBX part. It ca
 
 Uses a 16V DC, 900mA PSU
 
+'''4) Hardware Specs '''
+
+::: still collecting data :::
+
+'''5) Serial '''
+
+Possible Serial connection at two different points.
+
+'''6) JTAG'''
+
+No research done into JTAG yet.
+
+'''7) Pictures'''
+
+This is a picture of the top side view of the board. As you can see there is a populated 4 pin connection under the daughter board and an unpopulated 4 connection point spot behind the PULSE component.
+
+This could possibly be serial.
+
+http://pihost.us/~stacato/DSCF2140.JPG
+
 = System Information =
 '''1) cat /proc/version'''
 
