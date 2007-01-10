@@ -37,10 +37,21 @@ to open the case, remove the two feet on the opposite site to the antenna jack, 
 If the ethernet jack is in front of you, it looks like
 
 {{{
+_____________________
+|GND| . |RXD|TXD| . |
+|VCC| . | . | . | . |
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+
+|Power| |Ethernet|
+
+}}}
+
+{{{
 VCC (3.3V) -> red
 GND        -> blue
 RX         -> white
 TX         -> orange
+
 b . o w .
 r . . . .
  O    O
