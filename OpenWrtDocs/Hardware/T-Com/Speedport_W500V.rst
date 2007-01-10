@@ -1,4 +1,4 @@
-= 1. General Information =
+= General Information =
 The Speedport W500V is a Broadband Router with integrated DSL Modem, WLan Module and ISDN + Analog PBX capability for VoIP. Manufactured by Hitachi High Technologies and OEM'ed primarily through the T-Com in germany.
 
 What makes the Speedport W500V a quite atttractive device is the PBX part. It can route incoming calls from either landline and VoIP onto the connected analog phones. Comparable to what the AVM FritzBox FON Routers can do. For outgoing rules can be set to either route the call into landline or over a VoIP SIP Provider.
