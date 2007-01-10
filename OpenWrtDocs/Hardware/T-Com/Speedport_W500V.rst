@@ -64,7 +64,7 @@ This is a picture of the top side view of the board. As you can see there is a p
 
 This could possibly be serial.
 
-http://pihost.us/~stacato/DSCF2140.JPG
+http://blueflubberball.de/SpeedPort_W500V/DSCF2177.JPG
 
 = System Information =
 '''1) cat /proc/version'''
@@ -412,6 +412,7 @@ asd
 
 = Recovery =
 asd
+
 = Links and Downloads =
 asd
 
