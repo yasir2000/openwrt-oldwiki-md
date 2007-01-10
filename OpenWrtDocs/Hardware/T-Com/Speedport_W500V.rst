@@ -410,26 +410,33 @@ TCM_GetFXOState, generate cas event = "18"
 Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/mtdblock0            2880      2880         0 100% /
 tmpfs                      256       160        96  63% /var}}}
+'''10) Webinterface'''
+
+{{{
+Factory Settings set the IP of the SpeedPOrt W500V LAN Interface to: 192.168.2.1
+Webinterface: http://192.168.2.1}}}
 = Firmware and Firmware Hacks =
 '''Original Firmware'''
 
 The Original Firmware Sources with the Tollchains is released by Hitachi High Technologies.
 
-It can be grabbed from their website. http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705 It's a 82MB download.
+It can be grabbed from their website. http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705. It's an 82MB download.
 
 The latest T-Com Firmware Version 1.3 and sources can be grabbed from their website.
 
-Firmware:http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
+Firmware: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 
-Changelog:http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txtGNU Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
+Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
 
-Custom Firmware
-
-There is a Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
+'''Custom Firmware'''There is a Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
 
 It's called mod500. http://sourceforge.net/projects/mod500/
 
-It enables telnet on the SpeedPort W500V. User: root || Password: <webinterface password> (Stock Password = 0000)
+It enables telnet on the SpeedPort W500V.
+
+    User: root
+
+    Password: ''<webinterface password>'' (Factory Password = 0000)
 
 With the mod500 Firmware flashed you can now use the DMT Program to read out system and DSL information.
 
@@ -449,7 +456,7 @@ T-Com Firmware GPL Public License: http://www.telekom.de/dtag/downloads/s/Statem
 
 T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 
-mod500 Firmware split from Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
+mod500 Firmware split from T-Com Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
 
 DMT Program: http://dmt.mhilfe.de/
 
