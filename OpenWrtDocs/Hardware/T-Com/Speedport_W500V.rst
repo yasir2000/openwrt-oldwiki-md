@@ -439,15 +439,19 @@ http://blueflubberball.de/SpeedPort_W500V/DMT.JPG
 If the Firmware Update failed and the router is bricked Firmware wise, during boot time you have the chance to reflash the stock firmware via an emergency Webinterface reachable under 192.168.1.1.
 
 = Links and Downloads =
-Hitachi High Technologies Firmware Sources + Toolchain:http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705T-Com Firmware Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
+Hitachi High Technologies Firmware Sources + Toolchain: http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705
+
+T-Com Firmware Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
 
 T-Com Firmware Changelog in German: http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txt
 
 T-Com Firmware GPL Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
 
- T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
+T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 
-mod500 Firmware split from Stock Rev. 1.3:http://sourceforge.net/projects/mod500/DMT Program: http://dmt.mhilfe.de/
+mod500 Firmware split from Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
+
+DMT Program: http://dmt.mhilfe.de/
 
 = Misc =
 To contact me: stacato [at] gmail [DOT] com
