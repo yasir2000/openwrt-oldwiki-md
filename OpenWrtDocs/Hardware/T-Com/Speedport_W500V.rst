@@ -434,16 +434,22 @@ It's called mod500. http://sourceforge.net/projects/mod500/
 
 It enables telnet on the SpeedPort W500V.
 
-    User: root
-
-    Password: ''<webinterface password>'' (Factory Password = 0000)
-
+ . User: root
+ Password: ''<webinterface password>'' (Factory Password = 0000)
 With the mod500 Firmware flashed you can now use the DMT Program to read out system and DSL information.
 
 http://blueflubberball.de/SpeedPort_W500V/DMT.JPG
 
 = Recovery =
 If the Firmware Update failed and the router is bricked Firmware wise, during boot time you have the chance to reflash the stock firmware via an emergency Webinterface reachable under 192.168.1.1.
+
+1) Unplug the Power for 3 - 5 seconds
+
+2) Hold the reset button
+
+3) Re-plug the power still holding the reset button
+
+The router will now go into safe mode where the stock firmware can be reflashed.
 
 = Links and Downloads =
 Hitachi High Technologies Firmware Sources + Toolchain: http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705
