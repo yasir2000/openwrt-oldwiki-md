@@ -5,7 +5,7 @@ What makes the Speedport W500V a quite atttractive device is the PBX part. It ca
 
 = 2. Hardware =
 '''1) Connections '''
-||||<style="text-align: center;">Connection Types ||
+||||<style="text-align: center;">'''Connection Types''' ||
 ||Amount ||Type ||
 ||1 ||WAN ||
 ||1 ||LAN ||
