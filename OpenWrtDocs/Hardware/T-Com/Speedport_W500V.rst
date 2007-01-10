@@ -161,9 +161,12 @@ ip_conntrack_gre 1968 2 ip_nat_pptp,ip_conntrack_pptp, Live 0xc0049000
 ip_conntrack_ftp 20576 1 ip_nat_ftp, Live 0xc0042000
 iptable_mangle 960 0 - Live 0xc0006000
 iptable_nat 15184 9 ipt_REDIRECT,ipt_MASQUERADE,ip_nat_tftp,ip_nat_pptp,ip_nat_irc,ip_nat_h323,ip_nat_gre,ip_nat_ftp, Live 0xc003d000
-ip_conntrack 24720 16 ipt_state,ipt_REDIRECT,ipt_MASQUERADE,ip_traffic,ip_nat_tftp,ip_nat_pptp,ip_nat_irc,ip_nat_h323,ip_nat_ftp,ip_conntrack_tftp,ip_conntrack_pptp,ip_conntrack_irc,ip_conntrack_h323,ip_conntrack_gre,ip_conntrack_ftp,iptable_nat, Live 0xc0012000
+ip_conntrack 24720 16 ipt_state,ipt_REDIRECT,ipt_MASQUERADE,ip_traffic,ip_nat_tftp,ip_nat_pptp,ip_nat_irc,ip_nat_h323,ip_nat_ftp,
+ip_conntrack_tftp,ip_conntrack_pptp,ip_conntrack_irc,ip_conntrack_h323,ip_conntrack_gre,ip_conntrack_ftp,
+iptable_nat, Live 0xc0012000
 iptable_filter 928 1 - Live 0xc0010000
-ip_tables 13984 11 ipt_state,ipt_mark,ipt_limit,ipt_TCPMSS,ipt_REDIRECT,ipt_MASQUERADE,ipt_MARK,ipt_LOG,iptable_mangle,iptable_nat,iptable_filter, Live 0xc002d000
+ip_tables 13984 11 ipt_state,ipt_mark,ipt_limit,ipt_TCPMSS,ipt_REDIRECT,ipt_MASQUERADE,ipt_MARK,ipt_LOG,iptable_mangle,
+iptable_nat,iptable_filter, Live 0xc002d000
 endpointdd 1265472 0 - Live 0xc0270000
 wl 522288 0 - Live 0xc0115000
 bcm_enet 18192 0 - Live 0xc0027000
@@ -408,7 +411,30 @@ Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/mtdblock0            2880      2880         0 100% /
 tmpfs                      256       160        96  63% /var}}}
 = Firmware and Firmware Hacks =
-asd
+'''Original Firmware'''
+
+The Original Firmware Sources with the Tollchains is released by Hitachi High Technologies.
+
+It can be grabbed from their website. http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705 It's a 82MB download.
+
+The latest T-Com Firmware Version 1.3 and sources can be grabbed from their website.
+
+Firmware:http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
+Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
+
+Changelog:http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txtGNU Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
+
+Custom Firmware
+
+There is a Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
+
+It's called mod500. http://sourceforge.net/projects/mod500/
+
+It enables telnet on the SpeedPort W500V. User: root || Password: <webinterface password> (Stock Password = 0000)
+
+With the mod500 Firmware flashed you can now use the DMT Program to read out system and DSL information.
+
+http://blueflubberball.de/SpeedPort_W500V/DMT.JPG
 
 = Recovery =
 asd
