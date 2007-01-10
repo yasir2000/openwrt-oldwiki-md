@@ -179,7 +179,7 @@ Misc:
 In summary, you could find the wifi interface known by three different identifiers: as {{{wl0_*}}} for the physical interface settings, as {{{wifi_*}}} for its IP settings if it's on a separate subnet, and as {{{eth1}}} or {{{eth2}}} to the kernel, depending on your hardware. Confused? :)
 
 == Static Routes ==
-Static routes are a bit uglier to maintain, but they are still maintainable. There is only one NVRAM setting for them: '''{{{static_route}}}'''. This contains all the static routes to be added upon boot-up.
+Static routes are a bit uglier to maintain, but they are still maintainable. Until RC5 there is only one NVRAM setting for them: '''{{{static_route}}}'''. This contains all the static routes to be added upon boot-up. From RC6 there can be '''{{{<ifname>_static_route}}}''' NVRAM variables for each interface, e.g. '''{{{lan_static_route}}}'''.
 
 The syntax of the {{{static_route}}} NVRAM variable is as follows:
 
@@ -188,13 +188,15 @@ The syntax of the {{{static_route}}} NVRAM variable is as follows:
 So, for example, to set a static route to 10.1.2.0/255.255.255.0 via vlan1, use:
 
 {{{
-nvram set static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1
+nvram set static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1 # until RC5
+nvram set lan_static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1 # from RC6
 }}}
 
 This will make 10.1.2.0 directly connected. To route via a router, use:
 
 {{{
-nvram set static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1
+nvram set static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 # until RC5
+nvram set lan_static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 # from RC6
 }}}
 
 This will use vlan1 to send packets to 10.1.2.0 via router 192.168.1.1
@@ -204,7 +206,8 @@ As of the most recent CVS build, all values must be present. The networking scri
 To add multiple routes, seperate each route formatted as above with a space. To avoid the shell truncating after the first space, you need to quote:
 
 {{{
-nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1"
+nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1" # until RC5
+nvram set lan_static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1" # from RC6
 }}}
 
 == misc ==
