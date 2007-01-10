@@ -419,8 +419,7 @@ It can be grabbed from their website. http://www.hht-eu.com/pls/hht/wt_show.text
 
 The latest T-Com Firmware Version 1.3 and sources can be grabbed from their website.
 
-Firmware:http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
-Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
+Firmware:http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
 
 Changelog:http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txtGNU Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
 
@@ -437,10 +436,17 @@ With the mod500 Firmware flashed you can now use the DMT Program to read out sys
 http://blueflubberball.de/SpeedPort_W500V/DMT.JPG
 
 = Recovery =
-asd
+If the Firmware Update failed and the router is bricked Firmware wise, during boot time you have the chance to reflash the stock firmware via an emergency Webinterface reachable under 192.168.1.1.
 
 = Links and Downloads =
-asd
+Hitachi High Technologies Firmware Sources + Toolchain:http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705T-Com Firmware Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
+
+T-Com Firmware Changelog in German: http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txt
+
+T-Com Firmware GPL Public License:http://www.telekom.de/dtag/downloads/s/Statement.doc
+T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
+
+mod500 Firmware split from Stock Rev. 1.3:http://sourceforge.net/projects/mod500/DMT Program: http://dmt.mhilfe.de/
 
 = Misc =
-asd
+To contact me: stacato [at] gmail [DOT] com
