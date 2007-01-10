@@ -443,8 +443,9 @@ Hitachi High Technologies Firmware Sources + Toolchain:http://www.hht-eu.com/pls
 
 T-Com Firmware Changelog in German: http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txt
 
-T-Com Firmware GPL Public License:http://www.telekom.de/dtag/downloads/s/Statement.doc
-T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
+T-Com Firmware GPL Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
+
+ T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 
 mod500 Firmware split from Stock Rev. 1.3:http://sourceforge.net/projects/mod500/DMT Program: http://dmt.mhilfe.de/
 
