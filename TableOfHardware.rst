@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2006/06/13.
+This is a table of all supported devices as of 2007/01/11.
 
 '''Status Legend''':
 
@@ -160,6 +160,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||?? ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||16MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB ||16MB ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
+== Dovado ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
+||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
 == Dynalink ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 RTA230] ||? ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] ||2MB ||16MB ||No ||No ||Yes ||Yes ||Yes ||1x 1.1 ||Preliminary support in Kamikaze ||
@@ -339,20 +342,18 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||Texas Instruments AR7 @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
-||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No || [:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
+||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
 == T-Com ==
 ||<tablewidth="1110px" tableheight="185px">'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Infineon ADM6996L || ||Yes || ||1 x V1.1 ||[:AR7Port:WiP] ||
-||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic] || ||[http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510] ||2MB ||16MB ||Conexant ISL3886 - miniPCI ||Infineon ADM6996L || ||Yes || || No || Info entered ||
+||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic] || ||[http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510] ||2MB ||16MB ||Conexant ISL3886 - miniPCI ||Infineon ADM6996L || ||Yes || ||No ||Info entered ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||Speedport 500V || ||BCM6348KPB ||4MB ||16MB ||no ||None || ||yes || ||yes ||? ||
-||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||possible || possible || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
-
-
+||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||possible ||possible || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
