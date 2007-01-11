@@ -28,9 +28,9 @@ White Russian ships in several variations, each with a slightly different set of
  pptp/
   . Standard image (web interface, pptp)
 ||'''Folder''' ||'''Package list''' ||
-||micro ||base-files, base-files-brcm, bridge, busy box, dns masq, dropbear, ipkg-sh, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, mtd, nvram, uclibc, wificonf ||
-||bin=default ||base-files, base-files-brcm, bridge, busybox, dns masq, dropbear, haserl, ipkg, ip tables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, mtd, nvram, ppp, ppp-mod-pppoe, uclibc, webif, wificonf, wireless-tools ||
-||pptp ||base-files, base-files-brcm, bridge, busybox, dnsmasq, dropbear, haserl, ipkg, iptables, iwlib, kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, mtd, nvram, ppp, pptp, uclibc, webif, wificonf, wireless-tools ||
+||micro ||base-files, base-files-brcm, bridge, ["busybox"], dns masq, ["dropbear"], ipkg-sh, iptables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, ["mtd"], nvram, ["uclibc"], wificonf ||
+||bin=default ||base-files, base-files-brcm, bridge, ["busybox"], dns masq, ["dropbear"], ["haserl"], ipkg, ip tables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, ["mtd"], nvram, ppp, ppp-mod-pppoe, ["uclibc"], webif, wificonf, wireless-tools ||
+||pptp ||base-files, base-files-brcm, bridge, ["busybox"], dnsmasq, ["dropbear"], ["haserl"], ipkg, iptables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, ["mtd"], nvram, ppp, pptp, ["uclibc"], webif, wificonf, wireless-tools ||
 
 (alternate, easier to see listing) The bin firmware is the default version. 
 ||firmware||base files||base files brcm||bridge||busy box||dnsmasq||drop bear||	haserl||ipkg||iptables||iwlib||kmod switch||kmod brcm wl||
