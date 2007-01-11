@@ -20,5 +20,5 @@ Probably easiest way to access VoIP side is logon to WRG using serial port and e
 
 == Links ==
  * [http://www.dovado.com/Portfolio_WRG.html Manufacturers page]
- * [http://www.sukkamehulinko.romikselle.com/openwrt/dovado/dovido-console.txt Bootlog]
+ * [http://www.sukkamehulinko.romikselle.com/openwrt/dovado/dovado-console.txt Bootlog]
  * [http://www.myson.com.tw/products.php?op=pdetail&flang=EN&ProductKind=2&ProductNo=119 VoIP MCU info]
