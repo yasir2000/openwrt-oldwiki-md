@@ -17,3 +17,4 @@ Stock firwmare is based on Linux 2.6.14.2 and Busybox. Device is designed by Swe
 == Links ==
  * [http://www.dovado.com/Portfolio_WRG.html Manufacturers page]
  * [http://www.sukkamehulinko.romikselle.com/openwrt/dovado/dovido-console.txt Bootlog]
+ * [http://www.myson.com.tw/products.php?op=pdetail&flang=EN&ProductKind=2&ProductNo=119 VoIP MCU info]
