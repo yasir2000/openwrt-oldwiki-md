@@ -12,5 +12,6 @@ So I started to look to the different packages contained in the firmware
  * ["haserl"]
  * ["iwlib"]
  * ["uclibc"]
+ * ["mtd"]
 ----
 CategoryHomepage
