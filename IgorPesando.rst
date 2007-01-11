@@ -10,5 +10,6 @@ So I started to look to the different packages contained in the firmware
  * ["dropbear"]
  * ["haserl"]
  * ["iwlib"]
+ * ["uclibc"]
 ----
 CategoryHomepage
