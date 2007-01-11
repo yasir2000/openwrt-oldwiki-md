@@ -4,7 +4,7 @@
 
 Email: [[MailTo(ipesando AT SPAMFREE to DOT infn DOT it)]]
 
-Trying to understand what there is in openwrt before installing it...
+Trying to understand what there is in openwrt before installing it :))
 
 ----
 CategoryHomepage
