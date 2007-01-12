@@ -24,10 +24,9 @@ Problems with the hardware detection in Whiterussian RC5 have been fixed in RC6.
 
 Whiterussian RC6 "micro" will work, but limited RAM will result in poor stability when using PPPOE. The possibility of a RAM upgrade to 16 or 32MByte, and of retrofitting USB, makes this box a cheap alternative to more expensive hardware like ASUS WL500G.
 
-__ /!\ __ '''The reset button is hardwired on the SE505V2, so there is no failsafe mode. The ''''''CFE will ''''''reset default nvram settings by pressing the reset button while turning on the router. '''
+__ /!\ __ '''The reset button is hardwired on the SE505V2, so there is no failsafe mode. The ''''''CFE will ''''''reset default nvram settings by pressing the reset button while turning on the router (see reset-button-mod below). '''
 
 __ /!\ __ '''The tftp address during boot_wait is determined by NVRAM. CFE-default is 192.168.1.1 '''
-
 
  .
 == Internal Connectors ==
@@ -58,33 +57,33 @@ Refer to the [:Serial Console:Serial Console ]page for details on the necessary 
 
 == SE505V2 Hardware Mods ==
 === RAM Upgrade ===
-__ /!\ __ Upgrading memory will void the warranty and it requires a steady hand and good soldering skills.
-  
-The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. RAM initialization in the CFE seems to be fixed to 4Mx16 (it gnores the sdram_init value in the nvram). 8Mx16 chips will be used as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible.  32MB are reported to work by using two 16Mx16 chips.
+__ /!\ __ Upgrading memory will void the warranty, and requires a steady hand and good soldering skills.
+
+The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. The RAM initialization of the CFE gnores the sdram_init value in the nvram, and 8Mx16 chips will be accessed as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible, and will give the same result as two 4Mx16 chips.  32MB are reported to work by using two 16Mx16 chips.
 
 Instructions to upgrading from 8MB to 16MB:
 
-1) find the right SDRAM chips:
-64MB or 128MB SODIMMS are a good source for SDRAM chips with a bus width of 16 bit (always check the data sheet!). Unsoldering the chips with a hot-air gun works fine (be careful not to overheat the chips!). 
+1) find the right SDRAM chips: 64MB or 128MB SODIMMS are a good source for SDRAM chips with the right bus width (16 bit - always check the data sheet!). Unsoldering the chips with a hot-air gun works fine (be careful not to overheat the chips!).
 
-2)desolder the LEDs (at least the WLAN- and the WWW-led)
+2) desolder the LEDs (at least the WLAN- and the WWW-LED)
 
-3 clean the RAM pads using a 50W soldering iron and desoldering wick. 
+3 clean the RAM pads using a 50W soldering iron and desoldering wick.
 
-4) solder a 4Mx16 SDRAM chip to the unpopulated RAM pads:
-Hint: desoldering wick and a strong (50W) soldering iron works better than an expensive soldering needle! Do not overheat the pads and doubble check for short circuits between pins. 
+4) solder a 4Mx16 SDRAM chip to the unpopulated RAM pads.
+
+ Hint: using desoldering wick and a strong (50W) soldering iron works better than an expensive soldering needle! Do not overheat the pads and double check for shorts!
 
 5) connect the address lines for the second RAM chip:
 
 {{{
-shorten the pads with the following labels using really fine wire:
+shorten the pads with the following labels using (very) fine wire:
   R314
   R315
   R316
   R317
   R318
 }}}
-After booting the router you should have 16MB.
+After booting the router you should have 16MB!
 
 Now do:
 
@@ -93,7 +92,7 @@ nvram set sdram_ncdl=0
 nvram commit
 reboot
 }}}
-to let the CFE reconfigure the timing value. This is all you have to do! It makes no sense to change in sdram_init, since it is ignored by the CFE of this router.
+to let the CFE reconfigure the timing value. This is all you have to do! It makes no sense to adjust sdram_init, since it is ignored by the CFE of this router.
 
 Hint: don't solder a capacitor to C319! This capacitor is for fine trimming the RAM timing, and it isn't necessary for stable operation..
 
@@ -102,11 +101,11 @@ Hint: for upgrading to 32MB you'll need two 16x16MB chips from a 4 chip 128MB, o
 TODO: If you solder 32 MB into the router (two 8Mx16 SDRAM), only 16MB will be used (32MB when upgrading with 64MB chips). According to the boot message on the serial interface, the CFE  only sees 16MB. Setting a different value to "sdram_init" doesn't help. If anyone knows how to build the Siemens / Belkin variant of the broadcom CFE, please let us know.
 
 === Retrofitting USB ===
-The SE505V2 can be retrofitted a USB1.1 port. Note that mass storage attached to USB1.1 "full speed" is much faster than SDcards with the MMC mod, and it uses only a fraction of the CPU cycles of simulated SPI interface through GPIO. Writing to a thumb drive formated with the EXT2 is typically 10 times as fast as writing to the JFFS file system ([http://forum.openwrt.org/viewtopic.php?id=8656: see forum thread])!
+The SE505V2 can be retrofitted a USB1.1 port. Note that a mass storage device (as a thumb drive) attached to USB1.1 is much faster than SDcards attached with the MMC mod (it uses only a small fraction of the CPU cycles of the SPI interface  simulated with GPIO). Writing to a thumb drive formated with the EXT2 is typically 10 times as fast as writing to the JFFS file system ([http://forum.openwrt.org/viewtopic.php?id=8656: see forum thread])!
 
-The following USB devices have been tested with this mod : thumb drive, USB HD, RS232 interface (PL2303), USB CTC device, audio class device, USB hub.
+The following USB devices have been tested with this mod : USB hub, MSD (hard disc, thumb drive), RS232 interface (PL2303), CDC device (modem), audio class device (USB speakers), OV511 webcam
 
-Note: for taking full advantage of the USB mod, a RAM upgrade is highly recommended!
+Note: for taking full advantage of the USB mod, a RAM upgrade to 16MB is highly recommended!
 
 Instructions for retrofitting a USB port to the SE505V2:
 
@@ -116,13 +115,13 @@ Instructions for retrofitting a USB port to the SE505V2:
 On the power plug side you will unpopulated pads. Add the following components:
   C906: capacitor 100µF ( >= 16V )
   C986: capacitor 10µF ( > 16V )
-  U981: LM7805 (TO220 w/ pin 2 bended to the back side will work)
+  U981: LM7805 (DPAC or TO220 w/ pin 2 bended to the back side will work)
 }}}
 2) USB components :
 
 {{{
 On the antenna side of the PCB add the following components:
-  F51: shorten(better use a 500mA polyfuse)
+  F51: shorten(or better use a 500mA polyfuse)
   R723 and R724: resistors 15k
   R733 and R734: shorten (better use 22R - 33R)
   J51: USB-plug (Reichelt.de part# "USB AW-VL")
@@ -130,7 +129,7 @@ On the antenna side of the PCB add the following components:
 Software side: Installing USB kernel modules is simple. Note that the SE505V2 has an OHCI controller.
 
 === Reset Button Mod ===
-The reset button is hard wired to the CPU reset generator chip (7703I) by a capacitor. By removing this capacitor entering failsafe mode, as well as running scripts in /etc/hotplug.d/buttons is possible (very useful for unmounting USB mass storage devices!).
+The reset button is hard wired to the CPU reset generator chip (7703I) through a capacitor. Failsafe mode, as well as running scripts in /etc/hotplug.d/buttons is possible after removing this capacitor (very useful for unmounting USB mass storage devices!).
 
 Instructions:
 
@@ -142,9 +141,7 @@ Locate C365 near J7 (JTAG connector) and LED "LAN4".
 }}}
 2) Software side
 
-As of Whiterussian RC6 there is no working hardware detection for SE505V2. A simple patch to diag.c will work (contact nbn or timobeil).
-
-
+As of Whiterussian RC6 there is no working hardware detection for SE505V2. A simple patch to diag.c is necessary (contact nbn or timobeil).
 
 = Siemens SE505 v3 =
 SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip.
