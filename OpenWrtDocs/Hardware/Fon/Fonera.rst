@@ -13,7 +13,7 @@ It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who prov
  * 8MB Flash
  * SPI-Bus
 == Additional Comments ==
-Detailed Information may be found in the FCC database:  Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton (http://www.accton.com.tw/) and not - like many assume - by SMC*.
+Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton (http://www.accton.com.tw/) and not - like many assume - by SMC*.
 
 A look at the varius test reports and external photos shows, that this device is provided also under the Trade(Model) Names
 
@@ -22,6 +22,7 @@ A look at the varius test reports and external photos shows, that this device is
  * Edge-Core WA3101
  * Philips SNR6500
  * SMC WEBT-G
+ * Siemens Gigaset Wlan repeater 108
 Copies of the mentioned FCC-documents may also be found at http://mobileaccess.de/fonera/
 
 According to OpenWRT, the output-power is set to 18dBm, in contrast to the FCC-RF-tests where an output power of almost 25dBm (actually 24.89dBm on channel 6 in 802.11g mode) is measured. Question here is, if further versions will provide an adjustable TX-Power up to that level. Is the information provided by OpenWRT of 18dBm just a hypothetical value??? I found no reference in Kamikaze yet, how to adjust it.
@@ -45,7 +46,6 @@ _____________________
 |Power| |Ethernet|
 
 }}}
-
 {{{
 VCC (3.3V) -> red
 GND        -> blue
