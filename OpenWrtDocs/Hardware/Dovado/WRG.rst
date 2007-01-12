@@ -1,5 +1,5 @@
 = Dovado WRG =
-This device is currently (January 2007) unsupported. XScale port is in progress so adding support should be fairly easy. However, VoIP side might be bit more problematic.
+This device is currently (January 2007) unsupported. XScale port is in progress so adding support should be fairly easy.
 
 Stock firwmare is based on Linux 2.6.14.2 and Busybox. Device is designed by Swedish company named Teleca tse AB. XScale CPU is located on separate processor board. There's plenty of unpopulated connectors onboard so JTAG is likely present. VoIP interface is done using Myson Century chip and appears to be connected to XScale CPU using Ethernet. Myson chip seems to be completely independent embedded computer for VoIP and XScale part only provides routing and wifi. Bootloader is Redboot.
 
@@ -21,4 +21,5 @@ Probably easiest way to access VoIP side is logon to WRG using serial port and e
 == Links ==
  * [http://www.dovado.com/Portfolio_WRG.html Manufacturers page]
  * [http://www.sukkamehulinko.romikselle.com/openwrt/dovado/dovado-console.txt Bootlog]
+ * [http://www.sukkamehulinko.romikselle.com/openwrt/dovado/firmware/ Latest firmware] with guide howto extract it.
  * [http://www.myson.com.tw/products.php?op=pdetail&flang=EN&ProductKind=2&ProductNo=119 VoIP MCU info]
