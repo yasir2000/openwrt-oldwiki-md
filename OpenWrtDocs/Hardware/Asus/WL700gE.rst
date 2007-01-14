@@ -20,6 +20,8 @@ The device is currently (January 2007) unsupported in OpenWrt. See [http://forum
  * GPIO 6 = COPY-button (0 = released, 1 = pressed)
  * GPIO 7 = RESET (0 = reset system, 1 = normal state)
 
+There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 be I2C SDL. Asus sources also contain Broadcom I2C driver and sources for Ricoh RTC.
+
 == Links ==
  * Thread on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=4883
  * User forum, includes inside pictures, Q&A, etc: http://wl700g.info/forumdisplay.php?f=87
