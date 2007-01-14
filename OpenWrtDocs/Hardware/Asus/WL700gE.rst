@@ -1,5 +1,5 @@
 = Asus WL-700gE =
-The device is currently (July 2006) unsupported in OpenWrt 1.0 (White Russian) as of RC5, but there are people working on it: see [http://forum.openwrt.org/viewtopic.php?id=4883 this forum topic]. Also marketed as Asus WL-700G.
+The device is currently (January 2007) unsupported in OpenWrt. See [http://forum.openwrt.org/viewtopic.php?pid=40786#p40786 forum] for experimental patch to get Kamikaze running. Device is also marketed as Asus WL-700G.
 
 == Hardware ==
  * Broadcom 4780 (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
