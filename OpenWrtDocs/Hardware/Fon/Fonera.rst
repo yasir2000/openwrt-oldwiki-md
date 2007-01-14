@@ -42,16 +42,13 @@ _____________________
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
 ̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
-
 |Power| |Ethernet|
-
 }}}
 {{{
 VCC (3.3V) -> red
 GND        -> blue
 RX         -> white
 TX         -> orange
-
 b . o w .
 r . . . .
  O    O
@@ -277,6 +274,15 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 RedBoot> reset
+}}}
+*If you have problems creating using the above instructions then try this below. //QoS
+{{{
+RedBoot> fis init
+RedBoot> load -r -v -b 0x80040450 openwrt-atheros-2.6-root.jffs2-64k
+RedBoot> fis create -b 0x80040450 -f 0xA8030000 -l 0x00700000 -e 0x00000000 rootfs
+RedBoot> load -r -v -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
+RedBoot> fis create -r 0x80041000 -e 0x80041000 vmlinux.bin.l7
+RedBoot> fis load -l vmlinux.bin.l7
 }}}
 If everything is okay, then it'll now look like this:
 
