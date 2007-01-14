@@ -31,17 +31,16 @@ White Russian ships in several variations, each with a slightly different set of
 ||micro ||base-files, base-files-brcm, bridge, ["busybox"], dns masq, ["dropbear"], ipkg-sh, iptables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, ["mtd"], nvram, ["uclibc"], wificonf ||
 ||bin=default ||base-files, base-files-brcm, bridge, ["busybox"], dns masq, ["dropbear"], ["haserl"], ipkg, ip tables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, ["mtd"], nvram, ppp, ppp-mod-pppoe, ["uclibc"], webif, wificonf, wireless-tools ||
 ||pptp ||base-files, base-files-brcm, bridge, ["busybox"], dnsmasq, ["dropbear"], ["haserl"], ipkg, iptables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, ["mtd"], nvram, ppp, pptp, ["uclibc"], webif, wificonf, wireless-tools ||
+(alternate, easier to see listing) The bin firmware is the default version.
+||firmware ||base files ||base files brcm ||bridge ||busy box ||dnsmasq ||drop bear || haserl ||ipkg ||iptables ||iwlib ||kmod switch ||kmod brcm wl ||
+||bin ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
+||micro ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
+||pptp ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
+||firmware ||kmod diag ||kmod ppp ||kmod gre ||kmod pppoe ||kmod wl compat ||mtd ||nv ram ||ppp ||ppp mod pppoe ||pptp ||uclib ||webif ||wifi conf ||wireless tools ||
+||bin ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
+||micro ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||
+||pptp ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
 
-(alternate, easier to see listing) The bin firmware is the default version. 
-||firmware||base files||base files brcm||bridge||busy box||dnsmasq||drop bear||	haserl||ipkg||iptables||iwlib||kmod switch||kmod brcm wl||
-||bin||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
-||micro||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
-||pptp||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
-
-||firmware||kmod diag||kmod ppp||kmod gre||kmod pppoe||kmod wl compat||mtd||nv ram||ppp||ppp mod pppoe||pptp||uclib||webif||wifi conf||wireless tools ||
-||bin||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
-||micro||<#00FF00>Y||<#FF0000>N||<#FF0000>N||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#FF0000>N||<#FF0000>N||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#FF0000>N||
-||pptp||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#FF0000>N||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||<#00FF00>Y||
 
 == TRX vs. BIN ==
 That explains the directories, now what the hell are the files? They are [wiki:WikiPedia:Disk_image disk image]s. There's two types of files, the "trx" files and the "bin" files; the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx file can't be used directly. Older versions of mtd will choke on bin files, so if your upgrading from an existing OpenWRT it's wise to use the trx files. New versions of mtd when applied on bin files will guide you through what you need to do to convert trx files to mtd files.
@@ -71,6 +70,7 @@ That explains the directories, now what the hell are the files? They are [wiki:W
 There are 3 trx files, found in the micro, pptp and bin directories. Size restrictions aside, it doesn't matter which directory you pick, although if your device only has 2M of flash you will need to use micro. As for which trx file to use, we strongly suggest using the squashfs for reasons explained below.
 
 == SquashFS vs. JFFS2 ==
+'''I'm a newbie, so I am a bit hesitant to just remove this whole paragraph, but as far as I can see, with RC6 you cannot make a choice anymore between these two: there are only SquashFS Images in the download directories! So, the choice described here was available until RC5, and might be available some time later again, but is NOT available in RC6 currently. -- HenningSprang'''
 That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS. It is the most optimal choice for the vast majority of users anyway.  '''Also please note that as of White Russian RC6, it is no longer necessary to worry about SquashFS vs JFFS2, as RC6 uses mini-fo to automatically move things to the JFFS2 partition as needed.
 
  . WikiPedia:SquashFS
