@@ -9,7 +9,7 @@ The specification states the hardware is able to support 75Mbps (9,4MB/s) of enc
 
  * Links to mailing-list posts with references to more recent and working version of Linux driver for Broadcom crypto chips [http://marc.theaimsgroup.com/?l=openssl-dev&m=110915540208913&w=2 here] and [http://www.mail-archive.com/openssl-dev@openssl.org/msg18804.html here].
 
- * Sun Crypto Accelerator 500 and 1000 (X6762A) cards are based on BCM5821. Might be worth checking Solaris references as well.
+ * Sun Crypto Accelerator 500 and 1000 (X6762A) cards are based on BCM5821. Might be worth checking Solaris references as well. [http://src.opensolaris.org/source/xref/crypto/quantis/usr/src/uts/common/crypto/io/ Here] is OpenSolaris driver for Broadcom crypto chips.
 
  * Asus WL-700gE sources come with patched FreeSwan to utilize ubsec.
 
@@ -17,7 +17,7 @@ The specification states the hardware is able to support 75Mbps (9,4MB/s) of enc
 
  * *BSD has driver called 'ubsec' that supports some Broadcom encryption chips.
 
- * Neither old open-source Linux driver nor BSD driver support AES.
+ * Neither old open-source Linux driver, OpenSolaris nor BSD driver support AES.
 
  * OpenSSL has some ubsec support, but it's not exactly stable based on those mailing-list posts linked above.
 
