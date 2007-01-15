@@ -26,7 +26,7 @@ USB            : None
 Serial         : yes (JP2)
 JTAG           : assumed on JP1
 }}}
-Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Firmware 4.30.2 or .5) runs  RC6, Freifunk 1.4.5c and webIF (X-WRT) images no problem at all.
+Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Firmware 4.30.2 or .5) runs  RC6, Freifunk 1.4.5c and webIF (X-WRT) images no problem at all. Good availabilty at 55-60 EURO in Jan 2007.
 
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
