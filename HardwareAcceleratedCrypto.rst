@@ -4,11 +4,28 @@ Some models of the BCM47xx/53xx family support hardware accelerated encryption f
 The specification states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration using the blowfish encryption throughput is only ~0,4MB/s.
 
 ----
-[http://forum.openwrt.org/viewtopic.php?id=5032 Discussion] about hardware accelerated crypto.
 
-Various versions of [http://sukkamehulinko.romikselle.com/openwrt/bcm5820/ BCM5820 driver sources].
+ * There's been some reports from people working on this, but so far no visible progress. Seems that both persons have disappeared since. 
 
-BCM5801/BCM5805/BCM5820 Security Processor Software Reference Library http://www.broadcom.com/products/access_request.php?category_id=0&id=7&filename=5801-5805-5820-SRL101-R.pdf
+ * Links to mailing-list posts with references to more recent and working version of Linux driver for Broadcom crypto chips [http://marc.theaimsgroup.com/?l=openssl-dev&m=110915540208913&w=2 here] and [http://www.mail-archive.com/openssl-dev@openssl.org/msg18804.html here].
+
+ * Sun Crypto Accelerator 500 and 1000 (X6762A) cards are based on BCM5821. Might be worth checking Solaris references as well.
+
+ * Asus WL-700gE sources come with patched FreeSwan to utilize ubsec.
+
+ * Closed-source binary included in Asus Wl-700gE sources do support AES based on headers.
+
+ * *BSD has driver called 'ubsec' that supports some Broadcom encryption chips.
+
+ * Neither old open-source Linux driver nor BSD driver support AES.
+
+ * OpenSSL has some ubsec support, but it's not exactly stable based on those mailing-list posts linked above.
+
+ * [http://forum.openwrt.org/viewtopic.php?id=5032 Discussion] about hardware accelerated crypto.
+
+ * Various versions of [http://sukkamehulinko.romikselle.com/openwrt/bcm5820/ BCM5820 driver sources].
+
+ * BCM5801/BCM5805/BCM5820 Security Processor Software Reference Library http://www.broadcom.com/products/access_request.php?category_id=0&id=7&filename=5801-5805-5820-SRL101-R.pdf
 
 ----
 [http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForce] says there are WEP 128, AES OCB and AES CCM accelerated by hardware.
