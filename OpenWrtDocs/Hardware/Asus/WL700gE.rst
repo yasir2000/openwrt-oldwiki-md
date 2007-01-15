@@ -28,6 +28,7 @@ There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 b
  * Detailed inside pictures http://sukkamehulinko.romikselle.com/wl700g/
  * Installing a SerialConsole, with detailed pictures http://www.tiedyedfreaks.org/eric/WL-700gE/
  * Customize firmware here! http://home.comcast.net/~kfurge/wl700ge.html
+ * Info about [http://wiki.openwrt.org/HardwareAcceleratedCrypto hardware accelerated crypto]
 
 == NVRAM ==
 {{{apps_pool=MYVOLUME1
