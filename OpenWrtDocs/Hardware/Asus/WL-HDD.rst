@@ -1,4 +1,7 @@
-'''Asus WL-HDD'''
+#pragma section-numbers off
+#pragma keywords Asus, WL-HDD, Yakumo Wireless Storage 60
+#pragma description This page contains information of the Asus WL-HDD and Yakumo Wireless Storage 60 NAS.
+= Asus WL-HDD =
 
 The device is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
 
@@ -18,17 +21,17 @@ JTAG: no
 
 The boot_wait NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or mtd erase nvram is '''not safe''' on this unit.
 
-'''Installation'''
+== Installation ==
 
 See  [:OpenWrtDocs/Hardware/Asus/Flashing: Hardware/Asus/Flashing].
 
 '''WARNING:''' After installation, you must manually perform "nvram set wan_proto=none; nvram commit". Otherwise you will have a spurious dhcp client running on eth1, which is actually the LAN interface, and this can cause problems. See https://dev.openwrt.org/ticket/580
 
-'''IDE drivers and usage'''
+=== IDE drivers and usage ===
 
 See IdeStorageHowTo then LocalFileSystemHowTo.
 
-'''USB drivers and usage'''
+=== USB drivers and usage ===
 
 See UsbStorageHowto then LocalFileSystemHowTo.
 
@@ -49,17 +52,46 @@ fat
 vfat
 }}}
 
-'''Run root filesystem from the harddisk'''
+=== Run root filesystem from the harddisk ===
 
 GerardBraad describes some additional steps on how to make the root filesystem run from the harddisk. These instructions can be found in the forum at http://forum.openwrt.org/viewtopic.php?id=7373
 
-'''Internal Images'''
+== Network Configuration ==
+
+As listed in [http://wiki.openwrt.org/OpenWrtDocs/Configuration OpenWrtDocs/Configuration] the network interfaces are configured as eth1 (wired) and eth2 (wireless). They are bridged in default installation. 
+
+=== Device as Router ===
+To open the bridge you have to change the interfaces for lan only to eth2, set the wan device to eth1 and configure these devices as you like (static, dynamic, etc). 
+
+{{{
+lan_ifnames=eth2
+lan_ifname=br0
+wan_ifname=eth1
+wan_device=eth1
+}}}
+
+If you want to use the wireless interface as lan and the ethernet as wan device, you also have to change the init script for the nvram because it restores it to default bridge behavier at startup. Uncomment two lines in /etc/init.d/S05nvram (maybe there should be a used nvram variable for optional bridge/router mode?):
+
+{{{
+# hacks for asus    
+[ "$boardnum" = "asusX" ] && {     
+        debug "### asus hacks ###"
+        case "$(($(nvram get et1phyaddr)))" in                                 
+                1) # WL-HDD                                                    
+# don't need this as a router                              
+#                    lan=eth1                              
+#                    wan=none
+}}} 
+
+
+== Hardware ==
+=== Internal Images ===
 
 [:OpenWrtDocs/Hardware/Asus/WL-HDD/InternalImages:Internal Images]
 
 If you want to open the device (maybe for exchanging the disk) remove the screws below the two little rubber-pads. Then slide the mainboard with the HD on it out of the case by carefully pulling the front plate.
 
-'''Power Consumption'''
+=== Power Consumption ===
 
 The device ships with a 2A 5V switch-mode power supply terminating to a DC plug.
 The 2A rating may be to cover maximum spin-up current for the disk drive and the maximum USB 1.1 device current.
