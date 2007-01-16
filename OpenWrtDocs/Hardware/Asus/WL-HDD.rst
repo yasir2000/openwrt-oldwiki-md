@@ -61,7 +61,7 @@ GerardBraad describes some additional steps on how to make the root filesystem r
 As listed in [http://wiki.openwrt.org/OpenWrtDocs/Configuration OpenWrtDocs/Configuration] the network interfaces are configured as eth1 (wired) and eth2 (wireless). They are bridged in default installation. 
 
 === Device as Router ===
-To open the bridge you have to change the interfaces for lan only to eth2, set the wan device to eth1 and configure these devices as you like (static, dynamic, etc). 
+To open the bridge you have to change the interfaces for lan only to eth2, set the wan device to eth1 and configure these devices as you like (static, dynamic, etc) ([http://forum.openwrt.org/viewtopic.php?pid=37730])
 
 {{{
 lan_ifnames=eth2
