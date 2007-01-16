@@ -123,6 +123,8 @@ config wifi-iface
        option key      encryption key or radius shared secret
        option server   radius server
        option port     radius port
+       option hidden   0 broadcasts the ssid; 1 disables broadcasting of the ssid
+       option isolate  0 disables ap isolation (default); 1 enables ap isolation
 }}}
 '''Notes:
 
