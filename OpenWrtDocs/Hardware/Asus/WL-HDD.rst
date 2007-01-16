@@ -118,6 +118,9 @@ JamesCameron tested a device as follows:
 ||standby||0.48A||disk drive in host-directed standby mode, using ''hdparm -y'', further access by kernel spun the drive up||
 ||sleep||0.48A||disk drive in host-directed sleep mode, using ''hdparm -Y'', no apparent effect on power, but prevented further access to drive by kernel||
 
+=== External Interface ===
+
+This devices have some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
 
 ----
 CategoryModel
