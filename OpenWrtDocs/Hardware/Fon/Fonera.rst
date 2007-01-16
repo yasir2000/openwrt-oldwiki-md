@@ -276,6 +276,7 @@ An image named 'rootfs' exists - continue (y/n)? y
 RedBoot> reset
 }}}
 *If you have problems creating using the above instructions then try this below. //QoS
+
 {{{
 RedBoot> fis init
 RedBoot> load -r -v -b 0x80040450 openwrt-atheros-2.6-root.jffs2-64k
@@ -514,12 +515,14 @@ It's a bit harder to find the documentation for kamikaze, as the config system c
 /etc/ipkg.conf
 
 {{{
-src snapshots http://ipkg.k1k2.de/packages/
+src snapshots http://ipkg.k1k2.de/packages
 dest root /
 dest ram /tmp
 }}}
 {{{
-root@OpenWrt:~ install hostapd
+root@OpenWrt:~ ikpg update
+root@OpenWrt:~ ikpg install hostapd
+root@OpenWrt:~ reboot
 }}}
 /etc/config/network
 
