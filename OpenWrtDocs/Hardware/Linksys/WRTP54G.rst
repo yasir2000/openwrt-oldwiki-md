@@ -177,6 +177,7 @@ Here are some short Perl programs for manipulating firmware upgrade files:
  * Set CRC: attachment:set_ti_checksum
  * Set ProductID and flag at byte 0x0B: attachment:set_ProductID
  * Extract root filesystem and kernel from firmware attachment:extractwrtp.tar.bz2
+ * Firmware modification Kit attachment:wrtp%2Dmod%2Dkit.tar.bz%32
  * Unpack and pack firmwares: coming soon
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
