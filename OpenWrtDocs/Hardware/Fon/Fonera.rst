@@ -522,7 +522,6 @@ dest ram /tmp
 {{{
 root@OpenWrt:~ ikpg update
 root@OpenWrt:~ ikpg install hostapd
-root@OpenWrt:~ reboot
 }}}
 /etc/config/network
 
