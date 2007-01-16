@@ -161,7 +161,8 @@ If the file is to be written directly into flash it must be 3,866,624 (0x03B0000
 == Working with the Squashfs ==
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib. Possibly helpful information on working with Squashfs and LZMA can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm. It is also possible that the WRT54G Firmware Modification Kit http://www.bitsum.com/firmware_mod_kit.htm would be of help.
 
-Unsquashfs 1.3r3 attachment:squashfs%2Dtools.tar.bz%32
+Unsquashfs 1.3r3 attachment:squashfs-tools.tar.bz2
+there is a bug in the original patch for lzma427, please use this patch attachment:lzma%34%32%37%5Fzlib.patch
 
 If you manage to patch your Linux kernel to include support for Squashfs with LZMA compression, you can extract and mount a firmware's root file system like this:
 
