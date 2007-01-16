@@ -120,7 +120,7 @@ JamesCameron tested a device as follows:
 
 === External Interface ===
 
-This devices have some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
+This device has some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
 
 ----
 CategoryModel
