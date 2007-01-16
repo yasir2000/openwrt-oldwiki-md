@@ -21,7 +21,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]! This is different the mounted file system dumps which contain only the files from the mounted root
- * The root file system extracted from firmwera version 3.1.17 is available here attachment:wrtp54g-3.1.17-root.tar.bz2
+ * The root file system extracted from firmware version 3.1.17 is available here attachment:wrtp54g-3.1.17-root.tar.bz2
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
@@ -176,7 +176,7 @@ Here are some short Perl programs for manipulating firmware upgrade files:
 
  * Set CRC: attachment:set_ti_checksum
  * Set ProductID and flag at byte 0x0B: attachment:set_ProductID
- * Extract root filesystem and kernel from firmware attachment:extractwrtp.tar.bz%32
+ * Extract root filesystem and kernel from firmware attachment:extractwrtp.tar.bz2
  * Unpack and pack firmwares: coming soon
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
