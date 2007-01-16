@@ -17,15 +17,19 @@ The specification states the hardware is able to support 75Mbps (9,4MB/s) of enc
 
  * *BSD has driver called 'ubsec' that supports some Broadcom encryption chips.
 
+ * There's [http://ocf-linux.sourceforge.net/ Linux port] of OpenBSD OCF but Broadcom hardware is supported.
+
  * Neither old open-source Linux driver, OpenSolaris nor BSD driver support AES.
 
  * OpenSSL has some ubsec support, but it's not exactly stable based on those mailing-list posts linked above.
 
  * [http://forum.openwrt.org/viewtopic.php?id=5032 Discussion] about hardware accelerated crypto.
 
- * Various versions of [http://sukkamehulinko.romikselle.com/openwrt/bcm5820/ BCM5820 driver sources].
+ * Various versions of old [http://sukkamehulinko.romikselle.com/openwrt/bcm5820/ BCM5820 driver sources].
 
  * BCM5801/BCM5805/BCM5820 Security Processor Software Reference Library http://www.broadcom.com/products/access_request.php?category_id=0&id=7&filename=5801-5805-5820-SRL101-R.pdf
+
+ * Cisco PIX VAC+ Encryption module is 64-bit PCI card based on Broadcom BCM5823. Another similar card is Checkpoint VPN-1 Accelerator Card II, III and IV from [http://www.silicom.co.il/ Silicom].
 
 ----
 [http://www.broadcom.com/collateral/prod_brochures/AirForceBrochure.pdf AirForce] says there are WEP 128, AES OCB and AES CCM accelerated by hardware.
