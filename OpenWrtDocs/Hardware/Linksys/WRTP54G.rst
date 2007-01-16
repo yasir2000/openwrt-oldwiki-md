@@ -21,7 +21,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]! This is different the mounted file system dumps which contain only the files from the mounted root
- * The root file system extracted from firmwera version 3.1.17 is available here attachment:extractwrtp.tar.bz%32
+ * The root file system extracted from firmwera version 3.1.17 is available here attachment:wrtp%35%34g%2D%33.%31.%31%37%2Droot.tar.bz%32
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
@@ -162,7 +162,8 @@ If the file is to be written directly into flash it must be 3,866,624 (0x03B0000
 == Working with the Squashfs ==
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib. Possibly helpful information on working with Squashfs and LZMA can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm. It is also possible that the WRT54G Firmware Modification Kit http://www.bitsum.com/firmware_mod_kit.htm would be of help.
 
-Unsquashfs 1.3r3 attachment:squashfs-tools.tar.bz2 there is a bug in the original patch for lzma427, please use this patch attachment:lzma427_zlib.patch
+Unsquashfs 1.3r3 attachment:squashfs-tools.tar.bz2 .
+ there is a bug in the original patch for lzma427, please use this patch attachment:lzma427_zlib.patch
 
 If you manage to patch your Linux kernel to include support for Squashfs with LZMA compression, you can extract and mount a firmware's root file system like this:
 
