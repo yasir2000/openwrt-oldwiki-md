@@ -58,4 +58,4 @@ There aren't many connector slots on the board. The serial console (JP1) is just
 CategoryModel
 
 Can you provide more details on the console connector for the WRT300N v2? 
-In particular - what voltage is being used and can it be directly connected to the PC RS232 or does it need a voltage converter?
+In particular - what voltage is being used and can it be directly connected to the PC RS232 or does it need a signal level shifter (voltage conversion)?
