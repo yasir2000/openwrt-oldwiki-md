@@ -15,4 +15,4 @@ Embedded "OpenWrt" devices which offer USB v2.0 support
 ||'''IDE or SATA''' ||No ||No ||IDE, 3,5" ||IDE, 3,5" and eSATA ||No ||No ||No ||||<style="TEXT-ALIGN: center">No ||No ||No ||
 ||'''Dimension''' (mm) ||185*205*36 ||162*215*43 ||240*160*45 ||140*175*44 ||140*140*27 || ||120*175*28 ||||<style="TEXT-ALIGN: center"> || || ||
 ||'''Dimension''' (mm, PCB only) || || ||244*244 || || || || ||||<style="TEXT-ALIGN: center"> || || ||
-||'''Weight''' (g) ||500 || ||1400 ||950 ||270 || ||300 ||||<style="TEXT-ALIGN: center"> || || ||
+||'''Weight''' (g) ||500 ||510 ||1400 ||950 ||270 || ||300 ||||<style="TEXT-ALIGN: center"> || || ||
