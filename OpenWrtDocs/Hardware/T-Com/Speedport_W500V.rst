@@ -195,7 +195,12 @@ Character devices:
 Block devices:
  31 mtdblock
 }}}
-'''8) dmesg'''
+'''8) cat /proc/pci'''
+
+{{{
+cat: /proc/pci: No such file or directory
+}}}
+'''9) dmesg'''
 
 {{{
 dmesg
@@ -404,13 +409,76 @@ DAA: Going OnHook
 DAA: Enable on-hook Caller ID receive.
 TCM_GetFXOState, generate cas event = "18"
 }}}
-'''9) df'''
+'''10) df'''
 
 {{{
 Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/mtdblock0            2880      2880         0 100% /
 tmpfs                      256       160        96  63% /var}}}
-'''10) Webinterface'''
+'''11) ifconfig -a'''
+
+{{{
+atm0            Link encap:UNSPEC  HWaddr 00-28-00-00-00-00-00-42-00-00-00-00-00-00-00-00
+                [NO FLAGS]  MTU:0  Metric:1
+                RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:0
+                RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+br0             Link encap:Ethernet  HWaddr 00:16:38:6A:96:C0
+                inet addr:192.168.0.4  Bcast:192.168.0.255  Mask:255.255.255.0
+                UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+                RX packets:1072 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:771 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:0
+                RX bytes:80368 (78.4 KiB)  TX bytes:482768 (471.4 KiB)
+cpcs0           Link encap:UNSPEC  HWaddr A7-80-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00
+                [NO FLAGS]  MTU:65535  Metric:1
+                RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:0
+                RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+dsl0            Link encap:UNSPEC  HWaddr A7-80-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+                [NO FLAGS]  MTU:0  Metric:1
+                RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:0
+                RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+eth0            Link encap:Ethernet  HWaddr 00:16:38:6A:96:C0
+                UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+                RX packets:1075 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:772 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:1000
+                RX bytes:100201 (97.8 KiB)  TX bytes:487085 (475.6 KiB)
+                Interrupt:28 Base address:0x6000
+lo              Link encap:Local Loopback
+                inet addr:127.0.0.1  Mask:255.0.0.0
+                UP LOOPBACK RUNNING  MTU:16436  Metric:1
+                RX packets:1 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:1 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:0
+                RX bytes:29 (29.0 B)  TX bytes:29 (29.0 B)
+nas_1_32        Link encap:Ethernet  HWaddr 00:16:38:6A:96:C2
+                UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+                RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:0 errors:0 dropped:413 overruns:0 carrier:0
+                collisions:0 txqueuelen:1000
+                RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+wl0             Link encap:Ethernet  HWaddr 00:16:38:6A:96:C1
+                UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+                RX packets:0 errors:0 dropped:0 overruns:0 frame:471
+                TX packets:390 errors:25 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:1000
+                RX bytes:0 (0.0 B)  TX bytes:34637 (33.8 KiB)
+                Interrupt:32
+}}}
+'''12)  nvram show | sort
+'''
+
+{{{
+nvram: not found
+sort: not found
+}}}
+'''13) Webinterface'''
 
 {{{
 Factory Settings set the IP of the SpeedPOrt W500V LAN Interface to: 192.168.2.1
