@@ -119,8 +119,15 @@ config wifi-iface
        option network  the interface you want wifi to bridge with 
        option device   wifi device name
        option mode     ap, sta, adhoc, or wds
+       option ssid     ssid to be used
+       option bssid    used for wds to set the mac address of the other wds unit
        option encryption none, wep, psk, psk2, wpa, wpa2 
-       option key      encryption key or radius shared secret
+       option key      encryption key or radius shared secret, when used for wep if you only use one key it can be placed here otherwise set this
+to the number of keys you would like to use and use the following key1-4 options
+       option key1     wep key 1
+       option key2     wep key 2
+       option key3     wep key 3
+       option key4     wep key 4
        option server   radius server
        option port     radius port
        option hidden   0 broadcasts the ssid; 1 disables broadcasting of the ssid
