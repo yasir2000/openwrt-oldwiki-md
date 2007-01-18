@@ -111,6 +111,8 @@ Now install the {{{fdisk}}} package from the White Russian's backports repositor
 ipkg install fdisk
 }}}
 
+'''TIP:''' If you don’t find fdisk in the rc6 backports repository, you can use the rc5 backports version.
+
 Create the {{{/mnt}}} directory for the mount point on the flash
 
 {{{
