@@ -110,11 +110,11 @@ This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here
 
 Some people asked me how to recover a fonera, here are some methods:
 
-=== Methode 1 ===
+=== Method 1 - Button Reset ===
  . Press the reset button for > 15 seconds This requires a working Fonera, and it should be on for a while.
-=== Methode 2 ===
+=== Method 2 - Erase ===
  . Run "rm -R /jffs/*" and pull the plug It should result in a reseted fonera
-=== Methode 3 ===
+=== Method 3 - MTD Trick ===
  . If everything fails and you killed your shell on the serial console: As soon as you see "Please press Enter to activate this console." press Enter Now you have to hurry up! Paste "cat /proc/mtd" and press Enter (even if you don't see your pasted line) You should see this list:
 {{{
         dev:    size   erasesize  name
@@ -134,10 +134,10 @@ Some people asked me how to recover a fonera, here are some methods:
  . Make sure you're using "/dev/mtdblock/X" (the mtdX number) Now reset it again and you should receive this message:
   . Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0 jffs2_build_filesystem(): unlocking the mtd device... done. jffs2_build_filesystem(): erasing all blocks after the end marker...
  This takes some time but you should have a fresh fonera again.
-=== Methode 4 ===
+=== Method 4 - TFTP Recover ===
 A way to recover it with a TFTP server and RedBoot is [http://log.tigerbus.de/?p=89 here] If this doesn't work you probably have to use a JTAG cable.
 
-=== Methode Custumer Care ===
+=== Method 5 - Custumer Care ===
  1. Double click the Local Area Connection icon to show the connection's Status dialog box.
  1. Double click Internet Protocol (TCP/IP)
  1. Click Start>Connect to>Show all connections,
