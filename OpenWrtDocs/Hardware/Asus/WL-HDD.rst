@@ -89,7 +89,7 @@ If you want to use the wireless interface as lan and the ethernet as wan device,
 
 [:OpenWrtDocs/Hardware/Asus/WL-HDD/InternalImages:Internal Images]
 
-If you want to open the device (maybe for exchanging the disk) remove the screws below the two little rubber-pads (could be that there are no screws, as on my yakumo. just remove the rubber-pads). Then slide the mainboard with the HD on it out of the case by carefully pulling the front plate.
+If you want to open the device (maybe for exchanging the disk) remove the screws below the two little rubber-pads (could be that there are no screws, as on my yakumo. just pull on). Then slide the mainboard with the HD on it out of the case by carefully pulling the front plate.
 
 === Power Consumption ===
 
