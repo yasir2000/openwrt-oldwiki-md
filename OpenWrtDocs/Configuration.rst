@@ -44,6 +44,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Linksys ||WRT54GS ||v1.x/v2.x/v3/v4 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRTSL54GS || ||eth0 ||eth1 ||eth2 || ||
 ||Linksys ||WAP54G || ||br0 ||N/A ||eth1 ||Someone should double check this too ||
+||Linksys ||WRT300N ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
