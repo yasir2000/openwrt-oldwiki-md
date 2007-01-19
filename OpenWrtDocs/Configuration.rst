@@ -439,6 +439,7 @@ Make sure any software, that is loaded in the boot sequence and which requires t
 If your router is not rebooted very regalary you may wish to add updating the time to the crontab. The following will update the time each day at 06.30.
 {{{crontab -e
 30 6 * * * /usr/sbin/rdate -s HOST}}}
+Again replacing HOST with the IP address or host name of the time server.
 
 '''ntpclient'''
 
