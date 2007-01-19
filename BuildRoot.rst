@@ -48,7 +48,7 @@ There are three key directories in the base:
 
 ''Target'' refers to the embedded platform, this contains items which are specific to a specific embedded platform. Of particular interest here is the "target/linux" directory which is broken down by platform and contains the kernel config and patches to the kernel for a particular platform. There's also the "target/image" directory which describes how to package a firmware for a specific platform.
 
-''Package'' is for exactly that -- packages. In an OpenWrt firmware, almost everything is an ipk, a software package which can be added to the firmware to provide new features or removed to save space.
+''Package'' is for exactly that -- packages. In an OpenWrt firmware, almost everything is an ipk, a software package which can be added to the firmware to provide new features or removed to save space. Package folders must be in the root level of the packages folders (e.g. ./packages/microcom not ./packages/utils/microcom)
 
 Both the target and package steps will use the directory "build_<arch>" as a temporary directory for compiling. Additionally, anything downloaded by the toolchain, target or package steps will be placed in the "dl" directory.
 
