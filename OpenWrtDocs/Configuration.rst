@@ -415,19 +415,31 @@ You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''. Only '
 
 The ''rdate'' command synchronises the system time to the time on a remote host using the time protocol on TCP port 37.  It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
 
-Create the file {{{/etc/init.d/S42rdate}}} with the contents:
+Create the file {{{/etc/init.d/S55rdate}}} with the contents:
 
 {{{
 #!/bin/sh
-/usr/sbin/rdate HOST}}}
-replacing HOST with the IP address or host name of the time server, then make it executable:
+/usr/sbin/rdate -s HOST}}}
+replacing HOST with the IP address or host name of the time server, E.G.
+{{{
+#!/bin/sh
+/usr/sbin/rdate -s 0.pool.ntp.org}}}
+
+Then make the file executable:
 
 {{{
-chmod a+x /etc/init.d/S42rdate}}}
-then either reboot or run it this once:
+chmod a+x /etc/init.d/S55rdate}}}
+then either reboot or run it once:
 
 {{{
-/etc/init.d/S42rdate}}}
+/etc/init.d/S55rdate}}}
+
+Make sure any software, that is loaded in the boot sequence and which requires the correct time, is started later than S55rdate. Remember that DNS host names will not be resolved before S50dnsmasq has been run, so be careful if changing S55rdate to run earlier in the boot sequence.
+
+If your router is not rebooted very regalary you may wish to add updating the time to the crontab. The following will update the time each day at 06.30.
+{{{crontab -e
+30 6 * * * /usr/sbin/rdate -s HOST}}}
+
 '''ntpclient'''
 
 ''ntpclient'' will synchronize the system time using the NTP protocol when the internet connection is established. To set it up follow this instructions :
