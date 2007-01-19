@@ -45,7 +45,7 @@ As with most of these AP devices the printed circuit board has the serial interf
 On the WHR-G54S locate the un-populated header block RJP1. This is in the top left of the board next to a large electrolytic capacitor. To the right of this block you will find several SM components and also un-populated pads. I used the following soldered connections onto the un-populated pads:
 
 {{{
-Left hand pad of  R46  >>  RX.    Receive data into the WHR-G54S.
+Left hand pad of  R48  >>  RX.    Receive data into the WHR-G54S.
 Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
 
 || pin 10 (missing) || pin  9 (unknown) ||
