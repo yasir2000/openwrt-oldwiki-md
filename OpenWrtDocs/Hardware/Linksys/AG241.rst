@@ -2,11 +2,13 @@
 
 Bootloader: ["PSPBoot"]
 
-== Picture ==
+== Picture (AG241-EU) ==
 
 attachment:ag241-eu.jpg
 
 == Serial console ==
+
+(Note: this does not match with the picture above. Probably this description is from another type, or previous generation.)
 
 {{{
 |
