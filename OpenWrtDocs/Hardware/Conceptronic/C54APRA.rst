@@ -15,3 +15,5 @@ attachment:c54apra.jpg
 === JTAG ===
 
 There are two 14 pin solder pads on the device. Which one is JTAG is unknown.
+----
+["CategoryAR7Device"] CategoryModel
