@@ -152,6 +152,15 @@ tftpGet: Error occurred while transferring the file.
 Erroneous header read
 Error loading file: errno = 0x610001.
 }}}
+
+There is simple fix for above error 0x610001. boot bios expect ELF file, and not image for update over web interface. There is simple method for converting .img file (I'm using TrendNet, so my image file is 510APB_1121ETSI.img) to ELF file:
+
+{{{
+$ dd if=510APB_1121ETSI.img of=tftp.img skip=52 bs=1
+$ file tftp.img 
+tftp.img: ELF 32-bit MSB executable, MIPS, MIPS-II version 1 (SYSV), statically linked, stripped
+}}}
+
 == Kernel ==
 Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches.  According to arch/mips/ar531x/README.BUILD, I've downloaded:
 
