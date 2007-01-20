@@ -8,7 +8,7 @@ On the bottom of the case there are two screws. After this you can open the case
 
 === Picture ===
 
-attachment: c54apra2plus
+attachment: c54apra2plus.jpg
 
 === Serial port ===
 
