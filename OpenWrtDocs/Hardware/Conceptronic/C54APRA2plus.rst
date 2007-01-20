@@ -6,6 +6,10 @@ The Conceptronic C54APRA2plus is based on the AR7 chipset.
 
 On the bottom of the case there are two screws. After this you can open the case.
 
+=== Picture ===
+
+attachment: c54apra2plus
+
 === Serial port ===
 
 === JTAG ===
