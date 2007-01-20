@@ -4,10 +4,14 @@ The Conceptronic C54APRA is a router with built-in ADSL modem for Annex A connec
 
 === Opening the case ===
 
-On the bottem there are 4 scews underneath the little rubbers.
+On the bottom there are 4 scews underneath the little rubbers.
 
 === Picture ===
+
+attachment:c54apra.jpg
 
 === Serial ===
 
 === JTAG ===
+
+There are two 14 pin solder pads on the device. Which one is JTAG is unknown.
