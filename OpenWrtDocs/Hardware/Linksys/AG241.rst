@@ -2,6 +2,10 @@
 
 Bootloader: ["PSPBoot"]
 
+== Picture ==
+
+attachment:ag241-eu.jpg
+
 == Serial console ==
 
 {{{
