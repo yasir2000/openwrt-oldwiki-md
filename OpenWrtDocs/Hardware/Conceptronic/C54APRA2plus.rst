@@ -1,6 +1,6 @@
 === Conceptronic C54APRA2plus ===
 
-The Conceptronic C54APRA2plus is based on the AR7 chipset.
+The Conceptronic C54APRA2plus is based on the AR7 chipset. This variant has an Annex A connection. The sister type has an Annex B (ISDN) connection.
 
 === Opening the case ===
 
