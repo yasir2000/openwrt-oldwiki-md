@@ -96,7 +96,6 @@ Default Configuration:
 {{{
 config wifi-device	wl0
 	option type	broadcom
-	#option type	atheros
 	option channel	5
 
 config wifi-iface
@@ -110,11 +109,12 @@ config wifi-iface
 Full outline of the wifi config file is as follows:
 {{{
 config wifi-device     wifi device name
-       option type     currently only broadcom
+       option type     currently only broadcom and atheros
        option country  country code [not mandatory, used for setting restrictions based on country regulations]
        option channel  1-14
        option maxassoc Maximum number of associated clients
        option distance The distance between the ap and the furthest client in meters.
+       option mode     Currently only for atheros.  Options are: 11b, 11g, 11a, 11g pureg=1
 
 config wifi-iface
        option network  the interface you want wifi to bridge with 
