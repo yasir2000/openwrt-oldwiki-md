@@ -1,4 +1,4 @@
-'''LiteStation2'''
+'''!LiteStation2'''
 
 {{{
 Bootloader: RedBoot
