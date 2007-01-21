@@ -70,7 +70,7 @@ bridged together to "br0". But as we want to have separated nets for those devic
 to split them. Also the Internet (WAN) device has to be configured.
 
 '''Note:''' that the following commands are examples! You have to adapt them to your box. For
-example on some Wrt's you have substitute {{{wifi_ifname}}} with {{{wl0_ifname}}} and so on.
+example on some Wrt units you have substitute {{{wifi_ifname}}} with {{{wl0_ifname}}} and so on.
 
 {{{
 nvram set lan_ifname=vlan0
