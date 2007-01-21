@@ -1,5 +1,5 @@
 = Asus WL-700gE =
-The device is currently (January 2007) unsupported in OpenWrt. See [http://forum.openwrt.org/viewtopic.php?pid=40786#p40786 forum] for experimental patch to get Kamikaze running. Device is also marketed as Asus WL-700G.
+Kamikaze has support for this device. However, since you need to fit OpenWrt to internal flash (2MB) it's quite limited on features. IDE HDD is supported, but only as new mount point so installing packages to disk requires some manual work. Device is also marketed as Asus WL-700G.
 
 == Hardware ==
  * Broadcom 4780 @ 266MHz (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
@@ -23,7 +23,7 @@ The device is currently (January 2007) unsupported in OpenWrt. See [http://forum
 There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 be I2C SDL. Asus sources also contain Broadcom I2C driver and sources for Ricoh RTC.
 
 == Links ==
- * Thread on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=4883
+ * Thread on OpenWrt forum http://forum.openwrt.org/viewtopic.php?pid=41106#p41106
  * User forum, includes inside pictures, Q&A, etc: http://wl700g.info/forumdisplay.php?f=87
  * Detailed inside pictures http://sukkamehulinko.romikselle.com/wl700g/
  * Installing a SerialConsole, with detailed pictures http://www.tiedyedfreaks.org/eric/WL-700gE/
