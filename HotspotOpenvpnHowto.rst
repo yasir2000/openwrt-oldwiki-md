@@ -258,7 +258,7 @@ For '''Windows''' just right-click onto your config and choose the second point 
 execute the config.
 
 If you use '''MacOSX''' you should use something like [http://www.tunnelblick.net Tunnelblick]
-which is OpenVPN with a GUI. Don't use it's default configuration, use the above config and add
+which is OpenVPN with a GUI. Don't use its default configuration, use the above config and add
 the lines:
 
 {{{
