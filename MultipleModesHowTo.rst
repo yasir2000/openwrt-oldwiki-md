@@ -1,7 +1,7 @@
 == Introduction ==
 
 === What we want to do ===
-I am using my Linksys WRT54GS as a switch with build-in AP by default. I wanted a way to switch back to it's original router function without any time consuming configuration changes every time. In addition, I wanted a, as I call it, lanparty mode for using the WRT on a LAN-party (without internet). 
+I am using my Linksys WRT54GS as a switch with build-in AP by default. I wanted a way to switch back to its original router function without any time consuming configuration changes every time. In addition, I wanted a, as I call it, lanparty mode for using the WRT on a LAN-party (without internet). 
 This HowTo describes a mechanism for easy switching between the different modes. At the end, you can just write "switchmode lanparty", unplug the power cable, go to your friend's LANparty, plug in again and have fun... ;)
 
 Here is a short summary for the different modes I am using:
