@@ -2,6 +2,8 @@
 == Introduction ==
 '''Kismet '''can be used to find and analyze wireless networks. Per default, it puts the network card into promiscuous mode so it can see all packets the network card receives. Packets are saved in a dump file and can then be analyzed with a tool like [http://www.wireshark.org/ Wireshark ]which is available for Linux, many Unix derivates, and Windows. On Windows, Wireshark can't be used to capture 802.11 frames as Windows drivers only forward 802.3 pseudo frames instead of the real 802.11 frames. Also, it is not possible to see 802.11 management frames. Other programs such as Airopeek for Windows do exist which bring their own drivers. Unfortunately, they are very expensive. Kismet on a Linksys router is an interesting alternative.
 
+'''If you are new to OpenWRT in general [http://mobilesociety.typepad.com/mobile_life/2007/01/wifi_network_tr.html here's an overview of how the complete solution works] and how to get started from the beginning.'''
+
 More info on Kismet in general can be found[http://www.kismetwireless.net/documentation.shtml here].
 
 == Installation ==
