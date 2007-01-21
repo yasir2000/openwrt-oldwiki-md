@@ -1,4 +1,4 @@
-'''LiteStation 2'''
+'''LiteStation2'''
 
 {{{
 Bootloader: RedBoot
@@ -6,7 +6,7 @@ CPU: Atheros AR2316
 CPU Speed: 184 Mhz
 Flash size: 4 MB
 RAM: 16 MB
-Wireless: Atheros 802.11b/g (in CPU)
+Wireless: Atheros 802.11b/g (in CPU, 400mW)
 Ethernet: 2 port connected to the CPU
 USB: none
 Serial: yes, external
