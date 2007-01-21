@@ -1,3 +1,4 @@
+## page was renamed from OpenWrtDocs/Hardware/Ubiquit/LiteStation2
 '''!LiteStation2'''
 
 {{{
