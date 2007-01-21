@@ -306,6 +306,8 @@ ipkg -dest usb install kismet-server
 Copy & paste this script into {{{/bin/ipkg-link}}} (or somewhere in your {{{$PATH}}}).
 
 {{{
+#!/bin/sh
+
 COMMAND=$1
 PACKAGE=$2
 
