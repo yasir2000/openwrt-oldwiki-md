@@ -434,9 +434,9 @@ then either reboot or run it once:
 {{{
 /etc/init.d/S55rdate}}}
 
-Make sure any software, that is loaded in the boot sequence and which requires the correct time, is started later than S55rdate. Remember that DNS host names will not be resolved before S50dnsmasq has been run, so be careful if changing S55rdate to run earlier in the boot sequence.
+Make sure any software that is loaded in the boot sequence and which requires the correct time is started later than S55rdate. Remember that DNS host names will not be resolved before S50dnsmasq has been run, so be careful if changing S55rdate to run earlier in the boot sequence.
 
-If your router is not rebooted very regalary you may wish to add updating the time to the crontab. The following will update the time each day at 06.30.
+If your router is not rebooted very regularly you may wish to add updating the time to the crontab. The following will update the time each day at 06.30.
 {{{crontab -e
 30 6 * * * /usr/sbin/rdate -s HOST}}}
 Again replacing HOST with the IP address or host name of the time server.
