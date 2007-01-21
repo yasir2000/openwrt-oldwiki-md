@@ -96,6 +96,7 @@ Default Configuration:
 {{{
 config wifi-device	wl0
 	option type	broadcom
+	#option type	atheros
 	option channel	5
 
 config wifi-iface
