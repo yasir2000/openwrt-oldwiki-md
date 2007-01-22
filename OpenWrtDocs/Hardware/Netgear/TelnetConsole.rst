@@ -9,11 +9,29 @@ Some [OpenWrtDocs/Hardware/Netgear Netgear] routers run a telnet daemon which ca
  * WGR614 v1-4: unknown, may well work
  * WPN824 v1: [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
-  Tried from a Gentoo box on a WG602v3: does not work.
+  . Tried from a Gentoo box on a WG602v3: does not work.
   {{{
 # ./telnetenable 172.30.0.253 XXXXXXXXXXXX Gearguy Geardog
 Cm£ÅÀó¬*@yI£ndsf]üg:ÜV£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf
 }}}
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
+ . Tried from a Gentoo box on a WG602v3: does not work.
+ {{{
+# ./telnetenable 172.30.0.253 XXXXXXXXXXXX Gearguy Geardog
+Cm£ÅÀó¬*@yI£ndsf]üg:ÜV£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf
+}}}
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+
+----
+ /!\ '''End of edit conflict'''
+
+----
  * WGT624 v2: known to work
  * WGT624 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
 Please add to this list, so people will know which are supported and which are not!
