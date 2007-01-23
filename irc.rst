@@ -1,4 +1,4 @@
-#acl All:
+#acl All:read
 = Getting help on IRC =
 
 IRC is "Internet Relay Chat"; a simple real time text communication; because of the "real time", many first time users expect instant answers, much like you'd get if you called someone on the phone. This is the wrong attitude and will just lead to frustration; just because you see a list of people in the IRC channel doesn't mean anyone is actually around or paying any attention. It's very common to just leave IRC constantly connected, even when away from the computer, so it may take several minutes or even hours before anyone notices or acknowledges your existence. Be patient.
