@@ -1,6 +1,8 @@
 #acl All:read
 = Getting help on IRC =
 
+Help is available on IRC: irc.freenode.net, #openwrt
+
 IRC is "Internet Relay Chat"; a simple real time text communication; because of the "real time", many first time users expect instant answers, much like you'd get if you called someone on the phone. This is the wrong attitude and will just lead to frustration; just because you see a list of people in the IRC channel doesn't mean anyone is actually around or paying any attention. It's very common to just leave IRC constantly connected, even when away from the computer, so it may take several minutes or even hours before anyone notices or acknowledges your existence. Be patient.
 
 (You do not need to repeat your message, we'll probably see it when we get back)
@@ -42,6 +44,7 @@ Avoid markup. While some IRC clients let you type in a variety of colors and for
 Don't fill the channel with idle noise. Noise is anything that produces output without adding anything meaningful. The IRC client will display messages when people join or leave the channel, and change their nickname. Some IRC clients will even automatically produce an "away message" to indicate that you've left the computer. It's alright to excuse yourself in the middle of a conversation, but if you haven't said anything in the past hour we probably won't notice or don't care if you're around or not.
 
 = Related links =
+ * [http://freenode.net/using_the_network.shtml IRC Tutorial]
  * [http://www.catb.org/~esr/faqs/smart-questions.html#disclaimer How to ask questions the smart way]
  * [http://www.chiark.greenend.org.uk/~sgtatham/bugs.html How to report bugs effectively]
  * [http://pastebin.com/ pastebin], [http://pastebin.ca/ another pastebin]
