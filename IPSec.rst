@@ -135,4 +135,4 @@ Depending on the encryption (esp=) the following transfer rates might be achieve
 ||des-sha1|| 260kb/s ||
 
 ----
-CategoryHowto
+CategoryHowTo
