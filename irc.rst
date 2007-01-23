@@ -21,6 +21,12 @@ While we're happy to chat and discuss current trends, you need to know when to m
 
 We will not answer questions about other firmwares. If you're looking for support, make sure the question relates to a recent version of OpenWrt.
 
+== Submitting bug reports ==
+
+IRC is NOT a bug reporting tool. Do not expect us to fix anything simply because it was mentioned on IRC.
+
+You can view the current bugs and report new ones via the ticket system on https://dev.openwrt.org/
+
 == General etiquette ==
 
 You should be reasonably responsive when replying, if you've just said something in the last few seconds we will assume that you're paying attention to IRC and that if we ask you a question we shouldn't need to wait several minutes for a response. We will often get frustrated or distracted if your responses take too long. Try typing your responses as multiple lines so we can read along as you type.
