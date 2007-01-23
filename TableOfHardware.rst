@@ -383,7 +383,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||1x v1.1 ||[:USR5461:WiP] ||
-||[http://www.usr-emea.com/support/s-prod-template.asp?loc=unkg&prod=9106 USR9106] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6345 Broadcom 6345] @ 100MHz ||4MB ||16MB ||Broadcom (integrated)|| || ||No || || ||[:USR9106:WiP] ||
+||[http://www.usr-emea.com/support/s-prod-template.asp?loc=unkg&prod=9106 USR9106] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6345 Broadcom 6345] @ 100MHz ||4MB ||16MB ||mini-PCI || ||Yes ||Yes ||Yes || ||[:BroadcomBCM63xxPort:WiP] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg USR9108] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||mini-PCI || || ||No || ||Yes ||No ||
 == Viewsonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
