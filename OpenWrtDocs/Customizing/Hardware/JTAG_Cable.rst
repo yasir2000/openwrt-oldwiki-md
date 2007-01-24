@@ -48,7 +48,7 @@ JTAG-to-LPT mapping
 
 Whereas an unbuffered cable can be constructed for maybe $5 USD or less, the parts for a Wiggler-type cable will cost a little more, perhaps in the $15 to $30 USD range. The advantage of a buffered cable is that it is not as constrained as to length and is more immune to noise and static, thus permitting a higher data transfer rate.
 
-This cable is filly compatible with Macraigor [http://www.macraigor.com/ocd_cmd.htm OCD Commander]. The wire between DATA6 (pin 8 on the LPT DB-25) and ERROR (pin 15) is used to identify a presence of the Wiggler cable and requred by some JTAG software (i.e. Macraigor). It may be omitted for Hairydairymaid debrick utility.
+This cable is fully compatible with Macraigor [http://www.macraigor.com/ocd_cmd.htm OCD Commander]. The wire between DATA6 (pin 8 on the LPT DB-25) and ERROR (pin 15) is used to identify a presence of the Wiggler cable and requred by some JTAG software (i.e. Macraigor). It may be omitted for Hairydairymaid debrick utility.
 
 Another consideration is that a buffered Wiggler-style cable '''requires''' a voltage source to operate. Usually +3.3 volts is needed and is commonly referred to as Vcc (voltage common-collector is the traditional meaning of Vcc). The buffer IC may take a Vcc from the PC LPT also. The DATA7 pin may be used for this purposes, so Wiggler software should provide aclive "1" at this pin. Do not use this pin if your JTAG header provides Vcc.
 
@@ -69,7 +69,7 @@ Found in Linksys routers such as the WRT54G and WRT54GS, the 12-pin header has t
 Seems, this header is a truncated version of the full EJTAG header.
 
 === 14 Pin Header ===
-This header is fully MIPS EJTAG 2.6 compatible and described in the EJTAG 2.6 standart. Found in Edimax routers (and other brands that are Edimax clones), the 14-pin header has the following arrangement of JTAG signals and pins:
+This header is fully MIPS EJTAG 2.6 compatible and described in the EJTAG 2.6 standard. Found in Edimax routers (and other brands that are Edimax clones), the 14-pin header has the following arrangement of JTAG signals and pins:
 
 {{{
  nTRST  1   2 GND
