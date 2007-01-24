@@ -35,9 +35,9 @@ You should be reasonably responsive when replying, if you've just said something
 
 Do not use SMS (or "AOL") shorthand. You have a full keyboard, you should be able to type reasonably coherent messages. We shouldn't need a magic decoder ring to decipher your message.
 
-Don't flood the channel. Flooding is the act of posting multiple lines at once, often the result of someone cutting and pasting a config file or error message into the channel. Aside from being distracting, these can cause more important messages to be pushed off the screen or otherwise lost in the flurry of activity. Instead of pasting to the channel you should use a service known as a pastebin to store the content; a pastebin website will have a large text box for you to paste your information and will give you a URL that displays that information. Use these URLs instead of dumping the content directly to the channel.
+Don't flood the channel. Flooding is the act of posting multiple lines at once, often the result of someone cutting and pasting a config file or error message into the channel. Aside from being distracting, these can cause more important messages to be pushed off the screen or otherwise lost in the flurry of activity. Instead of pasting to the channel you should use a service known as a [http://pastebin.ca pastebin] to store the content; a pastebin website will have a large text box for you to paste your information and will give you a URL that displays that information. Use these URLs instead of dumping the content directly to the channel.
 
-Don't use long URLs. Many websites now use dynamically generated pages and as a result have incomprehensible and extremely long URLs to link to the page, making it difficult for IRC users to copy the URL back into their browser. Some of the longer URLs may even be considered flooding. You can avoid this by using tinyurl, a free service which will take your URL and produce a much shorter URL linking to it.
+Don't use long URLs. Many websites now use dynamically generated pages and as a result have incomprehensible and extremely long URLs to link to the page, making it difficult for IRC users to copy the URL back into their browser. Some of the longer URLs may even be considered flooding. You can avoid this by using [http://tinyurl.com tinyurl], a free service which will take your URL and produce a much shorter URL linking to it.
 
 Avoid markup. While some IRC clients let you type in a variety of colors and formatting options, not all IRC clients will display the message in the intended way, often resulting in unreadable messages -- sometimes even if the message is displayed as intended. Disable any plugins which change the formatting of your message.
 
@@ -47,5 +47,5 @@ Don't fill the channel with idle noise. Noise is anything that produces output w
  * [http://freenode.net/using_the_network.shtml IRC Tutorial]
  * [http://www.catb.org/~esr/faqs/smart-questions.html#disclaimer How to ask questions the smart way]
  * [http://www.chiark.greenend.org.uk/~sgtatham/bugs.html How to report bugs effectively]
- * [http://pastebin.com/ pastebin], [http://pastebin.ca/ another pastebin]
+ * [http://pastebin.ca/pastebin]
  * [http://tinyurl.com tinyurl]
