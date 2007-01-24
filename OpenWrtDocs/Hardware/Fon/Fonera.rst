@@ -134,8 +134,9 @@ Some people asked me how to recover a fonera, here are some methods:
  . Make sure you're using "/dev/mtdblock/X" (the mtdX number) Now reset it again and you should receive this message:
   . Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0 jffs2_build_filesystem(): unlocking the mtd device... done. jffs2_build_filesystem(): erasing all blocks after the end marker...
  This takes some time but you should have a fresh fonera again.
-=== Method 4 - TFTP Recover ===
-A way to recover it with a TFTP server and RedBoot is [http://log.tigerbus.de/?p=89 here] If this doesn't work you probably have to use a JTAG cable.
+=== Method 4 - TFTP/HTTP/Xmodem Recover ===
+A way to recover it with Xmodem, a TFTP or HTTP server and RedBoot is [
+http://www.easy2design.de/bla/?page_id=98 here]. If this doesn't work you probably have to use a JTAG cable.
 
 === Method 5 - Custumer Care ===
  1. Double click the Local Area Connection icon to show the connection's Status dialog box.
@@ -561,7 +562,7 @@ then reboot and everthing should be working.
  * [http://stefans.datenbruch.de/lafonera/ Hacking the La Fonera]
  * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 Openwrt development]
  * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
- * [http://log.tigerbus.de/?p=89 Unbricking]
+ * [http://www.easy2design.de/bla/?page_id=98 Debricking and more]
  * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to Redboot without the Serial Console]
  * [http://coppercore.net/~kevin/fon/ Files to get the access to Redboot without the Serial Console]
  * [http://olsrexperiment.de/sven-ola/fonera/readme.txt Packet for Fonera by sven-ola. NOTE: If you use -ipkg remove- on the Fonera orig firmware, it will BRICK it]
