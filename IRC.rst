@@ -27,7 +27,7 @@ We will not answer questions about other firmwares. If you're looking for suppor
 
 IRC is NOT a bug reporting tool. Do not expect us to fix anything simply because it was mentioned on IRC.
 
-You can view the current bugs and report new ones via the ticket system on https://dev.openwrt.org/
+You can view the current bugs and report new bugs via the ticket system on https://dev.openwrt.org/
 
 == General etiquette ==
 
