@@ -13,7 +13,7 @@ It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who prov
  * 8MB Flash
  * SPI-Bus
 == Additional Comments ==
-Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton (http://www.accton.com.tw/) and not - like many assume - by SMC*.
+Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton/SMC (http://www.accton.com.tw/).
 
 A look at the varius test reports and external photos shows, that this device is provided also under the Trade(Model) Names
 
@@ -29,7 +29,8 @@ According to OpenWRT, the output-power is set to 18dBm, in contrast to the FCC-R
 
 Another interessting issue is the possible frequency range, as specified by Atheros itself at http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf - where the available band ranges from 2.300GHz to 2.500GHz. Question here is, if there will be an option to use further frequencies than the international standardized 14 Channels. In particular, there might be a very high interest e.g. from the amateur-radio community!
 
-*Actually SMC is a subsidiary of Accton :P
+Irregular updates of bleeding edge kamikaze Firmware along with pre-compiled packages and beta webinterface can be found at http://mobileaccess.de/fonera/bin and http://mobileaccess.de/fonera/bin/packages respectively. Simply add this URL to your ipkg configuration at /etc/ipkg.conf 
+
 
 == Case ==
 to open the case, remove the two feet on the opposite site to the antenna jack, they'll reveal two crosspoint screws.
