@@ -207,7 +207,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416906769&pagename=Linksys/Common/VisitorWrapper NSLU2] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||N/A ||N/A ||N/A ||Yes ||Yes ||2x 2.0 ||[:NLSU2:WiP] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416832835&pagename=Linksys/Common/VisitorWrapper RT042] || ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||8MB ||16 MB ||None ||2x ADM6996L ||N/A ||Yes ||Yes ||None ||WiP ||
 ||[http://www-uk.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=UK/Layout&cid=1123521940633&pagename=Linksys/Common/VisitorWrapper WAG354G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16 MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["PSPBoot"] ||Yes || || ||[:AR7Port:WiP] ||
-||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1114037289494&pagename=Linksys%2FCommon%2FVisitorWrapper WPS54G] || || || || || "802.11g" || ? (one ethernet port) || || || || 1x 2.0 || Info entered ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1114037289494&pagename=Linksys/Common/VisitorWrapper WPS54G] || || || || || "802.11g" || ? (one ethernet port) || || || || 1x 2.0 || Info entered ||
 ||WRT54AG || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism (mini-PCI) || || || || || ||Partial ||
 ||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB / 8MB ||16 MB / 32MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
 ||WAG54GS || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 Broadcom 6348] @ 240MHz ||4MB ||16MB ||Integrated Broadcom 4318 ||BCM5325 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:No] ||
@@ -318,9 +318,10 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNR6500_05_GB_CONSUMER SNR6500] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes, pin header soldered ||No ||? ||
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB || ||None || || || || ||Untested ||
-||[http://www.ravo.hu/spec/W54-RT.html W54-RT] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on || || || ||Supported ||
-||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No ||No ||No ||Supported ||
+||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||on||No UART||No ||No ||Supported ||
+||[http://www.ravo.hu/spec/W54-RT.html W54-RT] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on ||No UART
+||No ||No ||Supported ||
+||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART||No ||No ||Supported ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||? ||? ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -406,4 +407,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . CategoryModel
 ----
- CategoryModel
+ . CategoryModel
