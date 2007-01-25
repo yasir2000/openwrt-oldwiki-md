@@ -146,6 +146,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
+== Davolink ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||DV-201AMR || ||Broadcom 6348 @ 256MHz ||8MB ||16MB ||Broadcom (mini-PCI) BCM4306 ||BCM5325 ||on ||Yes ||Yes ||Yes || WiP ||
 == Dell ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||!TrueMobile 2300 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||off || || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300:Supported] ||
