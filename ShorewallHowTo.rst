@@ -533,7 +533,7 @@ tc filter add dev $DEV parent 1: protocol ip handle 0x10 fw flowid 1:10
 }}}
 ===== Useful commands =====
   * tcstart status  -- This will give you the status of your "buckets"
-  * iptabiles --show -t mangle  -- This will show you your "marking rules" for bucket sorting
+  * iptables --show -t mangle  -- This will show you your "marking rules" for bucket sorting
 
 ===== Other useful points =====
 Notice that we are only shaping outgoing traffic -- As it may make sense to shape incoming traffic, you need to stop and think a moment.   We need to receive the incoming traffic before we can shape it, and our LAN is not bandwidth limited like our WAN connection, so why bother shape it?  We have already received it...
