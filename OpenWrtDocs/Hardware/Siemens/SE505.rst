@@ -6,9 +6,10 @@ There are three known versions of the SE505. Only the version SE505V1 and  SE505
 
 Another description (in German) and link to images of versions 1 and 2 can be found here:
 
- http://wiki.opennet-initiative.de/index.php/Siemens_SE505
+http://wiki.opennet-initiative.de/index.php/Siemens_SE505
 
 several other (yet unsopported versions) versions can be found here:
+
 http://bern.openwireless.ch/SE505
 
 = Siemens SE505 v1 =
