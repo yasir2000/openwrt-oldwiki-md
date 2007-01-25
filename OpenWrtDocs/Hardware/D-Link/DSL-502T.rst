@@ -1,7 +1,7 @@
 = Work in Progress =
 Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist those working in that direction.
 
-Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!)
+Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!) + Thanks Mr. Chandler for the formatting.
 
 Kamikaze builds 5174, 5495 & 5636 work on the DSL-502T AU & AT
 
@@ -37,7 +37,7 @@ Run make to download essential packages (approx 100MB) and compile the firmware
 
 '''Setting up the memory layout'''
 
-To flash your new firmware you must first understand how the memory is divided into blocks, with the default DLink memory mappings we have:
+To flash OpenWRT onto your DSL-502T modem you must first understand how the Flash memory is divided into blocks, with the default D-Link  firmware our memory mappings are:
 ||||||||<style="text-align: center;">'''Default DLink V2 memory mappings''' ||
 ||Name ||Start ||End ||Description ||
 ||mtd0 ||0x90091000 ||0x903f0000 ||Filesystem ||
@@ -47,9 +47,9 @@ To flash your new firmware you must first understand how the memory is divided i
 ||mtd4 ||0x90010090 ||0x903f0000 ||fs+kernel ||
 
 
-The default firmware flashes to mtd4, this is not a real memory block, it just spans kernel/filesystem.
+The default D-Link firmware is flashed to mtd4, this is not a real memory block, it spans kernel/filesystem.
 
-The default firmware file is mapped as so:
+The default D-Link firmware file is organised like this:
 ||||<style="text-align: center;">'''Default D-Link V2 firmware memory map (hex)''' ||
 ||0-90 ||Header used by the web interface to verify firmware compatibility ||
 ||90-80FFF ||Kernel with padded 0s at the end ||
@@ -57,19 +57,21 @@ The default firmware file is mapped as so:
 ||20F000-20F007 ||Checksum made with TICHKSUM (8 bytes=16 hex chars) ||
 
 
-Instead of the above, we are flashing OpenWRT to the router, it does not have a header or checksum and has no space wasted by having fixed/padded partition lengths:
+The new OpenWRT firmware is organised like this:
 ||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
 ||0 - x ||Kernel ||
 ||x - eof ||SquashFS ||
 
 
-For OpenWRT to boot we must change our settings in the routers configuration (mtd3 config variables) to the correct values.
+As you can see, the OpenWRT firmware does not have a header or checksum and has no space wasted by having fixed/padded partition lengths.
 
-Just grab ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this is the start of the squashfs. (i.e. sqsh for big endian or hsqs for little endian)
+For OpenWRT to boot we must find out where the kernel and filesystem boundaries are and save these into the routers configuration.
+
+Just grab a hex editor such as ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this represents the start of the squashFS. (i.e. sqsh for big endian or hsqs for little endian processors)
 
 In my case this position was 0x000750E0
 
-so my memory should be mapped like this:
+So for the modem to boot up into OpenWRT I need to change my mtd0,1 and 4 boundaries:
 ||||||||<style="text-align: center;">'''Custom memory map for OpenWRT''' ||
 ||Name ||Start ||End ||Description ||
 ||mtd0 ||0x900850E0 ||0x903f0000 ||Filesystem ||
@@ -79,9 +81,11 @@ so my memory should be mapped like this:
 ||mtd4 ||0x90010000 ||0x903f00000 ||Kernel + FS ||
 
 
-All we do is change the kernel and filesystem mappings and also align the mtd4 correctly.
+DO NOT CHANGE mtd2 or mtd3, this will brick your router and you will need a JTAG cable to recover it.
 
-Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 21 we do
+Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 but on port 21 (FTP) not port 23 (Telnet)
+
+We now type the following:
 
 {{{
 user adam2
@@ -90,8 +94,9 @@ quote "SETENV mtd0,0x900850E0,0x9003f0000" (fs)
 quote "SETENV mtd1,0x90010000,0x900850E0" (kernel)
 quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 }}}
+You must use the comma as a separator.
 
-DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will required JTAG cable to fix it.
+DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will require JTAG cable to fix it.
 
 '''Adding a checksum'''
 
@@ -101,7 +106,7 @@ TICHKSUM can be found in the GPL source code for the original firmware available
 
 '''Flashing the new firmware'''
 
-Now you are ready to flash ftp into adam2
+Now you are ready to flash OpenWRT onto your router, ftp into the adam2 bootloader as above:
 
 {{{
 quote "MEDIA FLSH" #write to flash memory
@@ -112,18 +117,21 @@ put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"  (c can be anything)
 quote REBOOT #tell the router to reboot
 quit
 }}}
-
 '''Getting the LAN connection to work'''
 
-Generally the router won't work until the second bootup. But if you reboot several times and it doesn't work, you may need to enable the correct setting for the ethernet device
+Generally the router won't work until the second bootup. Leave it for a minute or two on the first bootup as it runs some scripts to set itself up.
 
-In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS), This option selects between internal and external PHY.
+If you reboot several times and your modem doesn't work (on some firmware versions a green light comes on when the modem boots up), you may need to enable the correct setting for the ethernet device
+
+In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS).
+
+This option selects between internal and external PHY.
 
 '''Congratulations you are successful :)'''
 
-now try to get an IP from the router by using dhclient eth0 from xterm in Linux or just unsetting IP variables in XP
+Now try to get an IP assigned by DHCP from the router by using dhclient eth0 from xterm in Linux or just unsetting IP variables in XP
 
-You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken)telnet into 192.168.1.1 and you're done :)
+You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken see above), telnet into 192.168.1.1 and you're should see the OpenWRT logo :)
 
 == Enabling ADSL... ==
 Please refer to this forum post for more info after reading this:http://forum.openwrt.org/viewtopic.php?pid=35563
@@ -160,7 +168,6 @@ insmod pppox.o #PPPoE
 insmod pppoe.o #PPPoE
 insmod pppoatm.o #PPPoA
 }}}
-
 '''Start the bridging interface (PPPoE only)'''
 
 Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and if you want to do VCMUX or LLC)
@@ -172,7 +179,6 @@ RFC1483/2684 bridge: Interface "nas0" (mtu=1500, payload=bridged) created sucess
 RFC1483/2684 bridge: Communicating over ATM 0.8.35, encapsulation: LLC
 RFC1483/2684 bridge: Interface configured
 }}}
-
 '''Choosing between VC-Mux and LLC'''
 
 To choose between VC-Mux and LLC when using PPPoE you can simply use -e 0 for LLC and -e 1 for VC-MUX
@@ -182,13 +188,11 @@ For PPPoA the pppoatm plugin for pppd 2.4.3 supports the argument below, edit /l
 {{{
 plugin pppoatm.so ${vpi:-8}.${vci:-35}
 }}}
-
 becomes
 
 {{{
 plugin pppoatm.so ${vpi:-8}.${vci:-35} vc-encaps (this is the default, for LLC use llc-encaps)
 }}}
-
 '''Set up your wan configuration'''
 
 Go to /etc/config and type vi network to edit network configuration and add: (press insert to start editing... press escape and then type :w to save and exit) (if the files are read only just rename the original and copy)
@@ -199,7 +203,6 @@ option ifname nas0
 option device ppp
 option proto pppoe #change to pppoa for PPPoA (PPP over ATM)
 }}}
-
 '''Bring up the bridging interface''' #PPPoE only
 
 ifconfig nas0 up # brings up the nas0 interface
@@ -228,7 +231,6 @@ lcp-echo-failure 20
 mtu 1492 #pppoa should be 1500
 mru 1492 #should equal MTU
 }}}
-
 '''Set up chap/pap authentication '''
 
 edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
@@ -236,7 +238,6 @@ edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
 {{{
 " me@isp.com " "*" "passwd" "*"
 }}}
-
 '''Bring up the ADSL connection'''
 
 you should first edit /lib/network/pppoe.sh and pppoa.sh with the correct MTU/MRU values.
@@ -254,7 +255,6 @@ ppp0      Link encap:Point-to-Point Protocol
           collisions:0 txqueuelen:3
           RX bytes:114 (114.0 B-)  TX bytes:54 (54.0 B-)
 }}}
-
 if it doesn't come up do ps -ax and if you see loads of pppd then just use kill 512 etc to kill them all... also kill the br2684ctl and start again...
 
 you should now be able to ping your ISPs gateway IP from telnet.
@@ -281,7 +281,6 @@ iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
 iptables --append FORWARD --in-interface eth0 -j ACCEPT         # Assuming one NIC to local LAN
 echo "1" > /proc/sys/net/ipv4/ip_forward                        # Enables packet forwarding by kernel
 }}}
-
 please note that this may not be complete and you may require additional rules to protect your router on the wan interface - Note: don't connect to irc.freenode.net from an unfirewalled box on your lan as you might get banned for open proxies.
 
 Actually the best thing to do is to use OpenWRTs existing firewall rules and add the masquerading commands to the end of /etc/firewall.user
@@ -290,7 +289,6 @@ Actually the best thing to do is to use OpenWRTs existing firewall rules and add
 iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE
 iptables -A forwarding_rule -i eth0 -j ACCEPT
 }}}
-
 This means they will execute at bootup
 
 If you get any errors you may need to compile in additional NAT kernel modules.
@@ -318,7 +316,6 @@ ifup wan
 fi
 fi
 }}}
-
 == Troubleshooting ==
 Poor performance of the ADSL connection exists between the Netgear WPNT834 Rangemax 240 and D-Link DSL-502T, characterised by poor transfer speeds which may be asynchronous in nature, many retransmits and general packet loss in TCPdump and poor telnet access/webpage access to the DSL-502T, this is caused by poor ethernet performance between the two devices. This is possibly caused by a duplex mismatch or buggy 100FD/HD code on one of the devices.
 
@@ -355,7 +352,6 @@ My pins are numbered as so:
 6 - 9
 7 - 8 (VIO/VCCC/VREF)
 }}}
-
 '''Bios settings'''
 
 My BIOS settings for my printer port were: ECP+EPP, 0x378.
@@ -419,7 +415,6 @@ local: fw remote: fs mtd4
 ftp> quote REBOOT
 ---> REBOOT 221 Goodbye.
 }}}
-
 But let me guess... you didn't get the firmware to upload? Did you get 550 can not erase or 550 flash erase failed I think I know why!! This is because the configuration file we just uploaded had the old firmware version 1 memory map (or you used a different map for OpenWRT) and we are trying to upload a firmware version 2 which has a different memory mapping. You can solve this by issuing SETENV commands with the correct memory mappings before uploading the firmware
 
 {{{
@@ -429,9 +424,10 @@ quote "SETENV mtd2,0x90000000,0x90010000" - bootloader (adam2 mostly)
 quote "SETENV mtd3,0x903f0000,0x90400000" - configuration
 quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
 }}}
-
 (p.s. the extra , is no mistake, I think it's needed)
 
 '''Congratulations your router is alive:)'''
 
 Ok so, power cycle the router and it should now work... lights should come on after 30 secs or so.
+----
+["CategoryAR7Device"]
