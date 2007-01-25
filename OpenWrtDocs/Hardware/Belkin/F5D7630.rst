@@ -9,7 +9,7 @@ The same electronic is also sold rebranded and the following models are firmware
 
  1. SMC Barricade SMC7904WBRA.
  1. Micradigital F5D7630.
- 1. Phillips SNA 6500-005.
+ 1. Philips SNA 6500-005.
 == Specifications ==
 ==== Router Specifications ====
 IP Sharing Method       NAT (Network Address Translation).
