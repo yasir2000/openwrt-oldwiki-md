@@ -70,6 +70,9 @@ Wireless Standard       802.11g Radio technology        Direct Sequence Spread S
  * RJ11 Phone cable
  * ADSL Filter
  * CD
+==== Internal Layout ====
+A photo of the internals of a F5D7630-4A can be found [http://img240.imageshack.us/img240/9645/imgp03910uu.jpg here].
+
 === Installation of OpenWRT ===
 NOTE: Use the tftp installation method. Web interface upload is problematic since Belkin use a firmware header like linksys, but OpenWRT doesn't provide firmware images for belkin. The standard openwrt-brcm-2.4-<type>.trx images get rejected by the device. Belkin's customisations to the firmware add the ability to specify nvram settings as a footer section to the firmware. It should be possible to create a Belkin specific firmware that can uploaded via the Belkin web interface by following a method similar to that in this paper http://midnightcode.org/papers/OpenWRT%20on%20the%20Belkin%20F5D7230-4.pdf
 
