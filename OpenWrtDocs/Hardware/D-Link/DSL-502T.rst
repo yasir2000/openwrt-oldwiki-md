@@ -3,9 +3,9 @@ Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist th
 
 Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!) + Thanks Mr. Chandler for the formatting.
 
-Kamikaze builds 5174, 5495 & 5636 work on the DSL-502T AU & AT
+Kamikaze builds 5174, 5495, 5636 & 6193 work on the DSL-502T AU & AT
 
-This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
+6193 has a slight bug with passwd not being saved, please read for a fix: http://forum.openwrt.org/viewtopic.php?pid=41501This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
 
 == Specifications ==
 ADSL modem with ADSL2 support to 8Mbit/s+, it has port 1 LAN port
