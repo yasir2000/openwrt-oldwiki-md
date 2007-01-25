@@ -138,23 +138,29 @@ Please refer to this forum post for more info after reading this:http://forum.op
 
 '''Set up modulation'''
 
-First of all, you need to set the modulation nvram/mtd3 variable, you can find the modulation from your existing modem logs, MMODE usually suffices. using adam2 ftp... quote "SETENV modulation,GDMT" or GLITE or MMODE or T1413
+Modulation G.DMT is used for up to 8mbit/s ADSL.
+
+T.1413 is an older version of G.DMT.
+
+G.Lite is a lighter version of G.DMT that supports up to 1.5Mbit/s.
+
+MMODE just chooses the best one to use.This variable is changed by typing: quote "SETENV modulation,GDMT" or T1413/GLITE/MMODE at the adam2 prompt.
 
 '''Compile modules'''
 
-You need to compile in the firmware for the correct annex for your modem, either A or B, do not compile both. (it should be ticked on the PCB if you have no idea).
+You need to compile in the firmware for the correct annex for your modem, choose either A or B, do not compile both. If you are unsure of your region, it is usually Annex A (except in Germany), you can open the modem up and look on the PCB if you need to.
 
-If you're using PPPoE you must also compile in br2684ctl and it's dependency linux-atm, if you're using PPPoA you don't use br2684ctl and you don't use the nas0 device either.
+If you're using PPPoE you must also compile in br2684ctl and it's dependency linux-atm, if you're using PPPoA you don't use br2684ctl.
 
 '''Check your line is in sync'''
 
-dmesg should tell you "DSL Line in Sync"
+Type dmesg, it should say "DSL Line in Sync" after about 1 minute.
 
-You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good, then it should say "SHOWTIME" when it is ready to work.
+You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good as the modem is negotiating a speed with the exchange, then it should say "SHOWTIME" when it is ready to work.
 
-You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised (see the US/DS connection rate values) and if it is up also check ifconfig regularly to see if you have the nas0 and ppp0 device we set up later on.  The rest of this guide assumes you're using PPPoE.  If you're using PPPoA then search on the openwrt wiki for ARM8100 as this AR7 device is known to work with ADSL PPPoA with VC-MUX encapsulation.
+You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised as it will show US/DS connection rates.
 
-'''Load the modules'''
+'''Load the modules (PPPoE + PPPoA)'''
 
 You need to load the modules for ppp, most of these are already loaded.
 
@@ -164,13 +170,13 @@ insmod br2684.o
 insmod slhc.o
 insmod ppp_generic.o
 insmod ppp_async.o
-insmod pppox.o #PPPoE
-insmod pppoe.o #PPPoE
-insmod pppoatm.o #PPPoA
+insmod pppox.o #PPPoE only
+insmod pppoe.o #PPPoE only
+insmod pppoatm.o #PPPoA only
 }}}
 '''Start the bridging interface (PPPoE only)'''
 
-Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and if you want to do VCMUX or LLC)
+Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and which encapsulation type you want to use, i.e. VCMUX or LLC)
 
 You should get:
 
@@ -179,11 +185,11 @@ RFC1483/2684 bridge: Interface "nas0" (mtu=1500, payload=bridged) created sucess
 RFC1483/2684 bridge: Communicating over ATM 0.8.35, encapsulation: LLC
 RFC1483/2684 bridge: Interface configured
 }}}
-'''Choosing between VC-Mux and LLC'''
+'''Choosing between VC-Mux and LLC ''''''(PPPoE + PPPoA)'''
 
-To choose between VC-Mux and LLC when using PPPoE you can simply use -e 0 for LLC and -e 1 for VC-MUX
+To choose between VC-Mux and LLC when using PPPoE you simply add another command on to the end of your br2684ctl line, like this: br2684ctl -b -c 0 -a 8.35 -e 0 (0 for LLC and 1 for VC-MUX).
 
-For PPPoA the pppoatm plugin for pppd 2.4.3 supports the argument below, edit /lib/network/pppoa.sh
+For PPPoA, it's a bit more complex, the pppoatm plugin supports both vc-encaps and llc-encaps as a command.  You need to edit the /lib/network/pppoa.sh script as follows:
 
 {{{
 plugin pppoatm.so ${vpi:-8}.${vci:-35}
@@ -193,25 +199,34 @@ becomes
 {{{
 plugin pppoatm.so ${vpi:-8}.${vci:-35} vc-encaps (this is the default, for LLC use llc-encaps)
 }}}
-'''Set up your wan configuration'''
+This works as of pppd 2.4.3
 
-Go to /etc/config and type vi network to edit network configuration and add: (press insert to start editing... press escape and then type :w to save and exit) (if the files are read only just rename the original and copy)
+'''Set up your wan configuration (PPPoE + PPPoA)'''
+
+Go to /etc/config and type vi network to edit network configuration and add:
 
 {{{
 config interface wan
 option ifname nas0
 option device ppp
-option proto pppoe #change to pppoa for PPPoA (PPP over ATM)
+option proto pppoe #or pppoa
 }}}
-'''Bring up the bridging interface''' #PPPoE only
+'''Brief Instructions for using VI'''''' '''
+
+Press insert to start editing
+
+Press escape and then type :w to save and exit
+
+ . If the files are read only just rename the original and then copy it to make it writable.
+'''Bring up the bridging interface (PPPoE only)'''
 
 ifconfig nas0 up # brings up the nas0 interface
 
-'''Create the ppp device'''
+'''Create the ppp device ''''''(PPPoE + PPPoA)'''
 
 mknod /dev/ppp c 99 0 #creates the ppp device
 
-'''Edit the ppp options'''
+'''Edit the ppp options (PPPoE + PPPoA)'''
 
 now we need to edit the /etc/ppp/options file, add these options
 
@@ -226,23 +241,23 @@ usepeerdns #important gets DNS servers from ISP and adds to resolv.conf
 user " me@isp.com " #REQUIRED FOR PAP/CHAP AUTH TO BE SUCCESSFUL
 lcp-echo-interval 4
 lcp-echo-failure 20
-#plugin rp-pppoe.so #use pppoatm.so for PPPoA  #No longer needed as we have a pppoe/pppoa script called from "ifup wan" instead
-#nas0
-mtu 1492 #pppoa should be 1500
+#plugin rp-pppoe.so #use pppoatm.so for PPPoA  #no longer needed
+#nas0 #no longer needed
+mtu 1492 #1492 for pppoe and 1500 for pppoa
 mru 1492 #should equal MTU
 }}}
-'''Set up chap/pap authentication '''
+'''Set up chap/pap authentication ''''''(PPPoE + PPPoA)'''
 
 edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
 
 {{{
 " me@isp.com " "*" "passwd" "*"
 }}}
-'''Bring up the ADSL connection'''
+'''Bring up the ADSL connection ''''''(PPPoE + PPPoA)'''
 
-you should first edit /lib/network/pppoe.sh and pppoa.sh with the correct MTU/MRU values.
+You should first edit /lib/network/pppoe.sh and pppoa.sh with the correct MTU/MRU values.
 
-then just do "ifup wan" and it should come up
+Just type "ifup wan" and the adsl interface should come up
 
 You should do ifconfig and get something like this:
 
@@ -255,17 +270,22 @@ ppp0      Link encap:Point-to-Point Protocol
           collisions:0 txqueuelen:3
           RX bytes:114 (114.0 B-)  TX bytes:54 (54.0 B-)
 }}}
-if it doesn't come up do ps -ax and if you see loads of pppd then just use kill 512 etc to kill them all... also kill the br2684ctl and start again...
+If it doesn't come up do ps -ax and if you see loads of pppds have spawned then just use kill with their process number to kill them:  i.e. kill 516
 
-you should now be able to ping your ISPs gateway IP from telnet.
+ . you may also need to kill the br2684ctl and start again from that step. (This has since been fixed in a later version of OpenWRT kamikaze).
+If you type logread you can see some debug messages and also your ISPs gateway IP/DNS IPs.
+
+You should now be able to ping your ISPs gateway IP from telnet.
 
 '''Set up DNS lookup'''
 
-normally with the usepeerdns command the DNS is set correctly, but you may need to edit /etc/resolv.conf and add the lines: search wan and you may want to add a nameserver (DNS server) before you bring the interface up
+Normally with the usepeerdns command the DNS is saved in resolv.conf automatically, but you may need to edit /etc/resolv.conf and add the lines: "search wan" and you may want to add a nameserver (DNS server) before you bring the interface up
 
 '''Set up forwarding'''
 
-if your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding and NAT in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
+This is fixed in later Kamikaze Subversions. For general port forwarding just change /etc/firewall.user this executes at each bootup.
+
+If your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding and NAT in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
 
 As a quick test you can try this:
 
@@ -299,11 +319,11 @@ See www.netfilter.org for full iptables documentation, it should be noted that i
 
 Please see http://forum.openwrt.org/viewtopic.php?id=8342 for more info
 
-make a file called /etc/crontab/root and put */1 * * * * sh /etc/adsl
+Make a file called /etc/crontab/root and put */1 * * * * sh /etc/adsl
 
-this calls a file called /etc/adsl every minute for infinity
+This calls a file called /etc/adsl every minute for infinity
 
-now make a file called /etc/adsl and put
+Now make a file called /etc/adsl and put
 
 {{{
 #!/bin/sh
@@ -429,5 +449,6 @@ quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
 '''Congratulations your router is alive:)'''
 
 Ok so, power cycle the router and it should now work... lights should come on after 30 secs or so.
+
 ----
-["CategoryAR7Device"]
+ . ["CategoryAR7Device"]
