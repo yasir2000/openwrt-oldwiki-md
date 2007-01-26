@@ -13,7 +13,7 @@ Additionally, there are a few !HowTos that aren't named as such:
  * [:CompilingUnderDebian] - building OpenWRT from source in Debian
  * [:PublishYourWANIp]
  * [:TransparentFirewall]
-
+ * [:IPSec] - How to build IPSec crypto tunnels with OpenWRT
 
 ----
 CategoryCategory
