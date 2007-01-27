@@ -68,6 +68,8 @@ lan_ifnames=eth2
 lan_ifname=br0
 wan_ifname=eth1
 wan_device=eth1
+wan_gateway=<SomeIp>
+wan_netmask=<SomeMask>
 }}}
 
 If you want to use the wireless interface as lan and the ethernet as wan device, you also have to change the init script for the nvram because it restores it to default bridge behavier at startup. Uncomment two lines in /etc/init.d/S05nvram (maybe there should be a used nvram variable for optional bridge/router mode?):
