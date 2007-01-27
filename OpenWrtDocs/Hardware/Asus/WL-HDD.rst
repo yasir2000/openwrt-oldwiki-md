@@ -91,6 +91,10 @@ If you want to use the wireless interface as lan and the ethernet as wan device,
 
 If you want to open the device (maybe for exchanging the disk) remove the screws below the two little rubber-pads (could be that there are no screws, as on my yakumo. just pull on). Then slide the mainboard with the HD on it out of the case by carefully pulling the front plate.
 
+=== Nvram Reset ===
+
+If you made a mistake while configuring the router and it isn't reachable anymore via network, there is a posibility to reset the device config. To do that, plug the power off during booting, much times, at different timings. You can exploit a bug in the bootloader. The new ip is 192.168.1.1 then (attention, not the standard 192.168.1.220) and boot_wait is on. Now you are able to use tftp for uploading new images. [https://wiki.graz.funkfeuer.at/nvram_reset source]
+
 === Power Consumption ===
 
 The device ships with a 2A 5V switch-mode power supply terminating to a DC plug.
