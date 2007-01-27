@@ -45,7 +45,7 @@ See also
 ||[http://www.allnet.de/product_info_allnet.php?cPath=_&products_id=99968 ALL6250] ||N/A ||[http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPC8241&srch=1 Freescale MPC8241] @ 266MHz ||4MB ||64MB ||N/A ||RTL8169 ||PPCboot ||Yes ||Yes ||1x2.0, 1x1.1 ||PATA ||WiP ||
 == Asus ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1107&modelmenu=1 AM604g] ||Since Aug-2006 ||Broadcom 96348 @ ? (128MHz timer, 256BogoMIPS)||4Mb ||16Mb ||Broadcom BCM4318 (mini-pci) || ? (4 ports; BCM6348B0; supports vlans; "Ethernet Switch Through SPI Slave Select" in dmesg) ||? ||Connector present on the box ||? ||no ||no ||Unknown or unsupported||
+||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1107&modelmenu=1 AM604g] ||Since Aug-2006 ||Broadcom 96348 @ ? (128MHz timer, 256BogoMIPS) ||4Mb ||16Mb ||Broadcom BCM4318 (mini-pci) || ? (4 ports; BCM6348B0; supports vlans; "Ethernet Switch Through SPI Slave Select" in dmesg) ||? ||Connector present on the box ||? ||no ||no ||Unknown or unsupported ||
 ||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1106&modelmenu=1 AM604] (the same as AM604g but w/o wireless; maybe < mem&flash) ||Since Aug-2006 ||Broadcom 96348 ||? ||? ||None ||See AM604g ||? ||See AM604g ||? ||no ||no ||Unknown or unsupported ||
 ||[http://www.asus.com/products4.aspx?l1=12&l2=41&l3=0&model=60&modelmenu=1 WL-300g] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||No ||No ||[:OpenWrtDocs/Hardware/Asus/WL300G:Supported] ||
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&model=58&modelmenu=1 WL-330] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8500] ||1MB ||8MB ||Marvell (integrated 88W8000) ||None || ||No ||No ||No ||No ||No ||
@@ -326,9 +326,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNR6500_05_GB_CONSUMER SNR6500] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes, pin header soldered ||No ||? ||
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||on||No UART||No ||No ||Supported ||
-||[http://www.ravo.hu/spec/W54-RT.html W54-RT] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on ||No UART||No ||No ||Supported ||
-||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART||No ||No ||Supported ||
+||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||on ||No UART ||No ||No ||Supported ||
+||[http://www.ravo.hu/spec/W54-RT.html W54-RT] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) || ||on ||No UART ||No ||No ||Supported ||
+||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||No ||Supported ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||? ||? ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -367,7 +367,8 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||Speedport 500V || ||BCM6348KPB ||4MB ||16MB ||no ||None || ||yes || ||yes ||? ||
 ||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||possible ||possible || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
-||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 2xx MHZ ||4 MiB ||16 MiB? ||Yes (unknown WLAN) ||Yes (x4 switch) || ||Yes || ||No ||possible ||
+||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||4 MiB ||16 MiB? ||Atheros AR2413/5112/5212
+||Infineon ADM6996I || ||Yes || ||No ||possible ||
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
