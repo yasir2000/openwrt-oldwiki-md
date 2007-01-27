@@ -5,6 +5,8 @@ If you're using a wireless multimedia device, such as a SIP WLAN phone, you migh
 
 = Enable WME (802.11e) =
 
+You can skip this section if you intend to reboot your router to apply the changes.
+
 == Install the wl package ==
 {{{
 ipkg install wl
