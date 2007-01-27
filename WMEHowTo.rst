@@ -38,10 +38,20 @@ ifconfig eth1 up
 
 = Enable WME (802.11e) on boot time =
 
-To enable WME on boot time insert the following line to the file /etc/init.d/S40network (above the loop where all interfaces are brought up with ifup):
+To enable WME on boot time create a new file /etc/init.d/S39confwifi with the following content:
 
 {{{
-wl -i $(nvram get wl0_ifname) wme 1
+#!/bin/sh
+case "$1" in
+  start|restart)
+  wl -i $(nvram get wl0_ifname) wme 1
+esac
+}}}
+
+Make the script executable by issuing the following command:
+
+{{{
+chmod +x /etc/init.d/S39confwifi
 }}}
 
 After a reboot WME should be enabled automatically.
