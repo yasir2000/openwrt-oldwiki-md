@@ -22,7 +22,7 @@ If the output of the command is 1 then WME is already enabled. In this case you 
 
 You can skip this section if you intend to reboot your router to apply the changes.
 
-== Shutdown the WIFI interface ==
+== Shut the WIFI interface down ==
 
 {{{
 ifconfig eth1 down
@@ -34,7 +34,7 @@ ifconfig eth1 down
 wl -i eth1 wme 1
 }}}
 
-== Bring up the WIFI interace again ==
+== Bring the WIFI interace up again ==
 
 {{{
 ifconfig eth1 up
