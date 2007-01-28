@@ -19,6 +19,8 @@ If the output of the command is 1 then WME is already enabled. In this case you 
 
 = Enable WME (802.11e) on the fly =
 
+You can skip this section if you intend to reboot your router to apply the changes.
+
 == Shutdown the WIFI interface ==
 
 {{{
