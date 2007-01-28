@@ -1,7 +1,7 @@
 [[TableOfContents]]
 
 = Introduction =
-If you're using a wireless multimedia device, such as a SIP WLAN phone, you might want to enable the WME extensions (802.11e) to enable those devices to save power. This tutorial '''assumes''' that your WIFI device is '''eth1'''. To find out what device your router uses please consult the ["OpenWrtDocs/Configuration"] page or execute the ''nvram get wl0_ifname'' command.
+If you're using a wireless multimedia device, such as a WLAN SIP phone, you might want to enable the WME extensions (802.11e) to enable those devices to save power. This tutorial '''assumes''' that your WIFI device is '''eth1'''. To find out what device your router uses please consult the ["OpenWrtDocs/Configuration"] page or execute the ''nvram get wl0_ifname'' command.
 
 = Prerequisites =
 
