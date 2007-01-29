@@ -24,6 +24,15 @@ See also
 == 4G Systeme ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64MB ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Supported ||
+== ACorp ==
+The information below is for reference - it's difficult to find it elsewhere.
+||'''Model''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''ADSL''' ||'''Serial''' ||'''Status''' ||
+||LAN120M ||TI AR7 "Ohio" @212MHz ||4Mb ||16Mb ||None ||None ||Yes ||? ||? ||
+||LAN420M ||TI AR7 "Ohio" @212MHz ||4Mb ||16Mb ||None ||Marvell 88E6060 ||Yes ||? ||? ||
+||W422G ||TI AR7 "Ohio" @212MHz ||4Mb ||16Mb || TNETW1150 ||? ||Yes ||? ||? ||
+||LAN120 (replaced with LAN120M) ||TI AR7 "Sangam" @150MHz ||2Mb ||8Mb ||None ||None ||Yes ||? ||? ||
+||LAN420 (replaced with LAN420M) ||TI AR7 "Sangam" @150MHz ||2Mb ||8Mb ||None ||Realtek RTL8305SC ||Yes ||? ||? ||
+||W400G (replaced with W422G) ||TI AR7 "Sangam" @150MHz ||4Mb ||16Mb ||TNETW1130 ||? ||Yes ||? ||? ||
 == Actiontec ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||GT701-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG:WiP] ||
