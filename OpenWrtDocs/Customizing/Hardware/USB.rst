@@ -67,7 +67,11 @@ It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?i
 http://www.winischhofer.at/linuxsisusbvga.shtml
 
 === USB Swap Space ===
-http://www.opensourcerebels.org/forums/viewtopic.php?t=14
+
+See LocalFileSystemHowTo
+
+## see also http://www.opensourcerebels.org/forums/viewtopic.php?t=14
+## incorrect instructions, the author creates a filesystem, then blows it away with mkswap.
 
 === USB Sound devices ===
 http://wiki.openwrt.org/UsbAudioHowto
