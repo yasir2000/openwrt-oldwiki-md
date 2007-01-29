@@ -66,6 +66,9 @@ It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?i
 === USB VGA ===
 http://www.winischhofer.at/linuxsisusbvga.shtml
 
+=== USB Swap Space ===
+http://www.opensourcerebels.org/forums/viewtopic.php?t=14
+
 === USB Sound devices ===
 http://wiki.openwrt.org/UsbAudioHowto
 
