@@ -135,6 +135,23 @@ If things do go wrong, the WRT54G v4 and WRT54G v5 do reset the clkfreq variable
 
 If the clock frequency results in an unstable processor, there may be only a few seconds to initiate a JTAG based nvram erase.
 
+'''TIP''': If you do overclock and find your router becomes too unstable to login and reset the clock frequency, this hack may save you. The usual disclaimers apply.
+
+First, take the router out of it's case. Place it on a non-conductive surface where you can work on it and still have it connected to your network and power, as well as near a computer which you can use to SSH into it.
+
+Next, get yourself an ice pack. It must be flexible. I used the plastic bag type filled with a gel. Freeze the pack until it reaches your freezer temp.
+
+Now take the bag out and place it in a heavy duty plastic freezer bag. Lay the bag on top of the now bare router motherboard making sure it presses flat on the processor (see the HW guide). Wait a few minutes until the bottom of the motherboard feels cool. Next place a small weight on top of the gel pack to hold it to the board while you work. I used the power brick from my laptop. Make sure your network cable is connected and plug the power into the router. Wait until it has booted and try SSH'ing into it from your computer. If you are lucky, this homebrew cooling hack will allow the router's CPU to run long enough to let you reset the CPU clock using the following commands:
+
+{{{
+nvram set clkfreq=<default MHZ>
+nvram commit
+reboot
+}}}
+If you are lucky, your router is now back to normal.
+
+'''Note''': I have only used this once on a WRT54G V2 that was clocked to 240MHz. Other models and overclock speeds may not respond to this hack. Good luck.
+
 === Overclocking for the v2, v2.2, and v3 ===
 Other models use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a nvram reset. Be even more careful with these versions of the WRT54G.
 
