@@ -126,17 +126,17 @@ JamesCameron tested a device as follows:
 
 === Internal RTC ===
 
-the internal RTC can be acessed with the proprietary module , which will taint the kernel. 
+The internal RTC can be acessed with the proprietary module , which will taint the kernel. 
 
 {{{
 insmod rtcdrv.o
 mknod /dev/rtc c 12 0
 }}}
-and this will show the hardware time:
+And this will show the hardware time:
 {{{
 cat /dev/rtc
 }}}
-i haven't found any posibillity to set the rtc, but setting the system time with a script with --hctosys works):
+I haven't found any posibillity to set the rtc, but setting the system time with a script with --hctosys works):
 {{{
 #!/bin/sh
 case "$1" in
@@ -152,7 +152,7 @@ case "$1" in
 esac
 }}}
 
-all stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
+All stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
 
 === External Interface ===
 
