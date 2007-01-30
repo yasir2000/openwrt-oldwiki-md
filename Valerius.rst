@@ -4,7 +4,7 @@
 
 NEED OPENWRT FIRMAWARE FOR WRT54G v7.0
 
-Email: [[MailTo(you AT SPAMFREE example DOT com)]]
+Email: [[MailTo(molotok@land.ru)]]
 
 ...
 
