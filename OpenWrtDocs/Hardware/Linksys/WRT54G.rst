@@ -209,3 +209,5 @@ If you have a look at the WRT54G v2.2 board, you can find on the left corner, ne
 
 ----
  . CategoryModel
+
+blablabla V7.0 not yet :(
