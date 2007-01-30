@@ -124,6 +124,36 @@ JamesCameron tested a device as follows:
 ||standby||0.48A||disk drive in host-directed standby mode, using ''hdparm -y'', further access by kernel spun the drive up||
 ||sleep||0.48A||disk drive in host-directed sleep mode, using ''hdparm -Y'', no apparent effect on power, but prevented further access to drive by kernel||
 
+=== Internal RTC ===
+
+the internal RTC can be acessed with the proprietary module , which will taint the kernel. 
+
+{{{
+insmod rtcdrv.o
+mknod /dev/rtc c 12 0
+}}}
+and this will show the hardware time:
+{{{
+cat /dev/rtc
+}}}
+i haven't found any posibillity to set the rtc, but setting the system time with a script with --hctosys works):
+{{{
+#!/bin/sh
+case "$1" in
+         --hctosys)
+                [ -c /dev/rtc ] && /bin/cat /dev/rtc|(IFS=:;read Y M D dow h m s; /bin/date -s $M$D$h$m$Y.$s)
+                ;;
+         --systohc)
+                [ -c /dev/rtc ] && /bin/date +%Y:%m:%d:%w:%H:%M:%S >/dev/rtc
+                ;;
+         *)
+                echo "Usage: $0 {--systohc|--hctosys}" >&2
+                ;;
+esac
+}}}
+
+all stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
+
 === External Interface ===
 
 This device has some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
