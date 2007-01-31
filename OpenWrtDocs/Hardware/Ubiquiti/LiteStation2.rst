@@ -11,7 +11,7 @@ Wireless: Atheros 802.11b/g (in CPU, 400mW)
 Ethernet: 2 port connected to the CPU
 USB: none
 Serial: yes, external
-JTAG: ?
+JTAG: yes, backside
 }}}
 
 === Problems ===
