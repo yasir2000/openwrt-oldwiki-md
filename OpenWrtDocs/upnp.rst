@@ -33,7 +33,7 @@ http://perso.wanadoo.fr/Stephane.Coulon/OpenWRT/libupnp_1.2.1a_mipsel.ipk
 
 A fixed version of Stephane Coulons' Linux IGD package which installs without error and does not require any configuration can be downloaded from the following location:
 
-http://members.optusnet.com.au/edwardluck/openwrt/packages/linux-igd_1.0.1.ipk
+http://www.users.on.net/~ed.luck/linux-igd_1.0.1.ipk
 
 The libpthread package is already part of the OpenWRT package tree, but if you want to download it manually you can go [http://downloads.openwrt.org/whiterussian/packages/libpthread_0.9.27-1_mipsel.ipk here]
 
@@ -47,9 +47,9 @@ The following shell commands will get uPnP installed and running (from the curre
 
 {{{
 cd /tmp
-wget http://members.optusnet.com.au/edwardluck/openwrt/packages/libupnp_1.2.1a_mipsel.ipk
+wget http://www.users.on.net/~ed.luck/libupnp_1.2.1a_mipsel.ipk
 ipkg install libupnp_1.2.1a_mipsel.ipk
-wget http://members.optusnet.com.au/edwardluck/openwrt/packages/linux-igd_1.0.1.ipk
+wget http://www.users.on.net/~ed.luck/linux-igd_1.0.1.ipk
 ipkg install ./linux-igd_1.0.1.ipk
 /etc/init.d/S65upnpd start
 }}}
