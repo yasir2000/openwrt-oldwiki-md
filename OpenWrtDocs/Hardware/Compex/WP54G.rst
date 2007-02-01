@@ -1,27 +1,73 @@
-'''Compex WP54'''
+'''Compex WP54''' (This page is at an early stage of development. Please feel free to update)
 
-(This page is at an early stage of development. Please feel free to update)
+The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless.
 
-The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless. There exist several different models. Regarding the different models:
+''There are several different models availablein WP54, but only WP54 With "WRT" is support the OpenWRT currently. E.g. WP54-WRT and WP-WRT6E (New Version)''
 
- *'''WP54 1B''' can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
- *'''WP54 1D''' can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
- *'''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board [FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?]. This is the only board that can run OpenWrt. 
-  
-  * Open-WRT is preloaded on the board before shipping to customers.
-  * Serial Ports is soldered onto the board.
-  * JTAG Ports is soldered onto the board.
-  * JTAG Programmer and Serial Converter is available if you purchase the development kit.
+'''Compex WP54 THAT NOT SUPPORT WRT.'''
 
-The manufacturer's home site is http://www.compex.com.sg/ . Most of the manufacturer's websites, however is at http://compex.com.sg/home/OEM/index.htm. 
+ * '''WP54 1A '''
+ * '''WP54 1B''' =''' '''can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
+ * '''WP54 1C'''
+ * '''WP54 1D''' = can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
+ * '''WP54 6D''' = It is ROHS Standard and able able to run in IEEE802.3af standard PoE and Compex PoE Plus.
+'''Compex WP54 WITH WRT.'''
+
+ * * '''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board [FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?].
+ * '''WP54 6E''' = This is the latest OpenWRT version from Compex that able to run in IEEE802.3af standard PoE and Compex PoE Plus. This model come with 2 version, Compex and WRT version.
+'''Ordering Information'''
+
+''There are 2 Type Of Compex OpenWRT Packets available.''
+
+||<tablewidth="665px" tablestyle="WIDTH: 665px; HEIGHT: 238px">'''Packet '''||'''Content'''||
+||'''P-WR-WP54 Board'''||WP54 WRT Bare-board (Pre-loaded with Open-WRT)||
+||'''P-WR-WP54AG WRT ''' '''Development Kit''' ||
+• WP54 WRT6E Bareboard (Pre-loaded with Open-
+WRT)
+• Wireless AG mini-PCI (Compex WLM54AG)
+• PoE+ Injector (Compex PoE+1A4815)
+• JTAG Programmer (Cable from PC to JTAG
+Programmer included)
+• Serial Converter (Cable from PC to Serial
+Converter included)
+• 24V DC Power Supply ||
+
+
+'''Other Information about Compex '''OpenWrt''' Bareboard'''
+
+ * Open-WRT is preloaded on the board before shipping to customers.
+ * Serial Ports is soldered onto the board.
+ * JTAG Ports is soldered onto the board.
+ * JTAG Programmer and Serial Converter is available if you purchase the development kit.
+Related Link
+
+[http://www.compex.com.sg/ Homepage] =The manufacturer's Website
+
+[http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf DataSheet] = Provide Technical Specification and Ordering Information.
+
+[http://compex.com.sg/home/OEM/index.htm.%20 OEM Solution] = It is about Company OEM Solution.
+
+[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port and So on.
+
+[http://compex.com.sg/home/OEM/Downloads/Open%25%32DWRT%25%35FCodes.rar OpenWRT Codes]   = Its a .Rar file that contain Open WRT Code.
+
+[http://compex.com.sg/home/OEM/Downloads/JTAG_Programmer.rar JTAG Programmer Codes] = Like the name, Contai the JTAG Programmer codes
+
+'''For Europe'''
 
 The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they have their own [http://www.cpx.cz/dls/WP54G_linux/ downloads page]
 
-Compex [http://www.compex.com.sg/home/OEM/Open_wrt.htm support OpenWrt] on WP54-WRT only. '''A standard WP54 Model *cannot* support Open-WRT.'''
+''''''
+
+'''Other links '''
+
+ * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
+ * [http://www.seattlewireless.net/Atheros Seattle Wireless Atheros page]
+
 
 '''Default settings'''
 
-[These notes refer to the Compex firmware in WP54G, not WP54-WRT]
+''[These notes refer to the Compex firmware in WP54G, not WP54-WRT]''
 
 The Compex comes up by default as 192.168.168.1/24. You can login to it using a web browser, the default password is "password"
 
@@ -53,9 +99,8 @@ snmpsetcommunity    ssh                 sshport             telnet
 telnetport          upgrade             upnp                userlist
 webserver           restart
 
-# 
+#
 }}}
-
 '''Firmware format'''
 
 The web interface has an option to upgrade the firmware. However the file format of Compex's standard firmware is not the same as OpenWrt's trx file. Here are the first few bytes of WP54G_MSSID_V203_B1013.IMG
@@ -67,7 +112,6 @@ The web interface has an option to upgrade the firmware. However the file format
 00000030  90 00 00 00 00 00 01 00  01 00 00 00 00 00 02 00  |................|
 ...
 }}}
-
 Therefore it looks unlikely that you can upload an OpenWrt image through the standard web interface.
 
 '''OpenWRT support'''
@@ -83,7 +127,6 @@ From the Compex site you can download their [http://www.compex.com.sg/home/OEM/D
 -rw-r--r--  1 root  root     80105 Jun  2 17:19 openwrt-wp54g-20060602.tgz
 -rw-r--r--  1 root  root       167 Jun  2 11:23 wp54gcmd
 }}}
-
 The file openwrt-wp54g-2.4-squashfs.trx appears to be a standard OpenWrt TRX-format file:
 
 {{{
@@ -93,13 +136,11 @@ The file openwrt-wp54g-2.4-squashfs.trx appears to be a standard OpenWrt TRX-for
 00000030  9b c4 4d 53 73 e3 b8 91  5b aa 71 4f 7d e2 58 cd  |..MSs...[.qO}.X.|
 ...
 }}}
-
 The file 'wp54gcmd' contains just the following line:
 
 {{{
 flash -noheader 192.168.0.1:openwrt-wp54g-2.4-squashfs.trx flash1.trx;nvram set STARTUP="load -z -raw -max=8000 -addr=0x80001000 flash1.trx:0x1c;go";nvram commit;reset
 }}}
-
 This appears to be a CFE command line, which presumes you have a TFTP server running on 192.168.0.1
 
 If you download the [http://www.compex.com.sg/home/OEM/Downloads/JTAG_Programmer.rar JTAG programmer codes bundle] it's another RAR file containing:
@@ -111,7 +152,6 @@ If you download the [http://www.compex.com.sg/home/OEM/Downloads/JTAG_Programmer
 -rw-r--r--  1 root  root     875 Jun  8 09:57 wp18.mac
 -rw-r--r--  1 root  root    1358 May 30 17:04 wp54g.mac
 }}}
-
 The !ReadMe.txt file talks about using [http://macraigor.com Macraigor] [http://macraigor.com/ocd_cmd.htm OCD Commander] to download and run RAM version of their loader via the E-JTAG interface using a [http://macraigor.com/wiggler.htm Wiggler] device. The .mac files contains commands for OCD Commander to initialize onboard memory devices, then download the loader and execute it. Once you have done this you can use tftp to upload cfe.bin
 
 You can update the bootloader from within MyLoader itself.
@@ -119,14 +159,3 @@ You can update the bootloader from within MyLoader itself.
 '''Inside the box'''
 
 Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips. Warning: after opening the box, it's quite hard to get the LED light guide back into place properly.
-
-A picture of the PCB is included in [http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_1B_Bareboard_DSv2.5.pdf the datasheet]
-
-'''GPIO Bit Mapping / Serial Ports / Serial Console Settings / JTAG Ports'''
-
-All these information is available in the [http://www.compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual].
-
-'''Other links'''
-
- * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
- * [http://www.seattlewireless.net/Atheros Seattle Wireless Atheros page]
