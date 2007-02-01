@@ -540,7 +540,7 @@ config interface lan
         option proto    dhcp
         option hostname Freefonera
 }}}
-and finally /etc/config/wireless
+/etc/config/wireless
 
 {{{
 config wifi-device  wifi0
@@ -549,11 +549,17 @@ config wifi-device  wifi0
 config wifi-iface
         option device   wifi0
         option network  lan
-        option mode     'ap'
+        option mode     ap
         option ssid     Fonerafree
         option hidden   0
-        option encryption psk
-        option key "dict-crack-me"
+        option encryption psk2
+        option key <Your own password>
+}}}
+
+and finally /etc/config/firewall
+{{{
+iptables -A INPUT -i br-lan -j ACCEPT
+iptables -A INPUT -o br-lan -j ACCEPT
 }}}
 then reboot and everthing should be working.
 
