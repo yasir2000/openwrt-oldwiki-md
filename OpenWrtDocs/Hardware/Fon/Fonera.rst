@@ -526,8 +526,8 @@ root@OpenWrt:~ ikpg update
 root@OpenWrt:~ ikpg install hostapd
 root@OpenWrt:~ ikpg install wpa-supplicant
 }}}
-/etc/config/network
 
+/etc/config/network
 {{{
 # Copyright (C) 2006 OpenWrt.org
 config interface loopback
@@ -541,8 +541,8 @@ config interface lan
         option proto    dhcp
         option hostname Freefonera
 }}}
-/etc/config/wireless
 
+/etc/config/wireless
 {{{
 config wifi-device  wifi0
         option type     atheros
