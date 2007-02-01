@@ -524,6 +524,7 @@ dest ram /tmp
 {{{
 root@OpenWrt:~ ikpg update
 root@OpenWrt:~ ikpg install hostapd
+root@OpenWrt:~ ikpg install wpa-supplicant
 }}}
 /etc/config/network
 
@@ -546,6 +547,7 @@ config interface lan
 config wifi-device  wifi0
         option type     atheros
         option channel  5
+
 config wifi-iface
         option device   wifi0
         option network  lan
@@ -553,10 +555,11 @@ config wifi-iface
         option ssid     Fonerafree
         option hidden   0
         option encryption psk2
-        option key <Your own password>
+        option key <Your secret password>
 }}}
 
-and finally /etc/config/firewall
+and finally...
+/etc/config/firewall
 {{{
 iptables -A INPUT -i br-lan -j ACCEPT
 iptables -A INPUT -o br-lan -j ACCEPT
