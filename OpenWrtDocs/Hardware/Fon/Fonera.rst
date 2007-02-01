@@ -514,18 +514,25 @@ RedBoot> fis init
 == basic wpa config ==
 It's a bit harder to find the documentation for kamikaze, as the config system changed. So here's a list of config entries to use the fonera as a wpa-psk accesspoint-bridge. You can take it with your laptop and use it as a mobile ap whereever you find a rj45 plug.
 
-/etc/ipkg.conf
+Edit your ipkg.conf using vi.
 
+/etc/ipkg.conf
 {{{
 src snapshots http://ipkg.k1k2.de/packages
 dest root /
 dest ram /tmp
 }}}
+
+
+Now update your application list and install 'hostapd' and 'wpa-supplicant'.
 {{{
 root@OpenWrt:~ ikpg update
 root@OpenWrt:~ ikpg install hostapd
 root@OpenWrt:~ ikpg install wpa-supplicant
 }}}
+
+
+Edit your network settings using vi.
 
 /etc/config/network
 {{{
@@ -541,6 +548,9 @@ config interface lan
         option proto    dhcp
         option hostname Freefonera
 }}}
+
+
+Edit your wireless settings using vi.
 
 /etc/config/wireless
 {{{
@@ -558,7 +568,9 @@ config wifi-iface
         option key <Your secret password>
 }}}
 
-and finally...
+
+and finally edit your firewall settings using vi.
+
 /etc/config/firewall
 {{{
 iptables -A INPUT -i br-lan -j ACCEPT
