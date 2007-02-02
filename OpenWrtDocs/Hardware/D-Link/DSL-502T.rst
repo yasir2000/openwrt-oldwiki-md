@@ -1,16 +1,16 @@
 = Work in Progress =
-Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist those working in that direction.
+Porting OpenWrt to the DSL-502T is a work in progress.
 
-Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!) + Thanks Mr. Chandler for the formatting.
+This page is to assist those working in that direction.
 
-Kamikaze builds 5174, 5495, 5636, 6193, 6250 work on the DSL-502T AU & AT
+Thanks Strider for starting the page off for me.
 
-6193 & 6250 have a slight bug with passwd not being saved, please read for a fix: [http://forum.openwrt.org/viewtopic.php?pid=41501This http://forum.openwrt.org/viewtopic.php?pid=41501]
+Thank you nbd and all the OpenWRT developers for making this work-Z3r0 (not the z3r0 on IRC)
 
-This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
+Thank you Mr Chandler for fixing some of the formatting.
 
 == Specifications ==
-*ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port
+ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port
 
 Flash chip: 4MBytes - Samsung K8D3216UBC a 32Mbit NOR-type Flash Memory organized as 4M x 8
 
@@ -18,42 +18,72 @@ SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
 
 CPU: TNETD7300GDU Texas Instruments AR7 MIPS based
 
-*see Enabling ADSL section for more info''' '''
-
 == How to get OpenWRT onto the router: ==
-'''Preamble '''
+'''Preamble/Disclaimer'''
 
-I do not advise proceeding forward unless you have a JTAG cable, this allows you to recover the firmware in the device in all situations by directly talking to the mips processor and allowing you to upload a new bootloader. They are around $20 USD from Ebay
+I do not advise proceeding forward unless you have a JTAG cable, this allows you to recover the firmware in the device in all situations by directly talking to the mips processor and allowing you to upload a new bootloader.
 
-Generally the risk of 'bricking' the router (i.e. deleting the bootloader and/or config file) is low. As long as instructions are followed.
+They are around $20 USD from eBay.
 
-'''Getting and compiling the firmware'''
+Generally the risk of 'bricking' the router (i.e. deleting the bootloader and/or config file thereby requiring a JTAG cable) is low. As long as instructions are followed.
 
-You will need to compile your own firmware, it's simple enough, this can be done using Ubuntu Linux 6.10 (Fedora Core 6 also works great) For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev' and 'subversion' Now we can download a copy of the source code from the subversion repository svn co https://svn.openwrt.org/openwrt/trunk
+'''Get the source code'''
 
-or get the same revision as myself and use
+The sourcecode is held in a subversion repository and is updated daily, install the subversion package (using the synaptic package manager on ubuntu).
+
+To get the code you type this at the command prompt:
+
+svn co https://svn.openwrt.org/openwrt/trunk
+
+To get a specific revision you type this:
 
 svn -r 6250 co https://svn.openwrt.org/openwrt/trunk
 
-Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4], quit and save the config.
+If you are updating or rolling back only the changeset is downloaded
 
-Run make to download essential packages (approx 100MB) and compile the firmware
+'''Download source code for optional extra packages'''
 
-'''Setting up the memory layout'''
+Browse here and see if there's anything you want (you can usually skip this):
 
-To flash OpenWRT onto your DSL-502T modem you must first understand how the Flash memory is divided into blocks, with the default D-Link  firmware our memory mappings are:
-||||||||<style="text-align: center;">'''Default DLink V2 memory mappings''' ||
+https://dev.openwrt.org/browser/packages
+
+For example enter your local trunk/package folder and type:
+
+svn co https://svn.openwrt.org/openwrt/packages/net/miau miau is an IRC bouncer
+
+svn co https://svn.openwrt.org/openwrt/packages/net/ez-ipupdate ez-ipupdate is a dyndns updater
+
+''' Install prerequisites for compiling'''
+
+For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev'
+
+ '''Select firmware components'''
+
+Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4]
+
+You also need to select your ADSL1 Annex, it's either Annex A or B (Germany only).
+
+Quit and save the config.
+
+Run 'make' to download essential packages (approximately 100MByte) and compile the firmware.
+
+'''Understanding the firmware & memory layout of the DSL-502T'''
+
+This is very important, please try to understand what is going on here.
+
+The Flash memory is divided into blocks, with the D-Link 2.00B07 firmware our memory mappings are:
+||||||||<style="text-align: center;">'''Default DLink v2 memory mappings''' ||
 ||Name ||Start ||End ||Description ||
 ||mtd0 ||0x90091000 ||0x903f0000 ||Filesystem ||
-||mtd1 ||0x90010090 ||0x90090000 ||Kernel ||
+||mtd1 ||0x90010090 ||0x90091000 ||Kernel ||
 ||mtd2 ||0x90000000 ||0x90010000 ||Bootloader ||
 ||mtd3 ||0x9003f0000 ||0x90040000 ||Configuration ||
 ||mtd4 ||0x90010090 ||0x903f0000 ||fs+kernel ||
 
 
-The default D-Link firmware is flashed to mtd4, this is not a real memory block, it spans kernel/filesystem.
+The D-Link firmware v2 is flashed to mtd4, this is not a real memory block, it is a virtual block spanning the kernel & filesystem.
 
-The default D-Link firmware file is organised like this:
+The D-Link firmware v2 file is organised like this:
 ||||<style="text-align: center;">'''Default D-Link V2 firmware memory map (hex)''' ||
 ||0-90 ||Header used by the web interface to verify firmware compatibility ||
 ||90-80FFF ||Kernel with padded 0s at the end ||
@@ -61,15 +91,13 @@ The default D-Link firmware file is organised like this:
 ||20F000-20F007 ||Checksum made with TICHKSUM (8 bytes=16 hex chars) ||
 
 
-The new OpenWRT firmware is organised like this:
+The new OpenWRT firmware is much better at space saving:
 ||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
 ||0 - x ||Kernel ||
 ||x - eof ||SquashFS ||
 
 
-As you can see, the OpenWRT firmware does not have a header or checksum and has no space wasted by having fixed/padded partition lengths.
-
-For OpenWRT to boot we must find out where the kernel and filesystem boundaries are and save these into the routers configuration.
+Consequently our filesystem/kernel boundaries will be different to those of the D-Link firmware: For OpenWRT to boot we must find out where the new firmwares kernel and filesystem boundaries are and save these into the routers configuration.
 
 Just grab a hex editor such as ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this represents the start of the squashFS. (i.e. sqsh for big endian or hsqs for little endian processors)
 
@@ -85,47 +113,57 @@ So for the modem to boot up into OpenWRT I need to change my mtd0,1 and 4 bounda
 ||mtd4 ||0x90010000 ||0x903f00000 ||Kernel + FS ||
 
 
-DO NOT CHANGE mtd2 or mtd3, this will brick your router and you will need a JTAG cable to recover it.
+'''Adjust the memory mappings on the router'''
 
-Now we adjust our mtd variables by setting our IP to 10.8.8.1 and telnetting to 10.8.8.8 but on port 21 (FTP) not port 23 (Telnet)
+The DSL-502T has an adam2 bootloader that is available between 0 - 5 seconds at bootup. This is where you can change the mtd variables.
+
+Now we adjust our mtd variables by setting our IP to 10.8.8.1 (subnet 255.255.255.0) and telnetting to 10.8.8.8 but on port 21 (FTP)
 
 We now type the following:
 
 {{{
-user adam2
-pass adam2
+USER adam2
+PASS adam2
 quote "SETENV mtd0,0x900850E0,0x9003f0000" (fs)
 quote "SETENV mtd1,0x90010000,0x900850E0" (kernel)
 quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 }}}
 You must use the comma as a separator.
 
-DO NOT CHANGE mtd2 or mtd3 as this will brick your router and you will require JTAG cable to fix it.
+DO NOT CHANGE mtd2 or mtd3, this will brick your router and you will need a JTAG cable to recover it.
 
-'''Adding a checksum'''
+'''Adding a checksum (not necessary)'''
 
-I haven't needed to use a checksum myself but some routers may have a version of adam2 that requires each file to have one, otherwise it just rejects the file.
+Some DSL-502T routers may have a version of adam2 that requires each file to have a checksum, otherwise the file is rejected.
 
-TICHKSUM can be found in the GPL source code for the original firmware available on D-Links website, it may already be compiled as a mipsel binary or may be available as seperate source code.
+TICHKSUM can be found in the GPL source code for the original firmware available on D-Links website, it may already be compiled as a mipsel binary or may be available as separate source code.
 
 '''Flashing the new firmware'''
 
-Now you are ready to flash OpenWRT onto your router, ftp into the adam2 bootloader as above:
+Now you are ready to flash OpenWRT onto your router, FTP into the adam2 bootloader as above:
 
 {{{
-quote "MEDIA FLSH" #write to flash memory
-binary #binary transfer mode
-debug #turn debugging output on
-hash #print ##### when transfering
-put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"  (c can be anything)
-quote REBOOT #tell the router to reboot
+quote "MEDIA FLSH"
+binary
+debug
+hash
+put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"
+quote REBOOT
 quit
 }}}
-'''Getting the LAN connection to work'''
+Here we switch to flash memory, we enable binary transfer mode, we turn on debugging, we print hashes during file transfer and we upload our file (c can be anything).
+
+'''Booting up for the first time'''
 
 Generally the router won't work until the second bootup. Leave it for a minute or two on the first bootup as it runs some scripts to set itself up.
 
-If you reboot several times and your modem doesn't work (on some firmware versions a green light comes on when the modem boots up), you may need to enable the correct setting for the ethernet device
+Remember to unset your ip settings under windows, also under linux type dhclient eth0 to get a dhcp assigned IP address.
+
+'''Enable the internal or external PHY'''
+
+Ignore the LEDs, they don't come on anyway.
+
+If you reboot several times and you can't get an IP it could be that you need to tell the modem which PHY it needs to use:
 
 In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS).
 
@@ -133,11 +171,17 @@ This option selects between internal and external PHY.
 
 '''Congratulations you are successful :)'''
 
-Now try to get an IP assigned by DHCP from the router by using dhclient eth0 from xterm in Linux or just unsetting IP variables in XP
+If you can get an IP, well done!
 
-You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken see above), telnet into 192.168.1.1 and you're should see the OpenWRT logo :)
+You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken), telnet into 192.168.1.1 and you're should see the OpenWRT logo :) '''Password protect the router'''
 
-== Enabling ADSL... ==
+Get a copy of putty from the internet! (Duh with your spare modem!)
+
+type passwd to set a password and this will enable dropbear the SSH server.
+
+You now need to log back in using putty.
+
+== Enabling ADSL ==
 Please refer to this forum post for more info after reading this:http://forum.openwrt.org/viewtopic.php?pid=35563
 
 '''Set up modulation'''
