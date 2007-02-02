@@ -68,11 +68,9 @@ SRST and TRST haven't been identified, but ignoring them doesn't prevent JTAG fr
 
 Be warned that soldering or probing on test points is fairly tricky.
 
-Both Xilinx and Wiggler cables should work - see [http://wiki.openwrt.org/JTAG_Cables this] wiki entry.
+Both Xilinx and Wiggler cables should work - see [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/JTAG_Cable this] wiki entry.
 
 HairyDairyMaid's debricker is working, but currently requires /skipdetect and instrlen:8 options since the 4704 isn't in the list of supported processors.  The 28F640J3 flash in the SL is in the known part list of the debricker.
-
-A JTAG discussion thread is [http://www.linksysinfo.org/modules.php?name=Forums&file=viewtopic&t=14754 here].
 
 == LED10 ==
 The LED10 location at front of board contains no LED. Perhaps it is usable by GPIO functions for 1-Wire or similar.
