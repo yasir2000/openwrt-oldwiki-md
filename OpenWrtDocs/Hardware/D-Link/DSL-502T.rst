@@ -212,7 +212,7 @@ You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of workin
 
 '''Connect to your ISP directly using DHCP (Most people will be using PPPoE or PPPoA please ignore this)'''
 
-link here
+Please read this thread: http://forum.openwrt.org/viewtopic.php?id=8019
 
 '''Load the modules (PPPoE + PPPoA) (Not necessary anymore)'''
 
@@ -510,12 +510,14 @@ fi
 fi
 }}}
 == Troubleshooting ==
+'''WPNT834 Performance problem'''
+
 Poor performance of the ADSL connection exists between the Netgear WPNT834 Rangemax 240 and D-Link DSL-502T, characterised by poor transfer speeds which may be asynchronous in nature, many retransmits and general packet loss in TCPdump and poor telnet access/webpage access to the DSL-502T, this is caused by poor ethernet performance between the two devices. This is possibly caused by a duplex mismatch or buggy 100FD/HD code on one of the devices.
 
 The only way to solve this at present is to force the DSL-502T ethernet connection to Autonegotiate 10Mbit/s by changing one line of source code: see the last two posts here:
 
  . http://forum.openwrt.org/viewtopic.php?id=8117
-== How to Debrick and further information: ==
+== How to Debrick ==
 You can generally use the methods on DLinks site or just change ur mtd0/1/4 variables back to defaults and upload the dlink firmware.
 
 But if you've accidentally destroyed your mtd2 adam2 bootloader or mtd3 config file you will need a JTAG cable.
@@ -608,7 +610,7 @@ But let me guess... you didn't get the firmware to upload? Did you get 550 can n
 
 {{{
 quote "SETENV mtd0,0x90091000,0x903f0000" - filesystem
-quote "SETENV mtd1,0x90010090,0x90090000" - kernel
+quote "SETENV mtd1,0x90010090,0x90091000" - kernel
 quote "SETENV mtd2,0x90000000,0x90010000" - bootloader (adam2 mostly)
 quote "SETENV mtd3,0x903f0000,0x90400000" - configuration
 quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
@@ -618,6 +620,25 @@ quote "SETENV mtd4,0x90010090,0x903f0000" - this just covers filesystem/kernel
 '''Congratulations your router is alive:)'''
 
 Ok so, power cycle the router and it should now work... lights should come on after 30 secs or so.
+
+== Further Information ==
+Old threads that may be of some use:
+
+How to debrick the DSL-502T: http://forum.openwrt.org/viewtopic.php?id=7742
+
+How to bring up the ADSL interface: http://forum.openwrt.org/viewtopic.php?pid=35563
+
+PPPoE on the DSL-502T: http://forum.openwrt.org/viewtopic.php?pid=35563
+
+Script to bring up the ADSL interface on bootup: http://forum.openwrt.org/viewtopic.php?id=8342
+
+How to change passwd:[http://forum.openwrt.org/viewtopic.php?id=8342 http://forum.openwrt.org/viewtopic.php?id=9093]
+
+VCMUX/LLC howto: http://forum.openwrt.org/viewtopic.php?id=8700
+
+WPNT834 with DSL-502T duplex mismatch bug: http://forum.openwrt.org/viewtopic.php?id=8117
+
+Bridged DSL (not PPP): http://forum.openwrt.org/viewtopic.php?id=8019
 
 ----
  . ["CategoryAR7Device"]
