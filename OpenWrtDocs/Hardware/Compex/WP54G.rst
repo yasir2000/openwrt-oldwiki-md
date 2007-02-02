@@ -10,7 +10,7 @@ There are several different models available of WP54, but only WP54 with part nu
 
  * '''WP54 1A''' = Standard Wireless device that able to run in 7Modes(AP,Client, P to P,Gateway, P to multiple P,WL Routing Client and WL Adapter)
  * '''WP54 1B''' =''' '''can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
- * '''WP54 1C'''  = Wireless Device that support AccessPoint Mode and Client mode only.
+ * '''WP54 1C''' = Wireless Device that support AccessPoint Mode and Client mode only.
  * '''WP54 1D''' = can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
  * '''WP54 6D''' = It is [wiki:ALife:http://en.wikipedia.org/wiki/ROHS ROHS] Standard and able able to run in IEEE802.3af standard PoE and Compex PoE Plus.
 '''Compex WP54 ''WITH'' WRT.'''
@@ -21,7 +21,7 @@ There are several different models available of WP54, but only WP54 with part nu
 
 ''There are 2 Type Of Compex OpenWRT Packages available.''
 ||<tablewidth="665px" tablestyle="WIDTH: 665px; HEIGHT: 238px">'''Package ''' ||'''Content''' ||
-||<:>'''P-WR-WP54 Board''' ||WP54 WRT Bare-board (Pre-loaded with Open-WRT) ||
+||<style="TEXT-ALIGN: center">'''P-WR-WP54 Board''' ||WP54 WRT Bare-board (Pre-loaded with Open-WRT) ||
 ||<style="TEXT-ALIGN: center" |6>'''P-WR-WP54AG WRT ''''''Development Kit''' ||• WP54 WRT6E Bareboard (Pre-loaded with Open-WRT) ||
 ||• Wireless AG mini-PCI (Compex WLM54AG) ||
 ||• PoE+ Injector (Compex PoE+1A4815) ||
@@ -44,7 +44,7 @@ There are several different models available of WP54, but only WP54 with part nu
 
 [http://compex.com.sg/home/OEM/index.htm.%20 OEM Solution] = It is about Company OEM Solution.
 
-[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port and So on.
+[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting, and so on.
 
 [http://compex.com.sg/home/OEM/Downloads/Open-WRT_Codes.rar OpenWRT Codes] = Its a .Rar file that contain Open WRT Code.
 
@@ -156,6 +156,3 @@ You can update the bootloader from within MyLoader itself.
 '''Inside the box'''
 
 Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips. Warning: after opening the box, it's quite hard to get the LED light guide back into place properly.
-
-
-
