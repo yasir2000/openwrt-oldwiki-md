@@ -33,7 +33,7 @@ You will need to compile your own firmware, it's simple enough, this can be done
 
 or get the same revision as myself and use
 
-svn -r 5636 co https://svn.openwrt.org/openwrt/trunk
+svn -r 6250 co https://svn.openwrt.org/openwrt/trunk
 
 Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4], quit and save the config.
 
@@ -209,6 +209,12 @@ plugin pppoatm.so ${vpi:-8}.${vci:-35} vc-encaps (this is the default, for LLC u
 }}}
 This works as of pppd 2.4.3
 
+Generally with PPPoE use LLC and with PPPoA use VC-MUX
+
+PPPoA VC-MUX will be marginally more efficient and depending on your local exchange should be the best choice. But I would experiment with ping times to your first hop.
+
+Use an MTU of 1500 with PPPoA and 1492 with PPPoE, it has been suggested also that using 1462 for PPPoA and 1454 for PPPoE may be even more efficient due to the fact that the packets have to be divided into ATM cells of 53 bytes.
+
 '''Set up your wan configuration (PPPoE + PPPoA)'''
 
 Go to /etc/config and type vi network to edit network configuration and add:
@@ -217,7 +223,8 @@ Go to /etc/config and type vi network to edit network configuration and add:
 config interface wan
 option ifname nas0
 option device ppp
-option proto pppoe #or pppoa
+option proto pppoa #or pppoe
+option mtu 1500 #1492 for PPPoE
 }}}
 '''Brief Instructions for using VI'''''' '''
 
@@ -225,7 +232,8 @@ Press insert to start editing
 
 Press escape and then type :w to save and exit
 
- . If the files are read only just rename the original and then copy it to make it writable.
+If the files are read only just rename the original and then copy it to make it writable.
+
 '''Bring up the bridging interface (PPPoE only)'''
 
 ifconfig nas0 up # brings up the nas0 interface
@@ -245,15 +253,29 @@ noipdefault
 noauth
 passive
 asyncmap 0
-usepeerdns #important gets DNS servers from ISP and adds to resolv.conf
-user " me@isp.com " #REQUIRED FOR PAP/CHAP AUTH TO BE SUCCESSFUL
+usepeerdns
+user " me@isp.com "
 lcp-echo-interval 4
 lcp-echo-failure 20
-#plugin rp-pppoe.so #use pppoatm.so for PPPoA  #no longer needed
-#nas0 #no longer needed
-mtu 1492 #1492 for pppoe and 1500 for pppoa
-mru 1492 #should equal MTU
 }}}
+lock - lock the serial device to ensure exclusive access
+
+defaultroute - accept peers idea of it's own (remote) IP address
+
+noipdefault - don't attempt to determine local ip address from hostname, i.e. peer must supply local IP address during IPCP negotiation
+
+asyncmap 0 - no idea really
+
+noauth - does not require other side to authenticate with us (we authenticate with the other side still)
+
+passive - wait for a lcp packet and don't disconnect
+
+usepeerdns - get the dns servers from the isp
+
+user - you need to put the same details as in chap-secrets / pap-secrets
+
+You can set the MTU / MRU here if you wish, it has no affect, also trying to change it in /lib/network/pppoa.sh or pppoe.sh will not work, you can only change it in /etc/config/network
+
 '''Set up chap/pap authentication ''''''(PPPoE + PPPoA)'''
 
 edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
@@ -263,71 +285,66 @@ edit /etc/ppp/chap-secrets and create a pap-secrets which contains:
 }}}
 '''Bring up the ADSL connection ''''''(PPPoE + PPPoA)'''
 
-You should first edit /lib/network/pppoe.sh and pppoa.sh with the correct MTU/MRU values.
-
 Just type "ifup wan" and the adsl interface should come up
 
 You should do ifconfig and get something like this:
 
 {{{
 ppp0      Link encap:Point-to-Point Protocol
-          inet addr:61.69.250.153  P-t-P:210.8.1.19  Mask:255.255.255.255 UP
-          POINTOPOINT RUNNING NOARP MULTICAST  MTU:1480  Metric:1
-          RX packets:3 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          inet addr:202.164.193.121  P-t-P:203.24.101.23  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:783 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1131 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:3
-          RX bytes:114 (114.0 B-)  TX bytes:54 (54.0 B-)
+          RX bytes:438223 (427.9 KiB)  TX bytes:163835 (159.9 KiB)
 }}}
 If it doesn't come up do ps -ax and if you see loads of pppds have spawned then just use kill with their process number to kill them:  i.e. kill 516
 
- . you may also need to kill the br2684ctl and start again from that step. (This has since been fixed in a later version of OpenWRT kamikaze).
+you may also need to kill the br2684ctl and start again from that step. (This has since been fixed in a later version of OpenWRT kamikaze).
+
 If you type logread you can see some debug messages and also your ISPs gateway IP/DNS IPs.
 
 Logread for PPPoA VC-MUX:
 
 {{{
-Jan  3 20:34:59 (none) daemon.info pppd[5067]: Plugin pppoatm.so loaded.
-Jan  3 20:34:59 (none) daemon.notice pppd[5068]: pppd 2.4.3 started by root, uid 0
-Jan  3 20:35:00 (none) daemon.debug pppd[5068]: using channel 2
-Jan  3 20:35:00 (none) daemon.info pppd[5068]: Using interface ppp0
-Jan  3 20:35:00 (none) daemon.notice pppd[5068]: Connect: ppp0 <--> 8.35
-Jan  3 20:35:00 (none) daemon.warn pppd[5068]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
-Jan  3 20:35:00 (none) daemon.debug pppd[5068]: sent [LCP ConfReq id=0x1 <magic 0x542ff7ba>]
-Jan  3 20:35:01 (none) daemon.debug pppd[5068]: rcvd [LCP ConfReq id=0x8b <auth chap MD5> <magic 0x7f455e68>]
-Jan  3 20:35:01 (none) daemon.debug pppd[5068]: sent [LCP ConfNak id=0x8b <auth pap>]
-Jan  3 20:35:01 (none) daemon.debug pppd[5068]: rcvd [LCP ConfReq id=0x8c <auth pap> <magic 0x7f455e68>]
-Jan  3 20:35:01 (none) daemon.debug pppd[5068]: sent [LCP ConfAck id=0x8c <auth pap> <magic 0x7f455e68>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [LCP ConfReq id=0x1 <magic 0x542ff7ba>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [LCP ConfAck id=0x1 <magic 0x542ff7ba>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [LCP EchoReq id=0x0 magic=0x542ff7ba]
-Jan  3 20:35:03 (none) daemon.warn pppd[5068]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [PAP AuthReq id=0x1 user="removed" password=<hidden>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [LCP EchoRep id=0x0 magic=0x7f455e68]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [PAP AuthAck id=0x1 ""]
-Jan  3 20:35:03 (none) daemon.notice pppd[5068]: PAP authentication succeeded
-Jan  3 20:35:03 (none) daemon.notice pppd[5068]: PAP authentication succeeded
-Jan  3 20:35:03 (none) daemon.warn pppd[5068]: kernel does not support PPP filtering
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [IPCP ConfReq id=0x1 <compress VJ 0f 01> <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [IPCP ConfReq id=0x1 <addr removed>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [IPCP ConfAck id=0x1 <addr removed>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [IPCP ConfRej id=0x1 <compress VJ 0f 01>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [IPCP ConfReq id=0x2 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [IPCP ConfNak id=0x2 <addr removed> <ms-dns1 removed> <ms-dns3 removed
->]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: sent [IPCP ConfReq id=0x3 <addr removed> <ms-dns1 removed> <ms-dns3 removed
->]
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: rcvd [IPCP ConfAck id=0x3 <addr removed> <ms-dns1 removed> <ms-dns3 removed
->]
-Jan  3 20:35:03 (none) daemon.info dnsmasq[326]: reading /tmp/resolv.conf.auto
-Jan  3 20:35:03 (none) daemon.info dnsmasq[326]: using nameserver removed
-Jan  3 20:35:03 (none) daemon.info dnsmasq[326]: using nameserver removed
-Jan  3 20:35:03 (none) daemon.info dnsmasq[326]: using local addresses only for domain lan
-Jan  3 20:35:03 (none) daemon.notice pppd[5068]: local  IP address removed
-Jan  3 20:35:03 (none) daemon.notice pppd[5068]: remote IP address removed
-Jan  3 20:35:03 (none) daemon.notice pppd[5068]: primary   DNS address removed
-Jan  3 20:35:03 (none) daemon.notice pppd[5068]: secondary DNS address removed
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: Script /etc/ppp/ip-up started (pid 5132)
-Jan  3 20:35:03 (none) daemon.debug pppd[5068]: Script /etc/ppp/ip-up finished (pid 5132), status = 0x1
+Jan  1 01:39:29 (none) daemon.info pppd[2516]: Plugin pppoatm.so loaded.
+Jan  1 01:39:29 (none) daemon.notice pppd[2517]: pppd 2.4.3 started by root, uid 0
+Jan  1 01:39:29 (none) daemon.debug pppd[2517]: using channel 9
+Jan  1 01:39:29 (none) daemon.info pppd[2517]: Using interface ppp0
+Jan  1 01:39:29 (none) daemon.notice pppd[2517]: Connect: ppp0 <--> 8.35
+Jan  1 01:39:29 (none) daemon.warn pppd[2517]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
+Jan  1 01:39:29 (none) daemon.debug pppd[2517]: sent [LCP ConfReq id=0x1 <magic 0xa0574e2e>]
+Jan  1 01:39:30 (none) daemon.debug pppd[2517]: rcvd [LCP ConfReq id=0x99 <auth chap MD5> <magic 0x567ba313>]
+Jan  1 01:39:30 (none) daemon.debug pppd[2517]: sent [LCP ConfAck id=0x99 <auth chap MD5> <magic 0x567ba313>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [LCP ConfReq id=0x1 <magic 0xa0574e2e>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [LCP ConfAck id=0x1 <magic 0xa0574e2e>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [LCP EchoReq id=0x0 magic=0xa0574e2e]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [CHAP Challenge id=0xa8 <8a57023b6e5901a9a770eb8a58886bd9>, name = "vezf-exhibition"]
+Jan  1 01:39:32 (none) daemon.warn pppd[2517]: Warning - secret file /etc/ppp/chap-secrets has world and/or group access
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [CHAP Response id=0xa8 <f3ec9abe98d208064f6dac1fb73e85bc>, name = "removed"]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [LCP EchoRep id=0x0 magic=0x567ba313]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [CHAP Success id=0xa8 ""]
+Jan  1 01:39:32 (none) daemon.info pppd[2517]: CHAP authentication succeeded
+Jan  1 01:39:32 (none) daemon.notice pppd[2517]: CHAP authentication succeeded
+Jan  1 01:39:32 (none) daemon.warn pppd[2517]: kernel does not support PPP filtering
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [IPCP ConfReq id=0x1 <compress VJ 0f 01> <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [IPCP ConfReq id=0x1 <addr removed>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [IPCP ConfAck id=0x1 <addr removed>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [IPCP ConfRej id=0x1 <compress VJ 0f 01>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [IPCP ConfReq id=0x2 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [IPCP ConfNak id=0x2 <addr removed> <ms-dns1 removed> <ms-dns3 removed>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: sent [IPCP ConfReq id=0x3 <addr removed> <ms-dns1 removed> <ms-dns3 removed>]
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: rcvd [IPCP ConfAck id=0x3 <addr removed> <ms-dns1 removed> <ms-dns3 removed>]
+Jan  1 01:39:32 (none) daemon.info dnsmasq[346]: reading /tmp/resolv.conf.auto
+Jan  1 01:39:32 (none) daemon.info dnsmasq[346]: using nameserver removed
+Jan  1 01:39:32 (none) daemon.info dnsmasq[346]: using nameserver removed
+Jan  1 01:39:32 (none) daemon.info dnsmasq[346]: using local addresses only for domain lan
+Jan  1 01:39:32 (none) daemon.notice pppd[2517]: local  IP address removed
+Jan  1 01:39:32 (none) daemon.notice pppd[2517]: remote IP address removed
+Jan  1 01:39:32 (none) daemon.notice pppd[2517]: primary   DNS address removed
+Jan  1 01:39:32 (none) daemon.notice pppd[2517]: secondary DNS address removed
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: Script /etc/ppp/ip-up started (pid 2573)
+Jan  1 01:39:32 (none) daemon.debug pppd[2517]: Script /etc/ppp/ip-up finished (pid 2573), status = 0x1
 }}}
 Logread for PPPoE LLC:
 
