@@ -56,7 +56,7 @@ mkdir -p package/200-packagename/patches
 '''TIP:''' When creating the files via copy & paste use the Unix command {{{unexpand}}} to translate the leading spaces into tabs.
 
 {{{
-unexpand --first-only - | cat >package/helloworld/Config.in
+unexpand --first-only - >package/helloworld/Config.in
 }}}
 After pasting it, press {{{ENTER}}} and then {{{CTRL-D}}} keys to save the file.
 
