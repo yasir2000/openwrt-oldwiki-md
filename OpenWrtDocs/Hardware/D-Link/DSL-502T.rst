@@ -412,7 +412,9 @@ Normally with the usepeerdns command the DNS is saved in resolv.conf automatical
 
 '''Set up forwarding'''
 
-This is fixed in later Kamikaze Subversions. For general port forwarding just change /etc/firewall.user this executes at each bootup.
+For general port forwarding just change /etc/firewall.user this executes at each bootup.
+
+This is fixed in later Kamikaze Subversions.
 
 If your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding and NAT in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
 
@@ -443,6 +445,23 @@ This means they will execute at bootup
 If you get any errors you may need to compile in additional NAT kernel modules.
 
 See www.netfilter.org for full iptables documentation, it should be noted that in recent builds of openwrt do all the setting up and enabling nat/masquerading for you if you use the "ifup wan" command with a correctly configured /etc/config/network file
+
+'''How to give interfaces fixed IP addresses'''
+
+For port forwarding you need to have fixed IP addresses, just find out the MAC address of the ethernet card via the XP command prompt ipconfig /all or via linux ifconfig.
+
+Then just add the following line to /etc/ethers
+
+xx:xx:xx:xx:xx:xx ip.ip.ip.ip
+
+or
+
+xx:xx:xx:xx:xx:xx hostname
+
+and edit /etc/ethers to:
+
+ip.ip.ip.ip hostname The hostname of your PC can be found the same way as the MAC address.'''
+'''
 
 '''Script to bring the ADSL interface up on bootup and also check the interface is up '''
 
