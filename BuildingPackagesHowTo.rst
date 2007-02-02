@@ -316,7 +316,7 @@ The {{{make}}} command below compiles every package that you have created in the
 
 {{{
 cd ~/OpenWrt-SDK-Linux-i686-1
-make clean && make compile
+make clean && make world
 }}}
 '''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make this page].
 
