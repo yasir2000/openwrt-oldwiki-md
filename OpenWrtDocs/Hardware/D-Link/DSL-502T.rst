@@ -57,11 +57,13 @@ svn co https://svn.openwrt.org/openwrt/packages/net/ez-ipupdate ez-ipupdate is a
 
 For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev'
 
- '''Select firmware components'''
+'''Select firmware components'''
 
 Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4]
 
 You also need to select your ADSL1 Annex, it's either Annex A or B (Germany only).
+
+If you're using PPPoE you must also compile in br2684ctl and it's dependency linux-atm, if you're using PPPoA you don't use br2684ctl.
 
 Quit and save the config.
 
@@ -173,7 +175,9 @@ This option selects between internal and external PHY.
 
 If you can get an IP, well done!
 
-You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken), telnet into 192.168.1.1 and you're should see the OpenWRT logo :) '''Password protect the router'''
+You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken), telnet into 192.168.1.1 and you're should see the OpenWRT logo :) ''' '''
+
+'''Password protect the router'''
 
 Get a copy of putty from the internet! (Duh with your spare modem!)
 
@@ -182,53 +186,59 @@ type passwd to set a password and this will enable dropbear the SSH server.
 You now need to log back in using putty.
 
 == Enabling ADSL ==
-Please refer to this forum post for more info after reading this:http://forum.openwrt.org/viewtopic.php?pid=35563
-
 '''Set up modulation'''
 
-Currently as of build 6250 only ADSL1 is supported, ADSL2/2+ with Annex M support may appear soon as the drivers have become available.
+Currently we only have ADSL1 options: G.DMT, G.lite T.1413 and Multi-Mode.
 
 If you use this on an adsl2+ connection it *should* fall back to adsl1 and work fine.
 
-Change the modulation via the adam2 prompt: quote "SETENV modulation,GDMT" or T1413/GLITE/MMODEG.DMT is used for up to 8mbit/s ADSL.
+The modulation can be changed via the adam2 prompt: quote "SETENV modulation,GDMT" or T1413/GLITE/MMODE
+
+G.DMT supports up to 8mbit/s.
 
 T.1413 is an older version of G.DMT.
 
 G.Lite is a lighter version of G.DMT that supports up to 1.5Mbit/s.
 
-MMODE is Multi-Mode and it just chooses the best one to use.
-
-'''Compile modules'''
-
-You need to compile in the firmware for the correct annex for your modem, choose either A or B, do not compile both. If you are unsure of your region, it is usually Annex A (except in Germany), you can open the modem up and look on the PCB if you need to.
-
-If you're using PPPoE you must also compile in br2684ctl and it's dependency linux-atm, if you're using PPPoA you don't use br2684ctl.
+MMODE is Multi-Mode and negotiates the best mode that it can.
 
 '''Check your line is in sync'''
 
-Type dmesg, it should say "DSL Line in Sync" after about 1 minute.
+Type dmesg, it should say "Initializing DSL interface" and then about 1 minute later "DSL Line in Sync".
 
 You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good as the modem is negotiating a speed with the exchange, then it should say "SHOWTIME" when it is ready to work.
 
-You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised as it will show US/DS connection rates.
+You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised as it will show Upstream/Downstream sync speeds.
 
-'''Load the modules (PPPoE + PPPoA)'''
+'''Connect to your ISP directly using DHCP (Most people will be using PPPoE or PPPoA please ignore this)'''
 
-You need to load the modules for ppp, most of these are already loaded.
+link here
+
+'''Load the modules (PPPoE + PPPoA) (Not necessary anymore)'''
 
 {{{
-cd /lib/modules/2.4.32
+cd /lib/modules/2.4.34
 insmod br2684.o
 insmod slhc.o
 insmod ppp_generic.o
 insmod ppp_async.o
-insmod pppox.o #PPPoE only
-insmod pppoe.o #PPPoE only
-insmod pppoatm.o #PPPoA only
+insmod pppox.o
+insmod pppoe.o
+insmod pppoatm.o
 }}}
+pppox.o and pppoe.o are required for PPPoE.
+
+pppoatm.o is required for PPPoA.''' '''
+
 '''Start the bridging interface (PPPoE only)'''
 
-Now we run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface (please type br2684ctl --help to see what the options are, you need to know your ADSL VCI/VPI and which encapsulation type you want to use, i.e. VCMUX or LLC)
+The bridging interface is needed for PPPoE over ATM.
+
+We run br2684ctl -b -c 0 -a 8.35 to create the nas0 interface.
+
+Please type br2684ctl --help for more information.
+
+You need to know your VPI/VCI settings.
 
 You should get:
 
@@ -237,11 +247,21 @@ RFC1483/2684 bridge: Interface "nas0" (mtu=1500, payload=bridged) created sucess
 RFC1483/2684 bridge: Communicating over ATM 0.8.35, encapsulation: LLC
 RFC1483/2684 bridge: Interface configured
 }}}
-'''Choosing between VC-Mux and LLC ''''''(PPPoE + PPPoA)'''
+'''Choosing between VC-MUX or LLC'''
 
-To choose between VC-Mux and LLC when using PPPoE you simply add another command on to the end of your br2684ctl line, like this: br2684ctl -b -c 0 -a 8.35 -e 0 (0 for LLC and 1 for VC-MUX).
+Generally with PPPoE use LLC and with PPPoA use VC-MUX
 
-For PPPoA, it's a bit more complex, the pppoatm plugin supports both vc-encaps and llc-encaps as a command.  You need to edit the /lib/network/pppoa.sh script as follows:
+PPPoA VC-MUX will be marginally more efficient than PPPoE LLC and depending on your local exchange should be the best choice.
+
+I would experiment with ping times to your first hop.
+
+'''Setting up VC-Mux or LLC ''''''(PPPoE + PPPoA)'''
+
+To choose between VC-Mux and LLC when using PPPoE use -e 0 (0 for LLC and 1 for VC-MUX) in the command line above.
+
+For PPPoA, it's a bit more complex, the pppoatm plugin supports both vc-encaps and llc-encaps as a command.
+
+You need to edit the /lib/network/pppoa.sh script as follows:
 
 {{{
 plugin pppoatm.so ${vpi:-8}.${vci:-35}
@@ -253,12 +273,6 @@ plugin pppoatm.so ${vpi:-8}.${vci:-35} vc-encaps (this is the default, for LLC u
 }}}
 This works as of pppd 2.4.3
 
-Generally with PPPoE use LLC and with PPPoA use VC-MUX
-
-PPPoA VC-MUX will be marginally more efficient and depending on your local exchange should be the best choice. But I would experiment with ping times to your first hop.
-
-Use an MTU of 1500 with PPPoA and 1492 with PPPoE, it has been suggested also that using 1462 for PPPoA and 1454 for PPPoE may be even more efficient due to the fact that the packets have to be divided into ATM cells of 53 bytes.
-
 '''Set up your wan configuration (PPPoE + PPPoA)'''
 
 Go to /etc/config and type vi network to edit network configuration and add:
@@ -267,9 +281,15 @@ Go to /etc/config and type vi network to edit network configuration and add:
 config interface wan
 option ifname nas0
 option device ppp
-option proto pppoa #or pppoe
-option mtu 1500 #1492 for PPPoE
+option proto pppoa
+option mtu 1500
 }}}
+proto pppoe & mtu 1492 for pppoe''' '''
+
+'''MTU'''
+
+Use an MTU of 1500 with PPPoA and 1492 with PPPoE, it has been suggested also that using 1462 for PPPoA and 1454 for PPPoE may be even more efficient due to the fact that the packets have to be divided into ATM cells of 53 bytes and they fit into these cells better with these values.
+
 '''Brief Instructions for using VI'''''' '''
 
 Press insert to start editing
@@ -342,13 +362,7 @@ ppp0      Link encap:Point-to-Point Protocol
           collisions:0 txqueuelen:3
           RX bytes:438223 (427.9 KiB)  TX bytes:163835 (159.9 KiB)
 }}}
-If it doesn't come up do ps -ax and if you see loads of pppds have spawned then just use kill with their process number to kill them:  i.e. kill 516
-
-you may also need to kill the br2684ctl and start again from that step. (This has since been fixed in a later version of OpenWRT kamikaze).
-
-If you type logread you can see some debug messages and also your ISPs gateway IP/DNS IPs.
-
-Logread for PPPoA VC-MUX:
+If you type logread you can see some debug messages and also your ISPs gateway IP/DNS IPs.Logread for PPPoA VC-MUX:
 
 {{{
 Jan  1 01:39:29 (none) daemon.info pppd[2516]: Plugin pppoatm.so loaded.
@@ -452,43 +466,13 @@ You should now be able to ping your ISPs gateway IP from telnet.
 
 '''Set up DNS lookup'''
 
-Normally with the usepeerdns command the DNS is saved in resolv.conf automatically, but you may need to edit /etc/resolv.conf and add the lines: "search wan" and you may want to add a nameserver (DNS server) before you bring the interface up
+Normally with the usepeerdns command the DNS is saved in resolv.conf automatically
 
-'''Set up forwarding'''
+If this hasn't happened you may need to edit /etc/resolv.conf and add the lines: "search wan" and you may want to add a nameserver (DNS server). Then do ifdown wan and ifup wan.
+
+'''Set up port forwarding'''
 
 For general port forwarding just change /etc/firewall.user this executes at each bootup.
-
-This is fixed in later Kamikaze Subversions.
-
-If your PC is directly connected via ethernet to the modem you may find that you can't browse any sites yet or ping them you need to enable IPv4 forwarding and NAT in your firewall (i.e. ip masquerading in iptables): taken from here:http://www.yolinux.com/TUTORIALS/LinuxTutorialIptablesNetworkGateway.html
-
-As a quick test you can try this:
-
-{{{
-iptables -P INPUT ACCEPT
-iptables -P OUTPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables --flush                           # Flush all the rules in filter and nat tables
-iptables --table nat --flush
-iptables --delete-chain                    # Delete all chains that are not in default filter and nat table
-iptables --table nat --delete-chain        # Set up IP FORWARDing and Masquerading
-iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
-iptables --append FORWARD --in-interface eth0 -j ACCEPT         # Assuming one NIC to local LAN
-echo "1" > /proc/sys/net/ipv4/ip_forward                        # Enables packet forwarding by kernel
-}}}
-please note that this may not be complete and you may require additional rules to protect your router on the wan interface - Note: don't connect to irc.freenode.net from an unfirewalled box on your lan as you might get banned for open proxies.
-
-Actually the best thing to do is to use OpenWRTs existing firewall rules and add the masquerading commands to the end of /etc/firewall.user
-
-{{{
-iptables -t nat -A postrouting_rule -o ppp0 -j MASQUERADE
-iptables -A forwarding_rule -i eth0 -j ACCEPT
-}}}
-This means they will execute at bootup
-
-If you get any errors you may need to compile in additional NAT kernel modules.
-
-See www.netfilter.org for full iptables documentation, it should be noted that in recent builds of openwrt do all the setting up and enabling nat/masquerading for you if you use the "ifup wan" command with a correctly configured /etc/config/network file
 
 '''How to give interfaces fixed IP addresses'''
 
@@ -507,8 +491,6 @@ and edit /etc/ethers to:
 ip.ip.ip.ip hostname The hostname of your PC can be found the same way as the MAC address.''' '''
 
 '''Script to bring the ADSL interface up on bootup and also check the interface is up '''
-
-Please see http://forum.openwrt.org/viewtopic.php?id=8342 for more info
 
 Make a file called /etc/crontab/root and put */1 * * * * sh /etc/adsl
 
@@ -534,10 +516,6 @@ The only way to solve this at present is to force the DSL-502T ethernet connecti
 
  . http://forum.openwrt.org/viewtopic.php?id=8117
 == How to Debrick and further information: ==
-See the forum for how to debrick the DSL-502T[http://forum.openwrt.org/viewtopic.php?id=7742[[BR http://forum.openwrt.org/viewtopic.php?id=7742]
-
-See the forum for instructions on getting the ADSL interface to work: http://forum.openwrt.org/viewtopic.php?pid=35563
-
 You can generally use the methods on DLinks site or just change ur mtd0/1/4 variables back to defaults and upload the dlink firmware.
 
 But if you've accidentally destroyed your mtd2 adam2 bootloader or mtd3 config file you will need a JTAG cable.
