@@ -3,20 +3,20 @@ Porting OpenWrt to the DSL-502T is a work in progress. This page is to assist th
 
 Thanks Strider for starting the page off & thank you nbd + all the openwrt guys for making this work - Z3r0 (not the guy called z3r0 on IRC don't pester him!) + Thanks Mr. Chandler for the formatting.
 
-Kamikaze builds 5174, 5495, 5636 & 6193 work on the DSL-502T AU & AT
+Kamikaze builds 5174, 5495, 5636, 6193, 6250 work on the DSL-502T AU & AT
 
-6193 has a slight bug with passwd not being saved, please read for a fix: [http://forum.openwrt.org/viewtopic.php?pid=41501This http://forum.openwrt.org/viewtopic.php?pid=41501]
+6193 & 6250 have a slight bug with passwd not being saved, please read for a fix: [http://forum.openwrt.org/viewtopic.php?pid=41501This http://forum.openwrt.org/viewtopic.php?pid=41501]
 
 This is a bit of a mess maybe someone can edit this properly and give it some nice formatting thanks! :)
 
 == Specifications ==
-ADSL modem with ADSL2 support to 8Mbit/s+, it has port 1 LAN port
+*ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port
 
 Flash chip: 4MBytes - Samsung K8D3216UBC a 32Mbit NOR-type Flash Memory organized as 4M x 8
 
 SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
 
-CPU: TNETD7300GDU Texas Instruments AR7 MIPS based ''' '''
+CPU: TNETD7300GDU Texas Instruments AR7 MIPS based*see Enabling ADSL section for more info''' '''
 
 == How to get OpenWRT onto the router: ==
 '''Preamble '''
@@ -140,13 +140,17 @@ Please refer to this forum post for more info after reading this:http://forum.op
 
 '''Set up modulation'''
 
-Modulation G.DMT is used for up to 8mbit/s ADSL.
+Currently as of build 6250 only ADSL1 is supported, ADSL2/2+ with Annex M support may appear soon as the drivers have become available.
+
+If you use this on an adsl2+ connection it *should* fall back to adsl1 and work fine.
+
+Change the modulation via the adam2 prompt: quote "SETENV modulation,GDMT" or T1413/GLITE/MMODEG.DMT is used for up to 8mbit/s ADSL.
 
 T.1413 is an older version of G.DMT.
 
 G.Lite is a lighter version of G.DMT that supports up to 1.5Mbit/s.
 
-MMODE just chooses the best one to use.This variable is changed by typing: quote "SETENV modulation,GDMT" or T1413/GLITE/MMODE at the adam2 prompt.
+MMODE is Multi-Mode and it just chooses the best one to use.
 
 '''Compile modules'''
 
