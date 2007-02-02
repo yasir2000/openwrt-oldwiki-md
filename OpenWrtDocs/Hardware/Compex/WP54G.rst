@@ -6,18 +6,18 @@ There are several different models available of WP54, but only WP54 with part nu
 
 '''NOTE:''' These units run Compex's own fork of OpenWRT. There is '''''no''''' support for the Compex WP54 in either White Russian or the current Kamikaze tree.
 
-'''Compex WP54 THAT ''DO NOT'' SUPPORT WRT.'''
+''' <:( Compex WP54 THAT ''DO NOT'' SUPPORT WRT.'''
 
  * '''WP54 1A''' = Standard Wireless device that able to run in 7Modes(AP,Client, P to P,Gateway, P to multiple P,WL Routing Client and WL Adapter)
  * '''WP54 1B''' =''' '''can be powered either by 5V DC Supply or 802.3af PoE, using a jumper selection available on the board.
  * '''WP54 1C''' = Wireless Device that support AccessPoint Mode and Client mode only.
  * '''WP54 1D''' = can be powered either via a separate 24V DC PSU or a proprietary 24V DC PoE injector or real 802.3af PoE.
  * '''WP54 6D''' = It is [wiki:ALife:http://en.wikipedia.org/wiki/ROHS ROHS] Standard and able able to run in IEEE802.3af standard PoE and Compex PoE Plus.
-'''Compex WP54 ''WITH'' WRT.'''
+''' {OK} Compex WP54 ''WITH'' WRT.'''
 
  * '''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board [FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?].
  * '''WP54 6E''' = This is the latest OpenWRT version from Compex that able to run in IEEE802.3af standard PoE and Compex PoE Plus.It is also [javascript:void(0);/*1170378587370*/ ROHS] standard. This model come with 2 version, Compex and WRT version.
-'''Ordering Information'''
+''' (./) OpenWRT Packets Information'''
 
 ''There are 2 Type Of Compex OpenWRT Packages available.''
 ||<tablewidth="665px" tablestyle="WIDTH: 665px; HEIGHT: 238px">'''Package ''' ||'''Content''' ||
@@ -30,13 +30,13 @@ There are several different models available of WP54, but only WP54 with part nu
 ||• 24V DC Power Supply ||
 
 
-'''Other Information about Compex '''OpenWrt''' Bareboard'''
+'''Other Information about Compex '''OpenWrt''' Bareboard''' B-)
 
  * Open-WRT is preloaded on the board before shipping to customers.
  * Serial Ports is soldered onto the board.
  * JTAG Ports is soldered onto the board.
  * JTAG Programmer and Serial Converter is available if you purchase the development kit.
-'''''Related Link'''''
+'''''Related Link''''' {i}
 
 [http://www.compex.com.sg/ Homepage] =The manufacturer's Website
 
@@ -58,6 +58,16 @@ The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they ha
 
  * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
  * [http://www.seattlewireless.net/Atheros Seattle Wireless Atheros page]
+Picture below show how to set the jumper  to use PoE or DC Supply.
+
+attachment:PoEJumper.JPG
+
+and this picture is about and which pin to be used in serial converter.
+
+attachment:SerialJumper.JPG
+
+Hope these pictures will help you :) I will try to get more information regarding this product.
+
 ''''''
 
 ''''''
