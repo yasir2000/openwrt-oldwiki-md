@@ -1,7 +1,6 @@
-''' attachment:logo3.gif Compex WP54'''
+''' attachment:logo3.gif  COMPEX WP54 ''' {*} {*} {*} {*} {*}
 
- (This page is at an early stage of development. Please feel free to update)
-
+ . (This page is at an early stage of development. Please feel free to update)
 The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless.
 
 There are several different models available of WP54, but only WP54 with part number including "WRT" runs any variant of OpenWRT currently. E.g. WP54-WRT and WP-WRT6E (New Version)
