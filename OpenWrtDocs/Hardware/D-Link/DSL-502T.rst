@@ -407,61 +407,60 @@ Jan  1 01:39:32 (none) daemon.debug pppd[2517]: Script /etc/ppp/ip-up finished (
 Logread for PPPoE LLC:
 
 {{{
-Jan  3 21:07:31 (none) daemon.info pppd[5938]: Plugin rp-pppoe.so loaded.
-Jan  3 21:07:31 (none) daemon.notice pppd[5939]: pppd 2.4.3 started by root, uid 0
-Jan  3 21:07:36 (none) daemon.debug pppd[5939]: PADS: Service-Name: ''
-Jan  3 21:07:36 (none) daemon.info pppd[5939]: PPP session is 6715
-Jan  3 21:07:36 (none) daemon.debug pppd[5939]: using channel 6
-Jan  3 21:07:36 (none) daemon.info pppd[5939]: Using interface ppp0
-Jan  3 21:07:36 (none) daemon.notice pppd[5939]: Connect: ppp0 <--> nas0
-Jan  3 21:07:36 (none) daemon.warn pppd[5939]: Couldn't increase MTU to 1500
-Jan  3 21:07:36 (none) daemon.warn pppd[5939]: Couldn't increase MRU to 1500
-Jan  3 21:07:36 (none) daemon.warn pppd[5939]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
-Jan  3 21:07:36 (none) daemon.debug pppd[5939]: sent [LCP ConfReq id=0x1 <mru 1480> <magic 0x978b0f00>]
-Jan  3 21:07:36 (none) daemon.debug pppd[5939]: rcvd [LCP ConfReq id=0x3 <mru 1492> <auth chap MD5> <magic 0x2c956ea7>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:36 (none) daemon.debug pppd[5939]: sent [LCP ConfNak id=0x3 <auth pap>]
-Jan  3 21:07:36 (none) daemon.debug pppd[5939]: rcvd [LCP ConfAck id=0x1 <mru 1480> <magic 0x978b0f00>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [LCP ConfReq id=0x4 <mru 1492> <auth pap> <magic 0x2c956ea7>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [LCP ConfAck id=0x4 <mru 1492> <auth pap> <magic 0x2c956ea7>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [LCP EchoReq id=0x0 magic=0x978b0f00]
-Jan  3 21:07:37 (none) daemon.warn pppd[5939]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [PAP AuthReq id=0x1 user="removed" password=<hidden>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [LCP EchoRep id=0x0 magic=0x2c956ea7] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [LCP ConfReq id=0x1 <auth chap MD5> <magic 0x67575ed0>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.warn pppd[5939]: Couldn't increase MTU to 1500
-Jan  3 21:07:37 (none) daemon.warn pppd[5939]: Couldn't increase MRU to 1500
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [LCP ConfReq id=0x2 <mru 1480> <magic 0x91a57f28>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [LCP ConfAck id=0x1 <auth chap MD5> <magic 0x67575ed0>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [LCP ConfNak id=0x2 <mru 1500>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [LCP ConfReq id=0x3 <magic 0x91a57f28>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [LCP ConfAck id=0x3 <magic 0x91a57f28>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.warn pppd[5939]: Couldn't increase MRU to 1500
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [LCP EchoReq id=0x0 magic=0x91a57f28]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [CHAP Challenge id=0x1 <6d4b4bee02e6657647f3c9b34a1ba47d>, name ="removed"] 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [CHAP Response id=0x1 <d4a403d7272abbc83a45d2c3d3350e02>, name ="removed"]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [LCP EchoRep id=0x0 magic=0x67575ed0] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [CHAP Success id=0x1 ""] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
-Jan  3 21:07:37 (none) daemon.info pppd[5939]: CHAP authentication succeeded
-Jan  3 21:07:37 (none) daemon.notice pppd[5939]: CHAP authentication succeeded
-Jan  3 21:07:37 (none) daemon.notice pppd[5939]: peer from calling number removed authorized
-Jan  3 21:07:37 (none) daemon.warn pppd[5939]: kernel does not support PPP filtering
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [IPCP ConfReq id=0x1 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [IPCP ConfReq id=0x1 <addr removed>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [IPCP ConfAck id=0x1 <addr removed>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [IPCP ConfNak id=0x1 <addr removed> <ms-dns1 removed> <ms-dns3 removed
->] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: sent [IPCP ConfReq id=0x2 <addr removed> <ms-dns1 removed> <ms-dns3 removed>]
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: rcvd [IPCP ConfAck id=0x2 <addr removed> <ms-dns1 removed> <ms-dns3 removed>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Jan  3 21:07:37 (none) daemon.notice pppd[5939]: local  IP address removed
-Jan  3 21:07:37 (none) daemon.notice pppd[5939]: remote IP address removed
-Jan  3 21:07:37 (none) daemon.notice pppd[5939]: primary   DNS address removed
-Jan  3 21:07:37 (none) daemon.notice pppd[5939]: secondary DNS address removed
-Jan  3 21:07:37 (none) daemon.info dnsmasq[326]: reading /tmp/resolv.conf.auto
-Jan  3 21:07:37 (none) daemon.info dnsmasq[326]: using nameserver removed
-Jan  3 21:07:37 (none) daemon.info dnsmasq[326]: using nameserver removed
-Jan  3 21:07:37 (none) daemon.info dnsmasq[326]: using local addresses only for domain lan
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: Script /etc/ppp/ip-up started (pid 5984)
-Jan  3 21:07:37 (none) daemon.debug pppd[5939]: Script /etc/ppp/ip-up finished (pid 5984), status = 0x1}}}
+Jan  1 04:49:43 (none) daemon.info pppd[3661]: Plugin rp-pppoe.so loaded.
+Jan  1 04:49:43 (none) daemon.notice pppd[3662]: pppd 2.4.3 started by root, uid 0
+Jan  1 04:49:43 (none) daemon.err pppd[3662]: Interface nas0 has MTU of 1492 -- should be 1500.  You may have serious connection problems.
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: using channel 4
+Jan  1 04:49:48 (none) daemon.info pppd[3662]: Using interface ppp0
+Jan  1 04:49:48 (none) daemon.notice pppd[3662]: Connect: ppp0 <--> nas0
+Jan  1 04:49:48 (none) daemon.warn pppd[3662]: Couldn't increase MTU to 1500
+Jan  1 04:49:48 (none) daemon.warn pppd[3662]: Couldn't increase MRU to 1500
+Jan  1 04:49:48 (none) daemon.warn pppd[3662]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: sent [LCP ConfReq id=0x1 <mru 1492> <magic 0xa6a20873>]
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: rcvd [LCP ConfReq id=0xd4 <mru 1492> <auth chap MD5> <magic 0x3e5a2aa2>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: sent [LCP ConfAck id=0xd4 <mru 1492> <auth chap MD5> <magic 0x3e5a2aa2>]
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: rcvd [LCP ConfAck id=0x1 <mru 1492> <magic 0xa6a20873>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: sent [LCP EchoReq id=0x0 magic=0xa6a20873]
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: rcvd [CHAP Challenge id=0xa7 <a6bb53398127066ca299dafe47965b7b>, name = "vezf-exhibition"] 00 00
+Jan  1 04:49:48 (none) daemon.warn pppd[3662]: Warning - secret file /etc/ppp/chap-secrets has world and/or group access
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: sent [CHAP Response id=0xa7 <07f021b9f5ab5bb1922609306fdde48b>, name = "removed"]
+Jan  1 04:49:48 (none) daemon.debug pppd[3662]: rcvd [LCP EchoRep id=0x0 magic=0x3e5a2aa2] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [LCP ConfReq id=0x1 <auth chap MD5> <magic 0x797b3439>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.warn pppd[3662]: Couldn't increase MTU to 1500
+Jan  1 04:49:49 (none) daemon.warn pppd[3662]: Couldn't increase MRU to 1500
+Jan  1 04:49:49 (none) daemon.warn pppd[3662]: Warning - secret file /etc/ppp/pap-secrets has world and/or group access
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [LCP ConfReq id=0x2 <mru 1492> <magic 0x528f071f>]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [LCP ConfAck id=0x1 <auth chap MD5> <magic 0x797b3439>]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [LCP ConfNak id=0x2 <mru 1500>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [LCP ConfReq id=0x3 <magic 0x528f071f>]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [LCP ConfAck id=0x3 <magic 0x528f071f>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.warn pppd[3662]: Couldn't increase MRU to 1500
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [LCP EchoReq id=0x0 magic=0x528f071f]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [CHAP Challenge id=0xa8 <68a5542e72ea5df247f3c9b33ff98339>, name = "removed"] 00 00 00 00
+Jan  1 04:49:49 (none) daemon.warn pppd[3662]: Warning - secret file /etc/ppp/chap-secrets has world and/or group access
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [CHAP Response id=0xa8 <50e192d7c74d4f535b742bf24956df7c>, name = "removed"]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [LCP EchoRep id=0x0 magic=0x797b3439] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [CHAP Success id=0xa8 ""] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
+Jan  1 04:49:49 (none) daemon.info pppd[3662]: CHAP authentication succeeded
+Jan  1 04:49:49 (none) daemon.notice pppd[3662]: CHAP authentication succeeded
+Jan  1 04:49:49 (none) daemon.notice pppd[3662]: peer from calling number 00:00:00:00:00:00 authorized
+Jan  1 04:49:49 (none) daemon.warn pppd[3662]: kernel does not support PPP filtering
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [IPCP ConfReq id=0x1 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns3 0.0.0.0>]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [IPCP ConfReq id=0x1 <addr removed>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [IPCP ConfAck id=0x1 <addr removed>]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [IPCP ConfNak id=0x1 <addr removed> <ms-dns1 removed> <ms-dns3 removed>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: sent [IPCP ConfReq id=0x2 <addr removed> <ms-dns1 removed> <ms-dns3 removed>]
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: rcvd [IPCP ConfAck id=0x2 <addr removed> <ms-dns1 removed> <ms-dns3 removed>] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jan  1 04:49:49 (none) daemon.notice pppd[3662]: local  IP address removed
+Jan  1 04:49:49 (none) daemon.notice pppd[3662]: remote IP address removed
+Jan  1 04:49:49 (none) daemon.notice pppd[3662]: primary   DNS address removed
+Jan  1 04:49:49 (none) daemon.notice pppd[3662]: secondary DNS address removed
+Jan  1 04:49:49 (none) daemon.info dnsmasq[350]: reading /tmp/resolv.conf.auto
+Jan  1 04:49:49 (none) daemon.info dnsmasq[350]: using nameserver removed
+Jan  1 04:49:49 (none) daemon.info dnsmasq[350]: using nameserver removed
+Jan  1 04:49:49 (none) daemon.info dnsmasq[350]: using local addresses only for domain lan
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: Script /etc/ppp/ip-up started (pid 3708)
+Jan  1 04:49:49 (none) daemon.debug pppd[3662]: Script /etc/ppp/ip-up finished (pid 3708), status = 0x}}}
 You should now be able to ping your ISPs gateway IP from telnet.
 
 '''Set up DNS lookup'''
@@ -639,6 +638,8 @@ VCMUX/LLC howto: http://forum.openwrt.org/viewtopic.php?id=8700
 WPNT834 with DSL-502T duplex mismatch bug: http://forum.openwrt.org/viewtopic.php?id=8117
 
 Bridged DSL (not PPP): http://forum.openwrt.org/viewtopic.php?id=8019
+
+Couldn't increase MTU to 1500: http://forum.openwrt.org/viewtopic.php?id=9281
 
 ----
  . ["CategoryAR7Device"]
