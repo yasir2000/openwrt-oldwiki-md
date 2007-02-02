@@ -291,7 +291,7 @@ You should do ifconfig and get something like this:
 
 {{{
 ppp0      Link encap:Point-to-Point Protocol
-          inet addr:202.164.193.121  P-t-P:203.24.101.23  Mask:255.255.255.255
+          inet addr:removed  P-t-P:removed  Mask:255.255.255.255
           UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
           RX packets:783 errors:0 dropped:0 overruns:0 frame:0
           TX packets:1131 errors:0 dropped:0 overruns:0 carrier:0
@@ -460,8 +460,7 @@ xx:xx:xx:xx:xx:xx hostname
 
 and edit /etc/ethers to:
 
-ip.ip.ip.ip hostname The hostname of your PC can be found the same way as the MAC address.'''
-'''
+ip.ip.ip.ip hostname The hostname of your PC can be found the same way as the MAC address.''' '''
 
 '''Script to bring the ADSL interface up on bootup and also check the interface is up '''
 
