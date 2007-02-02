@@ -1,4 +1,6 @@
-'''Compex WP54''' (This page is at an early stage of development. Please feel free to update)
+''' attachment:logo3.gif Compex WP54'''
+
+ (This page is at an early stage of development. Please feel free to update)
 
 The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless.
 
@@ -58,7 +60,7 @@ The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they ha
 
  * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
  * [http://www.seattlewireless.net/Atheros Seattle Wireless Atheros page]
-Picture below show how to set the jumper  to use PoE or DC Supply.
+Picture below show how to set the jumper to use PoE or DC Supply.
 
 attachment:PoEJumper.JPG
 
