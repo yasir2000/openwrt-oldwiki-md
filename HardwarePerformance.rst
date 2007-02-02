@@ -63,6 +63,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 ||2006-12-26 ||malfi ||7.3s ||18.5s ||20.2s ||7.1s ||v0.6 ||OpenWRT trunk 2006-12-25 ||Fonera Fon ||AR5315 4KEc V6.4 ||183MHz ||["OpenWrtDocs/Hardware/Fon/Fonera"] ||
 ||2007-01-29 ||phlegmer ||7.4s ||14.4s ||16.0s ||9.4s ||v0.6 ||DD-WRT v23 SP3 (01/26/07) std ||Buffalo WHR-G54S ||BCM5352 rev 0 ||200MHz ||["OpenWrtDocs/Hardware/Buffalo/WHR-G54S"] ||
 ||2007-01-29 ||phlegmer ||7.2s ||14.4s ||16.1s ||9.8s ||v0.6 ||DD-WRT v23 SP2 (09/15/06) std ||Buffalo WBR2-G54 ||BCM4712 rev 1 ||200MHz ||["OpenWrtDocs/Hardware/Buffalo/WBR2-G54"] ||
+||2007-02-02 ||kjrozema ||7.5s ||14.2s ||15.8s ||8.3s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||200MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 ||2007-02-02 ||kjrozema ||6.9s ||13.1s ||14.6s ||7.6s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||216MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 ||2007-02-02 ||kjrozema ||6.7s ||12.6s ||14.0s ||7.4s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||225MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 
