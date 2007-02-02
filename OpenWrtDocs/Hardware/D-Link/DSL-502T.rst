@@ -16,7 +16,9 @@ Flash chip: 4MBytes - Samsung K8D3216UBC a 32Mbit NOR-type Flash Memory organize
 
 SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
 
-CPU: TNETD7300GDU Texas Instruments AR7 MIPS based*see Enabling ADSL section for more info''' '''
+CPU: TNETD7300GDU Texas Instruments AR7 MIPS based
+
+*see Enabling ADSL section for more info''' '''
 
 == How to get OpenWRT onto the router: ==
 '''Preamble '''
