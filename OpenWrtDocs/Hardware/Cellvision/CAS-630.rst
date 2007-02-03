@@ -16,4 +16,12 @@ Known models are:
 
 == Picture ==
 
-Soon :-)
+On one side of the board there is the CPU, wireless card and audio connector (bottom left).
+
+attachment:cas-630-1.png
+
+The more interesting parts can be found on the other side of the board.
+
+attachment:cas-630-2.png
+
+As you can see there are UART and USB connectors.
