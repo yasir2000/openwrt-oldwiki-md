@@ -24,4 +24,4 @@ The more interesting parts can be found on the other side of the board.
 
 attachment:cas-630-2.png
 
-As you can see there are UART and USB connectors.
+As you can see there are UART and USB connectors. On this board (which was an engineering sample) there are headers. It could be that "normal" units don't have these headers and you need to solder them on yourself.
