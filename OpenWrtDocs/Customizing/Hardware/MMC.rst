@@ -167,8 +167,10 @@ GPIO 5 - definitely right next to the "RA10" label:
 
 == Installing on a wrt54g version 4 and wrt54gl ==
 Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
-
 Sadly this link is dead, so you currently have to use the wayback machine to see where to solder the cables. [http://web.archive.org/web/20060406214348/http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html that site from web.archive.org]
+
+Here is another mod dome for a version 4 wrt54gs [http://theattic.thruhere.net/mmc-sd-mod.html]
+
 
 === WRT54GL v1.1 ===
 
