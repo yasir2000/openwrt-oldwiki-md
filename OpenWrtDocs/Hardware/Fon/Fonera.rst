@@ -526,9 +526,9 @@ dest ram /tmp
 
 Now update your application list and install 'hostapd' and 'wpa-supplicant'.
 {{{
-root@OpenWrt:~ ikpg update
-root@OpenWrt:~ ikpg install hostapd
-root@OpenWrt:~ ikpg install wpa-supplicant
+root@OpenWrt:~ ipkg update
+root@OpenWrt:~ ipkg install hostapd
+root@OpenWrt:~ ipkg install wpa-supplicant
 }}}
 
 
