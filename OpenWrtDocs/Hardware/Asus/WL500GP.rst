@@ -51,6 +51,7 @@ nvram set lan_ifname=br0
 This will configure LAN and WIFI to be bridged (br0) and WAN to vlan1.
 
 Also in WhiteRussian RC6, WAN does not work out of the box. You have to change vlan1ports:
+
  . {{{
 # original value "0 5u" does not work
 nvram set vlan1ports="0 5"
@@ -58,6 +59,7 @@ nvram set vlan1ports="0 5"
 This will make vlan1 working again.
 
 Alternatively, you can live without working vlan1 interface:
+
  . {{{
 # original value: "vlan1"
 nvram set wan_device=eth0
@@ -92,7 +94,6 @@ nvram set sdram_ncdl=0
 nvram commit
 reboot
 }}}
-
  . And these values defined in Asus firmware 1.9.7.2 nvram enable 32MB properly, too:
 {{{
 nvram set sdram_init=0x0009
@@ -100,7 +101,6 @@ nvram set sdram_ncdl=0x208
 nvram commit
 reboot
 }}}
-
 Here are values from old Asus firmwares: sdram_init=0x000b, sdram_ncdl=0x307.
 
 == Few problems with the WL-500gP ==
@@ -130,12 +130,10 @@ The above does not work for me (on a clean OpenWRT squashfs firmware), I've to u
 nvram set wan_ifname=ppp0
 nvram set pppoe_ifname=vlan1
 nvram set wan_device=vlan1}}}
-
 With WhiteRussian RC6, it's sufficient to set (you still have to make vlan1 working - see above):
 
 {{{
 nvram set pppoe_ifname=vlan1}}}
-
 === DHCP server & client settings ===
 To act as a DHCP-client towards WAN set the following:
 
@@ -159,7 +157,7 @@ nvram set dhcp_start=222
 # to set DHCP IP address pool end at 192.168.1.254
 nvram set dhcp1_end=192.168.1.254
 nvram set dhcp_end=254
-nvram set dhcp_lease=86400 # DHCP lease time 86400 hours
+nvram set dhcp_lease=86400 # DHCP lease time 86400 in seconds( use h=hours, m=minutes: example 2h)
 nvram commit}}}
 To act as a DHCP-server towards WIFI set the following:
 
