@@ -1,7 +1,7 @@
 [[TableOfContents]]
 
 = Introduction =
-If you're using a wireless multimedia device, such as a WLAN SIP phone, you might want to enable the WME extensions (802.11e) to enable those devices to save power. This tutorial '''assumes''' that your WIFI device is '''eth1'''. To find out what device your router uses please consult the ["OpenWrtDocs/Configuration"] page or execute the ''nvram get wl0_ifname'' command.
+If you're using a wireless multimedia device, such as a WLAN SIP phone, you might want to enable the WME extensions (802.11e) to enable those devices to save power. This tutorial '''assumes''' that your WIFI device is stored in the ''wl0_ifname'' nvram variable. To find out what device your router uses please consult the ["OpenWrtDocs/Configuration"] page or execute the ''nvram get wl0_ifname'' command.
 
 = Prerequisites =
 
@@ -13,7 +13,7 @@ ipkg install wl
 == Find out if WME is already enabled ==
 
 {{{
-wl -i eth1 wme
+wl -i $(nvram get wl0_ifname) wme
 }}}
 
 If the output of the command is 1 then WME is already enabled. In this case you don't have to proceed.
@@ -25,19 +25,19 @@ You can skip this section if you intend to reboot your router to apply the chang
 == Shut the WIFI interface down ==
 
 {{{
-ifconfig eth1 down
+ifconfig $(nvram get wl0_ifname) down
 }}}
 
 == Enable WME (802.11e) ==
 
 {{{
-wl -i eth1 wme 1
+wl -i $(nvram get wl0_ifname) wme 1
 }}}
 
 == Bring the WIFI interace up again ==
 
 {{{
-ifconfig eth1 up
+ifconfig $(nvram get wl0_ifname) up
 }}}
 
 = Enable WME (802.11e) at boot time =
