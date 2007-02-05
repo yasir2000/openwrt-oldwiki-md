@@ -90,8 +90,9 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||FRITZ!Box WLAN 3130 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box Fon ata || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
-||FRITZ!Box Fon 5010 (analog) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || ||None ||Untested ||
-||FRITZ!Box Fon 5012 (ISDN) || ||? ||4MB ||? ||None || || || || || ||Untested ||
+||FRITZ!Box Fon 5010 (analog) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none || || || ||None ||Untested ||
+||FRITZ!Box Fon 5012 (ISDN) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none (2xLAN)
+|| ||yes || ||none ||Untested ||
 ||FRITZ!Box Fon || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon 5050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
