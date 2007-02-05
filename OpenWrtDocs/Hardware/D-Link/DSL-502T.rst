@@ -206,7 +206,7 @@ MMODE is Multi-Mode and negotiates the best mode that it can.
 
 Type dmesg, it should say "Initializing DSL interface" and then about 1 minute later "DSL Line in Sync".
 
-You can also do cat /proc/tiatm/avsar_modem_stats and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good as the modem is negotiating a speed with the exchange, then it should say "SHOWTIME" when it is ready to work.
+You can also do cat /proc/tiatm/avsar_modem_training and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good as the modem is negotiating a speed with the exchange, then it should say "SHOWTIME" when it is ready to work.
 
 You can also do cat /proc/tiatm/avsar_modem_stats this is the best way of working out if you connection is initialised as it will show Upstream/Downstream sync speeds.
 
