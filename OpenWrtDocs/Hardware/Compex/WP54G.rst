@@ -1,9 +1,11 @@
-''' attachment:logo3.gif  COMPEX WP54 ''' {*} {*} {*} {*} {*}
+''' attachment:logo3.gif ''''''''COMPEX WP54'''''
+
+'''''''''' {*} {*} {*} {*} {*}
 
  . (This page is at an early stage of development. Please feel free to update)
 The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless.
 
-There are several different models available of WP54, but only WP54 with part number including "WRT" runs any variant of OpenWRT currently. E.g. WP54-WRT and WP-WRT6E (New Version)
+There are several different models available of WP54, but only WP54 with part number including "WRT" runs any variant of OpenWRT currently. E.g. WP54-WRT and WP54-WRT6E ''(New Version)''
 
 '''NOTE:''' These units run Compex's own fork of OpenWRT. There is '''''no''''' support for the Compex WP54 in either White Russian or the current Kamikaze tree.
 
@@ -17,7 +19,7 @@ There are several different models available of WP54, but only WP54 with part nu
 ''' {OK} Compex WP54 ''WITH'' WRT.'''
 
  * '''WP54-WRT''' is the same as WP54 1B board, but it has an additional hardware protection chip on the board [FIXME: What is this "hardware protection chip"? What does it do? Why can OpenWrt not run without it?].
- * '''WP54 6E''' = This is the latest OpenWRT version from Compex that able to run in IEEE802.3af standard PoE and Compex PoE Plus.It is also [javascript:void(0);/*1170378587370*/ ROHS] standard. This model come with 2 version, Compex and WRT version.
+ * '''WP54 6E''' = This is the latest OpenWRT version from Compex that able to run in IEEE802.3af standard PoE and Compex PoE Plus.It is also [http://en.wikipedia.org/wiki/ROHS ROHS] standard. This model come with 2 version, Compex and WRT version.
 ''' (./) OpenWRT Packets Information'''
 
 ''There are 2 Type Of Compex OpenWRT Packages available.''
@@ -51,7 +53,7 @@ There are several different models available of WP54, but only WP54 with part nu
 
 [http://compex.com.sg/home/OEM/Downloads/JTAG_Programmer.rar JTAG Programmer Codes] = Like the name, Contain the JTAG Programmer codes
 
-'''For Europe'''
+'''''For Europe'''''
 
 The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they have their own [http://www.cpx.cz/dls/WP54G_linux/ downloads page]
 
@@ -59,7 +61,7 @@ The European distributor is [http://www.compexshop.eu/ Tomorrows CZ] and they ha
 
  * [http://www.linux-mips.org/wiki/Adm5120 Linux-MIPS Adm5120 page]
  * [http://www.seattlewireless.net/Atheros Seattle Wireless Atheros page]
-Picture below show how to set the jumper to use PoE or DC Supply.
+Picture below show how to set the jumper to use PoE and DC Supply.
 
 attachment:PoEJumper.JPG
 
