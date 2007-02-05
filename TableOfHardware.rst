@@ -91,14 +91,15 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box Fon ata || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
 ||FRITZ!Box Fon 5010 (analog) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none || || || ||None ||Untested ||
-||FRITZ!Box Fon 5012 (ISDN) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none (2xLAN)
-|| ||yes || ||none ||Untested ||
+||FRITZ!Box Fon 5012 (ISDN) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none (2xLAN)|| ||yes || ||none ||Untested ||
 ||FRITZ!Box Fon || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon 5050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
 ||FRITZ!Box Fon WLAN 7050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
 ||FRITZ!Box Fon WLAN 7140 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||acx111 on-board ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
 ||FRITZ!Box Fon WLAN 7170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||ac111 on-oard ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
+
+
 detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
 
 == Aztech ==
