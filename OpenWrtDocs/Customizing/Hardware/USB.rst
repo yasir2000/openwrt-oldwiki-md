@@ -69,6 +69,7 @@ http://www.winischhofer.at/linuxsisusbvga.shtml
 === USB Swap Space ===
 
 See LocalFileSystemHowTo
+
 See also http://www.opensourcerebels.org/forums/viewtopic.php?t=14
 ## incorrect instructions, the author creates a filesystem, then blows it away with mkswap. Revision 2.0 Released on 2/4/2007 Sorry for the mistake!
 
