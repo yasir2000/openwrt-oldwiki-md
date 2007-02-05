@@ -91,15 +91,13 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box Fon ata || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || ||yes || ||None ||WiP ||
 ||FRITZ!Box Fon 5010 (analog) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none || || || ||None ||Untested ||
-||FRITZ!Box Fon 5012 (ISDN) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none (2xLAN)|| ||yes || ||none ||Untested ||
+||FRITZ!Box Fon 5012 (ISDN) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none (2xLAN) || ||yes || ||none ||Untested ||
 ||FRITZ!Box Fon || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon 5050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
 ||FRITZ!Box Fon WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
 ||FRITZ!Box Fon WLAN 7050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
 ||FRITZ!Box Fon WLAN 7140 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||acx111 on-board ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
 ||FRITZ!Box Fon WLAN 7170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||ac111 on-oard ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
-
-
 detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
 
 == Aztech ==
@@ -174,6 +172,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros 2315] ||? ||[http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 1M x 16 Bit x 4 Banks (ESMT M12L64164A)] ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||? ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||? ||? ||? ||Yes ||Info Entered ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||? ||? ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
+||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC µPD30131F1 ||2MB ||8MB ||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
 ||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 ||DSL-G500T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=1&Sub2=2&PID=49 DSL-504T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] it runs ok ||
@@ -184,6 +183,8 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||? ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||16MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB ||16MB ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
+
+
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
