@@ -150,9 +150,9 @@ http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adap
  1. Make sure your "boot_wait" NVRAM value is set to "on" and saved (I use "Putty" for telneting/ssh).
  1. Set your local machine's IP address to 192.168.10.5 (or anything between 192.168.10.2 and 192.168.10.254) and mask to 255.255.255.0.
  1. Open up a console window and change to the directory the Motorola firmware is in.
- 1. Type in: "TFTP -i 192.168.10.1 PUT filename.bin" where "filename.bin" is your Motorola firmware.  '''DON'T HIT ENTER JUST YET!'''
+ 1. Type in: "TFTP 192.168.10.1"
+ 1. Type in: "bin" <ENTER> "trace" <ENTER> "rexmt 1" <ENTER> "timeout 30" <ENTER> "PUT filename.bin" <ENTER> where "filename.bin" is the name of your Motorola firmware.
  1. Unplug your WR850G, plug it back in and wait a second.
- 1. Now hit Enter in your console window.
  1. Your TFTP transfer should finish in a few seconds.  '''WAIT AT LEAST 60 SECONDS FOR THE FLASH TO PROGRAM!'''
  1. Unplug your WR850G and plug it back in.  You now will have the old firmware.
  1. Reset your local machine's IP address and mask back to where it was (DHCP on my machine, for example).
@@ -170,14 +170,14 @@ http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adap
  1. Locate the flash chip (right next to the internal antenna).  On mine it's an Intel T!E28F320.  All the V3 WR850G's have this.  If it's an older V2 or V1, it might have an AMD chip.
  1. Set your local machine's IP address to 192.168.10.5 (or anything between 192.168.10.2 and 192.168.10.254) and mask to 255.255.255.0.
  1. Open up a console window and change to the directory the firmware is in.
- 1. Type in: "TFTP -i 192.168.10.1 PUT filename.bin" where "filename.bin" is the firmware.  '''DON'T HIT ENTER JUST YET!'''
+ 1. Type in: "TFTP 192.168.10.1"
+ 1. Type in: "bin" <ENTER> "trace" <ENTER> "rexmt 1" <ENTER> "timeout 90" <ENTER> "PUT filename.bin" <ENTER> where "filename.bin" is the name of your Motorola firmware.
  1. Get a sewing needle or pin.
  1. If you have an '''Intel''' flash chip, count down on the LEFT side (lettering on the chip should be upright) to lead 15.  CAREFULLY insert the sewing needle between leads 15 and 16* -- it should NOT require any force.
  1. If you have an '''AMD''' chip, still on the LEFT side of the chip as at the intel version, shortcircuit pins 9 and 10 but be CAREULL too and don't shortcircuit more than one pair at once! (I can confirm this is working on WR850G v1 with the '''AMD''' Chip) -- ["SOLiBRA"] [[DateTime(2006-12-11T23:51:31Z)]] [[BR]]
  1. My router has a '''SST 39VF3201''' chip, and I was able to get it to accept firmware by shorting pins 2 and 3. I had to get the datasheet from the SST web site and find out which pins are the address lines.[[BR]]
  1. Now plug in your WR850G while holding the needle in place.
  1. Wait two to three seconds, then remove the needle.
- 1. Now hit Enter in your console window.
  1. Your TFTP transfer should finish in a few seconds.  '''WAIT AT LEAST 60 SECONDS FOR THE FLASH TO PROGRAM!'''
  1. Unplug your WR850G and plug it back in.  You now will have debricked the WR850G.
  1. Reset your local machine's IP address and mask back to where it was (DHCP on my machine).
