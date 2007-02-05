@@ -52,6 +52,22 @@ CFE> reboot
 }}}
 Flashing may take over a minute or more. After that you can use {{{reboot}}} to start !OpenWrt.
 
+= Restoring lost nvram settings =
+The default settings are:
+{{{
+CFE_VERSION          1.0.34
+CFE_BOARDNAME        BCM95365R
+CFE_MEMORYSIZE       32
+BOOT_CONSOLE         uart1
+et0mdcport           0
+et0phyaddr           254
+configvlan           0x1
+et0macaddr           00-09-5b-53-de-ad
+boardtype            bcm95365r
+et1macaddr           00-00-00-53-de-ad
+STARTUP              ifconfig eth0 -auto; boot -elf flash0.os:
+}}}
+
 = Restoring original firmware =
 To restore the original firmware a serial console is required. You can use TFTP for the original images. It seems CFE's TFTP client will only read 4194304 bytes from the TFTP server. To get around the 4MB limit, we can split larger images into smaller chunks and then use the -offset flag to flash the parts.
 
