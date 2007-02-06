@@ -66,6 +66,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 ||2007-02-02 ||kjrozema ||7.5s ||14.2s ||15.8s ||8.3s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||200MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 ||2007-02-02 ||kjrozema ||6.9s ||13.1s ||14.6s ||7.6s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||216MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 ||2007-02-02 ||kjrozema ||6.7s ||12.6s ||14.0s ||7.4s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||225MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
+||2007-02-06 || Hauke || 0.2s || 1.2s || 1.0s || 0.1s || v0.6 || Ubuntu Linux EdgyEft || PC ||  Core 2 Duo || 2X 2,13GHz || ||
 
 TODO, which bench to use?
 ||'''Date''' ||'''Tester''' ||'''Time to run''' ||'''Version of bench''' ||'''Device''' ||'''CPU''' ||'''Freq''' ||'''Link to HW page''' ||
