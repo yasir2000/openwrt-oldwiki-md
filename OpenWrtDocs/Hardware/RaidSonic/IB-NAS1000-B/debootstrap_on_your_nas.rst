@@ -11,14 +11,18 @@ you will need the content from this files on /mnt/IDE1/bootstrap/:
  * [ftp://ftp.de.debian.org/pub/debian/pool/main/g/glibc/libc6_2.3.2.ds1-22sarge4_arm.deb libc6_2.3.2.ds1-22sarge4_arm.deb]
  * the contet of /etc <pre>cp -a /etc /mnt/IDE1/bootstrap/</pre>
 == chroot to /mnt/IDE1/bootstrap ==
-{{{ /mnt/IDE1/bootstrap/bin/busybox chroot /mnt/IDE1/bootstrap /bin/sh}}}
+{{{ 
+/mnt/IDE1/bootstrap/bin/busybox chroot /mnt/IDE1/bootstrap /bin/sh
+}}}
 == mount proc ==
 {{{
  mkdir /proc
  mount proc /proc -t proc
 }}}
 == debootstrap ==
-{{[ debootstrap sarge /arm-sarge }}}
+{{{
+ debootstrap sarge /arm-sarge 
+}}}
 == things afer debootstrap ==
  * exit the chroot <pre>exit</pre>
  * umount proc <pre>umount /mnt/IDE1/bootstrap/proc
