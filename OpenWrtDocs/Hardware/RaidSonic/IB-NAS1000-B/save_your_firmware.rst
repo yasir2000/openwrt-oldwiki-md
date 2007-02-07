@@ -1,9 +1,9 @@
-==create dir==
+== create dir ==
 {{{
  mkdir -p /mnt/IDE1/flash/dump
  cd /mnt/IDE1/flash/dump
 }}}
-==dump flash==
+== dump flash ==
 {{{
  dd </dev/mtd0 >redboot.bin (bootloader?)
  dd </dev/mtd1 >zImage (kernel)
@@ -13,11 +13,11 @@
  dd </dev/mtd5 >curconf.tgz (config)
  dd </dev/mtd6 >fid.dat (??)
 }}}
-==copy ImageInfo==
+== copy ImageInfo ==
 {{{
  cp /system/ImageInfo ./
 }}}
-==create firmware==
+== create firmware ==
 {{{
  tar czf ../firm.tar.gz *
 }}}
