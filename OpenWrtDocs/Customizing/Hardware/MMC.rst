@@ -21,6 +21,7 @@ This project is for people who would like to add a little storage to their Links
 
  * A soldering iron and a bit of tin solder (and a little bit of soldering skills)
  * An SD card reader unless of course you want to solder directly on the card
+   (hint: mini-SD cards come with an adapter. You can solder to the adapter and use it as a socket)
  * 6 pieces of thin wire
  * A Linksys WRT54G (hardware version 2)
 
@@ -196,7 +197,7 @@ Buffalo WHR-HP-G54 connections are:
 '''GPIO7''' Output (Diag LED) to CS (SD Card #1) Connect to the left side of the resistor shown in the picture.[[BR]]
 http://www.flatsurface.com/pics/whr-sdcard1.jpg
 
-'''GPIO5''' Input (Bridge/Auto switch) to DI (SD Card #7) Connect to the C242 on the side nearest R151 in the picture.[[BR]]
+'''GPIO5''' Input (Bridge/Auto switch) to DI (SD Card #7) Connect to the C242 on the side nearest R151 in the picture. ''The switch '''must''' remain in the "auto" position for proper operation.''[[BR]]
 '''3.3v''' (near voltage regulator) to Vcc (SD Card #4)Connect to the pad shown in the picture.[[BR]]
 '''GND''' (Bridge/Auto switch frame) to Gnd (SD Card #3&6) Available in many places - the frame of the switch is convenient.[[BR]]
 http://www.flatsurface.com/pics/whr-sdcard2.jpg
