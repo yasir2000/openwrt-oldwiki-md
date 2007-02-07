@@ -350,7 +350,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||No ||Supported ||
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B]|||| ARM9  200MHZ || 8MB ||64MB|| no || no || On-board || ? || YES  || pata ||[:OpenWrtDocs/Hardware/AddonTech/IB-NAS1000-B:Info entered]||
+||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B]|||| ARM9  200MHZ || 8MB ||64MB|| no || no || On-board || ? || YES  || pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered]||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||? ||? ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
