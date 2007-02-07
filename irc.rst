@@ -17,6 +17,8 @@ Try to be clear and concise with your questions; don't flood us with pages of in
 
 Ask your question in a way that dictates the answer; if you ask a question that can be answered with a "yes" or a "no" that's probably what you'll get. Try to avoid asking a yes or no question if you don't want a yes or no answer. Short answers are not intended as hostility, just as a means of moving the conversation along so we can get to the next problem. If you don't get an answer or don't get the type of answer you want, try asking a different question.
 
+Don't assume to know the solution and then ask how to do it. Describe the problem first so it becomes clear why. You won't get much respect if we spend an hour trying to help you with your solution only to find out that you don't understand the problem and the solution didn't fix anything.
+
 == Staying on topic ==
 
 While we're happy to chat and discuss current trends, you need to know when to move the discussion elsewhere. If you're told that a subject is off topic, please respect us and don't continue discussing it in the channel.
