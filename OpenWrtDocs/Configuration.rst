@@ -262,10 +262,10 @@ See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user au
 ||  '''wpa''' = WPA with a RADIUS server ||
 ||  '''psk2''' = WPA2 PSK ||
 ||  '''wpa2''' = WPA2 with RADIUS ||
-||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 ||
+||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs)||
 ||<style="text-align: center;" |3> wl0_crypto || '''tkip''' = RC4 encryption ||
 ||  '''aes''' = AES encryption ||
-||  '''aes+tkip''' = support both ||
+||  '''aes+tkip''' = support both '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs)||
 || wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
 || wl0_radius_key || Shared Secret for connection to the Radius server ||
 || wl0_radius_ipaddr || IP to connect... ||
