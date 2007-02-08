@@ -165,6 +165,10 @@ Device info:
        . 0 == random column
        . B == 3rd gen
        . TP == TSOP(II)
- * 2 serial ports detected, not sure if this works just yet or is electrically connected
+ * 2 serial ports detected, the first port (/dev/tts/0) is brought out on a 4 pin header labeled J1, located near a corner of the PCB. Pin 1 is nearest the edge. The signals are low level, and not directly EIA232 compatible. The default baud rate is 115K. When booting, CTRL-C will interrupt the CFE monitor. The pinout is:
+       . 1 - 3.3V
+       . 2 - Ground
+       . 3 - Data out
+       . 4 - Data in
  * Noticed that there is an LED missing (LED4), and a series resistor (R4) is also missing.  I wonder if that can be used for GPIO and thus for the SD card slot kernel mod??
  * Need to confirm the JTAG pinout.  It is rumored that J1 can be used for JTAG, but that's only 4 pins; JTAG needs TRST, TMS, TDI, TDO, TCK, GND (but TRST isn't really needed as it just pulls/puts the device out of/in reset)
