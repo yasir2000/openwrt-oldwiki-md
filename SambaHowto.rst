@@ -81,6 +81,10 @@ Just create a softlink for the library:
 {{{
 ln -s /lib/libc.so.0  /lib/libgcc_s.so.1}}}
 
+or, much better install the right package ([28-01-2007 - m4rc0] libgcc_3.4.4-8_mipsel.ipk now included in RC6.):
+{{{
+ipkg install libgcc}}}
+
 
 = Links =
  * [http://www.samba.org/ Samba]
