@@ -70,6 +70,18 @@ smb://<server_ip>/<share>}}}
 
 You may press the "+" sign to save this in your list.  Press "Browse" to see all shares on a server, or "Connect" to mount the share.  You'll see the icon appear on the desktop, and the share will be mounted in /Volumes.
 
+= Problems =
+
+If you get the following error message while starting samba:
+{{{
+nmbd: can't load library 'libgcc_s.so.1'
+smbd: can't load library 'libgcc_s.so.1'}}}
+
+Just create a softlink for the library:
+{{{
+ln -s /lib/libc.so.0  /lib/libgcc_s.so.1}}}
+
+
 = Links =
  * [http://www.samba.org/ Samba]
 
