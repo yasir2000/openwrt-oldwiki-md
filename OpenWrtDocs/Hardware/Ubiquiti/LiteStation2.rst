@@ -14,6 +14,8 @@ Serial: yes, external
 JTAG: yes, backside
 }}}
 
+With the standard firmware you can get basic access to poke around by going to admin.cgi. (Uncomment the serial line in /etc/inittab).
+
 === Problems ===
 
 The factory bootloader is crap. It only enables 8MB of the 16MB of memory, doesn't understand LZMA compression, and it's buggy.
