@@ -105,6 +105,10 @@ Hint: for upgrading to 32MB you'll need two 16x16MB chips from a 4 chip 128MB, o
 
 TODO: If you solder 32 MB into the router (two 8Mx16 SDRAM), only 16MB will be used (32MB when upgrading with 64MB chips). According to the boot message on the serial interface, the CFE  only sees 16MB. Setting a different value to "sdram_init" doesn't help. If anyone knows how to build the Siemens / Belkin variant of the broadcom CFE, please let us know.
 
+==== Self compiled CFE ====
+A self compiled CFE which can set new "sdram_init" values can be found here:
+([http://forum.openwrt.org/viewtopic.php?id=9379: see forum thread])
+
 === Retrofitting USB ===
 The SE505V2 can be retrofitted a USB1.1 port. Note that a mass storage device (as a thumb drive) attached to USB1.1 is much faster than SDcards attached with the MMC mod (it uses only a small fraction of the CPU cycles of the SPI interface  simulated with GPIO). Writing to a thumb drive formated with the EXT2 is typically 10 times as fast as writing to the JFFS file system ([http://forum.openwrt.org/viewtopic.php?id=8656: see forum thread])!
 
