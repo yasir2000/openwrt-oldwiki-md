@@ -55,8 +55,8 @@ lan_netmask=[set]
 Make sure you have the following two lines in your /etc/sysctl.conf
 
 {{{
-net.bridge.bridge-nf-call-iptables=0
-net.bridge.bridge-nf-filter-vlan-tagged=0
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-filter-vlan-tagged=1
 }}}
 
 === Firewall Scripts ===
