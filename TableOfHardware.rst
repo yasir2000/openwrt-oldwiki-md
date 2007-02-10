@@ -376,7 +376,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
-||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] | 751.8267 | ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes  ||No ||||
+||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] || 751.8267 ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes  ||No ||||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
