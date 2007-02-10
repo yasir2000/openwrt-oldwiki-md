@@ -6,6 +6,6 @@ the firmware is ziped, finaly a dot bin file to flash this device. if you dump t
 i found this here: ipkg2_sign(in=7=2335407[byte], out=1=2335758[byte]) (ipkg2-header=351[byte])
 is here some linux code runing?
 
-the memsize should be 32MB the flashsize is not known jet and not readable (sticker on the flash).
-a pictures is here: 
+the memsize should be 16MB the flashsize is 4MB
+
 http://www.visigoth.de/~alx/speedtouch_585iv6_thomson_2.jpg
