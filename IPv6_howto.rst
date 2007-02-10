@@ -102,6 +102,8 @@ You can choose between using 6to4 (standard, works from anywhere) or a SixXS tun
 == 6to4 with a direct connection to the Internet ==
 This applies e.g. if you WAN port (on vlan1) receives an public IPv4 address through DHCP or is assigned a static public IPv4 address.
 
+__'''Update:'''__ If running version 0.9, you probably should be following the same documentation as the PPP case below.  Those same scripts as PPP are called when starting and stopping the wan in that version.
+
 To have the 6to4 tunnel start up automatically on boot, copy this script in ''/etc/init.d/S42tun6to4'':
 
 {{{
@@ -170,6 +172,8 @@ esac
 }}}
 == 6to4 tunnel with an Internet connection that uses PPP ==
 If you connect to your ISP using PPP (usually PPPoE): When the ppp interface comes up, the ppp daemon calls the /etc/ppp/ip-up script, when it goes down the /etc/ppp/ip-down script. Those scripts call /etc/hotplug.d/iface/* with the appropriate parameters.
+
+__'''Update:'''__ The line that sets the IPV4 address may fail on 0.9 and or certain ISPs (ex. Comcast uses some /22 routing).  Try adding "| grep -v inet6" before the cut to fix the issue with getting ipv6 stuff in the result and try adding "| cut -d / -f 1" to the end to get rid of the network specification.  Adding an echo $IPV4 to the script can help with debugging.
 
 To set up ipv6 support write /etc/hotplug.d/iface/10-ipv6
 
