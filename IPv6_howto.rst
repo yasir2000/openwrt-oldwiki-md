@@ -455,10 +455,10 @@ Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/
 = Questions =
 How would i go about setting up radvd to announce an v6 address (6to4), derived from an DHCP assigned v4 address (it changes every few weeks)?
 
-change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101::/48 becomes 0:0:0:f101::/48, and add "Base6to4Interface ppp0;" (where ppp0 is your wan interface) to the section, and set AdvValidLifetime and AdvPreferredLifetime to a low number, so if the v4 address changes, the v6 routing info will be updated quickly, so the finished section would look something like this:
+change the prefix in the radvd.conf (first 3 sections) to 0, so 2001:db8:0:f101::/64 becomes 0:0:0:f101::/64, and add "Base6to4Interface ppp0;" (where ppp0 is your wan interface) to the section, and set AdvValidLifetime and AdvPreferredLifetime to a low number, so if the v4 address changes, the v6 routing info will be updated quickly, so the finished section would look something like this:
 
 {{{
-        prefix 0:0:0:f101::/48
+        prefix 0:0:0:f101::/64
         {
                 AdvOnLink on;
                 AdvAutonomous on;
