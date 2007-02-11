@@ -1,6 +1,6 @@
 ''' attachment:logo3.gif ''''''''COMPEX WP54'''''
 
-'''''''''' {*} {*} {*} {*} {*}
+{*} {*} {*} {*} {*}
 
  . (This page is at an early stage of development. Please feel free to update)
 The Compex WP54 is a small, well-made device with two ethernet ports and Atheros wireless.
