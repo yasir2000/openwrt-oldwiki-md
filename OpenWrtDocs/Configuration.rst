@@ -371,6 +371,41 @@ The rules and some small samples for your firewall can be found in /etc/firewall
 
 Be sure to read the notes about the firewall rules before changing anything.  The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN.  You will have to access the router from outside to verify the setup.
 
+As of RC9 the file /etc/firewall.user reads
+{{{
+#!/bin/sh
+# Copyright (C) 2006 OpenWrt.org
+
+iptables -F input_rule
+iptables -F output_rule
+iptables -F forwarding_rule
+iptables -t nat -F prerouting_rule
+iptables -t nat -F postrouting_rule
+
+# The following chains are for traffic directed at the IP of the
+# WAN interface
+
+iptables -F input_wan
+iptables -F forwarding_wan
+iptables -t nat -F prerouting_wan
+
+### Open port to WAN
+## -- This allows port 22 to be answered by (dropbear on) the router
+# iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT
+# iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
+
+### Port forwarding 
+## -- This forwards port 8080 on the WAN to port 80 on 192.168.1.2
+# iptables -t nat -A prerouting_wan -p tcp --dport 8080 -j DNAT --to 192.168.1.2:80
+# iptables        -A forwarding_wan -p tcp --dport 80 -d 192.168.1.2 -j ACCEPT
+
+### DMZ
+## -- Connections to ports not handled above will be forwarded to 192.168.1.2
+# iptables -t nat -A prerouting_wan -j DNAT --to 192.168.1.2
+# iptables        -A forwarding_wan -d 192.168.1.2 -j ACCEPT
+
+}}}
+
 The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept.  In the case given, it will open up port 22 and accept connections using dropbear (the SSH server).  Just delete the '''#''' sign in front of the two rules to enable access.
 
 If you wanted to open up any other ports for the router to listen to, just copy those two lines and change just the port number from 22 to something else.
