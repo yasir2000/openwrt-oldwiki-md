@@ -149,7 +149,7 @@ You can also have the lan interface fetch its configuration via DHCP, but to do 
 # linksys bug; remove when not using static configuration for lan
 nvram set lan_proto="static"
 }}}
-in /etc/init.d/S05nvram (The usual story about replacing the symlink with a copy of the file before editting applies). After doing this, you need to set the appropriate nvram variable:
+in /etc/init.d/S05nvram (For RC5 and earlier the usual story about replacing the symlink with a copy of the file before editing applies, see Editing files at ["OpenWrtDocs/Using"] ). After doing this, you need to set the appropriate nvram variable:
 
 {{{
 lan_proto=dhcp
@@ -182,7 +182,7 @@ There are normally two VLANs, vlan0 and vlan1. For each VLAN, there are two nvra
 vlan0ports="1 2 3 4 5*" (use ports 1-4 on the back, 5 is the WRT54G itself)
 vlan0hwname=et0
 }}}
-(See switch diagram in section 2)
+(See switch diagrams in ["OpenWrtDocs/NetworkInterfaces"])
 
 The vlan0ports variable is a space separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
 
@@ -367,13 +367,8 @@ To read the syslog messages, use the '''logread''' command. See MiniHowtos to se
 For SSH login without password, put your keys in /etc/dropbear/authorized_keys. See DropbearPublicKeyAuthenticationHowto.
 
 == iptables - Firewall ==
-The rules and some small samples for your firewall can be found in /etc/firewall.user.  If you want to make changes to this file, you'll have to remove it first, since it is actually a symlink to /rom/etc/firewall.user.
+The rules and some small samples for your firewall can be found in /etc/firewall.user.  For RC5 and earlier if you want to make changes to this file you have to remove it first since it is actually a symlink to /rom/etc/firewall.user, see the section Editing files in ["OpenWrtDocs/Using"].
 
-{{{
-ls -l /etc/firewall.user
-rm /etc/firewall.user
-cp /rom/etc/firewall.user /etc
-}}}
 Be sure to read the notes about the firewall rules before changing anything.  The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN.  You will have to access the router from outside to verify the setup.
 
 The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept.  In the case given, it will open up port 22 and accept connections using dropbear (the SSH server).  Just delete the '''#''' sign in front of the two rules to enable access.
