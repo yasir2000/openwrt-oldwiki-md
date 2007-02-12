@@ -172,7 +172,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros 2315] ||? ||[http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 1M x 16 Bit x 4 Banks (ESMT M12L64164A)] ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||? ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||? ||? ||? ||Yes ||Info Entered ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||? ||? ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
-||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC µPD30131F1 VR4131  ||2MB ||8MB ||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
+||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC µPD30131F1 VR4131 ||2MB ||8MB ||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
 ||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 ||DSL-G500T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=1&Sub2=2&PID=49 DSL-504T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] it runs ok ||
@@ -183,8 +183,6 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||? ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||16MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB ||16MB ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
-
-
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
@@ -209,9 +207,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_ag_wap&seg=sb 7001] ||802.11a+g ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||2x Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||None ||WiP ||
 == Gateworks ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||Untested ||
-||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||Untested ||
-||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||Untested ||
+||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||WiP ||
+||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||WiP ||
+||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||WiP ||
 == Gigabyte ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] ||1.0 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB ||mini-PCI ||IC+ IP175A || ||No ||Yes ||Space for connector || ||
@@ -350,7 +348,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||No ||Supported ||
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B]|||| ARM9  200MHZ || 8MB ||64MB|| no || no || On-board || ? || YES  || pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered]||
+||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;"> ARM9  200MHZ || 8MB ||64MB || no || no || On-board || ? || YES || pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||2MB ||8MB ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -376,7 +374,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
-||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] || 751.8267 ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes  ||No ||||
+||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] || 751.8267 ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes ||No || ||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -394,7 +392,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
-||speedtouch 585 int dsl-modem || ||Broadcom BCM6348 @ ???MHz ||???MB ||32MB ||802.11g onboard broadcom ||BCM5325 4Port || ||???||???||???||[:OpenWrtDocs/Hardware/Thomson/speedtouch] ||
+||speedtouch 585 int dsl-modem || ||Broadcom BCM6348 @ ???MHz ||???MB ||32MB ||802.11g onboard broadcom ||BCM5325 4Port || ||??? ||??? ||??? ||["OpenWrtDocs/Hardware/Thomson/speedtouch"] ||
 == Topcom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://tools.topcom.net/datasheets/Skyr@cer%20WBR%20254g%20-%20E.pdf Skyr@cer WBR 254G] ||V1.0 ||Marvell 88W8510-BAN ||1MB ||8MB ||Marvell 88W8000-NNC ||Marvell 88E6060-RCJ || || ||Probably ||No ||No ||
