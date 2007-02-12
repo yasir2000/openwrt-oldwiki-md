@@ -106,3 +106,53 @@ logger -t ${LOGGING_TAG} -- "IP address successfully updated to ${IP}"
 
 exit 0
 }}}
+
+
+Using the very same NVRAM-saved settings as the inspirational script above, I remodeled the source to not rely on clumsy and awkward (no offense, mate! ;)) constructs abusing `grep` and `awk` in concatenations. I also implemented a trivial way of checking whether the account in questions needs to be updated with address data, so it's safe to run this every minute via cron. I chose to drop the error-message about lacking NVRAM entries for sake of brevity:
+
+{{{#!/bin/sh
+LOGGING_TAG="DYNDNS"
+ACCOUNT=$(nvram get ddns_username)
+PASS=$(nvram get ddns_passwd)
+DOMAIN=$(nvram get ddns_hostname)
+IFACE=ppp0
+
+if [ "${ACCOUNT}" = "" -o "${PASS}" = "" -o "${DOMAIN}" = "" ]; then
+  logger -t ${LOGGING_TAG} -- "DynDNS Updatescript $0 is not properly configured!"
+  exit 4
+fi
+
+IP=$(ifconfig ${IFACE} | awk '/inet addr:/{ TMP=split($2,IP,":"); print IP[2]; }')
+
+if [ $(nslookup ${DOMAIN} | awk '/^Address:/ && !/127.0.0.1$/ {print $2}') = "${IP}" ]; then
+  #logger -t ${LOGGING_TAG} -- "No update for ${DOMAIN} needed."
+  exit 0
+fi
+
+rm -f /tmp/dyndns.org-answer
+
+if [ "${IP}" = "" ]; then
+  logger -t ${LOGGING_TAG} -- "Couldn't get ip address for ${IFACE}."
+  exit 1
+fi
+
+wget -q -O /tmp/dyndns.org-answer "http://${ACCOUNT}:${PASS}@members.dyndns.org/nic/update?system=dyndns&hostname=${DOMAIN}&myip=${IP}&wildcard=ON&offline=NO"
+
+if ! [ -f /tmp/dyndns.org-answer ]; then
+  logger -t ${LOGGING_TAG} -- "Couldn't update ip-address for \"${ACCOUNT}.dyndns.org\""
+  exit 2
+fi
+
+if [ "awk '{printf("%s",$2);}') /tmp/dyndns.org-answer" != "${IP}" ]; then
+  logger -t ${LOGGING_TAG} -- "Error while updating ip-address:"
+  cat /tmp/dyndns.org-answer | logger -t ${LOGGING_TAG}
+  rm -f /tmp/dyndns.org-answer
+  exit 3
+fi
+
+rm -f /tmp/dyndns.org-answer
+
+logger -t ${LOGGING_TAG} -- "IP address successfully updated to ${IP}"
+
+exit 0
+}}}
