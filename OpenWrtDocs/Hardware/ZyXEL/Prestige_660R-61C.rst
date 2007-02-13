@@ -8,7 +8,7 @@ RAM: Size = 8192 Kbytes
 DRAM POST: Testing:  8192K
 OK
 FLASH: Intel 16M *1}}}
-I think the 16M means Mbits, so actually only 2 M Bytes of Flash.
+I think the 16M means Mbits, so actually only 2 M Bytes of Flash.  I think this is not enough flash for openWRT
 
 == serial console ==
 TTL level serial cable on board.  Labeled J1
