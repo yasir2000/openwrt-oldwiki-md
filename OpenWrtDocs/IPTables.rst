@@ -137,36 +137,65 @@ iptables -t nat -F prerouting_wan
 }}}
 {{{
 #
+# Written by Christopher Piggott, chrisp @t rochester d.t rr d.t com
+# Public domain, Free to use or modify however you wish.
+#
 # This is ''/etc/firewall.redirects''
 #
 # Define a function that adds redirects
 #
 redirect()
 {
-   local port = $1
-   local protocol = $2
-   local redirect_to = $3
-   iptables \
-      --table nat \
-      --append prerouting_wan \
-      --protocol $protocol \
-      --in-interface $WAN \
-      --dport $port \
-      --jump DNAT \
-      --to-destination $redirect_to
-   iptables \
-      --append forwarding_wan \
-      --protocol $protocol \
-      --dport $port \
-      --jump ACCEPT
+        local port=$1
+        local protocol=$2
+        local redirect_to=$3
+        local limit=$4
+        local limit_burst=$5
+
+        #
+        # First, do NAT on the incoming port to direct it
+        # to the right server
+        #
+        iptables \
+                --table nat \
+                --append prerouting_wan \
+                --protocol $protocol \
+                --dport $port \
+                --jump DNAT \
+                --to-destination $redirect_to
+        #
+        # Then, have the forwarding filter allow it
+        #
+
+        if [ -z "$limit" -o -z "$limit_burst" ]  ; then
+                iptables \
+                        --append forwarding_wan \
+                        --protocol $protocol \
+                        --destination $redirect_to \
+                        --dport $port \
+                        --jump ACCEPT
+        else
+                iptables \
+                        --append forwarding_wan \
+                        --protocol $protocol \
+                        --dport $port \
+                        --destination $redirect_to \
+                        --match state --state NEW \
+                        --match limit --limit $limit --limit-burst $limit_burst \
+                        --jump ACCEPT
+        fi
 }
-#
-# Redirect http and https requests to internal server 192.168.1.2
-#
-redirect 80 tcp 192.168.1.2
-redirect 443 tcp 192.168.1.2
-#
-# Redirect CVS requests to 192.168.1.7
-#
-redirect 2401 tcp 192.168.1.7
+
+
+# Redirect table
+
+#   Command    port   proto   destination      limit      burst size
+#   --------  ------  -----  --------------  ---------   ------------
+    redirect    22     tcp    192.168.0.101   5/minute        5
+    redirect    80     tcp    192.168.0.101
+    redirect    443    tcp    192.168.0.101
+    redirect    113    tcp    192.168.0.125
+    redirect    8180   tcp    192.168.0.101
+    redirect    21     tcp    192.168.0.101
+    redirect    993    tcp    192.168.0.101
 }}}
