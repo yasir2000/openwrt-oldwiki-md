@@ -4,20 +4,22 @@
 ##master-date:Unknown-Date
 #format wiki
 #language en
-= OpenWRT Custom IPTables Configuration =
+= OpenWRT Custom IPTables =
 
 
 == Introduction ==
 
-The distribution template should prove sufficient for most uses.  However, if one wishes to do something more complicated with iptables it is helpful to understand how OpenWrt's default rules fit in with the traditional IPTables packet flow.
+A main purpose of OpenWRT is to serve as a highly configurable network firewall.  OpenWRT's firewall rules can be configured a number of ways.  For most users, distribution templates and tools should prove sufficiently flexible.  However, if one wishes to do something more complex it may be desirable to extend the iptables configuration directly.
 
-== Where to Edit ==
+OpenWRT defines a set of rules for network address translation (NAT) and packet filtering.  These rules are arranged to allow user extension without the need to reorganize OpenWRT's iptables structure.  The administrator will benefit from creating a local configuration that fits within the structure OpenWRT expects.  As this document will show, a high degree of flexibility can be achieved ''without'' modifying OpenWRT's distribution start-up or reconfiguration scripts.
 
-The basic structure of the firewall is established by the firewall start-up script, ''/etc/init.d/S35firewall''.  '''You should not modify this file.'''  Rather, customization should begin in ''/etc/firewall.user''.
+It is assumed that reader is already familiar with iptables and has reviewed the places including [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Iptables Tutorial], available many places including [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Here] and [http://www.faqs.org/docs/iptables/ Here].
 
-However, it is worth examining ''/etc/init.d/s35firewall'' for educational purposes.  It establishes the basic framework under which your custom rules should exist.  The purpose of this document is to explain the structure of those pre-defined rules.
+== User Filter Configuration File ==
 
-== OpenWrt Rules ==
+User-defined iptables should be placed in the local configuration file ''/etc/firewall.user''.  The firewall startup script (which you ''don't'' modify) establishes the basic rules framework under which your local configuration exists.  ''/etc/firewall.user'' is accessed both when the firewall is started or restarted.
+
+== OpenWrt Chains ==
 
 The following diagram is adapted from the IPTables tutorial, with detail added to explain where each firewall.user rule fits in.  Each one of the detail boxes describes the actions that take place in the /etc/init.d firewall start-up script.  At certain points this script invokes user-defined chains of rules; these are the rules that you customize in ''/etc/firewall.user''.
 
