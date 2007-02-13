@@ -93,7 +93,16 @@ Add "--wildcards" to two lines, as shown below.
      endif
 }}}
 
- * If you did this right, you should get past the inital startup and it'll start downloading the kernel. It kept going for about an hour and a half. It failed after building the cross compiler, while building the debugger. If this is all you need.. fine. I'm going for gold. It fails because it expects gdb to be called gdb, instead it's called gdb.exe. To fix this, edit openwrt/toolchain/gdb/Makefile
+ * If you did this right, you should get past the inital startup and it'll start downloading the kernel. It kept going for about an hour and a half. 
+
+If it fails with a message to the effect of "symbol _bfd_mips_arch not found, referenced in archures.c" -
+make sure there are no DOS CR characters (^M) in the source files (that includes .patch files, Makefiles,etc.), then
+
+{{{find . -exec grep ^M '{}' \;}}} 
+
+is your friend (where ^M is produced in Cygwin shell by doing Ctrl-V Ctrl-J).
+
+* It failed after building the cross compiler, while building the debugger. If this is all you need.. fine. I'm going for gold. It fails because it expects gdb to be called gdb, instead it's called gdb.exe. To fix this, edit openwrt/toolchain/gdb/Makefile
 
 {{{
 $ vi ~/openwrt/toolchain/gdb/Makefile
