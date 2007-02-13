@@ -4,6 +4,11 @@
 ##master-date:Unknown-Date
 #format wiki
 #language en
+
+{i} Note: this page is brand-new, errors are possible.  Your mileage may vary.
+
+
+
 [[TableOfContents]]
 
 = OpenWRT and IPTables Overview =
@@ -18,20 +23,20 @@ OpenWRT begins firewall initialization by running a startup script in ''/etc/ini
 
 == Environment Variables ==
 The following environment variables are available to your''/etc/firewall.user'' script:
+||'''Variable''' ||'''Description''' ||'''Example''' ||
+||WAN ||Name of the external interface ||vlan1 ||
+||LAN ||Name of the internal interface ||vlan0 ||
+||WANDEV ||Name of the external (WAN) device ||For typical installations this will be the same as $WAN and can be ignored ||
 
-||'''Variable'''||'''Description'''||'''Example'''||
-||WAN||Name of the external interface||vlan1||
-||LAN||Name of the internal interface||vlan0||
-||WANDEV||Name of the external (WAN) device||For typical installations this will be the same as $WAN and can be ignored||
 
 '''Note:''' these variables are not exported to the environment.  This means that these variables are only available to the ''/etc/firewall.user'' script because it is ''included'' by the startup script.  This fact is important if you plan to split your user configuration into multiple files.
 
 == Default chains ==
 The startup script defines a few chains that the ''/etc/firewall.user'' may wish to use:
+||'''Rule Name''' ||'''Description''' ||
+||LAN_ACCEPT ||Serves as a conditional target that ACCEPTs packets if the originating interface is the LAN, but does nothing if the packet originated from a non-LAN interface.  (In most cases, LAN means the combination of LAN and WLAN). ||
+||NEW ||Performs burst limit checking during nat prerouting.  This is an internal rule not intended to be accessed by the user, explained here for educational purposes only.  The purpose is to limit the number of new address translation mappings to protect against certain kinds of denial of service attacks. ||
 
-||'''Rule Name'''||'''Description'''||
-||LAN_ACCEPT||Serves as a conditional target that ACCEPTs packets if the originating interface is the LAN, but does nothing if the packet originated from a non-LAN interface.  (In most cases, LAN means the combination of LAN and WLAN).||
-||NEW||Performs burst limit checking during nat prerouting.  This is an internal rule not intended to be accessed by the user, explained here for educational purposes only.  The purpose is to limit the number of new address translation mappings to protect against certain kinds of denial of service attacks.||
 
 = OpenWrt Chains =
 The following diagram is adapted from the IPTables tutorial, with detail added to explain what rules OpenWRT defines.  Detail boxes describes the actions that take place in the firewall start-up script (which, as a polite administrator, you will not modify).
@@ -39,15 +44,13 @@ The following diagram is adapted from the IPTables tutorial, with detail added t
 http://wiki.autofrog.com/_media/openwrt/openwrtiptables.png
 
 = Rules for User Modification =
-
 == prerouting_rule (nat) ==
-
 This rule defines incoming network address translation on all interfaces, including the LAN.  Typical installations do not need to use this rule, as inbound address translation only occurs from the WAN interface, which has its own rule (below).
 
 Termination possibilities from this chain include:
+||'''Target''' ||'''Description''' ||
+||DNAT ||Remap the destination address and/or port ||
 
-||'''Target'''||'''Description'''||
-||DNAT||Remap the destination address and/or port||
 
 If you think you need to modify this rule consider that network address translation usually occurs on dynamic outbound connections or on static inbound connections.  This rule applies to neither of those situations.  An example situation where this ''would'' be applicable is if you wished to redirect outbound connections to an external server and remap them to a different place.
 
@@ -65,13 +68,14 @@ Note that for port redirection ''nat'' alone is not sufficient ... you also have
 == input_rule (filter) ==
 This filter checks incoming packets, regardless of the input interface.  This rule only applies to packets destined for OpenWrt.
 
-This chain applies to all packets destined for local services (i.e. running on the firewall itself), regardless of the originating interface.  
+This chain applies to all packets destined for local services (i.e. running on the firewall itself), regardless of the originating interface.
 
 Possible terminations:
-||ACCEPT||Packet is fowarded to the local service regardless of originating interface||
-||LAN_ACCEPT||Packet is fowarded to the local service ONLY if it originated from the internal network (LAN)||
-||DROP|| Packet is dropped ||
-||RETURN||No additional processing in this rule; packet is passed to ''input_wan'' if it originated from the WAN interface||
+||ACCEPT ||Packet is fowarded to the local service regardless of originating interface ||
+||LAN_ACCEPT ||Packet is fowarded to the local service ONLY if it originated from the internal network (LAN) ||
+||DROP || Packet is dropped ||
+||RETURN ||No additional processing in this rule; packet is passed to ''input_wan'' if it originated from the WAN interface ||
+
 
 If you wish to block packets from ''all'' sources, this is the place to do it.  For example, if you wish to entirely close http access (from either the WAN or LAN) you could do this:
 
@@ -85,9 +89,10 @@ This filter checks incoming packets that originate from the WAN interface and ar
 {{{iptables --append input_wan --protocol tcp --dport 22 --jump ACCEPT}}}
 
 Possible terminations:
-||ACCEPT||Packet is fowarded to a service running on the local firewall||
-||DROP||Packet is dropped||
-||RETURN||No additional processing in this rule; since the policy on the ''INPUT'' chain is ''DROP'' this is effectively a less-safe way to ''DROP''.  You probably want to be explicit and use ''DROP'' instead.||
+||ACCEPT ||Packet is fowarded to a service running on the local firewall ||
+||DROP ||Packet is dropped ||
+||RETURN ||No additional processing in this rule; since the policy on the ''INPUT'' chain is ''DROP'' this is effectively a less-safe way to ''DROP''.  You probably want to be explicit and use ''DROP'' instead. ||
+
 
 == output_rule (filter) ==
 This rule applies to packets originating from a local service (i.e. a service running on the firewall itself).  Note that if a the packet is related to a previous connection it is automatically opened; therefore, in most cases it is not necessary to add an explicit rule here.  If you have a service that runs on the firewall and periodically initiates connections to any interface it should be added here.  For example, to allow the firewall to make NTP requests (port 123) using UDP:
@@ -104,7 +109,6 @@ This rule applies to packets to be forwarded from the WAN interface to the LAN i
 
 == postrouting_rule (nat) ==
 This rule applies to packets originating from the OpenWrt port destinated for the WAN.  The default postrouting rules takes care of masquerading for packets destined for the WAN interface.  Under normal circumstances it will not be necessary to modify this rule.
-
 
 = Multiple Files Example =
 For organizational purposes you may wish to split your /etc/firewall.user into several files.  However, when doing this, bear in mind that subscripts must be included rather than invoked in order for shell variables such as $WAN and $LAN to be visible.
@@ -126,13 +130,11 @@ iptables -t nat -F postrouting_rule
 iptables -F input_wan
 iptables -F forwarding_wan
 iptables -t nat -F prerouting_wan
-
 #
 # Include port redirects
 #
 . /etc/firewall.redirects
 }}}
-
 {{{
 #
 # This is ''/etc/firewall.redirects''
@@ -144,7 +146,6 @@ redirect()
    local port = $1
    local protocol = $2
    local redirect_to = $3
-
    iptables \
       --table nat \
       --append prerouting_wan \
@@ -153,20 +154,17 @@ redirect()
       --dport $port \
       --jump DNAT \
       --to-destination $redirect_to
-
    iptables \
       --append forwarding_wan \
       --protocol $protocol \
       --dport $port \
       --jump ACCEPT
 }
-
 #
 # Redirect http and https requests to internal server 192.168.1.2
 #
 redirect 80 tcp 192.168.1.2
 redirect 443 tcp 192.168.1.2
-
 #
 # Redirect CVS requests to 192.168.1.7
 #
