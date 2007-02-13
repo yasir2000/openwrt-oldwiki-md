@@ -429,6 +429,8 @@ Once you're finished making changes to your firewall, restart it by running the 
 }}}
 Remember to test the changes outside your LAN!
 
+Finally, if you wish to dig deeper into how iptables work under the rule/chain structure of OpenWRT, see ["OpenWrtDocs/IPTables"]
+
 == dnsmasq - DNS and DHCP server ==
 Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP server.
 
@@ -577,3 +579,4 @@ See also:
 
  * OpenWrtHowTo
  * OpenWRT ["Faq"].
+ * ["OpenWrtDocs/IPTables"] for a more detailed explanation of iptables under OpenWRT
