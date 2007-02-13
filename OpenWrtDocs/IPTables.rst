@@ -9,11 +9,11 @@
 
 == Introduction ==
 
-A main purpose of OpenWRT is to serve as a highly configurable network firewall.  OpenWRT's firewall rules can be configured a number of ways.  For most users, distribution templates and tools should prove sufficiently flexible.  However, if one wishes to do something more complex it may be desirable to extend the iptables configuration directly.
+A main purpose of OpenWRT is to serve as a highly configurable network firewall.  OpenWRT's firewall rules can be configured in many ways.  Distribution templates and configuration tools should prove sufficiently flexible for most applications.  However, for a more complex installation it may be necessary to extend the iptables configuration directly.
 
 OpenWRT defines a set of rules for network address translation (NAT) and packet filtering.  These rules are arranged to allow user extension without the need to reorganize OpenWRT's iptables structure.  The administrator will benefit from creating a local configuration that fits within the structure OpenWRT expects.  As this document will show, a high degree of flexibility can be achieved ''without'' modifying OpenWRT's distribution start-up or reconfiguration scripts.
 
-It is assumed that reader is already familiar with iptables and has reviewed the places including [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Iptables Tutorial], available many places including [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Here] and [http://www.faqs.org/docs/iptables/ Here].
+The reader should already be familiar with iptables and have reviewed the [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Iptables Tutorial], available many places including [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Here] and [http://www.faqs.org/docs/iptables/ Here].
 
 == User Filter Configuration File ==
 
