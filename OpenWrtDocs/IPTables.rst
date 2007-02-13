@@ -13,13 +13,13 @@ The distribution template should prove sufficient for most uses.  However, if on
 
 == Where to Edit ==
 
-The basic structure of the firewall is established by the firewall start-up script, ''/etc/init.d/S??firewall''.  '''You should not modify this file.'''  Rather, customization should begin in ''/etc/firewall.user''.
+The basic structure of the firewall is established by the firewall start-up script, ''/etc/init.d/S35firewall''.  '''You should not modify this file.'''  Rather, customization should begin in ''/etc/firewall.user''.
 
-However, it is worth examining ''/etc/init.d/s??firewall'' for educational purposes.  It establishes the basic framework under which your custom rules should exist.  The purpose of this document is to explain the structure of those pre-defined rules.
+However, it is worth examining ''/etc/init.d/s35firewall'' for educational purposes.  It establishes the basic framework under which your custom rules should exist.  The purpose of this document is to explain the structure of those pre-defined rules.
 
 == OpenWrt Rules ==
 
-The following diagram is adapted from the IPTables tutorial, with detail added to explain where each firewall.user rule fits in.  Each one of the detail boxes describes the actions that take place in the /etc/init.d firewall start-up script.  At certain points this script invokes user-defined chains of rules; these are the rules that you customize in ''//etc/firewall.user''.
+The following diagram is adapted from the IPTables tutorial, with detail added to explain where each firewall.user rule fits in.  Each one of the detail boxes describes the actions that take place in the /etc/init.d firewall start-up script.  At certain points this script invokes user-defined chains of rules; these are the rules that you customize in ''/etc/firewall.user''.
 
 http://wiki.autofrog.com/_media/openwrt/openwrtiptables.png
 
