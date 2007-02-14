@@ -2,14 +2,12 @@
 
 SE505 product page is now   [http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation:-5_pageType:downloads_imagePos:0,00.html#content : located here]
 
-There are three known versions of the SE505. Only the version SE505V1 and  SE505V2 are currently supported by OpenWRT. The third version, SE505V3, has not yet been reported to work.
+There are three known versions of the SE505. Only the version SE505V1 (S4) and  SE505V2 (S8) are currently supported by OpenWRT. The third version, SE505V3 (T7, T8), has not been reported to work.
 
 Another description (in German) and link to images of versions 1 and 2 can be found here:
-
 http://wiki.opennet-initiative.de/index.php/Siemens_SE505
 
-several other (yet unsopported versions) versions can be found here:
-
+A good hardware description with pictures of the unsupported versions can be found here:
 http://bern.openwireless.ch/SE505
 
 = Siemens SE505 v1 =
@@ -153,7 +151,7 @@ Locate C365 near J7 (JTAG connector) and LED "LAN4".
 As of Whiterussian RC6 there is no working hardware detection for SE505V2. A simple patch to diag.c is necessary (contact nbn or timobeil).
 
 = Siemens SE505 v3 =
-SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip.
+SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip. Unlike versions V1 and V2 the V3 routers have an AC power supply! 
 
 Retrofitting the JTAG and the USB interface is most likely possible. Replacing the RAM chip by a chip with 16MB or  32MB has not yet been reported to work, and it might require a new CFE. It is not known if the flash chips are supported by the current JTAG tools.
 
