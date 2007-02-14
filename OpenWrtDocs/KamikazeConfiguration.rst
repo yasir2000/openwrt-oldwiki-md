@@ -114,7 +114,7 @@ config wifi-device     wifi device name
        option channel  1-14
        option maxassoc Maximum number of associated clients
        option distance The distance between the ap and the furthest client in meters.
-       option mode     Currently only for atheros.  Options are: 11b, 11g, 11a, 11g pureg=1
+       option mode     Currently only for atheros.  Options are: 11b, 11g, 11a, 11bg
 
 config wifi-iface
        option network  the interface you want wifi to bridge with 
