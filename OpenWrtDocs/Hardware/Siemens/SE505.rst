@@ -30,7 +30,7 @@ Whiterussian RC6 "micro" will work, but limited RAM will result in poor stabilit
 
 __ /!\ __ '''The reset button is hardwired on the SE505V2, so there is no failsafe mode. The ''''''CFE will ''''''reset default nvram settings by pressing the reset button while turning on the router (see reset-button-mod below). '''
 
-__ /!\ __ '''The tftp address during boot_wait is determined by NVRAM. CFE-default is 192.168.1.1 '''
+__ /!\ __ '''The tftp address during boot_wait is determined by NVRAM. CFE-default is 192.168.2.1 '''
 
  .
 == Internal Connectors ==
