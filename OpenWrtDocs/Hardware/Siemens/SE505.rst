@@ -157,7 +157,7 @@ SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L6
 
 Retrofitting the JTAG and the USB interface is most likely possible. Replacing the RAM chip by a chip with 16MB or  32MB has not yet been reported to work, and it might require a new CFE. It is not known if the flash chips are supported by the current JTAG tools.
 
-Most reports suggest that there is are compatibility problems with OpenWRT in SE 505 v3.
+Most reports suggest that there are compatibility problems of SE 505 v3 with OpenWRT.
 
 ----
  . CategoryModel
