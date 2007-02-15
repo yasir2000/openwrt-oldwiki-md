@@ -3,7 +3,7 @@
 #pragma description This page contains information of the Asus WL-HDD and Yakumo Wireless Storage 60 NAS.
 = Asus WL-HDD =
 
-The device is supported in OpenWrt 1.0 (White Russian) and later. Confirmed running Version is WhiteRussian RC6 (and Kamikaze too, see [http://forum.openwrt.org/viewtopic.php?id=7510 this forum post]). You need to install the openwrt-brcm-2.4-<type>.trx firmware images. 
+The device is supported in OpenWrt (White Russian and later). Confirmed running Version are WhiteRussian RC6 and 0.9 (and Kamikaze too, see [http://forum.openwrt.org/viewtopic.php?id=7510 this forum post]). You need to install the openwrt-brcm-2.4-<type>.trx firmware images. 
 
 {{{
 Bootloader: PMON
@@ -85,6 +85,19 @@ If you want to use the wireless interface as lan and the ethernet as wan device,
 #                    wan=none
 }}} 
 
+
+=== Device as WLAN client ===
+
+I got some strange double pings and lots of 
+{{{
+Feb 15 19:27:00 (none) kern.warn kernel: eth2: received packet with  own address as source address
+}}}
+entries in the logfile when using it as wireless client. this is a interference with the br0 and physical ethernet device; you can get rid of them by changing the lan interface to the physical instead of the virtual (br0) device.
+{{{
+# when wireless is the LAN interface and wired the WAN
+nvram set lan_ifname=eth2
+nvram commit
+}}}
 
 == Hardware ==
 === Internal Images ===
