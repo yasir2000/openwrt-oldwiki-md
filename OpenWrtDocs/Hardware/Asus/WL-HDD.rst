@@ -3,7 +3,9 @@
 #pragma description This page contains information of the Asus WL-HDD and Yakumo Wireless Storage 60 NAS.
 = Asus WL-HDD =
 
-The device is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
+The device is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images. 
+??? is there any version 1.0 at all? 
+which version does it really work with?
 
 {{{
 Bootloader: PMON
