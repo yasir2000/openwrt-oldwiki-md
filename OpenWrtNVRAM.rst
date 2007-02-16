@@ -27,7 +27,7 @@ For each bundle you may set the following variables (ie lan_ifname, wan_ifname, 
 ||'''*_gateway''' ||gateway to use if _proto is static (X.X.X.X notation) ||
 ||'''*_dns''' ||dns to use if _proto is static (X.X.X.X notation) ||
 ||'''*_stp''' ||Enable spanning tree if _ifname is a bridge (0 or 1) ||
-||'''*_hwaddr''' ||MAC addres of te interface if different from the factory default (xx:xx:xx:xx:xx:xx) ||
+||'''*_hwaddr''' ||MAC address of the interface if different from the factory default (xx:xx:xx:xx:xx:xx) ||
 
 
 Don't set {{{*_gateway}}} more than once, or use {{{*_proto=dhcp}}} on more than one interface, or you'll find yourself with multiple default routes inserted which is probably not what you want.
