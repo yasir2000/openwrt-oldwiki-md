@@ -86,7 +86,7 @@ NVRAM; Description
 <name>_ifnames; Devices to be added to the bridge (only if the above is a bridge)
 <name>_proto; The protocol which will be used to configure an IP
             ; static: Manual configuration (see below)
-            ; dhcp: Perform a DHCP request
+            ; dhcpclient: Perform a DHCP request (used to be just "dhcp")
             ; pppoe: Create a ppp tunnel
 <name>_ipaddr; ip address (x.x.x.x)
 <name>_netmask; netmask (x.x.x.x)
