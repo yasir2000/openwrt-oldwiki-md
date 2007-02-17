@@ -144,18 +144,21 @@ Without serial console, this procedure was successful on wag354g:
 -unplug the router
 -set static a configuration to the nic, with ip 192.168.1.xx(2-254) and netmask 255.255.255.0
 -launch tftp:
+{{{
         tftp> verbose (for debugging purpose)
         tftp> trace   ( "     "       "     )
         tftp> binary
         tftp> connect 192.168.1.1
         tftp> put upgrade_code.bin
+}}}
 -wait ~ 1sec.
 -plug the power to the router
 
 If transfer starts, the tftp output is like this:
+{{{
 ....
 sent DATA <block=6666, 512 bytes> 
 		received ACK <block=6666> 
 ...
-
+}}}
 -wait until router reboots
