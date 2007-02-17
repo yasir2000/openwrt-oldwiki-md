@@ -62,7 +62,7 @@ Example 1: Your network is {{{192.168.1.0/255.255.255.0}}}, your starting addres
 nvram set dhcp_start=100
 nvram set dhcp_num=50
 nvram commit
-killall -9 dnsmasq ; /etc/init.d/S50dnsmasq
+killall -9 dnsmasq ; /etc/init.d/S60dnsmasq
 }}}
 Example 2: Your network is {{{192.168.10.40/255.255.255.248}}}, your starting address is {{{192.168.10.42}}}, your ending address is {{{192.168.10.45}}} try this:
 
@@ -70,7 +70,7 @@ Example 2: Your network is {{{192.168.10.40/255.255.255.248}}}, your starting ad
 nvram set dhcp_start=2
 nvram set dhcp_num=3
 nvram commit
-killall -9 dnsmasq ; /etc/init.d/S50dnsmasq
+killall -9 dnsmasq ; /etc/init.d/S60dnsmasq
 }}}
 == Configuring dnsmasq to use different IP ranges for wired and wireless ==
 Suppose you have the following:
