@@ -137,13 +137,14 @@ unallocated Space End  : 0xb0400000
 }}}
 
 == TFTP flashing ==
-PSPBoot accepts a TFTP upload of a new firmware while beeing in command line mode or during the boot wait. The boot wait is 3 seconds by default. This creates a very narrow windows for uploading. TFTP is possible at about 2 seconds after powerup for about 1 second. With a serial console attached, it is also possible to stop the boot process by pressing ESC. The bootloader will then continue to accept uploads. The uploaded file has to be called upgrade_code.bin .
+PSPBoot accepts a TFTP upload of a new firmware while beeing in command line mode or during the boot wait. The boot wait is 3 seconds by default. This creates a very narrow windows for uploading. TFTP is possible at about 2 seconds after powerup for about 1 second. 
+
+With a serial console attached, it is also possible to stop the boot process by pressing ESC. The bootloader will then continue to accept uploads. The uploaded file has to be called upgrade_code.bin .
 
 Without serial console, this procedure was successful on wag354g:
-
--unplug the router
--set static a configuration to the nic, with ip 192.168.1.xx(2-254) and netmask 255.255.255.0
--launch tftp:
+*unplug the router
+*set static a configuration to the nic, with ip 192.168.1.xx(2-254) and netmask 255.255.255.0
+*launch tftp:
 {{{
         tftp> verbose (for debugging purpose)
         tftp> trace   ( "     "       "     )
@@ -151,9 +152,8 @@ Without serial console, this procedure was successful on wag354g:
         tftp> connect 192.168.1.1
         tftp> put upgrade_code.bin
 }}}
--wait ~ 1sec.
--plug the power to the router
-
+*wait ~ 1sec.
+*plug the power to the router
 If transfer starts, the tftp output is like this:
 {{{
 ....
@@ -161,4 +161,4 @@ sent DATA <block=6666, 512 bytes>
 		received ACK <block=6666> 
 ...
 }}}
--wait until router reboots
+*wait until router reboots
