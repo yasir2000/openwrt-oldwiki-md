@@ -7,10 +7,10 @@
 #language en
 = Traffic logging with ULOG & MySQL =
 == Installing ULOG & requisites ==
-(((
+{{{
 ipkg update
 ipkg install ulogd ulogd-mod-mysql kmod-ipt-ulog iptables-mod-ulog
-)))
+}}}
 
 === Example ===
 {{{
