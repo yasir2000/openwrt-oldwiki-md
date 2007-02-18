@@ -7,6 +7,17 @@ This HOWTO explains how to configure SFTP for use with the Dropbear SSH package.
 == What is SFTP? ==
 Secure File Transfer Protocol or SFTP is a protocol that was incorporated as part of SSH. The idea behind SFTP is to have all of the features that FTP has, but transfer both passwords and file data over an encrypted link.
 
+=== Do You Really Need To Switch to SFTP? ===
+If you happen to come to this webpage only to solve your problems with WinSCP, groups listing and {{{--full-time}}} , be aware that you don't need the following. Instead, [http://winscp.net/eng/docs/ui_login_scp#directory_listing change the settings inside WinSCP]. Briefly:
+
+ * turn on Advanced options checkbox in bottom left part of Login dialog in order to see "Environment/SCP"
+ * Session/Protocol:
+  * SCP mode
+ * Environment/SCP:
+  * uncheck Lookup user groups
+  * uncheck Try to get full timestamp
+  * uncheck Alias LS to display group name
+
 = Activating Dropbear =
 Dropbear is a small SSH daemon that comes pre-installed on !OpenWrt. However, it is not active by default. To activate Dropbear, change the password. You can do this on the web interface, or use the shell command:
 
