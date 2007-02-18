@@ -48,7 +48,7 @@ major minor  #blocks  name
 
 === Configure Swap Partition (Optional) ===
 
- * install the ''swap-utils'' package,
+ * install the ''swap-utils'' package (http://downloads.openwrt.org/backports/rc5/swap-utils_2.12r-1_mipsel.ipk),
  * run ''mkswap PARTITION'', where PARTITION is the partition block device you wish to use as swap partition,
  * write an init.d script to run ''swapon PARTITION'',
  * test the script before rebooting,
