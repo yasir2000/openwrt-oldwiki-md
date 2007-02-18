@@ -78,6 +78,8 @@ tftp> get ASUSSPACELINK\x01\x01\xa8\xc0 /dev/null
 tftp> put openwrt-xxx-x.x-xxx.trx ASUSSPACELINK
 }}}
 
+(Make sure the '''trace''' command switched packet tracing '''off''' not '''on'''!)
+
 After this, wait until the PWR LED stops flashing and for the device to reboot and you should be set.
 
 There's also a nice shell script doing this work for you at http://openwrt.org/downloads/utils/flash.sh.
