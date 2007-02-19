@@ -13,7 +13,7 @@ It might be possible to use manufacturers own web interfalce to download OpenWrt
 
 Netkit's tftp doesn't work quit often, use atftp.
 
-/!\ /!\ Note! the ASUS WL-500GD doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
+/!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
 
@@ -38,9 +38,9 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
 
 Before reading further, please read about the internal network architecture and how physical ports map to vlans unless you're already familiar with it. See OpenWrtDocs/NetworkInterfaces if you feel like you could refresh your memory.
 
-When WhiteRussian RC5 was released, this router was not in the "Supported" category yet. The WAN interface for example won't work with the default settings.
+When WhiteRussian RC5 was released, this router was not in the "Supported" category yet. The WAN interface for example won't work with the default settings. However, current release [http://downloads.openwrt.org/whiterussian/0.9/default/openwrt-brcm-2.4-squashfs.trx 0.9] fully supports the router so no NVRAM changes are required.
 
-You need to make a few nvram changes before the network settings are similar as in most other routers (such as WRT54GL):
+You need to make a few nvram changes before the network settings are similar as in most other routers (such as WRT54GP):
 
  . {{{
 nvram set vlan1ports="0 5"
@@ -85,7 +85,7 @@ echo `nvram get vlan$VLAN_NUMERports` > /proc/switch/eth0/vlan/$VLAN_NUMER/ports
 but remember to replace the two "$VLAN_NUMER"s with the vlan number you want to activate the settings for. You can also use some program such as RoboCfg (which isn't used by default).
 
 === Enabling all RAM ===
-If you look at "dmesg" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB.
+If you look at "dmesg" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB. ~-Comment: I installed 0.9 on my recently delivered router on I had allready 32MB. My values are: sdram_ncdl=0x408 and sdram_init=0x0009, ausus' firmware version was 1.9.7.0 -~
 
  . This is how you enable the rest of RAM:
 {{{
