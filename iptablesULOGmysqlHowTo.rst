@@ -8,7 +8,7 @@
 = Traffic logging with ULOG & MySQL =
 == Installing ULOG & requisites ==
 {{{
-'''ssh into your openwrt box first'''
+"ssh into your openwrt box first"
 
 ipkg update
 ipkg install ulogd ulogd-mod-mysql kmod-ipt-ulog iptables-mod-ulog
