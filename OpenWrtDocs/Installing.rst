@@ -70,8 +70,7 @@ That explains the directories, now what the hell are the files? They are [wiki:W
 There are 3 trx files, found in the micro, pptp and bin directories. Size restrictions aside, it doesn't matter which directory you pick, although if your device only has 2M of flash you will need to use micro. As for which trx file to use, we strongly suggest using the squashfs for reasons explained below.
 
 == SquashFS vs. JFFS2 ==
-'''I'm a newbie, so I am a bit hesitant to just remove this whole paragraph, but as far as I can see, with RC6 you cannot make a choice anymore between these two: there are only SquashFS Images in the download directories! So, the choice described here was available until RC5, and might be available some time later again, but is NOT available in RC6 currently. -- HenningSprang'''
-That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS. It is the most optimal choice for the vast majority of users anyway.  '''Also please note that as of White Russian RC6, it is no longer necessary to worry about SquashFS vs JFFS2, as RC6 uses mini-fo to automatically move things to the JFFS2 partition as needed.
+'''I'm a newbie, so I am a bit hesitant to just remove this whole paragraph, but as far as I can see, with RC6 you cannot make a choice anymore between these two: there are only SquashFS Images in the download directories! So, the choice described here was available until RC5, and might be available some time later again, but is NOT available in RC6 currently. -- HenningSprang''' That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice of root filesystems; you can either have the root filesystem as SquashFS or JFFS2, We'll explain both. '''If you don't understand, or can't decide, pick SquashFS. It is the most optimal choice for the vast majority of users anyway.  '''Also please note that as of White Russian RC6, it is no longer necessary to worry about SquashFS vs JFFS2, as RC6 uses mini-fo to automatically move things to the JFFS2 partition as needed.
 
  . WikiPedia:SquashFS
   . The files marked squashfs include a small compressed filesystem within the firmware itself. The disadvantage is that Squashfs is a readonly filesystem, so a separate JFFS2 partition has to be used to store changes and make the filesystem appear writable; the advantage is that Squashfs gets better compression than JFFS2, and you'll always have the original files on the readonly filesystem which can be used as a boot device for recovery.
@@ -82,6 +81,8 @@ That's a ton of files, what's with the "<type>"? !OpenWrt gives you your choice 
 /!\ '''OpenWrt White Russian has no failsafe mode for JFFS2 firmware images.''' /!\
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/bin/md5sum md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
+
+*As of 19Feb07 md5 sums mislinked or somthing
 
 = Installing OpenWrt =
 To install !OpenWrt on a supported device (see TableOfHardware), download the correct firmware for your device, verify the md5sum and then use the webupgrade of the preinstalled firmware. Be sure that your power supply is stable and do not disconnect it while flashing OpenWrt to your router. After the installation is successful, your router will be booting into your shiny new Linux system.
