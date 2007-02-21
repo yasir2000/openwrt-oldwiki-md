@@ -52,6 +52,15 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||[http://routerboard.com/rb100.html RouterBoard 111] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||mini-PCI slot ||None ||N/A ||Yes ||No ||No ||No ||
 ||[http://routerboard.com/rb100.html RouterBoard 112] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||No ||
 
+== Netgear ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.netgear.com/products/details/DG834GT.php DG834GT] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Atheros mini-PCI ||BCM5325 || ||Yes || ||No ||No ||
+||[http://www.netgear.com/products/details/WGR101.php WGR101] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
+||[http://www.netgear.com/products/details/WGR614.php WGR614] ||4 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Broadcom (?) ||Marvell 88E6060 ||No ||No ||No ||No ||No ||
+||[http://www.netgear.com/products/details/WGR614.php WGR614] ||5 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU ||on || || ||No ||No ||
+||[http://www.netgear.com/products/details/WGR614.php WGR614] ||6 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU || ||Yes || ||No ||No ||
+||[http://netgear.com/products/details/WPNT834.php WPNT834] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||Airgo (mini-PCI) ||integrated Realtek ||N/A || || ||No ||No ||
+
 == Topcom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://tools.topcom.net/datasheets/Skyr@cer%20WBR%20254g%20-%20E.pdf Skyr@cer WBR 254G] ||V1.0 ||Marvell 88W8510-BAN ||1MB ||8MB ||Marvell 88W8000-NNC ||Marvell 88E6060-RCJ || || ||Probably ||No ||No ||
