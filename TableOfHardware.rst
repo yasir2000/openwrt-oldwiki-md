@@ -122,7 +122,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || ||No ||[:OpenWrtDocs/Hardware/Buffalo/WBR-G54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WBR2-G54:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=79&categoryid=6 WBR2-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||Supported ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=117&categoryid=6 WHR-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||on||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S:Supported] ||
+||[http://www.buffalotech.com/products/product-detail.php?productid=117&categoryid=6 WHR-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S:Supported] ||
 ||[http://www.buffalotech.com/products/wireless/wireless-ag-mimo-performance/wireless-ag-mimo-performance-broadband-router-and-access-point-with-high-gain-antenna/ WHR-HP-AG108] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros WiSoC 5312] @ 220MHz ||4MB ||32MB ||Atheros (integrated) ||in CPU || ||Yes ||Yes ||No ||Untested ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=115&categoryid=6 WHR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-HP-G54-4:Supported] ||
 ||WHR2-G54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
@@ -365,7 +365,8 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:AR7Port:WiP] ||
 ||Speedport 500V || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] ||4MB ||16MB ||no ||None || ||yes || ||yes ||? ||
-||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||possible ||possible || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
+||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||yes ||? || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
+||[http://www.t-com.de/service/downloads Speedport W501V] || ||TNETD7200GDW (AR7) @??MHz ||4MB ||16MB ||TNETW1350A ||None || ||yes ||? || ||Untested ||
 ||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||4 MiB ||16 MiB? ||Atheros AR2413/5112/5212 ||Infineon ADM6996I || ||Yes || ||No ||possible ||
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -411,4 +412,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . CategoryModel
 ----
- CategoryOpenWrtPort
+ . CategoryOpenWrtPort
