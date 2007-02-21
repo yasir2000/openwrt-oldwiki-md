@@ -73,6 +73,11 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||6 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU || ||Yes || ||No ||No ||
 ||[http://netgear.com/products/details/WPNT834.php WPNT834] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||Airgo (mini-PCI) ||integrated Realtek ||N/A || || ||No ||No ||
 
+== Siemens ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||Yes ||Yes ||1x v2.0 ||No ||
+
+
 == Topcom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://tools.topcom.net/datasheets/Skyr@cer%20WBR%20254g%20-%20E.pdf Skyr@cer WBR 254G] ||V1.0 ||Marvell 88W8510-BAN ||1MB ||8MB ||Marvell 88W8000-NNC ||Marvell 88E6060-RCJ || || ||Probably ||No ||No ||
