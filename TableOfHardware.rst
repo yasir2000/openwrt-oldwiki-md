@@ -277,8 +277,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://routerboard.com/rb500.html RouterBoard 532] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP ||
 ||[http://routerboard.com/rb500.html RouterBoard 532a] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||128MB + CF slot ||64MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP ||
 == Mitsubishi ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.mitsubishi-electric.com.au/PRODUCTS/COMPP/net/R100.htm Mitsubshi (Diamond Data) R100] || || || || || || || || || || ||Rebadged Asus WL-500g ||
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' || '''HDD''' ||'''Status''' ||
+||[http://www.mitsubishi-electric.com.au/PRODUCTS/COMPP/net/R100.htm Mitsubshi (Diamond Data) R100] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||1x v1.1 ||No || [:OpenWrtDocs/Hardware/Asus/WL500G:Supported - Rebadged Asus WL-500g] ||
+
 == Motorola ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125Mhz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Motorola/WA840G:WiP] ||
