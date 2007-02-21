@@ -39,7 +39,9 @@ In combination with wget it can act as an Internet radio. Find some MP3 stream a
 = Devices =
 Any USB Audio device supported by linux should work with OpenWRT. I have succesfully used two cheap USB-Stick cards as pictured below. These were purchased in Australia for AU $20 each. The black one has a built-in amplifier which direclty drives a set of bookshelf speakers to quite a good listening volume. The one with the buttons appears as a USB HID device and you can get key press events in /dev/input/eventx. This could be used to hack up a simple control interface on the router.
 
-http://users.tpg.com.au/davico/images/usbsoundcard_1.jpg http://users.tpg.com.au/davico/images/usbsoundcard_2.jpg
+[http://users.tpg.com.au/davico/images/usbsoundcard_1.jpg] [http://users.tpg.com.au/davico/images/usbsoundcard_2.jpg]
+
+Confirmed to work with [http://www.trust.com/14366 Trust Sp-2800p USB Speaker Set].
 
 = Bugs =
 == White Russian RC5 ==
