@@ -20,7 +20,7 @@ ipkg install ulogd ulogd-mod-mysql kmod-ipt-ulog iptables-mod-ulog
 
 == Setting up your MySQL database ==
 
-''copy & paste these lines into a text file in your linux box (the one running the mysql server)''
+''copy & paste these lines into a text file in your linux box (the one running the mysql server), name it ulog-mysql.sql''
 
 {{{
 CREATE TABLE ulog (     id              INT UNSIGNED AUTO_INCREMENT UNIQUE,
