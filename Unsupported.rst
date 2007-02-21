@@ -13,6 +13,9 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||LAN420 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||2Mb ||8Mb ||None ||Realtek RTL8305SC ||PSPBoot ||No ||No ||No ||Unsupported ||
 
 == Asus ==
+||'''Manufacturer''' ||'''Model''' ||'''Website''' ||'''Discussion''' ||
+||Asus||WL-300 Spacelink|| || Intersil chips?||
+
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&model=58&modelmenu=1 WL-330] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8500] ||1MB ||8MB ||Marvell (integrated 88W8000) ||None || ||No ||No ||No ||No ||No ||
 ||WL-500 || ||Intel SA-1100 ||? ||? ||Prism-Pcmcia || || || || || || ||No ||
@@ -37,9 +40,6 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||'''Manufacturer''' ||'''Model''' ||'''Website''' ||'''Discussion''' ||
 ||Linksys||BEFW11S4|| [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1115416826220&packedargs=site%3DUS&pagename=Linksys%2FCommon%2FVisitorWrapper BEFW11S4] || too old, too different ||
 ||Linksys||BEFSR41 || [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1122062340941&pagename=Linksys%2FCommon%2FVisitorWrapper  BEFSR41] || too old, too different [http://forum.openwrt.org/viewtopic.php?id=302 Forum post] ||
-||Asus||WL-300 Spacelink|| || Intersil chips?||
-||Asus||WL-500 Spacelink|| || Prism Chipset?||
-||Netgear||WGU624|| ||2M of flash and 8M of RAM [http://forum.openwrt.org/viewtopic.php?id=7556 Forum post]||
 
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WAG54GS || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 Broadcom 6348] @ 240MHz ||4MB ||16MB ||Integrated Broadcom 4318 ||BCM5325 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:No] ||
@@ -65,6 +65,9 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 
 
 == Netgear ==
+||'''Manufacturer''' ||'''Model''' ||'''Website''' ||'''Discussion''' ||
+||Netgear||WGU624|| ||2M of flash and 8M of RAM [http://forum.openwrt.org/viewtopic.php?id=7556 Forum post]||
+
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/DG834GT.php DG834GT] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Atheros mini-PCI ||BCM5325 || ||Yes || ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR101.php WGR101] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
