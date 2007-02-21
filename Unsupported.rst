@@ -59,6 +59,11 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||[http://routerboard.com/rb100.html RouterBoard 111] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||mini-PCI slot ||None ||N/A ||Yes ||No ||No ||No ||
 ||[http://routerboard.com/rb100.html RouterBoard 112] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||No ||
 
+== Motorola ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200Mhz ||2MB ||8MB ||Broadcom (integrated) ||None || ||Yes ||No ||No ||Unsupported ||
+
+
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/DG834GT.php DG834GT] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Atheros mini-PCI ||BCM5325 || ||Yes || ||No ||No ||
