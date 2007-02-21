@@ -20,6 +20,7 @@ kmod-alsa ('''KMOD_ALSA'''):
 If you decide to run the Kernel 2.6 you should select the ALSA drivers. It is important to know that the ALSA drivers emulate OSS compatiblity. If you use MPD for instance with this emulation you sound may not be perfect while scrolling in audio files. To make alsa work it is necessary to copy a alsa.conf to the router /usr/share/alsa/alsa.conf.You may build both oss and alsa as packages but only one can be used at a time.
 
 = Applications =
+== Music Player Daemon ==
 At the time of writing, only one audio application (mpd) has been packaged.
 
 MPD (Music Player Daemon) is a small music player with support for FLAC, MP3 and OGG files. It is a daemon process which is typically controlled by a client such as gmpc running on another desktop machine. For more information about MPD, visit the website at http://www.musicpd.org.
@@ -29,6 +30,11 @@ MPD is configured in the file /etc/mpd.conf. The default config file probably wo
 Your music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk connected locally.
 
 Please see this link for a full install guide of MPD and phpMp2 on an ASUS Wl500gx - should work on other OpenWrt devices too: http://mpd.wikicities.com/wiki/OpenWRT_FullInstall
+
+== madplay ==
+In Feb 2007 kamikaze-backports contained [http://www.underbit.com/products/mad/ madplay], which is a command-line player.
+In combination with wget it can act as an Internet radio. Find some MP3 stream and try something like
+{{{wget -O - http://64.236.34.97:80/stream/1014 | madplay -}}}
 
 = Devices =
 Any USB Audio device supported by linux should work with OpenWRT. I have succesfully used two cheap USB-Stick cards as pictured below. These were purchased in Australia for AU $20 each. The black one has a built-in amplifier which direclty drives a set of bookshelf speakers to quite a good listening volume. The one with the buttons appears as a USB HID device and you can get key press events in /dev/input/eventx. This could be used to hack up a simple control interface on the router.
