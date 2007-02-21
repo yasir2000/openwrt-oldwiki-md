@@ -18,9 +18,6 @@ See also
  * '''CategoryOpenWrtPort''' - list of devices under test
  * '''["CategoryAR7Device"]''' - Which models use the AR7
  * '''OpenWrtDocs''' - back to the Table of Contents
-== 3Com ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.3com.com/products/en_US/detail.jsp?tab=features&pathtype=purchase&sku=3CRTRV10075 3Com Office Connect Travel Router] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
 == 4G Systems ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64MB ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Supported ||
@@ -155,11 +152,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Compex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54-WRT] ||WP54-WRT and WRT6E ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Forked] ||
-||[http://www.compex.com.sg/home/products1.asp?20050721032253 WP54G] ||[http://compex.com.sg/home/productsub.asp?type1=Wireless&sub1=Access%20Points WP54-1A ] WP54-1B WP54-1C WP54-1D WP54-6D ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Unsupported] ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54-WRT6E ] ||[http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf WP54-WRT6E ] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16 MB SDRM(Up to 128 MB) ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Forked] ||
-== Comtrend ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
 == Davolink ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||DV-201AMR || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||8MB ||16MB ||Broadcom (mini-PCI) BCM4306 ||BCM5325 ||on ||Yes ||Yes ||Yes ||WiP ||
@@ -219,7 +212,6 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
 ||[http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
-||WBR-3400 ||V2 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8010_88W8510.pdf Marvell 88W8510] (ARM9 core) ||1MB (Macronix 29LV800TTC-70) ||4 MB (2x EM636165TS-6: 1M x 16'') '' ||integrated (Marvell Libertas) ||Marvell 88E6060 (4x) || || ||20-pin not soldered ||No ||No ||
 ||[http://www.level1.com/products3.php?sklop=12&id=540548 WBR-3407A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || || || || || || || ||[:AR7Port:WiP] ||
 ||[http://www.level1.com/products3.php?sklop=12&id=540549 WBR-3407B] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || || || || || || || ||[:AR7Port:WiP] ||
 == Linksys ==
@@ -395,15 +387,9 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
 ||speedtouch 585 int dsl-modem || ||Broadcom BCM6348 @ ???MHz ||???MB ||32MB ||802.11g onboard broadcom ||BCM5325 4Port || ||??? ||??? ||??? ||["OpenWrtDocs/Hardware/Thomson/speedtouch"] ||
-== Topcom ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://tools.topcom.net/datasheets/Skyr@cer%20WBR%20254g%20-%20E.pdf Skyr@cer WBR 254G] ||V1.0 ||Marvell 88W8510-BAN ||1MB ||8MB ||Marvell 88W8000-NNC ||Marvell 88E6060-RCJ || || ||Probably ||No ||No ||
 == Toshiba ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WRC-1000 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism2 (mini-PCI) ||Kendin KS8995E ||on || || ||no ||Partial ||
-== TP-LINK ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||TL-WR541G || ||[http://www.micrel.com/_PDF/Ethernet/ks8695.pdf Kendin KS8695 ARM922T] @ 166MHz ||2MB ||8MB ||unknow(on board) ||in CPU ||on || || ||no ||no ||
 == Trendnet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.trendware.com/products/TEW-211BRP.htm TEW-211BRP] ||V2.5/E ||Samsung [http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C4510B/S3C4510B.htm S3C4510B01], (PLD: MAX3000 [http://www.altera.com/literature/ds/m3000a.pdf EPM3032ALC44-10]) ||Eon Silicon Solutions [http://library.vandenzel.dyndns.org/datasheets/eon-en29f040.pdf EN29F040] 4 Megabit (512K x 8-bit) ||2* ESMT [http://www.esmt.com.tw/DB/manager/upload/M12L16161A.pdf M12L16161A] 16 Megabit (512K x 16Bit x 2Banks) Synchronous DRAM ||WL-316C PCMCIA card (dual ext. antenna) ||WAN port: Realtek [http://library.vandenzel.dyndns.org/datasheets/rtl8019as.pdf RTL8019AS], LAN ports: Micrel KS8995E || ||[http://www.mcu-memory.com/datasheet/imp/uart/IMP16C550.pdf IMP16C550] (backup modem line) || || ||Info entered ||
@@ -417,7 +403,6 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||1x v1.1 ||[:USR5461:WiP] ||
 ||[http://www.usr-emea.com/support/s-prod-template.asp?loc=unkg&prod=9106 USR9106] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6345 Broadcom 6345] @ 100MHz ||4MB ||16MB ||mini-PCI || ||Yes ||Yes ||Yes || ||[:BroadcomBCM63xxPort:WiP] ||
-||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg USR9108] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||mini-PCI || || ||No || ||Yes ||No ||
 == Viewsonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WAPBR-100, A.K.A VS10407 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Maybe ||No ||No ||WiP ||
