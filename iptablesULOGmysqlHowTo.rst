@@ -76,7 +76,17 @@ CREATE TABLE ulog (     id              INT UNSIGNED AUTO_INCREMENT UNIQUE,
 
                         KEY index_id    (id)
                 );
+}}}
 
+''now create the database, the table and the user''
+
+{{{
+create database ulogdb;
+use ulogdb;
+source /path/to/textfile/ulog-mysql.sql;
+grant select,insert,update,drop,delete,create temporary tables, on ulogdb.* to 'uloguser'@'%' identified by 'ulogpass';
+flush privileges;
+quit;
 }}}
 
 
