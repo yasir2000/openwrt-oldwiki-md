@@ -43,11 +43,8 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Linksys ||WRT54GL ||v1.1 ||vlan0 ||vlan1 ||eth1 || LAN is ports 0-3, WAN is port 4 ||
 ||Linksys ||WRT54GS ||v1.x/v2.x/v3/v4 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRTSL54GS || ||eth0 ||eth1 ||eth2 || ||
-||Linksys ||WAP54G
-||v 1.0||br0 ||N/A ||eth1
-||Someone should double check this too ||
-||Linksys ||WAP54G
-||v2.0||eth0 ||N/A ||eth1 ||note^4^ ||
+||Linksys ||WAP54G||v 1.0||br0 ||N/A ||eth1||Someone should double check this too ||
+||Linksys ||WAP54G||v2.0||eth0 ||N/A ||eth1 ||note^4^ ||
 ||Linksys ||WRT300N ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
