@@ -1,6 +1,6 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Marco Vedovati ==
+== MarcoVedovati ==
 
 Email: [[MailTo(marco.v83_.AT._gmail.com)]]
 
