@@ -78,10 +78,12 @@ CREATE TABLE ulog (     id              INT UNSIGNED AUTO_INCREMENT UNIQUE,
                 );
 }}}
 
-''now create the database, the table and the user
- * create database named 'ulogdb' and select it
- * create table ulog from description given in 'ulog-mysql.sql'
- * create user 'uloguser' with permissions to log in from any host ('%') and password 'ulogpass' and grant him privileges to do almost anything to this database''
+''now create the database, the table and the user''
+ * ''create database named ulogdb and select it''
+ * ''create table ulog from description given in 'ulog-mysql.sql' ''
+ * ''create user 'uloguser' with permissions to log in from any host ('%') and password 'ulogpass' and grant him privileges to do almost anything to this database''
+
+''the following guidelines are given to hint you how to perform this process in a linux based MySQL server, right from the mysql console administration tool''
 
 {{{
 create database ulogdb;
