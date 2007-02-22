@@ -44,7 +44,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Linksys ||WRT54GS ||v1.x/v2.x/v3/v4 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRTSL54GS || ||eth0 ||eth1 ||eth2 || ||
 ||Linksys ||WAP54G v1.0 || ||br0 ||N/A ||eth1 ||Someone should double check this too ||
-||Linksys ||WAP54G v2.0 || ||eth0 ||N/A ||eth1 || ||
+||Linksys ||WAP54G v2.0 || ||eth0 ||N/A ||eth1 ||note^4^||
 ||Linksys ||WRT300N ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
@@ -73,6 +73,9 @@ note^1^: This model uses a switch with vlan tagging; eth0 represents the connect
 note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please observe http://forum.openwrt.org/viewtopic.php?pid=29268#p29268 - the {{{nvram set wan_ifname=vlan1 ; nvram set vlan1ports="0 5"}}} worked at least for me and gave a VLAN1 WAN interface
 
 note^3^: On some versions of ASUS WL-500G Premium with Whiterussian RC5 {{{nvram set lan_ifname=br0 ; nvram set lan_ifnames=vlan0 eth1 eth2 eth3 ; nvram set nvram set wan_device=eth0}}} might helps you for getting a working WAN connection. Please do a {{{nvram commit}}} ''after'' you know the sequence works for you.
+
+note^4^: Be careful: after flashing with OpenWRT, LAN stops working. Before flashing, set WAP54g to AP mode and after OpenWRT has been loaded, connect to the device through wireless and do:
+{{{nvram set lan_ifnames=eth0 eth1 ; nvram commit}}}
 
 Please update to include other models.
 
@@ -183,7 +186,7 @@ There are normally two VLANs, vlan0 and vlan1. For each VLAN, there are two nvra
 vlan0ports="1 2 3 4 5*" (use ports 1-4 on the back, 5 is the WRT54G itself)
 vlan0hwname=et0
 }}}
-(See switch diagrams in ["OpenWrtDocs/NetworkInterfaces"])
+(See switch diagrams in OpenWrtDocs/NetworkInterfaces)
 
 The vlan0ports variable is a space separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
 
@@ -263,10 +266,10 @@ See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user au
 ||  '''wpa''' = WPA with a RADIUS server ||
 ||  '''psk2''' = WPA2 PSK ||
 ||  '''wpa2''' = WPA2 with RADIUS ||
-||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs)||
+||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs) ||
 ||<style="text-align: center;" |3> wl0_crypto || '''tkip''' = RC4 encryption ||
 ||  '''aes''' = AES encryption ||
-||  '''aes+tkip''' = support both '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs)||
+||  '''aes+tkip''' = support both '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs) ||
 || wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
 || wl0_radius_key || Shared Secret for connection to the Radius server ||
 || wl0_radius_ipaddr || IP to connect... ||
@@ -355,7 +358,6 @@ For more information, see ClientModeHowto.
 
 = Basic system configuration and usage =
 == busybox - The Swiss Army Knife of Embedded Linux ==
-
 Provides replacements for most of the utilities usually found in GNU fileutils and shellutils. For details see [http://www.busybox.net/about.html here]
 
 == cron - job scheduler ==
@@ -373,40 +375,33 @@ The rules and some small samples for your firewall can be found in /etc/firewall
 Be sure to read the notes about the firewall rules before changing anything.  The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN.  You will have to access the router from outside to verify the setup.
 
 As of RC9 the file /etc/firewall.user reads
+
 {{{
 #!/bin/sh
 # Copyright (C) 2006 OpenWrt.org
-
 iptables -F input_rule
 iptables -F output_rule
 iptables -F forwarding_rule
 iptables -t nat -F prerouting_rule
 iptables -t nat -F postrouting_rule
-
 # The following chains are for traffic directed at the IP of the
 # WAN interface
-
 iptables -F input_wan
 iptables -F forwarding_wan
 iptables -t nat -F prerouting_wan
-
 ### Open port to WAN
 ## -- This allows port 22 to be answered by (dropbear on) the router
 # iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT
 # iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
-
-### Port forwarding 
+### Port forwarding
 ## -- This forwards port 8080 on the WAN to port 80 on 192.168.1.2
 # iptables -t nat -A prerouting_wan -p tcp --dport 8080 -j DNAT --to 192.168.1.2:80
 # iptables        -A forwarding_wan -p tcp --dport 80 -d 192.168.1.2 -j ACCEPT
-
 ### DMZ
 ## -- Connections to ports not handled above will be forwarded to 192.168.1.2
 # iptables -t nat -A prerouting_wan -j DNAT --to 192.168.1.2
 # iptables        -A forwarding_wan -d 192.168.1.2 -j ACCEPT
-
 }}}
-
 The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept.  In the case given, it will open up port 22 and accept connections using dropbear (the SSH server).  Just delete the '''#''' sign in front of the two rules to enable access.
 
 If you wanted to open up any other ports for the router to listen to, just copy those two lines and change just the port number from 22 to something else.
@@ -454,10 +449,10 @@ Create the file {{{/etc/init.d/S55rdate}}} with the contents:
 #!/bin/sh
 /usr/sbin/rdate -s HOST}}}
 replacing HOST with the IP address or host name of the time server, E.G.
+
 {{{
 #!/bin/sh
 /usr/sbin/rdate -s 0.pool.ntp.org}}}
-
 Then make the file executable:
 
 {{{
@@ -466,18 +461,18 @@ then either reboot or run it once:
 
 {{{
 /etc/init.d/S55rdate}}}
-
 Make sure any software that is loaded in the boot sequence and which requires the correct time is started later than S55rdate. Remember that DNS host names will not be resolved before S50dnsmasq has been run, so be careful if changing S55rdate to run earlier in the boot sequence.
 
 If your router is not rebooted very regularly you may wish to add updating the time to the crontab. The following will update the time each day at 06.30 AM.
 
 Edit the crontab file by typying:
+
 {{{
 crontab -e}}}
 Then add this line to the file:
+
 {{{
 30 6 * * * /usr/sbin/rdate -s HOST}}}
-
 Again replacing HOST with the IP address or host name of the time server.
 
 '''ntpclient'''
@@ -522,7 +517,6 @@ Better use this:
 nvram set time_zone="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"
 nvram commit
 }}}
-
 Examples:
 ||<style="text-align: center;" |6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Perth ||WST-8WDT-9,M12.1.0,M3.5.0/03:00:00 ||
