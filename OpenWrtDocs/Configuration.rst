@@ -43,8 +43,11 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Linksys ||WRT54GL ||v1.1 ||vlan0 ||vlan1 ||eth1 || LAN is ports 0-3, WAN is port 4 ||
 ||Linksys ||WRT54GS ||v1.x/v2.x/v3/v4 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRTSL54GS || ||eth0 ||eth1 ||eth2 || ||
-||Linksys ||WAP54G v1.0 || ||br0 ||N/A ||eth1 ||Someone should double check this too ||
-||Linksys ||WAP54G v2.0 || ||eth0 ||N/A ||eth1 ||note^4^||
+||Linksys ||WAP54G
+||v 1.0||br0 ||N/A ||eth1
+||Someone should double check this too ||
+||Linksys ||WAP54G
+||v2.0||eth0 ||N/A ||eth1 ||note^4^ ||
 ||Linksys ||WRT300N ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
@@ -74,8 +77,7 @@ note^2^: As Whiterussian RC5 doesn't know the ASUS WL-500G Premium yet please ob
 
 note^3^: On some versions of ASUS WL-500G Premium with Whiterussian RC5 {{{nvram set lan_ifname=br0 ; nvram set lan_ifnames=vlan0 eth1 eth2 eth3 ; nvram set nvram set wan_device=eth0}}} might helps you for getting a working WAN connection. Please do a {{{nvram commit}}} ''after'' you know the sequence works for you.
 
-note^4^: Be careful: after flashing with OpenWRT, LAN stops working. Before flashing, set WAP54g to AP mode and after OpenWRT has been loaded, connect to the device through wireless and do:
-{{{nvram set lan_ifnames=eth0 eth1 ; nvram commit}}}
+note^4^: Be careful: after flashing with OpenWRT, LAN stops working. Before flashing, set WAP54g to AP mode and after OpenWRT has been loaded, connect to the device through wireless and do: {{{nvram set lan_ifnames=eth0 eth1 ; nvram commit}}}
 
 Please update to include other models.
 
