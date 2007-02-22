@@ -23,7 +23,7 @@ Don't assume to know the solution and then ask how to do it. Describe the proble
 
 While we're happy to chat and discuss current trends, you need to know when to move the discussion elsewhere. If you're told that a subject is off topic, please respect us and don't continue discussing it in the channel.
 
-We will not answer questions about other firmwares. If you're looking for support, make sure the question relates to a recent version of OpenWrt.
+We will not answer questions about other firmwares. If you're looking for support, make sure the question relates to a recent version of OpenWrt. '''Do not wait until after the question has been answered to say "This isn't OpenWrt"; you will be kicked and probably banned if you do that.'''
 
 == Submitting bug reports ==
 
