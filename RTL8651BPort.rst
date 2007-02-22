@@ -68,7 +68,7 @@ Source Code for Manufacturers' Firmware is available from:
  * D-Link DI-634M [http://www.dlink.com.au/tech/Download/download.aspx?product=DI-634M&revision=REV_A&filetype=Firmware]
  * Edimax BR-6204Wg [http://www.edimax.com.tw/html/english/frames/b-download.htm]
  * Linksys WRT54GX2, WRT54GX4, and WRV200 [http://www.linksys.com/servlet/Satellite?c=L_Content_C1&childpagename=US%2FLayout&cid=1115416836002&pagename=Linksys%2FCommon%2FVisitorWrapper Linksys "GPL Code Center"]
- * Netgear WPNT834 [http://kbserver.netgear.com/kb_web_files/n101238.asp Netgear "Open Source Code for Programmers"]
+ * Netgear WPNT834 & KWGR614 [http://kbserver.netgear.com/kb_web_files/n101238.asp Netgear "Open Source Code for Programmers"]
 
 
 Info at [http://www.linux-mips.org www.linux-mips.org]:
