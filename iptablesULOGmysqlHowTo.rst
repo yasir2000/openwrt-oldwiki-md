@@ -95,5 +95,9 @@ quit;
 }}}
 
 
-=== Display ===
+== Configuring ULOGD ==
+
+''go back to your openwrt shell window and edit /etc/ulogd.conf''
 xxx
+----
+CategoryHowTo
