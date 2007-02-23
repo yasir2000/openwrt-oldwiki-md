@@ -5,7 +5,16 @@
 
 If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings. 
 
-This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required. Pull the power plug, press and hold the reset ("INIT") button, start the TFTP, plug the power back in, and let go of the button. The power light does *not* flash on this unit, but the diag does. This unit keeps the IP address that it was set to while in this mode. Factory setting is 192.168.11.1.
+This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required. 
+
+ * connect ethernet to a LAN port
+ * pull the power plug
+ * press and hold the reset ("INIT") button
+ * start the TFTP (as below)
+ * plug the power back in
+ * let go of the button. 
+
+The power light does *not* flash on this unit, but the diag does. This unit keeps the IP address that it was set to while in this mode. Factory setting is 192.168.11.1.  If using a recent Kamikaze, try 192.168.1.1 instead.
 
 TFTP commands:
 
@@ -18,9 +27,7 @@ tftp> timeout 60
 tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
 
- <!> Note:
-
- You have to enter the 'put' command fairly quickly after plugging the power back in. Just after most of the network indicator LEDs have gone off (i.e. only the ports with cables connected should have LEDs on) would be perfect. If you get something like
+If you get something like
 
  {{{
  sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
@@ -33,9 +40,9 @@ tftp> put openwrt-xxx-x.x-xxx.trx
  Transfer timed out.
  }}}
 
- you were probably not quick enough. In that case, just try again.
+then just try again.
 
-After this, wait for the device to reboot and you should be set. You should be able to telnet to 192.168.11.1 or whatever the unit was set to prior to the installation.
+After this, wait for the device to reboot and you should be set.
 
 ----
 
