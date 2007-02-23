@@ -60,7 +60,7 @@ This will mount the folder {{{/share}}} exported by the machine with the ip addr
 == SHFS - (Secure) SHell FileSystem ==
 Shfs is a simple and easy to use Linux kernel module which allows you to mount remote filesystems using a plain shell (ssh) connection. When using shfs, you can access all remote files just like the local ones, only the access is governed through the transport security of ssh.
 
-This is a preferred method over CIFS and NFS. They both suck when it comes to security. This matters heavily when accessing data over the internet. Also, nearly everybody in the !OpenWrt target group has a ready-to-use ssh account on his machines. Or at last, they should have. Shfs is really easy and you do not need anything except a shell and Perl on the remote side. You likely have Perl on an standard Linux box. So, you are ready to go.
+This is a preferred method over CIFS and NFS. They both suck when it comes to security. This matters heavily when accessing data over the internet.  Shfs is really easy and you do not need anything except a shell and Perl on the remote side. You likely have Perl on an standard Linux box. So, you are ready to go.
 
 Begin with installing the required packages:
 
