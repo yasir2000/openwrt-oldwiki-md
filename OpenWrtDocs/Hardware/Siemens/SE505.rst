@@ -114,9 +114,11 @@ Memory upgrade overview:
 ||64MB||add/replace with 2x 16x16MB||funnel||
 
 Sources for RAMs: 
-4x16MB: desoldered chips from SE505V2 router ;-)
-8x16MB: 64MB SDRAM PC133 SODIMMs w/ 4 chips
-16x16MB: 128MB SDRAM PC133 SODIMMs or DIMMs w/ 4 chips
+
+||4x16MB||desoldered chips from SE505V2 router ;-)||
+||8x16MB||64MB SDRAM PC133 SODIMMs w/ 4 chips||
+||16x16MB||128MB SDRAM PC133 SODIMMs or DIMMs w/ 4 chips||
+
 The RAM chips of some SODIMMs or DIMMs with 8 chips may have the right properties, too. But using chips from a 4 chip SDRAM module is the safest option. Check the datasheet if in doubt!
 
 ==== Self compiled CFE ====
