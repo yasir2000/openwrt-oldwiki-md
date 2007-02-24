@@ -148,7 +148,7 @@ Locate C365 near J7 (JTAG connector) and LED "LAN4".
 }}}
 2) Software side
 
-As of Whiterussian RC6 there is no working hardware detection for SE505V2. A patch to diag.c is necessary (contact any member of the developers, who failed so far to integrate even the most basic support for SE505V2 into the RC6 diag module, or check this link: https://dev.openwrt.org/ticket/1100 ).
+As of Whiterussian RC6 there is no working hardware detection for SE505V2, patching the diag module is necessary (use this link: https://dev.openwrt.org/ticket/1100, or contact whiterussian repository maintainers, who failed so far to integrate even the most basic support for SE505V2 into the RC6 diag module). 
 
 = Siemens SE505 v3 =
 SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip. Unlike versions V1 and V2 the V3 routers have an AC power supply! 
