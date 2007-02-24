@@ -7,7 +7,7 @@
 #language en
 = Traffic logging with ULOG & MySQL =
 
-This procedure has been implemented in a RC9 openwrt but it should also work in RC6 (though you're advised to *update*). Assuming you have enough knowledge to work your way through a linux console, it should be fairly easy to make it work.
+This procedure has been implemented in a RC9 openwrt but it should also work in RC6 (though you're advised to *update*). Assuming you have enough knowledge to work your way through a linux console this tutorial should be fairly easy to follow.
 
 == Installing ULOG & requisites ==
 
@@ -97,7 +97,24 @@ quit;
 
 == Configuring ULOGD ==
 
-''go back to your openwrt shell window and edit /etc/ulogd.conf''
+''go back to your openwrt shell window and edit /etc/ulogd.conf, find the "output plugins" section, comment everything but the ulogd_MYSQL plugin, just like the example below''
+
+{{{
+# output plugins.
+#plugin="/usr/lib/ulogd/ulogd_LOGEMU.so"
+#plugin="/usr/lib/ulogd/ulogd_OPRINT.so"
+plugin="/usr/lib/ulogd/ulogd_MYSQL.so"
+#plugin="/usr/lib/ulogd/ulogd_PGSQL.so"
+#plugin="/usr/lib/ulogd/ulogd_SQLITE3.so"
+#plugin="/usr/lib/ulogd/ulogd_PCAP.so"
+}}}
+
+''while editing this document find the plugin configuration section, identifiable by the plugin type enclosed in squared brackets, go to the [MYSQL] section and change all parameters to fit your setup''
+
+{{{
+
+}}}
+
 http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 ----
 CategoryHowTo
