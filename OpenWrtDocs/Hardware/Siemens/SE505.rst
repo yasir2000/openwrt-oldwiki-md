@@ -63,7 +63,9 @@ Refer to the [:Serial Console:Serial Console ]page for details on the necessary 
 === RAM Upgrade ===
 __ /!\ __ Upgrading memory will void the warranty, and requires a steady hand and good soldering skills.
 
-The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. The RAM initialization of the CFE gnores the sdram_init value in the nvram, and 8Mx16 chips will be accessed as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible, and will give the same result as two 4Mx16 chips.  32MB are reported to work by using two 16Mx16 chips.
+The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. The RAM initialization of the standard CFE ignores the sdram_init value in the nvram, and 8Mx16 chips will be accessed as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible, and will give the same result as two 4Mx16 chips.  32MB are reported to work by using two 16Mx16 chips.
+
+Thanks to the efforts of Funnel a new CFE is available, that solves this problem! See the forum thread for details: http://forum.openwrt.org/viewtopic.php?id=9379 
 
 Instructions to upgrading from 8MB to 16MB:
 
@@ -97,7 +99,15 @@ reboot
 }}}
 to let the CFE reconfigure the timing value. This is all you have to do! It makes no sense to adjust sdram_init, since it is ignored by the CFE of this router.
 
+||Memory||RAM type||CFE||
+||16MB||add 4x16MB||standard||
+||32MB||add/replace with 2x 8x16MB||funnel||
+||32MB||add/replace with 2x 16x16MB||standard||
+||64MB||add/replace with 2x 16x16MB||funnel||
+
 Hint: don't solder a capacitor to C319! This capacitor is for fine trimming the RAM timing, and it isn't necessary for stable operation..
+
+Hint: for upgrading to 32MB you'll need two 16x16MB chips from a 4 chip 128MB, or from an 8 chip 256MB SODIMM (be extremely careful when desoldering the 4x16MB chip from the router!)
 
 Hint: for upgrading to 32MB you'll need two 16x16MB chips from a 4 chip 128MB, or from an 8 chip 256MB SODIMM (be extremely careful when desoldering the 4x16MB chip from the router!)
 
@@ -133,7 +143,7 @@ On the antenna side of the PCB add the following components:
   R733 and R734: shorten (better use 22R - 33R)
   J51: USB-plug (Reichelt.de part# "USB AW-VL")
 }}}
-Software side: Installing USB kernel modules is simple, following the UsbStorageHowto. Note that the SE505V2 has an OHCI controller.
+Software side: Installing USB kernel modules is simple, just follow the steps described in UsbStorageHowto. Note that the SE505V2 has an OHCI controller.
 
 === Reset Button Mod ===
 The reset button is hard wired to the CPU reset generator chip (7703I) by a capacitor. Failsafe mode, as well as running scripts in /etc/hotplug.d/buttons are only possible after removing this capacitor! Hotplug scripts are very handy for unmounting USB mass storage devices!.
