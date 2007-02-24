@@ -98,6 +98,6 @@ quit;
 == Configuring ULOGD ==
 
 ''go back to your openwrt shell window and edit /etc/ulogd.conf''
-xxx
+http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 ----
 CategoryHowTo
