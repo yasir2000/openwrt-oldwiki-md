@@ -109,7 +109,7 @@ plugin="/usr/lib/ulogd/ulogd_MYSQL.so"
 #plugin="/usr/lib/ulogd/ulogd_PCAP.so"
 }}}
 
-''while editing this document find the plugin configuration section, identifiable by the plugin type enclosed in squared brackets, go to the [MYSQL] section and change all parameters to fit your setup, paying special attention to the host parameter where -of course- you will have to specify your mysql server's network name or ip number and it should be reachable from your openwrt box''
+''while editing this file find the plugin configuration section, identifiable by the plugin type enclosed in squared brackets, go to the [MYSQL] section and change all parameters to fit your setup, paying special attention to the host line where -of course- you will have to specify your mysql server's network name or ip number and *it should be reachable from your openwrt box*''
 
 {{{
 [MYSQL]
