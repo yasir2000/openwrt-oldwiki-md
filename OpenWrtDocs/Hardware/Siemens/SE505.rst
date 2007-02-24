@@ -119,24 +119,24 @@ Instructions for retrofitting a USB port to the SE505V2:
 1) +5V USB power supply .
 
 {{{
-On the power plug side you will unpopulated pads. Add the following components:
-  C906: capacitor 100µF ( >= 16V )
+Locate the unpopulated pads on the power plug side and add the following components:
+  C906: capacitor 100µF-470µF ( > 16V )
   C986: capacitor 10µF ( > 16V )
-  U981: LM7805 (DPAC or TO220 w/ pin 2 bended to the back side will work)
+  U981: LM7805 (DPAC or TO220 converted to SMD w/ heat sink soldered to the PCB)
 }}}
 2) USB components :
 
 {{{
 On the antenna side of the PCB add the following components:
-  F51: shorten(or better use a 500mA polyfuse)
+  F51: shorten(or better use a 500mA polyfuse specified for USB use)
   R723 and R724: resistors 15k
   R733 and R734: shorten (better use 22R - 33R)
   J51: USB-plug (Reichelt.de part# "USB AW-VL")
 }}}
-Software side: Installing USB kernel modules is simple. Note that the SE505V2 has an OHCI controller.
+Software side: Installing USB kernel modules is simple, following the UsbStorageHowto. Note that the SE505V2 has an OHCI controller.
 
 === Reset Button Mod ===
-The reset button is hard wired to the CPU reset generator chip (7703I) through a capacitor. Failsafe mode, as well as running scripts in /etc/hotplug.d/buttons is possible after removing this capacitor (very useful for unmounting USB mass storage devices!).
+The reset button is hard wired to the CPU reset generator chip (7703I) by a capacitor. Failsafe mode, as well as running scripts in /etc/hotplug.d/buttons are only possible after removing this capacitor! Hotplug scripts are very handy for unmounting USB mass storage devices!.
 
 Instructions:
 
@@ -148,7 +148,7 @@ Locate C365 near J7 (JTAG connector) and LED "LAN4".
 }}}
 2) Software side
 
-As of Whiterussian RC6 there is no working hardware detection for SE505V2. A simple patch to diag.c is necessary (contact nbn or timobeil).
+As of Whiterussian RC6 there is no working hardware detection for SE505V2. A patch to diag.c is necessary (contact any member of the developers, who failed so far to integrate even the most basic support for SE505V2 into the RC6 diag module, or check this link: https://dev.openwrt.org/ticket/1100 ).
 
 = Siemens SE505 v3 =
 SE505 v3) has a BCM4712KFB CPU, 2 x 2MB flash (AT45DB161B) and 8 MB SDRAM (M12L64164A-7T). The PCB is prepared for USB and JTAG, but doesn't have a pads for a second RAM chip. Unlike versions V1 and V2 the V3 routers have an AC power supply! 
