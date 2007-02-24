@@ -109,10 +109,15 @@ plugin="/usr/lib/ulogd/ulogd_MYSQL.so"
 #plugin="/usr/lib/ulogd/ulogd_PCAP.so"
 }}}
 
-''while editing this document find the plugin configuration section, identifiable by the plugin type enclosed in squared brackets, go to the [MYSQL] section and change all parameters to fit your setup''
+''while editing this document find the plugin configuration section, identifiable by the plugin type enclosed in squared brackets, go to the [MYSQL] section and change all parameters to fit your setup, paying special attention to the host parameter where -of course- you will have to specify your mysql server's network name or ip number and it should be reachable from your openwrt box''
 
 {{{
-
+[MYSQL]
+table="ulog"
+pass="ulogpass"
+user="uloguser"
+db="ulogdb"
+host="mysql server ip or name"
 }}}
 
 http://dev.mysql.com/doc/refman/5.0/en/old-client.html
