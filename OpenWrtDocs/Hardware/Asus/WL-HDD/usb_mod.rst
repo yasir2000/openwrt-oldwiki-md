@@ -10,4 +10,6 @@ attachment:WL_HDD_USB_detail1.jpg
 
 attachment:WL_HDD_USB_detail2.jpg
 
+attachment:WL_HDD_USB_final_int.jpg
+
 attachment:WL_HDD_USB_final.jpg
