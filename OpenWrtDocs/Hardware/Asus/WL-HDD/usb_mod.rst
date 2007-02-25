@@ -4,7 +4,7 @@
 = Asus WL-HDD / Yakumo Wireless Storage 60 =
 == Second USB Port - Images ==
 
-attachment:WL_HDD_USB_all.jpg
+attachment:WL_HDD_USB_all1.jpg
 
 attachment:WL_HDD_USB_detail1.jpg
 
