@@ -22,7 +22,7 @@ After several bugfixes releases from WHITE RUSSIAN (RC2) works well on this rout
 = Siemens SE505 v2 =
 The SE505 (v2) has a 200 MHz BCM4712KPB CPU, 4MB flash and 8 MB RAM on board. This hardware version has been sold in important quantities as part of ADSL packages from major ISPs in Germany, Austria and Switzerland.
 
-SE505V2 is very similar to [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Belkin/F5D7230: Belkin F5D7230 v1440] (2MB flash), and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens, using http://midnightcode.org/projects/pluto/code/belky-0.5.c (see SeattleWireless:Belkin_20F5D7230_2d4 "shell on the box" ).
+SE505V2 is very similar to [:OpenWrtDocs/Hardware/Belkin/F5D7230: Belkin F5D7230 v1440] (2MB flash), and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens, using http://midnightcode.org/projects/pluto/code/belky-0.5.c (see SeattleWireless:Belkin_20F5D7230_2d4 "shell on the box" ).
 
 Problems with the hardware detection in Whiterussian RC5 have been fixed in RC6. The former recommendation to fall back to Whiterussian RC4 is obsolete now.
 
