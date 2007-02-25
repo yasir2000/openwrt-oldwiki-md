@@ -150,4 +150,4 @@ I'm attempting to reapply the patches to 2.4.33rc1.
 
 === OpenWRT ===
 
-Later....
+I've been able to build a ramdisk image from Kamikaze revision 6344 and boot it via TFTP on the DWL-2100AP.  Hacking package/madwifi/Makefile to set HAL_TARGET to ap43 provides the right HAL to get the wireless interface working.
