@@ -181,7 +181,7 @@ Jan  1 00:00:15 (none) kern.info kernel: usb.c: new USB bus registered, assigned
 Jan  1 00:00:15 (none) kern.info kernel: hub.c: USB hub found
 Jan  1 00:00:15 (none) kern.info kernel: hub.c: 2 ports detected
 }}}
-The two ports of the hub have on each data line a resistor to the ground. So we solder two wires on the third and fourth pin of the resistor array. In the posting mentioned above they use a resistor serial in each data line of 15 Ohms. I haven't had them, so i'm using somes with 10 Ohms. In the original connection between these resistors and the usb-socket is a resistance of 1.5 Ohms, so maybe that's enough too? Anyway. To get the power supply for the port i'm using the pads of a not assembled capacitor. It's not really correct, as there must be a control of the power consumption uf the usb device, but it works. I use a the socket uf a usb extension cable. Voila, here it is: 
+The two ports of the hub have on each data line a resistor to the ground. So we solder two wires on the third and fourth pin of the resistor array. In the posting mentioned above they use a resistor serial in each data line of 15 Ohms. I haven't had them, so i'm using somes with 10 Ohms. In the original connection between these resistors and the usb-socket is a resistance of 1.5 Ohms, so maybe that's enough too? Anyway. To get the power supply for the port i'm using the pads of a not assembled capacitor. It's not really correct, as there must be a control of the power consumption uf the usb device, but it works. I use the socket of a usb extension cable. Voila, here it is: 
 {{{
 Feb 25 20:48:36 (none) kern.info kernel: hub.c: new USB device 00:04.0-2, assigned address 2
 }}}
