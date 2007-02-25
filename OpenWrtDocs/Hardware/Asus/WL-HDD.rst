@@ -1,7 +1,7 @@
 #pragma section-numbers off
 #pragma keywords Asus, WL-HDD, Yakumo Wireless Storage 60
 #pragma description This page contains information of the Asus WL-HDD and Yakumo Wireless Storage 60 NAS.
-= Asus WL-HDD =
+= Asus WL-HDD / Yakumo Wireless Storage 60 =
 
 The device is supported in OpenWrt (White Russian and later). Confirmed running Version are WhiteRussian RC6 and 0.9 (and Kamikaze too, see [http://forum.openwrt.org/viewtopic.php?id=7510 this forum post]). You need to install the openwrt-brcm-2.4-<type>.trx firmware images. 
 
@@ -33,7 +33,7 @@ See IdeStorageHowTo then LocalFileSystemHowTo.
 
 === USB drivers and usage ===
 
-See UsbStorageHowto then LocalFileSystemHowTo.
+See UsbStorageHowto then LocalFileSystemHowTo. For a second usb-port see in the hardware section. 
 
 Run the following to install the modules and tools:
 {{{
@@ -167,6 +167,25 @@ esac
 
 All stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
 
+=== Second USB Port ===
+
+Found on [http://wl500g.info/showthread.php?s=65d1ded33283574e7d0c3d86a9ec31fe&t=3571 wl500g.info] that on a wl500g it is possible to use the second port of the internal hub. As it looks the same on the wl-hdd, i tried this and it works too. Benefits of this hardware mod? First, no need for a external hub if using a printer or something permanently. Second, using it as internal port for another mods (audio?) without external cables. 
+
+What to do? Not difficult, just put some wires with two resistors on the pcb, that's it. But: build it at your own risk, you'll loose the warranty, and i'm not responsible for any damages of the router or of any device connected to it!
+
+Step for step:
+
+Maybe you've seen the log entries of the usb driver: 
+{{{
+Jan  1 00:00:15 (none) kern.info kernel: usb.c: new USB bus registered, assigned bus number 1
+Jan  1 00:00:15 (none) kern.info kernel: hub.c: USB hub found
+Jan  1 00:00:15 (none) kern.info kernel: hub.c: 2 ports detected
+}}}
+The two ports of the hub have on each data line a resistor to the ground. So we solder two wires on the third and fourth pin of the resistor array. In the posting mentioned above they use a resistor serial in each data line of 15 Ohms. I haven't had them, so i'm using somes with 10 Ohms. In the original connection between these resistors and the usb-socket is a resistance of 1.5 Ohms, so maybe that's enough too? Anyway. To get the power supply for the port i'm using the pads of a not assembled capacitor. It's not really correct, as there must be a control of the power consumption uf the usb device, but it works. Voila, here it is: 
+{{{
+Feb 25 20:48:36 (none) kern.info kernel: hub.c: new USB device 00:04.0-2, assigned address 2
+}}}
+See the [[:OpenWrtDocs/Hardware/Asus/WL-HDD/usb_mod:usb_mod photos] with the details. 
 === External Interface ===
 
 This device has some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
