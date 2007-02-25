@@ -171,7 +171,7 @@ All stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl5
 
 Found on [http://wl500g.info/showthread.php?s=65d1ded33283574e7d0c3d86a9ec31fe&t=3571 wl500g.info] that on a wl500g it is possible to use the second port of the internal hub. As it looks the same on the wl-hdd, i tried this and it works too. Benefits of this hardware mod? First, no need for a external hub if using a printer or something permanently. Second, using it as internal port for another mods (audio?) without external cables. 
 
-What to do? Not difficult, just put some wires with two resistors on the pcb, that's it. But: build it at your own risk, you'll loose the warranty, and i'm not responsible for any damages of the router or of any device connected to it!
+What to do? Not difficult, just put some wires with two resistors on the pcb, that's it. But: '''Build it at your own risk, you'll loose the warranty, and i'm not responsible for any damages of the router or of any device connected to it!'''
 
 Step for step:
 
@@ -185,7 +185,7 @@ The two ports of the hub have on each data line a resistor to the ground. So we 
 {{{
 Feb 25 20:48:36 (none) kern.info kernel: hub.c: new USB device 00:04.0-2, assigned address 2
 }}}
-See the [[:OpenWrtDocs/Hardware/Asus/WL-HDD/usb_mod:usb_mod photos] with the details. 
+See the [:OpenWrtDocs/Hardware/Asus/WL-HDD/usb_mod:usb_mod photos] with the details. 
 === External Interface ===
 
 This device has some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
