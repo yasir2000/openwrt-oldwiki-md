@@ -79,6 +79,9 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * Distrinctive ring works
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
+ * Dropbear binary removed and ssh setting disabled.
+customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp%35%34g%5Ffw%5F%33.%31.%31%37%5FUS.zip
+
 = Accounts in the Supplied Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
