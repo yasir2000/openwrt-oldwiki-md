@@ -4,7 +4,7 @@ Mesh networks are networks which are self arranging and auto configure them selv
 
 Well OLSR is one of the routing protocol available for Mobile Adhoc Network(MANET) or rather is general terms a wireless Mesh network.The OLSR code developed by [http://www.olsr.org Andreas Tønnesen] is the best suited for our case.
 
-Actually if the objective is just to have a quick mesh you should be looking at Freifunk firmware or [http://trac.what-a-mesh.net/trac/ what-a-mesh] firmware which is openwrt+olsr. But if you want to do it all your self which was as in my case you can follow the below methods
+Actually if the objective is just to have a quick mesh you should be looking at [http://firmware.freifunk.net Freifunk Firmware] or [http://trac.what-a-mesh.net/trac/ what-a-mesh] firmware which is openwrt+olsr. But if you want to do it all your self which was as in my case you can follow the below methods
 
 __'''The Network'''__
 
