@@ -177,8 +177,24 @@ Here are some short Perl programs for manipulating firmware upgrade files:
  * Set CRC: attachment:set_ti_checksum
  * Set ProductID and flag at byte 0x0B: attachment:set_ProductID
  * Extract root filesystem and kernel from firmware attachment:extractwrtp.tar.bz2
- * Firmware modification Kit attachment:wrtp%2Dmod%2Dkit.tar.bz%32
- * Unpack and pack firmwares: coming soon
+ * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2
+'''''extractwrtp''' extracts the firmware into the following files:
+'''wrtp.img.root'''''  root file system partition (lzma compressed, use unsquashfs-lzma to extract)
+'''''wrtp.img.kernel Kernel''''' parition (bootstrap + kernel)
+'''''wrtp.img.7zip'''''    compressed kernel.
+'''''wrtp.img.uncompressed'''''  uncompressed kernel.
+'''''wrtp.img.kernel.bootstrap''''' bootstrap code that extract compressed kernel
+'''''wrtp.img.kernel.padding'''''  padding part of kernel partition.
+'''unsquashfs-lzma''' extracts root partition
+'''mksquashfs-lzma''' builds root partition from source directory
+'''buildwrtp''' builds the firmware by combining kernel partition and root partition
+-k <kernel file>
+-r <root file>
+-f <output file>
+-i <device identity>
+-p <product id>
+-K <minimum hex blocks (64K) for kernel patition>
+-R <minimum hex blocks (64K) for root partition>
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
