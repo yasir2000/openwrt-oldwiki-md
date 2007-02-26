@@ -9,6 +9,7 @@ This is only mini example data counting script in Perl and shell, you can downlo
 
 == Instalation ==
 1. Copy folder "fdrouter" to /etc/.
+
 2. Edit /etc/fdrouter/users.csv file, and enter persons in format:
 IP;MAC-ADDR;USER-NAME
 (i.e: 192.168.0.1;00:00:00:00:00:00;smrtak)
@@ -32,6 +33,7 @@ chmod 774 /www/cgi-bin/data.sh'''
 == Using web interface ==
 Go to web server yours router (i.e. http://192.168.0.1/cgi-bin/data.sh )
 You can see your data limit for month, when you are in users.csv.
+
 You can too use adress http://192.168.0.1/cgi-bin/data.sh?ip=all and here is list all users for given month.
 
 == Aditional information ==
@@ -39,5 +41,6 @@ This is only alfa version, but i want develope new function (QoS, Graphs, limits
 
 Sorry for very bad english, someone can repair me :)
 
+Contact: dev@smrtak.com
 ----
 CategoryHowTo
