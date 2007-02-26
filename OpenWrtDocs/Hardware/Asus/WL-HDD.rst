@@ -33,6 +33,8 @@ See IdeStorageHowTo then LocalFileSystemHowTo.
 
 === USB drivers and usage ===
 
+==== USB storage ====
+
 See UsbStorageHowto then LocalFileSystemHowTo. For a second usb-port see in the hardware section. 
 
 Run the following to install the modules and tools:
@@ -51,6 +53,28 @@ usb-storage
 fat
 vfat
 }}}
+
+==== usb network ====
+
+If you need a second wire ethernet device, it is possible to use a usb ethernet dongle. Possible hardware is listed on the [http://www.nslu2-linux.org/wiki/Peripherals/EthernetAdapter nslu2 homepage]. Then you have to compile the usbnet driver, as it isn't in the standard OpenWrt distribution. Alternatively, you can download it from below. 
+
+With the Linksys USB200M Rev2 are some problems because of changed hardware. Perfectly supported on linux > 2.6.18 it lacks support in the 2.4.X series. It exists a backport to 2.4.27 on [http://sourceforge.net/project/showfiles.php?group_id=138561], and with little modifications it compiles on a 2.4.30 well. 
+
+After the usb core modules insert the modules 
+{{{
+insmod mii
+insmod usbnet
+}}}
+
+and voila:
+{{{
+Feb 26 22:31:09 (none) kern.info kernel: usb.c: registered new driver usbnet
+Feb 26 22:31:10 (none) kern.info kernel: eth3: register usbnet usb-00:04.0-1, Linksys usb200m v2 AX88772 USB 2.0 Ethernet
+}}}
+
+attachment:usbnet_mii.tar.bz2
+attachment:usbnet_ax88772.patch
+
 
 === Run root filesystem from the harddisk ===
 
