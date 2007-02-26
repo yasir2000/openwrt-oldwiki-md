@@ -27,6 +27,7 @@ chmod 774 /etc/init.d/S37fdrouter'''
 5. Copy files from /fdrouter/web to /www and file /www/cgi-bin/data.sh must have permissions for running.
 
 '''cp /etc/fdrouter/web/data.sh /www/cgi-bin/
+
 chmod 774 /www/cgi-bin/data.sh'''
 
 6. this is all
