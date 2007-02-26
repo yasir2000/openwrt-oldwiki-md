@@ -54,7 +54,7 @@ fat
 vfat
 }}}
 
-==== usb network ====
+==== USB network ====
 
 If you need a second wire ethernet device, it is possible to use a usb ethernet dongle. Possible hardware is listed on the [http://www.nslu2-linux.org/wiki/Peripherals/EthernetAdapter nslu2 homepage]. Then you have to compile the usbnet driver, as it isn't in the standard OpenWrt distribution. Alternatively, you can download it from below. 
 
@@ -72,8 +72,11 @@ Feb 26 22:31:09 (none) kern.info kernel: usb.c: registered new driver usbnet
 Feb 26 22:31:10 (none) kern.info kernel: eth3: register usbnet usb-00:04.0-1, Linksys usb200m v2 AX88772 USB 2.0 Ethernet
 }}}
 
-attachment:usbnet_mii.tar.bz2
-attachment:usbnet_ax88772.patch
+
+
+kernel modules: attachment:usbnet_mii.tar.bz2
+
+source patch: attachment:usbnet_ax88772.patch
 
 
 === Run root filesystem from the harddisk ===
