@@ -197,6 +197,13 @@ Hint: If you have configured your box in client mode (doesn't matter if bridged 
 == How often can I write on the flash chip? ==
 Flash devices can be written to, at minimum, anywhere between 100,000 and 1,000,000 times (according to the manufacturers).
 
+You can check which flash chip you have (at in White Russian) by
+{{{
+nvram show | grep flash_type
+}}}
+and then you can check the manufacturer's datasheet.
+In ["OpenWrtNVRAM"] it is however stated that it can be written between 1000 and 10000 times.
+
 == Where can I find packages? ==
 All packages included in the stable White Russian release can be listed with:
 
