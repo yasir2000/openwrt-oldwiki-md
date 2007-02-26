@@ -17,6 +17,7 @@ IP;MAC-ADDR;USER-NAME
 3. Copy init.d script from /fdrouter/scripts/S37fdrouter to /etc/init.d/ and give him permission for running.
 
 '''cp /etc/fdrouter/scripts/S37fdrouter /etc/init.d/
+
 chmod 774 /etc/init.d/S37fdrouter'''
 
 4. Create file /etc/crontabs/root and put here this line:
