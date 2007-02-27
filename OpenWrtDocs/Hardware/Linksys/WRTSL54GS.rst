@@ -50,6 +50,8 @@ Note switch port 4 is not externally available. This design is different from ma
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
 ||JP3(ttyS1)||3.3v||TX||RX||NC||GND||
 
+NC=not connected, this pin is not used.
+
 inline:wrtsl54gs_serial_IDC10.jpg
 
 Above are 2 common IDC-10 connectors. The type on the right is a "right-angle" connector and is the one installed on the SL above it.  These connectors less than one dollar/euro and fit relatively easily onto the PCB.
