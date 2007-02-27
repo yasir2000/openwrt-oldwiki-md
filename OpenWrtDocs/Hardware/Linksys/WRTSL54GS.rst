@@ -44,7 +44,7 @@ Note switch port 4 is not externally available. This design is different from ma
 = Hack points =
 
 == serial ports ==
-2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own. These connectors were 59 cents at the Fry's Electronics in Sacramento, CA. Standard IDC-10 straight works here. The RF shield nearby, means a right-angle IDC-10 will not work if configured facing interior. Would work fine facing towards front if you cut a hole in front of router. Use a hacked Nokia DKU-5 cable or a MAX233 kit to get serial ports. No hardware flow control, use software.
+2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own. Use a hacked Nokia DKU-5 cable or a MAX233 kit to get serial ports. No hardware flow control, use software.
 
 ||'''connector'''||'''1'''||'''2'''||'''3'''||'''4'''||'''5'''||
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
@@ -54,7 +54,7 @@ NC=not connected, this pin is not used.
 
 inline:wrtsl54gs_serial_IDC10.jpg
 
-Above are 2 common IDC-10 connectors. The type on the right is a "right-angle" connector and is the one installed on the SL above it.  These connectors less than one dollar/euro and fit relatively easily onto the PCB.
+Above are 2 common IDC-10 sockets. The type on the right is a "right-angle" socket and is the one installed on the SL above it.  These sockets cost less than one dollar/euro and fit relatively easily onto the PCB.
 
 inline:wrtsl54gs_serial_complete.jpg
 
