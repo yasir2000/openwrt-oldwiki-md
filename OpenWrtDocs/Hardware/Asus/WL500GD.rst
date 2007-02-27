@@ -1,4 +1,4 @@
-'''Asus WL-500g Deluxe'''
+= Asus WL-500g Deluxe =
 
 The device is supported in OpenWrt 1.0 (White Russian) and later. 
 You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
@@ -20,7 +20,7 @@ The {{{boot_wait}}} NVRAM variable is on by default. Resetting to factory defaul
 
 The router is sometimes called Asus WL-500GX or Asus WL-500g Deluxe V.
 
-'''TFTP Installation notes'''
+== TFTP Installation notes ==
 
 Enable '''Failure Mode''' - remove the power, press and hold the reset button while returning power. Within a few seconds the PWR LED starts flashing slowly (once second on, one second off). Release the reset button and continue.
 
@@ -55,7 +55,7 @@ echo -en "binary\nput $YOUR_FIRMWARE_TRX ASUSSPACELINK\nquit\n" | tftp 192.168.1
 For some reason though, the device doesn't reboot after flashing. Just wait 5 minutes, unplug the power and reconnect. After a while (1-2 minutes), the WLAN LED should light and OpenWRT is up and running.
 
 
-'''Send image with Firmware Restoration technique'''
+=== Send image with Firmware Restoration technique ===
 
 You can use the ASUS Firmware Restoration tool to send an image from a Windows PC to the router (including OpenWrt). The tool is on the supplied CD or available from the ASUS web site.
 
@@ -75,17 +75,17 @@ The tool provides status as it works:
 
 After this you should be able to connect to the Router.
 
-'''Serial console'''
+== Serial console ==
 
 See [http://wl500g.info/showthread.php?t=1993].
 
 
-'''USB storage'''
+== USB storage ==
 
 For information about how to use a USB storage device (such as a memory stick or a hard
 drive) and even boot from it, see [:UsbStorageHowto].
 
-'''Sonics Silicon Backplane'''
+== Sonics Silicon Backplane ==
 
 The silicon backplane is an internal processor bus that connects several on-chip devices much like the PCI bus. Most of these internal devices are sort of emulated as PCI devices. At least the bcm43xx 44xx 47xx and BCM53XX broadcom chipsets contain this internal bus. In the BCM63xx series it seems they switched to a different bus type, or have made it hidden. 
 
@@ -129,5 +129,14 @@ bcm5325e or compatible, MII (MDC/MDIO)  5 ports switch
 
 }}}
 
+== 64MB RAM upgrade ==
+The following schematics from page 183 FCC report shows current RAM section:
+[[ImageLink(wl500gx-ram-schematics.png,width=100%)]]
+
+Upgrading RAM to 64 MB is possible with 256Mbit chips from PC 133 SDRAM modules.
+
+Skilled amateur can follow [[http://begunje.dyndns.org/articles/wl500gx-ram-upgrade/index.html Oleo's instructions]] for 
+upgrading RAM. There is also [[http://begunje.dyndns.org/gallery/ram-upgrade/index.html photo gallery]] for upgrade 
+procedure.
 ----
 CategoryModel
