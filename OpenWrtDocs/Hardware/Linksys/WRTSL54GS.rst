@@ -44,11 +44,11 @@ Note switch port 4 is not externally available. This design is different from ma
 = Hack points =
 
 == serial ports ==
-2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own. Use a hacked Nokia DKU-5 cable or a MAX233 kit to get serial ports. No hardware flow control, use software.
+2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own. Use a hacked Nokia DKU-5 cable or a MAX233 kit to get serial ports. No hardware flow control available.
 
-||'''connector'''||'''1'''||'''2'''||'''3'''||'''4'''||'''5'''||
-||JP4(ttyS0)||3.3v||TX||RX||NC||GND||
-||JP3(ttyS1)||3.3v||TX||RX||NC||GND||
+||'''connector'''||'''1'''||'''2'''||'''3'''||'''4'''||'''5'''||'''defaults'''||'''usage'''||
+||JP4(ttyS0)||3.3v||TX||RX||NC||GND||115,200 baud, 8-n-1, none||console root shell||
+||JP3(ttyS1)||3.3v||TX||RX||NC||GND||9,600   baud, 8-n-1, none||     unused       ||
 
 NC=not connected, this pin is not used.
 
