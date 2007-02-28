@@ -54,7 +54,7 @@ NC=not connected, this pin is not used.
 
 inline:wrtsl54gs_serial_IDC10.jpg
 
-Above are 2 common IDC-10 sockets. The type on the right is a "right-angle" socket and is the one installed on the SL above it.  These sockets cost less than one dollar/euro and fit relatively easily onto the PCB.
+Above are 2 common IDC-10 sockets. On the left is a straight IDC-10 socket which would be useful for internal hookups, or running a ribbon to a convenient mounting point for an external connector.  The type on the right is a "right-angle" socket and is the one installed on the SL above it.  These sockets cost less than one dollar/euro and fit relatively easily onto the PCB.
 
 inline:wrtsl54gs_serial_complete.jpg
 
