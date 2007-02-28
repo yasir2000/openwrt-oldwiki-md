@@ -1,5 +1,5 @@
 = How to Counting? =
-This is only mini example data counting script in Perl and shell, you can download it here: http://opensource.smrtak.com/fdrouter/fdrouter_aplha01.tar .
+This is only mini example data counting script in Perl and shell, you can download it here: http://opensource.smrtak.com/fdrouter/fdrouter_alpha01.tar .
 
 
 == Requirement ==
