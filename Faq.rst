@@ -602,6 +602,30 @@ If you want to experiment with iptables while logged in via telnet/ssh,  run the
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT}}}
+
+== MacBook Pro keeps dropping signal even when near AP ==
+A "sudo dmesg" on the MacBook reveals:
+
+{{{
+ATHR: beacon miss causing loss of connection
+}}}
+
+Adjust the beacon interval so it is smaller (default is 100):
+
+{{{
+wl bi 50
+}}}
+
+Make it permanent:
+
+{{{
+echo \#!/bin/sh >/etc/init.d/S90wl
+echo wl bi 50 >>/etc/init.d/S90wl
+chmod 755 /etc/init.d/S90wl
+}}}
+
+Note that this does not completely fix the problem, it only helps mitigate the impact.  It has been shown to be a bug in OS X 10.4.8 and earlier.
+
 ## ##################################################
 = Development =
 See also the !OpenWrt [http://dev.openwrt.org/ development center] website. There you can browse the source code and send reproducible bugs with the ticket system (in trac).
