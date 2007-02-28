@@ -7,7 +7,7 @@ Currently we are looking for the following devices:
 ===== For bug-fixing: =====
 
  * Siemens SE505v1 and v2
- * Asus WL500b v2, Asus WL-HDD, Asus WL-520g
+ * Asus WL500b v2, Asus WL-520g
  * Buffalo devices
  * Motorola devices
 
@@ -15,8 +15,6 @@ Currently we are looking for the following devices:
 
 Broadcom BCM47xx/53xx platform:
 
- * Linksys WRT150N
- * Linksys WRT330N
  * Linksys WRT350N
 
 Realtek RTL865x platform:
@@ -34,7 +32,6 @@ Atheros AR531x/231x platform:
 
 x86 platform:
 
- * WRAP 1E-1/1E-2/2C
  * Mikrotik Routerboard 230
  * Soekris boards
  * VIA EPIA boards
@@ -43,12 +40,7 @@ Intel IXP(XScale) 4xx platform:
 
  * Linksys WRV54G (both v1 and v2 versions)
  * Netgear WAG302
- * Netgear WG302
  * Netgear WGM124
-
-Broadcom BCM63xx platform:
-
- * Wanadoo Livebox
 
 TI AR7 platform:
 
@@ -58,6 +50,10 @@ TI AR7 platform:
 AMD Alchemy platform:
 
  * 4G Systeme Meshcube
+
+Star Semi STR9xxx
+
+ * Linksys WRVS4400N
 
 ===== For other networking card support: =====
 
