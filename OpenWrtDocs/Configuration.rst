@@ -440,7 +440,7 @@ You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''. Only '
 
 '''rdate'''
 
-The ''rdate'' command synchronises the system time to the time on a remote host using the [[http://en.wikipedia.org/wiki/TIME_protocol|time protocol]] on TCP port 37 (the time protocol has been superseded by the Network time protocol (NTP)). It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
+The ''rdate'' command synchronises the system time to the time on a remote host using the [http://en.wikipedia.org/wiki/TIME_protocol time protocol] on TCP port 37 (the time protocol has been superseded by the Network time protocol (NTP)). It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
 
 Create the file {{{/etc/init.d/S55rdate}}} with the contents:
 
