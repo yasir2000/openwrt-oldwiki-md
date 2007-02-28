@@ -619,9 +619,8 @@ wl bi 50
 Make it permanent:
 
 {{{
-echo \#!/bin/sh >/etc/init.d/S90wl
-echo wl bi 50 >>/etc/init.d/S90wl
-chmod 755 /etc/init.d/S90wl
+nvram set wl0_bcn=50
+nvram commit
 }}}
 
 Note that this does not completely fix the problem, it only helps mitigate the impact.  It has been shown to be a bug in OS X 10.4.8 and earlier.
