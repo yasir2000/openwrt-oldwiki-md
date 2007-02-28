@@ -440,7 +440,7 @@ You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''. Only '
 
 '''rdate'''
 
-The ''rdate'' command synchronises the system time to the time on a remote host using the time protocol on TCP port 37.  It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
+The ''rdate'' command synchronises the system time to the time on a remote host using the [[http://en.wikipedia.org/wiki/TIME_protocol|time protocol]] on TCP port 37 (the time protocol has been superseded by the Network time protocol (NTP)). It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
 
 Create the file {{{/etc/init.d/S55rdate}}} with the contents:
 
@@ -451,7 +451,7 @@ replacing HOST with the IP address or host name of the time server, E.G.
 
 {{{
 #!/bin/sh
-/usr/sbin/rdate -s 0.pool.ntp.org}}}
+/usr/sbin/rdate -s timeserver.example.net}}}
 Then make the file executable:
 
 {{{
@@ -464,7 +464,7 @@ Make sure any software that is loaded in the boot sequence and which requires th
 
 If your router is not rebooted very regularly you may wish to add updating the time to the crontab. The following will update the time each day at 06.30 AM.
 
-Edit the crontab file by typying:
+Edit the crontab file by typing:
 
 {{{
 crontab -e}}}
