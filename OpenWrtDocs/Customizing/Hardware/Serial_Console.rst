@@ -16,9 +16,11 @@ note: For the serial console on a WRT54G with a USB cell phone cable, the follow
 Compatible Radio Shack (Future Dial) "Mobile Phone Data Cables":
 
  . - LG Models 1200, VI5225, VX4500, VX4600, VX600 - Audiovox Models 8200, 8500 and 8600 - Nokia Models 3285 and 5185 - Cable 22 (For Nokia 3100, 3200, 3585i, 3588 and others with Nokia 14-pin pop-port)
+
 goobay
 
  . - Datacable for Nokia 6210, 6250, 6310, 6310i, 7110
+
 reference: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 == Home-made RS-232 kit ==
@@ -45,6 +47,7 @@ You can also search for MAX232 Kits. There are some kits availables.
  * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
  * http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
+
 *'''Note: '''The WRT54G/GS CFE only emit messages on TTSY0. This is the serial port that uses even numbered pins, therefore starting at pin 2.
 
 == Terminal software ==
@@ -53,6 +56,7 @@ You can also search for MAX232 Kits. There are some kits availables.
  * [http://efault.net/npat/hacks/picocom/ picocom]
  * cu(1) (part of the Taylor UUCP package, for POSIX systems)
  * Tutty (a branch of Putty)
+
 == Finding Serial Console ==
 First, check the OpenWRT wiki page describing your hardware and do a google search. Most of the time, the serial port(s), if they exist, have already been documented by others.
 
@@ -61,23 +65,3 @@ First, check the OpenWRT wiki page describing your hardware and do a google sear
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;-)
-
-== Accessing serial console on Asus WL-500gP without opening the cover ==
-With the Asus WL-500gP design, it is possible to access serial ports without opening the device cover and warranty loss, if you will follow these instructions:
-
- 1. Connect as much cables as possible (you can easily connect LAN1 to LAN2 and LAN3 to LAN4) to make as much light inside as possible and turn on the router. With a good magnifying lens in the dark room you can easily look inside and locate serial console soldering points and its description. Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
-  . {{{
-NC    3.3V TX0  RX0
-RESET GND  TX1  RX1}}}
-
- 1. Get a serial cable with the voltage converter. Note that voltage converter is a must! You will need three wires from this cable - GND, Rx, Tx.
- 1. Prepare all cables you want to use during the session and connect them, connect power supply, but don't plug it to the wall yet.
- 1. Connect GND anywhere to the chassis, e. g. to the antenna screw.
- 1. Now you are ready for the crucial part - connect Rx and Tx cables to the RX0 and TX0 inside the router.
- 1. It takes only few minutes to prepare special pins for accessing these soldering points (see the image).
-    attachment:wl500gp_serial_tool.png
- 1. Using a small lamp, verify that you are watching the right soldering point and touch it by the spike of the needle. Fasten it by the rubber band. Ensure that the spike still touches the right place and that there is no tension which can cause accidental scratching of the printed circuit, short circuit or damage of the device.
- 1. Repeat the same with the second line.
- 1. Prevent any shaking, connect serial cable and turn the router on.
- 1. Now you are ready to start terminal emulator.
-attachment:wl500gp_serial.jpg
