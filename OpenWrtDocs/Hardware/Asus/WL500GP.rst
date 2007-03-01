@@ -24,7 +24,7 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
-=== Using the Asus firmware restoration tool (windows only) ===
+=== Using the Asus firmware restoration tool (windows only or wine on Linux) ===
  * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
  * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
  * Unplug the router's power cord.
