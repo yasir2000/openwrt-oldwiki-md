@@ -63,11 +63,9 @@ Refer to the [:Serial Console:Serial Console ]page for details on the necessary 
 === RAM Upgrade ===
 __ /!\ __ Upgrading memory will void the warranty, and requires a steady hand and good soldering skills.
 
-The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. The RAM initialization of the standard CFE ignores the sdram_init value in the nvram, and 8Mx16 chips will be accessed as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible, and will give the same result as two 4Mx16 chips.  32MB are reported to work by using two 16Mx16 chips.
+The SE505V2 has one 4Mx16 SDRAM chip (8 MB), and spare pads for a second RAM chip. The RAM initialization of the standard CFE ignores the sdram_init value in the nvram, and 8Mx16 chips will be accessed as 4Mx16 chips. Mixing 4Mx16 and 8Mx16 is possible, and will give the same result as two 4Mx16 chips. For other upgrade options see table below.
 
-Thanks to the efforts of Funnel a new CFE is available, that solves this problem! See the forum thread for details: http://forum.openwrt.org/viewtopic.php?id=9379 
-
-Instructions to upgrading from 8MB to 16MB:
+Instructions for RAM upgrading from 8MB to 16MB:
 
 1) find the right SDRAM chips: 64MB or 128MB SODIMMS are a good source for SDRAM chips with the right bus width (16 bit - always check the data sheet!). Desoldering the chips with a hot-air gun works fine (be careful not to overheat the chips!).
 
@@ -103,19 +101,19 @@ Hint: don't solder a capacitor to C319! This capacitor is for fine trimming the 
 
 Hint: for upgrading to 32MB you'll need two 16x16MB chips from a 4 chip 128MB, or from an 8 chip 256MB SODIMM. Be extremely careful when desoldering the 4x16MB chip from the router!
 
-Memory upgrade overview:
+Memory upgrade options:
 ||Memory||RAM type||CFE||
 ||16MB||add 4x16MB||standard||
 ||32MB||add/replace with 2x 8x16MB||funnel||
 ||32MB||add/replace with 2x 16x16MB||standard||
 ||64MB||add/replace with 2x 16x16MB||funnel||
 
-Sources for RAMs: 
+Sources for RAM chips: 
 ||4x16MB||desoldered chip from a SE505V2 router ;-)||
 ||8x16MB||64MB SDRAM PC133 SODIMMs w/ 4 chips||
 ||16x16MB||128MB SDRAM PC133 SODIMMs or DIMMs w/ 4 chips||
 
-Using chips from a 4 chip SDRAM module is the safest option, but RAM chips from some SODIMMs or DIMMs with 8 chips and twice the capacity mentioned above may have the right properties, too. If in doubt, always check the RAM's datasheet!
+Using chips from a 4 chip PC133 SDRAM module is the safest option. RAM chips from some SODIMMs or DIMMs with 8 chips and twice the capacity mentioned above might have the right properties, too. Always check the RAM datasheet!
 
 ==== Self compiled CFE ====
 A self compiled CFE which can set new "sdram_init" values can be found here:
