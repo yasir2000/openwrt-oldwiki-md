@@ -591,6 +591,23 @@ Than bring up your WAN interface where your modem is connected to via:
 {{{
 ifup wan
 }}}
+
+If that does not work, the ip address assigned to the underlaying ethernet connection might be unable to reach the pptp server directly. You can check that easily with 
+{{{
+route -n
+}}}
+
+If adding the needed route for the pptp server fixes your problem, you can use the following dirty trick to automatize it, in /usr/share/udhcpc/default.script add to the bound case:
+
+{{{
+if [ "$interface" = "vlan1" ]
+then 
+   route add -host 10.0.0.138 gw $(echo $ip | sed 's/[0-9]*\.[0-9]*$/0.1/')
+fi
+}}}
+
+The route command btw is the one needed for inode.at.
+
 For more information see the ["PPTPClientHowto"].
 
 == iptables -F locks you out of telnet/ssh ==
