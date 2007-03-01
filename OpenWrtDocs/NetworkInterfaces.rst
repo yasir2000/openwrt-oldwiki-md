@@ -21,7 +21,7 @@ The number of VLANs that you can configure on any OpenWRT device is only limited
 The subject of VLANs can get very complicated and extensive, but this quick summary covers what's needed for using VLANs on the OpenWRT platform.
 
 === VLAN Trunking ===
-If you have a switch with multiple VLANs, you may want to attach a device (such as another switch) that needs to talk to more than one VLAN. This could be a firewall, which will take packets from one VLAN, filter them, then pass them to another VLAN. Alternatively, you might have a second switch that has the same two VLANs on them, and you want to two switches to exchange packets between each other for both VLANs, whilst maintaining the separation.
+If you have a switch with multiple VLANs, you may want to attach a device (such as another switch) that needs to talk to more than one VLAN. This could be a firewall, which will take packets from one VLAN, filter them, then pass them to another VLAN. Alternatively, you might have a second switch that has the same two VLANs on them, and you want the two switches to exchange packets between each other for both VLANs, whilst maintaining the separation.
 
 Rather than wasting ports by using separate ports per VLAN, we use a process known as trunking. One port on the switch must be configured as a trunk port, and this port will have connectivity to all VLANS for which it's set to be a trunk port. If you have a switch with 3 VLANs, you can configure one (or more) trunk port(s) to have connectivity to all VLANs, or just a subset of the VLANs.
 
