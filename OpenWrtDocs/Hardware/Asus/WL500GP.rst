@@ -175,6 +175,8 @@ Serial is located on pin soldering points (ready for soldering of 8-pin connecto
 NC    3.3V TX0  RX0
 RESET GND  TX1  RX1}}}
 
+These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
+
 ----
  . Here are some links to forum threads related to the WL-500gP:
  * [http://forum.openwrt.org/viewtopic.php?id=6090 Problems with WLAN encryption]
