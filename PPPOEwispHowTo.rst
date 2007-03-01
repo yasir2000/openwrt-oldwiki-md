@@ -22,70 +22,22 @@ Good job!
 === Set up PPPoE ===
 Set wifi_proto to pppoe, and ppp_ifname to ethX (check the last one, might not be needed.)
 
-Create a /sbin/ifup.wlppp :
+Create a /sbin/ifup.wlppp by doing the following steps to an ifup.pppoe:
 
-==== ifup.wlppp ====
-{{{
-#!/bin/sh
-[ $# = 0 ] && { echo "  $0 <group>"; exit; }
-. /etc/functions.sh
+ * change IFNAME=whatever to IFNAME=ethX (wireless). Mine, for example, says 'IFNAME=eth2'
 
-for module in slhc ppp_generic pppox pppoe; do
-        /sbin/insmod $module 2>&- >&-
-done
-
-(while :; do
-        IFNAME=[ethX] (wireless)
-        USERNAME=[username]
-        PASSWORD=[password]
-        KEEPALIVE=redialperiod
-        KEEPALIVE=${KEEPALIVE:+lcp-echo-interval 1 lcp-echo-failure $KEEPALIVE}
-        DEMAND=[demand]
-        case "$DEMAND" in
-                on|1|enabled)
-                        DEMAND=idletime
-                        DEMAND=${DEMAND:+demand idle $DEMAND}
-                        [ -f /etc/ppp/filter ] && DEMAND=${DEMAND:+precompiled-active-filter /etc/ppp/filter $DEMAND}
-                ;;
-                *) DEMAND="";;
-        esac
-
-        MTU=[mtu]
-        MTU=${MTU:-1492}
-
-        ifconfig $IFNAME up
-        /usr/sbin/pppd nodetach \
-                plugin rp-pppoe.so \
-                connect /bin/true \
-                usepeerdns \
-                defaultroute \
-                replacedefaultroute \
-                ipparam "$type" \
-                linkname "$type" \
-                user "$USERNAME" \
-                password "$PASSWORD" \
-                mtu $MTU \
-                mru $MTU \
-                $DEMAND \
-                $KEEPALIVE \
-                nic-$IFNAME
-done 2>&1 >/dev/null ) &
-
-}}} 
-
-Obviously change the stuff in the middle that I put in brackets.
-
+ * either change the username and password options or set the respective nvram options.
 === Setting up Firewall ===
 
 If you rebooted now and ran ifup.wlppp, your router would be on the internet, but not much else would be. Let's change that.
-Edit your S45firewall so that all of the "wan" references become "ppp0" references.
+Edit your Sxxfirewall so that all of the "wan" references become "ppp0" references.
 
-==== /etc/init.d/S45firewall changes ====
+==== /etc/init.d/Sxxfirewall changes ====
 {{{
 WAN=ppp0
 }}}
 
-I mean, duh, but it took me a while to figure it out. Take firmware original, and pop this line where WAN=whatever was.
+I mean, duh, but it took me a while to figure it out. Take firmware original, and pop this line where WAN=whatever was. NOTE: It used to be S45firewall, but I found in 0.9 it is S35. Isn't it a tad odd that Network is S40?
 
 === Finishing up ===
 
