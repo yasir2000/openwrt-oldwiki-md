@@ -129,6 +129,8 @@ iptables -t nat -A postrouting_rule -p 50 -j ACCEPT iptables -t nat -A postrouti
 
 This will enable ipsec pass-through.  Protocol 50 is ESP and protocol 51 is AH.
 
+NOTE: 2007-03-01: These two postrouting rules actually broke IPSEC-ESP for us. jschnip
+
 == Monitoring signal strengths of nearby access points in client mode ==
 You can use scripts to monitor the nearby access points in a readable ascii format like below:
 
