@@ -98,8 +98,16 @@ NVRAM; Description
 <name>_hostname; hostname requested with dhcp
 <name>_hwaddr; MAC address (aa:bb:cc:dd:ee:ff) if you want to use a different MAC of the ROM
 }}}
+Where <name> is either one of 'wl0', 'lan', or 'wan' for the wireless, local area network, or the wide area network respectively. 
+
+
+---- /!\ '''Edit conflict - other version:''' ----
 Where <name> is either one of 'wl0', 'lan', or 'wan' for the wireless local area network or the wide area network respectively. 
 
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 The command ''ifup <name>'' will configure the interface defined by <name>_ifname according to the above variables. As an example, the {{{/etc/init.d/S40network}}} script will automatically run the following commands at boot:
 
 {{{
