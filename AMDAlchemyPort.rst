@@ -18,7 +18,7 @@ The support for AMD Alchemy is completed :
 
 == TODO ==
 
-   * Port the I2C driver to 2.6 kernel
+   * Stabilize the USB stuff
 
 == Firmware/Bootloader ==
 
