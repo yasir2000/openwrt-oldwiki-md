@@ -168,8 +168,12 @@ nvram commit}}}
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
 
 HardwareAcceleratedCrypto
+== Serial ==
 
-It is possible to access [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Serial_Console serial console] even without opening the device by putting long sharp pins (e. g. needles) through ventilation holes.
+Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
+  . {{{
+NC    3.3V TX0  RX0
+RESET GND  TX1  RX1}}}
 
 ----
  . Here are some links to forum threads related to the WL-500gP:
