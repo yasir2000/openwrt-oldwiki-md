@@ -527,12 +527,12 @@ nvram set time_zone="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"
 nvram commit
 }}}
 Examples:
-||<style="text-align: center;" |6>Australia ||Melbourne,Canberra,Sydney ||EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
-||Perth ||WST-8WDT-9,M12.1.0,M3.5.0/03:00:00 ||
-||Brisbane ||EST-10 ||
-||Adelaide ||CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
-||Darwin ||CST-9:30 ||
-||Hobart ||EST-10EDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00 ||
+||<style="text-align: center;" |6>[http://www.australia.gov.au/about-australia-13time Australia] ||Melbourne,Canberra,Sydney ||AEST-10AEDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
+||Perth ||AWST-8AWDT-9,M12.1.0,M3.5.0/03:00:00 ||
+||Brisbane ||AEST-10 ||
+||Adelaide ||ACST-9:30ACDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
+||Darwin ||ACST-9:30 ||
+||Hobart ||AEST-10AEDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00 ||
 ||<style="text-align: center;" |22>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Athens, Greece ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||Barcelona, Spain ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
