@@ -132,3 +132,6 @@ If your x86 machine uses network adapters other than those natively built with O
 
 ==== Fix the network config: ====
 Once you have OpenWRT booting and running on your x86 hardware you will need to modify '''/etc/config/network''' to suit your hardware.
+
+==== Kernel optimizations: ====
+By default the x86 build for OpenWRT is optimized only for 486 processors.  Additional speed will undoubtedly be had by selecting kernel optimizations specific to your processors.  However, I have my doubts that building a 64 bit kernel will be usable without making other changes to buildroot system.
