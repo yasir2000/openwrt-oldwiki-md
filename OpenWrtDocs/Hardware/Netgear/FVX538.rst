@@ -6,9 +6,21 @@ Netgear FVX 538
  * 1 Gb port
  * up to 200 ipsec VPN (source: Netgear)
  * 2 hardware versions:
-  || ||v1||v2||
-  ||Flash||16MB||32MB||
-  ||RAM||32MB||64MB||
+  .
+|| ||v1 ||v2 ||
+ .
+||Flash ||16MB ||32MB ||
+ ||RAM ||32MB ||64MB ||
+= Serial port =
+The FVX538 has a serial port with its DB9 connector. Levels are 0-5V (null modem cable required).
+
+Serial parameters:
+||Speed || 115200 bauds ||
+||Data bits || 8 ||
+||Stop bits || 1 ||
+||Parity || none ||
+||Flow control || none ||
+
 
 = Boot log =
 {{{
@@ -17,22 +29,16 @@ Initiating BCM5380 ... ok
 Ethernet eth0: MAC address 00:14:6c:cb:xx:xx
 IP: 192.168.16.244/255.255.255.0, Gateway: 0.0.0.0
 Default server: 192.168.16.1, DNS server IP: 0.0.0.0
-
 RedBoot(tm) bootstrap and debug environment [ROM]
 Red Hat certified release, version 1.92p1 - built 19:39:46, Dec 11 2004
-
 Platform: NetGear FVX538 (XScale)
 Copyright (C) 2000, 2001, 2002, Red Hat, Inc.
-
 RAM: 0x00000000-0x02000000, 0x0001e758-0x01fdd000 available
 FLASH: 0x50000000 - 0x51000000, 128 blocks of 0x00020000 bytes each.
 RedBoot> boot
-
 Partition    Priority Firm/Cfg-Ver   BuildTime                FileName
-
 appimg1(V)          3 2.0.1-5/1.0   Tue Nov 21 14:24:47 2006 fvx538_v2.0.1-5.img
 appimg2(V)          4 2.0.1-5/1.0   Tue Nov 21 14:24:47 2006 fvx538_v2.0.1-5.img
-
 Booting application image from partition appimg2 ...
 Downloading Image to RAM location 0x1600000 ...
 Transfering control to downloading Image at address 0x160024c ...
@@ -107,7 +113,6 @@ NET: Registered protocol family 17
 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
 All bugs added by David S. Miller <davem@redhat.com>
 Freeing init memory: 1668K
-
 Booting XScale UserSpace
 Linux (none) 2.6.10_mvl401 #164 Tue Nov 21 14:24:29 IST 2006 armv5teb unknown
 Starting system...
@@ -148,19 +153,14 @@ Loading Configuration...Done
 Copyright (c) 2006, TeamF1, Inc.
 done.
 System started.
-
 FVX538 login: exovii
 Password:
-
 ********************************************************************************
                Welcome To The Netgear FVX538 Command Line Interface
 ********************************************************************************
-
 FVX538$
 }}}
-
 = Redboot =
-
 == help ==
 {{{
 RedBoot> help
@@ -249,7 +249,6 @@ Converts a physical to a virtual address
 Display (hex dump) a range of memory
    x -b <location> [-l <length>] [-s] [-1|2|4]
 }}}
-
 == fis list ==
 {{{
 RedBoot> fis list
@@ -261,14 +260,12 @@ appimg1           0x50040000  0x50040000  0x00780000  0x00000000
 appimg2           0x507C0000  0x507C0000  0x00780000  0x00000000
 igwpri            0x50F40000  0x50F40000  0x00080000  0x00000000
 }}}
-
 == fconfig -l ==
 {{{
 RedBoot> fconfig -l
 Run script at boot: true
 Boot script:
 .. boot
-
 Boot script timeout (1000ms resolution): 1
 Use BOOTP for network configuration: false
 Gateway IP address: 0.0.0.0
@@ -287,7 +284,6 @@ Network hardware address [MAC] for NPE eth0: 0x00:0x14:0x6C:0xCB:0xXX:0xXX
 Network hardware address [MAC] for NPE eth1: 0x00:0x14:0x6C:0xCB:0xXX:0xXX
 Network hardware address [MAC] for RTL 8169: 0x00:0x14:0x6C:0xCB:0xXX:0xXX
 }}}
-
 == processor ==
 {{{
 RedBoot> processor
@@ -302,7 +298,6 @@ MMU ENABLED
 Mini-Cache = Write back, Read Allocate
 Write Buffer Coalescing ENABLED
 }}}
-
 == pciscan ==
 {{{
 RedBoot> pciscan
@@ -353,6 +348,5 @@ Found device on bus 0, devfn 0xa8:
  BAR[5]    0x00000000 / probed size 0x00000000 / CPU addr 0xffffffff
  Wired to HAL vector 7
 }}}
-
 = Links =
 [http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx Product page]
