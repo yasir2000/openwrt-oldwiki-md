@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2007/02/28.
+This is a table of all supported devices as of 2007/03/03.
 
 '''Status Legend''':
 
@@ -295,7 +295,8 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||[:AR7Port:WiP] ||
-||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx FVX538] ||1 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||8MB ||16MB || || || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Netgear/FVX538:Untested] ||
+||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx FVX538] ||1 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||32MB || || || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Netgear/FVX538:Untested] ||
+||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx FVX538] ||2 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||32MB ||64MB || || || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Netgear/FVX538:Untested] ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB || ||Atheros & Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
 ||[http://www.netgear.de/Produkte/Router/Wireless/KWGR614/index.html KWGR614] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200MHz ||4MB ||16MB ||Realtek RTL8185 ||? || || || || ||Untested ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||1 ||[http://www.idt.com/?catID=58533&genID=79RC32334 IDT 79RC32V334] @ 150MHz ||4MB ||16MB ||Prism GT (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Netgear/WG602v1:Untested] ||
