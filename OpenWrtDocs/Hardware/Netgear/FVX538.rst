@@ -6,11 +6,10 @@ Netgear FVX 538
  * 1 Gb port
  * up to 200 ipsec VPN (source: Netgear)
  * 2 hardware versions:
-  .
-|| ||v1 ||v2 ||
- .
-||Flash ||16MB ||32MB ||
- ||RAM ||32MB ||64MB ||
+  || ||v1 ||v2 ||
+  ||Flash ||16MB ||32MB ||
+  ||RAM ||32MB ||64MB ||
+
 = Serial port =
 The FVX538 has a serial port with its DB9 connector. Levels are 0-5V (null modem cable required).
 
