@@ -1,4 +1,4 @@
-This !HowTo explains how to get OpenWrt running on VMware. This only works with the development version (Kamikaze (X86 [2.6]), the old stable version (WhiteRussian) is not supported. This has been tested on a Windows XP and Linux host system.
+This !HowTo explains how to get !OpenWrt running on VMware. This only works with the development version (Kamikaze (X86 [2.6]), the old stable version (!WhiteRussian) is not supported. This has been tested on a Windows XP and Linux host system.
 
 = Using prebuilt images =
 
