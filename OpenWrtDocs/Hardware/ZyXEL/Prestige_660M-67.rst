@@ -1,14 +1,14 @@
 = Prestige 660HW-61 =
 
-This device is very similar to the Prestige 660HW-61, please see that entry for a lot of info that also applies to this model.
+This device is very similar to the [:OpenWrtDocs/Hardware/ZyXEL/Prestige_660HW-61:Prestige 660HW-61], please see that entry for a lot of info that also applies to this model.
 
 == Status ==
 
-The AR7 port of OpenWRT won't start on my 660HW. I finally got so far that it no longer threw an exception on startup, it just fails silently :( I guess that BootBase sets up memory management and the caches in a way that trips the kernel up.
+The AR7 port of OpenWRT won't start on my 660HW. I finally got so far that it no longer threw an exception on startup, it just fails silently :( I guess that [:Bootbase] sets up memory management and the caches in a way that trips the kernel up.
 
 == Experiments ==
 
-I tried Sun Juns barebone MIPS serial code (thanks to the guys on #openwrt for the help), but this wouldn't run either. I stripped it down to the absolute minimum, and this finally works:
+I tried [http://linux.junsun.net/porting-howto/ Sun Juns barebone] MIPS serial code (thanks to the guys on #openwrt for the help), but this wouldn't run either. I stripped it down to the absolute minimum, and this finally works:
 
 {{{
 loop:
@@ -26,7 +26,7 @@ I don't know if the stack setup, cache setup or something completely different b
 
 == BootBase info ==
 
-Zyxel apparently decided to put the AR7 CPU into big endian mode, not in little endian like with other AR7 based routers. I tried to analyze the environment BootBase offers the code it jumps to. These programs do the following:
+Zyxel apparently decided to put the AR7 CPU into big endian mode, not in little endian like with other AR7 based routers. I tried to analyze the environment [:Bootbase] offers the code it jumps to. These programs do the following:
 
  1. invalidate primary data and instruction cache indizes ?
  2. setting ERL, EXL and BEV in the CP0 status register - does this set the CPU into kernel mode?
