@@ -85,3 +85,7 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg USR9108] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||mini-PCI || || ||No || ||Yes ||No ||
+
+== ZyXel ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||Prestige 660M-67 || ||Texas Instruments AR7 (TNETD7300) ||2MB ||8MB ||N/A ||ALTIMA AC101? ||["Bootbase"] || Yes || Unknown || Header on-board || [:OpenWrtDocs/Hardware/ZyXEL/Prestige 660M-67:Unsupported] ||
