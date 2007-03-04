@@ -83,6 +83,7 @@ Firmware 3.1.17 has the following distinguishing characteristics:
 customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp%35%34g%5Ffw%5F%33.%31.%31%37%5FUS.zip
 
 NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password
+UPDATE: blocking port 22 doesn't kill sshd via WAN/LAN, and killing it just respawns
 = Accounts in the Supplied Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
@@ -435,3 +436,4 @@ fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
+ 
