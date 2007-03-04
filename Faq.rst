@@ -332,7 +332,7 @@ nvram commit
 and restart {{{dnsmasq}}} with:
 
 {{{
-killall -9 dnsmasq; /etc/init.d/S50dnsmasq
+killall -9 dnsmasq; /etc/init.d/S60dnsmasq
 }}}
 For more details on howto configure static IP addresses see ["OpenWrtDocs/dnsmasq"].
 
