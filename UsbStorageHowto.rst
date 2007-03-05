@@ -92,10 +92,14 @@ First install the kernel file system modules, for example:
 
 {{{
 ipkg install kmod-vfat
-reboot
 }}}
 
-'''TIP:''' The modules can also be loaded using {{{insmod}}} to avoid rebooting.
+'''TIP:''' After installing the modules, you should either reboot the device or load the installed modules manually:
+
+{{{
+insmod fat
+insmod vfat
+}}}
 
 '''TIP:''' You can install support for more file systems by installing the appropriate packages.
 
