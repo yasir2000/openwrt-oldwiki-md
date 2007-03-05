@@ -1,41 +1,33 @@
 Installing spca5xx
 
-Very often installing software in OpenWrt is as easy as 1-2-3. Unfortunately I havent been able to find any pre-build ipkg packages including the kernel modules and software for using with the spca5xx web cams.
-Instead I have found some binaries build by j0chen - thanks a lot for theese very usefull builds.
 
-The first thing to do, is to download the needed files. To (of three) binaries are needed. You will need a kernel module (driver) and a small programme to retrieve images from the web cam. There are two possible kernel modules, the "normal" one and one made specifically for Embedded Devices like the OpenWrt routers - this version is suffixed with "LE".
+Install dependencies.
 
-If your device is supported by the LE version of the driver, I really do suggest that you use this one, as it takes up less ressources than the "full" version. Consult the list of compatible devices here: http://mxhaard.free.fr/spca5xx.html and pay attention to the "Driver" column. If your device is listed with spca5xx/LE, you can use the LE version - if it is listed with spca5xx you will need the full version.
+ipkg install kmod-videodev libpthread libgcc 
 
-The modules can be found on the Downloads section of this page. Unfortunately I have been forced to make the section registered-users only, in order to try to keep traffic a bit down. So if you decide to go on from here, you will have to register. This also allows you to post questions and comments on the forums, so it might be worhtwhile anyway.
+use the following if you want spca5xx 
+wget http://pmeerw.net/openwrt/kmod-spca5xx_2.4.30+20060501-brcm-1_mipsel.ipk
+ipkg install kmod-spca5xx_2.4.30\+20060501-brcm-1_mipsel.ipk
+
+
+use this for the light edition.
 
 The needed files are:
 To download you need to register first.
 
 Kernel Module - LE version: http://www.macsat.com/macsat/component/option,com_docman/task,doc_details/gid,11/Itemid,63/
-
 Kernel Module - Full version: http://www.macsat.com/macsat/component/option,com_docman/task,doc_details/gid,10/Itemid,63/
-
 Software to retrive images: http://www.macsat.com/macsat/component/option,com_docman/task,doc_details/gid,12/Itemid,63/
 
-I will show the way to install the LE version. Installing the non-LE version is EXCATELY the same, just with a different name of the files :-)
 
-After having downloaded the files, you need to copy them to your router. An easy and smooth way to do this is by sftp or ftp.
+Download and gunzip the files locally and copied it via scp:
 
-Start by changing to the directory where you uploaded your two files. Often this will be in /tmp since this is the default "server root" for the sftpd server. Then move the files to the appropiate folders, unpack them and set the correct file rights.
-
-mv spca5xx_lite.o.gz /lib/modules/2.4.30
-cd /lib/modules/2.4.30/
-gunzip spca5xx_lite.o.gz
-
-mv spcacat.gz /usr/bin
-cd /usr/bin
-gunzip spcacat.gz
-chmod +x spcacat
+scp spca5xx_lite.o root@openwrt:/lib/modules/2.4.30
+scp spcacat root@openwrt:/usr/bin
+chmod +x /usr/bin/spcacat
 
 Now it is time to add the module, so that it is loaded at statup. The kernel module is dependent of the kmod-videodev, so this will be installed first, and then the spca4xx_lite module is set to be loaded at startup.
 
-ipkg install kmod-videodev
 echo "videodev" >> /etc/modules
 echo "spca5xx_lite" >> /etc/modules
 
