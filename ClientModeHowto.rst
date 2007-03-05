@@ -39,7 +39,14 @@ OR
 rm /etc/init.d/S50dnsmasq
 }}}
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 If your configuration was previously set to "routed" client mode, you'll need to add the wireless interface to the bridge again and remove it from the wan interface. See NetworkInterfaces for more information.
+
+---- /!\ '''Edit conflict - your version:''' ----
+If your configuration was previously set to "routed" client mode, you'll need to add the wireless interface to the bridge again and remove it from the wan interface. See OpenWrtDocs/NetworkInterfaces for more information.
+
+---- /!\ '''End of edit conflict''' ----
 
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface names] for your hardware version.
 
