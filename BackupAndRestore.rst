@@ -240,3 +240,5 @@ rm -r $NVRAMFILE
 rm -r $SYSINFOFILE
 rm -r $REMOTEFILE
 }}}
+
+Could someone show us an example how to restore a file based backup and remove this paragraph? Thank you in advance. -- Wigy
