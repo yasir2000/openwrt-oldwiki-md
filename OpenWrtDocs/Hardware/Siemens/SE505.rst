@@ -22,17 +22,17 @@ After several bugfixes releases from WHITE RUSSIAN (RC2) works well on this rout
 = Siemens SE505 v2 =
 The SE505 (v2) has a 200 MHz BCM4712KPB CPU, 4MB flash and 8 MB RAM on board. This hardware version has been sold in important quantities as part of ADSL packages from major ISPs in Germany, Austria and Switzerland.
 
-SE505V2 is very similar to [:OpenWrtDocs/Hardware/Belkin/F5D7230: Belkin F5D7230 v1440] (2MB flash), and you can compile the Broadcom reference firmware or get serial access using the tips in http://midnightcode.org/papers/ . Hacking telnet access to the original Linux-2.4.20 firmware from Siemens, using http://midnightcode.org/projects/pluto/code/belky-0.5.c (see SeattleWireless:Belkin_20F5D7230_2d4 "shell on the box" ).
+SE505V2 is very similar to [:OpenWrtDocs/Hardware/Belkin/F5D7230: Belkin F5D7230 v1440] (2MB flash, more or less the same PCB, different box, just one antenna). 
 
-Problems with the hardware detection in Whiterussian RC5 have been fixed in RC6. The former recommendation to fall back to Whiterussian RC4 is obsolete now.
+The broken hardware detection in Whiterussian RC5, that forced the SE505V2 into a reset loop, has been by code that ignores SE505 fully. A patch for the Whiterussian diag code that fixes hardware dectection is available (see below). At least the former recommendation to fall back to Whiterussian RC4 is obsolete now. 
 
-Whiterussian RC6 "micro" will work, but limited RAM will result in poor stability when using PPPOE. The possibility of a RAM upgrade to 16 or 32MByte, and of retrofitting USB, makes this box a cheap alternative to more expensive hardware like ASUS WL500G.
+On a SE505V2 Whiterussian RC6 "micro" will work, but limited RAM will result in poor stability when using PPPOE. However, the option of a RAM upgrade to 16, 32 or even 64MByte makes this box a cheap alternative to more expensive hardware.
 
 __ /!\ __ '''The reset button is hardwired on the SE505V2, so there is no failsafe mode. The ''''''CFE will ''''''reset default nvram settings by pressing the reset button while turning on the router (see reset-button-mod below). '''
 
 __ /!\ __ '''The tftp address during boot_wait is determined by NVRAM. CFE-default is 192.168.2.1 '''
 
- .
+
 == Internal Connectors ==
 On Siemens SE505V2 models, the JTAG connector is labeled J7 (male 2mm connecting plug).
 
