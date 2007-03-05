@@ -11,6 +11,29 @@ On the bottom of the case there are two screws. After this you can open the case
 attachment:c54apra2plus.jpg
 
 === Serial port ===
+{{{
+     ANT   RESET
+      |         
+ -----|------I--+
+                |
+                | 
+                (*
+                |
+                (*
+                |
+       (o) TX   (*  L
+     J  .       |
+     P (o) VCC  (*  E
+     3 (o) GND  |
+       (o) RX   (*  D
+                |
+                (*  S
+                |
+                (*
+                |
+                (*
+                |
+}}}
 
 === JTAG ===
 
