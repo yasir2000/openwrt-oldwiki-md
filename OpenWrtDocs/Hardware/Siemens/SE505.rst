@@ -24,7 +24,7 @@ The SE505 (v2) has a 200 MHz BCM4712KPB CPU, 4MB flash and 8 MB RAM on board. Th
 
 SE505V2 is very similar to [:OpenWrtDocs/Hardware/Belkin/F5D7230: Belkin F5D7230 v1440] (2MB flash, more or less the same PCB, different box, just one antenna). 
 
-The broken hardware detection in Whiterussian RC5, that forced the SE505V2 into a reset loop, has been by code that ignores SE505 fully. A patch for the Whiterussian diag code that fixes hardware dectection is available (see below). At least the former recommendation to fall back to Whiterussian RC4 is obsolete now. 
+The broken hardware detection in Whiterussian RC5, that forced the SE505V2 into a reset loop, has been replaced by code that ignores SE505 fully. A patch for the Whiterussian diag code that fixes hardware dectection is available (see below). At least the former recommendation to fall back to Whiterussian RC4 is obsolete now. 
 
 On a SE505V2 Whiterussian RC6 "micro" will work, but limited RAM will result in poor stability when using PPPOE. However, the option of a RAM upgrade to 16, 32 or even 64MByte makes this box a cheap alternative to more expensive hardware.
 
