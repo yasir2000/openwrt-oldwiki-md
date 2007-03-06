@@ -13,4 +13,4 @@ I successfully flashed an Asus WL-550gE with openwrt-brcm-2.4-squashfs.trx (rc6)
 
 == rob's user report ==
 
-I flashed my Asus WL-550gE with openwrt-brcm-2.4-squashfs.trx (rc6). I can't get pppoe to work.
+I flashed my Asus WL-550gE with openwrt-brcm-2.4-squashfs.trx (whiterussian-0.9). pppoe seems to stop receiving data after several hours and requires a reconnect to get it working again.. Everything else seems to work.
