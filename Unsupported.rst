@@ -68,7 +68,7 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||4 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Broadcom (?) ||Marvell 88E6060 ||No ||No ||No ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||5 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU ||on || || ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||6 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU || ||Yes || ||No ||No ||
-||WGU624 || || ||2MB ||8MB || || || || || || ||Unsupported - original entry was [http://forum.openwrt.org/viewtopic.php?id=7556 Forum post] ||
+||[http://www.netgear.com/products/details/WGU624.php WGU624] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm AR5312] @220MHz ||2MB ||8MB ||AR5112A AR2112A ||[http://www.realtek.com.tw/search/default.aspx?keyword=8305SB Realtek RTL8305SB] ||N/A ||Yes ||Yes ||No ||Needs Redboot - should probably be classified as a WiP||
 ||[http://netgear.com/products/details/WPNT834.php WPNT834] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||Airgo (mini-PCI) ||integrated Realtek ||N/A || || ||No ||No ||
 
 == Siemens ==
