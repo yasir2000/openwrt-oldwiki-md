@@ -116,7 +116,7 @@ nvram set wl0_channel=<CHANNEL_NUMBER>
 ifup wan; /sbin/wifi
 }}}
 
-You can configure encryption like WEP or WPA the way you would if the device was in access point mode. For example:
+You can configure encryption like WEP or WPA the way you would if the device was in access point mode. For example, using WEP;
 
 {{{
 ifdown wan
@@ -127,6 +127,8 @@ nvram set wl0_key=1
 nvram set wl0_key1=<WEP key in hex format>
 ifup wan; /sbin/wifi
 }}}
+
+If you use WPA see OpenWrtDocs/Configuration#head-3df0fd425a927a2d9a7e5c13f070bc4840eb7144
 
 Don't forget to commit if you want your settings to survive a reboot:
 
