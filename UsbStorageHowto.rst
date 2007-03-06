@@ -16,13 +16,43 @@ It's useful to extend the storage capacity of your USB enabled Wrt router f. e. 
 '''TIP:''' Some routers are USB 1.1 and 2.0 compatible. To use both devices with both versions install the modules for USB 1.1 and 2.0.
 
 == Modules for USB 1.1 ==
-For USB 1.1 you need to install
+For USB 1.1, try installing the UHCI drivers first:
 
 {{{
 ipkg install kmod-usb-uhci
+insmod uhci
 }}}
 
-'''TIP:''' Most USB chips have UHCI controllers. If that is not working for you install the {{{kmod-usb-ohci}}} package instead of the {{{kmod-usb-uhci}}} one. The BCM4710 and BCM4712 will need {{{kmod-usb-ohci}}}!  
+If you see the message:
+
+{{{
+insmod: init_module: uhci: No such device
+}}}
+
+then your hardware does not have a UHCI compliant device, so you might as well remove the package:
+
+{{{
+ipkg remove kmod-usb-uhci
+}}}
+
+'''TIP:''' Most USB chips have UHCI controllers. If you received a "No such device" error, then try installing the {{{kmod-usb-ohci}}} package instead. The BCM4710 and BCM4712 based routers require {{{kmod-usb-ohci}}}:
+
+{{{
+ipkg install kmod-usb-ohci
+insmod usb-ohci
+}}}
+
+If you see the message:
+
+{{{
+insmod: init_module: usb-ohci: No such device
+}}}
+
+then your hardware does not have a OHCI compliant device, so you might as well remove the package:
+
+{{{
+ipkg remove kmod-usb-ohci
+}}}
 
 == Modules for USB 2.0 ==
 This package includes the modules for USB 2.0.
@@ -31,6 +61,7 @@ This package includes the modules for USB 2.0.
 
 {{{
 ipkg install kmod-usb2
+insmod ehci-hcd
 }}}
 
 == Modules for storage ==
@@ -38,6 +69,9 @@ To add storage support finally install
 
 {{{
 ipkg install kmod-usb-storage
+insmod scsi_mod
+insmod sd_mod
+insmod usb-storage
 }}}
 
 == Clean up ==
