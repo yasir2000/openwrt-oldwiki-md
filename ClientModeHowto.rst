@@ -128,7 +128,7 @@ nvram set wl0_key1=<WEP key in hex format>
 ifup wan; /sbin/wifi
 }}}
 
-If you use WPA see OpenWrtDocs/Configuration#head-3df0fd425a927a2d9a7e5c13f070bc4840eb7144
+If you use WPA you can find the relevant configuration options under OpenWrtDocs/Configuration.
 
 Don't forget to commit if you want your settings to survive a reboot:
 
