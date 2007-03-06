@@ -6,12 +6,12 @@ The OpenWrt web interface is based on a set of shell and awk scripts and the for
 
  The "Programmers Guide to Webif" is the only documentaion available, unless you read the code... It is a Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
 
- If you feel that you can make a difference, post a NEW topic in [http://www.bitsum.com/smf/index.php?board=17.0 X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
+ If you feel that you can make a difference, post a NEW topic in [http://forum.x-wrt.org X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
  Or if you are a good shell programmer with no original ideas (like me), look thru the code to see if there are many repeats of code that could be made as library functions. I'm sure the guys at X-Wrt are busy solving problems and creating new features and may sometimes not have the time to go the code with a critical (but constructive) eye.
 
 '''Feedback'''
- Suggestions for the guide gratefully received preferably via [http://www.bitsum.com/smf/index.php?board=17.0 X-Wrt's forum]
+ Suggestions for the guide gratefully received preferably via [http://forum.x-wrt.org X-Wrt's forum]
 
 '''Thanks for feedback from:'''
  * thepeople
