@@ -14,6 +14,8 @@ If you want to help with development, attach a serial console and build an image
 
 Please always use the newest Subversion code. Report any bugs via the [https://dev.openwrt.org ticket system].
 
+Note that the failsafe mode doesn't work yet, so the system cannot be recovered (except by serial cable) when something goes wrong.
+
 = Installing OpenWrt =
 == Using Netgear's web interface ==
 If you want to upgrade to !OpenWrt using the web interface, you need to download a special config file and upload it to your router using the '''Backup Settings''' option. The supplied config file is for version 1.4.1.10 of the Netgear supplied firmware. If the version number doesn't match the version number of the config file it will just not 'take'
