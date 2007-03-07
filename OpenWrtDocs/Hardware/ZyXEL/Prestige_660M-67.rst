@@ -34,7 +34,7 @@ ATGO9417c04c
 
 == Experiments ==
 
-I tried [http://linux.junsun.net/porting-howto/ Sun Juns barebone] MIPS serial code (thanks to the guys on #openwrt for the help), but this wouldn't run either. I stripped it down to the absolute minimum, and this finally works:
+I tried [http://linux.junsun.net/porting-howto/ Jun Suns barebone] MIPS serial code (thanks to the guys on #openwrt for the help), but this wouldn't run either. I stripped it down to the absolute minimum, and this finally works:
 
 {{{
 loop:
