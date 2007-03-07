@@ -194,6 +194,24 @@ esac
 
 All stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
 
+{{{
+#!/bin/sh
+# I put this init script in there: /etc/init.d/S59rtc 
+# thanks for improvement of the SXX number!
+# check for /dev/rtc (which seems to dissappear at a reboot- right?) 
+# then check if the module is loaded and if not load it an
+cat /dev/rtc || ( ( lsmod |grep -q rtcdrv ) || ( insmod /lib/modules/rtcdrv.o ); ( mknod /dev/rtc c 12 0 ) )
+
+# I got this error: date: invalid date `003f7f0f1900.5f' # probably need to wait a while on /dev/rtc (?) 
+# any hint welcome..
+sleep 1
+
+#then execute the script found above
+/bin/hwclock.sh --hctosys
+
+
+}}}
+
 === Second USB Port ===
 
 Found on [http://wl500g.info/showthread.php?s=65d1ded33283574e7d0c3d86a9ec31fe&t=3571 wl500g.info] that on a wl500g it is possible to use the second port of the internal hub. As it looks the same on the wl-hdd, i tried this and it works too. Benefits of this hardware mod? First, no need for a external hub if using a printer or something permanently. Second, using it as internal port for another mods (audio?) without external cables. 
