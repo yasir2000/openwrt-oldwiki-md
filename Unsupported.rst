@@ -24,8 +24,12 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
+
+
 == D-Link ==
+
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||DI-524||B2||D-Link DL7500A||1MB||2MB||unknown||D-Link DL1005E (?)|| || || || || Unsupported ||
 ||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 
 
