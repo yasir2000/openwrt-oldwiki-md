@@ -12,7 +12,7 @@ Status: untested
 
 == Hardware ==
 
-This router differs to ["OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-BASIC-3"] which uses a different CPU.
+This router differs to ["OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-BASIC-3"] which uses a different CPU. But has the same CPU as ["OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-BASIC"].
 
 It also has a USB Port and different miniPCI WLAN card which can not be seen on the image due to glue. After removing the glue the Chip desc reads ISL 3880 IK.
 
