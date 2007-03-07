@@ -190,10 +190,12 @@ case "$1" in
                 echo "Usage: $0 {--systohc|--hctosys}" >&2
                 ;;
 esac
+
+# From: [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
+
 }}}
 
-All stolen from [http://forum.openwrt.org/viewtopic.php?id=5606] and [http://wl500g.info/showthread.php?t=1642]
-
+rtc init script:
 {{{
 #!/bin/sh
 # I put this init script in there: /etc/init.d/S59rtc 
