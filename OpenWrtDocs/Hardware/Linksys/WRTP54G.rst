@@ -5,7 +5,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||Wifi Support: ||54MBps 802.11b/g ||None ||
 ||Linksys webpage ||[http://www1.linksys.com/products/product.asp?grid=33&prid=692 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1118334626380 Downloads] ||[http://www1.linksys.com/products/product.asp?grid=33&prid=695 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1119460383933 Downloads] ||
 ||CyberTAN equiv model ||[http://www.cybertan.com.tw/product/wgv614.asp WGV614] http://www.cybertan.com.tw/product/productpic/wgv614.jpg ||[http://www.cybertan.com.tw/product/brv614.asp BRV614] http://www.cybertan.com.tw/product/productpic/brv614.jpg ||
-||__Firmware Releases__ ||||<style="TEXT-ALIGN: center"> ||
+||__Firmware Releases__ ||||<style="text-align: center;"> ||
 ||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code]If both line are configured to connect to Asterisk and registration is used, they may not stay registered reliably. The exact circumstances under which this problem manifests itself are yet to be determined. ||[http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
 ||1.00.43: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.43-r050816.img Firmware Image] No Source || ||
 ||1.00.45: || ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.45-r050823.img Firmware Image] No Source ||
@@ -80,11 +80,13 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
-customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp%35%34g%5Ffw%5F%33.%31.%31%37%5FUS.zip
+customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip
 
 NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password
 
-UPDATE: blocking port 22 doesn't kill sshd via WAN/LAN, and killing it just respawns
+ . Also, blocking port 22 doesn't seem to help.
+Latest firmware can be found here attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img
+
 = Accounts in the Supplied Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
@@ -437,4 +439,3 @@ fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
- 
