@@ -5,14 +5,12 @@
 #format wiki
 #language en
 = Client Mode Wireless =
-by Tho Tran            —                                                                   last modified                          2007-03-07 13:29                                                                         Kamikaze Style
+by Tho Tran            —                                                                   last modified                          2007-03-07 13:29
 
+'''Kamikaze Style'''
 
-
-The following instructions will set up client mode wireless on a Fonera device.
-
-The two files you'll need to work with are /etc/config/network and /etc/config/wireless.
-
+ * The following instructions will set up client mode wireless on a Fonera device.
+ * The two files you'll need to work with are /etc/config/network and /etc/config/wireless.
 == WEP ==
 /etc/config/network
 
