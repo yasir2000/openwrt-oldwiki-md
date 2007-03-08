@@ -54,6 +54,7 @@ config wifi-iface
         option key      your26CharacterHexKeyHere
 }}}
  . Reboot the device.
+ .
 == WPA2-AES ==
 Assuming you have WEP working correctly you should now be connected and surfing the web.  To get WPA to work you'll need to install the wpa_supplicant package.
 
