@@ -31,6 +31,7 @@ config interface lan
 config interface wan
         option ifname   ath0
         option proto    dhcp}}}
+
 /etc/config/wireless
 
  * Set the wifi-iface option to sta (client mode).
@@ -49,8 +50,7 @@ config wifi-iface
         option ssid     yourSSIDHere
         #option hidden   0
         option encryption wep
-        option key      your26CharacterHexKeyHere
-}}}
+        option key      your26CharacterHexKeyHere}}}
  . '''Reboot the device. '''
  .
 == WPA2-AES ==
@@ -94,6 +94,7 @@ network={
         disabled=0
 }
 }}}
+
 Now start wpa_supplicant.
 
 {{{
