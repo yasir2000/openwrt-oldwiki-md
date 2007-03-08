@@ -31,8 +31,6 @@ config interface lan
 config interface wan
         option ifname   ath0
         option proto    dhcp}}}
-
-
 /etc/config/wireless
 
  * Set the wifi-iface option to sta (client mode).
@@ -62,8 +60,6 @@ Assuming you have WEP working correctly you should now be connected and surfing 
 # ipkg update
 # ipkg install wpa_supplicant
 }}}
-
-
 /etc/config/wireless
 
  * The only option you'll have to set now is "option mode sta".
@@ -81,8 +77,6 @@ config wifi-iface
         #option encryption wep
         #option key     your26CharacterHexKeyHere}}}
 Reboot the device.
-
-
 
 /etc/wpa_supplicant.conf
 
@@ -108,8 +102,6 @@ Now start wpa_supplicant.
 # wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
 That should do it; happy hunting.
 
-
-
 == Autostart wpa_supplicant ==
 Here's how to get wpa_supplicant to start on boot/reboot.
 
@@ -121,8 +113,6 @@ wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
  * Create a symbolic link to it from /etc/rc.d/ directory.
 {{{
 # ln -s /etc/init.d/wpaStart.sh S90wpaStart}}}
-
-
 == Useful Commands ==
  * ifconfig
  * iwconfig
