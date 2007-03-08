@@ -51,7 +51,7 @@ config wifi-iface
         option encryption wep
         option key      your26CharacterHexKeyHere
 }}}
- . Reboot the device.
+ . '''Reboot the device. '''
  .
 == WPA2-AES ==
 Assuming you have WEP working correctly you should now be connected and surfing the web.  To get WPA to work you'll need to install the wpa_supplicant package.
@@ -76,7 +76,7 @@ config wifi-iface
         #option hidden   0
         #option encryption wep
         #option key     your26CharacterHexKeyHere}}}
-Reboot the device.
+ '''Reboot the device.'''
 
 /etc/wpa_supplicant.conf
 
@@ -100,6 +100,8 @@ Now start wpa_supplicant.
 {{{
 # wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
 That should do it; happy hunting.
+
+
 
 == Autostart wpa_supplicant ==
 Here's how to get wpa_supplicant to start on boot/reboot.
