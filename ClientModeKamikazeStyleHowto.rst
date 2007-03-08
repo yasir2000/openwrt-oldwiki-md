@@ -4,13 +4,13 @@
 ##master-date:Unknown-Date
 #format wiki
 #language en
- Client Mode Wireless
-                                                 by           [http://shield:8080/author/thotran Tho Tran]            —                                                                   last modified                          2007-03-07 13:29                                                                         Kamikaze Style
-
+= Client Mode Wireless =
+by Tho Tran            —                                                                   last modified                          2007-03-07 13:29                                                                         Kamikaze Style
 The following instructions will set up client mode wireless on a Fonera device.
+
 The two files you'll need to work with are /etc/config/network and /etc/config/wireless.
 
-= WEP =
+== WEP ==
 /etc/config/network
 
  * Give the LAN interface a static IP.
@@ -30,8 +30,6 @@ config interface lan
 config interface wan
         option ifname   ath0
         option proto    dhcp}}}
-
-
 /etc/config/wireless
 
  * Set the wifi-iface option to sta (client mode).
@@ -50,17 +48,16 @@ config wifi-iface
         option ssid     yourSSIDHere
         #option hidden   0
         option encryption wep
-	option key	your26CharacterHexKeyHere
+        option key      your26CharacterHexKeyHere
 }}}
- Reboot the device.
+ . Reboot the device.
+== WPA2-AES ==
+Assuming you have WEP working correctly you should now be connected and surfing the web.  To get WPA to work you'll need to install the wpa_supplicant package.
 
-= WPA2-AES =
-Assuming you have WEP working correctly you should now be connected and surfing the web.  To get WPA to work you'll need to install the wpa_supplicant package.{{{
+{{{
 # ipkg update
 # ipkg install wpa_supplicant
 }}}
-
-
 /etc/config/wireless
 
  * The only option you'll have to set now is "option mode sta".
@@ -76,10 +73,8 @@ config wifi-iface
         #option ssid     yourSSIDHere
         #option hidden   0
         #option encryption wep
-        #option key	your26CharacterHexKeyHere}}}
+        #option key     your26CharacterHexKeyHere}}}
 Reboot the device.
-
-
 
 /etc/wpa_supplicant.conf
 
@@ -96,14 +91,17 @@ network={
         key_mgmt=WPA-PSK
         pairwise=CCMP
         disabled=0
-}}}}
-Now start wpa_supplicant.{{{
+}}}
+}Now start wpa_supplicant.
+
+{{{
 # wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
 That should do it; happy hunting.
-= Autostart wpa_supplicant =
-Here's how to get wpa_supplicant to start on boot/reboot.
- * Create the file /etc/init.d/wpaStart.sh
 
+== Autostart wpa_supplicant ==
+Here's how to get wpa_supplicant to start on boot/reboot.
+
+ * Create the file /etc/init.d/wpaStart.sh
 {{{
 #!/bin/sh
 wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
@@ -111,7 +109,7 @@ wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
  * Create a symbolic link to it from /etc/rc.d/ directory.
 {{{
 # ln -s /etc/init.d/wpaStart.sh S90wpaStart}}}
-= Useful Commands =
+== Useful Commands ==
  * ifconfig
  * iwconfig
  * wpa_cli
