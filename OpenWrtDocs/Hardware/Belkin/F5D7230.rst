@@ -19,6 +19,8 @@ NOTE7: Use the tftp installation method. This worked with the RC5 micro firmware
 
 NOTE8: This router is also sold in Europe in 2006 and 2007 under the brand Micradigital, with the revision F5D7230ec4. See  http://www.micradigital.com/Product.aspx?id=216667.
 
+NOTE9: The MicraDigital F5D7230ec4 (ver. 1020ec) is not based on a Broadcom chip, but an Atheros AR2315A (which can also run OpenWRT, it's a MIPS R4K core). With 2MB Flash (ST M25P16, 50MHz SPI) and 8MB SDRAM (IC4S16400-7T, 133MHz), it's a bit low on memory but there are Works In Progress here on similar configurations. The switch is a IC+ IP175C, looks quite complete, and the radio is integrated into the Atheros. 10-pin serial port and 14-pin (unsocketed) JTAG ports are accessible onboard. The board really looks like the reference design from Atheros http://www.atheros.com/pt/AR5006AP-G.htm, the parts are almost placed in the same way. There is an undetachable external antenna, and an noboard patch antenna. But on the first one a SMD coax connector is populated, and the PCB has room for a SMA connector. Pictures and serial sniffing coming soon. Maybe this one deserves its own page, as it is a different design (but really close to others on this Wiki)
+
 == GPIO ==
 
 For v1444:
