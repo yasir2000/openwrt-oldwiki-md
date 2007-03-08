@@ -6,12 +6,12 @@ Looks like most people won't be able to install OpenWrt using the Asus web inter
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use manufacturers own web interfalce to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: it does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0.-~
+It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: it does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0.-~
 
 === Using diag mode and tftp ===
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
-Netkit's tftp doesn't work quit often, use atftp.
+Netkit's tftp doesn't work quite often; use atftp.
 
 /!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 
@@ -24,6 +24,7 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
+
 === Using the Asus firmware restoration tool (windows only or wine on Linux) ===
  * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
  * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
@@ -31,7 +32,8 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * Push the RESTORE (not the red EZsetup!!!!) button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
  * Press Upload. The router will reboot itself.
- * You can find the router on it's previous ip address (otherwise 192.168.1.1)
+ * You can find the router on its previous ip address (otherwise 192.168.1.1)
+
 == WL-500gP specific configuration ==
 === Interfaces ===
 /!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0. Similarly forcing lan_proto=dhcp_server breaks LAN even in "diag" mode (and potentially bricks the router).''' /!\
@@ -188,9 +190,9 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 == Trunc with Kernel 2.6 ==
 '''P:''' The line ''b44: eth1: BUG! Timeout waiting for bit 80000000 of register 428 to clear.'' may appear in log. ''' '''
 
-'''S:''' As writen in http://forum.openwrt.org/viewtopic.php?pid=29017 this can be fixed by editing /etc/init.d/S10boot
+'''S:''' As written in http://forum.openwrt.org/viewtopic.php?pid=29017 this can be fixed by editing /etc/init.d/S10boot
 
-'''P:''' USB 1.1 devices are not recognized, USB 2.0 devices like harddrives etc. work perfectly. How comes? ''' '''
+'''P:''' USB 1.1 devices are not recognized, USB 2.0 devices like harddrives etc. work perfectly. How come? ''' '''
 
 '''S:''' The WL-500gP ehci-hcd module handles all USB2 transfer well, but the external ports use uhci-hcd for usb1. To make it even worse, the current trunk version has issues with this module to load but it can be fixed like mentioned in the forum http://forum.openwrt.org/viewtopic.php?id=7149. The broadcom chip seems to have a "buried" ohci controller that can not be used with the external connectors.
 
