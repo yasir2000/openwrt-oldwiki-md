@@ -5,7 +5,7 @@
 #format wiki
 #language en
 = Client Mode Wireless =
-by Tho Tran            —                                                                   last modified                          2007-03-07 13:29
+by Tho Tran — last modified 2007-03-07 13:29
 
 '''Kamikaze Style'''
 
@@ -54,7 +54,7 @@ config wifi-iface
  . '''Reboot the device. '''
  .
 == WPA2-AES ==
-Assuming you have WEP working correctly you should now be connected and surfing the web.  To get WPA to work you'll need to install the wpa_supplicant package.
+Assuming you have WEP working correctly you should now be connected and surfing the web. To get WPA to work you'll need to install the wpa_supplicant package.
 
 {{{
 # ipkg update
@@ -76,8 +76,7 @@ config wifi-iface
         #option hidden   0
         #option encryption wep
         #option key     your26CharacterHexKeyHere}}}
- '''Reboot the device.'''
-
+ . '''Reboot the device.'''
 /etc/wpa_supplicant.conf
 
  * Your wifi options are now set in /etc/wpa_supplicant.conf (you'll have to create this file) instead of /etc/config/wireless.
@@ -100,8 +99,6 @@ Now start wpa_supplicant.
 {{{
 # wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
 That should do it; happy hunting.
-
-
 
 == Autostart wpa_supplicant ==
 Here's how to get wpa_supplicant to start on boot/reboot.
