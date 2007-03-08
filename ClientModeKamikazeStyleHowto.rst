@@ -93,9 +93,8 @@ network={
         key_mgmt=WPA-PSK
         pairwise=CCMP
         disabled=0
-}}}}
-
-
+}
+}}}
 Now start wpa_supplicant.
 
 {{{
