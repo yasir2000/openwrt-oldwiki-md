@@ -31,7 +31,6 @@ config interface lan
 config interface wan
         option ifname   ath0
         option proto    dhcp}}}
-
 /etc/config/wireless
 
  * Set the wifi-iface option to sta (client mode).
@@ -58,8 +57,7 @@ Assuming you have WEP working correctly you should now be connected and surfing 
 
 {{{
 # ipkg update
-# ipkg install wpa_supplicant
-}}}
+# ipkg install wpa_supplicant}}}
 /etc/config/wireless
 
  * The only option you'll have to set now is "option mode sta".
@@ -92,9 +90,7 @@ network={
         key_mgmt=WPA-PSK
         pairwise=CCMP
         disabled=0
-}
-}}}
-
+} }}}
 Now start wpa_supplicant.
 
 {{{
