@@ -169,3 +169,5 @@ You can update the bootloader from within MyLoader itself.
 '''Inside the box'''
 
 Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips. Warning: after opening the box, it's quite hard to get the LED light guide back into place properly.
+
+CategoryModel ["CategoryADM5120Device"]
