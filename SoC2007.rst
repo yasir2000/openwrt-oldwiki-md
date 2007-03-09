@@ -1,4 +1,8 @@
-Please make sure you've read [http://code.google.com/p/google-summer-of-code/wiki/AdviceforMentors Advice for Mentors] directives before contributing ideas...
+= Important Info =
+
+ * Make sure you've read [http://code.google.com/p/google-summer-of-code/wiki/AdviceforMentors Advice for Mentors] directives before contributing ideas...
+ * Deadline to submit mentoring organization application to google is: '''14th March'''
+ * [http://groups.google.com/group/google-summer-of-code-announce/web/gsoc-mentor-organization-application-how-to Mentor organization application howto]
 
 = Ideas =
 
@@ -22,3 +26,7 @@ Skills required:
  * Basic electronics (needed to build a serial cable with a TTL level inverter)
  * Knowledge about MIPS architecture
  * Good level at C and MIPS assembly
+
+Interested '''mentors''': ???
+
+Interested '''students''': brainstorm
