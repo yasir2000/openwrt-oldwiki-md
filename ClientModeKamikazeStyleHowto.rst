@@ -57,7 +57,7 @@ Assuming you have WEP working correctly you should now be connected and surfing 
 
 {{{
 # ipkg update
-# ipkg install wpa_supplicant}}}
+# ipkg install wpa-supplicant}}}
 /etc/config/wireless
 
  * The only option you'll have to set now is "option mode sta".
