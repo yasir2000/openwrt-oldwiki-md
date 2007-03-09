@@ -20,7 +20,7 @@ _______________________________________
 | Pin 4: GND     ----> ()               led
 | Pin 3: + 3.3 v ----> ()               |
 | Pin 2: GND     ----> ()               |
-| Pin 1: RX      ----> []               led     Front of G504T/604T/664T
+| Pin 1: RX      ----> []               led     Front of C54APRB
 |                     JP5               |
 |                                       led
 |                                       |
