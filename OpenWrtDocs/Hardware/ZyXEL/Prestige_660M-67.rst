@@ -4,7 +4,7 @@ This device is very similar to the [:OpenWrtDocs/Hardware/ZyXEL/Prestige_660HW-6
 
 == Status ==
 
-The AR7 port of OpenWRT won't start on my 660HW. I finally got so far that it no longer threw an exception on startup, it just fails silently :( I guess that [:Bootbase] sets up memory management and the caches in a way that trips the kernel up.
+The 2.4 AR7 Kamikaze kernel boots up more or less, but serial, VLYNQ and the flash map are non-functional. So it isn't useful yet at all :(
 
 == Running code ==
 Kolja Waschk posted his [http://www.ixo.de/info/zyxel_uclinux/ in-depth findings] on a previous Zyxel router. Except for the different memory layout, everything said there applies to the AR7 based model. So a console sessiont to upload code would look like this:
@@ -31,24 +31,6 @@ C
 Total 1597440 bytes received
 ATGO9417c04c
 }}}
-
-== Experiments ==
-
-I tried [http://linux.junsun.net/porting-howto/ Jun Suns barebone] MIPS serial code (thanks to the guys on #openwrt for the help), but this wouldn't run either. I stripped it down to the absolute minimum, and this finally works:
-
-{{{
-loop:
-      lui      v1,0x2E2E  # an ascii '.'
-      li       v1,0x2E2E  # in the lower nibble too
-      li      v0, 0x0000  # clear v0, just in case
-      lui     v0,0xa861   
-      ori     v0,v0,0xe00 # 0xa8610e00 is the location of the uart out IO
-      sw      v1,(v0)     # dump the . in there
-
-      j       loop        # and loop indefenitely
-}}}
-
-I don't know if the stack setup, cache setup or something completely different b0rks Sun's demo code.
 
 == BootBase info ==
 
