@@ -83,6 +83,8 @@ Turns out that even wet mode is not a true bridge - it does ARP masquerading. Se
 
 Thank you guys, this howto work perfectly for me with white russian 4. To make this a bit more simple I use a static IP for the wlan interface, so I don't need to wait to get an IP and so I remove the sleep script. -- [:RafMazBrianCandler:RafMaz] [[DateTime]]
 
+I was trying now for weeks to set up wet mode but it didn't work out. Finally I looked through the source of wlconfig.c (/sbin/wifi) and *gotcha*: Don't use a WPA key longer than 63 chars (minlength is 8). -- Huedi [[DateTime(2007-03-09T20:23:00Z)]]
+
 == S47sleep ==
 {{{
 #!/bin/sh
