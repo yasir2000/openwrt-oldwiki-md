@@ -16,6 +16,7 @@ See also
  * '''CategoryCategory''' - For a list of lists
  * '''CategoryModel''' - For a extra details on particular models
  * '''CategoryOpenWrtPort''' - list of devices under test
+ * '''["CategoryADM5120Device"]''' - Which models use the ADM5120
  * '''["CategoryAR7Device"]''' - Which models use the AR7
  * '''OpenWrtDocs''' - back to the Table of Contents
 == 4G Systems ==
