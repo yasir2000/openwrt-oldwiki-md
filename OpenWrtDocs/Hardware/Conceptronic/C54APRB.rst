@@ -32,3 +32,5 @@ _______________________________________
 The console is located aproximately in center of a board, it's JP5, the only 5-pin 2,54mm-step connector. Usualy it is already soldered-in. Voltage reference is 3.3 volts and it is set by default at 38400,8,N,1.
 
 == JTAG ==
+
+["CategoryAR7Device"] CategoryModel
