@@ -557,7 +557,7 @@ Examples:
 ||Eastern Time ||EST5EDT ||
 ||Atlantic Time ||AST4ADT ||
 ||Atlantic Time (New Brunswick) ||AST4ADT,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
-||Newfoundland Time ||NST+3:30NDT+2:30,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
+||Newfoundland Time (Updated DST for 2007) ||NST+3:30NDT+2:30,M3.2.0/00:01:00,M11.1.0/00:01:00 ||
 ||<style="text-align: center;" |3>Asia ||Jakarta ||WIB-7 ||
 ||Singapore ||SGT-8 ||
 ||Ulaanbaatar, Mongolia ||ULAT-8ULAST,M3.5.0/2,M9.5.0/2 ||
