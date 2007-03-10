@@ -86,7 +86,7 @@ In my firewall script I had to add the following rule to let the encapsulated pa
 {{{
 iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 }}}
-If your Openwrt is also a NAT you should add the following to prevent protocol 41 (6in4) to get listed on the NAT table. Otherwise your tunnel goes down after some time.
+If your Openwrt is also a NAT you should add the following to prevent protocol 41 (6in4) to get listed on the NAT table. Otherwise your tunnel goes down after some time. (See https://noc.sixxs.net/faq/connectivity/?faq=conntracking.)
 
 {{{
 iptables -t nat -D POSTROUTING -o $WAN -j MASQUERADE
