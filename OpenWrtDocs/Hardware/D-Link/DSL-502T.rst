@@ -55,7 +55,11 @@ svn co https://svn.openwrt.org/openwrt/packages/net/ez-ipupdate ez-ipupdate is a
 
 ''' Install prerequisites for compiling'''
 
-For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev'
+For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev', 'automake', 
+i.e
+{{{
+apt-get install flex bison autoconf zlib1g-dev libncurses5-dev automake
+}}}
 
 '''Select firmware components'''
 
