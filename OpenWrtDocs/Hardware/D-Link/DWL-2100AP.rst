@@ -38,7 +38,16 @@ Some resistors (R264, R273, R275) are missing, so the serial port won't work.  I
 
 === JTAG ===
 
-J1 (14-pin, without headers) seems to be the JTAG port.  Probably standard EJTAG 2.6 layout.
+J1 (14-pin, without headers) is the JTAG port with standard EJTAG 2.6 layout.
+In JTAG Tools (works in last version jtag-0.6-cvs-20051228 only) board does not detect right, so it needs some definitions to access flash:[[BR]]
+{{{
+jtag> cable parallel 0x378 WIGGLER
+jtag> detect
+jtag> include atheros/ar2312/ar2312
+jtag> poke 0x58400000 0x000e3ce1
+jtag> detectflash 0x1fc00000
+}}}
+Flash works only in 8bit mode. It really slow, but I successfully debricked both 2100AP I have.
 
 == Software ==
 
@@ -151,3 +160,50 @@ I'm attempting to reapply the patches to 2.4.33rc1.
 === OpenWRT ===
 
 I've been able to build a ramdisk image from Kamikaze revision 6344 and boot it via TFTP on the DWL-2100AP.  Hacking package/madwifi/Makefile to set HAL_TARGET to ap43 provides the right HAL to get the wireless interface working.
+
+=== Redboot ===
+
+Redboot when loaded via JTAG cable works only with ENET1 ethernet (when using ENET0 it hangs (??), but works when loaded from original bootloader).[[BR]]
+In ae531xecos.c :: ae531x_init I've changed
+{{{
+unit = ae531x_priv->enetUnit;
+}}}
+to 
+{{{
+unit=1;
+}}}
+to get it works.[[BR]]
+[[BR]]
+To get redboot detect flash (in my case it is S29gl032m90) it have to be described in flash_am29xxxxx_parts.inl:
+{{{
+   {   // S29gl032m90
+        device_id  : FLASHWORD(0x7e),
+        block_size : 0x20000 * CYGNUM_FLASH_INTERLEAVE,
+        block_count: 32,
+        device_size: 0x400000 * CYGNUM_FLASH_INTERLEAVE,
+        base_mask  : ~(0x400000 * CYGNUM_FLASH_INTERLEAVE - 1),
+        bootblock  : true,
+        bootblocks : { 0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x3e0000 * CYGNUM_FLASH_INTERLEAVE,
+                       _LAST_BOOTBLOCK
+                     },
+        banked     : false
+    },
+}}}
+and 
+in plf_flash.c set flash to x8bit mode (it does not works in x16 mode):
+{{{
+#define CYGNUM_FLASH_INTERLEAVE (1)
+#define CYGNUM_FLASH_SERIES     (1)
+#define CYGNUM_FLASH_WIDTH      (8)
+#define CYGNUM_FLASH_16AS8      1
+#define CYGNUM_FLASH_BASE       (0xbfc00000)
+}}}
+so, flash starts from 0xbfc00000, memory from 0x80000000. So, RAM version works now, and I'm trying to make ROM version works.[[BR]]
