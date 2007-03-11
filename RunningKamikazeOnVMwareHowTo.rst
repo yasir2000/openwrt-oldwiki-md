@@ -15,7 +15,7 @@ On a Windows host-system the virtual serial console is accessible e. g. using Pu
 
 To build your own Kamikaze VMware image you need a !OpenWrt development environment (with ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian) installed on the Linux host-system to convert the image):
  1. check out with "{{{svn co https://svn.openwrt.org/openwrt/trunk/}}}" 
- 1. Then you need to apply the following patch to the freshly checked out !OpenWrt Kamikaze build system (these are not yet in official repository but will be added soon):
+ 1. Then you need to apply the following patch to the freshly checked out !OpenWrt Kamikaze build system (it is not yet in official repository but will probably be added soon):
   * [http://tinyurl.com/2ujl8x add-vmware-images.patch]
  1. After applying the patches run 'make menuconfig' and select:
   * Target System (x86 [2.6])
