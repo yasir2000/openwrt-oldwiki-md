@@ -24,7 +24,9 @@ Please contribute useful information here.
 There's different 3G data cards bundled with this device. "Vodafone Mobile Connect 3G/GPRS data card" has NEC USB2 controller with two generic USB serial ports builtin. 3G side is connected to those serial ports.
 
 = Serial port =
-attachment:WRT54G3G_Serial.jpg Serial port requires level converter at 3.3V:
+attachment:WRT54G3G_Serial.jpg
+
+Serial port requires level converter at 3.3V:
 
 {{{
 Pin 1 = +3.3V
@@ -32,13 +34,13 @@ Pin 2 = TXD
 Pin 3 = RXD
 Pin 4 = unused
 Pin 5 = GND}}}
-If you use a''' Nokia DLR-3P'''cell phone datacable you can use this color coding - will NOT match if you use different cable.
+If you use a''' Nokia DLR-3P''' cell phone datacable you can use this color coding - will NOT match if you use different cable.
 
 {{{
 Pin 2 = TXD (GRAY)
 Pin 3 = RXD (GREEN)
 Pin 5 = GND (BLACK+SHIELD)}}}
-Same for use with a '''Siemens C35 data cable''':
+Same for use with a '''Siemens C35''' data cable:
 
 {{{
 Pin 2 = TXD (BLUE)
