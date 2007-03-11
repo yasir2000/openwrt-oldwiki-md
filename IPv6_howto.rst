@@ -453,6 +453,85 @@ C:\>
 }}}
 Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/0) telling Windows they can be used together at each end of a communication link. Now if you go to an IPv6 enabled website (e.g. www.kame.net) you will connect to it using IPv6 instead of IPv4.
 
+= Using IPv6 by default with Windows Vista =
+Even though Vista comes pre-configured with IPv6 support it still only uses the stack to communicate with other 6to4 addresses or other IPv6 only hosts by default (it will prefer IPv4 otherwise). To force IPv6 with dual stack non-6to4 hosts the instructions are the same as above in the Windows XP howto with a couple minor differences.  The "set prefixpolicy" command only works once, wiping out all other policies in the process.  To recreate these policies you have to use the "add prefixpolicy" command.  Also to show the current policies, you need to use the "show prefixpolicies" command instead of "show prefixpolicy".
+
+Short method to editing policies:
+{{{
+C:\>netsh
+netsh>interface ipv6
+netsh interface ipv6>show prefixpolicies
+Querying active state...
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+        50      0  ::1/128
+        40      1  ::/0
+        30      2  2002::/16
+        20      3  ::/96
+        10      4  ::ffff:0:0/96
+         5      5  2001::/32
+
+netsh interface ipv6>delete prefixpolicy 2001::/32
+Ok.
+netsh interface ipv6>add prefixpolicy 3ffe:831f::/32 5 5
+Ok.
+netsh interface ipv6>show prefixpolicies
+Querying active state...
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+        50      0  ::1/128
+        40      1  ::/0
+        30      2  2002::/16
+        20      3  ::/96
+        10      4  ::ffff:0:0/96
+         5      5  3ffe:831f::/32
+
+netsh interface ipv6>exit
+C:\>
+}}}
+
+Long method:
+{{{
+C:\>netsh
+netsh>interface ipv6
+netsh interface ipv6>show prefixpolicies
+Querying active state...
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+        50      0  ::1/128
+        40      1  ::/0
+        30      2  2002::/16
+        20      3  ::/96
+        10      4  ::ffff:0:0/96
+         5      5  2001::/32
+
+netsh interface ipv6>set prefixpolicy ::1/128 50 0
+Ok.
+netsh interface ipv6>add prefixpolicy ::/0 40 1
+Ok.
+netsh interface ipv6>add prefixpolicy 2002::/16 30 1
+Ok.
+netsh interface ipv6>add prefixpolicy ::/96 20 3
+Ok.
+netsh interface ipv6>add prefixpolicy ::ffff:0:0/96 10 4
+Ok.
+netsh interface ipv6>add prefixpolicy 3ffe:831f::/32 5 5
+Ok.
+netsh interface ipv6>show prefixpolicies
+Querying active state...
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+        50      0  ::1/128
+        40      1  ::/0
+        30      2  2002::/16
+        20      3  ::/96
+        10      4  ::ffff:0:0/96
+         5      5  3ffe:831f::/32
+
+netsh interface ipv6>exit
+C:\>
+}}}
+
 = Links =
  * [http://www.757.org/~joat/wiki/index.php/IPv6_on_the_WRT54G_via_OpenWRT IPv6 on OpenWrt with Hurricane Electric]
  * [http://www.join.uni-muenster.de/TestTools/IPv6_Verbindungstests.php JOIN IPv6 Test Page (ping, traceroute, tracepath)]
