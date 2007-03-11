@@ -13,18 +13,16 @@ On a Windows host-system the virtual serial console is accessible e. g. using Pu
 = Doing it yourself =
 == Building your own image ==
 
-To build your own Kamikaze VMware image you need a OpenWrt development environment (with ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian) installed on the Linux host-system to convert the image):
+To build your own Kamikaze VMware image you need a !OpenWrt development environment (with ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian) installed on the Linux host-system to convert the image):
  1. check out with "{{{svn co https://svn.openwrt.org/openwrt/trunk/}}}" 
- 1. Then you need to apply the following patches to the freshly checked out OpenWrt Kamikaze build-system (these are not yet in official repository):
-  * fix-console-tty.patch
-  * add-vmware-images.patch
-  * [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/x86-2.6_vt_01.patch x86-2.6_vt_01.patch]
-  * [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/x86-2.6_vt_02.patch x86-2.6_vt_02.patch]
+ 1. Then you need to apply the following patch to the freshly checked out !OpenWrt Kamikaze build system (these are not yet in official repository but will be added soon):
+  * [http://tinyurl.com/2ujl8x add-vmware-images.patch]
  1. After applying the patches run 'make menuconfig' and select:
   * Target System (x86 [2.6])
   * Target Profile (VMware image)
   * Target Images
    * [ ] jffs2 <-- N
+   * [ ] squashfs <-- N
    * (115200) Serial port baud rate
    * (128) Filesystem part size (in MB)
  1. run "{{{make}}}" to build the VMWare image (which ends up in {{{bin/openwrt-x86-2.6-ext2.vmdk}}})
@@ -33,25 +31,25 @@ To build your own Kamikaze VMware image you need a OpenWrt development environme
 The openwrt-x86-2.6-ext2.vmx file as included in the above [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/openwrt-x86-2.6-ext2_VMware-image-and-config.zip zip file] was creating at http://www.easyvmx.com with the following settings:
 
  * Basic Configuration
-  * Virtual Machine Name: OpenWrt Kamikaze (x86-2.6)
+  * Virtual Machine Name: !OpenWrt Kamikaze (x86-2.6)
   * Select GuestOS: Generic Linux 2.6.x
   * Memory Size: 128 MB
  * Network Configuration
   * Ethernet0:
    * Enabled: checked
    * Connection Type: Bridged
-   * VirtualDevice Intel(R) Pro/1000
+   * !VirtualDevice Intel(R) Pro/1000
   * Ethernet1:
    * Enabled: checked
    * Connection Type: Bridged
-   * VirtualDevice Intel(R) Pro/1000
+   * !VirtualDevice Intel(R) Pro/1000
  * Disk Configuration
   * SCSI: Disable SCSI
   * IDE0:Master:
    * Enabled: checked
    * File Name / Floppy Device: openwrt-x86-2.6-ext2.vmdk
    * Start Connected: checked
-   * WriteThru: checked
+   * !WriteThru: checked
    * Autodetect Name: checked
  * Other Configuration Options
   * VMWare Tools: Don't Remind to Install VMWare Tools
