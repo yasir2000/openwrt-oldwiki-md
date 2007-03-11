@@ -1,5 +1,28 @@
 == MyLoader ==
-MyLoader is the bootloader only seen so far on Compex wireless routers. If you have seen this bootloader on other devices that you own please add them to the bottom of the page. Unlike CFE or Redboot, MyLoader is a menu driven bootloader like the standard one on all adm5120 platforms by Edimax, Sweex and others. There are more details on the standard bootloader available on the midge website: http://midge.vlad.org.ua Below is a set of instructions which can be used to update the bootloader to CFE using the bundle provided for the WP54-WRT. I have tried this on my WP54G-1D but after a few seconds the board freezes.  Also JTAG seems to be a bit odd on these boxes, and as yet I have to get some sensible looking results from it.
+MyLoader is the bootloader only seen so far on Compex wireless routers. If you have seen this bootloader on other devices that you own please add them to the bottom of the page. Unlike CFE or Redboot, MyLoader is a menu driven bootloader like the standard one on all adm5120 platforms by Edimax, Sweex and others. There are more details on the standard bootloader available on the midge website: http://midge.vlad.org.ua
+
+The following data is for COMPEX WP54AG (non WRT version) and is probably valid also for COMPEX NP27G:
+
+Images used for updating firmware consist of update header(offset 0) and system image(size+crc32+gziped kernel+cramfs; offset 0x100f8). After verifying update header, system image is saved to the first mtd partition (mtd1, memory address: 0x1fc00000). When booting, MyLoader verifies(crc) flash stored image, ungzips it and runs kernel....
+
+firmware update image description:
+
+{{{
+address: size description
+--------update header----------------------
+0x00000: 4B  MAGIC (004d594c)
+0x00004: 4B  CRC?? (unknown checksum, can be disabled by setting to 00000000)
+0x00010: 8B  2xDEVICE ID
+0x00050: 4B  size of system image (from 0x100f8)
+-------system image------------------------
+0x100f8: 4B  size of gzipped kernel+cramfs
+0x100fc: 4B  crc32 of gzipped kernel+cramfs (from 0x10100 to eof)
+0x10100: n/a gziped linux kernel + cramfs filesystem
+}}}
+
+(note: there is a lot of another data in update header, but you have to modify only size (0x50) and disable checksum (0x4) to load modified system image)
+
+Below is a set of instructions which can be used to update the bootloader to CFE using the bundle provided for the WP54-WRT. I have tried this on my WP54G-1D but after a few seconds the board freezes (EDIT: this is probably because CFE for WP54-WRT checks for "security device" attached to GPIO0, GPIO1 and will not run on non WRT versions of WP54).  Also JTAG seems to be a bit odd on these boxes, and as yet I have to get some sensible looking results from it.
 
 {{{
 MyLoader version 2.32.0515
