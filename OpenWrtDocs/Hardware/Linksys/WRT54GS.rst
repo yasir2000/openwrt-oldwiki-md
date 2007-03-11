@@ -19,6 +19,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54GS v5.1 ||<style="text-align: center;"> CGN8 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
 ||WRT54GS v6.0 ||<style="text-align: center;"> CGN9 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
 
+
 The WRT54GS-CA is identical to the WRT54GS, but it has packaging and documentation for the Canadian market.  This serial number information applies to the WRT54GS-CA.
 
 === WRT54GS v1.0 ===
@@ -76,6 +77,25 @@ Hardware info with detailed pictures.
 http://wiki.version6.net/WRT54GS
 
 [http://www.linksysinfo.org/portal/forums/showthread.php?t=47124 Autopsy: Linksys WRT54G and WRT54GS Hardware Versions Under the Knife]
+
+== Serial ==
+attachment:WRT54GS_Serial.jpg
+
+Serial port requires level converter at 3.3V:
+
+{{{
+Pin 2 = +3.3V
+Pin 4 = TXD
+Pin 6 = RXD
+Pin 8 = unused
+Pin 10 = GND}}}
+If you use a''' Siemens C35''' cell phone datacable you can use this color coding - will NOT match if you use different cable.
+
+{{{
+Pin 4 = TXD (BLUE)
+Pin 6 = RXD (WHITE)
+Pin 10 = GND (ORANGE)}}}
+Use this terminal setting:'''115200, 8, n, 1 with software flow-contol '''(= none).
 
 == Power Consumption ==
 The following tests were conducted on a Linksys WRT54GS v2.0 hardware platform, hooked up to a lab PSU. All measurements are accurate +/-0.01 A
