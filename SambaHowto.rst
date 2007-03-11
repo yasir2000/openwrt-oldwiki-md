@@ -1,7 +1,4 @@
 '''Samba HowTo'''
-(note: no longer works in rc6 due to missing libgcc_s.so.1(outdated))
-
-[28-01-2007 - m4rc0] libgcc_3.4.4-8_mipsel.ipk  now included in RC6.
 
 [[TableOfContents]]
 = Intro =
