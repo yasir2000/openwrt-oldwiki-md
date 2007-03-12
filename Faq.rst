@@ -198,11 +198,11 @@ Hint: If you have configured your box in client mode (doesn't matter if bridged 
 Flash devices can be written to, at minimum, anywhere between 100,000 and 1,000,000 times (according to the manufacturers).
 
 You can check which flash chip you have (at in White Russian) by
+
 {{{
 nvram show | grep flash_type
 }}}
-and then you can check the manufacturer's datasheet.
-In ["OpenWrtNVRAM"] it is however stated that it can be written between 1000 and 10000 times.
+and then you can check the manufacturer's datasheet. In ["OpenWrtNVRAM"] it is however stated that it can be written between 1000 and 10000 times.
 
 == Where can I find packages? ==
 All packages included in the stable White Russian release can be listed with:
@@ -477,9 +477,11 @@ Yes, but cranking the power to the maximum won't help you any. You might transmi
 
 == How do I see which computers are connected and at what signal strength? ==
 My awk scripting is terrible, but I hacked together a simple script to see who is connected to my network and at what signal strength.  This is useful for finding the optimal antenna orientation, too.  The response is in dBm's and a less negative number is better.  Put this script in /bin, for example.  Notice however that it requires the non free package wl which must be installed with ipkg with
+
 {{{
 ipkg install wl
-}}}.
+}}}
+.
 
 I called the script scan.sh.  Make sure to
 
@@ -503,6 +505,7 @@ done
 I invite someone to clean this script up.  Only tested on White Russian pre-release 6.
 
 A somewhat cleaned up version of scan.sh with added DHCP lease expiration info:
+
 {{{
 #!/bin/sh
 for MAC in `wl assoclist | awk '{print $2}'`
@@ -514,7 +517,6 @@ for MAC in `wl assoclist | awk '{print $2}'`
   echo " "
  done
 }}}
-
 == What is the difference between wl0_* and wl_* variables? ==
 Use the {{{wl0_*}}} variables. The {{{wl_*}}} variables are obsolete and unused.
 
@@ -591,21 +593,19 @@ Than bring up your WAN interface where your modem is connected to via:
 {{{
 ifup wan
 }}}
+If that does not work, the ip address assigned to the underlaying ethernet connection might be unable to reach the pptp server directly. You can check that easily with
 
-If that does not work, the ip address assigned to the underlaying ethernet connection might be unable to reach the pptp server directly. You can check that easily with 
 {{{
 route -n
 }}}
-
 If adding the needed route for the pptp server fixes your problem, you can use the following dirty trick to automatize it, in /usr/share/udhcpc/default.script add to the bound case:
 
 {{{
 if [ "$interface" = "vlan1" ]
-then 
+then
    route add -host 10.0.0.138 gw $(echo $ip | sed 's/[0-9]*\.[0-9]*$/0.1/')
 fi
 }}}
-
 The route command btw is the one needed for inode.at.
 
 For more information see the ["PPTPClientHowto"].
@@ -619,27 +619,23 @@ If you want to experiment with iptables while logged in via telnet/ssh,  run the
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT}}}
-
 == MacBook Pro keeps dropping signal even when near AP ==
 A "sudo dmesg" on the MacBook reveals:
 
 {{{
 ATHR: beacon miss causing loss of connection
 }}}
-
 Adjust the beacon interval so it is smaller (default is 100):
 
 {{{
 wl bi 50
 }}}
-
 Make it permanent:
 
 {{{
 nvram set wl0_bcn=50
 nvram commit
 }}}
-
 Note that this does not completely fix the problem, it only helps mitigate the impact.  It has been shown to be a bug in OS X 10.4.8 and earlier.
 
 ## ##################################################
@@ -663,6 +659,8 @@ Approximately required disc space for compiling OpenWrt:
 ||Stable Source ||1.5 GB ||3.5 GB ||
 ||Development ||? ||3.8 GB ||
 
+
+Compiling also tested on Windows pc under [http://wiki.gp2x.org/wiki/AndLinux AndLinux] ([http://www.colinux.org coLinux] + Ubuntu)
 
 == Where is the subversion (SVN) repository ? ==
 '''Stable Source'''
