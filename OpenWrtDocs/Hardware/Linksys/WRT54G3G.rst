@@ -3,7 +3,7 @@
 
 This device seems to be a normal ["OpenWrtDocs/Hardware/Linksys/WRT54G"] with a !CardBus.
 
-The WRT64G3G is currently marketed by:
+The WRT54G3G is currently marketed by:
 
  * Vodafone for their 3G UMTS networks.  It uses a Merlin UMTS modem:
 {{{
@@ -21,7 +21,7 @@ Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support o
 
 Please contribute useful information here.
 
-There's different 3G data cards bundled with this device. "Vodafone Mobile Connect 3G/GPRS data card" has NEC USB2 controller with two generic USB serial ports builtin. 3G side is connected to those serial ports.
+There's different 3G data cards bundled with this device. "Vodafone Mobile Connect 3G/GPRS data card" has NEC USB2 controller with two generic USB ports builtin. 3G side is connected to those ports.
 
 = Serial port =
 attachment:WRT54G3G_Serial.jpg
