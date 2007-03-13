@@ -5,7 +5,7 @@ It has a 4Mb flash and 8Mb RAM.
 
 The version that I have used OpenWRT on is a version 1010, but I expect most [:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130] should work.
 
-- I have a version 1000 and it seems to upgrade to [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] just fine, but when i upgrade to OpenWRT using TFTP it's still the [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] firmware after reboot. It shows no errors in uploading the firmware. Uploading the firmware through the normal webinterface tells me that the firmware is incompatible and therefore denies it.
+- I have a version 1000 and it seems to upgrade to [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] just fine, but when i upgrade to OpenWRT using TFTP it's still the [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] firmware after reboot. It shows no errors in uploading the firmware. Uploading the firmware through the normal webinterface tells me that the firmware is incompatible and therefore denies it. Looking into it, it seems that i need to extract something from the original firmware to compile the OpenWRT firmware. Little help?
 
 == How? ==
 I accidently uploaded the firmware for a [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] to my [:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
