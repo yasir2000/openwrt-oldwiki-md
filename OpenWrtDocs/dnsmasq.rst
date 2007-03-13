@@ -134,3 +134,23 @@ As your machines release and renew their DHCP configuration they will obtain the
 
 == SIP-Phones and dnsmasq ==
 By default, the option {{{filterwin2k}}} in dnsmasq is activated, which seems to  cause dnsmasq to block any queries for {{{SRV}}} records. {{{SRV}}} records are '''not''' only used by windows computers to find the domaincontroller and such, they are also used by e.g SIP-Phones to find the server responsible for a given domain ({{{SRV}}} records are a kind of generalized {{{MX}}} records). Therefore, the {{{filterwin2k}}} options needs to be disabled (commented out in {{{/etc/dnsmasq.conf}}}) in order to let SIP-Phones work that use dnsmasq as their DNS server.
+
+== Q: Why dhcp (or dnsmasq) drops all connections every time when lease is renewed? ==
+'logread' says:
+
+{{{
+Mar 13 10:27:48 (none) kern.info dnsmasq[854]: reading /tmp/resolv.conf
+Mar 13 10:27:46 (none) kern.info dnsmasq[854]: using nameserver xx.xx.xx.xx
+Mar 13 10:27:46 (none) kern.info dnsmasq[854]: using nameserver xx.xx.xx.xx
+Mar 13 10:27:46 (none) kern.info dnsmasq[854]: using local addresses only for domain lan
+Mar 13 12:27:44 (none) kern.info dnsmasq[854]: reading /tmp/resolv.conf
+Mar 13 13:27:43 (none) kern.info dnsmasq[854]: reading /tmp/resolv.conf
+Mar 13 14:27:42 (none) kern.info dnsmasq[854]: reading /tmp/resolv.conf
+Mar 13 16:27:43 (none) kern.info dnsmasq[854]: reading /tmp/resolv.conf}}}
+(Same nameserver etc lines between reading /tmp/resolv.conf message.)
+
+Usually when these messages are shown, IRC, MSN, and so on, drops offline and reconnects.
+
+''' '''
+
+'''A:''' ?
