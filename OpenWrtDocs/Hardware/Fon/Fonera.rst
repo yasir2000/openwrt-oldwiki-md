@@ -578,6 +578,28 @@ iptables -A INPUT -o br-lan -j ACCEPT
 }}}
 then reboot and everthing should be working.
 
+== Correcting antenna settings under Kamikaze ==
+According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR german] by default Kamikaze utilizes antenna diversity on the Fonera.
+It also uses the wrong antenna :(
+
+To change that put the following at the end of /etc/sysctl.conf:
+{{{
+dev.wifi0.diversity=0
+dev.wifi0.rxantenna=1
+dev.wifi0.txantenna=1
+}}}
+
+If you are using the Fonera to create a link over long distances, these
+settings might help:
+
+{{{
+dev.wifi0.ctstimeout = 25
+dev.wifi0.acktimeout = 25
+dev.wifi0.slottime = 11
+}}}
+
+The tool athctrl sets values for specific distances in meters with the -d option, i.e. athctrl -d 300 sets madwifi up for a 300m link
+
 == Resources ==
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
@@ -598,3 +620,4 @@ then reboot and everthing should be working.
  * [http://karman.homelinux.net/blog/ Blog about Fonera] (Spanish)
  * [http://mrmuh.blogspot.com/2007/01/codename-kolofonium-realease-date.html Blog about Hacking the 0.7.1r2 firmware] 
  * [http://blog.extreme-networking.com/ OpenWRT installation guide (Italian) and misc] 
+ * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, german]
