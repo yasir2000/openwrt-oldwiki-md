@@ -67,7 +67,7 @@ net view \\<server_name>}}}
 Connect to a Samba share with:
 
 {{{
-net use \\<server_name>\<share> /user:<username>}}}
+net use * \\<server_name>\<share> /user:<username>}}}
 
 == MacOS X clients ==
 In the Finder, press Command-K for the mount popup.  In the Server Address text box, type:
