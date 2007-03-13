@@ -59,6 +59,16 @@ smbmount //<server_name>/<share> /<local_mount_point> -o username=<username>}}}
 == Windows clients ==
 Now you should be able to browse your share called {{{tmp}}} from any computer that is a member of {{{OpenWrt}}} workgroup (the default workgroup name in Windows is {{{WORKGROUP}}}).
 
+List shares with {{{net}}}:
+
+{{{
+net view \\<server_name>}}}
+
+Connect to a Samba share with:
+
+{{{
+net use \\<server_name>\<share> /user:<username>}}}
+
 == MacOS X clients ==
 In the Finder, press Command-K for the mount popup.  In the Server Address text box, type:
 
