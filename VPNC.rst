@@ -10,12 +10,11 @@ Performance Reports
 
 
 = Installation =
-To install vpnc your !OpenWrt router needs internet - obviously you first need to connect to another network than the net you want to access with vpnc. Configure your device to use the backports repository. See ["OpenWrtDocs/Packages"] for instructions. Don't forget {{{ipkg update}}} after you added the backport repository to {{/etc/ipkg.conf}}}. Then install the packages:
+To install vpnc your !OpenWrt router needs internet - obviously you first need to connect to another network than the net you want to access with vpnc. Configure your device to use the backports repository. See ["OpenWrtDocs/Packages"] for instructions. Don't forget {{{ipkg update}}} after you added the backport repository to {{{/etc/ipkg.conf}}}.
 
+Install vpnc (this will also automatically install the Dependant packages "libgpg-error", "libgcrypt" and "kmod-tun").
 {{{
-ipkg install vpnc
-ipkg install libgcrypt
-ipkg install kmod-tun}}}
+ipkg install vpnc}}}
 
 After the kmod-tun is installed a reboot is required.
 
