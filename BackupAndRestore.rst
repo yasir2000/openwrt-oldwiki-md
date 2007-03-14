@@ -12,9 +12,9 @@ a device, or you could make a backup that's not up to date or corrupt. The defau
 commit interval for jffs2 is 5 seconds. Log into your WRT, then:
 
 {{{
-mount -o remount,ro /dev/mtdblock/4 /
+mount -o remount,ro /dev/mtdblock/4 /jffs
 dd if=/dev/mtdblock/1 > /tmp/wrt-linux.trx
-mount -o remount,rw /dev/mtdblock/4 /
+mount -o remount,rw /dev/mtdblock/4 /jffs
 dd if=/dev/mtdblock/3 > /tmp/wrt-nvram.bin
 }}}
 
@@ -24,7 +24,7 @@ usually the case.
 If you do not have enough free space in your /tmp fs, you can generate and copy in one operation.  Please make sure yhou use the right quotes; double quotes (") won't work.  From another workstation, and assuming that apollo is the name of your OpenWrt AP:
 
 {{{
-ssh apollo -C 'mount -o remount,ro /dev/mtdblock/4 / ; dd if=/dev/mtdblock/1 ; mount -o remount,rw /dev/mtdblock/4 /' > wrt-linux.trx
+ssh apollo -C 'mount -o remount,ro /dev/mtdblock/4 /jffs ; dd if=/dev/mtdblock/1 ; mount -o remount,rw /dev/mtdblock/4 /jffs' > wrt-linux.trx
 ssh apollo -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
 }}}
 
