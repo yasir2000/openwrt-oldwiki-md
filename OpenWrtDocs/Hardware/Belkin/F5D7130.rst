@@ -11,15 +11,22 @@ The version that I have used OpenWRT on is a version 1010, but I expect most [""
 I accidently uploaded the firmware for a ["OpenWrtDocs/Hardware/Belkin/F5D7230"] to my [""] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
 
 === Preparing the firmware ===
-The paper noted further down states the details about the belkin firmware and how to extract the necessary parts, but it's not very newbie-friendly. You need to extract the cramfs and the kernel from the [http://networking.belkin.com/update/files/uk/54g_router.html F5D7230 firmware]. For version 4.05.03 you can use the following command (4.05.03.bin being the firmware file) :
+The paper noted further down states the details about the belkin firmware and how to extract the necessary parts, but it's not very newbie-friendly. You need to extract the cramfs and the kernel from the [http://networking.belkin.com/update/files/uk/54g_router.html F5D7230 firmware]. For version 4.05.03 you can use the following command (4.05.03.bin being the firmware file):
+
 {{{
 dd if=4.05.03.bin of=cramfs.dump bs=627928 skip=1
 }}}
 You can check that you got the offset right by seeing if the following command returns a single line of hex codes:
+
 {{{
 hexdump cramfs.dump | grep "0000000 3d45 28cd"
 }}}
+Then extract the kernel (the offset is the former offset of 627928 minus the 56 bytes that the actual gz'ed kernel takes):
 
+{{{
+dd if=4.05.03.bin of=kernel.gz count=627872 bs=1 skip=56
+}}}
+Next step is to mount the filesystem as documented [http://www.seattlewireless.net/Belkin_F5D7230-4#head-8b322907b7216a9d1dcb3ee952a58ee3e088832a here]. I don't think i'll make it today. I'll hopefully update this guide later.
 
 === Installation method ===
 I'm not sure if you need to flash the router to be a ["OpenWrtDocs/Hardware/Belkin/F5D7230"] first of all or not, but I did. I got the firmware for that from [http://networking.belkin.com/update/files/uk/54g_router.html here] (this links to the embeded firmware update page for the UK).
