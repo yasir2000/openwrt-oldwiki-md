@@ -549,12 +549,12 @@ Examples:
 ||Tallinn, Estonia ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||New Zealand ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
 ||<style="text-align: center;" |10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
-||Alaska Time ||AKST9AKDT ||
-||Pacific Time ||PST8PDT ||
-||Mountain Time ||MST7MDT ||
+||Alaska Time ||AKST9AKDT,M3.2.0,M11.1.0 ||
+||Pacific Time ||PST8PDT,M3.2.0,M11.1.0 ||
+||Mountain Time ||MST7MDT,M3.2.0,M11.1.0 ||
 ||Mountain Time (Arizona, no DST) ||MST7 ||
-||Central Time ||CST6CDT ||
-||Eastern Time ||EST5EDT ||
+||Central Time ||CST6MDT,M3.2.0,M11.1.0 ||
+||Eastern Time ||EST5EDT,M3.2.0,M11.1.0 ||
 ||Atlantic Time ||AST4ADT ||
 ||Atlantic Time (New Brunswick) ||AST4ADT,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
 ||Newfoundland Time (Updated DST for 2007) ||NST+3:30NDT+2:30,M3.2.0/00:01:00,M11.1.0/00:01:00 ||
@@ -573,18 +573,25 @@ Please update and include your time zone. You can find more on time zones on [ht
 Here is the command to type for each time zone in the continential US:
 
 {{{
-echo      EST5EDT,M3.2.0,M11.1.0 >/etc/TZ
-echo      CST6MDT,M3.2.0,M11.1.0 >/etc/TZ
-echo      MST7MDT,M3.2.0,M11.1.0 >/etc/TZ
-echo      PST8PDT,M3.2.0,M11.1.0 >/etc/TZ
+echo "EST5EDT,M3.2.0,M11.1.0" >/etc/TZ
+echo "CST6MDT,M3.2.0,M11.1.0" >/etc/TZ
+echo "MST7MDT,M3.2.0,M11.1.0" >/etc/TZ
+echo "PST8PDT,M3.2.0,M11.1.0" >/etc/TZ
+echo "AKST9AKDT,M3.2.0,M11.1.0" >/etc/TZ
 }}}
 
-I'm assuming the following are true as well, for Alaska and Hawaii:
-
+As explained above, you could also set this in the NVRAM:
 {{{
-echo      AKST9AKDT,M3.2.0,M11.1.0 >/etc/TZ
-echo      HST10HDT,M3.2.0,M11.1.0 >/etc/TZ
+rm -f /etc/TZ
+nvram set time_zone="EST5EDT,M3.2.0,M11.1.0"
+nvram set time_zone="CST6MDT,M3.2.0,M11.1.0"
+nvram set time_zone="MST7MDT,M3.2.0,M11.1.0"
+nvram set time_zone="PST8PDT,M3.2.0,M11.1.0"
+nvram set time_zone="AKST9AKDT,M3.2.0,M11.1.0"
+nvram commit
 }}}
+
+See http://astronomy.physics.tamu.edu/Java/Tools/Misc/Clock/zones.html for other time zones.
 
 = HOWTOs / Additional Configuration =
 See also:
