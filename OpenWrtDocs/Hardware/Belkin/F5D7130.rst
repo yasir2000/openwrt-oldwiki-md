@@ -26,7 +26,9 @@ Then extract the kernel (the offset is the former offset of 627928 minus the 56 
 {{{
 dd if=4.05.03.bin of=kernel.gz count=627872 bs=1 skip=56
 }}}
-Next step is to mount the filesystem as documented [http://www.seattlewireless.net/Belkin_F5D7230-4#head-8b322907b7216a9d1dcb3ee952a58ee3e088832a here]. I don't think i'll make it today. I'll hopefully update this guide later.
+Next step should be to mount the filesystem as documented [http://www.seattlewireless.net/Belkin_F5D7230-4#head-8b322907b7216a9d1dcb3ee952a58ee3e088832a here].
+
+I kinda gave up continuing my efforts, since i can't seem to figure out where the uploading of the OpenWRT firmware occurs. It seems it's possible to alter the belkin firmware to support a telnet or ssh of sorts to it and then the guides i have seen seems to stop and there's no word on how to actually get OpenWRT working. Then i headed over to DD-WRT to try my luck there and all i had to do was upload the generic firmware (i did it through TFTP, but i think it should be possible through the web interface). First i tried the mini version to see if it worked and then i upgraded to the voip version. I sure hope i can get OpenWRT on it soon, though. I like the packaging style of OpenWRT alot better.
 
 === Installation method ===
 I'm not sure if you need to flash the router to be a [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] first of all or not, but I did. I got the firmware for that from [http://networking.belkin.com/update/files/uk/54g_router.html here] (this links to the embeded firmware update page for the UK).
