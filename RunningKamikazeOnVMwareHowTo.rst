@@ -13,8 +13,8 @@ On a Windows host-system the virtual serial console is accessible e. g. using Pu
 = Doing it yourself =
 == Building your own image ==
 
-To build your own Kamikaze VMware image you need a !OpenWrt development environment (with ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian) installed on the Linux host-system to convert the image):
- 1. check out with "{{{svn co https://svn.openwrt.org/openwrt/trunk/}}}" 
+To build your own Kamikaze VMware image you need a !OpenWrt development environment (with ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian and Ubuntu) installed on the Linux host-system to convert the image):
+ 1. check out with 'svn co https://svn.openwrt.org/openwrt/trunk/'
  1. Then you need to apply the following patch to the freshly checked out !OpenWrt Kamikaze build system (it is not yet in official repository but will probably be added soon):
   * [http://wiki.openwrt.org/RunningKamikazeOnVMwareHowTo?action=AttachFile&do=get&target=add-vmware-images.patch add-vmware-images.patch]
  1. After applying the patches run 'make menuconfig' and select:
@@ -25,7 +25,7 @@ To build your own Kamikaze VMware image you need a !OpenWrt development environm
    * [ ] squashfs <-- N
    * (115200) Serial port baud rate
    * (128) Filesystem part size (in MB)
- 1. run "{{{make}}}" to build the VMWare image (which ends up in {{{bin/openwrt-x86-2.6-ext2.vmdk}}})
+ 1. run 'make' to build the VMware image (which ends up in {{{bin/openwrt-x86-2.6-ext2.vmdk}}})
 
 == Creating the VMware configuration file ==
 The openwrt-x86-2.6-ext2.vmx file as included in the above [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/openwrt-x86-2.6-ext2_VMware-image-and-config.zip zip file] was creating at http://www.easyvmx.com with the following settings:
