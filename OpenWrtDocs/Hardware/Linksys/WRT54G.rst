@@ -178,7 +178,7 @@ Check [http://www.servomagazine.com/forum/viewtopic.php?p=34263&sid=821e1885f8c5
 Check [http://www.byteclub.net/wiki/Wrt54g#Opening_the_case here] for instructions.
 
 === Serial Ports ===
-Most (all?) versions of this model have an unpopulated 10-pin header that exposes two serial ports. The pins are defined as:
+Most versions* of this model have an unpopulated 10-pin header that exposes two serial ports. The pins are defined as:
 ||Pin 1 ||3.3V ||Pin 2 ||3.3V ||
 ||Pin 3 ||Tx (ttyS1) ||Pin 4 ||Tx (ttyS0) ||
 ||Pin 5 ||Rx (ttyS1) ||Pin 6 ||Rx (ttyS0) ||
@@ -191,6 +191,8 @@ The CFE and OpenWRT use ttyS0 to emit boot and log messages. OpenWRT offers shel
 The serial port settings are 115k, 8, N, 1 with no flow control.
 
 For more info see http://www.rwhitby.net/wrt54gs/serial.html.
+
+*At least v1.1 does not.
 
 === JTAG ===
 A 12-pin unpopulated JTAG header is included on all versions of this router. It is usually found beside the serial port headers.
