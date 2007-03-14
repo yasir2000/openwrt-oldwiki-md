@@ -3,12 +3,12 @@ This device is supported by OpenWRT.
 
 It has a 4Mb flash and 8Mb RAM.
 
-The version that I have used OpenWRT on is a version 1010, but I expect most [""] should work.
+The version that I have used OpenWRT on is a version 1010, but I expect most ["OpenWrtDocs/Hardware/Belkin/F5D7130"] should work.
 
 - I have a version 1000 and it seems to upgrade to ["OpenWrtDocs/Hardware/Belkin/F5D7230"] just fine, so i believe it will work.
 
 == How? ==
-I accidently uploaded the firmware for a ["OpenWrtDocs/Hardware/Belkin/F5D7230"] to my [""] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
+I accidently uploaded the firmware for a ["OpenWrtDocs/Hardware/Belkin/F5D7230"] to my ["OpenWrtDocs/Hardware/Belkin/F5D7130"] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
 
 === Preparing the firmware ===
 The paper noted further down states the details about the belkin firmware and how to extract the necessary parts, but it's not very newbie-friendly. You need to extract the cramfs and the kernel from the [http://networking.belkin.com/update/files/uk/54g_router.html F5D7230 firmware]. For version 4.05.03 you can use the following command (4.05.03.bin being the firmware file):
