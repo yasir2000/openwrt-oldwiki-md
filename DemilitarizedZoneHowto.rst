@@ -82,6 +82,9 @@ nvram set dmz_proto=static
 Next is to change your init scripts to bring up the DMZ on every reboot. You have to edit
 the {{{/etc/init.d/S40network}}} file and add {{{ifup dmz}}} after the line {{{ifup wan}}}.
 
+For whiterussian 0.9, you don't need to edit {{{/etc/init.d/S40network}}}. Instead, execute the following:
+{{{nvram set ifup_interfaces="lan wan wifi dmz"
+nvram commit}}}
 
 == Configure the firewall ==
 
