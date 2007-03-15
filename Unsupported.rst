@@ -18,6 +18,10 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&model=58&modelmenu=1 WL-330] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8500] ||1MB ||8MB ||Marvell (integrated 88W8000) ||None || ||No ||No ||No ||No ||No ||
 ||WL-500 || ||Intel SA-1100 ||? ||? ||Prism-Pcmcia || || || || || || ||No ||
 
+== Belkin ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM'''||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG'''||'''USB''' ||'''Status''' ||
+||F5D7630-4B||1210de||Samsung S3C2510A01 (ARM9)||2MB||16MB||ISL3880||ADMtek ADM6996L||?||3.3V 2x5 pins soldered||no||no (PCB supports USB)||unsupported||
+
 == Compex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.compex.com.sg/home/products1.asp?20050721032253 WP54G] ||[http://compex.com.sg/home/productsub.asp?type1=Wireless&sub1=Access%20Points WP54-1A ] WP54-1B WP54-1C WP54-1D WP54-6D ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Unsupported] ||
