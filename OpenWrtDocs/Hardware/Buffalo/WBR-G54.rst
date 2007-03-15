@@ -12,4 +12,4 @@ I dumped the wl*_ settings, edited them to be wl0_* istead, and scripted them ba
 
 == Restoring Buffalo firmware ==
 
-As per the manual except that 34 bytes not 32 need to be trimmed from the front of the file WBR-G54_2.20_1.16 which is obtained from Buffalo's website.
+As per the manual except that 34 bytes not 32 need to be trimmed from the front of the file WBR-G54_2.20_1.16 which is obtained from Buffalo's European website.
