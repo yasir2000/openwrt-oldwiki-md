@@ -281,7 +281,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://routerboard.com/rb200.html RouterBoard 230] || ||NSC SC1100 ||None, CF slot/IDE ||So-DIMM slot ||mini-PCI slot and 2x cardbus ||None ||N/A ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
 ||[http://routerboard.com/rb500.html RouterBoard 511] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||1 mini-PCI slot ||None ||N/A ||Yes ||No ||No ||WiP ||
 ||[http://routerboard.com/rb500.html RouterBoard 512] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||WiP ||
-||[http://routerboard.com/rb500.html RouterBoard 532] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP ||
+||[http://routerboard.com/rb500.html RouterBoard 532] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB532:WiP] ||
 ||[http://routerboard.com/rb500.html RouterBoard 532a] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||128MB + CF slot ||64MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||WiP ||
 == Mitsubishi ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
