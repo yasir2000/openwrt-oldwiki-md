@@ -112,9 +112,12 @@ config wifi-device     wifi device name
        option type     currently only broadcom and atheros
        option country  country code [not mandatory, used for setting restrictions based on country regulations]
        option channel  1-14
-       option maxassoc Maximum number of associated clients
+       option maxassoc Currently only for Broadcom. Maximum number of associated clients
        option distance The distance between the ap and the furthest client in meters.
-       option mode     Currently only for atheros.  Options are: 11b, 11g, 11a, 11bg
+       option mode     Currently only for Atheros.  Options are: 11b, 11g, 11a, 11bg
+       option diversity Currently only for Atheros. 0 disables diversity, 1 enables diversity (default)
+       option txantenna Currently only for Atheros. 0 for auto (default), 1 for antenna 1, and 2 for antenna 2
+       option rxantenna Currently only for Atheros. 0 for auto (default), 1 for antenna 1, and 2 for antenna 2
 
 config wifi-iface
        option network  the interface you want wifi to bridge with 
@@ -130,6 +133,8 @@ config wifi-iface
        option key4     wep key 4
        option server   radius server
        option port     radius port
+       option txpower  Currently only for Atheros. This value is measured in dbm
+       option bgscan   Currently only for Atheros. (sta mode only) This disables client background scanning, 0 disables, 1 enables (default)
        option hidden   0 broadcasts the ssid; 1 disables broadcasting of the ssid
        option isolate  0 disables ap isolation (default); 1 enables ap isolation
 }}}
