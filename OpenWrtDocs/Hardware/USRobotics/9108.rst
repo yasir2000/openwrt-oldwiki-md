@@ -4,7 +4,7 @@ Not supported in OpenWrt, CPU is Mips32 in BCM6348, System is Linux. Sources wit
 4MB flash, 16MB ram, minipci-wlan, USB-Host
 
 == Product ==
-http://www.usr-emea.com/support/s-prod-template.asp?loc=grmy&prod=9108
+http://www.usr-emea.com/support/s-prod-template.asp?loc=emea&prod=9108
 Sources available in their GPL archive
 
 == sysinfo ==
