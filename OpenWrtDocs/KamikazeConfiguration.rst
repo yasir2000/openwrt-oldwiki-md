@@ -134,7 +134,7 @@ config wifi-iface
        option server   radius server
        option port     radius port
        option txpower  Currently only for Atheros. This value is measured in dbm
-       option bgscan   Currently only for Atheros. (sta mode only) This disables client background scanning, 0 disables, 1 enables (default)
+       option bgscan   Currently only for Atheros. This controls client background scanning, 0 disabled, 1 enabled (default)
        option hidden   0 broadcasts the ssid; 1 disables broadcasting of the ssid
        option isolate  0 disables ap isolation (default); 1 enables ap isolation
 }}}
