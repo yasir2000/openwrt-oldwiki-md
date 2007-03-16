@@ -412,7 +412,7 @@ At this point, it's a good idea to change the serial port speed to 9600 bps, sin
 RedBoot> baudrate -b 9600
 Baud rate will be changed to 9600 - update your settings
 }}}
-Change your terminal's serial port speed to 9600 (Minicom: Ctrl-A P E) and hit Enter to check it's working.
+Change your terminal's serial port speed to 9600 (Minicom: Ctrl-A P E) and hit Enter to check it's working. Note that it may be necessary to wait for a confirmation message after changing the baudrate.
 
 Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
 
