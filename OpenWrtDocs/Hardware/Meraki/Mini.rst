@@ -1,7 +1,6 @@
 [[TableOfContents(3)]]
 
 = Hardware Overview =
-
 {{{
 Bootloader: RedBoot
 CPU: Atheros AR2315
@@ -14,7 +13,6 @@ USB: none
 Serial: yes
 JTAG: yes
 }}}
-
 Serial port (labeled JP1, @115200bps):
 
 {{{
@@ -23,13 +21,10 @@ LAN   RX  o   Antenna
       TX  o
       GND o
 }}}
-
 == Opening the case ==
-
 Peel off the bottom left and top right corners of the silver label on the back of the unit, to reveal two crosspoint screws. Remove them, then prise apart the case with a screwdriver.
 
 == Serial to USB adaptor ==
-
 Meraki sell a small adaptor board (18mm x 32mm) for $29 which plugs into JP1 and has a serial to USB adaptor chip and a mini USB connector; it comes with a mini USB to normal USB cable. It appears to be powered by the host side, not the Meraki side. Plugging it into a Linux system shows:
 
 {{{
@@ -39,33 +34,29 @@ usb 2-1: FTDI FT232BM Compatible converter now attached to ttyUSB0
 usbcore: registered new driver ftdi_sio
 drivers/usb/serial/ftdi_sio.c: v1.4.1:USB FTDI Serial Converters Driver
 }}}
-
 It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works.  Also make sure that you turn off flow-control.
 
 I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15). A more reliable sequence was:
+
  * Unplug JP1
  * Remove power from Meraki
  * Re-apply power to Meraki
  * Reconnect JP1
-
 on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacabel and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
 
+Here are the drivers needed by Microsoft Windows: http://www.ftdichip.com/Drivers/VCP.htm
+
 = Standard Meraki firmware =
-
 == Startup messages ==
-
 [captured from serial port, with ethernet port not connected]
 
 {{{
 Ethernet eth0: MAC address 00:18:0a:XX:XX:XX
 IP: 192.168.84.1/255.255.255.0, Gateway: 0.0.0.0
 Default server: 192.168.84.9
-
 RedBoot(tm) bootstrap and debug environment [ROMRAM]
 Release, version V1.04 - built 12:24:00, Apr 17 2006
-
 Copyright (C) 2000, 2001, 2002, 2003, 2004 Red Hat, Inc.
-
 Board: Meraki Mini
 RAM: 0x80000000-0x82000000, [0x8003d110-0x80fe1000] available
 FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
@@ -161,7 +152,6 @@ NET: Registered protocol family 1
 NET: Registered protocol family 17
 Freeing unused kernel memory: 9592k freed
 init started:  BusyBox v1.1.0 (2006.09.29-21:24+0000) multi-call binary
-
 Please press Enter to activate this console. ar2315_wdt: starting watchdog w/timeout 90 seconds
 watchdog hb: 90  ISR: 0x20  IMR: 0x89  WD : 0xd6918293  WDC: 0x0
 ath_hal: module license 'Proprietary' taints kernel.
@@ -204,9 +194,7 @@ ath0: __ieee80211_newstate: INIT -> RUN
 ath0: __ieee80211_newstate: RUN -> RUN
 ...etc
 }}}
-
 == Network activity ==
-
 Plugging in the ethernet port to another host and running tcpdump there while the unit is booting up shows:
 
  1. Unit ARPs for 192.168.84.1 eight times (checking its address is not in use by anyone else)
@@ -216,29 +204,22 @@ Plugging in the ethernet port to another host and running tcpdump there while th
  1. Picks up new IP address via DHCP
  1. Sends UDP packet to 64.62.142.12:7351
  1. Makes DNS lookups for config.meraki.net. and db.meraki.net.
-
 So it looks like there are at least two different ways to download new firmware at power-up.
 
 == ssh access ==
-
 Once the unit has picked up an IP address via DHCP, and you've found it (e.g. using nmap or looking at the upstream router's ARP cache), you can ssh in. The username is 'meraki' and the password is the SN displayed on the bottom of the unit, in the form XXX-XXX-XXX (including the dashes)
 
 {{{
 # ssh meraki@x.x.x.x
 meraki@x.x.x.x's password:
-
-
 BusyBox v1.1.0 (2006.09.29-21:24+0000) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
 http://meraki.net
-
 Welcome to your meraki mini.  Please look for developer information at
 http://meraki.net.  We would like to encourage you to play with this
 platform and add your own features to it.  However, our lawyers
 require us to tell you that much of the software on this device is
 protected by copyrights, and may not be redistributed or sold.
-
 Happy Hacking!
 root@meraki-node:~# id
 uid=0(root) gid=0(root)
@@ -265,13 +246,11 @@ mtd5: 00010000 00010000 "redboot config"
 mtd6: 00020000 00010000 "board config"
 mtd7: 00800000 00010000 "spiflash"
 }}}
-
 The root filesystem is not listed as a mount. It's writeable, but changes are lost on reboot, so presumably it's a ramdisk.
 
 The installed software is quite comprehensive, even including a ruby intepreter. Given that you have root access to the box, and can install your own programs and data in the /storage partition, you might not feel the need to install OpenWrt. But if you do, here's how to.
 
 == Backing up existing firmware ==
-
 If you rebuild Meraki's own released firmware (see below), it produces a script build_ar531x/upgrade.sh which you copy to the Meraki (e.g. with scp) and then run. This script simply overwrites the "stage2", "redboot config", "part1" and "part2" partitions using dd.
 
 So logically you should be able to restore the device to its original state by backing these up:
@@ -282,7 +261,6 @@ ssh meraki@x.x.x.x 'dd if=/dev/mtd3 bs=64k' >part1.bak
 ssh meraki@x.x.x.x 'dd if=/dev/mtd4 bs=64k' >part2.bak
 ssh meraki@x.x.x.x 'dd if=/dev/mtd5 bs=64k' >redboot-config.bak
 }}}
-
 In practice you'll probably find that part1.bak and part2.bak are identical. If you dd /dev/mtd7, you'll get an 8MB file which is the same as the first 7 partitions concatenated together.
 
 Note1: the "board config" partition contains the unit's MAC address and SN (secret password); you should probably never overwrite this partition.
@@ -290,7 +268,6 @@ Note1: the "board config" partition contains the unit's MAC address and SN (secr
 Note2: when comparing two different Meraki Minis, the stage2, part1 and redboot-config partitions are identical between them.
 
 == Restoring flash using serial console ==
-
 About 13 seconds after applying power, there is a two-second window when you can press ctrl-C to get into the boot loader.
 
 {{{
@@ -298,7 +275,6 @@ About 13 seconds after applying power, there is a two-second window when you can
 ^C
 RedBoot>
 }}}
-
 The [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot User's Guide] gives some guidance as to what you can do here, although the version used by Meraki appears to be customised.
 
 Now, looking at the partition info above gives the following partition offsets and sizes:
@@ -313,17 +289,13 @@ mtd4 part2         490000   340000
 mtd5 redboot conf  7d0000   010000
 mtd6 board conf    7e0000   020000
 }}}
-
 Unfortunately, the Meraki's !RedBoot is missing the load -f (load to flash) command, so you first have to load to RAM and then write to flash.
 
 {{{
 RedBoot> version
-
 RedBoot(tm) bootstrap and debug environment [ROMRAM]
 Release, version V1.04 - built 12:24:00, Apr 17 2006
-
 Copyright (C) 2000, 2001, 2002, 2003, 2004 Red Hat, Inc.
-
 Board: Meraki Mini
 RAM: 0x80000000-0x82000000, [0x8003d110-0x80fe1000] available
 FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
@@ -337,11 +309,9 @@ RedBoot> fis write -b 0x80150000 -l 0x340000 -f 0xa8150000
 RedBoot> reset
 ... Resetting.
 }}}
-
 You can repeat this for the other partitions backed up. (However, after I broke my Meraki by installing firmware built from Meraki's source - see below - the new stage2 and reboot config partitions were fine, and I only needed to restore part1 to get my Meraki back to how it was)
 
 == RedBoot configuration ==
-
 The default !RedBoot config does the following:
 
 {{{
@@ -355,7 +325,6 @@ Boot script:
 .. exec
 .. fis load stage2
 .. exec
-
 Boot script timeout (1000ms resolution): 2
 Use BOOTP for network configuration: false
 Gateway IP address: 0.0.0.0
@@ -368,13 +337,11 @@ Force console for special debug messages: false
 Network debug at boot time: false
 RedBoot>
 }}}
-
 If you want to change this, you can use 'fconfig' at the serial port command prompt, which prompts interactively for each item.
 
 This information is stored in the 'redboot conf' partition.
 
 == Stage 2 boot loader ==
-
 Meraki's firmware includes a stage 2 boot loader, run by "fis load stage2" and "exec". The source for this is in the Meraki tarball (see below) in openwrt-meraki/base/stage2. The entry point is entry() in openwrt-meraki/base/stage2/decompress.c
 
 It reads "part1", checking for a valid CRC. If not valid it boots from "part2" instead. It also includes an LZMA decompressor. These partition locations are hard-coded into the stage2 loader itself:
@@ -383,16 +350,14 @@ It reads "part1", checking for a valid CRC. If not valid it boots from "part2" i
 #define PART1_ADDR                              0xa8150000
 #define PART2_ADDR                              0xa8490000
 }}}
-
 This means that if you want to use Meraki's stage2 loader with !OpenWrt, then:
+
  1. You must use the same partitioning arrangement as Meraki
  1. The kernel must be LZMA compressed
  1. The kernel must be prepended with an 8-byte header (4 bytes length, 4 bytes bastardised CRC32 - see below)
-
 It would be useful to retain Meraki's stage2 loader, if only because Meraki's RedBoot doesn't have an LZMA decompressor (fis load -l) which apparently Fonera does. It also avoids having to mess with RedBoot configuration, making it easier to install !OpenWrt without a serial port.
 
 = Building OpenWrt =
-
 Support for the Atheros System-on-Chip used by the Meraki Mini was [https://dev.openwrt.org/changeset/5898 recently added] to Kamikaze SVN trunk. Hence there is currently no released code you can run; you must build it yourself from scratch.
 
 Check out SVN trunk, use 'make menuconfig', select Atheros 2.6 as the target, and then 'make'. When this is complete, you will have the following files in the bin/ subdirectory:
@@ -404,24 +369,20 @@ openwrt-atheros-2.6-vmlinux.elf
 openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
-
 == Kernel parameters ==
+Even though RedBoot can pass a command line to the kernel, currently any user-provided value is overridden by a hardcoded string - see  target/linux/atheros-2.6/patches/100-board.patch
 
-Even though RedBoot can pass a command line to the kernel, currently any user-provided value is overridden by a hardcoded string - see 
-target/linux/atheros-2.6/patches/100-board.patch
 {{{
 +    strcpy(arcs_cmdline, "console=ttyS0,9600 rootfstype=squashfs,jffs2");
 }}}
-
 If you wish, you can change the console speed to 115200 here to match the value used by RedBoot. Alternatively you can reconfigure !RedBoot to use 9600bps (see below). Apparently it's also possible to comment this line out to allow the kernel command line provided by !RedBoot to be used.
 
 Also hardcoded is the FIS partition name of the root filesystem which is "rootfs" - see target/linux/atheros-2.6/patches/110-spiflash.patch
+
 {{{
 +#define ROOTFS_NAME    "rootfs"
 }}}
-
 == Using a ramdisk root ==
-
 If you select "target images" and change to "ramdisk" you'll get the following:
 
 {{{
@@ -429,15 +390,12 @@ openwrt-atheros-2.6-vmlinux.elf
 openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
-
 This gives a single image which contains both the kernel and the root filesystem which runs from ramdisk. This is useful when trying to install on a machine where you don't have a serial console (see later)
 
 == Using a squashfs root ==
-
 TBD (it would be very nice if a single flash partition could contain a kernel + fixed squashfs filesystem, with the remaining space as a writable jffs2 filesystem, as you get on Broadcom devices)
 
 = Installing OpenWrt using serial console =
-
 Connect a serial port (115200 8N1, no flow control) to the Meraki and power up. Keep hitting ctrl-C until you get to the RedBoot> prompt; this takes about 13 seconds.
 
 {{{
@@ -448,20 +406,17 @@ FLASH: 0xa8000000 - 0xa87e0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
-
 At this point, it's a good idea to change the serial port speed to 9600 bps, since this is the speed at which the kernel will use (unless you've modified the source)
 
 {{{
 RedBoot> baudrate -b 9600
 Baud rate will be changed to 9600 - update your settings
 }}}
-
 Change your terminal's serial port speed to 9600 (Minicom: Ctrl-A P E) and hit Enter to check it's working.
 
 Configure your PC as 192.168.84.9 and configure it with either a tftp server or http server containing the files from the bin/ directory.
 
 == Testing kernel via tftp or http ==
-
 This lets you test your new kernel without touching the flash at all, by loading the kernel directly over the network:
 
 {{{
@@ -476,11 +431,9 @@ Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-7
 Please append a correct "root=" boot option
 Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(1,0)
 }}}
-
 This problem will go away when you have a FIS partition called "rootfs". (Or you could use a ramdisk kernel)
 
 == Create flash partitions ==
-
 Now, the first thing to notice is that the Meraki's flash partition map doesn't include 'part1' and 'part2' entries. This is because the Meraki stage2 bootloader has these addresses hard-coded within it instead of reading the flash map (naughty).
 
 {{{
@@ -494,7 +447,6 @@ FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
 RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
 RedBoot>
 }}}
-
 So let's create them. The name of the kernel partition doesn't matter (let's call it "linux"). However the rootfs partition must be called "rootfs" otherwise the kernel won't be able to find it.
 
 {{{
@@ -514,15 +466,12 @@ FIS directory     0xA87D0000  0xA87D0000  0x0000F000  0x00000000
 RedBoot config    0xA87DF000  0xA87DF000  0x00001000  0x00000000
 RedBoot>
 }}}
-
 == Booting directly from RedBoot ==
-
 In this configuration, we will bypass Meraki's stage2 boot loader; RedBoot will load, decompress and run the kernel directly.
 
 Here we assume you've built a kernel plus jffs2 root filesystem (the default). We'll put these in Meraki's 'part1' and 'part2' respectively, keeping the Meraki's existing partitioning scheme. Both partitions are 3.25MB.
 
 === Flash the kernel and root filesystem ===
-
 Now we fetch the files and write them to flash (it seems 0x80041000 is the magic kernel entry point for Linux; the jffs2 partition doesn't need this but it doesn't do any harm to have it)
 
 {{{
@@ -544,7 +493,6 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot>
 }}}
-
 You can now try to boot directly from the !RedBoot command line:
 
 {{{
@@ -563,18 +511,13 @@ Jan  1 00:00:43 (none) user.warn kernel: jffs2_build_filesystem(): unlocking the
 Jan  1 00:00:43 (none) user.warn kernel: jffs2_build_filesystem(): erasing all blocks after the end marker... done.
 Jan  1 00:00:43 (none) user.warn kernel: VFS: Mounted root (jffs2 filesystem) readonly.
 ...
-
 }}}
-
 Now hit Enter for a shell:
 
 {{{
 Jan  1 00:01:28 (none) daemon.info init: Starting pid 67, console /dev/tts/0: '/bin/ash'
-
-
 BusyBox v1.3.1 (2007-01-02 13:55:25 GMT) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
@@ -597,9 +540,7 @@ Filesystem           1k-blocks      Used Available Use% Mounted on
 /dev/root                 3264      1732      1532  53% /
 root@OpenWrt:/#
 }}}
-
 === Use fconfig to change bootup parameters ===
-
 Now you will need to change the boot script so that your new kernel is booted automatically at power-up. You can also use this as an opportunity to change the default !RedBoot serial port speed from 115200 to 9600 bps.
 
 {{{
@@ -632,14 +573,12 @@ Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot>
 }}}
-
 == Booting using Meraki stage2 loader ==
-
 Alternatively, it's possible to continue to use Meraki's stage 2 loader. This has the following advantages:
+
  * It does LZMA decompression, which is faster and the kernel image is smaller
  * It doesn't require changing the RedBoot configuration, and so is easier to do without a serial console
  * Potentially it allows you to have two images, and boot the second if the first is corrupt (i.e. making it harder to brick the unit)
-
 To do this, you need to prepend an 8-byte header to the kernel image, containing a length and bastardised CRC. The following Perl program does this. (Meraki's own software bundle compiles a C program to calculate the CRC)
 
 {{{
@@ -648,7 +587,6 @@ To do this, you need to prepend an 8-byte header to the kernel image, containing
 # by the Meraki stage2 bootloader, and pads to 64K
 # Typical usage:
 #    ./merakipart.pl ../build_mips/linux-2.6-atheros/vmlinux.bin.l7 >../bin/part
-
 use Digest::CRC;
 open(F, $ARGV[0]) or die "$ARGV[0]: $!";
 $size = -s F;
@@ -663,7 +601,6 @@ close(F);
 $size += 8;
 print "\000" while ($size++ & 0xffff);
 }}}
-
 Now you have a kernel which stage2 will happily decompress and run:
 
 {{{
@@ -696,15 +633,12 @@ starting linux
 Linux version 2.6.19.1 (candlerb@candlerb-desktop) (gcc version 3.4.6 (OpenWrt-2.0)) #1 Tue Jan 2 14:07:20 GMT 2007
 ...
 }}}
-
 The flash load and decompress now takes only about 7 seconds, and you can reboot without changing the !RedBoot config.
 
 = Options for installing without a serial console =
-
 /!\ '''WARNING:''' These procedures can brick your Meraki Mini. If you do, you may need a serial console to fix it. Kamikaze is experimental code and you should NOT install !OpenWrt unless you have got a working serial console cable.
 
 == RedBoot over telnet ==
-
 It's possible to get a !RedBoot> command line over the network. There is a two-second window (!) in which you can do so. Configure your PC as 192.168.84.9 and repeatedly try to connect to port 9000 on 192.168.84.1 (just keep hitting ctrl-C, up-arrow, enter) and you should be able to manage it. If your PC is running Linux you might want to rm /etc/resolv.conf first to stop it doing reverse DNS lookups on the address.
 
 {{{
@@ -725,7 +659,6 @@ Escape character is '^]'.
 ^C^C
 RedBoot>
 }}}
-
 Once you've done this, you can use fconfig to set a longer timeout (say 10 seconds) to make this easier in future - ignore any "AHB ERROR" messages you may see.
 
 {{{
@@ -763,7 +696,6 @@ Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot>
 }}}
-
 You can then continue as above; in particular you should create the "linux", "rootfs" and "/storage" partitions so that they are accessible when OpenWrt is running.
 
 {{{
@@ -771,19 +703,16 @@ RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x8
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n linux
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n rootfs
 }}}
-
 == Installing over ssh from existing firmware ==
-
 In theory it should be possible to overwrite just two partitions if your kernel is stage2-compatible:
 
  * /dev/mtd/3 with the CRC-prefixed kernel
  * /dev/mtd/4 with the rootfs
-
 Or three partitions with a standard kernel
+
  * /dev/mtd/3 with the kernel
  * /dev/mtd/4 with the rootfs
  * /dev/mtd/6 with a new !RedBoot config (fis load -d linux; exec)
-
 Unfortunately, neither of these will work with a vanilla Meraki because you'd also need to update the FIS directory to label the "rootfs" partition. (Is there a tool which runs under Linux which can do this? If not you will have to use !RedBoot> as above)
 
 However, instead you can use a kernel with a ramdisk root.
@@ -791,7 +720,6 @@ However, instead you can use a kernel with a ramdisk root.
 'make menuconfig', select 'target images', select 'ramdisk'. Then 'make'.
 
 === Risk-free test using tftp ===
-
 Configure a PC as 192.168.84.9 with a tftp server.
 
 Copy bin/openwrt-atheros-2.6-vmlinux.elf to the tftp server with name "art_ap51.elf".
@@ -801,7 +729,6 @@ Plug in your Meraki. Run tcpdump on the tftp server if you want to see what's ha
 The Meraki should fetch your kernel+ramdisk and run it. After a minute or two you should be able to telnet to 192.168.1.1. If it fails, then you just power-cycle the unit and no harm is done.
 
 === Install stage2 image ===
-
 If you're happy with this and want to make it permanent, first you'll want to make a stage2-compatible kernel image using the Perl script given above:
 
 {{{
@@ -809,7 +736,6 @@ $ scripts/merakipart.pl build_mips/linux-2.6-atheros/vmlinux.bin.l7 >bin/part-rd
 $ ls -l bin/part-rd
 -rw-r--r-- 1 candlerb candlerb 1966080 2007-01-04 10:35 bin/part-rd
 }}}
-
 (Make sure this is smaller than 3.25MB)
 
 Now you'll need to overwrite the 'part1' flash partition with this file. Unfortunately you can't do this from the !OpenWrt image you've just booted over tftp, because the flash partition isn't known to it, unless you used !RedBoot> to create the entry:
@@ -823,13 +749,12 @@ mtd2: 0000f000 00010000 "FIS directory"
 mtd3: 00001000 00010000 "RedBoot config"
 mtd4: 00010000 00010000 "board_config"
 }}}
-
 So you need to:
+
  * set up a DHCP server
  * make sure the art_ap51.elf file is no longer on your tftp server (or the tftp server is no longer on 192.168.84.9)
  * power-cycle the Meraki
  * watch DHCP to see what IP address it picks up
-
 Now you're running the old Meraki firmware, which has the flash partitions hard-coded into it. Now you can copy the new image file, login, and write it to flash:
 
 {{{
@@ -846,7 +771,6 @@ root@meraki-node:~# dd if=part-rd of=/dev/mtd3 bs=1k
 1920+0 records out
 root@meraki-node:~# reboot
 }}}
-
 Now cross your fingers and hope that the unit comes back up on 192.168.1.1. (However, if you uploaded a broken image with a bad CRC, the Meraki stage2 bootloader should revert to the firmware in part2)
 
 '''NOTE:''' Once you're running OpenWrt, there's no way to upgrade the firmware again!! This is because !OpenWrt still is missing the necessary partition info. So you'll still have to get to the !RedBoot> prompt to create the partition table. For this reason, I recommend using !RedBoot> to perform the installation in the first place.
@@ -854,13 +778,10 @@ Now cross your fingers and hope that the unit comes back up on 192.168.1.1. (How
 '''FIXME:''' Running from a ramdisk root is very limited. For example, if you use 'passwd' to set a root password, and then reboot, this is lost. It would be better if we could have a single flash partition containing kernel + squashfs + jffs2 (unioned over the squashfs)
 
 = OpenWrt configuration =
-
 == IP ==
-
 By default, eth0 is configured as 192.168.1.1. Change in /etc/config/network
 
 == Storage ==
-
 Note that there's 1MB of additional flash available which the Meraki original firmware mounted on /storage. You should probably back this up before using it if you want to be able to return to the original Meraki firmware.
 
 It's not accessible until you create a FIS partition entry for it:
@@ -871,8 +792,8 @@ RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x8
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 RedBoot>
 }}}
-
 After this:
+
 {{{
 root@OpenWrt:/# cat /proc/mtd
 dev:    size   erasesize  name
@@ -891,9 +812,7 @@ BOOT_COUNT              config.old              random_seed
 config                  dropbear
 config.local            meraki-watchdog.status
 }}}
-
 = Meraki-released source =
-
 /!\ Now that Atheros SoC support is in the main !OpenWrt tree, the rest of this page is probably not of interest to most people. However it does include the source code to build the stage 2 loader, and to build the !RedBoot config partition. It also serves as documentation of some of the changes Meraki had to make.
 
 Meraki distribute their own tarball at http://www.meraki.net/linux/openwrt-meraki.tar.gz which at the time of writing is:
@@ -903,14 +822,13 @@ openwrt-meraki.tar.gz   30-Nov-2006 12:11
 size: 63072791
 md5sum: da71bbdd97b33bbf7dbb17c819a6c636
 }}}
-
 This contains:
+
  * openwrt kamikaze forked from SVN r3586 (2006-04-02)
  * madwifi-ng forked from SVN r1486 (2006-03-28)
  * an entire linux kernel forked from 2.6.16.16
  * Meraki's own 'base' directory (includes tools for building their stage2 loader and main flash image for booting with !RedBoot)
  * Meraki's own 'base-files' directory (completely replacing the openwrt base files)
-
 Some of the changes made by Meraki are described at http://forum.openwrt.org/viewtopic.php?id=7189
 
 To build this software, follow the instructions in Meraki.README. Note that you will need to install the 'flex', 'sharutils' and 'gawk' packages first (Ubuntu: "apt-get install flex sharutils gawk")
@@ -918,7 +836,6 @@ To build this software, follow the instructions in Meraki.README. Note that you 
 Sit back and expect to wait an hour or more for the build to complete.
 
 == Risk-free test ==
-
 Set up a host system on 192.168.84.9, with either a webserver or a TFTP server.
 
 copy build_ar531x/stage2-embedded.elf to /meraki/mini.1.img under the webserver's document root, or as art_ap51.elf under the tftp server.
@@ -928,7 +845,6 @@ Boot the Meraki. It should pick up this firmware and run it, without changing wh
 (The webserver approach doesn't always work well, at least with OpenBSD as the server; the Meraki always connects from the same source port, which means the socket gets stuck in a FIN_WAIT_2 state and subsequent connections are believed to be part of the same connection. TFTP runs over UDP and doesn't suffer this problem.)
 
 == Install procedure ==
-
 {{{
 $ scp build_ar531x/upgrade.sh meraki@x.x.x.x:
 $ ssh meraki@x.x.x.x
@@ -956,13 +872,11 @@ writing part2..
 done
 root@meraki-node:~# Connection to x.x.x.x closed by remote host.
 }}}
-
 [note the bug in the upgrade script! It should say /usr/bin/checkpart not /usr/bin/checkpart.pl. /usr/bin/checkpart is actually written in ruby]
 
 Unfortunately, this upgrade process overwrites both image partitions, so it doesn't retain a fallback image in case the one you've uploaded is broken.
 
 == On first boot ==
-
 I found the machine got as far as picking up an IP address via DHCP but shortly afterwards crashed, going into a reboot loop. On the serial port:
 
 {{{
@@ -974,7 +888,6 @@ unable to load wlan_scan_sta
 wifi0: Atheros 2315 WiSoC: mem=0xb0000000, irq=3
 wlan: mac acl policy registered
 realtek setup
-
 ethmac0 link up
 eth0: up
 bss channel not setupBreak instruction in kernel code[#1]:
@@ -1042,12 +955,9 @@ Call Trace:
  [<8006a004>] do_exit+0x9b0/0x9bc
  [<8004e394>] tlb_do_page_fault_0+0x104/0x10c
  [<80042bb0>] syscall_exit+0x0/0x38
-
-
 Code: 244272a0  0040f809  00000000 <0200000d> 8e020000  ae1101c8  8c420238  304
 Kernel panic - not syncing: Aiee, killing interrupt handler!
  <0>Rebooting in 3 seconds..<2>watchdog expired!
 watchdog hb: 20  ISR: 0xa1  IMR: 0x9  WD : 0x0  WDC: 0x0
 }}}
-
 Unfortunately, I had installed using the flash method rather than the failsafe method. Fortunately I had backed up the partitions and was able to restore using a serial console.
