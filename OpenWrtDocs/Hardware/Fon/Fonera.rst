@@ -42,7 +42,7 @@ If the ethernet jack is in front of you, it looks like
 _____________________
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
-̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+
 |Power| |Ethernet|
 }}}
 {{{
@@ -380,6 +380,24 @@ Escape character is '^]'.
 RedBoot>
 }}}
 I have to ctrl-c abort netcat.
+
+Telnet on Linux has the same problem with ctrl-c, which seems to be caused by a disabled TELNET LINEMODE option. When you enable this option by creating a file ~/.telnetrc with the following contents:
+{{{
+192.168.5.22 9000
+        mode line
+}}}
+you can interrupt redboot with ctrl-c:
+{{{
+$ arping -qf 192.168.5.22 ; telnet 192.168.5.22 9000
+WARNING: interface is ignored: Operation not permitted
+Trying 192.168.5.22...
+?Invalid command
+Connected to 192.168.5.22.
+Escape character is '^]'.
+== Executing boot script in 9.940 seconds - enter ^C to abort
+^C
+RedBoot>
+}}}
 
 The boot process is somehow signalled via the leds, first only the power led is on, then the internet led starts blinking, and when this internet led is solid green, it's the right time to connect to the gdb console.
 
