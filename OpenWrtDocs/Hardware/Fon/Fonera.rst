@@ -381,7 +381,7 @@ RedBoot>
 }}}
 I have to ctrl-c abort netcat.
 
-Telnet on Linux has the same problem with ctrl-c, which seems to be caused by a disabled TELNET LINEMODE option. When you enable this option by creating a file ~/.telnetrc with the following contents:
+The ctrl-c problem seems to be caused by a disabled TELNET LINEMODE option. When you enable this option by creating a file ~/.telnetrc with the following contents:
 {{{
 192.168.5.22 9000
         mode line
