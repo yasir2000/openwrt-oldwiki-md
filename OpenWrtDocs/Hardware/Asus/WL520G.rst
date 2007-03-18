@@ -36,5 +36,6 @@ may be underclocked
 
 16 Dec 2006 Jek(YauhenKharuzhy): Kamikadze works after customization. There are issues with small amount of memory.
 
+18 Mar 2007 dot202: This device supports Whiterussian 0.9 micro package. wlan works as well.
 ----
  . CategoryModel
