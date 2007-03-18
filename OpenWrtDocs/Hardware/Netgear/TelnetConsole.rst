@@ -7,7 +7,7 @@ Some [:../:Netgear] routers run a telnet daemon which can be accessed from any c
 
  * WGR614 v5,6: known to work
  * WGR614 v1-4: unknown, may well work
- * WPN824 v1: [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
+ * WPN824 v1: known to work
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
   . Tried from a Gentoo box on a WG602v3: does not work.
   {{{
