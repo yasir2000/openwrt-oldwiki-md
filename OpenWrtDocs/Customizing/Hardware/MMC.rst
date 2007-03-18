@@ -208,7 +208,6 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 
 == Yay, it works, now what? ==
 
-Now if you like X-Wrt you can go here: http://www.digitalincursion.net/wrt54gl.html for a easy setup for the mmc/sd. Some people in the past have
-problems configuring the device with X-Wrt the above website makes it simple. As for DD-Wrt it is just a click and save.
+Now if you like X-Wrt you can go here: http://www.digitalincursion.net/wrt54gl.html for a easy setup configuration for X-Wrt with the mmc/sd. Some people in the past have had problems configuring the device with X-Wrt the above website makes it simple. As for DD-Wrt it is just a click and save.
 
 Please see PackagesOnExternalMediaHowTo
