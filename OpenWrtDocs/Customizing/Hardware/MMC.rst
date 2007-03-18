@@ -207,5 +207,7 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 '''echo 0xe8 > /proc/diag/gpiomask''' to avoid hotplug problems.
 
 == Yay, it works, now what? ==
+Now if you like X-Wrt you can go here: http://www.digitalincursion.net/wrt54gl.html for a easy setup for the mmc/sd. Some people have
+problems configuring the device with X-Wrt. As for DD-Wrt it is just a click and save.
 
 Please see PackagesOnExternalMediaHowTo
