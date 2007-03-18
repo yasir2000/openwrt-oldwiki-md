@@ -28,7 +28,7 @@ Netgear provides a developer tool for unlocking the console access from a Window
 
 Here's the process:
 
- * Download the file wpn824_ko_2.12_1.2.9.zip file from [http://www.netgear.co.kr/Support/Product/FileInfo.asp?IDXNo=155 the korean NetGear support website (scroll down)] or from the other locations I found it at ([http://www.sebone.de/download.php?file=47e892f71fa9d1036a5615e3b7045190 mirror 1], [http://www1.file-upload.net/download_10.05.06/2di5co.zip.html mirror 2]) and unzip it.
+ * Download the file wpn824_ko_2.12_1.2.9.zip file from [http://www.netgear.co.kr/Support/Product/FileInfo.asp?IDXNo=155 the korean NetGear support website (scroll down)] or from the other locations I found it at ([http://www.sebone.de/download.php?file=47e892f71fa9d1036a5615e3b7045190 mirror 1], [http://www1.file-upload.net/download_10.05.06/2di5co.zip.html mirror 2], UPDATE: Get it here [http://files.to/get/349970/64662/telnetEnable.rar]) and unzip it.
  * Login to Windows using an account which has administrative privileges (needed for sending custom crafted network packets which this tool does)
  * You will see a M$ Word doc which contains screenshots and instructions in korean language, a firmware update (you don't need this) and the telnetEnable.exe tool
  * Open a command line (windows console) window. To do so, press and hold windows key, then press R once and release both. In the new windows, type ''cmd'', then press enter)
