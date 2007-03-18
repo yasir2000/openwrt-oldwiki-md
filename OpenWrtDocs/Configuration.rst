@@ -553,7 +553,7 @@ Examples:
 ||Pacific Time ||PST8PDT,M3.2.0,M11.1.0 ||
 ||Mountain Time ||MST7MDT,M3.2.0,M11.1.0 ||
 ||Mountain Time (Arizona, no DST) ||MST7 ||
-||Central Time ||CST6MDT,M3.2.0,M11.1.0 ||
+||Central Time ||CST6CDT,M3.2.0,M11.1.0 ||
 ||Eastern Time ||EST5EDT,M3.2.0,M11.1.0 ||
 ||Atlantic Time ||AST4ADT ||
 ||Atlantic Time (New Brunswick) ||AST4ADT,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
@@ -574,7 +574,7 @@ Here is the command to type for each time zone in the continential US:
 
 {{{
 echo "EST5EDT,M3.2.0,M11.1.0" >/etc/TZ
-echo "CST6MDT,M3.2.0,M11.1.0" >/etc/TZ
+echo "CST6CDT,M3.2.0,M11.1.0" >/etc/TZ
 echo "MST7MDT,M3.2.0,M11.1.0" >/etc/TZ
 echo "PST8PDT,M3.2.0,M11.1.0" >/etc/TZ
 echo "AKST9AKDT,M3.2.0,M11.1.0" >/etc/TZ
@@ -584,7 +584,7 @@ As explained above, you could also set this in the NVRAM:
 {{{
 rm -f /etc/TZ
 nvram set time_zone="EST5EDT,M3.2.0,M11.1.0"
-nvram set time_zone="CST6MDT,M3.2.0,M11.1.0"
+nvram set time_zone="CST6CDT,M3.2.0,M11.1.0"
 nvram set time_zone="MST7MDT,M3.2.0,M11.1.0"
 nvram set time_zone="PST8PDT,M3.2.0,M11.1.0"
 nvram set time_zone="AKST9AKDT,M3.2.0,M11.1.0"
