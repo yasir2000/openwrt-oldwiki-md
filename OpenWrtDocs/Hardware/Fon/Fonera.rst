@@ -600,7 +600,7 @@ iptables -A INPUT -o br-lan -j ACCEPT
 then reboot and everthing should be working.
 
 == Correcting antenna settings under Kamikaze ==
-According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR german] by default Kamikaze utilizes antenna diversity on the Fonera.
+According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera.
 It also uses the wrong antenna :(
 
 To change that put the following at the end of /etc/sysctl.conf:
