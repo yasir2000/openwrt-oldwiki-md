@@ -1,4 +1,4 @@
-= Prestige 660HW-61 =
+= Prestige 660M-67 (aka as Arcor Speed Modem 50Z) =
 
 This device is very similar to the [:OpenWrtDocs/Hardware/ZyXEL/Prestige_660HW-61:Prestige 660HW-61], please see that entry for a lot of info that also applies to this model.
 
