@@ -39,11 +39,15 @@ to open the case, remove the two feet on the opposite site to the antenna jack, 
 If the ethernet jack is in front of you, it looks like
 
 {{{
-_____________________
++-------------------+
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
-
-|Power| |Ethernet|
++-------------------+
+
+
+
++-----+ +--------+    +---+
+|Power| |Ethernet|    |Ant|
 }}}
 {{{
 VCC (3.3V) -> red
@@ -52,7 +56,6 @@ RX         -> white
 TX         -> orange
 b . o w .
 r . . . .
- O    O
 }}}
 [http://jauzsi.hu/img/others/fonera_serial.jpg Here] the picture.
 
