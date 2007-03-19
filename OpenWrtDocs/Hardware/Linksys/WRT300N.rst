@@ -36,6 +36,10 @@ Pull off the blue Cover Plates on top and bottom of the Device, pull off the bla
 
 ''' '''To enable Debug Mode, log on to your router and type: http://you.rro.ute.rip/setup.cgi?todo=debug . Actually I don't know what happens to the router after enabling, but now i'm auditing the code.
 
+'''Using ping to run commands'''
+
+Like with other Linksys routers, it's possible to run system commands using "ping"; for instance, entering "; reboot" (without quotation marks) in the "ping" tool will reboot the router.
+
 '''WRT300N v2 Serial Console'''
 
 There aren't many connector slots on the board. The serial console (JP1) is just above the flash chip on the same side as the power connector. Console speed is 115200,8n1
