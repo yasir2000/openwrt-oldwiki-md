@@ -120,6 +120,18 @@ db="ulogdb"
 host="mysql server ip or name"
 }}}
 
+
+== Configuring kernel module ==
+
+''you must load and provide for the ipt_ULOG kernel module to be reloaded everytime your router is rebooted, in order to do that just type the following commands in a shell window''
+
+{{{
+insmod ipt_ULOG
+echo ipt_ULOG > /etc/modules.d/60-iptableslogging
+}}}
+
+
+
 http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 ----
 CategoryHowTo
