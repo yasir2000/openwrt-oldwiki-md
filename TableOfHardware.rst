@@ -370,6 +370,10 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||yes ||? || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
 ||[http://www.t-com.de/service/downloads Speedport W501V] || ||TNETD7200GDW (AR7) @??MHz ||4MB ||16MB ||TNETW1350A ||None || ||yes ||? || ||Untested ||
 ||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||4 MB ||16 MB? ||Atheros AR2413/5112/5212 ||Infineon ADM6996I || ||Yes || ||No ||possible ||
+||[http://www.t-com.de/service/downloads Speedport W701V] || ||TNETD7200ZDW (AR7) @??Mhz ||8 MB ||32 MB ||TNETW1350A ||Infineon ADM6996LC ||?||Yes || ? || ? ||[:OpenWrtDocs/Hardware/T-Com/SpeedportW701V:WiP] ||
+
+
+
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
