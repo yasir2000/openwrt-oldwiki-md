@@ -116,6 +116,10 @@ ifdown wan && ifup wan
 
 You can see ez-ipupdate's output with the {{{logread}}} command.
 
+Dyndns requires periodic updates no longer than 30 days in order to keep your DNS names. If 
+you seldom reset your router, or your WAN connection is usually stable, hotplug may not be enough. 
+Use cronjob described below to update your Dyndns records weekly in case they are expired.
+
 == Manually via the command line ==
 {{{
 /usr/sbin/ez-ipupdate -c /etc/ez-ipupdate.conf -i replacethiswithyourinterface}}}
