@@ -183,17 +183,20 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Edimax ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||BR-6104 ||?||Infineon ADM5106 (ARM7TDMI) @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.com/html/english/products/BR-6104K.htm BR-6104K] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
+||BR-6104K ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6104KP.htm BR-6104KP] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||Yes ||[:Edimax:WiP] ||
-||BR-6104P ||?||Infineon ADM5106 (ARM7) @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104P.pdf BR-6104P] ||?||Infineon ADM5106 (ARM7) @ ?MHz ||1MB ||? ||None ||? ||? ||? ||? ||? || ||
 ||BR-6104S ||?||Samsung ARM @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||BR-6104W ||?||ARM7 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.nl/html/english/products/BR-6104WB.htm BR-6104WB] ||?||RealTek RTL8181 @ 200MHz ||2MB ||16MB ||? ||Realtek RTL8305SB ||? ||? ||? ||? || ||
-||[http://www.edimax.com.tw/download/datasheet/BR-6104WG_c.pdf BR-6104WG] ||?||WavePlus WP3210 @ 125MHz ||1MB ||8MB ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.nl/html/english/products/BR-6104Wg.htm BR-6104Wg] ||?||Infineon ADM5120 @ 175MHz ||2MB ||16MB ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104W.pdf BR-6104W] ||?||ARM7 @ ?MHz ||1MB ||? ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.nl/html/english/products/BR-6104WB.htm BR-6104WB] ||?||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=3&Level=5&Conn=4&ProdID=3 RealTek RTL8181] @ 200MHz ||2MB ||16MB ||? ||[http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=1&PNid=20&PFid=20&Level=5&Conn=4&DownTypeID=1&GetDown=false&Downloads=true#RTL8305SB Realtek RTL8305SB] ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104WG_c.pdf BR-6104WG] ||?||[http://www.waveplus.com/wp3210.asp WavePlus WP3210] @ 125MHz ||1MB ||8MB ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.nl/html/english/products/BR-6104Wg.htm BR-6104Wg] ||?||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||? ||? ||? ||? ||? ||? || ||
 ||BR-6104WP ||?||ARM7 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||Realtek RTL8186 ||2MB ||8MB(16?) ||Realtek RTL8225 || || || || || ||[:RTL8651BPort:Untested] ||
-||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||Infineon ADM5120 @ 175MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/phasedout/BR-6114Wg.htm BR-6114Wg] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB(16?) ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] || || || || || ||[:RTL8651BPort:Untested] ||
+||[http://www.edimax.com.tw/html/english/products/BR-6304Wg.htm BR-6304Wg] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||4MB ||16MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=20&Level=5&Conn=4&ProdID=31 RealTek RTL8305SC] ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/phasedout/EW-7203APg.htm EW-7203APg] ||? || Marvell 88W8515 @ ?MHz ||? ||32MB ||Marvell 88W8000G ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||? ||? ||? ||? ||? ||? ||? ||? || ||
 == Fon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||[http://tech.am/data/AC101-DS01-R.pdf Altima AC101] ||N/A ||Yes ||Yes ||NO ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze Supported - WiP] ||
