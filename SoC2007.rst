@@ -1,7 +1,6 @@
 = Important Info =
 
  * Make sure you've read [http://code.google.com/p/google-summer-of-code/wiki/AdviceforMentors Advice for Mentors] directives before contributing ideas...
- * Deadline to submit mentoring organization application to google is: '''14th March'''
  * [http://groups.google.com/group/google-summer-of-code-announce/web/gsoc-mentor-organization-application-how-to Mentor organization application howto]
 
 = Ideas =
