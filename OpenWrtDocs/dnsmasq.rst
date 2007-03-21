@@ -54,7 +54,7 @@ An initial symptom of this problem is that DNS forwarding doesn't seem to work a
 {{{
 logread | grep dnsmasq | less
 }}}
-The problem lies in that the init script for dnsmasq expects the NVRAM variable, {{{dhcp_start}}}, to be in an integer format instead of an IP. Variable {{{dhcp_start}}} defines offset from beginning of your network addresses and variable {{{dhcp_num}}} defines how many IP addresses to use in DHCP pool. DHCP pool consists of addresses {{{NETWORK+dhcp_start..NETWORK+dhcp_start+dhcp_num}}} (oops, you have got {{{dhcp_num+1}}} dynamic addresses :-).
+The problem lies in that the init script for dnsmasq expects the NVRAM variable, {{{dhcp_start}}}, to be in an integer format instead of an IP address (which some other firmwares may leave in your NVRAM after an upgrade to OpenWrt). The variable {{{dhcp_start}}} defines offset from beginning of your network addresses and variable {{{dhcp_num}}} defines how many IP addresses to use in DHCP pool. DHCP pool consists of addresses {{{NETWORK+dhcp_start..NETWORK+dhcp_start+dhcp_num}}} (oops, you have got {{{dhcp_num+1}}} dynamic addresses :-).
 
 Example 1: Your network is {{{192.168.1.0/255.255.255.0}}}, your starting address is {{{192.168.1.100}}}, your ending address is {{{192.168.1.149}}} try this:
 
@@ -72,6 +72,9 @@ nvram set dhcp_num=3
 nvram commit
 killall -9 dnsmasq ; /etc/init.d/S60dnsmasq
 }}}
+
+NOTE: this appears to be fixed in WHITE RUSSIAN 0.9 (dnsmasq - 2.35-1) since the init script will correct {{{dhcp_start}}} entries.
+
 == Configuring dnsmasq to use different IP ranges for wired and wireless ==
 Suppose you have the following:
 
