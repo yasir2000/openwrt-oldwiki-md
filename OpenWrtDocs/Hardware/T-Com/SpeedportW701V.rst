@@ -139,10 +139,7 @@ CONFIG_WLAN_WDS='y'
 CONFIG_XILINX='y'
 }}}
 
-=== Output from various ADAM2 commands on original firmware ===
-
 {{{
-
 ~ # ps ax
   PID  Uid     VmSize Stat Command
     1 root        336 S   init
@@ -765,7 +762,91 @@ wdsup0    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
 
 }}}
 
+=== Output from various ADAM2 commands on original firmware ===
+
+{{{
+
+(AVM) EVA Revision: 1.203 Version: 1203
+(C) Copyright 2005 AVM Date: Feb  7 2007 Time: 19:03:32 (3) 2 0-11111
+
+[FLASH:] SPANSION Top-MirrorBit-Flash 8MB 32 Bytes WriteBuffer
+[FLASH:](Eraseregion [0] 127 sectors a 64kB)
+[FLASH:](Eraseregion [1] 8 sectors a 8kB)
+[SYSTEM:] OHIO on 211MHz/125MHz
+
+Eva_AVM >
+       Commands   Description
+       --------   -----------
+           help   help
+             dm   dump mem <addr> <range>
+             cm   change mem <addr> <value>
+          erase   Erase Flash <mtd>
+       printenv   print Env. Variables
+        restart   reboot Device
+         setenv   set Env. variable <var> <value>
+       unsetenv   unset Env. variable <var>
+             go   load & start kernel from mtd1
+         setmac   set mac addresses <addr> (like 12:23:40)
+        memtest   test memory
+
+Eva_AVM >printenv
+HWRevision            101.1.1.0
+ProductID             Fritz_Box_SpeedportW701V
+SerialNumber          0000000000000000
+annex                 B
+autoload              yes
+bootloaderVersion     1.203
+bootserport           tty0
+bluetooth
+cpufrequency          211968000
+firstfreeaddress      0x946B1D78
+firmware_version      tcom
+firmware_info         33.04.26
+flashsize             0x00800000
+kernel_args           idle=4
+maca                  00:1A:4F:CB:E2:D9
+macb                  00:1A:4F:CB:E2:DA
+macwlan               00:1A:4F:90:5B:9E
+macdsl                00:1A:4F:CB:E2:DB
+memsize               0x02000000
+modetty0              38400,n,8,1,hw
+modetty1              38400,n,8,1,hw
+mtd0                  0x90000000,0x90000000
+mtd1                  0x90010000,0x90780000
+mtd2                  0x90000000,0x90010000
+mtd3                  0x90780000,0x907C0000
+mtd4                  0x907C0000,0x90800000
+my_ipaddress          192.168.178.1
+prompt                Eva_AVM
+ptest
+reserved
+req_fullrate_freq     125000000
+sysfrequency          125000000
+urlader-version       1203
+usb_board_mac         00:1A:4F:CB:E2:DC
+usb_rndis_mac         00:1A:4F:CB:E2:DD
+usb_device_id         0x0000
+usb_revision_id       0x0000
+usb_device_name       USB DSL Device
+usb_manufacturer_name  AVM
+wlan_key              3577134058785966
+wlan_cal              001C,03F2,000F,00D2,010A,00D2,010A,02E0,02DA
+}}}
+
 === Original Flash Map ===
+
+||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
+||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||empty! ||
+||mtd1 ||{{{0x90010000}}} ||{{{0x90780000}}} ||{{{0x770000}}} ||kernel+jffs2 ||
+||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||{{{0x010000}}} ||ADAM2/bootloader ||
+||mtd3 ||{{{0x90780000}}} ||{{{0x907c0000}}} ||{{{0x040000}}} ||tffs (1) ? ||
+||mtd4 ||{{{0x907c0000}}} ||{{{0x90800000}}} ||{{{0x040000}}} ||tffs (2) ? ||
+
+Physical order of partitions on flash chip is:
+
+mtd0,mtd2,mtd1,mtd3,mtd4
+
+mtd0 is rather odd as it's 0 length!
 
 == Installing OpenWrt ==
 
