@@ -64,7 +64,7 @@ Serial port settings: 38400 8N1
 
 === Output from various commands on the original firmware ===
 
-When I logged in to the console for the first time it kindly dumped it's NVRAM for me to see!
+When I logged in to the console for the first time it kindly dumped a bunch of info and kernel configuration values for me to see!
 {{{
 HWRevision='101'
 HWRevision_ATA='1'
