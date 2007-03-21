@@ -9,9 +9,17 @@ Others users known to have this device:  saftsack, Heini66
 
 == Hardware Info ==
 
-Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB).
+Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
 
-Being an AR7 device it also has a built-in ADSL Modem
+Being an AR7 device it also has a built-in ADSL Modem, the Speedport W701V also features as ISDN socket and two telephone sockets for VoIP use.
+
+CPU: TNETD7200ZDW (AR7) @211Mhz 
+Flash: 8 MB 
+Ram: 32 MB 
+WLan Chip: TNETW1350A
+Ethernet Switch Chip: Infineon ADM6996LC 
+
+It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
 === Photos ===
 
