@@ -188,12 +188,12 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||BR-6104P ||?||Infineon ADM5106 (ARM7) @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
 ||BR-6104S ||?||Samsung ARM @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
 ||BR-6104W ||?||ARM7 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.nl/html/english/products/BR-6104WB.htm BR-6104WB] ||?||RealTek RTL8181 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.com.tw/download/datasheet/BR-6104WG_c.pdf BR-6104WG] ||?||WavePlus WP3210 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.nl/html/english/products/BR-6104Wg.htm BR-6104Wg] ||?||Infineon ADM1520 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.nl/html/english/products/BR-6104WB.htm BR-6104WB] ||?||RealTek RTL8181 @ 200MHz ||2MB ||16MB ||? ||Realtek RTL8305SB ||? ||? ||? ||? || ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104WG_c.pdf BR-6104WG] ||?||WavePlus WP3210 @ 125MHz ||1MB ||8MB ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.nl/html/english/products/BR-6104Wg.htm BR-6104Wg] ||?||Infineon ADM5120 @ 175MHz ||2MB ||16MB ||? ||? ||? ||? ||? ||? || ||
 ||BR-6104WP ||?||ARM7 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||Realtek RTL8186 ||2MB ||8MB(16?) ||Realtek RTL8225 || || || || || ||[:RTL8651BPort:Untested] ||
-||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||Infineon ADM1520 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
+||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||Infineon ADM5120 @ 175MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
 == Fon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||[http://tech.am/data/AC101-DS01-R.pdf Altima AC101] ||N/A ||Yes ||Yes ||NO ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze Supported - WiP] ||
