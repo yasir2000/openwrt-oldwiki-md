@@ -58,6 +58,39 @@ Serial port settings: 38400 8N1
 
 === Backing up original firmware ===
 
+To backup the original firmware you'll need console access to the device, e.g. use a serial cable and minicom to access the root shell.
+
+You can then dump each mtd block to a file and download them via the built in web browser as below.
+
+{{{
+mkdir /var/backup
+cp /dev/mtd1 /var/backup/mtd1-rootfs.bin
+cp /dev/mtd2 /var/backup/mtd2-kernel-and-rootfs.bin
+cp /dev/mtd3 /var/backup/mtd3-bootloader.bin
+cp /dev/mtd4 /var/backup/mtd4-nvram1.bin
+cp /dev/mtd5 /var/backup/mtd5-nvram2.bin
+kill `pidof websrv`
+cd /var
+rm html
+ln -s backup html
+websrv
+}}}
+
+You can then download the files by pointing your webbrowser at {{{http://<your router's ip>/mtd0-rootfs.bin}}} etc.
+
+All being well you should have files like this
+
+{{{
+# ls -al
+drwxr-xr-x    2 root     root            0 Jan  1 01:10 .
+drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
+-rw-r--r--    1 root     root      7158272 Jan  1 01:09 mtd1-rootfs.bin
+-rw-r--r--    1 root     root      7798784 Jan  1 01:09 mtd2-kernel-and-rootfs.bin
+-rw-r--r--    1 root     root        65536 Jan  1 01:09 mtd3-bootloader.bin
+-rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd4-nvram1.bin
+-rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd5-nvram2.bin
+}}}
+
 === Restoring Original Firmware ===
 
 === Boot log from old firmware ===
