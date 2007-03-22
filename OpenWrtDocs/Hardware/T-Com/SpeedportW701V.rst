@@ -97,6 +97,15 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 
 === Restoring Original Firmware ===
 
+==== Undoing changes to adam2 config ====
+
+TODO: finish this section, here's some hints for now
+
+{{{
+setenv kernel_args idle=4
+unsetenv mtd5
+}}}
+
 === Boot log from old firmware ===
 
 === Output from various commands on the original firmware ===
@@ -1041,7 +1050,10 @@ There is a pause before the file is transferred where the router erases the mtd1
 
 After the file is transferred there is another pause while the image file is flashed to the chip, don't reboot your router during this time.
 
-My router then rebooted into adam2 and then into openwrt, the entire log from the serial console was as follows:
+Some users have reported errors appearing in the serial console that complain about flashing problems.  It appears that the flash process sometimes retries and succeedes and other times it fails.  failure is not reported to the ftp so it's advised to always use a serial cable so you can monitor  the flash process, if it fails just "put" the image via ftp until it doesn't report a failure.
+
+
+The entire log from the serial console was as follows:
 {{{
 TODO
 }}}
