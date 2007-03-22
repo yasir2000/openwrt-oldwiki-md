@@ -15,7 +15,11 @@ ipkg install nas; reboot
 = Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Full failsafe mode is only working when you have installed one of the SquashFS images.
 
-/!\ The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache.
+/!\ The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache:
+
+{{{
+arp -d *
+}}}
 
 /!\ MAKE SURE that the client used to TELNET to the router is set up for a static ip in the same group (192.168.1.x). Failsafe has no DHCP!
 
