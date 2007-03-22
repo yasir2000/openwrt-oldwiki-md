@@ -641,4 +641,4 @@ The tool athctrl sets values for specific distances in meters with the -d option
  * [http://karman.homelinux.net/blog/ Blog about Fonera] (Spanish)
  * [http://mrmuh.blogspot.com/2007/01/codename-kolofonium-realease-date.html Blog about Hacking the 0.7.1r2 firmware] 
  * [http://blog.extreme-networking.com/ OpenWRT installation guide (Italian) and misc] 
- * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, german]
+ * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, german] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) english]: comprehensive guide to flashing la fonera with kamikaze.
