@@ -983,12 +983,15 @@ Now you can flash with the firmware of your choice. I (Hydra) downloaded openwrt
 I flashed the firmware by issue the following commands:
 
 {{{
-quote MEDIA FLSH
 binary
+quote MEDIA FLSH
+passiv
 put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin "openwrt-ar7-2.4-squashfs.bin mtd1"
 quote REBOOT
 bye
 }}}
+
+Passiv mode must be used otherwise the device reports "501 Command Not Implemented" after issuing the "put" command.
 
 The entire process looked like this:
 
@@ -1001,18 +1004,20 @@ Name (192.168.178.1:hydra): adam2
 Password:
 230 User adam2 successfully logged in.
 Remote system type is UNIX.
-ftp> quote MEDIA FLSH
-200 Media set to FLSH.
 ftp> binary
 200 Type set to I.
-ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin "openwrt-ar7-2.4-squashfs.bin mtd1"
-local: /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin remote: openwrt-ar7-2.4-squashfs.bin mtd1
+ftp> quote MEDIA FLSH
+200 Media set to FLSH.
+ftp> passiv
+Passive mode on.
+ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin mtd1
+local: /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin remote: mtd1
 200 Port command successful.
 150 Opening BINARY mode data connection for file transfer.
 226 Transfer complete.
-1439077 bytes sent in 13.47 secs (104.3 kB/s)
+1697713 bytes sent in 7.37 secs (225.0 kB/s)
 ftp> quote REBOOT
-221-Thank you for using the FTP service on ADAM2.
+221 Thank you for using the FTP service on ADAM2.
 221 Goodbye.
 ftp> quit
 }}}
