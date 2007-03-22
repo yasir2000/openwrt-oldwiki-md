@@ -21,6 +21,10 @@ Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
+== Bootloader ==
+
+The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W701V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to it's defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.203, from February 2007.
+
 === Photos ===
 
 http://www.hydraservices.com/files/t-com_speedport-w701v/pcb1.jpg
@@ -29,9 +33,9 @@ http://www.hydraservices.com/files/t-com_speedport-w701v/pcb2.jpg
 
 === Serial Port ===
 
-I has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from maplic electronics for £0.79p and soldered it carefully to the back of the pcb.  I then attached my serial port adaptor (see the addontech arm8100 page on this wiki for circuit diagram) to the pin header and to my pc.
+It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Maplin Electronics for £0.79p and soldered it carefully to the back of the PCB  I then attached my serial port adaptor (see the Addontech ARM8100 page on this wiki for circuit diagram) to the pin header and to my pc.
 
-The general location of the port and the pinout is as follows:
+The general location of the port and it's pin-out is as follows:
 
 {{{
         Top right of PCB
@@ -950,6 +954,77 @@ mtd0,mtd2,mtd1,mtd3,mtd4
 mtd0 is rather odd as it's 0 length!
 
 == Installing OpenWrt ==
+
+To install OpenWRT you need an OpenWRT Kamikaze image file, it's best to build your own if you have a Linux system around, the process is quite simple and well documented, there's just a few options that need to be changed from the build system's defaults.
+
+=== Build Options ===
+
+TODO
+
+=== Flashing your OpenWRT image ===
+
+The best way to do this is using the bootloaders built in FTP server.  I also prefer to have a serial cable attached so I can monitor the progress, but this optional.
+
+To flash OpenWRT onto any device there must be an MTD Block that spans the main unused area of the flash rom.  The adam2 bootloader always boots from MTD1 (using the "go" command).  As it turns out the W701V's MTD block 1 (mtd1) is correct for the flashing operation as can be seen from this except from the original flash map table (above).
+
+||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
+||mtd1 ||{{{0x90010000}}} ||{{{0x90780000}}} ||{{{0x770000}}} ||kernel+jffs2 (jffs starts at 0x00580000) ||
+
+The W701V's default ip address is '192.168.178.1' - You can change the default adam2 address using the adam2 setenv commands to change the 'my_ipaddress' variable.
+Give your PC an IP address of '192.168.178.10'.
+Reboot the router an within 5 seconds connect to the ADAM2 ftp server on '192.168.178.1'.
+If you have a serial cable you can also reboot the router and press a key to get the router to wait in the ADAM2 console so that you have more time to connect via ftp to it.
+You should also be able to ping the device in the 5 second window or while the adam2 boot loader is paused, if not see the bootloader section of this document (above).
+
+The login name and password for the ftp server is adam2 (lower case). 
+
+Now you can flash with the firmware of your choice. I (Hydra) downloaded openwrt from the svn repos and built a stock flash image which was created by the build process as 'trunk/bin/openwrt-ar7-2.4-squashfs.bin'. The JFFS images were also created which can be also be used. The JFFS image to use would be the one with the 64k erase size, e.g. 'openwrt-ar7-2.4-jffs2-64k.bin'.
+
+I flashed the firmware by issue the following commands:
+
+{{{
+quote MEDIA FLSH
+binary
+put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin "openwrt-ar7-2.4-squashfs.bin mtd1"
+quote REBOOT
+bye
+}}}
+
+The entire process looked like this:
+
+{{{
+hydra@hydra02:~$ ftp 192.168.178.1
+Connected to 192.168.178.1.
+220 ADAM2 FTP Server ready.
+Name (192.168.178.1:hydra): adam2
+331 Password required for adam2.
+Password:
+230 User adam2 successfully logged in.
+Remote system type is UNIX.
+ftp> quote MEDIA FLSH
+200 Media set to FLSH.
+ftp> binary
+200 Type set to I.
+ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin "openwrt-ar7-2.4-squashfs.bin mtd1"
+local: /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin remote: openwrt-ar7-2.4-squashfs.bin mtd1
+200 Port command successful.
+150 Opening BINARY mode data connection for file transfer.
+226 Transfer complete.
+1439077 bytes sent in 13.47 secs (104.3 kB/s)
+ftp> quote REBOOT
+221-Thank you for using the FTP service on ADAM2.
+221 Goodbye.
+ftp> quit
+}}}
+
+There is a pause before the file is transferred where the router erases the mtd1 block. If you have a serial cable attached you can see the output in the adam2 console.
+
+After the file is transferred there is another pause while the image file is flashed to the chip, don't reboot your router during this time.
+
+My router then rebooted into adam2 and then into openwrt, the entire log from the serial console was as follows:
+{{{
+TODO
+}}}
 
 === Getting the ADSL Working via PPPoA (Manually) ===
 
