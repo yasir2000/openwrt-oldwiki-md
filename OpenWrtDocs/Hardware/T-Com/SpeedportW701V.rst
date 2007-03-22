@@ -1058,6 +1058,139 @@ The entire log from the serial console was as follows:
 TODO
 }}}
 
+Once the firmware is flashed you have to create an mtd block that spans the entire squashfs filesystem image on the flash.  I've not found a simple way round this yet but here's what i did:
+
+1) open the squashfs image in a hex editor (khexedit / ultraedit) and do an ascii search for "hsqs", the hex editor should show the file offset (of the 'h' character) from the beginning of the file.  note this number
+2) add the offset of the mtd1 block to the number you just noted down
+3) create an mtd block using the adam2 setenv command starting from the new number and going to the end of the mtd1 block.  the last mtd block in the adam2 environment was mtd4 for me, so i used mtd5, and issued this command:
+
+{{{
+setenv mtd5 0x900868ff,0x90780000
+}}}
+
+Do to an issue where the kernel command line is not overridden we need to update the adam2 settings so the kernel command line (shown just after the kernel boots) is set correctly)
+
+{{{
+setenv kernel_args root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit
+}}}
+
+Finally, boot the device!  - type either "restart" or "go" at the adam2 prompt on the serial port or power the box off and on again.
+
+My boot log looked like this:
+{{{
+Eva_AVM >go
+........done
+start kernel
+Launching kernel decompressor.
+Kernel decompressor was successful ... launching kernel.
+
+LINUX started...
+CPU revision is: 00018448
+Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
+Primary data cache 8kB, 4-way, linesize 16 bytes.
+Linux version 2.4.34 (hydra@hydra02) (gcc version 3.4.6 (OpenWrt-2.0)) #6 Thu Mar 22 21:33:14 GMT 2007
+Determined physical RAM map:
+ memory: 00020000 @ 14000000 (ROM data)
+ memory: 01fe0000 @ 14020000 (usable)
+On node 0 totalpages: 8192
+zone(0): 8192 pages.
+zone(1): 0 pages.
+zone(2): 0 pages.
+Kernel command line: root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit console=ttyS0,38400
+the pacing pre-scalar has been set as 600.
+Using 75.000 MHz high precision timer.
+Calibrating delay loop... 149.91 BogoMIPS
+Memory: 30476k/32768k available (1383k kernel code, 2292k reserved, 92k data, 68k init, 0k highmem)
+Dentry cache hash table entries: 4096 (order: 3, 32768 bytes)
+Inode cache hash table entries: 2048 (order: 2, 16384 bytes)
+Mount cache hash table entries: 512 (order: 0, 4096 bytes)
+Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
+Page-cache hash table entries: 8192 (order: 3, 32768 bytes)
+Checking for 'wait' instruction...  available.
+POSIX conformance testing by UNIFIX
+Linux NET4.0 for Linux 2.4
+Based upon Swansea University Computer Society NET3.039
+Initializing RT netlink socket
+Starting kswapd
+Registering mini_fo version $Id$
+devfs: v1.12c (20020818) Richard Gooch (rgooch@atnf.csiro.au)
+devfs: boot_options: 0x1
+JFFS2 version 2.1. (C) 2001 Red Hat, Inc., designed by Axis Communications AB.
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+pty: 256 Unix98 ptys configured
+Serial driver version 5.05c (2001-07-08) with no serial options enabled
+ttyS00 at 0xa8610e00 (irq = 15) is a 16550A
+Vlynq CONFIG_AR7_VLYNQ_PORTS=2
+Vlynq Device vlynq0 registered with minor no 63 as misc device. Result=0
+Vlynq instance:0 Link UP
+Vlynq Device vlynq1 registered with minor no 62 as misc device. Result=0
+VLYNQ 1 : init failed
+ar7 flash device: 0x400000 at 0x10000000.
+ Amd/Fujitsu Extended Query Table v1.3 at 0x0040
+Physically mapped flash: Swapping erase regions for broken CFI table.
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling fast programming due to code brokenness.
+Parsing ADAM2 partition map...
+Looking for mtd device :mtd0:
+Found a mtd0 image (0x0), with size (0x0).
+Assuming adam2 size of 0x0
+Looking for mtd device :mtd1:
+Found a mtd1 image (0x10000), with size (0x770000).
+Looking for mtd device :mtd2:
+Found a mtd2 image (0x0), with size (0x10000).
+Assuming adam2 size of 0x10000
+Looking for mtd device :mtd3:
+Found a mtd3 image (0x780000), with size (0x40000).
+Looking for mtd device :mtd4:
+Found a mtd4 image (0x7c0000), with size (0x40000).
+Setting new rootfs offset to 000868ff
+Squashfs detected (size = 0xb0086973)
+Creating 5 MTD partitions on "Physically mapped flash":
+0x00000000-0x00010000 : "adam2"
+0x00010000-0x00400000 : "linux"
+0x000868ff-0x001b0000 : "rootfs"
+mtd: partition "rootfs" doesn't start on an erase block boundary -- force read-only
+0x00400000-0x00800000 : "config"
+0x001b0000-0x00400000 : "rootfs_data"
+Initializing Cryptographic API
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP, IGMP
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 2048 bind 4096)
+ip_conntrack version 2.1 (5953 buckets, 5953 max) - 360 bytes per conntrack
+p_tables: (C) 2000-2002 Netfilter core team
+ET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+NET4: Ethernet Bridge 008 for NET4.0
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (squashfs filesystem) readonly.
+Mounted devfs on /dev
+Can't preserve ADAM2 memory, firstfreeaddress = 946b1d78.
+Freeing prom memory: 128kb freed
+Freeing unused kernel memory: 68k freed
+Algorithmics/MIPS FPU Emulator v1.5
+mount: mounting none on /dev failed
+Unlocking rootfs ...
+Could not open mtd device: rootfs
+switching to jffs2
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+init started:  BusyBox v1.4.1 (2007-03-20 22:57:20 GMT) multi-call binary
+
+Please press Enter to activate this console. jffs2.bbc: SIZE compression mode activated.
+Using the MAC with external PHY
+Cpmac driver is allocating buffer memory at init time.
+Using the MAC with external PHY
+Cpmac driver Disable TX complete interrupt setting threshold to 20.
+CSLIP: code copyright 1989 Regents of the University of California
+PPP generic driver version 2.4.2
+IPP2P v0.8.1_rc1 loading
+registered device TI Avalanche SAR
+Initializing DSL interface
+}}}
+
+TODO: it hung.. more diagnostic work to be done.
+
 === Getting the ADSL Working via PPPoA (Manually) ===
 
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
