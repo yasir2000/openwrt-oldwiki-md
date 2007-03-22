@@ -961,6 +961,21 @@ To install OpenWRT you need an OpenWRT Kamikaze image file, it's best to build y
 
 TODO
 
+==== Watchdog Issues ====
+
+Due to a problem with the current ar7 watchdog code (as of 22/03/2007) the watchdogs must be disabled.  Failure to do so will just result in a kernel that hangs when the watchdog driver is initialised.  See topic http://forum.openwrt.org/viewtopic.php?id=8052 for a similar problem.
+
+{{{
+vi target/linux/ar7-2.4/config/default
+}}}
+
+then set these options as follows:
+
+{{{
+CONFIG_AR7_WDT=n
+CONFIG_SOFT_WATCHDOG=n
+}}}
+
 === Flashing your OpenWRT image ===
 
 The best way to do this is using the bootloaders built in FTP server.  I also prefer to have a serial cable attached so I can monitor the progress, but this optional.
