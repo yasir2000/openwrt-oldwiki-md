@@ -959,5 +959,7 @@ mtd0 is rather odd as it's 0 length!
 
 == References ==
 
+There are loads of forum posts (in german) relating to the W701V here (use Suchen, top right, to search) http://www.ip-phone-forum.de/forumdisplay.php?f=560
+
 ----
  CategoryModel ["CategoryAR7Device"]
