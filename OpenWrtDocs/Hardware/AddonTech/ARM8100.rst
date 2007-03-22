@@ -19,7 +19,7 @@ So, the device is capable of functioning correctly as a router just fine!  I (Hy
 Areas that need more work are:
 
 * Automatic enabling of ADSL/wan/ppp0 after bootup.
-* DSL line fault detection and automatic reconnection - if you pull the dsl cable out the back you have to reboot before you can reconnect with pppd
+* DSL line fault detection and automatic reconnection - if you pull the dsl cable out the back you have to reboot before you can reconnect with pppd (but not always, sometimes just restarting pppd with ifdown wan and ifup wan works)
 * LEDs on the front of the unit do not show status of DSL line or PPP link
 * Getting more software onto the 2MB flash is a challenge, only a very minimal set of programs can currently be installed, otherwise the JFFS2 partition becomes full.  Also unable to use pure JFFS2 images due to the flash size and overhead of jffs2.
 
@@ -73,11 +73,13 @@ http://www.hydraservices.com/files/addontecharm8100/router-serial-cable.png
 The original firmware on these devices has trouble keeping track of lots of connections, for example if you use something like The All Seeing Eye to ping a bunch of game servers eventually you won't be able to make any more new connections, existing tcp connections continue to function.  After a while it goes back to normal.  The DNS server actually stops working completly when this happens however.
 
 Additionally XBox Live reports the router as having "Moderate" NAT which means it's not very good for use with XBox Live.
-
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/T-Com/SpeedportW701V?action=edit
+Edit "OpenWrtDocs/Hardware/T-Com/SpeedportW701V" - OpenWrt
 uPnP support appears to be non functional.  Enabling it doesn't do anything, it looks like libpthread is missing (attemping to manually start it results in an error message)
 
 === Backing up original firmware ===
-You can telnet to the device, login as "root" with whatever passyou use used for the admin interface, or use the console via the serial port.
+
+You can telnet to the device, login as "root" with whatever password you used for the admin interface, or use the console via the serial port.
 
 You can then dump each mtd block to a file and download them via a web browser pointed to the router at port 1080 using the example below.
 
