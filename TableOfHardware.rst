@@ -242,18 +242,17 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||BR-6104 ||?||Infineon ADM5106 (ARM7TDMI) @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||BR-6104K ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] ||
+||BR-6104K ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP] Clones: Sweex LB000021 ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6104KP.htm BR-6104KP] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||2x USB 1.1 ||[:Edimax:WiP] ||
 ||BR-6104S ||?||Samsung ARM @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
-||[http://www.edimax.nl/html/english/products/BR-6104WB.htm BR-6104WB] ||?||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=3&Level=5&Conn=4&ProdID=3 RealTek RTL8181] @ 200MHz ||2MB ||16MB ||? ||[http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=1&PNid=20&PFid=20&Level=5&Conn=4&DownTypeID=1&GetDown=false&Downloads=true#RTL8305SB Realtek RTL8305SB], 4 Port ||? ||? ||? ||No || ||
-||[http://www.edimax.nl/html/english/products/BR-6104Wg.htm BR-6104Wg] ||?||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||? ||4 Port ||? ||? ||? ||No || ||
+||[http://www.edimax.nl/html/english/products/BR-6104WB.htm BR-6104WB] ||?||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=3&Level=5&Conn=4&ProdID=3 RealTek RTL8181] @ 200MHz ||2MB ||16MB ||[http://www.cipis.net/ovislink/1120AP/soucastky/Philips%20SA2400/SA2400A_1.pdf Philips SA2400] ||[http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=1&PNid=20&PFid=20&Level=5&Conn=4&DownTypeID=1&GetDown=false&Downloads=true#RTL8305SB Realtek RTL8305SB], 4 Port ||? ||Yes ||? ||No || ||
+||[http://www.edimax.nl/html/english/products/BR-6104Wg.htm BR-6104Wg] ||?||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||AirVast WN360g (Mini-PCI, Prism GT chipset) ||4 Port ||? ||Yes ||? ||Yes ||Clones: NMX-WB04G, Canyon-Tech CN-WF512 and ConceptronicC54BRS4, some of which seem to use a Inprocomm IPN2220 Mini-PCI card instead ||
 ||BR-6104WP ||?||ARM7 @ ?MHz ||? ||? ||? ||? ||? ||? ||? ||? || ||
 ||[http://www.edimax.com.tw/phasedout/BR-6114Wg.htm BR-6114Wg] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||? ||4 Port ||? ||? ||? ||No || ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6204Wg.htm BR-6204Wg] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB(16?) ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=20&Level=5&Conn=4&ProdID=31 RealTek RTL8305SC] ||? ||Yes ||Some units: yes (on JP3, located left of the flash memory chip) ||No ||[:RTL8651BPort:Untested] ||
 ||[http://www.edimax.com.tw/html/english/products/BR-6304Wg.htm BR-6304Wg] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||4MB ||16MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=20&Level=5&Conn=4&ProdID=31 RealTek RTL8305SC] ||? ||? ||? ||No || ||
-||[http://www.edimax.com.tw/phasedout/EW-7203APg.htm EW-7203APg] ||? || Marvell 88W8515 @ ?MHz ||? ||32MB ||Marvell 88W8000G ||No ||? ||? ||? ||No || ||
-||[http://www.edimax.com.tw/html/english/products/EW-7206APg.htm EW-7206APg] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||? ||8MB ||? ||No ||? ||? ||No ||No || ||
-||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||? ||? ||? ||? ||? ||? ||? ||No || ||
+||[http://www.edimax.com.tw/html/english/products/EW-7206APg.htm EW-7206APg] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||No ||? ||Yes ||No ||No || ||
+||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||Inprocomm IPN2220 ||4 Port ||? ||Yes ||? ||No || ||
 
 
 == Fon ==
@@ -504,6 +503,12 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
+
+
+== Sweex ==
+
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.sweex.com/producten.php?sectie=7&subsectie=7&item=80&artikel=302 LB000021] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP], Clone of Edimax [http://www.edimax.com.tw/html/english/products/BR-6104KP.htm BR-6104KP] ||
 
 
 == T-Com ==
