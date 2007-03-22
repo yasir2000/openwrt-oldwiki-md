@@ -155,5 +155,11 @@ Currently defined functions:
 
 }}}
 
+== Serial Port ==
+
+There seems to be a serial Port. This is not proved so far. (watched traffic at TX with oscilloscope, MAX232+78L05 will come soon)
+
+http://publicdav.funforce.de/usr9108/usr9108-serial1.jpg
+
 ----
 CategoryModel
