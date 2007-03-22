@@ -37,6 +37,16 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 
 
+== Edimax ==
+
+Most devices listed here do not have enough flash memory, but there might be other reasons as well why they're unsupported.
+
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104W.pdf BR-6104W] ||?||ARM7 @ ?MHz ||1MB ||? ||? ||4 Port ||? ||? ||? ||No ||Unsupported ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104P.pdf BR-6104P] ||?||Infineon ADM5106 (ARM7) @ ?MHz ||1MB ||? ||None ||4 Port ||? ||? ||? ||No ||Unsupported ||
+||[http://www.edimax.com.tw/download/datasheet/BR-6104WG_c.pdf BR-6104WG] ||?||[http://www.waveplus.com/wp3210.asp WavePlus WP3210] @ 125MHz ||1MB ||8MB ||? ||4 Port ||? ||? ||? ||No ||Unsupported ||
+
+
 == LevelOne ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WBR-3400 ||V2 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8010_88W8510.pdf Marvell 88W8510] (ARM9 core) ||1MB (Macronix 29LV800TTC-70) ||4 MB (2x EM636165TS-6: 1M x 16'') '' ||integrated (Marvell Libertas) ||Marvell 88E6060 (4x) || || ||20-pin not soldered ||No ||No ||
