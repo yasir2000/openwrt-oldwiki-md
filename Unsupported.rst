@@ -45,6 +45,7 @@ Most devices listed here do not have enough flash memory, but there might be oth
 ||[http://www.edimax.com.tw/download/datasheet/BR-6104W.pdf BR-6104W] ||?||ARM7 @ ?MHz ||1MB ||? ||? ||4 Port ||? ||? ||? ||No ||Unsupported ||
 ||[http://www.edimax.com.tw/download/datasheet/BR-6104P.pdf BR-6104P] ||?||Infineon ADM5106 (ARM7) @ ?MHz ||1MB ||? ||None ||4 Port ||? ||? ||? ||No ||Unsupported ||
 ||[http://www.edimax.com.tw/download/datasheet/BR-6104WG_c.pdf BR-6104WG] ||?||[http://www.waveplus.com/wp3210.asp WavePlus WP3210] @ 125MHz ||1MB ||8MB ||? ||4 Port ||? ||? ||? ||No ||Unsupported ||
+||[http://www.edimax.com.tw/phasedout/EW-7203APg.htm EW-7203APg] ||? || Marvell 88W8515 @ ?MHz ||1MB? ||32MB ||Marvell 88W8000G ||No ||? ||? ||? ||No ||Unsupported ||
 
 
 == LevelOne ==
