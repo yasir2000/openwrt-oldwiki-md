@@ -51,7 +51,7 @@ to {{{/etc/init.d/rcS}}}.
 
 If you want to log to a remote system, add {{{-R <hostname>}}} to the {{{syslogd}}} line in {{{/etc/inittab}}}.  In this case you don't need to add the {{{mkdir /var/log}}} command to the startup.  However, you will need to tell the remote system to listen for the log messages. On my (Red Hat) Linux system that requires adding the {{{-r}}} flag to the syslogd startup (which I did by editing {{{/etc/sysconfig/syslog}}}). Also, on my (Red Hat) Linux system the log messages received from the remote system appear in {{{/var/log/messages}}} interspersed with the local messages.  You may need to check the {{{man}}} page for your host {{{syslogd}}} program.
 
-Expect the log messages to arrive through UPD port 514.
+Expect the log messages to arrive through UDP port 514.
 
 If you want both local and remote logging, add {{{-L -R <hostname>}}} to the {{{syslogd}}} line in {{{/etc/inittab}}}.
 
