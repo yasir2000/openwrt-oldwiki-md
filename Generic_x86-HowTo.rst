@@ -8,7 +8,7 @@
 == Running OpenWRT on any x86 machine ==
 WARNING: If you are not familiar with configuring the linux kernel to work on specific hardware, you should not be attempting this.
 
-The purpose of this HowTo is mostly focused around making OpenWRT use a vga console instead of a serial console.  It is assumed you will now how to select other necessary kernel modules for your specific hardware.  Network cards will most likely be the first hardware you will have to add to get it to work on your particular hardware.
+The purpose of this HowTo is mostly focused around making OpenWRT use a vga console instead of a serial console.  It is assumed you will know how to select other necessary kernel modules for your specific hardware.  Network cards will most likely be the first hardware you will have to add to get it to work on your particular hardware.
 
 This HowTo was developed using Kamikaze revision 6435.  Unless support for Generic x86 hardware is added to OpenWRT this information will undoubtedly become stale.
 
