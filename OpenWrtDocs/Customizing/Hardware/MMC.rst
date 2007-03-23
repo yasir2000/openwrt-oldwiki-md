@@ -209,14 +209,7 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 == Yay, it works, now what? ==
 
 
----- /!\ '''Edit conflict - other version:''' ----
+
 Now to configure OpenWrt or X-Wrt firmware you can go to Digital Incursion: http://www.digitalincursion.net/wrt54gl.html for a easy configuration instructions for both with the mmc/sd. Some people in the past have had problems configuring the device with OpenWrt and or X-Wrt the above website makes it simple.
 
 For Package installation Please see PackagesOnExternalMediaHowTo
-
----- /!\ '''Edit conflict - your version:''' ----
-Now to configure OpenWrt or X-Wrt firmware you can go to Digital Incursion: http://www.digitalincursion.net/wrt54gl.html for a easy configuration instructions for both with the mmc/sd. Some people in the past have had problems configuring the device with OpenWrt and or X-Wrt the above website makes it simple.
-
-For Package installation Please see PackagesOnExternalMediaHowTo
-
----- /!\ '''End of edit conflict''' ----
