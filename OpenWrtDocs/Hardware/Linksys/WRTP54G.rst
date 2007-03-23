@@ -207,7 +207,7 @@ Here are some short Perl programs for manipulating firmware upgrade files:
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
-The configuration can be extracted using the web interface (Administration/Management/Backup and Restore). The configuration file produced by the backup function is incomplete. Particularly, it omits the voice configuration. The backup configuration file format is as follows:
+The configuration can be extracted using the web interface (Administration/Management/Backup and Restore). The configuration file produced by the backup function is incomplete. Particularly, it omits the voice configuration. Note that the voice configuration can be backed up using spaconf.exe, but cannot be restored yet. The backup configuration file format is as follows:
 
  * Bytes 0x0000 thru 0x0003 contain "LMMC". This is appearently a magic number
  * Bytes 0x0004 thru 0x0005 are 0x00 and 0x03 respectively. This may be a continuation of the magic number.
