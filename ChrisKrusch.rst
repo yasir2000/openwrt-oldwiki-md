@@ -7,7 +7,7 @@ Currently hacking with the WRT54GL
  * SD Card Mod with header on circuit board
 Email: [[MailTo( Chris.Krusch AT SPAMFREE shaw DOT ca)]]
 
-...
-
+=== Private Sub-Pages ===
+["ChrisKrusch/WRT54GLSerial"]
 ----
  . CategoryHomepage
