@@ -7,7 +7,7 @@ by pier11 — last modified 2007-03-25 10:51
 
 This page describes configuration of Kamikaze as a wireless repeater. In this configuration it uses open wireless network and creates your own private wireless network on top of it.
 
-All you have to do is edit the following two files. That's it!
+All you have to do is edit the following two files and reboot. That's it!
 
 ''/etc/config/wireless''
 {{{
