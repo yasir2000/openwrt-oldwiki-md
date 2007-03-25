@@ -85,7 +85,7 @@ customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3
 NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password
 
  . Also, blocking port 22 doesn't seem to help.
-Latest firmware can be found here attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img
+Latest 3.1.22 firmware supports PING HACK (0.0.0.0 &&command) and can be found here attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img
 
 = Accounts in the Supplied Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
