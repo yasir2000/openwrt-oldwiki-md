@@ -104,7 +104,7 @@ Alternatively, you can set only mtd3 variable, and then upload entire mtd block.
 = Troubleshooting AR7 device with PSPBoot bootloader =
 /!\ To be written...
 
-= Restoring the original Firmware = 
+= Restoring the original Firmware =
 If you have trouble flashing the firmware back via ADAM2, then just download DSL-G604T_2.00B07.AU_20060901.exe from dlink.com.au.
 
 When executing it under Windows, just follow the instructions and click the "Corrupted Image mode" in the first window.
