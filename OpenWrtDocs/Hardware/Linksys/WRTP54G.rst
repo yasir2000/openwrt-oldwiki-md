@@ -15,6 +15,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 ||3.1.17: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130828883897&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130832184148&ssbinary=true Firmware Image] No Source ||
+||3.1.22: ||[attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 
 
 == Firmware Dumps for Study ==
@@ -145,7 +146,7 @@ mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 Notes:
 
- * The flash contains space for two firmwares. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
+ * The 8MB flash contains space for two firmwares. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
  * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
