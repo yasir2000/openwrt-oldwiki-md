@@ -15,7 +15,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 ||3.1.17: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130828883897&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130832184148&ssbinary=true Firmware Image] No Source ||
-||3.1.22: ||[attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
+||3.1.22: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 
 
 == Firmware Dumps for Study ==
