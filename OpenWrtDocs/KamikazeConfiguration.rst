@@ -97,6 +97,7 @@ Default Configuration:
 config wifi-device	wl0
 	option type	broadcom
 	option channel	5
+        option disabled 1
 
 config wifi-iface
 	option device	wl0
@@ -112,6 +113,7 @@ config wifi-device     wifi device name
        option type     currently only broadcom and atheros
        option country  country code [not mandatory, used for setting restrictions based on country regulations]
        option channel  1-14
+       option disabled 1 disables the wireless card, 0 enables the wireless card
        option maxassoc Currently only for Broadcom. Maximum number of associated clients
        option distance The distance between the ap and the furthest client in meters.
        option mode     Currently only for Atheros.  Options are: 11b, 11g, 11a, 11bg
