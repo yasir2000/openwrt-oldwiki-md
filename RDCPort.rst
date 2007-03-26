@@ -5,6 +5,7 @@ The RDC port is a port of OpenWrt to the RDC R3211 SoC. This is a x86 compatible
    * Gemtek WRTR-137G
    * Longshine LCS-WR-2114M
    * Sitecom WL-153
+   * Sitecom WL-176
 
 == Status ==
 
