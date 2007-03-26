@@ -432,6 +432,12 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.netopia.com/support/hardware/3347nwg006.html 3347NWG] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300AZDW)] @??? ||???MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130ZVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQMG] || || || ||No ||Untested ||
 
 
+== Ovislink ==
+
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+|| [http://www.ovislink.com.tw/WLA5000AP.htm Ovislink WLA-5000AP] || ? || Atheros AR2313 @ ? MHz || 4MB || 32MB || Atheros AR5112A || ? || ? || Yes || ? || No || [:OpenWrtDocs/Hardware/Wistron/CA8-4 _CE8-1: WiP], identical to Winstron CA8-4/CE8-1 ||
+
+
 == Philips ==
 
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -566,6 +572,11 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WAPBR-100, A.K.A VS10407 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Maybe ||No ||No ||WiP ||
 ||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off ||Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
 
+
+== Wistron ==
+
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+|| CA8-4/CE8-1 || ? || Atheros AR2313 @ ? MHz || 4MB || 32MB || Atheros AR5112A || ? || ? || Yes || ? || No || [:OpenWrtDocs/Hardware/Wistron/CA8-4 _CE8-1: WiP], identical to Ovislink WLA-5000AP ||
 
 == Yakumo ==
 
