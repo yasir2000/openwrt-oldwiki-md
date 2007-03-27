@@ -22,7 +22,7 @@ Some LED sequences explained.
 
 '''''Solution''''':[[BR]] Just reflash, and make sure your tftp program is configured right. Check your image.
 
-== Controlling the LEDs ==
+== Controlling the LEDs in RC5 ==
 Some of the front panel LEDs can be controlled by writing to /proc/sys/diag. A single hex value written here will control the state of the LEDs, e.g.
 
  . echo "0x01" > /proc/sys/diag
@@ -65,3 +65,7 @@ Feel free to edit this out of here, but I put together this chart which helps me
 
 
 I also noticed this thread: http://forum.openwrt.org/viewtopic.php?id=4796 which has a simple script from vincentfox to check diag bits.
+
+== Controlling the LEDs in RC6 ==
+
+In RC6, there are separate files in /proc/diag/led/ for each of the separately controllable LEDs; you can echo 0 >/proc/diag/led/ses_orange to turn the SES orange LED off, echo 1 to turn it on, or echo f to start it flashing.  The same codes work for all five LEDs.
