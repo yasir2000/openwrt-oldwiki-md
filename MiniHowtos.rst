@@ -255,6 +255,8 @@ Then using nfs or dropbear's scp to copy /tmp/backup.tar.gz to a safe place.
 
 == Using the buttons to control your router ==
 
+For White Russian RC5 and earlier.
+
  * Reboot your router with the reset button on the back.
  * Switch your WiFi ON and OFF by pressing the Cisco SES (Secure Easy Setup) button (if your router has one).
  * Orange Cisco LED acknowledges the button-press event.
@@ -302,3 +304,5 @@ done &
 Modify the script for your needs and don't forget to '''chmod a+x''' it.
 
 See also: ["wrtLEDCodes"] and [http://forum.openwrt.org/viewtopic.php?id=5286]
+
+For RC6 the whole shebang is changed; instead you put shell scripts in /etc/hotplug.d/button, and the LEDs are controlled by separate files in /proc/diag/led.  See [http://forum.openwrt.org/viewtopic.php?id=8745] for details and [http://forum.openwrt.org/viewtopic.php?id=8151] for an updated script (which I haven't tested).
