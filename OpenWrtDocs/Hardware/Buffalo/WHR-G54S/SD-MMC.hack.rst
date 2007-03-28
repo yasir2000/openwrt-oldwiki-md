@@ -18,6 +18,4 @@ Power off your device, open your access point, remove case, antenna, and get you
  * C/S (using GPIO7)
 Do not use GPIO 4 as i've already explained on WHR wiki page (Buffalo uses it for reset) Please see mine already hacked (quite good hack quality, poor photo).
 
-----
- . .  .  .  . Example code
-photos here... need to apply but http is really slow on attach
+attachment:1.jpg
