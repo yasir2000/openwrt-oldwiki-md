@@ -46,6 +46,28 @@ After this, wait for the device to reboot and you should be set.
 
 ----
 
+'''GPIO Information for Buffalo WHR-G54S'''[[BR]]
+These information are very useful for SD hack described below and for your own custom hacking on special I/O
+{{{
+PIN     Usage   Original Use
+----------------------------------------------------------------
+GPIO 0  Input   AOSS Button
+GPIO 1  Output  Bridge led
+GPIO 2  Output  Wlan Led
+GPIO 3  Output  Extra Led (unknown use) between wlan and bridge
+GPIO 4  Input   Reset Button
+GPIO 5  Input   Bridge/Auto switch
+GPIO 6  Output  AOSS Led
+GPIO 7  Output  Diag Led
+GPIO 8  N/A     don't know, i didn't find it
+GPIO 9  Output  Power Led
+}}}
+Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.<br>
+'''NOTE''': Using GPIO 4 is NOT a good idea :-)<br>
+''(Ben)''
+
+----
+
 '''Built in Serial port on the WHR-G54S'''[[BR]]
 As with most of these AP devices the printed circuit board has the serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
 
