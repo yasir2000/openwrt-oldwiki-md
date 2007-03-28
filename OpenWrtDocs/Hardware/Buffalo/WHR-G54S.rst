@@ -1,7 +1,7 @@
 '''Buffalo WHR-G54S'''
 
 ----
- . The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
+. The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
 If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings.
 
 This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required.
@@ -68,7 +68,8 @@ Please note it's very important to understand original buffalo usage doesn't aff
 ''.''
 
 ----
- [:SD-MMC.hack:SD/MMC Hack][[BR]] This hack is very popular with other APs (eg.Linksys) and can be applied to Buffalo WHR-G54S as well, things are slightly different because of different usage of GPIO but there's a binary kernel module mmc.o optimized and fully working for Linksys as well as Buffalo
+'''[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:SD/MMC Hack]'''[[BR]]
+This hack is very popular with other APs (eg.Linksys) and can be applied to Buffalo WHR-G54S as well, things are slightly different because of different usage of GPIO but there's a binary kernel module mmc.o optimized and fully working for Linksys as well as Buffalo
 
 For this hack i've used these I/O (please see table described above)
 
@@ -80,7 +81,7 @@ Data OUT   6
 Clock      3
 CS         7
 }}}
-I've [:SD-MMC.hack:created a new wiki page] with some photos of my hack, Hope it helps, send me some notes if you need more information on my job''' NOTE''': Using GPIO 4 (like linksys WRT models) is NOT a good idea here (reset button... :) )
+I've [:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:created a new wiki page] with some photos of my hack, Hope it helps, send me some notes if you need more information on my job''' NOTE''': Using GPIO 4 (like linksys WRT models) is NOT a good idea here (reset button... :) )
 
 ''(Andrea Ben Benini)''
 
