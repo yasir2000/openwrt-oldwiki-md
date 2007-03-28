@@ -15,7 +15,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v2 ||CGN10 (Canada)/CDF5 || (./) || (./) ||
 ||WRT54G v2.2 ||CDF7 || (./) || (./) ||
 ||WRT54G v3 ||CDF8 || (./) || (./) ||
-||WRT54G v3.1 (AU?, DE, and UK) ||CDF9 || (./) || (./) ||
+||WRT54G v3.1 (AU?, DE, FR and UK) ||CDF9 || (./) || (./) ||
 ||WRT54G v4 ||CDFA || (./) || (./) ||
 ||WRT54G v5 * ||CDFB || (./) || {X} ||
 ||WRT54G v5.1* ||CDFC || (./) || {X} ||
