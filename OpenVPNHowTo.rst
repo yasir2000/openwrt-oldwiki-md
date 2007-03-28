@@ -1,8 +1,10 @@
 = Introduction =
 
-This guide originated in this[http://forum.openwrt.org/viewtopic.php?pid=8495#p8495] forum post, written by legodude on 2005-06-18.
+This guide originated in this [http://forum.openwrt.org/viewtopic.php?pid=8495#p8495] forum post, written by legodude on 2005-06-18.
 
-It describes using OpenVPN to allow a "road warrier" remote user to connect to the home network from the wan interface i.e. anywhere on the internet.
+It describes using OpenVPN to allow a "road warrior" remote user to connect to the home network from the wan interface i.e. anywhere on the internet.
+
+This guide describes a TAP-based (bridged tunnel) solution with preshared keys, for a TUN-based (routed tunnel) with SSL/TLS certificates, try the slightly different ["OpenVPNTunHowTo"] (which was based on this how-to)
 
 = HowTo =
 
