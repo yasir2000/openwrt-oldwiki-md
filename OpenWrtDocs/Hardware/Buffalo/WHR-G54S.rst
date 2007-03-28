@@ -1,19 +1,17 @@
 '''Buffalo WHR-G54S'''
 
 ----
- . The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx. 
+ . The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
+If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings.
 
-If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings. 
-
-This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required. 
+This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required.
 
  * connect ethernet to a LAN port
  * pull the power plug
  * press and hold the reset ("INIT") button
  * start the TFTP (as below)
  * plug the power back in
- * let go of the button. 
-
+ * let go of the button.
 The power light does *not* flash on this unit, but the diag does. This unit keeps the IP address that it was set to while in this mode. Factory setting is 192.168.11.1.  If using a recent Kamikaze, try 192.168.1.1 instead.
 
 TFTP commands:
@@ -26,10 +24,9 @@ tftp> rexmt 1
 tftp> timeout 60
 tftp> put openwrt-xxx-x.x-xxx.trx
 }}}
-
 If you get something like
 
- {{{
+ . {{{
  sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
  sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
  sent WRQ <file=openwrt-brcm-2.4-squashfs.trx, mode=octet>
@@ -39,17 +36,12 @@ If you get something like
  ...
  Transfer timed out.
  }}}
-
 then just try again.
 
 After this, wait for the device to reboot and you should be set.
 
-
-
 ----
-
 ''.''
-
 
 '''GPIO Information for Buffalo WHR-G54S'''[[BR]] These information are very useful for SD hack described below and for your own custom hacking on special I/O
 
@@ -75,9 +67,8 @@ Please note it's very important to understand original buffalo usage doesn't aff
 
 ''.''
 
-
 ----
-'''SD/MMC Hack'''[[BR]] This hack is very popular with other APs (eg.Linksys) and can be applied to Buffalo WHR-G54S as well, things are slightly different because of different usage of GPIO but there's a binary kernel module mmc.o optimized and fully working for Linksys as well as Buffalo
+ [:SD-MMC.hack:SD/MMC Hack][[BR]] This hack is very popular with other APs (eg.Linksys) and can be applied to Buffalo WHR-G54S as well, things are slightly different because of different usage of GPIO but there's a binary kernel module mmc.o optimized and fully working for Linksys as well as Buffalo
 
 For this hack i've used these I/O (please see table described above)
 
@@ -89,7 +80,7 @@ Data OUT   6
 Clock      3
 CS         7
 }}}
-I've created a new wiki page with some photos of my hack, Hope it helps, send me some notes if you need more information on my job''' NOTE''': Using GPIO 4 (like linksys WRT models) is NOT a good idea here (reset button... :) )
+I've [:SD-MMC.hack:created a new wiki page] with some photos of my hack, Hope it helps, send me some notes if you need more information on my job''' NOTE''': Using GPIO 4 (like linksys WRT models) is NOT a good idea here (reset button... :) )
 
 ''(Andrea Ben Benini)''
 
@@ -97,38 +88,30 @@ I've created a new wiki page with some photos of my hack, Hope it helps, send me
 
 ''.''
 
-
-
-
 ----
-
-'''Built in Serial port on the WHR-G54S'''[[BR]]
-As with most of these AP devices the printed circuit board has the serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
+'''Built in Serial port on the WHR-G54S'''[[BR]] As with most of these AP devices the printed circuit board has the serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
 
 On the WHR-G54S locate the un-populated header block RJP1. This is in the top left of the board next to a large electrolytic capacitor. To the right of this block you will find several SM components and also un-populated pads. I used the following soldered connections onto the un-populated pads:
 
 {{{
 Left hand pad of  R48  >>  RX.    Receive data into the WHR-G54S.
 Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
-
 || pin 10 (missing) || pin  9 (unknown) ||
-|| pin  8 (ground)  || pin  7 (RX) ||
-|| pin  6 (ground)  || pin  5 (unknown) ||
-|| pin  4 (ground)  || pin  3 (ground)  ||
-|| pin  2 (ground)  || pin  1 (TX) ||
-|||| RJP1 ||
-
+|| pin  8 (ground) || pin  7 (RX) ||
+|| pin  6 (ground) || pin  5 (unknown) ||
+|| pin  4 (ground) || pin  3 (ground) ||
+|| pin  2 (ground) || pin  1 (TX) ||
+||||<style="text-align: center;"> RJP1 ||
 By default the serial port runs at 115200 8N1 using ANSI terminal emulation.
 
 NB: This was a device with board revision WRTB-133G_V00 190-c02-9200 (This can be seen in the top left hand corner of the PCB. All my units have started with this code and therefore I can not be sure if the board layout is different on older units.
 
 ----
-
 this is for devices starting with serial 3407:
 
 ----
 {{{
-Bootloader: CFE 
+Bootloader: CFE
 System-On-Chip:  Broadcom 5352
 CPU Speed: 200 Mhz
 Flash size: 4 MB
@@ -137,9 +120,7 @@ Wireless: integrated Broadcom BCM4306 802.11b/g Wireless LAN Controller
 Ethernet: ?
 Serial: yes
 JTAG: yes
-
 --------------> output from dmesg <---------------
-
 Setting the PFC value as 0x15
 Determined physical RAM map:
  memory: 01000000 @ 00000000 (usable)
@@ -223,13 +204,10 @@ device eth0 entered promiscuous mode
 vlan0: add 01:00:5e:00:00:01 mcast address to master interface
 vlan0: dev_set_promiscuity(master, 1)
 vlan0: dev_set_allmulti(master, 1)
-
 }}}
-
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} is '''not safe''' on this unit.
 
 -----
-
 this is for devices with serials starting 7407 (you can ONLY run a current SVN version on these devices. See notes above. But RC6 seems OK):
 
 ----
@@ -237,7 +215,6 @@ this is for devices with serials starting 7407 (you can ONLY run a current SVN v
 CFE version 1.0.37-1.07 for BCM947XX (32bit,SP,LE)
 Build Date: 2005\uffff\uffff 10\uffff\uffff 17\uffff\uffff \uffff\uffff\uffff\uffff\uffff\uffff 04:38:11 JST (root@ifedora)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
-
 Initializing Arena
 Initializing Devices.
 * cmdset: AMD Standard
@@ -277,7 +254,6 @@ et0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.90.39.0
 * memc_config: (00048000)
 CPU type 0x29008: 200MHz
 Total memory: 16384 KBytes
-
 Total memory used by CFE:  0x80400000 - 0x804A29A0 (666016)
 Initialized Data:          0x80438650 - 0x8043B1F0 (11168)
 BSS Area:                  0x8043B1F0 - 0x8043C9A0 (6064)
@@ -286,7 +262,6 @@ Stack Area:                0x804A09A0 - 0x804A29A0 (8192)
 Text (code) segment:       0x80400000 - 0x80438650 (230992)
 Boot area (physical):      0x004A3000 - 0x004E3000
 Relocation Factor:         I:00000000 - D:00000000
-
 Device eth0:  hwaddr 00-16-01-11-45-00, ipaddr 192.168.11.1, mask 255.255.255.0
         gateway not set, nameserver not set
 Wait a few seconds for an image
@@ -371,7 +346,6 @@ Using /lib/modules/kernel/drivers/net/et/et.o
 Warning: loading et will taint the kernel: no license
   See http://www.tux.org/lkml/#export-tainted for information about tainted modules
 eth0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 3.130.1.10
-
 Please press Enter to activate this console. create procpoint for station information eth%d
 eth1: Broadcom BCM4318 802.11 Wireless Controller 3.130.1.10
 et0: link up (interface up)
@@ -380,12 +354,8 @@ register_vlan_device: ALREADY had VLAN registered
 Performing WLC_COMMIT
 wlc_set_rate_override:35629: band 11a
 wl0: Channel Select: 10
-
-
-
 BusyBox v1.00 (2005.08.11-13:00+0000) Built-in shell (msh)
 Enter 'help' for a list of built-in commands.
-
 # ls
 bin   dev   etc   lib   mnt   proc  tmp   usr   var   www
 # * VPN Masqurade -- IPsec Support
@@ -395,7 +365,6 @@ reg ESP conntrack:done
 ip_nat_ipsec : isakmp : done.
 ip_nat_ipsec : esp    : done.
 }}}
-
 I have a unit starting 7407 which is labelled "AirStation Turbo G" and "model WHR-G54S-1" on the packaging. It has a slide switch marked "BRI. / AUTO" on the side, and an "AOSS" button.
 
 Running RC6:
@@ -406,8 +375,7 @@ diag         # controls green "bridge" LED
 internal     # seems to do nothing
 ses          # controls orange LED next to AOSS button
 }}}
-
 The red "diag" LED comes up during power-up, but does not seem to be software controllable by !OpenWrt.
 
 ----
-CategoryModel CategoryModel
+ CategoryModel CategoryModel
