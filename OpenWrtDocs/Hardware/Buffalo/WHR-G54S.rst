@@ -62,8 +62,9 @@ GPIO 7  Output  Diag Led
 GPIO 8  N/A     don't know, i didn't find it
 GPIO 9  Output  Power Led
 }}}
-Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.<br>
-'''NOTE''': Using GPIO 4 is NOT a good idea :-)<br>
+Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.
+'''NOTE''': Using GPIO 4 is NOT a good idea :-)
+
 ''(Ben)''
 
 ----
