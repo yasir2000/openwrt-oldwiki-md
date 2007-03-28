@@ -44,6 +44,8 @@ then just try again.
 
 After this, wait for the device to reboot and you should be set.
 
+
+
 ----
 
 '''GPIO Information for Buffalo WHR-G54S'''[[BR]]
@@ -67,6 +69,8 @@ Please note it's very important to understand original buffalo usage doesn't aff
 '''NOTE''': Using GPIO 4 is NOT a good idea :-)
 
 ''(Ben)''
+
+
 
 ----
 
