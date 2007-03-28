@@ -1,7 +1,7 @@
 '''Buffalo WHR-G54S'''
 
 ----
-. The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
+The device is supported in OpenWrt 1.0 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
 If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings.
 
 This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx image is required.
@@ -41,9 +41,10 @@ then just try again.
 After this, wait for the device to reboot and you should be set.
 
 ----
-''.''
+[[BR]]
 
-'''GPIO Information for Buffalo WHR-G54S'''[[BR]] These information are very useful for SD hack described below and for your own custom hacking on special I/O
+'''GPIO Information for Buffalo WHR-G54S'''[[BR]]
+These information are very useful for SD hack described below and for your own custom hacking on special I/O
 
 {{{
 PIN     Usage   Original Use
@@ -59,13 +60,12 @@ GPIO 7  Output  Diag Led
 GPIO 8  N/A     don't know, i didn't find it
 GPIO 9  Output  Power Led
 }}}
-Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.
-
+Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.[[BR]]
 '''NOTE''': Using GPIO 4 is NOT a good idea :)
 
 ''(Ben)''
 
-''.''
+[[BR]]
 
 ----
 '''[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:SD/MMC Hack]'''[[BR]]
