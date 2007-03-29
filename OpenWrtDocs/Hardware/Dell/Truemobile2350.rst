@@ -14,8 +14,8 @@ Mfg Date:11/27/04
 === Hardware Specs: ===
 '''ChipSet:'''Atheros AR5005AP-G
 
- . ''Cpu:'' Atheros AR2313A SoC
- . ''Radio:'' Atheros AR2112A
+ . '''''Cpu:''''' Atheros AR2313A SoC
+ . '''''Radio:''''' Atheros AR2112A
 '''Flash:'''4MB (MX 29LV320ABTC-90G) ''' '''
 
 '''Ram:'''8MB chip (G-Link GLT5640L16-6TC)
@@ -27,4 +27,4 @@ Mfg Date:11/27/04
 [[FullSearch()]]
 
 ----
- CategoryModel
+ . CategoryModel
