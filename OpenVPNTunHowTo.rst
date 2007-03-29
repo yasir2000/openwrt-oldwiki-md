@@ -91,7 +91,7 @@ At this point you can start OpenVPN for testing:
 
 == Client Setup ==
 
-Ensure that the client has the certificates and keys explained above, perhaps by copying some of them (the ones that should be identical) via scp, with:
+Ensure that the client has the certificates and keys explained above, perhaps by copying some of them (the ones that should be identical) via {{{scp}}}, with:
 
 {{{scp <OpenWRT IP>:/etc/openvpn/* /etc/openvpn/}}}
 
@@ -117,7 +117,20 @@ dh /etc/openvpn/dh.pem
 comp-lzo
 }}}
 
+'''Note:''' ''your.domain.com'' should be set to your static IP or to your dynamic DNS configured with [:DDNSHowTo:ez-ipupdate].
+
 Now that should be it. Start the OpenVPN client either through the GUI or command line and it should link up.
+
+== Troubleshooting ==
+
+=== "Certificate not yet valid" error ===
+
+This is probably the first problem you'll encounter and it's related to the server date.
+To fix it, just:
+
+{{{ipkg install ntpclient}}}
+
+And start it after instalation.
 
 == Automatic OpenVPN startup ==
 
@@ -130,7 +143,7 @@ Simply add the following file and it should start automatically on the next boot
 
 case "$1" in
         start)
-                openvpn --daemon --config /etc/server.ovpn
+                openvpn --daemon --config /etc/openvpn/server.conf
         ;;
         restart)
                 $0 stop
