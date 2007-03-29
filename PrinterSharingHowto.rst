@@ -68,6 +68,8 @@ Save it and start the {{{p910nd}}} daemon with:
 /etc/init.d/p910nd start}}}
 It will start up automatically on the next reboot.
 
+<< I found you have to rename p910nd to something like S55p910nd to get it to start on boot >>
+
 = Configure the clients for printing =
 Here I would demonstrate you, how to configure the printer driver on your client. It could be that these steps are not exactly the same on your operating system.
 
