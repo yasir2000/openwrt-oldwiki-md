@@ -36,9 +36,10 @@ Clock              GPIO 3      5
 SD Sleep Mode      AP Ground   6
 Data Out           GPIO 6      7
 }}}
+attachment:mmc.png [[BR]]
 you don't need to connect other SD pins[[BR]]
 See SD Card Slot Picture
-attachment:mmc.png
+
 
 &nbsp;
 
