@@ -22,7 +22,9 @@ Mfg Date:11/27/04
 
 '''Switch:'''Marvell 88E6060
 
-'''Serial Port:'''Yes
+'''Serial Port:'''Yes (JP1)
+
+'''JTAG''':Yes (J1)
 
 [[FullSearch()]]
 
