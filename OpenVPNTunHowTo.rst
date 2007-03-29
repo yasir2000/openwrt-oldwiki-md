@@ -66,8 +66,10 @@ dev tun
 ca /etc/openvpn/ca.crt
 cert /etc/openvpn/server.crt
 key /etc/openvpn/server.key
-tls-auth /etc/openvpn/shared.key
 dh /etc/openvpn/dh.pem
+
+### (optional) use a shared key to initialize TLS negotiation
+tls-auth /etc/openvpn/shared.key
 
 ### address options
 server 10.0.0.0 255.255.255.0
@@ -84,6 +86,8 @@ comp-lzo
 keepalive 10 120
 status /tmp/openvpn.status
 }}}
+
+'''Note:''' on the merits of tls-auth, please read [http://openvpn.net/howto.html#security this].
 
 At this point you can start OpenVPN for testing:
 
@@ -105,15 +109,19 @@ remote your.domain.com 1194
 
 nobind
 
-user nobody
-group nogroup
+### (optional) degrade privileges to this user and group after initialization
+#user nobody
+#group nogroup
 
 ca /etc/openvpn/ca.crt
 cert /etc/openvpn/client.crt
 key /etc/openvpn/client.key
-tls-auth /etc/openvpn/shared.key
 dh /etc/openvpn/dh.pem
 
+### (optional) use a shared key to initialize TLS negotiation
+tls-auth /etc/openvpn/shared.key
+
+### (optional) compression (use only if the server has it)
 comp-lzo
 }}}
 
