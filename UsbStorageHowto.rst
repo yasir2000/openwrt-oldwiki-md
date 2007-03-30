@@ -413,7 +413,6 @@ case "$COMMAND" in
 esac
 exit 0
 }}}
-Send questions/bugs on this script to mbarclay@openfbo.com (Matt Barclay).
 
 Make sure the {{{/bin/ipkg-link}}} script is executable:
 
