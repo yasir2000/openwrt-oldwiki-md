@@ -29,3 +29,5 @@ Flashing my Asus WL-550gE with openwrt-brcm-2.4-squashfs.trx was easy:
    "tftp -i 192.168.1.1 PUT openwrt-brcm-2.4-squashfs.trx"
  8. Wait about 5 minutes, then power cycle WL-550gE
  9. Open browser with http://192.168.1.1 and see the OpenWRT admin GUI
+
+I also added an internal USB memory stick, so I could install more software. The WL-550gE has two internal USB ports. You simply need to solder cables to GND, D+, D-, VCC. You also need to add one 15kOhm resistor between D+ and GND, and a second 15kOhm resistor between D- and GND. After installing usbcore, usb-ohci, scsi_mod, sd_mod, usb-storage and filesystem modules, you can access the memory stick.
