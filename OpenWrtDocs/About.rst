@@ -58,12 +58,10 @@ and drivers for the network interfaces. The developer team tries to reimplement 
 code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware
 images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to
 program the VLAN-capable switch via the proc filesystem. The codename of the first !OpenWrt release is "White Russian",
-a popular cocktail. !OpenWrt 1.0 is released if it is stable enough for most of our users. White Russian is
-currently in "Release Candidate" status, with numbers like "rc3" and "rc4".
+a popular cocktail. Currently, the White Russian line has ended with the release of !OpenWrt 0.9.
 
 The development of the next release is taking place in our subversion repository. It will contain support for many
-more embedded boards (Texas Instruments AR7 (MIPS), Soekris (x86), Aruba (MIPS), Routerboard (MIPS), ...). Its codename
-is Kamikaze. 
+more embedded boards. Its codename is Kamikaze. 
 
 == Versions of OpenWrt based on the BusyBox builds ==
 
