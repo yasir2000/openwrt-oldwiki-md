@@ -58,7 +58,7 @@ and drivers for the network interfaces. The developer team tries to reimplement 
 code inside the GPL tarballs of the different vendors. There are free tools for writing new firmware
 images directly into the flash (mtd), for configuring the wireless lan chip (wlcompat/wificonf) and to
 program the VLAN-capable switch via the proc filesystem. The codename of the first !OpenWrt release is "White Russian",
-a popular cocktail. Currently, the White Russian line has ended with the release of !OpenWrt 0.9.
+a popular cocktail. Currently, the development of the White Russian line has ended with the release of !OpenWrt 0.9.
 
 The development of the next release is taking place in our subversion repository. It will contain support for many
 more embedded boards. Its codename is Kamikaze. 
