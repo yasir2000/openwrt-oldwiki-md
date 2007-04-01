@@ -6,8 +6,9 @@ in OpenWrt trunk.
 In addition, patches which support the BRN bootloader are needed.
 You will get them from http://ar7-firmware.berlios.de/.
 
-Currently, the kernel runs, Ethernet works only partially,
-and there is no open source based WLAN driver.
+Since Linux 2.6.19.2 for AR7, the kernel runs, Ethernet works (with minor
+problems), WLAN is not recognized.
+
 So this is definitely work in progress...
 
 
