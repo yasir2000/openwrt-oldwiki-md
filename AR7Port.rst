@@ -14,7 +14,7 @@ See [:OpenWrtDocs/InstallingAR7] if you are brave enough to test it.
 == Finished tasks ==
 
 Our Kernel support for AR7 is in SVN trunk and disabled by default.
-Here's what we have integrated so far:
+Here's what we have integrated so far (for Linux kernel 2.4):
 
    * A kernel that boots up to the part where it tries to mount the root filesystem
    * A simple mtd flash map driver that uses the boot loader's partition map
@@ -28,6 +28,15 @@ Here's what we have integrated so far:
    * Support for WAG354G is integrated, still needs testing...
    * ADSL works! New init scripts for PPPoE are integrated.
    * Scripts for flashing DSL-G664T and G604T
+
+The latest contributions add experimental AR7 support for Linux 2.6):
+
+   * Automatic detection of RAM size.
+   * Automatic detection of PHY (Ethernet Physical Layer).
+   * ADSL, ADSL+ support is still missing (must be ported from 2.4).
+   * Ethernet works (still needs some fixes).
+   * WLAN works with free ACX111 driver.
+   * Because it is still experimental, it is not enabled by default.
 
 == Bugs / Ugly-Hacks ==
 
@@ -46,13 +55,13 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 
    * Complete the init scripts, remove nvram dependencies where they are still present...
    * Test WAG354G support
-   * Fix the wireless driver
-   * Fix VLYNQ interrupt and reset handling (needed for the wireless driver). See http://forum.openwrt.org/viewtopic.php?id=2654 for possible patches.
+   * Fix the wireless driver (fixed with Linux 2.6)
+   * Fix VLYNQ interrupt and reset handling (needed for the wireless driver). See http://forum.openwrt.org/viewtopic.php?id=2654 for possible patches. (fixed with Linux 2.6)
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
    * Get voicedump (VP101X120C) supported (Voice over ip chip on Siemens and SMC based hardware)
 
    * Get Marvel 88E6060 switch supported (on sx541,smc and castlenet)
-     sources are in avm current open source.
+     sources are in avm current open source. (maybe fixed with Linux 2.6)
 
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
