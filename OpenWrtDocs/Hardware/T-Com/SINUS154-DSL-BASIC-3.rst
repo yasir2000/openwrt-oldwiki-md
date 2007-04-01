@@ -3,11 +3,8 @@
 The device is based on Texas Instrument AR7, so you need the [:AR7Port]
 in OpenWrt trunk.
 
-In addition, patches which support the BRN bootloader are needed.
-You will get them from http://ar7-firmware.berlios.de/.
-
-Currently, the kernel runs, Ethernet works, but there is no open source
-based WLAN driver. So this is definitely work in progress...
+See [:OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-BASIC-SE] for the current status
+of  OpenWrt for this router.
 
 == Emulation ==
 
