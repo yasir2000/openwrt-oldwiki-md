@@ -35,11 +35,11 @@ Serial console can be plugged to JP5: connector lacks, it has to be soldered on 
 Pinout 
 
 {{{                   JP5_______
-  |                     |  
-  |                         [ ] [ ] [ ]  [ ] [ ]  
-  |                           \   \   \    \    \
-  |                             \   \   \    \    vcc
-  |                               \    \   \   tx
+  |                       
+  |                         [ ] [ ] [ ] [ ] [ ]  
+  |                           \   \    \    \   \
+  |                             \   \    \    \   vcc
+  |                               \    \   \    tx
   |                                 \    \   rx
   |                                   \    nc
   |                                     gnd
