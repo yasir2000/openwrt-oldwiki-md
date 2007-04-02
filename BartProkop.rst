@@ -58,7 +58,13 @@ I changed SSID to reflect company domain:
 nvram set wl0_ssid="www.tt-soft.com"
 nvram commit
 }}}
-
+Now lets enable SSH on WAN port. It is disabled by default and we need it open as we want external access to our device. It is very easy. Just edit a file /etc/firewall.user, locate lines which looks like those below and uncomment last two lines:
+{{{
+### Open port to WAN
+## -- This allows port 22 to be answered by (dropbear on) the router
+# iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT
+# iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
+}}}
 
 ...
 
