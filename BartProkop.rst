@@ -63,7 +63,9 @@ We need to configure our WAN port to 80.55.248.83. As we know our static IP, con
 nvram set wan_proto=static
 nvram set wan_ipaddr=80.55.248.83
 nvram set wan_netmask=255.255.255.248
-
+nvram set wan_gateway=80.55.248.81
+nvram set wan_dns=80.55.248.85
+nvram commit
 }}}
 Now lets enable SSH on WAN port. It is disabled by default and we need it open as we want external access to our device. It is very easy. Just edit a file /etc/firewall.user, locate lines which looks like those below and uncomment last two lines:
 {{{
