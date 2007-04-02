@@ -58,6 +58,13 @@ I changed SSID to reflect company domain:
 nvram set wl0_ssid="www.tt-soft.com"
 nvram commit
 }}}
+We need to configure our WAN port to 80.55.248.83. As we know our static IP, configuration is very simple:
+{{{
+nvram set wan_proto=static
+nvram set wan_ipaddr=80.55.248.83
+nvram set wan_netmask=255.255.255.248
+
+}}}
 Now lets enable SSH on WAN port. It is disabled by default and we need it open as we want external access to our device. It is very easy. Just edit a file /etc/firewall.user, locate lines which looks like those below and uncomment last two lines:
 {{{
 ### Open port to WAN
