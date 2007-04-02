@@ -23,7 +23,15 @@ This is the very first advanced configuration with Open WRT I want to describe. 
  4.
 
 ==== Network topology ====
-
+The ISP providea a DLS connection terminated by SpeedStream modem. We are provided with 5 usable IP addresses (Mask of 255.255.255.248):
+ * 80.55.248.80 - net address
+ * 80.55.248.81 - ADSL modem IP address
+ * 80.55.248.82 - free
+ * 80.55.248.83 - free (we will install our OpenWRT router here)
+ * 80.55.248.84 - free
+ * 80.55.248.85 - Linux company server
+ * 80.55.248.86 - free
+ * 80.55.248.87 - broadcast address
  
 === Implementation ===
 ==== Hardware and firmware upgrade ====
