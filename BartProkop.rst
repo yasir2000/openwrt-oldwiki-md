@@ -36,6 +36,15 @@ passwd (after it you type and re-type your root password)
 reboot (to restart device)
 }}}
 
+At this point you should be able to ssh to your router and be able to enjoy embeded linux. I also decided to clean NVRAM, as my device could have strange settings from previous firmware. To do so just type ('''please double check if it is SAFE with your hardware!!!'''):
+{{{
+mtd -r erase nvram
+}}}
+In my case it reduced variable count to 30% of this what I had originally set with vendor firmware. After ersing nvram, I strongly recommend to set up a boot_wait to on. It will really help if I cause the router to stop working by misconfiguring it.
+{{{
+nvram set boot_wait=on
+nvram commit
+}}}
 
 
 ...
