@@ -31,6 +31,21 @@ _______________________________________
 
 The console is located aproximately in center of a board, it's JP5, the only 5-pin 2,54mm-step connector. Usualy it is already soldered-in. Voltage reference is 3.3 volts and it is set by default at 38400,8,N,1.
 
+== Flashing ==
+
+OpenWrt ar7-2.6 works very well on this device. Grab the latest SVN revision. Compile an ar7-2.6 target. Once finished :
+
+Set up a virtual interface with the IP 10.8.8.7
+Run the adam2 flash script :
+
+{{{
+./scripts/adam2flash.pl bin/openwrt-ar7-2.6-squashfs.bin
+}}}
+
+It will flash your device with an OpenWrt firmware.
+
+Enjoy !
+
 == JTAG ==
 
 ["CategoryAR7Device"] CategoryModel
