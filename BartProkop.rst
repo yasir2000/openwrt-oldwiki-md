@@ -27,7 +27,6 @@ This is the very first advanced configuration with Open WRT I want to describe. 
  
 === Implementation ===
 ==== Hardware and firmware upgrade ====
-
 I decided to purchase Linksys WRT54GL v 1.1 model. Its serial number is CL7B1FB39805. The first step was replace vendor firmware with OpenWRT. It is very trivial task. You had to download a firmware from [[http://downloads.openwrt.org/whiterussian/newest/default/]]. In my case it was file named openwrt-wrt54g-squashfs.bin. Before flashing your device I strongly recommend to compare MD5SUMs of downloaded file to those avaiable at download pages. I used vendor firmware for upgrading the firmware. After flashing, the device will boot. Please then use telnet (not ssh as it will not work) to log into your embeded device and set root password. Setting root password allows you to log in via SSH. The command to issue are:
 
 {{{
@@ -43,6 +42,12 @@ mtd -r erase nvram
 In my case it reduced variable count to 30% of this what I had originally set with vendor firmware. After ersing nvram, I strongly recommend to set up a boot_wait to on. It will really help if I cause the router to stop working by misconfiguring it.
 {{{
 nvram set boot_wait=on
+nvram commit
+}}}
+==== Basic network settings ====
+I changed SSID to reflect company domain:
+{{{
+nvram set wl0_ssid="www.tt-soft.com"
 nvram commit
 }}}
 
