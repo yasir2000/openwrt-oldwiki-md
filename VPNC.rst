@@ -87,6 +87,17 @@ i=0 ; while [ "$i" -lt "$CISCO_SPLIT_INC" ] ; do
     i=$(($i + 1))
 done}}}
 
+On "OpenWrt White Russian - With X-Wrt Extensions 0.9" I also had to change
+{{{ ifconfig "$TUNDEV" inet "$INTERNAL_IP4_ADDRESS" $ifconfig_syntax_ptp "$INTERNAL_IP4_ADDRESS" netmask 255.255.255.255 mtu 1412 up }}}
+to (remove "inet")
+{{{ ifconfig "$TUNDEV" "$INTERNAL_IP4_ADDRESS" $ifconfig_syntax_ptp "$INTERNAL_IP4_ADDRESS" netmask 255.255.255.255 mtu 1412 up }}
+in function do_ifconfig().
+
+I also had to add 
+{{{ touch /etc/resolv.conf }}}
+because it its not there after rebooting..
+But be carefull with all this, I'm new to this... :-/
+
 = Start-up Script =
 This script can either be placed in the /etc/init.d directory if you'd like the VPN to come up automatically or another location if you want manual control over the starting of the VPN.
 
