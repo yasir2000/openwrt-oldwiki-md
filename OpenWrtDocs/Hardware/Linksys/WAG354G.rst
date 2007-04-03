@@ -2,7 +2,7 @@
 
 = Linksys WAG354G =
 
-The Linksys WAG354G is an ADSL gateway with wireless integrated.
+The Linksys WAG354G is an ADSL gateway with wireless  acccess point integrated.
 
 == Specifications ==
 
@@ -15,17 +15,23 @@ Wireless 802.11b/g
 
 === Hardware ===
 
-Platfor ''TI AR7WRD''
+Platform: ''TI AR7WRD''
 
-SoC ''TNETD7300AGDW''
+SoC: ''TNETD7300AGDW''
 
-Processor ''MIPS 4KEc V4.8'' @ 150 MHz
+Processor: ''MIPS 4KEc V4.8'' @ 150 MHz
 
-4 port switch ''Infineon ADM6996L''
+4 port switch: ''Infineon ADM6996L''
 
-Wireless chipset ''TI TNETW1130''
+Wireless chipset: ''TI TNETW1130''
 
-'''minipci slot''' for wireless card (maybe can be inserted of type of cards?)
+Expansions: '''minipci slot''' for wireless card (maybe can be used for other cards?)
+
+Internal: 
+
+([http://www.hughe.co.uk/pub/pics/tech/openwrt/WAG354G_big.jpg Big size])
+
+attachment:WAG354G_small.jpg
 
 ----
 
