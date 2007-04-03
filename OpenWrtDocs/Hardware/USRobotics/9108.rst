@@ -157,9 +157,15 @@ Currently defined functions:
 
 == Serial Port ==
 
-There seems to be a serial Port. This is not proved so far. (watched traffic at TX with oscilloscope, MAX232+78L05 will come soon)
+There is a serial Port next to the Broadcom CPU:
 
-http://publicdav.funforce.de/usr9108/usr9108-serial1.jpg
+http://www.funforce.de/~hede/usr9108-serial2.jpg
+
+== Bootlog ==
+
+A Bootlog (serial Port) (original USR image) can be downloaded there:
+
+http://www.funforce.de/~hede/bootlog-original-usr9108.txt
 
 ----
 CategoryModel
