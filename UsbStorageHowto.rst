@@ -20,6 +20,7 @@ For USB 1.1, try installing the UHCI drivers first:
 
 {{{
 ipkg install kmod-usb-uhci
+insmod usbcore
 insmod uhci
 }}}
 If you see the message:
