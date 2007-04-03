@@ -294,6 +294,8 @@ The following fields are available:
  '''Section''' - indicates the type of package - useful sections include ''comm'', ''editors'', ''graphics'', ''libs'', ''net'', ''text'', ''web'', or if you can't decide, ''misc''.
  '''Description''' - a short description of the package. (You can include a longer description here in a similar manner to the help text in Config.in. Start a new line after the short description, and use a line containing a single full stop ('.') as a replacement for blank lines.
  '''Depends''' (not in the example above) - a list of package names that this package ''requires'' to operate. Use package names without versions here where possible (e.g. ''openssh-client'').
+
+Note: had to modify package/rules.mk changing ./ipkg/$(2) to the real directory ./ did not work for me
 === package/helloworld/patches/100-hello.patch ===
 This example applies a Debian patch, which isn't essential for (so you can skip this point).
 
