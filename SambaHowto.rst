@@ -16,9 +16,11 @@ Samba offers a lot more options but this would be out of the scope. For more inf
 = Installation =
 Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
 {{{
-ipkg install samba}}}
+ipkg install samba-server}}}
 
-'''TIP:''' A Samba client package is available too.
+'''TIP:''' A Samba client package is available too:
+{{{
+ipkg install samba-client}}}
 
 = Configuration =
 The default Samba configuration uses the {{{/tmp}}} directory for storage.
