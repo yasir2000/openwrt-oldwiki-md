@@ -138,6 +138,14 @@ Some people asked me how to recover a fonera, here are some methods:
  . Make sure you're using "/dev/mtdblock/X" (the mtdX number) Now reset it again and you should receive this message:
   . Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0 jffs2_build_filesystem(): unlocking the mtd device... done. jffs2_build_filesystem(): erasing all blocks after the end marker...
  This takes some time but you should have a fresh fonera again.
+
+This Method will work only if the enter message will show up. If not the endmarker can be written directly in the RedBoot Environment.
+{{{
+         mfill -b 0x80041000 -l 4 -p 0xdeadc0de -4
+         fis write -b 0x80041000 -f 0xa81b0000 -l 0x00000004
+}}}
+0xa81b0000 is the start of mtd2 (0xA8030000 + 0x00180000 kernel size)
+
 === Method 4 - TFTP/HTTP/Xmodem Recover ===
 A way to recover it with Xmodem, a TFTP or HTTP server and RedBoot is [
 http://www.easy2design.de/bla/?page_id=98 here]. If this doesn't work you probably have to use a JTAG cable.
