@@ -532,6 +532,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.t-com.de/service/downloads Speedport W501V] || ||TNETD7200GDW (AR7) @??MHz ||4MB ||16MB ||TNETW1350A ||None || ||yes ||? || ||Untested ||
 ||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||4 MB ||16 MB? ||Atheros AR2413/5112/5212 ||Infineon ADM6996I || ||Yes || ||No ||possible ||
 ||[http://www.t-com.de/service/downloads Speedport W701V] || ||TNETD7200ZDW (AR7) @211Mhz ||8 MB ||32 MB ||TNETW1350A ||Infineon ADM6996LC ||?||Yes || ? || Client ||[:OpenWrtDocs/Hardware/T-Com/SpeedportW701V:WiP] ||
+||[http://www.t-com.de/service/downloads Speedport W900V] || ||TNETD7200ZDW (AR7) @211Mhz ||8 MB ||32 MB ||TNETW1350A ||Infineon ADM6996LC ||?||Yes || ? || Client ||[:OpenWrtDocs/Hardware/T-Com/SpeedportW900V:WiP] ||
 
 
 == Thomson ==
