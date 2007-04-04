@@ -68,7 +68,7 @@ The layout of the serial connection is pointed out on the next picture:
 
 http://home.arcor.de/irc-stuff/pics/serial_mod.jpg
 
-Look[http://www.wehavemorefun.de/fritzbox/Serielle_Konsole here], on how to build an appropriate serial cable (unfortunately german only, but this device is sold mostly in Germany anyway). Remember: the Pinout on the linked page is a little different (Rx and Tx are switched). They have some nice ideas how to recycle old mobile phone cables. Login via serial does not work by default. Probably this is because ttyS0 (the serial device) is not mentioned in /etc/securetty)
+Look[http://www.wehavemorefun.de/fritzbox/Serielle_Konsole here], on how to build an appropriate serial cable (unfortunately german only, but this device is sold mostly in Germany anyway). Remember: the Pinout on the linked page is a little different (Rx and Tx are switched). They have some nice ideas how to recycle old mobile phone cables. Login via serial does not work by default. Probably this is because ttyS0 (the serial device) is not mentioned in /etc/securetty). Appropriate settings for terminal programs are: 115200, 8n1.
 
 = System Information =
 '''1) cat /proc/version'''
