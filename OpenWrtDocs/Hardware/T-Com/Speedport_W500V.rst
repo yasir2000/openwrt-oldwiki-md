@@ -56,15 +56,19 @@ Possible Serial connection at two different points.
 
 '''6) JTAG'''
 
-No research done into JTAG yet.
+No research done into JTAG yet. To recover this device from a bad firmware flash or similar JTAG is unnecessary as the device comes with a tiny secondary firmware (safe mode) that can be used for recovery. To get into safe mode simply hold the reset button for at least 8 seconds while turning on the powerswitch. After about 8 seconds the powerled will turn red and a webinterface is available on [http://192.168.1.1 192.168.1.1]. Follow the instructions listed there to flash a working firmware.
 
 '''7) Pictures'''
 
-This is a picture of the top side view of the board. As you can see there is a populated 4 pin connection under the daughter board and an unpopulated 4 connection point spot behind the PULSE component.
-
-This could possibly be serial.
+This is a picture of the top side view of the board. As you can see there is a populated 4 pin connection under the daughter board. This is serial (see below for details).
 
 http://blueflubberball.de/SpeedPort_W500V/DSCF2177.JPG
+
+The layout of the serial connection is pointed out on the next picture:
+
+http://home.arcor.de/irc-stuff/pics/serial_mod.jpg
+
+Look[http://www.wehavemorefun.de/fritzbox/Serielle_Konsole here], on how to build an appropriate serial cable (unfortunately german only, but this device is sold mostly in Germany anyway). Remember: the Pinout on the linked page is a little different (Rx and Tx are switched). They have some nice ideas how to recycle old mobile phone cables. Login via serial does not work by default. Probably this is because ttyS0 (the serial device) is not mentioned in /etc/securetty)
 
 = System Information =
 '''1) cat /proc/version'''
@@ -471,8 +475,7 @@ wl0             Link encap:Ethernet  HWaddr 00:16:38:6A:96:C1
                 RX bytes:0 (0.0 B)  TX bytes:34637 (33.8 KiB)
                 Interrupt:32
 }}}
-'''12)  nvram show | sort
-'''
+'''12)  nvram show | sort '''
 
 {{{
 nvram: not found
