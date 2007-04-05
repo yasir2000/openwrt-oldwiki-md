@@ -183,20 +183,23 @@ Static routes are a bit uglier to maintain, but they are still maintainable. Unt
 
 The syntax of the {{{static_route}}} NVRAM variable is as follows:
 
-{{{static_route=ip:netmask:gatewayip:metric:interface}}}
+{{{
+  static_route=ip:netmask:gatewayip:metric:interface # until RC5
+  interface_static_route=ip:netmask:gatewayip:metric # from RC6
+}}}
 
 So, for example, to set a static route to 10.1.2.0/255.255.255.0 via vlan1, use:
 
 {{{
 nvram set static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1 # until RC5
-nvram set lan_static_route=10.1.2.0:255.255.255.0:0.0.0.0:1:vlan1 # from RC6
+nvram set lan_static_route=10.1.2.0:255.255.255.0:0.0.0.0:1 # from RC6
 }}}
 
 This will make 10.1.2.0 directly connected. To route via a router, use:
 
 {{{
 nvram set static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 # until RC5
-nvram set lan_static_route=10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 # from RC6
+nvram set lan_static_route=10.1.2.0:255.255.255.0:192.168.1.1:1 # from RC6
 }}}
 
 This will use vlan1 to send packets to 10.1.2.0 via router 192.168.1.1
@@ -207,8 +210,20 @@ To add multiple routes, seperate each route formatted as above with a space. To 
 
 {{{
 nvram set static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1" # until RC5
-nvram set lan_static_route="10.1.2.0:255.255.255.0:192.168.1.1:1:vlan1 10.1.3.0:255.255.255.0:192.168.1.1:1:vlan1" # from RC6
+nvram set lan_static_route="10.1.2.0:255.255.255.0:192.168.1.1:1 10.1.3.0:255.255.255.0:192.168.1.1:1" # from RC6
 }}}
+
+To see if the new settings are working, try
+{{{
+  # ifup lan
+}}}
+
+If you need to debug this, 
+{{{
+  # DEBUG=echo ifup lan
+}}}
+
+This will list all the commands to be run.  You can then copy and paste the "route" command from the output, and run it by hand to see what's wrong.
 
 == misc ==
 DHCP Settings:
