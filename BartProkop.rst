@@ -81,6 +81,21 @@ Now lets enable SSH on WAN port. It is disabled by default and we need it open a
 # iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
 }}}
 
+The router was now mounted and cabled in its working enviroment.
+
+After successfull remote login, I decided to separate WiFi from LAN ports of the router. Let;s call it unbridge:
+{{{
+nvram set lan_ifname=vlan0    (no more bridge)
+nvram set lan_ifnames=vlan0   (no more bridge)
+nvram set lan_ipaddr=10.112.170.3  (set lan IP to what we want)
+nvram set wifi_ifname=eth1    (configure WiFi as separate subnet)
+nvram set wifi_proto=static
+nvram set wifi_ipaddr=10.98.226.1
+nvram set wifi_netmask=255.255.255.0
+nvram commit  (save changes to NVRAM)
+reboot
+}}}
+
 ...
 
 ----
