@@ -28,6 +28,6 @@ mtd3    0x903f0000,0x90400000
 mtd4    0x90010000,0x903f0000
 }}}
 
-The starting point for mtd1 should be the same as the starting point for mtd4.
+The starting point for mtd1 should be the same as the starting point for mtd4. For the rest, install as usual.
 ----
 ["CategoryAR7Device"] CategoryModel
