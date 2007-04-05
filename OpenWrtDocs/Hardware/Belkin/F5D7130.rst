@@ -11,6 +11,8 @@ The version that I have used OpenWRT on is a version 1010, but I expect most [:O
 I accidently uploaded the firmware for a [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] to my [:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
 
 === Preparing the firmware ===
+I don't know what this is needed for.  I didn't do it, just tftp'd the openwrt trx file..(RobIrrelevant)
+
 The paper noted further down states the details about the belkin firmware and how to extract the necessary parts, but it's not very newbie-friendly. You need to extract the cramfs and the kernel from the [http://networking.belkin.com/update/files/uk/54g_router.html F5D7230 firmware]. For version 4.05.03 you can use the following command (4.05.03.bin being the firmware file):
 
 {{{
@@ -63,5 +65,7 @@ The lights will blink a bit, but once they're steady, you can reboot the router.
  * Whilst the router ''should'' keep the ip address that it had before you installed OpenWRT try the following to:
   * 192.168.2.1 (this is the default in the manual)
   * 192.168.1.1 (I re-installed the default firmware after installing OpenWRT becuase I noticed that the nvram settings had all my old settings and I wanted to use the "restore factory defaults" facility of the original Belkin firmware to remove all the nvram settings without having to do this manually. Using "restore factory defaults" resulting in the device using 192.168.1.1 which took ages to figure out. I thought I'd briked it until I connected the router via a cross over cable to my laptop. The reason i thought I'd bricked it - my fileserver uses 192.168.1.1 so only by connecting using the crossover could I get back into the router and see that it was still alive!)
- * Once you've flashed the [:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130] to be an [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] you'll notice on the default status screen (index.html) that it says NAT disabled. If you click the word NAT it links to the admin password page which also has the NAT setting saying disabled. If you enable this you'll unlock all the firewall etc features of the [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230].
+ * Once you've flashed the [:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130] to be an [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] you'll notice on the default status screen (index.html) that it says NAT disabled. If you click the word NAT it links to the admin password page which also has the NAT setting saying disabled. If you enable this you'll unlock all the firewall etc features of the [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230].  (Warning - doing this sets up the ethernet port as WAN, DHCP enabled, with no apparent access to the web interface.  If you are accessing via ethernet, you will lose access to the device until you connect via wireless access.)
+
+I've had success flashing the "micro" version of OpenWRT 0.9, but not the full version, on a V1010 box, despite there being apparently enough flash & RAM. Maybe the mtd sizes need altering?
 CategoryModel
