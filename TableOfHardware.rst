@@ -394,7 +394,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:Untested] ||
 ||Speedtouch 585 int dsl-modem || ||Broadcom BCM6348 @ ???MHz ||???MB ||32MB ||802.11g onboard broadcom ||BCM5325 4Port || ||??? ||??? ||??? ||["OpenWrtDocs/Hardware/Thomson/speedtouch"] ||
-||Speedtouch 580/580i DSL modem || ||Broadcom BCM6345 @ ???MHz || 4MB (?) ||16MB ||802.11g mini-PCI BCM4308 ||BCM5325 4Port ||? ||yes ||yes ||1 x V1.1? ||[:OpenWrtDocs/Hardware/Thomson/speedtouch:OpenWrtDocs/Hardware/Thomson/Speedtouch580] ||
+||Speedtouch 580/580i DSL modem || ||Broadcom BCM6345 @ ???MHz || 4MB (?) ||16MB ||802.11g mini-PCI BCM4308 ||BCM5325 4Port ||? ||yes ||yes ||1 x V1.1? || No. See  [:OpenWrtDocs/Hardware/Thomson/Speedtouch580:Speedtouch580] ||
 
 
 == Toshiba ==
