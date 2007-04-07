@@ -2,6 +2,8 @@ The Buffalo WHR-HP-G54-4 seems to work fine with OpenWRT RC5.
 
 So does the WHR-HP-G54-1 (UK version?) RobIrrelevant
 
+In the US, there is a version WHR-HP-G54 (no trailing -1 or -4) which works fine with OpenWrt 0.9 (WhiteRussian) -- ["JK1Joel"]
+
 == Flo's user report ==
 After uploading the WhiteRussian RC5 file "openwrt-brcm-2.4-jffs2-4MB.trx" the router is reachable via LAN interface with IP 192.168.11.1.
 
@@ -174,3 +176,11 @@ Device info:
        . 4 - Data in
  * Noticed that there is an LED missing (LED4), and a series resistor (R4) is also missing.  I wonder if that can be used for GPIO and thus for the SD card slot kernel mod??
  * Need to confirm the JTAG pinout.  It is rumored that J1 can be used for JTAG, but that's only 4 pins; JTAG needs TRST, TMS, TDI, TDO, TCK, GND (but TRST isn't really needed as it just pulls/puts the device out of/in reset)
+
+== JK1Joel's Report ==
+
+I have the WHR-HP-G54 version (no trailing -1 or -4) which works fine out of the box with OpenWrt 0.9 (WhiteRussian).  I did the tftp install.
+
+'''JTAG:''' Some (all?) versions of this router have thru-hole pads labeled J12 for JTAG near the J1 serial header.  The solder can be removed and a 12-pin header can be added for use with JTAG.  The holes for the even pins are a little smaller and I had a hard time extracting all the old solder enough to insert the header, but eventually got the header done.
+
+I had OpenWrt 0.9 (WhiteRussian) loaded, but then managed to brick my router.  I got JTAG working, and I'm able to read and write the entire flash chip.  Unfortunately, I don't have a working CFE.BIN for this router to restore and de-brick.  [:JK1Joel:Let me know] if you have this router and can help me by extracting your CFE.BIN.
