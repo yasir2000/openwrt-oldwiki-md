@@ -90,3 +90,5 @@ $ROM Section:
 So there are 2MB flash at mapped address 0xb0000000 (uncached) = physical address 0x1000000 and 8MB of RAM at mapped address 0x94000000 (cached) = physical address 0x14000000.
 
 AR7 is based on MIPS, so memory 0xa0000000-0xbfffffff (uncached) and 0x80000000-0x9fffffff (cached) both correspond to physical memory 0x00000000-0x1fffffff.
+
+["CategoryAR7Device"]
