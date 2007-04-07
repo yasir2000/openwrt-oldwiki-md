@@ -19,6 +19,8 @@ Ask your question in a way that dictates the answer; if you ask a question that 
 
 Don't assume to know the solution and then ask how to do it. Describe the problem first so it becomes clear why. You won't get much respect if we spend an hour trying to help you with your solution only to find out that you don't understand the problem and the solution didn't fix anything.
 
+We aren't going to sit around holding your hand; the answers you get will probably be incomplete but will point you in the right direction. Try to fill in the blanks yourself as much as possible.
+
 == Staying on topic ==
 
 While we're happy to chat and discuss current trends, you need to know when to move the discussion elsewhere. If you're told that a subject is off topic, please respect us and don't continue discussing it in the channel.
