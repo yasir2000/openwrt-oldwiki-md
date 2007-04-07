@@ -1,9 +1,5 @@
 The Buffalo WHR-HP-G54-4 seems to work fine with OpenWRT RC5.
 
-So does the WHR-HP-G54-1 (UK version?) RobIrrelevant
-
-In the US, there is a version WHR-HP-G54 (no trailing -1 or -4) which works fine with OpenWrt 0.9 (WhiteRussian) -- ["JK1Joel"]
-
 == Flo's user report ==
 After uploading the WhiteRussian RC5 file "openwrt-brcm-2.4-jffs2-4MB.trx" the router is reachable via LAN interface with IP 192.168.11.1.
 
