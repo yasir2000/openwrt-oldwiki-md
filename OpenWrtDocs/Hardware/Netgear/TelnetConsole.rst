@@ -15,6 +15,7 @@ Some [:../:Netgear] routers run a telnet daemon which can be accessed from any c
 Cm£ÅÀó¬*@yI£ndsf]üg:ÜV£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf
 }}}
  * WGT624 v2: known to work
+ * WGT624 v3: known to work
  * WGT624 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
 Please add to this list, so people will know which are supported and which are not!
 
