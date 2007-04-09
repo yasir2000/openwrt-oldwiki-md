@@ -7,10 +7,6 @@ OpenWrtDocs [[TableOfContents]]
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. We expect that you are knowledgeable about GNU/Linux and basic networking concepts, before you install !OpenWrt on your router. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
 
-/!\ '''WARNING LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
-
-'''If you have WRT54G v1 and can't get tftp to work, try uploading the original firmware, then from the webpage on that (192.168.1.1) upload the OpenWrt firmware. '''
-
 = Supported hardware =
 See TableOfHardware.
 
