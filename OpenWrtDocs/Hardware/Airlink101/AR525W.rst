@@ -22,7 +22,7 @@ Board view, component side:
 === Serial Ports ===
 This model has an unpopulated 9-pin header that exposes a 3.3V serial port. Some pins are listed below:
 ||Pin 1||Tx||Pin 2||3.3V||
-||Pin 3|| ||Pin 4|| ||
+||Pin 3|| ||Pin 4||3.3V||
 ||Pin 5|| ||Pin 6||GND||
 ||Pin 7||Rx||Pin 8||GND||
 ||Pin 9|| || || ||
@@ -32,7 +32,7 @@ Board view, component side:
 
 {{{
       [   ] [RX ] [   ] [   ] [TX ] <
-            [GND] [GND] [   ] [Vcc]
+            [GND] [GND] [Vcc] [Vcc]
 }}}
 Serial connection parameters are : 38400,8N1
 
