@@ -149,6 +149,11 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||WP54-WRT and WRT6B ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Forked] ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf WP54-6E ] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16 MB SDRM(Up to 128 MB) ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Forked] ||
+
+== Corinex ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' || '''Home Plug''' ||'''Status''' ||
+||[http://www.corinex.com/web/docx.nsf/w/eng-corinex_wireless_to_powerline_router_g CXP-RTG] || || || 2MB || 16MB ||  || || || || || No || v1.0 || Info Entered ||
+
 == Davolink ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||DV-201AMR || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||8MB ||16MB ||Broadcom (mini-PCI) BCM4306 ||BCM5325 ||on ||Yes ||Yes ||Yes ||WiP ||
