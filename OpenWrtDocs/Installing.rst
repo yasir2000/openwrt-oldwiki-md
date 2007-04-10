@@ -31,7 +31,7 @@ White Russian ships in several variations, each with a slightly different set of
 ||dnsmasq || (./) || (./) || (./) ||
 ||["dropbear"] || (./) || (./) || (./) ||
 ||haserl || {X} || (./) || (./) ||
-||ipkg* || (./) || (./) || (./) ||
+||ipkg || /!\ || (./) || (./) ||
 ||iptables || (./) || (./) || (./) ||
 ||["iwlib"] || (./) || (./) || (./) ||
 ||kmod-brcm-wl || (./) || (./) || (./) ||
@@ -50,7 +50,7 @@ White Russian ships in several variations, each with a slightly different set of
 ||wificonf || (./) || (./) || (./) ||
 ||wireless-tools || {X} || (./) || (./) ||
 
-* note: micro includes a stripped down version of the ipkg util
+* note: micro uses a compact version of ipkg which breaks some packages
 
 
 == TRX vs. BIN ==
