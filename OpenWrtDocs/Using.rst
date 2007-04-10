@@ -62,34 +62,6 @@ Try again after a minute or two. On the first bootup OpenWrt will be busy settin
 == Why does it reject my password or display SSH warnings after upgrading? ==
 Upgrading !OpenWrt completely replaces the filesystem. This means that your previous password and ssh keys will be erased and you will have to set your password again.
 
-= Notes about SquashFS firmware =
-== Firstboot ==
-The !OpenWrt firmware contains two pieces: a kernel and a read-only filesystem (embedded in the firmware) known as SquashFS. Because the SquashFS filesystem is readonly, a second writable filesystem has to be created using JFFS2 to hold your changes.
-
-When !OpenWrt boots it will check for the existence of a JFFS2 partition and attempt to boot from that, otherwise it will boot from the SquashFS filesystem. The lack of a JFFS2 partition will ''automatically'' trigger the firstboot script which will run in the background, creating a JFFS2 filesystem and populating it with symbolic links to the SquashFS filesystem (which is now remounted to the {{{/rom}}} directory).
-
-If at any time you wish to revert files back to their original condition (in other words, recreate the symlinks to /rom), just run {{{firstboot}}}.
-
-== Editing files ==
-'''RC 6''':
-
-No special steps are required to edit files, [http://www.denx.de/wiki/bin/view/Know/MiniFOHome mini_fo] is used to overlay the SquashFS and JFFS2 partitons.
-
-When a file has is actually located in /rom is modified, it is copied to /jffs and the changes are actually applied to that file. mini_fo will always use the /jffs version of a file over the /rom version, in order to reclaim wasted space when reverting to the /rom version, you must delete the file in /jffs
-
-'''RC 5 and earlier''':
-
-Since the filesystem is a collection of symlinks to a readonly filesystem, you can't simply edit files -- they're readonly. Instead you have to delete the symlink, and copy the file so you have a writable version of the file to edit:
-
-{{{
-rm /etc/ipkg.conf
-cp /rom/etc/ipkg.conf /etc/ipkg.conf
-vim /etc/ipkg.conf
-}}}
-
-= Notes about JFFS2 firmware =
-The JFFS2 firmware will be READONLY when you boot it the first time, this is due to the method used to create the filesystem; you must perform an extra REBOOT after installing the firmware.
-
 = Package management =
 The ipkg utility is a lightweight package manager used to download and install !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}} will recognise the similarities)
 
