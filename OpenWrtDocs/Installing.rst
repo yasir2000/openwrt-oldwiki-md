@@ -23,23 +23,38 @@ White Russian ships in several variations, each with a slightly different set of
   . Standard image (web interface, pppoe)
  pptp/
   . Standard image (web interface, pptp)
-||'''Folder''' ||'''Package list''' ||
-||micro ||base-files, base-files-brcm, bridge, ["busybox"], dns masq, ["dropbear"], ipkg-sh, iptables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-wlcompat, ["mtd"], nvram, ["uclibc"], wificonf ||
-||bin=default ||base-files, base-files-brcm, bridge, ["busybox"], dns masq, ["dropbear"], ["haserl"], ipkg, ip tables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-pppoe, kmod-wlcompat, ["mtd"], nvram, ppp, ppp-mod-pppoe, ["uclibc"], webif, wificonf, wireless-tools ||
-||pptp ||base-files, base-files-brcm, bridge, ["busybox"], dnsmasq, ["dropbear"], ["haserl"], ipkg, iptables, ["iwlib"], kmod-switch, kmod-brcm-wl, kmod-diag, kmod-ppp, kmod-gre, kmod-wlcompat, ["mtd"], nvram, ppp, pptp, ["uclibc"], webif, wificonf, wireless-tools ||
-(alternate, easier to see listing) The bin firmware is the default version.
-||firmware ||base files ||base files brcm ||bridge ||busy box ||dnsmasq ||drop bear || haserl ||ipkg ||iptables ||iwlib ||kmod switch ||kmod brcm wl ||
-||bin ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
-||micro ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
-||pptp ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
-||firmware ||kmod diag ||kmod ppp ||kmod gre ||kmod pppoe ||kmod wl compat ||mtd ||nv ram ||ppp ||ppp mod pppoe ||pptp ||uclib ||webif ||wifi conf ||wireless tools ||
-||bin ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
-||micro ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||
-||pptp ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#ff0000">N ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||<bgcolor="#00ff00">Y ||
+|| ||micro ||bin ||pptp ||
+||base-files || (./) || (./) || (./) ||
+||base-files-brcm || (./) || (./) || (./) ||
+||bridge || (./) || (./) || (./) ||
+||["busybox"] || (./) || (./) || (./) ||
+||dnsmasq || (./) || (./) || (./) ||
+||["dropbear"] || (./) || (./) || (./) ||
+||haserl || {X} || (./) || (./) ||
+||ipkg* || (./) || (./) || (./) ||
+||iptables || (./) || (./) || (./) ||
+||["iwlib"] || (./) || (./) || (./) ||
+||kmod-brcm-wl || (./) || (./) || (./) ||
+||kmod-diag || (./) || (./) || (./) ||
+||kmod-gre || {X} || {X} || (./) ||
+||kmod-pppoe || {X} || (./) || {X} ||
+||kmod-wlcompat || (./) || (./) || (./) ||
+||kmod-switch || (./) || (./) || (./) ||
+||["mtd"] || (./) || (./) || (./) ||
+||nvram || (./) || (./) || (./) ||
+||ppp || {X} || (./) || (./) ||
+||ppp-mod-pppoe || {X} || (./) || {X} ||
+||pptp || {X} || {X} || (./) ||
+||["uclibc"] || (./) || (./) || (./) ||
+||webif || {X} || (./) || (./) ||
+||wificonf || (./) || (./) || (./) ||
+||wireless-tools || {X} || (./) || (./) ||
+
+* note: micro includes a stripped down version of the ipkg util
 
 
 == TRX vs. BIN ==
-The firmware files are shipped as either "trx" or "bin" files. The bin file is nothing more than a trx file with additional information added to make it compatible with the vendor's upgrade utilities. You should only use the bin files when you cannot use the trx files directly. 
+The firmware files are shipped as either "trx" or "bin" files. The bin file is nothing more than a trx file with additional information added to make it compatible with the vendor's upgrade utilities. You should only use the bin files when you cannot use the trx files directly.
 
  * openwrt-brcm-2.4-<type>.trx
   . This is the firmware in raw format, exactly as it will be written to the flash. This format is used when upgrading from within OpenWrt or during the initial install on one of the following:
@@ -63,13 +78,11 @@ The firmware files are shipped as either "trx" or "bin" files. The bin file is n
     * [:OpenWrtDocs/Hardware/Linksys/WRTSL54GS:Linksys WRTSL54GS]
  * openwrt-wa840g-<type>.bin; openwrt-we800g-<type>.bin; openwrt-wr850g-<type>.bin
   . This is also a trx file, but with a Motorola header added to the start of the file, making it a valid firmware file for a Motorola device.
-
 There are 3 trx files, found in the micro, pptp and bin directories explained above. Size restrictions aside, it doesn't matter which directory you pick, although if your device only has 2M of flash you will need to use micro.
 
 After downloading the firmware image you should make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/MD5SUMS md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.
 
 = Installing OpenWrt =
-
 There are multiple ways to reflash the firmware, we will explain each method below. You can use any method, the end result will be the same. After reflashing, the device will automatically reboot into the new firmware.
 
 If you are not happy with !OpenWrt, you can always reinstall your original firmware. Please be sure you have it downloaded and saved on your PC.
@@ -92,6 +105,7 @@ It's not recommended to flash the kernel image via jtag, as it will take more th
 
 == via the OpenWrt commandline ==
 Reflashing OpenWrt will overwrite the filesystem, erasing all previous applications and data. You are strongly urged to back up any changes you may have made to the system.
+
 {{{
 mtd -r write firmware.trx linux
 }}}
