@@ -1,8 +1,6 @@
-||<tablewidth="313px" tablestyle="WIDTH: 313px; HEIGHT: 115px"> http://www.compex.com.sg/home/images/logo3.gif ||'''''COMPEX ''''' '''''WP54-6E (New Version)''''' ||
+||<tablewidth="313px" tablestyle="WIDTH: 313px; HEIGHT: 115px"> http://www.compex.com.sg/home/images/logo3.gif ||'''''COMPEX ''''''''WP54-6E ''''''' '''''(New Version)''''' ||
 || || ||
 || || ||
-
-
 ----
 ''__(This page is at an early stage of development. Please feel free to update) __''
 
@@ -37,17 +35,13 @@ __Compex WP54 THAT '''''DO NOT'' SUPPORT''' Open-WRT (Normal function).__
 ''''''
 
 ''''''
-||<tablewidth="840px" tablestyle="WIDTH: 840px; HEIGHT: 169px"> '''''Other useful Information about Compex __Open-WRT__ Bareboard Packages'''''||
-|| * Pre-Loaded with Compex firmware but already support Open-WRT with easy method of converting to Open-WRT'' (WP54-6E).''
- * Open-WRT preloaded on the board is possible.
- * Serial Ports is soldered onto the board.
- * JTAG Ports is soldered onto the board.
- * JTAG Programmer and Serial Converter are available if you purchase the development kit.
-||
+||<tablewidth="840px" tablestyle="WIDTH: 840px; HEIGHT: 169px">'''''Other useful Information about Compex __Open-WRT__ Bareboard Packages''''' ||
 
 
 '''Related Link''''' ''
 
-[http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf Datasheet] = Provide Technical Specification and Ordering Information.
+[http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf Datasheet]''(updated)'' = Provide Technical Specification and Ordering Information.
 
-[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = its provide information about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting,
+[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual]''(updated)'' = its provide information about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting.
+
+[http://compex.com.sg/home/OEM/Open_wrt.htm Compex ]with OpenWRT Solution is always available from this link.
