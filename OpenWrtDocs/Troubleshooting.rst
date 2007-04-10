@@ -15,77 +15,51 @@ ipkg install nas; reboot
 = Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Full failsafe mode is only working when you have installed one of the SquashFS images.
 
-/!\ The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache:
+== How to get into failsafe mode ==
+!OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will'' not ''reset the NVRAM.  The ''boot loader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
+
+=== All Models (RC5+) ===
+When OpenWrt boots, it will send out a UDP packet containing the message:
+{{{
+Press reset now, to enter Failsafe!
+}}}
+
+You can use the recvudp utility provided below, or a network monitor/sniffer to view the messages. When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
+{{{
+Entering Failsafe!
+}}}
+
+===  Older releases / model specific ===
+==== Linksys models ====
+Plug in the router and wait for the DMZ LED to light up.  Then immediately press and hold the reset button for 2 seconds. If done right the DMZ LED will quickly flash 3 times every second.
+
+/!\ Holding the reset button ''before'' the DMZ LED turns on (i.e. when the bootloader is still running) can reset the NVRAM.  Resetting the NVRAM will brick some models.
+
+==== Non-Linksys models ====
+Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
+
+== What should I do in failsafe mode? ==
+Once in failsafe mode, the router will ignore the configuration and use the ip address 192.168.1.1 and will boot directly into a telnet server, bypassing normal boot up. There will be no DHCP server, and the JFFS2 partition won't be mounted.
+
+/!\ Tips:
+ * Your router will listen on the LAN port(s) only.  You will not be able to connect via the WAN port in failsafe mode.
+ * Failsafe has no DHCP, make sure you set a static IP address.
+ * The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache:
 
 {{{
 arp -d *
 }}}
 
-/!\ MAKE SURE that the client used to TELNET to the router is set up for a static ip in the same group (192.168.1.x). Failsafe has no DHCP!
-
-/!\ Your router will listen on the LAN port(s) only.  You will not be able to connect via the WAN port in failsafe mode.
-
-== How to get into failsafe mode ==
-!OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will'' not ''reset the NVRAM.  The ''boot loader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
-
-=== All Models (RC5+) ===
-Download and run recvudp utility.
-
-Source code: [http://downloads.openwrt.org/people/nbd/recvudp.c recvudp.c]
-
-Binaries: 
-[http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip Windows32] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-amd64.tar.gz AMD64-Linux] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-linuxppc.tar.gz LinuxPPC] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-freebsd-i386.tar.gz FreeBSD] [http://downloads.openwrt.org/people/florian/recvudp/recvudp-macosx-universal.tar.gz MacOSX-universal]
-
-The recvudp program opens a blank window and listens on UDP port 4919. Set the client to a static IP in the failsafe subnet range. The router will come up as 192.168.1.1 so 192.168.1.10 for example is good. Plug in the router and wait for the go signal. Do NOT press reset before you get this:
-
+If you want to COMPLETELY ERASE the JFFS2 partition, removing all packages, you can run:
 {{{
-Msg from 192.168.1.1: Press reset now, to enter Failsafe!
+firstboot
 }}}
-Immediately press and hold the reset button for 2 seconds. If successful the following message appears:
-
-{{{
-Msg from 192.168.1.1: Entering Failsafe!
-}}}
-The router is now in failsafe mode.
-
-If "Entering Failsafe!" message does not appear then you have missed the short time slot when !OpenWrt can recognize the reset button (or not held down the reset button long enough). If there are no messages (blank window) check the client's network and firewall settings to ensure that UDP port 4919 is open and accessible.
-
-Note: This was originally followed in [https://dev.openwrt.org/ticket/255 ticket #255]
-
-Note: There is no need to install recvudp. On a Linux or *BSD PC just use
-
-{{{
-tcpdump -i eth0 -nX -s100 udp port 4919
-}}}
-
-On a Windows PC use Ethereal and wait for any UDP packet on port 4919.
-
-=== Linksys models ===
-Plug in the router and wait for the DMZ LED to light up.  Then immediately press and hold the reset button for 2 seconds. If done right the DMZ LED will quickly flash 3 times every second.
-
-/!\ Holding the reset button ''before'' the DMZ LED turns on (i.e. when the bootloader is still running) can reset the NVRAM.  Resetting the NVRAM will brick some models.
-
-=== Non-Linksys models ===
-Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
-
-== What should I do in failsafe mode? ==
-When in failsafe, the system will boot using only the files contained within the firmware (the SquashFS partition) ignoring any changes made to the JFFS2 partition. Additionally, various network settings will be overridden forcing the router to {{{192.168.1.1}}}. Telnet to this address will work without a  password in this mode.
-
-If you want to completely erase the JFFS2 partition, removing all packages, you can run {{{firstboot}}}.
 
 If you want to attempt to fix the JFFS2 partition, mount it with the following command:
-
 {{{
 /sbin/mount_root
 }}}
-After running the command your / will be jffs2. If you run firstboot with the JFFS2 partition mounted, it will not format the partition, but it will overwrite files with symlinks. (Packages will be preserved, changes to scripts will be lost)
 
-=== JFFS2 images ===
-unlike the SquashFS images, the JFFS2 images boot failsave with the JFFS filesystem / mounted read only. You can make changes to nvram ok,  but can't make changes to scripts etc. To make the root filesystem read/write, you need to remount it with the following command:
-
-{{{
-/sbin/mount_root
-}}}
 = Resetting to defaults =
 /!\ '''NOTE: Resetting NVRAM this way will actually cause more problems than it solves. For example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values and will not boot properly after being reset. If you do this on a Siemens SE505 V1, your router will not be accessible to you anymore! You will have to reflash it with the stock firmware on ip address 192.168.1.1 (NOT 192.168.2.1 as the installation procedure says!!)'''
 
