@@ -53,6 +53,9 @@ pid-file=/var/run/ez-ipupdate.pid
 
 /!\ '''NOTE:''' You should point the cache-file to a permanent location in the jffs tree if your router is rebooted more often than your ip actually changes. Otherwise your previous ip is forgotten over reboots and your DDNS provider might lock you out for unneccessary updates.
 
+/!\ '''NOTE:''' There's a modified version of ez-ipupdate (http://ouaye.net/files/ez-ipupdate_3.0.11b8-2_mipsel.ipk announced in 
+http://forum.openwrt.org/viewtopic.php?pid=39855) which adds the feature of announcing the WAN IP retrieved from an external web (e.g. checkip). Anyway, the hotplug script needs to be modified in order to delete the "-i $ifname" parameter.
+
 The list of allowed parameters in the configuration file are:
 
 {{{
