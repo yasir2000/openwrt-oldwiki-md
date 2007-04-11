@@ -17,6 +17,8 @@ Simply add the following line to {{{/etc/ipkg.conf}}}:{{{
 src yani http://openwrt.wojjie.net/packages
 }}}
 
+Note: Another Shorewall package, of a more recent version, is available at http://openwrt.homelinux.net/
+
 and run:{{{
 ipkg update
 ipkg install shorewall
