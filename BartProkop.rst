@@ -96,6 +96,21 @@ nvram commit  (save changes to NVRAM)
 reboot
 }}}
 
+==== DHCP ====
+First I decided that some well know machines will have certain fixed IP's. The assigment in vlan0 will be done based on MAC matching. So I edited /etc/ethers file:
+{{{
+root@OpenWrt:~# cat /etc/ethers
+00:11:0a:b9:19:93 10.112.170.2
+00:0F:FE:90:A7:18 10.112.170.41
+00:15:B7:FE:74:58 10.112.170.42
+00:90:F5:3C:70:E8 10.112.170.43
+00:c0:a8:f5:0a:07 10.112.170.44
+00:50:8d:4d:95:09 10.112.170.45
+00:30:05:ba:04:a7 10.112.170.46
+00:04:61:73:60:49 10.112.170.47
+00:15:f2:91:c9:a7 10.112.170.48
+}}}
+
 ...
 
 ----
