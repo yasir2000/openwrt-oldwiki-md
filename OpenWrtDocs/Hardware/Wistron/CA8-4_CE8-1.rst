@@ -45,8 +45,7 @@ Please choose the operation:
    2: Load system code then write to Flash via TFTP.
    3: Boot system code via Flash.
    4: Load calibration data then write to Flash via XModem.
-}}}
-3 seconds time out
+3 seconds time out}}}
 
 === Linux boot ===
 {{{
@@ -161,11 +160,84 @@ maxvalidrate=10 11
 Connect with ANY channel
 * set rd: 33594, cc: 826
 Connect with ANY channel
-#
-}}}
+#}}}
 == OpenWrt ==
  * [http://atheros.openwrt.net/ OpenWrt pro AR531X]
+ * OpenWrt Kamikaze (Atheros 2.6)
+To use OpenWrt Kamikaze, you should change command line config in the default config file:
+{{{
+CONFIG_CMDLINE="console=ttyS0,115200 rootfstype=squashfs,jffs2 init=/etc/preinit"}}}
+Also change HAL target in the madwifi makefile to ap43
+{{{
+BUS:=PCI
+ifneq ($(CONFIG_LINUX_2_6_ATHEROS),)
+  BUS:=AHB
+  HAL_TARGET:=ap43
+endif}}}
 === Boot loader ===
+A RedBoot bootlader image has to be installed to support Kamikaze build.
+==== Setup RedBoot ====
+{{{
++Ethernet eth1: MAC address 80:70:00:fc:9f:c3
+IP: 192.168.1.1/255.255.255.0, Gateway: 0.0.0.0
+Default server: 192.168.1.254, DNS server IP: 0.0.0.0
+
+RedBoot(tm) bootstrap and debug environment [ROM]
+Non-certified release, version v2_0 - built 14:47:37, Sep 30 2005
+
+Copyright (C) 2000, 2001, 2002, Red Hat, Inc.
+
+RAM: 0x80000400-0x80800000, 0x80000400-0x807e1000 available
+FLASH: 0xbe000000 - 0xbe3e0000, 62 blocks of 0x00010000 bytes each.
+== Executing boot script in 3.000 seconds - enter ^C to abort
+^C
+RedBoot> fis init -f
+About to initialize [format] FLASH image system - continue (y/n)? y
+*** Initialize FLASH Image System
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xBE000000  0xBE000000  0x00050000  0x00000000
+RedBoot config    0xBE3DF000  0xBE3DF000  0x00001000  0x00000000
+FIS directory     0xBE3D0000  0xBE3D0000  0x0000F000  0x00000000
+RedBoot> load -r -v -b 0x80041000 openwrt-atheros-2.6-vmlinux.gz
+|
+Raw file loaded 0x80041000-0x80130fff, assumed entry at 0x80041000
+RedBoot> fis create -r 0x80041000 -e 0x80041000 vmlinux.bin.gz
+RedBoot> load -r -v -b 0x80041000 openwrt-atheros-2.6-root.squashfs
+|
+Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
+RedBoot> fis create -b 0x80041000 -f 0xBE140000 -l 0x00290000 -e 0x00000000 rootfs
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xBE000000  0xBE000000  0x00050000  0x00000000
+RedBoot config    0xBE3DF000  0xBE3DF000  0x00001000  0x00000000
+FIS directory     0xBE3D0000  0xBE3D0000  0x0000F000  0x00000000
+vmlinux.bin.gz    0xBE050000  0x80041000  0x000F0000  0x80041000
+rootfs            0xBE140000  0xBE140000  0x00290000  0x00000000
+RedBoot> fconfig
+Run script at boot: true
+Boot script:
+.. fis load -b 0x80041000 -d vmlinux.bin.gz
+.. go
+Enter script, terminate with empty line
+>> fis load -b 0x80041000 -d vmlinux.bin.gz
+>> go
+>>
+Boot script timeout (1000ms resolution): 3
+Use BOOTP for network configuration: false
+Gateway IP address:
+Local IP address: 192.168.1.1
+Local IP address mask: 255.255.255.0
+Default server IP address: 192.168.1.254
+Console baud rate: 115200
+DNS server IP address:
+GDB connection port: 9000
+Force console for special debug messages: false
+Network hardware address [MAC]: 0x80:0x70:0x00:0xFC:0x9F:0xC3
+Network debug at boot time: false
+Update RedBoot non-volatile configuration - continue (y/n)? y
+RedBoot> reset}}}
+==== Boot ====
 {{{
 +Ethernet eth1: MAC address 80:70:00:fc:9f:c3
 IP: 192.168.1.1/255.255.255.0, Gateway: 0.0.0.0
@@ -181,8 +253,7 @@ FLASH: 0xbe000000 - 0xbe3e0000, 62 blocks of 0x00010000 bytes each.
 == Executing boot script in 3.000 seconds - enter ^C to abort
 RedBoot> fis load -b 0x80041000 -d vmlinux.bin.gz
 Image loaded from 0x80041000-0x80289085
-RedBoot> go
-}}}
+RedBoot> go}}}
 === Linux boot ===
 {{{
 Linux version 2.6.19.2 (swinnenb@laptop_bart) (gcc version 4.1.2) #1 Tue Apr 10 20:40:06 CEST 2007
@@ -295,8 +366,7 @@ Enter 'help' for a list of built-in commands.
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
-root@OpenWrt:/#
-}}}
+root@OpenWrt:/#}}}
 = Links =
 '''Manufacturer:'''
 
