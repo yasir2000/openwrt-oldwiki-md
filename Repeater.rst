@@ -3,7 +3,7 @@ by pier11 — last modified 2007-03-28 07:38
 
 '''Applicable''': Kamikaze, Broadcom.
 
-'''Tested''': WRT54G v2.0, Kamikaze r6545, r6626 and r6726(27/03/2007).
+'''Tested''': WRT54G v2.0, Kamikaze r6545, r6626, r6726(27 Mar) and r6816(02 Apr).
 
 This page describes configuration of Kamikaze as a wireless repeater. In this configuration it uses open wireless network and creates your own private wireless network on top of it.
 
