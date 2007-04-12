@@ -1,7 +1,26 @@
 ||<tablewidth="378px" tablestyle="WIDTH: 378px; HEIGHT: 147px"> http://www.compex.com.sg/home/images/logo3.gif ||'''''COMPEX ''WP54-6E''' ''(New Version)''''' ''' ||
 || || ||
 || || ||
+'''Content'''
+
+1. Compex that support Open-WRT
+
+2. WP54 that DO NOT support Open-WRT
+
+3. Compex for develper
+
+4. OpenWRT Packets Information''' '''''''''Related Link''.''
+
+5. Other useful Information about Compex __Open-WRT__ Bareboard Packages
+
+6. WP54 Comparison
+
+7. Related Link
+
+8. HOW TO CONVERT to Open-WRT and Compex Firmware
+
 ----
+
 ''__(This page is at an early stage of development. Please feel free to update) __''
 
 The Compex WP54 is a small, well-made device with two Ethernet ports and Atheros wireless that support both, Compex firmware and Open-WRT Firmware.
@@ -74,11 +93,9 @@ OpenWRT Packets Information''' '''''''''Related Link'' ''''''''
 ||<width="130px">'''RoHS''' ||<width="155px">No ||<width="152px">Yes ||<width="152px">Yes ||
 ||<width="130px">'''Dimension''' ||<width="155px">132.08mm x 109.22mm x 1.6mm ||<width="152px">132.08mm x 109.22mm x 1.6mm ||<width="152px">128mm x 109.22mm x 1.6mm ||
 ||<width="130px">'''Standard PoE''' ||<width="155px">Yes ||<width="152px">Yes ||<width="152px">same with 6B ||
-||<width="130px">'''Non-standard PoE'''||<width="155px">Compex PoE Plus(48V) or Compex PoE 1i||<width="152px">Compex PoE Plus(48V) or Compex PoE 1i||<width="152px">Compex PoE Plus(48V) or 24-48V Passive PoE||
+||<width="130px">'''Non-standard PoE''' ||<width="155px">Compex PoE Plus(48V) or Compex PoE 1i ||<width="152px">Compex PoE Plus(48V) or Compex PoE 1i ||<width="152px">Compex PoE Plus(48V) or 24-48V Passive PoE ||
 ||<width="130px">'''Power Supply''' ||<width="155px">5V ||<width="152px">5V ||<width="152px">12-48V ||
 ||<width="130px">'''Lightning Surge Arrestor''' ||<width="155px">no ||<width="152px">no ||<width="152px">Optional ||
-
-
 ----
 [http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf Datasheet]''(updated)'' = Provide Technical Specification and Ordering Information.
 
