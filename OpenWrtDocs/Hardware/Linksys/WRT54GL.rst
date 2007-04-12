@@ -12,6 +12,7 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 ||WRT54GL v1 ||0x10 ||0x467 ||0x2558 ||0 ||42 ||9 || || || BCM3302 V0.8 || ||
 ||WRT54GL v1.1 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7 ||CFE 3.91.37.0 || BCM3302 V0.8 ||BCM5352EK ||
 == V1.1 ==
+=== System Info ===
 The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically idendical to the boad used for the [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] v4.0 and [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] 4.0 (4Mb version)
 
 {{{
@@ -27,6 +28,9 @@ Serial         : yes (JP2)
 JTAG           : assumed on JP1
 }}}
 Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Firmware 4.30.2 or .5) runs  RC6, Freifunk 1.4.5c and webIF (X-WRT) images no problem at all. Good availabilty at 55-60 EURO in Jan 2007.
+
+=== Switch Ports (for vlans) ===
+Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is Internet on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring vlans.
 
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
