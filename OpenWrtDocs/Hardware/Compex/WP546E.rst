@@ -17,10 +17,9 @@
 
 7. Related Link
 
-8. HOW TO CONVERT to Open-WRT and Compex Firmware
+8. [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E/convert HOW TO CONVERT to Open-WRT and Compex Firmware]
 
 ----
-
 ''__(This page is at an early stage of development. Please feel free to update) __''
 
 The Compex WP54 is a small, well-made device with two Ethernet ports and Atheros wireless that support both, Compex firmware and Open-WRT Firmware.
