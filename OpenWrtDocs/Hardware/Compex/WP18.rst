@@ -3,9 +3,7 @@
 Compex WP18 is a Single Board Computer based upon the Intel XScale IXP42x CPU. It features up to 533MHz processor operation and integrates 2 Type III Mini PCI Slots which allows DualBand support. Embedded with 32MB memory and 4MB flash, WP18 provides the ideal platform to kickstart any wireless profile. WP18 includes an integrated Power over Ethernet (PoE) that allows WP18 to be used in areas where power outlets are not readily available. The WP18 includes several advance features such as serial port (console redirection) and watchdog timer making WP18 ideal for any type of industrial applications.
 
 WP18, besides using Compex Firmware, another alternative involves using Redboot Loader & Snapgear. These will be available in source codes upon request. With the Redboot Loader & Snapgear, Linux hobbyists or professional developers are able to develop or customize more functionality on WP18.
-
-
-||<tablewidth="1140px" tablestyle="WIDTH: 1140px; HEIGHT: 613px"35%>'''Feature''' ||||<64% style="TEXT-ALIGN: center">'''WP18''' ||
+||<tablewidth="1140px" tablestyle="WIDTH: 1140px; HEIGHT: 613px"35%>'''''Feature''' '' ||||<64% style="TEXT-ALIGN: center">'''''WP18''' '''Specification''''' ||
 ||<35%>Processor ||<32%>'''''IXP422 @ 266MHz''' '' ||<32%>'''''IXP425 @ 533MHz''''' ||
 ||<35%>Description ||<32%>Dual Band Access Point with Integrated PoE ||<32%>Dual Band Access Point with Integrated PoE ||
 ||<35%>System Memory ||<32%>'''''32MB (128MB max)''' '' ||<32%>'''''64MB (128MB max)''''' ||
@@ -38,5 +36,11 @@ LEDS   TX - oo         LAN
             oo - VCC
             oo
 
-}}}
 
+}}}
+----
+'''''WP18 package for developers'''''
+||<tablewidth="1138px" tablestyle="WIDTH: 1138px; HEIGHT: 225px"width="248px" style="VERTICAL-ALIGN: top">'''ORDER CODE ''' ||<width="712px" style="VERTICAL-ALIGN: top">'''CONTENTS ''' ||
+||<width="248px" style="VERTICAL-ALIGN: top">'''P-S4 OEMWP181A ''' '''P-S4 OEMWP186A (For RoHS)''' ||<width="712px" style="VERTICAL-ALIGN: top">1. WP18 IXP422 (266MHz CPU) Bare-board (Pre-loaded with Compex Firmware) 2. Bareboard embedded with 32MB SDRAM / 4MB Flash ||
+||<width="248px" style="VERTICAL-ALIGN: top">'''P-S4 OEMWP183B ''' '''''' '''P-S4 OEMWP186B (For RoHS)''' ||<width="712px" style="VERTICAL-ALIGN: top">1. WP18 IXP425 (533MHz CPU) Bare-board (Pre-loaded with Compex Firmware) 2. Bareboard embedded with 64MB SDRAM / 8MB Flash ||
+||<width="248px" style="VERTICAL-ALIGN: top">'''WP18 3B DEV KIT ''' '''''' '''WP18 6B DEV KIT (For RoHS on WP18 Bareboard)''' ||<width="712px" style="VERTICAL-ALIGN: top">1. WP18 IXP425 (533MHz CPU) Bare-board (Pre-loaded with Compex Firmware) 2. Bareboard embedded with 64MB SDRAM/8MB Flash 3. Wireless G mini-PCI (Compex WLM54G) 4. Wireless AG mini-PCI (Compex WLM54AG) 5. PoE+ Injector (Compex PoE+1A4815) 6. JTAG Programmer (Cable from PC to JTAG Programmer included) 7. Serial Converter (Cable from PC to Serial Converter included) 8. 5V DC Adapter ||
