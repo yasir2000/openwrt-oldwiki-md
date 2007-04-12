@@ -51,6 +51,38 @@ OpenWRT Packets Information''' '''''''''Related Link'' ''''''''
 5. JTAG Programmer and Serial Converter are available if you purchase the development kit.
 
 ----
+''''''
+
+'''__Comparison between WP54-B and WP54-E PCBA Board for OPEN-WRT__'''Updated on 5^th^ April 2007
+||<tablewidth="589px"width="130px">'''Description'''||<width="153px">'''WP541B-WRT'''||<width="154px">'''WP546B-WRT'''||<width="152px">'''WP54-6E'''||
+||<width="130px">'''Loader'''||<width="153px">CFE Loader||<width="154px">CFE Loader||<width="152px">Compex Loader/ CFE LoaderOnly Compex Loader V2.40 & above supports Open-WRT||
+||<width="130px">'''CPLD'''||<width="153px">Required||<width="154px">Required||<width="152px">Not Required||
+
+
+ '''__Comparison between WP54-B and WP54-E PCBA Board - Hardware__'''
+||<tablewidth="922px" tablestyle="WIDTH: 922px; HEIGHT: 882px"width="130px">'''Hardware Specs'''||<width="155px">'''WP54-1B / ''''''WP541B-WRT'''||<width="152px">'''WP54-6B / ''''''WP546B-WRT'''||<width="152px">'''WP54-6E'''||
+||<width="130px">'''CPU'''||<width="155px">Infineon ADM5120 @175MHz||<width="152px">Infineon ADM5120 @175MHz||<width="152px">same with 6B||
+||<width="130px">'''Flash'''||<width="155px">4MB NOR Flash||<width="152px">4MB NOR Flash||<width="152px">same with 6B||
+||<width="130px">'''Memory'''||<width="155px">16MB SDRAM (max up to 32M)||<width="152px">16MB SDRAM (max up to 32M)||<width="152px">16MB SDRAM (max up to 128M)||
+||<width="130px">'''MiniPCI slot'''||<width="155px">1x Type IIIB miniPCI slot||<width="152px">1x Type IIIB miniPCI slot||<width="152px">same with 6B||
+||<width="130px">'''Ethernet port'''||<width="155px">2x 10/100Base TX Eth port||<width="152px">2x 10/100Base TX Eth port||<width="152px">same with 6B||
+||<width="130px">'''Debug Interface'''||<width="155px">Serial / JTAG||<width="152px">Serial / JTAG||<width="152px">same with 6B||
+||<width="130px">'''User LED'''||<width="155px">Power,Diag,WLAN,WAN,LAN||<width="152px">Power,Diag,WLAN,WAN,LAN||<width="152px">same with 6B||
+||<width="130px">'''Reset Push-button'''||<width="155px">Yes||<width="152px">Yes||<width="152px">same with 6B||
+||<width="130px">'''Supply Voltage Check'''||<width="155px">-||<width="152px">-||<width="152px">Optional||
+||<width="130px">'''Operating Temp'''||<width="155px">- 20℃ to 70℃||<width="152px">- 20℃ to 70℃||<width="152px">same with 6B||
+||<width="130px">'''RoHS'''||<width="155px">No||<width="152px">Yes||<width="152px">Yes||
+||<width="130px">'''Dimension'''||<width="155px">132.08mm x 109.22mm x 1.6mm||<width="152px">132.08mm x 109.22mm x 1.6mm||<width="152px">128mm x 109.22mm x 1.6mm||
+||<width="130px">'''Standard PoE'''||<width="155px">Yes ||<width="152px">Yes ||<width="152px">same with 6B||
+||<width="130px">'''Non-standard PoE'''||<width="155px">Compex PoE Plus(48V)
+or Compex PoE 1i||<width="152px">Compex PoE Plus(48V)
+or Compex PoE 1i||<width="152px">Compex PoE Plus(48V)                  or 24-48V Passive PoE||
+||<width="130px">'''Power Supply'''||<width="155px">5V||<width="152px">5V||<width="152px">12-48V||
+||<width="130px">'''Lightning Surge Arrestor'''||<width="155px">no||<width="152px">no||<width="152px">Optional||
+
+
+
+----
 [http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf Datasheet]''(updated)'' = Provide Technical Specification and Ordering Information.
 
 [http://compex.com.sg/home/OEM/Downloads/WP54_6E_Board_Product_Manual_Rev1.4.pdf Hardware Manual]''(updated)'' = its provide information about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting.
