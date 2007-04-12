@@ -102,4 +102,6 @@ OpenWRT Packets Information''' '''''''''Related Link'' ''''''''
 
 [http://compex.com.sg/home/OEM/Open_wrt.htm Compex ]with OpenWRT Solution is always available from this link.
 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex Other Compex Open-WRT Product]
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex Other Compex Open-WRT Product] = Provide information with product that support Open-WRT.
+
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E/convert Convert to Open-WRT or Compex] = its provide information/Guide on how to convert Open-WRT to compex or vice versa.
