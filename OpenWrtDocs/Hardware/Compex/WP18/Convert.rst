@@ -1,16 +1,18 @@
-'''''WP18: Running '''[http://wiki.openwrt.org/OpenWrt OpenWrt]''''' on Compex loader Information''''' ''
+{{{
+WP18: Running OpenWrt'' on Compex loader Information
+}}}
 
-1. The following Steps will show you how to upgrde Open-WRT with Compex Loader Ver 2.40 or above(Manual Upgrade).
+1. The following Steps will show you how to upgrade Open-WRT with Compex Loader Ver 2.40 or above(Manual Upgrade).
 
 2. If you wish to do the automatic upgrade you read "AUTOMATIC CONVERTER" Section.
 
 ----
-''''''
 
 {{{
-'''
 NOTE !!!
-'''}}}
+}}}
+
+
 Make sure that you are using:
 
  * You are using WP18 model loaded with Compex loader V2.4 or above.
@@ -20,25 +22,30 @@ Make sure that you are using:
   . ==> (By Press and hold the Reset button and plug-in the power adaptor).
  * Get Ready to Section "Compex firmware to Open-WRT firmware."
 ----
-'''''Start'''''
+
+{{{
+Compex Firmware to Open-WRT
+}}}
+
+Start
 
 Go to the Console (CMD/DOS) Open the folder that contain files required.
 
 Then follow the steps below.
 
-1. Write [http://wiki.openwrt.org/OpenWrt OpenWrt] image (kernel) to flash
+1. Write OpenWrt image (kernel) to flash
 
  . > tftp -i 192.168.168.1 put flashwrt-kernel.cmd > tftp -i 192.168.168.1 put openwrt-ixp4xx-2.6-zImage
-2. Write [http://wiki.openwrt.org/OpenWrt OpenWrt] image (rootfs) to flash
+2. Write OpenWrt image (rootfs) to flash
 
  . > tftp -i 192.168.168.1 put flashwrt-jffs.cmd > tftp -i 192.168.168.1 put openwrt-ixp4xx-2.6-jffs2-128k.img
-3. Change the partition table to load [http://wiki.openwrt.org/OpenWrt OpenWrt] image format
+3. Change the partition table to load OpenWrt image format
 
  . > tftp -i 192.168.168.1 put partwrt.cmd
-4. Create a [http://wiki.openwrt.org/RedBoot RedBoot] style fconfig area
+4. Create a RedBoot style fconfig area
 
  . > tftp -i 192.168.168.1 put fconfig-crt.cmd
-5. Write a [http://wiki.openwrt.org/RedBoot RedBoot] style fis area
+5. Write a RedBoot style fis area
 
  . > tftp -i 192.168.168.1 put flashwrt-fis.cmd > tftp -i 192.168.168.1 put fis.bin
 6. Finish and Reboot the AP.
@@ -54,11 +61,12 @@ Then follow the steps below.
 ----
 ----
 
-''{{{
+
+{{{
 AUTOMATIC CONVERTER (Easier Method )
 }}}
 
-''From the folder that contain all files, Run "Autoconvert.bat"''
+From the folder that contain all files, Run "Autoconvert.bat"
 
  1. Follow the steps and the command show in the Console (CMD/DOS form).
  1. It takes up to 2 minute for entire Process.
@@ -71,7 +79,7 @@ AUTOMATIC CONVERTER (Easier Method )
 ----
 
 {{{
-Open-WRT to Compex Firmware
+Open-WRT to Compex
 }}}
 
 If you wish to change back to Compex Firmware, Please follow the Steps below.
@@ -84,12 +92,10 @@ If you wish to change back to Compex Firmware, Please follow the Steps below.
  * Finish and Reboot the AP.
  * To test whether it is successfully installed. You can run U-Config Utility or
   . Log on to Http://192.168.168.1/
-<FIRMWARE NAME>  WP18_V208_B0103.IMG
+<FIRMWARE NAME> WP18_V208_B0103.IMG
 
  . PLease use the latest firmware as it is available from
   . http://www.compex.com.sg/
- 
-
  =End=
   . . .
 ----
