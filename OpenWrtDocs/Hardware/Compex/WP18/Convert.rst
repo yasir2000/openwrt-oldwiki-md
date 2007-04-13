@@ -5,8 +5,14 @@
 2. If you wish to do the automatic upgrade you read "AUTOMATIC CONVERTER" Section.
 
 ----
-'''NOTE !!!'''
+''''''
 
+{{{
+'''
+
+NOTE !!!
+
+'''}}}
 ----
 Make sure that you are using:
 
