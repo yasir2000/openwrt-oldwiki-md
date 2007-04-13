@@ -1,4 +1,8 @@
-Describe OpenWrtDocs/Hardware/Compex/comparison here.
+{{{
+
+Comparison Between Compex Product that SUPPORT Open-WRT
+
+}}}
 ||<tablewidth="97%"22%>'''Feature''' ||<20%>'''WP18''' ||<20%>'''WP188''' ||<19%>'''NP18A''' ||<18%>'''WP54''' ||
 ||<22% style="TEXT-ALIGN: center" |2>'''''Processor ''''' ||<20%>IXP422 @ 266MHz ||<20% style="TEXT-ALIGN: center" |2>IXP425 @ 533MHz ||<19%>IXP422 @ 266MHz ||<18% style="TEXT-ALIGN: center" |2>ADM5120 @ 175MHz ||
 ||<20%>IXP425 @ 533MHz ||<19%>IXP425 @ 533MHz ||
