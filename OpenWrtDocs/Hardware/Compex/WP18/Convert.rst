@@ -9,9 +9,7 @@
 
 {{{
 '''
-
 NOTE !!!
-
 '''}}}
 Make sure that you are using:
 
@@ -54,11 +52,13 @@ Then follow the steps below.
 8. FINISH. The device already load with OpenWRT version.
 
 ----
-
 ----
-'''''{{{AUTOMATIC CONVERTER (Easier Method )''''' }}}
 
-From the folder that contain all files, Run "Autoconvert.bat"
+''{{{
+AUTOMATIC CONVERTER (Easier Method )
+}}}
+
+''From the folder that contain all files, Run "Autoconvert.bat"''
 
  1. Follow the steps and the command show in the Console (CMD/DOS form).
  1. It takes up to 2 minute for entire Process.
@@ -68,9 +68,11 @@ From the folder that contain all files, Run "Autoconvert.bat"
   > telnet 192.168.1.1
   * The picture shows above will be appear if you are successful. b. The first boot time will be alittle longer than usual,so please wait a momment. c. If you can't see the picture above, u can reboot the device and reinstall it.
 ----
- .
 ----
-'''''{{{Open-WRT to Compex Firmware''''' }}}
+
+{{{
+Open-WRT to Compex Firmware
+}}}
 
 If you wish to change back to Compex Firmware, Please follow the Steps below.
 
@@ -82,11 +84,13 @@ If you wish to change back to Compex Firmware, Please follow the Steps below.
  * Finish and Reboot the AP.
  * To test whether it is successfully installed. You can run U-Config Utility or
   . Log on to Http://192.168.168.1/
-<FIRMWARE NAME> WP18 = WP18_V208_B0103.IMG
+<FIRMWARE NAME>  WP18_V208_B0103.IMG
 
  . PLease use the latest firmware as it is available from
   . http://www.compex.com.sg/
-  . . =End=
+ 
+
+ =End=
   . . .
 ----
 Updated 16 March 2006
