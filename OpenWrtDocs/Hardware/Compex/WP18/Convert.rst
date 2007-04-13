@@ -1,7 +1,6 @@
 {{{
 WP18: Running OpenWrt'' on Compex loader Information
 }}}
-
 1. The following Steps will show you how to upgrade Open-WRT with Compex Loader Ver 2.40 or above(Manual Upgrade).
 
 2. If you wish to do the automatic upgrade you read "AUTOMATIC CONVERTER" Section.
@@ -11,8 +10,6 @@ WP18: Running OpenWrt'' on Compex loader Information
 {{{
 NOTE !!!
 }}}
-
-
 Make sure that you are using:
 
  * You are using WP18 model loaded with Compex loader V2.4 or above.
@@ -26,7 +23,6 @@ Make sure that you are using:
 {{{
 Compex Firmware to Open-WRT
 }}}
-
 Start
 
 Go to the Console (CMD/DOS) Open the folder that contain files required.
@@ -61,27 +57,27 @@ Then follow the steps below.
 ----
 ----
 
-
 {{{
 AUTOMATIC CONVERTER (Easier Method )
 }}}
-
 From the folder that contain all files, Run "Autoconvert.bat"
 
  1. Follow the steps and the command show in the Console (CMD/DOS form).
  1. It takes up to 2 minute for entire Process.
  1. Enjoy.
- 1. To test whether you are successful in converting to Open-WRT,
-  . Please do the followings command in DOS
-  > telnet 192.168.1.1
-  * The picture shows above will be appear if you are successful. b. The first boot time will be alittle longer than usual,so please wait a momment. c. If you can't see the picture above, u can reboot the device and reinstall it.
+To test whether you are successful in converting to Open-WRT,
+
+ . Please do the followings command in DOS
+ > telnet 192.168.1.1
+ * The Open-WRT picture will be appeared if you are successful.
+ * The first boot time will be alittle longer than usual,so please wait a momment.
+ * If you can't see the picture above, u can reboot the device and reinstall it again.
 ----
 ----
 
 {{{
 Open-WRT to Compex
 }}}
-
 If you wish to change back to Compex Firmware, Please follow the Steps below.
 
  . =Start=
@@ -90,8 +86,7 @@ If you wish to change back to Compex Firmware, Please follow the Steps below.
  * Load the firmware to the WP18.
   . > tftp -i 192.168.168.1 put <Firmware name>
  * Finish and Reboot the AP.
- * To test whether it is successfully installed. You can run U-Config Utility or
-  . Log on to Http://192.168.168.1/
+ * To test whether it is successfully installed. You can run U-Config Utility or Log on to Http://192.168.168.1/
 <FIRMWARE NAME> WP18_V208_B0103.IMG
 
  . PLease use the latest firmware as it is available from
@@ -99,4 +94,8 @@ If you wish to change back to Compex Firmware, Please follow the Steps below.
  =End=
   . . .
 ----
-Updated 16 March 2006
+'''''Usefull Link'''''
+
+[http://compex.com.sg/home/OEM/Open_wrt.htm Product Information] = This product datasheet, Hardware manual and also the code
+
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/comparison Product comparison] = Comparison between compex product that support Open-WRT
