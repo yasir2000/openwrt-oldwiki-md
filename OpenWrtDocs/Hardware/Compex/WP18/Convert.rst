@@ -13,7 +13,6 @@
 NOTE !!!
 
 '''}}}
-----
 Make sure that you are using:
 
  * You are using WP18 model loaded with Compex loader V2.4 or above.
@@ -57,9 +56,8 @@ Then follow the steps below.
 ----
 
 ----
-'''''AUTOMATIC CONVERTER (Easier Method )'''''
+'''''{{{AUTOMATIC CONVERTER (Easier Method )''''' }}}
 
-----
 From the folder that contain all files, Run "Autoconvert.bat"
 
  1. Follow the steps and the command show in the Console (CMD/DOS form).
@@ -72,9 +70,8 @@ From the folder that contain all files, Run "Autoconvert.bat"
 ----
  .
 ----
-'''''Open-WRT to Compex Firmware'''''
+'''''{{{Open-WRT to Compex Firmware''''' }}}
 
-----
 If you wish to change back to Compex Firmware, Please follow the Steps below.
 
  . =Start=
