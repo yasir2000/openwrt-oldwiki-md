@@ -98,6 +98,10 @@ Windows 2000/XP TFTP Client short Instructions
 
 if you have a openwrt54gl (v1.1 testet) the timespan might be very short and is located about 2 seconds after pluging in and about 1 second before the ping starts to answer.
 
+Note:
+if your computer set DHCP, you may not get "Hardware Error" but "Destination host unreachable" or "Request timeout".
+Set your computer static IP before.
+
 == Troubleshooting ==
 
 Don't forget about your firewall settings, if you use one. It is best to run the "put" command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
