@@ -38,10 +38,9 @@ freeradius-mod-pap - 1.0.5-1 - a PAP module for FreeRADIUS
 freeradius-utils - 1.0.5-1 - some client utilities for FreeRADIUS
 }}}
 {{{
-ipkg install freeradius freeradius-democerts freeradius-mod-chap freeradius-mod-eap \
-freeradius-mod-eap-md5 freeradius-mod-eap-mschapv2 freeradius-mod-eap-peap \
-freeradius-mod-eap-tls freeradius-mod-eap-ttls freeradius-mod-files freeradius-mod-mschap \
-freeradius-mod-pap freeradius-utils
+ipkg install freeradius freeradius-democerts freeradius-mod-chap freeradius-mod-eap freeradius-mod-eap-md5 \
+freeradius-mod-eap-mschapv2 freeradius-mod-eap-peap freeradius-mod-eap-tls freeradius-mod-eap-ttls \
+freeradius-mod-files freeradius-mod-mschap freeradius-mod-pap freeradius-utils
 }}}
 
 You'll need to edit four files: clients.conf, eap.conf, radiusd.conf and users, plus configure certificates properly (handled under the eap.conf section below).
