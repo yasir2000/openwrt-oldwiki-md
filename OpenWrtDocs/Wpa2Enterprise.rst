@@ -21,7 +21,27 @@ Two mysteries here:
 Don't forget to {{{nvram commit}}} !
 
 == FreeRadius ==
-Using ipkg, get all the freeradius-* packages. You'll need to edit four files: clients.conf, eap.conf, radiusd.conf and users, plus configure certificates properly (handled under the eap.conf section below).
+=== Using ipkg, get the freeradius packages. ===
+{{{
+freeradius - 1.0.5-1 - a flexible RADIUS server
+freeradius-democerts - 1.0.5-1 - a set of certificates to test FreeRADIUS
+freeradius-mod-chap - 1.0.5-1 - a CHAP module for FreeRADIUS
+freeradius-mod-eap - 1.0.5-1 - an EAP module for FreeRADIUS
+freeradius-mod-eap-md5 - 1.0.5-1 - an EAP/MD5 module for FreeRADIUS
+freeradius-mod-eap-mschapv2 - 1.0.5-1 - an EAP/MS-CHAPv2 module for FreeRADIUS
+freeradius-mod-eap-peap - 1.0.5-1 - an EAP/PEAP module for FreeRADIUS
+freeradius-mod-eap-tls - 1.0.5-1 - an EAP/TLS module for FreeRADIUS
+freeradius-mod-eap-ttls - 1.0.5-1 - an EAP/TTLS module for FreeRADIUS
+freeradius-mod-files - 1.0.5-1 - a module for FreeRADIUS, using local files for authorization
+freeradius-mod-mschap - 1.0.5-1 - an MS-CHAP and MS-CHAPv2 module for FreeRADIUS
+freeradius-mod-pap - 1.0.5-1 - a PAP module for FreeRADIUS
+freeradius-utils - 1.0.5-1 - some client utilities for FreeRADIUS
+}}}
+{{{
+ipkg install freeradius freeradius-democerts freeradius-mod-chap freeradius-mod-eap freeradius-mod-eap-md5 freeradius-mod-eap-mschapv2 freeradius-mod-eap-peap freeradius-mod-eap-tls freeradius-mod-eap-ttls freeradius-mod-files freeradius-mod-mschap freeradius-mod-pap freeradius-utils
+}}}
+
+You'll need to edit four files: clients.conf, eap.conf, radiusd.conf and users, plus configure certificates properly (handled under the eap.conf section below).
 
 You will need to rename the radiusd startup script otherwise it will not be invoked, eg {{{mv /etc/init.d/radiusd /etc/init.d/S42radiusd}}}
 === clients.conf ===
