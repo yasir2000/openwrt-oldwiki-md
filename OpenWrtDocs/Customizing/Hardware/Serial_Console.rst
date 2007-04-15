@@ -3,7 +3,7 @@ Serial ports allow you to do a myriad of things, including connect to your compu
 
 For the developer, a serial port will also allow you to recover a bricked router when all other methods have failed (tftp, failsafe mode, shorting pins, etc.)
 
-I recommend using a usb serial console, as its much easier and cheaper.
+I recommend using a usb serial console, as it's much easier and cheaper.
 
 == Serial port pinouts ==
 Pinouts for your model can often be found on your model's page in CategoryModel.
@@ -42,7 +42,7 @@ If you open up the cell phone cable's serial port casing and see a MAX### chip, 
 
 If you've found a good cell phone cable to use, you merely need to determine which wires are the VCC, GND, TX, and RX connections. Usually the VCC is red and the GND is black, but the other colors may vary (though blue and orange are common). There should be no need to modify the PCB embedded in the cable.
 
-You can also search for MAX232 Kits. There are some kits availables.
+You can also search for MAX232 Kits. There are some kits available.
 
  * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
@@ -58,9 +58,9 @@ You can also search for MAX232 Kits. There are some kits availables.
  * Tutty (a branch of Putty)
 
 == Finding Serial Console ==
-First, check the OpenWRT wiki page describing your hardware and do a google search. Most of the time, the serial port(s), if they exist, have already been documented by others.
+First, check the OpenWRT wiki page describing your hardware and do a Google search. Most of the time, the serial port(s), if they exist, have already been documented by others.
 
-(stolen from the ["AR7Port"] page) This method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach it's ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
+(stolen from the ["AR7Port"] page) This method used to find the serial port was suggested to me on irc; use a piezo buzzer and attach its ground (usually black) wire to a ground point on the router - the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter... Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into. Once you get the right pin, the piezo should make a screeching sound much like that of a 56kbps connection.
 
 Make sure you reset the router after probing each pin. The bootloader/linux bootup messages will only happen for a few seconds, after that the serial console will be silent - so even if you have the right pin you will not hear anything.
 
