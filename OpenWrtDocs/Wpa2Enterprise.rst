@@ -45,7 +45,10 @@ freeradius-mod-files freeradius-mod-mschap freeradius-mod-pap freeradius-utils
 
 You'll need to edit four files: clients.conf, eap.conf, radiusd.conf and users, plus configure certificates properly (handled under the eap.conf section below).
 
-You will need to rename the radiusd startup script otherwise it will not be invoked, eg {{{mv /etc/init.d/radiusd /etc/init.d/S42radiusd}}}
+You will need to rename the radiusd startup script otherwise it will not be invoked, eg
+{{{
+mv /etc/init.d/radiusd /etc/init.d/S42radiusd
+}}}
 === clients.conf ===
 This just needs to match the value for wl0_radius_key:
 
