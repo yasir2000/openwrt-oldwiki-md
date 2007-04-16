@@ -1,4 +1,4 @@
-'''!Freedom CPE'''
+'''Freedom CPE'''
 
 {{{
 Bootloader: RedBoot
