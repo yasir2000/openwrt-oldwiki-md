@@ -146,11 +146,13 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
 == Compex ==
-{*} {*} {*} {*} {*}  [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex Products]
+{*} {*} {*} {*} {*} [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex Products]
 
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G WP54-WRT and WRT6B] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Forked] ||
-||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E WP54-6E] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16 MB SDRM(Up to 128 MB) ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E Forked] ||
+||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G WP54-WRT and WRT6B] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G Forked] ||
+||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E WP54-6E] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16 MB SDRM(Up to 128 MB) ||Atheros AR2413/2414/5413/5414 MiniPCI||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E Forked] ||
+||<|2>[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP18 WP18 ]||<|2>[javascript:void(0);/*1176696923837*/ WP18]||IXP422 @266MHz||4MB (32MB Max)||32MB(128MB max)||<|2>Atheros AR2413/2414/5413/5414 MiniPCI||<|2>||<|2>||<|2>Yes||<|2>Yes||<|2>No||<|2>Supported||
+||IXP425@533MHz||8MB(32MB Max||64MB(128MB max)||
 
 
 == Corinex ==
@@ -318,7 +320,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||[:AR7Port:WiP] ||
-||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVS114.aspx FVS114] || || Realtek 8650B @ 200MHz ||2MB ||16MB || || in CPU || || || ||No || Untested ||
+||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVS114.aspx FVS114] || ||Realtek 8650B @ 200MHz ||2MB ||16MB || ||in CPU || || || ||No ||Untested ||
 ||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx FVX538] ||1 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||32MB || || || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Netgear/FVX538:Untested] ||
 ||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx FVX538] ||2 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||32MB ||64MB || || || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Netgear/FVX538:Untested] ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB || ||Atheros & Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
