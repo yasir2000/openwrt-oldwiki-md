@@ -4,7 +4,7 @@ THIS IS ALL UNTESTED.  PLEASE TRY TO CONFIRM IT FOR YOURSELF.
 In the early days of OpenWRT, the only target platforms were the WRT54G and similar Broadcom based routers.  This platform has an NVRAM (much like high end, commercial routers) to store configuration information.  Up until White Russian, OpenWRT used NVRAM for configuration.  As OpenWRT expanded to new platforms without NVRAM, NVRAM was abandoned in favor of configuration files in /etc/config.  This configuration method presents related information in the same area and is much like existing *nix configuration files.
 
 
-Some older Kamikaze builds are configured like NVRAM, only with key=value pairs in the config file.
+Some older Kamikaze builds have configuration files which mimic the NVRAM configuration in that there are only key=value pairs in the configuration files.
 
 
 == Order for Network Initialization ==
