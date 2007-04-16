@@ -1,5 +1,5 @@
 #pragma section-numbers off
-= AbicomInternational =
+= Actiontec =
 [[PageList(OpenWrtDocs/Hardware/Actiontec)]]
 
 == Other models ==
