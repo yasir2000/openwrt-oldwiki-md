@@ -1,7 +1,7 @@
 '''Compex NP18A'''
 
 {{{
-Bootloader: MyLoader
+Bootloader: RedBoot or MyLoader
 CPU: Intel IXP422
 CPU Speed: 266 Mhz
 Flash size: 4 MB
@@ -23,3 +23,5 @@ LEDS   TX - oo         LAN
             oo - VCC
             oo
 }}}
+
+/!\ OpenWrt only supports boards with RedBoot, in case you have one with MyLoader, you have to reflash it.
