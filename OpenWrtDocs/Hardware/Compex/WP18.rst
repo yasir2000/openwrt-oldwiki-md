@@ -5,7 +5,6 @@
 {{{
 Bootloader: RedBoot or MyLoader
 CPU: Intel IXP422 @ 266MHz or IXP425 @ 533MHz
-CPU Speed: 266 Mhz
 Flash size: 4 MB - 32MB
 RAM: 32 MB - 128 MB
 Wireless: 2 Atheros mini-PCI cards
