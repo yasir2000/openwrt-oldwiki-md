@@ -9,13 +9,11 @@ The RDC port is a port of OpenWrt to the RDC R321x(-G) and R861x(-G) SoC's. Thes
 
 == Status ==
 
-RDC support was started in October 2006 in the Kamikaze branch and is regarded unstable.
-
-A 2.4 kernel based port was fully usable at some point, but has been abandoned. At the moment, 2.6 kernels exceed the size limit imposed by the bootloader, so they hang unless the limit is bypassed.
-
+The RDC support is now considered stable with squashfs images.
 == TODO ==
 
 Make the 2.6 kernel work on this device. Upgrade rt61 wireless driver to use the dscape version.
+Fix JFFS2 images.
 
 == Hardware differences ==
 
