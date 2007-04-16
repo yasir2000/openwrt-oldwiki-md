@@ -5,7 +5,7 @@
  * [:OpenWrtDocs/Hardware/Buffalo/WBR2-B11: WBR2-B11]
  * [:OpenWrtDocs/Hardware/Buffalo/WBR-G54: WBR-G54]
  * [:OpenWrtDocs/Hardware/Buffalo/WBR2-G54: WBR2-G54]
- * [:OpenWrtDocs/Hardware/Buffalo/WHR-HP-G54-4:WHR-HP-G54]
+ * [:OpenWrtDocs/Hardware/Buffalo/WHR-HP-G54:WHR-HP-G54]
  * [:OpenWrtDocs/Hardware/Buffalo/WLA-G54: WLA-G54]
  * [:OpenWrtDocs/Hardware/Buffalo/WLA-G54C: WLA-G54C]
  * [:OpenWrtDocs/Hardware/Buffalo/WLA2-G54L: WLA2-G54L]
