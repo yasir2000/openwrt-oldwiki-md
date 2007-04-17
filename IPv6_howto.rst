@@ -6,7 +6,7 @@ This HOWTO describes how to setup IPv6 on your OpenWrt based router.
 There is 2 big different steps :
 
  1. setup a working ipv6 connection on the OpenWRT router. This can either be:
-  * using a tunnel broker (like [http://www.sixxs.net SixXS] or [http://www.tunnelbroker.net hurricane electric]).
+  * using a tunnel broker (like [http://www.sixxs.net SixXS], [http://www.tunnelbroker.net hurricane electric], or the services provided by a tunnel broker that supports the Tunnel Setup Protocol (TSP), such as the [http://www.hexago.com Hexago Gateway6]).
   * using 6to4, a standard encapsulation protocol for IPv6 over IPv4
  1. propagate the IPv6 subnet to the LAN with radvd
 = Install necessary software =
@@ -105,6 +105,8 @@ __'''Note:'''__ in recent versions of WhiteRussian the firewall script should go
 
 = Setup IPv6 connectivity =
 You can choose between using 6to4 (standard, works from anywhere) or a SixXS tunnel (if you are near a Point of Presence). 6to4 is probably the quickest to setup at first.
+
+Using the Hexago OpenWRT Gateway6 Client, it is also possible to establish a tunnel to a tunnel broker that supports the TSP protocol.
 
 == 6to4 with a direct connection to the Internet ==
 This applies e.g. if you WAN port (on vlan1) receives an public IPv4 address through DHCP or is assigned a static public IPv4 address.
@@ -272,6 +274,15 @@ Now start the sixxs client :
 aiccu start
 }}}
 If it doesn't work use {{{logread}}} to see what occurs
+
+== Establishing a TSP tunnel using the Hexago OpenWRT Gateway6 Client ==
+
+ * Download the Hexago OpenWRT Gateway6 Client from the [http://www.go6.net/4105/download.asp go6.net Portal].
+ * Install the software as explained in the Hexago OpenWRT Gateway6 Client README, available from the [http://www.go6.net/4105/download.asp same location].
+ * Follow the instructions provided in the Hexago OpenWRT Gateway6 Client README to configure and establish a tunnel to a tunnel broker that supports the Tunnel Setup Protocol (TSP).
+
+{*} Freenet6, a service offered by the go6.net Portal and backed by the Hexago Gateway6 product, provides free IPv6 access through the TSP protocol.
+To obtain access to the free service, simply register on the [http://www.go6.net/4105/register.asp go6.net Portal registration page].
 
 = IPv6 on the LAN =
 At this point I suppose that you have a working ipv6 connection on the wrt, that you can ''ping6 www.kame.net'' without error.
