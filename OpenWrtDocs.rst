@@ -21,7 +21,7 @@ Please read the manual. If you have any questions about anything in the manual, 
 
 '''[:OpenWrtDocs/Deinstalling:Deinstalling OpenWrt]''' [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
 
-=== WhiteRussian RC6 (Stable) Configuration ===
+=== WhiteRussian (Stable) Configuration ===
 '''[:OpenWrtDocs/Configuration:OpenWrt WhiteRussian Configuration]''' [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
 
 === Kamikaze (Experimental) Configuration ===
