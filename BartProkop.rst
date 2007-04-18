@@ -36,7 +36,7 @@ The ISP provides a DLS connection terminated by SpeedStream modem. We are provid
 We need a dew private subnets with different routing and QoS features:
  * 10.112.170.x / 24 as a primary LAN network for main office.
  * 10.216.208.x / 24 as a VPN acccesible via PPTP protocol.
- * 10.99.145.x  / 24 as a WiFi subnet primary for mobile laptops/guests
+ * 10.98.226.x  / 24 as a WiFi subnet primary for mobile laptops/guests
  * 10.90.201.x  / 24 as a separate from above LAN subnet for purpose of wiring hotel placed above main office.
  
 === Implementation ===
