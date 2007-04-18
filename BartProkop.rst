@@ -120,6 +120,16 @@ root@OpenWrt:~# nvram set vlan2hwname=et0
 root@OpenWrt:~# nvram commit
 }}}
 
+Please note that this causes only the ports on switch to became partitioned. To make an runnig interface you should do:
+{{{
+root@OpenWrt:/etc/init.d# nvram set hotel_ifname=vlan2
+root@OpenWrt:/etc/init.d# nvram set hotel_proto=static
+root@OpenWrt:/etc/init.d# nvram set hotel_ipaddr=192.168.100.100
+root@OpenWrt:/etc/init.d# nvram set hotel_netmask=255.255.255.0
+root@OpenWrt:~# nvram commit
+root@OpenWrt:/etc/init.d# ifup hotel
+}}}
+
 ...
 
 ----
