@@ -111,6 +111,15 @@ root@OpenWrt:~# cat /etc/ethers
 00:15:f2:91:c9:a7 10.112.170.48
 }}}
 
+==== Adding new subned on VLAN ====
+I decided to separate port number 4 to became a port for a separate subnet for guests in hotel that is located in the same building. First it was necessary to set NVRAM. Please note that in my confguration port labeled 4 has internal switch number 0. (This is specific for Linksys GL v.2 !!!)
+{{{
+root@OpenWrt:~# nvram set vlan0ports="3 2 1 5*"
+root@OpenWrt:~# nvram set vlan2ports="0 5"
+root@OpenWrt:~# nvram set vlan2hwname=et0
+root@OpenWrt:~# nvram commit
+}}}
+
 ...
 
 ----
