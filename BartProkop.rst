@@ -36,8 +36,8 @@ The ISP provides a DLS connection terminated by SpeedStream modem. We are provid
 We need a dew private subnets with different routing and QoS features:
  * 10.112.170.x / 24 as a primary LAN network for main office.
  * 10.216.208.x / 24 as a VPN acccesible via PPTP protocol.
- * 10.          / 24 as a WiFi subnet primary for mobile laptops/guests
- * 10.          / 24 as a separate from above LAN subnet for purpose of wiring hotel placed above main office.
+ * 10.99.145.x  / 24 as a WiFi subnet primary for mobile laptops/guests
+ * 10.90.201.x  / 24 as a separate from above LAN subnet for purpose of wiring hotel placed above main office.
  
 === Implementation ===
 ==== Hardware and firmware upgrade ====
@@ -124,7 +124,7 @@ Please note that this causes only the ports on switch to became partitioned. To 
 {{{
 root@OpenWrt:/etc/init.d# nvram set hotel_ifname=vlan2
 root@OpenWrt:/etc/init.d# nvram set hotel_proto=static
-root@OpenWrt:/etc/init.d# nvram set hotel_ipaddr=192.168.100.100
+root@OpenWrt:/etc/init.d# nvram set hotel_ipaddr=10.90.201.1
 root@OpenWrt:/etc/init.d# nvram set hotel_netmask=255.255.255.0
 root@OpenWrt:~# nvram commit
 root@OpenWrt:/etc/init.d# ifup hotel
