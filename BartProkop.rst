@@ -130,6 +130,12 @@ root@OpenWrt:~# nvram commit
 root@OpenWrt:/etc/init.d# ifup hotel
 }}}
 
+To pemanently set vlan2 aka hotel up, you need to place hotel interface in NVRAM variable:
+{{{
+root@OpenWrt:~# nvram set ifup_interfaces="lan wan wifi hotel"
+root@OpenWrt:~# nvram commit
+}}}
+
 ...
 
 ----
