@@ -96,7 +96,7 @@ nvram commit  (save changes to NVRAM)
 reboot
 }}}
 
-==== DHCP ====
+==== Static IP addresses with DHCP ====
 First I decided that some well know machines will have certain fixed IP's. The assigment in vlan0 will be done based on MAC matching. So I edited /etc/ethers file:
 {{{
 root@OpenWrt:~# cat /etc/ethers
@@ -134,6 +134,30 @@ To pemanently set vlan2 aka hotel up, you need to place hotel interface in NVRAM
 {{{
 root@OpenWrt:~# nvram set ifup_interfaces="lan wan wifi hotel"
 root@OpenWrt:~# nvram commit
+}}}
+
+==== Tuning up DNSMASQ ====
+First it was ncessary to force OpenWRT to use /etc/dnsmasq.conf for configuration. To do this, I just added those two lines at the beginning of /etc/init.d/S60dnsmasq.
+{{{
+dnsmasq
+exit
+}}}
+
+So the file looks now like:
+
+{{{
+#!/bin/sh
+
+# The following is to automatically configure the DHCP settings
+# based on nvram settings. Feel free to replace all this crap
+# with a simple "dnsmasq" and manage everything via the
+# /etc/dnsmasq.conf config file
+dnsmasq
+exit
+# DHCP interface (lan, wan, wifi -- any ifup *)
+iface=lan
+ifname=$(nvram get ${iface}_ifname)
+ ... continue ...
 }}}
 
 ...
