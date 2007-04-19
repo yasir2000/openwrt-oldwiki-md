@@ -174,6 +174,13 @@ dhcp-option=hotel,3,10.90.201.1
 dhcp-option=hotel,6,10.90.201.1
 }}}
 
+==== Allowing internet access to new subnets ====
+As eth1 and vlan2 are separate subnets, it is necessery to allow the to access internet. The easiest way is to put those lines to /etc/firewall.user file:
+{{{
+iptables -A FORWARD -i vlan2 -o vlan1 -j ACCEPT
+iptables -A FORWARD -i eth1  -o vlan1 -j ACCEPT
+}}}
+
 ...
 
 ----
