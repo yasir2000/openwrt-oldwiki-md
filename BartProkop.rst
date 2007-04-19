@@ -160,6 +160,20 @@ ifname=$(nvram get ${iface}_ifname)
  ... continue ...
 }}}
 
+Now I added some lines to /etc/dnsmasq.conf to config DNSMASQ to serve on three subnets:
+{{{
+dhcp-range=lan,10.112.170.100,10.112.170.250,255.255.255.0,2h
+dhcp-range=wlan,10.98.226.100,10.98.226.250,255.255.255.0,15m
+dhcp-range=hotel,10.90.201.100,10.90.201.250,255.255.255.0,1h
+#set the default route (3) and dns server (6) for dhcp clients on the subnets
+dhcp-option=lan,3,10.112.170.3
+dhcp-option=lan,6,10.112.170.3,80.55.248.85
+dhcp-option=wlan,3,10.98.226.1
+dhcp-option=wlan,6,10.98.226.1
+dhcp-option=hotel,3,10.90.201.1
+dhcp-option=hotel,6,10.90.201.1
+}}}
+
 ...
 
 ----
