@@ -147,6 +147,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://buffalo.jp/products/catalog/item/w/wzr-hp-g54/ WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
 ||[http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/ WZR-RS-G54HP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
+||[http://www.buffalotech.com/products/wireless/wireless-n-nfiniti-dual-band WZR-AG300] || ||Marvell ARM926 @ 500Mhz||  ||32MB ||2 x Marvell (mini-PCI) 802.11g + n || || || Yes || Yes || || [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Untested] ||
 
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
