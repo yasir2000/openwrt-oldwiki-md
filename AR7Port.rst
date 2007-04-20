@@ -62,6 +62,8 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
 
    * Get Marvel 88E6060 switch supported (on sx541,smc and castlenet)
      sources are in avm current open source. (maybe fixed with Linux 2.6)
+     also in LevelOne [http://global.level1.com/products2.php?Id=534 FBR-1416A]
+     under dedicated kernel option CONFIG_MIPS_AR7_MARVELL
 
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
