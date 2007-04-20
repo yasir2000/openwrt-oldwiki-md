@@ -147,7 +147,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://buffalo.jp/products/catalog/item/w/wzr-hp-g54/ WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
 ||[http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/ WZR-RS-G54HP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
-||[http://www.buffalotech.com/products/wireless/wireless-n-nfiniti-dual-band WZR-AG300] || ||Marvell ARM926 @ 500Mhz||  ||32MB ||2 x Marvell (mini-PCI) 802.11g + n || || || Yes || Yes || || [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Untested] ||
+||[http://www.buffalotech.com/products/wireless/wireless-n-nfiniti-dual-band WZR-AG300] || ||Marvell ARM926 @ 500Mhz||  ||32MB ||2 x Marvell (mini-PCI) 802.11a + n/b/g || || || Yes || Yes || || [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Untested] ||
 
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -366,6 +366,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||1 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros ||Marvell ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624:WiP] ||
 ||[http://www.netgear.com/products/details/WGT634U.php WGT634U] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz ||8MB ||32MB ||Atheros (mini-PCI) ||in CPU ||N/A ||2x 3.3v ||No ||1x v2.0 ||[:OpenWrtDocs/Hardware/Netgear/WGT634U:WiP] ||
 ||[http://netgear.com/products/details/WPN824.php WPN824] || ||Atheros 2313 ||2MB ||16MB || || || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
+||[http://kbserver.netgear.com/products/wnr854t.asp WNR854T] || ||Marvell ARM926 @ 500Mhz||  ||32MB ||Marvell (mini-PCI) 802.11n || || || Yes || Yes || || [:OpenWrtDocs/Hardware/Netgear/WNR854:Untested] ||
 
 == Netopia ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
