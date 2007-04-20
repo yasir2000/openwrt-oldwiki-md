@@ -31,6 +31,8 @@ Please read the manual. If you have any questions about anything in the manual, 
 == Networking Information ==
 '''[:OpenWrtDocs/NetworkInterfaces:Understanding Network Interfaces]''' [[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]]
 '''[:OpenWrtDocs/WirelessNetworkingBackground:Wireless Networking Background]'''
+== External Documentation ==
+'''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
 == FAQ ==
 '''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
