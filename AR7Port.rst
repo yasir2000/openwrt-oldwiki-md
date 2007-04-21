@@ -33,9 +33,9 @@ The latest contributions add experimental AR7 support for Linux 2.6):
 
    * Automatic detection of RAM size.
    * Automatic detection of PHY (Ethernet Physical Layer).
-   * ADSL, ADSL+ support is still missing (must be ported from 2.4).
+   * ADSL works, status of ADSL+ support is not clear.
    * Ethernet works (still needs some fixes).
-   * WLAN works with free ACX111 driver.
+   * WLAN works with free ACX111 driver (no WPA/WPA2).
    * Because it is still experimental, it is not enabled by default.
 
 == Bugs / Ugly-Hacks ==
