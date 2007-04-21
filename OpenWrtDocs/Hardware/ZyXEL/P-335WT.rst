@@ -1,4 +1,13 @@
+{{{
 Bootloader : Bootbase
+OS : ZyNOS
+Flash : 4Mb Macronix 29LV320BT-90
+RAM : 16Mb Hynix
+WLAN : Texas Instruments TNETW113OGVF (mini-PCI)
+USB : yes
+Serial : yes
+JTAG : yes
+}}}
 
 Serial Pinout :
 
