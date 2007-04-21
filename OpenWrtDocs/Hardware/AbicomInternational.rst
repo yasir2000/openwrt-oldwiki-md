@@ -1,3 +1,3 @@
 #pragma section-numbers off
-= AbicomInternational =
+= Abicom =
 [[PageList(OpenWrtDocs/Hardware/AbicomInternation)]]
