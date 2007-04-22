@@ -721,7 +721,7 @@ Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.16
 }}}
 
 === Original Flash Map ===
-
+(TODO)
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
 ||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||empty! ||
 ||mtd1 ||{{{0x90010000}}} ||{{{0x90780000}}} ||{{{0x770000}}} ||kernel+jffs2 (jffs starts at 0x00580000) ||
