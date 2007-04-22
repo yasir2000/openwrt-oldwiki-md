@@ -36,51 +36,31 @@ The bootloader is ADAM2 which provides a console on the serial port and allows f
 
 
 [FLASH:] MACRONIX Top-MirrorBit-Flash 8MB 32 Bytes WriteBuffer
-
 [FLASH:](Eraseregion [0] 127 sectors a 64kB) 
-
 [FLASH:](Eraseregion [1] 8 sectors a 8kB) 
 
 [SYSTEM:] OHIO on 211MHz/125MHz 
 
-
-
 AVM_Ar7 >AVM decompress Kernel:
-
 .............done
-
 start kernel
 
 [ohio_pre_init] System Clk = 62500000 Hz                Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #5 Fri Aug 25 12:37:20 CEST 2006
 
 YAMON MEMORY DESCRIPTOR dump:
-
 prom_memsize = 0x02000000
-
 memsize=32 MByte
-
 prom_flashsize = 0x00800000
-
 flashsize=8 MByte
-
 &_end=0x94208ec8 PFN_ALIGN(&_end)=0x94209000 CPHYSADDR(PFN_ALIGN(&_end))=0x14209000 memsize=0x2000000
-
 [0,941e2fc0]: base<14000000> size<00209000> type<Dont use memory>
-
 [0,941e2fcc]: base<14209000> size<01df7000> type<Free memmory>
-
 prom_memsize = 0x02000000
-
 memsize=32 MByte
-
 prom_flashsize = 0x00800000
-
 flashsize=8 MByte
-
 &_end=0x94208ec8 PFN_ALIGN(&_end)=0x94209000 CPHYSADDR(PFN_ALIGN(&_end))=0x14209000 memsize=0x2000000
-
 CPU revision is: 00018448
-
 ohio_setup+0x0/0x100
 
 [ohio_clk_init]: dsl xtal 35328000Hz lan xtal 25000000Hz
@@ -90,47 +70,30 @@ ohio_setup+0x0/0x100
 Determined physical RAM map:
 
  memory: 00209000 @ 14000000 (reserved)
-
  memory: 01df7000 @ 14209000 (usable)
 
 On node 0 totalpages: 8192
 
 [alloc_node_mem_map] reduce size from 2883616 Bytes to  262176 Bytes
-
 [alloc_node_mem_map]: (org) sizeof(mem_map) = 262176 mem_map=0x9420c000-0x9424c020
-
 [alloc_node_mem_map]: sizeof(mem_map) = 2883616 mem_map=0x93f8c000-0x9424c020
-
   DMA zone: 8192 pages, LIFO batch:3
-
   Normal zone: 0 pages, LIFO batch:1
-
   HighMem zone: 0 pages, LIFO batch:1
 
 Built 1 zonelists
 
 Kernel command line:  console=ttyS0,38400n8r
-
 [ld_mmu_r4xx0] memcpy((void *)(CAC_BASE   + 0x100), &except_vec2_generic, 0x30)
-
 Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
-
 Primary data cache 8kB, 4-way, linesize 16 bytes.
-
 Synthesized TLB refill handler (20 instructions). Base=0x941e0734
-
 TLB synthesizer field overflow (simm)
-
 Synthesized TLB load handler fastpath (34 instructions) Base=0x941e3760.
-
 TLB synthesizer field overflow (simm)
-
 Synthesized TLB store handler fastpath (34 instructions) Base=0x941e3960.
-
 TLB synthesizer field overflow (simm)
-
 Synthesized TLB modify handler fastpath (33 instructions) Base=0x941e3b60.
-
 PID hash table entries: 256 (order: 8, 4096 bytes)
 
 [ohio_set_clock_notify] avm_clock_id_cpu notify disable 0x940013f8 0x94199e18
