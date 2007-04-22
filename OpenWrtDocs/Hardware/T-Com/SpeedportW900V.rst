@@ -59,7 +59,6 @@ _________________________|
 
 Serial port settings: 38400 8N1
 
-== Original Firmware Info ==
 === CPU Info ===
 {{{
 ~ # cat /proc/cpuinfo
@@ -77,6 +76,8 @@ VCEI exceptions         : not available
 }}}
 
 TODO
+
+== Original Firmware Info ==
 
 === Backing up original firmware ===
 
