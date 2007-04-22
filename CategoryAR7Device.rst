@@ -10,3 +10,4 @@ To add a page to this category, add a link to this page on the last line of the 
 
 ----
  CategoryCategory
+["http://wiki.openwrt.org/OpenWrtDocs/Hardware/T-Com/SpeedportW900V"]
