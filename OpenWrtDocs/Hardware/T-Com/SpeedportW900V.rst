@@ -21,6 +21,89 @@ Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
+=== Photos ===
+
+http://openwrt.vcp-springe.de/w900v/board_complete.JPG
+
+http://openwrt.vcp-springe.de/w900v/rear_side.JPG
+
+   TODO
+
+=== Serial Port ===
+
+It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Maplin Electronics for £0.79p and soldered it carefully to the back of the PCB  I then attached my serial port adaptor (see the Addontech ARM8100 page on this wiki for circuit diagram) to the pin header and to my pc.
+
+The general location of the port and it's pin-out is as follows:
+
+{{{
+        Top right of PCB
+_________________________
+                         |
+F     R A M              |
+L                WIFI    |
+A                CHIP    |
+S        SoC             |
+H        CPU  XTal       |
+                 4  GND  |
+                 3  TX   |
+                 2  RX   |
+                 1  VCC  |
+                         |
+              ADM6996    |
+                         |
+_________________________|
+}}}
+
+Serial port settings: 38400 8N1
+
+== Original Firmware Info ==
+
+=== Backing up original firmware ===
+
+To backup the original firmware you'll need console access to the device, e.g. use a serial cable and minicom to access the root shell.
+
+You can then dump each mtd block to a file and download them via the built in web browser as below.
+
+{{{
+mkdir /var/backup
+cp /dev/mtd1 /var/backup/mtd1-rootfs.bin
+cp /dev/mtd2 /var/backup/mtd2-kernel-and-rootfs.bin
+cp /dev/mtd3 /var/backup/mtd3-bootloader.bin
+cp /dev/mtd4 /var/backup/mtd4-nvram1.bin
+cp /dev/mtd5 /var/backup/mtd5-nvram2.bin
+kill `pidof websrv`
+cd /var
+rm html
+ln -s backup html
+websrv
+}}}
+
+You can then download the files by pointing your webbrowser at {{{http://<your router's ip>/mtd0-rootfs.bin}}} etc.
+
+All being well you should have files like this
+
+{{{
+# ls -al
+drwxr-xr-x    2 root     root            0 Jan  1 01:10 .
+drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
+-rw-r--r--    1 root     root      7158272 Jan  1 01:09 mtd1-rootfs.bin
+-rw-r--r--    1 root     root      7798784 Jan  1 01:09 mtd2-kernel-and-rootfs.bin
+-rw-r--r--    1 root     root        65536 Jan  1 01:09 mtd3-bootloader.bin
+-rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd4-nvram1.bin
+-rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd5-nvram2.bin
+}}}
+
+=== Restoring Original Firmware ===
+
+==== Undoing changes to adam2 config ====
+
+TODO: finish this section, here's some hints for now
+
+{{{
+setenv kernel_args idle=4
+unsetenv mtd5
+}}}
+
 == Bootloader ==
 
 The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W900V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to its defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.153, from August 2006.
