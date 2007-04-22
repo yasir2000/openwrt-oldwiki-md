@@ -223,10 +223,10 @@ firmware_version	tcom
 firmware_info	34.04.21
 flashsize	0x00800000
 jffs2_size	32
-maca	00:04:0E:E4:D4:9C
-macb	00:04:0E:E4:D4:9D
-macwlan	00:04:0E:E4:D4:9E
-macdsl	00:04:0E:E4:D4:9F
+maca	XX:XX:XX:XX:XX:XX
+macb	XX:XX:XX:XX:XX:XX+1
+macwlan	XX:XX:XX:XX:XX:XX+2
+macdsl	XX:XX:XX:XX:XX:XX+3
 memsize	0x02000000
 modetty0	38400,n,8,1,hw
 modetty1	38400,n,8,1,hw
@@ -243,13 +243,13 @@ reserved	00:04:0E:FF:FF:00
 req_fullrate_freq	125000000
 sysfrequency	125000000
 urlader-version	1153
-usb_board_mac	00:04:0E:E4:D4:A0
-usb_rndis_mac	00:04:0E:E4:D4:A1
+usb_board_mac	XX:XX:XX:XX:XX:XX
+usb_rndis_mac	XX:XX:XX:XX:XX:XX+1
 usb_device_id	0x0000
 usb_revision_id	0x0000
 usb_device_name	USB DSL Device
 usb_manufacturer_name	AVM
-wlan_key	9707823057860612
+wlan_key	0000000000000000
 wlan_cal	03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
 Jan  1 01:00:06 ar7cfgctl[268]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
 Jan  1 01:00:06 ar7cfgctl[268]: load_config(ar7): factory default loaded
@@ -568,8 +568,8 @@ Jan  1 01:00:36 dsld[649]: startup (Jul  6 2006 15:37:07)
 Jan  1 01:00:36 dsld[649]: new cpmac driver detected
 Jan  1 01:00:36 websrv[630]: load_config(ar7): factory default loaded
 /etc/init.d/rc.net: /etc/init.d/rc.net: 1: avmike: not found
-Jan  1 01:00:36 dsld[651]: DSL Mac 00:04:0e:e4:d4:9f
-Jan  1 01:00:36 dsld[651]: VOIP Mac 00:04:0e:e4:d4:a0
+Jan  1 01:00:36 dsld[651]: DSL Mac xx:xx:xx:xx:xx:xx
+Jan  1 01:00:36 dsld[651]: VOIP Mac xx:xx:xx:xx:xx:xx
 Jan  1 01:00:36 dsld[651]: voip: ppptarget voip disabled, ignored
 Jan  1 01:00:36 dsld[651]: FactoryDefault=/etc/default/tcom/stat.cfgkdsld: sync lost
  (stat)
