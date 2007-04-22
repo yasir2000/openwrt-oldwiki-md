@@ -60,7 +60,7 @@ _________________________|
 Serial port settings: 38400 8N1
 
 == Original Firmware Info ==
-
+=== CPU Info ===
 {{{
 ~ # cat /proc/cpuinfo
 system type             : MIPS OHIO
