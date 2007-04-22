@@ -61,6 +61,21 @@ Serial port settings: 38400 8N1
 
 == Original Firmware Info ==
 
+{{{
+~ # cat /proc/cpuinfo
+system type             : MIPS OHIO
+processor               : 0
+cpu model               : MIPS 4KEc V4.8
+BogoMIPS                : 211.35
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : yes
+VCED exceptions         : not available
+VCEI exceptions         : not available
+}}}
+
 TODO
 
 === Backing up original firmware ===
