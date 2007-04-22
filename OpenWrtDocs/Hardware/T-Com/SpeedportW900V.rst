@@ -1389,3 +1389,5 @@ Please press Enter to activate this console.
 Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128)
 Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
 }}}
+
+CategoryModel ["CategoryAR7Device"]
