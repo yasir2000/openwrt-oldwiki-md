@@ -626,10 +626,13 @@ Jan  1 01:00:41 voipd[673]: iLBC: 63600 bits/second (encaplen=32,20msAR7WDT: Sys
 Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,20ms)
 Jan  1 01:00:41 voipd[673]: verbose: DISABLED
 run_clock demon started
+
 Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048SysRq : Changing Loglevel
 Loglevel set to 4
 : failed to send UDP-
+
 Please press Enter to activate this console. 
+
 Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128)
 Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
 }}}
