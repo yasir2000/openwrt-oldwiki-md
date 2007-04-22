@@ -31,6 +31,9 @@ http://openwrt.vcp-springe.de/w900v/rear_side.JPG
 
 === Serial Port ===
 
+
+TODO 
+
 It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Conrad Electronic for €0.24 and soldered it carefully to the back of the PCB.  
 
 The general location of the port and it's pin-out is as follows:
@@ -57,9 +60,13 @@ _________________________|
 Serial port settings: 38400 8N1
 
 == Original Firmware Info ==
+
 TODO
+
 === Backing up original firmware ===
+
 TODO
+
 To backup the original firmware you'll need console access to the device, e.g. use a serial cable and minicom to access the root shell.
 
 You can then dump each mtd block to a file and download them via the built in web browser as below.
