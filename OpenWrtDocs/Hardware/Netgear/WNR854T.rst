@@ -144,3 +144,13 @@ Freeing init memory: 72K
 ap0: Marvell AP-8x 802.11n adapter: mem=0xe8000000, irq=36
 
 }}}
+
+== Building Netgear firmware ==
+
+Netgear are pretty good about providing sources and being open about the GPL.  Sources for this router are [http://kbserver.netgear.com/kb_web_files/open_src.asp provided on their site].  You need a very precise toolchain setup in order to be able to rebuild this, or you will have trouble linking the binary only components in the archive.  I used Crosstool to create a toolchain with:
+
+ * arm-softfloat (OABI little endian)
+ * GCC 3.4.4
+ * glibc 2.3.5 
+
+You will need to change some hard-coded paths in the Makefiles and config files.  You should also modify the top level makefile so that mkfs.jffs2 makes the ownership of all the files root (using -U).  Finally, the mkimage tool is missing, which generates suitable uboot kernels.  I modified linux/scripts/mkuboot.sh in the archive to point at the one built in openwrt (openwrt/tool_build/mkimage/mkimage).
