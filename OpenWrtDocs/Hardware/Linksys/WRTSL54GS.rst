@@ -84,8 +84,10 @@ inline:wrt_jack_cable.jpg
 inline:Serial_hack.jpg
 
 == JTAG ==
-No JTAG header is available.  However, all basic pins are present on test points: 
+
 inline:wrtsl54gs_jtag.jpg
+
+No JTAG header is available.  However, all basic pins are present on test points.
 
 SRST and TRST haven't been identified, but ignoring them doesn't prevent JTAG from operating.
 
