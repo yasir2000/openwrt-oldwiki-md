@@ -52,14 +52,6 @@ Note switch port 4 is not externally available. This design is different from ma
 
 NC=not connected, this pin is not used.
 
-inline:wrtsl54gs_serial_IDC10.jpg
-
-Above are 2 common IDC-10 sockets. On the left is a straight IDC-10 socket which would be useful for internal hookups, or running a ribbon to a convenient mounting point for an external connector.  The type on the right is a "right-angle" socket and is the one installed on the SL above it.  These sockets cost less than one dollar/euro and fit relatively easily onto the PCB.
-
-inline:wrtsl54gs_serial_complete.jpg
-
-Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable connectors. This makes it easy to move among multiple routers assuming they are fitted with an IDC-10 socket.
-
 To check current serial port setting:
 {{{
 root@OpenWRT:~# cat /proc/tty/driver/serial
@@ -69,6 +61,27 @@ serinfo:1.0 driver:5.05c revision:2001-07-08
 }}}
 
 If you are going to work much with the serial ports, recommend to use the buildroot kit to build a firmware with BusyBox including the optional stty, getty, setserial, and maybe login programs.
+
+=== MAX233 kit serial port ===
+inline:wrtsl54gs_serial_IDC10.jpg
+
+Above are 2 common IDC-10 sockets. On the left is a straight IDC-10 socket which would be useful for internal hookups, or running a ribbon to a convenient mounting point for an external connector.  The type on the right is a "right-angle" socket and is the one installed on the SL above it.  These sockets cost less than one dollar/euro and fit relatively easily onto the PCB.
+
+inline:wrtsl54gs_serial_complete.jpg
+
+Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable connectors. This makes it easy to move among multiple routers assuming they are fitted with an IDC-10 socket.
+
+=== TTL-232R-3V3-AJ USB cable ===
+
+Another good choice is using a USB cable that natively supports the 3.3V TTL signal levels. One such product:
+
+http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm
+
+Thanks to JimWright, here's how it can look installed, using a stereo jack as the connection port:
+
+inline:wrt_jack_cable.jpg
+
+inline:Serial_hack.jpg
 
 == JTAG ==
 No JTAG header is available.  However, all basic pins are present on test points: 
