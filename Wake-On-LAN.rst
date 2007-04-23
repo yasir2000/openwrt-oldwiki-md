@@ -33,7 +33,11 @@ With {{{ether-wake}}} you can send a magic packet as an ethernet frame. You don'
 {{{
 echo "src 0.9-backports http://downloads.openwrt.org/backports/0.9" >> /etc/ipkg.conf (this is for WhiteRussion 0.9)
 }}}
-Then install the {{{ether-wake}}} package
+Then update the list of available packages
+{{{
+ipkg update
+}}}
+And finally install the {{{ether-wake}}} package
 {{{
 ipkg install ether-wake
 }}}
