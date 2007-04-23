@@ -44,7 +44,7 @@ Note switch port 4 is not externally available. This design is different from ma
 = Hack points =
 
 == serial ports ==
-2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal from the WRT board is 3.3 Volt TTL however, so you cannot simply wire to a standard RS-232 connector as they operate at 12 Volts. You will need a MAX233 kit or a USB cable to convert the 3.3 Volt serial on the WRT side to a signal that is usable by a host. 
+2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal from the WRT board is 3.3 Volt TTL however, so you cannot simply wire to a standard RS-232 connector as they operate at 12 Volts. You will need a circuit to convert the 3.3 Volt signal to a level that is usable by a host. 
 
 ||'''connector'''||'''1'''||'''2'''||'''3'''||'''4'''||'''5'''||'''defaults'''||'''usage'''||
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||115,200 baud, 8-n-1, none||console root shell||
@@ -73,11 +73,11 @@ Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable c
 
 === TTL-232R-3V3-AJ USB cable ===
 
-Another good choice is using a USB cable that natively supports the 3.3V TTL signal levels. One such product:
+Another good choice is using a USB device that natively supports the 3.3V TTL signal levels. One such product:
 
 http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm
 
-Thanks to JimWright, here's how it can look installed, using a stereo jack as the connection port:
+There is a tiny PCB in the host-end of the USB cable that is doing the signal conversion.  Thanks to JimWright, here's how it can look installed, using a stereo jack as the connection port:
 
 inline:wrt_jack_cable.jpg
 
@@ -115,6 +115,9 @@ Spillover into OpenWRT  http://forum.openwrt.org/viewtopic.php?id=3529
 You can get the MAX233 parts kit here:
 http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
 Recent information was, an extra $6 added to kit price on request for an assembled version.
+
+Another USB TTL convertor device:
+http://www.compsys1.com/html/usb_rs232.html
 
 = Firmware download =
 
