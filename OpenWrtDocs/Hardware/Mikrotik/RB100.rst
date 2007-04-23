@@ -56,10 +56,14 @@ This time you will find a file in the bin directory called openwrt-adm5120-2.6-r
 
 Now you can power up your RB1xx and download the kernel.  At this stage you are using the first kernel you produced above.
 
+When you boot the RB1xx, go into the BIOS settings and say that you want to use Netboot rather than using the NAND as the boot source.
+
 When the kernel is booted hardly any of the normal OpenWrt initialisation occurs - you will not find that modules have been loaded or the network configured.
 
 In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
 
 wget2nand takes a single parameter, the URL of the directory into which the tgx and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.  
+
+When you reboot you need to change the BIOS settings back to booting from the NAND.
 
 Once the installation is complete then you can reboot your RouterBoard 1xx card and you should have a running system.
