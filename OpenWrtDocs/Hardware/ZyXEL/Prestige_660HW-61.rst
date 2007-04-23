@@ -5,7 +5,8 @@ It uses [:Bootbase] as the bootloader. There are detailed guides how to flash th
 
 == Status ==
 
-[http://www.ixo.de/info/zyxel_uclinux/ Kolja Waschk] had success booting uClinux kernel on previous ZyXEL Prestige router series (100, 310, 314, 316) and others.
+[http://www.ixo.de/info/zyxel_uclinux/ Kolja Waschk] had success booting uClinux kernel on previous ZyXEL Prestige router series (100, 310, 314, 316) and others. This router runs in Big Endian mode, unusual
+among other MIPS-based routers.
 
 == Serial Console ==
 
