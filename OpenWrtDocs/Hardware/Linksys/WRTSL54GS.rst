@@ -62,7 +62,7 @@ serinfo:1.0 driver:5.05c revision:2001-07-08
 
 If you are going to work much with the serial ports, recommend to use the buildroot kit to build a firmware with BusyBox including the optional stty, getty, setserial, and maybe login programs.
 
-=== MAX233 kit serial port ===
+=== MAX233 kit console ===
 inline:wrtsl54gs_serial_IDC10.jpg
 
 Above are 2 common IDC-10 sockets. On the left is a straight IDC-10 socket which would be useful for internal hookups, or running a ribbon to a convenient mounting point for an external connector.  The type on the right is a "right-angle" socket and is the one installed on the SL above it.  These sockets cost less than one dollar/euro and fit relatively easily onto the PCB.
@@ -71,13 +71,13 @@ inline:wrtsl54gs_serial_complete.jpg
 
 Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable connectors. This makes it easy to move among multiple routers assuming they are fitted with an IDC-10 socket.
 
-=== TTL-232R-3V3-AJ USB cable ===
+=== TTL-232R-3V3-AJ USB console ===
 
 Another good choice is using a USB device that natively supports the 3.3V TTL signal levels. One such product:
 
 http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm
 
-There is a tiny PCB in the host-end of the USB cable that is doing the signal conversion. Since the circuit is powered from the USB port, only 3 wires need to be soldered instead of the 4 needed in the MAX233 design.  It's a more elegant design. Thanks to JimWright, here's how it can look installed, using a stereo jack as the connection port:
+There is a tiny PCB in the host-end of the USB cable that is doing the signal conversion. Since the circuit is powered from the USB port, only 3 wires need to be soldered instead of the 4 needed in the MAX233 design.  You need to hook up TX, RX, and GND pins and a convenient choice for external interface port is a stereo jack.  It's a more elegant design. Thanks to JimWright, here's how it can look installed:
 
 inline:wrt_jack_cable.jpg
 
