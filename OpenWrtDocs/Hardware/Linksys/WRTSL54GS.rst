@@ -69,7 +69,7 @@ Above are 2 common IDC-10 sockets. On the left is a straight IDC-10 socket which
 
 inline:wrtsl54gs_serial_complete.jpg
 
-Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable connectors. This makes it easy to move among multiple routers assuming they are fitted with an IDC-10 socket.
+Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable connectors. This makes it easy to move among multiple routers assuming they are fitted with an IDC-10 socket.  This is the SL unit that was the testbed for the first image of OpenWRT for this new model.
 
 === TTL-232R-3V3-AJ USB console ===
 
