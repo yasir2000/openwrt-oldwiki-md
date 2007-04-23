@@ -54,7 +54,24 @@ pid-file=/var/run/ez-ipupdate.pid
 /!\ '''NOTE:''' You should point the cache-file to a permanent location in the jffs tree if your router is rebooted more often than your ip actually changes. Otherwise your previous ip is forgotten over reboots and your DDNS provider might lock you out for unneccessary updates.
 
 /!\ '''NOTE:''' There's a modified version of ez-ipupdate (http://ouaye.net/files/ez-ipupdate_3.0.11b8-2_mipsel.ipk announced in 
-http://forum.openwrt.org/viewtopic.php?pid=39855) which adds the feature of announcing the WAN IP retrieved from an external web (e.g. checkip). Anyway, the hotplug script needs to be modified in order to delete the "-i $ifname" parameter.
+http://forum.openwrt.org/viewtopic.php?pid=39855) which adds the feature of announcing the WAN IP retrieved from an external web (e.g. checkip). Anyway, you first need to install the whiterussian one (ipkg install ez-ipupdate) and then install the modified one (ipkg install http://ouaye.net/files/ez-ipupdate_3.0.11b8-2_mipsel.ipk) because the latter does not ship with a hotplug script, which needs to be modified in order to delete the "-i $ifname" parameter in order to use the new 'web-detect' method:
+
+{{{
+. /etc/functions.sh
+NAME=ez-ipupdate
+CONFIG=/etc/$NAME.conf
+COMMAND=/usr/sbin/$NAME
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && {
+        [ -x $COMMAND ] && [ -r $CONFIG ] && {
+                if [ -n "$(grep web-detect $CONFIG)" ]; then
+                        $COMMAND -c $CONFIG 2>&1 | logger -t $NAME
+                else
+                        IFNAME=$(nvram get ${INTERFACE}_ifname)
+                        $COMMAND -c $CONFIG -i $IFNAME 2>&1 | logger -t $NAME
+                fi
+        } &
+}
+}}}
 
 The list of allowed parameters in the configuration file are:
 
