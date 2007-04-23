@@ -153,7 +153,7 @@ To make it available you have to activate some rules in the file "/etc/firewall.
 iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT
 iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
 }}}
-If you want to block brute force attacks then have a look at [http://forum.openwrt.org/viewtopic.php?id=7493 this forum thread]. It is based on the information of the documents ["IPTables"] and ThrottleConnectionsHowTo. It also provides an example how to access SSH via a non-standard port (e.g. 443 for restrictive firewalls) although Dropbear is still running on the standard port 22.
+If you want to block brute force attacks then have a look at [http://forum.openwrt.org/viewtopic.php?id=7493 this forum thread]. It is based on the information of the documents ["OpenWrtDocs/IPTables"] and ThrottleConnectionsHowTo. It also provides an example how to access SSH via a non-standard port (e.g. 443 for restrictive firewalls) although Dropbear is still running on the standard port 22.
 
 = Troubleshooting =
 Make sure the {{{/etc/dropbear}}} directory is {{{chmod}}}ed 0700 and the {{{/etc/dropbear/authorized_keys}}} file 0600.
