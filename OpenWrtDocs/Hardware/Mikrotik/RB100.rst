@@ -8,11 +8,11 @@ There are currently 5 boards in this range:-
  1. 133 Three mini-pci, 32/16MB RAM, 128/64MB NAND Flash, three ethernet, no CF
  1. 133c One mini-pci, 32/16MB RAM, 128/64MB NAND Flash, one ethernet, no CF
  1. 150 No mini-pci, 32MB RAM, 64MB NAND Flash, five ethernet, no CF
- 1. 153 Three mini-pci, 32MN RAM, 64MB NAND Flash, give ethernet, one CF
+ 1. 153 Three mini-pci, 32MB RAM, 64MB NAND Flash, give ethernet, one CF
 
 === Installation ===
 
-Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need a serial connection as console, and an ethernet connection to load the kernel and then download the flash image.  You will also need to have BOOTP and TFTPD servers on your machine.  This can be done either using independant packages or using DnsMasq.
+Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need a serial connection as console, and an ethernet connection to load the kernel and then download the flash image.  You will also need to have BOOTP and TFTPD servers on your machine.  This can be done either using independent packages or using DnsMasq.  You will also need a Web server.
 
 The minicom settings for a connection using a USB serial port would be:-
 {{{
@@ -52,7 +52,7 @@ Now you need to build the running image, and for this you will need to run make 
 
 You can at this stage go through and select the packages that you are actually going to want (although you can always add them later with ipkg).
 
-This time you will find a file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz, and the kernel will be in build_mipsel/linux-2.6.19-adm5120 (or whatever the current kernel is) and will be called vmlinux.elf.  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and vmlinux.
+This time you will find a file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz, and the kernel will be in build_mipsel/linux-2.6.19-adm5120 (or whatever the current kernel is) and will be called vmlinux.elf.  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-vmlinux.
 
 Now you can power up your RB1xx and download the kernel.  At this stage you are using the first kernel you produced above.
 
