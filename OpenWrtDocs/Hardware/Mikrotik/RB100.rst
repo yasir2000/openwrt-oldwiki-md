@@ -67,3 +67,7 @@ wget2nand takes a single parameter, the URL of the directory into which the tgx 
 When you reboot you need to change the BIOS settings back to booting from the NAND.
 
 Once the installation is complete then you can reboot your RouterBoard 1xx card and you should have a running system.
+
+----
+
+CategoryModel ["CategoryADM5120Device"]
