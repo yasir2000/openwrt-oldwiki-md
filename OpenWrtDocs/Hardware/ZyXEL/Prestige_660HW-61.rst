@@ -190,7 +190,23 @@ B0037CF0: 65 3D 32 5C 45 5B 6D 3A-69 73 3D 5C 45 5B 31 3B   e=2\E[m:is=\E[1;
 [ftp://ftp.europe.zyxel.com/P660HW-61/firmware/P660HW-61_V3.40(PE.10)C0_Standard.zip Firmware] downloaded from official ZyXEL website:
 
 '''340PE10C0.rom:''' Router configuration, coincides with "4: DbgArea" shown above. You can retrieve this file from your router using the ATTD [:BootBase] command.
-'''340PE10C0.bin:''' Router firmware, my guess is that it goes from "7: HTPCode(ROMBIN)" until "13: RasCode(ROMBIN)" plus additional header info (tbd).
+'''340PE10C0.bin:''' Router firmware.
+
+== Flashing BootBase ==
+
+The following process rewrites the BootBase bootloader. It's just a translation from adslayuda mentioned earlier, thanks to "haypocos" for this procedure. This instructions may be
+useful to these brave enough to flash a new bootloader on top of BootBase.
+
+/!\ '''DO NOT try this unless you know what it's all about'''
+/!\ '''Really, DON'T, it's gonna brick your router'''
+
+ATEN stuff
+ATBA4: Sets baudrate to 57.6k to speedup Xmodem download
+ATDO BFC00000,6C5D0: Downloads the bootbase and extensions for backup purposes
+<XMODEM transfer>
+ATBT1: Block 0 unprotected, we are going to overwrite the bootloader
+ATUX 0: Actual bootloader upload and writing
+<XMODEM transfer>
 
 ----
 CategoryModel ["CategoryAR7Device"]
