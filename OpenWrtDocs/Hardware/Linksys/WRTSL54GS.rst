@@ -44,7 +44,7 @@ Note switch port 4 is not externally available. This design is different from ma
 = Hack points =
 
 == serial ports ==
-2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal the WRT side is 3.3 Volt TTL so you cannot simply wire to a standard RS-232 port as they work at 12 Volts. You will need a MAX233 kit or a USB cable to convert the 3.3 Volt serial on the WRT side to a signal that is usable by a host. 
+2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal from the WRT board is 3.3 Volt TTL however, so you cannot simply wire to a standard RS-232 connector as they operate at 12 Volts. You will need a MAX233 kit or a USB cable to convert the 3.3 Volt serial on the WRT side to a signal that is usable by a host. 
 
 ||'''connector'''||'''1'''||'''2'''||'''3'''||'''4'''||'''5'''||'''defaults'''||'''usage'''||
 ||JP4(ttyS0)||3.3v||TX||RX||NC||GND||115,200 baud, 8-n-1, none||console root shell||
