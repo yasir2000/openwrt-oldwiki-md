@@ -157,6 +157,8 @@ Be happy and use your USB device like on every other GNU/Linux system or create 
 == How do I boot from the USB device ==
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 file system:
 
+/!\ '''NOTE:''' '''IMPORTANT:''' ''Does not work for Kamikaze with 2.6 kernel- This procedure bricks the router''
+
 {{{
 ipkg install kmod-ext2 kmod-ext3
 }}}
