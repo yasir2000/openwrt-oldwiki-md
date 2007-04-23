@@ -48,7 +48,7 @@ ether-wake <mac address of the target> (e.g. ether-wake 11:22:33:44:55:66)
 }}}
 
 Note: If it doesn't work, switch to {{{wol}}} as all routers should forward IP packets correctly.
-== Tip: Not to remember all your MAC addresses ==
+= Tip: Not to remember all your MAC addresses =
 Create a small script for each machine you want to awake.
 Create the script files in the folder {{{/jffs/bin}}}, use the extension {{{.sh}}} and begin all of them with the line {{{#!/bin/sh}}}.
 After this add lines with {{{wol}}} or {{{ether-wake}}} calls.
