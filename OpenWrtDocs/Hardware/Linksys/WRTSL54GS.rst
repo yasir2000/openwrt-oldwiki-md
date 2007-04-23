@@ -77,7 +77,7 @@ Another good choice is using a USB device that natively supports the 3.3V TTL si
 
 http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm
 
-There is a tiny PCB in the host-end of the USB cable that is doing the signal conversion. Since the circuit is powered from the USB port, only 3 wires need to be soldered instead of the 4 needed in the MAX233 design.  You need to hook up TX, RX, and GND pins and a convenient choice for external interface port is a stereo jack.  It's a clean and elegant setup. Thanks to JimWright, here's how it can look installed:
+There is a tiny PCB in the host-end of the USB cable that is doing the signal conversion. Since the circuit is powered from the USB port, only 3 wires need to be soldered instead of the 4 needed in the MAX233 design.  You need to hook up TX, RX, and GND pins and a convenient choice for external interface port is a stereo jack.  It's a clean and elegant setup. Thanks to netprince & JimWright, here's how it can look installed:
 
 inline:wrt_jack_cable.jpg
 
