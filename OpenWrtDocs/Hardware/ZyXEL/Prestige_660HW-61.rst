@@ -198,15 +198,18 @@ The following process rewrites the BootBase bootloader. It's just a translation 
 useful to these brave enough to flash a new bootloader on top of BootBase.
 
 /!\ '''DO NOT try this unless you know what it's all about'''
+
 /!\ '''Really, DON'T, it's gonna brick your router'''
 
+{{{
 ATEN stuff
 ATBA4: Sets baudrate to 57.6k to speedup Xmodem download
-ATDO BFC00000,6C5D0: Downloads the bootbase and extensions for backup purposes
+ATDO B0000000,13FD0: Downloads the bootbase and extensions for backup purposes
 <XMODEM transfer>
 ATBT1: Block 0 unprotected, we are going to overwrite the bootloader
 ATUX 0: Actual bootloader upload and writing
 <XMODEM transfer>
+}}}
 
 ----
 CategoryModel ["CategoryAR7Device"]
