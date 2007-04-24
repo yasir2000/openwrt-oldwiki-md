@@ -8,6 +8,10 @@ This is a Marvell board, and its serial pins are identical to the [:OpenWrtDocs/
 
 Serial connection parameters are : 112500,8N1
 
+=== Source code ===
+
+Source code can be retrieved from Netgear's [ftp://downloads.netgear.com/files/GPL/ FTP server]. The files start with 'wnr854'.
+
 === Linux ===
 
 This runs the ubiquitous Linux 2.4.27-vrs1 version, using Uboot as a bootloader. 
