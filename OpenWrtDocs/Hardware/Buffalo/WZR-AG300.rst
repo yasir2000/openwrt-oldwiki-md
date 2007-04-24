@@ -6,6 +6,14 @@ This is a Marvell board, and its serial pins are identical to the [:OpenWrtDocs/
 
 Serial connection parameters are : 112500,8N1
 
+=== Odd CPU ===
+
+The "ARM926EJ-Sid(wb)" is a Jazelle-enabled CPU which means it can interpret (a subset of) Java bytecodes directly. Too bad that ARM keeps their Jazelle knowledge as proprietary as possible.
+
+=== Source download ===
+
+Where can the sources be obtained?
+
 === Linux ===
 
 This runs the ubiquitous Linux 2.4.27-vrs1 version, using Uboot as a bootloader. 
