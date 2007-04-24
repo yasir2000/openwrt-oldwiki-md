@@ -85,7 +85,7 @@ The basic network configuration is handled by a series of NVRAM variables:
 {{{
 #!CSV
 NVRAM; Description
-<name>_ifname; The name of the linux interface the settings apply to
+<name>_ifname; The name of the Linux interface the settings apply to
 <name>_ifnames; Devices to be added to the bridge (only if the above is a bridge)
 <name>_proto; The protocol which will be used to configure an IP
             ; static: Manual configuration (see below)
@@ -146,7 +146,7 @@ lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
 wan_proto=none
 }}}
-The above configuration also serves as a wireless to ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration.
+The above configuration also serves as a wireless to Ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an Ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration.
 
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
 
@@ -177,7 +177,7 @@ lan_ifnames="vlan0"
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
 = Ethernet switch configuration =
-Most of the routers supported by OpenWrt include a builtin switch; four lan ports and one wan port. What most people don't realize is that all of these ports are actually the same interface -- there is a single 10/100 ethernet which is fed into a 6 port switch. 5 of the ports are external and make the lan and wan ports seen on the back of the router, and one port is internally wired to the router's ethernet interface.
+Most of the routers supported by OpenWrt include a builtin switch; four lan ports and one wan port. What most people don't realize is that all of these ports are actually the same interface -- there is a single 10/100 Ethernet which is fed into a 6 port switch. 5 of the ports are external and make the lan and wan ports seen on the back of the router, and one port is internally wired to the router's Ethernet interface.
 
 The separation of lan and wan comes from the use of VLANs. By grouping ports into VLANs, the switch can be broken up into smaller virtual switches, and by adding VLAN tags to packets, OpenWrt can control which virtual switch (which ports) the packet gets routed.
 
@@ -189,7 +189,7 @@ vlan0hwname=et0
 }}}
 (See switch diagrams in OpenWrtDocs/NetworkInterfaces)
 
-The vlan0ports variable is a space-separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
+The vlan0ports variable is a space-separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's Ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
 
 The port numbers used in the vlan*ports may optionally include a character after the port number. If a port number is followed by a "t" then the port is tagged, a "u" means untagged.
 
@@ -299,7 +299,7 @@ First do it without wireless protection and then activate the protection. If you
  1. Add the '''other''' APs MAC address to the list of allowed peers to each AP. With OpenWRT it's the variable wl0_wds. Shell to each router and do ifconfig. The MAC id for eth1 is the correct MAC id to use.
  1. Disable all the unneeded services like DHCP, port forwarding, firewalling etc. '''except''' on the AP the has the internet connection. Remember: The other APs only act as the extended arm of the internet connected AP.
  1. Configure the WLAN parameters on all APs identical. That is SSID, channel, etc. - keep it simple. If you want to try boosters etc. do this later. (In [:JonathanKollasch:my] experience the SSIDs need not be identical for WDS to work, but YMMV.)
- 1. Have you commited your values? Do it. And reboot.
+ 1. Have you committed your values? Do it. And reboot.
  1. Now connect a lan cable to each AP and try to ping the internet AP. It should answer. Else start checking the settings.
  1. You are done. Now activate security on the devices. Optionally hide the SSID (wl0_closed=1). If WPA-PSK doesn't work chances are that a peer partner doesn't support it. Try WEP.
 /!\ I experienced 20% packet loss using lazywds. It went away when disabling lazywds. You have been warned!
