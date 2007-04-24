@@ -109,7 +109,7 @@ ifup wifi
 }}}
 The ''ifup lan'' command will bring up the interface specified by lan_ifname. Normally the lan_ifname is set to br0 which will cause it to create the bridge br0 and add the the interfaces from lan_ifnames to the bridge; lan_proto is usually static which means that br0 will have the IP address from lan_ipaddr, and so on for the rest of the variables listed above.
 
-It's important to remember that it's the <name>_ifname that specifies the interfaces, the <name> compontent itself has almost no value. This means that if you changed lan_ifname to be the internet port, vlan1, then ''ifup lan'' would bring up the internet port, not the lan ports (despite using the command ''ifup lan'' and using the lan_ variables). Also, it means that you can create any <name> variables you want, foo_ifname, foo_proto .... and they would be used by ''ifup foo''.
+It's important to remember that it's the <name>_ifname that specifies the interfaces, the <name> component itself has almost no value. This means that if you changed lan_ifname to be the internet port, vlan1, then ''ifup lan'' would bring up the internet port, not the lan ports (despite using the command ''ifup lan'' and using the lan_ variables). Also, it means that you can create any <name> variables you want, foo_ifname, foo_proto .... and they would be used by ''ifup foo''.
 
 The only <name> with any significance is '''wan''', used by the /etc/init.d/S45firewall script. The firewall script will NAT traffic through the wan_ifname, blocking connections to wan_ifname.
 
@@ -189,7 +189,7 @@ vlan0hwname=et0
 }}}
 (See switch diagrams in OpenWrtDocs/NetworkInterfaces)
 
-The vlan0ports variable is a space separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
+The vlan0ports variable is a space-separated list of port numbers to be included in vlan0. Ports "1-4" on this router represent the lan ports on the back of the router, port 5 represents the connection between the switch itself and OpenWrt's ethernet interface. Since port 5 is OpenWrt's only connection to the switch, it is tagged by default -- this means that the VLAN information is preserved so OpenWrt is able to tell if a packet came from vlan0 or vlan1. All other ports are untagged by default, meaning that the VLAN information is removed by the switch so the port can be used by devices that aren't VLAN aware.
 
 The port numbers used in the vlan*ports may optionally include a character after the port number. If a port number is followed by a "t" then the port is tagged, a "u" means untagged.
 
@@ -240,8 +240,8 @@ See ["OpenWrtNVRAM"] for more NVRAM settings.
 == MAC filter ==
 || '''NVRAM variable''' || '''Description''' ||
 ||'''wl0_macmode''' ||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist ||
-||'''wl0_maclist''' ||List of space separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
-After changes run /sbin/wifi to activate them
+||'''wl0_maclist''' ||List of space-separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
+After changes run /sbin/wifi to activate them.
 
 == WEP encryption ==
 || '''NVRAM variable''' || '''Description''' ||
@@ -249,7 +249,7 @@ After changes run /sbin/wifi to activate them
 || wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
 || wl0_key[1..4] || WEP key in hexadecimal format (allowed hex chars are 0-9a-f). '''Example:''' nvram set wl0_key1=0D77F08849E4B1D839C9489A48 ||
 || wl0_auth || '''1''' (shared key) / '''0''' (open); the 'shared key' option is not recommended as it allows an intruder to exploit a fundamental security flaw in WEP (WPA was introduced as the better system; see below). The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic. ||
-Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly. A 128 bit WEP key must be 26 hex digits long ; string key format is also supported : '''nvram set wl0_key1='s:my string key' '''
+Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly. A 128-bit WEP key must be 26 hex digits long ; string key format is also supported : '''nvram set wl0_key1='s:my string key' '''
 
 Setting up WPA will override any WEP settings.
 
@@ -287,7 +287,7 @@ Configuration of WDS is simple, and depends on one of two variables
 #!CSV
 NVRAM; Description
 wl0_lazywds; Accept WDS connections from anyone (0:disabled 1:enabled)
-wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space separated)
+wl0_wds; List of WDS peer mac addresses (xx:xx:xx:xx:xx:xx, space-separated)
 }}}
 For security reasons, it's recommended that you leave wl0_lazywds off and use wl0_wds to control WDS access to your AP. wl0_wds functions as an access list of peers to accept connections from and peers to try to connect to; the peers will either need the mac address of your AP in their wl0_wds list, or wl0_lazywds enabled.
 
