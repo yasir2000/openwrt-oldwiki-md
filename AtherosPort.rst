@@ -43,7 +43,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * Meraki [http://www.meraki.net/mini.html Mini] (AR2315) - source available for [http://www.meraki.net/linux Meraki's own Linux port]
  * MicraDigital/Belkin F5D7230 (ver.1020ec) (AR2315A)
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWGR614 WGR614]v3.
- * Netgear [:OpenWrtDocs/Hardware/Netgear/WGT624: WGT624] [http://www.netgear.com/products/details/WGT624.php Product link] (AR5002AP-G)
+ * Netgear [:OpenWrtDocs/Hardware/Netgear/WGT624: WGT624] [http://www.netgear.com/products/details/WGT624.php Product link] (AR5002AP-G) (v2 AR5001AP)
  * Netgear [http://www.seattlewireless.net/index.cgi/NetgearWG102 WG102] (AR2313)
  * Senao NL-5354 AP1 Aries2 (AR5002AP-2X)
  * Senao NL-3054 AP3 Aries2 (AR2313)
