@@ -39,6 +39,12 @@ Packet tracing on.
 tftp> put openwrt-xxx-x.x-xxx.bin
 }}}
 
+Or, for a single command, so you don't have to retype each time:
+
+{{{
+echo -e "binary\nrexmt 1\ntimeout 60\ntrace\nput openwrt-xxx-x.x-xxx.bin\n" | tftp 192.168.1.1
+}}}
+
 Setting "rexmt 1" will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug in your box after typing the commands, and as soon as the bootloader starts to listen, your client will successfully connect and send the firmware. You can try to run "ping -f 192.168.1.1" (as root) in a separate window and enter the line "put openwrt-xxx-x.x-xxx.bin" as the colons stop running over your terminal when you power-recycle your router.
 
 Note: for some versions of the CFE bootloader, the last line may need to be "put openwrt-xxx-x.x-xxx.bin code.bin". If this does not work try other variations instead of code.bin - e.g. openwrt-g-code.bin or openwrt-gs-code.bin.
