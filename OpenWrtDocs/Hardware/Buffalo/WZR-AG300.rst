@@ -6,13 +6,15 @@ This is a Marvell board, and its serial pins are identical to the [:OpenWrtDocs/
 
 Serial connection parameters are : 112500,8N1
 
-=== Odd CPU ===
+=== CPU ===
 
-The "ARM926EJ-Sid(wb)" is a Jazelle-enabled CPU which means it can interpret (a subset of) Java bytecodes directly. Too bad that ARM keeps their Jazelle knowledge as proprietary as possible.
+The "ARM926EJ-Sid(wb)" is a Jazelle-enabled CPU which means it can interpret (a subset of) Java bytecodes directly.  This is a CPU now being used in a number of WinCE phones, and is likely to appear in more routers in the future.
 
-=== Source download ===
+=== Source availability ===
 
-Where can the sources be obtained?
+At this time, Buffalo do not provide a download of the sources for this router - this is typical of their attitude towards open source.  The manual contains instructions on how to contact Buffalo with a CD and request the source for $20.  It has been suggested that Buffalo require this for every module in the system.
+
+Having said that, the kernel for the [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300/Netgear/WNR854:Netgear WNR854] will boot on this board with trivial changes to the flash layout, and using that, an OpenWRT port should be straight forward.
 
 === Linux ===
 
