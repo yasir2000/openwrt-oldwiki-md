@@ -22,9 +22,9 @@ Image builds but doesn't boot.  squashfs image reports:
   Warning: unable to open an initial console.
 
 jffs2 image gets farther but reports:
-  init started:  BusyBox v1.4.1 (2007-04-21 18:44:24 EDT) multi-call binary
-  syslogd: /dev/null: No such file or directory
-  /etc/init.d/rcS: /etc/init.d/rcS: 19: Can't open /dev/null
+  init started:  BusyBox v1.4.1 (2007-04-21 18:44:24 EDT) multi-call binary [[BR]]
+  syslogd: /dev/null: No such file or directory [[BR]]
+  /etc/init.d/rcS: /etc/init.d/rcS: 19: Can't open /dev/null [[BR]]
 
 = TODO =
 
