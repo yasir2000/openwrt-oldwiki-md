@@ -54,12 +54,13 @@ pid-file=/var/run/ez-ipupdate.pid
 /!\ '''NOTE:''' You should point the cache-file to a permanent location in the jffs tree if your router is rebooted more often than your ip actually changes. Otherwise your previous ip is forgotten over reboots and your DDNS provider might lock you out for unneccessary updates.
 
 /!\ '''NOTE:''' There's a modified version of ez-ipupdate (http://ouaye.net/files/ez-ipupdate_3.0.11b8-2_mipsel.ipk announced in 
-http://forum.openwrt.org/viewtopic.php?pid=39855) which adds the feature of announcing the WAN IP retrieved from an external web (e.g. checkip). Anyway, you first need to install the whiterussian one (ipkg install ez-ipupdate) and then install the modified one (ipkg install http://ouaye.net/files/ez-ipupdate_3.0.11b8-2_mipsel.ipk) because the latter does not ship with a hotplug script, which needs to be modified in order to delete the "-i $ifname" parameter in order to use the new 'web-detect' method:
+http://forum.openwrt.org/viewtopic.php?pid=39855) which adds the feature of announcing the WAN IP retrieved from an external web (e.g. checkip). This is usefull if your OpenWRT is behind a modem-router. Anyway, you first need to install the whiterussian one (ipkg install ez-ipupdate) and then install the modified one (ipkg install http://ouaye.net/files/ez-ipupdate_3.0.11b8-2_mipsel.ipk). Then, a few files need to be manually modified:
 
+''/etc/hotplug.d/iface/10-ez-update'':
 {{{
 . /etc/functions.sh
 NAME=ez-ipupdate
-CONFIG=/etc/$NAME.conf
+CONFIG=/etc/$NAME/$NAME.conf
 COMMAND=/usr/sbin/$NAME
 [ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && {
         [ -x $COMMAND ] && [ -r $CONFIG ] && {
@@ -72,6 +73,37 @@ COMMAND=/usr/sbin/$NAME
         } &
 }
 }}}
+
+''/etc/init.d/S52ez-ipupdate'':
+{{{
+...
+                   echo -n "Starting ez-ipupdate:..."
+                   if [ -n "$(grep web-detect $ddns_conf)" ]; then
+                     /usr/sbin/ez-ipupdate -d -F $PID_F -c $ddns_conf -b $ddns_cache -e $ddns_exec_ok
+                   else
+                     /usr/sbin/ez-ipupdate -d -F $PID_F -c $ddns_conf -b $ddns_cache -i $wan_interface -e $ddns_exec_ok
+                   fi
+...
+}}}
+
+''/etc/ez-ipupdate/ez-ipupdate.conf'' (after configuring with webif, if applicable):
+{{{
+service-type=dyndns
+user=user:password
+host=dynamiciphost
+interface=web-detect
+
+# Do not change the lines below
+cache-file=/etc/ez-ipupdate/ez-ipupdate.cache
+pid-file=/var/run/ez-ipupdate.pid
+max-interval=86400
+}}}
+
+''Open issues'':
+* /etc/ez-ipupdate.conf is no longer usefull
+* Both start scripts (hotplug.d and init.d) are not assuming the same information if unmodified
+
+'''END NOTE'''
 
 The list of allowed parameters in the configuration file are:
 
