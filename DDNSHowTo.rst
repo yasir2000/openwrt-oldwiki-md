@@ -100,8 +100,8 @@ max-interval=86400
 }}}
 
 ''Open issues'':
-* /etc/ez-ipupdate.conf is no longer usefull
-* Both start scripts (hotplug.d and init.d) are not assuming the same information if unmodified
+ * /etc/ez-ipupdate.conf is no longer usefull
+ * Both start scripts (hotplug.d and init.d) are not assuming the same information if unmodified
 
 '''END NOTE'''
 
