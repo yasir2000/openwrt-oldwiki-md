@@ -4,7 +4,7 @@ The Linksys NSLU2 (a.k.a. SLUG) is a network storage link based on the IPX42x pr
 at 266Mhz.  It contains 8MB flash, 32MB RAM, one ethernet i/f, two USB2.0 ports, and is provided 
 with a 2.0A 5V power supply. 
 
-= Why Port OpenWRT ? =
+= Why Run OpenWRT? =
 
 The SLUG has an active user community with several popular firmware distros (e.g. Debian Slug) 
 so why bother to port OpenWRT?  Well, most likely you agree with OpenWRT's minimalist philosophy 
@@ -16,7 +16,7 @@ documented by the SLUG developers...
 
 http://www.nslu2-linux.org/wiki/Info/HomePage
 
-= Status of the port =
+= Status of the Port =
 
 Image builds but doesn't boot.  squashfs image reports:
   Warning: unable to open an initial console.
