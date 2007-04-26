@@ -62,13 +62,14 @@ cat /etc/default/p910nd}}}
 0  -b -f /dev/usb/lp0}}}
 You can run more than one printer at the same time. For example one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}}) interface.
 
+If you own ASUS WL-500 and connect to parallel port, you might need to modify {{{/etc/default/p910nd}}} to contain {{{ -f /dev/printers/0}}}
 Save it and start the {{{p910nd}}} daemon with:
 
 {{{
 /etc/init.d/p910nd start}}}
-It will start up automatically on the next reboot.
-
-<< I found you have to rename p910nd to something like S55p910nd to get it to start on boot >>
+To start it up automatically rename it as follows
+{{{
+mv /etc/init.d/p910nd /etc/init.d/S55p910nd}}}
 
 = Configure the clients for printing =
 Here I would demonstrate you, how to configure the printer driver on your client. It could be that these steps are not exactly the same on your operating system.
