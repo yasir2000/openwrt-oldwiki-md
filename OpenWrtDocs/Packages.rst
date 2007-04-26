@@ -15,7 +15,7 @@ Some useful packages have been backported from the development branch (trunk) to
 To use the packages from the backports repository edit {{{/etc/ipkg.conf}}} and add:
 
 {{{
-src backports http://downloads.openwrt.org/backports/rc6
+src backports http://downloads.openwrt.org/backports/0.9
 }}}
 Now run {{{ipkg update}}} and you will see new packages.
 
