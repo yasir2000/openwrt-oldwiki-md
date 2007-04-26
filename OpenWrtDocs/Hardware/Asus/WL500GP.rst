@@ -166,6 +166,16 @@ To act as a DHCP-server towards WIFI set the following:
 {{{
 nvram set wifi_proto=dhcp
 nvram commit}}}
+=== Installing Wifi Protected Access (WPA) ===
+By default in de WhiteRussian V0.9 the WPA was available on the web console, but was not installed.
+It took me some time to find it. This because the Wifi could connected with WPA-PSK, WPA1 and RC4 (TKIP) and everything looks ok. Only the DHCP server did not give me an IP address. To install WPA, look at 
+
+http://wiki.openwrt.org/Faq#head-241867b49a4ff86751c7a12f3120a47bd939b10e 
+
+or 
+
+http://wiki.openwrt.org/Faq How do I use WiFi Protected Access (WPA)?
+
 == WL-500gP info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
 
