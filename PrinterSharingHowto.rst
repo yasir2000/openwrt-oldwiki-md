@@ -62,7 +62,7 @@ cat /etc/default/p910nd}}}
 0  -b -f /dev/usb/lp0}}}
 You can run more than one printer at the same time. For example one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}}) interface.
 
-If you own ASUS WL-500 and connect to parallel port, you might need to modify {{{/etc/default/p910nd}}} to contain {{{ -f /dev/printers/0}}}
+If you own ASUS WL-500 and connect to parallel port, you might need to modify {{{/etc/default/p910nd}}} to contain (only) {{{ -f /dev/printers/0}}}
 Save it and start the {{{p910nd}}} daemon with:
 
 {{{
