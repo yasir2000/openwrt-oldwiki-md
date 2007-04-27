@@ -203,17 +203,17 @@ Starting program at 0x80238000
 
 
 [RUN!]
-Linux version 2.6.19.2 (fainelli@anaconda.int-evry.fr) (gcc version 4.1.2) #2 Sun Apr 22 16:40:56 CEST 2007
+Linux version 2.6.19.2 (fainelli@anaconda.int-evry.fr) (gcc version 4.1.2) #1 Thu Apr 26 00:19:43 CEST 2007
 ADM5120 revision 8, running at 175MHz
 Boot loader is: CFE
 Booted from   : NOR flash
-Board is      : Compex WP54G-WRT
+Board is      : ZyXEL Prestige 335/335WT
 GETENV: envname is memsize
 GETENV: returning 0x001000000
 CPU revision is: 0001800b
 ADM5120 board setup
 Determined physical RAM map:
- memory: 00c8e000 @ 00372000 (usable)
+ memory: 00c81000 @ 0037f000 (usable)
 Initrd not found or empty - disabling initrd
 Built 1 zonelists.  Total pages: 4064
 Kernel command line: console=ttyS0,115200 rootfs=jffs2,squashfs init=/etc/preinit
@@ -227,7 +227,7 @@ PID hash table entries: 64 (order: 6, 256 bytes)
 start_kernel(): bug: interrupts were enabled early
 Dentry cache hash table entries: 2048 (order: 1, 8192 bytes)
 Inode-cache hash table entries: 1024 (order: 0, 4096 bytes)
-Memory: 12708k/12856k available (1969k kernel code, 148k reserved, 294k data, 1156k init, 0k highmem)
+Memory: 12656k/12804k available (1969k kernel code, 148k reserved, 294k data, 1208k init, 0k highmem)
 Mount-cache hash table entries: 512
 Checking for 'wait' instruction...  available.
 NET: Registered protocol family 16
@@ -250,6 +250,9 @@ ttyS0 at I/O 0x12600000 (irq = 1) is a ADM5120
 ttyS1 at I/O 0x12800000 (irq = 2) is a ADM5120
 eth0: ADM5120 switch port0
 eth1: ADM5120 switch port1
+eth2: ADM5120 switch port2
+eth3: ADM5120 switch port3
+eth4: ADM5120 switch port4
 ip_conntrack version 2.4 (100 buckets, 800 max) - 240 bytes per conntrack
 ip_tables: (C) 2000-2006 Netfilter Core Team
 TCP vegas registered
@@ -259,7 +262,7 @@ NET: Registered protocol family 15
 Bridge firewalling registered
 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
 All bugs added by David S. Miller <davem@redhat.com>
-Freeing unused kernel memory: 1156k freed
+Freeing unused kernel memory: 1208k freed
 Warning: unable to open an initial console.
 Algorithmics/MIPS FPU Emulator v1.5
 PPP generic driver version 2.4.2
@@ -268,14 +271,41 @@ acx: reading README file and/or Craig's HOWTO is recommended, visit http://acx10
 acx: compiled to use 32bit I/O access. I/O timing issues might occur, such as non-working firmware upload. Report them
 running on a BIG-ENDIAN CPU
 PCI module v0.3.36 initialized, waiting for cards to probe...
-acx: found ACX111-based wireless network card at 0000:00:02.0, irq:6, phymem1:0x11420000, phymem2:0x11400000, mem1:0xb1420000, mem1_size:81922
+PCI: Enabling device 0000:00:02.0 (0000 -> 0002)
+acx: found ACX111-based wireless network card at 0000:00:02.0, irq:6, phymem1:0x11420000, phymem2:0x11400000, mem1:0xb1420000, mem1_s2
 initial debug setting is 0x000A
 using IRQ 6
-acx: eCPU is already running. reset_dev() FAILED
-acx_pci: probe of 0000:00:02.0 failed with error -5
+Data bus error, epc == c006dddc, ra == c006dd8c
+Oops[#1]:
+Cpu 0
+$ 0   : 00000000 1000ff00 b1420108 00000108
+$ 4   : c0070000 00000010 00000000 80fc1b48
+$ 8   : 00000208 0000000a ffffffff 80370000
+$12   : 80370000 80fc1a79 80368b24 00000000
+$16   : 1000ff01 803c8280 803c8000 11420000
+$20   : 00000002 11400000 80fe1c00 c00769d4
+$24   : 00000000 801f6704
+$28   : 80fc0000 80fc1bb8 00000001 c006dd8c
+Hi    : 00000000
+Lo    : 00000000
+epc   : c006dddc     Not tainted
+ra    : c006dd8c Status: 1000ff02    KERNEL EXL
+Cause : 0080001c
+PrId  : 0001800b
+Modules linked in: acx ip_conntrack_tftp ip_nat_irc ip_conntrack_irc ip_nat_ftp ip_conntrack_ftp ppp_async ppp_generic slhc crc_ccitt
+Process insmod (pid: 1676, threadinfo=80fc0000, task=80fb94c0)
+Stack : 8000cffc 00000006 00000000 803c8000 11420000 11400000 b1420000 00002000
+        b1400000 00020000 000041ed 00030002 80fc1ea0 80fc1ea0 80d3e24c 80d2ad30
+        ffffffff ffffffff 80fc1c00 80fc1c00 00000000 80029650 00000000 8036cc64
+        0000000a 80038fd0 8036ce58 8002e190 00000000 8036cc64 0000000a 80029b90
+        80fc1c38 80fc1c38 00000001 80f99878 8001d324 80029650 00000000 00000007
+        ...
+Call Trace:[<8000cffc>][<80029650>][<80038fd0>][<8002e190>][<80029b90>][<8001d324>][<80029650>][<8001c6d8>][<801e94d4>][<801ea0d4>][<]
+
+Code: 8e2223ac  94630036  00431021 <94420000> 30570001  16e0000c  3c02c007  24428b90  0040f809
 init started:  BusyBox v1.4.1 (2007-04-22 16:26:22 CEST) multi-call binary
 
-Please press Enter to activate this console. 
+Please press Enter to activate this console.
 
 
 BusyBox v1.4.1 (2007-04-22 16:26:22 CEST) Built-in shell (ash)
@@ -286,14 +316,26 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (bleeding edge, r7004) -------------------
+ KAMIKAZE (bleeding edge, r7048) -------------------
   * 10 oz Vodka       Shake well with ice and strain
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
-root@(none):/# ifconfig 
+root@(none):/#
 }}}
 
+
+== Untouched switch mapping ==
+
+By default the switch mapping is a bit complicated :
+
+{{{
+port2 -> eth2
+port1 -> eth3
+port4 -> eth0
+port3 -> eth1
+wan -> eth4
+}}}
 
 ----
 
