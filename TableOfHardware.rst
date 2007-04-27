@@ -142,6 +142,9 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/ WZR-RS-G54HP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP:Supported] ||
 ||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
 ||[http://www.buffalotech.com/products/wireless/wireless-n-nfiniti-dual-band WZR-AG300] || ||Marvell ARM926 @ 500Mhz ||8MB ||32MB ||2 x Marvell (mini-PCI) 802.11a + n/b/g || || || Yes || Yes || Space for connector || [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Untested] ||
+== Bewan ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' || '''Other''' ||'''Status''' ||
+||[http://www.bewan.fr/bewan/produits/fai/index.php ibox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros (mini-PCI) ||no, 2 interface on cpu ||off || yes || yes ||2+1 || 2xFXO, ADSL+ ||Untested ||
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||2 (rev.AE) ||[http://www.linux-mips.org/wiki/Adm5120 ADM5120 ] ||2MB ||16MB(8MB?) || || || || || || ||[:Edimax:Untested] ||
