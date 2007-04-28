@@ -1,6 +1,6 @@
 = Cellvision CAS-771W =
 
-The Cellvision CAS-630 IP camera is a Linux based IP camera. It comes in two flavours: wired and wired/wireless.
+The Cellvision CAS-771 IP camera is a Linux based IP camera. It comes in two flavours: wired and wired/wireless. This page describes the Wireless one.
 
 == Technical specifications ==
 
