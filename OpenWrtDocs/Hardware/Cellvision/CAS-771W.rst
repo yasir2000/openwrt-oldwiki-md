@@ -19,6 +19,7 @@ Cellvision does not directly sell to customers, but acts purely as an ODM compan
 Known models are:
 
   * Simicom technologies CAS-771W
+  * [http://www.sparklan.com/product_details.php?prod_id=150 SparkLAN CAS-771W]
 
 == Serial pinout ==
 
