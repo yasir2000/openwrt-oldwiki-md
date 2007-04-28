@@ -11,8 +11,9 @@ ADMtek 5120 CPU
 Cellvision does not directly sell to customers, but acts purely as an ODM company.
 Known models are:
 
-  * NeuFusion NCS-630/NCS-630W
+  * D-Link DCS-950/DCS-950G
   * Digitus DN-16021/DN-16021
+  * NeuFusion NCS-630/NCS-630W
 
 == Picture ==
 
