@@ -17,7 +17,7 @@ Flash : 4Mb NOR
 
 Cellvision does not directly sell to customers, but acts purely as an ODM company.
 Known models are:
-
+  * [http://www.planet.com.tw/product/product_dm.php?product_id=457&menu_id=24 Planet ICA-210W]
   * Simicom technologies CAS-771W
   * [http://www.sparklan.com/product_details.php?prod_id=150 SparkLAN CAS-771W]
 
