@@ -1,3 +1,35 @@
+= Cellvision CAS-771W =
+
+The Cellvision CAS-630 IP camera is a Linux based IP camera. It comes in two flavours: wired and wired/wireless.
+
+== Technical specifications ==
+
+{{{
+CPU : Infineon ADM5120 CPU
+Wi-Fi : Ralink RT2500
+Video : CPIA2
+USB : audio / slave /host
+RAM : 32Mb
+Flash : 4Mb NOR
+}}}
+
+== Known models ==
+
+Cellvision does not directly sell to customers, but acts purely as an ODM company.
+Known models are:
+
+  * Simicom technologies CAS-771W
+
+== Serial pinout ==
+
+{{{
+GND RX TX VCC
+ x  x   x  x
+
+
+USB Rst btn Ethernet Power
+}}}
+
 === Bootlog ===
 
 {{{
