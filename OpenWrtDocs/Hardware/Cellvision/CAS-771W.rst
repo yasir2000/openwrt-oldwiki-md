@@ -300,3 +300,5 @@ hardware watchpoint     : yes
 VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
+
+CategoryModel ["CategoryADM5120Device"]
