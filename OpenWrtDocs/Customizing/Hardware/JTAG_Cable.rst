@@ -83,7 +83,7 @@ This header is fully MIPS EJTAG 2.6 compatible and described in the EJTAG 2.6 st
 A buffered cable such as the Wiggler requires an external Vcc voltage supply. The 14-pin header conveniently supplies this voltage on pin 14. The typical unbuffered cable, however, does not require an external voltage in order to function. Formally, the pin 14 is called VREF and used to indicate a JTAG signal levels: 5V, 3.3V or 2.5V. On the most devices this pin is tied to the device's Vcc and may be used to power a buffer IC chip (and to generate an appropriate levels as result). Note that the 12-pin JTAG header arrangement does not provide Vcc.
 
 == Software ==
-The most famous software for JTAG is probably the Linksys De-Brick Utility by Hairydairymaid (aka Lightbulb). As of 1 April 2006 the most recent version is v4.5. You can [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v48.zip download it from the OpenWrt site]. Virtually everyone who uses this software opts for an unbuffered cable, and the software itself, by default, expects this type of cable to be used.
+The most famous software for JTAG is probably the Linksys De-Brick Utility by Hairydairymaid (aka Lightbulb). As of 12 September 2006 the most recent version is v4.8. You can [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v48.zip download it from the OpenWrt site]. Virtually everyone who uses this software opts for an unbuffered cable, and the software itself, by default, expects this type of cable to be used.
 
 The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS routers. It will ''not'' help you de-brick other routers that are not based on Broadcom CPUs (e.g. Edimax and its clones).
 
