@@ -23,10 +23,6 @@ It also has a single 3.3v serial port, the original T-Com firmware allows you sh
 
 === Photos ===
 
-http://openwrt.vcp-springe.de/w900v/board_complete.JPG
-
-http://openwrt.vcp-springe.de/w900v/rear_side.JPG
-
 http://ipkg.k1k2.de/jb24img/pict1605.jpg
 
 http://ipkg.k1k2.de/jb24img/pict1606.jpg
@@ -37,6 +33,7 @@ http://ipkg.k1k2.de/jb24img/pict1608.jpg
 
 http://ipkg.k1k2.de/jb24img/pict1607.jpg
 
+http://openwrt.vcp-springe.de/w900v/rear_side.JPG
 
 === Serial Port ===
 
