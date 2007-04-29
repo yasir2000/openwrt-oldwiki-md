@@ -29,19 +29,9 @@ Note: Maybe you are lucky and it even works without the broadcast address, but d
 == Using Ether-Wake (=ether frame) ==
 With {{{ether-wake}}} you can send a magic packet as an ethernet frame. You don't need any broadcast address for it, but all routers in your LAN have to forward ethernet frames.
 
-{{{ether-wake}}} is provided as a backport, so you have to add the backport repository for your OpenWRT version in {{{/etc/ipkg.conf}}}. Check if it is already present, otherwise add it via 
+{{{ether-wake}}} is provided as a backport done for RC5. To not add the complete RC5 backport repository, it is easier to install the package by stating its download path manually:
 {{{
-echo "src 0.9-backports http://downloads.openwrt.org/backports/0.9" >> /etc/ipkg.conf (this is for WhiteRussion 0.9)
-echo "src RC5-backports http://downloads.openwrt.org/backports/rc5" >> /etc/ipkg.conf (if not available in 0.9 backports)
-}}}
-
-Then update the list of available packages
-{{{
-ipkg update
-}}}
-And finally install the {{{ether-wake}}} package
-{{{
-ipkg install ether-wake
+ipkg install http://downloads.openwrt.org/backports/rc5/ether-wake_1.09-1_mipsel.ipk
 }}}
 
 To awake a machine with {{{ether-wake}}} use
