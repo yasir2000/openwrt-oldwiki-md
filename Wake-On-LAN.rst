@@ -32,7 +32,9 @@ With {{{ether-wake}}} you can send a magic packet as an ethernet frame. You don'
 {{{ether-wake}}} is provided as a backport, so you have to add the backport repository for your OpenWRT version in {{{/etc/ipkg.conf}}}. Check if it is already present, otherwise add it via 
 {{{
 echo "src 0.9-backports http://downloads.openwrt.org/backports/0.9" >> /etc/ipkg.conf (this is for WhiteRussion 0.9)
+echo "src RC5-backports http://downloads.openwrt.org/backports/rc5" >> /etc/ipkg.conf (if not available in 0.9 backports)
 }}}
+
 Then update the list of available packages
 {{{
 ipkg update
