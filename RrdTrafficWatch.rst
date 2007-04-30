@@ -11,13 +11,11 @@
   instead
   . '''This URL stopped working 2006-08-11''' but you can download and install librrd and rrdtool1 from http://nthill.free.fr/openwrt/ipkg/testing/
   . home.mag.cx works again
-
  * update your ipkg database and install the needed rrdtool
   . {{{
   ipkg update
   ipkg install rrdtool1 }}}
   now you should have rrdtool and rrdupdate installed
-
  * have a look if your iptables are able to monitor traffic
   . {{{
   iptables -N traffic
@@ -27,7 +25,6 @@
   * you have all necessary packages installed
   * the kernel-modules are loaded
   * make sure, that the traffic-chain exists after booting. (Just add the iptable-commands to a start-up script. Remember to load the needed kernel-modules befor running the iptable-stuff)
-
   * To Create the start-up script:
   {{{
   cat > /etc/init.d/S50rrd
@@ -44,14 +41,12 @@
   /etc/init.d/S50rrd start
   }}}
   now you are capable to monitor traffic with iptables
-
 = Using the traff_graph - script =
 Place the following script in /sbin or where you like
 
 {{{
 cat > /sbin/traff_graph
 }}}
-
 {{{
 #!/bin/sh
 
@@ -108,12 +103,15 @@ for MAC in $(cat /proc/net/arp | grep -v address | awk '{print $4}') ; do
         DOWN=$(($DOWN+0))
         ALL_DOWN=$(($ALL_DOWN+$DOWN))
 
+	 COUNTIP=$(iptables -vnL traffic | grep $IP | wc -l | awk '{print $1}')
+	 if [ "$COUNTIP" -eq 0 ] ; then
+		iptables -A traffic -s $IP
+		iptables -A traffic -d $IP
+	 fi
+
         # create db if not exists
         if [ ! -e /tmp/rrd/${MAC_}.rrd ] ; then
                 # echo creating /tmp/rrd/${MAC_}.rrd
-                iptables -A traffic -s $IP
-                iptables -A traffic -d $IP
-
                 rrdtool create /tmp/rrd/${MAC_}.rrd -s 300 \
                         DS:up:ABSOLUTE:600:0:600000000 \
                         DS:down:ABSOLUTE:600:0:600000000 \
@@ -151,31 +149,26 @@ INDEX=$INDEX"<br><img src='all.png'></body></html>"
 
 echo $INDEX > /tmp/rrd/index.html
 }}}
-
 Make the file executable
 
 {{{
 chmod a+x /sbin/traff_graph
 }}}
-
 This script will create and update the rrd-database for each mac found in /proc/net/arp. If a host is not online no update will be performed. This will safe some cpu-cycles :) . traff_graph stores the rrd-db, the created pictures/graphs and the index.html for viewing the graphs in /tmp/rrd. This means, after a reboot all informations are lost and you will start at 0.
 
 Now you can test traff_graph. Make sure, you have only a single traffic-chain/host in your iptable rules. You can list this with
 
 {{{
 iptables -L traffic -vx}}}
-
 Now run traff_graph. This will need a while... get a coffee ;-) Add traff_graph to your crontab and run it every 5 minutes. Be carefull not to monitore to much hosts since rrdtool graph needs a lot of time. For viewing the graphs you have to add an symlink in /www which points to /tmp/rrd.
 
 {{{
 cd /www
 ln -s /tmp/rrd/ traffic }}}
-
 everything will be available via
 
 {{{
 http://192.168.0.1/traffic/ }}}
-
 To schedule an update every 5 minutes, use crontab.
 
 Add this to the /etc/crontabs/root file :
@@ -183,8 +176,7 @@ Add this to the /etc/crontabs/root file :
 {{{
 # create traffic graphs every 5 minutes (i.e. run if minutes mod 5 == 0)
 0-55/5 * * * * /sbin/traff_graph > /dev/null 2>&1}}}
-
-Do not forget to enable cron. See [:HowtoEnableCron:]
+Do not forget to enable cron. See HowtoEnableCron
 
 = Other links =
-[http://forum.openwrt.org/viewtopic.php?id=3741]
+http://forum.openwrt.org/viewtopic.php?id=3741
