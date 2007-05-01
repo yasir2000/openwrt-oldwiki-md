@@ -78,10 +78,20 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * The voice static page displays a wealth of information about registration as well as current and previous calls
  * NOTE: The voice pages are essentially that of Sipura's, replete with documentation (ETSI, dialplans, etc.)
  * The voice tab works and the voice pages display the top level tab bar
- * Distrinctive ring works
+ * Distinctive ring works
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
+
+After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.
+ * The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown:
+  * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
+  * The new ggsip program handles '''all''' voice related configuration.  Almost all voice-related web pages are generated within ggsip.  Some voice pages still linger in the file system, but they are unused.
+  * ggsip isn't easily fooled into giving up its secrets.  This is why the usual unlock methods such as cyt and banging on the ESC key while loading some pages are unable to gain you access.  You '''must''' have entered a valid Admin password before it lets see or alter Provision and Line settings.
+  * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
+  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
+  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
+
 customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip
 
 NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password
@@ -123,7 +133,8 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/bin/cm_logic
   . Seems to load the configuration ether from a specified flash block or from an XML file.
  * /usr/bin/cm_config
-  . Seems to have something to do with saving the current configuration to flash.
+  . Saves / restores the current configuration to flash.
+  . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
  * /usr/lib/updatedd
   . dynamic DNS client
  * /usr/www/cgi-bin/firmwarecfg
@@ -221,7 +232,7 @@ The configuration can be extracted using the web interface (Administration/Manag
 = Boot Loader Environment =
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
-At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. The difference between the setenv and the setpermenv commands is unknown.
+At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the setpermenv command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt.
 
 After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the same format changes a variable, as long as it is not read-only. A space may be substituted for a tab when writing.
 
