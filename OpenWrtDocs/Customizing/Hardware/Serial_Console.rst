@@ -55,7 +55,7 @@ You can also search for MAX232 Kits. There are some kits available.
  * Minicom (for POSIX systems)
  * [http://efault.net/npat/hacks/picocom/ picocom]
  * cu(1) (part of the Taylor UUCP package, for POSIX systems)
- * Putty v0.59 or newer (now with serial console support!)
+ * [http://www.chiark.greenend.org.uk/~sgtatham/putty/ Putty] v0.59 or newer (now with serial console support!)
 
 == Finding Serial Console ==
 First, check the OpenWRT wiki page describing your hardware and do a Google search. Most of the time, the serial port(s), if they exist, have already been documented by others.
