@@ -23,11 +23,21 @@ Without delving too deeply in that incredibly annoying process of Certificate cr
 
 ||<:> '''file''' ||<:> '''description''' ||<:> '''example of command to create it''' ||
 || ca.crt || the Root Certificate for your Certificate Authority. Should be on the server and all clients. Should be used to sign all the other certificates (both server and client) || {{{#openssl req -nodes -new -x509 -keyout ca.key -out ca.crt;}}} ||
-|| server.crt, client.crt || the certificate for your server or client, signed using the Root Certificate || {{{#openssl req -nodes -new -keyout server.key -out server.csr;}}} {{{#openssl ca -cert ca.crt -keyfile ca.key -out server.crt -in server.csr;}}} ||
+|| server.crt, client.crt || the certificate for your server or client, signed using the Root Certificate || {{{#openssl req -nodes -new -keyout server.key -out server.csr;}}} {{{#openssl ca -cert ca.crt -keyfile ca.key -out server.crt -in server.csr; *}}} ||
 || server.key, client.key || the private key generated with your server or client's certificate || ''same as above, created on the same run'' ||
 || dh.pem || the Diffie-Hellman file for secure SSL/TLS negotiation, identical on the server and all clients || {{{#openssl dhparam -out dh.pem 1024;}}} ''(change 1024 to the size of the key you want)'' ||
 || shared.key ''(optional)'' || a shared key file, identical on the server and all clients|| {{{#openvpn --genkey --secret shared.key;}}} ||
 
+* If you receive an error like {{{I am unable to access the ./demoCA/newcerts directory. /demoCA/newcerts: No such file or directory}}}, take a look at your {{{openssl.cnf}}} file. For instance, in Ubuntu openssl expects a {{{demoCA}}} directory with a {{{newcerts}}} and a {{{private}}} subdirectory. Run these commands to create everything in Ubuntu:
+{{{
+mkdir demoCA
+mkdir demoCA/newcerts
+mkdir demoCA/private
+touch demoCA/index.txt
+echo "01" >> demoCA/serial
+}}}
+
+You might want to use [http://www.eduroam.edu.au/tech/ cascript] to automatically generate the certificates.
 
 == Server Setup ==
 
