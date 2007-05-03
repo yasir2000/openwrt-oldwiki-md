@@ -8,7 +8,7 @@ The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CP
 The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and has a [http://www.hirose.co.uk/productreleases/ms156.htm MS-156] test point and a soldered antenna.  The WGT634U also has a USB 2.0 controller.
 
 == Status of OpenWrt ==
-The kernel boots on the system, we have drivers for the ethernet interface (b44) and the new switch driver is integrated (robocfg will be obsolete). We have drivers for the wireless radio (madwifi-ng). The Kernel is 2.6.16.7.
+The kernel boots on the system, we have drivers for the ethernet interface (b44) and the new switch driver is integrated (robocfg will be obsolete). We have drivers for the wireless radio (madwifi-ng). Everything is working now (except failsafe).
 
 If you want to help with development, attach a serial console and build an image from Subversion (Kamikaze). Choose "Broadcom BCM47xx/53xx [2.6]" in make menuconfig, and join the discussions in the forum at http://forum.openwrt.org/viewforum.php?id=3 regarding the WGT634U.
 
