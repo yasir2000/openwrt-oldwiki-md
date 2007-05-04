@@ -2,17 +2,28 @@
 
 = Status of the Broadcom 63xx port of OpenWrt =
 == What is this Broadcom 63xx stuff? ==
-[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC] integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
-
+[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
+== What are 63xx variants? ==
+There are (at least) three 63xx variants: bcm6345,bcm6338,bcm6348.
+||<tablewidth="532px" tableheight="155px" tablealign="">Chip||CPU Mhz||USB Device||USB Host||WiFi||
+||bcm6345||  75  ||1.1||-||-||
+||bcm6338||  240  ||1.1||-||-||
+||bcm6348||  240  ||1.1||1.1||Yes||
+== Known 63xx platforms ==
 Known 6345 platforms*:
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
 ||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA770W] ||
+||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:ZTE ZXDSL 831A]||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_42931_rArNrNrNrN,00.html Siemens SE515] ||
 ||[http://www.zhone.com/products/6211/ Paradyne 6211-A1] ||
 ||[http://www.usr.com/images/products/product-emea.asp?prod=9105 US Robotics USR9105] ||
-||[http://www.usr.com/images/products/product-emea.asp?prod=9106 US Robotics USR9106] ||
+||[http://www.usr.com/images/products/product-emea.asp?prod=9106 US Robotics USR9106] || ||
 
 
+Known 6338 platforms*:
+
+||[:OpenWrtDocs/Hardware/Huawei/EchoLife HG520:Huawei EchoLife HG510] ||
+||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:ZTE ZXDSL 831CII] ||
 Known 6348 platforms*:
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536+] ||
 ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:Linksys WAG54GS] ||
@@ -44,4 +55,4 @@ Board image attachment:6211_A1_JTAG.jpg
  * Test the currently merged kernel in order to see if it boots on CFE based boards.
  * It can now boot on RedBoot enabled devices, supply a valid MTD partition in the kernel command line, as well as boot_loader=RedBoot
 ----
-CategoryOpenWrtPort
+ CategoryOpenWrtPort
