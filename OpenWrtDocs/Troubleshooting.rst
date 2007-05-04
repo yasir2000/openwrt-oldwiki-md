@@ -29,7 +29,7 @@ You can use a network monitor/sniffer to view the messages.  When the above mess
 Entering Failsafe!
 }}}
 
-Here is a simple example of how to capture this message, using [http://reptile.rug.ac.be/~coder/sniffit/sniffit.html sniffit]:
+Here is a simple example of how to capture this message, using [http://reptile.rug.ac.be/~coder/sniffit/sniffit.html sniffit].  Note the spaces between letters in "F a i l s a f e", a side-effect of the way sniffit prints packets.
 {{{
 sniffit -a -t @ -P UDP | grep "F a i l s a f e"
  s e t   n o w ,   t o   e n t e r   F a i l s a f e ! . . . . . . . . . . .
