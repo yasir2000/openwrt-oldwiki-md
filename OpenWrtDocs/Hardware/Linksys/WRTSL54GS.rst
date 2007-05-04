@@ -83,6 +83,7 @@ inline:wrt_jack_cable.jpg
 
 inline:Serial_hack.jpg
 
+Note:  When selecting the audio jack, make sure that the threaded end is long enough to poke through your case and still be able to attach the nute that secures it.  The one pictured above is from [http://www.altex.com/product_info.php?cPath=3_106_330_334&products_id=4009 Altex Electronics], vincentfox reports that an identical part is available from [http://shop.outpost.com/product/3343172 Fry's/Outpost.com]
 == JTAG ==
 
 inline:wrtsl54gs_jtag.jpg
