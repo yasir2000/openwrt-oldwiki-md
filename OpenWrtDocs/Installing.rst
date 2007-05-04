@@ -3,6 +3,27 @@
 ## Note: these pages document the firmware itself, not packages
 ##       questions/comments should be posted to the forum
 ##
+##
+##
+##
+## PLEASE POST ALL QUESTIONS ABOUT THE DOCUMENTATION ON THE FORUM.
+## I DO NOT WANT TO HAVE TO LOCK DOWN EDITS ON THESE PAGES
+## - mbm
+##
+## (no, don't reply here, use the forum)
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 OpenWrtDocs [[TableOfContents]]
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. We expect that you are knowledgeable about GNU/Linux and basic networking concepts, before you install !OpenWrt on your router. Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed.
