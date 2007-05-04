@@ -24,9 +24,15 @@ When OpenWrt boots, it will send out a UDP packet containing the message:
 Press reset now, to enter Failsafe!
 }}}
 
-You can use the recvudp utility provided below, or a network monitor/sniffer to view the messages. When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
+You can use a network monitor/sniffer to view the messages.  When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
 {{{
 Entering Failsafe!
+}}}
+
+Here is a simple example of how to capture this message, using [http://reptile.rug.ac.be/~coder/sniffit/sniffit.html sniffit]:
+{{{
+sniffit -a -t @ -P UDP | grep "F a i l s a f e"
+ s e t   n o w ,   t o   e n t e r   F a i l s a f e ! . . . . . . . . . . .
 }}}
 
 ===  Older releases / model specific ===
