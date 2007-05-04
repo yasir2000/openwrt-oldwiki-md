@@ -12,6 +12,7 @@ Cellvision does not directly sell to customers, but acts purely as an ODM compan
 Known models are:
 
 ||'''Vendor''' ||'''CAS-630''' ||'''CAS-630W''' ||
+||BONA Computech|| [http://www.bona.com.tw:8080/product/IP-630.htm IP-630]||[http://www.bona.com.tw:8080/product/IP-630W.htm IP-630W]||
 ||D-Link|| [http://www.dlink.com/products/?sec=0&pid=364 DCS-950]||[http://www.dlink.com/products/?sec=0&pid=365 DCS-950G]||
 ||Digitus|| [http://www.digitus.info/scripts/digdetail.asp?artnr=DN%2D16021 DN-16021]|| [http://www.digitus.info/scripts/digdetail.asp?artnr=DN%2D16022 DN-16022]||
 ||[http://www.neo-fusion.de NeuFusion]||NCS-630||NCS-630W||
