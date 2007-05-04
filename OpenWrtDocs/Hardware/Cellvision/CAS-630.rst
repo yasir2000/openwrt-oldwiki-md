@@ -14,6 +14,7 @@ Known models are:
   * D-Link DCS-950/DCS-950G
   * Digitus DN-16021/DN-16021
   * NeuFusion NCS-630/NCS-630W
+  * [http://www.repotec.com.tw/default.asp?pagename=Surveillance_System/RP_WV630_VP630.htm Repotec RP-VP630/RP-WV630]
 
 == Picture ==
 
