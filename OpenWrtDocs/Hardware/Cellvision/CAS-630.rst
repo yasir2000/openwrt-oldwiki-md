@@ -1,4 +1,4 @@
-= Cellvision CAS-630 =
+= Cellvision CAS-630/CAS-630W =
 
 The Cellvision CAS-630 IP camera is a Linux based IP camera. It comes in two flavours: wired and wired/wireless.
 
@@ -11,10 +11,13 @@ ADMtek 5120 CPU
 Cellvision does not directly sell to customers, but acts purely as an ODM company.
 Known models are:
 
-  * D-Link DCS-950/DCS-950G
-  * Digitus DN-16021/DN-16021
-  * NeuFusion NCS-630/NCS-630W
-  * [http://www.repotec.com.tw/default.asp?pagename=Surveillance_System/RP_WV630_VP630.htm Repotec RP-VP630/RP-WV630]
+||'''Vendor''' ||'''CAS-630''' ||'''CAS-630W''' ||
+||D-Link|| [http://www.dlink.com/products/?sec=0&pid=364 DCS-950]||[http://www.dlink.com/products/?sec=0&pid=365 DCS-950G]||
+||Digitus|| [http://www.digitus.info/scripts/digdetail.asp?artnr=DN%2D16021 DN-16021]|| [http://www.digitus.info/scripts/digdetail.asp?artnr=DN%2D16022 DN-16022]||
+||[http://www.neo-fusion.de NeuFusion]||NCS-630||NCS-630W||
+||REPOTEC ||[http://www.repotec.com.tw/default.asp?pagename=Surveillance_System/RP_WV630_VP630.htm RP-VP630]|| [http://www.repotec.com.tw/default.asp?pagename=Surveillance_System/RP_WV630_VP630.htm RP-WV630]||
+||SparkLAN||[http://www.sparklan.com/product_details.php?prod_id=141 CAS-630]||[http://www.sparklan.com/product_details.php?prod_id=142 CAS-630W]||
+||Surecom|| [http://www.surecom-net.com/pd-internet_camera-4001_4002-MM.htm EP-4001-MM]|| [http://www.surecom-net.com/pd-internet_camera-4001_4002-MM.htm EP-4002-MM]||
 
 == Picture ==
 
