@@ -98,6 +98,16 @@ mtd7: 00570000 00010000 "Kernel without jffs2"
 }}}
 
 
+=== ATM Driver Info (TI Avalanche SAR)===
+
+cat /proc/avalanche/avsar_ver
+ATM Driver version:[4.06.04.30]
+DSL HAL version: [5.00.00.02]
+DSP Datapump version: [1.35.60.01]
+SAR HAL version: [01.07.2b]
+PDSP Firmware version:[0.54]
+
+
 == Original Firmware Info ==
 
 === Backing up original firmware ===
