@@ -28,7 +28,7 @@ Non-Windows clients just follow the OpenVPN install instructions.
 == Generate Static Key ==
 Windows users click the icon to generate a static key. Everyone else run:
 
-{{{openvpn --genkey --secret static.key}}}
+{{{openvpn --genkey --secret secret.key}}}
 
 This only needs to be done once and then copied to all machines to be part of the VPN. I suggest placing the key file in /etc on the OpenWRT computer and leaving in the default place on Windows.
 
@@ -176,7 +176,7 @@ verb 3
 ;mute 20
 
 #Static Key
-secret /etc/openvpn.key
+secret /etc/secret.key
 }}}
 
 At this point you can start OpenVPN for testing:
@@ -193,7 +193,7 @@ This line is marked as optional in the original OpenVPN distribution, but will n
 
 Client configuration is pretty simple. First, transfer over the key file. This can be done by "scp" which is a file transfer over SSH. Example:
 
-{{{scp 192.168.1.1:/etc/openvpn/wlan_home.key /etc/openvpn/}}}
+{{{scp 192.168.1.1:/etc/openvpn/secret.key /etc/openvpn/}}}
 
 Now place the following file in the config directory and remember to change the server IP address to match, as well as the secrets file. 
 
@@ -249,7 +249,7 @@ Now that should be it. Start the OpenVPN client either through the GUI or comman
 == Wrap Up ==
 If your setup did not work then it is time to start reading the quite excellent OpenVPN documentation. The #openvpn channel on Freenode is also quite helpful.
 
-If your setup is working fine then the only remaining step is to automate the startup of the OpenVPN server on the OpenWRT machine. To this end create the following file and make sure it is executable:
+If your setup is working fine then the only remaining step is to automate the startup of the OpenVPN server on the OpenWRT machine. To this end create the following file and '''make sure it is executable (chmod +x /etc/init.d/S46openvpn)''':
 
 /etc/init.d/S46openvpn:
 {{{
