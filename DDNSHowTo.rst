@@ -264,6 +264,20 @@ The first number is a Unix timestamp. And {{{aaa.bbb.ccc.ddd}}} is your current 
 
 For advanced debugging enable the {{{debug}}} parameter in the configuration file.
 
+== Multiple Hostnames ==
+If you have more than one hostname registered and would like to update them all to the same IP via ez-ipupdate, then simply specify a comma-separated list of hostnames in ez-ipupdate.conf
+
+{{{
+service-type=zoneedit
+user=myname:mypassword
+host=first.com,second.com,third.com
+quiet
+
+# Do not change the lines below
+cache-file=/tmp/ez-ipupdate.cache
+pid-file=/var/run/ez-ipupdate.pid
+}}}
+
 = Useful links =
 For more details please have a look at the links below.
 
