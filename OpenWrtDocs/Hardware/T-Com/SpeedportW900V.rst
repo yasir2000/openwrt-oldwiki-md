@@ -69,8 +69,7 @@ Serial port settings: 38400 8N1
 
 {{{
  # cat /proc/version
-Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #5 Fri Au
-g 25 12:37:20 CEST 2006
+Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #5 Fri Aug 25 12:37:20 CEST 2006
 }}}
 
 === CPU Info ===
