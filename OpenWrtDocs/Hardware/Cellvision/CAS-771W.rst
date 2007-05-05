@@ -17,6 +17,7 @@ Flash : 4Mb NOR
 
 Cellvision does not directly sell to customers, but acts purely as an ODM company.
 Known models are:
+  * Airlink101 [http://www.airlink101.com/products/aicap650w.html AICAP650W]
   * GSF [http://www.gsf.com.my/ipcam/index.htm CAS-771W]
   * Planet [http://www.planet.com.tw/product/product_dm.php?product_id=457&menu_id=24 ICA-210W]
   * Simicom technologies CAS-771W
