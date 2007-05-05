@@ -141,6 +141,20 @@ partner                 usage: partner=[easydns partner]
 
 The main configuration is done now.
 
+== Multiple Hostnames ==
+If you have more than one hostname registered and would like to update them all to the same IP via ez-ipupdate, then simply specify a comma-separated list of hostnames in ez-ipupdate.conf
+
+{{{
+service-type=dyndns
+user=myname:mypassword
+host=first.com,second.com,third.com
+quiet
+
+# Do not change the lines below
+cache-file=/tmp/ez-ipupdate.cache
+pid-file=/var/run/ez-ipupdate.pid
+}}}
+
 = Starting DDNS =
 == Via hotplug (recommended and default) ==
 This updates your DDNS every time a WAN connection gets etablished. Since White Russian RC5 the hotplug script is included in the ez-ipupdate package.
@@ -263,20 +277,6 @@ The dump of my {{{/tmp/ez-ipupdate.cache}}} file:
 The first number is a Unix timestamp. And {{{aaa.bbb.ccc.ddd}}} is your current IP address. You can checkout your current IP address with http://www.whatismyip.com/ or http://www.whatismyip.org/.
 
 For advanced debugging enable the {{{debug}}} parameter in the configuration file.
-
-== Multiple Hostnames ==
-If you have more than one hostname registered and would like to update them all to the same IP via ez-ipupdate, then simply specify a comma-separated list of hostnames in ez-ipupdate.conf
-
-{{{
-service-type=dyndns
-user=myname:mypassword
-host=first.com,second.com,third.com
-quiet
-
-# Do not change the lines below
-cache-file=/tmp/ez-ipupdate.cache
-pid-file=/var/run/ez-ipupdate.pid
-}}}
 
 = Useful links =
 For more details please have a look at the links below.
