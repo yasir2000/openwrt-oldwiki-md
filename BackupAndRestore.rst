@@ -11,6 +11,10 @@ dd if=/dev/mtdblock/1 > /tmp/wrt-linux.trx
 mount -o remount,rw /dev/mtdblock/4 /jffs
 dd if=/dev/mtdblock/3 > /tmp/wrt-nvram.bin
 }}}
+
+Note: I had to write "/" instead of "/jffs", otherwise it gave an error. -- Xerces8
+
+
 And scp the files out. This assumes you have enough ram free on the WRT, which is usually the case.
 
 If you do not have enough free space in your /tmp fs, you can generate and copy in one operation.  Please make sure yhou use the right quotes; double quotes (") won't work.  From another workstation, and assuming that apollo is the name of your OpenWrt AP:
