@@ -81,7 +81,22 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
-TODO
+=== FLASH Map Info ===
+
+{{{
+
+cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00800000 00010000 "phys_mapped_flash"
+mtd1: 006d3d00 00010000 "filesystem"
+mtd2: 00770000 00010000 "kernel"
+mtd3: 00010000 00010000 "bootloader"
+mtd4: 00040000 00010000 "tffs (1)"
+mtd5: 00040000 00010000 "tffs (2)"
+mtd6: 00200000 00010000 "jffs2"
+mtd7: 00570000 00010000 "Kernel without jffs2"
+}}}
+
 
 == Original Firmware Info ==
 
@@ -748,6 +763,7 @@ Please press Enter to activate this console.
 Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128)
 Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
 }}}
+
 
 === Original Flash Map ===
 (TODO)
