@@ -98,7 +98,7 @@ mtd7: 00570000 00010000 "Kernel without jffs2"
 }}}
 
 
-=== ATM Driver Info (TI Avalanche SAR)===
+=== ATM Driver Info (TI Avalanche SAR) ===
 
 cat /proc/avalanche/avsar_ver
 ATM Driver version:[4.06.04.30]
