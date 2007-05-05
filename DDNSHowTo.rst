@@ -268,7 +268,7 @@ For advanced debugging enable the {{{debug}}} parameter in the configuration fil
 If you have more than one hostname registered and would like to update them all to the same IP via ez-ipupdate, then simply specify a comma-separated list of hostnames in ez-ipupdate.conf
 
 {{{
-service-type=zoneedit
+service-type=dyndns
 user=myname:mypassword
 host=first.com,second.com,third.com
 quiet
