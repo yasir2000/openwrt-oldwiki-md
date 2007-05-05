@@ -41,12 +41,12 @@ If you've broken one of the startup scripts, firewalled yourself or corrupted th
 !OpenWrt'' itself ''uses the reset button to enter into failsafe mode, and for no other purpose.  In particular, it will'' not ''reset the NVRAM.  The ''boot loader'', however, may reset the NVRAM in response to the reset button.  Therefore, it's important to know what's running when you hold down the reset button.  One indicator is that !OpenWrt will light the DMZ LED (on systems that have one) from the time it begins until the time the bootup scripts complete.  If the DMZ LED has not yet lit up, you are still in the bootloader!
 
 === All Models (RC5+) ===
-When OpenWrt boots, it will send out a UDP packet containing the message:
+When OpenWrt boots, it will broadcast a UDP packet to port 4919 of network 192.168.1.x containing the message:
 {{{
 Press reset now, to enter Failsafe!
 }}}
 
-You can use the recvudp utility provided below, or a network monitor/sniffer to view the messages. When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
+You can use the recvudp utility provided below, or a network monitor/sniffer to view the messages, for example `nc -l  -p 4919 -u`. Remember, your PC must be set to have an address like 192.168.1.2 When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
 {{{
 Entering Failsafe!
 }}}
