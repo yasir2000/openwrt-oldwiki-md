@@ -17,10 +17,11 @@ Flash : 4Mb NOR
 
 Cellvision does not directly sell to customers, but acts purely as an ODM company.
 Known models are:
-  * [http://www.gsf.com.my/ipcam/index.htm GSF CAS-771W]
-  * [http://www.planet.com.tw/product/product_dm.php?product_id=457&menu_id=24 Planet ICA-210W]
+  * GSF [http://www.gsf.com.my/ipcam/index.htm CAS-771W]
+  * Planet [http://www.planet.com.tw/product/product_dm.php?product_id=457&menu_id=24 ICA-210W]
   * Simicom technologies CAS-771W
-  * [http://www.sparklan.com/product_details.php?prod_id=150 SparkLAN CAS-771W]
+  * SparkLAN [http://www.sparklan.com/product_details.php?prod_id=150 CAS-771W]
+  * V-Gear [http://vgear.com/products/list.asp?ProdID=AMVG1-010-074-G LiveCam]
 
 == Serial pinout ==
 
