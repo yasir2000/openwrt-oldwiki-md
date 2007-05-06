@@ -13,10 +13,6 @@ Currently we are looking for the following devices:
 
 ===== For new ports: =====
 
-Broadcom BCM47xx/53xx platform:
-
- * Linksys WRT350N
-
 Realtek RTL865x platform:
 
  * D-Link DI-624M
@@ -51,9 +47,6 @@ AMD Alchemy platform:
 
  * 4G Systeme Meshcube
 
-Star Semi STR9xxx
-
- * Linksys WRVS4400N
 
 ===== For other networking card support: =====
 
