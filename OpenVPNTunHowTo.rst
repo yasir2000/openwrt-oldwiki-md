@@ -11,7 +11,7 @@ The desired final setup is an OpenVPN server running on your OpenWRT which will 
 To install OpenVPN on OpenWRT, only a simple command is needed:
 {{{
 ipkg install openvpn
-}}}#
+}}}
 
 Windows users can either download the standard [http://openvpn.net/ OpenVPN distribution] or get the [http://openvpn.se/ OpenVPN GUI for Windows] from Mathias Sundman.
 
