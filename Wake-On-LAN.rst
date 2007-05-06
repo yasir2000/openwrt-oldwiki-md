@@ -29,8 +29,25 @@ Note: Maybe you are lucky and it even works without the broadcast address, but d
 == Using Ether-Wake (=ether frame) ==
 With {{{ether-wake}}} you can send a magic packet as an ethernet frame. You don't need any broadcast address for it, but all routers in your LAN have to forward ethernet frames.
 
-{{{ether-wake}}} is provided as a backport done for RC5. To not add the complete RC5 backport repository, it is easier to install the package by stating its download path manually:
+{{{ether-wake}}} is available from the [http://x-wrt.org/ X-Wrt] repository.
+If you want to add the complete repository then add it to {{{/etc/ipkg.conf}}} with:
 {{{
+echo "src X-Wrt_FTP ftp://ftp.berlios.de/pub/xwrt/packages" >> /etc/ipkg.conf
+ - or -
+echo "src X-Wrt http://download2.berlios.de/pub/xwrt/packages" >> /etc/ipkg.conf
+}}}
+Then update the package list and install {{{ether-wake}}}:
+{{{
+ipkg update
+ipkg install ether-wake
+}}}
+
+If you don't want to add a new repository to your system, then install {{{ether-wake}}} by directly stating its download URL:
+{{{
+ipkg install ftp://ftp.berlios.de/pub/xwrt/packages/ether-wake_1.09-1_mipsel.ipk
+ - or -
+ipkg install http://download2.berlios.de/pub/xwrt/packages/ether-wake_1.09-1_mipsel.ipk
+ - or -
 ipkg install http://downloads.openwrt.org/backports/rc5/ether-wake_1.09-1_mipsel.ipk
 }}}
 
