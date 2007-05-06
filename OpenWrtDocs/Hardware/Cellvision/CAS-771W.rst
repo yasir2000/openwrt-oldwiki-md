@@ -19,6 +19,7 @@ Cellvision does not directly sell to customers, but acts purely as an ODM compan
 Known models are:
   * Airlink101 [http://www.airlink101.com/products/aicap650w.html AICAP650W]
   * GSF [http://www.gsf.com.my/ipcam/index.htm CAS-771W]
+  * IODATA [http://www.iodata.jp/prod/network/videoserver/2005/ts-mcam/index.htm TS-MCAM-G]
   * Planet [http://www.planet.com.tw/product/product_dm.php?product_id=457&menu_id=24 ICA-210W]
   * Simicom technologies CAS-771W
   * SparkLAN [http://www.sparklan.com/product_details.php?prod_id=150 CAS-771W]
