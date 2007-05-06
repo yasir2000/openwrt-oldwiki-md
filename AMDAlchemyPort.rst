@@ -30,9 +30,8 @@ Since the board is really well supported with both Linux 2.4 and 2.6, you can te
 
 Known problems :
 
-    * madwifi-ng driver may crash and does not always work in client mode (madwifi-ng related problem)
-    * original 2.4 LED driver does not work and may crash the board, it has therefore not been ported
-
+    * You cannot have both LEDs powered on because the GPIO mask being applied
+    * USB support is not known to work
 
 == Flashing images ==
 
