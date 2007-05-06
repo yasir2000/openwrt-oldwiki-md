@@ -3,7 +3,7 @@
 [[TableOfContents]]
 
 = Foreword =
-The intention of this guide is to enable a TUN-based (routed) tunnel with SSL/TLS certificates on your [:OpenWrtDocs/About:OpenWRT] instalation. It was based (and largely copied from :) ) on the ["OpenVPNHowTo"], which in turn talks about a slightly different (TAP-based) approach.
+The intention of this guide is to enable a TUN-based (routed) tunnel with SSL/TLS certificates on your [:OpenWrtDocs/About:OpenWRT] installation. It was based (and largely copied from :) ) on the ["OpenVPNHowTo"], which in turn talks about a slightly different (TAP-based) approach.
 
 The desired final setup is an OpenVPN server running on your OpenWRT which will receive OpenVPN client connections and optionally forward them (so you can you the internet through your new tunnel)
 
@@ -12,6 +12,7 @@ To install OpenVPN on OpenWRT, only a simple command is needed:
 {{{
 ipkg install openvpn
 }}}
+
 Windows users can either download the standard [http://openvpn.net/ OpenVPN distribution] or get the [http://openvpn.se/ OpenVPN GUI for Windows] from Mathias Sundman.
 
 Non-Windows clients just follow the OpenVPN install instructions.
@@ -34,7 +35,7 @@ touch demoCA/index.txt
 echo "01" >> demoCA/serial
 }}}
 
-For more details check out the PKI part of the [http://openvpn.net/howto.html#pki OpenVPN 2.0 HowTo], which uses the {{{EASY-RSA}}} package.
+For more details check out the PKI part of the [http://openvpn.net/howto.html#pki OpenVPN 2.0 HowTo] which uses the {{{EASY-RSA}}} package.
 Another useful tool to generate the certificates is [http://www.eduroam.edu.au/tech/ cascript].
 
 At last the server key has to be made inaccessible for others:
@@ -42,7 +43,6 @@ At last the server key has to be made inaccessible for others:
 chmod 0600 /etc/openvpn/server.key
 }}}
 = Server Setup =
-First the server setup will be done, and after this the firewall will be configured to allow OpenVPN access from the internet (WAN).
 == OpenVPN server config file ==
 Change the addresses for your specific setup, if needed.
 
@@ -103,6 +103,10 @@ iptables -A INPUT   -i tap+ -j ACCEPT
 iptables -A FORWARD -i tap+ -j ACCEPT
 }}}
 
+If you want to block DoS attacks then have a look at [http://forum.openwrt.org/viewtopic.php?id=7493 this forum thread].
+It is based on the information of the documents ["OpenWrtDocs/IPTables"] and ThrottleConnectionsHowTo. It also provides an example how to access SSH via a non-standard port (e.g. 443 for restrictive firewalls) although SSH is still running on the standard port 22.
+You can easily adopt it to VPN.
+
 If it is intended that keys are send via SSH across the WAN, then also enable accepting SSH connections from outside:
 {{{
 ### SSH (optional)
@@ -110,6 +114,7 @@ If it is intended that keys are send via SSH across the WAN, then also enable ac
 iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT
 iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
 }}}
+
 == Automatic OpenVPN startup ==
 If the manual startup and configuration worked fine, the only missing step is to automate OpenVPN's startup on the server side. Simply add the following file and it should start automatically on the next boot process.
 {{{/etc/init.d/S46openvpn:}}}
