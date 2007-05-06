@@ -11,12 +11,12 @@ Before setting up OpenWRT to wake up your machines, you should test if your mach
 = Setting up OpenWRT for WOL =
 == Using WOL (=UDP packet) ==
 With {{{wol}}} you can send a magic packet via IP. For this you have to know the broadcasting address of your network, e.g. 10.1.255.255 for a 10.1.0.0/16 network.
-
+=== Install ===
 For {{{wol}}} install the following package
 {{{
 ipkg install wol
 }}}
-
+=== Usage ===
 To awake a machine with {{{wol}}} use
 {{{
 wol -h <broadcast address> <mac address of the target> (e.g. wol -h 10.1.255.255 11:22:33:44:55:66)
@@ -28,7 +28,7 @@ Note: Maybe you are lucky and it even works without the broadcast address, but d
 
 == Using Ether-Wake (=ether frame) ==
 With {{{ether-wake}}} you can send a magic packet as an ethernet frame. You don't need any broadcast address for it, but all routers in your LAN have to forward ethernet frames.
-
+=== Install ===
 {{{ether-wake}}} is available from the [http://x-wrt.org/ X-Wrt] repository.
 If you want to add the complete repository then add it to {{{/etc/ipkg.conf}}} with:
 {{{
@@ -50,7 +50,7 @@ ipkg install http://download2.berlios.de/pub/xwrt/packages/ether-wake_1.09-1_mip
  - or -
 ipkg install http://downloads.openwrt.org/backports/rc5/ether-wake_1.09-1_mipsel.ipk
 }}}
-
+=== Usage ===
 To awake a machine with {{{ether-wake}}} use
 {{{
 ether-wake <mac address of the target> (e.g. ether-wake 11:22:33:44:55:66)
