@@ -1,63 +1,44 @@
-= Introduction =
+'''OpenVPN via TAP !HowTo'''
 
+[[TableOfContents]]
+
+= Introduction =
 This guide originated in this [http://forum.openwrt.org/viewtopic.php?pid=8495#p8495] forum post, written by legodude on 2005-06-18.
 
-It describes using OpenVPN to allow a "road warrior" remote user to connect to the home network from the wan interface i.e. anywhere on the internet.
+It describes using OpenVPN to allow a "road warrior" remote user to connect to the home network from the wan interface i.e. anywhere on the internet.#
 
 This guide describes a TAP-based (bridged tunnel) solution with preshared keys, for a TUN-based (routed tunnel) with SSL/TLS certificates, try the slightly different ["OpenVPNTunHowTo"] (which was based on this how-to)
 
 = HowTo =
-
-This is a quick howto for getting OpenVPN v2.0 up and running on OpenWRT. There are many possible ways to configure OpenVPN; the one we will use here is designed for ease of setup and one server with a few clients. To that end we will use bridged mode with static keys.
+This is a quick !HowTo for getting OpenVPN v2.0 up and running on OpenWRT. There are many possible ways to configure OpenVPN; the one we will use here is designed for ease of setup and one server with a few clients. To that end we will use bridged mode with static keys.
 
 But first some words of caution. This setup works for me. I do not claim to be an OpenVPN expert and this may have gaping security holes or hose your system.
 
 == Install Software ==
-This howto assumes an OpenWRT machine will be the OpenVPN server and a Windows client machine, however, client setup should be basically the same no matter which OS is used.
+This !HowTo assumes an OpenWRT machine will be the OpenVPN server and a Windows client machine, however, client setup should be basically the same no matter which OS is used.
 
-For the OpenWRT, only a simple:
+To install OpenVPN on OpenWRT, only a simple command is needed:
+{{{
+ipkg install openvpn
+}}}
 
-{{{ipkg install openvpn}}}
-
-is all that is needed. Windows users can either download the standard OpenVPN distribution or get the GUI version from here:
-
-http://openvpn.se/
+Windows users can either download the standard [http://openvpn.net/ OpenVPN distribution] or get the [http://openvpn.se/ OpenVPN GUI for Windows] from Mathias Sundman.
 
 Non-Windows clients just follow the OpenVPN install instructions.
 
 == Generate Static Key ==
 Windows users click the icon to generate a static key. Everyone else run:
-
-{{{openvpn --genkey --secret secret.key}}}
+{{{
+openvpn --genkey --secret secret.key
+}}}
 
 This only needs to be done once and then copied to all machines to be part of the VPN. I suggest placing the key file in /etc on the OpenWRT computer and leaving in the default place on Windows.
 
 == Setup Server ==
-
-=== Firewall ===
-
-First we need to make sure that OpenVPN connections to port 1194 are not blocked by the firewall on OpenWRT. Add the following two lines after the section allowing WAN SSH access. 
-
-If you intend to ssh the key across the WAN, opening up SSH for WAN access can be done just now.
-
-/etc/firewall.user:
-{{{
-### Allow SSH from WAN (optional)
-iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 22 -j ACCEPT
-iptables        -A input_rule      -i $WAN -p tcp --dport 22 -j ACCEPT
-
-### Allow OpenVPN connections
-iptables -t nat -A prerouting_rule -i $WAN -p udp --dport 1194 -j ACCEPT
-iptables        -A input_rule      -i $WAN -p udp --dport 1194 -j ACCEPT
-
-### Port forwarding
-}}}
-
 === Bridge Startup ===
+We need to add a script to start the bridge.
 
-Next we need to add the script to start the bridge
-
-/etc/openvpnbridge:
+{{{/etc/openvpnbridge:}}}
 {{{
 #!/bin/sh
 
@@ -118,11 +99,15 @@ case "$1" in
 esac
 }}}
 
-This file will create the OpenVPN tap devices and add them to the default OpenWRT ethernet/wifi bridge. '''Make sure to chmod +x to ensure that it is executable'''.
+This file will create the OpenVPN tap devices and add them to the default OpenWRT ethernet/wifi bridge.
+
+At last the script has to be made executable:
+{{{
+chmod +x /etc/openvpnbridge
+}}}
 
 === OpenVPN server config file ===
-
-/etc/server.ovpn:
+{{{/etc/server.ovpn:}}}
 {{{
 # Which TCP/UDP port should OpenVPN listen on?
 port 1194
@@ -180,20 +165,53 @@ secret /etc/secret.key
 }}}
 
 At this point you can start OpenVPN for testing:
+{{{
+openvpn /etc/server.ovpn
+}}}
 
-{{{openvpn /etc/server.ovpn}}}
-
-With logread you should be able to see if it started up normally.
+With {{{logread}}} you should be able to see if it started up normally.
 
 If it does start up but you do not get a connection from the WAN check if you have a line in your server config file that says: "local 192.168.1.1" and comment it out. 
-This line is marked as optional in the original OpenVPN distribution, but will not work with the settings described in this howto.
+This line is marked as optional in the original OpenVPN distribution, but will not work with the settings described in this !HowTo.
 
+=== Firewall ===
+To access the VPN from the internet (WAN) the firewall rules must accept outside connections for your VPN port (e.g. udp-1194).
+The firewall rules are stored in {{{/etc/firewall.user}}}.
+There is already an example (WR 0.9) for accepting SSH connections from outside, which can be copied and changed to:
+{{{
+### OpenVPN
+## allow connections from outside
+iptables -t nat -A prerouting_wan -p udp --dport 1194 -j ACCEPT
+iptables        -A input_wan      -p udp --dport 1194 -j ACCEPT
+}}}
+Also as mentioned in the OpenVPN FAQ [http://openvpn.net/faq.html#ip-forward ip_foward must be enabled] ([http://forum.openwrt.org/viewtopic.php?pid=20428#p20428 default in WR 0.9]) and [http://openvpn.net/faq.html#firewall packets for the OpenVPN interfaces have to be allowed/forwarded]:
+{{{
+## allow input/forwarding for the VPN interfaces, see http://openvpn.net/faq.html#firewall
+## also needs ip_forward, see http://openvpn.net/faq.html#ip-forward and http://forum.openwrt.org/viewtopic.php?pid=20428#p20428
+iptables -A INPUT   -i tun+ -j ACCEPT
+iptables -A FORWARD -i tun+ -j ACCEPT
+iptables -A INPUT   -i tap+ -j ACCEPT
+iptables -A FORWARD -i tap+ -j ACCEPT
+}}}
+
+If you want to block DoS attacks then have a look at [http://forum.openwrt.org/viewtopic.php?id=7493 this forum thread].
+It is based on the information of the documents ["OpenWrtDocs/IPTables"] and ThrottleConnectionsHowTo. It also provides an example how to access SSH via a non-standard port (e.g. 443 for restrictive firewalls) although SSH is still running on the standard port 22.
+You can easily adopt it to VPN.
+
+If it is intended that keys are send via SSH across the WAN, then also enable accepting SSH connections from outside:
+{{{
+### SSH (optional)
+## allow connections from outside
+iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT
+iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
+}}}
 
 == Configure Client ==
-
 Client configuration is pretty simple. First, transfer over the key file. This can be done by "scp" which is a file transfer over SSH. Example:
 
-{{{scp 192.168.1.1:/etc/openvpn/secret.key /etc/openvpn/}}}
+{{{
+scp 192.168.1.1:/etc/openvpn/secret.key /etc/openvpn/
+}}}
 
 Now place the following file in the config directory and remember to change the server IP address to match, as well as the secrets file. 
 
@@ -249,9 +267,9 @@ Now that should be it. Start the OpenVPN client either through the GUI or comman
 == Wrap Up ==
 If your setup did not work then it is time to start reading the quite excellent OpenVPN documentation. The #openvpn channel on Freenode is also quite helpful.
 
-If your setup is working fine then the only remaining step is to automate the startup of the OpenVPN server on the OpenWRT machine. To this end create the following file and '''make sure it is executable (chmod +x /etc/init.d/S46openvpn)''':
+If your setup is working fine then the only remaining step is to automate the startup of the OpenVPN server on the OpenWRT machine. To this end create the following file:
 
-/etc/init.d/S46openvpn:
+{{{/etc/init.d/S46openvpn:}}}
 {{{
 #!/bin/sh
 
@@ -274,6 +292,12 @@ case "$1" in
         ;;
 esac
 }}}
+
+At last the script has to be made executable:
+{{{
+chmod 0755 /etc/init.d/S46openvpn
+}}}
+
 Now on a reboot, the server should come up.
 ----
 CategoryHowTo
