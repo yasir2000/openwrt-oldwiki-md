@@ -2,7 +2,7 @@
 
 [[TableOfContents]]
 
-= Foreword =
+= Introduction =
 The intention of this guide is to enable a TUN-based (routed) tunnel with SSL/TLS certificates on your [:OpenWrtDocs/About:OpenWRT] installation. It was based (and largely copied from :) ) on the ["OpenVPNHowTo"], which in turn talks about a slightly different (TAP-based) approach.
 
 The desired final setup is an OpenVPN server running on your OpenWRT which will receive OpenVPN client connections and optionally forward them (so you can you the internet through your new tunnel)
