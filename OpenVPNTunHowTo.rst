@@ -11,7 +11,7 @@ The desired final setup is an OpenVPN server running on your OpenWRT which will 
 To install OpenVPN on OpenWRT, only a simple command is needed:
 {{{
 ipkg install openvpn
-}}}
+}}}#
 
 Windows users can either download the standard [http://openvpn.net/ OpenVPN distribution] or get the [http://openvpn.se/ OpenVPN GUI for Windows] from Mathias Sundman.
 
@@ -144,7 +144,9 @@ chmod 0755 /etc/init.d/S46openvpn
 = Client Setup =
 Ensure that the client has the certificates and keys explained above, perhaps by copying some of them (the ones that should be identical) via {{{scp}}}, with:
 
-{{{scp <OpenWRT IP>:/etc/openvpn/* /etc/openvpn/}}}
+{{{
+scp <OpenWRT IP>:/etc/openvpn/* /etc/openvpn/
+}}}
 
 And use this as a client configuration file:
 {{{
