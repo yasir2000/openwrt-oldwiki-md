@@ -1,5 +1,7 @@
 '''Belkin F5D8231-4 N1'''
 
+The comments below apply to revision 1 of this router.  The revision two of this board appears (unconfirmed) much more like to the [:OpenWrtDocs/Hardware/Netgear/WNR854:Netgear WNR854] and [:OpenWrtDocs/Hardware/Airlink101/AR625W: Airlink AR625W]. 
+
 The hardware in this router is almost identical to the Gateworks/Avila boards (same processor and ethernet hardware), and support for that should work on this board with only minor changes. 
 
 === Serial Port ===
