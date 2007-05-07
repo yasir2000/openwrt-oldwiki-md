@@ -144,6 +144,8 @@ The main configuration is done now.
 == Multiple Hostnames ==
 If you have more than one hostname registered and would like to update them all to the same IP via ez-ipupdate, then simply specify a comma-separated list of hostnames in ez-ipupdate.conf
 
+/!\ '''NOTE:''' This is only tested with http://www.dyndns.com/, although other dynamic DNS services should work too.
+
 {{{
 service-type=dyndns
 user=myname:mypassword
