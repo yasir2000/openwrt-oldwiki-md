@@ -25,6 +25,9 @@ LAN   RX  o   Antenna
 Peel off the bottom left and top right corners of the silver label on the back of the unit, to reveal two crosspoint screws. Remove them, then prise apart the case with a screwdriver.
 
 == Serial to USB adaptor ==
+Meraki no longer sells an adaptor board on their website. They are also not offering any alternatives. A suitable replacement is the Fox console board. It is available here: http://www.acmesystems.it/?id=106 It is not USB enabled so a separate USB to serial converter must be purchased in order to use it in a computer that does not have a serial port. Also to convert the 6pin header on the Fox board to the 4 pin available on the Meraki mini I used an old power connector for a floppy drive and shoved the wires into the correct ports on the fox adapter.
+
+
 Meraki sell a small adaptor board (18mm x 32mm) for $29 which plugs into JP1 and has a serial to USB adaptor chip and a mini USB connector; it comes with a mini USB to normal USB cable. It appears to be powered by the host side, not the Meraki side. Plugging it into a Linux system shows:
 
 {{{
