@@ -21,12 +21,12 @@ Non-Windows clients just follow the OpenVPN install instructions.
 Without delving too deeply in that incredibly annoying process of Certificate creation, you need to generate the following files (the names can be changed to suit your personal organizational preferences).
 ||<style="text-align: center;"> '''file''' ||<style="text-align: center;"> '''description''' ||<style="text-align: center;"> '''example of command to create it''' ||
 || ca.crt || the Root Certificate for your Certificate Authority. Should be on the server and all clients. Should be used to sign all the other certificates (both server and client) || {{{#openssl req -nodes -new -x509 -days 1825 -keyout ca.key -out ca.crt;}}} ||
-|| server.crt, client.crt || the certificate for your server or client, signed using the Root Certificate || {{{#openssl req -nodes -new -keyout server.key -out server.csr;}}} {{{#openssl ca -cert ca.crt -keyfile ca.key -out server.crt -in server.csr; *}}} ||
+|| server.crt, client.crt || the certificate for your server or client, signed using the Root Certificate || {{{#openssl req -nodes -new -keyout server.key -out server.csr;}}} {{{#openssl ca -cert ca.crt -keyfile ca.key -out server.crt -in server.csr; *}}} {{{#openssl req -nodes -new -keyout client.key -out client.csr;}}} {{{#openssl ca -cert ca.crt -keyfile ca.key -out client.crt -in client.csr; *}}} ||
 || server.key, client.key || the private key generated with your server or client's certificate || ''same as above, created on the same run'' ||
 || dh.pem || the Diffie-Hellman file for secure SSL/TLS negotiation, identical on the server and all clients || {{{#openssl dhparam -out dh.pem 1024;}}} ''(change 1024 to the size of the key you want)'' ||
 || shared.key ''(optional)'' || a shared key file, identical on the server and all clients || {{{#openvpn --genkey --secret shared.key;}}} ||
 
-* If you receive an error like {{{I am unable to access the ./demoCA/newcerts directory. /demoCA/newcerts: No such file or directory}}}, take a look at your {{{openssl.cnf}}} file. For instance, in Ubuntu openssl expects a {{{demoCA}}} directory with a {{{newcerts}}} and a {{{private}}} subdirectory. Run these commands to create everything in Ubuntu:
+* If you receive an error like {{{I am unable to access the ./demoCA/newcerts directory. /demoCA/newcerts: No such file or directory}}}, take a look at your {{{openssl.cnf}}} file. For instance, in Ubuntu and OpenWRT RC9 openssl expect a {{{demoCA}}} directory with a {{{newcerts}}} and a {{{private}}} subdirectory. Run these commands to create everything in Ubuntu:
 {{{
 mkdir demoCA
 mkdir demoCA/newcerts
@@ -142,10 +142,10 @@ At last the script has to be made executable:
 chmod 0755 /etc/init.d/S46openvpn
 }}}
 = Client Setup =
-Ensure that the client has the certificates and keys explained above, perhaps by copying some of them (the ones that should be identical) via {{{scp}}}, with:
+Copy shared.key, ca.crt, client.crt, client.key and dh.pem to your openvpn directory on your client (/etc/openvpn/ in Linux). You can copy them securely via {{{scp}}}, with:
 
 {{{
-scp <OpenWRT IP>:/etc/openvpn/* /etc/openvpn/
+scp <OpenWRT IP>:/etc/openvpn/<file.name> /etc/openvpn/
 }}}
 
 And use this as a client configuration file:
