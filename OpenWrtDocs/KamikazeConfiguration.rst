@@ -138,7 +138,7 @@ config wifi-iface
        option txpower  Currently only for Atheros. This value is measured in dbm
        option bgscan   Currently only for Atheros. This controls client background scanning, 0 disabled, 1 enabled (default)
        option hidden   0 broadcasts the ssid; 1 disables broadcasting of the ssid
-       option isolate  Currently only for Broadcom. 0 disables ap isolation (default); 1 enables ap isolation
+       option isolate  0 disables ap isolation (default); 1 enables ap isolation
 }}}
 '''Notes:
 
