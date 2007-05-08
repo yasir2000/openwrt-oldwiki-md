@@ -139,10 +139,16 @@ The CFE will enter TFTP receptive mode after that command.
 
  * refer to ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] howto create a JTAG cable
  * get !HairyDairyMaids [http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/ debrick utility] or a more recent version from [http://downloads.openwrt.org/utils/ Downloads] and instructions how to connect everything together
- * get a working version of the CFE for your WRT from [http://downloads.openwrt.org/people/inh/cfe/ inh's] download directory
  * turn the router off, attach the jtag cable
  * turn it on, and issue one command
  * don't hurry, sometimes you'll need to wait a bit
+ * BACKUP BEFORE MAKING ANY CHANGES
+
+{{{
+wrt54g -backup:cfe
+}}}
+will backup the CFE bootloader; you will need this later.
+
 {{{
 wrt54g -erase:nvram
 }}}
