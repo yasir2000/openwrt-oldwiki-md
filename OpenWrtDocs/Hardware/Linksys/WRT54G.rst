@@ -20,8 +20,8 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v5 * ||CDFB || (./) || {X} ||
 ||WRT54G v5.1* ||CDFC || (./) || {X} ||
 ||WRT54G v6 * ||CDFD || (./) || {X} ||
-||<^>WRT54G v7||<^>CDFE||<^>Unknown||<^>Unknown||
-||<^>WRT54G v8||<^>CDFF||<^>Unknown||<^>Unknown||
+||<style="vertical-align: top;">WRT54G v7 ||<style="vertical-align: top;">CDFE ||<style="vertical-align: top;">Unknown ||<style="vertical-align: top;">Unknown ||
+||<style="vertical-align: top;">WRT54G v8 ||<style="vertical-align: top;">CDFF ||<style="vertical-align: top;">Unknown ||<style="vertical-align: top;">Unknown ||
 
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
@@ -63,8 +63,10 @@ The flashing procedure linked to above utilizes the capability of the VxWorks bo
 
 === WRT54G v7 ===
 This version has not been tested. Though not confirmed it is believed to use an Atheros chipset.
+
 === WRT54G v8 ===
-This version has been not been tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this sectionif you have any known information.
+This version has been not tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this section if you have any known information.
+
 === Table summary ===
 How to get info:
 
@@ -81,8 +83,8 @@ How to get info:
 ||WRT54G v5.0 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
 ||WRT54G v5.1 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||3.90.7.0 ||
 ||WRT54G v6.0 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
-||<^>WRT54G v7.0||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||
-||<^>WRT54G v8.0||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||
+||<style="vertical-align: top;">WRT54G v7.0 ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||
+||<style="vertical-align: top;">WRT54G v8.0 ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||
 WARNING: WRT54G v5.0, v5.1, and v6.0 board flags shown above may not be accurate because the CFE used to enable flashing to Windows is actually a modified WAP54Gv3 CFE, and depending on the version of the vxworks_killer used, the boardflags and other nvram variables may be different.
 
 Other NVRAM variables of interest : firmware_version, os_version
