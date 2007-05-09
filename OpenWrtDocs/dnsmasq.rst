@@ -105,6 +105,17 @@ dhcp-option=lan,3,10.10.6.1
 #set the dns server for the dhcp clients on the lan side to 10.10.6.1
 dhcp-option=lan,6,10.10.6.1
 }}}
+== Configuring dnsmasq to generate DHCP responses to ONLY know clients ==
+There are situations where you want dnsmasq to generate DHCP addresses for
+only know clients (as defined in {{{/etc/ethers}}}).  First, set {{{lan_dhcp_num=0}}}
+to indicate that no addresses are to be generated.
+Then, modify the file {{{/etc/init.d/S60dnsmasq}}} to included the lines
+{{{
+        if [ "${num:-150}" = "0" ]; then
+                END=static
+        fi
+}}} 
+after the calls to {{{ipcalc.sh}}}.  Restart the daemon or reboot.
 == Configuring dnsmasq to associate client hostnames with DHCP-supplied IP addresses ==
 You will need the following lines in your {{{/etc/dnsmasq.conf}}} file: (Adjust IP address if your router is not 192.168.1.1)
 
