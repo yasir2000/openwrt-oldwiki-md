@@ -2,13 +2,13 @@
 = Linksys WRT54G =
 There are currently many versions of the WRT54G. With the exception of v5 devices the WRT54G units are supported by OpenWrt 1.0 (White Russian) and later. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
-Some consider the [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL] and [:OpenWrtDocs/Hardware/Linksys/WRT54G3G:WRT54G3G] to be versions of this model.
+Some consider the ["L"] and ["3G"] to be versions of this model.
 
 {{{boot_wait}}} is '''off''' by default on these routers, so you should turn it on, see OpenWrtDocs/BootWait.
 
 == Identification by S/N ==
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
-||||<style="TEXT-ALIGN: center"> (!) '''Please contribute to this list.''' (!) ||||<style="TEXT-ALIGN: center">'''!OpenWrt''' ||
+||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||'''S/N Prefix''' ||'''Stable[[BR]]White Russian''' ||'''Development[[BR]]Kamikaze''' ||
 ||WRT54G v1.0 ||CDF0 or CDF1 || (./) || (./) ||
 ||WRT54G v1.1 ||CDF2 or CDF3 or CDF4 || (./) || (./) ||
@@ -20,6 +20,8 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v5 * ||CDFB || (./) || {X} ||
 ||WRT54G v5.1* ||CDFC || (./) || {X} ||
 ||WRT54G v6 * ||CDFD || (./) || {X} ||
+||<^>WRT54G v7||<^>CDFE||<^>Unknown||<^>Unknown||
+||<^>WRT54G v8||<^>CDFF||<^>Unknown||<^>Unknown||
 
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
@@ -59,6 +61,10 @@ This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It 
 
 The flashing procedure linked to above utilizes the capability of the VxWorks boot loader to flash over itself to upload a proper CFE on this unit that then allows flashing a 'normal' TRX firmware image.
 
+=== WRT54G v7 ===
+This version has not been tested. Though not confirmed it is believed to use an Atheros chipset.
+=== WRT54G v8 ===
+This version has been not been tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this sectionif you have any known information.
 === Table summary ===
 How to get info:
 
@@ -75,6 +81,8 @@ How to get info:
 ||WRT54G v5.0 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
 ||WRT54G v5.1 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||3.90.7.0 ||
 ||WRT54G v6.0 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
+||<^>WRT54G v7.0||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||
+||<^>WRT54G v8.0||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||<^>--||
 WARNING: WRT54G v5.0, v5.1, and v6.0 board flags shown above may not be accurate because the CFE used to enable flashing to Windows is actually a modified WAP54Gv3 CFE, and depending on the version of the vxworks_killer used, the boardflags and other nvram variables may be different.
 
 Other NVRAM variables of interest : firmware_version, os_version
