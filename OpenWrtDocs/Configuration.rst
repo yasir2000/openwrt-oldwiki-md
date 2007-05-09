@@ -35,7 +35,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||WRT54G v4 & WRT54GS v3 ||[http://voidmain.is-a-geek.net/i/WRT54_sw2_internal_architecture.png Switch diagram] ||
 
 
-[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware!OpenWrt is run on. A more detailed explanation of the networking internals is on the page OpenWrtDocs/NetworkInterfaces
+[[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware !OpenWrt is run on. A more detailed explanation of the networking internals is on the page OpenWrtDocs/NetworkInterfaces
 ||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
 ||Linksys ||WRT54G ||v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
@@ -50,7 +50,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-500g Deluxe || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Asus ||WL-500g Premium || ||vlan0 ||vlan1 ||eth2 ||note^1^ note^2^ note^3^ ||
-||Asus ||Wl-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
+||Asus ||WL-HDD || ||eth1 ||N/A ||eth2 ||No switch and no WAN port ||
 ||Belkin ||["OpenWrtDocs/Hardware/Belkin/F5D7130"] ||1010 ||eth0 ||eth1 ||eth2 ||By default, LAN is br0 bridging eth0 and eth2 ||
 ||Buffalo ||WBR-G54 || ||eth0 ||eth1 ||eth2 || ||
 ||Buffalo ||WBR2-G54 || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
@@ -98,7 +98,7 @@ NVRAM; Description
 <name>_hostname; hostname requested with dhcp
 <name>_hwaddr; MAC address (aa:bb:cc:dd:ee:ff) if you want to use a different MAC of the ROM
 }}}
-Where <name> is either one of 'wl0', 'lan', or 'wan' for the wireless, local area network, or the wide area network respectively. 
+Where <name> is either one of 'wl0', 'lan', or 'wan' for the wireless, local area network, or the wide area network respectively.
 
 The command ''ifup <name>'' will configure the interface defined by <name>_ifname according to the above variables. As an example, the {{{/etc/init.d/S40network}}} script will automatically run the following commands at boot:
 
