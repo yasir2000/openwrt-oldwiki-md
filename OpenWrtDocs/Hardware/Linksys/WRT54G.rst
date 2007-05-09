@@ -65,7 +65,7 @@ The flashing procedure linked to above utilizes the capability of the VxWorks bo
 This version has not been tested. Though not confirmed it is believed to use an Atheros chipset.
 
 === WRT54G v8 ===
-This version has been not tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this section if you have any known information.
+This version has not been tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this section if you have any known information.
 
 === Table summary ===
 How to get info:
