@@ -34,6 +34,7 @@ parprouted
 === NVRAM Variables ===
 
 The following nvram variables need to be set.  The variables set to '[set]' need to be set to your environment.
+Bug/Problem: After the bridge is working there is no chance to access the bridge. Are there any rules missing for selecting propper WAN and LAN IPs?
 
 {{{
 wan_proto=static
