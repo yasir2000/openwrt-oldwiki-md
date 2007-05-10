@@ -1,6 +1,7 @@
 === Hardware ===
+http://www.routerboard.com/img/rb100_comp.jpg
 
-The board comes with a MIPS32 4Kc based 175MHz embedded processor, Infineon ADM5120.
+These boards come with a MIPS32 4Kc based 175MHz embedded processor, Infineon ADM5120.
 
 There are currently 5 boards in this range:-
 
@@ -9,12 +10,11 @@ There are currently 5 boards in this range:-
  1. 133c One mini-pci, 32/16MB RAM, 128/64MB NAND Flash, one ethernet, no CF
  1. 150 No mini-pci, 32MB RAM, 64MB NAND Flash, five ethernet, no CF
  1. 153 Three mini-pci, 32MB RAM, 64MB NAND Flash, give ethernet, one CF
-
 === Installation ===
-
 Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need a serial connection as console, and an ethernet connection to load the kernel and then download the flash image.  You will also need to have BOOTP and TFTPD servers on your machine.  This can be done either using independent packages or using DnsMasq.  You will also need a Web server.
 
 The minicom settings for a connection using a USB serial port would be:-
+
 {{{
 # Machine-generated file - use setup menu in minicom to change parameters.
 pu port             /dev/ttyUSB0
@@ -33,10 +33,9 @@ pu mdialsuf2
 pu mdialpre3
 pu mdialsuf3
 }}}
-
 Unfortunately you need to build two kernels in order to install this system.  The first has a RAMDISK built into it so that you can download it using the Netboot facility and have a working system without a disk, and the second is the one that is going to be installed on the flash and will be your running kernel.
 
-All the building happens under the ADM5120-2.6 target, so the first thing you need to do is to download an SVN copy of OpenWrt Kamikaze, and then run make menuconfig.  
+All the building happens under the ADM5120-2.6 target, so the first thing you need to do is to download an SVN copy of OpenWrt Kamikaze, and then run make menuconfig.
 
 As the ADM5120 support is currently under development you need to tell menuconfig that you wish to work with broken targets, you do this in the Advanced Options for Developers section.
 
@@ -62,12 +61,11 @@ When the kernel is booted hardly any of the normal OpenWrt initialisation occurs
 
 In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
 
-wget2nand takes a single parameter, the URL of the directory into which the tgx and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.  
+wget2nand takes a single parameter, the URL of the directory into which the tgx and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
 
 When you reboot you need to change the BIOS settings back to booting from the NAND.
 
 Once the installation is complete then you can reboot your RouterBoard 1xx card and you should have a running system.
 
 ----
-
-CategoryModel ["CategoryADM5120Device"]
+ CategoryModel ["CategoryADM5120Device"]
