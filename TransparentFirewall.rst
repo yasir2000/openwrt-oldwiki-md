@@ -90,12 +90,14 @@ BR_STP=off
 
 
 # Required kernel modules
-/sbin/insmod ebtables           2> /dev/null
-/sbin/insmod ebtable_broute     2> /dev/null
-/sbin/insmod ebtable_filter     2> /dev/null
-/sbin/insmod ebtable_nat        2> /dev/null
-/sbin/insmod ebt_ip             2> /dev/null
-/sbin/insmod ebt_snat           2> /dev/null
+# Choose relocatable ebtables-modules and 
+# dont turn off possible error messages!
+/sbin/insmod /lib/modules/2.4.30/ebtables          
+/sbin/insmod /lib/modules/2.4.30/ebtable_broute    
+/sbin/insmod /lib/modules/2.4.30/ebtable_filter    
+/sbin/insmod /lib/modules/2.4.30/ebtable_nat       
+/sbin/insmod /lib/modules/2.4.30/ebt_ip            
+/sbin/insmod /lib/modules/2.4.30/ebt_snat          
 
 
 # ===================================================
