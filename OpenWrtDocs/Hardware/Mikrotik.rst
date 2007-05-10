@@ -10,12 +10,10 @@ To add a page to this category, add a link to this page on the last line of the 
 
 '''List of pages in this category:'''
 
+Mikrotik hardware notes:
+
 [[FullSearch()]]
 
- Mikrotik hardware notes
- 1. [../../../OpenWrtDocs/Hardware/Mikrotik/RB100?highlight=(OpenWrtDocs/Hardware/Mikrotik) OpenWrtDocs/Hardware/Mikrotik/RB100]
- 1. [../../../OpenWrtDocs/Hardware/Mikrotik/RB532?highlight=(OpenWrtDocs/Hardware/Mikrotik) OpenWrtDocs/Hardware/Mikrotik/RB532]
-
-
+ .
 ----
-CategoryCategory
+ . CategoryCategory
