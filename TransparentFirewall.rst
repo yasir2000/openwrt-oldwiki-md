@@ -305,6 +305,17 @@ done
 
 }}}
 
+== Performance ==
+
+Before implementing this your own, here are some performance results based on a WRT54GL using OpenWRT 0.9. Task was transfering a file through the bridge. The server providing the file was right behind the bridge-device. The test ran in two variants with ebtables turned on/off (via insmod). Even if ebtables get -''instead of insmod'ded''- directly compiled in the kernel, the results might only slightly differ.
+
+Results:
+
+ * Download-Speed without ebtables (just plain bridge): '''8,5 MB/s'''.
+ * By turning ebtables on via "insmod..." rate drops down to '''3,45 MB/s'''.
+
+Although the maximum speed depends on hardware, it is expectable that the loss-rate of around 50% is scalable/proportional to the maximum speed.  
+
 
 == Will this work as a wireless bridge? ==
 
@@ -313,6 +324,7 @@ That is a good question.  I have not tried it, but in theory it should work.  I 
 {{{
 wan_ifname=eth1
 }}}
+
 
 If someone gets this working over wireless, fill in here and let us know...
 
