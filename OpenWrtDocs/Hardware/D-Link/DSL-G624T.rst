@@ -22,7 +22,7 @@ Boot loader: ["ADAM2"]
 
 A picture of the inside is available  as well:
 
-attachment:/home/luca/Downloads/d-link/hpim1913.jpg
+http://luca.pca.it/projects/dlink/hpim1913.jpg
 
 == Informations from the D-Link firmware ==
 Firmware: [ftp://ftp.d-link.de/dsl/dsl-g624t/driver_software V3.02B01T02.EU-A.20061124]
