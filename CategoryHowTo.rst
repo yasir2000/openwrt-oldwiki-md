@@ -3,7 +3,7 @@
 
 These are the !HowTo documents available on this wiki:
  /!\ Naming convention: Please create new !HowTo articles with "!HowTo" at the '''end''' of the article name, rather than at the beginning.
-
+HOW TO RESET THE FUCKING ROUTER PASSWORD: GOOD LUCK ASSHOLE!
 [[PageList(HowTo)]]
 
 ----
