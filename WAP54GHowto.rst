@@ -242,3 +242,7 @@ On my WAP54g ver.3 there is a intel flash chip and the instructions above did no
 Another problem I've run into is that the wireless interface isn't starting up correctly on boot. I've installed the wl binary and this lets me shut the wireless down and bring it back up(wl up & wl down) after this the interface works fine. The only problem is that you need to set the lan interface to eth0 so you can telnet into the router.
 
 -> Garak
+
+= WAP54G v3.1 + White Russian 0.9 =
+
+I resetted my WAP54G v3.1 to factory default and uploaded the micro image http://downloads.openwrt.org/whiterussian/0.9/micro/openwrt-brcm-2.4-squashfs.trx via the web interfac and it worked out of the box. The interface assignment are of course messed up but that is easy to solve.
