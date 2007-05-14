@@ -128,7 +128,7 @@ usb_vid 0x0
 usb_pid 0x0
 usb_man N/A
 usb_prod        N/A}}}
-== How to get OpenWRT onto the router: ==
+== How to get OpenWRT onto the router ==
 '''Preamble/Disclaimer'''
 
 I do not advise proceeding forward unless you understand that you're going to loose your warranty and that you can 'brick' the router.  However, it seems that the router can be recovered from a Windows machine as explained [:TroubleshootingAR7#head-562d49fa164305ca458b1f30c66a4fa234ce2c8e:here].
@@ -170,7 +170,7 @@ Be advised that to compile the firmware you need a working Internet connection, 
 
 '''Upload the firmware'''
 
-Once the firwmare is compiled, you need to upload it to the router.  For this, you can use the adam2flash.pl script present in the scripts/ folder.First of all, be sure that you can connect to the ADAM2 bootloader.  Using an ethernet cable (during the booting process the wireless isn't available), configure your network card in the same IP range as ADAM2 and then switch the router on.  After 2 seconds you can connect to it (substitute 192.168.1.1 with your ADAM2 IP address):
+Once the firwmare is compiled, you need to upload it to the router.  For this, you can use the adam2flash.pl script present in the scripts/ folder.  First of all, be sure that you can connect to the ADAM2 bootloader.  Using an ethernet cable (during the booting process the wireless isn't available), configure your network card in the same IP range as ADAM2 and then switch the router on.  After 2 seconds you can connect to it (substitute 192.168.1.1 with your ADAM2 IP address):
 
 {{{
 $ telnet 192.168.1.1 21
