@@ -245,4 +245,8 @@ Another problem I've run into is that the wireless interface isn't starting up c
 
 = WAP54G v3.1 + White Russian 0.9 =
 
-I resetted my WAP54G v3.1 to factory default and uploaded the micro image http://downloads.openwrt.org/whiterussian/0.9/micro/openwrt-brcm-2.4-squashfs.trx via the web interfac and it worked out of the box. The interface assignment are of course messed up but that is easy to solve.
+I resetted my WAP54G v3.1 to factory defaults and afterwards simply uploaded the White Russian 0.9 micro image...
+
+{{{http://downloads.openwrt.org/whiterussian/0.9/micro/openwrt-brcm-2.4-squashfs.trx}}}
+
+...via the web interface and it worked out of the box. The interface assignment are of course messed up but that is easy to solve if you do a little bit of reading.
