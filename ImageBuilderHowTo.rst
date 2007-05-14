@@ -6,6 +6,8 @@ This guide should guide you in building your own individual custom OpenWrt firmw
 
 Why custom images?[[BR]] These images are for people who want to do less configuration on the router itself, or who want to distribute the images to friends, or for backup purposes. This list could be continued by your own ideas.
 
+If you are compiling from source (kamikaze) imagebuilder is not needed, instead see [http://forum.openwrt.org/viewtopic.php?pid=46738 this thread] for build instructions.
+
 = Requirements =
  * a recent GNU/Linux distribution
  * a non root account (if you use root, generated image wont work)
