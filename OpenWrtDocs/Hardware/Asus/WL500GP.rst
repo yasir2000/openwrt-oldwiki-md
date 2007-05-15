@@ -1,7 +1,7 @@
 The Asus WL-500g Premium seems to work with OpenWrt.
 
 == Installation ==
-Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the tftp part (which works for sure).  From Asus Firmware 1.9.7.0 the webinterface doesn't work to upgrade to OpenWRT (bin or micro, 4Mb or 8Mb).  If the tftp part fails, you can try the installation with the Asus "firmware restoration" tool (works like a charm, but windows only).
+Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the tftp part (which works for sure).  From Asus Firmware 1.9.7.0 the webinterface doesn't work to upgrade to OpenWRT (bin or micro, 4Mb or 8Mb).  ~-Comment: According to ASUS this has been fixed in 1.9.7.2.-~  If the tftp part fails, you can try the installation with the Asus "firmware restoration" tool (works like a charm, but windows only).
 
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
