@@ -6,7 +6,7 @@ Looks like most people won't be able to install OpenWrt using the Asus web inter
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: it does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0.-~
+It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: It does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0. Comment: According to ASUS this has been fixed in 1.9.7.2.-~
 
 === Using diag mode and tftp ===
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
