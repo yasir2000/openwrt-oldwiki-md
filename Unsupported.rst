@@ -40,9 +40,10 @@ Most devices listed here do not have enough flash memory, but there might be oth
 == LevelOne ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WBR-3400 ||V2 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8010_88W8510.pdf Marvell 88W8510] (ARM9 core) ||1MB (Macronix 29LV800TTC-70) ||4 MB (2x EM636165TS-6: 1M x 16'') '' ||integrated (Marvell Libertas) ||Marvell 88E6060 (4x) || || ||20-pin not soldered ||No ||No ||
+
 == Linksys ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416826220&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper BEFW11S4] || || || || || || || || || || ||Unsupported - original entry was "too old, too different" ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416826220&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper BEFW11S4] ||4.0 ||Marvell 88w8500 || || ||Marvel 88w8800 || Marvel 88E6060 || || || || ||Unsupported - original entry was "too old, too different" ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1122062340941&pagename=Linksys/Common/VisitorWrapper BEFSR41] || || || || || || || || || || ||Unsupported - original entry was "too old, too different", [http://forum.openwrt.org/viewtopic.php?id=302 Forum post] ||
 ||WAG54GS || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 Broadcom 6348] @ 240MHz ||4MB ||16MB ||Integrated Broadcom 4318 ||BCM5325 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:No] ||
 ||[http://www1.linksys.com/international/product.asp?coid=6&ipid=831 WAG54GX2] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 Broadcom 6348] @ 240MHz ||8MB ||32MB ||Airgo MIMO (mini pci) ||BCM5325 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WAG54GX2:No] ||
