@@ -43,6 +43,7 @@ Most devices listed here do not have enough flash memory, but there might be oth
 
 == Linksys ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416826220&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper BEFW11S4] & [http://sleeduck.free.fr/index.php?r=fabrice&subj=LINKSYS_BEFW11S4 BEFW11S4-v3] ||3.0 ||Samsung S3C4510B01, ARM7 TDMI ||8 Mb|| 16 Mb ||Intersil ISL3871AIN33 || RTL8019AS || || || || ||Unsupported - original entry was "too old, too different" ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416826220&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper BEFW11S4] ||4.0 ||Marvell 88w8500 || || ||Marvel 88w8800 || Marvel 88E6060 || || || || ||Unsupported - original entry was "too old, too different" ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1122062340941&pagename=Linksys/Common/VisitorWrapper BEFSR41] || || || || || || || || || || ||Unsupported - original entry was "too old, too different", [http://forum.openwrt.org/viewtopic.php?id=302 Forum post] ||
 ||WAG54GS || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 Broadcom 6348] @ 240MHz ||4MB ||16MB ||Integrated Broadcom 4318 ||BCM5325 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:No] ||
