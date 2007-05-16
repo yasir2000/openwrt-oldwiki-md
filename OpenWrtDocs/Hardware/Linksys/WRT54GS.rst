@@ -15,7 +15,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54GS v2.1 ||<style="text-align: center;"> CGN4 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
 ||WRT54GS v3.0 ||<style="text-align: center;"> CGN5 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
 ||WRT54GS v4.0 ||<style="text-align: center;"> CGN6 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v5 ||<style="text-align: center;"> CGN7 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
+||WRT54GS v5 ||<style="text-align: center;"> CGN7 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} (works) ||
 ||WRT54GS v5.1 ||<style="text-align: center;"> CGN8 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
 ||WRT54GS v6.0 ||<style="text-align: center;"> CGN9 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
 
