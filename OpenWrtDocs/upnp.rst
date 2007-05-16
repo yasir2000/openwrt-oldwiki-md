@@ -40,7 +40,7 @@ The libpthread package is already part of the OpenWRT package tree, but if you w
 With '''miniupnpd''', Only one package is required to be installed :
 ftp://ftp.berlios.de/pub/xwrt/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
 or for kamikaze users :
-ftp://ftp.berlios.de/pub/xwrt/kamikaze/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
+ftp://ftp.berlios.de/pub/xwrt/kamikaze/broadcom-2.4/packages/miniupnpd_1.0-RC3-1_mipsel.ipk
 
 === Installing uPnP ===
 The following shell commands will get uPnP installed and running (from the current known working locations):
