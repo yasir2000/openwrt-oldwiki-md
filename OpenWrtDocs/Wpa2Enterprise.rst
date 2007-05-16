@@ -13,16 +13,15 @@ wl0_radius_port=1812
 wl0_ssid=myNetworksSSID
 wl0_wep=aes+tkip
 }}}
-
 Two mysteries here:
- 1. Although the ["OpenWrtDocs/Configuration#WPA"] docs say that {{{wl0_auth_mode}}} is deprecated, [http://www.bingner.com/openwrt/wpa.html this page] linked from the forums suggested it should be either {{{psk}}} or {{{radius}}}.  It didn't seem to hurt anything, and I didn't get it working until I set it to radius, so perhaps there's something there.
- 2. My device has both {{{wl_}}} and {{{wl0_}}} prefix variables; I set both of them out of superstition but only list the wl0_ ones above.  Anyone know why this is so? ''The wl_* nvram variables are left over from the default firmware and are not used with ''OpenWrt,'' as stated elsewhere in the documentation.''
 
-Don't forget to 
+ 1. Although the ["OpenWrtDocs/Configuration#WPA"] docs say that {{{wl0_auth_mode}}} is deprecated, [http://www.bingner.com/openwrt/wpa.html this page] linked from the forums suggested it should be either {{{psk}}} or {{{radius}}}.  It didn't seem to hurt anything, and I didn't get it working until I set it to radius, so perhaps there's something there.
+ 1. My device has both {{{wl_}}} and {{{wl0_}}} prefix variables; I set both of them out of superstition but only list the wl0_ ones above.  Anyone know why this is so? ''The wl_* nvram variables are left over from the default firmware and are not used with ''OpenWrt,'' as stated elsewhere in the documentation.''
+Don't forget to
+
 {{{
 nvram commit
 }}}
-
 == FreeRadius ==
 === Use ipkg get the freeradius packages. ===
 {{{
@@ -45,10 +44,10 @@ ipkg install freeradius freeradius-democerts freeradius-mod-chap freeradius-mod-
 freeradius-mod-eap-mschapv2 freeradius-mod-eap-peap freeradius-mod-eap-tls freeradius-mod-eap-ttls \
 freeradius-mod-files freeradius-mod-mschap freeradius-mod-pap freeradius-utils
 }}}
-
 You'll need to edit four files: clients.conf, eap.conf, radiusd.conf and users, plus configure certificates properly (handled under the eap.conf section below).
 
 You will need to rename the radiusd startup script otherwise it will not be invoked, eg
+
 {{{
 mv /etc/init.d/radiusd /etc/init.d/S42radiusd
 }}}
@@ -62,55 +61,45 @@ client 127.0.0.1 {
         nastype     = other     # localhost isn't usually a NAS...
 }
 }}}
-
 === eap.conf ===
 This file is included by radiusd.conf. Here's mine, stripped of all comments and blanks.
 
 {{{
-       eap {
-                default_eap_type = ttls
-                timer_expire     = 60
-                ignore_unknown_eap_types = no
-                cisco_accounting_username_bug = no
-
-                md5 {
-                }
-
-                mschapv2 {
-                }
-
-
-                tls {
-                        private_key_password = seekritpassword
-                        private_key_file = ${raddbdir}/certs/14.key
-                        certificate_file = ${raddbdir}/certs/14.pem
-                        CA_file = ${raddbdir}/certs/my-cacert.pem
-                        dh_file = ${raddbdir}/certs/dh
-                        random_file = ${raddbdir}/certs/random
-                        fragment_size = 1024
-                }
-
-                ttls {
-                        default_eap_type = md5
-                        copy_request_to_tunnel = no
-                        use_tunneled_reply = no
-
-                }
-
-                peap {
-                        default_eap_type = mschapv2
-               }
-
+eap {
+        default_eap_type = ttls
+        timer_expire     = 60
+        ignore_unknown_eap_types = no
+        cisco_accounting_username_bug = no
+        md5 {
         }
+        mschapv2 {
+        }
+        tls {
+                private_key_password = whatever
+                private_key_file = ${raddbdir}/certs/cert-srv.pem
+                certificate_file = ${raddbdir}/certs/cert-srv.pem
+                CA_file = ${raddbdir}/certs/demoCA/cacert.pem
+                dh_file = ${raddbdir}/certs/dh
+                random_file = ${raddbdir}/certs/random
+                fragment_size = 1024
+        }
+        ttls {
+                default_eap_type = md5
+                copy_request_to_tunnel = no
+                use_tunneled_reply = no
+        }
+        peap {
+                default_eap_type = mschapv2
+        }
+}
 }}}
-
 The freeradius-samplecerts ipkg will install some 'snakeoil' certificates that you can use if you want; I already had a CA set up at work using the excellent [http://devel.it.su.se/pub/jsp/polopoly.jsp?d=1026&a=3290 CSP package] so I just generated a new one for my server. Note that if you wish Windows to authenticate your server certificate it must have the CA public key in its store. Furthermore the WRT's certificate must have the 'TLS Web Server Authentication' extended key usage (ie you need a CA section which has 'extendedKeyUsage        = serverAuth' in it).
 
 You may need to create a random file (on another machine) as using /dev/random caused radiusd to hang. To do this run the following command and copy the resulting file back
+
 {{{
 openssl rand -out random 102400
 }}}
-
 === radiusd.conf ===
 Huge file as distributed. I've massively cut mine down to save space and cut out things that the freeradius ipkg doesn't support (all the backends, proxying, neato logging, etc do not work). It's still quite long, but here are JUST THE IMPORTANT PARTS. I'll attach the real file to this wiki page for downloading.
 
@@ -125,13 +114,11 @@ raddbdir = /etc/freeradius
 radacctdir = ${logdir}/radacct
 confdir = ${raddbdir}
 run_dir = ${localstatedir}/run
-
 listen {
         ipaddr = *
         port = 0
         type = auth
 }
-
 thread pool {
         start_servers = 1
         max_servers = 4
@@ -139,49 +126,38 @@ thread pool {
         max_spare_servers = 3
         max_requests_per_server = 0
 }
-
 $INCLUDE  ${confdir}/clients.conf
-
 modules {
         pap {
                 encryption_scheme = clear
         }
-
         chap {
                 authtype = CHAP
         }
-
         $INCLUDE ${confdir}/eap.conf
-
         mschap {
                 authtype = MS-CHAP
                 with_ntdomain_hack = yes
         }
-
         mschapv2 {
         }
-
         files {
                 usersfile = ${confdir}/users
                 compat = no
         }
 }
-
 authorize {
         files
         mschap
         eap
 }
-
 authenticate {
         Auth-Type MS-CHAP {
                 mschap
         }
-
         eap
 }
 }}}
-
 Basically we've cut it down from being enterprise-ready (10 simultaneous processes!) down to something that'll work on the embedded OS/device in openwrt, and disabled everything except what's necessary for EAP.
 
 === users ===
@@ -192,7 +168,6 @@ DEFAULT Group == "disabled", Auth-Type := Reject
                 Reply-Message = "Your account has been disabled."
 mysername    User-Password == "mySeekritPassword"
 }}}
-
 You will also need to create empty acct_user and preproxy_user files (ie just touch them).
 
 Note that it is advisable to read all of the radiusd output and check for errors as they may cause radiusd to crash later even though it looks like it's working.
@@ -201,12 +176,13 @@ Note that it is advisable to read all of the radiusd output and check for errors
 You can use an LDAP server as a backend for FreeRadius - I use """OpenLDAP""" and the smbldap tools to allow Samba to act as a PDC and to allow users to have a unified password system. I modified the configuration like so..
 
 Edit ldap.attrmap and change the LM/NT-Password lines to look like..
+
 {{{
 checkItem       LM-Password                     sambaLMPassword
 checkItem       NT-Password                     sambaNTPassword
 }}}
-
 Edit radiusd.conf and put this after the chap entry
+
 {{{
         ldap {
                 server = "ldap.mydomain.com"
@@ -216,21 +192,20 @@ Edit radiusd.conf and put this after the chap entry
                 filter = "(uid=%{Stripped-User-Name:-%{User-Name}})"
         }
 }}}
+Add 'ldap' in the authorize section after 'files'. Add the following to the authenticate section before MS-Chap
 
-Add 'ldap' in the authorize section after 'files'.
-Add the following to the authenticate section before MS-Chap
 {{{
         Auth-Type LDAP {
                 ldap
         }
 }}}
-
 == Client Configuration ==
 === MacOSX ===
 For my MacBook Pro, I had to pick the 802.1X type manually in System Preferences - Network - AirPort - Edit (SSID). I Picked ""Wireless Security"": WPA2 Enterprise, put username and password, and picked ""802.1X Configuration"": TTLS - PAP.  This forced it to use the cleartext password in the users file.
 
 === FreeBSD ===
 Create a wpa_supplicant.conf file like so..
+
 {{{
 network={
         ssid="myNetworksSSID"
@@ -240,8 +215,8 @@ network={
         password="mySeekritPassword"
 }
 }}}
-
 If you are using LDAP you will need to specify the following as well
+
 {{{
         phase2="auth=PAP"
 }}}
@@ -250,7 +225,7 @@ If you are using LDAP you will need to specify the following as well
 You will need to load some wlan modules (ie wlan_ccmp).
 
 === Windows XP ===
-Double click on the wireless interface 'Control Panel', 'Network Connections'. Click 'Advanced Settings', then select the 'Wireless Networks' tab. 
+Double click on the wireless interface 'Control Panel', 'Network Connections'. Click 'Advanced Settings', then select the 'Wireless Networks' tab.
 
 Either click 'Add' (if it isn't already preset) or select the network and click 'Properties'. Make sure the SSID is correct, and 'Network Authentication' is set to 'WPA'. Select 'AES' or 'TKIP' for 'Data Encryption'.
 
