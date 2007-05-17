@@ -9,6 +9,8 @@ Thank you nbd and all the OpenWRT developers for making this work-Z3r0 (not the 
 
 Thank you Mr Chandler for fixing some of the formatting.
 
+Note, as of 17th May '07 I am no longer maintaining this page as I no longer have a DSL-502T, if you would like to update this page please feel free to. (Z3r0)
+
 == Specifications ==
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port
 
@@ -55,12 +57,11 @@ svn co https://svn.openwrt.org/openwrt/packages/net/ez-ipupdate ez-ipupdate is a
 
 ''' Install prerequisites for compiling'''
 
-For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev', 'automake', 
-i.e
+For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev', 'automake',  i.e
+
 {{{
 apt-get install flex bison autoconf zlib1g-dev libncurses5-dev automake
 }}}
-
 '''Select firmware components'''
 
 Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4]
