@@ -92,6 +92,15 @@ iptables        -A forwarding_rule -s 192.168.1.0/24 -d 172.16.1.0/24 -j ACCEPT
 }}}
 It alows two way communication. NOTE:  The ip address range in the iptables section above is the LAN ip address range.
 
+If you have Windows PPTP clients and you want them to be able to access file shares on the LAN, you need to set the  IP addresses of the PPTP clients to be on the same subnet as the LAN.  This is because of a limitation in proxyarp.  For example, you can set you LAN to be 192.168.0.0/24 with DCHP assigning 192.168.0.50-192.168.0.100.  You can set the IP address of the PPTP server to be
+{{{
+192.168.0.200:
+}}}
+in /etc/ppp/options.pptpd.  You can then assign the client IP address beginning with 192.168.0.201.  Using the first VPN section listed above you will then be able to access file shares by IP address.  For example, you can type
+{{{
+\\192.168.0.50
+}}}
+into the address bar of Windows Explorer.  Network neighborhood still doesn't detect available computers.  If anyone knows how to make this work please post the instructions here.
 == Troubleshooting ==
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
 
