@@ -1,11 +1,11 @@
 '''SHmin'''
 
-This board is also known as SH-min (or SH7706LAN or T-SH7706LAN), since this is a very minimal board only enough to experiment with the SH3 platform. However, there are rumours about hacking an LCD onto the expansion pins and playing Doom on it.
+This board is also known as TAC Inc. SH7706LAN or T-SH7706LAN. It is is a very minimal board only enough to experiment with the SH3 platform, however, there are rumours about hacking an LCD onto the expansion pins and playing Doom on it.
 
  * Bootloader: MES 2.3 Rev12 (Micro Embedded System)
  * CPU: SH7706 @ 133MHz (SH3)
  * Flash size: 512KByte
- * RAM: 32 MByte
+ * RAM: 8 - 32 MByte
  * Ethernet: RTL8019AS
  * Serial: Yes, via a DB9 connector
  * JTAG: yes, 14-pin U-HDI
@@ -13,7 +13,7 @@ This board is also known as SH-min (or SH7706LAN or T-SH7706LAN), since this is 
  * Expansion pins: Yes, check [http://trash.uid0.hu/openwrt/sh/T-SH7706LAN3.pdf here]
 
 
-Different versions of this board exists, most of them are equipped with 8 MByte memory, this is the latest build as far as I know.
+Different versions of this board exists, most of them are equipped with 8 MByte memory, only rev. 3.0 is equipped with 32 MByte.
 
 NOTE: MES supports only FAT12 partitions on the MMC, so if you try to take a card from a phone or a digital camera, it has to be repartitioned and reformatted first.
 
