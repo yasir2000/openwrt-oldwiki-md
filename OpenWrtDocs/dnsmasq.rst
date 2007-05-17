@@ -8,6 +8,16 @@ Dnsmasq is lightweight, easy to configure DNS forwarder and DHCP server. It is d
 Dnsmasq is targeted at home networks using NAT and connected to the internet via a modem, cable-modem or ADSL connection but would be a good choice for any small network where low resource use and ease of configuration are important.
 
 = Basic Configuration =
+== Nvram vs Config file ==
+In white Russian 0.9 the init script use nvram by default[[BR]]
+in order to make dnsmask work with the config file(/etc/dnsmasq.conf) we need to remplace the init script(/etc/init.d/S60dnsmasq):
+{{{ 
+[ ! -f /tmp/dhcp.leases ] && {
+ touch /tmp/dhcp.leases
+ }
+
+ dnsmasq -C /etc/dnsmasq.conf
+}}}
 == Web Interface Notes ==
 Your {{{/etc/ethers}}} and {{{/etc/hosts}}} files can now be modified through the White Russian web interface. While you'll still need to manually setup your {{{/etc/dnsmasq.conf}}} file for things like domains, you can do simple configuration through the web interface.
 
