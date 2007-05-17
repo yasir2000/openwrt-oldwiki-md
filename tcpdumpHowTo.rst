@@ -1,4 +1,4 @@
-i;ve set up a script /etc/init.d/S98tcpdump
+i've set up a script /etc/init.d/S98tcpdump
 {{{
 tcpdump -F /etc/tcpdump.conf -i br0 -w /tmp/log/tcpdump 2>/dev/null &
 }}}
