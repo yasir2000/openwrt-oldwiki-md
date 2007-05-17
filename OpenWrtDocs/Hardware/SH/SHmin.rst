@@ -4,12 +4,13 @@ This board is also known as SH-min (or SH7706LAN or T-SH7706LAN), since this is 
 
 {{{
 Bootloader: MES 2.3 Rev12 (Micro Embedded System)
-CPU: SH7706 @ 133MHz
-Flash size: 512KByte
+CPU: SH7706 @ 133MHz (SH3)
+Flash size: 512KByte, holding the MES only
 RAM: 32 MByte
 Ethernet: RTL8019AS
-Serial: yes, via a DB9 connector
+Serial: Yes, via a DB9 connector
 JTAG: yes, 14-pin U-HDI
+Expansion pins: Yes, check http://trash.uid0.hu/openwrt/sh/T-SH7706LAN3.pdf
 }}}
 
 Different versions of this board exists, most of them are equipped with 8 MByte memory, this is the latest build as far as I know.
