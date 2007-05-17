@@ -6,17 +6,13 @@ NOTE: If you brick your WAP54G, don't flame me. This works for me, but this does
 '''!!!WARNING!!!''' I know two different WAP54G models. Look at the rear of your AP. If the reset button is close to the left antenna, your AP will accept OpenWRT. If the reset button is next to the ethernet connector (left side of the ethernet connector), you'll brick your AP with OpenWRT (**unless using patches made by nbd**). If you install OpenWRT without these patches, both LAN and WLAN will die. See bottom section for v2 instructions and info. '''!!!WARNING!!!'''
 
  . 1., Enable boot_wait. I did this by installing Sveasoft Freya firmware and enabling telnet on the web page, so that I got a prompt on the AP. telnet to the AP and issue the following two commands: ''nvram set boot_wait=on; nvram commit''. Before flashing openwrt, make sure the AP is in AP mode and you can connect it via wireless! Test it or you'll brick your AP! 2., I could tftp (netkit-tftp doesn't work for me, but atftp does) openwrt-linux.trx (CVS version) to the AP. a., Using atftp:
-
 ||''atftp 192.168.1.245'' ||
 ||''atftp> trace'' ||
 ||''atftp> timeout 1'' ||
 ||''atftp> put openwrt-linux.trx'' ||
-
-
 Before you press enter after the put command, power on the AP. Press enter as soon as possible once you've connected the power!
 
  . 3., After booting with openwrt, I could ping the AP, however telnet did not work from the LAN. telnet still worked via wireless. OpenWRT tries to configure the vlans like on WRT54G. This is bad on WAP54G. Connect to the AP via wireless, and telnet into it. Run ''firstboot''. Remove /etc/nvram.overrides, then copy it from /rom/etc (''cp /rom/etc/nvram.overrides /etc/''). Edit /etc/nvram.overrides, and comment out the following lines (thx to mbm for the tip):
-
 ||remap lan_ifname ||
 ||remap lan_ifnames ||
 ||remap wifi_ifname ||
@@ -24,14 +20,10 @@ Before you press enter after the put command, power on the AP. Press enter as so
 ||remap wan_ifname ||
 ||remap wan_ifnames ||
 ||remap pppoe_ifname ||
-
-
 It may not be necessary, but I've deleted /etc/init.d/S45firewall, in order to completely disable netfilter (iptables), to make the AP accept everything from both LAN and WLAN.
 
  . 3.1, In the last experimental release the /rom/etc/nvram.overrides as removed!
-
 This script set the basic nvram value copy all in a script and execute it!
-
 ||#!/bin/sh ||
 ||nvram set wifi_ifname=eth2 ||
 ||nvram set lan_ifname=br0 ||
@@ -47,7 +39,6 @@ This script set the basic nvram value copy all in a script and execute it!
 This script is tested on a v.1 unit!
 
  . 4., Now you can install packages via ipkg like on a WRT54G unit. Note that WAP54G has only 1.8MB free space. 5., If you have problems, send your comments to slapic@linux.co.hu . 6., If you're familiar with Wiki, customize this page to look better.
-
 == Warning: your WAP54G doesn't have much flash! (and can get stuck because of that) ==
 With only 4Mo of flash, the WAP54G is limited to a jffs2 partition of less than 2Mo.
 
@@ -61,13 +52,11 @@ The error message you get (quite paradoxical if you aks me):
 root@OpenWrt:/# rm /usr/man/man8/openvpn.8
 rm: unable to remove `/usr/man/man8/openvpn.8': No space left on device
 }}}
-
 Alternatively you might be able to use the following:
 
 {{{
 root@OpenWrt:/# > /usr/man/man8/openvpn.8
 }}}
-
 That should make some space available so you can rm the files.
 
 As far as I know, the system should still work (you should be able to telnet/SSH it) but you won't be able to change any of its configuration but the nvram variables.
@@ -79,13 +68,11 @@ The solution which worked for me was erase the jffs2 partition. You will lose al
 {{{
 mtd erase OpenWrt
 }}}
-
 you may need (I didn't have to do that) to first do a
 
 {{{
 mtd unlock OpenWrt
         }}}
-
 Run {{{firstboot}}} to regenerate your jffs2 partition if the system didn't do it automatically after the reboot. Obviously this
 
 Information on flash layout and the 'mtd' command can be found in this post by mbm: http://forum.openwrt.org/viewtopic.php?pid=3123#p3123
@@ -98,7 +85,6 @@ I installed RC4 on 2 devices and RC5 on 2 devices. All with the reset button nex
 === Install original linksys 1.09.01 firmware (if yours is older) ===
 === Install HyperWAP 1.0 ===
 You can use any trusted firmware to enable boot_wait (preferably Feya), because HyperWAP has no telnet and no way to modify manually nvram variables. In this howto I will share my own experience but in this point I want to tell a better way if someone is willing to take the risk of trying it. If you are not willing to try it on your own then skip to the next point! So if you use the Feya, issue in the telnet sessuon:
-
 ||nvram set boot_wait=on ||
 ||nvram set boardtype=bcm94710dev ||
 ||nvram set boardnum=2 ||
@@ -109,7 +95,6 @@ You can use any trusted firmware to enable boot_wait (preferably Feya), because 
 If you used HyperWAP then download the configuration as config.bin for example and edit it with an editor that don't modify some symbols on saving (hex editor,mcedit,...). It contains nulls then pairs "variable=value[null]", so I guess that it is possible to move boardtype and boardnum at the end, remove the "\r" as last simbol in the value and add the needed number of nulls to the end (must be 2 for 2 variables). Now restore the configuration to the devices.
 
 Now you must be able to upgrade directly to RC5 with the micro image. As I said before '''this is untested'''. (actually I've tested it later and it is not working fine - to recover I installed RC4, cleaned nvram the safe way, set the variables again and installed RC5)
-
 
 === Test if boot_wait is working with RC4 ===
 '''From this point first be sure to have wireless connection to the device/devices'''. RC4 firmware has a modified micro image for wap54G. You must upgrade first to it if you didn't modified boardtype and boardnum variables before. If you can upload it by TFTP, you are lucky, so telnet to the unit. '''Now skip one point.'''
@@ -122,8 +107,6 @@ As I said before, you must have wireless connection to the device, so update to 
 ||nvram set boardnum=2 ||
 ||nvram commit ||
 ||reboot ||
-
-
 This will tell RC5 firmware to use a workaround for v1.0 devices and not brick them.
 
 === install RC5 ===
@@ -176,7 +159,6 @@ This is my work around:
   * edit /etc/dnsmasq.conf to adjust the range[[BR]]
   * edit /etc/hosts and add your hosts[[BR]]
   * create /etc/resolv.conf and put your nameserver
-
 If you have problems, send your comments to tuxerg@gmail.com , and/or post on [http://forum.openwrt.org/viewtopic.php?id=3431 WAP54G v2 issues - "Read-only file system"].
 
 == Reviving a brick WAP54G v2 ==
@@ -235,7 +217,6 @@ nvram set lan_ifname=eth1
 nvram set wan_ifname=vlan0
 nvram commit
 }}}
-
 === Alternative Debricking ===
 On my WAP54g ver.3 there is a intel flash chip and the instructions above did not work. I have a serial port setup on mine so I sent ctrl-c on boot to get the CFE> boot prompt. This gave me access to the nvram and let me fix a few variables. I just had myself locked out of my WAP54g on all interfaces. You can use this to set boot wait.
 
@@ -243,10 +224,12 @@ Another problem I've run into is that the wireless interface isn't starting up c
 
 -> Garak
 
-= WAP54G v3.1 + White Russian 0.9 =
+There is now an EJTAG flash utility for the WAP54G V31 with 3.05 software, it also has an original FLASH image that will allow you to make your WAP54G original again by flashing via JTAG. flash_panteltje, based on work by HairyDairyMilkMaid wrt54g, is available here: http://panteltje.com/panteltje/wap54g/index.html This will only flash a WAP54G with BCM5352 processor and SST39VF160 chip (on the backside of the board). Flashing with this utility takes several hours, but should fix any WAP54G that has no hardware problem.
 
+-> Panteltje
+
+= WAP54G v3.1 + White Russian 0.9 =
 I resetted my WAP54G v3.1 to factory defaults and afterwards simply uploaded the White Russian 0.9 micro image...
 
-  http://downloads.openwrt.org/whiterussian/0.9/micro/openwrt-brcm-2.4-squashfs.trx
-
+ . http://downloads.openwrt.org/whiterussian/0.9/micro/openwrt-brcm-2.4-squashfs.trx
 ...via the web interface and it worked out of the box. The interface assignment are of course messed up but that is easy to solve if you do a little bit of reading.
