@@ -159,7 +159,7 @@ As your machines release and renew their DHCP configuration they will obtain the
 == SIP-Phones and dnsmasq ==
 By default, the option {{{filterwin2k}}} in dnsmasq is activated, which seems to  cause dnsmasq to block any queries for {{{SRV}}} records. {{{SRV}}} records are '''not''' only used by windows computers to find the domaincontroller and such, they are also used by e.g SIP-Phones to find the server responsible for a given domain ({{{SRV}}} records are a kind of generalized {{{MX}}} records). Therefore, the {{{filterwin2k}}} options needs to be disabled (commented out in {{{/etc/dnsmasq.conf}}}) in order to let SIP-Phones work that use dnsmasq as their DNS server.
 
-==Add a secondary DNS==
+== Add a secondary DNS ==
 what to do if you already have a DNS server(secondary DNS server) but you want your router(primary DNS server) to resolve some of the DNS queries:
 simply do the following:
 {{{
