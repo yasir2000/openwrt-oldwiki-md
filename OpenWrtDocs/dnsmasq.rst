@@ -180,3 +180,23 @@ or
 killall dnsmasq
 /etc/init.d/S60dnsmasq start
 }}}
+
+Then you'll need to set-up your secondary dns for resolving internet's DNS queries:[[BR]]
+ssh into your router then:
+{{{
+cat /tmp/resolv.conf.auto
+}}}
+it will give you something like that:[[BR]]
+{{{
+nameserver 212.68.193.110
+nameserver 212.68.193.196
+}}}
+copy the information and then add it to your secondary DNS's /etc/resolv.conf:[[BR]]
+into your secondary dns do:
+{{{
+rm /etc/resolv.conf
+echo "nameserver 212.68.193.110">>/etc/resolv.conf
+echo "nameserver 212.68.193.196">>/etc/resolv.conf
+
+
+}}}
