@@ -9,7 +9,7 @@ Flash size: 8 MB
 RAM: 32 MB
 Wireless: integrated Atheros 802.11b/g
 Ethernet: 1xLAN
-USB: none
+USB: nonelschweiss
 Serial: yes
 JTAG: yes
 }}}
@@ -705,28 +705,26 @@ RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x8
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n linux
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n rootfs
 }}}
-
-
 === Erasing the Meraki Partitiong system ===
-
 If you think the Meraki Vendor firmware's partitioning scheme is a little to complex and/or messy for you - just re-initialise it and start with a fresh flash!
 
 Install a TFTP server on your PC and set your PC's IP address to 192.168.84.9.  Put the files ''openwrt-atheros-2.6-vmlinux.gz'' and ''openwrt-atheros-2.6-root.squashfs'' or ''openwrt-atheros-2.6-root.jffs2-64k'' in your TFTP server's root directory.
 
 Telnet into RedBoot (see the Helpful Hints below) and issue these commands:
+
 {{{
 RedBoot> fis init
 RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
-RedBoot> fis create -r 0x80041000 -l 0x150000 -e 0x80041000 linux
+RedBoot> fis create -r 0x80041000 -l 0x180000 -e 0x80041000 linux
 RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-root.squashfs
-RedBoot> fis create -r 0x80041000 -l 0x650000 rootfs
+RedBoot> fis create -r 0x80041000 -l 0x620000 rootfs
 }}}
-
 Change squashfs to jffs2-64k if you want a completely jffs2 (writable) root filesystem.
 
-Be patient.  The flash on the Meraki is very slow to write and you will see many AHB errors.  Redboot quits talking to telnet whenever a fis command is running.  Any network activity at these times creates these errors.  Just ignore them.  When the write operation is complete you will see telnet come back to life.   Don't be fooled that something is wrong when you enter the fis create commands.  You will see nothing back from Redboot until the command completes.  
+Be patient.  The flash on the Meraki is very slow to write and you will see many AHB errors.  Redboot quits talking to telnet whenever a fis command is running.  Any network activity at these times creates these errors.  Just ignore them.  When the write operation is complete you will see telnet come back to life.   Don't be fooled that something is wrong when you enter the fis create commands.  You will see nothing back from Redboot until the command completes.
 
 When the last ''fis create'' command completes, change the boot script thusly:
+
 {{{
 RedBoot> fconfig -d boot_script_data
 boot_script_data:
@@ -739,13 +737,12 @@ Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Erase from 0xa87d0000-0xa87e0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
 }}}
+Some explantion of this flashing method: ''fis init'' erases all the partitions except for the Redboot partitions, and seems to create a new "FIS directory" partition.  The first partion created for the kernel is approximately 1.5mb.  You only need about 1mb, but I left extra room so I can upgrade for the forseeable life of these without ever getting into redboot again.  Ideally I want to automate upgrades while these things are running in the field so reconnecting to the ethernet port is out of the question.
 
-Some explantion of this flashing method:
-''fis init'' erases all the partitions except for the Redboot partitions, and seems to create a new "FIS directory" partition.  The first partion created for the kernel is approximately 1.5mb.  You only need about 1mb, but I left extra room so I can upgrade for the forseeable life of these without ever getting into redboot again.  Ideally I want to automate upgrades while these things are running in the field so reconnecting to the ethernet port is out of the question.
-
-The second partition is allocated the rest of the free space and the squashfs image fills just the beginning.  Once OpenWRT boots for the first time it will create a jffs partition in any remaining space not taken by the squashfs partition and mount it in the typical overlay fashion.  
+The second partition is allocated the rest of the free space and the squashfs image fills just the beginning.  Once OpenWRT boots for the first time it will create a jffs partition in any remaining space not taken by the squashfs partition and mount it in the typical overlay fashion.
 
 An OpenWRT squashfs installation done this way has this partition layout:
+
 {{{
 root@OpenWrt:~# cat /proc/mtd
 dev:    size   erasesize  name
@@ -766,15 +763,14 @@ none on /dev/pts type devpts (rw)
 /dev/mtdblock3 on /jffs type jffs2 (rw)
 /jffs on / type mini_fo (rw)
 }}}
-
 Note that we now no longer have a "spiflash" partition that refers to the entire flash.
 
 Now for upgrading OpenWRT all you have to do is scp the kernel and new squashfs image to the /tmp directory and run the following command:
+
 {{{
 root@OpenWrt:/# mtd -e linux write openwrt-atheros-2.6-vmlinux.gz linux;mtd -e rootfs -r write openwrt-atheros-2.6-root.squashfs rootfs
 }}}
 Again be very patient as the flash is much slower than on any other hardware that I've run OpenWRT.
-
 
 '''Helpful Hints'''
 
@@ -800,13 +796,9 @@ echo Wscript.Sleep 500 >> redboot.vbs
 echo objShell.SendKeys "^C" >> redboot.vbs
 echo Wscript.Echo "Done... You can close this command window." >> redboot.vbs
 echo Wscript.Quit >> redboot.vbs
-
 CALL CScript redboot.vbs
 del redboot.vbs
 }}}
-
-
-
 == Installing over ssh from existing firmware ==
 In theory it should be possible to overwrite just two partitions if your kernel is stage2-compatible:
 
