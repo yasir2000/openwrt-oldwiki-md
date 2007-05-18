@@ -368,8 +368,16 @@ $(eval $(call KernelPackage,madwifi))
 
 === Troubleshooting ===
 
+If Buildroot blocks on "make menuconfig" not displaying the menu, try to take a look at dependencies: Buildroot builds up its menu reading the applications dependencies from its makefiles. If something is wrong with those dependencies, or they are recursive, make process will block itself on script/metadata.pl and won't display the menu.
+
+
+---- /!\ '''Edit conflict - other version:''' ----
 If Buildroot blocks on "make menuconfig" not displaying the menu, try to take a look of dependencies: Buildroot builds up its menu reading applications dependencies from makefiles. If something is wrong with dependencies, or dependencies are recursive, make process will block itself on script/metadata.pl and won't display the menu.
 
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 If you find your package doesn't show up in menuconfig, try the following command to see if you get the correct description:
 
   {{{TOPDIR=$PWD make -C package/<name> DUMP=1 V=99}}}
