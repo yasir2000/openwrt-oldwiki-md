@@ -12,15 +12,15 @@ This board is also known as TAC Inc. SH7706LAN or T-SH7706LAN. It is is a very m
  * Other: MMC slot
  * Expansion pins: Yes, check [http://trash.uid0.hu/openwrt/sh/T-SH7706LAN3.pdf here]
 
-
 Different versions of this board exists, most of them are equipped with 8 MByte memory, only rev. 3.0 is equipped with 32 MByte.
 
-NOTE: MES supports only FAT12 partitions on the MMC, so if you try to take a card from a phone or a digital camera, it has to be repartitioned and reformatted first.
+Serial console settings are 115200 baud, 8n1, but the terminal software has to be configured to add a linefeed after a carriage return. Hyperterminal is known to be working with these, minicom does not yet correctly.
 
 The flash contains a minimal number of files, namely config.sys, boot.exe and shell.exe. The first contains a few init parameters, the second will boot our vmlinux file from the MMC card, the third is the shell You are currently in.
 
-The MMC card has to be mounted first, with 'mount mmc0'. If the card has not been partitioned correctly, the result will be an 'ERROR[Disk I/O error.]' message.
+NOTE: MES supports only FAT12 partitions on the MMC, so if you try to take a card from a phone or a digital camera, it has to be repartitioned and reformatted first, otherwise mounting it will result in an 'ERROR[Disk I/O error.]'
 
-After successful mounting, You can try to run 'boot.exe', which loads the vmlinux file from the mmc, and if the kernel is correct, it will begin booting.
+The MMC card has to be mounted first, with 'mount mmc0'. After successful mounting, You can try to run 'boot.exe', which loads the vmlinux file from the mmc, and if the kernel is correct, it will begin booting.
+
 
 NOTE: This wiki entry will be changing quickly as I'm playing around with OpenWrt to support this board.
