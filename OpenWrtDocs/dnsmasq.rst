@@ -197,6 +197,5 @@ into your secondary dns do:
 rm /etc/resolv.conf
 echo "nameserver 212.68.193.110">>/etc/resolv.conf
 echo "nameserver 212.68.193.196">>/etc/resolv.conf
-
-
 }}}
+remplace 212.68.193.110 and 212.68.193.196 by the dns you have get with the cat /tmp/resolv.conf.auto command
