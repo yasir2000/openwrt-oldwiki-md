@@ -8,7 +8,8 @@ attachment:ag241-eu.jpg
 
 == Serial console ==
 
-(Note: this does not match with the picture above. Probably this description is from another type, or previous generation.)
+Note: this does not match with the picture above. 
+The description is exactly as written here, the new port is named JP4 and PIN1 is on the left side. So just flip the picture 90 degree to have the new layout.
 
 {{{
 |
