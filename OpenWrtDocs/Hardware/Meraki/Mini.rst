@@ -27,7 +27,6 @@ Peel off the bottom left and top right corners of the silver label on the back o
 == Serial to USB adaptor ==
 Meraki no longer sells an adaptor board on their website. They are also not offering any alternatives. A suitable replacement is the Fox console board. It is available here: http://www.acmesystems.it/?id=106 It is not USB enabled so a separate USB to serial converter must be purchased in order to use it in a computer that does not have a serial port. Also to convert the 6pin header on the Fox board to the 4 pin available on the Meraki mini I used an old power connector for a floppy drive and shoved the wires into the correct ports on the fox adapter.
 
-
 Meraki sell a small adaptor board (18mm x 32mm) for $29 which plugs into JP1 and has a serial to USB adaptor chip and a mini USB connector; it comes with a mini USB to normal USB cable. It appears to be powered by the host side, not the Meraki side. Plugging it into a Linux system shows:
 
 {{{
@@ -37,7 +36,7 @@ usb 2-1: FTDI FT232BM Compatible converter now attached to ttyUSB0
 usbcore: registered new driver ftdi_sio
 drivers/usb/serial/ftdi_sio.c: v1.4.1:USB FTDI Serial Converters Driver
 }}}
-It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works.  Also make sure that you turn off flow-control.
+It is not polarised, but the correct way round is so that it overhangs the RF module, and doesn't hang out of the side of the case. Minicom set to /dev/ttyUSB0 and 115200 8N1 works. Also make sure that you turn off flow-control.
 
 I found the USB adaptor was somewhat unreliable under Linux; power-cycling the Meraki made it freeze, so I had to unplug and reconnect the USB connection to the host as well. This was both with CentOS 4.3 (2.6.9) and Ubuntu 6.06 (2.6.15). A more reliable sequence was:
 
@@ -373,7 +372,7 @@ openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 }}}
 == Kernel parameters ==
-Even though RedBoot can pass a command line to the kernel, currently any user-provided value is overridden by a hardcoded string - see  target/linux/atheros-2.6/patches/100-board.patch
+Even though RedBoot can pass a command line to the kernel, currently any user-provided value is overridden by a hardcoded string - see target/linux/atheros-2.6/patches/100-board.patch
 
 {{{
 +    strcpy(arcs_cmdline, "console=ttyS0,9600 rootfstype=squashfs,jffs2");
@@ -706,6 +705,108 @@ RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x8
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n linux
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n rootfs
 }}}
+
+
+=== Erasing the Meraki Partitiong system ===
+
+If you think the Meraki Vendor firmware's partitioning scheme is a little to complex and/or messy for you - just re-initialise it and start with a fresh flash!
+
+Install a TFTP server on your PC and set your PC's IP address to 192.168.84.9.  Put the files ''openwrt-atheros-2.6-vmlinux.gz'' and ''openwrt-atheros-2.6-root.squashfs'' or ''openwrt-atheros-2.6-root.jffs2-64k'' in your TFTP server's root directory.
+
+Telnet into RedBoot (see the Helpful Hints below) and issue these commands:
+{{{
+RedBoot> fis init
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-vmlinux.gz
+RedBoot> fis create -r 0x80041000 -l 0x150000 -e 0x80041000 linux
+RedBoot> load -r -b 0x80041000 -m tftp -h 192.168.84.9 openwrt-atheros-2.6-root.squashfs
+RedBoot> fis create -r 0x80041000 -l 0x650000 rootfs
+}}}
+
+Change squashfs to jffs2-64k if you want a completely jffs2 (writable) root filesystem.
+
+Be patient.  The flash on the Meraki is very slow to write and you will see many AHB errors.  Redboot quits talking to telnet whenever a fis command is running.  Any network activity at these times creates these errors.  Just ignore them.  When the write operation is complete you will see telnet come back to life.   Don't be fooled that something is wrong when you enter the fis create commands.  You will see nothing back from Redboot until the command completes.  
+
+When the last ''fis create'' command completes, change the boot script thusly:
+{{{
+RedBoot> fconfig -d boot_script_data
+boot_script_data:
+.. whatever it currently is
+Enter script, terminate with empty line
+>> fis load -d linux
+>> exec
+>>
+Update RedBoot non-volatile configuration - continue (y/n)? y
+... Erase from 0xa87d0000-0xa87e0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87d0000: .
+}}}
+
+Some explantion of this flashing method:
+''fis init'' erases all the partitions except for the Redboot partitions, and seems to create a new "FIS directory" partition.  The first partion created for the kernel is approximately 1.5mb.  You only need about 1mb, but I left extra room so I can upgrade for the forseeable life of these without ever getting into redboot again.  Ideally I want to automate upgrades while these things are running in the field so reconnecting to the ethernet port is out of the question.
+
+The second partition is allocated the rest of the free space and the squashfs image fills just the beginning.  Once OpenWRT boots for the first time it will create a jffs partition in any remaining space not taken by the squashfs partition and mount it in the typical overlay fashion.  
+
+An OpenWRT squashfs installation done this way has this partition layout:
+{{{
+root@OpenWrt:~# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00030000 00010000 "RedBoot"
+mtd1: 00200000 00010000 "linux"
+mtd2: 005a0000 00010000 "rootfs"
+mtd3: 004a0000 00010000 "rootfs_data"
+mtd4: 0000f000 00010000 "FIS directory"
+mtd5: 00001000 00010000 "RedBoot config"
+root@OpenWrt:~# mount
+rootfs on / type rootfs (rw)
+/dev/root on /rom type squashfs (ro)
+none on /proc type proc (rw)
+none on /sys type sysfs (rw)
+none on /tmp type tmpfs (rw,nosuid,nodev)
+tmpfs on /dev type tmpfs (rw)
+none on /dev/pts type devpts (rw)
+/dev/mtdblock3 on /jffs type jffs2 (rw)
+/jffs on / type mini_fo (rw)
+}}}
+
+Note that we now no longer have a "spiflash" partition that refers to the entire flash.
+
+Now for upgrading OpenWRT all you have to do is scp the kernel and new squashfs image to the /tmp directory and run the following command:
+{{{
+root@OpenWrt:/# mtd -e linux write openwrt-atheros-2.6-vmlinux.gz linux;mtd -e rootfs -r write openwrt-atheros-2.6-root.squashfs rootfs
+}}}
+Again be very patient as the flash is much slower than on any other hardware that I've run OpenWRT.
+
+
+'''Helpful Hints'''
+
+Some people have reported problems sending ctrl-C to the Meraki from their telnet client. Also, it can be tricky to hit the 2 second window to get into redboot via telent. There are several great solutions to automating this on the NSLU2-linux site: http://www.nslu2-linux.org/wiki/HowTo/TelnetIntoRedBoot - remember to change the IP address in these scripts to the Meraki Redboot IP (192.168.84.1). For windows XP users, here's a modified version of the NSLU2 batch file that automates the login. It uses Putty's telnet instead of the Microsoft telnet client (make sure putty.exe is in the PATH):
+
+{{{
+echo off
+echo Set objShell = WScript.CreateObject("WScript.Shell") > redboot.vbs
+echo Set objExecObject = objShell.Exec("cmd /c ping -t -w 1 192.168.84.1") >> redboot.vbs
+echo Wscript.Echo "Start router after first ping timeout..." >> redboot.vbs
+echo Do While Not objExecObject.StdOut.AtEndOfStream >> redboot.vbs
+echo     strText = objExecObject.StdOut.ReadLine() >> redboot.vbs
+echo     Wscript.Echo strText >> redboot.vbs
+echo     If Instr(strText, "Reply") > 0 Then >> redboot.vbs
+echo         Exit Do >> redboot.vbs
+echo     End If >> redboot.vbs
+echo Loop >> redboot.vbs
+echo objShell.Run("putty.exe telnet://192.168.84.1:9000/") >> redboot.vbs
+echo Do Until Success = True >> redboot.vbs
+echo     Success = objShell.AppActivate("putty.exe") >> redboot.vbs
+echo Loop >> redboot.vbs
+echo Wscript.Sleep 500 >> redboot.vbs
+echo objShell.SendKeys "^C" >> redboot.vbs
+echo Wscript.Echo "Done... You can close this command window." >> redboot.vbs
+echo Wscript.Quit >> redboot.vbs
+
+CALL CScript redboot.vbs
+del redboot.vbs
+}}}
+
+
+
 == Installing over ssh from existing firmware ==
 In theory it should be possible to overwrite just two partitions if your kernel is stage2-compatible:
 
