@@ -124,4 +124,6 @@ There is a [http://www.windowsecurity.com/articles/Configure-VPN-Connection-Wind
 
 There is also the [http://pptpclient.sourceforge.net/ PPTP Client for Linux] or check the !OpenWrt  ["PPTPClientHowto"].
 
+If the PPTP clients are behind an Actiontec DSL Modem/Router, only one of them will be able to connect.  This is do to a bug in the Actiontec.  Apparently it locks the connection to one client.  If the router is rebooted the first client to reconnect is locked in.  Putting the Actiontec into bridged mode and using a different router will probably bypass the problem.  Does anyone else have any experience with this?
+
 ## reviewed 2006-03-27 by james.cameron@hp.com, the current pptpd maintainer, against White Russian RC5 and pptpd 1.2.3-2 ipk
