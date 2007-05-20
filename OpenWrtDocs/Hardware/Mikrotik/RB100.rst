@@ -156,5 +156,7 @@ When you reboot you need to change the BIOS settings back to booting from the NA
 
 Once the installation is complete then you can reboot your RouterBoard 1xx card and you should have a running system.
 
+**Edit: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HowTo to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here] 
+
 ----
  CategoryModel ["CategoryADM5120Device"]
