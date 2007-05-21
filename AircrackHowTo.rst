@@ -29,19 +29,28 @@ for how to configure your device to use the repository, then install aircrack by
 {{{
 ipkg install aircrack}}}
 
-Another utility that is necessary to capture wireless traffic is {{{wl}}}. This can be installed by typing:
+If you have a [http://en.wikipedia.org/wiki/PRISM_%28chipset%29 PRISM] chipset, in order to capture traffic, you need {{{wl}}}. This can be installed by typing:
 
 {{{
 ipkg install wl}}}
 
-= Configuring Your WRT54G/S to Monitor =
-Now that Aircrack is installed and ready to start capturing traffic, you have to tell your WRT54G/S to listen to all traffic and not just traffic of its own. To do this you will use the {{{wl}}} utility:
+Likewise, Atheros/MadWIFI users need wlanconfig.  This *should* be in either kmod-madwifi or wireless-tools.
 
+= Configuring Your WRT54G/S to Monitor =
+Now that Aircrack is installed and ready to start capturing traffic, you have to tell your router to listen to all traffic and not just traffic of its own.  This is called "monitor mode."  To be able to change channels and sniff on all channels, you must have the router in client mode: ClientModeHowto
+
+Users with a PRISM chipset need to use the {{{wl}}} utility:
 {{{
 wl monitor 1
 ifup prism0}}}
 
-To be able to change channels and sniff on all channels, you must have the router in client mode: ClientModeHowto
+Users with an Atheros chipset need to use {{wlanconfig}}:
+{{{
+wlanconfig ath1 create wlandev wifi0 wlanmode monitor}}
+
+MadWIFI allows you you have virtual interfaces, provided they are on the same channel.  This is why ath1 is specified.  All Atheros chipset cards have a wifi<instance> device, and each device can have multiple ath devices.
+
+
 
 = Start Capturing =
 Begin by changing into the directory that you want to store the dump file in. This is most likely the directory that is either a CIFS or NFS mount. The dump files can get large, and to capture a useful amount of data you will need more storage than what comes stock on these routers. Another reason and advantage for storing the dump file on another computer is so the processing of the dumpfile can be done in parallel with capturing.
@@ -70,6 +79,39 @@ Once you have enough packets logged just hit {{{CTRL+C}}} to quit airodump.
 {{{
 usage: airodump <interface name or pcap filename> <output prefix> <channel> [IVs flag]}}}
 
+Newer versions (like in the Kamikaze release) use a different syntax:
+{{{  Airodump-ng 0.9 - (C) 2006,2007 Thomas d'Otreppe
+  Original work: Christophe Devine
+  http://www.aircrack-ng.org
+
+  usage: airodump-ng <options> <interface>[,<interface>,...]
+
+  Options:
+      --ivs               : Save only captured IVs
+      --gpsd              : Use GPSd
+      --write    <prefix> : Dump file prefix
+      -w                  : same as --write
+      --beacons           : Record all beacons in dump file
+      --update     <secs> : Display update delay in seconds
+
+  Filter options:
+      --encrypt   <suite> : Filter APs by cypher suite
+      --netmask <netmask> : Filter APs by mask
+      --bssid     <bssid> : Filter APs by BSSID
+      -a                  : Filter unassociated clients
+
+  By default, airodump-ng hop on 2.4Ghz channels.
+  You can make it capture on other/specific channel(s) by using:
+      --channel <channels>: Capture on specific channels
+      --band <abg>        : Band on which airodump-ng should hop
+      --cswitch  <method> : Set channel switching method
+                    0     : FIFO (default)
+                    1     : Round Robin
+                    2     : Hop on last
+      -s                  : same as --cswitch
+
+      --help              : Displays this usage screen
+}}}
 = Links =
  * If you get stuck on something, there are lots of good resources at the official aircrack [http://www.aircrack-ng.org website]
  * Aircrack discussion forums are [http://tinyshell.be/aircrackng/forum/ here]
