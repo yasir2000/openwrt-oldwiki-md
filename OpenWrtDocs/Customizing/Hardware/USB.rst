@@ -15,35 +15,16 @@ Hints:
  * modules that are loaded at boot time will be added to the folder {{{/etc/modules.d}}}, if you install the kmod packages the modules will be automatically loaded after rebooting.
 Detailed instructions can be found in UsbStorageHowto.
 
-== add USB to your Siemens SE505 ==
-On the side with the powerplug you will find some 'C's
+== Add USB to your Siemens SE505 ==
+See [:OpenWrtDocs/Hardware/Siemens/SE505]
 
-- add C906 with 100µF 16Volt
-
-- add C986 with 10µF 16Volt
-
-- add U981 with an LM7805
-
-This will support the +5 Volt to your USB-Port.
-
-Go to the other side of the PCB wehre the antenna is placed.
-
-- add wire to F51 as Fuse
-
-- add to 'R' about 15kOhm to R723 and R724
-
-- shorten R733 R734
-
-- put an USB-Plug to J51
-
-Thats all.
-
-== USB Hard Drive ==
+== USB Devices ==
+=== USB Hard Drive ===
 Already done, see UsbStorageHowto.
 
 All "USB Mass Storage" class devices will work too: USB-to-IDE, some cellphones, come digital cams e.t.c.
 
-== USB Serial port/Modem ==
+=== USB Serial port/Modem ===
 It is possible to connect a USB HUB and up to 127 USB-to-RS232 convertors.
 
 Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convertor (i.e. [http://gimel.esc.cam.ac.uk/james/resources/pl2303/ Prolific PL2303]).
