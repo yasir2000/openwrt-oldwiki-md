@@ -17,6 +17,7 @@ If you plan on setting up a network with unusual range requirements, reviewing t
 == Regulatory Information ==
 We are not lawyers; all this is for convience only.
 === Australia ===
+Channels 1 to 13 are permitted for 802.11bgn use. Maximum EIRP is 4W.
 === Canada ===
 === Europe ===
 1-13 are licensed for 802.11b operation, but transmitted power must be below 100 mW
