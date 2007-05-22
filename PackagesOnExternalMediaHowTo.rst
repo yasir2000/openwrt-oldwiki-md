@@ -63,7 +63,7 @@ To mount the drive automatically on boot, use the following command:
 
 {{{
 echo 'mount /dev/mmc/disc0/part1 /mnt/sd' > /etc/init.d/S60externalmount
-chmod +x /etc/init.d/S20externalmount
+chmod +x /etc/init.d/S60externalmount
 }}}
 
 = Configuring ipkg =
