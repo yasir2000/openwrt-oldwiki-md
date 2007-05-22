@@ -34,8 +34,8 @@ For more information see ["OpenWrtDocs/Hardware/Dynalink/RTA770W"]
 
 [http://2kuul.de/ "Firmware archive"]
 
-[http://k0.j0t.de/ "German forum"]
+[http://k0.j0t.de/ "Forum mostly dedicated to Siemens routers"] (German and English)
 
 [http://gigaset.siemens.com/shc/0,1935,hq_en_0_122542_rArNrNrNrN,00.html "Siemens GPL Sources"]
 
-Note. Don't be afraid of German language - just use [http://babelfish.altavista.com/ "babelfish"] or any similar service..
+Note. Don't be afraid of the German language - just use [http://babelfish.altavista.com/ "babelfish"] or any similar service.
