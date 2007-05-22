@@ -705,7 +705,7 @@ RedBoot> fis create -b 0x80041000 -l 0x100000 -f 0xa8050000 -e 0x80041000 -r 0x8
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8150000 -e 0x80041000 -r 0x80041000 -n linux
 RedBoot> fis create -b 0x80041000 -l 0x340000 -f 0xa8490000 -e 0x80041000 -r 0x80041000 -n rootfs
 }}}
-=== Erasing the Meraki Partitiong system ===
+=== Erasing the Meraki Partitioning system ===
 If you think the Meraki Vendor firmware's partitioning scheme is a little to complex and/or messy for you - just re-initialise it and start with a fresh flash!
 
 Install a TFTP server on your PC and set your PC's IP address to 192.168.84.9.  Put the files ''openwrt-atheros-2.6-vmlinux.gz'' and ''openwrt-atheros-2.6-root.squashfs'' or ''openwrt-atheros-2.6-root.jffs2-64k'' in your TFTP server's root directory.
