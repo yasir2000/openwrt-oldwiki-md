@@ -1057,3 +1057,236 @@ Kernel panic - not syncing: Aiee, killing interrupt handler!
 watchdog hb: 20  ISR: 0xa1  IMR: 0x9  WD : 0x0  WDC: 0x0
 }}}
 Unfortunately, I had installed using the flash method rather than the failsafe method. Fortunately I had backed up the partitions and was able to restore using a serial console.
+
+= Firmware Install Script =
+
+This is an Expect script for Windows XP - it shouldn't be too hard to adapt to Linux or other OSes.
+
+You need to install Expect for Windows XP: http://bmrc.berkeley.edu/people/chaffee/expectnt.html
+
+and Solarwinds TFTP Server 6.0 (hard to get now - version 8.0 doesn't seem to work with the Meraki - someone please test this!)
+Version 8.0 is available here: http://www.tucows.com/preview/512630
+
+This method follows the philosophy of the '''Erasing the Meraki Partitioning System''' method listed above.
+
+You just put your linux kernel and rootfs image files in the same directory as the meraki-flash.bat batch file and it does the rest.  Expect even runs the TFTP server for you.  You just need to make sure the TFTP server is set to "C:\TFTP-Root" for it's root dir, and that it's security setting is set to "Transmit Only" or "Transmit and Receive files".  The script assumes all applications are installed in their default directories, and that the hard drive is C.  And of course, the LAN interface on your Windows PC needs to be 192.168.84.9 (netmask 255.255.255.0).
+
+I've opted for a 1.0MB linux kernel partition instead of 1.5MB.  This leaves room for a slightly larger rootfs.  I don't expect that the OpenWRT linux kernel will ever be larger than 1.0MB - if it ever is, it's a simple matter to edit this script.
+
+The script pauses 3 minutes while the Linux image is written to flash, and 5 minutes while the rootfs is written to flash.  So the whole script takes about 9 minutes to execute.  After Expect changes the RedBoot boot script, it should reset the Meraki and OpenWRT should begin it's firstboot procedure.
+
+I execute the expect script via a batch file:
+
+'''meraki-flash.bat'''
+{{{
+@ECHO OFF
+CLS
+
+SET linux_file=openwrt-atheros-2.6-vmlinux.gz
+SET rootfs_file=openwrt-atheros-2.6-root.squashfs
+
+REM The above files are copied to the tftp server root directory so the meraki can load them
+
+ECHO .
+ECHO .
+ECHO About to erase the meraki's memory
+ECHO and flash %linux_file% and %rootfs_file%
+ECHO Press Ctrl-C to abort... or...
+PAUSE
+ECHO .
+ECHO .
+ECHO Confirm - Ctrl-C to abort... or...
+PAUSE
+
+
+COPY ".\%linux_file%" "C:\TFTP-Root\"
+COPY ".\%rootfs_file%" "C:\TFTP-Root\"
+
+"C:\Program Files\Expect-5.21\bin\expect.exe" ".\data\meraki-redboot.exp" %linux_file% %rootfs_file%
+
+REM Clean up TFTP-Root directory
+DEL "C:\TFTP-Root\%linux_file%"
+DEL "C:\TFTP-Root\%rootfs_file%"
+
+ECHO meraki-flash.bat ends here
+PAUSE
+}}}
+
+here is the expect script - which I put in a subdirectory called data
+
+'''data/meraki-redboot.exp'''
+{{{
+# start TFTP server
+spawn "C:/Program Files/SolarWinds/2003 Standard Edition/TFTP-Server.exe"
+# ping meraki, make 20 telnet attempts upon ping reply
+spawn ping -t -w 5 192.168.84.1
+set timeout 30
+expect {
+    "TTL"    {close}
+    timeout    {close; send_user "\n\n\n\nNo response! Exiting...\n\n"; exit 10}
+}
+set timeout 1
+for {set i 0} {$i<20} {incr i 1} {
+spawn "C:/Program Files/Expect-5.21/bin/Telnet.exe" 192.168.84.1 9000
+expect {
+    "Connected to"    {set i 20;send "\03"}
+    timeout        {close}
+}
+}
+
+# erase/format flash
+set timeout 20
+expect "RedBoot>"
+send "fis init\n"
+expect "continue (y/n)?"
+send "y\n"
+expect {
+    "Program from 0x80ff0000-0x81000000 at 0xa87d0000"    {send_user "\n\nFLASH init succeeded\n\n"}
+#    timeout        {close; send_user "\n\n\n\nFLASH init failed!\n\n"; exit 10}
+}
+
+
+# TFTP upload linux kernel image
+expect "RedBoot>"
+send "load -r -b 0x80041000 -m tftp -h 192.168.84.9 [lindex $argv 0]\n"
+set timeout 5
+expect {
+    "Raw file loaded"    {send_user "\n\nLinux kernel TFTP load succeeded\n\n"}
+    timeout            {close; send_user "\n\n\n\nLinux file not loaded! Exiting...\n\n"; exit 20}
+}
+
+# flash linux kernel image
+expect "RedBoot>"
+send "fis create -r 0x80041000 -l 0x100000 -e 0x80041000 linux\n"
+set timeout 10
+expect
+
+# Close telnet session - it takes a long time to flash and telnet times out anyway
+close
+spawn cmd
+expect "Corp."
+send_user "\n\n\n\n"
+
+send_user "Don't Panic!  Telnet session closed while Linux image is flashed\n"
+send_user "Please wait 3 minutes\n"
+set timeout 1
+
+# Countdown 180 seconds
+for {set i 180} {$i>0} {incr i -1} {
+send_user "\b\b\b\b$i "
+expect
+}
+close
+
+# Re-open telnet session
+set timeout 2
+for {set i 0} {$i<20} {incr i 1} {
+spawn "C:/Program Files/Expect-5.21/bin/telnet.exe" 192.168.84.1 9000
+expect {
+    "Connected to"    {set i 20;send "\n"}
+    timeout        {close}
+}
+}
+
+# Check that linux kernel flashed correctly
+set timeout 5
+send "fis list\n"
+expect {
+    "linux"        {send_user "\n\nLinux kernel flash succeeded\n\n"}
+#    timeout        {close; send_user "\n\n\n\nLinux flash failed!\n\n"; exit 30}
+}
+
+# TFTP upload rootfs image
+expect "RedBoot>"
+send "load -r -b 0x80041000 -m tftp -h 192.168.84.9 [lindex $argv 1]\n"
+set timeout 20
+expect {
+    "Raw file loaded"    {send_user "\n\nrootfs TFTP load succeeded\n\n"}
+    timeout            {close; send_user "\n\n\n\nrootfs load failed!\n\n"; exit 40}
+}
+
+# Flash rootfs image
+expect "RedBoot>"
+send "fis create -r 0x80041000 -l 0x6A0000 rootfs\n"    
+set timeout 10
+expect
+
+# Close telnet session - it takes a long time to flash and telnet times out anyway
+close
+spawn cmd
+expect "Corp."
+send_user "\n\n\n\n"
+
+send_user "Don't Panic!  Telnet session closed while rootfs image is flashed\n"
+send_user "Please wait 5 minutes\n"
+set timeout 1
+
+# Countdown 300 seconds
+for {set i 300} {$i>0} {incr i -1} {
+send_user "\b\b\b\b$i "
+expect
+}
+close
+
+# Re-open telnet session
+set timeout 2
+for {set i 0} {$i<20} {incr i 1} {
+spawn "C:/Program Files/Expect-5.21/bin/telnet.exe" 192.168.84.1 9000
+expect {
+    "Connected to"    {set i 20;send "\n"}
+    timeout        {close}
+}
+}
+
+# Check that rootfs image flashed correctly
+set timeout 5
+send "fis list\n"
+expect {
+    "rootfs"    {send_user "\n\nrootfs flash succeeded\n\n"}
+    timeout        {close; send_user "\n\n\n\nrootfs flash failed!\n\n"; exit 50}
+}
+
+# change boot script
+expect "RedBoot>"
+send "\nfconfig boot_script_data\n"
+set timeout 5
+expect ".."
+send "fis load -d linux\n"
+expect ".."
+send "exec\n"
+expect ".."
+send "\n"
+expect "continue (y/n)?"
+send "y\n"
+
+# Check that boot script change ocurred
+expect "RedBoot>"
+send "\nfconfig -l -n\n"
+set timeout 30
+expect {
+    "fis load -d linux"    {send_user "\n\nboot script change succeeded\n\n"; send "\n\n" }
+    timeout            {close; send_user "\n\n\n\nboot scrpit change failed!\n\n"; exit 60}
+}
+
+# Reset (reboot) Meraki
+expect "RedBoot>"
+send "\nreset\n"
+set timeout 10
+expect
+close
+send_user "\n\n\n\n"
+send_user "OpenWRT flash to Meraki successful!  The Meraki is now rebooting\n\n"
+send_user "You sould be able to connect to OpenWRT via Telnet on 192.168.1.1 in about 90 seconds from now\n\n"
+send_user "The firstboot operation will take about 3.5 minutes, starting now\n"
+send_user "please leave the power plugged in during this time\n\n\n\n"
+}}}
+Here's a Windows registry file that makes the appropriate config changes to the Solarwinds TFTP server to make sure it works with the above script
+'''chng-tftpserver.reg'''
+{{{
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\SolarWinds.Net\TFTP Server\Config]
+"RootDir"="C:\\TFTP-Root"
+"TransmitOnly"="False"
+"ReceiveOnly"="False"
+}}}
