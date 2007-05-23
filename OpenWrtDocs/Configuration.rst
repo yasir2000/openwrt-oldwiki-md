@@ -566,6 +566,8 @@ Please update and include your time zone. You can find more on time zones on [ht
 
 ^1^in August of 2005, the United States President Bush passed the [http://www.fedcenter.gov/_kd/Items/actions.cfm?action=Show&item_id=2969&destination=ShowItem Energy Policy Act], which, among other things, changes the time change dates for daylight saving time from the first Sunday in April to the second Sunday in March and from the last Sunday in October to the first Sunday in November. This pattern starts in 2007, however, and Congress still has time to revert the DST back. As such, these changes have not yet been incorporated into mainline uClibc (which provides the time functions for the C library used by OpenWrt). Therefore, it might be a good idea to change {{{/etc/TZ}}} explicitly (around mid-November 2006) to reflect this change (i.e., instead of {{{EST5EDT}}} write {{{EST5EDT,M3.2.0,M11.1.0}}}).
 
+^2^30.April 2007, Daylight Savings Time was changed for New Zealand as well. Hence from September 2007 on, clocks will go forward an hour a week earlier than usual - on the last Sunday in September - and back an hour on the first Sunday in April, instead of the third Sunday in March. So use {{{NZST-12NZDT-13,M9.5.0/02:00:00,M4.1.0/03:00:00}}} instead of the string above.
+
 Here is the command to type for each time zone in the continential US:
 
 {{{
