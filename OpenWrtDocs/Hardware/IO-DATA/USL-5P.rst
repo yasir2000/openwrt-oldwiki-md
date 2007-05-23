@@ -5,7 +5,7 @@ This is a NAS with 5 USB ports and 1 ethernet interface.
 
  * Bootloader: SH IPL+g with modifications from IO-DATA
  * CPU: SH7751R @ 240MHz (SH4)
- * Flash size:
+ * Flash size: 512Kbyte
  * RAM: 64MByte
  * Ethernet: Realtek RTL8139C+
  * Serial: yes, pinouts follow
