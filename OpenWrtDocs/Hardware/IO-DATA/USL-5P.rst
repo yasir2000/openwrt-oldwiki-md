@@ -10,6 +10,7 @@ This is a NAS with 5 USB ports and 1 ethernet interface.
  * Ethernet: Realtek RTL8139C+
  * Serial: yes, pinouts follow
  * CF slot: yes, the bootloader boots from a CF card
+ * USB: Yes, NEC USB 2.0 controller with 5 ports
  * Other: Buzzer, RTC
 
 
