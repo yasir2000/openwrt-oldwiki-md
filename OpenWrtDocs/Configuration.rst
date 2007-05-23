@@ -543,7 +543,7 @@ Examples:
 ||St.Petersburg, Russia ||MST-3MDT,M3.5.0/2,M10.5.0/3 ||
 ||Stockholm, Sweden ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Tallinn, Estonia ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
-||New Zealand ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
+||New Zealand^2^ ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
 ||<style="text-align: center;" |10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
 ||Alaska Time ||AKST9AKDT,M3.2.0,M11.1.0 ||
 ||Pacific Time ||PST8PDT,M3.2.0,M11.1.0 ||
@@ -566,7 +566,7 @@ Please update and include your time zone. You can find more on time zones on [ht
 
 ^1^in August of 2005, the United States President Bush passed the [http://www.fedcenter.gov/_kd/Items/actions.cfm?action=Show&item_id=2969&destination=ShowItem Energy Policy Act], which, among other things, changes the time change dates for daylight saving time from the first Sunday in April to the second Sunday in March and from the last Sunday in October to the first Sunday in November. This pattern starts in 2007, however, and Congress still has time to revert the DST back. As such, these changes have not yet been incorporated into mainline uClibc (which provides the time functions for the C library used by OpenWrt). Therefore, it might be a good idea to change {{{/etc/TZ}}} explicitly (around mid-November 2006) to reflect this change (i.e., instead of {{{EST5EDT}}} write {{{EST5EDT,M3.2.0,M11.1.0}}}).
 
-^2^30.April 2007, Daylight Savings Time was changed for New Zealand as well. Hence from September 2007 on, clocks will go forward an hour a week earlier than usual - on the last Sunday in September - and back an hour on the first Sunday in April, instead of the third Sunday in March. So use {{{NZST-12NZDT-13,M9.5.0/02:00:00,M4.1.0/03:00:00}}} instead of the string above.
+^2^ on 30.April 2007, Daylight Savings Time was changed for New Zealand as well. Hence from September 2007 on, clocks will go forward an hour a week earlier than usual - on the last Sunday in September - and back an hour on the first Sunday in April, instead of the third Sunday in March. So use {{{NZST-12NZDT-13,M9.5.0/02:00:00,M4.1.0/03:00:00}}} instead of the string above. Ref: http://www.dia.govt.nz/diawebsite.nsf/wpg_URL/Services-Daylight-Saving-Daylight-saving-to-be-extended?OpenDocument
 
 Here is the command to type for each time zone in the continential US:
 
