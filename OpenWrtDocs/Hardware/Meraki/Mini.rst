@@ -1089,8 +1089,12 @@ REM The above files are copied to the tftp server root directory so the meraki c
 
 ECHO .
 ECHO .
-ECHO About to erase the meraki's memory
+ECHO About to erase the Meraki's memory
 ECHO and flash %linux_file% and %rootfs_file%
+ECHO .
+ECHO The Meraki should be turned off now
+ECHO Power it after the first ping timeout...
+ECHO .
 ECHO Press Ctrl-C to abort... or...
 PAUSE
 ECHO .
@@ -1112,7 +1116,7 @@ ECHO meraki-flash.bat ends here
 PAUSE
 }}}
 
-here is the expect script - which I put in a subdirectory called data
+Here is the Expect script - which I put in a subdirectory called data
 
 '''data/meraki-redboot.exp'''
 {{{
