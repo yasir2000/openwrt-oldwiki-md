@@ -44,11 +44,11 @@ Note: the packages listed under PACKAGES should be in your OpenWRT-ImageBuilder/
 See ["Installing"]
 
 5. Next partition and format your USB stick with EXT2 filesystem.
- a. Figure out where your drive is mounted. This can usually be discovered by running 'dmesg'.
+  a. Figure out where your drive is mounted. This can usually be discovered by running 'dmesg'.
 
- b. Fdisk the media, create a partition scheme that suits you.
+  b. Fdisk the media, create a partition scheme that suits you.
 
- c. Format that partition with whichever filesystem you chose. Note that this example supports ext2, any extra filesystems would require the proper modules to be included, and loaded.
+  c. Format that partition with whichever filesystem you chose. Note that this example supports ext2, any extra filesystems would require the proper modules to be included, and loaded.
 
 dmesg output on Kamikaze pre1 Broadcom 2.4:
 {{{
