@@ -1,4 +1,4 @@
-First of all, credit for this discovery goes to forum2006. I am reposting his <url>original forum post</url> here to keep it from getting buried.
+First of all, credit for this discovery goes to forum2006. I am reposting his [http://forum.openwrt.org/viewtopic.php?id=10816 guide] here to keep it from getting buried.
 
 == 1. Introduction ==
 This guide describes how to use your USB stick or your MMC/SD card for storing pakages and files instead of using the JFFS2 partion on your flash chip. / in this case is the SquashFS partition on the flash chip and the writable EXT2 partion is on your external media. With little modifications you can use this guide also for MMC/SD card. Tested with Kamikaze pre1 on a Asus WL-500GD and a 512MB Sundisk Cruzer Mini USB 2.0 stick. With little modifications it will also work with WhiteRussian 0.9. With this guide you do not have to mess around with PATH, LD_LIBRARY_PATH or create symlinks anymore.
