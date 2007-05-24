@@ -12,6 +12,7 @@ NOTE: This notes are taken out of my personal notes. They may be incomplete or d
 
 Makes the following Wiki pages obsolete:
  - PackagesOnExternalMediaHowTo
+
  - UsbStorageHowto (section 4)
 
 
