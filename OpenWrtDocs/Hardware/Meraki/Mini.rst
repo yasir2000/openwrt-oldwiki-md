@@ -1169,9 +1169,9 @@ send_user "\n\n\n\n"
 
 send_user "Don't Panic!  Telnet session closed while Linux image is flashed\n"
 send_user "Please wait 3 minutes\n"
-set timeout 1
 
 # Countdown 180 seconds
+set timeout 1
 for {set i 180} {$i>0} {incr i -1} {
 send_user "\b\b\b\b$i "
 expect
@@ -1219,9 +1219,9 @@ send_user "\n\n\n\n"
 
 send_user "Don't Panic!  Telnet session closed while rootfs image is flashed\n"
 send_user "Please wait 5 minutes\n"
-set timeout 1
 
 # Countdown 300 seconds
+set timeout 1
 for {set i 300} {$i>0} {incr i -1} {
 send_user "\b\b\b\b$i "
 expect
@@ -1250,11 +1250,11 @@ expect {
 expect "RedBoot>"
 send "\nfconfig boot_script_data\n"
 set timeout 5
-expect ".."
+expect ">>"
 send "fis load -d linux\n"
-expect ".."
+expect ">>"
 send "exec\n"
-expect ".."
+expect ">>"
 send "\n"
 expect "continue (y/n)?"
 send "y\n"
