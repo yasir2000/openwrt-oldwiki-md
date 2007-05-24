@@ -185,7 +185,16 @@ We're not done yet, it's also imperative that you add a line into your init scri
 There!  Now when you go to reboot, your usb drive will be mounted as root as according to the linuxrc script.
 
 = Serial console =
-Default parameters for the serial console on J7 are 115200 N81. You can use a Meraki Mini Serial adapter on J7, with the PCB hanging over the outside of the router (USB connector pointed towards the front fo the unit).  You can also build a suitable serial console using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  If you want to build your own, a project and PCB are detailed at [http://members.shaw.ca/swstuff/wgt634u.html http://members.shaw.ca/swstuff/]. You can also build a serial console cable using a cell phone data cable.  For example, the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected.  I am not sure the radio shack cable is available any longer.  Another currently available option is some variant of the [http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-WE.htm FTDI TTL-232R-3V3-WE]. Plug into your linux box's USB port and connect minicom to /dev/ttyUSBn.
+Default parameters for the serial console on J7 are 115200 N81.  
+
+Options for serial console wiring include:
+ * a Meraki Mini Serial adapter on J7, with the PCB hanging over the outside of the router (USB connector pointed towards the front fo the unit).
+ * using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  If you want to build your own, a project and PCB are detailed at [http://members.shaw.ca/swstuff/wgt634u.html http://members.shaw.ca/swstuff/]. 
+ * a cell phone data cable, for example the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected (may not be available any longer)  
+ * some variant of the [http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-WE.htm FTDI TTL-232R-3V3-WE].
+ * build something with this: [http://www.sparkfun.com/commerce/product_info.php?products_id=718]
+
+On a linux box, the USB tty devices usually show up at /dev/ttyUSBn.  You can point minicom (or similar) there.
 
 J6 (left from J7) is a second serial port, but has no header on it. It has the same pinout as J7.
 
