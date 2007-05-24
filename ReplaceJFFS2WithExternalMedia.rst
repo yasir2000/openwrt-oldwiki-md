@@ -8,7 +8,7 @@ NOTE: This notes are taken out of my personal notes. They may be incomplete or d
 Makes the following Wiki pages obsolete:
 
  . - PackagesOnExternalMediaHowTo
- - UsbStorageHowto (section 4)
+ . - UsbStorageHowto (section 4)
 == 2. Requirements ==
  . - a router with external storage media like USB stick or MMC/SD card
  - the OpenWrt ImageBuilder
@@ -172,10 +172,9 @@ kmod-usb-storage
 Note: Some of these come from the kamikaze backports.
 }}}
 == SD/MMC ==
-SD and MMC users must load the mmc module instead of the usb ones.
-The node for MMC devices is /dev/mmc/disk0/part1
+SD and MMC users must load the mmc module instead of the usb ones. The node for MMC devices is /dev/mmc/disk0/part1
 
-Other than these simple changes, using an SD or MMC card with this mod is the same (UNTESTED)
-If you do this mod with an MMC or SD card, please update this page with your configuration!
+Other than these simple changes, using an SD or MMC card with this mod is the same (UNTESTED) If you do this mod with an MMC or SD card, please update this page with your configuration!
+
 == Notes ==
 For now you have to create the device files manually with mknod. Nbd said, this will change in the future.
