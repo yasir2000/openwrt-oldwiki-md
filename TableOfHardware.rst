@@ -397,7 +397,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.soekris.com/ net4801] || ||@266MHz ||CF Card ||128MB || || || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
+||[http://www.soekris.com/net4801.htm net4801] || ||NSC SC1100 (i586) @266MHz ||CF Card ||128MB/256MB || ||none, 3 ethernet interfaces|| ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
 == Sweex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.sweex.com/producten.php?sectie=7&subsectie=7&item=80&artikel=302 LB000021] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||2MB ||16MB ||None ||? ||? ||Yes ||Yes ||No ||[:Edimax:WiP], Clone of Edimax [http://www.edimax.com.tw/html/english/products/BR-6104KP.htm BR-6104KP] ||
