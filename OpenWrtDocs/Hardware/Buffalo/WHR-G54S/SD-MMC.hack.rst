@@ -149,3 +149,7 @@ Reach me on openwrt forum for details or drop me an email on my account: (user: 
 Have Fun[[BR]]
 
 '''''Andrea (Ben) Benini'''''
+----
+Having done modded my WHR-G54S, I thought I'd add a few things. First I'll start out with some theory, which will be useful for finding GPIO points, but if you like, you can skip to the next paragraph. The LEDs are not directly driven from the CPU; rather, their positive input comes through a resistor (which we always need for an LED), through the LED, then into a GPIO. I suspect this is because the GPIOs don't provide enough current to drive the LED directly. As a result, when the GPIO is high, the LED is off, and when the GPIO is low, the LED is on. Each LED has a "+" marking, where Vcc comes in, and a drain (which isn't marked), which is connected to the appropriate GPIO pin.
+
+The upshot of this is that the solder points described above are too skillful for me, and I found some points more appropriate for (I accidentally used GPIO 1 (bridge) instead of GPIO 7 (diag), but the solder points are similar, and the functionality is identical).
