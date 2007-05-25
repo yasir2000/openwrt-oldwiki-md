@@ -1067,6 +1067,17 @@ You need to install Expect for Windows XP: http://bmrc.berkeley.edu/people/chaff
 and Solarwinds TFTP Server 6.0 (hard to get now - version 8.0 doesn't seem to work with the Meraki - someone please test this!)
 Version 8.0 is available here: http://www.tucows.com/preview/512630
 
+These scripts have been packaged and the necessary applications included here:
+http://danversj.bravehost.com/meraki-flash-v1.0.zip
+
+Extract it wherever you want and run '''install-apps.bat''' to install everything you need.
+
+Set up your network card with the IP 192.168.84.9, netmask 255.255.255.0.
+
+Copy openwrt-atheros-2.6-vmlinux.gz and openwrt-atheros-2.6-root.squashfs into the same directory as '''meraki-flash.bat'''.
+
+Plug your Meraki's LAN port into your PC (a straight-through cat-5 network cable is fine).  Run "meraki-flash.bat" and power on the Meraki when instructed to.
+
 This method follows the philosophy of the '''Erasing the Meraki Partitioning System''' method listed above.
 
 You just put your linux kernel and rootfs image files in the same directory as the meraki-flash.bat batch file and it does the rest.  Expect even runs the TFTP server for you.  You just need to make sure the TFTP server is set to "C:\TFTP-Root" for it's root dir, and that it's security setting is set to "Transmit Only" or "Transmit and Receive files".  The script assumes all applications are installed in their default directories, and that the hard drive is C.  And of course, the LAN interface on your Windows PC needs to be 192.168.84.9 (netmask 255.255.255.0).
