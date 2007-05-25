@@ -1103,8 +1103,9 @@ ECHO Confirm - Ctrl-C to abort... or...
 PAUSE
 
 
-COPY ".\%linux_file%" "C:\TFTP-Root\"
-COPY ".\%rootfs_file%" "C:\TFTP-Root\"
+COPY ".\%linux_file%" "C:\TFTP-Root\" || ECHO . && ECHO Please place %linux_file% in the same directory as meraki-flash.bat && PAUSE && EXIT
+
+COPY ".\%rootfs_file%" "C:\TFTP-Root\"|| ECHO . && ECHO Please place %rootfs_file% in the same directory as meraki-flash.bat && PAUSE && EXIT
 
 "C:\Program Files\Expect-5.21\bin\expect.exe" ".\data\meraki-redboot.exp" %linux_file% %rootfs_file%
 
@@ -1275,9 +1276,6 @@ expect {
 # Reset (reboot) Meraki
 expect "RedBoot>"
 send "\nreset\n"
-set timeout 10
-expect
-close
 send_user "\n\n\n\n"
 send_user "OpenWRT flash to Meraki successful!  The Meraki is now rebooting\n\n"
 send_user "You sould be able to connect to OpenWRT via Telnet on 192.168.1.1 in about 90 seconds from now\n\n"
