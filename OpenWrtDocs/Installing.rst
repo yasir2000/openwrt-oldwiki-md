@@ -130,3 +130,7 @@ Reflashing OpenWrt will overwrite the filesystem, erasing all previous applicati
 {{{
 mtd -r write firmware.trx linux
 }}}
+For models low on memory, the firmware can be flashed directly from a web site.
+{{{
+wget http://www.somesite.com/firmware.trx -O - | mtd -e linux -r write - linux
+}}}
