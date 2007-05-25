@@ -22,6 +22,7 @@ Locate on the back 6 points where you should solder some wires, you'll need to l
 
 Do not use GPIO 4 as i've already explained on WHR-G54S wiki page (Buffalo uses it for reset)[[BR]]
 Please see mine already hacked (quite good hack quality, poor photo).
+'''note: please see the bottom of this page for alternative solder points'''
 
 attachment:back.jpg
 
@@ -150,6 +151,23 @@ Have Fun[[BR]]
 
 '''''Andrea (Ben) Benini'''''
 ----
+
+=== Practical Experience of a Less Skillful Modder ===
+
 Having done modded my WHR-G54S, I thought I'd add a few things. First I'll start out with some theory, which will be useful for finding GPIO points, but if you like, you can skip to the next paragraph. The LEDs are not directly driven from the CPU; rather, their positive input comes through a resistor (which we always need for an LED), through the LED, then into a GPIO. I suspect this is because the GPIOs don't provide enough current to drive the LED directly. As a result, when the GPIO is high, the LED is off, and when the GPIO is low, the LED is on. Each LED has a "+" marking, where Vcc comes in, and a drain (which isn't marked), which is connected to the appropriate GPIO pin.
 
-The upshot of this is that the solder points described above are too skillful for me, and I found some points more appropriate for (I accidentally used GPIO 1 (bridge) instead of GPIO 7 (diag), but the solder points are similar, and the functionality is identical).
+The upshot of this is that the solder points described above are too skillful for me, and I found some points more appropriate for (I accidentally used GPIO 1 (bridge) instead of GPIO 7 (diag), but the solder points are similar, and the functionality is identical). Here are my Vcc, Ground, and GPIO 5 solder points (there's also a TP1 pad on the same side of the board closer to the CPU, which is what I'm actually using now, but I don't think it makes a difference). Yes, there are three wires to ground; I soldered a test lead.
+
+attachment:pwr.gpio5.jpg
+
+Here are the GPIO 1 and 3 points. (I used 1 instead of 7). 
+
+attachment:gpio13.jpg
+
+The GPIO 6 is similar. Finally, I was lazy and didn't want to Dremel, so here's how I mounted my SD card:
+
+attachment:tuckaway.jpg
+
+I don't really need regular access to it anyways.
+
+If you're wondering, the cables are from a disassembled floppy cable.
