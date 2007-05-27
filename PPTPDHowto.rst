@@ -115,7 +115,11 @@ You will now be able to access file shares by IP address.  For example, you can 
 \\192.168.30.50
 }}}
 into the address bar of Windows Explorer.  Network neighborhood still doesn't detect available computers.  If anyone knows how to make this work please post the instructions here.
-
+==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation) 
+remote announce = 192.168.11.1/UR-WG-NAME
+and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like
+192.168.11.10    mypc       mypc.behind-wrt54g.org
+..
 
 == Troubleshooting ==
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
