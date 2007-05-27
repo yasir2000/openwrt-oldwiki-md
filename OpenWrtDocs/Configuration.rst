@@ -521,7 +521,7 @@ Examples:
 ||Adelaide ||ACST-9:30ACDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Darwin ||ACST-9:30 ||
 ||Hobart ||AEST-10AEDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00 ||
-||<style="text-align: center;" |22>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
+||<style="text-align: center;" |23>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Athens, Greece ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||Barcelona, Spain ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Berlin, Germany ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
@@ -543,6 +543,7 @@ Examples:
 ||St.Petersburg, Russia ||MST-3MDT,M3.5.0/2,M10.5.0/3 ||
 ||Stockholm, Sweden ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Tallinn, Estonia ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
+||Warsaw, Poland ||CET-1CEST,M3.5.0,M10.5.0/3 ||
 ||New Zealand^2^ ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
 ||<style="text-align: center;" |10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
 ||Alaska Time ||AKST9AKDT,M3.2.0,M11.1.0 ||
