@@ -23,7 +23,6 @@ setenv ipaddr [ip for the taishan]
 setenv serverip [tftp server ip]
 tftp 100000 openwrt-amcc-2.6-squashfs.img
 cp.b 0x100000 0xfc000000 [size of the image in hex, the bootloader prints it after the tftp]
-setenv ramdisk_addr
 setenv openwrt setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit\;bootm \$(kernel_addr)
 setenv bootcmd run openwrt
 saveenv
