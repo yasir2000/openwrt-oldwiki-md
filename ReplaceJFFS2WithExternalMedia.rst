@@ -1,6 +1,6 @@
-Note: There is a better method for doing this found at the UsbStorageHowto page.
+'''Note: There is a better method for doing this found at the UsbStorageHowto page.'''
 
-[[TableOfContents(2)]]
+[[TableOfContents(3)]]
 
 First of all, credit for this discovery goes to forum2006. I am reposting his [http://forum.openwrt.org/viewtopic.php?id=10816 guide] here to keep it from getting buried.
 
