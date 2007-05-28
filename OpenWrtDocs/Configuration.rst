@@ -40,11 +40,11 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
 ||Linksys ||WRT54G ||v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRT54GL ||v1.0 ||vlan0 ||vlan1 ||eth1 || ||
-||Linksys ||WRT54GL ||v1.1 ||vlan0 ||vlan1 ||eth1 || LAN is ports 0-3, WAN is port 4 ||
+||Linksys ||WRT54GL ||v1.1 ||vlan0 ||vlan1 ||eth1 ||LAN is ports 0-3, WAN is port 4 ||
 ||Linksys ||WRT54GS ||v1.x/v2.x/v3/v4 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRTSL54GS || ||eth0 ||eth1 ||eth2 || ||
-||Linksys ||WAP54G||v1.0||br0 ||N/A ||eth1||Someone should double check this too ||
-||Linksys ||WAP54G||v2.0||eth0 ||N/A ||eth1 ||note^2^ ||
+||Linksys ||WAP54G ||v1.0 ||br0 ||N/A ||eth1 ||Someone should double check this too ||
+||Linksys ||WAP54G ||v2.0 ||eth0 ||N/A ||eth1 ||note^2^ ||
 ||Linksys ||WRT300N ||v1 ||eth0 ||eth1 ||eth2 || ||
 ||Asus ||WL-300g || ||eth0 ||None ||eth2 || ||
 ||Asus ||WL-500g || ||eth0 ||eth1 ||eth2 || ||
@@ -61,7 +61,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Buffalo ||WZR-RS-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Buffalo ||WHR3-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Dell ||!TrueMobile 2300 || ||eth0 ||eth1 ||eth2 ||BCM5325MA2KQM switch ||
-||Motorola || ["WR850G"] ||v3 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
+||Motorola ||["WR850G"] ||v3 ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Microsoft ||MN700 ||v.x ||eth0 ||eth1 ||eth2 || ||
 ||Netgear ||WGT-634U || ||vlan0 ||vlan1 ||ath0 ||note^1^ ||
 ||Siemens ||SE505 ||v1 ||eth0 ||eth1 ||eth2 || ||
@@ -142,7 +142,7 @@ lan_gateway=192.168.1.1
 lan_dns=192.168.1.1
 wan_proto=none
 }}}
-The above configuration also serves as a wireless to Ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an Ethernet LAN. Neither the IP address of the lan gateway,  or the dhcp server on the LAN interface interferes with this bridged configuration.
+The above configuration also serves as a wireless to Ethernet bridge. For e.g. you can have a PC with a wlan card with a static IP address be switched (bridged) to an Ethernet LAN. Neither the IP address of the lan gateway, or the dhcp server on the LAN interface interferes with this bridged configuration.
 
 You can also have the lan interface fetch its configuration via DHCP, but to do so, you'll have to comment out the line:
 
@@ -225,26 +225,26 @@ It's a good idea when choosing a vlan layout to keep port 1 in vlan0. At least t
 
 = Wireless configuration =
 == Basic settings ==
-|| '''NVRAM variable''' || '''Description''' ||
-|| wl0_mode || '''ap''' = Access Point (master mode), '''sta''' = Routing client mode, '''wet''' = Bridged client mode ||
-|| wl0_ssid || ESSID ||
-|| wl0_infra || '''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
-|| wl0_closed || '''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
-|| wl0_channel || 1 / 2 / 3 /.../ 11 channel ||
+||'''NVRAM variable''' ||'''Description''' ||
+||wl0_mode ||'''ap''' = Access Point (master mode), '''sta''' = Routing client mode, '''wet''' = Bridged client mode ||
+||wl0_ssid ||ESSID ||
+||wl0_infra ||'''0''' = Ad Hoc mode, '''1''' = normal AP/Client mode ||
+||wl0_closed ||'''0''' = Broadcast ESSID, '''1''' Hide ESSID ||
+||wl0_channel ||1 / 2 / 3 /.../ 11 channel ||
 See ["OpenWrtNVRAM"] for more NVRAM settings.
 
 == MAC filter ==
-|| '''NVRAM variable''' || '''Description''' ||
+||'''NVRAM variable''' ||'''Description''' ||
 ||'''wl0_macmode''' ||(disabled/allow/deny) used to (allow/deny) mac addresses listed in wl0_maclist ||
 ||'''wl0_maclist''' ||List of space-separated mac addresses to allow/deny according to wl0_macmode. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
 After changes run /sbin/wifi to activate them.
 
 == WEP encryption ==
-|| '''NVRAM variable''' || '''Description''' ||
-|| wl0_wep || '''disabled''' = disabled WEP, '''enabled''' = enable WEP ||
-|| wl0_key || '''1''' .. '''4''' = Select WEP key to use ||
-|| wl0_key[1..4] || WEP key in hexadecimal format (allowed hex chars are 0-9a-f). '''Example:''' nvram set wl0_key1=0D77F08849E4B1D839C9489A48 ||
-|| wl0_auth || '''1''' (shared key) / '''0''' (open); the 'shared key' option is not recommended as it allows an intruder to exploit a fundamental security flaw in WEP (WPA was introduced as the better system; see below). The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic. ||
+||'''NVRAM variable''' ||'''Description''' ||
+||wl0_wep ||'''disabled''' = disabled WEP, '''enabled''' = enable WEP ||
+||wl0_key ||'''1''' .. '''4''' = Select WEP key to use ||
+||wl0_key[1..4] ||WEP key in hexadecimal format (allowed hex chars are 0-9a-f). '''Example:''' nvram set wl0_key1=0D77F08849E4B1D839C9489A48 ||
+||wl0_auth ||'''1''' (shared key) / '''0''' (open); the 'shared key' option is not recommended as it allows an intruder to exploit a fundamental security flaw in WEP (WPA was introduced as the better system; see below). The 'open' setting will allow association but will make it an intruder more difficult to find the encryption key, needed for traffic. ||
 Avoid using WEP keys with 00 at the end, otherwise the driver won't be able to detect the key length correctly. A 128-bit WEP key must be 26 hex digits long ; string key format is also supported : '''nvram set wl0_key1='s:my string key' '''
 
 Setting up WPA will override any WEP settings.
@@ -257,21 +257,21 @@ For enabling WPA, you need to install the nas package. When you enable or disabl
 More information is on ["OpenWrtDocs/nas"].
 
 See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user authentication.
-|| '''NVRAM variable''' || '''Description''' ||
-||<style="text-align: center;" |6> wl0_akm || '''open''' = No WPA ||
-||  '''psk''' = WPA Personal/PSK (Preshared Key) ||
-||  '''wpa''' = WPA with a RADIUS server ||
-||  '''psk2''' = WPA2 PSK ||
-||  '''wpa2''' = WPA2 with RADIUS ||
-||  '''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs) ||
-||<style="text-align: center;" |3> wl0_crypto || '''tkip''' = RC4 encryption ||
-||  '''aes''' = AES encryption ||
-||  '''aes+tkip''' = support both '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs) ||
-|| wl0_wpa_psk || Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
-|| wl0_radius_key || Shared Secret for connection to the Radius server ||
-|| wl0_radius_ipaddr || IP to connect... ||
-|| wl0_radius_port || Port# to connect... ||
-|| wl0_auth || '''0''' ||
+||'''NVRAM variable''' ||'''Description''' ||
+||<style="TEXT-ALIGN: center" |6>wl0_akm ||'''open''' = No WPA ||
+||'''psk''' = WPA Personal/PSK (Preshared Key) ||
+||'''wpa''' = WPA with a RADIUS server ||
+||'''psk2''' = WPA2 PSK ||
+||'''wpa2''' = WPA2 with RADIUS ||
+||'''"psk psk2"''' or '''"wpa wpa2"''' = support both WPA and WPA2 '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs) ||
+||<style="TEXT-ALIGN: center" |3>wl0_crypto ||'''tkip''' = RC4 encryption ||
+||'''aes''' = AES encryption ||
+||'''aes+tkip''' = support both '''Note:''' Do not use this value when wl0_mode=sta because supplicant mode does not seem to auto-negotiate. You must select one protocol which the access point supports (refer to the AP's specs) ||
+||wl0_wpa_psk ||Password to use with WPA/WPA2 PSK (at least 8, up to 63 chars) ||
+||wl0_radius_key ||Shared Secret for connection to the Radius server ||
+||wl0_radius_ipaddr ||IP to connect... ||
+||wl0_radius_port ||Port# to connect... ||
+||wl0_auth ||'''0''' ||
 
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
@@ -329,21 +329,21 @@ Then modify /etc/init.d/S40network to bring up these interfaces:
     ifup wds2
 }}}
 == A note on encryption with WDS ==
-WDS is exceptionally easy to set up.  You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
+WDS is exceptionally easy to set up. You can do it in from the web interface under Wireless. WDS will work OOB with either no encryption or WEP; other than setting your WEP key (as normal) no configuration is required.
 
 When using WPA with WDS, the simplest method is to ensure that both routers are using the same ESSID and WDS settings; if so, you don't need to set any additional variables besides '''wl0_wds'''. However, some people may want to use different encryption for the WDS link than for clients, or different ESSIDs for different routers; if so, there are a number of wds_specific nvram variables that can be set; ensure that all WDS peers have the same values for these variables. If the variables are unset (as they are by default), WDS will use the same encryption settings as used for clients.
-|| '''NVRAM variable''' || '''Description''' ||
-|| wl0_wds_wpa_psk || Your wireless password ||
-|| wl0_wds_akm || The key type (i.e. psk) ||
-|| wl0_wds_crypto || The algorithm (i.e. aes) ||
-|| wl0_wds_ssid || The ssid (has to be the same at both ends, if used - see below) ||
+||'''NVRAM variable''' ||'''Description''' ||
+||wl0_wds_wpa_psk ||Your wireless password ||
+||wl0_wds_akm ||The key type (i.e. psk) ||
+||wl0_wds_crypto ||The algorithm (i.e. aes) ||
+||wl0_wds_ssid ||The ssid (has to be the same at both ends, if used - see below) ||
 
 
 If using WDS between routers with different ESSIDs, you should all of their '''wl0_wds_ssid''' variables to the ESSID of ''one'' of the routers, so that they will be able to talk to each other.
 
-Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS.  It is known that WPA1 works.
+Note that it appears that there is a bug in nas that prevents WPA2 from working properly with WDS. It is known that WPA1 works.
 
-Remember that the non-free package NAS must be installed for WPA to work.  It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain.  Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
+Remember that the non-free package NAS must be installed for WPA to work. It is also noted on the forum that you may be able to use WPA1 for the WDS link and WPA2 for client PCs; however, consider that the protection offered by WPA is only as good as the weakest link in the chain. Any data sent over the WDS link (including connections originating from client PCs connected to the satellite AP) will be vulnerable to an attack on WPA1.
 
 == Wireless client / wireless bridge ==
 The only thing you have to do is to switch the WL mode like with the bridge:
@@ -367,9 +367,9 @@ To read the syslog messages, use the '''logread''' command. See MiniHowtos to se
 For SSH login without password, put your keys in /etc/dropbear/authorized_keys. See DropbearPublicKeyAuthenticationHowto.
 
 == iptables - Firewall ==
-The rules and some small samples for your firewall can be found in /etc/firewall.user.  For RC5 and earlier if you want to make changes to this file you have to remove it first since it is actually a symlink to /rom/etc/firewall.user, see the section Editing files in ["OpenWrtDocs/Using"].
+The rules and some small samples for your firewall can be found in /etc/firewall.user. For RC5 and earlier if you want to make changes to this file you have to remove it first since it is actually a symlink to /rom/etc/firewall.user, see the section Editing files in ["OpenWrtDocs/Using"].
 
-Be sure to read the notes about the firewall rules before changing anything.  The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN.  You will have to access the router from outside to verify the setup.
+Be sure to read the notes about the firewall rules before changing anything. The important thing to note is that if you setup port forwarding, you won't be able to see the changes inside the router's LAN. You will have to access the router from outside to verify the setup.
 
 As of RC9 the file /etc/firewall.user reads
 
@@ -399,7 +399,7 @@ iptables -t nat -F prerouting_wan
 # iptables -t nat -A prerouting_wan -j DNAT --to 192.168.1.2
 # iptables        -A forwarding_wan -d 192.168.1.2 -j ACCEPT
 }}}
-The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept.  In the case given, it will open up port 22 and accept connections using dropbear (the SSH server).  Just delete the '''#''' sign in front of the two rules to enable access.
+The first section, '''Open port to WAN''' shows an example of opening a port for your router running OpenWRT to listen to and accept. In the case given, it will open up port 22 and accept connections using dropbear (the SSH server). Just delete the '''#''' sign in front of the two rules to enable access.
 
 If you wanted to open up any other ports for the router to listen to, just copy those two lines and change just the port number from 22 to something else.
 
@@ -411,9 +411,9 @@ In the example provided, if someone on the Internet were to connect to your rout
 
 If you are running a webserver on that address, and want to listen on port 80 instead, change the 8080 on the first line.
 
-The same is true for any other ports you'd want to forward to your LAN.  Just follow the example as a guide.
+The same is true for any other ports you'd want to forward to your LAN. Just follow the example as a guide.
 
-The last section, '''DMZ''' is sending all connections to a port not specified in the rules above to a certain IP address.  If you do decide to use this, it would be a good idea to have a firewall managing the ports on the destination.  The DMZ can be considered a simple way to let another computer handle the firewall rules, if you don't want to configure them on OpenWRT and at the same time you want to send all connections to one device.
+The last section, '''DMZ''' is sending all connections to a port not specified in the rules above to a certain IP address. If you do decide to use this, it would be a good idea to have a firewall managing the ports on the destination. The DMZ can be considered a simple way to let another computer handle the firewall rules, if you don't want to configure them on OpenWRT and at the same time you want to send all connections to one device.
 
 Once you're finished making changes to your firewall, restart it by running the init script:
 
@@ -438,7 +438,7 @@ You may use either ''ntpclient'', ''rdate'', ''htpdate'' or ''openntpd''. Only '
 
 '''rdate'''
 
-The ''rdate'' command synchronises the system time to the time on a remote host using the [http://en.wikipedia.org/wiki/TIME_protocol time protocol] on TCP port 37 (the time protocol has been superseded by the Network time protocol (NTP)). It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift.  ''rdate'' is part of the ''busybox'' package and is already installed.
+The ''rdate'' command synchronises the system time to the time on a remote host using the [http://en.wikipedia.org/wiki/TIME_protocol time protocol] on TCP port 37 (the time protocol has been superseded by the Network time protocol (NTP)). It is normally used once during boot, and then the kernel maintains the time based on the processor oscillator. It will slowly drift. ''rdate'' is part of the ''busybox'' package and is already installed.
 
 Create the file {{{/etc/init.d/S55rdate}}} with the contents:
 
@@ -515,13 +515,13 @@ nvram set time_zone="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"
 nvram commit
 }}}
 Examples:
-||<style="text-align: center;" |6>[http://www.australia.gov.au/about-australia-13time Australia] ||Melbourne,Canberra,Sydney ||AEST-10AEDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
+||<style="TEXT-ALIGN: center" |6>[http://www.australia.gov.au/about-australia-13time Australia] ||Melbourne,Canberra,Sydney ||AEST-10AEDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Perth ||AWST-8AWDT-9,M12.1.0,M3.5.0/03:00:00 ||
 ||Brisbane ||AEST-10 ||
 ||Adelaide ||ACST-9:30ACDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Darwin ||ACST-9:30 ||
 ||Hobart ||AEST-10AEDT-11,M10.1.0/02:00:00,M3.5.0/03:00:00 ||
-||<style="text-align: center;" |23>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
+||<style="TEXT-ALIGN: center" |23>Europe ||Amsterdam, Netherlands ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Athens, Greece ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||Barcelona, Spain ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Berlin, Germany ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
@@ -540,12 +540,13 @@ Examples:
 ||Prague, Czech Republic ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Roma, Italy ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Moscow, Russia ||MSK-3MSD,M3.5.0/2,M10.5.0/3 ||
+||Sofia, Bulgaria ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||St.Petersburg, Russia ||MST-3MDT,M3.5.0/2,M10.5.0/3 ||
 ||Stockholm, Sweden ||CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00 ||
 ||Tallinn, Estonia ||EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00 ||
 ||Warsaw, Poland ||CET-1CEST,M3.5.0,M10.5.0/3 ||
 ||New Zealand^2^ ||Auckland, Wellington ||NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00 ||
-||<style="text-align: center;" |10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
+||<style="TEXT-ALIGN: center" |10>USA & Canada^1^ ||Hawaii Time ||HAW10 ||
 ||Alaska Time ||AKST9AKDT,M3.2.0,M11.1.0 ||
 ||Pacific Time ||PST8PDT,M3.2.0,M11.1.0 ||
 ||Mountain Time ||MST7MDT,M3.2.0,M11.1.0 ||
@@ -555,10 +556,10 @@ Examples:
 ||Atlantic Time ||AST4ADT ||
 ||Atlantic Time (New Brunswick) ||AST4ADT,M4.1.0/00:01:00,M10.5.0/00:01:00 ||
 ||Newfoundland Time (Updated DST for 2007) ||NST+3:30NDT+2:30,M3.2.0/00:01:00,M11.1.0/00:01:00 ||
-||<style="text-align: center;" |3>Asia ||Jakarta ||WIB-7 ||
+||<style="TEXT-ALIGN: center" |3>Asia ||Jakarta ||WIB-7 ||
 ||Singapore ||SGT-8 ||
 ||Ulaanbaatar, Mongolia ||ULAT-8ULAST,M3.5.0/2,M9.5.0/2 ||
-||<style="text-align: center;" |3>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
+||<style="TEXT-ALIGN: center" |3>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
 ||Argentina ||UTC+3 ||
 ||Central America ||CST+6 ||
 
@@ -578,8 +579,8 @@ echo "MST7MDT,M3.2.0,M11.1.0" >/etc/TZ
 echo "PST8PDT,M3.2.0,M11.1.0" >/etc/TZ
 echo "AKST9AKDT,M3.2.0,M11.1.0" >/etc/TZ
 }}}
-
 As explained above, you could also set this in the NVRAM:
+
 {{{
 rm -f /etc/TZ
 nvram set time_zone="EST5EDT,M3.2.0,M11.1.0"
@@ -589,7 +590,6 @@ nvram set time_zone="PST8PDT,M3.2.0,M11.1.0"
 nvram set time_zone="AKST9AKDT,M3.2.0,M11.1.0"
 nvram commit
 }}}
-
 See http://astronomy.physics.tamu.edu/Java/Tools/Misc/Clock/zones.html for other time zones.
 
 = HOWTOs / Additional Configuration =
