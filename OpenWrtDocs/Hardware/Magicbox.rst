@@ -29,7 +29,7 @@ RAM: 32 MB
 Wireless: 3x mini-PCI slot
 Ethernet: 2 ports connected to the CPU
 USB: no
-Serial: yes, external (you need a straight cable)
+Serial: yes, external (you need a null-modem cable)
 JTAG: yes
 Power over Ethernet: 18-24V
 }}}
