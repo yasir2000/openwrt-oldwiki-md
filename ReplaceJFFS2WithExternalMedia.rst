@@ -1,20 +1,18 @@
 Note: There is a better method for doing this found at the UsbStorageHowto page.
 
+[[TableOfContents(2)]]
+
 First of all, credit for this discovery goes to forum2006. I am reposting his [http://forum.openwrt.org/viewtopic.php?id=10816 guide] here to keep it from getting buried.
 
-== 1. Introduction ==
-This guide describes how to use your USB stick or your MMC/SD card for storing pakages and files instead of using the JFFS2 partion on your flash chip. / in this case is the SquashFS partition on the flash chip and the writable EXT2 partion is on your external media. With little modifications you can use this guide also for MMC/SD card. Tested with Kamikaze pre1 on a Asus WL-500GD and a 512MB Sundisk Cruzer Mini USB 2.0 stick. With little modifications it will also work with WhiteRussian 0.9. With this guide you do not have to mess around with PATH, LD_LIBRARY_PATH or create symlinks anymore.
+== Introduction ==
+This guide describes how to use your USB stick or your MMC/SD card for storing packages and files instead of using the JFFS2 partition on your flash chip. / in this case is the SquashFS partition on the flash chip and the writable EXT2 partition is on your external media. With little modifications you can use this guide also for MMC/SD card. Tested with Kamikaze pre1 on a Asus WL-500GD and a 512MB Sundisk Cruzer Mini USB 2.0 stick. With little modifications it will also work with WhiteRussian 0.9. With this guide you do not have to mess around with PATH, LD_LIBRARY_PATH or create symlinks anymore.
 
 NOTE: This notes are taken out of my personal notes. They may be incomplete or does not fit your needs.
 
-Makes the following Wiki pages obsolete:
-
- . - PackagesOnExternalMediaHowTo
- . - UsbStorageHowto (section 4)
-== 2. Requirements ==
+== Requirements ==
  . - a router with external storage media like USB stick or MMC/SD card
  - the OpenWrt ImageBuilder
-== 3. USB media ==
+== USB media ==
 The script which we will be editing is called mount_root. It can be found in the /sbin directory on your wrt enabled router. If you have not yet installed OpenWRT or are going to a new version (From WhiteRussian to Kamikaze) you can find it at ./package/base-files/files/sbin/mount_root in your ImageBuilder directory.
 
 1. Create the directory you will keep your modified files in:
