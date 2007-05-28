@@ -158,16 +158,14 @@ Having done modded my WHR-G54S, I thought I'd add a few things. First I'll start
 
 The upshot of this is that the solder points described above are too skillful for me, and I found some points more appropriate for (I accidentally used GPIO 1 (bridge) instead of GPIO 7 (diag), but the solder points are similar, and the functionality is identical). Here are my Vcc, Ground, and GPIO 5 solder points (there's also a TP1 pad on the same side of the board closer to the CPU, which is what I'm actually using now, but I don't think it makes a difference). Yes, there are three wires to ground; I soldered a test lead.
 
-attachment:pwr.gpio5.jpg
+attachment:pwr.gpio5_2.jpg
 
 Here are the GPIO 1 and 3 points. (I used 1 instead of 7). 
 
-attachment:gpio13.jpg
+attachment:gpio13_2.jpg
 
-The GPIO 6 is similar. Finally, I was lazy and didn't want to Dremel, so here's how I mounted my SD card:
+The GPIO 6 is similar (sorry, I don't have a good picture). Finally, I was lazy and didn't want to Dremel, so here's how I mounted my SD card, since I don't really need regular access to it anyways:
 
-attachment:tuckaway.jpg
-
-I don't really need regular access to it anyways.
+attachment:tuckaway2.jpg
 
 If you're wondering, the cables are from a disassembled floppy cable.
