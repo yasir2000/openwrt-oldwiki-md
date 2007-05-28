@@ -15,34 +15,21 @@ JTAG: yes
 
 '''Installation'''
 
-Press a key on bootup to enter the u-boot bootloader's console.
-
-Set up the IP addresses:
+Set up a tftp server and use these commands over serial console:
 
 {{{
-setenv ipaddr 192.168.1.1
-setenv serverip 192.168.1.254
-}}}
-
-Create script to flash !OpenWrt:
-{{{
-setenv flash_openwrt tftp 100000 openwrt-ppc44x-squashfs.img\;erase \${kernel_addr} +\${filesize}\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
-}}}
-
-Create the needed bootargs for !OpenWrt:
-
-{{{
-setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
-setenv bootcmd bootm \$(kernel_addr)
+erase 0xfc000000 ffdfffff
+setenv ipaddr [ip for the taishan]
+setenv serverip [tftp server ip]
+tftp 100000 openwrt-amcc-2.6-squashfs.img
+cp.b 0x100000 0xfc000000 [size of the image in hex, the bootloader prints it after the tftp]
+setenv ramdisk_addr
+setenv openwrt setenv bootargs console=ttyS1,115200 root=/dev/mtdblock/1 rootfstype=jffs2\;bootm \$(kernel_addr)
+setenv bootcmd run openwrt
 saveenv
-}}}
-
-Flash !OpenWrt and reset:
-{{{
-run flash_openwrt
 reset
 }}}
 
+
 ----
 CategoryModel
-CategoryGigabitDevices
