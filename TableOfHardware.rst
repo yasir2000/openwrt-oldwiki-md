@@ -356,6 +356,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == Philips ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNR6500_05_GB_CONSUMER SNR6500] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||ST 25P16V6P (2MB) ||PSC A2V64S4OCTP (8MB) || ||ALTIMA AC101 || ||Yes ||Yes, pin header soldered ||No ||? ||
+||SNB5600 || || || ||PSC A2V64S4OCTP (8MB) || ||IC+ IP175C || ||Yes, but the Rx-pin is disconnected ||Yes, solder points ||No ||? ||
 == PC Engines ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.pcengines.ch/wrap.htm WRAP.2d] || ||x86 233mhz or 266mhz ||CF Card ||64MB || || || ||Yes ||No ||No ||[:SoekrisPort:Kamikaze] ||
