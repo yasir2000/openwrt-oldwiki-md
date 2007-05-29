@@ -137,7 +137,7 @@ Be sure you know the ADAM2 IP address before proceeding as explained [:Troublesh
 
 '''Get and compile the source code'''
 
-Read the page about the ["OpenWrtDocs/Hardware/D-Link/DSL-502T"] to know how to proceed.
+Read the page about the [":OpenWrtDocs/Hardware/D-Link/DSL-502T"] to know how to proceed.
 
 Briefly, once you've obtained the source code and installed the packages needed to build the firmware image, type
 
@@ -168,9 +168,23 @@ and the firmware was correctly compiled on an up-to-date Debian sid.
 
 Be advised that to compile the firmware you need a working Internet connection, around 3G of space and be patient.
 
+Sam Liddicott had to disable swan, procps, nano, zd1211 and eagle-swan to get it all to compile. He also had to:
+{{{
+cp ./build_mipsel/linux-2.6-ar7/linux-2.6.21.1/net/netfilter/xt_TCPMSS.ko ./build_mipsel/linux-2.6-ar7/linux-2.6.21.1/net/ipv4/netfilter/xt_TCPMSS.ko
+}}}
+so that ipkg builders could find xt_TCPMSS (being unable to find where the ipkg reference was to fix that).
+
 '''Upload the firmware'''
 
 Once the firwmare is compiled, you need to upload it to the router.  For this, you can use the adam2flash.pl script present in the scripts/ folder.  First of all, be sure that you can connect to the ADAM2 bootloader.  Using an ethernet cable (during the booting process the wireless isn't available), configure your network card in the same IP range as ADAM2 and then switch the router on.  After 2 seconds you can connect to it (substitute 192.168.1.1 with your ADAM2 IP address):
+
+See section 1.2 on [":OpenWrtDocs/Hardware/D-Link/DSL-502T"] in order to know how to calculate your memory mappings.
+Sam Liddicott found "hsqs" at position 0xc9baa, and so typed these commands into an adam2 telnet session.
+{{{
+SETENV mtd0,0x900D9BAA,0x903f0000
+SETENV mtd1,0x90010000,0x900D9BAA
+SETENV mtd4,0x90010000,0x903f0000
+}}}
 
 {{{
 $ telnet 192.168.1.1 21
@@ -212,6 +226,13 @@ Writing to mtd1...
 can't open data connection
 }}}
 On IRC, nbd advised me to try to write to mtd4 because of the strange mtd1 memory mapping.  I'll report back here as soon as I'd have tested it.
+
+Sam Liddicott could not update mtd1 or mtd0 using adam2flash.pl or the ftp instructions at [":OpenWrtDocs/Hardware/D-Link/DSL-502T"], getting this ftp error:
+{{{
+550 Flash erase failed
+}}}
+but he could update mtd4 using the manual ftp instructions.  As far as he could tell the linux image never booted and he had to restore his mtd settings and the dlink image which worked; and strangely had all of his dlink settings intact. He wonders if the open wrt erase+flash even did anything at all - maybe the mtd boundary changes stopped it booting and openwrt was never there at all?
+
 
 == Further Information ==
 Once again, the page about the ["OpenWrtDocs/Hardware/D-Link/DSL-502T"] is plenty of links.
