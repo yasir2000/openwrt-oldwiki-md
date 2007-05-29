@@ -284,3 +284,7 @@ For advanced debugging enable the {{{debug}}} parameter in the configuration fil
 For more details please have a look at the links below.
 
 http://en.wikipedia.org/wiki/Ddns http://www.ez-ipupdate.com/
+
+= Useful comments =
+
+[http://ez-ipupdate.com/ ez-ipupdate] has not been updated since Mar 11 15:48:42 2002 and is considered dead code. http://forum.openwrt.org/viewtopic.php?id=10704
