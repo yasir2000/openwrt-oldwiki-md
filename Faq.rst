@@ -537,6 +537,13 @@ nvram set pppoe_ifname=<your_WAN_interface_name>
 nvram set wan_device=<your_WAN_interface_name>
 nvram commit
 }}}
+
+/!\ '''IMPORTANT:''' If your provider only accepts CHAP authentication, you will also need to add the username and password to {{{/etc/ppp/chap-secrets}}}.  If your password is empty, use two double-quotes "".
+{{{
+#USERNAME  PROVIDER  PASSWORD  IPADDRESS
+<your_isp_login>  ""  <your_isp_password>  *
+}}}
+
 When done bring up the WAN connection with:
 
 {{{
