@@ -20,6 +20,9 @@ See also
  * '''["CategoryADM5120Device"]''' - Which models use the ADM5120
  * '''["CategoryAR7Device"]''' - Which models use the AR7
  * '''OpenWrtDocs''' - back to the Table of Contents
+
+Notes:
+ * Just because a device is in this list doesn't mean that OpenWRT will run on this device. Some devices have limited support, while others get by with just the bare minimums. For example. Devices with 2mb of flash and 8mb of ram will be able to handle basic tasks only.
 == 4G Systems ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64MB ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Kamikaze ||
