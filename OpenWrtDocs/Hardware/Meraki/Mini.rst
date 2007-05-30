@@ -1058,7 +1058,22 @@ watchdog hb: 20  ISR: 0xa1  IMR: 0x9  WD : 0x0  WDC: 0x0
 }}}
 Unfortunately, I had installed using the flash method rather than the failsafe method. Fortunately I had backed up the partitions and was able to restore using a serial console.
 
-= Firmware Install Script =
+= Automated Firmware Install =
+== EasyFlash utility ==
+
+The Expect script below is now redundant.  Sven-Ola Tuecke of Berlin Freifunk has modified the Fonera EasyFlash utility to support the Meraki.
+
+Get it here:
+http://download.olsrexperiment.de/sven-ola/area51/
+
+Under Windows you need to install WinPcap:
+http://www.winpcap.org/
+
+It's cool because it has an internal TFTP server and with WinPcap it configures the selected network interface transparently.  It's also a much smaller download, and a nice shiny GUI.
+
+To use it, plug in your Meraki to your PC's ethernet jack.  Run the EasyFlash util, select the correct ethernet interface, select your rootfs file (*root.squashfs or *root.jffs2-64k), and your Kernel file (*vmlinux.gz).  Click on "Go" and plug in the power to your Meraki.  Then just sit back and wait for about 8 minutes while the files are flashed.
+
+== Expect Script ==
 
 This is an Expect script for Windows XP - it shouldn't be too hard to adapt to Linux or other OSes.
 
