@@ -206,6 +206,17 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 
 '''echo 0xe8 > /proc/diag/gpiomask''' to avoid hotplug problems.
 
+
+=== SDcard on WAP54G V31 (EU) ===
+
+Here is a link that describes how to add a SD card to a WAP54G V31 (EU), this project uses the card read only,
+first a cramfs is created on the card with the PC (this is the native system the Linksys software uses),
+so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G V31 EU). 
+http://panteltje.com/panteltje/wap54g/to-linksys-wap54g-forum-2.txt
+
+
+
+
 == Yay, it works, now what? ==
 
 
