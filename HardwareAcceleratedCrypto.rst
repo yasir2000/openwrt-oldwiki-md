@@ -3,6 +3,8 @@ Some models of the BCM47xx/53xx family support hardware accelerated encryption f
 
 The specification states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration using the blowfish encryption throughput is only ~0,4MB/s.
 
+BREAKTHROUGH! I found the API for programming the crypto API of the bcm5365P or Broadcom 5365P. Unfortunately my skills are limited with programming DMAs and such, so you can get the file [http://www.nchasen.com/bcm5365p.pdf here]. The crypto api description begins on page 60. It includes everything required to build a driver as it seems that no driver can be found so far (except as part of the Broadcom Dev environment and no one seems to be able to get that).
+
 ----
 
  * There's been some reports from people working on this, but so far no visible progress. Seems that both persons have disappeared since. 
@@ -38,4 +40,4 @@ The specification states the hardware is able to support 75Mbps (9,4MB/s) of enc
 ||BCM94704AGR ||WEP 128, AES OCB AES CCM, ||[http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf 94704AGR-PB00-R.pdf] ||
 ||BCM?4704P ||WEP 128, AES OCB, AES CCM, VPN ||[http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf 94704AGR-PB00-R.pdf] ||
 ||BCM5365 ||AES (up to 256-bit CTR and CBC modes), DES, 3DES (CBC), HMAC-SHA1, HMAC-MD5, SHA1 and MD5. IPSec encryption and single pass authentication. ||[http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf 5365_5365P-PB01-R.pdf] ||
-||BCM5365P ||AES (up to 256-bit CTR and CBC modes), DES, 3DES (CBC), HMAC-SHA1, HMAC-MD5, SHA1 and MD5. IPSec encryption and single pass authentication. ||[http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf 5365_5365P-PB01-R.pdf] ||
+||BCM5365P ||AES (up to 256-bit CTR and CBC modes), DES, 3DES (CBC), HMAC-SHA1, HMAC-MD5, SHA1 and MD5. IPSec encryption and single pass authentication. ||[http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf 5365_5365P-PB01-R.pdf] [http://www.nchasen.com/bcm5365p.pdf bcm5365p.pdf] ||
