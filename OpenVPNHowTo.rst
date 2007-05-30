@@ -7,7 +7,9 @@ This guide originated in this [http://forum.openwrt.org/viewtopic.php?pid=8495#p
 
 It describes using OpenVPN to allow a "road warrior" remote user to connect to the home network from the wan interface i.e. anywhere on the internet.#
 
-This guide describes a TAP-based (bridged tunnel) solution with preshared keys, for a TUN-based (routed tunnel) with SSL/TLS certificates, try the slightly different ["OpenVPNTunHowTo"] (which was based on this how-to)
+This guide describes a TAP-based (bridged tunnel) solution with preshared keys, for a TUN-based (routed tunnel) with SSL/TLS certificates, try the slightly different ["OpenVPNTunHowTo"] (which was based on this how-to).
+
+For more information regarding the differences between bridging (TAP) and routing (TUN) and which solution is more appropriate in your case please see [http://openvpn.net/faq.html#bridge2].
 
 = HowTo =
 This is a quick !HowTo for getting OpenVPN v2.0 up and running on OpenWRT. There are many possible ways to configure OpenVPN; the one we will use here is designed for ease of setup and one server with a few clients. To that end we will use bridged mode with static keys.
