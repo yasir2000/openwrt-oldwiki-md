@@ -3,7 +3,7 @@
 This board is also known as TAC Inc. SH7706LAN or T-SH7706LAN. It is is a very minimal board only enough to experiment with the SH3 platform, however, there are rumours about hacking an LCD onto the expansion pins and playing Doom on it.
 
  * Bootloader: MES 2.3 Rev12 (Micro Embedded System)
- * CPU: SH7706 @ 133MHz (SH3)
+ * CPU: SH7706 @ 133MHz (SH3) [http://www.renesas.com/fmwk.jsp?cnt=sh7706_root.jsp&fp=/products/mpumcu/superh_family/sh7700_series/sh7706_group CPU info]
  * Flash size: 512KByte
  * RAM: 8 - 32 MByte
  * Ethernet: RTL8019AS
