@@ -187,6 +187,8 @@ Serial is located on pin soldering points (ready for soldering of 8-pin connecto
 NC    3.3V TX0  RX0
 RESET GND  TX1  RX1}}}
 
+Pin 1 (with the square solder pad) is RX0.
+
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 ----
