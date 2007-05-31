@@ -21,6 +21,6 @@ JTAG: yes, backside
 }}}
 
 
-The board under the hood is the same as the !LiteStation2. The weather resistant housing features Adaptive Antenna Polarity Technology. Traditionally, when deploying outdoor antennas, the polarization is fixed for either vertical or horizontal operation with each have it's advantages. Ubiquiti introduces a patent-pending technology which enables fixed use or "adaptively switched" on the fly use of the same antenna in multiple polarities.
+The board under the hood is the same as the [wiki:OpenWrtDocs/Hardware/Ubiquiti/LiteStation2 LiteStation2]. The weather resistant housing features Adaptive Antenna Polarity Technology. Traditionally, when deploying outdoor antennas, the polarization is fixed for either vertical or horizontal operation with each have it's advantages. Ubiquiti introduces a patent-pending technology which enables fixed use or "adaptively switched" on the fly use of the same antenna in multiple polarities.
 
 For more information about the device, check http://ubnt.com
