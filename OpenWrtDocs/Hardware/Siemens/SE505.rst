@@ -2,7 +2,7 @@
 
 SE505 product page is now   [http://gigaset.siemens.com/shc/0,1935,hq_en_0_15702_rArNrNrNrN_variation:-5_pageType:downloads_imagePos:0,00.html#content : located here]
 
-There are three known versions of the SE505. Only the version SE505V1 (S4) and  SE505V2 (S7, S8) are currently supported by OpenWRT. The third version, SE505V3 (T7, T8), has not been reported to work.
+There are three known versions of the SE505. Only the version SE505V1 (S4) and  SE505V2 (S7, S8, S9) are currently supported by OpenWRT. The third version, SE505V3 (T7, T8), has not been reported to work.
 
 Another description (in German) and link to images of versions 1 and 2 can be found here:
 http://wiki.opennet-initiative.de/index.php/Siemens_SE505
