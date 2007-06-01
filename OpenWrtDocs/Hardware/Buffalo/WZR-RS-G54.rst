@@ -10,6 +10,8 @@ When installing, make sure you use either '''openwrt-brcm-2.4-jffs2-4MB.trx''' (
 
 /!\ Note, the Buffalo WZR-RS-G54 doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 
+/!\ Note, TFTP server is only running during the bootstrapping sequence.  Reboot or powercycle the router just before you do the '''put'''.
+
 Send image with TFTP:
 {{{
 tftp 192.168.12.1
