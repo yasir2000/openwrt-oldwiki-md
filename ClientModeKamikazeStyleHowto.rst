@@ -72,8 +72,6 @@ Assuming you have WEP working correctly you should now be connected and surfing 
 # ipkg install wpa-supplicant}}}
 /etc/config/wireless
 
- * The only option you'll have to set now is "option mode sta".
-
 {{{config wifi-device  wifi0
         option type     atheros
 #       option channel  5
