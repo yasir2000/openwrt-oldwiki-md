@@ -43,7 +43,7 @@ config interface wan
 
 {{{config wifi-device  wifi0
         option type     atheros
-#       option channel  15
+#       option channel  5
 #       option diversity 1
 #       option txantenna 0
 #       option rxantenna 0
