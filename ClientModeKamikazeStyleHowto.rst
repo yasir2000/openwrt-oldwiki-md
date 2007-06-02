@@ -66,61 +66,39 @@ config wifi-iface
  .
 
 == WPA2-AES ==
-Assuming you have WEP working correctly you should now be connected and surfing the web. To get WPA to work you'll need to install the wpa_supplicant package.
+Assuming you have WEP working correctly you should now be connected and surfing the web. To get WPA to work you'll need to install the wpa-supplicant package.
 
-{{{
-# ipkg update
+{{{# ipkg update
 # ipkg install wpa-supplicant}}}
 /etc/config/wireless
 
  * The only option you'll have to set now is "option mode sta".
-{{{
-config wifi-device  wifi0
+
+{{{config wifi-device  wifi0
         option type     atheros
-        #option channel  5
+#       option channel  5
+#       option diversity 1
+#       option txantenna 0
+#       option rxantenna 0
+#       option distance  2000
+# disable radio to prevent an open ap after reflashing:
+        option disabled 0
+ 
 config wifi-iface
         option device   wifi0
-        #option network lan
-        #option mode     ap
+#       option network  lan
         option mode     sta
-        #option ssid     yourSSIDHere
-        #option hidden   0
-        #option encryption wep
-        #option key     your26CharacterHexKeyHere}}}
+        option ssid     yourSSIDHere
+        option hidden   0
+#       option txpower  15
+#       option bgscan   enable
+        option encryption psk2
+        option key      yourtopsecretpassword}}}
+
  . '''Reboot the device.'''
-/etc/wpa_supplicant.conf
 
- * Your wifi options are now set in /etc/wpa_supplicant.conf (you'll have to create this file) instead of /etc/config/wireless.
- * Set your SSID.
- * Set your key.
-{{{
-ctrl_interface=/var/run/wpa_supplicant
-update_config=1
-network={
-        ssid="yourSSIDHere"
-        psk="yourKeyHere"
-        proto=RSN
-        key_mgmt=WPA-PSK
-        pairwise=CCMP
-        disabled=0
-} }}}
-Now start wpa_supplicant.
-
-{{{
-# wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
 That should do it; happy hunting.
 
-== Autostart wpa_supplicant ==
-Here's how to get wpa_supplicant to start on boot/reboot.
-
- * Create the file /etc/init.d/wpaStart.sh
-{{{
-#!/bin/sh
-wpa_supplicant -Dwext -iath0 -c/etc/wpa_supplicant.conf -B}}}
- * Change the permissions on wpaStart.sh to 755.
- * Create a symbolic link to it from /etc/rc.d/ directory.
-{{{
-# ln -s /etc/init.d/wpaStart.sh S90wpaStart}}}
 == Useful Commands ==
  * ifconfig
  * iwconfig
