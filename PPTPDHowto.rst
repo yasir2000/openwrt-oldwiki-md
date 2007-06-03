@@ -31,6 +31,8 @@ Add an IP address for every client. An example ''chap-secrets'' looks like this:
 vpnuser pptp-server vpnpassword 172.16.1.2}}}
 See ''man pppd'' on a Linux system for more information on this file. Take care that the provider field matches the ''name'' option in ''/etc/ppp/options.pptpd''. The default is ''pptp-server''.
 
+/!\ If you have x-wrt installed and use it to edit the ''chap-secrets'' file, it will create every entry with the provider of ''pptpd''.  Also, every time the router is rebooted the file will be rewritten so that the provider is ''pptpd''.  The easiest way to deal with this is to set the default provider in ''/etc/ppp/options.pptpd'' to ''pptpd''.
+
 /!\ For the ''bin'' and ''pptp'' builds of OpenWrt, the file will start out being a symbolic link to a template in ''/rom'', so remove the link, copy the template, and make sure it is ''chmod 600''.
 
 /!\ It is important to set an IP address rather than use the default asterisk.  If you use an asterisk, the peer may propose it's own address, which could cause a routing loop.  This results in very large transmit counters on ''ifconfig ppp0'' and a badly performing router, as it spends all it's time trying to move packets through the loop.
