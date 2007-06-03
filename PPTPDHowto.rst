@@ -116,7 +116,8 @@ You will now be able to access file shares by IP address.  For example, you can 
 {{{
 \\192.168.30.50
 }}}
-into the address bar of Windows Explorer.  Network neighborhood still doesn't detect available computers.  If anyone knows how to make this work please post the instructions here.
+into the address bar of Windows Explorer.  Network neighborhood still doesn't detect available computers.  If anyone knows how to make this work please post the instructions here.  The desired configuration would have automatic detection and population, so there is no need to edit host files.  I tried following [http://poptop.sourceforge.net/dox/replacing-windows-pptp-with-linux-howto.phtml instructions] for setting up samba to run as a WINS server but I couldn't get it to work.  Perhaps this is because OpenWrt is running an older version of samba that was selected because it has a smaller memory footprint.
+
 ==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation) 
 remote announce = 192.168.11.1/UR-WG-NAME
 and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like
