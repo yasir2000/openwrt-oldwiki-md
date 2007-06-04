@@ -35,6 +35,8 @@ http://ipkg.k1k2.de/jb24img/PICT1609.JPG
 
 http://openwrt.vcp-springe.de/w900v/rear_side.JPG
 
+http://kassel083.server4you.de/~jb24/sp900v/images/PICT1605s.jpg
+
 === Serial Port ===
 
 
