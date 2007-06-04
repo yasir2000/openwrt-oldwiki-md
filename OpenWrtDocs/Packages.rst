@@ -1,7 +1,7 @@
 OpenWrtDocs [[TableOfContents]]
 
 == Official packages ==
-The [http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable White Russian release. Please use the official packages whenever possible.  The {{{/etc/ipkg.conf}}} file should have these lines:
+The [http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable '''White Russian''' release (those repositories here are '''not for kamikaze'''). Please use the official packages whenever possible.  The {{{/etc/ipkg.conf}}} file should have these lines:
 
 {{{
 src whiterussian http://downloads.openwrt.org/whiterussian/packages
