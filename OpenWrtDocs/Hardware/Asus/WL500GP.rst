@@ -116,6 +116,9 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
 
 ----
 === PPPOE ===
+With firmware version 0.9 PPPOE works out of the box.
+The following problems affect older firmware versions.
+
 VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
 
 wan_device=eth0 (it was set to vlan1)
