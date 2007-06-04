@@ -194,12 +194,12 @@ If you manage to patch your Linux kernel to include support for Squashfs with LZ
 # mount -o loop fw.fs /mnt
 }}}
 == Tools for Firmware Files ==
-Here are some short Perl programs for manipulating firmware upgrade files:
+Here are some  programs for manipulating firmware upgrade files:
 
- * Set CRC: attachment:set_ti_checksum
- * Set ProductID and flag at byte 0x0B: attachment:set_ProductID
+ * Perl script to set CRC: attachment:set_ti_checksum
+ * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
  * Extract root filesystem and kernel from firmware attachment:extractwrtp.tar.bz2
- * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2
+ * Firmware modification Kit (includes above program) attachment:wrtp-mod-kit.tar.bz2
   . '''''extractwrtp''' extracts the firmware into the following files: ''
    . '''''wrtp.img.root''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract)
    . '''''wrtp.img.kernel Kernel''''' parition (bootstrap + kernel)
@@ -220,7 +220,7 @@ Here are some short Perl programs for manipulating firmware upgrade files:
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
-The configuration can be extracted using the web interface (Administration/Management/Backup and Restore). The configuration file produced by the backup function is incomplete. Particularly, it omits the voice configuration. Note that the voice configuration can be backed up using spaconf.exe, but cannot be restored yet. The backup configuration file format is as follows:
+The configuration can be extracted using the web interface (Administration/Management/Backup and Restore). The configuration file produced by the backup function is incomplete. Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
 
  * Bytes 0x0000 thru 0x0003 contain "LMMC". This is appearently a magic number
  * Bytes 0x0004 thru 0x0005 are 0x00 and 0x03 respectively. This may be a continuation of the magic number.
