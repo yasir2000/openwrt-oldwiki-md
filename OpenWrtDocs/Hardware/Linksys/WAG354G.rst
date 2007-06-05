@@ -1,6 +1,6 @@
 [[TableOfContents]]
 
-= Linksys WAG354G =
+= Linksys WAG354G v1=
 
 
 
@@ -46,11 +46,16 @@ Serial console can be plugged to JP5: connector lacks, it has to be soldered on 
 Pinout 
 
 {{{                   JP5_______
-  |                      gnd nc  rx  tx  vcc
-  |                       [ ]  [ ]  [ ]  [ ]  [ ]  
+  |                     |  [1 ]  [2 ]  [3 ]  [ 4]  [ 5]  
   |                          
   |
   |___ _ ___|-|____|-|__leds___|-|_|-|_|-|_|-|___ _ _ _
+
+1  GND
+2  NC
+3  Rx
+4  Tx
+5  Vcc
 }}}
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAG354G?action=AttachFile&do=get&target=serial-wag354G.png Serial Console Schematic]
