@@ -16,6 +16,8 @@ ADSL2/2+ support up to 24Mbit/s+
 
 Wireless 802.11b/g
 
+Internal antenna, it's possible to plug an external antenna to a R-SMA plug.
+
 === Hardware ===
 
 
@@ -46,11 +48,12 @@ Serial console can be plugged to JP5: connector lacks, it has to be soldered on 
 Pinout 
 
 {{{                   JP5_______
-  |                     |  [1 ]  [2 ]  [3 ]  [ 4]  [ 5]  
+  |                       [1 ]  [2 ]  [3 ]  [ 4]  [ 5]  
   |                          
   |
   |___ _ ___|-|____|-|__leds___|-|_|-|_|-|_|-|___ _ _ _
 
+Legend:
 1  GND
 2  NC
 3  Rx
@@ -66,17 +69,26 @@ Configure teminal with 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1)
 
 '''JTAG'''
 
+Jtag pins are located in JP1, but the connector lacks. The pinout should be the same of others AR7 devices.
 to be written (& tested)...
 
 ----
 
 '''Gpio'''
 
+One gpio for the reset button.
+One gpio for switching between internal/external antenna.
+
 to be written (& tested)...
 
 ----
 
 '''Mods'''
+
+Possible mods:
+-Replace wireless card with one more supported, e.g. with atheros chipset.
+-Replace wireless card with a [http://www.neutronexpress.com/prod.cfm/374905/AAEON_SYSTEMS/PER-C20U-A10/MINI_PCI_4_PORT_USB_2.0_MODULE_WITH_NEC minipci usb module]
+-Add an SD card reader.
 
 to be written (& tested)...
 
@@ -92,9 +104,9 @@ to be written (& tested)...
 
 '''Code Patterns'''
 
-''WA31'' for Annex A (ADSL over POTS) devices
+''WA31'' for Annex A (ADSL over POTS) devices.
 
-''WA32'' for Annex B devices
+''WA32'' for Annex B devices.
 
 ----
 
@@ -102,13 +114,13 @@ to be written (& tested)...
 
 {{{
       
-0x2f0000   fs                           3008K       (mtd0)                   0x900e0000,0x903d0000
-0x0C0000  kernel             ---> 768K   +     "        = (mtd1)  0x90020000,0x903d0000
-0x020000  BL                    ---> 128K  (mtd2)                        0x90000000,0x90020000
-0x020000  lang partition ---> 128K  (mtd4)                        0x903d0000,0x903f0000
-0x010000  nvram               --->  64K  (mtd3)                        0x903f0000,0x90400000
-________________                     _______
-0x400000  TOT                       4096K
+0x900e0000,0x903d0000 fs (mtd0)                   
+0x90020000,0x903d0000 kernel (mtd1)  (The end address is the same as fs...)
+0x90000000,0x90020000 Bootloader (mtd2)                        
+0x903d0000,0x903f0000 Lang partition (mtd4)                        
+0x903f0000,0x90400000 NVRAM (mtd3)                        
+_____________________________________
+TOTAL = 4096K = 4M
 
 }}}
 
@@ -117,6 +129,11 @@ ________________                     _______
 
 == Running OpenWRT ==
 
+The target platform is AR7. Both 2.4 kernel and 2.6 kernel versions work.
+2.6 kernel has more recentd ADSL drivers that support ADSL2+, and a preliminary support for the wireless card, using the open soure drivers by the [http://acx100.sourceforge.net/ ACX100 project]
+
+
+=== Old notes ===
 '''WARNING''' This page is a work in progress.  So far I (IanJackson) am just collecting information found in various other places (eg, IRC logs) together.
 
 Known problems:
@@ -124,12 +141,6 @@ Known problems:
 * `Crashes occasionally' for some people or with some devices.  Currently not known whether this is a hardware problem.
 
 * Using the tftp procedure to upload an openwrt image seems for some people to disable the tftp facility in PSPBoot, so that future upgrades have to be done from within openwrt.  However this didn't happen to me -IanJackson.
-
-=== Enable ADSL ===
-
-If you flash openwrt to wag354g you may want to use adsl. All the info can be found on the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T D-Link 502T page], in the section 1.3 "Enabling ADSL".
-
-
 
 
 ----
