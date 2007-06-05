@@ -59,4 +59,4 @@ There is a line waay down you need to change it to be: channel ${channel:-5} ins
 12.  TFTP your image to the router.  Make a kamikaze, drink, enjoy.
 
 ----
- CategoryModel
+ CategoryModel CategoryModel
