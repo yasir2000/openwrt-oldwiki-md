@@ -32,8 +32,7 @@ Internal:
 attachment:WAG354G_small.jpg
 
 ----
- '''Serial console'''
-
+ . '''Serial console'''
 Serial console can be plugged to JP5: connector lacks, it has to be soldered on the board.
 
 Pinout:
@@ -56,22 +55,19 @@ Legend:
 Configure teminal with 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1)
 
 ----
- '''JTAG'''
-
+ . '''JTAG'''
 Jtag pins are located in JP1, but the connector lacks. The pinout should be the same of others AR7 devices.
 
 to be written (& tested)...
 
 ----
- '''Gpio'''
-
+ . '''Gpio'''
 One gpio for the reset button. One gpio for switching between internal/external antenna.
 
 to be written (& tested)...
 
 ----
- '''Mods'''
-
+ . '''Mods'''
 Possible mods:
 
  * Replace wireless card with one more supported, e.g. with atheros chipset.
@@ -93,8 +89,7 @@ to be written (& tested)...
 ''WA32'' for Annex B devices.
 
 ----
- '''Flash layout'''
-
+ . '''Flash layout'''
 {{{
 0x900e0000,0x903d0000 fs (mtd0)
 0x90020000,0x903d0000 kernel (mtd1)  (The end address is the same as fs...)
@@ -111,9 +106,26 @@ The target platform to select for building the firmware is AR7. At now openwrt c
 
 === Network Configuration ===
 All the network interfaces can be configured via the /etc/config/network file.
-eth0 (ethernet) interface:
-ppp0 (adsl) interface:
-wlan0 (wifi) interface:
+
+'''eth0 (ethernet) interface'''
+
+ * Static IP
+ * DHCP
+'''ppp0 (adsl) interface'''
+
+ * PPPoA
+'''
+''' * PPPoE
+'''
+'''
+
+'''wlan0 (wifi) interface'''
+
+ * Master (Access point)
+'''
+''' * Client mode
+'''
+'''
 === Old notes ===
 '''WARNING''' This page is a work in progress.  So far I (IanJackson) am just collecting information found in various other places (eg, IRC logs) together.
 
