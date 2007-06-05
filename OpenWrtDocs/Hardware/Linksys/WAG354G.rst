@@ -1,6 +1,6 @@
 [[TableOfContents]]
 
-= Linksys WAG354G v1=
+= Linksys WAG354G v1 =
 
 
 
