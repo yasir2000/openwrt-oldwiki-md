@@ -67,7 +67,7 @@ This version has not been tested. Though not confirmed it is believed to use an 
 === WRT54G v8 ===
 This version has not been tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this section if you have any known information.
 
-This unit has 2Mbytes of Flash and 8 Mbytes of SDRAM and is based on the Broadcom BCM5354 chipset
+This unit has 2Mbytes of Flash and 8 Mbytes of SDRAM and is based on the Broadcom BCM5354 chip.
 
 === Table summary ===
 How to get info:
