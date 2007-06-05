@@ -514,7 +514,17 @@ Better use this:
 nvram set time_zone="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"
 nvram commit
 }}}
-Examples:
+
+Given that create a script /etc/init.d/tz with the following content to remember the timezone after reboot. Note that this script uses the CET/CEST if no nvram value is present, adjust it to your needs. Do not forget to chmod a+x the tz-file.
+{{{
+#!/bin/sh
+
+tz=$(nvram get time_zone)
+tz=${tz:-"CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"}
+echo $tz > /etc/TZ
+}}}
+
+Examples of timezone values:
 ||<style="TEXT-ALIGN: center" |6>[http://www.australia.gov.au/about-australia-13time Australia] ||Melbourne,Canberra,Sydney ||AEST-10AEDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Perth ||AWST-8AWDT-9,M12.1.0,M3.5.0/03:00:00 ||
 ||Brisbane ||AEST-10 ||
