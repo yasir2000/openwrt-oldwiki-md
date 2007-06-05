@@ -266,16 +266,9 @@ There is a new webif now available that offers a much richer set of features tha
 As an example, the typical WRT54G contains 4 MB of flash while the WRT54GS contains 8 MB of flash. The typical firmware is intended to fit on a WRT54G, leaving 4 MB of flash completely unused on the WRT54GS. With !OpenWrt, the JFFS2 partition will inherit the extra 4 MB of space, allowing more packages and thus more features.
 
 == Who maintains OpenWrt? ==
-!OpenWrt is the collaboration of many people. The two people responsible for the creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking fans). The core developers with write access to the subversion repository are:
+!OpenWrt is the collaboration of many people. The two people responsible for the creation are Gerry Rozema (aka groz) and Mike Baker (aka mbm, or embeem to tivo hacking fans). See [[https://dev.openwrt.org/wiki/people]] for a list of developers:
 
-{{{
-Mike Baker <mbm>
-Imre Kaloz <Kaloz>
-Waldemar Brodkorb <wbx>
-Nicolas Thill <Nico>
-Felix Fietkau <nbd>
-Florian Fainelli <florian>
-}}}
+
 == How do I access the syslog messages? ==
 Use the {{{logread}}} program to read syslog messages. Syslog stores the messages in the Wrt's RAM. When the specified part of the RAM gets full syslog deletes the old messages.
 
