@@ -7,8 +7,7 @@ This is a table of all supported devices as of 2007/03/03.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
  * '''Kamikaze''' - this device is only supported in Kamikaze (development branch)
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
- * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the
-main !OpenWrt source tree
+ * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the main !OpenWrt source tree
 
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
  * '''Info entered''' - Information about the device is entered in this list, for reference.
@@ -350,7 +349,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||1 ||[http://www.idt.com/?catID=58533&genID=79RC32334 IDT 79RC32V334] @ 150MHz ||4MB ||16MB ||Prism GT (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Netgear/WG602v1:Untested] ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WG602v3:WiP] ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||3 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros || ||N/A || || ||No ||[:AtherosPort:WiP] ||
-||[http://www.netgear.com/Products/RoutersandGateways/GWirelessRouters/WGR614.aspx WGR614] ||6 ||Broadcom 5352 ||8MB ||64MB ||BCM2050KML(integ) ||in CPU ||? ||Yes ||No ||No ||Untested ||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||1 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros ||Marvell ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624:WiP] ||
 ||[http://www.netgear.com/products/details/WGT634U.php WGT634U] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz ||8MB ||32MB ||Atheros (mini-PCI) ||in CPU ||N/A ||2x 3.3v ||No ||1x v2.0 ||[:OpenWrtDocs/Hardware/Netgear/WGT634U:WiP] ||
 ||[http://netgear.com/products/details/WPN824.php WPN824] || ||Atheros 2313 ||2MB ||16MB || || || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
