@@ -12,4 +12,4 @@ Serial console is J503.
 ||3||VCC||
 ||4||RX||
 ----
-CategoryModel
+CategoryModel ["CategoryBCM63xx"]
