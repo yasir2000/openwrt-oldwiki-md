@@ -60,6 +60,9 @@ Serial console confirmed on J503.
 ||3||VCC||
 ||4||RX||
 
+=== Shell access ===
+
+Serial console, or http://<router ip>/setup.cgi?todo=debug (turn on telnet server)
 
 === JTAG ===
 The device has an internal 12-pins connector on J201 although not confirmed this should be for JTAG.
