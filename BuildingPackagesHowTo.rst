@@ -10,7 +10,11 @@ When using the SDK you don't require a full buildroot. The SDK is a stripped dow
 = Requirements =
  * a recent GNU/Linux distribution
  * GNU Make (at least 3.80 with the Debian patch)
- . .. to be continued ...
+ * wget
+ * patch
+
+These packages suffice for the "Hello world" program described below
+
 = Using the OpenWrt SDK =
 '''TIP:''' Before you begin porting your own package to !OpenWrt, check if it has not been already done by someone else. To check that [http://dev.openwrt.org/browser/trunk/package/ browse the subversion repository] of the development version in your web browser and see if the package is already there. Don't do the work twice.
 
