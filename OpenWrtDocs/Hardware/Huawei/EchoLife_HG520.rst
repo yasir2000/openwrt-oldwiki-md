@@ -227,3 +227,5 @@ br0: port 5(eth0.5) entering forwarding state
 Initing TR069 Stack...
 No servers specified.
 }}}
+
+CategoryModel ["CategoryBCM63xx"]
