@@ -94,7 +94,7 @@ The Makefile rely one the way the software you want to package is shipped. Basic
   * not uClibc++ linkables
 '''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball. Use {{{@SF/hello}}} (choose a random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your program has a download location on !SourceForge.
 
-=== Sample Makefile for C/C++ programs shipped with configure script ===
+==== Sample Makefile for C/C++ programs shipped with configure script ====
 {{{
 include $(TOPDIR)/rules.mk
 PKG_NAME:=hello
@@ -145,7 +145,7 @@ mostlyclean:
         make -C $(PKG_BUILD_DIR) clean
         rm $(PKG_BUILD_DIR)/.built
 }}}
-=== Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC) ===
+==== Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC) ====
 If you Makefile contains harcoded "gcc" commands, then you will have to patch the makefile and replace gcc with $(CC) in order to define at "make time" the cross-compiler to use.
 
 /!\ '''Note this Makefile is provided as an example only; it will not compile'''
@@ -187,7 +187,7 @@ mostlyclean:
         make -C $(PKG_BUILD_DIR) clean
         rm $(PKG_BUILD_DIR)/.built
 }}}
-=== Sample Makefile for C/C++ programs without makefiles (usually one or two source files) ===
+==== Sample Makefile for C/C++ programs without makefiles (usually one or two source files) ====
 /!\ '''Note this Makefile is provided as an example only; it will not compile'''
 
 {{{
@@ -223,7 +223,7 @@ mostlyclean:
         make -C $(PKG_BUILD_DIR) clean
         rm $(PKG_BUILD_DIR)/.built
 }}}
-=== Sample Makefile for C++ shipped with configure script, and uClibc++ linkables ===
+==== Sample Makefile for C++ shipped with configure script, and uClibc++ linkables ====
 /!\ '''Note this Makefile is provided as an example only; it will not compile'''
 
 {{{
