@@ -373,4 +373,5 @@ Please press Enter to activate this console.
 }}}
 
 ----
-CategoryModel
+CategoryModel ["CategoryBCM63xx"]
+ 
