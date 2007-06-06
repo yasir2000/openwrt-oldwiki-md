@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2007/03/03.
+This is a table of all supported devices as of 2007/06/06.
 
 '''Status Legend''':
 
@@ -34,8 +34,6 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||LAN422 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||None ||Marvell 88E6060 || ||Yes ||Yes ||No ||Untested? ||
 ||W422G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||TNETW1150 ||Marvell 88E6060 ||PSPBoot ||Yes ||Yes ||No ||Untested? ||
 ||W400G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||4Mb ||16Mb ||TNETW1130 ||Realtek RTL8305SC ||PSPBoot ||No ||No ||No ||Untested? ||
-
-
 == Actiontec ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||GT701-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG:WiP] ||
@@ -56,6 +54,11 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???) ||v2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||No ||[:AR7Port:WiP] ||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||ADMtek ADM6996 ||on || || ||No ||No ||[:OpenWrtDocs/Hardware/ALLNET/ALL0277:Supported] ||
 ||[http://www.allnet.de/product_info_allnet.php?cPath=_&products_id=99968 ALL6250] ||N/A ||[http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPC8241&srch=1 Freescale MPC8241] @ 266MHz ||4MB ||64MB ||N/A ||RTL8169 ||PPCboot ||Yes ||Yes ||1x2.0, 1x1.1 ||PATA ||WiP ||
+
+== AMCC ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||''Other '' ||'''Status''' ||
+||[http://www.amcc.com/Embedded/evalkits/440GX_PB_1_04.pdf Taishan]|| ||[https://www.amcc.com/MyAMCC/jsp/public/productDetail/product_detail.jsp?productID=PPC440GX AMCC PPC440GX] @ 800MHz||64MB||256MB||none, two PCI-X slots||none, 2x gigabit ethernet||N/A||Yes||Yes||None||I2C, LCD display||[:OpenWrtDocs/Hardware/AMCC/Taishan:Supported] ||
+
 == Asus ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1107&modelmenu=1 AM604g] ||Since Aug-2006 ||Broadcom 96348 @ ? (128MHz timer, 256BogoMIPS) ||4Mb ||16Mb ||Broadcom BCM4318 on-board; probably option is mini-pci ||? (4 ports; BCM6348B0; supports vlans; "Ethernet Switch Through SPI Slave Select" in dmesg; actual chip is BCM5325EKQM) ||? ||Connector present on the box ||? ||no ||no ||Unknown or unsupported ||
