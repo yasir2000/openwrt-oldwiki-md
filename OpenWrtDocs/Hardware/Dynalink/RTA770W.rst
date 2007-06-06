@@ -31,4 +31,4 @@ Serial connector
 
 
 ----
-CategoryModel
+CategoryModel ["CategoryBCM63xx"]
