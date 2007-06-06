@@ -539,3 +539,6 @@ DMT Program: http://dmt.mhilfe.de/
 
 = Misc =
 To contact me: stacato [at] gmail [DOT] com
+
+
+CategoryModel ["CategoryBCM63xx"]
