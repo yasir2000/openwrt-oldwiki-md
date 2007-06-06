@@ -34,4 +34,4 @@ http://support.asus.com/download/download_item.aspx?model=WL-600g&type=Map&SLang
 The stock firmware runs a 2.6.8.1 kernel and a bounch of other binary modules are in /lib, see the [http://blueangel.us/wl600g/wl600g.files File Listing] for detail
 
 ----
- . CategoryModel
+CategoryModel ["CategoryBCM63xx"]
