@@ -58,7 +58,7 @@ vfat
 
 If you need a second wire ethernet device, it is possible to use a usb ethernet dongle. Possible hardware is listed on the [http://www.nslu2-linux.org/wiki/Peripherals/EthernetAdapter nslu2 homepage]. Then you have to compile the usbnet driver, as it isn't in the standard OpenWrt distribution. Alternatively, you can download it from below. 
 
-With the Linksys USB200M Rev2 are some problems because of changed hardware. Perfectly supported on linux > 2.6.18 it lacks support in the 2.4.X series. It exists a backport to 2.4.27 on [http://sourceforge.net/project/showfiles.php?group_id=138561], and with little modifications it compiles on a 2.4.30 well. 
+With the Linksys USB200M Rev2 are some problems because of changed hardware. Perfectly supported on linux > 2.6.18 it lacks support in the 2.4.X series. There's a backport to 2.4.27 on [http://sourceforge.net/project/showfiles.php?group_id=138561], and with little modifications it compiles on a 2.4.30 well. 
 
 After the usb core modules insert the modules 
 {{{
@@ -99,7 +99,7 @@ wan_gateway=<SomeIp>
 wan_netmask=<SomeMask>
 }}}
 
-If you want to use the wireless interface as lan and the ethernet as wan device, you also have to change the init script for the nvram because it restores it to default bridge behavier at startup. Uncomment two lines in /etc/init.d/S05nvram (maybe there should be a used nvram variable for optional bridge/router mode?):
+If you want to use the wireless interface as lan and the ethernet as wan device, you also have to change the init script for the nvram because it restores it to default bridge behavior at startup. Uncomment two lines in /etc/init.d/S05nvram (maybe there should be a used nvram variable for optional bridge/router mode?):
 
 {{{
 # hacks for asus    
@@ -135,7 +135,7 @@ If you want to open the device (maybe for exchanging the disk) remove the screws
 
 === Nvram Reset ===
 
-If you made a mistake while configuring the router and it isn't reachable anymore via network, there is a posibility to reset the device config. To do that, plug the power off during booting, much times, at different timings. You can exploit a bug in the bootloader. The new ip is 192.168.1.1 then (attention, not the standard 192.168.1.220) and boot_wait is on. Now you are able to use tftp for uploading new images. [https://wiki.graz.funkfeuer.at/nvram_reset source]
+If you made a mistake while configuring the router and it isn't reachable anymore via network, there is a possibility to reset the device config. To do that, plug the power off during booting, much times, at different timings. You can exploit a bug in the bootloader. The new ip is 192.168.1.1 then (attention, not the standard 192.168.1.220) and boot_wait is on. Now you are able to use tftp for uploading new images. [https://wiki.graz.funkfeuer.at/nvram_reset source]
 
 === Power Consumption ===
 
@@ -149,7 +149,7 @@ JamesCameron tested a device as follows:
  * with an 80GB 5400RPM 8MB cache Seagate Momentus ST98823A drive (Asus specify a 40GB limit, but it is not clear why),
  * without USB devices attached,
  * without network cable attached,
- * with an association to a WORT54G access point two metres away (also !OpenWrt 1.0 White Russian RC5),
+ * with an association to a WORT54G access point two meters away (also !OpenWrt 1.0 White Russian RC5),
  * at room temperature of 19 degrees C,
  * horizontal,
  * using regulated 4.96V input,
@@ -166,17 +166,17 @@ JamesCameron tested a device as follows:
 
 === Internal RTC ===
 
-The internal RTC can be acessed with the proprietary module , which will taint the kernel. 
+The internal RTC can be accessed with the following kernel module: attachment:kmod-rtc.o ([https://dev.openwrt.org/ticket/1749 source code]) 
 
 {{{
-insmod rtcdrv.o
-mknod /dev/rtc c 12 0
+insmod kmod-rtc.o
+mknod /dev/rtc c 10 135
 }}}
 And this will show the hardware time:
 {{{
 cat /dev/rtc
 }}}
-I haven't found any posibillity to set the rtc, but setting the system time with a script with --hctosys works):
+The RTC can be set with --systohc, the system time can be set with --hctosys using the following script:
 {{{
 #!/bin/sh
 case "$1" in
@@ -200,25 +200,19 @@ rtc init script:
 #!/bin/sh
 # I put this init script in there: /etc/init.d/S59rtc 
 # thanks for improvement of the SXX number!
-# check for /dev/rtc (which seems to dissappear at a reboot- right?) 
+# check for /dev/rtc (which seems to disappear at a reboot- right?) 
 # then check if the module is loaded and if not load it an
-cat /dev/rtc || ( ( lsmod |grep -q rtcdrv ) || ( insmod /lib/modules/rtcdrv.o ); ( mknod /dev/rtc c 12 0 ) )
-
-# I got this error: date: invalid date `003f7f0f1900.5f' # probably need to wait a while on /dev/rtc (?) 
-# any hint welcome..
-sleep 1
+cat /dev/rtc || ( ( lsmod |grep -q kmod-rtc ) || ( insmod /lib/modules/kmod-rtc.o ); ( mknod /dev/rtc c 10 135 ) )
 
 #then execute the script found above
 /bin/hwclock.sh --hctosys
-
-
 }}}
 
 === Second USB Port ===
 
 Found on [http://wl500g.info/showthread.php?s=65d1ded33283574e7d0c3d86a9ec31fe&t=3571 wl500g.info] that on a wl500g it is possible to use the second port of the internal hub. As it looks the same on the wl-hdd, i tried this and it works too. Benefits of this hardware mod? First, no need for a external hub if using a printer or something permanently. Second, using it as internal port for another mods (audio?) without external cables. 
 
-What to do? Not difficult, just put some wires with two resistors on the pcb, that's it. But: '''Build it at your own risk, you'll loose the warranty, and i'm not responsible for any damages of the router or of any device connected to it!'''
+What to do? Not difficult, just put some wires with two resistors on the pcb, that's it. But: '''Build it at your own risk, you'll loose the warranty, and I'm not responsible for any damages of the router or of any device connected to it!'''
 
 Step for step:
 
@@ -228,14 +222,14 @@ Jan  1 00:00:15 (none) kern.info kernel: usb.c: new USB bus registered, assigned
 Jan  1 00:00:15 (none) kern.info kernel: hub.c: USB hub found
 Jan  1 00:00:15 (none) kern.info kernel: hub.c: 2 ports detected
 }}}
-The two ports of the hub have on each data line a resistor to the ground. So we solder two wires on the third and fourth pin of the resistor array. In the posting mentioned above they use a resistor serial in each data line of 15 Ohms. I haven't had them, so i'm using somes with 10 Ohms. In the original connection between these resistors and the usb-socket is a resistance of 1.5 Ohms, so maybe that's enough too? Anyway. To get the power supply for the port i'm using the pads of a not assembled capacitor. It's not really correct, as there must be a control of the power consumption uf the usb device, but it works. I use the socket of a usb extension cable. Voila, here it is: 
+The two ports of the hub have on each data line a resistor to the ground. So we solder two wires on the third and fourth pin of the resistor array. In the posting mentioned above they use a resistor serial in each data line of 15 Ohms. I haven't had them, so I'm using some with 10 Ohms. In the original connection between these resistors and the usb-socket is a resistance of 1.5 Ohms, so maybe that's enough too? Anyway. To get the power supply for the port i'm using the pads of a not assembled capacitor. It's not really correct, as there must be a control of the power consumption of the usb device, but it works. I use the socket of a usb extension cable. Voila, here it is: 
 {{{
 Feb 25 20:48:36 (none) kern.info kernel: hub.c: new USB device 00:04.0-2, assigned address 2
 }}}
 See the [:OpenWrtDocs/Hardware/Asus/WL-HDD/usb_mod:usb_mod photos] with the details. 
 === External Interface ===
 
-This device has some solder pads for a external interface likt the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
+This device has some solder pads for a external interface like the WL-500G. For using it please read [http://forum.openwrt.org/viewtopic.php?id=7083 this forum postings].
 
 ----
 CategoryModel
