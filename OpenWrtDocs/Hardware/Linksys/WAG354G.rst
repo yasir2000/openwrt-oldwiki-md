@@ -51,13 +51,13 @@ Legend:
 5  Vcc
 }}}
 '''Interface'''
+
 You cannot plug directly those pins to your pc serial port. You need a RS232-TTL level adapter. Some examples:
 
- * Using a MAX232 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAG354G?action=AttachFile&do=get&target=serial-wag354G.png Serial Console Schematic]
+ * Using a MAX232: [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAG354G?action=AttachFile&do=get&target=serial-wag354G.png Serial Console Schematic]
  * Using a USB-Serial Converter cable based on the Prolific [http://www.prolific.com.tw/eng/downloads.asp?ID=23 PL2303 chipset]. Good if you have an Apple MAC.
  * Using an hacked mobile phone datacable (MBUS), both serial or USB. Ususally this cables are really cheap and implements one of the 2 above solutions.
-Detailed instructions: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort'''
-'''
+Detailed instructions: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort''' '''
 
 '''Terminal'''
 
@@ -65,9 +65,8 @@ Configuration:
 
 {{{
  38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1) }}}
-Software:
-[http://alioth.debian.org/projects/minicom/ Minicom]on Linux or MacOSX(via fink).
-[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html Putty]on Windows
+Software: [http://alioth.debian.org/projects/minicom/ Minicom]on Linux or MacOSX(via fink); [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html Putty] on Windows
+
 ----
  . '''JTAG'''
 Jtag pins are located in JP1, but the connector lacks. The pinout should be the same of others AR7 devices.
@@ -101,8 +100,6 @@ to be written (& tested)...
 ''WA31'' for Annex A (ADSL over POTS) devices.
 
 ''WA32'' for Annex B devices.
-
-
 
 ----
  . '''Flash layout'''
