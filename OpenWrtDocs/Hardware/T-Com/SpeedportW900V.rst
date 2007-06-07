@@ -172,14 +172,8 @@ unsetenv mtd5
 
 The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W900V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to its defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.153, from August 2006.
 
-
----- /!\ '''Edit conflict - other version:''' ----
-=== adam2 environment variables ===
-
----- /!\ '''Edit conflict - your version:''' ----
 === ADAM2 environment variables ===
 
----- /!\ '''End of edit conflict''' ----
 {{{
 AVM_Ar7 >printenv
 HWRevision            102.1.1.0
