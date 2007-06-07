@@ -169,7 +169,7 @@ unsetenv mtd5
 }}}
 
 ==== adam2 environment variables ====
-
+{{{
 AVM_Ar7 >printenv
 HWRevision            102.1.1.0
 ProductID             Fritz_Box_DECT_W900V
@@ -213,6 +213,7 @@ usb_device_name       USB DSL Device
 usb_manufacturer_name  AVM
 wlan_key              xxxxxxxxxxxxxxxx
 wlan_cal              03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
+}}}
 
 
 
