@@ -168,6 +168,10 @@ setenv kernel_args idle=4
 unsetenv mtd5
 }}}
 
+== Bootloader ==
+
+The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W900V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to its defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.153, from August 2006.
+
 ==== adam2 environment variables ====
 {{{
 AVM_Ar7 >printenv
@@ -215,11 +219,6 @@ wlan_key              xxxxxxxxxxxxxxxx
 wlan_cal              03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
 }}}
 
-
-
-== Bootloader ==
-
-The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W900V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to its defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.153, from August 2006.
 
 === Boot log from old firmware ===
 
