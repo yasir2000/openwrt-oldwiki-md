@@ -15,7 +15,7 @@ The unit comes with an internal antenna. It's possible to add an external antenn
 === Hardware ===
 Platform: ''TI AR7WRD''
 
-SoC: ''TNETD7300AGDW''
+SoC: [http://www.cassy.de/fbox/tnetd7300.pdf TNETD7300AGDW]
 
 Processor: ''MIPS 4KEc V4.8'' @ 150 MHz
 
@@ -50,10 +50,24 @@ Legend:
 4  Tx
 5  Vcc
 }}}
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAG354G?action=AttachFile&do=get&target=serial-wag354G.png Serial Console Schematic]
+'''Interface'''
+You cannot plug directly those pins to your pc serial port. You need a RS232-TTL level adapter. Some examples:
 
-Configure teminal with 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1)
+ * Using a MAX232 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAG354G?action=AttachFile&do=get&target=serial-wag354G.png Serial Console Schematic]
+ * Using a USB-Serial Converter cable based on the Prolific [http://www.prolific.com.tw/eng/downloads.asp?ID=23 PL2303 chipset]. Good if you have an Apple MAC.
+ * Using an hacked mobile phone datacable (MBUS), both serial or USB. Ususally this cables are really cheap and implements one of the 2 above solutions.
+Detailed instructions: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort'''
+'''
 
+'''Terminal'''
+
+Configuration:
+
+{{{
+ 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1) }}}
+Software:
+[http://alioth.debian.org/projects/minicom/ Minicom]on Linux or MacOSX(via fink).
+[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html Putty]on Windows
 ----
  . '''JTAG'''
 Jtag pins are located in JP1, but the connector lacks. The pinout should be the same of others AR7 devices.
@@ -61,7 +75,7 @@ Jtag pins are located in JP1, but the connector lacks. The pinout should be the 
 to be written (& tested)...
 
 ----
- . '''Gpio'''
+ . '''GPIO'''
 One gpio for the reset button. One gpio for switching between internal/external antenna.
 
 to be written (& tested)...
@@ -88,6 +102,8 @@ to be written (& tested)...
 
 ''WA32'' for Annex B devices.
 
+
+
 ----
  . '''Flash layout'''
 {{{
@@ -102,7 +118,9 @@ TOTAL = 4096K = 4M
 ----------
 
 == Running OpenWRT ==
-The target platform to select for building the firmware is AR7. At now openwrt comes with a 2.4 and a 2.6 kernel, and both of theme works. However I suggest you the latest 2.6 kernel, because it has more recent ADSL drivers that support ADSL2+, and a preliminary support for the wireless card, using the open soure drivers by the [http://acx100.sourceforge.net/ ACX100 project] . The configuration that follows applies only to the 2.6 version.
+The target platform to select for building the firmware is AR7. At now openwrt comes with a 2.4 and a 2.6 kernel, and both of theme works. However I suggest you the latest 2.6 kernel, because it has more recent ADSL drivers that support ADSL2+, and a preliminary support for the wireless card, using the open soure drivers by the [http://acx100.sourceforge.net/ ACX100 project] .
+
+'''The following configuration applies only to OpenWRT Kamikaze with 2.6 kernel version.'''
 
 === Network Configuration ===
 All the network interfaces can be configured via the /etc/config/network file.
@@ -114,18 +132,13 @@ All the network interfaces can be configured via the /etc/config/network file.
 '''ppp0 (adsl) interface'''
 
  * PPPoA
-'''
-''' * PPPoE
-'''
-'''
+''' ''' * PPPoE ''' '''
 
 '''wlan0 (wifi) interface'''
 
  * Master (Access point)
-'''
-''' * Client mode
-'''
-'''
+''' ''' * Client mode ''' '''
+
 === Old notes ===
 '''WARNING''' This page is a work in progress.  So far I (IanJackson) am just collecting information found in various other places (eg, IRC logs) together.
 
