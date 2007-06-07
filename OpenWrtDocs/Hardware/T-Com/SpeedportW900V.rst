@@ -168,6 +168,54 @@ setenv kernel_args idle=4
 unsetenv mtd5
 }}}
 
+==== adam2 environment variables ====
+
+AVM_Ar7 >printenv
+HWRevision            102.1.1.0
+ProductID             Fritz_Box_DECT_W900V
+SerialNumber          0000000000000000
+annex                 B
+autoload              yes
+bootloaderVersion     1.153
+bootserport           tty0
+bluetooth             00:00:00:00:00:00
+cpufrequency          211968000
+firstfreeaddress      0x946AE570
+firmware_version      tcom
+firmware_info         34.04.21
+flashsize             0x00800000
+jffs2_size            32
+maca                  00:00:00:00:00:00
+macb                  00:00:00:00:00:00
+macwlan               00:00:00:00:00:00
+macdsl                00:00:00:00:00:00
+memsize               0x02000000
+modetty0              38400,n,8,1,hw
+modetty1              38400,n,8,1,hw
+mtd0                  0x90000000,0x90000000
+mtd1                  0x90010000,0x90780000
+mtd2                  0x90000000,0x90010000
+mtd3                  0x90780000,0x907C0000
+mtd4                  0x907C0000,0x90800000
+mtd5                  0x90780000,0x90780000
+my_ipaddress          192.168.178.1
+prompt                AVM_Ar7
+ptest
+reserved              00:04:0E:FF:FF:00
+req_fullrate_freq     125000000
+sysfrequency          125000000
+urlader-version       1153
+usb_board_mac         00:00:00:00:00:00
+usb_rndis_mac         00:00:00:00:00:00
+usb_device_id         0x0000
+usb_revision_id       0x0000
+usb_device_name       USB DSL Device
+usb_manufacturer_name  AVM
+wlan_key              xxxxxxxxxxxxxxxx
+wlan_cal              03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
+
+
+
 == Bootloader ==
 
 The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W900V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to its defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.153, from August 2006.
