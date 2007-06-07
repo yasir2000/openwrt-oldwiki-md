@@ -206,7 +206,7 @@ mtd5                  0x90780000,0x90780000
 my_ipaddress          192.168.178.1
 prompt                AVM_Ar7
 ptest
-reserved              00:04:0E:FF:FF:00
+reserved              00:00:00:00:00:00
 req_fullrate_freq     125000000
 sysfrequency          125000000
 urlader-version       1153
