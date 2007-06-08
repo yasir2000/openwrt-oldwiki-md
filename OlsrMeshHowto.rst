@@ -1,4 +1,4 @@
-__'''Introduction'''__
+= Introduction =
 
 Mesh networks self-arrange and auto-configure themselves on the basis of network topology changes.  For example, the properly configured OLSR mesh will automatically arrange itself in cases where one node fails, or when a new route emerges, or when a low traffic route becomes available or disappears.  The concept of a mesh network is not new; the Internet itself is a huge mesh network.  So what's new?  Well, mesh networks with wireless technology on OpenWrt simply rocks! ;)
 
@@ -7,22 +7,28 @@ OLSR is one of the routing protocols available to create a [http://en.wikipedia.
 This wiki page contains information on how to create an OLSR mesh network by configuring OpenWrt and olsrd (the OLSR daemon process) yourself.  If your objective is to get an OLSR network quickly running, you may want to have a look at firmware that has been specifically created for this purpose.  An example of this sort of firmare is the [http://firmware.freifunk.net Freifunk project].  If you're determined to get OLSR running on OpenWrt without the assistance of pre-packaged firmare, keep reading!
 
 
-__'''The Network'''__
+= The Network =
 
- . {{{
-                          Wired to Lan Client (HNA4) 
-                   (WAN)           |
-                     |             / 
- Internet---------->Node1- - - - Node2 
-                      ^           \ - - wifi to Client (Olsr/Non Olsr running client)
-                      | 
-                      |
-               Wifi Link with olsr      
- }}}
+There are an infinite number of ways that a mesh network can be configured; below is a simple example that allows routing over a set of subnets in the 10.0.0.0/255.0.0.0 range through the OLSR mesh.
 
-Both Nodes(WRTs) need to have olsr installed.Same is the case for any n number of nodes participating.OLSR has to run on WIFI interface running it on wired interface is optional tho it wont be of much help.The non olsr interfaces (like WAN and wired client in the above case) are added by entering the network/ip address in the HNA4  field of the olsrd.conf file.
+{{{
 
-__'''HOW TO''' __ __ __ __ __ __ __
+      WAN                                                 WAN
+       |                                                   |
+OpenWrt + OLSR Node 1 ---- wireless link ---- OpenWrt + OLSR Node 2
+       |                                                   |
+      LAN                                                 LAN
+       |                                                   |
+  Workstation A                                      Workstation B
+
+}}}
+
+Both nodes (in this case the [WRT54GL] was used) need to have OLSR installed.  In general, OLSR will have to be installed on any node that participates in establishing routing between the OLSR-aware subnets that you configure.  OLSR needs to be configured to listen on all WIFI interfaces on these routers.  Running it on wired interfaces is usually not necessary, and according to some sources may interfere with other services on these interfaces such as dhcp.
+
+If the "wired" interfaces on your router are on a different subnet from the wireless interfaces you can configure OLSR to distribute ''host and network association'' (HNA) messsages to other routers.  Depending on if if you are running IPv4 or IPv6 you will either have Hna4 or Hna6 directives in your olsrd.conf file.
+
+
+= HOW TO =
 
 1.The Base Configuration:
 
@@ -91,8 +97,6 @@ Well if you need olsr to run on the startup then we have to make a startup scrip
 {{{
 #!/bin/sh
 /bin/olsrd
-
-
 }}}
 
 [Todo: explanation of HNA4  ,plugins ,negetive weights etc ]
