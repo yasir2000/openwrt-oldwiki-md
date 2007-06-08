@@ -19,7 +19,7 @@ TAC Support: http://www.cisco.com/tac
 Compiled Wed 12-Feb-03 15:23 by hqluong
 }}}
 
-== PCI bus ===
+== PCI bus ==
 {{{
 *********************************
 Bus 0 slot 3
