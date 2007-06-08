@@ -69,7 +69,7 @@ Assuming that you saw an olsrd package after the command above, install it with 
 
 2. Edit the /etc/olsrd.conf file
 
-You will see a line in your olsrd.conf file that says {{{Interface "XXX"}.  Change "XXX" to the wireless interface on your router.  In my case, this was wl0.
+You will see a line in your olsrd.conf file that says {{{Interface "XXX"}}}.  Change "XXX" to the wireless interface on your router.  In my case, this was wl0.
 
 The rest of the defaults in the file should work.  Try {{{/etc/init.d/olsrd start}}} to see if it works.
 
