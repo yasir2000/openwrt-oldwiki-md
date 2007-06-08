@@ -23,20 +23,53 @@ OpenWrt + OLSR Node 1 ---- wireless link ---- OpenWrt + OLSR Node 2
 
 }}}
 
-Both nodes (in this case the {{{WRT54GL}}} was used) need to have OLSR installed.  In general, OLSR will have to be installed on any node that participates in establishing routing between the OLSR-aware subnets that you configure.  OLSR needs to be configured to listen on all WIFI interfaces on these routers.  Running it on wired interfaces is usually not necessary, and according to some sources may interfere with other services on these interfaces such as dhcp.
+Both nodes (in this case the ["OpenWrtDocs/Hardware/Linksys/WRT54GL"] was used) need to have OLSR installed.  In general, OLSR will have to be installed on any node that participates in establishing routing between the OLSR-aware subnets that you configure.  OLSR needs to be configured to listen on all WIFI interfaces on these routers.  Running it on wired interfaces is usually not necessary, and according to some sources may interfere with other services on these interfaces such as dhcp.
 
 If the "wired" interfaces on your router are on a different subnet from the wireless interfaces you can configure OLSR to distribute ''host and network association'' (HNA) messsages to other routers.  Depending on if if you are running IPv4 or IPv6 you will either have Hna4 or Hna6 directives in your olsrd.conf file.
 
 
 = HOW TO =
 
-1.The Base Configuration:
+1. Setting up wireless on your router
 
- . The base configuration is install the olsr package on a OpenWrt router in Ad Hoc mode with Lan and Wifi seperate (ie. no br0)
-  . {{{
+You will have to configure wireless networking on your router.  If you are on a Kamikaze release, your file /etc/config/wireless might look as follows:
+
+{{{
+config wifi-device  wl0
+        option type     broadcom
+        option channel  11
+        # disable radio to prevent an open ap after reflashing:
+        option disabled 0
+
+config wifi-iface
+        option device   wl0
+        # option network        lan
+        option mode     adhoc
+        option ssid     OLSR
+        option hidden   0
+        option encryption none
+}}}
+
+After a fresh install of OpenWrt, you'll probably have to enable the wireless interface by modifying the "option disabled" line.  You'll also have to change the wireless interface to adhoc mode from the default of "ap".
+
+You'll also have to separate the wifi and lan interfaces.  This is done by  in Ad Hoc mode with Lan and Wifi seperate (ie. no br0)
+
+1. Install olsrd
+
+The base configuration is to install the olsrd package on a OpenWrt router. 
+
+So, assuming that you have OpenWrt installed and correctly configured (e.g., your ipkg configuration is correct), you can see which olsrd package is available in the ipkg repositories that you have access to:
+
+{{{
   ipkg update
-  ipkg install olsrd_0.4.10-1_mipsel.ipk  }}}
- 2.Edit the /etc/olsrd.conf file
+  ipkg list | grep olsrd
+}}}
+
+You should see a number of olsr-related packages.  The package named simply, "olsrd" is the primary daemon process, and the others that you see such as olsrd-mod-dyn-gw are plugins (olsrd is very extensible and has great plugin support).
+
+Assuming that you saw an olsrd package, install it with {{{ipkg install olsrd}}}.
+
+2. Edit the /etc/olsrd.conf file
   . In the lower side of the olsrd.conf file you see Interface "XXX" just change XXX to your wireless interface which was eth1 in my case
 
 ''''''
@@ -99,13 +132,13 @@ Well if you need olsr to run on the startup then we have to make a startup scrip
 /bin/olsrd
 }}}
 
-[Todo: explanation of HNA4  ,plugins ,negetive weights etc ]
+[Todo: explanation of HNA4, plugins, negative weights etc ]
 
-Reference::
+= References =
 
-[http://www.olsr.org www.olsr.org] :Read main thesis and rfc
-
-http://wiki.openwrt.org/OpenWrtDocs :Everything and anything in it
+* [http://www.olsr.org www.olsr.org] :Read main thesis and rfc
+* [http://nbd.name/openwrt Manual for Kamikaze by one of the developers]
+* [http://wiki.openwrt.org/OpenWrtDocs Main wiki documentation for OpenWrt]
 
 ----
  . CategoryHowTo 
