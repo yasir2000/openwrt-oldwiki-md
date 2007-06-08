@@ -1,10 +1,10 @@
 __'''Introduction'''__
 
-Mesh networks are networks which are self arranging and auto configure them selves on basis of topology changes in cases like one node fails or a a new route emerges or a low traffic route is available etc.The concept of mesh network is not new Internet is a huge mesh network in itself.So whats new? Well mesh networks with wireless simply rocxx.
+Mesh networks are networks which are self arranging and auto configure themselves on the basis of topology changes.  For example, the mesh will automatically arrange itself in cases where one node fails, or when a new route emerges, or when a low traffic route becomes available or disappears.  The concept of mesh network is not new; the Internet itself is a huge mesh network.  So what's new?  Well, mesh networks with wireless simply rocks! ;)
 
-Well OLSR is one of the routing protocol available for Mobile Adhoc Network(MANET) or rather is general terms a wireless Mesh network.The OLSR code developed by [http://www.olsr.org Andreas Tønnesen] is the best suited for our case.
+OLSR is one of the routing protocol available to create a Mobile Adhoc Networks (MANET) or rather, in more general terms, a wireless Mesh network.  [http://www.olsr.org The OLSR code developed by Andreas Tønnesen] is the best suited for our case as packages have been created for OpenWrt.
 
-Actually if the objective is just to have a quick mesh you should be looking at [http://firmware.freifunk.net Freifunk Firmware] or [http://trac.what-a-mesh.net/trac/ what-a-mesh] firmware which is openwrt+olsr. But if you want to do it all your self which was as in my case you can follow the below methods
+If your objective, however, is to quickly create a mesh network you may want to have a look at firmware that has been specifically created for this purpose.  As of Friday, June 8, 2007 the [http://firmware.freifunk.net Freifunk Firmware] is maintained.  This package includes OpenWrt combined with the OLSR package mentioned above.  Below are steps that you can take to create an OLSR mesh by configuring OpenWrt and olsrd (the OLSR daemon process) yourself.
 
 __'''The Network'''__
 
