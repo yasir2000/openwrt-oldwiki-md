@@ -76,24 +76,18 @@ The rest of the defaults in the file should work.  Try {{{/etc/init.d/olsrd star
 Below is the full olsrd.conf that I use on my production system:
 
 {{{
-#
+###
 # olsr.org OLSR daemon config file
+# /etc/olsrd.conf
+#
 # Modified for sample OLSR network by Justin S. Leiteb
 # http://justin.phq.org/ Fri Jun  8 10:34:27 EDT 2007
-# Some comments and commented line from conf file distributed
+# Many comments and commented line from conf file distributed
 # with olsrd omitted for brevity in wiki.
-
-# Debug level(0-9)
-# If set to 0 the daemon runs in the background
+###
 
 DebugLevel	0
-
-# IP version to use (4 or 6)
-
 IpVersion	4
-
-# Clear the screen each time the internal state changes
-
 ClearScreen     yes
 
 ## HNA - for non-olsr networks connected to this node.
@@ -107,18 +101,7 @@ Hna4
 	10.100.1.0  255.255.255.0
 }
 
-# Should olsrd keep on running even if there are
-# no interfaces available? This is a good idea
-# for a PCMCIA/USB hotswap environment.
-# "yes" OR "no"
-
 AllowNoInt	yes
-
-# Whether to use hysteresis or not
-# Hysteresis adds more robustness to the
-# link sensing but delays neighbor registration.
-# Used by default. 'yes' or 'no'
-
 UseHysteresis	yes
 
 # Hysteresis parameters
@@ -127,31 +110,18 @@ HystThrHigh	0.80
 HystThrLow	0.30
 
 
-# Link quality level
 LinkQualityLevel	0
-
-# Polling rate in seconds(float). 
 Pollrate	0.05
-
-# Interval to poll network interfaces for configuration 
-# changes. Defaults to 2.5 seconds
-
 NicChgsPollInt  3.0
 
 Interface "wl0"
 {
-    # Olsrd can autodetect changes in NIC
     AutoDetectChanges            yes
-
-    # IPv4 broadcast address to use. The
-    # one usefull example would be 255.255.255.255
-    # If not defined the broadcastaddress
-    # every card is configured with is used
-
     Ip4Broadcast		255.255.255.255
 }
 
-# Run http server with mesh information.
+# Run http server with mesh information.  Won't work unless you've already installed
+# the olsrd_httpinfo plugin through ipkg.
 LoadPlugin "olsrd_httpinfo.so.0.1"
 {
 	PlParam		"port"	"1979"
