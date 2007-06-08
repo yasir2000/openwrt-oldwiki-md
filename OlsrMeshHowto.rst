@@ -56,34 +56,115 @@ You'll also have to separate the wifi and lan interfaces.  This is done by  in A
 
 1. Install olsrd
 
-The base configuration is to install the olsrd package on a OpenWrt router. 
-
-So, assuming that you have OpenWrt installed and correctly configured (e.g., your ipkg configuration is correct), you can see which olsrd package is available in the ipkg repositories that you have access to:
+Assuming that you have OpenWrt installed and correctly configured (e.g., your ipkg configuration is correct), you can see which olsrd package is available in the ipkg repositories that you have access to:
 
 {{{
   ipkg update
   ipkg list | grep olsrd
 }}}
 
-You should see a number of olsr-related packages.  The package named simply, "olsrd" is the primary daemon process, and the others that you see such as olsrd-mod-dyn-gw are plugins (olsrd is very extensible and has great plugin support).
+You should see a number of olsr-related packages.  The package named "olsrd" is the primary daemon process, and the others that you see such as olsrd-mod-dyn-gw are plugins (olsrd is very extensible and has great plugin support).
 
-Assuming that you saw an olsrd package, install it with {{{ipkg install olsrd}}}.
+Assuming that you saw an olsrd package after the command above, install it with {{{ipkg install olsrd}}}.
 
 2. Edit the /etc/olsrd.conf file
-  . In the lower side of the olsrd.conf file you see Interface "XXX" just change XXX to your wireless interface which was eth1 in my case
 
-''''''
+You will see a line in your olsrd.conf file that says {{{Interface "XXX"}.  Change "XXX" to the wireless interface on your router.  In my case, this was wl0.
+
+The rest of the defaults in the file should work.  Try {{{/etc/init.d/olsrd start}}} to see if it works.
+
+Below is the full olsrd.conf that I use on my production system:
 
 {{{
-  Interface "eth1" 
-{  #IPv4 broadcast address to use.The 
-   #one usefull example would be 255.255.255.255
+#
+# olsr.org OLSR daemon config file
+# Modified for sample OLSR network by Justin S. Leiteb
+# http://justin.phq.org/ Fri Jun  8 10:34:27 EDT 2007
+# Some comments and commented line from conf file distributed
+# with olsrd omitted for brevity in wiki.
 
+# Debug level(0-9)
+# If set to 0 the daemon runs in the background
+
+DebugLevel	0
+
+# IP version to use (4 or 6)
+
+IpVersion	4
+
+# Clear the screen each time the internal state changes
+
+ClearScreen     yes
+
+## HNA - for non-olsr networks connected to this node.
+# On the second OLSR node (olsrd.conf not supplied for this node, since only one line is different), 
+# which has a LAN interface on the 10.100.2.0/255.255.255.0 network, the Hna4 entry is: 
+# 10.100.2.0 255.255.255.0.  These Hna4 entries are what propagates information about how to route 
+# to these subnets through the mesh.
+Hna4
+{
+	# My home LAN
+	10.100.1.0  255.255.255.0
+}
+
+# Should olsrd keep on running even if there are
+# no interfaces available? This is a good idea
+# for a PCMCIA/USB hotswap environment.
+# "yes" OR "no"
+
+AllowNoInt	yes
+
+# Whether to use hysteresis or not
+# Hysteresis adds more robustness to the
+# link sensing but delays neighbor registration.
+# Used by default. 'yes' or 'no'
+
+UseHysteresis	yes
+
+# Hysteresis parameters
+HystScaling	0.50
+HystThrHigh	0.80
+HystThrLow	0.30
+
+
+# Link quality level
+LinkQualityLevel	0
+
+# Polling rate in seconds(float). 
+Pollrate	0.05
+
+# Interval to poll network interfaces for configuration 
+# changes. Defaults to 2.5 seconds
+
+NicChgsPollInt  3.0
+
+Interface "wl0"
+{
+    # Olsrd can autodetect changes in NIC
+    AutoDetectChanges            yes
+
+    # IPv4 broadcast address to use. The
+    # one usefull example would be 255.255.255.255
+    # If not defined the broadcastaddress
+    # every card is configured with is used
+
+    Ip4Broadcast		255.255.255.255
+}
+
+# Run http server with mesh information.
+LoadPlugin "olsrd_httpinfo.so.0.1"
+{
+	PlParam		"port"	"1979"
+	PlParam		"Net"	"0.0.0.0 0.0.0.0"
+}
 }}}
 
- . Then you just need to run the command olsrd and it should take the default values and run.
 
-3. Modifying  /etc./firewall.user      for OLSR network Now as the bridge br0 is broken we have to add a few lines into firewalll scripts so as to have proper functioning.The following are basic rules required
+3. Configuring the firewall for OLSR
+
+You will have to make some changes to /etc/firewall.user for your OLSR mesh to function.  This will allow the router to forward packets between the interfaces, including the WIFI and LAN interfaces that you separated earlier.
+
+The following is an example firewall.user that was supplied for what appears to be a WhiteRussian system, however it will not work on Kamikaze:
 
 {{{
 #!/bin/sh
@@ -116,29 +197,99 @@ iptables -A forwarding_rule -i $LAN  -o $WIFI  -j  ACCEPT
  
 iptables -A forwarding_rule -i $WIFI  -o $WIFI  -j  ACCEPT
 
-
 #For connecting a Wired Lan client of node 1 to wired client of node 2
 
 iptables -A forwarding_rule -i $LAN -o $LAN  -j  ACCEPT
 
 }}}
 
-4.Running OLSR on startup
-
-Well if you need olsr to run on the startup then we have to make a startup script in /etc/init.d/S60olsrd
+The above won't work on Kamikaze in particular because nvram is no longer used for system configuration in this system.  Following is a firewall.user for a kamikaze system.  It works for an OLSR mesh running Kamikaze r7509.
 
 {{{
 #!/bin/sh
-/bin/olsrd
+
+# Copyright (C) 2006 OpenWrt.org
+
+iptables -F input_rule
+iptables -F output_rule
+iptables -F forwarding_rule
+iptables -t nat -F prerouting_rule
+iptables -t nat -F postrouting_rule
+
+# The following chains are for traffic directed at the IP of the 
+# WAN interface
+
+iptables -F input_wan
+iptables -F forwarding_wan
+iptables -t nat -F prerouting_wan
+
+# Does anyone have a command to get the name of the WIFI interface on Kamikaze so 
+# that it doesn't have to be hard-coded here?  This is a bit sloppy it seems.
+WIFI=wl0
+
+## -- This allows port 22 to be answered by (dropbear on) the router
+iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
+
+# Allow connections to olsr info port.
+iptables        -A input_wan      -p tcp --dport 1979 -j ACCEPT
+
+# OLSR needs port 698 to transmit state messages. 
+iptables -A input_rule -p udp --dport 698 -j ACCEPT
+
+###################################################################
+### START Rules that allow forwarding from one network to another.
+### Rules based on openwrt wiki page:
+###   http://wiki.openwrt.org/OlsrMeshHowto
+###################################################################
+
+# Debugging... do we have WIFI, LAN and WAN appropriately defined?
+# These values are passed to use (supposedly) from /etc/init.d/firewall
+
+# echo WIFI == $WIFI
+# echo LAN == $LAN
+# echo WAN == $WAN
+
+# Allow forwarding from WAN -> WIFI 
+iptables -A forwarding_rule -i $WAN -o $WIFI -j ACCEPT
+
+iptables -A forwarding_rule -i $WIFI -o $WAN -j ACCEPT
+
+# For forwarding LAN & WIFI in nodes
+iptables -A forwarding_rule -i $LAN -o $WIFI -j ACCEPT
+
+# For WIFI clients to connect to nodes.
+iptables -A forwarding_rule -i $WIFI -o $WIFI -j ACCEPT
+
+# For connecting a wired lan client of node 1 to wired lan client of node 2
+iptables -A forwarding_rule -i $LAN -o $LAN -j ACCEPT
+
+# WIFI needs to go to LAN ports, too!
+iptables -A forwarding_rule -i $WIFI -o $LAN -j ACCEPT
 }}}
 
-[Todo: explanation of HNA4, plugins, negative weights etc ]
+Now reboot your router for the changes to take effect.
+
+4. Running OLSR on startup
+
+After you have installed and configured olsrd to your liking, make it run when the router boots.  The debug level must be set to "0" in the olsrd.conf file for it to start.  Next, make a symbolic link in /etc/rc.d to the startup script:
+
+{{{
+ln -s /etc/init.d/olsrd /etc/rc.d/S60olsrd
+}}}
+
+5. Reboot and test
+
+Reboot your router and test everything by pinging interfaces on the different devices.  Go and have a beverage of choice to celebrate!
+
+= After basic configuration =
+
+You may want to check out some of the plugins that are easy to configure and show you the basic status of your mesh.  On my network I run olsrd-mod-httpinfo, which provides a basic http server that shows you the status of the mesh.
 
 = References =
 
-* [http://www.olsr.org www.olsr.org] :Read main thesis and rfc
-* [http://nbd.name/openwrt Manual for Kamikaze by one of the developers]
-* [http://wiki.openwrt.org/OpenWrtDocs Main wiki documentation for OpenWrt]
+ * [http://www.olsr.org www.olsr.org Master's thesis of primary developer of olsrd] - should be read before attempting to install OLSR if you aren't clear on the fundamentals of how it works 
+ * [http://nbd.name/openwrt Manual for Kamikaze by one of the developers] - great reference on networking interface configuration and other parts of the OpenWrt system
+ * [http://wiki.openwrt.org/OpenWrtDocs Main wiki documentation for OpenWrt] - Of course! :)
 
 ----
  . CategoryHowTo 
