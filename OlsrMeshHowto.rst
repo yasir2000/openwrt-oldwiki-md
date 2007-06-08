@@ -290,6 +290,3 @@ You may want to check out some of the plugins that are easy to configure and sho
  * [http://www.olsr.org www.olsr.org Master's thesis of primary developer of olsrd] - should be read before attempting to install OLSR if you aren't clear on the fundamentals of how it works 
  * [http://nbd.name/openwrt Manual for Kamikaze by one of the developers] - great reference on networking interface configuration and other parts of the OpenWrt system
  * [http://wiki.openwrt.org/OpenWrtDocs Main wiki documentation for OpenWrt] - Of course! :)
-
-----
- . CategoryHowTo 
