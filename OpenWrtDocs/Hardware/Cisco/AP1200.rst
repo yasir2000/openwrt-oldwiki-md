@@ -1,7 +1,7 @@
 = Cisco AP 1200 =
 
 {{{
-CPU : PowerPC 405GP
+CPU : PowerPC 405GP @ 200 Mhz
 Flash : 8Mo
 RAM : 16Mo
 Ethernet :  yes
