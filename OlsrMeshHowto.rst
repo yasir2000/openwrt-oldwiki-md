@@ -213,7 +213,8 @@ iptables -A input_rule -p udp --dport 698 -j ACCEPT
 ###################################################################
 
 # Debugging... do we have WIFI, LAN and WAN appropriately defined?
-# These values are passed to use (supposedly) from /etc/init.d/firewall
+# These values are passed to us from /etc/init.d/firewall, which
+# calls this script.
 
 # echo WIFI == $WIFI
 # echo LAN == $LAN
