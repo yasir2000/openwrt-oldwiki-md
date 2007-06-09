@@ -20,7 +20,7 @@ Set up a tftp server and use these commands over serial console:
 {{{
 protect off 0x20000 0x7EFFFF
 erase 0x20000 0x7EFFFF
-setenv ipaddr [ip for the taishan]
+setenv ipaddr [ip for the ngw]
 setenv serverip [tftp server ip]
 setenv tftpip
 tftp 0x90000000 openwrt-avr32-2.6-squashfs.img
