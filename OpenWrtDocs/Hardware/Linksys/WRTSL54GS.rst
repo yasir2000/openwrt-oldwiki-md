@@ -112,11 +112,22 @@ Both Xilinx and Wiggler cables should work - see [http://wiki.openwrt.org/OpenWr
 HairyDairyMaid's debricker is working, but currently requires /skipdetect and instrlen:8 options since the 4704 isn't in the list of supported processors.  The 28F640J3 flash in the SL is in the known part list of the debricker.
 
 == LED10 ==
-The LED10 location at front of board contains no LED. Perhaps it is usable by GPIO functions for 1-Wire or similar.
+The LED10 location at front of board contains no LED. Perhaps it is usable for something. But it does not appear to be connected directly to a GPIO pin as a voltmeter shows nothing when cycling all GPIO lines.
 
 = Board info and CPU model =
 ||'''Model'''||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardnum'''||'''wl0_corerev'''||'''cpu  model'''||
 ||WRTSL54GS||0x10||0x042f||0x0018||42||9||BCM4704 rev8||
+
+= GPIO =
+||'''GPIO #'''||'''direction'''||'''location'''||'''name'''|||'''function'''||
+||0||output||LEDC15||DMZ||LED - DMZ||
+||1||output||LEDC9 ||POWER LED||LED - Power||
+||2||?||?||?||?||
+||3||?||?||?||?||
+||4||input||PSW2||button||Button - SES||
+||5||output||LEDC13||SES white||LED - SES white||
+||6||input||PSW1||RESET||Button - reset||
+||7||output||LEDC14||SES amber||LED - SES amber||
 
 = More information =
 
