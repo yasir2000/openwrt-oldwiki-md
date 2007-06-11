@@ -117,7 +117,6 @@ NicChgsPollInt  3.0
 Interface "wl0"
 {
     AutoDetectChanges            yes
-    Ip4Broadcast		255.255.255.255
 }
 
 # Run http server with mesh information.  Won't work unless you've already installed
@@ -248,6 +247,12 @@ ln -s /etc/init.d/olsrd /etc/rc.d/S60olsrd
 5. Reboot and test
 
 Reboot your router and test everything by pinging interfaces on the different devices.  Go and have a beverage of choice to celebrate!
+
+= Configuration Notes and Tips =
+
+ * The configuration above seems to work on Kamikaze only when the "Internet" (WAN) port on each Linksys wrt54g is used.  There seem to be iptables issues preventing the lan ports from working properly.
+
+ * Kamikaze (up to release 7509) doesn't calculate broadcast addresses properly.  These need to be explicitly coded in to the /etc/config/network file for each interface as "broadcast x.x.x.x" parameters.
 
 = After basic configuration =
 
