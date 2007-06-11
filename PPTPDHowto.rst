@@ -95,7 +95,7 @@ iptables        -A forwarding_rule -s 192.168.1.0/24 -d 172.16.1.0/24 -j ACCEPT
 It alows two way communication. NOTE:  The ip address range in the iptables section above is the LAN ip address range.
 
 == Setup for Windows filesharing ==
-If you have Windows PPTP clients and you want them to be able to access file shares on the LAN, you need to set the  IP addresses of the PPTP clients to be on the same subnet as the LAN.  This is because of a limitation in proxyarp.  They also cannot be on the same subnet as the local addresses of the PPTP clients.  For example, if your PPTP clients have addresses in the 192.168.0.0/24 subnet, you can set you LAN to be 192.168.30.0/24 with DCHP assigning 192.168.30.50-192.168.30.100.  You can set the IP address of the PPTP server to be 192.168.30.200 by adding the following line to /etc/ppp/options.pptpd:
+If you have Windows PPTP clients and you want them to be able to access file shares on the LAN, you need to set the  IP addresses of the PPTP clients to be on the same subnet as the LAN.  This is because of a limitation in proxyarp.  They also cannot be on the same subnet as the local addresses of the PPTP clients.  For example, if your PPTP clients have addresses in the 192.168.0.0/24 subnet, you can set you LAN to be 192.168.30.0/24 with DCHP assigning 192.168.30.50-192.168.30.100, but be careful that your PPTP clients' subnets are not in the 192.168.0.0 range. You would be better off selecting something in the 172.16.0.0/12 range (such as 172.18 for your LAN and 172.19 for the VPN clients with a bitmask of 16, i.e. 255.255.0.0). You can set the IP address of the PPTP server to be 192.168.30.200 by adding the following line to /etc/ppp/options.pptpd:
 
 {{{
 192.168.30.200:
