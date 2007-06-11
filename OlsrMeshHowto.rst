@@ -220,9 +220,6 @@ iptables -A input_rule -p udp --dport 698 -j ACCEPT
 # echo LAN == $LAN
 # echo WAN == $WAN
 
-# Allow forwarding from WAN -> WIFI 
-iptables -A forwarding_rule -i $WAN -o $WIFI -j ACCEPT
-
 iptables -A forwarding_rule -i $WIFI -o $WAN -j ACCEPT
 
 # For forwarding LAN & WIFI in nodes
