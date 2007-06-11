@@ -306,4 +306,163 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
+== Installing OpenWrt ==
+
+Grab latest trunk revision. Choose the "ADM5120 2.6 (Little Endian)" target, then in "Target images", choose "ramdisk".
+
+Once the build is complete, copy the file "openwrt-adm5120-2.6-vmlinux-lzma-cas-771.gz" to a safe location.
+
+{{{
+ADM Bootloader (v0.04.01 20040216)
+===================================
+(a) Download vmlinuz to flash ...
+(b) Download vmlinuz to sdram (for debug) ...
+(c) Update bootloader ...
+(e) Exit
+
+Please enter your key : b
+}}}
+
+Now send the file mentionned before via Xmodem. This should take some time since the lzma decompressor + kernel + ramdisk is approximately 2Mb.
+
+Once the transfer is done, ADMBOOT will jump to the LZMA decompressor which will uncompress and boot the kernel :
+
+{{{
+ADM Bootloader (v0.04.01 20040216)
+===================================
+(a) Download vmlinuz to flash ...
+(b) Download vmlinuz to sdram (for debug) ...
+(c) Update bootloader ...
+(e) Exit
+
+Please enter your key : b
+Downloading......... PASS
+
+decompress kernel image ...
+boot linux ...
+
+LZMA loader for ADM5120, Copyright (C) 2007 OpenWrt.org
+
+decompressing kernel... done!
+launching kernel...
+
+Linux version 2.6.21.1 (florian@dorelei) (gcc version 4.1.2) #2 Mon Jun 11 22:11:15 CEST 2007
+ADM5120 revision 8, running at 175MHz
+Boot loader is: Unknown
+Booted from   : NOR flash
+Board is      : Unknown ADM5120 board
+GETENV: envname is memsize
+GETENV: returning 0x001000000
+CPU revision is: 0001800b
+ADM5120 board setup
+Determined physical RAM map:
+ memory: 00bf8000 @ 00408000 (usable)
+Wasting 33024 bytes for tracking 1032 unused pages
+Initrd not found or empty - disabling initrd
+Built 1 zonelists.  Total pages: 4064
+Kernel command line: console=ttyS0,115200 rootfs=jffs2,squashfs,yaffs2 init=/etc/preinit
+Primary instruction cache 8kB, physically tagged, 2-way, linesize 16 bytes.
+Primary data cache 8kB, 2-way, linesize 16 bytes.
+Synthesized TLB refill handler (20 instructions).
+Synthesized TLB load handler fastpath (32 instructions).
+Synthesized TLB store handler fastpath (32 instructions).
+Synthesized TLB modify handler fastpath (31 instructions).
+PID hash table entries: 64 (order: 6, 256 bytes)
+Using 87.500 MHz high precision timer.
+Dentry cache hash table entries: 2048 (order: 1, 8192 bytes)
+Inode-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Memory: 12108k/12256k available (2286k kernel code, 148k reserved, 354k data, 1372k init, 0k highmem)
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+adm5120: system has PCI BIOS
+registering PCI controller with io_map_base unset
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+PCI: mapping irq for device 0000:00:02.0, slot:2, pin:1, irq:15
+PCI: mapping irq for device 0000:00:03.0, slot:3, pin:1, irq:16
+PCI: mapping irq for device 0000:00:03.1, slot:3, pin:2, irq:16
+PCI: mapping irq for device 0000:00:03.2, slot:3, pin:3, irq:16
+Time: MIPS clocksource has been installed.
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 512 (order: 0, 4096 bytes)
+TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+TCP: Hash tables configured (established 512 bind 512)
+TCP reno registered
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+Registering mini_fo version $Id$
+JFFS2 version 2.2. (NAND) (SUMMARY)  (C) 2001-2006 Red Hat, Inc.
+yaffs Jun 11 2007 20:28:06 Installing.
+io scheduler noop registered
+io scheduler deadline registered (default)
+Registered led device: adm5120:led
+ttyS0 at I/O 0x12600000 (irq = 9) is a ADM5120
+ttyS1 at I/O 0x12800000 (irq = 10) is a ADM5120
+eth0: ADM5120 switch port0
+eth1: ADM5120 switch port1
+eth2: ADM5120 switch port2
+eth3: ADM5120 switch port3
+eth4: ADM5120 switch port4
+adm5120 : flash init : 0x1fc00000 0x00000000
+Failed to ioremap
+block2mtd: version $Revision: 1.30 $
+RB1xx nand
+No NAND device found!!!
+No NAND device found!!!
+No NAND device found!!!
+No NAND device found!!!
+RB1xxx nand device not found
+nf_conntrack version 0.5.0 (95 buckets, 760 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP vegas registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+Bridge firewalling registered
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+Freeing unused kernel memory: 1372k freed
+Warning: unable to open an initial console.
+Algorithmics/MIPS FPU Emulator v1.5
+device eth0 entered promiscuous mode
+br-lan: port 1(eth0) entering learning state
+br-lan: topology change detected, propagating
+br-lan: port 1(eth0) entering forwarding state
+PPP generic driver version 2.4.2
+wlan: 0.8.4.2 (svn r2420)
+ath_hal: module license 'Proprietary' taints kernel.
+ath_hal: 0.9.30.13 (AR5210, AR5211, AR5212, AR5416, RF5111, RF5112, RF2413, RF5413, RF2133, REGOPS_FUNC)
+ath_rate_minstrel: 1.2 (svn r2420)
+
+Minstrel automatic rate control algorithm.
+
+Look around rate set to 10%
+EWMA rolloff level set to 75%
+Max Segment size in the mrr set to 6000 us
+
+wlan: mac acl policy registered
+ath_pci: 0.9.4.5 (svn r2420)
+init started:  BusyBox v1.4.2 (2007-06-11 10:55:54 CEST) multi-call binary
+
+Please press Enter to activate this console.
+
+
+BusyBox v1.4.2 (2007-06-11 10:55:54 CEST) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r7559) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
+}}}
+}}}
+
 CategoryModel ["CategoryADM5120Device"]
