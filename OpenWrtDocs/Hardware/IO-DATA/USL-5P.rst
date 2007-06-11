@@ -177,4 +177,3 @@ This is out-of-date, but you can still reach it at http://trash.uid0.hu/openwrt/
 
 
 NOTE: This wiki entry will be changing quickly as I'm playing around with OpenWrt to support this board.
-, which boots the kernel 
