@@ -6,11 +6,12 @@ The Cellvision CAS-771 IP camera is a Linux based IP camera. It comes in two fla
 
 {{{
 CPU : Infineon ADM5120 CPU
-Wi-Fi : Ralink RT2500
+Wi-Fi (if present) : Ralink RT2500
 Video : CPIA2
 USB : audio / slave /host
 RAM : 32Mb
 Flash : 4Mb NOR
+Servo-motor : yes
 }}}
 
 == Known models ==
