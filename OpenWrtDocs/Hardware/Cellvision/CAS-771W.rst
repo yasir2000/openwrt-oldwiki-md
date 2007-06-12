@@ -311,7 +311,7 @@ VCEI exceptions         : not available
 
 Grab latest trunk revision. Choose the "ADM5120 2.6 (Little Endian)" target, then in "Target images", choose "ramdisk".
 
-Once the build is complete, copy the file "openwrt-adm5120-2.6-vmlinux-lzma-cas-771.gz" to a safe location.
+Once the build is complete, copy the file "openwrt-adm5120-2.6-vmlinux-lzma-cas-771.gz" to a safe location. You had better make a symbolic link to this file named "linux", because the ADM5120 bootloader does not like long names.
 
 {{{
 ADM Bootloader (v0.04.01 20040216)
