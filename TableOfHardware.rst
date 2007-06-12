@@ -27,6 +27,12 @@ Notes:
 == 4G Systems ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64MB ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Kamikaze ||
+== Acmesystems SRL. ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.acmesystems.it FoxBoard] ||MCM ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP||
+||[http://www.acmesystems.it FoxBoard] ||416 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
+||[http://www.acmesystems.it FoxBoard] ||816 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||8MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
+||[http://www.acmesystems.it FoxBoard] ||832 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||8MB ||32MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
 == ACorp ==
 The information below is for reference - it's difficult to find it elsewhere. Acorp Sprinter@ADSL model line. ACorp uses PSPBoot bootloader in all the following devices - not ADAM2 which is traditional for AR7-based devices. There are 2 (3?) product lines mentioned below: old LAN120/LAN420/W400G, and new LAN120M(LAN122)/LAN420M(LAN422)/W422G, which uses never chipset. *20M models differs from *22 models with the amount of flash/memory (2Mb+8Mb is too small for OpenWRT). The model line is: Adsl+1xEthernet+1xUSB, Adsl+4xEthernet, or Adsl+4xEthernet+Wifi.
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
