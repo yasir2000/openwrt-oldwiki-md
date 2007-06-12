@@ -112,7 +112,7 @@ Both Xilinx and Wiggler cables should work - see [http://wiki.openwrt.org/OpenWr
 HairyDairyMaid's debricker is working, but currently requires /skipdetect and instrlen:8 options since the 4704 isn't in the list of supported processors.  The 28F640J3 flash in the SL is in the known part list of the debricker.  Believed that v4.8 and later has full support for CPU so you can run without /skipdetect option.
 
 == GPIO ==
-||'''GPIO #'''||'''direction'''||'''location'''||'''name'''|||'''function'''||
+||'''GPIO #'''||'''direction'''||'''location'''||'''name'''||'''function'''||
 ||0||output||LEDC15||DMZ||LED - DMZ||
 ||1||output||LEDC9 ||POWER LED||LED - Power||
 ||2||output||RA59(back)||?||?||
