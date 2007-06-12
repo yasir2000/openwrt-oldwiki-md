@@ -464,6 +464,101 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#
 }}}
+
+== PCI mapping ==
+{{{
+# cat /proc/pci
+PCI devices found:
+  Bus  0, device   0, function  0:
+    Class 0600: PCI device 1317:5120 (rev 0).
+      Master Capable.  Latency=128.
+      Non-prefetchable 32 bit memory at 0xf0000000 [0xffffffff].
+      I/O at 0xff000000 [0xfeffffff].
+  Bus  0, device   2, function  0:
+    Class 0280: PCI device 1814:0201 (rev 1).
+      IRQ 6.
+      Master Capable.  Latency=8.
+      Non-prefetchable 32 bit memory at 0x11400000 [0x11401fff].
+  Bus  0, device   3, function  0:
+    Class 0c03: PCI device 1033:0035 (rev 67).
+      IRQ 7.
+      Master Capable.  Latency=128.  Min Gnt=1.Max Lat=42.
+      Non-prefetchable 32 bit memory at 0x11402000 [0x11402fff].
+  Bus  0, device   3, function  1:
+    Class 0c03: PCI device 1033:0035 (rev 67).
+      Master Capable.  Latency=128.  Min Gnt=1.Max Lat=42.
+      Non-prefetchable 32 bit memory at 0x11403000 [0x11403fff].
+  Bus  0, device   3, function  2:
+    Class 0c03: PCI device 1033:00e0 (rev 4).
+      IRQ 8.
+      Master Capable.  Latency=128.  Min Gnt=16.Max Lat=34.
+      Non-prefetchable 32 bit memory at 0x11404000 [0x114040ff].
+}}}
+
+== USB ==
+
+{{{
+# cat /proc/bus/usb/devices
+T:  Bus=02 Lev=00 Prnt=00 Port=00 Cnt=00 Dev#=  1 Spd=480 MxCh= 5
+B:  Alloc=  0/800 us ( 0%), #Int=  0, #Iso=  0
+D:  Ver= 2.00 Cls=09(hub  ) Sub=00 Prot=01 MxPS= 8 #Cfgs=  1
+P:  Vendor=0000 ProdID=0000 Rev= 2.04
+S:  Manufacturer=Linux 2.4.18-5120-05 ehci_hcd
+S:  Product=PCI device 1033:00e0
+S:  SerialNumber=00:03.2
+C:* #Ifs= 1 Cfg#= 1 Atr=40 MxPwr=  0mA
+I:  If#= 0 Alt= 0 #EPs= 1 Cls=09(hub  ) Sub=00 Prot=00 Driver=hub
+E:  Ad=81(I) Atr=03(Int.) MxPS=   2 Ivl=256ms
+T:  Bus=01 Lev=00 Prnt=00 Port=00 Cnt=00 Dev#=  1 Spd=12  MxCh= 3
+B:  Alloc= 34/900 us ( 4%), #Int=  0, #Iso=  6
+D:  Ver= 1.10 Cls=09(hub  ) Sub=00 Prot=00 MxPS= 8 #Cfgs=  1
+P:  Vendor=0000 ProdID=0000 Rev= 0.00
+S:  Product=USB OHCI Root Hub
+S:  SerialNumber=b1402000
+C:* #Ifs= 1 Cfg#= 1 Atr=40 MxPwr=  0mA
+I:  If#= 0 Alt= 0 #EPs= 1 Cls=09(hub  ) Sub=00 Prot=00 Driver=hub
+E:  Ad=81(I) Atr=03(Int.) MxPS=   2 Ivl=255ms
+T:  Bus=01 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  3 Spd=12  MxCh= 0
+D:  Ver= 1.10 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=0d8c ProdID=000c Rev= 1.00
+S:  Product=C-Media USB Headphone Set
+C:* #Ifs= 4 Cfg#= 1 Atr=a0 MxPwr=100mA
+I:  If#= 0 Alt= 0 #EPs= 0 Cls=01(audio) Sub=01 Prot=00 Driver=audio
+I:  If#= 1 Alt= 0 #EPs= 0 Cls=01(audio) Sub=02 Prot=00 Driver=audio
+I:  If#= 1 Alt= 1 #EPs= 1 Cls=01(audio) Sub=02 Prot=00 Driver=audio
+E:  Ad=01(O) Atr=09(Isoc) MxPS= 200 Ivl=1ms
+I:  If#= 2 Alt= 0 #EPs= 0 Cls=01(audio) Sub=02 Prot=00 Driver=audio
+I:  If#= 2 Alt= 1 #EPs= 1 Cls=01(audio) Sub=02 Prot=00 Driver=audio
+E:  Ad=82(I) Atr=05(Isoc) MxPS= 100 Ivl=1ms
+I:  If#= 3 Alt= 0 #EPs= 1 Cls=03(HID  ) Sub=00 Prot=00 Driver=(none)
+E:  Ad=83(I) Atr=03(Int.) MxPS=   4 Ivl=32ms
+T:  Bus=01 Lev=01 Prnt=01 Port=01 Cnt=02 Dev#=  2 Spd=12  MxCh= 0
+D:  Ver= 1.10 Cls=ff(vend.) Sub=00 Prot=00 MxPS= 8 #Cfgs=  1
+P:  Vendor=0553 ProdID=0140 Rev= 0.00
+S:  Product=USB Camera Device
+C:* #Ifs= 1 Cfg#= 1 Atr=a0 MxPwr= 98mA
+I:  If#= 0 Alt= 0 #EPs= 0 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+I:  If#= 0 Alt= 1 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=82(I) Atr=02(Bulk) MxPS=  64 Ivl=0ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
+I:  If#= 0 Alt= 2 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=81(I) Atr=01(Isoc) MxPS= 128 Ivl=1ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
+I:  If#= 0 Alt= 3 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=81(I) Atr=01(Isoc) MxPS= 384 Ivl=1ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
+I:  If#= 0 Alt= 4 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=81(I) Atr=01(Isoc) MxPS= 640 Ivl=1ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
+I:  If#= 0 Alt= 5 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=81(I) Atr=01(Isoc) MxPS= 768 Ivl=1ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
+I:  If#= 0 Alt= 6 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=81(I) Atr=01(Isoc) MxPS= 896 Ivl=1ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
+I:  If#= 0 Alt= 7 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cpia2
+E:  Ad=81(I) Atr=01(Isoc) MxPS=1023 Ivl=1ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=   8 Ivl=8ms
 }}}
 
 CategoryModel ["CategoryADM5120Device"]
