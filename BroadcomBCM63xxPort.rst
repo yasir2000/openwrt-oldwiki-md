@@ -34,7 +34,7 @@ Known 6348 platforms*:
 ||[:OpenWrtDocs/Hardware/Huawei/HG550:Huawei EchoLife HG550] ||
 ||[http://www.tecomproduct.com/AH4021.htm Hitachi AH4021 (German Telekom "Speedport W500V")] ||
 ||[:OpenWrtDocs/Hardware/Asus/WL600g:ASUS WL-600G] ||
-
+||[:OpenWrtDocs/Hardware/Belkin/belkin f5d7633-4]
 * If no dedicated Openwrt page is found an external link is supplied
 
 == Finished tasks ==
