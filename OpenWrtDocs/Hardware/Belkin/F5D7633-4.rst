@@ -2,7 +2,6 @@ Describe OpenWrtDocs/Hardware/Belkin/F5D7633-4 here.
 
 hope this will help you
 
-
 # cat /var/proc
 cat: /var/proc: No such file or directory
 # cat /proc/cpuinfo
@@ -17,8 +16,6 @@ extra interrupt vector  : no
 hardware watchpoint     : no
 VCED exceptions         : not available
 VCEI exceptions         : not available
-
-
 
 # cat /proc/meminfo
         total:    used:    free:  shared: buffers:  cached:
@@ -39,11 +36,8 @@ LowFree:          1080 kB
 SwapTotal:           0 kB
 SwapFree:            0 kB
 
-
 # cat cmdline
 root=/dev/mtdblock0 ro
-
-
 
 # cat devices
 Character devices:
@@ -63,7 +57,6 @@ Character devices:
 Block devices:
  31 mtdblock
 
-
 # cat filesystems
 nodev   rootfs
 nodev   bdev
@@ -74,11 +67,8 @@ nodev   shm
 nodev   pipefs
         cramfs
 
-
 # cat version
-Linux version 2.4.17 (root@JoshuaNotebook) (gcc version 3.1) #13 Wed Jul 20 10:22:55 CST 2005
-
-
+Linux version 2.4.17 ( root@JoshuaNotebook ) (gcc version 3.1) #13 Wed Jul 20 10:22:55 CST 2005
 
 ipt_state                552   2
 ipt_mark                 364   0 (unused)
@@ -114,8 +104,6 @@ bcmprocfs               9848   0
 adsldd                135260   0 (unused)
 blaa                    8116   0 (unused)
 atmapi                 51728   0 [adsldd blaa]
-
-
 
 # cat slabinfo
 slabinfo - version: 1.1
@@ -177,14 +165,12 @@ size-64              381    413     64    7    7    1
 size-32(DMA)           0      0     32    0    0    1
 size-32              422    565     32    4    5    1
 
-
 # cat pci
 PCI devices found:
   Bus  0, device   1, function  0:
     Class 0280: PCI device 14e4:4320 (rev 3).
       IRQ 32.
       Non-prefetchable 32 bit memory at 0x9000000 [0x9001fff].
-
 
 # cat mtd
 dev:    size   erasesize  name
@@ -194,8 +180,6 @@ mtd0: 0022a000 00002000 "Physically mapped flash"
 /dev/root / cramfs ro 0 0
 /proc /proc proc rw 0 0
 tmpfs /var tmpfs rw 0 0
-
-
 
 # cat interrupts
            CPU0
@@ -209,17 +193,8 @@ tmpfs /var tmpfs rw 0 0
  33:          0            MIPS  brcm_33
 ERR:          0
 
-
 # cat iomem
 00000000-00000f9f : System RAM
-
-
-
-
-
-
-
-
 
 
 
