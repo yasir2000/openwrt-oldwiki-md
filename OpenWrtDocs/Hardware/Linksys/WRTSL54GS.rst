@@ -122,8 +122,8 @@ The LED10 location at front of board contains no LED. Perhaps it is usable for s
 ||'''GPIO #'''||'''direction'''||'''location'''||'''name'''|||'''function'''||
 ||0||output||LEDC15||DMZ||LED - DMZ||
 ||1||output||LEDC9 ||POWER LED||LED - Power||
-||2||?||?||?||?||
-||3||?||?||?||?||
+||2||output||RA59||?||?||
+||3||output||RA60||?||?||
 ||4||input||PSW2||button||Button - SES||
 ||5||output||LEDC13||SES white||LED - SES white||
 ||6||input||PSW1||RESET||Button - reset||
