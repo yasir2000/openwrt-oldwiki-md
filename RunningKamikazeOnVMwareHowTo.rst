@@ -2,6 +2,7 @@ This !HowTo explains how to get !OpenWrt running on VMware. This only works with
 
 = Using prebuilt images =
  1. Download the free VMware Player (recommended and enough for most users) or Server from [http://www.vmware.com/ VMware] and install it
+
  1. Download a [http://downloads.openwrt.org/kamikaze/7.06/x86-2.6/openwrt-x86-2.6-ext2.image precompiled Kamikaze for x86-2.6] and create a VMware image from it (you need ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian and Ubuntu): {{{qemu-img convert -f raw openwrt-x86-2.6-ext2.image -O vmdk openwrt-x86-2.6-ext2.vmdk}}} (You can also get the resulting file from [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/openwrt-x86-2.6-ext2.vmdk openwrt-x86-2.6-ext2.vmdk (4.3MB)] or zipped version at [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/openwrt-x86-2.6-ext2_VMware-image.zip openwrt-x86-2.6-ext2_VMware-image.zip (1.8MB)])
  1. Get the VMware configuration file from [http://www2.informatik.hu-berlin.de/~nachtiga/openwrt/openwrt-x86-2.6-ext2.vmx here] and store it in the same directory as the vmdk image.
  1. Open the vmx file with VMWare Player (or simply double click on it)
@@ -13,7 +14,9 @@ You can also ssh to openwrt (run 'passwd' beforehand in the vmware, Usually you 
 == Building your own image ==
 To build your own Kamikaze VMware image you need a !OpenWrt development environment (with ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian and Ubuntu) installed on the Linux host-system to convert the image):
 
+
  1. check out with 'svn co https://svn.openwrt.org/openwrt/trunk/' (or download the [http://downloads.openwrt.org/kamikaze/7.06/kamikaze_7.06.tar.bz2 stable kamikaze 7.06 release])
+
  1. After applying the patches run 'make menuconfig' and select:
   * Target System (x86 [2.6])
   * Target Profile (VMware image)
@@ -29,6 +32,7 @@ To build your own Kamikaze VMware image you need a !OpenWrt development environm
  1. {{{qemu-img convert -f raw openwrt-x86-2.6-ext2.image -O vmdk openwrt-x86-2.6-ext2.vmdk}}}  (you need ''qemu-img'' (part of the [http://packages.debian.org/qemu qemu package] on Debian and Ubuntu)
 == Creating the VMware configuration file ==
 The openwrt-x86-2.6-ext2.vmx file can also simply be downloaded from above. Anyway, it was creating at http://www.easyvmx.com with the following settings:
+
 
  * Basic Configuration
   * Virtual Machine Name: !OpenWrt Kamikaze (x86-2.6)
