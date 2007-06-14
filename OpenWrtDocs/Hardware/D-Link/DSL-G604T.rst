@@ -87,6 +87,11 @@ mtd1,0x90010000,'' '''--||--''' ''
 
 mtd4,0x90010000,0x903f0000''
 
+That's all, and my final result see like that (''DON'T FORGET TO CALCULATE, DON'T SILLY COPY&PAST THIS''):
+
+{{{mtd0,0x900DA00F,0x903f0000
+mtd1,0x90010000,0x900DA00F
+mtd4,0x90010000,0x903f0000}}}
 = Other =
 
 '''Materials'''
