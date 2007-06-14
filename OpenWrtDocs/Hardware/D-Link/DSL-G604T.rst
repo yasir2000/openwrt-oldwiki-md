@@ -24,3 +24,17 @@ Goto Linux console and type:
 My revision was Kamikaze 7629. If your want to specify revision number type:
 
 ''svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk''
+
+Now go to ''trunk'' directory and type ''make menuconfig''.
+
+In configuration mode we need select those options:
+
+''Target System (TI AR7 [2.6])''
+
+''Target Profile (Texas Instruments WiFi (default))'' - usually set's by default.
+
+''Base system'' -> ''br2684ctl''
+
+''Libraries'' -> ''linux-atm''
+
+''Kernel modules'' -> ''Network Devices'' -> ''kmod-sangam-atm-annex-a''
