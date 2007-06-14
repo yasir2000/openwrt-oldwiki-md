@@ -95,13 +95,26 @@ mtd4,0x90010000,0x903f0000}}}
 
 '''Flashing'''
 
-Now do Start -> Run -> cmd and goto directory with ''openwrt-ar7-2.6-squashfs.bin'', and type ''ftp 192.168.1.1'', but DON'T PRESS ENTER KEY. Set settings of your modem connection with IP ''192.168.1.5'', DNS mask with ''255.255.255.0'', remove previous gateway and DNS settings. Then turn off your modem and wait about 10 seconds, then power on him, and look at connection icon at tray, it will look as disconnected, and as soon as it's look as connected computer, immideantly press enter key, maybe you will need some practise with it, so try turn off and ftp to modem before you're don't see ADAM2 FTP welcome.
+Now do Start -> Run -> cmd and goto directory with ''openwrt-ar7-2.6-squashfs.bin'', and type ''ftp 192.168.1.1'', but DON'T PRESS ENTER KEY. Set settings of your modem connection with IP ''192.168.1.5'', DNS mask with ''255.255.255.0'', remove previous gateway and DNS settings. Then turn off your modem and wait about 10 seconds, then power on it, and look at connection icon at tray, it will look as disconnected, and as soon as it's look as connected computer, immideantly press enter key, maybe you will need some practise with it, so try turn off and ftp to modem before you're don't see ADAM2 FTP welcome.
 
-Now it's time to enter results of your calculation, but in little other format, so it's mine (''OF COURSE USE YOUR OWN VALUES''):
+Now it's time to enter results of your calculation, but in little other format, so it's mine (''OF COURSE USE YOUR OWN VALUES, AND NEVER SET ANY OTHERS BUT mtd0, mtd1 and mtd4''):
 
 {{{quote "SETENV mtd0,0x900DA00F,0x903f0000"
 quote "SETENV mtd1,0x90010000,0x900DA00F"
 quote "SETENV mtd4,0x90010000,0x903f0000"}}}
+
+That's set new memory mappings. Next you need finally flash the device, look that not FLASH at first string, but FLSH, it's quite normally, and DON'T WRITE ANYTHING OTHER BUT mtd4:
+
+{{{quote "MEDIA FLSH"
+binary
+debug
+hash
+put "openwrt-ar7-2.6-squashfs.bin" "openwrt-ar7-2.6-squashfs.bin mtd4"
+quote REBOOT
+quit}}}
+
+Now router will reboot. It's be a first boot. Stay it for 1-2 minutes, then power off and power on it. Now it's second boot: wait about minute, look when the Status led will light, then wait when it's light off, and you'll can set router's connection settings to DHCP. Remember that you can retrieve adress at any new boot only after led light&off, so don't panic, if all ok you retrieve an adress such as 192.168.1
+
 = Other =
 
 '''Materials'''
