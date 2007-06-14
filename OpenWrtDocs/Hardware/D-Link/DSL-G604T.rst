@@ -75,6 +75,8 @@ rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
 
 Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
 
+= Other =
+
 '''Other materials'''
 
 List of installing procedure for other devices:
