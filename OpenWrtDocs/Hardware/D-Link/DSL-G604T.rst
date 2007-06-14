@@ -113,7 +113,9 @@ put "openwrt-ar7-2.6-squashfs.bin" "openwrt-ar7-2.6-squashfs.bin mtd4"
 quote REBOOT
 quit}}}
 
-Now router will reboot. It's be a first boot. Stay it for 1-2 minutes, then power off and power on it. Now it's second boot: wait about minute, look when the Status led will light, then wait when it's light off, and you'll can set router's connection settings to DHCP. Remember that you can retrieve adress at any new boot only after led light&off, so don't panic, if all ok you retrieve an adress such as 192.168.1
+Now router will reboot. It's be a first boot. Stay it for 1-2 minutes, then power off and power on it. Now it's second boot: wait about minute, look when the Status led will light, then wait when it's light off, and you'll can set router's connection settings to DHCP. Remember that you can retrieve address at any new boot only after led light&off, so don't panic, if all ok you retrieve an address such as 192.168.1.XX.
+
+My congratulations, you finally flashed it :-)
 
 = Other =
 
