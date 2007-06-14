@@ -125,7 +125,9 @@ Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo
 
 We need setup nas0 interface, for this type:
 
-{{{br2684ctl -b -c 0 -a VPI.VCI}}}, where VPI and VCI are real numeric values from your ISP.
+{{{
+br2684ctl -b -c 0 -a VPI.VCI
+}}}, where VPI and VCI are real numeric values from your ISP.
 
 = Other =
 
