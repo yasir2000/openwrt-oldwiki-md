@@ -79,8 +79,12 @@ Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
 
 = Other =
 
-'''Other materials'''
+'''Materials'''
 
 List of installing procedure for other devices:
 
 http://wiki.openwrt.org/CategoryAR7Device
+
+Power guide of DSL-502T flashing:
+
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T
