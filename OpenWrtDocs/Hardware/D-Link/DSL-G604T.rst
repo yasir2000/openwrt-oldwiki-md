@@ -45,7 +45,7 @@ Then input ''make'' and wait long time (it's depends of your machine's capatible
 
 '''Adding checksum'''
 
-Now we'll add checksum to firmware. Go to trunk/bin (or where you have firmware binaries) and type these commands:
+Now we'll add checksum to firmware. Go to ''trunk/bin'' (or where you have firmware binaries) and type these commands:
 
 {{{wget ftp://ftp.dlink.co.uk/dsl_routers_modems/dsl-g604t/gpl_source_code/DSL-G604T.B01T16_GPL_release.tgz
 
