@@ -123,7 +123,7 @@ My congratulations, you finally flashed it :-)
 
 Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo and shell welcome, input ''passwd'' and set root's password, after this and one reboot telnet will not avaliable anymore. After this connect with PuTTY to 192.168.1.1 and you'll be in the system.
 
-You need to convict of ADSL work. Simply input ''dmesg | grep DSL'' or try ''dmesg'' and look at end of print.
+You need to convict of ADSL work. Simply input ''dmesg | grep DSL'' or try ''dmesg'' and look at end of print. If it's work, you'll see ''DSL in Sync'' phrase.
 
 We need setup nas0 interface, for this type:
 
