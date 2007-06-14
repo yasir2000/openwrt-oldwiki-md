@@ -1,3 +1,5 @@
+'''D-Link G604T flashing'''
+
 So let's start. I'll describe the easiest OpenWRT installing method.
 You're have a D-Link DSL-G604T device.
 
@@ -14,3 +16,11 @@ First of all you what you need:
 5) Simple hex editor like XVI.
 
 '''Compiling OpenWRT firmware'''
+
+Goto Linux console and type:
+
+''svn co https://svn.openwrt.org/openwrt/trunk''
+
+My revision was Kamikaze 7629. If your want to specify revision number type:
+
+''svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk''
