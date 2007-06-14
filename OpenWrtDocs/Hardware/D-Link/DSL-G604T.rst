@@ -19,29 +19,31 @@ First of all you what you need:
 
 Goto Linux console and type:
 
-''svn co https://svn.openwrt.org/openwrt/trunk''
+{{{svn co https://svn.openwrt.org/openwrt/trunk}}}
 
 My revision was Kamikaze 7629. If your want to specify revision number type:
 
-''svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk''
+{{{svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk}}}
 
-Now go to ''trunk'' directory and type ''make menuconfig''.
+Now go to ''trunk'' directory and type {{{make menuconfig}}}.
 
 In configuration mode we need select those options:
 
-''Target System (TI AR7 [2.6])''
+{{{Target System (TI AR7 [2.6])
 
-''Target Profile (Texas Instruments WiFi (default))'' - usually set's by default.
+Target Profile (Texas Instruments WiFi (default)) - usually set's by default.
 
-''Base system'' -> ''br2684ctl''
+Base system ---> br2684ctl
 
-''Libraries'' -> ''linux-atm''
+Libraries ----> linux-atm
 
-''Kernel modules'' -> ''Network Devices'' -> ''kmod-sangam-atm-annex-a''
+Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a}}}
 
 Exit from configure menu and save settings.
 
-Then input ''make'' and wait long time (it's depends of your machine's capatibles).
+Then input {{{make}}} and wait long time (it's depends of your machine's capatibles).
+
+'''Adding checksumm'''
 
 '''Other materials'''
 
