@@ -141,6 +141,8 @@ option username "YOUR LOGIN, FOR EXAMPLE ppp******@isp"
 option password "YOUR PASSWORD"
 }}}
 
+Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet.
+
 = Other =
 
 '''Materials'''
