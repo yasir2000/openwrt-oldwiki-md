@@ -43,6 +43,8 @@ Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends of your machine's capatibles).
 
+'''Other materials'''
+
 List of installing procedure for other devices:
 
-http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G604T
+http://wiki.openwrt.org/CategoryAR7Device
