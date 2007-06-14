@@ -123,6 +123,10 @@ My congratulations, you finally flashed it :-)
 
 Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo and shell welcome, input ''passwd'' and set root's password, after this and one reboot telnet will not avaliable anymore. After this connect with PuTTY to 192.168.1.1 and you'll be in the system.
 
+We need setup nas0 interface, for this type:
+
+{{{br2684ctl -b -c 0 -a VPI.VCI}}}, where VPI and VCI are real numeric values from your ISP.
+
 = Other =
 
 '''Materials'''
