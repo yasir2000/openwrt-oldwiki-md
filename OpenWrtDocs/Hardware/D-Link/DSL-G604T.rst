@@ -20,7 +20,7 @@ Wireless NIC: TI ACX111.
 
 Boot loader: ADAM2.
 
-Here is a outside picture:
+Here is a picture:
 
 http://www.continent.com.au/images/products/MODSLG604T.gif
 
