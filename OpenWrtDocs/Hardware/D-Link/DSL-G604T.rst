@@ -15,6 +15,8 @@ First of all you what you need:
 
 5) Simple hex editor like XVI.
 
+== Linux part ==
+
 '''Compiling OpenWRT firmware'''
 
 Goto Linux console and type:
