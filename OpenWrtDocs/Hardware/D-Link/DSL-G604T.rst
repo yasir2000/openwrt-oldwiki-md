@@ -49,6 +49,19 @@ Now we'll add checksum to firmware. Type these commands:
 
 {{{wget ftp://ftp.dlink.co.uk/dsl_routers_modems/dsl-g604t/gpl_source_code/DSL-G604T.B01T16_GPL_release.tgz
 
+tar xvzf DSL-G604T.B01T16_GPL_release.tgz
+
+cd LINUX_GPL_SOURCE
+
+tar xvzf TI_chksum-0.1.orig.tar.gz
+
+cd TI-chksum-0.1
+
+make
+
+mv tichksum ../..
+
+rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
 
 }}}
 
