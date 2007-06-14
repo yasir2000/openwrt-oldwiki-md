@@ -42,3 +42,7 @@ In configuration mode we need select those options:
 Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends of your machine's capatibles).
+
+List of installing procedure for other devices:
+
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G604T
