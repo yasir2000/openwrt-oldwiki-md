@@ -43,7 +43,14 @@ Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends of your machine's capatibles).
 
-'''Adding checksumm'''
+'''Adding checksum'''
+
+Now we'll add checksum to firmware. Type these commands:
+
+{{{wget ftp://ftp.dlink.co.uk/dsl_routers_modems/dsl-g604t/gpl_source_code/DSL-G604T.B01T16_GPL_release.tgz
+
+
+}}}
 
 '''Other materials'''
 
