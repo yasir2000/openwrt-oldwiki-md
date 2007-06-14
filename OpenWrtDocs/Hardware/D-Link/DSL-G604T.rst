@@ -96,6 +96,12 @@ mtd4,0x90010000,0x903f0000}}}
 '''Flashing'''
 
 Now do Start -> Run -> cmd and goto directory with ''openwrt-ar7-2.6-squashfs.bin'', and type ''ftp 192.168.1.1'', but DON'T PRESS ENTER KEY. Set settings of your modem connection with IP ''192.168.1.5'', DNS mask with ''255.255.255.0'', remove previous gateway and DNS settings. Then turn off your modem and wait about 10 seconds, then power on him, and look at connection icon at tray, it will look as disconnected, and as soon as it's look as connected computer, immideantly press enter key, maybe you will need some practise with it, so try turn off and ftp to modem before you're don't see ADAM2 FTP welcome.
+
+Now it's time to enter results of your calculation, but in little other format, so it's mine (''OF COURSE USE YOUR OWN VALUES''):
+
+{{{quote "SETENV mtd0,0x900DA00F,0x903f0000"
+quote "SETENV mtd1,0x90010000,0x900DA00F"
+quote "SETENV mtd4,0x90010000,0x903f0000"}}}
 = Other =
 
 '''Materials'''
