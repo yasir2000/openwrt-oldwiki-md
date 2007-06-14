@@ -19,6 +19,8 @@ First of all you what you need:
 
 '''Compiling OpenWRT firmware'''
 
+Check that you should have ~ 3Gb free space and you should install all dependencies. Best variant is a Gentoo-based machine, if your have Ubuntu, look at DSL-502T page (link is at the end of page).
+
 Goto Linux console and type:
 
 ''svn co https://svn.openwrt.org/openwrt/trunk''
