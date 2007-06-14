@@ -77,6 +77,8 @@ rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
 
 Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
 
+Now open this firmware file with hex editor. And find ascii string ''hsqs''. Now looks at it's offset. For example my was ''CA00F'', but in your binary it's be different value. So we give it to right look ''0x000CA00F''.
+
 = Other =
 
 '''Materials'''
