@@ -45,6 +45,8 @@ Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends of your machine's capatibles).
 
+== Windows part ==
+
 '''Adding checksum'''
 
 Now we'll add checksum to firmware. Go to ''trunk/bin'' (or where you have firmware binaries) and type these commands:
