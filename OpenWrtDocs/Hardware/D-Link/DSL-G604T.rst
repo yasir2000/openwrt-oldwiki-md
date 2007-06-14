@@ -131,6 +131,16 @@ We need setup nas0 interface, for this type:
 br2684ctl -b -c 0 -a VPI.VCI
 }}}, where VPI and VCI are real numeric values from your ISP.
 
+Now type ''vi /etc/config/network'' and add these lines to this config:
+
+{{{
+config interface wan
+option ifname nas0
+option proto pppoe
+option username "YOUR LOGIN, FOR EXAMPLE ppp******@isp"
+option password "YOUR PASSWORD"
+}}}
+
 = Other =
 
 '''Materials'''
