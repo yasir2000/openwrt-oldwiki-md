@@ -94,6 +94,8 @@ or, much better install the right package ([28-01-2007 - m4rc0] libgcc_3.4.4-8_m
 {{{
 ipkg install libgcc}}}
 
+I experience problems trying to mount samba shares using mount.cifs from other openwrt machines or from ubuntu.  This does not happen with my samba 3.0.22 shares from my ubuntu main machine. 
+Be aware that there may be some issue in accessing Openwrt samba shares using cifs. by johncass
 
 = Links =
  * [http://www.samba.org/ Samba]
