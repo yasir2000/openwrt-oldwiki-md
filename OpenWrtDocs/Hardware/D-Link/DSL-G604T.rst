@@ -1,3 +1,29 @@
+= D-Link DSL-G604T permanent information =
+
+== Work in Progress ==
+
+Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that you may compile and run only from Kamikaze SVN. Still there isn't support in White Russian nor Kamikaze releases, so installation procedure is not so hacking as on ZyXEL's, but more hard than through uploading throught web-interface. All run's ok with 2.6.x kernel maybe except wireless, it need some tests.
+
+== Specifications ==
+
+Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
+
+CPU: Texas Instruments AR7 MIPS-based @ 150MHz.
+
+Flash chip: 4Mbytes.
+
+SDRAM: 16Mbytes.
+
+Switch: IP175A.
+
+Wireless NIC: TI ACX111.
+
+Boot loader: ADAM2.
+
+Here is a outside picture:
+
+http://www.continent.com.au/images/products/MODSLG604T.gif
+
 = D-Link G604T flashing =
 
 So let's start. I'll describe the easiest OpenWRT installing method.
