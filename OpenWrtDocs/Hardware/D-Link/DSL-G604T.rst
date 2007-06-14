@@ -13,7 +13,7 @@ First of all you what you need:
 
 4) Utility for flashing old but V2.RU firmware ftp://dlink.ru/pub/ADSL/DSL-G604T/Firmware/ADSL2+/V2.00B01T01.EU.20050930/DLinkEU_DSL-G604T_V2.00B01T01.EU.20050930_upgradeB10.exe ;
 
-5) Simple hex editor like XVI.
+5) Simple hex editor like XVI, or shareware WinHex for example.
 
 == Linux part ==
 
