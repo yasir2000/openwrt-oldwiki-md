@@ -44,5 +44,7 @@ It was at Arlt in Freiburg im Breisgau, Germany. Possibly only a -DE Version?
 I bought a new WRT54GL in Germany at amazon.de (in May 07) The Revision is v1.1. The router was manufactored in 01/2007.
 I can see this date on a sticker on the bottom of the router. -- ThomasBrinkmann
 
+The WRT54GL is Linksys' response to angry customers.  For a long time, they had the original WRT54G, which was hackable, but when they joined with Cisco they made it so you were unable to hack the router.  Thus, the 54GL.  Version 1.1 is the current release, and as of yet there is no v1.2.  --CharlesEddy
+
 ----
  . CategoryModel
