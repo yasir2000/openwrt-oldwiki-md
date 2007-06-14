@@ -11,7 +11,9 @@ First of all you what you need:
 
 3) Yeah, a modem;
 
-4) Simple hex editor like XVI, or shareware WinHex for example.
+4) Simple hex editor like XVI, or shareware WinHex for example;
+
+5) For Windows machines of course and PuTTY ssh-client.
 
 == Linux part ==
 
@@ -116,6 +118,10 @@ quit}}}
 Now router will reboot. It's be a first boot. Stay it for 1-2 minutes, then power off and power on it. Now it's second boot: wait about minute, look when the Status led will light, then wait when it's light off, and you'll can set router's connection settings to DHCP. Remember that you can retrieve address at any new boot only after led light&off, so don't panic, if all ok you retrieve an address such as 192.168.1.XX.
 
 My congratulations, you finally flashed it :-)
+
+= Configuring OpenWRT =
+
+Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo and shell welcome, input ''passwd'' and set root's password, after this and one reboot telnet will not avaliable anymore. After this connect with PuTTY to 192.168.1.1 and you'll be in the system.
 
 = Other =
 
