@@ -81,10 +81,11 @@ Next, i'm not an arifmethic geek, and i don't understand work with memory good. 
 
 Now how-to calculate:
 
-''mtd0,'' '''(Summ 0x90010000 + YOUROFFSET (You remember, in my case it was 0x000CA00F), and don't forget reject 0xNUMBEROFNULLS, i kept them for do not forget at final result)''',''0x903f0000"
-mtd1,0x90010000,'' '''--||--'''" ''
+''mtd0,'' '''(Summ 0x90010000 + YOUROFFSET (You remember, in my case it was 0x000CA00F), and don't forget reject 0xNUMBEROFNULLS, i kept them for do not forget at final result)''',''0x903f0000
 
-mtd4,0x90010000,0x903f0000"''
+mtd1,0x90010000,'' '''--||--''' ''
+
+mtd4,0x90010000,0x903f0000''
 
 = Other =
 
