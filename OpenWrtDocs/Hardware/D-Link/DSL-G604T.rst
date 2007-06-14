@@ -38,3 +38,5 @@ In configuration mode we need select those options:
 ''Libraries'' -> ''linux-atm''
 
 ''Kernel modules'' -> ''Network Devices'' -> ''kmod-sangam-atm-annex-a''
+
+Then input ''make'' and wait long time (it's depends of your machine's capatibles).
