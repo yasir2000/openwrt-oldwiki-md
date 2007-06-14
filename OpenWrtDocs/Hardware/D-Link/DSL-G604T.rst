@@ -79,6 +79,12 @@ Now open this firmware file with hex editor. And find ascii string ''hsqs''. Now
 
 Next, i'm not an arifmethic geek, and i don't understand work with memory good. If you're interesting - look at DSL-502T page, it's have not to bad calculation how-to in it. So i made simple alghoritm for DSL-G604T, and you don't need worry, only carefully do what i wrote below. Now we need Windows Calculator or your great brain. Start the calculator, and set it to 4 byte hex mode.
 
+Now how-to calculate:
+
+{{{mtd0,'''(Summ 0x90010000 + YOUROFFSET (You remember, in my case it was 0x000CA00F), and don't forget reject 0xNUMBEROFNULLS, i kept them for do not forget at final result)''',0x903f0000"
+mtd1,0x90010000,'''--||--'''"
+mtd4,0x90010000,0x903f0000"}}}
+
 = Other =
 
 '''Materials'''
