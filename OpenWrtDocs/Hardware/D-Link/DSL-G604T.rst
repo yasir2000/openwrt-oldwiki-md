@@ -180,3 +180,7 @@ http://wiki.openwrt.org/CategoryAR7Device
 Power guide of DSL-502T flashing:
 
 http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T
+
+Fail of flashing the DSL-624T :-(
+
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-624T
