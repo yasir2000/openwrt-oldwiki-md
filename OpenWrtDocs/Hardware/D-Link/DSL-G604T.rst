@@ -61,9 +61,15 @@ make
 
 mv tichksum ../..
 
+cd ../..
+
 rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
 
-}}}
+./tichksum openwrt-ar7-2.6-squashfs.bin}}}
+
+'''Calculating new memory mappings'''
+
+Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
 
 '''Other materials'''
 
