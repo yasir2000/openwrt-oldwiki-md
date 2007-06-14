@@ -11,9 +11,7 @@ First of all you what you need:
 
 3) Yeah, a modem;
 
-4) Utility for flashing old but V2 firmware ftp://dlink.ru/pub/ADSL/DSL-G604T/Firmware/ADSL2+/V2.00B01T01.EU.20050930/DLinkEU_DSL-G604T_V2.00B01T01.EU.20050930_upgradeB10.exe ;
-
-5) Simple hex editor like XVI, or shareware WinHex for example.
+4) Simple hex editor like XVI, or shareware WinHex for example.
 
 == Linux part ==
 
@@ -78,6 +76,8 @@ rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
 Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
 
 Now open this firmware file with hex editor. And find ascii string ''hsqs''. Now looks at it's offset. For example my was ''CA00F'', but in your binary it's be different value. So we give it to right look ''0x000CA00F''.
+
+Next, i'm not an arifmethic geek, and i don't understand work with memory good. If you're interesting - look at DSL-502T page, it's have not to bad calculation how-to in it. So i made simple alghoritm for DSL-G604T, and you don't need worry, only carefully do what i wrote below. Now we need Windows Calculator or your great brain. Start the calculator, and set it to 4 byte hex mode.
 
 = Other =
 
