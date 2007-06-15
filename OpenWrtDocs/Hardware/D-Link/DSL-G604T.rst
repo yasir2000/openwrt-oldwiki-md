@@ -214,6 +214,18 @@ insted of HOST you may use any public NTP host, for example ''pool.ntp.org''.
 
 Goto ''/etc/init.d/'', and create backup directory with name you wish, for example ''hlam'', then move non-using scripts in here, for example i moved, ''br2684ctl'', ''httpd'', ''telnet'', ''usb''.
 
+'''Changing banner'''
+
+I think, it's not good, because it's developers present and perl of this firmware :-) But if you really want it, just do ''vi /etc/banner'', delete exist strings and write your own, for example:
+
+{{{
+ ______ _______ _______ _______ _______ _______ _______ ______ __ __ __ 
+|   __ \   _   |   _   |   _   |   _   |   _   |   _   |   __ \  |  |  |
+|      <       |       |       |       |       |       |      <__|__|__|
+|___|__|___|___|___|___|___|___|___|___|___|___|___|___|___|__|__|__|__|
+- grelka at home.gero.in-     - Domo-kun is very angry now! Be careful -
+}}}
+
 = Other =
 
 '''Materials'''
