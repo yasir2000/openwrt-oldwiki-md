@@ -145,6 +145,8 @@ My congratulations, you finally flashed it :-)
 
 = Configuring OpenWRT =
 
+'''Setting up ADSL'''
+
 Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo and shell welcome, input ''passwd'' and set root's password, after this and one reboot telnet will not avaliable anymore. After this connect with PuTTY to 192.168.1.1 and you'll be in the system.
 
 You need to convict of ADSL work. Simply input ''dmesg | grep DSL'' or try ''dmesg'' and look at end of print. If it's work, you'll see ''DSL in Sync'' phrase.
@@ -166,6 +168,29 @@ option password "YOUR PASSWORD"
 }}}
 
 Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet.
+
+'''Base system configuration'''
+
+To set current time and date you need firstly set timezone. As for it, look here for a table with timezones http://wiki.openwrt.org/OpenWrtDocs/Configuration 
+
+The command will:
+
+{{{
+echo "YOURZONE" > /etc/TZ
+}}}
+
+For example:
+
+{{{
+echo "MSK-3MSD,M3.5.0/2,M10.5.0/3" > /etc/TZ
+}}}
+
+Now if type ''date'', you'll see MSD zone. Now it's time to set current time and data. It's very simple:
+
+{{{
+root@OpenWrt:/etc# date 061510332007
+Fri Jun 15 10:33:00 MSD 2007
+}}}
 
 = Other =
 
