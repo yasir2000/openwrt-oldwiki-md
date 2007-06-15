@@ -171,7 +171,7 @@ Finally type ''ifup wan'' and connection should establish. You may sucnessnes of
 
 '''Base system configuration'''
 
-To set current time and date you need firstly set timezone. As for it, look here for a table with timezones http://wiki.openwrt.org/OpenWrtDocs/Configuration 
+To set current time and date you need firstly set timezone. As for it, look here for a table with timezones. http://wiki.openwrt.org/OpenWrtDocs/Configuration
 
 The command will:
 
@@ -185,14 +185,22 @@ For example:
 echo "MSK-3MSD,M3.5.0/2,M10.5.0/3" > /etc/TZ
 }}}
 
-The D-Link DSL-G604T haven't real-time clock hardware onboard, and must get the date and time at boot or use the default of 2000-01-01. So only way is use NTP-client such as ''rdate''
+The D-Link DSL-G604T haven't real-time clock hardware onboard, and must get the date and time at boot or use the default of 2000-01-01. So only way is use NTP-client such as ''rdate''.
 
-Type ''vi /etc/init.d/S55rdate'' ant input to it:
+Edit the crontab file by typing:
 
-{{{#!/bin/sh
-/usr/sbin/rdate -s HOST}}}
+{{{
+crontab -e
+}}}
 
-insted of HOST you may use any public NTP host, for example ''pool.ntp.org''
+Then add this line to the file:
+
+{{{
+@reboot * * * * /usr/sbin/rdate -s HOST
+30 6 * * * /usr/sbin/rdate -s HOST
+}}}
+
+insted of HOST you may use any public NTP host, for example ''pool.ntp.org''.
 
 = Other =
 
