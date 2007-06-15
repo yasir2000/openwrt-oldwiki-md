@@ -35,11 +35,9 @@ First of all you what you need:
 
 2) Windows machine for flashing;
 
-3) Yeah, a modem;
+3) Simple hex editor like XVI, or shareware WinHex for example;
 
-4) Simple hex editor like XVI, or shareware WinHex for example;
-
-5) For Windows machines of course and PuTTY ssh-client.
+4) For Windows machines of course and PuTTY ssh-client.
 
 == Linux part ==
 
