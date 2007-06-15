@@ -244,7 +244,9 @@ Type ''/etc/init.d/firewall restart''. That's all, now you can connect through s
 
 2) Web server at port 8000 (it's for example, because my ISP blocks 80 port):
 
-Goto ''vi /etc/init.d/httpd/'' and change ''[ -d /www ] && httpd -p 80 -h /www -r ${hostname:-grelka}'' to ''[ -d /www ] && httpd -p 8000 -h /www -r ${hostname:-grelka}'', then ''/etc/init.d/httpd restart''.
+Goto ''vi /etc/init.d/httpd/'' and change ''[ -d /www ] && httpd -p 80 -h /www -r ${hostname:-OpenWRT}'' to ''[ -d /www ] && httpd -p 8000 -h /www -r ${hostname:-OpenWRT}'', then ''/etc/init.d/httpd restart''.
+
+Do firewall config with analogue of previous example, but with new port value, 8000, and save. Again do ''/etc/init.d/firewall restart''. That's all.
 
 = Other =
 
