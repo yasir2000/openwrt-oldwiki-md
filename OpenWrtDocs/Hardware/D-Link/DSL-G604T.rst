@@ -228,6 +228,14 @@ I think, it's not good, because it's developers present and perl of this firmwar
 - grelka at home.gero.in-     - Domo-kun is very angry now! Be careful -
 }}}
 
+'''Configuring firewall'''
+
+So it's very simple, it's simplest then in default D-Link DSL-G604T web-interface, and more and more stable. All that you need it's to do ''vi /etc/firewall.user'' and look at commented examples. But for best understanding here are mine:
+
+1) SSH on port 22000 open from outside. Let's start:
+
+Goto ''vi /etc/config/dropbear'' and change line ''option Port         '22' '' to ''option Port         '22000' '', then save and restart router. 
+
 = Other =
 
 '''Materials'''
