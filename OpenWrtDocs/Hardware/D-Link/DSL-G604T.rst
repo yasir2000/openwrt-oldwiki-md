@@ -147,7 +147,9 @@ My congratulations, you finally flashed it :-)
 
 '''Where is web-interface?'''
 
-There isn't such :-) There is webif^2 admin interface, but still there isn't it's support in Kamikaze, only in White Russian, so wait. While you can see http://www.bitsum.com/xwrt/ screenshots, and think how it's power. I think so, but now there isn't better solution, so only good solution is use console and your hands, i'll help you, you can see some information below. 
+There isn't such :-) There is webif^2 admin interface, but still there isn't it's support in Kamikaze, only in White Russian, so wait. While you can see http://www.bitsum.com/xwrt/ screenshots, and think how it's power. I think so, but now there isn't better solution, so only good solution is use console and your hands, i'll help you, you can see some information below.
+
+But there is http daemon, so you may store any content in ''/www'' folder, or turn off daemon start, look at section "Turning off non-using daemons"
 
 '''Setting up ADSL'''
 
@@ -212,7 +214,7 @@ insted of HOST you may use any public NTP host, for example ''pool.ntp.org''.
 
 '''Turning off non-using daemons'''
 
-Goto ''/etc/init.d/'', and create backup directory with name you wish, for example ''hlam'', then move non-using scripts in here, for example i moved, ''br2684ctl'', ''httpd'', ''telnet'', ''usb''.
+Goto ''/etc/init.d/'', and create backup directory with name you wish, for example ''hlam'', then move non-using scripts in here, for example i moved, ''br2684ctl'', ''telnet'', ''usb''.
 
 '''Changing banner'''
 
