@@ -185,12 +185,14 @@ For example:
 echo "MSK-3MSD,M3.5.0/2,M10.5.0/3" > /etc/TZ
 }}}
 
-Now if type ''date'', you'll see MSD zone. Now it's time to set current time and data. It's very simple:
+The D-Link DSL-G604T haven't real-time clock hardware onboard, and must get the date and time at boot or use the default of 2000-01-01. So only way is use NTP-client such as ''rdate''
 
-{{{
-root@OpenWrt:/etc# date 061510332007
-Fri Jun 15 10:33:00 MSD 2007
-}}}
+Type ''vi /etc/init.d/S55rdate'' ant input to it:
+
+{{{#!/bin/sh
+/usr/sbin/rdate -s HOST}}}
+
+insted of HOST you may use any public NTP host, for example ''pool.ntp.org''
 
 = Other =
 
