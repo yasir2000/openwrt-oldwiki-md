@@ -149,7 +149,7 @@ My congratulations, you finally flashed it :-)
 
 There isn't such :-) There is webif^2 admin interface, but still there isn't it's support in Kamikaze, only in White Russian, so wait. While you can see http://www.bitsum.com/xwrt/ screenshots, and think how it's power. I think so, but now there isn't better solution, so only good solution is use console and your hands, i'll help you, you can see some information below.
 
-But there is http daemon, so you may store any content in ''/www'' folder, or turn off daemon start, look at section "Turning off non-using daemons"
+But there is http daemon, so you may store any content in ''/www'' folder, or turn off daemon start, look at section "Turning off non-using daemons".
 
 '''Setting up ADSL'''
 
