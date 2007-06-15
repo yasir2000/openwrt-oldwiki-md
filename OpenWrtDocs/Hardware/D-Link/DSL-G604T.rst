@@ -2,7 +2,7 @@
 
 == Work in Progress ==
 
-Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that you may compile and run only from Kamikaze SVN. Still there isn't support in White Russian nor Kamikaze releases, so installation procedure is not so hacking as on ZyXEL's, but more hard than through uploading throught web-interface. All run's ok with 2.6.x kernel maybe except wireless, it need some tests.
+Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that you may compile and run only from Kamikaze SVN. Still there isn't support in White Russian nor Kamikaze releases, so installation procedure is not so hacking as on ZyXEL's, but more hard than uploading throught web-interface. All run's ok with 2.6.x kernel maybe except wireless, it need some tests.
 
 == Specifications ==
 
