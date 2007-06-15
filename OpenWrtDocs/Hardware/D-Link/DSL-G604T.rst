@@ -196,7 +196,7 @@ crontab -e
 Then add this line to the file:
 
 {{{
-@reboot * * * * /usr/sbin/rdate -s HOST
+@reboot /usr/sbin/rdate -s HOST
 30 6 * * * /usr/sbin/rdate -s HOST
 }}}
 
