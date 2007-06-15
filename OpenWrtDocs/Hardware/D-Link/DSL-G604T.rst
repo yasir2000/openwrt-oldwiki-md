@@ -177,7 +177,7 @@ Finally type ''ifup wan'' and connection should establish. You may sucnessnes of
 
 '''Turning off the DHCP'''
 
-DHCP have usually critics from different people, so i don't like it too. Turn off the DHCP is very simple procedure, just input ''vi /etc/config/dhcp/'' and comment all strings. Then of course go to computer's connection settings and manually set adress like 192.168.1.2 (for example), mask 255.255.255.0 and gateway 192.168.1.1. And finally reboot the router.
+DHCP have usually critics from different people, so i don't like it too. Turn off the DHCP is very simple procedure, just input ''vi /etc/config/dhcp'' and comment all strings. Then of course go to computer's connection settings and manually set adress like 192.168.1.2 (for example), mask 255.255.255.0 and gateway 192.168.1.1. And finally reboot the router.
 
 '''Setting time'''
 
