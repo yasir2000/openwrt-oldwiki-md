@@ -2,7 +2,7 @@
 
 == Work in Progress ==
 
-Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that you may compile and run only from Kamikaze SVN. Still there isn't support in White Russian nor Kamikaze releases, so installation procedure is not so hacking as on ZyXEL's, but more hard than uploading throught web-interface. All run's ok with 2.6.x kernel maybe except wireless, it need some tests.
+Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that you may compile and run only from Kamikaze SVN. Still there isn't support neither in White Russian nor Kamikaze releases, so installation procedure is not so hacking as on ZyXEL's, but more hard than uploading throught web-interface. All run's ok with 2.6.x kernel maybe except wireless, it need some tests.
 
 == Specifications ==
 
@@ -144,6 +144,10 @@ Now router will reboot. It's be a first boot. Stay it for 1-2 minutes, then powe
 My congratulations, you finally flashed it :-)
 
 = Configuring OpenWRT =
+
+'''Where is web-interface?'''
+
+There isn't such :-) There is webif^2 admin interface, but still there isn't it's support in Kamikaze, only in White Russian, so wait. While you can see http://www.bitsum.com/xwrt/ screenshots, and think how it's power. I think so, but now there isn't better solution, so only good solution is use console and your hands, i'll help you, you can see some information below. 
 
 '''Setting up ADSL'''
 
