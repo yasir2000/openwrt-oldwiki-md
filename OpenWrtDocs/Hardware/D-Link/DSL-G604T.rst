@@ -1,4 +1,4 @@
-= D-Link DSL-G604T permanent information =
+= D-Link DSL-G604T main information =
 
 == Work in Progress ==
 
