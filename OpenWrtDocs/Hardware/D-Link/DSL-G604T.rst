@@ -202,6 +202,10 @@ Then add this line to the file:
 
 insted of HOST you may use any public NTP host, for example ''pool.ntp.org''.
 
+'''Turn off non-using daemons'''
+
+Goto ''/etc/init.d/'', and create backup directory with name you wish, for example ''hlam'', then move non-using scripts in here, for example i moved, ''br2684ctl'', ''httpd'', ''telnet'', ''usb''.
+
 = Other =
 
 '''Materials'''
