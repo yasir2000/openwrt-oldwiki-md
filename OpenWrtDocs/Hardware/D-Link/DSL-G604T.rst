@@ -171,7 +171,11 @@ option username "YOUR LOGIN, FOR EXAMPLE ppp******@isp"
 option password "YOUR PASSWORD"
 }}}
 
-Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet.
+Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet. Don't forget to manually set ISP DNS'es at computer's connection.
+
+'''Turning off the DHCP'''
+
+DHCP have usually critics from different people, so i don't like it too. Turn off the DHCP is very simple procedure, just input ''vi /etc/config/dhcp/'' and comment all strings. Then of course go to computer's connection settings and manually set adress like 192.168.1.2 (for example), mask 255.255.255.0 and gateway 192.168.1.1. And finally reboot the router.
 
 '''Setting time'''
 
