@@ -169,7 +169,7 @@ option password "YOUR PASSWORD"
 
 Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet.
 
-'''Base system configuration'''
+'''Setting time'''
 
 To set current time and date you need firstly set timezone. As for it, look here for a table with timezones. http://wiki.openwrt.org/OpenWrtDocs/Configuration
 
