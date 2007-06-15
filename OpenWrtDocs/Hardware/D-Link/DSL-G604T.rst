@@ -197,7 +197,7 @@ Edit the crontab file by typing:
 crontab -e
 }}}
 
-Then add this line to the file:
+Then add this lines to the file:
 
 {{{
 @reboot /usr/sbin/rdate -s HOST
