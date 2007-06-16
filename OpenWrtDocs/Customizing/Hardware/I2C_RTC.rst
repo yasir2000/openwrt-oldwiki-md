@@ -73,7 +73,7 @@ These kernel modules were used:
  *i2c-dev
  *i2c-mips-gpio (compiled separately from the regular kernel modules)
 
-The first 4 can be obtained by rebuilding the kernel using make menuconfig in the kernel tree and enabling the I2C bit-banging routines.[[BR]]
+The first 4 can be obtained by rebuilding the kernel using "make menuconfig" in the kernel tree build_mipsel/linux and enabling the I2C bit-banging routines. After compilation, they can just be copied over to the router to the /lib/modules/2.4.30 directory.[[BR]]
 The last kernel module needs to be compiled from the code mentioned in the credits section of this page or copied from here:
 {{{
 
@@ -417,13 +417,39 @@ void cleanup_module(void) {
 
 Note that the code shows an alternate hardware schematic for the I2C bus which differs from the schematic presented in the Hardware section of this page.[[BR]]
 The schematic presented in the Hardware section provides better signal buffering to and from the I2c devices.
-
+After compiling the last module it too needs to be copied to th router and installed under /lib/modules/2.4.30 just like the previous modules.
 If you want to get all the Modules precompiled, send a PM to `NekMech` on the `OpenWrt` forum.
 
 == User Space programs and scripts ==
-=== Scripts ===
+There are 3 binaries: i2cset, i2cread, i2cdump[[BR]]
+And 3 scripts: i2c-load.sh, gethwclock.pl, S99i2c[[BR]]
+
+In all the examples below, the device used was the DS1307 I2C clock chip.
+The clock chip is wired to I2C bus “0” (the only one), and has a device address of “104”
+decimal or “68H” hex. These programs were all installed under /usr/share/i2c on the
+router and are run from there besides S99i2c which is installed under /etc/init.d.
+
 === Binaries ===
+ *i2cset – Sends any command over the i2c bus to any device.
+ *i2cread – Reads any number of characters from any device on the i2c bus.
+ *i2cdump – Provided as a diagnostic tool which can read all the available data from any i2c device.
+=== Scripts ===
+ *i2c-load.sh – bash script for loading the kernel modules in the correct order with “insmod”.
+ *gethwclock.pl – microperl script which performs all the tasks of reading and writing to the clock chip. You will need the microperl ipkg installed as stated in the prerequisites.
+ *S99i2c – bash script which is executed at boot to load the kernel modules, and update the system time from the hardware clock.
 
-
+=== Using the scripts and binaries ===
+'''i2cset''' - Used to send data/commands to an i2c device.
+Running with no command line options displays an error message and help syntax as well as the available i2c busses.[[BR]]
+{{{
+Example:
+root@OpenWrt:/usr/share/i2c# ./i2cset
+Syntax: i2cset I2CBUS CHIP-ADDRESS VALUES
+I2CBUS is an integer
+Installed I2C busses:
+i2c-0 i2c WRT54G GPIO Bit-shift algorithm
+The gethwclock.pl script uses it to set the time, the control register and to move the
+register pointer of the hardware clock to the correct position for reading the time.
+}}}
 
 Work in progress
