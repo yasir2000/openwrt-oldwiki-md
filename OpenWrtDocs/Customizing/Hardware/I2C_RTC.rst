@@ -20,4 +20,12 @@ Changed to sb_gpio-Interface by Torsten Landschoff.[[BR]]
 = Hardware =
 attachment:i2c_rtc.png
 
+Basically, the circuit is comprised of 2 IC's and support components.
+The 74LS05 buffer is open collector and requires pull up resistors on the outputs. All incoming and outgoing signals are buffered.
+The DS1307 clock circuit is just the basic reference design specified in the data sheet and it's I2C signals are just connected to the I2C bus.
+The SQW signal is just a square wave programmable as 1Hz, 4kHz, 8kHz, 32kHz or as a constant high or low output. Can be used for anything you want.[[BR]] [[BR]]
+The battery backup mechanism of the clock chip ensures time is maintained also when
+the router is powered off.[[BR]]
++5V power was obtained from a 7805 regulator circuit (added on a separate circuit) which is not described here.
+
 * Work in progress
