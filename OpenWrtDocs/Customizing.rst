@@ -23,6 +23,7 @@ The contents of this section of the wiki can have serious consequences. While ev
   * [:OpenWrtDocs/Customizing/Hardware/UMTS] Power Over Ethernet/Power Requirements
   * [http://pobletewireless.blogspot.com/2006/05/monta-un-conector-sma-reverse-en-tu.html] Add a SMA-R connector to your WRT54G
 	Note: the author of that page used ordinary hookup wire, which would cause impedence mismatch and reduced performance or even hardware damage. The proper way is to use coax cable of the proper impedence. Better yet, remove the original connector so it doesn't act as a "stub" to the RF signal. - star882
+  * [:OpenWrtDocs/Customizing/Hardware/I2C_RTC] add an I2C bus a Real Time Clock and other I2C projects
 
 = Software =
   * Networking
