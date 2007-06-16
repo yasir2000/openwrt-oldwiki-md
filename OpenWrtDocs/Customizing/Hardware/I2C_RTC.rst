@@ -439,7 +439,7 @@ router and are run from there besides S99i2c which is installed under /etc/init.
  *S99i2c – bash script which is executed at boot to load the kernel modules, and update the system time from the hardware clock.
 
 === Using the scripts and binaries ===
-'''i2cset''' - Used to send data/commands to an i2c device.
+'''i2cset''' - Used to send data/commands to an i2c device.[[BR]]
 Running with no command line options displays an error message and help syntax as well as the available i2c busses.[[BR]]
 {{{
 Example:
@@ -448,8 +448,71 @@ Syntax: i2cset I2CBUS CHIP-ADDRESS VALUES
 I2CBUS is an integer
 Installed I2C busses:
 i2c-0 i2c WRT54G GPIO Bit-shift algorithm
-The gethwclock.pl script uses it to set the time, the control register and to move the
-register pointer of the hardware clock to the correct position for reading the time.
 }}}
+The gethwclock.pl script uses it to set the time, the control register and to move the
+register pointer of the hardware clock to the correct position for reading the time.[[BR]]
+
+'''i2cread''' - Used to read back data from an i2c device.[[BR]]
+Running with no command line options, displays an error message and help syntax as well as the available i2c busses.
+{{{
+Example:
+root@OpenWrt:/usr/share/i2c# ./i2cread
+Syntax: i2cread I2CBUS CHIP-ADDRESS COUNT
+I2CBUS is an integer
+Installed I2C busses:
+i2c-0 i2c WRT54G GPIO Bit-shift algorithm
+}}}
+The gethwclock.pl script uses it to read the hardware clock during boot (to set the
+system clock) and any time requested manually.
+
+'''i2cdump''' - Used as a general purpose diagnostic tool, it performs a dump of any i2c devices registers/memory.[[BR]]
+Running with no command line options displays an error message and help syntax.
+{{{
+Example:
+root@OpenWrt:/usr/share/i2c# ./i2cdump
+Error: No i2c-bus specified!
+Syntax: i2cdump I2CBUS ADDRESS [MODE] [BANK [BANKREG]]
+MODE is 'b[yte]', 'w[ord]', 's[mbusblock], or 'i[2cblock]' (default b)
+Append MODE with 'p' for PEC checking
+I2CBUS is an integer
+ADDRESS is an integer 0x00 - 0x7f
+BANK and BANKREG are for byte and word accesses (default bank 0, reg 0x4e)
+BANK is the command for smbusblock accesses (default 0)
+Installed I2C busses:
+i2c-0 i2c WRT54G GPIO Bit-shift algorithm
+}}}
+
+Running the utility with the bus number “0” and device address “104” will dump all the registers for the clock chip. Note that addresses 08H – 3FH are general purpose ram registers which can be used for anything you want. Do not use ram register 3FH since it will be overwritten when reading the date from the clock chip by the gethwclock.pl script.
+{{{
+Example:
+root@OpenWrt:/usr/share/i2c# ./i2cdump 0 104
+No size specified (using byte-data access)
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c/0, address 0x68, mode byte
+You have five seconds to reconsider and press CTRL-C!
+
+0 1 2 3 4 5 6 7 8 9 a b c d e f 0123456789abcdef
+00: 04 48 16 01 09 04 07 10 10 10 6a 50 52 c3 4d 22 ?H????????jPR?M"
+10: cb 6a 68 00 e2 7c 50 41 03 01 f9 55 12 0c 69 0c ?jh.?|PA???U??i?
+20: 70 1e 02 42 a8 2c 02 2a bc 48 28 3e 80 2c b7 84 p??B?,?*?H(>?,??
+30: 1f 00 68 42 c6 5e 34 d4 42 8a 20 28 c7 90 fe ff ?.hB?^4?B? (???.
+40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+}}}
+
+
+
+
+
 
 Work in progress
