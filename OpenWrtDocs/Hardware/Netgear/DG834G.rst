@@ -41,6 +41,21 @@ starting from frimware Ver. 3.1.25, the file system is squashfs with LZMA compre
 }}}
 The console is located roughly behind the tick led on the front left of the board, just off the edge of the MiniPCI connector. It was half hidden by the MAC address sticker on my unit. It's the only header I could find; only 4 pins and wasn't soldered up at all. I took a voltage tap of an adjacent 74xx chip to power my MAX232. Settings are 115200,8,N,1.
 
+= Netgear DG834G V3 =
+
+== Serial console ==
+
+Same as the v2.
+
+== Hardware ==
+
+{{{
+CPU : TI AR7 TNETD7200ZDW
+Flash : Macronix 29LV320
+Switch : Marvell 88E6060
+Wi-Fi : TNETW1350A
+}}}
+
 == PLEASE CONFIRM ADAM2 IS ONLY VERSION 2 AND UPDATE WIKI ==
 == ADAM2 ==
 The DG834(G) bootloader, ADAM2, calculates a checksum of the image in flash memory. If this checksum fails, the router won't boot. OpenWRT does not include this checksum (stored in the image), although it could be added. http://members.iinet.net.au/~mlanagan/ is a tool that builds custom firmware with this checksum. The following instructions, however, disable the checksum verification.
