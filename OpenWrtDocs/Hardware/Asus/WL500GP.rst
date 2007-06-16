@@ -14,6 +14,7 @@ It might be possible to use Asus' built-in web interface to download OpenWrt int
 Netkit's tftp doesn't work quite often; use atftp.
 
 /!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
+/!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the WAN port!
 
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
 
