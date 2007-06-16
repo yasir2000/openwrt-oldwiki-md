@@ -18,6 +18,8 @@ Changed to sb_gpio-Interface by Torsten Landschoff.[[BR]]
 '''Schematics''' were created with gEDA: [http://www.geda.seul.org]
 
 = Hardware =
+=== Schematic ===
+
 attachment:i2c_rtc.png
 
 Basically, the circuit is comprised of 2 IC's and support components.
@@ -28,4 +30,14 @@ The battery backup mechanism of the clock chip ensures time is maintained also w
 the router is powered off.[[BR]]
 +5V power was obtained from a 7805 regulator circuit (added on a separate circuit) which is not described here.
 
-* Work in progress
+=== GPIO pins ===
+I2C GPIO signals used:[[BR]]
+SDA_OUT : GPIO 4 (Cisco switch)[[BR]]
+SDA_IN: GPIO 2 (White LED)[[BR]]
+SCL_OUT: GPIO 7 (DMZ LED)[[BR]]
+SCL_IN: GPIO 3 (Orange LED)[[BR]]
+
+''Note:'' Because of the use of these GPIO pins which are also used by the MMC project, you won't be able to have both. Sorry.
+
+
+Work in progress
