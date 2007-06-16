@@ -46,6 +46,17 @@ attachment:i2c-rtc-circuit.jpg
 The upper right hand corner is for the I2C extension connector for additional I2C devices.[[BR]]
 The 4 GPIO signals as you see are connected with the upper terminal block and +5V connected with the lower terminal block.
 
+attachment:i2c-rtc-mounted.jpg
 
+Mounted in the router together with the serial console adapter and 5v regulator.[[BR]]Although it doesn't look like it, there's about 10mm clearance above the main board.
+Since the gpio pin for the Cisco button is used, I decided to shorten the length of the
+buttons lever to avoid it getting pressed accidentally. This probably wouldn't cause any
+problems but better to be safe.
+
+= Software =
+== Prerequisites ==
+== WRT54GL OS ==
+== Kernel Modules ==
+== User Space programs and scripts ==
 
 Work in progress
