@@ -9,7 +9,7 @@ The information presented here was partially gathered from sources on the Intern
 including the following:[[BR]][http://www.linksysinfo.org] and [http://openwrt.org]:
 
 '''Firmware:''' `OpenWrt Whiterussian 0.9`[[BR]]
-'''Kernel driver:''' i2c-mips-gpio:[[BR]]
+'''Kernel driver:''' i2c-mips-gpio: from [http://forum.openwrt.org/viewtopic.php?id=7949][[BR]]
 Based on original i2c-mips-gpio by John Newbigin,[[BR]]
 which in turn was based on i2c-philips-par.c by Simon G. Vogl.[[BR]]
 Changed to sb_gpio-Interface by Torsten Landschoff.[[BR]]
@@ -48,14 +48,23 @@ The 4 GPIO signals as you see are connected with the upper terminal block and +5
 
 attachment:i2c-rtc-mounted.jpg
 
-Mounted in the router together with the serial console adapter and 5v regulator.[[BR]]Although it doesn't look like it, there's about 10mm clearance above the main board.
+Mounted in the router together with the serial console adapter and 5v regulator.[[BR]]Although it doesn't look like it, there's about 10mm clearance above the main board.[[BR]]
 Since the gpio pin for the Cisco button is used, I decided to shorten the length of the
 buttons lever to avoid it getting pressed accidentally. This probably wouldn't cause any
 problems but better to be safe.
 
+attachment:shorten-cisco-button.jpg
+
 = Software =
 == Prerequisites ==
+1. `OpenWrt Whiterussian 0.9` flashed to the router and running normally. Available from [http://downloads.openwrt.org/whiterussian/0.9/default/][[BR]]
+2. Microperl ipkg installed on the router. Available from [http://downloads.openwrt.org/backports/0.9/microperl_5.8.6-1_mipsel.ipk][[BR]]
+3. A Linux workstation if you plan on compiling the binaries.[[BR]]
+
 == WRT54GL OS ==
+Not much to be said here besides flash your router with Whiterussian 0.9 as stated in
+the prerequisites. No other router or Whiterussian version has been tested although I can see no reason why it wouldn't work on other routers.
+
 == Kernel Modules ==
 == User Space programs and scripts ==
 === Scripts ===
