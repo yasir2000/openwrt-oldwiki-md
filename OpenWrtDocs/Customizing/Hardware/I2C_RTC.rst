@@ -39,5 +39,13 @@ SCL_IN: GPIO 3 (Orange LED)[[BR]]
 
 ''Note:'' Because of the use of these GPIO pins which are also used by the MMC project, you won't be able to have both. Sorry.
 
+=== Construction ===
+The circuit was built on a small piece of perforated board.[[BR]][[BR]]
+attachment:i2c-rtc-circuit.jpg
+
+The upper right hand corner is for the I2C extension connector for additional I2C devices.[[BR]]
+The 4 GPIO signals as you see are connected with the upper terminal block and +5V connected with the lower terminal block.
+
+
 
 Work in progress
