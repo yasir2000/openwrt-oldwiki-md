@@ -17,4 +17,7 @@ Changed to sb_gpio-Interface by Torsten Landschoff.[[BR]]
 '''User space binaries''' are modified versions of utilities provided in the lm_sensors package: [http://www.lm-sensors.org][[BR]]
 '''Schematics''' were created with gEDA: [http://www.geda.seul.org]
 
+= Hardware =
+attachment:i2c_rtc.png
+
 * Work in progress
