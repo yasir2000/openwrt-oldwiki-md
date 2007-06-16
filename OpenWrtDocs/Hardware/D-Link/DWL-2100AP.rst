@@ -167,7 +167,7 @@ to get it to work.[[BR]] [[BR]] To get redboot detect flash (in my case it is S2
         banked     : false
     },
 }}}
-Note: DWL-2100AP Rev. A3 uses the Atmes AT49BV322A flash, so instead of the above flash info one might use:
+Note: DWL-2100AP Rev. A3 uses the [http://www.atmel.com/dyn/resources/prod_documents/doc3308.pdf Atmel At49BV322A] flash, so instead of the above I used:
 
 {{{
     {   // AM49BV322A
