@@ -9,3 +9,7 @@ RAM : 2x16Mbytes
 Switch : 5325e
 Wi-Fi :
 }}}
+
+=== Serial pinout ===
+
+To be found
