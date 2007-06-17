@@ -57,6 +57,7 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Test WAG354G support
    * Fix the wireless driver (fixed with Linux 2.6)
    * Fix VLYNQ interrupt and reset handling (needed for the wireless driver). See http://forum.openwrt.org/viewtopic.php?id=2654 for possible patches. (fixed with Linux 2.6)
+   * Fix bug 1865: https://dev.openwrt.org/ticket/1865
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
    * Get voicedump (VP101X120C) supported (Voice over ip chip on Siemens and SMC based hardware)
 
@@ -73,7 +74,7 @@ See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
 There are at least 4 variants
 
  * Telogy Networks, Inc ["ADAM2"] + Linux - most Linux based AR7 devices
- * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, WRTP54G, ADSL2MUE, maybe others?
+ * TI PSP bootloader ["PSPBoot"] + Linux - WAG354G, WRTP54G, ADSL2MUE, others
  * [:Bootbase] + ZyNOS - ZyXEL Prestige 660 Series, maybe other ZyXEL series
  * Broad Net Technology, Inc. BRN bootloader and VxWorks (realtime OS with SOHO.BIN) - most (all?) VxWorks based devices, e.g. Sinus 154 DSL Basic, Siemens SX 541, SMC SMC7908VoWBRB, SMC7904WBRB2.
 
