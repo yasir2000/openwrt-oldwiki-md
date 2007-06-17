@@ -175,9 +175,45 @@ e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
 f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
 }}}
 
+'''i2c-load.sh''' - Bash script which will load the kernel modules in the following order:
+ *i2c-core
+ *i2c-algo-bit
+ *i2c-proc
+ *i2c-dev
+ *i2c-mips-gpio
 
-
-
+It normally gets run by S99i2c during router boot.
+When modules are successfully loaded you should see the device under the devices directory /dev:
+{{{
+root@OpenWrt:/usr/share/i2c# ls -l /dev/i2c/0
+crw------- 1 root root 89, 0 Jan 1 1970 /dev/i2c/0
+}}}
+And under /proc:
+{{{
+root@OpenWrt:/usr/share/i2c# cat /proc/bus/i2c
+i2c-0 i2c WRT54G GPIO Bit-shift algorithm
+}}}
+When examining the output of the “dmesg” command, you should see:
+{{{
+i2c-core.o: i2c core module version 2.6.1 (20010830)
+i2c-algo-bit.o: i2c bit algorithm module
+i2c-proc.o version 2.6.1 (20010830)
+i2c-dev.o: i2c /dev entries driver module version 2.6.1 (20010830)
+i2c-core.o: driver i2c-dev dummy driver registered.
+i2c-mips-gpio.o: i2c WRT54G GPIO module version 1.5 2005-12-16
+i2c-dev.o: Registered 'WRT54G GPIO' as minor 0
+i2c-core.o: adapter WRT54G GPIO registered as adapter 0
+}}}
+lsmod will show:
+{{{
+root@OpenWrt:/usr/share/i2c# lsmod
+Module Size Used by Tainted: P
+i2c-mips-gpio 1728 0
+i2c-dev 4252 0
+i2c-proc 7020 0 (unused)
+i2c-algo-bit 8948 1 [i2c-mips-gpio]
+i2c-core 17944 0 [i2c-dev i2c-proc i2c-algo-bit]
+}}}
 
 
 Work in progress
