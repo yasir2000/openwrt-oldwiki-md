@@ -247,6 +247,11 @@ I think, it's not good, because it's developers present and perl of this firmwar
 
 '''Configuring firewall'''
 
+Closing all ports for internet except these, for those we'll create rules:
+
+{{{iptables -t nat -A prerouting_wan -p tcp -j DROP
+iptables        -A input_wan      -p tcp -j DROP}}}
+
 OpenWRT uses iptables farewall, so it's very simple, it's simplest then in default D-Link DSL-G604T web-interface, and more more stable. All that you need it's to do ''vi /etc/firewall.user'' and look at commented examples. But for best understanding here are mine:
 
 1) SSH on port 22000 and open from outside. Let's start:
