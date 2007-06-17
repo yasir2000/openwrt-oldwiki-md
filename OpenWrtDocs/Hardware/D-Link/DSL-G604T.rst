@@ -21,6 +21,8 @@ acx: can't use IRQ 0
 pci_set_power_state(): 0000:00:00.0: state=3, current state=5
 acx_pci: probe of 0000:00:00.0 failed with error -5}}}
 
+At 15/06/2007 build '--to' key of iptables'es DNAT isn't work, i tried minimal firmware configuration, or all packages option, or handy set all of iptables exctensions, and it's never happyness, i found at forum, that in White Russian are troubles to, so i think we need another firewall at this moment.
+
 == Specifications ==
 
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
