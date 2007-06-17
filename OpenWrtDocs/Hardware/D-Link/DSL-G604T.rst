@@ -247,14 +247,14 @@ I think, it's not good, because it's developers present and perl of this firmwar
 
 '''Configuring firewall'''
 
-Closing all ports for internet except these, for those we'll create rules:
+OpenWRT uses iptables firewall, so it's very simple, play with rules - it's simplest then in default D-Link DSL-G604T web-interface, and firewall more more stable. All that you need it's to do ''vi /etc/firewall.user'' and look at commented examples. But for best understanding here are mine:
+
+1) Closing all ports for internet except these, for those we'll create rules:
 
 {{{iptables -t nat -A prerouting_wan -p tcp -j DROP
 iptables        -A input_wan      -p tcp -j DROP}}}
 
-OpenWRT uses iptables farewall, so it's very simple, it's simplest then in default D-Link DSL-G604T web-interface, and more more stable. All that you need it's to do ''vi /etc/firewall.user'' and look at commented examples. But for best understanding here are mine:
-
-1) SSH on port 22000 and open from outside. Let's start:
+2) SSH on port 22000 and open from outside. Let's start:
 
 Goto ''vi /etc/config/dropbear'' and change line ''option Port         '22' '' to ''option Port         '22000' '', then save and restart router. Then go ''vi /etc/firewall.user'' and add such lines:
 
@@ -264,7 +264,7 @@ iptables        -A input_wan      -p tcp --dport 22000 -j ACCEPT
 
 Type ''/etc/init.d/firewall restart''. That's all, now you can connect through ssh from outside.
 
-2) Web server at port 8000 (it's for example, because my ISP blocks 80 port):
+3) Web server at port 8000 (it's for example, because my ISP blocks 80 port):
 
 Goto ''vi /etc/init.d/httpd'' and change ''[ -d /www ] && httpd -p 80 -h /www -r ${hostname:-OpenWRT}'' to ''[ -d /www ] && httpd -p 8000 -h /www -r ${hostname:-OpenWRT}'', then ''/etc/init.d/httpd restart''.
 
