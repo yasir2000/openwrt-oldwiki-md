@@ -13,3 +13,16 @@ Wi-Fi :
 === Serial pinout ===
 
 To be found
+
+{{{
+Antenna connector
+
+[] : 3.3v
+[] : 3.3v
+[] : 0V
+[] : 0v
+[] : 0v
+[] : 3.3v
+
+LEDs
+}}}
