@@ -215,5 +215,50 @@ i2c-algo-bit 8948 1 [i2c-mips-gpio]
 i2c-core 17944 0 [i2c-dev i2c-proc i2c-algo-bit]
 }}}
 
+'''gethwclock.pl''' - This is a microperl script which writes to the clock chip using i2cset, and reads from it using i2cread.[[BR]]
+It reads the clock chip and sets the system time by converting the registers from the clock chip to a format usable by the date command, and runs date. [[BR]]
+On the reverse side, it updates the clock chip (on demand only) by reading system time and converting it to the register values which are programmed in the clock with i2cset.[[BR]]
+When run with no command line options, it will display a help message with syntax.[[BR]]
+Example – help message:
+{{{
+root@OpenWrt:/usr/share/i2c# ./gethwclock.pl
+gethwclock.pl <sethw|gethw|setos|inithw>
+sethw - set the hardware clock from system time
+gethw - display the date stored in the hardware clock
+setos - set the system time from the hardware clock
+inithw - initialize hardware clock control register
+and start counter. This should be done once before
+using the clock for the first time
+}}}
+Example – display time from clock chip:
+{{{
+root@OpenWrt:/usr/share/i2c# ./gethwclock.pl gethw
+Mon Apr 09 13:31:07 2007
+}}}
+Example – showing how the clock chip is used to set the system time:
+{{{
+root@OpenWrt:/usr/share/i2c# date 123023392005.22
+Fri Dec 30 23:39:22 UTC 2005
+root@OpenWrt:/usr/share/i2c# date
+Fri Dec 30 23:39:24 UTC 2005
+root@OpenWrt:/usr/share/i2c# ./gethwclock.pl setos
+root@OpenWrt:/usr/share/i2c# date
+Mon Apr 9 13:25:38 UTC 2007
+}}}
+Example – showing the system date getting saved to the clock chip:
+{{{
+root@OpenWrt:/usr/share/i2c# date 123018232005.20
+Fri Dec 30 18:23:20 UTC 2005
+root@OpenWrt:/usr/share/i2c# ./gethwclock.pl sethw
+root@OpenWrt:/usr/share/i2c# ./gethwclock.pl gethw
+Fri Dec 30 18:23:32 2005
+}}}
+Example – running the inithw command to set the SQW output and start the clock:
+{{{
+root@OpenWrt:/usr/share/i2c# ./gethwclock.pl inithw
+hw clock init succeeded
+}}}
+
+
 
 Work in progress
