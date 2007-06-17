@@ -3,13 +3,18 @@
 = D-Link DWL-2100AP =
 [http://www.dlink.com/products/?pid=292 AirPlus XtremeG Wireless Access Point]
 
+== Foreword ==
+A warning message before you start. At the moment getting anything other than the original VxWorks firmware to run on the 2100AP'''will void your warranty'''! Furthermore, you will probably have to open the case and solder a few parts onto the internal board. If anything goes wrong in the installation of a new firmware image you might brick your AP, although this is usually reversible with jtag or other debrick tools.
+To gain access to the serial console, you will have to make a RS232-3.3V serial adapter. Never connect RS232 directly to the board serial interface or you may cause serious damage to your hardware. You will need something like the MAX232 chip or just two transistors. There are plenty of schematics for this on google.
+If you plan to run openwrt, then you will also need to replace the VxWorks bootloader with redboot or something. At present, this can only be accomplished using a jtag cable and software. Unless you spend thousands of dollars on professional jtag equipment, cheap solutions may work but they take an awful lot of time. Expect 1 hour to flash just the boot loader and 6-8 hours to flash the whole shebang.
+Last, but not least, begin by making a backup copy of your ROM and keep it safe! And remember: the bootloader and almost everything else on ROM can be safely replaced with whatever you want, but the last two blocks of ROM (typically the last 128Kb depending on your hardware)  contain important information about your hardware and should not be erased. Your hardware and software will malfunction without it.
 == Hardware ==
-Based on an A2 version.
+Based on an A2 version, with some notes for rev. A3.
 
  * Atheros AR2313A SoC
  * Atheros AR2112A RF
  * [http://web.icsi.com.tw/domino/packinfo.nsf/WebDSProcNum/(798C2B999CBCD0EA3FDA31D07F57CC19)?OpenDocument IC42S16800-7T] 16MB RAM
- * [http://www.amd.com/us-en/assets/content_type/white_papers_and_tech_docs/23579c6.pdf AMD AM29LV320DB] 4MB Flash
+ * [http://www.amd.com/us-en/assets/content_type/white_papers_and_tech_docs/23579c6.pdf AMD AM29LV320DB] 4MB Flash ([http://www.atmel.com/dyn/resources/prod_documents/doc3308.pdf Atmel AT49BV322A] 4MB Flash on rev. A3)
  * [http://www.icplus.com.tw/pp-IP101A.html IC+ IP101A] Ethernet transceiver
  * External antenna on RP-SMA connector
  * Internal antenna
@@ -28,7 +33,7 @@ JP1 (12-pin, without headers) is the serial port.  It's wired very similarly to 
   TX - () ()
 GND? - () () - GND?
 }}}
-Some resistors (R264, R273, R275) are missing, so the serial port won't work.  I've bridged them with solder (since I don't have access to SMT equipment), and it seems like it's working.
+Some resistors (R264, R273, R275) are missing, so the serial port won't work.  I've bridged them with solder (since I don't have access to SMT equipment), and it seems like it's working. This is not needed for rev. A3.
 
 === JTAG ===
 J1 (14-pin, without headers) is the JTAG port with standard EJTAG 2.6 layout. In JTAG Tools (works in last version jtag-0.6-cvs-20051228 only) board does not detect right, so it needs some definitions to access flash:[[BR]]
@@ -167,7 +172,7 @@ to get it to work.[[BR]] [[BR]] To get redboot detect flash (in my case it is S2
         banked     : false
     },
 }}}
-Note: DWL-2100AP Rev. A3 uses the [http://www.atmel.com/dyn/resources/prod_documents/doc3308.pdf Atmel At49BV322A] flash, so instead of the above I used:
+Note: DWL-2100AP Rev. A3 uses the [http://www.atmel.com/dyn/resources/prod_documents/doc3308.pdf Atmel AT49BV322A] flash, so instead of the above I used:
 
 {{{
     {   // AM49BV322A
