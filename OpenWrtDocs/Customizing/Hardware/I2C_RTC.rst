@@ -74,7 +74,9 @@ These kernel modules were used:
  *i2c-mips-gpio (compiled separately from the regular kernel modules)
 
 The first 4 can be obtained by rebuilding the kernel using "make menuconfig" in the kernel tree build_mipsel/linux and enabling the I2C bit-banging routines. After compilation, they can just be copied over to the router to the /lib/modules/2.4.30 directory.[[BR]]
-The last kernel module needs to be compiled from the code mentioned in the credits section of this page or copied from here:
+The last kernel module needs to be compiled from the code mentioned in the credits section of this page or copied from here: [[BR]]
+["/Source Code"]
+
 {{{
 
 /* ------------------------------------------------------------------------- */
