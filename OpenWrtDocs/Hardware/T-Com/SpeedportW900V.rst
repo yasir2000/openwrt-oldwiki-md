@@ -189,7 +189,7 @@ mtd0,mtd2,mtd1,mtd3,mtd4
 mtd0 is Hidden Root!
 
 
-=== Bootloader ADAM2 / EVA===
+=== Bootloader ADAM2 / EVA ===
 EVA ist der neue AVM-Bootloader für Fritzboxen mit 2.6er Kernel und löst ADAM2 in den Fritzboxen nach und nach ab.
 
  . Konfiguration
