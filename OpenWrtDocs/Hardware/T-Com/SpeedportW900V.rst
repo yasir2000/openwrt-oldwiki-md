@@ -198,6 +198,7 @@ mtd0 is Hidden Root!
 EVA ist der neue AVM-Bootloader für Fritzboxen mit 2.6er Kernel und löst ADAM2 in den Fritzboxen nach und nach ab.
 
 '''Konfiguration'''
+
 EVA wird in den ersten 64kB des Flash gespeichert (mtd2, 0x90000000-0x90010000). In diesem Binary gibt es zwei Bereiche, die die grundlegende Konfiguration der Box "einfrieren". Bei Version 1203 (laut urlader-version aus dem Environment) liegt bei 0xae0 der Defaultbereich und bei 0x580 der individuelle Bereich, der sich pro Box unterscheidet und unter anderem die MAC-Adressen enthält. Bei einer Box mit EVA kann man also durch zerstören des Environments seine MAC-Adressen nicht mehr verlieren, dafür aber auch nicht mehr so einfach ändern, da EVA die "eingefrorenen" Werte bei jedem Boot ggf. im Environment wieder auffrischt.
 
 Wenn EVA nicht ab Werk installiert ist, sondern per Update auf die Box kommt, wird der individuelle Konfigbereich beim Update mit dem Utility urlader.setconfig24 erzeugt. Die Datei urlader.config im Update-Image enthält eine Liste mit Environmentnamen, die dabei "eingefroren" werden sollen (Liste aus dem 7050 Update 14.04.31, kann bei anderen Boxen evtl. abweichen):
