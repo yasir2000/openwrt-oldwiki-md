@@ -87,6 +87,8 @@ If you want to get all the Modules precompiled, send a PM to !NekMech on the !Op
 There are 3 binaries: i2cset, i2cread, i2cdump[[BR]]
 And 3 scripts: i2c-load.sh, gethwclock.pl, S99i2c[[BR]]
 
+Source code is available here: ["/Source Code"]
+
 In all the examples below, the device used was the DS1307 I2C clock chip.
 The clock chip is wired to I2C bus “0” (the only one), and has a device address of “104”
 decimal or “68H” hex. These programs were all installed under /usr/share/i2c on the
