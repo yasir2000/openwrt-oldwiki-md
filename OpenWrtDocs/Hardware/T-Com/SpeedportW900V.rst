@@ -3,18 +3,18 @@
 
 = T-Com Speedport W900V =
 
- This page is Work In Progress, speak to jb24 on #openwrt and #ar7 on freenode for more info.
+This page is Work In Progress, speak to jb24 on #openwrt and #ar7 on freenode for more info.
 
 Others users known to have this device:  jb24, crazy_imp
 
 == Hardware Info ==
 
- Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
+Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
 
 Being an AR7 device it also has a built-in ADSL Modem, the Speedport W900V also features as ISDN socket and two telephone sockets for VoIP use.
 
 
- CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A Ethernet Switch Chip: Infineon ADM6996LC
+CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
@@ -38,7 +38,6 @@ http://kassel083.server4you.de/~jb24/sp900v/images/PICT1605s.jpg
 
 It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Conrad Electronic for €0.24 and soldered it carefully to the back of the PCB.
 
-----
 The general location of the port and it's pin-out is as follows:
 
 {{{
@@ -60,7 +59,6 @@ H        CPU  XTal       |
 _________________________|
 }}}
 
-----
  Serial port settings: 38400 8N1
 
 === OS Info ===
