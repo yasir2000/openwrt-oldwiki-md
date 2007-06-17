@@ -35,7 +35,7 @@ LEDs
 }}}
 
 
-=== Bootlog ====
+=== Bootlog ===
 
 {{{
 Decompressing...........done
@@ -196,4 +196,12 @@ eth0: No such process
 fopen /tmp/resolv.conf: No such file or directory
 alarm...
 Hit enter to continue...
+}}}
+
+=== Flashing OpenWrt on the DIR-330 ===
+
+The D-Link DIR-330 can run both brcm-2.4 and brcm47xx-2.6. We recommend you use brcm47xx-2.6 anyway. To flash the device, you will need to access CFE for now :
+
+{{{
+flash -noheader <ip address of the TFTP server>:<filename> flash0.os
 }}}
