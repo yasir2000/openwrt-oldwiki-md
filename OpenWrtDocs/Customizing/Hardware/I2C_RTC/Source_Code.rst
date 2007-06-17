@@ -1078,7 +1078,7 @@ int main(int argc, char *argv[])
 {{{
 #!/usr/bin/microperl
 #######################################################################
-# Author:  Kenny Saltiel (NekMech)
+# Author:  (NekMech)
 # Date:    9 Apr 2007
 # Version: 1.0
 #
