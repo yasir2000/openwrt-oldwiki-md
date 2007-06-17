@@ -155,7 +155,7 @@ setenv kernel_args idle=4
 unsetenv mtd5
 }}}
 
-=== Bootloader ===
+== Bootloader ==
 EVA ist der neue AVM-Bootloader für Fritzboxen mit 2.6er Kernel und löst ADAM2 in den Fritzboxen nach und nach ab.
 
  . Konfiguration
