@@ -8,7 +8,7 @@ Eventually more I2C projects will be documented here.
 The information presented here was partially gathered from sources on the Internet
 including the following:[[BR]][http://www.linksysinfo.org] and [http://openwrt.org]:
 
-'''Firmware:''' `OpenWrt Whiterussian 0.9`[[BR]]
+'''Firmware:''' !OpenWrt Whiterussian 0.9[[BR]]
 '''Kernel driver:''' i2c-mips-gpio: from [http://forum.openwrt.org/viewtopic.php?id=7949][[BR]]
 Based on original i2c-mips-gpio by John Newbigin,[[BR]]
 which in turn was based on i2c-philips-par.c by Simon G. Vogl.[[BR]]
@@ -57,7 +57,7 @@ attachment:shorten-cisco-button.jpg
 
 = Software =
 == Prerequisites ==
- *`OpenWrt Whiterussian 0.9` flashed to the router and running normally. Available from [http://downloads.openwrt.org/whiterussian/0.9/default/]
+ *!OpenWrt Whiterussian 0.9 flashed to the router and running normally. Available from [http://downloads.openwrt.org/whiterussian/0.9/default/]
  *Microperl ipkg installed on the router. Available from [http://downloads.openwrt.org/backports/0.9/microperl_5.8.6-1_mipsel.ipk]
  *A Linux workstation if you plan on compiling the binaries.
 
@@ -418,7 +418,7 @@ void cleanup_module(void) {
 Note that the code shows an alternate hardware schematic for the I2C bus which differs from the schematic presented in the Hardware section of this page.[[BR]]
 The schematic presented in the Hardware section provides better signal buffering to and from the I2c devices.
 After compiling the last module it too needs to be copied to th router and installed under /lib/modules/2.4.30 just like the previous modules.
-If you want to get all the Modules precompiled, send a PM to `NekMech` on the `OpenWrt` forum.
+If you want to get all the Modules precompiled, send a PM to !NekMech on the !OpenWrt forum.
 
 == User Space programs and scripts ==
 There are 3 binaries: i2cset, i2cread, i2cdump[[BR]]
