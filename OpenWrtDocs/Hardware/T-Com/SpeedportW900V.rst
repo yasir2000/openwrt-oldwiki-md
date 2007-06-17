@@ -174,6 +174,11 @@ Diese Boxen verwenden Hidden Root:
     * Fritzbox Fon WLAN 7170
     * Speedport W900V
 
+Bei Hidden Root befindet sich das root Dateisystem – ähnlich wie bei Contiguous SquashFS – direkt hinter dem Kernel (256 Byte Padding). Diese Boxen kann man daran erkennen, dass die Start- und End-Adresse von mtd0 in der mtd Tabelle gleich 0 und die Datei filesystem.image im Firmware Update leer ist. kernel.image enthält sowohl den Kernel als auch das root Dateisystem. Hidden Root am Beispiel der Fon WLAN 7170 (die kürzeren Balken für den Kernel und das root Dateisystem sollen nur andeuten, dass auf der Box von den 8 MB noch einiges mehr frei ist, als bei den 4 MB Boxen):
+
+
+
+
  (TODO)
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
 ||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||Hidden Root! ||
