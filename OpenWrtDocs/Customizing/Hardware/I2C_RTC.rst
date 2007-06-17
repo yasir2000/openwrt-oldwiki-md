@@ -264,4 +264,37 @@ Located in /etc/init.d and runs during boot of the router, it performs 2 functio
  *Load the I2C kernel modules by running /usr/share/i2c/i2c-load.sh
  *Sets the system time from the hardware clock using /usr/share/i2c/gethwclock.pl
 
+
+== Installing ==
+=== The easy way ===
+An ipkg can be provided: linksys-wrt54gl-i2c-rtc_1_mipsel.ipk [[BR]]
+Send a PM to !NekMech on the !OpenWrt forums and I'll email it to you. Since I don't have an online site from which I can provide the package, this is the only way. If someone would be willing to host it, a link coud be provided here.
+
+Transfer this package to the router and install it.[[BR]]
+All the files will be installed in the correct locations:
+ */etc/init.d/S99i2c
+ */lib/modules/2.4.30/i2c-algo-bit.o
+ */lib/modules/2.4.30/i2c-core.o
+ */lib/modules/2.4.30/i2c-dev.o
+ */lib/modules/2.4.30/i2c-mips-gpio.o
+ */lib/modules/2.4.30/i2c-proc.o
+ */usr/share/i2c/ i2cread
+ */usr/share/i2c/i2cdump
+ */usr/share/i2c/i2c-load.sh
+ */usr/share/i2c/gethwclock.pl
+ */usr/share/i2c/i2cset
+
+Set the routers date:[[BR]]
+`root@OpenWrt:/# date MMDDhhmm[[CC]YY][.ss]` [[BR]]
+{{{
+Example: 
+root@OpenWrt:/# date 041520302007.30
+}}}
+For April 15 20:30:30 2007 [[BR]]
+Set the hardware clock chip from the system time:
+{{{
+root@OpenWrt:/# cd /usr/share/i2c
+root@OpenWrt:/usr/share/i2c#./gethwclock.pl sethw
+}}}
+
 Work in progress
