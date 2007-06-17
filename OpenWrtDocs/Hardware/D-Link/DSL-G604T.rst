@@ -78,7 +78,7 @@ In configuration mode we need select those options:
 
 {{{Target System (TI AR7 [2.6])
 
-Target Profile (Texas Instruments WiFi (default)) - usually set's by default.
+Target Profile (Texas Instruments WiFi (default)) - usually set's by default. (Still at date 15/06/2007 it isn't work). 
 
 Base system ---> br2684ctl
 
