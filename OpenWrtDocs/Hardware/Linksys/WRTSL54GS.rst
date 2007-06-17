@@ -41,7 +41,7 @@ The antenna is *NOT* removable. Well not without some soldering work.
 
 Note switch port 4 is not externally available. This design is different from many units which use a single interface to handle both LAN & WAN traffic, so performance should be better.
 
-= Hack points =
+= Hardware hacking =
 
 == serial ports ==
 2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal from the WRT board is 3.3 Volt TTL however, so you cannot simply wire to a standard RS-232 connector as they operate at 12 Volts. You will need a circuit to convert the 3.3 Volt signal to a level that is usable by a host. 
@@ -121,6 +121,10 @@ HairyDairyMaid's debricker is working, but currently requires /skipdetect and in
 ||5||output||LEDC13||SES white||LED - SES white||
 ||6||input||PSW1||RESET||Button - reset||
 ||7||output||LEDC14||SES amber||LED - SES amber||
+
+== dual USB port ==
+
+The board has functional position for a stacked dual-USB port, although it is only fitted for a single port.  Remove the existing unit, and substitute with a dual.  Stacked dual-USB port can be scavenged from an old/dead motherboard.
 
 == LED10 ==
 The LED10 location at front of board contains no LED. Perhaps it is usable for something. But it does not appear to be connected directly to a GPIO pin as a voltmeter shows nothing when cycling all GPIO lines.
