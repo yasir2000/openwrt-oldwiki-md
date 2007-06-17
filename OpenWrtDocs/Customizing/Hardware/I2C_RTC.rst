@@ -259,6 +259,9 @@ root@OpenWrt:/usr/share/i2c# ./gethwclock.pl inithw
 hw clock init succeeded
 }}}
 
-
+'''S99i2c''' - [[BR]]
+Located in /etc/init.d and runs during boot of the router, it performs 2 functions.
+ *Load the I2C kernel modules by running /usr/share/i2c/i2c-load.sh
+ *Sets the system time from the hardware clock using /usr/share/i2c/gethwclock.pl
 
 Work in progress
