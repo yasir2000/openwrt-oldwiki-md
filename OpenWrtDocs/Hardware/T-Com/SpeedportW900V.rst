@@ -155,7 +155,7 @@ setenv kernel_args idle=4
 unsetenv mtd5
 }}}
 
-=== Original Flash Map ===
+== Original Flash Map ==
 Bootloader: ADAM2 (+ Environment)
 
 Kernel: Linux 2.6.13.1-ohio
