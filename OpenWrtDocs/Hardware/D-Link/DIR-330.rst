@@ -8,21 +8,24 @@ Flash : Spansion S29GL064A (8Mbytes)
 RAM : 2x16Mbytes
 Switch : 5325e
 Wi-Fi :
+Serial : yes
+USB : yes
+JTAG : yes
 }}}
 
 === Serial pinout ===
 
-To be found
+There is an unpopulated 6-pin header named J3 :
 
 {{{
 Antenna connector
 
-[] : RX
-[] : TX
-[] : NC
-[] : NC
-[] : GND
-[] : VCC
+[x] : RX
+[x] : TX
+[x] : NC
+[x] : NC
+[x] : GND
+[x] : VCC
 
 LEDs
 }}}
