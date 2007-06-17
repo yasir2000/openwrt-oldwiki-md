@@ -4,6 +4,23 @@
 
 Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that you may compile and run only from Kamikaze SVN. Still there isn't support neither in White Russian nor Kamikaze releases, so installation procedure is not so hacking as on ZyXEL's, but more hard than uploading throught web-interface. All run's ok with 2.6.x kernel maybe except wireless, it need some tests.
 
+== Troubles ==
+
+There seems that Wi-Fi isn't work at this date (17/06/2007):
+
+{{{acx: this driver is still EXPERIMENTAL
+acx: reading README file and/or Craig's HOWTO is recommended, visit http://acx100.sf.net in case of further questions/discussion
+acx: compiled to use 32bit I/O access. I/O timing issues might occur, such as non-working firmware upload. Report them
+acx: running on a little-endian CPU
+acx: PCI module v0.3.36 initialized, waiting for cards to probe...
+PCI: Enabling device 0000:00:00.0 (0000 -> 0002)
+PCI: Setting latency timer of device 0000:00:00.0 to 64
+acx: found ACX111-based wireless network card at 0000:00:00.0, irq:0, phymem1:0x4000000, phymem2:0x4022000, mem1:0xa4000000, mem1_size:8192, mem2:0xa4022000, mem2_size:131072
+initial debug setting is 0x000A
+acx: can't use IRQ 0
+pci_set_power_state(): 0000:00:00.0: state=3, current state=5
+acx_pci: probe of 0000:00:00.0 failed with error -5}}}
+
 == Specifications ==
 
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
