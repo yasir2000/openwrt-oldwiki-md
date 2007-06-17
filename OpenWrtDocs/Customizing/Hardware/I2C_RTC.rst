@@ -265,8 +265,8 @@ Located in /etc/init.d and runs during boot of the router, it performs 2 functio
  *Sets the system time from the hardware clock using /usr/share/i2c/gethwclock.pl
 
 
-== Installing ==
-=== The easy way ===
+= Installing =
+== The easy way ==
 An ipkg can be provided: linksys-wrt54gl-i2c-rtc_1_mipsel.ipk [[BR]]
 Send a PM to !NekMech on the !OpenWrt forums and I'll email it to you. Since I don't have an online site from which I can provide the package, this is the only way. If someone would be willing to host it, a link coud be provided here.
 
@@ -297,4 +297,13 @@ root@OpenWrt:/# cd /usr/share/i2c
 root@OpenWrt:/usr/share/i2c#./gethwclock.pl sethw
 }}}
 
-Work in progress
+
+== The hard way ==
+Compile kernel modules and user space binaries from scratch from the source code provided here ["/Source Code"] [[BR]]
+Of course the scripts can just be copied and pasted.
+
+
+= Conclusion =
+Reboot to check that it works. Note that there's a couple seconds delay from the time the router has finished booting till the date gets set. This is due to the time it takes to load the kernel modules and run the gethwclock.pl script. [[BR]]
+Don't forget that a number of I2C devices can be connected to the same bus since each has a unique address, and the tools installed here to control the hardware clock can be used for other devices as well. [[BR]]
+Hopefully more I2C projects for !OpenWrt will be presented here. B)
