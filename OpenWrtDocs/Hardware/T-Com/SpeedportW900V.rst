@@ -269,87 +269,10 @@ print OUTPUT $data;
 
 Es werden also die Einstellungen für den Memory Controller (EMIF), RAM und Flashgröße, MTD setup und ein paar wichtige, unveränderliche Environmentvariablen gespeichert.
 
-= Loaderformat für LZMA-komprimierte Binaries =
-Neben dem alten TI Binärformat unterstützt EVA auch LZMA-komprimierte Kernel ohne integrierten Entpacker. Diese Kernel werden von EVA vor dem Booten entpackt. Der neue Header sieht in etwa so aus:
-
-{{{
- magic:
-   0xfeed1281  32bit little endian
-}}}
-{{{
- record: (wie TI-Format)
-   length              32bit little endian
-   loadaddress         32bit little endian
-   data                length bytes
-   checksum            Zweierkomplement der 32bit Summe über
-                       length (32bit Addition),
-                       loadaddress (32bit Addition),
-                       data (byteweise 8bit Addition)
-}}}
-{{{
- lzma record: (innerhalb von data)
-   0x075a0201          32bit little endian (7'Z' 2.1?)
-                       unterscheidet/beschreibt evtl. den Record Inhalt?
-   compressed length   32bit little endian
-   uncompressed length 32bit little endian
-   checksum            32bit little endian crc32 of compressed data
-   compressed data     compressed length + 8 bytes
-}}}
-{{{
- lzma compressed data:
-   lzma properties      8bit
-   lzma dict size      32bit little endian
-   alignment           24bit == 0x000000
-   packed data         compressed length octets
-}}}
-{{{
- entry record: (wie TI-Format)
-   0x0                 32bit
-   entryaddress        32bit little endian
-}}}
-Mit folgendem Perl-Skript lässt sich ein Kernel aus kernel.image entpacken:
-
-{{{
-#! /usr/bin/perl
-use Compress::unLZMA;
-use Archive::Zip;
-open INPUT, "<$ARGV[0]" or die "can't open $ARGV[0]: $!";
-read INPUT, $buf, 4;
-$magic = unpack("V", $buf);
-if ($magic != 0xfeed1281) {
-  die "bad magic";
-}
-read INPUT, $buf, 4;
-$len = unpack("V", $buf);
-read INPUT, $buf, 4*2; # address, unknown
-read INPUT, $buf, 4;
-$clen = unpack("V", $buf);
-read INPUT, $buf, 4;
-$dlen = unpack("V", $buf);
-read INPUT, $buf, 4;
-$cksum = unpack("V", $buf);
-printf "Archive checksum: 0x%08x\n", $cksum;
-read INPUT, $buf, 1+4; # properties, dictionary size
-read INPUT, $dummy, 3; # alignment
-$buf .= pack('VV', $dlen, 0); # 8 bytes of real size
-#$buf .= pack('VV', -1, -1); # 8 bytes of real size
-read INPUT, $buf2, $clen;
-$crc = Archive::Zip::computeCRC32($buf2);
-printf "Input CRC32: 0x%08x\n", $crc;
-if ($cksum != $crc) {
-  die "wrong checksum";
-}
-$buf .= $buf2;
-$data = Compress::unLZMA::uncompress($buf);
-unless (defined $data) {
-  die "uncompress: $@";
-}
-open OUTPUT, ">$ARGV[1]" or die "can't write $ARGV[1]";
-print OUTPUT $data;
-#truncate OUTPUT, $dlen;
-}}}
 === ADAM2 environment variables ===
+
 {{{
+
 AVM_Ar7 >printenv
 HWRevision            102.1.1.0
 ProductID             Fritz_Box_DECT_W900V
