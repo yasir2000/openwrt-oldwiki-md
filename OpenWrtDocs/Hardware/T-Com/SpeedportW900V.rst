@@ -835,6 +835,20 @@ Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.16
 
 
 === Original Flash Map ===
+
+#
+Bootloader: ADAM2 (+ Environment)
+#
+Kernel: Linux 2.6.13.1-ohio
+#
+Filesystem: SquashFS (lzma compressed)
+#
+Configuration-Files: TFFS
+
+
+
+
+
 (TODO)
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
 ||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||empty! ||
