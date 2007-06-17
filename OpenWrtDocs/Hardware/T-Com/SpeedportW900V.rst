@@ -2,27 +2,20 @@
 [[TableOfContents]]
 
 = T-Com Speedport W900V =
-
 This page is Work In Progress, speak to jb24 on #openwrt and #ar7 on freenode for more info.
 
 Others users known to have this device:  jb24, crazy_imp
 
 == Hardware Info ==
-
 Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
 
 Being an AR7 device it also has a built-in ADSL Modem, the Speedport W900V also features as ISDN socket and two telephone sockets for VoIP use.
 
-CPU: TNETD7200ZDW (AR7) @211Mhz 
-Flash: 8 MB 
-Ram: 32 MB 
-WLan Chip: TNETW1350A
-Ethernet Switch Chip: Infineon ADM6996LC 
+CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
 === Photos ===
-
 http://ipkg.k1k2.de/jb24img/pict1605.jpg
 
 http://ipkg.k1k2.de/jb24img/PICT1606.JPG
@@ -38,11 +31,9 @@ http://openwrt.vcp-springe.de/w900v/rear_side.JPG
 http://kassel083.server4you.de/~jb24/sp900v/images/PICT1605s.jpg
 
 === Serial Port ===
+TODO
 
-
-TODO 
-
-It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Conrad Electronic for €0.24 and soldered it carefully to the back of the PCB.  
+It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Conrad Electronic for €0.24 and soldered it carefully to the back of the PCB.
 
 The general location of the port and it's pin-out is as follows:
 
@@ -64,16 +55,13 @@ H        CPU  XTal       |
                          |
 _________________________|
 }}}
-
 Serial port settings: 38400 8N1
 
 === OS Info ===
-
 {{{
  # cat /proc/version
 Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #5 Fri Aug 25 12:37:20 CEST 2006
 }}}
-
 === CPU Info ===
 {{{
 ~ # cat /proc/cpuinfo
@@ -89,11 +77,8 @@ hardware watchpoint     : yes
 VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
-
 === FLASH Map Info ===
-
 {{{
-
 cat /proc/mtd
 dev:    size   erasesize  name
 mtd0: 00800000 00010000 "phys_mapped_flash"
@@ -105,10 +90,7 @@ mtd5: 00040000 00010000 "tffs (2)"
 mtd6: 00200000 00010000 "jffs2"
 mtd7: 00570000 00010000 "Kernel without jffs2"
 }}}
-
-
 === ATM Driver Info (TI Avalanche SAR) ===
-
 {{{
 cat /proc/avalanche/avsar_ver
 ATM Driver version:[4.06.04.30]
@@ -117,11 +99,8 @@ DSP Datapump version: [1.35.60.01]
 SAR HAL version: [01.07.2b]
 PDSP Firmware version:[0.54]
 }}}
-
 == Original Firmware Info ==
-
 === Backing up original firmware ===
-
 TODO
 
 To backup the original firmware you'll need console access to the device, e.g. use a serial cable and minicom to access the root shell.
@@ -141,7 +120,6 @@ rm html
 ln -s backup html
 websrv
 }}}
-
 You can then download the files by pointing your webbrowser at {{{http://<your router's ip>/mtd0-rootfs.bin}}} etc.
 
 All being well you should have files like this
@@ -156,40 +134,33 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 -rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd4-nvram1.bin
 -rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd5-nvram2.bin
 }}}
-
 === Restoring Original Firmware ===
-
 ==== Undoing changes to adam2 config ====
-
 TODO: finish this section, here's some hints for now
 
 {{{
 setenv kernel_args idle=4
 unsetenv mtd5
 }}}
-
 == Bootloader ==
-
 EVA ist der neue AVM-Bootloader für Fritzboxen mit 2.6er Kernel und löst ADAM2 in den Fritzboxen nach und nach ab.
 
- Konfiguration
-
+ . Konfiguration
 EVA wird in den ersten 64kB des Flash gespeichert (mtd2, 0x90000000-0x90010000). In diesem Binary gibt es zwei Bereiche, die die grundlegende Konfiguration der Box "einfrieren". Bei Version 1203 (laut urlader-version aus dem Environment) liegt bei 0xae0 der Defaultbereich und bei 0x580 der individuelle Bereich, der sich pro Box unterscheidet und unter anderem die MAC-Adressen enthält. Bei einer Box mit EVA kann man also durch zerstören des Environments seine MAC-Adressen nicht mehr verlieren, dafür aber auch nicht mehr so einfach ändern, da EVA die "eingefrorenen" Werte bei jedem Boot ggf. im Environment wieder auffrischt.
 
-Wenn EVA nicht ab Werk installiert ist, sondern per Update auf die Box kommt, wird der individuelle Konfigbereich beim Update mit dem Utility urlader.setconfig24 erzeugt. Die Datei urlader.config im Update-Image enthält eine Liste mit Environmentnamen, die dabei "eingefroren" werden sollen (Liste aus dem 7050 Update 14.04.31, kann bei anderen Boxen evtl. abweichen): 
+Wenn EVA nicht ab Werk installiert ist, sondern per Update auf die Box kommt, wird der individuelle Konfigbereich beim Update mit dem Utility urlader.setconfig24 erzeugt. Die Datei urlader.config im Update-Image enthält eine Liste mit Environmentnamen, die dabei "eingefroren" werden sollen (Liste aus dem 7050 Update 14.04.31, kann bei anderen Boxen evtl. abweichen):
 
 The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W900V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to its defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.153, from August 2006.
 
 {{{
-
 maca                    overwrite
-macb                    overwrite   
+macb                    overwrite
 macwlan                 overwrite
 macdsl                  overwrite
 usb_board_mac           overwrite
 usb_rndis_mac           overwrite
 bluetooth               overwrite
-reserved                overwrite      
+reserved                overwrite
 HWRevision              overwrite
 ProductID               overwrite
 SerialNumber            overwrite
@@ -197,48 +168,89 @@ usb_device_id           overwrite
 usb_revision_id         overwrite
 usb_manufacturer_name   overwrite
 annex                   overwrite
-
 }}}
-
 Der Konfigbereich selbst sieht in etwa so aus:
 
- Offset 	 Länge 	 Bedeutung 	 Inhalt
-0 	4 	magic/version 	0x2
-4 	4 	EMIF[4] 	0x40000080
-8 	4 	EMIF[8] (SDRAM) 	0x00006021
-12 	4 	EMIF[12] (refresh) 	0x000003d5
-16 	4 	EMIF[32] (SDRAM 2) 	0x02215818
-20 	4 	EMIF[16] (CS0 flash) 	0x00b00581
-24 	4 	EMIF[20] (CS3) 	0x10908700
-28 	4 	EMIF[24] (CS4) 	0x05a62d34
-32 	4 	EMIF[28] (CS5) 	0x05a62d36
-36 	4 	RAM size 	0x02000000
-40 	4 	Flash size 	0x00400000
-44 	4 	unknown 	0x0
-48 	4 	unknown 	0x0
-52 	4 	MTD0 start 	0x90000000
-56 	4 	MTD0 length 	0x0
-60 	4 	MTD1 start 	0x90010000
-64 	4 	MTD1 length 	0x003b0000
-68 	4 	MTD2 start 	0x90000000
-72 	4 	MTD2 length 	0x00010000
-76 	4 	MTD3 start 	0x903c0000
-80 	4 	MTD3 length 	0x00020000
-84 	4 	MTD4 start 	0x903e0000
-88 	4 	MTD4 length 	0x00020000
-92 	4 	unknown 	0x0
-96 	4 	unknown 	0x0
-100 	4 	unknown 	0x9
-104 	4 	unknown 	0x0
-108 	4 	pointer to first free byte? 	0x90000670
-112 	4 	char * to first environment entry, more following 	0x9000096a
-... 	4 	end of pointer list 	0x0
-... 	... 	environment entry storage 	
+= Loaderformat für LZMA-komprimierte Binaries =
+Neben dem alten TI Binärformat unterstützt EVA auch LZMA-komprimierte Kernel ohne integrierten Entpacker. Diese Kernel werden von EVA vor dem Booten entpackt. Der neue Header sieht in etwa so aus:
 
-Es werden also die Einstellungen für den Memory Controller (EMIF), RAM und Flashgröße, MTD setup und ein paar wichtige, unveränderliche Environmentvariablen gespeichert. 
+{{{
+ magic:
+   0xfeed1281  32bit little endian
+}}}
+{{{
+ record: (wie TI-Format)
+   length              32bit little endian
+   loadaddress         32bit little endian
+   data                length bytes
+   checksum            Zweierkomplement der 32bit Summe über
+                       length (32bit Addition),
+                       loadaddress (32bit Addition),
+                       data (byteweise 8bit Addition)
+}}}
+{{{
+ lzma record: (innerhalb von data)
+   0x075a0201          32bit little endian (7'Z' 2.1?)
+                       unterscheidet/beschreibt evtl. den Record Inhalt?
+   compressed length   32bit little endian
+   uncompressed length 32bit little endian
+   checksum            32bit little endian crc32 of compressed data
+   compressed data     compressed length + 8 bytes
+}}}
+{{{
+ lzma compressed data:
+   lzma properties      8bit
+   lzma dict size      32bit little endian
+   alignment           24bit == 0x000000
+   packed data         compressed length octets
+}}}
+{{{
+ entry record: (wie TI-Format)
+   0x0                 32bit
+   entryaddress        32bit little endian
+}}}
+Mit folgendem Perl-Skript lässt sich ein Kernel aus kernel.image entpacken:
 
+{{{
+#! /usr/bin/perl
+use Compress::unLZMA;
+use Archive::Zip;
+open INPUT, "<$ARGV[0]" or die "can't open $ARGV[0]: $!";
+read INPUT, $buf, 4;
+$magic = unpack("V", $buf);
+if ($magic != 0xfeed1281) {
+  die "bad magic";
+}
+read INPUT, $buf, 4;
+$len = unpack("V", $buf);
+read INPUT, $buf, 4*2; # address, unknown
+read INPUT, $buf, 4;
+$clen = unpack("V", $buf);
+read INPUT, $buf, 4;
+$dlen = unpack("V", $buf);
+read INPUT, $buf, 4;
+$cksum = unpack("V", $buf);
+printf "Archive checksum: 0x%08x\n", $cksum;
+read INPUT, $buf, 1+4; # properties, dictionary size
+read INPUT, $dummy, 3; # alignment
+$buf .= pack('VV', $dlen, 0); # 8 bytes of real size
+#$buf .= pack('VV', -1, -1); # 8 bytes of real size
+read INPUT, $buf2, $clen;
+$crc = Archive::Zip::computeCRC32($buf2);
+printf "Input CRC32: 0x%08x\n", $crc;
+if ($cksum != $crc) {
+  die "wrong checksum";
+}
+$buf .= $buf2;
+$data = Compress::unLZMA::uncompress($buf);
+unless (defined $data) {
+  die "uncompress: $@";
+}
+open OUTPUT, ">$ARGV[1]" or die "can't write $ARGV[1]";
+print OUTPUT $data;
+#truncate OUTPUT, $dlen;
+}}}
 === ADAM2 environment variables ===
-
 {{{
 AVM_Ar7 >printenv
 HWRevision            102.1.1.0
@@ -284,26 +296,18 @@ usb_manufacturer_name  AVM
 wlan_key              xxxxxxxxxxxxxxxx
 wlan_cal              03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
 }}}
-
-
 === Boot log from old firmware ===
-
 {{{
 (AVM) EVA Revision: 1.153 Version: 1153
 (C) Copyright 2005 AVM Date: Aug 24 2006 Time: 14:17:25 (0) 2 0-1111
-
-
 [FLASH:] MACRONIX Top-MirrorBit-Flash 8MB 32 Bytes WriteBuffer
-[FLASH:](Eraseregion [0] 127 sectors a 64kB) 
-[FLASH:](Eraseregion [1] 8 sectors a 8kB) 
-[SYSTEM:] OHIO on 211MHz/125MHz 
-
+[FLASH:](Eraseregion [0] 127 sectors a 64kB)
+[FLASH:](Eraseregion [1] 8 sectors a 8kB)
+[SYSTEM:] OHIO on 211MHz/125MHz
 AVM_Ar7 >AVM decompress Kernel:
 .............done
 start kernel
-
 [ohio_pre_init] System Clk = 62500000 Hz                Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #5 Fri Aug 25 12:37:20 CEST 2006
-
 YAMON MEMORY DESCRIPTOR dump:
 prom_memsize = 0x02000000
 memsize=32 MByte
@@ -361,8 +365,8 @@ Checking for 'wait' instruction...  available.
 NET: Registered protocol family 16
 Can't analyze prologue code at 9416fb5c
 Squashfs 2.2-r2b (released 2006/02/23) (C) 2002-2005 Phillip Lougher
-[avm] configured: watchdog eventled enable shift register enable direct gpio 
-	gpio usage: reset=12 clock=13 store=10 data=9 
+[avm] configured: watchdog eventled enable shift register enable direct gpio
+        gpio usage: reset=12 clock=13 store=10 data=9
 AR7WDT: Watchdog Driver for AR7 Hardware (Version 1.0, build: Aug 25 2006 12:35:26)
 Serial: 8250/16550 driver $Revision: 1.90 $ 1 ports, IRQ sharing disabled
 [uart_add_one_port]
@@ -397,39 +401,39 @@ cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
 [mtd] fs_size=0x4c0000 max=0x2b0000 is=0x200000 max jffs2_size value 43
 Creating 7 MTD partitions on "Ohio flash memory":
 0x000ac300-0x00780000 : "filesystem"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
 mtd: partition "filesystem" doesn't start on an erase block boundary -- force read-only
 0x00010000-0x00780000 : "kernel"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
 0x00000000-0x00010000 : "bootloader"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
-	'Virtual blocks not allowed'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
+        'Virtual blocks not allowed'
 0x00780000-0x007c0000 : "tffs (1)"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
-	'Virtual blocks not allowed'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
+        'Virtual blocks not allowed'
 0x007c0000-0x00800000 : "tffs (2)"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
-	'Virtual blocks not allowed'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
+        'Virtual blocks not allowed'
 0x00580000-0x00780000 : "jffs2"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
-	'Virtual blocks not allowed'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
+        'Virtual blocks not allowed'
 0x00010000-0x00580000 : "Kernel without jffs2"
-	'nor-flash'
-	'Bits can be cleared (flash)'
-	'Has an erase function'
-	'Virtual blocks not allowed'
+        'nor-flash'
+        'Bits can be cleared (flash)'
+        'Has an erase function'
+        'Virtual blocks not allowed'
 capi20: Rev 1.1.2.7: started up with major 68 (middleware+capifs)
 capifs: Rev 1.1.2.3
 NET: Registered protocol family 2
@@ -446,18 +450,18 @@ NET: Registered protocol family 8
 NET: Registered protocol family 20
 [setup_irq]: irq 1 irqaction->handler 0x94001664 (dummy_timer_irq+0x0/0x14 )
 [setup_irq]: irq 6 irqaction->handler 0x94001678 (dummy_system_irq_2+0x0/0x18 )
-[ohio_late_init] 
+[ohio_late_init]
 [ohio_set_clock_notify] avm_clock_id_system notify disable 0x9400169c 0x94277e48
 [ohio_set_clock_notify] avm_clock_id_system notify enable 0x9400169c 0x94277e48
 [tffs] alloc_chrdev_region() param=mtd4
 [tffs] CONFIG_TFFS_MTD_DEVICE_0=4 CONFIG_TFFS_MTD_DEVICE_1=5
-[tffs] Character device init successfull 
+[tffs] Character device init successfull
 TFFS: tiny flash file system driver. GPL (c) AVM Berlin (Version 2.0)
       mount on mtd4 and mtd5 (double buffering)
 Adam2 environment variables API installed.
 [prepare_namespace] new mount root /dev/mtdblock1
 tffsd: wait for events
-use lzma compression 
+use lzma compression
 VFS: Mounted root (squashfs filesystem) readonly.
 Freeing prom memory: 0kb freed
 Freeing unused kernel memory: 112k freed (7619 free)
@@ -470,48 +474,48 @@ AR7WDT: System Init UEberwachung 240 Sekunden
 TFFS Name Table 8
 Jan  1 00:00:04 ar7cfgctl[196]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
 Jan  1 00:00:04 ar7cfgctl[196]: load_config(ar7): factory default loaded
-HWRevision	102.1.1.0
-ProductID	Fritz_Box_DECT_W900V
-SerialNumber	0000000000000000
-annex	B
-autoload	yes
-bootloaderVersion	1.153
-bootserport	tty0
-bluetooth	00:04:0E:FF:FF:07
-cpufrequency	211968000
-firstfreeaddress	0x946AE570
-firmware_version	tcom
-firmware_info	34.04.21
-flashsize	0x00800000
-jffs2_size	32
-maca	XX:XX:XX:XX:XX:XX
-macb	XX:XX:XX:XX:XX:XX+1
-macwlan	XX:XX:XX:XX:XX:XX+2
-macdsl	XX:XX:XX:XX:XX:XX+3
-memsize	0x02000000
-modetty0	38400,n,8,1,hw
-modetty1	38400,n,8,1,hw
-mtd0	0x90000000,0x90000000
-mtd1	0x90010000,0x90780000
-mtd2	0x90000000,0x90010000
-mtd3	0x90780000,0x907C0000
-mtd4	0x907C0000,0x90800000
-mtd5	0x90780000,0x90780000
-my_ipaddress	192.168.178.1
-prompt	AVM_Ar7
-ptest	
-reserved	00:04:0E:FF:FF:00
-req_fullrate_freq	125000000
-sysfrequency	125000000
-urlader-version	1153
-usb_board_mac	XX:XX:XX:XX:XX:XX
-usb_rndis_mac	XX:XX:XX:XX:XX:XX+1
-usb_device_id	0x0000
-usb_revision_id	0x0000
-usb_device_name	USB DSL Device
-usb_manufacturer_name	AVM
-wlan_key	0000000000000000
-wlan_cal	03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
+HWRevision      102.1.1.0
+ProductID       Fritz_Box_DECT_W900V
+SerialNumber    0000000000000000
+annex   B
+autoload        yes
+bootloaderVersion       1.153
+bootserport     tty0
+bluetooth       00:04:0E:FF:FF:07
+cpufrequency    211968000
+firstfreeaddress        0x946AE570
+firmware_version        tcom
+firmware_info   34.04.21
+flashsize       0x00800000
+jffs2_size      32
+maca    XX:XX:XX:XX:XX:XX
+macb    XX:XX:XX:XX:XX:XX+1
+macwlan XX:XX:XX:XX:XX:XX+2
+macdsl  XX:XX:XX:XX:XX:XX+3
+memsize 0x02000000
+modetty0        38400,n,8,1,hw
+modetty1        38400,n,8,1,hw
+mtd0    0x90000000,0x90000000
+mtd1    0x90010000,0x90780000
+mtd2    0x90000000,0x90010000
+mtd3    0x90780000,0x907C0000
+mtd4    0x907C0000,0x90800000
+mtd5    0x90780000,0x90780000
+my_ipaddress    192.168.178.1
+prompt  AVM_Ar7
+ptest
+reserved        00:04:0E:FF:FF:00
+req_fullrate_freq       125000000
+sysfrequency    125000000
+urlader-version 1153
+usb_board_mac   XX:XX:XX:XX:XX:XX
+usb_rndis_mac   XX:XX:XX:XX:XX:XX+1
+usb_device_id   0x0000
+usb_revision_id 0x0000
+usb_device_name USB DSL Device
+usb_manufacturer_name   AVM
+wlan_key        0000000000000000
+wlan_cal        03FF,0006,0017,00F0,010A,0101,010A,02F7,035A
 Jan  1 01:00:06 ar7cfgctl[268]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
 Jan  1 01:00:06 ar7cfgctl[268]: load_config(ar7): factory default loaded
 HWRevision='102'
@@ -612,7 +616,7 @@ Piglet: module license '
 [jffs2] i="jffs2"
 [jffs2] load jffs2 module
 JFFS2 version 2.2. (NAND) (C) 2001-2003 Red Hat, Inc.
-[jffs2] mount jffs 
+[jffs2] mount jffs
 [jffs2] write env variable jffs2_size to 32
 TAM: create JFFS2 directory /data/tam
 attempting to load DSL Firmware '/lib/modules/microvoip-dsl.bin'
@@ -638,17 +642,17 @@ isdn_fbox: AVM F!Box expected @ port 0x0000, irq 0
 isdn_fbox: Loading...
 gpio_ssi_init: done
 isdn_fbox: Stack version 3.11-07
-isdn_fbox: D-channel 0: DSS1  
-isdn_fbox: D-channel 1: DSS1  
+isdn_fbox: D-channel 0: DSS1
+isdn_fbox: D-channel 1: DSS1
 isdn_fbox: D-channel 2: DSS1_N
-isdn_fbox: D-channel 3: POTS  
-isdn_fbox: D-channel 4: SIP   
+isdn_fbox: D-channel 3: POTS
+isdn_fbox: D-channel 4: SIP
 isdn_fbox: Loaded.
 BLK: DECT StartUp, mode = WAIT, firmware: 00.13.12
 BLK: DECT StartUp, mode = MASTER INIT, firmware: 00.13.12
 usbcore: registered new driver usbfs
 usbcore: registered new driver hub
-	AHCI RevisionID = 0x02, RamSize = 16384, NumPorts= 1
+        AHCI RevisionID = 0x02, RamSize = 16384, NumPorts= 1
 [setup_irq]: irq 9 irqaction->handler 0xc00543b0 (ahci_irq+0x0/0x8a0 [usbahcicore] )
 ahci : new USB bus registered, assigned bus number 1
 usb storage: nothing to do ....
@@ -686,7 +690,7 @@ Jan  1 01:00:20 cltmgr[460]: process priority is 19
 Jan  1 01:00:21 ar7cfgctl[560]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
 Jan  1 01:00:21 ar7cfgctl[560]: load_config(ar7): factory default loaded
 Jan  1 01:00:21 cltmgr[549]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
-MAC WLAN: 	00:04:0E:E4:D4:9E
+MAC WLAN:       00:04:0E:E4:D4:9E
 Jan  1 01:00:22 cltmgr[549]: load_config(ar7): factory default loaded
 Jan  1 01:00:23 cltmgr[549]: FactoryDefault=/etc/default/tcom/voip.cfg (voip)
 Jan  1 01:00:23 cltmgr[549]: load_config(voip): factory default loaded
@@ -720,10 +724,10 @@ Wstart - made configure_wpa_authenticator
 NVS File loaded.
 429493997: Configuration succeeded !!!
 [ohio_vlynq_init] device 0
-[ohio_vlynq_startup_link] 
+[ohio_vlynq_startup_link]
 [setup_irq]: irq 29 irqaction->handler 0x94004f2c (vlynq_interrupt+0x0/0x34 )
 [setup_irq]: irq 79 irqaction->handler 0xc04d0a10 (whal_acxIntrHandler+0x0/0x1e8 [tiap] )
-429494004:  
+429494004:
 Jan  1 01:00:28 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
 Jan  1 01:00:28 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128)
 Jan  1 01:00:29 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
@@ -831,76 +835,8 @@ Jan  1 01:00:36 websrv[630]: load_config(ar7): factory default loaded
 /etc/init.d/rc.net: /etc/init.d/rc.net: 1: avmike: not found
 Jan  1 01:00:36 dsld[651]: DSL Mac xx:xx:xx:xx:xx:xx
 Jan  1 01:00:36 dsld[651]: VOIP Mac xx:xx:xx:xx:xx:xx
-Jan  1 01:00:36 dsld[651]: voip: ppptarget voip disabled, ignored
-Jan  1 01:00:36 dsld[651]: FactoryDefault=/etc/default/tcom/stat.cfgkdsld: sync lost
- (stat)
-Jan  1 01:00:36 dsld[651]: /etc/default/tcom/stat.cfg: is empty
-Jan  1 01:00:36 dsld[651]: load_config(stat): file empty - factory default loaded
-Jan  1 01:00:36 dsld[651]: Statistic load_config failed
-Jan  1 01:00:36 dsld[651]: verbose: DISABLED
-Jan  1 01:00:36 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
-Jan  1 01:00:36 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128)
-[avm_led] virt led not registered
-[avm_led] format error: "SET Name,Instanz = state"
-telefon: use clock_gettime(CLOCK_MONOTONIC)!
-BLK: DECT StartUp, mode = NORMAL, firmware: 00.13.12
-telefon: SIGCHLD received!
-telefon: WARNING No config file '/var/flash/fx_def' !
-telefon: WARNING No CG file '/var/flash/fx_cg' !
-voipd: csock: using poll
-Jan  1 01:00:40 websrv[630]: startup (Jul  6 2006 15:36:02)
-voipd: avmssl_init: done
-2000-01-01 01:00:40 ar7cfgctl: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
-Jan  1 01:00:40 ar7cfgctl[677]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7)
-Jan  1 01:00:40 voipd[673]: FactoryDefault=/etc/default/tcom/voip.cfg (voip)
-Jan  1 01:00:40 voipd[673]: load_config(voip): factory default loaded
-Jan  1 01:00:40 voipd[673]: startup (AVM Speedport W 900V 34.04.21 AVM SIP v5.01.48 Jul 12 2006 16:18:47)
-Jan  1 01:00:40 voipd[673]: using capi controller 5
-Jan  1 01:00:40 voipd[673]: using b1 protocol 10
-2000-01-01 01:00:41 ar7cfgctl: load_config(ar7): factory default loaded
-Jan  1 01:00:41 ar7cfgctl[677]: load_config(ar7): factory default loaded
-Jan  1 01:00:41 voipd[673]: tel: supported
-Jan  1 01:00:41 voipd[673]: ENUM NOT enabled
-Jan  1 01:00:41 voipd[673]: enumdomain: e164.arpa
-Jan  1 01:00:41 voipd[673]: enumdomain: e164.org
-Jan  1 01:00:41 voipd[673]: VoIP led value = 0
-Jan  1 01:00:41 voipd[673]: no useragent configured
-Jan  1 01:00:41 voipd[673]: INFO led: off (value=0)
-Jan  1 01:00:41 voipd[673]: priority is -20
-Jan  1 01:00:41 voipd[673]: encaplen 32
-Jan  1 01:00:41 voipd[673]: brutto speed unknown
-Jan  1 01:00:41 voipd[673]: connstatus 0 -> 1
-Jan  1 01:00:41 voipd[673]: PCMA: 98933 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: PCMU: 98933 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: G726-32: 70666 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: G726-40: 70666 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: G726-24: 56533 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: iLBC: 42400 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,30ms)
-Jan  1 01:00:41 voipd[673]: PCMA: 106000 bits/second (encaplen=32,20ms)
-Jan  1 01:00:41 voipd[673]: PCMU: 106000 bits/second (encaplen=32,20ms)
-Jan  1 01:00:41 voipd[673]: G726-32: 84800 bits/second (encaplen=32,20ms)
-Jan  1 01:00:41 voipd[673]: G726-40: 84800 bits/second (encaplen=32,20ms)
-Jan  1 01:00:41 voipd[673]: G726-24: 63600 bits/second (encaplen=32,20ms)
-Jan  1 01:00:41 voipd[673]: iLBC: 63600 bits/second (encaplen=32,20msAR7WDT: System Init UEberwachung abgeschlossen (201510 ms noch verfuegbar)
-)
-Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,20ms)
-Jan  1 01:00:41 voipd[673]: verbose: DISABLED
-run_clock demon started
-
-Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048SysRq : Changing Loglevel
-Loglevel set to 4
-: failed to send UDP-
-
-Please press Enter to activate this console. 
-
-Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128)
-Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128)
-}}}
-
-
+Jan  1 01:00:36 dsld[651]: voip: ppptarget voip disabled, ignored Jan  1 01:00:36 dsld[651]: FactoryDefault=/etc/default/tcom/stat.cfgkdsld: sync lost  (stat) Jan  1 01:00:36 dsld[651]: /etc/default/tcom/stat.cfg: is empty Jan  1 01:00:36 dsld[651]: load_config(stat): file empty - factory default loaded Jan  1 01:00:36 dsld[651]: Statistic load_config failed Jan  1 01:00:36 dsld[651]: verbose: DISABLED Jan  1 01:00:36 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128) Jan  1 01:00:36 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128) [avm_led] virt led not registered [avm_led] format error: "SET Name,Instanz = state" telefon: use clock_gettime(CLOCK_MONOTONIC)! BLK: DECT StartUp, mode = NORMAL, firmware: 00.13.12 telefon: SIGCHLD received! telefon: WARNING No config file '/var/flash/fx_def' ! telefon: WARNING No CG file '/var/flash/fx_cg' ! voipd: csock: using poll Jan  1 01:00:40 websrv[630]: startup (Jul  6 2006 15:36:02) voipd: avmssl_init: done 2000-01-01 01:00:40 ar7cfgctl: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7) Jan  1 01:00:40 ar7cfgctl[677]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7) Jan  1 01:00:40 voipd[673]: FactoryDefault=/etc/default/tcom/voip.cfg (voip) Jan  1 01:00:40 voipd[673]: load_config(voip): factory default loaded Jan  1 01:00:40 voipd[673]: startup (AVM Speedport W 900V 34.04.21 AVM SIP v5.01.48 Jul 12 2006 16:18:47) Jan  1 01:00:40 voipd[673]: using capi controller 5 Jan  1 01:00:40 voipd[673]: using b1 protocol 10 2000-01-01 01:00:41 ar7cfgctl: load_config(ar7): factory default loaded Jan  1 01:00:41 ar7cfgctl[677]: load_config(ar7): factory default loaded Jan  1 01:00:41 voipd[673]: tel: supported Jan  1 01:00:41 voipd[673]: ENUM NOT enabled Jan  1 01:00:41 voipd[673]: enumdomain: e164.arpa Jan  1 01:00:41 voipd[673]: enumdomain: e164.org Jan  1 01:00:41 voipd[673]: VoIP led value = 0 Jan  1 01:00:41 voipd[673]: no useragent configured Jan  1 01:00:41 voipd[673]: INFO led: off (value=0) Jan  1 01:00:41 voipd[673]: priority is -20 Jan  1 01:00:41 voipd[673]: encaplen 32 Jan  1 01:00:41 voipd[673]: brutto speed unknown Jan  1 01:00:41 voipd[673]: connstatus 0 -> 1 Jan  1 01:00:41 voipd[673]: PCMA: 98933 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: PCMU: 98933 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: G726-32: 70666 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: G726-40: 70666 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: G726-24: 56533 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: iLBC: 42400 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: PCMA: 106000 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: PCMU: 106000 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: G726-32: 84800 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: G726-40: 84800 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: G726-24: 63600 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: iLBC: 63600 bits/second (encaplen=32,20msAR7WDT: System Init UEberwachung abgeschlossen (201510 ms noch verfuegbar) ) Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: verbose: DISABLED run_clock demon started  Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048SysRq : Changing Loglevel Loglevel set to 4 : failed to send UDP-  Please press Enter to activate this console.   Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128) Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128) }}}
 === Original Flash Map ===
-
 #Bootloader: ADAM2 (+ Environment)
 
 #Kernel: Linux 2.6.13.1-ohio
@@ -909,10 +845,6 @@ Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.16
 
 #Configuration-Files: TFFS
 
-
-
-
-
 (TODO)
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
 ||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||Hidden Root! ||
@@ -920,6 +852,7 @@ Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.16
 ||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||{{{0x010000}}} ||ADAM2/bootloader ||
 ||mtd3 ||{{{0x90780000}}} ||{{{0x907c0000}}} ||{{{0x040000}}} ||tffs (1) ? ||
 ||mtd4 ||{{{0x907c0000}}} ||{{{0x90800000}}} ||{{{0x040000}}} ||tffs (2) ? ||
+
 
 Physical order of partitions on flash chip is:
 
