@@ -77,7 +77,7 @@ ${channel:+channel $channel}
                     -f /tmp/squashfs}}}
 7.  If all is well in the world (ie you didn't make any typos) you should now have a new custom made wl500w image sitting in your home directory waiting for you.
 
-8. TFTP your new image to the router as described here: OpenWrtViaTftp
+8. Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
 
 9.  Make a kamikaze, drink, enjoy.
 
