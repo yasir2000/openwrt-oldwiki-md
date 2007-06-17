@@ -200,6 +200,43 @@ annex                   overwrite
 
 }}}
 
+Der Konfigbereich selbst sieht in etwa so aus:
+
+ Offset 	 Länge 	 Bedeutung 	 Inhalt
+0 	4 	magic/version 	0x2
+4 	4 	EMIF[4] 	0x40000080
+8 	4 	EMIF[8] (SDRAM) 	0x00006021
+12 	4 	EMIF[12] (refresh) 	0x000003d5
+16 	4 	EMIF[32] (SDRAM 2) 	0x02215818
+20 	4 	EMIF[16] (CS0 flash) 	0x00b00581
+24 	4 	EMIF[20] (CS3) 	0x10908700
+28 	4 	EMIF[24] (CS4) 	0x05a62d34
+32 	4 	EMIF[28] (CS5) 	0x05a62d36
+36 	4 	RAM size 	0x02000000
+40 	4 	Flash size 	0x00400000
+44 	4 	unknown 	0x0
+48 	4 	unknown 	0x0
+52 	4 	MTD0 start 	0x90000000
+56 	4 	MTD0 length 	0x0
+60 	4 	MTD1 start 	0x90010000
+64 	4 	MTD1 length 	0x003b0000
+68 	4 	MTD2 start 	0x90000000
+72 	4 	MTD2 length 	0x00010000
+76 	4 	MTD3 start 	0x903c0000
+80 	4 	MTD3 length 	0x00020000
+84 	4 	MTD4 start 	0x903e0000
+88 	4 	MTD4 length 	0x00020000
+92 	4 	unknown 	0x0
+96 	4 	unknown 	0x0
+100 	4 	unknown 	0x9
+104 	4 	unknown 	0x0
+108 	4 	pointer to first free byte? 	0x90000670
+112 	4 	char * to first environment entry, more following 	0x9000096a
+... 	4 	end of pointer list 	0x0
+... 	... 	environment entry storage 	
+
+Es werden also die Einstellungen für den Memory Controller (EMIF), RAM und Flashgröße, MTD setup und ein paar wichtige, unveränderliche Environmentvariablen gespeichert. 
+
 === ADAM2 environment variables ===
 
 {{{
@@ -864,14 +901,13 @@ Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.16
 
 === Original Flash Map ===
 
-#
-Bootloader: ADAM2 (+ Environment)
-#
-Kernel: Linux 2.6.13.1-ohio
-#
-Filesystem: SquashFS (lzma compressed)
-#
-Configuration-Files: TFFS
+#Bootloader: ADAM2 (+ Environment)
+
+#Kernel: Linux 2.6.13.1-ohio
+
+#Filesystem: SquashFS (lzma compressed)
+
+#Configuration-Files: TFFS
 
 
 
@@ -879,7 +915,7 @@ Configuration-Files: TFFS
 
 (TODO)
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
-||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||empty! ||
+||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||Hidden Root! ||
 ||mtd1 ||{{{0x90010000}}} ||{{{0x90780000}}} ||{{{0x770000}}} ||kernel+jffs2 (jffs starts at 0x00580000) ||
 ||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||{{{0x010000}}} ||ADAM2/bootloader ||
 ||mtd3 ||{{{0x90780000}}} ||{{{0x907c0000}}} ||{{{0x040000}}} ||tffs (1) ? ||
@@ -889,6 +925,6 @@ Physical order of partitions on flash chip is:
 
 mtd0,mtd2,mtd1,mtd3,mtd4
 
-mtd0 is rather odd as it's 0 length!
+mtd0 is Hidden Root!
 
 CategoryModel ["CategoryAR7Device"]
