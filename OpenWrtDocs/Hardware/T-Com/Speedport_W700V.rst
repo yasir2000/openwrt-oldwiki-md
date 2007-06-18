@@ -6,6 +6,8 @@ currently a bootlog can be pulled. kernel source for 2.4 is available and is bei
 amazon cpu
 == Serial Port ==
 image coming soon
+== boot loader ==
+the bootloader is a brn loader --> http://ar7-firmware.berlios.de/doc/loader.html.en
 == Bootlog ==
 {{{
 Version 1.0.1
