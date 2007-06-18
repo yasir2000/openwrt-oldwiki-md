@@ -6,7 +6,7 @@ Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that
 
 == Troubles ==
 
-Since .21 kernel, to have Port Forwarding i.e. DNAT you need compile /lib/iptables/libipt_DNAT.soo for MIPS and put it /lib/ at router. Look https://dev.openwrt.org/ticket/1772 for more information.
+Since .21 kernel, to have Port Forwarding i.e. DNAT you need compile /lib/iptables/libipt_DNAT.so for MIPS and put it /lib/ at router. Look https://dev.openwrt.org/ticket/1772 for more information.
 
 There seems that Wi-Fi isn't work at this date (17/06/2007):
 
