@@ -198,6 +198,10 @@ Finally type ''ifup wan'' and connection should establish. You may sucnessnes of
 
 DHCP have usually critics from different people, so i don't like it too. Turn off the DHCP is very simple procedure, just input ''vi /etc/config/dhcp'' and comment all strings. Then of course go to computer's connection settings and manually set adress like 192.168.1.2 (for example), mask 255.255.255.0 and gateway 192.168.1.1. And finally reboot the router.
 
+'''Changing hostname'''
+
+Input ''vi /etc/config/system'' and change ''option hostname OpenWRT'' to ''option hostname YOURHOSTNAME''.
+
 '''Setting time'''
 
 To set current time and date you need firstly set timezone. As for it, look here for a table with timezones. http://wiki.openwrt.org/OpenWrtDocs/Configuration
