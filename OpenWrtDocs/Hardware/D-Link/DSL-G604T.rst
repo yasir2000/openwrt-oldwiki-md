@@ -10,7 +10,7 @@ Since .21 kernel, to have Port Forwarding i.e. DNAT you need libipt_DNAT.so for 
 {{{
 build_mipsel/linux-2.6-ar7/iptables-1.3.7/extensions/libipt_DNAT.so
 or
-build_mipsel/linux-2.6-brcm47xx/iptables-1.3.7/ipkg-install/usr/lib/iptables/libipt_DNAT.so
+build_mipsel/linux-2.6-ar7/iptables-1.3.7/ipkg-install/usr/lib/iptables/libipt_DNAT.so
 }}}
 
 Look https://dev.openwrt.org/ticket/1772 for more information.
