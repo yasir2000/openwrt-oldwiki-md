@@ -233,18 +233,6 @@ insted of HOST you may use any public NTP host, for example ''pool.ntp.org''.
 
 Goto ''/etc/init.d/'', and create backup directory with name you wish, for example ''hlam'', then move non-using scripts in here, for example i moved, ''br2684ctl'', ''telnet'', ''usb''.
 
-'''Changing banner'''
-
-I think, it's not good, because it's developers present and perl of this firmware :-) But if you really want it, just do ''vi /etc/banner'', delete exist strings and write your own, for example:
-
-{{{
- ______ _______ _______ _______ _______ _______ _______ ______ __ __ __ 
-|   __ \   _   |   _   |   _   |   _   |   _   |   _   |   __ \  |  |  |
-|      <       |       |       |       |       |       |      <__|__|__|
-|___|__|___|___|___|___|___|___|___|___|___|___|___|___|___|__|__|__|__|
-- grelka at home.gero.in-     - Domo-kun is very angry now! Be careful -
-}}}
-
 '''Configuring firewall'''
 
 OpenWRT uses iptables firewall, so it's very simple, play with rules - it's simplest then in default D-Link DSL-G604T web-interface, and firewall more more stable. All that you need it's to do ''vi /etc/firewall.user'' and look at commented examples. But for best understanding here are mine:
