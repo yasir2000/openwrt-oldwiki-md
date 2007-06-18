@@ -21,6 +21,8 @@ acx: can't use IRQ 0
 pci_set_power_state(): 0000:00:00.0: state=3, current state=5
 acx_pci: probe of 0000:00:00.0 failed with error -5}}}
 
+See https://dev.openwrt.org/ticket/1865 and http://wiki.openwrt.org/AR7Port situation.
+
 == Specifications ==
 
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
