@@ -8,7 +8,6 @@ This is a table of all supported devices as of 2007/06/06.
  * '''Kamikaze''' - this device is only supported in Kamikaze (development branch)
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
  * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the main !OpenWrt source tree
-
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
  * '''Info entered''' - Information about the device is entered in this list, for reference.
 See also
@@ -29,7 +28,7 @@ Notes:
 ||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64MB ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Kamikaze ||
 == Acmesystems SRL. ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.acmesystems.it FoxBoard] ||MCM ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP||
+||[http://www.acmesystems.it FoxBoard] ||MCM ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
 ||[http://www.acmesystems.it FoxBoard] ||416 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
 ||[http://www.acmesystems.it FoxBoard] ||816 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||8MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
 ||[http://www.acmesystems.it FoxBoard] ||832 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ] @100MHz ||8MB ||32MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
@@ -40,6 +39,8 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||LAN422 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||None ||Marvell 88E6060 || ||Yes ||Yes ||No ||Untested? ||
 ||W422G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||TNETW1150 ||Marvell 88E6060 ||PSPBoot ||Yes ||Yes ||No ||Untested? ||
 ||W400G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||4Mb ||16Mb ||TNETW1130 ||Realtek RTL8305SC ||PSPBoot ||No ||No ||No ||Untested? ||
+
+
 == Actiontec ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||GT701-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG:WiP] ||
@@ -60,11 +61,9 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???) ||v2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||No ||[:AR7Port:WiP] ||
 ||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||ADMtek ADM6996 ||on || || ||No ||No ||[:OpenWrtDocs/Hardware/ALLNET/ALL0277:Supported] ||
 ||[http://www.allnet.de/product_info_allnet.php?cPath=_&products_id=99968 ALL6250] ||N/A ||[http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPC8241&srch=1 Freescale MPC8241] @ 266MHz ||4MB ||64MB ||N/A ||RTL8169 ||PPCboot ||Yes ||Yes ||1x2.0, 1x1.1 ||PATA ||WiP ||
-
 == AMCC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||''Other '' ||'''Status''' ||
-||[http://www.amcc.com/Embedded/evalkits/440GX_PB_1_04.pdf Taishan]|| ||[https://www.amcc.com/MyAMCC/jsp/public/productDetail/product_detail.jsp?productID=PPC440GX AMCC PPC440GX] @ 800MHz||64MB||256MB||none, two PCI-X slots||none, 2x gigabit ethernet||N/A||Yes||Yes||None||I2C, LCD display||[:OpenWrtDocs/Hardware/AMCC/Taishan:Supported] ||
-
+||[http://www.amcc.com/Embedded/evalkits/440GX_PB_1_04.pdf Taishan] || ||[https://www.amcc.com/MyAMCC/jsp/public/productDetail/product_detail.jsp?productID=PPC440GX AMCC PPC440GX] @ 800MHz ||64MB ||256MB ||none, two PCI-X slots ||none, 2x gigabit ethernet ||N/A ||Yes ||Yes ||None ||I2C, LCD display ||[:OpenWrtDocs/Hardware/AMCC/Taishan:Supported] ||
 == Asus ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1107&modelmenu=1 AM604g] ||Since Aug-2006 ||Broadcom 96348 @ ? (128MHz timer, 256BogoMIPS) ||4Mb ||16Mb ||Broadcom BCM4318 on-board; probably option is mini-pci ||? (4 ports; BCM6348B0; supports vlans; "Ethernet Switch Through SPI Slave Select" in dmesg; actual chip is BCM5325EKQM) ||? ||Connector present on the box ||? ||no ||no ||Unknown or unsupported ||
@@ -347,7 +346,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://broadband.motorola.com/consumers/products/wr850g/default.asp WR850G] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Motorola/WR850G:Supported] ||
 ||[http://broadband.motorola.com/consumers/products/wr850gp/default.asp WR850GP] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||Supported ||
 ||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||Broadcom 3348 || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||Info entered / WiP ||
-
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||[:AR7Port:WiP] ||
@@ -384,7 +382,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||No ||Supported ||
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="TEXT-ALIGN: center">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
+||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||2MB ||8MB ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -431,7 +429,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||Speedport 500V || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] ||4MB ||16MB ||no ||None || ||yes || ||yes ||? ||
 ||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||yes ||? || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
 ||[http://www.t-com.de/service/downloads Speedport W501V] || ||TNETD7200GDW (AR7) @??MHz ||4MB ||16MB ||TNETW1350A ||None || ||yes ||? || ||Untested ||
-||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||4 MB ||16 MB? ||Atheros AR2413/5112/5212 ||Infineon ADM6996I || ||Yes || ||No ||possible ||
+||[http://www.t-com.de/service/downloads Speedport W700V] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||4 MB ||16 MB? ||Atheros AR2413/5112/5212 ||Infineon ADM6996I || ||Yes || ||No ||[:OpenWrtDocs/Hardware/T-Com/Speedport W700V:WIP] ||
 ||[http://www.t-com.de/service/downloads Speedport W701V] || ||TNETD7200ZDW (AR7) @211Mhz ||8 MB ||32 MB ||TNETW1350A ||Infineon ADM6996LC ||? ||Yes ||? ||Client ||[:OpenWrtDocs/Hardware/T-Com/SpeedportW701V:WiP] ||
 ||[http://www.t-com.de/service/downloads Speedport W900V] || ||TNETD7200ZDW (AR7) @211Mhz ||8 MB ||32 MB ||TNETW1350A ||Infineon ADM6996LC ||? ||Yes ||? ||Client ||[:OpenWrtDocs/Hardware/T-Com/SpeedportW900V:WiP] ||
 == Thomson ==
