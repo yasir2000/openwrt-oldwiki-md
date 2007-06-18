@@ -88,6 +88,25 @@ Libraries ----> linux-atm
 
 Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a}}}
 
+Optional:
+
+{{{Base system ---> busybox Configuration ---> Archival Utilities ---> unzip - Zip archivator.
+Base system ---> busybox Configuration ---> Coreutils ---> who - Show loggined users.
+Base system ---> busybox Configuration ---> Coreutils ---> whoami - Same to id.
+Base system ---> busybox Configuration ---> Networking Utilities ---> hostname - Show hostname.}}}
+
+Needed for 'Outside SSH with deprecated root login' part:
+
+{{{Base system ---> busybox Configuration ---> Login/Password Management Utilities ---> adduser - Create new users.
+Base system ---> busybox Configuration ---> Login/Password Management Utilities ---> deluser - Delete exist users.
+Base system ---> busybox Configuration ---> Login/Password Management Utilities ---> su - To become root from user.}}}
+
+Needed for 'Using web server' part:
+
+{{{
+Utilities  ---> haserl -  A CGI wrapper to embed shell scripts in HTML.
+}}}
+
 Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends of your machine's capatibles).
