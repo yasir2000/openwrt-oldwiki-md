@@ -6,7 +6,7 @@ Porting OpenWRT to the D-Link DSL-604T is a work in progress. That's means, that
 
 == Troubles ==
 
-Before and with 7668 (if you get new, compiled and installed, try it) libipt_DNAT.so needed for DNAT (Port Forwardings) isn't move automaticly, so you need manually copy this to /lib path:
+Before and with 7668 (if you get newer, compiled and installed, see if maybe /lib/libipt_DNAT.so already exist.) libipt_DNAT.so needed for DNAT (Port Forwardings) isn't move automaticly, so you need manually copy this to /lib path:
 {{{
 build_mipsel/linux-2.6-brcm47xx/iptables-1.3.7/extensions/libipt_DNAT.so
 or
