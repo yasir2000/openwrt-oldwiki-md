@@ -7,7 +7,7 @@ CPU : Broadcom BCM5836PKPBG
 Flash : Spansion S29GL064A (8Mbytes)
 RAM : 2x16Mbytes
 Switch : 5325e
-Wi-Fi :
+Wi-Fi : BCM4318
 Serial : yes
 USB : yes
 JTAG : yes
