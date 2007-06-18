@@ -1,4 +1,12 @@
-Bootlog
+[[TableOfContents]]
+= Status =
+currently a bootlog can be pulled. kernel source for 2.4 is available and is being forward ported to 2.6
+= Things we already know =
+== Hardware ==
+amazon cpu
+== Serial Port ==
+image coming soon
+== Bootlog ==
 {{{
 Version 1.0.1
 Read EEPROM
