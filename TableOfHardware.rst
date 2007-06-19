@@ -462,7 +462,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||CA8-4/CE8-1 ||? ||Atheros AR2313 @ ? MHz ||4MB ||32MB ||Atheros AR5112A ||? ||? ||Yes ||? ||No ||[:OpenWrtDocs/Hardware/Wistron/CA8-4  CE8-1:WiP], identical to Ovislink WLA-5000AP ||
 == Wippies ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://img.wippies.com/pic_gen/wippies_homebox.jpg Homebox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros (mini-PCI) ||no, 2 interface on cpu ||off ||yes ||yes ||2+1 ||2xFXO, ADSL+ ||Untested ||
+||[http://img.wippies.com/pic_gen/wippies_homebox.jpg Homebox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros AR2413A (mini-PCI) ||no, 2 interface on cpu ||off ||yes ||yes ||2+1 ||2xFXO, ADSL+ ||Untested ||
 == Yakumo ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||Yakumo Wireless Storage 60 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB (2MB?) ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||60GB 2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported - identical to the ASUS WL-HDD?] ||
