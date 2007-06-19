@@ -285,42 +285,6 @@ iptables        -A forwarding_wan -p tcp --dport 25572 -d 192.168.1.2 -j ACCEPT}
 
 Type ''/etc/init.d/firewall restart''. That's all, now it must work.
 
-'''Script to bring up ADSL if it's down and set time'''
-
-Thanks Z3r0 for skeleton and Vladimir Baboshin for advices:
-
-Create new file ''vi /etc/adsl'' and input:
-
-{{{#!/bin/sh
-
-MODEMSTATUS=$(head -n 1 /proc/avalanche/avsar_modem_training)
-ADSLSTATUS=$(ps | grep pppd)
-ADSLSTATUSLEN=$(expr "$ADSLSTATUS" : '.*')
-DATE=$(date '+%y')
-if [ "$MODEMSTATUS" = "SHOWTIME" ]; then
-
-#Set your VPI and VCI values.
-
-br2684ctl -b -c 0 -a VPI.VCI
-if [[ "$ADSLSTATUSLEN" -lt "48" ]]; then
-ifup wan
-fi
-fi
-if [ "$DATE" = "00" ]; then
-
-#Set any NTP server.
-
-rdate -s 128.138.140.44
-fi}}}
-
-Than do ''crontab -e'' and add:
-
-{{{
-*/1 * * * * sh /etc/adsl  >/dev/null 2>&1
-}}}
-
-That's will check ADSL every minute.
-
 '''Using ipkg'''
 
 ipkg is one of hearts of the OpenWRT. It's package installing/removing tool. Therefore there are small numbers of avaliable packages in Kamikaze SVN, it's useful. For example we'll remove dnsmasq and wireless-tools:
@@ -336,6 +300,51 @@ ipkg install kmod-acx
 }}}
 
 Useful commands are ''ipkg update'' for updating, ''ipkg remove <package>'' for removing, ''ipkg install <package>'' for installing, ''ipkg list'' to show avaliable packages list and ''ipkg list_installed'' to show installed packages.
+
+''Setting up dyndns''
+
+There are two tools: ''updatedd'' and ''inadyn''. Both are in unofficial package repository. We'll use second, because it don't need scripting. So go http://www.ipkg.be and find ''inadyn'' there, or get it directly using ''ipkg install http://www.forgotten-realm.net/openwrt/inadyn_1.86_mipsel.ipk''. Then do ''rm /etc/init.d/S65inadyn''. Then do ''vi /etc/inadyn.conf'' and write your values looking at example.
+
+'''Script to bring up ADSL if it's down and set time'''
+
+Thanks Z3r0 for skeleton and Vladimir Baboshin for advices:
+
+Create new file ''vi /etc/adsl'' and input:
+
+{{{#!/bin/sh
+
+MODEMSTATUS=$(head -n 1 /proc/avalanche/avsar_modem_training)
+ADSLSTATUS=$(ps | grep pppd)
+ADSLSTATUSLEN=$(expr "$ADSLSTATUS" : '.*')
+DATE=$(date '+%y')
+if [ "$MODEMSTATUS" = "SHOWTIME" ]; then
+
+# Set your VPI and VCI values.
+
+br2684ctl -b -c 0 -a VPI.VCI
+if [[ "$ADSLSTATUSLEN" -lt "48" ]]; then
+ifup wan
+
+# Need for dyndns.
+
+# sleep 5
+# /bin/inadyn
+fi
+fi
+if [ "$DATE" = "00" ]; then
+
+# Set any NTP server.
+
+rdate -s 128.138.140.44
+fi}}}
+
+Than do ''crontab -e'' and add:
+
+{{{
+*/1 * * * * sh /etc/adsl  >/dev/null 2>&1
+}}}
+
+That's will check ADSL every minute.
 
 = Other =
 
