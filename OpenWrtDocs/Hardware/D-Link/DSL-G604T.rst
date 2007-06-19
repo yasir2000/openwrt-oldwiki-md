@@ -272,7 +272,17 @@ Goto ''vi /etc/config/dropbear'' and change line ''option Port         '22' '' t
 iptables        -A input_wan      -p tcp --dport 22000 -j ACCEPT
 }}}
 
-Type ''/etc/init.d/firewall restart''. That's all, now you can connect through ssh from outside.
+3) Example Torrent and eMule rules:
+
+{{{# Torrent
+iptables -t nat -A prerouting_wan -p tcp --dport 32021 -j DNAT --to 192.168.1.2:32021
+iptables        -A forwarding_wan -p tcp --dport 32021 -d 192.168.1.2 -j ACCEPT
+
+# Mule
+iptables -t nat -A prerouting_wan -p tcp --dport 25572 -j DNAT --to 192.168.1.2:25572
+iptables        -A forwarding_wan -p tcp --dport 25572 -d 192.168.1.2 -j ACCEPT}}}
+
+Type ''/etc/init.d/firewall restart''. That's all, now it must work.
 
 = Other =
 
