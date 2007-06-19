@@ -206,7 +206,7 @@ option username "YOUR LOGIN, FOR EXAMPLE ppp******@isp"
 option password "YOUR PASSWORD"
 }}}
 
-Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet. Don't forget to manually set ISP DNS'es at computer's connection.
+Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet from router doing ''ping HOST''. Than reboot router, and start br2684ctl and ''ifup wan'' again, because ADSL works from computer after second running. Don't forget to manually set ISP DNS'es at computer's connection. 
 
 '''Turning off the DHCP'''
 
