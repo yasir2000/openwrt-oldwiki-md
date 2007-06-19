@@ -240,7 +240,15 @@ So type:
 rdate -s HOST
 }}}
 
-instead of HOST you may use any public NTP host, for example ''pool.ntp.org''.
+Instead of HOST you may use any public NTP host, for example ''pool.ntp.org''.
+
+Than add rule to crontab, doing ''crontab -e'':
+
+{{{
+0 0 * * * /usr/sbin/rdate -s 128.138.140.44 >/dev/null 2>&1
+}}}
+
+You may use any other NTP-server instead of 128.138.140.44. That's will correct time every day at 00:00.
 
 '''Turning off non-using daemons'''
 
@@ -304,6 +312,14 @@ if [ "$DATE" = "00" ]; then
 
 rdate -s 128.138.140.44
 fi}}}
+
+Than do ''crontab -e'' and add:
+
+{{{
+*/1 * * * * sh /etc/adsl  >/dev/null 2>&1
+}}}
+
+That's will check ADSL every minute.
 
 '''Using ipkg'''
 
