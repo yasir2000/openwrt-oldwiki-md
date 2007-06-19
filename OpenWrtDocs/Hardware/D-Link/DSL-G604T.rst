@@ -262,6 +262,8 @@ OpenWRT uses iptables firewall, so it's very simple, play with rules - it's simp
 {{{iptables -t nat -A prerouting_wan -p tcp -j DROP
 iptables        -A input_wan      -p tcp -j DROP}}}
 
+WARNING! IT'S ALWAYS MUST BEEN AFTER ALL OTHER RULES, I.E. EVERY TIME IT MUST BE AT THE END OF FILE.
+
 2) SSH on port 22000 and open from outside. Let's start:
 
 Goto ''vi /etc/config/dropbear'' and change line ''option Port         '22' '' to ''option Port         '22000' '', then save and restart router. Then go ''vi /etc/firewall.user'' and add such lines:
