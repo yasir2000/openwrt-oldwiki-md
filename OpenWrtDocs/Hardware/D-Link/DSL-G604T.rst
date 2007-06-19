@@ -301,7 +301,7 @@ ipkg install kmod-acx
 
 Useful commands are ''ipkg update'' for updating, ''ipkg remove <package>'' for removing, ''ipkg install <package>'' for installing, ''ipkg list'' to show avaliable packages list and ''ipkg list_installed'' to show installed packages.
 
-''Setting up dyndns''
+'''Setting up dyndns'''
 
 There are two tools: ''updatedd'' and ''inadyn''. Both are in unofficial package repository. We'll use second, because it don't need scripting. So go http://www.ipkg.be and search for ''inadyn'' there, or get it directly using ''ipkg install http://www.forgotten-realm.net/openwrt/inadyn_1.86_mipsel.ipk''. Then do ''rm /etc/init.d/S65inadyn''. Then do ''vi /etc/inadyn.conf'' and write your values looking as in example.
 
