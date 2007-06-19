@@ -93,7 +93,9 @@ Base system ---> br2684ctl
 
 Libraries ----> linux-atm
 
-Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a}}}
+Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a
+
+Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] httpd (Turn off).}}}
 
 Optional:
 
