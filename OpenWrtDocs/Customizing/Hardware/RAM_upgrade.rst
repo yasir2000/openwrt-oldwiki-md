@@ -9,7 +9,7 @@
 Originaly WRT54GL come with the Hynix HY5DU281622ET-J which are 16MB.
 This chip is pin-to-pin compatible with the Micron's [http://download.micron.com/pdf/datasheets/dram/ddr/512MBDDRx4x8x16.pdf MT46V32M16] chip which is 64MB.
 
-If you do not have a professional grade soldering station with a hot air gun you may follow these [http://www.megajournal.ru/journal/users_data/11049/msg_files/24469/video2_tsop48.wmv video] instructions (a ~7MB wmf clip).
+If you do not have a professional grade soldering station with a hot air gun you may follow these [http://www.megajournal.ru/journal/users_data/11049/msg_files/24469/video2_tsop48.wmv video] instructions (a ~7MB wmv clip).
 
 The replaced chip should give you a 32MB of RAM on the first power-up.
 
