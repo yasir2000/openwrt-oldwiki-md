@@ -303,9 +303,9 @@ Useful commands are ''ipkg update'' for updating, ''ipkg remove <package>'' for 
 
 ''Setting up dyndns''
 
-There are two tools: ''updatedd'' and ''inadyn''. Both are in unofficial package repository. We'll use second, because it don't need scripting. So go http://www.ipkg.be and find ''inadyn'' there, or get it directly using ''ipkg install http://www.forgotten-realm.net/openwrt/inadyn_1.86_mipsel.ipk''. Then do ''rm /etc/init.d/S65inadyn''. Then do ''vi /etc/inadyn.conf'' and write your values looking at example.
+There are two tools: ''updatedd'' and ''inadyn''. Both are in unofficial package repository. We'll use second, because it don't need scripting. So go http://www.ipkg.be and search for ''inadyn'' there, or get it directly using ''ipkg install http://www.forgotten-realm.net/openwrt/inadyn_1.86_mipsel.ipk''. Then do ''rm /etc/init.d/S65inadyn''. Then do ''vi /etc/inadyn.conf'' and write your values looking as in example.
 
-'''Script to bring up ADSL if it's down and set time'''
+'''Script to bring up ADSL if it's down, set time and start dyndns updating service'''
 
 Thanks Z3r0 for skeleton and Vladimir Baboshin for advices:
 
