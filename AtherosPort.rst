@@ -39,6 +39,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * D-Link [http://www.dlink.com/products/?pid=292 DWL-2100AP] (AR5002AP-G : core AR2312@180/240MHz, radio AR2112)
  * D-Link [http://www.dlink.com/products/?pid=304 DWL-7100AP] (AR5002AP-2X)
  * D-Link DWL-774 (AR5002AP-2X) (discontinued)
+ * LevelOne WBR-3405TX : AR2313A and Marvell 88E6060 switch
  * Linksys [:OpenWrtDocs/Hardware/Linksys/WRT55AG: WRT55AG v2] [http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 Product Link] (AR5002AP-2X)
  * Meraki [http://www.meraki.net/mini.html Mini] (AR2315) - source available for [http://www.meraki.net/linux Meraki's own Linux port]
  * MicraDigital/Belkin F5D7230 (ver.1020ec) (AR2315A)
