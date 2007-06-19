@@ -8,6 +8,8 @@
 
 *TNETW1130GVF           Single-Chip MAC and Baseband Processor for IEE 802.11 a/b/g.
 
+On AAM6020VI-T4 the WLAN card is in a mini-pci slot. The -T? bit is still confusing, while on the box it's is -T4 on the pcb -T2 is written. That also says revision 1.0 .
+
 
 == Similar Openwrt dev list devices ==
 
