@@ -234,20 +234,13 @@ echo "MSK-3MSD,M3.5.0/2,M10.5.0/3" > /etc/TZ
 
 The D-Link DSL-G604T haven't real-time clock hardware onboard, and must get the date and time at boot or use the default of 2000-01-01. So only way is use NTP-client such as ''rdate''.
 
-Edit the crontab file by typing:
+So type:
 
 {{{
-crontab -e
+rdate -s HOST
 }}}
 
-Then add this lines to the file:
-
-{{{
-@reboot /usr/sbin/rdate -s HOST
-30 6 * * * /usr/sbin/rdate -s HOST
-}}}
-
-insted of HOST you may use any public NTP host, for example ''pool.ntp.org''.
+instead of HOST you may use any public NTP host, for example ''pool.ntp.org''.
 
 '''Turning off non-using daemons'''
 
