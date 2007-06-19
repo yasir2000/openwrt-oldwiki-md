@@ -77,7 +77,7 @@ Goto Linux console and type:
 
 ''svn co https://svn.openwrt.org/openwrt/trunk''
 
-My revision was Kamikaze 7668 (bleeding edge, r7631). If your want to specify revision number type:
+My revision was Kamikaze 7671 (bleeding edge, r7631). If your want to specify revision number type:
 
 ''svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk''
 
