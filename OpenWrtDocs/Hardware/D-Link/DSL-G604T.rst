@@ -277,6 +277,22 @@ iptables        -A forwarding_wan -p tcp --dport 25572 -d 192.168.1.2 -j ACCEPT}
 
 Type ''/etc/init.d/firewall restart''. That's all, now it must work.
 
+'''Using ipkg'''
+
+ipkg is one of hearts of the OpenWRT. It's package installing/removing tool. Therefore there are small numbers of avaliable packages in Kamikaze SVN, it's useful. For example we'll remove dnsmasq and wireless-tools:
+
+{{{ipkg update
+ipkg remove dnsmasq
+ipkg remove wireless-tools}}}
+
+and install wi-fi driver:
+
+{{{
+ipkg install kmod-acx
+}}}
+
+Useful commands are ''ipkg update'' for updating, ''ipkg remove <package>'' for removing, ''ipkg install <package>'' for installing, ''ipkg list'' to show avaliable packages list and ''ipkg list_installed'' to show installed packages.
+
 = Other =
 
 '''Materials'''
