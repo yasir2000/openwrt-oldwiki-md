@@ -98,21 +98,7 @@ Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a}}}
 Optional:
 
 {{{Base system ---> busybox Configuration ---> Archival Utilities ---> unzip - Zip archivator.
-Base system ---> busybox Configuration ---> Coreutils ---> who - Show loggined users.
-Base system ---> busybox Configuration ---> Coreutils ---> whoami - Same to id.
 Base system ---> busybox Configuration ---> Networking Utilities ---> hostname - Show hostname.}}}
-
-Needed for 'Outside SSH with deprecated root login' part:
-
-{{{Base system ---> busybox Configuration ---> Login/Password Management Utilities ---> adduser - Create new users.
-Base system ---> busybox Configuration ---> Login/Password Management Utilities ---> deluser - Delete exist users.
-Base system ---> busybox Configuration ---> Login/Password Management Utilities ---> su - To become root from user.}}}
-
-Needed for 'Using web server' part:
-
-{{{
-Utilities  ---> haserl -  A CGI wrapper to embed shell scripts in HTML.
-}}}
 
 Exit from configure menu and save settings.
 
@@ -196,8 +182,6 @@ My congratulations, you finally flashed it :-)
 
 There isn't such :-) There is webif^2 admin interface, but still there isn't it's support in Kamikaze, only in White Russian, so wait. While you can see http://www.bitsum.com/xwrt/ screenshots, and think how it's power. I think so, but now there isn't better solution, so only good solution is use console and your hands, i'll help you, you can see some information below.
 
-But there is http daemon, so you may store any content in ''/www'' folder, or turn off daemon start, look at section "Turning off non-using daemons".
-
 '''Setting up ADSL'''
 
 Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo and shell welcome, input ''passwd'' and set root's password, after this and one reboot telnet will not avaliable anymore. After this connect with PuTTY to 192.168.1.1 and you'll be in the system.
@@ -224,7 +208,7 @@ Finally type ''ifup wan'' and connection should establish. You may sucnessnes of
 
 '''Turning off the DHCP'''
 
-DHCP have usually critics from different people, so i don't like it too. Turn off the DHCP is very simple procedure, just input ''vi /etc/config/dhcp'' and comment all strings. Then of course go to computer's connection settings and manually set adress like 192.168.1.2 (for example), mask 255.255.255.0 and gateway 192.168.1.1. And finally reboot the router.
+DHCP have usually critics from different people, so i don't like it too. Turn off the DHCP is very simple procedure, just do ''rm /etc/config/dhcp''. Then of course go to computer's connection settings and manually set adress like 192.168.1.2 (for example), mask 255.255.255.0 and gateway 192.168.1.1. And finally reboot the router.
 
 '''Changing hostname'''
 
@@ -285,12 +269,6 @@ iptables        -A input_wan      -p tcp --dport 22000 -j ACCEPT
 }}}
 
 Type ''/etc/init.d/firewall restart''. That's all, now you can connect through ssh from outside.
-
-3) Web server at port 8000 (it's for example, because my ISP blocks 80 port):
-
-Goto ''vi /etc/init.d/httpd'' and change ''[ -d /www ] && httpd -p 80 -h /www -r ${hostname:-OpenWRT}'' to ''[ -d /www ] && httpd -p 8000 -h /www -r ${hostname:-OpenWRT}'', then ''/etc/init.d/httpd restart''.
-
-Do firewall config with analogue of previous example, but with new port value, 8000, and save. Again do ''/etc/init.d/firewall restart''. That's all.
 
 = Other =
 
