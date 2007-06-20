@@ -24,3 +24,6 @@ and power-cycle your WRT54GL.
 === Compatibility ===
 These instructions should be valid for WRT54G v2~v4 devices.
 (Not tested yet, if you do - post your results)
+
+=== Where to get a RAM chip from? ===
+The easyest way to obtain a 66-pin TSOP memory chip is to unsolder it from any four-chip SoDIMM DDR 256MB module. For example, the Kingston's KVR400X64SC3A/256 is one of them.
