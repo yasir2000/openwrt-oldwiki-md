@@ -314,26 +314,29 @@ Create new file ''vi /etc/adsl'' and input:
 {{{#!/bin/sh
 
 MODEMSTATUS=$(head -n 1 /proc/avalanche/avsar_modem_training)
+BR=$(ps | grep br2684ctl | wc -l)
+DDNS=$(ps | grep inadyn | wc -l)
 ADSLSTATUS=$(ps | grep pppd)
 ADSLSTATUSLEN=$(expr "$ADSLSTATUS" : '.*')
 DATE=$(date '+%y')
 if [ "$MODEMSTATUS" = "SHOWTIME" ]; then
+if [[ "$BR"  = 1 ]]; then
 
-# Set your VPI and VCI values.
+# Set your VPI and VCI values
 
 br2684ctl -b -c 0 -a VPI.VCI
+fi
+if [[ "$DDNS"  = 1 ]]; then
+sleep 10
+/bin/inadyn
+fi
 if [[ "$ADSLSTATUSLEN" -lt "48" ]]; then
 ifup wan
-
-# Need for dyndns.
-
-# sleep 5
-# /bin/inadyn
 fi
 fi
 if [ "$DATE" = "00" ]; then
 
-# Set any NTP server.
+# You may use any other NTP server
 
 rdate -s 128.138.140.44
 fi}}}
