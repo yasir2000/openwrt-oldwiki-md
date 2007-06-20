@@ -322,11 +322,8 @@ DATE=$(date '+%y')
 
 if [ "$MODEMSTATUS" = "SHOWTIME" ]; then
 br2684ctl -b -c 0 -a VPI.VCI
-fi
 if [[ "$ADSLSTATUSLEN" -lt "48" ]]; then
-ifup wan
-sleep 5
-/bin/inadyn
+ifup wan; sleep 5; /bin/inadyn
 fi
 fi
 if [ "$DATE" = "00" ]; then
