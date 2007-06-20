@@ -41,4 +41,8 @@ See the ["OpenWrtDocs/Configuration"] section ''iptables  - Firewall'' for more 
 Your username is {{{root}}} and your password is the password you set with the {{{passwd}}} command.
 
 = Installing to External Storage =
-If installing to external storage say /opt, need to copy or move the config file to from say /opt/etc/vsftpd.conf to /etc/vsftpd.conf. Will only read the config file from /etc.
+If installing to external storage you will need to create symbolic links to several files. Create the following links to their corresponding locations on your external media:
+ * usr/sbin/vsftpd
+ * etc/vsftpd.conf
+
+/!\ '''NOTE:''' See section 4.3 at UsbStorageHowto for a very handy script called {{{ipkg-link}}} which will '''automagically''' perform all the necessary linking to packages installed on external media.
