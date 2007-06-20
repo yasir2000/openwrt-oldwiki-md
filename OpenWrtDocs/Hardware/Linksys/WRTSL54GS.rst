@@ -38,8 +38,9 @@ The antenna is *NOT* removable. Well not without some soldering work.
     |  [1] [2] [3] [4]   [wan]   [wifi] |
     '-case------------------------------'
 }}}
+This design is different from many units which use a single interface to handle both LAN & WAN traffic, so performance should be better.
 
-Note switch port 4 is not externally available. This design is different from many units which use a single interface to handle both LAN & WAN traffic, so performance should be better.
+Note that internal switch port 4 is not externally available.
 
 = Hardware hacking =
 
@@ -128,6 +129,11 @@ The board has functional position for a stacked dual-USB port, although it is on
 
 == LED10 ==
 The LED10 location at front of board contains no LED. Perhaps it is usable for something. But it does not appear to be connected directly to a GPIO pin as a voltmeter shows nothing when cycling all GPIO lines.
+
+== RAM upgrade ==
+RAM upgrade to 64 megs is possible by adding the 20 missing resistors and another 32-meg chip.  Noted in the Links section as having been done using a Micron MT46V16M16 which is pin-compatible replacement for the Hynix.
+
+It is likely that by replacement of original RAM chip with a 64-meg one like Micron MT46V32M16, plus a second one at the unoccupied position, the memory could be upgraded to 128 megs.
 
 = Board info and CPU model =
 ||'''Model'''||'''boardrev'''||'''boardtype'''||'''boardflags'''||'''boardnum'''||'''wl0_corerev'''||'''cpu  model'''||
