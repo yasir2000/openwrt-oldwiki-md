@@ -82,8 +82,8 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
-
 After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.
+
  * The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown:
   * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
   * The new ggsip program handles '''all''' voice related configuration.  Almost all voice-related web pages are generated within ggsip.  Some voice pages still linger in the file system, but they are unused.
@@ -91,7 +91,6 @@ After some experiments with a few WRTP54G-ER units bought in April 2007, further
   * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
   * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
   * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
-
 customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip
 
 NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password
@@ -411,6 +410,22 @@ If your router is running an NA firmware, the username needed in step seven is p
 If your router has Vonage firmware on it, the procedure is slightly more complicated. First, you should plug your router into the Internet so that it can load its configuration from Vonage's servers. This will give you a user name of "user" and a password of "tivonpw" which you can use in step seven. Second, there will be no "Firmware Update" tab in step six. Instead, enter http://192.168.15.1/update.html. (Note: this procedure is incomplete and not entirely correct. One must at some point also go to Administration/Factory Defaults and reset the router and voice configuration to factory defaults.)
 
 If you get a page-not-found error after logging in in step seven, do not dispair. This is bug in some firmwares. Simply enter the address http://192.168.15.1/update.html into your browser and continue from there.
+
+'''WARNING USE AT YOUR OWN RISK - Note:''' Anyone not able to get past the user password issues should try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
+
+http://www.bargainshare.com/index.php?showtopic=87504
+
+I used it successfully on a WRTP54G Firmware 1.062, even though the user pwd was originally tivonpw, I couldn't get that password to let me at the firmware upgrade tab as indicated above;  devices listed:
+
+- Linksys WRTP54G - 2 phone ports, 4 port router, wireless
+- Linksys RTP300 -  2 phone ports, 4 port router
+- Linksys RTP200
+- Linksys PAP2'''v2.0'''- 2 phone ports
+- Vtech IP8100 - Cordless SIP phone with base
+- Motorola  VT2442 - 2 phone ports, 4 port router
+- D-Link VTA-VR - 2 phone ports
+-  Linksys WAG54GP2 - 2 phone ports, DSL router
+Edited 6/20/07 - cef1000
 
 == Using Firmware Update on the Provisioning Page ==
 VOIP providers can configure these routers to periodically download a VOIP configuration file. This file contains VOIP settings and login credentials for the provider's SIP server. This process is called "provisioning". The "provisioning" file can also instruct the router to download and install a new firmware. The Provisioning page in the web interface can also be used to initiate this process. This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page. Here is the procedure for the 3.1.XX series firmware:
