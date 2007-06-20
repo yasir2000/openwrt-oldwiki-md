@@ -338,6 +338,12 @@ if [ "$DATE" = "00" ]; then
 rdate -s 128.138.140.44
 fi}}}
 
+Do it executable:
+
+{{{
+chmod 755 /etc/adsl
+}}}
+
 Than do ''crontab -e'' and add:
 
 {{{
