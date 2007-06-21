@@ -1,6 +1,6 @@
 This table contains successfully or unsuccessfully tested peripherals.
 
-Please report testing on petr.stetina @ braien.com. I will in turn update this page.
+Please report testing on petr.stetina @ braien.com. I will then update this page in turn.
 
 == USB Hubs ==
 ||Device||Distribution||Hardware||Status||Note||
