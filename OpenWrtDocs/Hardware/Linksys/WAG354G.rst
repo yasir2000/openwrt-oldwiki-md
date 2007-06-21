@@ -114,8 +114,20 @@ TOTAL = 4096K = 4M
 }}}
 ----------
 
+
+==Build Openwrt==
+
+The latest openwrt kamikaze has more recent ADSL drivers with support of ADSL2+, and a preliminary support for the wireless card, using the open soure drivers by the [http://acx100.sourceforge.net/ ACX100 project] .
+
+Checkout the latest kamikaze trunk:
+{{{
+svn co https://svn.openwrt.org/openwrt/trunk/
+}}}
+As trunk is always changing it may happen something will not work as expected, both in compilation or use of the firmware.
+Use '''make menuconfig''' and choose as target platform '''AR7'''. Then in kernel configuration select [*] the Annex that matches your router.
+
+
 == Running OpenWRT ==
-The target platform to select for building the firmware is AR7. At now openwrt comes with a 2.4 and a 2.6 kernel, and both of theme works on WAG354G. However I suggest you the latest 2.6 kernel, because it has more recent ADSL drivers with support of ADSL2+, and a preliminary support for the wireless card, using the open soure drivers by the [http://acx100.sourceforge.net/ ACX100 project] .
 
 '''The following configuration applies only to OpenWRT Kamikaze with 2.6 kernel version.'''
 
