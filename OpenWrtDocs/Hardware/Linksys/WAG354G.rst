@@ -23,7 +23,7 @@ Processor: ''MIPS 4KEc V4.8'' @ 150 MHz
 
 Wireless chipset: ''TI TNETW1130''
 
-Expansions: '''minipci slot''' for wireless card (maybe can be used for other cards?)
+Expansions: '''minipci slot''' for wireless card (connected to the processor via a VLYNQ bus)
 
 Internal:
 
@@ -83,7 +83,7 @@ to be written (& tested)...
  . '''Mods'''
 Possible mods:
 
- * Replace wireless card with one more supported, e.g. with atheros chipset.
+ * Replace wireless card with a better supported one, e.g. with an atheros chipset.
  * Replace wireless card with a [http://www.neutronexpress.com/prod.cfm/374905/AAEON_SYSTEMS/PER-C20U-A10/MINI_PCI_4_PORT_USB_2.0_MODULE_WITH_NEC minipci usb module]
  * Add an SD card reader.
 to be written (& tested)...
@@ -115,7 +115,7 @@ TOTAL = 4096K = 4M
 ----------
 
 
-==Build Openwrt==
+== Building Openwrt ==
 
 The latest openwrt kamikaze has more recent ADSL drivers with support of ADSL2+, and a preliminary support for the wireless card, using the open soure drivers by the [http://acx100.sourceforge.net/ ACX100 project] .
 
