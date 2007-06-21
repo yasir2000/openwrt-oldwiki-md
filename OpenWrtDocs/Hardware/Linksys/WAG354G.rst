@@ -124,7 +124,12 @@ Checkout the latest kamikaze trunk:
 svn co https://svn.openwrt.org/openwrt/trunk/
 }}}
 As trunk is always changing it may happen something will not work as expected, both in compilation or use of the firmware.
-Use '''make menuconfig''' and choose as target platform '''AR7'''. Then in kernel configuration select [*] the Annex that matches your router.
+
+Now you have to set up the configuration entering
+{{{
+make menuconfig
+}}}
+Choose as target platform '''AR7'''. Then in kernel configuration select [*] the Annex that matches your router.
 
 
 == Running OpenWRT ==
