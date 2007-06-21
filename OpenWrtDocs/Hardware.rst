@@ -33,3 +33,7 @@ You can identify them better using the serial number table on [http://en.wikiped
 ===== Hardware Notes =====
 
 [[PageList(OpenWrtDocs/Hardware)]]
+
+==== Tested peripherals ====
+
+[OpenWrtDocs/TableOfPeripherals]
