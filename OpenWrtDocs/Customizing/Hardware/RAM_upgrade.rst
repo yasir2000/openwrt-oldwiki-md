@@ -34,3 +34,5 @@ Look for a four-chip single-sided 256MB or for an eight-chip double-sided 512MB 
 The WRT54GL needs a 16-bit-wide databus device, here is the list of an 8-bit devices seen on some SoDIMM modules:
 
 Stay away from an ELPIDA's [http://www.elpida.com/pdfs/E0699E50.pdf D5108AFTA-5B-E] available on an eight-chip double-sided 512MB module.
+
+Stay away from an Infineon's [http://www.infineon.com/upload/Document/Memory%20Products/DS/HYB25D256xxxCx_rev212_www.pdf HYB25D256800] available on some Kingston's modules!
