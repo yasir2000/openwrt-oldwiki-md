@@ -7,7 +7,7 @@
 On AAM6020VI-T4 the WLAN card is in a mini-pci slot. The -T? bit is still confusing, while on the box it's is -T4 on the pcb -T2 is written. That also says revision 1.0 .
 
 == Debug HW ==
-There is a 2x4 (male pins) EJATG connector and another 2x3 female one without a specific label (only says J1).
+There is a 2x4 (male pins) EJTAG ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"] connector and another 2x3 female one without a specific label (only says J1).
 
 == Similar Openwrt dev list devices ==
 Castlenet ["OpenWrtDocs/Hardware/Castlenet/ASW800"]
