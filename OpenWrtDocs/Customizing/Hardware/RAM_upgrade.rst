@@ -7,7 +7,7 @@
 #language en
 == WRT54GL v1.0 and v1.1 RAM upgrade ==
 Originaly WRT54GL come with the Hynix HY5DU281622ET-J which are 16MB.
-This chip is pin-to-pin compatible with the Micron's [http://download.micron.com/pdf/datasheets/dram/ddr/512MBDDRx4x8x16.pdf MT46V32M16] chip which is 64MB.
+These chips are pin-to-pin compatible with the Micron's [http://download.micron.com/pdf/datasheets/dram/ddr/512MBDDRx4x8x16.pdf MT46V32M16] chip which is 64MB.
 
 If you do not have a professional grade soldering station with a hot air gun you may follow these [http://www.megajournal.ru/journal/users_data/11049/msg_files/24469/video2_tsop48.wmv video] instructions (a ~7MB wmv clip).
 
@@ -26,4 +26,7 @@ These instructions should be valid for WRT54G v2~v4 devices.
 (Not tested yet, if you do - post your results)
 
 === Where to get a RAM chip from? ===
-The easyest way to obtain a 66-pin TSOP memory chip is to unsolder it from any four-chip SoDIMM DDR 256MB module. For example, the Kingston's KVR400X64SC3A/256 is one of them.
+The easyest way to obtain a 66-pin TSOP memory chip is to unsolder it from a SoDIMM DDR module.
+Look for a four-chip single-sided 256MB or for an eight-chip double-sided 512MB one. For example, the Kingston's KVR400X64SC3A/256 is one of them and KVR400X64SC3A/512 is the other.
+
+Stay away from an ELPIDA's D5108AFTA-5B-E (available on an eight-chip double-sided 512MB module), they are 8-bit databus, the WRT54GL needs a 16-bit wide databus device.
