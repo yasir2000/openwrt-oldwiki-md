@@ -29,4 +29,4 @@ These instructions should be valid for WRT54G v2~v4 devices.
 The easyest way to obtain a 66-pin TSOP memory chip is to unsolder it from a SoDIMM DDR module.
 Look for a four-chip single-sided 256MB or for an eight-chip double-sided 512MB one. For example, the Kingston's KVR400X64SC3A/256 is one of them and KVR400X64SC3A/512 is the other.
 
-Stay away from an ELPIDA's D5108AFTA-5B-E (available on an eight-chip double-sided 512MB module), they are 8-bit databus, the WRT54GL needs a 16-bit wide databus device.
+Stay away from an ELPIDA's [http://www.elpida.com/pdfs/E0699E50.pdf D5108AFTA-5B-E] (available on an eight-chip double-sided 512MB module), they are 8-bit databus, the WRT54GL needs a 16-bit wide databus device.
