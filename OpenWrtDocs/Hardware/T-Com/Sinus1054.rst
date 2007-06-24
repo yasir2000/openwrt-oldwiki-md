@@ -2,10 +2,10 @@
 The Sinus 1054 is based on the Broadcom BCM 6345 KPB chip. It is OEM Product produced by Hitachi for Deutsche Telekom.
 
 == Hardware Parts used ==
-
+attachment:sin1054.jpg
 
 Devices on top of the board are:
-||<tablewidth="410px" tablestyle="">Amount ||Type ||
+||<tablewidth="410px">Amount ||Type ||
 ||1 ||BCM4306KFB ||
 ||1 ||MX29LV320ATTC-70 ||
 ||1 ||BCM6345KPB ||
