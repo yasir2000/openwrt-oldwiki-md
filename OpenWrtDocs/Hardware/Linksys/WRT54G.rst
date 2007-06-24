@@ -2,7 +2,7 @@
 = Linksys WRT54G =
 There are currently many versions of the WRT54G. With the exception of v5 devices the WRT54G units are supported by OpenWrt 0.9 (White Russian) and later. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
-Some consider the ["L"] and ["3G"] to be versions of this model.
+Some consider the [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL] and [:OpenWrtDocs/Hardware/Linksys/WRT54G3G:WRT54G3G] to be versions of this model.
 
 {{{boot_wait}}} is '''off''' by default on these routers, so you should turn it on, see OpenWrtDocs/BootWait.
 
