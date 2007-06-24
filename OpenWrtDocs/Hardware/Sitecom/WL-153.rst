@@ -296,4 +296,4 @@ udhcp client (v0.9.9-pre) started
 into eth1.deconfig
 }}}
 ----
-CategoryModel ["CategoryRDC3211Device"]
+CategoryModel ["RDCPort"]
