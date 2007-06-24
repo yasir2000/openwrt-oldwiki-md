@@ -3,12 +3,18 @@ The Sitecom WL-153 is based on the RDC 3211 x86 compatible chip.
 
 == Hardware Parts used ==
 Devices on bottom of board are:
+
+attachment:WL153BOT.JPG
+
 ||<tablewidth="410px" tableheight="92px">Amount ||Type ||
 ||2 ||ESMT M12L64164A-7T ||
 ||1 ||RDC-R3211-G ||
 
 
 Devices on top of the board are:
+
+attachment:WL153TOP.JPG
+
 ||<tablewidth="410px" tableheight="129px">Amount ||Type ||
 ||1 ||MX29LV160BBTC-70 ||
 ||1 ||RT2661T ||
