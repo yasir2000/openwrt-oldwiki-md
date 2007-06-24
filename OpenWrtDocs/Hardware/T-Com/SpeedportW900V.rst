@@ -14,6 +14,8 @@ Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and 
 Being an AR7 device it also has a built-in ADSL Modem, the Speedport W900V also features as ISDN socket and two telephone sockets for VoIP use.
 
 
+
+
 CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
@@ -159,6 +161,14 @@ Character devices:
 Block devices:
  31 mtdblock
 }}}
+
+=== mem ===
+{{{
+            total         used         free       shared      buffers
+  Mem:        30476        27432         3044            0         3360
+ Swap:            0            0            0
+Total:        30476        27432         3044
+{{{
 
 === IOMEM ===
 {{{
