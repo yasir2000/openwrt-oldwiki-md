@@ -161,18 +161,17 @@ As your machines release and renew their DHCP configuration they will obtain the
 By default, the option {{{filterwin2k}}} in dnsmasq is activated, which seems to  cause dnsmasq to block any queries for {{{SRV}}} records. {{{SRV}}} records are '''not''' only used by windows computers to find the domaincontroller and such, they are also used by e.g SIP-Phones to find the server responsible for a given domain ({{{SRV}}} records are a kind of generalized {{{MX}}} records). Therefore, the {{{filterwin2k}}} options needs to be disabled (commented out in {{{/etc/dnsmasq.conf}}}) in order to let SIP-Phones work that use dnsmasq as their DNS server.
 
 == Add a secondary DNS ==
-what to do if you already have a DNS server(secondary DNS server) but you want your router(primary DNS server) to resolve some of the DNS queries:
-simply do the following:
+What to do if you already have a DNS server(secondary DNS server) but you want your router(primary DNS server) to resolve some of the DNS queries? Simply do the following:
 {{{
 rm /etc/resolv.conf
 }}}
-That will remove the resolv.conf simlink[[BR]]
-then we will add the ip address of the secondary DNS inside the /etc/resolve.conf file
+That will remove the resolv.conf symlink.[[BR]]
+Then we will add the ip address of the secondary DNS inside the /etc/resolve.conf file
 {{{
 echo "nameserver 192.168.1.2">/etc/resolv.conf
 }}}
-remplace 192.168.1.2 by the ip of your dns server[[BR]]
-then reboot or restart the dnsmasq service
+Replace 192.168.1.2 by the ip of your dns server[[BR]]
+then reboot or restart the dnsmasq service.
 {{{
 reboot
 }}}
@@ -182,21 +181,21 @@ killall dnsmasq
 /etc/init.d/S60dnsmasq start
 }}}
 
-Then you'll need to set-up your secondary dns for resolving internet's DNS queries:[[BR]]
+Then you'll need to set up your secondary dns for resolving internet's DNS queries:[[BR]]
 ssh into your router then:
 {{{
 cat /tmp/resolv.conf.auto
 }}}
-it will give you something like that:[[BR]]
+it will give you something like this:[[BR]]
 {{{
 nameserver 212.68.193.110
 nameserver 212.68.193.196
 }}}
-copy the information and then add it to your secondary DNS's /etc/resolv.conf:[[BR]]
+Copy the information and then add it to your secondary DNS's /etc/resolv.conf:[[BR]]
 into your secondary dns do:
 {{{
 rm /etc/resolv.conf
 echo "nameserver 212.68.193.110">>/etc/resolv.conf
 echo "nameserver 212.68.193.196">>/etc/resolv.conf
 }}}
-remplace 212.68.193.110 and 212.68.193.196 by the dns you have get with the cat /tmp/resolv.conf.auto command
+Replace 212.68.193.110 and 212.68.193.196 with the IP addresses you have gotten with the cat /tmp/resolv.conf.auto command.
