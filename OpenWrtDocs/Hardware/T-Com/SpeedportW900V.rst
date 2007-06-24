@@ -19,6 +19,9 @@ CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
 === Photos ===
+
+http://ipkg.k1k2.de/jb24img/pict1605.jpg
+
 http://img177.imageshack.us/img177/5249/pict1605te5.jpg
 
 http://img518.imageshack.us/img518/631/pict1606um5.jpg
@@ -151,6 +154,26 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 {{{
 setenv kernel_args idle=4
 unsetenv mtd5
+}}}
+
+=== Building/Compiling original kernel from source ===
+
+For compiling the original (factory made) kernel 2.6.13.1-ohio
+
+get the GPL sources from:
+
+http://www.t-home.de/dlp/eki/downloads/Speedport/Speedport%20W%20900V/GPL-r4884-8mb_26-tar.bz2
+
+
+
+* unzip GPL-r4884-8mb_26-tar.bz2
+{{{
+tar -jxvf GPL-r4884-8mb_26-tar.bz2 /buildroot/W900V-orig/
+}}}
+
+* setting up/correct buildroot
+{{{
+tar -jxvf GPL-r4884-8mb_26-tar.bz2 /buildroot/W900V-orig/
 }}}
 
 == Original Flash Map ==
