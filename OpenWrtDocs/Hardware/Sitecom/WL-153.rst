@@ -5,7 +5,6 @@ The Sitecom WL-153 is based on the RDC 3211 x86 compatible chip.
 Devices on bottom of board are:
 
 attachment:WL153BOT.JPG
-
 ||<tablewidth="410px" tableheight="92px">Amount ||Type ||
 ||2 ||ESMT M12L64164A-7T ||
 ||1 ||RDC-R3211-G ||
@@ -14,7 +13,6 @@ attachment:WL153BOT.JPG
 Devices on top of the board are:
 
 attachment:WL153TOP.JPG
-
 ||<tablewidth="410px" tableheight="129px">Amount ||Type ||
 ||1 ||MX29LV160BBTC-70 ||
 ||1 ||RT2661T ||
@@ -296,4 +294,4 @@ udhcp client (v0.9.9-pre) started
 into eth1.deconfig
 }}}
 ----
-CategoryModel ["RDCPort"]
+ CategoryModel ["RDCPort"] CategoryRDC
