@@ -107,7 +107,7 @@ SAR HAL version: [01.07.2b]
 PDSP Firmware version:[0.54]
 }}}
 
-=== Loaded kernel modules === 
+=== ATM Driver Info (TI Avalanche SAR) ===
 {{{
 cat /proc/modules
 tiap 880464 0 - Live 0xc04a4000
