@@ -294,4 +294,4 @@ udhcp client (v0.9.9-pre) started
 into eth1.deconfig
 }}}
 ----
- CategoryModel ["RDCPort"] CategoryRDC
+ . CategoryModel ["RDCPort"] ["CategoryRDC"]
