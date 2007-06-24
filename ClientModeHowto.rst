@@ -1,8 +1,8 @@
 '''Client mode howto'''
 
 [[TableOfContents]]
-= Client Mode =
 
+= Client Mode =
 If you want to use OpenWrt to connect your router to another access point (AP) or computer rather than run it as an AP itself, follow these steps.
 
 Reading the [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151 Setting up OpenWrt in client mode] thread in the forum might help your understanding of Client Mode a bit.
@@ -11,7 +11,6 @@ Reading the [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151 Setting up 
  * You need to have a recent version of !OpenWrt White Russian (at least RC3) installed
  * A Wrt router (which acts as your client)
  * An access point where you can connect your Wrt to
-
 == Configuring client mode ==
 The first step would be changing the Wrt's behavior from AP to client mode.
 
@@ -20,7 +19,6 @@ nvram set wl0_mode=wet         # bridged client
 OR
 nvram set wl0_mode=sta         # routed client
 }}}
-
 If you are going to leave the wireless interface bridged to the LAN on br0, then you should choose {{{wet}}}. If you are going to configure Wrt as a router, so that the wireless interface is a pure client and the LAN is on a completely different subnet, then choose {{{sta}}}.
 
 '''NOTE:''' As soon as your AP is in client mode you ''can't'' connect any wireless clients to it anymore because it's not in AP mode ({{{wl0_mode=ap}}}). Also note that '''wl0''' above is WL in lower case followed by Zero.
@@ -28,19 +26,16 @@ If you are going to leave the wireless interface bridged to the LAN on br0, then
 There are two different client modes: bridged and routed.  They are mutually exclusive.
 
 === Bridged client mode ===
-In bridged client mode, all computers connected to the client will be connected to the subnet of the access point you are connecting to (no firewalling, unless you use ebtables).
+In bridged client mode, all computers connected to the client will be connected to the subnet of the access point you are connecting to (no firewalling, unless you use iptables).
 
 When using the bridged client mode, you should disable the DNS/DHCP server:  If the "chmod" command fails and reports a read-only file system you will have to remove it instead (you can always put it back since it's just a symlink to the real script).
-
 
 {{{
 chmod -x /etc/init.d/S50dnsmasq
 OR
 rm /etc/init.d/S50dnsmasq
 }}}
-
 If your configuration was previously set to "routed" client mode, you'll need to add the wireless interface to the bridge again and remove it from the wan interface. See OpenWrtDocs/NetworkInterfaces for more information.
-
 
 /!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface names] for your hardware version.
 
@@ -48,7 +43,6 @@ If your configuration was previously set to "routed" client mode, you'll need to
 nvram set lan_ifnames="vlan0 eth1"
 nvram set wan_ifname=vlan1
 }}}
-
 === Routed client mode ===
 Routed client mode breaks down the default bridge between the wireless interface and the LAN ports. Note that we are using the {{{wan_ifname}}} to refer to the wireless connection; this will save you from having to change the firewall script.
 
@@ -59,7 +53,6 @@ nvram set lan_ifname=br0
 nvram set lan_ifnames=vlan0
 nvram set wan_ifname=eth1         # the wireless interface
 }}}
-
 Then configure the interfaces normally. Be sure not to use the same subnet for lan and wlan. For example, assuming the wifi interface uses DHCP and the LAN interface is choosen to have the static IP address {{{192.168.2.1}}}:
 
 {{{
@@ -67,7 +60,6 @@ nvram set lan_ipaddr=192.168.2.1
 nvram set lan_proto=static
 nvram set wan_proto=dhcp
 }}}
-
 You can configure other options if you need to, like {{{wan_dns}}} or {{{wan_gateway}}}.
 
 When you are done with setting up the NVRAM, just commit and reboot:
@@ -76,7 +68,6 @@ When you are done with setting up the NVRAM, just commit and reboot:
 nvram commit
 reboot
 }}}
-
 Note: The Asus WL-HDD (and possibly other units without built-in switch) will not be able to be configured as a router (client or otherwise) with default OpenWrt firmware(using RC4). This is due to the /etc/init.d/S05nvram startup script that checks the unit type and configures two necessary parameters back to settings for bridge mode. Searching the script for "WLHDD" and commenting out that particular case will allow your settings to remain after next reboot, and thus allow the unit to be configured as a router.
 
 == Finding and joining networks ==
@@ -103,10 +94,8 @@ eth1      Scan completed :
                     Bit Rate:9 Mb/s
                     Bit Rate:12 Mb/s
                     Bit Rate:48 Mb/s
-
 root@OpenWrt:/#
 }}}
-
 To join a non-encrypted access point run these commands:
 
 {{{
@@ -115,7 +104,6 @@ nvram set wl0_ssid=<SSID>
 nvram set wl0_channel=<CHANNEL_NUMBER>
 ifup wan; /sbin/wifi
 }}}
-
 You can configure encryption like WEP or WPA the way you would if the device was in access point mode. For example, using WEP;
 
 {{{
@@ -127,7 +115,6 @@ nvram set wl0_key=1
 nvram set wl0_key1=<WEP key in hex format>
 ifup wan; /sbin/wifi
 }}}
-
 If you use WPA you can find the relevant configuration options under ["OpenWrtDocs/Configuration"].
 
 Don't forget to commit if you want your settings to survive a reboot:
@@ -135,7 +122,6 @@ Don't forget to commit if you want your settings to survive a reboot:
 {{{
 nvram commit
 }}}
-
 '''NOTE:''' WPA2 in client mode is broken in RC4 and RC5.  On the Wireless Configuration page of the web interface, disable the WPA2 checkbox.  WPA1 and WEP still work properly in RC4 and RC5.
 
 == Some more configuration ==
@@ -144,11 +130,9 @@ When you set an interface to DHCP, !OpenWrt runs the DHCP client on that interfa
 {{{
 ifup wan; /sbin/wifi
 }}}
-
 This will set up the wireless interface according to your nvram settings.
 
 = Links =
  * Detailed information on setting up a wired-wireless bridge with encryption [[BR]]- ["WirelessBridgeWithWPAHowto"]
-
 ----
- . CategoryHowTo 
+ . CategoryHowTo
