@@ -107,6 +107,69 @@ SAR HAL version: [01.07.2b]
 PDSP Firmware version:[0.54]
 }}}
 
+=== Loaded kernel modules === 
+{{{
+cat /proc/modules
+tiap 880464 0 - Live 0xc04a4000
+kdsldmod 515808 2 - Live 0xc0369000
+usbahcicore 25456 0 - Live 0xc0053000
+usbcore 113456 2 usbahcicore, Live 0xc0164000
+isdn_fbox 928912 25 - Live 0xc01d9000
+ubik2 67216 1 isdn_fbox, Live 0xc00ba000
+tiatm 106560 1 ubik2, Live 0xc00de000
+jffs2 108928 1 - Live 0xc005b000
+nls_iso8859_1 3584 0 - Live 0xc0008000
+nls_cp437 5248 0 - Live 0xc0019000
+vfat 11392 0 - Live 0xc0015000
+fat 49168 1 vfat, Live 0xc0027000
+Piglet 7632 0 - Live 0xc000a000
+}}}
+
+=== devices === 
+{{{
+~ # cat /proc/devices
+Character devices:
+  1 mem
+  2 pty
+  3 ttyp
+  4 ttyS
+  5 /dev/tty
+  5 /dev/console
+  5 /dev/ptmx
+ 10 misc
+ 13 input
+ 68 capi20
+ 90 mtd
+128 ptm
+136 pts
+180 usb
+191 capi
+230 tiatm
+240 tffs
+241 avm_event
+242 watchdog
+243 kdsld
+244 kdsldptrace
+245 ubik2
+246 debug
+251 avm_led
+252 avm_power
+
+Block devices:
+ 31 mtdblock
+}}}
+
+
+=== IOMEM === 
+{{{
+cat /proc/iomem
+14000000-14208fff : reserved
+  14000000-141714a3 : Kernel code
+  141714a4-141c50bf : Kernel data
+14209000-15ffffff : System RAM
+a8610000-a86107ff : cpmac0
+}}}
+
 == Original Firmware Info ==
 === Backing up original firmware ===
 
