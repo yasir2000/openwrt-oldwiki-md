@@ -19,19 +19,17 @@ CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
 === Photos ===
-http://ipkg.k1k2.de/jb24img/pict1605.jpg
+http://img177.imageshack.us/img177/5249/pict1605te5.jpg
 
-http://ipkg.k1k2.de/jb24img/PICT1606.JPG
+http://img518.imageshack.us/img518/631/pict1606um5.jpg
 
-http://ipkg.k1k2.de/jb24img/PICT1607.JPG
+http://img507.imageshack.us/img507/6286/pict1607di0.jpg
 
-http://ipkg.k1k2.de/jb24img/PICT1608.JPG
+http://img225.imageshack.us/img225/699/pict1608be7.jpg
 
-http://ipkg.k1k2.de/jb24img/PICT1609.JPG
+http://img146.imageshack.us/img146/5471/pict1609ne2.jpg
 
-http://openwrt.vcp-springe.de/w900v/rear_side.JPG
-
-http://kassel083.server4you.de/~jb24/sp900v/images/PICT1605s.jpg
+http://img183.imageshack.us/img183/2884/rearserialmarkedhl9.jpg
 
 === Serial Port ===
  TODO
