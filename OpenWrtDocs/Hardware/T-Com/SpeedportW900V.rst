@@ -255,7 +255,53 @@ a8610000-a86107ff : cpmac0
 010001
 }}}
 
-
+=== AVM LED Configuration ===
+{{{
+~ # cat etc/led.conf
+DEF error,0 = 1,128,0,all
+DEF error,1 = 3,127,0,all
+DOUBLE error,0 TO error,1
+DEF power,0 = 0,7,0,power
+DEF power,1 = 0,7,0,power
+DEF tr69,0 = 2,6,1,tr69
+DEF cpmac,3 = 99,0,2,lan4
+DEF cpmac,2 = 99,1,3,lan3
+DEF cpmac,1 = 99,2,4,lan2
+DEF cpmac,0 = 99,3,5,lan
+DEF wlan,0 = 2,5,6,wlan
+DEF ab,1 = 2,4,7,festnetz
+DEF ab,2 = 2,4,7,festnetz
+DEF ab,3 = 2,4,7,festnetz
+DEF voip_con,0 = 2,3,8,voip_con
+DEF pppoe,0 = 2,2,9,dsl
+DEF pppoe,1 = 2,2,9,dsl
+DEF adsl,0 = 2,1,10,adsl
+DEF adsl,1 = 2,1,10,adsl
+DEF ata,0 = 2,0,11,ata
+DEF usb,0 = 99,32,12,usb
+DEF usb,1 = 99,32,12,usb
+DEF blockring,0 = 99,32,13,blockring
+DEF missedcall,0 = 99,32,14,missedcall
+DEF budget,0 = 99,32,15,budget
+DEF info,0 = 99,32,16,info
+DEF info,1 = 99,32,16,info
+DEF info,2 = 99,32,16,info
+DEF info,3 = 99,32,16,info
+DEF info,4 = 99,32,16,info
+DEF internet,0 = 99,32,17,internet
+DEF internet,1 = 99,32,17,internet
+DEF isdn,0 = 99,32,18,isdn
+DEF isdn,1 = 99,32,18,isdn
+DEF isdn,2 = 99,32,18,isdn
+DEF stick_surf,0 = 99,32,19,stick_surf
+DEF stick_surf,1 = 99,32,19,stick_surf
+DEF stick_surf,2 = 99,32,19,stick_surf
+DEF stick_surf,3 = 99,32,19,stick_surf
+DEF null,0 = 99,32,20,null_device
+MAP budget,0 TO info,1
+MAP ab,2 TO null,0
+SET power,0 = 1
+}}}
 
 == Original Firmware Info ==
 === Backing up original firmware ===
