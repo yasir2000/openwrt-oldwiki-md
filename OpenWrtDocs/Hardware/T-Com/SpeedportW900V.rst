@@ -240,6 +240,23 @@ a8610000-a86107ff : cpmac0
   776 root        312 R   ps -ax 
 }}}
 
+== Configuration Files ==
+=== AVM public-key1 ===
+{{{
+~ # cat /etc/avm_firmware_public_key1
+00e90086875d8c11ffa1437bd6569b7c0061ec77a5059d1c0acc97883160d72bfebb743e1230821d1c7e976c3e6c1c608ee2c40a80380cd12290566ecb5df9819a2eb16349d1e496d037bb5d121d13c4b46939bdfd6a2d5d0261155c5f43c62ff6c1dcea8ec21ad482bce59f0279242747b8e52efcc25da81c97cd1c3f12516e87
+010001
+}}}
+
+=== AVM public-key2 ===
+{{{
+~ # cat /etc/avm_firmware_public_key2
+00d3eb28173d70a3a38727d2477000c48136c64a24e9d486a0fa7dc3e12a4a7fd35b240d977c20f54610cea16b504ce4d8bbd2617bdfbf035f0ba9ecb14cb585311f88952335f0f6bac2c9b5c831adaf9c848ce48265b8b3de4f9895915a8d9a0328fb1609af628179636f8f4359ff5b9bf9ce68cdf343fa85e31a5c178d3e0639
+010001
+}}}
+
+
+
 == Original Firmware Info ==
 === Backing up original firmware ===
 
