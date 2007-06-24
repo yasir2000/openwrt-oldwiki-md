@@ -3,13 +3,13 @@ The Sitecom WL-153 is based on the RDC 3211 x86 compatible chip.
 
 == Hardware Parts used ==
 Devices on bottom of board are:
-||<tablewidth="410px" tableheight="92px" tablestyle="">Amount ||Type ||
+||<tablewidth="410px" tableheight="92px">Amount ||Type ||
 ||2 ||ESMT M12L64164A-7T ||
 ||1 ||RDC-R3211-G ||
 
 
 Devices on top of the board are:
-||<tablewidth="410px" tableheight="129px" tablestyle="">Amount ||Type ||
+||<tablewidth="410px" tableheight="129px">Amount ||Type ||
 ||1 ||MX29LV160BBTC-70 ||
 ||1 ||RT2661T ||
 ||1 ||RTL83055C ||
@@ -23,33 +23,27 @@ RX GND TX VCC
 The bootload used is a modified and restricted Redboot:
 
 ----
- . RedBoot> help
+{{{
+RedBoot> help
 Display/switch console channel
-
- . channel [<channel number>]
+   channel [<channel number>]
 Help about help?
-
- . help [<topic>]
+   help [<topic>]
 Set/change IP addresses
-
- . ip_address [-l <local_ip_address>] [-h <server_address>]
+   ip_address [-l <local_ip_address>] [-h <server_address>]
 Execute a Linux image
-
- . linux [-w timeout] [-b <base address> [-l <image length>]]
-  . [-r <ramdisk addr> [-s <ramdisk length>]] [-c "kernel command line"]
+   linux [-w timeout] [-b <base address> [-l <image length>]]
+        [-r <ramdisk addr> [-s <ramdisk length>]]
+        [-c "kernel command line"]
 Load a file
-
- . load [-r] [-v] [-h <host>] [-m <varies>] [-c <channel_number>]
-  . [-b <base_address>] <file_name>
+   load [-r] [-v] [-h <host>] [-m <varies>] [-c <channel_number>]
+        [-b <base_address>] <file_name>
 cat switch value
-
- . switch no
+   switch no
 set watchdog
-
- . wdog no
+   wdog no
 flash upgrade
-
- . flash [-s <source>][-d <destination>][-l <image length>]
+   flash [-s <source>][-d <destination>][-l <image length>]}}}
 ----
 = Sitecom Bootlog =
 The only thing changed in the bootlog is the mac address. Other parts are as is from the original Sitecom Firmware:
