@@ -21,34 +21,55 @@ Devices on top of the board are:
 RX GND TX VCC
 
 = Boot Loader =
-The bootload used is a modified and restricted RedBoot
+The bootload used is a modified and restricted Redboot:
 
-||'''tablewidth="100%" tablealign=""Redboot Help'''||
-||RedBoot> help
+----
+RedBoot> help
+
 Display/switch console channel
+
    channel [<channel number>]
+
 Help about help?
+
    help [<topic>]
+
 Set/change IP addresses
+
    ip_address [-l <local_ip_address>] [-h <server_address>]
+
 Execute a Linux image
+
    linux [-w timeout] [-b <base address> [-l <image length>]]
+
         [-r <ramdisk addr> [-s <ramdisk length>]]
+
         [-c "kernel command line"]
+
 Load a file
+
    load [-r] [-v] [-h <host>] [-m <varies>] [-c <channel_number>]
+
         [-b <base_address>] <file_name>
+
 cat switch value
+
    switch no
+
 set watchdog
+
    wdog no
+
 flash upgrade
+
    flash [-s <source>][-d <destination>][-l <image length>]
-||
+
+----
 = Sitecom Bootlog =
 The only thing changed in the bootlog is the mac address. Other parts are as is from the original Sitecom Firmware:
-||'''tablewidth="100%" tablealign=""Bootlog'''||
-||+Ethernet eth0: MAC address XX:XX:XX:XX:XX:XX
+
+----
++Ethernet eth0: MAC address XX:XX:XX:XX:XX:XX
 IP: 192.168.12.142/255.255.240.0, Gateway: 192.168.12.14
 Default server: 0.0.0.0
 RedBoot(tm) bootstrap and debug environment [ROM]
@@ -65,8 +86,8 @@ mem_size: 1000000
 initrd ea2000 len 13df5e
 Linux version 2.4.25-386 (root@localhost) (gcc version 3.3.1) #854 ¥| 11¤ë 24 12:10:46 CST 2005
 BIOS-provided physical RAM map:
- BIOS-e801: 0000000000000000 - 000000000009f000 (usable)
- BIOS-e801: 0000000000100000 - 0000000001000000 (usable)
+BIOS-e801: 0000000000000000 - 000000000009f000 (usable)
+BIOS-e801: 0000000000100000 - 0000000001000000 (usable)
 16MB LOWMEM available.
 On node 0 totalpages: 4096
 zone(0): 4096 pages.
@@ -113,7 +134,7 @@ PPP generic driver version 2.4.2
 PPP Deflate Compression module registered
 PPP BSD Compression module registered
 MX29LV320B flash device: 200000 at ffe00000
- Amd/Fujitsu Extended Query Table v1.0 at 0x0040
+Amd/Fujitsu Extended Query Table v1.0 at 0x0040
 number of CFI chips: 1
 cfi_cmdset_0002: Disabling fast programming due to code brokenness.
 Creating 1 MTD partitions on "MX29LV320B flash device":
@@ -286,4 +307,4 @@ running in daemon mode
 /bin/init.sh: 326: /bin/agent: not found
 udhcp client (v0.9.9-pre) started
 into eth1.deconfig
-||
+----
