@@ -28,7 +28,7 @@ wget http://www.example.org/original.trx
 }}}
 '''TIP:''' [http://forum.openwrt.org/viewtopic.php?id=3474 PLEASE READ - Common mistakes] thread section 2 also. It describes when you should use the {{{openwrt-brcm-2.4-squashfs.trx}}} image.
 
-If you only have a Linksys {{{.bin}}} firmware file, this is not a problem, simply cut of the header before using the commands above:
+If you only have a Linksys {{{.bin}}} firmware file, this is not a problem, simply cut off the header before using the commands above:
 
 {{{
 dd bs=32 skip=1 if=original.bin of=original.trx
@@ -36,7 +36,7 @@ dd bs=32 skip=1 if=original.bin of=original.trx
 '''TIP:''' If your replacement firmware has a web interface, remember to flush your browser cache, sessions etc. This will avoid misleading 404 errors.
 
 == Using the webif ==
-Since White Russian RC4 you can use the webif to go back to the original firmware. The webif automatically recognize if you upload a firmware image in BIN or TRX format and converts it accordingly.
+Since White Russian RC4 you can use the webif to go back to the original firmware. The webif automatically recognizes a firmware image uploaded in BIN or TRX format and converts it accordingly.
 
  * Load the webif in your web browser and goto the System / Firmware upgrade page
  * make sure Erase the JFFS2 partition is checked
