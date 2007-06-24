@@ -3,18 +3,16 @@ The Sitecom WL-153 is based on the RDC 3211 x86 compatible chip.
 
 == Hardware Parts used ==
 Devices on bottom of board are:
-
-||<tablewidth="410px" tableheight="92px" tablealign="">Amount||Type||
-||2||ESMT M12L64164A-7T||
-||1||RDC-R3211-G||
+||<tablewidth="410px" tableheight="92px" tablestyle="">Amount ||Type ||
+||2 ||ESMT M12L64164A-7T ||
+||1 ||RDC-R3211-G ||
 
 
 Devices on top of the board are:
-
-||<tablewidth="410px" tableheight="129px" tablealign="">Amount||Type ||
-||1||MX29LV160BBTC-70||
-||1||RT2661T ||
-||1||RTL83055C||
+||<tablewidth="410px" tableheight="129px" tablestyle="">Amount ||Type ||
+||1 ||MX29LV160BBTC-70 ||
+||1 ||RT2661T ||
+||1 ||RTL83055C ||
 
 
 = Serial =
@@ -66,7 +64,7 @@ Non-certified release, version v2_0 - built 21:05:24, Oct 17 2005
 Platform: PC (I386)
 Copyright (C) 2000, 2001, 2002, Red Hat, Inc.R1
 RAM: 0x00000000-0x000f0000, 0x00070470-0x000a0000 available
-linux -b 0x400000 -l 0x000a8f08 -s 0x0013df5e -c \\\\\\\\\\\\\\\"console=ttyS0,38400\\\\\\\\\\\\\\\"
+linux -b 0x400000 -l 0x000a8f08 -s 0x0013df5e -c "console=ttyS0,38400"
 == Executing boot script in 1.000 seconds - enter ^C to abort
 RedBoot> IP: 192.168.12.142/255.255.240.0, Gateway: 192.168.12.14
 Default server: 192.168.12.148
@@ -95,10 +93,10 @@ Mount cache hash table entries: 512 (order: 0, 4096 bytes)
 Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
 Page-cache hash table entries: 4096 (order: 2, 16384 bytes)
 CPU: Cyrix Cx486SLC
-Checking \\\\\\\\\\\\\\\'hlt\\\\\\\\\\\\\\\' instruction... OK.
+Checking 'hlt' instruction... OK.
 Checking for popad bug... OK.
 POSIX conformance testing by UNIFIX
-mtrr: v1.40 (20010327) Richard Gooch ()
+mtrr: v1.40 (20010327) Richard Gooch (rgooch@atnf.csiro.au)
 mtrr: detected mtrr type: none
 PCI: Using configuration type 1
 PCI: Probing PCI hardware
@@ -107,7 +105,7 @@ Linux NET4.0 for Linux 2.4
 Based upon Swansea University Computer Society NET3.039
 Initializing RT netlink socket
 LED & GPIO & LAN Status Driver LED_VERSION
-IA-32 Microcode Update Driver: v1.13 <>
+IA-32 Microcode Update Driver: v1.13 <tigran@veritas.com>
 Starting kswapd
 pty: 256 Unix98 ptys configured
 Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI enabled
@@ -126,8 +124,8 @@ MX29LV320B flash device: 200000 at ffe00000
  Amd/Fujitsu Extended Query Table v1.0 at 0x0040
 number of CFI chips: 1
 cfi_cmdset_0002: Disabling fast programming due to code brokenness.
-Creating 1 MTD partitions on \\\\\\\\\\\\\\\"MX29LV320B flash device\\\\\\\\\\\\\\\":
-0x00000000-0x001f0000 : \\\\\\\\\\\\\\\"Flash Disk 1\\\\\\\\\\\\\\\"
+Creating 1 MTD partitions on "MX29LV320B flash device":
+0x00000000-0x001f0000 : "Flash Disk 1"
 MX29LV320B flash device initialized
 NET4: Linux TCP/IP 1.0 for NET4.0
 IP Protocols: ICMP, UDP, TCP
@@ -135,7 +133,7 @@ IP: routing cache hash table of 512 buckets, 4Kbytes
 TCP: Hash tables configured (established 1024 bind 2048)
 ip_conntrack version 2.1 (128 buckets, 1024 max) - 336 bytes per conntrack
 ip_tables: (C) 2000-2002 Netfilter core team
-ipt_recent v0.2.3: Stephen Frost <>.
+ipt_recent v0.2.3: Stephen Frost <sfrost@snowman.net>.  http://snowman.net/projects/ipt_recent/
 ipt_time loading
 NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
 NET4: Ethernet Bridge 008 for NET4.0
@@ -223,8 +221,8 @@ Using /bin/rt61ap.o
 *RT61*<7>--> NICReadEEPROMParameters
 *RT61*<7>MBSSID[0] MAC=00:0c:f6:1b:06:9e
 *RT61*<7>E2PROM: Version = 1, FAE release #0
-*RT61*<7>E2PROM: G Tssi = 255 255 255 255 - 255 -255 255 255 255, step=255, tuning=0
-*RT61*<7>E2PROM: A Tssi = 255 255 255 255 - 255 -255 255 255 255, step=255, tuning=0
+*RT61*<7>E2PROM: G Tssi[-4 .. +4] = 255 255 255 255 - 255 -255 255 255 255, step=255, tuning=0
+*RT61*<7>E2PROM: A Tssi[-4 .. +4] = 255 255 255 255 - 255 -255 255 255 255, step=255, tuning=0
 *RT61*<7>E2PROM: RF freq offset=0x26, RF programming seq=0
 *RT61*<7><-- NICReadEEPROMParameters
 *RT61*<7>country code=128/129, RFIC=1, PHY mode=0, support 11 channels
@@ -268,10 +266,10 @@ Using /bin/rt61ap.o
 *RT61*<7>--->Disable TSF synchronization
 *RT61*<7>LOG#0 00:0c:f6:1b:06:9e restart access point
 *RT61*<7><--- ApStartUp (sec_csr4=0x0)
-*RT61*<7>==> Set_Debug_Proc
+*RT61*<7>==> Set_Debug_Proc *******************
 Setup BRIDGE interface
 SIOCGIFFLAGS: No such device
-bridge br0 doesn\\\\\\\\\\\\\\\'t exist; can\\\\\\\\\\\\\\\'t delete it
+bridge br0 doesn't exist; can't delete it
 Setup bridge...
 device eth0 entered promiscuous mode
 SIOCDELRT: No such process
@@ -289,10 +287,10 @@ SIOCDELRT: No such process
 SIOCDELRT: No such process
 udhcp server (v0.9.9-pre) started
 Setup WAN interface
- run Diagd
+********** run Diagd **********
 setting: port: 31727
 running in daemon mode
- run GaTest
+********** run GaTest **********
 /bin/init.sh: 326: /bin/agent: not found
 udhcp client (v0.9.9-pre) started
 into eth1.deconfig
