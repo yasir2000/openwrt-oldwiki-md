@@ -9,8 +9,9 @@ Dnsmasq is targeted at home networks using NAT and connected to the internet via
 
 = Basic Configuration =
 == Nvram vs Config file ==
-In white Russian 0.9 the init script use nvram by default[[BR]]
-in order to make dnsmask work with the config file(/etc/dnsmasq.conf) we need to remplace the init script(/etc/init.d/S60dnsmasq) by the following script:
+In white Russian 0.9 the init script uses nvram by default.[[BR]]
+
+In order to make dnsmasq work with the config file(/etc/dnsmasq.conf) we need to replace the init script(/etc/init.d/S60dnsmasq) with the following script:
 {{{ 
 [ ! -f /tmp/dhcp.leases ] && {
  touch /tmp/dhcp.leases
