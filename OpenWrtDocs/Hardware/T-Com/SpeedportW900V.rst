@@ -205,6 +205,41 @@ cat /proc/iomem
 a8610000-a86107ff : cpmac0
 }}}
 
+
+=== running proccesses ===
+{{{
+~ # ps -ax
+ PID  Uid     VmSize Stat Command
+    1 root        336 S   init       
+    2 root            SWN [ksoftirqd/0]
+    3 root            SW< [events/0]
+    4 root            SW< [khelper]
+    5 root            SW< [kthread]
+    6 root            SW< [kblockd/0]
+   24 root            SW< [pdflush]
+   25 root            SW< [pdflush]
+   27 root            SW< [aio/0]
+   26 root            SW  [kswapd0]
+   69 root            SW  [mtdblockd]
+  128 root            SW  [tffsd_mtd_0]
+  368 root            SWN [jffs2_gcd_mtd6]
+  403 root            SW  [capitransp]
+  416 root            SW< [khubd]
+  552 root       2772 S N ctlmgr 
+  617 root        468 S   wpa_authenticator 
+  630 root       1656 S N websrv 
+  638 root       1736 S   multid 
+  651 root       1920 S   dsld -i -n 
+  665 root        880 S   telefon a127.0.0.1 
+  669 root       1656 S N websrv 
+  671 root       2136 S < voipd 
+  673 root       1656 S N websrv 
+  677 root       1656 S N websrv 
+  680 root        160 S   /bin/run_clock -c /dev/tffs -d 
+  685 root        468 S   -sh 
+  776 root        312 R   ps -ax 
+}}}
+
 == Original Firmware Info ==
 === Backing up original firmware ===
 
