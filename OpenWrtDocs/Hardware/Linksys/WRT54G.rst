@@ -1,6 +1,6 @@
 ## Please add only OpenWrt and WRT54G related things to this page! Thanks.
 = Linksys WRT54G =
-There are currently many versions of the WRT54G. With the exception of v5 devices the WRT54G units are supported by OpenWrt 1.0 (White Russian) and later. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
+There are currently many versions of the WRT54G. With the exception of v5 devices the WRT54G units are supported by OpenWrt 0.9 (White Russian) and later. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
 Some consider the ["L"] and ["3G"] to be versions of this model.
 
