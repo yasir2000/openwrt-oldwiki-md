@@ -303,6 +303,87 @@ MAP ab,2 TO null,0
 SET power,0 = 1
 }}}
 
+
+=== Network Interfaces Configuration ===
+{{{ 
+~ # ifconfig
+cpmac0    Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9C
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:256
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9C
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:1512 (1.4 KiB)
+
+lan       Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9C
+          inet addr:192.168.2.1  Bcast:192.168.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:1512 (1.4 KiB)
+
+lan:0     Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9C
+          inet addr:192.168.2.254  Bcast:192.168.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:295 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:295 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:36415 (35.5 KiB)  TX bytes:36415 (35.5 KiB)
+
+tiwlan0   Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9E
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:1400 (1.3 KiB)
+
+wdsdw0    Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9E
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:1400 (1.3 KiB)
+
+wdsdw1    Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9E
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:1400 (1.3 KiB)
+
+wdsdw2    Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9E
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:1400 (1.3 KiB)
+
+wdsdw3    Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9E
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:1400 (1.3 KiB)
+
+wdsup0    Link encap:Ethernet  HWaddr 00:04:0E:E4:D4:9E
+          UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:1400 (1.3 KiB)
+}}}
+
 == Original Firmware Info ==
 === Backing up original firmware ===
 
