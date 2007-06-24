@@ -195,8 +195,7 @@ When do you have problem with depends  kmod-nls-base. You should edit /usr/lib/i
 
 Next:
 {{{
-/etc/init.d/p910nd 
-enable
+/etc/init.d/p910nd enable
 
 /etc/default/p910nd I leave without any changes !!!!
 }}}
