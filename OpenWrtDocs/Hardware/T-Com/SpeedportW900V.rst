@@ -240,6 +240,354 @@ a8610000-a86107ff : cpmac0
   776 root        312 R   ps -ax 
 }}}
 
+=== Kernel messages ===
+{{{
+~ # cat /proc/kmsg
+
+y tagged, 4-way, linesize 16 bytes.
+<4>Primary data cache 8kB, 4-way, linesize 16 bytes.
+<4>Synthesized TLB refill handler (20 instructions). Base=0x941e0734
+<4>TLB synthesizer field overflow (simm)
+<4>Synthesized TLB load handler fastpath (34 instructions) Base=0x941e3760.
+<4>TLB synthesizer field overflow (simm)
+<4>Synthesized TLB store handler fastpath (34 instructions) Base=0x941e3960.
+<4>TLB synthesizer field overflow (simm)
+<4>Synthesized TLB modify handler fastpath (33 instructions) Base=0x941e3b60.
+<4>PID hash table entries: 256 (order: 8, 4096 bytes)
+<4>[ohio_set_clock_notify] avm_clock_id_cpu notify disable 0x940013f8 0x94199e18
+<4>[ohio_set_clock_notify] avm_clock_id_cpu notify enable 0x940013f8 0x94199e18
+<4>CPU frequency 211.97 MHz
+<4>Using 105.984 MHz high precision timer.
+<4>[setup_irq]: irq 127 irqaction->handler 0x94041a10 (no_action+0x0/0x8 )
+<4>[register_console] enable commandline console 0
+<4>Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+<4>Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+<6>Memory: 30336k/30684k available (1477k kernel code, 320k reserved, 335k data, 112k init, 0k highmem)
+<6>totalram_pages= 7591
+<4>Calibrating delay loop... 211.35 BogoMIPS (lpj=1056768)
+<4>loops_per_jiffy=1056768
+<4>Mount-cache hash table entries: 512
+<4>Checking for 'wait' instruction...  available.
+<7>Calling initcall 0x941d4414: helper_init+0x0/0x30()
+<7>Calling initcall 0x941d4558: ksysfs_init+0x0/0x3c()
+<7>Calling initcall 0x941d640c: filelock_init+0x0/0x48()
+<7>Calling initcall 0x941d6c50: init_script_binfmt+0x0/0xc()
+<7>Calling initcall 0x941d6c5c: init_elf_binfmt+0x0/0xc()
+<7>Calling initcall 0x941dba7c: netlink_proto_init+0x0/0x2ac()
+<6>NET: Registered protocol family 16
+<7>Calling initcall 0x941d74cc: kobject_uevent_init+0x0/0x50()
+<7>Calling initcall 0x941d7754: tty_class_init+0x0/0x34()
+<7>Calling initcall 0x941cb57c: frame_info_init+0x0/0xb4()
+<4>Can't analyze prologue code at 9416fb5c
+<7>Calling initcall 0x941d60fc: init_bio+0x0/0x17c()
+<7>Calling initcall 0x941d7e00: misc_init+0x0/0xc0()
+<7>Calling initcall 0x941d9814: genhd_device_init+0x0/0x44()
+<7>Calling initcall 0x941d9f2c: init_mtd+0x0/0x48()
+<7>Calling initcall 0x941dacf0: input_init+0x0/0x1e0()
+<7>Calling initcall 0x941db514: proto_init+0x0/0x48()
+<7>Calling initcall 0x941db6d8: net_dev_init+0x0/0x1dc()
+<7>Calling initcall 0x941d6360: init_pipe_fs+0x0/0x6c()
+<7>Calling initcall 0x941d75e4: chr_dev_init+0x0/0xb4()
+<7>Calling initcall 0x941d3a94: create_proc_profile+0x0/0x64()
+<7>Calling initcall 0x941d3b74: ioresources_init+0x0/0x6c()
+<7>Calling initcall 0x941d3d28: uid_cache_init+0x0/0x88()
+<7>Calling initcall 0x941d4104: param_sysfs_init+0x0/0x208()
+<7>Calling initcall 0x941d430c: init_posix_timers+0x0/0x108()
+<7>Calling initcall 0x941d4444: init_posix_cpu_timers+0x0/0xd4()
+<7>Calling initcall 0x941d4518: kallsyms_init+0x0/0x40()
+<7>Calling initcall 0x941d5794: init_per_zone_pages_min+0x0/0x64()
+<7>Calling initcall 0x941d5bdc: pdflush_init+0x0/0x28()
+<7>Calling initcall 0x941d5c04: cpucache_init+0x0/0x20()
+<7>Calling initcall 0x941d5f50: kswapd_init+0x0/0x70()
+<7>Calling initcall 0x941d6004: init_tmpfs+0x0/0x3c()
+<7>Calling initcall 0x941d63cc: fasync_init+0x0/0x40()
+<7>Calling initcall 0x941d6ad0: aio_setup+0x0/0x8c()
+<7>Calling initcall 0x941d6b5c: inotify_setup+0x0/0xf4()
+<7>Calling initcall 0x941d7194: init_devpts_fs+0x0/0x48()
+<7>Calling initcall 0x941d71dc: init_squashfs_fs+0x0/0xe4()
+<6>Squashfs 2.2-r2b (released 2006/02/23) (C) 2002-2005 Phillip Lougher
+<7>Calling initcall 0x941d72c0: init_ramfs_fs+0x0/0xc()
+<7>Calling initcall 0x941d72d8: ipc_init+0x0/0x30()
+<7>Calling initcall 0x941d7698: rand_initialize+0x0/0x3c()
+<7>Calling initcall 0x941d7788: tty_init+0x0/0x184()
+<7>Calling initcall 0x941d790c: pty_init+0x0/0x4f4()
+<7>Calling initcall 0x941d7ec0: avm_power_init+0x0/0x11c()
+<7>Calling initcall 0x941d7fdc: avm_sammel_init+0x0/0x158()
+<4>[avm] configured: watchdog eventled enable shift register enable direct gpio 
+<4>	gpio usage: reset=12 clock=13 store=10 data=9 
+<4>AR7WDT: Watchdog Driver for AR7 Hardware (Version 1.0, build: Aug 25 2006 12:35:26)
+<7>Calling initcall 0x941d8e60: serial8250_init+0x0/0x10c()
+<6>Serial: 8250/16550 driver $Revision: 1.90 $ 1 ports, IRQ sharing disabled
+<4>[uart_add_one_port]
+<4>ttyS0 at MMIO 0x0 (irq = 15) is a OHIO_UART
+<4>[uart_add_one_port] dont rigister console port->type = 16
+<4>port->cons = 0x941a7680 port->cons->flags = 0x7
+<4>[uart_add_one_port] sucess
+<7>Calling initcall 0x941d9858: noop_init+0x0/0xc()
+<6>io scheduler noop registered
+<7>Calling initcall 0x941d9864: cpmac_main_probe+0x0/0xd8()
+<7>Calling initcall 0x941d993c: cpphy_entry_probe+0x0/0xcc()
+<7>Calling initcall 0x941d9a08: cpphy_entry_probe+0x0/0xe8()
+<3>cpmac_if_register, dev cpmac0 (phy_id 0) registered
+<7>Calling initcall 0x941d9af0: cpphy_entry_probe+0x0/0xcc()
+<7>Calling initcall 0x941d9bbc: cpphy_entry_probe+0x0/0xe8()
+<3>cpmac_if_register, phy_id 0 already registered
+<7>Calling initcall 0x941d9d34: net_olddevs_init+0x0/0x100()
+<7>Calling initcall 0x941d9e9c: tun_init+0x0/0x90()
+<6>tun: Universal TUN/TAP device driver, 1.6
+<6>tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<7>Calling initcall 0x941d9f74: cmdline_parser_init+0x0/0xc()
+<7>Calling initcall 0x941d9f80: init_mtdchar+0x0/0xc0()
+<7>Calling initcall 0x941da040: init_mtdblock+0x0/0xc()
+<7>Calling initcall 0x941da04c: cfi_probe_init+0x0/0x24()
+<7>Calling initcall 0x941da070: cfi_amdstd_init+0x0/0x30()
+<7>Calling initcall 0x941da0a0: cfi_intelext_init+0x0/0x4c()
+<7>Calling initcall 0x941da0ec: jedec_probe_init+0x0/0x24()
+<7>Calling initcall 0x941da110: map_ram_init+0x0/0x24()
+<7>Calling initcall 0x941da134: init_physmap+0x0/0x170()
+<5>physmap flash device: 400000 at 10000000
+<6>phys_mapped_flash: Found 1 x16 devices at 0x0 in 16-bit bank
+<4> Amd/Fujitsu Extended Query Table at 0x0040
+<4>phys_mapped_flash: Swapping erase regions for broken CFI table.
+<5>number of CFI chips: 1
+<5>cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+<5>RedBoot partition parsing not available
+<7>Calling initcall 0x941da2a4: platram_init+0x0/0x30()
+<4>Generic platform RAM MTD, (c) 2004 Simtec Electronics
+<7>Calling initcall 0x941da2d4: init_ohio_flash+0x0/0xa1c()
+<5>Ohio flash driver (size->0x400000 mem->0x10000000)
+<4>flash_size=0x800000
+<6>Ohio flash memory: Found 1 x16 devices at 0x0 in 16-bit bank
+<4> Amd/Fujitsu Extended Query Table at 0x0040
+<4>Ohio flash memory: Swapping erase regions for broken CFI table.
+<5>number of CFI chips: 1
+<5>cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+<4>[mtd]: jffs2_size = 32 * 64KByte (0x200000 Bytes)
+<4>[ohio_find_hidden_filesystem]: super block found: bytes_used: 0x41d326/4313894
+<4>[init_ohio_flash] find hidden filesystem size=0x6d3d00 offset=0xac300
+<4>[mtd] configure jffs2 partition
+<4>[mtd] fs_size=0x4c0000 max=0x2b0000 is=0x200000 max jffs2_size value 43
+<5>Creating 7 MTD partitions on "Ohio flash memory":
+<5>0x000ac300-0x00780000 : "filesystem"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<4>mtd: partition "filesystem" doesn't start on an erase block boundary -- force read-only
+<5>0x00010000-0x00780000 : "kernel"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<5>0x00000000-0x00010000 : "bootloader"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<4>	'Virtual blocks not allowed'
+<5>0x00780000-0x007c0000 : "tffs (1)"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<4>	'Virtual blocks not allowed'
+<5>0x007c0000-0x00800000 : "tffs (2)"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<4>	'Virtual blocks not allowed'
+<5>0x00580000-0x00780000 : "jffs2"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<4>	'Virtual blocks not allowed'
+<5>0x00010000-0x00580000 : "Kernel without jffs2"
+<5>	'nor-flash'
+<4>	'Bits can be cleared (flash)'
+<4>	'Has an erase function'
+<4>	'Virtual blocks not allowed'
+<7>Calling initcall 0x941daed0: kcapi_init+0x0/0x9c()
+<7>Calling initcall 0x941db014: capi_init+0x0/0x324()
+<5>capi20: Rev 1.1.2.7: started up with major 68 (middleware+capifs)
+<7>Calling initcall 0x941db338: capifs_init+0x0/0x108()
+<5>capifs: Rev 1.1.2.3
+<7>Calling initcall 0x941dc72c: inet_init+0x0/0x504()
+<6>NET: Registered protocol family 2
+<4>IP route cache hash table entries: 512 (order: -1, 2048 bytes)
+<4>TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+<4>TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+<6>TCP: Hash tables configured (established 2048 bind 2048)
+<6>TCP reno registered
+<7>Calling initcall 0x941df168: init+0x0/0x8()
+<7>Calling initcall 0x941df170: bictcp_register+0x0/0xc()
+<6>TCP bic registered
+<7>Calling initcall 0x941df17c: mcfw_init_module+0x0/0x88()
+<6>mcfw_init: ok
+<7>Calling initcall 0x941df204: af_unix_init+0x0/0xa0()
+<6>NET: Registered protocol family 1
+<7>Calling initcall 0x941df2a4: packet_init+0x0/0x80()
+<6>NET: Registered protocol family 17
+<7>Calling initcall 0x941df324: br_init+0x0/0x68()
+<7>Calling initcall 0x941df3e0: atm_init+0x0/0xec()
+<6>NET: Registered protocol family 8
+<6>NET: Registered protocol family 20
+<7>Calling initcall 0x941df584: br2684_init+0x0/0x54()
+<7>Calling initcall 0x941ca2a0: ohio_install_dummy_irq_functions+0x0/0x58()
+<4>[setup_irq]: irq 1 irqaction->handler 0x94001664 (dummy_timer_irq+0x0/0x14 )
+<4>[setup_irq]: irq 6 irqaction->handler 0x94001678 (dummy_system_irq_2+0x0/0x18 )
+<7>Calling initcall 0x9400174c: ohio_late_init+0x0/0x3c()
+<4>[ohio_late_init] 
+<4>[ohio_set_clock_notify] avm_clock_id_system notify disable 0x9400169c 0x94277e48
+<4>[ohio_set_clock_notify] avm_clock_id_system notify enable 0x9400169c 0x94277e48
+<7>Calling initcall 0x941ca3f8: ohio_clk_switch_init+0x0/0x60()
+<7>Calling initcall 0x941ca6ac: speedup_init+0x0/0x2c()
+<7>Calling initcall 0x941d76d4: seqgen_init+0x0/0x20()
+<7>Calling initcall 0x940c5b18: avm_event_push_button_init+0x0/0x114()
+<7>Calling initcall 0x941d8610: tffs_init+0x0/0x2e4()
+<6>[tffs] alloc_chrdev_region() param=mtd4
+<6>[tffs] CONFIG_TFFS_MTD_DEVICE_0=4 CONFIG_TFFS_MTD_DEVICE_1=5
+<6>[tffs] Character device init successfull 
+<4>TFFS: tiny flash file system driver. GPL (c) AVM Berlin (Version 2.0)
+<4>      mount on mtd4 and mtd5 (double buffering)
+<6>Adam2 environment variables API installed.
+<7>Calling initcall 0x941d9524: early_uart_console_switch+0x0/0xb8()
+<7>Calling initcall 0x94113d08: net_random_reseed+0x0/0x34()
+<7>Calling initcall 0x941ddc50: ip_auto_config+0x0/0x1140()
+<4>[prepare_namespace] new mount root /dev/mtdblock1
+<6>tffsd: wait for events
+<4>use lzma compression 
+<4>VFS: Mounted root (squashfs filesystem) readonly.
+<4>Freeing prom memory: 0kb freed
+<6>Freeing unused kernel memory: 112k freed (7619 free)
+<4>[setup_irq]: irq 15 irqaction->handler 0x940cf534 (serial8250_interrupt+0x0/0x128 )
+<4>[setup_irq]: irq 15 irqaction->handler 0x940cf534 (serial8250_interrupt+0x0/0x128 )
+<4>[setup_irq]: irq 15 irqaction->handler 0x940cf534 (serial8250_interrupt+0x0/0x128 )
+<4>[setup_irq]: irq 15 irqaction->handler 0x940cf534 (serial8250_interrupt+0x0/0x128 )
+<4>AR7WDT: System Init UEberwachung 240 Sekunden
+<4>TFFS Name Table 8
+<4>Piglet: module license '
+<4>(C) Copyright 2005 by AVM
+<4>' taints kernel.
+<6>JFFS2 version 2.2. (NAND) (C) 2001-2003 Red Hat, Inc.
+<4>registered device TI Avalanche SAR
+<4>tiatm driver (patch_annex=0xc00f69ec)
+<4>[tiatm] Set StrictPriority=0
+<4>DSP binary filesize = 300480 bytes
+<4>[setup_irq]: irq 23 irqaction->handler 0xc00de20c (tn7atm_sar_irq+0x0/0x30 [tiatm] )
+<4>[setup_irq]: irq 31 irqaction->handler 0xc00de23c (tn7atm_dsl_irq+0x0/0x28 [tiatm] )
+<4>[tiatm]: Powermanagment (States => 1,3,10) supported!
+<4>Texas Instruments ATM driver: version:[4.06.04.30]
+<4>ubik2 driver (ubik2 - 0x10=0xc00c8f54)
+<4>atm_dsp_register_ubik2: ubik2_ToMIPS_notify=0xc00bac00
+<4>atm_dsp_register_ubik2: dsp mem pointer 0xa1c0f1f0
+<3>ubik2_init_interface: DSP-Link Version v3 8480
+<6>isdn_fbox: Loading...
+<6>isdn_fbox: Driver 'isdn_fbox' attached to stack
+<6>isdn_fbox: CAPI driver registered.
+<4>isdn_fbox: AVM F!Box expected @ port 0x0000, irq 0
+<4>isdn_fbox: Loading...
+<4>gpio_ssi_init: done
+<6>isdn_fbox: Stack version 3.11-07
+<6>isdn_fbox: D-channel 0: DSS1  
+<6>isdn_fbox: D-channel 1: DSS1  
+<6>isdn_fbox: D-channel 2: DSS1_N
+<6>isdn_fbox: D-channel 3: POTS  
+<6>isdn_fbox: D-channel 4: SIP   
+<4>isdn_fbox: Loaded.
+<4>BLK: DECT StartUp, mode = WAIT, firmware: 00.13.12
+<4>BLK: DECT StartUp, mode = MASTER INIT, firmware: 00.13.12
+<6>usbcore: registered new driver usbfs
+<6>usbcore: registered new driver hub
+<6>	AHCI RevisionID = 0x02, RamSize = 16384, NumPorts= 1
+<4>[setup_irq]: irq 9 irqaction->handler 0xc00543b0 (ahci_irq+0x0/0x8a0 [usbahcicore] )
+<6>ahci : new USB bus registered, assigned bus number 1
+<6>kdsldmod: init start
+<6>kdsld: cache_create(datapipe)
+<6>kdsld: cache_create(datapipe_mod)
+<6>kdsld: cache_create(ipaccessset)
+<6>kdsld: cache_create(ipaccessrule)
+<6>kdsld: cache_create(ipfragid)
+<6>kdsld: cache_create(ipmasqentry)
+<6>kdsld: cache_create(ipmasqfwinfo)
+<6>kdsld: cache_create(ipmasqigdpm)
+<6>kdsld: cache_create(ipmasqappldata)
+<6>kdsld: cache_create(ipmasqmcgroup)
+<6>kdsld: cache_create(dnsmasqentry)
+<6>kdsld: cache_create(dnsstaticentry)
+<6>kdsld: cache_create(pingerentry)
+<6>kdsld: cache_create(pingerwaiter)
+<6>kdsld: cache_create(iprouteset)
+<6>kdsld: DATAPIPE: with header optimization
+<6>kdsldmod: init done
+<6>kdsld: PPP led: off (value=0)
+<6>hub 1-0:1.0: USB hub found
+<6>hub 1-0:1.0: 1 port detected
+<4>[speedup] disable
+<4>429493997: Configuration succeeded !!!
+<4>[ohio_vlynq_init] device 0
+<4>[ohio_vlynq_startup_link] 
+<4>[setup_irq]: irq 29 irqaction->handler 0x94004f2c (vlynq_interrupt+0x0/0x34 )
+<4>[setup_irq]: irq 79 irqaction->handler 0xc04d0a10 (whal_acxIntrHandler+0x0/0x1e8 [tiap] )
+<4>429494004:  
+<4>429494027: WDRV_MAINSM: WLAN Driver initialized successfully
+<4>
+<4>429494027: FW Watchdog is Enabled
+<6>dda: tiwlan0 in initializing Succeeded wireless extensions: ret = 0
+<6>tiwlan0 device is activated
+<6>wdsup0 device is activated
+<6>wdsdw0 device is activated
+<6>wdsdw1 device is activated
+<6>wdsdw2 device is activated
+<6>wdsdw3 device is activated
+<4>[setup_irq]: irq 27 irqaction->handler 0x940e016c (cpmac_main_isr+0x0/0x78 )
+<3>cpmac_main_ioctl, unknown ioctl 35142
+<6>device eth0 entered promiscuous mode
+<6>device cpmac0 entered promiscuous mode
+<6>lan: port 1(eth0) entering learning state
+<4>tiwlan_ddaDoIoctl : Unknown ioctl 35142
+<6>device tiwlan0 entered promiscuous mode
+<6>lan: port 2(tiwlan0) entering learning state
+<4>tiwlan_ddaWdsDoIoctl : Unknown ioctl 35142
+<6>device wdsup0 entered promiscuous mode
+<6>lan: port 3(wdsup0) entering learning state
+<4>tiwlan_ddaWdsDoIoctl : Unknown ioctl 35142
+<6>device wdsdw0 entered promiscuous mode
+<6>lan: port 4(wdsdw0) entering learning state
+<4>tiwlan_ddaWdsDoIoctl : Unknown ioctl 35142
+<6>device wdsdw1 entered promiscuous mode
+<6>lan: port 5(wdsdw1) entering learning state
+<4>tiwlan_ddaWdsDoIoctl : Unknown ioctl 35142
+<6>device wdsdw2 entered promiscuous mode
+<6>lan: port 6(wdsdw2) entering learning state
+<4>tiwlan_ddaWdsDoIoctl : Unknown ioctl 35142
+<6>device wdsdw3 entered promiscuous mode
+<6>lan: port 7(wdsdw3) entering learning state
+<6>kdsld: sync lost
+<3>[avm_led] virt led not registered
+<3>[avm_led] format error: "SET Name,Instanz = state"
+<4>BLK: DECT StartUp, mode = NORMAL, firmware: 00.13.12
+<4>AR7WDT: System Init UEberwachung abgeschlossen (199440 ms noch verfuegbar)
+<6>SysRq : Changing Loglevel
+<4>Loglevel set to 4
+<6>lan: topology change detected, propagating
+<6>lan: port 1(eth0) entering forwarding state
+<6>lan: topology change detected, propagating
+<6>lan: port 2(tiwlan0) entering forwarding state
+<6>lan: topology change detected, propagating
+<6>lan: port 3(wdsup0) entering forwarding state
+<6>lan: topology change detected, propagating
+<6>lan: port 4(wdsdw0) entering forwarding state
+<6>lan: topology change detected, propagating
+<6>lan: port 5(wdsdw1) entering forwarding state
+<6>lan: topology change detected, propagating
+<6>lan: port 6(wdsdw2) entering forwarding state
+<6>lan: topology change detected, propagating
+<6>lan: port 7(wdsdw3) entering forwarding state
+<6>mcfw_query_sent: tiwlan:0:0.0.0.0 1000
+<4>[tiatm] DSL in training!
+}}}
+
+
+
+
+
+
 == Configuration Files ==
 === AVM public-key1 ===
 {{{
