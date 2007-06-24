@@ -20,7 +20,6 @@ It also has a single 3.3v serial port, the original T-Com firmware allows you sh
 
 === Photos ===
 
-http://ipkg.k1k2.de/jb24img/pict1605.jpg
 
 http://img177.imageshack.us/img177/5249/pict1605te5.jpg
 
@@ -156,6 +155,8 @@ setenv kernel_args idle=4
 unsetenv mtd5
 }}}
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 === Building/Compiling original kernel from source ===
 
 For compiling the original (factory made) kernel 2.6.13.1-ohio
@@ -197,8 +198,65 @@ Diese Boxen verwenden Hidden Root:
 
 Bei Hidden Root befindet sich das root Dateisystem – ähnlich wie bei Contiguous SquashFS – direkt hinter dem Kernel (256 Byte Padding). Diese Boxen kann man daran erkennen, dass die Start- und End-Adresse von mtd0 in der mtd Tabelle gleich 0 und die Datei filesystem.image im Firmware Update leer ist. kernel.image enthält sowohl den Kernel als auch das root Dateisystem. Hidden Root am Beispiel der Fon WLAN 7170 (die kürzeren Balken für den Kernel und das root Dateisystem sollen nur andeuten, dass auf der Box von den 8 MB noch einiges mehr frei ist, als bei den 4 MB Boxen):
 
+---- /!\ '''Edit conflict - your version:''' ----
+=== Building/Compiling original kernel from source ===
+
+For compiling the original (factory made) kernel 2.6.13.1-ohio
+
+get the GPL sources from:
+
+http://www.t-home.de/dlp/eki/downloads/Speedport/Speedport%20W%20900V/GPL-r4884-8mb_26-tar.bz2
+
+---- /!\ '''End of edit conflict''' ----
 
 
+
+
+---- /!\ '''Edit conflict - other version:''' ----
+
+---- /!\ '''Edit conflict - your version:''' ----
+* unzip GPL-r4884-8mb_26-tar.bz2
+{{{
+tar -jxvf GPL-r4884-8mb_26-tar.bz2 /buildroot/W900V-orig/
+}}}
+
+* setting up/correct buildroot
+{{{
+su -c 'mkdir -p /home/jpluschke/FBox/spezial/'
+su -c 'ln -s /home/debian/buildroot/W900V-orig /home/jpluschke/FBox/spezial/r4884'
+find ../ -wholename '/proc' -prune -o -type l -print0 | xargs -0 file - | grep broken | cut -d ":" -f 1
+ll
+}}}
+*compile the kernel in buildroot/W900V-orig/GPL with
+{{{
+make
+}}}
+
+== Original Flash Map ==
+Bootloader: ADAM2 (+ Environment)
+
+Kernel: Linux 2.6.13.1-ohio
+
+Filesystem: SquashFS (lzma compressed)
+
+Configuration-Files: TFFS
+
+Hidden Root
+
+Bei Hidden Root befindet sich das root Dateisystem – ähnlich wie bei Contiguous SquashFS – direkt hinter dem Kernel (256 Byte Padding). Diese Boxen kann man daran erkennen, dass die Start- und End-Adresse von mtd0 in der mtd Tabelle gleich 0 und die Datei filesystem.image im Firmware Update leer ist. kernel.image enthält sowohl den Kernel als auch das root Dateisystem. Hidden Root am Beispiel der Fon WLAN 7170 (die kürzeren Balken für den Kernel und das root Dateisystem sollen nur andeuten, dass auf der Box von den 8 MB noch einiges mehr frei ist, als bei den 4 MB Boxen):
+
+Diese Boxen verwenden Hidden Root:
+
+    * Fritzbox Fon WLAN 7140
+    * Fritzbox Fon WLAN 7170
+    * Speedport W900V
+
+Bei Hidden Root befindet sich das root Dateisystem – ähnlich wie bei Contiguous SquashFS – direkt hinter dem Kernel (256 Byte Padding). Diese Boxen kann man daran erkennen, dass die Start- und End-Adresse von mtd0 in der mtd Tabelle gleich 0 und die Datei filesystem.image im Firmware Update leer ist. kernel.image enthält sowohl den Kernel als auch das root Dateisystem. Hidden Root am Beispiel der Fon WLAN 7170 (die kürzeren Balken für den Kernel und das root Dateisystem sollen nur andeuten, dass auf der Box von den 8 MB noch einiges mehr frei ist, als bei den 4 MB Boxen):
+
+
+
+
+---- /!\ '''End of edit conflict''' ----
 
  (TODO)
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
