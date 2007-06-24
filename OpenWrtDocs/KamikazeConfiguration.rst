@@ -141,7 +141,7 @@ config wifi-iface
 
 = HowTo =
 
-=== HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikazie 6.07 ===
+=== HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 6.07 ===
 
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box. 
 
