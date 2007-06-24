@@ -159,12 +159,40 @@ Block devices:
  31 mtdblock
 }}}
 
-=== mem ===
+=== free ===
 {{{
             total         used         free       shared      buffers
   Mem:        30476        27432         3044            0         3360
  Swap:            0            0            0
 Total:        30476        27432         3044
+}}}
+
+
+=== MEMINFO ===
+{{{
+MemTotal:        30476 kB
+MemFree:          3032 kB
+Buffers:          3360 kB
+Cached:          11224 kB
+SwapCached:          0 kB
+Active:          10704 kB
+Inactive:         7844 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:        30476 kB
+LowFree:          3032 kB
+SwapTotal:           0 kB
+SwapFree:            0 kB
+Dirty:               0 kB
+Writeback:           0 kB
+Mapped:           7312 kB
+Slab:             4992 kB
+CommitLimit:     15236 kB
+Committed_AS:     5676 kB
+PageTables:        228 kB
+VmallocTotal:  1048560 kB
+VmallocUsed:      3600 kB
+VmallocChunk:  1042944 kB
 }}}
 
 === IOMEM ===
