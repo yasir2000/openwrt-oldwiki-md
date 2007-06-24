@@ -1,9 +1,11 @@
 = Linksys WRT54G3G =
-/!\ '''NOTE:''' This device is not yet fully supported.
+/!\ '''NOTE:''' This device is not yet fully supported.  [With Kamikaze 7.06, my g3g v1.1 is working just fine, could someone explain what isn't supported?  Or remove the note.]
 
 This device seems to be a normal ["OpenWrtDocs/Hardware/Linksys/WRT54G"] with a !CardBus.
 
 The WRT54G3G is currently marketed by:
+
+ * Off the shelf product.  My eletricity company bought me one, and I'm using it with the Swedish Tele2/Comviq's Huawei E600 successfully.  (Note that Linksys's original firmware doesn't support the E600!)
 
  * Vodafone for their 3G UMTS networks.  It uses a Merlin UMTS modem:
 {{{
@@ -20,6 +22,8 @@ root@OpenWrt:/#
 Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support on WRT54G3G] thread or the [http://forum.openwrt.org/viewtopic.php?id=3220 WRT54G with 3G interface?] thread in the forum if you have more details.
 
 Please contribute useful information here.
+
+The v1.1 has a Broadcom BCM4712 CPU (200MHz) and ~14MB RAM.
 
 There's different 3G data cards bundled with this device. "Vodafone Mobile Connect 3G/GPRS data card" has NEC USB2 controller with two generic USB ports builtin. 3G side is connected to those ports.
 
@@ -53,5 +57,6 @@ Use this terminal setting:'''115200, 8, n, 1 with software flow-contol '''(= non
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||<style="text-align: center;"> '''S/N''' ||<style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
 ||WRT54G3G v1 || ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
+||WRT54G3G v1.1 || ||<style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
 ----
  . CategoryModel
