@@ -1558,5 +1558,23 @@ Jan  1 01:00:36 dsld[651]: DSL Mac xx:xx:xx:xx:xx:xx
 Jan  1 01:00:36 dsld[651]: VOIP Mac xx:xx:xx:xx:xx:xx
 Jan  1 01:00:36 dsld[651]: voip: ppptarget voip disabled, ignored Jan  1 01:00:36 dsld[651]: FactoryDefault=/etc/default/tcom/stat.cfgkdsld: sync lost  (stat) Jan  1 01:00:36 dsld[651]: /etc/default/tcom/stat.cfg: is empty Jan  1 01:00:36 dsld[651]: load_config(stat): file empty - factory default loaded Jan  1 01:00:36 dsld[651]: Statistic load_config failed Jan  1 01:00:36 dsld[651]: verbose: DISABLED Jan  1 01:00:36 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128) Jan  1 01:00:36 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128) [avm_led] virt led not registered [avm_led] format error: "SET Name,Instanz = state" telefon: use clock_gettime(CLOCK_MONOTONIC)! BLK: DECT StartUp, mode = NORMAL, firmware: 00.13.12 telefon: SIGCHLD received! telefon: WARNING No config file '/var/flash/fx_def' ! telefon: WARNING No CG file '/var/flash/fx_cg' ! voipd: csock: using poll Jan  1 01:00:40 websrv[630]: startup (Jul  6 2006 15:36:02) voipd: avmssl_init: done 2000-01-01 01:00:40 ar7cfgctl: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7) Jan  1 01:00:40 ar7cfgctl[677]: FactoryDefault=/etc/default/tcom/ar7.cfg (ar7) Jan  1 01:00:40 voipd[673]: FactoryDefault=/etc/default/tcom/voip.cfg (voip) Jan  1 01:00:40 voipd[673]: load_config(voip): factory default loaded Jan  1 01:00:40 voipd[673]: startup (AVM Speedport W 900V 34.04.21 AVM SIP v5.01.48 Jul 12 2006 16:18:47) Jan  1 01:00:40 voipd[673]: using capi controller 5 Jan  1 01:00:40 voipd[673]: using b1 protocol 10 2000-01-01 01:00:41 ar7cfgctl: load_config(ar7): factory default loaded Jan  1 01:00:41 ar7cfgctl[677]: load_config(ar7): factory default loaded Jan  1 01:00:41 voipd[673]: tel: supported Jan  1 01:00:41 voipd[673]: ENUM NOT enabled Jan  1 01:00:41 voipd[673]: enumdomain: e164.arpa Jan  1 01:00:41 voipd[673]: enumdomain: e164.org Jan  1 01:00:41 voipd[673]: VoIP led value = 0 Jan  1 01:00:41 voipd[673]: no useragent configured Jan  1 01:00:41 voipd[673]: INFO led: off (value=0) Jan  1 01:00:41 voipd[673]: priority is -20 Jan  1 01:00:41 voipd[673]: encaplen 32 Jan  1 01:00:41 voipd[673]: brutto speed unknown Jan  1 01:00:41 voipd[673]: connstatus 0 -> 1 Jan  1 01:00:41 voipd[673]: PCMA: 98933 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: PCMU: 98933 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: G726-32: 70666 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: G726-40: 70666 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: G726-24: 56533 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: iLBC: 42400 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,30ms) Jan  1 01:00:41 voipd[673]: PCMA: 106000 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: PCMU: 106000 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: G726-32: 84800 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: G726-40: 84800 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: G726-24: 63600 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: iLBC: 63600 bits/second (encaplen=32,20msAR7WDT: System Init UEberwachung abgeschlossen (201510 ms noch verfuegbar) ) Jan  1 01:00:41 voipd[673]: Speex: 63600 bits/second (encaplen=32,20ms) Jan  1 01:00:41 voipd[673]: verbose: DISABLED run_clock demon started  Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048SysRq : Changing Loglevel Loglevel set to 4 : failed to send UDP-  Please press Enter to activate this console.   Jan  1 01:00:41 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.2:53 - Network is unreachable (128) Jan  1 01:00:42 cltmgr[549]: 0.0.0.0:2048: failed to send UDP-datagram to 192.168.180.1:53 - Network is unreachable (128) }}}
 
+== Openwrt running on Speedport W900v ==
+
+BusyBox v1.4.2 (2007-06-24 15:34:13 CEST) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r7718) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
+root@OpenWrt:/#
+
 
 CategoryModel ["CategoryAR7Device"]
