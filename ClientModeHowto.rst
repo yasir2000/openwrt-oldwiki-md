@@ -26,7 +26,7 @@ If you are going to leave the wireless interface bridged to the LAN on br0, then
 There are two different client modes: bridged and routed.  They are mutually exclusive.
 
 === Bridged client mode ===
-In bridged client mode, all computers connected to the client will be connected to the subnet of the access point you are connecting to (no firewalling, unless you use iptables).
+In bridged client mode, all computers connected to the client will be connected to the subnet of the access point you are connecting to (no firewalling, unless you use ebtables).
 
 When using the bridged client mode, you should disable the DNS/DHCP server:  If the "chmod" command fails and reports a read-only file system you will have to remove it instead (you can always put it back since it's just a symlink to the real script).
 
