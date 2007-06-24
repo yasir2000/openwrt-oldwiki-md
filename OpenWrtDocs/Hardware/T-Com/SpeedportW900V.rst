@@ -160,8 +160,7 @@ Block devices:
  31 mtdblock
 }}}
 
-
-=== IOMEM === 
+=== IOMEM ===
 {{{
 cat /proc/iomem
 14000000-14208fff : reserved
