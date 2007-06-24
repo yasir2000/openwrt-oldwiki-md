@@ -82,9 +82,9 @@ hardware watchpoint     : yes
 VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
+
 === FLASH Map Info ===
 {{{
-
 cat /proc/mtd
 dev:    size   erasesize  name
 mtd0: 00800000 00010000 "phys_mapped_flash"
@@ -127,7 +127,7 @@ Piglet 7632 0 - Live 0xc000a000
 
 === devices === 
 {{{
-~ # cat /proc/devices
+cat /proc/devices
 Character devices:
   1 mem
   2 pty
