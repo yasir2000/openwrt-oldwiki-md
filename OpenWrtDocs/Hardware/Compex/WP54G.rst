@@ -45,9 +45,9 @@ There are several different models available of WP54, but only WP54 with part nu
 
 [http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf DataSheet] = Provide Technical Specification and Ordering Information.
 
-[http://compex.com.sg/home/OEM/index.htm.%20 OEM Solution] = It is about Company OEM Solution.
+[http://compex.com.sg/home/OEM/index.htm OEM Solution] = It is about Company OEM Solution.
 
-[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting, and so on.
+[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting, and so on. *** BROKEN LINK ***
 
 [http://compex.com.sg/home/OEM/Downloads/Open-WRT_Codes.rar OpenWRT Codes] = Its a .Rar file that contain Open WRT Code.
 
@@ -113,7 +113,7 @@ webserver           restart
 }}}
 '''Firmware format'''
 
-The web interface has an option to upgrade the firmware. However the file format of Compex's standard firmware is not the same as OpenWrt's trx file. Here are the first few bytes of WP54G_MSSID_V203_B1013.IMG (The latest firmware Should be "WP54G_MSSID_V206_B1229.IMG ")
+The web interface has an option to upgrade the firmware. However the file format of Compex's standard firmware is not the same as OpenWrt's trx file. Here are the first few bytes of WP54G_MSSID_V203_B1013.IMG (The latest firmware is V3xx)
 
 {{{
 00000000  00 4d 59 4c 90 46 32 d2  00 00 00 00 00 00 00 00  |.MYL.F2.........|
