@@ -148,12 +148,16 @@ Without serial console, this procedure was successful on wag354g:
 {{{
         tftp> verbose           (for debugging purpose)
         tftp> trace             ( "     "       "     )
+        tftp> rexmt 1
+        tftp> timeout 5
         tftp> binary
         tftp> connect 192.168.1.1
-        tftp> put upgrade_code.bin
 }}}
- * wait ~ 1sec.
  * plug the power to the router
+ * wait until the led switch turns on, and immediately enter:
+{{{tftp> put upgrade_code.bin}}}
+ *alternatively, just dont wait to press enter, and do some try till the right timing is guessed.
+
 If transfer starts, the tftp output is like this:
 {{{
 ....
