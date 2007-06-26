@@ -138,99 +138,78 @@ config wifi-iface
 
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK '''
 
-
 = HowTo =
-
 === HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 6.07 ===
+At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
-At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box. 
+It's instruction from  http://foo2zjs.rkkda.com/
 
-It's instruction from  http://foo2zjs.rkkda.com/ 
 {{{
-„Click the link, or cut and paste the whole command line below to download the driver. 
+„Click the link, or cut and paste the whole command line below to download the driver.
     $ wget -O foo2zjs.tar.gz http://foo2zjs.rkkda.com/foo2zjs.tar.gz
-Now unpack it: 
+Now unpack it:
 Unpack:
     $ tar zxf foo2zjs.tar.gz
     $ cd foo2zjs
-Now compile and install it. The INSTALL file contains more detailed instructions; please read it now. 
+Now compile and install it. The INSTALL file contains more detailed instructions; please read it now.
 Compile:
     $ make
-
 Get extra files from the web, such as .ICM profiles for color correction,
 and firmware.  Select the model number for your printer:
     $ ./getweb 2430     # Get Minolta 2430 DL .ICM files
     $ ./getweb 2300     # Get Minolta 2300 DL .ICM files
     $ ./getweb 2200     # Get Minolta 2200 DL .ICM files
     $ ./getweb cpwl     # Get Minolta Color PageWorks/Pro L .ICM files
-
     $ ./getweb 1020     # Get HP LaserJet 1020 firmware file
     $ ./getweb 1018     # Get HP LaserJet 1018 firmware file
     $ ./getweb 1005     # Get HP LaserJet 1005 firmware file
     $ ./getweb 1000     # Get HP LaserJet 1000 firmware file
-
 Install driver, foomatic XML files, and extra files:
     $ su                        OR      $ sudo make install
     # make install
-
 (Optional) Configure hotplug (USB; HP LJ 1000/1005/1018/1020):
     # make install-hotplug      OR      $ sudo make install-hotplug
-
 (Optional) If you use CUPS, restart the spooler:
-    # make cups                 OR      $ sudo make cups ”  
+    # make cups                 OR      $ sudo make cups ”
 }}}
-
 Next you must transfer  sihp1020.dl to your Asus box.
 
+On Asus You should install packages :
 
-
-
-On Asus You should install packages : 
 {{{
  ipkg install kmod-usb-pinter
  ipkg install p910nd
 }}}
 When do you have problem with depends  kmod-nls-base. You should edit /usr/lib/ipkg/lists and remove depends for your pacage.
 
-
 Next:
+
 {{{
 /etc/init.d/p910nd enable
-
 /etc/default/p910nd I leave without any changes !!!!
 }}}
-
 And next You need create script which upload frimware to your printer when she had pluged.
 
-Create a new file /etc/hotplug.d/usb/hplj1020: 
+Create a new file /etc/hotplug.d/usb/hplj1020:
+
 {{{
 #!/bin/sh
-
-
-
 FIRMWARE="/mnt/pendrive/sihp1020.dl"
  < -- place where you have your .dl file.
- 
 
 if [ "$PRODUCT" = "3f0/2b17/100" ]
-
 then
-
         if [ "$ACTION" = "add" ]
-
         then
-
                 echo "`date` : Sending firmware to printer..." > /var/log/hp
-
                 cat $FIRMWARE > /dev/usb/lp0
-
                 echo "`date` : done." > /var/log/hp
-
           fi
-
 }}}
 You must change parameter 3f0/2b17/100 for your printer.
 
 3f0/517/120 it is idVendor/idProduct/bcdDevice, from device descriptor. Numbers are hexadecimal, without leading '0x' or zeros.
 
 This parameters you can get from ls with v option. More info you can find at http://linux-hotplug.sourceforge.net/?selected=usb .
+
+= Sample Config Scripts =
