@@ -413,6 +413,28 @@ If you are running a webserver on that address, and want to listen on port 80 in
 
 The same is true for any other ports you'd want to forward to your LAN. Just follow the example as a guide.
 
+If you would like to have the router loopback forwarded ports, you need to add the following code to /etc/firewall.user.  Loopback allows a computer on your LAN to hit your external IP address and have the packet forwarded back as if it had come from the outside.  The default OpenWrt (iptables) installation does not allow this.
+
+{{{
+iptables -t nat -A prerouting_rule -d 100.100.100.100 -p tcp --dport 80 -j DNAT --to 192.168.0.2
+iptables -A forwarding_rule -p tcp --dport 80 -d 192.168.0.2 -j ACCEPT
+iptables -t nat -A postrouting_rule -s 192.168.0.0/24 -p tcp --dport 80 -d 192.168.0.2 -j MASQUERADE
+}}}
+
+There is an explanation for what these lines mean on [http://forum.openwrt.org/viewtopic.php?id=4030 this form] about half way down.  The example above loopbacks all traffic on port 80 directed from the LAN to the external IP address 100.100.100.100 back to 192.168.0.2.  You need to copy these three lines and change the port number for every port needing loopback.  You would usually use this with an existing port forwarding rule described.  For example:
+
+{{{
+iptables -A forwarding_wan -p tcp --dport 80 -d 192.168.0.2 -j ACCEPT
+}}}
+
+If you are using x-wrt to setup port forwarding this rule will be created in /etc/config/firewall and will look like the following:
+
+{{{
+forward:proto=tcp dport=80:192.168.0.2:80
+}}}
+
+These instructions only work for single port numbers.  If anyone knows how to loopback a port range please post the instructions here.
+
 The last section, '''DMZ''' is sending all connections to a port not specified in the rules above to a certain IP address. If you do decide to use this, it would be a good idea to have a firewall managing the ports on the destination. The DMZ can be considered a simple way to let another computer handle the firewall rules, if you don't want to configure them on OpenWRT and at the same time you want to send all connections to one device.
 
 Once you're finished making changes to your firewall, restart it by running the init script:
