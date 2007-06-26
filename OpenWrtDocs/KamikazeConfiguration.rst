@@ -9,11 +9,11 @@ Some older Kamikaze builds have configuration files which mimic the NVRAM config
 == Order for Network Initialization ==
 1. CFE (bootloader) may initialise switch into VLANS based on NVRAM information
 
-2. Kamikaze may (will?) initialise switch into VLANS based on information in /etc/config/network (see below) - note this creates network devices with names like ''vlan0'' or ''eth0.0'' (what are the actual names?) note also this used to be done using the ''robocfg'' utility; how is it done now?
+2. Kamikaze initialise switch into VLANS based on information in /etc/config/network (see below) - note this creates network devices with names like ''eth0.0''. Note also this used to be done using the ''robocfg'' utility; how is it done now?
 
-3. Kamikaze may (will?) initialise the wifi card - note this can be done using ''madwifi'' and ''iwconfig'', is that what is happening during startup?
+3. Kamikaze initialise the wifi card - note this can be done using ''madwifi'' or ''iwconfig'', is that what is happening during startup? (it uses self made scripts, calling wlc, isn't it?)
 
-4. Kamikaze may (will?) initialise bridges to link wireless interface with (v)LAN based on information in /etc/config/network - note this can be done using the ''brctl'' utility, is this what is used during startup?
+4. Kamikaze initialise bridges to link wireless interface with (v)LAN based on information in /etc/config/network - note this can be done using the ''brctl'' utility, is this what is used during startup?
 
 5. Kamikaze will assign ip addresses or ask for dhcp IP leases for network devices or bridges - could be using ''ifconfig''?
 
