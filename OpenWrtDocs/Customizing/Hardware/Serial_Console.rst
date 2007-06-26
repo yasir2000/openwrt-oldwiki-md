@@ -9,6 +9,8 @@ I recommend using a usb serial console, as it's much easier and cheaper.
 Pinouts for your model can often be found on your model's page in CategoryModel.
 
 == USB Kit ==
+You could buy something like this: http://www.sparkfun.com/commerce/product_info.php?products_id=199
+
 A USB based data cable for a mobile cell phone is another possibility.
 
 note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
