@@ -101,6 +101,23 @@ The box will restart and *hopefully* come up again. If your WLAN interface (eth1
 reachable, make sure it is ''up''.
 
 
+On my box I had to add the following lines to /etc/firewall.user so that the WLAN interface could communicate with the DHCP server and pass traffic out to the WAN.
+
+{{{
+WIFI="$(nvram get wifi_ifname)"
+
+iptables -N WIFI_ACCEPT
+[ -z "$WAN" ] || iptables -A WIFI_ACCEPT -i "$WAN" -j RETURN
+[ -z "$WANDEV" -o "$WANDEV" = "$WAN" ] || iptables -A WIFI_ACCEPT -i "$WANDEV" -j RETURN
+iptables -A WIFI_ACCEPT -j ACCEPT
+
+iptables -A INPUT -j WIFI_ACCEPT
+
+iptables -A FORWARD -i br1 -o br1 -j ACCEPT
+iptables -A FORWARD -i $WIFI -o $WAN -j ACCEPT
+}}}
+
+
 == DHCP-Server ==
 
 The dnsmasq package in !OpenWrt is responsible for the DHCPD functions. As we have a
