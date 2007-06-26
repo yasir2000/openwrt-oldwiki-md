@@ -212,4 +212,6 @@ You must change parameter 3f0/2b17/100 for your printer.
 
 This parameters you can get from ls with v option. More info you can find at http://linux-hotplug.sourceforge.net/?selected=usb .
 
-= Sample Config Scripts =
+= Sample Application Config Scripts =
+Repeater http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
+Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
