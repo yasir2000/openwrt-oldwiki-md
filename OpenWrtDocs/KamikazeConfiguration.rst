@@ -53,6 +53,10 @@ config interface lan
         option gateway  192.168.1.1
         option dns      192.168.1.1
 }}}
+You can configure multiple DNS servers by separating entries with space :
+{{{
+option dns "192.168.1.1 192.168.80.100"
+}}}
 ==== Bridging Interfaces ====
 {{{
 config interface lan
