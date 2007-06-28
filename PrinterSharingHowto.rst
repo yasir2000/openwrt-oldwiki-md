@@ -134,7 +134,7 @@ Please translate this to english. Thanks.
  * You printer should be configred now. Be sure that your firewall allows communication to the chosen port.
  * You may print a test page to see if all went well.
 = Ink level information for inkjet printers =
-Most printer drivers cannot access ink level information through the 910nd deamon, so you may not know, which cartridge to change. You can use the attached ink-4.1 package attachment:attachment%3Aink_0.4.1-1_mipsel.ipk to obtain the ink levels for most printers in OpenWrt (based on http://libinklevel.sourceforge.net/). If you want to display the inklevels in X-Wrt you may apply the following path to status-usb.sh:
+Most printer drivers cannot access ink level information through the 910nd deamon, so you may not know, which cartridge to change. You can use the attached ink-4.1 package attachment:ink%5F%30.%34.%31%2D%31%5Fmipsel.ipk to obtain the ink levels for most printers in OpenWrt (based on http://libinklevel.sourceforge.net/). If you want to display the inklevels in X-Wrt you may apply the following path to status-usb.sh:
 
 {{{
 ...
