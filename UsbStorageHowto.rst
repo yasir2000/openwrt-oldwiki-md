@@ -147,7 +147,7 @@ Now install the {{{fdisk}}} package from the White Russian's backports repositor
 {{{
 ipkg install fdisk
 }}}
-'''TIP:''' If you dont find fdisk in the rc6 backports repository, you can use the rc5 backports version:
+'''TIP:''' If you don't find fdisk in the rc6 backports repository, you can use the rc5 backports version:
 
 {{{
 ipkg install http://downloads.openwrt.org/backports/rc5/fdisk_2.12r-1_mipsel.ipk}}}
