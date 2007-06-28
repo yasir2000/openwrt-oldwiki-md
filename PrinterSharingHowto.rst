@@ -62,15 +62,14 @@ cat /etc/default/p910nd}}}
 0  -b -f /dev/usb/lp0}}}
 You can run more than one printer at the same time. For example one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}}) interface.
 
-If you own ASUS WL-500 and connect to parallel port, you might need to modify {{{/etc/default/p910nd}}} to contain (only) {{{ -f /dev/printers/0}}}
-Save it and start the {{{p910nd}}} daemon with:
+If you own ASUS WL-500 and connect to parallel port, you might need to modify {{{/etc/default/p910nd}}} to contain (only) {{{ -f /dev/printers/0}}} Save it and start the {{{p910nd}}} daemon with:
 
 {{{
 /etc/init.d/p910nd start}}}
 To start it up automatically rename it as follows
+
 {{{
 mv /etc/init.d/p910nd /etc/init.d/S55p910nd}}}
-
 = Configure the clients for printing =
 Here I would demonstrate you, how to configure the printer driver on your client. It could be that these steps are not exactly the same on your operating system.
 
@@ -134,11 +133,63 @@ Please translate this to english. Thanks.
  * Finish the Settings wizard and close the Add Port window. The newly created Port should now be selected.
  * You printer should be configred now. Be sure that your firewall allows communication to the chosen port.
  * You may print a test page to see if all went well.
+= Ink level information for inkjet printers =
+Most printer drivers cannot access ink level information through the 910nd deamon, so you may not know, which cartridge to change. You can use the attached ink-4.1 package attachment:attachment%3Aink_0.4.1-1_mipsel.ipk to obtain the ink levels for most printers in OpenWrt (based on http://libinklevel.sourceforge.net/). If you want to display the inklevels in X-Wrt you may apply the following path to status-usb.sh:
+
+{{{
+...
+end_form
+EOF
+?>
+<?
+usbpr=`ls /dev/usb/lp* 2>/dev/null`
+if [ ! -z "$usbpr" ]; then
+        inklevel_form=$(
+        for pdev in $usbpr; do
+                ink -d $pdev |  awk -v FS=":" '
+                BEGIN
+                {
+                        line=0
+                        print "string|<table style=\"width: 90%; margin-left: 2.
+                }
+                {
+                        if (line==2)
+                        {
+                                print "string| <tr><td colspan=\"5\"><h3>@TR<<st
+                        }
+                        if (line >=4)
+                        {
+                                print "string| <tr><td width=200>" $1 "</td><td>
+                                print "progressbar|inklevel||200||" $2 "||"
+                                print "string|</td></tr>"
+                        }
+                        line++
+                }
+                END
+                {
+                        print "string|</table>"
+                }'
+        done;
+        )
+        display_form <<EOF
+        start_form|@TR<<status_usb_printers_inklevels#USB printer inklevels>>
+        $inklevel_form
+        end_form
+EOF
+fi;
+?>
+<div class="settings">
+<h3>@TR<<status_usb_Mounted_USB_SCSI#Mounted USB / SCSI devices>></h3>
+<div>
+...
+}}}
+
+
 = Troubleshooting =
  * Problem : the printer status shows "Attempting to connect to socket://<ip to router>:<listening port of router>" in the client CUPS interface (http://localhost:631) and nothing works (seen on ["OpenWrtDocs/Hardware/Asus/WL500GP"] / WhiteRussian RC6).
  * Solution : make sure you installed both USB 1.1 and USB 2.0 modules (see UsbStorageHowto).
 = Not supported printers =
-Here you should create a list of printers which are '''not''' working with the {{{p910nd}}} package. Please include manufacturer, model, interface (USB/Parport), driver working  and some short comment.
+Here you should create a list of printers which are '''not''' working with the {{{p910nd}}} package. Please include manufacturer, model, interface (USB/Parport), driver working and some short comment.
 
 The combination Windows 2000 with a canon pixma iP4000 seems not to work with bidirectional mode. If your printer dosent work, try disabling bidirectional mode.
 
