@@ -107,6 +107,7 @@ Exit from configure menu and save settings.
 Then input ''make'' and wait long time (it's depends of your machine's capatibles).
 
 == Windows part ==
+But will work on linux with for example ''hexer'' and plain ''ftp''
 
 '''Adding checksum'''
 
@@ -157,6 +158,7 @@ mtd4,0x90010000,0x903f0000}}}
 '''Flashing'''
 
 Now do Start -> Run -> cmd and goto directory with ''openwrt-ar7-2.6-squashfs.bin'', and type ''ftp 192.168.1.1'', but DON'T PRESS ENTER KEY. Set settings of your modem connection with IP ''192.168.1.5'', DNS mask with ''255.255.255.0'', remove previous gateway and DNS settings. Then turn off your modem and wait about 10 seconds, then power on it, and look at connection icon at tray, it will look as disconnected, and as soon as it's look as connected computer, immideantly press enter key, maybe you will need some practise with it, so try turn off and ftp to modem before you're don't see ADAM2 FTP welcome.
+If it doesn't work, see on ["OpenWrtDocs/TroubleshootingAR7"] for more info
 
 Now it's time to enter results of your calculation, but in little other format, so it's mine (''OF COURSE USE YOUR OWN VALUES, AND NEVER SET ANY OTHERS BUT mtd0, mtd1 and mtd4''):
 
