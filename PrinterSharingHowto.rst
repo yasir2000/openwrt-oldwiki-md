@@ -183,8 +183,6 @@ fi;
 <div>
 ...
 }}}
-
-
 = Troubleshooting =
  * Problem : the printer status shows "Attempting to connect to socket://<ip to router>:<listening port of router>" in the client CUPS interface (http://localhost:631) and nothing works (seen on ["OpenWrtDocs/Hardware/Asus/WL500GP"] / WhiteRussian RC6).
  * Solution : make sure you installed both USB 1.1 and USB 2.0 modules (see UsbStorageHowto).
