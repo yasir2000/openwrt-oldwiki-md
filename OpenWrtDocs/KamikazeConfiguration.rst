@@ -143,7 +143,7 @@ config wifi-iface
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK '''
 
 = HowTo =
-=== HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 6.07 ===
+=== HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 ===
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
 It's instruction from  http://foo2zjs.rkkda.com/
