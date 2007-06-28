@@ -58,6 +58,18 @@ This package includes the modules for USB 2.0.
 ipkg install kmod-usb2
 insmod ehci-hcd
 }}}
+
+If you see messages like this:
+
+{{{
+insmod: unresolved symbol usb_calc_bus_time
+}}}
+
+try loading usbcore and then try ehci-hcd again:
+{{{
+insmod usbcore
+insmod ehci-hcd
+}}}
 == Modules for storage ==
 To add storage support finally install
 
@@ -135,7 +147,7 @@ Now install the {{{fdisk}}} package from the White Russian's backports repositor
 {{{
 ipkg install fdisk
 }}}
-'''TIP:''' If you don’t find fdisk in the rc6 backports repository, you can use the rc5 backports version:
+'''TIP:''' If you dont find fdisk in the rc6 backports repository, you can use the rc5 backports version:
 
 {{{
 ipkg install http://downloads.openwrt.org/backports/rc5/fdisk_2.12r-1_mipsel.ipk}}}
