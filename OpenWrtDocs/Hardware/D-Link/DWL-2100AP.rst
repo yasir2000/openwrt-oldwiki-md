@@ -4,10 +4,8 @@
 [http://www.dlink.com/products/?pid=292 AirPlus XtremeG Wireless Access Point]
 
 == Foreword ==
-A warning message before you start. At the moment getting anything other than the original VxWorks firmware to run on the 2100AP'''will void your warranty'''! Furthermore, you will probably have to open the case and solder a few parts onto the internal board. If anything goes wrong in the installation of a new firmware image you might brick your AP, although this is usually reversible with jtag or other debrick tools.
-To gain access to the serial console, you will have to make a RS232-3.3V serial adapter. Never connect RS232 directly to the board serial interface or you may cause serious damage to your hardware. You will need something like the MAX232 chip or just two transistors. There are plenty of schematics for this on google.
-If you plan to run openwrt, then you will also need to replace the VxWorks bootloader with redboot or something. At present, this can only be accomplished using a jtag cable and software. Unless you spend thousands of dollars on professional jtag equipment, cheap solutions may work but they take an awful lot of time. Expect 1 hour to flash just the boot loader and 6-8 hours to flash the whole shebang.
-Last, but not least, begin by making a backup copy of your ROM and keep it safe! And remember: the bootloader and almost everything else on ROM can be safely replaced with whatever you want, but the last two blocks of ROM (typically the last 128Kb depending on your hardware)  contain important information about your hardware and should not be erased. Your hardware and software will malfunction without it.
+A warning message before you start. At the moment getting anything other than the original VxWorks firmware to run on the 2100AP'''will void your warranty'''! Furthermore, you will probably have to open the case and solder a few parts onto the internal board. If anything goes wrong in the installation of a new firmware image you might brick your AP, although this is usually reversible with jtag or other debrick tools. To gain access to the serial console, you will have to make a RS232-3.3V serial adapter. Never connect RS232 directly to the board serial interface or you may cause serious damage to your hardware. You will need something like the MAX232 chip or just two transistors. There are plenty of schematics for this on google. If you plan to run openwrt, then you will also need to replace the VxWorks bootloader with redboot or something. At present, this can only be accomplished using a jtag cable and software. Unless you spend thousands of dollars on professional jtag equipment, cheap solutions may work but they take an awful lot of time. Expect 1 hour to flash just the boot loader and 6-8 hours to flash the whole shebang. Last, but not least, begin by making a backup copy of your ROM and keep it safe! And remember: the bootloader and almost everything else on ROM can be safely replaced with whatever you want, but the last two blocks of ROM (typically the last 128Kb depending on your hardware)  contain important information about your hardware and should not be erased. Your hardware and software will malfunction without it.
+
 == Hardware ==
 Based on an A2 version, with some notes for rev. A3.
 
@@ -151,22 +149,72 @@ unit=1;
 to get it to work.[[BR]] [[BR]] To get redboot detect flash (in my case it is S29gl032m90) it has to be described in packages/devs/flash/amd/am29xxxxx/v2_0/include/flash_am29xxxxx_parts.inl:
 
 {{{
-   {   // S29gl032m90
+    {   // S29GL032M, model R0 - uniform sector device
+        long_device_id: true,
         device_id  : FLASHWORD(0x7e),
+        device_id2 : FLASHWORD(0x1c),
+        device_id3 : FLASHWORD(0x00),
         block_size : 0x20000 * CYGNUM_FLASH_INTERLEAVE,
-        block_count: 32,
+        block_count: 64,
+        device_size: 0x400000 * CYGNUM_FLASH_INTERLEAVE,
+        base_mask  : ~(0x400000 * CYGNUM_FLASH_INTERLEAVE - 1),
+        bootblock  : false,
+        banked     : false
+    },
+    {   // S29GL032M, model R1,R2 - uniform sector device
+        long_device_id: true,
+        device_id  : FLASHWORD(0x7e),
+        device_id2 : FLASHWORD(0x1d),
+        device_id3 : FLASHWORD(0x00),
+        block_size : 0x20000 * CYGNUM_FLASH_INTERLEAVE,
+        block_count: 64,
+        device_size: 0x400000 * CYGNUM_FLASH_INTERLEAVE,
+        base_mask  : ~(0x400000 * CYGNUM_FLASH_INTERLEAVE - 1),
+        bootblock  : false,
+        banked     : false
+    },
+    {   // S29GL032M, model R4 - boot blocks on the bottom
+        long_device_id: true,
+        device_id  : FLASHWORD(0x7e),
+        device_id2 : FLASHWORD(0x1a),
+        device_id3 : FLASHWORD(0x00),
+        block_size : 0x20000 * CYGNUM_FLASH_INTERLEAVE,
+        block_count: 64,
         device_size: 0x400000 * CYGNUM_FLASH_INTERLEAVE,
         base_mask  : ~(0x400000 * CYGNUM_FLASH_INTERLEAVE - 1),
         bootblock  : true,
-        bootblocks : { 0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x004000 * CYGNUM_FLASH_INTERLEAVE,
-                       0x3e0000 * CYGNUM_FLASH_INTERLEAVE,
+        bootblocks : { 0x000000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       _LAST_BOOTBLOCK
+                     },
+        banked     : false
+    },
+    {   // S29GL032M, model R3 - boot blocks on the top
+        long_device_id: true,
+        device_id  : FLASHWORD(0x7e),
+        device_id2 : FLASHWORD(0x1a),
+        device_id3 : FLASHWORD(0x01),
+        block_size : 0x20000 * CYGNUM_FLASH_INTERLEAVE,
+        block_count: 64,
+        device_size: 0x400000 * CYGNUM_FLASH_INTERLEAVE,
+        base_mask  : ~(0x400000 * CYGNUM_FLASH_INTERLEAVE - 1),
+        bootblock  : true,
+        bootblocks : { 0x3F0000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
+                       0x002000 * CYGNUM_FLASH_INTERLEAVE,
                        _LAST_BOOTBLOCK
                      },
         banked     : false
