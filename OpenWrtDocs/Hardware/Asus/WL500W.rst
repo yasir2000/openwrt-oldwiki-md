@@ -1,8 +1,8 @@
 The Asus WL-500W is partially supported from kamikaze.
 
-N mode wireless is not functional at this time as far as I could ascertain.  Stock images will also not work.  In order for you to use this device you must be able to operate the serial console, or perhaps more easily accomplished you will need to compile your own image from source.  You will need to edit the broadcom.sh file and the network config as illustrated below. If you are not comfortable with building from source on your own here are some basic instructions:
+N mode wireless is not functional at this time as far as I could ascertain. Stock images will also not work. In order for you to use this device you will need to compile your own image from source. You will need to edit the broadcom.sh file and the network config as illustrated below. If you are not comfortable with building from source on your own here are some basic instructions:
 
-!!!Disclaimer #1!!! I am in no way responsible for the safety of you, your router, or your computer.  These instructions worked for me.  They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine.  That said...these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again.  That's a hint BTW...go download a regular copy of the asus firmware esp. if you are relying on this router for internet!
+!!!Disclaimer #1!!! I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said...these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
 
 1. On the local computer install the base packages: sudo aptitude install build-essential gawk binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term zlib1g-dev unzip (I use ubuntu fiesty, if you use another distro that doesn't use apt-get or aptitude...you're on your own to figure out the command).
 
@@ -15,8 +15,13 @@ N mode wireless is not functional at this time as far as I could ascertain.  Sto
 #cd kamikaze
 #make package/symlinks
 #make menuconfig}}}
-3. On your own for a little... choose the packages you want/need.  Make sure to set the system to broadcom 2.4 and I used profile set to asus wl-500g Premium
+3. On your own for a little... choose the packages you want/need.  Make sure to set the system to broadcom 2.4 and I used profile set to asus wl-500g Premium.
 
+Or, if you don't want to be bothered, copy this [attachment:config file] and copy it to:
+
+{{{
+~/kamikaze/.config
+}}}
 4. Make
 
 {{{
@@ -37,21 +42,22 @@ You can of course substitute your favourite text editor for vi. now make this ''
 {{{
 #### VLAN configuration
 config switch eth0
-option vlan0    "0 1 2 3 4 5u"
+   option vlan0    "0 1 2 3 4 5u"
 #### Loopback configuration
 config interface loopback
-option ifname   "lo"
-option proto    static
-option ipaddr   127.0.0.1
-option netmask  255.0.0.0
+   option ifname   "lo"
+   option proto    static
+   option ipaddr   127.0.0.1
+   option netmask  255.0.0.0
 #### LAN configuration
 config interface lan option type     bridge
-option ifname   "eth0 wl0"
-option proto    static option ipaddr   192.168.1.1
-option netmask  255.255.255.0
+   option ifname   "eth0 wl0"
+   option proto    static option ipaddr   192.168.1.1
+   option netmask  255.255.255.0
 #### WAN configuration
 config interface wan
-option ifname   "eth1" option proto    dhcp 8.
+   option ifname   "eth1"
+   option proto    dhcp
 }}}
 {{{
 #cd ../../lib/wifi
