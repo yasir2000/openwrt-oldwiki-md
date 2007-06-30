@@ -168,7 +168,7 @@ wifi_ipaddr=192.168.2.25
 wifi_netmask=255.255.255.0
 wan_ifname=vlan1
 wan_proto=dhcp
-lan_ifnames="vlan0"
+lan_ifnames=vlan0
 }}}
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
