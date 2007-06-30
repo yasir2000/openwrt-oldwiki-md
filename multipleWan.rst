@@ -281,7 +281,7 @@ stop() {
 }
 }}}
 
-Here you are, you now have a dual wan setup. Notice that some of you ISP services are only accessible when the source IP is part of its network. For example if you use SMTP or DNS from ISP1 (smtp.isp1.com) it will only be accessible as smtp relay if your IP belong to ISP1. round robin multiple wan break this, so you might want to add rule to your setup so that mail.isp1.com only use the wan1. If you've read the udhcpc script you have noticed we have already done this by adding static route to each ISP DNS server. Now how to tell iproute than smtp must done through isp1 only ? we will mark each outgoing packet for port 25(Smtp) and assign this mark to a specific table. simply add those 2 ligne to '''/etc/firewall.user''':
+Here you are, you now have a dual wan setup. Notice that some of you ISP services are only accessible when the source IP is part of its network. For example if you use SMTP or DNS from ISP1 (smtp.isp1.com) it will only be accessible as smtp relay if your IP belong to ISP1. round robin multiple wan break this, so you might want to add rule to your setup so that mail.isp1.com only use the wan1. If you've read the udhcpc script you have noticed we have already done this by adding static route to each ISP DNS server. Now how to tell iproute than smtp must done through isp1 only ? we will mark each outgoing packet for port 25(Smtp) and assign this mark to a specific table. simply add those 2 lines to '''/etc/firewall.user''':
 {{{
 iptables -t mangle -A PREROUTING -p tcp --dport 25 -j MARK --set-mark 0x100
 ip rule add fwmark 0x100 table eth0.2
