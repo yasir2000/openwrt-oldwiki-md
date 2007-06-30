@@ -17,7 +17,7 @@ N mode wireless is not functional at this time as far as I could ascertain. Stoc
 #make menuconfig}}}
 3. On your own for a little... choose the packages you want/need.  Make sure to set the system to broadcom 2.4 and I used profile set to asus wl-500g Premium.
 
-Or, if you don't want to be bothered, copy this [attachment:config file] and copy it to:
+Or, if you don't want to be bothered, download this [attachment:config file] and copy it to:
 
 {{{
 ~/kamikaze/.config
@@ -86,6 +86,17 @@ ${channel:+channel $channel}
 8. Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
 
 9.  Make a kamikaze, drink, enjoy.
+
+F.Y.I. about the network interfaces:
+
+WL-500W from linux point of view has three interfaces, eth0, eth1, eth2 where:
+     eth0 - internally connected to port 5 of the switch;
+     eth1 - WAN interface;
+     eth2 - Wi-Fi interface.
+
+ You should configure switch to have no VLANs, but current Kamikaze version unable to do this. Thus, you configure switch to have all ports untagged and placed to same VLAN (for instance VLAN0).
+
+
 
 ----
  . CategoryModel CategoryModel
