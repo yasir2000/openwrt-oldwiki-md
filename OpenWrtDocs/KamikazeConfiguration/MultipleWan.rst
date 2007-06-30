@@ -124,8 +124,8 @@ case "$1" in
 
                 hotplug_event ifup
 
-                # mise a l'heure barbare
-                rdate -s ntp.dedibox.com
+                # update time on udhcp event, you may have to change rdate server
+                rdate -s pool.ntp.org
 
                 # user rules
                 [ -f /etc/udhcpc.user ] && . /etc/udhcpc.user
