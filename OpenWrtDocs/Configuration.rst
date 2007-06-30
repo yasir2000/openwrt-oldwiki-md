@@ -172,6 +172,11 @@ lan_ifnames=vlan0
 }}}
 '''You MUST do this if you want to use ad-hoc mode, otherwise your throughput WILL suffer!'''
 
+/!\ '''Tip:''' Don't forget to adjust packet filtering. For instance:
+{{{iptables -I forwarding_rule -j ACCEPT}}}
+enables packet forwarding (good for test, but insecure for
+production).
+
 = Ethernet switch configuration =
 Most of the routers supported by OpenWrt include a builtin switch; four lan ports and one wan port. What most people don't realize is that all of these ports are actually the same interface -- there is a single 10/100 Ethernet which is fed into a 6 port switch. 5 of the ports are external and make the lan and wan ports seen on the back of the router, and one port is internally wired to the router's Ethernet interface.
 
