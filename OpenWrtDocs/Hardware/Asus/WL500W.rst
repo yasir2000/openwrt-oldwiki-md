@@ -81,22 +81,19 @@ ${channel:+channel $channel}
                     -f build_mipsel/linux-2.4-brcm/loader.gz \
                     -f build_mipsel/linux-2.4-brcm/vmlinux.lzma -a 1024 \
                     -f /tmp/squashfs}}}
-7.  If all is well in the world (ie you didn't make any typos) you should now have a new custom made wl500w image sitting in your home directory waiting for you.
+If all is well in the world (ie you didn't make any typos) you should now have a new custom made wl500w image sitting in your home directory waiting for you.
 
-8. Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
+7. Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
 
-9.  Make a kamikaze, drink, enjoy.
+8.  Make a kamikaze, drink, enjoy.
 
 F.Y.I. about the network interfaces:
 
 WL-500W from linux point of view has three interfaces, eth0, eth1, eth2 where:
-     eth0 - internally connected to port 5 of the switch;
-     eth1 - WAN interface;
-     eth2 - Wi-Fi interface.
 
- You should configure switch to have no VLANs, but current Kamikaze version unable to do this. Thus, you configure switch to have all ports untagged and placed to same VLAN (for instance VLAN0).
-
-
-
+ . eth0 - internally connected to port 5 of the switch;
+eth1 - WAN interface;
+eth2 - Wi-Fi interface.
+You should configure switch to have no VLANs, but current Kamikaze version unable to do this. Thus, you configure switch to have all ports untagged and placed to same VLAN (for instance VLAN0).
 ----
  . CategoryModel CategoryModel
