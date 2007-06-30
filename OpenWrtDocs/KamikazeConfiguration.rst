@@ -220,3 +220,7 @@ This parameters you can get from ls with v option. More info you can find at htt
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
  * Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
+
+== multi wan configuration on kamikaze ==
+
+OpenWrtDocs/KamikazeConfiguration/MultipleWan
