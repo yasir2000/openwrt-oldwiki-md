@@ -6,6 +6,14 @@ The DDNS service comes in handy for establishing connections from computers on t
 
 !OpenWrt uses the package {{{ez-ipupdate}}} for providing DDNS service.
 
+/!\ '''Please note:''' ez-ipupdate has been critizied for various
+reasons in the OpenWrt Forum. Alternatively, 
+http://downloads.openwrt.org/backports/0.9/updatedd_2.5-1_mipsel.ipk
+(check out the directory 0.9 for the Plug-Ins). However, if you
+are using PPP or PPPoE (as often for DSL), you can use a
+simple script - no package needs to be installed. See at the end
+in the section '''ip-up Script Alternative'''. 
+
 = Requirements =
  * A recent OpenWrt version. This howto was written for the 'White Russian RC5' and later releases.
  * An account with a compatible DDNS service (see Configuration)
@@ -288,3 +296,49 @@ http://en.wikipedia.org/wiki/Ddns http://www.ez-ipupdate.com/
 = Useful comments =
 
 [http://ez-ipupdate.com/ ez-ipupdate] has not been updated since Mar 11 15:48:42 2002 and is considered dead code. http://forum.openwrt.org/viewtopic.php?id=10704
+
+= ip-up Script Alternative =
+
+If you are using PPP or PPPoE (as often for DSL), you can use a
+simple script, because the pppd supports to run scripts in case
+of interface changes.
+
+Create the file /etc/ppp/ip-up.d/S01dyndns with the following
+content:
+{{{
+#!/bin/sh
+USER="username"
+PASS="password"
+DOMAIN="yourhost.homeip.net"
+
+registered=$(nslookup $DOMAIN|sed s/[^0-9.]//g|tail -n1)
+
+current=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
+[ "$current" != "$registered" ] && {                           
+   wget -O /dev/null http://$USER:$PASS@members.dyndns.org/nic/update?hostname=$DOMAIN &&
+   registered=$current
+}                     
+sleep 3
+
+newip=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
+newdns=$(nslookup $DOMAIN|sed s/[^0-9.]//g|tail -n1)
+  
+echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
+        | /usr/bin/logger -t ddupd
+
+}}}
+
+This script queries DNS to find the current registered address,
+compares it with the current external IP using the ''checkip''
+Web Service to avoid unneeded updates.
+
+The last two lines are for debug and can be ommitted. Often, DNS
+is not updated withhin the 3 seconds the script waits (at least
+it takes some seconds more until the clients recognise because of
+caching). By replacing the wget-update URL other DNS services should
+also be usable.
+
+This script is heavily based on the nice pragmatic proposal of
+''mbm'' here:
+http://forum.openwrt.org/viewtopic.php?pid=3947#p3947
+Thanks!
