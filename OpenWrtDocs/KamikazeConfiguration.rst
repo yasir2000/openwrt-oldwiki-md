@@ -215,8 +215,13 @@ You must change parameter 3f0/2b17/100 for your printer.
 3f0/517/120 it is idVendor/idProduct/bcdDevice, from device descriptor. Numbers are hexadecimal, without leading '0x' or zeros.
 
 This parameters you can get from ls with v option. More info you can find at http://linux-hotplug.sourceforge.net/?selected=usb .
-
-
+=== Problems running vsftp on OpenWRT Kamikaze 7.06 ===
+If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd
+and start it with "vsftpd" you will not be able to login into your
+ftp-server due to a missing directory. Just add a new line to your
+vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir
+(existing_dir musst be a directory which will be "be" once the service is started.
+So point to a directory which exists all the time or one which will be created at boot time)
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
  * Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
