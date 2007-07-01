@@ -341,4 +341,4 @@ also be usable.
 This script is heavily based on the nice pragmatic proposal of
 ''mbm'' here:
 http://forum.openwrt.org/viewtopic.php?pid=3947#p3947
-Thanks!
+Thanks you!
