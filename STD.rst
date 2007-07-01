@@ -2,6 +2,8 @@
 #format wiki
 == Steffens Place ==
 
+Welcome to Steffens place. Relax and let's have a beer :-)
+
 Email: [[MailTo(openwrtwiki-spamtrap (AT) sws (DOT) dett (DOT) de)]]
 (replace AT and DOT but '''keep''' the spamtrap part)
 
