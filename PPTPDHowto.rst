@@ -20,6 +20,11 @@ The default IP address of the server end of the tunnel is 172.16.1.1, and is set
 172.16.1.1:}}}
 Change this if you want a different IP address. There is no need to restart ''pptpd'' if you change this file, because it is used by ''pppd'' as soon as the next connection arrives. The file contains options for ''pppd'', see ''man pppd'' on a Linux system for more information on the options available.
 
+/!\ ''ppp'' has obsoleted this option (as of v2.4.3-7). In order to assign the local IP address of the server end of the tunnel, include the ''localip'' option in your ''/etc/pptpd.conf''. For example:
+{{{
+localip 172.16.1.1
+}}}
+
 == Configure Tunnel Remote IP Addresses ==
 Add lines to ''/etc/ppp/chap-secrets'' for each client. The format is:
 
@@ -118,7 +123,7 @@ You will now be able to access file shares by IP address.  For example, you can 
 }}}
 into the address bar of Windows Explorer.  Network neighborhood still doesn't detect available computers.  If anyone knows how to make this work please post the instructions here.  The desired configuration would have automatic detection and population, so there is no need to edit host files.  I tried following [http://poptop.sourceforge.net/dox/replacing-windows-pptp-with-linux-howto.phtml instructions] for setting up samba to run as a WINS server but I couldn't get it to work.  Perhaps this is because OpenWrt is running an older version of samba that was selected because it has a smaller memory footprint.
 
-==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation) 
+==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation)
 remote announce = 192.168.11.1/UR-WG-NAME
 and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like
 192.168.11.10    mypc       mypc.behind-wrt54g.org
