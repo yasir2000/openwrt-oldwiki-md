@@ -10,6 +10,8 @@ The version that I have used OpenWRT on is a version 1010, but I expect most [:O
 == How? ==
 I accidently uploaded the firmware for a [:OpenWrtDocs/Hardware/Belkin/F5D7230:F5D7230] to my [:OpenWrtDocs/Hardware/Belkin/F5D7130:F5D7130] and it worked just fine ;-) So I went ahead an uploaded OpenWRT RC5. It works a treat!
 
+Note: There was a firmware version for the FD57130 that incorectly displayed the router as a FD57230 in the config pages, maybe this was the case? (AndyakaDum)
+
 === Preparing the firmware ===
 I don't know what this is needed for.  I didn't do it, just tftp'd the openwrt trx file..(RobIrrelevant)
 
