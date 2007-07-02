@@ -36,7 +36,7 @@ If you build your own firmware with these packages in the squashfs it will end u
 
  * hotspotlogin.cgi is perl, needs some modifications
 
-=== integer.pw ====
+=== integer.pw ===
 
 microperl does not come integer, get this from your own perl an put it in cgi-bin.
 
