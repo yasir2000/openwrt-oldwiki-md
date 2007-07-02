@@ -5,7 +5,7 @@ If following the instructions in this document you will get a hotspot with capti
 [[TableOfContents]]
 
 
-= About Chillispot = 
+= About Chillispot =
 
  * has its own dhcp
  * sets a a new iprange for hotspot clients.
@@ -16,7 +16,7 @@ If following the instructions in this document you will get a hotspot with capti
 
  * breaking up the bridge to run hotspot on wl0 only
 
-= Installing = 
+= Installing =
 
  * ipkg install chillispot
  * chillid.conf example
@@ -45,7 +45,7 @@ microperl does not come integer, get this from your own perl an put it in cgi-bi
  * ipkg install freeradius
  * radiusd.conf - auth not needed when radiusd and chilli is on same machine
  * users - managemnt
- 
+
 
 = Problems you might encounter =
 
