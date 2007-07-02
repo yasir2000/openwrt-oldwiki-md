@@ -1,6 +1,6 @@
 = Buffalo WBR-G54 =
 
-Note: OpenWrt (Kamikaze v7.06) doesn't work anymore with this device. The last working version is White Russian. The problem is that Kamikaze after a flash tries to get its ip using broken DHCP requests (didn't [http://forum.openwrt.org/viewtopic.php?id=11292 yet found why], maybe because there's VLAN info in it). The Safe mode that allows you to boot with a static ip address doesn't work either because the reset button is not supported by OpenWrt with this device. And Serial or JTAG are not possible.
+'''Note:''' OpenWrt (Kamikaze v7.06) doesn't work anymore with this device. The last working version is White Russian. The problem is that Kamikaze after a flash tries to get its ip using broken DHCP requests (didn't [http://forum.openwrt.org/viewtopic.php?id=11292 yet found why], maybe because there's VLAN info in it). The Safe mode that allows you to boot with a static ip address doesn't work either because the reset button is not supported by OpenWrt with this device. And Serial or JTAG are not possible.
 
 == Installation ==
 
