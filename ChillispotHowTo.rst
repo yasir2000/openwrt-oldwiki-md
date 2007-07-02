@@ -34,11 +34,9 @@ If you build your own firmware with these packages in the squashfs it will end u
 
 == microperl ==
 
- * hotspotlogin.cgi is perl, needs some modifications
-
-=== integer.pw ===
-
-microperl does not come integer, get this from your own perl an put it in cgi-bin.
+ * hotspotlogin.cgi is perl
+ * hotspotlogin.cgi needs to be patched iwth MD5:Digest code
+ * microperl does not come integer.pw, get this from your own perl an put it in cgi-bin.
 
 == freeradius ==
 
@@ -47,7 +45,9 @@ microperl does not come integer, get this from your own perl an put it in cgi-bi
  * users - managemnt
 
 
-= Problems you might encounter =
+= Problems you might encounter while installing =
 
  * dont try to get chilli to use the same iprange as your br-lan
  * all the other stuff ive written down on peices of paper
+ 
+= QoS per user =
