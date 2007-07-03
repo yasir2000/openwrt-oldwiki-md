@@ -64,19 +64,25 @@ This is in most cases all the Chillispot configuration you need to bother about.
 
 = Prerequisites to start =
 
-== mini-httpd-ssl ==
+== SSL enabled HTTPd ==
 
- * SSL for hotspotlogin.cgi
- * create new PEM-cert
- * index.html
+The hotspot login CGI requires SSL. I choose mini-httpd-ssl because it was the smallest solution counted in bytes on jffs..
 
-== microperl ==
+{{{
+root@OpenWRT:/# ipkg install mini-httpd-ssl
+}}}
 
- * hotspotlogin.cgi is perl
- * hotspotlogin.cgi needs to be patched iwth MD5:Digest code
- * microperl does not come integer.pw, get this from your own perl an put it in cgi-bin.
+ * Create new PEM-cert if you don't want the default MyRouter.
+ * An empty index.html might be a good thing in all directories.
 
-== freeradius ==
+== perl ==
+
+The hotspot login CGI is written in perl, a rather large piece of software to install on small devices. Instead I choose microperl, perl with no packages. 
+
+ * stripped MD5.pw
+ * integer.pw
+
+== FreeRADIUS ==
 
  * ipkg install freeradius
  * radiusd.conf - auth not needed when radiusd and chilli is on same machine
