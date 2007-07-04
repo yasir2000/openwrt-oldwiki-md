@@ -383,5 +383,19 @@ Revision        : 0000
 Serial          : 0000000000000000   
 }}}
 
+=/proc/mtd:=
+{{{
+dev:    size   erasesize  name                                                  
+mtd0: 001b1000 00010000 "rootfs"                                                
+mtd1: 003b0000 00010000 "upgrade"                                               
+mtd2: 00010000 00010000 "rgdb"                                                  
+mtd3: 00010000 00010000 "nvram"                                                 
+mtd4: 00020000 00010000 "U-Boot"                                                
+mtd5: 00010000 00010000 "Boot Config"                                           
+mtd6: 00400000 00010000 "flash"                                                 
+}}}
+
+
+
 ==Interepreted Code execution==
 Currently the CPU shows the ability to execute Java (bytecode) on the fly. We do not know how to do this. but currently we have discovered that most of the system's files are written in PHP. At this time it is also currently unknown how these are executed
