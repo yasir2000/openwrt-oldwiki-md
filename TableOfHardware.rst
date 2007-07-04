@@ -52,6 +52,7 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||AR420W || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? ||No || ||
 ||[http://www.airlink101.com/products/ar525w.html AR525W] || ||[http://www.rdc.com.tw/ RDC] R3211 SoC (x86-compatible) ||4MB ||16MB ||[http://www.ralinktech.com/prod-2661.htm Ralink RT2261] || || ||[:OpenWrtDocs/Hardware/Airlink/AR525W:Yes] || ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR525W:Untested] ||
 ||[http://www.airlink101.com/products/ar625w.html AR625W] || ||Marvell ARM926 @ 500Mhz ||8MB ||32MB ||Marvell (mini-PCI) 802.11n || || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR625W:Untested] ||
+||[http://www.airlink101.com/products/ar680w.html AR680W] || ||[http://www.5vtechnologies.com/5vt/products/pro_detail.php?pid=5VT1310 5VT1310] ARM926 @ 300Mhz ||4MB ||16MB ||Ralink RT2860 802.11n ||Realtek RTL8306S || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR680W:Untested] ||
 == A-Link ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.a-link.com/WL54AP2.html WL54AP2] || ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] ||2MB(?) ||? ||? ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2004082 Realtek RTL8305SC] ||? || || || || ||
