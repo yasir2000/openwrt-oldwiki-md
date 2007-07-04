@@ -343,7 +343,7 @@ stdout=serial
 stderr=serial
 }}}
 
-=/proc/interrupts:=
+= /proc/interrupts: =
 {{{
            CPU0                                                                 
   1:       2820   serial                                                        
@@ -354,7 +354,7 @@ stderr=serial
 Err:          0                                                                 
 }}}
 
-=/proc/cpuinfo:=
+= /proc/cpuinfo: =
 {{{
 Processor       : ARM926EJ-Sid(wb) rev 5 (v5l)                                  
 BogoMIPS        : 285.90                                                        
@@ -382,7 +382,7 @@ Revision        : 0000
 Serial          : 0000000000000000   
 }}}
 
-=/proc/mtd:=
+= /proc/mtd: =
 {{{
 dev:    size   erasesize  name                                                  
 mtd0: 001b1000 00010000 "rootfs"                                                
