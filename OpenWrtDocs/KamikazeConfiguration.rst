@@ -54,6 +54,7 @@ config interface lan
         option dns      192.168.1.1
 }}}
 You can configure multiple DNS servers by separating entries with space :
+
 {{{
 option dns "192.168.1.1 192.168.80.100"
 }}}
@@ -143,6 +144,10 @@ config wifi-iface
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK '''
 
 = HowTo =
+For more How-To's (for example setting up Kamikaze, step by step)
+
+have a look at http://forum.openwrt.org/viewforum.php?id=10
+
 === HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 ===
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
@@ -200,7 +205,6 @@ Create a new file /etc/hotplug.d/usb/hplj1020:
 #!/bin/sh
 FIRMWARE="/mnt/pendrive/sihp1020.dl"
  < -- place where you have your .dl file.
-
 if [ "$PRODUCT" = "3f0/2b17/100" ]
 then
         if [ "$ACTION" = "add" ]
@@ -215,17 +219,12 @@ You must change parameter 3f0/2b17/100 for your printer.
 3f0/517/120 it is idVendor/idProduct/bcdDevice, from device descriptor. Numbers are hexadecimal, without leading '0x' or zeros.
 
 This parameters you can get from ls with v option. More info you can find at http://linux-hotplug.sourceforge.net/?selected=usb .
+
 === Problems running vsftp on OpenWRT Kamikaze 7.06 ===
-If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd
-and start it with "vsftpd" you will not be able to login into your
-ftp-server due to a missing directory. Just add a new line to your
-vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir
-(existing_dir musst be a directory which will be "be" once the service is started.
-So point to a directory which exists all the time or one which will be created at boot time)
+If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
+
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
  * Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
-
 == multi wan configuration on kamikaze ==
-
 OpenWrtDocs/KamikazeConfiguration/MultipleWan
