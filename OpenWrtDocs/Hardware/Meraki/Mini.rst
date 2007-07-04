@@ -25,9 +25,7 @@ LAN   TX  o   Antenna
 Peel off the bottom left and top right corners of the silver label on the back of the unit, to reveal two crosspoint screws. Remove them, then prise apart the case with a screwdriver.
 
 == Serial to USB adaptor ==
-Meraki no longer sells an adaptor board on their website. They are also not offering any alternatives. A suitable replacement is the Fox console board. It is available here: http://www.acmesystems.it/?id=106 It is not USB enabled so a separate USB to serial converter must be purchased in order to use it in a computer that does not have a serial port. Also to convert the 6pin header on the Fox board to the 4 pin available on the Meraki mini I used an old power connector for a floppy drive and shoved the wires into the correct ports on the fox adapter.
-
-Meraki sell a small adaptor board (18mm x 32mm) for $29 which plugs into JP1 and has a serial to USB adaptor chip and a mini USB connector; it comes with a mini USB to normal USB cable. It appears to be powered by the host side, not the Meraki side. Plugging it into a Linux system shows:
+Meraki sell a small adaptor board (18mm x 32mm) for $29 which plugs into JP1 and has a serial to USB adaptor chip and a mini USB connector; it comes with a mini USB to normal USB cable. It appears to be powered by the host side, not the Meraki side. It is available from the "Individual Products" section of the Meraki store. Plugging it into a Linux system shows:
 
 {{{
 usb 2-1: new full speed USB device using address 3
@@ -44,9 +42,11 @@ I found the USB adaptor was somewhat unreliable under Linux; power-cycling the M
  * Remove power from Meraki
  * Re-apply power to Meraki
  * Reconnect JP1
-on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacabel and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
+on ubuntu efty kernel 2.6.19.1 same behavior with pl2303 from siemens datacable and la_fonera FON2100 (nearly identical hw,but 8/16 MB Flash)
 
 Here are the drivers needed by Microsoft Windows: http://www.ftdichip.com/Drivers/VCP.htm
+
+Meraki have in the past withdrawn the serial adaptor from sale (it's back in the store as of June 2007). A suitable replacement is the Fox console board. It is available here: http://www.acmesystems.it/?id=106 It is not USB enabled so a separate USB to serial converter must be purchased in order to use it in a computer that does not have a serial port. Also to convert the 6pin header on the Fox board to the 4 pin available on the Meraki mini I used an old power connector for a floppy drive and shoved the wires into the correct ports on the fox adapter.
 
 = Standard Meraki firmware =
 == Startup messages ==
