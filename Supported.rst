@@ -21,6 +21,6 @@ Reset LED will go orange, after a couple of minutes you may telnet in, use the p
 
 Grab a copy of the latest 'Generic Broadcom' DD-WRT image, at the time of writing 'dd-wrt.v24 beta' confirmed as working - ["http://www.dd-wrt.com/dd-wrtv2/downloads.php"]
 
-Patch the image using the app '''ddadder''' to make it ready for flashing via GUI (credit to '''Eko''' the author) - ["http://www.dd-wrt.com/phpBB2/viewtopic.php?t=12166"]
+Patch the image using the app [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=12166 ddadder] to make it ready for flashing via GUI (credit to '''Eko''' the author).
 
 Upgrade firmware as normal via HTTP on the Buffalo device. Once complete navigate to 192.168.1.1 and find the DD-WRT status page.
