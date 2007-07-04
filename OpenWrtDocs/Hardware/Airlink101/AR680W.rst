@@ -343,3 +343,45 @@ stdin=serial
 stdout=serial
 stderr=serial
 }}}
+
+=/proc/interrupts:=
+{{{
+           CPU0                                                                 
+  1:       2820   serial                                                        
+  4:      12086   5VT Timer1 Tick                                               
+  7:          5   eth0                                                          
+  8:        104   eth1                                                          
+ 18:       4801   ra0                                                           
+Err:          0                                                                 
+}}}
+
+=/proc/cpuinfo:=
+{{{
+Processor       : ARM926EJ-Sid(wb) rev 5 (v5l)                                  
+BogoMIPS        : 285.90                                                        
+Features        : swp half fastmult edsp java                                   
+CPU implementer : 0x41                                                          
+CPU architecture: 5TEJ                                                          
+CPU variant     : 0x0                                                           
+CPU part        : 0x926                                                         
+CPU revision    : 5                                                             
+Cache type      : write-back                                                    
+Cache clean     : cp15 c7 ops                                                   
+Cache lockdown  : format C                                                      
+Cache format    : Harvard                                                       
+I size          : 16384                                                         
+I assoc         : 4                                                             
+I line length   : 32                                                            
+I sets          : 128                                                           
+D size          : 16384                                                         
+D assoc         : 4                                                             
+D line length   : 32                                                            
+D sets          : 128                                                           
+                                                                                
+Hardware        : 5VT13XX                                                       
+Revision        : 0000                                                          
+Serial          : 0000000000000000   
+}}}
+
+==Interepreted Code execution==
+Currently the CPU shows the ability to execute Java (bytecode) on the fly. We do not know how to do this. but currently we have discovered that most of the system's files are written in PHP. At this time it is also currently unknown how these are executed
