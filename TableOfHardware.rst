@@ -181,6 +181,10 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://compex.com.sg/home/OEM/product_ap.htm#WP188 WP188] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB (32MB Max) ||128MB (256MB max) ||4x mini-PCI slots ||None ||N/A ||Yes ||Yes ||No ||Unsupported ||
 For more information about Compex's OpenWRT Products please Click ==>[http://For%20more%20information%20about%20compex%20openWRT%20product%20and%20information%20please%20Click%20HERE HERE]<===
 
+== Conceptronic ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+|| CADSLR4+ || || Texas Instruments AR7 TNETD7200  || 2 MB || 8 MB || || Marvell 88E6060 || || Yes || || No || Unsupported ||
+
 == Corinex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Home Plug''' ||'''Status''' ||
 ||[http://www.corinex.com/web/docx.nsf/w/eng-corinex_wireless_to_powerline_router_g CXP-RTG] || || ||2MB ||16MB || || || || || ||No ||v1.0 ||Info Entered ||
