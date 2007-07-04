@@ -23,4 +23,8 @@ Grab a copy of the latest Generic Broadcom DD-WRT image, at the time of writing 
 
 Patch the image using the app [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=12166 ddadder] to make it ready for flashing via GUI (credit to '''Eko''' the author).
 
-Upgrade firmware as normal via HTTP on the Buffalo device. Once complete navigate to `http://192.168.1.1` and find the DD-WRT status page.
+{{{
+> ddadder dd-wrt.v24_generic.bin wla2-g54c
+}}}
+
+Take the patched image and upgrade firmware as normal via HTTP on the Buffalo device. Once complete navigate to `http://192.168.1.1` and find the DD-WRT status page.
