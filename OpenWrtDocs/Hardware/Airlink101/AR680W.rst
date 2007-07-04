@@ -271,7 +271,7 @@ Enter 'help' for a list of built-in commands.
 }}}
 
 
-=== U-Boot configuration ==
+===== U-Boot configuration =====
 The U-Boot configuration, as extracted from mtdblock05:
 {{{
 Nybootcmd=bootm $(kernel_addr)
@@ -343,7 +343,7 @@ stdout=serial
 stderr=serial
 }}}
 
-= /proc/interrupts: =
+===== /proc/interrupts: =====
 {{{
            CPU0                                                                 
   1:       2820   serial                                                        
@@ -354,7 +354,7 @@ stderr=serial
 Err:          0                                                                 
 }}}
 
-= /proc/cpuinfo: =
+===== /proc/cpuinfo: =====
 {{{
 Processor       : ARM926EJ-Sid(wb) rev 5 (v5l)                                  
 BogoMIPS        : 285.90                                                        
@@ -382,7 +382,7 @@ Revision        : 0000
 Serial          : 0000000000000000   
 }}}
 
-= /proc/mtd: =
+===== /proc/mtd: =====
 {{{
 dev:    size   erasesize  name                                                  
 mtd0: 001b1000 00010000 "rootfs"                                                
@@ -396,5 +396,9 @@ mtd6: 00400000 00010000 "flash"
 
 
 
-== Interepreted Code execution ==
-Currently the CPU shows the ability to execute Java (bytecode) on the fly. We do not know how to do this. but currently we have discovered that most of the system's files are written in PHP. At this time it is also currently unknown how these are executed
+=== Interepreted Code execution ===
+Currently the CPU shows the ability to execute Java (bytecode) on the fly. We do not know how to do this. 
+
+==RGDB==
+The system is driven by an XML database called rgdb. It had a builtin PHP parser for most of the configuration files. The dump of the XML database is http://xbmodder.us/tmp_dump.txt .
+The name of the XML engine is xmldbc. It most likely uses the Java bytecode execution features of the processor, though more research has to be done on this. 
