@@ -144,9 +144,6 @@ config wifi-iface
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK '''
 
 = HowTo =
-For more How-To's (for example setting up Kamikaze, step by step)
-
-have a look at http://forum.openwrt.org/viewforum.php?id=10
 
 === HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 ===
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
@@ -222,6 +219,11 @@ This parameters you can get from ls with v option. More info you can find at htt
 
 === Problems running vsftp on OpenWRT Kamikaze 7.06 ===
 If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
+
+== More HowTos ==
+For more How-To's (for example setting up Kamikaze, step by step)
+have a look at 
+http://forum.openwrt.org/viewforum.php?id=10
 
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
