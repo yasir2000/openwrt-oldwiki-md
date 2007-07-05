@@ -1,4 +1,4 @@
-=Installation=
+= Installation =
  *Prepare TFTP Server with zImage and root filesystem (sqashfs or jffs2)
  *Connect PC to wg302 with serial cable
  *Start termianl emulator (Hyperterm, cu, etc..) with 9600 8n1
@@ -41,7 +41,7 @@
 {{{
  RedBoot> reset
 }}}
-=Boot Loader Messages=
+= Boot Loader Messages =
 {{{
 +Ethernet eth0: MAC address 00:09:5b:b7:05:13
 IP: 192.168.0.35/255.255.255.0, Gateway: 0.0.0.0
@@ -63,7 +63,7 @@ RedBoot> exec 0x01600000
 Using base address 0x01600000 and length 0x000e3f9c
 Uncompressing Linux............................................................... done, booting the kernel.
 }}}
-=Linux Boot Messages=
+= Linux Boot Messages =
 Attention - the Linux kernel boots at 115200 bps. You have to adjust your terminal
 {{{
 Linux version 2.6.19.2 (nbd@ds10) (gcc version 4.1.2) #12 Fri Jun 1 16:03:20 CEST 2007
@@ -171,7 +171,7 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#     
 }}}
-=Open Issues=
+= Open Issues =
  *Kamikaze 7.06 is not able to create the jffs2 filesystem rootfs_data properly:
 {{{
 - preinit -
@@ -188,5 +188,5 @@ eth0: NPE-B not running
 eth0: NPE-B not running
 jffs2: Too few erase blocks (1)
 }}}
-=Caveats=
+= Caveats =
  *When opening the case, be very careful when sperating the upper from the lower half. The internal antenna pigtails are quite short and can be ripped out of the plug in the rear of the case.
