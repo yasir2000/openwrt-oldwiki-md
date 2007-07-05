@@ -3,7 +3,7 @@
 *Connect PC to wg302 with serial cable
 *Start termianl emulator (Hyperterm, cu, etc..) with 9600 8n1
 *Wait for message 
- == Executing boot script in 10.000 seconds - enter ^C to abort
+ Executing boot script in 10.000 seconds - enter ^C to abort
 *Interrupt boot with Control-C
 *Clear flash with 
  RedBoot> fis init -f
