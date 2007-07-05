@@ -124,9 +124,9 @@ Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0x7e0000
 Creating 7 MTD partitions on "IXP4XX-Flash.0":
 0x00000000-0x00060000 : "RedBoot"
 0x00060000-0x00160000 : "kernel"
-0x00160000-0x00240000 : "rootfs"
-0x00220000-0x00240000 : "rootfs_data"
-0x00240000-0x007c0000 : "unallocated"
+0x00160000-0x00780000 : "rootfs"
+0x00220000-0x00780000 : "rootfs_data"
+0x00780000-0x007c0000 : "unallocated"
 0x007c0000-0x007c1000 : "RedBoot config"
 0x007c1000-0x007c2000 : "Config backup"
 mtd: partition "Config backup" doesn't start on an erase block boundary -- force read-only
@@ -146,8 +146,6 @@ VFS: Mounted root (squashfs filesystem) readonly.
 Freeing init memory: 80K
 Warning: unable to open an initial console.
 - preinit -
-switching to jffs2
-jffs2: Too few erase blocks (1)
 jffs2 not ready yet; using ramdisk
 mini_fo: using base directory: /
 mini_fo: using storage directory: /tmp/root
@@ -157,7 +155,11 @@ init started:  BusyBox v1.4.2 (2007-06-01 16:02:06 CEST) multi-call binary
 Please press Enter to activate this console. eth0: NPE-B not running
 eth0: NPE-B not running
 eth0: NPE-B not running
-jffs2: Too few erase blocks (1)
+jffs2_scan_eraseblock(): End of filesystem marker found at 0x0
+jffs2_build_filesystem(): unlocking the mtd device... done.
+jffs2_build_filesystem(): erasing all blocks after the end marker... done.
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
 
 
 
@@ -174,7 +176,9 @@ Enter 'help' for a list of built-in commands.
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
-root@OpenWrt:/#     
+root@OpenWrt:/#
+
+
 }}}
 = Open Issues =
 *Error Messages about NPE-B on boot:
