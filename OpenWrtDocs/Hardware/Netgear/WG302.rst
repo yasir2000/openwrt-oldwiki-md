@@ -183,11 +183,13 @@ Please press Enter to activate this console.
 [...]
 jffs2: Too few erase blocks (1)
 }}}
+ Reason for that (compare http://wiki.openwrt.org/OpenWrtDocs/Hardware/Meraki/Mini): rootfs_data fills the rear end of the rootfs mtd partition, but we create the rootfs partition just as big as the squashfs image size. We need some magic options in the fis create command to create a bigger partition than the size of the squashfs.
 *Error Messages about NPE-B on boot:
 {{{
 eth0: NPE-B not running
 eth0: NPE-B not running
 eth0: NPE-B not running
 }}}
+ Reason: unclear. Maybe some firmware missing?
 = Caveats =
  *When opening the case, be very careful when sperating the upper from the lower half. The internal antenna pigtails are quite short and can be ripped out of the plug in the rear of the case.
