@@ -1,5 +1,5 @@
-==Installation==
-*Prepare TFTP Server
+=Installation=
+*Prepare TFTP Server with zImage and root filesystem (sqashfs or jffs2)
 *Connect PC to wg302 with serial cable
 *Start termianl emulator (Hyperterm, cu, etc..) with 9600 8n1
 *Wait for message 
@@ -10,11 +10,13 @@
 *configure own IP and IP of tftp server
  RedBoot> ip_address -l <local_ip_address> -h <server_address>
 *load kernel from tftp server
+ load -r -b %{FREEMEMLO} openwrt-ixp4xx-2.6-zImage 
 *write kernel to flash
- fis write rootfs
+ fis create rootfs
 *load root filesystem  from tftp server
+ load -r -b %{FREEMEMLO} openwrt-ixp4xx-2.6-squashfs.img 
 *write root filesystem to flash
- fis write rootfs
+ fis create rootfs
 *change boot script with fconfig (list fconfig setting with "fconfig -l")
  Boot script:
  .. fis load -b 0x01600000 kernel
