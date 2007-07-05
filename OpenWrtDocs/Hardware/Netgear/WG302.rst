@@ -29,7 +29,12 @@
 }}}
  *write root filesystem to flash
 {{{
- RedBoot> fis create rootfs
+ RedBoot> fis create -r  0x0001fc00 -l 0x620000 rootfs
+}}}
+ 0x620000 is chosen to fill up the whole remaining space on flash - this can be determined with  "fis free" before writing rootfs to flash:
+{{{
+RedBoot> fis free
+  0x50220000 .. 0x507C0000
 }}}
  *change boot script with fconfig (list fconfig setting with "fconfig -l")
 {{{
@@ -172,18 +177,6 @@ Enter 'help' for a list of built-in commands.
 root@OpenWrt:/#     
 }}}
 = Open Issues =
- *Kamikaze 7.06 is not able to create the jffs2 filesystem rootfs_data properly:
-{{{
-- preinit -
-switching to jffs2
-jffs2: Too few erase blocks (1)
-jffs2 not ready yet; using ramdisk
-[...]
-Please press Enter to activate this console. 
-[...]
-jffs2: Too few erase blocks (1)
-}}}
- Reason for that (compare http://wiki.openwrt.org/OpenWrtDocs/Hardware/Meraki/Mini): rootfs_data fills the rear end of the rootfs mtd partition, but we create the rootfs partition just as big as the squashfs image size. We need some magic options in the fis create command to create a bigger partition than the size of the squashfs.
 *Error Messages about NPE-B on boot:
 {{{
 eth0: NPE-B not running
