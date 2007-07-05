@@ -1484,6 +1484,9 @@ CONFIG_AR7_WDT=n
 CONFIG_SOFT_WATCHDOG=n
 }}}
 
+Is the problem still there? In the meantime openwrt uses kernel 2.6?   (05//07/2007 Tschäfer)
+
+
 === Flashing your OpenWRT image ===
 
 The best way to do this is using the bootloaders built in FTP server.  I also prefer to have a serial cable attached so I can monitor the progress, but this optional.
