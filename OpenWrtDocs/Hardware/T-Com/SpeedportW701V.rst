@@ -784,6 +784,21 @@ mtd7: 00570000 00010000 "Kernel without jffs2"
 }}}
 
 {{{
+~ # cat /proc/partitions
+major minor  #blocks  name
+
+  31     0       8192 mtdblock0
+  31     1       6990 mtdblock1
+  31     2       7616 mtdblock2
+  31     3         64 mtdblock3
+  31     4        256 mtdblock4
+  31     5        256 mtdblock5
+  31     6       2048 mtdblock6
+  31     7       5568 mtdblock7
+~ #
+}}}
+
+{{{
 
 ~ # cat /proc/avalanche/avsar_ver
 ATM Driver version:[4.06.04.30]
