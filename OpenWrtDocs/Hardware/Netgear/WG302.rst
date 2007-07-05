@@ -21,7 +21,7 @@
 }}}
  *write kernel to flash
 {{{
- RedBoot> fis create rootfs
+ RedBoot> fis create kernel
 }}}
  *load root filesystem  from tftp server
 {{{
