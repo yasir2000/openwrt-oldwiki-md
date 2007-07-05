@@ -27,7 +27,7 @@ ssh apollo -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
 }}}
 If you did everything right, wrt-linux.trx contains kernel+squashfs+jffs2 one after the other. You could back the mtd partitions separately: 2 is squashfs and 4 is jffs2. Unlike disk partitions mtd partitions can, and in OpenWRT do overlap: 1 includes 2 and 4.
 
-=== using Netcat (recommended) ===
+==== using Netcat (recommended) ====
 {{{
 plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-linux.trx
 root@router $ mount -o remount,ro /dev/mtdblock/4 /jffs
