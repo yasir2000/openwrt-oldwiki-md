@@ -187,6 +187,15 @@ eth0: NPE-B not running
 eth0: NPE-B not running
 eth0: NPE-B not running
 }}}
+ When configuring the interfaces:
+{{{
+root@OpenWrt:/# ifconfig eth0 10.0.3.64 netmask 255.255.255.0 up
+eth0: NPE-B not running
+ifconfig: SIOCSIFFLAGS: Input/output error
+root@OpenWrt:/# ifconfig eth1 10.0.3.64 netmask 255.255.255.0 up
+eth1: NPE-C not running
+ifconfig: SIOCSIFFLAGS: Input/output error
+}}}
  Reason: unclear. Maybe some firmware missing?
 = Caveats =
  *When opening the case, be very careful when sperating the upper from the lower half. The internal antenna pigtails are quite short and can be ripped out of the plug in the rear of the case.
