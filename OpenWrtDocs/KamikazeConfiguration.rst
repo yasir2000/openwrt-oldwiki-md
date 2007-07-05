@@ -223,10 +223,12 @@ If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it
 == More HowTos ==
 For more How-To's (for example setting up Kamikaze, step by step)
 have a look at 
-http://forum.openwrt.org/viewforum.php?id=10
+http://forum.openwrt.org/viewforum.php?id=17
 
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
  * Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
 == multi wan configuration on kamikaze ==
 OpenWrtDocs/KamikazeConfiguration/MultipleWan
+----
+CategoryHowTo
