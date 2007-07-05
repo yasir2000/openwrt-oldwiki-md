@@ -178,15 +178,16 @@ root@OpenWrt:/#
 switching to jffs2
 jffs2: Too few erase blocks (1)
 jffs2 not ready yet; using ramdisk
-mini_fo: using base directory: /
-mini_fo: using storage directory: /tmp/root
-- init -
-init started:  BusyBox v1.4.2 (2007-06-01 16:02:06 CEST) multi-call binary
-
-Please press Enter to activate this console. eth0: NPE-B not running
-eth0: NPE-B not running
-eth0: NPE-B not running
+[...]
+Please press Enter to activate this console. 
+[...]
 jffs2: Too few erase blocks (1)
+}}}
+*Error Messages about NPE-B on boot:
+{{{
+eth0: NPE-B not running
+eth0: NPE-B not running
+eth0: NPE-B not running
 }}}
 = Caveats =
  *When opening the case, be very careful when sperating the upper from the lower half. The internal antenna pigtails are quite short and can be ripped out of the plug in the rear of the case.
