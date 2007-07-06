@@ -56,8 +56,6 @@ Please read the manual. If you have any questions about anything in the manual, 
 == External Documentation ==
 '''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
 
-'''[:OpenWrtDocs/ExternalDocumentation:Spanish Documentation[PDF]]'''
-
 == FAQ ==
 '''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
