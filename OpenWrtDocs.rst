@@ -24,7 +24,6 @@
 ##
 ##
 ##
-
 = About this manual =
 This is a Wiki, a set of documents written by the OpenWrt developers and community. Nearly every page on this site can be edited, you just need to [:UserPreferences:create an account].
 
@@ -52,10 +51,13 @@ Please read the manual. If you have any questions about anything in the manual, 
 
 = Appendix: =
 == Networking Information ==
-'''[:OpenWrtDocs/NetworkInterfaces:Understanding Network Interfaces]''' [[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]]
-'''[:OpenWrtDocs/WirelessNetworkingBackground:Wireless Networking Background]'''
+'''[:OpenWrtDocs/NetworkInterfaces:Understanding Network Interfaces]''' [[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]] '''[:OpenWrtDocs/WirelessNetworkingBackground:Wireless Networking Background]'''
+
 == External Documentation ==
 '''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
+
+'''[:OpenWrtDocs/ExternalDocumentation:Spanish Documentation[PDF]]'''
+
 == FAQ ==
 '''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
