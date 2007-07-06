@@ -2,13 +2,13 @@
 = Linksys WRT54G =
 There are currently many versions of the WRT54G. With the exception of v5 devices the WRT54G units are supported by OpenWrt 0.9 (White Russian) and later. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
-Some consider the [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL] and [:OpenWrtDocs/Hardware/Linksys/WRT54G3G:WRT54G3G] to be versions of this model.
+Some consider the ["L"] and ["3G"] to be versions of this model.
 
 {{{boot_wait}}} is '''off''' by default on these routers, so you should turn it on, see OpenWrtDocs/BootWait.
 
 == Identification by S/N ==
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
-||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
+||||<style="TEXT-ALIGN: center"> (!) '''Please contribute to this list.''' (!) ||||<style="TEXT-ALIGN: center">'''!OpenWrt''' ||
 ||'''Model''' ||'''S/N Prefix''' ||'''Stable[[BR]]White Russian''' ||'''Development[[BR]]Kamikaze''' ||
 ||WRT54G v1.0 ||CDF0 or CDF1 || (./) || (./) ||
 ||WRT54G v1.1 ||CDF2 or CDF3 or CDF4 || (./) || (./) ||
@@ -20,8 +20,8 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v5 * ||CDFB || (./) || {X} ||
 ||WRT54G v5.1* ||CDFC || (./) || {X} ||
 ||WRT54G v6 * ||CDFD || (./) || {X} ||
-||<style="vertical-align: top;">WRT54G v7 ||<style="vertical-align: top;">CDFE ||<style="vertical-align: top;">Unknown ||<style="vertical-align: top;">Unknown ||
-||<style="vertical-align: top;">WRT54G v8 ||<style="vertical-align: top;">CDFF ||<style="vertical-align: top;">Unknown ||<style="vertical-align: top;">Unknown ||
+||<style="VERTICAL-ALIGN: top">WRT54G v7 ||<style="VERTICAL-ALIGN: top">CDFE ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
+||<style="VERTICAL-ALIGN: top">WRT54G v8 ||<style="VERTICAL-ALIGN: top">CDFF ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
 
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
@@ -85,8 +85,8 @@ How to get info:
 ||WRT54G v5.0 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
 ||WRT54G v5.1 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||3.90.7.0 ||
 ||WRT54G v6.0 ||0x13 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
-||<style="vertical-align: top;">WRT54G v7.0 ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||
-||<style="vertical-align: top;">WRT54G v8.0 ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- || BCM5354 ||<style="vertical-align: top;">-- ||<style="vertical-align: top;">-- ||
+||<style="VERTICAL-ALIGN: top">WRT54G v7.0 ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||
+||<style="VERTICAL-ALIGN: top">WRT54G v8.0 ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||BCM5354 ||<style="VERTICAL-ALIGN: top">-- ||<style="VERTICAL-ALIGN: top">-- ||
 WARNING: WRT54G v5.0, v5.1, and v6.0 board flags shown above may not be accurate because the CFE used to enable flashing to Windows is actually a modified WAP54Gv3 CFE, and depending on the version of the vxworks_killer used, the boardflags and other nvram variables may be different.
 
 Other NVRAM variables of interest : firmware_version, os_version
@@ -211,6 +211,16 @@ A 12-pin unpopulated JTAG header is included on all versions of this router. It 
 
 A simple unbuffered JTAG cable works fine. See HairyDairyMaid's WRT54G Debricking Tool for pin defintions, cable schematics, and software to utilize the JTAG interface.
 
+=== GPIO pins ===
+||'''GPIO #''' ||'''direction''' ||'''location''' ||'''function''' ||
+||0 || || || ||
+||1 || || || ||
+||2 || || || ||
+||3 ||output ||RP4 (front, 3rd pin from the left) || ||
+||4 ||input ||RA13 (back pad) ||SES Button (not soldered on v2.2, see SES button section below) ||
+||5 ||output ||RA10 (front pad) || ||
+||6 || || || ||
+||7 ||output ||LEDC7 ||DMZ LED ||
 === WRT54G v2.0 revision XH/XB RAM Increase ===
 There are revision XH and XB (WRT54GS based card) units of the WRT54G v2.0. Some of these units have 32 MB of memory, but they are locked to 16 MB. You can unlock the remaining memory with changing some of the variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
