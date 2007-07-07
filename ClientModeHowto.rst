@@ -7,7 +7,7 @@ If you want to use OpenWrt to connect your router to another access point (AP) o
 
 Reading the [http://forum.openwrt.org/viewtopic.php?pid=13151#p13151 Setting up OpenWrt in client mode] thread in the forum might help your understanding of Client Mode a bit.
 
-NOTE: the instructions in this howto reference the nvram command. This applies to the WhiteRussian releases of openwrt. Kamikaze abandons nvram in favor of files in /etc/config/ (/etc/config/network and /etc/config/wireless, at a minimum). If you're trying to get your openwrt router into client mode using Kamikaze, you'll have to translate the nvram variables into the appropriate variable settings in /etc/config files.
+NOTE: the instructions in this howto reference the nvram command. This applies to the WhiteRussian releases of openwrt. Kamikaze abandons nvram in favor of files in /etc/config/ (/etc/config/network and /etc/config/wireless, at a minimum). If you're trying to get your openwrt router into client mode using Kamikaze, you'll have to translate the nvram variables into the appropriate variable settings in /etc/config files. [http://forum.openwrt.org/viewtopic.php?id=11529 This thread on the forum] might be helpful.
 
 == Requirements ==
  * You need to have a recent version of !OpenWrt White Russian (at least RC3) installed
