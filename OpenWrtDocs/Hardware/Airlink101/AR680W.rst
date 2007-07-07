@@ -4,7 +4,6 @@
 
 This model has an unpopulated 4-pin header that exposes a serial port. The pins are listed below:
 ||Pin1||Rx||
-|| || ||
 ||Pin2||3.3V||
 ||Pin3||GND||
 ||Pin4||Tx||
@@ -397,8 +396,8 @@ mtd6: 00400000 00010000 "flash"
 
 
 === Interepreted Code execution ===
-Currently the CPU shows the ability to execute Java (bytecode) on the fly. We do not know how to do this. 
+Like many Marvell CPUs, it has the ability to execute Java (bytecode) on the fly. Whether this is of any relevance remains to be seen.
 
-==RGDB==
+=== RGDB ===
 The system is driven by an XML database called rgdb. It had a builtin PHP parser for most of the configuration files. The dump of the XML database is http://xbmodder.us/tmp_dump.txt .
-The name of the XML engine is xmldbc. It most likely uses the Java bytecode execution features of the processor, though more research has to be done on this. 
+The name of the XML engine is xmldbc. It possibly uses the Java bytecode execution features of the processor, though more research has to be done on this. 
