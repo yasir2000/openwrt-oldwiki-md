@@ -217,6 +217,42 @@ You must change parameter 3f0/2b17/100 for your printer.
 
 This parameters you can get from ls with v option. More info you can find at http://linux-hotplug.sourceforge.net/?selected=usb .
 
+
+=== Using WRT54G(S/L) SES button for Radio Control ===
+This is a remake of a code that is found on http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle
+
+Step 1: Create the button/ folder inside /etc/hotplug.d/ if it doesn't exist
+
+Step 2: cd to this dir and edit a new file named 01-radio-toggle
+
+Step 3: Paste this code inside the file
+
+{{{
+
+if [ "$BUTTON" = "ses" ] ; then
+        if [ "$ACTION" = "pressed" ] ; then
+                WIFI_RADIOSTATUS=$(wlc radio)
+                case "$WIFI_RADIOSTATUS" in
+                0)
+                        echo 2 > /proc/diag/led/power
+                        wlc radio 1
+                        wifi
+                        echo 1 > /proc/diag/led/ses_white
+                        echo 1 > /proc/diag/led/power ;;
+                1)
+                        echo 2 > /proc/diag/led/power
+                        wlc radio 0
+                        echo 0 > /proc/diag/led/ses_white
+                        echo 2 > /proc/diag/led/wlan
+                        echo 1 > /proc/diag/led/power ;;
+                esac
+        fi
+fi
+
+}}}
+
+Step 4: Save the file and just test it, it will lit Wlan and White SES Led when radio is on, and turn both off when radio is off
+ 
 === Problems running vsftp on OpenWRT Kamikaze 7.06 ===
 If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
 
