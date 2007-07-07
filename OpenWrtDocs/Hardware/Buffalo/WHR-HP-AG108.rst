@@ -57,8 +57,8 @@ Said this I'm still very unsatisfied with the wireless performance because compa
 == Buffalo debug interface ==
 {{{
 http://192.168.11.1/cgi-bin/cgi?req=frm&frm=py-db/55debug.html
-Benutzer: bufpy
-password: "otdpopy+gesetztes root Passwort (ist Standartmäßig leer)" Beispiel: otdpopy1234
+user: bufpy
+password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
 }}}
 
 == Serial pinout (JP2) ==
