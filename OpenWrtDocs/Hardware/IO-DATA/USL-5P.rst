@@ -167,13 +167,60 @@ root@OpenWrt:/#
 }}}
 
 
-
-
-
-
 '''Original dmesg'''
 
 This is out-of-date, but you can still reach it at http://trash.uid0.hu/openwrt/usl-5p_original-dmesg.txt
 
 
 NOTE: This wiki entry will be changing quickly as I'm playing around with OpenWrt to support this board.
+
+
+=== Installation instructions ===
+
+This is going to be very dirty, so check your hats.
+
+First you'll need the following [http://trash.uid0.hu/openwrt/landisk-install.tgz tarball], which I collected from various places. You'll also need an empty CF card with virtually any size you like - the original one could be used also, but save its contents in case if anything goes wrong.
+
+I'll assume /dev/sdb as the CF card. 
+
+ * Create a new partition on it.
+
+{{{
+# fdisk /dev/sdb
+
+Command (m for help): p
+
+Disk /dev/sdb: 32 MB, 32047104 bytes
+1 heads, 62 sectors/track, 1009 cylinders
+Units = cylinders of 62 * 512 = 31744 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 1
+First cylinder (2-1009, default 2): 
+Using default value 2
+Last cylinder or +size or +sizeM or +sizeK (2-1009, default 1009): 
+Using default value 1009
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+#
+}}}
+
+ * Create an EXT3 filesystem on it.
+
+{{{
+# mkfs.ext3 /dev/sdb1
+mke2fs 1.40-WIP (14-Nov-2006)
+[...]
+
+#
+}}}
