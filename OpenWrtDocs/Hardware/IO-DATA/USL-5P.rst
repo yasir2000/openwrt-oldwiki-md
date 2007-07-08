@@ -139,4 +139,6 @@ Added openwrt *
 #
 }}}
 
-Now you can boot the CF in your USL-5P.
+ * Unmount the CF card and insert into your USL-5P.
+
+Now you can boot the CF and test if it works correctly.
