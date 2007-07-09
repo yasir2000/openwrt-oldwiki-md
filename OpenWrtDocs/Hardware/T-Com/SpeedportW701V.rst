@@ -692,6 +692,7 @@ CONFIG_WLAN_WDS='y'
 CONFIG_XILINX='y'
 }}}
 
+=== running proccesses ===
 {{{
 ~ # ps ax
   PID  Uid     VmSize Stat Command
@@ -751,6 +752,7 @@ Total:        30468        24024         6444
 
 }}}
 
+=== CPU Info ===
 {{{
 
 ~ # cat /proc/cpuinfo
@@ -768,6 +770,7 @@ VCEI exceptions         : not available
 
 }}}
 
+=== FLASH Map Info ===
 {{{
 
 ~ # cat /proc/mtd
@@ -798,6 +801,7 @@ major minor  #blocks  name
 ~ #
 }}}
 
+=== ATM Driver Info (TI Avalanche SAR) ===
 {{{
 
 ~ # cat /proc/avalanche/avsar_ver
@@ -809,6 +813,7 @@ PDSP Firmware version:[0.54]
 
 }}}
 
+=== OS Info ===
 {{{
 
 ~ # cat /proc/version
@@ -816,6 +821,8 @@ Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #3 Thu Fe
 
 }}}
 
+
+=== MEMINFO ===
 {{{
 
 ~ # cat /proc/meminfo
@@ -845,6 +852,8 @@ VmallocChunk:  1044964 kB
 
 }}}
 
+
+=== Kernel messages ===
 {{{
 
 ~ # cat /proc/kmsg
@@ -1192,6 +1201,7 @@ ify disable 0x940013f8 0x9419be18
 
 }}}
 
+=== IOMEM ===
 {{{
 
 ~ # cat /proc/iomem
@@ -1203,6 +1213,7 @@ a8610000-a86107ff : cpmac0
 
 }}}
 
+=== devices ===
 {{{
 
 ~ # cat /proc/devices
@@ -1237,6 +1248,8 @@ Block devices:
 
 }}}
 
+
+=== loaded kernel modules ===
 {{{
 
 ~ # cat /proc/modules
@@ -1249,6 +1262,8 @@ Piglet 7632 0 - Live 0xc000a000
 
 }}}
 
+
+=== Network Interfaces Configuration ===
 {{{
 
 ~ # ifconfig
