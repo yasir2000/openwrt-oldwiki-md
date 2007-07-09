@@ -51,7 +51,8 @@ config interface loopback
    option ipaddr   127.0.0.1
    option netmask  255.0.0.0
 #### LAN configuration
-config interface lan option type     bridge
+config interface lan 
+   option type     bridge
    option ifname   "eth0 wl0"
    option proto    static 
    option ipaddr   192.168.1.1
