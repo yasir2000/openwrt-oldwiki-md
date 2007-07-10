@@ -21,10 +21,10 @@ The default IP address of the server end of the tunnel is 172.16.1.1, and is set
 Change this if you want a different IP address. There is no need to restart ''pptpd'' if you change this file, because it is used by ''pppd'' as soon as the next connection arrives. The file contains options for ''pppd'', see ''man pppd'' on a Linux system for more information on the options available.
 
 /!\ ''ppp'' has obsoleted this option (as of v2.4.3-7). In order to assign the local IP address of the server end of the tunnel, include the ''localip'' option in your ''/etc/pptpd.conf''. For example:
+
 {{{
 localip 172.16.1.1
 }}}
-
 == Configure Tunnel Remote IP Addresses ==
 Add lines to ''/etc/ppp/chap-secrets'' for each client. The format is:
 
@@ -105,7 +105,6 @@ If you have Windows PPTP clients and you want them to be able to access file sha
 {{{
 192.168.30.200:
 }}}
-
 You can then assign the client IP address beginning with 192.168.30.201.  Use the following settings for VPN in /etc/firewall.user.
 
 {{{
@@ -116,33 +115,33 @@ iptables        -A input_rule      -i ppp+ -s 192.168.30.0/24 -d 192.168.30.0/24
 # allow VPN connections to get out WAN interface (to internet)
 iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT
 }}}
-
 You will now be able to access file shares by IP address.  For example, you can type
+
 {{{
 \\192.168.30.50
 }}}
 into the address bar of Windows Explorer.  Network neighborhood still doesn't detect available computers.  If anyone knows how to make this work please post the instructions here.  The desired configuration would have automatic detection and population, so there is no need to edit host files.  I tried following [http://poptop.sourceforge.net/dox/replacing-windows-pptp-with-linux-howto.phtml instructions] for setting up samba to run as a WINS server but I couldn't get it to work.  Perhaps this is because OpenWrt is running an older version of samba that was selected because it has a smaller memory footprint.
 
-==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation)
-remote announce = 192.168.11.1/UR-WG-NAME
-and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like
-192.168.11.10    mypc       mypc.behind-wrt54g.org
-..
+==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation) remote announce = 192.168.11.1/UR-WG-NAME and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like 192.168.11.10    mypc       mypc.behind-wrt54g.org ..
 
 == Kamikaze Update ==
 If use kamikaze 7.06 for broadcom distro (brcm2.4) you will need following additional steps to get pptpd working.
+
 -Get old kmod-mppe package and copy module to current kernel modules repository
+{{{
 cd /tmp
 wget http://downloads.openwrt.org/whiterussian/0.9/packages/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
 ipkg install /tmp/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
 cp  /lib/modules/2.4.30/ppp_mppe_mppc.o /lib/modules/2.4.34/
+}}}
 
 -install mod crypto and insert required modules
+{{{
 ipkg install kmod-crypto
 insmod ppp_mppe_mppa
 insmod arc4
 insmod sha1
-
+}}}
 -now you are ready to start pptpd config and use it later (see uper sections)
 
 == Troubleshooting ==
