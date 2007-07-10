@@ -129,6 +129,22 @@ and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like
 192.168.11.10    mypc       mypc.behind-wrt54g.org
 ..
 
+== Kamikaze Update ==
+If use kamikaze 7.06 for broadcom distro (brcm2.4) you will need following additional steps to get pptpd working.
+-Get old kmod-mppe package and copy module to current kernel modules repository
+cd /tmp
+wget http://downloads.openwrt.org/whiterussian/0.9/packages/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
+ipkg install /tmp/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
+cp  /lib/modules/2.4.30/ppp_mppe_mppc.o /lib/modules/2.4.34/
+
+-install mod crypto and insert required modules
+ipkg install kmod-crypto
+insmod ppp_mppe_mppa
+insmod arc4
+insmod sha1
+
+-now you are ready to start pptpd config and use it later (see uper sections)
+
 == Troubleshooting ==
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
 
