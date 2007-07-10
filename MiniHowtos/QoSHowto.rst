@@ -68,6 +68,10 @@ To show the QoS related rules execute:
 iptables -L -v -t mangle
 }}}
 
+=== QoS via X-Wrt - Web Interface (Easy QoS) ===
+The X-Wrt Web Interface at http://x-wrt.org/ supports a QoS package and is easy to use.  Just install X-Wrt, then navigate to the QoS page in the X-Wrt web interface and use the web interface to install and configure the QoS package.
+
+
 === outdated - qosfw-scripts package (was qosif) ===
 /!\ '''This page needs an update!''' /!\
 (''Somewhat updated for qosfw-scripts, could use some editing - especially now qosfw-scripts doesn't seem to exist any more!'')
