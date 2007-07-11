@@ -14,34 +14,13 @@
 
 = About OpenWrt =
 
-With the release of the Linux sources for the Linksys WRT54G/GS series of routers came
-a number of modified firmwares to extend functionality in various ways. Each firmware was
-99% stock sources and 1% added functionality, and each firmware attempted to cater to a
-certain market segment with the functionality that they provided. The downsides were twofold:
- 1. It was often difficult to find a firmware with the combination of functionality desired (leading to forks and yet more custom firmwares).
- 1. All the firmwares were based on the original Linksys sources which were far behind mainstream GNU/Linux development.
-
-!OpenWrt takes a different route, instead of starting out with the Linksys sources, the
-development started with a clean slate. Piece by piece software was added to bring the
-functionality back to that of the stock firmware, using the most recent versions available.
-What makes !OpenWrt really unique though is the fact it employs a writable filesystem, so the
-firmware is no longer a static compilation of software but can instead be dynamically adjusted
-to fit the particular needs of the situation. In short, the device is turned into a mini Linux
-PC with !OpenWrt acting as the distribution, complete with almost all traditional Linux commands
-and a package management system for easily loading on extra software and features.
-
+!OpenWrt is an extensible Linux distribution that runs on Linksys WRT54G/GS routers, as well as [:HardwareTable:some related hardware]. Unlike many other distributions for these routers, OpenWrt is built from the ground up to be a full-featured, easily modifiable operating system for your router. In practice, this means that you can have all the features you need with none of the bloat, powered by a Linux kernel that's more recent than most other distributions. 
 
 = Why should I run OpenWrt? =
 
-Because GNU/Linux gives us the power to do what we need with cheap hardware while avoiding proprietary,
-rigid software. !OpenWrt isn't for the faint of heart, though, but if you honestly need a barebones GNU/Linux
-and are prepared to do some work, !OpenWrt is the fastest Linux-based firmware for a lot of 
-wireless lan routers.
-At the moment the distribution contains more than 100 software packages. Furthermore, the !OpenWrt
-community provides more add-on packages. For developers the project provides a build system, which may
-be used to create modified firmware from source. Porting of new software packages is simplified with
-the use of the SDK. 
+Because the open architecture enables you to use stateful packet inspection, intrusion detection, and any number of other things that normally require several thousand dollars worth of hardware to do effectively.
 
+At the moment there are more than 100 software packages in the official repository, and many more provided by the community. The number of packages is evidence of the effectiveness of the OpenWRT build system, which provides the opportunity to easily port packages and create your own firmware.
 
 = OpenWrt Version History =
 
