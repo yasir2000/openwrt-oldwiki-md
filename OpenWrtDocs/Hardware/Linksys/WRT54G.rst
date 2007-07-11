@@ -165,7 +165,9 @@ If you are lucky, your router is now back to normal.
 '''Note''': I have only used this once on a WRT54G V2 that was clocked to 240MHz. Other models and overclock speeds may not respond to this hack. Good luck.
 
 === Overclocking for the v2, v2.2, and v3 ===
-Other models use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a nvram reset. Be even more careful with these versions of the WRT54G.
+Other models use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a nvram reset. Be even more careful with these versions of the WRT54G. 
+
+The value of clkfreq must be set in the style of clkfreq=<CPU,SB>, only entering CPU speed bricked my V2 @252MHz, although it runs stable @300MHz with the value entered in the way described - I guess only setting CPU speed leads to an unstable CPU/SB ratio.
 
 ==== Valid BCM5352/BCM3302 r0.7 Frequencies (WRT54G v2 - v3) ====
 ||__'''CPU'''__ ||__'''SB'''__ ||__'''Note'''__ ||
