@@ -14,7 +14,7 @@
 
 = About OpenWrt =
 
-!OpenWrt is an extensible Linux distribution that runs on Linksys WRT54G/GS routers, as well as [:HardwareTable:some related hardware]. Unlike many other distributions for these routers, OpenWrt is built from the ground up to be a full-featured, easily modifiable operating system for your router. In practice, this means that you can have all the features you need with none of the bloat, powered by a Linux kernel that's more recent than most other distributions. 
+!OpenWrt is an extensible Linux distribution that runs on Linksys WRT54G/GS routers, as well as [:TableOfHardware:some related hardware]. Unlike many other distributions for these routers, OpenWrt is built from the ground up to be a full-featured, easily modifiable operating system for your router. In practice, this means that you can have all the features you need with none of the bloat, powered by a Linux kernel that's more recent than most other distributions. 
 
 = Why should I run OpenWrt? =
 
