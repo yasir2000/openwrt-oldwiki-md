@@ -18,7 +18,11 @@ JTAG: no
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} ''is'' safe on this unit (using {{{mtd erase nvram}}} and rebooting will revert to the settings in `/etc/nvram.overrides`).
 
-Note that the internal switch can not be configured through OpenWRT yet because its internally accessed using a GPIO interface instead of MII ([https://dev.openwrt.org/ticket/2064 Source]).
+Note that the internal switch can not be configured through OpenWRT yet because its internally accessed using a GPIO interface instead of MII ([https://dev.openwrt.org/ticket/2064 Source]). As a workaround, if you don't actually need VLANs but just want to put LAN and WAN ports in the same "VLAN", just use Linux's bridge capability, eg. in Kamikaze put in `/etc/config/network` :
+
+{{{
+option ifname   "eth0 eth1"
+}}}
 
 '''TFTP Installation notes'''
 
