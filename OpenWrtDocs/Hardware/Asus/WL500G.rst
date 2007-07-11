@@ -18,6 +18,8 @@ JTAG: no
 
 The {{{boot_wait}}} NVRAM variable is '''on''' by default. Resetting to factory defaults via reset button or {{{mtd erase nvram}}} ''is'' safe on this unit (using {{{mtd erase nvram}}} and rebooting will revert to the settings in `/etc/nvram.overrides`).
 
+Note that the ethernet switch is not supported by OpenWRT yet because its internally accessed using a GPIO interface instead of MII ([https://dev.openwrt.org/ticket/2064 Source]).
+
 '''TFTP Installation notes'''
 
 The [:OpenWrtDocs/Hardware/Asus/WL500GRecovery: WL-500G recovery] mechanism is somewhat complex. The most reliable method is to statically assign the ARP entry for the device, and use a known-to-work TFTP client (e.g. OS X's inbuilt tftp generally doesn't work; atftp on Linux does work).
