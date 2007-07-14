@@ -59,9 +59,21 @@ mode octet
 trace
 timeout 1
 put openwrt-xxx-x.x-xxx.bin
+}}}
 
 Or use the command-line:
+{{{
 atftp --trace --option "timeout 1" --option "mode octet" --put --local-file openwrt-xxx-x.x-xxx.bin 192.168.1.1
+}}}
+
+Note: you need to make sure that you can reach the router on your network, and that it can reach you.  If you are using an existing machine which is not on 192.168.1.x, you can temporarily add an interface alias (on most modern Linux distros).  Presuming that the correct network interface is eth0 (if you don't know, assume that it's eth0), run this as root:
+{{{
+ifconfig eth0:1 192.168.1.5 netmask 255.255.255.0
+}}}
+
+When you're done configuring the router, run this (as root again) to take the alias down
+{{{
+ifconfig eth0:1 down
 }}}
 
 == MacOS X ==
