@@ -7,7 +7,7 @@ The WHR-HP-G54 is also sold as the WHR-HP-G54-1 and the WHR-HP-G54-4.  Users hav
 
 Buffalo's default router IP address is 192.168.11.1.  Keep that in mind as you follow instructions on other pages which assume that your router's IP address is 192.168.1.1.
 
-OpenWrt cannot be loaded using Buffalo's original firmware upgrade procedure as it expects an encrypted firmware image.  Loading [:OpenWrtViaTftp:OpenWrt via TFTP] works fine though.  You will need a .trx version (such as openwrt-brcm-2.4-<type>.trx) for this device, as explained on the ["Installing"] page.
+OpenWrt cannot be loaded using Buffalo's original firmware upgrade procedure as it expects an encrypted firmware image.  Loading [:OpenWrtViaTftp:OpenWrt via TFTP] works fine though.  You will need a .trx version (such as openwrt-brcm-2.4-<type>.trx) for this device, as explained on the ["Installing"] page.  Ensure that you have your cable plugged into one of the LAN ports (the 4-port hub portion), not the WAN port (the "separate" port).  Plugging in to the WAN port will get you responses to pings, but will not allow tftp to work, which will potentially cause hours of frustration.
 
 After loading OpenWrt on, you can erase the NVRAM settings as follows:
 
