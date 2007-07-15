@@ -29,14 +29,17 @@ Here's what we have integrated so far (for Linux kernel 2.4):
    * ADSL works! New init scripts for PPPoE are integrated.
    * Scripts for flashing DSL-G664T and G604T
 
-The latest contributions add experimental AR7 support for Linux 2.6):
+The latest contributions add experimental AR7 support for Linux 2.6:
 
    * Automatic detection of RAM size.
    * Automatic detection of PHY (Ethernet Physical Layer).
    * ADSL works, status of ADSL+ support is not clear.
-   * Ethernet works (still needs some fixes).
+   * Ethernet works (but still needs some fixes).
    * WLAN works with free ACX111 driver (no WPA/WPA2).
+   * There is also an ACX111 SoftMAC driver which should support WPA (status not clear).
    * Because it is still experimental, it is not enabled by default.
+
+The latest Linux kernel 2.6.22 is still unsupported for AR7.
 
 == Bugs / Ugly-Hacks ==
 
@@ -65,6 +68,8 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
      sources are in avm current open source. (maybe fixed with Linux 2.6)
      also in LevelOne [http://global.level1.com/products2.php?Id=534 FBR-1416A]
      under dedicated kernel option CONFIG_MIPS_AR7_MARVELL
+   * Add USB support
+   * Support AR7 devices running in big endian mode (Zyxel!)
 
 
 See also https://dev.openwrt.org/report/ (all tickets with AR7 in the summary).
