@@ -263,7 +263,7 @@ More information is on ["OpenWrtDocs/nas"].
 
 See OpenWrtDocs/Wpa2Enterprise for a detailed setup using Freeradius for user authentication.
 ||'''NVRAM variable''' ||'''Description''' ||
-||<style="TEXT-ALIGN: center" |6>wl0_akm ||'''open''' = No WPA ||
+||<style="TEXT-ALIGN: center" |6>wl0_akm ||'''open''' = No WPA; Note: OpenWRT v0.9 uses the value '''none''' ||
 ||'''psk''' = WPA Personal/PSK (Preshared Key) ||
 ||'''wpa''' = WPA with a RADIUS server ||
 ||'''psk2''' = WPA2 PSK ||
