@@ -190,14 +190,14 @@ Default server: 192.168.5.2
 Load the kernel to the ramdisk
 
 {{{
-RedBoot> load -r -v -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
+RedBoot> load -r -v -b 0x80041000 kernel.lzma
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800c0fff, assumed entry at 0x80041000
 }}}
 the kernel is now stored in the ramdisk at address 0x80041000, we can now write the file from the ramdisk to the flash
 
 {{{
-RedBoot> fis create -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
+RedBoot> fis create -r 0x80041000 -e 0x80041000 vmlinux.bin.l7
 An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Erase from 0xa8730000-0xa87e0000: ...........
 ... Program from 0x80041000-0x800c1000 at 0xa8730000: ........
@@ -205,40 +205,18 @@ An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 }}}
 
-this will print the first and last free block:
-
-{{{
-RedBoot> fis free
-    0xA80F0000 .. 0xA87E0000
-}}}
-
 And now the same for the rootfs:
 
 {{{
-RedBoot> load -r -v -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
+RedBoot> load -r -v -b 0x80041000 rootfs.squashfs
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x801c0fff, assumed entry at 0x80041000
 }}}
 
-0xfoo is known from "fis free", in my case 0xA87E0000 - 0xA80F0000 = 0x6F0000
-You can use bc for that:
+And now write it to the flash:
 
 {{{
-server # bc
-ibase=16
-A87E0000 - A80F0000
-7274496
-ibase=A
-obase=16
-7274496
-6F0000
-}}}
-
-Now write it to the flash:
-(in my case: 0xfoo = 0x6F0000)
-
-{{{
-RedBoot> fis create -l 0xfoo rootfs
+RedBoot> fis create -b 0x80041000 -f 0xA8030000 -l 0x00700000 -e 0x00000000 rootfs
 An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa8030000-0xa8730000: ..........................................................................................................
 ... Program from 0x80041000-0x80741000 at 0xa8030000: ..........................................................................................
