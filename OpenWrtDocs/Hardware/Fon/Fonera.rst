@@ -240,7 +240,7 @@ vmlinux.bin.l7    0xA8730000  0x80041000  0x000B0000  0x80041000
 FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
-== flashing OpenWrt ==
+== Flashing OpenWrt ==
 [https://dev.openwrt.org/changeset/5898 SVN] trunk supports this atheros SOC. thank you, nbd!
 
 After you build a kamikaze image with svn trunk for the atheros-2.6 target, you get the following files in your ./bin/ directory:
