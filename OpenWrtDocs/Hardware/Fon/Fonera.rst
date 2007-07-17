@@ -243,7 +243,7 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 == Flashing OpenWrt ==
 [https://dev.openwrt.org/changeset/5898 SVN] trunk supports this atheros SOC. thank you, nbd!
 
-After you build a kamikaze image with svn trunk for the atheros-2.6 target, you get the following files in your ./bin/ directory:
+After you build a kamikaze image with svn trunk for the atheros-2.6 target (or visited http://downloads.openwrt.org/kamikaze), you get the following files in your ./bin/ directory:
 
 {{{
 openwrt-atheros-2.6-root.jffs2-128k
@@ -254,7 +254,6 @@ openwrt-atheros-2.6-vmlinux.elf
 openwrt-atheros-2.6-vmlinux.gz
 openwrt-atheros-2.6-vmlinux.lzma
 packages
-
 }}}
 
 Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /tftpboot/ and flash them like this:
