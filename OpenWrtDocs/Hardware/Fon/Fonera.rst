@@ -283,12 +283,9 @@ RedBoot> fis free
 now do the math
 {{{
 server:~# bc
+obase=16
 ibase=16
 A87E0000 - A80F0000
-7274496
-ibase=A
-obase=16
-7274496
 6F0000
 }}}
 Replace ''0xCHANGEME'' with the value above (0x6F000 in my case) and flash the the rootfs:
