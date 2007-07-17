@@ -263,9 +263,11 @@ Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /
 RedBoot> ip_address -l 192.168.5.75/24 -h 192.168.5.2
 IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
 Default server: 192.168.5.2
+
 RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
+
 RedBoot> fi cr -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
 An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Erase from 0xa8730000-0xa87e0000: ...........
@@ -295,12 +297,14 @@ RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
 Using default protocol (TFTP)
 |
 Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
+
 RedBoot> fi cr -l 0xCHANGEME rootfs
 An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa8030000-0xa8730000: ................................................................................................................
 ... Program from 0x80041000-0x80741000 at 0xa8030000: ..............................................................................................................
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+
 RedBoot> reset
 }}}
 
