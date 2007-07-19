@@ -78,10 +78,10 @@ Normally, these are used for DSL.
 
 {{{
 config interface wan
-        option ifname   eth0
+        option ifname   "eth0.1"
         option proto    pppoe
-        option username xxxxxx
-        option password xxxxxx
+        option username "xxxxxx"
+        option password "xxxxxx"
 }}}
 === 802.11x ===
 '''Note: Currently supported on Broadcom only, although madwifi support is almost complete :)'''
