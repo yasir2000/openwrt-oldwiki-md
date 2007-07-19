@@ -21,7 +21,7 @@ jffs2 image gets farther but reports:
  . init started:  BusyBox v1.4.1 (2007-04-21 18:44:24 EDT) multi-call binary [[BR]] syslogd: /dev/null: No such file or directory [[BR]] /etc/init.d/rcS: /etc/init.d/rcS: 19: Can't open /dev/null [[BR]]
 
 It works great for me. I guess you where missing the parameter "init=/etc/preinit", as kamikaze fills in /dev on-the-fly after bootup. I didn't have to change anything and just installed with upslug2 using the default Kamikaze images from the openwrt download server. Things to look out for are:
- * The default IP is the one that is set in the NVRAM, so OpenWRT will boot up with the IP it had under the former firmware. This is not the default for other Kamikaze platforms!
+ * The default IP is the one that is set in the NVRAM, so OpenWRT will boot up with the IP it had under the former firmware. This is not the default for other Kamikaze platforms! Note: This is not true for Kamikaze SVN (tested with r8003).
  * After initial installation with the squashfs firmware, it can take up to five minutes to initialize the jffs2 payload partition. I would wait at least this time before you reboot it forcefully (although unplugging it while it is initializing didn't harm it in my tests)
  * The status LED indication differs from openslug. It is always amber for me (whereas openslug turns green after bootup is complete). This might confuse users migrating from openslug.
 
