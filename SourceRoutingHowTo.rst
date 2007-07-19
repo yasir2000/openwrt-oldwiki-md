@@ -98,7 +98,6 @@ ip route add to default ${THERE202}[[BR]]
 # find internal destination, this table gets checked for any source address [200][[BR]]
 ip rule delete from 0/0 priority 50 table 200[[BR]]
 ip rule add from 0/0 priority 50 table 200[[BR]]
-# more ... delete/add pairs, one for each client that should use THERE[[BR]]
 
 # what comes in via HERE's lan and wifi[[BR]]
 # decide what should go out THERE and therefore should use table [202][[BR]]
