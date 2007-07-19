@@ -5,7 +5,7 @@ These are the !HowTo documents available on this wiki:
  /!\ Naming convention: Please create new !HowTo articles with "!HowTo" at the '''end''' of the article name, rather than at the beginning.
 
 [[PageList(HowTo)]]
-SourceRoutingHowTo
+
 ----
 Additionally, there are a few !HowTos that aren't named as such:
  * [http://devices.natetrue.com/mobileap Cell phone Internet how-to] - Connect your cell phone to your router
