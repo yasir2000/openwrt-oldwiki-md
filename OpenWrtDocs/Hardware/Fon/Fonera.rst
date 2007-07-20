@@ -336,7 +336,9 @@ Enter 'help' for a list of built-in commands.
  KAMIKAZE (bleeding edge, r5899) -------------------
 }}}
 
-It's important to use the files in ./bin/ and NOT ./build_mips/linux-2.6-atheros/vmlinux.bin.l7 It took me quite some time to figure out why this vmlinux.bin.l7 doesn't work.
+Note: if you changed RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- OpenWRT logs to its serial console with 9600bps, so having the same baud rate in RedBoot is a good idea.
+
+Furthermore, it's important to use the files in ./bin/ and NOT ./build_mips/linux-2.6-atheros/vmlinux.bin.l7 It took me quite some time to figure out why this vmlinux.bin.l7 doesn't work.
 
 The magic is, that ./target/linux/atheros-2.6/image/Makefile converts the image with:
 
