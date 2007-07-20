@@ -12,7 +12,7 @@ The contents of this section of the wiki can have serious consequences. While ev
   * [:OpenWrtDocs/Customizing/Hardware/UART] if you know what UART is you may want to read this
   * [:OpenWrtDocs/Customizing/Hardware/MMC] add a multimedia card or sd card to increase your storage volume
   * [:OpenWrtDocs/Customizing/Hardware/GPS] attach an GPS device if using the wrt for wardriving
-  * [http://david.zope.nl/hardware/wl500g/wx200wl500g/] Adding a WX200 / WM918 / WMR918 / WMR968 Weather Station
+  * [http://www.hacklab.nl/index.php?option=com_content&task=view&id=9&Itemid=7] Adding a WX200 / WM918 / WMR918 / WMR968 Weather Station
   * [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture] Adding an LCD
   * [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg picture] and [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg picture] Adding VGA Output
   * [http://tibalfr.free.fr/pub/openwrt/54gsv2-inside.jpg picture] and [http://tibalfr.free.fr/pub/openwrt/54gsv2-front.jpg picture] Adding heatsinks, serial ports, a fan and a MMC slot
