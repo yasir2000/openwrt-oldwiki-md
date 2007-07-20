@@ -136,6 +136,7 @@ config wifi-iface
        option bgscan   Currently only for Atheros. This controls client background scanning, 0 disabled, 1 enabled (default)
        option hidden   0 broadcasts the ssid; 1 disables broadcasting of the ssid
        option isolate  0 disables ap isolation (default); 1 enables ap isolation
+       option wds      Atheros only. 0 disables wds (default), 1 enables wds
 }}}
 '''Notes: '''
 
