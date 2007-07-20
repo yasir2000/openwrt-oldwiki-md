@@ -166,6 +166,9 @@ http://www.easy2design.de/bla/?page_id=98 here]. If this doesn't work you probab
  1. Turn La Fonera off and connect it to your router so you can continue working normally.
  1. Remember to change again the values of your Local Area Network.
 === Updating / Unbricking via redboot ===
+
+['''NOTE''': Word on IRC is that the instructions down in the "Flashing OpenWRT" section are the ones you should use. Specifying all those parameters to "fis create" is said to be no good idea. Yet, I'll leave this section until further confirmation. -Fatus]
+
 On your computer:
 
 {{{
@@ -336,7 +339,7 @@ Enter 'help' for a list of built-in commands.
  KAMIKAZE (bleeding edge, r5899) -------------------
 }}}
 
-Note: if you changed RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- OpenWRT logs to its serial console with 9600bps, so having the same baud rate in RedBoot is a good idea.
+'''NOTE''': if you changed RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- OpenWRT logs to its serial console with 9600bps, so having the same baud rate in RedBoot is a good idea.
 
 Furthermore, it's important to use the files in ./bin/ and NOT ./build_mips/linux-2.6-atheros/vmlinux.bin.l7 It took me quite some time to figure out why this vmlinux.bin.l7 doesn't work.
 
