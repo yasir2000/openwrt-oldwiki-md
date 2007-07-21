@@ -15,14 +15,6 @@
 {{{
  RedBoot> ip_address -l <local_ip_address> -h <server_address>
 }}}
-*load microcode from tftp server
-{{{
-RedBoot> load -r -b %{FREEMEMLO} NPE-B
-}}}
-*write microcode to flash
-{{{
-RedBoot> fis create microcode
-}}}
  *load kernel from tftp server
 {{{
  RedBoot> load -r -b %{FREEMEMLO} openwrt-ixp4xx-2.6-zImage 
@@ -39,10 +31,18 @@ RedBoot> fis create microcode
 {{{
  RedBoot> fis create -r  0x0001fc00 -l 0x620000 rootfs
 }}}
- 0x620000 is chosen to fill up the whole remaining space on flash - this can be determined with  "fis free" before writing rootfs to flash:
+ 0x620000 is chosen to fill up the whole remaining space on flash - this can be determined with  "fis free" before writing rootfs to flash. Be sure to leave some space for the microcode
 {{{
 RedBoot> fis free
   0x50220000 .. 0x507C0000
+}}}
+ *load microcode from tftp server
+{{{
+RedBoot> load -r -b %{FREEMEMLO} NPE-B
+}}}
+ *write microcode to flash
+{{{
+RedBoot> fis create microcode
 }}}
  *change boot script with fconfig (list fconfig setting with "fconfig -l")
 {{{
