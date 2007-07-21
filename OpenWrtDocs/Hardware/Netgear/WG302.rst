@@ -189,7 +189,7 @@ root@OpenWrt:/#
 
 }}}
 = Open Issues =
-*Error Messages about NPE-B on boot:
+ *Error Messages about NPE-B on boot:
 {{{
 eth0: NPE-B not running
 eth0: NPE-B not running
@@ -216,7 +216,8 @@ eth0: PHY[0] unresponsive
 eth0: link down
 eth0: link down
 }}}
-*Wifi is not working in the released version. I had to compile the current snapshot to make this work. Here the working .config:
+ Then, I can configure the interface. Still, there ist no link on eth0. eth1 is also not usable after loadinf the firmware, same error message as above.
+ *Wifi is not working in the released version. I had to compile the current snapshot to make this work. Here the working .config:
 {{{
 #
 # Automatically generated make config: don't edit
