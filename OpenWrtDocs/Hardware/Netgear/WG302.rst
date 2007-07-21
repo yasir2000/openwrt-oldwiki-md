@@ -205,7 +205,17 @@ eth1: NPE-C not running
 ifconfig: SIOCSIFFLAGS: Input/output error
 }}}
  Reason: unclear. Maybe some firmware missing? /lib/firmware/ is empty
- Worksround: After Boot, enter dd if=/dev/mtdblock4 of=/dev/ixp4xx_ucode bs=11964 count=1         (assuming, that you have created the microcode partition as outlined above)
+ Worksround: After Boot, enter 
+{{{
+dd if=/dev/mtdblock4 of=/dev/ixp4xx_ucode bs=11964 count=1  
+}}}
+ assuming, that you have created the microcode partition as outlined above). Then I get:
+{{{
+Image loaded to NPE-B Func:0, Rel: 2:1, Status: 80c00000
+eth0: PHY[0] unresponsive
+eth0: link down
+eth0: link down
+}}}
 *Wifi is not working in the released version. I had to compile the current snapshot to make this work. Here the working .config:
 {{{
 #
