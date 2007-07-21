@@ -36,11 +36,11 @@ In front panel. Green, unless otherwise stated. In top-down order:
 
 == Opening the Case ==
 
-Just one torx in upper-corner of the back (near the antenna). Two clips in bottom under the adhesive label. In addition, the labeling of the LEDS is adhesively attached. You may either cut the adhesives or remove them (I used the latter 
+Just one torx in the upper corner of the back (near the antenna). Two clips in the bottom under an adhesive label. In addition, the labeling of the LEDS is adhesively attached. You may either cut the adhesives or remove them (I used the latter alternative). 
 
 == Ethernet Access ==
 
-Standard firmware provides configuration interface using HTTP. Currently, there exists no known way to break into the device/os through it.
+Standard firmware provides configuration interface using HTTP. Currently, there exists no known way to break into the device/OS through it.
 
 == Serial Access ==
 
