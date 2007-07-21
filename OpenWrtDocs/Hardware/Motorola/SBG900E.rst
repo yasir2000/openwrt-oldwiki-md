@@ -7,6 +7,7 @@ The '''E''' stands perhaps for '''Europe''' but that just a guess.
  * Main Chip: Broadcom QAMLink® BCM3348KPB
  * Ram: 32 MB SDRAM (Winbond W982516CH-75, 4M x 4 banks x 16bit) 
  * Flash: Intel (under a over-soldered metal cage)
+ * B/G WLAN MiniPCI card (on back-side, under a soldered metal cage)
 
 == Connectors ==
 
