@@ -484,6 +484,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == ZyXEL ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.zyxel.com/product/model.php?indexcate=1079416368&indexcate1=1021877946&indexFlagvalue=1021873638 Prestige 660HW-61] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300)] @160MHZ ||8MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["Bootbase"] ||Yes ||Untested ||No ||Untested ||
+||Prestige 660HW-63 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300GDU)] @160MHZ (?)||2MB (Intel TE28F160)||16MB (Winbond W981216DH-75)||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["Bootbase"] ||Yes ||Untested ||No ||Untested ||
 ||Prestige 660R-61 || ||AR7 ||2MB ||8MB ||N/A ||N/A ||["Bootbase"] ||Yes || ||No ||Untested - not sure if enough flash ||
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040812093058&CategoryGroupNo=6D5363B7-46E4-47AE-9D01-DC4878CE5CE8 Prestige 662HW-61] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&contentId=3905 Texas Instruments AR7 (TNETD7300)] || ||32MB ||TI ACX111 (["VLYNQ"]) ||ADM6996thL ||["Bootbase"] ||Yes, console/aux port already in router ||Possibly ||No ||Untested ||
 ||[http://us.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=1E68E573-AE4C-4140-B9A6-36AE82B49B4F ZyWall 2] || ||Samsung 2500 @166Mhz ||2MB ||16MB || || || || || || ||Info entered ||
@@ -500,3 +501,5 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
  . CategoryModel
 ----
  . CategoryOpenWrtPort
+----
+["CategoryAR7Device"]
