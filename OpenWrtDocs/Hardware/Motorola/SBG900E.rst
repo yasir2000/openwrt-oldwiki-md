@@ -7,7 +7,7 @@ The '''E''' stands perhaps for '''Europe''' but that just a guess.
  * Main Chip: Broadcom QAMLink® BCM3348KPB
  * Ram: 32 MB SDRAM (Winbond W982516CH-75, 4M x 4 banks x 16bit) 
  * Flash: Intel (under a over-soldered metal cage)
- * B/G WLAN MiniPCI card (on back-side, under a soldered metal cage)
+ * B/G WLAN MiniPCI card (on back-side, under a soldered metal cage) with internal and external (non-removable) antennas
 
 == Connectors ==
 
@@ -58,3 +58,8 @@ Provides a JTAG connector in J3, which seems to follow similar semantics as [:Op
 http://lauterbach.com/admips3.gif
 
 JTAG is not yet tested.
+
+== Unknown Stuff ==
+
+ * 1x6 connector J2 very close to the main chip. Purpose unknown...
+ * Can the RJ11 + MAX232 pin-compatible chip reservation be used for some purpose...
