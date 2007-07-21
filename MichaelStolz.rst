@@ -21,5 +21,7 @@ At the moment my main router at home is a "Fritz!Box Fon WLAN 7140 (A/CH)". Nice
 
 ''Read about my recent round the world trip here:'' http://simpletravelling.blogspot.com/ (German)
 
+I have my own blog with IT-related content: http://simpletravelling.blogspot.com/ (German/English)
+
 ----
 CategoryHomepage
