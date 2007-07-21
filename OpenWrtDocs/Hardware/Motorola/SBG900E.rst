@@ -53,7 +53,7 @@ Serial is not yet tested.
 
 == JTAG Access ==
 
-Provides a JTAG connector, that seems to follow similar semantics as [:OpenWrtDocs/Hardware/Thomson/TCM390:TCM390] (only 10 pins like it). The mainboard connects resistors to pins 1,3,7,9 and 2,4,6,8,10 to GND as expected. Pin 5 wiring is unique and goes under metal cage under which the MiniPCI card resides. The cage is soldered in place.
+Provides a JTAG connector in J3, which seems to follow similar semantics as [:OpenWrtDocs/Hardware/Thomson/TCM390:TCM390] (only 10 pins like it). The mainboard connects resistors to pins 1,3,7,9 and 2,4,6,8,10 to GND as expected. Pin 5 wiring is unique and goes under metal cage under which the MiniPCI card resides. The cage is soldered in place.
 
 http://lauterbach.com/admips3.gif
 
