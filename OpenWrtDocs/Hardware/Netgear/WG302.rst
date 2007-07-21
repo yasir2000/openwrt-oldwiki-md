@@ -15,6 +15,14 @@
 {{{
  RedBoot> ip_address -l <local_ip_address> -h <server_address>
 }}}
+*load microcode from tftp server
+{{{
+RedBoot> load -r -b %{FREEMEMLO} NPE-B
+}}}
+*write microcode to flash
+{{{
+RedBoot> fis create microcode
+}}}
  *load kernel from tftp server
 {{{
  RedBoot> load -r -b %{FREEMEMLO} openwrt-ixp4xx-2.6-zImage 
