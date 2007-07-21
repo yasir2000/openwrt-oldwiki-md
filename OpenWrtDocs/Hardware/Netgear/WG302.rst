@@ -40,9 +40,9 @@ RedBoot> fis free
 {{{
 RedBoot> load -r -b %{FREEMEMLO} NPE-B
 }}}
- *write microcode to flash
+ *write microcode to flash. Attention: Be sure to specify the corrent startaddress 0x50780000=startaddress of root partition plus size of root partition, as redboot otherwise places the microcode within the root partition. Bug or feature?
 {{{
-RedBoot> fis create microcode
+RedBoot> fis create -f 0x50780000 microcode
 }}}
  *change boot script with fconfig (list fconfig setting with "fconfig -l")
 {{{
