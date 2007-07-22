@@ -42,6 +42,22 @@ Just one torx in the upper corner of the back (near the antenna). Two clips in t
 
 Standard firmware provides configuration interface using HTTP. Currently, there exists no known way to break into the device/OS through it.
 
+nmap locates these UDP ports:
+
+|| PORT   || STATE         || SERVICE ||
+|| 53/udp || open|filtered || domain ||
+|| 68/udp || open|filtered || dhcpc ||
+|| 161/udp || open|filtered || snmp ||
+|| 1030/udp || open|filtered || iad1 ||
+
+The access to snmp port is mostly rejected but there is some info floating around about bitfile method that would enable factory mode which is claimed to be able to run shell cmds (so far no great success with this model if the info is indeed valid). However, modem responds to this command (by tftping for vxWorks.st from 192.168.100.10):
+
+ `snmpset -v2c -c public 192.168.100.1 1.3.6.1.4.1.1166.1.19.3.1.18.0 i <HFC_Magic>`
+
+where ''HFC_Magic'' is a signed 32-bit integer calculated from the HFC MAC's four rightmost bytes (in the human-readable representation). Beware that trying any other IP addresses that the modem is using such as 192.168.0.1 will not do the trick and the snmp is rejected without response.
+
+...Perhaps this TFTP access can eventually be used to load openwrt directly on the router without any soldering.
+
 == Serial Access ==
 
 Provides serial connector J9, which is clearly marked:
