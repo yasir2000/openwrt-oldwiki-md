@@ -27,6 +27,48 @@ The Flash memory is divided into blocks:
 ||mtd3 ||0x90010000 ||0x90020000 ||Configuration ||
 ||mtd4 ||0x90020000 ||0x90200000 ||Filesystem + Kernel ||
 
+{{{
+BUILD_OPS             0x301
+bootloaderVersion     1.3.7.15
+ProductID             AR7RD
+HWRevision            Unknown
+SerialNumber          none
+MAC_PORT              0
+MEMSZ                 0x00800000
+FLASHSZ               0x00200000
+MODETTY0              9600,n,8,1,hw
+MODETTY1              9600,n,8,1,hw
+CPUFREQ               211968000
+MIPSFREQ              211968000
+PROMPT                (psbl)
+IPA                   192.168.1.1
+mtd2                  0x90000000,0x90010000
+mtd3                  0x90010000,0x90020000
+mtd4                  0x90020000,0x90200000
+BOOTCFG               m:f:"mtd1"
+StaticBuffer          120
+mtd1                  0x90020090,0x90096000
+mtd0                  0x90096000,0x90200000
+vcc_encaps0           0.0
+vcc_encaps1           0.0
+vcc_encaps2           0.0
+vcc_encaps3           0.0
+vcc_encaps4           0.0
+vcc_encaps5           0.0
+vcc_encaps6           0.0
+vcc_encaps7           0.0
+usb_vid               0x0451
+usb_pid               0x6060
+HWA_RNDIS             00:E0:A6:66:41:EB
+HWA_HRNDIS            00:E0:A6:66:41:E1
+connection0           0x1b00
+connection1           0xf00
+SYSFREQ               105984000
+modulation            0xff
+HWA_0                 00:D0:F8:73:0D:AD
+HWA_2                 00:D0:F8:73:0D:AE
+HWA_3                 00:D0:F8:73:0D:AE
+}}}
 
 == Dump Original Firmware ==
 {{{
