@@ -12,7 +12,7 @@ W9864G6GH 4Mx16 4 Banks CL3 3.3 V TSOP II 54 (400 mil) -6 166 MHz
 http://www.winbond-usa.com/mambo/content/view/123/238/
 
 CPU: Texas Instruments AR7 MIPS based
-TI TNETD7100GDW
+TI TNETD7100GDW 
 http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12111&contentId=4001
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
@@ -29,29 +29,31 @@ The Flash memory is divided into blocks:
 
 == Dump Original Firmware ==
 
-mkdir /var/dump
-/usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-dd if=/dev/mtdblock/2 of=/var/dump/mtd2-pspboot.bin
-http://192.168.1.1:1080/mtd2-pspboot.bin
-reboot
+{{{
+# mkdir /var/dump 
+# /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g 
+# dd if=/dev/mtdblock/2 of=/var/dump/mtd2-pspboot.bin 
+http://192.168.1.1:1080/mtd2-pspboot.bin 
+reboot 
 
-mkdir /var/dump
-/usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-dd if=/dev/mtdblock/3 of=/var/dump/mtd3-nvram.bin
-http://192.168.1.1:1080/mtd3-nvram.bin
-reboot
+# mkdir /var/dump 
+# /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g 
+# dd if=/dev/mtdblock/3 of=/var/dump/mtd3-nvram.bin 
+http://192.168.1.1:1080/mtd3-nvram.bin 
+reboot 
 
-mkdir /var/dump
-/usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern1.bin skip=983040 count=983040 bs=1
-http://192.168.1.1:1080/mtd4-fs-kern1.bin
-reboot
+# mkdir /var/dump 
+# /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g 
+# dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern1.bin skip=983040 count=983040 bs=1 
+http://192.168.1.1:1080/mtd4-fs-kern1.bin 
+reboot 
 
-mkdir /var/dump
-/usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern2.bin count=983040 bs=1
-http://192.168.1.1:1080/mtd4-fs-kern2.bin
-reboot
+# mkdir /var/dump 
+# /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g 
+# dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern2.bin count=983040 bs=1 
+# http://192.168.1.1:1080/mtd4-fs-kern2.bin 
+reboot 
+}}}
 
 copy /b mtd4-fs-kern1.bin + mtd4-fs-kern2.bin mtd4-fs-kern.bin 
 
