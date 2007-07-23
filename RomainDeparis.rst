@@ -2,7 +2,8 @@
 #format wiki
 == Introduction ==
 
-Previous content can be found [:here:RomainDeparis/Archive]
+Previous content can be found [:RomainDeparis/Archive:here].
+
 
 To contact me:
 
