@@ -2,6 +2,14 @@
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port.
 
 PCB: 2110EH V7.20+ 2005.11.30
+serial console 9600,n,8,1,hw jp1:
+1 VCC
+2 TX
+3 RX
+4
+5
+6 GND
+7 GND
 
 Flash chip: 2MBytes
 KH KH29LV160CBTC-70G
