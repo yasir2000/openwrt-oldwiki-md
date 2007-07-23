@@ -18,7 +18,7 @@ I have your solution! -- JohnDoe
 == Linksys WRTSL54GS ==
 
 {{{
-Linux version 2.6.22 (borain@debian) (gcc version 4.1.2) #4 Sun Jul 22 23:19:25 EDT 2007
+Linux version 2.6.22 (romain@debian) (gcc version 4.1.2) #4 Sun Jul 22 23:19:25 EDT 2007
 CPU revision is: 00029006
 ssb: Core 0 found: ChipCommon (cc 0x800, rev 0x03, vendor 0x4243)
 ssb: Core 1 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
