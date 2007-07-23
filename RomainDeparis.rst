@@ -2,7 +2,7 @@
 #format wiki
 == Introduction ==
 
-Previous content can be found [:RomainDeparis/Archive:here].
+Previous content of this page has been archived [:RomainDeparis/Archive:here].
 
 To contact me:
 
