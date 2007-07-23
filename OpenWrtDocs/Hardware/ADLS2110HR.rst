@@ -96,7 +96,9 @@ reboot
 # http://192.168.1.1:1080/mtd4-fs-kern2.bin
 reboot
 }}}
-copy /b mtd4-fs-kern1.bin + mtd4-fs-kern2.bin mtd4-fs-kern.bin
+
+cat mtd4-fs-kern1.bin mtd4-fs-kern2.bin > mtd4-fs-kern.bin 
+
 
 == Boot Log ==
 {{{
