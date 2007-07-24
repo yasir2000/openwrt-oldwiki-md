@@ -1,6 +1,8 @@
 [[TableOfContents]]
 = Status =
 currently a bootlog can be pulled. kernel source for 2.4 is available and is being forward ported to 2.6
+= prereq =
+first the amazon port needs to be complete the todo is here http://wiki.openwrt.org/OpenWrtDocs/Hardware/Infineon/Amazon
 = Things we already know =
 == original firmware ==
 http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de_DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo_h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161
