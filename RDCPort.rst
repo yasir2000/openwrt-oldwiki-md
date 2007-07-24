@@ -13,7 +13,7 @@ PDF downloads from RDC:
 [http://www.rdc.com.tw/Uploads/datasheet/R3210_Mbrief_20061121.pdf R3210 brief]
 [http://www.rdc.com.tw/Uploads/datasheet/R3211_Mbrief_20070402.pdf R3211 brief]
 [http://www.sima.com.tw/download/R8610_D06_20051003.pdf Draft of old R8610 datasheet]
-[R8610-G_D01_20051207.pdf Draft of old R8610-G datasheet]
+[attachment:R8610-G_D01_20051207.pdf Draft of old R8610-G datasheet]
 
 == Status ==
 
