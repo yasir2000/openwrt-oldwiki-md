@@ -247,7 +247,7 @@ Sep  8 12:00:14 cfgmgr(sar):  Error: Could not find oam_ping_interval
 
 == Information ==
 {{{
-# cat proc/iomem
+# cat /proc/iomem
 00000000-13ffffff : reserved
 14000000-1401ffff : System RAM
 14020000-147fffff : System RAM
@@ -255,18 +255,18 @@ Sep  8 12:00:14 cfgmgr(sar):  Error: Could not find oam_ping_interval
   1419d300-141b5fff : Kernel data
 a8610000-a86107ff : eth0
 
-# cat proc/mounts
+# cat /proc/mounts
 /dev/mtdblock/0 / squashfs ro 0 0
 none /dev devfs rw 0 0
 proc /proc proc rw 0 0
 ramfs /var ramfs rw 0 0
 
-# cat proc/tty/driver/serial
+# cat /proc/tty/driver/serial
 serinfo:1.0 driver:5.05c revision:2001-07-08
 0: uart:16550A port:A8610E00 irq:15 baud:667 tx:4884 rx:125 RTS|DTR
 1: uart:unknown port:A8610F00 irq:16
 
-# cat cpuinfo
+# cat /proc/cpuinfo
 processor               : 0
 cpu model               : MIPS 4KEc V4.8
 BogoMIPS                : 211.35
@@ -277,7 +277,7 @@ hardware watchpoint     : yes
 VCED exceptions         : not available
 VCEI exceptions         : not available
 
-# cat mtd
+# cat /proc/mtd
 dev:    size   erasesize  name
 mtd0: 0016a000 00010000 "mtd0"
 mtd1: 00075f70 00010000 "mtd1"
@@ -285,6 +285,13 @@ mtd2: 00010000 00008000 "mtd2"
 mtd3: 00010000 00010000 "mtd3"
 mtd4: 001e0000 00010000 "mtd4"
 
+# cat /proc/avalanche/avsar_ver
+ATM Driver version:[6.00.01.00]
+DSL HAL version: [6.00.01.00]
+DSP Datapump version: [6.00.02.00] Annex A
+SAR HAL version: [01.07.2b]
+PDSP Firmware version:[0.54]
+Chipset ID: [Ohio250(7200/7100A2)]
 }}}
 
 ----
