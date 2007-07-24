@@ -291,7 +291,7 @@ ibase=16
 A87E0000 - A80F0000
 6F0000
 }}}
-Replace ''0xCHANGEME'' with the value above (0x0006F000 in my case) and flash the the rootfs:
+Replace ''0xCHANGEME'' with the value above (0x006F0000 in my case) and flash the the rootfs:
 {{{
 RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
 Using default protocol (TFTP)
