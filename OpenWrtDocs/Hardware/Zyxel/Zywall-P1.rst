@@ -16,4 +16,8 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 
 Frontside
 
-attachment:Zywall%20P1%20Backside.jpg 
+attachment:Zywall%20P1%20Frontside.jpg
+
+Backside
+
+attachment:Zywall%20P1%20Backside.jpg
