@@ -19,7 +19,8 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 
 attachment:Zywall%20P1%20Frontside.jpg
 
-Four pin header is the serial connection, need a TTL serial cable. Don't know what the 2 pin header is for one pin has +3.3v or +5v (need to recheck with multimeter rather than logic probe)
+Four pin header is the serial connection, needs a TTL serial cable (I made mine from a Siemens phone cable and will post the pinouts when I find it again).
+Don't know what the 2 pin header is for one pin has +3.3v or +5v (need to recheck with multimeter rather than logic probe)
 
 
 '''Backside'''
