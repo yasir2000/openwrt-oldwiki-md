@@ -117,6 +117,7 @@ kernel  /boot/openwrt-x86-2.6-vmlinuz block2mtd.block2mtd=/dev/hda2 root=/dev/mt
 boot
 
 }}}
+(aside:  speed=38400 make also work for you)
 
 If you use a WRAP board instead of a Soekris, add
 {{{
