@@ -11,3 +11,9 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 ||'''USB'''||Yes but looks like it's for power only||
 ||'''Serial'''||Yes via header on PCB||
 ||'''JTAG'''||unkown||
+
+== Board ==
+
+Frontside
+
+attachment:Zywall%20P1%20Backside.jpg 
