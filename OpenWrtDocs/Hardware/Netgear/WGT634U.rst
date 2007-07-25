@@ -70,6 +70,7 @@ et1macaddr           00-00-00-53-de-ad
 STARTUP              ifconfig eth0 -auto; boot -elf flash0.os:
 }}}
 
+
 = Restoring original firmware =
 To restore the original firmware a serial console is required. You can use TFTP for the original images. It seems CFE's TFTP client will only read 4194304 bytes from the TFTP server. To get around the 4MB limit, we can split larger images into smaller chunks and then use the -offset flag to flash the parts.
 
@@ -246,7 +247,7 @@ More info at http://openwrt.pbwiki.com/GPIO
 = Mini-PCI Upgrade =
 The mini-pci card has been confirmed to be replaceable with an atheros AR5212 ABG Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
 
-There seems to be some restriction to the power available to the mini-pci port. I've confirmed good driver compatibility with ubnt.com's SR2 and SR5, but at default (full) power levels significantly increased packet loss (15%, link runs solid with sub 0.1% loss @ 15 dBm)) is observed.  Use of a 16V/1.5A wall transformer did not improve performance.
+There seems to be some restriction to the power available to the mini-pci port. I've confirmed good driver compatibility with ubnt.com's SR2 and SR5, but at default (full) power levels significantly increased packet loss (15%, link runs solid with sub 0.1% loss @ 15 dBm)) is observed.  Use of a 16V/1.5A wall transformer did not improve performance. If the power problem is due to the bad stability of the original transformer, An transformer with a more accurate power output should work better. My Netgear wall tranformer used to have peaks about 17 Volt, that brings heavy load on the volt regulator inside the router. 
 
 == Antenna Mod ==
 The WGT634U comes equipped with an integrated antenna, which is soldered to the radio.  If you wish to use a different antenna, the most practical solution is to unsolder the pigtail and disassemble the antenna and collar.  Once the pigtail end is freed from the radio, it is a fairly simple task to remove both the antenna and the collar.  The [http://www.hirose.co.uk/productreleases/ms156.htm Hirose MS-156] test point is not a suitable attachment for a new pigtail.  The connector is not readily available and is not designed for attaching a permanent antenna.  Better is to solder on a new pigtail and run the coax outside the case where an antenna or more robust antenna coax can be attached.  See [http://cipheralgo.org/~jason/solder_b.jpg this picture] for an example of how it might be done.
