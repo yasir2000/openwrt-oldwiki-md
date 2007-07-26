@@ -12,6 +12,24 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 ||'''Serial'''||Yes via header on PCB||
 ||'''JTAG'''||unkown||
 
+== Serial ==
+
+Serial Pinout :
+
+{{{
+ VCC  TX   RX        GND
+  x    x    x    ()   x
+}}}
+
+Needs a TTL serial cable. I made mine from a Siemens IP40 RS232 phone cable, connections are:
+
+{{{
+VCC - Red
+TX  - Orange
+RX  - White
+GND - Black
+}}}
+
 
 == Board ==
 
@@ -19,7 +37,7 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 
 attachment:Zywall%20P1%20Frontside.jpg
 
-Four pin header is the serial connection, needs a TTL serial cable (I made mine from a Siemens phone cable and will post the pinouts when I find it again).
+
 Don't know what the 2 pin header is for one pin has +3.3v or +5v (need to recheck with multimeter rather than logic probe)
 
 
