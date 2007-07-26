@@ -12,6 +12,7 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 ||'''Serial'''||Yes via header on PCB||
 ||'''JTAG'''||unkown||
 
+
 == Serial ==
 
 Serial Pinout :
@@ -38,7 +39,7 @@ GND - Black
 attachment:Zywall%20P1%20Frontside.jpg
 
 
-Don't know what the 2 pin header is for one pin has +3.3v or +5v (need to recheck with multimeter rather than logic probe)
+Don't know what the 2 pin jumper is for one pin has +3.3v. There also appears to be six test points (TP1 - TP6) just to the left of the serial header.
 
 
 '''Backside'''
