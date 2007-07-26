@@ -23,6 +23,7 @@ Serial Pinout :
 }}}
 [[BR]]
 
+
 Needs a TTL serial cable. I made mine from a Siemens IP40 RS232 phone cable, connections are:
 
 {{{
@@ -31,6 +32,7 @@ TX  - Orange
 RX  - White
 GND - Black
 }}}
+
 
 [[BR]]
 == Board ==
