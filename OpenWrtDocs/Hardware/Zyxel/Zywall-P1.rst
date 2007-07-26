@@ -12,7 +12,7 @@ Personal firewall/VP appliance. WAN & LAN ethernet ports, powered via either USB
 ||'''Serial'''||Yes via header on PCB||
 ||'''JTAG'''||unkown||
 
-
+[[BR]]
 == Serial ==
 
 Serial Pinout :
@@ -21,6 +21,7 @@ Serial Pinout :
  VCC  TX   RX        GND
   x    x    x    ()   x
 }}}
+[[BR]]
 
 Needs a TTL serial cable. I made mine from a Siemens IP40 RS232 phone cable, connections are:
 
@@ -31,7 +32,7 @@ RX  - White
 GND - Black
 }}}
 
-
+[[BR]]
 == Board ==
 
 '''Frontside'''
