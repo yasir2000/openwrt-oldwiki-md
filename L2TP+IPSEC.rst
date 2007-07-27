@@ -158,10 +158,9 @@ If everyhing works fine You can start the deamon using init script:
 {{{
 /etc/init.d/l2tpd start}}}
 
+To ensure that l2tpd will start on boot, rename l2tpd to S65l2tpd for example.
 = Todo =
 Make ipsec use certificates.
-
-Make l2tpd start at boot ( probably just change the name of init script).
 
 Update the /etc/firewall.user script
 
