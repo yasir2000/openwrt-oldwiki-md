@@ -142,7 +142,11 @@ config wifi-iface
 
 '''1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan") '''
 
-'''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK '''
+'''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK or psk2 for WPA-PSK2 (AES)'''
+
+'''3) "option mode": there is no 'wet' mode any more.''' However, if you select 'sta' mode, and also bridge the wireless to another interface (e.g. 'option network lan'), then wet mode is enabled automatically. This allows the unit to act as a wireless bridge, so that one or more PCs sitting behind the OpenWrt box can join the LAN. Some ARP and DHCP masquerading is done so that this doesn't require WDS mode on the access point. ''(Tested with Kamikaze 7.07 and a Broadcom chipset and 2.4 kernel; may not work for Atheros and/or 2.6 users)''
+
+'''4) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
 
 = HowTo =
 
