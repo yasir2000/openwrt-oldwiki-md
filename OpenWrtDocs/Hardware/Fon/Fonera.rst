@@ -283,7 +283,7 @@ An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 RedBoot> fis free
       0xA80F0000 .. 0xA87E0000
 }}}
-now do the math
+now do the math (last - first, cause you need the difference)
 {{{
 server:~# bc
 obase=16
