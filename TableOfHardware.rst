@@ -198,8 +198,12 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo5+h6ltbNlwaaFp6DQoHDrpziVF9o0OBN/l DSL-320T] ||EU ||200Mhz ||2MB ||8MB ||None ||None ||pspboot (mod) || || || ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-320T WiP] ||
 ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T DSL-502T] ||AU/AT ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||Yes ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T WiP] ||
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros 2315] ||? ||[http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 1M x 16 Bit x 4 Banks (ESMT M12L64164A)] ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||? ||No ||[:AtherosPort:WiP] ||
+||[http://www.dlink.com/products/?pid=316 DI-524]||VER:V1.1
+(2004)||Marvell 88W8510-BAN||4MB (Intel TE28F160)||8MB (IS42S32200B||Marvell
+88W8000||Marvell
+88E6060||?||J5 - 20pins||J5||No||Info Entered||
 ||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||? ||? ||Yes ||Yes ||Info Entered ||
-||<style="VERTICAL-ALIGN: top">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="VERTICAL-ALIGN: top">HW:H1 ||<style="VERTICAL-ALIGN: top">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="VERTICAL-ALIGN: top">1MB (MX 29LV800BBTC-70) ||<style="VERTICAL-ALIGN: top">8MB (MIRA P2V64S40DTP) ||<style="VERTICAL-ALIGN: top">Atheros (integrated) ||<style="VERTICAL-ALIGN: top">Marvell 88E6060 ||<style="VERTICAL-ALIGN: top">? ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">No ||<style="VERTICAL-ALIGN: top">[:AtherosPort:WiP] ||
+||<style="vertical-align: top;">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="vertical-align: top;">HW:H1 ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="vertical-align: top;">1MB (MX 29LV800BBTC-70) ||<style="vertical-align: top;">8MB (MIRA P2V64S40DTP) ||<style="vertical-align: top;">Atheros (integrated) ||<style="vertical-align: top;">Marvell 88E6060 ||<style="vertical-align: top;">? ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC µPD30131F1 VR4131 ||2MB || |||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:C3 chassis 1.2 ||AR2313-00 ||[http://www.digchip.com/datasheets/parts/datasheet/211/IC42S16400-7T.php IC42S16400-7T] 1MB || ||AR2112 ||88E6060-RCJ 4xLAN || || || ||No ||Not tested ||
 ||[http://www.dlink.com/products/?pid=390&sec=0 DI-624S] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200 Mhz ||[http://www.intel.com/design/flcomp/prodbref/308275.htm Intel TE28F128] 16MB || ||Atheros Mini-PCI ||None ||? ||Yes ||Yes ||Yes ||[http://forum.openwrt.org/viewtopic.php?pid=43891 WIP] ||
@@ -396,7 +400,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||No ||Supported ||
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="TEXT-ALIGN: center">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
+||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||2MB ||8MB ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -504,4 +508,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . CategoryOpenWrtPort
 ----
-["CategoryAR7Device"]
+ ["CategoryAR7Device"]
