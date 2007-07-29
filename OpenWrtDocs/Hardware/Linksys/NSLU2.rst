@@ -32,7 +32,7 @@ You can download the image from the kamikaze-7.06 dir [http://downloads.openwrt.
 The NSLU2 will take a few minutes to initialize the JFFS2 partition, don't reboot if you cannot access it immediately. It will start up using the network parameters that are stored in the NVRAM partition, so it will default to DHCP (I think) if not setup differently. If you have set a fixed IP under the original firmware or a previous linux distribution, OpenWRT will retain this. Try telnet and ping to access it. Then follow the standard Kamikaze installation procudures.
 
 = Package repositories =
-Look at the [http://www.nslu2-linux.org/wiki/OpenWRT/HomePage OpenWRT page on NSLU2-Linux wiki] for more information on publicly available NSLU2 package repositories.
+Look at the [http://www.nslu2-linux.org/wiki/OpenWrt/HomePage OpenWRT page on NSLU2-Linux wiki] for more information on publicly available NSLU2 package repositories.
 
 = TODO =
 Little endian images?
