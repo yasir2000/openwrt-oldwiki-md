@@ -95,7 +95,13 @@ Script can be downloaded from http://cinober.files-upload.com/ . Tested on Ubunt
 
 If you get in trouble it might be good to know that I (cinober) personally managed to reflash the original ASUS firmware and checked that it replies to pings again.
 
-The image is working now (2007-07-10) but all changes are gone on every reboot. Daily builds on the address above.
+On first boot run
+
+mtd -r erase $(cat /proc/mtd | sed -n -e 's/^\([^:]*\):.*"rootfs_data"/\1/p' )
+
+Command reboots router after filesystem gets erased. After that set password as described to enable ssh.
+
+The image is working now for cinober and Smint. Thanks Smith for latest "mtd erase" contribution.''''''
 
 == FAQ ==
 === About the Network Interfaces: ===
