@@ -83,7 +83,8 @@ config interface wan
         option username "xxxxxx"
         option password "xxxxxx"
 }}}
-=== 802.11x ===
+=== Wireless configuration ===
+==== 802.11x ====
 '''Note: Currently supported on Broadcom only, although madwifi support is almost complete :)'''
 
  * /etc/config/wireless documentations https://dev.openwrt.org/browser/trunk/docs/wireless.tex
@@ -147,6 +148,25 @@ config wifi-iface
 '''3) "option mode": there is no 'wet' mode any more.''' However, if you select 'sta' mode, and also bridge the wireless to another interface (e.g. 'option network lan'), then wet mode is enabled automatically. This allows the unit to act as a wireless bridge, so that one or more PCs sitting behind the OpenWrt box can join the LAN. Some ARP and DHCP masquerading is done so that this doesn't require WDS mode on the access point. ''(Tested with Kamikaze 7.07 and a Broadcom chipset and 2.4 kernel; may not work for Atheros and/or 2.6 users)''
 
 '''4) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
+
+==== MAC Filter ====
+
+First, you need to have installed the wl package - '''ipkg install wl'''
+
+||'''uci variable''' ||'''Description''' ||
+||'''wireless.wl0.macmode''' ||(0/1/2) used to (disable checking/deny/allow) mac addresses listed in wl0.maclist ||
+||'''wireless.wl0.maclist''' ||List of space-separated mac addresses to allow/deny according to wl0.macmode. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
+
+Create the following script as '''/etc/init.d/wlmacfilter'''
+{{{
+(to follow)
+}}}
+
+Finally, enable the script to run at boot time:
+{{{chmod 755 /etc/init.d/wlmacfilter
+/etc/init.d/wlmacfilter enable}}}
+
+After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter start'''
 
 = HowTo =
 
