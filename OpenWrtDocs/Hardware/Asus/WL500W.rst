@@ -97,11 +97,9 @@ If you get in trouble it might be good to know that I (cinober) personally manag
 
 On first boot run
 
-mtd -r erase $(cat /proc/mtd | sed -n -e 's/^\([^:]*\):.*"rootfs_data"/\1/p' )
-
-Command reboots router after filesystem gets erased. After that set password as described to enable ssh.
-
-The image is working now for cinober and Smint. Thanks Smith for latest "mtd erase" contribution.''''''
+{{{
+# mtd -r erase $(cat /proc/mtd | sed -n -e 's/^\([^:]*\):.*"rootfs_data"/\1/p' )}}}
+Command reboots the router after filesystem gets erased. After that set root password as described to enable ssh.The image is now working for cinober and Smint. Thanks Smith for his latest "mtd erase" contribution.
 
 == FAQ ==
 === About the Network Interfaces: ===
