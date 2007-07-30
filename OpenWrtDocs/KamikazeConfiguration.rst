@@ -171,8 +171,8 @@ MACFILTER=`uci get wireless.wl0.macfilter`
 MACLIST=`uci get wireless.wl0.maclist`
 
 start() {
-        wlc ifname wl0 maclist $MACLIST
-        wlc ifname wl0 macfilter $MACFILTER
+        wlc ifname wl0 maclist "$MACLIST"
+        wlc ifname wl0 macfilter "$MACFILTER"
 }
 
 stop() {
