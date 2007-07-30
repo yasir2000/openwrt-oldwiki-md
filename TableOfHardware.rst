@@ -245,7 +245,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == Fon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 La Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||None ||N/A ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze] ||
-||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 La Fonera+] ||FON2200 ||Unknown ||?MB ||?MB ||N/A ||None ||N/A ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Info entered] ||
+||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 La Fonera+] ||FON2200 ||Unknown ||?MB ||?MB ||N/A ||None ||N/A ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera+:Info entered] ||
 == Freecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.freecom.com/ecProduct_detail.asp?ID=2347 FSG-3] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||64MB ||N/A (Empty mini-PCI) ||RTL8305SB ||N/A ||Yes ||Yes ||2.0 ||SATA+PATA ||[:FreecomFSG3:WiP] ||
