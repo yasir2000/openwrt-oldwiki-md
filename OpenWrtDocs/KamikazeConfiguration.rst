@@ -154,12 +154,31 @@ config wifi-iface
 First, you need to have installed the wl package - '''ipkg install wl'''
 
 ||'''uci variable''' ||'''Description''' ||
-||'''wireless.wl0.macmode''' ||(0/1/2) used to (disable checking/deny/allow) mac addresses listed in wl0.maclist ||
-||'''wireless.wl0.maclist''' ||List of space-separated mac addresses to allow/deny according to wl0.macmode. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
+||'''wireless.wl0.macfilter''' ||(0/1/2) used to (disable checking/deny/allow) mac addresses listed in wl0.maclist ||
+||'''wireless.wl0.maclist''' ||List of space-separated mac addresses to allow/deny according to wl0.macfilter. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
 
 Create the following script as '''/etc/init.d/wlmacfilter'''
-{{{
-(to follow)
+{{{#!/bin/sh /etc/rc.common
+# The macfilter 2 means that the filter works in "Allow" mode.
+# Other options are: 0 - disabled, or 1 - Deny.
+#
+# The maclist is a list of mac addresses to allow/deny, quoted, with spaces
+#  separating multiple entries
+# eg  "00:0D:0B:B5:2A:BF 00:0D:0C:A2:2A:BA"
+START=47
+
+MACFILTER=`uci get wireless.wl0.macfilter`
+MACLIST=`uci get wireless.wl0.maclist`
+
+start() {
+        wlc ifname wl0 maclist $MACLIST
+        wlc ifname wl0 macfilter $MACFILTER
+}
+
+stop() {
+        wlc ifname wl0 maclist none
+        wlc ifname wl0 macfilter 0
+}
 }}}
 
 Finally, enable the script to run at boot time:
