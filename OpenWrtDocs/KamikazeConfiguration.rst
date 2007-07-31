@@ -158,7 +158,14 @@ First, you need to have installed the wl package - '''ipkg install wl'''
 ||'''wireless.wl0.maclist''' ||List of space-separated mac addresses to allow/deny according to wl0.macfilter. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
 
 Create the following script as '''/etc/init.d/wlmacfilter'''
+
+---- /!\ '''Edit conflict - other version:''' ----
 {{{ #!/bin/sh /etc/rc.common 
+
+---- /!\ '''Edit conflict - your version:''' ----
+{{{ #!/bin/sh /etc/rc.common 
+
+---- /!\ '''End of edit conflict''' ----
 # The macfilter 2 means that the filter works in "Allow" mode.
 # Other options are: 0 - disabled, or 1 - Deny.
 #
@@ -173,11 +180,23 @@ MACLIST=`uci get wireless.wl0.maclist`
 start() {
         wlc ifname wl0 maclist "$MACLIST"
         wlc ifname wl0 macfilter "$MACFILTER"
+
+---- /!\ '''Edit conflict - other version:''' ----
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 }
 
 stop() {
         wlc ifname wl0 maclist none
         wlc ifname wl0 macfilter 0
+
+---- /!\ '''Edit conflict - other version:''' ----
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 }
 }}}
 
