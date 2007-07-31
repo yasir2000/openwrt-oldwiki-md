@@ -173,17 +173,24 @@ MACLIST=`uci get wireless.wl0.maclist`
 start() {
         wlc ifname wl0 maclist "$MACLIST"
         wlc ifname wl0 macfilter "$MACFILTER"
+        /sbin/wifi
 }
 
 stop() {
         wlc ifname wl0 maclist none
         wlc ifname wl0 macfilter 0
+        /sbin/wifi
 }
 }}}
 
 Finally, enable the script to run at boot time:
 {{{chmod 755 /etc/init.d/wlmacfilter
 /etc/init.d/wlmacfilter enable}}}
+
+Set the variables
+{{{uci set wireless.wl0.macfilter="2"
+uci set wireless.wl0.maclist="00:0D:0B:B5:2A:BF 00:0D:0C:A2:2A:BA"
+uci commit}}}
 
 After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter start'''
 
