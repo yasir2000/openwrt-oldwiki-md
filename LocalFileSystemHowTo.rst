@@ -72,25 +72,35 @@ ipkg install e2fsprogs
 
  * write an init.d script to run ''mount -t ext3 PARTITION'',
  * test the script before rebooting,
- * an example mount script with two external usb storage disks{{{
+ * an example mount script with two external usb storage disks (e.g. with ["OpenWrtDocs/Hardware/Linksys/NSLU2"]){{{
 MOUNT_DEVICES="sda1 sdb1" 
-i=0
 j=1
-for DEVICE in $MOUNT_DEVICES
-do 
-    while [ $i -le 10 ] 
-    do
-        if [ -e /dev/$DEVICE ]
-        then
-            mkdir -p /mnt/usb$j
-            chown nobody:nogroup /mnt/usb$j
-            mount /dev/$DEVICE /mnt/usb$j
-        fi
-        sleep 1 
-        i=`expr $i + 1` 
-    done
-    j=`expr $j + 1`
-done
+
+start() {
+    for DEVICE in $MOUNT_DEVICES
+        do
+            if [ -e /dev/$DEVICE ]
+            then
+                mkdir -p /mnt/media$j
+                chown nobody:nogroup /mnt/media$j
+                mount /dev/$DEVICE /mnt/media$j
+                sleep 1 
+            fi
+            j=`expr $j + 1`
+        done
+}
+
+stop() {
+    for DEVICE in $MOUNT_DEVICES
+        do
+            if [ -e /dev/$DEVICE ]
+            then
+                umount /mnt/media$j
+                sleep 1 
+            fi
+            j=`expr $j + 1`
+        done
+}
 }}}
 
 == Sharing Local Filesystem ==
