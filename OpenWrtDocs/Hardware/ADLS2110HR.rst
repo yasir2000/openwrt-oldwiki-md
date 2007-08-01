@@ -76,6 +76,8 @@ HWA_3                 00:D0:F8:73:0D:AE
 2110EHR v7.20M+ login: root password: admin
 
 == Dump Original Firmware ==
+mtd4: 001e0000 00010000 "mtd4" 0x1e0000=1966080/2=983040
+
 {{{
 # mkdir /var/dump
 # /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
