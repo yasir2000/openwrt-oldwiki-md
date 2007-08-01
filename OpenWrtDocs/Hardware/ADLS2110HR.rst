@@ -81,19 +81,14 @@ mtd4: 001e0000 00010000 "mtd4" 0x1e0000=1966080/2=983040
 {{{
 # mkdir /var/dump
 # /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-# dd if=/dev/mtdblock/2 of=/var/dump/mtd2-pspboot.bin
-http://192.168.1.1:1080/mtd2-pspboot.bin
-reboot
-
-# mkdir /var/dump
-# /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
+# dd if=/dev/mtdblock/2 of=/var/dump/mtd2-boot.bin
 # dd if=/dev/mtdblock/3 of=/var/dump/mtd3-nvram.bin
+http://192.168.1.1:1080/mtd2-boot.bin
 http://192.168.1.1:1080/mtd3-nvram.bin
 reboot
 
 # mkdir /var/dump
 # /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-# dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern1.bin count=983040 bs=1
 http://192.168.1.1:1080/mtd4-fs-kern2.bin
 reboot
 
