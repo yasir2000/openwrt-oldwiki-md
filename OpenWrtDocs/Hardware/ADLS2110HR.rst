@@ -72,6 +72,9 @@ HWA_2                 00:D0:F8:73:0D:AE
 HWA_3                 00:D0:F8:73:0D:AE
 }}}
 
+== Default Telnet login/password ==
+2110EHR v7.20M+ login: root password: admin
+
 == Dump Original Firmware ==
 {{{
 # mkdir /var/dump
