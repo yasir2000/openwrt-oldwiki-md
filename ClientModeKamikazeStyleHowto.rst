@@ -10,8 +10,7 @@
 1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
 
 That's it. The package of scripts self-installs and will ask you questions to configure your wired and wireless connections. Your current configuration will be backed up and can be restored with the "aprestore" command. Type in "clientmode" after installation to configure client mode. This is currently the easiest and most complete means of having client mode on an Atheros router. These scripts are incompatible with firmwares that use NVRAM. They are included in the Legend Rev4.5 firmware, which will soon be released on the site.  For Fonera and Meraki Mini (or related) routers only.
-_________________________________________________________________________________________________________________________________
-
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
 by Tho Tran — last modified 2007-03-07 13:29
