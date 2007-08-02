@@ -89,14 +89,21 @@ reboot
 
 # mkdir /var/dump
 # /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
+
+---- /!\ '''Edit conflict - other version:''' ----
 # dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern1.bin count=983040 bs=1
+
+---- /!\ '''Edit conflict - your version:''' ----
+# dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern1.bin count=983040 bs=1
+
+---- /!\ '''End of edit conflict''' ----
 http://192.168.1.1:1080/mtd4-fs-kern1.bin
 reboot
 
 # mkdir /var/dump
 # /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
 # dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern2.bin skip=983040 count=983040 bs=1
-http://192.168.1.1:1080/mtd4-fs-kern1.bin
+http://192.168.1.1:1080/mtd4-fs-kern2.bin
 reboot
 
 }}}
