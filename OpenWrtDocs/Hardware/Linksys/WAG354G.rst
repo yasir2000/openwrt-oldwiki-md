@@ -250,8 +250,7 @@ Processor: ''MIPS 4KEc V4.8'' @ 210 MHz
 Integrated on motherboard Wireless chipset: ''TI TNETW1350A''
 
 ----
-
-. '''Serial console'''
+ . '''Serial console'''
 Serial console can be plugged to JP4: connector lacks, it has to be soldered on the board.
 
 Pinout:
