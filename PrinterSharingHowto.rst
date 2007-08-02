@@ -92,16 +92,18 @@ Assuming the printer driver is installed locally, it's a simple matter of enteri
 Then you use your new printer like you would a local one.
 
 === kprinter (KDE) ===
-Please translate this to english. Thanks.
 
  * Start kprinter
- * Drucker hinzufügen / Weiter / select Netzwerkdrucker (TCP) / Weiter
- * Bei Druckeradresse 192.168.1.1 (the routers IP address) eingeben
- * Bei Port den soeben configurierten eingeben eingeben / Weiter
- * Hersteller und Modell auswählen / Weiter
- * Bei Treiberauswahl den empfohlenen auswählen / Weiter
- * You can new print a test page or change the Einstellungen / Weiter
+ * Select 'Add printer'
+ * Select Network printer (TCP)
+ * Use 192.168.1.1 (the router's IP address) as the printer's IP
+ * Fill in the port you want to use (normally defaults to 9100)
+ * Pick manufacturer and model
+ * Pick the recommended driver 
+ * Then you can new print a test page or change the settings of the printer further
+
 === Gnome ===
+
  * Select System -> Administration -> Printing
  * Select New Printer
  * Select Network Printer and "HP !JetDirect"
