@@ -137,3 +137,4 @@ Personally, as an engineer, I prefer the buffered cable and would not use an unb
  * a discussion at ["zt8qmwz"] homepage about implementing EJTAG PRAcc in the Hairydairymaid De-brick utility
  * [http://downloads.openwrt.org/utils/ HairyDairyMaid_WRT54G_Debrick_Utility]
  * [http://ar7.wikispaces.com/JTAG AR7 JTAG]
+ * [http://www.asset-intertech.com/products/free_resources.htm FREE JTAG Resources]
