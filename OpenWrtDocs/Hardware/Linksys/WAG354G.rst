@@ -233,5 +233,56 @@ Known problems:
 
 * Using the tftp procedure to upload an openwrt image seems for some people to disable the tftp facility in PSPBoot, so that future upgrades have to be done from within openwrt.  However this didn't happen to me -IanJackson.
 
+= Linksys WAG354G v2 =
+
+== Specifications ==
+Same as the V1.
+
+=== Hardware ===
+Platform: ''TI AR7WRD''
+
+SoC: [http://www.cassy.de/fbox/tnetd7300.pdf TNETD7300AGDW]
+
+Processor: ''MIPS 4KEc V4.8'' @ 210 MHz
+
+4 port switch: ''Infineon ADM6996LC''
+
+Integrated on motherboard Wireless chipset: ''TI TNETW1350A''
+
+----
+
+. '''Serial console'''
+Serial console can be plugged to JP4: connector lacks, it has to be soldered on the board.
+
+Pinout:
+
+{{{
+                                                   JP4_______                |
+  |                                                [1]  [2]  [3]  [4]  [5]   |
+  |                                                                          |
+  |                                                                          |
+  |___ _ ___|-|____|-|__leds___|-|_|-|_|-|_|-|_______________________________|
+Legend:
+1  GND
+2  NC
+3  Rx
+4  Tx
+5  Vcc
+}}}
+
+'''Terminal'''
+
+Configuration:
+
+{{{
+ 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1) }}}
+
+
+ *On my system, it only works with
+{{{
+ 4800 bauds, 8 bits, no parity, 1 stop bit (4800 8N1) }}}, but the kernel is executed with :
+{{{
+ console=ttyS0,38400n8r }}}
+
 ----
  . ["CategoryAR7Device"]
