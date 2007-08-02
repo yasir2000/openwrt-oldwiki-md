@@ -435,7 +435,7 @@ iptables -A forwarding_wan -p tcp --dport 80 -d 192.168.0.2 -j ACCEPT
 If you are using x-wrt to setup port forwarding this rule will be created in /etc/config/firewall and will look like the following:
 
 {{{
-forward:proto=tcp dport=80:192.168.0.2:80
+forward:proto=tcp dport=80:192.168.0.2
 }}}
 
 These instructions only work for single port numbers.  If anyone knows how to loopback a port range please post the instructions here.
