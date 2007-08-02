@@ -89,7 +89,7 @@ reboot
 
 # mkdir /var/dump
 # /usr/sbin/thttpd -d /var/dump -u root -p 1080 -g
-dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern2.bin count=983040 bs=1
+# dd if=/dev/mtdblock/4 of=/var/dump/mtd4-fs-kern1.bin count=983040 bs=1
 http://192.168.1.1:1080/mtd4-fs-kern1.bin
 reboot
 
