@@ -96,7 +96,7 @@ iptables -t nat -A prerouting_wan -p udp --dport 1194 -j ACCEPT
 iptables        -A input_wan      -p udp --dport 1194 -j ACCEPT
 }}}
 Also as mentioned in the OpenVPN FAQ [http://openvpn.net/faq.html#ip-forward ip_foward must be enabled] ([http://forum.openwrt.org/viewtopic.php?pid=20428#p20428 default in WR 0.9]) and [http://openvpn.net/faq.html#firewall packets for the OpenVPN interfaces have to be allowed/forwarded].
-It turned out that the [http://openvpn.net/faq.html#firewall OpenVPN FAQ about iptables] (as of 2007-07) is not 100% correct, as the rules for output packages are missing ([http://forum.openwrt.org/viewtopic.php?pid=50162#p50162 forum thread]) and TAP devices may not need extra rules:
+It turned out that the [http://openvpn.net/faq.html#firewall OpenVPN FAQ about iptables] (as of 2007-07) is not 100% correct, as the rules for output packets are missing ([http://forum.openwrt.org/viewtopic.php?pid=50162#p50162 forum thread]) and TAP devices may not need extra rules:
 {{{
 ## allow input/forwarding for the VPN interfaces, see http://openvpn.net/faq.html#firewall
 ##   as of July 2007 the above FAQ misses the output rules for the TUN interfaces
