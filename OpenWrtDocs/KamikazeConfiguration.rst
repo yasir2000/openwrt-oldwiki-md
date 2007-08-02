@@ -157,8 +157,7 @@ First, you need to have installed the wl package - '''ipkg install wl'''
 Create the following script as '''/etc/init.d/wlmacfilter'''
 
 ----
- /!\ '''Edit conflict - other version:'''
-
+ . /!\ '''Edit conflict - other version:'''
 ----
 {{{
 #!/bin/sh /etc/rc.common
@@ -204,9 +203,10 @@ After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter st
 
 = HowTo =
 === How to Automatically configure Client/Ad-hoc Client/Client+Repeater Mode on a Fonera or Meraki mini ===
-Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk
-1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
-That's it.  The package of scripts self-installs and will ask you questions to configure you wired and wireless connections.  Your current configuration will be backed up and can be restored with the aprestore command.  Type in "clientmode" after installation to configure client mode.  This is currently the easiest and most complete means of having client mode on an Atheros router.   These scripts are incompatible with firmwares that use NVRAM.  They are included in the Legend Rev4.5 firmware, which will soon be released on the site.
+Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk 1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/ That's it.  The package of scripts self-installs and will ask you questions to configure you wired and wireless connections.  Your current configuration will be backed up and can be restored with the aprestore command.  Type in "clientmode" after installation to configure client mode.  This is currently the easiest and most complete means of having client mode on an Atheros router.   These scripts are incompatible with firmwares that use NVRAM.  They are included in the Legend Rev4.5 firmware, which will soon be released on the site.
+
+=== How to Automatically configure Standalone Repeater Mode on a Fonera or Meraki mini ===
+Coming VERY soon.  This one will differ from the Client mode script package in that there will also be a option to quickly setup a repeater without restarting services.
 === HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 ===
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
@@ -324,4 +324,4 @@ For more How-To's (for example setting up Kamikaze, step by step) have a look at
 OpenWrtDocs/KamikazeConfiguration/MultipleWan
 
 ----
- CategoryHowTo
+ . CategoryHowTo
