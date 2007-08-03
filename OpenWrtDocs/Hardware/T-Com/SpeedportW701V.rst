@@ -2,37 +2,28 @@
 [[TableOfContents]]
 
 = T-Com Speedport W701V =
-
 This page is Work In Progress, speak to Hydra on #openwrt and #ar7 on freenode for more info.
 
 Others users known to have this device:  saftsack, Heini66
 
 == Hardware Info ==
-
 Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
 
 Being an AR7 device it also has a built-in ADSL Modem, the Speedport W701V also features as ISDN socket and two telephone sockets for VoIP use.
 
-CPU: TNETD7200ZDW (AR7) @211Mhz 
-Flash: 8 MB 
-Ram: 32 MB 
-WLan Chip: TNETW1350A
-Ethernet Switch Chip: Infineon ADM6996LC 
+CPU: TNETD7200ZDW (AR7) @211Mhz Flash: 8 MB Ram: 32 MB WLan Chip: TNETW1350A Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
 == Bootloader ==
-
 The bootloader is ADAM2 which provides a console on the serial port and allows flashing via FTP.  The W701V's bootloader's default IP address is 192.168.178.1, you should be able to ping it on that address a second or two after the device is rebooted.  If not reset the device back to it's defaults using the reset button on the back (see tcom's site for info on how to do this).  My router came with a very recent edition, v1.203, from February 2007.
 
 === Photos ===
-
 http://www.hydraservices.com/files/t-com_speedport-w701v/pcb1.jpg
 
 http://www.hydraservices.com/files/t-com_speedport-w701v/pcb2.jpg
 
 === Serial Port ===
-
 It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Maplin Electronics for £0.79p and soldered it carefully to the back of the PCB  I then attached my serial port adaptor (see the Addontech ARM8100 page on this wiki for circuit diagram) to the pin header and to my pc.
 
 The general location of the port and it's pin-out is as follows:
@@ -55,13 +46,10 @@ H        CPU  XTal       |
                          |
 _________________________|
 }}}
-
 Serial port settings: 38400 8N1
 
 == Original Firmware Info ==
-
 === Backing up original firmware ===
-
 To backup the original firmware you'll need console access to the device, e.g. use a serial cable and minicom to access the root shell.
 
 You can then dump each mtd block to a file and download them via the built in web browser as below.
@@ -79,7 +67,6 @@ rm html
 ln -s backup html
 websrv
 }}}
-
 You can then download the files by pointing your webbrowser at {{{http://<your router's ip>/mtd0-rootfs.bin}}} etc.
 
 All being well you should have files like this
@@ -94,28 +81,22 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 -rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd4-nvram1.bin
 -rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd5-nvram2.bin
 }}}
-
 === Restoring Original Firmware ===
-
 ==== Undoing changes to adam2 config ====
-
 TODO: finish this section, here's some hints for now
 
 {{{
 setenv kernel_args idle=4
 unsetenv mtd5
 }}}
-
 === Boot log from old firmware ===
 {{{
 (AVM) EVA Revision: 1.190 Version: 1190
 (C) Copyright 2005 AVM Date: Nov 15 2006 Time: 16:53:42 (0) 2 0-11111
-
 [FLASH:] SPANSION Top-MirrorBit-Flash 8MB 32 Bytes WriteBuffer
 [FLASH:](Eraseregion [0] 127 sectors a 64kB)
 [FLASH:](Eraseregion [1] 8 sectors a 8kB)
 [SYSTEM:] OHIO on 211MHz/125MHz
-
 Eva_AVM >AVM decompress Kernel:
 ............done
 start kernel
@@ -605,11 +586,10 @@ Jan  1 01:0SysRq : Changing Loglevel
 Loglevel set to 4
 0:22 voipd[448]: G72
 Please press Enter to activate this console.
-
 }}}
 === Output from various commands on the original firmware ===
-
 When I logged in to the console for the first time it kindly dumped a bunch of info and kernel configuration values for me to see!
+
 {{{
 HWRevision='101'
 HWRevision_ATA='1'
@@ -691,7 +671,6 @@ CONFIG_WLAN_GREEN='n'
 CONFIG_WLAN_WDS='y'
 CONFIG_XILINX='y'
 }}}
-
 ==== running proccesses ====
 {{{
 ~ # ps ax
@@ -721,23 +700,17 @@ CONFIG_XILINX='y'
   470 root        160 S   /bin/run_clock -c /dev/tffs -d
   475 root        468 S   -sh
   561 root        312 R   ps ax
-
 }}}
-
 ==== free memory ====
 {{{
-
 ~ # free
               total         used         free       shared      buffers
   Mem:        30468        24024         6444            0         3040
  Swap:            0            0            0
 Total:        30468        24024         6444
-
 }}}
-
 ==== proc directory ====
 {{{
-
 ~ # ls proc
 1                   428                 69                  execdomains         meminfo             sysrq-trigger
 128                 429                 avalanche           filesystems         misc                sysvipc
@@ -751,12 +724,9 @@ Total:        30468        24024         6444
 4                   5                   devices             kmsg                stat
 411                 565                 diskstats           loadavg             sync-on-demand
 424                 6                   driver              locks               sys
-
 }}}
-
 ==== CPU Info ====
 {{{
-
 ~ # cat /proc/cpuinfo
 system type             : MIPS OHIO
 processor               : 0
@@ -769,12 +739,9 @@ extra interrupt vector  : yes
 hardware watchpoint     : yes
 VCED exceptions         : not available
 VCEI exceptions         : not available
-
 }}}
-
 ==== FLASH Map Info ====
 {{{
-
 ~ # cat /proc/mtd
 dev:    size   erasesize  name
 mtd0: 00800000 00010000 "phys_mapped_flash"
@@ -785,13 +752,10 @@ mtd4: 00040000 00010000 "tffs (1)"
 mtd5: 00040000 00010000 "tffs (2)"
 mtd6: 00200000 00010000 "jffs2"
 mtd7: 00570000 00010000 "Kernel without jffs2"
-
 }}}
-
 {{{
 ~ # cat /proc/partitions
 major minor  #blocks  name
-
   31     0       8192 mtdblock0
   31     1       6990 mtdblock1
   31     2       7616 mtdblock2
@@ -802,31 +766,22 @@ major minor  #blocks  name
   31     7       5568 mtdblock7
 ~ #
 }}}
-
 ==== ATM Driver Info (TI Avalanche SAR) ====
 {{{
-
 ~ # cat /proc/avalanche/avsar_ver
 ATM Driver version:[4.06.04.30]
 DSL HAL version: [5.00.00.02]
 DSP Datapump version: [1.35.73.01]
 SAR HAL version: [01.07.2b]
 PDSP Firmware version:[0.54]
-
 }}}
-
 ==== OS Info ====
 {{{
-
 ~ # cat /proc/version
 Linux version 2.6.13.1-ohio (jpluschke@EmbeddedVM) (gcc version 3.4.3) #3 Thu Feb 8 14:32:37 CET 2007
-
 }}}
-
-
 ==== MEMINFO ====
 {{{
-
 ~ # cat /proc/meminfo
 MemTotal:        30468 kB
 MemFree:          6384 kB
@@ -851,13 +806,9 @@ PageTables:        196 kB
 VmallocTotal:  1048560 kB
 VmallocUsed:      2636 kB
 VmallocChunk:  1044964 kB
-
 }}}
-
-
 ==== Kernel messages ====
 {{{
-
 ~ # cat /proc/kmsg
 ify disable 0x940013f8 0x9419be18
 <4>[ohio_set_clock_notify] avm_clock_id_cpu notify enable 0x940013f8 0x9419be18
@@ -1200,24 +1151,18 @@ ify disable 0x940013f8 0x9419be18
 <6>mcfw_query_sent: tiwlan:0:0.0.0.0 1000
 <6>mcfw_query_sent: tiwlan:0:0.0.0.0 1000
 <6>mcfw_query_sent: tiwlan:0:0.0.0.0 1000
-
 }}}
-
 ==== IOMEM ====
 {{{
-
 ~ # cat /proc/iomem
 14000000-1420afff : reserved
   14000000-141715d3 : Kernel code
   141715d4-141c70bf : Kernel data
 1420b000-15ffffff : System RAM
 a8610000-a86107ff : cpmac0
-
 }}}
-
 ==== devices ====
 {{{
-
 ~ # cat /proc/devices
 Character devices:
   1 mem
@@ -1244,16 +1189,11 @@ Character devices:
 246 debug
 251 avm_led
 252 avm_power
-
 Block devices:
  31 mtdblock
-
 }}}
-
-
 ==== loaded kernel modules ====
 {{{
-
 ~ # cat /proc/modules
 tiap 880464 0 - Live 0xc02ab000
 kdsldmod 515808 2 - Live 0xc022c000
@@ -1261,13 +1201,9 @@ isdn_fbox 931040 20 - Live 0xc0147000
 ubik2 69104 1 isdn_fbox, Live 0xc0055000
 tiatm 106560 1 ubik2, Live 0xc0039000
 Piglet 7632 0 - Live 0xc000a000
-
 }}}
-
-
 ==== Network Interfaces Configuration ====
 {{{
-
 ~ # ifconfig
 cpmac0    Link encap:Ethernet  HWaddr 00:1A:4F:CB:E2:D9
           UP BROADCAST MULTICAST  MTU:1500  Metric:1
@@ -1275,14 +1211,12 @@ cpmac0    Link encap:Ethernet  HWaddr 00:1A:4F:CB:E2:D9
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:256
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
 eth0      Link encap:Ethernet  HWaddr 00:1A:4F:CB:E2:D9
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 B)  TX bytes:1026 (1.0 KiB)
-
 lan       Link encap:Ethernet  HWaddr 00:1A:4F:CB:E2:D9
           inet addr:192.168.2.1  Bcast:192.168.2.255  Mask:255.255.255.0
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
@@ -1290,11 +1224,9 @@ lan       Link encap:Ethernet  HWaddr 00:1A:4F:CB:E2:D9
           TX packets:21 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 B)  TX bytes:1062 (1.0 KiB)
-
 lan:0     Link encap:Ethernet  HWaddr 00:1A:4F:CB:E2:D9
           inet addr:192.168.2.254  Bcast:192.168.2.255  Mask:255.255.255.0
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
-
 lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING  MTU:16436  Metric:1
@@ -1302,42 +1234,36 @@ lo        Link encap:Local Loopback
           TX packets:270 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:32574 (31.8 KiB)  TX bytes:32574 (31.8 KiB)
-
 tiwlan0   Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:950 (950.0 B)
-
 wdsdw0    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:950 (950.0 B)
-
 wdsdw1    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:950 (950.0 B)
-
 wdsdw2    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:950 (950.0 B)
-
 wdsdw3    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:950 (950.0 B)
-
 wdsup0    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -1345,21 +1271,17 @@ wdsup0    Link encap:Ethernet  HWaddr 00:1A:4F:90:5B:9E
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:950 (950.0 B)
 }}}
-
 {{{
 ~ # cat /etc/avm_firmware_public_key1
 00d153ab43f587bc891397f763ac18aff92b840cdfd5aeb773c995ae957cd3b992cd48eacc7ac940cb38e0849777010ed41189c986cfbe67b929121934654f3976b2748f8d16059d9a1e518617c4dcfba468ec865c2bae9269b
 010001
 }}}
-
 {{{
 ~ # cat /etc/avm_firmware_public_key2
 00e1519e966ee984cdf564825a34cc9beb3c14f720579781e8859eb51f963560979ef16caa6e279376dc9c60a35d67d2b32128ce8f8abb29b2c3aace92bc32607b0b2f09dfcc3c9258d1e6b1daff58fd1f29c410a31ef454e0b
 010001
 }}}
-
 {{{
-
 ~ # cat /etc/led.conf
 DEF error,0 = 1,128,0,all
 DEF error,1 = 3,127,0,all
@@ -1404,21 +1326,15 @@ DEF null,0 = 99,32,20,null_device
 MAP budget,0 TO info,1
 MAP ab,2 TO null,0
 SET power,0 = 1
-
 }}}
-
 === Output from various ADAM2 commands on original firmware ===
-
 {{{
-
 (AVM) EVA Revision: 1.203 Version: 1203
 (C) Copyright 2005 AVM Date: Feb  7 2007 Time: 19:03:32 (3) 2 0-11111
-
 [FLASH:] SPANSION Top-MirrorBit-Flash 8MB 32 Bytes WriteBuffer
 [FLASH:](Eraseregion [0] 127 sectors a 64kB)
 [FLASH:](Eraseregion [1] 8 sectors a 8kB)
 [SYSTEM:] OHIO on 211MHz/125MHz
-
 Eva_AVM >
        Commands   Description
        --------   -----------
@@ -1433,7 +1349,6 @@ Eva_AVM >
              go   load & start kernel from mtd1
          setmac   set mac addresses <addr> (like 12:23:40)
         memtest   test memory
-
 Eva_AVM >printenv
 HWRevision            101.1.1.0
 ProductID             Fritz_Box_SpeedportW701V
@@ -1477,16 +1392,13 @@ usb_manufacturer_name  AVM
 wlan_key              3577134058785966
 wlan_cal              001C,03F2,000F,00D2,010A,00D2,010A,02E0,02DA
 }}}
-
 === Original Flash Map ===
-
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
 ||mtd0 ||{{{0x90000000}}} ||{{{0x90000000}}} ||{{{0x000000}}} ||empty! ||
 ||mtd1 ||{{{0x90010000}}} ||{{{0x90780000}}} ||{{{0x770000}}} ||kernel+jffs2 (jffs starts at 0x00580000) ||
 ||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||{{{0x010000}}} ||ADAM2/bootloader ||
 ||mtd3 ||{{{0x90780000}}} ||{{{0x907c0000}}} ||{{{0x040000}}} ||tffs (1) ? ||
 ||mtd4 ||{{{0x907c0000}}} ||{{{0x90800000}}} ||{{{0x040000}}} ||tffs (2) ? ||
-
 Physical order of partitions on flash chip is:
 
 mtd0,mtd2,mtd1,mtd3,mtd4
@@ -1494,49 +1406,34 @@ mtd0,mtd2,mtd1,mtd3,mtd4
 mtd0 is rather odd as it's 0 length!
 
 == Installing OpenWrt ==
-
 To install OpenWRT you need an OpenWRT Kamikaze image file, it's best to build your own if you have a Linux system around, the process is quite simple and well documented, there's just a few options that need to be changed from the build system's defaults.
 
-=== Build Options ===
+=== Building OpenWrt ===
+svn co https://svn.openwrt.org/openwrt/trunk/
 
-TODO
+make defconfig package/symlinks
 
-==== Watchdog Issues ====
+make menuconfig
 
-Due to a problem with the current ar7 watchdog code (as of 22/03/2007) the watchdogs must be disabled.  Failure to do so will just result in a kernel that hangs when the watchdog driver is initialised.  See topic http://forum.openwrt.org/viewtopic.php?id=8052 for a similar problem.
+ * select Target System (TI AR7 [2.6])
+ * select kmod-sangam-atm-annex (b for germany)
+wget http://code.bastart.eu.org/projects/fritz-wrt/patches/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
-{{{
-vi target/linux/ar7-2.4/config/default
-}}}
-
-then set these options as follows:
-
-{{{
-CONFIG_AR7_WDT=n
-CONFIG_SOFT_WATCHDOG=n
-}}}
-
-Is the problem still there? In the meantime openwrt uses kernel 2.6?   (05//07/2007 Tschäfer)
-
+time make world V=99
 
 === Flashing your OpenWRT image ===
-
 The best way to do this is using the bootloaders built in FTP server.  I also prefer to have a serial cable attached so I can monitor the progress, but this optional.
 
 To flash OpenWRT onto any device there must be an MTD Block that spans the main unused area of the flash rom.  The adam2 bootloader always boots from MTD1 (using the "go" command).  As it turns out the W701V's MTD block 1 (mtd1) is correct for the flashing operation as can be seen from this except from the original flash map table (above).
-
 ||'''partition''' ||'''start''' ||'''end''' ||'''size''' ||'''description''' ||
 ||mtd1 ||{{{0x90010000}}} ||{{{0x90780000}}} ||{{{0x770000}}} ||kernel+jffs2 (jffs starts at 0x00580000) ||
 
-The W701V's default ip address is '192.168.178.1' - You can change the default adam2 address using the adam2 setenv commands to change the 'my_ipaddress' variable.
-Give your PC an IP address of '192.168.178.10'.
-Reboot the router an within 5 seconds connect to the ADAM2 ftp server on '192.168.178.1'.
-If you have a serial cable you can also reboot the router and press a key to get the router to wait in the ADAM2 console so that you have more time to connect via ftp to it.
-You should also be able to ping the device in the 5 second window or while the adam2 boot loader is paused, if not see the bootloader section of this document (above).
 
-The login name and password for the ftp server is adam2 (lower case). 
+The W701V's default ip address is '192.168.178.1' - You can change the default adam2 address using the adam2 setenv commands to change the 'my_ipaddress' variable. Give your PC an IP address of '192.168.178.10'. Reboot the router an within 5 seconds connect to the ADAM2 ftp server on '192.168.178.1'. If you have a serial cable you can also reboot the router and press a key to get the router to wait in the ADAM2 console so that you have more time to connect via ftp to it. You should also be able to ping the device in the 5 second window or while the adam2 boot loader is paused, if not see the bootloader section of this document (above).
 
-Now you can flash with the firmware of your choice. I (Hydra) downloaded openwrt from the svn repos and built a stock flash image which was created by the build process as 'trunk/bin/openwrt-ar7-2.4-squashfs.bin'. The JFFS images were also created which can be also be used. The JFFS image to use would be the one with the 64k erase size, e.g. 'openwrt-ar7-2.4-jffs2-64k.bin'.
+The login name and password for the ftp server is adam2 (lower case).
+
+Now you can flash with the firmware of your choice. I (Hydra) downloaded openwrt from the svn repos and built a stock flash image which was created by the build process as 'trunk/bin/openwrt-ar7-2.6-squashfs.bin'. The JFFS images were also created which can be also be used. The JFFS image to use would be the one with the 64k erase size, e.g. 'openwrt-ar7-2.6-jffs2-64k.bin'.
 
 I flashed the firmware by issue the following commands:
 
@@ -1544,11 +1441,10 @@ I flashed the firmware by issue the following commands:
 binary
 quote MEDIA FLSH
 passiv
-put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin "openwrt-ar7-2.4-squashfs.bin mtd1"
+put openwrt-ar7-2.6-squashfs.bin mtd1
 quote REBOOT
 bye
 }}}
-
 Passiv mode must be used otherwise the device reports "501 Command Not Implemented" after issuing the "put" command.
 
 The entire process looked like this:
@@ -1568,8 +1464,8 @@ ftp> quote MEDIA FLSH
 200 Media set to FLSH.
 ftp> passiv
 Passive mode on.
-ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin mtd1
-local: /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.4-squashfs.bin remote: mtd1
+ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.6-squashfs.bin mtd1
+local: /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.6-squashfs.bin remote: mtd1
 200 Port command successful.
 150 Opening BINARY mode data connection for file transfer.
 226 Transfer complete.
@@ -1579,161 +1475,168 @@ ftp> quote REBOOT
 221 Goodbye.
 ftp> quit
 }}}
-
 There is a pause before the file is transferred where the router erases the mtd1 block. If you have a serial cable attached you can see the output in the adam2 console.
 
 After the file is transferred there is another pause while the image file is flashed to the chip, don't reboot your router during this time.
 
 Some users have reported errors appearing in the serial console that complain about flashing problems.  It appears that the flash process sometimes retries and succeedes and other times it fails.  failure is not reported to the ftp so it's advised to always use a serial cable so you can monitor  the flash process, if it fails just "put" the image via ftp until it doesn't report a failure.
 
-
 The entire log from the serial console was as follows:
+
 {{{
 TODO
 }}}
+Finally, boot the device!  - type either "restart" or "go" at the adam2 prompt on the serial port or power the box off and on again.
 
+My boot log looked like this:
+
+{{{
+Eva_AVM >AVM decompress Kernel:
+...............done
+start kernel
+Linux version 2.6.22.1 (jan@server) (gcc version 4.2.1) #1 Fri Aug 3 06:01:16 CEST 2007
+CPU revision is: 00018448
+Clocks: Async mode
+Clocks: Setting DSP clock
+Clocks: base = 25000000, frequency = 125000000, prediv = 1, postdiv = 2, postdiv2 = 1, mul = 10
+Clocks: Setting CPU clock
+Adjusted requested frequency 211000000 to 211968000
+Clocks: base = 35328000, frequency = 211968000, prediv = 1, postdiv = 1, postdiv2 = -1, mul = 6
+Clocks: Setting USB clock
+Adjusted requested frequency 48000000 to 48076920
+Clocks: base = 125000000, frequency = 48000000, prediv = 13, postdiv = 1, postdiv2 = -1, mul = 5
+TI AR7 (TNETD7200), ID: 0x002b, Revision: 0x11
+Determined physical RAM map:
+ memory: 02000000 @ 14000000 (usable)
+Built 1 zonelists.  Total pages: 8128
+Kernel command line: init=/etc/preinit console=ttyS0,38400n8r
+Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
+Primary data cache 8kB, 4-way, linesize 16 bytes.
+Synthesized TLB refill handler (20 instructions).
+Synthesized TLB load handler fastpath (32 instructions).
+Synthesized TLB store handler fastpath (32 instructions).
+Synthesized TLB modify handler fastpath (31 instructions).
+PID hash table entries: 128 (order: 7, 512 bytes)
+Using 105.984 MHz high precision timer.
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Memory: 28732k/32768k available (2077k kernel code, 4036k reserved, 427k data, 104k init, 0k highmem)
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+vlynq0: regs 0x08611800, irq 29, mem 0x04000000
+VLYNQ: Adjusted requested frequency 62500000 to 70656000
+VLYNQ: Setting clock to 70656000 (clock divider 3)
+vlynq0: linked
+vlynq-pci: skipping unknown device 0000:0029 at vlynq0
+registering PCI controller with io_map_base unset
+Generic PHY: Registered new driver
+Time: MIPS clocksource has been installed.
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+TCP: Hash tables configured (established 1024 bind 1024)
+TCP reno registered
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+Registering mini_fo version $Id$
+JFFS2 version 2.2. (NAND) Â© 2001-2006 Red Hat, Inc.
+io scheduler noop registered
+io scheduler deadline registered (default)
+ar7_wdt: failed to unlock WDT disable reg
+ar7_wdt: failed to unlock WDT prescale reg
+ar7_wdt: failed to unlock WDT change reg
+ar7_wdt: timer margin 59 seconds (prescale 65535, change 57180, freq 62500000)
+Serial: 8250/16550 driver $Revision: 1.90 $ 2 ports, IRQ sharing disabled
+serial8250: ttyS0 at MMIO 0x8610e00 (irq = 15) is a TI-AR7
+console handover: boot [early0] -> real [ttyS0]
+Fixed PHY: Registered new driver
+cpmac-mii: probed
+cpmac: device eth0 (regs: 08610000, irq: 27, phy: fixed@100:1, mac: 00:1a:4f:f4:fe:52)
+physmap platform flash device: 00400000 at 10000000
+physmap-flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
+NOR chip too large to fit in mapping. Attempting to cope...
+ Amd/Fujitsu Extended Query Table at 0x0040
+physmap-flash.0: Swapping erase regions for broken CFI table.
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+Reducing visibility of 8192KiB chip to 4096KiB
+cmdlinepart partition parsing not available
+RedBoot partition parsing not available
+Parsing AR7 partition map...
+4 ar7part partitions found on MTD device physmap-flash.0
+Creating 4 MTD partitions on "physmap-flash.0":
+0x00000000-0x00010000 : "loader"
+0x003f0000-0x00400000 : "config"
+0x00010000-0x003f0000 : "linux"
+0x000e0000-0x003f0000 : "rootfs"
+mtd: partition "rootfs" set to be root filesystem
+mtd: partition "rootfs_data" created automatically, ofs=200000, len=1F0000
+0x00200000-0x003f0000 : "rootfs_data"
+Registered led device: ar7:status
+nf_conntrack version 0.5.0 (256 buckets, 2048 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP vegas registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing unused kernel memory: 104k freed
+Warning: unable to open an initial console.
+Algorithmics/MIPS FPU Emulator v1.5
+- preinit -
+switching to jffs2
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+- init -
+init started:  BusyBox v1.4.2 (2007-08-03 05:36:45 CEST) multi-call binary
+Please press Enter to activate this console. ar7_wdt: failed to unlock WDT disable reg
+ar7_wdt: failed to unlock WDT kick reg
+NET: Registered protocol family 8
+NET: Registered protocol family 20
+PHY: fixed@100:1 - Link is Up - 10/Half
+PPP generic driver version 2.4.2
+acx: this driver is still EXPERIMENTAL
+acx: reading README file and/or Craig's HOWTO is recommended, visit http://acx100.sf.net in case of further questions/discussion
+acx: compiled to use 32bit I/O access. I/O timing issues might occur, such as non-working firmware upload. Report them
+acx: running on a little-endian CPU
+acx: PCI module v0.3.36 initialized, waiting for cards to probe...
+registered device TI Avalanche SAR
+Ohio250(7200/7100A2) detected
+requesting firmware image "ar0700xx.bin"
+Creating new root folder avalanche in the proc for the driver stats
+Texas Instruments ATM driver: version:[7.01.00.10]
+}}}
+It worked for me with the above steps. Is this really necessary anymore?
+
+==== Watchdog Issues (still necessary? doesn't work, but doesn't hang neither 02/08/2007) ====
+Due to a problem with the current ar7 watchdog code (as of 22/03/2007) the watchdogs must be disabled. Failure to do so will just result in a kernel that hangs when the watchdog driver is initialised. See topic http://forum.openwrt.org/viewtopic.php?id=8052 for a similar problem.
+
+{{{
+vi target/linux/ar7-2.4/config/default
+}}}
+then set these options as follows:
+
+{{{
+CONFIG_AR7_WDT=n
+CONFIG_SOFT_WATCHDOG=n}}}
 Once the firmware is flashed you have to create an mtd block that spans the entire squashfs filesystem image on the flash.  I've not found a simple way round this yet but here's what i did:
 
-1) open the squashfs image in a hex editor (khexedit / ultraedit) and do an ascii search for "hsqs", the hex editor should show the file offset (of the 'h' character) from the beginning of the file.  note this number
-2) add the offset of the mtd1 block to the number you just noted down
-3) create an mtd block using the adam2 setenv command starting from the new number and going to the end of the mtd1 block.  the last mtd block in the adam2 environment was mtd4 for me, so i used mtd5, and issued this command:
+1) open the squashfs image in a hex editor (khexedit / ultraedit) and do an ascii search for "hsqs", the hex editor should show the file offset (of the 'h' character) from the beginning of the file.  note this number 2) add the offset of the mtd1 block to the number you just noted down 3) create an mtd block using the adam2 setenv command starting from the new number and going to the end of the mtd1 block.  the last mtd block in the adam2 environment was mtd4 for me, so i used mtd5, and issued this command:
 
 {{{
 setenv mtd5 0x900868ff,0x90780000
 }}}
-
 Do to an issue where the kernel command line is not overridden we need to update the adam2 settings so the kernel command line (shown just after the kernel boots) is set correctly)
 
 {{{
 setenv kernel_args root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit
 }}}
-
-Finally, boot the device!  - type either "restart" or "go" at the adam2 prompt on the serial port or power the box off and on again.
-
-My boot log looked like this:
-{{{
-Eva_AVM >go
-........done
-start kernel
-Launching kernel decompressor.
-Kernel decompressor was successful ... launching kernel.
-
-LINUX started...
-CPU revision is: 00018448
-Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
-Primary data cache 8kB, 4-way, linesize 16 bytes.
-Linux version 2.4.34 (hydra@hydra02) (gcc version 3.4.6 (OpenWrt-2.0)) #6 Thu Mar 22 21:33:14 GMT 2007
-Determined physical RAM map:
- memory: 00020000 @ 14000000 (ROM data)
- memory: 01fe0000 @ 14020000 (usable)
-On node 0 totalpages: 8192
-zone(0): 8192 pages.
-zone(1): 0 pages.
-zone(2): 0 pages.
-Kernel command line: root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit console=ttyS0,38400
-the pacing pre-scalar has been set as 600.
-Using 75.000 MHz high precision timer.
-Calibrating delay loop... 149.91 BogoMIPS
-Memory: 30476k/32768k available (1383k kernel code, 2292k reserved, 92k data, 68k init, 0k highmem)
-Dentry cache hash table entries: 4096 (order: 3, 32768 bytes)
-Inode cache hash table entries: 2048 (order: 2, 16384 bytes)
-Mount cache hash table entries: 512 (order: 0, 4096 bytes)
-Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
-Page-cache hash table entries: 8192 (order: 3, 32768 bytes)
-Checking for 'wait' instruction...  available.
-POSIX conformance testing by UNIFIX
-Linux NET4.0 for Linux 2.4
-Based upon Swansea University Computer Society NET3.039
-Initializing RT netlink socket
-Starting kswapd
-Registering mini_fo version $Id$
-devfs: v1.12c (20020818) Richard Gooch (rgooch@atnf.csiro.au)
-devfs: boot_options: 0x1
-JFFS2 version 2.1. (C) 2001 Red Hat, Inc., designed by Axis Communications AB.
-squashfs: version 3.0 (2006/03/15) Phillip Lougher
-pty: 256 Unix98 ptys configured
-Serial driver version 5.05c (2001-07-08) with no serial options enabled
-ttyS00 at 0xa8610e00 (irq = 15) is a 16550A
-Vlynq CONFIG_AR7_VLYNQ_PORTS=2
-Vlynq Device vlynq0 registered with minor no 63 as misc device. Result=0
-Vlynq instance:0 Link UP
-Vlynq Device vlynq1 registered with minor no 62 as misc device. Result=0
-VLYNQ 1 : init failed
-ar7 flash device: 0x400000 at 0x10000000.
- Amd/Fujitsu Extended Query Table v1.3 at 0x0040
-Physically mapped flash: Swapping erase regions for broken CFI table.
-number of CFI chips: 1
-cfi_cmdset_0002: Disabling fast programming due to code brokenness.
-Parsing ADAM2 partition map...
-Looking for mtd device :mtd0:
-Found a mtd0 image (0x0), with size (0x0).
-Assuming adam2 size of 0x0
-Looking for mtd device :mtd1:
-Found a mtd1 image (0x10000), with size (0x770000).
-Looking for mtd device :mtd2:
-Found a mtd2 image (0x0), with size (0x10000).
-Assuming adam2 size of 0x10000
-Looking for mtd device :mtd3:
-Found a mtd3 image (0x780000), with size (0x40000).
-Looking for mtd device :mtd4:
-Found a mtd4 image (0x7c0000), with size (0x40000).
-Setting new rootfs offset to 000868ff
-Squashfs detected (size = 0xb0086973)
-Creating 5 MTD partitions on "Physically mapped flash":
-0x00000000-0x00010000 : "adam2"
-0x00010000-0x00400000 : "linux"
-0x000868ff-0x001b0000 : "rootfs"
-mtd: partition "rootfs" doesn't start on an erase block boundary -- force read-only
-0x00400000-0x00800000 : "config"
-0x001b0000-0x00400000 : "rootfs_data"
-Initializing Cryptographic API
-NET4: Linux TCP/IP 1.0 for NET4.0
-IP Protocols: ICMP, UDP, TCP, IGMP
-IP: routing cache hash table of 512 buckets, 4Kbytes
-TCP: Hash tables configured (established 2048 bind 4096)
-ip_conntrack version 2.1 (5953 buckets, 5953 max) - 360 bytes per conntrack
-p_tables: (C) 2000-2002 Netfilter core team
-ET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
-NET4: Ethernet Bridge 008 for NET4.0
-802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
-All bugs added by David S. Miller <davem@redhat.com>
-VFS: Mounted root (squashfs filesystem) readonly.
-Mounted devfs on /dev
-Can't preserve ADAM2 memory, firstfreeaddress = 946b1d78.
-Freeing prom memory: 128kb freed
-Freeing unused kernel memory: 68k freed
-Algorithmics/MIPS FPU Emulator v1.5
-mount: mounting none on /dev failed
-Unlocking rootfs ...
-Could not open mtd device: rootfs
-switching to jffs2
-mini_fo: using base directory: /
-mini_fo: using storage directory: /jffs
-init started:  BusyBox v1.4.1 (2007-03-20 22:57:20 GMT) multi-call binary
-
-Please press Enter to activate this console. jffs2.bbc: SIZE compression mode activated.
-Using the MAC with external PHY
-Cpmac driver is allocating buffer memory at init time.
-Using the MAC with external PHY
-Cpmac driver Disable TX complete interrupt setting threshold to 20.
-CSLIP: code copyright 1989 Regents of the University of California
-PPP generic driver version 2.4.2
-IPP2P v0.8.1_rc1 loading
-registered device TI Avalanche SAR
-Initializing DSL interface
-}}}
-
-TODO: it hung.. more diagnostic work to be done.
-
 === Getting the ADSL Working via PPPoA (Manually) ===
-
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
-
 === Firmware images and configs ===
-
 == References ==
-
 There are loads of forum posts (in german) relating to the W701V here (use Suchen, top right, to search) http://www.ip-phone-forum.de/forumdisplay.php?f=560
 
 ----
- CategoryModel ["CategoryAR7Device"]
+ . CategoryModel ["CategoryAR7Device"]
