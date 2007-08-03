@@ -1,5 +1,7 @@
 = Leacom NetPlug Turbo Wi-Fi 85Mbps =
 
+== Hardware ==
+
 This device is a Wireless Access Point / PowerLine Communication gateway.
 
 {{{
@@ -7,10 +9,25 @@ OS : VxWorks
 CPU : Atheros AR2313A
 Wi-Fi : Atheros AR2112a RF
 Flash : MX29LV160C (2 Mb)
-PLC CPU : Intellon INT5500A1G connected via SPI
-PLC PHY : Intellon INT2000A0G connected via MII ?
-Ethernet MAC : Realtek RTL8201CP connected via MII to the INT5500
+PLC CPU : Intellon INT5500A1G connected via a Kendin PHY
+PLC PHY : Intellon INT2000A0G connected via MII to the INT55000
+Ethernet Switch : Realtek RTL8201CP connected via MII to the INT5500 and the Kendin PHY
 }}}
+
+== How does it work ? ==
+
+It took me a while to understand :
+
+{{{
+ * The CPU sends ethernet frame using its MAC to the Kendin PHY
+ * The Realtek switch sends this frame to the Intellon 5500
+ * The Intellon 5500 encrypts frames with 56-bit DES (HomePlug 1.0/1.1) then sends it to the Int 2000 PLC Phy
+ * The Intellon 2000 does the proper modulation and sends it on the AC line
+}}}
+
+== Why a switch ? ==
+
+Good question, mostly because there are 2 kinds of Ethernet frames : classic Ethernet PLC (EtherType 0x8800), and PLC management Ethernet frames. This is the reason for making this distinction.
 
 List of commands :
 
