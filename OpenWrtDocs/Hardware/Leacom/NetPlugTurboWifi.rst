@@ -4,8 +4,8 @@ This device is a Wireless Access Point / PowerLine Communication gateway.
 
 {{{
 OS : VxWorks
-CPU : Intellon INT5500A1G
-Wi-Fi : Atheros AR2313
+CPU : Atheros AR
+Wi-Fi : Atheros AR2112a RF
 Flash : MX29LV160C (2 Mb)
 }}}
 
