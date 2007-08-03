@@ -1484,7 +1484,10 @@ Some users have reported errors appearing in the serial console that complain ab
 The entire log from the serial console was as follows:
 
 {{{
-TODO
+Eva_AVM >
+erase mtd1 .......................................................................................................................
+Eva_AVM >
+flash .......................
 }}}
 Finally, boot the device!  - type either "restart" or "go" at the adam2 prompt on the serial port or power the box off and on again.
 
