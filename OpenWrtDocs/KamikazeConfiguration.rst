@@ -1,6 +1,4 @@
 = Kamikaze Configuration =
-THIS IS ALL UNTESTED.  PLEASE TRY TO CONFIRM IT FOR YOURSELF.
-
 == Foreword / Background ==
 In the early days of OpenWRT, the only target platforms were the WRT54G and similar Broadcom-based routers.  This platform has an NVRAM (much like high-end, commercial routers) to store configuration information.  Up until White Russian, OpenWRT used NVRAM for configuration.  As OpenWRT expanded to new platforms without NVRAM, NVRAM was abandoned in favor of configuration files in /etc/config.  This configuration method presents related information in the same area and is much like existing *nix configuration files.
 
@@ -150,15 +148,22 @@ config wifi-iface
 '''4) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
 
 ==== MAC Filter ====
-
 First, you need to have installed the wl package - '''ipkg install wl'''
-
 ||'''uci variable''' ||'''Description''' ||
 ||'''wireless.wl0.macfilter''' ||(0/1/2) used to (disable checking/deny/allow) mac addresses listed in wl0.maclist ||
 ||'''wireless.wl0.maclist''' ||List of space-separated mac addresses to allow/deny according to wl0.macfilter. Addresses should be entered with colons, e.g.: "00:02:2D:08:E2:1D 00:03:3E:05:E1:1B". note that if you have more than one mac use quotes or only the first will be recognized. ||
 
+
 Create the following script as '''/etc/init.d/wlmacfilter'''
-{{{ #!/bin/sh /etc/rc.common 
+
+----
+ . /!\ '''Edit conflict - other version:'''
+----
+{{{
+#!/bin/sh /etc/rc.common
+---- /!\ '''Edit conflict - your version:''' ----
+{{{#!/bin/sh /etc/rc.common
+---- /!\ '''End of edit conflict''' ----
 # The macfilter 2 means that the filter works in "Allow" mode.
 # Other options are: 0 - disabled, or 1 - Deny.
 #
@@ -166,34 +171,45 @@ Create the following script as '''/etc/init.d/wlmacfilter'''
 #  separating multiple entries
 # eg  "00:0D:0B:B5:2A:BF 00:0D:0C:A2:2A:BA"
 START=47
-
 MACFILTER=`uci get wireless.wl0.macfilter`
 MACLIST=`uci get wireless.wl0.maclist`
-
 start() {
         wlc ifname wl0 maclist "$MACLIST"
         wlc ifname wl0 macfilter "$MACFILTER"
+---- /!\ '''Edit conflict - other version:''' ----
+---- /!\ '''Edit conflict - your version:''' ----
+---- /!\ '''End of edit conflict''' ----
 }
-
 stop() {
         wlc ifname wl0 maclist none
         wlc ifname wl0 macfilter 0
+---- /!\ '''Edit conflict - other version:''' ----
+---- /!\ '''Edit conflict - your version:''' ----
+---- /!\ '''End of edit conflict''' ----
 }
 }}}
-
 Finally, enable the script to run at boot time:
-{{{chmod 755 /etc/init.d/wlmacfilter
-/etc/init.d/wlmacfilter enable}}}
 
+{{{
+chmod 755 /etc/init.d/wlmacfilter
+/etc/init.d/wlmacfilter enable}}}
 Set the variables
-{{{uci set wireless.wl0.macfilter="2"
+
+{{{
+uci set wireless.wl0.macfilter="2"
 uci set wireless.wl0.maclist="00:0D:0B:B5:2A:BF 00:0D:0C:A2:2A:BA"
 uci commit}}}
-
 After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter start'''
 
 = HowTo =
+=== How to Automatically configure Client/Ad-hoc Client/Client+Repeater Mode on a Fonera or Meraki mini ===
+Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk 
+1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
 
+That's it.  The package of scripts self-installs and will ask you questions to configure your wired and wireless connections.  Your current configuration will be backed up and can be restored with the "aprestore" command.  Type in "clientmode" after installation to configure client mode.  This is currently the easiest and most complete means of having client mode on an Atheros router.   These scripts are incompatible with firmwares that use NVRAM.  They are included in the Legend Rev4.5 firmware, which will soon be released on the site.
+
+=== How to Automatically configure Standalone Repeater Mode on a Fonera or Meraki mini ===
+Coming VERY soon.  This one will differ from the Client mode script package in that there will also be a option to quickly setup a repeater without restarting services.
 === HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 ===
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
@@ -266,7 +282,6 @@ You must change parameter 3f0/2b17/100 for your printer.
 
 This parameters you can get from ls with v option. More info you can find at http://linux-hotplug.sourceforge.net/?selected=usb .
 
-
 === Using WRT54G(S/L) SES button for Radio Control ===
 This is a remake of a code that is found on http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle
 
@@ -277,7 +292,6 @@ Step 2: cd to this dir and edit a new file named 01-radio-toggle
 Step 3: Paste this code inside the file
 
 {{{
-
 if [ "$BUTTON" = "ses" ] ; then
         if [ "$ACTION" = "pressed" ] ; then
                 WIFI_RADIOSTATUS=$(wlc radio)
@@ -297,23 +311,20 @@ if [ "$BUTTON" = "ses" ] ; then
                 esac
         fi
 fi
-
 }}}
-
 Step 4: Save the file and just test it, it will lit Wlan and White SES Led when radio is on, and turn both off when radio is off
- 
+
 === Problems running vsftp on OpenWRT Kamikaze 7.06 ===
 If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
 
 == More HowTos ==
-For more How-To's (for example setting up Kamikaze, step by step)
-have a look at 
-http://forum.openwrt.org/viewforum.php?id=17
+For more How-To's (for example setting up Kamikaze, step by step) have a look at  http://forum.openwrt.org/viewforum.php?id=17
 
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
  * Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
 == multi wan configuration on kamikaze ==
 OpenWrtDocs/KamikazeConfiguration/MultipleWan
+
 ----
-CategoryHowTo
+ . CategoryHowTo
