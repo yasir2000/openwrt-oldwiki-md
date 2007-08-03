@@ -1,5 +1,1 @@
-Guide to describe how to compile Kamikaze with DISTCC and CCACHE on Ubuntu Feisty Fawn.
-
-= CompilingKamikazeWithDistccAndCcache =
-
-Work in progress...
+See http://forum.openwrt.org/viewtopic.php?pid=52667#p52667
