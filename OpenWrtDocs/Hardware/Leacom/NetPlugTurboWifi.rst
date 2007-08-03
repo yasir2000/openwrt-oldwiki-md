@@ -4,9 +4,12 @@ This device is a Wireless Access Point / PowerLine Communication gateway.
 
 {{{
 OS : VxWorks
-CPU : Atheros AR
+CPU : Atheros AR2313A
 Wi-Fi : Atheros AR2112a RF
 Flash : MX29LV160C (2 Mb)
+PLC CPU : Intellon INT5500A1G connected via SPI
+PLC PHY : Intellon INT2000A0G connected via MII ?
+Ethernet MAC : Realtek RTL8201CP connected via MII to the INT5500
 }}}
 
 List of commands :
