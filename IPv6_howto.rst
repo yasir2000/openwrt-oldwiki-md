@@ -86,13 +86,11 @@ In my firewall script I had to add the following rule to let the encapsulated pa
 {{{
 iptables -A INPUT -p 41 -i $WAN -j ACCEPT
 }}}
-
 Or, if you have /etc/config/firewall, you can add this line there instead of the above:
 
 {{{
 accept:proto=41
 }}}
-
 If your Openwrt is also a NAT you should add the following to prevent protocol 41 (6in4) to get listed on the NAT table. Otherwise your tunnel goes down after some time. (See https://noc.sixxs.net/faq/connectivity/?faq=conntracking.)
 
 {{{
@@ -113,10 +111,10 @@ This applies e.g. if you WAN port (on vlan1) receives an public IPv4 address thr
 
 __'''Update:'''__ If running version 0.9, you probably should be following the same documentation as the PPP case below.  Those same scripts as PPP are called when starting and stopping the wan in that version.
 
-To have the 6to4 tunnel start up automatically on boot, copy this script in ''/etc/init.d/S42tun6to4'':
+To have the 6to4 tunnel start up automatically on boot, copy this script in ''/etc/init.d/tun6to4'':
 
 {{{
-#!/bin/sh
+#!/bin/sh /etc/rc.common
 # 6to4 tunnel
 # retrieve the public IPv4 address
 ipv4=`ip -4 addr | awk '/^[0-9]+[:] vlan1[:]/ {l=NR+1} /inet (([0-9]{1,3}\.){3}[0-9]{1,3})\// {if (NR == l) split($2,a,"/")} END {print a[1]}'`
@@ -137,8 +135,7 @@ relay6to4=192.88.99.1
 #relay6to4=131.107.33.60
 # japan kddilab.6to4.jp
 #relay6to4=192.26.91.178
-case "$1" in
-  start)
+  start() {
     echo "Creating tunnel interface..."
     ip tunnel add tun6to4 mode sit ttl 64 remote any local $ipv4
     echo "Setting tunnel interface up..."
@@ -153,8 +150,8 @@ case "$1" in
     echo "Assigning ${ipv6prefix}:${ipv6subnet}::1/64 address to br0 (local lan interface)..."
     ip -6 addr add ${ipv6prefix}:${ipv6subnet}::1/64 dev br0
     echo "Done."
-    ;;
-  stop)
+  }
+  stop() {
     #echo "Removing WAN (external) interface IPv6 address..."
     #ip -6 addr del ${ipv6prefix}:${ipv6subnet}::3/64 dev vlan1
     echo "Removing br0 (internal lan) interface IPv6 address..."
@@ -166,18 +163,11 @@ case "$1" in
     echo "Removing tunnel interface..."
     ip tunnel del tun6to4
     echo "Done."
-    ;;
-  restart)
-    echo "=== 1. Stopping ==="
-    /etc/init.d/S42tun6to4 stop
-    echo "=== 2. Starting ==="
-    /etc/init.d/S42tun6to4 start
-    echo "=== 3. Done ==="
-    ;;
-  *)
-    echo "Usage: /etc/init.d/S42tun6to4 {start|stop|restart}"
-    ;;
-esac
+  }
+  restart() {
+    stop
+    start
+}
 }}}
 == 6to4 tunnel with an Internet connection that uses PPP ==
 If you connect to your ISP using PPP (usually PPPoE): When the ppp interface comes up, the ppp daemon calls the /etc/ppp/ip-up script, when it goes down the /etc/ppp/ip-down script. Those scripts call /etc/hotplug.d/iface/* with the appropriate parameters.
@@ -221,13 +211,12 @@ COMMAND=/usr/sbin/ip
 
 ----
 {{{
-#!/bin/sh
+#!/bin/sh /etc/rc.common
 LOCALIP=Your IPv4 Endpoint
 POPIP=POP IPv4 Endpoint
 LOCTUN=Your IPv6 Endpoint
 REMTUN=SixXS IPv6 Endpoint
-case $1 in
-start)
+start() {
         echo -n "Starting SixXS.Net IPv6 tunnel: "
         ip tunnel add sixxs mode sit local $LOCALIP remote $POPIP
         ip link set sixxs up
@@ -236,22 +225,17 @@ start)
         ip -6 addr add $LOCTUN/64 dev sixxs
         ip -6 ro add default via $REMTUN dev sixxs
         echo "Done."
-        ;;
-stop)
+}
+stop() {
         echo -n "Stopping SixXS.Net IPv6 tunnel: "
         ip link set sixxs down
         ip tunnel del sixxs
         echo "Done."
-        ;;
-restart)
-        $0 stop
-        $0 start
-        ;;
-*)
-        echo "Usage: $0 {start | stop | restart}"
-        ;;
-esac
-exit 0
+}
+restart() {
+        stop
+        start
+}
 }}}
 Note: I had to add "ttl 64" to the "ip tunnel add sixxs" line in order to be able to do traceroutes. Without it, traceroute6's did work, but slowly and with all intermediate hops missed ("* * *"). With this setting it works. -RZ
 
@@ -276,13 +260,10 @@ aiccu start
 If it doesn't work use {{{logread}}} to see what occurs
 
 == Establishing a TSP tunnel using the Hexago OpenWRT Gateway6 Client ==
-
  * Download the Hexago OpenWRT Gateway6 Client from the [http://www.go6.net/4105/download.asp go6.net Portal].
  * Install the software as explained in the Hexago OpenWRT Gateway6 Client README, available from the [http://www.go6.net/4105/download.asp same location].
  * Follow the instructions provided in the Hexago OpenWRT Gateway6 Client README to configure and establish a tunnel to a tunnel broker that supports the Tunnel Setup Protocol (TSP).
-
-{*} Freenet6, a service offered by the go6.net Portal and backed by the Hexago Gateway6 product, provides free IPv6 access through the TSP protocol.
-To obtain access to the free service, simply register on the [http://www.go6.net/4105/register.asp go6.net Portal registration page].
+{*} Freenet6, a service offered by the go6.net Portal and backed by the Hexago Gateway6 product, provides free IPv6 access through the TSP protocol. To obtain access to the free service, simply register on the [http://www.go6.net/4105/register.asp go6.net Portal registration page].
 
 = IPv6 on the LAN =
 At this point I suppose that you have a working ipv6 connection on the wrt, that you can ''ping6 www.kame.net'' without error.
@@ -468,6 +449,7 @@ Notice how the same label is used for both 6to4 (2002::/16) and normal IPv6 (::/
 Even though Vista comes pre-configured with IPv6 support it still only uses the stack to communicate with other 6to4 addresses or other IPv6 only hosts by default (it will prefer IPv4 otherwise). To force IPv6 with dual stack non-6to4 hosts the instructions are the same as above in the Windows XP howto with a couple minor differences.  The "set prefixpolicy" command only works once, wiping out all other policies in the process.  To recreate these policies you have to use the "add prefixpolicy" command.  Also to show the current policies, you need to use the "show prefixpolicies" command instead of "show prefixpolicy".
 
 Short method to editing policies:
+
 {{{
 C:\>netsh
 netsh>interface ipv6
@@ -481,7 +463,6 @@ Precedence  Label  Prefix
         20      3  ::/96
         10      4  ::ffff:0:0/96
          5      5  2001::/32
-
 netsh interface ipv6>delete prefixpolicy 2001::/32
 Ok.
 netsh interface ipv6>add prefixpolicy 3ffe:831f::/32 5 5
@@ -496,12 +477,11 @@ Precedence  Label  Prefix
         20      3  ::/96
         10      4  ::ffff:0:0/96
          5      5  3ffe:831f::/32
-
 netsh interface ipv6>exit
 C:\>
 }}}
-
 Long method:
+
 {{{
 C:\>netsh
 netsh>interface ipv6
@@ -515,7 +495,6 @@ Precedence  Label  Prefix
         20      3  ::/96
         10      4  ::ffff:0:0/96
          5      5  2001::/32
-
 netsh interface ipv6>set prefixpolicy ::1/128 50 0
 Ok.
 netsh interface ipv6>add prefixpolicy ::/0 40 1
@@ -538,11 +517,9 @@ Precedence  Label  Prefix
         20      3  ::/96
         10      4  ::ffff:0:0/96
          5      5  3ffe:831f::/32
-
 netsh interface ipv6>exit
 C:\>
 }}}
-
 = Links =
  * [http://www.757.org/~joat/wiki/index.php/IPv6_on_the_WRT54G_via_OpenWRT IPv6 on OpenWrt with Hurricane Electric]
  * [http://www.join.uni-muenster.de/TestTools/IPv6_Verbindungstests.php JOIN IPv6 Test Page (ping, traceroute, tracepath)]
