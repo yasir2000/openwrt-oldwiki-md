@@ -47,13 +47,13 @@ updatedd.cfg1.update=0
 
 === Add a new service ===
 {{{
-updatedd.cfg1=updatedd
-updatedd.cfg1.service=dyndns
-updatedd.cfg1.user=<username>
-updatedd.cfg1.passwd=<password>
-updatedd.cfg1.host=<hostname>.dyndns.org
-updatedd.cfg1.update=1
-uci commit updatedd
+uci set updatedd.cfg1=updatedd
+uci set updatedd.cfg1.service=dyndns
+uci set updatedd.cfg1.user=<username>
+uci set updatedd.cfg1.passwd=<password>
+uci set updatedd.cfg1.host=<hostname>.dyndns.org
+uci set updatedd.cfg1.update=1
+uci set uci commit updatedd
 }}}
 
 The main configuration is done now.
@@ -62,12 +62,12 @@ The main configuration is done now.
 If you have more than one hostname registered and would like to update them all to the same IP via updatedd, then simply add another section/config via UCI to /etc/config/updatedd.
 
 {{{
-updatedd.cfg2=updatedd
-updatedd.cfg2.service=dyndns
-updatedd.cfg2.user=<username>
-updatedd.cfg2.passwd=<password>
-updatedd.cfg2.host=<hostname>.homelinux.org
-updatedd.cfg2.update=1
+uci set updatedd.cfg2=updatedd
+uci set updatedd.cfg2.service=dyndns
+uci set updatedd.cfg2.user=<username>
+uci set updatedd.cfg2.passwd=<password>
+uci set updatedd.cfg2.host=<hostname>.homelinux.org
+uci set updatedd.cfg2.update=1
 uci commit updatedd
 }}}
 
