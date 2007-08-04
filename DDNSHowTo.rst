@@ -117,6 +117,17 @@ When finished do {{{ESC}}} and {{{:wq}}} to save it. You can check it with {{{cr
 
 There are some cron job calculators around the Internet. They maybe helpful for you. One of them is http://www.csgnetwork.com/crongen.html.
 
+== Debugging ==
+
+Use logread for debugging:
+{{{
+[...]
+Jul 20 13:47:49 OpenWrt user.notice syslog: <hostname>.dyndns.org: No changes, update considered abusive.
+Jul 20 13:47:50 OpenWrt user.notice syslog: <hostname>.homelinux.org: No changes, update considered abusive.
+Jul 20 13:47:50 OpenWrt user.notice syslog: <hostname>.no-ip.org: successfully updated
+[...]
+}}}
+
 = ip-up Script Alternative =
 If you are using PPP or PPPoE (as often for DSL), you can use a simple script, because the pppd supports to run scripts in case of interface changes.
 
