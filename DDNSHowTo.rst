@@ -36,7 +36,7 @@ Updatedd can be used with the following services:
 Kamikaze uses UCI to configure the updatedd configuration file (/etc/config/updatedd).
 
 === Show the current configuration ===
-Standardconfiguration after installing the updatedd package.
+Default configuration after installing the updatedd package.
 {{{
 uci show updatedd
 }}}
