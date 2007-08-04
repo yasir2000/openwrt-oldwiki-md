@@ -33,10 +33,49 @@ Updatedd can be used with the following services:
  * http://www.tzo.com
  * http://www.zoneedit.com
 == The configuration file ==
-Kamikaze uses UCI to configure the updatedd configuration file (/etc/config/updatedd).The main configuration is done now.
+Kamikaze uses UCI to configure the updatedd configuration file (/etc/config/updatedd).
 
-== Multiple Hostnames ==
+=== Show the current configuration ===
+Standardconfiguration after installing the updatedd package.
+{{{
+uci show updatedd
+}}}
+{{{
+updatedd.cfg1=updatedd
+updatedd.cfg1.update=0
+}}}
+
+=== Add a new service ===
+{{{
+updatedd.cfg1=updatedd
+updatedd.cfg1.service=dyndns
+updatedd.cfg1.user=<username>
+updatedd.cfg1.passwd=<password>
+updatedd.cfg1.host=<hostname>.dyndns.org
+updatedd.cfg1.update=1
+uci commit updatedd
+}}}
+
+The main configuration is done now.
+
+=== Multiple Hostnames ===
 If you have more than one hostname registered and would like to update them all to the same IP via updatedd, then simply add another section/config via UCI to /etc/config/updatedd.
+
+{{{
+updatedd.cfg2=updatedd
+updatedd.cfg2.service=dyndns
+updatedd.cfg2.user=<username>
+updatedd.cfg2.passwd=<password>
+updatedd.cfg2.host=<hostname>.homelinux.org
+updatedd.cfg2.update=1
+uci commit updatedd
+}}}
+
+=== Delete a service ===
+{{{
+uci del updatedd.cfg2
+uci commit updatedd
+}}}
 
 = Starting DDNS =
 == Via hotplug (recommended and default) ==
