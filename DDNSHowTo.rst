@@ -122,7 +122,8 @@ If you are using PPP or PPPoE (as often for DSL), you can use a simple script, b
 
 Create the file /etc/ppp/ip-up.d/S01dyndns with the following content:
 
-{{{#!/bin/sh
+{{{
+#!/bin/sh
 
 USER="username"
 PASS="password"
@@ -139,7 +140,6 @@ newip=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 newdns=$(nslookup $DOMAIN|sed s/[^0-9.]//g|tail -n1)
 echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
 	| /usr/bin/logger -t ddupd
-
 }}}
 This script queries DNS to find the current registered address, compares it with the current external IP using the ''checkip'' Web Service to avoid unneeded updates.
 
