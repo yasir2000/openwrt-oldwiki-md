@@ -49,6 +49,7 @@ If the ethernet jack is in front of you, it looks like
 +-----+ +--------+    +---+
 |Power| |Ethernet|    |Ant|
 }}}
+RXD and TXD are lowlevel (3.3V) signals. NOT RS232 levels.
 {{{
 VCC (3.3V) -> red
 GND        -> blue
@@ -62,6 +63,8 @@ r . . . .
 Serial settings are 9600-8-N-1
 
 I have to power the fonera up wait for a few seconds before connecting the serial cable, otherwise it doesn't boot.
+
+Another way might be to push the reset button located on the underside of the router.
 
 == CPU ==
 {{{
