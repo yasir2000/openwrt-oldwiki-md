@@ -2,7 +2,7 @@
 = Linksys WRT54G =
 There are currently many versions of the WRT54G. With the exception of v5 devices the WRT54G units are supported by OpenWrt 0.9 (White Russian) and later. The version number is found on the label on the bottom of the front part of the case below the Linksys logo.
 
-Some consider the [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL] and [:OpenWrtDocs/Hardware/Linksys/WRT54G3G:WRT54G3G] to be versions of this model.
+Some consider the ["L"] and ["3G"] to be versions of this model.
 
 {{{boot_wait}}} is '''off''' by default on these routers, so you should turn it on, see OpenWrtDocs/BootWait.
 
@@ -21,7 +21,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v5.1* ||CDFC || (./) || {X} ||
 ||WRT54G v6 * ||CDFD || (./) || {X} ||
 ||<style="VERTICAL-ALIGN: top">WRT54G v7 ||<style="VERTICAL-ALIGN: top">CDFE ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
-||<style="VERTICAL-ALIGN: top">WRT54G v8 ||<style="VERTICAL-ALIGN: top">CDFF ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
+||<style="VERTICAL-ALIGN: top">WRT54G v8 ||<style="VERTICAL-ALIGN: top">CDFF or CDFG ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
 
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
@@ -165,7 +165,7 @@ If you are lucky, your router is now back to normal.
 '''Note''': I have only used this once on a WRT54G V2 that was clocked to 240MHz. Other models and overclock speeds may not respond to this hack. Good luck.
 
 === Overclocking for the v2, v2.2, and v3 ===
-Other models use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a nvram reset. Be even more careful with these versions of the WRT54G. 
+Other models use the commonly documented clock frequencies, with a max CPU clock of 300mhz. They do not appear to have CFEs that will prevent the clock from being set to invalid frequencies, or that recover to default clkfreq via a nvram reset. Be even more careful with these versions of the WRT54G.
 
 The value of clkfreq must be set in the style of clkfreq=<CPU,SB>, only entering CPU speed bricked my V2 @252MHz, although it runs stable @300MHz with the value entered in the way described - I guess only setting CPU speed leads to an unstable CPU/SB ratio.
 
