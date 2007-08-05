@@ -198,10 +198,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo5+h6ltbNlwaaFp6DQoHDrpziVF9o0OBN/l DSL-320T] ||EU ||200Mhz ||2MB ||8MB ||None ||None ||pspboot (mod) || || || ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-320T WiP] ||
 ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T DSL-502T] ||AU/AT ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||Yes ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T WiP] ||
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros 2315] ||? ||[http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 1M x 16 Bit x 4 Banks (ESMT M12L64164A)] ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||? ||No ||[:AtherosPort:WiP] ||
-||[http://www.dlink.com/products/?pid=316 DI-524]||VER:V1.1
-(2004)||Marvell 88W8510-BAN||4MB (Intel TE28F160)||8MB (IS42S32200B||Marvell
-88W8000||Marvell
-88E6060||?||J5 - 20pins||J5||No||Info Entered||
+||[http://www.dlink.com/products/?pid=316 DI-524]||VER:V1.1 (2004)||Marvell 88W8510-BAN||4MB (Intel TE28F160)||8MB (IS42S32200B||Marvell 88W8000||Marvell 88E6060||?||J5 - 20pins||J5||No||Info Entered||
 ||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||? ||? ||Yes ||Yes ||Info Entered ||
 ||<style="vertical-align: top;">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="vertical-align: top;">HW:H1 ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="vertical-align: top;">1MB (MX 29LV800BBTC-70) ||<style="vertical-align: top;">8MB (MIRA P2V64S40DTP) ||<style="vertical-align: top;">Atheros (integrated) ||<style="vertical-align: top;">Marvell 88E6060 ||<style="vertical-align: top;">? ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC µPD30131F1 VR4131 ||2MB || |||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
@@ -220,6 +217,8 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||DSM-G600 ||Rev A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||16MB || ||Atheros || ||N/A ||Yes ||Yes ||Yes || ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB || ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
+
+
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
@@ -242,10 +241,15 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.edimax.com.tw/html/english/products/EW-7206APg.htm EW-7206APg] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||No ||? ||Yes ||No ||No ||Clones: [http://global.level1.com/products2.php?Id=5 LevelOne WAP-0006], [http://www.longshine.de/longshine/products/wireless/WA5-40P/WA5-40P_eng.pdf Longshine LCS WA5-40], Minitar MNWAPG, [http://www.planet.com.tw/product/product_dm.php?product_id=390 Planet WAP-4033], Freenet Antennas UltraWAP, [http://tonze.com.tw/offer.php?id=products/wireless_lan_ap_bridge/aw6200r Tonze AW-6200r] ||
 ||[http://www.edimax.nl/html/english/products/EW-7207APg.htm EW-7207APg] ||? ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||2MB ||16MB ||Inprocomm IPN2220 ||4 Port ||? ||Yes ||? ||No || ||
 ||[http://www.edimax.nl/html/english/products/EW-7209APg.htm EW-7209APg] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||16MB ||Realtek RTL8285 ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=20&Level=5&Conn=4&ProdID=31 RealTek RTL8305SC] ||? ||Yes ||No ||No || ||
-== Fon ==
+== Fon (Accton Manufactured) ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 La Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||N/A ||None ||N/A ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze] ||
-||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 La Fonera+] ||FON2200 ||Unknown ||?MB ||?MB ||N/A ||None ||N/A ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera+:Info entered] ||
+||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-001 La Fonera] ||FON2100 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB* ||16MB ||Atheros SoC
+||WAN ||Redboot** ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze] ||
+||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 La Fonera] ||FON2200 ||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz ||8MB ||16MB ||Atheros SoC
+||WAN ||Redboot** ||Yes ||Yes ||No ||N/A ||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze] ||
+||[https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 Fonera+]||FON2201||[http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf Atheros AR2315] @ 180MHz||8MB||16MB||Atheros SoC||WAN and LAN||Redboot**||Yes||Yes||No***||N/A||[:OpenWrtDocs/Hardware/Fon/Fonera:Kamikaze]||
+* Some early 2100s were know to have only 4MB of flash.  **Redboot provides a boot wait option.  ***The Fonera+ was intended to have USB, but it appears that Fon settled for a router that had only another port over it's brethren.  Essentially the three Fon routers are completely identical in terms of core hardware.
+
 == Freecom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.freecom.com/ecProduct_detail.asp?ID=2347 FSG-3] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||64MB ||N/A (Empty mini-PCI) ||RTL8305SB ||N/A ||Yes ||Yes ||2.0 ||SATA+PATA ||[:FreecomFSG3:WiP] ||
@@ -510,4 +514,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . CategoryOpenWrtPort
 ----
- ["CategoryAR7Device"]
+ . ["CategoryAR7Device"]
