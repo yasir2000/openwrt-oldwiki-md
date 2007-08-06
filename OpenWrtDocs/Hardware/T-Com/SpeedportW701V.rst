@@ -1418,7 +1418,8 @@ make defconfig package/symlinks
 make menuconfig
 
  * select Target System (TI AR7 [2.6])
- * select kmod-sangam-atm-annex (b for germany)
+ * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (b for germany)
+
 wget http://code.bastart.eu.org/projects/fritz-wrt/patches/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
 time make world V=99
