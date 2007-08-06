@@ -20,8 +20,7 @@ PDF downloads from RDC:
 The RDC support was started in October 2006 in the Kamikaze branch and is now considered stable with squashfs images.
 == TODO ==
 
-Make GPIO work more fully on this device. Upgrade rt61 wireless driver to use the dscape version.
-Fix JFFS2 images.
+Find all GPIO lines.
 
 == Hardware differences ==
 
