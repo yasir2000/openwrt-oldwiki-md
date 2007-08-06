@@ -1411,6 +1411,8 @@ To install OpenWRT you need an OpenWRT Kamikaze image file, it's best to build y
 === Building OpenWrt ===
 svn co https://svn.openwrt.org/openwrt/trunk/
 
+cd trunk
+
 make defconfig package/symlinks
 
 make menuconfig
