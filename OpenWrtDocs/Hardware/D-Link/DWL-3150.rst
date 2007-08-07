@@ -27,3 +27,11 @@ Ethernet port
 
 LEDs
 }}}
+
+=== Flashing ===
+
+OpenWrt Kamikaze runs fine on it either using brcm-2.4 or brcm47xx-2.6. You can flash a '.trx' using CFE by issuing the following command :
+
+{{{
+flash -noheader <TFTP server IP address>:openwrt-brcm-2.4-squashfs.trx flash1.trx
+}}}
