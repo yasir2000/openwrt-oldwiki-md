@@ -254,6 +254,7 @@ Sep  8 12:00:14 cfgmgr(sar):  Error: Could not find oam_ping_interval
 == Information ==
 {{{
 # cat /proc/iomem
+odulation_schemes
 00000000-13ffffff : reserved
 14000000-1401ffff : System RAM
 14020000-147fffff : System RAM
@@ -269,7 +270,7 @@ ramfs /var ramfs rw 0 0
 
 # cat /proc/tty/driver/serial
 serinfo:1.0 driver:5.05c revision:2001-07-08
-0: uart:16550A port:A8610E00 irq:15 baud:667 tx:4884 rx:125 RTS|DTR
+0: uart:16550A port:A8610E00 irq:15 baud:667 tx:3741 rx:0 RTS|DTR
 1: uart:unknown port:A8610F00 irq:16
 
 # cat /proc/cpuinfo
@@ -291,6 +292,10 @@ mtd2: 00010000 00008000 "mtd2"
 mtd3: 00010000 00010000 "mtd3"
 mtd4: 001e0000 00010000 "mtd4"
 
+# cat /proc/version
+Linux version 2.4.17_mvl21-malta-mips_fp_le (root@localhost.localdomain) (gcc version
+ 2.95.3 20010315 (release/MontaVista)) #16 T┐ 2LT 13 16:52:30 CST 2006
+
 # cat /proc/avalanche/avsar_ver
 ATM Driver version:[6.00.01.00]
 DSL HAL version: [6.00.01.00]
@@ -298,6 +303,19 @@ DSP Datapump version: [6.00.02.00] Annex A
 SAR HAL version: [01.07.2b]
 PDSP Firmware version:[0.54]
 Chipset ID: [Ohio250(7200/7100A2)]
+
+# cat /proc/avalanche/cpmac_ver
+Texas Instruments : CPMAC Linux DDA version 1.8
+Texas Instruments : CPMAC DDC version 0.2
+
+# cat /proc/avalanche/psp_version
+Linux OS DSL-PSP version 4.6.1.9 on BasePSP Version 7.1.0.8 Feb 13 2006 11:58:03 Aval
+anche SOC Version: 0x11002b operating in cached, write back, write allocate mode Cpu
+Frequency:211 MHZ System Bus frequency: 105 MHZ
+
+# cat /proc/avalanche/usb0_ver
+Texas Instruments USB CDC/RNDIS Driver Version 1.1.1
+Built for CDC-RNDIS protocol(s).
 }}}
 
 ----
