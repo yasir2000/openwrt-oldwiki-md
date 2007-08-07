@@ -25,7 +25,8 @@ and power-cycle your WRT54GL.
 These instructions should be valid for WRT54G v2~v4 devices.
 (Not tested yet, if you do - post your results)
 
-Commet added 07.08.2007 by Markus Rudolf: 
+=== Comment about the WRT54G V2 ===
+Comment added 07.08.2007 by Markus Rudolf: 
 WRT54G V2 contains SDRAM instead of above mentioned DDR-RAM. So at least with these chips you can't upgrade to 32MByte or more.
 I'm still trying to find some suitable SDRAMs to upgrade my WRT54G V2 to 32MB+.
 
