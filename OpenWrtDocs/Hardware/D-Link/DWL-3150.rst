@@ -28,6 +28,9 @@ Ethernet port
 LEDs
 }}}
 
+
+The BCM5352 is nothing more than  BCM3302 CPU with on-chip BCM4318 Wi-Fi microcontroller. See http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL
+
 === Flashing ===
 
 OpenWrt Kamikaze runs fine on it either using brcm-2.4 or brcm47xx-2.6. You can flash a '.trx' using CFE by issuing the following command :
