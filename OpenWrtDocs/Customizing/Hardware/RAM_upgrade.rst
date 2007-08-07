@@ -27,7 +27,7 @@ These instructions should be valid for WRT54G v2~v4 devices.
 
 === Comment about the WRT54G V2 ===
 Comment added 07.08.2007 by Markus Rudolf: 
-WRT54G V2 contains SDRAM instead of above mentioned DDR-RAM. So at least with these chips you can't upgrade to 32MByte or more.
+WRT54G V2 contains SDRAM (mine contains 2 pieces of [http://web.icsi.com.tw/domino/packinfo.nsf/eb92bdb85417334b482569ec00225dc2/727fa1dcc13a325948256f320003c65a/$FILE/42s16400(RevE).pdf] ISSI IC42S16400-6T] (1M x 16Bit x 4 Banks SDRAM) instead of above mentioned DDR-RAM. So at least with these chips you can't upgrade to 32MByte or more.
 I'm still trying to find some suitable SDRAMs to upgrade my WRT54G V2 to 32MB+.
 
 === Where to get a RAM chip from? ===
