@@ -1,15 +1,23 @@
 [[TableOfContents]]
 
 = Status of the Broadcom 63xx port of OpenWrt =
+
+ * The Broadcom BCM963xx currently only works with BCM96348 boards, but will soon with others as well
+ * We have no GPL'd drivers for Ethernet, DSL so this makes the board pretty useless
+
 == What is this Broadcom 63xx stuff? ==
+
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 == What are 63xx variants? ==
-There are (at least) three 63xx variants: bcm6345,bcm6338,bcm6348.
+There are four 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358
 ||<tablewidth="532px" tableheight="155px" tablealign="">Chip||CPU Mhz||USB Device||USB Host||WiFi||
 ||bcm6345||  75  ||1.1||-||-||
 ||bcm6338||  240  ||1.1||-||-||
 ||bcm6348||  240  ||1.1||1.1||Yes||
+||bcm6258||  300  ||2.0||2.0||Yes||
+
 == Known 63xx platforms ==
+
 Known 6345 platforms*:
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
 ||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA770W] ||
@@ -24,6 +32,7 @@ Known 6338 platforms*:
 
 ||[:OpenWrtDocs/Hardware/Huawei/EchoLife HG520:Huawei EchoLife HG510] ||
 ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:ZTE ZXDSL 831CII] ||
+
 Known 6348 platforms*:
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536+] ||
 ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:Linksys WAG54GS] ||
@@ -35,16 +44,24 @@ Known 6348 platforms*:
 ||[http://www.tecomproduct.com/AH4021.htm Hitachi AH4021 (German Telekom "Speedport W500V")] ||
 ||[:OpenWrtDocs/Hardware/Asus/WL600g:ASUS WL-600G] ||
 ||[:OpenWrtDocs/Hardware/Belkin/f5d7633-4:belkin f5d7633-4] ||
+||[:OpenWrtDocs/Hardware/Freebox/FreeboxV4: Freebox v4] ||
+||[:OpenWrtDocs/Hardware/Inventel/Livebox: Inventel Livebox] ||
+
+Known 6358 platforms*:
+||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5: Freebox v5] ||
+||[:OpenWrtDocs/Hardware/Neuf/NeufBoxV4: NeufBox v4] ||
 
 * If no dedicated Openwrt page is found an external link is supplied
 
 == Finished tasks ==
 The support for Broadcom 63xx is at this state :
 
- * Linux 2.6.16.7 kernel booting
+ * Linux 2.6.x booting
+
 == TODO ==
- * Fix MTD/Flash map driver (need special table for CFE and [http://sources.redhat.com/ecos/docs-latest/redboot/redboot-guide.html RedBoot] devices)
- * Try to run binary drivers with CONFIG_VERSIONING set on
+
+ * Talk with Broadcom related vendors to make them release some sources
+
 == Firmware/Bootloader ==
 Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-in LZMA decompressor such as Siemens SE515, Free Freebox ...
 
