@@ -113,6 +113,8 @@ If you are not happy with !OpenWrt, you can always reinstall your original firmw
 == via vendor supplied web interface ==
 This is the easiest method, Open your web browser and use the firmware upgrade page on your device to upload the !OpenWrt firmware.
 
+You should use HTTP rather than HTTPS for the firmware upgrade.
+
 == via tftp ==
 If you're being extremely cautious or are attempting to reflash from a failed upgrade, you can use tftp to install the firmware. This method is explained in detail on the OpenWrtViaTftp page.
 
