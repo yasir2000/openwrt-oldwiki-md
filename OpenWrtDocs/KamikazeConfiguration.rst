@@ -155,15 +155,8 @@ First, you need to have installed the wl package - '''ipkg install wl'''
 
 
 Create the following script as '''/etc/init.d/wlmacfilter'''
-
-----
- . /!\ '''Edit conflict - other version:'''
-----
 {{{
 #!/bin/sh /etc/rc.common
----- /!\ '''Edit conflict - your version:''' ----
-{{{#!/bin/sh /etc/rc.common
----- /!\ '''End of edit conflict''' ----
 # The macfilter 2 means that the filter works in "Allow" mode.
 # Other options are: 0 - disabled, or 1 - Deny.
 #
@@ -176,16 +169,10 @@ MACLIST=`uci get wireless.wl0.maclist`
 start() {
         wlc ifname wl0 maclist "$MACLIST"
         wlc ifname wl0 macfilter "$MACFILTER"
----- /!\ '''Edit conflict - other version:''' ----
----- /!\ '''Edit conflict - your version:''' ----
----- /!\ '''End of edit conflict''' ----
 }
 stop() {
         wlc ifname wl0 maclist none
         wlc ifname wl0 macfilter 0
----- /!\ '''Edit conflict - other version:''' ----
----- /!\ '''Edit conflict - your version:''' ----
----- /!\ '''End of edit conflict''' ----
 }
 }}}
 Finally, enable the script to run at boot time:
