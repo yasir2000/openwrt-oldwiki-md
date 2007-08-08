@@ -318,7 +318,7 @@ Step 4: Save the file and just test it, it will lit Wlan and White SES Led when 
 If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
 
 === timezone/ntp ===
-With x-wrt, use the webif^2 System -> Settings page.
+With the x-wrt webif^2, use System -> Settings page. :)
 
 Otherwise, in /etc/config/timezone an example is (for info about other zones and DST rules, see
 http://wiki.openwrt.org/OpenWrtDocs/Configuration and look for Timezone)
@@ -327,33 +327,62 @@ config timezone
         option posixtz  MST7MDT,M3.2.0,M11.1.0
         option zoneinfo 'America/Denver'
 }}}
-with x-wrt, you can run
+~-Note: The '''zoneinfo''' field is designed to contain the same information like the timezone setting in most current *nix implementations (the Olson's database). It will later enable to simply synchronize changes in the POSIX TZ strings.-~
+
+Next you either create the /etc/TZ file and copy the posixtz field to it or you can create a simple timezone init script which will handle all TZ changes and the creation of the /etc/TZ file:
+{{{
+#!/bin/sh /etc/rc.common
+
+START=11
+
+timezone_config() {
+        local cfg="$1"
+        local posixtz
+        local etctz="/etc/TZ"
+
+        config_get posixtz "$cfg" posixtz
+
+        if [ ! -h $etctz ]; then 
+                ln -sf /tmp/TZ "$etctz"
+        fi
+        [ -n "$posixtz" ] && echo "$posixtz" > "$etctz" || echo "UTC+0" > "$etctz"
+}
+
+start() {
+        config_load timezone
+        config_foreach timezone_config timezone
+}
+
+restart() {
+        start
+}
+}}}
+and issue
 {{{
 /etc/init.d/timezone start
+/etc/init.d/timezone enable
 }}}
-so that will put the appropriate data in /etc/TZ.  With openwrt you
-have to add your own script lines.
 
 You could use rdate in a script to set the time just at boot time and
 rely on the router's timer to keep it current.  But, to use ntp
-install ntpclient, and (x-wrt specific again?) in /etc/config/ntp_client an example is
+install ntpclient, and in modify /etc/config/ntp_client to your needs:
 {{{
-config "ntp_client" ""
+config ntpclient
         option hostname 'pool.ntp.org'
+        option port     '123'
+        option count    '1'
+
+config ntpclient
+        option hostname 'ntp.ubuntu.com'
         option port     '123'
         option count    '1'
 }}}
 (feel free to substitute your local ntp server for pool.ntp.org)
 then run
 {{{
-/etc/init.d/network restart
+ACTION=ifup /etc/hotplug.d/iface/20-ntpclient
 }}}
-and check what date says.
-An openwrt installation without x-wrt may need a specific command to start
-ntpclient, and this is suggested:
-{{{
-/usr/sbin/ntpclient -c 0 -s -h pool.ntp.org &
-}}}
+or restart the network and check what date says.
 
 == More HowTos ==
 For more How-To's (for example setting up Kamikaze, step by step) have a look at  http://forum.openwrt.org/viewforum.php?id=17
