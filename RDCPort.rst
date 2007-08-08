@@ -15,6 +15,10 @@ PDF downloads from RDC:
 [http://www.sima.com.tw/download/R8610_D06_20051003.pdf Draft of old R8610 datasheet]
 [attachment:R8610-G_D01_20051207.pdf Draft of old R8610-G datasheet]
 
+Guy working on RDC : 
+
+http://www.ivankuten.com/system-on-chip-soc/rdc-r8610/
+
 == Status ==
 
 The RDC support was started in October 2006 in the Kamikaze branch and is now considered stable with squashfs images.
