@@ -317,6 +317,26 @@ Step 4: Save the file and just test it, it will lit Wlan and White SES Led when 
 === Problems running vsftp on OpenWRT Kamikaze 7.06 ===
 If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
 
+=== timezone/ntp ===
+With x-wrt, use the webif^2 System -> Settings page.
+You may want to check /etc/config/ntpclient if you prefer to use a local
+server rather than bother a distant one, by the way.
+
+Otherwise, in /etc/config/timezone an example is (for more info, see Configuration#Timezone)
+{{{
+config timezone
+        option posixtz  MST7MDT,M3.2.0,M11.1.0
+        option zoneinfo 'America/Denver'
+}}}
+install ntpclient to use ntp, and in /etc/config/ntpclient an example is
+{{{
+config ntpclient
+        option hostname 'pool.ntp.org'
+        option port     '123'
+        option count    '1'
+}}}
+then run the /etc/init.d/timezone start and check what date says.
+
 == More HowTos ==
 For more How-To's (for example setting up Kamikaze, step by step) have a look at  http://forum.openwrt.org/viewforum.php?id=17
 
