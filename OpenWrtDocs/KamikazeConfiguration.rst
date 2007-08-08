@@ -319,23 +319,41 @@ If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it
 
 === timezone/ntp ===
 With x-wrt, use the webif^2 System -> Settings page.
-You may want to check /etc/config/ntpclient if you prefer to use a local
-server rather than bother a distant one, by the way.
 
-Otherwise, in /etc/config/timezone an example is (for more info, see Configuration#Timezone)
+Otherwise, in /etc/config/timezone an example is (for info about other zones and DST rules, see
+http://wiki.openwrt.org/OpenWrtDocs/Configuration and look for Timezone)
 {{{
 config timezone
         option posixtz  MST7MDT,M3.2.0,M11.1.0
         option zoneinfo 'America/Denver'
 }}}
-install ntpclient to use ntp, and in /etc/config/ntpclient an example is
+with x-wrt, you can run
 {{{
-config ntpclient
+/etc/init.d/timezone start
+}}}
+so that will put the appropriate data in /etc/TZ.  With openwrt you
+have to add your own script lines.
+
+You could use rdate in a script to set the time just at boot time and
+rely on the router's timer to keep it current.  But, to use ntp
+install ntpclient, and (x-wrt specific again?) in /etc/config/ntp_client an example is
+{{{
+config "ntp_client" ""
         option hostname 'pool.ntp.org'
         option port     '123'
         option count    '1'
 }}}
-then run the /etc/init.d/timezone start and check what date says.
+(feel free to substitute your local ntp server for pool.ntp.org)
+then run
+{{{
+/etc/init.d/network restart
+}}}
+and check what date says.
+An openwrt installation without x-wrt may need a specific command to start
+ntpclient, and this is suggested:
+{{{
+/usr/sbin/ntpclient -c 0 -s -h pool.ntp.org &
+}}}
 
 == More HowTos ==
 For more How-To's (for example setting up Kamikaze, step by step) have a look at  http://forum.openwrt.org/viewforum.php?id=17
