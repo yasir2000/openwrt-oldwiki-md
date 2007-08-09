@@ -55,8 +55,9 @@ Use this terminal setting:'''115200, 8, n, 1 with software flow-contol '''(= non
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' ||<style="text-align: center;"> '''S/N prefix''' ||<style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
-||WRT54G3G v1 || ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G3G v1.1 || CKI11F9... ||<style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
+||'''Model''' ||<style="text-align: center;"> '''S/N prefix''' ||<style="text-align: center;"> '''Code pattern''' || <style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
+||WRT54G3G v1 || || W54F? || <style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
+||WRT54G3G v1.1 || CKI11F9... || W54G || <style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
+||WRT54G3g v2.0 || CKI11G4... || W3GN || <style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
 ----
  . CategoryModel
