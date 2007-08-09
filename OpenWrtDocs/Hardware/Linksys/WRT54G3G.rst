@@ -1,5 +1,6 @@
 = Linksys WRT54G3G =
-/!\ '''NOTE:''' This device is not yet fully supported.  [With Kamikaze 7.06, my g3g v1.1 is working just fine, could someone explain what isn't supported?  Or remove the note.]
+
+This device works fine with OpenWRT Kamikaze 7.06 and 7.07.  Earlier versions may not fully support this device.
 
 This device seems to be a normal ["OpenWrtDocs/Hardware/Linksys/WRT54G"] with a !CardBus.
 
