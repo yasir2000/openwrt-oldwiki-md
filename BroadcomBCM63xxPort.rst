@@ -14,7 +14,7 @@ There are four 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358
 ||bcm6345||  75  ||1.1||-||-||
 ||bcm6338||  240  ||1.1||-||-||
 ||bcm6348||  240  ||1.1||1.1||Yes||
-||bcm6258||  300  ||2.0||2.0||Yes||
+||bcm6358||  300  ||2.0||2.0||Yes||
 
 == Known 63xx platforms ==
 
