@@ -27,6 +27,8 @@ The v1.1 has a Broadcom BCM4712 CPU (200MHz) and ~14MB RAM.
 
 There's different 3G data cards bundled with this device. "Vodafone Mobile Connect 3G/GPRS data card" has NEC USB2 controller with two generic USB ports builtin. 3G side is connected to those ports.
 
+I wrote some instructions on installing this device at [http://josefsson.org/grisslan/internet.html my home page].
+
 = Serial port =
 attachment:WRT54G3G_Serial.jpg
 
@@ -55,9 +57,9 @@ Use this terminal setting:'''115200, 8, n, 1 with software flow-contol '''(= non
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' ||<style="text-align: center;"> '''S/N prefix''' ||<style="text-align: center;"> '''Code pattern''' || <style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
-||WRT54G3G v1 || || W54F? || <style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54G3G v1.1 || CKI11F9... || W54G || <style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
-||WRT54G3g v2.0 || CKI11G4... || W3GN || <style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
+||'''Model''' ||<style="text-align: center;"> '''S/N prefix''' ||<style="text-align: center;"> '''Code pattern''' ||<style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
+||WRT54G3G v1 || || W54F? ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
+||WRT54G3G v1.1 || CKI11F9... || W54F ||<style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
+||WRT54G3g v2.0 || CKI11G4... || W3GN ||<style="text-align: center;"> ? ||<style="text-align: center;"> (./) ||
 ----
  . CategoryModel
