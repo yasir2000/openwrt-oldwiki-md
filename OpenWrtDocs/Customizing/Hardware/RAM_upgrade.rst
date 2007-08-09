@@ -30,6 +30,8 @@ Comment added 07.08.2007 by Markus Rudolf:
 WRT54G V2 contains SDRAM (mine contains 2 pieces of [http://web.icsi.com.tw/domino/packinfo.nsf/eb92bdb85417334b482569ec00225dc2/727fa1dcc13a325948256f320003c65a/$FILE/42s16400(RevE).pdf ISSI IC42S16400-6T] (1M x 16Bit x 4 Banks SDRAM) instead of above mentioned DDR-RAM. So at least with these chips you can't upgrade to 32MByte or more.
 I'm still trying to find some suitable SDRAMs to upgrade my WRT54G V2 to 32MB+.
 
+WRT54G V2.2 is new PCB layout and at least upgrade to 32MB is possible without any further action but simply changing the RAM chip. 64MB not tested due to lack of sufficient RAM chip.
+
 === Where to get a RAM chip from? ===
 The easyest way to obtain a 66-pin TSOP memory chip is to unsolder it from a SoDIMM DDR module.
 
