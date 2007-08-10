@@ -1588,10 +1588,7 @@ NET: Registered protocol family 17
 All bugs added by David S. Miller <davem@redhat.com>
 VFS: Mounted root (squashfs filesystem) readonly.
 Freeing unused kernel memory: 104k freed
-Warning: unable to open an initial console.  
-----
-until here tested and confirmed by Tschäfer , then it stopped booting/working 2007-Aug-06
-----
+Warning: unable to open an initial console.
 Algorithmics/MIPS FPU Emulator v1.5
 - preinit -
 switching to jffs2
