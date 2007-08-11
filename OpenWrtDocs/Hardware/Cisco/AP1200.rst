@@ -77,3 +77,6 @@ Total alternate heap bytes: 0xe7d000 (15192064)
 Alternate heap bytes used: 0x0 (0)
 Alternate heap bytes available: 0xe7d000 (15192064)
 }}}
+
+
+=== Image layout ===
