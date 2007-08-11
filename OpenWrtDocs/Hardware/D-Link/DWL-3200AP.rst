@@ -22,3 +22,5 @@ Ethernet
 
 LEDs
 }}}
+
+Serial settings are : 9600 8N1
