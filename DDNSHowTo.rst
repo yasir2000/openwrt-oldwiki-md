@@ -10,7 +10,7 @@ The DDNS service comes in handy for establishing connections from computers on t
 /!\ '''Please note:''' ez-ipupdate has been critizied for various reasons in the !OpenWrt Forum. However, if you are using PPP or PPPoE (as often for DSL), you can use a simple script - no package needs to be installed. See at the end in the section '''ip-up Script Alternative'''.
 
 = Requirements =
- * A recent OpenWrt version. This howto was written for the 'Kamikaze 7.07' and later releases.
+ * A recent !OpenWrt version. This howto was written for the 'Kamikaze 7.07' and later releases.
  * An account with a compatible DDNS service (see Configuration)
 = Installation =
 Install the updatedd package and the plugin package for your DDNS service. <plugin> can be changeip, dyndns, eurodyndns, hn, noip, ods, ovh, regfish, tzo or zoneedit.
@@ -37,6 +37,7 @@ Kamikaze uses UCI to configure the updatedd configuration file (/etc/config/upda
 
 === Show the current configuration ===
 Default configuration after installing the updatedd package.
+
 {{{
 uci show updatedd
 }}}
@@ -44,7 +45,6 @@ uci show updatedd
 updatedd.cfg1=updatedd
 updatedd.cfg1.update=0
 }}}
-
 === Add a new service ===
 {{{
 uci set updatedd.cfg1=updatedd
@@ -53,9 +53,8 @@ uci set updatedd.cfg1.user=<username>
 uci set updatedd.cfg1.passwd=<password>
 uci set updatedd.cfg1.host=<hostname>.dyndns.org
 uci set updatedd.cfg1.update=1
-uci set uci commit updatedd
+uci commit updatedd
 }}}
-
 The main configuration is done now.
 
 === Multiple Hostnames ===
@@ -70,13 +69,11 @@ uci set updatedd.cfg2.host=<hostname>.homelinux.org
 uci set updatedd.cfg2.update=1
 uci commit updatedd
 }}}
-
 === Delete a service ===
 {{{
 uci del updatedd.cfg2
 uci commit updatedd
 }}}
-
 = Starting DDNS =
 == Via hotplug (recommended and default) ==
 This updates your DDNS every time a WAN connection gets etablished.
@@ -118,8 +115,8 @@ When finished do {{{ESC}}} and {{{:wq}}} to save it. You can check it with {{{cr
 There are some cron job calculators around the Internet. They maybe helpful for you. One of them is http://www.csgnetwork.com/crongen.html.
 
 == Debugging ==
-
 Use logread for debugging:
+
 {{{
 [...]
 Jul 20 13:47:49 OpenWrt user.notice syslog: <hostname>.dyndns.org: No changes, update considered abusive.
@@ -127,7 +124,6 @@ Jul 20 13:47:50 OpenWrt user.notice syslog: <hostname>.homelinux.org: No changes
 Jul 20 13:47:50 OpenWrt user.notice syslog: <hostname>.no-ip.org: successfully updated
 [...]
 }}}
-
 = ip-up Script Alternative =
 If you are using PPP or PPPoE (as often for DSL), you can use a simple script, because the pppd supports to run scripts in case of interface changes.
 
@@ -135,22 +131,20 @@ Create the file /etc/ppp/ip-up.d/S01dyndns with the following content:
 
 {{{
 #!/bin/sh
-
 USER="username"
 PASS="password"
 DOMAIN="yourhost.homeip.net"
-
 registered=$(nslookup $DOMAIN|sed s/[^0-9.]//g|tail -n1)
 current=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 [ "$current" != "$registered" ] && {
-	wget -O /dev/null http://$USER:$PASS@members.dyndns.org/nic/update?hostname=$DOMAIN &&
-	registered=$current
+        wget -O /dev/null http://$USER:$PASS@members.dyndns.org/nic/update?hostname=$DOMAIN &&
+        registered=$current
 }
 sleep 3
 newip=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 newdns=$(nslookup $DOMAIN|sed s/[^0-9.]//g|tail -n1)
 echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
-	| /usr/bin/logger -t ddupd
+        | /usr/bin/logger -t ddupd
 }}}
 This script queries DNS to find the current registered address, compares it with the current external IP using the ''checkip'' Web Service to avoid unneeded updates.
 
