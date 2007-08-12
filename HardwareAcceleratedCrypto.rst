@@ -19,7 +19,7 @@ BREAKTHROUGH! I found the API for programming the crypto API of the bcm5365P or 
 
  * *BSD has driver called 'ubsec' that supports some Broadcom encryption chips.
 
- * There's [http://ocf-linux.sourceforge.net/ Linux port] of OpenBSD OCF but Broadcom hardware is supported.
+ * There's [http://ocf-linux.sourceforge.net/ Linux port] of OpenBSD OCF but Broadcom hardware isn't supported.
 
  * Neither old open-source Linux driver, OpenSolaris nor BSD driver support AES.
 
