@@ -6,21 +6,21 @@ There are many versions of the WRT54GS. Models up to and including version 2.1 a
 
 == Identification by S/N ==
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
-||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' ||<style="text-align: center;"> '''S/N''' ||<style="text-align: center;">'''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
-||<style="text-align: center;" |2>WRT54GS v1.0 ||<style="text-align: center;"> CGN0 ||<style="text-align: center;" |2> (./) ||<style="text-align: center;" |2> (./) ||
-||<style="text-align: center;"> CGN1 ||
-||WRT54GS v1.1 ||<style="text-align: center;"> CGN2 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v2.0 ||<style="text-align: center;"> CGN3 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v2.1 ||<style="text-align: center;"> CGN4 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v3.0 ||<style="text-align: center;"> CGN5 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v4.0 ||<style="text-align: center;"> CGN6 ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) ||
-||WRT54GS v5 ||<style="text-align: center;"> CGN7 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} (works) ||
-||WRT54GS v5.1 ||<style="text-align: center;"> CGN8 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
-||WRT54GS v6.0 ||<style="text-align: center;"> CGN9 ||<style="text-align: center;"> (./) (partial) ||<style="text-align: center;"> {X} ||
+||||<style="TEXT-ALIGN: center"> (!) '''Please contribute to this list.''' (!) ||||||<style="TEXT-ALIGN: center">'''!OpenWrt''' ||
+||'''Model''' ||<style="TEXT-ALIGN: center">'''S/N''' ||<style="TEXT-ALIGN: center">'''Stable[[BR]]White Russian''' ||<style="TEXT-ALIGN: center">'''Development[[BR]]Kamikaze''' ||
+||<style="TEXT-ALIGN: center" |2>WRT54GS v1.0 ||<style="TEXT-ALIGN: center">CGN0 ||<style="TEXT-ALIGN: center" |2> (./) ||<style="TEXT-ALIGN: center" |2> (./) ||
+||<style="TEXT-ALIGN: center">CGN1 ||
+||WRT54GS v1.1 ||<style="TEXT-ALIGN: center">CGN2 ||<style="TEXT-ALIGN: center"> (./) ||<style="TEXT-ALIGN: center"> (./) ||
+||WRT54GS v2.0 ||<style="TEXT-ALIGN: center">CGN3 ||<style="TEXT-ALIGN: center"> (./) ||<style="TEXT-ALIGN: center"> (./) ||
+||WRT54GS v2.1 ||<style="TEXT-ALIGN: center">CGN4 ||<style="TEXT-ALIGN: center"> (./) ||<style="TEXT-ALIGN: center"> (./) ||
+||WRT54GS v3.0 ||<style="TEXT-ALIGN: center">CGN5 ||<style="TEXT-ALIGN: center"> (./) ||<style="TEXT-ALIGN: center"> (./) ||
+||WRT54GS v4.0 ||<style="TEXT-ALIGN: center">CGN6 ||<style="TEXT-ALIGN: center"> (./) ||<style="TEXT-ALIGN: center"> (./) ||
+||WRT54GS v5 ||<style="TEXT-ALIGN: center">CGN7 ||<style="TEXT-ALIGN: center"> {X} ||<style="TEXT-ALIGN: center"> {X} ||
+||WRT54GS v5.1 ||<style="TEXT-ALIGN: center">CGN8 ||<style="TEXT-ALIGN: center"> {X} ||<style="TEXT-ALIGN: center"> {X} ||
+||WRT54GS v6.0 ||<style="TEXT-ALIGN: center">CGN9 ||<style="TEXT-ALIGN: center"> {X} ||<style="TEXT-ALIGN: center"> {X} ||
 
 
-The WRT54GS-CA is identical to the WRT54GS, but it has packaging and documentation for the Canadian market.  This serial number information applies to the WRT54GS-CA.
+The WRT54GS-CA is identical to the WRT54GS, but it has packaging and documentation for the Canadian market. This serial number information applies to the WRT54GS-CA.
 
 === WRT54GS v1.0 ===
 The WRT54GS v1.0 uses an ADM6996 switch and SDRAM.
