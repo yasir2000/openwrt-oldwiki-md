@@ -50,7 +50,7 @@ Boot loader: ADAM2.
 
 Here is a picture:
 
-http://www.continent.com.au/images/products/MODSLG604T.gif
+http://www.dlink.ru/base/picz/DSL-G604T_.jpg
 
 = D-Link G604T flashing =
 
