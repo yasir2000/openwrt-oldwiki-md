@@ -56,13 +56,10 @@ To remove the front cover from this unit you simply pop the front of the case of
 
 This board has a BCM3302 processor, revision 0.8.
 
-=== WRT54G v5, v5.1, and v6 ===
+=== WRT54G v5, v5.1, v6 and v7 ===
 This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It has less flash (2 MB) and less RAM (8 MB). The WRT54G V5 is not officially supported, but a flashing procedure has been developed that will allow you to load a micro OpenWrt installation onto this device. For it to be of much use, packages must be pre-included in the squashfs filesystem image. For more information, see: [http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5_CFE http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE] .
 
 The flashing procedure linked to above utilizes the capability of the VxWorks boot loader to flash over itself to upload a proper CFE on this unit that then allows flashing a 'normal' TRX firmware image.
-
-=== WRT54G v7 ===
-This version has not been tested. Though not confirmed it is believed to use an Atheros chipset.
 
 === WRT54G v8 ===
 This version has not been tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this section if you have any known information.
