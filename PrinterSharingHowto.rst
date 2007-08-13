@@ -120,8 +120,8 @@ Then you use your new printer like you would a local one.
  * Type a name if you don't want the IP address for a name.
  * close the Printer Browser.
 == Windows clients ==
-=== Windows 2000/XP Home/Professional ===
-'''NOTE:''' I have only tested this with Windows 2000 Professional, I just assume it works the same with XP and the Home versions.
+=== Windows 2000/XP/Vista ===
+The following instructions should work on all versions of windows from 2000 onwards, and have been tested in both Windows 2000 and Windows Vista.
 
  * Install your printer software as you would if it were a local printer.
  * Go to your printer properties in the control panel/printer settings.
