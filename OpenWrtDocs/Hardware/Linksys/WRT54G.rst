@@ -17,11 +17,11 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||WRT54G v3 ||CDF8 || (./) || (./) ||
 ||WRT54G v3.1 (AU?, DE, FR and UK) ||CDF9 || (./) || (./) ||
 ||WRT54G v4 ||CDFA || (./) || (./) ||
-||WRT54G v5 * ||CDFB || (./) || {X} ||
-||WRT54G v5.1* ||CDFC || (./) || {X} ||
-||WRT54G v6 * ||CDFD || (./) || {X} ||
-||<style="VERTICAL-ALIGN: top">WRT54G v7 ||<style="VERTICAL-ALIGN: top">CDFE ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
-||<style="VERTICAL-ALIGN: top">WRT54G v8 ||<style="VERTICAL-ALIGN: top">CDFF or CDFG ||<style="VERTICAL-ALIGN: top">Unknown ||<style="VERTICAL-ALIGN: top">Unknown ||
+||WRT54G v5 * ||CDFB || {X} || {X} ||
+||WRT54G v5.1* ||CDFC || {X} || {X} ||
+||WRT54G v6 * ||CDFD || {X} || {X} ||
+||<style="VERTICAL-ALIGN: top">WRT54G v7 ||<style="VERTICAL-ALIGN: top">CDFE ||<style="VERTICAL-ALIGN: top"> {X} ||<style="VERTICAL-ALIGN: top"> {X} ||
+||<style="VERTICAL-ALIGN: top">WRT54G v8 ||<style="VERTICAL-ALIGN: top">CDFF or CDFG ||<style="VERTICAL-ALIGN: top"> {X} ||<style="VERTICAL-ALIGN: top"> {X} ||
 
 
 *Works without requiring a JTAG interface, but requires slightly more work to install than a WRT54G v1-4 or WRT54GL
@@ -56,15 +56,12 @@ To remove the front cover from this unit you simply pop the front of the case of
 
 This board has a BCM3302 processor, revision 0.8.
 
-=== WRT54G v5, v5.1, v6 and v7 ===
+=== WRT54G v5, v5.1, v6, v7 and v8 ===
 This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It has less flash (2 MB) and less RAM (8 MB). The WRT54G V5 is not officially supported, but a flashing procedure has been developed that will allow you to load a micro OpenWrt installation onto this device. For it to be of much use, packages must be pre-included in the squashfs filesystem image. For more information, see: [http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5_CFE http://www.bitsum.com/openwiking/owbase/ow.asp?WRT54G5%5FCFE] .
 
 The flashing procedure linked to above utilizes the capability of the VxWorks boot loader to flash over itself to upload a proper CFE on this unit that then allows flashing a 'normal' TRX firmware image.
 
-=== WRT54G v8 ===
-This version has not been tested. This version is thought to be very similar to the WRT54G v6 above. Please, contribute to this section if you have any known information.
 
-This unit has 2Mbytes of Flash and 8 Mbytes of SDRAM and is based on the Broadcom BCM5354 chip.
 
 === Table summary ===
 How to get info:
