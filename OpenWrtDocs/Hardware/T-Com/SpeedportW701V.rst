@@ -1644,6 +1644,36 @@ root@OpenWrt:/#
 
 === Getting the ADSL Working via PPPoA (Manually) ===
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
+/etc/config/network:
+{{{
+# Network configuration file
+ 
+config interface loopback
+        option ifname   lo
+        option proto    static
+        option ipaddr   127.0.0.1
+        option netmask  255.0.0.0
+ 
+config interface lan
+        option ifname   eth0
+        option proto    static
+        option ipaddr   192.168.128.1
+        option netmask  255.255.255.0
+ 
+config interface wan
+        option ifname   ppp0
+        option username "my_network_username@my_isp"
+        option password "my_network_password"
+        option proto    pppoa
+        option mtu      1500
+        option mru      1500
+        option vpi      0
+        option vci      38
+        option encaps   llc
+}}}
+
+ifup wan
+
 === Firmware images and configs ===
 == References ==
 There are loads of forum posts (in german) relating to the W701V here (use Suchen, top right, to search) http://www.ip-phone-forum.de/forumdisplay.php?f=560
