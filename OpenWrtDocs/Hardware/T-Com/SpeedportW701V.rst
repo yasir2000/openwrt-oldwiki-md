@@ -1419,7 +1419,6 @@ make menuconfig
 
  * select Target System (TI AR7 [2.6])
  * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (b for germany)
-
 wget http://code.bastart.eu.org/projects/fritz-wrt/patches/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
 time make world V=99
@@ -1492,15 +1491,22 @@ erase mtd1 .....................................................................
 Eva_AVM >
 flash .......................
 }}}
+Next up, you have to remove the old "kernel_args" adam2 environment variable if one is set (if you need your original firmware make sure you know what it's currently set to before erasing it, use printenv to find out).
+
+{{{
+Eva_AVM > unsetenv kernel_args
+}}}
+
 Finally, boot the device!  - type either "restart" or "go" at the adam2 prompt on the serial port or power the box off and on again.
 
 My boot log looked like this:
 
 {{{
-Eva_AVM >AVM decompress Kernel:
-...............done
+Eva_AVM >go
+AVM decompress Kernel:
+.....................done
 start kernel
-Linux version 2.6.22.1 (jan@server) (gcc version 4.2.1) #1 Fri Aug 3 06:01:16 CEST 2007
+Linux version 2.6.22.1 (hydra@hydra02) (gcc version 4.1.2) #3 Tue Aug 14 14:42:01 BST 2007
 CPU revision is: 00018448
 Clocks: Async mode
 Clocks: Setting DSP clock
@@ -1515,7 +1521,7 @@ TI AR7 (TNETD7200), ID: 0x002b, Revision: 0x11
 Determined physical RAM map:
  memory: 02000000 @ 14000000 (usable)
 Built 1 zonelists.  Total pages: 8128
-Kernel command line: init=/etc/preinit console=ttyS0,38400n8r
+Kernel command line: init=/etc/preinit rootfstype=squashfs,jffs2, console=ttyS0,38400n8r
 Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
 Primary data cache 8kB, 4-way, linesize 16 bytes.
 Synthesized TLB refill handler (20 instructions).
@@ -1526,7 +1532,7 @@ PID hash table entries: 128 (order: 7, 512 bytes)
 Using 105.984 MHz high precision timer.
 Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
 Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Memory: 28732k/32768k available (2077k kernel code, 4036k reserved, 427k data, 104k init, 0k highmem)
+Memory: 28728k/32768k available (2077k kernel code, 4040k reserved, 427k data, 108k init, 0k highmem)
 Mount-cache hash table entries: 512
 NET: Registered protocol family 16
 vlynq0: regs 0x08611800, irq 29, mem 0x04000000
@@ -1545,7 +1551,7 @@ TCP: Hash tables configured (established 1024 bind 1024)
 TCP reno registered
 squashfs: version 3.0 (2006/03/15) Phillip Lougher
 Registering mini_fo version $Id$
-JFFS2 version 2.2. (NAND) Â© 2001-2006 Red Hat, Inc.
+JFFS2 version 2.2. (NAND) .. 2001-2006 Red Hat, Inc.
 io scheduler noop registered
 io scheduler deadline registered (default)
 ar7_wdt: failed to unlock WDT disable reg
@@ -1557,7 +1563,7 @@ serial8250: ttyS0 at MMIO 0x8610e00 (irq = 15) is a TI-AR7
 console handover: boot [early0] -> real [ttyS0]
 Fixed PHY: Registered new driver
 cpmac-mii: probed
-cpmac: device eth0 (regs: 08610000, irq: 27, phy: fixed@100:1, mac: 00:1a:4f:f4:fe:52)
+cpmac: device eth0 (regs: 08610000, irq: 27, phy: fixed@100:1, mac: 00:1a:4f:cb:e2:d9)
 physmap platform flash device: 00400000 at 10000000
 physmap-flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
 NOR chip too large to fit in mapping. Attempting to cope...
@@ -1587,20 +1593,20 @@ NET: Registered protocol family 17
 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
 All bugs added by David S. Miller <davem@redhat.com>
 VFS: Mounted root (squashfs filesystem) readonly.
-Freeing unused kernel memory: 104k freed
+Freeing unused kernel memory: 108k freed
 Warning: unable to open an initial console.
 Algorithmics/MIPS FPU Emulator v1.5
 - preinit -
-switching to jffs2
+jffs2 not ready yet; using ramdisk
 mini_fo: using base directory: /
-mini_fo: using storage directory: /jffs
+mini_fo: using storage directory: /tmp/root
 - init -
-init started:  BusyBox v1.4.2 (2007-08-03 05:36:45 CEST) multi-call binary
+init started:  BusyBox v1.4.2 (2007-08-14 13:30:46 BST) multi-call binary
 Please press Enter to activate this console. ar7_wdt: failed to unlock WDT disable reg
 ar7_wdt: failed to unlock WDT kick reg
+PHY: fixed@100:1 - Link is Up - 10/Half
 NET: Registered protocol family 8
 NET: Registered protocol family 20
-PHY: fixed@100:1 - Link is Up - 10/Half
 PPP generic driver version 2.4.2
 acx: this driver is still EXPERIMENTAL
 acx: reading README file and/or Craig's HOWTO is recommended, visit http://acx100.sf.net in case of further questions/discussion
@@ -1612,32 +1618,30 @@ Ohio250(7200/7100A2) detected
 requesting firmware image "ar0700xx.bin"
 Creating new root folder avalanche in the proc for the driver stats
 Texas Instruments ATM driver: version:[7.01.00.10]
+jffs2_scan_eraseblock(): End of filesystem marker found at 0x0
+jffs2_build_filesystem(): unlocking the mtd device... done.
+jffs2_build_filesystem(): erasing all blocks after the end marker... done.
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+
+
+
+BusyBox v1.4.2 (2007-08-14 13:30:46 BST) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r8413) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
 }}}
-It worked for me with the above steps. Is this really necessary anymore?
 
-==== Watchdog Issues (still necessary? doesn't work, but doesn't hang neither 02/08/2007) ====
-Due to a problem with the current ar7 watchdog code (as of 22/03/2007) the watchdogs must be disabled. Failure to do so will just result in a kernel that hangs when the watchdog driver is initialised. See topic http://forum.openwrt.org/viewtopic.php?id=8052 for a similar problem.
-
-{{{
-vi target/linux/ar7-2.4/config/default
-}}}
-then set these options as follows:
-
-{{{
-CONFIG_AR7_WDT=n
-CONFIG_SOFT_WATCHDOG=n}}}
-Once the firmware is flashed you have to create an mtd block that spans the entire squashfs filesystem image on the flash.  I've not found a simple way round this yet but here's what i did:
-
-1) open the squashfs image in a hex editor (khexedit / ultraedit) and do an ascii search for "hsqs", the hex editor should show the file offset (of the 'h' character) from the beginning of the file.  note this number 2) add the offset of the mtd1 block to the number you just noted down 3) create an mtd block using the adam2 setenv command starting from the new number and going to the end of the mtd1 block.  the last mtd block in the adam2 environment was mtd4 for me, so i used mtd5, and issued this command:
-
-{{{
-setenv mtd5 0x900868ff,0x90780000
-}}}
-Do to an issue where the kernel command line is not overridden we need to update the adam2 settings so the kernel command line (shown just after the kernel boots) is set correctly)
-
-{{{
-setenv kernel_args root=/dev/mtdblock2 rootfstype=squashfs,jffs2 init=/etc/preinit
-}}}
 === Getting the ADSL Working via PPPoA (Manually) ===
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
 === Firmware images and configs ===
