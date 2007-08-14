@@ -2,16 +2,29 @@
 [[TableOfContents]]
 
 = T-Com Speedport W701V =
-This page is Work In Progress, speak to Hydra on #openwrt and #ar7 on freenode for more info.
 
-Others users known to have this device:  saftsack, Heini66
+Speak to Hydra on #openwrt and #ar7 on freenode for more info.
+
+Others users known to have this device:  saftsack, Heini66, loswillios
+
+== Status ==
+
+Wifi: no support for the TNETW1350A, it's a chip with features somewhere between the supported TNETW1150 and the TNETW1450 though.
+ADSL: working
+Ethernet: working
+LEDs: working
+Serial Port: working
 
 == Hardware Info ==
 Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
 
 Being an AR7 device it also has a built-in ADSL Modem, the Speedport W701V also features as ISDN socket and two telephone sockets for VoIP use.
 
-CPU: TNETD7200ZDW (AR7) @211Mhz Flash: 8 MB Ram: 32 MB WLan Chip: TNETW1350A Ethernet Switch Chip: Infineon ADM6996LC
+CPU: TNETD7200ZDW (AR7) @211Mhz 
+Flash: 8 MB 
+Ram: 32 MB 
+WLan Chip: TNETW1350A 
+Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
@@ -1642,7 +1655,6 @@ Enter 'help' for a list of built-in commands.
 root@OpenWrt:/#
 }}}
 
-=== Getting the ADSL Working via PPPoA (Manually) ===
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
 /etc/config/network:
 {{{
