@@ -211,7 +211,9 @@ If problems arise, from here search the ''pppd'' and ''pptp'' documentation and 
 
 === /etc/ppp/ip-up and /etc/ppp/ip-down ===
 
-The file ''/etc/ppp/ip-up'' is a shell script which is executed when the tunnel is started.. It is nice to be able to configure ''iptables'' or routing once the tunnel is up and remove that configuration once the tunnel is taken down.
+The file ''/etc/ppp/ip-up'' is a shell script which is executed when the tunnel is started. It is nice to be able to configure ''iptables'' or routing once the tunnel is up and remove that configuration once the tunnel is taken down.
+
+'''note:''' In Kamikaze both ip-up and ip-down are provided. Instead put your scripts in ''/etc/ppp/ip-up.d'' and ''/etc/ppp/ip-down.d'' respectfully. Make sure they are marked executable.
 
 Create the files and set execute permission if they do not already exist:
 {{{
