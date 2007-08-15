@@ -2,10 +2,10 @@ This is a table of all supported devices as of 2007/06/06.
 
 '''Status Legend''':
 
- * '''Supported''' - supported in White Russian
+ * '''Supported''' - supported in White Russian (previous release)
  * '''Partial''' - partially supported, no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
- * '''Kamikaze''' - this device is only supported in Kamikaze (development branch)
+ * '''Kamikaze''' - this device is only supported in Kamikaze (current release)
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
  * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the main !OpenWrt source tree
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
