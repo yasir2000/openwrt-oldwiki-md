@@ -31,7 +31,7 @@ USB            : None
 Serial         : yes (JP2)
 JTAG           : assumed on JP1
 }}}
-Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Firmware 4.30.2 or .5) runs  RC6, Freifunk 1.4.5c and webIF (X-WRT) images no problem at all. Good availabilty at 55-60 EURO in Jan 2007.
+Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Firmware 4.30.2 or .5) runs  RC6, Freifunk 1.4.5c and webIF (X-WRT) images no problem at all. Good availability at 55-60 EURO in August 2007.
 
 === Switch Ports (for vlans) ===
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is Internet on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring vlans.
