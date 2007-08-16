@@ -1434,6 +1434,8 @@ make menuconfig
  * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (b for germany)
 wget http://code.bastart.eu.org/projects/fritz-wrt/patches/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
+(the patch seems to be out of date, it works for revsion 7801 and some later)
+
 time make world V=99
 
 === Flashing your OpenWRT image ===
