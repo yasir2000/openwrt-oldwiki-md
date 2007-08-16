@@ -46,6 +46,7 @@ Known 6348 platforms*:
 ||[:OpenWrtDocs/Hardware/Belkin/f5d7633-4:belkin f5d7633-4] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV4: Freebox v4] ||
 ||[:OpenWrtDocs/Hardware/Inventel/Livebox: Inventel Livebox] ||
+||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 
 Known 6358 platforms*:
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5: Freebox v5] ||
