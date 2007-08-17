@@ -229,7 +229,6 @@ proto udp
 # to load balance between the servers.
 remote Your.IP.Goes.Here 1194
 
-
 # Keep trying indefinitely to resolve the
 # host name of the OpenVPN server.  Very useful
 # on machines which are not permanently connected
@@ -244,15 +243,12 @@ nobind
 ;persist-key
 ;persist-tun
 
-
 # Wireless networks often produce a lot
 # of duplicate packets.  Set this flag
 # to silence duplicate packet warnings.
 mute-replay-warnings
 
-
 secret secret.key
-
 
 # Enable compression on the VPN link.
 # Don't enable this unless it is also
