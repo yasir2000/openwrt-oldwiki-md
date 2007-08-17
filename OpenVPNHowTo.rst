@@ -124,7 +124,6 @@ proto udp
 # that isn't bridged to br0 by the script above.
 dev tap0
 
-
 # The keepalive directive causes ping-like
 # messages to be sent back and forth over
 # the link so that each side knows when
