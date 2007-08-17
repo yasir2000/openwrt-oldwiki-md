@@ -68,6 +68,7 @@ The {{{noip}}} client will remain running and will continue to update every INTE
 You'll probably want the client to start everytime the router boots. Create a link in /etc/init.d/ to the noip executable:
 
 {{{
+# cd /etc/init.d
 # ln -s /usr/bin/noip S90noip
 }}}
 
