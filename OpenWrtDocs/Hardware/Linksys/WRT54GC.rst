@@ -57,9 +57,9 @@ SF:uest,8A,"HTTP/1\.0\x20401\x20Unauthorized\r\nServer:\x20IP_SHARER\x20WE
 SF:B\x201\.0\r\nWWW-Authenticate:\x20Basic\x20realm=\"WRT54GC\"\r\nContent
 SF:-type:\x20text/html\r\n\r\n401\x20Unauthorized");}}}
 
-It's a linux-based  ?
+Is it '''linux-based'''?  Probably not. It's returning part of your User-Agent message, or some other message that identifies the host OS type of the originating message. All it tells us is that your computer is i686-pc-linux-gnu, but tells us nothing of the router. At 1MB FLASH, my money's on !VxDoesntWorks.
 
-'''Linux-Based?''' No. It's returning part of your User-Agent message, or some other message that identifies the host OS type of the originating message. All it tells us is that your computer is i686-pc-linux-gnu, but tells us nothing of the router. At 1MB FLASH, my money's on !VxDoesntWorks.
+The WRT54GC is based on the Sercomm IP806SM reference design, which is same platform as the Airlink101 AR315W, Alloy WRT2454AP, and Hawking HWR54G (Rev. M).
 
 ----
  CategoryModel
