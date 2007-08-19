@@ -11,7 +11,7 @@ Dnsmasq is targeted at home networks using NAT and connected to the internet via
 == Nvram vs Config file ==
 In white Russian 0.9 the init script uses nvram by default.[[BR]]
 
-In order to make dnsmasq work with the config file(/etc/dnsmasq.conf) we need to replace the init script(/etc/init.d/S60dnsmasq) with the following script:
+In order to make dnsmasq work exclusively with the config file (`/etc/dnsmasq.conf`) we need to replace the init script (`/etc/init.d/S60dnsmasq`) with the following script:
 {{{ 
 [ ! -f /tmp/dhcp.leases ] && {
  touch /tmp/dhcp.leases
@@ -19,6 +19,8 @@ In order to make dnsmasq work with the config file(/etc/dnsmasq.conf) we need to
 
  dnsmasq -C /etc/dnsmasq.conf
 }}}
+
+(Note that, according to its manpage, dnsmasq reads `/etc/dnsmasq.conf` anyway.)
 == Web Interface Notes ==
 Your {{{/etc/ethers}}} and {{{/etc/hosts}}} files can now be modified through the White Russian web interface. While you'll still need to manually setup your {{{/etc/dnsmasq.conf}}} file for things like domains, you can do simple configuration through the web interface.
 
