@@ -52,7 +52,7 @@ ipkg remove kmod-usb-ohci
 == Modules for USB 2.0 ==
 This package includes the modules for USB 2.0.
 
-'''NOTE:''' USB 2.0 support in White Russian is broken. There are some threads in the forum and some tickets as well if you like to read about what happens.
+'''NOTE:''' USB 2.0 support in White Russian is broken. There are some threads in the forum and some tickets as well if you like to read about what happens. (Im using WR 0.9 on an ASUS WL-500g Premium and USB 2.0 works just fine)
 
 {{{
 ipkg install kmod-usb2
