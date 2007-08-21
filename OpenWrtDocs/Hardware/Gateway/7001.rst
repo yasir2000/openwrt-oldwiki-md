@@ -251,10 +251,10 @@ In order to use the ethernet ports on this router, you have to build the Intel
 NPE-B and NPE-C microcode binaries, concatenate them together, and write them
 into a flash partition with the name "microcode".
 
- * Dig through the Intel site until you find '''IPL_ixp400NpeLibrary-2_4.zip'''.  Good luck!
- * Extract the zip file, and go to ixp400_xscale_sw/src/npeDl.  You should see a couple .c files there.
+ * Dig through the Intel site until you find {{{IPL_ixp400NpeLibrary-2_4.zip}}}.  Good luck!
+ * Extract the zip file, and go to {{{ixp400_xscale_sw/src/npeDl}}}.  You should see a couple .c files there.
  * Download [https://dev.openwrt.org/browser/trunk/target/linux/ixp4xx-2.6/image/npe-ucode/src/IxNpeMicrocode.h IxNpeMicrocode.h] from OpenWRT.  (There's an "Original Format" link at the bottom.)
- * By default, IxNpeMicrocode.h is configured to build the Crypto version of NPE-C, which is not easy to obtain.  Edit the .h file to uncomment only the basic non-Crypto versions:
+ * By default, {{{IxNpeMicrocode.h}}} is configured to build the Crypto version of NPE-C, which is not easy to obtain.  Edit the .h file to uncomment only the basic non-Crypto versions:
  {{{
 #define IX_NPEDL_NPEIMAGE_NPEB_ETH_LEARN_FILTER_SPAN_FIREWALL
 #define IX_NPEDL_NPEIMAGE_NPEC_ETH_LEARN_FILTER_SPAN_FIREWALL}}}
