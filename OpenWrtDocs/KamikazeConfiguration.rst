@@ -19,7 +19,7 @@ Some older Kamikaze builds have configuration files which mimic the NVRAM config
 Many of the concepts from earlier versions are retained in Kamikaze.  Both lan and wan still exist on Kamikaze, while VLANs are still used to separate WAN and LAN interfaces.
 
  * Network Background: OpenWrtDocs/NetworkInterfaces
- * /etc/config/network documentations https://dev.openwrt.org/browser/trunk/docs/network.tex
+ * /etc/config/network [http://downloads.openwrt.org/kamikaze/docs/openwrt.html#x1-80001.2.1 documentations]
  * Some IP, netmask, etc review site
  * Some bridging and brctl info page
 === VLANs ===
