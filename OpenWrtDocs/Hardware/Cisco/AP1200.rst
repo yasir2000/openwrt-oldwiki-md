@@ -80,3 +80,36 @@ Alternate heap bytes available: 0xe7d000 (15192064)
 
 
 === Image layout ===
+
+The Cisco IOS files are flat tarballs (tar cf <file.tar> directory/), with the following naming convention :
+{{{
+<model name>-<image type>-mx-<version>/
+}}}
+
+This directory contains several files :
+
+{{{
+*.img : firmware files for the Aironet WLAN card
+info : description file
+html/ : HTML pages if selected HTML web interface
+<model name>-<image type>-mx-<version> : the IOS kernel
+}}}
+
+The IOS image structure is the following :
+
+{{{
+u32 MZIP (magic header)
+u32 00 00 00 01
+u32 00 00 30 00 (0 in ASCII)
+u32 00 00 00 01
+u32 00 00 00 01
+u32[7] 0
+u32 checksum ?
+u32 00 00 00 70
+u32 00 00 30 00
+u32 00 00 00 01
+u32[2] checksum2 ?
+zeroes
+----
+ZIP file
+}}}
