@@ -8,7 +8,7 @@ The device is currently (August 2006) unsupported in OpenWrt 1.0 (White Russian)
  * Airgo MIMO wireless ethernet
 
 == Software ==
- Kernel, userland and toolchain source are supplied on the CD-ROM in the GPL/ subdirectory.
+ Kernel, userland and toolchain source are supplied on the CD-ROM in the GPL/ subdirectory or via the product page [http://dlsvr01.asus.com/pub/ASUS/wireless/WL-566gM/GPL_WL566gM_1018.zip]
 
 == Links ==
  * Asus product page http://www.asus.com/products.aspx?l1=12&l2=43&l3=0&model=1038&modelmenu=1
