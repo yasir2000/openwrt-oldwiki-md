@@ -53,3 +53,5 @@ ifdown)
 esac
 }}}
 to /etc/hotplug.d/iface/00-route where <<PPPGATEWAY_IP>> is usually 192.168.100.1 on an adsl connection.
+----
+CategoryHowTo
