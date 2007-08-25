@@ -6,8 +6,8 @@
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
 ||||<tablestyle=""style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||
 ||||'''Model''' ||<style="text-align: center;"> '''S/N''' ||
-||||WRT350N v1.0 ||<style="text-align: center;"> CNQ01 ||
-||||WRT350N v2.0 ||<style="text-align: center;"> SNQ00 ||
+||||WRT350N v1.0 -- Not available in Europe?||<style="text-align: center;"> CNQ01 ||
+||||WRT350N v2.0 -- Only available in Europe?||<style="text-align: center;"> SNQ00 ||
 
 
 '''WRT350N v1.0'''
