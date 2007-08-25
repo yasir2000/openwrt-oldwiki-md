@@ -93,7 +93,7 @@ Base system ---> br2684ctl
 
 Libraries ----> linux-atm
 
-Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a
+Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a (Select kmod-sangam-atm-annex-a for DSL-G664T)
 
 Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] httpd (Turn off).}}}
 
