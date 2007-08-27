@@ -160,6 +160,22 @@ Off Site Pictures http://devices.natetrue.com/mobileap/ http://www.compsys1.com/
  * If you have loaded the OpenWrt firmware, telnet in and change the "lan_ipaddr" NVRAM value to 192.168.1.1 and reboot your router.
  * The reason we use leads 15-16 is because those address lines are right at the beginning of the kernel firmware area in the flash chip, and if the CFE/bootloader detects a corrupted kernel, it will automatically go into a TFTP receiving mode. AMD don't know if it's the same reason but I think it's.
  '' (Originally posted by [http://forum.openwrt.org/viewtopic.php?pid=10048#p10048 killerbobjr] ) ''
+
+=JTAG for V3 Debricking =
+If it is not be possible to set boot_wait=on using a serial console at the CFE> prompt, it will be necessary to use the JTAG interface to restore the CFE or NVRAM.  The HairyDairyMaid debrick utility can be used to accomplish this.  Once the NVRAM has been cleared, the CFE will usually restore what it needs (like the MAC addresses set to 00-11-22-33-44-56 or such).  If the CFE is toast, you will need to download a fresh CFE.BIN and flash that.  The first image that is sent via tftp needs to be a .trx file.  After that is loaded, use the web interface to upload your .bin file of choice.  
+
+{{{
+EDGE OF BOARD -->     |
+                      |
+UNUSED    X  X  N/C   |
+TDI       X  X  N/C   |
+TDO       X  X  N/C   |
+TMS       X  X  N/C   |
+TCK       X  X  N/C   |
+N/C       X  X  N/C   |
+}}}
+
+
 = Opening the WR850G case =
 This is a very tricky-to-open case, really.
 
