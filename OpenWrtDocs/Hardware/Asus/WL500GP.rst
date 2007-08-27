@@ -15,6 +15,7 @@ Netkit's tftp doesn't work quite often; use atftp.
 
 /!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.[[BR]]
 /!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the WAN port!
+Note: For me (brot) it didnt work to use the WAN port, so if you have problems, try a LAN port, too.
 
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
 
