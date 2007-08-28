@@ -20,24 +20,24 @@ It got populated Serial and JTAG-Headers.
 
 Serial-Layout rev 1:
 
- * Pin  1 +3.3V
- * Pin  3 RX
- * Pin  9 TX
+ * Pin 1 +3.3V
+ * Pin 3 RX
+ * Pin 9 TX
  * Pin 12 GND
 Serial-Layout rev 2:
 
- * Pin  1 +3.3V
- * Pin  4 RX
+ * Pin 1 +3.3V
+ * Pin 4 RX
  * Pin 10 TX
  * Pin 12 GND
 Serial-Layout rev 3:
 
- * Pin  1 +3.3V
- * Pin  3 RX
- * Pin  9 TX
+ * Pin 1 +3.3V
+ * Pin 3 RX
+ * Pin 9 TX
  * Pin 11 GND
-
 For v1/v2 the serial header is the 12 pin header near the power plug. JTAG is near the antenna. Serial pin 1 is the pin nearest to the cpu, view from top.
+
 {{{
 <- switch / powerplug
 pin 11 * * pin 12
@@ -48,7 +48,6 @@ pin 03 * * pin 04
 pin 01 * * pin 02
 <- ram / cpu
 }}}
-
 For v3 the serial header is on the antenna side and the jtag header is on the WAN-port side.
 
 I wanted to buy a prolific USB to serial cellphone cable at ebay, but they sent me an Silicon Labs cable. This chipset is finally supported in 2.6.12. Works great (usb 2-1.2: CP2101 converter now attached to ttyUSB0)
@@ -164,19 +163,17 @@ tftpGet: Error occurred while transferring the file.
 Erroneous header read
 Error loading file: errno = 0x610001.
 }}}
-
 There is simple fix for above error 0x610001. boot bios expect ELF file, and not image for update over web interface. There is simple method for converting .img file (I'm using TrendNet, so my image file is 510APB_1121ETSI.img) to ELF file:
 
 {{{
 $ dd if=510APB_1121ETSI.img of=tftp.img skip=52 bs=1
-$ file tftp.img 
+$ file tftp.img
 tftp.img: ELF 32-bit MSB executable, MIPS, MIPS-II version 1 (SYSV), statically linked, stripped
 }}}
-
-Update by chyang: Can anyone verify whether the extraction works for WGT624's .chk file? I checked the extracted file, but apparantly, the format is not ELF, some kind of 'sqz' prefix in the file, don't quite know whether it will boot via tftp since my bricked wireless router is not with me at present. Thanks. 
+'''''Update by chyang:''''' Can anyone verify whether the extraction works for WGT624's .chk file? I checked the extracted file, but apparantly, the format is not ELF, some kind of 'sqz' prefix in the file, don't quite know whether it will boot via tftp since my bricked wireless router is not with me at present. Thanks.
 
 == Kernel ==
-Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches.  According to arch/mips/ar531x/README.BUILD, I've downloaded:
+Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches. According to arch/mips/ar531x/README.BUILD, I've downloaded:
 
 ftp://ftp.mips.com/pub/tools/software/sde-for-linux/sdelinux-5.01-4eb.i386.rpm
 
@@ -499,7 +496,7 @@ Kernel panic: Attempted to kill the idle task!
 In idle task - not syncing
 }}}
 == Problems with the WGT624v3 ==
-The WGT624v3 has an AR2316A part that doesn't seem to work with the build process above. Some autopsy photos at http://www.seiner.com/blog/Travels/?p=164 .  Using the recommended toolchain (gcc version 2.96-mips3264-000710) and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
+The WGT624v3 has an AR2316A part that doesn't seem to work with the build process above. Some autopsy photos at http://www.seiner.com/blog/Travels/?p=164 . Using the recommended toolchain (gcc version 2.96-mips3264-000710) and the Devicescape 2.4.25 kernel, it dies with the following error at boot:
 
 {{{
 ar531xPlus rev 0x00000087 firmware startup...
