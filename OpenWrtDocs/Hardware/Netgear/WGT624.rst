@@ -173,6 +173,8 @@ $ file tftp.img
 tftp.img: ELF 32-bit MSB executable, MIPS, MIPS-II version 1 (SYSV), statically linked, stripped
 }}}
 
+Update by chyang: Can anyone verify whether the extraction works for WGT624's .chk file? I checked the extracted file, but apparantly, the format is not ELF, some kind of 'sqz' prefix in the file, don't quite know whether it will boot via tftp since my bricked wireless router is not with me at present. Thanks. 
+
 == Kernel ==
 Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches.  According to arch/mips/ar531x/README.BUILD, I've downloaded:
 
