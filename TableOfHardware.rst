@@ -316,7 +316,10 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS] ||4.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS] ||5.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS:NO] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS] ||5.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS:NO] ||
-||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS] ||6.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS:NO] ||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS] ||6.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||16MB ||Broadcom 
+(integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS:NO] ||
+||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS-UK] ||5.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||2MB ||16MB ||Broadcom 
+(integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS-UK:Untested] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Atheros & Broadcom (mini-PCI) ||BCM5325 ||off || || || ||Untested ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=664 WRT55AG] ||2.0 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 230MHz ||4MB ||16MB ||Atheros (integrated) ||KS8995M ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=692 WRTP54G] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz ||8MB ||16MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["PSPBoot"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
@@ -517,3 +520,5 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
  . CategoryOpenWrtPort
 ----
  . ["CategoryAR7Device"]
+----
+CategoryModel
