@@ -1,4 +1,4 @@
-The Asus WL500g Premium works with OpenWrt Kamikaze (and WitheRussian).
+The Asus WL500g Premium works with OpenWrt Kamikaze (and WhiteRussian).
 
 == Installation ==
 Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
