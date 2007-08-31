@@ -85,7 +85,9 @@ echo `nvram get vlan$VLAN_NUMERports` > /proc/switch/eth0/vlan/$VLAN_NUMER/ports
 but remember to replace the two "$VLAN_NUMER"s with the vlan number you want to activate the settings for. You can also use some program such as RoboCfg (which isn't used by default).
 
 === Enabling all RAM ===
-If you look at "dmesg | grep Memory" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB. On newer WL500G Premium routers all RAM is enabled by default.
+On newer WL500G Premium routers all RAM is enabled by default.
+
+If you look at "dmesg | grep Memory" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB.
 
 And these values defined in Asus firmware 1.9.7.2 NVRAM enable 32MB properly:
 
