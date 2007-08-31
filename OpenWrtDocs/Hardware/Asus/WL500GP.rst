@@ -1,46 +1,46 @@
-The Asus WL-500g Premium seems to work with OpenWrt.
+The Asus WL500g Premium works with OpenWrt Kamikaze (and WitheRussian).
 
 == Installation ==
-Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the tftp part (which works for sure).  From Asus Firmware 1.9.7.0 the webinterface doesn't work to upgrade to OpenWRT (bin or micro, 4Mb or 8Mb).  ~-Comment: According to ASUS this has been fixed in 1.9.7.2.-~ ~-Confirmed broken in 1.9.7.4.-~ If the tftp part fails, you can try the installation with the Asus "firmware restoration" tool (works like a charm, but windows only).
+Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
 
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: It does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0. Comment: According to ASUS this has been fixed in 1.9.7.2.-~ ~-confirmed broken in 1.9.7.4 -~
+It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.~- -~
 
 === Using diag mode and tftp ===
-/!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
+/!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
 Netkit's tftp doesn't work quite often; use atftp.
 
-/!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.[[BR]] /!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the LAN port!
+/!\ /!\ Note! the Asus WL500g Premium doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.[[BR]] /!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the LAN port!
 
-It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
+It is possible to install OpenWrt using a TFTP client when the router is in "diag" mode. To put the router in diag mode, do this:
 
  * Unplug the power cord.
- * Push the RESTORE (not the red EZsetup!!!!) button using a pen or such, and keep the button pushed down.
+ * Push the RESTORE (not the red EZSETUP!!!!) button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
- * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via tftp. See OpenWrtViaTftp for more instructions on upgrading via tftp.
- * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
- * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
+ * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via TFTP. See OpenWrtViaTftp for more instructions on upgrading via TFTP.
+ * After the TFTP upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
+ * Asus WL500g Premium doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
 === Using the Asus firmware restoration tool (windows only or wine on Linux) ===
- * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
+ * you can try the installation with the Asus "firmware restoration" tool, it's on the CD.
  * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
  * Unplug the router's power cord.
- * Push the RESTORE (not the red EZsetup!!!!) button using a pen or such, and keep the button pushed down.
+ * Push the RESTORE (not the red EZSETUP!!!!) button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
  * Press Upload. The router will reboot itself.
- * You can find the router on its previous ip address (otherwise 192.168.1.1)
-== WL-500gP specific configuration ==
+ * You can find the router on its previous IP address (otherwise 192.168.1.1)
+== Asus WL500g Premium specific configuration ==
 === Interfaces ===
 /!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0. Similarly forcing lan_proto=dhcp_server breaks LAN even in "diag" mode (and potentially bricks the router).''' /!\
 
 Before reading further, please read about the internal network architecture and how physical ports map to vlans unless you're already familiar with it. See OpenWrtDocs/NetworkInterfaces if you feel like you could refresh your memory.
 
-When WhiteRussian RC5 was released, this router was not in the "Supported" category yet. The WAN interface for example won't work with the default settings. However, current release [http://downloads.openwrt.org/whiterussian/0.9/default/openwrt-brcm-2.4-squashfs.trx 0.9] fully supports the router so no NVRAM changes are required.
+ However, current release [http://downloads.openwrt.org/whiterussian/0.9/default/openwrt-brcm-2.4-squashfs.trx 0.9] fully supports the router so no NVRAM changes are required.
 
-You need to make a few nvram changes before the network settings are similar as in most other routers (such as WRT54GP):
+You need to make a few NVRAM changes before the network settings are similar as in most other routers (such as WRT54GP):
 
  . {{{
 nvram set vlan1ports="0 5"
@@ -82,10 +82,10 @@ Note: new vlan settings will be applied on reboot. Alternatively you can issue
 {{{
 echo `nvram get vlan$VLAN_NUMERports` > /proc/switch/eth0/vlan/$VLAN_NUMER/ports
 }}}
-but remember to replace the two "$VLAN_NUMER"s with the vlan number you want to activate the settings for. You can also use some program such as RoboCfg (which isn't used by default).
+but remember to replace the two "$VLAN_NUMER"s with the VLAN number you want to activate the settings for. You can also use some program such as RoboCfg (which isn't used by default).
 
 === Enabling all RAM ===
-On newer WL500G Premium routers all RAM is enabled by default.
+On newer Asus WL500g Premium routers all RAM is enabled by default.
 
 If you look at "dmesg | grep Memory" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB.
 
@@ -97,7 +97,11 @@ nvram set sdram_ncdl=0x10308
 nvram commit
 reboot
 }}}
-== Few problems with the WL-500gP ==
+== Few problems with the Asus WL500g Premium ==
+With Kamikaze 7.07 and WhiteRussian 0.9 and later (Kernel 2.4) the buttons working correctly.
+
+
+
 The reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
 [wiki:WikiPedia:GPIO gpio] 0 = RESTORE button (reset) (00 = unpressed, 01 = pressed)
@@ -107,16 +111,16 @@ gpio 1 = Power LED (enable = off, disable = on)
 gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pressed)
 
 ----
-=== PPPOE ===
-With firmware version 0.9 PPPOE works out of the box. The following problems affect older firmware versions. VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
+=== PPPoE ===
+With firmware version 0.9 PPPoE works out of the box. The following problems affect older firmware versions. VespaTS: Couldn't get WikiPedia:PPPoE to work. To get PPPoE running I had to change again some settings:
 
 wan_device=eth0 (it was set to vlan1)
 
 But probably better is to make vlan1 working (see above and below).
 
-Could an experienced WL-500gP user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
+Could an experienced Asus WL500g Premium user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
 
-The above does not work for me (on a clean OpenWRT squashfs firmware), I've to use these setting after configure in the web ui:
+The above does not work for me (on a clean OpenWrt squashfs firmware), I've to use these setting after configure in the web ui:
 
 /!\ '''Note:''' You may want to do a 'ifdown wan' first, to suppress pppd messages.
 
@@ -129,20 +133,20 @@ With WhiteRussian RC6, it's sufficient to set (you still have to make vlan1 work
 {{{
 nvram set pppoe_ifname=vlan1}}}
 === DHCP server & client settings ===
-To act as a DHCP-client towards WAN set the following:
+To act as a DHCP client towards WAN set the following:
 
 {{{
 nvram set wan0_proto=dhcp
 nvram set wan_proto=dhcp
 nvram commit}}}
-To act as a DHCP-server towards LAN set the following:
+To act as a DHCP server towards LAN set the following:
 
 {{{
 nvram set default_lan_proto=dhcp_server
 nvram set lan_dhcp=1
 nvram set dhcp_enable_x=1
 nvram commit}}}
-These settings are optional and not necessary for dhcp to function:
+These settings are optional and not necessary for DHCP to function:
 
 {{{
 # to set DHCP IP address pool begin at 192.168.1.222
@@ -153,12 +157,12 @@ nvram set dhcp1_end=192.168.1.254
 nvram set dhcp_end=254
 nvram set dhcp_lease=86400 # DHCP lease time 86400 in seconds( use h=hours, m=minutes: example 2h)
 nvram commit}}}
-To act as a DHCP-server towards WIFI set the following:
+To act as a DHCP server towards WiFi set the following:
 
 {{{
 nvram set wifi_proto=dhcp
 nvram commit}}}
-=== Installing Wifi Protected Access (WPA) ===
+=== Installing WiFi Protected Access (WPA) ===
 By default in de WhiteRussian V0.9 the WPA was available on the web console, but was not installed. It took me some time to find it. This because the Wifi could connected with WPA-PSK, WPA1 and RC4 (TKIP) and everything looks ok. Only the DHCP server did not give me an IP address. To install WPA, look at
 
 http://wiki.openwrt.org/Faq#head-241867b49a4ff86751c7a12f3120a47bd939b10e
@@ -167,7 +171,7 @@ or
 
 http://wiki.openwrt.org/Faq How do I use WiFi Protected Access (WPA)?
 
-== WL-500gP info ==
+== Asus WL500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
 HardwareAcceleratedCrypto
@@ -183,7 +187,7 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 ----
- . Here are some links to forum threads related to the WL-500gP:
+ . Here are some links to forum threads related to the Asus WL500g Premium:
  * [http://forum.openwrt.org/viewtopic.php?id=6090 Problems with WLAN encryption]
  * [http://forum.openwrt.org/viewtopic.php?id=6071 CPU Power]
  * [http://forum.openwrt.org/viewtopic.php?id=5688 Some more compatiblity information]
