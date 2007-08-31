@@ -6,15 +6,14 @@ Looks like most people won't be able to install OpenWrt using the Asus web inter
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: It does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0. Comment: According to ASUS this has been fixed in 1.9.7.2.-~ ~- confirmed broken in 1.9.7.4 -~
+It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.  ~-Comment: From which webinterface, from asus fw version 1.9.6.9? Comment: It does at least NOT work to upgrade from the web interface versions 1.9.6.7, 1.9.6.9 and 1.9.7.0. Comment: According to ASUS this has been fixed in 1.9.7.2.-~ ~-confirmed broken in 1.9.7.4 -~
 
 === Using diag mode and tftp ===
 /!\ '''After tftp upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
 Netkit's tftp doesn't work quite often; use atftp.
 
-/!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.[[BR]]
-/!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the LAN port!
+/!\ /!\ Note! the ASUS WL-500GP doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.[[BR]] /!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the LAN port!
 
 It is possible to install OpenWrt using a tftp client when the router is in "diag" mode. To put the router in diag mode, do this:
 
@@ -25,7 +24,6 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * After the tftp upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
  * Asus WL-500gP doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You're done! You should be able to telnet to your router and start configuring.
-
 === Using the Asus firmware restoration tool (windows only or wine on Linux) ===
  * you can try the installation with the Asus "firmware restoration" tool, it's on the cd.
  * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
@@ -34,7 +32,6 @@ It is possible to install OpenWrt using a tftp client when the router is in "dia
  * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
  * Press Upload. The router will reboot itself.
  * You can find the router on its previous ip address (otherwise 192.168.1.1)
-
 == WL-500gP specific configuration ==
 === Interfaces ===
 /!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0. Similarly forcing lan_proto=dhcp_server breaks LAN even in "diag" mode (and potentially bricks the router).''' /!\
@@ -88,24 +85,16 @@ echo `nvram get vlan$VLAN_NUMERports` > /proc/switch/eth0/vlan/$VLAN_NUMER/ports
 but remember to replace the two "$VLAN_NUMER"s with the vlan number you want to activate the settings for. You can also use some program such as RoboCfg (which isn't used by default).
 
 === Enabling all RAM ===
-If you look at "dmesg" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB. ~-Comment: I installed 0.9 on my recently delivered router on I had allready 32MB. My values are: sdram_ncdl=0x408 and sdram_init=0x0009, ausus' firmware version was 1.9.7.0 -~
+If you look at "dmesg | grep Memory" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB. On newer WL500G Premium routers all RAM is enabled by default.
 
- . This is how you enable the rest of RAM:
+And these values defined in Asus firmware 1.9.7.2 NVRAM enable 32MB properly:
+
 {{{
 nvram set sdram_init=0x0009
-nvram set sdram_ncdl=0
+nvram set sdram_ncdl=0x10308
 nvram commit
 reboot
 }}}
- . And these values defined in Asus firmware 1.9.7.2 nvram enable 32MB properly, too:
-{{{
-nvram set sdram_init=0x0009
-nvram set sdram_ncdl=0x208
-nvram commit
-reboot
-}}}
-Here are values from old Asus firmwares: sdram_init=0x000b, sdram_ncdl=0x307.
-
 == Few problems with the WL-500gP ==
 The reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
@@ -117,9 +106,7 @@ gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pr
 
 ----
 === PPPOE ===
-With firmware version 0.9 PPPOE works out of the box.
-The following problems affect older firmware versions.
-VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
+With firmware version 0.9 PPPOE works out of the box. The following problems affect older firmware versions. VespaTS: Couldn't get [wiki:WikiPedia:PPPoE PPPOE] to work. To get pppoe running I had to change again some settings:
 
 wan_device=eth0 (it was set to vlan1)
 
@@ -170,27 +157,25 @@ To act as a DHCP-server towards WIFI set the following:
 nvram set wifi_proto=dhcp
 nvram commit}}}
 === Installing Wifi Protected Access (WPA) ===
-By default in de WhiteRussian V0.9 the WPA was available on the web console, but was not installed.
-It took me some time to find it. This because the Wifi could connected with WPA-PSK, WPA1 and RC4 (TKIP) and everything looks ok. Only the DHCP server did not give me an IP address. To install WPA, look at 
+By default in de WhiteRussian V0.9 the WPA was available on the web console, but was not installed. It took me some time to find it. This because the Wifi could connected with WPA-PSK, WPA1 and RC4 (TKIP) and everything looks ok. Only the DHCP server did not give me an IP address. To install WPA, look at
 
-http://wiki.openwrt.org/Faq#head-241867b49a4ff86751c7a12f3120a47bd939b10e 
+http://wiki.openwrt.org/Faq#head-241867b49a4ff86751c7a12f3120a47bd939b10e
 
-or 
+or
 
 http://wiki.openwrt.org/Faq How do I use WiFi Protected Access (WPA)?
 
 == WL-500gP info ==
-FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead)
-[http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
+FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
 HardwareAcceleratedCrypto
-== Serial ==
 
+== Serial ==
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
-  . {{{
+
+ . {{{
 NC    3.3V TX0  RX0
 RESET GND  TX1  RX1}}}
-
 Pin 1 (with the square solder pad) is RX0.
 
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
