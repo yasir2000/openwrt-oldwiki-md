@@ -47,6 +47,10 @@ dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
  * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 minutes
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
 === Restore ===
+To restore the original ASUS firmware you have three options:
+ * TFTP
+ * mtd (from the OpenWrt console)
+ * ASUS firmware restoration tool (Windows only)
 == Installation ==
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
