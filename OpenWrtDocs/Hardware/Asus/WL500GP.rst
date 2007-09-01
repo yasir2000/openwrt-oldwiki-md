@@ -101,6 +101,14 @@ The default network configuration is:
 
 
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
+=== Buttons ===
+The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
+||'''BUTTON''' ||'''Event''' ||
+||RESTORE ||reset ||
+||EZSETUP ||ses ||
+
+
+ACTION: released or pressed
 
 === Enabling all RAM ===
 On newer ASUS WL-500g Premium router's all RAM is enabled by default. If you look at "dmesg | grep Memory" command's output, you will probably see that there's only 16MiB of RAM. Specs says there should be 32MiB. To enable 32MiB change the sdram_init and sdram_ncdl NVRAM variables as showed:
@@ -111,15 +119,6 @@ nvram set sdram_ncdl=0x10308
 nvram commit
 reboot
 }}}
-=== Buttons ===
-The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
-||'''BUTTON''' ||'''Event''' ||
-||RESTORE ||reset ||
-||EZSETUP ||ses ||
-
-
-ACTION: released or pressed
-
 == Basic configuration ==
 === PPPoE ===
 With Kamikaze 7.07 PPPoE works out of the box.
