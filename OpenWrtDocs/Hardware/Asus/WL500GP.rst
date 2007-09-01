@@ -34,33 +34,33 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 == Installation ==
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
-=== Via ASUS web GUI ===
-Does not work yet. The TRX utility which adds the header to the TRX firmware file has to be rewritten (Sep. 1st 2007, confirmed by nbd on IRC).
+=== Using the ASUS web GUI ===
+Does not work yet. The TRX utility has to be rewritten (Sep. 1st 2007, confirmed by nbd on IRC).
 
 === Using diag mode and TFTP ===
 /!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
 Netkit's tftp doesn't work quite often; use atftp.
 
-/!\ /!\ Note! the Asus WL500g Premium doesn't revert to the 192.168.1.1 address when starting the bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.[[BR]] /!\ /!\ Note: Even though you must use the NVRAM LAN IP you must connect the Ethernet cable to the LAN port!
+/!\ '''Note:''' The ASUS WL-500g Premium does not revert to the 192.168.1.1 address when starting the CFE bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 
-It is possible to install OpenWrt using a TFTP client when the router is in "diag" mode. To put the router in diag mode, do this:
+It is possible to install !OpenWrt using a TFTP client when the router is in "diag" mode. To put the router in "diag" mode, do this:
 
  * Unplug the power cord.
- * Push the RESTORE (not the red EZSETUP!!!!) button using a pen or such, and keep the button pushed down.
- * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
- * If you see a slowly blinking power light, you're in diag mode. Now the router should accept an image via TFTP. See OpenWrtViaTftp for more instructions on upgrading via TFTP.
- * After the TFTP upload is complete, wait at least 6 minutes. Get a cup of coffee or something in the meanwhile.
- * Asus WL500g Premium doesn't seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
- * You're done! You should be able to telnet to your router and start configuring.
-=== Using the Asus firmware restoration tool (windows only or wine on Linux) ===
- * you can try the installation with the Asus "firmware restoration" tool, it's on the CD.
- * Browse the .trx file ( bin/openwrt-brcm-2.4-jffs2-4MB.trx works great).
+ * Push the black RESTORE button using a pen or such, and keep the button pushed down.
+ * Plug the power on while keeping the RESTORE button pushed for few seconds.
+ * If you see a slowly blinking power light, you are in "diag" mode. Now the router should accept an image via TFTP. See OpenWrtViaTftp for more instructions on upgrading via TFTP.
+ * After the TFTP upload is complete, wait at least 6 minutes.
+ * ASUS WL-500g Premium does not seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
+ * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
+=== Using the ASUS firmware restoration tool (Windows only) ===
+ * You can try the installation with the ASUS firmware restoration tool, it's on the CD.
+ * Browse the .trx file (bin/openwrt-brcm-2.4-squashfs.trx works great).
  * Unplug the router's power cord.
- * Push the RESTORE (not the red EZSETUP!!!!) button using a pen or such, and keep the button pushed down.
- * Plug the power on while keeping the (black) RESTORE button pushed for few seconds.
+ * Push the black RESTORE button using a pen or such, and keep the button pushed down.
+ * Plug the power on while keeping the RESTORE button pushed for few seconds.
  * Press Upload. The router will reboot itself.
- * You can find the router on its previous IP address (otherwise 192.168.1.1)
+ * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == Asus WL500g Premium specific configuration ==
 === Interfaces ===
 /!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0. Similarly forcing lan_proto=dhcp_server breaks LAN even in "diag" mode (and potentially bricks the router).''' /!\
