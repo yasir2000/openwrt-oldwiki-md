@@ -35,16 +35,16 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 === Backup ===
 You can backup the original firmware image with the hidden admin page (http://192.168.1.1/Main_AdmStatus_Content.asp). This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
 
+ * To create the backup you need to put a small shell script on your USB pen drive. I name the script asus.sh. The shell script has only the following two lines:
+ {{{
+#!/bin/sh
+dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
+ * Connect the USB pen drive to the lower USB port on the router
  * Point your browser to the hidden admin page at http://192.168.1.1/Main_AdmStatus_Content.asp
  * In the System Command text field enter 'mount' and hit the Refresh button. Here you should see your USB pen drive's mount point. Something like:
  {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)}}}
- * To create the backup you need to put a small shell script on your USB pen drive. The shell script has only the following two lines:
- {{{
-#!/bin/sh
-dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
- * Connect the USB pen drive to one of the USB ports on the router
- * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command textfield and hit the Refresh button. This may take up to 10 minutes
+ * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 minutes
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
 === Restore ===
 == Installation ==
