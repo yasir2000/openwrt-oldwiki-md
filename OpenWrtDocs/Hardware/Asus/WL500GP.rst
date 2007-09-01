@@ -90,11 +90,12 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
  * Browse the .trx file (openwrt-brcm-2.4-squashfs.trx).
  * Press Upload. The router will reboot itself.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
-== Asus WL500g Premium specific configuration ==
+== Asus WL-500g Premium specific configuration ==
 === Interfaces ===
 The default network configuration is:
-||<tablewidth="541px" tableheight="129px" tablestyle="">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
-||eth0.0 ||LAN ports ||192.168.1.1/24 ||
+||<tablewidth="541px" tableheight="129px">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
+||br-lan ||LAN & !WiFi||192.168.1.1/24 ||
+||eth0.0||LAN ports|| ||
 ||eth0.1 ||WAN port ||DHCP ||
 ||eth1 ||!WiFi ||Disabled by default ||
 
