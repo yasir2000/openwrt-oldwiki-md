@@ -1,4 +1,18 @@
-The Asus WL500g Premium works with OpenWrt Kamikaze (and WhiteRussian).
+The Asus WL500g Premium works with OpenWrt Kamikaze
+
+== Hardware Info ==
+||'''Architecture'''||MIPS||
+||'''Vendor'''||Broadcom||
+||'''Bootloader'''||CFE||
+||'''System-On-Chip'''||Broadcom 5365||
+||'''CPU Speed'''||266 Mhz||
+||'''Flash size'''||8 MiB||
+||'''RAM'''||32 MiB (some older units have only 16 MiB enabled)||
+||'''Wireless'''||MiniPCI Broadcom 802.11b/g BCM4318 802.11 Wireless LAN Controller||
+||'''Ethernet'''||Robo switch BCM5325||
+||'''USB'''||2x USB 2.0||
+||'''Serial'''||yes||
+||'''JTAG'''||no||
 
 == Installation ==
 Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
