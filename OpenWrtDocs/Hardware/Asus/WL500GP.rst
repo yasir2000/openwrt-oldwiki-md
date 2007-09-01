@@ -92,11 +92,15 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == Asus WL500g Premium specific configuration ==
 === Interfaces ===
-/!\ ''' Some people have been having troubles by setting wan_proto=none. It appears as if it breaks the vlan0. Similarly forcing lan_proto=dhcp_server breaks LAN even in "diag" mode (and potentially bricks the router).''' /!\
+The default network configuration is:
 
-Before reading further, please read about the internal network architecture and how physical ports map to vlans unless you're already familiar with it. See OpenWrtDocs/NetworkInterfaces if you feel like you could refresh your memory.
+||<tablewidth="541px" tableheight="129px" tablealign="">'''Interface Name'''||'''Description'''||'''Default configuration'''||
+||eth0.0||LAN ports||192.168.1.1/24||
+||eth0.1||WAN port||DHCP||
+||eth1||WiFi||Disabled by default
+||
+LAN and WiFi is bridged to br-lan. WiFi is disabled by default for security reasons (to prevent an open access point).
 
- . However, current release [http://downloads.openwrt.org/whiterussian/0.9/default/openwrt-brcm-2.4-squashfs.trx 0.9] fully supports the router so no NVRAM changes are required.
 === Enabling all RAM ===
 On newer Asus WL500g Premium routers all RAM is enabled by default.
 
