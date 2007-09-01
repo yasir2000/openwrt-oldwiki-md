@@ -41,11 +41,11 @@ You can backup the original firmware image with the hidden admin page (http://19
  * Point your browser to the hidden admin page at http://192.168.1.1/Main_AdmStatus_Content.asp
  * Create the backup with 'dd if=/dev/mtdblock/1 > /tmp/first_config.trx'
  * In the System Command textfield enter mount and hit the Refresh button. Here you should see your USB pen drive's mount point. Something like:
-{{{
+ {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)
 }}}
  * Copy the TRX firmware backup to the pen drive with 'cp -fpR /tmp/first_config.trx /tmp/harddisk/part0'
- * Remove the USB pen drive and check on your router if the first_config.trx file is there (you can also compare the file size of the two files)
+ * Remove the USB pen drive and check on your PC if the first_config.trx file is there (you can also compare the file size of the two files)
 
 === Restore ===
 
