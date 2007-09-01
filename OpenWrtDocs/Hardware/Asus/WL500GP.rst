@@ -44,8 +44,7 @@ You can backup the original firmware image with the hidden admin page (http://19
  {{{
 #!/bin/sh
 dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
- * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command textfield and hit the Refresh button
- * Copy the TRX firmware backup to the pen drive with 'cp -fpR /tmp/first_config.trx /tmp/harddisk/part0'
+ * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command textfield and hit the Refresh button. This may take up to 10 minutes
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there (you can also compare the file size of the two files)
 === Restore ===
 == Installation ==
