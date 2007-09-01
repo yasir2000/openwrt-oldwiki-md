@@ -33,7 +33,7 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 === Photos ===
 == Original Firmware ==
 === Backup ===
-You can backup the original firmware image with the hidden admin page. This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
+You can backup the original firmware with the hidden admin page. This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
 
  * To create the backup you need to put a small shell script on your USB pen drive. I name the script asus.sh. The shell script has only the following two lines:
  {{{
@@ -48,8 +48,9 @@ dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
 === Restore ===
 To restore the original ASUS firmware you have three options:
+
  * TFTP
- * mtd (from the OpenWrt console)
+ * mtd (from the !OpenWrt console)
  * ASUS firmware restoration tool (Windows only)
 == Installation ==
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
