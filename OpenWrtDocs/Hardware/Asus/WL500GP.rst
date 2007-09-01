@@ -59,7 +59,7 @@ You can try the ASUS web GUI in case it works, or skip directly to the TFTP part
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
 === Using diag mode ===
-To enter into the diag mode do the following:
+To install OpenWrt using TFTP or the ASUS restoration tool you have to put the router in diag mode. To put the router in the diag mode, do this:
  * Unplug the router's power cord.
  * Push the black RESTORE button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the RESTORE button pushed for few seconds.
@@ -71,7 +71,7 @@ Netkit's tftp doesn't work quite often; use atftp.
 
 /!\ '''Note:''' The ASUS WL-500g Premium does not revert to the 192.168.1.1 address when starting the CFE bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 
-It is possible to install !OpenWrt using a TFTP client when the router is in "diag" mode. To put the router in "diag" mode, do this:
+It is possible to install !OpenWrt using a TFTP client when the router is in "diag" mode.
 
  * Now the router should accept an image via TFTP. See OpenWrtViaTftp for more instructions on upgrading via TFTP.
  * After the TFTP upload is complete, wait at least 6 minutes.
