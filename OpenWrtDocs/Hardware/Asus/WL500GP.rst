@@ -18,9 +18,7 @@ With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||'''USB''' ||2x USB 2.0 ||
 ||'''Serial''' ||yes ||
 ||'''JTAG''' ||no ||
-
 === Serial Port ===
-
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
 ||RESET || ||
 ||GND ||3.3V_OUT ||
@@ -33,14 +31,11 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 === Photos ===
-
 == Installation ==
-Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
+ You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
 
-=== Via Asus web interface ===
-/!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
-
-It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.~--~
+=== Via ASUS web interface ===
+Does not work yet. The TRX utility which adds the header to the TRX firmware file has to be rewritten.
 
 === Using diag mode and tftp ===
 /!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
