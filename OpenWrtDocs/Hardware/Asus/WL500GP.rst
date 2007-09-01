@@ -59,6 +59,11 @@ You can try the ASUS web GUI in case it works, or skip directly to the TFTP part
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
 === Using diag mode ===
+To enter into the diag mode do the following:
+ * Unplug the router's power cord.
+ * Push the black RESTORE button using a pen or such, and keep the button pushed down.
+ * Plug the power on while keeping the RESTORE button pushed for few seconds.
+ * If you see a slowly blinking power light, you are in diag mode.
 ==== TFTP ====
 /!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
@@ -68,19 +73,13 @@ Netkit's tftp doesn't work quite often; use atftp.
 
 It is possible to install !OpenWrt using a TFTP client when the router is in "diag" mode. To put the router in "diag" mode, do this:
 
- * Unplug the power cord.
- * Push the black RESTORE button using a pen or such, and keep the button pushed down.
- * Plug the power on while keeping the RESTORE button pushed for few seconds.
- * If you see a slowly blinking power light, you are in "diag" mode. Now the router should accept an image via TFTP. See OpenWrtViaTftp for more instructions on upgrading via TFTP.
+ * Now the router should accept an image via TFTP. See OpenWrtViaTftp for more instructions on upgrading via TFTP.
  * After the TFTP upload is complete, wait at least 6 minutes.
  * ASUS WL-500g Premium does not seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 ==== ASUS firmware restoration tool (Windows only) ====
  * You can try the installation with the ASUS firmware restoration tool, it's on the CD.
  * Browse the .trx file (bin/openwrt-brcm-2.4-squashfs.trx works great).
- * Unplug the router's power cord.
- * Push the black RESTORE button using a pen or such, and keep the button pushed down.
- * Plug the power on while keeping the RESTORE button pushed for few seconds.
  * Press Upload. The router will reboot itself.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == Asus WL500g Premium specific configuration ==
@@ -188,7 +187,7 @@ HardwareAcceleratedCrypto
  * [http://wl500g.info/forumdisplay.php?f=61 wl500g.info]
  * [http://forum.bsr-clan.de/viewtopic.php?t=8813&highlight=500 Does anyone know what exactly are the 8 (2x4) pins near the bigger capacitor on the PCB?] They are 2 serial connections
  * [http://forum.openwrt.org/viewtopic.php?id=6362 configure WAN-interface]
-== Trunc with Kernel 2.6 ==
+== Trunk with Kernel 2.6 ==
 '''P:''' The line ''b44: eth1: BUG! Timeout waiting for bit 80000000 of register 428 to clear.'' may appear in log. ''' '''
 
 '''S:''' As written in http://forum.openwrt.org/viewtopic.php?pid=29017 this can be fixed by editing /etc/init.d/S10boot
