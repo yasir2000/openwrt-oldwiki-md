@@ -36,7 +36,7 @@ Irregular updates of bleeding edge kamikaze Firmware along with pre-compiled pac
 to open the case, remove the two feet on the opposite site to the antenna jack, they'll reveal two crosspoint screws.
 
 == Serial ==
-If the ethernet jack is in front of you, it looks like
+If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side)
 
 {{{
 +-------------------+
