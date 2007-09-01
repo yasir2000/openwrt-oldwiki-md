@@ -1,3 +1,6 @@
+#pragma section-numbers off
+[[TableOfContents]]
+
 == Status ==
 With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
 
