@@ -93,12 +93,13 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
 == Asus WL500g Premium specific configuration ==
 === Interfaces ===
 The default network configuration is:
+||<tablewidth="541px" tableheight="129px" tablestyle="">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
+||eth0.0 ||LAN ports ||192.168.1.1/24 ||
+||eth0.1 ||WAN port ||DHCP ||
+||eth1 ||!WiFi ||Disabled by default ||
 
-||<tablewidth="541px" tableheight="129px" tablealign="">'''Interface Name'''||'''Description'''||'''Default configuration'''||
-||eth0.0||LAN ports||192.168.1.1/24||
-||eth0.1||WAN port||DHCP||
-||eth1||WiFi||Disabled by default||
-LAN and WiFi is bridged to br-lan. WiFi is disabled by default for security reasons (to prevent an open access point).
+
+LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
 
 === Enabling all RAM ===
 On newer Asus WL500g Premium routers all RAM is enabled by default.
