@@ -31,6 +31,11 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 === Photos ===
+
+== Original Firmware ==
+=== Backup ===
+=== Restore ===
+
 == Installation ==
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
