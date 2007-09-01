@@ -1,6 +1,7 @@
 The Asus WL500g Premium works with OpenWrt Kamikaze
 
-== Hardware Info ==
+== Hardware ==
+=== Info ===
 ||'''Architecture''' ||MIPS ||
 ||'''Vendor''' ||Broadcom ||
 ||'''Bootloader''' ||CFE ||
@@ -13,6 +14,22 @@ The Asus WL500g Premium works with OpenWrt Kamikaze
 ||'''USB''' ||2x USB 2.0 ||
 ||'''Serial''' ||yes ||
 ||'''JTAG''' ||no ||
+
+=== Serial Port ===
+
+Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
+||RESET || ||
+||GND ||3.3V_OUT ||
+||UART_TX1 ||UART_TX0 ||
+||UART_RX1 ||UART_RX0 ||
+
+
+Pin 1 (with the square solder pad) is RX0.
+
+These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
+
+=== Photos ===
+
 == Installation ==
 Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
 
@@ -141,18 +158,6 @@ http://wiki.openwrt.org/Faq How do I use WiFi Protected Access (WPA)?
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
 HardwareAcceleratedCrypto
-
-== Serial ==
-Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
-||RESET || ||
-||GND ||3.3V_OUT ||
-||UART_TX1 ||UART_TX0 ||
-||UART_RX1 ||UART_RX0 ||
-
-
-Pin 1 (with the square solder pad) is RX0.
-
-These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 ----
  . Here are some links to forum threads related to the Asus WL500g Premium:
