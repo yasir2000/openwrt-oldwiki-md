@@ -193,9 +193,10 @@ HardwareAcceleratedCrypto
 == Serial ==
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
 
- . {{{
-NC    3.3V TX0  RX0
-RESET GND  TX1  RX1}}}
+||RESET||||
+||GND||3.3V_OUT||
+||UART_TX1||UART_TX0||
+||UART_RX1||UART_RX0||
 Pin 1 (with the square solder pad) is RX0.
 
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
