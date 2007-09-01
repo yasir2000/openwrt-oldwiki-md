@@ -112,26 +112,15 @@ nvram commit
 reboot
 }}}
 === Buttons ===
-
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
+||'''BUTTON''' ||'''Event''' ||
+||RESTORE ||reset ||
+||EZSETUP ||ses ||
 
-||'''BUTTON'''||'''Event'''||
-||RESTORE||reset||
-||EZSETUP||ses||
 
 ACTION: released or pressed
 
-== Few problems with the Asus WL500g Premium ==
-With Kamikaze 7.07 and WhiteRussian 0.9 and later (Kernel 2.4) the buttons working correctly.
-
-The reset button does not work (due largely to mis-mapped /proc/sys/reset)
-
-[wiki:WikiPedia:GPIO gpio] 0 = RESTORE button (reset) (00 = unpressed, 01 = pressed)
-
-gpio 1 = Power LED (enable = off, disable = on)
-
-gpio 4 = EZ SETUP button (similar to linksys "button"?) (00 = unpressed, 01 = pressed)
-
+== Basic configuration ==
 ----
 === PPPoE ===
 With firmware version 0.9 PPPoE works out of the box. The following problems affect older firmware versions. VespaTS: Couldn't get WikiPedia:PPPoE to work. To get PPPoE running I had to change again some settings:
