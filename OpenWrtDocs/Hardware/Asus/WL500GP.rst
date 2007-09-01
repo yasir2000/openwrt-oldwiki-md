@@ -159,7 +159,7 @@ nvram commit}}}
 
 {{{
 uci set wireless.wl0.disabled=0
-uci commit && wifi}}}
+uci commit wireless && wifi}}}
 
 === Installing WiFi Protected Access (WPA) ===
 Install the nas package.
