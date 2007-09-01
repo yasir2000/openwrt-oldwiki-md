@@ -1,26 +1,25 @@
 The Asus WL500g Premium works with OpenWrt Kamikaze
 
 == Hardware Info ==
-||'''Architecture'''||MIPS||
-||'''Vendor'''||Broadcom||
-||'''Bootloader'''||CFE||
-||'''System-On-Chip'''||Broadcom 5365||
-||'''CPU Speed'''||266 Mhz||
-||'''Flash size'''||8 MiB||
-||'''RAM'''||32 MiB (some older units have only 16 MiB enabled)||
-||'''Wireless'''||MiniPCI Broadcom 802.11b/g BCM4318 802.11 Wireless LAN Controller||
-||'''Ethernet'''||Robo switch BCM5325||
-||'''USB'''||2x USB 2.0||
-||'''Serial'''||yes||
-||'''JTAG'''||no||
-
+||'''Architecture''' ||MIPS ||
+||'''Vendor''' ||Broadcom ||
+||'''Bootloader''' ||CFE ||
+||'''System-On-Chip''' ||Broadcom 5365 ||
+||'''CPU Speed''' ||266 Mhz ||
+||'''Flash size''' ||8 MiB ||
+||'''RAM''' ||32 MiB (some older units have only 16 MiB enabled) ||
+||'''Wireless''' ||MiniPCI Broadcom 802.11b/g BCM4318 802.11 Wireless LAN Controller ||
+||'''Ethernet''' ||Robo switch BCM5325 ||
+||'''USB''' ||2x USB 2.0 ||
+||'''Serial''' ||yes ||
+||'''JTAG''' ||no ||
 == Installation ==
 Looks like most people won't be able to install OpenWrt using the Asus web interface. You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
 
 === Via Asus web interface ===
 /!\ '''For some people upgrading via the web interface works, for some it doesn't. Trying won't break the router, the web interface just might not accept the OpenWrt firmware image.''' /!\
 
-It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.~- -~
+It might be possible to use Asus' built-in web interface to download OpenWrt into the router. It has been reported that [http://downloads.openwrt.org/whiterussian/rc5/bin/openwrt-brcm-2.4-jffs2-4MB.trx this image] (Whiterussian-rc5, jffs2, 4MB) was accepted by the web interface.~--~
 
 === Using diag mode and tftp ===
 /!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
@@ -52,52 +51,7 @@ It is possible to install OpenWrt using a TFTP client when the router is in "dia
 
 Before reading further, please read about the internal network architecture and how physical ports map to vlans unless you're already familiar with it. See OpenWrtDocs/NetworkInterfaces if you feel like you could refresh your memory.
 
- However, current release [http://downloads.openwrt.org/whiterussian/0.9/default/openwrt-brcm-2.4-squashfs.trx 0.9] fully supports the router so no NVRAM changes are required.
-
-You need to make a few NVRAM changes before the network settings are similar as in most other routers (such as WRT54GP):
-
- . {{{
-nvram set vlan1ports="0 5"
-nvram set wan_ifname=vlan1
-nvram set lan_ifnames="vlan0 eth2"
-nvram set lan_ifname=br0
-}}}
-This will configure LAN and WIFI to be bridged (br0) and WAN to vlan1.
-
-Also in WhiteRussian RC6, WAN does not work out of the box. You have to change vlan1ports:
-
- . {{{
-# original value "0 5u" does not work
-nvram set vlan1ports="0 5"
-}}}
-This will make vlan1 working again.
-
-Alternatively, you can live without working vlan1 interface:
-
- . {{{
-# original value: "vlan1"
-nvram set wan_device=eth0
-# original value: "vlan1"
-nvram set wan_ifnames=eth0
-}}}
-This will remove vlan1 and send WAN traffic directly to eth0. In this case, you may need to replace vlan1 by eth0 in more variables (e. g. pppoe_ifname, see result of "nvram show | grep vlan1").
-
-Save the settings with:
-
-{{{
-nvram commit
-}}}
-/!\ '''Note: the {{{nvram commit}}} command will erase and rewrite a 64kB part of the flash memory. Don't do this too often since flash memories only have limited number of erase/rewrite-cycles!''' (see [http://wiki.openwrt.org/OpenWrtNVRAM#NVRAMCommitting nvram commit warning]) /!\
-
-You should be able to configure the rest of the network configuration using OpenWrt webif.
-
-Note: new vlan settings will be applied on reboot. Alternatively you can issue
-
-{{{
-echo `nvram get vlan$VLAN_NUMERports` > /proc/switch/eth0/vlan/$VLAN_NUMER/ports
-}}}
-but remember to replace the two "$VLAN_NUMER"s with the VLAN number you want to activate the settings for. You can also use some program such as RoboCfg (which isn't used by default).
-
+ . However, current release [http://downloads.openwrt.org/whiterussian/0.9/default/openwrt-brcm-2.4-squashfs.trx 0.9] fully supports the router so no NVRAM changes are required.
 === Enabling all RAM ===
 On newer Asus WL500g Premium routers all RAM is enabled by default.
 
@@ -113,8 +67,6 @@ reboot
 }}}
 == Few problems with the Asus WL500g Premium ==
 With Kamikaze 7.07 and WhiteRussian 0.9 and later (Kernel 2.4) the buttons working correctly.
-
-
 
 The reset button does not work (due largely to mis-mapped /proc/sys/reset)
 
@@ -192,11 +144,12 @@ HardwareAcceleratedCrypto
 
 == Serial ==
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
+||RESET || ||
+||GND ||3.3V_OUT ||
+||UART_TX1 ||UART_TX0 ||
+||UART_RX1 ||UART_RX0 ||
 
-||RESET||||
-||GND||3.3V_OUT||
-||UART_TX1||UART_TX0||
-||UART_RX1||UART_RX0||
+
 Pin 1 (with the square solder pad) is RX0.
 
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
