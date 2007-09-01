@@ -39,7 +39,7 @@ You can backup the original firmware image with the hidden admin page (http://19
 
  * Connect the USB pen drive to one of the USB ports on the router
  * Point your browser to the hidden admin page at http://192.168.1.1/Main_AdmStatus_Content.asp
- * Create the backup with 'dd if=/dev/mtdblock/1 > /tmp/first_config.trx'
+ * Create the backup with 'dd if=/dev/mtdblock/1 > /tmp/first_config.trx'. Enter the dd command in the System Command textfield and hit the Refresh button
  * In the System Command textfield enter mount and hit the Refresh button. Here you should see your USB pen drive's mount point. Something like:
  {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)
