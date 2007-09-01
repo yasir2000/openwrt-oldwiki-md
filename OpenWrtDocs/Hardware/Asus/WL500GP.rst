@@ -59,7 +59,8 @@ You can try the ASUS web GUI in case it works, or skip directly to the TFTP part
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
 === Using diag mode ===
-To install OpenWrt using TFTP or the ASUS restoration tool you have to put the router in diag mode. To put the router in the diag mode, do this:
+To install !OpenWrt using TFTP or the ASUS restoration tool you have to put the router in diag mode. To put the router in the diag mode, do this:
+
  * Unplug the router's power cord.
  * Push the black RESTORE button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the RESTORE button pushed for few seconds.
