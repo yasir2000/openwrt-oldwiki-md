@@ -124,11 +124,12 @@ ACTION: released or pressed
 === PPPoE ===
 With Kamikaze 7.07 PPPoE works out of the box.
 
-=== Enable WiFi ===
+=== WiFi ===
+==== Enable WiFi ====
 {{{
 uci set wireless.wl0.disabled=0
 uci commit wireless && wifi}}}
-=== Installing WiFi Protected Access (WPA) ===
+==== Installing WiFi Protected Access (WPA) ====
 Install the nas package.
 
 {{{
@@ -139,7 +140,7 @@ Configure WPA encryption using UCI
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-=== Installing WiFi Protected Access (WPA2) ===
+==== Installing WiFi Protected Access (WPA2) ====
 Install the nas package.
 
 {{{
