@@ -122,26 +122,8 @@ ACTION: released or pressed
 
 == Basic configuration ==
 === PPPoE ===
-With firmware version 0.9 PPPoE works out of the box. The following problems affect older firmware versions. VespaTS: Couldn't get WikiPedia:PPPoE to work. To get PPPoE running I had to change again some settings:
+With Kamikaze 7.07 PPPoE works out of the box.
 
-wan_device=eth0 (it was set to vlan1)
-
-But probably better is to make vlan1 working (see above and below).
-
-Could an experienced Asus WL500g Premium user update [:OpenWrtDocs/Configuration#NetworkInterfaceNames:this table]?
-
-The above does not work for me (on a clean OpenWrt squashfs firmware), I've to use these setting after configure in the web ui:
-
-/!\ '''Note:''' You may want to do a 'ifdown wan' first, to suppress pppd messages.
-
-{{{
-nvram set wan_ifname=ppp0
-nvram set pppoe_ifname=vlan1
-nvram set wan_device=vlan1}}}
-With WhiteRussian RC6, it's sufficient to set (you still have to make vlan1 working - see above):
-
-{{{
-nvram set pppoe_ifname=vlan1}}}
 === DHCP server & client settings ===
 To act as a DHCP client towards WAN set the following:
 
@@ -172,15 +154,34 @@ To act as a DHCP server towards WiFi set the following:
 {{{
 nvram set wifi_proto=dhcp
 nvram commit}}}
+
+=== Enable WiFi ===
+
+{{{
+uci set wireless.wl0.disabled=0
+uci commit && wifi}}}
+
 === Installing WiFi Protected Access (WPA) ===
-By default in de WhiteRussian V0.9 the WPA was available on the web console, but was not installed. It took me some time to find it. This because the Wifi could connected with WPA-PSK, WPA1 and RC4 (TKIP) and everything looks ok. Only the DHCP server did not give me an IP address. To install WPA, look at
+Install the nas package.
+{{{
+ipkg install nas}}}
 
-http://wiki.openwrt.org/Faq#head-241867b49a4ff86751c7a12f3120a47bd939b10e
+Configure WPA encryption using UCI
+{{{
+uci set wireless.wifi.encryption=psk
+uci set wireless.wifi.key=<password>
+uci commit wireless && wifi}}}
 
-or
+=== Installing WiFi Protected Access (WPA2) ===
+Install the nas package.
+{{{
+ipkg install nas}}}
 
-http://wiki.openwrt.org/Faq How do I use WiFi Protected Access (WPA)?
-
+Configure WPA encryption using UCI
+{{{
+uci set wireless.wifi.encryption=psk2
+uci set wireless.wifi.key=<password>
+uci commit wireless && wifi}}}
 == Asus WL500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
