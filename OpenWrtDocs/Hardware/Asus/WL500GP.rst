@@ -32,7 +32,7 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 
 === Photos ===
 == Installation ==
- You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
+You can try the web interface in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the Asus "firmware restoration" tool (Windows only).
 
 === Via ASUS web interface ===
 Does not work yet. The TRX utility which adds the header to the TRX firmware file has to be rewritten.
