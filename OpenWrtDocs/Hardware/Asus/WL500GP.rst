@@ -97,8 +97,7 @@ The default network configuration is:
 ||<tablewidth="541px" tableheight="129px" tablealign="">'''Interface Name'''||'''Description'''||'''Default configuration'''||
 ||eth0.0||LAN ports||192.168.1.1/24||
 ||eth0.1||WAN port||DHCP||
-||eth1||WiFi||Disabled by default
-||
+||eth1||WiFi||Disabled by default||
 LAN and WiFi is bridged to br-lan. WiFi is disabled by default for security reasons (to prevent an open access point).
 
 === Enabling all RAM ===
