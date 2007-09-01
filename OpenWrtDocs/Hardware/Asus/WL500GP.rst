@@ -124,36 +124,6 @@ ACTION: released or pressed
 === PPPoE ===
 With Kamikaze 7.07 PPPoE works out of the box.
 
-=== DHCP server & client settings ===
-To act as a DHCP client towards WAN set the following:
-
-{{{
-nvram set wan0_proto=dhcp
-nvram set wan_proto=dhcp
-nvram commit}}}
-To act as a DHCP server towards LAN set the following:
-
-{{{
-nvram set default_lan_proto=dhcp_server
-nvram set lan_dhcp=1
-nvram set dhcp_enable_x=1
-nvram commit}}}
-These settings are optional and not necessary for DHCP to function:
-
-{{{
-# to set DHCP IP address pool begin at 192.168.1.222
-nvram set dhcp1_start=192.168.1.222
-nvram set dhcp_start=222
-# to set DHCP IP address pool end at 192.168.1.254
-nvram set dhcp1_end=192.168.1.254
-nvram set dhcp_end=254
-nvram set dhcp_lease=86400 # DHCP lease time 86400 in seconds( use h=hours, m=minutes: example 2h)
-nvram commit}}}
-To act as a DHCP server towards !WiFi set the following:
-
-{{{
-nvram set wifi_proto=dhcp
-nvram commit}}}
 === Enable WiFi ===
 {{{
 uci set wireless.wl0.disabled=0
