@@ -97,7 +97,7 @@ The default network configuration is:
 ||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
 ||eth0.0 ||LAN ports || ||
 ||eth0.1 ||WAN port ||DHCP ||
-||eth1 ||!WiFi ||Disabled by default ||
+||wl0||!WiFi ||Disabled by default ||
 
 
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
@@ -149,38 +149,36 @@ nvram set dhcp1_end=192.168.1.254
 nvram set dhcp_end=254
 nvram set dhcp_lease=86400 # DHCP lease time 86400 in seconds( use h=hours, m=minutes: example 2h)
 nvram commit}}}
-To act as a DHCP server towards WiFi set the following:
+To act as a DHCP server towards !WiFi set the following:
 
 {{{
 nvram set wifi_proto=dhcp
 nvram commit}}}
-
 === Enable WiFi ===
-
 {{{
 uci set wireless.wl0.disabled=0
 uci commit wireless && wifi}}}
-
 === Installing WiFi Protected Access (WPA) ===
 Install the nas package.
+
 {{{
 ipkg install nas}}}
-
 Configure WPA encryption using UCI
-{{{
-uci set wireless.wifi.encryption=psk
-uci set wireless.wifi.key=<password>
-uci commit wireless && wifi}}}
 
+{{{
+uci set wireless.cfg2.encryption=psk
+uci set wireless.cfg2.key=<password>
+uci commit wireless && wifi}}}
 === Installing WiFi Protected Access (WPA2) ===
 Install the nas package.
+
 {{{
 ipkg install nas}}}
+Configure WPA2 encryption using UCI
 
-Configure WPA encryption using UCI
 {{{
-uci set wireless.wifi.encryption=psk2
-uci set wireless.wifi.key=<password>
+uci set wireless.cfg2.encryption=psk2
+uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 == Asus WL500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
