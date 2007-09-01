@@ -58,7 +58,8 @@ You can try the ASUS web GUI in case it works, or skip directly to the TFTP part
 === Using the ASUS web GUI ===
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
-=== Using diag mode and TFTP ===
+=== Using diag mode ===
+==== TFTP ====
 /!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
 
 Netkit's tftp doesn't work quite often; use atftp.
@@ -74,7 +75,7 @@ It is possible to install !OpenWrt using a TFTP client when the router is in "di
  * After the TFTP upload is complete, wait at least 6 minutes.
  * ASUS WL-500g Premium does not seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
-=== Using the ASUS firmware restoration tool (Windows only) ===
+==== ASUS firmware restoration tool (Windows only) ====
  * You can try the installation with the ASUS firmware restoration tool, it's on the CD.
  * Browse the .trx file (bin/openwrt-brcm-2.4-squashfs.trx works great).
  * Unplug the router's power cord.
