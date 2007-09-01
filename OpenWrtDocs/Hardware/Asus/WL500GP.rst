@@ -121,7 +121,6 @@ The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The butt
 ACTION: released or pressed
 
 == Basic configuration ==
-----
 === PPPoE ===
 With firmware version 0.9 PPPoE works out of the box. The following problems affect older firmware versions. VespaTS: Couldn't get WikiPedia:PPPoE to work. To get PPPoE running I had to change again some settings:
 
