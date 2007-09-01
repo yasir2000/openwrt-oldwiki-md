@@ -11,8 +11,8 @@ With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||'''Bootloader''' ||CFE ||
 ||'''System-On-Chip''' ||Broadcom 5365 ||
 ||'''CPU Speed''' ||266 Mhz ||
-||'''Flash size''' ||8 MiB ||
-||'''RAM''' ||32 MiB (some older units have only 16 MiB enabled) ||
+||'''Flash size''' ||8MiB ||
+||'''RAM''' ||32MiB (some older units have only 16MiB enabled) ||
 ||'''Wireless''' ||MiniPCI Broadcom 802.11b/g BCM4318 802.11 Wireless LAN Controller ||
 ||'''Ethernet''' ||Robo switch BCM5325 ||
 ||'''USB''' ||2x USB 2.0 ||
@@ -90,12 +90,12 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
  * Browse the .trx file (openwrt-brcm-2.4-squashfs.trx).
  * Press Upload. The router will reboot itself.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
-== Asus WL-500g Premium specific configuration ==
+== ASUS WL-500g Premium specific configuration ==
 === Interfaces ===
 The default network configuration is:
 ||<tablewidth="541px" tableheight="129px">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
-||br-lan ||LAN & !WiFi||192.168.1.1/24 ||
-||eth0.0||LAN ports|| ||
+||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
+||eth0.0 ||LAN ports || ||
 ||eth0.1 ||WAN port ||DHCP ||
 ||eth1 ||!WiFi ||Disabled by default ||
 
@@ -103,11 +103,7 @@ The default network configuration is:
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
 
 === Enabling all RAM ===
-On newer Asus WL500g Premium routers all RAM is enabled by default.
-
-If you look at "dmesg | grep Memory" or "free" command's output, you will probably see that there's only 16MB of RAM. Specs says there should be 32MB.
-
-And these values defined in Asus firmware 1.9.7.2 NVRAM enable 32MB properly:
+On newer ASUS WL-500g Premium router's all RAM is enabled by default. If you look at "dmesg | grep Memory" command's output, you will probably see that there's only 16MiB of RAM. Specs says there should be 32MiB. To enable 32MiB change the sdram_init and sdram_ncdl NVRAM variables as showed:
 
 {{{
 nvram set sdram_init=0x0009
