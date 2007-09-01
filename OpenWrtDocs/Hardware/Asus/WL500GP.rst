@@ -35,7 +35,7 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
 === Using the ASUS web GUI ===
-Does not work yet. The TRX utility has to be rewritten (Sep. 1st 2007, confirmed by nbd on IRC).
+Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
 === Using diag mode and TFTP ===
 /!\ '''After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.''' /!\
