@@ -31,24 +31,23 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 === Photos ===
-
 == Original Firmware ==
 === Backup ===
-
 You can backup the original firmware image with the hidden admin page (http://192.168.1.1/Main_AdmStatus_Content.asp). This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
 
  * Connect the USB pen drive to one of the USB ports on the router
  * Point your browser to the hidden admin page at http://192.168.1.1/Main_AdmStatus_Content.asp
- * Create the backup with 'dd if=/dev/mtdblock/1 > /tmp/first_config.trx'. Enter the dd command in the System Command textfield and hit the Refresh button
- * In the System Command textfield enter mount and hit the Refresh button. Here you should see your USB pen drive's mount point. Something like:
+ * In the System Command text field enter 'mount' and hit the Refresh button. Here you should see your USB pen drive's mount point. Something like:
  {{{
-/dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)
-}}}
+/dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)}}}
+ * To create the backup you need to put a small shell script on your USB pen drive. The shell script has only the following two lines:
+ {{{
+#!/bin/sh
+dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
+ * Create the backup with 'dd if=/dev/mtdblock/1 > /tmp/first_config.trx'. Enter the dd command in the System Command textfield and hit the Refresh button
  * Copy the TRX firmware backup to the pen drive with 'cp -fpR /tmp/first_config.trx /tmp/harddisk/part0'
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there (you can also compare the file size of the two files)
-
 === Restore ===
-
 == Installation ==
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
