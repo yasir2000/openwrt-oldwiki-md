@@ -111,6 +111,16 @@ nvram set sdram_ncdl=0x10308
 nvram commit
 reboot
 }}}
+=== Buttons ===
+
+The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
+
+||'''BUTTON'''||'''Event'''||
+||RESTORE||reset||
+||EZSETUP||ses||
+
+ACTION: released or pressed
+
 == Few problems with the Asus WL500g Premium ==
 With Kamikaze 7.07 and WhiteRussian 0.9 and later (Kernel 2.4) the buttons working correctly.
 
