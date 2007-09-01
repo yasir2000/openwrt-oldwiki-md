@@ -33,7 +33,7 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 === Photos ===
 == Original Firmware ==
 === Backup ===
-You can backup the original firmware image with the hidden admin page (http://192.168.1.1/Main_AdmStatus_Content.asp). This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
+You can backup the original firmware image with the hidden admin page. This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
 
  * To create the backup you need to put a small shell script on your USB pen drive. I name the script asus.sh. The shell script has only the following two lines:
  {{{
