@@ -97,10 +97,11 @@ The default network configuration is:
 ||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
 ||eth0.0 ||LAN ports || ||
 ||eth0.1 ||WAN port ||DHCP ||
-||wl0||!WiFi ||Disabled by default ||
+||wl0 ||!WiFi ||Disabled by default ||
 
 
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
+
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
 ||'''BUTTON''' ||'''Event''' ||
@@ -153,11 +154,9 @@ uci commit wireless && wifi}}}
 === USB ===
 ==== USB 2.0 ====
 ==== USB 1.1 ====
-
 === Print Server ===
 {{{
-ipkg install p910nd kmod-usb-printer}}}
-
+ipkg install kmod-usb-printer p910nd}}}
 == Asus WL500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
