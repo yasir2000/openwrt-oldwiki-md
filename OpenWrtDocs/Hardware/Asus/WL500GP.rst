@@ -155,6 +155,8 @@ uci commit wireless && wifi}}}
 ==== USB 1.1 ====
 
 === Print Server ===
+{{{
+ipkg install p910nd kmod-usb-printer}}}
 
 == Asus WL500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
