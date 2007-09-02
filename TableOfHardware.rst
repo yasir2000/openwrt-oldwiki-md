@@ -386,6 +386,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
 ||[http://www.netopia.com/support/hardware/3347nwg006.html 3347NWG] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7 (TNETD7300AZDW)] @??? ||???MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130ZVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQMG] || || || ||No ||Untested ||
+||[http://www.netopia.com/support/hardware/3347w.html 3347W]|| ||??? @ ???MHz||???MB||16MB||???||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325A2KQM]|| || || ||No||Untested||
 == Ovislink ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ovislink.com.tw/WLA5000AP.htm Ovislink WLA-5000AP] ||? ||Atheros AR2313 @ ? MHz ||4MB ||32MB ||Atheros AR5112A ||? ||? ||Yes ||? ||No ||[:OpenWrtDocs/Hardware/Wistron/CA8-4  CE8-1:WiP], identical to Winstron CA8-4/CE8-1 ||
@@ -518,4 +519,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . ["CategoryAR7Device"]
 ----
- CategoryModel
+ . CategoryModel
