@@ -150,6 +150,10 @@ Configure WPA2 encryption using UCI
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
+=== USB ===
+==== USB 2.0 ====
+==== USB 1.1 ====
+
 == Asus WL500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
