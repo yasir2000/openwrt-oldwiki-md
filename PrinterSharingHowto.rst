@@ -46,7 +46,7 @@ reboot}}}
 When you see the file {{{/dev/printers/0}}} than the installation is done. You can also check the output from {{{dmesg}}}.
 
 = Configuring the printer daemon =
-The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can add more then one printers by adding additional sections. The default configuration is (list all configured printers):
+The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can run more than one printer at the same time by adding additional sections. The default configuration is (list all configured printers):
 
 {{{
 uci show p910nd}}}
@@ -71,13 +71,11 @@ uci del p910nd.cfg2
 uci commit p910nd
 /etc/init.d/p910nd restart}}}
 Description of the options in the p910nd config file (/etc/config/p910nd):
-||<tablewidth="1155px" tableheight="145px" tablestyle="">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
-||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to. ||
+||<tablewidth="1155px" tableheight="145px">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
+||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to (e.g. /dev/usb/lp0 for USB - e.g. /dev/printers/0 for LTP) ||
 ||port ||[0-9] ||0 ||The p910nd daemon will listen on TCP port 9100+port ||
 ||bidirectional ||[1|0] ||1 ||1: Turn on bidirectional copying; 0: Turn off bidirectional copying ||
 
-
-You can run more than one printer at the same time. For example one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}}) interface.
 
 To start the p910nd daemon, do this:
 
