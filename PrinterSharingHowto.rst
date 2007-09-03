@@ -15,7 +15,7 @@ From the p910nd man page: p910nd is a small printer daemon intended for diskless
  * GNU/Linux or Windows clients to connect to your printer server
  * a USB or parallel printer ('''TIP:''' I tested this with a noname USB-to-Parport adapter/converter too, works perfect!)
 = Installation =
-Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
+Install the p910nd package:
 
 {{{
 ipkg install p910nd}}}
@@ -35,7 +35,7 @@ usb.c: USB disconnect on device 01:02.0-1 address 2
 hub.c: new USB device 01:02.0-1, assigned address 3
 printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094}}}
 == Printers connected via parport (parallel port/LPT) ==
-When you're connecting a parport printer you must install the {{{kmod-lp}}} package which installs the modules for parport support.
+When you are connecting a parport printer you must install the {{{kmod-lp}}} package which installs the modules for parport support.
 
 {{{
 ipkg install kmod-lp}}}
