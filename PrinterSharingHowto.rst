@@ -46,30 +46,47 @@ reboot}}}
 When you see the file {{{/dev/printers/0}}} than the installation is done. You can also check the output from {{{dmesg}}}.
 
 = Configuring the printer daemon =
-Edit the file {{{/etc/default/p910nd}}} to your needs. The file is well commented. The default file looks like that:
+The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can add more then one printers by adding additional sections. The default configuration is (list all configured printers):
 
 {{{
-cat /etc/default/p910nd}}}
+uci show p910nd}}}
 {{{
-# printing port list, in the form "number [options]"
-# where:
-#  - number is the port number in the range [0-9]
-#    the p910nd daemon will listen on tcp port 9100+number
-#  - options can be :
-#    -b to turn on bidirectional copying.
-#    -f to specify a different printer device.
-#
-0  -b -f /dev/usb/lp0}}}
+p910nd.cfg1=p910nd
+p910nd.cfg1.device=/dev/usb/lp0
+p910nd.cfg1.port=0
+p910nd.cfg1.bidirectional=1}}}
+To add a second printer, do this:
+
+{{{
+uci set p910nd.cfg2=p910nd
+uci set p910nd.cfg2.device=/dev/usb/lp1
+uci set p910nd.cfg2.port=0
+uci set p910nd.cfg2.bidirectional=1
+uci commit p910nd
+/etc/init.d/p910nd restart}}}
+To delete the second printer, do this:
+
+{{{
+uci del p910nd.cfg2
+uci commit p910nd
+/etc/init.d/p910nd restart}}}
+Description of the options in the p910nd config file (/etc/config/p910nd):
+||<tablewidth="1155px" tableheight="145px" tablestyle="">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
+||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to. ||
+||port ||[0-9] ||0 ||The p910nd daemon will listen on TCP port 9100+port ||
+||bidirectional ||[1|0] ||1 ||1: Turn on bidirectional copying; 0: Turn off bidirectional copying ||
+
+
 You can run more than one printer at the same time. For example one on USB and the other on the parport (f. e. {{{1  -b -f /dev/printers/0}}}) interface.
 
-If you own ASUS WL-500 and connect to parallel port, you might need to modify {{{/etc/default/p910nd}}} to contain (only) {{{ -f /dev/printers/0}}} Save it and start the {{{p910nd}}} daemon with:
+To start the p910nd daemon, do this:
 
 {{{
 /etc/init.d/p910nd start}}}
-To start it up automatically rename it as follows
+To start it up automatically on every boot, do this:
 
 {{{
-mv /etc/init.d/p910nd /etc/init.d/S55p910nd}}}
+/etc/init.d/p910nd enable}}}
 = Configure the clients for printing =
 Here I would demonstrate you, how to configure the printer driver on your client. It could be that these steps are not exactly the same on your operating system.
 
@@ -92,18 +109,15 @@ Assuming the printer driver is installed locally, it's a simple matter of enteri
 Then you use your new printer like you would a local one.
 
 === kprinter (KDE) ===
-
  * Start kprinter
  * Select 'Add printer'
  * Select Network printer (TCP)
  * Use 192.168.1.1 (the router's IP address) as the printer's IP
  * Fill in the port you want to use (normally defaults to 9100)
  * Pick manufacturer and model
- * Pick the recommended driver 
+ * Pick the recommended driver
  * Then you can new print a test page or change the settings of the printer further
-
 === Gnome ===
-
  * Select System -> Administration -> Printing
  * Select New Printer
  * Select Network Printer and "HP !JetDirect"
@@ -136,7 +150,7 @@ The following instructions should work on all versions of windows from 2000 onwa
  * You printer should be configred now. Be sure that your firewall allows communication to the chosen port.
  * You may print a test page to see if all went well.
 = Ink level information for inkjet printers =
-Most printer drivers cannot access ink level information through the 910nd deamon, so you may not know, which cartridge to change. You can use the attached ink-4.1 package attachment:ink%5F%30.%34.%31%2D%31%5Fmipsel.ipk to obtain the ink levels for most printers in OpenWrt (based on http://libinklevel.sourceforge.net/). If you want to display the inklevels in X-Wrt you may apply the following path to status-usb.sh:
+Most printer drivers cannot access ink level information through the 910nd deamon, so you may not know, which cartridge to change. You can use the attached ink-4.1 package attachment:ink_0.4.1-1_mipsel.ipk to obtain the ink levels for most printers in OpenWrt (based on http://libinklevel.sourceforge.net/). If you want to display the inklevels in X-Wrt you may apply the following path to status-usb.sh:
 
 {{{
 ...
