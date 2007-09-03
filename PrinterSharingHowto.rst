@@ -72,7 +72,7 @@ uci commit p910nd
 /etc/init.d/p910nd restart}}}
 Description of the options in the p910nd config file (/etc/config/p910nd):
 ||<tablewidth="1155px" tableheight="145px">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
-||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to (e.g. /dev/usb/lp0 for USB - e.g. /dev/printers/0 for LTP) ||
+||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to (e.g. /dev/usb/lp0 for USB - e.g. /dev/printers/0 for LPT) ||
 ||port ||[0-9] ||0 ||The p910nd daemon will listen on TCP port 9100+port ||
 ||bidirectional ||[1|0] ||1 ||1: Turn on bidirectional copying; 0: Turn off bidirectional copying ||
 
