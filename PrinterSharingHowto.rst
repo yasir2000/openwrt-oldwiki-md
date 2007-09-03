@@ -9,7 +9,7 @@ From the p910nd man page: p910nd is a small printer daemon intended for diskless
 
 = Requirements =
  * a device supported by !OpenWrt with USB and/or parport (the Asus WL-500g has both USB and parport)
- * a recent !OpenWrt version installed (at least White Russian RC3)
+ * a recent !OpenWrt version installed (at least Kamikaze 7.07)
  * configured USB and/or parport modules
  * the {{{p910nd}}} package (which is not yet included in White Russian)
  * GNU/Linux or Windows clients to connect to your printer server
