@@ -9,6 +9,11 @@ Serial : yes
 JTAG : yes
 }}}
 
+
+Photo :
+[http://f.fainelli.free.fr/openwrt/images/zyxel-p335wt.jpg]
+
+
 Serial Pinout :
 
 
