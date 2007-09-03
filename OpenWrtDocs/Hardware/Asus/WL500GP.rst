@@ -157,13 +157,13 @@ uci commit wireless && wifi}}}
 === Print Server ===
 Please see the PrinterSharingHowto.
 
-== Asus WL500g Premium info ==
+== ASUS WL-500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
 
 HardwareAcceleratedCrypto
 
 ----
- . Here are some links to forum threads related to the Asus WL500g Premium:
+ . Here are some links to forum threads related to the ASUS WL-500g Premium:
  * [http://forum.openwrt.org/viewtopic.php?id=6090 Problems with WLAN encryption]
  * [http://forum.openwrt.org/viewtopic.php?id=6071 CPU Power]
  * [http://forum.openwrt.org/viewtopic.php?id=5688 Some more compatiblity information]
