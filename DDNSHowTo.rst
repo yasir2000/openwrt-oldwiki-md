@@ -134,7 +134,7 @@ Create the file /etc/ppp/ip-up.d/S01dyndns with the following content:
 USER="username"
 PASS="password"
 DOMAIN="yourhost.homeip.net"
-registered=$(nslookup $DOMAIN|sed 's/[^0-9.]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e's/ *//')
+registered=$(nslookup $DOMAIN|sed 's/[^0-9. ]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e's/ *//')
 current=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 [ "$current" != "$registered" ] && {
         wget -O /dev/null http://$USER:$PASS@members.dyndns.org/nic/update?hostname=$DOMAIN &&
@@ -142,7 +142,7 @@ current=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 }
 sleep 3
 newip=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
-newdns=$(nslookup $DOMAIN|sed s/[^0-9.]//g|tail -n1)
+newdns=$(nslookup $DOMAIN|sed 's/[^0-9. ]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e's/ *//')
 echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
         | /usr/bin/logger -t ddupd
 }}}
