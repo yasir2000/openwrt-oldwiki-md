@@ -1,4 +1,4 @@
-||<tablewidth="378px" tablestyle="WIDTH: 378px; HEIGHT: 147px"> http://www.compex.com.sg/home/images/logo3.gif ||'''''COMPEX ''WP54-6E''' ''(New Version)''''' ''' ||
+||<tablewidth="378px" tablestyle="WIDTH: 378px; HEIGHT: 147px"> http://www.compex.com.sg/home/images/logo3.gif ||'''''COMPEX ''''''WP54''' ''(New Version)''''' ''''' ||
 || || ||
 || || ||
 '''Content'''
@@ -7,7 +7,7 @@
 
 2. WP54 that DO NOT support Open-WRT
 
-3. Compex for develper
+3. Compex for developer
 
 4. OpenWRT Packets Information''' '''''''''Related Link''.''
 
@@ -24,16 +24,15 @@
 
 The Compex WP54 is a small, well-made device with two Ethernet ports and Atheros wireless that support both, Compex firmware and Open-WRT Firmware.
 
-There are several different versions are available for WP54 and only 2 type of WP54 is supporting Open-WRT.
-
-It is ''WP54-6B ''and'' WP54-6E'' ''(New Version)''.
+The new board of OpenWRT with loader Ver 2.4x and above is supporting OpenWRT.
 
 ----
  . ____
  . __'''Compex WP54 ''That Support Open-''WRT.'''__
  . '''''WP54-6B''''' = more likely same as WP54-1B board, but this board with ROHS standard is support Open-WRT.
- . '''''WP54-6E''''' = The Latest WP54 Model That support Open-WRT run in IEEE802.3af standard PoE and Compex PoE Plus.
+ . '''''WP54-6E''''' = The Model That support Open-WRT run in IEEE802.3af standard PoE and Compex PoE Plus.
  . It is also [http://en.wikipedia.org/wiki/ROHS ROHS] standard. This model support both Compex and Open-WRT Firmware.
+ . '''WP54 '''''(New)'' = Latest model WP54-6E board that has been Improved to support OpenWRT and Compex firmware.
 ----
  . __Compex WP54 THAT '''''DO NOT'' '''SUPPORT Open-WRT (Normal function)__
  * WP54 1A = Standard Wireless device that able to run in 7Modes(AP,Client, P to P, Gateway, P to multiple P,WL Routing Client and WL Adapter)
@@ -73,7 +72,7 @@ OpenWRT Packets Information''' '''''''''Related Link'' ''''''''
 
 '''__Comparison between WP54-B and WP54-E PCBA Board for OPEN-WRT__'''Updated on 5^th^ April 2007
 ||<tablewidth="589px"width="130px">'''Description''' ||<width="153px">'''WP541B-WRT''' ||<width="154px">'''WP546B-WRT''' ||<width="152px">'''WP54-6E''' ||
-||<width="130px">'''Loader''' ||<width="153px">CFE Loader ||<width="154px">CFE Loader ||<width="152px">Compex Loader/ CFE LoaderOnly Compex Loader V2.40 & above supports Open-WRT ||
+||<width="130px">'''Loader''' ||<width="153px">CFE Loader ||<width="154px">CFE Loader ||<width="152px">Compex/CFE Loader Compex Loader V2.40 & above supports Open-WRT ||
 ||<width="130px">'''CPLD''' ||<width="153px">Required ||<width="154px">Required ||<width="152px">Not Required ||
 
 
