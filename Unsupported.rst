@@ -18,9 +18,6 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 == Belkin ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||F5D7630-4B ||1210de ||Samsung S3C2510A01 (ARM9) ||2MB ||16MB ||ISL3880 ||ADMtek ADM6996L ||? ||3.3V 2x5 pins soldered ||no ||no (PCB supports USB) ||unsupported ||
-== Compex ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.compex.com.sg/home/products1.asp?20050721032253 WP54G] ||[http://compex.com.sg/home/productsub.asp?type1=Wireless&sub1=Access%20Points WP54-1A ]WP54-1B WP54-1C WP54-1D WP54-6D ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB / 32MB ||Atheros AR2413/2414/5413/5414 MiniPCI ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Unsupported] ||
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
@@ -58,9 +55,7 @@ Most devices listed here do not have enough flash memory, but there might be oth
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1124916804580&pagename=Linksys/Common/VisitorWrapper WRT54GX2] ||2.0 ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz ? || || ||Airgo (mini-PCI) ? ||in CPU ? ||N/A || || ||No ||No ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1130279435381&pagename=Linksys/Common/VisitorWrapper WRT54GX4] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek RTL8651B] @ 200MHz || || ||Airgo (mini-PCI) ||in CPU ||N/A || || ||No ||No ||
 == Mikrotik ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://routerboard.com/rb100.html RouterBoard 111] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||mini-PCI slot ||None ||N/A ||Yes ||No ||No ||No ||
-||[http://routerboard.com/rb100.html RouterBoard 112] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-70246&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120] ||64MB ||16MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||No ||
+
 == Motorola ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200Mhz ||2MB ||8MB ||Broadcom (integrated) ||None || ||Yes ||No ||No ||Unsupported ||
