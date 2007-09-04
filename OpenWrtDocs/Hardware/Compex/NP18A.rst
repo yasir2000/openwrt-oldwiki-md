@@ -11,17 +11,15 @@ USB: 2x 2.0
 Serial: yes (one internal- ttyS1, one external - ttyS0)
 JTAG: yes (standard 20 pin ARM JTAG)
 }}}
-
 /!\ '''OpenWrt only supports boards with RedBoot, in case you have one with MyLoader, you have to reflash it.'''
-
 
 Internal serial port (labeled JP4, @115200bps):
 
 {{{
             oo
             oo - GND
-LEDS   TX - oo         LAN
-       RX - oo
+LEDS   RX - oo         LAN
+       TX - oo
             oo - VCC
             oo
 }}}
