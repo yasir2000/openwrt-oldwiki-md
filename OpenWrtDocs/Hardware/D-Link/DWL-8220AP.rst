@@ -4,6 +4,7 @@
 === Hardware ===
 
 {{{
+OS : VxWorks
 CPU : Atheros AR5312A
 Flash : Macronix MX29LV160BTTC
 Wi-Fi : 802.11a/b/g with AR2112A/AR5112A
