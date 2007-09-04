@@ -150,4 +150,7 @@ This script queries DNS to find the current registered address, compares it with
 
 The last two lines are for debug and can be ommitted. Often, DNS is not updated withhin the 3 seconds the script waits (at least it takes some seconds more until the clients recognise because of caching). By replacing the wget-update URL other DNS services should also be usable.
 
+'''Attention:''' You probably need to install the ''wget-package''(by typing "ipkg install wget") cause the busybox wget might give a segmentation fault. At least it does on my WRT54GL ;-) .
+See also: https://dev.openwrt.org/ticket/2039
+
 This script is heavily based on the nice pragmatic proposal of ''mbm'' here: http://forum.openwrt.org/viewtopic.php?pid=3947#p3947 Thanks you!
