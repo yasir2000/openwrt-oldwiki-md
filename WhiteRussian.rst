@@ -1,4 +1,4 @@
-White Russian is a version name for !OpenWrt 1.0.
+White Russian is a version name for !OpenWrt 0.9.
 
 The name is derived from a cocktail.
 
