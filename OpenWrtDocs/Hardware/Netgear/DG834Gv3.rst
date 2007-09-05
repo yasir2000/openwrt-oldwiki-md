@@ -5,9 +5,9 @@ Ok this is my attempt at getting OpenWRT on my router, so far I have only got th
 
 CPU: Texas Instruments AR7 MIPS-based, TNETD7200ZDW
 
-Flash chip: 4Mbytes, MX, 29LV320CBTC-70G
+Flash chip: 4Mbytes, Macronix, [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/209CFCBBF4BCCB9148257031002F02E6/$File/MX29LV320CT-B-1.7.pdf 29LV320CBTC-70G]
 
-SDRAM: 16Mbytes, Etron Tech, EM639165TS-6G
+SDRAM: 16Mbytes, Etron Tech, [http://www.etron.com/manager/uploads/EM639165_rev1.pdf EM639165TS-6G]
 
 Switch: Marvell, 88E6060-RCJ1
 
