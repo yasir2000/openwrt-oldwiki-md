@@ -84,7 +84,8 @@ config BR2_PACKAGE_HELLO
               http://www.wheretofindpackage.tld
 }}}
 
-You need to create a Config.in file. It identifies the package name. In the above example BR2_PACKAGE_HELLO identifes that this is a 'BR2'(??) formatted 'PACKAGE' whose name is 'HELLO'. The final executable is 'hello'.
+You need to create a Config.in file. It identifies the package name. 
+In the above example BR2_PACKAGE_HELLO identifes that this is a 'BR2'(??) formatted 'PACKAGE' whose name is 'HELLO'. The final executable is 'hello'.
 
 === package/helloworld/Makefile ===
 The Makefile determines the way the software package is shipped. Basically we can divide the software into 2 main categories :
@@ -97,7 +98,9 @@ The Makefile determines the way the software package is shipped. Basically we ca
   * potentially uClibc++ linkables
   * not uClibc++ linkables
 '''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball. Use {{{@SF/hello}}} (choose a and expanded random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your program has a download location on !SourceForge.
-If PKG_SOURCE_URL and PKG_SOURCE are correctly identified, then the file will be downloaded into the ~/OpenWrt-SDK-Linux-i686-1/dl/ directory. It will be expanded into the ~/OpenWrt-SDK-Linux-i686-1/build_mipsel/
+
+If PKG_SOURCE_URL and PKG_SOURCE are correctly identified, then the file will be downloaded into the ~/OpenWrt-SDK-Linux-i686-1/dl/ directory. It will be expanded into the ~/OpenWrt-SDK-Linux-i686-1/build_mipsel/ directory for compilation and processing.
+
 
 ==== Sample Makefile for C/C++ programs shipped with configure script ====
 {{{
@@ -329,6 +332,20 @@ The {{{make}}} command below compiles every package that you have created in the
 cd ~/OpenWrt-SDK-Linux-i686-1
 make clean && make world
 }}}
+
+Note that there is a fault in the default package/rules.mk file. There is ".." following the "$(PKG_BUILD_DIR)/" which causes the files to be extracted to the wrong directory. here is the corrected version:
+
+ifneq ($(strip $(PKG_CAT)),)
+$(PKG_BUILD_DIR)/.prepared: $(DL_DIR)/$(PKG_SOURCE)
+	rm -rf $(PKG_BUILD_DIR)
+	mkdir -p $(PKG_BUILD_DIR)
+	$(PKG_CAT) $(DL_DIR)/$(PKG_SOURCE) | tar -C $(PKG_BUILD_DIR)/ $(TAR_OPTIONS)
+	if [ -d ./patches ]; then \
+		$(PATCH) $(PKG_BUILD_DIR) ./patches ; \
+	fi
+	touch $(PKG_BUILD_DIR)/.prepared
+endif
+
 '''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make this page].
 
 For Slackware users there is a fixed make package [http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
