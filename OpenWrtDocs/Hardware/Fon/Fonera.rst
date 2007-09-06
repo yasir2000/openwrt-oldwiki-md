@@ -356,7 +356,7 @@ where conv=sync pads every input block with NULs to ibs-size, which is needed!
 == Telnet into Redboot ==
 You can change the redboot configuration, so you can later telnet into this bootmanager in order to reflash this device from there, without having serial access.
 
-The default form of the fconfig command will force you to enter the data, change and confirm every initialized variable. To avoid reentering the ""Boot script"" data and harming unnecessary variables, run the fconfig list command first to look at variable names and values:
+The default form of the fconfig command will force you to enter the data, change and confirm every initialized variable. To avoid reentering the '''Boot script''' data and harming unnecessary variables, run the fconfig list command first to look at variable names and values:
 {{{
 RedBoot> fconfig -l -n
 boot_script: true
@@ -390,7 +390,7 @@ Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 }}}
-"Note: The configuration is only in the RAM until you update the RedBoot non-volatile configuration. If you reset the device without updating, the configuration will not be changed. You can use changes without the update for temporary settings."
+''Note: The configuration is only in the RAM until you update the RedBoot non-volatile configuration. If you reset the device without updating, the configuration will not be changed. You can use changes without the update for temporary settings.''
 
 Verify the configuration by listing the aliases this time:
 {{{
