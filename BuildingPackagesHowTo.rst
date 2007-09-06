@@ -57,12 +57,13 @@ mkdir -p package/200-packagename/ipkg
 mkdir -p package/200-packagename/patches
 }}}
 == Creating the required files ==
-'''TIP:''' When creating the files via copy & paste use the Unix command {{{unexpand}}} to translate the leading spaces into tabs.
+'''TIP:''' If you intend to 'copy & paste' the text from this Wiki to create files on your system, then use the Unix command {{{unexpand}}} to translate the leading spaces into tabs.
 
 {{{
 unexpand --first-only - >package/helloworld/Config.in
 }}}
-After pasting it, press {{{ENTER}}} and then {{{CTRL-D}}} keys to save the file.
+
+After pasting it into a text editor, press {{{ENTER}}} and then {{{CTRL-D}}} keys to save the file.
 
 You can also create your own files in the {{{package/helloworld}}} directory (for example config files). That files you can access in your {{{package/helloworld/Makefile}}} with {{{./filename}}} and copy it to your {{{$(PKG_INSTALL_DIR)}}} directory.
 
@@ -82,8 +83,11 @@ config BR2_PACKAGE_HELLO
               (which is itself an example for the GNU Project).
               http://www.wheretofindpackage.tld
 }}}
+
+You need to create a Config.in file. It identifies the package name. In the above example BR2_PACKAGE_HELLO identifes that this is a 'BR2'(??) formatted 'PACKAGE' whose name is 'HELLO'. The final executable is 'hello'.
+
 === package/helloworld/Makefile ===
-The Makefile rely one the way the software you want to package is shipped. Basically we can divide the software into 2 main categories :
+The Makefile determines the way the software package is shipped. Basically we can divide the software into 2 main categories :
 
  * C (or ANSI-C) programs
   * shipped with configure script
@@ -92,7 +96,8 @@ The Makefile rely one the way the software you want to package is shipped. Basic
  * C++ programs
   * potentially uClibc++ linkables
   * not uClibc++ linkables
-'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball. Use {{{@SF/hello}}} (choose a random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your program has a download location on !SourceForge.
+'''TIP:''' Use the {{{md5sum}}} command to create the {{{PKG_MD5SUM}}} from the original tarball. Use {{{@SF/hello}}} (choose a and expanded random !SourceForge mirror) for the {{{PKG_SOURCE_URL}}} when your program has a download location on !SourceForge.
+If PKG_SOURCE_URL and PKG_SOURCE are correctly identified, then the file will be downloaded into the ~/OpenWrt-SDK-Linux-i686-1/dl/ directory. It will be expanded into the ~/OpenWrt-SDK-Linux-i686-1/build_mipsel/
 
 ==== Sample Makefile for C/C++ programs shipped with configure script ====
 {{{
