@@ -356,21 +356,53 @@ where conv=sync pads every input block with NULs to ibs-size, which is needed!
 == Telnet into Redboot ==
 You can change the redboot configuration, so you can later telnet into this bootmanager in order to reflash this device from there, without having serial access.
 
-To do this, run fconfig like this from the redboot prompt:
-
+The default form of the fconfig command will force you to enter the data, change and confirm every initialized variable. To avoid reentering the ""Boot script"" data and harming unnecessary variables, run the fconfig list command first to look at variable names and values:
 {{{
-RedBoot> fconfig
+RedBoot> fconfig -l -n
+boot_script: true
+boot_script_data: 
+.. fis load -l vmlinux.bin.l7
+.. exec
+
+boot_script_timeout: 1
+bootp: false
+bootp_my_gateway_ip: 0.0.0.0
+bootp_my_ip: 0.0.0.0
+bootp_my_ip_mask: 255.255.255.255
+bootp_server_ip: 0.0.0.0
+console_baud_rate: 9600
+gdb_port: 9000
+info_console_force: false
+net_debug: false
+}}}
+
+Next change only necessary variables (using their names from the previous listing) and update the RedBoot non-volatile configuration after the last change:
+{{{
+RedBoot> fconfig boot_script_timeout 10
+boot_script_timeout: Setting to 10
+Update RedBoot non-volatile configuration - continue (y/n)? n
+RedBoot> fconfig bootp_my_ip 192.168.5.22
+Update RedBoot non-volatile configuration - continue (y/n)? n
+RedBoot> fconfig bootp_my_ip_mask 255.255.255.0
+Update RedBoot non-volatile configuration - continue (y/n)? n
+RedBoot> fconfig bootp_server_ip 192.168.5.2
+Update RedBoot non-volatile configuration - continue (y/n)? y
+... Erase from 0xa87e0000-0xa87f0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+}}}
+"Note: The configuration is only in the RAM until you update the RedBoot non-volatile configuration. If you reset the device without updating, the configuration will not be changed. You can use changes without the update for temporary settings."
+
+Verify the configuration by listing the aliases this time:
+{{{
+RedBoot> fconfig -l
 Run script at boot: true
 Boot script:
 .. fis load -l vmlinux.bin.l7
 .. exec
-Enter script, terminate with empty line
->> fis load -l vmlinux.bin.l7
->> exec
->>
+
 Boot script timeout (1000ms resolution): 10
 Use BOOTP for network configuration: false
-Gateway IP address:
+Gateway IP address: 0.0.0.0
 Local IP address: 192.168.5.22
 Local IP address mask: 255.255.255.0
 Default server IP address: 192.168.5.2
@@ -378,11 +410,8 @@ Console baud rate: 9600
 GDB connection port: 9000
 Force console for special debug messages: false
 Network debug at boot time: false
-Update RedBoot non-volatile configuration - continue (y/n)? y
-... Erase from 0xa87e0000-0xa87f0000: .
-... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
-RedBoot>
 }}}
+
 I specified a 10 second timeout here, so I have this 10 second time frame to telnet into redboot. If you are not able to hit the enter-key within 10 seconds after powering up, go for a larger time frame.
 
 {{{
