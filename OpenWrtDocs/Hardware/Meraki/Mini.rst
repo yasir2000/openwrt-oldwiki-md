@@ -1073,6 +1073,8 @@ It's cool because it has an internal TFTP server and with WinPcap it configures 
 
 To use it, plug in your Meraki to your PC's ethernet jack.  Run the EasyFlash util, select the correct ethernet interface, select your rootfs file (*root.squashfs or *root.jffs2-64k), and your Kernel file (*vmlinux.gz).  Click on "Go" and plug in the power to your Meraki.  Then just sit back and wait for about 8 minutes while the files are flashed.
 
+The complete quick how-to (from downloading OpenWRT sources to longing in) is collected here: http://www.maco.sk/wireless/meraki/openwrt.html
+
 == Expect Script ==
 
 This is an Expect script for Windows XP - it shouldn't be too hard to adapt to Linux or other OSes.
