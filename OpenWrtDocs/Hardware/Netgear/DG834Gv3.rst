@@ -2,7 +2,6 @@
 Ok this is my attempt at getting OpenWRT on my router, so far I have only got the inital readouts from debug... more will come soon once I have a serial adapter and a bit more free time.
 
 == Specifications ==
-
 CPU: Texas Instruments AR7 MIPS-based, TNETD7200ZDW
 
 Flash chip: 4Mbytes, Macronix, [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/209CFCBBF4BCCB9148257031002F02E6/$File/MX29LV320CT-B-1.7.pdf 29LV320CBTC-70G]
@@ -15,8 +14,12 @@ Wireless NIC: Texas Instruments, TNETW1350A (ACX111 varient I think)
 
 Boot loader: ADAM2
 
+Here is a picture of under the hood:
+
+attachment:dg834gv3_internal.jpg
+
 == Information from NETGEAR firmware ==
-Firmware: [ftp://downloads.netgear.com/files/dg834v3_dg834gv3_4_01_28_uk_only.zip]
+Firmware: ftp://downloads.netgear.com/files/dg834v3_dg834gv3_4_01_28_uk_only.zip
 
 {{{
 # cat /proc/cpuinfo
