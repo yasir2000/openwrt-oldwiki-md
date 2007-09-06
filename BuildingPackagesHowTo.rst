@@ -334,7 +334,7 @@ make clean && make world
 }}}
 
 Note that there is a fault in the default package/rules.mk file. There is ".." following the "$(PKG_BUILD_DIR)/" which causes the files to be extracted to the wrong directory. here is the corrected version:
-
+{{{
 ifneq ($(strip $(PKG_CAT)),)
 $(PKG_BUILD_DIR)/.prepared: $(DL_DIR)/$(PKG_SOURCE)
 	rm -rf $(PKG_BUILD_DIR)
@@ -345,7 +345,7 @@ $(PKG_BUILD_DIR)/.prepared: $(DL_DIR)/$(PKG_SOURCE)
 	fi
 	touch $(PKG_BUILD_DIR)/.prepared
 endif
-
+}}}
 '''NOTE:''' If you are using GNU make 3.80 (current "latest") and get a "virtual memory exhausted" message while making, see [http://gamecontractor.org/Make this page].
 
 For Slackware users there is a fixed make package [http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz here] and sources + patch are [http://internetghetto.org/files/index.php?dir=./make-fix/orig/ here].
