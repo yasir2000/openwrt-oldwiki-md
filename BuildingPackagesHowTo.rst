@@ -333,7 +333,7 @@ cd ~/OpenWrt-SDK-Linux-i686-1
 make clean && make world
 }}}
 
-Note that there is a fault in the default package/rules.mk file. There is ".." following the "$(PKG_BUILD_DIR)/" which causes the files to be extracted to the wrong directory. here is the corrected version:
+Note that there is a fault in the default package/rules.mk file. There is ".." following the "$(PKG_BUILD_DIR)/" which causes the files to be extracted to the wrong directory. Here is the corrected version:
 {{{
 ifneq ($(strip $(PKG_CAT)),)
 $(PKG_BUILD_DIR)/.prepared: $(DL_DIR)/$(PKG_SOURCE)
