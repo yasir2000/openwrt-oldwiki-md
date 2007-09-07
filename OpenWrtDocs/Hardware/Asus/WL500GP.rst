@@ -88,7 +88,7 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
 If you are on Windows it is recommended to use the ASUS firmware restoration tool to install !OpenWrt. The ASUS firmware restoration tool can be found on the CD. Make sure the router is in diag mode.
 
  * Browse the .trx file (openwrt-brcm-2.4-squashfs.trx).
- * Press Upload. The router will reboot itself.
+ * Press Upload. The router will reboot itself. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == ASUS WL-500g Premium specific configuration ==
 === Interfaces ===
