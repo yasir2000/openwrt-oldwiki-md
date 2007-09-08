@@ -130,33 +130,35 @@ With Kamikaze 7.07 PPPoE works out of the box.
 
 === WiFi ===
 ==== Enable WiFi ====
-For Broadcom !WiFi:
+===== Broadcom WiFi =====
 {{{
 uci set wireless.wl0.disabled=0
 uci commit wireless && wifi}}}
-
-For Atheros !WiFi:
+===== Atheros WiFi =====
 {{{
 uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
-==== Installing WiFi Protected Access (WPA) ====
-Install the nas package.
+==== WiFi Protected Access ====
 
+===== Broadcom WiFi =====
+For Broadcom the nas package is required
 {{{
 ipkg install nas}}}
-Configure WPA encryption using UCI
+
+===== Atheros WiFi =====
+For Atheros the hostapd package is required
+{{{
+ipkg install hostapd}}}
+
+===== Configure WPA (PSK) =====
+Configure WPA (PSK) encryption using UCI.
 
 {{{
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-==== Installing WiFi Protected Access (WPA2) ====
-Install the nas package.
-
-{{{
-ipkg install nas}}}
-Configure WPA2 encryption using UCI
-
+===== Configure WPA2 (PSK) =====
+Configure WPA2 (PSK) encryption using UCI.
 {{{
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
