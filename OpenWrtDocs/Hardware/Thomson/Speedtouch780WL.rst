@@ -7,7 +7,7 @@ http://www.speedtouch.co.uk/products/Details.asp?ProductID=528
 
 This device is based on BCM6348@???Mhz and it seems to have a 4MB flash (TBV).
  
-== Firware infos ==
+== Firmware infos ==
 This device supports the mdap protocol which allows to start the upgrade process on multiple devices via IP multicast (although the firmware is uploaded to the device via tftp).
 See http://svn.rot13.org/index.cgi/mdap/ for a basic (yet functional) mdap framework.
 
@@ -65,7 +65,7 @@ I can't recognize the compression alg used. After the header there are following
 [...]
 }}}
 
-== i/f's ==
+== I/F's ==
 
 http://xoomer.alice.it/uxguerri/images/TST-cnct.jpg
 
