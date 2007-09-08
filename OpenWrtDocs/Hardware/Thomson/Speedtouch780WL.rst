@@ -5,12 +5,11 @@ http://www.speedtouch.co.uk/products/Details.asp?ProductID=528
 
 == Infos ==
 
-<photo here>
 <info here>
 
 == Serial stuff ==
 
-<photo here>
+http://xoomer.alice.it/uxguerri/images/TST-cnct.jpg
 
 {{{
 1 --> Vcc (3.3V)
