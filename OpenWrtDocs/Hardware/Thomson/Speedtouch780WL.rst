@@ -14,7 +14,7 @@ See http://svn.rot13.org/index.cgi/mdap/ for a basic (yet functional) mdap frame
 It is possible to start the firmware upgrade via telnet/serial CLI or via web GUI. 
 
 I can't recognize the firmware format (yet). :)
-The vendor firmware seems to have the following header
+The vendor firmware seems to have the following header (od -tx1z -Ad)
 
 {{{
 0000000 42 4c 49 32 32 33 51 48 30 00 00 00 00 00 00 00  >BLI223QH0.......<
@@ -44,15 +44,15 @@ The vendor firmware seems to have the following header
 The following trailer seems to carry some hints about the firmware file format (although i don't like the "sign" word...)
 
 {{{
-14054160 92 16 8d 23 66 6e e1 0c 0c c4 77 ab 97 21 69 70  >...#fn....w..!ip<
-14054200 6b 67 32 5f 73 69 67 6e 28 69 6e 3d 37 3d 33 31  >kg2_sign(in=7=31<
-14054220 36 38 30 33 31 5b 62 79 74 65 5d 2c 20 6f 75 74  >68031[byte], out<
-14054240 3d 31 3d 33 31 36 38 33 38 32 5b 62 79 74 65 5d  >=1=3168382[byte]<
-14054260 29 20 28 69 70 6b 67 32 2d 68 65 61 64 65 72 3d  >) (ipkg2-header=<
-14054300 33 35 31 5b 62 79 74 65 5d 29 0a                 >351[byte]).<
+3168368 92 16 8d 23 66 6e e1 0c 0c c4 77 ab 97 21 69 70  >...#fn....w..!ip<
+3168384 6b 67 32 5f 73 69 67 6e 28 69 6e 3d 37 3d 33 31  >kg2_sign(in=7=31<
+3168400 36 38 30 33 31 5b 62 79 74 65 5d 2c 20 6f 75 74  >68031[byte], out<
+3168416 3d 31 3d 33 31 36 38 33 38 32 5b 62 79 74 65 5d  >=1=3168382[byte]<
+3168432 29 20 28 69 70 6b 67 32 2d 68 65 61 64 65 72 3d  >) (ipkg2-header=<
+3168448 33 35 31 5b 62 79 74 65 5d 29 0a                 >351[byte]).<
 }}}
 
-And seems to be compressed. 
+And seems to be compressed (no gain if compressed with gzip).
 
 == i/f's ==
 
