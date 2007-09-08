@@ -41,9 +41,10 @@ The vendor firmware seems to have the following header (od -tx1z -Ad)
 0000336 38 30 0a 00 20 03 32 30 30 81 04 bf c4 00 04 b2  >80.. .200.......<
 }}} 
 
-The following trailer seems to carry some hints about the firmware file format (although i don't like the "sign" word...)
+The following trailer seems to carry some hints about the firmware file format (...i don't like the "sign" word...)
 
 {{{
+[...]
 3168368 92 16 8d 23 66 6e e1 0c 0c c4 77 ab 97 21 69 70  >...#fn....w..!ip<
 3168384 6b 67 32 5f 73 69 67 6e 28 69 6e 3d 37 3d 33 31  >kg2_sign(in=7=31<
 3168400 36 38 30 33 31 5b 62 79 74 65 5d 2c 20 6f 75 74  >68031[byte], out<
@@ -52,12 +53,23 @@ The following trailer seems to carry some hints about the firmware file format (
 3168448 33 35 31 5b 62 79 74 65 5d 29 0a                 >351[byte]).<
 }}}
 
-And seems to be compressed (no gain if compressed with gzip).
+The firmware seems to be compressed (no gain if compressed with gzip).
+I can't recognize the compression alg used. After the header there are following bytes:
+{{{
+[...]
+0000352 4d 55 54 45 0a 00 30 57 15 56 4a a2 e3 04 d8 4c  >MUTE..0W.VJ....L<
+0000368 74 a9 7b e0 f4 fa 35 9a 50 a6 4c 32 8a 2c 22 23  >t.{...5.P.L2.,"#<
+0000384 6c e8 51 e2 00 07 6e df 24 d2 98 14 09 2a eb 7c  >l.Q...n.$....*.|<
+0000400 c6 82 2a 5f e2 bb b1 0b 16 e6 1a 7d 62 89 a9 7e  >..*_.......}b..~<
+0000416 06 93 75 5e 8f 70 67 10 c9 f8 10 19 b2 ec 53 c0  >..u^.pg.......S.<
+[...]
+}}}
 
 == i/f's ==
 
 http://xoomer.alice.it/uxguerri/images/TST-cnct.jpg
 
+Serial pinout
 {{{
 1 --> Vcc (3.3V)
 2 --> Gnd
@@ -164,3 +176,7 @@ Password :
 
 {Administrator}=>
 }}}
+----
+["CategoryBCM63xx"]
+----
+["CategoryBCM63xx"]
