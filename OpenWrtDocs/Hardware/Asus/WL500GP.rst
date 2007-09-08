@@ -101,7 +101,7 @@ The default network configuration is:
 ||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
 ||eth0.0 ||LAN ports || ||
 ||eth0.1 ||WAN port ||DHCP ||
-||wl0 ||!WiFi ||Disabled by default ||
+||wl0/ath0 ||!WiFi ||Disabled by default ||
 
 
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
@@ -130,8 +130,14 @@ With Kamikaze 7.07 PPPoE works out of the box.
 
 === WiFi ===
 ==== Enable WiFi ====
+For Broadcom !WiFi:
 {{{
 uci set wireless.wl0.disabled=0
+uci commit wireless && wifi}}}
+
+For Atheros !WiFi:
+{{{
+uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
 ==== Installing WiFi Protected Access (WPA) ====
 Install the nas package.
