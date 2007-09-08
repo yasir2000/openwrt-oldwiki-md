@@ -123,14 +123,7 @@ config wifi-iface
        option mode     ap, sta, adhoc, or wds
        option ssid     ssid to be used
        option bssid    used for wds to set the mac address of the other wds unit
-
----- /!\ '''Edit conflict - other version:''' ----
        option encryption none, wep, psk, psk2, wpa, wpa2 (note 4,5)
-
----- /!\ '''Edit conflict - your version:''' ----
-       option encryption none, wep, psk, psk2, wpa, wpa2 (note 4,5)
-
----- /!\ '''End of edit conflict''' ----
        option key      encryption key or radius shared secret, when used for wep if you only use one key it can be placed here otherwise set this to the key number you would like to use and use the following key1-4 options
        option key1     wep key 1
        option key2     wep key 2
@@ -154,14 +147,8 @@ config wifi-iface
 
 '''4) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
 
-'''5) hostapd:''' For WPA you may need hostapd. The kamikaze 7.07 does not include hostapd and must be installed to support WPA.
+'''5) hostapd:''' For WPA you may need hostapd. The kamikaze 7.07 does not include hostapd and must be installed to support WPA (at least when using madwifi).
 
----- /!\ '''Edit conflict - other version:''' ----
-'''5) hostapd:''' For WPA you may need hostapd. The kamikaze 7.07 does not include hostapd and must be installed to support WPA.
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 ==== MAC Filter ====
 First, you need to have installed the wl package - '''ipkg install wl'''
 ||'''uci variable''' ||'''Description''' ||
