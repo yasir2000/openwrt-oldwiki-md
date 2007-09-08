@@ -395,7 +395,7 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
  1. Log in using the default username and password of "admin" and "admin"
  1. Click on the "Administration" tab
  1. Click on the "Firmware Update" tab. If there is no "Firmware Update" tab, enter http://192.168.15.1/update.html in your browser's location bar.
- 1. Log in as a user who is permitted to update the firmware. For generic firmwares, the username may be "Admin" with a blank password or "user" with a password of "user". If your router was last used with Vonage, you can set a username of "user" and a password of "tivonpw" by following this procedure:
+ 1. Log in as a user who is permitted to update the firmware. For generic and Earthlink firmwares, the username may be "Admin" with a blank or "sP0dfub2" password or "user" with a password of "user". If your router was last used with Vonage, you can set a username of "user" and a password of "tivonpw" by following this procedure:
   a. Plug the router into the Internet if it is not plugged in already.
   a. Got to Administration tab and choose Factory Defaults. Choose "Restore Router Defaults" and "Restore Voice Defaults"
   a. Enter a username of "user" and a password of "tivonpw"
@@ -408,6 +408,8 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds. The router will restore its factory defaults and reboot. Return to step three.
 
 If your router is running an NA firmware, the username needed in step seven is probably "Admin" (note the capital A verses the lower case a in step four). The password will be blank.
+
+If your router is running Earthlink (ER) firmware 3.1.14, the username needed in step seven is "Admin" (note the capital A verses the lower case a in step four). The password will be "sP0dfub2" (case-sensitive).
 
 If your router has Vonage firmware on it, the procedure is slightly more complicated. First, you should plug your router into the Internet so that it can load its configuration from Vonage's servers. This will give you a user name of "user" and a password of "tivonpw" which you can use in step seven. Second, there will be no "Firmware Update" tab in step six. Instead, enter http://192.168.15.1/update.html. (Note: this procedure is incomplete and not entirely correct. One must at some point also go to Administration/Factory Defaults and reset the router and voice configuration to factory defaults.)
 
