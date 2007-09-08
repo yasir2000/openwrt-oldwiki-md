@@ -13,34 +13,35 @@ See http://svn.rot13.org/index.cgi/mdap/ for a basic (yet functional) mdap frame
 
 It is possible to start the firmware upgrade via telnet/serial CLI or via web GUI. 
 
-The vendor firmwares seem to have the following header:
+I can't recognize the firmware format (yet). :)
+The vendor firmware seems to have the following header
+
 {{{
 0000000 42 4c 49 32 32 33 51 48 30 00 00 00 00 00 00 00  >BLI223QH0.......<
-0000020 00 00 00 00 30 00 00 00 00 00 00 00 00 00 00 00  >....0...........<
-0000040 06 02 11 05 00 00 00 00 00 00 01 5f 00 30 57 1f  >..........._.0W.<
-0000060 fb 8b c0 86 27 3a e3 6f b7 60 84 ac ee b5 23 99  >....':.o.`....#.<
-0000100 7a 4a 77 34 a7 5b 54 1d 43 73 79 67 21 72 c9 09  >zJw4.[T.Csyg!r..<
-0000120 30 95 78 05 7f 3f bc a2 66 46 dd c3 ce 34 df 25  >0.x..?..fF...4.%<
-0000140 26 ca 69 0e e8 06 f5 c9 4b 77 df dd 38 10 f7 5d  >&.i.....Kw..8..]<
-0000160 c9 93 7f 30 14 2d 8a 42 5d 83 ff b7 05 1c c4 a2  >...0.-.B].......<
-0000200 89 ca a6 50 8e 74 c8 00 7e 3e 65 e2 33 ca ff bb  >...P.t..~>e.3...<
-0000220 48 28 2d 06 af ba b0 91 18 be bf 72 52 72 12 1e  >H(-........rRr..<
-0000240 e3 a7 86 f9 95 86 b9 f3 ad 58 12 23 c7 9c 8e 58  >.........X.#...X<
-0000260 ff 41 69 46 2b 53 9d 73 80 12 c5 3b 59 7e 5d 6c  >.AiF+S.s...;Y~]l<
-0000300 9f b3 b3 77 e3 4d cb 5e e3 95 d3 62 41 ca e3 b2  >...w.M.^...bA...<
-0000320 fe c3 69 18 59 cd 64 4f 15 c6 3c 86 d8 d7 72 62  >..i.Y.dO..<...rb<
-0000340 cc 05 41 69 1d 94 76 17 7c e8 77 d8 7e 05 0c a0  >..Ai..v.|.w.~...<
-0000360 42 0a c6 52 ef 08 de a3 73 5e 66 cf 3b de c4 05  >B..R....s^f.;...<
-0000400 58 0b e6 8c e1 a4 d0 43 3f af 04 8a 05 8d e0 0d  >X......C?.......<
-0000420 0c cb 84 a5 40 69 67 d6 3b ed 6d 07 d8 e3 ae 9b  >....@ig.;.m.....<
-0000440 d4 77 30 7d 35 c4 fc d5 7e bb 15 4d 15 12 0e b6  >.w0}5...~..M....<
-0000460 b7 bd 45 02 08 06 42 41 4e 54 2d 52 01 04 bf c4  >..E...BANT-R....<
-0000500 00 10 09 0e 53 70 65 65 64 54 6f 75 63 68 20 37  >....SpeedTouch 7<
-0000520 38 30 0a 00 20 03 32 30 30 81 04 bf c4 00 04 b2  >80.. .200.......<
-0000540 4d 55 54 45 0a 00 30 57 15 56 4a a2 e3 04 d8 4c  >MUTE..0W.VJ....L<
+0000016 00 00 00 00 30 00 00 00 00 00 00 00 00 00 00 00  >....0...........<
+0000032 06 02 11 05 00 00 00 00 00 00 01 5f 00 30 57 1f  >..........._.0W.<
+0000048 fb 8b c0 86 27 3a e3 6f b7 60 84 ac ee b5 23 99  >....':.o.`....#.<
+0000064 7a 4a 77 34 a7 5b 54 1d 43 73 79 67 21 72 c9 09  >zJw4.[T.Csyg!r..<
+0000080 30 95 78 05 7f 3f bc a2 66 46 dd c3 ce 34 df 25  >0.x..?..fF...4.%<
+0000096 26 ca 69 0e e8 06 f5 c9 4b 77 df dd 38 10 f7 5d  >&.i.....Kw..8..]<
+0000112 c9 93 7f 30 14 2d 8a 42 5d 83 ff b7 05 1c c4 a2  >...0.-.B].......<
+0000128 89 ca a6 50 8e 74 c8 00 7e 3e 65 e2 33 ca ff bb  >...P.t..~>e.3...<
+0000144 48 28 2d 06 af ba b0 91 18 be bf 72 52 72 12 1e  >H(-........rRr..<
+0000160 e3 a7 86 f9 95 86 b9 f3 ad 58 12 23 c7 9c 8e 58  >.........X.#...X<
+0000176 ff 41 69 46 2b 53 9d 73 80 12 c5 3b 59 7e 5d 6c  >.AiF+S.s...;Y~]l<
+0000192 9f b3 b3 77 e3 4d cb 5e e3 95 d3 62 41 ca e3 b2  >...w.M.^...bA...<
+0000208 fe c3 69 18 59 cd 64 4f 15 c6 3c 86 d8 d7 72 62  >..i.Y.dO..<...rb<
+0000224 cc 05 41 69 1d 94 76 17 7c e8 77 d8 7e 05 0c a0  >..Ai..v.|.w.~...<
+0000240 42 0a c6 52 ef 08 de a3 73 5e 66 cf 3b de c4 05  >B..R....s^f.;...<
+0000256 58 0b e6 8c e1 a4 d0 43 3f af 04 8a 05 8d e0 0d  >X......C?.......<
+0000272 0c cb 84 a5 40 69 67 d6 3b ed 6d 07 d8 e3 ae 9b  >....@ig.;.m.....<
+0000288 d4 77 30 7d 35 c4 fc d5 7e bb 15 4d 15 12 0e b6  >.w0}5...~..M....<
+0000304 b7 bd 45 02 08 06 42 41 4e 54 2d 52 01 04 bf c4  >..E...BANT-R....<
+0000320 00 10 09 0e 53 70 65 65 64 54 6f 75 63 68 20 37  >....SpeedTouch 7<
+0000336 38 30 0a 00 20 03 32 30 30 81 04 bf c4 00 04 b2  >80.. .200.......<
 }}} 
 
-The following trailer:
+The following trailer seems to carry some hints about the firmware file format (although i don't like the "sign" word...)
 
 {{{
 14054160 92 16 8d 23 66 6e e1 0c 0c c4 77 ab 97 21 69 70  >...#fn....w..!ip<
@@ -51,7 +52,7 @@ The following trailer:
 14054300 33 35 31 5b 62 79 74 65 5d 29 0a                 >351[byte]).<
 }}}
 
-And seems to be compressed.
+And seems to be compressed. 
 
 == i/f's ==
 
