@@ -360,6 +360,25 @@ Voila.
 
 You can reload the rules with {{{/usr/lib/traffic/parse_tables.sh reload}}}
 
+= Usage ideas =
+You get two tables with detailed traffic info and with summarized month info. You can make use of  both for your needs. 
+== Get the information ==
+You can query the database to get the results for a period you need.
+You can get all the traffic that passed through the rules with
+{{{
+SELECT counter_name, SUM(bytes) FROM counters LEFT JOIN harvests USING (rid) GROUP BY counter_name;
+}}}
+You can get the traffic info for a specific period of one day with
+{{{
+SELECT counter_name, SUM(bytes) FROM counters LEFT JOIN harvests USING (rid) WHERE ts >= timestamp '2007-09-07' AND ts < timestamp '2007-09-08' GROUP BY counter_name;
+}}}
+You can get the summarized month info by issuing
+{{{
+SELECT counter_name, year || '-' || month as m, bytes FROM counters LEFT JOIN summarized USING (rid) ORDER BY m;
+}}}
+== Automatically turn off after a threshold ==
+If you have traffic limits on your ISP, you can make your router turn your internet off automatically after a certain threshold with scripts.
+
 = License =
 
 Permission is granted to copy, distribute and/or modify this document
