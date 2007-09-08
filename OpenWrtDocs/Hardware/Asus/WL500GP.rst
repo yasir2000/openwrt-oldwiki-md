@@ -4,7 +4,7 @@
 With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
 ||||<style="text-align: center;">'''Target System''' ||||<style="text-align: center;">'''!WiFi Support''' ||<style="text-align: center;">'''Comments''' ||
 ||||<style="text-align: center;"> ||'''Broadcom''' ||'''Atheros''' || ||
-||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) || ||
+||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> {X} ||With Atheros !WiFi the router reboots in a loop (confirmed by nbd) ||
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''6'''] ||<style="text-align: center;"> {X} ||<style="text-align: center;"> (./) ||Random segfaults (confirmed by nbd) ||
 
 
@@ -81,7 +81,7 @@ tftp> binary
 tftp> trace
 tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * After the TFTP upload is complete, wait at least 6 minutes.
- * ASUS WL-500g Premium does not seem to reboot automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
+ * The router will reboot itself automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 '''NOTES:'''
 
@@ -139,17 +139,16 @@ uci commit wireless && wifi}}}
 uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
 ==== WiFi Protected Access ====
-
 ===== Broadcom WiFi =====
 For Broadcom the nas package is required
+
 {{{
 ipkg install nas}}}
-
 ===== Atheros WiFi =====
 For Atheros the hostapd package is required
+
 {{{
 ipkg install hostapd}}}
-
 ===== Configure WPA (PSK) =====
 Configure WPA (PSK) encryption using UCI.
 
@@ -159,6 +158,7 @@ uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 ===== Configure WPA2 (PSK) =====
 Configure WPA2 (PSK) encryption using UCI.
+
 {{{
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
