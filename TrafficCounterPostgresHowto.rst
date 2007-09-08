@@ -362,7 +362,6 @@ You can reload the rules with {{{/usr/lib/traffic/parse_tables.sh reload}}}
 
 = License =
 
-Copyright (c)  Milko Krachounov
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2
 or any later version published by the Free Software Foundation;
