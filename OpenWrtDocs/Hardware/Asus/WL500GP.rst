@@ -81,7 +81,7 @@ tftp> binary
 tftp> trace
 tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * After the TFTP upload is complete, wait at least 6 minutes.
- * The router will reboot itself automatically after the upgrade is complete. You need to plug off the power, and plug it back on to make the router alive again.
+ * The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 '''NOTES:'''
 
@@ -92,7 +92,7 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
 If you are on Windows it is recommended to use the ASUS firmware restoration tool to install !OpenWrt. The ASUS firmware restoration tool can be found on the CD. Make sure the router is in diag mode.
 
  * Browse the .trx file (openwrt-brcm-2.4-squashfs.trx).
- * Press Upload. The router will reboot itself. Rebooting may take a while.
+ * Press Upload. The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == ASUS WL-500g Premium specific configuration ==
 === Interfaces ===
