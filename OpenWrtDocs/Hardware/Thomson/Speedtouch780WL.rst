@@ -8,7 +8,7 @@ http://www.speedtouch.co.uk/products/Details.asp?ProductID=528
 This device is based on BCM6348@???Mhz and it seems to have a 4MB flash (TBV).
  
 == Firmware infos ==
-This device supports the mdap protocol which allows to start the upgrade process on multiple devices via IP multicast (although the firmware is uploaded to the device via tftp).
+This device supports the mdap protocol which allows to start the upgrade process on multiple devices via IP multicast (although the firmware is uploaded to the device via unicast tftp).
 See http://svn.rot13.org/index.cgi/mdap/ for a basic (yet functional) mdap framework.
 
 It is possible to start the firmware upgrade via telnet/serial CLI or via web GUI. 
@@ -54,7 +54,7 @@ The following trailer seems to carry some hints about the firmware file format (
 }}}
 
 The firmware seems to be compressed (no gain if compressed with gzip).
-I can't recognize the compression alg used. After the header there are following bytes:
+I can't recognize the compression alg used. After the header there are the following bytes:
 {{{
 [...]
 0000352 4d 55 54 45 0a 00 30 57 15 56 4a a2 e3 04 d8 4c  >MUTE..0W.VJ....L<
