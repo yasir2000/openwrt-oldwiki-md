@@ -112,7 +112,6 @@ LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security re
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
-
  * Plug the power on and wait for the power LED to switch off
  * While the power LED is off press any button (RESTORE and EZSETUP will work) a few times
  * Power LED goes fast-blinking (about 1 time per second)
