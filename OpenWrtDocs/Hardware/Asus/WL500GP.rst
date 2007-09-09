@@ -113,17 +113,14 @@ LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security re
 If you have broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. * Unplug the router's power cord.
 
 ==== Boot into failsafe mode ====
-
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
  * Plug the power on and wait for the power LED to switch off
  * While the power LED is off press any button (RESTORE and EZSETUP will work) a few times
  * Power LED goes fast-blinking (about 1 time per second)
  * You should be able telnet into the router at 192.168.1.1 now (no username and password)
-
 ==== What to do in failsafe mode? ====
-
-'''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run 'mount_root' and make any changes.
+'''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run mount_root and make any changes. Run mount_root now.
 
  1. Forgot/lost your password and you like to set a new one
  passwd[[BR]]
