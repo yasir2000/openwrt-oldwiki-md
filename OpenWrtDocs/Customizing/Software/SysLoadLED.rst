@@ -5,7 +5,7 @@ Credit goes to SeRi for starting this mod. He had it use the wrt's white and amb
 
 Add the following script to /usr/sbin/loadmon.sh
 
-{{
+{{{
 #!/bin/sh
 
 DELAY=1
@@ -31,15 +31,15 @@ while sleep $DELAY; do
                 echo "0" > /proc/diag/led/ses_orange
         fi
 done
-}}
+}}}
 
 Now set the new script as executable, and add it to be started at boot time.
 
-{{
+{{{
 chmod +x /usr/sbin/loadmon.sh
 echo "#!/bin/sh" > /etc/init.d/S60loadmon
 echo "/usr/sbin/loadmon.sh &" >> /etc/init.d/S60loadmon
 chmod +x /etc/init.d/S60loadmon
-}}
+}}}
 
 Now reboot and test it out :)
