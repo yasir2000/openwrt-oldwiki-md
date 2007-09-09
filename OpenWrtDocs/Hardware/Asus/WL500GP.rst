@@ -67,8 +67,8 @@ Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by 
 === Using diag mode ===
 To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to put the router in diag mode. To put the router in the diag mode, do this:
 
- * Connect the router's LAN1 port directly to your PC.
  * Unplug the router's power cord.
+ * Connect the router's LAN1 port directly to your PC.
  * Push the black RESTORE button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the RESTORE button pushed for few seconds.
  * If you see a slowly blinking power light, you are in diag mode.
@@ -109,9 +109,10 @@ The default network configuration is:
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
 
 === Failsafe mode ===
- * Connect the router's LAN1 port directly to your PC.
  * Unplug the router's power cord.
- * Set your PCs IP address to e.g. 192.168.1.2 (gateway and DNS is not required). It is important that the IP address of you PC is set to one in the 192.168.1.0/24 subnet. Do not set the PC to 192.168.1.1.
+ * Connect the router's LAN1 port directly to your PC.
+ * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
+
  * Plug the power on and wait for the power LED to switch off
  * While the power LED is off press any button (RESTORE and EZSETUP will work) a few times
  * Power LED goes fast-blinking (about 1 time per second)
