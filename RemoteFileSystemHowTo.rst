@@ -6,7 +6,7 @@ This HOWTO describes how to mount remote filesystems on your router, so that you
 == CIFS ==
 CIFS (Common Internet File System) is a network filesystem used mainly by Windows machines.  Use it if you have Windows or Samba servers nearby.
 
-You must first install the {{{kmod-cifs}}} package:
+You must first install the {{{kmod-cifs}}} package (kmod-fs-cifs for Kamikaze):
 
 {{{
 ipkg install kmod-cifs
@@ -48,12 +48,11 @@ insmod sunrpc
 insmod lockd
 insmod nfs
 }}}
-~-'''Note:''' these modules are automatically loaded at boot after the {{{kmod-nfs}}} package is installed.
+~-'''Note:''' these modules are automatically loaded at boot after the {{{kmod-nfs}}} package is installed. -~
 
-Then you can mount the remote filesystem:
+~-Then you can mount the remote filesystem: -~
 
 {{{
-mount -t nfs 192.168.1.101:/share /mnt/point -o nolock
 }}}
 This will mount the folder {{{/share}}} exported by the machine with the ip address {{{192.168.1.101}}} in the directory {{{/mnt/point}}} on the router. The {{{nolock}}} will disable NFS file locking. If you really need file locking, you must install the {{{portmap}}} package and start the {{{portmap}}} daemon before trying to mount an exported filesystem without the {{{nolock}}} option.
 
