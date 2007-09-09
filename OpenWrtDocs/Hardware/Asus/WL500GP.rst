@@ -105,11 +105,28 @@ The default network configuration is:
 ||eth0.1 ||WAN port ||DHCP ||
 ||wl0/ath0 ||!WiFi ||Disabled by default ||
 
+
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
 
 === Failsafe mode ===
+ * Connect the router's LAN1 port directly to your PC.
+ * Unplug the router's power cord.
+ * Set your PCs IP address to 192.168.1.2 (gateway and DNS is not required). It's important that the IP address of you PC is set to on in the 192.168.1.0/24 subnet. Do not set the PC to 192.168.1.1.
+ * Plug the power on and wait for the power LED to switch off
+ * While the power LED is off press any button (RESTORE and EZSETUP will work) a few times
+ * Power LED goes fast-blinking (about 1 time per second)
+ * you should be able telnet into the router at 192.168.1.1 now (telnet no username and no password)
+What to do in failsafe mode?
 
+'''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run 'mount_root' and make any changes.
 
+ 1. Forgot/lost your password and you like to set a new one
+passwd
+ 1. Forgot the routers IP address (only works after mount_root)
+uci get network.lan.ipaddr
+ 1. You accidentally run 'ipkg upgrade' or filled up the flash by installing to big packages (clean the JFFS2 partition and start over)
+mtd -r erase OpenWrt
+If you are done with failsafe mode power cycle the router and boot in normal mode.
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
 ||'''BUTTON''' ||'''Event''' ||
