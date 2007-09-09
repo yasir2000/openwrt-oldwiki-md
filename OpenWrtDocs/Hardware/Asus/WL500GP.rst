@@ -35,6 +35,8 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 === Photos ===
+[[ImageLink(IMG_0007.JPG,,height=200)]]
+
 == Original Firmware ==
 === Backup ===
 You can backup the original firmware with the hidden admin page. This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
