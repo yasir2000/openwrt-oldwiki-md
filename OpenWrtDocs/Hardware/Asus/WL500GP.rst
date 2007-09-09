@@ -4,7 +4,7 @@
 With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
 ||||<style="text-align: center;">'''Target System''' ||||<style="text-align: center;">'''!WiFi Support''' ||<style="text-align: center;">'''Comments''' ||
 ||||<style="text-align: center;"> ||'''Broadcom''' ||'''Atheros''' || ||
-||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> {X} ||With Atheros !WiFi the router reboots in a loop (fixed by nbd in subversion for 7.09, rev [https://dev.openwrt.org/changeset/8690 8690]) ||
+||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> {X} ||With Atheros !WiFi the router reboots in a loop (fixed for PRE-7.09 in subversion) ||
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''6'''] ||<style="text-align: center;"> {X} ||<style="text-align: center;"> (./) ||Random segfaults (confirmed by nbd) ||
 
 
@@ -111,22 +111,21 @@ LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security re
 === Failsafe mode ===
  * Connect the router's LAN1 port directly to your PC.
  * Unplug the router's power cord.
- * Set your PCs IP address to 192.168.1.2 (gateway and DNS is not required). It's important that the IP address of you PC is set to on in the 192.168.1.0/24 subnet. Do not set the PC to 192.168.1.1.
+ * Set your PCs IP address to e.g. 192.168.1.2 (gateway and DNS is not required). It is important that the IP address of you PC is set to one in the 192.168.1.0/24 subnet. Do not set the PC to 192.168.1.1.
  * Plug the power on and wait for the power LED to switch off
  * While the power LED is off press any button (RESTORE and EZSETUP will work) a few times
  * Power LED goes fast-blinking (about 1 time per second)
- * you should be able telnet into the router at 192.168.1.1 now (telnet no username and no password)
-What to do in failsafe mode?
+ * You should be able telnet into the router at 192.168.1.1 now (username and no password)
+__What to do in failsafe mode?__
 
 '''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run 'mount_root' and make any changes.
 
  1. Forgot/lost your password and you like to set a new one
-passwd
+ passwd[[BR]]
  1. Forgot the routers IP address (only works after mount_root)
-uci get network.lan.ipaddr
+ uci get network.lan.ipaddr[[BR]]
  1. You accidentally run 'ipkg upgrade' or filled up the flash by installing to big packages (clean the JFFS2 partition and start over)
-mtd -r erase OpenWrt
-If you are done with failsafe mode power cycle the router and boot in normal mode.
+ mtd -r erase !OpenWrt If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
 ||'''BUTTON''' ||'''Event''' ||
