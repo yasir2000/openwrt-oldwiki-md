@@ -35,7 +35,7 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 === Photos ===
-[[ImageLink(IMG_0007.JPG,http://wiki.openwrt.org/Hardware/Asus/WL500GP%3Faction%3DAttachFile%26do%3Dview%26target%3DIMG_0007.JPG,height=200)]]
+[[ImageLink(IMG_0007_thumbnail.JPG, view attachment:IMG_0007.JPG)]]
 
 == Original Firmware ==
 === Backup ===
