@@ -125,7 +125,9 @@ __What to do in failsafe mode?__
  1. Forgot the routers IP address (only works after mount_root)
  uci get network.lan.ipaddr[[BR]]
  1. You accidentally run 'ipkg upgrade' or filled up the flash by installing to big packages (clean the JFFS2 partition and start over)
- mtd -r erase !OpenWrt If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
+ mtd -r erase !OpenWrt[[BR]]
+
+If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
 ||'''BUTTON''' ||'''Event''' ||
