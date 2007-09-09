@@ -1,3 +1,5 @@
+If you are looking for a better Kamikaze solution look here: http://forum.openwrt.org/viewtopic.php?pid=53246#p53246
+
 In the new '''OpenWrt WhiteRussian RC6''' the release notes indicated that there's a new diag module which adds control of the leds and the buttons in '''/proc'''.
 
 Snip of release note :  '' New diag module This is what controlls the leds and the buttons; now leds are /proc/diag/led and buttons trigger hotplug scripts in /etc/hotplug.d/button. (Now you can also press any button at startup to enter failsafe mode) ''
