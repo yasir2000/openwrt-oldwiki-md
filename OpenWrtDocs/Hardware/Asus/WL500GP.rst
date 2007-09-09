@@ -119,7 +119,7 @@ If you forgot your password, broken one of the startup scripts, firewalled yours
  * Plug the power on and wait for the power LED to switch off
  * While the power LED is off press any button (RESTORE and EZSETUP will work) a few times
  * Power LED goes fast-blinking (about 1 time per second)
- * You should be able telnet into the router at 192.168.1.1 now (no username and password)
+ * You should be able to telnet to the router at 192.168.1.1 now (no username and password)
 ==== What to do in failsafe mode? ====
 '''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run mount_root and make any changes. Run mount_root now.
 
