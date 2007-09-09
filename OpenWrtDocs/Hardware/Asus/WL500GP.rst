@@ -105,8 +105,10 @@ The default network configuration is:
 ||eth0.1 ||WAN port ||DHCP ||
 ||wl0/ath0 ||!WiFi ||Disabled by default ||
 
-
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
+
+=== Failsafe mode ===
+
 
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
