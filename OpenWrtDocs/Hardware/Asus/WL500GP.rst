@@ -37,6 +37,7 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 === Photos ===
 attachment:IMG_0007_thumbnail.JPG [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500GP?action=AttachFile&do=view&target=IMG_0007.JPG View full size]
 
+## http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500GP?action=AttachFile&do=view&target=IMG_0007.JPG&t=.jpg
 == Original Firmware ==
 === Backup ===
 You can backup the original firmware with the hidden admin page. This requires you to have a USB pen drive to copy the backup firmware file (TRX) of the router.
