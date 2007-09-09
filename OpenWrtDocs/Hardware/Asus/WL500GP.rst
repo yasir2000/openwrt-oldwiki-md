@@ -110,9 +110,10 @@ The default network configuration is:
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
 
 === Failsafe mode ===
-If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. * Unplug the router's power cord.
+If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
 ==== Boot into failsafe mode ====
+ * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
  * Plug the power on and wait for the power LED to switch off
