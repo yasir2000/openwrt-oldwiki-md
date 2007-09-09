@@ -124,7 +124,7 @@ If you have broken one of the startup scripts, firewalled yourself or corrupted 
 
  1. Forgot/lost your password and you like to set a new one
  passwd[[BR]]
- 1. Forgot the routers IP address (only works after mount_root)
+ 1. Forgot the routers IP address
  uci get network.lan.ipaddr[[BR]]
  1. You accidentally run 'ipkg upgrade' or filled up the flash by installing to big packages (clean the JFFS2 partition and start over)
  mtd -r erase !OpenWrt[[BR]]
