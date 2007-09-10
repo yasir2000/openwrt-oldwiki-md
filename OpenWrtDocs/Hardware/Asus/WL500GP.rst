@@ -189,9 +189,7 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 === USB ===
-USB is supported and needs a few extra packages to be installed to work probably.
-
-USB HUBs are NOT working (tested with 2.4 Kernel and two different HUBs (1x 4 port and 1x 7 port HUB, both active ones with external power. From the 7 port HUB only 4 ports are recognized by the driver).
+USB is supported and needs a few extra packages to be installed to work probably. USB hubs are working. Active hubs with external power supply are better.
 
 ==== USB 1.1 ====
 {{{
