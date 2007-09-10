@@ -189,8 +189,12 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 === USB ===
-==== USB 2.0 ====
 ==== USB 1.1 ====
+{{{
+ipkg install kmod-usb-uhci-iv}}}
+==== USB 2.0 ====
+{{{
+ipkg install kmod-usb2}}}
 === Print Server ===
 Please see the PrinterSharingHowto.
 
