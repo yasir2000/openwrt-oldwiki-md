@@ -189,7 +189,7 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 === USB ===
-USB HUBs are NOT working (tested with 2.4 Kernel and two different HUBs (1x 4 port HUB and 1x 7 port hub, both active ones with external power).
+USB HUBs are NOT working (tested with 2.4 Kernel and two different HUBs (1x 4 port and 1x 7 port HUB, both active ones with external power. From the 7 port HUB only 4 ports are recognized by the driver).
 
 ==== USB 1.1 ====
 {{{
