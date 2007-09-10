@@ -8,10 +8,6 @@ Add the following script to /usr/sbin/loadmon.sh
 {{{
 #!/bin/sh
 
-#Set GPIO to the GPIO of the LED you wish to use.
-# Default is 7 for DMZ LED on most routers..
-GPIOG=2
-GPIOR=3
 DELAY=1
 VERYHIGHLOAD="100"
 HIGHLOAD="70"
