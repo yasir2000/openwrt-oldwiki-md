@@ -189,6 +189,7 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 === USB ===
+USB HUBs are working. It is recommended to use an active, external powered HUB since the internal power source from the ASUS WL-500g Premium has it's limitations. 
 ==== USB 1.1 ====
 {{{
 ipkg install kmod-usb-uhci-iv}}}
