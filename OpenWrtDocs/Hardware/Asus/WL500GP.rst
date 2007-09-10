@@ -189,7 +189,8 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 === USB ===
-USB HUBs are working. It is recommended to use an active, external powered HUB since the internal power source from the ASUS WL-500g Premium has it's limitations. 
+USB HUBs are working. There is a limitation to four ports which are recognized by the driver (only four ports of my seven port HUB are recognized). It is recommended to use an active, external powered HUB since the internal power source from the ASUS WL-500g Premium has it's limitations.
+
 ==== USB 1.1 ====
 {{{
 ipkg install kmod-usb-uhci-iv}}}
