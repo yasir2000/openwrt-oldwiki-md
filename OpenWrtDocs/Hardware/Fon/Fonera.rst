@@ -1,17 +1,13 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
+
+Currently under reconstruction...
+
 = Fonera =
 The Fonera FON2100A is based on an Atheros System on Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting OpenWrt to this chip: AtherosPort.
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
 
- * 5V power supply
- * 1x ethernet jack
- * antenna
- * serial
- * 16MB RAM
- * 8MB Flash
- * SPI-Bus
 == Additional Comments ==
 Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton/SMC (http://www.accton.com.tw/).
 
@@ -25,14 +21,33 @@ A look at the varius test reports and external photos shows, that this device is
  * Siemens Gigaset Wlan repeater 108
 Copies of the mentioned FCC-documents may also be found at http://mobileaccess.de/fonera/
 
-According to OpenWrt, the output-power is set to 18dBm, in contrast to the FCC-RF-tests where an output power of almost 25dBm (actually 24.89dBm on channel 6 in 802.11g mode) is measured. Question here is, if further versions will provide an adjustable TX-Power up to that level. Is the information provided by OpenWrt of 18dBm just a hypothetical value??? I found no reference in Kamikaze yet, how to adjust it.
+According to !OpenWrt, the output-power is set to 18dBm, in contrast to the FCC-RF-tests where an output power of almost 25dBm (actually 24.89dBm on channel 6 in 802.11g mode) is measured. Question here is, if further versions will provide an adjustable TX-Power up to that level. Is the information provided by !OpenWrt of 18dBm just a hypothetical value??? I found no reference in Kamikaze yet, how to adjust it.
 
 Another interessting issue is the possible frequency range, as specified by Atheros itself at http://www.atheros.com/pt/bulletins/AR5006AP_GBulletin.pdf - where the available band ranges from 2.300GHz to 2.500GHz. Question here is, if there will be an option to use further frequencies than the international standardized 14 Channels. In particular, there might be a very high interest e.g. from the amateur-radio community!
 
-== Case ==
-To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
-
-== Serial ==
+= Hardware =
+== Info ==
+ * 5V power supply
+ * 1x ethernet jack
+ * antenna
+ * serial
+ * 16MB RAM
+ * 8MB Flash
+ * SPI-Bus
+{{{
+root@(none):/# cat /proc/cpuinfo
+system type             : Atheros AR531X_COBRA
+processor               : 0
+cpu model               : MIPS 4KEc V6.4
+BogoMIPS                : 183.50
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : no
+VCED exceptions         : not available
+VCEI exceptions         : not available }}}
+== Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side)
 
 {{{
@@ -57,25 +72,13 @@ r . . . .
 
 Serial settings are 9600-8-N-1
 
-== CPU ==
-{{{
-root@(none):/# cat /proc/cpuinfo
-system type             : Atheros AR531X_COBRA
-processor               : 0
-cpu model               : MIPS 4KEc V6.4
-BogoMIPS                : 183.50
-wait instruction        : yes
-microsecond timers      : yes
-tlb_entries             : 16
-extra interrupt vector  : yes
-hardware watchpoint     : no
-VCED exceptions         : not available
-VCEI exceptions         : not available
-}}}
+== Case ==
+To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
+
 == JTAG ==
 There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
 
-== Original software ==
+= Original software =
 {{{
 +PHY ID is 0022:5521
 Ethernet eth0: MAC address xx:xx:xx:xx:xx
