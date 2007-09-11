@@ -130,6 +130,7 @@ First install the kernel file system modules, for example:
 ipkg install kmod-vfat
 }}}
 '''TIP:''' kamikaze 7.07: kmod-fs-vfat
+
 '''TIP:''' After installing the modules, you should either reboot the device or load the installed modules manually:
 
 {{{
@@ -166,6 +167,20 @@ Finally you can mount and use your USB device (with relevant modules for your fi
 mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 }}}
 Be happy and use your USB device like on every other GNU/Linux system or create a file server using Samba.
+
+You may need language packages to support the filenames on various file systems:
+
+kmod-nls-base - Kernel modules for basic native language support
+
+kmod-nls-cp437 - Kernel module for codepage 437
+
+kmod-nls-cp850 - Kernel module for codepage 850
+
+kmod-nls-iso8859-1 - Kernel module for iso8859-1 charset support
+
+kmod-nls-iso8859-15 - Kernel module for iso8859-15 charset support
+
+kmod-nls-utf8 - Kernel module for utf8 support
 
 == How do I boot from the USB device ==
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 file system:
