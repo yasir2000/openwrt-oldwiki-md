@@ -1,7 +1,8 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 == ASUS WL-500g Premium ==
-With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
+With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable. Atheros wifi cards (mini pci) also work fine when running on Kamikaze 7.07, architecture brcm47xx-2.6.
+
 ||||<style="text-align: center;">'''Target System''' ||||<style="text-align: center;">'''!WiFi Support''' ||<style="text-align: center;">'''Comments''' ||
 ||||<style="text-align: center;"> ||'''Broadcom''' ||'''Atheros''' || ||
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> {X} / (./) ||With Atheros !WiFi the router reboots in a loop (fixed for PRE-7.09 in subversion) ||
@@ -42,6 +43,10 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 
 === Photos ===
 [[ImageLink(IMG_0007_thumbnail.JPG, ./OpenWrtDocs/Hardware/Asus/WL500GP/IMG_0007 )]]
+
+=== Opening the case ===
+
+Remove the 4 nubs under the case, now you can see some screws. Unscrew them. You're done. When you're finished you can put the rubbers back into the gadgets. They'll stick alone.
 
 ## http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL500GP?action=AttachFile&do=view&target=IMG_0007.JPG&t=.jpg
 == Original Firmware ==
