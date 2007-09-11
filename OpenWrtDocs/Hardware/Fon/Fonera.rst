@@ -34,6 +34,7 @@ Another interessting issue is the possible frequency range, as specified by Athe
  * 16MB RAM
  * 8MB Flash
  * SPI-Bus
+
 {{{
 root@(none):/# cat /proc/cpuinfo
 system type             : Atheros AR531X_COBRA
@@ -77,6 +78,8 @@ To open the case, remove the two rubber feet on the opposite site to the antenna
 
 == JTAG ==
 There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
+
+== Photos ==
 
 = Original software =
 {{{
