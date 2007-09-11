@@ -234,7 +234,6 @@ vmlinux.bin.l7    0xA8730000  0x80041000  0x000B0000  0x80041000
 FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
-
 = Flashing OpenWrt =
 [https://dev.openwrt.org/changeset/5898 SVN] trunk supports this Atheros SoC. thank you, nbd!
 
@@ -481,7 +480,6 @@ mtd5: 0000f000 00010000 "FIS directory"
 mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
-
 = Reflash the RedBoot Config from SSH... =
 In order to get the access to !RedBoot through an ethernet cable instead of the serial console.
 
@@ -571,7 +569,6 @@ root@OpenWrt:~# reboot
 $ telnet 192.168.1.254 9000
 RedBoot> fis init
 }}}
-
 = Basic WPA config =
 It is a bit harder to find the documentation for Kamikaze, as the config system changed. So here is a list of config entries to use the fonera as a WPA (PSK) accesspoint-bridge. You can take it with your laptop and use it as a mobile AP whereever you find a RJ45 plug.
 
@@ -648,20 +645,18 @@ The tool athctrl sets values for specific distances in meters with the -d option
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
  * [http://stefans.datenbruch.de/lafonera/ Hacking the La Fonera]
- * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 Openwrt development]
+ * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 OpenWrt development]
  * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
  * [http://www.easy2design.de/bla/?page_id=98 Debricking and more]
- * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to Redboot without the Serial Console]
- * [http://coppercore.net/~kevin/fon/ Files to get the access to Redboot without the Serial Console]
+ * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to RedBoot without the Serial Console]
+ * [http://coppercore.net/~kevin/fon/ Files to get the access to RedBoot without the Serial Console]
  * [http://olsrexperiment.de/sven-ola/fonera/readme.txt Packet for Fonera by sven-ola. NOTE: If you use -ipkg remove- on the Fonera orig firmware, it will BRICK it]
- * [http://fon.rogue.be/lafonera/ Some ipkgs for the Fonera ORGINAL firmware]
- * [http://olsrexperiment.de/sven-ola/fonera/ Other ipkgs for the Fonera ORGINAL firmware]
- * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html Redboot userguide]
+ * [http://fon.rogue.be/lafonera/ Some packages for the Fonera ORGINAL firmware]
+ * [http://olsrexperiment.de/sven-ola/fonera/ Other packages for the Fonera ORGINAL firmware]
+ * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot userguide]
  * [http://wiki.ninux.org/moin.cgi/La_Fonera Misc Links (Italian language)]
  * [http://www.tldp.org/LDP/lkmpg/ The Linux Kernel Module Programming Guide]
- * [http://ipkg.k1k2.de/packages/ Package Repository] and Images for La Fonera (see [http://www.fonboard.de/fonera-|-anderes-betriebssystem-draufflashen-t1358-s60.html#9813 Discussion] (german))
- * [http://mobileaccess.de/fonera/bin Precompiled OpenWRT, Package Repository] and precomiled webif (ready to install) (see [http://mobileaccess.de/wlan/index.html?go=forum&action=read&msgid=10033 simple howto] for web interface installation in german)
  * [http://karman.homelinux.net/blog/ Blog about Fonera] (Spanish)
  * [http://mrmuh.blogspot.com/2007/01/codename-kolofonium-realease-date.html Blog about Hacking the 0.7.1r2 firmware]
- * [http://blog.extreme-networking.com/ OpenWRT installation guide (Italian) and misc]
- * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, german] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) english]: comprehensive guide to flashing la fonera with kamikaze.
+ * [http://blog.extreme-networking.com/ OpenWrt installation guide (Italian) and misc]
+ * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, German] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) English]: comprehensive guide to flashing la fonera with kamikaze.
