@@ -26,26 +26,24 @@ Another interessting issue is the possible frequency range, as specified by Athe
 
 = Hardware =
 == Info ==
+||'''Architecture''' ||MIPS ||
+||'''Vendor''' || ||
+||'''Bootloader''' ||RedBoot ||
+||'''System-On-Chip''' ||Atheros AR531X_COBRA ||
+||'''CPU Speed''' ||183.50 Mhz ||
+||'''Flash size''' ||8MiB ||
+||'''RAM''' ||16MiB||
+||'''Wireless''' || ||
+||'''Ethernet''' ||1x RJ45 ||
+||'''USB''' ||No ||
+||'''Serial''' ||Yes ||
+||'''JTAG''' ||No ||
+[[Anchor(serial)]] [[Anchor(Serial)]]
+
  * 5V power supply
- * 1x ethernet jack
  * antenna
- * serial
- * 16MB RAM
- * 8MB Flash
  * SPI-Bus
-{{{
-root@(none):/# cat /proc/cpuinfo
-system type             : Atheros AR531X_COBRA
-processor               : 0
-cpu model               : MIPS 4KEc V6.4
-BogoMIPS                : 183.50
-wait instruction        : yes
-microsecond timers      : yes
-tlb_entries             : 16
-extra interrupt vector  : yes
-hardware watchpoint     : no
-VCED exceptions         : not available
-VCEI exceptions         : not available }}}
+
 == Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side)
 
