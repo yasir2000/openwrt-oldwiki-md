@@ -16,13 +16,13 @@ Download the hotplug script and the UCI configuration file
 wget -P /etc/hotplug.d/button -O 01-wifitoggle http://...
 wget -P /etc/config -O wifitoggle http://...}}}
 = Configuration =
-Change the button you like to use to ses.
+Change the button you like to use or leave the default (reset button).
 
 {{{
 uci set wifitoggle.cfg1.button=ses}}}
 Description of the options in the !WiFi toggle configuration file (/etc/config/wifitoggle):
 ||<tablewidth="1171px" tableheight="77px">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
-||button ||[reset|ses|aoss] ||reset ||The name of the button on the router which should be used to turn WifFi on/off ||
+||button ||[reset|ses|aoss] ||reset ||The name of the button on the router which should be used to turn !WifFi on/off ||
 
 
 Commit your changes
