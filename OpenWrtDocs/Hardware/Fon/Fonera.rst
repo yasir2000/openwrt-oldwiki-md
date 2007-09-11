@@ -3,7 +3,7 @@
 = Fonera =
 The Fonera FON2100A is based on an Atheros System on Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting OpenWrt to this chip: AtherosPort.
 
-It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ openwrt fork].
+It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
 
  * 5V power supply
  * 1x ethernet jack
@@ -73,7 +73,7 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 == JTAG ==
-There seems to be a 14 pin unpopulated JTAG, but it is not that important as the RedBoot boatloader does not seem to be crippled.
+There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
 
 == Original software ==
 {{{
@@ -130,7 +130,7 @@ Search for the "rootfs1" line and take the number of the beginning of the line (
 {{{
 echo -ne '\xde\xad\xc0\xde' > "/dev/mtdblock/2"
 }}}
-Make sure you're using "/dev/mtdblock/X" (the mtdX number) Now reset it again and you should receive this message: Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0 jffs2_build_filesystem(): unlocking the mtd device... done. jffs2_build_filesystem(): erasing all blocks after the end marker... This takes some time but you should have a fresh fonera again. This Method will work only if the enter message will show up. If not the endmarker can be written directly in the RedBoot Environment.
+Make sure you're using "/dev/mtdblock/X" (the mtdX number) Now reset it again and you should receive this message: Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0 jffs2_build_filesystem(): unlocking the mtd device... done. jffs2_build_filesystem(): erasing all blocks after the end marker... This takes some time but you should have a fresh Fonera again. This Method will work only if the enter message will show up. If not the endmarker can be written directly in the !RedBoot Environment.
 
 {{{
 mfill -b 0x80041000 -l 4 -p 0xdeadc0de -4
@@ -139,7 +139,7 @@ fis write -b 0x80041000 -f 0xa81b0000 -l 0x00000004
 0xa81b0000 is the start of mtd2 (0xA8030000 + 0x00180000 kernel size)
 
 === Method 4 - TFTP/HTTP/Xmodem Recover ===
-A way to recover it with Xmodem, a TFTP or HTTP server and RedBoot is http://www.easy2design.de/bla/?page_id=98.
+A way to recover it with Xmodem, a TFTP or HTTP server and !RedBoot is http://www.easy2design.de/bla/?page_id=98.
 
 === Method 5 - Custumer Care ===
  1. Double click the Local Area Connection icon to show the connection's Status dialog box.
@@ -157,7 +157,7 @@ A way to recover it with Xmodem, a TFTP or HTTP server and RedBoot is http://www
  1. Turn La Fonera off and connect it to your router so you can continue working normally.
  1. Remember to change again the values of your Local Area Network.
 === Updating / Unbricking via RedBoot ===
-'''NOTE''': Word on IRC is that the instructions down in the "Flashing OpenWrt" section are the ones you should use. Specifying all those parameters to "fis create" is said to be no good idea. Yet, I will leave this section until further confirmation. - Fatus
+'''NOTE''': Word on IRC is that the instructions down in the "Flashing !OpenWrt" section are the ones you should use. Specifying all those parameters to "fis create" is said to be no good idea. Yet, I will leave this section until further confirmation. - Fatus
 
 On your computer:
 
@@ -293,7 +293,7 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 RedBoot> reset
 }}}
-If everything is okay, then it'll now look like this:
+If everything is okay, then it will now look like this:
 
 {{{
 +PHY ID is 0022:5521
@@ -323,10 +323,10 @@ Enter 'help' for a list of built-in commands.
           |__| W I R E L E S S   F R E E D O M
  KAMIKAZE (bleeding edge, r5899) -------------------
 }}}
-'''NOTE''': If you changed !RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- OpenWrt logs to its serial console with 9600bps, so having the same baud rate in !RedBoot is a good idea.
+'''NOTE''': If you changed !RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- !OpenWrt logs to its serial console with 9600bps, so having the same baud rate in !RedBoot is a good idea.
 
 == Telnet into RedBoot ==
-You can change the RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
+You can change the !RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
 
 The default form of the fconfig command will force you to enter the data, change and confirm every initialized variable. To avoid reentering the '''Boot script''' data and harming unnecessary variables, run the "fconfig list" command first to look at variable names and values:
 
@@ -383,7 +383,7 @@ GDB connection port: 9000
 Force console for special debug messages: false
 Network debug at boot time: false
 }}}
-I specified a 10 second timeout here, so I have this 10 second time frame to telnet into RedBoot. If you are not able to hit the enter-key within 10 seconds after powering up, go for a larger time frame.
+I specified a 10 second timeout here, so I have this 10 second time frame to telnet into !RedBoot. If you are not able to hit the enter-key within 10 seconds after powering up, go for a larger time frame.
 
 {{{
 +PHY ID is 0022:5521
@@ -398,7 +398,7 @@ RAM: 0x80000000-0x81000000, [0x80040450-0x80fe1000] available
 FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 == Executing boot script in 10.000 seconds - enter ^C to abort
 }}}
-Actually I had problems with my old BSD telnet on Slackware 11 to send a proper CTRL-C to the RedBoot console. I circumvented the problem with this small trick:
+Actually I had problems with my old BSD telnet on Slackware 11 to send a proper CTRL-C to the !RedBoot console. I circumvented the problem with this small trick:
 
 {{{
 $ echo -e "\0377\0364\0377\0375\0006" > break
@@ -436,9 +436,9 @@ Escape character is '^]'.
 ^C
 RedBoot>
 }}}
-The boot process is somehow signalled via the LEDs, first only the power LED is on, then the internet LED starts blinking, and when this internet LED is solid green, it is the right time to connect to the RedBoot console.
+The boot process is somehow signalled via the LEDs, first only the power LED is on, then the internet LED starts blinking, and when this internet LED is solid green, it is the right time to connect to the !RedBoot console.
 
-This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and SSH working, I do not need any debug-stuff in between. It is possible to unbrick the fonera with this RedBoot console, as I can always reflash to a working firmware.
+This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and SSH working, I do not need any debug-stuff in between. It is possible to unbrick the fonera with this !RedBoot console, as I can always reflash to a working firmware.
 
 == Backup your Fonera's flash ==
 After gaining the SSH access use these commands:
@@ -478,9 +478,9 @@ mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
 == Reflash the RedBoot Config from SSH... ==
-In order to get the access to RedBoot through an ethernet cable instead of the serial console.
+In order to get the access to !RedBoot through an ethernet cable instead of the serial console.
 
-As we can see via 'dmesg' there is a mtd for the RedBoot config:
+As we can see via 'dmesg' there is a mtd for the !RedBoot config:
 
 {{{
 <5>Creating 6 MTD partitions on "spiflash":
@@ -518,7 +518,7 @@ info_console_number
 info_console_force
 net_debug
 }}}
-It should be possible to use such a file to reflash other foneras in order to gain RedBoot access without ever opening the case. As long as someone can gain shell access to the Fonera, he could enable RedBoot telnet access to his Fonera and fiddle around with it. With this RedBoot GDB console, you can always restore the original firmware, even if your fonera does not boot your latest Linux experiment.
+It should be possible to use such a file to reflash other foneras in order to gain !RedBoot access without ever opening the case. As long as someone can gain shell access to the Fonera, he could enable !RedBoot telnet access to his Fonera and fiddle around with it. With this !RedBoot GDB console, you can always restore the original firmware, even if your fonera does not boot your latest Linux experiment.
 
 This would be nice, but does not work, as the "!RedBoot config" mtd partion is not writable.
 
@@ -534,9 +534,9 @@ According to this [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=49585#49585 post
                                 parts[i].name);
                         }
 }}}
-So you have to reflash the Kernel with a Kernel image, that allows writing to the RedBoot config partition and then reflash that config partition in order to gain access to the RedBoot console.
+So you have to reflash the Kernel with a Kernel image, that allows writing to the !RedBoot config partition and then reflash that config partition in order to gain access to the !RedBoot console.
 
-Please note that they were not writeable for a reason. Writing "RedBoot config" is probably going to reset the FIS directory because it is on the same "erase sector". This is not a major problem since with RedBoot we can easily recreate them using the command "fis init" and to install !OpenWrt we must do this anyway.
+Please note that they were not writeable for a reason. Writing "!RedBoot config" is probably going to reset the FIS directory because it is on the same "erase sector". This is not a major problem since with !RedBoot we can easily recreate them using the command "fis init" and to install !OpenWrt we must do this anyway.
 
 This whole procedure is described [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 here].
 
