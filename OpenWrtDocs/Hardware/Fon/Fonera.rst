@@ -1,10 +1,9 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
-
 Currently under reconstruction...
 
 = Fonera =
-The Fonera FON2100A is based on an Atheros System on Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting OpenWrt to this chip: AtherosPort.
+The Fonera FON2100A is based on an Atheros System on Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting !OpenWrt to this chip: AtherosPort.
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
 
@@ -34,7 +33,6 @@ Another interessting issue is the possible frequency range, as specified by Athe
  * 16MB RAM
  * 8MB Flash
  * SPI-Bus
-
 {{{
 root@(none):/# cat /proc/cpuinfo
 system type             : Atheros AR531X_COBRA
@@ -77,7 +75,6 @@ Serial settings are 9600-8-N-1
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
 
 == Photos ==
-
 == JTAG ==
 There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
 
