@@ -101,6 +101,44 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 As you can see, the vmlinux.bin.l7 partition is of B0000, ergo 720896 bytes length. That means, that the kernel size should not exceed 720kb, but if it is smaller, everthing will be fine. Like wise the rootfs partition has a size of 0x700000 or 7340032 bytes. You've got 7.3 MiB space.
 
+== Backup your Fonera's flash ==
+After gaining the SSH access use these commands:
+
+{{{
+cd /dev/mdtblock
+httpd -p 9090
+}}}
+Connect to the Fonera through the private network. Now you can download the mtd partiotions using the addresses:
+
+{{{
+http://192.168.10.1:9090/0ro
+http://192.168.10.1:9090/1ro
+http://192.168.10.1:9090/2ro
+http://192.168.10.1:9090/3ro
+http://192.168.10.1:9090/4ro
+http://192.168.10.1:9090/5ro
+http://192.168.10.1:9090/6ro
+http://192.168.10.1:9090/7ro
+}}}
+Also take note of the output of the command
+
+{{{
+cat /proc/mtd
+}}}
+That should be:
+
+{{{
+dev:    size   erasesize  name
+mtd0: 00030000 00010000 "RedBoot"
+mtd1: 006f0000 00010000 "rootfs"
+mtd2: 00560000 00010000 "rootfs1"
+mtd3: 00010000 00010000 "config"
+mtd4: 000b0000 00010000 "vmlinux.bin.l7"
+mtd5: 0000f000 00010000 "FIS directory"
+mtd6: 00001000 00010000 "RedBoot config"
+mtd7: 00010000 00010000 "board_config"
+}}}
+
 == Unbricking the Fonera ==
 This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]. Some people asked me how to recover a Fonera, here are some methods:
 
@@ -230,7 +268,7 @@ FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 = Flashing OpenWrt =
-Kamikaze 7.07 supports the Atheros SoC. You have to download two files (right click and save as):
+You have to download two files (right click and save as).
 
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-root.squashfs openwrt-atheros-2.6-root.squashfs]
@@ -428,43 +466,7 @@ The boot process is somehow signalled via the LEDs, first only the power LED is 
 
 This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and SSH working, I do not need any debug-stuff in between. It is possible to unbrick the fonera with this !RedBoot console, as I can always reflash to a working firmware.
 
-= Backup your Fonera's flash =
-After gaining the SSH access use these commands:
 
-{{{
-cd /dev/mdtblock
-httpd -p 9090
-}}}
-Connect to the Fonera through the private network. Now you can download the mtd partiotions using the addresses:
-
-{{{
-http://192.168.10.1:9090/0ro
-http://192.168.10.1:9090/1ro
-http://192.168.10.1:9090/2ro
-http://192.168.10.1:9090/3ro
-http://192.168.10.1:9090/4ro
-http://192.168.10.1:9090/5ro
-http://192.168.10.1:9090/6ro
-http://192.168.10.1:9090/7ro
-}}}
-Also take note of the output of the command
-
-{{{
-cat /proc/mtd
-}}}
-That should be:
-
-{{{
-dev:    size   erasesize  name
-mtd0: 00030000 00010000 "RedBoot"
-mtd1: 006f0000 00010000 "rootfs"
-mtd2: 00560000 00010000 "rootfs1"
-mtd3: 00010000 00010000 "config"
-mtd4: 000b0000 00010000 "vmlinux.bin.l7"
-mtd5: 0000f000 00010000 "FIS directory"
-mtd6: 00001000 00010000 "RedBoot config"
-mtd7: 00010000 00010000 "board_config"
-}}}
 = Reflash the RedBoot Config from SSH... =
 In order to get the access to !RedBoot through an ethernet cable instead of the serial console.
 
