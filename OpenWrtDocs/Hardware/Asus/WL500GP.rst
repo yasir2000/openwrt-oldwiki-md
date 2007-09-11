@@ -224,5 +224,9 @@ HardwareAcceleratedCrypto
 
 '''S:''' The WL-500gP ehci-hcd module handles all USB2 transfer well, but the external ports use uhci-hcd for usb1. To make it even worse, the current trunk version has issues with this module to load but it can be fixed like mentioned in the forum http://forum.openwrt.org/viewtopic.php?id=7149. The broadcom chip seems to have a "buried" ohci controller that can not be used with the external connectors.
 
+== External Links ==
+|| '''Link''' || '''Author''' ||
+|| [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN to the WL-500gP Wifi Router] || MarcusBrown ||
+
 ----
  . CategoryModel
