@@ -94,7 +94,7 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
-=== Flash layout ===
+== Flash layout ==
 {{{
 RedBoot> fis list
 Name              FLASH addr  Mem addr    Length      Entry point
@@ -234,7 +234,8 @@ vmlinux.bin.l7    0xA8730000  0x80041000  0x000B0000  0x80041000
 FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
-== Flashing OpenWrt ==
+
+= Flashing OpenWrt =
 [https://dev.openwrt.org/changeset/5898 SVN] trunk supports this Atheros SoC. thank you, nbd!
 
 After you build a Kamikaze image with SVN trunk for the Atheros [2.6] target (or visited http://downloads.openwrt.org/kamikaze), you get the following files in your ./bin/ directory:
@@ -328,7 +329,7 @@ Enter 'help' for a list of built-in commands.
 }}}
 '''NOTE''': If you changed !RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- !OpenWrt logs to its serial console with 9600bps, so having the same baud rate in !RedBoot is a good idea.
 
-== Telnet into RedBoot ==
+= Telnet into RedBoot =
 You can change the !RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
 
 The default form of the fconfig command will force you to enter the data, change and confirm every initialized variable. To avoid reentering the '''Boot script''' data and harming unnecessary variables, run the "fconfig list" command first to look at variable names and values:
@@ -443,7 +444,7 @@ The boot process is somehow signalled via the LEDs, first only the power LED is 
 
 This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and SSH working, I do not need any debug-stuff in between. It is possible to unbrick the fonera with this !RedBoot console, as I can always reflash to a working firmware.
 
-== Backup your Fonera's flash ==
+= Backup your Fonera's flash =
 After gaining the SSH access use these commands:
 
 {{{
@@ -480,7 +481,8 @@ mtd5: 0000f000 00010000 "FIS directory"
 mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
-== Reflash the RedBoot Config from SSH... ==
+
+= Reflash the RedBoot Config from SSH... =
 In order to get the access to !RedBoot through an ethernet cable instead of the serial console.
 
 As we can see via 'dmesg' there is a mtd for the !RedBoot config:
@@ -569,7 +571,8 @@ root@OpenWrt:~# reboot
 $ telnet 192.168.1.254 9000
 RedBoot> fis init
 }}}
-== Basic WPA config ==
+
+= Basic WPA config =
 It is a bit harder to find the documentation for Kamikaze, as the config system changed. So here is a list of config entries to use the fonera as a WPA (PSK) accesspoint-bridge. You can take it with your laptop and use it as a mobile AP whereever you find a RJ45 plug.
 
 Now update your application list and install 'hostapd' and 'wpa-supplicant'.
@@ -622,7 +625,7 @@ iptables -A INPUT -o br-lan -j ACCEPT
 }}}
 then reboot and everthing should be working.
 
-== Correcting antenna settings under Kamikaze ==
+= Correcting antenna settings under Kamikaze =
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
 
 To change that put the following at the end of /etc/sysctl.conf:
@@ -641,7 +644,7 @@ dev.wifi0.slottime = 11
 }}}
 The tool athctrl sets values for specific distances in meters with the -d option, i.e. athctrl -d 300 sets madwifi up for a 300m link
 
-== Resources ==
+= Resources =
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
  * [http://stefans.datenbruch.de/lafonera/ Hacking the La Fonera]
