@@ -4,5 +4,6 @@
  * [:OpenWrtDocs/Hardware/Siemens/SE515: SE515]
  * [:OpenWrtDocs/Hardware/Siemens/SE551: SE551]
  * [:OpenWrtDocs/Hardware/Siemens/SX541: SX541]
+ * [:OpenWrtDocs/Hardware/Siemens/CL110: CL110]
 ----
 CategoryBrand
