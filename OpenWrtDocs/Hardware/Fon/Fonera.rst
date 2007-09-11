@@ -239,21 +239,7 @@ Kamikaze 7.07 supports the Atheros SoC. You have to download two files:
 
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-root.squashfs openwrt-atheros-2.6-root.squashfs]
-After you build a Kamikaze image with SVN trunk for the Atheros [2.6] target (or visited http://downloads.openwrt.org/kamikaze), you get the following files in your ./bin/ directory:
-
-{{{
-openwrt-atheros-2.6-root.jffs2-128k
-openwrt-atheros-2.6-root.jffs2-256k
-openwrt-atheros-2.6-root.jffs2-64k
-openwrt-atheros-2.6-root.squashfs
-openwrt-atheros-2.6-vmlinux.elf
-openwrt-atheros-2.6-vmlinux.gz
-openwrt-atheros-2.6-vmlinux.lzma
-packages
-}}}
-Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /tftpboot/ and flash them like this:
-
-{{{
+Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /tftpboot/ and flash them like this:{{{
 ^C
 RedBoot> ip_address -l 192.168.5.75/24 -h 192.168.5.2
 IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
