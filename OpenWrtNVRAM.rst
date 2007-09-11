@@ -144,7 +144,8 @@ There are separate variables called wl0_* which configure the characteristics of
 
 For WPA: (See ["OpenWrtDocs/Configuration"] on how to enable WPA on current snapshots)
 
-||'''wl0_auth_mode''' ||obsolete, use '''wl0_akm''' NOTE: set to psk or radius because some configurations don't work without it. See http://www.bingner.com/openwrt/wpa.html, http://wiki.openwrt.org/OpenWrtDocs/Wpa2Enterprise or maybe you can use some other wpa supplicant instead of nas ||
+||'''wl0_auth_mode''' ||obsolete, use '''wl0_akm''' NOTE: set to psk or radius because some configurations don't work without it. See http://www.bingner.com/openwrt/wpa.html, http://wiki.openwrt.org/OpenWrtDocs/Wpa2Enterprise or maybe you can use some other wpa supplicant instead of nas. (But: I had two OpenWRT boxes, one working and one not; I set wl0_auth_mode 
+from psk to disable on the non-working one and it worked (for WPA2-PSK)). ||
 ||'''wl0_akm''' ||''open,wpa,psk,wpa2,psk2'' ||
 ||'''wl0_wpa_psk''' ||WPA pre-shared key ||
 ||'''wl0_wpa_gtk_rekey''' ||WPA GTK rekey interval ||
