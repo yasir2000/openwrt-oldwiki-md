@@ -13,8 +13,10 @@ mkdir -p /etc/hotplug.d/button}}}
 Download the hotplug script and the UCI configuration file
 
 {{{
-wget -P /etc/hotplug.d/button -O 01-wifitoggle http://... (fix URL to link to attachments on this page)
-wget -P /etc/config -O wifitoggle http://... (fix URL to link to attachments on this page)}}}
+wget -P /etc/hotplug.d/button -O 01-wifitoggle http://... (fix URL to link to attachment on this page)
+wget -P /etc/config -O wifitoggle http://... (fix URL to link to attachment on this page)}}}
+
+[http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile Show attachments]
 = Configuration =
 Change the button you like to use or leave the default (reset button).
 
