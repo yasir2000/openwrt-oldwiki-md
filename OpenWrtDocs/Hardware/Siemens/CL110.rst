@@ -1,22 +1,12 @@
 = Siemens CL 110 Router =
-The router has an integrated ADSL Modem, W-LAN and one LAN Port and was build by Siemens Switzerland Ltd.
-
-It has the Broadcom 6338 chip inside.
-In default it is running a Linux Kernel 2.6.8.1
-
-Data Sheet: http://www.hauke-m.de/fileadmin/cl110/datasheet.pdf
-
-Data Sheet: http://w5.siemens.ch/eip/downloads/ADSL_CL-110_CL-110-I.pdf
-
 
 Homepage: http://w5.siemens.ch/eip/products_broadband.php
 
-Siemens GLP page: http://broadband.eip.siemens.ch/public/GPL_source/Open_Source.htm
-
-Sourcecode: http://broadband.eip.siemens.ch/public/GPL_source/GPL_source_CL_SL_SLI_series_consumer_release.tar
+I will add more informations soon.
 
 
-original Firmware System-Log:
+
+System-Log 		
 {{{Datum / Uhrzeit 	Bereich 	Niveau 	Meldung
 2006/01/01 00:01:13 	daemon 	notice 	pppd[308]: PPPoE Server Detected
 2006/01/01 00:01:12 	daemon 	notice 	pppd[308]: PPP: Start to connect ...
@@ -92,5 +82,3 @@ original Firmware System-Log:
 2006/01/01 00:00:14 	user 	warn 	kernel: Linux version 2.6.8.1 (compiled by michaelc) (gcc version 3.4.2) #1 Wed Dec 20 17:46:30 CST 2006
 2006/01/01 00:00:14 	user 	notice 	kernel: klogd started: BusyBox v1.00 (2005)
 2006/01/01 00:00:14 	syslog 	emerg 	BCM63XX started: BusyBox v1.00 (2005)}}}
-----
-["CategoryBCM63xx"]
