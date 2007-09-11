@@ -76,10 +76,10 @@ Serial settings are 9600-8-N-1
 == Case ==
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
 
+== Photos ==
+
 == JTAG ==
 There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
-
-== Photos ==
 
 = Original software =
 {{{
