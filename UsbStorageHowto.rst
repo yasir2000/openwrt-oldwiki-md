@@ -127,8 +127,9 @@ USB Mass Storage support registered.
 First install the kernel file system modules, for example:
 
 {{{
-ipkg install kmod-vfat (kamikaze 7.07: kmod-fs-vfat)
+ipkg install kmod-vfat
 }}}
+'''TIP:''' kamikaze 7.07: kmod-fs-vfat
 '''TIP:''' After installing the modules, you should either reboot the device or load the installed modules manually:
 
 {{{
