@@ -14,6 +14,7 @@ Download the hotplug script and the UCI configuration file
 
 {{{
 wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=01-wifitoggle"
+
 wget -O /etc/config/wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle"}}}
 [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile Show attachments] (Please fix the long URLs. Thanks)
 
