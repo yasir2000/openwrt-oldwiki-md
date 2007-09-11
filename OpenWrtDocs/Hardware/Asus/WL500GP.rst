@@ -8,6 +8,7 @@ With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''6'''] ||<style="text-align: center;"> {X} ||<style="text-align: center;"> (./) ||Random segfaults (confirmed by nbd) ||
 
 [[Anchor(hardware)]]
+[[Anchor(Hardware)]]
 == Hardware ==
 === Info ===
 ||'''Architecture''' ||MIPS ||
@@ -23,6 +24,7 @@ With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||'''Serial''' ||yes ||
 ||'''JTAG''' ||no ||
 [[Anchor(serial)]]
+[[Anchor(Serial)]]
 === Serial Port ===
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
 ||RESET || ||
@@ -36,6 +38,8 @@ Pin 1 (with the square solder pad) is RX0.
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
 
 [[Anchor(photos)]]
+[[Anchor(Photos)]]
+[[Anchor(pics)]]
 === Photos ===
 
 [[ImageLink(IMG_0007_thumbnail.JPG, ./OpenWrtDocs/Hardware/Asus/WL500GP/IMG_0007 )]]
@@ -65,6 +69,9 @@ To restore the original ASUS firmware you have three options:
  * ASUS firmware restoration tool (Windows only)
 
 [[Anchor(install)]]
+[[Anchor(Install)]]
+[[Anchor(installation)]]
+[[Anchor(Installation)]]
 == Installation ==
 You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
@@ -72,6 +79,7 @@ You can try the ASUS web GUI in case it works, or skip directly to the TFTP part
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
 [[Anchor(diag)]]
+[[Anchor(Diag)]]
 === Using diag mode ===
 To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to put the router in diag mode. To put the router in the diag mode, do this:
 
@@ -83,6 +91,7 @@ To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to
  * Now the router should accept an image via TFTP or the ASUS firmware restoration tool.
 
 [[Anchor(tftp)]]
+[[Anchor(TFTP)]]
 ==== TFTP ====
 It is possible to install !OpenWrt using a TFTP client when the router is in diag mode.
 
@@ -102,6 +111,9 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * The ASUS WL-500g Premium does not revert to the 192.168.1.1 address when starting the CFE bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 
 [[Anchor(restore)]]
+[[Anchor(Restore)]]
+[[Anchor(restoration)]]
+[[Anchor(Restoration)]]
 ==== ASUS firmware restoration tool (Windows only) ====
 If you are on Windows it is recommended to use the ASUS firmware restoration tool to install !OpenWrt. The ASUS firmware restoration tool can be found on the CD. Make sure the router is in diag mode.
 
@@ -110,6 +122,7 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 
 [[Anchor(config)]]
+[[Anchor(Config)]]
 == ASUS WL-500g Premium specific configuration ==
 === Interfaces ===
 The default network configuration is:
@@ -123,6 +136,7 @@ The default network configuration is:
 LAN and !WiFi is bridged to br-lan. !WiFi is disabled by default for security reasons (to prevent an open access point).
 
 [[Anchor(failsafe)]]
+[[Anchor(Failsafe)]]
 === Failsafe mode ===
 If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
@@ -177,7 +191,10 @@ uci commit wireless && wifi}}}
 {{{
 uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
+
+
 [[Anchor(wpa)]]
+[[Anchor(WPA)]]
 ==== WiFi Protected Access ====
 ===== Broadcom WiFi =====
 For Broadcom the nas package is required
@@ -204,6 +221,7 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 [[Anchor(usb)]]
+[[Anchor(USB)]]
 === USB ===
 USB is supported and needs a few extra packages to be installed to work probably. USB hubs are working. Active hubs with external power supply are better.
 
@@ -241,6 +259,7 @@ HardwareAcceleratedCrypto
 '''S:''' The WL-500gP ehci-hcd module handles all USB2 transfer well, but the external ports use uhci-hcd for usb1. To make it even worse, the current trunk version has issues with this module to load but it can be fixed like mentioned in the forum http://forum.openwrt.org/viewtopic.php?id=7149. The broadcom chip seems to have a "buried" ohci controller that can not be used with the external connectors.
 
 [[Anchor(links)]]
+[[Anchor(Links)]]
 == External Links ==
 || '''Link''' || '''Author''' ||
 || [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN to the WL-500gP Wifi Router] || MarcusBrown ||
