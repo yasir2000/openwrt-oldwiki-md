@@ -3,7 +3,7 @@
 Currently under reconstruction...
 
 = Fonera =
-The Fonera FON2100A is based on an Atheros System on Chip (Soc). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting !OpenWrt to this chip: AtherosPort.
+The Fonera FON2100A is based on an Atheros System on Chip (SoC). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting !OpenWrt to this chip: AtherosPort.
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
 
