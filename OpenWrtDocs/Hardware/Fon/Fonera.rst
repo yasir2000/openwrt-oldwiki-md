@@ -650,13 +650,10 @@ The tool athctrl sets values for specific distances in meters with the -d option
  * [http://www.easy2design.de/bla/?page_id=98 Debricking and more]
  * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to RedBoot without the Serial Console]
  * [http://coppercore.net/~kevin/fon/ Files to get the access to RedBoot without the Serial Console]
- * [http://olsrexperiment.de/sven-ola/fonera/readme.txt Packet for Fonera by sven-ola. NOTE: If you use -ipkg remove- on the Fonera orig firmware, it will BRICK it]
- * [http://fon.rogue.be/lafonera/ Some packages for the Fonera ORGINAL firmware]
- * [http://olsrexperiment.de/sven-ola/fonera/ Other packages for the Fonera ORGINAL firmware]
  * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot userguide]
  * [http://wiki.ninux.org/moin.cgi/La_Fonera Misc Links (Italian language)]
  * [http://www.tldp.org/LDP/lkmpg/ The Linux Kernel Module Programming Guide]
  * [http://karman.homelinux.net/blog/ Blog about Fonera] (Spanish)
  * [http://mrmuh.blogspot.com/2007/01/codename-kolofonium-realease-date.html Blog about Hacking the 0.7.1r2 firmware]
  * [http://blog.extreme-networking.com/ OpenWrt installation guide (Italian) and misc]
- * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, German] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) English]: comprehensive guide to flashing la fonera with kamikaze.
+ * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, German] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) English]: comprehensive guide to flashing la fonera with Kamikaze.
