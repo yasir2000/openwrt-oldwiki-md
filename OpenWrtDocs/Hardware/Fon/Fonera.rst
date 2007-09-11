@@ -235,11 +235,13 @@ FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 = Flashing OpenWrt =
-Kamikaze 7.07 supports the Atheros SoC. You have to download two files:
+Kamikaze 7.07 supports the Atheros SoC. You have to download two files (right click and save as):
 
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-root.squashfs openwrt-atheros-2.6-root.squashfs]
-Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /tftpboot/ and flash them like this:{{{
+Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /tftpboot/ and flash them like this:
+
+{{{
 ^C
 RedBoot> ip_address -l 192.168.5.75/24 -h 192.168.5.2
 IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
