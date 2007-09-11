@@ -2,6 +2,8 @@
 
 Homepage: http://w5.siemens.ch/eip/products_broadband.php
 
+Siemens GLP page: http://broadband.eip.siemens.ch/public/GPL_source/Open_Source.htm
+
 I will add more informations soon.
 
 
