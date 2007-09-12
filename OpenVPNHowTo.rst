@@ -44,7 +44,7 @@ We need to add a script to start the bridge.
 {{{
 #!/bin/sh
 
-#/etc/openvpnbridge
+#/etc/openvpn/startupscript
 # OpenVPN Bridge Config File
 # Creates TAP devices for use by OpenVPN and bridges them into OpenWRT Bridge
 # Taken from http://openvpn.net/bridge.html
