@@ -30,7 +30,7 @@ The AR531x/231x is a platform by Atheros, which is used for dual-band and single
  * [http://www.atheros.com/pt/AR5007AP-G.htm AR5007AP-G] (AR2317)
 == Devices ==
  * Bufallo WER-AM54G54 (AR5002AP-2X)
- * D-Link [http://www.dlink.com/products/?sec=0&pid=316 DI-524], at least HW rev C1, but it only has 8MB RAM and 1MB ROM.
+ * D-Link [http://www.dlink.com/products/?sec=0&pid=316 DI-524], at least HW rev C1 (AR2313), but it only has 8MB RAM and 1MB ROM.
  * D-Link [http://support.dlink.com/products/view.asp?productid=DWL-2210AP DWL-2210AP] (AR2313)
  * D-Link [http://www.dlink.com/products/?pid=292 DWL-2100AP] (AR5002AP-G : core AR2312@180/240MHz, radio AR2112)
  * D-Link [http://www.dlink.com/products/?pid=304 DWL-7100AP] (AR5002AP-2X)
