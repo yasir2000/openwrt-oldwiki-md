@@ -120,7 +120,7 @@ proto udp
 # "dev tap" will create an ethernet tunnel.
 # This must be tap0 instead of tap (as previously
 # recommended).  If only tap is used, a new tap
-# device is created when open openvpn is started
+# device is created when openvpn is started
 # that isn't bridged to br0 by the script above.
 dev tap0
 
