@@ -34,13 +34,13 @@ Windows users click the icon to generate a static key. Everyone else run:
 openvpn --genkey --secret secret.key
 }}}
 
-This only needs to be done once and then copied to all machines to be part of the VPN. I suggest placing the key file in /etc on the OpenWRT computer and leaving in the default place on Windows.
+This only needs to be done once and then copied to all machines to be part of the VPN. I suggest you create /etc/openvpn on the OpenWRT computer, place the secret.key file there, and leave everything in the default place on Windows.
 
 == Setup Server ==
 === Bridge Startup ===
 We need to add a script to start the bridge.
 
-{{{/etc/openvpnbridge:}}}
+{{{/etc/openvpn/startupscript:}}}
 {{{
 #!/bin/sh
 
@@ -105,11 +105,11 @@ This file will create the OpenVPN tap devices and add them to the default OpenWR
 
 At last the script has to be made executable:
 {{{
-chmod +x /etc/openvpnbridge
+chmod +x /etc/openvpn/startupscript
 }}}
 
 === OpenVPN server config file ===
-{{{/etc/server.ovpn:}}}
+{{{/etc/openvpn/server.ovpn:}}}
 {{{
 # Which TCP/UDP port should OpenVPN listen on?
 port 1194
@@ -148,7 +148,7 @@ keepalive 10 120
 # Output a short status file showing
 # current connections, truncated
 # and rewritten every minute.
-status openvpn-status.log
+status /etc/openvpn/status.log
 
 # Set the appropriate level of log
 # file verbosity.
@@ -165,12 +165,12 @@ verb 3
 ;mute 20
 
 #Static Key
-secret /etc/secret.key
+secret /etc/openvpn/secret.key
 }}}
 
 At this point you can start OpenVPN for testing:
 {{{
-openvpn /etc/server.ovpn
+openvpn /etc/openvpn/server.ovpn
 }}}
 
 With {{{logread}}} you should be able to see if it started up normally.
@@ -192,8 +192,6 @@ Also as mentioned in the OpenVPN FAQ [http://openvpn.net/faq.html#ip-forward ip_
 {{{
 ## allow input/forwarding for the VPN interfaces, see http://openvpn.net/faq.html#firewall
 ## also needs ip_forward, see http://openvpn.net/faq.html#ip-forward and http://forum.openwrt.org/viewtopic.php?pid=20428#p20428
-iptables -A INPUT   -i tun+ -j ACCEPT
-iptables -A FORWARD -i tun+ -j ACCEPT
 iptables -A INPUT   -i tap+ -j ACCEPT
 iptables -A FORWARD -i tap+ -j ACCEPT
 }}}
@@ -275,8 +273,8 @@ If your setup is working fine then the only remaining step is to automate the st
 
 case "$1" in
         start)
-                /etc/openvpnbridge up
-                openvpn --daemon --config /etc/server.ovpn
+                /etc/openvpn/startupscript up
+                openvpn --daemon --config /etc/openvpn/server.ovpn
         ;;
         restart)
                 $0 stop
@@ -288,7 +286,7 @@ case "$1" in
         ;;
         stop)
                 killall openvpn
-                /etc/openvpnbridge down
+                /etc/openvpn/startupscript down
         ;;
 esac
 }}}
