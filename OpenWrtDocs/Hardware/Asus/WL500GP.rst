@@ -181,15 +181,28 @@ reboot
 }}}
 == Basic configuration ==
 === PPPoE ===
-With Kamikaze 7.07 PPPoE works out-of-the-box. All required packages are already installed in the default image.
-
-To configure PPPoE with UCI, do this:
+With Kamikaze 7.07 PPPoE works out-of-the-box. All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
 
 {{{
 uci set network.wan.proto=pppoe
 uci set network.wan.username=<pppoe_psername>
 uci set network.wan.password=<pppoe_password>
-uci commit network && ifup wan
+uci commit network && ifup wan}}}
+=== QoS ===
+Install the qos-scripts package
+{{{
+ipkg install qos-scripts
+}}}
+Configure QoS using UCI:
+{{{
+uci set qos.wan.upload=192            # Upload speed in KB
+uci set qos.wan.download=2048         # Download speed in KB
+uci commit qos}}}
+Start QoS and enable on next boot
+{{{
+/etc/init.d/qos boot
+/etc/init.d/qos start
+/etc/init.d/qos enable
 }}}
 === WiFi ===
 ==== Enable WiFi ====
