@@ -22,8 +22,8 @@ With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||'''Wireless''' ||MiniPCI Broadcom 802.11b/g BCM4318 802.11 Wireless LAN Controller ||
 ||'''Ethernet''' ||Robo switch BCM5325 ||
 ||'''USB''' ||2x USB 2.0 ||
-||'''Serial''' ||yes ||
-||'''JTAG''' ||no ||
+||'''Serial''' ||Yes ||
+||'''JTAG''' ||No ||
 [[Anchor(serial)]] [[Anchor(Serial)]]
 
 === Serial Port ===
@@ -163,10 +163,10 @@ If you are done with failsafe mode power cycle the router and boot in normal mod
 
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events. E. g. [#wifitoggle WiFi toggle].
-
 ||'''BUTTON''' ||'''Event''' ||
 ||RESTORE ||reset ||
 ||EZSETUP ||ses ||
+
 
 ACTION: released or pressed
 
@@ -228,8 +228,8 @@ Configure WPA2 (PSK) encryption using UCI.
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-
 [[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
+
 ==== WiFi toggle ====
 Turn !WiFi on/off with the EZSETUP or RESTORE [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
