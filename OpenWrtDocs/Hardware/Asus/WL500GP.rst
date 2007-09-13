@@ -162,7 +162,8 @@ If you are done with failsafe mode power cycle the router and boot in normal mod
 [[Anchor(Buttons)]] [[Anchor(buttons)]]
 
 === Buttons ===
-The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
+The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events. E. g. [wifitoggle WiFi toggle].
+
 ||'''BUTTON''' ||'''Event''' ||
 ||RESTORE ||reset ||
 ||EZSETUP ||ses ||
@@ -228,10 +229,16 @@ Configure WPA2 (PSK) encryption using UCI.
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-[[Anchor(usb)]] [[Anchor(USB)]]
+[[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
+
+
 
 ==== WiFi toggle ====
 Turn !WiFi on/off with the EZSETUP or RESTORE [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
+
+[[Anchor(usb)]] [[Anchor(USB)]]
+
+
 
 === USB ===
 USB is supported and needs a few extra packages to be installed to work probably. USB hubs are working. Active hubs with external power supply are better.
