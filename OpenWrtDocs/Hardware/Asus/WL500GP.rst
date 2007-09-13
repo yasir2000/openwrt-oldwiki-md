@@ -193,7 +193,7 @@ Install the qos-scripts package
 {{{
 ipkg install qos-scripts
 }}}
-Configure QoS using UCI:
+Basic QoS configuration using UCI:
 {{{
 uci set qos.wan.upload=192            # Upload speed in KB
 uci set qos.wan.download=2048         # Download speed in KB
