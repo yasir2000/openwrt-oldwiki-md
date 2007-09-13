@@ -128,10 +128,8 @@ mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 The default network configuration is:
 ||<tablewidth="541px" tableheight="129px">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
 ||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
-||vlan0
-||LAN ports || ||
-||vlan1
-||WAN port ||DHCP ||
+||vlan0 ||LAN ports || ||
+||vlan1 ||WAN port ||DHCP ||
 ||wl0/ath0 ||!WiFi ||Disabled by default ||
 
 
