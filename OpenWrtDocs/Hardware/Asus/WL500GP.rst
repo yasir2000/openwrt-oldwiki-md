@@ -190,20 +190,25 @@ uci set network.wan.password=<pppoe_password>
 uci commit network && ifup wan}}}
 === QoS ===
 Install the qos-scripts package
+
 {{{
 ipkg install qos-scripts
 }}}
 Basic QoS configuration using UCI:
+
 {{{
 uci set qos.wan.upload=192            # Upload speed in KB
 uci set qos.wan.download=2048         # Download speed in KB
 uci commit qos}}}
 Start QoS and enable on next boot
+
 {{{
 /etc/init.d/qos boot
 /etc/init.d/qos start
 /etc/init.d/qos enable
 }}}
+=== Dynamic DNS ===
+Please see[:DDNSHowTo:Dynamic DNS].
 === WiFi ===
 ==== Enable WiFi ====
 ===== Broadcom WiFi =====
