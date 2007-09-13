@@ -228,6 +228,9 @@ uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 [[Anchor(usb)]] [[Anchor(USB)]]
 
+==== WiFi toggle ====
+Turn !WiFi on/off with the EZSETUP or RESTORE button. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
+
 === USB ===
 USB is supported and needs a few extra packages to be installed to work probably. USB hubs are working. Active hubs with external power supply are better.
 
