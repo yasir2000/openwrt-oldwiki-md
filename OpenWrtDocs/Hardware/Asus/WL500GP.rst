@@ -159,6 +159,8 @@ If you forgot your password, broken one of the startup scripts, firewalled yours
  mtd -r erase !OpenWrt[[BR]]
 If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
 
+[[Anchor(Buttons)]] [[Anchor(buttons)]]
+
 === Buttons ===
 The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events.
 ||'''BUTTON''' ||'''Event''' ||
@@ -229,7 +231,7 @@ uci commit wireless && wifi}}}
 [[Anchor(usb)]] [[Anchor(USB)]]
 
 ==== WiFi toggle ====
-Turn !WiFi on/off with the EZSETUP or RESTORE button. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
+Turn !WiFi on/off with the EZSETUP or RESTORE [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 === USB ===
 USB is supported and needs a few extra packages to be installed to work probably. USB hubs are working. Active hubs with external power supply are better.
