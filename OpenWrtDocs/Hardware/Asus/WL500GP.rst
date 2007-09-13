@@ -179,7 +179,17 @@ reboot
 }}}
 == Basic configuration ==
 === PPPoE ===
-With Kamikaze 7.07 PPPoE works out of the box.
+With Kamikaze 7.07 PPPoE works out of the box. All required packages are already installed in the default image.
+
+To configure PPPoE with UCI, do this:
+
+{{{
+uci set network.wan.proto=pppoe
+uci set network.wan.username=<pppoe_psername>
+uci set network.wan.password=<pppoe_password>
+uci commit network && ifup wan
+}}}
+
 
 === WiFi ===
 ==== Enable WiFi ====
