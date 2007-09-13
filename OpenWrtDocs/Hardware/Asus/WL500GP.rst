@@ -208,7 +208,8 @@ Start QoS and enable on next boot
 /etc/init.d/qos enable
 }}}
 === Dynamic DNS ===
-Please see[:DDNSHowTo:Dynamic DNS].
+Please see [:DDNSHowTo:Dynamic DNS].
+
 === WiFi ===
 ==== Enable WiFi ====
 ===== Broadcom WiFi =====
