@@ -162,7 +162,7 @@ If you are done with failsafe mode power cycle the router and boot in normal mod
 [[Anchor(Buttons)]] [[Anchor(buttons)]]
 
 === Buttons ===
-The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events. E. g. [:#wifitoggle:WiFi toggle].
+The ASUS WL-500g Premium has two buttons. They are RESTORE and EZSETUP. The buttons can be used with hotplug events. E. g. [#wifitoggle WiFi toggle].
 
 ||'''BUTTON''' ||'''Event''' ||
 ||RESTORE ||reset ||
