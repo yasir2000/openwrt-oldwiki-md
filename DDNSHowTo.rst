@@ -49,8 +49,8 @@ updatedd.cfg1.update=0
 {{{
 uci set updatedd.cfg1=updatedd
 uci set updatedd.cfg1.service=dyndns
-uci set updatedd.cfg1.user=<username>
-uci set updatedd.cfg1.passwd=<password>
+uci set updatedd.cfg1.username=<username>
+uci set updatedd.cfg1.password=<password>
 uci set updatedd.cfg1.host=<hostname>.dyndns.org
 uci set updatedd.cfg1.update=1
 uci commit updatedd
@@ -63,8 +63,8 @@ If you have more than one hostname registered and would like to update them all 
 {{{
 uci set updatedd.cfg2=updatedd
 uci set updatedd.cfg2.service=dyndns
-uci set updatedd.cfg2.user=<username>
-uci set updatedd.cfg2.passwd=<password>
+uci set updatedd.cfg2.username=<username>
+uci set updatedd.cfg2.password=<password>
 uci set updatedd.cfg2.host=<hostname>.homelinux.org
 uci set updatedd.cfg2.update=1
 uci commit updatedd
@@ -150,7 +150,6 @@ This script queries DNS to find the current registered address, compares it with
 
 The last two lines are for debug and can be ommitted. Often, DNS is not updated withhin the 3 seconds the script waits (at least it takes some seconds more until the clients recognise because of caching). By replacing the wget-update URL other DNS services should also be usable.
 
-'''Attention:''' You probably need to install the ''wget-package''(by typing "ipkg install wget") cause the busybox wget might give a segmentation fault. At least it does on my WRT54GL ;-) .
-See also: https://dev.openwrt.org/ticket/2039
+'''Attention:''' You probably need to install the ''wget-package''(by typing "ipkg install wget") cause the busybox wget might give a segmentation fault. At least it does on my WRT54GL ;-) . See also: https://dev.openwrt.org/ticket/2039
 
 This script is heavily based on the nice pragmatic proposal of ''mbm'' here: http://forum.openwrt.org/viewtopic.php?pid=3947#p3947 Thanks you!
