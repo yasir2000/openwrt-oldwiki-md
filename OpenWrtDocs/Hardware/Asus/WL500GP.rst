@@ -114,6 +114,9 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
  * Browse the .trx file (openwrt-brcm-2.4-squashfs.trx).
  * Press Upload. The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
+
+If the firmware restoration tool can't seem find your router even though you are certain that it is in diag mode, it may be because the restoration tool is not very smart about which network interface to use. Disable all network interfaces except for the correct (LAN) network interface and try again. 
+
 === Using the mtd command line tool ===
 If you have already installed !OpenWrt or like to flash from any other firmware (which has the mtd tool), do this:
 
