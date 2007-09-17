@@ -37,8 +37,8 @@ Diagrams of the internal switch architectures can be found via the following tab
 
 [[Anchor(NetworkInterfaceNames)]]The names of the network interfaces will depend largely on what hardware !OpenWrt is run on. A more detailed explanation of the networking internals is on the page OpenWrtDocs/NetworkInterfaces
 ||'''Manufacturer''' ||'''Model''' ||'''Hardware version''' ||'''LAN''' ||'''WAN''' ||'''WIFI''' ||'''Comments''' ||
-||Linksys ||WRT54G ||v1.x ||vlan2 ||vlan1 ||eth2 || ||
-||Linksys ||WRT54G ||v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
+||Linksys ||WRT54G ||v1.0 ||vlan2 ||vlan1 ||eth2 || ||
+||Linksys ||WRT54G ||v1.1/v2.x/v3.x/v4.0 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRT54GL ||v1.0 ||vlan0 ||vlan1 ||eth1 || ||
 ||Linksys ||WRT54GL ||v1.1 ||vlan0 ||vlan1 ||eth1 ||LAN is ports 0-3, WAN is port 4 ||
 ||Linksys ||WRT54GS ||v1.x/v2.x/v3/v4 ||vlan0 ||vlan1 ||eth1 || ||
