@@ -71,7 +71,9 @@ To restore the original ASUS firmware you have three options:
 [[Anchor(install)]] [[Anchor(Install)]] [[Anchor(installation)]] [[Anchor(Installation)]]
 
 == Installation ==
-You can try the ASUS web GUI in case it works, or skip directly to the TFTP part.  If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
+If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
+
+You can download pre-build images ([http://downloads.openwrt.org/kamikaze/7.07/ official (7.07)] or [http://forum.openwrt.org/viewtopic.php?id=12542 unofficial (PRE-7.09)]) or build the images by yourself using the build-system. You need the openwrt-brcm-2.4-squashfs.trx file.
 
 === Using the ASUS web GUI ===
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
@@ -114,8 +116,7 @@ If you are on Windows it is recommended to use the ASUS firmware restoration too
  * Browse the .trx file (openwrt-brcm-2.4-squashfs.trx).
  * Press Upload. The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
-
-If the firmware restoration tool can't seem find your router even though you are certain that it is in diag mode, it may be because the restoration tool is not very smart about which network interface to use. Disable all network interfaces except for the correct (LAN) network interface and try again. 
+If the firmware restoration tool can't seem find your router even though you are certain that it is in diag mode, it may be because the restoration tool is not very smart about which network interface to use. Disable all network interfaces except for the correct (LAN) network interface and try again.
 
 === Using the mtd command line tool ===
 If you have already installed !OpenWrt or like to flash from any other firmware (which has the mtd tool), do this:
