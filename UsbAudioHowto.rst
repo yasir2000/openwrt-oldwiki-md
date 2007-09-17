@@ -3,8 +3,6 @@ USB capable routers such as the ASUS WL-500g/gx/g Premium support USB Audio adap
 
 USB Audio support is included in !OpenWrt Kamikaze and higher.
 
-To use USB Audio you will need to build your own firmware using buildroot CVS.
-
 = Kernel Packages =
 Support is provided by several packages which you have to install.
 
@@ -43,6 +41,6 @@ Confirmed to work with [http://www.trust.com/14366 Trust Sp-2800p USB Speaker Se
 
  * Terratec AUREON 5.1 USB MKII
 = Future =
-I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by roku, Linksys, Netgear, Philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
+I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by Roku, Linksys, Netgear, Philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
 
 If anyone knows of any ''free'' music players they would like ported to !OpenWrt, please email david.collett@gmail.com .
