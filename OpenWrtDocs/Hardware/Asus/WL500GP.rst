@@ -269,6 +269,8 @@ ipkg install kmod-usb-uhci-iv}}}
 ipkg install kmod-usb2}}}
 === Print Server ===
 Please see the PrinterSharingHowto.
+=== Turn your router into a networked music player ===
+Work in progress. Please see the UsbAudioHowto.
 
 == ASUS WL-500g Premium info ==
 FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
