@@ -1,12 +1,12 @@
 = USB Audio Support =
-USB capable routers such as the Asus WL-500g/gx support USB Audio adapters to turn your router into a networked music player.
+USB capable routers such as the ASUS WL-500g/gx/g Premium support USB Audio adapters to turn your router into a networked music player.
 
-USB Audio support is included in OpenWrt Kamikaze and higher.
+USB Audio support is included in !OpenWrt Kamikaze and higher.
 
 To use USB Audio you will need to build your own firmware using buildroot CVS.
 
 = Kernel Packages =
-Support is provided by several packages which can be selected while configuring the build options (make menuconfig).
+Support is provided by several packages which you have to install.
 
 Soundcard Support ('''KMOD_SOUNDCORE'''):
 
@@ -27,27 +27,22 @@ MPD (Music Player Daemon) is a small music player with support for FLAC, MP3 and
 
 MPD is configured in the file /etc/mpd.conf. The default config file probably won't work as-is, but it should have enough comments to  be edited easily. The MPD package does not currently contain a script to start MPD at boot.
 
-Your music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk connected locally.
+Your music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk or pen drive connected locally.
 
-Please see this link for a full install guide of MPD and phpMp2 on an ASUS Wl500gx - should work on other OpenWrt devices too: http://mpd.wikicities.com/wiki/OpenWRT_FullInstall
+Please see this link for a full install guide of MPD and phpMp2 on an ASUS Wl500gx - should work on other !OpenWrt devices too: http://mpd.wikicities.com/wiki/OpenWRT_FullInstall
 
 == madplay ==
-In Feb 2007 kamikaze-backports contained [http://www.underbit.com/products/mad/ madplay], which is a command-line player.
-In combination with wget it can act as an Internet radio. Find some MP3 stream and try something like
-{{{wget -O - http://64.236.34.97:80/stream/1014 | madplay -}}}
+In Feb 2007 Kamikaze contained [http://www.underbit.com/products/mad/ madplay], which is a command-line player. In combination with wget it can act as an Internet radio. Find some MP3 stream and try something like {{{wget -O - http://64.236.34.97:80/stream/1014 | madplay -}}}
 
 = Devices =
-Any USB Audio device supported by linux should work with OpenWRT. I have succesfully used two cheap USB-Stick cards as pictured below. These were purchased in Australia for AU $20 each. The black one has a built-in amplifier which direclty drives a set of bookshelf speakers to quite a good listening volume. The one with the buttons appears as a USB HID device and you can get key press events in /dev/input/eventx. This could be used to hack up a simple control interface on the router.
+Any USB Audio device supported by Linux should work with !OpenWrt. I have successfully used two cheap USB-Stick cards as pictured below. These were purchased in Australia for AU $20 each. The black one has a built-in amplifier which directly drives a set of bookshelf speakers to quite a good listening volume. The one with the buttons appears as a USB HID device and you can get key press events in /dev/input/eventX. This could be used to hack up a simple control interface on the router.
 
 [http://users.tpg.com.au/davico/images/usbsoundcard_1.jpg] [http://users.tpg.com.au/davico/images/usbsoundcard_2.jpg]
 
 Confirmed to work with [http://www.trust.com/14366 Trust Sp-2800p USB Speaker Set].
 
-= Bugs =
-== White Russian RC5 ==
-If you get "strcpy" as unresolved symbol when loading soundcore.o put attachment:999-soundcore_strcpy.patch into the directory {{{target/linux/linux-2.4/patches/generic}}} of your build tree, rebuild the firmware and reinstall the kernel module. Without the patch a bug in GCC's optimizer may be triggered.
-
+ * Terratec AUREON 5.1 USB MKII
 = Future =
-I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by roku, linksys, netgear, philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
+I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by roku, Linksys, Netgear, Philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
 
-If anyone knows of any ''free'' music players they would like ported to openwrt, please email david.collett@gmail.com .
+If anyone knows of any ''free'' music players they would like ported to !OpenWrt, please email david.collett@gmail.com .
