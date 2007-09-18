@@ -41,7 +41,9 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 [[Anchor(photos)]] [[Anchor(Photos)]] [[Anchor(pics)]]
 
 === Photos ===
-[[ImageLink(IMG_0007_thumbnail.JPG, ./OpenWrtDocs/Hardware/Asus/WL500GP/IMG_0007 )]]
+[[ImageLink(IMG_0007_thumbnail.JPG, ./OpenWrtDocs/Hardware/Asus/WL500GP/IMG_0007 )]][[BR]]
+With a Athros Wistron CM9[[BR]]
+MiniPCI !WiFi card
 
 === Opening the case ===
 Remove the 4 nubs under the case, now you can see some screws. Unscrew them. You're done. When you're finished you can put the rubbers back into the gadgets. They'll stick alone.
