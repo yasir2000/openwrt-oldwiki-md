@@ -160,7 +160,7 @@ If you forgot your password, broken one of the startup scripts, firewalled yours
  1. Forgot the routers IP address
  uci get network.lan.ipaddr[[BR]]
  1. You accidentally run 'ipkg upgrade' or filled up the flash by installing to big packages (clean the JFFS2 partition and start over)
- mtd -r erase !OpenWrt[[BR]]
+ mtd -r erase !rootfs_data[[BR]]
 If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
 
 [[Anchor(Buttons)]] [[Anchor(buttons)]]
@@ -269,6 +269,7 @@ ipkg install kmod-usb-uhci-iv}}}
 ipkg install kmod-usb2}}}
 === Print Server ===
 Please see the PrinterSharingHowto.
+
 === Turn your router into a networked music player ===
 Work in progress. Please see the UsbAudioHowto.
 
