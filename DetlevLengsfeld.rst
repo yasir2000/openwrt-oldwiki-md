@@ -2,7 +2,7 @@
 #format wiki
 == Deltev Lengsfeld ==
 
-Email: [[MailTo(detlev.lengsfeld AT SPAMFREE gmail DOT com)]] MyNotes/FileSystem
+Email: [[MailTo(detlev.lengsfeld AT SPAMFREE gmail DOT com)]] /MyNotes/FileSystem
 
 -- ["macdet"] [[DateTime(2007-09-19T06:23:20Z)]] i will stop for now!
 
