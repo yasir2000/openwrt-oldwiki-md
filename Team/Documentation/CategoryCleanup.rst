@@ -1,3 +1,11 @@
+#pragma section-numbers off
+= Documentation Clean Up =
+
+[[Include(Team/Documentation/MenuBar)]]
+
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents(2)]]||
+
+
 The Wiki is currently undergoing a major refactoring in order to become more useful for readers and more maintainable for editors.
 
 Theses pages have been identified as needing work for the following reasons:
