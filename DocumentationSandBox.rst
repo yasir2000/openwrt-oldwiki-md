@@ -4,13 +4,7 @@ OpenWrt is not tied to any particular device.  You can install the software over
 
 Please join us on the OpenWrt team.
 
-
-What is your interest?
-
- * [[Basic End-user]] - Information for end users who want basic functionality and no surprises
- * [[Advanced End-user]] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers
- * [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance.
-
- * [[Application Developer]] - Information for application developers, including ideas and specifications for applications, and tools to build them
- * [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries
- * [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board
+||||<tablestyle="width: 100%">'''What is your interest?'''||
+|| [[Basic End-user]] - Information for end users who want basic functionality and no surprises. || [[Application Developer]] - Information for application developers, including ideas and specifications for applications, and tools to build them. ||
+|| [[Advanced End-user]] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers. || [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries. ||
+|| [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
