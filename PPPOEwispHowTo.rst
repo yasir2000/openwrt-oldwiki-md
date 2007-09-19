@@ -48,3 +48,5 @@ Now ''nvram commit'', reboot, and hope it works!
 Your clients should be set to grab DNS via DHCP from the router, but if not, get the DNS server addresses, and give them to the clients.
 
 Have fun with a 25 watt internet gateway! 
+----
+["Category/PPOE"]
