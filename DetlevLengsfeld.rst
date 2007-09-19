@@ -20,7 +20,7 @@ In my short time i work on the sits:
  . http://forum.mobbing-gegner.de phbbb2 no comment, it works
  . http://blog.mobbing-gegner.de  s9y no comment, it works
 
-Whois [http://wiki.openwrt.org/jb24 jb24?] W900V Debeloper (gib bitte gas :) )
+Whois [http://wiki.openwrt.org/jb24 jb24?] W900V Developer (gib bitte gas :) )
 
 ----
 CategoryHomepage 
