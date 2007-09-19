@@ -6,7 +6,7 @@ Connect the 3 wires as follows:
 5:GND 
 
 device is based on ar7, has a via vt6212l chip, behind it a usb 2.0 and mini-pci slot, atheros ar5212 wifi card attached.
-manucator seems to be accton.
+switch is marvel 88e6060
 
 -------------------------------------------------------------------------------------------------------------------------
 
