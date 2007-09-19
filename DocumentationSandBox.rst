@@ -7,10 +7,10 @@ Please join us on the OpenWrt team.
 
 What is your interest?
 
-* [[Basic End-user]] - Information for end users who want basic functionality and no surprises
-* [[Advanced End-user]] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers
-* [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance.
+ * [[Basic End-user]] - Information for end users who want basic functionality and no surprises
+ * [[Advanced End-user]] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers
+ * [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance.
 
-* [[Application Developer]] - Information for application developers, including ideas and specifications for applications, and tools to build them
-* [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries
-* [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board
+ * [[Application Developer]] - Information for application developers, including ideas and specifications for applications, and tools to build them
+ * [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries
+ * [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board
