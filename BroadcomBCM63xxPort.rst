@@ -39,7 +39,6 @@ Known 6348 platforms*:
 ||[http://ru.asus.com/products.aspx?l1=13&l2=96&l3=0&l4=0&model=1107&modelmenu=1 ASUS AM604g] ||
 ||[:OpenWrtDocs/Hardware/Asus/WL600g:ASUS WL-600G] ||
 ||[:OpenWrtDocs/Hardware/Belkin/f5d7633-4:Belkin f5d7633-4] ||
-||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536/1+] ||
 ||[http://comtrend.com/index.php?module=products&op=show&sn=41 Comtrend CT-638/1] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV4: Freebox v4] ||
@@ -62,6 +61,7 @@ Known 6348 platforms*:
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg US Robotics USR9108] ||
 
 Known 6358 platforms*:
+||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5: Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Neuf/NeufBoxV4: NeufBox v4] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
