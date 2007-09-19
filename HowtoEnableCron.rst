@@ -1,8 +1,7 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
-
 = Introduction =
-Cron jobs are useful to repeat things on configurable intervals. E. g. reconnect your WAN connection at a given time if you are using PPPoE.
+Cron jobs are useful to repeat things on configurable intervals. E. g. reconnect your WAN connection at a given time.
 
 You may know some more useful tasks for cron on your Wrt router.
 
@@ -53,7 +52,7 @@ or use {{{crontab -e}}} (calls the {{{vi}}} editor) to edit the cron job file. C
 
 {{{
 0 4 * * * ifdown wan && sleep 2 && ifup wan}}}
-than hit {{{ESC}}} and enter {{{:wq}}} to save the file.
+then hit {{{ESC}}} and enter {{{:wq}}} to save the file.
 
 The example cron job reconnects your WAN connection at 4am every day.
 
