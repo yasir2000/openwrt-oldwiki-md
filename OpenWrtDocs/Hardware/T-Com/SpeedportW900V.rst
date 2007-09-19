@@ -5,7 +5,7 @@
 
 This page is Work In Progress, speak to jb24 on #openwrt and #ar7 on freenode for more info.
 
-Others users known to have this device:  jb24, crazy_imp, Heini66
+Others users known to have this device:  jb24, crazy_imp, Heini66 ,["macdet"] still in avm mode :(
 
 == Hardware Info ==
 
