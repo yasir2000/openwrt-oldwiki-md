@@ -1,13 +1,4 @@
-serial port an settings:
-
---5---4---3---2---1
-+---+---+---+---+---+
-| o | o | o | o | o |
-+ + + + + + + + + + +
-| o | o | o | o | o |
-+---+---+---+---+---+
--10---9---8---7---6
----------- front side ---------------
+serial port an settings: 115200 8n1 no hard, no soft control
 
 Connect the 3 wires as follows:
 3:TX 
@@ -62,48 +53,48 @@ Enumerating devices
 Enumerating PCI device 0
 Assigning resources to PCI device #0IntPin 1
 
- BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0xfc000008
+BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0xfc000008
 Device requires 67108864 bytes of memory space.
- ERROR: Could not allocate resources for this device.
- BaseAddress @ 0x00000014 after writing 0xFFFFFFFF = 0xfc000000
+ERROR: Could not allocate resources for this device.
+BaseAddress @ 0x00000014 after writing 0xFFFFFFFF = 0xfc000000
 Device requires 67108864 bytes of memory space.
- ERROR: Could not allocate resources for this device.
- BaseAddress @ 0x0000001c after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000020 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000024 after writing 0xFFFFFFFF = 0x00000000Device 0 : base 0 reg fc000008
+ERROR: Could not allocate resources for this device.
+BaseAddress @ 0x0000001c after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000020 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000024 after writing 0xFFFFFFFF = 0x00000000Device 0 : base 0 reg fc000008
 
 Enumerating PCI device 1
 Assigning resources to PCI device #1IntPin 1
 
- BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0xffff0000
+BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0xffff0000
 Device requires 65536 bytes of memory space.
- Usable base address located! Memory range allocated = 0x40000000 - 0x4000ffff
+Usable base address located! Memory range allocated = 0x40000000 - 0x4000ffff
 Enumerating PCI device 2
 Assigning resources to PCI device #2IntPin 1
 
- BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000014 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000018 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x0000001c after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000020 after writing 0xFFFFFFFF = 0xffffffe1
+BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000014 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000018 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x0000001c after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000020 after writing 0xFFFFFFFF = 0xffffffe1
 Device requires 32 bytes of memory space.
- Usable base address located! IO range allocated = 0x60000000 - 0x6000001f
+Usable base address located! IO range allocated = 0x60000000 - 0x6000001f
 Enumerating PCI device 3
 Assigning resources to PCI device #3IntPin 2
 
- BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000014 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000018 after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x0000001c after writing 0xFFFFFFFF = 0x00000000
- BaseAddress @ 0x00000020 after writing 0xFFFFFFFF = 0xffffffe1
+BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000014 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000018 after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x0000001c after writing 0xFFFFFFFF = 0x00000000
+BaseAddress @ 0x00000020 after writing 0xFFFFFFFF = 0xffffffe1
 Device requires 32 bytes of memory space.
- Usable base address located! IO range allocated = 0x60000020 - 0x6000003f
+Usable base address located! IO range allocated = 0x60000020 - 0x6000003f
 Enumerating PCI device 4
 Assigning resources to PCI device #4IntPin 3
 
- BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0xffffff00
+BaseAddress @ 0x00000010 after writing 0xFFFFFFFF = 0xffffff00
 Device requires 256 bytes of memory space.
- Usable base address located! Memory range allocated = 0x40010000 - 0x400100ff
+Usable base address located! Memory range allocated = 0x40010000 - 0x400100ff
 Enumerating PCI device 5
 PCI: Slot=0, ID=TI VLYNQ2PCI , Index=0, MemBase=0x00000000, Int=00
 0x00: 0xa10a104c 0x22100007 0x00000000 0x00002004
