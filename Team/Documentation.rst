@@ -7,7 +7,7 @@
 
 
 = Introduction =
-The '''Documentation Team''' is a group of volunteers who , write the official documentation at http://downloads.openwrt.org/kamikaze/docs/openwrt.html, maintain the wiki at http://wiki.openwrt.org and manage the documentation that ships with !OpenWrt
+The '''Documentation Team''' is a group of volunteers who, write the official documentation at http://downloads.openwrt.org/kamikaze/docs/openwrt.html, maintain the wiki at http://wiki.openwrt.org and manage the documentation that ships with !OpenWrt
 
 Our work consists of writing, editing and updating the documentation for !OpenWrt, as well as gathering the helpful advice from the Mailing-lists and Web Forums for all to use.
 
