@@ -10,11 +10,11 @@
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 == What are 63xx variants? ==
 There are four 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358
-||<tablewidth="532px" tableheight="155px" tablealign="">Chip||CPU Mhz||USB Device||USB Host||WiFi||
-||bcm6345||  75  ||1.1||-||-||
-||bcm6338||  240  ||1.1||-||-||
-||bcm6348||  240  ||1.1||1.1||Yes||
-||bcm6358||  300  ||2.0||2.0||Yes||
+||<tablewidth="532px" tableheight="155px" tablealign="">Chip||CPU Mhz||USB Device||USB Host||WiFi||ADSL2||ADSL2+||VDSL||
+||bcm6345||  75  ||1.1||-||-||Yes||No||No||
+||bcm6338||  240  ||1.1||-||-||Yes||Yes||No||
+||bcm6348||  240  ||1.1||1.1||Yes||Yes||Yes||No||
+||bcm6358||  300  ||2.0||2.0||Yes||Yes||Yes||Yes||
 
 == Known 63xx platforms ==
 
