@@ -12,7 +12,8 @@ High, now I have it. My own [http://wiki.openwrt.org/InstallingWrt54gl WRT54GL-D
 
 I am looking for the content of [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T?highlight=%28pap-secrets%29 pap-secrets] 
 
-[http://wiki.openwrt.org/PPPOEwispHowTo PPPOE over Wireless Howto] 
+ . [http://wiki.openwrt.org/PPPOEwispHowTo PPPOE over Wireless Howto] 
+ . [http://wiki.openwrt.org/UpdatingWrt54gl UpdatingWrt54gl ]
 
 [http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration?highlight=%28PPPOE%29 Kamikaze PPPOE]
 
