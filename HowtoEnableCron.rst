@@ -1,6 +1,5 @@
-'''EnableCronHowto'''
-
-[[TableOfContents]]
+#pragma section-numbers off
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 
 = Introduction =
 Cron jobs are useful to repeat things on configurable intervals. E. g. reconnect your WAN connection at a given time if you are using PPPoE.
