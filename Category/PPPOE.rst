@@ -11,3 +11,4 @@ To add a page to this category, add a link to this page on the last line of the 
 
 ----
 CategoryCategory
+CategoryCleanup a nice and clever thing :)
