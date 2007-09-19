@@ -42,9 +42,10 @@ The [http://forum.openwrt.org forums] contain a wealth of helpful guides on hund
 See the [:Team/Documentation/Forum: Forum Importing page] for guidance on how to import forum guides correctly.
 
 = Projects =
-The Documentation Team maintains the help system for the Ubuntu, Kubuntu and Edubuntu desktops, as well as specific guides on Ubuntu Server and Switching From Windows. New versions of these guides are released with each new release of Ubuntu, and these are translated through the translation tool Rosetta in the same manner as all of the other applications in Ubuntu.
+Projects are specif tasks that need to be done to maintain the documentation and keep the wiki up to date.
 
-For a complete list of these projects and the community members who are currently maintaining them, see our [:DocumentationTeam/Projects:Projects page].
+
+For a complete list of these projects and the community members who are currently maintaining them, see our [:Team/Documentation/Projects:Projects page].
 
 = Meetings =
 Ubuntu Documentation Team meetings are announced on the ubuntu-doc mailing list and normally take place in the #ubuntu-meeting IRC channel on irc.freenode.net. You can find the agenda and time for the next meeting at the DocumentationTeam/MeetingAgenda page.
