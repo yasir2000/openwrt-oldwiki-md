@@ -2,29 +2,19 @@
 [[TableOfContents]]
 
 = T-Com Speedport W701V =
-
 Speak to Hydra on #openwrt and #ar7 on freenode for more info.
 
 Others users known to have this device:  saftsack, Heini66, loswillios
 
 == Status ==
-
-Wifi: no support for the TNETW1350A, it's a chip with features somewhere between the supported TNETW1150 and the TNETW1450 though.
-ADSL: working
-Ethernet: working
-LEDs: working
-Serial Port: working
+Wifi: no support for the TNETW1350A, it's a chip with features somewhere between the supported TNETW1150 and the TNETW1450 though. ADSL: working Ethernet: working LEDs: working Serial Port: working
 
 == Hardware Info ==
 Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
 
 Being an AR7 device it also has a built-in ADSL Modem, the Speedport W701V also features as ISDN socket and two telephone sockets for VoIP use.
 
-CPU: TNETD7200ZDW (AR7) @211Mhz 
-Flash: 8 MB 
-Ram: 32 MB 
-WLan Chip: TNETW1350A 
-Ethernet Switch Chip: Infineon ADM6996LC
+CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A  Ethernet Switch Chip: Infineon ADM6996LC
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
@@ -98,9 +88,20 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 ==== Undoing changes to adam2 config ====
 TODO: finish this section, here's some hints for now
 
+flashing my own backup didn't work for, I had to download the official firmware from [http://www.t-home.de/dlp/eki/downloads/Speedport/Speedport%20W%20701%20V/fw_Speedport_W701V_V33.04.26.image T-Home] and flash it via adam2. It was something like this (written from my memory):
+
+ftp adam2:adam2@192.168.1.1
+
 {{{
-setenv kernel_args idle=4
-unsetenv mtd5
+binary
+passiv
+quote MEDIA FLSH
+put fw_Speedport_W701V_V33.04.26.image mtd1
+quote SETENV firmware_version tcom
+quote setenv kernel_args idle=4
+quote unsetenv mtd5
+quote REBOOT
+bye
 }}}
 === Boot log from old firmware ===
 {{{
@@ -1511,7 +1512,6 @@ Next up, you have to remove the old "kernel_args" adam2 environment variable if 
 {{{
 Eva_AVM > unsetenv kernel_args
 }}}
-
 Finally, boot the device!  - type either "restart" or "go" at the adam2 prompt on the serial port or power the box off and on again.
 
 My boot log looked like this:
@@ -1638,12 +1638,8 @@ jffs2_build_filesystem(): unlocking the mtd device... done.
 jffs2_build_filesystem(): erasing all blocks after the end marker... done.
 mini_fo: using base directory: /
 mini_fo: using storage directory: /jffs
-
-
-
 BusyBox v1.4.2 (2007-08-14 13:30:46 BST) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
@@ -1656,24 +1652,21 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#
 }}}
-
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
 /etc/config/network:
+
 {{{
 # Network configuration file
- 
 config interface loopback
         option ifname   lo
         option proto    static
         option ipaddr   127.0.0.1
         option netmask  255.0.0.0
- 
 config interface lan
         option ifname   eth0
         option proto    static
         option ipaddr   192.168.128.1
         option netmask  255.255.255.0
- 
 config interface wan
         option ifname   ppp0
         option username "my_network_username@my_isp"
@@ -1685,7 +1678,6 @@ config interface wan
         option vci      38
         option encaps   llc
 }}}
-
 ifup wan
 
 === Firmware images and configs ===
