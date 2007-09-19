@@ -5,7 +5,10 @@
 Email: [[MailTo(detlev.lengsfeld AT SPAMFREE gmail DOT com)]]
 
 ...
-High, now I have it. My own WRT54GL-DE. Looks fine :)
+High, now I have it. My own WRT54GL-DE. Looks fine :) 
+
+I am looking for the content of [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T?highlight=%28pap-secrets%29 pap-secrets] 
+
 
 In my short time i work on the sits:
 
