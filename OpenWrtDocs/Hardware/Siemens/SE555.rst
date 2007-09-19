@@ -15,13 +15,14 @@ orginal firmware bootlog:
  TI ADSL AR7300 Loader 0.69c.4 build Aug  1 2005 13:50:49
                  Broad Net Technology, INC.
 ===========================================================
+
 INTEL TE28F160C3-B bottom boot 16-bit mode found
 
 Copying boot params.....DONE
 
 Press any key to enter command mode ...
-Flash Checking  Passed.
 
+Flash Checking  Passed.
 Unzipping  web at 0x95ef0000 ... [ZIP 3] [ZIP 2] done
 Unzipping code at 0x94000000 ... [ZIP 3] [ZIP 2] done
 In C_Entry() function ...
