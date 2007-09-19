@@ -56,7 +56,7 @@ or use {{{crontab -e}}} (calls the {{{vi}}} editor) to edit the cron job file. C
 0 4 * * * ifdown wan && sleep 2 && ifup wan}}}
 than hit {{{ESC}}} and enter {{{:wq}}} to save the file.
 
-The example cron job reconnects your WAN connection at a 4am every day if you are using PPPoE.
+The example cron job reconnects your WAN connection at 4am every day.
 
 When done you can list the cron jobs with
 
