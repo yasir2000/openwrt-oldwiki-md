@@ -14,6 +14,12 @@ I am looking for the content of [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-
 
  . [http://wiki.openwrt.org/PPPOEwispHowTo PPPOE over Wireless Howto] 
  . [http://wiki.openwrt.org/UpdatingWrt54gl UpdatingWrt54gl ]
+ . [http://forum.openwrt.org/viewtopic.php?pid=25017 Info im Forum]
+
+Next to Read:
+ . [http://wiki.openwrt.org/iptablesULOGmysqlHowTo?highlight=%28iptables%29 wau]
+ . [http://wiki.openwrt.org/multipleWan?highlight=%28iptables%29 wan und iptables]
+ . [http://wiki.openwrt.org/TransparentFirewall?highlight=%28iptables%29 TransparentFirewall]
 
 [http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration?highlight=%28PPPOE%29 Kamikaze PPPOE]
 
