@@ -22,7 +22,7 @@ Importing material is mainly a question of common sense. The following guideline
 
 A list of pages on the UDSF and on the forum which would potentially be well-suited for integrating with the help wiki can be found at:
 
- ["Team/Documention/Forum/Import"]
+ ["Team/Documentation/Forum/Import"]
 
 Feel free to edit this list.
 ----
