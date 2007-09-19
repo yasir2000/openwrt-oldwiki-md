@@ -5,6 +5,8 @@
 Email: [[MailTo(detlev.lengsfeld AT SPAMFREE gmail DOT com)]]
 
 -- ["macdet"] [[DateTime(2007-09-19T06:23:20Z)]] i will stop for now!
+
+
 ...
 High, now I have it. My own [http://wiki.openwrt.org/InstallingWrt54gl WRT54GL-DE]. Looks fine :) My old [http://wiki.openwrt.org/OpenWrtDocs/Hardware/T-Com/SpeedportW900V? current work-machine] hope i can use OpenWrt soon :)
 
