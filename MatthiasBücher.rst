@@ -12,7 +12,7 @@ __Location__: Germany, Ruhr-Area
 == Contact ==
 __Homepage__: [http://www.maddes.net/]
 
-Contact via above [http://www.maddes.net/ Homepage] or [http://forum.openwrt.org/userlist.php?username=maddes.b Forum]
+Contact via [http://www.maddes.net/ Homepage] or [http://forum.openwrt.org/userlist.php?username=maddes.b Forum]
 
 ----
 CategoryHomepage
