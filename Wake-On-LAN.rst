@@ -8,16 +8,18 @@ Wake-On-LAN (short WOL) can be used to awake a network machine (computer, printe
 Before setting up !OpenWrt to wake up your machines, you should test if your machines can be waked up at all. Test this from another machine on your LAN. Use the information and tools from José's !HowTo mentioned above, e.g. AMDs Magic Packet tool.
 
 = Setting up OpenWrt for WOL =
-== Using WOL (=UDP packet) ==
 With {{{wol}}} you can send a magic packet via IP. For this you have to know the broadcasting address of your network, e.g. 10.1.255.255 for a 10.1.0.0/16 network.
 
-=== Install ===
+== Installation ==
 For {{{wol}}} install the following package
 
 {{{
 ipkg install wol
 }}}
-=== Usage ===
+
+== Configuration ==
+
+== Usage ==
 To awake a machine with {{{wol}}} use
 
 {{{
@@ -26,18 +28,3 @@ wol -h <broadcast address> <mac address of the target> (e.g. wol -h 10.1.255.255
 If doesn't work have a look at your network topology and check if the packet is forwarded to the router/switch the target is connected to.
 
 Note: Maybe you are lucky and it even works without the broadcast address, but do not count on it.
-
-= Tip: Not to remember all your MAC addresses =
-Create a small script for each machine you want to awake. Create the script files in the folder {{{/usr/bin}}}, use the extension {{{.sh}}} and begin all of them with the line {{{#!/bin/sh}}}. After this add lines with {{{wol}}} calls. Use several lines if you want to wake up a group of machines at once.
-
-{{{
-#!/bin/sh
-wol 11:11:11:11:11:11
-wol 22:22:22:22:22:22
-}}}
-At last you have to make them executable via
-
-{{{
-chmod +x wol-example.sh
-}}}
-Now you can call them from anywhere by just entering their name.
