@@ -3,7 +3,7 @@
 == Personal Data ==
 __Name__: Matthias Bücher
 
-__Nick Name__: maddes
+__Nick Name__: Maddes
 
 __Forum User__: [http://forum.openwrt.org/userlist.php?username=maddes.b maddes.b]
 
