@@ -9,7 +9,7 @@ High, now I have it. My own WRT54GL-DE. Looks fine :)
 
 I am looking for the content of [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T?highlight=%28pap-secrets%29 pap-secrets] 
 
-
+[http://wiki.openwrt.org/PPPOEwispHowTo PPPOE over Wireless Howto] 
 In my short time i work on the sits:
 
  . http://mobbing-gegner.de Build with django ... PythonPower 
@@ -18,4 +18,4 @@ In my short time i work on the sits:
  . http://blog.mobbing-gegner.de  s9y no comment, it works
 
 ----
-CategoryHomepage
+CategoryHomepage http://wiki.openwrt.org/PPPOEwispHowTo?
