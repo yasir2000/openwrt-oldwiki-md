@@ -98,8 +98,8 @@ passiv
 quote MEDIA FLSH
 put fw_Speedport_W701V_V33.04.26.image mtd1
 quote SETENV firmware_version tcom
-quote setenv kernel_args idle=4
-quote unsetenv mtd5
+quote SETENV kernel_args idle=4
+quote UNSETENV mtd5
 quote REBOOT
 bye
 }}}
