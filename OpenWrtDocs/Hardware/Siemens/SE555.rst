@@ -5,6 +5,10 @@ Connect the 3 wires as follows:
 2:RX 
 5:GND 
 
+device is based on ar7, has a via vt6212l chip, behind it a usb 2.0 and mini-pci slot, atheros ar5212 wifi card attached.
+manucator seems to be accton.
+
+
 orginal firmware bootlog:
 
 ===========================================================
@@ -442,10 +446,3 @@ wlanFindChannel Cost Histogram: higher values indicate more interference
 
 Auto Channel Scan selected 2437 MHz, channel 6
 [HWLAN] Ready
-
-
-
-
-
-device is based on ar7, has a via vt6212l chip, behind it a usb 2.0 and mini-pci slot, atheros ar5212 wifi card attached.
-manucator seems to be accton.
