@@ -49,4 +49,4 @@ Your clients should be set to grab DNS via DHCP from the router, but if not, get
 
 Have fun with a 25 watt internet gateway! 
 ----
-["Category/PPOE"]
+["Category/PPPOE"]
