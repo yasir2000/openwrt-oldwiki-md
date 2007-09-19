@@ -1,6 +1,6 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Your Name ==
+== Deltev Lengsfeld ==
 
 Email: [[MailTo(detlev.lengsfeld AT SPAMFREE gmail DOT com)]]
 
@@ -20,5 +20,7 @@ In my short time i work on the sits:
  . http://forum.mobbing-gegner.de phbbb2 no comment, it works
  . http://blog.mobbing-gegner.de  s9y no comment, it works
 
+Whois [http://wiki.openwrt.org/jb24 jb24?] W900V Debeloper (gib bitte gas :) )
+
 ----
-CategoryHomepage http://wiki.openwrt.org/PPPOEwispHowTo?
+CategoryHomepage 
