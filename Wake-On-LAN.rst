@@ -1,6 +1,7 @@
-'''Wake-On-LAN !HowTo''' (2007-04-23: WR 0.9)
+#pragma section-numbers off
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 
-[[TableOfContents]]
+'''Wake-On-LAN !HowTo'''
 
 = General =
 Wake-On-LAN (short WOL) can be used to awake a network machine (computer, printer, etc.) from standby mode over the network with a "magic packet". Lots of information about WOL can be found on [http://gsd.di.uminho.pt/jpo/software/wakeonlan/mini-howto/ José Pedro Oliveira's Wake on LAN mini HOWTO].
@@ -26,37 +27,6 @@ If doesn't work have a look at your network topology and check if the packet is 
 
 Note: Maybe you are lucky and it even works without the broadcast address, but don't count on it.
 
-== Using Ether-Wake (=ether frame) ==
-With {{{ether-wake}}} you can send a magic packet as an ethernet frame. You don't need any broadcast address for it, but all routers in your LAN have to forward ethernet frames.
-=== Install ===
-{{{ether-wake}}} is available from the [http://x-wrt.org/ X-Wrt] repository.
-If you want to add the complete repository then add it to {{{/etc/ipkg.conf}}} with:
-{{{
-echo "src X-Wrt_FTP ftp://ftp.berlios.de/pub/xwrt/packages" >> /etc/ipkg.conf
- - or -
-echo "src X-Wrt http://download2.berlios.de/pub/xwrt/packages" >> /etc/ipkg.conf
-}}}
-Then update the package list and install {{{ether-wake}}}:
-{{{
-ipkg update
-ipkg install ether-wake
-}}}
-
-If you don't want to add a new repository to your system, then install {{{ether-wake}}} by directly stating its download URL:
-{{{
-ipkg install ftp://ftp.berlios.de/pub/xwrt/packages/ether-wake_1.09-1_mipsel.ipk
- - or -
-ipkg install http://download2.berlios.de/pub/xwrt/packages/ether-wake_1.09-1_mipsel.ipk
- - or -
-ipkg install http://downloads.openwrt.org/backports/rc5/ether-wake_1.09-1_mipsel.ipk
-}}}
-=== Usage ===
-To awake a machine with {{{ether-wake}}} use
-{{{
-ether-wake <mac address of the target> (e.g. ether-wake 11:22:33:44:55:66)
-}}}
-
-Note: If it doesn't work, switch to {{{wol}}} as all routers should forward IP packets correctly.
 = Tip: Not to remember all your MAC addresses =
 Create a small script for each machine you want to awake.
 Create the script files in the folder {{{/jffs/bin}}}, use the extension {{{.sh}}} and begin all of them with the line {{{#!/bin/sh}}}.
