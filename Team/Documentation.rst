@@ -48,4 +48,4 @@ Projects are specif tasks that need to be done to maintain the documentation and
 For a complete list of these projects and the community members who are currently maintaining them, see our [:Team/Documentation/Projects:Projects page].
 
 = Meetings =
-Ubuntu Documentation Team meetings are announced on the ubuntu-doc mailing list and normally take place in the #ubuntu-meeting IRC channel on irc.freenode.net. You can find the agenda and time for the next meeting at the DocumentationTeam/MeetingAgenda page.
+Documentation Team meetings are announced on the mailing list and normally take place in the #need-channel IRC channel on irc.freenode.net. You can find the agenda and time for the next meeting at the Team/Documentation/MeetingAgenda page.
