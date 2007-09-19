@@ -226,27 +226,30 @@ uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
-==== WiFi Protected Access ====
-===== Broadcom WiFi =====
+==== WiFi encryption ====
+===== WEP encryption (not recommended) =====
+
+===== WPA encryption =====
+====== Broadcom WiFi ======
 For Broadcom the nas package is required
 
 {{{
 ipkg install nas}}}
-===== Atheros WiFi =====
+====== Atheros WiFi ======
 For Atheros the hostapd package is required
 
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-===== Configure WPA (PSK) =====
+====== Configure WPA (PSK) ======
 Configure WPA (PSK) encryption using UCI.
 
 {{{
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-===== Configure WPA2 (PSK) =====
+====== Configure WPA2 (PSK) ======
 Configure WPA2 (PSK) encryption using UCI.
 
 {{{
