@@ -23,9 +23,9 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-86154&pageTypeId=17099 Infineon VINETIC®-2CPE] Voice Processor / Analog Termination Chipsat
  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-88949&pageTypeId=17099 Infineon SLIC-DC] Ringing SLIC with Integrated DC/DC Convertor
  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65153&pageTypeId=17099 Infineon ISDN ST Transceiver] on a single chip
- * more Information in german  available hhttp://www.kessler-design.com/speedport-w700v/hardware.htmlere
+ * more Information in german  available [http://www.kessler-design.com/speedport-w700v/hardware.html here]
 == Serial Port ==
-image coming soon in the meantime look for pictures of the serialport [http://www.kessler-design.com/speedport-w700v/hardware.html here]["http"]
+image coming soon in the meantime look for pictures of the serialport [http://www.kessler-design.com/speedport-w700v/hardware.html here]
 
 == boot loader ==
 the bootloader is a brn loader --> http://ar7-firmware.berlios.de/doc/loader.html.en
