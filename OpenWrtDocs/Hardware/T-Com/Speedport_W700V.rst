@@ -7,8 +7,14 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
 == original firmware ==
 http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de_DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo_h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161
 == Hardware ==
-* amazon cpu
-* eon en29lv3208 flash 
+* Router is build by Arcadyan for Siemens and the resell it to t-com
+* http://www.arcadyan.com/Downloads/downloads.htm  
+* Infineon amazon chipset
+MIPS32® 4KEc® Hard IP Core, CPU
+(u.a. OpenSSL 0.9.6a Crypto library, SSL/TLS Library
+und CCL/ITRI VoIP Middleware sip, sipTX, UACore)
+*Infineon ADM6996 'Samurai' 5+1 Port 10/100 Switch
+* eon en29lv3208 flash
 == Serial Port ==
 image coming soon
 == boot loader ==
