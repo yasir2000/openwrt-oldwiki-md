@@ -31,7 +31,7 @@ Known 6338 platforms*:
 ||[:OpenWrtDocs/Hardware/Huawei/EchoLife HG520:Huawei EchoLife HG510] ||
 ||[http://www.netgear.co.uk/adsl_ethernet_modem_dm111p.php Netgear DM111P] ||
 ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:ZTE ZXDSL 831CII] ||
-||<style="text-align: left; vertical-align: top;">[http://www.dynalink.co.nz/modemsadsl_cur.htm?prod=RTA1320 Dynalink RTA1320] ||
+||<style="text-align: left; vertical-align: top;">[http://www.dynalink.co.nz/modemsadsl_cur.htm?prod=RTA1320 Dynalink RTA1320] [http://www.dynalink.co.nz/modemsadsl_cur.htm?prod=RTA1320 (Nateks Unispot21)] ||
 
 
 Known 6348 platforms*:
