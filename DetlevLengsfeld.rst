@@ -23,7 +23,7 @@ Next to Read:
 
 [http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration?highlight=%28PPPOE%29 Kamikaze PPPOE]
 
-In my short time i work on the sits:
+In my short time i work on the sites:
 
  . http://mobbing-gegner.de Build with django ... PythonPower 
  . http://wiki.mobbing-gegner.de MoinMoin for rapid knowhow PythonPower
