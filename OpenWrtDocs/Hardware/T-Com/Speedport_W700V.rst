@@ -9,13 +9,13 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
 = Things we already know =
 == original firmware ==
  * original firmware from t-com --> [http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de%20DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo%20h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161 link]
- * some  informations about the firmware --> [http://www.kessler-design.com/speedport-w700v/firmware.html link]
+ * some  information about the firmware --> [http://www.kessler-design.com/speedport-w700v/firmware.html link]
 == Hardware ==
  * Router is build by Arcadyan for Siemens and they resell it to t-com
   * http://www.arcadyan.com/Downloads/downloads.htm
  * I[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65097&pageTypeId=17099 Infineon Amazon] ADSL2+ Chipsatz with
   * [http://www.mips.com/content/Products/Cores/HardIPCores/ProductCatalog/P_MIPS324KEHardCore/productBrief MIPS32® 4KEc®] Hard IP Core, CPU (among other stuff  [http://www.openssl.org/docs/ OpenSSL 0.9.6a] Crypto library, SSL/TLS Library
-  				and [http://www.ccl.itri.org.tw/ccl.asp CCL/ITRI VoIP Middleware] sip, sipTX, UACore)
+   . and [http://www.ccl.itri.org.tw/ccl.asp CCL/ITRI VoIP Middleware] sip, sipTX, UACore)
   * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65146&pageTypeId=17099 Infineon ADM6996 'Samurai'] 5+1 Port 10/100 Switch, [http://www.infineon.convergy.de/upload/documents/techdoc/GF_15/Samurai_6I_IX_VAD_DS_Rev1.4.pdf Data Sheet 1.4]
  * [http://www.atheros.com/pt/AR5002XBulletin.htm Atheros AR5212] Multiprotocol MAC/baseband processor, WLAN CPU
  * [http://www.atheros.com/pt/AR5002XBulletin.htm Atheros AR5112] Dual band Radio-on-a-Chip (RoC), WLAN
