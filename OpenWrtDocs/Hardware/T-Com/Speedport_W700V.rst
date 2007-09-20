@@ -8,8 +8,8 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
 
 = Things we already know =
 == original firmware ==
- * original firmware from t-com [:http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161:link]
- * some  informations about the firmware [:http://www.kessler-design.com/speedport-w700v/firmware.html:link]
+ * original firmware from t-com --> [http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de%20DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo%20h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161 link]
+ * some  informations about the firmware --> [http://www.kessler-design.com/speedport-w700v/firmware.html link]
 == Hardware ==
  * * Router is build by Arcadyan for Siemens and they resell it to t-com
   * http://www.arcadyan.com/Downloads/downloads.htm  (you can find some source code here :-D)
@@ -23,9 +23,9 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-86154&pageTypeId=17099 Infineon VINETIC®-2CPE] Voice Processor / Analog Termination Chipsat
  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-88949&pageTypeId=17099 Infineon SLIC-DC] Ringing SLIC with Integrated DC/DC Convertor
  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65153&pageTypeId=17099 Infineon ISDN ST Transceiver] on a single chip
- * more Information in german  available [:http://www.kessler-design.com/speedport-w700v/hardware.html:here]
+ * more Information in german  available hhttp://www.kessler-design.com/speedport-w700v/hardware.htmlere
 == Serial Port ==
-image coming soon in the meantime look for pictures of the serialport [:http://www.kessler-design.com/speedport-w700v/hardware.html:here]
+image coming soon in the meantime look for pictures of the serialport [http://www.kessler-design.com/speedport-w700v/hardware.html here]["http"]
 
 == boot loader ==
 the bootloader is a brn loader --> http://ar7-firmware.berlios.de/doc/loader.html.en
