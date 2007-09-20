@@ -11,8 +11,8 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
  * original firmware from t-com --> [http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de%20DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo%20h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161 link]
  * some  informations about the firmware --> [http://www.kessler-design.com/speedport-w700v/firmware.html link]
 == Hardware ==
- * * Router is build by Arcadyan for Siemens and they resell it to t-com
-  * http://www.arcadyan.com/Downloads/downloads.htm  (you can find some source code here :-D)
+ * Router is build by Arcadyan for Siemens and they resell it to t-com
+  * http://www.arcadyan.com/Downloads/downloads.htm 
  * Infineon amazon ADSL 2+ chipset with
   * MIPS32® 4KEc® Hard IP Core, CPU (u.a. OpenSSL 0.9.6a Crypto library, SSL/TLS Library und CCL/ITRI VoIP Middleware sip, sipTX, UACore)
   * Infineon ADM6996 'Samurai' 5+1 Port 10/100 Switch
