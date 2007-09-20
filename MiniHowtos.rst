@@ -14,7 +14,7 @@ stty -F /dev/tts/1 speed 115200
 
 Note that both UART ports share one interrupt.
 
-German People could also take a look at the page from [http://hamburg.freifunk.net/twiki/bin/view/Technisches/WRT54gSerielleSchnittstelle freifunk hamburg].
+German People could also take a look at the page from [https://snr.freifunk.net/trac/freifunk freifunk hamburg].
 
 == Single-port serial modification ==
 If you're only interested in having serial console working on your G v2 or GS, check out [http://jdc.parodius.com/wrt54g/serial.html koitsu's Single-Port Serial Modification] page. This page includes links to online sites that sell the necessary hardware for both his and Rod's modifications, as well as a (soon-to-be-written) walk-through of how to do the mod. Pictures are also provided.
