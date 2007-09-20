@@ -1,32 +1,40 @@
 [[TableOfContents]]
+
 = Status =
 currently a bootlog can be pulled. kernel source for 2.4 is available and is being forward ported to 2.6
+
 = prereq =
 first the amazon port needs to be complete the todo is here http://wiki.openwrt.org/OpenWrtDocs/Hardware/Infineon/Amazon
+
 = Things we already know =
 == original firmware ==
-http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de_DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo_h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161
+ * original firmware from t-com [:http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161:link]
+ * some  informations about the firmware [:http://www.kessler-design.com/speedport-w700v/firmware.html:link]
 == Hardware ==
-* Router is build by Arcadyan for Siemens and the resell it to t-com
-* http://www.arcadyan.com/Downloads/downloads.htm  
-* Infineon amazon chipset
-MIPS32® 4KEc® Hard IP Core, CPU
-(u.a. OpenSSL 0.9.6a Crypto library, SSL/TLS Library
-und CCL/ITRI VoIP Middleware sip, sipTX, UACore)
-*Infineon ADM6996 'Samurai' 5+1 Port 10/100 Switch
-* eon en29lv3208 flash
+ * * Router is build by Arcadyan for Siemens and they resell it to t-com
+  * http://www.arcadyan.com/Downloads/downloads.htm  (you can find some source code here :-D)
+ * Infineon amazon ADSL 2+ chipset with
+  * MIPS32® 4KEc® Hard IP Core, CPU (u.a. OpenSSL 0.9.6a Crypto library, SSL/TLS Library und CCL/ITRI VoIP Middleware sip, sipTX, UACore)
+  * Infineon ADM6996 'Samurai' 5+1 Port 10/100 Switch
+  * eon en29lv3208 flash
+ * [http://www.atheros.com/pt/AR5002XBulletin.htm Atheros AR5212] Multiprotocol MAC/baseband processor, WLAN CPU
+ * [http://www.atheros.com/pt/AR5002XBulletin.htm Atheros AR5112] Dual band Radio-on-a-Chip (RoC), WLAN
+ * [http://www.atheros.com/pt/AR5005G.htm Atheros AR2413] Single-Chip  CMOS MAC/Baseband/Radio, WLAN
+ * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-86154&pageTypeId=17099 Infineon VINETIC®-2CPE] Voice Processor / Analog Termination Chipsat
+ * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-88949&pageTypeId=17099 Infineon SLIC-DC] Ringing SLIC with Integrated DC/DC Convertor
+ * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65153&pageTypeId=17099 Infineon ISDN ST Transceiver] on a single chip
+ * more Information in german  available [:http://www.kessler-design.com/speedport-w700v/hardware.html:here]
 == Serial Port ==
-image coming soon
+image coming soon in the meantime look for pictures of the serialport [:http://www.kessler-design.com/speedport-w700v/hardware.html:here]
+
 == boot loader ==
 the bootloader is a brn loader --> http://ar7-firmware.berlios.de/doc/loader.html.en
+
 == Bootlog ==
 {{{
 Version 1.0.1
 Read EEPROM
 Jump to Flash
-
-
-
 =======================================================================
  Wireless ADSL Gateway AMAZON Loader V0.93.0 build Nov 10 2006 17:16:22
                     Broad Net Technology, INC.
@@ -34,17 +42,14 @@ Jump to Flash
 EON EN29LV320B bottom boot 16-bit mode found
 [GPIO FLOW] SetGpio() Begin ..
 [GPIO FLOW] SetGpio() End.
-
 Copying boot params.....DONE
-
 Press Space Bar 3 times to enter command mode ...
 Flash Checking [1]  Passed.
-
 Unzipping firmware [1(3)] at 0x80002000 ... [ZIP 1]  done
 In c_entry() function ...
 CPU : Yangtse Version
 Chip V1.3, CPU Speed 235 MHz, FPI Speed 117 MHz
-install_exception 
+install_exception
 [INIT] Interrupt ...
 [GPIO FLOW] SetGpio() Begin ..
 [GPIO FLOW] SetGpio() End.
@@ -97,9 +102,7 @@ sizeof(BUFFER0)=448,sizeof(BUFFER1)=2240
 *BUF0=0x80ea8bec *BUF1=0x80c85ddc
 Altgn *BUF0=0x80ea8bf0 *BUF1=0x80c85de0
 End at BUF0:0x80ea8bf0, BUF1:0x80ea8be0
-
 BUF0[0]=0x80ea8bf0 BUF1[0]=0x80c85de0
-
 buffer0 pointer init OK!
 buffer1 pointer init OK!
 [qm_lnk_init] CLOCKHZ=1000 ...
@@ -171,7 +174,6 @@ gConfig.Interface[0].Subnet_Mask = 255.255.255.255
 time = 08/01/2003, 00:00:00
 TRAP(linkUp) : send ok!
 Interface 0 ip = 127.0.0.1
-
 gConfig.Interface[1].IP_Addr = 192.168.2.1
 gConfig.Interface[1].Subnet_Mask = 255.255.255.0
 vlan=1, vid=1, port_mask=0x1e
@@ -182,7 +184,6 @@ MAC Address: 00:12:bf:b3:b2:2d
 time = 08/01/2003, 00:00:00
 TRAP(linkUp) : send ok!
 Interface 1 ip = 192.168.2.1
-
 gConfig.Interface[2].IP_Addr = 0.0.0.0
 gConfig.Interface[2].Subnet_Mask = 0.0.0.0
 PCI: Probing PCI hardware on host bus 0.
@@ -202,7 +203,6 @@ PCI_MODE=0x1000103
         0
         0
         0
- 
        0
         0
      5001
@@ -211,8 +211,6 @@ PCI_MODE=0x1000103
        44
         0
  1c0a0100
- 
-
 Autoconfig PCI channel 0x804DF268
 Scanning bus 0, I/O 0xb2400000:0xb2600001, Mem 0xb2000000:0xb2400001
 201
@@ -232,9 +230,8 @@ Found 00:70 [168c/001a] 000200 00
 203
 Fixups for bus 00
 Bus scan for 00 returning with max=00
-  1a168c  2900006  2000001     8000 b2000000        0        0        0 
-       0        0     5001 44131113        0       44        0 1c0a014e 
-
+  1a168c  2900006  2000001     8000 b2000000        0        0        0
+       0        0     5001 44131113        0       44        0 1c0a014e
 [HWLAN] ifno=2 irno=7 port=0x00000000
 [PCI] devtag=00000070 probe=8005c384
 [HWLAN] devtag = 00000070
@@ -251,13 +248,13 @@ Bus scan for 00 returning with max=00
 203
 PCI: Enabling device 00:0e.0 (0006 -> 0006)
 apCfgRadioDefaultSet> gSetting.channel=0, pRadio->channel=5260, pRadio->freqSpec=1
-####ming#### : WPA2-PSK .. 
-####ming#### : ENCRYPTION_AES_CCM .. 
+####ming#### : WPA2-PSK ..
+####ming#### : ENCRYPTION_AES_CCM ..
 [HWLAN] pRadio->abolt = 00000000
 apCfgRadioDefaultSet> gSetting.channel=0, pRadio->channel=2462, pRadio->freqSpec=8
 [HWLAN] pRadio->abolt = 00000010
-[HWLAN] gSetting.BasicRate=f 
-[HWLAN] apCfgDefaultSet : prepare to set WDS.. 
+[HWLAN] gSetting.BasicRate=f
+[HWLAN] apCfgDefaultSet : prepare to set WDS..
 apInit: Initialize Access Point.
 [HWLAN] ar5hwcCreatePhy : ifno:2 pdevInfo=807c9804, devno=1
 [HWLAN] devno 1 pdevInfo 807c9804
@@ -265,8 +262,8 @@ apInit: Initialize Access Point.
 Attach AR5212 0x1a 0x807c9804
 [HWLAN] DOMAIN 00008114
 ar5212GetMacAddr: EEPROM MAC is all 0's or all F's
-[HWLAN] Set HWLAN MAC as LAN MAC .. 
-[HWLAN] MAC Address=00-12-BF=B3-B2-2F 
+[HWLAN] Set HWLAN MAC as LAN MAC ..
+[HWLAN] MAC Address=00-12-BF=B3-B2-2F
 [HWLAN] wlan1 revisions: mac 7.8 phy 4.5 analog 5.6 eeprom 5.2
 [apCfgRadioCheck] nRadio=1
 [apCfgRadioCheck] wmode=12, pRadio1->freqSpec=8
@@ -274,7 +271,6 @@ ar5212GetMacAddr: EEPROM MAC is all 0's or all F's
 [wlanInitChannelList] wireless_selection=0x8
 [HWLAN] country code = 00000114
 wlanInitChannelList -- country: DE, mode: 8 11g
-
 [HWLAN] wlanInitChannelList -- 13 channels
 [HWLAN]  2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472
 [wlanGetChannelPtr] channel=2462, modeSelect=8, pCList->listSize=13[wlanGetChannelPtr] pCList->chanArray[0].channelFlags=0x5400, modeTable[3].channelFlags=0x1400
@@ -412,11 +408,9 @@ gainBoundaries [16, 46, 46, 46] and gainOverlap : 10
 reg 0xa26c = 0xbaeb90a
 reg 0xa258 = 0xcc75380 [numPdGans = [15:14], forceDacGain = [29]]
 reg 0xa274 = 0x1b7caa [forceTxGain = [0]]
-
 TX Power settings: curve(s) returned minPower 27 (2x dBm), maxPower 33 (2x dBm)
-	Power Offset 0 (2x dBm)
+        Power Offset 0 (2x dBm)
 XpdGain's [0] 0x3, [1] 0x1
-
 *** Actual power per rate table as programmed ***
   6mb OFDM  13.5 dBm | 1L   CCK   16.5 dBm
   9mb OFDM  13.5 dBm | 2L   CCK   16.5 dBm
@@ -431,13 +425,12 @@ XpdGain's [0] 0x3, [1] 0x1
 [HWLAN] bridgePortAdd (base BSS) succeeded for vp1
 should call linkSockAttach()
 wlan1 added STA: 00:12:bf:b3:b2:2f (0)
-[HWLAN] ifno=2 after call apInit() : .... bg 1 , a 0 .... 
+[HWLAN] ifno=2 after call apInit() : .... bg 1 , a 0 ....
 time = 08/01/2003, 00:00:00
 TRAP(linkUp) : send ok!
-[HWLAN] hwlan_ioctl() .. 
+[HWLAN] hwlan_ioctl() ..
 Interface 2 ip = 192.168.2.1
-
-[HWLAN] hwlan_ioctl() .. 
+[HWLAN] hwlan_ioctl() ..
 gConfig.Interface[3].IP_Addr = 0.0.0.0
 gConfig.Interface[3].Subnet_Mask = 0.0.0.0
 Init SAR ifno:3 QID:1 VPI/VCI:1/32
@@ -453,13 +446,11 @@ Class=1 QSB_CLK=58750000 MAX_PCR=0 PCR=4000 MIN_PCR=0 SCR=4000 MBS=10 CDV=0
 tprs:0 twfq:16383 ts:0 taus:0
 MAC Address: 00:12:bf:b3:b2:2e
 Interface 3 ip = 0.0.0.0
-
 gConfig.Interface[11].IP_Addr = 0.0.0.0
 gConfig.Interface[11].Subnet_Mask = 0.0.0.0
 IFLNK_PPPOE init : (Linkp)ifno = 11 idx = 2
 IFLNK_PPPOE init : (Driverp)ifno = 11 idx = 3
 Interface 11 ip = 0.0.0.0
-
 gConfig.Interface[26].IP_Addr = 0.0.0.0
 gConfig.Interface[26].Subnet_Mask = 0.0.0.0
 vlan=1, vid=2, port_mask=0x1
@@ -471,7 +462,6 @@ iput_IpLinkUp(ifno=26)> ifp->add_default_route:1
 Re-Init NAT data structure
 Init NAT data structure
 Interface 26 ip = 0.0.0.0
-
 ruleCheck()> Group: 0,  Error: Useless rule index will be truncated
 ruleCheck()> Group: 1,  Error: Useless rule index will be truncated
 ruleCheck()> Group: 2,  Error: Useless rule index will be truncated
@@ -498,9 +488,7 @@ RUNTASK id=7 timer_task...
 RUNTASK id=8 conn_mgr...
 RUNTASK id=9 main_8021x...
 RUNTASK id=10 period_task...
-
 ========== ADSL Modem initialization OK ! ======
-
 RUNTASK id=11 dhcp_daemon...
 Primary image: 1, flash area 3
 ---[ ZIP1 head start in 0xB3220000 ]---
@@ -546,9 +534,8 @@ Tr69_Init: Tr69_Task sleeping
 Tr69_Init: Tr69_TimerTask sleeping
 Starting Multitask...
 [0] Allocate resource 27, FreeResource = 1
-ifx_ssc_init : nbytes 136 
+ifx_ssc_init : nbytes 136
 ifx_ssc_set_baud: br = 2
-
 call ifx_ssc_init() = 0
 call ifx_ssc_open() = 0
 SPI_Init!
@@ -615,11 +602,9 @@ ifno2dot1x_if[2]=0
 ifno2dot1x_if[24]=81
 [main_8021x] dot1x_build_if_mapping() completed.
 init psock cnt=1
-
 rzMemory start: 0x809F6AAC, end 0x80B562AC, size 1439744 VOICE_DRV_Init
 Reset Duslic 2 High begin
 Reset Duslic end
-
 VINETIC module, version : 1.1.17.3 loaded
 Board_InitPlatform!
 Board_InitIrq!
@@ -677,30 +662,30 @@ RUNTASK id=23 VINETIC_DRV_Task...
 RUNTASK id=30 VINETIC_T38_Task...
 RUNTASK id=32 FXO_flash_task...
 RUNTASK id=31 VOICE_API_task...
-Step 0 
+Step 0
 Duslic debug: open device!
 Board_DevOpen
 Board_DevOpen 4 77
----------------------duslic_ResetChMember begin 
-DUSLIC_GpioInit begin 
-DUSLIC_GpioInit end 
----------------------duslic_ResetChMember end 
-DUSLIC_Init begin 
-DUSLIC_GpioInit begin 
-DUSLIC_GpioInit end 
+---------------------duslic_ResetChMember begin
+DUSLIC_GpioInit begin
+DUSLIC_GpioInit end
+---------------------duslic_ResetChMember end
+DUSLIC_Init begin
+DUSLIC_GpioInit begin
+DUSLIC_GpioInit end
 Dwld_LoadCram begin 0
-----> Dwld_LoadCram end 
-DUSLIC_GpioInit begin 
-DUSLIC_GpioInit end 
+----> Dwld_LoadCram end
+DUSLIC_GpioInit begin
+DUSLIC_GpioInit end
 Dwld_LoadCram begin 1
-----> Dwld_LoadCram end 
+----> Dwld_LoadCram end
 DUSLIC_Init end
-DUSLIC_Set_Pcm begin 
-DUSLIC_Set_Pcm End 
+DUSLIC_Set_Pcm begin
+DUSLIC_Set_Pcm End
 init_DTMF_data: time 3141
 cpc5621_open: open devNum=0, chNum=0, pDev=00000000, CPC5621_Devices=804df81c
 Drv_CPC5621_Init: 0, 1
-Drv_CPC5621_Init end pDev->devHandle 806C5D4C  
+Drv_CPC5621_Init end pDev->devHandle 806C5D4C
 cpc5621_open: open devNum=0, chNum=0, pDev=809eb2b4
 before pDev->bOpen == TRUE
 after pDev->bOpen == TRUE
@@ -710,7 +695,7 @@ before DUSLIC_GpioConfig 0
 :::::::::::::_GpioConfig begin 806C5D4C Gpio->nIO 0
      :::GPIO_MODE_OUTPUT
      :::GPIO_INT_DUP_605
-:::::::::::::_GpioConfig end 
+:::::::::::::_GpioConfig end
 before DUSLIC_GpioConfig 1
 before DUSLIC_GpioConfig 2
 :::::::::::::_GpioConfig begin 806C5D4C Gpio->nIO 1
@@ -718,7 +703,7 @@ before DUSLIC_GpioConfig 2
      :::GPIO_MODE_INT
      :::GPIO_INT_FALLING
      :::GPIO_INT_DUP_605
-:::::::::::::_GpioConfig end 
+:::::::::::::_GpioConfig end
 before DUSLIC_GpioConfig 3
 :::::::::::::_GpioConfig begin 806C5D4C Gpio->nIO 2
      :::GPIO_MODE_INPUT
@@ -726,14 +711,14 @@ before DUSLIC_GpioConfig 3
      :::GPIO_INT_RISING
      :::GPIO_INT_FALLING
      :::GPIO_INT_DUP_605
-:::::::::::::_GpioConfig end 
+:::::::::::::_GpioConfig end
 before DUSLIC_GpioConfig 4
 :::::::::::::_GpioConfig begin 806C5D4C Gpio->nIO 3
      :::GPIO_MODE_INPUT
      :::GPIO_MODE_INT
      :::GPIO_INT_FALLING
      :::GPIO_INT_DUP_605
-:::::::::::::_GpioConfig end 
+:::::::::::::_GpioConfig end
 force_daa_offhook ch 2 onoff 1 time 3164
 SSLServer> SSLServer() run
 PrivateKey=
@@ -763,7 +748,6 @@ sys_voip_cfg->cpt.reorder = 425@-230;20(0.24/0.24/1)
 TEL_DRV_TONE_REORDER  duration = 480
  TEL_DRV_InitRing
  TEL_DRV_SetImpedance
-
 >>>> STUN Setting <<<<
 stun Enable : 1
 stun Test Enable : 1
@@ -787,7 +771,6 @@ stun Server : "", IP : 0.0.0.0
 stun Port : 3478
 stun Server : "", IP : 0.0.0.0
 stun Port : 3478
-
 RUNTASK id=33 STUNC_InitTask() ...
 [26] Allocate resource 38, FreeResource = 12
 [26] Allocate mailbox 8
@@ -802,131 +785,131 @@ tel_mgr_mutex=39
 [26] Allocate resource 41, FreeResource = 15
  TEL_DRV_SetPhoneEvtHookFunc
  TEL_DRV_SetLineEvtHookFunc
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: *31#
 TEL_MGR_SetDigitMap: #31#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: *37#
 TEL_MGR_SetDigitMap: #37#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: [2-9]#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: (x.|0900326690xx|019301xx|0191066730)
 TEL_MGR_SetDigitMap: *91#
 TEL_MGR_SetDigitMap: #91#
 TEL_MGR_SetDigitMap: *09#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: **258***
 TEL_MGR_SetDigitMap: **258**1
 TEL_MGR_SetDigitMap: **258**2
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: *31#
 TEL_MGR_SetDigitMap: #31#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: *37#
 TEL_MGR_SetDigitMap: #37#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: [2-9]#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: (x.|0900326690xx|019301xx|0191066730)
 TEL_MGR_SetDigitMap: *91#
 TEL_MGR_SetDigitMap: #91#
 TEL_MGR_SetDigitMap: *09#
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
-TEL_MGR_SetDigitMap: 
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
+TEL_MGR_SetDigitMap:
 TEL_MGR_SetDigitMap: **258***
 TEL_MGR_SetDigitMap: **258**1
 TEL_MGR_SetDigitMap: **258**2
@@ -939,7 +922,7 @@ TEL_MGR_SetVoiceChannel: ec mode is 16ms
  VOICE_DRV_SetVAD
  TEL_MGR_SetPhoneGain
  VOICE_DRV_SetGain
------------------------->TAPI_LL_Phone_Volume Ch 0 TxGain 0 RxGain -7 
+------------------------>TAPI_LL_Phone_Volume Ch 0 TxGain 0 RxGain -7
  TEL_MGR_SetPhoneJitter
  VOICE_DRV_SetJitter
  TEL_MGR_SetVoiceChannel
@@ -950,7 +933,7 @@ TEL_MGR_SetVoiceChannel: ec mode is 16ms
  VOICE_DRV_SetVAD
  TEL_MGR_SetPhoneGain
  VOICE_DRV_SetGain
------------------------->TAPI_LL_Phone_Volume Ch 1 TxGain 0 RxGain -7 
+------------------------>TAPI_LL_Phone_Volume Ch 1 TxGain 0 RxGain -7
  TEL_MGR_SetPhoneJitter
  VOICE_DRV_SetJitter
 SIP_CALLBACK_EnableDebug
@@ -973,14 +956,12 @@ ScanMIH_task> DHCP ip give: 192.168.2.100 ~ 199, range: 100
 pCtx=0x809e9784 in ssld_conf_init
 dt_provision_task> provisioned, enable GUI
 sslc_conf_init> pCtx=0x809e72c0 in ssld_conf_init
-
 SSL client> re-LoadCACertificate( 3rdCA ) ok!!
 SSL client> re-LoadCACertificate( Verisign ) ok!!
 SSL client> re-LoadCACertificate( FUN ) ok!!
 SSL client> re-LoadServerCertAndKey() ok!!
 sslc_conf_init> sslc_conf_init() ok
 SSLClient> want to bind socket for client application!
-
 SSL server: re-LoadCACertificate() ok!!
 SSL server : re-LoadServerCertAndKey() ok!!
 ssld_conf_init> ssld_conf_init() ok
@@ -1005,9 +986,9 @@ bridgePortRemove : vp, 10000
 Bridge port (base BSS) remove succeeded for vp1
 rapi_tmr_cancel: cookie 80f7d2fc, Initialized=1
  00000000 80f7d2fc
-cookie 80f7d2fc 80f7d2fc 
+cookie 80f7d2fc 80f7d2fc
 rapi_tmr_cancel: can't find time structure cookie 80f7d2fc
-[HWLAN] ar5hwcIntDisable : STATE_AP_DOWN , pdevInfo->localSta=807BF2F0 state=0100 
+[HWLAN] ar5hwcIntDisable : STATE_AP_DOWN , pdevInfo->localSta=807BF2F0 state=0100
 wlan1 stopped
 [reset_802dot1x] wireless module ready
 [init_wpa] dot1x_ready[0]=3
