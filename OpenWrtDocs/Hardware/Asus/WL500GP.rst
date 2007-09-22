@@ -100,17 +100,10 @@ tftp 192.168.1.1
 tftp> binary
 tftp> trace
 tftp> put openwrt-brcm-2.4-squashfs.trx}}}
-----
 
-----
 
-----
-
-----
  * After the TFTP upload is complete, wait at least 6 minutes. It is needed to wait due to the process that the firmware is first loaded into the RAM, and then first afterwards executed (or flashed). This process takes a little time, and to ensure that the router is not bricked the six minut waiting s needed.
-----
 
-----
  * The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 '''NOTES:'''
