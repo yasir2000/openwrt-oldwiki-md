@@ -100,7 +100,20 @@ tftp 192.168.1.1
 tftp> binary
 tftp> trace
 tftp> put openwrt-brcm-2.4-squashfs.trx}}}
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
  * After the TFTP upload is complete, wait at least 6 minutes. It is needed to wait due to the process that the firmware is first loaded into the RAM, and then first afterwards executed (or flashed). This process takes a little time, and to ensure that the router is not bricked the six minut waiting s needed.
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+ * After the TFTP upload is complete, wait at least 6 minutes. It is needed to wait due to the process that the firmware is first loaded into the RAM, and then first afterwards executed (or flashed). This process takes a little time, and to ensure that the router is not bricked the six minut waiting s needed.
+----
+ /!\ '''End of edit conflict'''
+
+----
  * The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 '''NOTES:'''
@@ -228,28 +241,81 @@ uci commit wireless && wifi}}}
 
 ==== WiFi encryption ====
 ===== WEP encryption (not recommended) =====
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
 ===== WPA encryption =====
 ===== Broadcom WiFi =====
-For Broadcom the nas package is required
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+===== WPA encryption =====
+===== Broadcom WiFi =====
+----
+ /!\ '''End of edit conflict'''
+
+----
+ For Broadcom the nas package is required
 
 {{{
 ipkg install nas}}}
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
 ===== Atheros WiFi =====
-For Atheros the hostapd package is required
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+===== Atheros WiFi =====
+----
+ /!\ '''End of edit conflict'''
+
+----
+ For Atheros the hostapd package is required
 
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
 ===== Configure WPA (PSK) =====
-Configure WPA (PSK) encryption using UCI.
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+===== Configure WPA (PSK) =====
+----
+ /!\ '''End of edit conflict'''
+
+----
+ Configure WPA (PSK) encryption using UCI.
 
 {{{
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
+----
+ /!\ '''Edit conflict - other version:'''
+
+----
 ===== Configure WPA2 (PSK) =====
-Configure WPA2 (PSK) encryption using UCI.
+----
+ /!\ '''Edit conflict - your version:'''
+
+----
+===== Configure WPA2 (PSK) =====
+----
+ /!\ '''End of edit conflict'''
+
+----
+ Configure WPA2 (PSK) encryption using UCI.
 
 {{{
 uci set wireless.cfg2.encryption=psk2
