@@ -88,21 +88,22 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 ==== Undoing changes to adam2 config ====
 TODO: finish this section, here's some hints for now
 
-flashing my own backup didn't work for, I had to download the official firmware from [http://www.t-home.de/dlp/eki/downloads/Speedport/Speedport%20W%20701%20V/fw_Speedport_W701V_V33.04.26.image T-Home] and flash it via adam2. It was something like this (written from my memory):
+flashing my own backup didn't work for me, I had to use speed-to-fritz from [http://wiki.ip-phone-forum.de/skript:speedport2fritz ippf]. It works with the new [http://www.t-home.de/dlp/eki/downloads/Speedport/Speedport%20W%20701%20V/fw_Speedport_W701V_V33.04.26.image Firmware from T-Home] also. Use it with "sudo ./sp-to-fritz.sh -m 701" and flash the resulting image with adam2:
 
-ftp adam2:adam2@192.168.1.1
+ftp 192.168.1.1 (login: adam2/adam2)
 
 {{{
 binary
 passiv
 quote MEDIA FLSH
-put fw_Speedport_W701V_V33.04.26.image mtd1
+put Firmware.new/kernel.image mtd1
 quote SETENV firmware_version tcom
-quote SETENV kernel_args idle=4
+quote UNSETENV kernel_args
 quote UNSETENV mtd5
 quote REBOOT
 bye
 }}}
+
 === Boot log from old firmware ===
 {{{
 (AVM) EVA Revision: 1.190 Version: 1190
