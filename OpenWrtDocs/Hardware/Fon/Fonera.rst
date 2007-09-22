@@ -585,10 +585,15 @@ Edit your wireless settings using vi.
 
 /etc/config/wireless
 
+
 {{{
 config wifi-device  wifi0
-        option type     atheros
-        option channel  5
+        option type      atheros
+        option channel   5
+        option diversity 0
+        option txantenna 1
+        option rxantenna 1
+
 config wifi-iface
         option device   wifi0
         option network  lan
@@ -606,26 +611,26 @@ and finally edit your firewall settings using vi.
 iptables -A INPUT -i br-lan -j ACCEPT
 iptables -A OUTPUT -o br-lan -j ACCEPT
 }}}
-then reboot and everthing should be working.
+then reboot and everthing should be working. The KamikazeConfiguration page has a reference of all the wireless/network config options
 
 = Correcting antenna settings under Kamikaze =
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
 
-To change that put the following at the end of /etc/sysctl.conf:
+To change that put the following in the "wifi-device" section of /etc/config/wireless (see the example above):
 
 {{{
-dev.wifi0.diversity=0
-dev.wifi0.rxantenna=1
-dev.wifi0.txantenna=1
+option diversity 0
+option txantenna 1
+option rxantenna 1
 }}}
-If you are using the Fonera to create a link over long distances, these settings might help:
+If you are using the Fonera to create a link over long distances, the distance setting might help too:
 
 {{{
-dev.wifi0.ctstimeout = 25
-dev.wifi0.acktimeout = 25
-dev.wifi0.slottime = 11
+option distance <distance>
 }}}
-The tool athctrl sets values for specific distances in meters with the -d option, i.e. athctrl -d 300 sets madwifi up for a 300m link
+Where <distance> is the distance between the ap and the furthest client in meters
+
+It is possible to add a second antenna and use diversity between them. See the "Resources" section below.
 
 = Resources =
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
@@ -643,3 +648,4 @@ The tool athctrl sets values for specific distances in meters with the -d option
  * [http://mrmuh.blogspot.com/2007/01/codename-kolofonium-realease-date.html Blog about Hacking the 0.7.1r2 firmware]
  * [http://blog.extreme-networking.com/ OpenWrt installation guide (Italian) and misc]
  * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, German] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) English]: comprehensive guide to flashing la fonera with Kamikaze.
+ * [http://www.dd-wrt.com/wiki/index.php/LaFonera_Hardware_Second-Antenna LaFonera Hardware Second-Antenna] Hardware hack of how to add a second antenna (and diversity)
