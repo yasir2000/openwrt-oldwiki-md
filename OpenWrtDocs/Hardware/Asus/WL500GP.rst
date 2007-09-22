@@ -100,7 +100,7 @@ tftp 192.168.1.1
 tftp> binary
 tftp> trace
 tftp> put openwrt-brcm-2.4-squashfs.trx}}}
- * After the TFTP upload is complete, wait at least 6 minutes.
+ * After the TFTP upload is complete, wait at least 6 minutes. It is needed to wait due to the process that the firmware is first loaded into the RAM, and then first afterwards executed (or flashed). This process takes a little time, and to ensure that the router is not bricked the six minut waiting s needed.
  * The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 '''NOTES:'''
@@ -228,28 +228,27 @@ uci commit wireless && wifi}}}
 
 ==== WiFi encryption ====
 ===== WEP encryption (not recommended) =====
-
 ===== WPA encryption =====
-====== Broadcom WiFi ======
+===== Broadcom WiFi =====
 For Broadcom the nas package is required
 
 {{{
 ipkg install nas}}}
-====== Atheros WiFi ======
+===== Atheros WiFi =====
 For Atheros the hostapd package is required
 
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-====== Configure WPA (PSK) ======
+===== Configure WPA (PSK) =====
 Configure WPA (PSK) encryption using UCI.
 
 {{{
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-====== Configure WPA2 (PSK) ======
+===== Configure WPA2 (PSK) =====
 Configure WPA2 (PSK) encryption using UCI.
 
 {{{
