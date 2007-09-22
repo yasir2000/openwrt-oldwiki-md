@@ -617,3 +617,42 @@ then reboot and everthing should be working. The KamikazeConfiguration page has 
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
 
 To change that put the following in the "wifi-device" section of /etc/
+
+To change that put the following in the "wifi-device" section of /etc/config/wireless (see the example above):
+
+{{{
+option diversity 0
+option txantenna 1
+option rxantenna 1
+}}}
+If you are using the Fonera to create a link over long distances, the distance setting might help too:
+
+{{{
+option distance <distance>
+}}}
+Where <distance> is the distance between the ap and the furthest client in meters
+
+It is possible to add a second antenna and use diversity between them. See the "Resources" section below.
+
+= Hardware Hacks =
+As with most routers, the Fonera has some gpio pins that extra hardware can be connected to. Here are 2 interesting hardware hacks :
+ * [http://www.phrozen.org/fonera.html Adding a MMC card to the Fonera]
+ * [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Fon/FoneraMP3 Turning the Foneras into a hardware mp3 client]
+
+= Resources =
+ * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
+ * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
+ * [http://stefans.datenbruch.de/lafonera/ Hacking the La Fonera]
+ * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 OpenWrt development]
+ * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
+ * [http://www.easy2design.de/bla/?page_id=98 Debricking and more]
+ * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to RedBoot without the Serial Console]
+ * [http://coppercore.net/~kevin/fon/ Files to get the access to RedBoot without the Serial Console]
+ * [http://ecos.sourceware.org/docs-latest/redboot/redboot-guide.html RedBoot userguide]
+ * [http://wiki.ninux.org/moin.cgi/La_Fonera Misc Links (Italian language)]
+ * [http://www.tldp.org/LDP/lkmpg/ The Linux Kernel Module Programming Guide]
+ * [http://karman.homelinux.net/blog/ Blog about Fonera] (Spanish)
+ * [http://mrmuh.blogspot.com/2007/01/codename-kolofonium-realease-date.html Blog about Hacking the 0.7.1r2 firmware]
+ * [http://blog.extreme-networking.com/ OpenWrt installation guide (Italian) and misc]
+ * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, German] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) English]: comprehensive guide to flashing la fonera with Kamikaze.
+ * [http://www.dd-wrt.com/wiki/index.php/LaFonera_Hardware_Second-Antenna LaFonera Hardware Second-Antenna] Hardware hack of how to add a second antenna (and diversity)
