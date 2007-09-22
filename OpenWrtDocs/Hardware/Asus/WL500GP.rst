@@ -231,66 +231,30 @@ uci commit wireless && wifi}}}
 
 ==== WiFi encryption ====
 ===== WEP encryption (not recommended) =====
-----
- . /!\ '''Edit conflict - other version:'''
-----
+
 ===== WPA encryption =====
-===== Broadcom WiFi =====
-----
- . /!\ '''Edit conflict - your version:'''
-----
-===== WPA encryption =====
-===== Broadcom WiFi =====
-----
- . /!\ '''End of edit conflict'''
-----
- . For Broadcom the nas package is required
+====== Broadcom WiFi ======
+For Broadcom the nas package is required
+
 {{{
 ipkg install nas}}}
-----
- . /!\ '''Edit conflict - other version:'''
-----
-===== Atheros WiFi =====
-----
- . /!\ '''Edit conflict - your version:'''
-----
-===== Atheros WiFi =====
-----
- . /!\ '''End of edit conflict'''
-----
- . For Atheros the hostapd package is required
+====== Atheros WiFi ======
+For Atheros the hostapd package is required
+
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-----
- . /!\ '''Edit conflict - other version:'''
-----
-===== Configure WPA (PSK) =====
-----
- . /!\ '''Edit conflict - your version:'''
-----
-===== Configure WPA (PSK) =====
-----
- . /!\ '''End of edit conflict'''
-----
- . Configure WPA (PSK) encryption using UCI.
+====== Configure WPA (PSK) ======
+Configure WPA (PSK) encryption using UCI.
+
 {{{
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-----
- . /!\ '''Edit conflict - other version:'''
-----
-===== Configure WPA2 (PSK) =====
-----
- . /!\ '''Edit conflict - your version:'''
-----
-===== Configure WPA2 (PSK) =====
-----
- . /!\ '''End of edit conflict'''
-----
- . Configure WPA2 (PSK) encryption using UCI.
+====== Configure WPA2 (PSK) ======
+Configure WPA2 (PSK) encryption using UCI.
+
 {{{
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
