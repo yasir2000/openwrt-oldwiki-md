@@ -1434,9 +1434,7 @@ make menuconfig
 
  * select Target System (TI AR7 [2.6])
  * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (b for germany)
-wget http://code.bastart.eu.org/projects/fritz-wrt/patches/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
-
-(the patch seems to be out of date, it works for revsion 7801 and some later)
+wget http://openwrt.loswillios.de/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
 time make world V=99
 
@@ -1452,7 +1450,7 @@ The W701V's default ip address is '192.168.178.1' - You can change the default a
 
 The login name and password for the ftp server is adam2 (lower case).
 
-Now you can flash with the firmware of your choice. I (Hydra) downloaded openwrt from the svn repos and built a stock flash image which was created by the build process as 'trunk/bin/openwrt-ar7-2.6-squashfs.bin'. The JFFS images were also created which can be also be used. The JFFS image to use would be the one with the 64k erase size, e.g. 'openwrt-ar7-2.6-jffs2-64k.bin'.
+Now you can flash with the firmware of your choice. I (Hydra) downloaded openwrt from the svn repos and built a stock flash image which was created by the build process as 'trunk/bin/openwrt-EVA-2.6-squashfs.bin'. The JFFS images were also created which can be also be used. The JFFS image to use would be the one with the 64k erase size, e.g. 'openwrt-EVA-2.6-jffs2-64k.bin'.
 
 I flashed the firmware by issue the following commands:
 
@@ -1460,7 +1458,7 @@ I flashed the firmware by issue the following commands:
 binary
 quote MEDIA FLSH
 passiv
-put openwrt-ar7-2.6-squashfs.bin mtd1
+put openwrt-EVA-2.6-squashfs.bin mtd1
 quote REBOOT
 bye
 }}}
@@ -1483,8 +1481,8 @@ ftp> quote MEDIA FLSH
 200 Media set to FLSH.
 ftp> passiv
 Passive mode on.
-ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.6-squashfs.bin mtd1
-local: /home/hydra/openwrt/svn/trunk/bin/openwrt-ar7-2.6-squashfs.bin remote: mtd1
+ftp> put /home/hydra/openwrt/svn/trunk/bin/openwrt-EVA-2.6-squashfs.bin mtd1
+local: /home/hydra/openwrt/svn/trunk/bin/openwrt-EVA-2.6-squashfs.bin remote: mtd1
 200 Port command successful.
 150 Opening BINARY mode data connection for file transfer.
 226 Transfer complete.
@@ -1520,9 +1518,9 @@ My boot log looked like this:
 {{{
 Eva_AVM >go
 AVM decompress Kernel:
-.....................done
+................done
 start kernel
-Linux version 2.6.22.1 (hydra@hydra02) (gcc version 4.1.2) #3 Tue Aug 14 14:42:01 BST 2007
+Linux version 2.6.22.4 (jan@jan) (gcc version 4.1.2) #1 Sat Sep 22 14:53:09 CEST 2007
 CPU revision is: 00018448
 Clocks: Async mode
 Clocks: Setting DSP clock
@@ -1548,14 +1546,11 @@ PID hash table entries: 128 (order: 7, 512 bytes)
 Using 105.984 MHz high precision timer.
 Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
 Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Memory: 28728k/32768k available (2077k kernel code, 4040k reserved, 427k data, 108k init, 0k highmem)
+Memory: 28784k/32768k available (2021k kernel code, 3984k reserved, 430k data, 104k init, 0k highmem)
 Mount-cache hash table entries: 512
 NET: Registered protocol family 16
 vlynq0: regs 0x08611800, irq 29, mem 0x04000000
-VLYNQ: Adjusted requested frequency 62500000 to 70656000
-VLYNQ: Setting clock to 70656000 (clock divider 3)
-vlynq0: linked
-vlynq-pci: skipping unknown device 0000:0029 at vlynq0
+vlynq-pci: attaching device TI TNETW1350 at vlynq0
 registering PCI controller with io_map_base unset
 Generic PHY: Registered new driver
 Time: MIPS clocksource has been installed.
@@ -1567,39 +1562,33 @@ TCP: Hash tables configured (established 1024 bind 1024)
 TCP reno registered
 squashfs: version 3.0 (2006/03/15) Phillip Lougher
 Registering mini_fo version $Id$
-JFFS2 version 2.2. (NAND) .. 2001-2006 Red Hat, Inc.
+JFFS2 version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
 io scheduler noop registered
 io scheduler deadline registered (default)
-ar7_wdt: failed to unlock WDT disable reg
-ar7_wdt: failed to unlock WDT prescale reg
-ar7_wdt: failed to unlock WDT change reg
 ar7_wdt: timer margin 59 seconds (prescale 65535, change 57180, freq 62500000)
 Serial: 8250/16550 driver $Revision: 1.90 $ 2 ports, IRQ sharing disabled
 serial8250: ttyS0 at MMIO 0x8610e00 (irq = 15) is a TI-AR7
 console handover: boot [early0] -> real [ttyS0]
 Fixed PHY: Registered new driver
 cpmac-mii: probed
-cpmac: device eth0 (regs: 08610000, irq: 27, phy: fixed@100:1, mac: 00:1a:4f:cb:e2:d9)
-physmap platform flash device: 00400000 at 10000000
+cpmac: device eth0 (regs: 08610000, irq: 27, phy: fixed@100:1, mac: 00:1a:4f:f4:fe:52)
+physmap platform flash device: 00800000 at 10000000
 physmap-flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
-NOR chip too large to fit in mapping. Attempting to cope...
  Amd/Fujitsu Extended Query Table at 0x0040
 physmap-flash.0: Swapping erase regions for broken CFI table.
 number of CFI chips: 1
 cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
-Reducing visibility of 8192KiB chip to 4096KiB
 cmdlinepart partition parsing not available
 RedBoot partition parsing not available
-Parsing AR7 partition map...
 4 ar7part partitions found on MTD device physmap-flash.0
 Creating 4 MTD partitions on "physmap-flash.0":
 0x00000000-0x00010000 : "loader"
-0x003f0000-0x00400000 : "config"
-0x00010000-0x003f0000 : "linux"
-0x000e0000-0x003f0000 : "rootfs"
+0x007f0000-0x00800000 : "config"
+0x00010000-0x007f0000 : "linux"
+0x000e0000-0x007f0000 : "rootfs"
 mtd: partition "rootfs" set to be root filesystem
-mtd: partition "rootfs_data" created automatically, ofs=200000, len=1F0000
-0x00200000-0x003f0000 : "rootfs_data"
+mtd: partition "rootfs_data" created automatically, ofs=210000, len=5E0000 
+0x00210000-0x007f0000 : "rootfs_data"
 Registered led device: ar7:status
 nf_conntrack version 0.5.0 (256 buckets, 2048 max)
 ip_tables: (C) 2000-2006 Netfilter Core Team
@@ -1609,49 +1598,64 @@ NET: Registered protocol family 17
 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
 All bugs added by David S. Miller <davem@redhat.com>
 VFS: Mounted root (squashfs filesystem) readonly.
-Freeing unused kernel memory: 108k freed
+Freeing unused kernel memory: 104k freed
 Warning: unable to open an initial console.
 Algorithmics/MIPS FPU Emulator v1.5
 - preinit -
-jffs2 not ready yet; using ramdisk
+switching to jffs2
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570000: 0x0001 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570004: 0xffff instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570008: 0x01ff instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0057000c: 0x01fe instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570010: 0x3740 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570014: 0x01af instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570018: 0x7541 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0057001c: 0x444d instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570024: 0x0103 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570028: 0x4d44 instead
+Further such events for this erase block will not be printed
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0000: 0x0001 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0004: 0xffff instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0008: 0x01ff instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b000c: 0x01fe instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0010: 0x3740 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0014: 0x01af instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0018: 0x7541 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b001c: 0x444d instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0024: 0x0103 instead
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0028: 0x4d44 instead
+Further such events for this erase block will not be printed
 mini_fo: using base directory: /
-mini_fo: using storage directory: /tmp/root
+mini_fo: using storage directory: /jffs
 - init -
-init started:  BusyBox v1.4.2 (2007-08-14 13:30:46 BST) multi-call binary
-Please press Enter to activate this console. ar7_wdt: failed to unlock WDT disable reg
-ar7_wdt: failed to unlock WDT kick reg
-PHY: fixed@100:1 - Link is Up - 10/Half
-NET: Registered protocol family 8
+init started:  BusyBox v1.4.2 (2007-09-22 14:10:40 CEST) multi-call binary
+Please press Enter to activate this console. NET: Registered protocol family 8
 NET: Registered protocol family 20
+PHY: fixed@100:1 - Link is Up - 10/Half
 PPP generic driver version 2.4.2
-acx: this driver is still EXPERIMENTAL
-acx: reading README file and/or Craig's HOWTO is recommended, visit http://acx100.sf.net in case of further questions/discussion
-acx: compiled to use 32bit I/O access. I/O timing issues might occur, such as non-working firmware upload. Report them
-acx: running on a little-endian CPU
-acx: PCI module v0.3.36 initialized, waiting for cards to probe...
 registered device TI Avalanche SAR
 Ohio250(7200/7100A2) detected
 requesting firmware image "ar0700xx.bin"
-Creating new root folder avalanche in the proc for the driver stats
-Texas Instruments ATM driver: version:[7.01.00.10]
-jffs2_scan_eraseblock(): End of filesystem marker found at 0x0
-jffs2_build_filesystem(): unlocking the mtd device... done.
-jffs2_build_filesystem(): erasing all blocks after the end marker... done.
-mini_fo: using base directory: /
-mini_fo: using storage directory: /jffs
-BusyBox v1.4.2 (2007-08-14 13:30:46 BST) Built-in shell (ash)
+Creating new root folder avalanche in the proc for the driver stats 
+Texas Instruments ATM driver: version:[7.02.01.00]
+
+
+
+BusyBox v1.4.2 (2007-09-22 14:10:40 CEST) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
+
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (bleeding edge, r8413) -------------------
+ KAMIKAZE (bleeding edge, r8945) -------------------
   * 10 oz Vodka       Shake well with ice and strain
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
-root@OpenWrt:/#
+root@OpenWrt:/# 
+
 }}}
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
 /etc/config/network:
