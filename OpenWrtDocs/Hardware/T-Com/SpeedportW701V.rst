@@ -1433,7 +1433,9 @@ make defconfig package/symlinks
 make menuconfig
 
  * select Target System (TI AR7 [2.6])
+ * select Network ---> ppp ---> ppp-mod-pppoa
  * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (b for germany)
+
 wget http://openwrt.loswillios.de/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
 time make world V=99
