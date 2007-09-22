@@ -604,7 +604,7 @@ and finally edit your firewall settings using vi.
 
 {{{
 iptables -A INPUT -i br-lan -j ACCEPT
-iptables -A INPUT -o br-lan -j ACCEPT
+iptables -A OUTPUT -o br-lan -j ACCEPT
 }}}
 then reboot and everthing should be working.
 
