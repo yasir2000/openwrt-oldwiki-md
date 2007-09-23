@@ -1,6 +1,5 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
-
 = Fonera =
 The Fonera FON2100A is based on an Atheros System on Chip (SoC). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting !OpenWrt to this chip: AtherosPort.
 
@@ -25,14 +24,14 @@ Another interessting issue is the possible frequency range, as specified by Athe
 
 = Hardware =
 == Info ==
-||'''Architecture''' ||MIPS ||
+||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc||
 ||'''Vendor''' || ||
 ||'''Bootloader''' ||!RedBoot ||
-||'''System-On-Chip''' ||Atheros AR531X_COBRA ||
+||'''System-On-Chip''' ||Atheros AR2315 ||
 ||'''CPU Speed''' ||183 MHz ||
 ||'''Flash size''' ||8 MiB ||
 ||'''RAM''' ||16 MiB ||
-||'''Wireless''' || ||
+||'''Wireless''' ||Integrated Atheros 802.11b/g||
 ||'''Ethernet''' ||1x RJ45 ||
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
@@ -137,7 +136,6 @@ mtd5: 0000f000 00010000 "FIS directory"
 mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
-
 == Unbricking the Fonera ==
 This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]. Some people asked me how to recover a Fonera, here are some methods:
 
@@ -465,7 +463,6 @@ The boot process is somehow signalled via the LEDs, first only the power LED is 
 
 This is the point, where I disconnected the serial cable and closed the case. If the kernel is booting and SSH working, I do not need any debug-stuff in between. It is possible to unbrick the fonera with this !RedBoot console, as I can always reflash to a working firmware.
 
-
 = Reflash the RedBoot Config from SSH... =
 In order to get the access to !RedBoot through an ethernet cable instead of the serial console.
 
@@ -585,7 +582,6 @@ Edit your wireless settings using vi.
 
 /etc/config/wireless
 
-
 {{{
 config wifi-device  wifi0
         option type      atheros
@@ -593,7 +589,6 @@ config wifi-device  wifi0
         option diversity 0
         option txantenna 1
         option rxantenna 1
-
 config wifi-iface
         option device   wifi0
         option network  lan
@@ -636,9 +631,9 @@ It is possible to add a second antenna and use diversity between them. See the "
 
 = Hardware Hacks =
 As with most routers, the Fonera has some gpio pins that extra hardware can be connected to. Here are 2 interesting hardware hacks :
+
  * [http://www.phrozen.org/fonera.html Adding a MMC card to the Fonera]
  * [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Fon/FoneraMP3 Turning the Foneras into a hardware mp3 client]
-
 = Resources =
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
