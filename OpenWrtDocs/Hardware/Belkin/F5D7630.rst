@@ -4,6 +4,8 @@ The Belkin F5D7630 is a router with integrated adsl / adsl 2+ based on the Belki
 
 This router is also sold in Europe in 2006 and 2007 under the brand Micradigital, with the revision F5D7630ec4. See http://www.micradigital.com/Product.aspx?id=216719.
 
+These devices have 2MB flash and 16MB RAM.
+
 == Similar Models ==
 The same electronic is also sold rebranded and the following models are firmware compatible.
 
