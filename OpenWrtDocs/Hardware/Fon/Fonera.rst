@@ -279,7 +279,9 @@ Default server: 192.168.5.2
 RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
-RedBoot> fi init
+RedBoot> fi init}}}
+The values for the -e and -r switches in the 'fi cr' !RedBoot command below is Kernel entry point. You do not have to change this value.
+{{{
 RedBoot> fi cr -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
 An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Erase from 0xa8730000-0xa87e0000: ...........
