@@ -24,14 +24,14 @@ Another interessting issue is the possible frequency range, as specified by Athe
 
 = Hardware =
 == Info ==
-||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc||
+||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc ||
 ||'''Vendor''' || ||
 ||'''Bootloader''' ||!RedBoot ||
 ||'''System-On-Chip''' ||Atheros AR2315 ||
 ||'''CPU Speed''' ||183 MHz ||
 ||'''Flash size''' ||8 MiB ||
 ||'''RAM''' ||16 MiB ||
-||'''Wireless''' ||Integrated Atheros 802.11b/g||
+||'''Wireless''' ||Integrated Atheros 802.11b/g ||
 ||'''Ethernet''' ||1x RJ45 ||
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
@@ -279,6 +279,7 @@ Default server: 192.168.5.2
 RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
+RedBoot> fi init
 RedBoot> fi cr -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
 An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Erase from 0xa8730000-0xa87e0000: ...........
