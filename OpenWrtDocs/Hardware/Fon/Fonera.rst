@@ -136,6 +136,9 @@ mtd5: 0000f000 00010000 "FIS directory"
 mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
+
+== Restore the original firmware ==
+
 == Unbricking the Fonera ==
 This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]. Some people asked me how to recover a Fonera, here are some methods:
 
