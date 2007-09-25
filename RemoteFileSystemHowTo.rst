@@ -36,7 +36,7 @@ The {{{\}}} separator in {{{unc=}}} is escaped ({{{\\}}}) because it is interpre
 == NFS ==
 NFS (Network File System) is a network filesystem found on nearly all *nix systems.  Use it if you have an NFS server nearby; but only if you trust the network path to be secure.
 
-You must first install the {{{kmod-nfs}}} package:
+You must first install the {{{kmod-nfs}}} package (kmod-fs-nfs for Kamikaze):
 
 {{{
 ipkg install kmod-nfs
