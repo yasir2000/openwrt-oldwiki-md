@@ -144,6 +144,18 @@ insmod sha1
 }}}
 -now you are ready to start pptpd config and use it later (see uper sections)
 
+
+As of 7.07 (or possibly earlier), the process seems to be a lot easier. Simply do the following:
+{{{
+ipkg update
+ipkg install pptpd
+ipkg install kmod-crypto
+ipkg install kmod-mppe
+/etc/init.d/pptpd enable
+/etc/init.d/pptpd start
+}}}
+Now pptpd will be running, as well as set to start on boot. Simply add a user to chap-secrets, and optionally add proxyarp to /etc/ppp/options.pptpd and you're ready to go.
+
 == Troubleshooting ==
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
 
