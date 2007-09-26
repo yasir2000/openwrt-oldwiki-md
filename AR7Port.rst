@@ -13,8 +13,8 @@ See [:OpenWrtDocs/InstallingAR7] if you are brave enough to test it.
 
 == Finished tasks ==
 
-Our Kernel support for AR7 is in SVN trunk and disabled by default.
-Here's what we have integrated so far (for Linux kernel 2.4):
+Our Kernel support for AR7 is in SVN trunk.
+Here's what we have integrated so far (for Linux kernel 2.4, no longer supported):
 
    * A kernel that boots up to the part where it tries to mount the root filesystem
    * A simple mtd flash map driver that uses the boot loader's partition map
