@@ -1,5 +1,43 @@
-== PPTPD on OpenWrt ==
+= PPTPD on OpenWrt =
 This HOWTO describes how to install and configure ''pptpd'' on !OpenWrt.
+
+= OpenWrt 7.07 =
+
+Do this:
+{{{
+ipkg update
+ipkg install pptpd
+ipkg install kmod-crypto
+ipkg install kmod-mppe
+/etc/init.d/pptpd enable
+/etc/init.d/pptpd start
+}}}
+pptpd will be running, and will be running on boot.  Add a user to ''/etc/ppp/chap-secrets'' (see below).  Optionally add ''proxyarp'' to ''/etc/ppp/options.pptpd''.  Then try to connect from a client.
+
+= OpenWrt 7.06 =
+
+If use kamikaze 7.06 for broadcom distro (brcm2.4) you will need following additional steps to get pptpd working.
+
+-Get old kmod-mppe package and copy module to current kernel modules repository
+{{{
+cd /tmp
+wget http://downloads.openwrt.org/whiterussian/0.9/packages/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
+ipkg install /tmp/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
+cp  /lib/modules/2.4.30/ppp_mppe_mppc.o /lib/modules/2.4.34/
+}}}
+
+-install mod crypto and insert required modules
+{{{
+ipkg install kmod-crypto
+insmod ppp_mppe_mppa
+insmod arc4
+insmod sha1
+}}}
+-now follow the older instructions below.
+
+= OpenWrt Generic =
+
+Instructions that are not specific to any particular version of !OpenWrt.
 
 == Install pptpd ==
 Install the ''pptpd'' package:
@@ -9,10 +47,11 @@ ipkg install pptpd}}}
 This will also install ''kmod-mppe'' and ''kmod-crypto'' packages if they are not yet installed.
 
 == Start pptpd ==
-The package installs without running ''pptpd''.  To start it this once:
+On some older versions of !OpenWrt, the package installs without running ''pptpd''.  To start it this once:
 
 {{{
 /etc/init.d/S50pptpd start}}}
+
 == Configure Tunnel Local IP Address ==
 The default IP address of the server end of the tunnel is 172.16.1.1, and is set in the file ''/etc/ppp/options.pptpd'', with a colon after it, like this:
 
@@ -124,37 +163,6 @@ into the address bar of Windows Explorer.  Network neighborhood still doesn't de
 
 ==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation) remote announce = 192.168.11.1/UR-WG-NAME and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like 192.168.11.10    mypc       mypc.behind-wrt54g.org ..
 
-== Kamikaze Update ==
-If use kamikaze 7.06 for broadcom distro (brcm2.4) you will need following additional steps to get pptpd working.
-
--Get old kmod-mppe package and copy module to current kernel modules repository
-{{{
-cd /tmp
-wget http://downloads.openwrt.org/whiterussian/0.9/packages/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
-ipkg install /tmp/kmod-mppe_2.4.30-brcm-5_mipsel.ipk
-cp  /lib/modules/2.4.30/ppp_mppe_mppc.o /lib/modules/2.4.34/
-}}}
-
--install mod crypto and insert required modules
-{{{
-ipkg install kmod-crypto
-insmod ppp_mppe_mppa
-insmod arc4
-insmod sha1
-}}}
--now you are ready to start pptpd config and use it later (see uper sections)
-
-
-As of 7.07 (or possibly earlier), the process seems to be a lot easier. Simply do the following:
-{{{
-ipkg update
-ipkg install pptpd
-ipkg install kmod-crypto
-ipkg install kmod-mppe
-/etc/init.d/pptpd enable
-/etc/init.d/pptpd start
-}}}
-Now pptpd will be running, as well as set to start on boot. Simply add a user to chap-secrets, and optionally add proxyarp to /etc/ppp/options.pptpd and you're ready to go.
 
 == Troubleshooting ==
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
