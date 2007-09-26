@@ -34,11 +34,11 @@ The latest contributions add experimental AR7 support for Linux 2.6:
    * Automatic detection of RAM size.
    * Automatic detection of PHY (Ethernet Physical Layer).
    * ADSL works, status of ADSL+ support is not clear.
-   * Ethernet works (but still needs some fixes).
+   * Ethernet works (but still needs some fixes - maybe fixed in kernel 2.6.22.4).
    * WLAN works with free ACX111 driver (no WPA/WPA2).
-   * There is also an ACX111 SoftMAC driver which should support WPA (status not clear).
+   * There is also an ACX111 SoftMAC driver which should support WPA (maybe works since 2007-09-23).
 
-The latest Linux kernel 2.6.22 is still unsupported for AR7.
+The latest Linux kernel 2.6.22.4 is now supported for AR7.
 
 == Bugs / Ugly-Hacks ==
 
