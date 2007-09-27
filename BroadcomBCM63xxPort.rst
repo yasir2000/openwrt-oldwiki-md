@@ -37,6 +37,15 @@ Known 6338 platforms*:
 ||[http://zhone.com/products/6212/ Zhone 6212-l2/-l3] ||
 
 
+---- /!\ '''Edit conflict - other version:''' ----
+||[http://zhone.com/products/6211/ Zhone 6211] ||
+||[http://zhone.com/products/6212/ Zhone 6212-l2/-l3] ||
+
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
+
 
 Known 6348 platforms*:
 ||[http://ru.asus.com/products.aspx?l1=13&l2=96&l3=0&l4=0&model=1106&modelmenu=1 ASUS AM604] ||
@@ -66,6 +75,14 @@ Known 6348 platforms*:
 ||[http://zhone.com/products/6218/ Zhone 6218] ||
 ||[http://zhone.com/products/6238/ Zhone 6238] ||
 
+---- /!\ '''Edit conflict - other version:''' ----
+||[http://zhone.com/products/6218/ Zhone 6218] ||
+||[http://zhone.com/products/6238/ Zhone 6238] ||
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
+
 
 Known 6358 platforms*:
 ||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
@@ -73,6 +90,13 @@ Known 6358 platforms*:
 ||[:OpenWrtDocs/Hardware/Neuf/NeufBoxV4:NeufBox v4] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
 ||[http://zhone.com/products/6228/ Zhone 6228]
+
+---- /!\ '''Edit conflict - other version:''' ----
+||[http://zhone.com/products/6228/ Zhone 6228]
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 
 
 * If no dedicated Openwrt page is found an external link is supplied
