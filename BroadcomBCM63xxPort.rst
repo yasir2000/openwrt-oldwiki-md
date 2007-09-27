@@ -33,6 +33,9 @@ Known 6338 platforms*:
 ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:ZTE ZXDSL 831CII] ||
 ||<style="text-align: left; vertical-align: top;">[http://www.dynalink.co.nz/modemsadsl_cur.htm?prod=RTA1320 Dynalink RTA1320] [http://www.nateks-networks.ru/content/view/44/45/ (Nateks Unispot21)] ||
 ||[:OpenWrtDocs/Hardware/Siemens/CL110:Siemens CL 110]||
+||[http://zhone.com/products/6211/ Zhone 6211] ||
+||[http://zhone.com/products/6212/ Zhone 6212-l2/-l3] ||
+
 
 
 Known 6348 platforms*:
@@ -60,6 +63,8 @@ Known 6348 platforms*:
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=511 Thomson Speedtouch ST585v6] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9107&loc=unkg US Robotics USR9107] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg US Robotics USR9108] ||
+||[http://zhone.com/products/6218/ Zhone 6218] ||
+||[http://zhone.com/products/6238/ Zhone 6238] ||
 
 
 Known 6358 platforms*:
@@ -67,6 +72,7 @@ Known 6358 platforms*:
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5:Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Neuf/NeufBoxV4:NeufBox v4] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
+||[http://zhone.com/products/6228/ Zhone 6228]
 
 
 * If no dedicated Openwrt page is found an external link is supplied
