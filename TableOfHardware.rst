@@ -184,6 +184,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == Conceptronic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||CADSLR4+ || ||Texas Instruments AR7 TNETD7200 ||2 MB ||8 MB || ||Marvell 88E6060 || ||Yes || ||No ||Unsupported ||
+||C54BRS4A || ||Atheros AR2317 ||2 MB ||16 MB || ||IP175C || || || || ||Unsupported ||
 == Corinex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Home Plug''' ||'''Status''' ||
 ||[http://www.corinex.com/web/docx.nsf/w/eng-corinex_wireless_to_powerline_router_g CXP-RTG] || || ||2MB ||16MB || || || || || ||No ||v1.0 ||Info Entered ||
