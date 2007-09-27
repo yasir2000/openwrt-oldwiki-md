@@ -407,6 +407,8 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == PC Engines ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.pcengines.ch/wrap.htm WRAP.2d] || ||x86 233mhz or 266mhz ||CF Card ||64MB || || || ||Yes ||No ||No ||[:SoekrisPort:Kamikaze] ||
+||[http://www.pcengines.ch/alix.htm ALIX.2/3] || ||x86 433mhz or 500mhz (AMD Geode LX700/800) ||CF Card ||128MB or 256MB || None, 1 or 2 Mini-PCI slots ||  || ||Yes ||No || Optional || Info entered ||
+
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||on ||No UART ||No ||No ||Supported ||
