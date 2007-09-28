@@ -1641,7 +1641,7 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#
 }}}
-=== Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
+=== Getting the ADSL Working via PPPoA ===
 /etc/config/network:
 
 {{{
@@ -1668,6 +1668,43 @@ config interface wan
         option encaps   llc
 }}}
 ifup wan
+
+=== Getting the ADSL Working via PPPoE (example for german Arcor) ===
+/etc/config/network:
+
+{{{
+# Network configuration file
+config interface loopback
+        option ifname   lo
+        option proto    static
+        option ipaddr   127.0.0.1
+        option netmask  255.0.0.0
+config interface lan
+        option ifname   eth0
+        option proto    static
+        option ipaddr   192.168.1.1
+        option netmask  255.255.255.0
+
+config atm-bridge
+        option unit     0
+        option encaps   llc
+        option vpi      1
+        option vci      32
+ 
+ config interface wan
+        option ifname   nas0
+        option proto    pppoe
+        option username "arxxx"
+        option password "xxx"
+}}}
+ifup wan
+
+28.09.2007: currently you have to create nas0 manually because openwrt can't handle it: br2684ctl -c 0 -a 1.32 -e 0
+
+This issue is filed as https://dev.openwrt.org/ticket/2439
+
+If your provider doesn't work, try experimenting with vpi/vci. 1.32, 8.35 and 1.35 (VPI.VCI) are quite common.
+
 
 === Firmware images and configs ===
 == References ==
