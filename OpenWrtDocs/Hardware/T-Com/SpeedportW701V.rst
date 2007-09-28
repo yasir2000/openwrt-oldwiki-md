@@ -1520,9 +1520,9 @@ My boot log looked like this:
 {{{
 Eva_AVM >go
 AVM decompress Kernel:
-................done
+...................done
 start kernel
-Linux version 2.6.22.4 (jan@jan) (gcc version 4.1.2) #1 Sat Sep 22 14:53:09 CEST 2007
+Linux version 2.6.22.4 (jan@jan) (gcc version 4.1.2) #1 Fri Sep 28 11:47:45 CEST 2007
 CPU revision is: 00018448
 Clocks: Async mode
 Clocks: Setting DSP clock
@@ -1548,7 +1548,7 @@ PID hash table entries: 128 (order: 7, 512 bytes)
 Using 105.984 MHz high precision timer.
 Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
 Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Memory: 28784k/32768k available (2021k kernel code, 3984k reserved, 430k data, 104k init, 0k highmem)
+Memory: 28816k/32768k available (1996k kernel code, 3952k reserved, 424k data, 104k init, 0k highmem)
 Mount-cache hash table entries: 512
 NET: Registered protocol family 16
 vlynq0: regs 0x08611800, irq 29, mem 0x04000000
@@ -1589,8 +1589,8 @@ Creating 4 MTD partitions on "physmap-flash.0":
 0x00010000-0x007f0000 : "linux"
 0x000e0000-0x007f0000 : "rootfs"
 mtd: partition "rootfs" set to be root filesystem
-mtd: partition "rootfs_data" created automatically, ofs=210000, len=5E0000 
-0x00210000-0x007f0000 : "rootfs_data"
+mtd: partition "rootfs_data" created automatically, ofs=1E0000, len=610000 
+0x001e0000-0x007f0000 : "rootfs_data"
 Registered led device: ar7:status
 nf_conntrack version 0.5.0 (256 buckets, 2048 max)
 ip_tables: (C) 2000-2006 Netfilter Core Team
@@ -1604,33 +1604,11 @@ Freeing unused kernel memory: 104k freed
 Warning: unable to open an initial console.
 Algorithmics/MIPS FPU Emulator v1.5
 - preinit -
-switching to jffs2
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570000: 0x0001 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570004: 0xffff instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570008: 0x01ff instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0057000c: 0x01fe instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570010: 0x3740 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570014: 0x01af instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570018: 0x7541 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0057001c: 0x444d instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570024: 0x0103 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00570028: 0x4d44 instead
-Further such events for this erase block will not be printed
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0000: 0x0001 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0004: 0xffff instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0008: 0x01ff instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b000c: 0x01fe instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0010: 0x3740 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0014: 0x01af instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0018: 0x7541 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b001c: 0x444d instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0024: 0x0103 instead
-jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x005b0028: 0x4d44 instead
-Further such events for this erase block will not be printed
+jffs2 not ready yet; using ramdisk
 mini_fo: using base directory: /
-mini_fo: using storage directory: /jffs
+mini_fo: using storage directory: /tmp/root
 - init -
-init started:  BusyBox v1.4.2 (2007-09-22 14:10:40 CEST) multi-call binary
+init started:  BusyBox v1.4.2 (2007-09-28 11:39:05 CEST) multi-call binary
 Please press Enter to activate this console. NET: Registered protocol family 8
 NET: Registered protocol family 20
 PHY: fixed@100:1 - Link is Up - 10/Half
@@ -1638,12 +1616,17 @@ PPP generic driver version 2.4.2
 registered device TI Avalanche SAR
 Ohio250(7200/7100A2) detected
 requesting firmware image "ar0700xx.bin"
-Creating new root folder avalanche in the proc for the driver stats 
+Creating new root folder avalanche in the proc for the driver stats
 Texas Instruments ATM driver: version:[7.02.01.00]
+jffs2_scan_eraseblock(): End of filesystem marker found at 0x0
+jffs2_build_filesystem(): unlocking the mtd device... done.
+jffs2_build_filesystem(): erasing all blocks after the end marker... done.
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
 
 
 
-BusyBox v1.4.2 (2007-09-22 14:10:40 CEST) Built-in shell (ash)
+BusyBox v1.4.2 (2007-09-28 11:39:05 CEST) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
 
   _______                     ________        __
@@ -1651,13 +1634,12 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (bleeding edge, r8945) -------------------
+ KAMIKAZE (bleeding edge, r9053) -------------------
   * 10 oz Vodka       Shake well with ice and strain
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
-root@OpenWrt:/# 
-
+root@OpenWrt:/#
 }}}
 === Getting the ADSL Working via PPPoA (using the Kamikaze init scripts) ===
 /etc/config/network:
