@@ -1,4 +1,8 @@
 == US Robotics 5461 ==
+
+= Kamikaze runs =
+Kamikaze rev. 9045 runs without problems.
+
 = Hardware =
  * Macronix 29LV160CBTC-70G = 2 MB FLASH
  * ISSI IS4232200C1-6T RKKK66400D 0545 = 8MB RAM
@@ -365,7 +369,7 @@ Block devices:
 #
 }}}
 = Firmware upload =
-The firmware upgrade page of the original U.S.Robotics software requires a special USR firmware format, which is a TRX file with an additional 28-byte header. Look[https://dev.openwrt.org/ticket/817 here]for a convertor tool. Probably the easiest way to upload a new firmware image is via the TFTP server of the CFE bootloader. There is a small window of 2-3 seconds right after reset where CFE checks for a TFTP transfer, provided'' boot_wait ''is enabled.
+The firmware upgrade page of the original U.S.Robotics software requires a special USR firmware format, which is a TRX file with an additional 28-byte header. Look[https://dev.openwrt.org/ticket/817 here]for a convertor tool. Probably the easiest way to upload a new firmware image is via the TFTP server of the CFE bootloader. There is a small window of 2-3 seconds right after reset where CFE checks for a TFTP transfer, provided'' boot_wait ''is enabled. Note that flashing doesn't work via the WAN port, only through LAN.
 
 = Serial =
 {{{
