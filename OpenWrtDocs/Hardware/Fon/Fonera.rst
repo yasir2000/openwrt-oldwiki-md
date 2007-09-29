@@ -653,7 +653,7 @@ RedBoot> fis init
 }}}
 = Basic configuration =
 == Use LAN as WAN port (with NAT) ==
-1. Connect to the LAN port on the Fonera and configure wireless
+1. Connect to the LAN port on the Fonera and [#enablewifi configure wireless]
 
 2. Connect wirelessly to the Fonera to make sure wireless works
 
@@ -709,6 +709,7 @@ Start QoS and enable on next boot
 == Dynamic DNS ==
 Please see [:DDNSHowTo:Dynamic DNS].
 
+[[Anchor(enablewifi)]] [[Anchor(EnableWiFi)]]
 == WiFi ==
 This describes the !WiFi configuration with the Fonera acting in plain AP mode.
 
