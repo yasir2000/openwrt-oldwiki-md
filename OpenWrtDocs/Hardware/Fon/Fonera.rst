@@ -136,9 +136,7 @@ mtd5: 0000f000 00010000 "FIS directory"
 mtd6: 00001000 00010000 "RedBoot config"
 mtd7: 00010000 00010000 "board_config"
 }}}
-
 == Restore the original firmware ==
-
 == Unbricking the Fonera ==
 This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]. Some people asked me how to recover a Fonera, here are some methods:
 
@@ -308,14 +306,14 @@ ibase=16
 A87E0000 - A80F0000
 6F0000
 }}}
-Replace ''0xCHANGEME'' with the value above (0x006F0000 in my case) and flash the the rootfs:
+Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs:
 
 {{{
 RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
 Using default protocol (TFTP)
 |
 Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
-RedBoot> fi cr -l 0xCHANGEME rootfs
+RedBoot> fi cr -l 0xLENGTH rootfs
 An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa8030000-0xa8730000: ................................................................................................................
 ... Program from 0x80041000-0x80741000 at 0xa8030000: ..............................................................................................................
