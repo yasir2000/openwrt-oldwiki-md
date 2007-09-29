@@ -598,6 +598,8 @@ uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
 === WiFi encryption ===
+To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packages for !OpenWrt Kamikaze.
+
 ==== WEP encryption (not recommended) ====
 Some notes for the WEP key format:
 
