@@ -678,7 +678,7 @@ Reread the configuration and reconfigure the network interfaces
 {{{
 ifup -a && wifi
 /etc/init.d/firewall restart}}}
-'''TIP:''' Now you can also configure PPPoE. See below.
+'''TIP:''' Now you can also configure PPPoE and QoS. See below.
 
 == PPPoE ==
 All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
