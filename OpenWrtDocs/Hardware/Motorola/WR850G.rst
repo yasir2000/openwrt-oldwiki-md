@@ -1,5 +1,10 @@
 = Motorola WR850G =
 [[TableOfContents]]
+= OpenWRT versions =
+
+The WR850G is supported by White Russian and Kamikaze versions of OpenWRT.
+
+The Broadcom wireless is not (yet?) supported by an open source driver.  The proprietary driver is only available for Linux kernel 2.4.  If you need to use wireless, you need to use a version of OpenWRT based on the 2.4 kernel, not the main version of Kamikaze which is based on the 2.6 kernel.
 
 = Hardware versions =
 The WR850G has three different versions (v1, v2, v3).
