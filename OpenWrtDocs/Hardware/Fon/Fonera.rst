@@ -651,6 +651,10 @@ uci commit wireless && wifi}}}
 
  [[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
 
+=== List connected clients ===
+{{{
+wlanconfig ath0 list}}}
+
 = Correcting antenna settings under Kamikaze =
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
 
