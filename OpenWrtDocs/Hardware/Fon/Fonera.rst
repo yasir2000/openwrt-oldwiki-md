@@ -598,7 +598,7 @@ uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
 === WiFi encryption ===
-To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. E.g.: "pwgen 5 1" or "echo -n "$(pwgen 13 1)" | hexdump -e '13/1 "%02x" "\n"' | cut -d ':' -f 1-13
+To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. E.g. pwgen 13 1
 
 ==== WEP encryption (not recommended) ====
 Some notes for the WEP key format:
@@ -610,13 +610,13 @@ Some notes for the WEP key format:
 Generate a 64bit WEP key:
 
 {{{
-echo -n "awerf" | hexdump -e '5/1 "%02x" "\n"' | cut -d ':' -f 1-5
+echo -n 'awerf' | hexdump -e '5/1 "%02x" "\n"' | cut -d ':' -f 1-5
 6177657266
 }}}
 Generate a128bit WEP key:
 
 {{{
-echo -n "xdhdkkewioddd" | hexdump -e '13/1 "%02x" "\n"' | cut -d ':' -f 1-13
+echo -n 'xdhdkkewioddd' | hexdump -e '13/1 "%02x" "\n"' | cut -d ':' -f 1-13
 786468646b6b6577696f646464}}}
 The above commands generate a 64bit and a 128bit WEP key in hex format.
 
