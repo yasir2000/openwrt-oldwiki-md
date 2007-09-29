@@ -598,7 +598,7 @@ uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
 === WiFi encryption ===
-To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packages for !OpenWrt Kamikaze.
+To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze.
 
 ==== WEP encryption (not recommended) ====
 Some notes for the WEP key format:
@@ -651,12 +651,11 @@ uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 '''Note: '''For the key only letters (upper and lower case) and numbers are allowed. The length must be between 8 and 63 characters.
 
- [[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
-
+ . [[Anchor(WiFi toggle)]]
+  [[Anchor(wifitoggle)]]
 === List connected clients ===
 {{{
 wlanconfig ath0 list}}}
-
 = Correcting antenna settings under Kamikaze =
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
 
