@@ -673,12 +673,14 @@ Save your changes
 
 {{{
 uci commit network}}}
-Reread the configuration and reconfigure the network interfaces ifup -a && wifi
+Reread the configuration and reconfigure the network interfaces
 
+{{{
+ifup -a && wifi}}}
 '''TIP:''' Now you can also configure PPPoE. See below.
 
 == PPPoE ==
-With Kamikaze 7.07 PPPoE works out-of-the-box. All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
+All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
 
 {{{
 uci set network.wan.proto=pppoe
