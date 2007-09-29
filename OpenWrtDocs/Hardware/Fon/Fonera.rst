@@ -138,58 +138,6 @@ mtd7: 00010000 00010000 "board_config"
 }}}
 == Restore the original firmware ==
 == Unbricking the Fonera ==
-This is taken from [http://fon.freddy.eu.org/fonera/howto-factory-reset.txt here]. Some people asked me how to recover a Fonera, here are some methods:
-
-=== Method 1 - Button Reset ===
-Press the reset button for > 15 seconds This requires a working Fonera, and it should be on for a while.
-
-=== Method 2 - Erase ===
-Run "rm -R /jffs/*" and pull the plug. It should result in a reseted Fonera.
-
-=== Method 3 - MTD Trick ===
-If everything fails and you killed your shell on the serial console: As soon as you see "Please press Enter to activate this console." press Enter Now you have to hurry up! Paste "cat /proc/mtd" and press Enter (even if you don't see your pasted line) You should see this list:
-
-{{{
-dev:    size   erasesize  name
-mtd0: 00030000 00010000 "RedBoot"
-mtd1: 006f0000 00010000 "rootfs"
-mtd2: 00560000 00010000 "rootfs1"
-mtd3: 00010000 00010000 "config"
-mtd4: 000b0000 00010000 "vmlinux.bin.l7"
-mtd5: 0000f000 00010000 "FIS directory"
-mtd6: 00001000 00010000 "RedBoot config"
-mtd7: 00010000 00010000 "board_config" }}}
-Search for the "rootfs1" line and take the number of the beginning of the line (mtdX) Now you have to reboot again Press Enter again but now paste this line:
-
-{{{
-echo -ne '\xde\xad\xc0\xde' > "/dev/mtdblock/2"
-}}}
-Make sure you're using "/dev/mtdblock/X" (the mtdX number) Now reset it again and you should receive this message: Please press Enter to activate this console. jffs2_scan_eraseblock(): End of file system marker found at 0x0 jffs2_build_filesystem(): unlocking the mtd device... done. jffs2_build_filesystem(): erasing all blocks after the end marker... This takes some time but you should have a fresh Fonera again. This Method will work only if the enter message will show up. If not the endmarker can be written directly in the !RedBoot Environment.
-
-{{{
-mfill -b 0x80041000 -l 4 -p 0xdeadc0de -4
-fis write -b 0x80041000 -f 0xa81b0000 -l 0x00000004
-}}}
-0xa81b0000 is the start of mtd2 (0xA8030000 + 0x00180000 kernel size)
-
-=== Method 4 - TFTP/HTTP/Xmodem Recover ===
-A way to recover it with Xmodem, a TFTP or HTTP server and !RedBoot is http://www.easy2design.de/bla/?page_id=98.
-
-=== Method 5 - Custumer Care ===
- 1. Double click the Local Area Connection icon to show the connection's Status dialog box.
- 1. Double click Internet Protocol (TCP/IP)
- 1. Click Start>Connect to>Show all connections,
- 1. Click the Use the following IP address option button and type:
-  a. IP address: 169.254.255.2
-  a. Subnet mask: 255.255.255.0
-  a. Default gateway: (leave blank)
-  a. Preferred DNS server: (leave blank)
-  a. Alternate DNS server: (leave blank)
- 1. Open your browser and type any URL (http://169.254.255.1).
- 1. You will be asked for the Username and Password. The default values are Username=admin, Password=admin.
- 1. Configure La Fonera
- 1. Turn La Fonera off and connect it to your router so you can continue working normally.
- 1. Remember to change again the values of your Local Area Network.
 === Updating / Unbricking via RedBoot ===
 '''NOTE''': Word on IRC is that the instructions down in the "Flashing !OpenWrt" section are the ones you should use. Specifying all those parameters to "fis create" is said to be no good idea. Yet, I will leave this section until further confirmation. - Fatus
 
@@ -779,8 +727,6 @@ uci commit wireless && wifi}}}
 === List connected clients ===
 {{{
 wlanconfig ath0 list}}}
-
-
 = Hardware Hacks =
 As with most routers, the Fonera has some gpio pins that extra hardware can be connected to. Here are 2 interesting hardware hacks :
 
