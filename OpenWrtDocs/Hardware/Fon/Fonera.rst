@@ -328,28 +328,122 @@ If everything is okay, then it will now look like this:
 ...
 == Executing boot script in 1.000 seconds - enter ^C to abort
 RedBoot> fis load -l vmlinux.bin.l7
-Image loaded from 0x80041000-0x8028e086
+Image loaded from 0x80041000-0x80290085
 RedBoot> exec
 Now booting linux kernel:
  Base address 0x80030000 Entry 0x80041000
  Cmdline :
-Linux version 2.6.19.1 (nobody@dummy) (gcc version 3.4.6 (OpenWrt-2.0)) #1 Mon Dec 25 15:45:45 CET 2006
+Linux version 2.6.21.5 (ubuntu@ubuntu-laptop) (gcc version 4.1.2) #1 Sat Sep 29 11:04:17 CEST 2007
 CPU revision is: 00019064
 Determined physical RAM map:
  memory: 01000000 @ 00000000 (usable)
 Initrd not found or empty - disabling initrd
 Built 1 zonelists.  Total pages: 4064
-Kernel command line: console=ttyS0,9600 rootfstype=squashfs,jffs2
-...
-Please press Enter to activate this console.
-BusyBox v1.2.1 (2006.12.25-14:36+0000) Built-in shell (ash)
+Kernel command line: console=ttyS0,9600 rootfstype=squashfs,jffs2 init=/etc/preinit
+Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
+Primary data cache 16kB, 4-way, linesize 16 bytes.
+Synthesized TLB refill handler (20 instructions).
+Synthesized TLB load handler fastpath (32 instructions).
+Synthesized TLB store handler fastpath (32 instructions).
+Synthesized TLB modify handler fastpath (31 instructions).
+PID hash table entries: 64 (order: 6, 256 bytes)
+Using 92.000 MHz high precision timer.
+Dentry cache hash table entries: 2048 (order: 1, 8192 bytes)
+Inode-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Memory: 13504k/16384k available (1955k kernel code, 2880k reserved, 292k data, 116k init, 0k highmem)
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+Radio config found at offset 0xf8(0x1f8)
+Time: MIPS clocksource has been installed.
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 512 (order: 0, 4096 bytes)
+TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+TCP: Hash tables configured (established 512 bind 512)
+TCP reno registered
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+Registering mini_fo version $Id$
+JFFS2 version 2.2. (NAND) (C) 2001-2006 Red Hat, Inc.
+io scheduler noop registered
+io scheduler deadline registered (default)
+Serial: 8250/16550 driver $Revision: 1.90 $ 1 ports, IRQ sharing disabled
+serial8250: ttyS0 at MMIO 0xb1100003 (irq = 37) is a 16550A
+eth0: Dropping NETIF_F_SG since no checksum feature.
+eth0: Atheros AR231x: 00:18:84:14:39:94, irq 4
+cmdlinepart partition parsing not available
+Searching for RedBoot partition table in spiflash at offset 0x7d0000
+Searching for RedBoot partition table in spiflash at offset 0x7e0000
+5 RedBoot partitions found on MTD device spiflash
+Creating 5 MTD partitions on "spiflash":
+0x00000000-0x00030000 : "RedBoot"
+0x00030000-0x000f0000 : "vmlinux.bin.l7"
+0x000f0000-0x007e0000 : "rootfs"
+0x00200000-0x007e0000 : "rootfs_data"
+0x007e0000-0x007ef000 : "FIS directory"
+0x007ef000-0x007f0000 : "RedBoot config"
+nf_conntrack version 0.5.0 (128 buckets, 1024 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP vegas registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing unused kernel memory: 116k freed
+Warning: unable to open an initial console.
+eth0: Configuring MAC for full duplex
+Algorithmics/MIPS FPU Emulator v1.5
+- preinit -
+jffs2 not ready yet; using ramdisk
+mini_fo: using base directory: /
+mini_fo: using storage directory: /tmp/root
+- init -
+init started:  BusyBox v1.4.2 (2007-09-26 19:44:01 CEST) multi-call binary
+Please press Enter to activate this console. device eth0 entered promiscuous mode
+br-lan: port 1(eth0) entering learning state
+br-lan: topology change detected, propagating
+br-lan: port 1(eth0) entering forwarding state
+PPP generic driver version 2.4.2
+wlan: 0.8.4.2 (svn r2568)
+ath_hal: module license 'Proprietary' taints kernel.
+ath_hal: 0.9.30.13 (AR5212, AR5312, RF2316, TX_DESC_SWAP)
+ath_rate_minstrel: Minstrel automatic rate control algorithm 1.2 (svn r2568)
+ath_rate_minstrel: look around rate set to 10%
+ath_rate_minstrel: EWMA rolloff level set to 75%
+ath_rate_minstrel: max segment size in the mrr set to 6000 us
+wlan: mac acl policy registered
+ath_ahb: 0.9.4.5 (svn r2568)
+ath_pci: switching rfkill capability off
+ath_pci: switching per-packet transmit power control off
+wifi0: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
+wifi0: 11g rates: 1Mbps 2Mbps 5.5Mbps 11Mbps 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+wifi0: H/W encryption support: WEP AES AES_CCM TKIP
+wifi0: mac 11.0 phy 4.8 radio 7.0
+wifi0: Use hw queue 1 for WME_AC_BE traffic
+wifi0: Use hw queue 0 for WME_AC_BK traffic
+wifi0: Use hw queue 2 for WME_AC_VI traffic
+wifi0: Use hw queue 3 for WME_AC_VO traffic
+wifi0: Use hw queue 8 for CAB traffic
+wifi0: Use hw queue 9 for beacons
+wifi0: Atheros 2315 WiSoC: mem=0xb0000000, irq=3
+jffs2_scan_eraseblock(): End of filesystem marker found at 0x0
+jffs2_build_filesystem(): unlocking the mtd device... done.
+jffs2_build_filesystem(): erasing all blocks after the end marker... done.
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+BusyBox v1.4.2 (2007-09-26 19:44:01 CEST) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (bleeding edge, r5899) -------------------
+ KAMIKAZE (7.09) -----------------------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
 }}}
 '''NOTE''': If you changed !RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- !OpenWrt logs to its serial console with 9600bps, so having the same baud rate in !RedBoot is a good idea.
 
