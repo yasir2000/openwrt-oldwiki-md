@@ -582,7 +582,6 @@ uci commit qos}}}
 Start QoS and enable on next boot
 
 {{{
-/etc/init.d/qos boot
 /etc/init.d/qos start
 /etc/init.d/qos enable
 }}}
@@ -600,7 +599,31 @@ uci commit wireless && wifi}}}
 
 === WiFi encryption ===
 ==== WEP encryption (not recommended) ====
+Some notes for the WEP key format:
 
+ * The format for the WEP key for the key1 option is HEX
+ * The length of a 64bit WEP key must be exact 5 characters
+ * The length of a 128bit WEP key must be exact 13 characters
+ * Allowed characters are letters (upper and lower case) and numbers
+Generate a 64bit WEP key:
+
+{{{
+echo -n 'awerf' | hexdump -e '5/1 "%02x" "\n"' | cut -d ':' -f 1-5
+6177657266
+}}}
+Generate a128bit WEP key:
+
+{{{
+echo -n 'xdhdkkewioddd' | hexdump -e '13/1 "%02x" "\n"' | cut -d ':' -f 1-13
+786468646b6b6577696f646464}}}
+The above commands generate a 64bit and a 128bit WEP key in hex format.
+
+Now use UCI to configure WEP encryption with the hex key you just generated.
+
+{{{
+uci set wireless.cfg2.encryption=wep
+uci set wireless.cfg2.key1=<WEP_key_in_hex_format>
+uci commit wireless && wifi}}}
 ==== WPA encryption ====
 Install the hostapd package.
 
