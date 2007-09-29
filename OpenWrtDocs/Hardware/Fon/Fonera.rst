@@ -676,7 +676,8 @@ uci commit network}}}
 Reread the configuration and reconfigure the network interfaces
 
 {{{
-ifup -a && wifi}}}
+ifup -a && wifi
+/etc/init.d/firewall restart}}}
 '''TIP:''' Now you can also configure PPPoE. See below.
 
 == PPPoE ==
