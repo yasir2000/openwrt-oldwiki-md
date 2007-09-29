@@ -652,7 +652,31 @@ $ telnet 192.168.1.254 9000
 RedBoot> fis init
 }}}
 = Basic configuration =
-== Use LAN as WAN port ==
+== Use LAN as WAN port (with NAT) ==
+1. Connect to the LAN port on the Fonera and configure wireless
+
+2. Connect wirelessly to the Fonera to make sure wireless works
+
+3. Reconfigure the LAN as WAN port (before you continue make sure wireless works!)
+
+Remove the LAN port from the bridge
+
+{{{
+uci del network.lan.ifname}}}
+Add a new section for the WAN interface, the WAN interface is eth0 and the WAN protocol is DHCP.
+
+{{{
+uci set network.wan=interface
+uci set network.wan.ifname=eth0
+uci set network.wan.proto=dhcp}}}
+Save your changes
+
+{{{
+uci commit network}}}
+Reread the configuration and reconfigure the network interfaces ifup -a && wifi
+
+'''TIP:''' Now you can also configure PPPoE. See below.
+
 == PPPoE ==
 With Kamikaze 7.07 PPPoE works out-of-the-box. All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
 
