@@ -1,6 +1,6 @@
 #pragma section-numbers off
 [[TableOfContents]]
-= Actiontec GT701-WG =
+= Actiontec GT704-WG =
 The [http://www.actiontec.com Actiontec] GT704-WG
 is a TI AR7-based device. Thus ["AR7Port"] is compatible with these devices.
 
