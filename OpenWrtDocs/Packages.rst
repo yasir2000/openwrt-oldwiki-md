@@ -102,6 +102,16 @@ Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about t
 
 Keep in mind that this information was found using trial-and-error-methods, so it might still be faulty or have unwanted side effects.
 
+=== SEMS ===
+
+The SIP Express Media Server is a free, high performance, extensible media server for SIP based VoIP services.
+
+You can register your router to a SIP registrar (e.g. some service), have it send voicemail, host conferences, play announcements,
+do auto-attendant etc.
+
+A short [http://svn.berlios.de/wsvn/sems/openwrt/Readme.openWRT?op=file&rev=0&sc=0 Readme] is available, and packages can be found 
+here [http://ftp.iptel.org/pub/sems/openwrt/]. 
+
 == Other ==
 Some third-party can be searched for via http://www.ipkg.be/.
 
