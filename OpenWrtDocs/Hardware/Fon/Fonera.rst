@@ -213,7 +213,8 @@ vmlinux.bin.l7    0xA8730000  0x80041000  0x000B0000  0x80041000
 FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
-= Flashing OpenWrt =
+
+= Installing OpenWrt using serial console =
 You have to download two files (right click and save as).
 
  * [http://downloads.openwrt.org/kamikaze/7.07/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
