@@ -710,6 +710,7 @@ Start QoS and enable on next boot
 Please see [:DDNSHowTo:Dynamic DNS].
 
 [[Anchor(enablewifi)]] [[Anchor(EnableWiFi)]]
+
 == WiFi ==
 This describes the !WiFi configuration with the Fonera acting in plain AP mode.
 
@@ -778,26 +779,7 @@ uci commit wireless && wifi}}}
 === List connected clients ===
 {{{
 wlanconfig ath0 list}}}
-= Correcting antenna settings under Kamikaze =
-According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
 
-To change that put the following in the "wifi-device" section of /etc/
-
-To change that put the following in the "wifi-device" section of /etc/config/wireless (see the example above):
-
-{{{
-option diversity 0
-option txantenna 1
-option rxantenna 1
-}}}
-If you are using the Fonera to create a link over long distances, the distance setting might help too:
-
-{{{
-option distance <distance>
-}}}
-Where <distance> is the distance between the ap and the furthest client in meters
-
-It is possible to add a second antenna and use diversity between them. See the "Resources" section below.
 
 = Hardware Hacks =
 As with most routers, the Fonera has some gpio pins that extra hardware can be connected to. Here are 2 interesting hardware hacks :
