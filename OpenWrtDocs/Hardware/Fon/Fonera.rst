@@ -557,61 +557,72 @@ root@OpenWrt:~# reboot
 $ telnet 192.168.1.254 9000
 RedBoot> fis init
 }}}
-= Basic WPA config =
-It is a bit harder to find the documentation for Kamikaze, as the config system changed. So here is a list of config entries to use the fonera as a WPA (PSK) accesspoint-bridge. You can take it with your laptop and use it as a mobile AP whereever you find a RJ45 plug.
-
-Now update your application list and install 'hostapd' and 'wpa-supplicant'.
-
-{{{
-root@OpenWrt:~ ipkg update
-root@OpenWrt:~ ipkg install hostapd
-}}}
-Edit your network settings using vi.
-
-/etc/config/network
+= Basic configuration =
+== Use LAN as WAN port ==
+== PPPoE ==
+With Kamikaze 7.07 PPPoE works out-of-the-box. All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
 
 {{{
-# Copyright (C) 2006 OpenWrt.org
-config interface loopback
-        option ifname   lo
-        option proto    static
-        option ipaddr   127.0.0.1
-        option netmask  255.0.0.0
-config interface lan
-        option type     bridge
-        option ifname   eth0
-        option proto    dhcp
-        option hostname Freefonera
-}}}
-Edit your wireless settings using vi.
-
-/etc/config/wireless
+uci set network.wan.proto=pppoe
+uci set network.wan.username=<pppoe_psername>
+uci set network.wan.password=<pppoe_password>
+uci commit network && ifup wan}}}
+== QoS ==
+Install the qos-scripts package
 
 {{{
-config wifi-device  wifi0
-        option type      atheros
-        option channel   5
-        option diversity 0
-        option txantenna 1
-        option rxantenna 1
-config wifi-iface
-        option device   wifi0
-        option network  lan
-        option mode     ap
-        option ssid     Fonerafree
-        option hidden   0
-        option encryption psk2
-        option key <Your secret password>
+ipkg install qos-scripts
 }}}
-and finally edit your firewall settings using vi.
-
-/etc/config/firewall
+Basic QoS configuration using UCI:
 
 {{{
-iptables -A INPUT -i br-lan -j ACCEPT
-iptables -A OUTPUT -o br-lan -j ACCEPT
+uci set qos.wan.upload=192            # Upload speed in KB
+uci set qos.wan.download=2048         # Download speed in KB
+uci commit qos}}}
+Start QoS and enable on next boot
+
+{{{
+/etc/init.d/qos boot
+/etc/init.d/qos start
+/etc/init.d/qos enable
 }}}
-then reboot and everthing should be working. The KamikazeConfiguration page has a reference of all the wireless/network config options
+== Dynamic DNS ==
+Please see [:DDNSHowTo:Dynamic DNS].
+
+== WiFi ==
+This describes the !WiFi configuration with the Fonera acting in plain AP mode.
+
+=== Enable WiFi ===
+{{{
+uci set wireless.wifi0.disabled=0
+uci commit wireless && wifi}}}
+[[Anchor(wpa)]] [[Anchor(WPA)]]
+
+=== WiFi encryption ===
+==== WEP encryption (not recommended) ====
+
+==== WPA encryption ====
+Install the hostapd package.
+
+{{{
+ipkg install hostapd}}}
+'''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
+
+===== Configure WPA (PSK) =====
+Configure WPA (PSK) encryption using UCI.
+
+{{{
+uci set wireless.cfg2.encryption=psk
+uci set wireless.cfg2.key=<password>
+uci commit wireless && wifi}}}
+===== Configure WPA2 (PSK) =====
+Configure WPA2 (PSK) encryption using UCI.
+
+{{{
+uci set wireless.cfg2.encryption=psk2
+uci set wireless.cfg2.key=<password>
+uci commit wireless && wifi}}}
+[[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
 
 = Correcting antenna settings under Kamikaze =
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
