@@ -638,6 +638,8 @@ Configure WPA (PSK) encryption using UCI.
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
+'''Note: '''For the key only letters (upper and lower case) and numbers are allowed. The length must be between 8 and 63 characters.
+
 ===== Configure WPA2 (PSK) =====
 Configure WPA2 (PSK) encryption using UCI.
 
@@ -645,7 +647,9 @@ Configure WPA2 (PSK) encryption using UCI.
 uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-[[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
+'''Note: '''For the key only letters (upper and lower case) and numbers are allowed. The length must be between 8 and 63 characters.
+
+ [[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
 
 = Correcting antenna settings under Kamikaze =
 According to [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR this german Wiki entry] by default Kamikaze utilizes antenna diversity on the Fonera. It also uses the wrong antenna :(
