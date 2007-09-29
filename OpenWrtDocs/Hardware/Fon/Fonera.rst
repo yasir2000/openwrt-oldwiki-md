@@ -274,17 +274,17 @@ Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /
 
 {{{
 ^C
-RedBoot> ip_address -l 192.168.5.75/24 -h 192.168.5.2
+RedBoot> ip_address -h 192.168.5.2 -l 192.168.5.75/24
 IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
 Default server: 192.168.5.2
-RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
-RedBoot> fi init}}}
-The values for the -e and -r switches in the 'fi cr' !RedBoot command below is the Kernel entry point. Do not change this value.
+RedBoot> fis init}}}
+The values for the -e and -r switches in the 'fis create' !RedBoot command below is the Kernel entry point. Do not change this value.
 
 {{{
-RedBoot> fi cr -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
+RedBoot> fis create -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
 An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 ... Erase from 0xa8730000-0xa87e0000: ...........
 ... Program from 0x80041000-0x800f1000 at 0xa8730000: ...........
@@ -297,7 +297,7 @@ An image named 'vmlinux.bin.l7' exists - continue (y/n)? y
 RedBoot> fis free
       0xA80F0000 .. 0xA87E0000
 }}}
-now do the math (last - first, cause you need the difference)
+Now do the math (last - first, cause you need the difference)
 
 {{{
 server:~# bc
@@ -309,11 +309,11 @@ A87E0000 - A80F0000
 Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs:
 
 {{{
-RedBoot> lo -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
 Using default protocol (TFTP)
 |
 Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
-RedBoot> fi cr -l 0xLENGTH rootfs
+RedBoot> fis create -l 0xLENGTH rootfs
 An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa8030000-0xa8730000: ................................................................................................................
 ... Program from 0x80041000-0x80741000 at 0xa8030000: ..............................................................................................................
