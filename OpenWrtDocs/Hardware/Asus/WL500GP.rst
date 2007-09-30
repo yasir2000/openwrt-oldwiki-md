@@ -1,10 +1,10 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 == ASUS WL-500g Premium ==
-With Kamikaze 7.07 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
+With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
 ||||<style="text-align: center;">'''Target System''' ||||<style="text-align: center;">'''!WiFi Support''' ||<style="text-align: center;">'''Comments''' ||
 ||||<style="text-align: center;"> ||'''Broadcom''' ||'''Atheros''' || ||
-||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> {X} / (./) ||With Atheros !WiFi the router reboots in a loop (fixed for PRE-7.09 in subversion) ||
+||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) || ||
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''6'''] ||<style="text-align: center;"> {X} ||<style="text-align: center;"> (./) ||Random segfaults (confirmed by nbd) ||
 
 
@@ -73,7 +73,7 @@ To restore the original ASUS firmware you have three options:
 == Installation ==
 If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
-You can download pre-build images ([http://downloads.openwrt.org/kamikaze/7.07/ official (7.07)] or [http://forum.openwrt.org/viewtopic.php?id=12542 unofficial (PRE-7.09)]) or build the images by yourself using the build-system.
+You can download pre-build images ([http://downloads.openwrt.org/kamikaze/7.07/ official (7.09)] or build the images by yourself using the build-system.
 
 === Using the ASUS web GUI ===
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
@@ -100,10 +100,7 @@ tftp 192.168.1.1
 tftp> binary
 tftp> trace
 tftp> put openwrt-brcm-2.4-squashfs.trx}}}
-
-
  * After the TFTP upload is complete, wait at least 6 minutes. It is needed to wait due to the process that the firmware is first loaded into the RAM, and then first afterwards executed (or flashed). This process takes a little time, and to ensure that the router is not bricked the six minut waiting s needed.
-
  * The router will reboot itself automatically after the upgrade is complete. Rebooting may take a while. It might be the case that the router does not reboot by itself, if this happens it should be safe to wait for the period mentioned and then to do a manual reboot (pull the power-cord).
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 '''NOTES:'''
@@ -126,7 +123,7 @@ If you have already installed !OpenWrt or like to flash from any other firmware 
 
 {{{
 cd /tmp/
-wget http://downloads.openwrt.org/kamikaze/7.07/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 [[Anchor(config)]] [[Anchor(Config)]]
 
@@ -188,7 +185,7 @@ reboot
 }}}
 == Basic configuration ==
 === PPPoE ===
-With Kamikaze 7.07 PPPoE works out-of-the-box. All required packages are already installed in the default image.To configure PPPoE with UCI, do this:
+With Kamikaze 7.09 PPPoE works out-of-the-box. All required packages are already installed in the default image. To configure PPPoE with UCI, do this:
 
 {{{
 uci set network.wan.proto=pppoe
@@ -231,28 +228,27 @@ uci commit wireless && wifi}}}
 
 ==== WiFi encryption ====
 ===== WEP encryption (not recommended) =====
-
 ===== WPA encryption =====
-====== Broadcom WiFi ======
+===== Broadcom WiFi =====
 For Broadcom the nas package is required
 
 {{{
 ipkg install nas}}}
-====== Atheros WiFi ======
+===== Atheros WiFi =====
 For Atheros the hostapd package is required
 
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-====== Configure WPA (PSK) ======
+===== Configure WPA (PSK) =====
 Configure WPA (PSK) encryption using UCI.
 
 {{{
 uci set wireless.cfg2.encryption=psk
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
-====== Configure WPA2 (PSK) ======
+===== Configure WPA2 (PSK) =====
 Configure WPA2 (PSK) encryption using UCI.
 
 {{{
