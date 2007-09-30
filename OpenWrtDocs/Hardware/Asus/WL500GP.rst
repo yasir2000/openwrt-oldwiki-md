@@ -73,7 +73,7 @@ To restore the original ASUS firmware you have three options:
 == Installation ==
 If the TFTP part fails, you can try the installation with the ASUS firmware restoration tool (Windows only).
 
-You can download pre-build images ([http://downloads.openwrt.org/kamikaze/7.07/ official (7.09)] or build the images by yourself using the build-system.
+You can download [http://downloads.openwrt.org/kamikaze/7.07/ official 7.09] images or build the images by yourself using the build-system.
 
 === Using the ASUS web GUI ===
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
