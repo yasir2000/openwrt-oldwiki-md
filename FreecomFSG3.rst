@@ -1,5 +1,5 @@
 = Freecom FSG-3 =
-Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT currently support this device.''' However, there's an XScale port in progress by Kaloz; it's not targeted to FSG-3, but when it's ready it should be fairly easy to add FSG-3 specific features to it. Freecom has shown a friendly attitude towards the opensource community and they're willing to help us with few restrictions (no additional warranty replacements due to hacked devices, no extra tech support questions due to customizations and no unfair advantage provided to competitors).
+Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt [http://www.openfsg.com/forum/viewtopic.php?p=22663#22663 supports] this device as of Kamikaze 7.07.''' Freecom has shown a friendly attitude towards the opensource community and they're willing to help us with few restrictions (no additional warranty replacements due to hacked devices, no extra tech support questions due to customizations and no unfair advantage provided to competitors).
 
 == Hardware ==
  * Intel XScale IXP422 at 266MHz with hardware encryption
@@ -27,16 +27,16 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * MAC addresses for network interfaces correctly read from flash
  * SATA and PATA disks work (with slightly modified Fedora Core 4 patch from VIA)
  * USB ports work with stock USB drivers
- * WIFI card on Mini-PCI slot detected by kernel (Tested with Atheros and Intel, haven't tried loading drivers yet)
+ * WIFI card on Mini-PCI slot detected by kernel, and madwifi drivers confirmed working for Atheros cards. (Also tested with Intel, but haven't tried loading drivers yet)
  * Freecom registered proper ARM Linux machine ID for FSG-3 (1091)
  * I2C, RTC, sensors and FAN rpm control working with stock drivers
+
+ * Full tutorial [http://www.openfsg.com/forum/viewtopic.php?p=22663#22663 available] for installation without requiring hardware modifications
 
 == ToDo ==
  * Enable buttons (GPIO's known, need to adapt NSLU2 code)
  * Leds (Connected to expansion bus, needs some new code to support)
  * Hardware crypto (Driver downloadable from Intel but does it work in Little-Endian mode?)
- * Passing arguments from RedBoot to 2.6 kernel causes crash. Works with stock Freecom 2.4 kernel.
- * OpenWrt support (Waiting for buildroot-ng XScale support) 
 
 == Notes ==
  * Holding reset button while powering on enables recovery mode. FSG requests IP using bootp and tries to load zImage-recovery with tftp from bootp server.
@@ -51,3 +51,4 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt does NOT cur
  * Resellers: [http://www.mobileplanet.com/product.asp?code=129619 US] and [http://www.mobileplanet.com/product.asp?code=129619 Europe(UK)]
  * Internal photos: http://sukkamehulinko.romikselle.com/fsg3/
  * Thread on OpenWrt forum: http://forum.openwrt.org/viewtopic.php?id=5828
+ * Installation tutorial: http://www.openfsg.com/forum/viewtopic.php?p=22663#22663
