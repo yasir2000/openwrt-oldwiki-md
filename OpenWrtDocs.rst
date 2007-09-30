@@ -37,7 +37,7 @@ Please join us on the !OpenWrt team.
 Whiterussian [http://forum.openwrt.org/viewtopic.php?pid=36712: rc6] is now available. It is a bug fix release and represents the end of the Whiterussian series.  The currently active release is [http://downloads.openwrt.org/kamikaze/release.txt: 7.07], code named Kamikazi.
 
 = Got Questions =
-The !OpenWrt manual? and FAQ? can usually answer most questions. You can also look on the forums or ask on the mailing list?, or in IRC at irc.freenode.net, channel #openwrt?.  For more information follow your interest below.
+The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html: manual] and FAQ? can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt?.  For more information follow your interest below.
 
 ||||<tablestyle="width: 100%">'''What is your interest?'''||
 |||| '''The follow links will not contain _any_ documentation.  Instead they are just pages of links that lead the user to appropriate documentation. ||
@@ -45,11 +45,6 @@ The !OpenWrt manual? and FAQ? can usually answer most questions. You can also lo
 || [[Advanced End-user]] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers. || [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries. ||
 || [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
 
-
-= About this manual =
-This is a Wiki, a set of documents written by the OpenWrt developers and community. Nearly every page on this site can be edited, you just need to [:UserPreferences:create an account].
-
-Please read the manual. If you have any questions about anything in the manual, post a message in the [http://forum.openwrt.org/ forums] or on the [http://lists.openwrt.org/ Mailing Lists]
 
 == The OpenWrt manual ==
 '''[:OpenWrtDocs/About:About OpenWrt]''' [[Include(OpenWrtDocs/About,,titlesonly)]]
