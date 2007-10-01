@@ -19,6 +19,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||3.1.22.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 ||3.1.23.ETSI: ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||
 ||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application%2Fzip&blobheadervalue2=inline%3B+filename%3DWRTP54G-NA_fw_3%255B1%255D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application%2Fzip&blobheadervalue2=inline%3B+filename%3DRTP300-NA_fw_3%255B1%255D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
+||5.01.04: ||[http://httpconfig.vonage.net/wrt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||
 
 
 == Firmware Dumps for Study ==
