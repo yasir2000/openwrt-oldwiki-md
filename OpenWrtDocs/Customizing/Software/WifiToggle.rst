@@ -5,16 +5,26 @@ New diag module. This is what controls the LEDs and the buttons; now LEDs are /p
 
 With little modifications the script can be used to connect/disconnect your WAN connection.
 
+There are two different hotplug scripts for Whiterussian and Kamikaze branches, you should only download one of them.
+
 = Installation =
 Create a directory for the hotplug script
 
 {{{
 mkdir -p /etc/hotplug.d/button}}}
-Download the hotplug script and the UCI configuration file
+Download the hotplug script for '''Whiterussian'''
 
 {{{
-wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=01-wifitoggle"
+wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=01-wifitoggle-wr"
+}}}
 
+Or download the hotplug script for '''Kamikaze'''
+{{{
+wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=01-wifitoggle"
+}}}
+
+Download the UCI configuration file
+{{{
 wget -O /etc/config/wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle"}}}
 [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile Show attachments] (Please fix the long URLs. Thanks)
 
