@@ -45,31 +45,6 @@ The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html: manual]
 || [[Advanced End-user]] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers. || [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries. ||
 || [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
 
-
-== The OpenWrt manual ==
-'''[:OpenWrtDocs/About:About OpenWrt]''' [[Include(OpenWrtDocs/About,,titlesonly)]]
-
-=== Installation and Usage ===
-'''[:OpenWrtDocs/Installing:Installing OpenWrt]''' [[Include(OpenWrtDocs/Installing,,titlesonly)]]
-
-'''[:OpenWrtDocs/Using:Using OpenWrt the first time]''' [[Include(OpenWrtDocs/Using,,titlesonly)]]
-
-'''[:OpenWrtDocs/Troubleshooting:Troubleshooting OpenWrt]''' [[Include(OpenWrtDocs/Troubleshooting,,titlesonly)]]
-
-'''[:OpenWrtDocs/Packages:OpenWrt Addon Packages]''' [[Include(OpenWrtDocs/Packages,,titlesonly)]]
-
-'''[:OpenWrtDocs/Deinstalling:Deinstalling OpenWrt]''' [[Include(OpenWrtDocs/Deinstalling,,titlesonly)]]
-
-=== WhiteRussian (Stable) Configuration ===
-'''[:OpenWrtDocs/Configuration:OpenWrt WhiteRussian Configuration]''' [[Include(OpenWrtDocs/Configuration,,titlesonly)]]
-
-=== Kamikaze (Experimental) Configuration ===
-'''[:OpenWrtDocs/KamikazeConfiguration:OpenWrt Kamikaze Configuration]''' [[Include(OpenWrtDocs/KamikazeConfiguration,,titlesonly)]]
-
-= Appendix: =
-== Networking Information ==
-'''[:OpenWrtDocs/NetworkInterfaces:Understanding Network Interfaces]''' [[Include(OpenWrtDocs/NetworkInterfaces,,titlesonly)]] '''[:OpenWrtDocs/WirelessNetworkingBackground:Wireless Networking Background]'''
-
 == External Documentation ==
 '''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
 
