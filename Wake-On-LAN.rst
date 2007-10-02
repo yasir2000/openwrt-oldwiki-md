@@ -1,4 +1,6 @@
-'''Wake-On-LAN !HowTo'''
+~+'''Wake-On-LAN !HowTo'''+~
+
+__Valid for the following releases:__ Kamikaze, White Russian
 
 [[TableOfContents]]
 
@@ -6,6 +8,10 @@
 Wake-On-LAN (short WOL) can be used to awake a network machine (computer, printer, etc.) from standby mode over the network with a "magic packet". Lots of information about WOL can be found on [http://gsd.di.uminho.pt/jpo/software/wakeonlan/mini-howto/ José Pedro Oliveira's Wake on LAN mini HOWTO]. When something is not explained here, then it is already documented in José's WOL !HowTo.
 
 Before setting up !OpenWrt to wake up your machines, you should test if your machines can be waked up at all. Test this from another machine on your LAN. Use the information and tools from José's !HowTo mentioned above, e.g. AMDs Magic Packet tool.
+
+As of October 2007 there is only a {{{wol}}} package for Kamikaze.
+There is no {{{ether-wake}}} package yet, but it is already requested in the [http://forum.openwrt.org/viewtopic.php?pid=54964 forum].
+For the old White Russian release you find {{{ether-wake}}} in the [ftp://ftp.berlios.de/pub/xwrt/packages X-Wrt WR backport repository].
 
 = Setting up OpenWrt for WOL =
 With {{{wol}}} you can send a magic packet via IP. For this you have to know the broadcasting address of your network, e.g. 10.1.255.255 for a 10.1.0.0/16 network.
