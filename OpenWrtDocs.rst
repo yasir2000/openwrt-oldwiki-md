@@ -29,7 +29,7 @@ This, the public face of !OpenWrt is changing so don't be surprised if you find 
 
 !OpenWrt is an open source project to create a free embedded operating system for network devices.
 
-!OpenWrt is not tied to any particular device.  You can install the software on a wide range of [:DocumentationSandBox/HardwareTable/Fix: devices].  Device developers can easily add new devices.  Software developers can add new [:DocumentationSandBox/SoftwareTable/Fix: packages] which can be built and run on all of the supported devices.
+!OpenWrt is not tied to any particular device.  You can install the software on a wide range of [:TableOfHardware:Devices].  Device developers can easily add new devices.  Software developers can add new [:OpenWrtDocs/Packages:packages] which can be built and run on all of the supported devices.
 
 Please join us on the !OpenWrt team.
 
@@ -37,7 +37,7 @@ Please join us on the !OpenWrt team.
 Whiterussian [http://forum.openwrt.org/viewtopic.php?id=9326 0.9] is now available. It is a bug fix release and represents the end of the Whiterussian series.  The currently active release is [http://downloads.openwrt.org/kamikaze/7.09/release.txt 7.09], code named Kamikaze.
 
 = Got Questions =
-The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html: manual] and FAQ? can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt?.  For more information follow your interest below.
+The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html: manual] and [:Faq:FAQ] can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt.  For more information follow your interest below.
 
 ||||<tablestyle="width: 100%">'''What is your interest?'''||
 |||| '''The follow links will not contain _any_ documentation.  Instead they are just pages of links that lead the user to appropriate documentation. ||
@@ -47,9 +47,6 @@ The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html: manual]
 
 == External Documentation ==
 '''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
-
-== FAQ ==
-'''[:Faq:FAQ]''' [[Include(Faq,,titlesonly)]]
 
 == Additional documentation ==
 '''[:OpenWrtDocs/Customizing:OpenWrt Customization]''' [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
