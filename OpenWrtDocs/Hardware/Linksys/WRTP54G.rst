@@ -85,23 +85,31 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
+
+== Characteristics of Version 3.1.24-NA ==
+
 After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.
 
  * The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown:
-  * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
-  * The new ggsip program handles '''all''' voice related configuration.  Almost all voice-related web pages are generated within ggsip.  Some voice pages still linger in the file system, but they are unused.
-  * ggsip isn't easily fooled into giving up its secrets.  This is why the usual unlock methods such as cyt and banging on the ESC key while loading some pages are unable to gain you access.  You '''must''' have entered a valid Admin password before it lets see or alter Provision and Line settings.
-  * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
-  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
-  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
-customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip
+ * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
+ * The new ggsip program handles '''all''' voice related configuration.  Almost all voice-related web pages are generated within ggsip.  Some voice pages still linger in the file system, but they are unused.
+ * ggsip isn't easily fooled into giving up its secrets.  This is why the usual unlock methods such as cyt and banging on the ESC key while loading some pages are unable to gain you access.  You '''must''' have entered a valid Admin password before it lets see or alter Provision and Line settings.
+ * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
+ * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
+ * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
 
-NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password
+= Customized Firmwares =
 
- . Also, blocking port 22 doesn't seem to help.
+Customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip
+
+NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and 
+no password. Also, blocking port 22 doesn't seem to help.
+
 Latest 3.1.22 firmware supports PING HACK (0.0.0.0 &&command) and can be found here attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img
 
-= Accounts in the Supplied Firmwares =
+
+
+= Accounts in the Official Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
