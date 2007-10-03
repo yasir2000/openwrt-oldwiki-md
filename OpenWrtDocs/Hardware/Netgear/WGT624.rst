@@ -174,6 +174,7 @@ tftp.img: ELF 32-bit MSB executable, MIPS, MIPS-II version 1 (SYSV), statically 
 
 The .chk file seems to be some kind of proprietary compressed format. If you have a bricked WGT624 (I've done this with a v2), you can't load Netgears firmware via TFTP because it doesn't recognize the compressed file, but you can load the TrendNet firmware mentioned earlier. Once loaded you can then use the TrendNet web-interface to load a newer Netgear firmware onto the router. It seems to be stored in the compressed format on the router.
 
+
 == Kernel ==
 Kaloz got the [http://downloads.openwrt.org/reference/mips-linux-2.4.25.tar.bz2 sources] from Devicescape with the needed patches. According to arch/mips/ar531x/README.BUILD, I've downloaded:
 
