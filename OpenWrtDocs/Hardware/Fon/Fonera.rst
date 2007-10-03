@@ -732,7 +732,7 @@ wlanconfig ath0 list}}}
 As with most routers, the Fonera has some gpio pins that extra hardware can be connected to. Here are 2 interesting hardware hacks :
 
  * [http://www.phrozen.org/fonera.html Adding a MMC card to the Fonera]
- * [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Fon/FoneraMP3 Turning the Foneras into a hardware mp3 client]
+ * [http://www.phrozen.org/fonera.html Turning the Foneras into a hardware mp3 client]
 = Resources =
  * [http://tech.am/2006/10/06/autopsy-of-a-fonera/ Autopsy of a Fonera]
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
