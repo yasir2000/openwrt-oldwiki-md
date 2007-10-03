@@ -10,7 +10,7 @@ Wake-On-LAN (short WOL) can be used to awake a network machine (computer, printe
 Before setting up !OpenWrt to wake up your machines, you should test if your machines can be waked up at all. Test this from another machine on your LAN. Use the information and tools from José's !HowTo mentioned above, e.g. AMDs Magic Packet tool.
 
 As of October 2007 there is only a {{{wol}}} package for Kamikaze.
-There is no {{{ether-wake}}} package yet, but it is already requested in the [http://forum.openwrt.org/viewtopic.php?pid=54964 forum].
+There is no {{{ether-wake}}} package yet, but it is already reported in [https://dev.openwrt.org/ticket/2460 ticket 2460].
 For the old White Russian release you find {{{ether-wake}}} in the [ftp://ftp.berlios.de/pub/xwrt/packages X-Wrt WR backport repository].
 
 = Setting up OpenWrt for WOL =
