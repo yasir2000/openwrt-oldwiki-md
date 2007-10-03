@@ -51,6 +51,19 @@ config interface lan
         option gateway  192.168.1.1
         option dns      192.168.1.1
 }}}
+
+==== Sub interfaces / IP Alias ====
+{{{
+config interface lan1
+        option ifname   eth0.0:0
+        option proto    static
+        option ipaddr   192.168.1.2
+        option netmask  255.255.255.0
+        option gateway  192.168.1.1
+Note: The "option type" must be absent!
+(http://forum.openwrt.org/viewtopic.php?id=10505)
+}}}
+
 You can configure multiple DNS servers by separating entries with space :
 
 {{{
