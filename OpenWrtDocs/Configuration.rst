@@ -552,6 +552,9 @@ tz=${tz:-"CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00"}
 echo $tz > /etc/TZ
 }}}
 
+If the TZ environment variable is set, it will override the value in /etc/TZ. Some distributions of openwrt may set
+TZ in /etc/profile.
+
 Examples of timezone values:
 ||<style="TEXT-ALIGN: center" |6>[http://www.australia.gov.au/about-australia-13time Australia] ||Melbourne,Canberra,Sydney ||AEST-10AEDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Perth ||AWST-8AWDT-9,M12.1.0,M3.5.0/03:00:00 ||
