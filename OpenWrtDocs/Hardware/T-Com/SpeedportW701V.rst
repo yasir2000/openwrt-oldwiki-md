@@ -84,6 +84,14 @@ drwxrwxr-x    8 root     root            0 Jan  1 01:04 ..
 -rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd4-nvram1.bin
 -rw-r--r--    1 root     root       262144 Jan  1 01:10 mtd5-nvram2.bin
 }}}
+
+Another way is to do this via a tftp (tftp server eg ip 192.168.178.21):
+{{{ 
+cat /dev/mtdblock3 | tftp -p -l - -r urlader.image 192.168.178.21
+cat /dev/mtdblock7 | tftp -p -l - -r kernel.image 192.168.178.21
+}}}
+this can be easily flashed back via adam2 for recovering
+
 === Restoring Original Firmware ===
 ==== Undoing changes to adam2 config ====
 TODO: finish this section, here's some hints for now
