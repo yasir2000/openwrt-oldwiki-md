@@ -11,7 +11,7 @@ I own/manage some OpenWRT/DD-WRT compatible devices that I flashed with either D
  *WHR-HP-G54
  *WL-500g
 
-Unfortunately I have also come in contact with some less friendly (wireless) routers:
+Unfortunately I have also come in contact with some less friendly (wireless) routers which I couldn't flash:
  *ZyXEL Prestige 660HW-63
  *DLink DI-???
  *Thomson Speedtouch 536
