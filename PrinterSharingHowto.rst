@@ -75,6 +75,7 @@ Description of the options in the p910nd config file (/etc/config/p910nd):
 ||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to (e.g. /dev/usb/lp0 for USB - e.g. /dev/printers/0 for LPT) ||
 ||port ||[0-9] ||0 ||The p910nd daemon will listen on TCP port 9100+port ||
 ||bidirectional ||[1|0] ||1 ||1: Turn on bidirectional copying; 0: Turn off bidirectional copying ||
+||enabled ||[1|0] ||0 ||1: Enable the printer; 0: Disable the printer ||
 
 
 To start the p910nd daemon, do this:
