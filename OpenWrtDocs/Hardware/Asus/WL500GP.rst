@@ -36,7 +36,7 @@ Serial is located on pin soldering points (ready for soldering of 8-pin connecto
 
 Pin 1 (with the square solder pad) is RX0.
 
-These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port.
+These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port. The parameters are 115200 baud and 8-n-1.
 
 [[Anchor(photos)]] [[Anchor(Photos)]] [[Anchor(pics)]]
 
