@@ -77,6 +77,14 @@ If you want to COMPLETELY ERASE the JFFS2 partition, removing all packages, you 
 firstboot
 }}}
 
+to begin erasing, and then:
+
+{{{
+sync
+}}}
+
+to make sure that the Linux kernel actually commits this erasure to flash.
+
 If you want to attempt to fix the JFFS2 partition, mount it with the following command:
 {{{
 /sbin/mount_root
