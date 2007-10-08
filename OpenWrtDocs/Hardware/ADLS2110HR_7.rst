@@ -1,1 +1,1 @@
-Опишите OpenWrtDocs/Hardware/ADLS2110HR 7.
+PCB photo: attachment:2110EH_V700_2005_1_28.jpg
