@@ -1,4 +1,3 @@
----- /!\ '''Edit conflict - other version:''' ----
 == Specifications ==
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port.
 
@@ -44,4 +43,5 @@ http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigati
 
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
----- /!\ '''End of edit conflict''' ----
+----
+ . ["CategoryAR7Device"]
