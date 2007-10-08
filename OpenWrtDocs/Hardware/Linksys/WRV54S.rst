@@ -225,4 +225,4 @@ To do:
 }}}
 
 == related link ==
-["http://www.seattlewireless.net/index.cgi/LinksysWrv54g"]
+[http://www.seattlewireless.net/index.cgi/LinksysWrv54g]
