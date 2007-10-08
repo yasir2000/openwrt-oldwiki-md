@@ -4,6 +4,7 @@ ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port.
 STAR-NET ADSL 2110EHR V7.20M+
 
 PCB: 2110EH V7.20+ 2005.11.30
+PCB Photo: attachment:2110EH_V720plus_2005_11_30.jpg
 
 serial console 9600,n,8,1,hw jp1:
 
