@@ -57,6 +57,21 @@ Intersil Prism54
  || 7 (TMS) ||           4 ||
  || 9 (TCK) ||           3 ||
  || 11 (GND) ||          25 ||
+
+more detail pinout
+{{{
+               c[] LED5
+       +3.3V -- 1o o2 -- nc
+       nTRST -- 3o o4 -- GND
+         TDI -- 5o o6 -- GND
+         TMS -- 7o o8 -- GND
+         TCK -- 9o o10 - GND
+         GND - 11o o12 - GND
+         TDO - 13o o14 - GND
+      nRESET - 15o o16 - GND
+          nc - 17o o18 - GND
+          nc - 19o o20 - GND
+}}}
 == booting openixp ==
 {{{
  Uncompressing Linux......................................... done, booting the kernel.
@@ -208,3 +223,6 @@ To do:
 - use the built-in hardware for the crypto devices
 - decide to publish or not the code - there are several reason to be careful, the Intel code cannot be GPL'ed , patch into maybe illegal,etc.....
 }}}
+
+== related link ==
+["http://www.seattlewireless.net/index.cgi/LinksysWrv54g"]
