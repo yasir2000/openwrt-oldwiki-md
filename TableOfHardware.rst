@@ -220,9 +220,10 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com/products/?pid=372 DSL-G604T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G604T WiP] it runs ok ||
 ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G624T DSL-G624T] ||EU/A1 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||TI ACX111 (["VLYNQ"]) ||ADM6996M ||["ADAM2"] ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G624T WiP] ||
 ||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G604T WiP] it runs ok ||
-||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||? ||No ||[:AR7Port:WiP] ||
+||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||? ||No ||[:AR7Port:WiP] ||
 ||DSM-G600 ||Rev A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||16MB || ||Atheros || ||N/A ||Yes ||Yes ||Yes || ||
-||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
+||[http://www.dlink.com/products/?pid=333 DWL-G820] ||A1 ||Atheros 2313 @ 180MHz ||<style="VERTICAL-ALIGN: top"> Atmel AT49BV322A 4MB ||<style="VERTICAL-ALIGN: top"> Hynix HY57V281620HCT-H 16MB ||Atheros (integrated) ||IP101A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-G820:WiP] ||
+||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB || ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB || ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
@@ -534,3 +535,5 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
  . ["CategoryAR7Device"]
 ----
  . CategoryModel
+----
+CategoryModel
