@@ -246,7 +246,7 @@ At the serial console the printenv command displays the whole environment while 
 
 After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the same format changes a variable, as long as it is not read-only. A space may be substituted for a tab when writing.
 
-Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, andSerialNumberhave been anonymized.
+Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and <nowiki>SerialNumber</nowiki> have been anonymized.
 
 {{{
 BUILD_OPS 0x541
@@ -305,7 +305,7 @@ Known ProductID values:
  * RTP300 from Vonage: CYLL
  * WRTP54G-NA: CYWM
  * WRTP54G from Vonage: CYWL
-One trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it. (Refer to the description of the firmware update file format above.) Loading an incompatible firmware may brick your device, so be careful. In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset. The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300. It seems that a system daemon crashes when it attempts to configure the wireless hardware. As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area. If you do this, you will have to use a serial console to regain access.
+One can trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it. (Refer to the description of the firmware update file format above.) Loading an incompatible firmware may brick your device, so be careful. In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset. The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300. It seems that a system daemon crashes when it attempts to configure the wireless hardware. As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area. If you do this, you will have to use a serial console to regain access.
 
 == IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
 The router has room for two firmwares and a configuration area for each. Factory defaults can be restored by formatting the configuration area of the currently active firmware. (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.) The command to clear the conifguration area of the first firmware is:
@@ -351,7 +351,6 @@ JTAG is a standard way to gain access to the system bus of an embedded device. I
 
 == WRTP54G JTAG Pinout ==
 {{{
-grep '128\.95' /etc/dhcpd.conf
 __________________________________________
 |                     J3                  |
 |                                         led
