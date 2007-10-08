@@ -11,11 +11,11 @@ serial console 9600,n,8,1,hw jp1 (Untested):
 
 1 VCC 2 TX 3 RX 4 -- 5--  6 GND 7 GND
 
-Flash chip: 2MBytes Macronix MX29LV160CBTC-70 http://www.datasheet.org.uk/pdf/29lv160cbtc-70-datasheet/29lv160cbtc-70-datasheet.html
+Flash chip: 2MBytes Macronix MX29LV160CBTC-70 29LV160CBTC http://www.datasheet.org.uk/pdf/29lv160cbtc-70-datasheet/29lv160cbtc-70-datasheet.html
 
 SDRAM: 8Mbytes Samsung K4S641632H-UC75 4M x 4Bit x 4 / 2M x 8Bit x 4 / 1M x 16Bit x 4 Banks Synchronous DRAM http://www.alldatasheet.com/datasheet-pdf/pdf/118300/SAMSUNG/K4S641632H-UC75.html
 
-CPU: Texas Instruments AR7 MIPS based TI TNETD7300AGDW
+CPU: Texas Instruments AR7 MIPS based TI TNETD7300AGDW TNETD7300
 
 http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12111&contentId=4001
 
