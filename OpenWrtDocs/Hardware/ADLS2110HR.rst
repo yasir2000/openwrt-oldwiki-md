@@ -11,11 +11,11 @@ serial console 9600,n,8,1,hw jp1:
 
 1 VCC 2 TX 3 RX 4 -- 5--  6 GND 7 GND
 
-Flash chip: 2MBytes KH KH29LV160CBTC-70G
+Flash chip: 2MBytes KH KH29LV160CBTC-70G KH29LV160CBTC 29LV160
 
 SDRAM: 8Mbytes Winbound W9864G6GH-6 W9864G6GH 4Mx16 4 Banks CL3 3.3 V TSOP II 54 (400 mil) -6 166 MHz http://www.winbond-usa.com/mambo/content/view/123/238/
 
-CPU: Texas Instruments AR7 MIPS based TI TNETD7100GDW
+CPU: Texas Instruments AR7 MIPS based TI TNETD7100GDW TNETD7100
 
 http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12111&contentId=4001
 
