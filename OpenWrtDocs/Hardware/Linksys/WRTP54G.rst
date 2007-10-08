@@ -323,7 +323,7 @@ Unfortunately, there does not seem to be a direct and reliable way to set BOOTCF
 {{{
 ________________________________________
 |                                         |
-|                                         ledhttp://www.bitsum.com/firmware_mod_kit.htm
+|                                         led
 |                   Pin 1: GND   ---> @   |
 |                                         led
 |         Pin 2: Not Connected   ---> @   |
