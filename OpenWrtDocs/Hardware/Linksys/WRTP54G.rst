@@ -173,13 +173,30 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 
 == Address Ranges ==
 
-||PSPBoot Name||Start     ||End       ||
-||IMAGE_A     ||0xB0020000||0xB03DFFFF||
-||CONFIG_A    ||0xB03f0000||0xB0400000||
-||IMAGE_B     ||0xB0400000||0xB07d0000||
-||CONFIG_B    ||0xB07d0000||0xB07e0000||
-||boot_env    ||0xB0010000||0xB0020000||
-||cyt_provate ||0xb07f0000||0xb0800000||
+=== Sample 1 ===
+
+||PSPBoot Name||Start     ||End       ||Size||Comments           ||
+||            ||0xB0000000||0xB0010000||64K ||
+||boot_env    ||0xB0010000||0xB0020000||64K ||
+||IMAGE_A     ||0xB0020000||0xB03DFFFF||3.8M||16 bytes undersized||
+||            ||0xB03E0000||0xB03f0000||64K ||
+||CONFIG_A    ||0xB03f0000||0xB0400000||64K ||
+||IMAGE_B     ||0xB0400000||0xB07d0000||3.8M||
+||CONFIG_B    ||0xB07d0000||0xB07e0000||64K ||
+||            ||0xB07e0000||0xB0010000||128K||
+||cyt_provate ||0xb07f0000||0xb0800000||64K ||
+
+=== Sample 2 ===
+
+||PSPBoot Name||Start     ||End       ||Size||
+||            ||0xB0000000||0xB0010000||64K ||
+||boot_env    ||0xB0010000||0xB0020000||64K ||
+||IMAGE_A     ||0xB0020000||0xB03E0000||3.8M||
+||CONFIG_B    ||0xB03e0000||0xB03f0000||64K ||
+||CONFIG_A    ||0xB03f0000||0xB0400000||64K ||
+||IMAGE_B     ||0xB0400000||0xB07c0000||3.8M||
+||            ||0xB07C0000||0xB0010000||256K||
+||cyt_provate ||0xb07f0000||0xb0800000||64K ||
 
 == Notes ==
 
@@ -484,7 +501,7 @@ The PSPBoot boot loader has predefined environment variables called IMAGE_A and 
 FlashEraseBlock(b0020000,b03dffff);
 ............................................................
 (psbl) tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
-............................................................
+......................................................
 }}}
 
 Flashing the firmware in this way is much slower than flashing it through the web interface, but much faster than through JTAG.
