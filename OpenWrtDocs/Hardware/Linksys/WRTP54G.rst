@@ -379,9 +379,11 @@ The router has room for two firmwares and a configuration area for each. Factory
 Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
 
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
-The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.
+The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  BOOTCFG must be set using the setpermenv command, either from PSPBoot (serial console required) or by writing an appropriate command to /proc/ticfg/env, like so:
 
-One investigator has reported that there not seem to be a direct and reliable way to set BOOTCFG. But, if there are two firmwares installed and one formats the image partition of the one named in BOOTCFG, BOOTCFG will automatically switch to the other one.  However, he may have used setpermenv from the PSPBoot prompt, which would reportedly makes environment variables unchangable.
+  {{{
+  # echo 'setpermenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
+  }}}
 
 = Serial Console =
 {{{
@@ -507,21 +509,25 @@ Using this procedure, you can write a firmware into one of the two firmware part
 
  * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router. ( attachment:flash_erase )
  * Create a new firmware image. See Firmware Upgrade File Format above. (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
- * Download <b>erase</b> and the firmware to the router:
+ * Download '''flash_erase''' and the firmware to the router:
   {{{
-# cd /var
-# wget http://myhost/dir/flash_erase
-# chmod 755 erase
-# wget http://myhost/dir/rtp300-XXXXX.bin
-}}}
+  # cd /var
+  # wget http://myhost/dir/flash_erase
+  # chmod 755 erase
+  # wget http://myhost/dir/rtp300-XXXXX.bin
+  }}}
  * Erase and write the flash block for the inactive firmware copy:
-  {{{# /var/flash_erase /dev/mtd/4 0 60 && dd if=/var/rtp300-XXXXX.bin of=/dev/mtd/4}}}
+  {{{
+  # /var/flash_erase /dev/mtd/4 0 60 && dd if=/var/rtp300-XXXXX.bin of=/dev/mtd/4
+  }}}
  * Figure out which firmware area is currently active:
-  {{{# grep BOOTCFG /proc/ticfg/env}}}
+  {{{
+  # grep BOOTCFG /proc/ticfg/env
+  }}}
  * Switch to the newly written firmware by using the appropriate command:
   {{{
-  # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
-  # echo 'setenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
+  # echo 'setpermenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
+  # echo 'setpermenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
   }}}
 
 Overwriting the active firmware can be done (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
