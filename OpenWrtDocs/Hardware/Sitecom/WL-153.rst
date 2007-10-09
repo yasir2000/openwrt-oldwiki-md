@@ -296,11 +296,17 @@ into eth1.deconfig
 ----
 = How-To unbrick device =
 By connection serial console and network wire. Use the following steps to recover your original firmware:
+
 1.) Assign IP Address by typing (-l is address of device -h is address of tftp server)
+
 ip -l 192.168.1.105 -h 192.168.1.100
+
 2.) Load the firmware from tftp host
+
 load -r -v -b 0x100000 wl153145.bin
+
 3.) Flash the firmware (-l is the filesize in hex of file loaded with command used before)
+
 flash -s 0x100000 -d 0xffe08000 -l 0x19EDFB
 
 ----
