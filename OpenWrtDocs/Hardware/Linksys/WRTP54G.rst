@@ -388,8 +388,6 @@ The JTAG utility written by HairyDairyMaid for the WRT54G can be used to reprogr
  * [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device]
  * [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
  * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
-----
- . CategoryModel ["CategoryAR7Device"]
 
 = Firmware Flashing =
 There are several proven ways to write a new firmware into flash:
@@ -477,10 +475,13 @@ If your TFTP server is not in the same subnet or the subnet mask is not 255.255.
 
 == Locked Out ==
 
-There are several circumstances where you can be locked out of your router.
+There are several circumstances where you can be locked out of your router.  List ways to regain access here.
 
 === Unlocking Tools ===
 
 You can try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
 
 http://www.bargainshare.com/index.php?showtopic=87504
+
+----
+ . CategoryModel ["CategoryAR7Device"]
