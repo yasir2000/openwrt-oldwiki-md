@@ -467,10 +467,16 @@ In order to use this method you must obtain or make a voltage converter for your
 The PSPBoot boot loader has predefined environment variables called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions. A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP. For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
 
 {{{
-setenv IPA 192.168.15.1
-fmt IMAGE_A
-tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
+(psbl) setenv IPA 192.168.15.1
+(psbl) fmt IMAGE_A
+FlashEraseBlock(b0020000,b03dffff);
+............................................................
+(psbl) tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
+............................................................
 }}}
+
+Flashing the firmware in this way is much slower than flashing it through the web interface, but much faster than through JTAG.
+
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
 
 == Locked Out ==
