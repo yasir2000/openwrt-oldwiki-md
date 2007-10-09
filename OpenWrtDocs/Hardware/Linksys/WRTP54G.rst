@@ -158,22 +158,8 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /sbin/reboot
   . Restart the router
 = Flash Memory layout of RTP300 =
-== /proc/mtd ==
-{{{
-dev:    size   erasesize  name
-mtd0: 00320000 00010000 "root"                           (3MB - 3,276,800 bytes)
-mtd1: 00080000 00010000 "RESERVED_PRIMARY_KERNEL"        (512K - 524,288 bytes)
-mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB - 3,276,800 bytes)
-mtd3: 003d0000 00010000 "RESERVED_PRIMARY_IMAGE"         (3.8MB - 3,997,696 bytes)
-mtd4: 003d0000 00010000 "RESERVED_SECONDARY_IMAGE"       (3.8MB - 3,997,696 bytes)
-mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
-mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
-mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
-mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 
-== Address Ranges ==
-
-=== Sample 1 ===
+== Sample 1 ==
 
 An early RTP300 router whose PSPBoot environment variables are shown elsewhere in this document has the following flash layout:
 
@@ -190,9 +176,39 @@ An early RTP300 router whose PSPBoot environment variables are shown elsewhere i
 
 You will notice that IMAGE_A and IMAGE_B are not the same size.  The unused 64K block after IMAGE_A suggests that the size intended was 0x07e0000 bytes.  The ending address of IMAGE_A suggests that the person who designed this partition table momentarily forgot that the block runs up to but not including the ending address.
 
-=== Sample 2 ===
+== Sample 2 ==
 
-A more recent RTP300 router has the following layout:
+Here is the contents of the /proc/mtd psuedo file on an unidentified router.  This has been in the Wiki for a long time, so we may assume it is from an early example of the RTP300 or WRTP54G.
+
+{{{
+dev:    size   erasesize  name
+mtd0: 00320000 00010000 "root"                           (3MB - 3,276,800 bytes)
+mtd1: 00080000 00010000 "RESERVED_PRIMARY_KERNEL"        (512K - 524,288 bytes)
+mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB - 3,276,800 bytes)
+mtd3: 003d0000 00010000 "RESERVED_PRIMARY_IMAGE"         (3.8MB - 3,997,696 bytes)
+mtd4: 003d0000 00010000 "RESERVED_SECONDARY_IMAGE"       (3.8MB - 3,997,696 bytes)
+mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
+mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
+mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
+mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
+
+It appears that IMAGE_A (mtd3) has been enlarged by 64K plus 16 bytes theirby fulfiling what was probably the original intent.
+
+=== Sample 3 ===
+
+Another RTP300 router bought on E-Bay during the summer of 2007 had this layout:
+
+{{{
+dev:    size   erasesize  name
+mtd0: 002e0000 00010000 "root"
+mtd1: 00078000 00010000 "RESERVED_PRIMARY_KERNEL"
+mtd2: 002e0000 00010000 "RESERVED_PRIMARY_ROOT_FS"
+mtd3: 003c0000 00010000 "RESERVED_PRIMARY_IMAGE"
+mtd4: 003c0000 00010000 "RESERVED_SECONDARY_IMAGE"
+mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"
+mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"
+mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"
+mtd8: 00010000 00010000 "cyt_private"}}}
 
 ||PSPBoot Name||Start     ||End       ||Size            ||
 ||            ||0xB0000000||0xB0010000||0x010000 (64K)  ||
@@ -206,9 +222,9 @@ A more recent RTP300 router has the following layout:
 
 3840K is 3,932,160 bytes.
 
-You will notice that the size of IMAGE_A has been increased by 16 bytes and the size of IMAGE_B reduced by 64K thereby making them the same size.  The reduction in the sie of IMAGE_B left CONFIG_B with an unused block on other size.  CONFIG_B was moved to an earlier free 64K block, presumably to reduce fragmentation in case of future need for additional blocks.
+If you compare this to sample 1, you will notice that the size of IMAGE_A has been increased by 16 bytes and the size of IMAGE_B reduced by 64K thereby making them the same size.  The reduction in the size of IMAGE_B left CONFIG_B with an unused block on either side.  CONFIG_B was moved to an earlier free 64K block, presumably to reduce fragmentation in case of future need for additional blocks.
 
-== Notes ==
+== Additional Notes About Firmware Blocks ==
 
  * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
@@ -216,7 +232,10 @@ You will notice that the size of IMAGE_A has been increased by 16 bytes and the 
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables. The environment variables can be read from ''/proc/ticfg/env'' after boot. Some of them can be set by writing to /proc/ticfg/env.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erase before it can be written to. Flashing firmware is fully described elsewhere in this document.
- * The directory /dev/ti_partitions/ contains symbolic links to serveral of the flash partitions. The intent seems to be to give them meaningful names.
+
+== /dev/ti_partitions ==
+
+The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
 
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
