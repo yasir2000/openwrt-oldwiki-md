@@ -170,7 +170,18 @@ mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
 mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
 mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
-Notes:
+
+== Address Ranges ==
+
+||PSPBoot Name||Start     ||End       ||
+||IMAGE_A     ||0xB0020000||0xB03DFFFF||
+||CONFIG_A    ||0xB03f0000||0xB0400000||
+||IMAGE_B     ||0xB0400000||0xB07d0000||
+||CONFIG_B    ||0xB07d0000||0xB07e0000||
+||boot_env    ||0xB0010000||0xB0020000||
+||cyt_provate ||0xb07f0000||0xb0800000||
+
+== Notes ==
 
  * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
@@ -179,6 +190,7 @@ Notes:
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables. The environment variables can be read from ''/proc/ticfg/env'' after boot. Some of them can be set by writing to /proc/ticfg/env.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erase before it can be written to. Flashing firmware is fully described elsewhere in this document.
  * The directory /dev/ti_partitions/ contains symbolic links to serveral of the flash partitions. The intent seems to be to give them meaningful names.
+
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
