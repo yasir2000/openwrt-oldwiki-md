@@ -6,7 +6,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||Linksys webpage ||[http://www1.linksys.com/products/product.asp?grid=33&prid=692 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1118334626380 Downloads] ||[http://www1.linksys.com/products/product.asp?grid=33&prid=695 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1119460383933 Downloads] ||
 ||CyberTAN equiv model ||[http://www.cybertan.com.tw/product/wgv614.asp WGV614] http://www.cybertan.com.tw/product/productpic/wgv614.jpg ||[http://www.cybertan.com.tw/product/brv614.asp BRV614] http://www.cybertan.com.tw/product/productpic/brv614.jpg ||
 ||__Firmware Releases__ ||||<style="text-align: center;"> ||
-||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code]||[http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
+||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
 ||1.00.43: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.43-r050816.img Firmware Image] No Source || ||
 ||1.00.45: || ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.45-r050823.img Firmware Image] No Source ||
 ||1.00.52: ||No Firmware Image [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.52/WRTP54G_v1.00.52.tgz Source Code] ||No Firmware Image [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.52/RTP300_v1.00.52.tgz Source Code] ||
@@ -15,10 +15,10 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 ||3.1.14: ||[http://vap.earthlink.net/upgrade/wrtp54g/wrtp54g-3.1.14.bin Firmware Image] No Source ||No Firmware Image No Source ||
-||3.1.17: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application%2Fzip&blobheadervalue2=inline%3B+filename%3DWRTP54G-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130857131304&ssbinary=true Firmware Image] No Source ||No Firmware Image No Source ||
+||3.1.17: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130857131304&ssbinary=true Firmware Image] No Source ||No Firmware Image No Source ||
 ||3.1.22.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 ||3.1.23.ETSI: ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||
-||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application%2Fzip&blobheadervalue2=inline%3B+filename%3DWRTP54G-NA_fw_3%255B1%255D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application%2Fzip&blobheadervalue2=inline%3B+filename%3DRTP300-NA_fw_3%255B1%255D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
+||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3%5B1%5D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3%5B1%5D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
 ||5.01.04: ||[http://httpconfig.vonage.net/wrt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||
 
 
@@ -46,14 +46,12 @@ See also: ["AR7Port"]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
  * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
  * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
-
 = The Supplied Firmwares =
 All of the known firmwares have the following characteristics in common:
 
  * Linux 2.4.17 kernel with Montavista patches
  * uClibc
  * Busybox
-
 == Characteristics of Firmware Version 1.00.XX ==
 As of September 2006, Vonage loads firmware version 1.00.62. This firmware has the following distinguishing characteristics:
 
@@ -73,10 +71,8 @@ If your phone lines will not register with the SIP server or will not stay regis
  * Make sure there are no DNS servers entered in the provisioning tab (may be labeled "Vonage DNS Servers")
  * Use server names, not IP addresses.
  * If you can, log in using SSH or the serial console and make sure /etc/resolv.conf lists only good DNS servers.
-
 == Characteristics of Firmware Version 3.1.XX ==
-
-In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively. Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
+In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively. Previous versions in the 3.1.XX series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
 
 Firmware 3.1.17 has the following distinguishing characteristics:
 
@@ -89,13 +85,9 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
-
 == Characteristics of Firmware Version 3.1.22 ==
-
  * Ping hack works (enter '''0.0.0.0 &&'''''''command'''' as address to ping)
-
 == Characteristics of Firmware Version 3.1.24-NA ==
-
 After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.
 
  * The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown:
@@ -105,32 +97,26 @@ After some experiments with a few WRTP54G-ER units bought in April 2007, further
  * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
-
 == Characteristics of Firmware Version 5.02.04 ==
-
 In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02.04.  This firmware is currently being studied.  Details will be posted shortly.
 
- * Ping hack works (enter <b>0.0.0.0 &&<i>command</i></b> as address to ping)
-
+ * Ping hack works (enter '''0.0.0.0 &&''command''''' as address to ping)
 = Customized Firmwares =
-
- *3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
-
+ * 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
 = Accounts in the Official Firmwares =
-
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
-This user has an access level of "ROUTER". This appears to be the level of access required to log into the top page of the router. The default password is "admin".
+This user has an access level of "ROUTER". This appears to be the level of access required to log into the top page of the router and to change settings related to the router functions. The default password is "admin".
 
 == user ==
-This user has an access level of "USER". Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not. Level "USER" does not permit to log onto router independently. One must first log in as a user with "ROUTER" level access and then present enter the name and password of a "USER" level user at the login prompt which appears when the "username and password supplied by your service provider" are demanded.
+This user has an access level of "USER". Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not. Accounts with access level "USER" cannot be used to log into the router independently. One must first log in as a user with "ROUTER" level access and then present  the username and password of an account with "USER" level access when the prompt "Enter username and password supplied by your service provider" appears.
 
 == Admin ==
-This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh. This user has the access level "ADMIN" which also permits flashing the firmware but does not allow independent login.
+This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console (the latter when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh). This user has the access level "ADMIN" which also permits flashing the firmware but does not allow independent login.
 
 = Web Access =
-The primary way to configure these devices is through a web interface. In the initial configuration the LAN IP address is 192.168.15.1. There is a web server with a management interface running on port 80. The default username is "admin" with a password of "admin". If there is no web server or you can not log in, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up. Continue to hold down the reset button for about 50 seconds.
+The primary way to configure these devices is through a web interface. In the initial configuration the LAN IP address is 192.168.15.1. There is a web server with a management interface running on port 80. The default username is "admin" with a password of "admin". If you find that the web server is not running or the password "admin" is not accepted, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up. Continue to hold down the reset button for about 50 seconds.
 
 = SSH Access =
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server. This feature must be enable using the web interface. The only username in /etc/passwd is "Admin" (note the upper case A). Reliably setting the password for this account is problematic.
@@ -151,7 +137,7 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/bin/cm_logic
   . Seems to load the configuration ether from a specified flash block or from an XML file.
  * /usr/bin/cm_config
-  . Saves / restores the current configuration to flash.
+  . Saves and restores the current configuration to flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
  * /usr/lib/updatedd
   . dynamic DNS client
@@ -254,7 +240,7 @@ At the serial console the printenv command displays the whole environment while 
 
 After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the same format changes a variable, as long as it is not read-only. A space may be substituted for a tab when writing.
 
-Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and <nowiki>SerialNumber</nowiki> have been anonymized.
+Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized.
 
 {{{
 BUILD_OPS 0x541
@@ -437,15 +423,7 @@ http://www.bargainshare.com/index.php?showtopic=87504
 
 I used it successfully on a WRTP54G Firmware 1.062, even though the user pwd was originally tivonpw, I couldn't get that password to let me at the firmware upgrade tab as indicated above;  devices listed:
 
-- Linksys WRTP54G - 2 phone ports, 4 port router, wireless
-- Linksys RTP300 -  2 phone ports, 4 port router
-- Linksys RTP200
-- Linksys PAP2'''v2.0'''- 2 phone ports
-- Vtech IP8100 - Cordless SIP phone with base
-- Motorola  VT2442 - 2 phone ports, 4 port router
-- D-Link VTA-VR - 2 phone ports
--  Linksys WAG54GP2 - 2 phone ports, DSL router
-Edited 6/20/07 - cef1000
+- Linksys WRTP54G - 2 phone ports, 4 port router, wireless - Linksys RTP300 -  2 phone ports, 4 port router - Linksys RTP200 - Linksys PAP2'''v2.0'''- 2 phone ports - Vtech IP8100 - Cordless SIP phone with base - Motorola  VT2442 - 2 phone ports, 4 port router - D-Link VTA-VR - 2 phone ports -  Linksys WAG54GP2 - 2 phone ports, DSL router Edited 6/20/07 - cef1000
 
 == Using Firmware Update on the Provisioning Page ==
 VOIP providers can configure these routers to periodically download a VOIP configuration file. This file contains VOIP settings and login credentials for the provider's SIP server. This process is called "provisioning". The "provisioning" file can also instruct the router to download and install a new firmware. The Provisioning page in the web interface can also be used to initiate this process. This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page. Here is the procedure for the 3.1.XX series firmware:
@@ -476,7 +454,6 @@ Using this procedure, you can write a firmware into one of the two firmware part
 {{{
 # /var/flash_erase /dev/mtd/3 0 60 && dd if=/var/rtp300-XXXXX.bin of=/dev/mtd/3
 }}}
-
 Use /dev/mtd/4 in order to erase and write the second firmware block.
 
 == From the PSPBoot prompt ==
