@@ -187,6 +187,8 @@ For this to work you need the same kernel modules for USB as described above. Yo
 
 /!\ '''NOTE:''' '''IMPORTANT:''' ''Does not work for Kamikaze with 2.6 kernel- This procedure bricks the router''
 
+Kamikaze with 2.6 can be done differently - by putting the pivot script in another place.
+
 {{{
 ipkg install kmod-ext2 kmod-ext3
 }}}
@@ -264,11 +266,18 @@ As earlier stated on this page (to remove {{{/etc/hotplug.d/usb/01-mount}}}) is 
 
 So either remove the file and mount usbfs somewhere else, or everything inside except the line which goes: [ -f /proc/bus/usb/devices ] || mount -t usbfs none /proc/bus/usb
 
+In Kamikaze Simply create new script in /etc/init.d/pivotroot instead of erasing /sbin/init with the same content, then 
+
+{{{
+ln -s /etc/init.d/pivotroot /etc/rc.d/S96pivotroot 
+}}}
+
 Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to !BusyBox anyway):
 
 {{{
 rm /sbin/init
 }}}
+
 And replace it with this script:
 
 {{{
@@ -303,6 +312,8 @@ Make sure your new {{{/sbin/init}}} is executable:
 {{{
 chmod a+x /sbin/init
 }}}
+
+
 Now just reboot, and if you did everything right it should boot from the USB device automatically.
 
 If it could not boot from the USB device it will boot normally from the file system found on the flash as fallback.
