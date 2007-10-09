@@ -92,6 +92,9 @@ To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to
  * Now the router should accept an image via TFTP or via the ASUS firmware restoration tool.
 [[Anchor(tftp)]] [[Anchor(TFTP)]]
 
+
+In diag mode, the router takes address 192.168.1.1. It responds to ping, so you can confirm that it is in diag mode and ready for the tftp by using "ping 192.168.1.1".
+
 ==== TFTP ====
 It is possible to install !OpenWrt using a TFTP client when the router is in diag mode.
 
