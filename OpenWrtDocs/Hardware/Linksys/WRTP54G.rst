@@ -175,28 +175,38 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 
 === Sample 1 ===
 
-||PSPBoot Name||Start     ||End       ||Size||Comments           ||
-||            ||0xB0000000||0xB0010000||64K ||
-||boot_env    ||0xB0010000||0xB0020000||64K ||
-||IMAGE_A     ||0xB0020000||0xB03DFFFF||3.8M||16 bytes undersized||
-||            ||0xB03E0000||0xB03f0000||64K ||
-||CONFIG_A    ||0xB03f0000||0xB0400000||64K ||
-||IMAGE_B     ||0xB0400000||0xB07d0000||3.8M||
-||CONFIG_B    ||0xB07d0000||0xB07e0000||64K ||
-||            ||0xB07e0000||0xB0010000||128K||
-||cyt_provate ||0xb07f0000||0xb0800000||64K ||
+An early RTP300 router whose PSPBoot environment variables are shown elsewhere in this document has the following flash layout:
+
+||PSPBoot Name||Start     ||End       ||Size           ||
+||            ||0xB0000000||0xB0010000||0x010000 (64K) ||
+||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K) ||
+||IMAGE_A     ||0xB0020000||0xB03DFFFF||0x3bFFFF       ||
+||            ||0xB03E0000||0xB03f0000||0x010000 (64K) ||
+||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K) ||
+||IMAGE_B     ||0xB0400000||0xB07d0000||0x3d0000       ||
+||CONFIG_B    ||0xB07d0000||0xB07e0000||0x010000 (64K) ||
+||            ||0xB07e0000||0xB0010000||0x020000 (128K)||
+||cyt_provate ||0xb07f0000||0xb0800000||0x010000 (64K) ||
+
+You will notice that IMAGE_A and IMAGE_B are not the same size.  The unused 64K block after IMAGE_A suggests that the size intended was 0x07e0000 bytes.  The ending address of IMAGE_A suggests that the person who designed this partition table momentarily forgot that the block runs up to but not including the ending address.
 
 === Sample 2 ===
 
-||PSPBoot Name||Start     ||End       ||Size||
-||            ||0xB0000000||0xB0010000||64K ||
-||boot_env    ||0xB0010000||0xB0020000||64K ||
-||IMAGE_A     ||0xB0020000||0xB03E0000||3.8M||
-||CONFIG_B    ||0xB03e0000||0xB03f0000||64K ||
-||CONFIG_A    ||0xB03f0000||0xB0400000||64K ||
-||IMAGE_B     ||0xB0400000||0xB07c0000||3.8M||
-||            ||0xB07C0000||0xB0010000||256K||
-||cyt_provate ||0xb07f0000||0xb0800000||64K ||
+A more recent RTP300 router has the following layout:
+
+||PSPBoot Name||Start     ||End       ||Size            ||
+||            ||0xB0000000||0xB0010000||0x010000 (64K)  ||
+||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K)  ||
+||IMAGE_A     ||0xB0020000||0xB03E0000||0x3c0000 (3840K)||
+||CONFIG_B    ||0xB03e0000||0xB03f0000||0x010000 (64K)  ||
+||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K)  ||
+||IMAGE_B     ||0xB0400000||0xB07c0000||0x3c0000 (3840K)||
+||            ||0xB07C0000||0xB07f0000||0x040000 (256K) ||
+||cyt_provate ||0xb07f0000||0xb0800000||0x010000 (64K)  ||
+
+3840K is 3,932,160 bytes.
+
+You will notice that the size of IMAGE_A has been increased by 16 bytes and the size of IMAGE_B reduced by 64K thereby making them the same size.  The reduction in the sie of IMAGE_B left CONFIG_B with an unused block on other size.  CONFIG_B was moved to an earlier free 64K block, presumably to reduce fragmentation in case of future need for additional blocks.
 
 == Notes ==
 
@@ -324,6 +334,7 @@ ADMIN_PWD ABPPRAHK55QVA
 HWA_0 00:13:10:AC:02:AB
 HWA_1 00:13:10:AC:02:AA
 BOOTCFG m:f:"IMAGE_A"}}}
+
 == CONSOLE_STATE ==
 Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape. Setting it to "unlocked" restores friendly behavior. See the Serial Console section for a way to unlock the console.
 
