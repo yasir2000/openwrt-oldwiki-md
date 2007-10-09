@@ -84,11 +84,12 @@ Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by 
 To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to put the router in diag mode. To put the router in the diag mode, do this:
 
  * Unplug the router's power cord.
+ * Confirm your PC is configured to request an address via DHCP.
  * Connect the router's LAN1 port directly to your PC.
  * Push the black RESTORE button using a pen or such, and keep the button pushed down.
  * Plug the power on while keeping the RESTORE button pushed for few seconds.
- * If you see a slowly blinking power light, you are in diag mode.
- * Now the router should accept an image via TFTP or the ASUS firmware restoration tool.
+ * When you see a slowly blinking power light, you are in diag mode.
+ * Now the router should accept an image via TFTP or via the ASUS firmware restoration tool.
 [[Anchor(tftp)]] [[Anchor(TFTP)]]
 
 ==== TFTP ====
