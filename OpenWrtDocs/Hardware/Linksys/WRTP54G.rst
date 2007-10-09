@@ -6,7 +6,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||Linksys webpage ||[http://www1.linksys.com/products/product.asp?grid=33&prid=692 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1118334626380 Downloads] ||[http://www1.linksys.com/products/product.asp?grid=33&prid=695 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1119460383933 Downloads] ||
 ||CyberTAN equiv model ||[http://www.cybertan.com.tw/product/wgv614.asp WGV614] http://www.cybertan.com.tw/product/productpic/wgv614.jpg ||[http://www.cybertan.com.tw/product/brv614.asp BRV614] http://www.cybertan.com.tw/product/productpic/brv614.jpg ||
 ||__Firmware Releases__ ||||<style="text-align: center;"> ||
-||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code]If both line are configured to connect to Asterisk and registration is used, they may not stay registered reliably. The exact circumstances under which this problem manifests itself are yet to be determined. ||[http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
+||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code]||[http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
 ||1.00.43: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.43-r050816.img Firmware Image] No Source || ||
 ||1.00.45: || ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.45-r050823.img Firmware Image] No Source ||
 ||1.00.52: ||No Firmware Image [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.52/WRTP54G_v1.00.52.tgz Source Code] ||No Firmware Image [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.52/RTP300_v1.00.52.tgz Source Code] ||
@@ -64,7 +64,7 @@ As of September 2006, Vonage loads firmware version 1.00.62. This firmware has t
   * The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
   * There are no links to the voice pages
   * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
- * Distinctive can be used by setting ALERT_INFO to <Bellcore-dr<i>X</i>> where X is 1--7.
+ * Distinctive can be used by setting ALERT_INFO to <Bellcore-dr''X''> where X is 1--7.
  * Some people have reported that the lines will not stay registered with an Asterisk server, especially if both are registered. This is discussed below.
  * There are no visible settings for an outgoing SIP proxy or an STUN server. There is a setting which may be for sending NOTIFY messages to keep a NAT mapping active, but it does not seem to work.
  * The default register interval is 1 minute. This is rather short and may be intended to keep the NAT mapping active.
@@ -92,7 +92,7 @@ Firmware 3.1.17 has the following distinguishing characteristics:
 
 == Characteristics of Firmware Version 3.1.22 ==
 
- * Ping hack works (enter <b>0.0.0.0 &&<i>command</i></b> as address to ping)
+ * Ping hack works (enter '''0.0.0.0 &&'''''''command'''' as address to ping)
 
 == Characteristics of Firmware Version 3.1.24-NA ==
 
