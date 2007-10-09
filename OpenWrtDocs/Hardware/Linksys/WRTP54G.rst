@@ -127,7 +127,7 @@ The primary way to configure these devices is through a web interface. In the in
 = SSH Access =
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server. This feature must be enable using the web interface. The only username in /etc/passwd is "Admin" (note the upper case A). Reliably setting the password for this account is problematic.
 
-== Noteworthy Programs and Files in the 3.1.XX Firmware ==
+= Noteworthy Programs and Files in the 3.1.XX Firmware =
  * /etc/inittab
   . Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
  * /etc/init.d/rcS
