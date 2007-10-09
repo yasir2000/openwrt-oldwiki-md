@@ -212,8 +212,10 @@ Here are some  programs for manipulating firmware upgrade files:
    . -p <product id>
    . -K <minimum hex blocks (64K) for kernel patition>
    . -R <minimum hex blocks (64K) for root partition>
-   . Working with the Squashfs
-   Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
+   . 
+
+== Working with the Squashfs ==
+Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
 
    * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
 
