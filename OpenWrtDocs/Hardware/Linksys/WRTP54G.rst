@@ -12,7 +12,13 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||1.00.52: ||No Firmware Image [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.52/WRTP54G_v1.00.52.tgz Source Code] ||No Firmware Image [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.52/RTP300_v1.00.52.tgz Source Code] ||
 ||1.00.55: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.55-r051013.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.55-r051013.img Firmware Image] No Source ||
 ||1.00.58: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.58-r051202.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.58-r051202.img Firmware Image] No Source ||
-||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
+||1.00.60: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1=== Unlocking Tools ===
+
+Anyone not able to get past the user password issues should try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
+
+http://www.bargainshare.com/index.php?showtopic=87504
+
+.00.60-r060123.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/wrtp54g/1.00.60/WRTP54G_v1.00.60.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.60-r060120.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.60/RTP300_v1.00.60.tgz Source Code] ||
 ||1.00.62: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.1.0-r021-1.00.62-r060327.img Firmware Image] No Source ||
 ||3.1.14: ||[http://vap.earthlink.net/upgrade/wrtp54g/wrtp54g-3.1.14.bin Firmware Image] No Source ||No Firmware Image No Source ||
 ||3.1.17: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130857131304&ssbinary=true Firmware Image] No Source ||No Firmware Image No Source ||
@@ -44,7 +50,13 @@ See also: ["AR7Port"]
 = Related Sites =
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: [http://sub.st/articles/hacking-the-actiontec-gt701/ http://sub.st/articles/hacking-the-actiontec-gt701/ ]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
- * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
+ * Linux-MIPS port page about the AR7: http://www.linux-mips=== Unlocking Tools ===
+
+Anyone not able to get past the user password issues should try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
+
+http://www.bargainshare.com/index.php?showtopic=87504
+
+.org/wiki/AR7
  * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
 = The Supplied Firmwares =
 All of the known firmwares have the following characteristics in common:
@@ -190,29 +202,30 @@ Here is a partial description of the format of the firmware update file format w
 If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
 
 == Working with Firmware Files ==
-Here are some  programs for manipulating firmware upgrade files:
 
- * Perl script to set CRC: attachment:set_ti_checksum
- * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
+Here are programs which you can use for packing and unpacking firmware image files:
+
  * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2
-  . '''''extractwrtp''' extracts the firmware into the following files: ''
-   . '''''wrtp.img.root''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract)
-   . '''''wrtp.img.kernel Kernel''''' parition (bootstrap + kernel)
-   . '''''wrtp.img.7zip''''' compressed kernel.
-   . '''''wrtp.img.uncompressed''''' uncompressed kernel.
-   . '''''wrtp.img.kernel.bootstrap''''' bootstrap code that extract compressed kernel
-   . '''''wrtp.img.kernel.padding''''' padding part of kernel partition.
-  . '''unsquashfs-lzma''' extracts root partition
-  . '''mksquashfs-lzma''' builds root partition from source directory
-  . '''buildwrtp''' builds the firmware by combining kernel partition and root partition
-   . -k <kernel file>
-   . -r <root file>
-   . -f <output file>
-   . -i <device identity>
-   . -p <product id>
-   . -K <minimum hex blocks (64K) for kernel patition>
-   . -R <minimum hex blocks (64K) for root partition>
-   . 
+ * David Chappell's scripts:
+ ** Perl script to set CRC: attachment:set_ti_checksum
+ ** Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
+
+'''''extractwrtp''' extracts the firmware into the following files: ''
+ * '''''wrtp.img.root''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract)
+ * '''''wrtp.img.kernel Kernel''''' parition (bootstrap + kernel)
+ * '''''wrtp.img.7zip''''' compressed kernel.
+ * '''''wrtp.img.uncompressed''''' uncompressed kernel.
+ * '''''wrtp.img.kernel.bootstrap''''' bootstrap code that extract compressed kernel
+ * '''''wrtp.img.kernel.padding''''' padding part of kernel partition.
+ 
+'''buildwrtp''' builds the firmware by combining kernel partition and root partition
+   -k <kernel file>
+   -r <root file>
+   -f <output file>
+   -i <device identity>
+   -p <product id>
+   -K <minimum hex blocks (64K) for kernel patition>
+   -R <minimum hex blocks (64K) for root partition>
 
 == Working with the Squashfs ==
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
@@ -220,6 +233,10 @@ Standard Linux kernels cannot mount the squashfs file system and the standard mk
    * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
 
    * The patch: attachment:lzma427_zlib.patch
+
+'''unsquashfs-lzma''' can be used to extract the files from a root partition image (previously extracted from a firmware image file) into a directory
+
+'''mksquashfs-lzma''' packs the contexts of a directory into a root partition image which can subsequently be packed into a firmware image file
 
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
@@ -311,7 +328,7 @@ Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewh
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
 The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.
 
-Unfortunately, there does not seem to be a direct and reliable way to set BOOTCFG. But, if there are two firmwares installed and one formats the image partition of the one named in BOOTCFG, BOOTCFG will automatically switch to the other one.
+One investigator has reported that there not seem to be a direct and reliable way to set BOOTCFG. But, if there are two firmwares installed and one formats the image partition of the one named in BOOTCFG, BOOTCFG will automatically switch to the other one.  However, he may have used setpermenv from the PSPBoot prompt, which would reportedly makes environment variables unchangable.
 
 = Serial Console =
 {{{
@@ -336,10 +353,15 @@ Do not connect the router's serial port directly to your computer's RS232 port. 
 
 The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control. These settings may be changable by setting the boot environment variable MODETTY.
 
-The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot and receive a boot loader prompt. Most if not all firmwares allow login on the serial port once they are booted. Some run /bin/login whereas others simply run /bin/sh. The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password. Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
+The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot (by pressing ESC) and receive a boot loader prompt.  If you manage to get shell, you could try the following to unlock the PSPBoot console with this command:
 
 {{{
 # echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
+
+You should try to do this as soon as you can since you may need to use the serial console to recover after flashing a bad firmware.  If it is not unlocked, your ownly remaining option is to use a JTAG cable to read the environment block, use a hex editor to change "locked" to "unlocked" (followed by a 0 byte) and write the environment block back to flash.
+
+Most if not all firmwares allow login on the serial port once they are booted. Some run /bin/login whereas others simply run /bin/sh. The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password. Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
+
 = JTAG =
 JTAG is a standard way to gain access to the system bus of an embedded device. It can be used to reprogram the flash even if the boot loader has been damaged.  The AR7 implements ejtag version 2.6.
 
