@@ -46,13 +46,15 @@ See also: ["AR7Port"]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
  * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
  * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
+
 = The Supplied Firmwares =
 All of the known firmwares have the following characteristics in common:
 
  * Linux 2.4.17 kernel with Montavista patches
  * uClibc
  * Busybox
-== Characteristics of Version 1.00.XX ==
+
+== Characteristics of Firmware Version 1.00.XX ==
 As of September 2006, Vonage loads firmware version 1.00.62. This firmware has the following distinguishing characteristics:
 
  * Busybox is built without the more command
@@ -71,7 +73,9 @@ If your phone lines will not register with the SIP server or will not stay regis
  * Make sure there are no DNS servers entered in the provisioning tab (may be labeled "Vonage DNS Servers")
  * Use server names, not IP addresses.
  * If you can, log in using SSH or the serial console and make sure /etc/resolv.conf lists only good DNS servers.
-== Characteristics of Version 3.1.XX ==
+
+== Characteristics of Firmware Version 3.1.XX ==
+
 In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively. Previous versions in the 3.1.X series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
 
 Firmware 3.1.17 has the following distinguishing characteristics:
@@ -86,7 +90,11 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
 
-== Characteristics of Version 3.1.24-NA ==
+== Characteristics of Firmware Version 3.1.22 ==
+
+ * Ping hack works (enter <b>0.0.0.0 &&<i>command</i></b> as address to ping)
+
+== Characteristics of Firmware Version 3.1.24-NA ==
 
 After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.
 
@@ -98,18 +106,18 @@ After some experiments with a few WRTP54G-ER units bought in April 2007, further
  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
 
+== Characteristics of Firmware Version 5.02.04 ==
+
+In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02.04.  This firmware is currently being studied.  Details will be posted shortly.
+
+ * Ping hack works (enter <b>0.0.0.0 &&<i>command</i></b> as address to ping)
+
 = Customized Firmwares =
 
-Customized 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip
-
-NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and 
-no password. Also, blocking port 22 doesn't seem to help.
-
-Latest 3.1.22 firmware supports PING HACK (0.0.0.0 &&command) and can be found here attachment:wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img
-
-
+ *3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
 
 = Accounts in the Official Firmwares =
+
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
