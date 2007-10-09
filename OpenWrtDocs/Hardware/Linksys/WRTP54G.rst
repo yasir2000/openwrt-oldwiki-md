@@ -18,7 +18,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||3.1.17: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.17_US.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130857131304&ssbinary=true Firmware Image] No Source ||No Firmware Image No Source ||
 ||3.1.22.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 ||3.1.23.ETSI: ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||
-||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3%5B1%5D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3%5B1%5D.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
+||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3[1].1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3[1].1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
 ||5.01.04: ||[http://httpconfig.vonage.net/wrt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||
 
 
@@ -151,7 +151,6 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
   . Appearently the program which does the actual firmware flashing
  * /sbin/reboot
   . Restart the router
-
 = Flash Memory layout of RTP300 =
 == /proc/mtd ==
 {{{
@@ -167,7 +166,7 @@ mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 Notes:
 
- * The 8MB flash contains space for two firmwares. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
+ * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
  * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
  * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
@@ -190,25 +189,12 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x003b0004 thru 0x003b0007 are a little-endian CRC of all bytes from the start until just before the magic number.
 If the file is to be written directly into flash it must be 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
 
-== Working with the Squashfs ==
-Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib. Possibly helpful information on working with Squashfs and LZMA can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm. It is also possible that the WRT54G Firmware Modification Kit http://www.bitsum.com/firmware_mod_kit.htm would be of help.
-
-Unsquashfs 1.3r3 attachment:squashfs-tools.tar.bz2 .
-
- . there is a bug in the original patch for lzma427, please use this patch attachment:lzma427_zlib.patch
-If you manage to patch your Linux kernel to include support for Squashfs with LZMA compression, you can extract and mount a firmware's root file system like this:
-
-{{{
-# dd if=fw.bin of=fw.fs bs=1024 skip=576
-# mount -o loop fw.fs /mnt
-}}}
-== Tools for Firmware Files ==
+== Working with Firmware Files ==
 Here are some  programs for manipulating firmware upgrade files:
 
  * Perl script to set CRC: attachment:set_ti_checksum
  * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
- * Extract root filesystem and kernel from firmware attachment:extractwrtp.tar.bz2
- * Firmware modification Kit (includes above program) attachment:wrtp-mod-kit.tar.bz2
+ * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2
   . '''''extractwrtp''' extracts the firmware into the following files: ''
    . '''''wrtp.img.root''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract)
    . '''''wrtp.img.kernel Kernel''''' parition (bootstrap + kernel)
@@ -226,6 +212,13 @@ Here are some  programs for manipulating firmware upgrade files:
    . -p <product id>
    . -K <minimum hex blocks (64K) for kernel patition>
    . -R <minimum hex blocks (64K) for root partition>
+   . Working with the Squashfs
+   Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
+
+   * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
+
+   * The patch: attachment:lzma427_zlib.patch
+
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
