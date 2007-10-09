@@ -341,7 +341,7 @@ The serial port is the boot loader console. If the boot-loader environment varia
 {{{
 # echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
 = JTAG =
-JTAG is a standard way to gain access to the system bus of an embedded device. It can be used to reprogram the flash even if the boot loader has been damaged.
+JTAG is a standard way to gain access to the system bus of an embedded device. It can be used to reprogram the flash even if the boot loader has been damaged.  The AR7 implements ejtag version 2.6.
 
 == WRTP54G JTAG Pinout ==
 {{{
@@ -364,19 +364,17 @@ __________________________________________
  \________________________________________|
     *voltage reference @ 3.3 volts
 }}}
-The AR7 implements ejtag version 2.6.
 
-This ejtag layout should work with all ar7 based boards with a 14 pin jtag pinout. The same cable as used for the wrt54g (based on the xilinx III/dlc-5) as demonstrated by !HairyDairyMaid can be constructed and is well documented. Debug INT pin 13 is optional and pin 14 can be left unhooked for passive cabling.
+This ejtag layout should apply to all ar7 based boards with a 14 pin jtag pinout. The same cable as used for the wrt54g (based on the xilinx III/dlc-5) as described by !HairyDairyMaid can be used with the RTP300. Debug INT pin 13 is optional.  A 100 Ohm resister should be connected between pins 1 and 14.
 
-Since DMA Routines do '''not''' exist for this ejtag version (compared to ejtag v2.0 supported on the wrt54g) interfacing requires a rewrite utilizng prAcc routines of the v2.6 standard.
-
-The JTAG utility authored by HairyDairyMaid that is in common use as a debugger for the wrt54g originally did not support the v2.6 routines due to the need to rewrite the prAcc routines. After some lobbying, he has purportedly added support that is *supposed* to work with the wrtp54g as well as other ar7 based routers although at last check (which was some while ago) this additional feature had yet to be successfully confirmed to work as intended, although I had heard through a third party that it had in fact worked this needs to be confirmed by someone on this page with firsthand knowledge.
+The JTAG utility written by HairyDairyMaid for the WRT54G can be used to reprogram the flash.  Version 4.8 has been confirmed to work correctly with the RTP300 if the correct options are used.
 
  * [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device]
  * [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
  * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
 ----
  . CategoryModel ["CategoryAR7Device"]
+
 = Firmware Flashing =
 There are several proven ways to write a new firmware into flash:
 
@@ -384,7 +382,8 @@ There are several proven ways to write a new firmware into flash:
  * Using firmware update on the provisioning page
  * Using command line tools under a running firmware
  * From the PSPBoot prompt using the serial port console
-It is presumably possible to write a firmware using JTAG, but so far nobody has reported success.
+
+It is presumably possible to write a firmware using JTAG, but it would be very slow, at least using a passive cable connected to a parallel port.
 
 The PSPBoot page suggests that there is a one second window during PSPBoot startup during which a TFTP server is ready to accept a new firmware named upgrade_code.bin, but this feature does not seem to be included in the build of PSPBoot installed on the RTP300.
 
@@ -416,14 +415,6 @@ If your router is running Earthlink (ER) firmware 3.1.14, the username needed in
 If your router has Vonage firmware on it, the procedure is slightly more complicated. First, you should plug your router into the Internet so that it can load its configuration from Vonage's servers. This will give you a user name of "user" and a password of "tivonpw" which you can use in step seven. Second, there will be no "Firmware Update" tab in step six. Instead, enter http://192.168.15.1/update.html. (Note: this procedure is incomplete and not entirely correct. One must at some point also go to Administration/Factory Defaults and reset the router and voice configuration to factory defaults.)
 
 If you get a page-not-found error after logging in in step seven, do not dispair. This is bug in some firmwares. Simply enter the address http://192.168.15.1/update.html into your browser and continue from there.
-
-'''WARNING USE AT YOUR OWN RISK - Note:''' Anyone not able to get past the user password issues should try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
-
-http://www.bargainshare.com/index.php?showtopic=87504
-
-I used it successfully on a WRTP54G Firmware 1.062, even though the user pwd was originally tivonpw, I couldn't get that password to let me at the firmware upgrade tab as indicated above;  devices listed:
-
-- Linksys WRTP54G - 2 phone ports, 4 port router, wireless - Linksys RTP300 -  2 phone ports, 4 port router - Linksys RTP200 - Linksys PAP2'''v2.0'''- 2 phone ports - Vtech IP8100 - Cordless SIP phone with base - Motorola  VT2442 - 2 phone ports, 4 port router - D-Link VTA-VR - 2 phone ports -  Linksys WAG54GP2 - 2 phone ports, DSL router Edited 6/20/07 - cef1000
 
 == Using Firmware Update on the Provisioning Page ==
 VOIP providers can configure these routers to periodically download a VOIP configuration file. This file contains VOIP settings and login credentials for the provider's SIP server. This process is called "provisioning". The "provisioning" file can also instruct the router to download and install a new firmware. The Provisioning page in the web interface can also be used to initiate this process. This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page. Here is the procedure for the 3.1.XX series firmware:
@@ -467,3 +458,13 @@ fmt IMAGE_A
 tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 }}}
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
+
+== Locked Out ==
+
+There are several circumstances where you can be locked out of your router.
+
+=== Unlocking Tools ===
+
+You can try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
+
+http://www.bargainshare.com/index.php?showtopic=87504
