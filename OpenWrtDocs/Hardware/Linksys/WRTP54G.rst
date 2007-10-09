@@ -526,8 +526,8 @@ Using this procedure, you can write a firmware into one of the two firmware part
   }}}
  * Switch to the newly written firmware by using the appropriate command:
   {{{
-  # echo 'setpermenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
-  # echo 'setpermenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
+  # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
+  # echo 'setenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
   }}}
 
 Overwriting the active firmware can be done (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
