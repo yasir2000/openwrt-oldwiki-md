@@ -121,7 +121,7 @@ The primary way to configure these devices is through a web interface. In the in
 = SSH Access =
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server. This feature must be enable using the web interface. The only username in /etc/passwd is "Admin" (note the upper case A). Reliably setting the password for this account is problematic.
 
-== Programs and Files in the 3.1.XX Firmware ==
+== Noteworthy Programs and Files in the 3.1.XX Firmware ==
  * /etc/inittab
   . Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
  * /etc/init.d/rcS
@@ -141,12 +141,17 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
  * /usr/lib/updatedd
   . dynamic DNS client
+ * /usr/www/cgi-bin/webcm
+  . Program through which most web pages are loaded.  Implements a sort of server-side-includes.  Accepts POST requests to change the configuration.
  * /usr/www/cgi-bin/firmwarecfg
   . Target of POST request which uploads a new firmware
+ * /var.tar
+  . This file is unpacked during boot.  It creates the /var directory
  * /var/upgrader (from var.tar)
   . Appearently the program which does the actual firmware flashing
- * reboot
+ * /sbin/reboot
   . Restart the router
+
 = Flash Memory layout of RTP300 =
 == /proc/mtd ==
 {{{
