@@ -241,13 +241,22 @@ The directory /dev/ti_partitions/ contains symbolic links to several of the flas
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
  * Bytes 0x00 thru 0x03 are "CDTM". This is presumably a magic number identifying the file as a firmware.
- * Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.
+ * Bytes 0x04 thru 0x07 unknown
+ * Bytes 0x08 thru 0x0B fwDate
+ * Bytes 0x0C thru 0x0F fwVer
+ * Bytes 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.
+ * Bytes 0x10 thru 0x13 is the length of the header
  * Bytes 0x14 thru 0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
- * Bytes 0x70 thru 0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
- * Bytes 0xb0 thru ?? appear to be a partion table defining partions "kernel" and "root"
+ * Bytes 0x18 thru 0x1B VerID
+ * Bytes 0x1C thru 0x1F Unknown
+ * Bytes 0x20 thru 0x23 MagicNumPos
+ * Bytes 0x24 thru 0x27 Unknown
+ * Bytes 0x28 thru 0x2b offset of start of partition table
+ * Bytes 0x70 thru 0xAF (or the 0x3F bytes starting at the address indicated in the word at 0x10) contain the file name of the firmware, presumably so that it can be identified even if renamed.
+ * Byte 0xb0 (or the address indicated in the word at 0x28) is the start of a partion table defining partions "kernel" and "root"
  * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
- * Bytes 0x010000 thru 0x08FFFF are the kernel. Unused space at the end is filled with the value 0xFF.
- * Bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem. The first four bytes of the squashfs are "hsqs".
+ * In most firmwares bytes 0x010000 thru 0x08FFFF are the kernel. Unused space at the end is filled with the value 0xFF.
+ * In most firmwares bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem. The first four bytes of the squashfs are "hsqs".
  * Firmware images intended to be written directly into flash end at this point.
  * Bytes 0x003b0000 thru 0x003b0003 are a little-endian magic number of 0xC453DE23.
  * Bytes 0x003b0004 thru 0x003b0007 are a little-endian CRC of all bytes from the start until just before the magic number.
