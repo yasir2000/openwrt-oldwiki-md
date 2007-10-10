@@ -254,15 +254,15 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x70 thru 0xAF (or the 0x3F bytes starting at the address indicated in the word at 0x10) contain the file name of the firmware, presumably so that it can be identified even if renamed.
  * Byte 0xb0 (or the address indicated in the word at 0x28) is the start of a partion table defining partions "kernel" and "root".  Partition table format is:
   * A 12 bytes header:
-   * 4 bytes for number of partition table entries
-   * 4 bytes for the size of each entry
-   * 4 bytes for the table table offset (whatever that means)
+   * 4 bytes for number of partition table entries (firmwares examined have 2 here)
+   * 4 bytes for the size of each entry in bytes (firmwares examined have 40 here)
+   * 4 bytes store the offset (from the start of the firmware file) of the start of the first entry
   * One or more 40 byte entries:
    * 4 bytes for Partition start
    * 4 bytes for Full length
    * 4 bytes for Partition length
-   * 4 bytes for minute_one
-   * 4 bytes for checksum
+   * 4 bytes unknown (contain value 0xFFFFFFFF)
+   * 4 bytes for little-endian CRC of partition contents (excluding padding)
    * 4 bytes for mtdNum
    * 16 bytes for partition name
  * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
