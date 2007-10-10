@@ -244,24 +244,24 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x04 thru 0x07 unknown, set to 0x00010000 in most firmwares
  * Bytes 0x08 thru 0x0B firmware flags, set to 0xFFFFFFFF  (Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.)
  * Bytes 0x0C thru 0x0F possible firmware header version, set to 0x00000001
- * Bytes 0x10 thru 0x13 is the length of the header
+ * Bytes 0x10 thru 0x13 is the length of the header (including the partition table?)
  * Bytes 0x14 thru 0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
  * Bytes 0x18 thru 0x1B verID set to 0x40302010
  * Bytes 0x1C thru 0x1F unknown, set to 0x0B010000
  * Bytes 0x20 thru 0x23 file size (excluding last 8 bytes of firmwares for use thru web interface)
- * Bytes 0x24 thru 0x27 unknown, set to 0x00000030
+ * Bytes 0x24 thru 0x27 miniHeaderLength, set to 0x00000030 in most firmwares
  * Bytes 0x28 thru 0x2b offset of start of partition table
  * Bytes 0x2c thru 0x30 unknown, set to 0xFFFFFFFF
- * Bytes 0x70 thru 0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
+ * The 0x40 bytes starting 0x40 bytes beyond the end of the mini header (as indicated in the word starting at 0x27) contain the file name of the firmware, presumably so that it can be identified even if renamed.
  * Byte 0xb0 (or the address indicated in the word at 0x28) is the start of a partion table defining partions "kernel" and "root".  Partition table format is:
   * A 12 bytes header:
    * 4 bytes for number of partition table entries (firmwares examined have 2 here)
    * 4 bytes for the size of each entry in bytes (firmwares examined have 40 here)
    * 4 bytes store the offset (from the start of the firmware file) of the start of the first entry
   * One or more 40 byte entries:
-   * 4 bytes for Partition start
-   * 4 bytes for Full length
-   * 4 bytes for Partition length
+   * 4 bytes for partition start (offset from start of firmware file)
+   * 4 bytes for padded length of partition
+   * 4 bytes for fpr actual partition length
    * 4 bytes unknown (contain value 0xFFFFFFFF)
    * 4 bytes for little-endian CRC of partition contents (excluding padding)
    * 4 bytes for mtdNum
