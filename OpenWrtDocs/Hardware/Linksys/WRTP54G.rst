@@ -241,9 +241,9 @@ The directory /dev/ti_partitions/ contains symbolic links to several of the flas
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
  * Bytes 0x00 thru 0x03 are "CDTM". This is presumably a magic number identifying the file as a firmware.
- * Bytes 0x04 thru 0x07 unknown, set to 0x00010000
- * Bytes 0x08 thru 0x0B fwDate, set to 0xFFFFFFFF  (Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.)
- * Bytes 0x0C thru 0x0F fwVer, set to 0x00000001
+ * Bytes 0x04 thru 0x07 unknown, set to 0x00010000 in most firmwares
+ * Bytes 0x08 thru 0x0B firmware flags, set to 0xFFFFFFFF  (Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.)
+ * Bytes 0x0C thru 0x0F possible firmware header version, set to 0x00000001
  * Bytes 0x10 thru 0x13 is the length of the header
  * Bytes 0x14 thru 0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
  * Bytes 0x18 thru 0x1B verID set to 0x40302010
@@ -251,7 +251,8 @@ Here is a partial description of the format of the firmware update file format w
  * Bytes 0x20 thru 0x23 file size (excluding last 8 bytes of firmwares for use thru web interface)
  * Bytes 0x24 thru 0x27 unknown, set to 0x00000030
  * Bytes 0x28 thru 0x2b offset of start of partition table
- * Bytes 0x70 thru 0xAF (or the 0x3F bytes starting at the address indicated in the word at 0x10) contain the file name of the firmware, presumably so that it can be identified even if renamed.
+ * Bytes 0x2c thru 0x30 unknown, set to 0xFFFFFFFF
+ * Bytes 0x70 thru 0xAF contain the file name of the firmware, presumably so that it can be identified even if renamed.
  * Byte 0xb0 (or the address indicated in the word at 0x28) is the start of a partion table defining partions "kernel" and "root".  Partition table format is:
   * A 12 bytes header:
    * 4 bytes for number of partition table entries (firmwares examined have 2 here)
@@ -269,8 +270,8 @@ Here is a partial description of the format of the firmware update file format w
  * In most firmwares bytes 0x010000 thru 0x08FFFF are the kernel. Unused space at the end is filled with the value 0xFF.
  * In most firmwares bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem. The first four bytes of the squashfs are "hsqs". Unused space at the end is filled with the value 0xFF.
  * Firmware images intended to be written directly into flash end at this point.  Firmware images intended for upgrading thru the web interface have two additional words:
- ** A little-endian magic number of 0xC453DE23
- ** A little-endian CRC of all bytes from the start until just before the magic number
+  * A little-endian magic number of 0xC453DE23
+  * A little-endian CRC of all bytes from the start until just before the magic number
 
 Most firmware files intended to be written directly into flash it are 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
 
