@@ -61,6 +61,7 @@ dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
  {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)}}}
  * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 minutes
+ * You can enter in the System Command text field 'ls -l ''''''/tmp/harddisk/part0' and see your first_config.trx file.
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
 === Restore ===
 To restore the original ASUS firmware you have three options:
@@ -91,7 +92,6 @@ To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to
  * When you see a slowly blinking power light, you are in diag mode.
  * Now the router should accept an image via TFTP or via the ASUS firmware restoration tool.
 [[Anchor(tftp)]] [[Anchor(TFTP)]]
-
 
 In diag mode, the router takes address 192.168.1.1. It responds to ping, so you can confirm that it is in diag mode and ready for the tftp by using "ping 192.168.1.1".
 
