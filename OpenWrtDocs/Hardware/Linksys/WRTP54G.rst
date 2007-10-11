@@ -74,6 +74,7 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
  * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erased before it can be written to.  Flashing firmware is fully described elsewhere in this document.
  * The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
+ * The partition table seems to be constructed from various PSPBoot environment variables.  The kernel code to do this is in drivers/mtd/maps/avalance-flash.c.  Code in this file also creates the links in /dev/ti_partitions/.
 
 == Boot Loader ==
 
