@@ -264,6 +264,8 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
   . GNU Wget (why not Busybox wget?). This is appearently used to download new firmwares.
  * /usr/bin/lightbox
   . Mystery program run from /etc/init.d/rcS. It seems that it must start most of the daemons
+ * /usr/bin/cm_pc
+  . A mystery daemon, seems to be involved in firmware flashing
  * /usr/bin/cm_convert
   . Converts old voice configuration to the 3.1.XX format. Run once per boot.
  * /usr/bin/cm_logic
@@ -280,9 +282,16 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /var.tar
   . This file is unpacked during boot.  It creates the /var directory
  * /var/upgrader (from var.tar)
-  . Appearently the program which does the actual firmware flashing
+  . Presumably plays a role in firmware flashing, though it is not run during upload of new firmware
+  . through the web interface.
  * /sbin/reboot
   . Restart the router
+ * /var/tmp/fw_ip
+  . during a firmware upgrade, stores the IP address, a comma, and the access level (such as "ADMIN") of the
+  . web browser which is updating the firmware
+ * /var/tmp/fw.bin
+  . a named pipe which seems to be used to transfer the upgrade firmware from /usr/www/cgi-bin/firmwarecfg
+  . to some other program, seemingly cm_pc
 
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
