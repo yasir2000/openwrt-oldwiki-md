@@ -129,7 +129,10 @@ First install the kernel file system modules, for example:
 {{{
 ipkg install kmod-vfat
 }}}
-'''TIP:''' kamikaze 7.07: kmod-fs-vfat
+Under Kamikaze 7.07 or later, use
+{{{
+ipkg install kmod-fs-vfat
+}}}
 
 '''TIP:''' After installing the modules, you should either reboot the device or load the installed modules manually:
 
@@ -140,8 +143,8 @@ insmod vfat
 '''TIP:''' You can install support for more file systems by installing the appropriate packages.
 ||'''File system''' ||'''Package name''' ||'''Comment''' ||
 ||VFAT/MSDOS ||kmod-vfat (kmod-fs-vfat) ||File system generally used in USB devices and older Windows ||
-||EXT2 ||kmod-ext2 || ||
-||EXT3 ||kmod-ext3 || ||
+||EXT2 ||kmod-ext2 (kmod-fs-ext2) || ||
+||EXT3 ||kmod-ext3 (kmod-fs-ext3) || ||
 
 
 Now install the {{{fdisk}}} package from the White Russian's backports repository. How to use the backports repository see ["OpenWrtDocs/Packages"].
