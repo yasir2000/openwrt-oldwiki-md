@@ -35,7 +35,138 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
 See also: ["AR7Port"]
 
-= Source Code Supplied by Linksys =
+== Flash Layout ==
+
+= Flash Memory layout of RTP300 =
+
+The flash layout is as follows:
+
+||PSPBoot Name||Start     ||End       ||Size          ||
+||BOOTLOADER  ||0xB0000000||0xB0010000||0x010000 (64K)||
+||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K)||
+||IMAGE_A     ||0xB0020000||0xB03F0000||0x3D0000      ||
+||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K)||
+||IMAGE_B     ||0xB0400000||0xB07d0000||0x3D0000      ||
+||CONFIG_B    ||0xB07d0000||0xB07e0000||0x010000 (64K)||
+||            ||0xB07e0000||0xB00f0000||0x010000 (64K)||
+||cyt_private ||0xb07f0000||0xb0800000||0x010000 (64K)||
+
+This layout is reflected in /dev/mtd as follows:
+
+{{{
+dev:    size   erasesize  name
+mtd0: 00320000 00010000 "root"                           (3MB - 3,276,800 bytes)
+mtd1: 00080000 00010000 "RESERVED_PRIMARY_KERNEL"        (512K - 524,288 bytes)
+mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB - 3,276,800 bytes)
+mtd3: 003d0000 00010000 "RESERVED_PRIMARY_IMAGE"         (3.8MB - 3,997,696 bytes)
+mtd4: 003d0000 00010000 "RESERVED_SECONDARY_IMAGE"       (3.8MB - 3,997,696 bytes)
+mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
+mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
+mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
+mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
+
+== Additional Notes About Firmware Blocks ==
+
+ * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware if firmware flashing fails.  After boot the two firmwares are visible as mtd3 and mtd4 with mtd3 being the active firmware.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
+ * Unused space at the end of memory blocks is filled with the value 0xFF.
+ * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
+ * mtd5 and mtd6 each begin with a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
+ * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.
+ * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erased before it can be written to.  Flashing firmware is fully described elsewhere in this document.
+ * The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
+
+== Boot Loader ==
+
+The boot loader is PSPBoot.  It is said that the source code for this boot loader is available in some tarball.  If you know which tarball, please add a link to it here.
+
+The PSPBoot loader is stored in the first partition of the flash memory.  This partition is 64K long.
+
+= Boot Loader Environment =
+The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
+
+At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the ''setpermenv'' command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt.
+
+After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the same format changes a variable, as long as it is not read-only. A space may be substituted for a tab when writing.
+
+Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized.
+
+{{{
+BUILD_OPS 0x541
+bootloaderVersion 1.3.3.11.2.6
+HWRevision 1.00.03
+max_try 4
+IMAGE_A 0x90020000,0x903f0000
+CONFIG_A 0x903f0000,0x90400000
+IMAGE_B 0x90400000,0x907d0000
+CONFIG_B 0x907d0000,0x907e0000
+BOOTCFG_A m:f:"IMAGE_A"
+BOOTCFG_B m:f:"IMAGE_B"
+HW_COMPANDING linear
+FSX_FSR 16
+TELE_IF INTERNAL
+BOOTLOADER 0x90000000,0x90010000
+save_voice_config yes
+DSP_CLK 12288000:10
+boot_env 0xb0010000,0xb0020000
+cyt_private 0xb07f0000,0xb0800000
+TELE_ID VE882XX:AUTO
+WIFI_LED_GPIO 13
+WIFI_LED_RATE 50
+SUBNET_MASK 255.255.255.0
+MAC_PORT 0
+MEMSZ 0x01000000
+FLASHSZ 0x00800000
+MODETTY 0115200,n,8,1,hw
+CPUFREQ 162500000
+SYSFREQ 125000000
+PROMPT (psbl)
+IPA 192.168.6.15
+IPA_GATEWAY 192.168.6.254
+ProductID CYLL
+CONSOLE_STATE locked
+TFTPU_STATE OFF
+SerialNumber CJM00E5xxxxx
+HASH_DIR 8wA2fClJsg
+CRYPT_KEY 47035165D59457E16ACA0EFC747AC05C9985F36DDD60B5641B25E1EC581AEFE3
+ADMIN_PWD ABPPRAHK55QVA
+HWA_0 00:13:10:AC:02:AB
+HWA_1 00:13:10:AC:02:AA
+BOOTCFG m:f:"IMAGE_A"}}}
+
+If the environment flash partition (the second one) is erased, a default environment will be created using data in the PSPBoot partition as a basis.  The default environment seems adequate to boot Linksys firmwares.  The only difference noted is that IPA is set to 169.254.87.1.
+
+== CONSOLE_STATE ==
+Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape. Setting it to "unlocked" restores friendly behavior. See the Serial Console section for a way to unlock the console.
+
+== IPA, IPA_GATEWAY, SUBNET_MASK ==
+These variables define the IP settings used by the tftp command. It makes sense to change IPA to "192.168.15.1" since this is the IP address which the standard firmwares assign to the router.
+
+== ProductID ==
+This is a four character code which identifies the hardware.  This variable is read-only which means that one must reflash the boot loader in order to change it.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to install it using the web interface. If you write it to flash by some other means, PSPboot will refuse to load it.
+
+Known ProductID values:
+
+ * RTP300-NA: CYLM
+ * RTP300 from Vonage: CYLL
+ * WRTP54G-NA: CYWM
+ * WRTP54G from Vonage: CYWL
+One can trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it. (Refer to the description of the firmware update file format above.) Loading an incompatible firmware may brick your device, so be careful. In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset. The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300. It seems that a system daemon crashes when it attempts to configure the wireless hardware. As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area. If you do this, you will have to use a serial console to regain access.
+
+== IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
+The router has room for two firmwares and a configuration area for each. Factory defaults can be restored by formatting the configuration area of the currently active firmware. (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.) The command to clear the conifguration area of the first firmware is:
+
+{{{fmt CONFIG_A}}}
+
+Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
+
+== BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
+The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  BOOTCFG must be set using the setpermenv command, either from PSPBoot (serial console required) or by writing an appropriate command to /proc/ticfg/env, like so:
+
+  {{{
+  # echo 'setpermenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
+  }}}
+
+= Firmware Source Code Supplied by Linksys =
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
  * There appear to be pieces missing which make the code as a whole unbuildable. At any rate, though several people in various forums have asked how to build the source code, nobody has posted instructions.
  * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
@@ -44,13 +175,7 @@ See also: ["AR7Port"]
 = Related Sites =
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: [http://sub.st/articles/hacking-the-actiontec-gt701/ http://sub.st/articles/hacking-the-actiontec-gt701/ ]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
- * Linux-MIPS port page about the AR7: http://www.linux-mips=== Unlocking Tools ===
-
-Anyone not able to get past the user password issues should try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
-
-http://www.bargainshare.com/index.php?showtopic=87504
-
-.org/wiki/AR7
+ * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
  * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
 = The Supplied Firmwares =
 All of the known firmwares have the following characteristics in common:
@@ -58,6 +183,7 @@ All of the known firmwares have the following characteristics in common:
  * Linux 2.4.17 kernel with Montavista patches
  * uClibc
  * Busybox
+
 == Characteristics of Firmware Version 1.00.XX ==
 As of September 2006, Vonage loads firmware version 1.00.62. This firmware has the following distinguishing characteristics:
 
@@ -157,85 +283,6 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
   . Appearently the program which does the actual firmware flashing
  * /sbin/reboot
   . Restart the router
-= Flash Memory layout of RTP300 =
-
-== Sample 1 ==
-
-An early RTP300 router whose PSPBoot environment variables are shown elsewhere in this document has the following flash layout:
-
-||PSPBoot Name||Start     ||End       ||Size           ||
-||            ||0xB0000000||0xB0010000||0x010000 (64K) ||
-||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K) ||
-||IMAGE_A     ||0xB0020000||0xB03DFFFF||0x3bFFFF       ||
-||            ||0xB03E0000||0xB03f0000||0x010000 (64K) ||
-||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K) ||
-||IMAGE_B     ||0xB0400000||0xB07d0000||0x3d0000       ||
-||CONFIG_B    ||0xB07d0000||0xB07e0000||0x010000 (64K) ||
-||            ||0xB07e0000||0xB0010000||0x020000 (128K)||
-||cyt_provate ||0xb07f0000||0xb0800000||0x010000 (64K) ||
-
-You will notice that IMAGE_A and IMAGE_B are not the same size.  The unused 64K block after IMAGE_A suggests that the size intended was 0x07e0000 bytes.  The ending address of IMAGE_A suggests that the person who designed this partition table momentarily forgot that the block runs up to but not including the ending address.
-
-== Sample 2 ==
-
-Here is the contents of the /proc/mtd psuedo file on an unidentified router.  This has been in the Wiki for a long time, so we may assume it is from an early example of the RTP300 or WRTP54G.
-
-{{{
-dev:    size   erasesize  name
-mtd0: 00320000 00010000 "root"                           (3MB - 3,276,800 bytes)
-mtd1: 00080000 00010000 "RESERVED_PRIMARY_KERNEL"        (512K - 524,288 bytes)
-mtd2: 00320000 00010000 "RESERVED_PRIMARY_ROOT_FS"       (3MB - 3,276,800 bytes)
-mtd3: 003d0000 00010000 "RESERVED_PRIMARY_IMAGE"         (3.8MB - 3,997,696 bytes)
-mtd4: 003d0000 00010000 "RESERVED_SECONDARY_IMAGE"       (3.8MB - 3,997,696 bytes)
-mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
-mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
-mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
-mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
-
-It appears that IMAGE_A (mtd3) has been enlarged by 64K plus 16 bytes theirby fulfiling what was probably the original intent.
-
-=== Sample 3 ===
-
-Another RTP300 router bought on E-Bay during the summer of 2007 had this layout:
-
-{{{
-dev:    size   erasesize  name
-mtd0: 002e0000 00010000 "root"
-mtd1: 00078000 00010000 "RESERVED_PRIMARY_KERNEL"
-mtd2: 002e0000 00010000 "RESERVED_PRIMARY_ROOT_FS"
-mtd3: 003c0000 00010000 "RESERVED_PRIMARY_IMAGE"
-mtd4: 003c0000 00010000 "RESERVED_SECONDARY_IMAGE"
-mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"
-mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"
-mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"
-mtd8: 00010000 00010000 "cyt_private"}}}
-
-||PSPBoot Name||Start     ||End       ||Size            ||
-||            ||0xB0000000||0xB0010000||0x010000 (64K)  ||
-||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K)  ||
-||IMAGE_A     ||0xB0020000||0xB03E0000||0x3c0000 (3840K)||
-||CONFIG_B    ||0xB03e0000||0xB03f0000||0x010000 (64K)  ||
-||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K)  ||
-||IMAGE_B     ||0xB0400000||0xB07c0000||0x3c0000 (3840K)||
-||            ||0xB07C0000||0xB07f0000||0x040000 (256K) ||
-||cyt_provate ||0xb07f0000||0xb0800000||0x010000 (64K)  ||
-
-3840K is 3,932,160 bytes.
-
-If you compare this to sample 1, you will notice that the size of IMAGE_A has been increased by 16 bytes and the size of IMAGE_B reduced by 64K thereby making them the same size.  The reduction in the size of IMAGE_B left CONFIG_B with an unused block on either side.  CONFIG_B was moved to an earlier free 64K block, presumably to reduce fragmentation in case of future need for additional blocks.
-
-== Additional Notes About Firmware Blocks ==
-
- * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware firmware flashing fails. mtd3 and mtd4 contain the two firmwares. Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
- * Unused space at the end of memory blocks is filled with the value 0xFF.
- * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
- * mtd5 and mtd6 contain a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
- * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables. The environment variables can be read from ''/proc/ticfg/env'' after boot. Some of them can be set by writing to /proc/ticfg/env.
- * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erase before it can be written to. Flashing firmware is fully described elsewhere in this document.
-
-== /dev/ti_partitions ==
-
-The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
 
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
@@ -324,88 +371,6 @@ The configuration can be extracted using the web interface (Administration/Manag
  * Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
  * Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
-= Boot Loader Environment =
-The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
-
-At the serial console the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the setpermenv command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt.
-
-After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the same format changes a variable, as long as it is not read-only. A space may be substituted for a tab when writing.
-
-Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized.
-
-{{{
-BUILD_OPS 0x541
-bootloaderVersion 1.3.3.11.2.6
-HWRevision 1.00.03
-max_try 4
-IMAGE_A 0x90020000,0x903f0000
-CONFIG_A 0x903f0000,0x90400000
-IMAGE_B 0x90400000,0x907d0000
-CONFIG_B 0x907d0000,0x907e0000
-BOOTCFG_A m:f:"IMAGE_A"
-BOOTCFG_B m:f:"IMAGE_B"
-HW_COMPANDING linear
-FSX_FSR 16
-TELE_IF INTERNAL
-BOOTLOADER 0x90000000,0x90010000
-save_voice_config yes
-DSP_CLK 12288000:10
-boot_env 0xb0010000,0xb0020000
-cyt_private 0xb07f0000,0xb0800000
-TELE_ID VE882XX:AUTO
-WIFI_LED_GPIO 13
-WIFI_LED_RATE 50
-SUBNET_MASK 255.255.255.0
-MAC_PORT 0
-MEMSZ 0x01000000
-FLASHSZ 0x00800000
-MODETTY 0115200,n,8,1,hw
-CPUFREQ 162500000
-SYSFREQ 125000000
-PROMPT (psbl)
-IPA 192.168.6.15
-IPA_GATEWAY 192.168.6.254
-ProductID CYLL
-CONSOLE_STATE locked
-TFTPU_STATE OFF
-SerialNumber CJM00E5xxxxx
-HASH_DIR 8wA2fClJsg
-CRYPT_KEY 47035165D59457E16ACA0EFC747AC05C9985F36DDD60B5641B25E1EC581AEFE3
-ADMIN_PWD ABPPRAHK55QVA
-HWA_0 00:13:10:AC:02:AB
-HWA_1 00:13:10:AC:02:AA
-BOOTCFG m:f:"IMAGE_A"}}}
-
-== CONSOLE_STATE ==
-Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape. Setting it to "unlocked" restores friendly behavior. See the Serial Console section for a way to unlock the console.
-
-== IPA, IPA_GATEWAY, SUBNET_MASK ==
-These variables define the IP settings used by the tftp command. It makes sense to change IPA to "192.168.15.1" since this is the IP address which the standard firmwares assign to the router.
-
-== ProductID ==
-This is a four character code which identifies the hardware. Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to install it using the web interface. If you write it to flash by some other means, PSPboot will refuse to load it.
-
-Known ProductID values:
-
- * RTP300-NA: CYLM
- * RTP300 from Vonage: CYLL
- * WRTP54G-NA: CYWM
- * WRTP54G from Vonage: CYWL
-One can trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it. (Refer to the description of the firmware update file format above.) Loading an incompatible firmware may brick your device, so be careful. In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset. The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300. It seems that a system daemon crashes when it attempts to configure the wireless hardware. As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area. If you do this, you will have to use a serial console to regain access.
-
-== IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
-The router has room for two firmwares and a configuration area for each. Factory defaults can be restored by formatting the configuration area of the currently active firmware. (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.) The command to clear the conifguration area of the first firmware is:
-
-{{{fmt CONFIG_A}}}
-
-Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
-
-== BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
-The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  BOOTCFG must be set using the setpermenv command, either from PSPBoot (serial console required) or by writing an appropriate command to /proc/ticfg/env, like so:
-
-  {{{
-  # echo 'setpermenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
-  }}}
 
 = Serial Console =
 {{{
