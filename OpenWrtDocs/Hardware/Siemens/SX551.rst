@@ -4,7 +4,7 @@
 
 = Siemens Gigaset SX551 =
 
-The Siemens Gigaset SX551 is an WLAN DSL Router. This device is also distibuted with a modified firmware by the Dutch provider KPN as the first generation Experia box (silver version). This is the version I have.
+The Siemens Gigaset SX551 is an WLAN DSL Router. This device is also distibuted with a modified firmware by the Dutch provider KPN as the first generation Experia box (silver version). This is the version I (SA007) have.
 
 == Basic hardware info ==
 The device has the following connectors on the rear (left to right).
@@ -90,3 +90,5 @@ J4 - 10 Pin. Probably jtag and/or serial.
 
 == OpenWRT status ==
 Untested
+
+CategoryModel ["CategoryAR7Device"]
