@@ -67,7 +67,7 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 
 == Additional Notes About Firmware Blocks ==
 
- * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware if firmware flashing fails.  After boot the two firmwares are visible as mtd3 and mtd4 with mtd3 being the active firmware.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.
+ * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware if firmware flashing fails.  After boot the two firmwares are visible as mtd3 and mtd4 with mtd3 being the active firmware.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.  Unfortunately, changes to BOOTCFG do not stick.  See the description of this variable in the section on the boot environment.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
  * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
  * mtd5 and mtd6 each begin with a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
@@ -87,7 +87,7 @@ The PSPBOOT boot loader contains a set of environment variables, some of which a
 
 At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the ''setpermenv'' command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt.
 
-After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the same format changes a variable, as long as it is not read-only. A space may be substituted for a tab when writing.
+After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the format "''setenv'' '''name''' '''value''' changes a variable, as long as it is not read-only.
 
 Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized.
 
@@ -164,8 +164,10 @@ Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewh
 The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  BOOTCFG must be set using the setpermenv command, either from PSPBoot (serial console required) or by writing an appropriate command to /proc/ticfg/env, like so:
 
   {{{
-  # echo 'setpermenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
+  # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
   }}}
+
+Unfortunately, changes made in this way do not stick.  If you have insight as to why this is, please add it here.
 
 = Firmware Source Code Supplied by Linksys =
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
@@ -178,7 +180,7 @@ The firmware to be booted is defined by BOOTCFG. The significance of the m and t
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
  * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
  * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
-= The Supplied Firmwares =
+= The Firmwares Supplied by Linksys =
 All of the known firmwares have the following characteristics in common:
 
  * Linux 2.4.17 kernel with Montavista patches
@@ -236,7 +238,8 @@ In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02
  * Ping hack works (enter '''0.0.0.0 &&''command''''' as address to ping)
 = Customized Firmwares =
  * 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
-= Accounts in the Official Firmwares =
+
+= User Accounts in the Official Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
@@ -266,11 +269,15 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/bin/lightbox
   . Mystery program run from /etc/init.d/rcS. It seems that it must start most of the daemons
  * /usr/bin/cm_pc
-  . A mystery daemon, seems to be involved in firmware flashing
+  . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and 
+  . writes it to the inactive flash partition.  It then copies the active configuration partition to the 
+  . inactive configuration partition, arranges in some unspecified way for the next boot to load from the
+  . currently inactive partition, and reboots the router.
  * /usr/bin/cm_convert
   . Converts old voice configuration to the 3.1.XX format. Run once per boot.
  * /usr/bin/cm_logic
-  . Seems to load the configuration ether from a specified flash block or from an XML file.
+  . Seems to load the configuration either from a specified flash block or, if there is no
+  . configuration there, from an XML file.
  * /usr/bin/cm_config
   . Saves and restores the current configuration to flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
@@ -281,18 +288,18 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/www/cgi-bin/firmwarecfg
   . Target of POST request which uploads a new firmware
  * /var.tar
-  . This file is unpacked during boot.  It creates the /var directory
+  . This file is unpacked during boot.  It creates the /var directory.
  * /var/upgrader (from var.tar)
-  . Presumably plays a role in firmware flashing, though it is not run during upload of new firmware
-  . through the web interface.
+  . The purpose of this file is unknown.  One would think that it is somehow involved in upgrading
+  . the firmware, but this does not appear to be the case.
  * /sbin/reboot
   . Restart the router
  * /var/tmp/fw_ip
   . during a firmware upgrade, stores the IP address, a comma, and the access level (such as "ADMIN") of the
-  . web browser which is updating the firmware
+  . web browser which is updating the firmware.
  * /var/tmp/fw.bin
-  . a named pipe which seems to be used to transfer the upgrade firmware from /usr/www/cgi-bin/firmwarecfg
-  . to some other program, seemingly cm_pc
+  . A named pipe to which /usr/www/cgi-bin/firmwarecfg writes the uploaded firmware.
+  . The firmware is read by ''cm_pc'' and written to flash.
 
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
@@ -451,11 +458,11 @@ The JTAG utility written by HairyDairyMaid for the WRT54G can be used to reprogr
 There are several proven ways to write a new firmware into flash:
 
  * Using the web interface
- * Using firmware update on the provisioning page
- * Using command line tools under a running firmware
- * From the PSPBoot prompt using the serial port console
+ * Setting a firmware update URL on the provisioning page
+ * From a Firmware Shell Prompt
+ * Using a serial console at the PSPBoot prompt and TFTP
 
-It is presumably possible to write a firmware using JTAG, but it would be very slow, at least using a passive cable connected to a parallel port.
+It is presumably possible to write a firmware using JTAG, but it would be very slow, at least if one uses a passive cable connected to a computer's parallel port.
 
 The PSPBoot page suggests that there is a one second window during PSPBoot startup during which a TFTP server is ready to accept a new firmware named upgrade_code.bin, but this feature does not seem to be included in the build of PSPBoot installed on the RTP300.
 
@@ -468,7 +475,7 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
  1. Log in using the default username and password of "admin" and "admin"
  1. Click on the "Administration" tab
  1. Click on the "Firmware Update" tab. If there is no "Firmware Update" tab, enter http://192.168.15.1/update.html in your browser's location bar.
- 1. Log in as a user who is permitted to update the firmware. For generic and Earthlink firmwares, the username may be "Admin" with a blank or "sP0dfub2" password or "user" with a password of "user". If your router was last used with Vonage, you can set a username of "user" and a password of "tivonpw" by following this procedure:
+ 1. Log in as a user who is permitted to update the firmware. For NA firmwares the username should be "Admin" with a blank password or "user" with a password of "user".  For routers with version 3.1.14 Earthlink firmware, the username is "Admin" with a password of "sP0dfub2" (exact capitalization matters).  If your router was last used with Vonage, you can set a username of "user" and a password of "tivonpw" by following this procedure:
   a. Plug the router into the Internet if it is not plugged in already.
   a. Got to Administration tab and choose Factory Defaults. Choose "Restore Router Defaults" and "Restore Voice Defaults"
   a. Enter a username of "user" and a password of "tivonpw"
@@ -480,15 +487,8 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
  1. Reconnect the router to the Internet.
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds. The router will restore its factory defaults and reboot. Return to step three.
 
-If your router is running an NA firmware, the username needed in step seven is probably "Admin" (note the capital A verses the lower case a in step four). The password will be blank.
+== Seting a Firmware Update URL on the Provisioning Page ==
 
-If your router is running Earthlink (ER) firmware 3.1.14, the username needed in step seven is "Admin" (note the capital A verses the lower case a in step four). The password will be "sP0dfub2" (case-sensitive).
-
-If your router has Vonage firmware on it, the procedure is slightly more complicated. First, you should plug your router into the Internet so that it can load its configuration from Vonage's servers. This will give you a user name of "user" and a password of "tivonpw" which you can use in step seven. Second, there will be no "Firmware Update" tab in step six. Instead, enter http://192.168.15.1/update.html. (Note: this procedure is incomplete and not entirely correct. One must at some point also go to Administration/Factory Defaults and reset the router and voice configuration to factory defaults.)
-
-If you get a page-not-found error after logging in in step seven, do not dispair. This is bug in some firmwares. Simply enter the address http://192.168.15.1/update.html into your browser and continue from there.
-
-== Using Firmware Update on the Provisioning Page ==
 VOIP providers can configure these routers to periodically download a VOIP configuration file. This file contains VOIP settings and login credentials for the provider's SIP server. This process is called "provisioning". The "provisioning" file can also instruct the router to download and install a new firmware. The Provisioning page in the web interface can also be used to initiate this process. This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page. Here is the procedure for the 3.1.XX series firmware:
 
  * Connect to the web interface and log in as admin
@@ -501,7 +501,10 @@ VOIP providers can configure these routers to periodically download a VOIP confi
  * Watch your HTTP server logs to see if the router grabs the firmware
 The firmware should be in the same format as for upgrading through the web interface.
 
-== Using command line tools ==
+== From a Firmware Shell Prompt (the hard way) ==
+
+You can use this procedure only if you have access to a shell running on the router.  Access is generally obtained either by connecting to the route's serial port or to its SSH server.
+
 Using this procedure, you can write a firmware into one of the two firmware partitions. Note that while you can overwrite the running firmware and reboot, it may not be a safe practice. One can presumably overwrite the inactive firmware, but it is unclear how to then make it the active firmware. This procedure describes how to overwrite the inactive firmware.
 
  * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router. ( attachment:flash_erase )
@@ -529,8 +532,23 @@ Using this procedure, you can write a firmware into one of the two firmware part
 
 Overwriting the active firmware can be done (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
 
+== From a Firmware Shell Prompt (the easy way) ==
+
+A much easier way to flash a new firmware from the router shell prompt has recently been discovered.
+
+You can use this procedure only if you have access to a shell running on the router.  Access is generally obtained either by connecting to the route's serial port or to its SSH server.
+
+  # cd /var
+  # wget http://myhost/dir/flash_erase
+  # chmod 755 erase
+  # wget http://myhost/dir/rtp300-XXXXX.bin
+  # dd if=rtp300-XXXXX.bin of=/var/tmp/fw.bin
+
+If the new firmware is accepted, it will be written to the inactive flash partition, the active configuration partition will be copied to the inactive one, BOOTCFG will be set to boot from the new firmware (exactly how is unclear), and the router will reset and the new firmware will be bootstrapped.
+
 == From the PSPBoot prompt ==
-In order to use this method you must obtain or make a voltage converter for your router's serial port and hook it up as described in the section Serial Port. You must also change the value of CONSOLE_STATE as described in the same section. Since you need shell access to the router in order to change CONSOLE_STATE, you will not be able to use this method unless the existing firmware allows shell access.
+
+In order to use this method you must obtain or make a voltage converterting cable for your router's serial port and hook it up as described in the section Serial Port. You must also change the value of CONSOLE_STATE as described in the same section. Since you need shell access to the router in order to change CONSOLE_STATE, you will not be able to use this method unless the existing firmware allows shell access or you set CONSOLE_STATE when you last had access.
 
 The PSPBoot boot loader has predefined environment variables called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions. A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP. For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
 
