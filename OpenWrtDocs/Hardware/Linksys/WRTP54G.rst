@@ -39,7 +39,7 @@ See also: ["AR7Port"]
 
 = Flash Memory layout of RTP300 =
 
-The flash layout is as follows:
+The initial flash layout is as follows:
 
 ||PSPBoot Name||Start     ||End       ||Size          ||
 ||BOOTLOADER  ||0xB0000000||0xB0010000||0x010000 (64K)||
@@ -64,6 +64,20 @@ mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
 mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
 mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
+
+3.1.XX firmwares on first boot run the script /etc/fpar_check which changes the flash layout to the following:
+
+||PSPBoot Name||Start     ||End       ||Size           ||
+||BOOTLOADER  ||0xB0000000||0xB0010000||0x010000 (64K) ||
+||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K) ||
+||IMAGE_A     ||0xB0020000||0xB03E0000||0x3C0000       ||
+||CONFIG_B    ||0xB03E0000||0xB03F0000||0x010000 (64K) ||
+||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K) ||
+||IMAGE_B     ||0xB0400000||0xB07c0000||0x3C0000       ||
+||fpar        ||0xB07c0000||0xB07f0000||0x010000 (192K)||
+||cyt_private ||0xb07f0000||0xb0800000||0x010000 (64K) ||
+
+A comment in the script says that ''fpar' is for "storing sipura-sip voice parameters".
 
 == Additional Notes About Firmware Blocks ==
 
@@ -267,7 +281,7 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/bin/wget
   . GNU Wget (why not Busybox wget?). This is appearently used to download new firmwares.
  * /usr/bin/lightbox
-  . Mystery program run from /etc/init.d/rcS. It seems that it must start most of the daemons
+  . Mystery program run from /etc/init.d/rcS. It seems that it must start most of the daemons.
  * /usr/bin/cm_pc
   . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and 
   . writes it to the inactive flash partition.  It then copies the active configuration partition to the 
@@ -300,6 +314,12 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /var/tmp/fw.bin
   . A named pipe to which /usr/www/cgi-bin/firmwarecfg writes the uploaded firmware.
   . The firmware is read by ''cm_pc'' and written to flash.
+ * /usr/sbin/ggsip
+  . The VOIP functions run inside this process.  This process has many threads which show up in the 
+  . ''ps'' output as separate processes.
+ * /usr/bin/nmm
+  . This is some sort of diagnostic tool for the VOIP functions.  It may control ''ggsip''.  When started
+  . it presents a command-line interface.
 
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
