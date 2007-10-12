@@ -81,12 +81,29 @@ J4 - 10 Pin. Probably jtag and/or serial.
  1. Yet unknown.
  1. Yet unknown.
  1. Yet unknown.
- 1. Yet unknown.
+ 1. TXD.
  1. Yet unknown.
  1. Yet unknown.
  1. Yet unknown.
  1. Gnd.
  1. +3.3V.
+
+== Original bootlog ==
+{{{
+===========================================================
+ TI ADSL AR7300 Loader 0.71.4 build Oct 18 2005 11:13:40
+                 Broad Net Technology, INC.
+===========================================================
+ESS ES29LV160D bottom boot 16-bit mode found
+
+Copying boot params.....DONE
+
+Flash Checking  Passed.
+
+Unzipping  web at 0x94f30000 ... [LZMA] done
+Unzipping code at 0x94000000 ... [LZMA] done
+}}}
+That really is all...
 
 == OpenWRT status ==
 Untested
