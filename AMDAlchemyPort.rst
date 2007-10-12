@@ -18,8 +18,6 @@ The support for AMD Alchemy is completed :
 
 == TODO ==
 
-   * Stabilize the USB stuff
-
 == Firmware/Bootloader ==
 
 The bootloader is [http://www.linux-mips.org/wiki/YAMON Yamon], and supports TFTP booting. The firmware can only be booted when it is in SREC format. OpenWrt images are in the right format already.
@@ -27,11 +25,6 @@ The bootloader is [http://www.linux-mips.org/wiki/YAMON Yamon], and supports TFT
 = How to help =
 
 Since the board is really well supported with both Linux 2.4 and 2.6, you can test the firmware built with kamikaze and report any problems you may encounter.
-
-Known problems :
-
-    * You cannot have both LEDs powered on because the GPIO mask being applied
-    * USB support is not known to work
 
 == Flashing images ==
 
