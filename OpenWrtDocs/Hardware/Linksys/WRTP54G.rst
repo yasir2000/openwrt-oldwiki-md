@@ -236,20 +236,23 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * Dropbear binary removed and ssh setting disabled.
 == Characteristics of Firmware Version 3.1.22 ==
  * Ping hack works (enter '''0.0.0.0 &&'''''''command'''' as address to ping)
-== Characteristics of Firmware Version 3.1.24-NA ==
-After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.
 
- * The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown:
+== Characteristics of Firmware Version 3.1.24-NA ==
+
+After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.  The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown.
+
  * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
  * The new ggsip program handles '''all''' voice related configuration.  Almost all voice-related web pages are generated within ggsip.  Some voice pages still linger in the file system, but they are unused.
  * ggsip isn't easily fooled into giving up its secrets.  This is why the usual unlock methods such as cyt and banging on the ESC key while loading some pages are unable to gain you access.  You '''must''' have entered a valid Admin password before it lets see or alter Provision and Line settings.
  * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
+
 == Characteristics of Firmware Version 5.02.04 ==
 In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02.04.  This firmware is currently being studied.  Details will be posted shortly.
 
  * Ping hack works (enter '''0.0.0.0 &&''command''''' as address to ping)
+
 = Customized Firmwares =
  * 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
 
@@ -468,7 +471,9 @@ __________________________________________
 
 This ejtag layout should apply to all ar7 based boards with a 14 pin jtag pinout. The same cable as used for the wrt54g (based on the xilinx III/dlc-5) as described by !HairyDairyMaid can be used with the RTP300. Debug INT pin 13 is optional.  A 100 Ohm resister should be connected between pins 1 and 14.
 
-The JTAG utility written by HairyDairyMaid for the WRT54G can be used to reprogram the flash.  Version 4.8 has been confirmed to work correctly with the RTP300 if the correct options are used.
+A patched version of the JTAG utility written by HairyDairyMaid for the WRT54G can be used to reprogram the flash.  A link to it and instructions will be posted here shortly.
+
+Writing to flash using JTAG and a passive cable is slow.  Writing a firmware would take hours.  For this reason it is generally use only to repair the boot loader.  Once the boot loader is working again, the TFTP client in the boot loader can be used to flash a new firmware much more quickly.
 
  * [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device]
  * [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
@@ -550,7 +555,9 @@ Using this procedure, you can write a firmware into one of the two firmware part
   # echo 'setenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
   }}}
 
-Overwriting the active firmware can be done (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
+Unfortunately, setting BOOTCFG does not seem to work.  The only known way to set it is to delete the active firmware (after writing a new one).
+
+One could simply overwriting the active firmware (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
 
 == From a Firmware Shell Prompt (the easy way) ==
 
@@ -587,13 +594,17 @@ If your TFTP server is not in the same subnet or the subnet mask is not 255.255.
 
 == Locked Out ==
 
-There are several circumstances where you can be locked out of your router.  List ways to regain access here.
+It is fairly easy to lock yourself out of the router by setting a bad password or installing a bad firmware.  Please add tips for regaining access to this section.
 
 === Unlocking Tools ===
 
-You can try CYT Device Unlock tools written to unlock the device to allow it to be used with other than vonage; it gets the "Firmware Upgrade" tab to show as well as the sip settings info.  This tool resets the password for the Admin account and the user account.  It also shows the current passwords for these accounts.  I found by Googleing for it.  This is the current URL location for the tool :   Warning a reset sets everything back to factory.
+The CYT Device Unlock tools were written in order to gain access to routers previously used with Vonage.  This tool resets the password for the Admin account and the user account so that you can have access to the firmware upgrade screens and the SIP settings.  Note that this tool clears all settings, not just the passwords.  This is the current URL location for the tool:
 
 http://www.bargainshare.com/index.php?showtopic=87504
+
+=== Ping Hack ===
+
+[To be written.]
 
 ----
  . CategoryModel ["CategoryAR7Device"]
