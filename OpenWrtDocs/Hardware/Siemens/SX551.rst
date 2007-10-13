@@ -79,7 +79,7 @@ JP4 - 4 Pin, directly connects to the Line port on the rear of the modem.
 J4 - 10 Pin. Probably jtag and/or serial.
  1. Not connected.
  1. Not connected.
- 1. Not connected.
+ 1. RXD.
  1. Not connected.
  1. TXD.
  1. Not connected.
