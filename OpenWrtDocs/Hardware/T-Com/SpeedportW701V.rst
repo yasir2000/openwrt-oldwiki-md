@@ -1441,8 +1441,8 @@ make defconfig package/symlinks
 make menuconfig
 
  * select Target System (TI AR7 [2.6])
- * select Network ---> ppp ---> ppp-mod-pppoa
- * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (b for germany)
+ * select Base system ---> br2684ctl
+ * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (a for analog / b for isdn)
 
 wget http://openwrt.loswillios.de/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
 
@@ -1698,18 +1698,16 @@ config atm-bridge
         option encaps   llc
         option vpi      1
         option vci      32
- 
- config interface wan
+
+config interface wan
         option ifname   nas0
         option proto    pppoe
         option username "arxxx"
         option password "xxx"
 }}}
+( /etc/init.d/br2684ctl start )
+
 ifup wan
-
-28.09.2007: currently you have to create nas0 manually because openwrt can't handle it: br2684ctl -c 0 -a 1.32 -e 0
-
-This issue is filed as https://dev.openwrt.org/ticket/2439
 
 If your provider doesn't work, try experimenting with vpi/vci. 1.32, 8.35 and 1.35 (VPI.VCI) are quite common.
 
