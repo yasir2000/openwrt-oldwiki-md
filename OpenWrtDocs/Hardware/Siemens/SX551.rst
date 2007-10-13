@@ -182,6 +182,13 @@ dhcpd_mgmt_task started...
 period_task running 60
 }}}
 
+In this mode it does respond to some input.
+
+Things i've dscovered so far:
+Pressing u or U gives a list of some (non-intresting) debug infou about transmitted and received packets.
+Those are the only 2 ascii characters the console responds to with a message other than "I'm still alive ..."
+
+
 = OpenWRT status =
 Untested
 
