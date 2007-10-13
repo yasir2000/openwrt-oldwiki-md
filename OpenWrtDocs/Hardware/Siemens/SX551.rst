@@ -76,7 +76,7 @@ Userless headers:
  * P5 - Between the USB 2.0 controller and the main processor.
 
 JP4 - 4 Pin, directly connects to the Line port on the rear of the modem.
-J4 - 10 Pin. Probably jtag and/or serial.
+J4 - 10 Pin. Serial console.
  1. Not connected.
  1. Not connected.
  1. RXD.
@@ -87,6 +87,13 @@ J4 - 10 Pin. Probably jtag and/or serial.
  1. Not connected.
  1. Gnd.
  1. +3.3V.
+
+= Serial console =
+A serial console can be conneced to J4, according to the pinout above.
+
+The serial signals are at a 3.3V level, so you need to use a level convertor, see [:OpenWrtDocs/Customizing/Hardware/Serial_Console]
+
+The serial signal itself is 115200 baud, 8 databits, 1 stopbit, no parity (8N1).
 
 = Original bootlog =
 {{{
