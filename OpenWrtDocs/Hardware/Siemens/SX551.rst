@@ -108,7 +108,7 @@ That really is all...
 There is a debug console which can be reached by pressing the reset when you start de device and then pressing the reset three times after that.
 (tnx equinoxe for that tip)
 
-Then the outup becomes:
+Then the output becomes:
 {{{
 ===========================================================
  TI ADSL AR7300 Loader 0.71.4 build Oct 18 2005 11:13:40
