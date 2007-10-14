@@ -24,7 +24,7 @@ A picture of the inside is available as well: [http://luca.pca.it/projects/dlink
 
 Refer to the general OpenWRT build documentation ([http://downloads.openwrt.org/kamikaze/docs/openwrt.html#x1-320002.1 here]), this section is only about specific procedures and options you'll need.
 
-First of all later SVN snapshots than r9234 aren't recommended yet, since 2.6.23 kernel isn't stable for now. So don't checkout the head SVN but type this instead to download the source :
+First of all later SVN snapshots than r9142 aren't recommended yet, since 2.6.23 kernel isn't stable for now and acx gets broken after r9143. So don't checkout the head SVN but type this instead to download the source :
 {{{
 svn -r 9234 checkout https://svn.openwrt.org/openwrt/trunk
 }}}
@@ -52,8 +52,8 @@ Network
       <*> ppp-mod-pppoa                          (for PPPoA)
 Kernel modules
    Network Devices
-      <*> kmod-sangam-atm-annex-a
-      <*> kmod-sangam-atm-annex-b                (actually you'll barely use both of them in your lifetime..)
+      <*> kmod-sangam-atm-annex-a                (but not both!!! select this one if you're not sure)
+   OR <*> kmod-sangam-atm-annex-b                (but not both!!!)
 }}}
 
 ''Some suggestions:''
