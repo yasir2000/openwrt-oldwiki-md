@@ -24,10 +24,12 @@ A picture of the inside is available as well: [http://luca.pca.it/projects/dlink
 
 Refer to the general OpenWRT build documentation ([http://downloads.openwrt.org/kamikaze/docs/openwrt.html#x1-320002.1 here]), this section is only about specific procedures and options you'll need.
 
-First of all later SVN snapshots than r9142 aren't recommended yet, since 2.6.23 kernel isn't stable for now and acx gets broken after r9143. So don't checkout the head SVN but type this instead to download the source :
+First of all later SVN snapshots than r9234 aren't recommended yet, since 2.6.23 kernel isn't stable for now. So don't checkout the head SVN but type this instead to download the source :
 {{{
 svn -r 9234 checkout https://svn.openwrt.org/openwrt/trunk
 }}}
+
+NOTE: the acx wireless driver doesn't work in r9234. If you need wireless, you'll have to find a working revision(earlier than r9234) by yourself. I'll update the page as soon as it'll be working again in head.
 
 Be sure also you know the ADAM2 IP address before proceeding as explained [wiki:OpenWrtDocs/TroubleshootingAR7 here] ( should be 192.168.1.1 by default, don't change it ).
 
