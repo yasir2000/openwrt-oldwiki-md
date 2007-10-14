@@ -50,7 +50,6 @@ Network
    <*> hostapd-mini
    ppp
       <*> ppp-mod-pppoa                          (for PPPoA)
-   <*> wpa-supplicant
 Kernel modules
    Network Devices
       <*> kmod-sangam-atm-annex-a
