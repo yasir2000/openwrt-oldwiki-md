@@ -1,8 +1,6 @@
 = Work in Progress =
 Porting OpenWrt to the [http://www.d-link.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo5+hKltbNlwaaFp6DQoHDrszSBF9oUJBtnv DSL-G624T] is a work in progress.
 
-This page is to report my tests about it and is derived from the one for the ["OpenWrtDocs/Hardware/D-Link/DSL-502T"], thus read that page before as most of the informations there still apply here.
-
 == Specifications ==
 Wireless 4-Port ADSL Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
 
@@ -20,9 +18,115 @@ Wireless NIC: Texas Instruments, TI ACX111 (["VLYNQ"])
 
 Boot loader: ["ADAM2"]
 
-A picture of the inside is available  as well:
+A picture of the inside is available as well: [http://luca.pca.it/projects/dlink/hpim1913.jpg hpim1913.jpg]
 
-http://luca.pca.it/projects/dlink/hpim1913.jpg
+== How to get OpenWRT onto the router ==
+
+Refer to the general OpenWRT build documentation ([http://downloads.openwrt.org/kamikaze/docs/openwrt.html#x1-320002.1 here]), this section is only about specific procedures and options you'll need.
+
+First of all the latest SVN snapshot with a 2.6.22 kernel (r9234) is recommended, since 2.6.23 isn't stable yet. So don't download the head SVN but type this instead :
+{{{
+svn -r 9234 checkout https://svn.openwrt.org/openwrt/trunk
+}}}
+
+Be sure you know the ADAM2 IP address before proceeding as explained [wiki:OpenWrtDocs/TroubleshootingAR7 here].
+
+'''menuconfig options'''
+
+Those are the changes you need to make to the default configuration, so if options aren't in the following, '''that doesn't mean you have to untick them''', only untick an option if you cross an "empty" < > or [ ].
+I can however suggest you to customize the configuration according to your needs, and for this matter I put some suggestions in the second quote.
+
+Mandatory options:
+{{{
+Target System (TI AR7 [2.6])
+Target Profile (Texas Instruments WiFi (default))
+Base system
+   <*> br2684ctl                                 (for PPPoE)
+   busybox
+      Configuration
+         Networking Utilities
+            [ ] udhcp Client (udhcpc)            (useless since the WAN is PPP)
+Network
+   <*> hostapd-mini
+   ppp
+      <*> ppp-mod-pppoa                          (for PPPoA)
+   <*> wpa-supplicant
+Kernel modules
+   Network Devices
+      <*> kmod-sangam-atm-annex-a
+      <*> kmod-sangam-atm-annex-b                (actually you'll barely use both of them in your lifetime..)
+}}}
+
+Some suggestions:
+{{{
+Base system
+   busybox
+      Configuration
+         Networking Utilities
+            [ ] httpd                            (you most likely don't need a HTTP server)
+   <*> qos-scripts
+Utilities
+   <*> dropbearconvert
+}}}
+
+I recommend also to include some third-party packages :
+{{{
+updatedd      (DDNS client)
+miniupnpd     (lightweight UPnP IGD server)
+}}}
+
+'''Upload the firmware'''
+
+Once the firwmare is compiled, you need to upload it to the router.  For this, you can use the adam2flash.pl script present in the scripts/ folder.  First of all, be sure that you can connect to the ADAM2 bootloader.  Using an ethernet cable (during the booting process the wireless isn't available), configure your network card in the same IP range as ADAM2 and then switch the router on.  After 2 seconds you can connect to it (substitute 192.168.1.1 with your ADAM2 IP address):
+
+{{{
+$ telnet 192.168.1.1 21
+Trying 192.168.1.1...
+Connected to 192.168.1.1.
+Escape character is '^]'.
+220 ADAM2 FTP Server ready.
+USER adam2
+331 Password required for adam2.
+PASS adam2
+230 User adam2 successfully logged in.
+GETENV mtd0
+mtd0                  0x900a1000,0x903f0000
+200 GETENV command successful
+GETENV mtd1
+mtd1                  0x90010090,0x900a1000
+200 GETENV command successful
+GETENV mtd2
+mtd2                  0x90000000,0x90010000
+200 GETENV command successful
+GETENV mtd3
+mtd3                  0x903f0000,0x90400000
+200 GETENV command successful
+GETENV mtd4
+mtd4                  0x90010000,0x903f0000
+200 GETENV command successful
+^]
+telnet> quit
+Connection closed.
+}}}
+Then, choose which compiled firwmare you want to upload from the ones available in the bin/ folder:
+
+{{{
+$ scripts/adam2flash.pl 192.168.1.1 bin/openwrt-ar7-2.6-squashfs.bin
+Looking for device: .... found!
+ADAM2 version 0.22.2 at 192.168.1.1 (192.168.1.1)
+Available flash space: 0x003dff70 (0x00090f70 + 0x0034f000)
+Writing to mtd1...
+can't open data connection
+}}}
+On IRC, nbd advised me to try to write to mtd4 because of the strange mtd1 memory mapping.  I'll report back here as soon as I'd have tested it.
+
+Sam Liddicott could not update mtd1 or mtd0 using adam2flash.pl or the ftp instructions at [":OpenWrtDocs/Hardware/D-Link/DSL-502T"], getting this ftp error:
+{{{
+550 Flash erase failed
+}}}
+but he could update mtd4 using the manual ftp instructions.  As far as he could tell the linux image never booted and he had to restore his mtd settings and the dlink image which worked; and strangely had all of his dlink settings intact. He wonders if the open wrt erase+flash even did anything at all - maybe the mtd boundary changes stopped it booting and openwrt was never there at all?
+
+
 
 == Informations from the D-Link firmware ==
 Firmware: [ftp://ftp.d-link.de/dsl/dsl-g624t/driver_software V3.02B01T02.EU-A.20061124]
@@ -128,114 +232,8 @@ usb_vid 0x0
 usb_pid 0x0
 usb_man N/A
 usb_prod        N/A}}}
-== How to get OpenWRT onto the router ==
-'''Preamble/Disclaimer'''
-
-I do not advise proceeding forward unless you understand that you're going to loose your warranty and that you can 'brick' the router.  However, it seems that the router can be recovered from a Windows machine as explained [:TroubleshootingAR7#head-562d49fa164305ca458b1f30c66a4fa234ce2c8e:here].
-
-Be sure you know the ADAM2 IP address before proceeding as explained [:TroubleshootingAR7#head-812e3597270d2114c0fb7fb6756313971891ee4d:here]. In my case, I modified the ADAM2 IP to 192.168.1.1.
-
-'''Get and compile the source code'''
-
-Read the page about the [":OpenWrtDocs/Hardware/D-Link/DSL-502T"] to know how to proceed.
-
-Briefly, once you've obtained the source code and installed the packages needed to build the firmware image, type
-
-{{{
-make menuconfig
-}}}
-to configure OpenWRT and then choose the correct target system
-
-{{{
-Target System (TI AR7 [2.6])
-}}}
-and which packages you want to be built, the simple way being all of them:
-
-{{{
-[*] Select all packages by default
-}}}
-Exit and save the new config and compile the new firmware with
-
-{{{
-make
-}}}
-As of today, May 13 2007, the above command fails trying to compile the kmod-pcmcia-core module, thus I disabled it in
-
-{{{
-Kernel modules ---> Other modules ---> < > kmod-pcmcia-core
-}}}
-and the firmware was correctly compiled on an up-to-date Debian sid.
-
-Be advised that to compile the firmware you need a working Internet connection, around 3G of space and be patient.
-
-Sam Liddicott had to disable swan, procps, nano, zd1211 and eagle-swan to get it all to compile. He also had to:
-{{{
-cp ./build_mipsel/linux-2.6-ar7/linux-2.6.21.1/net/netfilter/xt_TCPMSS.ko ./build_mipsel/linux-2.6-ar7/linux-2.6.21.1/net/ipv4/netfilter/xt_TCPMSS.ko
-}}}
-so that ipkg builders could find xt_TCPMSS (being unable to find where the ipkg reference was to fix that).
-
-'''Upload the firmware'''
-
-Once the firwmare is compiled, you need to upload it to the router.  For this, you can use the adam2flash.pl script present in the scripts/ folder.  First of all, be sure that you can connect to the ADAM2 bootloader.  Using an ethernet cable (during the booting process the wireless isn't available), configure your network card in the same IP range as ADAM2 and then switch the router on.  After 2 seconds you can connect to it (substitute 192.168.1.1 with your ADAM2 IP address):
-
-See section 1.2 on [":OpenWrtDocs/Hardware/D-Link/DSL-502T"] in order to know how to calculate your memory mappings.
-Sam Liddicott found "hsqs" at position 0xc9baa, and so typed these commands into an adam2 telnet session.
-{{{
-SETENV mtd0,0x900D9BAA,0x903f0000
-SETENV mtd1,0x90010000,0x900D9BAA
-SETENV mtd4,0x90010000,0x903f0000
-}}}
-
-{{{
-$ telnet 192.168.1.1 21
-Trying 192.168.1.1...
-Connected to 192.168.1.1.
-Escape character is '^]'.
-220 ADAM2 FTP Server ready.
-USER adam2
-331 Password required for adam2.
-PASS adam2
-230 User adam2 successfully logged in.
-GETENV mtd0
-mtd0                  0x900a1000,0x903f0000
-200 GETENV command successful
-GETENV mtd1
-mtd1                  0x90010090,0x900a1000
-200 GETENV command successful
-GETENV mtd2
-mtd2                  0x90000000,0x90010000
-200 GETENV command successful
-GETENV mtd3
-mtd3                  0x903f0000,0x90400000
-200 GETENV command successful
-GETENV mtd4
-mtd4                  0x90010000,0x903f0000
-200 GETENV command successful
-^]
-telnet> quit
-Connection closed.
-}}}
-Then, choose which compiled firwmare you want to upload from the ones available in the bin/ folder:
-
-{{{
-$ scripts/adam2flash.pl 192.168.1.1 bin/openwrt-ar7-2.6-squashfs.bin
-Looking for device: .... found!
-ADAM2 version 0.22.2 at 192.168.1.1 (192.168.1.1)
-Available flash space: 0x003dff70 (0x00090f70 + 0x0034f000)
-Writing to mtd1...
-can't open data connection
-}}}
-On IRC, nbd advised me to try to write to mtd4 because of the strange mtd1 memory mapping.  I'll report back here as soon as I'd have tested it.
-
-Sam Liddicott could not update mtd1 or mtd0 using adam2flash.pl or the ftp instructions at [":OpenWrtDocs/Hardware/D-Link/DSL-502T"], getting this ftp error:
-{{{
-550 Flash erase failed
-}}}
-but he could update mtd4 using the manual ftp instructions.  As far as he could tell the linux image never booted and he had to restore his mtd settings and the dlink image which worked; and strangely had all of his dlink settings intact. He wonders if the open wrt erase+flash even did anything at all - maybe the mtd boundary changes stopped it booting and openwrt was never there at all?
-
-
-== Further Information ==
-Once again, the page about the ["OpenWrtDocs/Hardware/D-Link/DSL-502T"] is plenty of links.
 
 ----
  . ["CategoryAR7Device"]
+----
+["CategoryAR7Device"]
