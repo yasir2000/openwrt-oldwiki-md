@@ -24,19 +24,19 @@ A picture of the inside is available as well: [http://luca.pca.it/projects/dlink
 
 Refer to the general OpenWRT build documentation ([http://downloads.openwrt.org/kamikaze/docs/openwrt.html#x1-320002.1 here]), this section is only about specific procedures and options you'll need.
 
-First of all the latest SVN snapshot with a 2.6.22 kernel (r9234) is recommended, since 2.6.23 isn't stable yet. So don't download the head SVN but type this instead :
+First of all later SVN snapshots than r9234 aren't recommended yet, since 2.6.23 kernel isn't stable for now. So don't checkout the head SVN but type this instead to download the source :
 {{{
 svn -r 9234 checkout https://svn.openwrt.org/openwrt/trunk
 }}}
 
-Be sure you know the ADAM2 IP address before proceeding as explained [wiki:OpenWrtDocs/TroubleshootingAR7 here].
+Be sure also you know the ADAM2 IP address before proceeding as explained [wiki:OpenWrtDocs/TroubleshootingAR7 here] ( should be 192.168.1.1 by default, don't change it ).
 
 '''menuconfig options'''
 
 Those are the changes you need to make to the default configuration, so if options aren't in the following, '''that doesn't mean you have to untick them''', only untick an option if you cross an "empty" < > or [ ].
 I can however suggest you to customize the configuration according to your needs, and for this matter I put some suggestions in the second quote.
 
-Mandatory options:
+''Mandatory options:''
 {{{
 Target System (TI AR7 [2.6])
 Target Profile (Texas Instruments WiFi (default))
@@ -57,7 +57,7 @@ Kernel modules
       <*> kmod-sangam-atm-annex-b                (actually you'll barely use both of them in your lifetime..)
 }}}
 
-Some suggestions:
+''Some suggestions:''
 {{{
 Base system
    busybox
@@ -69,7 +69,7 @@ Utilities
    <*> dropbearconvert
 }}}
 
-I recommend also to include some third-party packages :
+I recommend also to include these third-party packages :
 {{{
 updatedd      (DDNS client)
 miniupnpd     (lightweight UPnP IGD server)
@@ -77,10 +77,21 @@ miniupnpd     (lightweight UPnP IGD server)
 
 '''Upload the firmware'''
 
-Once the firwmare is compiled, you need to upload it to the router.  For this, you can use the adam2flash.pl script present in the scripts/ folder.  First of all, be sure that you can connect to the ADAM2 bootloader.  Using an ethernet cable (during the booting process the wireless isn't available), configure your network card in the same IP range as ADAM2 and then switch the router on.  After 2 seconds you can connect to it (substitute 192.168.1.1 with your ADAM2 IP address):
+Once the firwmare("bin/openwrt-ar7-2.6-squashfs.bin") is built, you need to upload it to the router. Read carefully information about the ADAM2 bootloader [wiki:Self:OpenWrtDocs/InstallingAR7#head-4541bb2cb995ee7c25ce870996a70cd1930eb67f here], '''BUT DON'T TRY TO FOLLOW ANY INSTRUCTION FROM THIS PAGE'''.
+
+To summarize, we, DSL-G624T owners, need to setup the mtd1 mapping and flash the firmware to mtd1 through FTP.. let's do it.
+
+( I assume that your ADAM2 IP is 192.168.1.1 )
+
+First of all be ready to run the "telnet 192.168.1.1 21" command from a console.
+To start the flashing sequence, you need to reboot the router, and then to type the following telnet command as soon as possible :
 
 {{{
 $ telnet 192.168.1.1 21
+}}}
+
+Then login (adam2:adam2) and run the following GETENV commands :
+{{{
 Trying 192.168.1.1...
 Connected to 192.168.1.1.
 Escape character is '^]'.
@@ -104,29 +115,36 @@ mtd3                  0x903f0000,0x90400000
 GETENV mtd4
 mtd4                  0x90010000,0x903f0000
 200 GETENV command successful
-^]
-telnet> quit
-Connection closed.
 }}}
-Then, choose which compiled firwmare you want to upload from the ones available in the bin/ folder:
+You must check that your memory mappings are the same as above ( which are mine ). If they are not, '''STOP THE PROCEDURE RIGHT NOW''' and ask for help on the IRC channel ( ejka is the one who masters all that voodoo ).
 
+If they match, let's continue and set the mtd1 mapping to 0x90010000,0x903f0000 :
 {{{
-$ scripts/adam2flash.pl 192.168.1.1 bin/openwrt-ar7-2.6-squashfs.bin
-Looking for device: .... found!
-ADAM2 version 0.22.2 at 192.168.1.1 (192.168.1.1)
-Available flash space: 0x003dff70 (0x00090f70 + 0x0034f000)
-Writing to mtd1...
-can't open data connection
-}}}
-On IRC, nbd advised me to try to write to mtd4 because of the strange mtd1 memory mapping.  I'll report back here as soon as I'd have tested it.
+SETENV mtd1,0x90010000,0x903f0000
 
-Sam Liddicott could not update mtd1 or mtd0 using adam2flash.pl or the ftp instructions at [":OpenWrtDocs/Hardware/D-Link/DSL-502T"], getting this ftp error:
+QUIT
+}}}
+
+Now we can actually upload the firmware :
 {{{
-550 Flash erase failed
+$ ftp 192.168.1.1
+Connected to wrt (192.168.1.1).
+220 ADAM2 FTP Server ready.
+Name (192.168.1.1:user): adam2
+530 Please login with USER and PASS.
+SSL not available
+331 Password required for adam2.
+Password: adam2
+230 User adam2 successfully logged in.
+
+ftp> binary
+ftp> quote MEDIA FLSH
+ftp> put "openwrt-ar7-2.6-squashfs.bin" "openwrt-ar7-2.6-squashfs.bin mtd1"
+ftp> quote REBOOT
+ftp> quit
 }}}
-but he could update mtd4 using the manual ftp instructions.  As far as he could tell the linux image never booted and he had to restore his mtd settings and the dlink image which worked; and strangely had all of his dlink settings intact. He wonders if the open wrt erase+flash even did anything at all - maybe the mtd boundary changes stopped it booting and openwrt was never there at all?
 
-
+Wait a few minutes until the second LED from the left is turned off, then telnet to your new young OpenWRT-powered beloved DSL-G624T modem-router.
 
 == Informations from the D-Link firmware ==
 Firmware: [ftp://ftp.d-link.de/dsl/dsl-g624t/driver_software V3.02B01T02.EU-A.20061124]
@@ -233,7 +251,5 @@ usb_pid 0x0
 usb_man N/A
 usb_prod        N/A}}}
 
-----
- . ["CategoryAR7Device"]
 ----
 ["CategoryAR7Device"]
