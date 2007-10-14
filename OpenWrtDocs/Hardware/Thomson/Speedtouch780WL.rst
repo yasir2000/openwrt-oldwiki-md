@@ -1,20 +1,19 @@
 = Thomson ST 780WL =
-
 == The device ==
 The Thomson ST 780 is a DSL broadband access device that allows ADSL connectivity while providing Voice over IP functions for home and office users. The ST780WL offers an additional 802.11g wireless LAN interface. Both IADs support ADSL2/ADSL2+ and are backward compatible to ADSL offering auto-negotiation capability.
 
 http://www.speedtouch.co.uk/products/Details.asp?ProductID=528
 
 This device is based on BCM6348@???Mhz and it seems to have a 4MB flash (TBV).
- 
+
+http://www.linuxoperationcenter.de/images/ST780iWL_all.jpg
+
 == Firmware infos ==
-This device supports the mdap protocol which allows to start the upgrade process on multiple devices via IP multicast (although the firmware is uploaded to the device via unicast tftp).
-See http://svn.rot13.org/index.cgi/mdap/ for a basic (yet functional) mdap framework.
+This device supports the mdap protocol which allows to start the upgrade process on multiple devices via IP multicast (although the firmware is uploaded to the device via unicast tftp). See http://svn.rot13.org/index.cgi/mdap/ for a basic (yet functional) mdap framework.
 
-It is possible to start the firmware upgrade via telnet/serial CLI or via web GUI. 
+It is possible to start the firmware upgrade via telnet/serial CLI or via web GUI.
 
-I can't recognize the firmware format (yet). :)
-The vendor firmware seems to have the following header (od -tx1z -Ad)
+I can't recognize the firmware format (yet). :) The vendor firmware seems to have the following header (od -tx1z -Ad)
 
 {{{
 0000000 42 4c 49 32 32 33 51 48 30 00 00 00 00 00 00 00  >BLI223QH0.......<
@@ -39,8 +38,7 @@ The vendor firmware seems to have the following header (od -tx1z -Ad)
 0000304 b7 bd 45 02 08 06 42 41 4e 54 2d 52 01 04 bf c4  >..E...BANT-R....<
 0000320 00 10 09 0e 53 70 65 65 64 54 6f 75 63 68 20 37  >....SpeedTouch 7<
 0000336 38 30 0a 00 20 03 32 30 30 81 04 bf c4 00 04 b2  >80.. .200.......<
-}}} 
-
+}}}
 The following trailer seems to carry some hints about the firmware file format (...i don't like the "sign" word...)
 
 {{{
@@ -52,9 +50,8 @@ The following trailer seems to carry some hints about the firmware file format (
 3168432 29 20 28 69 70 6b 67 32 2d 68 65 61 64 65 72 3d  >) (ipkg2-header=<
 3168448 33 35 31 5b 62 79 74 65 5d 29 0a                 >351[byte]).<
 }}}
+The firmware seems to be compressed (no gain if compressed with gzip). I can't recognize the compression alg used. After the header there are the following bytes:
 
-The firmware seems to be compressed (no gain if compressed with gzip).
-I can't recognize the compression alg used. After the header there are the following bytes:
 {{{
 [...]
 0000352 4d 55 54 45 0a 00 30 57 15 56 4a a2 e3 04 d8 4c  >MUTE..0W.VJ....L<
@@ -64,45 +61,31 @@ I can't recognize the compression alg used. After the header there are the follo
 0000416 06 93 75 5e 8f 70 67 10 c9 f8 10 19 b2 ec 53 c0  >..u^.pg.......S.<
 [...]
 }}}
-
 == I/F's ==
-
 http://xoomer.alice.it/uxguerri/images/TST-cnct.jpg
 
 Serial pinout
+
 {{{
 1 --> Vcc (3.3V)
 2 --> Gnd
 3 --> Tx
 4 --> Rx
-
 9600,8,N,1
 }}}
-
 == Bootlog ==
 {{{
 Unzipping started
-
  UNZIP DONE -> starting bootloader
-
-
  Speedtouch initialization sequence started.
-
 Secondary boot
-
 Unzipping started
-
  UNZIP DONE -> starting uncompressed file
-
-
  Speedtouch initialization sequence started.
-
-
 [OSI2]  File "/ZZOGAA6.2H5": Format OSI2 compliant (offset=340, prodid="0", varid="0").
 [SS]    Device mounted (prodid="0", prodname="SpeedTouch 780", varid="0", varname="").
 [ELF]   Loading file "/ZZOGAA6.2H5" ...
 c
-
  Speedtouch initialization sequence started.
 loading : firmware/pob6w_init
 Calibrating delay loop... ts/
@@ -118,7 +101,6 @@ FDE2wl: srom not detected, using main memory mapped srom info (wombo board)
 wl0: wlc_attach: using main broad MAC address base in NVRAM (wombo board srom: 1 )
 wl0 MAC Address: 00:90:D0:DE:65:1A
 For EMAC2 - select for non-managed switch (single EMAC).
-
 appl_init: BUILD VERIFIED!
 3.131.35.1.cpe0.0: Broadcom BCM4318 802.11 Wireless Controller
 Build startup 8068b90c
@@ -141,7 +123,6 @@ archfs opened /ZZOGAA6.2H5 offset 2203507
 [EXPR] intf _intf_0 new()
 [EXPR] ip _addr_127_0_0_1 new()
 archfs opened /ZZOGAA6.2H5 offset 2203507
-
 ************* ERROR RECORD *************
 time            : 000000:00:00.000000
 Application /ZZOGAA6.2H5 started after POWERON.
@@ -149,7 +130,6 @@ Application /ZZOGAA6.2H5 started after POWERON.
 Username : Administrator
 Password :
 ------------------------------------------------------------------------
-
                              ______  SpeedTouch 780
                          ___/_____/\
                         /         /\  6.2.17.5
@@ -171,10 +151,8 @@ Password :
              /____/  \  \  /
              \    \  /___\/
               \____\/
-
 ------------------------------------------------------------------------
-
 {Administrator}=>
 }}}
 ----
-["CategoryBCM63xx"]
+ ["CategoryBCM63xx"]
