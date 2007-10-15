@@ -94,12 +94,7 @@ Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends on your machine's capabilities).
 
-== Windows part ==
-(Will also work on linux with for example ''hexer'' and plain ''ftp!)''
-
-'''Adding checksum'''
-
-Now we'll add checksum to firmware. Go to ''trunk/bin'' (or where you have firmware binaries) and type these commands:
+'''Adding checksum'''Now we'll add a checksum to the firmware. Go to ''trunk/bin'' (or where you have firmware binaries) and type these commands:
 
 {{{
 wget ftp://ftp.dlink.co.uk/dsl_routers_modems/dsl-g604t/gpl_source_code/DSL-G604T.B01T16_GPL_release.tgz
@@ -116,6 +111,9 @@ rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
 
 Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
 
+== Windows part ==
+(Will also work on linux with for example ''hexer'' and plain ''ftp!)''
+
 Now open this firmware file with a hex editor. And find the ascii string ''hsqs''. Now looks at it's offset. For example mine was ''CA00F'', but in your binary it'll be a different value. So we give it to right look ''0x000CA00F''.
 
 Next, I'm not an arithmetic geek, and I don't understand how to work well with memory. If you're interested - look at the [:OpenWrtDocs/Hardware/D-Link/DSL-502T:DSL-502T page], it's having a good calculation how-to on it. So, I made simple alghoritm for DSL-G604T, and you don't need worry, only carefully do what i wrote below. Now we need Windows Calculator or your great brain. Start the calculator, and set it to 4 byte hex mode.
@@ -128,7 +126,7 @@ Now how-to calculate:
 
 ''mtd4,0x90010000,0x903f0000''
 
-That's all, and my final result looks like that (''DON'T FORGET TO CALCULATE, DON'T SILLY COPY&PAST THIS''):
+That's all, and my final result looks like this (''DON'T FORGET TO CALCULATE, DON'T  BE SILLY AND JUST COPY&PASTE THIS''):
 
 {{{
 mtd0,0x900DA00F,0x903f0000
@@ -136,7 +134,7 @@ mtd1,0x90010000,0x900DA00F
 mtd4,0x90010000,0x903f0000}}}
 '''Flashing'''
 
-Now do Start -> Run -> cmd and goto directory where ''openwrt-ar7-2.6-squashfs.bin is located'', and type ''ftp 192.168.1.1'' (192.168.1.199 for DSL-G664T), but DON'T PRESS ENTER KEY YET. Change the settings of your computers Wired connection to: IP: ''192.168.1.5'' Subnet: ''255.255.255.0'' Empty Gateway & DNS Turn off your modem and wait 10 seconds, then power on it, and look at the connection icon in the tray. As soon as it changes from disconnected to connected '''''IMMEDIATELY''''' press enter, maybe you will need some practice with it! If it doesn't work, see on ["OpenWrtDocs/TroubleshootingAR7"] for more info
+Now do Start -> Run -> cmd and goto the directory where ''openwrt-ar7-2.6-squashfs.bin is located'', and type ''ftp 192.168.1.1'' (192.168.1.199 for DSL-G664T), but DON'T PRESS ENTER KEY YET. Change the settings of your computers Wired connection to: IP: ''192.168.1.5'' Subnet: ''255.255.255.0'' Empty Gateway & DNS Turn off your modem and wait 10 seconds, then power on it, and look at the connection icon in the tray. As soon as it changes from disconnected to connected '''''IMMEDIATELY''''' press enter, maybe you will need some practice with it! If it doesn't work, see on ["OpenWrtDocs/TroubleshootingAR7"] for more info
 
 Now it's time to enter the results of your calculation, but in little other format. It should look like this (''OF COURSE USE YOUR OWN VALUES, AND NEVER SET ANY OTHERS BUT mtd0, mtd1 and mtd4''):
 
@@ -161,7 +159,7 @@ My congratulations, you finally flashed it :)
 = Configuring OpenWRT =
 '''Where is web-interface?'''
 
-There isn't no :) There is webif^2 admin interface, but there isn't support for Kamikaze yet.There isn't a better solution yet, so just use the console and your hands. Don´t worry, I'll help you, as you can see below.
+There isn't  one :) There is the [http://x-wrt.org/ webif] admin interface, but that isn't supported in Kamikaze yet.There isn't a better solution yet, so just use the console and your hands. Don´t worry, I'll help you, as you can see below.
 
 '''Setting up ADSL'''
 
