@@ -132,7 +132,8 @@ That's all, and my final result looks like this (''DON'T FORGET TO CALCULATE, DO
 mtd0,0x900DA00F,0x903f0000
 mtd1,0x90010000,0x900DA00F
 mtd4,0x90010000,0x903f0000}}}
-'''Flashing'''
+'''Flashing'''For the next bit you need to know the IP address of the ADAM2 bootloader. Have a look in  ["OpenWrtDocs/TroubleshootingAR7"] for more info. The address is assumed to be ''192.168.1.1 ''for the next paragraph. ''
+''
 
 Now do Start -> Run -> cmd and goto the directory where ''openwrt-ar7-2.6-squashfs.bin is located'', and type ''ftp 192.168.1.1'' (192.168.1.199 for DSL-G664T), but DON'T PRESS ENTER KEY YET. Change the settings of your computers Wired connection to: IP: ''192.168.1.5'' Subnet: ''255.255.255.0'' Empty Gateway & DNS Turn off your modem and wait 10 seconds, then power on it, and look at the connection icon in the tray. As soon as it changes from disconnected to connected '''''IMMEDIATELY''''' press enter, maybe you will need some practice with it! If it doesn't work, see on ["OpenWrtDocs/TroubleshootingAR7"] for more info
 
