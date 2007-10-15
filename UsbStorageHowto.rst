@@ -193,7 +193,7 @@ For this to work you need the same kernel modules for USB as described above. Yo
 Kamikaze with 2.6 can be done differently - by putting the pivot script in another place.
 
 {{{
-ipkg install kmod-ext2 kmod-ext3
+ipkg install kmod-fs-ext2 kmod-fs-ext3
 }}}
 After installing the modules, you should either reboot the device or load the installed modules manually:
 
