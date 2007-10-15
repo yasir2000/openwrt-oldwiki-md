@@ -491,3 +491,5 @@ ipkg-link umount /mnt/usb
  * Linux USB device support [[BR]]- http://www.linux-usb.org/devices.html
 ----
  . CategoryHowTo
+----
+CategoryHowTo
