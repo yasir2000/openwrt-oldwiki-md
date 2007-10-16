@@ -37,7 +37,7 @@ You can configure up to four WEP keys.
 For Broadcom wireless chips you have to install the nas package.
 
 {{{
-ipkg install hostapd}}}
+ipkg install nas}}}
 === Atheros WiFi ===
 For Atheros wireless chips install the hostapd package if your run in AP mode.
 
@@ -45,10 +45,10 @@ For Atheros wireless chips install the hostapd package if your run in AP mode.
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-If you have a Atheros wireless and run it in client-mode you have to install the wpa_supplicant package.
+If you have a Atheros wireless and run it in client-mode you have to install the wpa-supplicant package.
 
 {{{
-ipkg install wpa_supplicant}}}
+ipkg install wpa-supplicant}}}
 === Configure WPA (PSK) ===
 Configure WPA (PSK) encryption using UCI.
 
