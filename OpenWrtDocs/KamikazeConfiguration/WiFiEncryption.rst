@@ -3,35 +3,6 @@
 = Configure WiFi encryption =
 To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. E.g. pwgen 13 1
 
-== WEP encryption (not recommended) ==
-Some notes for the WEP key format:
-
- * The format for the WEP key for the key1 option is HEX
- * The length of a 64bit WEP key must be exact 5 characters
- * The length of a 128bit WEP key must be exact 13 characters
- * Allowed characters are letters (upper and lower case) and numbers
-Generate a 64bit WEP key:
-
-{{{
-echo -n 'awerf' | hexdump -e '5/1 "%02x" "\n"' | cut -d ':' -f 1-5
-6177657266
-}}}
-Generate a128bit WEP key:
-
-{{{
-echo -n 'xdhdkkewioddd' | hexdump -e '13/1 "%02x" "\n"' | cut -d ':' -f 1-13
-786468646b6b6577696f646464}}}
-The above commands generate a 64bit and a 128bit WEP key in hex format.
-
-Now use UCI to configure WEP encryption with the hex key you just generated.
-
-{{{
-uci set wireless.cfg2.encryption=wep
-uci set wireless.cfg2.key1=<WEP_key_in_hex_format>
-uci set wireless.cfg2.key=1
-uci commit wireless && wifi}}}
-You can configure up to four WEP keys.
-
 == WPA encryption ==
 === Broadcom WiFi ===
 For Broadcom wireless chips you have to install the nas package.
@@ -66,3 +37,32 @@ uci set wireless.cfg2.encryption=psk2
 uci set wireless.cfg2.key=<password>
 uci commit wireless && wifi}}}
 '''Note: '''For the key only letters (upper and lower case) and numbers are allowed. The length must be between 8 and 63 characters.
+
+== WEP encryption (not recommended) ==
+Some notes for the WEP key format:
+
+ * The format for the WEP key for the key1 option is HEX
+ * The length of a 64bit WEP key must be exact 5 characters
+ * The length of a 128bit WEP key must be exact 13 characters
+ * Allowed characters are letters (upper and lower case) and numbers
+Generate a 64bit WEP key:
+
+{{{
+echo -n 'awerf' | hexdump -e '5/1 "%02x" "\n"' | cut -d ':' -f 1-5
+6177657266
+}}}
+Generate a128bit WEP key:
+
+{{{
+echo -n 'xdhdkkewioddd' | hexdump -e '13/1 "%02x" "\n"' | cut -d ':' -f 1-13
+786468646b6b6577696f646464}}}
+The above commands generate a 64bit and a 128bit WEP key in hex format.
+
+Now use UCI to configure WEP encryption with the hex key you just generated.
+
+{{{
+uci set wireless.cfg2.encryption=wep
+uci set wireless.cfg2.key1=<WEP_key_in_hex_format>
+uci set wireless.cfg2.key=1
+uci commit wireless && wifi}}}
+You can configure up to four WEP keys.
