@@ -1,6 +1,5 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
-
 = Configure WiFi encryption =
 To generate a random password for you key you can use the pwgen program. Pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. E.g. pwgen 13 1
 
@@ -30,13 +29,23 @@ Now use UCI to configure WEP encryption with the hex key you just generated.
 uci set wireless.cfg2.encryption=wep
 uci set wireless.cfg2.key1=<WEP_key_in_hex_format>
 uci commit wireless && wifi}}}
-
 == WPA encryption ==
-Install the hostapd package.
+
+=== Broadcom WiFi ===
+
+For Broadcom wireless chips you have to install the nas package.
+{{{
+ipkg install hostapd}}}
+
+=== Atheros WiFi ===
+
+For Atheros wireless chips Install the hostapd package if your run in AP mode.
 
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
+
+If you have a Atheros wireless and run it in client mode you have to install the wpa_supplicant package.
 
 === Configure WPA (PSK) ===
 Configure WPA (PSK) encryption using UCI.
