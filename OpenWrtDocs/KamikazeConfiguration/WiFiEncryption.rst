@@ -30,6 +30,8 @@ uci set wireless.cfg2.encryption=wep
 uci set wireless.cfg2.key1=<WEP_key_in_hex_format>
 uci set wireless.cfg2.key=1
 uci commit wireless && wifi}}}
+You can configure up to four WEP keys.
+
 == WPA encryption ==
 === Broadcom WiFi ===
 For Broadcom wireless chips you have to install the nas package.
@@ -47,8 +49,6 @@ If you have a Atheros wireless and run it in client-mode you have to install the
 
 {{{
 ipkg install wpa_supplicant}}}
-
-
 === Configure WPA (PSK) ===
 Configure WPA (PSK) encryption using UCI.
 
