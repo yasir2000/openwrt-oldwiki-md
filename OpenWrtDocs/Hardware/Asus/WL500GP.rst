@@ -231,34 +231,8 @@ uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
 ==== WiFi encryption ====
-===== WEP encryption (not recommended) =====
-===== WPA encryption =====
-===== Broadcom WiFi =====
-For Broadcom the nas package is required
+Plese see [:OpenWrtDocs/KamikazeConfiguration/WiFiEncryption:WiFiEncryption].
 
-{{{
-ipkg install nas}}}
-===== Atheros WiFi =====
-For Atheros the hostapd package is required
-
-{{{
-ipkg install hostapd}}}
-'''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
-
-===== Configure WPA (PSK) =====
-Configure WPA (PSK) encryption using UCI.
-
-{{{
-uci set wireless.cfg2.encryption=psk
-uci set wireless.cfg2.key=<password>
-uci commit wireless && wifi}}}
-===== Configure WPA2 (PSK) =====
-Configure WPA2 (PSK) encryption using UCI.
-
-{{{
-uci set wireless.cfg2.encryption=psk2
-uci set wireless.cfg2.key=<password>
-uci commit wireless && wifi}}}
 [[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
 
 ==== WiFi toggle ====
