@@ -16,7 +16,7 @@ For Atheros wireless chips install the hostapd package if your run in AP mode.
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-If you have a Atheros wireless and run it in client-mode you have to install the wpa-supplicant package.
+If you have a Atheros wireless and run it in client-mode you have to install the wpa-supplicant package instead of hostapd.
 
 {{{
 ipkg install wpa-supplicant}}}
