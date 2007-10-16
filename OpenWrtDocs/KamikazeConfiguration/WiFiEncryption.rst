@@ -28,24 +28,26 @@ Now use UCI to configure WEP encryption with the hex key you just generated.
 {{{
 uci set wireless.cfg2.encryption=wep
 uci set wireless.cfg2.key1=<WEP_key_in_hex_format>
+uci set wireless.cfg2.key=1
 uci commit wireless && wifi}}}
 == WPA encryption ==
-
 === Broadcom WiFi ===
-
 For Broadcom wireless chips you have to install the nas package.
+
 {{{
 ipkg install hostapd}}}
-
 === Atheros WiFi ===
-
-For Atheros wireless chips Install the hostapd package if your run in AP mode.
+For Atheros wireless chips install the hostapd package if your run in AP mode.
 
 {{{
 ipkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
-If you have a Atheros wireless and run it in client mode you have to install the wpa_supplicant package.
+If you have a Atheros wireless and run it in client-mode you have to install the wpa_supplicant package.
+
+{{{
+ipkg install wpa_supplicant}}}
+
 
 === Configure WPA (PSK) ===
 Configure WPA (PSK) encryption using UCI.
