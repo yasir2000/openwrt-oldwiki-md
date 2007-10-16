@@ -1,1 +1,1 @@
-= Configure !WiFi encryption =
+= Configure WiFi encryption =
