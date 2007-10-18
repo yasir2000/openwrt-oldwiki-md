@@ -78,6 +78,26 @@ Alternate heap bytes used: 0x0 (0)
 Alternate heap bytes available: 0xe7d000 (15192064)
 }}}
 
+Saved registers :
+
+{{{
+ap: dump_save_regs
+
+ Saved Regs in OCM:
+ MSR = 0x00000000
+ LR = 0x00e881a0
+ ESR = 0x00000000
+ SRR0 = 0x00008c08
+ SRR1 = 0x00000000
+ SRR2 = 0x00042400
+ SRR3 = 0x00000000
+ DBCR0 = 0x00110000
+ DBCR1 = 0x00000000
+ DBSR = 0x0c1c0300
+ TSR = 0xc4000000
+ TCR = 0x00000000
+ DEAR = 0x00000000
+}}}
 
 === Image layout ===
 
