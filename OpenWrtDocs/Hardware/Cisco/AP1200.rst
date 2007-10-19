@@ -19,6 +19,8 @@ TAC Support: http://www.cisco.com/tac
 Compiled Wed 12-Feb-03 15:23 by hqluong
 }}}
 
+This bootloader can be downloaded at : http://www.cisco.com/warp/public/779/smbiz/misc/
+
 == PCI bus ==
 {{{
 *********************************
