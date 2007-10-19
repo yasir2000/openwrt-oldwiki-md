@@ -99,6 +99,40 @@ ap: dump_save_regs
  DEAR = 0x00000000
 }}}
 
+=== Entering boot loader mode ===
+
+You have to press the MODE button while powering the device for about 30 seconds. Make sure you have disconnected the Ethernet cable, otherwise, the device will download a config from a broadcast address.
+
+Once done, you should get the following prompt :
+
+{{{
+ap:
+}}}
+
+=== Transfering files to the bootloader ===
+
+Once you have the boot loader prompt, initialise the flash, tftp and ethernet subsystems :
+
+{{{
+flash_init
+ether_init
+tftp_init
+}}}
+
+Now, you can download files using a remote TFTP server to the access point. The default IP address is 10.0.0.1, but might have been changed, so to read it, just display the "env_vars" file :
+
+{{{
+cat flash:env_vars
+}}}
+
+Now, to copy a flash, using the following command :
+
+{{{
+copy tftp://<TFTP server IP address>/file flash:/file
+}}}
+
+There is no default destination for a file, so you must supply its destination. Storing it on the flash is a convenient way to test.
+
 === Image layout ===
 
 The Cisco IOS files are flat tarballs (tar cf <file.tar> directory/), with the following naming convention :
@@ -119,7 +153,7 @@ The IOS image structure is the following :
 
 {{{
 u32 MZIP (magic header)
-u32 00 00 00 01
+u32 Version (1)
 u32 00 00 30 00 (0 in ASCII)
 u32 00 00 00 01
 u32 00 00 00 01
@@ -133,3 +167,7 @@ zeroes
 ----
 ZIP file
 }}}
+
+=== Booting images ===
+
+The IOS bootloader will refuse to boot any file that does not look like a valid MZIP image (see the header before).
