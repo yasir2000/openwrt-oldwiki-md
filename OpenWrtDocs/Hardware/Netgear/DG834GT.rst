@@ -190,7 +190,7 @@ reset               Reset the board
 flashimage          Flashes a compressed image after the bootloader.
 help                Obtain help for CFE commands
 }}}
-''' Serial Console
+''' Serial Console 
 '''
 
 Serial console is J503.
@@ -200,19 +200,20 @@ Serial console is J503.
 ||3 ||VCC ||
 ||4 ||RX ||
 
-
 '''
 '''
 
 ''' JTAG Port '''
 
 Jtag Port is J201 this port is verified.
-'''
+
+Disposition on the board:
 
 ||2 ||4 ||6 ||8 ||10 ||12 ||
 ||1 ||3 ||5 ||7 || 9 ||11 ||
 
-'''
+ 
+
 ||nTRST || 1 || 2 || GND ||
 ||TDI || 3 || 4 || GND ||
 ||TDO || 5 || 6 || GND ||
@@ -226,4 +227,4 @@ For programm the firmware with JTAG Port read this [:OpenWrtDocs/Customizing/Har
 
 
 ----
- CategoryModel ["CategoryBCM63xx"]
+CategoryModel ["CategoryBCM63xx"]
