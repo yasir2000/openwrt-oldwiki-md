@@ -1,5 +1,5 @@
 = Netgear DG834GT =
-The Netgear DG834GT is not as similar to the ["OpenWrtDocs/Hardware/Netgear/DG834G"] as the name may imply.  Unlike the DG834G which is [:AR7Port:AR7]-based, this device is based on the BCM6348, which is of opposite endianess (this device is big-endian).  Thus this device is not currently supported by OpenWrt. MIPS CPU is 256MHz, Atheros MiniPCI WLAN, BCM5325 switch. 4MiB flash, 16MiB RAM. More about this device might be found by searching the forum.
+The Netgear DG834GT is not as similar to the [:OpenWrtDocs/Hardware/Netgear/DG834G:DG834GT] as the name may imply.  Unlike the DG834G which is [:AR7Port:AR7]-based, this device is based on the BCM6348, which is of opposite endianess (this device is big-endian).  Thus this device is not currently supported by OpenWrt. MIPS CPU is 256MHz, Atheros MiniPCI WLAN, BCM5325 switch. 4MiB flash, 16MiB RAM. More about this device might be found by searching the forum.
 
 ''' Cpu Info '''
 
@@ -222,7 +222,7 @@ Disposition on the board:
 ||nSRST ||11 ||12 || GND ||
 
 
-For programm the firmware with JTAG Port read this [:OpenWrtDocs/Customizing/Hardware/JTAG Cable]
+For programm the firmware with JTAG Port read this [:OpenWrtDocs/Customizing/Hardware/JTAG Cable:JTAG Cable]
 The cable Unbuffered Cable, Xilinx DLC5 Cable III work very good.
 
 
