@@ -190,8 +190,8 @@ reset               Reset the board
 flashimage          Flashes a compressed image after the bootloader.
 help                Obtain help for CFE commands
 }}}
-''' Serial Console 
-'''
+''' Serial Console '''
+
 
 Serial console is J503.
 ||'''pin''' ||'''signal''' ||
@@ -200,8 +200,8 @@ Serial console is J503.
 ||3 ||VCC ||
 ||4 ||RX ||
 
-'''
-'''
+
+
 
 ''' JTAG Port '''
 
@@ -212,7 +212,7 @@ Disposition on the board:
 ||2 ||4 ||6 ||8 ||10 ||12 ||
 ||1 ||3 ||5 ||7 || 9 ||11 ||
 
-
+JTAG signals and pins
 
 ||nTRST || 1 || 2 || GND ||
 ||TDI || 3 || 4 || GND ||
@@ -222,9 +222,16 @@ Disposition on the board:
 ||nSRST ||11 ||12 || GND ||
 
 
-For programm the firmware with JTAG Port read this [:OpenWrtDocs/Customizing/Hardware/JTAG Cable:JTAG Cable]
+For write the firmware in the flash with JTAG Port read this [:OpenWrtDocs/Customizing/Hardware/JTAG Cable:JTAG Cable].
+
 The cable Unbuffered Cable, Xilinx DLC5 Cable III work very good.
 
+''' Experience Debrick '''
+
+With access to Serial Console is possible to restore the firmware on the router from bootloader CFE. CFE can download the image with TFTP. 
+
+'''Attention''' to use the command '''''e''''' for erase the whole flash when CFE can't read the tag it delete all flash also the CFE. For example if the flash is empty by ''dd if=/dev/zero of=/dev/mtd1'' the tag not exist. When the CFE is erased the only method to restore it is the JTAG Port.
+Dump of the CFE with dd if=/dev/mtd2 is in format BigEndian, but the dump with JTag Cable is in format LittleEndian so for restore a CFE need convert the image file.
 
 ----
 CategoryModel ["CategoryBCM63xx"]
