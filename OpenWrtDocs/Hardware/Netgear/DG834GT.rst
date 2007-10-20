@@ -193,7 +193,7 @@ help                Obtain help for CFE commands
 ''' Serial Console
 '''
 
- Serial console is J503.
+Serial console is J503.
 ||'''pin''' ||'''signal''' ||
 ||1 ||GND ||
 ||2 ||TX ||
@@ -207,10 +207,12 @@ help                Obtain help for CFE commands
 ''' JTAG Port '''
 
 Jtag Port is J201 this port is verified.
+'''
+
 ||2 ||4 ||6 ||8 ||10 ||12 ||
 ||1 ||3 ||5 ||7 || 9 ||11 ||
 
-
+'''
 ||nTRST || 1 || 2 || GND ||
 ||TDI || 3 || 4 || GND ||
 ||TDO || 5 || 6 || GND ||
@@ -219,9 +221,9 @@ Jtag Port is J201 this port is verified.
 ||nSRST ||11 ||12 || GND ||
 
 
-For programm the firmware with JTAG Port read this ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"]
+For programm the firmware with JTAG Port read this [:OpenWrtDocs/Customizing/Hardware/JTAG Cable]
 
-["OpenWrtDocs/Customizing/Hardware/JTAG Cable"]
+
 
 ----
  CategoryModel ["CategoryBCM63xx"]
