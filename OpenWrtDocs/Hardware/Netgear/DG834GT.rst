@@ -212,7 +212,7 @@ Disposition on the board:
 ||2 ||4 ||6 ||8 ||10 ||12 ||
 ||1 ||3 ||5 ||7 || 9 ||11 ||
 
- 
+
 
 ||nTRST || 1 || 2 || GND ||
 ||TDI || 3 || 4 || GND ||
@@ -223,7 +223,7 @@ Disposition on the board:
 
 
 For programm the firmware with JTAG Port read this [:OpenWrtDocs/Customizing/Hardware/JTAG Cable]
-
+The cable Unbuffered Cable, Xilinx DLC5 Cable III work very good.
 
 
 ----
