@@ -87,6 +87,9 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://microanvica.co.uk/product.asp?TXT=INFO&PNO=ASU54305A WL-HMD] || || || || || || || || || ||1x v1.1 ||2.5" 40GB ||Untested, likely to be just a WL-HDD with 40GB drive included ||
 ||[http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1 AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
+== Auerswald ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||Comfortel VoIP 250 (VoIP phone)|| ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
