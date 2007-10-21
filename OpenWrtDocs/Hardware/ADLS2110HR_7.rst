@@ -21,7 +21,7 @@ http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigati
 
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
-== Jtag ===
+== Jtag CPU pin-out ==
 
 TNETD7300A 
 TCK A20
