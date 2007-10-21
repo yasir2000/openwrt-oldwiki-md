@@ -213,7 +213,10 @@ vmlinux.bin.l7    0xA8730000  0x80041000  0x000B0000  0x80041000
 FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
-= Installing OpenWrt using serial console =
+= Installing OpenWrt with RedBoot =
+
+Once you have gained access to RedBoot either by telnet or the serial console you can install OpenWrt with the following method.
+
 You have to download two files (right click and save as).
 
  * [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
