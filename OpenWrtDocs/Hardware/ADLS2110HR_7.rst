@@ -21,6 +21,14 @@ http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigati
 
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
+== Jtag ===
+
+TNETD7300A 
+TCK A20
+TMS A21
+TDO A22
+TDI B20
+
 == Information ==
 {{{
 # cat /proc/iomem
