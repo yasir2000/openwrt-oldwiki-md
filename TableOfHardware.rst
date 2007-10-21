@@ -89,7 +89,16 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1 AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
 == Auerswald ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||Comfortel VoIP 250 (VoIP phone)|| ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested, manufacturer says it's based on OpenWrt ||
+
+---- /!\ '''Edit conflict - other version:''' ----
+== Auerswald ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||Comfortel VoIP 250 (VoIP phone)|| ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
