@@ -1,9 +1,5 @@
-## Please edit system and help pages ONLY in the moinmaster wiki! For more
-## information, please see MoinMaster:MoinPagesEditorGroup.
-##master-page:CategoryTemplate
-##master-date:Unknown-Date
-#format wiki
-#language en
+#pragma section-numbers off
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Client Mode Wireless =
 '''This way is recommended since it is actually automatic:'''
 
