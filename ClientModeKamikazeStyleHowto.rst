@@ -72,6 +72,10 @@ config wifi-iface
  . '''Reboot the device. '''
  .
 
+== Finding and joining networks ==
+
+== Some more configuration ==
+
 == Useful Commands ==
  * ifconfig
  * iwconfig
