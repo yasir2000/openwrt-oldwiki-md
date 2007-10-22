@@ -194,6 +194,7 @@ Unfortunately, changes made in this way do not stick.  If you have insight as to
  * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
  * You can rebuild parts of the source code using the Montavista AR7 cross-compiler toolchain.
  * If rebuild parts of the source code using the OpenWrt AR7 cross-compiler toolchain, you will get unusable binaries which the system mistakes for shell scripts.
+ * To get around the problem of binaries being mistaken for shell scripts, you will need to compile uClibc using the MIPS I (generic) target.  Then compile your binary as a MIPS I binary (probably the default, but you may need to specify -mips1 on the gcc command line.)  The "file" command will then show the file as: ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV), [...]
 = Related Sites =
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: [http://sub.st/articles/hacking-the-actiontec-gt701/ http://sub.st/articles/hacking-the-actiontec-gt701/ ]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
