@@ -1444,11 +1444,9 @@ make menuconfig
  * select Base system ---> br2684ctl
  * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (a for analog / b for isdn)
 
-wget http://code.bastart.eu.org.nyud.net/files/ar7-fritz-eva-loader.patch && patch -p0 <ar7-fritz-eva-loader.patch
-
 time make world V=99
 
-(also see https://dev.openwrt.org/ticket/2561 and http://code.bastart.eu.org/fritz-wrt/)
+(see https://dev.openwrt.org/ticket/2561)
 
 === Flashing your OpenWRT image ===
 The best way to do this is using the bootloaders built in FTP server.  I also prefer to have a serial cable attached so I can monitor the progress, but this optional.
