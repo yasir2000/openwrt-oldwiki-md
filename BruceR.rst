@@ -2,7 +2,7 @@
 #format wiki
 
 Carbon based lifeform living in UK (NW)
-Email: [[MailTo(you AT SPAMFREE example DOT com)]]
+if you want to contact me then you can use the OpenWrt forum profile. 
 
 ...
 
