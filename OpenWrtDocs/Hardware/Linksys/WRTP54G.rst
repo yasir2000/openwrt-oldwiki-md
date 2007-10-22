@@ -366,7 +366,7 @@ Here is a partial description of the format of the firmware update file format w
   * A little-endian magic number of 0xC453DE23
   * A little-endian CRC of all bytes from the start until just before the magic number
 
-Most firmware files intended to be written directly into flash it are 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
+Most firmware files intended to be written directly into flash are 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
 
 == Working with Firmware Files ==
 
