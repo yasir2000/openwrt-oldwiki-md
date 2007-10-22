@@ -2,7 +2,7 @@ The Idee,
 
 Flash can oly by writed some times, 1000 up to 1million, who knows.
 
-So why not put in a script that load the config with wget an start at this moment a script witch was downloaded?
+So why not put in a script that load the config with wget at start time, this script execute then a downlaoded script?
 
 
-So you can try an error so many you want.
+So you can try an error so many you want, and save the flash programming prozedure.
