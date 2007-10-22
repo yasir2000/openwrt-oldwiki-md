@@ -23,6 +23,7 @@ Kamikaze has support for this device. However, since you need to fit OpenWrt to 
 There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 be I2C SDL. Asus sources also contain Broadcom I2C driver and sources for Ricoh RTC.
 
 == Links ==
+ * [Howto] """Install OpenWrt Kamikaze 7.09 on the ASUS WL-700g Encore""" on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=12887
  * Thread on OpenWrt forum http://forum.openwrt.org/viewtopic.php?pid=41106#p41106
  * User forum, includes inside pictures, Q&A, etc: http://wl700g.info/forumdisplay.php?f=87
  * Detailed inside pictures http://sukkamehulinko.romikselle.com/wl700g/
