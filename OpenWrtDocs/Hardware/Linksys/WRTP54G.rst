@@ -193,7 +193,7 @@ Unfortunately, changes made in this way do not stick.  If you have insight as to
  * There appear to be pieces missing which make the code as a whole unbuildable. At any rate, though several people in various forums have asked how to build the source code, nobody has posted instructions.
  * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
  * You can rebuild parts of the source code using the Montavista AR7 cross-compiler toolchain.
- * If rebuild parts of the source code using the OpenWrt AR7 cross-compiler toolchain, you will get unusable binaries which the system mistakes for shell scripts.
+ * If you rebuild parts of the source code using the OpenWrt AR7 cross-compiler toolchain, you will get unusable binaries which the system mistakes for shell scripts.
  * To get around the problem of binaries being mistaken for shell scripts, you will need to compile uClibc using the MIPS I (generic) target.  Then compile your binary as a MIPS I binary (probably the default, but you may need to specify -mips1 on the gcc command line.)  The "file" command will then show the file as: ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV), [...]
 = Related Sites =
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: [http://sub.st/articles/hacking-the-actiontec-gt701/ http://sub.st/articles/hacking-the-actiontec-gt701/ ]
@@ -333,18 +333,18 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
- * Bytes 0x00 thru 0x03 are "CDTM". This is presumably a magic number identifying the file as a firmware.
- * Bytes 0x04 thru 0x07 unknown, set to 0x00010000 in most firmwares
- * Bytes 0x08 thru 0x0B firmware flags, set to 0xFFFFFFFF  (Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.)
- * Bytes 0x0C thru 0x0F possible firmware header version, set to 0x00000001
- * Bytes 0x10 thru 0x13 is the length of the header (including the partition table?)
- * Bytes 0x14 thru 0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
- * Bytes 0x18 thru 0x1B verID set to 0x40302010
- * Bytes 0x1C thru 0x1F unknown, set to 0x0B010000
- * Bytes 0x20 thru 0x23 file size (excluding last 8 bytes of firmwares for use thru web interface)
- * Bytes 0x24 thru 0x27 miniHeaderLength, set to 0x00000030 in most firmwares
- * Bytes 0x28 thru 0x2b offset of start of partition table
- * Bytes 0x2c thru 0x30 unknown, set to 0xFFFFFFFF
+ * Bytes 0x00 through 0x03 are "CDTM". This is presumably a magic number identifying the file as a firmware.
+ * Bytes 0x04 through 0x07 unknown, set to 0x00010000 in most firmwares
+ * Bytes 0x08 through 0x0B firmware flags, set to 0xFFFFFFFF  (Byte 0x0B must be 0xFF for the web interface and 0x17 if written directly into flash. The web interface changes this byte to 0x17 before writing the firmware into flash.)
+ * Bytes 0x0C through 0x0F possible firmware header version, set to 0x00000001
+ * Bytes 0x10 through 0x13 is the length of the header (including the partition table?)
+ * Bytes 0x14 through 0x17 must match the value of ProductID from the boot loader environment or the web interface will refuse to load the firmware and if you write it into flash from the boot loader console, the boot loader will refuse to boot it.
+ * Bytes 0x18 through 0x1B verID set to 0x40302010
+ * Bytes 0x1C through 0x1F unknown, set to 0x0B010000
+ * Bytes 0x20 through 0x23 file size (excluding last 8 bytes of firmwares for use through web interface)
+ * Bytes 0x24 through 0x27 miniHeaderLength, set to 0x00000030 in most firmwares
+ * Bytes 0x28 through 0x2b offset of start of partition table
+ * Bytes 0x2c through 0x30 unknown, set to 0xFFFFFFFF
  * The 0x40 bytes starting 0x40 bytes beyond the end of the mini header (as indicated in the word starting at 0x27) contain the file name of the firmware, presumably so that it can be identified even if renamed.
  * Byte 0xb0 (or the address indicated in the word at 0x28) is the start of a partion table defining partions "kernel" and "root".  Partition table format is:
   * A 12 bytes header:
@@ -360,9 +360,9 @@ Here is a partial description of the format of the firmware update file format w
    * 4 bytes for mtdNum
    * 16 bytes for partition name
  * From the end of the partition table to 0xFFFF is filled with the value 0xFF.
- * In most firmwares bytes 0x010000 thru 0x08FFFF are the kernel. Unused space at the end is filled with the value 0xFF.
- * In most firmwares bytes 0x90000 thru 0x3AFFFF are the squashfs root filesystem. The first four bytes of the squashfs are "hsqs". Unused space at the end is filled with the value 0xFF.
- * Firmware images intended to be written directly into flash end at this point.  Firmware images intended for upgrading thru the web interface have two additional words:
+ * In most firmwares bytes 0x010000 through 0x08FFFF are the kernel. Unused space at the end is filled with the value 0xFF.
+ * In most firmwares bytes 0x90000 through 0x3AFFFF are the squashfs root filesystem. The first four bytes of the squashfs are "hsqs". Unused space at the end is filled with the value 0xFF.
+ * Firmware images intended to be written directly into flash end at this point.  Firmware images intended for upgrading through the web interface have two additional words:
   * A little-endian magic number of 0xC453DE23
   * A little-endian CRC of all bytes from the start until just before the magic number
 
@@ -410,12 +410,12 @@ The configuration of the router is stored in a single XML file. This file is sto
 
 The configuration can be extracted using the web interface (Administration/Management/Backup and Restore). The configuration file produced by the backup function is incomplete. Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
 
- * Bytes 0x0000 thru 0x0003 contain "LMMC". This is appearently a magic number
- * Bytes 0x0004 thru 0x0005 are 0x00 and 0x03 respectively. This may be a continuation of the magic number.
- * Bytes 0x0006 thru 0x0007 should be set to zero
- * Bytes 0x0008 thru 0x000B contain the length of the compressed configuration file in little-endian format
- * Bytes 0x000C thru 0x000F contain a CRC of the compressed configuration file
- * Bytes 0x0010 thru 0x0013 contain the length of the uncompressed configuration file
+ * Bytes 0x0000 through 0x0003 contain "LMMC". This is appearently a magic number
+ * Bytes 0x0004 through 0x0005 are 0x00 and 0x03 respectively. This may be a continuation of the magic number.
+ * Bytes 0x0006 through 0x0007 should be set to zero
+ * Bytes 0x0008 through 0x000B contain the length of the compressed configuration file in little-endian format
+ * Bytes 0x000C through 0x000F contain a CRC of the compressed configuration file
+ * Bytes 0x0010 through 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
 
 = Serial Console =
