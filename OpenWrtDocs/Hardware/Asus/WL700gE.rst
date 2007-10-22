@@ -4,14 +4,13 @@ Kamikaze has support for this device. However, since you need to fit OpenWrt to 
 == Hardware ==
  * Broadcom 4780 @ 266MHz (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
  * 2MB FLASH (MX 29LV160CT1C-90G) and 64MB DDR-SDRAM (2 * Samsung K4H561638F-UCCC)
- * VIA USB 2.0 controller (VT6212L), 3 external USB connectors, one internal (pads on PCB) 
+ * VIA USB 2.0 controller (VT6212L), 3 external USB connectors, one internal (pads on PCB)
  * Acard/Artop PATA controller (ATP865-B) and Hitachi 160GB 7200rpm PATA disk (HDT722516DLAT80)
  * Empty mini-pci header on PCB (not usable on stock enclosure and missing mini-pci connector itself)
  * Broadcom switch, 4 LAN, 1 WAN (BCM5325EKQMG)
  * Broadcom Single-Chip 802.11g Transceiver (BCM4318EKFBG)
  * RTC on I2C (Ricoh RV5C386A, CR1220 3V battery)
  * TTL serial port hidden under powersupply (4-pin header)
-
 == GPIO ==
  * GPIO 0 = POWER-button (0 = released, 1 = pressed)
  * GPIO 1 = READY-led (0 = on, 1 = off)
@@ -19,11 +18,10 @@ Kamikaze has support for this device. However, since you need to fit OpenWrt to 
  * GPIO 4 = EZSETUP-button (0 = released, 1 = pressed)
  * GPIO 6 = COPY-button (0 = released, 1 = pressed)
  * GPIO 7 = RESET (0 = reset system, 1 = normal state)
-
 There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 be I2C SDL. Asus sources also contain Broadcom I2C driver and sources for Ricoh RTC.
 
 == Links ==
- * [Howto] """Install OpenWrt Kamikaze 7.09 on the ASUS WL-700g Encore""" on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=12887
+ * [Howto] Install OpenWrt Kamikaze 7.09 on the ASUS WL-700g Encore on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=12887
  * Thread on OpenWrt forum http://forum.openwrt.org/viewtopic.php?pid=41106#p41106
  * User forum, includes inside pictures, Q&A, etc: http://wl700g.info/forumdisplay.php?f=87
  * Detailed inside pictures http://sukkamehulinko.romikselle.com/wl700g/
@@ -31,9 +29,9 @@ There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 b
  * Customize firmware here! http://home.comcast.net/~kfurge/wl700ge.html
  * Info about [http://wiki.openwrt.org/HardwareAcceleratedCrypto hardware accelerated crypto]
  * Setup OpenWrt on WL700Ge http://wl700g.homelinux.net/
-
 == NVRAM ==
-{{{apps_pool=MYVOLUME1
+{{{
+apps_pool=MYVOLUME1
 apps_share=MYSHARE1
 boardflags=0x0110
 boardnum=44
