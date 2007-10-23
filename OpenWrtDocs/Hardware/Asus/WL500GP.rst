@@ -115,19 +115,18 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
 [[Anchor(restore)]] [[Anchor(Restore)]] [[Anchor(restoration)]] [[Anchor(Restoration)]]
 '''NOTES:'''
 
- * If you have problems to flash a brand new Asus WL500gP.  ( Asus restoration tool fails or no tftp prompt )
-You can try this ...
+ * If you have problems to flash a brand new Asus WL500gP.  ( Asus restoration tool fails or no tftp prompt ) You can try this ... 
 
- 1 Download the <yourfirmware>.trx firmware.
- 1 Open a command prompt and 'cd' to the directory where you downloaded the firmware (.trx file).
- 1 Type 'tftp -i 192.168.1.1 PUT <yourfirmware>.trx' but DO NOT HIT ENTER!
- 1 Unplug the power to the router.
- 1 Hold down the reset/restore button while reconnecting the power. Wait until the power light starts
+ * Download the <yourfirmware>.trx firmware.
+ * Open a command prompt and 'cd' to the directory where you downloaded the firmware (.trx file).
+ * Type 'tftp -i 192.168.1.1 PUT <yourfirmware>.trx' but DO NOT HIT ENTER!
+ * Unplug the power to the router.
+ * Hold down the reset/restore button while reconnecting the power. Wait until the power light starts
 blinking before releasing the reset/restore button.
- 1 Hit enter in your command prompt window (to run 'tftp -i 192.168.1.1 <yourfirmware>.trx').
- 1 Wait 15-30 seconds for the image to upload. If you receive a TFTP timeout message
+ * Hit enter in your command prompt window (to run 'tftp -i 192.168.1.1 <yourfirmware>.trx').
+ * Wait 15-30 seconds for the image to upload. If you receive a TFTP timeout message
 start the process over again 
- 1 Wait 4-5 minutes and power cycle the router.
+ * Wait 4-5 minutes and power cycle the router.
 
 ==== ASUS firmware restoration tool (Windows only) ====
 If you are on Windows it is recommended to use the ASUS firmware restoration tool to install !OpenWrt. The ASUS firmware restoration tool can be found on the CD. Make sure the router is in diag mode.
