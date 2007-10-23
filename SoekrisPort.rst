@@ -459,7 +459,9 @@ so, modify /sbin/mount_root as follows:
 }}}
 
 This approach is probably the simplest way to run OpenWrt, but it relies on
-the flash card performing its own wear levelling.
+the flash card performing its own wear levelling. The other problem is that
+the default startup scripts don't run e2fsck; if you unplug the power without
+shutting down cleanly, you can end up with a corrupted root filesystem.
 
 === jffs2 ===
 
