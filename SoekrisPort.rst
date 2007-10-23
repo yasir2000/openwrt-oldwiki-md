@@ -431,6 +431,267 @@ See http://www.gnome.org/~markmc/qemu-networking.html and
 http://www.h7.dion.ne.jp/~qemu-win/HowToNetwork-en.html for information on
 setting up more complex networking scenarios with qemu.
 
+== Flash partitioning ==
+
+A Compact Flash card contains in-built hardware to map itself to an
+IDE-compatible interface, and so when the Soekris boots it thinks it is
+talking to a hard drive.
+
+=== ext2 ===
+
+The ext2 image contains two DOS-style partitions:
+
+ * /dev/hda1: ext2 filesystem containing /boot (grub + kernel)
+ * /dev/hda2: ext2 filesystem containing /
+
+At bootup, /dev/hda2 is mounted directly onto / in the same way as a normal
+desktop system.
+
+If using the ext2 image with a compact flash card, you should be aware that
+the 'noatime' mount option is NOT set by default. This means that every time
+you *read* a file, a *write* is done to update the access time in the inode.
+Since CF cards have limited write cycles, you may wish to avoid this. To do
+so, modify /sbin/mount_root as follows:
+
+{{{
+...
+    mount -o remount,rw,noatime /dev/root /
+}}}
+
+This approach is probably the simplest way to run OpenWrt, but it relies on
+the flash card performing its own wear levelling.
+
+=== jffs2 ===
+
+The jffs2 image contains two DOS-style partitions:
+
+ * /dev/hda1: ext2 filesystem containing /boot (grub + kernel)
+ * /dev/hda2: flash emulation
+    * /dev/mtdblock0: "rootfs": jffs2 filesystem containing /
+
+(FIXME: should you choose the 64K, 128K or 256K jffs2 image? Does it
+matter?)
+
+When you are running the image, you can mount hda1 to look at its contents
+or update it. /dev/hda2 is mapped to /dev/mtdblock0 using block2mtd, so as
+to emulate a "real" flash device with its own partitioning scheme; you
+should not touch /dev/hda2 directly.
+
+{{{
+root@OpenWrt:/# mkdir /tmp/mnt
+root@OpenWrt:/# mount /dev/hda1 /tmp/mnt
+root@OpenWrt:/# ls -lR /tmp/mnt
+/tmp/mnt:
+drwxr-xr-x    3 1000     100          1024 Jul 23  2007 boot
+drwx------    2 root     root       230400 Jul 26  2007 lost+found
+
+/tmp/mnt/boot:
+drwxr-xr-x    2 1000     100          1024 Jul 23  2007 grub
+-rw-r--r--    1 1000     100        978192 Jul 26  2007 vmlinuz
+
+/tmp/mnt/boot/grub:
+-rw-r--r--    1 1000     100          7584 Jul 23  2007 e2fs_stage1_5
+-rw-r--r--    1 1000     100           570 Jul 26  2007 menu.lst
+-rw-r--r--    1 1000     100           512 Jul 23  2007 stage1
+-rw-r--r--    1 1000     100        102378 Jul 23  2007 stage2
+
+root@OpenWrt:/# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 01020000 00020000 "rootfs"
+root@OpenWrt:/#
+}}}
+
+=== squashfs ===
+
+The squashfs image contains two DOS-style partitions:
+
+ * /dev/hda1: ext2 filesystem containing /boot as above
+ * /dev/hda2: flash emulation
+   * /dev/mtdblock0: "rootfs": squashfs root filesystem
+   * /dev/mdtblock1: "rootfs_data": jffs2 filesystem unioned over root
+
+This works in the same way as the traditional OpenWrt Broadcom platform: any
+spare space in /dev/hda2 is dynamically created as a jffs2 partition, which
+overlays the fixed squashfs root. Should this become corrupted, you should
+still be able to boot using squashfs on its own. You can also type
+"firstboot" to forcibly erase the jffs2 part.
+
+(Presumably, grub doesn't have sufficient knowledge of mtd partitioning
+and/or squashfs in order to boot directly, and which is why the boot
+partition is still needed)
+
+== User data partition ==
+
+Given that 1-4GB flash cards are now very cheap, you probably want the rest
+of the space to be available for data storage. One option is to make a
+bigger hda2 partition, but this risks losing your user data when you upgrade
+Openwrt itself.
+
+A safer option is to create a new partition /dev/hda3 for the remaining
+space on the card, and create another filesystem within it.
+
+=== ext2 data partition ===
+
+The partitioning can be done on the target device:
+
+{{{
+# ipkg update
+# ipkg install fdisk
+# fdisk /dev/hda
+-- create new primary partition 3 (see below)
+-- a reboot may now be required
+}}}
+
+Alternatively the partition table can be updated offline within the image,
+which is useful if you need to burn the image onto multiple flash cards.
+Beware that you need to know the exact size of your flash card, or else
+allow sufficient leeway, because cards are not as big as they advertise. For
+example, if I insert a Fuji "4GB" 40x card into a PC reader, I see
+
+{{{
+[18997894.296000] SCSI device sdb: 7928928 512-byte hdwr sectors (4060 MB)
+}}}
+
+Ignore the "4060MB". The actual size is 7,928,928/2 = 3,964,464KB, which is
+about 3871.5MB.
+
+Now convert this into the number of cylinders, here using 1008 sectors per
+cylinder to match the existing partition table: 7928928 / 1008 = 7866
+cylinders exactly. Round down if necessary.
+
+{{{
+$ fdisk -C 7866 openwrt-x86-2.6-jffs2-128k.image
+
+The number of cylinders for this disk is set to 7866.
+There is nothing wrong with that, but this is larger than 1024,
+and could in certain setups cause problems with:
+1) software that runs at boot time (e.g., old versions of LILO)
+2) booting and partitioning software from other OSs
+   (e.g., DOS FDISK, OS/2 FDISK)
+
+Command (m for help): p
+
+Disk openwrt-x86-2.6-jffs2-128k.image: 0 MB, 0 bytes
+16 heads, 63 sectors/track, 7866 cylinders
+Units = cylinders of 1008 * 512 = 516096 bytes
+
+                           Device Boot      Start         End      Blocks   Id System
+openwrt-x86-2.6-jffs2-128k.image1   *           1           9        4504+  83 Linux
+openwrt-x86-2.6-jffs2-128k.image2              10          42       16600+  83 Linux
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 3
+First cylinder (43-7866, default 43):
+Using default value 43
+Last cylinder or +size or +sizeM or +sizeK (43-7866, default 7866):
+Using default value 7866
+
+Command (m for help): t
+Partition number (1-4): 3
+Hex code (type L to list codes): 83
+
+Command (m for help): p
+
+Disk openwrt-x86-2.6-jffs2-128k.image: 0 MB, 0 bytes
+16 heads, 63 sectors/track, 7866 cylinders
+Units = cylinders of 1008 * 512 = 516096 bytes
+
+                           Device Boot      Start         End      Blocks   Id System
+openwrt-x86-2.6-jffs2-128k.image1   *           1           9        4504+  83 Linux
+openwrt-x86-2.6-jffs2-128k.image2              10          42       16600+  83 Linux
+openwrt-x86-2.6-jffs2-128k.image3              43        7866     3943296   83 Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+
+WARNING: Re-reading the partition table failed with error 25: Inappropriate ioctl for device.
+The kernel still uses the old table.
+The new table will be used at the next reboot.
+Syncing disks.
+}}}
+
+(You can ignore those warnings when writing the partition table)
+
+Creating the ext3 filesystem itself is best done on the target system,
+otherwise you'll end up with a 4GB image to copy.
+
+{{{
+# ipkg install e2fsprogs
+# mke2fs /dev/hda3     # quite slow as it writes inode tables and superblocks
+...
+# mkdir /opt
+# mount -o noatime /dev/hda3 /opt
+}}}
+
+The "noatime" option minimises flash wear; without it, the access time in
+the inode is updated each time you read a file.
+
+By default 5% of storage space is reserved for root. Use "-m 0" on mke2fs
+command line to make the whole space available, or install tune2fs and use
+that.
+
+=== jffs data partition ===
+
+/!\ This gives kernel panics after rebooting if you use it with the jffs or squashfs images,
+presumably because they already have a block2mtd partition. Maybe block2mtd
+can't keep track of multiple partitions at once. Therefore this is only safe
+if you are using the ext2 image.
+
+First create a /dev/hda3 partition as above using fdisk. Then on the target
+system:
+
+{{{
+# echo "/dev/hda3,131072,user_data" > /sys/module/block2mtd/parameters/block2mtd# mtd unlock user_data
+# mtd erase user_data    # takes a VERY LONG time on 4GB flash
+# cat /proc/mtd
+... look for the user_data line, check it's /dev/mtdblock0
+# mkdir /opt
+# mount /dev/mtdblock0 /opt -t jffs2
+}}}
+
+You should also be able to perform this set offline, if your desktop system
+has mtdblock and loopback, as described
+[http://gentoo-wiki.com/Mounting_a_block_device_with_JFFS2 here]
+
+Now all you need is a startup script to mount this at boot time:
+
+{{{
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+
+START=11
+
+partition="user_data"
+mountpoint="/opt"
+
+jffs2_ready () {
+        mtdpart="$(find_mtd_part $partition)"
+        magic=$(hexdump $mtdpart -n 4 -e '4/1 "%02x"')
+        [ "$magic" != "deadc0de" ]
+}
+
+start() {
+        grep $partition /proc/mtd >/dev/null 2>/dev/null || {
+                echo '/dev/hda3,131072,user_data' > /sys/module/block2mtd/parameters/block2mtd
+                sleep 2
+        }
+        mtd unlock $partition
+        jffs2_ready && {
+                mount "$(find_mtd_part $partition)" $mountpoint -t jffs2
+        }
+}
+
+stop() {
+        umount $mountpoint
+}
+}}}
+
 == See also ==
 
  * [http://www.brixandersen.dk/papers/net4801/net4801.html GNU/Linux on a Soekris net4801]
