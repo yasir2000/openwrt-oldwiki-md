@@ -113,7 +113,6 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.
  * The ASUS WL-500g Premium does not revert to the 192.168.1.1 address when starting the CFE bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 [[Anchor(restore)]] [[Anchor(Restore)]] [[Anchor(restoration)]] [[Anchor(Restoration)]]
-'''NOTES:'''
 
 '''If you have problems to flash a brand new Asus WL500gP. (Asus restoration tool fails or no tftp prompt) You can try this...''' 
 
