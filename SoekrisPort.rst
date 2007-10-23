@@ -434,5 +434,9 @@ setting up more complex networking scenarios with qemu.
 == See also ==
 
  * [http://www.brixandersen.dk/papers/net4801/net4801.html GNU/Linux on a Soekris net4801]
+ * [http://pyramid.metrix.net/trac/wiki/InstallingPyramid/PxeBootLiveCD Pyramic PxeBoot Live CD]
+ * [http://gentoo-wiki.com/Mounting_a_block_device_with_JFFS2 Mounting a block device with JFFS2 (Gentoo wiki)]
+ * [http://maemo.org/community/wiki/ModifyingRootImage Modifying a JFFS2 image]
+
 ----
 CategoryOpenWrtPort
