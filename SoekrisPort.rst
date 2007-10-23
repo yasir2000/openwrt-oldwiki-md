@@ -522,6 +522,48 @@ still be able to boot using squashfs on its own. You can also type
 and/or squashfs in order to boot directly, and which is why the boot
 partition is still needed)
 
+=== tgz ===
+
+If you build from source, another image option available is "tgz". This just
+gives you the following files:
+
+{{{
+openwrt-x86-2.6-rootfs.tgz
+openwrt-x86-2.6-vmlinuz
+}}}
+
+It's up to you to install them in a way which makes sense on your target
+platform.
+
+=== ramdisk ===
+
+If you build from source, the final image option available is "ramdisk". If
+you select this, all the other images are disabled.
+
+This gives you a single file, containing both the kernel and a ramdisk:
+
+{{{
+openwrt-x86-2.6-vmlinuz
+}}}
+
+This is particularly convenient for pxebooting. However you can also put it
+into a single partition with grub (or perhaps freedos and loadlin?). This
+should make it very easy to manage remote upgrading of devices, since only a
+single file needs to be replaced.
+
+It can be booted using something like this (FIXME: make sure this is correct)
+
+{{{
+title   OpenWrt ramdisk
+root    (hd0,0)
+kernel  /boot/vmlinuz init=/etc/preinit console=tty0 console=ttyS0,38400n8 rebo
+boot
+}}}
+
+It does use more RAM, but on a Soekris with 64MB or more, this probably is
+not an issue. The downside is that no state is kept between reboots, not
+even the dropbear ssh host key.
+
 == User data partition ==
 
 Given that 1-4GB flash cards are now very cheap, you probably want the rest
