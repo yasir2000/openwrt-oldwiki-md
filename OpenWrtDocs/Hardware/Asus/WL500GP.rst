@@ -113,6 +113,7 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * After TFTP upload is complete, DON'T reboot (replug) too early! It might brick your router.
  * The ASUS WL-500g Premium does not revert to the 192.168.1.1 address when starting the CFE bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 [[Anchor(restore)]] [[Anchor(Restore)]] [[Anchor(restoration)]] [[Anchor(Restoration)]]
+'''NOTES:'''
 
 ==== ASUS firmware restoration tool (Windows only) ====
 If you are on Windows it is recommended to use the ASUS firmware restoration tool to install !OpenWrt. The ASUS firmware restoration tool can be found on the CD. Make sure the router is in diag mode.
