@@ -9,7 +9,7 @@ For much hardware this will be quite a suite of deamons to handle and might very
 
 = Chillispot =
 
-[Chillispot http://www.chillispot.org/] is a fully loaded user network connection management suit.
+[Chillispot http://www.chillispot.info/] is a fully loaded user network connection management suit.
 
 Using ipfilter it ensures that only authenticated connections have access to the network. All unauthenticated http/https connections are captured and sent to a login script. This is known as a captive portal.
 
