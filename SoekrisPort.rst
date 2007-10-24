@@ -363,6 +363,123 @@ This boots the image within a virtual machine on your desktop PC, and is very ea
 
 It lets you try out the various flash partitioning schemes without having to burn anything to flash, or indeed, without having a real Soekris :-)
 
+== Booting using PXE ==
+
+You can boot the Soekris directly over a network. This is done automatically
+if there is no compact flash card installed, or you can force it by hitting
+Ctrl-P then typing "boot f0" at the combios prompt.
+
+You need to set up a server for the machine to boot against. The
+instructions here are for an Ubuntu Linux system; you may have to adjust
+them for your own system.
+
+=== static IP address ===
+
+Configure your server with a static IP address on a spare interface.
+Here I'm assuming it's eth0 and you are going to use 192.168.1.250
+
+/etc/network/interfaces
+{{{
+...
+auto eth0
+iface eth0 inet static
+address 192.168.1.250
+netmask 255.255.255.0
+...
+}}}
+
+=== dhcp server ===
+
+{{{
+# apt-get install dhcp3-server
+}}}
+
+/etc/dhcp3/dhcpd.conf
+{{{
+ddns-update-style none;
+
+#option domain-name "example.org";
+#option domain-name-servers ns1.example.org, ns2.example.org;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+log-facility daemon;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.199;
+  option routers 192.168.1.250;
+  next-server 192.168.1.250;
+  filename "pxelinux.0";
+}
+}}}
+
+/etc/default/dhcp3-server
+{{{
+INTERFACES="eth0"
+}}}
+
+=== tftp server ===
+
+The special requirement here is that your tftp server must support the
+'tsize' extension. The standard Ubuntu one doesn't; you need tftpd-hpa
+
+{{{
+# apt-get install tftpd-hpa
+}}}
+
+/etc/inetd.conf
+{{{
+tftp           dgram   udp     wait    root  /usr/sbin/in.tftpd /usr/sbin/in.tftpd -s /var/lib/tftpboot
+}}}
+
+/etc/default/xinetd
+{{{
+XINETD_OPTS="-stayalive -inetd_compat"
+}}}
+
+=== pxelinux.0 ===
+
+{{{
+# apt-get install syslinux
+# cd /var/lib/tftpboot
+# cp /usr/lib/syslinux/pxelinux.0 .
+# mkdir pxelinux.cfg
+}}}
+
+Now also copy your kernel image and/or init ramdisk into this directory. For
+example, if you are using the single kernel+ramdisk image, you could copy it
+here as vmlinuz.ram
+
+Now you need to create the pxeboot config file:
+
+/var/lib/tftpboot/pxelinux.cfg/default
+{{{
+serial 0 38400 0x303
+label linux
+  kernel vmlinuz.ram
+  append init=/etc/preinit console=tty0 console=ttyS0,38400n8 reboot=bios
+}}}
+
+=== Final checks ===
+
+Make sure everything is running:
+
+{{{
+# ifup eth0
+# /etc/init.d/dhcp3-server start
+# killall -1 xinetd
+}}}
+
+Plug in your Soekris and cross your fingers. For some reason pxeboot seems
+to give its output in a tiny 16-character window; you can use the 'capture
+to file' option in minicom (ctrl-A L) to get more readable info.
+
+More info on pxelinux.0 is at http://syslinux.zytor.com/pxe.php, and the
+configuration file format at http://syslinux.zytor.com/faq.php
+
+(FIXME: describe how to make this work with separate kernel and initrd files)
+
 == Flash partitioning ==
 
 A Compact Flash card contains in-built hardware to map itself to an
