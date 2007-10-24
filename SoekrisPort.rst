@@ -600,7 +600,7 @@ otherwise you'll end up with a 4GB image to copy.
 
 {{{
 # ipkg install e2fsprogs
-# mke2fs /dev/hda3     # quite slow as it writes inode tables and superblocks
+# mke2fs /dev/hda3     # quite slow as it writes inode tables and superblocks (~7.5mins for 4GB)
 ...
 # mkdir /opt
 # mount -o noatime /dev/hda3 /opt
@@ -624,7 +624,8 @@ First create a /dev/hda3 partition as above using fdisk. Then on the target
 system:
 
 {{{
-# echo "/dev/hda3,131072,user_data" > /sys/module/block2mtd/parameters/block2mtd# mtd unlock user_data
+# echo "/dev/hda3,131072,user_data" > /sys/module/block2mtd/parameters/block2mtd
+# mtd unlock user_data
 # mtd erase user_data    # takes a VERY LONG time on 4GB flash
 # cat /proc/mtd
 ... look for the user_data line, check it's /dev/mtdblock0
