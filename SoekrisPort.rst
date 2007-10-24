@@ -2,8 +2,9 @@
 == Introduction ==
 The SoekrisPort is an attempt to use OpenWrt on PC-based embedded computer boards sold by [http://www.soekris.com/ Soekris Engineering], starting with the [http://www.soekris.com/net4801.htm net4801] board.
 
-The net4801 has a CompactFlash socket, as well as an IDE interface for 2.5" HDD. The installation procedure described here is for CF setup. You can use whatever size (from 8MB to 1GB) for your CF.
+The net4801 has a CompactFlash socket, as well as an IDE interface for 2.5" HDD. The installation procedure described here is for CF setup. You can use whatever size (from 8MB to 4GB) for your CF.
 
+It also works on the slightly cheaper but less powerful net4501
 
 == Installation ==
 
@@ -478,7 +479,33 @@ to file' option in minicom (ctrl-A L) to get more readable info.
 More info on pxelinux.0 is at http://syslinux.zytor.com/pxe.php, and the
 configuration file format at http://syslinux.zytor.com/faq.php
 
-(FIXME: describe how to make this work with separate kernel and initrd files)
+=== PXE boot ramdisk with additional files ===
+
+A 'ramdisk' kernel is actually a kernel with a built in cpio.gz archive which
+is expanded into an initramfs.
+
+If you want to add extra files, this can be done very
+easily. You don't need to rebuild the kernel to change its cpio.gz; you can
+supply a second cpio.gz file at boot time, and the kernel will unpack
+this one as well. Any files in this archive will override ones with the same
+name in the kernel's archive.
+
+If you look in the kernel source, this process is explained in
+Documentation/filesystems/ramfs-rootfs-initramfs.txt
+and it also includes a script which will build a suitable cpio.gz image for
+you.
+
+Once you have one, all you need to do is copy it to /var/lib/tftpboot/ and
+update your pxelinux.cfg/default file to reference it:
+{{{
+serial 0 38400 0x303
+label linux
+  kernel vmlinuz.ram
+  append initrd=root.cpio.gz init=/etc/preinit console=tty0 console=ttyS0,38400n8 reboot=bios
+}}}
+
+When the device next boots, the root filesystem will be the original
+Kamikaze initramfs with your cpio files added.
 
 == Flash partitioning ==
 
@@ -597,11 +624,11 @@ openwrt-x86-2.6-vmlinuz
 }}}
 
 This is particularly convenient for pxebooting. However you can also put it
-into a single partition with grub (or perhaps freedos and loadlin?). This
+into a single partition with grub (or even freedos and loadlin). This
 should make it very easy to manage remote upgrading of devices, since only a
 single file needs to be replaced.
 
-It can be booted using something like this (FIXME: make sure this is correct)
+It can be booted using something like this:
 
 {{{
 title   OpenWrt ramdisk
@@ -610,7 +637,12 @@ kernel  /boot/vmlinuz init=/etc/preinit console=tty0 console=ttyS0,38400n8 reboo
 boot
 }}}
 
-It does use more RAM, but on a Soekris with 64MB or more, this probably is
+You can also add an initrd file, which is a cpio.gz archive, to add additional
+files to the root filesystem at boot time. In this case add "initrd=/boot/root.cpio.gz"
+or whatever to the 'kernel' line.
+
+Running with the root filesystem in RAM will obviously use more RAM, but on a Soekris
+with 64MB or more, this probably is
 not an issue. The downside is that no state is kept between reboots, not
 even the dropbear ssh host key.
 
