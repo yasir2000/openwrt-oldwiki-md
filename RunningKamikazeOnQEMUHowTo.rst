@@ -75,5 +75,5 @@ setting up more complex networking scenarios with qemu.
 = See also =
 
  * SoekrisPort (for more details about partitioning)
- * [[Generic_x86-HowTo]]
- * [[RunningKamikazeOnVMwareHowTo]]
+ * ["Generic_x86-HowTo"]
+ * ["RunningKamikazeOnVMwareHowTo"]
