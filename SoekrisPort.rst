@@ -443,7 +443,7 @@ The squashfs image contains two DOS-style partitions:
  * /dev/hda1: ext2 filesystem containing /boot as above
  * /dev/hda2: flash emulation
    * /dev/mtdblock0: "rootfs": squashfs root filesystem
-   * /dev/mdtblock1: "rootfs_data": jffs2 filesystem unioned over root
+   * /dev/mtdblock1: "rootfs_data": jffs2 filesystem unioned over root
 
 This works in the same way as the traditional OpenWrt Broadcom platform: any
 spare space in /dev/hda2 is dynamically created as a jffs2 partition, which
