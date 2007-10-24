@@ -489,7 +489,7 @@ It can be booted using something like this (FIXME: make sure this is correct)
 {{{
 title   OpenWrt ramdisk
 root    (hd0,0)
-kernel  /boot/vmlinuz init=/etc/preinit console=tty0 console=ttyS0,38400n8 rebo
+kernel  /boot/vmlinuz init=/etc/preinit console=tty0 console=ttyS0,38400n8 reboot=bios
 boot
 }}}
 
