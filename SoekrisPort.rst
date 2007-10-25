@@ -491,7 +491,7 @@ this one as well. Any files in this archive will override ones with the same
 name in the kernel's archive.
 
 If you look in the kernel source, this process is explained in
-Documentation/filesystems/ramfs-rootfs-initramfs.txt
+[http://www.mjmwired.net/kernel/Documentation/filesystems/ramfs-rootfs-initramfs.txt Documentation/filesystems/ramfs-rootfs-initramfs.txt]
 and it also includes a script which will build a suitable cpio.gz image for
 you.
 
@@ -624,11 +624,11 @@ openwrt-x86-2.6-vmlinuz
 }}}
 
 This is particularly convenient for pxebooting. However you can also put it
-into a single partition with grub (or even freedos and loadlin). This
+into a single partition with grub (or [http://syslinux.zytor.com/ syslinux], or even freedos and loadlin). This
 should make it very easy to manage remote upgrading of devices, since only a
 single file needs to be replaced.
 
-It can be booted using something like this:
+It can be booted using something like this (grub):
 
 {{{
 title   OpenWrt ramdisk
