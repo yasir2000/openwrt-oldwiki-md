@@ -457,10 +457,13 @@ Now you need to create the pxeboot config file:
 /var/lib/tftpboot/pxelinux.cfg/default
 {{{
 serial 0 38400 0x303
+console 0
 label linux
   kernel vmlinuz.ram
   append init=/etc/preinit console=tty0 console=ttyS0,38400n8 reboot=bios
 }}}
+
+("console 0" stops the loader from writing to the video console as well, which the Soekris BIOS redirects to the serial port, causing characters to be doubled)
 
 === Final checks ===
 
