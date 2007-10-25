@@ -840,6 +840,18 @@ stop() {
 }
 }}}
 
+== Hardware real-time clock (RTC) ==
+
+The net4501 has an on-board RTC. To use it, build busybox with hwclock support. In 'make menuconfig':
+
+{{{
+Base System > Busybox
+              Configuration > Linux System Utilities > hwclock
+}}}
+
+This also installs /etc/init.d/hwclock which sets the clock from the RTC at bootup. To initialise the
+RTC, set the system date using 'date' (or 'ntpclient') and then write it to the RTC using 'hwclock -w'
+
 == See also ==
 
  * ["RunningKamikazeOnQEMUHowTo"]
