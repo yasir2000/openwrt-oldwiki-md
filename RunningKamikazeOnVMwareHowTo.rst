@@ -1,5 +1,7 @@
 This !HowTo explains how to get !OpenWrt running on VMware. This only works with Kamikaze (X86 [2.6]), the old stable version (!WhiteRussian) is not supported. This has been tested on a Windows XP and Linux host-system.
 
+See also: ["RunningKamikazeOnQEMUHowTo"]
+
 = Using prebuilt images =
  1. Download the free VMware Player (recommended and enough for most users) or Server from [http://www.vmware.com/ VMware] and install it
 
