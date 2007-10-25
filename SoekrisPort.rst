@@ -788,7 +788,7 @@ that.
 /!\ This gives kernel panics after rebooting if you use it with the jffs or squashfs images,
 presumably because they already have a block2mtd partition. Maybe block2mtd
 can't keep track of multiple partitions at once. Therefore this is only safe
-if you are using the ext2 image.
+if you are using the ext2 or ramdisk images.
 
 First create a /dev/hda3 partition as above using fdisk. Then on the target
 system:
