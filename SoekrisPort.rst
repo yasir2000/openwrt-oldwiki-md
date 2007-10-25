@@ -605,12 +605,34 @@ If you build from source, another image option available is "tgz". This just
 gives you the following files:
 
 {{{
-openwrt-x86-2.6-rootfs.tgz
-openwrt-x86-2.6-vmlinuz
+openwrt-x86-2.6-rootfs.tgz    # the root filesystem
+openwrt-x86-2.6-vmlinuz       # the kernel
 }}}
 
 It's up to you to install them in a way which makes sense on your target
 platform.
+
+If you convert the .tar.gz file to .cpio.gz, you can boot the kernel plus
+the root filesystem in a ramdisk like this:
+
+{{{
+title   OpenWrt (sep ramdisk)
+root    (hd0,0)
+kernel  /boot/openwrt-x86-2.6-vmlinuz init=/etc/preinit console=tty0 console=ttyS0,38400n8 reboot=bios
+initrd  /boot/openwrt-x86-2.6-rootfs.cpio.gz
+boot
+}}}
+
+A simple way to convert the tar file to cpio is like this:
+
+{{{
+# mkdir tmp
+# cd tmp
+# tar -xvzf ../openwrt-x86-2.6-rootfs.tgz
+# find . | cpio -o -H newc | gzip -9 > ../openwrt-x86-2.6-rootfs.cpio.gz
+# cd ..
+# rm -rf tmp
+}}}
 
 === ramdisk ===
 
@@ -638,8 +660,7 @@ boot
 }}}
 
 You can also add an initrd file, which is a cpio.gz archive, to add additional
-files to the root filesystem at boot time. In this case add "initrd=/boot/root.cpio.gz"
-or whatever to the 'kernel' line.
+files to the root filesystem at boot time, by adding "initrd /boot/root.cpio.gz"
 
 Running with the root filesystem in RAM will obviously use more RAM, but on a Soekris
 with 64MB or more, this probably is
