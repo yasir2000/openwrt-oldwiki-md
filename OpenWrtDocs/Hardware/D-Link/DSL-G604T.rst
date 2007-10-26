@@ -84,6 +84,7 @@ Target Profile (Texas Instruments WiFi (default)) - usually set's by default. (S
 Base system ---> br2684ctl
 Libraries ----> linux-atm
 Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a (Select kmod-sangam-atm-annex-a for DSL-G664T)
+                  > Cryptographic API modules ---> kmod-crypto-core (includes kmod-crypto-aes and kmod-crypto-arc4)
 Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] httpd (Turn off).}}}
 Optional:
 
