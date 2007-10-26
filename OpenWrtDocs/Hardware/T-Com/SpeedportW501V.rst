@@ -7,11 +7,10 @@ Wifi: no support for the TNETW1350A, it's a chip with features somewhere between
 
 == Hardware Info ==
 
-Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32 MiB?, check) and flash (8 MiB?, check) making it a great device to run OpenWRT on!
+Uses TI AR7 chipset, onboard wireless lan, a built-in ADSL Modem.
+The Speedport W501V also features two telephone sockets for VoIP use.
 
-Being an AR7 device it also has a built-in ADSL Modem, the Speedport W501V also features two telephone sockets for VoIP use.
-
-CPU: TNETD7200ZDW (AR7) @211Mhz, Flash: 8 MiB, Ram: 32 MiB, WLan Chip: TNETW1350A.
+CPU: TNETD7200ZDW (AR7) @211 Mhz, Flash: 4 MiB, Ram: 16 MiB, WLan Chip: TNETW1350A.
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
