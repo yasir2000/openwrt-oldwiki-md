@@ -55,6 +55,8 @@ Chipset yet unknown (hidden under a soldered on metal casing). It is an mini-pci
 == Hardware with unknown function ==
 [http://www.ti.com/ Texas Instruments] TNETV100PZ, probably some sort of companion chip of the AR7.
 
+This may be a VLYNQ to PCI bridge, used for the WiFi and USB controllers.
+
 = Pinouts =
 I'm still figuring out pinouts. Most headers are useless and only used to glue the wireless wires to.
 
