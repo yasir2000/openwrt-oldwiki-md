@@ -14,7 +14,7 @@ CPU: TNETD7200ZDW (AR7) @211 Mhz, Flash: 4 MiB, Ram: 16 MiB, WLan Chip: TNETW135
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
-The hardware and the original firmware comes from AVM.
+The hardware and the original firmware come from AVM.
 
 == Bootloader ==
 
