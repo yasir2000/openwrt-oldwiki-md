@@ -50,7 +50,34 @@ VoIP is done by a VoicePump VP101X12DQC Chip (located at the bottom side of the 
 The internal switch is a [http://www.marvell.com/ Marvell] [http://www.marvell.com/products/switching/linkstreet/LinkStreet_88E6060.pdf 88E6060-RCJ1] 6-port (4 external, 1 to the router itself, 1 unused) 10/100 switch with autosensing.
 
 == Wireless card ==
-Chipset yet unknown (hidden under a soldered on metal casing). It is an mini-pci wlan card with 2 antenna's.
+I removed the wlan card from the SX551 and plugged it into my laptop:
+{{{
+# lspci
+02:02.0 Ethernet controller: Atheros Communications, Inc. AR5212 802.11abg NIC (rev 01)
+
+# lspci -n
+02:02.0 0200: 168c:0013 (rev 01)
+
+# lspci -v
+02:02.0 Ethernet controller: Atheros Communications, Inc. AR5212 802.11abg NIC (rev 01)
+        Subsystem: Accton Technology Corporation Unknown device 4412
+        Flags: bus master, medium devsel, latency 168, IRQ 11
+        Memory at c0210000 (32-bit, non-prefetchable) [size=64K]
+        Capabilities: [44] Power Management version 2
+
+# lspci -vv
+02:02.0 Ethernet controller: Atheros Communications, Inc. AR5212 802.11abg NIC (rev 01)
+        Subsystem: Accton Technology Corporation Unknown device 4412
+        Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV+ VGASnoop- ParErr- Stepping- SERR+ FastB2B-
+        Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR-
+        Latency: 168 (2500ns min, 7000ns max), Cache Line Size: 32 bytes
+        Interrupt: pin A routed to IRQ 11
+        Region 0: Memory at c0210000 (32-bit, non-prefetchable) [size=64K]
+        Capabilities: [44] Power Management version 2
+                Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+                Status: D0 PME-Enable- DSel=0 DScale=2 PME-
+}}}
+Which means it is an normal Atheros card which should work flawlessly with [http://www.madwifi.org MadWifi].
 
 == Hardware with unknown function ==
 [http://www.ti.com/ Texas Instruments] TNETV100PZ, probably some sort of companion chip of the AR7.
