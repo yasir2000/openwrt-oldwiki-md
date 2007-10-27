@@ -11,10 +11,10 @@
 {{{
  ________________right__________________
 |                                       \
-_power    Pin 1: GND     ----> []       |
-_plug     Pin 2: TX      ----> ()       | Front of DG834G
-|         Pin 3: ??      ----> ()       |
-|         Pin 4: RX      ----> ()       led
+_power   Pin 1: GND      ----> []       |
+_plug    Pin 2: TX       ----> ()       | Front of DG834G
+|        Pin 3: VCC(3.3V)----> ()       |
+|        Pin 4: RX       ----> ()       led
 |                           JP603       |
 |                                       led
 |                                       |
