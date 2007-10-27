@@ -59,6 +59,8 @@ Realtek 8186
 
 == Resources ==
 
+In many cases the manufacturers have based their firmware on ucLinux.  Any binary-only drivers meant for ucLinux are not compatible with any OpenWRT kernel.  This creates a serious barrier to porting OpenWRT to these platforms.  The main technical advantage of ucLinux is not requiring an MMU but these platforms do have an MMU (as outlined above).
+
 Source Code for Manufacturers' Firmware is available from:
 
  * [:OpenWrtDocs/Hardware/Asus/WL566gM:Asus WL-566gM] [http://dlsvr01.asus.com/pub/ASUS/wireless/WL-566gM/GPL_WL566gM_1018.zip]
