@@ -12,22 +12,19 @@ build_mipsel/linux-2.6-ar7/iptables-1.3.7/ipkg-install/usr/lib/iptables/libipt_D
 }}}
 Look https://dev.openwrt.org/ticket/1772 for more information.
 
-There seems that Wi-Fi isn't work at this date (17/06/2007):
-
+Wireless is working with the acx-mac80211 driver, but as yet (r9450) this driver is incapable of AP mode. 
 {{{
-acx: this driver is still EXPERIMENTAL
-acx: reading README file and/or Craig's HOWTO is recommended, visit http://acx100.sf.net in case of further questions/discussion
-acx: compiled to use 32bit I/O access. I/O timing issues might occur, such as non-working firmware upload. Report them
-acx: running on a little-endian CPU
-acx: PCI module v0.3.36 initialized, waiting for cards to probe...
-PCI: Enabling device 0000:00:00.0 (0000 -> 0002)
-PCI: Setting latency timer of device 0000:00:00.0 to 64
-acx: found ACX111-based wireless network card at 0000:00:00.0, irq:0, phymem1:0x4000000, phymem2:0x4022000, mem1:0xa4000000, mem1_size:8192, mem2:0xa4022000, mem2_size:131072
-initial debug setting is 0x000A
-acx: can't use IRQ 0
-pci_set_power_state(): 0000:00:00.0: state=3, current state=5
-acx_pci: probe of 0000:00:00.0 failed with error -5}}}
-See https://dev.openwrt.org/ticket/1865 and http://wiki.openwrt.org/AR7Port situation.
+wlan0     IEEE 802.11a  ESSID:""
+          Mode:Managed  Channel:0  Access Point: Not-Associated
+          Tx-Power=0 dBm
+          Retry min limit:7   RTS thr:off   Fragment thr=2346 B
+          Encryption key:off
+          Link Quality:0  Signal level:0  Noise level:0
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+}}}
+
 
 == Specifications ==
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
