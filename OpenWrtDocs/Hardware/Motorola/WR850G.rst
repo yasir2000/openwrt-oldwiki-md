@@ -60,24 +60,24 @@ If you ever need to revert your router to official Motorola firmware, it can be 
  * [http://broadband.motorola.com/consumers/support/gpl_codes.asp Source Code] (currently for [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.12_GPL.tgz 5.12], [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.13_GPL.tgz 5.13], and [http://broadband.motorola.com/consumers/support/GPL/WR850G_V6.1.4_GPL.tgz 6.1.4])
 = Loading Firmware =
 
-First read [Installing].
+First read [:Installing].
 
-Motorola firmware loading (either via TFTP through BOOT_WAIT or via the Motorola Firmware's firmware upgrade web interface page) requires that the firmware binary have an extra header.
+Motorola firmware loading (either via TFTP through BOOT_WAIT or via the Motorola Firmware's firmware upgrade web interface page) requires that the firmware binary have an extra header.  See the [:Installing] section on TRX vs. BIN.
 
-OpenWRT firmware loading (through the webif2 web interface page) requires that this extra header be absent.
+OpenWRT firmware loading (through the webif or webif2 web interface page) requires that this extra header be absent.
 
-Motorola firmware is distributed with the header.
+Motorola's firmware is distributed with the header.
 
 OpenWRT firmware is distributed in both forms.  The file ending in .trx is generic and does not have the Motorola header.  The file containing a Motorola model name and ending in .bin has the header.
 
-Consequence: if you are going to use OpenWRT to burn firmware, and the firmware binary has the Motorola header, you must first strip the header from the firmware binary that you downloaded.  You can either do this with dd(1)
+If you are going to use OpenWRT to burn firmware, and the firmware binary has the Motorola header, you must first strip the header from the firmware binary that you downloaded.  You can either do this with dd(1)
 {{{
  $ dd if=WR850G_V403.trx of=WR850G_V403.stripped.trx ibs=1 skip=8 }}}
 or with motorola-bin (but only versions released after 2007 October)
 {{{
  $ motorola-bin --strip WR850G_V403.trx  WR850G_V403.stripped.trx}}}
 
-As of 2007 October 28, the latest OpenWRT binary without the Motorola header is [http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx].
+As of 2007 October 28, the latest OpenWRT binary without the Motorola header is [http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx].  The same firmware with the Motorola header is [http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-wr850g-squashfs.bin].
 
 == Using Boot Wait ==
  * Install Motorola Firmware Version 4.03 onto the router. (see above)
