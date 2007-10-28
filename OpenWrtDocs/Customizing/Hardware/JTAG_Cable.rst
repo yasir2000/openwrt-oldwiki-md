@@ -91,14 +91,13 @@ jtag> print
 No. Manufacturer Part Stepping Instruction Register
 ---------------------------------------------------------------------------------------------
 0 Lexra LX5280 1 BYPASS BR
-
 Active bus:
 *0: EJTAG compatible bus driver via PrAcc (JTAG part No. 0)
 start: 0x00000000, length: 0x20000000, data width: 8 bit
 start: 0x20000000, length: 0x20000000, data width: 16 bit
 start: 0x40000000, length: 0x20000000, data width: 32 bit}}}
 === Using a Buffered Cable with the De-Brick Utility ===
-Inside the zip file download for the [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v45.zip Hairydairymaid WRT54G Debrick Utility] there is a PDF file that describes the software and how to use it. He specifically talks about using an unbuffered cable and pointedly notes that the cable he uses does '''not''' tie pin 1 of the JTAG header to anything.
+Inside the zip file download for the [http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v48.zip Hairydairymaid WRT54G Debrick Utility v48] there is a PDF file that describes the software and how to use it. He specifically talks about using an unbuffered cable and pointedly notes that the cable he uses does '''not''' tie pin 1 of the JTAG header to anything.
 
 That's all well and good for an unbuffered cable, but if you ''do'' happen to have a buffered Wiggler-style cable then you ''will'' have to deal with the nTRST signal. The Hairydairymaid software doesn't account for that signal line since the recommended cable doesn't carry it, but your Wiggler-style cable ''does'' use that signal and the debrick utility will ''not'' work out-of-the-box with a Wiggler-style cable as a result. The reason for this is because the software leaves the output for the nTRST line at logic-level 0, which means the signal coming out of your cable to the JTAG header will always be asserted, and as a result the JTAG circuitry inside your router will forever be resetting itself.
 
@@ -115,10 +114,33 @@ The following patch file addresses the issues outlined above. It should be appli
 '''''[NOTE by hairydairymaid - while this patch will not harm anything - it is not needed. Intel flash chips (and most others) have a built in "pin toggle" mechanism that fires when the specific write or erase has finished. Various flash chip erases/writes can and do take different times but waiting for that "pin toggle" is the proper way to account for things (not by just waiting x seconds) and it is exactly how the debrick utility operates and virtually all proper flashing routines are written. Use what works for you.]'''''
 
 --------
-attachment:debrick-wiggler.patch.gz
+ attachment:debrick-wiggler.patch.gz
 
 --------
-Please note that the above gzipped patch file uses Unix-style line endings. The de-brick utility source code files use DOS-style line endings. This shouldn't be a problem but if you gunzip the patch file and open it in a DOS or Windows editor it may look strange.
+ Please note that the above gzipped patch file uses Unix-style line endings. The de-brick utility source code files use DOS-style line endings. This shouldn't be a problem but if you gunzip the patch file and open it in a DOS or Windows editor it may look strange.
+
+Daniel Gimpelevich sez: '''''The above patch is preserved for posterity for reference ONLY. In v48, you would simply append "/wiggler" to the command line to use a wiggler instead of a Xilinx. However, this will NOT work unless you apply the following patch first:'''''
+{{{
+--- wrt54g.c.orig	2006-09-17 16:27:34.000000000 -0700
++++ wrt54g.c	2007-10-26 19:10:52.640822951 -0700
+@@ -446,7 +446,7 @@
+    #endif
+
+ 
+
+    data ^= 0x80;
+
+-   data >>= TDO;
+
++   data >>= wiggler?WTDO:TDO;
+
+    data &= 1;
+
+ 
+
+    return data;
+
+}}}
 
 == Summary ==
 I was trying to revive a bricked Linksys WRT54GS one day and couldn't get Hairydairymaid's utility to work. I was on a Linux system and had other software called "jtag tools" which I obtained from the [http://openwince.sourceforge.net/jtag/ openwince JTAG site]. That program was able to detect the BCM4712 processor inside my router. The de-brick utility, however, kept telling me that my cable was bad. I knew the cable was not the problem since jtag tools was working flawlessly and a couple of days worth of investigation led me to the solution I have presented here. After I tweaked the de-brick utility source code I was able to successfully re-flash my WRT54GS router.
