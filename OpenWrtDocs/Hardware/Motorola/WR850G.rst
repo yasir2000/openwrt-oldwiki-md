@@ -125,6 +125,8 @@ Correct:
 
 There is a suspicion that the diag bug may cause this problem.
 
+When upgrading the firmware, one should probably disconnect the WAN port in case it becomes a LAN port after the upgrade.
+
 = Finding the serial ports on the WR850G =
 The primary reason for finding serial ports on the router is to help in debricking.  There is no way to load firmware from the serial port.  However, given a simple typing mistake for an nvram value, you will be able to have a console shell to help fix a typo problem.  I have used my v1 serial port thousands of times already from nvram mistakes.  The most major, deleting all nvram variables (do not try this --kko).
 
