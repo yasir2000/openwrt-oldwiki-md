@@ -40,16 +40,6 @@ The WR850G v3 version is housed in black pastic and has a hard wired non removab
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G?action=AttachFile&amp;do=get&amp;target=wr850gv3_open.jpg WR850gV3 open box]
 
-== WE800G ==
-The WE800G http://broadband.motorola.com/consumers/products/we800g/default.asp is a Wireless Ethernet Bridge. With it attached an Ethernet-equipped hardware can join a wireless home or small office network. It is a way to add wireless capability to a PC without adding a wireless card or to make an ethernet ready printer wireless. It has one wired ethernet port and wireless.
-
-No details are currently available as to its features.
-
-== WE850G ==
-The WE850G http://broadband.motorola.com/consumers/products/we850g/default.asp is the expected replacement for the WE800G. At the time of this writing no information was available on the motorola website.
-
-No details are currently available as to its features.
-
 = Obtaining Official Motorola Firmware =
 If you ever need to revert your router to official Motorola firmware, it can be downloaded from their website.  The downloaded {{{.exe}}} files are self-extracting {{{.zip}}}'s; any unzipping software should be able to handle them.  They contain a {{{.trx}}} firmware file, as well as {{{.pdf}}} documentation.
 
