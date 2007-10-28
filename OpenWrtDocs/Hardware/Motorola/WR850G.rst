@@ -4,7 +4,7 @@
 
 The WR850G is supported by White Russian and Kamikaze versions of OpenWRT.
 
-The Broadcom wireless is not (yet?) supported by an open source driver.  The proprietary driver is only available for Linux kernel 2.4.  If you need to use wireless, you need to use a version of OpenWRT based on the 2.4 kernel.  White Russian is based on the 2.4 kernel and there is a version of Kamikaze based on the 2.4 kernel.  Beware: the main version of Kamikaze is based on the 2.6 kernel and does not support the Broadcom wireless.
+The Broadcom wireless is not yet robustly supported by an open source driver.  The proprietary driver is only available for Linux kernel 2.4.  If you need to use wireless, you need to use a version of OpenWRT based on the 2.4 kernel.  White Russian is based on the 2.4 kernel and there is a version of Kamikaze based on the 2.4 kernel.  Beware: the main version of Kamikaze is based on the 2.6 kernel and does not support the Broadcom wireless.
 
 Kamikaze 7.07 and 7.09 misidentify several models of this router (see [https://dev.openwrt.org/ticket/1936]). It is probable that the only consequences are that the lights on the unit are not correctly used.
 
@@ -59,19 +59,25 @@ If you ever need to revert your router to official Motorola firmware, it can be 
  * [http://broadband.motorola.com/consumers/support/default.asp?SupportSection=HomeNetworking Motorola's Support Site] has links only to their ''current'' firmware version.  Note that you need to scroll down to the WR850G section.
  * [http://broadband.motorola.com/consumers/support/gpl_codes.asp Source Code] (currently for [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.12_GPL.tgz 5.12], [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.13_GPL.tgz 5.13], and [http://broadband.motorola.com/consumers/support/GPL/WR850G_V6.1.4_GPL.tgz 6.1.4])
 = Loading Firmware =
+
+First read [Installing].
+
 Motorola firmware loading (either via TFTP through BOOT_WAIT or via the Motorola Firmware's firmware upgrade web interface page) requires that the firmware binary have an extra header.
 
 OpenWRT firmware loading (through the webif2 web interface page) requires that this extra header be absent.
 
-Motorola firmware and OpenWRT firmware for the Motorola router are both distributed with the header.
+Motorola firmware is distributed with the header.
 
-Consequence: if you are going to use OpenWRT to burn firmware, you must first strip the header from the firmware binary that you downloaded.  You can either do this with dd(1)
+OpenWRT firmware is distributed in both forms.  The file ending in .trx is generic and does not have the Motorola header.  The file containing a Motorola model name and ending in .bin has the header.
+
+Consequence: if you are going to use OpenWRT to burn firmware, and the firmware binary has the Motorola header, you must first strip the header from the firmware binary that you downloaded.  You can either do this with dd(1)
 {{{
  $ dd if=WR850G_V403.trx of=WR850G_V403.stripped.trx ibs=1 skip=8 }}}
 or with motorola-bin (but only versions released after 2007 October)
 {{{
  $ motorola-bin --strip WR850G_V403.trx  WR850G_V403.stripped.trx}}}
 
+As of 2007 October 28, the latest OpenWRT binary without the Motorola header is [http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx].
 
 == Using Boot Wait ==
  * Install Motorola Firmware Version 4.03 onto the router. (see above)
