@@ -125,21 +125,13 @@ Daniel Gimpelevich sez: '''''The above patch is preserved for posterity for refe
 +++ wrt54g.c	2007-10-26 19:10:52.640822951 -0700
 @@ -446,7 +446,7 @@
     #endif
-
  
-
     data ^= 0x80;
-
 -   data >>= TDO;
-
 +   data >>= wiggler?WTDO:TDO;
-
     data &= 1;
-
  
-
     return data;
-
 }}}
 
 == Summary ==
