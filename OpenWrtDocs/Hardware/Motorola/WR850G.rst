@@ -31,6 +31,8 @@ There are at least 2 different "v2" versions.  One (part number 498417-001-00) h
 
 [http://ra.vendomar.ee/~ivo/wr850gv2_open.jpg WR850gV2 open box]
 
+FCC ID: ACQWR850GV2.  You can look up information about this product at the FCC site [http://www.fcc.gov/oet/fccid].
+
 == WR850G v3 ==
 The WR850G v3 is based on the Broadcom 4712 board. It has a 200MHz CPU, 4Mb flash and 16Mb SDRAM. The wireless NIC is integrated to the board.
 
