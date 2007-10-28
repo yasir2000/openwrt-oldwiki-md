@@ -6,7 +6,7 @@ The WR850G is supported by White Russian and Kamikaze versions of OpenWRT.
 
 The Broadcom wireless is not (yet?) supported by an open source driver.  The proprietary driver is only available for Linux kernel 2.4.  If you need to use wireless, you need to use a version of OpenWRT based on the 2.4 kernel.  White Russian is based on the 2.4 kernel and there is a version of Kamikaze based on the 2.4 kernel.  Beware: the main version of Kamikaze is based on the 2.6 kernel and does not support the Broadcom wireless.
 
-At this time (2007 September 30), Kamikaze 7.07 misidentifies several models of this router (see [https://dev.openwrt.org/ticket/1936] ). It is probable that the only consequences are that the lights on the unit are not correctly used.
+Kamikaze 7.07 and 7.09misidentifie several models of this router (see [https://dev.openwrt.org/ticket/1936] ). It is probable that the only consequences are that the lights on the unit are not correctly used.
 
 = Hardware versions =
 The WR850G has three different versions (v1, v2, v3).
@@ -59,7 +59,19 @@ If you ever need to revert your router to official Motorola firmware, it can be 
  * [http://broadband.motorola.com/consumers/support/default.asp?SupportSection=HomeNetworking Motorola's Support Site] has links only to their ''current'' firmware version.  Note that you need to scroll down to the WR850G section.
  * [http://broadband.motorola.com/consumers/support/gpl_codes.asp Source Code] (currently for [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.12_GPL.tgz 5.12], [http://broadband.motorola.com/consumers/support/GPL/WR850G_V5.13_GPL.tgz 5.13], and [http://broadband.motorola.com/consumers/support/GPL/WR850G_V6.1.4_GPL.tgz 6.1.4])
 = Loading Firmware =
-Use which ever method is appropriate for you.
+Motorola firmware loading (either via TFTP through BOOT_WAIT or via the Motorola Firmware's firmware upgrade web interface page) requires that the firmware binary have an extra header.
+
+OpenWRT firmware loading (through the webif2 web interface page) requires that this extra header be absent.
+
+Motorola firmware and OpenWRT firmware for the Motorola router are both distributed with the header.
+
+Consequence: if you are going to use OpenWRT to burn firmware, you must first strip the header from the firmware binary that you downloaded.  You can either do this with dd(1)
+{{{
+ $ dd if=WR850G_V403.trx of=WR850G_V403.stripped.trx ibs=1 skip=8 }}}
+or with motorola-bin (but only versions released after 2007 October)
+{{{
+ $ motorola-bin --strip WR850G_V403.trx  WR850G_V403.stripped.trx}}}
+
 
 == Using Boot Wait ==
  * Install Motorola Firmware Version 4.03 onto the router. (see above)
@@ -81,6 +93,37 @@ My WR850g had been upgraded to:  [[BR]] WR850G 4.03 Firmware [[BR]] Part Number 
 
 == Loading from OpenWrt ==
 Use the web interface. Go to System and Firmware Upgrade. Browse for the new firmware and click upgrade.
+
+= Known problems with OpenWRT on Motorola routers =
+
+== diag misidentifies some models ==
+See [https://dev.openwrt.org/ticket/1936].
+
+/proc/diag/model will tell you what model diag and hence OpenWRT thinks you have.
+
+It is not known for sure what consequences misidentification has.  The most probably effect will be to cause the lights to be misused.  It might also cause the vlan to be misconfigured (see below).
+
+As a temporary work-around, you can issue these shell commands on the router:
+{{{
+# nvram set MOTO_BOARD_TYPE=WR_FEM1 ; nvram commit }}}
+
+== WLAN and LAN4 ports swapped ==
+On one Motorola WR850g v2 router, installing Kamikaze 7.07 resulted in the WAN port acting as a LAN port and the LAN4 port acting as the WAN port.
+
+/etc/config/network was set up incorrectly for this router:
+
+Wrong:
+{{{    config switch eth0
+            option vlan0        "1 2 3 4 5*"
+            option vlan1        "0 5"
+}}}
+Correct:
+{{{    config switch eth0
+            option vlan0        "0 1 2 3 5*"
+            option vlan1        "4 5"
+}}}
+
+There is a suspicion that the diag bug may cause this problem.
 
 = Finding the serial ports on the WR850G =
 The primary reason for finding serial ports on the router is to help in debricking.  There is no way to load firmware from the serial port.  However, given a simple typing mistake for an nvram value, you will be able to have a console shell to help fix a typo problem.  I have used my v1 serial port thousands of times already from nvram mistakes.  The most major, deleting all nvram variables (do not try this --kko).
@@ -243,9 +286,6 @@ The nvram variable for '''dhcp_start''' should be a '''number''' as opposed to a
 
 == Loading Firmware ==
 It seems that the WR850G frequently will not function right after an upload. Although not confirmed, it is as if there is a heat issue. Let it sit for a while to cool & then it is OK.
-
-== TRX files ==
-The WR850G requires a Motorola header prefixed on the TRX files. OpenWrt motorola files are currently supplied as .bin files. Do not load OpenWrt TRX without prefixing the header. The TRX files supplied by Motorola already have the headers.
 
 == Switches ==
 Depending on which model you have, you will either have the broadcom "robo" switch or the admtek ADM6996L ("adm"). RC5 will automatically try both and provide you with a set of directories under /proc/switch/eth0/. The /proc/switch/eth0/vlan/*/ports behave exactly like the vlan*port variables documented on the wiki.
