@@ -14,7 +14,7 @@ Look https://dev.openwrt.org/ticket/1772 for more information.
 
 Wireless is working with the [http://acx100.sourceforge.net/wiki/Acx-mac80211 acx-mac80211] driver, but as yet (r9450) this driver is incapable of AP mode.
 
-If you need to user the wireless in AP mode then look at the [http://acx100.sourceforge.net/wiki/ACX acx] driver, but beware because it does not support WPA (and probaly never will)
+If you need to use the wireless in AP mode then look at the [http://acx100.sourceforge.net/wiki/ACX acx] driver, but beware because it does not support WPA (and probaly never will).
 
 {{{
 wlan0     IEEE 802.11a  ESSID:""
