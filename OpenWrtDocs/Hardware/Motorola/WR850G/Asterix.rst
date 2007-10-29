@@ -1,4 +1,4 @@
-= Asterix on the Motorola WR850G =
+= Asterisk on the Motorola WR850G =
 
 From the !OpenWrt Forum. [[BR]]
 http://forum.openwrt.org/viewtopic.php?id=5476
@@ -49,8 +49,8 @@ Successfully terminated. [[BR]]
 3)
 For QOS script you can download this file [[BR]]
 Local copies [[BR]]
-. [:OpenWrtDocs/Hardware/Motorola/WR850G/Asterix/qos_cable: DHCP/Cable ] [[BR]]
-. [:OpenWrtDocs/Hardware/Motorola/WR850G/Asterix/qos_dsl: PPPOE/DSL] [[BR]]
+ * ["/qos_cable"] [[BR]]
+ * ["/qos_dsl"][[BR]]
 Original Source website [[BR]]
 For DHCP connection http://www.frozenmemoirs.com/S91qos_cable [[BR]]
 For PPPOE connection http://www.frozenmemoirs.com/S91qos_dsl
