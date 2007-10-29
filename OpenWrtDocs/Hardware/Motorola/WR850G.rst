@@ -301,8 +301,9 @@ Free reports
 du -s reports
 
  * 19,788
-== Asterix on the WR850G ==
-Beacuse the WR850G has 16MB of memory you can run Asterix on it. [[BR]] http://wiki.openwrt.org/OpenWrtDocs/Hardware/Motorola/WR850G/Asterix
+== Asterisk on the WR850G ==
+Asterisk is an open source PBX system [http://www.asterisk.org/].
+The WR850G has 16MB of memory so you can run Asterisk on it. ["/Asterix"]
 
 = Links =
 http://www.quanttrom.net/index.php?/categories/5-WR850G [[BR]] http://forum.openwrt.org/search.php?search_id=693880669 [[BR]]
