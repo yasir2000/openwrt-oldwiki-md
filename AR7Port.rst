@@ -36,7 +36,7 @@ The latest contributions add experimental AR7 support for Linux 2.6:
    * ADSL works, status of ADSL+ support is not clear.
    * Ethernet works (but still needs some fixes - maybe fixed in kernel 2.6.22.4).
    * WLAN works with free ACX111 driver (no WPA/WPA2).
-   * There is also an ACX111 SoftMAC driver which should support WPA (maybe works since 2007-09-23).
+   * There is also an acx-mac80211 driver, but as yet (r9450) this driver is incapable of AP mode.
 
 The latest Linux kernel 2.6.22.4 is now supported for AR7.
 
