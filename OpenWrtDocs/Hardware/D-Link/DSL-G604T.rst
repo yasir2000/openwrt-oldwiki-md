@@ -12,7 +12,10 @@ build_mipsel/linux-2.6-ar7/iptables-1.3.7/ipkg-install/usr/lib/iptables/libipt_D
 }}}
 Look https://dev.openwrt.org/ticket/1772 for more information.
 
-Wireless is working with the acx-mac80211 driver, but as yet (r9450) this driver is incapable of AP mode. 
+Wireless is working with the [http://acx100.sourceforge.net/wiki/Acx-mac80211 acx-mac80211] driver, but as yet (r9450) this driver is incapable of AP mode.
+
+If you need to user the wireless in AP mode then look at the [http://acx100.sourceforge.net/wiki/ACX acx] driver, but beware because it does not support WPA (and probaly never will)
+
 {{{
 wlan0     IEEE 802.11a  ESSID:""
           Mode:Managed  Channel:0  Access Point: Not-Associated
@@ -22,10 +25,7 @@ wlan0     IEEE 802.11a  ESSID:""
           Link Quality:0  Signal level:0  Noise level:0
           Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
           Tx excessive retries:0  Invalid misc:0   Missed beacon:0
-
 }}}
-
-
 == Specifications ==
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
 
