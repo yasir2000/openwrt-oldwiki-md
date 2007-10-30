@@ -44,7 +44,11 @@ Note that internal switch port 4 is not externally available.
 
 = Hardware hacking =
 
-== serial ports ==
+== Serial ports ==
+As this is a USB device, the easiest way to add a serial port is to connect a USB-to-serial adapter cable, either directly to the onboard USB port or through a standard USB hub. Kernel drivers are provided for a few of the most common USB-to-serial adapters.
+
+However, if you have installed OpenWRT, you will have noticed that two serial ports (/dev/pts/0 and /dev/pts/1) are already being detected by the kernel. These are internal to the unit, but lack a level-converter (a chip such as the MAX3232 will do the trick) and external connectors to bring them outside the box. The two internal serial ports do not provide RS232 handshaking signals; they do provide serial data in both directions.
+
 2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal from the WRT board is 3.3 Volt TTL however, so you cannot simply wire to a standard RS-232 connector as they operate at 12 Volts. You will need a circuit to convert the 3.3 Volt signal to a level that is usable by a host. 
 
 ||'''connector'''||'''1'''||'''2'''||'''3'''||'''4'''||'''5'''||'''defaults'''||'''usage'''||
@@ -61,7 +65,7 @@ serinfo:1.0 driver:5.05c revision:2001-07-08
 1: uart:16550A port:B8000400 irq:3 baud:9593 tx:0 rx:0 CTS|DSR|CD
 }}}
 
-If you are going to work much with the serial ports, recommend to use the buildroot kit to build a firmware with BusyBox including the optional stty, getty, setserial, and maybe login programs.
+If you are going to work much with the serial ports, recommend to use the buildroot kit to build a firmware with BusyBox including the optional stty, getty, setserial, and maybe login programs. If you intend to use external hardware modems, mgetty may be used to handle incoming data and fax calls.
 
 === MAX233 kit console ===
 inline:wrtsl54gs_serial_IDC10.jpg
@@ -71,6 +75,8 @@ Above are 2 common IDC-10 sockets. On the left is a straight IDC-10 socket which
 inline:wrtsl54gs_serial_complete.jpg
 
 Here's one complete serial-console setup, using a MAX233 kit with ribbon-cable connectors. This makes it easy to move among multiple routers assuming they are fitted with an IDC-10 socket.  This is the SL unit that was the testbed for the first image of OpenWRT for this model, thanks to assistance of developer Kaloz.
+
+If you intend to use this setup with only one of these devices, a cleaner installation approach may be to conceal the level translation circuitry inside the router's case and bring out just the serial data and ground lines on a three-pin jack for each port.
 
 === TTL-232R-3V3-AJ USB console ===
 
@@ -123,9 +129,9 @@ HairyDairyMaid's debricker is working, but currently requires /skipdetect and in
 ||6||input||PSW1||RESET||Button - reset||
 ||7||output||LEDC14||SES amber||LED - SES amber||
 
-== dual USB port ==
+== Dual USB port ==
 
-The board has functional position for a stacked dual-USB port, although it is only fitted for a single port.  Remove the existing unit, and substitute with a dual.  Stacked dual-USB port can be scavenged from an old/dead motherboard.
+The board has functional position for a stacked dual-USB port, although it is only fitted for a single port. As an alternative to adding an external USB hub, remove the existing unit, and substitute with a dual.  Stacked dual-USB port can be scavenged from an old/dead motherboard.
 
 == LED10 ==
 The LED10 location at front of board contains no LED. Perhaps it is usable for something. But it does not appear to be connected directly to a GPIO pin as a voltmeter shows nothing when cycling all GPIO lines.
