@@ -51,7 +51,6 @@ config interface lan
         option gateway  192.168.1.1
         option dns      192.168.1.1
 }}}
-
 ==== Sub interfaces / IP Alias ====
 {{{
 config interface lan1
@@ -63,7 +62,6 @@ config interface lan1
 Note: The "option type" must be absent!
 (http://forum.openwrt.org/viewtopic.php?id=10505)
 }}}
-
 You can configure multiple DNS servers by separating entries with space :
 
 {{{
@@ -83,6 +81,21 @@ config interface lan
 config interface wan
         option ifname   nas0
         option proto    dhcp
+}}}
+==== MAC Address Cloning ====
+Add the following option to /etc/config/network under the wan section:
+{{{
+option macaddr xx:xx:xx:xx:xx:xx
+}}}
+Restart the network using:
+{{{
+/etc/init.d/network restart
+}}}
+or reboot your router
+
+Check dmesg or syslog for the change.  If the mac address does not change, clean your nvram variables using these instructions:
+{{{
+http://wiki.openwrt.org/Faq#head-71cacf8460752af3f5771d2fae54923ded5beb9c
 }}}
 === PPPoE and PPPoA ===
 Normally, these are used for DSL.
@@ -170,6 +183,7 @@ First, you need to have installed the wl package - '''ipkg install wl'''
 
 
 Create the following script as '''/etc/init.d/wlmacfilter'''
+
 {{{
 #!/bin/sh /etc/rc.common
 # The macfilter 2 means that the filter works in "Allow" mode.
@@ -205,13 +219,13 @@ After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter st
 
 = HowTo =
 === How to Automatically configure Client/Ad-hoc Client/Client+Repeater Mode on a Fonera or Meraki mini ===
-Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk 
-1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
+Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk  1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
 
 That's it.  The package of scripts self-installs and will ask you questions to configure your wired and wireless connections.  Your current configuration will be backed up and can be restored with the "aprestore" command.  Type in "clientmode" after installation to configure client mode.  This is currently the easiest and most complete means of having client mode on an Atheros router.   These scripts are incompatible with firmwares that use NVRAM.  They are included in the Legend Rev4.5 firmware, which will soon be released on the site.
 
 === How to Automatically configure Standalone Repeater Mode on a Fonera or Meraki mini ===
 Coming VERY soon.  This one will differ from the Client mode script package in that there will also be a option to quickly setup a repeater without restarting services.
+
 === HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 ===
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
@@ -322,8 +336,8 @@ If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it
 === timezone/ntp ===
 With the x-wrt webif^2, use System -> Settings page. :)
 
-Otherwise, in /etc/config/timezone an example is (for info about other zones and DST rules, see
-http://wiki.openwrt.org/OpenWrtDocs/Configuration and look for Timezone)
+Otherwise, in /etc/config/timezone an example is (for info about other zones and DST rules, see http://wiki.openwrt.org/OpenWrtDocs/Configuration and look for Timezone)
+
 {{{
 config timezone
         option posixtz  MST7MDT,M3.2.0,M11.1.0
@@ -332,55 +346,48 @@ config timezone
 ~-Note: The '''zoneinfo''' field is designed to contain the same information like the timezone setting in most current *nix implementations (the Olson's database). It will later enable to simply synchronize changes in the POSIX TZ strings.-~
 
 Next you either create the /etc/TZ file and copy the posixtz field to it or you can create a simple timezone init script which will handle all TZ changes and the creation of the /etc/TZ file:
+
 {{{
 #!/bin/sh /etc/rc.common
-
 START=11
-
 timezone_config() {
         local cfg="$1"
         local posixtz
         local etctz="/etc/TZ"
-
         config_get posixtz "$cfg" posixtz
-
-        if [ ! -h $etctz ]; then 
+        if [ ! -h $etctz ]; then
                 ln -sf /tmp/TZ "$etctz"
         fi
         [ -n "$posixtz" ] && echo "$posixtz" > "$etctz" || echo "UTC+0" > "$etctz"
 }
-
 start() {
         config_load timezone
         config_foreach timezone_config timezone
 }
-
 restart() {
         start
 }
 }}}
 and issue
+
 {{{
 /etc/init.d/timezone start
 /etc/init.d/timezone enable
 }}}
+You could use rdate in a script to set the time just at boot time and rely on the router's timer to keep it current.  But, to use ntp install ntpclient, and in modify /etc/config/ntp_client to your needs:
 
-You could use rdate in a script to set the time just at boot time and
-rely on the router's timer to keep it current.  But, to use ntp
-install ntpclient, and in modify /etc/config/ntp_client to your needs:
 {{{
 config ntpclient
         option hostname 'pool.ntp.org'
         option port     '123'
         option count    '1'
-
 config ntpclient
         option hostname 'ntp.ubuntu.com'
         option port     '123'
         option count    '1'
 }}}
-(feel free to substitute your local ntp server for pool.ntp.org)
-then run
+(feel free to substitute your local ntp server for pool.ntp.org) then run
+
 {{{
 ACTION=ifup /etc/hotplug.d/iface/20-ntpclient
 }}}
