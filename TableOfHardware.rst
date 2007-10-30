@@ -19,6 +19,7 @@ See also
  * '''CategoryOpenWrtPort''' - list of devices under test
  * '''["CategoryADM5120Device"]''' - Which models use the ADM5120
  * '''["CategoryAR7Device"]''' - Which models use the AR7
+* '''["CategoryIXP4xxDevice"]''' - Which models use the IXP4xx
  * '''OpenWrtDocs''' - back to the Table of Contents
 Notes:
 
