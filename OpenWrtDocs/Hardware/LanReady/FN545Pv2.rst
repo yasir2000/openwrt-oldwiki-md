@@ -23,3 +23,6 @@ FN5 enables rapid evaluation and development of converged “ solution in a box 
 ||<31% height="18px">  Operating Temperature:||<80 % height="18px">   -40 C to - 85 C ||
 ||<31% height="18px">  PCB dimension:||<80 % height="18px">   180 mm X 120 mm ||
 ||<31% height="18px">  Manufacture:||<80 % height="18px">   LanReady||
+
+----
+ CategoryModel ["CategoryIXP4xxDevice"]
