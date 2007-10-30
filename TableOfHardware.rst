@@ -276,7 +276,10 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] ||1.0 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB ||mini-PCI ||IC+ IP175A || ||No ||Yes ||Space for connector || ||
 ----
-
+== LanReady - Antcor ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
+||[http://shop.antcor.com/shop/product_info.php?products_id=140] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/LanReady/FN545Pv2:Kamikaze] ||
+----
 == LevelOne ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
