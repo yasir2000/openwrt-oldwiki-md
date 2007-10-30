@@ -166,9 +166,9 @@ Enter script, terminate with empty line
 Boot script timeout (100ms resolution): 25
 Use BOOTP for network configuration: false
 Gateway IP address:
-Local IP address: 192.168.1.1
+Local IP address: 192.168.3.2
 Local IP address mask: 255.255.255.0
-Default server IP address: 192.168.1.2
+Default server IP address: 192.168.3.1
 Console baud rate: 115200
 GDB connection port: 9000
 Force console for special debug messages: false
