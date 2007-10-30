@@ -27,3 +27,5 @@ The GW2348-4 is a member of the Gateworks Avila Network Processor family. The GW
  1. -40°C to +85°C Operating Temperature
  1. Software Support for Linux and VxWorks
  1. 1 Year Warranty
+
+== Installing OpenWRT ==
