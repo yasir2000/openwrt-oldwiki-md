@@ -670,6 +670,53 @@ with 64MB or more, this probably is
 not an issue. The downside is that no state is kept between reboots, not
 even the dropbear ssh host key.
 
+=== Updating the image files offline ===
+
+If you wish to modify the image files on the build system rather than on the target,
+you can do this using a loopback mount. However this is a bit tricky because the
+image consists of a partition table followed by /dev/hda1 partition followed by
+/dev/hda2 partition. To mount either of the partitions you have to tell the loopback
+device what offset to use.
+
+Example: let's suppose you want to mount the first partition (the boot partition)
+to update the grub menu.lst. First, use fdisk to find the offset to the first
+partition:
+
+{{{
+$ fdisk bin/openwrt-x86-2.6-ext2.image
+You must set cylinders.
+You can do this from the extra functions menu.
+
+Command (m for help): x
+
+Expert command (m for help): p
+
+Disk bin/openwrt-x86-2.6-ext2.image: 16 heads, 63 sectors, 0 cylinders
+
+Nr AF  Hd Sec  Cyl  Hd Sec  Cyl     Start      Size ID
+ 1 80   1   1    0  15  63    8         63       9009 83
+ 2 00   1   1    9  15  63   41       9135      33201 83
+ 3 00   0   0    0   0   0    0          0          0 00
+ 4 00   0   0    0   0   0    0          0          0 00
+
+Expert command (m for help): q
+}}}
+
+Here you can see the start offset of the first partition is 63 sectors, which is
+63 x 512 = 32256 bytes.
+
+{{{
+# losetup -o 32256 /dev/loop0 bin/openwrt-x86-2.6-ext2.image
+# mount /dev/loop0 /mnt
+# vi /mnt/boot/grub/menu.lst
+... make changes and save
+# umount /mnt
+# losetup -d /dev/loop0
+}}}
+
+The last two steps - unmounting the filesystem ''and'' disconnecting the loopback device from the
+image file - are very important. If you miss them, you are likely to corrupt the image.
+
 == User data partition ==
 
 Given that 1-4GB flash cards are now very cheap, you probably want the rest
@@ -785,6 +832,13 @@ the inode is updated each time you read a file.
 By default 5% of storage space is reserved for root. Use "-m 0" on mke2fs
 command line to make the whole space available, or install tune2fs and use
 that.
+
+In a startup script, you should run 'e2fsck -y /dev/hda3' (from the e2fsprogs
+package) to correct any problems due to unclean shutdown, and then mount the device.
+
+Kamikaze 7.10 will gain a feature to mount filesystems at bootup by listing them
+in /etc/config/fstab - however at the time of writing it did not perform an
+fsck.
 
 === jffs data partition ===
 
