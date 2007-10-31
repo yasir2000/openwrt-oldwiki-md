@@ -924,6 +924,14 @@ start()
 
 Enable it with '/etc/init.d/hwclock enable'
 
+== Error LED ==
+
+net48xx integrated peripheral drivers are built if you choose the 'Soekris net48xx' target.
+(FIXME: document how to use them)
+
+For the net4501, you can just build the Generic target as it doesn't have any of the net48xx hardware.
+To control the error LED on net4501, see https://dev.openwrt.org/ticket/2634
+
 == See also ==
 
  * ["RunningKamikazeOnQEMUHowTo"]
