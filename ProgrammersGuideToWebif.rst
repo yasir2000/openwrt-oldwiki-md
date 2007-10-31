@@ -2,9 +2,9 @@
 
 The OpenWrt web interface is based on a set of shell and awk scripts and the form processing is done with haserl. It uses the Busy``Box HTTPD server and is commonly called Webif.[[FootNote(An interesting [http://forum.openwrt.org/viewtopic.php?pid=12558#p12558 historical document] in the Openwrt forum.)]]
 
- [http://www.x-wrt.org/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif`^`2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif`^`2 code at some stage of its developement.
+ [http://www.x-wrt.org/ Webif^2] is based on Openwrt's web administration tool, Webif, with the thought that there is no need to reinvent the wheel. Webif`^`2 tries to add functions that can help novice users quicker into Openwrt. Much of the included code is taken from Webif`^`2 code at some stage of its development.
 
- The "Programmers Guide to Webif" is the only documentaion available, unless you read the code... It is a Dummy's guide based on this dummy's research as an outsider to the webif(^2) developement.
+ The "Programmers Guide to Webif" is the only documentation available, unless you read the code... It is a Dummy's guide based on this dummy's research as an outsider to the webif(^2) development.
 
  If you feel that you can make a difference, post a NEW topic in [http://forum.x-wrt.org X-Wrt's forum] saying which module you may be able to do and see if someone else is doing the same thing: maybe cooperate.
 
@@ -30,7 +30,7 @@ Core functions, like the page header/footer and settings forms are implemented b
   {{{
 The 'Save' button on a page causes a submit event which the page can handle as it loads.
 When FORM_submit is not-empty, the page saves itself through a series of calls to 'save_setting GROUP SETTING' or alternate functions.
-Conversly, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
+Conversely, a page should always load its settings via 'load_settings GROUP' to make sure any saved but not yet applied changes are indicated on the page.
 }}}
 == File and directory structure ==
 ||||<style="text-align: center;">/www contains... ||
@@ -55,12 +55,12 @@ footer
 ##WEBIF:name:Info:1:System Information
 -->
 }}}
-  * The first line tells us that the program that is called a binary program /usr/bin/webif-page - webif-page is a suprisingly small in c : see latter in conection with translation
+  * The first line tells us that the program that is called a binary program /usr/bin/webif-page - webif-page is a surprisingly small in c : see latter in conection with translation
   * The second line <? is a bit of magic so we can combine html and shell scripts - Its sister, ?> at the end finishes that magic show.
   * The third line means we have some nice library functions that can be drawn on in /usr/lib/webif  - there are more: have a look.
   * The fourth line gives a title  - @TR: see latter in connection with localisation (TRanslation)
   * Then a lot of nice shell scripting - header and footer are NOT football terms but examples of the nice functions we can re-use
-  * The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif.   /www/cgi-bin/.catogories contains the order of categpries.
+  * The file closes with a cryptic ##WEBIF: which is used as housekeeping for the menu structure of Webif.   /www/cgi-bin/.categories contains the order of categories.
   {{{
 ##WEBIF:category:Info
 ##WEBIF:category:Status
@@ -113,11 +113,11 @@ Ahh, localisation. So lets just quote from other sources here:
 Localization is accomplished by a pre-processor which replaces all '@TR<<symbolname>>' variables with the corresponding symbol value in the currently active language symbol file.
 If no symbol is found, the symbol name itself is used for the text.
 Therefore, simply using many @TR<<text>> macros for strings is all that initially needs to be done to make a webif page ready for localization. Translators can later add the symbols to the localized symbol file.
-The localized symbol files are, as of White Russian RC6, stored in seperate packages instead of all being included in the base webif set.
+The localized symbol files are, as of White Russian RC6, stored in separate packages instead of all being included in the base webif set.
 }}}
 The translation is done by webif-page. It either uses a nvram get "language" (if you use nvram) or if exists /etc/config/webif, finds "lang"
 
-Also, webif-page accepts any *.txt in the laungage directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
+Also, webif-page accepts any *.txt in the language directory. Which is a big help. So understand "common.txt" as it is and try and reuse text. Specialized txt can be added without changing common.txt
 
 === /usr/lib/webif ===
 A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`doc`||/'  function() {  #doc# does this   would make documentation easier ...)]] of the .sh files gives  an idea of the functions available:
@@ -155,7 +155,7 @@ A quick grep[[FootNote(grep '().*{' *|sed -e 's/^\(.*\):\(.*\){/||`\1`||`\2`||`d
 ||{{{webif.sh}}} ||{{{ShowWIPWarning() }}} ||Placed immediately under header on pages that are a Work In Progress.  ||
 ||{{{webif.sh}}} ||{{{ShowUntestedWarning() }}} ||Placed immediately under header on pages that are are untested. ||
 ||{{{webif.sh}}} ||{{{update_changes() }}} ||{{{doc}}} ||
-||{{{webif.sh}}} ||{{{has_pkgs() }}} ||Used to check to see if a package is installed. If the package is not installed it will display a install message on the page, if the page is installed it will return nothing. It will except and number of packages by seperating them with a space Example: haspkgs olsrd chillispot||
+||{{{webif.sh}}} ||{{{has_pkgs() }}} ||Used to check to see if a package is installed. If the package is not installed it will display a install message on the page, if the page is installed it will return nothing. It will except and number of packages by separating them with a space Example: haspkgs olsrd chillispot||
 ||{{{webif.sh}}} ||{{{mini_header() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{header() }}} ||{{{doc}}} ||
 ||{{{webif.sh}}} ||{{{footer() }}} ||{{{doc}}} ||
@@ -170,7 +170,7 @@ There are also awk files.
 {{{
 browser.awk        categories.awk     common.awk         editor.awk         form.awk           languages.awk      subcategories.awk  validate.awk
 }}}
-form.awk gives you predefinded forms to use in you webif page. Most of these are used like formname|input
+form.awk gives you predefined forms to use in you webif page. Most of these are used like formname|input
 
 The current forms are as listed:
 
@@ -202,7 +202,7 @@ Normal parameters:
 {{{
 # $1 = type # $2 = form variable name # $3 = form variable value # $4 = (radio button) value of button # $5 = string to append # $6 = additional attributes
 }}}
-Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependant on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
+Finally there is one csv file: timezones.csv[[FootNote(I can't help but think this is misplaced. Timezone information in connection with clock settings aren't dependent on a GUI : they should be a standard part of OpenWrt without having to install webif. The normal /usr/share/zoneinfo files are binary so a waste of flash space on a reduced storage box so some reduced text version in some /usr/share/ directory would be better)]]
 
 = Programmer environment =
 == httpd and cgi ==
@@ -213,11 +213,11 @@ The OpenWrt web interface is based on a set of shell and awk scripts and the for
 {{{
 root@oxo-t:/www/cgi-bin/webif# webif-page
 This is haserl version 0.8.0
-This program runs as a cgi interpeter, not interactively.
+This program runs as a cgi interpreter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
 root@oxo-t:/www/cgi-bin/webif# haserl
 This is haserl version 0.8.0
-This program runs as a cgi interpeter, not interactively.
+This program runs as a cgi interpreter, not interactively.
 Bug reports to: Nathan Angelacos <nangel@users.sourceforge.net>
 }}}
  As stated earlier, webif-page is a pre-processor to ... haserl. webif-page is "just" the translator.[[FootNote(There are translations but ... help is sparce, the technical terms and the help for them could be in a wiki page ...)]]
@@ -229,7 +229,7 @@ webif-page.c:   char *proc = "/usr/bin/haserl";
 == testing ==
  "vi" can be a pain on your AP box  test your logic as much as possible in a local bash or preferably,busybox/ash environment.
 
- Or mount the AP's filesystem on your favorit computer and test on the real thing.
+ Or mount the AP's filesystem on your favorite computer and test on the real thing.
 {{{
 To use your router as an active development box, do the following:
   * Mount an NFS or SAMBA share somewhere onto your router. (i.e. to /mnt/myshare).
