@@ -17,9 +17,9 @@ Wireless is working with the [http://acx100.sourceforge.net/wiki/Acx-mac80211 ac
 If you need to use the wireless in AP mode then look at the [http://acx100.sourceforge.net/wiki/ACX acx] driver, but beware because it does not support WPA (and probaly never will).
 
 {{{
-wlan0     IEEE 802.11a  ESSID:""
-          Mode:Managed  Channel:0  Access Point: Not-Associated
-          Tx-Power=0 dBm
+wlan0     IEEE 802.11b  ESSID:"OpenWrt"
+          Mode:Managed  Frequency:2.437 GHz  Access Point: Not-Associated
+          Tx-Power=27 dBm
           Retry min limit:7   RTS thr:off   Fragment thr=2346 B
           Encryption key:off
           Link Quality:0  Signal level:0  Noise level:0
