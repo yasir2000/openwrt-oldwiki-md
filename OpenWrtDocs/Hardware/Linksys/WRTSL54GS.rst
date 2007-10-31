@@ -47,7 +47,7 @@ Note that internal switch port 4 is not externally available.
 == Serial ports ==
 As this is a USB device, the easiest way to add a serial port is to connect a USB-to-serial adapter cable, either directly to the onboard USB port or through a standard USB hub. Kernel drivers are provided for a few of the most common USB-to-serial adapters.
 
-However, if you have installed OpenWRT, you will have noticed that two serial ports (/dev/pts/0 and /dev/pts/1) are already being detected by the kernel. These are internal to the unit, but lack a level-converter (a chip such as the MAX3232 will do the trick) and external connectors to bring them outside the box. The two internal serial ports do not provide RS232 handshaking signals; they do provide serial data in both directions.
+However, if you have installed OpenWRT, you will have noticed that two serial ports (/dev/tts/0 and /dev/tts/1) are already being detected by the kernel. These are internal to the unit, but lack a level-converter (a chip such as the MAX3232 will do the trick) and external connectors to bring them outside the box. The two internal serial ports do not provide RS232 handshaking signals; they do provide serial data in both directions.
 
 2 serial ports in a 2x5 (10-pin) block near front of board, console on ttyS0 at 115,200 baud. No hardware flow control available.  Pins are arranged in exact configuration for addition of an IDC-10 ribbon-cable connector. Unfortunately Linksys did not put one there so you will have to add your own.  The signal from the WRT board is 3.3 Volt TTL however, so you cannot simply wire to a standard RS-232 connector as they operate at 12 Volts. You will need a circuit to convert the 3.3 Volt signal to a level that is usable by a host. 
 
