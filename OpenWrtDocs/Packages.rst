@@ -44,7 +44,7 @@ Large collection  of packages (600+) for routers with external storage (USB, IDE
 
 Optware consists of many perl and python packages. There is also complete native toolchain (optware-devel meta-package) for compiling software on router itself.
 
-Optware runs on X-Wrt and OpenWRT RC6 firmwares with Broadcom processors (mipsel). This mainly covers Asus wireless routers with USB2 port for external hard disk attachment.
+Optware runs on X-Wrt and OpenWRT RC6 firmwares with Broadcom processors (mipsel). This mainly covers Asus wireless routers with USB2 port for external hard disk attachment; Linksys WRTSL54GS is also supported.
 
 See [http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable ddwrt package feed] for complete listing.
 
