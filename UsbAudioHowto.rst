@@ -6,10 +6,10 @@ USB Audio support is included in !OpenWrt Kamikaze and higher.
 = Kernel Packages =
 Support is provided by several packages which you have to install.
 
-Soundcard Support ('''KMOD_SOUNDCORE'''):
+Soundcard Support ('''kmod-sound-core'''):
 
  . This selects the kernel module soundcore.o which is reqired by both OSS and ALSA.
-Support for USB Soundcards ('''KMOD_USB_AUDIO'''):
+Support for USB Soundcards ('''kmod-usb-audio'''):
 
  . This adds the standard kernel module audio.o which provides OSS sound support.
 kmod-alsa ('''KMOD_ALSA'''):
