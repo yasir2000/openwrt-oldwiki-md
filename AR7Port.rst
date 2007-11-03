@@ -59,7 +59,6 @@ I would like to keep a list of the bugs and ugly-hacks used to make the ar7 work
    * Test WAG354G support
    * Fix the wireless driver (fixed with Linux 2.6)
    * Fix VLYNQ interrupt and reset handling (needed for the wireless driver). See http://forum.openwrt.org/viewtopic.php?id=2654 for possible patches. (fixed with Linux 2.6)
-   * Fix bug 1865: https://dev.openwrt.org/ticket/1865
    * Generalize scripts/dlink.pl so that it works with other ADAM2 versions as well (like FritzBox)
    * Get voicedump (VP101X120C) supported (Voice over ip chip on Siemens and SMC based hardware)
 
