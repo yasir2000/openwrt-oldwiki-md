@@ -1,9 +1,7 @@
 = Serial Console =
 Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together. This mod doesn't '''add''' serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
 
-For the developer, a serial port will also allow you to recover a bricked router when all other methods have failed (tftp, failsafe mode, shorting pins, etc.)
-
-I recommend using a usb serial console, as it's much easier and cheaper.
+For the developer, a serial port will also allow you to recover a bricked router when all other methods have failed (tftp, failsafe mode, shorting pins, etc.) This is something which typically cannot be done with just a USB-capable router and USB-serial adapter, as USB support is only available once the firmware has successfully loaded.
 
 == Serial port pinouts ==
 Pinouts for your model can often be found on your model's page in CategoryModel.
@@ -40,7 +38,7 @@ This electronic adaptator is call RS232-TTL converter. You can find it at many p
 
 A great source for RS232-TTL convertors is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC's serial port. Many people already have such a cable laying around, or can buy one fairly cheap. It is much easier than building the necessary circuit yourself.
 
-If you open up the cell phone cable's serial port casing and see a MAX### chip, it's probably the cable you need. One known chip is a MAX323 (yes, 323).
+If you open up the cell phone cable's serial port casing and see a MAX### chip, it's probably the cable you need. One known chip is a MAX323 (yes, 323, the original MAX232 is a 5V device and we need 3.3V here).
 
 If you've found a good cell phone cable to use, you merely need to determine which wires are the VCC, GND, TX, and RX connections. Usually the VCC is red and the GND is black, but the other colors may vary (though blue and orange are common). There should be no need to modify the PCB embedded in the cable.
 
