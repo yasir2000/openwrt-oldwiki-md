@@ -30,7 +30,7 @@ See TableOfHardware
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
  * Linksys WRT54GX2, WRT54GX4, [:OpenWrtDocs/Hardware/Linksys/WRT54GX:WRT54GXv2], WRV200
  * [:OpenWrtDocs/Hardware/Netgear/WPNT834:Netgear WPNT834] [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
-
+ * D-Link DI-524UP - RTL8650B [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz Firmware source code] [http://ossfans.org/DI524UP/ Firmware investigation project]
 == TODO ==
  * Make a working 2.6 kernel and netboot it.
  * Find a JTAG on any of the devices to be able to make a crash recovery
