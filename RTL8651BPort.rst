@@ -25,12 +25,13 @@ See TableOfHardware
  * [:OpenWrtDocs/Hardware/Asus/WL566gM:Asus WL-566gM] - RTL8651B
  * Belkin !F5D8230-4
  * Canyon CN-WF514 (version as of 2006 spring, has firmware version 1.37) - RTL8186
+ * D-Link DI-524UP - RTL8650B [http://www.dlink.ca/products/?pid=316 product description] [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz Firmware source code] [http://ossfans.org/DI524UP/ Firmware investigation project]
  * D-Link DI-624M - RTL8651B
  * D-Link DI-634M - RTL8651B
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
  * Linksys WRT54GX2, WRT54GX4, [:OpenWrtDocs/Hardware/Linksys/WRT54GX:WRT54GXv2], WRV200
  * [:OpenWrtDocs/Hardware/Netgear/WPNT834:Netgear WPNT834] [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
- * D-Link DI-524UP - RTL8650B [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz Firmware source code] [http://ossfans.org/DI524UP/ Firmware investigation project]
+
 == TODO ==
  * Make a working 2.6 kernel and netboot it.
  * Find a JTAG on any of the devices to be able to make a crash recovery
@@ -66,6 +67,7 @@ Source Code for Manufacturers' Firmware is available from:
  * [:OpenWrtDocs/Hardware/Asus/WL566gM:Asus WL-566gM] [http://dlsvr01.asus.com/pub/ASUS/wireless/WL-566gM/GPL_WL566gM_1018.zip]
  * Belkin F5D8230-4 [http://www.belkin.com/support/gpl.asp]
  * Canyon [http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514/Down CN-WF514]
+ * D-Link DI-524UP - RTL8650B [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz]
  * D-Link DI-624M [http://support.dlink.com/faq/print.asp?productid=2081]
  * D-Link DI-634M [http://www.dlink.com.au/tech/Download/download.aspx?product=DI-634M&revision=REV_A&filetype=Firmware]
  * Edimax BR-6204Wg [http://www.edimax.com.tw/html/english/frames/b-download.htm]
