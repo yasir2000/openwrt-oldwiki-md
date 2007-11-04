@@ -76,7 +76,7 @@ On startup, add:
 
 A .ver file needs to be created once, based on the dongle.bin file, using:
 {{{
- dd if=/tftpboot/dongle.bin of=/tftpboot/dongle.bin.ver bs=1 count=40 skip=52
+ dd if=/opt/tftpboot/dongle.bin of=/opt/tftpboot/dongle.bin.ver bs=1 count=40 skip=52
 }}}
 
 The [https://dev.openwrt.org/ticket/1262 MVPrelay] server is part of OpenWRT ([https://dev.openwrt.org/browser/packages/net/mvprelay Kamikaze] distributions only) and must be active in order to boot the newer MediaMVP's. The first parameter is the port on which mvprelay is to listen; the last parameter is the network address of the TFTP server.
