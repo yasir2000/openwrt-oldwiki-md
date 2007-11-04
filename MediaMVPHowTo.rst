@@ -1,4 +1,4 @@
-Hauppauge's MediaMVP provides music, video and photo display on a standard (PAL or NTSC) television monitor using a small $100 embedded Linux thin-client device.
+Hauppauge's '''MediaMVP''' provides music, video and photo display on a standard (PAL or NTSC) television monitor using a small $100 embedded Linux thin-client device.
 
 While it uses IBM's 250MHz PowerPC core with hardware MPEG2 capability (the same processor series used by dream-multimedia-tv.de's boxen) it is a multimedia playback device only. It is not self-contained as it must use DHCP and TFTP to locate and retrieve its firmware from a network connection, much like a diskless workstation.
 
@@ -23,7 +23,7 @@ There are various versions of the MediaMVP for wired and wireless networks; thes
 
 The first units (no longer manufactured) were considered "non-flash" devices in that they only contained enough flash memory to boot from TFTP. Any application firmware, including the stock Hauppauge application itself, had to be retrieved from the network every time the unit was powered-up.
 
-The current version (revision H1 and subsequent, H2, H3, H4...) are "flash" devices that contain just enough flash memory to store the standard version of the application firmware. These may also be booted with third-party firmware from a network TFTP server, but there are differences in the boot procedure these follow.
+The current version (revision H1 and subsequent, H2, H3, H4...) are "flash" devices that contain just enough flash memory to store the standard version of the application firmware. These may also be booted with third-party firmware from a network TFTP server, but there are differences in the boot procedure.
 
 It is assumed that OpenWRT and network-attached storage (see UsbStorageHowto) are already configured before beginning MediaMVP installation.
 
