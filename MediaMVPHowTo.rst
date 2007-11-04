@@ -70,8 +70,8 @@ Instead of obtaining the location of the boot file through DHCP, these devices u
 
 On startup, add:
 {{{
- tftpd-hpa -l -a 192.168.1.1:16869 -c -s /opt/tftpboot
- mvprelay 16881 5906 6337 192.168.1.1
+ tftpd-hpa -l -a 192.168.1.1:16869 -c -s /opt/tftpboot &
+ mvprelay 16881 5906 6337 192.168.1.1 &
 }}}
 
 A .ver file needs to be created once, based on the dongle.bin file, using:
