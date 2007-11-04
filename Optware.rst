@@ -5,11 +5,10 @@ As the packages are rather large, they are best suited for a USB-capable device 
 Before beginning installation, mount a writeable partition (flash or hard disc) as /opt - if you have a hard disc, you may also want to create a swap partition.
 
 Once this is ready, download the ipkg-opt installer using:
-
+{{{
  wget http://pastebin.ca/raw/328107  -O - | tr -d '\r' > /tmp/optware-install.sh;
-
  sh /tmp/optware-install.sh
-
+}}}
 Upon successful install, you should be able to download a list of packages with:
 
  ipkg-opt update
@@ -17,8 +16,10 @@ Upon successful install, you should be able to download a list of packages with:
 The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt. 
 
 The created /opt/etc/ipkg.conf contains:
- * src/gz optware http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable
- * dest /opt/ /
+{{{
+ src/gz optware http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable
+ dest /opt/ /
+}}}
 
 This ensures that ipkg-opt downloaded packages will be placed under /opt/bin, /opt/lib, /opt/sbin instead of in the root filesystem.
 
