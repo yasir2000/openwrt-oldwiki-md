@@ -28,8 +28,10 @@ The current version (revision H1 and subsequent, H2, H3, H4...) are "flash" devi
 It is assumed that OpenWRT and network-attached storage (see UsbStorageHowto) are already configured before beginning MediaMVP installation.
 
 A DHCP server (dnsmasq) is part of the standard OpenWRT configuration, and a TFTP server (atftpd or tftpd-hpa, latter is shown here) is installed using ipkg:
- * ipkg install libwrap
- * ipkg install tftpd-hpa
+{{{
+ ipkg install libwrap
+ ipkg install tftpd-hpa
+}}}
 
 In all cases, a TFTP [http://mvpmc.wikispaces.com/bootsever boot server] must be available to serve the firmware (which should be renamed to dongle.bin) and any local [http://mvpmc.wikispaces.com/mvpmc.config configuration] files. Some MediaMVP versions also require a .ver file, which is extracted from the dongle.bin firmware using dd.
 
@@ -65,9 +67,16 @@ If the device cannot obtain the download from the default location, it will atte
 This applies to revisions H1 and subsequent. These have slightly more flash memory and the [http://mvpmc.wikispaces.com/H2+Linux+Boot+-+NEW boot sequence] differs from the original.
 
 Instead of obtaining the location of the boot file through DHCP, these devices use DHCP for address assignment only. They expect an MVPrelay server to be present on port 16881 as a pointer to indicate where to look for the TFTP server. TFTP itself is then required to be available on port 16869 at the specified address.
+
+On startup, add:
 {{{
  tftpd-hpa -l -a 192.168.1.1:16869 -c -s /opt/tftpboot
  mvprelay 16881 5906 6337 192.168.1.1
+}}}
+
+A .ver file needs to be created once, based on the dongle.bin file, using:
+{{{
+ dd if=/tftpboot/dongle.bin of=/tftpboot/dongle.bin.ver bs=1 count=40 skip=52
 }}}
 
 The [https://dev.openwrt.org/ticket/1262 MVPrelay] server is part of OpenWRT ([https://dev.openwrt.org/browser/packages/net/mvprelay Kamikaze] distributions only) and must be active in order to boot the newer MediaMVP's. The first parameter is the port on which mvprelay is to listen; the last parameter is the network address of the TFTP server.
