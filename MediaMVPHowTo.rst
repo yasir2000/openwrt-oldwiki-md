@@ -23,7 +23,7 @@ There are various versions of the MediaMVP for wired and wireless networks; thes
 
 The first units (no longer manufactured) were considered "non-flash" devices in that they only contained enough flash memory to boot from TFTP. Any application firmware, including the stock Hauppauge application itself, had to be retrieved from the network every time the unit was powered-up.
 
-The current version (revision H1 and subsequent, H2, H3, H4...) are "flash" devices that contain just enough flash memory to store the standard version of the application firmware. These may also be booted with third-party firmware from a network TFTP server, but there are differences in the boot procedure.
+The current versions (revision H1 and subsequent, H2, H3, H4...) are "flash" devices that contain just enough flash memory to store the standard version of the application firmware. These may also be booted with third-party firmware from a network TFTP server, but there are differences in the boot procedure.
 
 It is assumed that OpenWRT and network-attached storage (see UsbStorageHowto) are already configured before beginning MediaMVP installation.
 
@@ -79,7 +79,7 @@ A .ver file needs to be created once, based on the dongle.bin file, using:
  dd if=/opt/tftpboot/dongle.bin of=/opt/tftpboot/dongle.bin.ver bs=1 count=40 skip=52
 }}}
 
-The [https://dev.openwrt.org/ticket/1262 MVPrelay] server is part of OpenWRT ([https://dev.openwrt.org/browser/packages/net/mvprelay Kamikaze] distributions only) and must be active in order to boot the newer MediaMVP's. The first parameter is the port on which mvprelay is to listen; the last parameter is the network address of the TFTP server.
+The [https://dev.openwrt.org/ticket/1262 MVPrelay] server is part of OpenWRT ([https://dev.openwrt.org/browser/packages/net/mvprelay Kamikaze] distributions only) and must be active in order to boot the newer MediaMVP's. The first parameter is the port on which [http://mvpmc.wikispaces.com/mvprelay mvprelay] is to listen; the last parameter is the network address of the TFTP server.
 
 === MediaMVP Configuration ===
 The MediaMVP obtains its configuration from a file on the TFTP server; this file is named with the name of the firmware followed by ".config", so for dongle.bin  this would be dongle.config. This configuration can be used to mount individual NFS or CIFS shares,  set preferences or to select skins/themes for display by the device. 
