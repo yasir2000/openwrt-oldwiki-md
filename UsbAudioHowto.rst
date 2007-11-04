@@ -43,7 +43,7 @@ Confirmed to work with [http://www.trust.com/14366 Trust Sp-2800p USB Speaker Se
 
  * Terratec AUREON 5.1 USB MKII
 
-Note that there have been reports of problems with sound cards connected through USB 2.0 hubs, at least with the 2.4 kernel. These appear to have been resolved in the kernel 2.6 drivers; another possible solution is to enable the CONFIG_USB_EHCI_SPLIT_ISO option in the kernel as described here: http://www.nslu2-linux.org/wiki/Peripherals/AudioAdapter
+Note that there have been reports of problems with USB 1.1 sound cards connected through USB 2.0 hubs, at least with the 2.4 kernel. These appear to have been resolved in the kernel 2.6 drivers; another possible solution is to enable the CONFIG_USB_EHCI_SPLIT_ISO option in the kernel as described here: http://www.nslu2-linux.org/wiki/Peripherals/AudioAdapter
 
 This is an issue for users of the WRTSL54GS (only one USB connector included in the stock unit, soldering in a second one would be a possible hardware modification) and for users of USB "universal laptop docking stations" (where a USB2.0 hub and some combination of audio, HID, network, serial and/or parallel are prepackaged as one integrated unit).
 
