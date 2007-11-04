@@ -190,7 +190,7 @@ For this to work you need the same kernel modules for USB as described above. Yo
 
 /!\ '''NOTE:''' '''IMPORTANT:''' ''Does not work for Kamikaze with 2.6 kernel- This procedure bricks the router''
 
-Kamikaze with 2.6 can be done differently - by putting the pivot script in another place.
+Kamikaze with 2.6 can be done differently - by putting the pivot script in another place. The names of the /dev entries for the individual hard drives and partitions on the router also differ, following the /dev/sda1, /dev/sdb1 convention as of kernel 2.6.
 
 {{{
 ipkg install kmod-fs-ext2 kmod-fs-ext3
@@ -269,10 +269,10 @@ As earlier stated on this page (to remove {{{/etc/hotplug.d/usb/01-mount}}}) is 
 
 So either remove the file and mount usbfs somewhere else, or everything inside except the line which goes: [ -f /proc/bus/usb/devices ] || mount -t usbfs none /proc/bus/usb
 
-In Kamikaze Simply create new script in /etc/init.d/pivotroot instead of erasing /sbin/init with the same content, then 
+In Kamikaze Simply create new script in /etc/init.d/pivotroot instead of erasing /sbin/init with the same content, then
 
 {{{
-ln -s /etc/init.d/pivotroot /etc/rc.d/S96pivotroot 
+ln -s /etc/init.d/pivotroot /etc/rc.d/S96pivotroot
 }}}
 
 Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to !BusyBox anyway):
@@ -321,7 +321,11 @@ Now just reboot, and if you did everything right it should boot from the USB dev
 
 If it could not boot from the USB device it will boot normally from the file system found on the flash as fallback.
 
+Note that it is safest to leave the 'pivot_root' procedure as an ordinary script file, not part of the code automatically run on startup, at least until you are certain that it is operating as desired. This allows you to recover from any problems created by this script by simply rebooting the router without it.
+
 == Installing and using IPKG packages in mount point other than root ==
+The [[Optware]] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
+
 /!\ '''NOTE:''' This is not tested. Please report if it's working for you.
 
 -Works for me (MikkoKorkalo)
