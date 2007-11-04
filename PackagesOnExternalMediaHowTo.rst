@@ -77,6 +77,8 @@ dest sd /mnt/sd
 
 Where the syntax of the above line is "dest [name of destination]  [destination]". The "name of destination" can be anything you want, I chose "sd" as  I am using the SD card.
 
+If using the ["Optware"] packages, the device should be mounted as /opt as the supplied ipkg-opt script already is coded to look in /opt/etc/ipkg.conf for configuration and download packages to /opt by default.
+
 = Modifying Your Environment =
 In the file /etc/profile, modify the line that reads
 
