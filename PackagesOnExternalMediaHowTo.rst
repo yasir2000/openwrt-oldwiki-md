@@ -1,10 +1,12 @@
 [[TableOfContents]]
 = Introduction =
 == What is this Howto? ==
-This howto describes the process of installing and using packages on external  media.  I used this information to install packages on my SD card.
+This howto describes the process of installing and using packages on external media.  I used this information to install packages on my SD card.
 
 == What External Media Can I Use? ==
 I used this technique for my SD card mod.  However, I assume that the same (or similar)  can be used for just about any external media, but I have not tried.
+
+For USB-capable routers, a wide array of flash and hard-disc options are available. Each has advantages and disadvantages; a hard disc holds more and can be used to provide a swap partition, while a flash device (or a flash card and reader) is silent and has no moving parts. Flash is quick to read but slow to write, not subject to mechanical failure but subject to wear and failure if the same pages are written more than 10000-1000000 times.
 
 = Formatting the Media =
 While this step may not be needed, I preferred to have an ext2 file system to  better support various links and other *nix specific features.
