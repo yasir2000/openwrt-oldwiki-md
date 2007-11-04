@@ -7,13 +7,14 @@ Before beginning installation, mount a writeable partition (flash or hard disc) 
 Once this is ready, download the ipkg-opt installer using:
 
  wget http://pastebin.ca/raw/328107  -O - | tr -d '\r' > /tmp/optware-install.sh
+
  sh /tmp/optware-install.sh
 
 Upon successful install, you should be able to download a list of packages with:
 
  ipkg-opt update
 
-The installation of individual packages from the collection is then done using similar procedure to standard ipkg installation, but using ipkg-opt. The downloaded packages will be placed under /opt/bin, /opt/lib, /opt/sbin 
+The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt. The downloaded packages will be placed under /opt/bin, /opt/lib, /opt/sbin 
 
 The Optware packages appear to be mostly compatible with OpenWRT Whiterussian installations, although problems occasionally will occur with differences in library files between the various distributions.
 
