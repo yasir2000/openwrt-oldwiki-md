@@ -33,6 +33,8 @@ A DHCP server (dnsmasq) is part of the standard OpenWRT configuration, and a TFT
 
 In all cases, a TFTP [http://mvpmc.wikispaces.com/bootsever boot server] must be available to serve the firmware (which should be renamed to dongle.bin) and any local [http://mvpmc.wikispaces.com/mvpmc.config configuration] files. Some MediaMVP versions also require a .ver file, which is extracted from the dongle.bin firmware using dd.
 
+Note that telnet to the device (username root, no password) is unavailable until the TFTP boot process has successfully completed.
+
 ==== Original ("non-flash") MediaMVP boot ====
 This applies only to MediaMVP hardware revisions *before* H1. These devices have very little flash memory and must always boot from TFTP.
 
