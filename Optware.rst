@@ -14,7 +14,13 @@ Upon successful install, you should be able to download a list of packages with:
 
  ipkg-opt update
 
-The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt. The downloaded packages will be placed under /opt/bin, /opt/lib, /opt/sbin 
+The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt. 
+
+The created /opt/etc/ipkg.conf contains:
+ * src/gz optware http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable
+ * dest /opt/ /
+
+This ensures that ipkg-opt downloaded packages will be placed under /opt/bin, /opt/lib, /opt/sbin instead of in the root filesystem.
 
 The Optware packages appear to be mostly compatible with OpenWRT Whiterussian installations, although problems occasionally will occur with differences in library files between the various distributions.
 
