@@ -324,7 +324,7 @@ If it could not boot from the USB device it will boot normally from the file sys
 Note that it is safest to leave the 'pivot_root' procedure as an ordinary script file, not part of the code automatically run on startup, at least until you are certain that it is operating as desired. This allows you to recover from any problems created by this script by simply rebooting the router without it.
 
 == Installing and using IPKG packages in mount point other than root ==
-The [[Optware]] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
+The ["Optware"] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
 
 /!\ '''NOTE:''' This is not tested. Please report if it's working for you.
 
