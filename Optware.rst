@@ -1,4 +1,4 @@
-The Optware collection of packages is a port of 600 Linux application packages originally created as part of the nslu2-linux.org 'slug' project. 
+The Optware collection ports approximately 600 application packages to embedded Linux; this collection originally was part of the nslu2-linux.org 'slug' project. 
 
 As the packages are rather large, they are best suited for a USB-capable device with external storage (see UsbStorageHowto) or SD/MMC card flash.
 
@@ -9,9 +9,11 @@ Once this is ready, download the ipkg-opt installer using:
  wget http://pastebin.ca/raw/328107  -O - | tr -d '\r' > /tmp/optware-install.sh;
  sh /tmp/optware-install.sh
 }}}
-Upon successful install, you should be able to download a list of packages with:
 
+Upon successful install, you should be able to download a list of packages with:
+{{{
  ipkg-opt update
+}}}
 
 The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt. 
 
