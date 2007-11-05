@@ -840,6 +840,10 @@ Kamikaze 7.10 will gain a feature to mount filesystems at bootup by listing them
 in /etc/config/fstab - however at the time of writing it did not perform an
 fsck.
 
+Add '-j' to the mke2fs command line to get an ext3 journal, which should speed
+up recovery after an unclean shutdown. (Or use 'tune2fs -j' to add a journal
+to an existing ext2 partition)
+
 === jffs data partition ===
 
 /!\ This gives kernel panics after rebooting if you use it with the jffs or squashfs images,
