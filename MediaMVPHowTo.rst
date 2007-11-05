@@ -53,12 +53,12 @@ In /etc/dnsmasq.conf, the location of the firmware (dongle.bin) and the address 
 
 A static IP address may be assigned to the MediaMVP unit by adding its MAC address (printed on the underside of the unit) to /etc/ethers
 
-The mvpmc firmware must be downloaded and placed in the TFTP server's root directory. For instance, if the firmware is in /opt/tftpboot/dongle.bin, start TFTPd using:
+The mvpmc firmware must be downloaded and placed in the TFTP server's root directory. For instance, if the firmware is in /opt/tftpboot/dongle.bin, invoke TFTPd from startup scripts using:
 {{{
   tftpd-hpa -l -a 192.168.1.1 -c -s /opt/tftpboot
 }}}
 
-If the device cannot obtain the download from the default location, it will attempt to use an alternate port (16869) for TFTP:
+If the device cannot obtain the download from the default location, it will attempt (additionally) to use an alternate port (16869) for TFTP:
 {{{
   tftpd-hpa -l -a 192.168.1.1:16869 -c -s /opt/tftpboot
 }}}
