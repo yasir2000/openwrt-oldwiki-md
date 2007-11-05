@@ -82,9 +82,33 @@ A .ver file needs to be created once, based on the dongle.bin file, using:
 The [https://dev.openwrt.org/ticket/1262 MVPrelay] server is part of OpenWRT ([https://dev.openwrt.org/browser/packages/net/mvprelay Kamikaze] distributions only) and must be active in order to boot the newer MediaMVP's. The first parameter is the port on which [http://mvpmc.wikispaces.com/mvprelay mvprelay] is to listen; the last parameter is the network address of the TFTP server.
 
 === MediaMVP Configuration ===
-The MediaMVP obtains its configuration from a file on the TFTP server; this file is named with the name of the firmware followed by ".config", so for dongle.bin  this would be dongle.config. This configuration can be used to mount individual NFS or CIFS shares,  set preferences or to select skins/themes for display by the device. 
+The MediaMVP obtains its configuration from a file on the TFTP server; this file is named with the name of the firmware followed by ".config", so for dongle.bin  this would be dongle.bin.config. This configuration can be used to mount individual NFS or CIFS shares, set preferences or select skins/themes for display by the device.
+
+On startup, tftpboot/dongle.bin.config is copied to /etc/dongle.config on the MediaMVP and executed as a startup/configuration script.
 
 Example dongle.config files are [http://mvpmc.wikispaces.com/dongle.config here].
+
+For instance, to mount an NFS share and launch the mvmpc application, create dongle.bin.config as:
+
+{{{
+# Setup time, date, hostname
+TZ='EST+5EDT,M3.2.0/2,M11.1.0/2' ; export TZ
+echo "TZ='EST+5EDT,M3.2.0/2,M11.1.0/2'; export TZ" > /etc/shell.config;
+rdate -s 192.168.1.1
+HNAME=`mvp` ; export HNAME
+
+# Mount an NFS share from OpenWRT as network-attached media storage
+mkdir /var/media;mount -t nfs -o nolock,tcp,rsize=4096,wsize=4096,nfsvers=3 192.168.1.1:/opt/ /var/media/
+
+# Mount some Win2000 CIFS drives from a desktop PC
+mkdir /var/c;mount.cifs //192.168.1.142/sea /var/c -o user=myself,pass=verysupersecret
+mkdir /var/d;mount.cifs //192.168.1.142/dee /var/d -o user=myself,pass=verysupersecret
+
+# Add additional options here to change user interface or configure streaming from Linux PC's/MythTV/ReplayTV and the like...
+
+# Invoke mvpmc
+mvpmc -f /etc/helvB18.pcf -o composite -S 0 -s 192.168.1.1 -b /data/livetv -p mythtv -u mythtv -y 192.168.1.1 -T mythconverg -r /var/myth -F /var/myth/cfgs/$HNAME.cfg &
+}}}
 
 ----
 CategoryHowTo
