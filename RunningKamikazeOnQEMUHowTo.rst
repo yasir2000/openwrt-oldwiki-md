@@ -56,6 +56,10 @@ which keeps your image pristine (writes are made to temporary files); '-k
 en-gb' to set the keyboard layout; and '-m 64' to set the available memory
 to 64MB (defaults to 128MB)
 
+The '-nographic' option disables the VGA xterm display entirely and redirects
+the serial console to stdin/stdout. There are some special key sequences here for
+doing things like halting the emulator - type Ctrl-a h for help on these.
+
 = Networking =
 
 "User-mode" networking is enabled by default. If you edit
