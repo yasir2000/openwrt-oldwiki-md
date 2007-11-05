@@ -98,7 +98,7 @@ rdate -s 192.168.1.1
 HNAME=`mvp` ; export HNAME
 
 # Mount an NFS share from OpenWRT as network-attached media storage
-mkdir /var/media;mount -t nfs -o nolock,tcp,rsize=4096,wsize=4096,nfsvers=3 192.168.1.1:/opt/ /var/media/
+mkdir /var/media;mount -t nfs -o nolock,tcp,rsize=4096,wsize=4096 192.168.1.1:/opt/ /var/media/
 
 # Mount some Win2000 CIFS drives from a desktop PC
 mkdir /var/c;mount.cifs //192.168.1.142/sea /var/c -o user=myself,pass=verysupersecret
