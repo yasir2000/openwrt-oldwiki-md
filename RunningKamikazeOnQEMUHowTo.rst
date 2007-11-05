@@ -56,25 +56,126 @@ which keeps your image pristine (writes are made to temporary files); '-k
 en-gb' to set the keyboard layout; and '-m 64' to set the available memory
 to 64MB (defaults to 128MB)
 
-The '-nographic' option disables the VGA xterm display entirely and redirects
-the serial console to stdin/stdout. There are some special key sequences here for
-doing things like halting the emulator - type Ctrl-a h for help on these.
+Inside the VGA window, use Ctrl-Alt to release the mouse, and Ctrl-Alt-1/2/3
+to switch between guest VGA, qemu monitor (where you can manage qemu
+itself), and serial port.
+
+The '-nographic' option disables the VGA window display entirely and redirects
+the serial console to stdin/stdout. There are some special key sequences here
+for getting access to the monitor - type Ctrl-a h for help on these.
 
 = Networking =
 
-"User-mode" networking is enabled by default. If you edit
+Network access to your image is provided by a virtual NE2000-type network
+card in the emulated guest environment. To access this you will need the
+''kmod-ne2k-pci'' package, which is included by default in the x86 image.
+
+== User-mode networking ==
+
+"User-mode" networking is enabled by default. Within the guest, if you edit
 /etc/config/network, set "option proto dhcp", then run "ifup lan", the
 br-lan interface will pick up an IP address from an internal private
 network, 10.0.2.x.
 
-It then has outbound access to the Internet via your host machine. You won't
-be able to send an ICMP ping (qemu would need to run as root to provide
-that), but you can open TCP connections and exchange UDP packets. For
-example, "ipkg update" works as expected.
+It then has outbound access to the Internet via your host machine, which
+appears to be a NAT firewall. You won't be able to send an ICMP ping
+(qemu would need to run as root to provide that), but you can open TCP
+connections and perform DNS lookups. For example, "ipkg update" works as expected. 
 
-See http://www.gnome.org/~markmc/qemu-networking.html and
-http://www.h7.dion.ne.jp/~qemu-win/HowToNetwork-en.html for information on
-setting up more complex networking scenarios with qemu.
+No root privileges are needed to run qemu this way. However, if you wish to
+allow incoming connections then this has to be done via port forwarding
+(see the -redir option), just like on a real NAT firewall.
+
+== Bridged networking ==
+
+A more powerful solution is to bridge your host adaptor's ethernet
+directly with the virtual ethernet NIC(s) of your QEMU guest(s). This
+gives them full access to your LAN as peers, and can pick up their own
+IP addresses using your LAN's existing DHCP server.
+
+To do this involves setting up software bridging on the host, and adding the
+'tap' device to this same bridge. The following instructions are for
+Ubuntu Linux.
+
+Install the 'bridge-utils' package to get the '''brctl''' utility.
+
+Now, you need to link your host PC's network port into
+a software bridge. Let's say your existing 'outside' Internet connection
+is via eth1, and you wish to bridge QEMU guests onto this. Firstly,
+unconfigure your network using '''ifdown eth1'''. Now edit
+/etc/network/interfaces and change
+{{{
+auto eth1
+iface eth1 inet dhcp
+}}}
+to
+{{{
+auto br1
+iface br1 inet dhcp
+      bridge_ports eth1
+}}}
+
+Finally bring the interface back up using '''ifup br1'''. From now on,
+your outside connection is via br1, which is linked to eth1. Use
+'''brctl show''' to see this.
+
+Next you need to edit '''/etc/qemu-ifup''', which is the script run by
+qemu when it needs to access the interface, so that it can add itself
+into the bridge.
+
+{{{
+#!/bin/sh
+sudo -p "Password for $0:" /sbin/ifconfig $1 0.0.0.0 promisc up
+sudo /usr/sbin/brctl addif br1 $1
+}}}
+
+Finally, start qemu like this:
+
+{{{
+qemu -net tap -net nic -hda openwrt-x86-2.6-squashfs.image
+}}}
+
+What happens is that qemu creates a new 'tap' interface, e.g. tap0,
+connects this to the virtual NIC within the guest environment, and
+the qemu-ifup script connects this to the software bridge in the host
+environment.
+
+If you get the following permission error:
+{{{
+warning: could not open /dev/net/tun: no virtual network emulation
+Could not initialize device 'tap'
+}}}
+
+then you can chown /dev/net/tun to your own userid, or else run qemu as root.
+
+If you are running multiple qemu instances simultaneously then each one will need
+to have a unique MAC address assigned to it: e.g.
+
+{{{
+qemu -net tap -net nic,macaddr=52:54:0:0:0:1 -hda openwrt-x86-2.6-squashfs.image1
+qemu -net tap -net nic,macaddr=52:54:0:0:0:2 -hda openwrt-x86-2.6-squashfs.image2
+...
+}}}
+
+Conversely, it's possible to connect a single qemu instance to multiple software bridges
+(and hence external NICs) on the host. This can be done by using a separate qemu-ifup
+script for each one, linking to a separate software bridge instance.
+
+{{{
+qemu -net nic,vlan=1 -net nic,vlan=2 \
+     -net tap,vlan=1,script=/etc/qemu-ifup -net tap,vlan=2,script=/etc/qemu-ifup2 \
+     -hda openwrt-x86-2.6-squashfs.image
+}}}
+
+Now within the guest, eth0 connects to one bridge and eth1 connects to another.
+
+== Other options ==
+
+There are many other qemu networking possibilities, such as setting up IP-over-TCP
+encapsulation for point-to-point links between qemus, or IP-over-UDP multicast.
+Read the qemu manpage or google for other examples, e.g.
+http://www.gnome.org/~markmc/qemu-networking.html and
+http://www.h7.dion.ne.jp/~qemu-win/HowToNetwork-en.html
 
 = See also =
 
