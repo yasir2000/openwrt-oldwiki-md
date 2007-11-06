@@ -948,3 +948,4 @@ To control the error LED on net4501, see https://dev.openwrt.org/ticket/2634
 
 ----
 CategoryOpenWrtPort
+Categoryx86Device
