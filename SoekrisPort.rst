@@ -842,7 +842,8 @@ fsck.
 
 Add '-j' to the mke2fs command line to get an ext3 journal, which should speed
 up recovery after an unclean shutdown. (Or use 'tune2fs -j' to add a journal
-to an existing ext2 partition)
+to an existing ext2 partition). You also need to ''mount -t ext3 ...' of course,
+and this requires the kmod-fs-ext3 package.
 
 === jffs data partition ===
 
