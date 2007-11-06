@@ -15,5 +15,12 @@ Unknown
 
 Unknown
 
+=== External Links ===
+[http://routerboard.com/rb200.html RB230]
+
+[http://routerboard.com/pdf/RouterBOARD200SeriesA4-3-0.pdf User Manual]
+
+[http://forum.routerboard.com/ Forum]
+
 ----
  CategoryModel ["Categoryx86Device"]
