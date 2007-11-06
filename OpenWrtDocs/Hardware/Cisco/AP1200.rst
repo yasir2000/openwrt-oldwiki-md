@@ -2,7 +2,7 @@
 
 {{{
 CPU : PowerPC 405GP @ 200 Mhz
-Flash : 8Mo
+Flash : 8Mo Intel strataflash 28F128J3A
 RAM : 16Mo
 Ethernet :  yes
 JTAG : ?
