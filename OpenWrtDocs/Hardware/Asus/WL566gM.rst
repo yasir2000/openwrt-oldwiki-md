@@ -9,7 +9,7 @@ The device is currently (August 2006) unsupported in OpenWrt 1.0 (White Russian)
  * Airgo MIMO wireless ethernet
 
 == Dmesg ==
-{ { {
+{{{
 Jan  1 00:00:05 (none) syslog.info syslogd started: BusyBox v1.00 (2006.09.29-08:22+0000)
 Jan  1 00:00:05 (none) user.notice kernel: klogd started: BusyBox v1.00 (2006.09.29-08:22+0000)
 Jan  1 00:00:05 (none) user.warn kernel: ************************************
@@ -184,7 +184,7 @@ Nov  7 09:03:43 (none) user.err WLAN_CONFIG:        wlan_config.c:752 Enable rad
 Nov  7 09:03:43 (none) user.debug kernel: wns msg rcvd: type = 0x1308^Ilength = 46
 Nov  7 09:03:45 (none) user.warn syslog: Restart UPnP OK
 Nov  7 09:03:45 (none) user.warn syslog: watchdog restart upnpd 1 times
-} } }
+}}}
 
 
 
