@@ -510,6 +510,16 @@ label linux
 When the device next boots, the root filesystem will be the original
 Kamikaze initramfs with your cpio files added.
 
+=== Writing to flash after PXE booting ===
+
+Some Soekris models, e.g. net4526, have flash soldered on board and no CF slot. In this case, you'll have to use PXE boot to install the first flash image.
+
+Options for doing this include:
+
+ * Boot an OpenWrt image over PXE as above, then use the command line to fetch an image and burn it to flash (e.g. wget and dd)
+ * [http://pyramid.metrix.net/trac/wiki/InstallingPyramid Metrix pyramid liveCD] or [http://dl.metrix.net/support/pxeboot/ pxeboot files]
+ * [http://www.feyrer.de/g4u/ g4u] ("ghost for unix")
+
 == Flash partitioning ==
 
 A Compact Flash card contains in-built hardware to map itself to an
