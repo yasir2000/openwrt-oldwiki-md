@@ -2,7 +2,7 @@ Hauppauge's '''MediaMVP''' provides music, video and photo display on a standard
 
 While it uses IBM's 250MHz PowerPC core with hardware MPEG2 capability (the same processor series used by dream-multimedia-tv.de's boxen) it is a multimedia playback device only. It is not self-contained as it must use DHCP and TFTP to locate and retrieve its firmware from a network connection, much like a diskless workstation.
 
-The stock Hauppauge firmware uses the device solely to display streaming video from a desktop PC. While third-party Linux firmware for this unit does not share a common codebase with projects such as OpenWRT and NSLU2-Linux, it does add key capabilities which allow this device to use an OpenWRT device as network-attached storage. Attached to USB-capable units such as the Linksys WRTSL54GS, Asus WL-500g series or the Asus WL-700, it could replace a self-contained media player.
+The stock Hauppauge firmware uses the device solely to display streaming video from a desktop PC. While third-party Linux firmware for this unit does not share a common codebase with projects such as OpenWRT and NSLU2-Linux, it does add key capabilities which allow this device to use an OpenWRT device as network-attached storage. Attached to NAS-capable units such as the Linksys WRTSL54GS, Asus WL-500g series or the Asus WL-700, it could replace a self-contained media player.
 
 === MediaMVP firmware ===
 The MediaMVP device operates by obtaining boot information from a DHCP server, then downloading its firmware from the network using TFTP into 32Mb of onboard RAM. The firmware then retrieves sound and images from the network for display on the TV monitor.
