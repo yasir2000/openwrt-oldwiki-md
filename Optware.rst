@@ -41,5 +41,8 @@ src Optware http://ipkg.nslu2-linux.org/feeds/openwrt/kamikaze-7.09
 
 Note: Not all platforms are supported yet under Kamikaze.
 
+=== See also ===
+ * [http://www.nslu2-linux.org/wiki/Optware/Packages NSLU2-Linux project: Optware]
+ * [http://ipkgfind.nslu2-linux.org/ NSLU2 packages search]
 ----
 CategoryPackage
