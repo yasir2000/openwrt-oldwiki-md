@@ -39,5 +39,7 @@ There are some packages available for the current Kamikaze release here:
 src Optware http://ipkg.nslu2-linux.org/feeds/openwrt/kamikaze-7.09
 }}}
 
+Note: Not all platforms are supported yet under Kamikaze.
+
 ----
 CategoryPackage
