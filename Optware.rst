@@ -35,8 +35,15 @@ You may also want to update /etc/profile to add :/opt/bin:/opt/usr/bin:/opt/sbin
 Packages designed for use under the 2.4 kernel (OpenWRT/Whiterussian) may not be compatible with newer versions of the operating environment.
 
 There are some packages available for the current Kamikaze release here:
+
+ARM/IScale:
 {{{
 src Optware http://ipkg.nslu2-linux.org/feeds/openwrt/kamikaze-7.09
+}}}
+
+Broadcom (2.4)
+{{{
+src Optware http://ipkg.nslu2-linux.org/feeds/optware/openwrt-brcm24/cross/unstable
 }}}
 
 Note: Not all platforms are supported yet under Kamikaze.
