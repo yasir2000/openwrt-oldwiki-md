@@ -825,7 +825,7 @@ Syncing disks.
 
 (You can ignore those warnings when writing the partition table)
 
-Creating the ext3 filesystem itself is best done on the target system,
+Creating the ext2 filesystem itself is best done on the target system,
 otherwise you'll end up with a 4GB image to copy.
 
 {{{
@@ -852,7 +852,7 @@ fsck.
 
 Add '-j' to the mke2fs command line to get an ext3 journal, which should speed
 up recovery after an unclean shutdown. (Or use 'tune2fs -j' to add a journal
-to an existing ext2 partition). You also need to ''mount -t ext3 ...' of course,
+to an existing ext2 partition). You also need to 'mount -t ext3 ...' of course,
 and this requires the kmod-fs-ext3 package.
 
 === jffs data partition ===
