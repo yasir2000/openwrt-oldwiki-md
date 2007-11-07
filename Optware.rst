@@ -36,7 +36,7 @@ Packages designed for use under the 2.4 kernel (OpenWRT/Whiterussian) may not be
 
 There are some packages available for the current Kamikaze release here:
 
-ARM/IScale:
+ARM/IXScale:
 {{{
 src Optware http://ipkg.nslu2-linux.org/feeds/openwrt/kamikaze-7.09
 }}}
