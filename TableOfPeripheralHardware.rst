@@ -84,7 +84,9 @@ There is a standard device class for USB video, used primarily for webcams and v
 Some webcams may require device-specific drivers; the level of support for these is model-dependent. Drivers for a few of these are provided.
 
 === Video display ===
-The vast majority of SVGA-USB adapters are not Linux-compatible. Some support for specific SiS chipsets (sisusb.ko) has been reported on NSLU2-linux.org and on other Debian-like platforms, but these are the only devices in this class to support Linux at all. Most of these proprietary interfaces only work with WinXP or maybe NT2000, rendering them useless under any other operating system or on any other platform. 
+The vast majority of SVGA-USB adapters are not Linux-compatible. Some support for specific SiS chipsets (sisusb.ko) has been reported on NSLU2-linux.org and on other Debian-like platforms, but these are the only devices in this class to support Linux at all. (More info [http://www.nslu2-linux.org/wiki/HowTo/AddVGAAdapter here] and [http://wiki.getthekettleon.co.uk/doku.php?id=slug:digiframeslug here])
+
+Otherwise, most of these are proprietary interfaces which only work with WinXP or maybe NT/2000, rendering them useless under any other operating system or on any other platform. 
 
 === Other multifunction devices ===
 USB "universal docking stations" normally consist of a powered USB 2.0 hub and some bundled combination of USB peripheral interfaces, such as HID, audio, serial/parallel and network. The compatibility of each of the individual USB peripherals in the bundle must be determined individually.
