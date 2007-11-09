@@ -71,7 +71,7 @@ These fall into two categories: Many appear simply as standard USB network stora
 There is a standard USB device class for USB audio and most devices will work. Note that some 2.4 distributions have issues with inability to use USB 1.1 audio devices if behind a USB 2.0 hub; this is a problem for users of multifunction USB docking stations and for users of devices with only one USB port connector factory-installed.
 
 === Telephony ===
-Various USB devices are available for use with desktop VoIP softphone applications such as Skype. Some of these are merely standard USB audio (or USB audio + HID) in a telephone-like package, others are proprietary and utterly incompatible. Oddly, the low-end devices are often the more likely units to comply with standards.
+Various USB devices are available for use with desktop VoIP softphone applications such as Skype. Some of these are merely standard USB audio (or USB audio + HID) in a telephone-like package, others are proprietary and utterly incompatible. Oddly, the low-end devices are often the more likely units to comply with standards (for instance, the Skype SK04 is a fully-standard USB audio device, while the Linksys CIT-200 is utterly incompatible with anything but the WinNT/XP versions of skype.exe).
 
 === Modems ===
 Some support for ADSL USB devices is provided by atm.ko - individual devices need to be tested to determine compatibility.
@@ -107,7 +107,7 @@ These appear on the network as SMB servers; often other protocols such as FTP ar
 == NAS clients ==
 ||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' ||
 ||Hauppauge||MediaMVP||previous to H1||'''Compatible''', boots as diskless workstation from network. Requires that DHCP provide the name of a boot file, which is then retrieved via TFTP. See MediaMVPHowTo and mvmpc.org for more info on this small Linux-based (250MHz PowerPC) device.||
-||Hauppauge||MediaMVP||H1 through H4||'''Kamikaze''', boots as diskless workstation from network. Requires installation of an application (MVPrelay) to provide the name of a boot file, which is then retrieved via TFTP. This app is included in Kamikaze but due to its recent vintage is not available in the stable Whiterussian distribution unless you build it yourself.||
+||Hauppauge||MediaMVP||H1 through H4||'''Kamikaze''', boots as diskless workstation from network. Requires installation of an application (MVPrelay) to provide the location of a boot file to be retrieved via TFTP. This app is included in Kamikaze but due to its recent vintage is not available in the stable Whiterussian distribution unless you build it yourself.||
 
 == Serial (internal) ==
 Some Linux-based routers provide the ability to add one (or sometimes two) serial ports by connecting level-translation hardware inside the device. These serial ports provide bidirectional data but do not provide control signals; as such, hardware handshake will not work. Otherwise, most serial devices should be compatible. See the hardware modification how-to for details.
