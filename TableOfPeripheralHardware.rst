@@ -14,7 +14,7 @@ This is a table of peripheral devices (such as USB audio, video, serial, printer
 
 Devices are grouped by interface, which will typically be USB, network or (rarely) direct internal connection of serial or flash memory interfaces as hardware modifications. They are then sub-grouped by device type.
 
-As of 2007, USB-capable platforms include the Linksys WRTSL54GS, the ASUS WL-500g series and the ASUS WL-700 routers. The Linksys NSLU2 network attached storage interface may also be used to control various USB devices.
+As of 2007, USB-capable platforms include the Linksys WRTSL54GS, the ASUS WL-500g series and the ASUS WL-700 routers. The Linksys NSLU2 network attached storage interface may also be used to control various USB devices. See also OpenWrtDocs/Customizing/Hardware/USB and WithUSBv2 for a list of supported platforms.
 
 == USB devices ==
 Due to the sheer and growing number of USB devices in circulation, this list is and will remain a work in progress. If you've tried any USB device with any version of OpenWRT, please report your findings by adding the device (and its status, including any drivers required) to this list:
@@ -69,6 +69,8 @@ These fall into two categories: Many appear simply as standard USB network stora
 
 === Audio ===
 There is a standard USB device class for USB audio and most devices will work. Note that some 2.4 distributions have issues with inability to use USB 1.1 audio devices if behind a USB 2.0 hub; this is a problem for users of multifunction USB docking stations and for users of devices with only one USB port connector factory-installed.
+
+See UsbAudioHowto for details on audio.
 
 === Telephony ===
 Various USB devices are available for use with desktop VoIP softphone applications such as Skype. Some of these are merely standard USB audio (or USB audio + HID) in a telephone-like package, others are proprietary and utterly incompatible. Oddly, the low-end devices are often the more likely units to comply with standards (for instance, the Skype SK04 is a fully-standard USB audio device, while the Linksys CIT-200 is utterly incompatible with anything but the WinNT/XP versions of skype.exe).
