@@ -23,8 +23,8 @@ There are two printing subsystems in common use on this platform. The P910nd ser
 
 To work with CUPS, a device must have a driver that will run directly on the embedded Linux platform. As such, devices for which no Linux drivers exist or for which Linux desktop-PC object code with no sources are provided cannot be listed as being fully compatible in this section. They may work adequately with P910nd's passthrough (as the conversion to printer-specific data formats remains on the desktop) but do not work at all under CUPS.
 
-||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' 
-||Samsung||SCX4521||n/a||'''Unknown.''' Multifunction device. The Linux drivers shipped with this unit are object-code only and compiled for x86 and amd64 desktop PC's; the manufacturer's drivers therefore will not run on embedded platforms.
+||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' ||
+||Samsung||SCX4521||n/a||'''Unknown.''' Multifunction device. The Linux drivers shipped with this unit are object-code only and compiled for x86 and amd64 desktop PC's; the manufacturer's drivers therefore will not run on embedded platforms.||
 
 === Scanners ===
 SANE (Scanner Access Now Easy) is designed in such a way as to allow scanners to be shared over a TCP/IP network. The processor which controls the scanner runs a server, the processor on a desktop PC runs a SANE client in order to use the shared scanning device. There is an application (!SaneTwain) which allows a Windows PC to access these shared servers.
@@ -49,12 +49,13 @@ External USB hard drives, CD/DVD readers, flash memory card readers and flash me
 === Network interfaces ===
 USB could be used to add an additional wired-LAN port; these are not often needed, but some models do work with usbnet.ko and a device-specific driver.
 
-||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' 
-||ASIX||88772||n/a||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.
+||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status'''||
+||ASIX||88772||n/a||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.||
 
 === Wireless network interfaces ===
 
-=== Bluetooth ===
+=== Bluetooth interfaces ===
+Various manufacturers appear to be using the same few Bluetooth chipsets, the CSR (Cambridge Silicon Radio) chipset being most common in USB-Bluetooth interfaces. There is some support for USB-Bluetooth in the stock distributions but individual devices do need to be tested further to determine compatibility.
 
 === Personal digital assistants ===
 Palm OS-based devices apparently operate under a Linux-like OS and may be compatible. The same is not true of the Pocket PC.
@@ -64,29 +65,47 @@ Pocket PC devices such as HP/Compaq's iPAQ line are Windows-based and poorly/not
 === Digital cameras ===
 These fall into two categories: Many appear simply as standard USB network storage devices and may be accessed in the same manner as any USB flash memory reader; these in general are compatible. A few use USB as a means to control the camera itself, these may work if an application such as gphoto2 is installed to access them.
 
+=== Audio ===
+
+=== Telephony ===
+
 === Video capture ===
 There is a standard device class for USB video, used primarily for webcams and video capture devices. This is supported by the video4linux drivers.
 
-Some webcams may require device-specific drivers; the level of support for these is model-dependent.
+Some webcams may require device-specific drivers; the level of support for these is model-dependent. Drivers for a few of these are provided.
+
+=== Video display ===
+The vast majority of SVGA-USB adapters are not Linux-compatible. Some support for specific SiS chipsets (sisusb.ko) has been reported on NSLU2-linux.org and on other Debian-like platforms, but these are the only devices in this class to support Linux at all. Most of these proprietary interfaces only work with WinXP or maybe NT2000, rendering them useless under any other operating system or on any other platform. 
 
 === Other multifunction devices ===
+USB "universal docking stations" normally consist of a powered USB 2.0 hub and some bundled combination of USB peripheral interfaces, such as HID, audio, serial/parallel and network. The compatibility of each of the individual USB peripherals in the bundle must be determined individually.
+
+||'''Manufacturer'''||'''Model'''||'''Interface'''||'''Type/Version'''||'''Status'''||
+||Targus||ACP45||'''Kamikaze/2.6''', partial support under 2.4 kernels.
+|| || ||USB 2.0 hub|| ||Appears to be standard and fully-supported with no additional drivers required.
+|| || ||serial||Prolific 2313||'''Supported''' usbserial.ko + pl2313.ko modules in standard distribution.||
+|| || ||parallel||Prolific 2315||'''Supported''' by usbprinter.ko module in standard distribution, for printers only.||
+|| || ||network||ASIX 88772||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.||
+|| || ||HID|| ||USB-PS/2 keyboard/mouse interfaces appear to be fully standard, compatibility therefore the same as for other hardware in the HID device class.
+|| || ||audio||C-Media||'''Kamikaze/2.6''' Analogue and optical/SPDIF. Supported; some 2.4-kernel distributions report problems with USB audio behind a USB 2.0 hub.||
+
 
 == NAS servers ==
 
 These appear on the network as SMB servers; often other protocols such as FTP are optionally supported.
 
-||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' 
-||?||LanDrive||n/a||'''Compatible''' with Linux under smbfs; not recognised by some Linux CIFS drivers. A low-end Taiwanese unit, cloned in mainland China as the LanServer knock-off, provides NAS and USB but does not allow both to be used at once. On USB, acts as standard storage-class device. File system is VFAT only. 
+||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status'''||
+||?||LanDrive||n/a||'''Compatible''' with Linux under smbfs; not recognised by some Linux CIFS drivers. A low-end Taiwanese unit, cloned in mainland China as the LanServer knock-off, provides NAS and USB but does not allow both to be used at once. On USB, acts as standard storage-class device. File system is VFAT only.||
 
 == NAS clients ==
 ||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' 
-||Hauppauge||MediaMVP||previous to H1||'''Compatible''', boots as diskless workstation from network. Requires that DHCP provide the name of a boot file, which is then retrieved via TFTP. See MediaMVPHowTo for more info on this small Linux-based (250MHz PowerPC) device.
-||Hauppauge||MediaMVP||H1 through H4||'''Kamikaze''', boots as diskless workstation from network. Requires installation of an application (MVPrelay) to provide the name of a boot file, which is then retrieved via TFTP. This app is included in Kamikaze but is not currently in the stable Whiterussian distributions unless you build it yourself.
+||Hauppauge||MediaMVP||previous to H1||'''Compatible''', boots as diskless workstation from network. Requires that DHCP provide the name of a boot file, which is then retrieved via TFTP. See MediaMVPHowTo and mvmpc.org for more info on this small Linux-based (250MHz PowerPC) device.||
+||Hauppauge||MediaMVP||H1 through H4||'''Kamikaze''', boots as diskless workstation from network. Requires installation of an application (MVPrelay) to provide the name of a boot file, which is then retrieved via TFTP. This app is included in Kamikaze but due to its recent vintage is not available in the stable Whiterussian distribution unless you build it yourself.||
 
-== Serial ==
-Some Linux-based routers provide the ability to add one (or sometimes two) serial ports by connecting level-translation hardware inside the device. These serial ports provide bidirectional data but do not provide control signals; as such, hardware handshake will not work. See the hardware modification how-to for details.
+== Serial (internal) ==
+Some Linux-based routers provide the ability to add one (or sometimes two) serial ports by connecting level-translation hardware inside the device. These serial ports provide bidirectional data but do not provide control signals; as such, hardware handshake will not work. Otherwise, most serial devices should be compatible. See the hardware modification how-to for details.
 
-== SD/MMC ==
+== SD/MMC (internal) ==
 It is typically possible to connect these flash memory cards directly to GPIO lines inside the unit, however this is normally much slower in operation than USB flash readers.  Not for the faint of heart; see the hardware modification how-to for details.
 ----
 CategoryCategory
