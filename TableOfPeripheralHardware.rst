@@ -68,7 +68,7 @@ Pocket PC devices such as HP/Compaq's iPAQ line are Windows-based and poorly/not
 These fall into two categories: Many appear simply as standard USB network storage devices and may be accessed in the same manner as any USB flash memory reader; these in general are compatible. A few use USB as a means to control the camera itself, these may work if an application such as gphoto2 is installed to access them.
 
 === Audio ===
-There is a standard USB device class for USB audio and most devices will work. Note that some 2.4 distributions have issues with inability to use USB 1.1 audio devices if behind a USB 2.0 hub; this is a problem for use with multifunction USB docking stations and for users of devices with only one USB port connector factory-installed.
+There is a standard USB device class for USB audio and most devices will work. Note that some 2.4 distributions have issues with inability to use USB 1.1 audio devices if behind a USB 2.0 hub; this is a problem for users of multifunction USB docking stations and for users of devices with only one USB port connector factory-installed.
 
 === Telephony ===
 Various USB devices are available for use with desktop VoIP softphone applications such as Skype. Some of these are merely standard USB audio (or USB audio + HID) in a telephone-like package, others are proprietary and utterly incompatible. Oddly, the low-end devices are often the more likely units to comply with standards.
