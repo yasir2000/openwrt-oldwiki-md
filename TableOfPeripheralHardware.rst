@@ -17,6 +17,7 @@ Devices are grouped by interface, which will typically be USB, network or (rarel
 As of 2007, USB-capable platforms include the Linksys WRTSL54GS, the ASUS WL-500g series and the ASUS WL-700 routers. The Linksys NSLU2 network attached storage interface may also be used to control various USB devices.
 
 == USB devices ==
+Due to the sheer and growing number of USB devices in circulation, this list is and will remain a work in progress. If you've tried any USB device with any version of OpenWRT, please report your findings by adding the device (and its status, including any drivers required) to this list:
 
 === Printers ===
 There are two printing subsystems in common use on this platform. The P910nd server is a simple pass-through with no capabilities for spooling or processing data before it is sent to the printer; its capabilities are limited but it will work with most USB printers. The CUPS common unified printing system is a spooler, it does process data into a form specific for each individual printer and it does allow printers to be shared through Samba, the Windows-compatible network device subsystem.
@@ -53,6 +54,7 @@ USB could be used to add an additional wired-LAN port; these are not often neede
 ||ASIX||88772||n/a||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.||
 
 === Wireless network interfaces ===
+TBD.
 
 === Bluetooth interfaces ===
 Various manufacturers appear to be using the same few Bluetooth chipsets, the CSR (Cambridge Silicon Radio) chipset being most common in USB-Bluetooth interfaces. There is some support for USB-Bluetooth in the stock distributions but individual devices do need to be tested further to determine compatibility.
@@ -66,8 +68,13 @@ Pocket PC devices such as HP/Compaq's iPAQ line are Windows-based and poorly/not
 These fall into two categories: Many appear simply as standard USB network storage devices and may be accessed in the same manner as any USB flash memory reader; these in general are compatible. A few use USB as a means to control the camera itself, these may work if an application such as gphoto2 is installed to access them.
 
 === Audio ===
+There is a standard USB device class for USB audio and most devices will work. Note that some 2.4 distributions have issues with inability to use USB 1.1 audio devices if behind a USB 2.0 hub; this is a problem for use with multifunction USB docking stations and for users of devices with only one USB port connector factory-installed.
 
 === Telephony ===
+Various USB devices are available for use with desktop VoIP softphone applications such as Skype. Some of these are merely standard USB audio (or USB audio + HID) in a telephone-like package, others are proprietary and utterly incompatible. Oddly, the low-end devices are often the more likely units to comply with standards.
+
+=== Modems ===
+Some support for ADSL USB devices is provided by atm.ko - individual devices need to be tested to determine compatibility.
 
 === Video capture ===
 There is a standard device class for USB video, used primarily for webcams and video capture devices. This is supported by the video4linux drivers.
@@ -81,14 +88,14 @@ The vast majority of SVGA-USB adapters are not Linux-compatible. Some support fo
 USB "universal docking stations" normally consist of a powered USB 2.0 hub and some bundled combination of USB peripheral interfaces, such as HID, audio, serial/parallel and network. The compatibility of each of the individual USB peripherals in the bundle must be determined individually.
 
 ||'''Manufacturer'''||'''Model'''||'''Interface'''||'''Type/Version'''||'''Status'''||
-||Targus||ACP45||'''Kamikaze/2.6''', partial support under 2.4 kernels.
-|| || ||USB 2.0 hub|| ||Appears to be standard and fully-supported with no additional drivers required.
+||Targus||ACP45|| || ||'''Kamikaze/2.6''', partial support under 2.4 kernels.||
+|| || ||USB 2.0 hub|| ||Appears to be standard and fully-supported with no additional drivers required.||
 || || ||serial||Prolific 2313||'''Supported''' usbserial.ko + pl2313.ko modules in standard distribution.||
 || || ||parallel||Prolific 2315||'''Supported''' by usbprinter.ko module in standard distribution, for printers only.||
 || || ||network||ASIX 88772||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.||
-|| || ||HID|| ||USB-PS/2 keyboard/mouse interfaces appear to be fully standard, compatibility therefore the same as for other hardware in the HID device class.
+|| || ||HID|| ||USB-PS/2 keyboard/mouse interfaces appear to be fully standard, compatibility therefore the same as for other hardware in the HID device class.||
 || || ||audio||C-Media||'''Kamikaze/2.6''' Analogue and optical/SPDIF. Supported; some 2.4-kernel distributions report problems with USB audio behind a USB 2.0 hub.||
-
+||Targus||ACP50|| || ||'''No''', the USB-SVGA video in this unit is proprietary and unsupported. Other components of this bundle may have partial support.||
 
 == NAS servers ==
 
@@ -98,7 +105,7 @@ These appear on the network as SMB servers; often other protocols such as FTP ar
 ||?||LanDrive||n/a||'''Compatible''' with Linux under smbfs; not recognised by some Linux CIFS drivers. A low-end Taiwanese unit, cloned in mainland China as the LanServer knock-off, provides NAS and USB but does not allow both to be used at once. On USB, acts as standard storage-class device. File system is VFAT only.||
 
 == NAS clients ==
-||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' 
+||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' ||
 ||Hauppauge||MediaMVP||previous to H1||'''Compatible''', boots as diskless workstation from network. Requires that DHCP provide the name of a boot file, which is then retrieved via TFTP. See MediaMVPHowTo and mvmpc.org for more info on this small Linux-based (250MHz PowerPC) device.||
 ||Hauppauge||MediaMVP||H1 through H4||'''Kamikaze''', boots as diskless workstation from network. Requires installation of an application (MVPrelay) to provide the name of a boot file, which is then retrieved via TFTP. This app is included in Kamikaze but due to its recent vintage is not available in the stable Whiterussian distribution unless you build it yourself.||
 
