@@ -32,3 +32,45 @@ wol -h <broadcast address> <mac address of the target> (e.g. wol -h 10.1.255.255
 If doesn't work have a look at your network topology and check if the packet is forwarded to the router/switch the target is connected to.
 
 Note: Maybe you are lucky and it even works without the broadcast address, but do not count on it.
+
+== Easy Usage ==
+Make sure your /etc/hosts and /etc/ethers files are populated properly.
+
+Save the following script to /usr/bin/wake
+
+{{{
+#!/bin/ash
+
+sucky_resolve () {
+    HOSTNAME=$1
+    grep -i $HOSTNAME /etc/hosts | awk '{ print $1 }'
+}
+
+sucky_ether () {
+    IPADDRESS=$1
+    grep -i $IPADDRESS /etc/ethers | awk '{ print $1 }'
+}
+
+broadcast_ip4() {
+    IPADDRESS=$1
+    echo $IPADDRESS | sed s/\.[0-9]*$/.255/
+}
+
+WAKEHOST=$1
+IPADDRESS=`sucky_resolve $WAKEHOST`
+BROADCAST=`broadcast_ip4 $IPADDRESS`
+ETHER=`sucky_ether $IPADDRESS`
+wol -i $BROADCAST $ETHER
+}}}
+
+Set the executable bit
+{{{
+chmod +x /usr/bin/wake
+}}}
+
+And now you should just be able to wake machines by using their hostname
+{{{
+root@openwrt:~# wake aeris
+Waking up 00:99:d4:0f:dc:62...
+root@openwrt:~#
+}}}
