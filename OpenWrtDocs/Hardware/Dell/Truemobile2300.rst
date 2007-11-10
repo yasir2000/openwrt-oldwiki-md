@@ -117,14 +117,14 @@ It is recommended to use hot glue to fixate the cables. Then you need one more c
 
 http://img158.imageshack.us/img158/1127/delljtagpinout163kl8.th.jpg
 
-["http://img158.imageshack.us/my.php?image=delljtagpinout163kl8.jpg"]
+[http://img158.imageshack.us/my.php?image=delljtagpinout163kl8.jpg]
 
 Connect these cables to a parallel port, you need 4x 100ohm resistors.
 
 http://img337.imageshack.us/img337/1774/interface2by4.png
 
 Then you have to download WRT-JTAG
-["http://www.wlan-skynet.de/download/index.shtml"]
+[http://www.wlan-skynet.de/download/index.shtml]
 
 {{{c:\wrt54g -erase:nvram /noemw /nocwd /noreset
 
