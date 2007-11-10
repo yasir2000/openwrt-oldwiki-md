@@ -14,7 +14,7 @@ This is a table of peripheral devices (such as USB audio, video, serial, printer
 
 Devices are grouped by interface, which will typically be USB, network or (rarely) direct internal connection of serial or flash memory interfaces as hardware modifications. They are then sub-grouped by device type.
 
-As of 2007, USB-capable platforms include the Linksys WRTSL54GS, the ASUS WL-500g series and the ASUS WL-700 routers. The Linksys NSLU2 network attached storage interface may also be used to control various USB devices. See also ['OpenWrtDocs/Customizing/Hardware/USB'] and ['WithUSBv2'] for a list of supported platforms.
+As of 2007, USB-capable platforms include the Linksys WRTSL54GS, the ASUS WL-500g series and the ASUS WL-700 routers. The Linksys NSLU2 network attached storage interface may also be used to control various USB devices. See also ["OpenWrtDocs/Customizing/Hardware/USB"] and ["WithUSBv2"] for a list of supported platforms.
 
 == USB devices ==
 Due to the sheer and growing number of USB devices in circulation, this list is and will remain a work in progress. If you've tried any USB device with any version of OpenWRT, please report your findings by adding the device (and its status, including any drivers required) to this list:
