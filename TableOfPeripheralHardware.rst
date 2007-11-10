@@ -110,7 +110,7 @@ These appear on the network as SMB servers; often other protocols such as FTP ar
 
 == NAS clients ==
 ||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' ||
-||Hauppauge||MediaMVP||previous to H1||'''Compatible''', boots as diskless workstation from network. Requires that DHCP provide the name of a boot file, which is then retrieved via TFTP. See MediaMVPHowTo and mvmpc.org for more info on this small Linux-based (250MHz PowerPC) device.||
+||Hauppauge||MediaMVP||previous to H1||'''Compatible''', boots as diskless workstation from network. Requires that DHCP provide the name of a boot file, which is then retrieved via TFTP. See ["MediaMVPHowTo"] and mvmpc.org for more info on this small Linux-based (250MHz PowerPC) device.||
 ||Hauppauge||MediaMVP||H1 through H4||'''Kamikaze''', boots as diskless workstation from network. Requires installation of an application (MVPrelay) to provide the location of a boot file to be retrieved via TFTP. This app is included in Kamikaze but due to its recent vintage is not available in the stable Whiterussian distribution unless you build it yourself.||
 
 == Serial (internal) ==
