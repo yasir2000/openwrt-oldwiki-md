@@ -8,11 +8,17 @@ also contains the defacto standard of 4MiB Flash and 16MiB RAM.
 
 = Installing OpenWrt =
 
+It looks like The Broadcom Mini-PCI is not compatible with Kamikaze, both Versions (2.4 and 2.6)
+seem to have Problems with <= Kamikaze 7.09. 
+
+''' It is strongly recommended to flash whiterussian first before trying anything else, because boot_wait is not enabled by default! '''
+
 The initial installation of OpenWrt is accomplished by uploading a
 `.trx` image through the Dell firmware.  After OpenWrt is installed
 it is a good idea to set the ''boot_wait'' NVRAM variable to ''on''.
 
 When TFTPing to a router with ''boot_wait=on'' also use a `.trx` image.
+
 
 = Serial port =
 
@@ -101,6 +107,46 @@ gpio disable 7
 }}} 
 
 The Restore button is likely connected to a gpio pin as well, but the author of this section hasn't bothered to figure out which one. 
+
+= JTAG =
+''' WARNING ONLY TRY THIS IF IT IS YOUR LAST CHANCE TO REVIVE YOUR ROUTER!! '''
+
+If there is no way to access the Router and BOOT_WAIT is disabled there is one last chance to revive your TM2300.
+First you have to remove the mini-pci card, then you need to connect cables to the points marked in the image.
+It is recommended to use hot glue to fixate the cables. Then you need one more cable connected to ground.
+
+http://img158.imageshack.us/img158/1127/delljtagpinout163kl8.th.jpg
+
+["http://img158.imageshack.us/my.php?image=delljtagpinout163kl8.jpg"]
+
+Connect these cables to a parallel port, you need 4x 100ohm resistors.
+
+http://img337.imageshack.us/img337/1774/interface2by4.png
+
+Then you have to download WRT-JTAG
+["http://www.wlan-skynet.de/download/index.shtml"]
+
+{{{c:\wrt54g -erase:nvram /noemw /nocwd /noreset
+
+   Reset the Router
+
+c:\wrt54g -erase:kernel /noemw /nocwd /noreset
+
+   Reset the Router
+}}}
+
+If there is a problem detecting the flash chip try adding an option to set the type of chip manual:
+
+{{{
+c:\wrt54g -erase:nvram /noemw /nocwd /noreset /fc:03
+}}}
+
+03 for example stands for AMD 29lv320DB flash chip
+
+Activate your Network card with fixed IP for example 192.168.2.2
+and try to ping the router (192.168.2.1) until you get response.
+It is now possible to flash the router with tftp!
+
 
 ----
 CategoryModel
