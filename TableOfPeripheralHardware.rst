@@ -93,13 +93,13 @@ USB "universal docking stations" normally consist of a powered USB 2.0 hub and s
 
 ||'''Manufacturer'''||'''Model'''||'''Interface'''||'''Type/Version'''||'''Status'''||
 ||Targus||ACP45|| || ||'''Kamikaze/2.6''', all bundled devices in this unit tested and '''working'''. '''Partial''' support if used under 2.4 kernels.||
-|| || ||USB 2.0 hub|| ||Standard and fully-supported with no additional drivers required.||
+|| || ||USB 2.0 hub|| ||Standard and fully '''supported''' with no additional drivers required.||
 || || ||serial||Prolific 2313||'''Supported''' usbserial.ko + pl2313.ko modules in standard distribution.||
 || || ||parallel||Prolific 2315||'''Supported''' by usbprinter.ko module in standard distribution, for printers only.||
 || || ||network||ASIX 88772||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.||
 || || ||audio||C-Media||'''Kamikaze/2.6''' Analogue and optical/SPDIF. Supported; some 2.4-kernel distributions report problems with USB audio behind a USB 2.0 hub.||
-|| || ||HID|| ||USB-PS/2 keyboard/mouse interfaces appear to be fully standard, compatibility therefore the same as for other hardware in the HID device class. Drivers are input-core.ko, evdev.ko, usbkbd.ko, usbmouse.ko, hid.ko to report keypress and mouse events. Without usbhid.ko these return as scancodes and not as ASCII. See https://dev.openwrt.org/ticket/2184 as building HID support through the svn+build process is buggy but certainly not impossible.||
-||Targus||ACP50|| || ||'''No''', the USB-SVGA video in this unit is proprietary and unsupported. Other components of this bundle may have partial support.||
+|| || ||HID|| ||USB-PS/2 keyboard/mouse interfaces appear to be fully standard, compatibility therefore the same as for other hardware in the HID device class. '''Supported''' by modules input-core.ko, evdev.ko, usbkbd.ko, usbmouse.ko, hid.ko to report keypress and mouse events. Without usbhid.ko these return as scancodes and not as ASCII. See https://dev.openwrt.org/ticket/2184 as building HID support through the svn+build process is buggy but certainly not impossible.||
+||Targus||ACP50|| || ||'''No''', the USB-SVGA video in this unit is proprietary and '''unsupported'''. Other components of this bundle may have partial support.||
 
 == NAS servers ==
 
