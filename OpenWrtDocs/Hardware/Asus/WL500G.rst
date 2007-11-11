@@ -28,6 +28,8 @@ option ifname   "eth0 eth1"
 
 The [:OpenWrtDocs/Hardware/Asus/WL500GRecovery: WL-500G recovery] mechanism is somewhat complex. The most reliable method is to statically assign the ARP entry for the device, and use a known-to-work TFTP client (e.g. OS X's inbuilt tftp generally doesn't work; atftp on Linux does work).
 
+Note: Mac OS X 10.5 Leopard tftp client does work! Router was stuck to the IP address setting in the NVRAM. It was not necessary to manually fix the MAC ADDRESS. 
+
 Pull the plug, press and hold the reset button, plug the device and wait until the PWR LED starts flashing slowly (almost immediately). Now release the reset button and upload the firmware by TFTP using the following commands (`00:11:2f:6a:60:13` is the device's MAC address, `192.168.1.1` is a free IP address on your local network):
 
 {{{
