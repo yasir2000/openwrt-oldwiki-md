@@ -12,7 +12,7 @@ Single ethernet port ADSL router.
 Info Entered
 
 === Hardware ===
-|| Component || Type || Harware ||
+|| Component || Type || Hardware ||
 || CPU || ARM || SAMSUNG S3C4510X01 ||
 || RAM || 8MB || ||
 || FLASH || 1MB || INTEL TE28F800 ||
