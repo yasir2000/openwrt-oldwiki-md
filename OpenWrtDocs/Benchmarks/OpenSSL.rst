@@ -6,7 +6,8 @@ These benchmarks provide a rough estimate of how OpenSSL performance varies on v
 
 Notes:
 
+Benchmarks are base on running: 'openssl speed'
+
 Hash and block ciphers use 1024 byte blocks;  "k" refers to 1000 bytes per second.
 
 Certificate verification and signing are based on 2048 bit keys;  the values are the number of signings/verifications per second.
-
