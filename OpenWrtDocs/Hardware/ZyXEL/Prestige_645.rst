@@ -150,4 +150,8 @@ HwVerRange 2 0 0
 === Link ===
 [http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort USB Serial cable]
 
+[http://www.techie.net.nz/adsl/zyxel642r.html ROM PDF 642r]
+
+[http://www.ixo.de/info/zyxel_uclinux/ uCLinux]
+
 [:BootBase:Bootbase]
