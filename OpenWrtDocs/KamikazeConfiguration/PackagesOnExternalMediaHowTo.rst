@@ -32,6 +32,16 @@ mount -o rw "$boot_dev" /opt
         pivot /opt /opt
 }
 exec /bin/busybox init}}}
+
+= /etc/config/bootfromexternalmedia =
+
+{{{
+config bootfromexternalmedia
+	option target       '/mnt'
+	option boot_device  '/dev/scsi/host0/bus0/target0/lun0/part1'
+	option load_modules 'usbcore ehci-hcd scsi_mod sd_mod usb-storage jbd ext3'
+	option enabled      '0'}}}
+
 = Copy the flash content to the external media =
 Then we make a /tmp/root mount it to /rom and copiing the files (and at last unmount it and the stick)
 
