@@ -1,6 +1,6 @@
 OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo under construction ...
 
-This guide is based on [http://forum.openwrt.org/viewtopic.php?id=11495]Setting http://forum.openwrt.org/viewtopic.php?id=11495].
+This guide is based on [http://forum.openwrt.org/viewtopic.php?id=11495].
 
 = TODO =
  * Rewrite the init scripts to use UCI
