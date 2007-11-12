@@ -12,3 +12,9 @@ cd trunk/
 make package/busybox-update V=99                                       # copies the new patch to package/busybox/patches/530-gunzip_src_fd.patch
 make package/busybox-{clean,compile}
 }}}
+
+= Refreshing patches =
+
+If you updated a !OpenWrt package and also like to refresh the patches you can also do this with quilt.
+{{{
+make package/<pkg_name>-{clean,refresh} V=99}}}
