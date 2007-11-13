@@ -37,3 +37,7 @@ You can identify them better using the serial number table on [http://en.wikiped
 ==== Tested peripherals ====
 
 [OpenWrtDocs/TableOfPeripherals]
+
+==== Benchmarks ====
+
+[[PageList(OpenWrtDocs/Benchmarks)]]
