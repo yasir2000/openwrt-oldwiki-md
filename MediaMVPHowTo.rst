@@ -9,7 +9,7 @@ The MediaMVP device operates by obtaining boot information from a DHCP server, t
 
 The MediaMVP Media Centre ([http://www.mvpmc.org/index.php?pg=faq mvpmc.org]) is a third-party firmware media player for the Hauppauge MediaMVP. According to its authors, it is a total replacement for the Hauppauge software and can be booted onto the MediaMVP via tftp; mvpmc supports playing audio (mp3, ogg, wav, ac3) and video (mpeg1, mpeg2) from MythTV or ReplayTV digital video recorders. It can also play audio and video via HTTP, NFS, and CIFS and is capable of playing internet radio via !SlimServer. It can also display images (jpg, bmp, png) via NFS and CIFS.
 
-The mvpmc package is built on the nanowindows embedded platform from http://microwindows.org - an open-source Xwindows subset for PDA and embedded devices which follows the X networked client/server model. The mvpmc firmware is available under GPL at http://mvpmc.sourceforge.net and is documented [http://www.mvpmc.org/mvpmc-HOWTO-singlehtml.html here] and [http://mvpmc.wikispaces.com/howto_boot_OpenWRT here]. 
+The mvpmc package is built on the nanowindows embedded platform from http://microwindows.org and is available under GPL at http://mvpmc.sourceforge.net and is documented [http://www.mvpmc.org/mvpmc-HOWTO-singlehtml.html here] and [http://mvpmc.wikispaces.com/howto_boot_OpenWRT here]. 
 
 Network boot support for this device is provided by OpenWRT Kamikaze [https://dev.openwrt.org/browser/packages/net/mvprelay here].
 
@@ -19,6 +19,8 @@ The functions that the network server must provide to support this device are:
  * NFS or CIFS - provide access to the stored multimedia files to be displayed (as network-attached storage)
 
 The MediaMVP device itself then retrieves the media, decompresses MPEG 1/2 in hardware and generates audio/video signals for the TV/monitor.
+
+As nanowindows is intended to provide a subset of X-windows capability, it does follow the X-windows convention of allowing client and server to run on different network nodes. This could raise a possibility of this device becoming a user interface to graphical applications running elsewhere on a LAN.
 
 === Booting MediaMVP hardware from network ===
 There are various versions of the MediaMVP for wired and wireless networks; these fall into two general categories:
