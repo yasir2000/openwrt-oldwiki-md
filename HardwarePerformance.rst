@@ -1,9 +1,9 @@
 = Hardware performance of devices running under OpenWRT =
 Although some people believe that these devices are not dependent on their CPU speed due to the commonly low load averages, this is not necessarily true. A processor at any moment is either executing applicable code or not, essentially ON or OFF. Load averages are averages over time. Therefore, increased processor (and memory) clocks can decrease latency, speed execution of scripts and programs, and increase I/O.
 
-Additionally, many processors can be overclocked (though this operation has some risk and should not be attempted lightly). See [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Overclocking this page] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
+Additionally, many processors can be overclocked (though this operation has some risk and should not be attempted lightly). See ['OpenWrtDocs/Customizing/Hardware/Overclocking'] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
 
-[see further discussion, which has been moved to end of page]
+[See further discussion, which has been moved to end of this page...]
 
 == Devices performance table ==
 '''Performance of CPU / Memory'''
@@ -73,7 +73,8 @@ TODO, which bench to use?
  * v0.6 : Initialization of variables for gcc on NSLU2
 
 == Discussion ==
----
+----
+
 [...continued from above]
 
 No, this page is still useless; we're not arguing over what a load average is or what a benchmark is for. We're simply pointing out the absurdity of this benchmark.
@@ -84,7 +85,7 @@ I'm also not a fan of the "many processors can be safely overclocked" mentality.
 
 - mbm
 
----
+----
 
 Ah, I understand your argument now, and it does have merit.
 
@@ -99,3 +100,6 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 -jcollake
 
 --
+
+== See also ==
+ * ['OpenWrtDocs/Benchmarks/OpenSSL']
