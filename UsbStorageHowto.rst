@@ -193,6 +193,10 @@ For this to work you need the same kernel modules for USB as described above. Yo
 Kamikaze with 2.6 can be done differently - by putting the pivot script in another place. The names of the /dev entries for the individual hard drives and partitions on the router also differ, following the /dev/sda1, /dev/sdb1 convention as of kernel 2.6.
 
 {{{
+ipkg install kmod-ext2 kmod-ext3
+}}}
+Under Kamikaze 7.07 or later, use
+{{{
 ipkg install kmod-fs-ext2 kmod-fs-ext3
 }}}
 After installing the modules, you should either reboot the device or load the installed modules manually:
