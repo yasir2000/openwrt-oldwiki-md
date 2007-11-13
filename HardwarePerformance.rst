@@ -1,7 +1,7 @@
 = Hardware performance of devices running under OpenWRT =
 Although some people believe that these devices are not dependent on their CPU speed due to the commonly low load averages, this is not necessarily true. A processor at any moment is either executing applicable code or not, essentially ON or OFF. Load averages are averages over time. Therefore, increased processor (and memory) clocks can decrease latency, speed execution of scripts and programs, and increase I/O.
 
-Additionally, many processors can be overclocked (though this operation has some risk and should not be attempted lightly). See ['OpenWrtDocs/Customizing/Hardware/Overclocking'] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
+Additionally, many processors can be overclocked (though this operation has some risk and should not be attempted lightly). See ["OpenWrtDocs/Customizing/Hardware/Overclocking"] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
 
 [See further discussion, which has been moved to end of this page...]
 
@@ -72,7 +72,7 @@ TODO, which bench to use?
  * v0.5 : Corrected pi benchamrk
  * v0.6 : Initialization of variables for gcc on NSLU2
 
-== Discussion ==
+= Discussion =
 ----
 
 [...continued from above]
@@ -101,5 +101,5 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 
 --
 
-== See also ==
- * ['OpenWrtDocs/Benchmarks/OpenSSL']
+= See also =
+ * ["OpenWrtDocs/Benchmarks/OpenSSL"]
