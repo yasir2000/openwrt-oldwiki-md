@@ -3,31 +3,7 @@ Although some people believe that these devices are not dependent on their CPU s
 
 Additionally, many processors can be overclocked (though this operation has some risk and should not be attempted lightly). See [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Overclocking this page] for overclocking information. It includes arguments for and against overclocking. Users on either side of the fence should refrain from forcing their opinions on the majority.
 
----
-
-No, this page is still useless; we're not arguing over what a load average is or what a benchmark is for. We're simply pointing out the absurdity of this benchmark.
-
-Almost all the boards in question are the exact same hardware, they're even based off of the same schematics, otherwise known as a reference design. It doesn't matter what the brand name on the box is; you're comparing a board with a 200Mhz Broadcom mips chip to another board with a 200Mhz Broadcom mips chip and expecting to see dramatic differences. Worse is the fact that you're actually seeing differences between two benchmarks being run on identical models -- this alone should tell you that the testing conditions are flawed.
-
-I'm also not a fan of the "many processors can be safely overclocked" mentality. Yes you can easily change the clock frequency by setting an nvram variable, and it may even work on some boards. The problem is what happens when it doesn't work -- that's where the whole "safe" concept fails, because when it doesn't work there's often no easy or safe way to reset it, you actually have to pull apart the device and connect up a JTAG cable to reset the configuration.
-
-- mbm
-
----
-
-Ah, I understand your argument now, and it does have merit.
-
-However, not all entries in this table are comparing the same hardware. It is slightly helpful to compare two different architectures or processors to see which may perform best at CPU or memory intensive tasks (at least, to the best this synthetic benchmark may tell us).
-
-The differences in performance on identical models (with identical clocks) is probably due to their load at the time of the testing, or something else. Although the differences are not great, you are right that this does indicate the benchmark isn't 100%. However, it's close enough for now, until someone develops a better benchmark (or better recommended testing procedures).
-
-The author recommends averaging 3 tests, yet the program encourages pasting the results of a single run. I think the benchmark could be improved by running the tests multiple times and finding an average. This change would probably yield closer results for identical models. I may make this change myself if the author doesn't.
-
-So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to present your opinions here as well as my own. Please induldge us and let this page live on with your noted, and quite valid, concerns.
-
--jcollake
-
---
+[see further discussion, which has been moved to end of page]
 
 == Devices performance table ==
 '''Performance of CPU / Memory'''
@@ -67,6 +43,7 @@ So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to pr
 ||2007-02-02 ||kjrozema ||6.9s ||13.1s ||14.6s ||7.6s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||216MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 ||2007-02-02 ||kjrozema ||6.7s ||12.6s ||14.0s ||7.4s ||v0.6 ||OpenWRT RC6 ||Linksys WRT54GL v1.1 ||BCM3302 v0.8 ||225MHz ||["OpenWrtDocs/Hardware/Linksys/WRT54GL"] ||
 ||2007-02-06 || Hauke || 0.2s || 1.2s || 1.0s || 0.1s || v0.6 || Ubuntu Linux EdgyEft || PC ||  Core 2 Duo || 2X 2,13GHz || ||
+||2007-11-07 || ''IordanIordanov'' || 5.0s || 8.9s || 9.6s || 5.7s || v0.6 ||''DD-WRT'' || ''WRT350N'' || ''BCM3302'' || ''300Mhz'' || '''' ||
 
 TODO, which bench to use?
 ||'''Date''' ||'''Tester''' ||'''Time to run''' ||'''Version of bench''' ||'''Device''' ||'''CPU''' ||'''Freq''' ||'''Link to HW page''' ||
@@ -94,3 +71,31 @@ TODO, which bench to use?
  * v0.4 : Added floating point calculation
  * v0.5 : Corrected pi benchamrk
  * v0.6 : Initialization of variables for gcc on NSLU2
+
+== Discussion ==
+---
+[...continued from above]
+
+No, this page is still useless; we're not arguing over what a load average is or what a benchmark is for. We're simply pointing out the absurdity of this benchmark.
+
+Almost all the boards in question are the exact same hardware, they're even based off of the same schematics, otherwise known as a reference design. It doesn't matter what the brand name on the box is; you're comparing a board with a 200Mhz Broadcom mips chip to another board with a 200Mhz Broadcom mips chip and expecting to see dramatic differences. Worse is the fact that you're actually seeing differences between two benchmarks being run on identical models -- this alone should tell you that the testing conditions are flawed.
+
+I'm also not a fan of the "many processors can be safely overclocked" mentality. Yes you can easily change the clock frequency by setting an nvram variable, and it may even work on some boards. The problem is what happens when it doesn't work -- that's where the whole "safe" concept fails, because when it doesn't work there's often no easy or safe way to reset it, you actually have to pull apart the device and connect up a JTAG cable to reset the configuration.
+
+- mbm
+
+---
+
+Ah, I understand your argument now, and it does have merit.
+
+However, not all entries in this table are comparing the same hardware. It is slightly helpful to compare two different architectures or processors to see which may perform best at CPU or memory intensive tasks (at least, to the best this synthetic benchmark may tell us).
+
+The differences in performance on identical models (with identical clocks) is probably due to their load at the time of the testing, or something else. Although the differences are not great, you are right that this does indicate the benchmark isn't 100%. However, it's close enough for now, until someone develops a better benchmark (or better recommended testing procedures).
+
+The author recommends averaging 3 tests, yet the program encourages pasting the results of a single run. I think the benchmark could be improved by running the tests multiple times and finding an average. This change would probably yield closer results for identical models. I may make this change myself if the author doesn't.
+
+So, the page, while perhaps far from perfect, isn't useless IMHO. I'd love to present your opinions here as well as my own. Please induldge us and let this page live on with your noted, and quite valid, concerns.
+
+-jcollake
+
+--
