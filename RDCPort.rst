@@ -6,6 +6,7 @@ The RDC port is a port of OpenWrt to the RDC R321x(-G) and R861x(-G) SoC's. Thes
    * Longshine LCS-WR-2114M
    * Sitecom WL-153
    * Sitecom WL-176
+   * Linksys WRT54GR
 
 PDF downloads from RDC:
 
