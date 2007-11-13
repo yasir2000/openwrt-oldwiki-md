@@ -32,7 +32,7 @@ mount -o rw "$boot_dev" /opt
         pivot /opt /opt
 }
 exec /bin/busybox init}}}
-= /sbin/init for SD/MMC mod on a Linksys WRT54GL
+= /sbin/init for e.g. Linksys WRT54GL with SD/MMC mod =
 
 {{{
 #!/bin/sh
