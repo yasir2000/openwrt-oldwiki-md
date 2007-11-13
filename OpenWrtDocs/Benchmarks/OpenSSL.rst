@@ -1,5 +1,5 @@
 = OpenSSL Benchmarks =
-== Notes: ==
+== Notes ==
  *Benchmarks are based on running: 'openssl speed md5 sha1 sha256 sha512 des des-ede3 aes-128-cbc aes-192-cbc aes-256-cbc rsa2048 dsa2048'.  '''Please include the output for 1024 byte blocks only!'''
  *Hash and block ciphers use 1024 byte blocks;  "k" refers to 1000 bytes per second.
  *Certificate verification and signing are based on 2048 bit keys;  the values are the number of signings/verifications per second.
