@@ -33,6 +33,8 @@ config switch eth0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
+
+If you are using a VLAN 802.11q capable external switch, you can use it simply by configuring the VLAN interfaces as instructed in the next section.  For example: VLAN 1 on the switch would correspond to eth0.1 on OpenWRT.
 === Network Layer ===
 ==== DHCP ====
 {{{
