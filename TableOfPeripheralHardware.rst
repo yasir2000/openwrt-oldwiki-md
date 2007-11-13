@@ -27,7 +27,7 @@ There are two printing subsystems in common use on this platform. The P910nd ser
 To work with CUPS, a device must have a driver that will run directly on the embedded Linux platform. As such, devices for which no Linux drivers exist or for which Linux desktop-PC object code with no sources are provided cannot be listed as being fully compatible in this section. They may work adequately with P910nd's passthrough (as the conversion to printer-specific data formats remains on the desktop) but do not work at all under CUPS.
 
 ||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' ||
-||Samsung||SCX4521||n/a||'''Unknown.''' Multifunction device. The Linux drivers shipped with this unit are object-code only and compiled for x86 and amd64 desktop PC's; the manufacturer's drivers therefore will not run on embedded platforms.||
+||Samsung||SCX4521||n/a||'''Unknown.''' Multifunction device. Linux drivers are object-code only, compiled for x86 and amd64 desktop; manufacturer's drivers therefore will not run on embedded platforms. P910nd passtrough is OK, but unless some third-party driver prints to this, it's not going to work for local printing or CUPS.||
 
 === Scanners ===
 SANE (Scanner Access Now Easy) is designed in such a way as to allow scanners to be shared over a TCP/IP network. The processor which controls the scanner runs a server, the processor on a desktop PC runs a SANE client in order to use the shared scanning device. There is an application (!SaneTwain) which allows a Windows PC to access these shared servers.
@@ -38,6 +38,9 @@ To be compatible with a networked device-sharing configuration, the scanner must
 These devices consist of a scanner, a printer and (most often) a FAX modem as one integrated unit. As such, they physically resemble photocopiers or facsimile machines.
 
 Interface is most often USB, or a combination of USB and some other connection type (such as parallel or network, often for the printer only).
+
+||'''Manufacturer'''||'''Model''' ||'''Version''' ||'''Status''' ||
+||Samsung||SCX4521||n/a||'''No.''' Linux drivers from manufacturer are object-code only, will not run on embedded platforms.||
 
 === Human interface devices ===
 This category exists primarily for interface to keyboards and mice. USB joysticks and game adapters typically also fall into this category, as well as calculator-style numeric keypads designed for use with USB laptops. There is a standard USB device class for these; usually there is no requirement for manufacturer-specific drivers. 
@@ -99,7 +102,7 @@ USB "universal docking stations" normally consist of a powered USB 2.0 hub and s
 || || ||serial||Prolific 2313||'''Supported''' usbserial.ko + pl2313.ko modules in standard distribution.||
 || || ||parallel||Prolific 2315||'''Supported''' by usbprinter.ko module in standard distribution, for printers only.||
 || || ||network||ASIX 88772||'''Kamikaze/2.6''' Supported by asix.ko + usbnet.ko modules in standard Kamikaze 2.6 distributions. No Linux 2.4 drivers exist for this interface.||
-|| || ||audio||C-Media||'''Kamikaze/2.6''' Analogue and optical/SPDIF. Supported; some 2.4-kernel distributions report problems with USB audio behind a USB 2.0 hub.||
+|| || ||audio||C-Media||'''Kamikaze/2.6''' Analogue and optical/SPDIF. Supported; some 2.4-kernel distributions report problems with USB 1.1 audio behind a USB 2.0 hub.||
 || || ||HID|| ||USB-PS/2 keyboard/mouse interfaces appear to be fully standard, compatibility therefore the same as for other hardware in the HID device class. '''Supported''' by modules input-core.ko, evdev.ko, usbkbd.ko, usbmouse.ko, hid.ko to report keypress and mouse events. Without usbhid.ko these return as scancodes and not as ASCII. See https://dev.openwrt.org/ticket/2184 as building HID support through the svn+build process is buggy but certainly not impossible.||
 ||Targus||ACP50|| || ||'''No''', the USB-SVGA video in this unit is proprietary and '''unsupported'''. Other components of this bundle may have partial support.||
 
