@@ -23,7 +23,7 @@ JTAG: ?
 00:06.0 Network controller: Broadcom Corporation Unknown device 4719
 }}}
 
-***cat /proc/cpuinfo***
+'''cat /proc/cpuinfo'''
 {{{system type             : Broadcom BCM5352 chip rev 0
 processor               : 0
 cpu model               : BCM3302 V0.8
@@ -37,5 +37,8 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
-***nvram show***
+'''nvram show'''
 [http://sokrates.mimuw.edu.pl/~sebek/openwrt/wl320gE-nvram.txt]
+
+'''need more info?'''
+contact me at s.zagrodzki@net.icm.edu.pl
