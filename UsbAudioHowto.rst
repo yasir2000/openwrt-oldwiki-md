@@ -43,9 +43,12 @@ Confirmed to work with [http://www.trust.com/14366 Trust Sp-2800p USB Speaker Se
 
  * Terratec AUREON 5.1 USB MKII
 
-Note that there have been reports of problems with USB 1.1 sound cards connected through USB 2.0 hubs, at least with the 2.4 kernel. These appear to have been resolved in the kernel 2.6 drivers; another possible solution is to enable the CONFIG_USB_EHCI_SPLIT_ISO option in the kernel as described here: http://www.nslu2-linux.org/wiki/Peripherals/AudioAdapter
+Note: There are problems with USB 1.1 sound cards connected through USB 2.0 hubs with the 2.4 kernels. This has been resolved in 2.6; another option is to enable the CONFIG_USB_EHCI_SPLIT_ISO option described [http://www.nslu2-linux.org/wiki/Peripherals/AudioAdapter here]. With Linksys WRTSL54GS (only one USB connector, installing another requires hardware modification) or USB "universal laptop docking stations" (a USB2.0 hub plus some combination of USB 1.1 audio, HID, serial/parallel and a LAN interface in one integrated unit), the presence of a USB hub may be unavoidable.
 
-This is an issue for users of the WRTSL54GS (only one USB connector included in the stock unit, soldering in a second one would be a possible hardware modification) and for users of USB "universal laptop docking stations" (where a USB2.0 hub and some combination of audio, HID, network, serial and/or parallel are prepackaged as one integrated unit). See TableOfPeripheralHardware for information on these devices.
+See TableOfPeripheralHardware for additional information on these devices.
+
+= User interfaces =
+The makers of mpd / mpc provide (unsupported) C source code for a [http://musicpd.org/mpcstick.shtml mpcstick] application. This could allow a joystick to be used to provide simple control (ff/rewind, prev, next...) for a media player, or could serve as example code if one were to attempt to develop an application to interface other HID units (such as USB numeric keypads and mice). Most USB numeric keypads provide at least seventeen keys (0-9 . + - * / enter numlock) which could, if suitably-adapted software was created, operate a fully self-contained audio player. The ability to jump directly to any playlist entry by number, as well as a full set of standard functions such as prev/next, play, stop, pause or volume control, could easily be possible.
 
 = Future =
 I would like to find music player software supporting the UPnP Media Renderer standard. This would turn the router into a "wireless music player" simillar to those made by Roku, Linksys, Netgear, Philips (streamium), etc, etc. This would allow the router to automatically discover music on other computers and allow it to be controlled though upnp compliant media players.
