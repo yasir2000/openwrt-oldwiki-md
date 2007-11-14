@@ -20,7 +20,7 @@ The functions that the network server must provide to support this device are:
 
 The MediaMVP device itself then retrieves the media, decompresses MPEG 1/2 in hardware and generates audio/video signals for the TV/monitor.
 
-As nanowindows is intended to provide a subset of X-windows capability, it does follow the X-windows convention of allowing client and server to run on different network nodes. This could raise a possibility of this device becoming a user interface to graphical applications running elsewhere on a LAN.
+As nanowindows is intended to provide a subset of X-windows capability, it does follow the X-windows convention of allowing client and server to run on different network nodes. This could raise a possibility of this device becoming a user interface to graphical applications running elsewhere on a LAN. At one point, an attempt to port Mozilla 1.0 to Nano-X (as [http://nxzilla.sourceforge.net NxZilla]) had been made, but this effort appears to be abandoned.
 
 === Booting MediaMVP hardware from network ===
 There are various versions of the MediaMVP for wired and wireless networks; these fall into two general categories:
