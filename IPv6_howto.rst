@@ -284,7 +284,7 @@ interface br0
         };
 };
 }}}
-Now we add {{{2001:db8:0:f101::1}}} to br0 using the command below.  To keep the changes at boot add it to the ''/etc/init.d/S40network'' script.  Forwarding of our delegated /64 subnet to br0 is done automatically in ''S51radvd''
+Now we add {{{2001:db8:0:f101::1}}} to br0 using the command below.  To keep the changes at boot add it to the ''/etc/init.d/S40network'' script. If the release is kamikaze, ip6addr theaddress/theprefixlength is an interface option in /etc/config/network. Forwarding of our delegated /64 subnet to br0 is done automatically in ''S51radvd'' 
 
 {{{
 ip -6 addr add 2001:db8:0:f101::1/64 dev br0
