@@ -40,7 +40,7 @@ VCEI exceptions         : not available
 '''nvram show'''
 [http://sokrates.mimuw.edu.pl/~sebek/openwrt/wl320gE-nvram.txt]
 
-'''OpenWrt version tested''' 7.09
+'''OpenWrt version tested''' 7.09, brcm-2.4-squashfs
 
 '''need more info?'''
 contact me at s.zagrodzki@net.icm.edu.pl
