@@ -60,7 +60,7 @@ dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
  * In the System Command text field enter 'mount' and hit the Refresh button. Here you should see your USB pen drive's mount point. Something like:
  {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)}}}
- * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 minutes
+ * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 seconds.
  * You can enter in the System Command text field 'ls -l ''''''/tmp/harddisk/part0' and see your first_config.trx file.
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
 === Restore ===
