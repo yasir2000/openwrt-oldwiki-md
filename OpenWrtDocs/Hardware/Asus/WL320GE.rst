@@ -5,7 +5,7 @@ CPU Speed: 200MHz
 Flash size: 4MB
 RAM: 16MB
 Wireless: Broadcom Corporation BCM4306 802.11b/g Wireless LAN Controller / Broadcom BCM4320 802.11 Wireless Controller 4.80.53.0
-Ethernet: 1 ethernet controller
+Ethernet: 1 ethernet port, (but with integrated Broadcom switch, "ETHERNET" port is connected to port number 3)
 USB: ? (no external connector)
 Serial: ?
 JTAG: ?
