@@ -1,5 +1,5 @@
 = Asus WL-700gE =
-Kamikaze has support for this device. However, since you need to fit OpenWrt to internal flash (2MB) it's quite limited on features. IDE HDD is supported, but only as new mount point so installing packages to disk requires some manual work. Device is also marketed as Asus WL-700G.
+Kamikaze has support for this device. However, since you need to fit OpenWrt to internal flash (2MB) it's quite limited on features. IDE HDD is supported, but only as new mount point so installing packages to disk requires some manual work. After replacing the /sbin/init script you can use a partiton of the IDE HDD to install packages the normal way. Device is also marketed as Asus WL-700G.
 
 == Hardware ==
  * Broadcom 4780 @ 266MHz (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
