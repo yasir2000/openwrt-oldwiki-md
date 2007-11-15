@@ -557,7 +557,7 @@ TZ in /etc/profile.
 
 Examples of timezone values:
 ||<style="TEXT-ALIGN: center" |6>[http://www.australia.gov.au/about-australia-13time Australia] ||Melbourne,Canberra,Sydney ||AEST-10AEDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
-||Perth ||AWST-8AWDT-9,M12.1.0,M3.5.0/03:00:00 ||
+||Perth ||AWST-8AWDT-9,M10.5.0,M3.5.0/03:00:00 ||
 ||Brisbane ||AEST-10 ||
 ||Adelaide ||ACST-9:30ACDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00 ||
 ||Darwin ||ACST-9:30 ||
