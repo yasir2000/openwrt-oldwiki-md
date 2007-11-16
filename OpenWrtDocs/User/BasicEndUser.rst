@@ -7,6 +7,7 @@ With that in mind, feel free to download and install a prebuilt image for your d
 The best place to get started is NEEDLINKS
 
  * X-Wrt's installation guide: http://wiki.x-wrt.org/index.php/Installation_Guide
+ * ["OpenWrtDocs/Installing"]
  * Hardware compatibility list: ["TableOfHardware"]
 
 Additional information
