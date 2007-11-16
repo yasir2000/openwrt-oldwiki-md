@@ -19,13 +19,11 @@ If you decide to run the Kernel 2.6 you should select the ALSA drivers. It is im
 
 = Applications =
 == Music Player Daemon ==
-At the time of writing, only one audio application (mpd) has been packaged.
-
 MPD (Music Player Daemon) is a small music player with support for FLAC, MP3 and OGG files. It is a daemon process which is typically controlled by a client such as gmpc running on another desktop machine. For more information about MPD, visit the website at http://www.musicpd.org.
 
 MPD is configured in the file /etc/mpd.conf. The default config file probably won't work as-is, but it should have enough comments to  be edited easily. The MPD package does not currently contain a script to start MPD at boot.
 
-Your music should be accessable through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk or pen drive connected locally.
+Your music should be accessible through the filesystem. Mine is mounted from an NFS share, you could also use a USB disk or pen drive connected locally.
 
 Please see this link for a full install guide of MPD and phpMp2 on an ASUS Wl500gx - should work on other !OpenWrt devices too: http://mpd.wikicities.com/wiki/OpenWRT_FullInstall
 
