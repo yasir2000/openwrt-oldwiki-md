@@ -441,18 +441,16 @@ XINETD_OPTS="-stayalive -inetd_compat"
 
 === pxelinux.0 ===
 
-{{{
-# apt-get install syslinux
-# cd /var/lib/tftpboot
-# cp /usr/lib/syslinux/pxelinux.0 .
-# mkdir pxelinux.cfg
-}}}
+Download the latest syslinux package from http://www.kernel.org/pub/linux/utils/boot/syslinux/ and copy pxelinux.0 into /var/lib/tftpboot/
+(If you need pxelinux to work when the serial cable is not connected, see also [http://wiki.soekris.info/Pxelinux_hangs_if_serial_not_connected this post])
 
 Now also copy your kernel image and/or init ramdisk into this directory. For
 example, if you are using the single kernel+ramdisk image, you could copy it
 here as vmlinuz.ram
 
 Now you need to create the pxeboot config file:
+
+mkdir /var/lib/tftpboot/pxelinux.cfg
 
 /var/lib/tftpboot/pxelinux.cfg/default
 {{{
@@ -955,6 +953,7 @@ To control the error LED on net4501, see https://dev.openwrt.org/ticket/2634
  * [http://pyramid.metrix.net/trac/wiki/InstallingPyramid/PxeBootLiveCD Pyramic PxeBoot Live CD]
  * [http://gentoo-wiki.com/Mounting_a_block_device_with_JFFS2 Mounting a block device with JFFS2 (Gentoo wiki)]
  * [http://maemo.org/community/wiki/ModifyingRootImage Modifying a JFFS2 image]
+ * http://wiki.soekris.info/
 
 ----
 CategoryOpenWrtPort
