@@ -86,6 +86,8 @@ The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS ro
 
 Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]. One more snapshot with corrected Flash block mapping may be found there: http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip. To access a Flash chip in 8-, 16- or 32-bit mode via EJTAG, use 0x1fc00000, 0x3fc00000 and 0x5fc00000 addresses respectively.
 
+In late 2007, development of the openwince JTAG tools has been resumed in a new project named [http://urjtag.sourceforge.net UrJTAG], including the patches mentioned above and added support for USB cables.
+
 {{{
 jtag> print
 No. Manufacturer Part Stepping Instruction Register
