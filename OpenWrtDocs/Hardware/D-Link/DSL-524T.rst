@@ -2,7 +2,7 @@
 
 edited by [http://guidoserra.it Guido Serra]
 
-this webpage was created to add more detail about that ["OpenWrtDocs/Hardware/D-Link/DSL-502T"]
+this webpage was created to add more details about that ["OpenWrtDocs/Hardware/D-Link/DSL-502T"]
 
 = differences =
 
@@ -76,3 +76,11 @@ eoc_vendor_revision     20060209
 # Connection closed by foreign host.
 fork:~ zeph$
 }}}
+
+== Flashing the new firmware ==
+
+as for DSL-502T check the memory mapping
+
+openwrt-ar7-2.4-squashfs.bin goes to mtd4
+
+and it has... 
