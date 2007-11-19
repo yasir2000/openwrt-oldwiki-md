@@ -6,6 +6,18 @@ this webpage was created to add more detail about that ["OpenWrtDocs/Hardware/D-
 
 = differences =
 
+== Specifications ==
+(to be modified)
+ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port
+
+Flash chip: 4MBytes - Samsung K8D3216UBC a 32Mbit NOR-type Flash Memory organized as 4M x 8
+
+SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
+
+CPU: TNETD7300GDU Texas Instruments AR7 MIPS based
+
+== bootloader ==
+
 ip address for adam2 bootloader is 5.8.8.8 (instead of 10.8.8.8 like it was for DSL-502T)
 
 the dump of the adam2 env:
