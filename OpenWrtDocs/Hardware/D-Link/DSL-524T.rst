@@ -94,3 +94,13 @@ and it has... 0x00076B80 as result of searching hsqs with the hexeditor
 ||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||bootloader ||
 ||mtd3 ||{{{0x903f0000}}} ||{{{0x90400000}}} ||config ||
 ||mtd4 ||{{{0x90010000}}} ||{{{0x903f0000}}} ||Kernel + FS ||
+
+so... edit adam2
+
+{{{
+USER adam2
+PASS adam2
+quote "SETENV mtd0,0x90086B80,0x9003f0000" (fs)
+quote "SETENV mtd1,0x90010000,0x90086B80" (kernel)
+quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
+}}}
