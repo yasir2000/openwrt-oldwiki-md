@@ -10,7 +10,7 @@ this webpage was created to add more detail about that ["OpenWrtDocs/Hardware/D-
 (to be modified)
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 4 LAN ports
 
-Flash chip: 32MBytes - [ http://www.spansion.com/products/S29AL032D.html Spansion S29AL032D90TFI04 ]
+Flash chip: 32MBytes - [http://www.spansion.com/products/S29AL032D.html Spansion S29AL032D90TFI04]
 
 SDRAM: 128Mb syncronous DRAM - 2M x 4Bank x16 I/O - HYNIX HY57V281620ETP-H
 
