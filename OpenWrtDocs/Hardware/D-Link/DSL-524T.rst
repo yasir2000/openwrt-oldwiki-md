@@ -83,4 +83,14 @@ as for DSL-502T check the memory mapping
 
 openwrt-ar7-2.4-squashfs.bin goes to mtd4
 
-and it has... 
+and it has... 0x00076B80 as result of searching hsqs with the hexeditor 
+
+(THIS IS VALID JUST FOR my binary compiled ad described in the page for the DSL-502T)
+
+||||||||<style="text-align: center;">'''Custom memory map for OpenWRT''' ||
+||Name ||Start ||End ||Description ||
+||mtd0 ||0x00076B80 ||0x903f0000 ||Filesystem ||
+||mtd1 ||0x90010000 ||0x00076B80 ||Kernel ||
+||mtd2 ||0x90000000 ||0x90010000 ||bootloader ||
+||mtd3 ||0x903f0000 ||0x90400000 ||config ||
+||mtd4 ||0x90010000 ||0x903f00000 ||Kernel + FS ||
