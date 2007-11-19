@@ -104,3 +104,15 @@ quote "SETENV mtd0,0x90086B80,0x9003f0000" (fs)
 quote "SETENV mtd1,0x90010000,0x90086B80" (kernel)
 quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
 }}}
+
+and flash it!
+
+{{{
+quote "MEDIA FLSH"
+binary
+debug
+hash
+put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"
+quote REBOOT
+quit
+}}}
