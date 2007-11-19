@@ -18,7 +18,7 @@ BusyBox on (none) login: admin
 Password:
 BusyBox v0.61.pre (2006.02.09-03:06+0000) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-# cat /proc/ticfg/env show
+# cat /proc/ticfg/env
 memsize 0x01000000
 flashsize       0x00400000
 modetty0        38400,n,8,1,hw
@@ -62,7 +62,6 @@ eoc_vendor_id   DLink
 enable_margin_retrain   1
 eoc_vendor_serialnum    N/A
 eoc_vendor_revision     20060209
-cat: show: No such file or directory
 # Connection closed by foreign host.
 fork:~ zeph$
 }}}
