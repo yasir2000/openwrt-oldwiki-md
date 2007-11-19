@@ -7,7 +7,6 @@ this webpage was created to add more detail about that ["OpenWrtDocs/Hardware/D-
 = differences =
 
 == Specifications ==
-(to be modified)
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 4 LAN ports
 
 Flash chip: 32MBytes - [http://www.spansion.com/products/S29AL032D.html Spansion S29AL032D90TFI04]
