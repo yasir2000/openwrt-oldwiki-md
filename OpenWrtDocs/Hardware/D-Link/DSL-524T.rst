@@ -89,8 +89,8 @@ and it has... 0x00076B80 as result of searching hsqs with the hexeditor
 
 ||||||||<style="text-align: center;">'''Custom memory map for OpenWRT''' ||
 ||Name ||Start ||End ||Description ||
-||mtd0 ||0x90086B80 ||0x903f0000 ||Filesystem ||
-||mtd1 ||0x90010000 ||0x90086B80 ||Kernel ||
-||mtd2 ||0x90000000 ||0x90010000 ||bootloader ||
-||mtd3 ||0x903f0000 ||0x90400000 ||config ||
-||mtd4 ||0x90010000 ||0x903f0000 ||Kernel + FS ||
+||mtd0 ||{{{0x90086B80}}} ||{{{0x903f0000}}} ||Filesystem ||
+||mtd1 ||{{{0x90010000}}} ||{{{0x90086B80}}} ||Kernel ||
+||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||bootloader ||
+||mtd3 ||{{{0x903f0000}}} ||{{{0x90400000}}} ||config ||
+||mtd4 ||{{{0x90010000}}} ||{{{0x903f0000}}} ||Kernel + FS ||
