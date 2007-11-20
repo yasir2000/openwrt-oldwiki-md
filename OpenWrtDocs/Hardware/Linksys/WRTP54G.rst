@@ -19,7 +19,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||3.1.22.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 ||3.1.23.ETSI: ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||
 ||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
-||<^>3.1.24.ETSI||<^>[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source||<^>No Firmware Image No Source||
+||<style="vertical-align: top;">3.1.24.ETSI ||<style="vertical-align: top;">[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||<style="vertical-align: top;">No Firmware Image No Source ||
 ||3.1.27.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r070720-3.1.27.ETSI-r070720.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r070720-3.1.27.ETSI-r070720.img Firmware Image] No Source ||
 ||5.01.04: ||[http://httpconfig.vonage.net/wrt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||
 
@@ -203,7 +203,7 @@ After some experiments with a few WRTP54G-ER units bought in April 2007, further
 == Characteristics of Firmware Version 5.02.04 ==
 In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02.04.  This firmware is currently being studied.  Details will be posted shortly.
 
- * Ping hack works (enter '''0.0.0.0 &&command''''''''' as address to ping) ''
+ * Ping hack works (enter '''0.0.0.0 &&command''''''''' as address to ping) '' ''
 = Customized Firmwares =
  * 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
 = User Accounts in the Official Firmwares =
@@ -266,12 +266,12 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
   . web browser which is updating the firmware.
  * /var/tmp/fw.bin
   . A named pipe to which /usr/www/cgi-bin/firmwarecfg writes the uploaded firmware.
-  . The firmware is read by cm_pc'' and written to flash. ''
+  . The firmware is read by cm_pc and written to flash. '' ''
  * /usr/sbin/ggsip
   . The VOIP functions run inside this process.  This process has many threads which show up in the
-  . ps'' output as separate processes. ''
+  . ps output as separate processes. '' ''
  * /usr/bin/nmm
-  . This is some sort of diagnostic tool for the VOIP functions.  It may control ggsip''.  When started ''
+  . This is some sort of diagnostic tool for the VOIP functions.  It may control ggsip.  When started '' ''
   . it presents a command-line interface.
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
@@ -317,14 +317,14 @@ Here are programs which you can use for packing and unpacking firmware image fil
  * David Chappell's scripts:
  * * Perl script to set CRC: attachment:set_ti_checksum
  * * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
-'''extractwrtp''' extracts the firmware into the following files: '' ''
+'''extractwrtp''' extracts the firmware into the following files:  '' ''
 
- * '''wrtp.img.root''''''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract) ''
- * '''wrtp.img.kernel Kernel''''''''' parition (bootstrap + kernel) ''
- * '''wrtp.img.7zip''''''''' compressed kernel. ''
- * '''wrtp.img.uncompressed''''''''' uncompressed kernel. ''
- * '''wrtp.img.kernel.bootstrap''''''''' bootstrap code that extract compressed kernel ''
- * '''wrtp.img.kernel.padding''''''''' padding part of kernel partition. ''
+ * '''''wrtp.img.root''''''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract) ''
+ * '''wrtp.img.kernel Kernel''''''''' parition (bootstrap + kernel) '' ''
+ * '''wrtp.img.7zip''''''''' compressed kernel.
+ * '''wrtp.img.uncompressed''''''''' uncompressed kernel. '' ''
+ * '''wrtp.img.kernel.bootstrap''''''''' bootstrap code that extract compressed kernel
+ * '''wrtp.img.kernel.padding''''''''' padding part of kernel partition. '' ''
 '''buildwrtp''' builds the firmware by combining kernel partition and root partition
 
  . -k <kernel file> -r <root file> -f <output file> -i <device identity> -p <product id> -K <minimum hex blocks (64K) for kernel patition> -R <minimum hex blocks (64K) for root partition>
