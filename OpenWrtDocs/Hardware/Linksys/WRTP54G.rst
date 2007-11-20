@@ -19,6 +19,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||3.1.22.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r061201-3.1.22.ETSI-r061201.img Firmware Image] No Source ||
 ||3.1.23.ETSI: ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||[http://www.telefonujeme.cz/download.php?id=651 Firmware Image] No Source ||
 ||3.1.24: ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source ||[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=RTP300-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860858925&ssbinary=true Firmware Image] No Source ||
+||<^>3.1.24.ETSI||<^>[http://www.linksys.com/servlet/Satellite?blobcol=urldata&blobheadername1=Content-Type&blobheadername2=Content-Disposition&blobheadervalue1=application/zip&blobheadervalue2=inline;+filename=WRTP54G-NA_fw_3.1.24.zip&blobkey=id&blobtable=MungoBlobs&blobwhere=1130860863059&ssbinary=true Firmware Image] No Source||<^>No Firmware Image No Source||
 ||3.1.27.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r070720-3.1.27.ETSI-r070720.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r070720-3.1.27.ETSI-r070720.img Firmware Image] No Source ||
 ||5.01.04: ||[http://httpconfig.vonage.net/wrt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||
 
@@ -29,33 +30,27 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]! This is different the mounted file system dumps which contain only the files from the mounted root
  * The root file system extracted from firmware version 3.1.17 is available here attachment:wrtp54g-3.1.17-root.tar.bz2
-
-
-
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
  * The telephony chip is the Legerity Le88221, part of the VE880 series. There is a website with product liturature and example code at http://www.legerity.com/products.php?cid=&sid=1&bpid=33
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
  * There is information about Linux on AR7 at http://www.linux-mips.org/wiki/AR7
-
 See also: ["AR7Port"]
 
 == Flash Layout ==
-
 = Flash Memory layout of RTP300 =
-
 The initial flash layout is as follows:
+||PSPBoot Name ||Start ||End ||Size ||
+||BOOTLOADER ||0xB0000000 ||0xB0010000 ||0x010000 (64K) ||
+||boot_env ||0xB0010000 ||0xB0020000 ||0x010000 (64K) ||
+||IMAGE_A ||0xB0020000 ||0xB03F0000 ||0x3D0000 ||
+||CONFIG_A ||0xB03f0000 ||0xB0400000 ||0x010000 (64K) ||
+||IMAGE_B ||0xB0400000 ||0xB07d0000 ||0x3D0000 ||
+||CONFIG_B ||0xB07d0000 ||0xB07e0000 ||0x010000 (64K) ||
+|| ||0xB07e0000 ||0xB00f0000 ||0x010000 (64K) ||
+||cyt_private ||0xb07f0000 ||0xb0800000 ||0x010000 (64K) ||
 
-||PSPBoot Name||Start     ||End       ||Size          ||
-||BOOTLOADER  ||0xB0000000||0xB0010000||0x010000 (64K)||
-||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K)||
-||IMAGE_A     ||0xB0020000||0xB03F0000||0x3D0000      ||
-||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K)||
-||IMAGE_B     ||0xB0400000||0xB07d0000||0x3D0000      ||
-||CONFIG_B    ||0xB07d0000||0xB07e0000||0x010000 (64K)||
-||            ||0xB07e0000||0xB00f0000||0x010000 (64K)||
-||cyt_private ||0xb07f0000||0xb0800000||0x010000 (64K)||
 
 This layout is reflected in /dev/mtd as follows:
 
@@ -70,34 +65,30 @@ mtd5: 00010000 00010000 "RESERVED_PRIMARY_XML_CONFIG"    (64K - 65,536 bytes)
 mtd6: 00010000 00010000 "RESERVED_SECONDARY_XML_CONFIG"  (64K - 65,536 bytes)
 mtd7: 00010000 00002000 "RESERVED_BOOTLOADER"            (64K - 65,536 bytes)
 mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
-
 3.1.XX firmwares on first boot run the script /etc/fpar_check which changes the flash layout to the following:
+||PSPBoot Name ||Start ||End ||Size ||
+||BOOTLOADER ||0xB0000000 ||0xB0010000 ||0x010000 (64K) ||
+||boot_env ||0xB0010000 ||0xB0020000 ||0x010000 (64K) ||
+||IMAGE_A ||0xB0020000 ||0xB03E0000 ||0x3C0000 ||
+||CONFIG_B ||0xB03E0000 ||0xB03F0000 ||0x010000 (64K) ||
+||CONFIG_A ||0xB03f0000 ||0xB0400000 ||0x010000 (64K) ||
+||IMAGE_B ||0xB0400000 ||0xB07c0000 ||0x3C0000 ||
+||fpar ||0xB07c0000 ||0xB07f0000 ||0x010000 (192K) ||
+||cyt_private ||0xb07f0000 ||0xb0800000 ||0x010000 (64K) ||
 
-||PSPBoot Name||Start     ||End       ||Size           ||
-||BOOTLOADER  ||0xB0000000||0xB0010000||0x010000 (64K) ||
-||boot_env    ||0xB0010000||0xB0020000||0x010000 (64K) ||
-||IMAGE_A     ||0xB0020000||0xB03E0000||0x3C0000       ||
-||CONFIG_B    ||0xB03E0000||0xB03F0000||0x010000 (64K) ||
-||CONFIG_A    ||0xB03f0000||0xB0400000||0x010000 (64K) ||
-||IMAGE_B     ||0xB0400000||0xB07c0000||0x3C0000       ||
-||fpar        ||0xB07c0000||0xB07f0000||0x010000 (192K)||
-||cyt_private ||0xb07f0000||0xb0800000||0x010000 (64K) ||
 
-A comment in the script says that ''fpar' is for "storing sipura-sip voice parameters".
+A comment in the script says that ''fpar' is for "storing sipura-sip voice parameters". ''
 
 == Additional Notes About Firmware Blocks ==
-
  * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware if firmware flashing fails.  After boot the two firmwares are visible as mtd3 and mtd4 with mtd3 being the active firmware.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.  Unfortunately, changes to BOOTCFG do not stick.  See the description of this variable in the section on the boot environment.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
- * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
+ * mtd0 root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib. ''
  * mtd5 and mtd6 each begin with a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
- * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.
+ * mtd7 RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables. ''
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erased before it can be written to.  Flashing firmware is fully described elsewhere in this document.
  * The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
  * The partition table seems to be constructed from various PSPBoot environment variables.  The kernel code to do this is in drivers/mtd/maps/avalance-flash.c.  Code in this file also creates the links in /dev/ti_partitions/.
-
 == Boot Loader ==
-
 The boot loader is PSPBoot.  It is said that the source code for this boot loader is available in some tarball.  If you know which tarball, please add a link to it here.
 
 The PSPBoot loader is stored in the first partition of the flash memory.  This partition is 64K long.
@@ -105,55 +96,14 @@ The PSPBoot loader is stored in the first partition of the flash memory.  This p
 = Boot Loader Environment =
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
-At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the ''setpermenv'' command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt.
+At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the setpermenv'' command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt. ''
 
-After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the format "''setenv'' '''name''' '''value''' changes a variable, as long as it is not read-only.
+''After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the format "''setenv'' '''name''' '''value''' changes a variable, as long as it is not read-only. ''
 
-Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized.
+''Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized. ''
 
 {{{
-BUILD_OPS 0x541
-bootloaderVersion 1.3.3.11.2.6
-HWRevision 1.00.03
-max_try 4
-IMAGE_A 0x90020000,0x903f0000
-CONFIG_A 0x903f0000,0x90400000
-IMAGE_B 0x90400000,0x907d0000
-CONFIG_B 0x907d0000,0x907e0000
-BOOTCFG_A m:f:"IMAGE_A"
-BOOTCFG_B m:f:"IMAGE_B"
-HW_COMPANDING linear
-FSX_FSR 16
-TELE_IF INTERNAL
-BOOTLOADER 0x90000000,0x90010000
-save_voice_config yes
-DSP_CLK 12288000:10
-boot_env 0xb0010000,0xb0020000
-cyt_private 0xb07f0000,0xb0800000
-TELE_ID VE882XX:AUTO
-WIFI_LED_GPIO 13
-WIFI_LED_RATE 50
-SUBNET_MASK 255.255.255.0
-MAC_PORT 0
-MEMSZ 0x01000000
-FLASHSZ 0x00800000
-MODETTY 0115200,n,8,1,hw
-CPUFREQ 162500000
-SYSFREQ 125000000
-PROMPT (psbl)
-IPA 192.168.6.15
-IPA_GATEWAY 192.168.6.254
-ProductID CYLL
-CONSOLE_STATE locked
-TFTPU_STATE OFF
-SerialNumber CJM00E5xxxxx
-HASH_DIR 8wA2fClJsg
-CRYPT_KEY 47035165D59457E16ACA0EFC747AC05C9985F36DDD60B5641B25E1EC581AEFE3
-ADMIN_PWD ABPPRAHK55QVA
-HWA_0 00:13:10:AC:02:AB
-HWA_1 00:13:10:AC:02:AA
-BOOTCFG m:f:"IMAGE_A"}}}
-
+}}}
 If the environment flash partition (the second one) is erased, a default environment will be created using data in the PSPBoot partition as a basis.  The default environment seems adequate to boot Linksys firmwares.  The only difference noted is that IPA is set to 169.254.87.1.
 
 == CONSOLE_STATE ==
@@ -183,10 +133,9 @@ Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewh
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
 The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  BOOTCFG must be set using the setpermenv command, either from PSPBoot (serial console required) or by writing an appropriate command to /proc/ticfg/env, like so:
 
-  {{{
+ . {{{
   # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
   }}}
-
 Unfortunately, changes made in this way do not stick.  If you have insight as to why this is, please add it here.
 
 = Firmware Source Code Supplied by Linksys =
@@ -207,7 +156,6 @@ All of the known firmwares have the following characteristics in common:
  * Linux 2.4.17 kernel with Montavista patches
  * uClibc
  * Busybox
-
 == Characteristics of Firmware Version 1.00.XX ==
 As of September 2006, Vonage loads firmware version 1.00.62. This firmware has the following distinguishing characteristics:
 
@@ -218,7 +166,7 @@ As of September 2006, Vonage loads firmware version 1.00.62. This firmware has t
   * The "Voice" tab is a dud which suggests that one contact one's service provider for "more information"
   * There are no links to the voice pages
   * The voice tabs do not include the higher level tab bar, so there is no easy way to move out of "Voice"
- * Distinctive can be used by setting ALERT_INFO to <Bellcore-dr''X''> where X is 1--7.
+ * Distinctive can be used by setting ALERT_INFO to <Bellcore-drX''> where X is 1--7. ''
  * Some people have reported that the lines will not stay registered with an Asterisk server, especially if both are registered. This is discussed below.
  * There are no visible settings for an outgoing SIP proxy or an STUN server. There is a setting which may be for sending NOTIFY messages to keep a NAT mapping active, but it does not seem to work.
  * The default register interval is 1 minute. This is rather short and may be intended to keep the NAT mapping active.
@@ -243,9 +191,7 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * Dropbear binary removed and ssh setting disabled.
 == Characteristics of Firmware Version 3.1.22 ==
  * Ping hack works (enter '''0.0.0.0 &&'''''''command'''' as address to ping)
-
 == Characteristics of Firmware Version 3.1.24-NA ==
-
 After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.  The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown.
 
  * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
@@ -254,15 +200,12 @@ After some experiments with a few WRTP54G-ER units bought in April 2007, further
  * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
-
 == Characteristics of Firmware Version 5.02.04 ==
 In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02.04.  This firmware is currently being studied.  Details will be posted shortly.
 
- * Ping hack works (enter '''0.0.0.0 &&''command''''' as address to ping)
-
+ * Ping hack works (enter '''0.0.0.0 &&command''''''''' as address to ping) ''
 = Customized Firmwares =
  * 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
-
 = User Accounts in the Official Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
@@ -293,8 +236,8 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/bin/lightbox
   . Mystery program run from /etc/init.d/rcS. It seems that it must start most of the daemons.
  * /usr/bin/cm_pc
-  . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and 
-  . writes it to the inactive flash partition.  It then copies the active configuration partition to the 
+  . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and
+  . writes it to the inactive flash partition.  It then copies the active configuration partition to the
   . inactive configuration partition, arranges in some unspecified way for the next boot to load from the
   . currently inactive partition, and reboots the router.
  * /usr/bin/cm_convert
@@ -323,14 +266,13 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
   . web browser which is updating the firmware.
  * /var/tmp/fw.bin
   . A named pipe to which /usr/www/cgi-bin/firmwarecfg writes the uploaded firmware.
-  . The firmware is read by ''cm_pc'' and written to flash.
+  . The firmware is read by cm_pc'' and written to flash. ''
  * /usr/sbin/ggsip
-  . The VOIP functions run inside this process.  This process has many threads which show up in the 
-  . ''ps'' output as separate processes.
+  . The VOIP functions run inside this process.  This process has many threads which show up in the
+  . ps'' output as separate processes. ''
  * /usr/bin/nmm
-  . This is some sort of diagnostic tool for the VOIP functions.  It may control ''ggsip''.  When started
+  . This is some sort of diagnostic tool for the VOIP functions.  It may control ggsip''.  When started ''
   . it presents a command-line interface.
-
 = Firmware Update File Format =
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
@@ -366,42 +308,31 @@ Here is a partial description of the format of the firmware update file format w
  * Firmware images intended to be written directly into flash end at this point.  Firmware images intended for upgrading through the web interface have two additional words:
   * A little-endian magic number of 0xC453DE23
   * A little-endian CRC of all bytes from the start until just before the magic number
-
 Most firmware files intended to be written directly into flash are 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
 
 == Working with Firmware Files ==
-
 Here are programs which you can use for packing and unpacking firmware image files:
 
  * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2
  * David Chappell's scripts:
- ** Perl script to set CRC: attachment:set_ti_checksum
- ** Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
+ * * Perl script to set CRC: attachment:set_ti_checksum
+ * * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
+'''extractwrtp''' extracts the firmware into the following files: '' ''
 
-'''''extractwrtp''' extracts the firmware into the following files: ''
- * '''''wrtp.img.root''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract)
- * '''''wrtp.img.kernel Kernel''''' parition (bootstrap + kernel)
- * '''''wrtp.img.7zip''''' compressed kernel.
- * '''''wrtp.img.uncompressed''''' uncompressed kernel.
- * '''''wrtp.img.kernel.bootstrap''''' bootstrap code that extract compressed kernel
- * '''''wrtp.img.kernel.padding''''' padding part of kernel partition.
- 
+ * '''wrtp.img.root''''''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract) ''
+ * '''wrtp.img.kernel Kernel''''''''' parition (bootstrap + kernel) ''
+ * '''wrtp.img.7zip''''''''' compressed kernel. ''
+ * '''wrtp.img.uncompressed''''''''' uncompressed kernel. ''
+ * '''wrtp.img.kernel.bootstrap''''''''' bootstrap code that extract compressed kernel ''
+ * '''wrtp.img.kernel.padding''''''''' padding part of kernel partition. ''
 '''buildwrtp''' builds the firmware by combining kernel partition and root partition
-   -k <kernel file>
-   -r <root file>
-   -f <output file>
-   -i <device identity>
-   -p <product id>
-   -K <minimum hex blocks (64K) for kernel patition>
-   -R <minimum hex blocks (64K) for root partition>
 
+ . -k <kernel file> -r <root file> -f <output file> -i <device identity> -p <product id> -K <minimum hex blocks (64K) for kernel patition> -R <minimum hex blocks (64K) for root partition>
 == Working with the Squashfs ==
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
 
-   * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
-
-   * The patch: attachment:lzma427_zlib.patch
-
+ * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
+ * The patch: attachment:lzma427_zlib.patch
 '''unsquashfs-lzma''' can be used to extract the files from a root partition image (previously extracted from a firmware image file) into a directory
 
 '''mksquashfs-lzma''' packs the contexts of a directory into a root partition image which can subsequently be packed into a firmware image file
@@ -418,7 +349,6 @@ The configuration can be extracted using the web interface (Administration/Manag
  * Bytes 0x000C through 0x000F contain a CRC of the compressed configuration file
  * Bytes 0x0010 through 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
-
 = Serial Console =
 {{{
 ________________________________________
@@ -446,7 +376,6 @@ The serial port is the boot loader console. If the boot-loader environment varia
 
 {{{
 # echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
-
 You should try to do this as soon as you can since you may need to use the serial console to recover after flashing a bad firmware.  If it is not unlocked, your ownly remaining option is to use a JTAG cable to read the environment block, use a hex editor to change "locked" to "unlocked" (followed by a 0 byte) and write the environment block back to flash.
 
 Most if not all firmwares allow login on the serial port once they are booted. Some run /bin/login whereas others simply run /bin/sh. The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password. Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
@@ -475,7 +404,6 @@ __________________________________________
  \________________________________________|
     *voltage reference @ 3.3 volts
 }}}
-
 This ejtag layout should apply to all ar7 based boards with a 14 pin jtag pinout. The same cable as used for the wrt54g (based on the xilinx III/dlc-5) as described by !HairyDairyMaid can be used with the RTP300. Debug INT pin 13 is optional.  A 100 Ohm resister should be connected between pins 1 and 14.
 
 A patched version of the JTAG utility written by HairyDairyMaid for the WRT54G can be used to reprogram the flash.  A link to it and instructions will be posted here shortly.
@@ -485,7 +413,6 @@ Writing to flash using JTAG and a passive cable is slow.  Writing a firmware wou
  * [http://www.dlinkpedia.net/index.php/Jtag_su_30xT JTAG for a similar AR7 device]
  * [http://www.dlinkpedia.net/index.php/Interfaccia_JTAG JTAGInterface] (Italian!)
  * ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] guide
-
 = Firmware Flashing =
 There are several proven ways to write a new firmware into flash:
 
@@ -493,7 +420,6 @@ There are several proven ways to write a new firmware into flash:
  * Setting a firmware update URL on the provisioning page
  * From a Firmware Shell Prompt
  * Using a serial console at the PSPBoot prompt and TFTP
-
 It is presumably possible to write a firmware using JTAG, but it would be very slow, at least if one uses a passive cable connected to a computer's parallel port.
 
 The PSPBoot page suggests that there is a one second window during PSPBoot startup during which a TFTP server is ready to accept a new firmware named upgrade_code.bin, but this feature does not seem to be included in the build of PSPBoot installed on the RTP300.
@@ -520,7 +446,6 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds. The router will restore its factory defaults and reboot. Return to step three.
 
 == Seting a Firmware Update URL on the Provisioning Page ==
-
 VOIP providers can configure these routers to periodically download a VOIP configuration file. This file contains VOIP settings and login credentials for the provider's SIP server. This process is called "provisioning". The "provisioning" file can also instruct the router to download and install a new firmware. The Provisioning page in the web interface can also be used to initiate this process. This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page. Here is the procedure for the 3.1.XX series firmware:
 
  * Connect to the web interface and log in as admin
@@ -534,7 +459,6 @@ VOIP providers can configure these routers to periodically download a VOIP confi
 The firmware should be in the same format as for upgrading through the web interface.
 
 == From a Firmware Shell Prompt (the hard way) ==
-
 You can use this procedure only if you have access to a shell running on the router.  Access is generally obtained either by connecting to the route's serial port or to its SSH server.
 
 Using this procedure, you can write a firmware into one of the two firmware partitions. Note that while you can overwrite the running firmware and reboot, it may not be a safe practice. One can presumably overwrite the inactive firmware, but it is unclear how to then make it the active firmware. This procedure describes how to overwrite the inactive firmware.
@@ -542,46 +466,39 @@ Using this procedure, you can write a firmware into one of the two firmware part
  * You will need the flash erase tool (erase.c in the GPL tarball) compiled to run on the router. ( attachment:flash_erase )
  * Create a new firmware image. See Firmware Upgrade File Format above. (Briefly, byte 0x000B should be 0x17, there should be no CRC, and the firmware should be exactly 3,866,624 bytes long.)
  * Download '''flash_erase''' and the firmware to the router:
-  {{{
+  . {{{
   # cd /var
   # wget http://myhost/dir/flash_erase
   # chmod 755 erase
   # wget http://myhost/dir/rtp300-XXXXX.bin
   }}}
  * Erase and write the flash block for the inactive firmware copy:
-  {{{
+  . {{{
   # /var/flash_erase /dev/mtd/4 0 60 && dd if=/var/rtp300-XXXXX.bin of=/dev/mtd/4
   }}}
  * Figure out which firmware area is currently active:
-  {{{
+  . {{{
   # grep BOOTCFG /proc/ticfg/env
   }}}
  * Switch to the newly written firmware by using the appropriate command:
-  {{{
+  . {{{
   # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
   # echo 'setenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
   }}}
-
 Unfortunately, setting BOOTCFG does not seem to work.  The only known way to set it is to delete the active firmware (after writing a new one).
 
 One could simply overwriting the active firmware (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
 
 == From a Firmware Shell Prompt (the easy way) ==
-
 A much easier way to flash a new firmware from the router shell prompt has recently been discovered.
 
 You can use this procedure only if you have access to a shell running on the router.  Access is generally obtained either by connecting to the route's serial port or to its SSH server.
 
-  # cd /var
-  # wget http://myhost/dir/flash_erase
-  # chmod 755 erase
-  # wget http://myhost/dir/rtp300-XXXXX.bin
-  # dd if=rtp300-XXXXX.bin of=/var/tmp/fw.bin
-
+ . # cd /var
+ # wget http://myhost/dir/flash_erase # chmod 755 erase # wget http://myhost/dir/rtp300-XXXXX.bin # dd if=rtp300-XXXXX.bin of=/var/tmp/fw.bin
 If the new firmware is accepted, it will be written to the inactive flash partition, the active configuration partition will be copied to the inactive one, BOOTCFG will be set to boot from the new firmware (exactly how is unclear), and the router will reset and the new firmware will be bootstrapped.
 
 == From the PSPBoot prompt ==
-
 In order to use this method you must obtain or make a voltage converterting cable for your router's serial port and hook it up as described in the section Serial Port. You must also change the value of CONSOLE_STATE as described in the same section. Since you need shell access to the router in order to change CONSOLE_STATE, you will not be able to use this method unless the existing firmware allows shell access or you set CONSOLE_STATE when you last had access.
 
 The PSPBoot boot loader has predefined environment variables called IMAGE_A and IMAGE_B which contain the start and stop addresses of the mtd3 and mtd4 flash partitions. A new firmware can be loaded into one of the spaces by formatting the space and copying in a properly formated firmware file using TFTP. For example, if you have a firmware called new_firmware.bin on a TFTP server on a computer attached to one of the yellow ports with an IP address of 192.168.15.100, the commands are like this:
@@ -594,23 +511,19 @@ FlashEraseBlock(b0020000,b03dffff);
 (psbl) tftp -i 192.168.15.100 new_firmware.bin IMAGE_A
 ......................................................
 }}}
-
 Flashing the firmware in this way is much slower than flashing it through the web interface, but much faster than through JTAG.
 
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
 
 == Locked Out ==
-
 It is fairly easy to lock yourself out of the router by setting a bad password or installing a bad firmware.  Please add tips for regaining access to this section.
 
 === Unlocking Tools ===
-
 The CYT Device Unlock tools were written in order to gain access to routers previously used with Vonage.  This tool resets the password for the Admin account and the user account so that you can have access to the firmware upgrade screens and the SIP settings.  Note that this tool clears all settings, not just the passwords.  This is the current URL location for the tool:
 
 http://www.bargainshare.com/index.php?showtopic=87504
 
 === Ping Hack ===
-
 [To be written.]
 
 ----
