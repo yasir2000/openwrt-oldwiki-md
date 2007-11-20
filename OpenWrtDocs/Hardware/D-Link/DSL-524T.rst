@@ -90,7 +90,7 @@ and it has... 0x00076B80 as result of searching hsqs with the hexeditor
 ||||||||<style="text-align: center;">'''Custom memory map for OpenWRT''' ||
 ||Name ||Start ||End ||Description ||
 ||mtd0 ||{{{0x90086B80}}} ||{{{0x903f0000}}} ||Filesystem ||
-||mtd1 ||{{{0x90010000}}} ||{{{0x90086B80}}} ||Kernel ||
+||mtd1 ||{{{0x90010090}}} ||{{{0x90086B80}}} ||Kernel ||
 ||mtd2 ||{{{0x90000000}}} ||{{{0x90010000}}} ||bootloader ||
 ||mtd3 ||{{{0x903f0000}}} ||{{{0x90400000}}} ||config ||
 ||mtd4 ||{{{0x90010000}}} ||{{{0x903f0000}}} ||Kernel + FS ||
@@ -100,9 +100,9 @@ so... edit adam2
 {{{
 USER adam2
 PASS adam2
-quote "SETENV mtd0,0x90086B80,0x9003f0000" (fs)
-quote "SETENV mtd1,0x90010000,0x90086B80" (kernel)
-quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
+quote "SETENV mtd0,0x90086B80,0x903f0000" (fs)
+quote "SETENV mtd1,0x90010090,0x90086B80" (kernel)
+quote "SETENV mtd4,0x90010000,0x903f0000" (fs+kernel)
 }}}
 
 and flash it!
