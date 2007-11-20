@@ -116,3 +116,30 @@ put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"
 quote REBOOT
 quit
 }}}
+
+{{{
+fork:~ zeph$ telnet 192.168.1.1
+Trying 192.168.1.1...
+Connected to 192.168.1.1.
+Escape character is '^]'.
+ === IMPORTANT ============================
+  Use 'passwd' to set your login password
+  this will disable telnet and enable SSH
+ ------------------------------------------
+
+
+BusyBox v1.4.0 (2007-10-16 18:03:36 CEST) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r6250) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/# 
+}}}
