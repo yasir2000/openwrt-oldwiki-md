@@ -11,38 +11,16 @@ The Cisco router needs to have a static IP on the wan side, but the other side (
 
 The networks in this example are as follows:
 
-
----- /!\ '''Edit conflict - other version:''' ----
 === OpenWRT Router ===
-
----- /!\ '''Edit conflict - your version:''' ----
-=== OpenWRT Router ===
-
----- /!\ '''End of edit conflict''' ----
 LAN Ip: 192.168.20.254
 Lan network: 192.168.20.0/24
 Wan IP: Dynamic
 
-
----- /!\ '''Edit conflict - other version:''' ----
 === Cisco Router ===
-
----- /!\ '''Edit conflict - your version:''' ----
-=== Cisco Router ===
-
----- /!\ '''End of edit conflict''' ----
 Lan IP: 192.168.1.254
 Lan Network: 192.168.1.0/24
 Wan IP: 192.168.40.162
-
-
----- /!\ '''Edit conflict - other version:''' ----
 == OpenSwan Configuration ==
-
----- /!\ '''Edit conflict - your version:''' ----
-== OpenSwan Configuration ==
-
----- /!\ '''End of edit conflict''' ----
 /etc/ipsec.conf
 {{{
 # This file holds shared secrets or RSA private keys for inter-Pluto
@@ -101,13 +79,7 @@ iptables -A forwarding_rule -i ipsec0 -o $LAN -j ACCEPT
 }}}
 
 
----- /!\ '''Edit conflict - other version:''' ----
 == Cisco Router ==
-
----- /!\ '''Edit conflict - your version:''' ----
-== Cisco Router ==
-
----- /!\ '''End of edit conflict''' ----
 These commands configure the Cisco to have the same IPSEC policy as Openswan, and disable NAT from the remote network.
 This is handled in the 101 access list
 {{{
