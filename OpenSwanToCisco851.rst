@@ -38,7 +38,7 @@ Wan IP: 192.168.40.162
 conn tunnelipsec
         type=tunnel
         authby=secret
-        left=192.168.40.160
+        left=%defaultroute
         leftnexthop=%defaultroute
         leftsubnet=192.168.20.0/24
         right=192.168.40.162
