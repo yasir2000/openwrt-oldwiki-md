@@ -5,6 +5,18 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 
 = Hardware =
 == Info ==
+||'''Architecture''' ||MIPS ||
+||'''Vendor''' ||Broadcom ||
+||'''Bootloader''' ||CFE ||
+||'''System-On-Chip''' ||Broadcom BCM5352E ||
+||'''CPU Speed''' ||200 Mhz ||
+||'''Flash size''' ||4 MiB ||
+||'''RAM''' ||16 MiB ||
+||'''Wireless''' ||Broadcom BCM43xx 802.11b/g Wireless LAN (integrated) ||
+||'''Ethernet''' || ||
+||'''USB''' ||No ||
+||'''Serial''' ||Yes ||
+||'''JTAG''' ||Yes ||
 == Serial port ==
 == Photos ==
 == Opening the case ==
