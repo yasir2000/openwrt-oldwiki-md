@@ -8,12 +8,12 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 ||'''Architecture''' ||MIPS ||
 ||'''Vendor''' ||Broadcom ||
 ||'''Bootloader''' ||CFE ||
-||'''System-On-Chip''' ||Broadcom BCM5352E ||
+||'''System-On-Chip''' ||Broadcom 5352EKPB ||
 ||'''CPU Speed''' ||200 Mhz ||
 ||'''Flash size''' ||4 MiB ||
 ||'''RAM''' ||16 MiB ||
 ||'''Wireless''' ||Broadcom BCM43xx 802.11b/g Wireless LAN (integrated) ||
-||'''Ethernet''' || ||
+||'''Ethernet''' ||Switch in CPU ||
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
@@ -94,22 +94,6 @@ Note that the wireless part is only supported on the 2.4-kernel version of Kamik
 ||WRT54GL v1 ||0x10 ||0x467 ||0x2558 ||0 ||42 ||9 || || || BCM3302 V0.8 || ||
 ||WRT54GL v1.1 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7 ||CFE 3.91.37.0 || BCM3302 V0.8 ||BCM5352EK ||
 == V1.1 ==
-=== System Info ===
-The WRT54GL v1.1 uses a Broadcom 5352 CPU with integrated switch. The board is practically identical to the board used for the [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] v4.0 and [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] 4.0 (4Mb version)
-
-{{{
-Bootloader     : CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
-System-On-Chip : Broadcom 5352EKPB
-CPU Speed      : 200 MHz
-Flash size     : 4 MB (Intel TE28F320 or Samsung)
-RAM            : 16 MB (Hynix HY5DU281622ET)
-Wireless       : Integrated Broadcom BCM2050KML
-Switch         : Built-in
-USB            : None
-Serial         : Yes (JP2)
-JTAG           : Assumed on JP1
-}}}
-Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Firmware 4.30.2 or .5) runs  RC6, Freifunk 1.4.5c and webIF (X-WRT) images no problem at all. Good availability at 55-60 EURO in August 2007.
 
 === Switch Ports (for VLANs) ===
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs.
