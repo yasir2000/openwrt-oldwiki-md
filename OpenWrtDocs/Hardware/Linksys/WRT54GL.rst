@@ -19,7 +19,7 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 == Failsafe mode ==
 If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
-==== Boot into failsafe mode ====
+=== Boot into failsafe mode ===
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
@@ -27,7 +27,7 @@ If you forgot your password, broken one of the startup scripts, firewalled yours
  * While the DMZ LED is on immediately press any button (Reset and Secure Easy Setup will work) a few times .
  * If done right the DMZ LED will quickly flash 3 times every second.
  * You should be able to telnet to the router at 192.168.1.1 now (no username and password)
-==== What to do in failsafe mode? ====
+=== What to do in failsafe mode? ===
 '''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run mount_root and make any changes. Run mount_root now.
 
  1. Forgot/lost your password and you like to set a new one
