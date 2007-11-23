@@ -80,7 +80,7 @@ Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
 Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 = Hardware mods =
-== SD/MMC hack ==
+== SD/MMC card hack ==
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
