@@ -17,8 +17,13 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 == QoS ==
 == WiFi ==
 === Enable WiFi ===
+{{{
+uci set wireless.wl0.disabled=0
+uci commit wireless && wifi}}}
 === WiFi encryption ===
+Plese see [:OpenWrtDocs/KamikazeConfiguration/WiFiEncryption:WiFiEncryption].
 === WiFi toggle ===
+Turn !WiFi on/off with the EZSETUP or RESTORE [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 = Hardware mods =
 == SD/MMC hack ==
