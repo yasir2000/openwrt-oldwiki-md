@@ -6,12 +6,31 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 = Installation =
 == Using the Linksys Web GUI ==
 == Using the TFTP method ==
-
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
 == Failsafe mode ==
-== Buttons ==
+If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
+==== Boot into failsafe mode ====
+ * Unplug the router's power cord.
+ * Connect the router's LAN1 port directly to your PC.
+ * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
+ * Plug the power on and wait for the power LED to switch off
+ * While the power LED is off press any button (Reset and Secure Easy Setup (SES) will work) a few times
+ * Power LED goes fast-blinking (about 1 time per second)
+ * You should be able to telnet to the router at 192.168.1.1 now (no username and password)
+==== What to do in failsafe mode? ====
+'''NOTE:''' The root file system in failsafe mode is the SquashFS partition mounted in readonly mode. To switch to the normal writable root file system run mount_root and make any changes. Run mount_root now.
+
+ 1. Forgot/lost your password and you like to set a new one
+ passwd[[BR]]
+ 1. Forgot the routers IP address
+ uci get network.lan.ipaddr[[BR]]
+ 1. You accidentally run 'ipkg upgrade' or filled up the flash by installing to big packages (clean the JFFS2 partition and start over)
+ mtd -r erase rootfs_data[[BR]]
+If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
+
+== Buttons ==
 = Basic configuration =
 == PPPoE ==
 == QoS ==
@@ -21,13 +40,13 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 uci set wireless.wl0.disabled=0
 uci commit wireless && wifi}}}
 === WiFi encryption ===
-Plese see [:OpenWrtDocs/KamikazeConfiguration/WiFiEncryption:WiFiEncryption].
+Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
+
 === WiFi toggle ===
 Turn !WiFi on/off with the EZSETUP or RESTORE [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 = Hardware mods =
 == SD/MMC hack ==
-
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
@@ -61,7 +80,7 @@ Latest version uses Samsung Flash. The GL v1.1 (bottom label reads v1.1, e.g. Fi
 
 === Switch Ports (for VLANs) ===
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs.
-||<tablewidth="369px" tableheight="243px" tablestyle="">'''Port''' ||'''Switch port''' ||
+||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
 ||Internet (WAN) ||4 ||
 ||LAN 1 ||3 ||
 ||LAN 2 ||2 ||
