@@ -18,7 +18,7 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
 == Serial port ==
-||<tablewidth="1084px" tableheight="65px" tablestyle="">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
+||<tablewidth="1084px" tableheight="65px">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
 ||'''Pin 1''' ||3.3V ||'''Pin 3''' ||TX_1 ||'''Pin 5''' ||RX_1 ||'''Pin 7''' ||Not connected ||'''Pin 9''' ||GND ||
 == Photos ==
 == Opening the case ==
@@ -76,17 +76,17 @@ uci commit wireless && wifi}}}
 Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
 
 === WiFi toggle ===
-Turn !WiFi on/off with the EZSETUP or RESTORE [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
+Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 = Hardware mods =
 == SD/MMC hack ==
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' || '''S/N''' ||  '''Stable[[BR]]White Russian''' ||  '''Development[[BR]]Kamikaze''' ||
-||WRT54GL v1 || CL7A || (./) || (./) ||
-||WRT54GL v1.1 || CL7B || (./) (see http://forum.openwrt.org/viewtopic.php?pid=25017) || (./) ||
-||WRT54GL v1.1 || CL7C || (./) (see http://forum.openwrt.org/viewtopic.php?pid=25017) || (./) ||
+||'''Model''' || '''S/N''' ||  '''Development[[BR]]Kamikaze''' ||
+||WRT54GL v1 || CL7A || (./) ||
+||WRT54GL v1.1 || CL7B || (./) ||
+||WRT54GL v1.1 || CL7C || (./) ||
 Note that the wireless part is only supported on the 2.4-kernel version of Kamikaze. The 2.6-kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 kernels) the wireless driver does not work.
 
 == Board info and CPU model ==
