@@ -18,16 +18,19 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
 == Serial port ==
+||<tablewidth="1084px" tableheight="65px" tablealign="">Pin 2||3.3V||Pin 4||TX_0||Pin 6||RX_0||Pin 8||Not connected||Pin 10||GND||
+||Pin 1||3.3V||Pin 3||TX_1||Pin 5||RX_1||Pin 7||Not connected||Pin 9||GND||
+
+
 == Photos ==
 == Opening the case ==
-
 = Installation =
 Right after flashing at your first login set a few NVRAM parameters.
+
 {{{
 nvram set boot_wait=on
 nvram set boot_time=10
 nvram commit && reboot}}}
-
 NOTE: You do not have to touch any other NVRAM parameters. After this point NVRAM is no longer used.
 
 == Using the Linksys Web GUI ==
@@ -57,7 +60,6 @@ If you forgot your password, broken one of the startup scripts, firewalled yours
 If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
 
 == Buttons ==
-
 The Linksys WRT54GL has two buttons. They are Reset and Secure Easy Setup. The buttons can be used with hotplug events. E. g. [#wifitoggle WiFi toggle].
 ||'''BUTTON''' ||'''Event''' ||
 ||Reset ||reset ||
@@ -94,7 +96,6 @@ Note that the wireless part is only supported on the 2.4-kernel version of Kamik
 ||WRT54GL v1 ||0x10 ||0x467 ||0x2558 ||0 ||42 ||9 || || || BCM3302 V0.8 || ||
 ||WRT54GL v1.1 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7 ||CFE 3.91.37.0 || BCM3302 V0.8 ||BCM5352EK ||
 == V1.1 ==
-
 === Switch Ports (for VLANs) ===
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs.
 ||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
