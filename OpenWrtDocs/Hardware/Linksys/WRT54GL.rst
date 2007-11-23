@@ -20,6 +20,7 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 == Serial port ==
 ||<tablewidth="1084px" tableheight="65px">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
 ||'''Pin 1''' ||3.3V ||'''Pin 3''' ||TX_1 ||'''Pin 5''' ||RX_1 ||'''Pin 7''' ||Not connected ||'''Pin 9''' ||GND ||
+== JTAG ==
 == Photos ==
 == Opening the case ==
 = Installation =
