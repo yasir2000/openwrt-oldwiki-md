@@ -9,6 +9,37 @@
  Note: Information on the WRT55AG seems to be flaky, I have a WRT55AG ver2 which came with firmware 1.10, after searching on the Internet, I was able to also locate firmware version 1.30 which runs on my router including some WPA fixes.  On the Linksys website, there is GPL code available for the v1 firmware, but not the v2!! So, read below with this in mind :P
 
 ==== WRT55AG v1.0 ====
+You will need to edit /etc/config/network like so to get the wan port working.
+{{{
+#### VLAN configuration
+config switch eth0
+        option vlan0    "1 2 3 4 5*"
+        option vlan1    "0 5"
+
+
+#### Loopback configuration
+config interface loopback
+        option ifname   "lo"
+        option proto    static
+        option ipaddr   127.0.0.1
+        option netmask  255.0.0.0
+
+
+#### LAN configuration
+config interface lan
+        option type     bridge
+        option ifname   "eth0"
+        option proto    static
+        option ipaddr   192.168.1.1
+        option netmask  255.255.255.0
+
+
+#### WAN configuration
+config interface        wan
+        option ifname   "eth1"
+        option proto    dhcp
+}}}
+
  We have no information about the internals of these units, yet, so they are '''NOT''' supported.
  This version seems to be compatible to Openwrt and the GPL toolchain provided by Linksys '''may''' work for this version. Have a look at the [http://www.seattlewireless.net/index.cgi/LinksysWrt55ag pictures] at Seattle-Wireless. They show that the chipset is broadcom. 
 
