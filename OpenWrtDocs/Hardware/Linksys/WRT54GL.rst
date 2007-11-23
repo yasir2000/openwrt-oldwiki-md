@@ -20,6 +20,9 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 === WiFi encryption ===
 === WiFi toggle ===
 
+= Hardware mods =
+== SD/MMC hack ==
+
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
