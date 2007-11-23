@@ -12,11 +12,11 @@ Practically, installation can be easy but you need to read up to make sure you a
 === Summary of OpenWrt software ===
 There are two main versions:
 
- * ''whiterussian'' - older, more stable, more documentation and tutorials are aimed at this version. [http://forum.openwrt.org/viewtopic.php?pid=42105 Development stopped] in early 2007. You probably want this version unless you know otherwise.
+ * ''whiterussian'' - older, more stable, more documentation and tutorials are aimed at this version. [http://forum.openwrt.org/viewtopic.php?pid=42105 Development stopped] in early 2007. You might want this version, but consider x-wrt below before deciding.
 
  * ''kamikaze'' is the new version, it's based on a different design so it can run on a wider range of devices, it has a newer kernel, but it's the bleeding-edge choice. Stable, but work in progress. Unless you know you want this version, you probably don't want this version.
 
- * There is a project of OpenWrt with a new web interface included by default at http://x-wrt.org/ 
+ * There is a project aimed more at user friendliness (OpenWrt plus an updated web interface) http://x-wrt.org/ - You may well want this version.
 
 === Notes before your first install ===
 
