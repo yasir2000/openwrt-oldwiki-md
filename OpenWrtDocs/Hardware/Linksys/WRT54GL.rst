@@ -31,6 +31,13 @@ If you forgot your password, broken one of the startup scripts, firewalled yours
 If you are done with failsafe mode power cycle the router and boot in normal mode.[[BR]]
 
 == Buttons ==
+
+The Linksys WRT54GL has two buttons. They are Reset and Secure Easy Setup. The buttons can be used with hotplug events. E. g. [#wifitoggle WiFi toggle].
+||'''BUTTON''' ||'''Event''' ||
+||Reset ||reset ||
+||Secure Easy Setup ||ses ||
+
+
 = Basic configuration =
 == PPPoE ==
 == QoS ==
