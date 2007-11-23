@@ -23,7 +23,7 @@
 ##
 
 = OpenWrt Community wiki =
-Welcome to the !OpenWrt Community Wiki!  As the title states, this is for all of you who use, develop with, and hack on !OpenWrt.
+Welcome to the !OpenWrt Community Wiki!  As the title states, this is for all of you who use, develop with, and hack on !OpenWrt. (Read OpenWrtOverview if you are new to the world of !OpenWrt ).
 
 This, the public face of !OpenWrt is changing so don't be surprised if you find stuff moving around on you.
 
