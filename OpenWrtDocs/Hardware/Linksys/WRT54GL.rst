@@ -10,6 +10,8 @@ nvram set boot_wait=on
 nvram set boot_time=10
 nvram commit && reboot}}}
 
+NOTE: You do not have to touch any other NVRAM parameters. After this point NVRAM is no longer used.
+
 == Using the Linksys Web GUI ==
 == Using the TFTP method ==
 = Linksys WRT54GL specific configuration =
