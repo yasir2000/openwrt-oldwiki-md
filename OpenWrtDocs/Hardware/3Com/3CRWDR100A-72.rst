@@ -31,7 +31,7 @@ The flash chip is an [http://www.intel.com/ Intel] TE28F160C3-B 16Mbit (2MiB) 3.
 The internal switch is a [http://www.marvell.com/ Marvell] [http://www.marvell.com/products/switching/linkstreet/LinkStreet_88E6060.pdf 88E6060-RCJ] 6-port (4 external, 1 to the router itself, 1 unused) 10/100 switch with autosensing.
 
 == Wireless card ==
-The wireless chip in mini-pci card is a [http://www.ti.com Texas Instruments] [http://focus.ti.com/lit/ml/splt139a/splt139a.pdf TNETW1130GVF].
+The wireless chip in mini-pci card is a [http://www.ti.com Texas Instruments] [http://focus.ti.com/lit/ml/splt139a/splt139a.pdf TNETW1130GVF], also known as ACX111 chipset.
 
 = Serial console =
 A serial console can be connected to J4.
