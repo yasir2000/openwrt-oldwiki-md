@@ -80,9 +80,9 @@ Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
 Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 = Hardware mods =
-== Adding an MMC/SD card ==
 This section is under construction...
 
+== Adding an MMC/SD card ==
 Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
 ||<style="text-align: center;" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
@@ -92,6 +92,30 @@ Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version
 ||6. VSS2 - Another ground is also a good thing ||GND ||
 ||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
 
+== /sbin/init script ==
+Still needs a rewrite
+
+{{{
+#!/bin/sh
+
+boot_dev=/dev/mmc/disc0/part1
+
+echo 0x9c > /proc/diag/gpiomask
+
+for module in mmc jbd ext3; do {
+        insmod $module
+}; done
+
+# e2fsck -y "$boot_dev"
+
+sleep 5s
+mount -o rw "$boot_dev" /mnt
+[ -x /mnt/sbin/init ] && {
+        . /bin/firstboot
+        pivot /mnt /mnt
+}
+
+exec /bin/busybox init}}}
 
 = Other Info =
 == Supported Versions ==
