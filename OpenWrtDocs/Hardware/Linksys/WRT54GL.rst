@@ -168,6 +168,8 @@ Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN)
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
 
+just bought a WRT54GL (22 Nov 2007), and it'a v1.1 CL7B***  (manufactured 09/2007 ? date on the FCC/CE label) - NathaelPajani
+
 I bought a WRT54GL today and received a v1.1 so I would expect that this is still the latest version. OTOH LinkSys claimed that the GL version is specifically targeted at hackers that customize their WRT, so why would they sell one that can not be customized? Did anybody else already see a v1.2 at all?  -- TorstenLandschoff
 
 I tell you. I had the Package in my Hand. I backed of buying i because, as i sayed, had no confimation it will work. It was at Arlt in Freiburg im Breisgau, Germany. Possibly only a -DE Version?
