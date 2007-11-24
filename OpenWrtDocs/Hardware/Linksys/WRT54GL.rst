@@ -35,6 +35,12 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 == Using the Linksys Web GUI ==
 == Using the TFTP method ==
 == Using the mtd command line tool ==
+If you have already installed !OpenWrt or like to flash from any other firmware (which has the mtd tool), do this:
+
+{{{
+cd /tmp/
+wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
