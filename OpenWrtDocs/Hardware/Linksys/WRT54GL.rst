@@ -103,24 +103,43 @@ Still needs a rewrite
 {{{
 #!/bin/sh
 
-boot_dev=/dev/mmc/disc0/part1
+. /etc/functions.sh
 
-echo 0x9c > /proc/diag/gpiomask
+config_load "mmcmod"
+local section="mmcmod"
+config_get      "boot_dev" "$section" "boot_dev"
+config_get      "gpiomask" "$section" "gpiomask"
+config_get      "modules"  "$section" "modules"
+config_get      "target"   "$section" "target"
+config_get_bool "enabled"  "$section" "enabled" '1'
 
-for module in mmc jbd ext3; do {
-        insmod $module
-}; done
+[ "$enabled" -gt 0 ] && {
+	echo "$gpiomask" > /proc/diag/gpiomask
 
-# e2fsck -y "$boot_dev"
+	for module in $modules; do {
+		insmod $module
+	}; done
 
-sleep 5s
-mount -o rw "$boot_dev" /mnt
-[ -x /mnt/sbin/init ] && {
-        . /bin/firstboot
-        pivot /mnt /mnt
+	sleep 5s
+
+	mount -o rw "$boot_dev" $target
+	[ -x $target/sbin/init ] && {
+		. /bin/firstboot
+		pivot $target $target
+	}
 }
 
 exec /bin/busybox init}}}
+
+=== /etc/config/mmcmod ===
+
+{{{
+config mmcmod
+	option boot_dev '/dev/mmc/disc0/part1'
+	option gpiomask '0x9c'
+	option modules  'mmc jbd ext3'
+	option target   '/mnt'
+	option enabled  '0'}}}
 
 = Other Info =
 == Supported Versions ==
