@@ -98,48 +98,8 @@ Photos for the soldering points:
  * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
 
 === /sbin/init script ===
-Still needs a rewrite
-
-{{{
-#!/bin/sh
-
-. /etc/functions.sh
-
-config_load "mmcmod"
-local section="mmcmod"
-config_get      "boot_dev" "$section" "boot_dev"
-config_get      "gpiomask" "$section" "gpiomask"
-config_get      "modules"  "$section" "modules"
-config_get      "target"   "$section" "target"
-config_get_bool "enabled"  "$section" "enabled" '1'
-
-[ "$enabled" -gt 0 ] && {
-	echo "$gpiomask" > /proc/diag/gpiomask
-
-	for module in $modules; do {
-		insmod $module
-	}; done
-
-	sleep 5s
-
-	mount -o rw "$boot_dev" $target
-	[ -x $target/sbin/init ] && {
-		. /bin/firstboot
-		pivot $target $target
-	}
-}
-
-exec /bin/busybox init}}}
 
 === /etc/config/mmcmod ===
-
-{{{
-config mmcmod
-	option boot_dev '/dev/mmc/disc0/part1'
-	option gpiomask '0x9c'
-	option modules  'mmc jbd ext3'
-	option target   '/mnt'
-	option enabled  '0'}}}
 
 = Other Info =
 == Supported Versions ==
