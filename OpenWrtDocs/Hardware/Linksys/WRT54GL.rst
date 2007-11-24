@@ -42,6 +42,8 @@ cd /tmp/
 wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 
+If you reflash !OpenWrt using the mtd tool you just use the TRX image. If you have only a BIN image (from original firmware or from DD-WRT) just rename the BIN image to TRX.
+
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
 == Failsafe mode ==
@@ -100,18 +102,16 @@ Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version
 ||6. VSS2 - Another ground is also a good thing ||GND ||
 ||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
 
+
 Photos for the soldering points:
+
  * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-3.3v+GND.jpg +3.3V and GND]
  * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
  * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
-
 === /sbin/init script ===
-
 {{{
 #!/bin/sh
-
 . /etc/functions.sh
-
 config_load "mmcmod"
 local section="cfg1"
 config_get      "target"   "$section" "target"
@@ -119,27 +119,20 @@ config_get      "device"   "$section" "device"
 config_get      "gpiomask" "$section" "gpiomask"
 config_get      "modules"  "$section" "modules"
 config_get_bool "enabled"  "$section" "enabled" '1'
-
 [ "$enabled" -gt 0 ] && {
-	echo "$gpiomask" > /proc/diag/gpiomask
-
-	for module in $modules; do {
-		insmod $module
-	}; done
-
-	sleep 5s
-
-	mount -o rw "$device" $target
-	[ -x $target/sbin/init ] && {
-		. /bin/firstboot
-		pivot $target $target
-	}
+        echo "$gpiomask" > /proc/diag/gpiomask
+        for module in $modules; do {
+                insmod $module
+        }; done
+        sleep 5s
+        mount -o rw "$device" $target
+        [ -x $target/sbin/init ] && {
+                . /bin/firstboot
+                pivot $target $target
+        }
 }
-
 exec /bin/busybox init}}}
-
 === /etc/config/mmcmod ===
-
 {{{
 config mmcmod
         option target   '/mnt'
@@ -147,7 +140,6 @@ config mmcmod
         option gpiomask '0x9c'
         option modules  'mmc jbd ext3'
         option enabled  '0'}}}
-
 = Other Info =
 == Supported Versions ==
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
