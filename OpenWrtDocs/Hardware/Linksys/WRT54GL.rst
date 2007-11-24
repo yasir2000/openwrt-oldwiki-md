@@ -82,10 +82,11 @@ Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please 
 = Hardware mods =
 == Adding an MMC/SD card ==
 This section is under construction...
-||<style="text-align: center;"|7> ||1. CS - Chip Select for the SD card ||GPIO 7 ||
-||2. DI - Data in on the SD card. ||GPIO 5 ||
+||<style="text-align: center;" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 ||
+||2. DI - Data in on the SD card. ||GPIO 2
+||
 ||3. VSS - Ground is a good thing ||GND ||
-||4. VDD - We need power of course. 3.3V will do the job ||3.3V ||
+||4. VDD - We need power of course. 3.3V will do the job ||3.3 V ||
 ||5. CLK - The clock we generate for the SD card ||GPIO 3 ||
 ||6. VSS2 - Another ground is also a good thing ||GND ||
 ||7. DO - Data out from the SD card ||GPIO 4 ||
