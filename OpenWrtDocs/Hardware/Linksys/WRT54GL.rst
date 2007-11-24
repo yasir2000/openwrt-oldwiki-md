@@ -34,6 +34,8 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 
 == Using the Linksys Web GUI ==
 == Using the TFTP method ==
+== Using the mtd command line tool ==
+
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
 == Failsafe mode ==
