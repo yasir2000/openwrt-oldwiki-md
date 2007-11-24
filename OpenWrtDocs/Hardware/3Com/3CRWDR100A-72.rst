@@ -34,7 +34,7 @@ The internal switch is a [http://www.marvell.com/ Marvell] [http://www.marvell.c
 The wireless chip in mini-pci card is a [http://www.ti.com Texas Instruments] [http://focus.ti.com/lit/ml/splt139a/splt139a.pdf TNETW1130GVF].
 
 = Serial console =
-A serial console can be conneced to J4.
+A serial console can be connected to J4.
 
 The serial signals are at a 3.3V level, so you need to use a level convertor, see ["OpenWrtDocs/Customizing/Hardware/Serial Console"]
 
