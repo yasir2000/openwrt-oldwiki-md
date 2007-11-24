@@ -99,7 +99,46 @@ Photos for the soldering points:
 
 === /sbin/init script ===
 
+{{{
+#!/bin/sh
+
+. /etc/functions.sh
+
+config_load "mmcmod"
+local section="cfg1"
+config_get      "target"   "$section" "target"
+config_get      "device"   "$section" "device"
+config_get      "gpiomask" "$section" "gpiomask"
+config_get      "modules"  "$section" "modules"
+config_get_bool "enabled"  "$section" "enabled" '1'
+
+[ "$enabled" -gt 0 ] && {
+	echo "$gpiomask" > /proc/diag/gpiomask
+
+	for module in $modules; do {
+		insmod $module
+	}; done
+
+	sleep 5s
+
+	mount -o rw "$device" $target
+	[ -x $target/sbin/init ] && {
+		. /bin/firstboot
+		pivot $target $target
+	}
+}
+
+exec /bin/busybox init}}}
+
 === /etc/config/mmcmod ===
+
+{{{
+config mmcmod
+        option target   '/mnt'
+        option device   '/dev/mmc/disc0/part1'
+        option gpiomask '0x9c'
+        option modules  'mmc jbd ext3'
+        option enabled  '0'}}}
 
 = Other Info =
 == Supported Versions ==
