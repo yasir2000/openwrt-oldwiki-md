@@ -92,6 +92,11 @@ Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version
 ||6. VSS2 - Another ground is also a good thing ||GND ||
 ||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
 
+Photos for the soldering points:
+ * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-3.3v+GND.jpg +3.3V and GND]
+ * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
+ * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
+
 === /sbin/init script ===
 Still needs a rewrite
 
