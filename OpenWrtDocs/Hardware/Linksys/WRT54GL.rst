@@ -92,7 +92,7 @@ Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version
 ||6. VSS2 - Another ground is also a good thing ||GND ||
 ||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
 
-== /sbin/init script ==
+=== /sbin/init script ===
 Still needs a rewrite
 
 {{{
