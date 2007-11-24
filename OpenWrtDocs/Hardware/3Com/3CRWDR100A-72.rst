@@ -62,4 +62,7 @@ Disposition on the board:
 = OpenWRT status =
 Untested
 
+= Image =
+attachment:3CRWDR100A-72_front.jpg
+
 CategoryModel ["CategoryAR7Device"]
