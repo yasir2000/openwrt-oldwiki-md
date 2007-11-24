@@ -26,6 +26,9 @@ With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||'''JTAG''' ||No ||
 [[Anchor(serial)]] [[Anchor(Serial)]]
 
+=== Wireless LAN Controller ===
+The standard wireless LAN controller is the BCM4318 on a MiniPCI card.  Some people have replaced this with an Atheros MiniPCI card.  The advantage is that the Atheros card has an open source driver.
+
 === Serial Port ===
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
 ||RESET || ||
