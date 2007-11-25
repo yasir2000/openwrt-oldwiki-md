@@ -95,8 +95,7 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1 AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
 == Auerswald ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone)|| ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
-
+||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone) || ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
@@ -274,7 +273,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_ag_wap&seg=sb 7001] ||802.11a+g ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||2x Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||None ||[:OpenWrtDocs/Hardware/Gateway/7001:Kamikaze] ||
 == Gateworks ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/Gateworks/Avila_GW2348_4:Kamikaze] ||
+||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/Gateworks/Avila GW2348 4:Kamikaze] ||
 ||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||Kamikaze ||
 ||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||Kamikaze ||
 == Gigabyte ==
@@ -398,7 +397,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx FVX538] ||2 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||32MB ||64MB || ||Realtek || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/FVX538:Untested] ||
 ||[http://www.netgear.com/products/details/FWAG114.php FWAG114] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB || ||Atheros & Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
 ||[http://www.netgear.de/Produkte/Router/Wireless/KWGR614/index.html KWGR614] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200MHz ||4MB ||16MB ||Realtek RTL8185 ||? || || || || ||Untested ||
-||[http://www.netgear.com/products/details/WG302.php WG302] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||16MB ||1x Atheros (mini-PCI) ||? ||N/A ||? ||? ||? ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/WG302 Kamikaze] ||
+||[http://www.netgear.com/products/details/WG302.php WG302] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||16MB ||1x Atheros (mini-PCI) ||None||N/A ||Yes ||? ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/WG302 Kamikaze] ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||1 ||[http://www.idt.com/?catID=58533&genID=79RC32334 IDT 79RC32V334] @ 150MHz ||4MB ||16MB ||Prism GT (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Netgear/WG602v1:Untested] ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WG602v3:WiP] ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||3 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros || ||N/A || || ||No ||[:AtherosPort:WiP] ||
@@ -408,7 +407,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://netgear.com/products/details/WPN824.php WPN824] || ||Atheros 2313 ||2MB ||16MB || || || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
 ||[http://kbserver.netgear.com/products/WPN824v2.asp WPN824v2] || ||Atheros 2313 ||2MB ||16MB || ||Marvell 88E6060 || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
 ||[http://kbserver.netgear.com/products/wnr854t.asp WNR854T] || ||Marvell ARM926 @ 500Mhz ||8MB ||32MB ||Marvell (mini-PCI) 802.11n ||Marvell 88E6131 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WNR854:Untested] ||
-||[http://www.netgear.com/products/details/SC101.php SC101] || ||Texas Instruments TNETV ||2MB ||8MB? ||no wireless ||in cpu? || ||yes|| || ||[:OpenWrtDocs/Hardware/Netgear/SC101:Untested] ||
+||[http://www.netgear.com/products/details/SC101.php SC101] || ||Texas Instruments TNETV ||2MB ||8MB? ||no wireless ||in cpu? || ||yes || || ||[:OpenWrtDocs/Hardware/Netgear/SC101:Untested] ||
 == Netopia ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
