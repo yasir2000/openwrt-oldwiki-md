@@ -56,12 +56,12 @@ tftp> put openwrt-wrt54g-2.4-squashfs.bin}}}
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == Using the mtd command line tool ==
-If you have already installed !OpenWrt and like to reflash e. g. if you are upgrading then do this:
+If you have already installed !OpenWrt and like to reflash for e.g. upgrading to a new !OpenWrt version.  It is important that you put the firmware image into the ramdisk (/tmp) before you start flashing.
 
 {{{
 cd /tmp/
 wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
-mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
+mtd write /tmp/openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
 == Failsafe mode ==
