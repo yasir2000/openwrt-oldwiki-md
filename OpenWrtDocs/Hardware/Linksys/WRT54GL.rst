@@ -35,19 +35,28 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 == Using the Linksys web GUI ==
 It is possible to install !OpenWrt directly with the Linksys web GUI. This is the easiest way.
 
+ * Open http://192.168.1.1/Upgrade.asp in your browser or manually go to http://192.168.1.1 -> Administration -> Firmware Upgrade
+ * Upload openwrt-wrt54g-2.4-squashfs.bin
+ * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
+ * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
+
+== Using the TFTP method ==
+It is possible to install OpenWrt using a TFTP client. 
+
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
  * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image
- * Execute the TFTP commands below:
+ * Execute the TFTP commands (the commands are for Linux) below:
  {{{
 tftp 192.168.1.1
 tftp> binary
 tftp> trace
 tftp> put openwrt-wrt54g-2.4-squashfs.bin}}}
- 
+ * Plug the power on and the TFTP transfer should start immediately
+ * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
+ * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 
-== Using the TFTP method ==
 == Using the mtd command line tool ==
 If you have already installed !OpenWrt or like to flash from any other firmware (which has the mtd tool), do this:
 
