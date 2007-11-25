@@ -41,12 +41,12 @@ It is possible to install !OpenWrt directly with the Linksys web GUI. This is th
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 
 == Using the TFTP method ==
-It is possible to install OpenWrt using a TFTP client. 
+It is possible to install !OpenWrt using a TFTP client. 
 
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
- * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image
+ * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image to your PC
  * Execute the TFTP commands (the commands are for Linux) below:
  {{{
 tftp 192.168.1.1
