@@ -33,15 +33,14 @@ nvram commit && reboot}}}
 NOTE: You do not have to touch any other NVRAM parameters. After this point NVRAM is no longer used.
 
 == Using the Linksys web GUI ==
-It is possible to install !OpenWrt directly with the Linksys web GUI. This is the easiest way.
+It is possible to install !OpenWrt directly with the Linksys web GUI. If you are initially installing !OpenWrt use the Linksys web GUI. This is the easiest way.
 
  * Open http://192.168.1.1/Upgrade.asp in your browser or manually go to http://192.168.1.1 -> Administration -> Firmware Upgrade
  * Upload openwrt-wrt54g-2.4-squashfs.bin
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
-
 == Using the TFTP method ==
-It is possible to install !OpenWrt using a TFTP client.
+Once you have set the NVRAM parameters above it is possible to use a TFTP client to flash !OpenWrt. The TFTP method is also the recommended way to restore the original Linksys firmware or switch to other third-party firmwares.
 
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
@@ -56,16 +55,13 @@ tftp> put openwrt-wrt54g-2.4-squashfs.bin}}}
  * Plug the power on and the TFTP transfer should start immediately
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
-
 == Using the mtd command line tool ==
-If you have already installed !OpenWrt or like to flash from any other firmware (which has the mtd tool), do this:
+If you have already installed !OpenWrt and like to reflash e. g. if you are upgrading then do this:
 
 {{{
 cd /tmp/
 wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
-If you reflash !OpenWrt using the mtd tool you just use the TRX image. If you have only a BIN image (from original firmware or from DD-WRT) just rename the BIN image to TRX.
-
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
 == Failsafe mode ==
