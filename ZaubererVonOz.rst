@@ -1,6 +1,6 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Your Name ==
+== Zauberer von Oz ==
 
 Email: [[MailTo(you AT SPAMFREE example DOT com)]]
 
