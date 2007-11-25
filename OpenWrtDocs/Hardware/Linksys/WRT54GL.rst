@@ -41,7 +41,7 @@ It is possible to install !OpenWrt directly with the Linksys web GUI. This is th
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 
 == Using the TFTP method ==
-It is possible to install !OpenWrt using a TFTP client. 
+It is possible to install !OpenWrt using a TFTP client.
 
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
