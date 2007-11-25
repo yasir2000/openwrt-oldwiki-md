@@ -35,6 +35,7 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 == Using the Linksys web GUI ==
 It is possible to install !OpenWrt directly with the Linksys web GUI. If you are initially installing !OpenWrt use the Linksys web GUI. This is the easiest way.
 
+ * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image to your PC
  * Open http://192.168.1.1/Upgrade.asp in your browser or manually go to http://192.168.1.1 -> Administration -> Firmware Upgrade
  * Upload openwrt-wrt54g-2.4-squashfs.bin
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
