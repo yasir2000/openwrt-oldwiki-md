@@ -1,7 +1,16 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Linksys WRT54GL =
-The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}} and {{{CL7C}}}.  As of August 2006, version 1.1 appears to be shipping worldwide.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.  The WRT54GL has 16MB of RAM and 4MB of flash memory.
+The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}} and {{{CL7C}}}.  As of August 2006, version 1.1 appears to be shipping worldwide.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.
+
+= Supported Versions =
+||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
+||'''Model''' || '''S/N''' ||  '''Development[[BR]]Kamikaze''' ||
+||WRT54GL v1 || CL7A || (./) ||
+||WRT54GL v1.1 || CL7B || (./) ||
+||WRT54GL v1.1 || CL7C || (./) ||
+Note that the wireless part is only supported on the 2.4-kernel version of Kamikaze. The 2.6-kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 kernels) the wireless driver does not work.
+
 
 = Hardware =
 == Info ==
@@ -17,14 +26,15 @@ The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] t
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
+
 == Serial port ==
 The WRT54GL has a 10 pin connection slot on the board called JP1. This slot provides two TTL serial ports at 3.3V. Neither of the ports use hardware flow control, you need to use software flow control instead. Other routers may have similar connections. These two TTL serial ports on the WRT54GL router can be used as standard Serial Ports similiar to the serial ports you may have on your PC. In order to do this though you need a line driver chip that can raise the signal levels to RS-232 levels. You can not directly connect a serial port header to the board and expect it to work. That method will only work with devices that can connect to TTL serial ports at 3.3V. Connecting two which have 3.3V directly will work (TX - RX, RX - TX, GND - GND). Standard RS-232 devices cannot be directly connected which accounts for nearly all serial PC devices.
 
 Once the modification is made you can have at most two serial ports to use for connecting devices etc. By default, !OpenWrt uses the first serial port to access the built-in serial console on the router. You can connect to it at 115200,8,N,1 using a terminal program like Putty, SecureCRT or minicom for example. This is helpful because if you have problems communicating with your router this method will allow you easy access connecting over a serial console. By default this leaves you with one serial port left, however, there is a method to turn the console off giving you access to both ports if you really need them. It isn't recommended but it can be done.
-
-
 ||<tablewidth="1084px" tableheight="65px">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
 ||'''Pin 1''' ||3.3V ||'''Pin 3''' ||TX_1 ||'''Pin 5''' ||RX_1 ||'''Pin 7''' ||Not connected ||'''Pin 9''' ||GND ||
+
+
 == JTAG ==
 == Photos ==
 == Opening the case ==
@@ -70,6 +80,14 @@ wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squash
 mtd write /tmp/openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
+== Switch Ports (for VLANs) ==
+Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs.
+||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
+||Internet (WAN) ||4 ||
+||LAN 1 ||3 ||
+||LAN 2 ||2 ||
+||LAN 3 ||1 ||
+||LAN 4 ||0 ||
 == Failsafe mode ==
 If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
@@ -165,28 +183,11 @@ config mmcmod
         option modules  'mmc jbd ext3'
         option enabled  '0'}}}
 = Other Info =
-== Supported Versions ==
-||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' || '''S/N''' ||  '''Development[[BR]]Kamikaze''' ||
-||WRT54GL v1 || CL7A || (./) ||
-||WRT54GL v1.1 || CL7B || (./) ||
-||WRT54GL v1.1 || CL7C || (./) ||
-Note that the wireless part is only supported on the 2.4-kernel version of Kamikaze. The 2.6-kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 kernels) the wireless driver does not work.
-
 == Board info and CPU model ==
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''boot_ver''' ||'''pmon_ver''' ||'''cpu  model''' ||'''cpu (hw) ''' ||
 ||WRT54GL v1 ||0x10 ||0x467 ||0x2558 ||0 ||42 ||9 || || || BCM3302 V0.8 || ||
 ||WRT54GL v1.1 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7 ||CFE 3.91.37.0 || BCM3302 V0.8 ||BCM5352EK ||
 == V1.1 ==
-=== Switch Ports (for VLANs) ===
-Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs.
-||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
-||Internet (WAN) ||4 ||
-||LAN 1 ||3 ||
-||LAN 2 ||2 ||
-||LAN 3 ||1 ||
-||LAN 4 ||0 ||
-
 
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
