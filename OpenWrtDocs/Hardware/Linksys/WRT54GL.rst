@@ -3,14 +3,14 @@
 = Linksys WRT54GL =
 The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}} and {{{CL7C}}}.  As of August 2006, version 1.1 appears to be shipping worldwide.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.
 
-NOTE: This howto is written for !OpenWrt Kamikaze.
+'''NOTE:''' This howto is written for !OpenWrt Kamikaze 7.09 and later versions.
 
 = Supported Versions =
-||'''Model''' || '''S/N''' ||  '''!OpenWrt Kamikaze 7.09''' ||
+||'''Model''' || '''S/N''' ||  '''!OpenWrt Kamikaze''' ||
 ||WRT54GL v1 || CL7A || (./) ||
 ||WRT54GL v1.1 || CL7B || (./) ||
 ||WRT54GL v1.1 || CL7C || (./) ||
-NOTE: The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource bcm43xx driver is not ready yet) the wireless driver does not work.
+'''NOTE:''' The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet) the wireless does not work if you flash a image with a 2.6 Kernel.
 
 = Hardware =
 == Info ==
