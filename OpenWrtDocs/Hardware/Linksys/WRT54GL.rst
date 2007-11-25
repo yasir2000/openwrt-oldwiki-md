@@ -3,14 +3,14 @@
 = Linksys WRT54GL =
 The WRT54GL is basically a v4.0 [:OpenWrtDocs/Hardware/Linksys/WRT54G:WRTG54G] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}} and {{{CL7C}}}.  As of August 2006, version 1.1 appears to be shipping worldwide.  See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL.  The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.
 
+NOTE: This howto is written for !OpenWrt Kamikaze.
+
 = Supported Versions =
-||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
-||'''Model''' || '''S/N''' ||  '''Development[[BR]]Kamikaze''' ||
+||'''Model''' || '''S/N''' ||  '''!OpenWrt Kamikaze 7.09''' ||
 ||WRT54GL v1 || CL7A || (./) ||
 ||WRT54GL v1.1 || CL7B || (./) ||
 ||WRT54GL v1.1 || CL7C || (./) ||
-Note that the wireless part is only supported on the 2.4-kernel version of Kamikaze. The 2.6-kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 kernels) the wireless driver does not work.
-
+NOTE: The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource bcm43xx driver is not ready yet) the wireless driver does not work.
 
 = Hardware =
 == Info ==
@@ -26,7 +26,6 @@ Note that the wireless part is only supported on the 2.4-kernel version of Kamik
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
-
 == Serial port ==
 The WRT54GL has a 10 pin connection slot on the board called JP1. This slot provides two TTL serial ports at 3.3V. Neither of the ports use hardware flow control, you need to use software flow control instead. Other routers may have similar connections. These two TTL serial ports on the WRT54GL router can be used as standard Serial Ports similiar to the serial ports you may have on your PC. In order to do this though you need a line driver chip that can raise the signal levels to RS-232 levels. You can not directly connect a serial port header to the board and expect it to work. That method will only work with devices that can connect to TTL serial ports at 3.3V. Connecting two which have 3.3V directly will work (TX - RX, RX - TX, GND - GND). Standard RS-232 devices cannot be directly connected which accounts for nearly all serial PC devices.
 
@@ -88,6 +87,8 @@ Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN)
 ||LAN 2 ||2 ||
 ||LAN 3 ||1 ||
 ||LAN 4 ||0 ||
+
+
 == Failsafe mode ==
 If you forgot your password, broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode.
 
@@ -188,7 +189,6 @@ config mmcmod
 ||WRT54GL v1 ||0x10 ||0x467 ||0x2558 ||0 ||42 ||9 || || || BCM3302 V0.8 || ||
 ||WRT54GL v1.1 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||v3.7 ||CFE 3.91.37.0 || BCM3302 V0.8 ||BCM5352EK ||
 == V1.1 ==
-
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
 
