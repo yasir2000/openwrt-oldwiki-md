@@ -82,6 +82,8 @@ You can download [http://downloads.openwrt.org/kamikaze/7.09/ official 7.09] ima
 === Using the ASUS web GUI ===
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
+The ASUS GUI requires a trailer to be added to the .trx file (similar to the way other firmwares require headers).  The rather simple structure can be inferred from work done for the FreeWRT project [http://osdir.com/ml/embedded.freewrt.cvs/2006-09/msg00226.html]
+
 [[Anchor(diag)]] [[Anchor(Diag)]]
 
 === Using diag mode ===
