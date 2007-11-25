@@ -32,7 +32,21 @@ nvram set boot_time=10
 nvram commit && reboot}}}
 NOTE: You do not have to touch any other NVRAM parameters. After this point NVRAM is no longer used.
 
-== Using the Linksys Web GUI ==
+== Using the Linksys web GUI ==
+It is possible to install !OpenWrt directly with the Linksys web GUI. This is the easiest way.
+
+ * Unplug the router's power cord.
+ * Connect the router's LAN1 port directly to your PC.
+ * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
+ * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image
+ * Execute the TFTP commands below:
+ {{{
+tftp 192.168.1.1
+tftp> binary
+tftp> trace
+tftp> put openwrt-wrt54g-2.4-squashfs.bin}}}
+ 
+
 == Using the TFTP method ==
 == Using the mtd command line tool ==
 If you have already installed !OpenWrt or like to flash from any other firmware (which has the mtd tool), do this:
@@ -41,7 +55,6 @@ If you have already installed !OpenWrt or like to flash from any other firmware 
 cd /tmp/
 wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
-
 If you reflash !OpenWrt using the mtd tool you just use the TRX image. If you have only a BIN image (from original firmware or from DD-WRT) just rename the BIN image to TRX.
 
 = Linksys WRT54GL specific configuration =
