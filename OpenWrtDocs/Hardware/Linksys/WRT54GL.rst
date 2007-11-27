@@ -120,16 +120,8 @@ The Linksys WRT54GL has two buttons. They are Reset and Secure Easy Setup. The b
 
 = Basic configuration =
 == Configure WAN for Internet access ==
-=== PPPoE ===
-With Kamikaze 7.09 PPPoE works out-of-the-box. All required packages are already installed in the default image. To configure PPPoE with UCI, do this:
-
-{{{
-uci set network.wan.proto=pppoe
-uci set network.wan.username=<pppoe_psername>
-uci set network.wan.password=<pppoe_password>
-uci commit network
-ifup wan}}}
 === DHCP (e.g. for cable internet) ===
+DHCP client on the WAN port of the router is the default configuration.
 {{{
 uci set network.wan.proto=dhcp
 uci commit network
@@ -140,6 +132,15 @@ If you need a special MAC address on the WAN port use MAC address cloning. This 
 
 {{{
 uci set network.wan.macaddr=11:22:33:aa:bb:cc
+uci commit network
+ifup wan}}}
+=== PPPoE ===
+With Kamikaze 7.09 PPPoE works out-of-the-box. All required packages are already installed in the default image. To configure PPPoE with UCI, do this:
+
+{{{
+uci set network.wan.proto=pppoe
+uci set network.wan.username=<pppoe_psername>
+uci set network.wan.password=<pppoe_password>
 uci commit network
 ifup wan}}}
 == QoS ==
