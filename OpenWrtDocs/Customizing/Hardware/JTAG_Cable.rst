@@ -34,7 +34,7 @@ This type of cable is a bit more complicated than the unbuffered one, although i
 
 attachment:wiggler.png
 
-attachment:jtag-wiggler.jpg
+attachment:jtag-wiggler-600x.jpg
 
 JTAG-to-LPT mapping
 
