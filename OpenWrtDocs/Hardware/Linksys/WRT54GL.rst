@@ -130,6 +130,18 @@ uci set network.wan.password=<pppoe_password>
 uci commit network
 ifup wan}}}
 === DHCP (e.g. for cable internet) ===
+{{{
+uci set network.wan.proto=dhcp
+uci commit network
+ifup wan}}}
+TIP: Do not forget to power cycle your cable modem so it knows of the new MAC address of your router. Also make sure you use different subnets for the WAN and LAN networks.
+
+If you need a special MAC address on the WAN port use MAC address cloning. This is done with the macaddr option in the wan section.
+
+{{{
+uci set network.wan.macaddr=11:22:33:aa:bb:cc
+uci commit network
+ifup wan}}}
 == QoS ==
 Install the qos-scripts package
 
