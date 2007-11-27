@@ -121,14 +121,15 @@ The Linksys WRT54GL has two buttons. They are Reset and Secure Easy Setup. The b
 = Basic configuration =
 == Configure WAN for Internet access ==
 === DHCP (e.g. for cable internet) ===
-DHCP client on the WAN port of the router is the default configuration.
+DHCP on the WAN port of the router is the default configuration.
+
 {{{
 uci set network.wan.proto=dhcp
 uci commit network
 ifup wan}}}
 TIP: Do not forget to power cycle your cable modem so it knows of the new MAC address of your router. Also make sure you use different subnets for the WAN and LAN networks.
 
-If you need a special MAC address on the WAN port use MAC address cloning. This is done with the macaddr option in the wan section.
+If you need to clone MAC address on the WAN port use MAC address cloning. This is done with the macaddr option in the wan section.
 
 {{{
 uci set network.wan.macaddr=11:22:33:aa:bb:cc
