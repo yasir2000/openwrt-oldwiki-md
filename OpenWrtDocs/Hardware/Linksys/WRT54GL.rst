@@ -126,7 +126,8 @@ With Kamikaze 7.09 PPPoE works out-of-the-box. All required packages are already
 uci set network.wan.proto=pppoe
 uci set network.wan.username=<pppoe_psername>
 uci set network.wan.password=<pppoe_password>
-uci commit network && ifup wan}}}
+uci commit network
+ifup wan}}}
 == QoS ==
 Install the qos-scripts package
 
@@ -142,11 +143,9 @@ uci commit qos}}}
 Start QoS and enable on next boot
 
 {{{
-/etc/init.d/qos boot
 /etc/init.d/qos start
 /etc/init.d/qos enable
 }}}
-
 == Dynamic DNS ==
 Please see [:DDNSHowTo:Dynamic DNS].
 
