@@ -119,7 +119,8 @@ The Linksys WRT54GL has two buttons. They are Reset and Secure Easy Setup. The b
 
 
 = Basic configuration =
-== PPPoE ==
+== Configure WAN for Internet access ==
+=== PPPoE ===
 With Kamikaze 7.09 PPPoE works out-of-the-box. All required packages are already installed in the default image. To configure PPPoE with UCI, do this:
 
 {{{
@@ -128,6 +129,7 @@ uci set network.wan.username=<pppoe_psername>
 uci set network.wan.password=<pppoe_password>
 uci commit network
 ifup wan}}}
+=== DHCP (e.g. for cable internet) ===
 == QoS ==
 Install the qos-scripts package
 
