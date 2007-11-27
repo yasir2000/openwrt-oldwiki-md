@@ -84,7 +84,7 @@ The default network configuration is:
 ||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
 ||vlan0 ||LAN ports (1 to 4) || ||
 ||vlan1 ||WAN port ||DHCP ||
-||wl0/ath0 ||!WiFi ||Disabled by default ||
+||wl0 ||!WiFi ||Disabled by default ||
 
 == Switch Ports (for VLANs) ==
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs. vlan0 = eth0.0, vlan1 = eth0.1 and so on.
