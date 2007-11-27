@@ -79,6 +79,16 @@ wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squash
 mtd write /tmp/openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
+The default network configuration is:
+||<tablewidth="541px" tableheight="129px">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
+||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
+||vlan0 (switch ports 0 - 3) ||LAN ports (1 to 4) || ||
+||vlan1 (switch port 4) ||WAN port ||DHCP ||
+||wl0/ath0 ||!WiFi ||Disabled by default ||
+
+vlan0 = eth0.0, vlan1 = eth1.1 and so on.
+
+
 == Switch Ports (for VLANs) ==
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs.
 ||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
