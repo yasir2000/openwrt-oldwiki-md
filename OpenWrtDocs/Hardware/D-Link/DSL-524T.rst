@@ -4,6 +4,10 @@ edited by [http://guidoserra.it Guido Serra]
 
 this webpage was created to add more details about that ["OpenWrtDocs/Hardware/D-Link/DSL-502T"]
 
+= NEWS =
+
+[https://dev.openwrt.org/ticket/2377 buggy atm module] :_(
+
 = differences =
 
 == Specifications ==
