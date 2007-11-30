@@ -11,6 +11,8 @@ Thank you Mr Chandler for fixing some of the formatting.
 
 Note, as of 17th May '07 I am no longer maintaining this page as I no longer have a DSL-502T, if you would like to update this page please feel free to. (Z3r0)
 
+(I'm starting to update this page to reflect the current port status. -- OliverJowett)
+
 == Specifications ==
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port
 
@@ -74,91 +76,97 @@ Quit and save the config.
 
 Run 'make' to download essential packages (approximately 100MByte) and compile the firmware.
 
+The final firmware produced by the build is located in bin/openwrt-ar7-2.4-squashfs.bin. This is the file you will FTP to the router later.
+
 '''Understanding the firmware & memory layout of the DSL-502T'''
 
 This is very important, please try to understand what is going on here.
 
-The Flash memory is divided into blocks, with the D-Link 2.00B07 firmware our memory mappings are:
-||||||||<style="text-align: center;">'''Default DLink v2 memory mappings''' ||
+The Flash memory is divided into partitions, with the D-Link V3.00B firmware our memory mappings are:
+||||||||<style="text-align: center;">'''Default DLink v3 memory mappings''' ||
 ||Name ||Start ||End ||Description ||
 ||mtd0 ||0x90091000 ||0x903f0000 ||Filesystem ||
 ||mtd1 ||0x90010090 ||0x90091000 ||Kernel ||
 ||mtd2 ||0x90000000 ||0x90010000 ||Bootloader ||
-||mtd3 ||0x9003f0000 ||0x90040000 ||Configuration ||
-||mtd4 ||0x90010090 ||0x903f0000 ||fs+kernel ||
+||mtd3 ||0x903f0000 ||0x90040000 ||Configuration ||
+||mtd4 ||0x90010000 ||0x903f0000 ||fs+kernel ||
 
+Note that the "end" addresses are one byte past the last byte actually used.
 
-The D-Link firmware v2 is flashed to mtd4, this is not a real memory block, it is a virtual block spanning the kernel & filesystem.
+The D-Link firmware is flashed to mtd4, this is not a real memory block, it is a virtual block spanning the kernel & filesystem.
 
-The D-Link firmware v2 file is organised like this:
-||||<style="text-align: center;">'''Default D-Link V2 firmware memory map (hex)''' ||
-||0-90 ||Header used by the web interface to verify firmware compatibility ||
-||90-80FFF ||Kernel with padded 0s at the end ||
-||81000-20EFFF ||Filesystem with padded 0s at the end ||
-||20F000-20F007 ||Checksum made with TICHKSUM (8 bytes=16 hex chars) ||
+The D-Link firmware file is organised like this:
+||||||||<style="text-align: center;">'''Default D-Link firmware memory map (hex)''' ||
+||File offset   ||Flash address     ||Description ||
+||000000-00008F ||90010000-9001008F ||Header used by the web interface to verify firmware compatibility ||
+||000090-080FFF ||90010090-90090FFF ||Kernel with padded 0s at the end ||
+||081000-end    ||90091000-end      ||Filesystem (shorter than the full length) ||
 
+The OpenWRT firmware (assuming a SquashFS image) is organized like this:
 
-The new OpenWRT firmware is much better at space saving:
-||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
-||0 - x ||Kernel ||
-||x - eof ||SquashFS ||
+||||||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
+||File offset   ||Flash address     ||Description ||
+||000000-nnnnnn ||90010000-NNNNNNNN ||Kernel ||
+||nnnnnn-mmmmmm ||NNNNNNNN-MMMMMMMM ||SquashFS (read-only) root filesystem ||
+||mmmmmm-end    ||MMMMMMMM-end      ||Padding and empty JFFS (read-write) filesystem ||
 
+OpenWRT itself does not care about the values of the "mtd" variables, it detects the MTD boundaries on boot itself. However, the ADAM2 bootloader requires that mtd1 covers the entire kernel image to be loaded. The D-Link firmware settings are not large enough for this. If this is wrong, the router will blink the "USB" light immediately after reflashing/rebooting and you will need to adjust mtd1 to fix this.
 
-Consequently our filesystem/kernel boundaries will be different to those of the D-Link firmware: For OpenWRT to boot we must find out where the new firmwares kernel and filesystem boundaries are and save these into the routers configuration.
+So we will need to change the MTD partiton map to this:
 
-Just grab a hex editor such as ghex2 (linux) or xvi (windows), open up the firmware and search for the hsq or hsqs this represents the start of the squashFS. (i.e. sqsh for big endian or hsqs for little endian processors)
-
-In my case this position was 0x000750E0
-
-So for the modem to boot up into OpenWRT I need to change my mtd0,1 and 4 boundaries:
-||||||||<style="text-align: center;">'''Custom memory map for OpenWRT''' ||
+||||||||<style="text-align: center;">'''OpenWRT memory mappings''' ||
 ||Name ||Start ||End ||Description ||
-||mtd0 ||0x900850E0 ||0x903f0000 ||Filesystem ||
-||mtd1 ||0x90010000 ||0x900850E0 ||Kernel ||
-||mtd2 ||0x90000000 ||0x90010000 ||bootloader ||
-||mtd3 ||0x903f0000 ||0x90400000 ||config ||
-||mtd4 ||0x90010000 ||0x903f00000 ||Kernel + FS ||
+||mtd0 ||0x90091000 ||0x903f0000 ||ignored ||
+||mtd1 ||0x90010000 ||0x903f0000 ||Kernel+FS ('''changed from default''') ||
+||mtd2 ||0x90000000 ||0x90010000 ||Bootloader ||
+||mtd3 ||0x903f0000 ||0x90040000 ||Configuration ||
+||mtd4 ||0x90010000 ||0x903f0000 ||Kernel+FS ||
 
+To change mtd1, we use the ADAM2 bootloader that is accessible for a few seconds after boot. To access it, the simplest way is to use trunk/scripts/adam2flash.pl:
 
-'''Adjust the memory mappings on the router'''
+ * Configure your PC for a '''static''' IP address on a subnet of your choice (e.g. 192.168.1.2)
+ * Pick an address for the router (e.g. 192.168.1.1)
+ * Power off the router
+ * Run this:
+{{{
+$ scripts/adam2flash.pl 192.168.1.1 && telnet 192.168.1.1 21
+}}}
+ * While the script is running, power on the router.
 
-The DSL-502T has an adam2 bootloader that is available between 0 - 5 seconds at bootup. This is where you can change the mtd variables.
+adam2flash.pl sends a special broadcast packet that asks ADAM2 to configure itself for the given IP address and respond. When we see the response, we connect to the ADAM2 FTP server which allows setting of MTD variables.
 
-Now we adjust our mtd variables by setting our IP to 10.8.8.1 (subnet 255.255.255.0) and telnetting to 10.8.8.8 but on port 21 (FTP)
-
-We now type the following:
-
+You should see the ADAM2 FTP greeting banner. Execute these commands:
 {{{
 USER adam2
 PASS adam2
-quote "SETENV mtd0,0x900850E0,0x9003f0000" (fs)
-quote "SETENV mtd1,0x90010000,0x900850E0" (kernel)
-quote "SETENV mtd4,0x90010000,0x9003f0000" (fs+kernel)
+SETENV mtd1,0x90010000,0x903f0000"
 }}}
-You must use the comma as a separator.
 
 DO NOT CHANGE mtd2 or mtd3, this will brick your router and you will need a JTAG cable to recover it.
 
-'''Adding a checksum (not necessary)'''
-
-Some DSL-502T routers may have a version of adam2 that requires each file to have a checksum, otherwise the file is rejected.
-
-TICHKSUM can be found in the GPL source code for the original firmware available on D-Links website, it may already be compiled as a mipsel binary or may be available as separate source code.
+These steps only need to be done once; you can then load new OpenWRT firmware repeatedly without needing to change mtd1 again.
 
 '''Flashing the new firmware'''
 
-Now you are ready to flash OpenWRT onto your router, FTP into the adam2 bootloader as above:
+Now you are ready to flash OpenWRT onto your router. FTP into the adam2 bootloader using a ftp client:
 
 {{{
+$ scripts/adam2flash.pl 192.168.1.1 && ftp 192.168.1.1
+
 quote "MEDIA FLSH"
 binary
 debug
 hash
-put "openwrt-ar7-2.4-squashfs.bin" "c mtd4"
+put "openwrt-ar7-2.6-squashfs.bin" "c mtd4"
 quote REBOOT
 quit
 }}}
+
 Here we switch to flash memory, we enable binary transfer mode, we turn on debugging, we print hashes during file transfer and we upload our file (c can be anything).
+
+It is normal for the PUT to take a long time before it starts transferring data. The router is erasing the flash region that will be written to, this takes some time. Be patient!
+
+(TODO: updates / instructions for modifying adam2flash to do this directly)
 
 '''Booting up for the first time'''
 
