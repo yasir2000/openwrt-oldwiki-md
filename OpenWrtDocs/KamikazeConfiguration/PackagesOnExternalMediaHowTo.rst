@@ -63,7 +63,7 @@ config mmcmod
         option device   '/dev/mmc/disc0/part1'
         option gpiomask '0x9c'
         option modules  'mmc jbd ext3'
-        option enabled  '0'}}}}}}
+        option enabled  '0'}}}
 the gpiomask option is only required for the MMC/SD card mod.
 = Copy the flash content to the external media =
 Then we make a /tmp/root mount it to /rom and copiing the files (and at last unmount it and the stick)
