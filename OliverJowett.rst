@@ -8,16 +8,18 @@ NZ-based software developer.
 
 In my copious spare time (hah!) I am working on getting the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T DSL-502T] port stable.
 
+Useful DSL-504T links:
+
+ * Platform LED patch [https://dev.openwrt.org/ticket/2746]
+ * ledtrig-netdev (drive front panel LEDs off network activity) [https://dev.openwrt.org/ticket/2776]
+
 ----
 
 todo list
 
  * continue wiki updates
- * post more specific platform.c led patch to [https://dev.openwrt.org/ticket/2746]
  * cpmac stability/performance patches to [https://dev.openwrt.org/ticket/2569]
- * post ledtrig-netdev (blink LEDs based on network device activity) as enhancement in trac
  * fix init.d/network not bringing up WAN on boot
- * led setup / config script
  * diag.sh led settings
 
 ----
