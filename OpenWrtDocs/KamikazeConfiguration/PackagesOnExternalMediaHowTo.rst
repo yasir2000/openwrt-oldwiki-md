@@ -33,29 +33,38 @@ mount -o rw "$boot_dev" /opt
 }
 exec /bin/busybox init}}}
 = /sbin/init for e.g. Linksys WRT54GL with SD/MMC mod =
-
 {{{
 #!/bin/sh
-boot_dev="/dev/mmc/disc0/part1"
-echo "0x9c" > /proc/diag/gpiomask
-for module in mmc jbd ext3; do {
-        insmod $module
-}; done
-# e2fsck -y "$boot_dev"
-sleep 5s
-mount -o rw "$boot_dev" /mnt
-[ -x /mnt/sbin/init ] && {
-        . /bin/firstboot
-        pivot /mnt /mnt
+. /etc/functions.sh
+config_load "mmcmod"
+local section="cfg1"
+config_get      "target"   "$section" "target"
+config_get      "device"   "$section" "device"
+config_get      "gpiomask" "$section" "gpiomask"
+config_get      "modules"  "$section" "modules"
+config_get_bool "enabled"  "$section" "enabled" '1'
+[ "$enabled" -gt 0 ] && {
+        echo "$gpiomask" > /proc/diag/gpiomask
+        for module in $modules; do {
+                insmod $module
+        }; done
+        sleep 5s
+        mount -o rw "$device" $target
+        [ -x $target/sbin/init ] && {
+                . /bin/firstboot
+                pivot $target $target
+        }
 }
 exec /bin/busybox init}}}
 = /etc/config/bootfromexternalmedia =
 {{{
-config bootfromexternalmedia
-        option target       '/mnt'
-        option boot_device  '/dev/scsi/host0/bus0/target0/lun0/part1'
-        option load_modules 'usbcore ehci-hcd scsi_mod sd_mod usb-storage jbd ext3'
-        option enabled      '0'}}}
+config mmcmod
+        option target   '/mnt'
+        option device   '/dev/mmc/disc0/part1'
+        option gpiomask '0x9c'
+        option modules  'mmc jbd ext3'
+        option enabled  '0'}}}}}}
+the gpiomask option is only required for the MMC/SD card mod.
 = Copy the flash content to the external media =
 Then we make a /tmp/root mount it to /rom and copiing the files (and at last unmount it and the stick)
 
