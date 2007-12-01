@@ -155,7 +155,7 @@ $ cp rootfs.squashfs /tftp/
 }}}
 On your Fonera
 
-Enable networking (I do not have to remind you to plug your network cable in, do it? ;-)
+Enable networking (I do not have to remind you to plug your network cable in, do I? ;-)
 
 {{{
 RedBoot> ip_address -l 192.168.5.75/24 -h 192.168.5.2
