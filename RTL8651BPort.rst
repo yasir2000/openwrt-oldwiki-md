@@ -27,6 +27,7 @@ See TableOfHardware
  * Canyon CN-WF514 (version as of 2006 spring, has firmware version 1.37) - RTL8186
  * D-Link DI-524UP - RTL8650B [http://www.dlink.ca/products/?pid=316 product description] [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz Firmware source code] [http://ossfans.org/DI524UP/ Firmware investigation project]
  * D-Link DI-624M - RTL8651B
+ * D-Link DI-624S [ftp://ftp.dlink.com/GPL/DI-624S/DI-624s_v100036.tgz Firmware source code GPL]
  * D-Link DI-634M - RTL8651B
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
  * Linksys WRT54GX2, WRT54GX4, [:OpenWrtDocs/Hardware/Linksys/WRT54GX:WRT54GXv2], WRV200
