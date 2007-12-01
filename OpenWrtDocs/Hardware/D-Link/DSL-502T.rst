@@ -77,7 +77,7 @@ $ apt-get install flex bison autoconf zlib1g-dev libncurses5-dev automake g++
 '''Select firmware components'''
 
 Enter into the folder and run make menuconfig. Select at least:
- * Target System -> TI AR7 \[2.6\]
+ * Target System -> TI AR7 [2.6]
  * Target Profile -> No Wifi
  * Target Images -> SquashFS
  * Base system -> br2684ctl (only needed by PPPoE)
