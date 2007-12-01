@@ -66,7 +66,7 @@ apt-get install flex bison autoconf zlib1g-dev libncurses5-dev automake
 }}}
 '''Select firmware components'''
 
-Enter into the folder and run make menuconfig, select processor as TI AR7 [2.4]
+Enter into the folder and run make menuconfig, select processor as TI AR7 [2.6]
 
 You also need to select your ADSL1 Annex, it's either Annex A or B (Germany only).
 
@@ -74,105 +74,48 @@ If you're using PPPoE you must also compile in br2684ctl and it's dependency lin
 
 Quit and save the config.
 
-Run 'make' to download essential packages (approximately 100MByte) and compile the firmware.
+Run 'make' to download essential packages (approximately 100MByte) and compile the firmware. The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.bin.
 
-The final firmware produced by the build is located in bin/openwrt-ar7-2.4-squashfs.bin. This is the file you will FTP to the router later.
+'''Flash the new firmware'''
 
-'''Understanding the firmware & memory layout of the DSL-502T'''
-
-This is very important, please try to understand what is going on here.
-
-The Flash memory is divided into partitions, with the D-Link V3.00B firmware our memory mappings are:
-||||||||<style="text-align: center;">'''Default DLink v3 memory mappings''' ||
-||Name ||Start ||End ||Description ||
-||mtd0 ||0x90091000 ||0x903f0000 ||Filesystem ||
-||mtd1 ||0x90010090 ||0x90091000 ||Kernel ||
-||mtd2 ||0x90000000 ||0x90010000 ||Bootloader ||
-||mtd3 ||0x903f0000 ||0x90040000 ||Configuration ||
-||mtd4 ||0x90010000 ||0x903f0000 ||fs+kernel ||
-
-Note that the "end" addresses are one byte past the last byte actually used.
-
-The D-Link firmware is flashed to mtd4, this is not a real memory block, it is a virtual block spanning the kernel & filesystem.
-
-The D-Link firmware file is organised like this:
-||||||||<style="text-align: center;">'''Default D-Link firmware memory map (hex)''' ||
-||File offset   ||Flash address     ||Description ||
-||000000-00008F ||90010000-9001008F ||Header used by the web interface to verify firmware compatibility ||
-||000090-080FFF ||90010090-90090FFF ||Kernel with padded 0s at the end ||
-||081000-end    ||90091000-end      ||Filesystem (shorter than the full length) ||
-
-The OpenWRT firmware (assuming a SquashFS image) is organized like this:
-
-||||||||<style="text-align: center;">'''OpenWRT firmware mapping''' ||
-||File offset   ||Flash address     ||Description ||
-||000000-nnnnnn ||90010000-NNNNNNNN ||Kernel ||
-||nnnnnn-mmmmmm ||NNNNNNNN-MMMMMMMM ||SquashFS (read-only) root filesystem ||
-||mmmmmm-end    ||MMMMMMMM-end      ||Padding and empty JFFS (read-write) filesystem ||
-
-OpenWRT itself does not care about the values of the "mtd" variables, it detects the MTD boundaries on boot itself. However, the ADAM2 bootloader requires that mtd1 covers the entire kernel image to be loaded. The D-Link firmware settings are not large enough for this. If this is wrong, the router will blink the "USB" light immediately after reflashing/rebooting and you will need to adjust mtd1 to fix this.
-
-So we will need to change the MTD partiton map to this:
-
-||||||||<style="text-align: center;">'''OpenWRT memory mappings''' ||
-||Name ||Start ||End ||Description ||
-||mtd0 ||0x90091000 ||0x903f0000 ||ignored ||
-||mtd1 ||0x90010000 ||0x903f0000 ||Kernel+FS ('''changed from default''') ||
-||mtd2 ||0x90000000 ||0x90010000 ||Bootloader ||
-||mtd3 ||0x903f0000 ||0x90040000 ||Configuration ||
-||mtd4 ||0x90010000 ||0x903f0000 ||Kernel+FS ||
-
-To change mtd1, we use the ADAM2 bootloader that is accessible for a few seconds after boot. To access it, the simplest way is to use trunk/scripts/adam2flash.pl:
-
- * Configure your PC for a '''static''' IP address on a subnet of your choice (e.g. 192.168.1.2)
- * Pick an address for the router (e.g. 192.168.1.1)
- * Power off the router
- * Run this:
-{{{
-$ scripts/adam2flash.pl 192.168.1.1 && telnet 192.168.1.1 21
+ * Download a copy of the standard D-Link firmware so you can revert to it if things go wrong! You need the "web upgrade" .BIN version of the firmware, not the .EXE version. D-Link firmware can be downloaded from (for example) [http://www.dlink.com.au/tech/]
+ * Get [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl?format=raw adam2flash-502T.pl].
+ * Configure your PC for a static IP address, I'd suggest 192.168.1.2 (or another address on that subnet)
+ * Choose an IP address for your router. The OpenWrt firmware will use 192.168.1.1 after rebooting, so that's a sensible choice.
+ * Turn off the router.
+ * Run adam2flash-502T.pl, providing the router IP address you chose and the new firmware to upload. If you are changing between D-Link and OpenWrt firmware, you will also need to specify -setmtd1 (if you forget this, the script will tell you that you need it and exit)
+ * Turn on the router.
+ * Wait for the upload to complete. Here's a sample session:
+{{{oliver@suspicion:~/openwrt/trunk$ scripts/adam2flash-502T.pl 192.168.1.1 -setmtd1 bin/openwrt-ar7-squashfs.bin 
+Looking for device: ..... found!
+ADAM2 version 0.22.2 at 192.168.1.1 (192.168.1.1)
+Firmware type: OpenWRT (little-endian)
+logging into ADAM2 bootloader.. ok.
+checking hardware.. AR7RD / DSL-502T.
+checking MTD settings.. ok.
+Firmware size: 0x00280004
+Available flash space: 0x003e0000
+Preparing to flash.. ok.
+Erasing flash and establishing data connection (this may take a while): ok.
+Writing firmware: ... (lots more dots) ... done.
+Rebooting device.
+oliver@suspicion:~/openwrt/trunk$
 }}}
- * While the script is running, power on the router.
+ * Wait for the router to reboot. After a while, you should be able to ping 192.168.1.1!
 
-adam2flash.pl sends a special broadcast packet that asks ADAM2 to configure itself for the given IP address and respond. When we see the response, we connect to the ADAM2 FTP server which allows setting of MTD variables.
+For more information on the firmware & memory layout of the DSL-502T, see the [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl comments in adam2flash-502T.pl]
 
-You should see the ADAM2 FTP greeting banner. Execute these commands:
-{{{
-USER adam2
-PASS adam2
-SETENV mtd1,0x90010000,0x903f0000"
-}}}
+You can also use adam2flash-502T.pl to restore the original D-Link firmware if needed - it recognizes D-Link firmware and adjusts MTD settings accordingly.
 
-DO NOT CHANGE mtd2 or mtd3, this will brick your router and you will need a JTAG cable to recover it.
+'''Connecting to ADAM2 manually'''
 
-These steps only need to be done once; you can then load new OpenWRT firmware repeatedly without needing to change mtd1 again.
-
-'''Flashing the new firmware'''
-
-Now you are ready to flash OpenWRT onto your router. FTP into the adam2 bootloader using a ftp client:
+If you need to manually tweak firmware settings e.g. MAC_PORT below, do this:
 
 {{{
-$ scripts/adam2flash.pl 192.168.1.1 && ftp 192.168.1.1
-
-quote "MEDIA FLSH"
-binary
-debug
-hash
-put "openwrt-ar7-2.6-squashfs.bin" "c mtd4"
-quote REBOOT
-quit
+$ scripts/scripts/adam2flash-502T.pl 192.168.1.1 && telnet 192.168.1.1 21
 }}}
 
-Here we switch to flash memory, we enable binary transfer mode, we turn on debugging, we print hashes during file transfer and we upload our file (c can be anything).
-
-It is normal for the PUT to take a long time before it starts transferring data. The router is erasing the flash region that will be written to, this takes some time. Be patient!
-
-(TODO: updates / instructions for modifying adam2flash to do this directly)
-
-'''Booting up for the first time'''
-
-Generally the router won't work until the second bootup. Leave it for a minute or two on the first bootup as it runs some scripts to set itself up.
-
-Remember to unset your ip settings under windows, also under linux type dhclient eth0 to get a dhcp assigned IP address.
+Now you are connected to the bootloader FTP client. Log in with "USER adam2" and "PASS adam2".
 
 '''Enable the internal or external PHY'''
 
@@ -180,15 +123,17 @@ Ignore the LEDs, they don't come on anyway.
 
 If you reboot several times and you can't get an IP it could be that you need to tell the modem which PHY it needs to use:
 
-In adam2 you may need to do quote "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS).
+In adam2 you may need to do "SETENV MAC_PORT,0" or "SETENV MAC_PORT,1" (note uppercase and it's not MAC_PORTS).
 
 This option selects between internal and external PHY.
 
 '''Congratulations you are successful :)'''
 
-If you can get an IP, well done!
+If you can ping 192.168.1.1, well done!
 
-You should be given an IP like 192.168.1.111 (NOT 169.x.x.x this means something is broken), telnet into 192.168.1.1 and you're should see the OpenWRT logo :) ''' '''
+You can reconfigure your PC for DHCP if you like, you should be given an IP in the 192.168.1.x range.
+
+telnet into 192.168.1.1 and you're should see the OpenWRT logo :) ''' '''
 
 '''Password protect the router'''
 
