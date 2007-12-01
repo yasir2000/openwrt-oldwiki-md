@@ -164,6 +164,7 @@ The modulation can be changed via the adam2 prompt: "SETENV modulation,GDMT" or 
  * MMODE is Multi-Mode and negotiates the best mode that it can.
 
 '''Check your line is in sync'''
+
 If DSL is working, the ADSL LED should be solidly on. Check 'dmesg' for DSL log messages. You should see something like this:
 {{{
 registered device TI Avalanche SAR
@@ -252,7 +253,7 @@ And you should now have internet access!
 
 '''Set up port forwarding'''
 
-For general port forwarding, edit /etc/config/firewall and follow the comments. Run '/etc/init.d.firewall restart' after configuration changes.
+For general port forwarding, edit /etc/config/firewall and follow the comments. Run '/etc/init.d/firewall restart' after configuration changes.
 
 '''How to give interfaces fixed IP addresses'''
 
