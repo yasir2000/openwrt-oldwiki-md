@@ -123,7 +123,7 @@ You can also use adam2flash-502T.pl to restore the original D-Link firmware if n
 
 If you need to manually tweak firmware settings, you can do so by getting adam2flash to assign the bootloader an IP then doing a manual telnet to the FTP control port:
 {{{
-$ scripts/scripts/adam2flash-502T.pl 192.168.1.1 && telnet 192.168.1.1 21
+$ scripts/adam2flash-502T.pl 192.168.1.1 && telnet 192.168.1.1 21
 }}}
 Now you are connected to the bootloader FTP server. Log in with "USER adam2" and "PASS adam2".
 
