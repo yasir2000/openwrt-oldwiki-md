@@ -27,7 +27,7 @@ See TableOfHardware
  * Canyon CN-WF514 (version as of 2006 spring, has firmware version 1.37) - RTL8186
  * D-Link DI-524UP - RTL8650B [http://www.dlink.ca/products/?pid=316 product description] [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz Firmware source code] [http://ossfans.org/DI524UP/ Firmware investigation project]
  * D-Link DI-624M - RTL8651B
- * D-Link DI-624S [ftp://ftp.dlink.com/GPL/DI-624S/DI-624s_v100036.tgz Firmware source code GPL]
+ * D-Link DI-624S - RTL8651B [ftp://ftp.dlink.com/GPL/DI-624S/DI-624s_v100036.tgz Firmware source code GPL]
  * D-Link DI-634M - RTL8651B
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
  * Linksys WRT54GX2, WRT54GX4, [:OpenWrtDocs/Hardware/Linksys/WRT54GX:WRT54GXv2], WRV200
@@ -70,7 +70,7 @@ Source Code for Manufacturers' Firmware is available from:
  * Canyon [http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514/Down CN-WF514]
  * D-Link DI-524UP - RTL8650B [ftp://ftp.dlink.co.uk/GPL/DI-524UP_GPL.tar.gz]
  * D-Link DI-624M [http://support.dlink.com/faq/print.asp?productid=2081]
- * D-Link DI-624S (Rev B1) [http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=2&Sub2=5&PID=64]
+ * D-Link DI-624S (Rev B1) [http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=2&Sub2=5&PID=64] [ftp://ftp.dlink.com/GPL/DI-624S/DI-624s_v100036.tgz Firmware source code GPL]
  * D-Link DI-634M [http://www.dlink.com.au/tech/Download/download.aspx?product=DI-634M&revision=REV_A&filetype=Firmware]
  * Edimax BR-6204Wg [http://www.edimax.com.tw/html/english/frames/b-download.htm]
  * Linksys WRT54GX2, WRT54GX4, and WRV200 [http://www.linksys.com/servlet/Satellite?c=L_Content_C1&childpagename=US%2FLayout&cid=1115416836002&pagename=Linksys%2FCommon%2FVisitorWrapper Linksys "GPL Code Center"]
