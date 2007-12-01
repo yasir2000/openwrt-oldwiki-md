@@ -19,7 +19,15 @@ SDRAM: 128Mb syncronous DRAM - 2M x 4Bank x16 I/O - HYNIX HY57V281620ETP-H
 
 CPU: TNETD7300AZDW (6BZHT99) Texas Instruments AR7 MIPS based
 
+----
+
+OliverJowett asks: are the GPIO to LED mappings the same as for the 502T? See [https://dev.openwrt.org/ticket/2746]
+
 == bootloader ==
+
+OliverJowett speculates: It looks like the flash layout is basically the same as for the DSL-502T. The script in [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl?format=raw] will probably work with the 524T. Currently it checks the ProductID and usb_prod of the bootloader environment before continuing, as a safety check - you will have to modify that check to also allow the 524T. Can you try it out? It makes flashing much simpler!
+
+----
 
 ip address for adam2 bootloader is 5.8.8.8 (instead of 10.8.8.8 like it was for DSL-502T)
 
