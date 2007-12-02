@@ -247,7 +247,7 @@ I bought a WRT54GL today and received a v1.1 so I would expect that this is stil
 
 I tell you. I had the Package in my Hand. I backed of buying i because, as i sayed, had no confimation it will work. It was at Arlt in Freiburg im Breisgau, Germany. Possibly only a -DE Version?
 
-I bought an WER54GL-DE last week (11/07) from amazon and the device looks like an international version (I think there are no german versions). The version is 1.1, it was manufactured in 08/2007.
+I bought an WER54GL-DE last week (11/07) from amazon and the device looks like an international version (I think there are no german versions). The version is 1.1, it was manufactured in 08/2007. --x3k6a2
 
 I bought a new WRT54GL in Germany at amazon.de (in May 07) The Revision is v1.1. The router was manufactored in 01/2007. I can see this date on a sticker on the bottom of the router. -- ThomasBrinkmann
 
