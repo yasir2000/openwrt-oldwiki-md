@@ -84,3 +84,38 @@ sync
 umount /tmp/root
 umount /mnt}}}
 Finally reboot or power cycle your router.
+
+= Some more info =
+Some things you can check if its working correctly:
+
+df -h
+
+{{{
+Filesystem                Size      Used Available Use% Mounted on
+none                      7.0M     36.0k      6.9M   1% /tmp
+/dev/mtdblock/4           1.3M    828.0k    452.0k  65% /jffs
+mini_fo:/jffs             1.9M      1.9M         0 100% /mnt
+/dev/mmc/disc0/part1    375.3M     14.0M    342.2M   4% /}}}
+
+mount
+{{{
+rootfs on / type rootfs (rw)
+/dev/root on /mnt/rom type squashfs (ro)
+none on /dev type devfs (rw)
+none on /proc type proc (rw)
+none on /tmp type tmpfs (rw,nosuid,nodev)
+none on /dev/pts type devpts (rw)
+/dev/mtdblock/4 on /jffs type jffs2 (rw)
+mini_fo:/jffs on /mnt type mini_fo (rw)
+/dev/mmc/disc0/part1 on / type ext3 (rw)
+}}}
+fdisk -l /dev/mmc/disc0/disc
+
+{{{
+Disk /dev/mmc/disc0/disc: 522 MB, 522846208 bytes
+4 heads, 16 sectors/track, 15956 cylinders
+Units = cylinders of 64 * 512 = 32768 bytes
+              Device Boot      Start         End      Blocks   Id  System
+/dev/mmc/disc0/part1               1       12207      390616   83  Linux
+/dev/mmc/disc0/part2           12208       15956      119968   82  Linux swap / Solaris
+}}}
