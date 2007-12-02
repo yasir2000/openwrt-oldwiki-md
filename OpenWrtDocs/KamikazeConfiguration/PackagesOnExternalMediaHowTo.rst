@@ -24,7 +24,7 @@ config bootfromexternalmedia
         option modules  'ide-core aec62xx ide-detect ide-disk jbd ext3'
         option enabled  '1'}}}
 
-== For e.g. Linksys WRT54GL with SD/MMC mod ==
+== For e.g. Linksys WRT54GL with SD/MMC card ==
 {{{
 config bootfromexternalmedia
         option target   '/mnt'
@@ -32,7 +32,7 @@ config bootfromexternalmedia
         option gpiomask '0x9c'
         option modules  'mmc jbd ext3'
         option enabled  '1'}}}
-The gpiomask option is only required for the MMC/SD card mod.
+The gpiomask option is only required for the MMC/SD card.
 
 = /sbin/init script replacement =
 {{{
