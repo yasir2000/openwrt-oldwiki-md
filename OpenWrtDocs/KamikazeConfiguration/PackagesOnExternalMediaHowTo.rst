@@ -1,7 +1,10 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 
-OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo under construction ...
+'''Packages on external media HowTo'''
+
+== Introduction ==
+This guide describes how to use your USB pen drive or your MMC/SD card for storing packages and files instead of using the JFFS2 partition on your flash chip. / in this case is the SquashFS partition on the flash chip and the writable partition is on your external media. With this guide you do not have to mess around with PATH, LD_LIBRARY_PATH or create symlinks anymore.
 
 This guide is based on http://forum.openwrt.org/viewtopic.php?id=11495.
 
@@ -15,7 +18,6 @@ config bootfromexternalmedia
         option device   '/dev/scsi/host0/bus0/target0/lun0/part1'
         option modules  'usbcore ehci-hcd scsi_mod sd_mod usb-storage jbd ext3'
         option enabled  '1'}}}
-
 == For e.g. ASUS WL-700g Encore ==
 {{{
 config bootfromexternalmedia
@@ -23,7 +25,6 @@ config bootfromexternalmedia
         option device   '/dev/ide/host0/bus0/target0/lun0/part1'
         option modules  'ide-core aec62xx ide-detect ide-disk jbd ext3'
         option enabled  '1'}}}
-
 == For e.g. Linksys WRT54GL with SD/MMC card ==
 {{{
 config bootfromexternalmedia
