@@ -21,7 +21,6 @@ wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs
 Download the UCI configuration file
 {{{
 wget -O /etc/config/wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle.config"}}}
-[http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile Show attachments] (Please fix the long URLs. Thanks)
 
 = Configuration =
 Change the button you like to use or leave the default (reset button).
