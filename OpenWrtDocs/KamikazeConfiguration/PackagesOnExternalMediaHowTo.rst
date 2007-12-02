@@ -83,3 +83,5 @@ cp /tmp/root/* /mnt -a
 sync
 umount /tmp/root
 umount /mnt}}}
+
+Finally reboot or power cycle your router.
