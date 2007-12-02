@@ -61,6 +61,17 @@ config_get_bool "enabled"  "$section" "enabled" '1'
         }
 }
 exec /bin/busybox init}}}
+
+Remove the old /sbin/init script:
+{{{
+rm -f /sbin/init}}}
+
+Save (copy&paste) the new init script above to /sbin/init
+
+Do not forget to set executable permissions on the script with:
+{{{
+chmod a+x /sbin/init}}}
+
 = Copy the flash content to the external media =
 Then we make a /tmp/root mount it to /rom and copiing the files (and at last unmount it and the stick)
 
