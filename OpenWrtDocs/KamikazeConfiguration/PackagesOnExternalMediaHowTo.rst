@@ -56,8 +56,9 @@ exec /bin/busybox init}}}
 Then we make a /tmp/root mount it to /rom and copiing the files (and at last unmount it and the stick)
 
 {{{
-mkdir /tmp/root
+mkdir -p /tmp/root
 mount -o bind /rom /tmp/root
 cp /tmp/root/* /mnt -a
+sync
 umount /tmp/root
 umount /mnt}}}
