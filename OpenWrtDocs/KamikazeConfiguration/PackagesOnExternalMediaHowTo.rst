@@ -1,7 +1,7 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 
-'''Packages on external media HowTo'''
+'''Packages on external media !HowTo'''
 
 = Introduction =
 This guide describes how to use your USB pen drive, harddrive or your MMC/SD card for storing packages and files instead of using the JFFS2 partition on your flash chip. / in this case is the SquashFS partition on the flash chip and the writable partition is on your external media. With this guide you do not have to mess around with PATH, LD_LIBRARY_PATH or create symlinks anymore.
