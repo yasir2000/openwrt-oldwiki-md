@@ -70,6 +70,11 @@ Do not forget to set executable permissions on the script with:
 
 {{{
 chmod a+x /sbin/init}}}
+
+= Install required packages =
+
+To prepare your external media you need to install extra packages on the flash chip. E.g. e2fsprogs (to format and check the filesystem), kmod-fs-ext2 or kmod-fs-ext3 (for the filesystem support), the IDE related packages for IDE support or the USB related packages for USB support.
+
 = Copy the flash content to the external media =
 Then we make a /tmp/root mount it to /rom and copiing the files (and at last unmount it and the stick)
 
