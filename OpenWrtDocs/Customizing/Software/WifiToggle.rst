@@ -14,13 +14,8 @@ Create a directory for the hotplug script
 
 {{{
 mkdir -p /etc/hotplug.d/button}}}
-Download the hotplug script for '''Whiterussian'''
 
-{{{
-wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=01-wifitoggle-wr"
-}}}
-
-Or download the hotplug script for '''Kamikaze'''
+Download the hotplug script
 {{{
 wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=01-wifitoggle"
 }}}
