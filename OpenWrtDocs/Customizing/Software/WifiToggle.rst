@@ -7,8 +7,6 @@ New diag module. This is what controls the LEDs and the buttons; now LEDs are /p
 
 With little modifications the script can be used to connect/disconnect your WAN connection.
 
-There are two different hotplug scripts for Whiterussian and Kamikaze branches, you should only download one of them.
-
 = Installation =
 Create a directory for the hotplug script
 
