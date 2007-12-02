@@ -30,7 +30,7 @@ uci set wifitoggle.cfg1.button=ses}}}
 Description of the options in the !WiFi toggle configuration file (/etc/config/wifitoggle):
 ||<tablewidth="1171px" tableheight="77px">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
 ||button ||[reset|ses|aoss] ||reset ||The name of the button on the router which should be used to turn !WifFi on/off ||
-||seen ||[0|1] ||0 ||No idea what this is for but without the value 1 for seen the Reset button does not work on the Fonera. ||
+||seen ||[0|1] ||0 ||No idea what this is for but without the value 1 for seen the Reset button on the Fonera is not working. ||
 
 Commit your changes
 
