@@ -86,6 +86,7 @@ The default network configuration is:
 ||vlan1 ||WAN port ||DHCP ||
 ||wl0 ||!WiFi ||Disabled by default ||
 
+
 == Switch Ports (for VLANs) ==
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs. vlan0 = eth0.0, vlan1 = eth0.1 and so on.
 ||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
@@ -206,7 +207,7 @@ Photos for the soldering points:
 {{{
 #!/bin/sh
 . /etc/functions.sh
-config_load "mmcmod"
+config_load "bootfromexternalmedia"
 local section="cfg1"
 config_get      "target"   "$section" "target"
 config_get      "device"   "$section" "device"
@@ -214,7 +215,9 @@ config_get      "gpiomask" "$section" "gpiomask"
 config_get      "modules"  "$section" "modules"
 config_get_bool "enabled"  "$section" "enabled" '1'
 [ "$enabled" -gt 0 ] && {
-        echo "$gpiomask" > /proc/diag/gpiomask
+        [ -n "$gpiomask" ] && {
+                echo "$gpiomask" > /proc/diag/gpiomask
+        }
         for module in $modules; do {
                 insmod $module
         }; done
@@ -226,14 +229,14 @@ config_get_bool "enabled"  "$section" "enabled" '1'
         }
 }
 exec /bin/busybox init}}}
-=== /etc/config/mmcmod ===
+=== /etc/config/bootfromexternalmedia ===
 {{{
-config mmcmod
+config bootfromexternalmedia
         option target   '/mnt'
         option device   '/dev/mmc/disc0/part1'
         option gpiomask '0x9c'
         option modules  'mmc jbd ext3'
-        option enabled  '0'}}}
+        option enabled  '1'}}}
 = Other Info =
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
