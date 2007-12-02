@@ -2,25 +2,23 @@ OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo under constructio
 
 This guide is based on http://forum.openwrt.org/viewtopic.php?id=11495.
 
-
-
 = Configuration file for e.g. ASUS WL-500g Premium =
 {{{
-config mmcmod
+config bootfromexternalmedia
         option target   '/mnt'
         option device   '/dev/scsi/host0/bus0/target0/lun0/part1'
         option modules  'usbcore ehci-hcd scsi_mod sd_mod usb-storage jbd ext3'
         option enabled  '1'}}}
 = Configuration file for e.g. ASUS WL-700g Encore =
 {{{
-config mmcmod
+config bootfromexternalmedia
         option target   '/mnt'
         option device   '/dev/ide/host0/bus0/target0/lun0/part1'
         option modules  'ide-core aec62xx ide-detect ide-disk jbd ext3'
         option enabled  '1'}}}
 = Configuration file for e.g. Linksys WRT54GL with SD/MMC mod =
 {{{
-config mmcmod
+config bootfromexternalmedia
         option target   '/mnt'
         option device   '/dev/mmc/disc0/part1'
         option gpiomask '0x9c'
