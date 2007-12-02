@@ -15,12 +15,12 @@ mkdir -p /etc/hotplug.d/button}}}
 
 Download the hotplug script
 {{{
-wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle.hotplug"
+wget -O /etc/hotplug.d/button/01-wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle.hotplug1"
 }}}
 
 Download the UCI configuration file
 {{{
-wget -O /etc/config/wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle.config"}}}
+wget -O /etc/config/wifitoggle "http://wiki.openwrt.org/OpenWrtDocs/Customizing/Software/WifiToggle?action=AttachFile&do=get&target=wifitoggle.config1"}}}
 
 = Configuration =
 Change the button you like to use or leave the default (reset button).
@@ -30,7 +30,7 @@ uci set wifitoggle.cfg1.button=ses}}}
 Description of the options in the !WiFi toggle configuration file (/etc/config/wifitoggle):
 ||<tablewidth="1171px" tableheight="77px">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
 ||button ||[reset|ses|aoss] ||reset ||The name of the button on the router which should be used to turn !WifFi on/off ||
-
+||seen ||[0|1] ||0 ||No idea what this is for but without the value 1 for seen the Reset button does not work on the Fonera. ||
 
 Commit your changes
 
