@@ -1,6 +1,6 @@
 #language en-ca
 
-This is a table of peripheral devices (such as USB audio, video, serial, printer, HID or network storage) which have been tested or are known to work (or not work, as indicated) under control of a unit running embedded Linux. This is not a test of whether the device itself can be run as an embedded stand-alone processor - these are peripherals only. See the main TableOfHardware for devices on which to run OpenWrt. 
+This is a table of peripheral devices (such as USB audio, video, serial, printer, HID or network storage) which have been tested or are known to work (or not work, as indicated) under control of a unit running embedded Linux. This is not a test of whether the device itself can be run as an embedded stand-alone processor - these are peripherals only. See the main TableOfHardware for devices on which to run OpenWrt.
 
 '''Status Legend''':
 
@@ -9,9 +9,9 @@ This is a table of peripheral devices (such as USB audio, video, serial, printer
  * '''Untested''' - should work in theory but never tested
  * '''Kamikaze''' - this device is only supported in Kamikaze (current release)
  * '''Kamikaze/2.6''' - this device is only supported in Linux 2.6 kernels under Kamikaze (current release)
- * '''WiP''' - Work in Progress 
+ * '''WiP''' - Work in Progress
  * '''Forked''' - Vendor has released some source, but it has not been merged into the main !OpenWrt source tree
- * '''No''' - confirmed that this device is not supported 
+ * '''No''' - confirmed that this device is not supported
  * '''Info entered''' - Information about the device is entered in this list, for reference.
 
 Devices are grouped by interface, which will typically be USB, network or (rarely) direct internal connection of serial or flash memory interfaces as hardware modifications. They are then sub-grouped by device type.
@@ -43,7 +43,7 @@ Interface is most often USB, or a combination of USB and some other connection t
 ||Samsung||SCX4521||n/a||'''No.''' Linux drivers from manufacturer are object-code only, will not run on embedded platforms.||
 
 === Human interface devices ===
-This category exists primarily for interface to keyboards and mice. USB joysticks and game adapters typically also fall into this category, as well as calculator-style numeric keypads designed for use with USB laptops. There is a standard USB device class for these; usually there is no requirement for manufacturer-specific drivers. 
+This category exists primarily for interface to keyboards and mice. USB joysticks and game adapters typically also fall into this category, as well as calculator-style numeric keypads designed for use with USB laptops. There is a standard USB device class for these; usually there is no requirement for manufacturer-specific drivers.
 
 These are supported in the standard distribution, although bugs have been reported: https://dev.openwrt.org/ticket/2184
 
@@ -96,18 +96,18 @@ Potentially, such a device could automatically receive a signal and record it to
 For DVB (digital satellite, and European digital TV broadcasting) various elements are required to operate a USB tuner:
  * Drivers for the device itself (i2c-core, usb-core, usb-dvb-core, plus front-end and device drivers for the specific model/device): these are not provided as precompiled binaries, but for some devices it is possible to build drivers using the OpenWrt SVN sources.
  * Firmware for the device, which is downloaded via USB. Some models have available .fw files [http://www.linuxtv.org/downloads/firmware/ here]
- * DVB-apps or dvbutils; a package of command-line utilities for tasks such as channel selection or device configuration. These are not included with OpenWrt (neither as source nor object), although a libdvb library is provided.
+ * DVB-apps or dvbutils; a package of command-line utilities for tasks such as channel selection or device configuration. These are not included with OpenWrt (neither as source nor object), although a libdvbpsi library is provided.
  * DVB channel lists (channels.conf), not included but for Europe (only) are available [http://www.linowsat.de/settings/vdr.html here] and elsewhere online.
- * Somewhere to send the received (usually MPEG2-encoded) signal data. These streams tend to be large (a gigabyte or more per hour even in their original compressed form) if carrying video, so they need to be recorded to a hard disk, streamed to a desktop PC or sent to a device such as the MediaMVP or Dreambox that support hardware MPEG. It is not practical to attempt to decompress or transcode these streams on the embedded platform due to their size. 
+ * Somewhere to send the received (usually MPEG2-encoded) signal data. These streams tend to be large (a gigabyte or more per hour even in their original compressed form) if carrying video, so they need to be recorded to a hard disk, streamed to a desktop PC or sent to a device such as the MediaMVP or Dreambox that support hardware MPEG. It is not practical to attempt to decompress or transcode these streams on the embedded platform due to their size.
 
-There are various applications intended to work with these devices, but all are intended for desktop use or use on platforms with specialised MPEG hardware. On the OpenWRT platforms, low-level device drivers are provided for some models (note that the Twinhan StarBox 2 needs the dvb-usb-vp702x-02.fw file from [http://www.slackforum.de/forum/index.php?t=msg&th=2706 here]) but not all models are supported. The higher-level code (such as applications to tune, scan, record and store the received data) is still very much absent. 
+There are various applications intended to work with these devices, but all are intended for desktop use or use on platforms with specialised MPEG hardware. On the OpenWRT platforms, low-level device drivers are provided for some models (note that the Twinhan StarBox 2 needs the dvb-usb-vp702x-02.fw file from [http://www.slackforum.de/forum/index.php?t=msg&th=2706 here]) but not all models are supported. The higher-level code (such as applications to tune, scan, record and store the received data) is still very much absent.
 
 The linuxtv.org site provides a fair amount of background information as to what's involved in getting these devices to operate under Linux. Except for users able and ready to not only compile the OpenWRT kernel drivers but also port the dvbutils to control these cards, most may find these devices unusable.
 
 === Video display ===
 The vast majority of SVGA-USB adapters are not Linux-compatible. Some support for specific SiS chipsets (sisusb.ko) has been reported on NSLU2-linux.org and on other Debian-like platforms, but these are the only devices in this class to support Linux at all. (More info [http://www.nslu2-linux.org/wiki/HowTo/AddVGAAdapter here] and [http://wiki.getthekettleon.co.uk/doku.php?id=slug:digiframeslug here])
 
-Otherwise, most of these are proprietary interfaces which only work with WinXP or maybe NT/2000, rendering them useless under any other operating system or on any other platform. 
+Otherwise, most of these are proprietary interfaces which only work with WinXP or maybe NT/2000, rendering them useless under any other operating system or on any other platform.
 
 === Other multifunction devices ===
 USB "universal docking stations" normally consist of a powered USB 2.0 hub and some bundled combination of USB peripheral interfaces, such as HID, audio, serial/parallel and network. While the USB 2.0 hub itself will be standard and needs no drivers to operate, the compatibility of each of the individual USB peripherals in the bundle must be determined individually.
