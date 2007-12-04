@@ -2,6 +2,8 @@ This table contains successfully or unsuccessfully tested peripherals.
 
 Please report testing on petr.stetina @ braien.com. I will then update this page in turn.
 
+''See also: TableOfPeripheralHardware''
+
 == USB Hubs ==
 ||Device||Distribution||Hardware||Status||Note||
 ||05e3:0606 Genesys Logic, Inc.||Kamikaze 2.6||[:OpenWrtDocs/Hardware/Asus/WL500GP:WL-500g Premium]||OK||Does not work with kernel 2.4||
