@@ -67,7 +67,7 @@ Various manufacturers appear to be using the same few Bluetooth chipsets, the CS
 === Personal digital assistants ===
 Palm OS-based devices apparently operate under a Linux-like OS and may be compatible. The same is not true of the Pocket PC.
 
-Pocket PC devices such as HP/Compaq's iPAQ line are Windows-based and poorly/not fully supported. It may be possible to get a TCP/IP connection for standard Internet applications such as telnet or web (there is a PuTTY available as an SSH client to run on these) but synchronisation to the Windows desktop is by proprietary means.
+Pocket PC devices such as HP/Compaq's iPAQ line are Windows-based and poorly/not fully supported. It may be possible to get a TCP/IP connection for standard Internet applications such as telnet or web (there is a PuTTY available as an SSH client to run on these and some third-party support at synce.org) but synchronisation to the Windows desktop is by proprietary means.
 
 === Digital cameras ===
 These fall into two categories: Many appear simply as standard USB network storage devices and may be accessed in the same manner as any USB flash memory reader; these in general are compatible. A few use USB as a means to control the camera itself, these may work if an application such as gphoto2 is installed to access them.
