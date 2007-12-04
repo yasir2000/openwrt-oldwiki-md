@@ -102,32 +102,8 @@ For DVB (digital satellite, and European digital TV broadcasting) various elemen
 
 There are various applications intended to work with these devices, but all are intended for desktop use or use on platforms with specialised MPEG hardware. On the OpenWRT platforms, low-level device drivers are provided for some models (note that the Twinhan StarBox 2 needs the dvb-usb-vp702x-02.fw file from [http://www.slackforum.de/forum/index.php?t=msg&th=2706 here]) but not all models are supported. The higher-level code (such as applications to tune, scan, record and store the received data) is still very much absent. 
 
-The linuxtv.org site provides a fair amount of background information as to what's involved in getting these devices to operate under Linux.
+The linuxtv.org site provides a fair amount of background information as to what's involved in getting these devices to operate under Linux. Except for users able and ready to not only compile the OpenWRT kernel drivers but also port the dvbutils to control these cards, most may find these devices unusable.
 
-Except for users are to not only compile the OpenWRT kernel drivers but also port the dvbutils to control these cards, these may be unusable.
-
-
----- /!\ '''Edit conflict - other version:''' ----
-=== DVB and broadcast tuners ===
-These often have capabilities not included in the video4linux devices, such as the ability to change channels, operate remote switches or interface to infrared remote-control units. Support for USB TV, radio and satellite tuners is currently incomplete at best, even for those models where a driver is available.
-
-Potentially, such a device could automatically receive a signal and record it to a network or USB hard drive. Support is limited, though.
-
-For DVB (digital satellite, and European digital TV broadcasting) various elements are required to operate a USB tuner:
- * Drivers for the device itself (i2c-core, usb-core, usb-dvb-core, plus front-end and device drivers for the specific model/device): these are not provided as precompiled binaries, but for some devices it is possible to build drivers using the OpenWrt SVN sources.
- * Firmware for the device, which is downloaded via USB. Some models have available .fw files [http://www.linuxtv.org/downloads/firmware/ here]
- * DVB-apps or dvbutils; a package of command-line utilities for tasks such as channel selection or device configuration. These are not included with OpenWrt (neither as source nor object), although a libdvb library is provided.
- * DVB channel lists (channels.conf), not included but for Europe (only) are available [http://www.linowsat.de/settings/vdr.html here] and elsewhere online.
- * Somewhere to send the received (usually MPEG2-encoded) signal data. These streams tend to be large (a gigabyte or more per hour even in their original compressed form) if carrying video, so they need to be recorded to a hard disk, streamed to a desktop PC or sent to a device such as the MediaMVP or Dreambox that support hardware MPEG. It is not practical to attempt to decompress or transcode these streams on the embedded platform due to their size. 
-
-There are various applications intended to work with these devices, but all are intended for desktop use or use on platforms with specialised MPEG hardware. On the OpenWRT platforms, low-level device drivers are provided for some models (note that the Twinhan StarBox 2 needs the dvb-usb-vp702x-02.fw file from [http://www.slackforum.de/forum/index.php?t=msg&th=2706 here]) but not all models are supported. The higher-level code (such as applications to tune, scan, record and store the received data) is still very much absent. 
-
-Except for users are to not only compile the OpenWRT kernel drivers but also port the dvbutils to control these cards, these may be unusable.
-
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 === Video display ===
 The vast majority of SVGA-USB adapters are not Linux-compatible. Some support for specific SiS chipsets (sisusb.ko) has been reported on NSLU2-linux.org and on other Debian-like platforms, but these are the only devices in this class to support Linux at all. (More info [http://www.nslu2-linux.org/wiki/HowTo/AddVGAAdapter here] and [http://wiki.getthekettleon.co.uk/doku.php?id=slug:digiframeslug here])
 
