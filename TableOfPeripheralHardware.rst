@@ -2,6 +2,8 @@
 
 This is a table of peripheral devices (such as USB audio, video, serial, printer, HID or network storage) which have been tested or are known to work (or not work, as indicated) under control of a unit running embedded Linux. This is not a test of whether the device itself can be run as an embedded stand-alone processor - these are peripherals only. See the main TableOfHardware for devices on which to run OpenWrt.
 
+''See also ["OpenWrtDocs/TableOfPeripherals"]''
+
 '''Status Legend''':
 
  * '''Supported''' - supported in White Russian (previous release)
