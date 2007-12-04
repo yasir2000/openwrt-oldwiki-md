@@ -95,7 +95,7 @@ Potentially, such a device could automatically receive a signal and record it to
 
 For DVB (digital satellite, and European digital TV broadcasting) various elements are required to operate a USB tuner:
  * Drivers for the device itself (i2c-core, usb-core, usb-dvb-core, plus front-end and device drivers for the specific model/device): these are not provided as precompiled binaries, but for some devices it is possible to build drivers using the OpenWrt SVN sources.
- * Firmware for the device, which is downloaded via USB. Some models have available .fw files [http://www.linuxtv.org/downloads/firmware/ here]
+ * Firmware for the device, which is downloaded via USB. Some models have available .fw files [http://www.linuxtv.org/downloads/firmware/ here]. These files must be installed (for most recent kernels) in ''/lib/firmware''; paths for older kernels differ.
  * DVB-apps or dvbutils; a package of command-line utilities for tasks such as channel selection or device configuration. These are not included with OpenWrt (neither as source nor object), although a libdvbpsi library is provided.
  * DVB channel lists (channels.conf), not included but for Europe (only) are available [http://www.linowsat.de/settings/vdr.html here] and elsewhere online.
  * Somewhere to send the received (usually MPEG2-encoded) signal data. These streams tend to be large (a gigabyte or more per hour even in their original compressed form) if carrying video, so they need to be recorded to a hard disk, streamed to a desktop PC or sent to a device such as the MediaMVP or Dreambox that support hardware MPEG. It is not practical to attempt to decompress or transcode these streams on the embedded platform due to their size.
