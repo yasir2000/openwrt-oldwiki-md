@@ -1,6 +1,8 @@
 = Asus WL-700gE =
 Kamikaze has support for this device. However, since you need to fit OpenWrt to internal flash (2MB) it's quite limited on features. IDE HDD is supported, but only as new mount point so installing packages to disk requires some manual work. After replacing the /sbin/init script you can use a partiton of the IDE HDD to install packages the normal way. Device is also marketed as Asus WL-700G.
 
+A precompiled version of OpenWRT Kamikaze 7.09 (Broadcom, 2.4 kernel) is [http://wl700g.homelinux.net/portal/content/view/29/30/ here] and step-by-step instructions are provided. Note that some operations (even ones as simple as ''ls /'') will fail or crash while the installation described on that page is partially-complete; they do operate correctly once the install (and pivot_root to the HDD) are completed.
+
 == Hardware ==
  * Broadcom 4780 @ 266MHz (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
  * 2MB FLASH (MX 29LV160CT1C-90G) and 64MB DDR-SDRAM (2 * Samsung K4H561638F-UCCC)
