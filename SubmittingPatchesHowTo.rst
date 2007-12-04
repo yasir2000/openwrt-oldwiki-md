@@ -36,3 +36,4 @@ It is often best to document what you are doing before you do it.  The process o
   1. Your actual patch, inline, not word wrapped or whitespace mangled. 
  1. Please read [http://kerneltrap.org/Linux/Email_Clients_and_Patches] to find out how to make sure your email client doesn't destroy your patch.
  1. Please use your real name and email address in the Signed-off-by line, following the same guidelines as in [http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=blob;f=Documentation/SubmittingPatches;h=681e2b36195c98ea5271b76383b3a574b190b04f;hb=HEAD Linux Kernel patch submission guidelines]
+ 1. Example of a properly formatted patch submission: [http://lists.openwrt.org/pipermail/openwrt-devel/2007-November/001334.html]
