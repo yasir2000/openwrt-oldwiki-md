@@ -3,6 +3,8 @@ Kamikaze has support for this device. However, since you need to fit OpenWrt to 
 
 A precompiled version of OpenWRT Kamikaze 7.09 (Broadcom, 2.4 kernel) is [http://wl700g.homelinux.net/portal/content/view/29/30/ here] and step-by-step instructions are provided. Note that some operations (even ones as simple as ''ls /'') will fail or crash while the installation described on that page is partially-complete; they do operate correctly once the install (and pivot_root to the HDD) are completed.
 
+The precompiled image installs a base set of drivers (aec62xx, diag, ehci-hcd, ext3, fat, ide-core, ide-default, ide-detect, ide-disk, ide-dma, ide-geometry, ide-io, ide-iops, ide-lib, ide-probe-mini, ide-probe, ide-proc, ide-taskfile, ide, jbd, ppp_async, ppp_generic, scsi_mod, sd_mod, setup-pci, slhc, switch-adm, switch-core, switch-robo, uhci, usb-ohci, usb-storage, usbcore, vfat) but does not provide hardware RTC support.
+
 == Hardware ==
  * Broadcom 4780 @ 266MHz (BCM4780PKPBG) SoC with hardware encryption (crypto not currently supported)
  * 2MB FLASH (MX 29LV160CT1C-90G) and 64MB DDR-SDRAM (2 * Samsung K4H561638F-UCCC)
