@@ -5,7 +5,6 @@
 ##master-date:Unknown-Date
 #format wiki
 #language en
-Note: this is very preliminary.  The author has not yet followed this procedure.  Nor has anyone else.
 
 = How To Submit Patches to OpenWrt =
 OpenWrt is constantly being improved.  We'd like as many people to contribute to this as we can get. If you find a change useful, by all means try to get it incorporated into the project. This should improve OpenWrt and it should help carry your changes forward into future versions
