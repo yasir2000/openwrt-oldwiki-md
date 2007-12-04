@@ -13,15 +13,10 @@ Useful DSL-504T links:
  * Platform LED patch [https://dev.openwrt.org/ticket/2746]
  * ledtrig-netdev (drive front panel LEDs off network activity) [https://dev.openwrt.org/ticket/2776]
  * cpmac stability/performance patches [https://dev.openwrt.org/ticket/2569]
-
-----
-
-todo list
-
- * continue wiki updates
- * fix init.d/network not bringing up WAN on boot
- * diag.sh led settings
- * add blink-LEDs-on-panic hook
+ * MULTIQUEUE performance issues [https://dev.openwrt.org/ticket/2791]
+ * diag.sh tweakage [https://dev.openwrt.org/ticket/2783]
+ * bring WAN up on boot [https://dev.openwrt.org/ticket/2781]
+ * adam2flash.pl patched for the DSL-502T [https://dev.openwrt.org/ticket/2780]
 
 ----
 CategoryHomepage
