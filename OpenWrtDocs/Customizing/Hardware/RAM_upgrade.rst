@@ -14,6 +14,9 @@ The replaced chip should give you a 32MB of RAM on the first power-up.
 
 To obtain the full 64MB capacity now do
 
+before to do this please confirmed that with the exactly the cpu and sdram init
+please ref to http://wl500g.dyndns.org/sdram.html
+
 {{{
 nvram set sdram_init = 0x0113
 nvram set sdram_ncdl = 0x000000
