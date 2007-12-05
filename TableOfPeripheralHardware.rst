@@ -63,6 +63,10 @@ USB could be used to add an additional wired-LAN port; these are not often neede
 === Wireless network interfaces ===
 TBD.
 
+Notes
+ * Some network devices connect to desktop Linux PC's using ''ndiswrapper''. This is not a native-Linux driver set, it is firmware to adapt Windows object-code drivers to Linux installations on the same hardware. These will not work at all once one moves to a different processor type, so are unsuited for use with embedded systems.
+ * There is a project [http://rt2x00.serialmonkey.com/wiki/index.php/Hardware here] to add native Linux support for various devices. While a device being listed here is no guarantee of it being adaptable to a non-desktop platform, the corresponding Linux driver for each device is indicated. Do note that different revisions and chipsets marketed under the *same* model names sometimes are completely different internally.
+
 === Bluetooth interfaces ===
 Various manufacturers appear to be using the same few Bluetooth chipsets, the CSR (Cambridge Silicon Radio) chipset being most common in USB-Bluetooth interfaces. There is some support for USB-Bluetooth in the stock distributions but individual devices do need to be tested further to determine compatibility.
 
