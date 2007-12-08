@@ -214,7 +214,6 @@ FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 = Installing OpenWrt with RedBoot =
-
 Once you have gained access to RedBoot either by telnet or the serial console you can install OpenWrt with the following method.
 
 You have to download two files (right click and save as).
@@ -672,13 +671,12 @@ uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
 === WiFi encryption ===
-Plese see [:OpenWrtDocs/KamikazeConfiguration/WiFiEncryption:WiFiEncryption].
+Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
 
  . [[Anchor(WiFi toggle)]]
  . [[Anchor(wifitoggle)]]
-
 === WiFi toggle ===
-Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
+Turn !WiFi on/off with the Reset [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
 
 === List connected clients ===
 {{{
