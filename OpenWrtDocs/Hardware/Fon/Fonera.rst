@@ -214,7 +214,7 @@ FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 = Installing OpenWrt with RedBoot =
-Once you have gained access to RedBoot either by telnet or the serial console you can install OpenWrt with the following method.
+Once you have gained access to [:RedBoot:!RedBoot] either by telnet or the serial console you can install [:OpenWrt:!OpenWrt] with the following method.
 
 You have to download two files (right click and save as).
 
@@ -607,7 +607,9 @@ RedBoot> fis init
 
 2. Connect wirelessly to the Fonera to make sure wireless works
 
-3. Reconfigure the LAN as WAN port (before you continue make sure wireless works!)
+/!\ '''NOTE:''' before you continue make sure wireless works!
+
+3. Reconfigure the LAN as WAN port
 
 Remove the LAN port from the bridge
 
