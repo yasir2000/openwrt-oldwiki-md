@@ -675,7 +675,11 @@ uci commit wireless && wifi}}}
 Plese see [:OpenWrtDocs/KamikazeConfiguration/WiFiEncryption:WiFiEncryption].
 
  . [[Anchor(WiFi toggle)]]
-  . [[Anchor(wifitoggle)]]
+ . [[Anchor(wifitoggle)]]
+
+=== WiFi toggle ===
+Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please see the [:OpenWrtDocs/Customizing/Software/WifiToggle:WiFi toggle] Wiki page.
+
 === List connected clients ===
 {{{
 wlanconfig ath0 list}}}
