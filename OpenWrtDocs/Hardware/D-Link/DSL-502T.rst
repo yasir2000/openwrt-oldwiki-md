@@ -131,8 +131,9 @@ If you applied the LED patches above, the router will go through three states wh
 
  1. "status" off - bootloader running
  2. "status" flashing rapidly - image loaded OK, kernel booted, OpenWrt initializing
-    2a. "ADSL" should start flashing as the DSL line is brought up
-    2b. "Ethernet" should turn on as the ethernet interface is brought up
+    * "ADSL" should start flashing as the DSL line is brought up
+    * "Ethernet" should turn on as the ethernet interface is brought up
+    * If you've configured PPP (see below), "USB" should turn on as the PPP layer is brought up
  3. "status" pulsing in a heartbeat (pulse pulse - pause - pulse pulse - pause) - OpenWrt completed booting, normal operation
 
 If you didn't apply the LED patches.. the only LED that will do anything is the ADSL LED.
