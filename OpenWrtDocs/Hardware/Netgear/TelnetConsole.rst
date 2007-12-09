@@ -3,11 +3,11 @@
 ----
 
 = Telnet Console =
-Some [:../:Netgear] routers run a telnet daemon which can be accessed from any computer on its local subnet after unlocking it (see below). The following devices are currently known or assumed to support this:
+Some ["OpenWrtDocs/Hardware/Netgear"] routers run a telnet daemon which can be accessed from any computer on its local subnet after unlocking it (see below). The following devices are currently known or assumed to support this:
 
  * WGR614 v7: known to work (if it does not work for you, try to hardreset your router first)
- * WGR614 v4,v5,v6: known to work (UPDATE added v4 to known to work)
- * WGR614 v1-3: unknown, may well work
+ * WGR614 v3,v4,v5,v6: known to work
+ * WGR614 v1-2: unknown, may well work
  * WPN824 v1: known to work
  * WPN824 V2.0.15_1.0.11 : works!
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
@@ -31,7 +31,7 @@ Netgear provides a developer tool for unlocking the console access from a Window
 
 Here's the process:
 
- * Download the file wpn824_ko_2.12_1.2.9.zip file from [http://www.netgear.co.kr/Support/Product/FileInfo.asp?IDXNo=155 the Korean Netgear support website (scroll down)] or from the other locations I found it at ([http://www.sebone.de/download.php?file=47e892f71fa9d1036a5615e3b7045190 mirror 1], [http://www1.file-upload.net/download_10.05.06/2di5co.zip.html mirror 2], UPDATE: Get it here [http://files.to/get/349970/64662/telnetEnable.rar]) and unzip it. A new link that does work for the time being: [http://rapidshare.com/files/71670434/telnetEnable.zip].
+ * Download the file wpn824_ko_2.12_1.2.9.zip file from [http://www.netgear.co.kr/Support/Product/FileInfo.asp?IDXNo=155 the Korean Netgear support website (scroll down)] or from the other locations I found it at ([http://www.sebone.de/download.php?file=47e892f71fa9d1036a5615e3b7045190 mirror 1], [http://www1.file-upload.net/download_10.05.06/2di5co.zip.html mirror 2], UPDATE: Get it here http://files.to/get/349970/64662/telnetEnable.rar) and unzip it. A new link that does work for the time being: http://rapidshare.com/files/71670434/telnetEnable.zip.
  * Login to Windows using an account which has administrative privileges (needed for sending custom crafted network packets which this tool does)
  * You will see a M$ Word doc which contains screenshots and instructions in korean language, a firmware update (you don't need this) and the telnetEnable.exe tool
  * Open a command line (windows console) window. To do so, press and hold windows key, then press R once and release both. In the new windows, type ''cmd'', then press enter)
@@ -55,7 +55,7 @@ U12H02900>
 === On Un*x ===
 Netgear uses free software to make their products, but has not provided information or free software tools to enable them to be used. One needs to either use the Windows binary-only program or reverse engineer its operation in order to discover what magic packets Netgear's tool sends to the router to enable the telnet interface.
 
-Unfortunately, there is no ready to go tool for Un*x, - yet. However, thanks to yoshac_at_member_dot_fsf_dot_org, the Windows telnetenable has been reverse engineered.  The following could be determined on the data format and transforms performed by Netgear's telnetEnable.exe and a work is in progress to implement the entire tool as open source. The current implementation is attached to this document.
+Unfortunately, there is no ready to go tool for Un*x, - yet. However, thanks to yoshac_at_member_dot_fsf_dot_org, the Windows telnetenable has been reverse engineered. The following could be determined on the data format and transforms performed by Netgear's telnetEnable.exe and a work is in progress to implement the entire tool as open source. The current implementation is attached to this document.
 
 ==== Download ====
 Source code for a 'C' re-implementation of telnetenable.exe's algorithms has been released by yoshac_at_member_dot_fsf_dot_org under the GPL, for use as the basis of a Un*x version of the tool currently in development. The resulting telnetenable binary will operate exactly the same as the original Windows tool, except that it currently does not actually send the raw TCP frame to the router. Network support is left as an exercise for the reader ;-)
@@ -89,7 +89,7 @@ char reserved[0x40];
 }}}
 The above payload format is transformed by the tool algorithms as follows:
 
-The MD5 checksum is calculated for the contents of the probe payload MAC, username and  password fields only, and is done using the normal 3 passes (MD5init, MD5update, MD5final) with the default RCA seed. The resulting 16 byte MD5 checksum/hash is then stored into the signature array of the probe payload.
+The MD5 checksum is calculated for the contents of the probe payload MAC, username and password fields only, and is done using the normal 3 passes (MD5init, MD5update, MD5final) with the default RCA seed. The resulting 16 byte MD5 checksum/hash is then stored into the signature array of the probe payload.
 
 The entire probe payload (including the reserved area, which is always null for this example) is then ENCRYPTED using the blowfish algorithm. The secret key used for the blowfish encryption is: AMBIT_TELNET_ENABLE but prior to encryption, a '+' followed by the password is appended to the secret key.
 
