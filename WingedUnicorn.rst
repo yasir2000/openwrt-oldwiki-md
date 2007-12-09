@@ -33,8 +33,8 @@ Kernel patches are created against kernel sources taken from
 === mvPhy port trailer support for ae531x driver ===
 attachment:eth-mvphy-vlan-traler-ar2316.patch
 
-When mvPhy is built with CONFIG_VENETDEV option, packets that come on port5 (MAC) are appended with
-4-byte trailer which identity the originating port. Same for packets received from port5 - mvPhy strips
+When mvPhy is built with CONFIG_VENETDEV option, packets that go out throug port5 (MAC) are appended with
+4-byte trailer which identity the originating port. Same for packets that came from port5 - mvPhy strips
 last 4 bytes and depending on the value may override default frame routing. This patch adds support for
 "hw accelerated" vlan feature to ae531x driver: it tags packets that came from port0..port3 as vlan1 and 
 port4 as vlan2. Similar for outgoing packets. This is very limited and non-flexible functionality, but 
@@ -43,10 +43,10 @@ thats enough to build 4lan/1wan port router.
 This patch fixes a bug with load avg always >= 1:
 original code creates a daemon thread during eth device open (ifconfig up).
 It does not reparentize or daemonize new thread, thus 'ifconfig eth0 up' process remains in status "D"
-(non interruptible sleep) in ps forever. in linux non-interruptible wait is accounted as 100% cpu usage
+(non interruptible sleep) in ps forever. In linux, non-interruptible wait is accounted as 100% cpu usage
 during load avg calculations, so this is all kind of weird. I've changed the logic, so the same daemon 
-thread appeared as normal kernel daemon process. Yet, again, it is not stopped during device close and
-could be started again during next ifconfig up. So, it's not the best fix ever :)
+thread appeared as normal kernel daemon process sleeping in interruptable sleep but ingnoring all signals. 
+Yet, again, it is not stopped during device close and could be started again during next ifconfig up. So, it's not the best fix ever :)
 
 === ar2316 arch support ===
 attachment:arch-ar2316.patch
