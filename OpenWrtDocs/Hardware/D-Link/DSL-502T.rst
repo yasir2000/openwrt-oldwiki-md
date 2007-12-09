@@ -51,10 +51,8 @@ $ svn update
 These are patches that have tickets open but haven't made it into the subversion tree yet:
 
  * Front panel LED support: [https://dev.openwrt.org/ticket/2746]
- * More useful LED diagnostics during boot: [https://dev.openwrt.org/ticket/2783]
  * Make LEDs blink on network activity: [https://dev.openwrt.org/ticket/2776]
  * Enable WAN (ADSL) interface automatically on boot: [https://dev.openwrt.org/ticket/2781]
- * Ethernet driver stability patches: [https://dev.openwrt.org/ticket/2569]
 
 In general they can be applied by downloading and saving the "original version" of the patchfile attached to the ticket, then {{{"cd openwrt/trunk; patch -p0 <name-of-patch-file"}}}
 
