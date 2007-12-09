@@ -13,7 +13,7 @@ This is just a quick hack - Di624 lacks boardconfig on flash, so this code is
 used to assemble one on the fly. It uses dummy mac address 00:00:11:11:11:11, so is more like a reference,
 not a proposed patch.
  * ecos-2.0 (for redboot) : attachment:ecos-patch-ar2316.patch
-I need be able to upload original firmware at any time. Thus, i left untouched original loader and backup firmware. I use original loader to load redboot code as if it was just a primary firmware. 
+I need to be able to upload original firmware at any time. Thus, i left untouched original loader and backup firmware. I use original loader to load redboot code as if it was just a primary firmware. 
 Thus i have quite an odd memory layout for redboot: it's neither ROM, RAM or ROMRAM.
 It's like RAM, but requires some initialization from ROM, but not like ROMRAM, because no need to copy to
 RAM (original loader already did that). So, i just go ahead and hack startup code and ld scripts for ROM
