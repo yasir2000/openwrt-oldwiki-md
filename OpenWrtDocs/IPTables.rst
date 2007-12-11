@@ -22,7 +22,7 @@ The reader should already be familiar with iptables and have reviewed the [http:
 OpenWRT begins firewall initialization by running a startup script in ''/etc/init.d''. This script sets default policies for all chains, creates basic targets for accepting and dropping packets, and configures basic network address translation. It then calls the user configuration file ''/etc/firewall.user''. '''It is neither necessary nor desirable to modify the startup script. Customization should be done in the user configuration file.'''
 
 == Environment Variables ==
-The following environment variables are available to your''/etc/firewall.user'' script:
+The following environment variables are available to your ''/etc/firewall.user'' script:
 ||'''Variable''' ||'''Description''' ||'''Example''' ||
 ||WAN ||Name of the external interface ||vlan1 ||
 ||LAN ||Name of the internal interface ||vlan0 ||
