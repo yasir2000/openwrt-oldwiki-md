@@ -105,7 +105,7 @@ make
 mv tichksum ../..
 cd ../..
 rm -rf LINUX_GPL_SOURCE && rm DSL-G604T.B01T16_GPL_release.tgz
-./tichksum openwrt-ar7-2.6-squashfs.bin}}}
+./tichksum openwrt-ar7-squashfs.bin}}}
 '''Calculating new memory mappings'''
 
 Now, it's time to move your ''openwrt-ar7-2.6-squashfs.bin'' to Windows machine.
@@ -148,7 +148,7 @@ quote "MEDIA FLSH"
 binary
 debug
 hash
-put "openwrt-ar7-2.6-squashfs.bin" "openwrt-ar7-2.6-squashfs.bin mtd4"
+put "openwrt-ar7-squashfs.bin" "openwrt-ar7-squashfs.bin mtd4"
 quote REBOOT
 quit}}}
 Now your router will reboot. Wait 1-2 minutes, then reboot the router. After about a minute, look when the Status led will light, then wait when it's light off, and you can set router's connection settings to DHCP. Remember that you can retrieve address at any new boot only after led light&off, so don't panic, if all ok you retrieve an address such as 192.168.1.XX.
