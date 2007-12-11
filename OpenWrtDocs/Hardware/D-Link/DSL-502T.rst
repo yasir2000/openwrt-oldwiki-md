@@ -151,11 +151,9 @@ Telnet to the router and type 'passwd' to set a password. Now telnet will be dis
 == Enabling ADSL ==
 '''Set up modulation'''
 
-Currently we only have ADSL1 options: G.DMT, G.lite T.1413 and Multi-Mode.
-If you use this on an ADSL2+ connection it *should* fall back to adsl1 and work fine.
-(Is this still true? My firmware claims to support ADSL2, though my connection doesn't so I can't test it)
+Current firmware supports both ADSL1 (G.DMT, G.lite, T.1413, Multi-Mode) and ADSL2+.
 
-The modulation can be changed via the adam2 prompt: "SETENV modulation,GDMT" or T1413/GLITE/MMODE. Or specify a hex bitmask of allowable modes; the NZ firmware has modulation=0xffff (allow all modes)
+The modulation can be changed via the adam2 prompt: "SETENV modulation,GDMT" or T1413/GLITE/MMODE. Or specify a hex bitmask of allowable modes. The NZ firmware has modulation=0xffff (allow all modes) and this appears to auto-negotiate ADSL1 and ADSL2 modes as appropriate.
 
  * G.DMT supports up to 8mbit/s.
  * T.1413 is an older version of G.DMT.
