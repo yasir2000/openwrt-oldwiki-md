@@ -58,14 +58,13 @@ This package includes the modules for USB 2.0.
 ipkg install kmod-usb2
 insmod ehci-hcd
 }}}
-
 If you see messages like this:
 
 {{{
 insmod: unresolved symbol usb_calc_bus_time
 }}}
-
 try loading usbcore and then try ehci-hcd again:
+
 {{{
 insmod usbcore
 insmod ehci-hcd
@@ -130,10 +129,10 @@ First install the kernel file system modules, for example:
 ipkg install kmod-vfat
 }}}
 Under Kamikaze 7.07 or later, use
+
 {{{
 ipkg install kmod-fs-vfat
 }}}
-
 '''TIP:''' After installing the modules, you should either reboot the device or load the installed modules manually:
 
 {{{
@@ -156,7 +155,9 @@ ipkg install fdisk
 
 {{{
 ipkg install http://downloads.openwrt.org/backports/rc5/fdisk_2.12r-1_mipsel.ipk}}}
-Create the{{{/mnt}}}directory for the mount point on the flash{{{
+Create the{{{/mnt}}}directory for the mount point on the flash
+
+{{{
 mkdir -p /mnt
 }}}
 Check what partition you like to mount from your USB device
@@ -185,19 +186,13 @@ kmod-nls-iso8859-15 - Kernel module for iso8859-15 charset support
 
 kmod-nls-utf8 - Kernel module for utf8 support
 
-== How do I boot from the USB device ==
+== How do I boot from the USB device (prep) ==
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 file system:
 
 /!\ '''NOTE:''' '''IMPORTANT:''' ''Does not work for Kamikaze with 2.6 kernel- This procedure bricks the router''
 
-Kamikaze with 2.6 can be done differently - by putting the pivot script in another place. The names of the /dev entries for the individual hard drives and partitions on the router also differ, following the /dev/sda1, /dev/sdb1 convention as of kernel 2.6.
-
 {{{
 ipkg install kmod-ext2 kmod-ext3
-}}}
-Under Kamikaze 7.07 or later, use
-{{{
-ipkg install kmod-fs-ext2 kmod-fs-ext3
 }}}
 After installing the modules, you should either reboot the device or load the installed modules manually:
 
@@ -273,18 +268,12 @@ As earlier stated on this page (to remove {{{/etc/hotplug.d/usb/01-mount}}}) is 
 
 So either remove the file and mount usbfs somewhere else, or everything inside except the line which goes: [ -f /proc/bus/usb/devices ] || mount -t usbfs none /proc/bus/usb
 
-In Kamikaze Simply create new script in /etc/init.d/pivotroot instead of erasing /sbin/init with the same content, then
-
-{{{
-ln -s /etc/init.d/pivotroot /etc/rc.d/S96pivotroot
-}}}
-
+== Boot Configuration - (White Russian) ==
 Next, remove {{{/sbin/init}}} from the JFFS2 partition (this is just a symlink to !BusyBox anyway):
 
 {{{
 rm /sbin/init
 }}}
-
 And replace it with this script:
 
 {{{
@@ -319,14 +308,73 @@ Make sure your new {{{/sbin/init}}} is executable:
 {{{
 chmod a+x /sbin/init
 }}}
-
-
 Now just reboot, and if you did everything right it should boot from the USB device automatically.
 
 If it could not boot from the USB device it will boot normally from the file system found on the flash as fallback.
 
 Note that it is safest to leave the 'pivot_root' procedure as an ordinary script file, not part of the code automatically run on startup, at least until you are certain that it is operating as desired. This allows you to recover from any problems created by this script by simply rebooting the router without it.
 
+== Boot Configuration (Kamikaze) ==
+First Create a script /etc/init.d/pivotroot
+
+{{{
+#!/bin/sh
+# change this to your boot partition
+boot_dev="/dev/sda1"
+# install needed modules for usb and the ext3 filesystem
+# **NOTE** for usb2.0 replace "uhci" with "ehci-hcd"
+# **NOTE** for ohci chipsets replace "uhci" with "usb-ohci"
+for module in usbcore uhci scsi_mod sd_mod usb-storage jbd kmod-fs-ext2 kmod-fs-ext3 ; do {
+        insmod $module
+}; done
+# this may need to be higher if your disk is slow to initialize
+sleep 4s
+# mount the usb stick
+mount "$boot_dev" /mnt
+# if everything looks ok, do the pivot root
+[ -x /mnt/sbin/init ] && {
+        mount -o move /proc /mnt/proc && \
+        pivot_root /mnt /mnt/mnt && {
+                mount -o move /mnt/dev /dev
+                mount -o move /mnt/tmp /tmp
+                mount -o move /mnt/jffs2 /jffs2 2>&-
+                mount -o move /mnt/sys /sys 2>&-
+        }
+}
+}}}
+Make it executable:
+
+{{{
+chmod +x /etc/init.d/pivotroot}}}
+Then install the modules, for Kamikaze 7.07 or later (Kernel 2.6), use
+
+{{{
+ipkg install kmod-fs-ext2 kmod-fs-ext3
+}}}
+try if pivotroot works
+
+{{{
+/etc/init.d/pivotroot
+df -h}}}
+if everythig worked ok reboot.
+
+{{{
+reboot}}}
+after that edit /etc/init.d/rcS
+
+{{{
+#!/bin/sh
+# Copyright (C) 2006 OpenWrt.org
+if test $2 == "boot" ; then
+/etc/init.d/pivotroot
+fi
+{
+        for i in /etc/rc.d/$1*; do
+                $i $2 2>&1
+        done
+} | logger -s -p 6 -t '' &
+}}}
+now your System should Startup nicely either from USB or from internal Flash if th USB-disk is not available.
 == Installing and using IPKG packages in mount point other than root ==
 The ["Optware"] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
 
@@ -466,7 +514,6 @@ case "$COMMAND" in
 esac
 exit 0
 }}}
-
 Make sure the {{{/bin/ipkg-link}}} script is executable:
 
 {{{
@@ -498,4 +545,4 @@ ipkg-link umount /mnt/usb
  * Linux USB [[BR]]- http://www.linux-usb.org/
  * Linux USB device support [[BR]]- http://www.linux-usb.org/devices.html
 ----
-CategoryHowTo
+ . CategoryHowTo
