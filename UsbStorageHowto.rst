@@ -374,7 +374,7 @@ fi
         done
 } | logger -s -p 6 -t '' &
 }}}
-now your System should Startup nicely either from USB or from internal Flash if th USB-disk is not available.
+now your System should Startup nicely either from USB or from internal Flash if the USB-disk is not available.
 == Installing and using IPKG packages in mount point other than root ==
 The ["Optware"] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
 
