@@ -152,13 +152,63 @@ When the kernel is booted hardly any of the normal OpenWrt initialisation occurs
 
 In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
 
-wget2nand takes a single parameter, the URL of the directory into which the tgx and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
+wget2nand takes a single parameter, the URL of the directory into which the tgz and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
+
+**Edit: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HowTo to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here]
+
+If wget2nand does not work and gives you a "Cannot find NAND Flash partitions" error:
+
+{{{
+root@OpenWrt:/# wget2nand http://192.168.55.1/
+killall: udhcpc: no process killed
+udhcpc (v1.8.2) started
+Sending discover...
+Sending select for 192.168.55.50...
+Lease of 192.168.55.50 obtained, lease time 43200
+adding router 192.168.55.1
+deleting old routes
+adding dns 192.168.55.1
+Cannot find NAND Flash partitions
+root@OpenWrt:/# 
+}}}
+
+You might need to format the flash from the BIOS and then do the extractions [http://rb1xx.ozo.com/doku.php#quick_howto manually]:
+(I did not need to install the RedBoot version mentioned on that page.)
+
+{{{
+root@OpenWrt:/# mount /dev/mtdblock2 /mnt
+yaffs: dev is 32505858 name is "mtdblock2"
+yaffs: passed flags ""
+yaffs: Attempting MTD mount on 31.2, "mtdblock2"
+root@OpenWrt:/# cd /tmp
+root@OpenWrt:/tmp# wget http://192.168.55.1/openwrt-adm5120-rb1xx-kernel
+Connecting to 192.168.55.1 (192.168.55.1:80)
+openwrt-adm5120-rb1x 100% |*******************************|  2381k 00:00:00 ETA
+root@OpenWrt:/tmp# mv openwrt-adm5120-rb1xx-kernel /mnt/kernel
+root@OpenWrt:/tmp# umount /mnt
+save exit: isCheckpointed 0
+root@OpenWrt:/tmp# mount /dev/mtdblock3 /mnt
+yaffs: dev is 32505859 name is "mtdblock3"
+yaffs: passed flags ""
+yaffs: Attempting MTD mount on 31.3, "mtdblock3"
+root@OpenWrt:/tmp# wget http://192.168.55.1/openwrt-adm5120-2.6-rootfs.tgz
+Connecting to 192.168.55.1 (192.168.55.1:80)
+openwrt-adm5120-2.6- 100% |*******************************|  1599k 00:00:00 ETA
+root@OpenWrt:/tmp# cd /mnt
+root@OpenWrt:/mnt# tar xzvf /tmp/openwrt-adm5120-2.6-rootfs.tgz
+./
+./dev/
+./root/
+[...]
+root@OpenWrt:/mnt# cd /
+root@OpenWrt:/# umount /mnt
+save exit: isCheckpointed 0
+root@OpenWrt:/# 
+}}}
 
 When you reboot you need to change the BIOS settings back to booting from the NAND.
 
-Once the installation is complete then you can reboot your RouterBoard 1xx card and you should have a running system.
-
-**Edit: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HowTo to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here] 
+Once the installation is complete you can reboot your RouterBoard 1xx card and you should have a running system.
 
 ----
  CategoryModel ["CategoryADM5120Device"]
