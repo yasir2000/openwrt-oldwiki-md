@@ -116,7 +116,7 @@ Don't forget to check the OpenWrtFaq for information about howto setup PPPoE etc
 
 '''Sample network configurations'''
 
-For client mode configuration (rather than AP mode), see this page: ClientModeHowto. For further information on '''DHCP''' see this page ["dnsmasq"]
+For client mode configuration (rather than AP mode), see this page: ClientModeHowto. For further information on '''DHCP''' see this page ["OpenWrtDocs/dnsmasq"]
 
 ('''NOTE:''' these examples use WRT54G v2.x/WRT54GS v1.x interface names)
 
