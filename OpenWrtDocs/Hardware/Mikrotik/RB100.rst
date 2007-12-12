@@ -81,6 +81,8 @@ Unfortunately you need to build two kernels in order to install this system.  Th
 
 All the building happens under the ADM5120-2.6 target, so the first thing you need to do is to download an SVN copy of OpenWrt Kamikaze, and then run make menuconfig.
 
+For current revisions of Kamikaze (I tested with r9701) you need to enable "Advanced configuration options (for developers)", then go into the sub menu and enable "Show broken platforms / packages".  Otherwise you will not be able to select the Subtarget and Target Profile and the build will fail.
+
 Now select the "ADM5120-2.6 (Little Endian)" target.  Then in the Target Images section select RAMDISK.  This will disable all the other image options.
 
 There is no need to make package selections at this stage as all the packages you will need to install the system are there by default.
