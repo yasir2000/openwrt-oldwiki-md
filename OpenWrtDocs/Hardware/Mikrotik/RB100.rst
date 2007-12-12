@@ -142,7 +142,7 @@ Now you need to build the running image, and for this you will need to run make 
 
 You can at this stage go through and select the packages that you are actually going to want (although you can always add them later with ipkg).
 
-This time you will find a file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz, and the kernel will be in build_mipsel/linux-2.6.19-adm5120 (or whatever the current kernel is) and will be called vmlinux.elf.  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-vmlinux.
+This time you will find a tar file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz and the kernel called openwrt-adm5120-rb1xx-kernel.  (If for some reason you don't find the kernel in the bin directory, the one called build_dir/linux-adm5120_router_le/vmlinux.elf should also work.)  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-vmlinux.
 
 Now you can power up your RB1xx and download the kernel.  At this stage you are using the first kernel you produced above.
 
