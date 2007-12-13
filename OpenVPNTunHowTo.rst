@@ -111,7 +111,7 @@ If you want to block DoS attacks then have a look at [http://forum.openwrt.org/v
 It is based on the information of the documents ["OpenWrtDocs/IPTables"] and ThrottleConnectionsHowTo. It also provides an example how to access SSH via a non-standard port (e.g. 443 for restrictive firewalls) although SSH is still running on the standard port 22.
 You can easily adopt it to VPN.
 
-If it is intended that keys are send via SSH across the WAN, then also enable accepting SSH connections from outside:
+If it is intended that keys are sent via SSH across the WAN, then also enable accepting SSH connections from outside:
 {{{
 ### SSH (optional)
 ## allow connections from outside
