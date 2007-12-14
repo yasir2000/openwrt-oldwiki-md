@@ -184,7 +184,13 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 ||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[http://web.archive.org/web/20030627094926/www.broadcom.com/pbs/3348-PB02-403-RDS.pdf Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
 == CC&C ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://www.ccandc.com.tw/product/11g-wa-2204a.htm WA-2204A] || || ||2MB ||8MB || || || || || || || || ||
+||[http://www.ccandc.com.tw/Wireless%20LAN%20Products.htm WA-6208-V1] || ||Atheros AR9132, 200MHz ||8MB ||16MB ||Atheors AR9103 ||Atheros AR8316 ||Yes ||Yes ||No ||Yes ||Yes ||WiP ||
+||[http://www.ccandc.com.tw/Wireless%20LAN%20Products.htm WA-6208-V2] || ||Atheros AR9132, 200MHz ||8MB ||16MB ||Atheors AR9106, dual band ||Atheros AR8316 ||Yes ||Yes ||No ||Yes ||Yes ||WiP ||
+||[http://www.ccandc.com.tw/product/wa-6204a.htm WA-6204A] || ||Atheros AR9130, 200MHz ||8MB ||16MB ||Atheors AR9102 for 2x2, AR9103 for 3x3 ||Atheros AR8216 ||Yes ||Yes ||No ||No ||No ||WiP ||
+||[http://www.ccandc.com.tw/product/11g-wa-2204a.htm WA-2204A] || ||Realtek RTL8186, 180MHz ||2MB ||16MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
+||[http://www.ccandc.com.tw/product/11g-wa-2204b.htm WA-2204B] || ||Realtek RTL8186, 180MHz ||2MB ||16MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
+||[http://www.ccandc.com.tw/product/11g-wa-2204c.htm WA-2204C] || ||Realtek RTL8186, 180MHz ||2MB ||16MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
+||[http://www.ccandc.com.tw/product/wa-2204e.htm WA-2204E] || ||Realtek RTL8186, 180MHz ||2MB ||8MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
 == Compex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G WRT/WRT6B] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB/32MB ||Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G Forked] ||
