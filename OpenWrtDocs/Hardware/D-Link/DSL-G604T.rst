@@ -83,12 +83,13 @@ Libraries ----> linux-atm
 Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a (Select kmod-sangam-atm-annex-a for DSL-G664T)
                   > Cryptographic API modules ---> kmod-crypto-core (includes kmod-crypto-aes and kmod-crypto-arc4)
                         this is needed until bug #2589 https://dev.openwrt.org/ticket/2589 gets fixed.
-Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] httpd (Turn off).}}}
+Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] httpd (Turn off)
+Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] Enable IPv6 support (Turn off).}}}
 Optional:
 
 {{{
 Base system ---> busybox Configuration ---> Archival Utilities ---> unzip - Zip archivator.
-Base system ---> busybox Configuration ---> Networking Utilities ---> hostname - Show hostname.}}}
+Base system ---> busybox Configuration ---> Networking Utilities ---> hostname - Show hostname.}}
 Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends on your machine's capabilities).
