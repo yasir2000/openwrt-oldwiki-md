@@ -131,8 +131,8 @@ u32 checksum ?
 u32 00 00 00 70
 u32 00 00 30 00
 u32 Type of compression (1 = ZIP, 2 = Bzip2)
+u32 Size of the IOS file
 u32 Size of the unzipped IOS file minus this MZIP header (20 u32s)
-u32 ?
 u32 ?
 zeroes
 ----
