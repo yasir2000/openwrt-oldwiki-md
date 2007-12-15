@@ -94,6 +94,7 @@ Exit from configure menu and save settings.
 Then input ''make'' and wait long time (it's depends on your machine's capabilities).
 
 '''Adding checksum'''
+
 Now we'll add a checksum to the firmware. Go to ''trunk/bin'' (or where you have firmware binaries) and type these commands:
 
 {{{
