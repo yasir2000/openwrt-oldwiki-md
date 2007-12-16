@@ -82,7 +82,7 @@ You can download [http://downloads.openwrt.org/kamikaze/7.09/ official 7.09] ima
 === Using the ASUS web GUI ===
 Does not work yet. The TRX utility needs a rewrite (Sep. 1st 2007, confirmed by nbd on IRC).
 
-The ASUS GUI requires a trailer to be added to the .trx file (similar to the way other firmwares require headers).  The rather simple structure can be inferred from work done for the FreeWRT project [http://osdir.com/ml/embedded.freewrt.cvs/2006-09/msg00226.html]
+The ASUS GUI requires a trailer to be added to the .trx file (similar to the way other firmwares require headers).  The rather simple structure can be inferred from work done for the FreeWRT project http://osdir.com/ml/embedded.freewrt.cvs/2006-09/msg00226.html
 
 [[Anchor(diag)]] [[Anchor(Diag)]]
 
@@ -119,7 +119,7 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * The ASUS WL-500g Premium does not revert to the 192.168.1.1 address when starting the CFE bootloader, but uses the LAN IP address set in NVRAM. Try this address if you have difficulties.
 [[Anchor(restore)]] [[Anchor(Restore)]] [[Anchor(restoration)]] [[Anchor(Restoration)]]
 
-'''If you have problems to flash a brand new Asus WL500gP. (Asus restoration tool fails or no tftp prompt) You can try this...''' 
+'''If you have problems to flash a brand new Asus WL500gP. (Asus restoration tool fails or no tftp prompt) You can try this...'''
 
  * Download the <yourfirmware>.trx firmware.
  * Open a command prompt and 'cd' to the directory where you downloaded the firmware (.trx file).
@@ -127,9 +127,8 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * Unplug the power to the router.
  * Hold down the reset/restore button while reconnecting the power. Wait until the power light starts blinking before releasing the reset/restore button.
  * Hit enter in your command prompt window (to run 'tftp -i 192.168.1.1 <yourfirmware>.trx').
- * Wait 15-30 seconds for the image to upload. If you receive a TFTP timeout message start the process over again 
+ * Wait 15-30 seconds for the image to upload. If you receive a TFTP timeout message start the process over again
  * Wait 4-5 minutes and power cycle the router.
-
 ==== ASUS firmware restoration tool (Windows only) ====
 If you are on Windows it is recommended to use the ASUS firmware restoration tool to install !OpenWrt. The ASUS firmware restoration tool can be found on the CD. Make sure the router is in diag mode.
 
@@ -247,7 +246,7 @@ uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
 
 ==== WiFi encryption ====
-Plese see [:OpenWrtDocs/KamikazeConfiguration/WiFiEncryption:WiFiEncryption].
+Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
 
 [[Anchor(WiFi toggle)]] [[Anchor(wifitoggle)]]
 
@@ -268,6 +267,86 @@ ipkg install kmod-usb2}}}
 === Print Server ===
 Please see the PrinterSharingHowto.
 
+=== Webcam with the Linux UVC driver ===
+Below works to configure and use a Logitech Quickcam Pro for Notebooks (2007) webcam. Tested with trunk.
+
+{{{
+ipkg install kmod-video-uvc kmod-usb2 uvc-streamer}}}
+A UCI configuration file and init script for the uvc-streamer:
+
+/etc/config/uvc-streamer
+
+{{{
+config uvc-streamer
+        option device          '/dev/video0'
+        option resolution      '640x480'
+        option framespersecond '5'
+        option port            '8080'
+        option enabled         '1'}}}
+/etc/init.d/uvc-streamer
+
+{{{
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2007 OpenWrt.org
+START=50
+SSD=start-stop-daemon
+NAME=uvc_stream
+PIDF=/var/run/$NAME.pid
+PROG=/sbin/$NAME
+append_bool() {
+        local section="$1"
+        local option="$2"
+        local value="$3"
+        local _val
+        config_get_bool _val "$section" "$option" '0'
+        [ "$_val" -gt 0 ] && append args "$3"
+}
+append_string() {
+        local section="$1"
+        local option="$2"
+        local value="$3"
+        local _val
+        config_get _val "$section" "$option"
+        [ -n "$_val" ] && append args "$3 $_val"
+}
+start_service() {
+        local section="$1"
+        args=""
+        append_string "$section" device "-d"
+        append_string "$section" resolution "-r"
+        append_bool "$section" framespersecond "-f"
+        append_string "$section" port "-p"
+        config_get_bool "enabled" "$section" "enabled" '1'
+        [ "$enabled" -gt 0 ] && $SSD -S -p $PIDF -q -x $PROG -- -b $args
+}
+stop_service() {
+        killall $NAME 2>&1 > /dev/null
+        # FIXME: Fix Busybox start-stop-daemon to work with multiple PIDs
+        # $SSD -K -p $PIDF -q
+}
+start() {
+        config_load "uvc-streamer"
+        config_foreach start_service "uvc-streamer"
+}
+stop() {
+        config_load "uvc-streamer"
+        config_foreach stop_service "uvc-streamer"
+}
+}}}
+Make the init script executable
+
+{{{
+chmod a+x /etc/init.d/uvc-streamer}}}
+Make changes to the config file if needed.
+
+Start uvc-streamer
+{{{
+/etc/init.d/uvc-streamer start}}}
+To activate uvc-streamer on next boot
+{{{
+/etc/init.d/uvc-streamer enable}}}
+Now openhttp://192.168.1.1:8080/in Firefox browser or VLC and watch the MJPEG stream.
+Also see["webcam"]page in the wiki if your webcam needs other drivers.
 === Turn your router into a networked music player ===
 Work in progress. Please see the UsbAudioHowto.
 
