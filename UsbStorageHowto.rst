@@ -231,6 +231,9 @@ Then "format" your partition with
 {{{
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
+
+mke2fs may fail on large disks (e.g. 300GB) if there is not enough memory, consider adding a swap partition, even if it is only used during mke2fs.
+
 If you keep getting errors like:
 
 {{{
