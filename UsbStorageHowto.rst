@@ -215,7 +215,7 @@ fdisk /dev/sda
 }}}
 /!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdc}}} (and so on) instead!
 
-For more information about using {{{fdisk}}}, see http://www.tldp.org/HOWTO/Partition/partition-5.html.
+For more information about using {{{fdisk}}}, see http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html.
 
 Next, "format" the newly created partition.
 
