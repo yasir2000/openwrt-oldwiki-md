@@ -294,6 +294,9 @@ In the /etc/init.d/S51radvd we have to add an route in case the aiccu is used:
 {{{
 ip -6 route add 2001:db8:0:f101::1/64 dev br0
 }}}
+
+(If you are using OpenWRT Kamikaze the route will be added when setting the ip address, so that the last command is not necessary (Maybe in WhiteRussian too?) - but you have to enable IPv6 routing with this command: {{{echo 1 > /proc/sys/net/ipv6/conf/all/forwarding}}})
+
 After all this you can start the daemon:
 
 {{{
