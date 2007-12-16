@@ -345,7 +345,7 @@ Start uvc-streamer
 To activate uvc-streamer on next boot
 {{{
 /etc/init.d/uvc-streamer enable}}}
-Now openhttp://192.168.1.1:8080/in Firefox browser or VLC and watch the MJPEG stream.
+Now open the URL [http://192.168.1.1:8080/] in the Firefox browser or VLC and watch the MJPEG stream.
 Also see["webcam"]page in the wiki if your webcam needs other drivers.
 === Turn your router into a networked music player ===
 Work in progress. Please see the UsbAudioHowto.
