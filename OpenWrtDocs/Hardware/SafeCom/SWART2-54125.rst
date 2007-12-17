@@ -8,7 +8,13 @@ It has hardware slightly different from Castlenet ASW800, listed here, are only 
 * DSP: TNETD7200 ZDW
 * WLAN: TNETTW1350 GVF (advertised as 125Mbps 802.11g+)
 
-with 16MB SDRAM and 4MB flash.
+with 16MB SDRAM and 4MB flash. Wireless NIC is fit into a mini-pci slot.
 
 
 The number of features included in the web-config of the original firmware includes QoS and WLAN bridge. It runs MontaVista.
+
+== Serial Port ==
+
+It has two lables RX1 and TX1 just near the usb port.
+
+There're also two unlabled sets of pins, one with four pins in row, and another one with two rows, 7 pins each row.
