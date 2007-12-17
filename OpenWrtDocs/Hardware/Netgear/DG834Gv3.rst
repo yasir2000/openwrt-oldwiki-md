@@ -110,7 +110,7 @@ oam_lb_timeout  100}}}
  31:        3 + DSL  [hw0 (Avalanche Primary)]
  80:    22699   TNETW1150 [hw0 (Low Vlynq)]}}}
 
-==Notes==
+== Notes ==
 This version of ADAM2 does not allow ftp access on boot and it does not allow boot break in serial, so its a bit useless.
 I attempted to get around this by using ADAM2 from a DSL-G604T, its the same version and I know it doesn't inpose any restrictions but when I flashed it down, the box broke and now its a brick.
 
