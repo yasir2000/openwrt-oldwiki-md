@@ -30,7 +30,7 @@ Siemens SX541          - only 2M Flash maybe more memory
 
 
 == Manufacturer Product link ==
-http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm
+http://www.castlenet.com.tw/products/XDSL/ASW80x%20%20Series.htm
 
 Firmware ver T360A.050217a1_04
 
