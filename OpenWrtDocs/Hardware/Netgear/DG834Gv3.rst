@@ -1,5 +1,6 @@
 = Netgear DG834G v3 =
-Ok this is my attempt at getting OpenWRT on my router, so far I have only got the inital readouts from debug... more will come soon once I have a serial adapter and a bit more free time.
+Ok this is my attempt at getting OpenWRT on my router.
+This page shows my readouts from debug and my experiances.
 
 == Specifications ==
 CPU: Texas Instruments AR7 MIPS-based, TNETD7200ZDW
@@ -10,9 +11,9 @@ SDRAM: 16Mbytes, Etron Tech, [http://www.etron.com/manager/uploads/EM639165_rev1
 
 Switch: Marvell, 88E6060-RCJ1
 
-Wireless NIC: Texas Instruments, TNETW1350A (ACX111 varient I think)
+Wireless NIC: Texas Instruments, TNETW1350A
 
-Boot loader: ADAM2
+Boot loader: ADAM2 0.22.02
 
 Here is a picture of under the hood:
 
@@ -108,3 +109,9 @@ oam_lb_timeout  100}}}
  29:    22699   vlynq0 [hw0 (Avalanche Primary)]
  31:        3 + DSL  [hw0 (Avalanche Primary)]
  80:    22699   TNETW1150 [hw0 (Low Vlynq)]}}}
+
+==Notes==
+This version of ADAM2 does not allow ftp access on boot and it does not allow boot break in serial, so its a bit useless.
+I attempted to get around this by using ADAM2 from a DSL-G604T, its the same version and I know it doesn't inpose any restrictions but when I flashed it down, the box broke and now its a brick.
+
+All is not lost though as it has a JTAG port all I have to do is solder it up and have a play, I have read that PSPBOOT has been made to run so I will have a guide to that next.
