@@ -10,7 +10,7 @@ The design is based on the 2003 [http://www.marvell.com/products/wireless/libert
 
  * ''Libertas'' 88W8510 Access Point/Gateway Chip (88W8510-BAN1)
  * ''Libertas'' 88W8000G RF-Baseband Transceiver
- * [http://www.marvell.com/products/switching/linkstreet/index.jsp 88E6060-RCJ1] ''Link Street'' integrated 6-port fast Ethernet switch
+ * [http://www.marvell.com/products/switching/linkstreet/LinkStreet_88E6060.pdf 88E6060-RCJ1] ''[http://www.marvell.com/products/switching/linkstreet/index.jsp Link Street]'' integrated 6-port fast Ethernet switch
 
 The 88W8510 contains most of the components of an access point and router, minus memory. An ARM9 CPU is included on the chip.
 
