@@ -131,12 +131,7 @@ The router has room for two firmwares and a configuration area for each. Factory
 Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
 
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
-The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  BOOTCFG must be set using the setpermenv command, either from PSPBoot (serial console required) or by writing an appropriate command to /proc/ticfg/env, like so:
-
- . {{{
-  # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
-  }}}
-Unfortunately, changes made in this way do not stick.  If you have insight as to why this is, please add it here.
+The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
 
 = Firmware Source Code Supplied by Linksys =
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
