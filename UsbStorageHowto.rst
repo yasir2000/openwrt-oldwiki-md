@@ -345,6 +345,14 @@ mount "$boot_dev" /mnt
         }
 }
 }}}
+'''''Note:''''' for Kazimate 2.6 kernel, add this before insmod loop.
+{{{
+/sbin/hotplug2 --override --persistent --max-children 1 --no-coldplug &
+}}}
+And kill it after the loop.
+{{{
+killall hotplug2
+}}}
 Make it executable:
 
 {{{
