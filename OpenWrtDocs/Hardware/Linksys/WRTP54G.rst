@@ -475,16 +475,16 @@ Using this procedure, you can write a firmware into one of the two firmware part
   . {{{
   # grep BOOTCFG /proc/ticfg/env
   }}}
- * Switch to the newly written firmware by using the appropriate command:
+ * At this point, one would expect to switch to the new firmware by using one of the following commands:
   . {{{
-  # echo 'setenv BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
-  # echo 'setenv BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
+  # echo 'BOOTCFG m:f:"IMAGE_A"' >/proc/ticfg/env
+  # echo 'BOOTCFG m:f:"IMAGE_B"' >/proc/ticfg/env
   }}}
 Unfortunately, setting BOOTCFG does not seem to work.  The only known way to set it is to delete the active firmware (after writing a new one).
 
 One could simply overwriting the active firmware (using /dev/mtd/3) but it is not recommended since it could crash if something needs to be paged in.  At the very least you should have a serial console and set CONSOLE_STATE to "unlocked" (and verify it works) before doing this.
 
-== From a Firmware Shell Prompt (the easy way) ==
+== From a Firmware Prompt (the easy way) ==
 A much easier way to flash a new firmware from the router shell prompt has recently been discovered.
 
 You can use this procedure only if you have access to a shell running on the router.  Access is generally obtained either by connecting to the route's serial port or to its SSH server.
