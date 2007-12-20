@@ -2,8 +2,8 @@
 
 {{{
 CPU : PowerPC 405GP @ 200 Mhz
-Flash : 8Mo Intel strataflash 28F128J3A
-RAM : 16Mo
+Flash : 8MB Intel strataflash 28F128J3A
+RAM : 16MB
 Ethernet :  yes
 JTAG : ?
 USB : no
@@ -123,13 +123,13 @@ The IOS image structure is the following :
 {{{
 u32 MZIP (magic header)
 u32 Version (1)
-u32 00 00 30 00 (0 in ASCII)
+u32 Compressed file entry point
 u32 00 00 00 01
 u32 00 00 00 01
 u32[7] 0
 u32 checksum ?
 u32 00 00 00 70
-u32 00 00 30 00
+u32 IOS file entry point
 u32 Type of compression (1 = ZIP, 2 = Bzip2)
 u32 Size of the IOS file
 u32 Size of the unzipped IOS file minus this MZIP header (20 u32s)
