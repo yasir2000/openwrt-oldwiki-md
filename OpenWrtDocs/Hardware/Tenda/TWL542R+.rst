@@ -19,6 +19,6 @@ Three  other integrated circuits are included on the motherboard
  * [http://www.sst.com/ Silicon Storage Technology] (SST) [http://www.semiconductorstore.com/Pages/Items/SST/39VF800A704CM1Q.htm 39VF800A] CMOS Multi-Purpose Flash (MPF) memory, 512K x 16 bits = 1 MiB
  * 2 x Winbond [http://winbond-usa.com/products/winbond_products/pdfs/Memory/W9816G6CHa.pdf W9816G6CH-6] (166MHz/CL3) SDRAM, 512k x 2 banks x 16 bits = 2MiB, a total of 4 MiB on board.
 
-The external power supply is 9V AC.
+The external power supply is 9V AC. The device does not seem to have a FCC id.
 ----
 CategoryModel
