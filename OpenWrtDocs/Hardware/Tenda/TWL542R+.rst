@@ -6,7 +6,7 @@ The [http://www.tenda.hk/products_spec/twl542r+.html TWL542R+] wireless broadban
  * IEEE802.11g access point, one detachable antenna with RP-SMA connector
 
 == Hardware ==
-The design is based on the 2003 [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Libertas™ reference design] by [http://www.marvell.com/ Marvell Technology Group]. The design uses 1 MiB of flash memory and 4 MiB of SDRAM. Apart from the smaller amount of memory used, the design is very similar to the [http://www.bitsum.com/openwiking/owbase/ow.asp?WL%2D530G WL-530G]. The three Marvell chips used are:
+The design is based on the 2003 [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Libertas™ reference design] by [http://www.marvell.com/ Marvell Technology Group]. The design uses 1 MiB of flash memory and 4 MiB of SDRAM. Apart from the smaller amount of memory used, the design is very similar to the  [http://www.bitsum.com/openwiking/owbase/ow.asp?WL%2D530G Asus WL-530G]. The three Marvell chips used are:
 
  * ''Libertas'' 88W8510 Access Point/Gateway Chip (88W8510-BAN1)
  * ''Libertas'' 88W8000G RF-Baseband Transceiver
