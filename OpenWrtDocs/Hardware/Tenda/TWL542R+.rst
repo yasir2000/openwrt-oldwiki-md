@@ -7,10 +7,15 @@ The [http://www.tenda.hk/products_spec/twl542r+.html TWL542R+] wireless broadban
 
 == Hardware ==
 Six integrated circuits:
- * [http://www.marvell.com/ Marvell Technology Group] (Marvell) 88E6060-RCJ1
- * Marvell 88W8510-BAN1
- * Marvell radio interface
- * [http://www.sst.com/ Silicon Storage Technology] (SST) 39VF800A
+
+[http://www.marvell.com/ Marvell Technology Group] (Marvell)
+ * [http://www.marvell.com/products/switching/linkstreet/index.jsp 88E6060-RCJ1] ''Link Street'' integrated 6-port fast Ethernet switch
+ * 88W8510-BAN1
+ * Radio interface
+[http://www.sst.com/ Silicon Storage Technology] (SST)
+ * 39VF800A
+
+???
  * 2 x W9816G6CH-6
 
 Power supply 9V AC
