@@ -17,7 +17,7 @@ The 88W8510 contains most of the components of an access point and router, minus
 Three  other integrated circuits are included on the motherboard
 
  * [http://www.sst.com/ Silicon Storage Technology] (SST) 39VF800A flash memory
- * 2 x Winbond [http://winbond-usa.com/products/winbond_products/pdfs/Memory/W9816G6CHa.pdf W9816G6CH-6] SDRAM, 512k x 2 banks x 16 bits = 2MiB, a total of 4 MiB on board.
+ * 2 x Winbond [http://winbond-usa.com/products/winbond_products/pdfs/Memory/W9816G6CHa.pdf W9816G6CH-6] (166MHz/CL3) SDRAM, 512k x 2 banks x 16 bits = 2MiB, a total of 4 MiB on board.
 
 The power supply 9V AC.
 ----
