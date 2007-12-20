@@ -6,16 +6,17 @@ The [http://www.tenda.hk/products_spec/twl542r+.html TWL542R+] wireless broadban
  * IEEE802.11g access point, one detachable antenna with RP-SMA connector
 
 == Hardware ==
-Six integrated circuits:
+The design is based on the [http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf ''Libertas™'' reference design] by [http://www.marvell.com/ Marvell Technology Group]. The three Marvell chips used are:
 
-[http://www.marvell.com/ Marvell Technology Group] (Marvell)
+ * ''Libertas'' 88W8510 Access Point/Gateway Chip (88W8510-BAN1)
+ * ''Libertas'' 88W8000G RF-Baseband Transceiver
  * [http://www.marvell.com/products/switching/linkstreet/index.jsp 88E6060-RCJ1] ''Link Street'' integrated 6-port fast Ethernet switch
- * 88W8510-BAN1
- * Radio interface
-[http://www.sst.com/ Silicon Storage Technology] (SST)
- * 39VF800A
+ 
+The 88W8510 contains most of the components of a access point and router, minus memory. An ARM9 CPU is included on the chip.
 
-???
- * 2 x W9816G6CH-6
+Three  other integrated circuits are included on the motherboard
 
-Power supply 9V AC
+ * [http://www.sst.com/ Silicon Storage Technology] (SST) 39VF800A flash memory
+ * 2 x W9816G6CH-6 SDRAM
+
+The power supply 9V AC.
