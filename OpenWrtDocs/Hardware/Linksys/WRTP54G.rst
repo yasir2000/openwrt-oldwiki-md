@@ -96,14 +96,18 @@ The PSPBoot loader is stored in the first partition of the flash memory.  This p
 = Boot Loader Environment =
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
-At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it. Note that the setpermenv'' command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt. ''
+At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.
 
-''After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the format "''setenv'' '''name''' '''value''' changes a variable, as long as it is not read-only. ''
+Note: the ''setpermenv'' command will write the environment setting into the flash boot area (pspboot)!  This will make the environment setting read only.  The only way known to undo this process is to re-flash the boot loader.  This can be done by making a dump of the flash block, editing out the "perm" environment variables, and then re-flashing.  It's been done from within a running system at the shell prompt.
+
+After boot, the boot environment can be read and written through the pseudo-file /proc/ticfg/env. Reading the file returns the environment, one variable per line, with a tab between name and value. Writing a line in the format "'''name''' '''value''' changes a variable, as long as it is not read-only.
 
 ''Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized. ''
 
 {{{
+Gone Missing
 }}}
+
 If the environment flash partition (the second one) is erased, a default environment will be created using data in the PSPBoot partition as a basis.  The default environment seems adequate to boot Linksys firmwares.  The only difference noted is that IPA is set to 169.254.87.1.
 
 == CONSOLE_STATE ==
