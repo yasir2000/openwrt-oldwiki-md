@@ -489,11 +489,13 @@ A much easier way to flash a new firmware from the router shell prompt has recen
 
 You can use this procedure only if you have access to a shell running on the router.  Access is generally obtained either by connecting to the route's serial port or to its SSH server.
 
- . # cd /var
- . # wget http://myhost/dir/flash_erase
- . # chmod 755 erase
- . # wget http://myhost/dir/rtp300-XXXXX.bin
- . # dd if=rtp300-XXXXX.bin of=/var/tmp/fw.bin
+{{{
+# cd /var
+# wget http://myhost/dir/flash_erase
+# chmod 755 erase
+# wget http://myhost/dir/rtp300-XXXXX.bin
+# dd if=rtp300-XXXXX.bin of=/var/tmp/fw.bin
+}}}
 
 If the new firmware is accepted, it will be written to the inactive flash partition, the active configuration partition will be copied to the inactive one, BOOTCFG will be set to boot from the new firmware (exactly how is unclear), and the router will reset and the new firmware will be bootstrapped.
 
