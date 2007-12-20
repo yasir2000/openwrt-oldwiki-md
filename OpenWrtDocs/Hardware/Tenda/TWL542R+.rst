@@ -21,5 +21,4 @@ Three  other integrated circuits are included on the motherboard
 
 The power supply 9V AC.
 ----
-----
 CategoryModel
