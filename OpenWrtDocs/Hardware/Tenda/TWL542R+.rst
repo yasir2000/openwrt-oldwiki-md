@@ -20,5 +20,8 @@ Three  other integrated circuits are included on the motherboard
  * 2 x Winbond [http://winbond-usa.com/products/winbond_products/pdfs/Memory/W9816G6CHa.pdf W9816G6CH-6] (166MHz/CL3) SDRAM, 512k x 2 banks x 16 bits = 2MiB, a total of 4 MiB on board.
 
 The external power supply is 9V AC. The device does not seem to have a FCC id.
+
+== Discussion ==
+ * [http://forum.openwrt.org/viewtopic.php?pid=53259 1M Flash - Atheros 2313 - Marvel 88E6060] - OpenWrt forum
 ----
 CategoryModel
