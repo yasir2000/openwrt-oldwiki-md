@@ -13,6 +13,8 @@ Note, as of 17th May '07 I am no longer maintaining this page as I no longer hav
 
 (I'm starting to update this page to reflect the current port status. -- OliverJowett)
 
+(I have a 504T, it's the same as the 502T but don't have the USB port and it have 4 ethernet 10/100 port) -- war3333
+
 == Specifications ==
 
  * ADSL modem with ADSL2/2+ support to 24Mbit/s+.
