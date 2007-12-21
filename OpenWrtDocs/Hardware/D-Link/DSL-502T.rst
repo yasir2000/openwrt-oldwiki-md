@@ -204,9 +204,10 @@ If someone has current experience with PPPoE, please fill in something up-to-dat
 I would guess that it is mostly similar to PPPoA with "proto pppoe" and perhaps "encaps llc".
 -- OliverJowett
 
-It's not that simple, for pppoe you have to bring up an ATM-bridge (you can uncomment the example in /etc/config/network)
-But I never had enough information on how configuring the pppoe interface... I had tried all the conf in the links at the end of this document but no one worked for me.
-In the end I have solved the issue by calling my ISP for changing from pppoe to pppoa.
+It's not that simple, for pppoe you have first to bring up an ATM-bridge (you can uncomment the example in /etc/config/network) and after you have to configure the wan interface on the bridge. 
+
+But I never had enough information on how configuring the pppoe interface... I had tried all the conf in the links at the end of this document (and many more on my own) but no one worked for me.
+In the end I had solved the issue by calling my ISP and changing from pppoe to pppoa, but it's only a workaround.
 -- War3333
 
 '''Connect to your ISP directly using DHCP'''
