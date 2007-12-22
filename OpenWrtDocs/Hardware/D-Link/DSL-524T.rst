@@ -13,7 +13,7 @@ this webpage was created to add more details about that ["OpenWrtDocs/Hardware/D
 == Specifications ==
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 4 LAN ports
 
-Flash chip: 32MBytes - [http://www.spansion.com/products/S29AL032D.html Spansion S29AL032D90TFI04]  (Isn't this a 32MBit chip = 4MBytes?)
+Flash chip: 32MBytes - [http://www.spansion.com/products/S29AL032D.html Spansion S29AL032D90TFI04]  (Isn't this a 32MBit chip = 4MBytes?) (GuidoSerra to OliverJowett: uhmm, i think you are right)
 
 SDRAM: 128Mb syncronous DRAM - 2M x 4Bank x16 I/O - HYNIX HY57V281620ETP-H  (Isn't this a 128Mbit chip = 16MBytes?)
 
@@ -23,9 +23,15 @@ CPU: TNETD7300AZDW (6BZHT99) Texas Instruments AR7 MIPS based
 
 OliverJowett asks: are the GPIO to LED mappings the same as for the 502T? See [https://dev.openwrt.org/ticket/2746]
 
+----
+
+GuidoSerra answer: i don't know, i have not focused on that, now i'm trying to figure out how to make the ADSL interface work... or is useless... then, i'll check the leds mapping, i suppose that they are not so much different
+
 == bootloader ==
 
 OliverJowett speculates: It looks like the flash layout is basically the same as for the DSL-502T. The script in [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl?format=raw] will probably work with the 524T. Currently it checks the ProductID and usb_prod of the bootloader environment before continuing, as a safety check - you will have to modify that check to also allow the 524T. Can you try it out? It makes flashing much simpler!
+
+GuidoSerra: ok, i'll try it, where can i send you a patch?
 
 ----
 
