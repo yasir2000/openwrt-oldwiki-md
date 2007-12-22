@@ -45,6 +45,11 @@ Nicole for Bluetoothing me the GPIO utility.
 
 star882 for contributing her knowledge of electronics to this site and probing the wiring. :)
 
+== JTAG ==
+
+If you have bricked your router (e.g. as I did by erasing the nvram) JTAG can be found (at least for rev 1000 and 1010) as decribed in this thread:
+http://www.dd-wrt.com/phpBB2/viewtopic.php?t=5080
+
 == Links ==
 
 There are a number of public forums and web sites where the installation of open source firmware for the Belkin F5D7230-4 is being discussed and published.
