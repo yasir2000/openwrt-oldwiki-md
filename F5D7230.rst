@@ -1,1 +1,1 @@
-#REDIRECT ["OpenWrtDocs/Hardware/Belkin/F5D7230"]
+Moved to ["OpenWrtDocs/Hardware/Belkin/F5D7230"]
