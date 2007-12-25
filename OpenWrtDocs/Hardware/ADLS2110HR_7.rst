@@ -22,9 +22,9 @@ http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigati
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
 == Add USB BUS ==
-Add connector & 2N7002
+Add type B female USB connector & 2N7002 Transistor
 
-Photo Add USB connector:attachment:Add_Usb.jpg
+Photo connector&Transistor installed :attachment:Add_Usb.jpg
 
 == Jtag CPU pin-out ==
 
