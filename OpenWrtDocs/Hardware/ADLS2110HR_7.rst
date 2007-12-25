@@ -7,7 +7,7 @@ PCB: 2110EH V7.0 2005.1.28
 
 PCB Photo: attachment:2110EH_V700_2005_1_28.jpg
 
-serial console 9600,n,8,1,hw jp1 (Untested):
+serial console 9600,n,8,1,hw jp1:
 
 1 VCC 2 TX 3 RX 4 -- 5--  6 GND 7 GND
 
