@@ -97,7 +97,7 @@ ipkg install libgcc}}}
 I experience problems trying to mount samba shares using mount.cifs from other openwrt machines or from ubuntu.  This does not happen with my samba 3.0.22 shares from my ubuntu main machine. 
 Be aware that there may be some issue in accessing Openwrt samba shares using cifs. by johncass
 
-With Debian Lenny there is no file access at all. You can browse the directories, but file access results in following errors in the Samba daemon:{{{
+With the CIFS code of linux-2.6.23.8 I don't have any file access at all. You can browse the directories, but file access results in following errors in the Samba daemon:{{{
 write access:
 smbd[4177]:   map_share_mode: Incorrect value 40000000 for desired_access to file \xxxxx
 read access:
