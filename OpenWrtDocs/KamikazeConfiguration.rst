@@ -347,6 +347,12 @@ config timezone
 }}}
 ~-Note: The '''zoneinfo''' field is designed to contain the same information like the timezone setting in most current *nix implementations (the Olson's database). It will later enable to simply synchronize changes in the POSIX TZ strings.-~
 
+Do the following on a *nix system to find out your timezone string:
+{{{
+cat /usr/share/zoneinfo/posix/continent/city
+}}}
+and look at the last line.
+
 Next you either create the /etc/TZ file and copy the posixtz field to it or you can create a simple timezone init script which will handle all TZ changes and the creation of the /etc/TZ file:
 
 {{{
