@@ -2,7 +2,7 @@
 #format wiki
 == Florian Fainelli ==
 
-Email: [[MailTo(florian@openwrt.org)]]
+Email: [[MailTo(florian [at] openwrt ]dot[ org)]]
 
 ...
 
