@@ -2,7 +2,7 @@
 
 {{{
 CPU : PowerPC 405GP @ 200 Mhz
-Flash : 8MB Intel strataflash 28F128J3A
+Flash : 8MB Intel Strataflash 28F128J3A
 RAM : 16MB
 Ethernet :  yes
 JTAG : ?
@@ -131,7 +131,7 @@ struct ios_header {
         uint32_t        hdr_size;       /* Header size */
         uint32_t        ios_ep;         /* IOS entry point */
         uint32_t        file_type;      /* Compression type */
-        uint32_t        file_size;      /* Compressed file size - garbage */
+        uint32_t        file_size;      /* Compressed file size */
         uint32_t        decomp_size;    /* Decompressed file size */
         uint32_t        ver_code;       /* Probably the version code */
         char            padding[32];    /* Padding before the compressed file */
