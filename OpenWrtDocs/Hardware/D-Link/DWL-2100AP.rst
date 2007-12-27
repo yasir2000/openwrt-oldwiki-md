@@ -4,16 +4,19 @@
 [http://www.dlink.com/products/?pid=292 AirPlus XtremeG Wireless Access Point]
 
 == Foreword ==
+
 Please read carefully this warning message before you start. This page is about modifying your DWL-2100AP box. Either if you wish to access the serial console or install OpenWRT permanently, both the hardware and the firmware on your box will require modifications. Your box was not built for this purpose and therefore by making any of the changes described herein '''you will void your warranty'''.
 
 The hardware modifications, despite being minor and easily made by a trained person, do require certain skills you may not posses, like handling a soldering iron, soldering and cutting the PCB and/or wires, measuring voltages and signals and, most importantly, protecting against static charges. A small mistake, like touching the wrong wire while being electrically charged, may damage your box permanently. Care must be taken when connecting wires to assure they are being connected properly and to compatible voltages and currents. The serial communication signals on the 2100AP are TTL-compatible ranging from 0 to 5V. These  '''must not''' be connected directly to a RS232 cable, which operates at much broader voltage range (-12 to +12V). An appropriate level coupler must be built for this purpose. There are many such circuits on the net, and the simplest ones might use a common MAX232 chip.
 
 The firmware part is less critical, but also does require some skill. If anything goes wrong with the installation of a new firmware, you will probably brick your AP. This is a bit painful but it is usually reversible with a jtag cable and software.
 
-If you plan to run openwrt on a regular basis, you will also need to replace the original VxWorks bootloader with redboot. At the moment, this can only be accomplished using a jtag cable and software. This is a very slow process, but fortunately it does not have to be repeated frequently. If you have the right image and make no serious mistakes flashing the new bootloader, this has to be done just once.
+If you plan to run openwrt on a regular basis, you will also need to replace the original VxWorks bootloader with redboot. At the moment, this can only be accomplished using a jtag cable and software. This is a very slow process, but fortunately it does not have to be repeated frequently. If you have the right bootloader binary image and follow the procedure described below very carefully, this will hopefully have to be done just once.
 
 == Hardware ==
-Based on an A2 version, with some notes for rev. A3.
+
+This section describes the relevant features of the hardware commonly found inside a DWL-2100AP box. It is mostly based on the A2 revision,
+and contains some notes for revision A3.
 
  * Atheros AR2313A SoC
  * Atheros AR2112A RF
