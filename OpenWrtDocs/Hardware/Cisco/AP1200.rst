@@ -121,22 +121,23 @@ html/ : HTML pages if selected HTML web interface
 The IOS image structure is the following :
 
 {{{
-u32 MZIP (magic header)
-u32 Version (1)
-u32 Compressed file entry point
-u32 00 00 00 01
-u32 00 00 00 01
-u32[7] 0
-u32 checksum ?
-u32 00 00 00 70
-u32 IOS file entry point
-u32 Type of compression (1 = ZIP, 2 = Bzip2)
-u32 Size of the IOS file
-u32 Size of the unzipped IOS file minus this MZIP header (20 u32s)
-u32 ?
-zeroes
+struct ios_header {
+        uint32_t        magic;          /* Magic MZIP */
+        uint32_t        version;        /* MZIP version */
+        uint32_t        comp_ep;        /* Compressor entry point */
+        uint32_t        rsvd1[2];       /* Unused */
+        char            pad[32];        /* Padding */
+        uint32_t        product_code;   /* Unused */
+        uint32_t        hdr_size;       /* Header size */
+        uint32_t        ios_ep;         /* IOS entry point */
+        uint32_t        file_type;      /* Compression type */
+        uint32_t        file_size;      /* Compressed file size - garbage */
+        uint32_t        decomp_size;    /* Decompressed file size */
+        uint32_t        ver_code;       /* Probably the version code */
+        char            padding[32];    /* Padding before the compressed file */
+} __attribute__((packed));
 ----
-Compressed file (zip, pkzip or bzip2)
+Then compressed file (zip, pkzip or bzip2)
 }}}
 
 === Booting images ===
