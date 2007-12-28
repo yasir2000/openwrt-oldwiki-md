@@ -5,6 +5,18 @@
 SoC : ADM5120
 Flash : 2Mb
 RAM : 16Mb
+Serial : yes
+USB : no
 }}}
 
-More informations at http://www.linux-mips.org/wiki/ConceptronicC54BRS4
+Serial pinout :
+
+{{{
+(x) VCC
+(x) RX
+(x) TX
+[x] GND
+
+
+LEDs
+}}}
