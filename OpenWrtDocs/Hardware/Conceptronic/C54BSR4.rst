@@ -20,3 +20,5 @@ Serial pinout :
 
 LEDs
 }}}
+
+OpenWrt's ADM5120 targets generates working images for this device, either in squashfs or ramdisk.
