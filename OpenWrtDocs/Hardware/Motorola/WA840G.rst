@@ -2,7 +2,7 @@
  * The WA840Gv1 (grey case) has 1 torx-screw and five (quite tight) clips that hold the case together.
  * Instructions on [:OpenWrtDocs/Hardware/Motorola/WR850G: WR850G] do help with opening those.
  * a pinout labeled J25, which might be a serial port, is present on the device, you need to attach a header yourself
- * One Dunachips D98SD64 16AH-6 (flash chip?) is visible on the back of the circuit-board, this would be 16MBit=2MB flash, but I'm not sure whether there is an additional chip on the other side.
+ * Two Dunachips D98SD64 16AH-6 (flash chip?) one visible on the back of the circuit-board, on below the miniPCI card. This would be 2x16MBit=4MB flash.
  * The springs that keep the minipci card in place are soldered to the card to prevent removal. The card itself is a BCM94306MP rev 4, all other components are hidden beneath it.
 
 I suspect the WA840G is just the same hardware as WE800G, but radio is in AP mode.
