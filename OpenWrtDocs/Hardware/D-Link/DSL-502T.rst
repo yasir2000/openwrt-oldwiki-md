@@ -52,6 +52,7 @@ These are patches that have tickets open but haven't made it into the subversion
 
  * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781
  * Make LEDs blink on network activity: https://dev.openwrt.org/ticket/2776
+ * Also for the LEDs, if you have an Australian version of the router: H/W version A5, or ProductID "AR7DB", you may need to modify openwrt/trunk/target/linux/ar7/files/arch/mips/ar7/platform.c to include lines to detect your device. At revision 10021, the patches above don't yet adequately take care of it.
 In general they can be applied by downloading and saving the "original version" of the patchfile attached to the ticket, then {{{"cd openwrt/trunk; patch -p0 <name-of-patch-file"}}}
 
 '''Download source code for optional extra packages'''
@@ -94,6 +95,7 @@ The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.
 
  * Download a copy of the standard D-Link firmware so you can revert to it if things go wrong! You need the "web upgrade" .BIN version of the firmware, not the .EXE version. D-Link firmware can be downloaded from (for example) http://www.dlink.com.au/tech/
  * Get [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl?format=raw adam2flash-502T.pl].
+ * If you have an Australian version of the router: H/W version A5, or ProductID "AR7DB" see this patch for adam2flash-502T.pl: https://dev.openwrt.org/ticket/2904
  * Configure your PC for a static IP address, I'd suggest 192.168.1.2 (or another address on that subnet)
  * Choose an IP address for your router. The OpenWrt firmware will use 192.168.1.1 after rebooting, so that's a sensible choice.
  * Turn off the router.
@@ -140,6 +142,11 @@ If you applied the LED patches above, the router will go through three states wh
  1. "status" pulsing in a heartbeat (pulse pulse - pause - pulse pulse - pause) - OpenWrt completed booting, normal operation
 If you didn't apply the LED patches.. the only LED that will do anything is the ADSL LED.
 
+I've found that /etc/init.d/ledsetup was missing the execute bit. So after logging in, running the following fixed everything up (I had the AR7DB version of the router and had to manually patch platform.c)[BD]:
+
+{{{
+chmod +x /etc/init.d/ledsetup
+/etc/init.d/ledsetup enable}}}
 Some time after rebooting, you should be able to ping or telnet to 192.168.1.1. If so -- congratulations!
 
 You can reconfigure your PC for DHCP if you like, you should be given an IP in the 192.168.1.x range.
