@@ -168,9 +168,9 @@ ACCEPT		$FW		wifi		icmp
 DNS/ACCEPT	loc		$FW
 DNS/ACCEPT	wifi		$FW
 
-# Forward https traffic to byte:
-DNAT		net		$WWW_IP		tcp	443
-ACCEPT		wifi		$WWW_IP:443 	tcp	443
+# Forward https traffic: (uncomment if you have a local web server on $WWW_IP)
+#DNAT		net		$WWW_IP		tcp	443
+#ACCEPT		wifi		$WWW_IP:443 	tcp	443
 
 #LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE}}}
 
