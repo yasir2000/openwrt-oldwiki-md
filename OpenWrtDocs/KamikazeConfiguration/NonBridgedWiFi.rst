@@ -3,7 +3,7 @@
 = Using Non-Bridged WiFi =
 The default OpenWRT configuration bridges the !WiFi and LAN interfaces.  This gives any computer on your !WiFi network full access to your wired network.  The more paranoid among us prefer to separate the two interfaces.
 
-This example will use assume your !WiFi network will use 192.168.2.x, with the OpenWRT router on 192.168.2.1.  I'm using a [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL]; the details may vary on other devices.
+This example assumes your !WiFi network will use 192.168.2.x, with the OpenWRT router on 192.168.2.1.  I'm using a [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL]; the details may vary on other devices.
 
 == /etc/config/network ==
 
