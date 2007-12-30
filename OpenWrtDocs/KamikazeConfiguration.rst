@@ -167,7 +167,7 @@ config wifi-iface
 }}}
 '''Notes: '''
 
-'''1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan") '''
+'''1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan").'''  If you don't want to do that, see [:/NonBridgedWiFi:Using Non-Bridged WiFi].
 
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK or psk2 for WPA-PSK2 (AES)'''
 
