@@ -178,7 +178,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Canyon ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||2 (rev.AE) ||[http://www.linux-mips.org/wiki/Adm5120 ADM5120 ] ||2MB ||16MB(8MB?) || || || || || || ||[:Edimax:Untested] ||
-||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||3 ||[http://www.linux-mips.org/wiki/Realtek_SOC RTL8186] ||2MB ||16MB ||RTL 8186 ||RTL 8305SC || || || || ||[:RTL8651BPort:Untested] ||
+||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||3 ||[http://www.linux-mips.org/wiki/Realtek_SOC] ||2MB ||16MB ||RTL 8186 ||RTL 8305SC || || || || ||[:RTL8651BPort:Untested] ||
 == Castlenet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
@@ -531,7 +531,10 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-410APBplus.htm TEW-410APBplus] || || ||2MB || || || || || || || ||Untested ||
 ||[http://www.trendware.com/products/TEW-411BRP.htm TEW-411BRP] || ||Broadcom BCM4702KPB ||4MB || ||Broadcom BCM94306MP (MiniPCI) ||Broadcom [http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325 BCM5325A2KQM] || || || ||No ||Untested ||
 ||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus] || ||Broadcom BCM4712KPB ||4MB ||16M ||Broadcom BCM4320 ||ADMtek ADM6996L || ||yes ||yes || ||supported with whiterussian RC6 and additional patch ||
+||[http://www.trendnet.com/products/TEW-430APB.htm TEW-430APB] || ||RealTek 8186 ||?MB ||?MB || [http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
+||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB || [http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested ||
+
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
