@@ -54,6 +54,8 @@ I recommend defining your interface names in `/etc/shorewall/params`.  This will
 NET_IF=eth0.1
 LOC_IF=eth0.0
 WF_IF=wl0
+# Uncomment if you want to allow remote access to a local webserver:
+#WWW_IP=loc:192.168.0.9
 #LAST LINE - ADD YOUR ENTRIES ABOVE THIS ONE - DO NOT REMOVE}}}
 
 == /etc/shorewall/zones ==
