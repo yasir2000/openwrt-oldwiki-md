@@ -302,7 +302,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
 ||[http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
-||[http://global.level1.com/products2.php?Id=29 WAP-0005] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ ?MHz ||2MB ||8MB ||AR2112 ||None ||N/A ||Yes, out of the box ||? ||No ||?||
+||[http://global.level1.com/products2.php?Id=29 WAP-0005] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ ?MHz ||2MB ||8MB ||AR2112 ||None ||N/A ||Yes, out of the box ||? ||No ||? (does PoE, Clone: Planet WAP-4060PE)||
 ||[http://global.level1.com/products2.php?Id=5 WAP-0006] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||No ||? ||Yes ||No ||No ||Clone of Edimax EW-7206Apg ||
 ||[http://global.level1.com/products2.php?Id=238 WAP-0009] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||No ||? ||Yes ||No ||No ||Same as WAP-0006 but with PoE ||
 ||[http://www.level1.com/products3.php?sklop=12&id=540548 WBR-3407A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || || || || || || || ||[:AR7Port:WiP] ||
@@ -445,6 +445,10 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.pcengines.ch/wrap.htm WRAP.2d] || ||x86 233mhz or 266mhz ||CF Card ||64MB || || || ||Yes ||No ||No ||[:SoekrisPort:Kamikaze] ||
 ||[http://www.pcengines.ch/alix.htm ALIX.2/3] || ||x86 433mhz or 500mhz (AMD Geode LX700/800) ||CF Card ||128MB or 256MB ||None, 1 or 2 Mini-PCI slots || || ||Yes ||No ||Optional ||Info entered ||
+== Planet ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.planet.com.tw/product/product_dm.php?product_id=316&menu_id=14 WAP-4060PE] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ ?MHz ||2MB ||8MB ||AR2112 ||None ||N/A ||Yes, out of the box ||? ||No ||? (Clone of LevelOne WAP-0005)||
+
 == Ravotek ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ravo.hu/spec/W54-AP.html W54-AP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||on ||No UART ||No ||No ||Supported ||
