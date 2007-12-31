@@ -100,5 +100,30 @@ Texas Instruments USB CDC/RNDIS Driver Version 1.1.0
 Built for RNDIS protocol(s).
 }}}
 
+== ACORP LAN120 firmware ==
+http://mcmcc.bat.ru/acorp/LAN120/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
+
+http://mcmcc.bat.ru/acorp/psp_boot/psp_boot_LAN120_2M_8M-1.4.rar
+
+http://mcmcc.bat.ru/acorp/env_db/env_lan120.txt
+
+{{{
+mtd0 0x90094000,0x901F0000
+mtd1 0x90020090,0x90094000
+mtd2 0x90000000,0x90010000
+mtd3 0x90010000,0x90020000
+mtd4 0x90020000,0x901F0000
+mtd5 0x901F0000,0x90200000
+}}}
+
+RX & RX led fix:
+{{{
+# cd /var/var
+# tftp -g -l mycfg.tar.gz 192.168.0.90
+# cat mycfg.tar.gz > /dev/mtdblock/5
+}}}
+
+attachment:mycfg.tar.gz
+
 ----
  . ["CategoryAR7Device"]
