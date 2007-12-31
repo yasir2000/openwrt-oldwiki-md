@@ -321,11 +321,7 @@ Built for CDC-RNDIS protocol(s).
 }}}
 
 == ACORP LAN120 firmware ==
-http://mcmcc.bat.ru/acorp/LAN120/Acorp_nsp_LAN120_V.…_AnnexA_DSP74.zip
-
-http://mcmcc.bat.ru/acorp/psp_boot/psp_boot_LAN120_2M_8M-1.4.rar
-
-http://mcmcc.bat.ru/acorp/env_db/env_lan120m.txt
+http://mcmcc.bat.ru/acorp/LAN120M/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
 
 {{{
 mtd0 0x90094000,0x901F0000
