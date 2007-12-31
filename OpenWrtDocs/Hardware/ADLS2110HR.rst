@@ -320,7 +320,7 @@ Texas Instruments USB CDC/RNDIS Driver Version 1.1.1
 Built for CDC-RNDIS protocol(s).
 }}}
 
-== ACORP LAN120 firmware ==
+== ACORP LAN120M firmware ==
 http://mcmcc.bat.ru/acorp/LAN120M/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
 
 {{{
