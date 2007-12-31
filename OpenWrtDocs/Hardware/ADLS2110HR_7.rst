@@ -116,7 +116,7 @@ mtd4 0x90020000,0x901F0000
 mtd5 0x901F0000,0x90200000
 }}}
 
-RX & RX led fix:
+TX & RX led fix:
 {{{
 # cd /var/var
 # tftp -g -l mycfg.tar.gz 192.168.0.90
