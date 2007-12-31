@@ -185,5 +185,57 @@ You may want to include "{{{$WF_IF -}}}" here as well.
 $LOC_IF		-
 #LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE}}}
 
+== /etc/rc.d/S45firewall ==
+
+Once you've installed Shorewall, you don't need the default OpenWRT firewall anymore.  Deleting `/etc/rc.d/S45firewall` will prevent it from starting and make your router boot faster.
+
+You don't need `/etc/init.d/firewall`, `/etc/config/firewall`, or `/usr/lib/firewall.awk`, either.  But unless you're building your own custom firmware image, there's no point in deleting them.  You can't recover space by deleting files from a squashfs filesystem (it actually takes more space to record the files that have been deleted.)
+
+= Advanced Shorewall Configuration =
+
+If you uncomment the lines mentioning `$WWW_IP` above, it will allow Internet and !WiFi users to reach an https server on your local network.  But !WiFi users will need to use the local domain name instead of the public domain name used on the Internet.  Since your server certificate will probably list the Internet domain, !WiFi users will get a warning about the certificate not matching the domain.
+
+It is possible to set things up so that !WiFi users can reach the server using the Internet domain, but that requires you to include your public IP address in the Shorewall rule.  Since most people have a dynamic IP address, this means you must restart Shorewall any time your public IP changes.
+
+== /etc/shorewall/params ==
+
+Appending these lines to `/etc/shorewall/params` will record your public IP address in `/var/run/shorewall.ip` and allow you to use it in rules as `$EXT_IP`.
+
+{{{
+EXT_IP=$(find_first_interface_address $NET_IF)
+echo $EXT_IP >/var/run/shorewall.ip
+chmod 0644 /var/run/shorewall.ip}}}
+
+== /etc/shorewall/rules ==
+
+This rule will let !WiFi users connect to the https server using your public IP address.
+
+{{{
+DNAT		wifi		$WWW_IP		tcp	443	-	$EXT_IP}}}
+
+== /etc/hotplug.d/iface/15-shorewall ==
+
+This script will restart Shorewall when your wan interface is brought up (but only if Shorewall is already running under a different public IP address).  The DHCP client generates an `ifup` event every time it renews your lease, and I only want to restart the firewall when necessary.
+
+{{{
+CURRENT_IP=/var/run/shorewall.ip
+COMMAND=/sbin/shorewall
+
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && {
+	[ -x $COMMAND ] && [ -s $CURRENT_IP ] && {
+				include /lib/network
+				scan_interfaces
+
+				. /var/state/network
+
+				config_get newip wan ipaddr
+				[ "$newip" != `cat $CURRENT_IP` ] && {
+					$COMMAND status | grep -q 'Shorewall is running'
+				} && {
+					$COMMAND restart
+				}
+	} &
+} }}}
+
 ----
 CategoryHowTo
