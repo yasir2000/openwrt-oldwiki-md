@@ -6,6 +6,8 @@ STAR-NET ADSL 2110EHR S4+ V1.20
 PCB: ???? V1.01
 
 == Jtag & Console ==
+Standart MIPS EJTAG 2.5 14-PIN Header
+
 PCB Photo: attachment:Jtag_Console.jpg
 
 ----
