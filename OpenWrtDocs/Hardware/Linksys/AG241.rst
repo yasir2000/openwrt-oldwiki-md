@@ -889,9 +889,829 @@ Chipset ID: [Ohio250(7200/7100A2)]
 ==== Configuration Files ====
 ===== LED Configuration =====
 {{{
+# cat /etc/led.conf
+#################################################################
+# Configuration File for AR7WRD board
+##################################################################
+##################################################################
+# The GPIO numbers 0 to 31  ==> correspond to GPIO pins  #########
+# The GPIO numbers 32,33 are mapped to ADSL (LED) pins ###########
+##################################################################
+
+
+module = adsl    # module = {adsl,usb,pppoe,wlan}
+##################################################################
+# Note: state 0 for adsl is dummy state and is present only for ##
+#       compatibility with the new LED driver                   ##
+##################################################################
+state   = 0     # 0=dummy, 1=idle, 2=training, 3=sync, 4=activity
+gpio    = 33    # gpio number
+mode    = 0     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 1     # 0=dummy, 1=idle, 2=training, 3=sync, 4=activity
+gpio    = 33    # gpio number
+mode    = 0     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 2     # 0=dummy, 1=idle, 2=training, 3=sync, 4=activity
+gpio    = 33    # gpio number
+mode    = 4     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 200   # flash on duration in ms
+param2  = 200   # flash off duration in ms
+
+state   = 3     # 0=dummy, 1=idle, 2=training, 3=sync, 4=activity
+gpio    = 33    # gpio number
+mode    = 1     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 4     # 0=dummy, 1=idle, 2=training, 3=sync, 4=activity
+gpio    = 33    # gpio number
+mode    = 1     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 0    # blink/flash rate in ms
+######################################################################
+module = cpmac    # module = {adsl,usb,pppoe,wlan,cpmac}
+
+state   = 0     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 15    # gpio number
+mode    = 0     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+
+state   = 1     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 15    # gpio number
+mode    = 1     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 2     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 15    # gpio number
+mode    = 2     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 100   # blink/flash rate in ms
+
+state   = 3     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 15    # gpio number
+mode    = 2     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 100   # blink/flash rate in ms
+
+#################################################
+module = usb    # module = {adsl,usb,pppoe,wlan}
+
+state   = 0     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 12    # gpio number
+mode    = 0     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+
+state   = 1     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 12    # gpio number
+mode    = 1     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 2     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 12    # gpio number
+mode    = 2     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 100   # blink/flash rate in ms
+
+state   = 3     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 12    # gpio number
+mode    = 2     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 100   # blink/flash rate in ms
+
+######################################################################
+module = pppoe    # module = {adsl,usb,pppoe,wlan}
+
+state   = 0     # 0 = pppoe down, 1 = pppoe active
+gpio    = 13    # gpio number
+mode    = 0     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 1     # 0 = pppoe down, 1 = pppoe active
+gpio    = 13    # gpio number
+mode    = 1     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+######################################################################
+module = wlan   # module = {adsl,usb,pppoe,wlan}
+
+state   = 0     # 0 = link down, 1 = link up
+gpio    = 6     # gpio number
+mode    = 0     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 1     # 0 = link down, 1 = link up
+gpio    = 6     # gpio number
+mode    = 1     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+
+state   = 2     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 6     # gpio number
+mode    = 2     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 100   # blink/flash rate in ms
+
+state   = 3     # 0 = link down, 1 = link up, 2 = pkt rcv, 3 = pkt xmit
+gpio    = 6     # gpio number
+mode    = 2     # 0 = off,1 = on,2 = blinkoff,3 = blinkon, 4 = Flash
+param1  = 100   # blink/flash rate in ms
 }}}
 ===== NVRAM Configuration =====
 {{{
+# nvram show
+
+action_service=
+active_connection_selection=32
+add_software_version=00
+adsluptime=0
+aol_block_traffic=0
+aol_block_traffic1=0
+aol_block_traffic2=0
+authprotocol=MD5
+AutoDetect_dhcp=1
+autofw_port0=
+autosearchflag0=0
+autosearchflag1=0
+autosearchflag2=0
+autosearchflag3=0
+autosearchflag4=0
+autosearchflag5=0
+autosearchflag6=0
+autosearchflag7=0
+auto_search_ip=0
+autosearchlist0=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist1=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist2=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist3=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist4=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist5=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist6=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+autosearchlist7=-1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1 -1:-1
+block_activex=0
+block_cookie=0
+block_java=0
+block_proxy=0
+block_wan=1
+boot_type=pspboot
+boot_ver=0.22.19
+bridged_config=1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 1:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0
+client_ip_lease=172800
+cloud_enable=0
+code_pattern=AG3A
+console_loglevel=1
+ct_modules=
+d11g_bcn=100
+d11g_channel=11
+d11g_dtim=1
+d11g_frag=2346
+d11g_mode=1
+d11g_rate=0
+d11g_rateset=default
+d11g_rts=2347
+daylight_time=1
+ddns_cache=
+ddns_change=
+ddns_enable=0
+ddns_enable_buf=
+ddns_hostname=
+ddns_hostname_2=
+ddns_hostname_buf=
+ddns_interval=60
+ddns_passwd=
+ddns_passwd_2=
+ddns_passwd_buf=
+ddns_status=
+ddns_username=
+ddns_username_2=
+ddns_username_buf=
+devname=AG241V2
+dhcp_domain=wan
+dhcp_lease=0
+dhcp_num=191
+dhcp_reserved_ip=0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 0:: 
+dhcpserver_ipaddr=0.0.0.0
+dhcp_start=64
+dhcp_wins=wan
+dmz_enable=0
+dmz_ipaddr=0
+dr_lan_rx=0
+dr_lan_tx=0
+dr_setting=0
+dr_wan_rx=1
+dr_wan_tx=0
+dsl_modulation=MMODE
+email_config=0:20:NULL:NULL:NULL
+email_enable_flag=0
+entry_config=0::1:0:1:0:1:1:0 0::1:0:1:0:1:1:0 0::1:0:1:0:1:1:0 0::1:0:1:0:1:1:0 0::1:0:1:0:1:1:0
+filter_client0=
+filter_dport_grp1=
+filter_dport_grp10=
+filter_dport_grp2=
+filter_dport_grp3=
+filter_dport_grp4=
+filter_dport_grp5=
+filter_dport_grp6=
+filter_dport_grp7=
+filter_dport_grp8=
+filter_dport_grp9=
+filter_id=1
+filter_ip_grp1=
+filter_ip_grp10=
+filter_ip_grp2=
+filter_ip_grp3=
+filter_ip_grp4=
+filter_ip_grp5=
+filter_ip_grp6=
+filter_ip_grp7=
+filter_ip_grp8=
+filter_ip_grp9=
+filter_lan_checkbox1=0
+filter_lan_checkbox10=0
+filter_lan_checkbox2=0
+filter_lan_checkbox3=0
+filter_lan_checkbox4=0
+filter_lan_checkbox5=0
+filter_lan_checkbox6=0
+filter_lan_checkbox7=0
+filter_lan_checkbox8=0
+filter_lan_checkbox9=0
+filter_mac_grp1=
+filter_mac_grp10=
+filter_mac_grp2=
+filter_mac_grp3=
+filter_mac_grp4=
+filter_mac_grp5=
+filter_mac_grp6=
+filter_mac_grp7=
+filter_mac_grp8=
+filter_mac_grp9=
+filter_maclist=
+filter_macmode=deny
+filter=on
+filter_port=
+filter_port_grp1=
+filter_port_grp10=
+filter_port_grp2=
+filter_port_grp3=
+filter_port_grp4=
+filter_port_grp5=
+filter_port_grp6=
+filter_port_grp7=
+filter_port_grp8=
+filter_port_grp9=
+filter_rule1=
+filter_rule10=
+filter_rule2=
+filter_rule3=
+filter_rule4=
+filter_rule5=
+filter_rule6=
+filter_rule7=
+filter_rule8=
+filter_rule9=
+filter_services=$NAME:003:DNS$PROT:003:udp$PORT:005:53:53<&nbsp;>$NAME:004:Ping$PROT:004:icmp$PORT:003:0:0<&nbsp;>$NAME:004:HTTP$PROT:003:tcp$PORT:005:80:80<&nbsp;>$NAME:005:HTTPS$PROT:003:tcp$PORT:007:443:443<&nbsp;>$NAME:003:FTP$PROT:003:tcp$PORT:005:21:21<&nbsp;>$NAME:004:POP3$PROT:003:tcp$PORT:007:110:110<&nbsp;>$NAME:004:IMAP$PROT:003:tcp$PORT:007:143:143<&nbsp;>$NAME:004:SMTP$PROT:003:tcp$PORT:005:25:25<&nbsp;>$NAME:004:NNTP$PROT:003:tcp$PORT:007:119:119<&nbsp;>$NAME:006:Telnet$PROT:003:tcp$PORT:005:23:23<&nbsp;>$NAME:004:SNMP$PROT:003:udp$PORT:007:161:161<&nbsp;>$NAME:004:TFTP$PROT:003:udp$PORT:005:69:69<&nbsp;>$NAME:003:IKE$PROT:003:udp$PORT:007:500:500<&nbsp;>
+filter_tod1=
+filter_tod10=
+filter_tod2=
+filter_tod3=
+filter_tod4=
+filter_tod5=
+filter_tod6=
+filter_tod7=
+filter_tod8=
+filter_tod9=
+filter_tod_buf1=
+filter_tod_buf10=
+filter_tod_buf2=
+filter_tod_buf3=
+filter_tod_buf4=
+filter_tod_buf5=
+filter_tod_buf6=
+filter_tod_buf7=
+filter_tod_buf8=
+filter_tod_buf9=
+filter_wan_checkbox10=1
+filter_wan_checkbox1=1
+filter_wan_checkbox2=1
+filter_wan_checkbox3=1
+filter_wan_checkbox4=1
+filter_wan_checkbox5=1
+filter_wan_checkbox6=1
+filter_wan_checkbox7=1
+filter_wan_checkbox8=1
+filter_wan_checkbox9=1
+filter_wan_ip_grp1=
+filter_wan_ip_grp10=
+filter_wan_ip_grp2=
+filter_wan_ip_grp3=
+filter_wan_ip_grp4=
+filter_wan_ip_grp5=
+filter_wan_ip_grp6=
+filter_wan_ip_grp7=
+filter_wan_ip_grp8=
+filter_wan_ip_grp9=
+filter_wan_ip_range1=
+filter_wan_ip_range10=
+filter_wan_ip_range2=
+filter_wan_ip_range3=
+filter_wan_ip_range4=
+filter_wan_ip_range5=
+filter_wan_ip_range6=
+filter_wan_ip_range7=
+filter_wan_ip_range8=
+filter_wan_ip_range9=
+filter_web_host1=
+filter_web_host10=
+filter_web_host2=
+filter_web_host3=
+filter_web_host4=
+filter_web_host5=
+filter_web_host6=
+filter_web_host7=
+filter_web_host8=
+filter_web_host9=
+filter_web_url1=
+filter_web_url10=
+filter_web_url2=
+filter_web_url3=
+filter_web_url4=
+filter_web_url5=
+filter_web_url6=
+filter_web_url7=
+filter_web_url8=
+filter_web_url9=
+firsttime=1970-01-01T00:00:00Z
+firsttimeflag=0
+forward_port=
+forward_port0=21-21>192.168.1.0:21-21,tcp,off,FTP
+forward_port1=23-23>192.168.1.0:23-23,tcp,off,Telnet
+forward_port2=25-25>192.168.1.0:25-25,tcp,off,SMTP
+forward_port3=53-53>192.168.1.0:53-53,udp,off,DNS
+forward_port4=59-59>192.168.1.0:59-59,udp,off,TFTP
+forward_port5=79-79>192.168.1.0:79-79,tcp,off,finger
+forward_port6=80-80>192.168.1.0:80-80,tcp,off,HTTP
+forward_port7=110-110>192.168.1.0:110-110,tcp,off,POP3
+forward_port8=119-119>192.168.1.0:119-119,tcp,off,NNTP
+forward_port9=161-161>192.168.1.0:161-161,udp,off,SNMP
+fqdn_cfg=00000
+fqdn_ip_cfg=0.0.0.0 0.0.0.0 0.0.0.0 0.0.0.0 0.0.0.0
+fw_disable=0
+get_auth=public
+hardware_type=0
+http_def_passwd=admin
+http_lanport=80
+http_passwd=admin
+http_remote_passwd=admin
+http_remote_username=tech
+http_username=admin
+http_wanport=51003
+igmp_proxy_channel=32
+igmp_proxy_enable=0
+inform_ip=0.0.0.0
+ipppoe_config=::1:20:20:: ::1:20:20:: ::1:20:20:: ::1:20:20:: ::1:20:20:: ::1:20:20:: ::1:20:20:: ::1:20:20::
+ipppoe_enable=0 0 0 0 0 0 0 0
+ip_range_setting=0:0:0.0.0.0-0.0.0.0
+ipsecadv_config=0:1:2:1:3600:1:0:0:1:0:5:60 0:1:2:1:3600:1:0:0:1:0:5:60 0:1:2:1:3600:1:0:0:9:0:5:60 0:1:2:1:3600:1:0:0:1:0:5:60 0:1:2:1:3600:1:0:0:1:0:5:60
+ipsec_bind=a:a:a:a:a
+ipsec_enable=0
+ipsec_natt=0
+ipsec_pass=1
+ipsec_status=00000
+keytype_config=0:null:3600:null:null:null:null 0:null:3600:null:null:null:null 0:null:3600:null:null:null:null 0:null:3600:null:null:null:null 0:null:3600:null:null:null:null
+l2tp_pass=1
+lan_def_hwaddr=00:E0:A0:A6:66:7F
+lan_detect_dhcp=0
+lan_dhcp_dns=192.168.1.1
+lan_domain=
+lan_hwaddr=00:1C:10:BC:7F:AC
+lan_hwnames=
+lan_ifname=br0
+lan_ifnames=eth0
+lan_ipaddr=192.168.1.1
+lan_lease=1440
+lan_netmask=255.255.255.0
+lan_proto=dhcp
+lan_stp=0
+lan_wins=
+log_enable=1
+log_ipaddr=255
+log_level=2
+ltype_config=0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 
+macclone_addr=00:00:00:00:00:00 00:00:00:00:00:00 00:00:00:00:00:00 00:00:00:00:00:00 00:00:00:00:00:00 00:00:00:00:00:00 00:00:00:00:00:00 00:00:00:00:00:00
+mac_clone_enable=0
+macclone_enable=0 0 0 0 0 0 0 0
+mac_write=1
+mtu_config=1:1492 1:1492 1:1492 1:1492 1:1492 1:1492 1:1492 1:1492
+mtu_enable=0
+mul_select_conf_0=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_1=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_2=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_3=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_4=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_5=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_6=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_conf_7=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+mul_select_enable_0=0
+mul_select_enable_1=0
+mul_select_enable_2=0
+mul_select_enable_3=0
+mul_select_enable_4=0
+mul_select_enable_5=0
+mul_select_enable_6=0
+mul_select_enable_7=0
+multicast_pass=1
+nat_enable=1
+ntp_mode=auto
+ntp_server=
+NTPServer1=time.nist.gov
+NTPServer2=time.stdtime.gov.tw
+NTPServer3=time.chttl.com.tw
+NTPServer4=time-nw.nist.gov
+NTPServer5=
+os_date=Aug  5 2007
+os_name=linux
+os_server=
+os_version=3.50.21.0
+pa0b0=0x170c
+pa0b1=0xfa24
+pa0b2=0xfe70
+pa0maxpwr=0x48
+ping_config=0.0.0.0:60:1:1000:5000
+ping_ip=
+ping_times=
+port_trigger=
+ppp_ac=
+ppp_demand=0
+ppp_get_ac=
+ppp_get_srv=
+ppp_idletime=5
+ppp_keepalive=0
+ppp_mru=1500
+ppp_mtu=1500
+pppoa_config=::1:20:20 ::1:20:20 ::1:20:20 ::1:20:20 ::1:20:20 ::1:20:20 ::1:20:20 ::1:20:20
+pppoe_ac=
+pppoe_config=::1:20:20: ::1:20:20: ::1:20:20: ::1:20:20: ::1:20:20: ::1:20:20: ::1:20:20: ::1:20:20:
+pppoe_demand=0
+pppoe_dhcp_enable0=0
+pppoe_dhcp_enable1=0
+pppoe_dhcp_enable2=0
+pppoe_dhcp_enable3=0
+pppoe_dhcp_enable4=0
+pppoe_dhcp_enable5=0
+pppoe_dhcp_enable6=0
+pppoe_dhcp_enable7=0
+pppoe_idletime=5
+pppoe_ifname=
+pppoe_keepalive=0
+pppoe_pass=1
+pppoe_passwd=
+pppoe_service=
+pppoe_static=0
+pppoe_static_ip=
+pppoe_username=
+ppp_passwd=
+ppp_redialperiod=30
+ppp_service=
+ppp_static=0
+ppp_static_ip=
+ppp_username=
+pptp_get_ip=
+pptp_pass=1
+pptp_server_ip=
+pvc_select_conf_0=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_1=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_2=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_3=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_4=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_5=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_6=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_conf_7=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:00-00-00-00-00-00:0:0:0:0:0:0:0:0:0
+pvc_select_enable_0=0
+pvc_select_enable_1=0
+pvc_select_enable_2=0
+pvc_select_enable_3=0
+pvc_select_enable_4=0
+pvc_select_enable_5=0
+pvc_select_enable_6=0
+pvc_select_enable_7=0
+qos_adv=0
+qos_app0=0
+qos_app1=0
+qos_app2=0
+qos_app3=0
+qos_app4=0
+qos_app5=0
+qos_app6=0
+qos_app7=0
+qos_size=0
+qos_spec_port0=0
+qos_spec_port1=0
+qos_spec_port2=0
+qosSW=0
+qos_vid=1
+qos_vlan=0
+range_end_ip=0.0.0.0
+range_start_ip=0.0.0.0
+release_date=Aug  5 2007
+remote_management=0
+remote_upgrade=0
+restore_defaults=0
+restore_single=1
+rip_enable=0
+routed_config=0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0:0.0.0.0
+router_disable=0
+router_name=AG241V2
+rtype_config=0.0.0.0:255.255.255.0 0.0.0.0:255.255.255.0 0.0.0.0:255.255.255.0 0.0.0.0:255.255.255.0 0.0.0.0:255.255.255.0 
+sdram_config=0x0000
+sdram_init=0x0419
+sdram_ncdl=0x00000000
+sdram_refresh=0x8040
+security_mode=disabled
+security_mode_last=
+set_auth=private
+sg_config=0.0.0.0:null 0.0.0.0:null 0.0.0.0:null 0.0.0.0:null 0.0.0.0:null
+share_wanip=0
+share_wanip_comm=0
+share_wanip_content=$255$10
+single_pc_ipaddr=0.0.0.0
+single_pc_mode=0
+singleportforward_connection=0
+skip_amd_check=0
+skip_intel_check=0
+snmp_enable=0
+snmp_ip_limit=0
+snmpv3_support=Disable
+software_version=2.01.01-TSM-20070805
+static_route=
+static_route_name=
+stats_server=
+telnet_enable=1
+timer_interval=3600
+time_zone=-08 1 1
+traceroute_ip=
+trap_ipaddr=192.168.1.100
+tunnel_entry=0
+upnp_active_connection=0
+upnp_content_0_0=0:1:80:80:0:0:HTTP
+upnp_content0=0:1:80:80:0:0:HTTP
+upnp_content_0_10=0:2:161:161:0:0:SNMP
+upnp_content_0_1=0:1:21:21:0:0:FTP
+upnp_content_0_11=0:1:2401:2401:0:0:CVS
+upnp_content_0_12=0:1:2701:2701:0:0:SMS
+upnp_content_0_13=0:1:2702:2702:0:0:SMS
+upnp_content_0_2=0:1:22:22:0:0:FTP
+upnp_content_0_3=0:1:23:23:0:0:Telnet
+upnp_content_0_4=0:1:25:25:0:0:SMTP
+upnp_content_0_5=0:2:69:69:0:0:TFTP
+upnp_content_0_6=0:1:79:79:0:0:finger
+upnp_content_0_7=0:2:123:123:0:0:NTP
+upnp_content_0_8=0:1:110:110:0:0:POP3
+upnp_content_0_9=0:1:119:119:0:0:NNTP
+upnp_content_1_0=0:1:80:80:0:0:HTTP
+upnp_content10=0:2:161:161:0:0:SNMP
+upnp_content1=0:1:21:21:0:0:FTP
+upnp_content_1_10=0:2:161:161:0:0:SNMP
+upnp_content_1_1=0:1:21:21:0:0:FTP
+upnp_content11=0:1:2401:2401:0:0:CVS
+upnp_content_1_11=0:1:2401:2401:0:0:CVS
+upnp_content_1_12=0:1:2701:2701:0:0:SMS
+upnp_content_1_13=0:1:2702:2702:0:0:SMS
+upnp_content_1_2=0:1:22:22:0:0:FTP
+upnp_content12=0:1:2701:2701:0:0:SMS
+upnp_content_1_3=0:1:23:23:0:0:Telnet
+upnp_content13=0:1:2702:2702:0:0:SMS
+upnp_content_1_4=0:1:25:25:0:0:SMTP
+upnp_content_1_5=0:2:69:69:0:0:TFTP
+upnp_content_1_6=0:1:79:79:0:0:finger
+upnp_content_1_7=0:2:123:123:0:0:NTP
+upnp_content_1_8=0:1:110:110:0:0:POP3
+upnp_content_1_9=0:1:119:119:0:0:NNTP
+upnp_content_2_0=0:1:80:80:0:0:HTTP
+upnp_content2=0:1:22:22:0:0:FTP
+upnp_content_2_10=0:2:161:161:0:0:SNMP
+upnp_content_2_1=0:1:21:21:0:0:FTP
+upnp_content_2_11=0:1:2401:2401:0:0:CVS
+upnp_content_2_12=0:1:2701:2701:0:0:SMS
+upnp_content_2_13=0:1:2702:2702:0:0:SMS
+upnp_content_2_2=0:1:22:22:0:0:FTP
+upnp_content_2_3=0:1:23:23:0:0:Telnet
+upnp_content_2_4=0:1:25:25:0:0:SMTP
+upnp_content_2_5=0:2:69:69:0:0:TFTP
+upnp_content_2_6=0:1:79:79:0:0:finger
+upnp_content_2_7=0:2:123:123:0:0:NTP
+upnp_content_2_8=0:1:110:110:0:0:POP3
+upnp_content_2_9=0:1:119:119:0:0:NNTP
+upnp_content_3_0=0:1:80:80:0:0:HTTP
+upnp_content3=0:1:23:23:0:0:Telnet
+upnp_content_3_10=0:2:161:161:0:0:SNMP
+upnp_content_3_1=0:1:21:21:0:0:FTP
+upnp_content_3_11=0:1:2401:2401:0:0:CVS
+upnp_content_3_12=0:1:2701:2701:0:0:SMS
+upnp_content_3_13=0:1:2702:2702:0:0:SMS
+upnp_content_3_2=0:1:22:22:0:0:FTP
+upnp_content_3_3=0:1:23:23:0:0:Telnet
+upnp_content_3_4=0:1:25:25:0:0:SMTP
+upnp_content_3_5=0:2:69:69:0:0:TFTP
+upnp_content_3_6=0:1:79:79:0:0:finger
+upnp_content_3_7=0:2:123:123:0:0:NTP
+upnp_content_3_8=0:1:110:110:0:0:POP3
+upnp_content_3_9=0:1:119:119:0:0:NNTP
+upnp_content_4_0=0:1:80:80:0:0:HTTP
+upnp_content4=0:1:25:25:0:0:SMTP
+upnp_content_4_10=0:2:161:161:0:0:SNMP
+upnp_content_4_1=0:1:21:21:0:0:FTP
+upnp_content_4_11=0:1:2401:2401:0:0:CVS
+upnp_content_4_12=0:1:2701:2701:0:0:SMS
+upnp_content_4_13=0:1:2702:2702:0:0:SMS
+upnp_content_4_2=0:1:22:22:0:0:FTP
+upnp_content_4_3=0:1:23:23:0:0:Telnet
+upnp_content_4_4=0:1:25:25:0:0:SMTP
+upnp_content_4_5=0:2:69:69:0:0:TFTP
+upnp_content_4_6=0:1:79:79:0:0:finger
+upnp_content_4_7=0:2:123:123:0:0:NTP
+upnp_content_4_8=0:1:110:110:0:0:POP3
+upnp_content_4_9=0:1:119:119:0:0:NNTP
+upnp_content_5_0=0:1:80:80:0:0:HTTP
+upnp_content5=0:2:69:69:0:0:TFTP
+upnp_content_5_10=0:2:161:161:0:0:SNMP
+upnp_content_5_1=0:1:21:21:0:0:FTP
+upnp_content_5_11=0:1:2401:2401:0:0:CVS
+upnp_content_5_12=0:1:2701:2701:0:0:SMS
+upnp_content_5_13=0:1:2702:2702:0:0:SMS
+upnp_content_5_2=0:1:22:22:0:0:FTP
+upnp_content_5_3=0:1:23:23:0:0:Telnet
+upnp_content_5_4=0:1:25:25:0:0:SMTP
+upnp_content_5_5=0:2:69:69:0:0:TFTP
+upnp_content_5_6=0:1:79:79:0:0:finger
+upnp_content_5_7=0:2:123:123:0:0:NTP
+upnp_content_5_8=0:1:110:110:0:0:POP3
+upnp_content_5_9=0:1:119:119:0:0:NNTP
+upnp_content_6_0=0:1:80:80:0:0:HTTP
+upnp_content6=0:1:79:79:0:0:finger
+upnp_content_6_10=0:2:161:161:0:0:SNMP
+upnp_content_6_1=0:1:21:21:0:0:FTP
+upnp_content_6_11=0:1:2401:2401:0:0:CVS
+upnp_content_6_12=0:1:2701:2701:0:0:SMS
+upnp_content_6_13=0:1:2702:2702:0:0:SMS
+upnp_content_6_2=0:1:22:22:0:0:FTP
+upnp_content_6_3=0:1:23:23:0:0:Telnet
+upnp_content_6_4=0:1:25:25:0:0:SMTP
+upnp_content_6_5=0:2:69:69:0:0:TFTP
+upnp_content_6_6=0:1:79:79:0:0:finger
+upnp_content_6_7=0:2:123:123:0:0:NTP
+upnp_content_6_8=0:1:110:110:0:0:POP3
+upnp_content_6_9=0:1:119:119:0:0:NNTP
+upnp_content_7_0=0:1:80:80:0:0:HTTP
+upnp_content7=0:2:123:123:0:0:NTP
+upnp_content_7_10=0:2:161:161:0:0:SNMP
+upnp_content_7_1=0:1:21:21:0:0:FTP
+upnp_content_7_11=0:1:2401:2401:0:0:CVS
+upnp_content_7_12=0:1:2701:2701:0:0:SMS
+upnp_content_7_13=0:1:2702:2702:0:0:SMS
+upnp_content_7_2=0:1:22:22:0:0:FTP
+upnp_content_7_3=0:1:23:23:0:0:Telnet
+upnp_content_7_4=0:1:25:25:0:0:SMTP
+upnp_content_7_5=0:2:69:69:0:0:TFTP
+upnp_content_7_6=0:1:79:79:0:0:finger
+upnp_content_7_7=0:2:123:123:0:0:NTP
+upnp_content_7_8=0:1:110:110:0:0:POP3
+upnp_content_7_9=0:1:119:119:0:0:NNTP
+upnp_content8=0:1:110:110:0:0:POP3
+upnp_content9=0:1:119:119:0:0:NNTP
+upnp_content_num_0=14
+upnp_content_num_1=14
+upnp_content_num=14
+upnp_content_num_2=14
+upnp_content_num_3=14
+upnp_content_num_4=14
+upnp_content_num_5=14
+upnp_content_num_6=14
+upnp_content_num_7=14
+upnp_enable=1
+v3authpasw=1111111111
+v3privpasw=
+v3rwuser=v3rwuser
+vcc_config=0:35:1483bridged:llc:ubr:0:0:0:1 8:35:1483bridged:llc:ubr:0:0:1:0 0:43:1483bridged:llc:ubr:0:0:1:0 0:51:1483bridged:llc:ubr:0:0:1:0 0:59:1483bridged:llc:ubr:0:0:1:0 8:43:1483bridged:llc:ubr:0:0:1:0 8:51:1483bridged:llc:ubr:0:0:1:0 8:59:1483bridged:llc:ubr:0:0:1:0
+wan_active_connection=8
+wan_autoresult=0:-1 0:-1 0:-1 0:-1 0:-1 0:-1 0:-1 0:-1
+wan_connection=0
+wan_ddm_connection=0
+wan_def_hwaddr=00:1C:10:BC:7F:AD
+wan_dns=
+wan_domain=
+wan_enable_last=8
+wan_gateway=0.0.0.0
+wan_hostname=
+wan_hwaddr=
+wan_hwname=
+wan_ifname=eth1
+wan_ifnames=eth1
+wan_ipaddr=0.0.0.0
+wan_lease=86400
+wan_mtu=1500
+wan_netmask=0.0.0.0
+wan_post_connection=0
+wan_pppoe_ac=pppoe_ac
+wan_pppoe_demand=pppoe_demand
+wan_pppoe_idletime=pppoe_idletime
+wan_pppoe_ifname=pppoe_ifname
+wan_pppoe_keepalive=pppoe_keepalive
+wan_pppoe_mru=pppoe_mru
+wan_pppoe_mtu=pppoe_mtu
+wan_pppoe_passwd=pppoe_passwd
+wan_pppoe_service=pppoe_service
+wan_pppoe_username=pppoe_username
+wan_primary=1
+wan_proto=dhcp
+wan_static_dns=0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0 0.0.0.0:0.0.0.0
+wan_unit=0
+wanuptime0=0
+wanuptime1=0
+wanuptime2=0
+wanuptime3=0
+wanuptime4=0
+wanuptime5=0
+wanuptime6=0
+wanuptime7=0
+wan_wins=
+wk_mode=gateway
+wl0_auth=0
+wl0_auth_mode=disabled
+wl0_bcn=100
+wl0_channel=11
+wl0_closed=0
+wl0_country=Worldwide
+wl0_dtim=1
+wl0_frag=2346
+wl0_frameburst=off
+wl0_gmode=1
+wl0_gmode_protection=off
+wl0_hwaddr=
+wl0_ifname=
+wl0_key=1
+wl0_key1=
+wl0_key2=
+wl0_key3=
+wl0_key4=
+wl0_lazywds=1
+wl0_maclist=
+wl0_macmode=disabled
+wl0_mode=ap
+wl0_phytype=g
+wl0_plcphdr=long
+wl0_radius_ipaddr=
+wl0_radius_key=
+wl0_radius_port=1812
+wl0_rate=0
+wl0_rateset=default
+wl0_rts=2347
+wl0_ssid=linksys
+wl0_unit=0
+wl0_wds=
+wl0_wep=off
+wl0_wpa_gtk_rekey=3600
+wl0_wpa_psk=
+wl_active_add_mac=0
+wl_active_mac=
+wl_antdiv=-1
+wl_auth=0
+wl_auth_mode=disabled
+wl_bcn=100
+wl_channel=11
+wl_closed=0
+wl_corerev=
+wl_country=Worldwide
+wl_dtim=1
+wl_firmware_version=
+wl_frag=2346
+wl_frameburst=off
+wl_gmode=1
+wl_gmode_protection=off
+wl_hwaddr=
+wl_ifname=
+wl_infra=1
+wl_key=1
+wl_key1=
+wl_key2=
+wl_key3=
+wl_key4=
+wl_lazywds=1
+wl_mac_deny=
+wl_mac_list=
+wl_maclist=
+wl_macmode1=disabled
+wl_macmode=disabled
+wl_management_enable=1
+wl_mode=ap
+wl_passphrase=
+wl_phytype=g
+wl_phytypes=
+wl_plcphdr=long
+wl_radio=1
+wl_radioids=
+wl_radius_ipaddr=
+wl_radius_key=
+wl_radius_port=1812
+wl_rate=0
+wl_rateset=default
+wl_rts=2347
+wl_ssid=linksys
+wl_unit=0
+wl_wds=
+wl_wep_bit=64
+wl_wep_buf=
+wl_wep_gen=
+wl_wep_last=
+wl_wep=off
+wl_wpa_gtk_rekey=3600
+wl_wpa_psk=
+
 }}}
 === Flashing and Booting OpenWRT Firmware (trunk) ===
 {{{
