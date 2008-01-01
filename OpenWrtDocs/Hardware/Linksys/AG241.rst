@@ -486,6 +486,40 @@ a8610000-a86107ff : eth0
  1112 admin    R    ps -ax
 }}}
 
+===== TiCfg (/proc/ticfg/env) =====
+{{{
+# cat /proc/ticfg/env
+BUILD_OPS       0x1
+bootloaderVersion       1.3.6.14
+ProductID       AR7WRD
+HWRevision      Unknown
+SerialNumber    none
+SwRev   0.22.19
+BOOTCFG m:f:"mtd1"
+MEMSZ   0x1000000
+FLASHSZ 0x400000
+MODETTY0        38400,n,8,1,hw
+MODETTY1        38400,n,8,1,hw
+CPUFREQ 211968000
+MIPSFREQ        211968000
+SYSFREQ 125000000
+PROMPT  (psbl)
+mtd0    0x900e0000,0x903d0000
+mtd1    0x90020000,0x903d0000
+mtd2    0x90000000,0x90020000
+mtd3    0x903f0000,0x90400000
+mtd4    0x903d0000,0x903f0000
+pair_selection  0
+multi_lang      1
+modulation      MMODE
+eoc_vendor_id   4c696e6b73797300
+eoc_vendor_revision     0
+HWA_0   00:1C:10:BC:7F:AC
+eoc_vendor_serialnum    CHZ41G900740
+autoload_timeout        25
+IPA     192.168.1.1
+MAC_PORT        0
+}}}
 ===== Avalanche (/proc/avalanche) =====
 {{{
 # ls -l
