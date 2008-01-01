@@ -351,7 +351,453 @@ Hit enter to continue...wan def hwaddr 00:1C:10:BC:7F:AD
 polling now .......
 upnpd-igd:current select wan connection:0
 upnp_content_num_0 = 14
-killall: begin_now: no process killed}}}
+killall: begin_now: no process killed
+}}}
+==== Information Original Firmware ====
+===== System Info =====
+{{{
+# cat /proc/version
+Linux version 2.4.17_mvl21-malta-mips_fp_le (tom@excelsior) (gcc version 2.95.3
+20010315 (release/MontaVista)) #34 Sun Aug 5 03:22:19 BST 2007
+}}}
+===== CPU Info =====
+{{{
+}}}
+===== FLASH Map Info =====
+{{{
+}}}
+===== ATM Driver Info (TI Avalanche SAR) =====
+{{{
+}}}
+===== Loaded Kernel Modules =====
+{{{
+}}}
+===== Devices =====
+{{{
+}}}
+===== Free =====
+{{{
+}}}
+===== MemInfo =====
+{{{
+}}}
+===== IOMem =====
+{{{
+}}}
+===== Running Proccesses =====
+{{{
+}}}
+===== Kernel messages =====
+{{{
+}}}
+
+===== Avalanche (/proc/avalanche) =====
+{{{
+# ls -l
+-r--r--r--    1 0        0               0 Jan  1 02:12 psp_version
+-r--r--r--    1 0        0               0 Jan  1 02:12 developers
+-r--r--r--    1 0        0               0 Jan  1 02:12 led_cfg
+-r--r--r--    1 0        0               0 Jan  1 02:12 led_ver
+dr-xr-xr-x    2 0        0               0 Jan  1 02:12 marvell
+-r--r--r--    1 0        0               0 Jan  1 02:12 eth0_rfc2665_stats
+-rw-r--r--    1 0        0               0 Jan  1 02:12 cpmac_stats
+-r--r--r--    1 0        0               0 Jan  1 02:12 cpmac_link
+-r--r--r--    1 0        0               0 Jan  1 02:12 cpmac_ver
+-r--r--r--    1 0        0               0 Jan  1 02:12 cpmac_config
+-rw-r--r--    1 0        0               0 Jan  1 02:12 wan_bridge
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_ver
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_channels
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_sarhal_stats
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_oam_ping
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_pvc_table
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_rxsnr0
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_rxsnr1
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_rxsnr2
+-r--r--r--    1 0        0               0 Jan  1 02:12 clear_eoc_stats
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_bit_allocation_table
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_dsl_modulation_schemes
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_private
+-r--r--r--    1 0        0               0 Jan  1 02:12 avsar_modem_training
+-rw-r--r--    1 0        0               0 Jan  1 02:12 avsar_modem_stats
+-rw-r--r--    1 0        0               0 Jan  1 02:12 avsar_qos_enable}}}
+====== (/proc/avalanche/psp_version) ======
+{{{
+# cat /proc/avalanche/psp_version
+
+Linux OS DSL-PSP version 4.6.1.9 on BasePSP Version 7.1.0.8 Aug  5 2007 03:25:09
+ Avalanche SOC Version: 0x10002b operating in cached, write back, write allocate
+ mode Cpu Frequency:211 MHZ System Bus frequency: 125 MHZ
+}}}
+
+====== (/proc/avalanche/developers) ======
+{{{
+# cat /proc/avalanche/developers
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Salt Lake City Kernel Developement team (1999-2000)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jeff Harrell            - Kernel ports, ADSL driver
+Brady Brown             - filesystem, kernel port
+Mike Hassler            - filesystem, timers
+Victor Wells            - Ram disk image, EMAC driver
+Kevin Mcdonald          - f/s, ramdisk compression
+Rosemary Rogers         - kitchen gnomes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Germantown Kernel Developement team (2001- )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jeff Harrell            - Kernel ports, ADSL driver
+Victor Wells            - VMAC driver
+James Beaulieu          - VMAC driver, PCI
+Hari Krishna            - USB driver
+Boris Marenkov          - USB driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+India Kernel Development Team (2002-)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Nitin Dhingra           - Intc, Avalanche
+Suraj Iyer                      - Intc, SEAD2, AR7 Port (2.4.17)
+Suraj Iyer                      - CPMAC (2.4.17)
+Sharath Kumar           - SEAD2, AR7 Port (2.4.17)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+}}}
+====== (/proc/avalanche/led_cfg) ======
+{{{
+cat /proc/avalanche/led_cfg
+
+Module:adsl
+
+    Instance:0
+
+        State: 0
+
+            mode: LED OFF
+
+            gpio: 33
+
+            param1: 0
+
+            param2: 0
+
+        State: 1
+
+            mode: LED OFF
+
+            gpio: 33
+
+            param1: 0
+
+            param2: 0
+
+        State: 2
+
+            mode: LED_FLASH
+
+            gpio: 33
+
+            param1: 200
+
+            param2: 200
+
+        State: 3
+
+            mode: LED_ON
+
+            gpio: 33
+
+            param1: 0
+
+            param2: 0
+
+        State: 4
+
+            mode: LED_ON
+
+            gpio: 33
+
+            param1: 0
+
+            param2: 0
+
+Module:cpmac
+
+    Instance:0
+
+        State: 0
+
+            mode: LED OFF
+
+            gpio: 15
+
+            param1: 0
+
+            param2: 0
+
+        State: 1
+
+            mode: LED_ON
+
+            gpio: 15
+
+            param1: 0
+
+            param2: 0
+
+        State: 2
+
+            mode: LED_ONESHOT_OFF
+
+            gpio: 15
+
+            param1: 100
+
+            param2: 0
+
+        State: 3
+
+            mode: LED_ONESHOT_OFF
+
+            gpio: 15
+
+            param1: 100
+
+            param2: 0
+
+Module:usb
+
+    Instance:0
+
+        State: 0
+
+            mode: LED OFF
+
+            gpio: 12
+
+            param1: 0
+
+            param2: 0
+
+        State: 1
+
+            mode: LED_ON
+
+            gpio: 12
+
+            param1: 0
+
+            param2: 0
+
+        State: 2
+
+            mode: LED_ONESHOT_OFF
+
+            gpio: 12
+
+            param1: 100
+
+            param2: 0
+
+        State: 3
+
+            mode: LED_ONESHOT_OFF
+
+            gpio: 12
+
+            param1: 100
+
+            param2: 0
+
+Module:pppoe
+
+    Instance:0
+
+        State: 0
+
+            mode: LED OFF
+
+            gpio: 13
+
+            param1: 0
+
+            param2: 0
+
+        State: 1
+
+            mode: LED_ON
+
+            gpio: 13
+
+            param1: 0
+
+            param2: 0
+
+Module:wlan
+
+    Instance:0
+
+        State: 0
+
+            mode: LED OFF
+
+            gpio: 6
+
+            param1: 0
+
+            param2: 0
+
+        State: 1
+
+            mode: LED_ON
+
+            gpio: 6
+
+            param1: 0
+
+            param2: 0
+
+        State: 2
+
+            mode: LED_ONESHOT_OFF
+
+            gpio: 6
+
+            param1: 100
+
+            param2: 0
+
+        State: 3
+
+            mode: LED_ONESHOT_OFF
+
+            gpio: 6
+
+            param1: 100
+
+            param2: 0
+}}}
+====== (/proc/avalanche/led_ver) ======
+{{{
+# cat /proc/avalanche/led_ver
+
+TI Linux LED Driver Version 0.1
+}}}
+====== (/proc/avalanche/cpmac_stats) ======
+{{{
+cat /proc/avalanche/cpmac_stats
+
+Cpmac 1, Address a8610000
+ Transmit Stats
+   Tx Valid Bytes Sent        :221468
+   Good Tx Frames (Hardware)  :622
+   Good Tx Frames (Software)  :620
+   Good Tx Broadcast Frames   :0
+   Good Tx Multicast Frames   :622
+   Pause Frames Sent          :0
+   Collisions                 :0
+   Tx Error Frames            :0
+   Carrier Sense Errors       :0
+
+
+Cpmac 1, Address a8610000
+ Receive Stats
+   Rx Valid Bytes Received    :0
+   Good Rx Frames (Hardware)  :0
+   Good Rx Frames (Software)  :0
+   Good Rx Broadcast Frames   :0
+   Good Rx Multicast Frames   :0
+   Pause Frames Received      :0
+   Rx CRC Errors              :0
+   Rx Align/Code Errors       :0
+   Rx Jabbers                 :0
+   Rx Filtered Frames         :0
+   Rx Fragments               :0
+   Rx Undersized Frames       :0
+   Rx Overruns                :0
+}}}
+====== (/proc/avalanche/cpmac_link) ======
+{{{
+# cat /proc/avalanche/cpmac_link
+CPMAC devices = 1
+eth0: Link State: UP    Phy -1, Speed = 100, Duplex = Full
+}}}
+====== (/proc/avalanche/cpmac_ver) ======
+{{{
+# cat /proc/avalanche/cpmac_ver
+Texas Instruments : CPMAC Linux DDA version 1.8
+Texas Instruments : CPMAC DDC version 0.2
+}}}
+====== (/proc/avalanche/cpmac_config) ======
+{{{
+# cat cpmac_config
+CPMAC devices = 1
+
+CPMAC Driver Internal Config Info for Unit 0
+vlanEnable         = 0
+rxBufSize          = 1528
+rxBufOffset        = 2
+instId             = 0
+numTxChannels      = 1
+numRxChannels      = 1
+cpmacBusFrequency  = 62500000
+baseAddress        = A8610000
+intrLine           = 19
+resetLine          = 17
+mdioBaseAddress    = A8611E00
+mdioResetLine      = 22
+mdioIntrLine       = 0
+PhyMask            = 80000000
+MLinkMask          = 00000000
+MdioBusFrequency   = 62500000
+MdioClockFrequency = 2200000
+MdioTickMSec       = 10
+phyMode            = 1024
+passCRC            = 0
+qosEnable          = 0
+noBufferChaining   = 0
+copyMACCntrlFrsEne = 0
+copyShortFramesEn  = 0
+copyErrorFramesEn  = 0
+promiscousEnable   = 1
+promiscousChannel  = 0
+broadcastEnable    = 1
+broadcastChannel   = 0
+multicastEnable    = 1
+multicastChannel   = 0
+maxRxPktLength     = 1526
+bufferOffset       = 0
+pType              = 1
+txShortGapEnable   = 0
+gigaBitEnable      = 0
+txPacingEnable     = 0
+miiEnable          = 1
+txFlowEnable       = 0
+rxFlowEnable       = 0
+loopbackEnable     = 0
+fullDuplexEnable   = 1
+}}}
+====== (/proc/avalanche/wan_bridge) ======
+{{{
+# cat /proc/avalanche/wan_bridge
+0
+}}}
+====== (/proc/avalanche/avsar_ver) ======
+{{{
+# cat /proc/avalanche/avsar_ver
+ATM Driver version:[6.00.01.00]
+DSL HAL version: [6.00.01.00]
+DSP Datapump version: [6.00.04.00] Annex A
+SAR HAL version: [01.07.2b]
+PDSP Firmware version:[0.54]
+Chipset ID: [Ohio250(7200/7100A2)]
+}}}
+==== Configuration Files ====
+===== LED Configuration =====
+{{{
+}}}
+===== NVRAM Configuration =====
+{{{
+}}}
 === Flashing and Booting OpenWRT Firmware (trunk) ===
 {{{
 working ... ;)
