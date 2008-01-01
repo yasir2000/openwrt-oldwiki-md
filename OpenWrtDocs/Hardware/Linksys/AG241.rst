@@ -115,7 +115,7 @@ MAC_PORT        0
 === Flashing and Booting Original Firmware ===
 Flasing AG241v2-EU
 
-1.- Power on de router
+1.- Power on the router
 
 {{{
 free space start: 0xb0010000
