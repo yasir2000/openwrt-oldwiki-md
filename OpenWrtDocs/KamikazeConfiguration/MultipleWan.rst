@@ -1,10 +1,10 @@
 ~+multipleWan+~
 
-This page list action and configuration for multiwan on kamikaze. I've used this on a WRT54G(V1.1 to 3.1).
+This page lists actions and configuration for multiple WAN links on kamikaze. I've used this on a WRT54G(V1.1 to 3.1).
 
-'''WARNING:''' this only work on kernel 2.4 kamikaze for wrt54G, 2.6 kernel doesn't have the right patch for iproute2 equalize with iptables nat from http://www.ssi.bg/~ja/#routes
+'''WARNING:''' this only works on kernel 2.4 kamikaze for wrt54G, 2.6 kernel doesn't have the right patch for iproute2 equalize with iptables nat from http://www.ssi.bg/~ja/#routes
 
-This first is to create vlan (one per wan connection)
+This first is to create vlan (one per WAN connection)
 
 in the '''/etc/config/network''' for two wan you'll have:
 {{{
@@ -25,10 +25,10 @@ config interface        wan2
         option  proto   dhcp
 }}}
 
-during this tutorial I'l consider both your ISP use DHCP, but you can easily change it to static IP
+During this tutorial I'lL consider both your ISPs use DHCP, but you can easily change it to static IP.
 
 
-Now we need to install right package for multi wan to work:
+Now we need to install additional packages for multiple WAN to work:
 {{{
 ipkg install ip iptables-mod-conntrack iptables-mod-extra iptables-mod-imq iptables-mod-ipopt 
 }}}
@@ -39,9 +39,9 @@ once ip(iproute2) is install create as many table as wan you have by editing the
 202 eth0.2 
 }}}
 
-'''warning''' here I've choose to name table the same as the vlan they appear so that it's easier in the udhcp script, if you change this be sure to change any reference to 'table $interface' to 'table <your_table>' in the udhcpc/default.script with a tweak of you own.
+'''Warning''' Here I've choosen to name table the same as the VLAN they apply to so that it's easier in the udhcp script. If you change this, be sure to change/replace any reference to 'table $interface' to 'table <your_table>' in the udhcpc/default.script with a tweak of you own.
 
-Next once vlan and tables are setup, dhcp comes into action, it rely on the '''/usr/share/udhcpc/default.script'''. I've decided to change this file so that on any dhcp request the whole route, DNS etc.. get updated.
+Next, once vlan and tables are set, dhcp comes into action. It relies on the '''/usr/share/udhcpc/default.script'''. I've decided to change this file so that on any DHCP request the whole route, DNS etc. get updated.
 
 {{{
 #!/bin/sh
@@ -135,9 +135,9 @@ esac
 exit 0
 }}}
 
-I have to aknoledge that this script have so part 'hardcoded' like the number of nexthop etc.. but you rarely add/remove wan isn't it ?
+I have to aknowledge that this script has some parts 'hardcoded' like the number of nexthop etc., but you rarely add/remove WAN links, don't you?
 
-last but not list '''/etc/init.d/firewall''' (basically you simply copy/rename every lies where WAN appear to WAN2 in the file)
+Last but not least '''/etc/init.d/firewall''' (basically you simply copy/rename every lines, where "WAN" appears to "WAN2" in this file)
 {{{
 #!/bin/sh /etc/rc.common
 # Copyright (C) 2006 OpenWrt.org
@@ -281,7 +281,7 @@ stop() {
 }
 }}}
 
-Here you are, you now have a dual wan setup. Notice that some of you ISP services are only accessible when the source IP is part of its network. For example if you use SMTP or DNS from ISP1 (smtp.isp1.com) it will only be accessible as smtp relay if your IP belong to ISP1. round robin multiple wan break this, so you might want to add rule to your setup so that mail.isp1.com only use the wan1. If you've read the udhcpc script you have noticed we have already done this by adding static route to each ISP DNS server. Now how to tell iproute than smtp must done through isp1 only ? we will mark each outgoing packet for port 25(Smtp) and assign this mark to a specific table. simply add those 2 lines to '''/etc/firewall.user''':
+Here you are, you now have a dual WAN setup. Notice that some of you ISP services are only accessible when the source IP is part of it's network. For example, if you use SMTP or DNS from ISP1 (smtp.isp1.com), it will only be accessible as smtp relay, if your IP belong to ISP1. Round robin multiple WAN breaks this, so you might want to add rule to your setup, so that mail.isp1.com only use the wan1. If you've read the udhcpc script, you have noticed we have already done this by adding a static route to each ISP DNS server. Now, how to tell iproute than smtp must be done through isp1 only? We'll mark each outgoing packet for port 25 (smtp) and assign this mark to a specific table. Simply add those 2 lines to '''/etc/firewall.user''':
 {{{
 iptables -t mangle -A PREROUTING -p tcp --dport 25 -j MARK --set-mark 0x100
 ip rule add fwmark 0x100 table eth0.2
@@ -289,12 +289,12 @@ ip rule add fwmark 0x100 table eth0.2
 
 for other services just do the same changing the 0x100 to 0x101 and dport 25 to the service port number.
 
-At last for firewall, the new kamikaze firewall script is simplier than before and adding a forward or rule in it will apply to any wan. so opening the ssh 22 port with the example '''/etc/firewall.user''' line
+At last for firewall, the new kamikaze firewall script is simplier than before and adding a forward or rule in it will apply to any WAN interface. So opening the ssh 22 port with the example '''/etc/firewall.user''' line
 {{{
 iptables -t nat -A prerouting_wan -p tcp --dport 22 -j ACCEPT 
 iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
 }}}
 will open port 22 to you router from both wan and wan2
 
-This is it hope it can help
+This is in hope it can help
 Ben
