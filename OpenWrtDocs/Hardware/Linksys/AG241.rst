@@ -362,33 +362,128 @@ Linux version 2.4.17_mvl21-malta-mips_fp_le (tom@excelsior) (gcc version 2.95.3
 }}}
 ===== CPU Info =====
 {{{
+# cat /proc/cpuinfo
+processor               : 0
+cpu model               : MIPS 4KEc V4.8
+BogoMIPS                : 211.35
+wait instruction        : no
+microsecond timers      : yes
+extra interrupt vector  : yes
+hardware watchpoint     : yes
+VCED exceptions         : not available
+VCEI exceptions         : not available
 }}}
 ===== FLASH Map Info =====
 {{{
+# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 002f0000 00010000 "mtd0"
+mtd1: 003b0000 00010000 "mtd1"
+mtd2: 00020000 00010000 "mtd2"
+mtd3: 00010000 00002000 "mtd3"
+mtd4: 00020000 00010000 "mtd4"
 }}}
 ===== ATM Driver Info (TI Avalanche SAR) =====
 {{{
+# cat /proc/avalanche/avsar_ver
+ATM Driver version:[6.00.01.00]
+DSL HAL version: [6.00.01.00]
+DSP Datapump version: [6.00.04.00] Annex A
+SAR HAL version: [01.07.2b]
+PDSP Firmware version:[0.54]
+Chipset ID: [Ohio250(7200/7100A2)]
 }}}
 ===== Loaded Kernel Modules =====
 {{{
+# cat /proc/modules
+tiatm                 123936   0
 }}}
 ===== Devices =====
 {{{
+# cat /proc/devices
+Character devices:
+  1 mem
+  2 pty/m%d
+  3 pty/s%d
+  4 tts/%d
+  5 cua/%d
+ 10 misc
+ 36 netlink
+ 90 mtd
+108 ppp
+128 ptm
+136 pts/%d
+162 raw
+253 gpio
+254 nvram
+
+Block devices:
+ 31 mtdblock
 }}}
 ===== Free =====
 {{{
+# free
+              total         used         free       shared      buffers
+  Mem:        13912         8196         5716            0          836
+ Swap:            0            0            0
+Total:        13912         8196         5716
 }}}
 ===== MemInfo =====
 {{{
+# cat /proc/meminfo
+        total:    used:    free:  shared: buffers:  cached:
+Mem:  14245888  8404992  5840896        0   856064  2727936
+Swap:        0        0        0
+MemTotal:        13912 kB
+MemFree:          5704 kB
+MemShared:           0 kB
+Buffers:           836 kB
+Cached:           2664 kB
+SwapCached:          0 kB
+Active:           1712 kB
+Inactive:         2956 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:        13912 kB
+LowFree:          5704 kB
+SwapTotal:           0 kB
+SwapFree:            0 kB
 }}}
 ===== IOMem =====
 {{{
+# cat /proc/iomem
+00000000-13ffffff : reserved
+14000000-1401ffff : System RAM
+14020000-14ffffff : System RAM
+  14020000-141fe137 : Kernel code
+  14210300-14232fff : Kernel data
+a8610000-a86107ff : eth0
 }}}
 ===== Running Proccesses =====
 {{{
-}}}
-===== Kernel messages =====
-{{{
+# ps -ax
+  PID  Uid     Stat Command
+    1 admin    S    init
+    2 admin    S    [keventd]
+    3 admin    S    [ksoftirqd_CPU0]
+    4 admin    S    [kswapd]
+    5 admin    S    [bdflush]
+    6 admin    S    [kupdated]
+    7 admin    S    [mtdblockd]
+    8 admin    S    [mail]
+   12 admin    S    resetbutton
+   22 admin    S    cron
+   25 admin    S    tftpd -a 192.168.1.1 -s /tmp -c -l
+   28 admin    S    httpd
+   34 admin    S    dnsmasq -h -i br0 -r /tmp/resolv.conf
+   38 admin    S    udhcpd /tmp/udhcpd.conf
+   44 admin    S    telnetd
+   45 admin    S    klogd
+   46 admin    S    syslogd
+   47 admin    S    upnpd-igd br0
+   50 admin    S    /tmp/adslpolling
+   51 admin    S    /bin/sh
+ 1112 admin    R    ps -ax
 }}}
 
 ===== Avalanche (/proc/avalanche) =====
