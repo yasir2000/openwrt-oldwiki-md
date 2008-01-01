@@ -98,7 +98,7 @@ I've [:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:created a new wiki page
 ''.''
 
 ----
-'''Built in Serial port on the WHR-G54S'''[[BR]] As with most of these AP devices the printed circuit board has the serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
+'''Built in Serial port on the WHR-G54S'''[[BR]] As with most of these AP devices the printed circuit board has one serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
 
 Or you can make your own from the schematic available here: http://www.k9spud.com/whr-g54s/
 
@@ -107,17 +107,22 @@ On the WHR-G54S locate the un-populated header block RJP1. This is in the top le
 {{{
 Left hand pad of  R48  >>  RX.    Receive data into the WHR-G54S.
 Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
-|| pin 10 (missing) || pin  9 (unknown) ||
+|| pin 10 (missing) || pin  9 (unconnected) ||
 || pin  8 (ground) || pin  7 (RX) ||
-|| pin  6 (ground) || pin  5 (unknown) ||
-|| pin  4 (ground) (+3.3VDC?) || pin  3 (ground) ||
-|| pin  2 (ground) (+3.3VDC?) || pin  1 (TX) ||
+|| pin  6 (ground) || pin  5 (unused) ||
+|| pin  4 (+3.3VDC) || pin  3 (ground) ||
+|| pin  2 (+3.3VDC) || pin  1 (TX) ||
 ||||<style="text-align: center;"> RJP1 ||
 By default the serial port runs at 115200 8N1 using ANSI terminal emulation.
 
 NB: This was a device with board revision WRTB-133G_V00 190-c02-9200 (This can be seen in the top left hand corner of the PCB. All my units have started with this code and therefore I can not be sure if the board layout is different on older units.
 
-NB2: Are you sure pins 4 and 2 are ground pins? When power is turned off, yes, these two pins appear as pretty much a direct short to ground with my multimeter, but I believe that is just because the electronics are trying to draw power from the multimeter in this situation. When the device is plugged into power, I can read +3.3VDC on these two pins. 
+NB2: The table previously showed pins 4 and 2 as GND. As someone else already suspected they are 3.3 VDC when the device is powered up.
+
+'''Using the second serial port on the WHR-G54S'''[[BR]]
+I found out how to access the second serial interface. With dmesg you can see ttyS00 and ttyS01 present. On my hardware the second interface is present on the two unpopulated resistors R48 and R46. The right-hand solder-pad is directly connected to the processors 2nd tty. In the default openwrt configuration this interface runs at 9600 8N1 and there is no terminal. 
+In the original hardware both pin 9 and pin 5 were not connected to anything. The unused pin 5 is connected to the left-hand solder pad of the unpopulated resistor R50. 
+
 
 ----
 this is for devices starting with serial 3407:
