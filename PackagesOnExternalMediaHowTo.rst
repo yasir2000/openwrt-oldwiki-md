@@ -61,11 +61,12 @@ Mount the drive using the following command:
 mount /dev/mmc/disc0/part1 /mnt/sd
 }}}
 
-To mount the drive automatically on boot, use the following command:
+To mount the drive automatically on boot, we create a start script (in /etc/init.d) and a link that executes this script. You can use the following commands:
 
 {{{
-echo 'mount /dev/mmc/disc0/part1 /mnt/sd' > /etc/init.d/S60externalmount
+echo 'mount /dev/mmc/disc0/part1 /mnt/sd' > /etc/init.d/externalmount
 chmod +x /etc/init.d/S60externalmount
+ln -s /etc/init.d/externalmount /etc/rc.d/S60externalmount
 }}}
 
 = Configuring ipkg =
