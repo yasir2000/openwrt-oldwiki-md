@@ -23,9 +23,7 @@ Many of the concepts from earlier versions are retained in Kamikaze.  Both lan a
  * Some IP, netmask, etc review site
  * Some bridging and brctl info page
 === VLANs ===
-Since most routers use a single switch, you need to split up your WAN and LAN.  There are some alternate configurations, like all ports switched and DMZ.
-
-See [:OpenWrtDocs/HardwareTables/switchPorts:Switch Ports]
+Since most routers use a single switch, you need to split up your WAN and LAN. There are some alternate configurations, like all ports switched and DMZ. See [:OpenWrtDocs/HardwareTables/switchPorts:Switch Ports] for more details.
 
 {{{
 # Normal routing configuration for WRT54Gv3
@@ -33,6 +31,8 @@ config switch eth0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
+
+The "*" mark is set for the default VLAN. Pakets transfered between interfaces on the default VLAN are the ones that will remain unchanged, while all other will be "tagged". See more in section "VLAN Trunking" under the [:OpenWrtDocs/NetworkInterfaces:VLAN and bridging concepts] page.
 
 If you are using a VLAN 802.11q capable external switch, you can use it simply by configuring the VLAN interfaces as instructed in the next section.  For example: VLAN 1 on the switch would correspond to eth0.1 on OpenWRT.
 === Network Layer ===
@@ -64,7 +64,7 @@ config interface lan1
 Note: The "option type" must be absent!
 (http://forum.openwrt.org/viewtopic.php?id=10505)
 }}}
-You can configure multiple DNS servers by separating entries with space :
+You can configure multiple DNS servers by separating entries with space:
 
 {{{
 option dns "192.168.1.1 192.168.80.100"
