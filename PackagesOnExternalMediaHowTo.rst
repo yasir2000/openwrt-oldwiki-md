@@ -1,7 +1,7 @@
 [[TableOfContents]]
 = Introduction =
 == What is this Howto? ==
-This howto describes the process of installing and using packages on external media.  I used this information to install packages on my SD card.
+This howto describes the process of installing and using packages on external media as well as the internal media.  I used this information to install packages on my SD card. There is another howto that makes everything run from the external media: http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo
 
 == What External Media Can I Use? ==
 I used this technique for my SD card mod.  However, I assume that the same (or similar)  can be used for just about any external media, but I have not tried.
