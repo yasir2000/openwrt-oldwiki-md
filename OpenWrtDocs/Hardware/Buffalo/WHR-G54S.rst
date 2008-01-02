@@ -55,16 +55,17 @@ http://www.k9spud.com/whr-g54s/disassembly.php
 These information are very useful for SD hack described below and for your own custom hacking on special I/O
 
 {{{
-PIN     Usage   Original Use
+PIN     Usage   Original Use                     Label on board
 ----------------------------------------------------------------
-GPIO 0  Input   AOSS Button
-GPIO 1  Output  Bridge led
-GPIO 2  Output  Wlan Led
-GPIO 3  Output  Extra Led (unknown use) between wlan and bridge
-GPIO 4  Input   Reset Button
-GPIO 5  Input   Bridge/Auto switch
-GPIO 6  Output  AOSS Led
-GPIO 7  Output  Diag Led
+GPIO 0  Input   AOSS Button                      SW2
+GPIO 1  Output  Bridge led                       LED6
+GPIO 2  Output  Wlan Led                         LED2
+GPIO 3  Output  Extra Led (unknown use)          LED3
+                between wlan and bridge
+GPIO 4  Input   Reset Button                     SW1
+GPIO 5  Input   Bridge/Auto switch               SW3
+GPIO 6  Output  AOSS Led (orange)                LED10
+GPIO 7  Output  Diag Led (red)                   LED11
 GPIO 8  N/A     don't know, i didn't find it
 GPIO 9  Output  Power Led
 }}}
