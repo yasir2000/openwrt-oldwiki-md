@@ -4,7 +4,7 @@
 = Introduction =
 I'm sure many of you are asking, "What is a VNC Repeater?" Well, say you have 2 computers in your house, and you want to be able to connect to both of them from the internet. You would have to forward 2 ports (not including the viewer applet which adds another port each) the default port for this is 5900. Well, what a VNC Repeater does, is you forward one port to it, and when it recieves a viewer connection, it then forwards the port to the appropriate vnc server. Thus, you can have many computers behind a NAT router and only have to forward one port.
 
-Full documentation on the repeater is available at [http://ultravnc.sourceforge.net/addons/repeater.html ultravnc]
+Full documentation on the repeater is available at [http://www.uvnc.com/addons/repeater.html ultravnc]
 
 = Installation =
 Configure your device to use the backports repository, see ["OpenWrtDocs/Packages"] for instructions, then install the package:
