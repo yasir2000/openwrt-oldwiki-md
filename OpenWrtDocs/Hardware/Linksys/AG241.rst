@@ -1,3 +1,5 @@
+/!\ ~+'''WARNING'''+~ '''THIS GUIDE IS CURRENTLY WORK IN PROGRESS!'''
+
 [[TableOfContents]]
 
 = Linksys AG241 =
