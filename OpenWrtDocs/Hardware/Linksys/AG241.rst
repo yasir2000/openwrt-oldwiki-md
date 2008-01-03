@@ -9,10 +9,9 @@ Bootloader: ["ADAM2"]
 
 Switch 4-Port ADSL Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
 
- * - CPU: Texas Instruments AR7 MIPS-based, TNETD7200ZDW
+ * - CPU: Texas Instruments AR7 MIPS-based, [http://focus.ti.com/lit/ml/spat013a/spat013a.pdf TNETD7200ZDW]
  * - Flash chip: 4Mbytes, Macronix, [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/209CFCBBF4BCCB9148257031002F02E6/$File/MX29LV320CTBver17.pdf?OpenElement 29LV320CTTC-70G], 32Mbit NOR-type Flash Memory organized as 4M x 8
  * - SDRAM: 16Mbytes, MIRA, P2V28S40CTP, 3.3V at 143MHz organised as 8M x 16.
- * - Switch: Infineon, [ ADM6996LC]
  * - Switch: Infineon, [ ADM6996LC]
  * - Wireless NIC: '''NONE'''
  * - 4x-ethernet-port transformer: LHB, 20pt1024xlx
