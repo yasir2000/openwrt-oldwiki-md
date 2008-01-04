@@ -220,6 +220,9 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == Dell ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||!TrueMobile 2300 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||off || || || ||[:OpenWrtDocs/Hardware/Dell/Truemobile2300:Supported] ||
+== Digitus ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||DN-7005 || rev 1.1 (aka model WPR400)|| AMITSOC-0261 || 512 KByte || 4 MByte (?) || XI-325 (PCCard, FCC ID M4Y-000325) || ATAN Tech. AT8985P || ? || ? || ? || ? || Info entered ||
 == D-Link ==
 ||<tablewidth="1219px" tableheight="518px">'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo5+h6ltbNlwaaFp6DQoHDrpziVF9o0OBN/l DSL-320T] ||EU ||200Mhz ||2MB ||8MB ||None ||None ||pspboot (mod) || || || ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-320T WiP] ||
