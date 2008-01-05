@@ -1,8 +1,6 @@
 = Introduction =
 
-This gives an overview for running i2c on your router. 
-
-There are a few other openwrt i2c projects out there and they really helped me getting this up and running. In contrast to the other projects this one just 
+This gives an overview for running I2C on your router. There are a few other openwrt I2C projects out there and they really helped me getting this up and running. In contrast to the other projects this one just 
   * uses 2 GPIOs of the router, 
   * does not need any external circuit,
   * it works with the 2.4 kernel (for broadcom), 
@@ -26,7 +24,7 @@ Most of the software is already there - we'll just need to compile it. We will n
   * ready made i2c kernel modules from the standard kernel (i2c-core, i2c-dev, i2c-algo-bit)
   * the userspace i2c-tools from lm-sensors
 
-The next steps will describe how to compile all that. For this I set up a [http://forum.openwrt.org/viewtopic.php?id=7879 vmware compile environment] and downloaded the most recent kamikaze 7.09 sources.
+The next steps will describe how to compile all that. For this I set up a [http://forum.openwrt.org/viewtopic.php?id=7879 vmware compile environment] and [http://forum.openwrt.org/viewtopic.php?id=8410 check out] the most recent kamikaze 7.09 sources.
 
 
 == i2c-mips-gpio ==
@@ -75,4 +73,56 @@ For reading a line we just need to read its state. We must not explicitly switch
 
 
 
-== make kernel_menuconfig ==
+== building i2c-core, i2c-dev, i2c-algo-bit ==
+
+These modules can be used from the standard kernel that is used from the openwrt build environment. For enabling them we need to get to the basic kernel configuration with
+
+{{{
+make kernel_menuconfig
+}}}
+
+After some waiting we need to go to Character Devices > I2C support and enable
+
+{{{
+<M> I2C support
+<M> I2Cbit-banging interfaces
+<M> I2C device interface
+<M> I2C /proc interface
+}}}
+
+If you type in 
+
+{{{
+make menuconfig
+make world
+}}}
+
+Your new kernel module packages can be found in 
+
+{{{
+bin/packages/kmod-i2c-algos_xxxxxxxxxxx.ipk
+bin/packages/kmod-i2c-core_xxxxxxxxxxx.ipk
+}}}
+
+
+== I2C-tools from lm-sensors ==
+
+For using our I2C bus we can use the official I2C tools package containing
+
+  * i2cdetect: scans the bus and lists device adresses
+  * i2cdump: scans a device and displays its data
+  * i2cget: gets a sigle data byte/word from a device
+  * i2cset: sets a value to a device
+
+
+
+
+== testing ==
+
+As soon as you have these three kernel module packages you can install them with
+
+{{{
+ipkg install kmod-i2c-algos
+ipkg install kmod-i2c-core
+ipkg install kmod-broadcom-i2c
+}}}
