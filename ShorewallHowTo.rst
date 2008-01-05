@@ -1,3 +1,5 @@
+''('''Kamikaze users''': This HowTo was originally written in 2004; it applies to White Russian and Shorewall 2.09.  Shorewall 3.4 is now included in Kamikaze, and many things have changed.  Until an updated howto is written, Kamikaze users should probably run {{{ipkg install shorewall}}} and continue at the [http://www.shorewall.net/Documentation_Index.html Shorewall documentation pages].)''
+
 == Introduction ==
 
 === What is it? ===
