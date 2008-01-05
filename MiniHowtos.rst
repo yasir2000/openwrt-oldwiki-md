@@ -219,6 +219,11 @@ if [ "watch" = "$1" ]; then
         exec $0 watch
 fi}}}
 
+== Disabling telnet ==
+Telnet is enabled by default.  On Kamikaze (at least), ssh is also provided by default, through Dropbear.  You may want to disable Telnet for better security.
+
+To stop the telnet daemon, run {{{/etc/init.d/telnet stop}}}.  To disable it at boot, run {{{/etc/init.d/telnet disable}}}.
+
 = Useful details =
 == boot_wait - What it is, and how it works ==
 Information here was verified with a WRT54G 1.0.  There are minor changes with each variable hardware revision (1.0 vs. 1.1 vs. 2.0 vs. GS), but the general principles remain the same, as well as the final result.  To really understand {{{boot_wait}}}, you need to understand the boot process on the WRT, and how ARP tables work.
