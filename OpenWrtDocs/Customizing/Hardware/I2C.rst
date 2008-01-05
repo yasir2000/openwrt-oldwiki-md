@@ -39,7 +39,7 @@ To create a kernel module package I just created a new directory within my /pack
 /package/broadcom-i2c/src/i2c-mips-gpio.c
 }}}
 
-For integrating this package I need to call
+IF you want to adjust your pinout, this needs to be done in i2c-mips-gpio.c. For integrating this package I need to call
 
 {{{
 make menuconfig 
@@ -97,11 +97,6 @@ make menuconfig
 make world
 }}}
 
-In my case something broke in-between. Somehow some script wanted to copy the generated .o files from
-...
-but they were located in ...  fixme!
-
-
 
 Your new kernel module packages can be found in 
 
@@ -109,6 +104,34 @@ Your new kernel module packages can be found in
 bin/packages/kmod-i2c-algos_xxxxxxxxxxx.ipk
 bin/packages/kmod-i2c-core_xxxxxxxxxxx.ipk
 }}}
+
+=== problems with make world ===
+
+In my case something broke during make world. Some script wanted to copy the newly generated i2c*.o module files from
+
+{{{
+build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/algos/*.o
+}}}
+to somewhere else. In my case these files were generated in 
+
+{{{
+build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/i2c-algo-bit.o
+build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/i2c-core.o
+build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/i2c-dev.o
+build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/i2c-proc.o
+}}}
+
+As a workaround I could just
+
+{{{
+mkdir build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/algos/
+cp build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/*.o build_mipsel/linux-2.4-brcm/linux-2.4.34/drivers/i2c/algos/
+make world
+}}}
+
+I guess someone should have a look at that problem!
+
+
 
 
 == I2C-tools from lm-sensors ==
