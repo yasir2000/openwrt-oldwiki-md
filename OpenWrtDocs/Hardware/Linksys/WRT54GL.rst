@@ -77,14 +77,17 @@ If you have already installed !OpenWrt and like to reflash for e.g. upgrading to
 cd /tmp/
 wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write /tmp/openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
+
+
 = Linksys WRT54GL specific configuration =
+
 == Interfaces ==
 The default network configuration is:
 ||<tablewidth="541px" tableheight="129px">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
 ||br-lan ||LAN & !WiFi ||192.168.1.1/24 ||
-||vlan0 ||LAN ports (1 to 4) || ||
-||vlan1 ||WAN port ||DHCP ||
-||wl0 ||!WiFi ||Disabled by default ||
+||vlan0 (eth0.0) ||LAN ports (1 to 4) ||None ||
+||vlan1 (eth0.1) ||WAN port ||DHCP ||
+||wl0 ||!WiFi ||Disabled ||
 
 
 == Switch Ports (for VLANs) ==
