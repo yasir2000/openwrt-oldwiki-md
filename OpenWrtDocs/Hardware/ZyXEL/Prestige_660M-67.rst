@@ -84,7 +84,7 @@ AR7 is based on MIPS, so memory 0xa0000000-0xbfffffff (uncached) and 0x80000000-
 == JTAG ==
 According to [http://routertech.org/viewtopic.php?p=15194 this forum post] the 660 family often has MIPS EJTAG 2.6 compatible JTAG pads on the backside of the board. My 660M-67 has the needed pads here, I need to check them with a multimeter later on. Here is an incredibly bad pic of the (supposed) JTAG pads:
 
-attachment:660m-jtag.png
+attachment:660m-jtag.jpg
 
 Taking measurements according to the forum post the layout is as follows. If you look at the bottom side of your board, and the connectors (power, LAN, etc) are looking upwards, the 2x7 pin pads are in standard EJTAG format:
 
