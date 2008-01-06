@@ -228,3 +228,13 @@ i2c-core.o: adapter WRT54G GPIO registered as adapter 0.
 
 
 For further testing you can use i2cdetect, i2cdump, i2cget and i2cset.
+
+
+= links to other projects =
+
+  * I2C for 2.6 kernels: [http://openwrt.pbwiki.com/I2C]
+  * 4 wire interface [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/I2C_RTC]
+  * another i2c module: [http://forum.openwrt.org/viewtopic.php?id=7949]
+  * http://forum.openwrt.org/viewtopic.php?pid=60106
+  * http://forum.openwrt.org/viewtopic.php?pid=59975
+  * i2c for fonera [http://www.lefinnois.net/wpen/index.php/2007/05/13/i2c-bus-for-la-fonera/]
