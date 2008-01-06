@@ -60,15 +60,23 @@ Optional modules included ('+') or not ('-'):
  +tibinary +elf +gzip +ffs +tftp -ftp +dhcp -pcapp
 (psbl)}}}
 
-==Addition by cybermaus==
+Addition by cybermaus:
+
+== Device ==
+
+The netgear SC101 is a two drive IDE/PATA SAN system. It is not usable as network share through FTP, SMB/CIFS or NFS, but needs a Windows installed driver to make it appear as local drive. It uses a proprietary SAN over IP technology from Zetera called ZSAN. No drivers for Linux or any other than Windows exists. The Windows drivers are quite nice and run on Vista. It can reach about 6.5MB/s.
+
+The device supports RAID-0 and RAID-1, but even though 2 drives are in the same box, the mirroring is done over the network, so drains the performance further. Another slightly disappointing feature is it uses its own file system. You cannot take out the drive, and use it in another housing and read the data. 
+
+Off topic, I like the comparable Ximeta NDAS technology better: Linux support, choice of file system and better performance, but I would probably like OpenWRT even more, if it can fit in the meager 2MB/8MB. 
 
 I found the following hardware on the board:
 
  *CPU    : TNETV2005ZGW (Texas Instruments)
- *Flash   : 29LV160CBTC-90G (MX) 2Mbyte 
+ *Flash  : 29LV160CBTC-90G (MX) 2Mbyte 
  *RAM    : EM63825TS-6G (EtronTech) probably 8Mbyte 
  *Power  : AIC 1084PM linear regulator, MP1583DM switched regulator 
- *???: ICS 6800010 0615 (ICS) (probably ETH line buffer) 
+ *?????  : ICS 6800010 0615 (ICS) (probably ETH line buffer) 
  *Various logic 2x VCH245A 1x LVC244A 1x LVC32A (Philips)
 
 == Power ==
@@ -98,4 +106,8 @@ One to the SW1 obviously. Further, there are 4 data lines lines going to the pow
 
 == Sub-board ==
 
-Connector J1 leads to a sub-print that powers the drives. It is a very simply 20 pin header, with 6 pins 12V, 6 pins GND, 4 pins 5V and 4 I/O pins, driving the 3 LEDs. The sub-print seems to have 2 unused pad-pairs, one connected to the 12V line, one to the 5V header.
+Connector J1 leads to a sub-print that powers the drives. It is a very simply 20 pin header, with 6 pins 12V, 6 pins GND, 4 pins 5V and 4 I/O pins, driving the 3 LEDs. The sub-print seems to have 2 unused pad-pairs, one connected to the 12V line, one to the unused I/O.
+
+== Images ==
+attachment:sc101 print top.jpg
+attachment:sc101 print bottom.jpg
