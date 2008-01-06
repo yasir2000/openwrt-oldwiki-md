@@ -81,7 +81,7 @@ As stated a Texas Instruments TI TNETV2005ZGW processor, which is said to run on
 
 There is in fact a single IDE port, with both its channels used for the two drives. The cable is the old 40 ribbon type with cable select punch-out holes. Note that the central header is used for the print, and either end for the drives, so the cable select holes may not be as usual. Because a 40 pin cable is used, the drives cannot operator above UDMA 33MB. But as the LAN only has 100Mb/s, I guess a 33MB/s drive throughput is more than enough to flood the LAN
 
-Still, I wonder if replacing the cable would be beneficial. Maybe the higher UDMA's cause less CPU overhead, creating more efficient use of processor. Maybe the opposite. In any case, replacing the able would allow folding it so that both drives can have their metal top site against the metal hull of the SC101, providing better cooling, so I will probably replace the cable anyway.
+Still, I wonder if replacing the cable would be beneficial. Maybe the higher UDMA's cause less CPU overhead, creating more efficient use of processor. Maybe the opposite. Maybe TI's onboard IDE has no UDMA at all, only DMA, so it is completely not relevant (still no spec sheet of the CPU). In any case, replacing the able would allow folding it so that both drives can have their metal top site against the metal hull of the SC101, providing better cooling, so I will probably replace the cable anyway.
 
 == Headers ==
 
