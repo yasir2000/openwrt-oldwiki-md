@@ -39,7 +39,7 @@ To create a kernel module package I just created a new directory within my /pack
 /package/broadcom-i2c/src/i2c-mips-gpio.c
 }}}
 
-IF you want to adjust your pinout, this needs to be done in i2c-mips-gpio.c. For integrating this package I need to call
+If you want to adjust your pinout, this needs to be done in i2c-mips-gpio.c. For integrating this package I need to call
 
 {{{
 make menuconfig 
