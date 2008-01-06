@@ -7,7 +7,7 @@ This gives an overview for running I2C on your router. There are a few other ope
   * uses kamikaze 7.09 and 
   * there are just two custom files.
 
-If you have any questions please see [http://wiki.openwrt.org/MichaelSchoeberl] for contact details.
+If you have questions or any other kind of feedback feel free to send me an e-mail. See [http://wiki.openwrt.org/MichaelSchoeberl] for details.
 
 
 = Hardware =
