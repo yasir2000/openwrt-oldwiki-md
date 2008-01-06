@@ -82,9 +82,18 @@ So there are 2MB flash at mapped address 0xb0000000 (uncached) = physical addres
 AR7 is based on MIPS, so memory 0xa0000000-0xbfffffff (uncached) and 0x80000000-0x9fffffff (cached) both correspond to physical memory 0x00000000-0x1fffffff.
 
 == JTAG ==
-According to [http://routertech.org/viewtopic.php?p=15194 this forum post] the 660 family often has MIPS EJTAG 2.6 compatible JTAG pads on the backside of the board. My 660M-67 has the needed pads here, I need
-to check them with a multimeter later on. Here is an incredibly bad pic of the (supposed) JTAG pads:
+According to [http://routertech.org/viewtopic.php?p=15194 this forum post] the 660 family often has MIPS EJTAG 2.6 compatible JTAG pads on the backside of the board. My 660M-67 has the needed pads here, I need to check them with a multimeter later on. Here is an incredibly bad pic of the (supposed) JTAG pads:
 
 attachment:660m-jtag.png
 
+Taking measurements according to the forum post the layout is as follows. If you look at the bottom side of your board, and the connectors (power, LAN, etc) are looking upwards, the 2x7 pin pads are in standard EJTAG format:
+
+{{{
+   TRST  + o  GND
+    TDI  o o  GND
+    TDO  o o  GND
+    TMS  o o  GND
+    TCK  o o  GND
+    RST  o    key
+   DINT  o o  VIO (3.3V)}}}
 ["CategoryAR7Device"]
