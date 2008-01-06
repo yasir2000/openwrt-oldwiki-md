@@ -109,5 +109,6 @@ One to the SW1 obviously. Further, there are 4 data lines lines going to the pow
 Connector J1 leads to a sub-print that powers the drives. It is a very simply 20 pin header, with 6 pins 12V, 6 pins GND, 4 pins 5V and 4 I/O pins, driving the 3 LEDs. The sub-print seems to have 2 unused pad-pairs, one connected to the 12V line, one to the unused I/O.
 
 == Images ==
-attachment:sc101 print top.jpg
-attachment:sc101 print bottom.jpg
+attachment:sc101%20print%20top.jpg
+
+attachment:sc101%20print%20bottom.jpg
