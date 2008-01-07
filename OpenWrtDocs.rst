@@ -34,7 +34,7 @@ This, the public face of !OpenWrt is changing so don't be surprised if you find 
 Please join us on the !OpenWrt team.
 
 = Latest Release =
-Whiterussian [http://forum.openwrt.org/viewtopic.php?id=9326 0.9] is now available. It is a bug fix release and represents the end of the Whiterussian series.  The currently active release is [http://downloads.openwrt.org/kamikaze/7.09/release.txt 7.09], code named Kamikaze.
+Whiterussian [http://forum.openwrt.org/viewtopic.php?id=9326 0.9] is now available. It is a bug fix release and represents the end of the Whiterussian series.  The currently active release is [http://downloads.openwrt.org/kamikaze/7.09/ 7.09], code named Kamikaze.
 
 = Got Questions =
 The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html manual] and [:Faq:FAQ] can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt.  For more information follow your interest below.
