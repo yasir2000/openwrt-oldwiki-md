@@ -56,4 +56,4 @@ The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html manual] 
 [:OpenWrtDocs/KamikazeConfiguration:Kamikaze]
 
 == Building OpenWrt ==
-[:OpenWrtDocs/KamikazeConfiguration:BuildingKamikazeHowTo]
+[:OpenWrtDocs/BuildingKamikazeHowTo:BuildingKamikazeHowTo]
