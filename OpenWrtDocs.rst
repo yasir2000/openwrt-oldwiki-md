@@ -54,3 +54,6 @@ The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html manual] 
 
 == Firmware Configuration ==
 [:OpenWrtDocs/KamikazeConfiguration:Kamikaze]
+
+== Building OpenWrt ==
+[:OpenWrtDocs/KamikazeConfiguration:BuildingKamikazeHowTo]
