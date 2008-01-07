@@ -419,7 +419,7 @@ If you are running a webserver on that address, and want to listen on port 80 in
 
 The same is true for any other ports you'd want to forward to your LAN. Just follow the example as a guide.
 
-If you would like to have the router loopback forwarded ports, you need to add the following code to /etc/firewall.user.  Loopback allows a computer on your LAN to hit your external IP address and have the packet forwarded back as if it had come from the outside.  The default OpenWrt (iptables) installation does not allow this.
+If you would like to have the router loopback forwarded ports, you need to add the following code to /etc/firewall.user.  Loopback allows a computer on your LAN to hit your external IP address and have the packet forwarded back as if it had come from the outside.  The default OpenWrt (iptables) installation does not allow this. (Alternatively, and for an explenation, see: [http://www.netfilter.org/documentation/HOWTO//NAT-HOWTO-10.html Netfilter:Destination NAT Onto the Same Network])
 
 {{{
 iptables -t nat -A prerouting_rule -d 100.100.100.100 -p tcp --dport 80 -j DNAT --to 192.168.0.2
