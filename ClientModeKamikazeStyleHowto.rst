@@ -1,11 +1,6 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Client Mode Wireless =
-'''This way is recommended since it is actually automatic:'''
-
-1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
-
-That's it. The package of scripts self-installs and will ask you questions to configure your wired and wireless connections. Your current configuration will be backed up and can be restored with the "aprestore" command. Type in "clientmode" after installation to configure client mode. This is currently the easiest and most complete means of having client mode on an Atheros router. These scripts are incompatible with firmwares that use NVRAM. They are included in the Legend Rev4.5 firmware, which will soon be released on the site.  For Fonera and Meraki Mini (or related) routers only. ^ Meltyblood Aug 2nd 2007
 
 by Tho Tran — last modified 2007-03-07 13:29
 
@@ -65,6 +60,15 @@ config wifi-iface
  .
 == Finding and joining networks ==
 == Some more configuration ==
+== Automated Script for Fonera and Meraki ==
+/!\ '''These scripts are third party content. They are not released or supported by the !OpenWrt developers.'''
+
+'''For Fonera and Meraki Mini (or related) routers only.'''
+
+Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
+
+That's it. The package of scripts self-installs and will ask you questions to configure your wired and wireless connections. Your current configuration will be backed up and can be restored with the "aprestore" command. Type in "clientmode" after installation to configure client mode. This is currently the easiest and most complete means of having client mode on an Atheros router. These scripts are incompatible with firmwares that use NVRAM. They are included in the Legend Rev4.5 firmware, which will soon be released on the site above. ^ Meltyblood Aug 2nd 2007
+
 == Useful Commands ==
  * ifconfig
  * iwconfig
