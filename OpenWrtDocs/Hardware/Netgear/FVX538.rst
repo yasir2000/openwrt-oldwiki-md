@@ -10,6 +10,14 @@ Netgear FVX 538
   ||Flash ||16MB ||32MB ||
   ||RAM ||32MB ||64MB ||
 
+= Inside a FVX538 v1 =
+attachment:pic1.jpg
+attachment:pic2.jpg
+attachment:pic3.jpg
+attachment:pic4.jpg
+attachment:pic5.jpg
+attachment:pic6.jpg
+
 = Serial port =
 The FVX538 has a serial port with its DB9 connector. Levels are 0-5V (null modem cable required).
 
