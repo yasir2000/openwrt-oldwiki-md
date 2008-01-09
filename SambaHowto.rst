@@ -102,6 +102,7 @@ write access:
 smbd[4177]:   map_share_mode: Incorrect value 40000000 for desired_access to file \xxxxx
 read access:
 smbd[4177]:   map_share_mode: Incorrect value 80000000 for desired_access to file \xxxxx}}}
+SOLUTION: Enable only "SMBFS-Support" in linux kernel, disable "CIFS-Support". 
 
 = Links =
  * [http://www.samba.org/ Samba]
