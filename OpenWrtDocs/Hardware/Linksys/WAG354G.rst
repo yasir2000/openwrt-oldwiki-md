@@ -35,14 +35,25 @@ attachment:WAG354G_small.jpg
  . '''Serial console'''
 Serial console can be plugged to JP5: connector lacks, it has to be soldered on the board.
 
-Pinout:
+Position on board and pinout:
 
 {{{
-                  JP5_______
-  |               [1]  [2]  [3]  [4]  [5]
-  |
-  |
-  |___ _ ___|-|____|-|__leds___|-|_|-|_|-|_|-|___ _ _ _
+                 |
+                 |
+         MiniPCI |
+         Slot    |
+        _________|
+
+
+
+      |*|      |*|     leds    |*|   |*|   |*|   |*|
+
+
+                --JP5--------------------
+               | [1]  [2]  [3]  [4]  [5] |
+                -------------------------
+  _ _ _ ______________________________________________ _ _ _
+
 Legend:
 1  GND
 2  NC
@@ -69,9 +80,12 @@ Software: [http://alioth.debian.org/projects/minicom/ Minicom]on Linux or MacOSX
 
 ----
  . '''JTAG'''
-Jtag pins are located in JP1, but the connector lacks. The pinout should be the same of others AR7 devices.
+Jtag pins are located in JP2, but the connector lacks. The pinout and specifications are the same of others AR7 devices that is 14 ping ejtag 2.6. 
 
-to be written (& tested)...
+With the router upside down GND pins are located in the upper pin strip.
+
+You can use Hairydairymaid Debrick Utility with a Xilinx cable.
+
 
 ----
  . '''GPIO'''
@@ -83,8 +97,7 @@ to be written (& tested)...
  . '''Mods'''
 Possible mods:
 
- * Replace wireless card with a better supported one, e.g. with an atheros chipset.
- * Replace wireless card with a [http://www.neutronexpress.com/prod.cfm/374905/AAEON_SYSTEMS/PER-C20U-A10/MINI_PCI_4_PORT_USB_2.0_MODULE_WITH_NEC minipci usb module]
+ * Minipci Wireless Card is not replaceable!! It uses the proprietary vlynq bus by T.I.
  * Add an SD card reader.
 to be written (& tested)...
 
