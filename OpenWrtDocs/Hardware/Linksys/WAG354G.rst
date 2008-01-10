@@ -98,14 +98,8 @@ to be written (& tested)...
  . '''Mods'''
 Possible mods:
 
-
----- /!\ '''Edit conflict - other version:''' ----
  * Minipci Wireless Card is not replaceable!! It uses the proprietary vlynq bus by T.I.
 
----- /!\ '''Edit conflict - your version:''' ----
- * Minipci Wireless Card is not replaceable!! It uses the proprietary vlynq bus by T.I.
-
----- /!\ '''End of edit conflict''' ----
  * Add an SD card reader.
 to be written (& tested)...
 
