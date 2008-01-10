@@ -35,6 +35,8 @@ attachment:WAG354G_small.jpg
  . '''Serial console'''
 Serial console can be plugged to JP5: connector lacks, it has to be soldered on the board.
 
+
+---- /!\ '''Edit conflict - other version:''' ----
 Position on board and pinout:
 
 {{{
@@ -54,6 +56,29 @@ Position on board and pinout:
                 -------------------------
   _ _ _ ______________________________________________ _ _ _
 
+
+---- /!\ '''Edit conflict - your version:''' ----
+Position on board and pinout:
+
+{{{
+                 |
+                 |
+         MiniPCI |
+         Slot    |
+        _________|
+
+
+
+      |*|      |*|     leds    |*|   |*|   |*|   |*|
+
+
+                --JP5--------------------
+               | [1]  [2]  [3]  [4]  [5] |
+                -------------------------
+  _ _ _ ______________________________________________ _ _ _
+
+
+---- /!\ '''End of edit conflict''' ----
 Legend:
 1  GND
 2  NC
@@ -80,12 +105,24 @@ Software: [http://alioth.debian.org/projects/minicom/ Minicom]on Linux or MacOSX
 
 ----
  . '''JTAG'''
+
+---- /!\ '''Edit conflict - other version:''' ----
 Jtag pins are located in JP2, but the connector lacks. The pinout and specifications are the same of others AR7 devices that is 14 ping ejtag 2.6. 
 
 With the router upside down GND pins are located in the upper pin strip.
 
 You can use Hairydairymaid Debrick Utility with a Xilinx cable.
 
+
+---- /!\ '''Edit conflict - your version:''' ----
+Jtag pins are located in JP2, but the connector lacks. The pinout and specifications are the same of others AR7 devices that is 14 ping ejtag 2.6. 
+
+With the router upside down, GND pins are located in the upper pin strip.
+
+You can use Hairydairymaid Debrick Utility with a Xilinx cable.
+
+
+---- /!\ '''End of edit conflict''' ----
 
 ----
  . '''GPIO'''
@@ -97,7 +134,14 @@ to be written (& tested)...
  . '''Mods'''
 Possible mods:
 
+
+---- /!\ '''Edit conflict - other version:''' ----
  * Minipci Wireless Card is not replaceable!! It uses the proprietary vlynq bus by T.I.
+
+---- /!\ '''Edit conflict - your version:''' ----
+ * Minipci Wireless Card is not replaceable!! It uses the proprietary vlynq bus by T.I.
+
+---- /!\ '''End of edit conflict''' ----
  * Add an SD card reader.
 to be written (& tested)...
 
