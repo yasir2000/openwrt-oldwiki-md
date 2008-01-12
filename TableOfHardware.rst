@@ -378,7 +378,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.5d2b41d3cef51dfe29dd10a191346068/?channelpath=/en_us/Support/Product+Support/Network+Storage/Maxtor+Shared+Storage+Family/Maxtor+Shared+Storage+Plus Shared Storage Plus] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||[:OpenWrtDocs/Hardware/Maxtor:UnTested] ||
 == Meraki ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.meraki.net/mini.html Meraki Mini] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180MHz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||Yes ||No ||[:OpenWrtDocs/Hardware/Meraki/Mini:Kamikaze] ||
+||[http://meraki.com/oursolution/hardware/mini/ Meraki Mini] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180MHz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||Yes ||No ||[:OpenWrtDocs/Hardware/Meraki/Mini:Kamikaze] ||
 == MicraDigital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.micradigital.com/Product.aspx?id=216667 F5D7230ec4-E] || || || || || || || || || || ||WIP - see F5D7230ec4 ||
