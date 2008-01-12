@@ -1,4 +1,4 @@
-This page describes how to throttle incoming connections. (Updated to White Russian 0.9 on 2007-04-23)
+This page describes how to throttle incoming connections. (Updated to Kamikaze 7.09 on 2008-01-11)
 
 You might want to do this if you are running a server on your OpenWRT box which is open to the internet. For example, if you have a SSH server you will find that your syslog is filled with this type of behaviour:
 
@@ -14,11 +14,14 @@ Which is kind of annoying.
 Here's how to use [http://snowman.net/projects/ipt_recent/ mod_recent] to restrict incoming connections to a certain number within a certain time. The example below assumes you want to restrict incoming SSH connections to 5 connections per 180 seconds.
 This document is based on the information of the document ["OpenWrtDocs/IPTables"] and the FAQs at http://netfilter.org/.
 
-Firstly, install the kernel packages. You need:
+== Installing on White Russian and versions before Kamikaze 7.07 ==
+Firstly, install the kernel packages. For versions before Kamikaze 7.07 you need:
 
 {{{
 # ipkg install kmod-ipt-extra
-# ipkg install iptables-mod-extra}}}
+# ipkg install iptables-mod-extra
+}}}
+
 The module "ipt_recent" must be loaded at every startup, so make sure that the line {{{ipt_recent}}} is in {{{/etc/modules}}}. Otherwise add it via
 
 {{{
@@ -29,6 +32,19 @@ To start it manually without rebooting use
 {{{
 # insmod ipt_recent.o
 }}}
+
+== Installing on Kamikaze 7.07 or later ==
+For Kamikaze 7.07 or later you need these packages instead:
+{{{
+# ipkg install kmod-ipt-conntrack
+# ipkg install iptables-mod-conntrack
+}}}
+
+ipt_recent will automatically be loaded so no further work is needed.
+
+
+== Configuration ==
+
 Now add the appropriate rules to the file {{{/etc/firewall.user}}}. Modify your existing rules for SSH connections. Ensure that the new filter rules replace the existing rule to ACCEPT connections.
 
 {{{
