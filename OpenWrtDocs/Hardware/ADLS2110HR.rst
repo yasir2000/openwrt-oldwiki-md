@@ -332,6 +332,13 @@ mtd4 0x90020000,0x901F0000
 mtd5 0x901F0000,0x90200000
 }}}
 
+Add mtd5 and change mtd0 & mtd4
+{{{
+# echo "mtd5 0x901F0000,0x90200000" > /proc/ticfg/env 
+# echo "mtd4 0x90020000,0x901F0000" > /proc/ticfg/env
+# echo "mtd0 0x90094000,0x901F0000" > /proc/ticfg/env
+{{{
+
 DATA led fix:
 {{{
 # cd /var/var
