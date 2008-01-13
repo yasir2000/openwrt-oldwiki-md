@@ -20,6 +20,14 @@ attachment:dg834g_internal_scaled.jpg
 
 A full-sized image can be viewed [attachment:dg834gv3_internal.jpg here].
 
+== Status ==
+
+'''svn r10180'''
+
+|| Ethernet || Broken || All four switch LEDs blank when packets are sent out, nothing visible in tcpdump ||
+|| Wireless || Broken || acx_mac80211 seems to initialise but no interface is visible in ifconfig/iwconfig ||
+|| ATM (ADSL) || '''Working''' || DSL interface initialises and handshakes successfully (only Annex A tested) ||
+
 == Serial Console ==
 
 The wiring for the serial port on this device is identical to the DG834G v2. A photographic explanation of how to solder pin headers can be found [http://flickr.com/photos/justnine/sets/72157600331131903/ here].
