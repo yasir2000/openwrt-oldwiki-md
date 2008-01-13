@@ -41,6 +41,24 @@ make -jN world           # Enables parallel builds. Replace N with the number or
 
 I tweaked these steps slightly, choosing to make an `openwrt` subdir in my home directory.
 
+==== Update on this at 12 Jan 2008 ====
+
+For some reason the procedure mentioned above keeps webif out of the feeds package.
+To fix, this is my way of compiling:
+
+{{{
+$ svn co https://svn.openwrt.org/openwrt/trunk/
+$ cd trunk
+$ ./scripts/feeds update
+$ make defconfig
+$ make package/symlinks
+$ cd package
+$ ln -s ../feeds/xwrt xwrt
+$ cd ..
+$ make menuconfig
+$ make 
+}}}
+
 === GNU make v3.81 required ===
 
 I started on an old (but reliable) machine running Fedora Core 4. When I got to the first `make defconfig` command because of a GNU make version dependency. FC4 with current yum updates only had GNU make v3.80 installed, but v3.81 was required to build OpenWrt. So, I switched to a Fedora 7 machine with GNU make v3.81 installed and started the process over. 
