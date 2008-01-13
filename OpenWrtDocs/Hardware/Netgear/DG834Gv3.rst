@@ -28,6 +28,8 @@ A full-sized image can be viewed [attachment:dg834gv3_internal.jpg here].
 || Wireless || Broken || acx_mac80211 seems to initialise but no interface is visible in ifconfig/iwconfig ||
 || ATM (ADSL) || '''Working''' || DSL interface initialises and handshakes successfully (only Annex A tested) ||
 
+dmesg for this is [http://pastebin.ca/854097 here]
+
 == Serial Console ==
 
 The wiring for the serial port on this device is identical to the DG834G v2. A photographic explanation of how to solder pin headers can be found [http://flickr.com/photos/justnine/sets/72157600331131903/ here].
