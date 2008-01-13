@@ -48,6 +48,8 @@ The firmware supports the Netgear recovery mode, which is documented on Netgear'
 
 '''STANDARD DISCLAIMER''': It is possible to kill your router ''or'' lose access to it without a serial port. You have been warned! Last tested trunk revision r8405 with the DG834Gv3 gave non-working ethernet, so make sure that before you start this whole operation that you are sure you want to try this out.
 
+'''Newer Netgear firmwares have no wget command. A safe version to downgrade to with wget is 4.01.06.'''
+
 Since you cannot install OpenWrt via the ftp or tftp methods, the simplest way is to gain access via the telnet interface. Build an AR7 image and install on a convenient webserver somewhere inside your network. It is a shrewd move to make sure you have serial access first, as you may need it to reflash a "safe" firmware if the one you flash doesn't work.
 
 Gain access to the telnet interface. To do this, visit http://router-ip-address/setup.cgi?todo=debug in a web browser and authenticate with the login and password you have setup for this router. You should see a message like "debug enable". Once this is done, telnet in. The router will not ask for a username and password when you telnet in.
