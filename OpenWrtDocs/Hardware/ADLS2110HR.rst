@@ -339,6 +339,11 @@ Add mtd5 and change mtd0 & mtd4
 # echo "mtd0 0x90094000,0x901F0000" > /proc/ticfg/env
 }}}
 
+tftpd32 for Windows 
+{{{
+http://tftpd32.jounin.net/
+}}}
+
 DATA led fix:
 {{{
 # cd /var/var
