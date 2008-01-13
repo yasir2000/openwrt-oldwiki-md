@@ -325,10 +325,6 @@ Power guide of DSL-502T flashing:
 
 http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T
 
-Fail of flashing the DSL-624T :(
-
-http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G624T
-
 For those who want to configure router with official firmware right
 
 http://www.seattlewireless.net/DlinkDslG604tConfiguration
