@@ -32,6 +32,48 @@ Using WEP in client mode is simple; two more options need to be set:
 WPA requires a program that interfaces with the driver called a supplicant.  There are two supplicants available for OpenWRT (and Linux, in general): wpa_supplicant and xsupplicant.  Xsupplicant supports both Atheros and Broadcom devices (e.g. WRT54G), while wpa_supplicant supports Atheros (among other chipsets), but not Broadcom.
 
 === wpa_supplicant ===
+
+wpa_supplicant is available as a package in Kamikaze 7.09, but it might not have support for MadWifi (the Atheros driver).  You need to obtain the OpenWRT source, edit the config file, and build the wpa_supplicant package to get MadWifi support.
+
+Note: wpa_supplicant.conf should have permissions of 600 and ownership of root:root.
+/etc/wpa_supplicant.conf
+{{{
+ctrl_interface=/var/run/wpa_supplicant
+ctrl_interface_group=0
+
+# Obviously, different networks will require different options.  The wpa_supplicant documentation covers them
+
+# This is what most Radius authentication (corporate, school, etc) networks look like
+network={
+        ssid="RadiusAuthNetwork"
+        key_mgmt=WPA-EAP
+        pairwise=CCMP TKIP
+        group=CCMP TKIP
+        eap=PEAP TLS
+        identity="<username>"
+        password="<password>"
+        phase2="auth=MSCHAPV2"
+        priority=10
+}
+
+# wpa_supplicant supports multiple networks, hence the "priority" option
+# it also supports open APs
+
+network={
+        ssid="OpenAP"
+        key_mgmt=NONE
+        priority=5
+}
+
+# We need a PSK example, too
+}}}
+
+WPA supplicant is then run like this (for an Atheros device):
+{{{wpa_supplicant -d -c/etc/wpa_supplicant.conf -iath0 -Dmadwifi}}}
+
+-B sends it to the background (use this once you get it working)
+-d increases debugging level
+
 === xsupplicant ===
 == Bridged and routed client modes ==
 /etc/config/network
