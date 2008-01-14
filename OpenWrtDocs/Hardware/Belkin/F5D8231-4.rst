@@ -1,17 +1,15 @@
 '''Belkin F5D8231-4 N1'''
 
-The comments below apply to revision 1 of this router.  The revision two of this board appears (unconfirmed) much more like to the [:OpenWrtDocs/Hardware/Netgear/WNR854:Netgear WNR854] and [:OpenWrtDocs/Hardware/Airlink101/AR625W: Airlink AR625W]. 
+The comments below apply to revision 1 of this router.  The revision two of this board appears (unconfirmed) much more like to the [:OpenWrtDocs/Hardware/Netgear/WNR854:Netgear WNR854] and [:OpenWrtDocs/Hardware/Airlink101/AR625W:Airlink AR625W].
 
-The hardware in this router is almost identical to the Gateworks/Avila boards (same processor and ethernet hardware), and support for that should work on this board with only minor changes. 
+The hardware in this router is almost identical to the Gateworks/Avila boards (same processor and ethernet hardware), and support for that should work on this board with only minor changes.
 
 === Serial Port ===
-
-This is a Marvell board, and its serial pins are identical to the [:OpenWrtDocs/Hardware/Airlink101/AR525W:AR525W]. 
+This is a Marvell board, and its serial pins are identical to the ["OpenWrtDocs/Hardware/Airlink101/AR525W"].
 
 Serial connection parameters are : 112500,8N1
 
 === Linux ===
-
 This is one of the first routers to run Linux 2.6 out of the box.  This has Linux 2.6.10 with IXP patches (which has full support in Kamikaze), using uClibc 0.98, using uboot as the bootloader.  The Atheros N wifi card is supported by MadWifi (possibly a modified version).
 
 Boot log:
@@ -108,7 +106,5 @@ ixp400_eth: ixp1 is using NPEC and the PHY at address 4
 ixp400_eth: Use default MAC address 00:02:b3:01:01:01 for port 0
 ixp400_eth: Use default MAC address 00:02:b3:02:02:02 for port 1
 }}}
-
 === Sources ===
-
-Belkin don't appear to offer sources for this model at this time.
+http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D8231-uk4&aid=9126&scid=0
