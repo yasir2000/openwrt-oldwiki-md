@@ -104,6 +104,13 @@ wiring diagram examples:
 ||3(GND)||->||JP4-5(GND)||10(GND)||
 
 Note:  When selecting the audio jack, make sure that the threaded end is long enough to poke through your case and still be able to attach the nut that secures it. Many common stereo plugs are for use with a thin metal faceplate and do not have sufficient depth of thread. The one pictured above is from [http://www.altex.com/product_info.php?cPath=3_106_330_334&products_id=4009 Altex Electronics] part number 502K, vincentfox reports that an identical part is available from [http://shop.outpost.com/product/3343172 Fry's/Outpost.com], Mfg Philmore, part number 504K.
+
+=== STR232 ===
+
+Another alternative is the [http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html STR232] adapter, which includes the MAX232 chip on a small board with the stereo jack. You will have to make up a simple pigtail from a stereo plug to a DB-9. The board has jumpers to manage the tip/ring crossover.
+
+inline:st232_assm2w.jpg
+
 == JTAG ==
 
 inline:wrtsl54gs_jtag.jpg
