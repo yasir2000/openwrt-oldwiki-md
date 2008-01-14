@@ -1,12 +1,8 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Client Mode Wireless =
-
-'''Kamikaze Style'''
-
- * The two files you'll need to work with are /etc/config/network and /etc/config/wireless.
-
 == AP without authentication (open) ==
+/etc/config/wireless
 {{{
   # This section is chipset specific
   # Do not copy it for your own use
