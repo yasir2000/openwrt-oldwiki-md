@@ -39,10 +39,14 @@ Whiterussian [http://forum.openwrt.org/viewtopic.php?id=9326 0.9] is now availab
 = Got Questions =
 The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html manual] and [:Faq:FAQ] can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt.  For more information follow your interest below.
 
-||||<tablestyle="width: 100%">'''What is your interest?'''||
-|| [:OpenWrtDocs/User/BasicEndUser:Basic End-user] - Information for end users who want basic functionality and no surprises. || [:DocumentationSandBox/UserType/AppDev/Fix: Application Developer] - Information for application developers, including ideas and specifications for applications, and tools to build them. ||
-|| [:OpenWrtDocs/User/AdvancedEndUser:Advanced End-user] - Information for advanced end-users who want advanced and experimental functionality but who are not programmers. || [[System Developer]] - Information for system developers, including bootloader, kernel, and libraries. ||
-|| [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
+OpenWrt is aimed at advanced users.  Basic end users should start: BasicEndUser
+
+## MOST OF THIS DOESN'T HAVE INFORMATION.
+##
+##||||<tablestyle="width: 100%">'''What is your interest?'''||
+##|| [:OpenWrtDocs/User/BasicEndUser:Basic End-user] - Information for end users who want basic functionality and ##no surprises. || [:DocumentationSandBox/UserType/AppDev/Fix: Application Developer] - Information for application ##developers, including ideas and specifications for applications, and tools to build them. ||
+##|| [:OpenWrtDocs/User/AdvancedEndUser:Advanced End-user] - Information for advanced end-users who want advanced ##and experimental functionality but who are not programmers. || [[System Developer]] - Information for system ##developers, including bootloader, kernel, and libraries. ||
+##|| [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ##||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
 
 == External Documentation ==
 '''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
