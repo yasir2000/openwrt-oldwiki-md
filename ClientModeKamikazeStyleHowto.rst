@@ -5,16 +5,15 @@
 '''Kamikaze Style'''
 
  * The two files you'll need to work with are /etc/config/network and /etc/config/wireless.
-== Requirements ==
-== Configuring client mode ==
-=== AP without authentication (open) ==
-=== AP using WEP ===
-=== AP using WPA/WPA2 ===
+
+== AP without authentication (open) ==
+== AP using WEP ==
+== AP using WPA/WPA2 ==
 WPA requires a program that interfaces with the driver called a supplicant.  There are two supplicants available for OpenWRT (and Linux, in general): wpa_supplicant and xsupplicant.  Xsupplicant supports both Atheros and Broadcom devices (e.g. WRT54G), while wpa_supplicant supports Atheros (among other chipsets), but not Broadcom.
 
-==== wpa_supplicant ====
-==== xsupplicant ====
-=== Bridged and routed client modes ===
+=== wpa_supplicant ===
+=== xsupplicant ===
+== Bridged and routed client modes ==
 /etc/config/network
 
  * Give the LAN interface a static IP.
@@ -59,8 +58,12 @@ config wifi-iface
         option encryption none}}}
  . '''Reboot the device. '''
  .
-== Finding and joining networks ==
-== Some more configuration ==
+== Finding networks ==
+Both Broadcom and Atheros chipsets support scanning with the iwlist command.  This command will scan all interfaces for networks:
+[code]
+iwlist scanning
+[/code]
+
 == Automated Script for Fonera and Meraki ==
 /!\ '''These scripts are third party content. They are not released or supported by the !OpenWrt developers.'''
 
