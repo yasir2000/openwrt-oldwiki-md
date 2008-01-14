@@ -2,18 +2,19 @@
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Client Mode Wireless =
 
-by Tho Tran — last modified 2007-03-07 13:29
-
-2007-12-01 — Tried routed client-mode again with Kamikaze 7.09 and Broadcom !WiFi does not work good (very high ping times and dhcp does not always works reliable, I'll test it in a few month again)
-
 '''Kamikaze Style'''
 
- * The following instructions will set up routed client-mode wireless on a Fonera device.
  * The two files you'll need to work with are /etc/config/network and /etc/config/wireless.
 == Requirements ==
 == Configuring client mode ==
-=== Bridged client mode ===
-=== Routed client mode ===
+=== AP without authentication (open) ==
+=== AP using WEP ===
+=== AP using WPA/WPA2 ===
+WPA requires a program that interfaces with the driver called a supplicant.  There are two supplicants available for OpenWRT (and Linux, in general): wpa_supplicant and xsupplicant.  Xsupplicant supports both Atheros and Broadcom devices (e.g. WRT54G), while wpa_supplicant supports Atheros (among other chipsets), but not Broadcom.
+
+==== wpa_supplicant ====
+==== xsupplicant ====
+=== Bridged and routed client modes ===
 /etc/config/network
 
  * Give the LAN interface a static IP.
