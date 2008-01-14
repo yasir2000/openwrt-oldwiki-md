@@ -76,50 +76,31 @@ WPA supplicant is then run like this (for an Atheros device):
 
 === xsupplicant ===
 == Bridged and routed client modes ==
-/etc/config/network
-
- * Give the LAN interface a static IP.
- * Configure the WAN interface for DHCP.
+There are no bridged and routed modes on Kamikaze, per se.  Instead, multiple interfaces are bridged with an entry in /etc/config/network like this:
 {{{
-config interface loopback
-        option ifname   lo
-        option proto    static
-        option ipaddr   127.0.0.1
-        option netmask  255.0.0.0
-config interface lan
-        option ifname   eth0
-#       option type     bridge
-        option proto    static
-        option ipaddr   192.168.1.1
-        option netmask  255.255.255.0
-config interface wan
-        option ifname   ath0
-        option proto    dhcp}}}
-/etc/config/wireless
+  config interface     <network>
+      option type     "bridge"
+      option ifname    "eth0.0"
+      ...
+}}}
 
- * Set the wifi-iface option to sta (client mode).
- * Set the SSID to the one you'll be connecting to.
+Then in /etc/config/wireless, set the network to the same network specified in the bridge:
 {{{
-config wifi-device  wifi0
-        option type     atheros
-#       option channel  5
-#       option diversity 1
-#       option txantenna 0
-#       option rxantenna 0
-#       option distance  2000
-# disable radio to prevent an open ap after reflashing:
-        option disabled 0
+config wifi-device  <type>
+        ...
+
 config wifi-iface
-        option device   wifi0
-#       option network  lan
-        option mode     sta
-        option ssid     yourSSIDHere
-        option hidden   0
-#       option txpower  15
-#       option bgscan   enable
-        option encryption none}}}
- . '''Reboot the device. '''
- .
+        ...
+        option network  <network>
+}}}
+
+Alternatively, but a little less flexibly, you can use this line in /etc/config/network:
+{{{
+      # athx for Atheros, Or wl0 for Broadcom
+      option ifname    "eth0.0 ath0"
+}}}
+
+For routed mode, the wireless device needs to be used in a normal network configuration in /etc/config/network.  Then, iptables rules are used to forward packets between the networks.  The default gateway on each network (this is routing; you're connecting two networks together) needs to forward packets destined for the other network to the  wifi router, or each host on each network needs to know that the wifi router is the router for packets to the respective network.
 == Finding networks ==
 Both Broadcom and Atheros chipsets support scanning with the iwlist command.  This command will scan all interfaces for networks:
 {{{
