@@ -19,6 +19,8 @@ German People could also take a look at the page from [https://snr.freifunk.net/
 == Single-port serial modification ==
 If you're only interested in having serial console working on your G v2 or GS, check out [http://jdc.parodius.com/wrt54g/serial.html koitsu's Single-Port Serial Modification] page. This page includes links to online sites that sell the necessary hardware for both his and Rod's modifications, as well as a (soon-to-be-written) walk-through of how to do the mod. Pictures are also provided.
 
+If you don't feel confident about your Dremel skills, consider using the [http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html STR232] adapter, which only requires drilling a single hole in the case. It brings out the basic RS-232 signals to a 1/8" (3.5mm) stereo jack, and you then use an adapter cord to connect to your favorite connector.
+
 = Software =
 This section should describe commonly-used packages, built-in !BusyBox tweaks, and things of that nature.
 
