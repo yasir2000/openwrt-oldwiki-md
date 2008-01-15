@@ -118,28 +118,6 @@ html/ : HTML pages if selected HTML web interface
 <model name>-<image type>-mx-<version> : the IOS kernel
 }}}
 
-The IOS image structure is the following :
-
-{{{
-struct ios_header {
-        uint32_t        magic;          /* Magic MZIP */
-        uint32_t        version;        /* MZIP version */
-        uint32_t        comp_ep;        /* Compressor entry point */
-        uint32_t        rsvd1[2];       /* Unused */
-        char            pad[32];        /* Padding */
-        uint32_t        product_code;   /* Unused */
-        uint32_t        hdr_size;       /* Header size */
-        uint32_t        ios_ep;         /* IOS entry point */
-        uint32_t        file_type;      /* Compression type */
-        uint32_t        file_size;      /* Compressed file size */
-        uint32_t        decomp_size;    /* Decompressed file size */
-        uint32_t        ver_code;       /* Probably the version code */
-        char            padding[32];    /* Padding before the compressed file */
-} __attribute__((packed));
-----
-Then compressed file (zip, pkzip or bzip2)
-}}}
-
 === Booting images ===
 
 The IOS bootloader will refuse to boot any file that does not look like a valid MZIP image (see the header before).
