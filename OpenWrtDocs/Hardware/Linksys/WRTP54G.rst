@@ -137,6 +137,7 @@ Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewh
 
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
 The firmware to be booted is defined by BOOTCFG. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
+
 BOOTCFG format: 
 
 <m|d>:<[f][n]>:<a|”bootfile”>
