@@ -347,12 +347,11 @@ http://tftpd32.jounin.net/
 DATA led fix:
 {{{
 # cd /var/var
-# tftp -g -l mycfg.tar.gz_bink_on 192.168.0.90
-# cat mycfg.tar.gz_bink_on > /dev/mtdblock/5
+# tftp -g -l mycfg.tar.gz_blink_on 192.168.0.90
+# cat mycfg.tar.gz_blink_on > /dev/mtdblock/5
 }}}
 
-attachment:mycfg.tar.gz_bink_on file size 744 bytes
-
+attachment:mycfg.tar.gz_blink_on file size 744 bytes
 
 ----
  . ["CategoryAR7Device"]
