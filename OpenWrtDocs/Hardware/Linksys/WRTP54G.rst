@@ -89,7 +89,8 @@ A comment in the script says that ''fpar' is for "storing sipura-sip voice param
  * The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
  * The partition table seems to be constructed from various PSPBoot environment variables.  The kernel code to do this is in drivers/mtd/maps/avalance-flash.c.  Code in this file also creates the links in /dev/ti_partitions/.
 == Boot Loader ==
-The boot loader is PSPBoot.  It is said that the source code for this boot loader is available in some tarball.  If you know which tarball, please add a link to it here.
+The boot loader is PSPBoot.  
+The source code of psp_boot is under WAG54GV2_V1.00.19.tgz along with psp_boot user guide
 
 The PSPBoot loader is stored in the first partition of the flash memory.  This partition is 64K long.
 
@@ -135,7 +136,22 @@ The router has room for two firmwares and a configuration area for each. Factory
 Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
 
 == BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
-The firmware to be booted is defined by BOOTCFG. The significance of the m and the f are unknown. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
+The firmware to be booted is defined by BOOTCFG. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
+BOOTCFG format: 
+
+<m|d>:<[f][n]>:<a|”bootfile”>
+
+'m' stands for manual configuration. In this case DHCP will not be invoked. All the configuration must be made manually. 
+
+‘d’ stands for DHCP configuration. All valid information that DHCP server provides will be taken. 
+
+‘f’ stands for execute image stored in Flash 
+
+‘n’ stands for boot from network using TFTP 
+
+‘a’ stands for auto boot-file configuration ie. Let the DHCP server provide the filename to boot. This option is invalid if ‘m’ is selected. The boot-file provided by DHCP server can be over-ridden by providing an alternate filename in double-quotes. In case of manual configuration, provision of bootimage name is must.
+
+
 
 = Firmware Source Code Supplied by Linksys =
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
