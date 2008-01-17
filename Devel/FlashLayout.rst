@@ -1,6 +1,6 @@
 This explanation taken from [http://openwrt.org/forum/viewtopic.php?p=3123#3123].
 
-You should probably also read the more recent posting at [http://forum.openwrt.org/viewtopic.php?pid=24157#p24157]
+You should probably also read the more recent postings at [http://forum.openwrt.org/viewtopic.php?pid=24157#p24157] and [http://forum.openwrt.org/viewtopic.php?pid=42572#p42572].
 ---------------------------
 
 Everything is stored on the flash chip. The size of the flash chip depends on what type of hardware you're using but it's generally 4M. The layout of the flash chip is as follows:
