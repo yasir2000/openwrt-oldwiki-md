@@ -16,6 +16,8 @@ openwrt-x86-2.6-ext2.image
 
 You no longer need to partition the CF card or create the filesystems manually
 
+The console baud rate (after the Soekris BIOS) is 38400.
+
 == Old installation method (Only use if you know what you're doing!) ==
 I assume the CF is available on a linux system, using a card reader for example. The block device for the CF on this system is {{{/dev/sda}}} and will be mounted on {{{/mnt/cf}}}. The CF will be setup with the GRUB bootloader, an OpenWrt linux kernel and an OpenWrt JFFS2 image, mounted using MTD block emulation.
 
