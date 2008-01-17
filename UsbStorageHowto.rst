@@ -172,6 +172,41 @@ mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 }}}
 Be happy and use your USB device like on every other GNU/Linux system or create a file server using Samba.
 
+If you go with ext2 with journaling and install kmod-fs-ext2 , kmod-fs-ext3 and e2fsprogs you can use it like a normal unix type disk.
+Create the script /etc/init.d/usbdrive ( changing the mount point to match yours )
+{{{
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=40
+
+
+
+start()
+{
+        echo -n "Testing USB Partition:  "
+        e2fsck -p /dev/scsi/host0/bus0/target0/lun0/part1 &
+        sleep 5
+        echo -n "Mounting USB drive: "                                       
+        mount -t ext3 -o noatime /dev/scsi/host0/bus0/target0/lun0/part1 /usb
+        echo "Done."
+}     
+stop()
+{                                          
+        echo -n "Umounting USB drive:  "   
+        sync
+        sync                                          
+        umount /dev/scsi/host0/bus0/target0/lun0/part1
+        echo "Done."
+}        
+restart()
+{           
+        stop 
+        start
+}
+}}}
+then do a ./usbdrive enable
+
 You may need language packages to support the filenames on various file systems:
 
 kmod-nls-base - Kernel modules for basic native language support
