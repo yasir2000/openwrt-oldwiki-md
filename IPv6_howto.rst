@@ -239,6 +239,46 @@ restart() {
 }}}
 Note: I had to add "ttl 64" to the "ip tunnel add sixxs" line in order to be able to do traceroutes. Without it, traceroute6's did work, but slowly and with all intermediate hops missed ("* * *"). With this setting it works. -RZ
 
+== Static tunnel to he.net (http://tunnelbroker.net) ==
+note: edit LOCALIP, POPIP , LOCTUN , REMTUN to match what he.net gives you
+{{{
+#!/bin/sh /etc/rc.common
+LOCALIP=<your wan ip>
+POPIP=<popip>
+LOCTUN=<loctun>
+REMTUN=<remtun>
+
+START=50
+
+
+
+start() 
+{
+        echo -n "Starting he.net IPv6 tunnel: "
+        ip tunnel add he.net mode sit local $LOCALIP remote $POPIP ttl 255
+        ip link set he.net up
+        ip link set mtu 1280 dev he.net
+        ip tunnel change he.net ttl 64
+        ip -6 addr add $LOCTUN/64 dev he.net
+        ip -6 route add ::/0 dev he.net
+        ip -f inet6 addr
+        echo "Done."
+}
+stop() 
+{
+        echo -n "Stopping he.net IPv6 tunnel: "
+        ip link set he.net down
+        ip tunnel del he.net
+        echo "Done."
+}
+restart() 
+{
+        stop
+        start
+}
+}}}
+
+
 == Dynamic (heartbeat) tunnel to SixXS.net ==
 {{{
 ipkg install aiccu
