@@ -1,4 +1,4 @@
-The Optware collection ports approximately 600 application packages to embedded Linux; this collection originally was part of the Unslung environment in nslu2-linux.org's 'slug' project. 
+The Optware collection ports approximately 1000 application packages to embedded Linux; this collection originally was part of the Unslung environment in nslu2-linux.org's 'slug' project. 
 
 As the packages are rather large, they are best suited for a USB-capable device with external storage (see UsbStorageHowto) or SD/MMC card flash.
 
