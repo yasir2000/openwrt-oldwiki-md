@@ -113,6 +113,36 @@ For automatic start, place this in /etc/init.d/S75vpnc:
 mkdir -p -m777 /var/run/vpnc
 vpnc /etc/vpnc/vpnc.conf}}}
 
+Another option (on Kamikaze) is to use the following in /etc/init.d/vpnc:
+{{{
+#!/bin/sh /etc/rc.common
+START=75
+STOP=10
+
+start() {
+        mkdir -p -m777 /var/run/vpnc
+        vpnc /etc/vpnc/vpnc.conf
+}
+
+stop() {
+        PID_F=/var/run/vpnc/pid
+        if [ -f $PID_F ]; then
+           PID=$(cat $PID_F)
+           kill $PID
+           while [ -d /proc/$PID ];
+           do
+                sleep 1
+           done
+        fi
+}
+}}}
+
+To enable this on startup just type:
+{{{/etc/init.d/vpnc enable}}}
+and to start type:
+{{{/etc/init.d/vpnc start}}}
+The advantage of this script is that on shutdown it will wait for vpnc to finish (and the restart option will work better and won't say the address is already bound).
+
 = Testing =
 Save the script and execute it to start the connection.
 {{{
