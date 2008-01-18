@@ -574,6 +574,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://us.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=1E68E573-AE4C-4140-B9A6-36AE82B49B4F ZyWall 2] || ||Samsung 2500 @166Mhz ||2MB ||16MB || || || || || || ||Info entered ||
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=2AAB8FF5-7ADD-4E59-9D6E-D4810031CEEF ZyWall 5] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||CardBus slot via [http://focus.ti.com/docs/prod/folders/print/pci1510.html PCI1510] ||Marvell 88E6060-RCJ || ||DB9M+DB9F || || ||Info entered ||
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=0E8EA8FA-AF7D-434F-A527-F337AB9A3A51 ZyWall P1] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||N/A ||N/A || ||Yes, via pin header on pcb || ||Yes, but believed to be just for providing power ||[:OpenWrtDocs/Hardware/Zyxel/Zywall-P1:Info entered] ||
+||P-334WT EE|| ||?||?||16 (HY57V283220T-7)||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX||? ||? ||? || No ||Info entered ||
 ----
 ----
  . ["CategoryAR7Device"]
