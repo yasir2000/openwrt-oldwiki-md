@@ -10,7 +10,7 @@ If you have questions or any other kind of feedback feel free to send me an e-ma
 = Hardware =
 I2C is bi-directional and needs pull-up resistors on both lines (10k is recommended). As the router uses its GPIOs for LEDs they act as some uncontrolled pullup or down. For this reason I disconnected the LEDs from those GPIOs (by removing the resistors).
 
-First of all I put a 8 pinconnector on the bach side and connected all GPIOs in the right order. (I left out the reset GPIO  4).  [[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/overview.jpg ,height=100,width=100)]]
+First of all I put a 8 pinconnector on the bach side and connected all GPIOs in the right order. (I left out the reset GPIO  4).  [[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/overview.jpg ,height=200)]]
 
 
 Apart from the pull-ups my modification does not need any circuit except the I2C device you want to connect.
