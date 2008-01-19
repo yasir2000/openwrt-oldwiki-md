@@ -27,24 +27,32 @@ Most of the software is already there - we'll just need to compile it. We will n
  * the low-level kernel module i2c-mips-gpio
  * ready made i2c kernel modules from the standard kernel (i2c-core, i2c-dev, i2c-algo-bit)
  * the userspace i2c-tools from lm-sensors
-The next steps will describe how to compile all that. For this I set up a [http://forum.openwrt.org/viewtopic.php?id=7879 vmware compile environment] and [http://forum.openwrt.org/viewtopic.php?id=8410 check out] the most recent kamikaze 7.09 sources.
+The next steps will describe how to compile all that. For this I set up a [http://forum.openwrt.org/viewtopic.php?id=7879 vmware compile environment] and [http://forum.openwrt.org/viewtopic.php?id=8410 checked out] the most recent kamikaze 7.09 sources.
 
 == i2c-mips-gpio ==
-This is a kernel module that handles the lowest part of the I2C stack. It just turns on/off the line drivers and reads the line state. This file is based on many previous mods. For properly working with the i2c bus with just 2 wires I needed to make some adjustments.
+This is a kernel module that handles the lowest part of the I2C stack. It just turns on/off the line drivers and reads the line state. This file is based on many previous mods.
 
-To create a kernel module package I just created a new directory within my /package containing these files:
 
+To create a kernel module package, just create a new directory within your package/ and put those files in the sub folders:
+
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/package/broadcom-i2c/Makefile package/broadcom-i2c/Makefile]
+
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/package/broadcom-i2c/src/Makefile package/broadcom-i2c/src/Makefile]
+
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/package/broadcom-i2c/src/i2c-mips-gpio.c package/broadcom-i2c/src/i2c-mips-gpio.c]
+
+
+The default pinout uses GPIO 5 and 6 (and this can be changed in the source file). There is also a module option to supply different pins:
 {{{
-/package/broadcom-i2c/Makefile
-/package/broadcom-i2c/src/Makefile
-/package/broadcom-i2c/src/i2c-mips-gpio.c
+insmod i2c-mips-gpio gpio_scl=6 gpio_sda=7
 }}}
-If you want to adjust your pinout, this needs to be done in i2c-mips-gpio.c. For integrating this package I need to call
+
+For enabling this package you need to call
 
 {{{
 make menuconfig
 }}}
-and select the package from Kernel modules > I2C Bus > kmod-broadcom-i2c.  If you just want to build the package and package index you can call:
+and select the package from Kernel modules > I2C Bus > kmod-broadcom-i2c. Then you can build the package and package index with these calls:
 
 {{{
 package/broadcom-i2c-compile
@@ -56,12 +64,20 @@ Your new kernel module package can be found in
 {{{
 bin/packages/kmod-broadcom-i2c_xxxxxxxxxxx.ipk
 }}}
+
+If you don't want to compile for yourself, you can just download my package:
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/bin/packages/kmod-broadcom-i2c_2.4.34+0.3-1_mipsel.ipk kmod-broadcom-i2c_2.4.34+0.3-1_mipsel.ipk]
+
 === Controlling scl and sda ===
-Remember: both signal lines have a pullup.
+Remember: both signal lines have a pullup (10 kOhm).
 
-For setting a line to low, we need to actively drive the line to a low state. Any device can do that as well! For getting a line to a high state we need to release the line and let it float. The pullup will then get it to a high state. We must not drive it to high permanently. The short output-high helps with signal quality though.
+For setting a line to low, we need to actively drive the line to a low state. Any of the connected devices can do that as well! For getting a line to a high state we need to release the line and let it float. The pullup will then get it to a high state. From the protocol we must not drive it to high permanently. 
 
-For reading a line we just need to read its state. We must not explicitly switch to input. If we drive it to low, then we will read a low signal. If we would release the line, then it could change its state just by reading it back.
+I included a small tweak for improving the signal quality. When we release the line it will go to high (by the pull-up charging the cable capacity). I inserted a short pulse where I drive the line to hight - this improves the signal quality.
+
+For reading a line we just need to read its state. There is no reason to explicitly switch to input. If we are by any chance driving it to low, then we will just read a low signal (but this will not happen from a higher level of the protocol interface).
+If the line is released then it will go to high. As long as no client is pulling it to low, then we will be able to read the signal form the client.
+
 
 == building i2c-core, i2c-dev, i2c-algo-bit ==
 These modules can be used from the standard kernel that is used from the openwrt build environment. For enabling them we need to get to the basic kernel configuration with
@@ -89,6 +105,13 @@ Your new kernel module packages can be found in
 bin/packages/kmod-i2c-algos_xxxxxxxxxxx.ipk
 bin/packages/kmod-i2c-core_xxxxxxxxxxx.ipk
 }}}
+
+If you don't want to compile for yourself, you can just download my packages:
+
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/bin/packages/kmod-i2c-algos_2.4.34-brcm-1_mipsel.ipk kmod-i2c-algos_2.4.34-brcm-1_mipsel.ipk]
+
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/bin/packages/kmod-i2c-core_2.4.34-brcm-1_mipsel.ipk kmod-i2c-core_2.4.34-brcm-1_mipsel.ipk]
+
 === problems with make world ===
 In my case something broke during make world. Some script wanted to copy the newly generated i2c*.o module files from
 
