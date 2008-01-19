@@ -362,7 +362,7 @@ Work in progress. Please see the UsbAudioHowto.
 
 == ASUS WL-500g Premium info ==
  * FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
- * [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_1.html Review of the 500gP (pictures starting on page 3)]
+ * [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium.html Review of the 500gP (pictures starting on page 3)]
  * HardwareAcceleratedCrypto
 
 ----
