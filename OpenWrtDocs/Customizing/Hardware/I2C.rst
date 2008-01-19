@@ -66,6 +66,7 @@ bin/packages/kmod-broadcom-i2c_xxxxxxxxxxx.ipk
 }}}
 
 If you don't want to compile for yourself, you can just download my package:
+
 [http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/bin/packages/kmod-broadcom-i2c_2.4.34+0.3-1_mipsel.ipk kmod-broadcom-i2c_2.4.34+0.3-1_mipsel.ipk]
 
 === Controlling scl and sda ===
@@ -169,6 +170,12 @@ Your new kernel module package can be found in
 {{{
 bin/packages/i2c-tools_xxxxxxxxxxx.ipk
 }}}
+
+If you don't want to compile for yourself, you can just download my package:
+
+[http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/bin/packages/i2c-tools_3.0.0-1_mipsel.ipk i2c-tools_3.0.0-1_mipsel.ipk]
+
+
 == Testing ==
 Now you can install and test these packages. First you have to point your /etc/ikg.conf to your repository. Then you can call:
 
