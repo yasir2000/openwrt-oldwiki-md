@@ -8,14 +8,18 @@ This gives an overview for running I2C on your router. There are a few other ope
 If you have questions or any other kind of feedback feel free to send me an e-mail. See http://wiki.openwrt.org/schobi for details.
 
 = Hardware =
-I2C is bi-directional and needs pull-up resistors on both lines (10k is recommended). As the router uses its GPIOs for LEDs they act as some uncontrolled pullup or down. For this reason I disconnected the LEDs from those GPIOs (by removing the resistors).
+I2C is bi-directional and needs pull-up resistors on both lines (10k is recommended). As the router uses its GPIOs for LEDs they act as some uncontrolled pullup or down. To avoid any influence from the old components I disconnected the LEDs from those GPIOs (by removing the resistors, in the example below R58 and R60) and removed the switches/buttons (SW2 and the pullup/debouncing circuit C13 and R43).
 
-First of all I put a 8 pinconnector on the bach side and connected all GPIOs in the right order. (I left out the reset GPIO  4).  [[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/overview.jpg ,height=200)]]
+[[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/removed_parts.jpg ,height=200)]]
 
+For I2C to work I just need 10 kOhm pull-ups for both lines. Here you can see some of my sensors (TMP100) and a 24C02 EEPROM that I took from an old SD-RAM module.
 
-Apart from the pull-ups my modification does not need any circuit except the I2C device you want to connect.
+[[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/tmp100_sensors.jpg ,height=200)]]
+[[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/tmp100.jpg ,height=200)]]
+[[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/24c02.jpg ,height=200)]]
 
-I used GPIOs 5 and 6. They need to be set in the bit-level driver (see below).
+My I2C devices are 3.3V compatible so I could just connect them directly (that makes 2 wires). The module below uses GPIOs 5 and 6 as a default (but there are module parameters if you want to change this).
+
 
 = Software =
 Most of the software is already there - we'll just need to compile it. We will need
