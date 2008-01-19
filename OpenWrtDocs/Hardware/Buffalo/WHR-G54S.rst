@@ -1,6 +1,6 @@
-'''Buffalo WHR-G54S'''
+= Buffalo WHR-G54S =
 
-----
+== Flashing the router ==
 The device is supported in OpenWrt 0.9 (White Russian) and later.  You need to install the openwrt-brcm-2.4-<type>.trx firmware images using the TFTP method only! This is because the installed Buffalo Firmware loader may require or perform some kind of decryption and expects a filename with a .ENC extension instead of the standard .bin or .trx.
 If you have a newer hardware revision (this being written on 8/21/2006), you should use the current SVN, as there are some bricking issues on older builds of OpenWrt. (Note: RC6 seems OK). There is also different hardware versions with almost same serial. (Also on old one) So DO NOT copy nvram from router to another or you can get brick because of memory settings.
 
@@ -40,18 +40,14 @@ then just try again.
 
 After this, wait for the device to reboot and you should be set.
 
-----
-[[BR]]
-'''Disassembly'''[[BR]]
+
+== Disassembly ==
 I've written a little tutorial on how to take apart the WHR-G54S without breaking anything. You can find it
 here:
 http://www.k9spud.com/whr-g54s/disassembly.php
 
-----
+== GPIO Information for Buffalo WHR-G54S ==
 
-[[BR]]
-
-'''GPIO Information for Buffalo WHR-G54S'''[[BR]]
 These information are very useful for SD hack described below and for your own custom hacking on special I/O
 
 {{{
@@ -66,40 +62,31 @@ GPIO 4  Input   Reset Button                     SW1
 GPIO 5  Input   Bridge/Auto switch               SW3
 GPIO 6  Output  AOSS Led (orange)                LED10
 GPIO 7  Output  Diag Led (red)                   LED11
-GPIO 8  N/A     don't know, i didn't find it
-GPIO 9  Output  Power Led
+
+GPIO 9  Output  Power Led*
+
+* has only been seen on some older hardware revision, looks hard-wired on newer ones
 }}}
-Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.[[BR]]
+Please note it's very important to understand original buffalo usage doesn't affect the way you use IOs, all ports are basically structured to work in Input as well as Output.
+As I wanted to have perfect freedom for my GPIOs I disconnected the LEDs from those GPIOs (by removing the resistors, in the example below R58 and R60) and removed the switches/buttons (SW2 and the pullup/debouncing circuit C13 and R43).
+[[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/removed_parts.jpg ,height=200)]]
+
+
 '''NOTE''': Using GPIO 4 is NOT a good idea :)
 
-''(Ben)''
+''(Ben)'' '' (schobi)''
 
-[[BR]]
 
-----
-'''[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:SD/MMC Hack]'''[[BR]]
-This hack is very popular with other APs (eg.Linksys) and can be applied to Buffalo WHR-G54S as well, things are slightly different because of different usage of GPIO but there's a binary kernel module mmc.o optimized and fully working for Linksys as well as Buffalo
+== SD Card / MMC Hack ==
 
-For this hack i've used these I/O (please see table described above)
+There is a seperate page describing this hack: [:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:SD/MMC Hack]
 
-{{{
-Signal     GPIO
-----------------
-Data IN    5
-Data OUT   6
-Clock      3
-CS         7
-}}}
-I've [:OpenWrtDocs/Hardware/Buffalo/WHR-G54S/SD-MMC.hack:created a new wiki page] with some photos of my hack, Hope it helps, send me some notes if you need more information on my job''' NOTE''': Using GPIO 4 (like linksys WRT models) is NOT a good idea here (reset button... :) )
+''' NOTE''': Using GPIO 4 (like linksys WRT models) is NOT a good idea here (reset button... :) )
 
-''(Andrea Ben Benini)''
 
-''.''
+== Built in Serial port on the WHR-G54S ==
 
-''.''
-
-----
-'''Built in Serial port on the WHR-G54S'''[[BR]] As with most of these AP devices the printed circuit board has one serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
+As with most of these AP devices the printed circuit board has one serial interface presented. The WHR-G54S however does not have a header block soldered on the board. The following details will allow you to connect to the serial interface using 3.3V TTL signals typically derived from a RS-232 to 3.3V TTL converter such as an ST232CN IC as used on a neat little PCB which can be obtained at a very reasonable price from http://www.robomicro.co.uk/
 
 Or you can make your own from the schematic available here: http://www.k9spud.com/whr-g54s/
 
@@ -110,7 +97,7 @@ Left hand pad of  R48  >>  RX.    Receive data into the WHR-G54S.
 Right hand pad of R50  >>  TX.    Transmit data from the WHR-G54S.}}}
 || pin 10 (missing) || pin  9 (unconnected) ||
 || pin  8 (ground) || pin  7 (RX) ||
-|| pin  6 (ground) || pin  5 (unused) ||
+|| pin  6 (ground) || pin  5 (unconnected) ||
 || pin  4 (+3.3VDC) || pin  3 (ground) ||
 || pin  2 (+3.3VDC) || pin  1 (TX) ||
 ||||<style="text-align: center;"> RJP1 ||
@@ -118,14 +105,16 @@ By default the serial port runs at 115200 8N1 using ANSI terminal emulation.
 
 NB: This was a device with board revision WRTB-133G_V00 190-c02-9200 (This can be seen in the top left hand corner of the PCB. All my units have started with this code and therefore I can not be sure if the board layout is different on older units.
 
-NB2: The table previously showed pins 4 and 2 as GND. As someone else already suspected they are 3.3 VDC when the device is powered up.
 
-'''Using the second serial port on the WHR-G54S'''[[BR]]
+== Using the second serial port on the WHR-G54S ==
 I found out how to access the second serial interface. With dmesg you can see ttyS00 and ttyS01 present. On my hardware the second interface is present on the two unpopulated resistors R48 and R46. The right-hand solder-pad is directly connected to the processors 2nd tty. In the default openwrt configuration this interface runs at 9600 8N1 and there is no terminal. 
 In the original hardware both pin 9 and pin 5 were not connected to anything. The unused pin 5 is connected to the left-hand solder pad of the unpopulated resistor R50. 
 
+[[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/serial_connection.jpg ,height=200)]]
 
-----
+
+
+== some dmesg dumps ==
 this is for devices starting with serial 3407:
 
 ----
