@@ -15,7 +15,7 @@ With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 ||'''Architecture''' ||MIPS ||
 ||'''Vendor''' ||Broadcom ||
 ||'''Bootloader''' ||CFE ||
-||'''System-On-Chip''' ||Broadcom 5365 ||
+||'''System-On-Chip''' ||Broadcom BCM94704 ||
 ||'''CPU Speed''' ||266 Mhz ||
 ||'''Flash size''' ||8MiB ||
 ||'''RAM''' ||32MiB (some older units have only 16MiB enabled) ||
@@ -350,21 +350,7 @@ Also see["webcam"]page in the wiki if your webcam needs other drivers.
 === Turn your router into a networked music player ===
 Work in progress. Please see the UsbAudioHowto.
 
-== ASUS WL-500g Premium info ==
-FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures] (link dead) [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_3.html Review of the 500gP with pictures]
-
-HardwareAcceleratedCrypto
-
-----
- . Here are some links to forum threads related to the ASUS WL-500g Premium:
- * [http://forum.openwrt.org/viewtopic.php?id=6090 Problems with WLAN encryption]
- * [http://forum.openwrt.org/viewtopic.php?id=6071 CPU Power]
- * [http://forum.openwrt.org/viewtopic.php?id=5688 Some more compatiblity information]
- * [http://wl500g.info/forumdisplay.php?f=61 wl500g.info]
- * [http://forum.bsr-clan.de/viewtopic.php?t=8813&highlight=500 Does anyone know what exactly are the 8 (2x4) pins near the bigger capacitor on the PCB?] They are 2 serial connections
- * [http://forum.openwrt.org/viewtopic.php?id=6362 configure WAN-interface]
 [[Anchor(2.6)]]
-
 == Trunk with Kernel 2.6 ==
 '''P:''' The line ''b44: eth1: BUG! Timeout waiting for bit 80000000 of register 428 to clear.'' may appear in log. ''' '''
 
@@ -374,10 +360,33 @@ HardwareAcceleratedCrypto
 
 '''S:''' The WL-500gP ehci-hcd module handles all USB2 transfer well, but the external ports use uhci-hcd for usb1. To make it even worse, the current trunk version has issues with this module to load but it can be fixed like mentioned in the forum http://forum.openwrt.org/viewtopic.php?id=7149. The broadcom chip seems to have a "buried" ohci controller that can not be used with the external connectors.
 
+== ASUS WL-500g Premium info ==
+ * FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
+ * [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium_1.html Review of the 500gP (pictures starting on page 3)]
+ * HardwareAcceleratedCrypto
+
+----
+
 [[Anchor(links)]] [[Anchor(Links)]]
 
 == External Links ==
-|| '''Link''' || '''Author''' ||
-|| [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN to the WL-500gP Wifi Router] || MarcusBrown ||
+=== Tutorials ===
+ * [http://begunje.dyndns.org/articles/wl500gx-ram-upgrade/index.html RAM Upgrade] 
+ * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
+=== Product Info Pages ===
+ * [http://usa.asus.com/search.aspx?searchitem=1&searchkey=WL-500g+Premium ASUS WL-500g Premium]
+ * [http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom BCM94704 Reference SoC]
+ * [http://www.broadcom.com/products/BCM5325 Broadcom BCM5325 Ethernet Switch]
+ * [http://www.spansion.com/products/S29GL064M.html Spansion S29GL064M90 Flash Memory Module]
+ * [http://www.hynix.com/datasheet/pdf/dram/HY5DU284(8,16)22ETP(Rev0.3).pdf Hynix HY5DU281622ETP-K SDRAM Datasheet]
+ * [http://www.via.com.tw/en/products/peripherals/usb/vt6212l/ VIA Vectro VT6212L USB 2.0 Host Controller]
+ * [http://www.delta.com.tw/product/cp/telecom/networking/download/pdf/LF8258_and_more.pdf Delta Electronics LF8731 Ethernet PHY Datasheet]
+ * [http://www.delta.com.tw/product/cp/telecom/networking/download/pdf/LF8275%208504%208505%208508.pdf Delta Electronics LF8505 Ethernet PHY Datasheet]
+=== Forum Threads ===
+ * [http://wl500g.info/forumdisplay.php?f=61 Dedicated Forum]
+ * [http://forum.openwrt.org/viewtopic.php?id=6090 Problems with WLAN encryption]
+ * [http://forum.openwrt.org/viewtopic.php?id=6071 CPU Power]
+ * [http://forum.openwrt.org/viewtopic.php?id=5688 OpenWRT compatibility information]
+ * [http://forum.openwrt.org/viewtopic.php?id=6362 How-to configure WAN-interface]
 ----
  . CategoryModel
