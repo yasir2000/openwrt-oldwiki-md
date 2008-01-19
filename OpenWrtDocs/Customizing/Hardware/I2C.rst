@@ -4,7 +4,7 @@ This gives an overview for running I2C on your router. There are a few other ope
  * uses 2 GPIOs of the router,
  * does not need any external circuit,
  * it works with the 2.4 kernel (for broadcom),
- * uses kamikaze 7.09 and
+ * uses kamikaze 7.09.
 If you have questions or any other kind of feedback feel free to send me an e-mail. See http://wiki.openwrt.org/schobi for details.
 
 = Hardware =
@@ -22,7 +22,7 @@ My I2C devices are 3.3V compatible so I could just connect them directly (that m
 
 
 = Software =
-Most of the software is already there - we'll just need to compile it. We will need
+As I'm a hardware guy I had some more trouble with the software. This is why the software part is more detailed. We will need
 
  * the low-level kernel module i2c-mips-gpio
  * ready made i2c kernel modules from the standard kernel (i2c-core, i2c-dev, i2c-algo-bit)
