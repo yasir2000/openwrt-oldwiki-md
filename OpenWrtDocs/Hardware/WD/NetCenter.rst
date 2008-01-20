@@ -12,6 +12,6 @@ This device is simmilar to the ASUS WL-700g.
  * TTL serial port with soldered socket on board (4-pin)
 
 == Links ==
- * ASUS WL-700g
+ * ASUS WL-700g http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL700gE
  * German net-center page on http://www.open-netcenter.de (with forum)
  * OpenMMS page for Maxtor Shared Storage (which has nearly the same hardware) http://openmss.org
