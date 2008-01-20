@@ -11,6 +11,16 @@ This device is simmilar to the ASUS WL-700g.
  * Acard/Artop PATA controller (ATP865-B) and Western Digital Caviar SE harddisk (160GB/250GB/320GB versions).
  * TTL serial port with soldered socket on board (4-pin)
 
+== GPIO ==
+ * GPIO 0 = soft-power-button
+ * GPIO 1 = system-ready-LED
+ * GPIO 2 = SDA
+ * GPIO 3 = ?
+ * GPIO 4 = ?
+ * GPIO 5 = SCL
+ * GPIO 6 = ?
+ * GPIO 7 = reset
+
 == Links ==
  * ASUS WL-700g http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL700gE
  * German net-center page on http://www.open-netcenter.de (with forum)
