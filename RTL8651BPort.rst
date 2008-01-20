@@ -30,6 +30,7 @@ See TableOfHardware
  * D-Link DI-624S - RTL8651B [ftp://ftp.dlink.com/GPL/DI-624S/DI-624s_v100036.tgz Firmware source code GPL]
  * D-Link DI-634M - RTL8651B
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
+ * Edimax IC-1500 - RTL8651B
  * Linksys WRT54GX2, WRT54GX4, [:OpenWrtDocs/Hardware/Linksys/WRT54GX:WRT54GXv2], WRV200
  * [:OpenWrtDocs/Hardware/Netgear/WPNT834:Netgear WPNT834] [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
 
@@ -73,6 +74,7 @@ Source Code for Manufacturers' Firmware is available from:
  * D-Link DI-624S (Rev B1) [http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=2&Sub2=5&PID=64] [ftp://ftp.dlink.com/GPL/DI-624S/DI-624s_v100036.tgz Firmware source code GPL]
  * D-Link DI-634M [http://www.dlink.com.au/tech/Download/download.aspx?product=DI-634M&revision=REV_A&filetype=Firmware]
  * Edimax BR-6204Wg [http://www.edimax.com.tw/html/english/frames/b-download.htm]
+ * Edimax IC-1500 [http://www.edimax.com/en/produce_detail.php?pd_id=54&pl1_id=8&pl2_id=35]
  * Linksys WRT54GX2, WRT54GX4, and WRV200 [http://www.linksys.com/servlet/Satellite?c=L_Content_C1&childpagename=US%2FLayout&cid=1115416836002&pagename=Linksys%2FCommon%2FVisitorWrapper Linksys "GPL Code Center"]
  * Netgear WPNT834 & KWGR614 [http://kbserver.netgear.com/kb_web_files/n101238.asp Netgear "Open Source Code for Programmers"]
 
