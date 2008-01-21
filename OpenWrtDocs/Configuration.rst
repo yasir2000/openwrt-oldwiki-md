@@ -601,7 +601,8 @@ Examples of timezone values:
 ||Singapore ||SGT-8 ||
 ||Hong Kong ||HKT-8 ||
 ||Ulaanbaatar, Mongolia ||ULAT-8ULAST,M3.5.0/2,M9.5.0/2 ||
-||<style="TEXT-ALIGN: center" |3>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
+||<style="TEXT-ALIGN: center" |4>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
+||Colombia ||UTC+5 ||
 ||Argentina ||UTC+3 ||
 ||Central America ||CST+6 ||
 
