@@ -16,7 +16,7 @@ Hints:
 Detailed instructions can be found in UsbStorageHowto.
 
 == Add USB to your Siemens SE505 ==
-See [:OpenWrtDocs/Hardware/Siemens/SE505]
+See ["OpenWrtDocs/Hardware/Siemens/SE505"]
 
 == USB Devices ==
 === USB Hard Drive ===
@@ -32,7 +32,7 @@ Some USB cellphone datacables are dirt cheap and contains a USB-to-RS232 convert
 refer to ["OpenWrtDocs/Customizing/Serial Console"] for further information about serial console.
 
 === USB Webcam ===
-Infos on how to attach a [:webcam] to OpenWRT compatible devices can be found on a dedicated page.
+Infos on how to attach a ["webcam"] to OpenWRT compatible devices can be found on a dedicated page.
 
 === USB Ethernet ===
 If you need one (2..3..127) additional Ethernet ports, it is possible to use USB-to-Ethernet adaptor.
@@ -45,15 +45,15 @@ Most of this devices has 10/100Mbit/s Full-Duplex Ethernet interface, but transf
 It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?id=1650 Forum].
 
 === USB VGA ===
-http://www.winischhofer.at/linuxsisusbvga.shtml
+There is no reference to openwrt on that page, but if you wanna try:
+[http://www.winischhofer.at/linuxsisusbvga.shtml http://www.winischhofer.eu/linuxsisusbvga.shtml]
 
 === USB Swap Space ===
-
 See LocalFileSystemHowTo
 
 See also http://www.opensourcerebels.org/forums/viewtopic.php?t=14
-## incorrect instructions, the author creates a filesystem, then blows it away with mkswap. Revision 2.0 Released on 2/4/2007 Sorry for the mistake!
 
+## incorrect instructions, the author creates a filesystem, then blows it away with mkswap. Revision 2.0 Released on 2/4/2007 Sorry for the mistake!
 === USB Sound devices ===
 http://wiki.openwrt.org/UsbAudioHowto
 
