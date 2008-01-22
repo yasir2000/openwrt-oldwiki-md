@@ -39,14 +39,27 @@ Perhaps I can outline the pros and cons of each.  But there's a few things you w
 === qos-scripts package ===
 QoS in !OpenWrt is based on {{{tc}}}, [http://www.cs.cmu.edu/~hzhang/HFSC/main.html HFSC] and [http://l7-filter.sourceforge.net/ Layer 7 filters]. The QoS package only works in White Russian RC5 and later version. With the {{{qos-scripts}}} package (version 0.4 and later) it's also possible to setup simple port forwarding rules in in the config file.
 
+==== Installation ====
 Download and install the {{{qos-scripts}}} package from http://downloads.openwrt.org/people/nbd/qos/
+{{{
+ipkg install qos-scripts
+}}}
 
-Then edit {{{/etc/config/qos}}}. This file has a number of examples and the syntax description in it. Be sure to set the {{{option:upload}}} and {{{option:download}}} correctly, as the package is enabled by default!
+==== Configuration ====
+Then edit {{{/etc/config/qos}}}. This file has a number of examples and the syntax description in it. Be sure to set the {{{option:upload}}} and {{{option:download}}} correctly, as the package is enabled by default! The units for {{{option:upload}}} and {{{option:download}}} are ''kilobits/second''
 
 If you don't configure port forwarding in {{{/etc/config/qos}}} then you can use {{{/etc/firewall.user}}} as normal for iptables rules.
 
 {{{qos-scripts}}} depends on the {{{iptables-mod-filter}}} package, so you can use L7 filters with extra configuration. This package contains a few L7 filters. Alternativly you can download extra filters from [http://l7-filter.sourceforge.net/protocols Layer 7 filters] and save the {{{.pat}}} files into the {{{/etc/l7-protocols}}} directory.
 
+==== Starting ====
+Start the script and make sure it starts after a reboot
+{{{
+/etc/init.d/qos start
+/etc/init.d/qos enable
+}}}
+
+==== Starting - alternative ====
 Finally start QoS with
 
 {{{
@@ -55,17 +68,66 @@ ifup wan
 
 This calls the QoS script via the hotplug code.
 
-Then do a 
+Then do a
 {{{
 env -i ACTION=ifup INTERFACE=wan /sbin/hotplug iface
 }}}
 
 This simulates a ifup on the WAN interface and reruns the hotplug scripts.
 
+==== Checking ====
 To show the QoS related rules execute:
 
 {{{
 iptables -L -v -t mangle
+}}}
+
+You should see output similar to the following:
+{{{
+Chain PREROUTING (policy ACCEPT 49M packets, 42G bytes)
+ pkts bytes target     prot opt in     out     source               destination
+  31M   38G Default    all  --  ppp0   any     anywhere             anywhere
+  31M   38G IMQ        all  --  ppp0   any     anywhere             anywhere            IMQ: todev 0
+
+Chain INPUT (policy ACCEPT 121K packets, 16M bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain FORWARD (policy ACCEPT 49M packets, 42G bytes)
+ pkts bytes target     prot opt in     out     source               destination
+  18M 4172M Default    all  --  any    ppp0    anywhere             anywhere
+
+Chain OUTPUT (policy ACCEPT 113K packets, 16M bytes)
+ pkts bytes target     prot opt in     out     source               destination
+75940 8011K Default    all  --  any    ppp0    anywhere             anywhere
+
+Chain POSTROUTING (policy ACCEPT 49M packets, 42G bytes)
+ pkts bytes target     prot opt in     out     source               destination
+  18M 4180M Default    all  --  any    ppp0    anywhere             anywhere
+
+Chain Default (4 references)
+ pkts bytes target     prot opt in     out     source               destination
+  67M   46G CONNMARK   all  --  any    any     anywhere             anywhere            CONNMARK restore
+  44M   32G Default_ct  all  --  any    any     anywhere             anywhere            MARK match 0x0
+ 9318 5859K MARK       all  --  any    any     anywhere             anywhere            MARK match 0x1 length 400:65535 MARK set 0x0
+ 1101 1330K MARK       all  --  any    any     anywhere             anywhere            MARK match 0x2 length 800:65535 MARK set 0x0
+2896K  382M MARK       udp  --  any    any     anywhere             anywhere            MARK match 0x0 length 0:500 MARK set 0x2
+33370 7748K MARK       icmp --  any    any     anywhere             anywhere            MARK set 0x1
+7932K 4986M MARK       tcp  --  any    any     anywhere             anywhere            MARK match 0x0 tcp spts:1024:65535 dpts:1024:65535 MARK set 0x4
+62193   48M MARK       udp  --  any    any     anywhere             anywhere            MARK match 0x0 udp spts:1024:65535 dpts:1024:65535 MARK set 0x4
+ 106K 6317K MARK       tcp  --  any    any     anywhere             anywhere            length 0:128 MARK match !0x4 tcp flags:FIN,SYN,RST,PSH,ACK,URG/SYN MARK set 0x1
+  25M 1277M MARK       tcp  --  any    any     anywhere             anywhere            length 0:128 MARK match !0x4 tcp flags:FIN,SYN,RST,PSH,ACK,URG/ACK MARK set 0x1
+
+Chain Default_ct (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+ 6306  738K MARK       all  --  any    any     anywhere             anywhere            MARK match 0x0 ipp2p v0.8.1_rc1 --kazaa --gnu --edk --dc --bit MARK set 0x4
+   46  7873 MARK       all  --  any    any     anywhere             anywhere            MARK match 0x0 LAYER7 l7proto edonkey MARK set 0x4
+  134 14130 MARK       all  --  any    any     anywhere             anywhere            MARK match 0x0 LAYER7 l7proto bittorrent MARK set 0x4
+  213 13484 MARK       tcp  --  any    any     anywhere             anywhere            MARK match 0x0 tcp multiport ports 22,53 MARK set 0x1
+ 1304 82528 MARK       udp  --  any    any     anywhere             anywhere            MARK match 0x0 udp multiport ports 22,53 MARK set 0x1
+48819 2967K MARK       tcp  --  any    any     anywhere             anywhere            MARK match 0x0 tcp multiport ports 20,21,25,80,110,443,993,995 MARK set 0x3
+  144  8222 MARK       tcp  --  any    any     anywhere             anywhere            MARK match 0x0 tcp multiport ports 5190 MARK set 0x2
+    0     0 MARK       udp  --  any    any     anywhere             anywhere            MARK match 0x0 udp multiport ports 5190 MARK set 0x2
+  44M   32G CONNMARK   all  --  any    any     anywhere             anywhere            CONNMARK save
 }}}
 
 === QoS via X-Wrt - Web Interface (Easy QoS) ===
