@@ -3,12 +3,12 @@ USB capable routers such as the ASUS WL-500g/gx/g Premium support USB Audio adap
 
 USB Audio support is included in !OpenWrt Kamikaze and higher.
 
-= Kernel Packages =
+== Kernel Module Packages ==
 Support is provided by several packages which you have to install.
 
 Soundcard Support ('''kmod-sound-core'''):
 
-===OSS Sound ===
+=== OSS Sound ===
  . This selects the kernel module soundcore.o which is reqired by both OSS and ALSA.
 Support for USB Soundcards ('''kmod-usb-audio'''):
 
@@ -22,7 +22,7 @@ test it as follows:
 #sox -q $1 -t ossdsp /dev/sound/dsp
 
 
-===ALSA Sound ===
+=== ALSA Sound ===
  . This adds the standard kernel module audio.o which provides OSS sound support.
 kmod-alsa ('''KMOD_ALSA'''):
 
