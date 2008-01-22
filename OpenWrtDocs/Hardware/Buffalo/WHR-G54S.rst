@@ -14,6 +14,17 @@ This device is based on the Broadcom chipset so the openwrt-brcm-<type>.trx imag
  * let go of the button.
 The power light does *not* flash on this unit, but the diag does. This unit keeps the IP address that it was set to while in this mode. Factory setting is 192.168.11.1.  If using a recent Kamikaze, try 192.168.1.1 instead.
 
+I recommend the atftp tftp program. The usual tftp program in most distributions is netkit-tftp, which didn't work for me. The commands needed for atftp is:
+{{{
+atftp 192.168.11.1
+tftp> mode octet
+tftp> trace
+}}}
+Then do the reset prcedure described above, and while the device is "booting" (in the early boot stage) do:
+{{{
+tftp> put openwrt-xxx-x.x-xxx.trx
+}}}
+
 TFTP commands:
 
 {{{
