@@ -145,12 +145,9 @@ fis create -b 0x00800000 -f 0x050280000 -l 0x00D20000 ramdisk}}}
 ... Program from 0x03fe0000-0x04000000 at 0x50fe0000: .
 ... Lock from 0x50fe0000-0x51000000: .
 }}}
- Programming this block of the flash memory takes quite a while because it is a very large file. You will now do two more similar commands that will execute in exactly the same way but will finish much faster. They are:
+ Programming this block of the flash memory takes quite a while because it is a very large file. 
 
-{{{
-fis create -b 0x00800000 -f 0x050FA0000 -l 0x00020000 mampf
-fis create -b 0x00800000 -f 0x050FC0000 -l 0x00020000 nvram}}}
-When these are done we will run the fconfig utility at the RedBoot> prompt. The GW2348's output is shown in regular type. Your entries are shown in italic:
+When it is done we will run the fconfig utility at the RedBoot> prompt. The GW2348's output is shown in regular type. Your entries are shown in italic:
 
 {{{
 RedBoot> fconfig
