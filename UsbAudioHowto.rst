@@ -8,14 +8,27 @@ Support is provided by several packages which you have to install.
 
 Soundcard Support ('''kmod-sound-core'''):
 
+===OSS Sound ===
  . This selects the kernel module soundcore.o which is reqired by both OSS and ALSA.
 Support for USB Soundcards ('''kmod-usb-audio'''):
 
+ipkg install kmod-usb-audio kmod-soundcore 
+
+to play sound you can install sox, but be aware that it installs lots of dependencies.
+
+#ipkg install sox
+
+test it as follows:
+#sox -q $1 -t ossdsp /dev/sound/dsp
+
+
+===ALSA Sound ===
  . This adds the standard kernel module audio.o which provides OSS sound support.
 kmod-alsa ('''KMOD_ALSA'''):
 
  . This is an alternative to KMOD_USB_AUDIO which cross-compiles the latest ALSA drivers. This package includes all the alsa modules (snd_*) requred for USB Audio support including OSS emulation. These drivers take up more space (and ram) than the OSS one, but they may provide better support and/or performance over kernel OSS.
 If you decide to run the Kernel 2.6 you should select the ALSA drivers. It is important to know that the ALSA drivers emulate OSS compatiblity. If you use MPD for instance with this emulation you sound may not be perfect while scrolling in audio files. To make alsa work it is necessary to copy a alsa.conf to the router /usr/share/alsa/alsa.conf.You may build both oss and alsa as packages but only one can be used at a time.
+
 
 = Applications =
 == Music Player Daemon ==
