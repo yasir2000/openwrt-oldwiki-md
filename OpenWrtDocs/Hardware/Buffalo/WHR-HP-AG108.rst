@@ -14,7 +14,37 @@ after that it's time for ''make menuconfig; make'' and have some fun and watchin
 I tested it with Kamikaze 7.06 so if you're unsure you may use that version.
 
 == Loading OpenWrt via TFTP ==
-Is said to be working after you change !RedBoot config by flashing a modified version. I didn't tried it, so don't know.
+'''Always make a backup of your old firmware'''
+
+start Buffalo debug interface (instructions below)
+
+activate telnet
+
+connect via telnet to the router
+
+download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi’s redboot configuration] (assuming that your PC IP is 192.168.11.10)
+{{{
+cd /tmp
+wget ftp://192.168.11.10/RedBoot_config_gdb.rom
+}}}
+
+flash it
+{{{
+dd if=/tmp/RedBoot_config_gdb.rom of=/dev/mtdblock/4
+}}}
+confirm "128+0 records" in and out
+
+power cycle the router
+
+just after it starts, while the diag led is flashing, connect via telnet on port 9000
+
+you should see
+{{{
+Executing boot script in...
+}}}
+interrupt it with CTRL-C
+
+you should be at the !RedBoot prompt
 
 == Loading OpenWrt via serial ==
 '''Always make a backup of your old firmware. If something goes wrong - I told you!'''
@@ -108,7 +138,7 @@ Dec 31 23:01:19 dhcpcd: del resolve
 Terminated
 Please stand by while rebooting the system.
 Restarting system.
-+                 
++
 *** Memory check:
  -> 0xA0FFFFFF
   success!! -> size : 16777216 bytes
@@ -141,118 +171,118 @@ Now booting linux kernel:
  Cmdline : root=/dev/mtdblock3
 CPU revision is: 00018009
 Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
-Primary data cache 16kB 4-way, linesize 16 bytes.                           
+Primary data cache 16kB 4-way, linesize 16 bytes.
 Linux version 2.4.25 (vc03021@mkitec_vc03021) (gcc version 3.3.3) #1 2006年 9月 5日 火曜日 17:48:30 JST
-Determined physical RAM map:                                                                           
+Determined physical RAM map:
  memory: 02000000 @ 00000000 (usable)
-On node 0 totalpages: 8192           
-zone(0): 8192 pages.      
-zone(1): 0 pages.   
+On node 0 totalpages: 8192
+zone(0): 8192 pages.
+zone(1): 0 pages.
 zone(2): 0 pages.
 Kernel command line: console=ttyS0,9600  root=/dev/mtdblock3 panic=1
-Using 110.000 MHz high precision timer.                             
+Using 110.000 MHz high precision timer.
 Calibrating delay loop... 219.54 BogoMIPS
 Memory: 30500k/32768k available (1523k kernel code, 2268k reserved, 96k data, 76k init, 0k highmem)
-Dentry cache hash table entries: 4096 (order: 3, 32768 bytes)                                      
-Inode cache hash table entries: 2048 (order: 2, 16384 bytes) 
-Mount cache hash table entries: 512 (order: 0, 4096 bytes)  
+Dentry cache hash table entries: 4096 (order: 3, 32768 bytes)
+Inode cache hash table entries: 2048 (order: 2, 16384 bytes)
+Mount cache hash table entries: 512 (order: 0, 4096 bytes)
 Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
-Page-cache hash table entries: 8192 (order: 3, 32768 bytes) 
-Checking for 'wait' instruction...  available.             
-POSIX conformance testing by UNIFIX           
-Linux NET4.0 for Linux 2.4         
+Page-cache hash table entries: 8192 (order: 3, 32768 bytes)
+Checking for 'wait' instruction...  available.
+POSIX conformance testing by UNIFIX
+Linux NET4.0 for Linux 2.4
 Based upon Swansea University Computer Society NET3.039
-Initializing RT netlink socket                         
-Starting kswapd               
+Initializing RT netlink socket
+Starting kswapd
 devfs: v1.12c (20020818) Richard Gooch (rgooch@atnf.csiro.au)
-devfs: boot_options: 0x1                                     
+devfs: boot_options: 0x1
 pty: 256 Unix98 ptys configured
 BUFFALO SWICH&LED DRIVER ver 1.00
 Serial driver version 5.05c (2001-07-08) with no serial options enabled
-                                                                       
+
 ttyS00 at 0xbc000003 (irq = 37) is a 16550A
 HDLC line discipline: version $Revision: #1 $, maxframe=4096
-N_HDLC line discipline registered.                          
-Generic MIPS RTC Driver v1.0      
+N_HDLC line discipline registered.
+Generic MIPS RTC Driver v1.0
 SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256).
-PPP generic driver version 2.4.2                                
+PPP generic driver version 2.4.2
 PPP Deflate Compression module registered
-PPP BSD Compression module registered    
+PPP BSD Compression module registered
 Buffalo WER-SERIES Board flash device mapping: 400000 at be000000
-get_mtd_chip_driver:42: flag <jedec_probe>                       
-get_mtd_chip_driver:42: flag <jedec>      
+get_mtd_chip_driver:42: flag <jedec_probe>
+get_mtd_chip_driver:42: flag <jedec>
 get_mtd_chip_driver:42: flag <cfi_probe>
  Amd/Fujitsu Extended Query Table v1.3 at 0x0040
- This flash is supporting buffer-write-mode.    
+ This flash is supporting buffer-write-mode.
   (buffer size 32 bytes / write time 128-4096 us)
- Enable buffer-write-mode!!                      
+ Enable buffer-write-mode!!
 Physically mapped flash: Swapping erase regions for broken CFI table.
-number of CFI chips: 1                                               
+number of CFI chips: 1
 Using physmap partition definition
 Creating 7 MTD partitions on "Physically mapped flash":
-0x00000000-0x00050000 : "RedBoot"                      
+0x00000000-0x00050000 : "RedBoot"
 0x00050000-0x00120000 : "vmlinux"
-0x00120000-0x003d0000 : "rootfs" 
+0x00120000-0x003d0000 : "rootfs"
 0x003d0000-0x003e0000 : "RedBoot_config"
-0x003e0000-0x003f0000 : "user_property" 
-0x003f0000-0x00400000 : "Boardinfo"    
-0x003f0000-0x00400000 : "Wlaninfo" 
-NET4: Linux TCP/IP 1.0 for NET4.0 
-IP Protocols: ICMP, UDP, TCP     
+0x003e0000-0x003f0000 : "user_property"
+0x003f0000-0x00400000 : "Boardinfo"
+0x003f0000-0x00400000 : "Wlaninfo"
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP
 IP: routing cache hash table of 512 buckets, 4Kbytes
 TCP: Hash tables configured (established 2048 bind 4096)
 ip_conntrack version 2.1 (256 buckets, 2048 max) - 344 bytes per conntrack
-ip_conntrack_pptp version 1.9 loaded                                      
-ip_nat_pptp version 1.5 loaded      
+ip_conntrack_pptp version 1.9 loaded
+ip_nat_pptp version 1.5 loaded
 ip_tables: (C) 2000-2002 Netfilter core team
-ipt_time loading                            
+ipt_time loading
 NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
-NET4: Ethernet Bridge 008 for NET4.0               
+NET4: Ethernet Bridge 008 for NET4.0
 VFS: Mounted root (cramfs filesystem) readonly.
-Mounted devfs on /dev                          
+Mounted devfs on /dev
 Freeing unused kernel memory: 76k freed
-Algorithmics/MIPS FPU Emulator v1.5    
+Algorithmics/MIPS FPU Emulator v1.5
 MidLayer.c(1898) ML_Initialize :***** Please push init button if you want to init_reboot ******
 Using /lib/modules/2.4.25/net/ae531x.o
 Warning:AE531X: Atheros AR5312 integrated Ethernet controller Ver.1.0.6-atheros/20041015
- loading ae531x eth0: MACBASE:b8100000, PHYBASE=b8100000, DMABASE=b8101000              
-will taint the kernel: non-GPL license - Atheros                          
+ loading ae531x eth0: MACBASE:b8100000, PHYBASE=b8100000, DMABASE=b8101000
+will taint the kernel: non-GPL license - Atheros
   See http://www.tux.org/lkml/#export-tainted for information eth1: MACBASE:b8200000, PHYBASE=b8200000, DMABASE=b8201000
-about tainted modules                                                                                                   
+about tainted modules
 Using /lib/modules/2.4.25/net/ar5kap.o
 
 Please press Enter to activate this console. Detected device id = 0057
-ar5kap: Set wlan0 radio frequency 5180                                
+ar5kap: Set wlan0 radio frequency 5180
 802.11 a/b/g WLAN AP driver 3.3.0-145-Linux/AP Rel1.00-pl9-20050330 loaded
-  Copyright (c) 2000-2004 Atheros Communications, Inc.                    
-  Copyright (c) 2003,2004 NEC Informatec Systems Ltd. 
-  Copyright (c) 2004 Buffalo Inc.                    
+  Copyright (c) 2000-2004 Atheros Communications, Inc.
+  Copyright (c) 2003,2004 NEC Informatec Systems Ltd.
+  Copyright (c) 2004 Buffalo Inc.
 wlan0: ar5kap at 0xb8000000, 00:16:01:34:ab:4a, IRQ 2
-wlan0: revisions: mac 5.7 phy 4.2 analog 3.6         
-Detected device id = 0057                   
+wlan0: revisions: mac 5.7 phy 4.2 analog 3.6
+Detected device id = 0057
 wlan1: ar5kap at 0xb8500000, 00:16:01:34:ab:4b, IRQ 5
-wlan1: revisions: mac 5.7 phy 4.2 analog 4.6         
-et0: LAN port 4 link up                     
+wlan1: revisions: mac 5.7 phy 4.2 analog 4.6
+et0: LAN port 4 link up
 wireless access point starting...
-etsiFeaturesEnable! 0            
+etsiFeaturesEnable! 0
 Radar scan beginning on all eligible channels
-wlanFindChannel : buffalo_auto_channel = 1   
+wlanFindChannel : buffalo_auto_channel = 1
 InitSingleScan -- 5200, 2410  ofdm 5 passive scan
-Auto Channel Scan selected 5200 MHz, channel 40  
-wlan0 Ready                                    
-Ready      
+Auto Channel Scan selected 5200 MHz, channel 40
+wlan0 Ready
+Ready
 wlan0: AP service started.
   TurboG:on DynamicTurbo:off Compression:off FastFrame:off Burst:off XR:off
-wireless access point starting...                                          
-wlan1 Ready                      
-Ready      
+wireless access point starting...
+wlan1 Ready
+Ready
 wlan1: AP service started.
   TurboG:on DynamicTurbo:off Compression:off FastFrame:off Burst:off XR:off
-Calling phyVportDeReg                                                      
+Calling phyVportDeReg
 wlan1: AP service stopped.
 wireless access point starting...
-wlan1 Ready                      
-Ready      
+wlan1 Ready
+Ready
 wlan1: AP service started.
   TurboG:on DynamicTurbo:off Compression:off FastFrame:off Burst:off XR:off
 }}}
