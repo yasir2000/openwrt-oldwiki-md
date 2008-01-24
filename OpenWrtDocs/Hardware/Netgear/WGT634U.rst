@@ -31,6 +31,7 @@ Images smaller than 4MB can be flashed via TFTP. You need to run a TFTP server o
 
  * attach a serial console cable to the WGT634U
  * attach ethernet to the WAN port (next to the USB socket)
+ * run 'minicom' on your computer (if you've never ran minicom, then run 'minicom -s' once and configure it as described at http://matthewcorr.googlepages.com/cfeminicomsettings)
  * hold down {{{CTRL-C}}} while inserting power to enter CFE
  * configure ethernet from CFE (e.g. with a local DHCP server):
  {{{
