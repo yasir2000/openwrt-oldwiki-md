@@ -146,6 +146,8 @@ newdns=$(nslookup $DOMAIN|sed 's/[^0-9. ]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e'
 echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
         | /usr/bin/logger -t ddupd
 }}}
+And please don't forget to chmod it executable.
+
 This script queries DNS to find the current registered address, compares it with the current external IP using the ''checkip'' Web Service to avoid unneeded updates.
 
 The last two lines are for debug and can be ommitted. Often, DNS is not updated withhin the 3 seconds the script waits (at least it takes some seconds more until the clients recognise because of caching). By replacing the wget-update URL other DNS services should also be usable.
