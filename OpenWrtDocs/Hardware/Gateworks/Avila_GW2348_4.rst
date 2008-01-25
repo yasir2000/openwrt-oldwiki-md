@@ -148,9 +148,15 @@ RedBoot>
 {{{
 reset}}}
 == Using the Avila ==
-Avila boards have several peripherals and gpios on the pcb that can be controlled from the userland. Below are some examples on how this is done.
-To control the user led you have to issue the to commands to turn it on/off :{{{
+Avila boards have several peripherals and gpios on the pcb that can be controlled from the userland. Below are some examples on how this is done. To control the user led you have to issue the to commands to turn it on/off :
+
+{{{
 root@OpenWrt:/# echo "0" > /sys/class/leds/user/brightness
 root@OpenWrt:/# echo "1" > /sys/class/leds/user/brightness }}}
+To set the time/date in the rtc chip, do the following. Once this has been done, the kernel will load the time from the rtc on boot.
+{{{
+root@OpenWrt:/# date 012523382008
+Fri Jan 25 23:38:00 UTC 2008
+root@OpenWrt:/# hwclock -w}}}
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
