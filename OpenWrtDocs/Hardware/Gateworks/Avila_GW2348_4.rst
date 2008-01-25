@@ -144,7 +144,7 @@ Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Lock from 0x50fe0000-0x51000000: .
 RedBoot>
 }}}
- . yoy may now reset the unit:
+ . you may now reset the unit:
 {{{
 reset}}}
 ----
