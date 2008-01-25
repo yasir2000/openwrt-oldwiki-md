@@ -28,27 +28,20 @@ The GW2348-4, is a member of the Gateworks Avila Network Processor family. The G
  1. Software Support for Linux and VxWorks
  1. 1 Year Warranty
 == Installing OpenWRT ==
- we need a tftpd server, I use dnsmasq, listening at 192.168.3.1, the default IP for the Gatework Avila is 192.168.3.2
-
- Plug in the GW2348 power supply while watching the Hyperterminal Window. When you see the line:
-
+ . we need a tftpd server, I use dnsmasq, listening at 192.168.3.1, the default IP for the Gatework Avila is 192.168.3.2 Plug in the GW2348 power supply while watching the Hyperterminal Window. When you see the line:
 {{{
 == Executing boot script in 2.500 seconds - enter ^C to abort}}}
- you have 2 and one half seconds to hit CTRL-C. When you do you should see a prompt that looks like this:
-
+ . you have 2 and one half seconds to hit CTRL-C. When you do you should see a prompt that looks like this:
 {{{
 ^C
 RedBoot>}}}
- At this prompt enter the line:
-
+ . At this prompt enter the line:
 {{{
-fis init -f}}}
- The GW2348 will respond with:
-
+fis init}}}
+ . The GW2348 will respond with:
 {{{
 About to initialize [format] FLASH image system - continue (y/n)?}}}
- As long as you are ready to continue enter a Y to get the following response:
-
+ . As long as you are ready to continue enter a Y to get the following response:
 {{{
 *** Initialize FLASH Image System
 ... Erase from 0x50080000-0x50fe0000: ...............................
@@ -60,32 +53,27 @@ About to initialize [format] FLASH image system - continue (y/n)?}}}
 ... Lock from 0x50fe0000-0x51000000: .
 RedBoot>
 }}}
- Enter the following line: (you may want to refer to the flashing.txt file for this and subsequent lines to enter since they could change in future builds)
-
+ . Enter the following line: (you may want to refer to the flashing.txt file for this and subsequent lines to enter since they could change in future builds)
 {{{
-load -r -v -b 0x00800000 openwrt-avila-2.6-zImage}}}
- At this point you will find out for sure if your TFTP server is working correctly. If it isn't you will get something like this:
-
+load -r -v -b 0x00800000 openwrt-avila-zImage}}}
+ . At this point you will find out for sure if your TFTP server is working correctly. If it isn't you will get something like this:
 {{{
 Using default protocol (TFTP)
 __udp_sendto: Can't find address of server
 Can't load 'zImage': some sort of network error
 RedBoot>
 }}}
- When I got this message it was because I had forgotten to set my TFTP server to use 192.168.3.1 as it's address so it was not seeing the TFTP request coming from the GW2348. I changed the setting and then the reply coming from the GW2348 looked like this:
-
+ . When I got this message it was because I had forgotten to set my TFTP server to use 192.168.3.1 as it's address so it was not seeing the TFTP request coming from the GW2348. I changed the setting and then the reply coming from the GW2348 looked like this:
 {{{
 Using default protocol (TFTP)
 /
 Raw file loaded 0x00800000-0x00967c93, assumed entry at 0x00800000
 RedBoot>
 }}}
- This took several seconds as the zimage file was downloaded to the Gateworks board from my computer. After this completes execute the following command:
-
+ . This took several seconds as the zimage file was downloaded to the Gateworks board from my computer. After this completes execute the following command:
 {{{
-fis create -b 0x00800000 -f 0x050080000 -l 0x00200000 -r 0x00800000 linux}}}
- The response should look like this:
-
+fis create linux}}}
+ . The response should look like this:
 {{{
 ... Erase from 0x50080000-0x50280000: ................
 ... Program from 0x00800000-0x00a00000 at 0x50080000: ................
@@ -95,58 +83,36 @@ fis create -b 0x00800000 -f 0x050080000 -l 0x00200000 -r 0x00800000 linux}}}
 ... Lock from 0x50fe0000-0x51000000: .
 RedBoot>
 }}}
-  Then enter this command:
+ . Now it is time to TFTP in the rootfs file. First find out how much space is left
+ .
 
 {{{
-fis create -n linux}}}
- You will get a caution message:
-
-{{{
-An image named 'linux' exists - continue (y/n)? y
-* CAUTION * about to program 'linux'
-at 0x50080000..0x501e7c93 from 0x00800000 - continue (y/n)? y
+RedBoot> fis free
+  0x50180000 .. 0x50FE0000
 }}}
- The message repeats twice since this is when you are actually overwriting the original version of linux installed on the board. They really want you to be sure and it is wise to reread your command line to be sure that you aren't doing something stupid... but forge ahead... The GW2348 will respond:
-
+In this case we have 0xE60000 free space
 {{{
-... Unlock from 0x50fe0000-0x51000000: .
-... Erase from 0x50fe0000-0x51000000: .
-... Program from 0x03fe0000-0x04000000 at 0x50fe0000: .
-... Lock from 0x50fe0000-0x51000000: .
-RedBoot>
-}}}
-  Now it is time to TFTP in the rootfs file:
-
-{{{
-load -r -v -b 0x00800000 openwrt-ixp4xx-2.6-jffs2-128k.img}}}
- If all is working well the response should look something like this:
-
+load -r -v -b 0x00800000 openwrt-ixp4xx-squashfs.img}}}
+ . If all is working well the response should look something like this:
 {{{
 Using default protocol (TFTP)
 /
 Raw file loaded 0x00800000-0x00d13fff, assumed entry at 0x00800000
 RedBoot>
 }}}
- When the loading of the root filesystem is complete (it will take a few seconds because it is a large file) you will create several files The first looks like this:
-
+ . When the loading of the root filesystem is complete (it will take a few seconds because it is a large file) you will create several files The first looks like this:
 {{{
-fis create -b 0x00800000 -f 0x050280000 -l 0x00D20000 ramdisk}}}
- The response from the GW2348 will look like:
-
+fis create -l 0xe60000 rootfs}}}
+ . The response from the GW2348 will look like:
 {{{
-... Erase from 0x50280000-0x50fa0000: ...............................
-.....................................................................
-.....
-... Program from 0x00800000-0x01520000 at 0x50280000: ...............
-.....................................................................
-.....................
+... Erase from 0x50180000-0x50fe0000: ...................................................................................................................
+... Program from 0x00800000-0x00920000 at 0x50180000: .........
 ... Unlock from 0x50fe0000-0x51000000: .
 ... Erase from 0x50fe0000-0x51000000: .
 ... Program from 0x03fe0000-0x04000000 at 0x50fe0000: .
 ... Lock from 0x50fe0000-0x51000000: .
 }}}
- Programming this block of the flash memory takes quite a while because it is a very large file. 
-
+ . Programming this block of the flash memory takes quite a while because it is a very large file.
 When it is done we will run the fconfig utility at the RedBoot> prompt. The GW2348's output is shown in regular type. Your entries are shown in italic:
 
 {{{
@@ -178,10 +144,8 @@ Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Lock from 0x50fe0000-0x51000000: .
 RedBoot>
 }}}
-  yoy may now reset the unit:
-
+ . yoy may now reset the unit:
 {{{
 reset}}}
-
 ----
- CategoryModel ["CategoryIXP4xxDevice"]
+ . CategoryModel ["CategoryIXP4xxDevice"]
