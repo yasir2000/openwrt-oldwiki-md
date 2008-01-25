@@ -85,12 +85,12 @@ RedBoot>
 }}}
  . Now it is time to TFTP in the rootfs file. First find out how much space is left
  .
-
 {{{
 RedBoot> fis free
   0x50180000 .. 0x50FE0000
 }}}
 In this case we have 0xE60000 free space
+
 {{{
 load -r -v -b 0x00800000 openwrt-ixp4xx-squashfs.img}}}
  . If all is working well the response should look something like this:
@@ -147,5 +147,10 @@ RedBoot>
  . you may now reset the unit:
 {{{
 reset}}}
+== Using the Avila ==
+Avila boards have several peripherals and gpios on the pcb that can be controlled from the userland. Below are some examples on how this is done.
+To control the user led you have to issue the to commands to turn it on/off :{{{
+root@OpenWrt:/# echo "0" > /sys/class/leds/user/brightness
+root@OpenWrt:/# echo "1" > /sys/class/leds/user/brightness }}}
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
