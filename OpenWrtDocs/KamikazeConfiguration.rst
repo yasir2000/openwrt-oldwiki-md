@@ -394,7 +394,7 @@ config ntpclient
         option port     '123'
         option count    '1'
 }}}
-OpenWrt will soon advertise it's [http://www.pool.ntp.org/vendors.html NTP Vendor Zone] with appropriate entries in all relevant packages. A [http://lists.openwrt.org/pipermail/openwrt-devel/2008-January/001524.html patch] for fixing this in ntpclient has these additional timeservers:
+OpenWrt will soon advertise its [http://www.pool.ntp.org/vendors.html NTP Vendor Zone] with appropriate entries in all relevant packages. A [http://lists.openwrt.org/pipermail/openwrt-devel/2008-January/001524.html patch] for fixing this in ntpclient has these additional timeservers:
 
 {{{
 config ntpclient
