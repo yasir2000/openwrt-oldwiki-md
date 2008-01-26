@@ -154,9 +154,35 @@ Avila boards have several peripherals and gpios on the pcb that can be controlle
 root@OpenWrt:/# echo "0" > /sys/class/leds/user/brightness
 root@OpenWrt:/# echo "1" > /sys/class/leds/user/brightness }}}
 To set the time/date in the rtc chip, do the following. Once this has been done, the kernel will load the time from the rtc on boot.
+
 {{{
 root@OpenWrt:/# date 012523382008
 Fri Jan 25 23:38:00 UTC 2008
 root@OpenWrt:/# hwclock -w}}}
+If you want to use i2c bus, you need to enable i2c-tools package. Afterwards, you can run the following examples, to access the eeprom:
+{{{
+root@OpenWrt:/# i2cdetect 0
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c-0.
+I will probe address range 0x03-0x77.
+Continue? [Y/n] y
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- 28 -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: UU UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+root@OpenWrt:/#  i2cset 0 0x28 1 1
+No size specified (using byte-data access)
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will write to device file /dev/i2c-0, chip address 0x28, data address
+0x01, data 0x01, mode byte.
+Continue? [Y/n] y
+Value 0x01 written, readback matched
+root@OpenWrt:/#
+}}}
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
