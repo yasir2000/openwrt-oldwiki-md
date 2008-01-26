@@ -566,3 +566,12 @@ DEBUG=0
 }}}
 
 [http://files.eschauzier.org/qos.gif]
+
+=== Fair NAT (OpenWRT version) ===
+/!\ '''NOTE:''' Fair NAT is not supported by the !OpenWrt developers!
+
+Fair NAT is a script I wrote in 2003, when I had to share a slow DSL line with 5 people. Other than most QoS scripts, Fair NAT tries to distribute available bandwidth in a fair manner, before prioritizing certain types of traffic per user. This approach has a lot of advantages if you have multiple users that use the net at the same time. It prevents one user from choking all others, and thus allows users to do anything they want with their bandwidth. As long as your links total bandwidth divided by the number of users currently online is sufficient, it allows all users to be happy even if one does heavy stuff like P2P up- and downloads.
+
+Switching from a stand alone Linux PC router to an embedded OpenWRT box with limited resources, I adapted my old Fair NAT script to work with OpenWRT. It's a simple shell script, organized into subroutines. There is no configuration file. If you want to use this script, you will need to know about how shell scripts, iptables and tc work, as you'll have to adapt the script to your own needs. Since every user can do with his part of the bandwidth whatever he wants, each user has his own subroutine for classifying and prioritizing traffic according to his own needs.
+
+You can obtain Fair NAT from this URL: http://www.metamorpher.de/fairnat/
