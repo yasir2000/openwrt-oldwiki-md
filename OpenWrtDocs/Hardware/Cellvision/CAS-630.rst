@@ -15,7 +15,7 @@ Known models are:
 ||BONA Computech|| [http://www.bona.com.tw:8080/product/IP-630.htm IP-630]||[http://www.bona.com.tw:8080/product/IP-630W.htm IP-630W]||
 ||D-Link|| [http://www.dlink.com/products/?sec=0&pid=364 DCS-950]||[http://www.dlink.com/products/?sec=0&pid=365 DCS-950G]||
 ||Digitus|| [http://www.digitus.info/scripts/digdetail.asp?artnr=DN%2D16021 DN-16021]|| [http://www.digitus.info/scripts/digdetail.asp?artnr=DN%2D16022 DN-16022]||
-||[http://www.neo-fusion.de NeuFusion]||NCS-630||NCS-630W||
+||Neu-Fusion||[http://www.neu-fusion.de/NCS-630W.htm NCS-630]||[http://www.neu-fusion.de/NCS-630W.htm NCS-630W]||
 ||REPOTEC ||[http://www.repotec.com.tw/default.asp?pagename=Surveillance_System/RP_WV630_VP630.htm RP-VP630]|| [http://www.repotec.com.tw/default.asp?pagename=Surveillance_System/RP_WV630_VP630.htm RP-WV630]||
 ||SparkLAN||[http://www.sparklan.com/product_details.php?prod_id=141 CAS-630]||[http://www.sparklan.com/product_details.php?prod_id=142 CAS-630W]||
 ||Surecom|| [http://www.surecom-net.com/pd-internet_camera-4001_4002-MM.htm EP-4001-MM]|| [http://www.surecom-net.com/pd-internet_camera-4001_4002-MM.htm EP-4002-MM]||
