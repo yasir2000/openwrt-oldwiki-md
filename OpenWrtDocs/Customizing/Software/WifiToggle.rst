@@ -90,6 +90,6 @@ Then set {{{ chmod +x /sbin/woggle }}}
 
 Although some of the LED lines have been removed from here, the behaviour is pretty much the same as the original scripts.  If you wish to add original led lines back, just copy the lines from the original scripts back in, or substitute your own.
 
-Now, every time you want to turn the wireless on and off, you can press the button on the router, or you can issue a {{{woggle}}} command from the openwrt shell.
+Now, every time you want to turn the wireless on or off, you can press the button on the router, or you can issue a {{{woggle}}} command from the openwrt shell.
 
 ---- /!\ '''End of edit conflict''' ----
