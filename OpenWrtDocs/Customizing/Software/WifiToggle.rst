@@ -48,6 +48,24 @@ First, make sure
 {{{ option disabled 0 }}}
 is set in the {{{/etc/config/wireless}}} (Kamikaze) for your interface.  This will mean the wireless will go up every time the router is powered up.  
 
+== Generic Toggle Script ==
+Create a file called {{{woggle}}} in {{{/sbin}}} and paste this into it:
+{{{
+#!/bin/sh
+
+WIFI_RADIOSTATUS=$(wlc radio)
+case "$WIFI_RADIOSTATUS" in
+0)
+        wlc radio 1
+        echo 1 > /proc/diag/led/ses_white ;;
+1)
+        wlc radio 0
+        echo 0 > /proc/diag/led/ses_white
+        echo 2 > /proc/diag/led/wlan
+esac
+}}}
+Then set {{{ chmod +x /sbin/woggle }}}
+
 == Bringing Wireless Offline After Boot ==
 To bring wireless down at boot(only if you want) after it's brought up by regular network scripts, create a file called {{{wifidown}}} in {{{/etc/init.d}}} and copy and paste this in:
 {{{ #!/bin/sh
@@ -69,24 +87,6 @@ if [ "$BUTTON" = "ses" ] ; then
 fi
 }}}
 and set {{{ chmod +x 01-radio-toggle }}} to make the file executable.
-
-== Generic Toggle Script ==
-Create a file called {{{woggle}}} in {{{/sbin}}} and paste this into it:
-{{{
-#!/bin/sh
-
-WIFI_RADIOSTATUS=$(wlc radio)
-case "$WIFI_RADIOSTATUS" in
-0)
-        wlc radio 1
-        echo 1 > /proc/diag/led/ses_white ;;
-1)
-        wlc radio 0
-        echo 0 > /proc/diag/led/ses_white
-        echo 2 > /proc/diag/led/wlan
-esac
-}}}
-Then set {{{ chmod +x /sbin/woggle }}}
 
 Although some of the LED lines have been removed from here, the behaviour is pretty much the same as the original scripts.  If you wish to add original led lines back, just copy the lines from the original scripts back in, or substitute your own.
 
