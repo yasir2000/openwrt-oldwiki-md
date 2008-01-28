@@ -60,7 +60,7 @@ This will make sure it is one of the last scripts to be loaded after boot (to gi
 
 == Hotplugging ==
 
-Now to get hotplugging working, create a directory in {{{/etc/hotplug.d}}}} called {{{button}}} and then create a file in {{{/etc/hotplug.d/button}}} called {{{01-radio-toggle}}} as in the original wifi toggle script (above).  Paste this into that file:
+Now to get hotplugging working, create a directory in {{{/etc/hotplug.d}}} called {{{button}}} and then create a file in {{{/etc/hotplug.d/button}}} called {{{01-radio-toggle}}} as in the original wifi toggle script (above).  Paste this into that file:
 {{{
 if [ "$BUTTON" = "ses" ] ; then
         if [ "$ACTION" = "pressed" ] ; then
