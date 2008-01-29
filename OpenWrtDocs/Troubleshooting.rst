@@ -142,8 +142,6 @@ CFE> flash -noheader : flash1.trx
 The CFE will enter TFTP receptive mode after that command.
 
 == JTAG adaptor method ==
-/!\ '''WARNING:''' You are now leaving the safe grounds of warranty coverage.
-
 '''Linksys models'''
 
  * refer to ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] howto create a JTAG cable
