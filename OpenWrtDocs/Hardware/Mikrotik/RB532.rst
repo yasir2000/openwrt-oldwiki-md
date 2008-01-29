@@ -114,3 +114,37 @@ If it boots correctly you can continue with configuring !OpenWrt.
 
 ==== Flashing the NAND ====
 First we have to start with a clean NAND. We need to format the NAND. You can say goodbye to the RouterOS. Open source is better.
+{{{
+RouterBOOT booter 2.8
+
+RouterBoard 532A
+
+CPU frequency: 399 MHz
+  Memory size:  64 MB
+
+Press any key within 2 seconds to enter setup
+
+RouterBOOT-2.8
+What do you want to configure?
+   d - boot delay
+   k - boot key
+   s - serial console
+   o - boot device
+   u - cpu mode
+   f - try cpu frequency
+   c - keep cpu frequency
+   r - reset configuration
+   e - format nand
+   g - upgrade firmware
+   i - board info
+   p - boot protocol
+   t - do memory testing
+   x - exit setup
+your choice: e - format nand
+
+
+Do you realy want to format your nand?
+that would result in losing all your data
+type "yes" to confirm: yes
+formating nand... done!
+}}}
