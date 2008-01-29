@@ -7,7 +7,9 @@ this webpage was created to add more details about that ["OpenWrtDocs/Hardware/D
 = NEWS =
 
 END january '08 : i'm no more using this device by my customers... it overheats and halts -> DO NOT USE IT
+
 january '08 : the atm module works... it still gives some crap in the logs, but works
+
 december '07 : [https://dev.openwrt.org/ticket/2377 buggy atm module] :_(
 
 = differences =
