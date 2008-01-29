@@ -316,3 +316,167 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#
 }}}
+check the NAND partitions:
+{{{
+root@OpenWrt:/# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00400000 00020000 "Routerboard NAND boot"
+mtd1: 07c00000 00020000 "rootfs"
+}}}
+the first block is where the kernel resides and the second is where the root file system is.
+{{{
+root@OpenWrt:/# mount /dev/mtdblock0 /mnt
+yaffs: dev is 32505856 name is "mtdblock0"
+yaffs: passed flags ""
+yaffs: Attempting MTD mount on 31.0, "mtdblock0"
+yaffs: auto selecting yaffs2
+yaffs: restored from checkpoint
+root@OpenWrt:/# cd /mnt
+root@OpenWrt:/tmp# wget http://wifi.ozo.com/airo/openwrt/firmware/kamikaze/2.6/rb5xx/10304/kernel
+Connecting to wifi.ozo.com (212.70.193.242:80)
+kernel               100% |*******************************|   765k 00:00:00 ETA
+root@OpenWrt:/mnt# cd /
+root@OpenWrt:/# umount /mnt
+root@OpenWrt:/# mount /dev/mtdblock1 /mnt
+yaffs: dev is 32505857 name is "mtdblock1"
+yaffs: passed flags ""
+yaffs: Attempting MTD mount on 31.1, "mtdblock1"
+root@OpenWrt:/# cd /mnt
+root@OpenWrt:/tmp# wget http://wifi.ozo.com/airo/openwrt/firmware/kamikaze/2.6/rb5xx/10304/openwrt-rb532-2.6-rootfs.tgz
+Connecting to wifi.ozo.com (212.70.193.242:80)
+openwrt-rb532-2.6-ro 100% |*******************************|   701k 00:00:00 ETA
+root@OpenWrt:/mnt# gzip -d openwrt-rb532-2.6-rootfs.tgz
+root@OpenWrt:/mnt# tar xvf openwrt-rb532-2.6-rootfs.tar
+./
+./var
+./proc/
+./usr/
+./usr/share/
+ .
+ .
+ .
+./bin/nice
+./bin/login
+./bin/false
+./tmp/
+root@OpenWrt:/mnt# cd /
+root@OpenWrt:/# umount /mnt
+save exit: isCheckpointed 1
+root@OpenWrt:/# reboot
+The system is going down NOW!
+Sending SIGTERM to all processes
+Requesting system reboot
+Restarting system.
+}}}
+The unit will now boot from the NAND:
+{{{
+RouterBOOT booter 2.8
+
+RouterBoard 532A
+
+CPU frequency: 399 MHz
+  Memory size:  64 MB
+
+Press any key within 2 seconds to enter setup..
+loading kernel from nand... OK
+setting up elf image... OK
+jumping to kernel code
+Linux version 2.6.23.14 (alex@orama) (gcc version 4.2.2) #1 Tue Jan 29 09:03:53 EET 2008
+CPU revision is: 0001800a
+Determined physical RAM map:
+ memory: 03fffa00 @ 00000400 (usable)
+Wasting 32 bytes for tracking 1 unused pages
+Initrd not found or empty - disabling initrd
+Built 1 zonelists in Zone order.  Total pages: 16256
+Kernel command line: console=ttyS0,115200 gpio=16383 kmac=00:0C:42:0F:C3:54 board=500r5 boot=1 root=/dev/mtdblock1 rootfstype=yaffs2 init=/etc/preinit
+korina mac = 00:0C:42:0F:C3:54
+Primary instruction cache 8kB, physically tagged, 4-way, linesize 16 bytes.
+Primary data cache 8kB, 4-way, linesize 16 bytes.
+Synthesized TLB refill handler (20 instructions).
+Synthesized TLB load handler fastpath (32 instructions).
+Synthesized TLB store handler fastpath (32 instructions).
+Synthesized TLB modify handler fastpath (31 instructions).
+Initializing IRQ's: 168 out of 256
+PID hash table entries: 256 (order: 8, 1024 bytes)
+calculating r4koff... 001e846c(1999980)
+CPU frequency 400.00 MHz
+Using 199.998 MHz high precision timer.
+console [ttyS0] enabled
+Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Memory: 61272k/65528k available (2060k kernel code, 4196k reserved, 319k data, 116k init, 0k highmem)
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+PCI: Initializing PCI
+registering PCI controller with io_map_base unset
+NET: Registered protocol family 2
+Time: MIPS clocksource has been installed.
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+TCP: Hash tables configured (established 2048 bind 2048)
+TCP reno registered
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+JFFS2 version 2.2. (NAND) (SUMMARY)  ώώ 2001-2006 Red Hat, Inc.
+yaffs Jan 29 2008 09:02:37 Installing.
+io scheduler noop registered
+io scheduler deadline registered (default)
+Serial: 8250/16550 driver $Revision: 1.90 $ 2 ports, IRQ sharing disabled
+serial8250: ttyS0 at MMIO 0x0 (irq = 104) is a 16550A
+Using NAPI with weight 64
+eth0: Rx IRQ 40, Tx IRQ 41, 00:0c:42:0f:c3:54
+via-rhine.c:v1.10-LK1.4.3 2007-03-06 Written by Donald Becker
+PCI: Enabling device 0000:00:02.0 (0080 -> 0083)
+io_map_base of root PCI bus 0000:00 unset.  Trying to continue but you better
+fix this issue or report it to linux-mips@linux-mips.org or your vendor.
+eth1: VIA Rhine III at 0xb8800000, 00:0c:42:0f:c3:55, IRQ 142.
+eth1: MII PHY found at address 1, status 0x7849 advertising 05e1 Link 0000.
+PCI: Enabling device 0000:00:03.0 (0080 -> 0083)
+eth2: VIA Rhine III at 0xb8800100, 00:0c:42:0f:c3:56, IRQ 143.
+eth2: MII PHY found at address 1, status 0x7849 advertising 05e1 Link 0000.
+block2mtd: version $Revision: 1.30 $
+NAND device: Manufacturer ID: 0xad, Chip ID: 0xf1 (Hynix NAND 128MiB 3,3V 8-bit)
+Scanning device for bad blocks
+Creating 2 MTD partitions on "NAND 128MiB 3,3V 8-bit":
+0x00000000-0x00400000 : "Routerboard NAND boot"
+0x00400000-0x08000000 : "rootfs"
+mtd: partition "rootfs" set to be root filesystem
+split_squashfs: no squashfs found in "NAND 128MiB 3,3V 8-bit"
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+Registered led device: rb500led:amber
+nf_conntrack version 0.5.0 (1024 buckets, 4096 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP vegas registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+yaffs: dev is 32505857 name is "mtdblock1"
+yaffs: passed flags ""
+yaffs: Attempting MTD mount on 31.1, "mtdblock1"
+yaffs: restored from checkpoint
+VFS: Mounted root (yaffs2 filesystem) readonly.
+Freeing unused kernel memory: 116k freed
+Please be patient, while OpenWrt loads ...
+Algorithmics/MIPS FPU Emulator v1.5
+- preinit -
+- init -
+
+Please press Enter to activate this console.
+
+
+BusyBox v1.8.2 (2008-01-29 08:57:18 EET) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r10304) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
+}}}
