@@ -3,6 +3,12 @@ GNU make 3.81
 
 Lots more
 
+'''Debian Etch:'''
+{{{
+ apt-get install subversion g++ libncurses5-dev zlib1g-dev bison flex unzip autoconf gawk make
+}}}
+
+
 == Actual commands ==
 {{{
 cd ~
