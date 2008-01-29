@@ -42,7 +42,9 @@ Test it by pressing the button you configured above.
 = Alternative Script =
 
 This is another setup based upon the above script, and also the one at: http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration
-First objective is to reuse the code to allow for easy wireless (with accompanying led) toggling within the shell too.  Second objective is to minimise the number of writes to the flash rom every time wireless is toggled.
+There are a few reasons for this modified version.  First objective is to reuse the code to allow for easy wireless (with accompanying led) toggling within the shell too.  Second objective is to minimise the number of writes to the flash rom every time wireless is toggled.
+
+Note: If you are using wireless encryption, nas and radius daemons will not be turned off during toggle and will continue to occupy cpu/memory. They should not consume too many resources with no client load though.
 
 First, make sure
 {{{ option disabled 0 }}}
