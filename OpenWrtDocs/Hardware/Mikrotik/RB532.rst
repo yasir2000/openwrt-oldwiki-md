@@ -171,7 +171,7 @@ Select boot device:
    b - boot chosen device
 your choice: n - boot from NAND, if fail then Ethernet
 }}}
-now we can netboot:
+now we can netboot since the NAND flash is empty:
 {{{
 your choice: x - exit setup
 
