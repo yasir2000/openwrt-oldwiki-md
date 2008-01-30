@@ -70,12 +70,13 @@ Then set {{{ chmod +x /sbin/woggle }}}
 
 == Bringing Wireless Offline After Boot ==
 To bring wireless down at boot(only if you want) after it's brought up by regular network scripts, create a file called {{{wifidown}}} in {{{/etc/init.d}}} and copy and paste this in:
-{{{ #!/bin/sh
+{{{ #!/bin/sh /etc/rc.common
+START=45
 /usr/sbin/woggle
 }}}
 Set {{{ chmod +x /etc/init.d/wifidown }}}
 Then, you need it to load during boot, so type
-{{{ ln -s /etc/init.d/wifidown /etc/rc.d/S99wifidown }}}
+{{{ /etc/init.d/wifidown enable }}}
 This will make sure it is one of the last scripts to be loaded after boot (to give the network scripts a chance to load first).
 
 == Hotplugging ==
