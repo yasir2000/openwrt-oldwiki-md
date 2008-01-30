@@ -71,7 +71,8 @@ Then set {{{ chmod +x /sbin/woggle }}}
 == Bringing Wireless Offline After Boot ==
 To bring wireless down at boot(only if you want) after it's brought up by regular network scripts, create a file called {{{wifidown}}} in {{{/etc/init.d}}} and copy and paste this in:
 {{{ #!/bin/sh /etc/rc.common
-START=45
+START=41
+STOP=41
 /usr/sbin/woggle
 }}}
 Set {{{ chmod +x /etc/init.d/wifidown }}}
