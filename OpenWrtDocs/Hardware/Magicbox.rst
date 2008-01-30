@@ -36,20 +36,46 @@ Power over Ethernet: 18-24V
 
 '''Installation'''
 
-Set up a tftp server and use these commands over serial console:
+Press a key on bootup to enter the u-boot bootloader's console.
+
+Set up the IP addresses:
 
 {{{
-erase 0xffc00000 fffbffff
-setenv ipaddr [ip for the magicbox]
-setenv serverip [tftp server ip]
-tftp 100000 openwrt-magicbox-2.6-squashfs.img
-cp.b 0x100000 0xffc00000 [size of the image in hex, the bootloader prints it after the tftp]
-setenv openwrt setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit\;bootm \$(kernel_addr)
-setenv bootcmd run openwrt
-saveenv
-reset
+setenv ipaddr 192.168.1.1
+setenv serverip 192.168.1.254
 }}}
 
+Create an easy way for us to reflash the box in u-boot:
+{{{
+setenv flash_openwrt erase \${kernel_addr} fffbffff\;tftp 100000 openwrt-magicbox-squashfs.img\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
+}}}
+
+Create the needed bootargs for !OpenWrt:
+
+Magicbox 1.1:
+{{{
+setenv bootargs console=ttyS0,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
+}}}
+
+Magicbox 2.0:
+{{{
+setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
+}}}
+
+Set/clear the needed variables and save:
+
+{{{
+setenv ramdisk_addr
+setenv flash_mem
+setenv bootcmd bootm \${kernel_addr}
+saveenv
+}}}
+
+Flash !OpenWrt and reset:
+{{{
+run flash_openwrt
+reset
+}}}
 
 ----
 CategoryModel
