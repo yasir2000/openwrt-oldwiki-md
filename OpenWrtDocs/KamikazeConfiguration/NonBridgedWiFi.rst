@@ -237,10 +237,12 @@ COMMAND=/sbin/shorewall
 	} &
 } }}}
 
-=== Using OpenWrt Stock Scripts ===
+= Using OpenWrt Stock Scripts =
 As an easier alternative to shorewall, modify {{{/etc/init.d/firewall}}} like this:
 
-Add {{{config_get WIFI wifi ifname}}} to the front part of script where the other {{{config_get}}} commands are.
+Find where the other {{{config_get}}} commands are. Add:
+{{{config_get WIFI wifi ifname}}}
+to where the others are.
 
 Now, scroll down to where it says {{{ ### FORWARDING }}} and under the {{{ # allow }}} section, add
 {{{
