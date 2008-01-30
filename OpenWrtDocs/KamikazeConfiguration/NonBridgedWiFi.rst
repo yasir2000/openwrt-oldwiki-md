@@ -237,5 +237,20 @@ COMMAND=/sbin/shorewall
 	} &
 } }}}
 
+=== Using OpenWrt Stock Scripts ===
+As an easier alternative to shorewall, modify {{{/etc/init.d/firewall}}} like this:
+
+Add {{{config_get WIFI wifi ifname}}} to the front part of script where the other {{{config_get}}} commands are.
+
+Now, scroll down to where it says {{{ ### FORWARDING }}} and under the {{{ # allow }}} section, add
+{{{
+	iptables -A FORWARD -i $WIFI -o $WIFI -j ACCEPT
+	[ -z "$WAN" ] || iptables -A FORWARD -i $WIFI -o $WAN -j ACCEPT
+
+	iptables -A FORWARD -i $WIFI -o $LAN -j ACCEPT
+	iptables -A FORWARD -i $LAN -o $WIFI -j ACCEPT
+}}}
+That will allow computers on the wireless lan to contact each other, to access internet, and for contact between lan and wireless segments.
+
 ----
 CategoryHowTo
