@@ -256,10 +256,5 @@ Now, scroll down to where it says {{{ ### FORWARDING }}} and under the {{{ # all
 }}}
 That will allow computers on the wireless lan to contact each other, to access internet, and for contact between lan and wireless segments.
 
-If you're lazy and just want to download a modified firewall script to put into {{{/etc/init.d}}} with above changes, just download attachment:firewall onto your router with 
-{{{
-wget "http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/NonBridgedWiFi?action=AttachFile&do=get&target=firewall" -O /etc/firewall
-cp /tmp/firewall /etc/init.d
-}}}
 ----
 CategoryHowTo
