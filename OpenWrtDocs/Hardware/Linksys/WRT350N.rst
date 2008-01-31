@@ -271,5 +271,306 @@ wifi0     Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C
           Interrupt:36 Memory:c2860000-c2870000 
 }}}
 
+{{{
+~ # dmesg -s 65535
+Linux version 2.6.12-arm1 (root@davidnb-gentoo) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-2)) #1 Thu Jan 31 00:13:20 CET 2008
+CPU: ARM926EJ-Sid(wb) [41069260] revision 0 (ARMv5TEJ)
+CPU0: D VIVT write-back cache
+CPU0: I cache: 32768 bytes, associativity 1, 32 byte lines, 1024 sets
+CPU0: D cache: 32768 bytes, associativity 1, 32 byte lines, 1024 sets
+Machine: MV-88fxx81
+Using UBoot passing parameters structure
+Sys Clk = 166000000, Tclk = 166000000
+Memory policy: ECC disabled, Data cache writeback
+On node 0 totalpages: 8192
+  DMA zone: 8192 pages, LIFO batch:3
+  Normal zone: 0 pages, LIFO batch:1
+  HighMem zone: 0 pages, LIFO batch:1
+Built 1 zonelists
+Kernel command line: console=ttyS0,115200 root=/dev/mtdblock1 rw
+PID hash table entries: 256 (order: 8, 4096 bytes)
+Console: colour dummy device 80x30
+Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Memory: 32MB 0MB 0MB 0MB = 32MB total
+Memory: 28928KB available (2496K code, 877K data, 100K init)
+Calibrating delay loop... 331.77 BogoMIPS (lpj=1658880)
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+NET: Registered protocol family 16
+Flash bankwidth 1, base f4000000, size 800000
+
+  Marvell Development Board (LSP Version 1.8.5)-- RD-88F5181L-VOIP-GE 
+
+ Detected Tclk 166000000 and SysClk 166000000 
+Marvell USB EHCI Host controller #0: c03fbb00
+pexBarOverlapDetect: winNum 2 overlap current 0
+mvPexInit:Warning :Bar 2 size is illigal
+it will be disabled
+please check Pex and CPU windows configuration
+PCI: bus0: Fast back to back transfers enabled
+PCI: bus1: Fast back to back transfers enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pci access ctrl reg 0x31e00's value = 0x00000a01
+pci access ctrl size reg 0x31e08's value = 0x07fff000
+SCSI subsystem initialized
+Linux Kernel Card Services
+  options:  [pci]
+usbcore: registered new driver usbfs
+usbcore: registered new driver hub
+TWSI: twsiAddr7BitSet ERROR - Addr (7 Bit) int TimeOut.
+TWSI: mvTwsiStopBitSet ERROR - Stop bit TimeOut .
+TWSI: mvTwsiStartBitSet ERROR - Start Clear bit TimeOut .
+TWSI: twsiAddr7BitSet ERROR - Addr (7 Bit) int TimeOut.
+TWSI: mvTwsiStopBitSet ERROR - Stop bit TimeOut .
+TWSI: mvTwsiStartBitSet ERROR - Start Clear bit TimeOut .
+TWSI: twsiAddr7BitSet ERROR - Addr (7 Bit) int TimeOut.
+TWSI: mvTwsiStopBitSet ERROR - Stop bit TimeOut .
+TWSI: mvTwsiStartBitSet ERROR - Start Clear bit TimeOut .
+TWSI: twsiAddr7BitSet ERROR - Addr (7 Bit) int TimeOut.
+TWSI: mvTwsiStopBitSet ERROR - Stop bit TimeOut .
+use IDMA acceleration in copy to/from user buffers. used channels 2 and 3 
+Done. 
+Fast Floating Point Emulator V0.9 (c) Peter Teichmann.
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+JFFS2 version 2.2. (C) 2001-2003 Red Hat, Inc.
+Initializing Cryptographic API
+HDLC line discipline: version $Revision: 1.1.1.1 $, maxframe=4096
+N_HDLC line discipline registered.
+Serial: 8250/16550 driver $Revision: 1.1.1.1 $ 4 ports, IRQ sharing disabled
+ttyS0 at MMIO 0x0 (irq = 3) is a 16550A
+io scheduler noop registered
+io scheduler anticipatory registered
+io scheduler deadline registered
+io scheduler cfq registered
+loop: loaded (max 8 devices)
+Loading Marvell Gatway Driver:
+multi queue enabled
+prioritizing ToS 0xA0
+eth0: 00:00:00:00:51:81, group-id 0x100, group-members are port-CPU port-1 port-2 port-3 port-4 
+eth1: 00:00:00:00:51:82, group-id 0x200, group-members are port-CPU port-0 
+init switch layer... gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+gcosSetPortDefaultTc failed (port 8)
+done
+init gigabit layer... done
+loading network interfaces: eth0 eth1 
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+NET: Registered protocol family 24
+SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256).
+STRIP: Version 1.3A-STUART.CHESHIRE (unlimited channels)
+physmap flash device: 800000 at f4000000
+phys_mapped_flash: Found 1 x16 devices at 0x0 in 8-bit bank
+ Amd/Fujitsu Extended Query Table at 0x0040
+phys_mapped_flash: Swapping erase regions for broken CFI table.
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+Using physmap partition definition
+Creating 5 MTD partitions on "phys_mapped_flash":
+0x00000000-0x00760000 : "kernel"
+0x001a0000-0x00760000 : "rootfs"
+0x00760000-0x007a0000 : "lang"
+0x007a0000-0x007c0000 : "nvram"
+0x007c0000-0x00800000 : "u-boot"
+ehci_platform ehci_platform.4523: EHCI Host Controller
+ehci_platform ehci_platform.4523: new USB bus registered, assigned bus number 1
+ehci_platform ehci_platform.4523: irq 17, io mem 0x00000000
+ehci_platform ehci_platform.4523: park 0
+ehci_platform ehci_platform.4523: USB 0.0 initialized, EHCI 1.00, driver 10 Dec 2004
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+ohci_hcd: 2004 Nov 08 USB 1.1 'Open' Host Controller (OHCI) Driver (PCI)
+USB Universal Host Controller Interface driver v2.2
+Initializing USB Mass Storage driver...
+usbcore: registered new driver usb-storage
+USB Mass Storage support registered.
+mice: PS/2 mouse device common for all mice
+u32 classifier
+    OLD policer on 
+NET: Registered protocol family 2
+IP: routing cache hash table of 512 buckets, 4Kbytes
+/proc/eth1_tm created
+TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+TCP: Hash tables configured (established 2048 bind 2048)
+ip_conntrack version 2.1 (256 buckets, 2048 max) - 268 bytes per conntrack
+ip_conntrack_rtsp v0.6.21 loading
+ip_nat_rtsp v0.6.21 loading
+ip_tables: (C) 2000-2002 Netfilter core team
+netfilter PSD loaded - (c) astaro AG
+ipt_random match loaded
+ip_conntrack_pptp version 3.0 loaded
+ip_nat_pptp version 3.0 loaded
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing init memory: 100K
+ipt_webstr: module license 'unspecified' taints kernel.
+ufsd: driver loaded
+UFSD version 5.28 (Nov  8 2006, 21:54:59)
+NTFS read/write support included
+
+ufsd: address 0xbf030538
+mv_gateway: starting eth0
+mv_gateway: starting eth1
+device eth0 entered promiscuous mode
+br0: port 1(eth0) entering learning state
+br0: topology change detected, propagating
+br0: port 1(eth0) entering forwarding state
+lock init
+create wsc_cfb entry
+create wsc_cfb entry
+create wsc_iechange entry
+create wsc_userset entry
+ath_hal: 0.9.14.25 (AR5416, DEBUG)
+wlan: 0.8.4.2 (Atheros/multi-bss)
+ath_rate_atheros: Version 2.0.1
+Copyright (c) 2001-2004 Atheros Communications, Inc, All Rights Reserved
+ath_dfs: Version 2.0.0
+Copyright (c) 2005-2006 Atheros Communications, Inc. All Rights Reserved
+ath_pci: 0.9.4.5 (Atheros/multi-bss)
+Chan  Freq  RegPwr  HT   CTL CTL_U CTL_L DFS
+   1  2412n     20  HT20  1    0    1     N
+   1  2412n     20  HT40  1    0    1     N
+   2  2417n     20  HT40  1    0    1     N
+   3  2422n     20  HT40  1    1    1     N
+   4  2427n     20  HT40  1    1    1     N
+   5  2432n     20  HT40  1    1    1     N
+   6  2437n     20  HT40  1    1    1     N
+   7  2442n     20  HT40  1    1    1     N
+   8  2447n     20  HT40  1    1    1     N
+   9  2452n     20  HT40  1    1    1     N
+  10  2457n     20  HT40  1    1    1     N
+  11  2462n     20  HT40  1    1    1     N
+  12  2467n     20  HT40  1    1    0     N
+  13  2472n     20  HT40  1    1    0     N
+register_simple_config_callback called
+wifi0: 11ng rates: 1Mbps 2Mbps 5.5Mbps 11Mbps 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+wifi0: 11ng MCS:  0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+wifi0: mac 13.2 phy 8.1 radio 13.0
+wifi0: Use hw queue 1 for WME_AC_BE traffic
+wifi0: Use hw queue 0 for WME_AC_BK traffic
+wifi0: Use hw queue 2 for WME_AC_VI traffic
+wifi0: Use hw queue 3 for WME_AC_VO traffic
+wifi0: Use hw queue 8 for CAB traffic
+wifi0: Use hw queue 9 for beacons
+wifi0: Atheros 5416 PCI: mem=0xe8000000, irq=36 hw_base=0xc2860000
+ar5416SetPowerPerRateTable() syn 2412 ctl 2412 ext 2412 is40 0
+  6mb OFDM  13.0 dBm |  9mb OFDM  13.0 dBm | 12mb OFDM  13.0 dBm | 18mb OFDM  13.0 dBm
+ 24mb OFDM  13.0 dBm | 36mb OFDM  13.0 dBm | 48mb OFDM  13.0 dBm | 54mb OFDM  13.0 dBm
+ 1L   CCK   13.0 dBm | 2L   CCK   13.0 dBm | 2S   CCK   13.0 dBm | 5.5L CCK   13.0 dBm
+ 5.5S CCK   13.0 dBm | 11L  CCK   13.0 dBm | 11S  CCK   13.0 dBm | XR         13.0 dBm
+ HT20mcs 0  13.0 dBm | HT20mcs 1  13.0 dBm | HT20mcs 2  13.0 dBm | HT20mcs 3  13.0 dBm
+ HT20mcs 4  13.0 dBm | HT20mcs 5  13.0 dBm | HT20mcs 6  12.0 dBm | HT20mcs 7   6.0 dBm
+ HT40mcs 0   0.0 dBm | HT40mcs 1   0.0 dBm | HT40mcs 2   0.0 dBm | HT40mcs 3   0.0 dBm
+ HT40mcs 4   0.0 dBm | HT40mcs 5   0.0 dBm | HT40mcs 6   0.0 dBm | HT40mcs 7   0.0 dBm
+ Dup CCK     0.0 dBm | Dup OFDM    0.0 dBm | Ext CCK     0.0 dBm | Ext OFDM    0.0 dBm
+2xAntennaReduction: 0, 2xMaxRegulatory: 40, 2xPowerLimit: 60
+2xMaxPowerLevel: 26 (HT20)
+TPC Enabled 1 1 0
+ar5416SetPowerPerRateTable() syn 2412 ctl 2412 ext 2412 is40 0
+  6mb OFDM  13.0 dBm |  9mb OFDM  13.0 dBm | 12mb OFDM  13.0 dBm | 18mb OFDM  13.0 dBm
+ 24mb OFDM  13.0 dBm | 36mb OFDM  13.0 dBm | 48mb OFDM  13.0 dBm | 54mb OFDM  13.0 dBm
+ 1L   CCK   13.0 dBm | 2L   CCK   13.0 dBm | 2S   CCK   13.0 dBm | 5.5L CCK   13.0 dBm
+ 5.5S CCK   13.0 dBm | 11L  CCK   13.0 dBm | 11S  CCK   13.0 dBm | XR         13.0 dBm
+ HT20mcs 0  13.0 dBm | HT20mcs 1  13.0 dBm | HT20mcs 2  13.0 dBm | HT20mcs 3  13.0 dBm
+ HT20mcs 4  13.0 dBm | HT20mcs 5  13.0 dBm | HT20mcs 6  12.0 dBm | HT20mcs 7   6.0 dBm
+ HT40mcs 0   0.0 dBm | HT40mcs 1   0.0 dBm | HT40mcs 2   0.0 dBm | HT40mcs 3   0.0 dBm
+ HT40mcs 4   0.0 dBm | HT40mcs 5   0.0 dBm | HT40mcs 6   0.0 dBm | HT40mcs 7   0.0 dBm
+ Dup CCK     0.0 dBm | Dup OFDM    0.0 dBm | Ext CCK     0.0 dBm | Ext OFDM    0.0 dBm
+2xAntennaReduction: 0, 2xMaxRegulatory: 40, 2xPowerLimit: 60
+2xMaxPowerLevel: 26 (LEG)
+device ath0 entered promiscuous mode
+lock_write_proc: count = 260 sizeof(wsc_cfb)=260
+ wsc_enable=1
+ wsc_context=1
+ wsc_version=0x10
+ wsc_devcfstat=0
+ wsc_admin.role=0
+ wsc_admin.pwdMode=1
+ wsc_admin.wsc_pin=00000000
+ wsc_admin.seesionTimeout=120
+ wsc_admin.retransmitTimeout=15
+ wsc_admin.retryLimit=300
+ wsc_admin.messageTimeout=0
+ wsc_admin.configured=0
+ wsc_admin.pbcIsRunning=0
+ wsc_admin.selectedReg=0
+ wsc_admin.selectedRegTime=0
+ wsc_admin.selectRegConfigMethod=0
+ wsc_admin.selectRegDevPwdId=0
+ wsc_admin.selfPbcPressed=0
+ wsc_admin.selfPbcPressedTime=0
+ wsc_mac=00:1a:70:a1:c3:8c
+ wsc_manfa=LINKSYS
+ wsc_ssid=WirelessDANwepCrackTest
+ wsc_modelname=WRT350Nv2
+ wsc_modelnumber=WSC0001
+ wsc_serialnumber=0001000004E044
+ wsc_devicename=LINKSYS-WRT350Nv2
+ wsc_encrytype=2
+lock_write_proc: count = 28 sizeof(wsc_cfb)=28
+ role=0
+ pwdMode=0
+ wsc_context=1
+ wsc_iechanged=0
+ configured=0
+ selectedReg=0
+ selectRegConfigMethod=0x00
+ selectRegDevPwdId=0x00
+ wsc_admin.wsc_pin=00000000
+ wsc_daemon_init
+create wsc_pushbutton entry
+ar5416SetPowerPerRateTable() syn 2412 ctl 2412 ext 2412 is40 0
+  6mb OFDM  13.0 dBm |  9mb OFDM  13.0 dBm | 12mb OFDM  13.0 dBm | 18mb OFDM  13.0 dBm
+ 24mb OFDM  13.0 dBm | 36mb OFDM  13.0 dBm | 48mb OFDM  13.0 dBm | 54mb OFDM  13.0 dBm
+ 1L   CCK   13.0 dBm | 2L   CCK   13.0 dBm | 2S   CCK   13.0 dBm | 5.5L CCK   13.0 dBm
+ 5.5S CCK   13.0 dBm | 11L  CCK   13.0 dBm | 11S  CCK   13.0 dBm | XR         13.0 dBm
+ HT20mcs 0  13.0 dBm | HT20mcs 1  13.0 dBm | HT20mcs 2  13.0 dBm | HT20mcs 3  13.0 dBm
+ HT20mcs 4  13.0 dBm | HT20mcs 5  13.0 dBm | HT20mcs 6  12.0 dBm | HT20mcs 7   6.0 dBm
+ HT40mcs 0   0.0 dBm | HT40mcs 1   0.0 dBm | HT40mcs 2   0.0 dBm | HT40mcs 3   0.0 dBm
+ HT40mcs 4   0.0 dBm | HT40mcs 5   0.0 dBm | HT40mcs 6   0.0 dBm | HT40mcs 7   0.0 dBm
+ Dup CCK     0.0 dBm | Dup OFDM    0.0 dBm | Ext CCK     0.0 dBm | Ext OFDM    0.0 dBm
+2xAntennaReduction: 0, 2xMaxRegulatory: 40, 2xPowerLimit: 60
+2xMaxPowerLevel: 26 (HT20)
+TPC Enabled 1 1 0
+Force rf_pwd_icsyndiv to 1 on 2412 (1 2)
+ath_newstate: Resetting VAP dfswait_run
+ath_newstate: Resetting VAP dfswait_run
+Force rf_pwd_icsyndiv to 2 on 2427 (1 2)
+ar5416SetPowerPerRateTable() syn 2427 ctl 2427 ext 2427 is40 0
+  6mb OFDM  13.0 dBm |  9mb OFDM  13.0 dBm | 12mb OFDM  13.0 dBm | 18mb OFDM  13.0 dBm
+ 24mb OFDM  13.0 dBm | 36mb OFDM  13.0 dBm | 48mb OFDM  13.0 dBm | 54mb OFDM  13.0 dBm
+ 1L   CCK   13.0 dBm | 2L   CCK   13.0 dBm | 2S   CCK   13.0 dBm | 5.5L CCK   13.0 dBm
+ 5.5S CCK   13.0 dBm | 11L  CCK   13.0 dBm | 11S  CCK   13.0 dBm | XR         13.0 dBm
+ HT20mcs 0  13.0 dBm | HT20mcs 1  13.0 dBm | HT20mcs 2  13.0 dBm | HT20mcs 3  13.0 dBm
+ HT20mcs 4  13.0 dBm | HT20mcs 5  13.0 dBm | HT20mcs 6  12.0 dBm | HT20mcs 7   6.0 dBm
+ HT40mcs 0   0.0 dBm | HT40mcs 1   0.0 dBm | HT40mcs 2   0.0 dBm | HT40mcs 3   0.0 dBm
+ HT40mcs 4   0.0 dBm | HT40mcs 5   0.0 dBm | HT40mcs 6   0.0 dBm | HT40mcs 7   0.0 dBm
+ Dup CCK     0.0 dBm | Dup OFDM    0.0 dBm | Ext CCK     0.0 dBm | Ext OFDM    0.0 dBm
+2xAntennaReduction: 0, 2xMaxRegulatory: 40, 2xPowerLimit: 60
+2xMaxPowerLevel: 26 (HT20)
+ath_chan_set: Changing to channel 2427, Flags 30080, PF 0
+ make a wpa2 ie :
+
+30      <1>1c   <1>01   <1>00   <1>00   <1>0f   <1>ac   <1>02   <1>02   <1>00   <1>00   <1>0f   <1>ac   <1>04   <1>00   <1>0f   
+ac      <1>02   <1>02   <1>00   <1>00   <1>0f   <1>ac   <1>01   <1>00   <1>0f   <1>ac   <1>02   <1>00   <1>00   <1>make a wpa ie :
+
+dd      <1>1e   <1>00   <1>50   <1>f2   <1>01   <1>01   <1>00   <1>00   <1>50   <1>f2   <1>02   <1>02   <1>00   <1>00   <1>50   
+f2      <1>04   <1>00   <1>50   <1>f2   <1>02   <1>02   <1>00   <1>00   <1>50   <1>f2   <1>01   <1>00   <1>50   <1>f2   <1>02   <6>br0: port 2(ath0) entering learning state
+br0: topology change detected, propagating
+br0: port 2(ath0) entering forwarding state
+download uses obsolete (PF_INET,SOCK_PACKET)
+}}}
+
 ----
  . CategoryModel
