@@ -603,6 +603,34 @@ root@OpenWrt:~# reboot
 $ telnet 192.168.1.254 9000
 RedBoot> fis init
 }}}
+= Install The Fonera Pack (from sven-ola): FON + Mesh Network =
+After obtaining ssh and Redboot access, you can either use the manual install of Kamikaze described above or use [http://download.berlin.freifunk.net/fonera/readme.txt sven-ola Freifunk upgrade] with "EasyFlash" that does all the dirty job by itself!!
+
+This distribution allow to create Fonera's Mesh Networks as described [http://blog.freifunk.net/2007/fonera-pack-story here]
+
+{{{
+1) Connect the Fonera to the ethernet jack. Use a cross linked cable.
+2) Switch on the network card, and run update:
+> sudo ifconfig eth0 up
+> wget http://download.berlin.freifunk.net/fonera/ap51-flash-fonera-1.0-38
+> sudo ./ap51-flash-fonera-1.0-38 eth0
+  rootfs(0x006a0000) + kernel(0x00100000) + nvram(0x00000000) sums up to 0x007a0000 bytes
+  Peer MAC: 00:18:84:15:53:20
+  Peer IP : 192.168.1.254
+  Your MAC: 00:ba:be:ca:ff:ee
+  Your IP : 192.168.1.0
+  Setting IP address...
+  Loading rootfs...
+  Sending rootfs, 4608 blocks...
+  Initializing partitions...
+  Rootfs partition size now 0x006b0000
+  Flashing rootfs...
+          Loading kernel...
+  Sending kernel, 2048 blocks...
+  Flashing kernel...
+  Setting boot_script_data...
+  Done. Restarting device...
+}}}
 = Basic configuration =
 == Use LAN as WAN port (with NAT) ==
 1. Connect to the LAN port on the Fonera and [#enablewifi configure wireless]
