@@ -581,6 +581,7 @@ The basic steps are:
 
 {{{
 root@OpenWrt:~# cd /tmp
+root@OpenWrt:~# wget http://ipkg.k1k2.de/hack/openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma
 root@OpenWrt:~# Connecting to ipkg.k1k2.de[85.10.200.90]:80
 openwrt-ar531x-2.4-v 100% |**************************|   512 KB    00:00 ETA
 root@OpenWrt:~# mtd -e vmlinux.bin.l7 write openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma vmlinux.bin.l7
@@ -590,8 +591,8 @@ Writing from openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma to vmlinux.bin.l7 ... [w]
 root@OpenWrt:~# reboot
 ... wait ...
 root@OpenWrt:~# cd /tmp
-root@OpenWrt:~#
-Connecting to ipkg.k1k2.de[85.10.200.90]:80
+root@OpenWrt:~# wget http://ipkg.k1k2.de/hack/out.hex
+root@OpenWrt:~# Connecting to ipkg.k1k2.de[85.10.200.90]:80
 out.hex 100% |*******************************| 4096 00:00 ETA
 root@OpenWrt:~# mtd -e "RedBoot config" write out.hex "RedBoot config"
 Unlocking RedBoot config ...
