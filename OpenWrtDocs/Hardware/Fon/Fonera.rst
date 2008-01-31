@@ -64,7 +64,7 @@ r . . . .
 
 Serial settings are 9600-8-N-1
 
-You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. 
+You should plug in the serialadapter after turning the fonera on, otherwise it won't boot.
 
 == Case ==
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
@@ -105,7 +105,7 @@ As you can see, the vmlinux.bin.l7 partition is of B0000, ergo 720896 bytes leng
 After gaining the SSH access use these commands:
 
 {{{
-cd /dev/mdtblock
+cd /dev/mtdblock
 httpd -p 9090
 }}}
 Connect to the Fonera through the private network. Now you can download the mtd partiotions using the addresses:
@@ -581,9 +581,8 @@ The basic steps are:
 
 {{{
 root@OpenWrt:~# cd /tmp
-root@OpenWrt:~# wget http://coppercore.net/~kevin/fon/openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma
-Connecting to coppercore.net[64.27.5.164]:80
-openwrt-ar531x-2.4-v 100% |*****************************| 512 KB 00:00 ETA
+root@OpenWrt:~# Connecting to ipkg.k1k2.de[85.10.200.90]:80
+openwrt-ar531x-2.4-v 100% |**************************|   512 KB    00:00 ETA
 root@OpenWrt:~# mtd -e vmlinux.bin.l7 write openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma vmlinux.bin.l7
 Unlocking vmlinux.bin.l7 ...
 Erasing vmlinux.bin.l7 ...
@@ -591,8 +590,8 @@ Writing from openwrt-ar531x-2.4-vmlinux-CAMICIA.lzma to vmlinux.bin.l7 ... [w]
 root@OpenWrt:~# reboot
 ... wait ...
 root@OpenWrt:~# cd /tmp
-root@OpenWrt:~# wget http://coppercore.net/~kevin/fon/out.hex
-Connecting to coppercore.net[64.27.5.164]:80
+root@OpenWrt:~#
+Connecting to ipkg.k1k2.de[85.10.200.90]:80
 out.hex 100% |*******************************| 4096 00:00 ETA
 root@OpenWrt:~# mtd -e "RedBoot config" write out.hex "RedBoot config"
 Unlocking RedBoot config ...
