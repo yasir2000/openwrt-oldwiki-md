@@ -43,6 +43,7 @@ Known 6348 platforms*:
 ||[http://ru.asus.com/products.aspx?l1=13&l2=96&l3=0&l4=0&model=1106&modelmenu=1 ASUS AM604] ||
 ||[http://ru.asus.com/products.aspx?l1=13&l2=96&l3=0&l4=0&model=1107&modelmenu=1 ASUS AM604g] ||
 ||[:OpenWrtDocs/Hardware/Asus/WL600g:ASUS WL-600G] ||
+||[:OpenWrtDocs/Hardware/Asus/AM200g:ASUS AM200G] ||
 ||[:OpenWrtDocs/Hardware/Belkin/f5d7633-4:Belkin f5d7633-4] ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536/1+] ||
 ||[http://comtrend.com/index.php?module=products&op=show&sn=41 Comtrend CT-638/1] ||
