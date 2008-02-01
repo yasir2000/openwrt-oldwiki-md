@@ -46,6 +46,11 @@ The blue led is lighting if +5V is 1 and not(LED1 is 1 and LED4 is 0).
 The original firmware has a modified 2.4.20 kernel with the following modules: bcm_se, sec, bcmgpio, et, bcmlm63, bcmrtcst4181, bcm2wire, bcmserbus.
 The harddisk is not mountable without problems (maybe a modified reiserFS-partition). Fdisk does not find anything on the disk. It is suggested to create new partitions on the disk and formating them if you want to use the disk with openwrt (note: this will delete all of your data on the disk and makes it very complicated to return to the original firmware, because it needs several files on the disk).
 
+/proc/version of the original firmware says:
+2.4.20 (gcc 3.0 with bcm4710a0 modification)
+
+The device has a CFE version 1.3.5, which waits for a tftp image on power-on.
+
 == Links ==
  * ASUS WL-700g http://wiki.openwrt.org/OpenWrtDocs/Hardware/Asus/WL700gE
  * German net-center page on http://www.open-netcenter.de (with forum)
