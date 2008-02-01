@@ -9,6 +9,7 @@
  * [:OpenWrtDocs/Hardware/Asus/WL550gE: WL-550gE]
  * [:OpenWrtDocs/Hardware/Asus/WL700gE: WL-700gE]
  * [:OpenWrtDocs/Hardware/Asus/AAM6020VI: AAM6020VI]
+ * [:OpenWrtDocs/Hardware/Asus/AM200g: AM200g]
 ''Other''
  * [:OpenWrtDocs/Hardware/Asus/Flashing: Flashing]
 ----
