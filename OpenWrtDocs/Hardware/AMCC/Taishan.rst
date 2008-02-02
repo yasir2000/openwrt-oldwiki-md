@@ -15,20 +15,34 @@ JTAG: yes
 
 '''Installation'''
 
-Set up a tftp server and use these commands over serial console:
+Press a key on bootup to enter the u-boot bootloader's console.
+
+Set up the IP addresses:
 
 {{{
-erase 0xfc000000 ffdfffff
-setenv ipaddr [ip for the taishan]
-setenv serverip [tftp server ip]
-tftp 100000 openwrt-amcc-2.6-jffs2.img
-cp.b 0x100000 0xfc000000 [size of the image in hex, the bootloader prints it after the tftp]
-setenv openwrt setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit\;bootm \$(kernel_addr)
-setenv bootcmd run openwrt
+setenv ipaddr 192.168.1.1
+setenv serverip 192.168.1.254
+}}}
+
+Create an easy way for us to reflash the box in u-boot:
+{{{
+setenv flash_openwrt erase \${kernel_addr} ffdfffff\;tftp 100000 openwrt-ppc44x-squashfs.img\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
+}}}
+
+Create the needed bootargs for !OpenWrt:
+
+{{{
+setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
+setenv bootcmd bootm \$(kernel_addr)
 saveenv
 reset
 }}}
 
+Flash !OpenWrt and reset:
+{{{
+run flash_openwrt
+reset
+}}}
 
 ----
 CategoryModel
