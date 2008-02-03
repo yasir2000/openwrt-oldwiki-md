@@ -58,6 +58,7 @@ Diagrams of the internal switch architectures can be found via the following tab
 ||Buffalo ||WHR-G54S || ||vlan0 ||vlan1 ||eth1 ||note^1^ ||
 ||Buffalo ||WHR-G54S ||SN:7407 ||br0 ||vlan1 ||eth1 ||SVN-2006-09-15 ||
 ||Buffalo ||WHR3-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
+||Buffalo ||WHR-HP-G54 || ||br0 ||vlan1 ||eth1 || ||
 ||Buffalo ||WLA-G54 || ||eth0 ||N/A ||eth2 ||No WAN port on this device ||
 ||Buffalo ||WZR-RS-G54 || ||eth0 ||eth1 ||eth2 ||no vlan support (switch BCM5325A2KQM) ||
 ||Dell ||!TrueMobile 2300 || ||eth0 ||eth1 ||eth2 ||BCM5325MA2KQM switch ||
