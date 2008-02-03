@@ -69,7 +69,9 @@ network={
 }}}
 
 WPA supplicant is then run like this (for an Atheros device):
-{{{wpa_supplicant -d -c/etc/wpa_supplicant.conf -iath0 -Dmadwifi}}}
+{{{wpa_supplicant -d -c /etc/wpa_supplicant.conf -i ath0 -D wext}}}
+
+Note: having wpa_supplicant interact with madwifi using the Linux wireless extensions (-d wext) is strongly recommended by the madwifi developers, and direct ioctl access (-d madwifi) is discouraged.
 
 -B sends it to the background (use this once you get it working)
 -d increases debugging level
