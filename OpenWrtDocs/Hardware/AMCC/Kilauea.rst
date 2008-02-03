@@ -3,7 +3,7 @@
 {{{
 Bootloader: u-boot
 CPU: AMCC PPC405EX
-CPU Speed: 600 Mhz
+CPU Speed: 400/600 Mhz
 Flash size: 64 MB NOR + 64MB NAND
 RAM: 256 MB
 Wireless: none, 2x PCIe 1x slots
@@ -26,7 +26,7 @@ setenv serverip 192.168.1.254
 
 Create an easy way for us to reflash the box in u-boot:
 {{{
-setenv flash_openwrt erase \${kernel_addr} fc2fffff\;tftp 100000 openwrt-ppc40x-squashfs.img\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
+setenv flash_openwrt tftp 100000 openwrt-ppc40x-squashfs.img\;erase \${kernel_addr} +\${filesize}\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
 }}}
 
 Create the needed variables for !OpenWrt:
