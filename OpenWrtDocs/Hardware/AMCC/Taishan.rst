@@ -24,7 +24,7 @@ setenv ipaddr 192.168.1.1
 setenv serverip 192.168.1.254
 }}}
 
-Create an easy way for us to flash !OpenWrt:
+Create script to flash !OpenWrt:
 {{{
 setenv flash_openwrt tftp 100000 openwrt-ppc44x-squashfs.img\;erase \${kernel_addr} +\${filesize}\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
 }}}
@@ -35,7 +35,6 @@ Create the needed bootargs for !OpenWrt:
 setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
 setenv bootcmd bootm \$(kernel_addr)
 saveenv
-reset
 }}}
 
 Flash !OpenWrt and reset:
