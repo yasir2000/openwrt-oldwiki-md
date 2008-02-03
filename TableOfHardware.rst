@@ -254,6 +254,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com/products/?pid=333 DWL-G820] ||A1 ||Atheros 2313 @ 180MHz ||<style="vertical-align: top;">Atmel AT49BV322A 4MB ||<style="vertical-align: top;">Hynix HY57V281620HCT-H 16MB ||Atheros (integrated) ||IP101A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-G820:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB || ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB || ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
+||[http://www.dlink.com/products/?pid=446 DVG-G1402S] || ||unknown ||unknown ||unknown ||None || || || || || || ||
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
