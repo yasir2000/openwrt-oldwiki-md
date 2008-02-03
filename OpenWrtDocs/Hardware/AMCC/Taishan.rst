@@ -24,9 +24,9 @@ setenv ipaddr 192.168.1.1
 setenv serverip 192.168.1.254
 }}}
 
-Create an easy way for us to reflash the box in u-boot:
+Create an easy way for us to flash !OpenWrt:
 {{{
-setenv flash_openwrt erase \${kernel_addr} ffdfffff\;tftp 100000 openwrt-ppc44x-squashfs.img\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
+setenv flash_openwrt tftp 100000 openwrt-ppc44x-squashfs.img\;erase \${kernel_addr} +\${filesize}\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
 }}}
 
 Create the needed bootargs for !OpenWrt:
