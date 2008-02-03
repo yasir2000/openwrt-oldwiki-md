@@ -127,7 +127,11 @@ Since DMA Routines do NOT exist for this ejtag version (compared to ejtag v2.0 s
 
 http://openwince.sourceforge.net/jtag/iPAQ-3600/images/interface.png
 
-it is possible to use latest jtag-tools (GPL) with EJTAG driver included to work with flash on AR7 based boards http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip It works with Xilinx-cable (5 resistors)  http://openwince.sourceforge.net/jtag/iPAQ-3600/images/14.jpg
+As of 2008-01 there is a new, actively developed fork of openwince JTAG tools with EJTAG driver included, named "UrJTAG": http://urjtag.org - it should be working with AR7 based boards as well (try latest version from Subversion repository)
+
+it is possible to use derivative of jtag-tools (GPL) with EJTAG driver included to work with flash on AR7 based boards http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip It works with Xilinx-cable (5 resistors).
+
+http://openwince.sourceforge.net/jtag/iPAQ-3600/images/14.jpg
 
 See a [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable: JTAG_Cables] page for more info
 
