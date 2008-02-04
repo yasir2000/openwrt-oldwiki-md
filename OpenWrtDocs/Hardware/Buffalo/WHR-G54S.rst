@@ -396,5 +396,8 @@ ses          # controls orange LED next to AOSS button
 }}}
 The red "diag" LED comes up during power-up, but does not seem to be software controllable by !OpenWrt.
 
+= WHR-G54S-2 =
+I spent a long time trying to figure out if OpenWRT would support my Buffalo AirStation Turbo G, which was sold as a WHR-G54S-2. I can confirm that it works perfectly; Serial starts with 9407, Kamikaze 7.09 installed.
+
 ----
  CategoryModel CategoryModel
