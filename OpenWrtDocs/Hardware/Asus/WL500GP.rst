@@ -27,7 +27,7 @@ With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-5
 [[Anchor(serial)]] [[Anchor(Serial)]]
 
 === Wireless LAN Controller ===
-The standard wireless LAN controller is the BCM4318 on a MiniPCI card.  Some people have replaced this with an Atheros MiniPCI card.  The advantage is that the Atheros card has an open source driver.
+The standard wireless LAN controller is the BCM4318 on a MiniPCI card.  Some people have replaced this with an Atheros MiniPCI card.  The advantage is that the Atheros card has an open source driver. For example it works with Wistron CM9 (some people say that signal quality is poor), Tp-Link TL-WN560G (signal quality is as with original controller).
 
 === Serial Port ===
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
@@ -244,6 +244,7 @@ uci commit wireless && wifi}}}
 uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
 [[Anchor(wpa)]] [[Anchor(WPA)]]
+Set TX Antenna and RX Antenna to 2 to get better signal quality with 1 original antenna.
 
 ==== WiFi encryption ====
 Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
@@ -373,6 +374,7 @@ Work in progress. Please see the UsbAudioHowto.
 === Tutorials ===
  * [http://begunje.dyndns.org/articles/wl500gx-ram-upgrade/index.html RAM Upgrade] 
  * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
+ * [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 Tips for configuration Atheros MiniPCI card on wl-500gP]  in Russian
 === Product Info Pages ===
  * [http://usa.asus.com/search.aspx?searchitem=1&searchkey=WL-500g+Premium ASUS WL-500g Premium]
  * [http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom BCM94704 Reference SoC]
