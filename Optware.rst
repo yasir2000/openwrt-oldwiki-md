@@ -8,7 +8,7 @@ Before beginning installation, mount a writeable partition (flash or hard disc) 
 
 Once this is ready, download the ipkg-opt installer using:
 {{{
- wget http://pastebin.ca/raw/328107  -O - | tr -d '\r' > /tmp/optware-install.sh;
+ wget http://pastebin.ca/raw/891052  -O - | tr -d '\r' > /tmp/optware-install.sh;
  sh /tmp/optware-install.sh
 }}}
 
