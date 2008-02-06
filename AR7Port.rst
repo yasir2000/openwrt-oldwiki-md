@@ -143,12 +143,7 @@ jtag> detectflash 0x30000000 1
 jtag> readmem 0x30000000 0x400000 dsl-500t-fullflash.img
 jtag> flashmem 0x30000000 adam2.img}}}
 
-= Schematics =
-attachment:7300_sch1.pdf
-attachment:7300_sch2.pdf
-attachment:7200.pdf
-attachment:7200_marvell_v1.pdf
-attachment:7200_marvell_v2.pdf
+
 
 ----
 CategoryOpenWrtPort
