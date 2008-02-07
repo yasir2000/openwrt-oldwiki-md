@@ -112,7 +112,7 @@ then press 'x' to continue booting.
 
 If it boots correctly you can continue with configuring !OpenWrt.
 
-==== Flashing the NAND ====
+=== NetBoot Install (Flashing the NAND) ===
 First we have to start with a clean NAND. We need to format the NAND. You can say goodbye to the RouterOS. Open source is better.
 {{{
 RouterBOOT booter 2.8
