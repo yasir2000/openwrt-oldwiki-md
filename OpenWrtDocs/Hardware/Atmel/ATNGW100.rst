@@ -15,19 +15,30 @@ JTAG: yes
 
 '''Installation'''
 
-Set up a tftp server and use these commands over serial console:
+Set up the IP addresses:
 
 {{{
-protect off 0x20000 0x7EFFFF
-erase 0x20000 0x7EFFFF
-setenv ipaddr [ip for the ngw]
-setenv serverip [tftp server ip]
-setenv tftpip
-tftp 0x90000000 openwrt-avr32-2.6-squashfs.img
-cp.b 0x90000000 0x20000 [size of the image in hex, the bootloader prints it after the tftp]
+setenv ipaddr 192.168.1.1
+setenv serverip 192.168.1.254
+}}}
+
+Create an easy way for us to reflash the box in u-boot:
+{{{
+setenv flash_openwrt tftp 0x90000000 openwrt-avr32-squashfs.img\;erase 0x20000 +\${filesize}\;cp.b \${fileaddr} 0x20000 \${filesize}
+}}}
+
+Create the needed variables for !OpenWrt:
+
+{{{
 setenv bootargs console=ttyS0,115200 root=/dev/mtdblock2 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
 setenv bootcmd bootm 0x20000
+setenv tftpip
 saveenv
+}}}
+
+Flash !OpenWrt and reset:
+{{{
+run flash_openwrt
 reset
 }}}
 
