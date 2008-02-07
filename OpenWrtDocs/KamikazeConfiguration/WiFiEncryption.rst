@@ -4,7 +4,7 @@
 Howto setup wireless encryption with !OpenWrt Kamikaze.
 
 == Key generation ==
-To generate a random password for your key you can use the `pwgen` program. pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. Run it with e.g. `pwgen --secret 13 1` (meaning: generate 1 password with a length of 13 letters/numbers).
+To generate a random password for your key you can use the `pwgen` program. pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. Run it with e.g. `pwgen --secret 13 1` (meaning: generate 1 password with a length of 13 letters/numbers).  On Debian Etch, use `pwgen --secure 13 1`.
 
 == WPA encryption ==
 === Broadcom WiFi ===
