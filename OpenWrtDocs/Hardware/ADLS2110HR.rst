@@ -1,3 +1,5 @@
+[[TableOfContents]]
+
 == Specifications ==
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port.
 
