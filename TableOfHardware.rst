@@ -542,6 +542,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-411BRPplus.htm TEW-411BRPplus] || ||Broadcom BCM4712KPB ||4MB ||16M ||Broadcom BCM4320 ||ADMtek ADM6996L || ||yes ||yes || ||supported with whiterussian RC6 and additional patch ||
 ||[http://www.trendnet.com/products/TEW-430APB.htm TEW-430APB] || ||RealTek 8186 ||?MB ||?MB || [http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
+||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP HW:D1.0R] || ||RealTek 8186 ||2MB MX29LV160BTC-70||8MB M12L64164A ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225]  ||Realtek RTL8306S || || || ||No ||Untested ||
 ||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB || [http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
