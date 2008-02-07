@@ -43,11 +43,15 @@ uci commit wireless && wifi}}}
 
 == WEP encryption (not recommended) ==
 Some notes for the WEP key format:
-
  * The format for the WEP key for the key1 option is HEX
+
+If you wish to use raw hex keys then you can skip to the UCI commands paragraph below.  Raw hex keys have 10 hex 'digits' (0..9, a..f) for 64-bit WEP keys and 26 hex 'digits' for 128-bit WEB keys.
+
+If you do not wish to use raw hex keys then:
  * The length of a 64bit WEP key must be exact 5 characters
  * The length of a 128bit WEP key must be exact 13 characters
  * Allowed characters are letters (upper and lower case) and numbers
+
 Generate a 64bit WEP key:
 
 {{{
