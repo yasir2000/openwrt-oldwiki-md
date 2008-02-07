@@ -354,10 +354,13 @@ DATA led fix:
 attachment:mycfg.tar.gz_blink_on file size 744 bytes
 
 == WatchDog Disable Point ==
-connect resistor 4,7k Between red points.
+{{{
 Bootcr change from 0x8291 to 0x8281
 0x8291 000000000010000010100-1-0001
 0x8281 000000000010000010100-0-0001
+}}}
+
+connect resistor 4,7k Between red points.
 
 attachment:watchdog_point.jpg
 
