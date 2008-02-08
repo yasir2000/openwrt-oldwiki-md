@@ -1,3 +1,5 @@
+[[TableOfContents]]
+
 == Specifications ==
 ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 1 LAN port.
 
@@ -131,11 +133,13 @@ http://tftpd32.jounin.net/
 TX & RX led fix:
 {{{
 # cd /var/var
-# tftp -g -l mycfg.tar.gz_blink_on 192.168.0.90
-# cat mycfg.tar.gz_blink_on > /dev/mtdblock/5
+# tftp -g -l mycfg.tar.gz_blink_on_lan 192.168.0.90
+# cat mycfg.tar.gz_blink_on_lan > /dev/mtdblock/5
 }}}
 
-attachment:mycfg.tar.gz_blink_on file size 744
+attachment:mycfg.tar.gz_blink_on_lan file size 759
+
+
 
 ----
  . ["CategoryAR7Device"]
