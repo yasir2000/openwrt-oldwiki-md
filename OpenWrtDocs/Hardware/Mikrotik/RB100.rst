@@ -179,7 +179,7 @@ root@OpenWrt:/#
 
 You might need to format the flash from the BIOS and then do the extractions manually, as follows:
 
-(Original source of the manual method: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HOWTO to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here].  I did not need to install the RedBoot version mentioned on that page.)
+(Original source of the manual method: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HOWTO to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here].  I did not need to install the [http://www.cygwin.com/redboot/ RedBoot] version mentioned on that page.)
 
 {{{
 root@OpenWrt:/# mount /dev/mtdblock2 /mnt
