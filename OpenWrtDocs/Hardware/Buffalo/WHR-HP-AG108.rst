@@ -13,8 +13,7 @@ after that it's time for ''make menuconfig; make'' and have some fun and watchin
 
 I tested it with Kamikaze 7.06 so if you're unsure you may use that version.
 
-== Loading OpenWrt via TFTP ==
-'''Always make a backup of your old firmware'''
+== Accessing RedBoot via telnet ==
 
 start Buffalo debug interface (instructions below)
 
@@ -22,10 +21,11 @@ activate telnet
 
 connect via telnet to the router
 
-download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi’s redboot configuration] (assuming that your PC IP is 192.168.11.10)
+download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi’s redboot configuration]
+
 {{{
 cd /tmp
-wget ftp://192.168.11.10/RedBoot_config_gdb.rom
+wget ftp://[remote server address]/RedBoot_config_gdb.rom
 }}}
 
 flash it
