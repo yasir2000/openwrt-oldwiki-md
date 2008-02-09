@@ -5,7 +5,7 @@ Lots more
 
 '''Debian Etch:'''
 {{{
- apt-get install subversion g++ libncurses5-dev zlib1g-dev bison flex unzip autoconf gawk make
+apt-get install subversion g++ libncurses5-dev zlib1g-dev bison flex unzip autoconf gawk make
 }}}
 
 
