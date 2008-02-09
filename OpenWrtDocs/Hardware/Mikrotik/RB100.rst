@@ -154,9 +154,14 @@ In /sbin however you will find a script called wget2nand which will do the insta
 
 wget2nand takes a single parameter, the URL of the directory into which the tgz and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
 
-**Edit: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HowTo to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here]
+If wget2nand does not work for you, see the [#head-b8817b9d50b5e02079e208b41b684656cfbfece1 Manual flashing] section below.
 
-If wget2nand does not work and gives you a "Cannot find NAND Flash partitions" error:
+When you reboot you need to change the BIOS settings back to booting from the NAND.
+
+Once the installation is complete you can reboot your RouterBoard 1xx card and you should have a running system.
+
+=== Manual flashing ===
+wget2nand was broken, but as of r10221 it should work.  If you are trying an older revision or wget2nand still does not work and gives you a "Cannot find NAND Flash partitions" error like this:
 
 {{{
 root@OpenWrt:/# wget2nand http://192.168.55.1/
@@ -172,8 +177,9 @@ Cannot find NAND Flash partitions
 root@OpenWrt:/# 
 }}}
 
-You might need to format the flash from the BIOS and then do the extractions [http://rb1xx.ozo.com/doku.php#quick_howto manually]:
-(I did not need to install the RedBoot version mentioned on that page.)
+You might need to format the flash from the BIOS and then do the extractions manually, as follows:
+
+(Original source of the manual method: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HOWTO to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here].  I did not need to install the RedBoot version mentioned on that page.)
 
 {{{
 root@OpenWrt:/# mount /dev/mtdblock2 /mnt
@@ -206,9 +212,8 @@ save exit: isCheckpointed 0
 root@OpenWrt:/# 
 }}}
 
-When you reboot you need to change the BIOS settings back to booting from the NAND.
-
-Once the installation is complete you can reboot your RouterBoard 1xx card and you should have a running system.
+=== References ===
+http://rb1xx.ozo.com/doku.php#quick_howto
 
 ----
  CategoryModel ["CategoryADM5120Device"]
