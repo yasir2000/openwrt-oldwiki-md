@@ -1,22 +1,39 @@
 = The Asus WL-500W is supported from kamikaze (partially) quite well. =
-N mode wireless is not functional at this time as far as I could ascertain. Stock images will also not work. In order for you to use this device you will need to compile your own image from source. You will need to edit the broadcom.sh file and the network config as illustrated below. If you are not comfortable with building from source on your own here are some basic instructions:
+N mode wireless is not functional at this time as far as I could ascertain (802.11n laptop connects at only 54 Mbit/s). Stock images will also not work. In order for you to use this device you will need to compile your own image from source. You will need to edit the broadcom.sh file and the network config as illustrated below. If you are not comfortable with building from source on your own here are some basic instructions:
 
 __'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said...these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
 
 == Building from Source ==
-'''1.''' On the local computer install the base packages: sudo aptitude install build-essential gawk binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term zlib1g-dev unzip (I use ubuntu fiesty, if you use another distro that doesn't use apt-get or aptitude...you're on your own to figure out the command).
+'''1.''' On the local computer install the needed base packages:
+
+{{{
+sudo aptitude install build-essential gawk binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term zlib1g-dev unzip}}}
+(I use ubuntu fiesty, if you use another distro that doesn't use apt-get or aptitude...you're on your own to figure out the command).
 
 '''2.'''
 
+ * Checkout the source for Kamikaze and the packages:
 {{{
-#cd ~
-#svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze
-#svn co https://svn.openwrt.org/openwrt/packages/ ~/kamikaze/feeds/packages/
-#cd kamikaze
-#make package/symlinks
-#make menuconfig}}}
-'''3.''' On your own for a little... choose the packages you want/need.  Make sure to set the system to broadcom 2.4 and I used profile set to asus wl-500g Premium.
+cd ~
+svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze
+svn co https://svn.openwrt.org/openwrt/packages packages
+ln -s packages/*/* kamikaze/package/}}}
+ * '''Optional step''' - Include the web interface packages (Webif²). These still have many problems so use at your own risk.
+{{{
+cd ~/kamikaze/package
+svn co http://svn.berlios.de/svnroot/repos/xwrt/trunk/package/webif/}}}
+ * Bring up the configuration menu screen:
+{{{
+cd ~/kamikaze
+make package/symlinks
+make menuconfig}}}
+'''3.''' On your own for a little... choose the packages you want. Make sure you also set:
 
+ * Target System > Broadcom 2.4
+ * Target Profile > Asus wl-500g Premium
+ * Target Images > squashfs and jffs2
+ * Kernel modules > Proprietary BCM43xx-WiFi-driver > include the kmod-brcm-wl-mimo module
+ * Administration > select the webif package if you choose to check it out above
 Or, if you don't want to be bothered, download this [attachment:config file] and copy it to:
 
 {{{
@@ -25,20 +42,19 @@ Or, if you don't want to be bothered, download this [attachment:config file] and
 '''4.''' Make
 
 {{{
-#make
+make
 }}}
 Get some food, come back in 10min-1hr. Anything error out?  If not continue on...if so, well, fix it.''' '''
 
 '''5.'''
 
- . ''''''
 {{{
-#cd build_mipsel
-#cp -rp root /tmp/root
-#cd /tmp/root/etc/config
-#vi network
+cd build_dir/mipsel
+cp -rp root-brcm-2.4 /tmp/root
+cd /tmp/root/etc/config/
+vi network
 }}}
-You can of course substitute your favourite text editor for vi. now make this '''new''' network file look like this:
+You can of course substitute your favourite text editor for vi. The network file is new and will be '''empty'''. Make it look like this:
 
 {{{
 #### VLAN configuration
@@ -63,8 +79,8 @@ config interface wan
    option proto    dhcp
 }}}
 {{{
-#cd ../../lib/wifi
-#vi broadcom.sh}}}
+cd ../../lib/wifi
+vi broadcom.sh}}}
 There is a line way down. You need to change it to be:
 
 {{{
@@ -78,19 +94,19 @@ ${channel:+channel $channel}
 '''6.'''  Phewww if you're still with me and never compiled a openwrt image I salute you.  Now time to make that new image and the squashfs
 
 {{{
-#cd ~/kamikaze
-#staging_dir_mipsel/bin/mksquashfs-lzma /tmp/root /tmp/squashfs -nopad -noappend -root-owned -le
-#staging_dir_mipsel/bin/trx -o ~/wl500w-openwrt.trx \
-                    -f build_mipsel/linux-2.4-brcm/loader.gz \
-                    -f build_mipsel/linux-2.4-brcm/vmlinux.lzma -a 1024 \
-                    -f /tmp/squashfs}}}
+cd ~/kamikaze
+staging_dir/host/bin/mksquashfs-lzma /tmp/root /tmp/squashfs -nopad -noappend -root-owned -le
+staging_dir/host/bin/trx  -o ~/wl500w-openwrt.trx \
+                -f build_dir/linux-brcm-2.4/loader.gz \
+                -f build_dir/linux-brcm-2.4/vmlinux.lzma -a 1024 \
+                -f /tmp/squashfs}}}
 If all is well in the world (ie you didn't make any typos) you should now have a new custom made wl500w image sitting in your home directory waiting for you.
 
-'''7.''' Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
+'''7.''' Use the web interface or tftp to load the new image on the router. For tftp: Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
 
 '''8.'''  Make a kamikaze, drink, enjoy.
 
-=== Shell script to automate the above procedure - unattended builds from svn repository ===
+== Shell script to automate the above procedure - unattended builds from svn repository ==
 Script can be downloaded from http://marjancinober.googlepages.com/wl500-index.htm. Tested on Ubuntu fiesty, kamikaze svn revisions 7880, 7910, 8199, 8221, 8241, 8343. The only manual intervention was to find a couple of source packages as they were not available on their default servers or servers were down, and saving them in local disk cache kamikaze_dl directory for current compile and latter reuse. Script holds local bzip2-d image of the latest SVN and a copy of package sources on a local disk to minimize network traffic. Almost full config compile takes 2h45min on DELL Latitude 820 2Gb ram, with downloads in local disk cache.
 
 If you get in trouble it might be good to know that I (cinober) personally managed to reflash the original ASUS firmware and checked that it replies to pings again.
