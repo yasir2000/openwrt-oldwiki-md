@@ -34,7 +34,7 @@ make menuconfig}}}
  * Target Images > squashfs and jffs2
  * Kernel modules > Proprietary BCM43xx-WiFi-driver > include the kmod-brcm-wl-mimo module
  * Administration > select the webif package if you choose to check it out above
-Or, if you don't want to be bothered, download this [attachment:config file] and copy it to:
+Or, if you don't want to be bothered, download this [attachment:config_file config file] and copy it to:
 
 {{{
 ~/kamikaze/.config
