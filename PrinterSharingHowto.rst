@@ -88,24 +88,21 @@ To start it up automatically on every boot, do this:
 
 {{{
 /etc/init.d/p910nd enable}}}
-
 == Advertising the printer via Zeroconf (optional) ==
-
 To avoid having to install the printer on multiple clients, you can advertise it via Zeroconf. The following example uses Avahi.
 
 Apple's [http://developer.apple.com/networking/bonjour/specs.html Bonjour Printing Specification] discusses pretty much what needs to be done to advertise a printer over the network:
- * the service type is `_pdl-datastream._tcp.`, the [http://en.wikipedia.org/wiki/Page_description_language "needs a driver"] printer type
- * the `product`, `pdl`, `usb_MFG` & `usb_MDL` TXT records are required, and can be found in the printer's PPD file - OS X's Printer Setup utility uses these to search for the appropriate driver
+
+ * the service type is {{{_pdl-datastream._tcp.}}}, the [http://en.wikipedia.org/wiki/Page_description_language "needs a driver"] printer type
+ * the {{{product}}}, {{{pdl}}}, {{{usb_MFG}}} & {{{usb_MDL}}} TXT records are required, and can be found in the printer's PPD file - OS X's Printer Setup utility uses these to search for the appropriate driver
  * ''the Apple doc notes that printers that don't provide the LPR service should still advertise that service (as "unsupported"); presumably that involves declaring a second service with a particular key to indicate "unsupported" - don't know how to do this with Avahi''
-
-
 e.g. a [http://solutions.brother.com/hl2040_all/en_us/ Brother HL-2040], a "softprinter" (does not support Postscript or PCL, all processing is done on the client) shared via p910nd:
 
-Create the file `/etc/avahi/services/printer.service`:
+Create the file {{{/etc/avahi/services/printer.service}}}:
+
 {{{
 <service-group>
 <name replace-wildcards="yes">Brother HL-2040 on %h</name>
-
 <service protocol="any">
 <type>_pdl-datastream._tcp.</type>
 <host-name></host-name>
@@ -118,11 +115,8 @@ Create the file `/etc/avahi/services/printer.service`:
 </service>
 </service-group>
 }}}
-
-  * the `txt-record` items (except for `note`) are from OS X's HL-2040 PPD (`/private/etc/cups/ppd/HL_2040_series.ppd`)
-
-  * the printer will now show up in any Zeroconf client (tested with OS X 10.4.10)
-
+ * the {{{txt-record}}} items (except for {{{note}}}) are from OS X's HL-2040 PPD ({{{/private/etc/cups/ppd/HL_2040_series.ppd}}})
+ * the printer will now show up in any Zeroconf client (tested with OS X 10.4.10)
 = Configure the clients for printing =
 Here I would demonstrate you, how to configure the printer driver on your client. It could be that these steps are not exactly the same on your operating system.
 
@@ -242,6 +236,8 @@ fi;
 Here you should create a list of printers which are '''not''' working with the {{{p910nd}}} package. Please include manufacturer, model, interface (USB/Parport), driver working and some short comment.
 
 The combination Windows 2000 with a canon pixma iP4000 seems not to work with bidirectional mode. If your printer dosent work, try disabling bidirectional mode.
+
+Canon Pixma ip3000 and windows xp is not working in bidirectional mode. Disable bidirectional mode.
 
 Please add not working combinations here.
 
