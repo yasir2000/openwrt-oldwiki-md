@@ -3,6 +3,7 @@
 This page lists actions and configuration for multiple WAN links on kamikaze. I've used this on a WRT54G(V1.1 to 3.1).
 
 '''WARNING:''' this only works on kernel 2.4 kamikaze for wrt54G, 2.6 kernel doesn't have the right patch for iproute2 equalize with iptables nat from http://www.ssi.bg/~ja/#routes
+'''UPDATED:''' This is partialy false, in fact the linux 2.6 can work, but you'll have to compil the kernel yourself to disable ROUTE_MULTIPATH_CACHE, the kmod-mp-alg is compiled with ROUTE_MULTIPATH_CACHE set to on and the 'equalize' ip option won't work :(
 
 This first is to create vlan (one per WAN connection)
 
