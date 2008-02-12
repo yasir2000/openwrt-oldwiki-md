@@ -11,7 +11,7 @@ PCB Photo: attachment:2110EH_V700_2005_1_28.jpg
 
 serial console 9600,n,8,1,hw jp1:
 
-1 VCC 2 TX 3 RX 4 -- 5--  6 GND 7 GND
+1 VCC 2 TX 3 RX 4 -- 5-- 6 GND 7 GND
 
 Flash chip: 2MBytes Macronix MX29LV160CBTC-70 29LV160CBTC 29LV160 http://www.datasheet.org.uk/pdf/29lv160cbtc-70-datasheet/29lv160cbtc-70-datasheet.html
 
@@ -26,15 +26,10 @@ http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 == Add USB BUS ==
 Add type B female USB connector & 2N7002 Transistor
 
-Photo connector&Transistor installed :attachment:Add_Usb.jpg
+Photo connector&Transistor installed : attachment:Add_Usb.jpg
 
 == Jtag CPU pin-out ==
-
-TNETD7300A 
-TCK A20
-TMS A21
-TDO A22
-TDI B20
+TNETD7300A TCK A20 TMS A21 TDO A22 TDI B20
 
 == Information ==
 {{{
@@ -101,13 +96,16 @@ System Bus frequency: 125 MHZ
 Texas Instruments USB CDC/RNDIS Driver Version 1.1.0
 Built for RNDIS protocol(s).
 }}}
-
 == ACORP LAN120 firmware ==
+Dont Flash ACORP firmware. Yet do not replace boot loader on pspboot.
+
 http://mcmcc.bat.ru/acorp/LAN120/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
 
 http://mcmcc.bat.ru/acorp/psp_boot/psp_boot_LAN120_2M_8M-1.4.rar
 
 http://mcmcc.bat.ru/acorp/env_db/env_lan120.txt
+
+Web login/password: Admin Admin Telnet login/password: root Admin
 
 {{{
 mtd0 0x90094000,0x901F0000
@@ -117,29 +115,26 @@ mtd3 0x90010000,0x90020000
 mtd4 0x90020000,0x901F0000
 mtd5 0x901F0000,0x90200000
 }}}
-
 Add mtd5 and change mtd0 & mtd4
+
 {{{
-# echo "mtd5 0x901F0000,0x90200000" > /proc/ticfg/env 
+# echo "mtd5 0x901F0000,0x90200000" > /proc/ticfg/env
 # echo "mtd4 0x90020000,0x901F0000" > /proc/ticfg/env
 # echo "mtd0 0x90094000,0x901F0000" > /proc/ticfg/env
 }}}
+tftpd32 for Windows
 
-tftpd32 for Windows 
 {{{
 http://tftpd32.jounin.net/
 }}}
-
 TX & RX led fix:
+
 {{{
 # cd /var/var
 # tftp -g -l mycfg.tar.gz_blink_on_lan 192.168.0.90
 # cat mycfg.tar.gz_blink_on_lan > /dev/mtdblock/5
 }}}
-
 attachment:mycfg.tar.gz_blink_on_lan file size 759
-
-
 
 ----
  . ["CategoryAR7Device"]
