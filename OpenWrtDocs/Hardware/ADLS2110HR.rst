@@ -325,6 +325,9 @@ Built for CDC-RNDIS protocol(s).
 == ACORP LAN120M firmware ==
 http://mcmcc.bat.ru/acorp/LAN120M/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
 
+Web login/password: Admin Admin
+Telnet login/password: root Admin
+
 {{{
 mtd0 0x90094000,0x901F0000
 mtd1 0x90020090,0x90094000
