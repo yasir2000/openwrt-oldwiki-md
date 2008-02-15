@@ -6,7 +6,7 @@ The hardware in this router is very similar to the [:OpenWrtDocs/Hardware/Buffal
 
 This is a Marvell board, and its serial pins are identical to the [:OpenWrtDocs/Hardware/Airlink101/AR525W:AR525W]. 
 
-Serial connection parameters are : 112500,8N1
+Serial connection parameters are : 115200,8N1
 
 === Linux ===
 
