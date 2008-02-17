@@ -379,7 +379,37 @@ mount "$boot_dev" /mnt
                 mount -o move /mnt/sys /sys 2>&-
         }
 }
+
 }}}
+
+'''''Note:''''' for Kamikaze 2.4 kernel that may not have hotplug2 then try using this instead.  Tested with openwrt-brcm-2.4-squashfs.
+{{{
+#!/bin/sh
+# change this to your boot partition
+boot_dev="/dev/discs/disc0/part1"
+# install needed modules for usb and the ext3 filesystem
+# **NOTE** for usb2.0 replace "uhci" with "ehci-hcd"
+# **NOTE** for ohci chipsets replace "uhci" with "usb-ohci"
+for module in usbcore uhci scsi_mod sd_mod usb-storage jbd ext2 ext3 ; do {
+        insmod $module
+}; done
+# this may need to be higher if your disk is slow to initialize
+sleep 4s
+# mount the usb stick
+mount "$boot_dev" /mnt
+# if everything looks ok, do the pivot root
+[ -x /mnt/sbin/init ] && {
+        mount -o move /proc /mnt/proc && \
+        pivot_root /mnt /mnt/mnt && {
+                mount -o move /mnt/dev /dev
+                mount -o move /mnt/tmp /tmp
+                mount -o move /mnt/jffs /jffs 2>&-
+                mount -o move /mnt/sys /sys 2>&-
+        }
+}
+
+}}}
+
 '''''Note:''''' for Kazimate 2.6 kernel, add this before insmod loop.
 {{{
 /sbin/hotplug2 --override --persistent --max-children 1 --no-coldplug &
