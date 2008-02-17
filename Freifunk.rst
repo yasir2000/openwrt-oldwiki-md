@@ -9,7 +9,8 @@ This wikipage is intended as a starting point for discussions about the requirem
  * CGI scripts should generate all output through a template framework, preferably with i18n capabilities
  * CGI scripts should not access the system directly, but using a kind of abstraction layer for determining system-specific settings, devices, environment variables etc.
  * Generated HTML should conform to XHTML 1.0 strict, if applicable
- * No core functionality should solely depend on JavaScript
+ * No core functionality should solely depend on Java-Script
+
 == Suggestions for Architecture ==
 The framework for writing a Freifunk webinterface will be roughly divided in three parts:
 
