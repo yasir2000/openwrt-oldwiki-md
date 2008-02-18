@@ -9,7 +9,7 @@ also contains the defacto standard of 4MiB Flash and 16MiB RAM.
 = Installing OpenWrt =
 
 It looks like The Broadcom Mini-PCI is not compatible with Kamikaze, both Versions (2.4 and 2.6)
-seem to have Problems with <= Kamikaze 7.09. 
+seem to have Problems with <= Kamikaze 7.09 out of the box, there is a work around shown below.
 
 ''' It is strongly recommended to flash whiterussian first before trying anything else, because boot_wait is not enabled by default! '''
 
@@ -19,6 +19,65 @@ it is a good idea to set the ''boot_wait'' NVRAM variable to ''on''.
 
 When TFTPing to a router with ''boot_wait=on'' also use a `.trx` image.
 
+= Installing OpenWrt - Kamikaze =
+{{{
+TM2300 was trying to use vlan1 so I ended up doing the following on my linux box (via eth0) directly connected to the router with nothing else running.  At first, have the router powered off.
+
+ifconfig eth0 192.168.1.10 up
+vconfig add eth0 1
+ifconfig eth0.1 192.168.1.10 up
+
+I could not get the router to ever come up with 192.168.1.1  so instead I started a dhcp server on my linux box.  With  /etc/dhcpd.conf  having a   subnet defined for 192.168.1.0    range was from 1.1 to 1.5
+
+Then 
+dhcpd eth0.1
+
+Started the router.   
+
+It picked up an address of 192.168.1.4
+
+Then I was able to telnet it  smile
+
+Set the password, and then changed /etc/config/network to..
+
+#### VLAN configuration
+#config switch eth0   
+#       option vlan0    "0 1 2 3 5*"
+#       option vlan1    "4 5"       
+
+
+#### Loopback configuration
+config interface loopback 
+        option ifname   "lo"
+        option proto    static
+        option ipaddr   127.0.0.1
+        option netmask  255.0.0.0
+
+
+#### LAN configuration
+config interface lan 
+        option type     bridge
+#       option ifname   "eth0.0"
+        option ifname   "eth0"
+        option proto    static
+        option ipaddr   192.168.1.1
+        option netmask  255.255.255.0
+
+
+#### WAN configuration
+config interface        wan
+#       option ifname   "eth0.1"
+        option ifname   "eth1"
+        option proto    dhcp
+
+And power cycled just to be sure, and now it came back up properly as 192.168.1.1  and I got rid of my vlan on the linux box via
+
+vconfig rem eth0.1
+killall dhcpd
+
+And got me a proper address via   
+dhclient eth0
+}}}
 
 = Serial port =
 
