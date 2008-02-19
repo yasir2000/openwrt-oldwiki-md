@@ -20,38 +20,88 @@ it is a good idea to set the ''boot_wait'' NVRAM variable to ''on''.
 When TFTPing to a router with ''boot_wait=on'' also use a `.trx` image.
 
 = Installing OpenWrt - Kamikaze =
+To install Kamikaze on the Truemobile 2300 you have to do a little workaround.
+The problem is because the Truemobile does not use VLAN tagging because it has a different
+interface for WAN and LAN (eth1,eth0). On other openwrt compatible Routers both interfaces are one
+physical device (eth0) and divided into 2 vlans (vlan0,vlan1). The switch Then removes the vlan tags and
+sends the data out to the correct port. Due to the fact that the Truemobile does not use VLAN tags the switch does not remove the vlan tags. So we have to add a vlan on our local computer to access the Router.
+
+'''normal way:'''
+----
+On my router i used Ubuntu 7.10 to do the trick (but it should work on any Linux or Unix distribution)
+
+first i had to install vlan support:
+{{{
+apt-get install vlan
+}}}
+
+then i added the Vlan 0 to eth0
+
 {{{
 ifconfig eth0 up
 vconfig add eth0 0
+}}}
+
+now i had to assign an IP address to the new device (eth0.0)
+
+{{{
 ifconfig eth0.0 192.168.1.10 up
+}}}
+
+Finaly i was able to telnet the Router:
+{{{
 telnet 192.168.1.1
 }}}
 
+After i did the configuration i restored the network settings on my local computer:
+vconfig rem eth0.1
+dhclient eth0
+
+
+'''alternative way:'''
+----
+However some users report that they had to use vlan 1 instead of vlan 0, i do not know why and it makes no sense for me, because vlan1 is normally used for WAN and remote access via WAN is disabled by default.
+
+But here is the Instruction:
+
 {{{
-alternative way:
-
-TM2300 was trying to use vlan1 so I ended up doing the following on my linux box (via eth0) directly connected to the router with nothing else running.  At first, have the router powered off.
-
-ifconfig eth0 192.168.1.10 up
+ifconfig eth0 up
 vconfig add eth0 1
 ifconfig eth0.1 192.168.1.10 up
+}}}
 
 I could not get the router to ever come up with 192.168.1.1  so instead I started a dhcp server on my linux box.  With  /etc/dhcpd.conf  having a   subnet defined for 192.168.1.0    range was from 1.1 to 1.5
 
 Then 
+{{{
 dhcpd eth0.1
+}}}
 
 Started the router.   
 
 It picked up an address of 192.168.1.4
+Then I was able to telnet it.
+After you have done the Configuration changes see below,
+you can get right of the vlan on your local computer with:
 
-Then I was able to telnet it  smile
+vconfig rem eth0.1
+killall dhcpd
+dhclient eth0
 
-Set the password, and then changed /etc/config/network to..
 
+
+= Configuration of Kamikaze after the successful Telnet access =
+
+To get right of the vlans edit the file
+{{{
+/etc/config/network 
+}}}
+
+It should look like this:
+{{{
 #### VLAN configuration
-#config switch eth0   
-#       option vlan0    "0 1 2 3 5*"
+#config switch eth0   ""
+#       option vlan0    "0 1 2 3 5*" 
 #       option vlan1    "4 5"       
 
 
@@ -78,15 +128,8 @@ config interface        wan
 #       option ifname   "eth0.1"
         option ifname   "eth1"
         option proto    dhcp
-
-And power cycled just to be sure, and now it came back up properly as 192.168.1.1  and I got rid of my vlan on the linux box via
-
-vconfig rem eth0.1
-killall dhcpd
-
-And got me a proper address via   
-dhclient eth0
 }}}
+As you can see some of the vlan configuration commands are commented out with #
 
 
 = Serial port =
