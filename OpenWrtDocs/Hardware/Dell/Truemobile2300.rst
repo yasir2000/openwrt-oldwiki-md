@@ -21,6 +21,15 @@ When TFTPing to a router with ''boot_wait=on'' also use a `.trx` image.
 
 = Installing OpenWrt - Kamikaze =
 {{{
+ifconfig eth0 up
+vconfig add eth0 0
+ifconfig eth0.0 192.168.1.10 up
+telnet 192.168.1.1
+}}}
+
+{{{
+alternative way:
+
 TM2300 was trying to use vlan1 so I ended up doing the following on my linux box (via eth0) directly connected to the router with nothing else running.  At first, have the router powered off.
 
 ifconfig eth0 192.168.1.10 up
@@ -78,6 +87,7 @@ killall dhcpd
 And got me a proper address via   
 dhclient eth0
 }}}
+
 
 = Serial port =
 
@@ -206,6 +216,11 @@ Activate your Network card with fixed IP for example 192.168.2.2
 and try to ping the router (192.168.2.1) until you get response.
 It is now possible to flash the router with tftp!
 
+= Flashing CFE via JTAG =
+On some routers it could happen that the flashing process stops after X%.
+I found out that it helps if i skip the first 2000 bytes of code and flash the rest first. After i flashed the bytes 2000-40000
+if flashed the first 2000 bytes to the Truemobile and that worked!!
+I had to modify the sourcecode of wrt54g debrick tool so that i can add a fileoffset to the file i want to flash.
 
 ----
 CategoryModel
