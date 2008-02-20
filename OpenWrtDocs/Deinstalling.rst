@@ -43,6 +43,6 @@ Since White Russian RC4 you can use the webif to go back to the original firmwar
  * choose the BIN or TRX firmware file (downloaded before from the manufactures website onto your PC)
  * click on the button upload
 == Using TFTP ==
-Sure, the other way you can use is the TFTP method.
+The other way you can use is the [:Installing/TFTP:TFTP] method.  The TFTP page explains how to install OpenWrt via TFTP, but this method should also work for other firmware.
 
 /!\ '''Note:''' On many versions, the TFTP server is only able to accept smaller firmwares at bootup. Firmwares that are over approximately 3 MB will fail with a {{{no space}}} error. If this happens you'll need to either use a different firmware or reflash using the {{{mtd}}} commands above instead.
