@@ -101,7 +101,12 @@ staging_dir/host/bin/trx  -o ~/wl500w-openwrt.trx \
                 -f /tmp/squashfs}}}
 If all is well in the world (ie you didn't make any typos) you should now have a new custom made wl500w image sitting in your home directory waiting for you.
 
-'''7.''' Use the web interface or tftp to load the new image on the router. For tftp: Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp
+'''7.''' Use the web interface or tftp to load the new image on the router. For tftp: Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp.
+
+On first install from a stock Asus firmware or to erase all configuration settings, run:
+
+{{{
+# mtd -r erase $(cat /proc/mtd | sed -n -e 's/^\([^:]*\):.*"rootfs_data"/\1/p' )}}}
 
 '''8.'''  Make a kamikaze, drink, enjoy.
 
