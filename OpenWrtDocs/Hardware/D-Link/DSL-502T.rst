@@ -218,11 +218,10 @@ config atm-bridge
 config interface wan
         option ifname   nas0
         option proto    pppoe
-        option mtu      1492
         option username (your username here)
         option password (your password here)
 }}}
-encaps should be "vc" or "llc". vpi and vci are specific to your ISP.  Setting mtu to 1492 may be needed.
+encaps should be "vc" or "llc". vpi and vci are specific to your ISP.
 
 '''Connect to your ISP directly using DHCP'''
 
@@ -238,7 +237,7 @@ ifup wan
 }}}
 The firewall and ledsetup only needs to be restarted after making configuration changes, not every time.
 
-Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot. (This may not be needed any more.)
+Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot. (This may not be needed anymore.)
 
 The "USB" LED should turn on (it's been hijacked to display PPP state, not USB state), and 'ifconfig' should show something like this:
 
