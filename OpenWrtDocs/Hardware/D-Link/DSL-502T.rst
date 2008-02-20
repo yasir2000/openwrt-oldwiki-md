@@ -50,7 +50,7 @@ $ svn update
 
 These are patches that have tickets open but haven't made it into the subversion tree yet:
 
- * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781
+ * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781 (may not be needed anymore)
  * Make LEDs blink on network activity: https://dev.openwrt.org/ticket/2776
  * Also for the LEDs, if you have an Australian version of the router: H/W version A5, or ProductID "AR7DB", you may need to modify openwrt/trunk/target/linux/ar7/files/arch/mips/ar7/platform.c to include lines to detect your device. At revision 10021, the patches above don't yet adequately take care of it.
 In general they can be applied by downloading and saving the "original version" of the patchfile attached to the ticket, then {{{"cd openwrt/trunk; patch -p0 <name-of-patch-file"}}}
@@ -140,7 +140,7 @@ If you applied the LED patches above, the router will go through three states wh
   * "Ethernet" should turn on as the ethernet interface is brought up
   * If you've configured PPP (see below), "USB" should turn on as the PPP layer is brought up
  1. "status" pulsing in a heartbeat (pulse pulse - pause - pulse pulse - pause) - OpenWrt completed booting, normal operation
-If you didn't apply the LED patches.. the only LED that will do anything is the ADSL LED.
+If you didn't apply the LED patch, the only LEDs that will do anything are the status LED and the ADSL LED.
 
 I've found that /etc/init.d/ledsetup was missing the execute bit. So after logging in, running the following fixed everything up (I had the AR7DB version of the router and had to manually patch platform.c)[BD]:
 
@@ -206,11 +206,23 @@ encaps should be "vc" or "llc". vpi and vci are specific to your ISP.
 
 '''PPPoE configuration'''
 
-Previously, there was lots of manual setup info here, but it all seemed horribly out of date. If someone has current experience with PPPoE, please fill in something up-to-date here. I would guess that it is mostly similar to PPPoA with "proto pppoe" and perhaps "encaps llc". -- OliverJowett
+As for PPPoA, edit /etc/config/network. One more section is needed for the ATM-bridge.
 
-It's not that simple, for pppoe you have first to bring up an ATM-bridge (you can uncomment the example in /etc/config/network) and after you have to configure the wan interface on the bridge.
+{{{
+config atm-bridge
+        option unit     0
+        option encaps   llc
+        option vpi      8
+        option vci      35
 
-But I never had enough information on how configuring the pppoe interface... I had tried all the conf in the links at the end of this document (and many more on my own) but no one worked for me. In the end I had solved the issue by calling my ISP and changing from pppoe to pppoa, but it's only a workaround. -- War3333
+config interface wan
+        option ifname   nas0
+        option proto    pppoe
+        option mtu      1492
+        option username (your username here)
+        option password (your password here)
+}}}
+encaps should be "vc" or "llc". vpi and vci are specific to your ISP.  Setting mtu to 1492 may be needed.
 
 '''Connect to your ISP directly using DHCP'''
 
@@ -219,13 +231,14 @@ Most people will be using PPPoE or PPPoA. However, if you are using DHCP, please
 '''Bring up the ADSL connection'''
 
 {{{
+/etc/init.d/br2684ctl restart  # for PPPoE
 ifup wan
 /etc/init.d/firewall restart
 /etc/init.d/ledsetup restart  # if you installed the LED patches
 }}}
 The firewall and ledsetup only needs to be restarted after making configuration changes, not every time.
 
-Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot.
+Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot. (This may not be needed any more.)
 
 The "USB" LED should turn on (it's been hijacked to display PPP state, not USB state), and 'ifconfig' should show something like this:
 
@@ -256,7 +269,7 @@ And you should now have internet access!
 
 '''Set up port forwarding'''
 
-For general port forwarding, edit /etc/config/firewall and follow the comments. Run '/etc/init.d/firewall restart' after configuration changes.
+For general port forwarding, edit /etc/firewall.config and follow the comments. Run '/etc/init.d/firewall restart' after configuration changes.
 
 '''How to give interfaces fixed IP addresses'''
 
