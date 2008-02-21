@@ -332,27 +332,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www1.linksys.com/international/product.asp?coid=19&ipid=667 WAG54G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB / 8MB ||16 MB / 32MB ||TI ACX111 (["VLYNQ"]) ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
 ||[http://www-au.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=AU/Layout&cid=1130279411957&pagename=Linksys/Common/VisitorWrapper WAG54GP2] ||1 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||8MB? ||32MB? ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] || || ||No ||[:AR7Port:WiP] ||
 ||[http://www-nz.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=NZ/Layout&cid=1160628844303&pagename=Linksys/Common/VisitorWrapper WAG54GP2] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||8MB? ||32MB? ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] || || ||No ||[:AR7Port:WiP] ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1172713082281&pagename=Linksys/Common/VisitorWrapper&lid=8228139789B01 WAP200] || ||[http://www.starsemi.com.tw/vEng/product.php Star STR9110] (ARM922 I16/D16 core) @ 250MHz ||4MB ||16MB ||Ralink RT2661 (mPCI) ||None ||? ||? ||? ||No ||Untested ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1172713082281&pagename=Linksys/Common/VisitorWrapper&lid=8228139789B01 WAP200] || ||[http://www.starsemi.com.tw/vEng/product.php Star STR9110] (ARM922 I16/D16 core) @ 250MHz ||4MB ||16MB ||Ralink RT2661 (mPCI) ||None ||? ||? ||? ||No ||Untested ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
-
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB / 4MB ||8MB ||Broadcom (mini-PCI) ||None ||off ||No UART ||No ||No ||[:WAP54GHowto:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||1.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB (or 4MB?) ||16MB? ||Broadcom (mini-PCI) ||None ||off ||No UART ||No ||No ||WiP ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||2.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8/16MB ||Broadcom (integrated) ||None ||off ||Yes ||Yes ||No ||WiP ||
@@ -441,26 +421,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[http://web.archive.org/web/20030627094926/www.broadcom.com/pbs/3348-PB02-403-RDS.pdf Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
 == MSI ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || || ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || || ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||[:AR7Port:WiP] ||
@@ -509,26 +470,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||RT210w || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||No ||Supported ||
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||2MB ||8MB ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -559,23 +501,6 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&cid=5&scid=&pid=1442 SMCWBR14T-G] ||752.8698 ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||[http://www.st.com/stonline/products/literature/ds/10027/m25p16.pdf ST 25P16V6P (2MB)] ||[http://www.issi.com/pdf/42S16800A.pdf IS42S16800A-7 (16MB)] || ||[http://www.icplus.com.tw/pp-IP175C.html IC+ IP175C] || ||Yes ||Yes ||No || ||
 ||<style="vertical-align: top;">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_NLD&cid=1&scid=119&pid=1640 SMCWBR14S-N] ||<style="vertical-align: top;">752.9105EU ||<style="vertical-align: top;">[:infineon:Infineon] PSB 50610 E chipset ||<style="vertical-align: top;"> ||<style="vertical-align: top;">PSC A2V28S40CTP ??32 MB?? ||<style="vertical-align: top;">RaLink RT2860T ||<style="vertical-align: top;">[:realtek:RealTek] RTL8306S ||<style="vertical-align: top;"> ||<style="vertical-align: top;">yes ||<style="vertical-align: top;"> ||<style="vertical-align: top;">no ||<style="vertical-align: top;">info entered ||
 ||<style="vertical-align: top;">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] ||<style="vertical-align: top;"> ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||<style="vertical-align: top;">ST 25P16V6P (2MB) ||<style="vertical-align: top;">PSC A2V64S4OCTP (8MB) ||<style="vertical-align: top;">ALTIMA AC101 ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||<style="vertical-align: top;">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] ||<style="vertical-align: top;"> ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||<style="vertical-align: top;">ST 25P16V6P (2MB) ||<style="vertical-align: top;">PSC A2V64S4OCTP (8MB) ||<style="vertical-align: top;">ALTIMA AC101 ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 == Soekris Engineering ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.soekris.com/net4801.htm net4801] || ||NSC SC1100 (i586) @266MHz ||CF Card ||128MB/256MB || ||none, 3 ethernet interfaces || ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
@@ -626,48 +551,11 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP HW:D1.0R] || ||RealTek 8186 ||2MB MX29LV160BTC-70 ||8MB M12L64164A ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8306S || || || ||No ||Untested ||
 ||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||1x v1.1 ||[:USR5461:WiP] ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5441 USR5441] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||no ||[:USR5441:WiP] ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5441 USR5441] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||no ||[:USR5441:WiP] ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
-
 ||[http://www.usr-emea.com/support/s-prod-template.asp?loc=unkg&prod=9106 USR9106] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6345 Broadcom 6345] @ 100MHz ||4MB ||16MB ||mini-PCI || ||Yes ||Yes ||Yes || ||[:BroadcomBCM63xxPort:WiP] ||
 ||[http://www.usr-emea.com/products/p-wireless-product.asp?prod=net-5475&page=specs&loc=grmy USR 5463] || ||Atheros SoC ||2MB ||8MB ||Atheros 5212 SoC ||IC ip175C || ||Yes ||Yes || ||[http://wiki.openwrt.org/usr5463 Possible] ||
 
