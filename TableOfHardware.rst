@@ -78,24 +78,7 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1107&modelmenu=1 AM604g] ||Since Aug-2006 ||Broadcom 96348 @ ? (128MHz timer, 256BogoMIPS) ||4Mb ||16Mb ||Broadcom BCM4318 on-board; probably option is mini-pci ||? (4 ports; BCM6348B0; supports vlans; "Ethernet Switch Through SPI Slave Select" in dmesg; actual chip is BCM5325EKQM) ||? ||Connector present on the box ||? ||no ||no ||Unknown or unsupported ||
 ||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1106&modelmenu=1 AM604] (the same as AM604g but w/o wireless; maybe < mem&flash) ||Since Aug-2006 ||Broadcom 96348 ||? ||? ||None ||See AM604g ||? ||See AM604g ||? ||no ||no ||Unknown or unsupported ||
-----
-/!\ '''Edit conflict - other version:'''
-
-----
 ||[http://www.asus.com/products.aspx?modelmenu=2&model=1113&l1=13&l2=97&l3=0&l4=0 AM200g] ||? ||Broadcom 96348 ||4Mb ||16Mb ||Broadcom BCM4318 (on-board) ||BCM5325 ||? ||? ||? ||2 (1x host, 1x client) ||no ||[:OpenWrtDocs/Hardware/Asus/AM200g:Untested] ||
-
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||[http://www.asus.com/products.aspx?modelmenu=2&model=1113&l1=13&l2=97&l3=0&l4=0 AM200g] ||? ||Broadcom 96348 ||4Mb ||16Mb ||Broadcom BCM4318 (on-board) ||BCM5325 ||? ||? ||? ||2 (1x host, 1x client) ||no ||[:OpenWrtDocs/Hardware/Asus/AM200g:Untested] ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 ||[http://www.asus.com/products4.aspx?l1=12&l2=41&l3=0&model=60&modelmenu=1 WL-300g] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||No ||No ||[:OpenWrtDocs/Hardware/Asus/WL300G:Supported] ||
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&l4=0&model=1457&modelmenu=1 WL-320gE] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5352E] @ 200MHz ||4MB ||16MB ||Broadcom BCM4306 ||None ||on ||? ||? ||no ||no ||[:OpenWrtDocs/Hardware/Asus/WL320GE:Supported] ||
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&l4=0&model=1458&modelmenu=1 WL-320gP] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5352E] @ 200MHz ||4MB ||16MB ||Broadcom BCM4306 ||None ||on ||? ||? ||no ||no ||[:OpenWrtDocs/Hardware/Asus/WL320GE:Supported] (same as WL-320gE but with PoE) ||
@@ -125,24 +108,7 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
 ||FRITZ!Box 2030 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||Untested ||
 ||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
-----
-/!\ '''Edit conflict - other version:'''
-
-----
 ||FRITZ!Box 2170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||4MB ||14MB ||None ||4xLAN || || || ||yes ||Untested ||
-
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||FRITZ!Box 2170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||4MB ||14MB ||None ||4xLAN || || || ||yes ||Untested ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 ||FRITZ!Box SL WLAN || ||? ||4MB ||? ||acx111 mini-pci || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
@@ -238,50 +204,14 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Compex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G WRT/WRT6B] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB/32MB ||Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP54G Forked] ||
-----
-/!\ '''Edit conflict - other version:'''
-
-----
-||[http://compex.com.sg/home/OEM/product_ap.htm#WP54_6E WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E WP546E] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16 MB (128 MB Max) ||Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/NP18A Kamikaze] ||
-
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
 ||[http://compex.com.sg/home/OEM/product_ap.htm#WP54_6E WP54] ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E WP546E] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16 MB (128 MB Max) ||Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP546E Forked] ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 ||[http://www.compex.com.sg/home/products1.asp?20060522482004 NP18A] ||Retail ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||32MB ||2x Atheros (mini-PCI) ||Marvell 88E6060 ||N/A ||Yes ||Yes ||2x USB 2.0 ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/NP18A Kamikaze] ||
 ||[http://compex.com.sg/home/OEM/product_ap.htm#NP18A NP18A] ||OEM - IXP422 ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB (32MB Max) ||32MB (128MB Max) ||2x mini-PCI slots ||Marvell 88E6060 ||N/A ||Yes ||Yes ||2x USB 2.0 ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/NP18A Kamikaze] ||
 ||[http://compex.com.sg/home/OEM/product_ap.htm#NP18A NP18A] ||OEM - IXP425 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||8MB (32MB Max) ||64MB (128MB Max) ||2x mini-PCI slots ||Marvell 88E6060 ||N/A ||Yes ||Yes ||2x USB 2.0 ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/NP18A Kamikaze] ||
 ||[http://www.compex.com.sg/home/products1.asp?20060111032142 WP18] ||Retail ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||32MB ||2x Atheros (mini-PCI) ||Marvell 88E6060 ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP18 Kamikaze] ||
 ||[http://compex.com.sg/home/OEM/product_ap.htm#WP18 WP18] ||OEM - IXP422 ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB (32MB Max) ||32MB (128MB Max) ||2x mini-PCI slots ||Marvell 88E6060 ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP18 Kamikaze] ||
 ||[http://compex.com.sg/home/OEM/product_ap.htm#WP18 WP18] ||OEM - IXP425 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||8MB (32MB Max) ||64MB (128MB Max) ||2x mini-PCI slots ||Marvell 88E6060 ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/WP18 Kamikaze] ||
-
-
-----
-/!\ '''Edit conflict - other version:'''
-
-----
 ||[http://compex.com.sg/home/OEM/product_ap.htm#WP188 WP188] ||IXP422 / 25 ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB (32MB Max) ||128MB (256MB max) ||4x mini-PCI slots ||None ||N/A ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Compex/NP18A Kamikaze] ||
-
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||[http://compex.com.sg/home/OEM/product_ap.htm#WP188 WP188] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB (32MB Max) ||128MB (256MB max) ||4x mini-PCI slots ||None ||N/A ||Yes ||Yes ||No ||Unsupported ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 For more information about Compex's OpenWRT Products please Click ==>[http://For%20more%20information%20about%20compex%20openWRT%20product%20and%20information%20please%20Click%20HERE HERE]<===
 
 == Conceptronic ==
@@ -335,24 +265,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB || ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB || ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
 ||[http://www.dlink.com/products/?pid=446 DVG-G1402S] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB ||ALPHA miniPCI WMP-G09 has both internal and external antennas ||YCL PH402466G ||N/A ??? ||YES integrated 4pin RJ-12 connector, second COM port [http://www.sunspot.co.uk/Projects/SWEEX/second_rs232.html is also possible], but this CPU version doesn't have pins ||YES - port available, but not connector ||NO - but regarding [http://spritesmods.com/?art=sweexusb this page] should be possible ||All chips on board: Infineon PEB 3332 EL, Infineon PEF 4268 T, SPANSION S29GL032M90TFIR4, ESMT M12L128324A-AZR1P60H6, LB 12PS6121C, TI 6BCL72M, TI 67A3RJK. Ports included: 1WAN, 4ETH switch, 1 serial, 2 telephone connectors (SIP -> analog phone) ||
-
-
-----
-/!\ '''Edit conflict - other version:'''
-
-----
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||[http://www.dlink.com/products/?pid=446 DVG-G1402S] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB ||ALPHA miniPCI WMP-G09 has both internal and external antennas ||YCL PH402466G ||N/A ??? ||YES integrated 4pin RJ-12 connector, second COM port [http://www.sunspot.co.uk/Projects/SWEEX/second_rs232.html is also possible], but this CPU version doesn't have pins ||YES - port available, but not connector ||NO - but regarding [http://spritesmods.com/?art=sweexusb this page] should be possible ||All chips on board: Infineon PEB 3332 EL, Infineon PEF 4268 T, SPANSION S29GL032M90TFIR4, ESMT M12L128324A-AZR1P60H6, LB 12PS6121C, TI 6BCL72M, TI 67A3RJK. Ports included: 1WAN, 4ETH switch, 1 serial, 2 telephone connectors (SIP -> analog phone) ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
