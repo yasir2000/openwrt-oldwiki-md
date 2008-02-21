@@ -9,9 +9,9 @@ http://www.netgate.com/product_info.php?cPath=60&products_id=509
   * Target Options: 
    * jffs2, squashfs, ext2
    * serial baud rate: 38400
-   * Kernel partition size: 12
+   * Kernel partition size: 12 (my preference)
    * root partition: /dev/hda2
-   * Filsystem part size: 96MB
+   * Filsystem part size: 96MB (my preference)
    * Maximum number of inodes: 1500
 
 
