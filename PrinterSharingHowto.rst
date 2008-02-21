@@ -20,7 +20,7 @@ Install the p910nd package:
 {{{
 ipkg install p910nd}}}
 == Printers connected via USB ==
-To use an USB printer you must first add support for USB printers. First follow UsbStorageHowto to install the USB controller modules if you haven't already done so. You don't need {{{usb-storage}}} for the printer to work.
+To use an USB printer you must first add support for USB printers. First follow UsbStorageHowto to install the USB controller modules if you haven't already done so. You don't need {{{usb-storage}}} for the printer to work. You might need both USB 1.1 and 2.0  installed to support both modes. 
 
 Additionally, you need the {{{usb-printer}}} module which you can install with {{{ipkg}}} as follows:
 
@@ -88,6 +88,32 @@ To start it up automatically on every boot, do this:
 
 {{{
 /etc/init.d/p910nd enable}}}
+
+If your printer (mine hl-2030) spits out garbage after poweron, p910nd might be the cause. Add this to /etc/hotplug.d/usb/20-printer
+{{{#!/bin/sh
+
+# Copyright (C) 2006 OpenWrt.org
+
+if [ "$PRODUCT" = "4f9/27/100" ]
+then
+case "$ACTION" in
+        add)
+        echo "`date`: Brother HL-2030 added" >> /tmp/hl-2030
+        /etc/init.d/p910nd restart >> /tmp/hl-2030
+        echo "Done." >> /tmp/hl-2030
+        ;;
+        remove)
+        echo "`date`: Brother HL-2030 removed" >> /tmp/hl-2030
+        /etc/init.d/p910nd stop >> /tmp/hl-2030
+        echo "Done." >> /tmp/hl-2030
+        ;;
+esac
+fi
+}}}
+Where "$PRODUCT" = "4f9/27/100" is your printers VendorId/ProductId/BcdVersion(1.00 = 100). Get it with lsusb -v
+
+You might need to add "-INT" to the kill command in /etc/init.d/p910nd to actually have the stop work.
+
 == Advertising the printer via Zeroconf (optional) ==
 To avoid having to install the printer on multiple clients, you can advertise it via Zeroconf. The following example uses Avahi.
 
