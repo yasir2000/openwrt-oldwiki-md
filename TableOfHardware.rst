@@ -566,52 +566,14 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off ||Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
 == Western Digital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 == Wistron ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||CA8-4/CE8-1 ||? ||Atheros AR2313 @ ? MHz ||4MB ||32MB ||Atheros AR5112A ||? ||? ||Yes ||? ||No ||[:OpenWrtDocs/Hardware/Wistron/CA8-4  CE8-1:WiP], identical to Ovislink WLA-5000AP ||
 == Wippies ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://img.wippies.com/pic_gen/wippies_homebox.jpg Homebox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros AR2413A (mini-PCI) ||no, 2 interface on cpu ||off ||yes ||yes ||2+1 ||2xFXO, ADSL+ ||Untested ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||<style="vertical-align: top;">Homebox ||<style="vertical-align: top;">black ||<style="vertical-align: top;">[http://www.infineon.com/cms/en/product/channel.html?channel=ff80808112ab681d0112ab68cb98003b Infineon Danube PSB 50702] ||<style="vertical-align: top;">16MB ||<style="vertical-align: top;">32MB ||<style="vertical-align: top;">Atheros AR2413A (mini-PCI) ||<style="vertical-align: top;">ADM6996I ||<style="vertical-align: top;">off ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">2+1 ||<style="vertical-align: top;">2xFXO, ADSL+ ||<style="vertical-align: top;">Untested ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||<style="vertical-align: top;">Homebox ||<style="vertical-align: top;">black ||<style="vertical-align: top;">[http://www.infineon.com/cms/en/product/channel.html?channel=ff80808112ab681d0112ab68cb98003b Infineon Danube PSB 50702] ||<style="vertical-align: top;">16MB ||<style="vertical-align: top;">32MB ||<style="vertical-align: top;">Atheros AR2413A (mini-PCI) ||<style="vertical-align: top;">ADM6996I ||<style="vertical-align: top;">off ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">2+1 ||<style="vertical-align: top;">2xFXO, ADSL+ ||<style="vertical-align: top;">Untested ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 == Yakumo ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||Yakumo Wireless Storage 60 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB (2MB?) ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||60GB 2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported - identical to the ASUS WL-HDD?] ||
@@ -625,26 +587,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://us.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=1E68E573-AE4C-4140-B9A6-36AE82B49B4F ZyWall 2] || ||Samsung 2500 @166Mhz ||2MB ||16MB || || || || || || ||Info entered ||
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=2AAB8FF5-7ADD-4E59-9D6E-D4810031CEEF ZyWall 5] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||CardBus slot via [http://focus.ti.com/docs/prod/folders/print/pci1510.html PCI1510] ||Marvell 88E6060-RCJ || ||DB9M+DB9F || || ||Info entered ||
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=0E8EA8FA-AF7D-434F-A527-F337AB9A3A51 ZyWall P1] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||N/A ||N/A || ||Yes, via pin header on pcb || ||Yes, but believed to be just for providing power ||[:OpenWrtDocs/Hardware/Zyxel/Zywall-P1:Info entered] ||
-----
- /!\ '''Edit conflict - other version:'''
-
-----
-
 ||[http://zyxel.com/web/product_family_detail.php?PC1indexflag=20040520161313&CategoryGroupNo=361736C0-7B29-41A7-B083-84DD37964908 P-334WT EE] || ||? ||4Mb ||16Mb (HY57V283220T-7) ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||? ||? ||No ||Info entered ||
-
-
-----
- /!\ '''Edit conflict - your version:'''
-
-----
-
-||[http://zyxel.com/web/product_family_detail.php?PC1indexflag=20040520161313&CategoryGroupNo=361736C0-7B29-41A7-B083-84DD37964908 P-334WT EE] || ||? ||4Mb ||16Mb (HY57V283220T-7) ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||? ||? ||No ||Info entered ||
-
-
-----
- /!\ '''End of edit conflict'''
-
-----
 ----
 ----
  . ["CategoryAR7Device"]
