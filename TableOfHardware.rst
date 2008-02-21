@@ -459,7 +459,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == PC Engines ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.pcengines.ch/wrap.htm WRAP.2d] || ||x86 233mhz or 266mhz ||CF Card ||64MB || || || ||Yes ||No ||No ||[:SoekrisPort:Kamikaze] ||
-||[http://www.pcengines.ch/alix.htm ALIX.2/3] || ||x86 433mhz or 500mhz (AMD Geode LX700/800) ||CF Card ||128MB or 256MB ||None, 1 or 2 Mini-PCI slots || || ||Yes ||No ||Optional ||Info entered ||
+||[http://www.pcengines.ch/alix.htm ALIX.2/3] || ||x86 433mhz or 500mhz (AMD Geode LX700/800) ||CF Card ||128MB or 256MB ||None, 1 or 2 Mini-PCI slots || || ||Yes ||No ||Optional ||[:AlixPort:Kamikaze] ||
 == Planet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.planet.com.tw/product/product_dm.php?product_id=316&menu_id=14 WAP-4060PE] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ ?MHz ||2MB ||8MB ||AR2112 ||None ||N/A ||Yes, out of the box ||? ||No ||? (Clone of LevelOne WAP-0005) ||
