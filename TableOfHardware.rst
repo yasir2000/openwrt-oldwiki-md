@@ -310,24 +310,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||HW: B2 (B1 printed on PCB) ||D-Link DL7500 (Atheros remarked?) ||[http://www.eonsdi.com/pdf/EN29LV800B.pdf 1MB (EON EN29LV800BB)] ||[http://www.etron.com/manager/uploads/EM636165_27.pdf 2MB (EtronTech EM636165TS-7)] ||Ralink RT2525 ||D-Link DL1005C ||? ||? ||J7? - 6 pins ||No ||Info Entered ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||? ||? ||Yes ||Yes ||Info Entered ||
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oWIB5kP98f8p8M6tj5jkkBSnqxCBC9o4ABNs= DI-614+] ||HW:A2 ||Samsung [http://www.datasheet4u.com/download.php?id=259661 S3C4510B01-QER0 (ARM7)] @ 50 MHz ||8M [http://www.datasheetarchive.com/pdf/207970.pdf 29LV800BTC-90 (1M x 8/512 K x 16) BIT] ||2M [http://www.hynix.com/datasheet/pdf/dram/HY57V643220C(L)T(P)(Rev0.9).pdf hy57v643220ct] ( 4 banks x 512k x 32bit synchronous DRAM) ||?? ||Marvell 88E6052 [http://www.marvell.com/products/soho_soft.jsp (link street soho switch)] ||? ||? ||JP2 - 14pins ||no ||Info Entered ||
-----
-/!\ '''Edit conflict - other version:'''
-
-----
 ||<style="VERTICAL-ALIGN: top">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="VERTICAL-ALIGN: top">HW:H1 ||<style="VERTICAL-ALIGN: top">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="VERTICAL-ALIGN: top">1MB (MX 29LV800BBTC-70) ||<style="VERTICAL-ALIGN: top">8MB (MIRA P2V64S40DTP) ||<style="VERTICAL-ALIGN: top">Atheros (integrated) ||<style="VERTICAL-ALIGN: top">Marvell 88E6060 ||<style="VERTICAL-ALIGN: top">? ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">No ||<style="VERTICAL-ALIGN: top">[:AtherosPort:WiP] ||
-
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||<style="VERTICAL-ALIGN: top">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="VERTICAL-ALIGN: top">HW:H1 ||<style="VERTICAL-ALIGN: top">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="VERTICAL-ALIGN: top">1MB (MX 29LV800BBTC-70) ||<style="VERTICAL-ALIGN: top">8MB (MIRA P2V64S40DTP) ||<style="VERTICAL-ALIGN: top">Atheros (integrated) ||<style="VERTICAL-ALIGN: top">Marvell 88E6060 ||<style="VERTICAL-ALIGN: top">? ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">No ||<style="VERTICAL-ALIGN: top">[:AtherosPort:WiP] ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC μPD30131F1 VR4131 ||2MB || |||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:C3 chassis 1.2 ||AR2313-00 ||[http://www.digchip.com/datasheets/parts/datasheet/211/IC42S16400-7T.php IC42S16400-7T] 1MB || ||AR2112 ||88E6060-RCJ 4xLAN || || || ||No ||Not tested ||
 ||[http://www.dlink.com/products/?pid=390&sec=0 DI-624S] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200 Mhz ||[http://www.intel.com/design/flcomp/prodbref/308275.htm Intel TE28F128] 16MB || ||Atheros Mini-PCI ||None ||? ||Yes ||Yes ||Yes ||[http://forum.openwrt.org/viewtopic.php?pid=43891 WIP] ||
@@ -335,24 +318,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||DI-624+A ||HW: B2 ||D-Link DL7500A (Atheros remarked?, Radio integrated?) ||EON EN29LV800BB-70TCP (8Mbit) 1MB ||EtronTech EM636165TS-7G (16 Mbit) 8MB ||AIROHA AL2230 ||? ||? ||? ||? ||? ||Info Entered ||
 ||[ftp://ftp10.dlink.com/pdfs/products/DI-724P/DI-724P_ds_ca.pdf DI-724P+] ||HW:A1 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI WL541M ||DL1005 ||? ||? ||? ||No ||Info Entered ||
 ||[ftp://ftp10.dlink.com/pdfs/products/DI-824VUP/DI-824VUP_ds_ca.pdf DI-824VUP+] || ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI ||DL1005C (IP175C) [http://www.xbitlabs.com/articles/other/print/dlink-di824vup.html chip photos] ||? ||? ||? ||Yes ||Info Entered ||
-
-
-----
-/!\ '''Edit conflict - other version:'''
-
-----
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||[ftp://ftp10.dlink.com/pdfs/products/DI-824VUP/DI-824VUP_ds_ca.pdf DI-824VUP+] || ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI ||DL1005C (IP175C) [http://www.xbitlabs.com/articles/other/print/dlink-di824vup.html chip photos] ||? ||? ||? ||Yes ||Info Entered ||
-
-
-----
-/!\ '''End of edit conflict'''
-
-----
 ||[http://www.dlink.com/products/?sec=1&pid=530 DIR-655] || ||[http://www.ubicom.com/processors/ip5000/ip5000_family.html Ubicom StreamEngine 5160] @ 220 Mhz ||4MB? ||16MB ||Atheros AR5BMB71 Mini-PCI ||4x10/100/1000 ||? ||? ||? ||Yes ||? Not Tested ||
 ||DSL-G500T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||None ||None ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=1&Sub2=2&PID=49 DSL-504T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] it runs ok ||
