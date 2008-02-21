@@ -98,8 +98,6 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.asus.com/products4.aspx?l1=12&l2=44&l3=0&model=460&modelmenu=1 WL-HDD2.5] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (integrated) ||None ||on || || ||1x v1.1 ||2.5" ||[:OpenWrtDocs/Hardware/Asus/WL-HDD:Supported] ||
 ||[http://microanvica.co.uk/product.asp?TXT=INFO&PNO=ASU54305A WL-HMD] || || || || || || || || || ||1x v1.1 ||2.5" 40GB ||Untested, likely to be just a WL-HDD with 40GB drive included ||
 ||[http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1 AAM6020VI] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz || || || || ||["PSPBoot"] ||Yes || || ||No ||[:AR7Port:WiP] ||
-
-
 == Auerswald ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone) || ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
@@ -124,8 +122,6 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||FRITZ!Box Fon WLAN 7050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
 ||FRITZ!Box Fon WLAN 7140 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||acx111 on-board ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
 ||FRITZ!Box Fon WLAN 7170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||ac111 on-oard ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
-
-
 detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
 
 == Aztech ==
@@ -230,7 +226,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == Digitus ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||DN-7005 ||rev 1.1 (aka model WPR400) ||AMITSOC-0261 ||512 KByte ||4 MByte (?) ||XI-325 (PCCard, FCC ID M4Y-000325) ||ATAN Tech. AT8985P ||? ||? ||? ||? ||Info entered ||
-
 == D-Link ==
 ||<tablewidth="1219px" tableheight="518px">'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo5+h6ltbNlwaaFp6DQoHDrpziVF9o0OBN/l DSL-320T] ||EU ||200Mhz ||2MB ||8MB ||None ||None ||pspboot (mod) || || || ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-320T WiP] ||
@@ -240,7 +235,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com/products/?pid=316 DI-524] ||HW: B2 (B1 printed on PCB) ||D-Link DL7500 (Atheros remarked?) ||[http://www.eonsdi.com/pdf/EN29LV800B.pdf 1MB (EON EN29LV800BB)] ||[http://www.etron.com/manager/uploads/EM636165_27.pdf 2MB (EtronTech EM636165TS-7)] ||Ralink RT2525 ||D-Link DL1005C ||? ||? ||J7? - 6 pins ||No ||Info Entered ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||? ||? ||Yes ||Yes ||Info Entered ||
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oWIB5kP98f8p8M6tj5jkkBSnqxCBC9o4ABNs= DI-614+] ||HW:A2 ||Samsung [http://www.datasheet4u.com/download.php?id=259661 S3C4510B01-QER0 (ARM7)] @ 50 MHz ||8M [http://www.datasheetarchive.com/pdf/207970.pdf 29LV800BTC-90 (1M x 8/512 K x 16) BIT] ||2M [http://www.hynix.com/datasheet/pdf/dram/HY57V643220C(L)T(P)(Rev0.9).pdf hy57v643220ct] ( 4 banks x 512k x 32bit synchronous DRAM) ||?? ||Marvell 88E6052 [http://www.marvell.com/products/soho_soft.jsp (link street soho switch)] ||? ||? ||JP2 - 14pins ||no ||Info Entered ||
-||<style="VERTICAL-ALIGN: top">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="VERTICAL-ALIGN: top">HW:H1 ||<style="VERTICAL-ALIGN: top">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="VERTICAL-ALIGN: top">1MB (MX 29LV800BBTC-70) ||<style="VERTICAL-ALIGN: top">8MB (MIRA P2V64S40DTP) ||<style="VERTICAL-ALIGN: top">Atheros (integrated) ||<style="VERTICAL-ALIGN: top">Marvell 88E6060 ||<style="VERTICAL-ALIGN: top">? ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">No ||<style="VERTICAL-ALIGN: top">[:AtherosPort:WiP] ||
+||<style="vertical-align: top;">[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||<style="vertical-align: top;">HW:H1 ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||<style="vertical-align: top;">1MB (MX 29LV800BBTC-70) ||<style="vertical-align: top;">8MB (MIRA P2V64S40DTP) ||<style="vertical-align: top;">Atheros (integrated) ||<style="vertical-align: top;">Marvell 88E6060 ||<style="vertical-align: top;">? ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC μPD30131F1 VR4131 ||2MB || |||XG-600V02 MiniPC ||4xLAN || || || || ||? ||
 ||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:C3 chassis 1.2 ||AR2313-00 ||[http://www.digchip.com/datasheets/parts/datasheet/211/IC42S16400-7T.php IC42S16400-7T] 1MB || ||AR2112 ||88E6060-RCJ 4xLAN || || || ||No ||Not tested ||
 ||[http://www.dlink.com/products/?pid=390&sec=0 DI-624S] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200 Mhz ||[http://www.intel.com/design/flcomp/prodbref/308275.htm Intel TE28F128] 16MB || ||Atheros Mini-PCI ||None ||? ||Yes ||Yes ||Yes ||[http://forum.openwrt.org/viewtopic.php?pid=43891 WIP] ||
@@ -248,7 +243,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||DI-624+A ||HW: B2 ||D-Link DL7500A (Atheros remarked?, Radio integrated?) ||EON EN29LV800BB-70TCP (8Mbit) 1MB ||EtronTech EM636165TS-7G (16 Mbit) 8MB ||AIROHA AL2230 ||? ||? ||? ||? ||? ||Info Entered ||
 ||[ftp://ftp10.dlink.com/pdfs/products/DI-724P/DI-724P_ds_ca.pdf DI-724P+] ||HW:A1 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI WL541M ||DL1005 ||? ||? ||? ||No ||Info Entered ||
 ||[ftp://ftp10.dlink.com/pdfs/products/DI-824VUP/DI-824VUP_ds_ca.pdf DI-824VUP+] || ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI ||DL1005C (IP175C) [http://www.xbitlabs.com/articles/other/print/dlink-di824vup.html chip photos] ||? ||? ||? ||Yes ||Info Entered ||
-||[http://www.dlink.com/products/?pid=565 DIR-615] || ||Marvel 88W5180 ||8MB ||16MB? || Marvel 88W8361 Mini-PCI ||4x10/100 || Unknown ||Maybe ||Maybe ||No || Not Tested ||
+||[http://www.dlink.com/products/?pid=565 DIR-615] ||HW:A1||Marvel 88W5180 ||28F640 (64Mbit/8MB) ||16MB? || Marvel 88W8361 Mini-PCI ||4x10/100 || Unknown ||Maybe ||Maybe ||No || Not Tested ||
 ||[http://www.dlink.com/products/?sec=1&pid=530 DIR-655] || ||[http://www.ubicom.com/processors/ip5000/ip5000_family.html Ubicom StreamEngine 5160] @ 220 Mhz ||4MB? ||16MB ||Atheros AR5BMB71 Mini-PCI ||4x10/100/1000 ||? ||? ||? ||Yes ||? Not Tested ||
 ||DSL-G500T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||None ||None ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=1&Sub2=2&PID=49 DSL-504T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||None ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[:AR7Port:WiP] it runs ok ||
@@ -260,8 +255,8 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com.tw/product_model_view.asp?w_p_s_m_id=17 DSL-G664T] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||TI ACX111 (["VLYNQ"]) ||IP175A ||["ADAM2"] ||Yes ||Yes ||No ||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-G604T WiP] it runs ok ||
 ||DSL-G684T || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB || ||TI ACX111 (["VLYNQ"]) ||ADM6996 ||["ADAM2"] ||Yes ||? ||No ||[:AR7Port:WiP] ||
 ||DSM-G600 ||Rev A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||16MB || ||Atheros || ||N/A ||Yes ||Yes ||Yes || ||
-||<style="VERTICAL-ALIGN: top">DVA-G3340S ||<style="VERTICAL-ALIGN: top">A1 (EU) ||<style="VERTICAL-ALIGN: top">[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||<style="VERTICAL-ALIGN: top">4MB ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">ADM6996M ||<style="VERTICAL-ALIGN: top">["ADAM2"] ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">[:AR7Port:WiP] ||
-||[http://www.dlink.com/products/?pid=333 DWL-G820] ||A1 ||Atheros 2313 @ 180MHz ||<style="VERTICAL-ALIGN: top">Atmel AT49BV322A 4MB ||<style="VERTICAL-ALIGN: top">Hynix HY57V281620HCT-H 16MB ||Atheros (integrated) ||IP101A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-G820:WiP] ||
+||<style="vertical-align: top;">DVA-G3340S ||<style="vertical-align: top;">A1 (EU) ||<style="vertical-align: top;">[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||<style="vertical-align: top;">4MB ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;">ADM6996M ||<style="vertical-align: top;">["ADAM2"] ||<style="vertical-align: top;"> ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">[:AR7Port:WiP] ||
+||[http://www.dlink.com/products/?pid=333 DWL-G820] ||A1 ||Atheros 2313 @ 180MHz ||<style="vertical-align: top;">Atmel AT49BV322A 4MB ||<style="vertical-align: top;">Hynix HY57V281620HCT-H 16MB ||Atheros (integrated) ||IP101A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-G820:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB || ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB || ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
 ||[http://www.dlink.com/products/?pid=446 DVG-G1402S] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB ||ALPHA miniPCI WMP-G09 has both internal and external antennas ||YCL PH402466G ||N/A ??? ||YES integrated 4pin RJ-12 connector, second COM port [http://www.sunspot.co.uk/Projects/SWEEX/second_rs232.html is also possible], but this CPU version doesn't have pins ||YES - port available, but not connector ||NO - but regarding [http://spritesmods.com/?art=sweexusb this page] should be possible ||All chips on board: Infineon PEB 3332 EL, Infineon PEF 4268 T, SPANSION S29GL032M90TFIR4, ESMT M12L128324A-AZR1P60H6, LB 12PS6121C, TI 6BCL72M, TI 67A3RJK. Ports included: 1WAN, 4ETH switch, 1 serial, 2 telephone connectors (SIP -> analog phone) ||
@@ -338,23 +333,26 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www-au.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=AU/Layout&cid=1130279411957&pagename=Linksys/Common/VisitorWrapper WAG54GP2] ||1 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||8MB? ||32MB? ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] || || ||No ||[:AR7Port:WiP] ||
 ||[http://www-nz.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=NZ/Layout&cid=1160628844303&pagename=Linksys/Common/VisitorWrapper WAG54GP2] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||8MB? ||32MB? ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] || || ||No ||[:AR7Port:WiP] ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
+
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1172713082281&pagename=Linksys/Common/VisitorWrapper&lid=8228139789B01 WAP200] || ||[http://www.starsemi.com.tw/vEng/product.php Star STR9110] (ARM922 I16/D16 core) @ 250MHz ||4MB ||16MB ||Ralink RT2661 (mPCI) ||None ||? ||? ||? ||No ||Untested ||
 
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
+
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1172713082281&pagename=Linksys/Common/VisitorWrapper&lid=8228139789B01 WAP200] || ||[http://www.starsemi.com.tw/vEng/product.php Star STR9110] (ARM922 I16/D16 core) @ 250MHz ||4MB ||16MB ||Ralink RT2661 (mPCI) ||None ||? ||? ||? ||No ||Untested ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
+
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB / 4MB ||8MB ||Broadcom (mini-PCI) ||None ||off ||No UART ||No ||No ||[:WAP54GHowto:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||1.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB (or 4MB?) ||16MB? ||Broadcom (mini-PCI) ||None ||off ||No UART ||No ||No ||WiP ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||2.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8/16MB ||Broadcom (integrated) ||None ||off ||Yes ||Yes ||No ||WiP ||
@@ -444,21 +442,23 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == MSI ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
+
 ||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || || ||
 
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
+
 ||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || || ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
 == Netgear ==
@@ -510,21 +510,23 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="TEXT-ALIGN: center">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="TEXT-ALIGN: center">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
+||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''Edit conflict - your version:'''
+
+----
+
+||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
+
+
+----
+ /!\ '''End of edit conflict'''
 
 ----
 == Senao/EnGenius ==
@@ -555,22 +557,23 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://smc.com/ SMC7908VoWBRB ] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
 ||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] ||751.8267 ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes ||No || ||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&cid=5&scid=&pid=1442 SMCWBR14T-G] ||752.8698 ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||[http://www.st.com/stonline/products/literature/ds/10027/m25p16.pdf ST 25P16V6P (2MB)] ||[http://www.issi.com/pdf/42S16800A.pdf IS42S16800A-7 (16MB)] || ||[http://www.icplus.com.tw/pp-IP175C.html IC+ IP175C] || ||Yes ||Yes ||No || ||
-||<style="VERTICAL-ALIGN: top">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_NLD&cid=1&scid=119&pid=1640 SMCWBR14S-N] ||<style="VERTICAL-ALIGN: top">752.9105EU ||<style="VERTICAL-ALIGN: top">[:infineon:Infineon] PSB 50610 E chipset ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">PSC A2V28S40CTP ??32 MB?? ||<style="VERTICAL-ALIGN: top">RaLink RT2860T ||<style="VERTICAL-ALIGN: top">[:realtek:RealTek] RTL8306S ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">yes ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">no ||<style="VERTICAL-ALIGN: top">info entered ||
-||<style="VERTICAL-ALIGN: top">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||<style="VERTICAL-ALIGN: top">ST 25P16V6P (2MB) ||<style="VERTICAL-ALIGN: top">PSC A2V64S4OCTP (8MB) ||<style="VERTICAL-ALIGN: top">ALTIMA AC101 ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">No ||<style="VERTICAL-ALIGN: top">[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
+||<style="vertical-align: top;">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_NLD&cid=1&scid=119&pid=1640 SMCWBR14S-N] ||<style="vertical-align: top;">752.9105EU ||<style="vertical-align: top;">[:infineon:Infineon] PSB 50610 E chipset ||<style="vertical-align: top;"> ||<style="vertical-align: top;">PSC A2V28S40CTP ??32 MB?? ||<style="vertical-align: top;">RaLink RT2860T ||<style="vertical-align: top;">[:realtek:RealTek] RTL8306S ||<style="vertical-align: top;"> ||<style="vertical-align: top;">yes ||<style="vertical-align: top;"> ||<style="vertical-align: top;">no ||<style="vertical-align: top;">info entered ||
+||<style="vertical-align: top;">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] ||<style="vertical-align: top;"> ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||<style="vertical-align: top;">ST 25P16V6P (2MB) ||<style="vertical-align: top;">PSC A2V64S4OCTP (8MB) ||<style="vertical-align: top;">ALTIMA AC101 ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
-||<style="VERTICAL-ALIGN: top">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||<style="VERTICAL-ALIGN: top">ST 25P16V6P (2MB) ||<style="VERTICAL-ALIGN: top">PSC A2V64S4OCTP (8MB) ||<style="VERTICAL-ALIGN: top">ALTIMA AC101 ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top"> ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">Yes ||<style="VERTICAL-ALIGN: top">No ||<style="VERTICAL-ALIGN: top">[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
+
+||<style="vertical-align: top;">[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_GBR&cid=5&scid=84&pid=1476 WEBT-G] ||<style="vertical-align: top;"> ||<style="vertical-align: top;">[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||<style="vertical-align: top;">ST 25P16V6P (2MB) ||<style="vertical-align: top;">PSC A2V64S4OCTP (8MB) ||<style="vertical-align: top;">ALTIMA AC101 ||<style="vertical-align: top;"> ||<style="vertical-align: top;"> ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">Yes ||<style="vertical-align: top;">No ||<style="vertical-align: top;">[:OpenWrtDocs/Hardware/Fon/Fonera:WiP] ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
 == Soekris Engineering ==
@@ -624,19 +627,20 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP HW:D1.0R] || ||RealTek 8186 ||2MB MX29LV160BTC-70 ||8MB M12L64164A ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8306S || || || ||No ||Untested ||
 ||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
+
 ||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
 == US Robotics ==
@@ -644,23 +648,26 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5461 USR5461] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||1x v1.1 ||[:USR5461:WiP] ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
+
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5441 USR5441] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||no ||[:USR5441:WiP] ||
 
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
+
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5441 USR5441] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||no ||[:USR5441:WiP] ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
+
 ||[http://www.usr-emea.com/support/s-prod-template.asp?loc=unkg&prod=9106 USR9106] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6345 Broadcom 6345] @ 100MHz ||4MB ||16MB ||mini-PCI || ||Yes ||Yes ||Yes || ||[:BroadcomBCM63xxPort:WiP] ||
 ||[http://www.usr-emea.com/products/p-wireless-product.asp?prod=net-5475&page=specs&loc=grmy USR 5463] || ||Atheros SoC ||2MB ||8MB ||Atheros 5212 SoC ||IC ip175C || ||Yes ||Yes || ||[http://wiki.openwrt.org/usr5463 Possible] ||
 
@@ -672,21 +679,23 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == Western Digital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
+
 ||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
 
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
+
 ||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
 == Wistron ==
@@ -696,21 +705,23 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://img.wippies.com/pic_gen/wippies_homebox.jpg Homebox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros AR2413A (mini-PCI) ||no, 2 interface on cpu ||off ||yes ||yes ||2+1 ||2xFXO, ADSL+ ||Untested ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
-||<style="VERTICAL-ALIGN: top">Homebox ||<style="VERTICAL-ALIGN: top">black ||<style="VERTICAL-ALIGN: top">[http://www.infineon.com/cms/en/product/channel.html?channel=ff80808112ab681d0112ab68cb98003b Infineon Danube PSB 50702] ||<style="VERTICAL-ALIGN: top">16MB ||<style="VERTICAL-ALIGN: top">32MB ||<style="VERTICAL-ALIGN: top">Atheros AR2413A (mini-PCI) ||<style="VERTICAL-ALIGN: top">ADM6996I ||<style="VERTICAL-ALIGN: top">off ||<style="VERTICAL-ALIGN: top">yes ||<style="VERTICAL-ALIGN: top">yes ||<style="VERTICAL-ALIGN: top">2+1 ||<style="VERTICAL-ALIGN: top">2xFXO, ADSL+ ||<style="VERTICAL-ALIGN: top">Untested ||
 
-
-----
-/!\ '''Edit conflict - your version:'''
-
-----
-||<style="VERTICAL-ALIGN: top">Homebox ||<style="VERTICAL-ALIGN: top">black ||<style="VERTICAL-ALIGN: top">[http://www.infineon.com/cms/en/product/channel.html?channel=ff80808112ab681d0112ab68cb98003b Infineon Danube PSB 50702] ||<style="VERTICAL-ALIGN: top">16MB ||<style="VERTICAL-ALIGN: top">32MB ||<style="VERTICAL-ALIGN: top">Atheros AR2413A (mini-PCI) ||<style="VERTICAL-ALIGN: top">ADM6996I ||<style="VERTICAL-ALIGN: top">off ||<style="VERTICAL-ALIGN: top">yes ||<style="VERTICAL-ALIGN: top">yes ||<style="VERTICAL-ALIGN: top">2+1 ||<style="VERTICAL-ALIGN: top">2xFXO, ADSL+ ||<style="VERTICAL-ALIGN: top">Untested ||
+||<style="vertical-align: top;">Homebox ||<style="vertical-align: top;">black ||<style="vertical-align: top;">[http://www.infineon.com/cms/en/product/channel.html?channel=ff80808112ab681d0112ab68cb98003b Infineon Danube PSB 50702] ||<style="vertical-align: top;">16MB ||<style="vertical-align: top;">32MB ||<style="vertical-align: top;">Atheros AR2413A (mini-PCI) ||<style="vertical-align: top;">ADM6996I ||<style="vertical-align: top;">off ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">2+1 ||<style="vertical-align: top;">2xFXO, ADSL+ ||<style="vertical-align: top;">Untested ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''Edit conflict - your version:'''
+
+----
+
+||<style="vertical-align: top;">Homebox ||<style="vertical-align: top;">black ||<style="vertical-align: top;">[http://www.infineon.com/cms/en/product/channel.html?channel=ff80808112ab681d0112ab68cb98003b Infineon Danube PSB 50702] ||<style="vertical-align: top;">16MB ||<style="vertical-align: top;">32MB ||<style="vertical-align: top;">Atheros AR2413A (mini-PCI) ||<style="vertical-align: top;">ADM6996I ||<style="vertical-align: top;">off ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">yes ||<style="vertical-align: top;">2+1 ||<style="vertical-align: top;">2xFXO, ADSL+ ||<style="vertical-align: top;">Untested ||
+
+
+----
+ /!\ '''End of edit conflict'''
 
 ----
 == Yakumo ==
@@ -727,21 +738,23 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=2AAB8FF5-7ADD-4E59-9D6E-D4810031CEEF ZyWall 5] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||CardBus slot via [http://focus.ti.com/docs/prod/folders/print/pci1510.html PCI1510] ||Marvell 88E6060-RCJ || ||DB9M+DB9F || || ||Info entered ||
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=0E8EA8FA-AF7D-434F-A527-F337AB9A3A51 ZyWall P1] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||N/A ||N/A || ||Yes, via pin header on pcb || ||Yes, but believed to be just for providing power ||[:OpenWrtDocs/Hardware/Zyxel/Zywall-P1:Info entered] ||
 ----
-/!\ '''Edit conflict - other version:'''
+ /!\ '''Edit conflict - other version:'''
 
 ----
+
 ||[http://zyxel.com/web/product_family_detail.php?PC1indexflag=20040520161313&CategoryGroupNo=361736C0-7B29-41A7-B083-84DD37964908 P-334WT EE] || ||? ||4Mb ||16Mb (HY57V283220T-7) ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||? ||? ||No ||Info entered ||
 
 
 ----
-/!\ '''Edit conflict - your version:'''
+ /!\ '''Edit conflict - your version:'''
 
 ----
+
 ||[http://zyxel.com/web/product_family_detail.php?PC1indexflag=20040520161313&CategoryGroupNo=361736C0-7B29-41A7-B083-84DD37964908 P-334WT EE] || ||? ||4Mb ||16Mb (HY57V283220T-7) ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||? ||? ||No ||Info entered ||
 
 
 ----
-/!\ '''End of edit conflict'''
+ /!\ '''End of edit conflict'''
 
 ----
 ----
