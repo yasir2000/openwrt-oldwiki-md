@@ -171,11 +171,13 @@ config wifi-iface
 
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK or psk2 for WPA-PSK2 (AES)'''
 
-'''3) "option mode": there is no 'wet' mode any more.''' However, if you select 'sta' mode, and also bridge the wireless to another interface (e.g. 'option network lan'), then wet mode is enabled automatically. This allows the unit to act as a wireless bridge, so that one or more PCs sitting behind the OpenWrt box can join the LAN. Some ARP and DHCP masquerading is done so that this doesn't require WDS mode on the access point. ''(Tested with Kamikaze 7.07 and a Broadcom chipset and 2.4 kernel; may not work for Atheros and/or 2.6 users)''
+'''3) "option key <key>": You must use a key that is at least 8 characters long if you are using psk2.''' If your key is fewer than 8 characters long, you may get the following error under Kamikaze 7.09: "wl0: ignore i/f due to error(s)".
 
-'''4) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
+'''4) "option mode": there is no 'wet' mode any more.''' However, if you select 'sta' mode, and also bridge the wireless to another interface (e.g. 'option network lan'), then wet mode is enabled automatically. This allows the unit to act as a wireless bridge, so that one or more PCs sitting behind the OpenWrt box can join the LAN. Some ARP and DHCP masquerading is done so that this doesn't require WDS mode on the access point. ''(Tested with Kamikaze 7.07 and a Broadcom chipset and 2.4 kernel; may not work for Atheros and/or 2.6 users)''
 
-'''5) hostapd:''' For WPA you may need hostapd. The kamikaze 7.07 does not include hostapd and must be installed to support WPA (at least when using madwifi).
+'''5) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
+
+'''6) hostapd:''' For WPA you may need hostapd. The kamikaze 7.07 does not include hostapd and must be installed to support WPA (at least when using madwifi).
 
 ==== MAC Filter ====
 First, you need to have installed the wl package - '''ipkg install wl'''
