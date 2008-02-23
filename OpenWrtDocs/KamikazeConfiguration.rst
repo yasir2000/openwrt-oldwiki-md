@@ -221,6 +221,33 @@ uci set wireless.wl0.maclist="00:0D:0B:B5:2A:BF 00:0D:0C:A2:2A:BA"
 uci commit}}}
 After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter start'''
 
+== Services ==
+=== DHCP ===
+OpenWrt uses the lightweight [http://www.thekelleys.org.uk/dnsmasq/doc.html dnsmasq] DHCP server, which is configured in '''/etc/config/dhcp''':
+{{{config dhcp
+	option interface	lan
+	option start 		100
+	option limit		150
+	option leasetime	12h
+
+config dhcp                                                                              
+        option interface        wan                                                      
+	option ignore   1}}}
+
+This will make dnsmasq will offer up to 150 address leases, starting from address .100 of your network with a lease time of 12 hours. e.g. 10.0.0.100-10.0.0.249
+
+If you think dnsmasq is not offering addresses as configured, use ''ps w'' to see what command-line arguments it was run with:
+{{{root@wrt:~# ps w | grep dnsmasq
+  606 nobody      452 S   /usr/sbin/dnsmasq --dhcp-range=lan,10.0.0.10,10.0.0.60,255.255.255.0,12h -I eth0.1}}}
+
+A common problem is to have the --dhcp-range option missing:
+ `/usr/sbin/dnsmasq -I eth0.1`
+ (or ppp0, or whatever your WAN interface is -- -I means "don't offer addresses on this interface", more on that in ''dnsmasq --help'')
+
+If that's the case, just append to your lan interface section:
+{{{option force 1
+}}}
+
 = HowTo =
 === How to Automatically configure Client/Ad-hoc Client/Client+Repeater Mode on a Fonera or Meraki mini ===
 Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk  1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
