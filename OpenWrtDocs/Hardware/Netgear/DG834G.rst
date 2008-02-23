@@ -1,12 +1,11 @@
 = Netgear DG834G v1 =
 == Hardware ==
 || || Original entry || Weedys ||
-|| CPU |||| TI AR7 TNETD7300GDU ||
+|| CPU ||||<style="text-align: center;"> TI AR7 TNETD7300GDU ||
 || Flash || AMD AM29LV320 || 29DL32BF-70PFTN ||
 || SDRAM || ICSI IC42S16800-7T || V54C3128164VAT7 ||
-|| LAN MAC/PHY Switch |||| Marvell 88E6060-RCJ ||
-|| WLAN |||| TI TNETW1130GVF ||
-
+|| LAN MAC/PHY Switch ||||<style="text-align: center;"> Marvell 88E6060-RCJ ||
+|| WLAN ||||<style="text-align: center;"> TI TNETW1130GVF ||
 == Serial Console ==
 {{{
  ________________right__________________
@@ -18,13 +17,11 @@ _plug    Pin 2: TX       ----> ()       | Front of DG834G
 |                           JP603       |
 |                                       led
 |                                       |
-
 }}}
-The serial port is JP603, it is on the right side of the PCB, between the power plug and the eth4 led, and is oriented with pin1 closest to the edge of the board. I did not find a +5V line to feed the ADM233LJ (pin compatible max233), so I used an external alim. Then minicom@115200,8N1 started to show the kernel output, and give a busybox console.
-(I used a DKU-5 no problems -- Weedy)
+The serial port is JP603, it is on the right side of the PCB, between the power plug and the eth4 led, and is oriented with pin1 closest to the edge of the board. I did not find a +5V line to feed the ADM233LJ (pin compatible max233), so I used an external alim. Then minicom@115200,8N1 started to show the kernel output, and give a busybox console. (I used a DKU-5 no problems -- Weedy)
 
 == SquashFS-LZMA ==
-starting from frimware Ver. 3.1.25, the file system is squashfs with LZMA compression (previously it was cramfs), Here is '''unsquashfs for lzma specific to this board''' attachment:squashfs%2D%32.%31%2Dr%32%2Dlzma.tar.bz%32
+starting from frimware Ver. 3.1.25, the file system is squashfs with LZMA compression (previously it was cramfs), Here is '''unsquashfs for lzma specific to this board''' attachment:squashfs-2.1-r2-lzma.tar.bz2
 
 = Netgear DG834G v2 =
 == Hardware ==
@@ -34,6 +31,13 @@ starting from frimware Ver. 3.1.25, the file system is squashfs with LZMA compre
 || SDRAM || 16 MByte (ISSI IS42S16800A-7T, [http://www.issi.com/pdf/42S16800A.pdf datasheet]) ||
 || LAN MAC/PHY Switch || Marvell 88E6060-RCJ ||
 || WLAN || TI TNET??? ||
+
+
+Picture of a DG834B board (seems to be identical to the DG834G except the unpopulated MiniPCI/VLYNQ connector):
+
+attachment:834top_small.jpg
+
+[attachment:834top_large.jpg Larger version available (529 KiB)]
 
 == Serial Console ==
 {{{
@@ -57,8 +61,9 @@ The console is JP603 and is oriented with pin1 closest to the edge of the board 
 || SDRAM || ??? ||
 || LAN MAC/PHY Switch || Marvell 88E6060 ||
 || WLAN || TI TNETW1350A ||
-== Serial console ==
 
+
+== Serial console ==
 Same as the v2.
 
 = ADAM2 =
@@ -70,23 +75,21 @@ Partially taken from http://www.earth.li/~noodles/blog/dg834g/dg834g-openwrt.htm
 ==== Getting access to your router ====
  1. Enable debug mode (telnet access)
   . Go to the following URL in your router: http://192.168.0.1/setup.cgi?todo=debug
- 
+
  1. Telnet into your router
   . {{{
 telnet 192.168.1.1
 }}}
  1. '''Make sure to give adam2 an ip'''
-  .{{{
+  . {{{
 echo "my_ipaddress 192.168.0.1" > /proc/sys/dev/adam2/environment
 }}}
-
 ==== Backing things up ====
 If you make a mistake, these backups are very useful. MTD layout is listed later on the page.
 
  1. Backup each mtd block.
   . {{{
 ls /dev/mtdblock
-
 dd if=/dev/mtdblock/2 of=/tmp/mtd2.bin
 ...
 }}}
@@ -143,14 +146,11 @@ We can also see that {{{mtd3}}} is the last partition and that there is no parti
 SETENV mtd4,0x90020000,0x903e0000
 200 SETENV command successful
 }}}
-
 Note - If you're accessing ADAM2 via the serial console you can also create MTD using a similar command (note the casing and the spaces are different)
 
 {{{
 setenv mtd4 0x90020000,0x903e0000
 }}}
-
-
 After that, we can flash {{{openwrt-ar7-2.6-squashfs.bin}}} to {{{mtd4}}} via ftp.
 
 '''The AR7 installation instructions instruct you to create mtd4, but this might already in use by the DG834(G). In that case create mtd5.'''
@@ -158,6 +158,7 @@ After that, we can flash {{{openwrt-ar7-2.6-squashfs.bin}}} to {{{mtd4}}} via ft
 '''During the pause before the upload, ADAM2 erases the mtd block (I think)'''
 
 ''' v1 '''
+
 {{{
 mtd0                  0x900d0000,0x903e0000 RootFS
 mtd1                  0x90020000,0x900d0000 Kernel
@@ -165,6 +166,7 @@ mtd2                  0x90000000,0x90020000 ADAM2
 mtd3                  0x903e0000,0x903f0000 Probably ADAM2 config
 }}}
 ''' v2 (i think?) '''
+
 {{{
 mtd0    0x900d0000,0x903e0000   RootFS
 mtd1    0x90020000,0x900d0000   Kernel
@@ -172,9 +174,9 @@ mtd2    0x90000000,0x90020000   ADAM2
 mtd3    0x903e0000,0x903f0000   Probably Netgear firmware config
 mtd4    0x903f0000,0x90400000   Probably ADAM2 config
 }}}
-
 === Flashing via ftp: one image file ===
 '''Replace X with the correct mtd.'''
+
 {{{
 ftp 192.168.0.1
 Connected to 192.168.0.1.
@@ -198,25 +200,9 @@ ftp> quote REBOOT
 221-Thank you for using the FTP service on ADAM2.
 221 Goodbye.
 }}}
-
 Wait for it to reboot and enjoy.
+
 {{{
-
-
-BusyBox v1.7.2 (2007-10-05 16:40:15 EDT) built-in shell (ash)
-Enter 'help' for a list of built-in commands.
-
-  _______                     ________        __
- |       |.-----.-----.-----.|  |  |  |.----.|  |_
- |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
- |_______||   __|_____|__|__||________||__|  |____|
-          |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (bleeding edge, r9149) -------------------
-  * 10 oz Vodka       Shake well with ice and strain
-  * 10 oz Triple sec  mixture into 10 shot glasses.
-  * 10 oz lime juice  Salute!
- ---------------------------------------------------
-root@OpenWrt:~$
-}}}
+ BusyBox v1.7.2 (2007-10-05 16:40:15 EDT) built-in shell (ash) Enter 'help' for a list of built-in commands.    _______                     ________        __  |       |.-----.-----.-----.|  |  |  |.----.|  |_  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|  |_______||   __|_____|__|__||________||__|  |____|           |__| W I R E L E S S   F R E E D O M  KAMIKAZE (bleeding edge, r9149) -------------------   * 10 oz Vodka       Shake well with ice and strain   * 10 oz Triple sec  mixture into 10 shot glasses.   * 10 oz lime juice  Salute!  --------------------------------------------------- root@OpenWrt:~$ }}}
 ----
-CategoryModel ["CategoryAR7Device"]
+ . CategoryModel ["CategoryAR7Device"]
