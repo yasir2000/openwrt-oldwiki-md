@@ -14,6 +14,9 @@ http://www.netgate.com/product_info.php?cPath=60&products_id=509
    * Filsystem part size: 96MB (my preference)
    * Maximum number of inodes: 1500
 
+This patch would be interesting, perhaps I will have time for it later:
+http://www.docunext.com/wiki/My_Notes_on_Patching_2.6.22_with_OCF
+
 
 On a linux box with a cf reader:
  * Make sure the card isn't mounted, often its mounted by default
