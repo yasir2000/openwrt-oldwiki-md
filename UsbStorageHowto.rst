@@ -158,7 +158,7 @@ ipkg install http://downloads.openwrt.org/backports/rc5/fdisk_2.12r-1_mipsel.ipk
 Create the{{{/mnt}}}directory for the mount point on the flash
 
 {{{
-mkdir -p /mnt
+mkdir /mnt
 }}}
 Check what partition you like to mount from your USB device
 
