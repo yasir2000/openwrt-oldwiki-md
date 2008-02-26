@@ -13,7 +13,7 @@ Soundcard Support ('''kmod-sound-core'''):
 Support for USB Soundcards ('''kmod-usb-audio'''):
 
 ipkg install kmod-usb-audio kmod-soundcore 
-
+ . This adds the standard kernel module audio.o which provides OSS sound support. ''moved from kmod_alsa, audio.o is for OSS''
 to play sound you can install sox, but be aware that it installs lots of dependencies.
 
 #ipkg install sox
@@ -23,7 +23,7 @@ test it as follows:
 
 
 === ALSA Sound ===
- . This adds the standard kernel module audio.o which provides OSS sound support.
+
 kmod-alsa ('''KMOD_ALSA'''):
 
  . This is an alternative to KMOD_USB_AUDIO which cross-compiles the latest ALSA drivers. This package includes all the alsa modules (snd_*) requred for USB Audio support including OSS emulation. These drivers take up more space (and ram) than the OSS one, but they may provide better support and/or performance over kernel OSS.
