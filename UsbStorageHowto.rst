@@ -430,12 +430,14 @@ Then install the modules, for Kamikaze 7.07 or later (Kernel 2.6), use
 {{{
 ipkg install kmod-fs-ext2 kmod-fs-ext3
 }}}
-try if pivotroot works
+Test to see if pivotroot works:
 
 {{{
 /etc/init.d/pivotroot
 df -h}}}
-if everythig worked ok reboot.
+You may safely ignore errors saying "{{{insmod: cannot insert ...}}}"
+If pivotroot worked, then df will show that your USB storage is mounted on "/" (root).
+Now reboot.
 
 {{{
 reboot}}}
