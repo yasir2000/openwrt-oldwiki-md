@@ -8,6 +8,10 @@ Serial pinout :
 4    3    2   1  (Ethernet connector)
 TX  GND  RX  VCC
 }}}
+
+
+Intellinet High Power Wireless Access Point - Model 503082
+
 Flash : 29LV160CBTC-90G (2 Megabyte)
 
 RAM: EM639165TS-7G (16 Megabyte)
