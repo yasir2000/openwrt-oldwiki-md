@@ -3,7 +3,9 @@
 = Netgear WGT634U =
 attachment:wgt634u.jpg
 
-The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a built-in IPSEC co-processor [http://wiki.openwrt.org/HardwareAcceleratedCrypto details], allowing encrypted VPNs (up to AES256) a bonus of a performance boost up to 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce. It also comes standard with 8 MB flash and 32 MB RAM.
+The WGT634U is based on the Broadcom 5365P board that features a 200 MHz MIPS CPU along with a built-in IPSEC co-processor [http://wiki.openwrt.org/HardwareAcceleratedCrypto details], allowing encrypted VPNs (up to AES256) a bonus of a performance boost up to 75Mbps (quoted) IPSec throughput - far more than the MIPS32 CPU alone can produce.
+
+It also comes standard with 8 MB flash and 32 MB RAM. The 8MB flash is an [http://download.intel.com/design/flcomp/datashts/29066721.pdf Intel te28f640] tsop pin chip with 56 pins.  The 32MB of RAM are ICSI IC42S26800 chips with 54 tsop pins on a 16-bit bus. As many SDR & DDR PC memory chips also use 54 pin tsop memory, it is possible to remove two identical larger chips that are also on a 16-bit bus from a memory stick and replace the stock RAM on the WGT634u. Great care would need to be taken to ensure that the replacement chips matched the pinout in the datasheet link provided. In theory, the Intel flash could also be de-soldered and replaced. However, no known case of either has been reported.
 
 The wireless NIC is an Atheros Mini-PCI capable of 802.11b/g, and has a [http://www.hirose.co.uk/productreleases/ms156.htm MS-156] test point and a soldered antenna.  The WGT634U also has a USB 2.0 controller.
 
@@ -57,6 +59,7 @@ Flashing may take over a minute or more. After that you can use {{{reboot}}} to 
 
 = Restoring lost nvram settings =
 The default settings are:
+
 {{{
 CFE_VERSION          1.0.34
 CFE_BOARDNAME        BCM95365R
@@ -70,8 +73,6 @@ boardtype            bcm95365r
 et1macaddr           00-00-00-53-de-ad
 STARTUP              ifconfig eth0 -auto; boot -elf flash0.os:
 }}}
-
-
 = Restoring original firmware =
 To restore the original firmware a serial console is required. You can use TFTP for the original images. It seems CFE's TFTP client will only read 4194304 bytes from the TFTP server. To get around the 4MB limit, we can split larger images into smaller chunks and then use the -offset flag to flash the parts.
 
@@ -187,15 +188,15 @@ We're not done yet, it's also imperative that you add a line into your init scri
 There!  Now when you go to reboot, your usb drive will be mounted as root as according to the linuxrc script.
 
 = Serial console =
-Default parameters for the serial console on J7 are 115200 N81.  
+Default parameters for the serial console on J7 are 115200 N81.
 
 Options for serial console wiring include:
- * a Meraki Mini Serial adapter on J7, with the PCB hanging over the outside of the router (USB connector pointed towards the front fo the unit).
- * using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  If you want to build your own, a project and PCB are detailed at [http://members.shaw.ca/swstuff/wgt634u.html http://members.shaw.ca/swstuff/]. 
- * a cell phone data cable, for example the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected (may not be available any longer)  
- * some variant of the [http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-WE.htm FTDI TTL-232R-3V3-WE].
- * build something with this: [http://www.sparkfun.com/commerce/product_info.php?products_id=718]
 
+ * a Meraki Mini Serial adapter on J7, with the PCB hanging over the outside of the router (USB connector pointed towards the front fo the unit).
+ * using a [http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1068 MAX3232] chip.  If you want to build your own, a project and PCB are detailed at [http://members.shaw.ca/swstuff/wgt634u.html http://members.shaw.ca/swstuff/].
+ * a cell phone data cable, for example the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected (may not be available any longer)
+ * some variant of the [http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-WE.htm FTDI TTL-232R-3V3-WE].
+ * build something with this: http://www.sparkfun.com/commerce/product_info.php?products_id=718
 On a linux box, the USB tty devices usually show up at /dev/ttyUSBn.  You can point minicom (or similar) there.
 
 J6 (left from J7) is a second serial port, but has no header on it. It has the same pinout as J7.
@@ -248,7 +249,7 @@ More info at http://openwrt.pbwiki.com/GPIO
 = Mini-PCI Upgrade =
 The mini-pci card has been confirmed to be replaceable with an atheros AR5212 ABG Mini-PCI card, so likely any mini-pci card supported by the madwifi drivers can be used without fear of non-compatibility.
 
-There seems to be some restriction to the power available to the mini-pci port. I've confirmed good driver compatibility with ubnt.com's SR2 and SR5, but at default (full) power levels significantly increased packet loss (15%, link runs solid with sub 0.1% loss @ 15 dBm)) is observed.  Use of a 16V/1.5A wall transformer did not improve performance. If the power problem is due to the bad stability of the original transformer, An transformer with a more accurate power output should work better. My Netgear wall tranformer used to have peaks about 17 Volt, that brings heavy load on the volt regulator inside the router. 
+There seems to be some restriction to the power available to the mini-pci port. I've confirmed good driver compatibility with ubnt.com's SR2 and SR5, but at default (full) power levels significantly increased packet loss (15%, link runs solid with sub 0.1% loss @ 15 dBm)) is observed.  Use of a 16V/1.5A wall transformer did not improve performance. If the power problem is due to the bad stability of the original transformer, An transformer with a more accurate power output should work better. My Netgear wall tranformer used to have peaks about 17 Volt, that brings heavy load on the volt regulator inside the router.
 
 == Antenna Mod ==
 The WGT634U comes equipped with an integrated antenna, which is soldered to the radio.  If you wish to use a different antenna, the most practical solution is to unsolder the pigtail and disassemble the antenna and collar.  Once the pigtail end is freed from the radio, it is a fairly simple task to remove both the antenna and the collar.  The [http://www.hirose.co.uk/productreleases/ms156.htm Hirose MS-156] test point is not a suitable attachment for a new pigtail.  The connector is not readily available and is not designed for attaching a permanent antenna.  Better is to solder on a new pigtail and run the coax outside the case where an antenna or more robust antenna coax can be attached.  See [http://cipheralgo.org/~jason/solder_b.jpg this picture] for an example of how it might be done.
