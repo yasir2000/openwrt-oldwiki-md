@@ -374,7 +374,7 @@ Work in progress. Please see the UsbAudioHowto.
 === Tutorials ===
  * [http://begunje.dyndns.org/articles/wl500gx-ram-upgrade/index.html RAM Upgrade] 
  * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
- * [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 Tips for configuration Atheros MiniPCI card on wl-500gP]  in Russian
+ * [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 Tips for configuration Atheros MiniPCI card on wl-500gP]  in Russian and [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 English translation]
 === Product Info Pages ===
  * [http://usa.asus.com/search.aspx?searchitem=1&searchkey=WL-500g+Premium ASUS WL-500g Premium]
  * [http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom BCM94704 Reference SoC]
