@@ -437,13 +437,13 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||7 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2317] ||4MB ||16MB ||integrated Atheros ||ADM6996FC ||N/A || || ||No ||[:AtherosPort:WiP]? ||
 ||[http://www.netgear.com/Products/PrintServers/WirelessPrintServers/WGPS606.aspx WGPS606] ||1.1 (on PCB) ||Broadcom BCM5350KPB5G ||2MB ||8MB ||Integrated Broadcom ||Integrated Broadcom || ||Yes ||Yes ||2x v1.1 ||[:OpenWrtDocs/Hardware/Netgear/WGPS606 v1.1:No] ||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||1 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros ||Marvell ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624:WiP] ||
-||[http://www.netgear.com/products/details/WGT634U.php WGT634U] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz ||8MB [http://download.intel.com/design/flcomp/datashts/29066721.pdf Intel te28f640]
-||32MB [http://web.icsi.com.tw/domino/packinfo.nsf/WebDSProcNum/(798C2B999CBCD0EA3FDA31D07F57CC19)?OpenDocument ICSI IC42S26800]
-||Atheros (mini-PCI) ||in CPU ||N/A ||2x 3.3v ||No ||1x v2.0 ||[:OpenWrtDocs/Hardware/Netgear/WGT634U:WiP] ||
+||[http://www.netgear.com/products/details/WGT634U.php WGT634U] || 1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz || [http://download.intel.com/design/flcomp/datashts/29066721.pdf 8MB Intel te28f640] || [http://web.icsi.com.tw/domino/packinfo.nsf/WebDSProcNum/(798C2B999CBCD0EA3FDA31D07F57CC19)?OpenDocument 32MB ICSI IC42S26800]||Atheros (mini-PCI) ||in CPU ||N/A ||2x 3.3v ||No ||1x v2.0 ||[:OpenWrtDocs/Hardware/Netgear/WGT634U:WiP] ||
 ||[http://netgear.com/products/details/WPN824.php WPN824] || ||Atheros 2313 ||2MB ||16MB || || || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
 ||[http://kbserver.netgear.com/products/WPN824v2.asp WPN824v2] || ||Atheros 2313 ||2MB ||16MB || ||Marvell 88E6060 || || || || ||[:OpenWrtDocs/Hardware/Netgear/WPN824:Untested] ||
 ||[http://kbserver.netgear.com/products/wnr854t.asp WNR854T] || ||Marvell ARM926 @ 500Mhz ||8MB ||32MB ||Marvell (mini-PCI) 802.11n ||Marvell 88E6131 || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WNR854:Untested] ||
 ||[http://www.netgear.com/products/details/SC101.php SC101] || ||Texas Instruments TNETV ||2MB ||8MB? ||no wireless ||in cpu? || ||yes || || ||[:OpenWrtDocs/Hardware/Netgear/SC101:Untested] ||
+
+
 == Netopia ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
