@@ -224,7 +224,7 @@ kmod-nls-utf8 - Kernel module for utf8 support
 == How do I boot from the USB device (prep) ==
 For this to work you need the same kernel modules for USB as described above. You also need the modules for the EXT3 file system:
 
-/!\ '''NOTE:''' '''IMPORTANT:''' ''Does not work for Kamikaze with 2.6 kernel- This procedure bricks the router''
+/!\ '''NOTE:''' '''IMPORTANT:''' ''There are reports that this procedure bricks routers running Kamikaze with 2.6 kernel - proceed at your own risk! (It works for some, not for others)''
 
 {{{
 ipkg install kmod-ext2 kmod-ext3
@@ -241,6 +241,8 @@ The next step is to partition the USB device and create an EXT3 FS partition. Th
 '''In !OpenWrt do'''
 
 {{{
+fdisk /dev/sda
+-OR-
 fdisk /dev/scsi/host0/bus0/target0/lun0/disc
 }}}
 '''On a GNU/Linux desktop PC do'''
@@ -249,6 +251,7 @@ fdisk /dev/scsi/host0/bus0/target0/lun0/disc
 fdisk /dev/sda
 }}}
 /!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdc}}} (and so on) instead!
+Also, you do ''not'' want to use a partition such as {{{/dev/sda1}}} (note the number at the end); you ''do'' want the base device name.
 
 For more information about using {{{fdisk}}}, see http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html.
 
