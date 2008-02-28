@@ -363,7 +363,7 @@ First Create a script /etc/init.d/pivotroot
 # change this to your boot partition
 boot_dev="/dev/sda1"
 # install needed modules for usb and the ext3 filesystem
-# **NOTE** for usb2.0 replace "uhci" with "ehci-hcd"
+# **NOTE** for usb2.0 replace "uhci" with "ehci_hcd"
 # **NOTE** for ohci chipsets replace "uhci" with "usb-ohci"
 for module in usbcore uhci scsi_mod sd_mod usb-storage jbd kmod-fs-ext2 kmod-fs-ext3 ; do {
         insmod $module
