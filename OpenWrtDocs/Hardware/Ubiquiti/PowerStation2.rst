@@ -29,8 +29,13 @@ For more information about the device, check http://ubnt.com
 '''Photos'''
 
 [attachment:PS2-001.jpg]
+
 [attachment:PS2-002.jpg]
+
 [attachment:PS2-003.jpg]
+
 [attachment:PS2-004.jpg]
+
 [attachment:PS2-005.jpg]
+
 [attachment:PS2-006.jpg]
