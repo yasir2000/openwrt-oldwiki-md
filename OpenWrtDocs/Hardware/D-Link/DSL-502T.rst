@@ -15,6 +15,8 @@ Note, as of 17th May '07 I am no longer maintaining this page as I no longer hav
 
 (I have a 504T, it's the same as the 502T but don't have the USB port and it have 4 ethernet 10/100 port) -- war3333
 
+(I have a 562T, it's the same as the 502T but for Annex B (ISDN) instead of Annex A (POTS). I am running Kamikaze r10180 without any problems. -- DominikKubla)
+
 == Specifications ==
  * ADSL modem with ADSL2/2+ support to 24Mbit/s+.
  * Single 100MBps LAN port.
