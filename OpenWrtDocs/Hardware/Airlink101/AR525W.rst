@@ -2,7 +2,7 @@ Rename from ["OpenWrtDocs/Hardware/Airlink/AR525W"]
 
 '''Airlink101 AR525W'''
 
-GPL tarball : http://www.airlink101.com/support/files/AR525W_GPL_v1.0.38_20051222.tgz
+GPL tarball : http://www.airlink101.com/gpl/ar525w/
 
 === JTAG Port ===
 This model has an unpopulated 6-pin header that exposes a JTAG port. The pins are listed below:
