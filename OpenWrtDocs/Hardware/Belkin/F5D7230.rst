@@ -49,6 +49,14 @@ star882 for contributing her knowledge of electronics to this site and probing t
 
 If you have bricked your router (e.g. as I did by erasing the nvram) JTAG can be found (at least for rev 1000 and 1010) as decribed in this thread:
 http://www.dd-wrt.com/phpBB2/viewtopic.php?t=5080
+If you want to use HairyDairyMaid's debrick utility (wrt54g), you may need to add support for the flash devices (Fuijitsu 29DL323BE) as described here:
+http://forum.openwrt.org/viewtopic.php?pid=50800
+Despite the problems described in this thread, adding the two lines
+{{{
+  { 0x0004, 0x2253, size4MB, CMD_TYPE_AMD, "MBM29DL323BE 2Mx16 BotB    (4MB)"   ,8,size8K,     63,size64K,   0,0,        0,0        },
+  { 0x0004, 0x2250, size4MB, CMD_TYPE_AMD, "MBM29DL323TE 2Mx16 TopB    (4MB)"   ,63,size64K,   8,size8K,     0,0,        0,0        },
+}}}
+worked for my device with the debrick utility v4.8
 
 == Links ==
 
