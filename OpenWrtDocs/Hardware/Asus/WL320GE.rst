@@ -1,3 +1,4 @@
+== Hardware Info ==
 {{{
 Bootloader: CPE
 System-on-Chip: BCM5352
@@ -12,7 +13,7 @@ JTAG: ?
 802.3af Power over Ethernet: no
 }}}
 
-'''lspci'''
+=== lspci ===
 {{{
 00:00.0 FLASH memory: Broadcom Corporation Sentry5 Chipcommon I/O Controller
 00:01.0 Ethernet controller: Broadcom Corporation Sentry5 Ethernet Controller
@@ -23,7 +24,7 @@ JTAG: ?
 00:06.0 Network controller: Broadcom Corporation Unknown device 4719
 }}}
 
-'''cat /proc/cpuinfo'''
+=== /proc/cpuinfo ===
 {{{system type             : Broadcom BCM5352 chip rev 0
 processor               : 0
 cpu model               : BCM3302 V0.8
@@ -37,10 +38,15 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
-'''nvram show'''
+=== nvram show ===
 [http://sokrates.mimuw.edu.pl/~sebek/openwrt/wl320gE-nvram.txt]
 
-'''OpenWrt version tested''' 7.09, brcm-2.4-squashfs
+
+=== Versions Tested ===
+ *  7.09, brcm-2.4-squashfs
+
+== WL320gP ==
+This is an identical model with Power over Ethernet
 
 '''need more info?'''
 contact me at s.zagrodzki@net.icm.edu.pl
