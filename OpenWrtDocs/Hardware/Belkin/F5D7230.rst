@@ -56,7 +56,7 @@ Despite the problems described in this thread, adding the two lines
   { 0x0004, 0x2253, size4MB, CMD_TYPE_AMD, "MBM29DL323BE 2Mx16 BotB    (4MB)"   ,8,size8K,     63,size64K,   0,0,        0,0        },
   { 0x0004, 0x2250, size4MB, CMD_TYPE_AMD, "MBM29DL323TE 2Mx16 TopB    (4MB)"   ,63,size64K,   8,size8K,     0,0,        0,0        },
 }}}
-worked for my device with the debrick utility v4.8
+lets the tool automatically detect the flash device with the debrick tool v4.8. CPU detection and flash erasing work as expected, however I wasn't able to write a valid CFE. No errors during write, but the backup dumped after writing shows invalid values at a couple of places. This was done with an unbuffered JTAG cable, maybe I'll try again with a buffered one.(JoergAlbert)
 
 == Links ==
 
