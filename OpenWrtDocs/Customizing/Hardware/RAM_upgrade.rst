@@ -14,15 +14,16 @@ The replaced chip should give you a 32MB of RAM on the first power-up.
 
 To obtain the full 64MB capacity now do
 
-before to do this please confirmed that with the exactly the cpu and sdram init
-please ref to http://wl500g.dyndns.org/sdram.html
+/!\ '''Improper {{{sdram_init}}} values will require JTAG to recover, you have been warned.''' /!\
+
+Do not blindly use the settings below; determine the proper {{{sdram_init}}} value using http://wl500g.dyndns.org/sdram.html and perform the following steps.
 
 {{{
 nvram set sdram_init = 0x0113
 nvram set sdram_ncdl = 0x000000
 nvram commit
 }}}
-and power-cycle your WRT54GL.
+then power-cycle your WRT54GL.
 
 === Compatibility ===
 These instructions should be valid for WRT54G v2~v4 devices. (Not tested yet, if you do - post your results)
