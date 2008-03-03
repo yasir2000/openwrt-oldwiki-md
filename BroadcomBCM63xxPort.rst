@@ -62,6 +62,7 @@ Known 6348 platforms*:
 ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:Netgear DG834GT] ||
 ||[http://www.netgear.co.uk/rangemaxnext_wirelessbroadbandrouter_dg834n.php Netgear DG834N] ||
 ||[http://www.netgear.co.uk/wireless_modem_router_dg834pn.php Netgear DG834PN] ||
+||Pirelli Alice Gate 2+ Wi-Fi ||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=511 Thomson Speedtouch ST585v6] ||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=528 Thomson Speedtouch ST780(i)WL] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9107&loc=unkg US Robotics USR9107] ||
@@ -86,6 +87,7 @@ The support for Broadcom 63xx is at this state :
  * Linux 2.6.x booting
 == TODO ==
  * Talk with Broadcom related vendors to make them release some sources
+    Pirelli Broadband Solutions relesed a GPL source code of its Alice Gate 2+ Wi-Fi at this [http://www.it.pirellibroadband.com/web/products-solutions/solutions/sme-net/gpl/default.page link] ans a group of people are adapting the USR9108 source code to better work on the same router at this [http://jackthevendicator.dlinkpedia.net/files/broadcom/pirelli_alice_gate_2_plus_wifi/src/ link]
 == Firmware/Bootloader ==
 Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-in LZMA decompressor such as Siemens SE515, Free Freebox ...
 
