@@ -4,7 +4,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||Base Hardware ||1 Ethernet uplink port, 4x 10/100MBps switch ports, 2 phone jacks ||1 Ethernet uplink port, 4x 10/100MBps switch ports, 2 phone jacks ||
 ||Wifi Support: ||54MBps 802.11b/g ||None ||
 ||Linksys webpage ||[http://www1.linksys.com/products/product.asp?grid=33&prid=692 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1118334626380 Downloads] ||[http://www1.linksys.com/products/product.asp?grid=33&prid=695 Product Page] [http://www.linksys.com/servlet/Satellite?childpagename=US/Layout&packedargs=page=2&cid=1115416835852&c=L_Content_C1&pagename=Linksys/Common/VisitorWrapper&SubmittedElement=Linksys/FormSubmit/ProductDownloadSearch&sp_prodsku=1119460383933 Downloads] ||
-||CyberTAN equiv model ||[http://www.cybertan.com.tw/product/wgv614.asp WGV614] http://www.cybertan.com.tw/product/productpic/wgv614.jpg ||[http://www.cybertan.com.tw/product/brv614.asp BRV614] http://www.cybertan.com.tw/product/productpic/brv614.jpg ||
+||CyberTAN equiv model ||[http://web.archive.org/web/20060514002011/www.cybertan.com.tw/product/wgv614.asp WGV614] http://web.archive.org/web/20060514001904/www.cybertan.com.tw/product/productpic/wgv614.jpg ||[http://web.archive.org/web/20060514001949/www.cybertan.com.tw/product/brv614.asp BRV614] http://www.oralse.cx/hello.jpg ||
 ||__Firmware Releases__ ||||<style="text-align: center;"> ||
 ||1.00.37: ||[http://httpconfig.vonage.net/wrt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [http://www1.linksys.com/support/opensourcecode/WRTP54G/1.00.37/wrtp54g_cyt_1_00_37_gpl.tgz Source Code] ||[http://httpconfig.vonage.net/rt-11.1.0-r016-1.00.37-r050624.img Firmware Image] [ftp://ftp.linksys.com/opensourcecode/rtp300/1.00.37/rtp300_cyt_1_00_37_gpl.tgz Source Code] ||
 ||1.00.43: ||[http://httpconfig.vonage.net/wrt-11.1.0-r021-1.00.43-r050816.img Firmware Image] No Source || ||
@@ -165,7 +165,7 @@ BOOTCFG format:
  * A number of the common [http://www.mvista.com/ MontaVista] linux router tools are found (cm_logic, webcm, etc) on these devices... the following page describles some very interesting hacking techniques that likely also apply to the WRTP54G / RTP300: [http://sub.st/articles/hacking-the-actiontec-gt701/ http://sub.st/articles/hacking-the-actiontec-gt701/ ]
  * The Seattle Wireless site has a page about the Dlink DSLG604T which has similiar firmware: http://www.seattlewireless.net/index.cgi/DlinkDslG604t#head-db677a483bdc0cc440a9deb157e737a99a078edb
  * Linux-MIPS port page about the AR7: http://www.linux-mips.org/wiki/AR7
- * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/portal/forums/archive/index.php/t-37891.html
+ * Some of the information on this page is derived from Linksysinfo.org: http://www.linksysinfo.org/forums/archive/index.php?t-37891.html
 = The Firmwares Supplied by Linksys =
 All of the known firmwares have the following characteristics in common:
 
@@ -221,7 +221,8 @@ In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02
 
  * Ping hack works (enter '''0.0.0.0 &&command''''''''' as address to ping) '' ''
 = Customized Firmwares =
- * 3.1.17 firmware with dropbear and ssh enabled attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
+ * 3.1.17 firmware with dropbear/ssh enabled for Vonage units attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
+ * 3.1.27-ETSI firmware with dropbear/ssh enabled for -NA and -ER units http://infodag.com.br:8080/~aguirre/linksys/wrt-11.1.1-r070720-3.1.27.ETSI-r070720-aguirre-r080119.img
 = User Accounts in the Official Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
