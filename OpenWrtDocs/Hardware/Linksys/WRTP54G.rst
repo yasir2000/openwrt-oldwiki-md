@@ -222,7 +222,7 @@ In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02
  * Ping hack works (enter '''0.0.0.0 &&command''''''''' as address to ping) '' ''
 = Customized Firmwares =
  * 3.1.17 firmware with dropbear/ssh enabled for Vonage units attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
- * 3.1.27-ETSI firmware with dropbear/ssh enabled for -NA and -ER units http://infodag.com.br:8080/~aguirre/linksys/wrt-11.1.1-r070720-3.1.27.ETSI-r070720-aguirre-r080119.img
+ * 3.1.27-ETSI firmware with dropbear/ssh enabled for -NA and -ER units attachment:wrt-11.1.1-r070720-3.1.27.ETSI-r070720-aguirre-r080119.img
 = User Accounts in the Official Firmwares =
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
