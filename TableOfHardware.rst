@@ -104,25 +104,13 @@ The information below is for reference - it's difficult to find it elsewhere. Ac
 ||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone) || ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-
----- /!\ '''Edit conflict - other version:''' ----
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-
----- /!\ '''Edit conflict - your version:''' ----
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-
----- /!\ '''End of edit conflict''' ----
 ||FRITZ!Box 2030 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||Untested ||
 ||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box 2170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||4MB ||14MB ||None ||4xLAN || || || ||yes ||Untested ||
-
----- /!\ '''Edit conflict - other version:''' ----
 ||FRITZ!Box SL WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||4MB ||8MB ||acx111 mini-pci || || || || || ||Untested ||
-
----- /!\ '''Edit conflict - your version:''' ----
 ||FRITZ!Box SL WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||4MB ||8MB ||acx111 mini-pci || || || || || ||Untested ||
-
----- /!\ '''End of edit conflict''' ----
 ||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3050 || ||? ||4MB ||? || || || || || || ||Untested ||
