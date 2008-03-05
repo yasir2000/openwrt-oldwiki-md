@@ -39,13 +39,12 @@ Notes:
 ||[http://www.acmesystems.it FoxBoard] ||816 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ]@100MHz ||8MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
 ||[http://www.acmesystems.it FoxBoard] ||832 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ]@100MHz ||8MB ||32MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
 == ACorp ==
-The information below is for reference - it's difficult to find it elsewhere. Acorp Sprinter@ADSL model line. ACorp uses PSPBoot bootloader in all the following devices - not ADAM2 which is traditional for AR7-based devices. There are 2 (3?) product lines mentioned below: old LAN120/LAN420/W400G, and new LAN120M(LAN122)/LAN420M(LAN422)/W422G, which uses never chipset. *20M models differs from *22 models with the amount of flash/memory (2Mb+8Mb is too small for OpenWRT). The model line is: Adsl+1xEthernet+1xUSB, Adsl+4xEthernet, or Adsl+4xEthernet+Wifi.
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||LAN122 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||None ||None || ||Yes ||Yes ||Yes ||Untested? ||
 ||LAN422 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||None ||Marvell 88E6060 || ||Yes ||Yes ||No ||Untested? ||
 ||W422G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||TNETW1150 ||Marvell 88E6060 ||PSPBoot ||Yes ||Yes ||No ||Untested? ||
 ||W400G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||4Mb ||16Mb ||TNETW1130 ||Realtek RTL8305SC ||PSPBoot ||No ||No ||No ||Untested? ||
-||WR-G || ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] ||2Mb S29AL016D ||16Mb ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8305SC ||PSPBoot || ||No ||No ||Untested? ||
+||WR-G || ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] ||2Mb S29AL016D ||16Mb ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8305SC ||PSPBoot || ||No ||No ||No ||
 
 
 == Actiontec ==
