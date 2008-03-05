@@ -1,7 +1,6 @@
 ''This is a work in progress. it is being ported over from the excellent post http://forum.openwrt.org/viewtopic.php?id=11451 posted by ''[http://forum.openwrt.org/profile.php?id=5640 GLP]. Expected done date of this page is 3/8/08
 
-'''Installation on a WRT54G
-'''The most common installation
+'''Installation on a WRT54G '''The most common installation
 
 Getting Kamikaze installed is not that difficult, and it only takes a little editing to make it perform basic duties as home router. The following will hopefully be able to help a new-commer to OpenWrt Kamikaze with the setup of a basic functional system. This howto is based on the use of a Linksys WRT54G version 3.1, which is fully supported by OpenWrt Kamikaze - if you have another device please check [http://toh.openwrt.org/ http://toh.openwrt.org] to see if it is supported. It is assumend that the WRT has either the original firmware installed, or as in this case an older version of OpenWrt White Russian with the original OpenWrt webif. The following process consists of three parts:
 
@@ -40,16 +39,12 @@ Getting Kamikaze installed is not that difficult, and it only takes a little edi
  . |       |.
 -----
  .
-
 -----
  .
-
 -----
- .|  |  |  |.
-
+ . |  |  |  |.
 ----
- .|  |_
-
+ . |  |_
  . |   -   ||  _  |  -|     ||  |  |  ||   _||   _| |_______||   __|_____|__|__||________||__|  |____| __
   . __|__| W I R E L E S S   F R E E D O M
  KAMIKAZE (7.06)
@@ -71,16 +66,12 @@ Getting Kamikaze installed is not that difficult, and it only takes a little edi
  . |       |.
 -----
  .
-
 -----
  .
-
 -----
- .|  |  |  |.
-
+ . |  |  |  |.
 ----
- .|  |_
-
+ . |  |_
  . |   -   ||  _  |  -__|     ||  |  |  ||   _||   _| |_______||   __|_____|__|__||________||__|  |____|
   . |__| W I R E L E S S   F R E E D O M __
  KAMIKAZE (7.06)
@@ -153,3 +144,4 @@ config interface lan
 
 ----
  . To finalize this very basic installation and configuration of your new OpenWrt Kamikaze system you just need to reboot - and enjoy
+References:KamikazeConfiguration
