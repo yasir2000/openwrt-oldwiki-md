@@ -2,6 +2,28 @@
 
 http://www.netgate.com/product_info.php?cPath=60&products_id=509
 
+=== Hardware Encryption ===
+http://www.docunext.com/wiki/My_Notes_on_Patching_2.6.22_with_OCF
+
+I was able to patch the kernel and openssl with cryptodev support.  I also created
+a package makefile for cryptotest.  cryptotest reports the geode AES engine to be
+very fast, nearly exactly as fast as in the link above.
+
+Using openVPN, I am seeing a thoughput increase
+from 1.3MB/s without the hardware crypto, to 2.0MB/s with the hardware crypto.
+
+I was hoping the hardware crypto would make openvpn much faster, but it appears
+there is a lot of overhead, mainly authentication.  Perhaps if the geode supported
+both encryption and authentication it would help more?
+
+Anyway, here are the patches:
+http://www.psyc.vt.edu/openwrt/110-geode_aes_support-package.patch
+http://www.psyc.vt.edu/openwrt/110-geode_aes_support-target.patch
+
+Run 'make distclean' before running menuconfig, this will re-load the alix profile.
+
+
+=== OpenWRT menuconfig ===
  * config buildroot with the following options:
   * Target System: x86
   * Subtarget: Generic
@@ -14,9 +36,7 @@ http://www.netgate.com/product_info.php?cPath=60&products_id=509
    * Filsystem part size: 96MB (my preference)
    * Maximum number of inodes: 1500
 
-This patch would be interesting, perhaps I will have time for it later:
-http://www.docunext.com/wiki/My_Notes_on_Patching_2.6.22_with_OCF
-
+=== Flashing the image to the CF card ===
 
 On a linux box with a cf reader:
  * Make sure the card isn't mounted, often its mounted by default
@@ -36,6 +56,8 @@ To upgrade from within openwrt:
  * reboot
  * make sure the root_data partition was regenerated automatically
 
+
+=== Controlling the LEDs ===
 
 Using the LEDs on the alix: 
 {{{
@@ -57,10 +79,12 @@ And this should make it blink:
 After rebooting, you will have to add the wan interface to /etc/config/network
 
 
+=== Entering Failsafe ===
+
 Entering failsafe:
  * The button does not seem to work
  * Attach serial cable, speed is 38400
- * Press Esc during the memory check
+ * Press Esc during or after the memory check (can be tricky to time right)
  * Choose 'safe mode' in the grub menu
 
 == More Info ==
@@ -118,7 +142,7 @@ VmallocChunk:   777092 kB
 
 dmesg
 {{{
-Linux version 2.6.23.16 (bpfountz@bens-computer) (gcc version 4.1.2) #1 SMP Tue Feb 19 16:53:48 EST 2008
+Linux version 2.6.23.16 (bpfountz@bens-computer) (gcc version 4.1.2) #1 SMP Sun Mar 2 18:09:17 EST 2008
 BIOS-provided physical RAM map:
  BIOS-e820: 0000000000000000 - 00000000000a0000 (usable)
  BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
@@ -147,22 +171,22 @@ No local APIC present or hardware disabled
 mapped APIC to ffffb000 (0120a000)
 Initializing CPU#0
 PID hash table entries: 1024 (order: 10, 4096 bytes)
-Detected 498.049 MHz processor.
+Detected 498.072 MHz processor.
 Console: colour dummy device 80x25
 console [tty0] enabled
 console [ttyS0] enabled
 Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
 Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
-Memory: 256940k/262144k available (1529k kernel code, 4812k reserved, 595k data, 184k init, 0k highmem)
+Memory: 256940k/262144k available (1528k kernel code, 4812k reserved, 595k data, 184k init, 0k highmem)
 virtual kernel memory layout:
     fixmap  : 0xfffb9000 - 0xfffff000   ( 280 kB)
     vmalloc : 0xd0800000 - 0xfffb7000   ( 759 MB)
     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
       .init : 0xc0319000 - 0xc0347000   ( 184 kB)
-      .data : 0xc027e576 - 0xc031325c   ( 595 kB)
-      .text : 0xc0100000 - 0xc027e576   (1529 kB)
+      .data : 0xc027e3d6 - 0xc031325c   ( 595 kB)
+      .text : 0xc0100000 - 0xc027e3d6   (1528 kB)
 Checking if this processor honours the WP bit even in supervisor mode... Ok.
-Calibrating delay using timer specific routine.. 997.37 BogoMIPS (lpj=4986878)
+Calibrating delay using timer specific routine.. 997.37 BogoMIPS (lpj=4986887)
 Mount-cache hash table entries: 512
 CPU: After generic identify, caps: 0088a93d c0c0a13d 00000000 00000000 00000000 00000000 00000000 00000000
 CPU: L1 I Cache: 64K (32 bytes/line), D cache 64K (32 bytes/line)
@@ -192,7 +216,7 @@ TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
 TCP: Hash tables configured (established 8192 bind 8192)
 TCP reno registered
 microcode: CPU0 not a capable Intel processor
-IA-32 Microcode Update Driver: v1.14a <tigran@aivazian.fsnet.co.uk>
+IA-32 Microcode Update Driver: v1.14a 
 scx200: NatSemi SCx200 Driver
 squashfs: version 3.0 (2006/03/15) Phillip Lougher
 Registering mini_fo version $Id$
@@ -218,7 +242,7 @@ hda: 1000944 sectors (512 MB) w/1KiB Cache, CHS=993/16/63
 block2mtd: version $Revision: 1.30 $
 Creating 1 MTD partitions on "rootfs":
 0x00000000-0x06070000 : "rootfs"
-mtd: partition "rootfs_data" created automatically, ofs=2E0000, len=5D90000
+mtd: partition "rootfs_data" created automatically, ofs=2E0000, len=5D90000 
 0x002e0000-0x06070000 : "rootfs_data"
 block2mtd: mtd0: [rootfs] erase_size = 64KiB [65536]
 PNP: No PS/2 controller found. Probing ports directly.
@@ -229,8 +253,8 @@ ip_tables: (C) 2000-2006 Netfilter Core Team
 TCP vegas registered
 NET: Registered protocol family 1
 NET: Registered protocol family 17
-802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
-All bugs added by David S. Miller <davem@redhat.com>
+802.1Q VLAN Support v1.8 Ben Greear 
+All bugs added by David S. Miller 
 Using IPI Shortcut mode
 VFS: Mounted root (squashfs filesystem) readonly.
 Freeing unused kernel memory: 184k freed
@@ -238,7 +262,7 @@ Please be patient, while OpenWrt loads ...
 mini_fo: using base directory: /
 mini_fo: using storage directory: /jffs
 natsemi dp8381x driver, version 2.1, Sept 11, 2006
-  originally by Donald Becker <becker@scyld.com>
+  originally by Donald Becker 
   2.4.x kernel port by Jeff Garzik, Tjeerd Mulder
 Registered led device: alix:1
 Registered led device: alix:2
@@ -247,20 +271,30 @@ ne2k-pci.c:v1.03 9/22/2003 D. Becker/P. Gortmaker
 via-rhine.c:v1.10-LK1.4.3 2007-03-06 Written by Donald Becker
 PCI: Setting latency timer of device 0000:00:09.0 to 64
 eth0: VIA Rhine III (Management Adapter) at 0xe0000000, 00:0d:b9:13:b0:60, IRQ 10.
-eth0: MII PHY found at address 1, status 0x7849 advertising 05e1 Link 0000.
+eth0: MII PHY found at address 1, status 0x786d advertising 05e1 Link cde1.
 PCI: Setting latency timer of device 0000:00:0b.0 to 64
 eth1: VIA Rhine III (Management Adapter) at 0xe0040000, 00:0d:b9:13:b0:61, IRQ 12.
-eth1: MII PHY found at address 1, status 0x786d advertising 05e1 Link cde1.
-eth0: link down
-eth1: link up, 100Mbps, full-duplex, lpa 0xCDE1
-IMQ starting with 1 devices...
-IMQ driver loaded successfully.
-        Hooking IMQ before NAT on PREROUTING.
-        Hooking IMQ after NAT on POSTROUTING.
-IPP2P v0.8.1_rc1 loading
-arc4: Unknown symbol crypto_unregister_alg
-arc4: Unknown symbol crypto_register_alg
-sha1: Unknown symbol crypto_unregister_alg
-sha1: Unknown symbol crypto_register_alg
+eth1: MII PHY found at address 1, status 0x786d advertising 05e1 Link 41e1.
+Clocksource tsc unstable (delta = 79985025 ns)
+Time: pit clocksource has been installed.
+br-lan: Dropping NETIF_F_UFO since no NETIF_F_HW_CSUM feature.
+device eth0 entered promiscuous mode
+eth0: link up, 100Mbps, full-duplex, lpa 0xCDE1
+br-lan: port 1(eth0) entering learning state
+br-lan: topology change detected, propagating
+br-lan: port 1(eth0) entering forwarding state
+eth1: link up, 100Mbps, full-duplex, lpa 0x41E1
+tun: Universal TUN/TAP device driver, 1.6
+tun: (C) 1999-2004 Max Krasnyansky 
+geode-aes: GEODE AES engine enabled.
+ocf: module license 'BSD' taints kernel.
+cryptosoft: setkey failed -22 (crt_flags=0x200000)
+cryptosoft: setkey failed -22 (crt_flags=0x200000)
+device tap0 entered promiscuous mode
+br-lan: port 2(tap0) entering learning state
+br-lan: topology change detected, propagating
+br-lan: port 2(tap0) entering forwarding state
 PPP generic driver version 2.4.2
+PPP MPPE Compression module registered
+GRE over IPv4 tunneling driver
 }}}
