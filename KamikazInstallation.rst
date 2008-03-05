@@ -1,4 +1,4 @@
-''This is a work in progress. it is being ported over from the excellent post http://forum.openwrt.org/viewtopic.php?id=11451 posted by ''[http://forum.openwrt.org/profile.php?id=5640 GLP].
+''This is a work in progress. it is being ported over from the excellent post http://forum.openwrt.org/viewtopic.php?id=11451 posted by ''[http://forum.openwrt.org/profile.php?id=5640 GLP]. Expected done date of this page is 3/8/08
 
 '''Installation on a WRT54G
 '''The most common installation
