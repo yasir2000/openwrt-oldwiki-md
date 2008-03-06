@@ -58,7 +58,7 @@ Plug in the router and wait for the DMZ LED to light up.  Then immediately press
 ==== Non-Linksys models ====
 Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
 
-["OpenWrtDocs/Hardware/Netgear/WGT634U"] - The failsafe button does not work on this router for [:kamikaze:Kamikazi] builds. You will need to flash via a serial connection. Please refer to the hardware page for this model for specific failsafe routines.
+!WGT634U  - The failsafe button does not work on this router for [:kamikaze:Kamikazi] builds. You will need to flash via a serial connection. Please refer to the hardware page for this model for specific failsafe routines.
 
 == What should I do in failsafe mode? ==
 Once in failsafe mode, the router will ignore the configuration and use the ip address 192.168.1.1 and will boot directly into a telnet server, bypassing normal boot up. There will be no DHCP server, and the JFFS2 partition won't be mounted.
