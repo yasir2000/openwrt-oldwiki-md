@@ -24,7 +24,6 @@
 ##
 ##
 ##
-
 OpenWrtDocs [[TableOfContents]]
 
 = Wireless problems =
@@ -33,7 +32,6 @@ If you have WPA encryption enabled, you need to install nas before wireless will
 {{{
 ipkg install nas; reboot
 }}}
-
 = Failsafe mode =
 If you've broken one of the startup scripts, firewalled yourself or corrupted the JFFS2 partition, you can get back in by using !OpenWrt's failsafe mode. Full failsafe mode is only working when you have installed one of the SquashFS images.
 
@@ -42,16 +40,16 @@ If you've broken one of the startup scripts, firewalled yourself or corrupted th
 
 === All Models (RC5+) ===
 When OpenWrt boots, it will broadcast a UDP packet to port 4919 of network 192.168.1.x containing the message:
+
 {{{
 Press reset now, to enter Failsafe!
 }}}
+You can use the recvudp utility provided below, or a network monitor/sniffer to view the messages, for example {{{nc -l  -p 4919 -u}}}. Remember, your PC must be set to have an address like 192.168.1.2 When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
 
-You can use the recvudp utility provided below, or a network monitor/sniffer to view the messages, for example `nc -l  -p 4919 -u`. Remember, your PC must be set to have an address like 192.168.1.2 When the above message appears, press and hold the reset button for 2 seconds. You should now get the message:
 {{{
 Entering Failsafe!
 }}}
-
-===  Older releases / model specific ===
+=== Older releases / model specific ===
 ==== Linksys models ====
 Plug in the router and wait for the DMZ LED to light up.  Then immediately press and hold the reset button for 2 seconds. If done right the DMZ LED will quickly flash 3 times every second.
 
@@ -60,37 +58,37 @@ Plug in the router and wait for the DMZ LED to light up.  Then immediately press
 ==== Non-Linksys models ====
 Plug in the power, wait 2 secs, then press and hold the reset button for 10-15 seconds.
 
+["OpenWrtDocs/Hardware/Netgear/WGT634U"] - The failsafe button does not work on this router for [:kamikaze:Kamikazi] builds. You will need to flash via a serial connection. Please refer to the hardware page for this model for specific failsafe routines.
+
 == What should I do in failsafe mode? ==
 Once in failsafe mode, the router will ignore the configuration and use the ip address 192.168.1.1 and will boot directly into a telnet server, bypassing normal boot up. There will be no DHCP server, and the JFFS2 partition won't be mounted.
 
 /!\ Tips:
+
  * Recover root, for example using FreyFunk WEB interface you can change the password becouse not need authentication.
  * Your router will listen on the LAN port(s) only.  You will not be able to connect via the WAN port in failsafe mode.
  * Failsafe has no DHCP, make sure you set a static IP address.
  * The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache:
-
 {{{
 arp -d *
 }}}
-
 If you want to COMPLETELY ERASE the JFFS2 partition, removing all packages, you can run:
+
 {{{
 firstboot
 }}}
-
 to begin erasing, and then:
 
 {{{
 sync
 }}}
-
 to make sure that the Linux kernel actually commits this erasure to flash.
 
 If you want to attempt to fix the JFFS2 partition, mount it with the following command:
+
 {{{
 /sbin/mount_root
 }}}
-
 = Resetting to defaults =
 /!\ '''NOTE: Resetting NVRAM this way will actually cause more problems than it solves. For example, Asus WL-500g and the Motorola WR850G bootloader will not recreate default values and will not boot properly after being reset. If you do this on a Siemens SE505 V1, your router will not be accessible to you anymore! You will have to reflash it with the stock firmware on ip address 192.168.1.1 (NOT 192.168.2.1 as the installation procedure says!!)'''
 
@@ -150,7 +148,6 @@ The CFE will enter TFTP receptive mode after that command.
  * turn it on, and issue one command
  * don't hurry, sometimes you'll need to wait a bit
  * BACKUP BEFORE MAKING ANY CHANGES
-
 {{{
 wrt54g -backup:cfe
 }}}
