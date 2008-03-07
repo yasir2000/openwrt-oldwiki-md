@@ -67,7 +67,7 @@ The console is JP603 and is oriented with pin1 closest to the edge of the board 
 Same as the v2.
 
 = ADAM2 =
-The DG834(G) bootloader, ADAM2, calculates a checksum of the image in flash memory. If this checksum fails, the router won't boot. OpenWRT does not include this checksum (stored in the image), although it could be added. http://members.iinet.net.au/~mlanagan/ is a tool that builds custom firmware with this checksum. The following instructions, however, disable the checksum verification.
+The DG834(G) bootloader, ADAM2, calculates a checksum of the image in flash memory. If this checksum fails, the router won't boot. OpenWRT does not include this checksum (stored in the image), although it could be added. [http://web.archive.org/web/20070124233723/http://members.iinet.net.au/~mlanagan/ http://members.iinet.net.au/~mlanagan/] is a tool that builds custom firmware with this checksum. The following instructions, however, disable the checksum verification.
 
 === Replacing ADAM2 ===
 Partially taken from http://www.earth.li/~noodles/blog/dg834g/dg834g-openwrt.html and http://www.earth.li/~noodles/hardware-dg834g.html
