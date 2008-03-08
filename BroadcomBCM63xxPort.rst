@@ -6,6 +6,20 @@
 == What is this Broadcom 63xx stuff? ==
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 
+
+The ethernet SOC is similar to that used in the BCM7318 which is also used in the Tivo.
+Tivo has release complete sources of their ethernet driver [http://dynamic.tivo.com/linux/linux.asp tivo source] which could be the basis of a working BCM63xx driver.
+See the files:
+
+{{{
+ linux-2.4/drivers/net/
+   bcmemac7318.c
+   bcmemac7318.h
+   bcmenet.c
+   bcmenet.h
+   bcmenet_regs.h
+}}}
+
 == What are 63xx variants? ==
 There are four 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358
 ||<tablewidth="532px" tableheight="155px">Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||ADSL2 ||ADSL2+ ||VDSL ||
