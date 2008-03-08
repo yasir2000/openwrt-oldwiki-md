@@ -26,8 +26,7 @@ Now you will have to setup the time (seconds)  after which the kernel declares a
 {{{
 net.ipv4.route.gc_timeout=5
 }}}
- to enable automatical configuration on boot time or execute
-
+ . to enable automatical configuration on boot time or execute
 {{{
 echo 5 > /proc/sys/net/ipv4/route/gc_timeout
 }}}
@@ -53,5 +52,30 @@ ifdown)
 esac
 }}}
 to /etc/hotplug.d/iface/00-route where <<PPPGATEWAY_IP>> is usually 192.168.100.1 on an adsl connection.
+
 ----
+=== Setup for german DSL ===
+In Germany there is something like a forced disconnect of the pppoe-connection every 24h, so the remote IP of the pppoe-tunnel is not static and has to be set dynamically. The solution is the following:
+
+Add PPP_REMOTE="$PPP_REMOTE" to line 9 of /etc/ppp/ip-up:
+
+{{{
+[ -z "$PPP_IPPARAM" ] || env -i ACTION="ifup" INTERFACE="$PPP_IPPARAM" PPP_REMOTE="$PPP_REMOTE" DEVICE="$PPP_IFACE" PROTO=ppp /sbin/hotplug-call "iface"}}}
+The hotplug-script then looks like this:
+
+{{{
+#!/bin/sh
+if [ "$INTERFACE" = "wan" ]; then
+  case "$ACTION" in
+    ifup)
+      /sbin/route add default gw $PPP_REMOTE metric 0
+      ;;
+    ifdown)
+      /sbin/route del default gw $PPP_REMOTE metric 0
+      ;;
+ esac
+fi
+}}}
+Thanks to cato for this update!
+
 CategoryHowTo
