@@ -24,9 +24,10 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 == D-Link ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||DI-524 ||B2 ||D-Link DL7500A@100MHz (extended 16bit x86, RDC R2880?) ||1MB ||2MB || Ralink RT25xx ||D-Link DL1005x (IC+ IP175x) || || || || ||No ||
-||DI-604 ||Bx,Cx,Dx,Fx ||D-Link DL7x00@100MHz (extended 16bit x86, RDC R202x?) ||1MB? ||2MB || ||D-Link DL1005x (IC+ IP175x?) || || || || ||No ||
-||DI-704(P) ||Cx,Dx ||D-Link DL7x00@100MHz (extended 16bit x86, RDC R202x?) ||512KB (EN29LV040A 512Kx8) ||2MB EM636165TS-7G 1Mx16) || ||5-port (RTL8305SC) || || || || ||No ||
-||DI-707(P) ||Cx ||D-Link DL7x00@100MHz (extended 16bit x86, RDC R202x?) ||1MB? ||2MB || ||D-Link DL1008x (IC+ IP178C?) || || || || ||No ||
+||DI-604 ||Bx,Cx,Dx,Fx ||D-Link DL7x00@100MHz (RDC R1621, real 16bit x86)||1MB? ||2MB || ||D-Link DL1005x (IC+ IP175x?) || || || || ||No ||
+||DI-704(P) ||Cx,Dx ||D-Link DL7x00@100MHz (RDC R1621, real 16bit x86) ||1MB? ||2MB || ||D-Link DL1005x (IC+ IP175x?) || || || || ||No ||
+||DI-707(P) ||Cx,Dx ||D-Link DL7x00@100MHz (RDC R1621, real 16bit x86) ||1MB? ||2MB || ||D-Link DL1008x (IC+ IP178C?) || || || || ||No ||
+||DI-704P ||D1 ||D-Link DL7300A@100MHz (RDC R1621, real 16bit x86) ||512KB (EN29LV040A 512Kx8) ||2MB EM636165TS-7G (1Mx16) || ||5-port (RTL8305SC) || || || || ||No ||
 ||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 == Edimax ==
 Most devices listed here do not have enough flash memory, but there might be other reasons as well why they're unsupported.
