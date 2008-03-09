@@ -140,85 +140,12 @@ Start UPnP
  Could not allocate memory for rtapd->conf
 httpd : This is httpd...ssl_enabled is 0
 }}}
-OpenWrt boot log :
 
-{{{
-Linux version 2.4.34 (fainelli@anaconda.int-evry.fr) (gcc version 3.4.6 (OpenWrt-2.0)) #2 Sun Mar 4 12:35:40 CET 2007
-BIOS-provided physical RAM map:
- BIOS-e801: 0000000000000000 - 000000000009f000 (usable)
- BIOS-e801: 0000000000100000 - 0000000001000000 (usable)
-16MB LOWMEM available.
-On node 0 totalpages: 4096
-zone(0): 4096 pages.
-zone(1): 0 pages.
-zone(2): 0 pages.
-DMI not present.
-Kernel command line: console=ttyS0,38400 root=/dev/mtdblock1 noinitrd
-Initializing CPU#0
-Calibrating delay loop... 57.13 BogoMIPS
-Memory: 14172k/16384k available (1109k kernel code, 1824k reserved, 228k data, 72k init, 0k highmem)
-Checking if this processor honours the WP bit even in supervisor mode... Ok.
-Dentry cache hash table entries: 2048 (order: 2, 16384 bytes)
-Inode cache hash table entries: 1024 (order: 1, 8192 bytes)
-Mount cache hash table entries: 512 (order: 0, 4096 bytes)
-Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
-Page-cache hash table entries: 4096 (order: 2, 16384 bytes)
-CPU:     After generic, caps: 00000000 00000000 00000000 00000000
-CPU:             Common caps: 00000000 00000000 00000000 00000000
-CPU: Cyrix Cx486SLC
-Checking 'hlt' instruction... OK.
-Checking for popad bug... OK.
-POSIX conformance testing by UNIFIX
-PCI: Using configuration type 1
-PCI: Probing PCI hardware
-PCI: Probing PCI hardware (bus 00)
-Linux NET4.0 for Linux 2.4
-Based upon Swansea University Computer Society NET3.039
-Initializing RT netlink socket
-Starting kswapd
-Registering mini_fo version $Id$
-devfs: v1.12c (20020818) Richard Gooch (rgooch@atnf.csiro.au)
-devfs: boot_options: 0x1
-JFFS2 version 2.1. (C) 2001 Red Hat, Inc., designed by Axis Communications AB.
-squashfs: version 3.0 (2006/03/15) Phillip Lougher
-keyboard: Timeout - AT keyboard not present?(ed)
-keyboard: Timeout - AT keyboard not present?(f4)
-Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI enabled
-ttyS00 at 0x03f8 (irq = 4) is a 16550A
-RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
-rdc: RDC R6040 net driver, version 0.6 (9July2004)
-rdc: RDC R6040 net driver, version 0.6 (9July2004)
-PCI: Setting latency timer of device 00:08.0 to 64
-rdc: RDC R6040 net driver, version 0.6 (9July2004)
-PCI: Setting latency timer of device 00:09.0 to 64
-PPP generic driver version 2.4.2
-flash device: 400000 at ffc00000
-## Decide to use AMD/Fujitsu Standard command set.
-## MFG ID = 0x007F, DEV ID = 0x22F6
-Total size = 4 MB
-Creating 5 MTD partitions on "RDC3210 Flash":
-0x00000000-0x003c0000 : "linux"
-0x000c0000-0x003c0000 : "romfs"
-0x003c0000-0x003d0000 : "nvram"
-0x003d0000-0x003e0000 : "factory"
-0x003e0000-0x00400000 : "bootldr"
-Initializing Cryptographic API
-NET4: Linux TCP/IP 1.0 for NET4.0
-IP Protocols: ICMP, UDP, TCP, IGMP
-IP: routing cache hash table of 512 buckets, 4Kbytes
-TCP: Hash tables configured (established 1024 bind 2048)
-IPv4 over IPv4 tunneling driver
-GRE over IPv4 tunneling driver
-Linux IP multicast router 0.06 plus PIM-SM
-ip_conntrack version 2.1 (5953 buckets, 5953 max) - 356 bytes per conntrack
-ip_tables: (C) 2000-2002 Netfilter core team
-NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
-NET4: Ethernet Bridge 008 for NET4.0
-jffs2_scan_eraseblock(): End of filesystem marker found at 0x100000
-jffs2_build_filesystem(): unlocking the mtd device... done.
-jffs2_build_filesystem(): erasing all blocks after the end marker... done.
-VFS: Mounted root (jffs2 filesystem) readonly.
-Mounted devfs on /dev
-Freeing unused kernel memory: 72k freed
-jffs2.bbc: SIZE compression mode activated.
-}}}
+== Flashing OpenWrt ==
+
+The RDC-321x SoC support is not included in the kamikaze 7.0x releases, but is in trunk. So you have to checkout the latest trunk.
+
+Run make menuconfig, then in Target, choose "RDC321x x86 [2.6]" and Target Profile "Airlink101 AR525W". Run the build process with "make".
+
+You should flash this image using TFTP : bin/openwrt-rdc-jffs2-64k-ar525w.img
+and this one using the web interface : bin/openwrt-rdc-jffs2-64k-ar525w-web.img
