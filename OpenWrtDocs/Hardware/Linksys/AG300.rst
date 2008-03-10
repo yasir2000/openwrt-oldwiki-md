@@ -286,5 +286,14 @@ Configure teminal with: (38400 8N1)
 
 == Telnet/SSH ==
 This router inherently supports both telnet and ssh, however does not bring you to a shell, but a poorly coded proprietary CLI (only half the commands work) I suspect there is a way to get to a shell from this, but I am yet to find it.
+
+
+== Power Switch ==
+There is a momentary action SPST switch at the bottom left hand corner. This acts in a similar way to an ATX power switch.
+
+When power is applied (or after a power outage) the unit does not power up until this button is pressed.
+
+Can the unit be set in software to power up automatically'''?'''
+
 ----
 ["CategoryAR7Device"]
