@@ -268,12 +268,20 @@ Enter 'help' for a list of built-in commands.
 
 attachment:ag%33%30%30port.jpg
 
+
+Pins Connections:
+  * - Pin 5, GND
+  * - Pin 4, Not Connected
+  * - Pin 3, Router's Serial RX
+  * - Pin 2, Router's Serial TX
+  * - Pin 1, VCC
+
 Configure teminal with: (38400 8N1)
-   * - Baud Rate: 38400 bauds.
-   * - Data: 8 bits.
-   * - Parity: no parity.
-   * - Stop: 1 stop bit.
-   * - Flow Control: none (hardware and software flow control both disabled)
+  * - Baud Rate: 38400 bauds.
+  * - Data: 8 bits.
+  * - Parity: no parity.
+  * - Stop: 1 stop bit.
+  * - Flow Control: none (hardware and software flow control both disabled)
 
 
 == Telnet/SSH ==
