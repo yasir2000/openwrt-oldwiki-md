@@ -107,8 +107,47 @@ After boot, the boot environment can be read and written through the pseudo-file
 ''Here is a sample boot environment from an RTP300 as read from /proc/ticfg/env. HWA_0, HWA_1, and !SerialNumber have been anonymized. ''
 
 {{{
-Gone Missing
-}}}
+BUILD_OPS 0x541
+bootloaderVersion 1.3.3.11.2.6
+HWRevision 1.00.03
+max_try 4
+IMAGE_A 0x90020000,0x903f0000
+CONFIG_A 0x903f0000,0x90400000
+IMAGE_B 0x90400000,0x907d0000
+CONFIG_B 0x907d0000,0x907e0000
+BOOTCFG_A m:f:"IMAGE_A"
+BOOTCFG_B m:f:"IMAGE_B"
+HW_COMPANDING linear
+FSX_FSR 16
+TELE_IF INTERNAL
+BOOTLOADER 0x90000000,0x90010000
+save_voice_config yes
+DSP_CLK 12288000:10
+boot_env 0xb0010000,0xb0020000
+cyt_private 0xb07f0000,0xb0800000
+TELE_ID VE882XX:AUTO
+WIFI_LED_GPIO 13
+WIFI_LED_RATE 50
+SUBNET_MASK 255.255.255.0
+MAC_PORT 0
+MEMSZ 0x01000000
+FLASHSZ 0x00800000
+MODETTY 0115200,n,8,1,hw
+CPUFREQ 162500000
+SYSFREQ 125000000
+PROMPT (psbl)
+IPA 192.168.6.15
+IPA_GATEWAY 192.168.6.254
+ProductID CYLL
+CONSOLE_STATE locked
+TFTPU_STATE OFF
+SerialNumber CJM00E5xxxxx
+HASH_DIR 8wA2fClJsg
+CRYPT_KEY 47035165D59457E16ACA0EFC747AC05C9985F36DDD60B5641B25E1EC581AEFE3
+ADMIN_PWD ABPPRAHK55QVA
+HWA_0 00:13:10:AC:02:AB
+HWA_1 00:13:10:AC:02:AA
+BOOTCFG m:f:"IMAGE_A"}}}
 
 If the environment flash partition (the second one) is erased, a default environment will be created using data in the PSPBoot partition as a basis.  The default environment seems adequate to boot Linksys firmwares.  The only difference noted is that IPA is set to 169.254.87.1.
 
