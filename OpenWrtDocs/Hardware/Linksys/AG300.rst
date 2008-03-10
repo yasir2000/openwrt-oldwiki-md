@@ -1,5 +1,9 @@
 = Linksys AG300 =
 
+The AG300 has twice (or more) the Flash/RAM (8MB/32MB) as most other AR7 models.
+Other models with the same memory are the Linksys WRTP54G/RTP300 and T-Com Speedport W900V.
+Currently (Mar2008) the AG300 is half the price of these models.
+
 == Specifications AG300 ==
 
 Switch 4-Port ADSL Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
