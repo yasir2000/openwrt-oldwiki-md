@@ -1,5 +1,17 @@
 = Linksys AG300 =
-Bootloader: ["PSPBoot"]
+
+== Specifications AG300 ==
+
+Switch 4-Port ADSL Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
+
+ * - CPU: Texas Instruments AR7 MIPS-based, [http://focus.ti.com/lit/ml/spat013a/spat013a.pdf TNETD7200ZDW]
+ * - Flash chip: 8Mbytes, Intel JS-28F640-J3D-75 4Mx16
+ * - SDRAM: 32Mbytes Mira P2V56S40BTP [http://www.deutron.com.tw/data_sheets/sdram/p2v56s_0btp11_07024.pdf (4-BANK x 4,194,304-WORD x 16-BIT)]
+ * - Switch: Infineon, [http://www.infineon.com/dgdl/Samurai_Product_Introduction_Presentation_2May05.pdf?folderId=db3a304412b407950112b412e2791a7a&fileId=db3a304412b407950112b412e2a31a7b ADM6996I]  pin compatible ADM6996LC: extra functions IGMP, QOS.
+ * - Wireless NIC: NONE
+ * - Annex M ADSL2+:  Yes with firmware upgrade.
+ * - 4x-ethernet-port transformer: LHB, 20pt1024xlx
+ * - Bootloader: ["PSPBoot"]
 
 == Picture ==
 attachment:ag%33%30%30brd.jpg
