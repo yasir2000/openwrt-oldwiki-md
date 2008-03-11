@@ -6,7 +6,7 @@ Packaging suggest that my unit is a WHR-HP-AG108-4 (EU-Version), so it seems the
 
 == Prepare firmware image ==
 Get yourself a copy of Kamikaze from the SVN repository:
-svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release}
+svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release} I was unsuccessful with this release, but I did compile and flash the following stable svn: 
 svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable {for stable release}
 
 Edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' so that it reads
@@ -135,7 +135,7 @@ config wifi-iface
 	option bgscan	'0'
 	option wds	'0'
 }}}
-I confirmed that both wifi interfaces were working with this setup. I found that a max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded webif and it works but the backup and restore functions don't work.
+I confirmed that both wifi interfaces were working simultaneously with this setup. I found that a max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded webif and it works but the backup and restore functions don't work. The transmit power and signal-to-noise ratio of the WHR is a little weak. My Asus WL500gP puts out a stronger signal and consistantly tests much faster than the WHR.
 
 == Troubles ==
 Said this I'm still very unsatisfied with the wireless performance because compared to my wrt54gl the wireless range just sucks. Maybe it's because I can't set txpower to levels higher than 13 dBm, but I'm unsure about that because of the build in amplifier.
