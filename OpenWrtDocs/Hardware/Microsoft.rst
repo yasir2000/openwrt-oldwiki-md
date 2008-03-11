@@ -10,7 +10,7 @@ On Whiterussian rc6 this box is quite stable.
 
 It is possible to run hacked asus firmware on this box, but recent versions of oleg's firmware exhibit the same random reboots as were experienced with the et driver in whiterussian rc3 and rc4. Possibly some older version of oleg's firmware does not have this issue.  
 
-= network interfaces = 
+= Network Configuration =
 
 After you successfully jtag your mn700, flash it with openwrt, and boot it up, it will most likely only talk to you over the WAN port, which has been inappropriately configured as the LAN port. In order to fix this, connect through the WAN port, ssh in, and set the following nvram variables: 
 
