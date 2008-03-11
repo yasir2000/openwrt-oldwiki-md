@@ -63,27 +63,27 @@ also make sure your network cable is plugged into port 1! It's the one closest t
 
 Now you may power up your router and hit Ctrl-C when it asks for it. Once in !RedBoot you should set your network config
 {{{
-ip_address -l [local ip address] -h [remote server address]
+ip_address -l [router ip address] -h [ftp server address]
 }}}
-After that it's time to format the flash (everything exept !RedBoot stuff), copy the firmware from tftp to your router, write firmware to flash and configure bootloader to make it all work.
+After that it's time to format the flash, copy the firmware from tftp to your router, write firmware to flash and configure bootloader to make it all work.
 {{{
 fis init -f
 load -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.gz
-fis create -r 0x80041000 -e 0x80041000 vmlinux.bin.gz
+fis create -r 0x80041000 -e 0x80041000 vmlinux.gz
 load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
 fis create -l 0x280000 rootfs
 fconfig -d
 }}}
 Set ''execute boot script true'' and use
 {{{
-fis load -d vmlinux.bin.gz
+fis load -d vmlinux.gz
 exec
 }}}
 as bootscript.
 
-... done. Now it's time to restart your router with the 'reset' command and watch it booting up into !OpenWrt.
+... done. Now it's time to restart your router with the 'reset' command and watch it boot up into !OpenWrt.
 
-I used the vi editor to change the etc/config/wireless to:
+I telnetted into the router and set a password, then SSH'd in and used the vi editor to change the /etc/config/wireless file to:
 {{{
 config wifi-device  wifi0
 	option type     atheros
@@ -93,8 +93,8 @@ config wifi-device  wifi0
 	option rxantenna	'0'
 	option mode	'11a'
 
-	# REMOVE THIS LINE TO ENABLE WIFI:
-	option disabled 0 
+	# REMOVE THE FOLLOWING LINE TO ENABLE WIFI:
+#	option disabled 1 (This line is commented out)
 
 config wifi-iface
 	option device	wifi0
@@ -102,7 +102,7 @@ config wifi-iface
 	option mode	ap
 	option ssid	RobRobinetteA
 	option encryption	wep
-	option key1	your_code_here
+	option key1	your_wep_code_here
 	option key	1
 	option hidden	'0'
 	option isolate	'0'
@@ -127,7 +127,7 @@ config wifi-iface
 	option mode	ap
 	option ssid	RobRobinetteG
 	option encryption	wep
-	option key1	your_code_here
+	option key1	your_wep_code_here
 	option key	1
 	option hidden	'0'
 	option isolate	'0'
@@ -135,7 +135,7 @@ config wifi-iface
 	option bgscan	'0'
 	option wds	'0'
 }}}
-I confirmed that both wifi interfaces were working simultaneously with this setup. I found that a max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded webif and it works but the backup and restore functions don't work. The transmit power and signal-to-noise ratio of the WHR is a little weak. My Asus WL500gP puts out a stronger signal and consistantly tests much faster than the WHR.
+I confirmed that both wifi interfaces were working simultaneously with this setup. I found that the max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded haserl & webif and the web interface works great. The transmit power and signal-to-noise ratio of the WHR is a little weak. My Asus WL500gP puts out a stronger signal and consistantly tests much faster than the WHR.
 
 == Troubles ==
 Said this I'm still very unsatisfied with the wireless performance because compared to my wrt54gl the wireless range just sucks. Maybe it's because I can't set txpower to levels higher than 13 dBm, but I'm unsure about that because of the build in amplifier.
