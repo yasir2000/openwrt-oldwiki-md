@@ -1,6 +1,6 @@
 Here's how I was able to export a USB drive from my WRTSL54GS:
 
- *  get the drive mounted (this is documented elsewhere)
+ *  get the drive mounted (see: UsbStorageHowto)
 
 = Installation =
 Install NFS kernel module and server:
