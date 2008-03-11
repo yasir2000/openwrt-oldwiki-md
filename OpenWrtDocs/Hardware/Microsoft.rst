@@ -1,6 +1,7 @@
 '''Microsoft hardware notes'''
 
-The only Microsoft router capable to run OpenWrt is the MN-700, but You have to use JTAG to flash a new bootloader first. More info about this can be found [http://wl500g.info/showthread.php?t=1616 here].
+The only Microsoft router capable to run OpenWrt is the MN-700, but You have to use JTAG to flash a new bootloader first. More info about this can be found [http://wl500g.info/showthread.php?t=1616 here]. This is not optional - you really do need to jtag it first.  But the rewards are great. 
+
 To use RS232 you need to install a 16550 on the pads under the board, the J8 header, a crystal, some resistors and capacitors (SMD). More info at: [http://wl500g.info/showthread.php?t=1616&page=7&pp=15&highlight=mn-700  Microsoft MN700 hack project]
 
 On Whiterussian RC3 and RC4, the broadcom et ethernet driver causes random reboots of the device. Use the b44 driver instead. (See also [https://dev.openwrt.org/ticket/76])
@@ -8,6 +9,18 @@ On Whiterussian RC3 and RC4, the broadcom et ethernet driver causes random reboo
 On Whiterussian rc6 this box is quite stable. 
 
 It is possible to run hacked asus firmware on this box, but recent versions of oleg's firmware exhibit the same random reboots as were experienced with the et driver in whiterussian rc3 and rc4. Possibly some older version of oleg's firmware does not have this issue.  
+
+= network interfaces = 
+
+After you successfully jtag your mn700, flash it with openwrt, and boot it up, it will most likely only talk to you over the WAN port, which has been inappropriately configured as the LAN port. In order to fix this, connect through the WAN port, ssh in, and set the following nvram variables: 
+
+{{{
+nvram set "lan_ifnames=eth0 eth2 eth3 eth4"
+nvram set wan_ifname=eth1
+nvram commit
+}}}
+
+And then restart the router. It should come up with the proper ports assigned following this procedure. 
 
 = nvram =
 
