@@ -5,13 +5,18 @@ Packaging suggest that my unit is a WHR-HP-AG108-4 (EU-Version), so it seems the
 
 
 == Prepare firmware image ==
-Get yourself a copy of Kamikaze from the SVN repository and edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' so that it reads
+Get yourself a copy of Kamikaze from the SVN repository:
+svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release}
+svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable {for stable release}
+
+Edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' so that it reads
 {{{
 HAL_TARGET:=ap30
 }}}
 after that it's time for ''make menuconfig; make'' and have some fun and watching a short film while it compiles.
 
 I tested it with Kamikaze 7.06 so if you're unsure you may use that version.
+It also works with the stable release of 7.09 as of 10 March 08.
 
 == Accessing RedBoot via telnet ==
 
@@ -66,7 +71,7 @@ fis init -f
 load -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.gz
 fis create -r 0x80041000 -e 0x80041000 vmlinux.bin.gz
 load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
-fis create -l 0x290000 rootfs
+fis create -l 0x280000 rootfs
 fconfig -d
 }}}
 Set ''execute boot script true'' and use
@@ -76,12 +81,64 @@ exec
 }}}
 as bootscript.
 
-... done. Now it's time to restart your router and watch it booting up into !OpenWrt.
+... done. Now it's time to restart your router with the 'reset' command and watch it booting up into !OpenWrt.
 
+I used the vi editor to change the etc/config/wireless to:
+{{{
+config wifi-device  wifi0
+	option type     atheros
+	option channel	'44'
+	option diversity	'0'
+	option txantenna	'0'
+	option rxantenna	'0'
+	option mode	'11a'
+
+	# REMOVE THIS LINE TO ENABLE WIFI:
+	option disabled 0 
+
+config wifi-iface
+	option device	wifi0
+	option network	lan
+	option mode	ap
+	option ssid	RobRobinetteA
+	option encryption	wep
+	option key1	your_code_here
+	option key	1
+	option hidden	'0'
+	option isolate	'0'
+	option txpower	'13'
+	option bgscan	'0'
+	option wds	'0'
+
+config wifi-device  wifi1
+	option type     atheros
+	option channel	'11'
+	option diversity	'0'
+	option txantenna	'0'
+	option rxantenna	'0'
+	option mode	'11bg'
+
+	# REMOVE THIS LINE TO ENABLE WIFI:
+	option disabled 0 
+
+config wifi-iface
+	option device	wifi1
+	option network	lan
+	option mode	ap
+	option ssid	RobRobinetteG
+	option encryption	wep
+	option key1	your_code_here
+	option key	1
+	option hidden	'0'
+	option isolate	'0'
+	option txpower	'15'
+	option bgscan	'0'
+	option wds	'0'
+}}}
+I confirmed that both wifi interfaces were working with this setup. I found that a max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded webif and it works but the backup and restore functions don't work.
 
 == Troubles ==
-Kamikaze 7.06 is booting up as expected and after some config changes wireless is working (at least the b/g device - I don't have hardware to test a).
-Said this I'm still very unsatisfied with the wireless performance because compared to my wrt54gl the wireless range just sucks. Maybe it's because I can't set txpower to levels higher than 12 dBm, but I'm unsure about that because of the build in amplifier.
+Said this I'm still very unsatisfied with the wireless performance because compared to my wrt54gl the wireless range just sucks. Maybe it's because I can't set txpower to levels higher than 13 dBm, but I'm unsure about that because of the build in amplifier.
 
 
 == Buffalo debug interface ==
