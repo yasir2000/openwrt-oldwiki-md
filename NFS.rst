@@ -25,6 +25,17 @@ insmod nfs
 
  *  edit your /etc/exports appropriately (mine is just ''/mnt/disc0_2 client.ip.addr(rw,no_root_squash,async)'')
 
+Start RPC:
+{{{
+/etc/init.d/S59portmap start
+}}}
+
+
+Start NFS:
+{{{
+/etc/init.d/S60nfsd start
+}}}
+
 At this point, I would try to mount the NFS drive and get "Stale NFS mount" errors. Here's what I did to get around it:
 
  *  I killed rpc.nfsd
