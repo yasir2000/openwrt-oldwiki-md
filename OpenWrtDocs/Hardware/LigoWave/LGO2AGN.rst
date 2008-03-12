@@ -31,6 +31,7 @@ The MAC addresses have a Deliberant OUI (00193B = Deliberant LLC).
 You will need a serial cable adapter with RJ11-Male and RS-232 DB9-Female ends.
 The wiring diagram is as follows:
 
+{{{
           1 2 3 4 RJ11
        
           | | | |
@@ -44,6 +45,7 @@ The wiring diagram is as follows:
         RJ11 pin1    <--> DB9 pin2
         RJ11 pin2    <--> DB9 pin3
         RJ11 pin3&4  <--> DB9 pin5
+}}}
 
 The terminal settings for the connection:
 
