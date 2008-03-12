@@ -12,15 +12,15 @@ The MAC addresses have a Deliberant OUI (00193B = Deliberant LLC).
 
 == Info ==
 
-||<tablewidth="460px" tableheight="345px">'''Architecture''' ||XScale IXP425 ||
+||<tablewidth="460px" tableheight="345px">'''Architecture''' ||XScale IXP42x ||
 ||'''Vendor''' ||!LigoWave ||
 ||'''Bootloader''' ||!RedBoot ||
-||'''System-On-Chip''' ||Intel IXP425 ||
+||'''System-On-Chip''' ||Intel IXP420 ||
 ||'''CPU Speed''' ||266 MHz ||
 ||'''Flash size''' ||16 MiB ||
 ||'''RAM''' ||64 MiB ||
-||'''Wireless''' ||4x miniPCI ||
-||'''Ethernet''' ||2x RJ45 ||
+||'''Wireless''' ||2x miniPCI ||
+||'''Ethernet''' ||2x RJ45 10/100 ||
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes (RJ11) ||
 ||'''JTAG''' ||Yes (20pin ARM) ||
@@ -28,7 +28,26 @@ The MAC addresses have a Deliberant OUI (00193B = Deliberant LLC).
 
 == Serial Port ==
 
-Serial settings are 115200-8-N-1
+You will need a serial cable adapter with RJ11-Male and RS-232 DB9-Female ends.
+The wiring diagram is as follows:
+
+          1 2 3 4 RJ11
+       
+          | | | |
+          | | +-+
+          | |   | 5 GROUND
+          | 3
+          |       RS232 DB9
+          2
+ 
+      
+        RJ11 pin1    <--> DB9 pin2
+        RJ11 pin2    <--> DB9 pin3
+        RJ11 pin3&4  <--> DB9 pin5
+
+The terminal settings for the connection:
+
+115200 / 8 data bits / no parity / 1 stop bit / no flow control
 
 == Photos ==
 
