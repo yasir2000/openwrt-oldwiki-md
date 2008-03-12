@@ -1,28 +1,41 @@
 #pragma section-numbers off
+
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
+
 = LigoWave LGO2AGN =
 
+I obtained the bare PCB from Titan Wireless (http://www.titanwirelessonline.com/ProductDetails.asp?ProductCode=TW-266-2), but it came with LigoWave firmware installed, and has a Deliberant DLB200 sticker on the PCB.
+
+The MAC addresses have a Deliberant OUI (00193B = Deliberant LLC).
+
 = Hardware =
+
 == Info ==
+
 ||<tablewidth="460px" tableheight="345px">'''Architecture''' ||XScale IXP425 ||
 ||'''Vendor''' ||!LigoWave ||
 ||'''Bootloader''' ||!RedBoot ||
-||'''System-On-Chip''' || ||
+||'''System-On-Chip''' ||Intel IXP425 ||
 ||'''CPU Speed''' ||266 MHz ||
-||'''Flash size''' ||8 MiB ||
+||'''Flash size''' ||16 MiB ||
 ||'''RAM''' ||64 MiB ||
 ||'''Wireless''' ||4x miniPCI ||
-||'''Ethernet''' ||1x RJ45 ||
+||'''Ethernet''' ||2x RJ45 ||
 ||'''USB''' ||No ||
-||'''Serial''' ||Yes ||
-||'''JTAG''' ||Yes ||
- * 48V POE power supply
+||'''Serial''' ||Yes (RJ11) ||
+||'''JTAG''' ||Yes (20pin ARM) ||
+||'''Power''' ||48V POE ||
+
 == Serial Port ==
 
 Serial settings are 115200-8-N-1
 
 == Photos ==
+
+http://www.titanwirelessonline.com/v/vspfiles/photos/TW-266-2-2.jpg
+
 == JTAG ==
+
 There seems to be a 20 pin JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
 
 = Original software =
