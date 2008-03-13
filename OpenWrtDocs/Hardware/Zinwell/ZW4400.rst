@@ -218,6 +218,182 @@ Enter 'help' for a list of built-in commands.
 
 $
 }}}
+== Wilibox Firmware ==
+{{{
+PCI GPIO 0.1.2.6 CF-IDE GPIO 12 configured.
++
+PHY 100/Full/Auto configured.
+Ethernet eth0: MAC address 00:05:9e:44:00:a1
+IP: 192.168.1.11/255.255.255.0, Gateway: 192.168.1.254
+Default server: 192.168.1.254, DNS server IP: 192.168.1.254
+
+RedBoot(tm) bootstrap and debug environment [ROM]
+ZinWell Release Version 1.0.0 - built 14:02:56, Mar 19 2007
+
+Platform: Intel Generic Residential Gateway (XScale)
+RAM: 0x00000000-0x04000000, 0x0001f860-0x03fd1000 available
+FLASH: 0x50000000 - 0x51000000, 128 blocks of 0x00020000 bytes each.
+== Executing boot script in 10.000 seconds - enter ^C to abort
+RedBoot> fis load kernel1
+RedBoot> exec -c "root=/dev/mtdblock2 init=/linuxrc ro"
+Using base address 0x01600000 and length 0x00100000
+Uncompressing Linux................................................................ done, booting the kernel.
+[17179569.184000] Linux version 2.6.18.8 (buildd2@builder) (gcc version 4.1.2 20061007 (prerelease)) #1 Tue Feb 12 03:13:20 EET 2008
+[17179569.184000] CPU: XScale-IXP42x Family [690541c2] revision 2 (ARMv5TE), cr=000039ff
+[17179569.184000] Machine: Zinwell ZW4400 Development Platform
+[17179569.184000] Memory policy: ECC disabled, Data cache writeback
+[17179569.184000] CPU0: D VIVT undefined 5 cache
+[17179569.184000] CPU0: I cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
+[17179569.184000] CPU0: D cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
+[17179569.184000] Built 1 zonelists.  Total pages: 16384
+[17179569.184000] Kernel command line: root=/dev/mtdblock2 console=ttyS0,115200 ro init=/linuxrc root=/dev/mtdblock2 init=/linuxrc ro
+[17179569.184000] PID hash table entries: 512 (order: 9, 2048 bytes)
+[17179569.184000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[17179569.184000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[17179569.188000] Memory: 64MB = 64MB total
+[17179569.188000] Memory: 62860KB available (1588K code, 327K data, 88K init)
+[17179569.288000] Mount-cache hash table entries: 512
+[17179569.288000] CPU: Testing write buffer coherency: ok
+[17179569.288000] NET: Registered protocol family 16
+[17179569.292000] IXP4xx: Using 16MiB expansion bus window size
+[17179569.292000] PCI: IXP4xx is host
+[17179569.292000] PCI: IXP4xx Using direct access for memory space
+[17179569.292000] PCI: bus0: Fast back to back transfers enabled
+[17179569.292000] dmabounce: registered device 0000:00:0e.0 on pci bus
+[17179569.292000] dmabounce: registered device 0000:00:0f.0 on pci bus
+[17179569.292000] PCI: map_irq(slot=14, pin=1) = 7
+[17179569.292000] PCI: map_irq(slot=15, pin=1) = 6
+[17179569.292000] NET: Registered protocol family 2
+[17179569.332000] IP route cache hash table entries: 512 (order: -1, 2048 bytes)
+[17179569.332000] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[17179569.332000] TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+[17179569.332000] TCP: Hash tables configured (established 2048 bind 1024)
+[17179569.332000] TCP reno registered
+[17179569.332000] NetWinder Floating Point Emulator V0.97 (double precision)
+[17179569.332000] squashfs: version 3.2-r2 (2007/01/15) Phillip Lougher
+[17179569.332000] squashfs: LZMA suppport for slax.org by jro
+[17179569.332000] JFFS2 version 2.2. (NAND) (C) 2001-2006 Red Hat, Inc.
+[17179569.332000] Initializing Cryptographic API
+[17179569.332000] io scheduler noop registered (default)
+[17179569.452000] IXP4xx Watchdog Timer: heartbeat 60 sec
+[17179569.452000] ixp425_gpio: IXP425 GPIO driver loaded
+[17179569.452000] Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
+[17179569.456000] serial8250.0: ttyS0 at MMIO 0xc8001000 (irq = 13) is a XScale
+[17179569.704000] PPP generic driver version 2.4.2
+[17179569.712000] PPP Deflate Compression module registered
+[17179569.716000] PPP BSD Compression module registered
+[17179569.720000] NET: Registered protocol family 24
+[17179569.728000] IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
+[17179569.732000]  Intel/Sharp Extended Query Table at 0x0031
+[17179569.740000] Using buffer write method
+[17179569.744000] cfi_cmdset_0001: Erase suspend on write enabled
+[17179569.748000] Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0xfe0000
+[17179569.872000] drivers/mtd/redboot.c: adjusted dev mtd1 size from 4096 to 131072 bytes
+[17179569.880000] 9 RedBoot partitions found on MTD device IXP4XX-Flash.0
+[17179569.888000] Creating 9 MTD partitions on "IXP4XX-Flash.0":
+[17179569.892000] 0x00000000-0x00040000 : "RedBoot"
+[17179569.896000] 0x00040000-0x00140000 : "kernel1"
+[17179569.900000] 0x00140000-0x00640000 : "cramfs1"
+[17179569.908000] 0x00640000-0x00740000 : "kernel2"
+[17179569.912000] 0x00740000-0x00c40000 : "cramfs2"
+[17179569.916000] 0x00c40000-0x00cc0000 : "cfg"
+[17179569.920000] 0x00ce0000-0x00fc0000 : "etc"
+[17179569.924000] 0x00fc0000-0x00fe0000 : "RedBoot config"
+[17179569.932000] 0x00fe0000-0x01000000 : "FIS directory"
+[17179569.936000] TCP bic registered
+[17179569.940000] NET: Registered protocol family 1
+[17179569.952000] VFS: Mounted root (squashfs filesystem) readonly.
+[17179569.956000] Freeing init memory: 88K
+Populating '/etc/' directory structure ... done.
+Linking '/usr/etc/*' files under '/etc' ... done
+Starting /sbin/init ...
+init started: BusyBox v1.5.0 (2008-02-12 03:09:29 EET) multi-call binary
+starting pid 76, tty '': '/etc/rc.d/rc.sysinit'
+[17179572.812000] ixp400: module license 'unspecified' taints kernel.
+[17179573.192000] ixp400_eth: Initializing IXP400 NPE Ethernet driver software v. 1.6
+[17179573.200000] ixp400_eth: CPU clock speed (approx) = 532 MHz
+[17179573.620000] [error] ixEthMiiPhyScan, Mii 0: unexpected Mii PHY ID 02430d80
+[17179574.024000] [error] ixEthMiiPhyScan, Mii 1: unexpected Mii PHY ID 02430d80
+[17179574.428000] ixp400_eth: ixp0 is using NPEB and the PHY at address 0
+[17179574.432000] ixp400_eth: ixp1 is using NPEC and the PHY at address 1
+[17179574.440000] ixp400_eth: Use default MAC address 00:02:b3:01:01:01 for port 0
+[17179574.452000] ixp400_eth: Use default MAC address 00:02:b3:02:02:02 for port 1
+[17179574.656000] ath_hal: 0.9.18.0 (AR5210, AR5211, AR5212, RF5111, RF5112, RF2413, RF5413, REGOPS_FUNC)
+[17179574.928000] wlan: 0.8.4.2 (svn r18792)
+[17179575.068000] wlan: mac acl policy registered
+modprobe: module ath_rate_minstrel not found
+modprobe: failed to load module ath_rate_minstrel
+[17179575.348000] ath_rate_sample: 1.2 (svn r18792)
+[17179575.512000] ath_pci: 0.9.4.5 (svn r18792)
+[17179575.516000] PCI: enabling device 0000:00:0e.0 (0340 -> 0342)
+[17179576.216000] ath_find_eeprom: macaddr location in hal found at c02ba6a8 offset from last chan 6788
+[17179576.224000] ath_print_eeprom: mac: 00:0c:42:1f:3d:ac, version 0x5003, regdomain 0x0 A/B/G=1/1/1
+[17179576.232000] ath_print_eeprom: antennaGain= 0x4/0x1
+[17179576.240000] ath_print_eeprom: cntls:0x10:0x13:0x11:0x12:0x14:0x40:0x41:0x42:0x30:0x31:0x32:0x34:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0
+[17179576.256000] wifi0: 11a rates: 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179576.264000] wifi0: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
+[17179576.268000] wifi0: 11g rates: 1Mbps 2Mbps 5.5Mbps 11Mbps 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179576.280000] wifi0: turboA rates: 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179576.288000] wifi0: turboG rates: 6Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179576.296000] wifi0: H/W encryption support: WEP AES AES_CCM TKIP
+[17179576.300000] wifi0: mac 10.5 phy 6.1 radio 6.3
+[17179576.308000] wifi0: Use hw queue 1 for WME_AC_BE traffic
+[17179576.312000] wifi0: Use hw queue 0 for WME_AC_BK traffic
+[17179576.316000] wifi0: Use hw queue 2 for WME_AC_VI traffic
+[17179576.324000] wifi0: Use hw queue 3 for WME_AC_VO traffic
+[17179576.328000] wifi0: Use hw queue 8 for CAB traffic
+[17179576.332000] wifi0: Use hw queue 9 for beacons
+[17179576.340000] wifi0: TX99 support enabled
+[17179576.344000] wifi0: Atheros 5212: mem=0x48000000, irq=7
+[17179576.348000] PCI: enabling device 0000:00:0f.0 (0340 -> 0342)
+[17179576.996000] ath_find_eeprom: macaddr location in hal found at c347a6a8 offset from last chan 6788
+[17179577.004000] ath_print_eeprom: mac: 00:0c:42:1b:df:5c, version 0x5002, regdomain 0x0 A/B/G=1/1/1
+[17179577.012000] ath_print_eeprom: antennaGain= 0x4/0x1
+[17179577.016000] ath_print_eeprom: cntls:0x10:0x13:0x11:0x12:0x14:0x40:0x30:0x31:0x32:0x34:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0:0x0
+[17179577.036000] wifi1: 11a rates: 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179577.044000] wifi1: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
+[17179577.048000] wifi1: 11g rates: 1Mbps 2Mbps 5.5Mbps 11Mbps 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179577.060000] wifi1: turboA rates: 6Mbps 9Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179577.068000] wifi1: turboG rates: 6Mbps 12Mbps 18Mbps 24Mbps 36Mbps 48Mbps 54Mbps
+[17179577.076000] wifi1: H/W encryption support: WEP AES AES_CCM TKIP
+[17179577.080000] wifi1: mac 10.5 phy 6.1 radio 6.3
+[17179577.084000] wifi1: Use hw queue 1 for WME_AC_BE traffic
+[17179577.092000] wifi1: Use hw queue 0 for WME_AC_BK traffic
+[17179577.096000] wifi1: Use hw queue 2 for WME_AC_VI traffic
+[17179577.100000] wifi1: Use hw queue 3 for WME_AC_VO traffic
+[17179577.108000] wifi1: Use hw queue 8 for CAB traffic
+[17179577.112000] wifi1: Use hw queue 9 for beacons
+[17179577.116000] wifi1: TX99 support enabled
+[17179577.120000] wifi1: Atheros 5212: mem=0x48010000, irq=6
+RedBoot config checksum OK
+ixp0: 00 05 9E 44 00 A1
+ixp1: 00 05 9E 44 00 A2
+[17179577.420000] NET: Registered protocol family 17
+[17179577.428000] ixp0: lost carrier
+Waiting for reset to factory defaults packet.....
+[17179580.832000] ixp0: carrier detected
+starting pid 146, tty '': '/usr/etc/rc.d/rc-bg'
+starting pid 150, tty '/dev/ttyS0': '/sbin/getty'
+ath0
+[17179583.444000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[17179583.660000] ip_conntrack version 2.4 (512 buckets, 4096 max) - 212 bytes per conntrack
+/usr/etc/init.d/plugin: line 98: ethtool: not found
+/usr/etc/init.d/plugin: line 98: ethtool: not found
+/usr/etc/init.d/plugin: line 98: ethtool: not found
+00:00:15 [I] Launched 'sshd' successfully in respawning mode.
+ls: /etc/persistent/skins/*.tgz: No such file or directory
+00:00:15 [I] Launched 'httpd' successfully in respawning mode.
+[17179585.668000] process `snmpd' is using obsolete setsockopt SO_BSDCOMPAT
+00:00:16 [I] Launched 'snmpd' successfully in respawning mode.
+[17179585.916000] process `rcmsd' is using obsolete setsockopt SO_BSDCOMPAT
+00:00:16 [I] Launched 'rcms' successfully in respawning mode.
+00:00:16 [I] Launched 'discoveryd' successfully in respawning mode.
+00:00:16 [I] Launched 'udhcpdixp0' successfully in respawning mode.
+00:00:16 [I] Launched 'udhcpdath0' successfully in respawning mode.
+00:00:17 [I] Launched 'udhcpcixp1' successfully in respawning mode.
+
+WILIBOX login:
+}}}
 == Flash layout ==
 {{{
 RedBoot> fis list
