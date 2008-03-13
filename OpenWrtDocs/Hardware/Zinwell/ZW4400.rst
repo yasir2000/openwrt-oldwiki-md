@@ -13,7 +13,7 @@ The MAC addresses have a Zinwell OUI (00059E = Zinwell Corporation).
 == Info ==
 
 ||<tablewidth="460px" tableheight="345px">'''Architecture''' ||XScale IXP42x ||
-||'''Vendor''' ||!Zinwell ||
+||'''Vendor''' ||Zinwell ||
 ||'''Bootloader''' ||!RedBoot ||
 ||'''System-On-Chip''' ||Intel IXP425 ||
 ||'''CPU Speed''' ||533 MHz ||
