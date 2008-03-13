@@ -212,7 +212,7 @@ iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
 Client configuration is pretty simple. First, transfer over the key file. This can be done by "scp" which is a file transfer over SSH. Example:
 
 {{{
-scp 192.168.1.1:/etc/openvpn/secret.key /etc/openvpn/
+scp root@192.168.1.1:/etc/openvpn/secret.key /etc/openvpn/
 }}}
 
 Now place the following file in the config directory and remember to change the server IP address to match, as well as the secrets file. 
