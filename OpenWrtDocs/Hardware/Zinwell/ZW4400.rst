@@ -4,7 +4,7 @@
 
 = Zinwell ZW-4400 =
 
-I obtained the bare PCB from Titan Wireless (http://www.titanwirelessonline.com/ProductDetails.asp?ProductCode=TW-266-2).
+I obtained the bare PCB from Titan Wireless (http://www.titanwirelessonline.com/ProductDetails.asp?ProductCode=TW-533-4).
 
 The MAC addresses have a Zinwell OUI (00059E = Zinwell Corporation).
 
