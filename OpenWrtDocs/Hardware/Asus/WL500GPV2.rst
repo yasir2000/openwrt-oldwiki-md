@@ -10,13 +10,15 @@ Support for this latest version is not yet in trunk (Mar 14, 2008).
 
 == Hardware ==
 === Info ===
-||'''Architecture''' ||MIPS ||
+||<tablewidth="400px" tableheight="289px">'''Architecture''' ||MIPS ||
 ||'''Vendor''' ||Broadcom ||
 ||'''Bootloader''' ||CFE ||
 ||'''System-On-Chip''' ||Broadcom BCM5354 ||
 ||'''CPU Speed''' ||240 Mhz ||
 ||'''Flash size''' ||8MiB ||
-||'''RAM''' ||32MiB || ||'''Wireless''' ||Onboard BCM5354 802.11b/g || ||'''Ethernet''' ||? ||
+||'''RAM''' ||32MiB ||
+||'''Wireless''' ||Onboard BCM5354 802.11b/g ||
+||'''Ethernet Switch''' || ? ||
 ||'''USB''' ||2x USB 2.0 ||
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||No ||
