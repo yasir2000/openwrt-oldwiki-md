@@ -735,3 +735,4 @@ As with most routers, the Fonera has some gpio pins that extra hardware can be c
  * [http://blog.extreme-networking.com/ OpenWrt installation guide (Italian) and misc]
  * [http://wiki.freifunk-hannover.de/Fonera_mit_OLSR The Fonera in the Freifunk project, German] [http://wiki.freifunk.net/Fonera_with_OLSR_(English) English]: comprehensive guide to flashing la fonera with Kamikaze.
  * [http://www.dd-wrt.com/wiki/index.php/LaFonera_Hardware_Second-Antenna LaFonera Hardware Second-Antenna] Hardware hack of how to add a second antenna (and diversity)
+ * [http://www.fonerahacks.com Fonera Hacks - Numerous Tutorials and Guides] Detailed tutorials with screenshots on how to flash the Fonera, unlock SSH, access Redboot, and other goodies.
