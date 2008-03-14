@@ -394,6 +394,139 @@ ls: /etc/persistent/skins/*.tgz: No such file or directory
 
 WILIBOX login:
 }}}
+== MontaVista Firmware ==
+{{{
+PCI GPIO 0.1.2.6 CF-IDE GPIO 12 configured.
++
+PHY 100/Full/Auto configured.
+Ethernet eth0: MAC address 00:05:9e:44:00:a1
+IP: 192.168.1.11/255.255.255.0, Gateway: 192.168.1.254
+Default server: 192.168.1.254, DNS server IP: 192.168.1.254
+
+RedBoot(tm) bootstrap and debug environment [ROM]
+ZinWell Release Version 1.0.0 - built 14:02:56, Mar 19 2007
+
+Platform: Intel Generic Residential Gateway (XScale)
+RAM: 0x00000000-0x04000000, 0x0001f860-0x03fd1000 available
+FLASH: 0x50000000 - 0x51000000, 128 blocks of 0x00020000 bytes each.
+== Executing boot script in 10.000 seconds - enter ^C to abort
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0x50000000  0x50000000  0x00040000  0x00000000
+RedBoot config    0x50FC0000  0x50FC0000  0x00001000  0x00000000
+FIS directory     0x50FE0000  0x50FE0000  0x00020000  0x00000000
+kernel            0x50040000  0x00100000  0x00100000  0x00100000
+initrd            0x50100000  0x00200000  0x00820000  0x00200000
+RedBoot> fis load initrd
+RedBoot> fis load kernel
+RedBoot> exec
+Using base address 0x00100000 and length 0x000bad78
+Uncompressing Linux..................................................... done, b
+ooting the kernel.
+Linux version 2.4.18_mvl30-ixdp425 (mercy1@RD3Linux.zintech.com.tw) (gcc version
+ 3.2.1 20020930 (MontaVista)) #26 Tue Mar 13 10:36:33 CST 2007
+CPU: Intel XScale-IXP4xx/IXC1100 revision 2
+Machine: Intel IXP425 Residential Gateway Demo Platform
+Warning: bad configuration page, trying to continue
+On node 0 totalpages: 16384
+zone(0): 16384 pages.
+zone(1): 0 pages.
+zone(2): 0 pages.
+Kernel command line: console=ttyS0,115200 root=/dev/ram ramdisk_size=32768 initr
+d=0x00200000,9M mem=64M
+Calibrating delay loop... 527.56 BogoMIPS
+Memory: 64MB = 64MB total
+Memory: 53568KB available (1405K code, 258K data, 84K init)
+XScale Cache/TLB Locking Copyright(c) 2001 MontaVista Software, Inc.
+XScale cache_lock_init called
+   Calling consistent alloc
+   low_level_page initialized
+   low_level_page @ 0xc4800000
+      icache_lock_fn @ 0xc4800080
+      dcache_lock_fn @ 0xc48000a0
+      icache_unlock_fn @ 0xc4800098
+      dcache_unlock_fn @ 0xc48000f0
+Initializing TLB locking
+TLB locking initialized
+Dentry-cache hash table entries: 8192 (order: 4, 65536 bytes)
+Inode-cache hash table entries: 4096 (order: 3, 32768 bytes)
+Mount-cache hash table entries: 1024 (order: 1, 8192 bytes)
+Buffer-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Page-cache hash table entries: 16384 (order: 4, 65536 bytes)
+POSIX conformance testing by UNIFIX
+coyote_pci_init
+setup BARs in controller
+PCI Autoconfig: Found Bus 0, Device 14, Function 0
+PCI Autoconfig: BAR 0, Mem, size=0x10000, address=0x4bff0000
+PCI Autoconfig: Found Bus 0, Device 15, Function 0
+PCI Autoconfig: BAR 0, Mem, size=0x10000, address=0x4bfe0000
+PCI: bus0: Fast back to back transfers enabled
+vendor:8086 device:8500 slot:0 pin:1vendor:8086 device:8500 slot:0 pin:1 ++++++I
+RQ:-1
+vendor:168c device:1b slot:14 pin:1vendor:168c device:1b slot:2 pin:1 ++++++IRQ:
+7
+vendor:168c device:13 slot:15 pin:1vendor:168c device:13 slot:3 pin:1 ++++++IRQ:
+6
+Linux NET4.0 for Linux 2.4
+Based upon Swansea University Computer Society NET3.039
+Initializing RT netlink socket
+Starting kswapd
+Disabling the Out Of Memory Killer
+devfs: v1.10 (20020120) Richard Gooch (rgooch@atnf.csiro.au)
+devfs: boot_options: 0x1
+JFFS2 version 2.1. (C) 2001, 2002 Red Hat, Inc., designed by Axis Communications
+ AB.
+pty: 256 Unix98 ptys configured
+Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI en
+abled
+ttyS00 at 0xff001003 (irq = 13) is a XScale UART
+HDLC line discipline: version $Revision: 3.3 $, maxframe=4096
+N_HDLC line discipline registered.
+block: 128 slots per queue, batch=32
+RAMDISK driver initialized: 16 RAM disks of 32768K size 1024 blocksize
+Uniform Multi-Platform E-IDE driver Revision: 6.31
+ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+loop: loaded (max 8 devices)
+Creating 6 MTD partitions on "IXP425 Residential Gateway Demo Platform Flash":
+0x00000000-0x00040000 : "RedBoot"
+0x00040000-0x00140000 : "kernel"
+0x00100000-0x00920000 : "initrd"
+0x00920000-0x00fc0000 : "unallocated space"
+0x00fc0000-0x00fc1000 : "RedBoot config"
+mtd: partition "RedBoot config" doesn't end on an erase block -- force read-only
+0x00fe0000-0x01000000 : "FIS directory"
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 4096 bind 8192)
+IP-Config: No network devices available.
+NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+NET4: Ethernet Bridge 008 for NET4.0
+cryptoapi: loaded
+cryptoapi: Registered aes-ecb (0)
+cryptoapi: Registered aes-cbc (65536)
+cryptoapi: Registered aes-cfb (262144)
+NetWinder Floating Point Emulator V0.95 (c) 1998-1999 Rebel.com
+RAMDISK: Compressed image found at block 0
+Freeing initrd memory: 9216K
+VFS: Mounted root (ext2 filesystem).
+Mounted devfs on /dev
+Freeing init memory: 84K
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/ixp400.o
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/ixp425_eth.o
+ixp425_eth: Initializing IXP425 NPE Ethernet driver software v. 1.2
+ixp425_eth: CPU clock speed (approx) = 527 MHz
+ixp425_eth: ixp0 is using NPEB and the PHY at address 2
+ixp425_eth: ixp1 is using NPEC and the PHY at address 1
+ixp425_eth: Use default MAC address 00:02:b3:01:01:01 for port 0
+ixp425_eth: Use default MAC address 00:02:b3:02:02:02 for port 1
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/net/rt61ap.o
+insmod: init_module: rt61ap: No such device
+SIOCSIFADDR: No such device
+device ixp1 entered promiscuous mode
+interface ra0 does not exist!
+br0: port 1(ixp1) entering listening state
+}}}
 == Flash layout ==
 {{{
 RedBoot> fis list
