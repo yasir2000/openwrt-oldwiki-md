@@ -605,7 +605,7 @@ then
    route add -host 10.0.0.138 gw $(echo $ip | sed 's/[0-9]*\.[0-9]*$/0.1/')
 fi
 }}}
-The route command btw is the one needed for inode.at.
+This route command BTW is the one needed for the austrian ISP [http://inode.at].
 
 For more information see the ["PPTPClientHowto"].
 
