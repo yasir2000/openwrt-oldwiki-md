@@ -298,3 +298,5 @@ will open port 22 to you router from both wan and wan2
 
 This is it hope it can help
 Ben
+
+[http://lartc.org/howto/lartc.rpdb.multiple-links.html Further reference...]
