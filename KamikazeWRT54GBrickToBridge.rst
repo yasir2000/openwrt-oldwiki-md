@@ -78,10 +78,10 @@ config interface lan
         option netmask     255.255.255.0
         # The following should be the IP address of your Access Point that you are using to get out to the internet.
         option gateway     10.0.0.1  
-        # or the following, I used the IP address of the DNS servers provided by my ISP.
+        # For the following, I used the IP address of the DNS servers provided by my ISP.
         option dns         "xx.xx.xx.xx yy.yy.yy.yy"  
 config interface wan
-        #  '''IMPORTANT: The following needs to be wl0 to gateway through the wireless adapter!'''
+        #  IMPORTANT: The following needs to be wl0 to gateway through the wireless adapter!
         option ifname      "wl0"   
         # The following will get the wireless IP address from the Access Point via DHCP
         option proto       dhcp     
@@ -103,13 +103,18 @@ config wifi-iface
         # Note: I could not get a link using psk2, even though my access point supports it.
         # The following can only be alphanumeric.  Special characters do not seem to work.  Quotes seem to frog it up as well.
         option key         EnterYourPSKEncryptionPasswordHereWithoutQuotes  
-        option hidden 0
-        option isolate 0
-        option bgscan 0
-        option wds 0
+        option hidden      0
+        option isolate     0
+        option bgscan      0
+        option wds         0
 }}}
 
 == Configuring the Access Point ==
-(to do)
+The following configuration needs to be set up on the Access Point in order to support the above WRT54G configuration to make this all work:
+ * To have the Access Point assign IP configuration to the WRT54G (matching the {{{option proto dhcp}} line of the {{{config interface wan}}} section of {{{/etc/config/network}}} file) the Access Point needs to have its DHCP server enabled, serving IP addresses in the subnet of the Access Point.  For example, if the Access Point is in the 10.0.0.0/255.0.0.0 network, then its dhcp configuration should assign addresses starting with 10.*
+ * To match the {{{option channel 1}}} line in {{{/etc/config/wireless}}, the channel on the Access Point also needs to be set to 1.
+ * To match the {{{option ssid yourssid}}} line in {{{//etc/config/wireless}}}, the SSID of the Access Point needs to match that used on the WRT54G.
+ * To match the {{{option encryption psk}}} and {{{option key [whatever]}}} lines in {{{/etc/config/wireless}}}, the Access point needs to allow WPA encryption, and use the same key.
+
 ----
 CategoryHowTo
