@@ -3,6 +3,8 @@ Some models of the BCM47xx/53xx family support hardware accelerated encryption f
 
 The specification states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration using the blowfish encryption throughput is only ~0,4MB/s.
 
+A simple benchmark that shows the software encryption/decryption speed of an Asus WL-500GP can be found [http://www.danm.de/files/src/bcm5365p/bench/software_bench.txt here]. At the moment AES with 128bit keys is the fastest cipher algorithm with an averaged throughput of 20.2 Mb/sec (1000 bytes per round / Kernel mode).
+
 The hardware specification needed for programming the crypto API of the bcm5365P (Broadcom 5365P) can be found [http://voodoowarez.com/bcm5365p.pdf here]. The crypto api description begins on page 60. It includes everything required to build a driver as it seems that no driver can be found so far (except as part of the Broadcom Dev environment and no one seems to be able to get that).
 
 ----
