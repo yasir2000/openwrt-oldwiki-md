@@ -12,20 +12,31 @@ attachment:serial_wl-176.jpg
 
 More info on the board:
 
-CPU
+=== CPU ===
+
 RDC R3210-X
+
 R3210GCL3G
 
-Switch
+=== Switch ===
 RTL 8305SC
 
-Wireless MINI-PCI
+=== Wireless ===
+
+MINI-PCI
+
 Ralink RT2561ST
+
 P/N 1244-416-01Z
 
-SDRAM Memory
+=== SDRAM Memory ===
+
 2x PSC A2V28S40CTP Total: 2x16MB SDRAM = 32MB
 
-Flash Memory Macronics
+=== Flash Memory ===
+
+Macronics
+
 MX T063321
+
 29LV320CBTC-70G (32Mbit = 4Mbyte)
