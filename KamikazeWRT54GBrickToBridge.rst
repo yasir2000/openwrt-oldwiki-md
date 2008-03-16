@@ -65,7 +65,7 @@ config dhcp
         option leasetime    12h
         option ignore       0
 config dhcp
-        option interfact    wan
+        option interface    wan
         option ignore       1
 }}}
  * Edit the file {{{/etc/config/network}}} to read:
