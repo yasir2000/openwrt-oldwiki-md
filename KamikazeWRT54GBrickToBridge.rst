@@ -114,7 +114,7 @@ config wifi-iface
 The following configuration needs to be set up on the Access Point in order to support the above WRT54G configuration to make this all work:
  * To have the Access Point assign IP configuration to the WRT54G (matching the {{{option proto dhcp}}} line of the {{{config interface wan}}} section of {{{/etc/config/network}}} file), the Access Point needs to have its DHCP server enabled, serving IP addresses in the subnet of the Access Point.  For example, if the Access Point is in the 10.0.0.0/255.0.0.0 network, then its dhcp configuration should assign addresses starting with 10.*
  * To match the {{{option channel 1}}} line in {{{/etc/config/wireless}}}, the channel on the Access Point also needs to be set to 1.  (Obviously, you can use any channel that you wish, as long as the two settings match.)
- * To match the {{{option ssid yourssid}}} line in {{{//etc/config/wireless}}}, the SSID of the Access Point needs to match that used on the WRT54G.
+ * To match the {{{option ssid yourssid}}} line in {{{/etc/config/wireless}}}, the SSID of the Access Point needs to match that used on the WRT54G.
  * To match the {{{option encryption psk}}} and {{{option key [whatever]}}} lines in {{{/etc/config/wireless}}}, the Access point needs to allow WPA encryption, and use the same key.
 
 ----
