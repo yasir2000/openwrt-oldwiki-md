@@ -9,7 +9,7 @@
 == WRT54G - From Brick to Bridge using Kamikaze ==
 This page describes how I got my Linksys WRT54G v1.1 from the bricked state to a working bridge using OpenWRT Kamikaze 7.09.
 
-Note that most of the issues that I faced were related to OpenWRT configuration, and not the fact that I was on the Linksys router.  Hopefully, this document can be helpful to users of other wireless routers as well.
+Note that most of the issues that I faced were related to OpenWRT configuration, and not the fact that I was on the Linksys router.  I have tried to highlight some of the stickier points that I ran into while getting this to work.  Hopefully, this document can be helpful to users of other wireless routers as well.
 
 == Where I Started ==
 I have a LAN in my Home Office that connects a few machines, as well as a laptop that connects to the LAN with a WiFi card through a Netgear WNR854T Wireless Access Point.  The Netgear box replaced the Linksys router a while back.  My son got X-Box Live for his birthday, and therefore needed to connect his X-Box to the network.  There was no reasonable way to do that hard-wired, so I did some research and found OpenWRT.
@@ -30,7 +30,7 @@ If your WRT54G is not bricked, you can use the normal Firmware Upgrade function 
 
 '''NOTE:  FOLLOWING THE STEPS IN THE REST OF THIS SECTION VOIDS YOUR WRT54G WARRANTY!'''  If the router is bricked, you probably do not mind.  Loading OpenWRT onto the WRT54G also voids the warranty...
 
-There are supposed to be several possible ways to get your bricked router to fall into "failsafe mode", where it listens on IP address 192.168.1.1 for a TFTP connection to load new firmware before booting up.  After trying all of them, the only one that worked (and worked reliably every time) was the shorting of the Flash memory pins.  If you are not adventurous, this may not be for you.  However, I found it quite satisfying, since it was the only thing that worked.  :-)  The steps required to debrick the WRT54G are:
+There are supposed to be several possible ways to get your bricked router to fall into "failsafe mode", where it listens on IP address 192.168.1.1 for a TFTP connection to load new firmware before booting up.  (See references below.)  After trying all of them, the only one that worked (and worked reliably every time) was the shorting of the Flash memory pins.  If you are not adventurous, this may not be for you.  However, I found it quite satisfying, since it was the only thing that worked.  :-)  The steps required to debrick the WRT54G are:
  * Unplug the WRT54G and remove all connections.
  * Remove the cover of the WRT54G.  This will require removing the antennae, then pulling the front off and removing the top.  On my WRT54G, there were no screws that needed removing.
  * Find the Flash memory chip.  Find pin 1 which will be in the corner with  an indentation or other obvious marking.  Count down to find pins 15, 16, and 17.  Note that the printed circuit board has a little white tick mark every 5 pins, which will help immensely when needing to locate the correct pins.  (I have pictures, but do not know how to add them to the wiki...)
@@ -38,7 +38,7 @@ There are supposed to be several possible ways to get your bricked router to fal
  * You will want to start a running ping so you can see when the brick comes back to life.  On Linux, that would be {{{ping 192.168.1.1}}} and on Windows it would be {{{ping -C 192.168.1.1}}}.
  * Start the Linksys TFTP client, and fill in the IP address (192.168.1.1) and last password that was used on the router.  Do NOT start the transfer yet.
  * Here's the "tricky" part:  __While plugging in the WRT54G__, use a sharp metallic object (paper clip, pointy screw driver, awl) and touch pins 15 and 16 simultaneously.  (Actually, on my WRT54G, I had to touch pins 16 and 17 simultaneously, but other references stated 15 and 16.)  '''Be careful not to remove any metal from the printed circuit board.'''  Be gentle!  Keep touching these pins and watch the running ping.  You should start to see a response to the pings.  Once this happens, you can remove the tool.  The WRT54G is now in failsafe mode, waiting for a TFTP of the firmware.
- * Initiate the TFTP transfer with the Linksys TFTP client.  Use the ".bin" format firmware when upgrading this way.
+ * Initiate the TFTP transfer with the Linksys client.  Use the ".bin" format firmware when upgrading this way.
  * Once the firmware is uploaded, unplug the WRT54G and reassemble it, and re-connect it to the PC you used to load the firmware.
 
 As an aside, I would love to know exactly what is happening by shorting pins 16 and 17.  Although I do not know for sure, it is my belief that shorting the pins (which, if I found the correct pinout, are address lines 18 and 17 respectively) causes a checksum on the Flash memory to fail (because the wrong memory addresses are returned from the chip), which causes the router to enter failsafe mode.  If there's a EE out there who knows for sure, please update this paragraph.  
@@ -53,7 +53,7 @@ The first time you connect to an OpenWRT router, you must use telnet:
    * {{{nvram set bootwait=on}}}
    * {{{nvram get bootwait}}}      # to make sure it's on...
    * {{{nvram commit}}}
- Bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  This can save a LOT of headaches if you mis-configure something.  You won't have to rip the box apart to debrick it.
+ Bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  This can save a LOT of headaches if you mis-configure something.  You won't have to rip the box apart to debrick it.  Just start up the TFTP client and power cycle the WRT54G.
  * Change the router's password by typing {{{passwd}}} at the # prompt.  Changing the password automatically disables telnet and enables ssh.
  * Sign off ({{{exit}}}) and re-connect using SSH.  (PuTTY also worked well for me on a Windows box.)
  * We will use DHCP on the Linksys side of the bridge for the X-Box to use.  Edit the file {{{/etc/config/dhcp}}} to make it read:
@@ -101,7 +101,8 @@ config wifi-iface
         option ssid        yourssid  
         option encryption  psk  
         # Note: I could not get a link using psk2, even though my access point supports it.
-        # The following can only be alphanumeric.  Special characters do not seem to work.  Quotes seem to frog it up as well.
+        # The following can only be alphanumeric.  Special characters do not seem to work.  
+        # Quotes seem to frog it up as well.
         option key         EnterYourPSKEncryptionPasswordHereWithoutQuotes  
         option hidden      0
         option isolate     0
@@ -111,8 +112,8 @@ config wifi-iface
 
 == Configuring the Access Point ==
 The following configuration needs to be set up on the Access Point in order to support the above WRT54G configuration to make this all work:
- * To have the Access Point assign IP configuration to the WRT54G (matching the {{{option proto dhcp}} line of the {{{config interface wan}}} section of {{{/etc/config/network}}} file) the Access Point needs to have its DHCP server enabled, serving IP addresses in the subnet of the Access Point.  For example, if the Access Point is in the 10.0.0.0/255.0.0.0 network, then its dhcp configuration should assign addresses starting with 10.*
- * To match the {{{option channel 1}}} line in {{{/etc/config/wireless}}, the channel on the Access Point also needs to be set to 1.
+ * To have the Access Point assign IP configuration to the WRT54G (matching the {{{option proto dhcp}}} line of the {{{config interface wan}}} section of {{{/etc/config/network}}} file), the Access Point needs to have its DHCP server enabled, serving IP addresses in the subnet of the Access Point.  For example, if the Access Point is in the 10.0.0.0/255.0.0.0 network, then its dhcp configuration should assign addresses starting with 10.*
+ * To match the {{{option channel 1}}} line in {{{/etc/config/wireless}}}, the channel on the Access Point also needs to be set to 1.
  * To match the {{{option ssid yourssid}}} line in {{{//etc/config/wireless}}}, the SSID of the Access Point needs to match that used on the WRT54G.
  * To match the {{{option encryption psk}}} and {{{option key [whatever]}}} lines in {{{/etc/config/wireless}}}, the Access point needs to allow WPA encryption, and use the same key.
 
