@@ -49,12 +49,12 @@ The first time you connect to an OpenWRT router, you must use telnet:
  * Log on as {{{root}}} using the password used for the firmware upload.
  * Turn on BootWait:
    * {{{nvram set bootwait=on}}}
-   * {{{nvram get bootwait}}}  # to make sure it's on...
+   * {{{nvram get bootwait}}}      # to make sure it's on...
    * {{{nvram commit}}}
- bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  THis can save a LOT of headaches if you mis-configure something.  You won't have to rip the box apart to debrick it.
+ Bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  THis can save a LOT of headaches if you mis-configure something.  You won't have to rip the box apart to debrick it.
  * Change the router's password by typing {{{passwd}}} at the # prompt.  Changing the password automatically disables telnet and enables ssh.
  * Sign off ({{{exit}}}) and re-connect using SSH.  (PuTTY also worked well for me on a Windows box.)
- * Edit the file {{{/etc/config/dhcp}}} to make it read:
+ * We will use DHCP on the Linksys side of the bridge for the X-Box to use.  Edit the file {{{/etc/config/dhcp}}} to make it read:
 {{{
 config dhcp
  option interface lan
