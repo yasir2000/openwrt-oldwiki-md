@@ -23,7 +23,7 @@ The goal of this setup is to have a wired network on the Linksys side of a wirel
 
 == Before Starting ==
  * Download the __2.4__ kernel version of Kamikaze 7.09, found at http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/ .  '''Note: As of this writing (3/08), you can not use the 2.6 kernel version because Wifi is not reliably implemented.'''  (That was my first mistake...)
- * Download the Linksys FTP program, found at (URL needed - can't seem to find it right now...)  This FTP client is needed because the WRT54G has a password, and the failsafe booting requires it.  Other TFTP clients do not support this (that I am aware of).  This software is not needed if your WRT54G is not bricked.  Note that this client is a Windows program, so if you are running Linux, you will need to run this program using wine (http://winehq.org) or other method (VMware, a Windows PC, other?)
+ * Download the Linksys FTP program, found at (ftp://ftp.linksys.com/pub/network/tftp.exe)  This FTP client is needed because the WRT54G has a password, and the failsafe booting requires it.  Other TFTP clients do not support this (that I am aware of).  This software is not needed if your WRT54G is not bricked.  Note that this client is a Windows program, so if you are running Linux, you will need to run this program using wine (http://winehq.org) or other method (VMware, a Windows PC, other?)
 
 == Debricking the WRT54G ==
 If your WRT54G is not bricked, you can use the normal Firmware Upgrade function found in the Web Interface of the router.  Use the ".bin" format firmware when upgrading this way.  If you are upgrading the firmware through the web interface, the IP address of the WRT54G will remain what it was prior to the upgrade.  This does not happen if the WRT54G is bricked.  If your router is not bricked, skip the rest of this section and use its configured IP address whenever the address {{{192.168.1.1}}} is used in subsequent sections.
@@ -42,6 +42,8 @@ There are supposed to be several possible ways to get your bricked router to fal
  * Once the firmware is uploaded, unplug the WRT54G and reassemble it, and re-connect it to the PC you used to load the firmware.
 
 As an aside, I would love to know exactly what is happening by shorting pins 16 and 17.  Although I do not know for sure, it is my belief that shorting the pins (which, if I found the correct pinout, are address lines 18 and 17 respectively) causes a checksum on the Flash memory to fail (because the wrong memory addresses are returned from the chip), which causes the router to enter failsafe mode.  If there's a EE out there who knows for sure, please update this paragraph.  
+
+There is a lot of information on debricking a WRT54g on the net.  Some potentially helpful links are http://www.openwrt.org/OpenWrtDocs/Troubleshooting , http://forum.openwrt.org/viewtopic.php?id=580 and http://www.ranvik.net/prosjekter-privat/jtag_for_wrt54g_og_wrt54gs/HairyDairyMaid_WRT54G_v22.pdf 
 
 == Configuring the WRT54G ==
 The first time you connect to an OpenWRT router, you must use telnet:
@@ -74,25 +76,33 @@ config interface lan
         option proto       static
         option ipaddr      192.168.1.1
         option netmask     255.255.255.0
-        option gateway     10.0.0.1  # This should be the IP address of your Access Point that you are using to get out to the internet.
-        option dns         "xx.xx.xx.xx yy.yy.yy.yy"  # I used the IP address of the DNS servers provided by my ISP.
+        # The following should be the IP address of your Access Point that you are using to get out to the internet.
+        option gateway     10.0.0.1  
+        # or the following, I used the IP address of the DNS servers provided by my ISP.
+        option dns         "xx.xx.xx.xx yy.yy.yy.yy"  
 config interface wan
-        option ifname      "wl0"   #  '''IMPORTANT: This needs to be wl0 to gateway through the wireless adapter!'''
-        option proto       dhcp     # Will get the wireless IP address from the Access Pointvia DHCP
+        #  '''IMPORTANT: The following needs to be wl0 to gateway through the wireless adapter!'''
+        option ifname      "wl0"   
+        # The following will get the wireless IP address from the Access Point via DHCP
+        option proto       dhcp     
 }}}
  * Edit the file {{{/etc/config/wireless}}} to read:
 {{{
 config wifi-device wl0
         option type        broadcom
-        option channel     1  #  Use whatever channel you have your access point configured to use.  
+        #  For the following, use whatever channel you have your access point configured to use.  
+        option channel     1  
         option disabled    0
 config wifi-iface
         option device      wl0
         option network     wan
         option mode        sta
-        option ssid        yourssid  # use the SSID of the Access Point
-        option encryption  psk  # Note: I could not get a link using psk2, even though my access point supports it.
-        option key         EnterYourPSKEncryptionPasswordHereWithoutQuotes  # This can only be alphanumeric.  Special characters do not seem to work.  Quotes seem to frog it up as well.
+        # For the following, use the SSID of the Access Point
+        option ssid        yourssid  
+        option encryption  psk  
+        # Note: I could not get a link using psk2, even though my access point supports it.
+        # The following can only be alphanumeric.  Special characters do not seem to work.  Quotes seem to frog it up as well.
+        option key         EnterYourPSKEncryptionPasswordHereWithoutQuotes  
         option hidden 0
         option isolate 0
         option bgscan 0
