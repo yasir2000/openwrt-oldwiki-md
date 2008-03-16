@@ -39,7 +39,7 @@ There are supposed to be several possible ways to get your bricked router to fal
  * Start the Linksys TFTP client, and fill in the IP address (192.168.1.1) and last password that was used on the router.  Do NOT start the transfer yet.
  * Here's the "tricky" part:  __While plugging in the WRT54G__, use a sharp metallic object (paper clip, pointy screw driver, awl) and touch pins 15 and 16 simultaneously.  (Actually, on my WRT54G, I had to touch pins 16 and 17 simultaneously, but other references stated 15 and 16.)  '''Be careful not to remove any metal from the printed circuit board.'''  Be gentle!  Keep touching these pins and watch the running ping.  You should start to see a response to the pings.  Once this happens, you can remove the tool.  The WRT54G is now in failsafe mode, waiting for a TFTP of the firmware.
  * Initiate the TFTP transfer with the Linksys client.  Use the ".bin" format firmware when upgrading this way.
- * Once the firmware is uploaded, unplug the WRT54G and reassemble it, and re-connect it to the PC you used to load the firmware.
+ * Once the firmware is uploaded, unplug the WRT54G and reassemble it, and reconnect it to the PC you used to load the firmware.
 
 As an aside, I would love to know exactly what is happening by shorting pins 16 and 17.  Although I do not know for sure, it is my belief that shorting the pins (which, if I found the correct pinout, are address lines 18 and 17 respectively) causes a checksum on the Flash memory to fail (because the wrong memory addresses are returned from the chip), which causes the router to enter failsafe mode.  If there's a EE out there who knows for sure, please update this paragraph.  
 
@@ -53,9 +53,9 @@ The first time you connect to an OpenWRT router, you must use telnet:
    * {{{nvram set bootwait=on}}}
    * {{{nvram get bootwait}}}      # to make sure it's on...
    * {{{nvram commit}}}
- Bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  This can save a LOT of headaches if you mis-configure something.  You won't have to rip the box apart to debrick it.  Just start up the TFTP client and power cycle the WRT54G.
+ Bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  This can save a LOT of headaches if you misconfigure something.  You won't have to rip the box apart to debrick it.  Just start up the TFTP client and power cycle the WRT54G.
  * Change the router's password by typing {{{passwd}}} at the # prompt.  Changing the password automatically disables telnet and enables ssh.
- * Sign off ({{{exit}}}) and re-connect using SSH.  (PuTTY also worked well for me on a Windows box.)
+ * Sign off ({{{exit}}}) and reconnect using SSH.  (PuTTY also worked well for me on a Windows box.)
  * We will use DHCP on the Linksys side of the bridge for the X-Box to use.  Edit the file {{{/etc/config/dhcp}}} to make it read:
 {{{
 config dhcp
