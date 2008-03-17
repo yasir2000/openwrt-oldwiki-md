@@ -137,12 +137,15 @@ TX & RX led fix:
 attachment:mycfg.tar.gz_blink_on_lan file size 759
 
 == WatchDog Enable ==
+{{{
 CPU revision is: 00018448 (MIPS 4KEc)
 bootcr 7300 is 0x2514281
 TI AR7 (TNETD7300), ID: 0x0005, Revision: 0x27
 0x2514281 100101000101000010100-0-0001 disable
 After change R59 place
 0x2514291 100101000101000010100-1-0001 enable!
+}}}
+attachment:enable_watchdog.jpg
 
 ----
  . ["CategoryAR7Device"]
