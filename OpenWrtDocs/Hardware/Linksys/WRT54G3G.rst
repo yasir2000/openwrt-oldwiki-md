@@ -24,6 +24,22 @@ Please use the [http://forum.openwrt.org/viewtopic.php?id=3276 Cardbus Support o
 
 Please contribute useful information here.
 
+Checkout EVDOForums for more developments in porting Openwrt to the WRT54G3G-ST. As of March 2008, a release for this platform (r82) of White Russian 0.9 has been used by quite a few people. 
+See page 34 on the Openwrt thread in EVDO Forums Linksys WRT54G3G-ST subforum
+http://www.evdoforums.com/thread6621-0-asc-480.html
+
+Images can be found on  http://xo54g3gst.qcslufkin.com 
+The Download link will show after you  register and login 
+You can install the r75 bin first through the linksys interface and then upgrade to r82 thru Openwrt's
+webif
+This r82 has a couple of small bugs
+a) info.sh in the webif needs permissions changed to +x
+b) APN line has to be commented out in /etc/chatscripts/3g-generic.chat
+c) firewall startup in /etc/init.d/S??firewall   has to have forwarding and masquerading entry for ppp0
+
+Once this was done, I had a Sprint EVDO connection working quite well.  
+
+
 The v1.1 has a Broadcom BCM4712 CPU (200MHz) and ~14MB RAM.
 
 There's different 3G data cards bundled with this device. "Vodafone Mobile Connect 3G/GPRS data card" has NEC USB2 controller with two generic USB ports builtin. 3G side is connected to those ports.
