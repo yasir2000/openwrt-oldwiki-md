@@ -120,6 +120,8 @@ By default most firmwares has pmon partition write protected, i.e. you can't fla
         { name: "nvram", offset: 0, size: 0, },
 }}}
 
+Note: At least on White Russian recompiling the kernel is not necessary. Theres a kernel module thats makes the CFE Partition writable at http://myantihero.net/pub/openwrt/
+
 === Flashing new CFE image ===
 
 So, once you've recompiled and flashed your new firmware you need you upgrade CFE. This process is dangerous, as flash failure during it will prevent your unit from booting. Copy cfe_new.bin to your wrt54g and flash it. The exact commands are dependent on the firmware. With OpenWrt I've used the following:
