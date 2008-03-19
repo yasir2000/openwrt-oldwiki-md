@@ -31,6 +31,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
  * All of the entries in a RTP300's ''/proc'' directory were cat-ed out to a log file found [http://www.northern.ca/projects/openwrt/rtp300-1.0.55-proc-dump.txt here]
  * A dump of all the flash blocks from an RTP300 with firmware 1.0.55 is available [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]! This is different the mounted file system dumps which contain only the files from the mounted root
  * The root file system extracted from firmware version 3.1.17 is available here attachment:wrtp54g-3.1.17-root.tar.bz2
+
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
@@ -198,7 +199,7 @@ BOOTCFG format:
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
  * There appear to be pieces missing which make the code as a whole unbuildable. At any rate, though several people in various forums have asked how to build the source code, nobody has posted instructions.
  * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
- * You can rebuild parts of the source code using the Montavista AR7 cross-compiler toolchain.
+ * You can rebuild parts of the source code using the Montavista AR7 cross-compiler toolchain (http://mcmcc.bat.ru/dlinkt/cross_utils/ar7_mcmcc-mipsel_toolchain_full.tar.bz2).
  * If you rebuild parts of the source code using the OpenWrt AR7 cross-compiler toolchain, you will get unusable binaries which the system mistakes for shell scripts.
  * To get around the problem of binaries being mistaken for shell scripts, you will need to compile uClibc using the MIPS I (generic) target.  Then compile your binary as a MIPS I binary (probably the default, but you may need to specify -mips1 on the gcc command line.)  The "file" command will then show the file as: ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV), [...]
 = Related Sites =
