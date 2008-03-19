@@ -3,24 +3,23 @@ The WHR-HP-AG108 has a Atheros WiSoC CPU running at 220 MHz. It has 4 MB flash a
 
 Packaging suggest that my unit is a WHR-HP-AG108-4 (EU-Version), so it seems there are some different versions out there.
 
-
 == Prepare firmware image ==
-Get yourself a copy of Kamikaze from the SVN repository:
-svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release} I was unsuccessful with this release, but I did compile and flash the following stable svn: 
-svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable {for stable release}
+Get yourself a copy of Kamikaze from the SVN repository: svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release} I was unsuccessful with this release, but I did compile and flash the following stable svn: svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable {for stable release}
 
 Edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' so that it reads
+
 {{{
 HAL_TARGET:=ap30
 }}}
 after that it's time for ''make menuconfig; make'' and have some fun and watching a short film while it compiles.
 
-I tested it with Kamikaze 7.06 so if you're unsure you may use that version.
-It also works with the stable release of 7.09 as of 10 March 08.
+I tested it with Kamikaze 7.06 so if you're unsure you may use that version. It also works with the stable release of 7.09 as of 10 March 08.
+
+'''If you can't compile the firmware image yourself you can download my pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 here: '''http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
+The image has Webif^2 built in so you will be able to access the router using your web browser at 192.168.1.1
 
 == Accessing RedBoot via telnet ==
-
-start Buffalo debug interface (instructions below)
+Start Buffalo debug interface (instructions below)
 
 activate telnet
 
@@ -32,8 +31,8 @@ download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi
 cd /tmp
 wget ftp://[remote server address]/RedBoot_config_gdb.rom
 }}}
-
 flash it
+
 {{{
 dd if=/tmp/RedBoot_config_gdb.rom of=/dev/mtdblock/4
 }}}
@@ -41,31 +40,34 @@ confirm "128+0 records" in and out
 
 power cycle the router
 
-just after it starts, while the diag led is flashing, connect via telnet on port 9000
+just after it starts, while the red diagnostic led is flashing, connect via telnet on port 9000
 
 you should see
+
 {{{
 Executing boot script in...
 }}}
 interrupt it with CTRL-C
 
-you should be at the !RedBoot prompt
+you should be at the !RedBoot prompt : RedBoot>
 
-== Loading OpenWrt via serial ==
+== Loading OpenWrt via Telnet ==
 '''Always make a backup of your old firmware. If something goes wrong - I told you!'''
 
-get your serial console ready, e.g.
+If you're using a serial console configure it with:
+
 {{{
 screen -c /dev/null -m /dev/ttyUSB0 9600 8N1
 }}}
-
-also make sure your network cable is plugged into port 1! It's the one closest to the antenna. I tried port 4 before and didn't got a network connection with that.
+If you're connecting to the router using ethernet, make sure your network cable is plugged into port 1! It's the one closest to the antenna. I tried port 4 before and didn't got a network connection with that.
 
 Now you may power up your router and hit Ctrl-C when it asks for it. Once in !RedBoot you should set your network config
+
 {{{
 ip_address -l [router ip address] -h [ftp server address]
 }}}
 After that it's time to format the flash, copy the firmware from tftp to your router, write firmware to flash and configure bootloader to make it all work.
+
 {{{
 fis init -f
 load -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.gz
@@ -75,6 +77,7 @@ fis create -l 0x280000 rootfs
 fconfig -d
 }}}
 Set ''execute boot script true'' and use
+
 {{{
 fis load -d vmlinux.gz
 exec
@@ -83,63 +86,100 @@ as bootscript.
 
 ... done. Now it's time to restart your router with the 'reset' command and watch it boot up into !OpenWrt.
 
+Here's the RedBoot commands I used to flash my router with the pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 downloaded here: http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
+
+{{{
+RedBoot> fis init -f    (will erase everything but the Redboot info from the WHR's flash memory)
+fis free      (confirm you get the same free memory numbers below, if they are different the flash may not work)
+  0xBE050000 .. 0xBE3D0000
+  0xBE3E0000 .. 0xBE3F0000
+= %{FREEMEMLO}   (confirm you get the same numberbelow)
+0X80000400
+load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.vmlinux.gz
+fis create -r 0x80041000 -e 0x80041000 vmlinux.gz
+load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.squashfs
+Here is where you do 'fis free' to see how much space you've got left. I actually get two separate free sections but one is small and the other is big. after deducting the the first hex number from the second hex number (of the big section)
+fis free  (again confirm you get the same numbers below)
+  0xBE150000 .. 0xBE3D0000    (0xBE3D0000 - 0xBE150000 = 280000 (hex math))
+  0xBE3E0000 .. 0xBE3F0000
+(I get 280000 free space so  it's:)
+fis create -l 0x280000 rootfs
+fis list   (confirm you get the same numbers, they may be listed in a different order)
+Name              FLASH addr      Mem addr         Length          Entry point
+RedBoot           0xBE000000  0xBE000000  0x00050000  0x00000000
+vmlinux.gz        0xBE050000  0x80041000  0x00100000  0x80041000
+rootfs                0xBE150000  0x80000400  0x00280000  0x80000400
+FIS directory     0xBE3D0000  0xBE3D0000  0x0000F000  0x00000000
+RedBoot config    0xBE3DF000  0xBE3DF000  0x00001000  0x00000000
+fis free
+  0xBE270000 .. 0xBE3D0000
+  0xBE3E0000 .. 0xBE3F0000
+fconfig  
+(when it asks you for your init script you put following lines)
+fis load -d vmlinux.gz
+exec
+}}}
+And that's it, use the 'reset' command to reboot into Kamikaze. Webif^2 is built into the image so the router will be available through your browser at 192.168.1.1
+
+
+
 I telnetted into the router and set a password, then SSH'd in and used the vi editor to change the /etc/config/wireless file to:
+
 {{{
 config wifi-device  wifi0
-	option type     atheros
-	option channel	'44'
-	option diversity	'0'
-	option txantenna	'0'
-	option rxantenna	'0'
-	option mode	'11a'
+        option type     atheros
+        option channel  '44'
+        option diversity        '0'
+        option txantenna        '0'
+        option rxantenna        '0'
+        option mode     '11a'
 
-	# REMOVE THE FOLLOWING LINE TO ENABLE WIFI:
-#	option disabled 1 (This line is commented out)
+        # REMOVE THE FOLLOWING LINE TO ENABLE WIFI:
+#       option disabled 1 (This line is commented out)
 
 config wifi-iface
-	option device	wifi0
-	option network	lan
-	option mode	ap
-	option ssid	RobRobinetteA
-	option encryption	wep
-	option key1	your_wep_code_here
-	option key	1
-	option hidden	'0'
-	option isolate	'0'
-	option txpower	'13'
-	option bgscan	'0'
-	option wds	'0'
+        option device   wifi0
+        option network  lan
+        option mode     ap
+        option ssid     RobRobinetteA
+        option encryption       wep
+        option key1     your_wep_code_here
+        option key      1
+        option hidden   '0'
+        option isolate  '0'
+        option txpower  '13'
+        option bgscan   '0'
+        option wds      '0'
 
 config wifi-device  wifi1
-	option type     atheros
-	option channel	'11'
-	option diversity	'0'
-	option txantenna	'0'
-	option rxantenna	'0'
-	option mode	'11bg'
+        option type     atheros
+        option channel  '11'
+        option diversity        '0'
+        option txantenna        '0'
+        option rxantenna        '0'
+        option mode     '11bg'
 
-	# REMOVE THIS LINE TO ENABLE WIFI:
-	option disabled 0 
+        # REMOVE THIS LINE TO ENABLE WIFI:
+        option disabled 0
 
 config wifi-iface
-	option device	wifi1
-	option network	lan
-	option mode	ap
-	option ssid	RobRobinetteG
-	option encryption	wep
-	option key1	your_wep_code_here
-	option key	1
-	option hidden	'0'
-	option isolate	'0'
-	option txpower	'15'
-	option bgscan	'0'
-	option wds	'0'
+        option device   wifi1
+        option network  lan
+        option mode     ap
+        option ssid     RobRobinetteG
+        option encryption       wep
+        option key1     your_wep_code_here
+        option key      1
+        option hidden   '0'
+        option isolate  '0'
+        option txpower  '15'
+        option bgscan   '0'
+        option wds      '0'
 }}}
-I confirmed that both wifi interfaces were working simultaneously with this setup. I found that the max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded haserl & webif and the web interface works great. The transmit power and signal-to-noise ratio of the WHR is a little weak. My Asus WL500gP puts out a stronger signal and consistantly tests much faster than the WHR.
+I confirmed that both wifi interfaces were working simultaneously with this setup. I found that the max transmit power of 13 worked for 802.11a and 15 for 802.11b/g. I loaded webif^2 and the web interface works great. The transmit power and signal-to-noise ratio of the WHR is a little weak. My Asus WL500gP puts out a stronger signal and consistantly tests much faster than the WHR.
 
 == Troubles ==
 Said this I'm still very unsatisfied with the wireless performance because compared to my wrt54gl the wireless range just sucks. Maybe it's because I can't set txpower to levels higher than 13 dBm, but I'm unsure about that because of the build in amplifier.
-
 
 == Buffalo debug interface ==
 {{{
@@ -147,13 +187,11 @@ http://192.168.11.1/cgi-bin/cgi?req=frm&frm=py-db/55debug.html
 user: bufpy
 password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
 }}}
-
 == Serial pinout (JP2) ==
 {{{
 3.3V, GND, RX, TX
 Board on this side
 }}}
-
 == RedBoot factory defaults ==
 {{{
 RedBoot> fis list
@@ -166,7 +204,6 @@ rootfs            0xBE120000  0xBE120000  0x002A0000  0x00000000
 user.property     0xBE3E0000  0xBE3E0000  0x00010000  0x00000000
 Radio.Config      0xBE3F0000  0xBE3F0000  0x00010000  0x00000000
 }}}
-
 {{{
 RedBoot> fconfig -l
 Run script at boot: false
@@ -177,7 +214,6 @@ GDB connection port: 9000
 Force console for special debug messages: false
 Network debug at boot time: false
 }}}
-
 == Bootlog (original Buffalo firmware, MAC changed) ==
 {{{
 BusyBox v1.00 (2006.09.05-08:55+0000) Built-in shell (msh)
