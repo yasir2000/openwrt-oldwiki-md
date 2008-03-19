@@ -42,10 +42,11 @@ Like with other Linksys routers, it's possible to run system commands using "pin
 
 '''Recovering from a bad flash'''
 
-To recover from a bad flash, issue these commands:
-{{{load -r -b 0x70000 -m (choose between 'http' or 'tftp', assuming http, default tftp) http -h 192.168.0.9 (change this to your ip) /wrt300n.bin 
-fis write -f 0x50000000 -b 0x70000 -l 0x3fffff}}}
+To recover from a bad flash, issue these commands in RedBoot (flashing to linksys fw, assuming you already downloaded it.):
 
+{{{
+load -r -b 0x70000 -m (choose between 'http' or 'tftp', assuming http, default tftp) http -h 192.168.0.9 (change this to your ip) /wrt300n.bin
+fis write -f 0x50000000 -b 0x70000 -l 0x3fffff}}}
 '''WRT300N v2 Serial Console'''
 
 There aren't many connector slots on the board. The serial console (JP1) is just above the flash chip on the same side as the power connector. Console speed is 115200,8n1
