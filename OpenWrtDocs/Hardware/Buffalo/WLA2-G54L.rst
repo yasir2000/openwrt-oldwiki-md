@@ -20,7 +20,7 @@ GND   o
      LEDs
 }}}
 
-''''CFE Hacking'''
+''''CFE Hacking''''
 Some NVRAM-settings are hardcoded into the cfe (e.g. clkfreq, vlans, boot_wait). The cfe can be changed as described here: [:OpenWrtDocs/Customizing/Firmware/CFE:Customizing CFE].
 ----
 CategoryModel
