@@ -314,6 +314,15 @@ Than execute ''crontab -e'' and add:
 }}}
 That will check ADSL every minute.
 
+= Accessible GPIO pins =
+||Position on board||GPIO||
+||status LED||8||
+||wifi LED||6||
+||reset button||11||
+||jp7, middle [][x][]||12||
+||jp6, middle [][x][]||13||
+||testpoint near 15 (top)||5||
+||testpoint near 9 (top)||10||
 = Other =
 '''Materials'''
 
