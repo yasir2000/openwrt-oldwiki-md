@@ -4,7 +4,7 @@
 '''Identification by S/N'''
 
 Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
-||||<tablestyle=""style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
+||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||<style="text-align: center;"> '''S/N''' ||<style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
 ||WRT300N v1.0 ||<style="text-align: center;"> CNP01 || ( ) || ( ) ||
 ||WRT300N v2.0 ||<style="text-align: center;"> SNP00 || ( ) || ( ) ||
@@ -38,7 +38,13 @@ Pull off the blue Cover Plates on top and bottom of the Device, pull off the bla
 
 '''Using ping to run commands'''
 
-Like with other Linksys routers, it's possible to run system commands using "ping"; for instance, entering "; reboot" (without quotation marks) in the "ping" tool will reboot the router.
+Like with other Linksys routers, it's possible to run system commands using "ping"; for instance, entering "; reboot" (without quotation marks) in the "ping" tool will reboot the router. //Doesn't work with 2.00.20
+
+'''Recovering from a bad flash'''
+
+To recover from a bad flash, issue these commands:
+{{{load -r -b 0x70000 -m (choose between 'http' or 'tftp', assuming http, default tftp) http -h 192.168.0.9 (change this to your ip) /wrt300n.bin 
+fis write -f 0x50000000 -b 0x70000 -l 0x3fffff}}}
 
 '''WRT300N v2 Serial Console'''
 
@@ -46,6 +52,5 @@ There aren't many connector slots on the board. The serial console (JP1) is just
 
  . () Vcc () RX () TX () GND
 ----
- CategoryModel
-
+ . CategoryModel
 The console connector for the WRT300N v2 uses TTL voltage. Thus it cannot be directly connected to a PC RS232 port (you may fry your WRT300N v2 if you do so). It requires level shifting (by the use of MAX3232 component for example). Details about such a modified cable are widely available. Among other places you can find them at the WRT54G (linux) pages.
