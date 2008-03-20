@@ -93,22 +93,21 @@ RedBoot> fis init -f    (will erase everything but the Redboot info from the WHR
 fis free      (confirm you get the same free memory numbers below, if they are different the flash may not work)
   0xBE050000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
-= %{FREEMEMLO}   (confirm you get the same numberbelow)
+= %{FREEMEMLO}   (confirm you get the same number below)
 0X80000400
 load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.vmlinux.gz
 fis create -r 0x80041000 -e 0x80041000 vmlinux.gz
 load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.squashfs
-Here is where you do 'fis free' to see how much space you've got left. I actually get two separate free sections but one is small and the other is big. after deducting the the first hex number from the second hex number (of the big section)
 fis free  (again confirm you get the same numbers below)
   0xBE150000 .. 0xBE3D0000    (0xBE3D0000 - 0xBE150000 = 280000 (hex math))
   0xBE3E0000 .. 0xBE3F0000
 (I get 280000 free space so  it's:)
 fis create -l 0x280000 rootfs
 fis list   (confirm you get the same numbers, they may be listed in a different order)
-Name              FLASH addr      Mem addr         Length          Entry point
+Name              FLASH addr  Mem addr    Length      Entry point
 RedBoot           0xBE000000  0xBE000000  0x00050000  0x00000000
 vmlinux.gz        0xBE050000  0x80041000  0x00100000  0x80041000
-rootfs                0xBE150000  0x80000400  0x00280000  0x80000400
+rootfs            0xBE150000  0x80000400  0x00280000  0x80000400
 FIS directory     0xBE3D0000  0xBE3D0000  0x0000F000  0x00000000
 RedBoot config    0xBE3DF000  0xBE3DF000  0x00001000  0x00000000
 fis free
@@ -123,7 +122,7 @@ And that's it, use the 'reset' command to reboot into Kamikaze. Webif^2 is built
 
 
 
-I telnetted into the router and set a password, then SSH'd in and used the vi editor to change the /etc/config/wireless file to:
+I telnetted into the router using port 9000 and set a password using the 'passwd' command, then accessed the router usng the Webif^2 web interface and used the System/File Editor to change the /etc/config/wireless file to:
 
 {{{
 config wifi-device  wifi0
