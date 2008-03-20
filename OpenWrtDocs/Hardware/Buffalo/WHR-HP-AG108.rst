@@ -6,7 +6,7 @@ Packaging suggest that my unit is a WHR-HP-AG108-4 (EU-Version), so it seems the
 '''Flashing OpenWrt to a WHR-HP-AG108 is not trivial.''' The precompiled images from OpenWrt won't work with the WHR so you'll have to compile your own or download a custom firmware (available below). To flash the WHR from it's original firmware you must gain debug access to the router, activate telnet access, change the RedBoot configuration, use the Redboot interface to flash the operating system and file system files, and enable the boot script. It's not easy but the process is detailed below.
 
 == Prepare firmware image ==
-Get yourself a copy of Kamikaze from the SVN repository: svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release} I was unsuccessful with this release, but I did compile and flash the following stable svn: svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable {for stable release}
+Get yourself a copy of Kamikaze from the SVN repository: svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge, trunk release} I was unsuccessful with this release, but I did compile and flash the following stable tag svn: svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable
 
 Edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' so that it reads
 
@@ -18,7 +18,7 @@ after that it's time for ''make menuconfig; make'' and have some fun and watchin
 I tested it with Kamikaze 7.06 so if you're unsure you may use that version. It also works with the stable release of 7.09 as of 10 March 08.
 
 '''If you can't compile the firmware image yourself you can download my pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 here: '''http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
-The image has Webif^2 built in so you will be able to access the router using your web browser at 192.168.1.1
+The image is very stable and has Webif^2 built in so you will be able to access the router using your web browser at http://192.168.1.1 after you flash it.
 
 == Accessing RedBoot via telnet ==
 Start Buffalo debug interface (instructions below)
