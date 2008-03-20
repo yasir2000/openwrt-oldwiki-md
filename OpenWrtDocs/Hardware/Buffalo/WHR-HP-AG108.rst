@@ -3,6 +3,8 @@ The WHR-HP-AG108 has a Atheros WiSoC CPU running at 220 MHz. It has 4 MB flash a
 
 Packaging suggest that my unit is a WHR-HP-AG108-4 (EU-Version), so it seems there are some different versions out there.
 
+'''Flashing OpenWrt to a WHR-HP-AG108 is not trivial.''' The precompiled images from OpenWrt won't work with the WHR so you'll have to compile your own or download a custom firmware (available below). To flash the WHR from it's original firmware you must gain debug access to the router, activate telnet access, change the RedBoot configuration, use the Redboot interface to flash the operating system and file system files, and enable the boot script. It's not easy but the process is detailed below.
+
 == Prepare firmware image ==
 Get yourself a copy of Kamikaze from the SVN repository: svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge release} I was unsuccessful with this release, but I did compile and flash the following stable svn: svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable {for stable release}
 
