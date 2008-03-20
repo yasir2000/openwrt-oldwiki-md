@@ -7,7 +7,7 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||||<style="text-align: center;">'''!OpenWrt''' ||
 ||'''Model''' ||<style="text-align: center;"> '''S/N''' ||<style="text-align: center;">  '''Stable[[BR]]White Russian''' ||<style="text-align: center;">  '''Development[[BR]]Kamikaze''' ||
 ||WRT300N v1.0 ||<style="text-align: center;"> CNP01 || ( ) || ( ) ||
-||WRT300N v2.0 ||<style="text-align: center;"> SNP00 || ( ) || ( ) ||
+||WRT300N v2.0 ||<style="text-align: center;"> SNP00 || ( ) || (X) ||
 
 
 '''WRT300N v1.0'''
@@ -26,36 +26,42 @@ How to get info:
  * cpu model: {{{grep cpu /proc/cpuinfo}}}
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||
 ||WRT300N v1.0 ||     0x10 ||  0x0472 ||      0x0010 ||       0 ||  42 ||       11 || BCM3302 V0.6 ||  v3.9 ||  CFE 4.81.17.0 ||
+'''How to install OpenWRT''' [[BR]]Step 1: Get Linksys WRT300N v2.00.20 sources[[BR]][[BR]] Step 2: Untar sources and go to sources directory.[[BR]][[BR]] Step 3: Get this toolchain: ftp://ftp.ges.redhat.com/private/gnupro-xscale-030422/i686-pc-linux-gnulibc2.2-x-xscale-elf.tar.Z[[BR]][[BR]][[BR]] Step 4: mkdir gnutools && mv *xscale-elf.tar.Z gnutools && cd gnutools[[BR]][[BR]] Step 5: Untar toolchain with this command: gunzip2 *xscale-elf.tar.Z; tar xvf *xscale-elf.tar[[BR]][[BR]] Step 6: export PATH=$PWD/H-i686-pc-linux-gnulibc-2.2/bin:$PATH && cd ../src/redboot [[BR]][[BR]] Step 7: Edit options/startup_ROMRAM.edl: replace [[BR]][[BR]]
 
-'''How to install OpenWRT'''
-[[BR]]Step 1: Get Linksys WRT300N v2.00.20 sources[[BR]][[BR]]
-Step 2: Untar sources and go to sources directory.[[BR]][[BR]]
-Step 3: Get this toolchain: ftp://ftp.ges.redhat.com/private/gnupro-xscale-030422/i686-pc-linux-gnulibc2.2-x-xscale-elf.tar.Z[[BR]][[BR]][[BR]]
-Step 4: mkdir gnutools && mv *xscale-elf.tar.Z gnutools && cd gnutools[[BR]][[BR]]
-Step 5: Untar toolchain with this command: gunzip2 *xscale-elf.tar.Z; tar xvf *xscale-elf.tar[[BR]][[BR]]
-Step 6: export PATH=$PWD/H-i686-pc-linux-gnulibc-2.2/bin:$PATH && cd ../src/redboot [[BR]][[BR]]
-Step 7: Edit options/startup_ROMRAM.edl: replace [[BR]][[BR]]
-{{{ cdl_option CYGOPT_REDBOOT_FIS {
+{{{
+cdl_option CYGOPT_REDBOOT_FIS {
     user_value 0
-}; }}} 
+}; }}}
+with:
 
-with: 
-
-{{{ cdl_option CYGOPT_REDBOOT_FIS {
+{{{
+cdl_option CYGOPT_REDBOOT_FIS {
     user_value 1
 }; }}}
-Step 8: 'make' [[BR]][[BR]]
-Step 9: Setup a TFTPd or HTTPd, copy build/wrt300n/install/bin/redboot.bin to your filedir for your server[[BR]][[BR]]
-Step 10: Get into RedBoot ( Read this http://www.nslu2-linux.org/wiki/HowTo/ReflashUsingRedbootAndTFTP , serial console preferred), type:[[BR]][[BR]]
-{{{ (only if via serial console) ether
+and replace:
+{{{cdl_component CYGSEM_REDBOOT_FLASH_CONFIG {
+    user_value 0
+};}}}
+with:
+{{{cdl_component CYGSEM_REDBOOT_FLASH_CONFIG {
+    user_value 1
+};}}}
+
+
+
+Step 8: 'make' [[BR]][[BR]] Step 9: Setup a TFTPd or HTTPd, copy build/wrt300n/install/bin/redboot.bin to your filedir for your server[[BR]][[BR]] Step 10: Get into RedBoot ( Read this http://www.nslu2-linux.org/wiki/HowTo/ReflashUsingRedbootAndTFTP , serial console preferred), type:[[BR]][[BR]]
+
+{{{
+(only if via serial console) ether
 ip -h {yourIP}
 load -r -b 0x70000 -m (choose tftp or http, i'll use http) http /redboot.bin
 fis write -f 0x50060000 -b 0x70000 -l 0x4d254
 reset
 }}}
-Step 11: Get http://downloads.openwrt.org/kamikaze/7.09/ixp4xx-2.6/openwrt-ixp4xx-2.6-squashfs.img and http://downloads.openwrt.org/kamikaze/7.09/ixp4xx-2.6/openwrt-wrt300nv2-2.6-zImage , rename the first to wrt.img, second to wrt,zI. put them into your filedir for your server [[BR]][[BR]]
-Step 12: Get into RedBoot, again: type:
-{{{ fis init
+Step 11: Get http://downloads.openwrt.org/kamikaze/7.09/ixp4xx-2.6/openwrt-ixp4xx-2.6-squashfs.img and http://downloads.openwrt.org/kamikaze/7.09/ixp4xx-2.6/openwrt-wrt300nv2-2.6-zImage , rename the first to wrt.img, second to wrt,zI. put them into your filedir for your server [[BR]][[BR]] Step 12: Get into RedBoot, again: type:
+
+{{{
+fis init
 (only if via serial console) ether
 ip -h {yourip}
 load -r -b 0x70000 -m {http,tftp} http /wrt.zI
@@ -63,12 +69,12 @@ fis create kernel
 load -r -b 0x70000 -m {http,tftp} http /wrt.img
 fis create rootfs
 }}}
-Step 13: Almost done :3 , final command in RedBoot: 
-{{{ fis load kernel }}}
-[[BR]][[BR]]Step 14. DONE[[BR]][[BR]][[BR]]
+Step 13: Almost done :3 , final command in RedBoot:  {{{ fis load kernel }}} [[BR]][[BR]]Step 14. DONE[[BR]][[BR]][[BR]]
 
 '''OpenWRT boot log'''
-{{{Uncompressing Linux................................................................. done, booting the kernel.
+
+{{{
+Uncompressing Linux................................................................. done, booting the kernel.
 Linux version 2.6.21.6 (nbd@ds10) (gcc version 4.1.2) #2 Sun Sep 30 20:44:34 CEST 2007
 CPU: XScale-IXP42x Family [690541f1] revision 1 (ARMv5TE), cr=000039ff
 Machine: Linksys WRT300N v2
@@ -144,7 +150,6 @@ mini_fo: using base directory: /
 mini_fo: using storage directory: /tmp/root
 - init -
 init started:  BusyBox v1.4.2 (2007-09-29 10:12:09 CEST) multi-call binary
-
 Please press Enter to activate this console. eth0: NPE-B not running
 eth0: NPE-B not running
 PPP generic driver version 2.4.2
@@ -164,12 +169,8 @@ handlers:
 Disabling IRQ #25
 MadWifi: unable to attach hardware: 'Hardware didn't respond as expected' (HAL status 3)
 jffs2: Too few erase blocks (3)
-
-
-
 BusyBox v1.4.2 (2007-09-29 10:12:09 CEST) Built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
@@ -181,7 +182,6 @@ Enter 'help' for a list of built-in commands.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
 root@OpenWrt:/# }}}
-
 '''Hardware hacking'''
 
 '''Opening the case'''
@@ -203,7 +203,6 @@ To recover from a bad flash, issue these commands in RedBoot (flashing to linksy
 {{{
 load -r -b 0x70000 -m (choose between 'http' or 'tftp', assuming http, default tftp) http -h 192.168.0.9 (change this to your ip) /wrt300n.bin
 fis write -f 0x50000000 -b 0x70000 -l 0x3fffff}}}
-
 '''WRT300N v2 Serial Console'''
 
 There aren't many connector slots on the board. The serial console (JP1) is just above the flash chip on the same side as the power connector. Console speed is 115200,8n1
