@@ -39,16 +39,17 @@ cdl_option CYGOPT_REDBOOT_FIS {
     user_value 1
 }; }}}
 and replace:
-{{{cdl_component CYGSEM_REDBOOT_FLASH_CONFIG {
+
+{{{
+cdl_component CYGSEM_REDBOOT_FLASH_CONFIG {
     user_value 0
 };}}}
 with:
-{{{cdl_component CYGSEM_REDBOOT_FLASH_CONFIG {
+
+{{{
+cdl_component CYGSEM_REDBOOT_FLASH_CONFIG {
     user_value 1
 };}}}
-
-
-
 Step 8: 'make' [[BR]][[BR]] Step 9: Setup a TFTPd or HTTPd, copy build/wrt300n/install/bin/redboot.bin to your filedir for your server[[BR]][[BR]] Step 10: Get into RedBoot ( Read this http://www.nslu2-linux.org/wiki/HowTo/ReflashUsingRedbootAndTFTP , serial console preferred), type:[[BR]][[BR]]
 
 {{{
@@ -69,8 +70,13 @@ fis create kernel
 load -r -b 0x70000 -m {http,tftp} http /wrt.img
 fis create rootfs
 }}}
-Step 13: Almost done :3 , final command in RedBoot:  {{{ fis load kernel }}} [[BR]][[BR]]Step 14. DONE[[BR]][[BR]][[BR]]
+Step 13: Almost done :-3 , final command in RedBoot:  {{{ fis load kernel }}} [[BR]][[BR]]Step 14. DONE[[BR]][[BR]][[BR]]
 
+If you want to have your box auto-bootable, run 'fconfig boot_script', substitute false with true and enter:
+{{{ ether
+fis load kernel
+exec
+}}} Set Timeout to something bigger than 1.
 '''OpenWRT boot log'''
 
 {{{
