@@ -14,6 +14,7 @@ Additionally, there are a few !HowTos that aren't named as such:
  * [:PublishYourWANIp]
  * [:TransparentFirewall]
  * [:IPSec] - How to build IPSec crypto tunnels with OpenWRT
+ * [:KamikazeWRT54GBrickToBridge] - How to get a Bricked WRT54G to a working Bridge state.
 
 ----
 CategoryCategory
