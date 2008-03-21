@@ -32,27 +32,12 @@ If your WRT54G is not bricked, you can use the normal Firmware Upgrade function 
 
 There are supposed to be several possible ways to get your bricked router to fall into "failsafe mode", where it listens on IP address 192.168.1.1 for a TFTP connection to load new firmware before booting up.  (See references below.)  After trying all of them, the only one that worked (and worked reliably every time) was the shorting of the Flash memory pins.  If you are not adventurous, this may not be for you.  However, I found it quite satisfying, since it was the only thing that worked.  :-)  The steps required to debrick the WRT54G are:
  * Unplug the WRT54G and remove all connections.
-
----- /!\ '''Edit conflict - other version:''' ----
  * Remove the cover of the WRT54G.  This will require removing the antennae, then pulling the front off and removing the top.  On my WRT54G, there were no screws that needed removing.  attachment:LinkSysRouterDisassembled.jpg
- * Find the Flash memory chip.  Find pin 1 which will be in the corner with  an indentation or other obvious marking.  Count down to find pins 15, 16, and 17.  Note that the printed circuit board has a little white tick mark every 5 pins, which will help immensely when needing to locate the correct pins.  attachment:LinkSysRouterFlashChipCloseup.jpg
-
----- /!\ '''Edit conflict - your version:''' ----
- * Remove the cover of the WRT54G.  This will require removing the antennae, then pulling the front off and removing the top.  On my WRT54G, there were no screws that needed removing.  attachment:LinkSysRouterDisassembled.jpg
- * Find the Flash memory chip.  Find pin 1 which will be in the corner with  an indentation or other obvious marking.  Count down to find pins 15, 16, and 17.  Note that the printed circuit board has a little white tick mark every 5 pins, which will help immensely when needing to locate the correct pins.  attachment:LinkSysRouterFlashChipCloseup.jpg
-
----- /!\ '''End of edit conflict''' ----
+ * Find the Flash memory chip.  Find pin 1 which will be in the corner with an indentation or other obvious marking.  Count down to find pins 15, 16, and 17.  Note that the printed circuit board has a little white tick mark every 5 pins, which will help immensely when needing to locate the correct pins.  attachment:LinkSysRouterFlashChipCloseup.jpg
  * Connect the WRT54G to a PC (directly, or indirectly through a LAN).  The PC's network interface card (NIC) needs to be configured with IP 192.168.1.2, and a netmask of 255.255.255.0.
  * You will want to start a running ping so you can see when the brick comes back to life.  On Linux, that would be {{{ping 192.168.1.1}}} and on Windows it would be {{{ping -C 192.168.1.1}}}.
  * Start the Linksys TFTP client, and fill in the IP address (192.168.1.1) and last password that was used on the router.  Do NOT start the transfer yet.
-
----- /!\ '''Edit conflict - other version:''' ----
  * Here's the "tricky" part:  __While plugging in the WRT54G__, use a sharp metallic object (paper clip, pointy screw driver, awl) and touch pins 15 and 16 simultaneously.  (Actually, on my WRT54G, I had to touch pins 16 and 17 simultaneously, but other references stated 15 and 16.)  '''Be careful not to remove any metal from the printed circuit board.'''  Be gentle!  Keep touching these pins and watch the running ping.  You should start to see a response to the pings.  Once this happens, you can remove the tool.  The WRT54G is now in failsafe mode, waiting for a TFTP of the firmware. 
-
----- /!\ '''Edit conflict - your version:''' ----
- * Here's the "tricky" part:  __While plugging in the WRT54G__, use a sharp metallic object (paper clip, pointy screw driver, awl) and touch pins 15 and 16 simultaneously.  (Actually, on my WRT54G, I had to touch pins 16 and 17 simultaneously, but other references stated 15 and 16.)  '''Be careful not to remove any metal from the printed circuit board.'''  Be gentle!  Keep touching these pins and watch the running ping.  You should start to see a response to the pings.  Once this happens, you can remove the tool.  The WRT54G is now in failsafe mode, waiting for a TFTP of the firmware. 
-
----- /!\ '''End of edit conflict''' ----
  * Initiate the TFTP transfer with the Linksys client.  Use the ".bin" format firmware when upgrading this way.
  * Once the firmware is uploaded, unplug the WRT54G and reassemble it, and reconnect it to the PC you used to load the firmware.
 
@@ -66,14 +51,7 @@ The first time you connect to an OpenWRT router, you must use telnet:
  * Log on as {{{root}}} using the password used for the firmware upload.
  * Turn on BootWait, by typing the following at the # prompt:
    * {{{nvram set bootwait=on}}}
-
----- /!\ '''Edit conflict - other version:''' ----
    * {{{nvram get bootwait      # to make sure it's on...}}}
-
----- /!\ '''Edit conflict - your version:''' ----
-   * {{{nvram get bootwait      # to make sure it's on...}}}
-
----- /!\ '''End of edit conflict''' ----
    * {{{nvram commit}}}
  Bootwait causes the WRT54G to wait a few seconds before booting to see if firmware is trying to be uploaded via TFTP.  If it sees the TFTP, it will upload the firmware before booting.  This can save a LOT of headaches if you misconfigure something.  You won't have to rip the box apart to debrick it.  Just start up the TFTP client and power cycle the WRT54G.
  * Change the router's password by typing {{{passwd}}} at the # prompt.  Changing the password automatically disables telnet and enables ssh.
