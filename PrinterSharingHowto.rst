@@ -20,7 +20,7 @@ Install the p910nd package:
 {{{
 ipkg install p910nd}}}
 == Printers connected via USB ==
-To use an USB printer you must first add support for USB printers. First follow UsbStorageHowto to install the USB controller modules if you haven't already done so. You don't need {{{usb-storage}}} for the printer to work. You might need both USB 1.1 and 2.0  installed to support both modes. 
+To use an USB printer you must first add support for USB printers. First follow UsbStorageHowto to install the USB controller modules if you haven't already done so. You don't need {{{usb-storage}}} for the printer to work. You might need both USB 1.1 and 2.0  installed to support both modes.
 
 Additionally, you need the {{{usb-printer}}} module which you can install with {{{ipkg}}} as follows:
 
@@ -29,11 +29,11 @@ ipkg install kmod-usb-printer}}}
 Now plug in the printer, run {{{dmesg}}} and check for the following lines:
 
 {{{
-hub.c: new USB device 01:02.0-1, assigned address 2
-printer.c: usblp0: USB Bidirectional printer dev 2 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
-usb.c: USB disconnect on device 01:02.0-1 address 2
-hub.c: new USB device 01:02.0-1, assigned address 3
-printer.c: usblp1: USB Bidirectional printer dev 3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094}}}
+hub.c: new USB ice 01:02.0-1, assigned address 2
+printer.c: usblp0: USB Bidirectional printer  2 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094
+usb.c: USB disconnect on ice 01:02.0-1 address 2
+hub.c: new USB ice 01:02.0-1, assigned address 3
+printer.c: usblp1: USB Bidirectional printer  3 if 0 alt 0 proto 2 vid 0x04A9 pid 0x1094}}}
 == Printers connected via parport (parallel port/LPT) ==
 When you are connecting a parport printer you must install the {{{kmod-lp}}} package which installs the modules for parport support.
 
@@ -45,14 +45,48 @@ Now you've to reboot your Wrt router.
 reboot}}}
 When you see the file {{{/dev/printers/0}}} than the installation is done. You can also check the output from {{{dmesg}}}.
 
-= Configuring the printer daemon =
+= Configuring the printer daemon v1 =
+Following (the original guide V2... below) did not work for '''X-WRT (OpenWrt White Russian 0.9)''' on Asus WL-500g.
+The guide that worked was for DD-WRT at: http://www.dd-wrt.com/wiki/index.php/Printer_Sharing
+
+1. You need to create a file... so you need a file editor. From X-WRT package manager install "nano" or use ipkg over console.
+SSH to OpenWRT (i used [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html putty.exe]) and go to '''/jffs/etc/config/''' .Type " cd /jffx/etc/config/ " in console to do that.
+(If X-WRT's "File Manager" in your version is capable of file creation, then feel free to use that)
+
+2. Now create a file into that directory named "'''usb.startup'''". In console type "nano" to open the nano text editor.
+Write these lines:
+
+{{{
+ #brother laser
+ /jffs/usr/sbin/p910nd -b -f //usb/lp0 0
+ #canon inkjet
+ /jffs/usr/sbin/p910nd -b -f //usb/lp1 1}}}
+Nano has a menu below. You use CTRL+X where X the character from the menu. Just start saving the file, put in the right filename and exit nano.
+
+NB! correct the usb.startup content to match your setup.
+-b means bidirectional
+-f specifices device name
+The last number can be 0,1 or 2, making the print server listen at port 9100, 9101 and 9102 respectively.
+
+For Asus WL-500g with LaserJet 1020 i used this one, and it works:
+
+{{{
+ #LaserJet 1020
+ /jffs/usr/sbin/p910nd -b -f //usb/lp0 0}}}
+Additional debuging: Check that you have p910nd package installed and there is a file called "p910nd" at "/jffs/usr/sbin/p910nd/"
+In console check that you have "lp0" listed in "/dev/usb/" dir - if you have something else, use yours. For LPT devices check "/dev/printers/" dir.
+
+Reboot your router and it should work... read below how to set up your printer in the computers.
+Note: Try removing the '-b' option for p910nd, if it doesn't work.
+
+= Configuring the printer daemon v2 =
 The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can run more than one printer at the same time by adding additional sections. The default configuration is (list all configured printers):
 
 {{{
 uci show p910nd}}}
 {{{
 p910nd.cfg1=p910nd
-p910nd.cfg1.device=/dev/usb/lp0
+p910nd.cfg1.ice=//usb/lp0
 p910nd.cfg1.port=0
 p910nd.cfg1.bidirectional=1
 p910nd.cfg1.enabled=0}}}
@@ -60,7 +94,7 @@ To add a second printer, do this:
 
 {{{
 uci set p910nd.cfg2=p910nd
-uci set p910nd.cfg2.device=/dev/usb/lp1
+uci set p910nd.cfg2.ice=//usb/lp1
 uci set p910nd.cfg2.port=0
 uci set p910nd.cfg2.bidirectional=1
 uci set p910nd.cfg2.enabled=1
@@ -88,12 +122,11 @@ To start it up automatically on every boot, do this:
 
 {{{
 /etc/init.d/p910nd enable}}}
-
 If your printer (mine hl-2030) spits out garbage after poweron, p910nd might be the cause. Add this to /etc/hotplug.d/usb/20-printer
-{{{#!/bin/sh
 
+{{{
+#!/bin/sh (-)
 # Copyright (C) 2006 OpenWrt.org
-
 if [ "$PRODUCT" = "4f9/27/100" ]
 then
 case "$ACTION" in
@@ -214,11 +247,11 @@ end_form
 EOF
 ?>
 <?
-usbpr=`ls /dev/usb/lp* 2>/dev/null`
+usbpr=`ls //usb/lp* 2>//null`
 if [ ! -z "$usbpr" ]; then
         inklevel_form=$(
-        for pdev in $usbpr; do
-                ink -d $pdev |  awk -v FS=":" '
+        for p in $usbpr; do
+                ink -d $p |  awk -v FS=":" '
                 BEGIN
                 {
                         line=0
@@ -251,7 +284,7 @@ EOF
 fi;
 ?>
 <div class="settings">
-<h3>@TR<<status_usb_Mounted_USB_SCSI#Mounted USB / SCSI devices>></h3>
+<h3>@TR<<status_usb_Mounted_USB_SCSI#Mounted USB / SCSI ices>></h3>
 <div>
 ...
 }}}
