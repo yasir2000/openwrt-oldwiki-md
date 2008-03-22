@@ -45,8 +45,6 @@ Now you've to reboot your Wrt router.
 reboot}}}
 When you see the file {{{/dev/printers/0}}} than the installation is done. You can also check the output from {{{dmesg}}}.
 
-
-
 = Configuring the printer daemon =
 The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can run more than one printer at the same time by adding additional sections. The default configuration is (list all configured printers):
 
@@ -115,20 +113,23 @@ Where "$PRODUCT" = "4f9/27/100" is your printers VendorId/ProductId/BcdVersion(1
 
 You might need to add "-INT" to the kill command in /etc/init.d/p910nd to actually have the stop work.
 
-= Configuring the printer daemon the other way =
-Following (the original guide V2... below) did not work for '''X-WRT (OpenWrt White Russian 0.9)''' on Asus WL-500g. I did the "UCI SET" with many typos and re did it perfectly finally, but it still did'nt work. So i did read DD-WRT guide on the daemon and got it working.
-..... editing in process
+= Configuring the printer daemon with custom-user-startup =
+Following (the original guide V2... below) did not work for '''X-WRT (OpenWrt White Russian 0.9)''' on Asus WL-500g. I did the "UCI SET" with many typos and re-did it perfectly finally, but it still didn't work. So i did read DD-WRT guide on the daemon, about d910nd and finally got it working.
 
-2. Now create a file into that directory named "'''usb.startup'''". In console type "nano" to open the nano text editor. Write these lines:
+--(2. )----(Now create a file into that directory named "'''usb.startup'''". In console type "nano" (get nano text edito with package manager or ipkg) to open the nano text editor. Write these lines:)-- ''(for some reasons striked method worked once after reboot, but not after second reboot.. no idea why)''--(
+)--
+
+2. In X-WRT go to System -> Startup and add these lines in the box:
+(you are now editing a custom startup file.. mine was called "/etc/init.d/S95custom-user-startup"):
 
 {{{
  #brother laser
  /jffs/usr/sbin/p910nd -b -f //usb/lp0 0
  #canon inkjet
  /jffs/usr/sbin/p910nd -b -f //usb/lp1 1}}}
-Nano has a menu below. You use CTRL+X where X the character from the menu. Just start saving the file, put in the right filename and exit nano.
+--(Nano has a menu below. You use CTRL+X where X the character from the menu. Just start saving the file, put in the right filename and exit nano.)--
 
-NB! correct the usb.startup content to match your setup. -b means bidirectional -f specifices device name The last number can be 0,1 or 2, making the print server listen at port 9100, 9101 and 9102 respectively.
+NB! correct the usb.startup content to match your setup. -b means bidirectional -f specifices device name The last number can be 0,1 or 2, making the print server listen at port 9100, 9101 and 9102 respectively. And don't forget the " & " mark... read the "custom-user-startup" file comments about that... if there is nothing in your version, then don't bother.
 
 For Asus WL-500g with LaserJet 1020 i used this one, and it works:
 
@@ -137,7 +138,8 @@ For Asus WL-500g with LaserJet 1020 i used this one, and it works:
  /jffs/usr/sbin/p910nd -b -f //usb/lp0 0}}}
 Additional debuging: Check that you have p910nd package installed and there is a file called "p910nd" at "/jffs/usr/sbin/p910nd/" In console check that you have "lp0" listed in "/dev/usb/" dir - if you have something else, use yours. For LPT devices check "/dev/printers/" dir.
 
-Reboot your router and it should work... read below how to set up your printer in the computers. Note: Try removing the '-b' option for p910nd, if it doesn't work.
+Reboot your router and it should work... read below how to set up your printer in the computers. Note:
+Try removing the '-b' option for p910nd, if it still doesn't work.
 
 == Advertising the printer via Zeroconf (optional) ==
 To avoid having to install the printer on multiple clients, you can advertise it via Zeroconf. The following example uses Avahi.
