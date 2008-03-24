@@ -43,6 +43,8 @@ OliverJowett speculates: It looks like the flash layout is basically the same as
 
 GuidoSerra: ok, i'll try it, where can i send you a patch?
 
+RobertSiemer says: The script works amazing. I had to comment out the {{{($usb eq "DSL-502T") or die}}} line. I did not find a good replacement for the usb id either. - I still would like to know how the adam2flash script works. :)  It seems that you can give the router any IP you like for the boot loader but the script needs no root rights for execution!?
+
 ----
 
 ip address for adam2 bootloader is 5.8.8.8 (instead of 10.8.8.8 like it was for DSL-502T)
