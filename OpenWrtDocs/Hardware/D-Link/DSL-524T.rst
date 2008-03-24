@@ -6,6 +6,8 @@ this webpage was created to add more details about that ["OpenWrtDocs/Hardware/D
 
 = NEWS =
 
+I experience the same: the box hangs after about one day and the processor is hotter than the back of my finger supports (over 2 seconds). The status led "heart beat" signal stays off when that happens. I now try to cool it with a passive heat sink I ripped off from an unused (old) graphic card. -- RobertSiemer [[DateTime(2008-03-24T02:30:14Z)]]
+
 END january '08 : i'm no more using this device by my customers... it overheats and halts -> DO NOT USE IT
 
 january '08 : the atm module works... it still gives some crap in the logs, but works
