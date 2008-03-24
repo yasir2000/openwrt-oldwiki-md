@@ -1,24 +1,21 @@
 == Requirements ==
-GNU make 3.81
 
-Lots more
+The build-system checks for the requirements and print what's missing on your system. Then install the packages.
 
-'''Debian Etch:'''
+To manually check the prerequisits run
+
 {{{
-apt-get install subversion g++ libncurses5-dev zlib1g-dev bison flex unzip autoconf gawk make
+make prereq
 }}}
 
-
 == Actual commands ==
+
 {{{
 cd ~
-svn -q checkout https://svn.openwrt.org/openwrt/trunk/ kamikaze-trunk
-cd kamikaze-trunk
-./scripts/feeds update
-make defconfig
-make package/symlinks
-make menuconfig          # Select your target, packages and other options. Only select the packages you need.
+svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/trunk/
+cd ~/trunk/
+./scripts/feeds update packages
+./scripts/feeds install <pkg_name_1> <pkg_name_2> # Creates the symlinks for the packages you like to install
+make menuconfig                                   # Select your target, packages and other options. Only select the packages you need.
 make world
-
-make -jN world           # Enables parallel builds. Replace N with the number of logical CPUs you have on your system.
 }}}
