@@ -1,8 +1,8 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Your Name ==
+== Robert Siemer ==
 
-Email: [[MailTo(Robert DOT Siemer-openwrt DOT org AT backsla DOT sh)]]
+Email: [[MailTo(Robert DOT Siemer-wiki DOT openwrt DOT org AT backsla DOT sh)]]
 
 ...
 
