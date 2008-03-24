@@ -33,6 +33,10 @@ OliverJowett asks: are the GPIO to LED mappings the same as for the 502T? See [h
 
 GuidoSerra answer: i don't know, i have not focused on that, now i'm trying to figure out how to make the ADSL interface work... or is useless... then, i'll check the leds mapping, i suppose that they are not so much different
 
+----
+
+RobertSiemer adds: I applied the LED patch from the DSL-502T page. It did not apply cleanly; I had to do some fix-ups to get the svn checkout to compile. All LEDs (ethernet ports, ADSL, status, power) work as expected. I did not touch anything else,  especially the /etc/init.d/ledsetup script is still not set as executable... -- RobertSiemer [[DateTime(2008-03-24T02:40:25Z)]]
+
 == bootloader ==
 
 OliverJowett speculates: It looks like the flash layout is basically the same as for the DSL-502T. The script in [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl?format=raw] will probably work with the 524T. Currently it checks the ProductID and usb_prod of the bootloader environment before continuing, as a safety check - you will have to modify that check to also allow the 524T. Can you try it out? It makes flashing much simpler!
