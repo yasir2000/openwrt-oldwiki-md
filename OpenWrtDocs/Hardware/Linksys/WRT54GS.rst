@@ -77,7 +77,7 @@ How to get info:
  * board info: {{{nvram show | grep board | sort}}}[[BR]]
  * cpu model: {{{grep cpu /proc/cpuinfo}}}
 ||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||
-||WRT54GS v6.0 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||BCM3302 V0.8 ||-- ||-- ||
+||WRT54GS v6.0 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||9 ||BCM3302 V0.8 ||v3.7 || CFE 3.91.37.0||
 == Internal Photos ==
 Hardware info with detailed pictures.
 
