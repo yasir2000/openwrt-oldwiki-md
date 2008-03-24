@@ -71,6 +71,13 @@ This version has switched to a proprietary non-Linux OS (WikiPedia:VxWorks). It 
 
 The flashing procedure linked to above utilizes the capability of the VxWorks boot loader to flash over itself to upload a proper CFE on this unit that then allows flashing a 'normal' TRX firmware image. The new boot loader does support all 16MB of the RAM available on GS units.
 
+=== Table summary ===
+How to get info:
+
+ * board info: {{{nvram show | grep board | sort}}}[[BR]]
+ * cpu model: {{{grep cpu /proc/cpuinfo}}}
+||'''Model''' ||'''boardrev''' ||'''boardtype''' ||'''boardflags''' ||'''boardflags2''' ||'''boardnum''' ||'''wl0_corerev''' ||'''cpu model''' ||'''boot_ver''' ||'''pmon_ver''' ||
+||WRT54GS v6.0 ||0x10 ||0x0467 ||0x2558 ||0 ||42 ||7 ||BCM3302 V0.8 ||-- ||-- ||
 == Internal Photos ==
 Hardware info with detailed pictures.
 
