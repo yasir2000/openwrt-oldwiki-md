@@ -16,7 +16,7 @@ The WRT300N v1.0 is based on the Broadcom 4704 cpu. I guess it has about 300MHz.
 
 '''WRT300N v2.0'''
 
-The WRT300N v2.0 is based on the Intel IXP420 cpu which is part of the IXP425 family. The cpu runs at 266Mhz.  It has 4Mb of flash and 16Mb of RAM. It has a Marvell 88E6060 switch chip. The wireless is provided by a mini-pci card containing an ar5416 MAC. It is running linux out of the box.
+The WRT300N v2.0 is based on the Intel IXP420 cpu which is part of the IXP425 family. The cpu runs at 266Mhz.  It has 4Mb of flash and 16Mb of RAM. It has a Marvell 88E6060 switch chip. The wireless is provided by a mini-pci card containing an ar5416 or ar5418 MAC. It is running linux out of the box.
 
 '''Table summary'''
 
