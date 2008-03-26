@@ -33,10 +33,11 @@ WPA requires a program that interfaces with the driver called a supplicant.  The
 
 === wpa_supplicant ===
 
-wpa_supplicant is available as a package in Kamikaze 7.09, but it might not have support for MadWifi (the Atheros driver).  You need to obtain the OpenWRT source, edit the config file, and build the wpa_supplicant package to get MadWifi support.
+wpa_supplicant is available as a package in Kamikaze 7.09, but it might not have support for MadWifi (the Atheros driver).  You need to obtain the OpenWRT source, edit the config file, and build the wpa_supplicant package to get MadWifi support. If you run `make menuconfig` you can build wpa_supplicant by marking it in the Network category.
 
 Note: wpa_supplicant.conf should have permissions of 600 and ownership of root:root.
-/etc/wpa_supplicant.conf
+
+==== Example /etc/wpa_supplicant.conf ====
 {{{
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=0
@@ -65,10 +66,22 @@ network={
         priority=5
 }
 
-# We need a PSK example, too
+# WPA-PSK/TKIP
+
+network={
+	ssid="example wpa-psk network"
+	key_mgmt=WPA-PSK
+	proto=WPA
+	pairwise=TKIP
+	group=TKIP
+	psk="secret passphrase"
+}
 }}}
 
-WPA supplicant is then run like this (for an Atheros device):
+More examples can be found at http://hostap.epitest.fi/wpa_supplicant/ down at the bottom
+
+==== Running WPA Supplicant ====
+WPA supplicant is run like this (for an Atheros device):
 {{{wpa_supplicant -d -c /etc/wpa_supplicant.conf -i ath0 -D wext}}}
 
 Note: having wpa_supplicant interact with madwifi using the Linux wireless extensions (-d wext) is strongly recommended by the madwifi developers, and direct ioctl access (-d madwifi) is discouraged.
@@ -77,6 +90,8 @@ Note: having wpa_supplicant interact with madwifi using the Linux wireless exten
 -d increases debugging level
 
 === xsupplicant ===
+Info needed
+
 == Bridged and routed client modes ==
 There are no bridged and routed modes on Kamikaze, per se.  Instead, multiple interfaces are bridged with an entry in /etc/config/network like this:
 {{{
@@ -111,7 +126,9 @@ iwlist scanning
 
 == Automated Script for Fonera and Meraki ==
 /!\ '''These scripts are third party content. They are not released or supported by the !OpenWrt developers.'''
+
 /!\ '''These scripts are only compatible with Kamikaze, not White Russian'''
+
 '''For Fonera and Meraki Mini (or related) routers only.'''
 
 Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
