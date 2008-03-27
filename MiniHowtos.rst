@@ -57,6 +57,20 @@ Expect the log messages to arrive through UDP port 514.
 
 If you want both local and remote logging, add {{{-L -R <hostname>}}} to the {{{syslogd}}} line in {{{/etc/inittab}}}.
 
+== Saving a few kB in flash (ipkg package lists in /tmp) ==
+
+Every byte stored in the flash filesystem is expensive. Migrate ipkg lists to /tmp:
+
+  * add {{{mkdir -p /tmp/ipkg/lists}}} to the {{{start}}} section in {{{/etc/init.d/boot}}}
+  * {{{mkdir -p /tmp/ipkg/lists}}}
+  * {{{cd /usr/lib/ipkg}}}
+  * {{{rm -r lists}}}
+  * {{{ln -s /tmp/ipkg/lists}}}
+  * {{{ipkg update}}}
+  * {{{df}}}
+  * have fun, ipkg is now faster and you gained some 100KiB free space in jffs2 (depending on your configured ipkg sources)
+
+
 = Networking =
 == Statistics solution ==
 If you want statistics for multiple routers, with a simple web interface install the RRDtool and RRDcollect with the example packages from [http://downloads.openwrt.org/people/nico/testing/mipsel/packages/ Nico's testing directory].
