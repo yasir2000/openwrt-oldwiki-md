@@ -355,6 +355,13 @@ That will check ADSL every minute.
 ||testpoint near 15 (top)||5||
 ||testpoint near 9 (top)||10||
 = Other =
+'''VLANs'''
+
+Yes it is possible but so far it cannot be configured so it is locked with each port on a seperate VLAN all coupled with port4 (internal port).
+To achive this you need to pull pin 113 on the IP175A switch high during power on, luckily there is a VCC pin right next to it.
+
+Shorting pins is both ugly and dangerous you do so at your own risk!!!
+
 '''Materials'''
 
 List of installing procedure for other devices:
