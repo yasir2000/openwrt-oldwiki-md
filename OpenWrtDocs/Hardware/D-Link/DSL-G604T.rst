@@ -67,9 +67,19 @@ Goto Linux console and type:
 
 ''svn co https://svn.openwrt.org/openwrt/trunk''
 
-My revision was Kamikaze 7671 (bleeding edge, r7631). If your want to specify revision number type:
+My revision was Kamikaze 10642 (bleeding edge, r10642). If your want to specify revision number type:
 
 ''svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk''
+
+If you want to grab the extra packages type:
+
+''svn co https://svn.openwrt.org/openwrt/packages''
+
+Then go to ''trunk/package/'' and type:
+
+''ln -s ../../packages/*/* .''
+
+This creates the symlinks for all the packages, now you are ready to configure.
 
 Now go to ''trunk'' directory and type ''make menuconfig''.
 
@@ -78,18 +88,20 @@ In configuration mode we need select those options:
 {{{
 Target System (TI AR7 [2.6])
 Target Profile (Texas Instruments WiFi (default)) - usually set's by default. (Still at date 15/06/2007 it isn't work).
-Base system ---> br2684ctl
+Target Images ---> SquashFS
 Libraries ----> linux-atm
-Kernel modules ---> Network Devices ---> kmod-sangam-atm-annex-a (Select kmod-sangam-atm-annex-a for DSL-G664T)
-                  > Cryptographic API modules ---> kmod-crypto-core (includes kmod-crypto-aes and kmod-crypto-arc4)
-                        this is needed until bug #2589 https://dev.openwrt.org/ticket/2589 gets fixed.
+
+Base system ---> br2684ctl(only for PPPoE)
+Network ---> ppp ---> ppp-mod-pppoa and/or ppp-mod-pppoe (depending on your ADSL type)
+
+Kernel modules ---> Network Devices ---> either annex A or B depending on the ADSL type (Annex of router is marked on PCB)
 Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] httpd (Turn off)
 Base system ---> busybox Configuration ---> Networking Utilities ---> [ ] Enable IPv6 support (Turn off).}}}
 Optional:
 
 {{{
 Base system ---> busybox Configuration ---> Archival Utilities ---> unzip - Zip archivator.
-Base system ---> busybox Configuration ---> Networking Utilities ---> hostname - Show hostname.}}
+Base system ---> busybox Configuration ---> Networking Utilities ---> hostname - Show hostname.}}}
 Exit from configure menu and save settings.
 
 Then input ''make'' and wait long time (it's depends on your machine's capabilities).
@@ -163,29 +175,48 @@ My congratulations, you finally flashed it :)
 
 There isn't  one :) There is the [http://x-wrt.org/ webif] admin interface, but that isn't supported in Kamikaze yet.There isn't a better solution yet, so just use the console and your hands. Don´t worry, I'll help you, as you can see below.
 
-'''Setting up ADSL'''
+'''Connecting to the shell'''
 
 Go Start -> Run -> cmd and input ''telnet 192.168.1.1'', you'll see OpenWRT logo and shell welcome, input ''passwd'' to set the root password, after this and one reboot telnet will not avaliable anymore. After this connect via SSH (with PuTTY) to 192.168.1.1 and you'll be in the system.
 
+'''Setting up Internet'''
+
 You need to convict of ADSL work. Simply input ''dmesg | grep DSL'' or try ''dmesg'' and look at end of print. If it's work, you'll see ''DSL in Sync'' phrase.
 
-We need setup nas0 interface, for this type:
+Type ''vi /etc/config/network'' and add this to the end:
 
-{{{
-br2684ctl -b -c 0 -a VPI.VCI
-}}}
-, where VPI and VCI are real numeric values from your ISP.
-
-Now type ''vi /etc/config/network'' and add these lines to this config:
-
+'''PPPoA Configuration'''
 {{{
 config interface wan
-option ifname nas0
-option proto pppoe
-option username "YOUR LOGIN, FOR EXAMPLE ppp******@isp"
-option password "YOUR PASSWORD"
+        option ifname   ppp0
+        option unit     0
+        option proto    pppoa
+        option encaps   vc
+        option vpi      0
+        option vci      38
+        option username (your username here)
+        option password (your password here)
 }}}
-Finally type ''ifup wan'' and connection should establish. You may sucnessnes of this through ''logread''. Now you may ping your ISP or other names at the Internet from router doing ''ping HOST''. Than reboot router, and start br2684ctl and ''ifup wan'' again, because ADSL works from computer after second running. Don't forget to manually set ISP DNS'es at computer's connection.
+Where the ''vpi, vci'' are defined by your ISP.
+
+'''PPPoE Configuration'''
+{{{
+config atm-bridge
+        option unit     0
+        option encaps   llc
+        option vpi      8
+        option vci      35
+
+config interface wan
+        option ifname   nas0
+        option proto    pppoe
+        option username (your username here)
+        option password (your password here)
+}}}
+The ''atm-bridge'' section configures br2684ctl, once again the ''vpi, vci'' are defined by the ISP.
+
+To get WAN working on boot, type ''vi /etc/init.d/network'', from the boot() section replace ''/sbin/wifi up'' with ''start''.
+
 
 '''Turning off the DHCP'''
 
