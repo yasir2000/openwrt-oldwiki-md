@@ -64,20 +64,20 @@ First of all you what you need:
 Check that you should have ~ 3Gb free space and you should install all dependencies. Best variant is a Gentoo-based machine, if your have Ubuntu, look at [:OpenWrtDocs/Hardware/D-Link/DSL-502T:DSL-502T page].
 
 Goto Linux console and type:
-
-''svn co https://svn.openwrt.org/openwrt/trunk''
+{{{
+svn co https://svn.openwrt.org/openwrt/trunk}}}
 
 My revision was Kamikaze 10642 (bleeding edge, r10642). If your want to specify revision number type:
-
-''svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk''
+{{{
+svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk}}}
 
 If you want to grab the extra packages type:
-
-''svn co https://svn.openwrt.org/openwrt/packages''
+{{{
+svn co https://svn.openwrt.org/openwrt/packages}}}
 
 Then go to ''trunk/package/'' and type:
-
-''ln -s ../../packages/*/* .''
+{{{
+ln -s ../../packages/*/* .}}}
 
 This creates the symlinks for all the packages, now you are ready to configure.
 
