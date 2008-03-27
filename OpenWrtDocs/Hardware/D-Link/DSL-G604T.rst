@@ -358,7 +358,7 @@ That will check ADSL every minute.
 '''VLANs'''
 
 Yes it is possible but so far it cannot be configured so it is locked with each port on a seperate VLAN all coupled with port4 (internal port).
-To achive this you need to pull pin 113 on the IP175A switch high during power on, luckily there is a VCC pin right next to it.
+To achive this you need to pull pin 113 on the IP175A switch high during power on, luckily there is a VCC pin right next to it at 114.
 
 Shorting pins is both ugly and dangerous you do so at your own risk!!!
 
@@ -372,6 +372,10 @@ Power guide of DSL-502T flashing:
 
 http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DSL-502T
 
-For those who want to configure router with official firmware right
+For those who want to configure router with official firmware right:
 
 http://www.seattlewireless.net/DlinkDslG604tConfiguration
+
+Datasheet of the IP175A switch:
+
+http://www.icplus.com.tw/Data/Datasheet/IP175A%20LF-DS-R08-20060220.pdf
