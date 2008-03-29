@@ -29,18 +29,19 @@ The Linux IGD daemon consists of three required packages.  First up is the '''li
 
 You can get Stephane Coulon's compiled version of libupnp from the following link:
 
-http://perso.wanadoo.fr/Stephane.Coulon/OpenWRT/libupnp_1.2.1a_mipsel.ipk
+http://downloads.x-wrt.org/xwrt/kamikaze/7.07/brcm-2.4/packages/libupnp_1.3.1-1_mipsel.ipk
 
 A fixed version of Stephane Coulons' Linux IGD package which installs without error and does not require any configuration can be downloaded from the following location:
 
-http://www.users.on.net/~ed.luck/linux-igd_1.0.1.ipk
+http://downloads.x-wrt.org/xwrt/kamikaze/7.07/brcm-2.4/packages/linuxigd_1.0-1_mipsel.ipk
 
-The libpthread package is already part of the OpenWRT package tree, but if you want to download it manually you can go [http://downloads.openwrt.org/whiterussian/packages/libpthread_0.9.27-1_mipsel.ipk here]
+The libpthread package is already part of the OpenWRT package tree, but if you want to download it manually you can go [http://downloads.x-wrt.org/xwrt/kamikaze/7.07/brcm-2.4/packages/libpthread_0.9.28-9_mipsel.ipk here]
+ipkg install libpthread
 
 With '''miniupnpd''', Only one package is required to be installed :
-ftp://ftp.berlios.de/pub/xwrt/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
-or for kamikaze users :
-ftp://ftp.berlios.de/pub/xwrt/kamikaze/broadcom-2.4/packages/miniupnpd_1.0-RC3-1_mipsel.ipk
+http://downloads.x-wrt.org/xwrt/kamikaze/7.07/brcm-2.4/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
+ipkg install miniupnpd
+
 
 === Installing uPnP ===
 The following shell commands will get uPnP installed and running (from the current known working locations):
