@@ -12,7 +12,7 @@ Tomato 1.17 ND.trx works for this model. But there's no USB.
 using the stock ASUS firmware, you can get a limited shell through the net interface of the router at http://192.168.1.1/Main_AdmStatus_Content.asp by copying the netcat mipsel binary to the root of a USB stick and then entering "/tmp/harddisk/part1/nc -l -p 31337 -e /bin/sh" and then returning to your usual computer already equipped with nc and entering "nc 192.168.1.1 31337" neat, but almost completely useless unless the only reason you are looking at openwrt is to support one or two additional programs that won't automatically run as services :( 
 
 
-I was informed that the "trunk" release of kamikaze supports the BCM5354, so I tried it. After brute forcing one or two ngs that may have been related only to my configuration choices, it works! 
+I was informed that the "trunk" release of kamikaze supports the BCM5354, so I tried it. After brute forcing some things that may have been related only to my configuration choices (iptables forwarding was broken for me but easily 'fixed'), it works! 
 
 ...unless you are comfortable with compiling a kernel, this is not the router for you. Yet. 
 
