@@ -52,6 +52,8 @@ vi /etc/config/wireless
 }}}
 reboot
 
+'''5.''' Make a kamikaze, drink, enjoy.
+
 == Building from Source ==
 '''1.''' On the local computer install the needed base packages:
 
