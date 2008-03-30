@@ -67,7 +67,6 @@ Most devices listed here do not have enough flash memory, but there might be oth
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200Mhz ||2MB ||8MB ||Broadcom (integrated) ||None || ||Yes ||No ||No ||Unsupported ||
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.netgear.com/products/details/DG834GT.php DG834GT] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Atheros mini-PCI ||BCM5325 ||Yes ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:Unsupported] ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||2 ||ARM9 (ISL3893) ||2MB ||8MB || ||None || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WG602v2:Unsupported] ||
 ||[http://www.netgear.com/products/details/WGR101.php WGR101] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||4 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Broadcom (?) ||Marvell 88E6060 ||No ||No ||No ||No ||No ||
