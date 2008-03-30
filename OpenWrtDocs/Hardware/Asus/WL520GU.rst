@@ -14,6 +14,6 @@ using the stock ASUS firmware, you can get a limited shell through the net inter
 
 I was informed that the "trunk" release of kamikaze supports the BCM5354, so I tried it. After brute forcing some things that may have been related only to my configuration choices (iptables forwarding was broken for me but easily 'fixed'), it works! 
 
-...unless you are comfortable with compiling a kernel, this is not the router for you. Yet. 
+...unless you are comfortable with compiling a kernel, this is not the USB-enabled OpenWRT router for you. Not quite yet. 
 
 But if you are comfortable compiling a kernel, then it's a very nice 4/16MB router with USB support, if I do say so myself!! working on testing USB 1/2 drivers and support now... 
