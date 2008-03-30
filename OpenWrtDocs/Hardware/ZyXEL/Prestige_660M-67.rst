@@ -96,4 +96,6 @@ Taking measurements according to the forum post the layout is as follows. If you
     TCK  o o  GND
     RST  o    key
    DINT  o o  VIO (3.3V)}}}
+----
 ["CategoryAR7Device"]
+CategoryModel
