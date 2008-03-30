@@ -3,6 +3,55 @@ N mode wireless is not functional at this time as far as I could ascertain (802.
 
 __'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said...these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
 
+== Stock Firmware ==
+'''1.''' Connect to the router with a ethernet cable and tftp over the brcm-2.4 image to the router.
+Use the Broadcom 2.4 image:
+
+http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+
+Or the one provided by x-wrt if you want webif:
+
+http://downloads.x-wrt.org/xwrt/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+
+''2.''' Update the network settings
+{{{
+#### VLAN configuration
+config switch eth0
+   option vlan0    "0 1 2 3 4 5u"
+#### Loopback configuration
+config interface loopback
+   option ifname   "lo"
+   option proto    static
+   option ipaddr   127.0.0.1
+   option netmask  255.0.0.0
+#### LAN configuration
+config interface lan
+   option type     bridge
+   option ifname   "eth0 wl0"
+   option proto    static
+   option ipaddr   192.168.1.1
+   option netmask  255.255.255.0
+#### WAN configuration
+config interface wan
+   option ifname   "eth1"
+   option proto    dhcp
+}}}
+
+reboot
+
+'''3.''' Use ipkg to install the memo driver
+
+{{{
+ipkg update
+ipkg install kmod-brcm-wl-mimo
+}}}
+
+'''4.''' Edit the wireless file and enable wireless
+{{{
+vi /etc/config/wireless
+}}}
+reboot
+
 == Building from Source ==
 '''1.''' On the local computer install the needed base packages:
 
@@ -34,7 +83,7 @@ make menuconfig}}}
  * Target Images > squashfs and jffs2
  * Kernel modules > Proprietary BCM43xx-WiFi-driver > include the kmod-brcm-wl-mimo module
  * Administration > select the webif package if you choose to check it out above
- . Or, if you don't want to be bothered, download this attachment:config%5Ffile and copy it to:
+ . Or, if you don't want to be bothered, download this attachment:config_file and copy it to:
 {{{
 ~/kamikaze/.config
 }}}
@@ -107,7 +156,6 @@ On first install from a stock Asus firmware or to erase all configuration settin
 
 {{{
 # mtd -r erase $(cat /proc/mtd | sed -n -e 's/^\([^:]*\):.*"rootfs_data"/\1/p' )}}}
-
 '''8.'''  Make a kamikaze, drink, enjoy.
 
 == Shell script to automate the above procedure - unattended builds from svn repository ==
