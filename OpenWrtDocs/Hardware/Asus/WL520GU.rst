@@ -4,31 +4,13 @@ Verified, it is true that you can swap back to stock ASUS firmware after flashin
 
 - - - - -
 
-Tomato 1.17 ND.trx works for this model. But there's no USB, and that's the cool part about this unit.
-Ok, so here's how to scrutinize this unit, should you be curious, and don't have the source code.
+Tomato 1.17 ND.trx works for this model. But there's no USB. 
 
-One very nice feature of the ASUS wl-520GU is the USB storage drive and vfat support already built into the kernel. the first partition on a USB stick with vfat is automounted at /tmp/harddisk/part0/
+you can get a limited shell through the net interface of the router at http://192.168.1.1/Main_AdmStatus_Content.asp by copying the netcat mipsel binary to the root of a USB stick and then entering "/tmp/harddisk/part1/nc -l -p 31337 -e /bin/sh" and then returning to your usual computer already equipped with nc and entering "nc 192.168.1.1 31337" neat, but almost completely useless unless the only reason you are looking at openwrt is to support one or two additional programs that won't automatically run as services :( 
 
-So, to improve the webif ;D download nc (mipsel) by itself from
 
-http://packages.debian.org/sarge/mipsel/netcat/download
+I was informed that the "trunk" release of kamikaze supports the BCM5354, so I tried it. After brute forcing one or two ngs that may have been related only to my configuration choices, it works! 
 
-copy the nc binary to the root of your USB stick.
+...unless you are comfortable with compiling a kernel, this is not the router for you. Yet. 
 
-slap your USB stick into the USB port on the wl520gu, power cycle the router.
-
-head on over to:
-
- http://192.168.1.1/Main_AdmStatus_Content.asp
-
-enter this: /tmp/harddisk/part0/nc -l -p 31337 -e /bin/sh
-
-you'll notice that the webif just sits there waiting... good!
-
-back to your favorite command line,
-
-# nc 192.168.1.1 31337
-
-you're in!
-
-Really, the only advantage of this /bin/sh is that you are not going to be limited by the webif... /bin/busybox is very crippled anyway and it's mostly a read-only file system. (no cp, rm, tar, wget, etc) i tried some silly stuff already, i can run other mipsel executables! all i have to do is fill my USB stick full of useful mipsel commands :)
+But if you are comfortable compiling a kernel, then it's a very nice 4/16MB router with USB support, if I do say so myself!! 
