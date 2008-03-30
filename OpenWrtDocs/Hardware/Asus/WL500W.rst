@@ -39,7 +39,7 @@ config interface wan
 
 reboot
 
-'''3.''' Use ipkg to install the memo driver
+'''3.''' Use ipkg to install the memo wireless driver
 
 {{{
 ipkg update
