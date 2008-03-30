@@ -79,3 +79,7 @@ JTAG is not yet tested.
 
  * 1x6 connector J2 very close to the main chip. Purpose unknown...
  * Can the RJ11 + MAX232 pin-compatible chip reservation be used for some purpose...
+
+----
+
+CategoryModel
