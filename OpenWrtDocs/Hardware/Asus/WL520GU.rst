@@ -16,4 +16,8 @@ I was informed that the "trunk" release of kamikaze supports the BCM5354, so I t
 
 ...unless you are comfortable with compiling a kernel, this is not the USB-enabled OpenWRT router for you. Not quite yet. 
 
-But if you are comfortable compiling a kernel, then it's a very nice 4/16MB router with USB support, if I do say so myself!! working on testing USB 1/2 drivers and support now... 
+But if you are comfortable compiling a kernel, then it's a very nice 4/16MB router with USB support, if I do say so myself!!
+
+USB ohci as well as ehci-hcd 2.0 drivers are working just fine with vfat using openwrt. 
+
+Maybe still a WIP for the uninitiated. 
