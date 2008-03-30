@@ -1,5 +1,5 @@
 = The Asus WL-500W is supported from kamikaze (partially) quite well. =
-N mode wireless is not functional at this time as far as I could ascertain (802.11n laptop connects at only 54 Mbit/s). Stock images will also not work. In order for you to use this device you will need to compile your own image from source. You will need to edit the broadcom.sh file and the network config as illustrated below. If you are not comfortable with building from source on your own here are some basic instructions:
+N mode wireless is not functional at this time as far as I could ascertain (802.11n laptop connects at only 54 Mbit/s).
 
 __'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said...these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
 
