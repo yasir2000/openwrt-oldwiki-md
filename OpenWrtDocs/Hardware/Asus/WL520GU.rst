@@ -18,7 +18,9 @@ I was informed that the "trunk" release of kamikaze supports the BCM5354, so I t
 
 But if you are comfortable compiling a kernel, then it's a very nice 4/16MB router with USB support, if I do say so myself!!
 
-USB ohci as well as ehci-hcd 2.0 drivers --(are working just fine with vfat using openwrt.)--
+USB ohci as well as ehci-hcd 2.0 drivers --(are working just fine with vfat using openwrt.)-- Crash. the 2.0 drivers that is. When sending or reading data to any filesystem at the faster speed, a reboot can occur. 
+
+on the WL-520U ** DO NOT USE THE USB STICK WITH 2.0 DRIVERS TO LOAD NEW KERELS ** I did, and during the process the router rebooted. I'm very, very lucky to have recovered and re-flashed it. Since that time I have verified that transferring large amounts of data to or from the memory stick reboots the router when using EHCI-HCD USB. 
 
 Even ASUS does not build the 2.0 driver, as proven by their .config. 
 
