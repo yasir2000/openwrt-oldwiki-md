@@ -75,3 +75,6 @@ Testing Cardbus...
 Testing PCI...
 Power-On Self Test Passed
 }}}
+
+----
+CategoryModel
