@@ -33,3 +33,7 @@ So indeed, ohci is all that can be expected to work longer than an hour at the m
 Still testing, now with the USB 1.1 Mass storage... 
 
 ...still a WIP
+
+----
+
+CategoryModel
