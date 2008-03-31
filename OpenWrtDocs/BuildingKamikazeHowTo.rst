@@ -12,10 +12,10 @@ make prereq
 
 {{{
 cd ~
-svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/trunk/
-cd ~/trunk/
-./scripts/feeds update packages
-./scripts/feeds install <pkg_name_1> <pkg_name_2> # Creates the symlinks for the packages you like to install
+svn checkout https://svn.openwrt.org/openwrt/trunk/ kamikaze
+cd kamikaze
+scripts/feeds update packages
+scripts/feeds install <pkg_name_1> <pkg_name_2> # Creates the symlinks for the packages you like to install
 make menuconfig                                   # Select your target, packages and other options. Only select the packages you need.
 make world
 }}}
