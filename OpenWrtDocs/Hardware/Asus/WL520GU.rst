@@ -22,7 +22,9 @@ USB ohci as well as ehci-hcd 2.0 drivers --(are working just fine with vfat usin
 
 on the WL-520U ** DO NOT USE THE USB STICK WITH 2.0 DRIVERS TO LOAD NEW KERELS ** I did, and during the process the router rebooted. I'm very, very lucky to have recovered and re-flashed it. Since that time I have verified that transferring large amounts of data to or from the memory stick reboots the router when using EHCI-HCD USB. 
 
-Even ASUS does not build the 2.0 driver, as proven by their .config. 
+Even ASUS does not build the 2.0 driver, as proven by their .config. If anybody wants to have fun with a truth-in-advertising lawsuit, point out to ASUS that they advertise a USB 2.0 Controller on the WL-520GU, but it only running a 1.1 (OHCI) driver :P 
+
+this is why it's cheap, I guess. 
 
 So indeed, ohci is all that can be expected to work longer than an hour at the moment. 
 
