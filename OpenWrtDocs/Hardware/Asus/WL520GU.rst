@@ -20,9 +20,11 @@ But if you are comfortable compiling a kernel, then it's a very nice 4/16MB rout
 
 USB ohci as well as ehci-hcd 2.0 drivers --(are working just fine with vfat using openwrt.)-- Crash. the 2.0 drivers that is. When sending or reading data to any filesystem at the faster speed, a reboot can occur. 
 
-on the WL-520U ** DO NOT USE THE USB STICK WITH 2.0 DRIVERS TO LOAD NEW KERELS ** I did, and during the process the router rebooted. I'm very, very lucky to have recovered and re-flashed it. Since that time I have verified that transferring large amounts of data to or from the memory stick reboots the router when using EHCI-HCD USB. 
+on the WL-520U ** DO NOT USE THE USB STICK WITH 2.0 DRIVERS TO LOAD NEW KERNELS ** I did, and during the process the router rebooted. I'm very, very lucky to have recovered and re-flashed it. Since that time I have verified that transferring large amounts of data to or from the memory stick reboots the router when using EHCI-HCD USB. 
 
-Even ASUS does not build the 2.0 driver, as proven by their .config. If anybody wants to have fun with a truth-in-advertising lawsuit, point out to ASUS that they advertise a USB 2.0 Controller on the WL-520GU, but it only running a 1.1 (OHCI) driver :P 
+Even ASUS does not build the 2.0 driver, as proven by their .config. If anybody wants to have fun with a truth-in-advertising lawsuit, point out to ASUS that they advertise a USB 2.0 Controller on the WL-520GU, but that it is only running a 1.1 (OHCI) driver :P 
+
+The USB 2.0 part is written in blue on the specs, either because printing specifications in blue has a special meaning to ASUS, or because they actually wanted to draw attention to the fact that they are lying. Look out for future blue text on ASUS specifications! 
 
 this is why it's cheap, I guess. 
 
