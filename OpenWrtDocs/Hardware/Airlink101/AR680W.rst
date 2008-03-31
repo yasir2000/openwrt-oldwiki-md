@@ -401,3 +401,7 @@ Like many Marvell CPUs, it has the ability to execute Java (bytecode) on the fly
 === RGDB ===
 The system is driven by an XML database called rgdb. It had a builtin PHP parser for most of the configuration files. The dump of the XML database is http://xbmodder.us/tmp_dump.txt .
 The name of the XML engine is xmldbc. It possibly uses the Java bytecode execution features of the processor, though more research has to be done on this. 
+
+----
+
+CategoryModel
