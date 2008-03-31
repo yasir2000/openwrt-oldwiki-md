@@ -28,8 +28,7 @@ How to get info:
 ||WRT300N v1.0 ||     0x10 ||  0x0472 ||      0x0010 ||       0 ||  42 ||       11 || BCM3302 V0.6 ||  v3.9 ||  CFE 4.81.17.0 ||
 '''How to install OpenWRT'''
 
- Preflashed RedBoot available at http://davidkra.net/downloads2.html, skip to step 10 if you use it.
-
+ . Preflashed RedBoot available at http://davidkra.net/downloads2.html, skip to step 10 if you use it.
 [[BR]]Step 1: Get Linksys WRT300N v2.00.20 sources[[BR]][[BR]] Step 2: Untar sources and go to sources directory.[[BR]][[BR]] Step 3: Get this toolchain: ftp://ftp.ges.redhat.com/private/gnupro-xscale-030422/i686-pc-linux-gnulibc2.2-x-xscale-elf.tar.Z[[BR]][[BR]][[BR]] Step 4: mkdir gnutools && mv *xscale-elf.tar.Z gnutools && cd gnutools[[BR]][[BR]] Step 5: Untar toolchain with this command: gunzip2 *xscale-elf.tar.Z; tar xvf *xscale-elf.tar[[BR]][[BR]] Step 6: export PATH=$PWD/H-i686-pc-linux-gnulibc-2.2/bin:$PATH && cd ../src/redboot [[BR]][[BR]] Step 7: Edit options/startup_ROMRAM.edl: replace [[BR]][[BR]]
 
 {{{
@@ -60,7 +59,7 @@ Step 8: 'make' [[BR]][[BR]] Step 9: Setup a TFTPd or HTTPd, copy build/wrt300n/i
 (only if via serial console) ether
 ip -h {yourIP}
 load -r -b 0x70000 -m (choose tftp or http, i'll use http) http /redboot.bin
-fis write -f 0x50060000 -b 0x70000 -l 0x4d254
+fis write -f 0x50060000 -b 0x70000 -l 0x4d254 //possible typos: length and flash address. if it doesn't work, first try -l 0x4fd00 and if it still doesn't work, try -f 0x50000000
 reset
 }}}
 Step 11: Get http://downloads.openwrt.org/kamikaze/7.09/ixp4xx-2.6/openwrt-ixp4xx-2.6-squashfs.img and http://downloads.openwrt.org/kamikaze/7.09/ixp4xx-2.6/openwrt-wrt300nv2-2.6-zImage , rename the first to wrt.img, second to wrt,zI. put them into your filedir for your server [[BR]][[BR]] Step 12: Get into RedBoot, again: type:
@@ -83,8 +82,7 @@ ether
 fis load kernel
 exec
 }}}
- Set Timeout to something bigger than 1.'''OpenWRT boot log'''
-
+ . Set Timeout to something bigger than 1.'''OpenWRT boot log'''
 {{{
 Uncompressing Linux................................................................. done, booting the kernel.
 Linux version 2.6.21.6 (nbd@ds10) (gcc version 4.1.2) #2 Sun Sep 30 20:44:34 CEST 2007
