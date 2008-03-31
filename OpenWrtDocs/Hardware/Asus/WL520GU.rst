@@ -18,6 +18,12 @@ I was informed that the "trunk" release of kamikaze supports the BCM5354, so I t
 
 But if you are comfortable compiling a kernel, then it's a very nice 4/16MB router with USB support, if I do say so myself!!
 
-USB ohci as well as ehci-hcd 2.0 drivers are working just fine with vfat using openwrt. 
+USB ohci as well as ehci-hcd 2.0 drivers --(stroke)--are working just fine with vfat using openwrt.--(stroke)--
 
-Maybe still a WIP for the uninitiated. 
+Even ASUS does not build the 2.0 driver, as proven by their .config. 
+
+So indeed, ohci is all that can be expected to work longer than an hour at the moment. 
+
+Still testing, now with the USB 1.1 Mass storage... 
+
+...still a WIP
