@@ -32,7 +32,7 @@ setenv flash_openwrt tftp 100000 openwrt-ppc40x-squashfs.img\;erase \${kernel_ad
 Create the needed variables for !OpenWrt:
 
 {{{
-openwrt cp.b 0xfc1e0000 \${fdt_addr} 20000\; bootm \${kernel_addr} - \${fdt_addr}
+setenv openwrt cp.b 0xfc1e0000 \${fdt_addr} 20000\; bootm \${kernel_addr} - \${fdt_addr}
 setenv bootcmd run openwrt
 saveenv
 }}}
