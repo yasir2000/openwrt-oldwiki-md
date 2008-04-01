@@ -505,10 +505,11 @@ Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L
 
 There is an alternative Firmware available tested with the SpeedPort W500V and the Targa WR 500 Voip.
 
-It is called BitSwitcher. http://bitswitcher.sourceforge.net
+It is called !BitSwitcher.  http://bitswitcher.sourceforge.net
 
 It enables nvram, telnet, ssh, dnsmasq, stproxy etc. and offers a new Web-Interface.
 
+----
 
 
 There is a second Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
@@ -545,7 +546,7 @@ T-Com Firmware GPL Public License: http://www.telekom.de/dtag/downloads/s/Statem
 
 T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 
-BitSwitcher Firmware: http://bitswitcher.sourceforge.net
+!BitSwitcher Firmware: http://bitswitcher.sourceforge.net
 
 mod500 Firmware split from T-Com Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
 
