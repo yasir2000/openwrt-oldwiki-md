@@ -14,12 +14,18 @@ Photo :
 [http://f.fainelli.free.fr/openwrt/images/zyxel-p335wt.jpg]
 
 
-Serial Pinout :
+Serial Pinout on the J1 header:
 
 
 {{{
- VCC  TX   RX        GND
-  x    x    x    ()   x       LEDS
+ A  | o o - VCC
+ D  | o o - Tx
+ M  |   o - Rx
+ 5  |   x
+ 1  |   o - GND
+ 2  |  J1
+ 0  |
+___/  
 }}}
 
 9600 8n1
