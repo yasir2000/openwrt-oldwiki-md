@@ -505,7 +505,7 @@ Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L
 
 There is an alternative Firmware available tested with the SpeedPort W500V and the Targa WR 500 Voip.
 
-It is called BitSwitcher.http://bitswitcher.sourceforge.net
+It is called BitSwitcher. http://bitswitcher.sourceforge.net
 
 It enables nvram, telnet, ssh, dnsmasq, stproxy etc. and offers a new Web-Interface.
 
