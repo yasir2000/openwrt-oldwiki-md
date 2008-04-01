@@ -41,7 +41,7 @@ The startup script defines a few chains that the ''/etc/firewall.user'' may wish
 = OpenWrt Chains =
 The following diagram is adapted from the IPTables tutorial, with detail added to explain what rules OpenWRT defines.  Detail boxes describes the actions that take place in the firewall start-up script (which, as a polite administrator, you will not modify).
 
-http://wiki.autofrog.com/_media/openwrt/openwrtiptables.png
+http://wiki.autofrog.com/lib/exe/fetch.php?cache=cache&media=openwrt:openwrtiptables.png
 
 = Rules for User Modification =
 == prerouting_rule (nat) ==
