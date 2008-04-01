@@ -507,10 +507,10 @@ There is an alternative Firmware available tested with the SpeedPort W500V and t
 
 It is called !BitSwitcher.  http://bitswitcher.sourceforge.net
 
-It enables nvram, telnet, ssh, dnsmasq, stproxy etc. and offers a new Web-Interface.
+It enables nvram, telnet, ssh, dnsmasq, Wake-on-LAN, stproxy etc. and offers a new Web-Interface.
 
 ----
-There is a second Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
+ There is a second Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
 
 It's called mod500. http://sourceforge.net/projects/mod500/
 
