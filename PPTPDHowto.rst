@@ -163,6 +163,15 @@ into the address bar of Windows Explorer.  Network neighborhood still doesn't de
 
 ==> In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I'm not sure how it works on wrt (as it only have cups I couldn't get them installed due to space limitation) remote announce = 192.168.11.1/UR-WG-NAME and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like 192.168.11.10    mypc       mypc.behind-wrt54g.org ..
 
+==> Other way way for computers to appear in Net-Hood is to use on router side utility called ''bcrelay''. ''Bcrelay'' turns on broadcast relay mode, sending all broadcasts received on the server's internal interface to the clients. Default pptpd package on WhiteRussian 0.9 contains pptpd version 1.3.0 compiled without ''bcrelay'' support. Good discussion about this problem can be found at [http://forum.openwrt.org/viewtopic.php?pid=56890]
+
+Decision:
+
+1. Recompile pptpd with bcrelay support or get compiled by simba87 package from [http://rapidshare.com/files/59421121/pptpd_1.3.4-1_mipsel.ipk.html].
+2. Backup ''/etc/pptpd.conf'' and all files in ''/etc/ppp/''. Uninstall old pptpd package.
+3. I put ''pptpd_1.3.4-1_mipsel.ipk'' to my hosting, then use ''wget'' on the router and use ''ipkg install pptpd_1.3.4-1_mipsel.ipk''.
+4. Add ''bcrelay br0'' to /etc/pptpd.conf and ''proxyarp'' to /etc/ppp/options.pptpd.
+
 
 == Troubleshooting ==
 If you can connect to the ''pptpd'' and can ping the client from the server and vice versa but are not able to ping anything else refer to this [http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml checklist for diagnosis]
