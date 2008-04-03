@@ -102,11 +102,9 @@ Notes:
 == AVM ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
 ||FRITZ!Box 2030 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||Untested ||
 ||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
 ||FRITZ!Box 2170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||4MB ||14MB ||None ||4xLAN || || || ||yes ||Untested ||
-||FRITZ!Box SL WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||4MB ||8MB ||acx111 mini-pci || || || || || ||Untested ||
 ||FRITZ!Box SL WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||4MB ||8MB ||acx111 mini-pci || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
 ||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
@@ -260,7 +258,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.dlink.com/products/?pid=333 DWL-G820] ||A1 ||Atheros 2313 @ 180MHz ||Atmel AT49BV322A 4MB ||Hynix HY57V281620HCT-H 16MB ||Atheros (integrated) ||IP101A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-G820:WiP] ||
 ||[http://www.dlink.com/products/?pid=304 DWL-7100AP] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros 5312] @ 220MHz ||4MB || ||Atheros (integrated) ||IP101? ||N/A ||Yes ||Yes ||No ||[:AtherosPort:WiP] ||
 ||[http://www.dlink.com/products/?pid=292 DWL-2100AP] ||A2 ||Atheros 2313 @ 180MHz ||4MB || ||Atheros (integrated) ||N/A ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/D-Link/DWL-2100AP:WiP] ||
-||[http://www.dlink.com/products/?pid=446 DVG-G1402S] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB ||Atheros AR2413 (mini-pci) ||YCL PH402466G ||N/A ??? ||Yes ||Yes||No [http://spritesmods.com/?art=sweexusb mod possible?] ||[http://daisy.servodata.cz/~cijoml/D-link_DVG-G1402S-inside/ WIP] ||
+||[http://www.dlink.com/products/?pid=446 DVG-G1402S] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB ||Atheros AR2413 (mini-pci) ||YCL PH402466G ||N/A ??? ||Yes ||Yes ||No [http://spritesmods.com/?art=sweexusb mod possible?] ||[http://daisy.servodata.cz/~cijoml/D-link_DVG-G1402S-inside/ WIP] ||
 == Dovado ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.dovado.com/Portfolio_WRG.html WRG] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||16MB ||32MB ||AR2413 MiniPCI ||No ||N/A ||Yes ||N/A ||No ||2*FXS VoIP + Cardbus ||[:OpenWrtDocs/Hardware/Dovado/WRG:Untested] ||
@@ -343,7 +341,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1114037289494&pagename=Linksys/Common/VisitorWrapper WPS54G] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8510] @160MHz ||1MB ||4MB ||"802.11g" [http://lists.infradead.org/mailman/listinfo/libertas-dev Free driver exists] ||? (one ethernet port) || || || ||1x 2.0 ||Info entered ||
 ||WRT54AG || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism (mini-PCI) || || || || || ||Partial ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=38&prid=629 WRE54G] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Yes ||No ||No ||Untested ||
-||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&pagename=Linksys%2FCommon%2FVisitorWrapper&cid=1175233984378 WRT150N] ||v1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||4MB ||16MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT150N:Kamikaze] ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&pagename=Linksys/Common/VisitorWrapper&cid=1175233984378 WRT150N] ||v1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||4MB ||16MB ||Broadcom (integrated) ||BCM5325 ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT150N:Kamikaze] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1144763513404&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper WRT300N] ||v1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||4MB ||32MB ||Broadcom (cardbus) ||BCM5325 ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT300N:WiP] ||
 ||[http://www-uk.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=UK/Layout&cid=1150491114466&pagename=Linksys/Common/VisitorWrapper WRT300N] ||v2 ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||4MB ||16MB ||Atheros (mini-PCI) ||88E6060 ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT300N:WiP] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1144763513404&packedargs=site=US&pagename=Linksys/Common/VisitorWrapper WRT350N] ||v1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4705 Broadcom 4785|4705??] @ 300MHz ||8MB ||32MB ||Broadcom (cardbus) ||BCM5397?? ||off?? ||Yes ||Yes ||1x 2.0 ||Untested ||
@@ -472,24 +470,21 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ----
- /!\ '''Edit conflict - other version:'''
-
+ . /!\ '''Edit conflict - other version:'''
 ----
 
 ||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 
 
 ----
- /!\ '''Edit conflict - your version:'''
-
+ . /!\ '''Edit conflict - your version:'''
 ----
 
 ||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
 
 
 ----
- /!\ '''End of edit conflict'''
-
+ . /!\ '''End of edit conflict'''
 ----
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
