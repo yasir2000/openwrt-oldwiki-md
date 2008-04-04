@@ -10,7 +10,7 @@ ADSL2/2+ support up to 24Mbit/s+
 
 Wireless 802.11b/g
 
-The unit comes with an internal antenna. It's possible to add an external antenna via the R-SMA plug.
+The unit comes with an internal antenna. It's possible to add an external antenna via the R-SMA plug. There seems to be a mechanical switch that gets (de-)activated when you open the tap of the external antenna port.
 
 === Hardware ===
 Platform: ''TI AR7WRD''
