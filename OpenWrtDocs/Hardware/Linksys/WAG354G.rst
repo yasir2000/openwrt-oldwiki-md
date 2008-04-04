@@ -51,17 +51,17 @@ Position on board and pinout:
 
 
                 --JP5--------------------
-               | [1]  [2]  [3]  [4]  [5] |
+               | [5]  [4]  [3]  [2]  [1] |
                 -------------------------
   _ _ _ ______________________________________________ _ _ _
 
 
 Legend:
-1  GND
-2  NC
+5  GND
+4  NC
 3  Rx
-4  Tx
-5  Vcc
+2  Tx
+1  Vcc
 }}}
 '''Interface'''
 
@@ -78,7 +78,7 @@ Configuration:
 
 {{{
  38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1) }}}
-Software: [http://alioth.debian.org/projects/minicom/ Minicom]on Linux or MacOSX(via fink); [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html Putty] on Windows
+Software: [http://alioth.debian.org/projects/minicom/ Minicom] on Linux or MacOSX(via fink); [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html Putty] on Windows; or [http://efault.net/npat/hacks/picocom/index.html picocom] on Linux as well; or any other serial line terminal program
 
 ----
  . '''JTAG'''
@@ -95,6 +95,8 @@ One gpio for the reset button. One gpio for switching between internal/external 
 
 to be written (& tested)...
 
+-I think that apart from having a "external antenna tap open" detector, the wireless card should have a mode to use both antennas at the same time. (Maybe not, but most cards I know which have two connectors can do so.)
+
 ----
  . '''Mods'''
 Possible mods:
@@ -104,6 +106,7 @@ Possible mods:
  * Add an SD card reader.
 to be written (& tested)...
 
+(Add an SD card where!?)
 -----
 
 === Software ===
