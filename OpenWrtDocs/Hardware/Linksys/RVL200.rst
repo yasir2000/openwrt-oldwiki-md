@@ -38,8 +38,7 @@ Primary data cache 16kb, linesize 16 bytes (4 ways)
 
 
 
-Linux version 2.4.20-br264 (root@new-host-6) (gcc version 3.2 20030604 (BRECIS u
-Clinux)) #1 äºäº 7ææ 13 11:14:43 CST 2007
+Linux version 2.4.20-br264 (root@new-host-6) (gcc version 3.2 20030604 (BRECIS uClinux)) #1 äºäº 7ææ 13 11:14:43 CST 2007
 Determined physical RAM map:
  memory: 00001000 @ 00000000 (reserved)
  memory: 000ff000 @ 00001000 (ROM data)
@@ -53,8 +52,7 @@ Kernel command line:  console=ttyS0,57600
 calculating r4koff... 000f4240(1000000)
 CPU frequency 200.00 MHz
 Calibrating delay loop... 199.88 BogoMIPS
-Memory: 61480k/62196k available (1587k kernel code, 716k reserved, 75k data, 228
-k init)
+Memory: 61480k/62196k available (1587k kernel code, 716k reserved, 75k data, 228k init)
 Dentry cache hash table entries: 8192 (order: 4, 65536 bytes)
 Inode cache hash table entries: 4096 (order: 3, 32768 bytes)
 Mount-cache hash table entries: 1024 (order: 1, 8192 bytes)
@@ -74,11 +72,9 @@ pcibios_fixup_ioresources: start=00000200, end=000002FF
 Linux NET4.0 for Linux 2.4
 Based upon Swansea University Computer Society NET3.039
 Initializing RT netlink socket
-JFFS2 version 2.1. (C) 2001, 2002 Red Hat, Inc., designed by Axis Communications
- AB.
+JFFS2 version 2.1. (C) 2001, 2002 Red Hat, Inc., designed by Axis Communications AB.
 pty: 256 Unix98 ptys configured
-Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI en
-abled
+Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI enabled
 ttyS00 at 0xbc000100 (irq = 19) is a 16550A
 HDLC line discipline: version $Revision: 1.1.1.1 $, maxframe=4096
 N_HDLC line discipline registered.
