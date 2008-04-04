@@ -60,6 +60,9 @@ config_get_bool "enabled"  "$section" "enabled" '1'
         }
 }
 exec /bin/busybox init}}}
+
+Note: On Kamikaze 7.09 (on a wrt54gl) i've to use pivot_root instead of pivot.
+
 Remove the old /sbin/init script, which is just a symbolic link to the Busybox binary.
 
 {{{
