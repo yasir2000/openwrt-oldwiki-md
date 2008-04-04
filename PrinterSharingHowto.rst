@@ -55,7 +55,7 @@ uci set p910nd.cfg1=p910nd
 uci set p910nd.cfg1.ice=//usb/lp0
 uci set p910nd.cfg1.port=0
 uci set p910nd.cfg1.bidirectional=1
-uci set p910nd.cfg1.enabled=01}}}
+uci set p910nd.cfg1.enabled=1}}}
 To add a second printer, do this:
 
 {{{
