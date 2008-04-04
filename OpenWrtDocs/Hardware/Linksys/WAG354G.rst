@@ -34,6 +34,7 @@ attachment:WAG354G_small.jpg
 ----
  . '''Serial console'''
 Serial console can be plugged to JP5: connector lacks, it has to be soldered on the board.
+-My board actually has the header already installed on JP5. -- RobertSiemer [[DateTime(2008-04-04T17:33:21Z)]]
 
 Position on board and pinout:
 
