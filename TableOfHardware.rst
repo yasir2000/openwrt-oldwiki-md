@@ -579,6 +579,9 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WAPBR-100, A.K.A VS10407 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Maybe ||No ||No ||WiP ||
 ||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off ||Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
+== WELL ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+|| PTI-8505G || || TNETD7200ZDW (AR7) @ 211 HMz  || 4MB (mx29lv320cb17c) || 16MB (p2v28s40ctp) || unknown (mini-PCI) || RTL8305SC || ? || Yes (3.3V) || No || No || Info entered ||
 == Western Digital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
@@ -604,6 +607,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=0E8EA8FA-AF7D-434F-A527-F337AB9A3A51 ZyWall P1] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||N/A ||N/A || ||Yes, via pin header on pcb || ||Yes, but believed to be just for providing power ||[:OpenWrtDocs/Hardware/Zyxel/Zywall-P1:Info entered] ||
 ||[http://zyxel.com/web/product_category.php?PC1indexflag=20040520161313 P-334(W|WT|WH|WHD|U)] || ||Infineon/ADMtek ADM5120 (BGA) ||4MB 1xMacronix MX29LV320BTC-90 ||16MB 1xHynix HY57V283220T-7 ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||yes ||yes ||No ||[:OpenWrtDocs/Hardware/ZyXEL/P-334WT:Info entered] ||
 ||[http://zyxel.com/web/product_category.php?PC1indexflag=20040520161313 P-335(WT|Plus|U)] || ||Infineon/ADMtek ADM5120 (BGA) ||4MB 1xMacronix MX29LV320BTC-90 ||16MB 1xHynix HY57V283220T-7 ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||yes ||yes ||yes ||[:OpenWrtDocs/Hardware/ZyXEL/P-335WT:Info entered] ||
+
 ----
 ----
  . ["CategoryAR7Device"]
