@@ -153,7 +153,7 @@ echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
 }}}
 And please don't forget to chmod it executable.
 
-This script queries DNS to find the current registered address, compares it with the current external IP using the ''checkip'' Web Service to avoid unneeded updates.
+This script queries DNS to find the current registered address, compares it with the current external IP using the ''checkip'' Web Service to avoid unneeded updates. It also force an update if the last one has been done more than 28 days before.
 
 The last two lines are for debug and can be ommitted. Often, DNS is not updated withhin the 3 seconds the script waits (at least it takes some seconds more until the clients recognise because of caching). By replacing the wget-update URL other DNS services should also be usable.
 
