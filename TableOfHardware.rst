@@ -610,18 +610,8 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 
 ----
 ----
- . ["CategoryAR7Device"]
-----
- . ["CategoryAR7Device"]
-----
- . CategoryModel
-----
- . CategoryModel
+ . CategoryAR7Device
 ----
  . CategoryOpenWrtPort
-----
- . ["CategoryAR7Device"]
-----
- . CategoryModel
 ----
  . CategoryModel
