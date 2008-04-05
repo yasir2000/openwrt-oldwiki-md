@@ -180,10 +180,10 @@ root@OpenWrt:/#
 == Serial Port ==
 JP6 (5 pins) represents one serial port. On my board it is the only JP with a header soldered. When looking on the LEDs (front) and having the power and ethernet ports on the back JP6 is on the right and has the following pin-out from left to right:
 
-*TX
-*GND
-*Vcc (3.3V)
-*GND
-*RX
+* TX
+* GND
+* Vcc (3.3V)
+* GND
+* RX
 
 I use an old mobile phone serial cable (Siemens S25). It didn't cost me anything extra and had exactly three wires to connect (once cut off the phone plug): TX, RX and GND.
