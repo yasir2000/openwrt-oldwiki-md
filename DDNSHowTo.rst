@@ -134,11 +134,16 @@ Create the file /etc/ppp/ip-up.d/S01dyndns with the following content:
 USER="username"
 PASS="password"
 DOMAIN="yourhost.homeip.net"
+MAXDAYS=28
 registered=$(nslookup $DOMAIN|sed 's/[^0-9. ]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e's/ *//')
 current=$(wget -O - http://checkip.dyndns.org|sed 's/[^0-9.]//g')
-[ "$current" != "$registered" ] && {
+now=$(date +%s)
+last_update=$(cat /tmp/ddupd.lastupdate 2>/dev/null)
+max_seconds=`expr $MAXDAYS \* 24 \* 60 \* 60`
+[ "$current" != "$registered" -o $(($last_update+$max_seconds)) -lt $now ] && {
         wget -O /dev/null http://$USER:$PASS@members.dyndns.org/nic/update?hostname=$DOMAIN &&
         registered=$current
+        echo $now >/tmp/ddupd.lastupdate
 }
 sleep 3
 newip=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
