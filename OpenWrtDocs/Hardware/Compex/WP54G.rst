@@ -170,4 +170,25 @@ You can update the bootloader from within MyLoader itself.
 
 Opening the unit is done by prising off the four rubber feet and removing the small cross-point screws underneath. The board is remarkably boring; there is a single chip under a heatsink, a wireless miniPCI card, and the rest is just capacitors and analogue support chips. Warning: after opening the box, it's quite hard to get the LED light guide back into place properly.
 
+
+'''Loading OpenWrt Kamikaze on the WP54G-WRT'''
+
+The Compex WP54G family is fully supported with the ADM5120 port. To load OpenWrt on your WP54G-WRT :
+
+Build an ADM5120 image, Little endian, and select the Compex WP54 family profile.
+
+Testing the ramdisk :
+
+{{{
+load -tftp -raw -addr=0x80001000 -max=0x400000 192.168.0.50:openwrt-adm5120-wp54
+g-wrt-ramfs.bin
+}}}
+
+Flashing the jffs2 or squashfs version :
+
+{{{
+flash -noheader 192.168.0.50:openwrt-adm5120-wp54g-wrt-squashfs.trx flash1.trx
+setenv STARTUP load -z -raw -max=0x400000 -addr=0x80001000 flash1.trx:0x1c;go
+}}}
+
 CategoryModel ["CategoryADM5120Device"]
