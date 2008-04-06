@@ -31,6 +31,11 @@ The last one you have to create in PSPBoot command line
 }}}
 
 === Board ===
+
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/WELL/PTI-8505G?action=AttachFile&do=get&target=first.jpg
+
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/WELL/PTI-8505G?action=AttachFile&do=get&target=second.jpg
+
 === Serial console ===
 The serial port uses CMOS 3.3v levels. I used a Max 3222 chip which converts.
 
