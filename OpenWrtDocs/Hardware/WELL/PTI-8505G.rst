@@ -66,6 +66,8 @@ The last one you have to create in PSPBoot command line
 }}}
 
 === Board ===
+
+
 === Serial console ===
 The serial port uses CMOS 3.3v levels. I used a Max 3222 chip which converts.
 
@@ -92,7 +94,7 @@ leds
 
 === Backup original firmware ===
 
-""Strongly recommend""
+'''Strongly recommend'''
 Use serial console or telnet access to backup original firmware.
 Original firmware have no dd so i used cat
 {{{
@@ -210,3 +212,5 @@ ftp> exit
 221-Thank you for using the FTP service on ADAM2.
 221 Goodbye.
 }}}
+----
+["CategoryAR7Device"]
