@@ -581,7 +581,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off ||Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
 == WELL ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-|| [http://www.joyce.cz/c/adsl-zarizeni/well-pti-8505g-adsl-wifi-router-4x-eth-54-mb-s-an-b-vc-split.htm PTI-8505G] || || TNETD7200ZDW (AR7) @ 211 HMz  || 4MB (mx29lv320cb17c) || 16MB (p2v28s40ctp) || unknown (mini-PCI) || RTL8305SC || ? || Yes (3.3V) || No || No || Info entered ||
+|| [http://www.joyce.cz/c/adsl-zarizeni/well-pti-8505g-adsl-wifi-router-4x-eth-54-mb-s-an-b-vc-split.htm PTI-8505G] || || TNETD7200ZDW (AR7) @ 211 HMz  || 4MB (mx29lv320cb17c) || 16MB (p2v28s40ctp) || unknown (mini-PCI) || RTL8305SC || ? || Yes (3.3V) || No || No || [:OpenWrtDocs/Hardware/WELL/PTI-8505G Info entered] ||
 == Western Digital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
