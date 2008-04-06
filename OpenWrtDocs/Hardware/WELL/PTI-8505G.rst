@@ -367,7 +367,7 @@ Texas Instruments : CPMAC DDC version 0.3
 
 === Flashing ===
 There are two ways to flash it
-'''First method'''
+1.'''First method'''
 Write loader.bin to mtd1 and rootfs to mtd0
 If loader.bin is bigger than 500KB you have to resize mtd1 and mtd0 
 for example
@@ -420,7 +420,7 @@ local: loader.bin remote: fs mtd0
 ftp> quote REBOOT
 }}}
 
-'''First method'''
+2.'''First method'''
 Same as first but you upload just openwrt-ar7-squashfs.bin to mtd4.
 Then you set BOOTCFG to m:f:"mtd4"
 {{{
