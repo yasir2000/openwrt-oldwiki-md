@@ -1,10 +1,10 @@
 = Netgear CVG834G =
 
 {{{
-OS : VxWorks
+OS : eCos
 CPU : BCM3368
 Flash: 
-RAM :
+RAM : 32M
 DOCSIS/EuroDOCSIS : BCM3421
 Wi-Fi: BCM4318
 }}}
