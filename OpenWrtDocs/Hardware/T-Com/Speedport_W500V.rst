@@ -50,6 +50,23 @@ Uses a 16V DC, 900mA PSU
 
 '''4) Hardware Specs '''
 
+ * BCRM 96348GW Chipset of Broadcom.
+ * Mips 4kc CPU in big-endian mode
+ * 4 MB Flash (different chips have been seen, most are JEDIC AMD command set)
+ * 16 MB SD-RAM (2x64M Layout)
+ * A voice part (not well documented, please ask broadcom)
+ * 36 GPIO
+ * GPIO Layout:
+  * GPIO 0 - Green Power LED
+  * GPIO 1 - Red Power LED
+  * GPIO 2 - Red TDSL LED
+  * GPIO 3 - Online LED
+  * GPIO 4 - point TP23 on the PCB
+  * GPIO 7 - a relais - might be the POTS Relais for pulse dial; it makes a click sound
+  * GPIO 28 - "Festnetz" LED
+  * GPIO 32 - "Internet" - VoIP LED
+  * GPIO 33 - Reset Switch
+
 ::: still collecting data :::
 
 '''5) Serial '''
@@ -502,20 +519,37 @@ Firmware: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
 
 '''Custom Firmware:'''
+There are some alternate Firmwares for the SpeedPort W500V:
+ 1. !BitSwitcher - http://bitswitcher.sourceforge.net/
+ 1. Wrt500V - http://vvv.borkum.net/files/w500v/
+ 1. mod500 - http://sourceforge.net/projects/mod500/
 
-There is an alternative Firmware available tested with the SpeedPort W500V and the Targa WR 500 VoIP.
+!BitSwitcher and Wrt500V are the more advanced firmware mods for the W500V.
+mod500 is just a couple of patches to enable telnet access to the Speedport.
 
-It is called !BitSwitcher.  http://bitswitcher.sourceforge.net
+!BitSwitcher in BitSwitcher there are some additional features enabled: 
+ * it has now true nvram
+ * telnet
+ * ssh
+ * dnsmasq 
+ * Wake-on-LAN
+ * stproxy etc. and offers a new Web-Interface. (Obviously a redesigned copy of the T-Com Interface).
+It has one Disadvantage no writeable rootfs like OpenWRT kamikaze.
 
-It enables nvram, telnet, ssh, dnsmasq, Wake-on-LAN, stproxy etc. and offers a new Web-Interface.
+Wrt500V is a set of patches for the original Speedport buildkit by T-Com to build a 2.6.8.1 kernel an run an 
+OpenWrt Kamikaze svn-r8025.
+Added kernel patches/bugfixes are:
+ * ip-dst-cache-fix; A show stopper that let the the speedport freeze after a few ours/days, when the tcp connection table is full. By now (08-04-07) all official firmwares (T-Com/Targa) have this bug.
+ * mini_fo and openwrt mtd flash layout for a writeable rootfs.
+ * iptables layer7, ipp2p
 
-----
- There is a second Firmware Mod Project on Sourceforge available for the SpeedPort W500V.
+This firmware has no VoIP support because of lack of space in the flash, but you can do what ever you want with on of the most robust DSL-Modem-Parts for Annex B and Kamikaze.
+By default: The prepacked firmware has dropbear, dnsmasq, openvpn, curl in the squashfs part.
 
-It's called mod500. http://sourceforge.net/projects/mod500/
+At the download site there is also a .c-file for testing the puposes of the gpio pins to enabled a future mmc-mod.
+The fonera mmc driver might be interesting for that.
 
-It enables telnet on the SpeedPort W500V.
-
+Mod500 enables telnet on the SpeedPort W500V.
  . User: root
  Password: ''<webinterface password>'' (Factory Password = 0000)
 With the mod500 Firmware flashed you can now use the DMT Program to read out system and DSL information.
@@ -534,21 +568,15 @@ If the Firmware Update failed and the router is bricked Firmware wise, during bo
 The router will now go into safe mode where the stock firmware can be reflashed.
 
 = Links and Downloads =
-Hitachi High Technologies Firmware Sources + Toolchain: http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705
-
-T-Com Firmware Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
-
-T-Com Firmware Changelog in German: http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txt
-
-T-Com Firmware GPL Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
-
-T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
-
-!BitSwitcher Firmware: http://bitswitcher.sourceforge.net
-
-mod500 Firmware split from T-Com Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
-
-DMT Program: http://dmt.mhilfe.de/
+ * Hitachi High Technologies Firmware Sources + Toolchain: http://www.hht-eu.com/pls/hht/wt_show.text_page?p_text_id=7705
+ * T-Com Firmware Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
+ * T-Com Firmware Changelog in German: http://www.telekom.de/dtag/downloads/S/SpeedportW500V_firmwareaenderungen_V1_30.txt
+ * T-Com Firmware GPL Public License: http://www.telekom.de/dtag/downloads/s/Statement.doc
+ * T-Com Firmware Release 1.3: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
+ * !BitSwitcher Firmware: http://bitswitcher.sourceforge.net
+ * Wrt500v http://vvv.borkum.net/files/w500v
+ * mod500 Firmware split from T-Com Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
+ * DMT Program: http://dmt.mhilfe.de/
 
 = Misc =
 To contact me: stacato [at] gmail [DOT] com
