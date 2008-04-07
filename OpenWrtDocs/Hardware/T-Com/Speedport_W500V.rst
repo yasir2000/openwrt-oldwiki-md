@@ -67,11 +67,8 @@ Uses a 16V DC, 900mA PSU
   * GPIO 32 - "Internet" - VoIP LED
   * GPIO 33 - Reset Switch
 
-::: still collecting data :::
-
 '''5) Serial '''
-
-Possible Serial connection at two different points.
+A serial connection is avaiable in at the PCB (see below).
 
 '''6) JTAG'''
 
