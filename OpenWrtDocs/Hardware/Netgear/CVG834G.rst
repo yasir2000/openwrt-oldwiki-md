@@ -9,6 +9,11 @@ DOCSIS/EuroDOCSIS : BCM3421
 Wi-Fi: BCM4318
 }}}
 
+Sources of eCos can be found from the netgear site here : ftp://downloads.netgear.com/files/GPL/CVG834G_V3.9.21_NOOS_src_20070731.zip
+
+Though it does not describe the firmware header (which could be found dumping the flash anyway), you will notice that the BCM3368 core is the same as the BCM63xx family (DSL SoC). In fact it is exactly the same chip, thus making the porting easier :).
+
+
 == Serial pinout ==
 
 {{{
