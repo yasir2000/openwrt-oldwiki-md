@@ -49,8 +49,8 @@ connectors
 | I                             |
 | p  R                          |
 | o  A         . 3.3V           |
-| r  M         . RX             |
-| t    FLASH   . TX             |
+| r  M         . TX             |
+| t    FLASH   . RX             |
 |              . GND            |
 | o   o o o o     o   o   o     |
 +-------------------------------+
