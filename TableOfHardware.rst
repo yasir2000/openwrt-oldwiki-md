@@ -26,6 +26,12 @@ See also
 Notes:
 
  * Just because a device is in this list doesn't mean that OpenWRT will run on this device. Furthermore, some devices have limited support, while others get by with just the bare minimums. For example. Devices with 2mb of flash and 8mb of ram will be able to handle basic tasks only.
+
+
+Quicklinks to manufacturers:
+
+[[TableOfContents(2)]]
+
 == 3Com ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.3com.com/products/en_US/detail.jsp?tab=reqoptprod&sku=3CRWDR100A-72&pathtype=purchase 3CRWDR100A-72] || ||Texas Instruments AR7 TNETD7300 ||2MB ||16 (?)MB ||TI TNETW1130 ||Marvell 88E6060 ||Yes ||Yes ||? ||No ||[:OpenWrtDocs/Hardware/3Com/3CRWDR100A-72:Untested] ||
