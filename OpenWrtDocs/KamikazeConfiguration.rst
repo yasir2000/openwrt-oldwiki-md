@@ -31,10 +31,10 @@ config switch eth0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
-
 The "*" mark is set for the default VLAN. Pakets transfered between interfaces on the default VLAN are the ones that will remain unchanged, while all other will be "tagged". See more in section "VLAN Trunking" under the [:OpenWrtDocs/NetworkInterfaces:VLAN and bridging concepts] page.
 
 If you are using a VLAN 802.11q capable external switch, you can use it simply by configuring the VLAN interfaces as instructed in the next section.  For example: VLAN 1 on the switch would correspond to eth0.1 on OpenWRT.
+
 === Network Layer ===
 ==== DHCP ====
 {{{
@@ -86,16 +86,19 @@ config interface wan
 }}}
 ==== MAC Address Cloning ====
 Add the following option to /etc/config/network under the wan section:
+
 {{{
 option macaddr xx:xx:xx:xx:xx:xx
 }}}
 Restart the network using:
+
 {{{
 /etc/init.d/network restart
 }}}
 or reboot your router
 
 Check dmesg or syslog for the change.  If the mac address does not change, clean your nvram variables using these instructions:
+
 {{{
 http://wiki.openwrt.org/Faq#head-71cacf8460752af3f5771d2fae54923ded5beb9c
 }}}
@@ -141,7 +144,7 @@ config wifi-device     wifi device name
        option disabled 1 disables the wireless card, 0 enables the wireless card
        option maxassoc Currently only for Broadcom. Maximum number of associated clients
        option distance The distance between the ap and the furthest client in meters.
-       option mode     Currently only for Atheros.  Options are: 11b, 11g, 11a, 11bg
+       option agmode     Currently only for Atheros.  Options are: 11b, 11g, 11a, 11bg
        option diversity Currently only for Atheros. 0 disables diversity, 1 enables diversity (default)
        option txantenna Currently only for Atheros. 0 for auto (default), 1 for antenna 1, and 2 for antenna 2
        option rxantenna Currently only for Atheros. 0 for auto (default), 1 for antenna 1, and 2 for antenna 2
@@ -167,7 +170,7 @@ config wifi-iface
 }}}
 '''Notes: '''
 
-'''1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan").'''  If you don't want to do that, see [:/NonBridgedWiFi:Using Non-Bridged WiFi].
+'''1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan").'''  If you don't want to do that, see [:OpenWrtDocs/KamikazeConfiguration/NonBridgedWiFi:Using Non-Bridged WiFi].
 
 '''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK or psk2 for WPA-PSK2 (AES)'''
 
@@ -224,30 +227,31 @@ After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter st
 == Services ==
 === DHCP ===
 OpenWrt uses the lightweight [http://www.thekelleys.org.uk/dnsmasq/doc.html dnsmasq] DHCP server, which is configured in '''/etc/config/dhcp''':
-{{{config dhcp
-	option interface	lan
-	option start 		100
-	option limit		150
-	option leasetime	12h
 
-config dhcp                                                                              
-        option interface        wan                                                      
-	option ignore   1}}}
-
+{{{
+config dhcp
+        option interface        lan
+        option start            100
+        option limit            150
+        option leasetime        12h
+config dhcp
+        option interface        wan
+        option ignore   1}}}
 This will make dnsmasq will offer up to 150 address leases, starting from address .100 of your network with a lease time of 12 hours. e.g. 10.0.0.100-10.0.0.249
 
 If you think dnsmasq is not offering addresses as configured, use ''ps w'' to see what command-line arguments it was run with:
-{{{root@wrt:~# ps w | grep dnsmasq
+
+{{{
+root@wrt:~# ps w | grep dnsmasq
   606 nobody      452 S   /usr/sbin/dnsmasq --dhcp-range=lan,10.0.0.10,10.0.0.60,255.255.255.0,12h -I eth0.1}}}
-
 A common problem is to have the --dhcp-range option missing:
- `/usr/sbin/dnsmasq -I eth0.1`
- (or ppp0, or whatever your WAN interface is -- -I means "don't offer addresses on this interface", more on that in ''dnsmasq --help'')
 
+ . {{{/usr/sbin/dnsmasq -I eth0.1}}} (or ppp0, or whatever your WAN interface is -- -I means "don't offer addresses on this interface", more on that in ''dnsmasq --help'')
 If that's the case, just append to your lan interface section:
-{{{option force 1
-}}}
 
+{{{
+option force 1
+}}}
 = HowTo =
 === How to Automatically configure Client/Ad-hoc Client/Client+Repeater Mode on a Fonera or Meraki mini ===
 Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk  1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
@@ -377,6 +381,7 @@ config timezone
 ~-Note: The '''zoneinfo''' field is designed to contain the same information like the timezone setting in most current *nix implementations (the Olson's database). It will later enable to simply synchronize changes in the POSIX TZ strings.-~
 
 Do the following on a *nix system to find out your timezone string:
+
 {{{
 cat /usr/share/zoneinfo/posix/continent/city
 }}}
@@ -427,24 +432,21 @@ OpenWrt will soon advertise its [http://www.pool.ntp.org/vendors.html NTP Vendor
 
 {{{
 config ntpclient
-	option hostname '0.openwrt.pool.ntp.org'
-	option port     '123'
-	option count    '1'
-
+        option hostname '0.openwrt.pool.ntp.org'
+        option port     '123'
+        option count    '1'
 config ntpclient
-	option hostname '1.openwrt.pool.ntp.org'
-	option port     '123'
-	option count    '1'
-
+        option hostname '1.openwrt.pool.ntp.org'
+        option port     '123'
+        option count    '1'
 config ntpclient
-	option hostname '2.openwrt.pool.ntp.org'
-	option port     '123'
-	option count    '1'
-
+        option hostname '2.openwrt.pool.ntp.org'
+        option port     '123'
+        option count    '1'
 config ntpclient
-	option hostname '3.openwrt.pool.ntp.org'
-	option port     '123'
-	option count    '1'
+        option hostname '3.openwrt.pool.ntp.org'
+        option port     '123'
+        option count    '1'
 }}}
 Of course there are even more alternatives, i.e. feel free to substitute your local ntp server for pool.ntp.org.
 
@@ -467,4 +469,4 @@ OpenWrtDocs/KamikazeConfiguration/MultipleWan
 ----
  . CategoryHowTo
 ----
-CategoryHowTo
+ CategoryHowTo
