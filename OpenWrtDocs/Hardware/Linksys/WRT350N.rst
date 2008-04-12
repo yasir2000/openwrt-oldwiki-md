@@ -22,16 +22,18 @@ There seems to be another version of WRT350N v2 based on ARM926EJ running at 333
 
 '''''Information'''''
 
+serial is on  JP5  with 115200 8N1
+
+ . | ground | TX | RX | 3.3V |
 {{{
-~ # cat /proc/version 
+~ # cat /proc/version
 Linux version 2.6.12-arm1 (root@davidnb-gentoo) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-2)) #1 Fri Jan 25 21:35:35 CET 2008
 }}}
-
 {{{
-~ # cat /proc/cpuinfo 
+~ # cat /proc/cpuinfo
 Processor       : ARM926EJ-Sid(wb) rev 0 (v5l)
 BogoMIPS        : 331.77
-Features        : swp half thumb fastmult edsp java 
+Features        : swp half thumb fastmult edsp java
 CPU implementer : 0x41
 CPU architecture: 5TEJ
 CPU variant     : 0x0
@@ -49,14 +51,12 @@ D size          : 32768
 D assoc         : 1
 D line length   : 32
 D sets          : 1024
-
 Hardware        : MV-88fxx81
 Revision        : 0000
 Serial          : 0000000000000000
 }}}
-
 {{{
-~ # cat /proc/mtd 
+~ # cat /proc/mtd
 dev:    size   erasesize  name
 mtd0: 00760000 00010000 "kernel"
 mtd1: 005c0000 00010000 "rootfs"
@@ -64,9 +64,8 @@ mtd2: 00040000 00010000 "lang"
 mtd3: 00020000 00010000 "nvram"
 mtd4: 00040000 00010000 "u-boot"
 }}}
-
 {{{
-~ # cat /proc/modules  
+~ # cat /proc/modules
 wsc_daemon 2208 0 - Live 0xbf0ef000
 wlan_wep 5888 1 - Live 0xbf0ec000
 ath_pci 138064 0 - Live 0xbf0c9000
@@ -80,9 +79,8 @@ ipt_webstr 3712 0 - Live 0xbf005000
 pb 3876 2 - Live 0xbf003000
 led 5044 0 - Live 0xbf000000
 }}}
-
 {{{
-~ # cat /proc/devices 
+~ # cat /proc/devices
 Character devices:
   1 mem
   2 pty
@@ -102,7 +100,6 @@ Character devices:
 136 pts
 180 usb
 254 pcmcia
-
 Block devices:
   7 loop
   8 sd
@@ -123,17 +120,15 @@ Block devices:
 134 sd
 135 sd
 }}}
-
 {{{
-~ # free 
+~ # free
               total         used         free       shared      buffers
   Mem:        29036        19068         9968            0         1628
  Swap:            0            0            0
 Total:        29036        19068         9968
 }}}
-
 {{{
-~ # cat /proc/meminfo 
+~ # cat /proc/meminfo
 MemTotal:        29036 kB
 MemFree:          9956 kB
 Buffers:          1628 kB
@@ -158,9 +153,8 @@ VmallocTotal:   483328 kB
 VmallocUsed:      8644 kB
 VmallocChunk:   474620 kB
 }}}
-
 {{{
-~ # cat /proc/iomem 
+~ # cat /proc/iomem
 00000000-01ffffff : System RAM
   00021000-002911df : Kernel text
   00292000-0036d41b : Kernel data
@@ -170,11 +164,10 @@ e8000000-efffffff : PCI Memory Primary
     e8000000-e800ffff : ath
 f4000000-f47fffff : flashMap
 }}}
-
 {{{
-~ # ps    
+~ # ps
   PID  Uid     VmSize Stat Command
-    1 root        308 S   init       
+    1 root        308 S   init
     2 root            SWN [ksoftirqd/0]
     3 root            SW< [events/0]
     4 root            SW< [khelper]
@@ -186,91 +179,84 @@ f4000000-f47fffff : flashMap
    63 root            SW< [aio/0]
   185 root            SW  [mtdblockd]
    62 root            SW  [kswapd0]
-  233 root        200 S   /usr/sbin/pb_ap 
-  249 root        276 S   /sbin/klogd 
+  233 root        200 S   /usr/sbin/pb_ap
+  249 root        276 S   /sbin/klogd
   322 root        300 S   /sbin/syslogd -f /tmp/syslog.conf -R 192.168.1.100:51
-  334 root        220 S   /usr/sbin/ntp -z GMT+1 2 -s 1 
-  339 root        192 S   /usr/sbin/scfgmgr 
-  342 root        212 S   /usr/sbin/wps_ap 
+  334 root        220 S   /usr/sbin/ntp -z GMT+1 2 -s 1
+  339 root        192 S   /usr/sbin/scfgmgr
+  342 root        212 S   /usr/sbin/wps_ap
   345 root        432 S   /usr/sbin/mini_httpd -d /tmp/www -r Linksys WRT350N -
-  373 root        772 S   /usr/sbin/hostapd -B /tmp/madwifi.conf 
-  385 root        244 S   /usr/sbin/udhcpc -i eth1 -s /etc/udhcpc.script 
-  387 root        232 S   /usr/sbin/cmd_agent 
-  390 root        184 S   /usr/sbin/cmd_agent1 
-  392 root        208 S   /usr/sbin/download 
-  393 root        212 S   /usr/sbin/wizard 
-  409 root        324 S   /usr/sbin/lld2 br0 ath0 
-  420 root        220 S   /usr/sbin/usbdect 
-  437 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4 
-  439 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4 
-  440 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4 
-  442 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4 
-  444 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4 
-  445 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4 
-  454 root        600 R   /usr/sbin/wscupnpd br0 ath0 30 4 
-  463 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  465 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  466 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  468 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  470 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  471 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  486 root        668 S   /usr/sbin/upnpd eth1 br0 30 4 
-  491 root        296 R   /usr/sbin/telnetd -p 33 
-  492 root        308 S   init       
-  550 root        464 S   /bin/sh 
-  555 root        348 R   ps 
+  373 root        772 S   /usr/sbin/hostapd -B /tmp/madwifi.conf
+  385 root        244 S   /usr/sbin/udhcpc -i eth1 -s /etc/udhcpc.script
+  387 root        232 S   /usr/sbin/cmd_agent
+  390 root        184 S   /usr/sbin/cmd_agent1
+  392 root        208 S   /usr/sbin/download
+  393 root        212 S   /usr/sbin/wizard
+  409 root        324 S   /usr/sbin/lld2 br0 ath0
+  420 root        220 S   /usr/sbin/usbdect
+  437 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4
+  439 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4
+  440 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4
+  442 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4
+  444 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4
+  445 root        600 S   /usr/sbin/wscupnpd br0 ath0 30 4
+  454 root        600 R   /usr/sbin/wscupnpd br0 ath0 30 4
+  463 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  465 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  466 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  468 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  470 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  471 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  486 root        668 S   /usr/sbin/upnpd eth1 br0 30 4
+  491 root        296 R   /usr/sbin/telnetd -p 33
+  492 root        308 S   init
+  550 root        464 S   /bin/sh
+  555 root        348 R   ps
 }}}
-
 {{{
-~ # ifconfig 
-ath0      Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C  
+~ # ifconfig
+ath0      Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:3891045 errors:0 dropped:0 overruns:0 frame:0
           TX packets:4318909 errors:0 dropped:128 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
+          collisions:0 txqueuelen:1000
           RX bytes:467565175 (445.9 MiB)  TX bytes:717290129 (684.0 MiB)
-
-br0       Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C  
+br0       Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C
           inet addr:192.168.0.90  Bcast:192.168.0.255  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:47383 errors:0 dropped:0 overruns:0 frame:0
           TX packets:20253 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
+          collisions:0 txqueuelen:0
           RX bytes:9866347 (9.4 MiB)  TX bytes:4722786 (4.5 MiB)
-
-eth0      Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C  
+eth0      Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:4315667 errors:0 dropped:0 overruns:0 frame:0
           TX packets:3907574 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
+          collisions:0 txqueuelen:1000
           RX bytes:759378372 (724.1 MiB)  TX bytes:472106949 (450.2 MiB)
-          Interrupt:21 
-
-eth1      Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8D  
+          Interrupt:21
+eth1      Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8D
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:17196 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:512 
+          collisions:0 txqueuelen:512
           RX bytes:0 (0.0 B)  TX bytes:10145640 (9.6 MiB)
-          Interrupt:21 
-
-lo        Link encap:Local Loopback  
+          Interrupt:21
+lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING  MTU:16436  Metric:1
           RX packets:72 errors:0 dropped:0 overruns:0 frame:0
           TX packets:72 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
+          collisions:0 txqueuelen:0
           RX bytes:17792 (17.3 KiB)  TX bytes:17792 (17.3 KiB)
-
-wifi0     Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C  
+wifi0     Link encap:Ethernet  HWaddr 00:1A:70:A1:C3:8C
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:4263539 errors:0 dropped:0 overruns:0 frame:40765
           TX packets:4639042 errors:129 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
+          collisions:0 txqueuelen:1000
           RX bytes:605802378 (577.7 MiB)  TX bytes:881407527 (840.5 MiB)
-          Interrupt:36 Memory:c2860000-c2870000 
+          Interrupt:36 Memory:c2860000-c2870000
 }}}
-
 {{{
 ~ # dmesg -s 65535
 Linux version 2.6.12-arm1 (root@davidnb-gentoo) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-2)) #1 Thu Jan 31 00:13:20 CET 2008
@@ -299,10 +285,8 @@ Mount-cache hash table entries: 512
 CPU: Testing write buffer coherency: ok
 NET: Registered protocol family 16
 Flash bankwidth 1, base f4000000, size 800000
-
-  Marvell Development Board (LSP Version 1.8.5)-- RD-88F5181L-VOIP-GE 
-
- Detected Tclk 166000000 and SysClk 166000000 
+  Marvell Development Board (LSP Version 1.8.5)-- RD-88F5181L-VOIP-GE
+ Detected Tclk 166000000 and SysClk 166000000
 Marvell USB EHCI Host controller #0: c03fbb00
 pexBarOverlapDetect: winNum 2 overlap current 0
 mvPexInit:Warning :Bar 2 size is illigal
@@ -329,8 +313,8 @@ TWSI: mvTwsiStopBitSet ERROR - Stop bit TimeOut .
 TWSI: mvTwsiStartBitSet ERROR - Start Clear bit TimeOut .
 TWSI: twsiAddr7BitSet ERROR - Addr (7 Bit) int TimeOut.
 TWSI: mvTwsiStopBitSet ERROR - Stop bit TimeOut .
-use IDMA acceleration in copy to/from user buffers. used channels 2 and 3 
-Done. 
+use IDMA acceleration in copy to/from user buffers. used channels 2 and 3
+Done.
 Fast Floating Point Emulator V0.9 (c) Peter Teichmann.
 squashfs: version 3.0 (2006/03/15) Phillip Lougher
 JFFS2 version 2.2. (C) 2001-2003 Red Hat, Inc.
@@ -347,8 +331,8 @@ loop: loaded (max 8 devices)
 Loading Marvell Gatway Driver:
 multi queue enabled
 prioritizing ToS 0xA0
-eth0: 00:00:00:00:51:81, group-id 0x100, group-members are port-CPU port-1 port-2 port-3 port-4 
-eth1: 00:00:00:00:51:82, group-id 0x200, group-members are port-CPU port-0 
+eth0: 00:00:00:00:51:81, group-id 0x100, group-members are port-CPU port-1 port-2 port-3 port-4
+eth1: 00:00:00:00:51:82, group-id 0x200, group-members are port-CPU port-0
 init switch layer... gcosSetPortDefaultTc failed (port 8)
 gcosSetPortDefaultTc failed (port 8)
 gcosSetPortDefaultTc failed (port 8)
@@ -359,7 +343,7 @@ gcosSetPortDefaultTc failed (port 8)
 gcosSetPortDefaultTc failed (port 8)
 done
 init gigabit layer... done
-loading network interfaces: eth0 eth1 
+loading network interfaces: eth0 eth1
 PPP generic driver version 2.4.2
 PPP Deflate Compression module registered
 PPP BSD Compression module registered
@@ -393,7 +377,7 @@ usbcore: registered new driver usb-storage
 USB Mass Storage support registered.
 mice: PS/2 mouse device common for all mice
 u32 classifier
-    OLD policer on 
+    OLD policer on
 NET: Registered protocol family 2
 IP: routing cache hash table of 512 buckets, 4Kbytes
 /proc/eth1_tm created
@@ -418,7 +402,6 @@ ipt_webstr: module license 'unspecified' taints kernel.
 ufsd: driver loaded
 UFSD version 5.28 (Nov  8 2006, 21:54:59)
 NTFS read/write support included
-
 ufsd: address 0xbf030538
 mv_gateway: starting eth0
 mv_gateway: starting eth1
@@ -561,16 +544,13 @@ ar5416SetPowerPerRateTable() syn 2427 ctl 2427 ext 2427 is40 0
 2xMaxPowerLevel: 26 (HT20)
 ath_chan_set: Changing to channel 2427, Flags 30080, PF 0
  make a wpa2 ie :
-
-30      <1>1c   <1>01   <1>00   <1>00   <1>0f   <1>ac   <1>02   <1>02   <1>00   <1>00   <1>0f   <1>ac   <1>04   <1>00   <1>0f   
+30      <1>1c   <1>01   <1>00   <1>00   <1>0f   <1>ac   <1>02   <1>02   <1>00   <1>00   <1>0f   <1>ac   <1>04   <1>00   <1>0f
 ac      <1>02   <1>02   <1>00   <1>00   <1>0f   <1>ac   <1>01   <1>00   <1>0f   <1>ac   <1>02   <1>00   <1>00   <1>make a wpa ie :
-
-dd      <1>1e   <1>00   <1>50   <1>f2   <1>01   <1>01   <1>00   <1>00   <1>50   <1>f2   <1>02   <1>02   <1>00   <1>00   <1>50   
+dd      <1>1e   <1>00   <1>50   <1>f2   <1>01   <1>01   <1>00   <1>00   <1>50   <1>f2   <1>02   <1>02   <1>00   <1>00   <1>50
 f2      <1>04   <1>00   <1>50   <1>f2   <1>02   <1>02   <1>00   <1>00   <1>50   <1>f2   <1>01   <1>00   <1>50   <1>f2   <1>02   <6>br0: port 2(ath0) entering learning state
 br0: topology change detected, propagating
 br0: port 2(ath0) entering forwarding state
 download uses obsolete (PF_INET,SOCK_PACKET)
 }}}
-
 ----
  . CategoryModel
