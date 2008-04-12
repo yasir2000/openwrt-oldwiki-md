@@ -58,6 +58,10 @@ Despite the problems described in this thread, adding the two lines
 }}}
 lets the tool automatically detect the flash device with the debrick tool v4.8. CPU detection and flash erasing work as expected, however I wasn't able to write a valid CFE. No errors during write, but the backup dumped after writing shows invalid values at a couple of places. This was done with an unbuffered JTAG cable, maybe I'll try again with a buffered one.(JoergAlbert)
 
+== Serial ==
+
+On v4000,v5000,v6000,etc you can add a serial port which can be very useful if used correctly.  The pinout is the same as the USR5463.  If you connect to that terminal you can enter bootloader command mode by pressing any key when it says "Press any key to enter bootloader mode."  Press enter to get help after that.  Just don't erase the bootloader.  I don't take any responsibility for anybody erasing their bootloader or anything else bricking their router.  If you wait after that prompt, you can press enter after all the text has passed to get more help for the Belkin firmware.  Also, after that prompt you can press G to start a tftp server.  This text should be very useful.
+
 == Links ==
 
 There are a number of public forums and web sites where the installation of open source firmware for the Belkin F5D7230-4 is being discussed and published.
