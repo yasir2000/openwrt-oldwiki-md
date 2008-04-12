@@ -3,6 +3,34 @@ OpenWrtDocs [[TableOfContents]]
 == Intro ==
 This HOWTO describes how to mount remote filesystems on your router, so that you can use files on remote machines as if they were stored locally.
 
+== Auto mount at boot ==
+With all of these options, to have the filesystems auto mounted at boot, you will need to make the appropriate additions to /etc/fstab.  You may need to create the file /etc/fstab on your system.  None of the entries in your fstab will be mounted at boot.  To do this, you will need to add an entry to your /etc/rc.d/S90custom-user-startup script to mount the entries in your fstab file.  The below fstab example is specifically for NFS mounts.  You will need to modify it according to your chosen mounting method.  The S90custom-user-startup script should be the same no matter what mounting method you decide to use.
+
+Example /etc/fstab using NFS
+{{{
+192.168.1.x:/remote/mount/point       /local/mnt/point      nfs     rsize=32768,wsize=32768,hard,udp,nolock
+}}}
+
+Example S90custom-user-startup
+{{{
+#!/bin/sh /etc/rc.common
+START=90
+# place your own startup commands here
+#
+# REMEMBER: You *MUST* place an '&' after launching programs you
+#   that are to continue running in the background.
+#
+#   i.e.
+#   BAD:  upnpd
+#   GOOD: upnpd &
+#
+# Failure to do this will result in the startup process halting
+# on this file and the diagnostic light remaining on (at least
+# for WRT54G(s) models).
+#
+mount /local/mnt/point
+}}}
+
 == CIFS ==
 CIFS (Common Internet File System) is a network filesystem used mainly by Windows machines.  Use it if you have Windows or Samba servers nearby.
 
