@@ -4,7 +4,7 @@ OpenWrtDocs [[TableOfContents]]
 This HOWTO describes how to mount remote filesystems on your router, so that you can use files on remote machines as if they were stored locally.
 
 == Auto mount at boot ==
-With all of these options, to have the filesystems auto mounted at boot, you will need to make the appropriate additions to /etc/fstab.  You may need to create the file /etc/fstab on your system.  None of the entries in your fstab will be mounted at boot.  To do this, you will need to add an entry to your /etc/rc.d/S90custom-user-startup script to mount the entries in your fstab file.  The below fstab example is specifically for NFS mounts.  You will need to modify it according to your chosen mounting method.  The S90custom-user-startup script should be the same no matter what mounting method you decide to use.  *Edit to make comment for info page*
+With all of these options, to have the filesystems auto mounted at boot, you will need to make the appropriate additions to /etc/fstab.  You may need to create the file /etc/fstab on your system.  None of the entries in your fstab will be mounted at boot.  To do this, you will need to add an entry to your /etc/rc.d/S90custom-user-startup script to mount the entries in your fstab file.  The below fstab example is specifically for NFS mounts.  You will need to modify it according to your chosen mounting method.  The S90custom-user-startup script should be the same no matter what mounting method you decide to use.
 
 Example /etc/fstab using NFS
 {{{
