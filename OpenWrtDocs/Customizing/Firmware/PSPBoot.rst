@@ -5,6 +5,8 @@ PSPBoot is the bootloader used on the LinkSys WAG354G, WRTP54G and [http://www.l
 == User Guide ==
 Here is the user guide of PSPBoot version 1.2, attachment:PSPBoot_User_Guide.pdf
 
+What the guide is not saying is that the "boot" command supports placing a kernel command line. Every argument after "boot" gets passed.
+
 == Startup sequence ==
 {{{
 free space start: 0xb0020000
