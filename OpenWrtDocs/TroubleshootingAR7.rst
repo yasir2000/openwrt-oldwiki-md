@@ -2,6 +2,20 @@
 
 OpenWrtDocs [[TableOfContents]]
 
+= Overview =
+
+You will find here information about how to recover AR7 based devices which don't boot correctly. The general ideas apply perfectly to other systems as well but the details will be different.
+
+The devices we focus on here have flash memory as permanent storage only. Once powered up the processor starts executing code from a predefined point in the flash. This could be directly the system you finally want to run but it usually isn't. Usually there is an small "program" called boot loader that is run first. And the boot loader sets up the system to run the final operating system. The reason for that is that the boot loader provides ways to 'change' the the final operating system by reflashing the parts of the flash where itself is not on.
+
+... to be finished.
+
+Apart from the operating system and the boot loader it is common to have a part on flash where variables are stored, like "variable_name=value".
+
+Anyway, a good boot loader also provides a way to provide arguments to the system which may influence it. With Linux (at least) this is called the 'kernel command line'. What you can put on it is very broad and can be read in the Linux kernel documentation. The important part: it is possible to influence in many stages how the system is brought up. This way you can start a system that would otherwise not boot through.
+
+The kernel image may carry a default command line, and with OpenWRT it does so. On PCs it is usually the boot loader that provides the defaults. The AR7 specific kernel start-up code even modifies the command line from within the kernel: it reads from the flash variables the serial console settings and adds up a corresponding part like "console=ttyS0,38400n8".
+
 = Troubleshooting AR7 device with ADAM2 bootloader =
 == Obtaining ADAM2 IP ==
 === by device model name ===
@@ -102,7 +116,14 @@ NOTE: GETENV displays varname and value separated whith spaces, while SETENV req
 Alternatively, you can set only mtd3 variable, and then upload entire mtd block. It's a good idea to save all mtd's before you begin to reflash you device. Or mtd3 can be found here: http://mcmcc.bat.ru/dlinkt/restore_mtd3_50xT.rar
 
 = Troubleshooting AR7 device with PSPBoot bootloader =
+
 /!\ To be written...
+
+PSPBoot has a "help" command that shows a list of commands. What "help boot" does not reveal is that you actually can provide a kernel command line with "boot". E.g. "boot rootfstype=squashfs init=/etc/preinit". The image default command line does get used (I'm not sure if this "image default" is loaded from the kernel itself or the boot loader...).
+
+To see the default just boot normally, it gets shown soon in the normal kernel messages. Apart from the "console=..." stuff (see Overview above), you may provide what the kernel normally sees.
+
+-- RobertSiemer [[DateTime(2008-04-13T20:57:16Z)]]
 
 = Restoring the original Firmware =
 If you have trouble flashing the firmware back via ADAM2, then just download DSL-G604T_2.00B07.AU_20060901.exe from dlink.com.au.
