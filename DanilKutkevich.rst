@@ -4,5 +4,10 @@
 
 === My favourite links ===
 
+ * ["OpenWrtDocs/Configuration"]
+ * ["Faq"]
+ * ["OpenWrtDocs/KamikazeConfiguration"]
+
+
 ----
 CategoryHomepage
