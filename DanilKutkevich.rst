@@ -11,6 +11,7 @@
  * ["OpenWrtDocs/KamikazeConfiguration"]
  * ["Faq"]
  * ["MiniHowtos"]
+ * ["OpenWrtDocs/Using"]
  * [http://forum.openwrt.org/viewtopic.php?id=3474 Forum]
  * [http://downloads.openwrt.org/kamikaze/docs/openwrt.html Documentation]
 
