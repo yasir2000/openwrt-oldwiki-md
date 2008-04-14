@@ -49,6 +49,9 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 ##|| [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ##||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
 
 == OpenWrt documentation ==
+
+'''[:OpenWrtDocs/Installing:Installing OpenWrt]'''
+
 '''[:OpenWrtDocs/Customizing:OpenWrt Customization]''' [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
 '''[:OpenWrtDocs/Hardware:Hardware Information]''' [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
