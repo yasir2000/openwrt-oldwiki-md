@@ -4,9 +4,7 @@ USB capable routers such as the ASUS WL-500g/gx/g Premium support USB Audio adap
 USB Audio support is included in !OpenWrt Kamikaze and higher.
 
 == Kernel Module Packages ==
-Support is provided by several packages which you have to install.
-
-Soundcard Support ('''kmod-sound-core'''):
+Support is provided by several packages, which you have to install with ipkg. Those packages inlcude: kmod-sound-core, kmod-usb-audio, 
 
 === OSS Sound ===
  * This selects the kernel module soundcore.o which is reqired by both OSS and ALSA.
@@ -28,6 +26,21 @@ kmod-alsa ('''KMOD_ALSA'''):
 
  * This is an alternative to KMOD_USB_AUDIO which cross-compiles the latest ALSA drivers. This package includes all the alsa modules (snd_*) requred for USB Audio support including OSS emulation. These drivers take up more space (and ram) than the OSS one, but they may provide better support and/or performance over kernel OSS.
 If you decide to run the Kernel 2.6 you should select the ALSA drivers. It is important to know that the ALSA drivers emulate OSS compatiblity. If you use MPD for instance with this emulation you sound may not be perfect while scrolling in audio files. To make alsa work it is necessary to copy a alsa.conf to the router /usr/share/alsa/alsa.conf.You may build both oss and alsa as packages but only one can be used at a time.
+
+=== Esound (esd) ===
+
+Support for this hasn't yet been integrated into the official repositories, but there's a preliminary package available.
+
+# ipkg install kmod-usb-audio
+
+# ipkg install http://klasseonline.dyndns.org/openwrt/kamikaze/7.09/packages/esound-oss_0.2.38-1_mipsel.ipk
+
+You can start the eSound daemon by typing
+
+# esd -d /dev/sound/dsp -tcp -public &
+
+Enter this command into a startup script to have the daemon started at boot. You should now be able to stream audio to your router's IP on port 16001 from any application that has an ESD output plugin. For Linux Desktops, that includes Mplayer, amaroK, xmms and others (take a look [http://wl500g.info/showthread.php?t=6508 HERE] for instructions). On Windows there's an ESD output plugin for WinAmp.
+
 
 
 = Applications =
