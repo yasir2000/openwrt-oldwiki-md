@@ -119,7 +119,7 @@ Alternatively, you can set only mtd3 variable, and then upload entire mtd block.
 
 /!\ To be written...
 
-PSPBoot has a "help" command that shows a list of commands. What "help boot" does not reveal is that you actually can provide a kernel command line with "boot". E.g. "boot rootfstype=squashfs init=/etc/preinit". The image default command line does get used (I'm not sure if this "image default" is loaded from the kernel itself or the boot loader...).
+PSPBoot has a "help" command that shows a list of commands. What "help boot" does not reveal is that you actually can provide a kernel command line with "boot". E.g. "boot rootfstype=squashfs init=/etc/preinit". The image default command line does not get used (I'm not sure if this "image default" is loaded from the kernel itself or the boot loader...).
 
 To see the default just boot normally, it gets shown soon in the normal kernel messages. Apart from the "console=..." stuff (see Overview above), you may provide what the kernel normally sees.
 
