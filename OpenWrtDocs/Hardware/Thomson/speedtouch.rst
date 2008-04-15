@@ -1,11 +1,18 @@
-this wireless lan router with int. 4 port switch and int. dsl modem is mostly sold from alice dsl in berlin germany and hamburg germany.
-actually there is only some hardware details known.
-the device is based on broadcom  with onboard broadcom wireless lan 802.11g.
-from thomson speedtouch co.uk you can download a firmware, take this link here: http://www.speedtouch.co.uk/codepages/content3.asp?c=7&ProductID=511
-the firmware is ziped, finaly a dot bin file to flash this device. if you dump this image and grep for ipkg - ups?!
-i found this here: ipkg2_sign(in=7=2335407[byte], out=1=2335758[byte]) (ipkg2-header=351[byte])
-is here some linux code runing?
+This wireless LAN router with an internal 4 port switch and an internal DSL modem is mostly sold from alice dsl in Berlin, Germany and Hamburg, Germany.
 
-the memsize should be 16MB the flashsize is 4MB
+There are only few hardware details known. The device is based on a Broadcom chipset with an onboard 802.11g wireless.
 
+You can download firmware from the Thomson website: http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=511
+
+The latest firmware is an actual binary file used to flash this device. Searching through the strings in this image file you can find references to "ipkg":
+
+{{{
+$ strings  585v6_UK_62T2.bin|grep ipkg
+q3ipkg2_sign(in=7=2594287[byte], out=1=2594638[byte]) (ipkg2-header=351[byte])
+}}}
+Does this mean there is some Linux code running here?
+
+The memsize should be 16MB, but the flashsize is 4MB - strange.
+
+Board photo:
 http://www.visigoth.de/~alx/speedtouch_585iv6_thomson_2.jpg
