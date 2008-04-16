@@ -432,6 +432,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || ||Unsupported ||
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||CVG834G||1||BCM3368 300Mhz||8MB||32MB||BCM4318||BCM5365||No||Yes||Yes||Yes||WiP||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834G:WiP] ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||4 || [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 BCM6348 v0.7] ||4MB ||16MB || Broadcom BCM4318 || BCM6348B0 || ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834G:WiP] ||
 ||[http://www.netgear.com/products/details/DG834GT.php DG834GT] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 BCM6348] @ 256Mhz ||4MB ||16MB ||Atheros (mini-PCI) ||BCM5325 ||Yes ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:WiP] ||
