@@ -92,6 +92,8 @@ Note: having wpa_supplicant interact with madwifi using the Linux wireless exten
 === xsupplicant ===
 Info needed
 
+Maybe it is not possible at all to use WPA together with the proprietary Broadcom nas driver, see this [http://thread.gmane.org/gmane.network.wireless.open1x.xsupplicant.general/462 message from xsupplicant's main developer], Chris Hessing.
+
 == Bridged and routed client modes ==
 There are no bridged and routed modes on Kamikaze, per se.  Instead, multiple interfaces are bridged with an entry in /etc/config/network like this:
 {{{
