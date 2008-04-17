@@ -12,11 +12,11 @@ Off topic, I like the comparable Ximeta NDAS technology better: Linux support, c
 
 I found the following hardware on the board:
 
- *CPU    : TNETV2005ZGW (Texas Instruments) 125Mhz
- *Flash  : 29LV160CBTC-90G (MX) 2Mbyte 
- *RAM    : EM63825TS-6G (EtronTech) 8Mbyte 
- *Power  : AIC 1084PM linear regulator, MP1583DM switched regulator 
- *?????  : ICS 6800010 0615 (ICS) (probably ETH line buffer) 
+ *CPU      : TNETV2005ZGW (Texas Instruments) 125Mhz - MIPS
+ *Flash    : 29LV160CBTC-90G (MX) 2Mbyte 
+ *RAM      : EM63825TS-6G (EtronTech) 8Mbyte 
+ *Power    : AIC 1084PM linear regulator, MP1583DM switched regulator 
+ *Ethernet : ICS1893BF - 10/100 Ethernet PHY
  *Various logic 2x VCH245A 1x LVC244A 1x LVC32A (Philips)
  *Bootloader: PSPBoot
  *OS        : VxWorks
@@ -41,7 +41,7 @@ Because a 40 pin cable is used, the drives cannot operator above UDMA 33MB. But 
  *SW1 reset switch 
  *J1  To power for drives and status leds (probably also 4 GPIO for LEDs) 
  *J2  IDE header (1 port, 2 channels) 
- *J3  Cannot find any J3, but existance of J4 and J% infers it must exist on the design
+ *J3  Cannot find any J3, but existance of J4 and J5 infers it must exist on the design
  *J4  Possibly 20 pin JTAG, though I cannot map even the ground connections to any known JTAG. Or 14 pin JTAG *and* Serial in a custom format ? 
  *J5: Non-driven 3 pin header, silk screen shape hints at 3-pin fan header, but supporting components are missing anyway.
 
@@ -51,7 +51,7 @@ One to the SW1 obviously. Further, there are 4 data lines lines going to the pow
 
 == Serial ==
 
-On the J4 20 pin header, pin 10, 12, 14 (assuming the square pin closest to the crystal is pin 1)
+On the J4 20 pin header, pin 10, 12, 14 (square pin is pin 1)
 Settings 3.3v with 9600 8N1
 {{{
    0V signal   1  2  3.3V signal
