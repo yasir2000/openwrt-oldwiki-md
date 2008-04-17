@@ -12,6 +12,9 @@ Now I know the problem is not cooling related. The AR7 port starting with kernel
 
 (Apart from that the heat sink works pretty good: I can still burn my finger with it...) -- RobertSiemer [[DateTime(2008-03-28T15:39:43Z)]]
 
+ok... seems that they have fixed it in this changeset [https://dev.openwrt.org/changeset/10747 10747], but i have no time and no hardware to check it now... it seems not to boot, i need a dsl-524t to vandalize and connect a serial cable to debug on the console -- GuidoSerra
+[[DateTime()]]
+
 END january '08 : i'm no more using this device by my customers... it overheats and halts -> DO NOT USE IT
 
 january '08 : the atm module works... it still gives some crap in the logs, but works
