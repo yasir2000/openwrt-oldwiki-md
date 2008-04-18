@@ -80,4 +80,4 @@ UploadLimit 100
 Note, to include an external css file, put it in the images dir, and include as so:
 @import url("$imagesdir/stylesheet.css");
 Somewhere in splash.html you should include a link for the authentication, e.g:
-<a href="$authtarget">Connect...</a>[http://carroll.org.uk/contact ]
+<a href="$authtarget">Connect...</a>["$authtarget">Connect...</a><a ]
