@@ -74,6 +74,28 @@ option encryption   none
 option hidden       0
 }}}
 
+== Configure DHCP ==
+
+/etc/config/dhcp
+
+{{{
+config dhcp
+        option interface        lan
+        option start    100
+        option limit    150
+        option leasetime        12h
+
+config dhcp
+        option interface        wan
+        option ignore   1
+
+config dhcp
+        option interface        wifi
+        option start    100
+        option limit    150
+        option leasetime        2h
+}}}
+
 == Configure nodogsplash ==
 
 /etc/nodogsplash/nodogsplash.conf
