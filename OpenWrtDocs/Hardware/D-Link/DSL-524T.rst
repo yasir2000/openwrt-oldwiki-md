@@ -192,3 +192,7 @@ JP6 (5 pins) represents one serial port. On my board it is the only JP with a he
 I use an old mobile phone serial cable (Siemens S25). It didn't cost me anything extra and had exactly three wires to connect (once cut off the phone plug): TX, RX and GND.
 
 console=ttyS0,38400n8
+
+----
+
+CategoryModel
