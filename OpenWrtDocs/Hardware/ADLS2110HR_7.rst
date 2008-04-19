@@ -99,13 +99,7 @@ Built for RNDIS protocol(s).
 == ACORP LAN120 firmware ==
 Dont Flash ACORP firmware. Yet do not replace boot loader on pspboot.
 
-http://mcmcc.bat.ru/acorp/LAN120/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
-
 http://mcmcc.bat.ru/acorp/psp_boot/psp_boot_LAN120_2M_8M-1.4.rar
-
-http://mcmcc.bat.ru/acorp/env_db/env_lan120.txt
-
-Web login/password: Admin Admin Telnet login/password: root Admin
 
 Change boot loader to PSPboot
 
@@ -114,6 +108,10 @@ Change boot loader to PSPboot
 # tftp -g -l psp_boot_LAN120_2M_8M-1.4.bin 192.168.0.90
 # cat psp_boot_LAN120_2M_8M-1.4.bin > /dev/mtdblock/2
 }}}
+
+http://mcmcc.bat.ru/acorp/LAN120/Acorp_nsp_LAN120_V.1.1.00.RU.23102007_AnnexA_DSP74.zip
+
+Web login/password: Admin Admin Telnet login/password: root Admin
 
 Add mtd5 and change mtd0 & mtd4
 
@@ -135,6 +133,8 @@ TX & RX led fix:
 # cat mycfg.tar.gz_blink_on_lan > /dev/mtdblock/5
 }}}
 attachment:mycfg.tar.gz_blink_on_lan file size 759
+
+http://mcmcc.bat.ru/acorp/env_db/env_lan120.txt
 
 {{{
 mtd0 0x90094000,0x901F0000
