@@ -107,14 +107,14 @@ http://mcmcc.bat.ru/acorp/env_db/env_lan120.txt
 
 Web login/password: Admin Admin Telnet login/password: root Admin
 
+Change boot loader to PSPboot
+
 {{{
-mtd0 0x90094000,0x901F0000
-mtd1 0x90020090,0x90094000
-mtd2 0x90000000,0x90010000
-mtd3 0x90010000,0x90020000
-mtd4 0x90020000,0x901F0000
-mtd5 0x901F0000,0x90200000
+# cd /var/var
+# tftp -g -l psp_boot_LAN120_2M_8M-1.4.bin 192.168.0.90
+# cat psp_boot_LAN120_2M_8M-1.4.bin > /dev/mtdblock/2
 }}}
+
 Add mtd5 and change mtd0 & mtd4
 
 {{{
@@ -135,6 +135,15 @@ TX & RX led fix:
 # cat mycfg.tar.gz_blink_on_lan > /dev/mtdblock/5
 }}}
 attachment:mycfg.tar.gz_blink_on_lan file size 759
+
+{{{
+mtd0 0x90094000,0x901F0000
+mtd1 0x90020090,0x90094000
+mtd2 0x90000000,0x90010000
+mtd3 0x90010000,0x90020000
+mtd4 0x90020000,0x901F0000
+mtd5 0x901F0000,0x90200000
+}}}
 
 == WatchDog Enable ==
 {{{
