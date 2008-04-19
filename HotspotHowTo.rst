@@ -157,5 +157,5 @@ Note, to include an external css file, put it in the images dir, and include as 
 Somewhere in splash.html you should include a link for the authentication, e.g:
 
 {{{
-<a href="$authtarget">Connect...</a>Connect...</a>
+<a href="$authtarget">Connect...</a>
 }}}
