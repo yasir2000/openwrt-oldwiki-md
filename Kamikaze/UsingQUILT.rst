@@ -15,11 +15,10 @@ make package/busybox/{clean,compile}
 If you updated a !OpenWrt package and also like to refresh the patches you can also do this with quilt.
 
 {{{
-make package/<pkg_name>-{clean,refresh} V=99}}}
-
+make package/<pkg_name>/{clean,refresh} V=99}}}
 = Using QUILT to add Kernel patches =
-
-{{{cd ~/trunk/
+{{{
+cd ~/trunk/
 make target/linux/{clean,prepare} V=99 QUILT=1
 cd build_dir/linux-ar7/linux-2.6.24.2/
 quilt new patches/platform/170-cpmac-mypatch.diff
@@ -28,7 +27,6 @@ EDITOR=gedit quilt edit drivers/net/cpmac.c
 quilt refresh
 cd ../../../
 make target/linux/update V=99
-
 cat target/linux/ar7/patches-2.6.24/170-cpmac-mypatch.diff
 Index: linux-2.6.24.2/drivers/net/cpmac.c
 ===================================================================
@@ -41,6 +39,4 @@ Index: linux-2.6.24.2/drivers/net/cpmac.c
   *
   * This program is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
-
-
 make target/linux/{clean,compile} V=99}}}
