@@ -120,6 +120,8 @@ UploadLimit 100
 
 == Customise splash page ==
 
+Edit these files to customise the splash page / error page:
+
 /etc/nodogsplash/htdocs/splash.html
 
 /etc/nodogsplash/htdocs/infoskel.html
