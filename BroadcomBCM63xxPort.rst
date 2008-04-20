@@ -1,5 +1,7 @@
 [[TableOfContents]]
 
+This page covers the BCM63xx SoC specificities, but the BCM33xx SoC (excluding BCM3302 which is a CPU) are the exact same chip, except that the DSL core is replaced with a DOCSIS/EuroDOCSIS one.
+
 = Status of the Broadcom 63xx port of OpenWrt =
  * The Broadcom BCM963xx currently only works with BCM96348 boards, but will soon with others as well
  * We have no GPL'd drivers for Ethernet, DSL so this makes the board pretty useless
@@ -21,12 +23,13 @@ See the files:
 }}}
 
 == What are 63xx variants? ==
-There are four 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358
+There are five 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358,bcm6368
 ||<tablewidth="532px" tableheight="155px">Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||ADSL2 ||ADSL2+ ||VDSL ||
 ||bcm6345 ||  75 ||1.1 ||- ||- ||Yes ||No ||No ||
 ||bcm6338 ||  240 ||1.1 ||- ||- ||Yes ||Yes ||No ||
 ||bcm6348 ||  240 ||1.1 ||1.1 ||Yes ||Yes ||Yes ||No ||
 ||bcm6358 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||
+||bcm6368 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||
 
 
 == Known 63xx platforms ==
