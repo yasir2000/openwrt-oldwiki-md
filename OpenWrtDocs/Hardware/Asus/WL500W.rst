@@ -1,10 +1,10 @@
 = The Asus WL-500W is supported from kamikaze quite well. =
-N mode wireless is not functional at this time (802.11n laptop connects at only 54 Mbit/s).
+N mode wireless is not functional at this time (Connections are at 54 Mbit/s).
 
-__'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said...these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
+__'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said... these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
 
 == Stock Firmware ==
-'''1.''' Connect to the router with a ethernet cable and tftp over the brcm-2.4 image to the router.
+'''1.''' Connect to the router with a ethernet cable on LAN port 2, 3 or 4 (1 is not yet active). Tftp the new image to the router: Unplug router, replug it back in while holding in the black reset button. Wait for a slowly blinking power light before releasing the black reset button. The remainder of the TFTP process is described here: OpenWrtViaTftp.
 Use the Broadcom 2.4 image:
 
 http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
@@ -39,7 +39,7 @@ config interface wan
 
 reboot
 
-'''3.''' Use ipkg to install the memo wireless driver
+'''3.''' Connect the WAN port to the internet and use ipkg to install the memo wireless driver
 
 {{{
 ipkg update
@@ -50,6 +50,26 @@ ipkg install kmod-brcm-wl-mimo
 {{{
 vi /etc/config/wireless
 }}}
+
+Basic wireless file example:
+{{{
+config "wifi-device" "wl0"
+	option "type" "broadcom"
+	option "channel" "5"
+	option "disabled" "0"
+
+config "wifi-iface"
+	option "device" "wl0"
+	option network	'lan'
+	option ssid	'OpenWRT'
+	option mode	'ap'
+	option encryption	'none'
+	option hidden	'0'
+	option isolate	'0'
+	option bgscan	'0'
+	option wds	'0'
+}}}
+
 reboot
 
 '''5.''' Make a kamikaze, drink, enjoy.
@@ -152,7 +172,7 @@ staging_dir/host/bin/trx  -o ~/wl500w-openwrt.trx \
                 -f /tmp/squashfs}}}
 If all is well in the world (ie you didn't make any typos) you should now have a new custom made wl500w image sitting in your home directory waiting for you.
 
-'''7.''' Use the web interface or tftp to load the new image on the router. For tftp: Unplug router, replug it in while holding in the black reset button. Watch for a slowly blinking power light. The remainder of the TFTP process is described here: OpenWrtViaTftp.
+'''7.''' Tftp the new image to the router: Unplug router, replug it back in while holding in the black reset button. Wait for a slowly blinking power light before releasing the black reset button. The remainder of the TFTP process is described here: OpenWrtViaTftp.
 
 On first install from a stock Asus firmware or to erase all configuration settings, run:
 
