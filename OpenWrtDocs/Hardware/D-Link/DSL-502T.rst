@@ -378,4 +378,4 @@ Bridged DSL (not PPP): http://forum.openwrt.org/viewtopic.php?id=8019
 Couldn't increase MTU to 1500: http://forum.openwrt.org/viewtopic.php?id=9281
 
 ----
- . ["CategoryAR7Device"]
+CategoryModel . ["CategoryAR7Device"]
