@@ -100,6 +100,8 @@ To install !OpenWrt using TFTP or the ASUS firmware restoration tool you have to
 
 In diag mode, the router takes address 192.168.1.1. It responds to ping, so you can confirm that it is in diag mode and ready for the tftp by using "ping 192.168.1.1".
 
+Note: I used the Asus tool to reflash the orginal asus firmware over kamikaze 7.09.  In diag mode the asus kept the IP address assigned to it in kamikaze, which was not 192.168.1.1.  The asus firmware restoration tool worked even though the asus in diag mode did not assign my PC an IP via DHCP and even though I could not ping the asus at 192.168.1.1.  I had to use ethereal/wireshark to monitor traffic on LAN1 to figure out what I had set the IP address to.  Then, using the proper IP address I could access the stock Asus web pages to use the "Reset to Factory Default" function and restore all settings to factory state.
+
 ==== TFTP ====
 It is possible to install !OpenWrt using a TFTP client when the router is in diag mode.
 
