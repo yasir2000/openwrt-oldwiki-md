@@ -5,6 +5,7 @@
 = Telnet Console =
 Some ["OpenWrtDocs/Hardware/Netgear"] routers run a telnet daemon which can be accessed from any computer on its local subnet after unlocking it (see below). The following devices are currently known or assumed to support this:
 
+ * WGR614 v9: works, gives access to a busybox console w/o authentication
  * WGR614 v7: known to work (if it does not work for you, try to hardreset your router first)
  * WGR614 v3,v4,v5,v6: known to work
  * WGR614 v1-2: unknown, may well work
