@@ -13,9 +13,12 @@ Note, as of 17th May '07 I am no longer maintaining this page as I no longer hav
 
 (I'm starting to update this page to reflect the current port status. -- OliverJowett)
 
-(I have a 504T, it's the same as the 502T but don't have the USB port and it have 4 ethernet 10/100 port) -- war3333
+(I have a 504T, it's the same as the 502T but doesn't have the USB port and it has 4 ethernet 10/100 ports) -- war3333
 
 (I have a 562T, it's the same as the 502T but for Annex B (ISDN) instead of Annex A (POTS). I am running Kamikaze r10180 without any problems. -- DominikKubla)
+
+(I've a 524T, it has it's own wiki page here [LINK], no USB, 4 ethernet ports, Annex A. - What is the difference between the
+504T and 524T?)
 
 == Specifications ==
  * ADSL modem with ADSL2/2+ support to 24Mbit/s+.
@@ -50,7 +53,7 @@ $ svn update
 }}}
 '''Apply useful patches that aren't in subversion yet'''
 
-These are patches that have tickets open but haven't made it into the subversion tree yet:
+These are patches that have tickets open but haven't made it into the subversion tree yet: (Is this still true as of r10887? With my DSL-524T revision 10887 without any patches enables wlan on boot and the LEDs work as expected.)
 
  * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781 (may not be needed anymore)
  * Make LEDs blink on network activity: https://dev.openwrt.org/ticket/2776
