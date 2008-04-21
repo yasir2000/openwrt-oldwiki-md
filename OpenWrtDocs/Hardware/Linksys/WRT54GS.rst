@@ -136,4 +136,4 @@ These models use bcm43xx wireless chipsets. The some software does not support t
 [ftp://lwfinger.dynalias.org/patches (Inofficial?) bcm43xx Kernel Patches by Larry Finger]
 
 ----
- . CategoryModel ["bcm34xx"]
+ . CategoryModel ["bcm43xx"]
