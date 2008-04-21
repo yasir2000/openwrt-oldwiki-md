@@ -136,4 +136,94 @@ Installation onto the USB drive is now easy:
   /usb/etc/init.d/asterisk enable
 }}}
 
-MORE TO COME.
+=== Adding a swap space to the USB ===
+
+For this you will need some extra utilities
+{{{
+  ipkg install kmod-loop
+  ipkg -d usb install losetup swap-utils
+}}}
+
+
+==== /usb/etc/init.d/swapfile ====
+
+{{{
+
+#!/bin/sh /opt/etc/rc.common
+START=01 
+STOP=99
+
+DEST=/usb
+PIDFILE=$DEST/var/run/swapfile.loop
+SWAPPATH=$DEST/tmp
+SWAPFILE=swapfile
+SWAPSIZE=100000
+export EXTRA_COMMANDS="status prepare"
+export EXTRA_HELP=$(echo -e "        status  Status of service\n        prepare Initialise Swap")
+LOGFILE=/opt/var/log/swapstart
+LOSETUP=/opt/usr/sbin/losetup
+
+status() {
+  swapon -s
+}
+
+prepare() {
+  [ -d $SWAPPATH ] || mkdir -p $SWAPPATH
+  dd if=/dev/zero of=/$SWAPPATH/$SWAPFILE count=$SWAPSIZE
+  if [ -f $SWAPPATH/$SWAPFILE ]
+  then
+    TMPLOOP=$($LOSETUP -f)
+    $LOSETUP $TMPLOOP /$SWAPPATH/$SWAPFILE
+    mkswap $TMPLOOP
+    $LOSETUP -d $TMPLOOP
+  fi
+}
+start() {
+  if [ -n $SWAPPATH ] && [ -n $SWAPFILE ]
+  then
+
+    [ -f $PIDFILE ] && ($LOSETUP $(cat $PIDFILE) || rm $PIDFILE)
+
+    if [ -f $PIDFILE ]
+    then
+      echo $PIDFILE exists
+    else
+      [ -f $SWAPPATH/$SWAPFILE ] || prepare
+
+      if [ -f "$SWAPPATH/$SWAPFILE" ]
+      then
+	[ -f $LOGFILE ] && rm $LOGFILE
+	TMPLOOP=$($LOSETUP -f)
+	echo Setup $SWAPPATH/$SWAPFILE on $TMPLOOP as swap | tee -a $LOGFILE
+
+	if [ -z $TMPLOOP ]
+	then
+	  echo No loop available
+	else
+          $LOSETUP $TMPLOOP /$SWAPPATH/$SWAPFILE | tee -a $LOGFILE
+          sleep 2
+          echo $TMPLOOP > $PIDFILE
+          swapon $TMPLOOP | tee -a $LOGFILE
+          swapon -s >> $LOGFILE
+	fi
+      fi
+    fi
+  fi
+}
+
+stop() {
+  if [ -f $PIDFILE ]
+  then
+    TMPLOOP=$(cat $PIDFILE)
+    swapoff $TMPLOOP && $LOSETUP -d $TMPLOOP && rm $PIDFILE
+  fi
+}
+
+}}}
+
+Once again, this is activated and enabled using:
+
+{{{
+  /usb/etc/init.d/swapfile start
+  /usb/etc/init.d/swapfile enable
+}}}
