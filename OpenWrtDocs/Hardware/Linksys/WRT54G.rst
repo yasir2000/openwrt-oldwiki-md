@@ -230,4 +230,4 @@ The SES Button was introduced in the WRT54G v3.0, though a firmware upgrade for 
 If you have a look at the WRT54G v2.2 board, you can find on the left corner, near the power LED, an empty place for a 4 pins button. On the board it is printed as SW2. This is the SES button you can find on WRT54G v3.0 and above, except that it has not been soldered.
 
 ----
- . CategoryModel
+ . CategoryModel bcm43xx
