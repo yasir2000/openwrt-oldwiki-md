@@ -1,4 +1,4 @@
-## Please edit system and help pages ONLY in the moinmaster wiki! For more
+## Please edit system and help pages ONLY in the moin*master wiki! For more
 ## information, please see MoinMaster:MoinPagesEditorGroup.
 ##acl MoinPagesEditorGroup:read,write,delete,revert All:read
 ##master-page:HelpTemplate
@@ -6,6 +6,10 @@
 #format wiki
 #language en
 == Installing Onto USB Drive ==
+
+This is a supplement to the [!USB Storage HowTo!UsbStorageHowto], which has many useful tips like formatting an ext3 drive and handling usb1.1 devices.  Realistically, if it's not USB2, then forget swap-space.
+
+I will assume that you have formatted a USB drive with a linux compatible (not fat32) filesystem, or that you will once the modules are loaded.
 
 === Preparation ===
 Install the kernel modules you will need (assuming usb2 here):
@@ -29,9 +33,9 @@ Add in a destination to your ipkg.conf
   echo "dest usb /usb/">> /etc/ipkg.conf
 }}}
 
-This allows you to install things onto your thumb-drive. However, the activating of init scripts isn't really sorted out properly.
+This allows you to install things onto your thumb-drive. However, the activating of init scripts on alternate destinations isn't really sorted out properly yet - so you will need to get a little creative.
 
-One solution is to create a /etc/fstab and place your drive in there.  Then you need to link your /usb/etc/init.d/  into /etc/rc.d/
+One solution is to create a /etc/fstab and place your drive in there.  Then you need to activate your /usb/etc/init.d/  into /etc/rc.d/. Be aware that the '''default''' 'init.d/drivername activate' function will fail here - it will place a symlink in /etc/rc.d pointing to /etc/init.d/drivername - which won't get you far.
 
 My solution is to mount and fsck in parallel to the main init.  This way the base system is up as quickly as possible.  The extra processes are then started as soon as the drive is mounted.
 
@@ -50,7 +54,6 @@ start()
 {
         echo -n "Starting USB Partition:  "
 	# Don't stop processing
-	#/etc/init.d/usbdrive_start &
 	( startup ) &
 
 }     
@@ -90,7 +93,8 @@ startup()
 
 }}}
 
-I have modified disable() enable() and enabled() in /etc/rc.common
+I have modified disable() enable() and enabled() in /etc/rc.common.  The 'init.d/drivername enable' function will place a link in ../rc.d that points to ../init.d/drivername.
+
 {{{
 
 disable() {
@@ -129,10 +133,10 @@ enabled() {
 
 === Installing onto the USB Drive ===
 
-Installation onto the USB drive is now easy:
+Installation onto the USB drive is now easy.  One small caveat though - don't install kernel modules or iptables modules onto your alternate drive.  They will not get loaded.  It is probably easy to fix - but I decided it wasn't worth the effort - kernel modules are generally better off on the main memory.
 
 {{{
-  ipkg -d usb install asterisk
+  ipkg -d usb install asterisk14
   /usb/etc/init.d/asterisk enable
 }}}
 
@@ -144,6 +148,8 @@ For this you will need some extra utilities
   ipkg -d usb install losetup swap-utils
 }}}
 
+.. and a nice little init script.  This is not generic. It would be very easy to make
+it so - however I haven't yet done it.  It should be easily able to support multiple files.
 
 ==== /usb/etc/init.d/swapfile ====
 
@@ -227,3 +233,7 @@ Once again, this is activated and enabled using:
   /usb/etc/init.d/swapfile start
   /usb/etc/init.d/swapfile enable
 }}}
+
+.. and there you have it.  Your router with a USB mounted, a swap-file and more space to play with while you get things sorted.  Pipe your logs to it.  Put xmail on your router and have a small mail server.  Run asterisk and have voicemail.  I have all of these working.
+
+I even have xmail receiving VOIP mailbox emails - unpacking them and placing them in the asterisk voicemail directory (appropriately ''soxed'' into shape).
