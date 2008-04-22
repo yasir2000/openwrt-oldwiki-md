@@ -7,7 +7,7 @@
 #language en
 == Installing Onto USB Drive ==
 
-This is a supplement to the [!USB Storage HowTo!UsbStorageHowto], which has many useful tips like formatting an ext3 drive and handling usb1.1 devices.  Realistically, if it's not USB2, then forget swap-space.
+This is a supplement to the [:UsbStorageHowto:USB Storage HowTo], which has many useful tips like formatting an ext3 drive and handling usb1.1 devices.  Realistically, if it's not USB2, then forget swap-space.
 
 I will assume that you have formatted a USB drive with a linux compatible (not fat32) filesystem, or that you will once the modules are loaded.
 
@@ -237,3 +237,5 @@ Once again, this is activated and enabled using:
 .. and there you have it.  Your router with a USB mounted, a swap-file and more space to play with while you get things sorted.  Pipe your logs to it.  Put xmail on your router and have a small mail server.  Run asterisk and have voicemail.  I have all of these working.
 
 I even have xmail receiving VOIP mailbox emails - unpacking them and placing them in the asterisk voicemail directory (appropriately ''soxed'' into shape).
+----
+CategoryHowTo
