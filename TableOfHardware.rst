@@ -26,8 +26,6 @@ See also
 Notes:
 
  * Just because a device is in this list doesn't mean that OpenWRT will run on this device. Furthermore, some devices have limited support, while others get by with just the bare minimums. For example. Devices with 2mb of flash and 8mb of ram will be able to handle basic tasks only.
-
-
 Quicklinks to manufacturers:
 
 [[TableOfContents(2)]]
@@ -317,7 +315,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://shop.antcor.com/shop/product_info.php?cPath=37&products_id=138 FN522P] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||16MB ||64MB ||N/A (2 empty mini-PCI) ||2 Port ||N/A ||Yes ||Yes || No || || Untested ||
 ||[http://shop.antcor.com/shop/product_info.php?cPath=37&products_id=139 FN522Pv2] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (2 empty mini-PCI) ||2 Port ||N/A ||Yes ||Yes || No || || Untested ||
 ||[http://shop.antcor.com/shop/product_info.php?products_id=140 FN545Pv2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||5 Port ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/LanReady/FN545Pv2:Kamikaze] ||
-
 ----
 == LevelOne ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -333,6 +330,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz ||4MB ||16MB ||None ||None ||["PSPBoot"] ||Yes ||Yes ||v1.1 ||[:AR7Port:WiP] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1130276770694&pagename=Linksys/Common/VisitorWrapper AG241] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16 MB ||none ||ADM6996L ||["ADAM2"] ||Yes || || ||[:AR7Port:WiP] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1130276770694&pagename=Linksys/Common/VisitorWrapper AG241] ||2 EU ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212MHz ||4MB ||16 MB ||none ||ADM6996L ||["PSPBoot"] ||Yes || || ||[:AR7Port:WiP] ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1169672056255&pagename=Linksys%2FCommon%2FVisitorWrapper AG310]||1.0||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212MHz||8MB||32MB||none||ADM6996L||["PSPBoot"]||Yes||Yes||&nbsp;||[:AR7Port:WiP]||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416906769&pagename=Linksys/Common/VisitorWrapper NSLU2] ||N/A ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||N/A ||N/A ||N/A ||Yes ||Yes ||2x 2.0 ||[:OpenWrtDocs/Hardware/Linksys/NSLU2:Supported] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1115416832835&pagename=Linksys/Common/VisitorWrapper RT042] || ||[http://www.intel.com/design/network/products/npfamily/ixp420.htm Intel IXP420] @ 266MHz ||8MB ||16 MB ||None ||2x ADM6996L ||N/A ||Yes ||Yes ||None ||WiP ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1150490914408&pagename=Linksys/Common/VisitorWrapper RVL200] ||N/A ||[http://www.caviumnetworks.com/processor_security_NitroxSoho.htm Cavium CN225] @ 200MHz ||16MB ||64MB ||N/A ||ADM6996L ||PMON ||Yes ||Yes ||N/A ||[:OpenWrtDocs/Hardware/Linksys/RVL200:No] ||
@@ -389,6 +387,8 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1122062241008&pagename=Linksys/Common/VisitorWrapper WTR54GS] ||2.1 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||No ||No ||WiP ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1147187335899&pagename=Linksys/Common/VisitorWrapper WRV200] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||[http://www.ralinktech.com/prod-2600.htm Ralink RT2661] ||in RTL8651B ||? ||? ||? ||No ||[:RTL8651BPort:WiP] ||
 ||[http://www-de.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=DE/Layout&cid=1123638038272&pagename=Linksys/Common/VisitorWrapper WRV54G] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||Prism (minipci) ||KS8995M ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRV54S:WiP] ||
+
+
 == Maxtor ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.ba88f6d7cf664718376049b291346068/?channelpath=/en_us/Products/Network%20Storage/Maxtor%20Shared%20Storage%20Family/Maxtor%20Shared%20Storage Shared Storage] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||Untested ||
@@ -410,7 +410,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://routerboard.com/rb100.html RouterBoard 133] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||64MB ||32MB ||3 mini-PCI ||3 ports ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB100:Supported] ||
 ||[http://routerboard.com/rb100.html RouterBoard 150] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||64MB ||32MB ||None ||5 ports ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB100:Supported] ||
 ||[http://routerboard.com/rb200.html RouterBoard 230] || ||NSC SC1100 ||None, CF slot/IDE ||So-DIMM slot ||mini-PCI slot and 2x cardbus ||None ||N/A ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
-||[http://www.routerboard.com/comparison.html RouterBoard 411] || ||[http://www.atheros.com/pt/AR7100.htm Atheros AR7130] @ 300MHz ||64MB ||32MB ||1 mini-PCI ||1 ethernet port ||N/A ||Yes ||No ||No || Info entered||
+||[http://www.routerboard.com/comparison.html RouterBoard 411] || ||[http://www.atheros.com/pt/AR7100.htm Atheros AR7130] @ 300MHz ||64MB ||32MB ||1 mini-PCI ||1 ethernet port ||N/A ||Yes ||No ||No || Info entered ||
 ||[http://www.routerboard.com/comparison.html RouterBoard 450] || ||[http://www.atheros.com/pt/AR7100.htm Atheros AR7130] @ 300MHz ||64MB ||32MB ||None ||5 ports ||N/A ||Yes ||No ||No || Info entered ||
 ||[http://routerboard.com/rb500.html RouterBoard 511] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||1 mini-PCI slot ||None ||N/A ||Yes ||No ||No ||WiP ||
 ||[http://routerboard.com/rb500.html RouterBoard 512] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||Supported ||
@@ -435,7 +435,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || ||Unsupported ||
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||CVG834G||1||BCM3368 300Mhz||8MB||32MB||BCM4318||BCM5365||No||Yes||Yes||Yes||WiP||
+||CVG834G ||1 ||BCM3368 300Mhz ||8MB ||32MB ||BCM4318 ||BCM5365 ||No ||Yes ||Yes ||Yes ||WiP ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834G:WiP] ||
 ||[http://www.netgear.com/products/details/DG834G.php DG834G] ||4 || [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 BCM6348 v0.7] ||4MB ||16MB || Broadcom BCM4318 || BCM6348B0 || ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834G:WiP] ||
 ||[http://www.netgear.com/products/details/DG834GT.php DG834GT] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 BCM6348] @ 256Mhz ||4MB ||16MB ||Atheros (mini-PCI) ||BCM5325 ||Yes ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:WiP] ||
@@ -484,7 +484,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
-
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||2MB ||8MB ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
@@ -579,7 +578,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WR100 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||4MB ||8MB ||Broadcom (integrated) ||ADM6996L ||off ||Maybe (unpopulated header) ||Yes ||No ||[:OpenWrtDocs/Hardware/Viewsonic/WR100:Supported] needs JTAG installed ||
 == WELL ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-|| [http://www.joyce.cz/c/adsl-zarizeni/well-pti-8505g-adsl-wifi-router-4x-eth-54-mb-s-an-b-vc-split.htm PTI-8505G] || || TNETD7200ZDW (AR7) @ 211 HMz  || 4MB (mx29lv320cb17c) || 16MB (p2v28s40ctp) || unknown (mini-PCI) || RTL8305SC || ? || Yes (3.3V) || No || No || [:OpenWrtDocs/Hardware/WELL/PTI-8505G: Info entered] ||
+|| [http://www.joyce.cz/c/adsl-zarizeni/well-pti-8505g-adsl-wifi-router-4x-eth-54-mb-s-an-b-vc-split.htm PTI-8505G] || || TNETD7200ZDW (AR7) @ 211 HMz || 4MB (mx29lv320cb17c) || 16MB (p2v28s40ctp) || unknown (mini-PCI) || RTL8305SC || ? || Yes (3.3V) || No || No || [:OpenWrtDocs/Hardware/WELL/PTI-8505G:Info entered] ||
 == Western Digital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.wdc.com/de/library/usb/2178-001050.pdf NetCenter] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 266MHz ||8MB ||32MB ||- ||- || ||yes ||yes ||2 ||3.5" ||[:OpenWrtDocs/Hardware/WD/NetCenter:WiP] ||
@@ -605,7 +604,6 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.zyxel.com/web/product_family_detail.php?PC1indexflag=20040908175941&CategoryGroupNo=0E8EA8FA-AF7D-434F-A527-F337AB9A3A51 ZyWall P1] || ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz ||8MB (Intel TE28F640) ||32MB (2 x Winbond W981216DH-75) ||N/A ||N/A || ||Yes, via pin header on pcb || ||Yes, but believed to be just for providing power ||[:OpenWrtDocs/Hardware/Zyxel/Zywall-P1:Info entered] ||
 ||[http://zyxel.com/web/product_category.php?PC1indexflag=20040520161313 P-334(W|WT|WH|WHD|U)] || ||Infineon/ADMtek ADM5120 (BGA) ||4MB 1xMacronix MX29LV320BTC-90 ||16MB 1xHynix HY57V283220T-7 ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||yes ||yes ||No ||[:OpenWrtDocs/Hardware/ZyXEL/P-334WT:Info entered] ||
 ||[http://zyxel.com/web/product_category.php?PC1indexflag=20040520161313 P-335(WT|Plus|U)] || ||Infineon/ADMtek ADM5120 (BGA) ||4MB 1xMacronix MX29LV320BTC-90 ||16MB 1xHynix HY57V283220T-7 ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||40ST1041RX ||? ||yes ||yes ||yes ||[:OpenWrtDocs/Hardware/ZyXEL/P-335WT:Info entered] ||
-
 ----
 ----
  . ["CategoryAR7Device"]
