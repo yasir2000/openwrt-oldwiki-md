@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2008/02/23.
+This is a table of all supported devices as of 2008/04/24
 
 '''Status Legend''':
 
