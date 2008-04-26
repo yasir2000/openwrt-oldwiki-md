@@ -1,5 +1,5 @@
 = Linksys AG310 =
-The AG310 has the same specifications as the [:OpenWrtDocs/Hardware/Linksys/AG300 :AG300], but mostly different construction.  It is primarily marketed in Australia and Canada and averages AU$120.  Its distinguishing features are the AR7 and a Sipura SIP316FF providing VoIP functionality.  Although not yet fully analyzed, the factory firmware seems to communicate with the Sipura as a discrete system over the 6th switch port.
+The AG310 has the same specifications as the [:OpenWrtDocs/Hardware/Linksys/AG300:AG300], but mostly different construction.  It is primarily marketed in Australia and Canada and averages AU$120.  Its distinguishing features are the AR7 and a Sipura SIP316FF providing VoIP functionality.  Although not yet fully analyzed, the factory firmware seems to communicate with the Sipura as a discrete system over the 6th switch port.
 
 == Specifications AG310 ==
 Switch 4-Port ADSL/VoIP Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
@@ -204,7 +204,7 @@ Texas Instruments ATM driver: version:[7.03.01.00]
 ar7_wdt: enabling watchdog timer
 }}}
 == Serial console ==
-See [:OpenWrtDocs/Hardware/Linksys/AG300 :AG300] for pinout.  Settings are 38400/8/n/1, software and hardware flow control off.
+See [:OpenWrtDocs/Hardware/Linksys/AG300:AG300] for pinout.  Settings are 38400/8/n/1, software and hardware flow control off.
 
 == Telnet/SSH ==
 This router supports both telnet and ssh, but the 'admin' user's shell is /bin/configurator, a custom shell reminiscent of Cisco CLIs.  It is reasonably featureful, but does not offer any way to control the VoIP functionality.  The version in firmware 1.00.4 is much better than previous iterations.
@@ -212,7 +212,7 @@ This router supports both telnet and ssh, but the 'admin' user's shell is /bin/c
 == Power Switch ==
 There is a momentary action SPST switch at the bottom left hand corner. Pressing it performs an immediate power-down of the system.
 
-Different from the [:OpenWrtDocs/Hardware/Linksys/AG300 :AG300], the AG310 defaults to a powered state, and the power switch only serves to turn it off
+Different from the [:OpenWrtDocs/Hardware/Linksys/AG300:AG300], the AG310 defaults to a powered state, and the power switch only serves to turn it off
 
 ----
  . ["CategoryAR7Device"]
