@@ -1,6 +1,6 @@
 = Linksys AG310 =
 
-The AG310 has the same specifications as the ["AG300"], but very different construction.  It is primarily marketed in Australia and Canada and averages AU$120.  Its distinguishing features are the AR7 and a Sipura SIP316FF providing VoIP functionality.  Although not yet fully analyzed, the factory firmware seems to communicate with the Sipura as a discrete system over the 6th switch port.
+The AG310 has the same specifications as the ["OpenWrtDocs/Hardware/Linksys/AG310"], but very different construction.  It is primarily marketed in Australia and Canada and averages AU$120.  Its distinguishing features are the AR7 and a Sipura SIP316FF providing VoIP functionality.  Although not yet fully analyzed, the factory firmware seems to communicate with the Sipura as a discrete system over the 6th switch port.
 
 == Specifications AG310 ==
 
@@ -214,7 +214,7 @@ ar7_wdt: enabling watchdog timer
 
 == Serial console ==
 
-See [AG300] for pictures.  Settings are 38400/8/n/1, software and hardware flow control off.
+See ["OpenWrtDocs/Hardware/Linksys/AG310"] for pictures.  Settings are 38400/8/n/1, software and hardware flow control off.
 
 
 == Telnet/SSH ==
@@ -224,7 +224,7 @@ This router inherently supports both telnet and ssh, but the 'admin' user's shel
 == Power Switch ==
 There is a momentary action SPST switch at the bottom left hand corner. Pressing it performs an immediate power-down of the system.
 
-Different from the AG300, the AG310 defaults to a powered state, and the power switch only serves to turn it off
+Different from the ["OpenWrtDocs/Hardware/Linksys/AG310"], the AG310 defaults to a powered state, and the power switch only serves to turn it off
 
 ----
 ["CategoryAR7Device"]
