@@ -5,15 +5,18 @@
 The AG310 has the same specifications as the [:OpenWrtDocs/Hardware/Linksys/AG300:AG300], but mostly different construction.  It is primarily marketed in Australia and Canada and averages AU$120.  Its distinguishing features are the AR7 chipset and a Sipura SIP316FF providing VoIP functionality.  Although not yet fully analyzed, the factory firmware seems to communicate with the Sipura as a discrete system over the 6th switch port.
 
 == Specifications ==
-Switch 4-Port ADSL/VoIP Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
+Switch 4-Port ADSL2+ Router with Firewall/QoS Control and VoIP/SIP functionality
 
+ * Power: 12v @ 1.5A
  * Bootloader: ["PSPBoot"]
  * CPU: Texas Instruments AR7 MIPS-based, [http://focus.ti.com/lit/ml/spat013a/spat013a.pdf TNETD7200ZDW]
   * Flash: 8MB Intel JS28F640J3D75
   * SDRAM: 32MB Mira P2V56S40BTP [http://www.deutron.com.tw/data_sheets/sdram/p2v56s_0btp11_07024.pdf (4-BANK x 4,194,304-WORD x 16-BIT)]
- * Switch: Infineon [http://www.infineon.com/dgdl/Samurai_Product_Introduction_Presentation_2May05.pdf?folderId=db3a304412b407950112b412e2791a7a&fileId=db3a304412b407950112b412e2a31a7b ADM6996I]  pin compatible ADM6996LC: extra functions IGMP, QOS.
- * Wireless NIC: NONE
- * Annex M ADSL2+:  Yes.
+ * Switch: 6-port Infineon [http://www.infineon.com/dgdl/Samurai_Product_Introduction_Presentation_2May05.pdf?folderId=db3a304412b407950112b412e2791a7a&fileId=db3a304412b407950112b412e2a31a7b ADM6996I] 
+  * Pin-compatible with ADM6996LC: extra functions IGMP, QOS.
+  * External ports: 4
+ * Wireless: NONE
+ * Annex A ADSL2+
  * Ethernet transformer: LANKom LF-H4002X-1
  * VoIP: Sipura SIP316FF (FXO + FXS)
   * Flash: 2MB Macronix [http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/7F9AFF543602ACAB48256FCD0002EA5C/$File/MX29LV400C-800C-160CT-B-2.1.pdf?OpenElement MX29LV160CBTC-70G]
@@ -1406,11 +1409,15 @@ There is a momentary action SPST switch at the bottom left hand corner. Pressing
 
 Different from the [:OpenWrtDocs/Hardware/Linksys/AG300:AG300], the AG310 defaults to a powered state, and the power switch only serves to turn it off
 
+== IVR ==
+The Sipura chipset contains a minimal IVR interface for setting and checking basic network configurations (system-wide, not itself), as well as reboot and reset the system to factory defaults. 
+
 = OpenWRT firmware =
 This unit has been booted from an AR7 build of SVN revision 10950, but the switch and Sipura are not yet supported.  The web interface refuses non-Linksys firmware (possibly due to date or other version checking), but TFTP to the bootloader works fine.
-== Version magic ==
-||'''HW revision'''||'''Magic'''||
-||1.0              ||AV2A||
+== Version pattern ==
+Note that this model seems to take the extended (addpattern -b -r 1.0) pattern.
+||'''HW revision'''||'''Serial Prefix'''||'''Magic'''||
+||1.0              ||CQB01G3            ||AV2A       ||
 
 ----
  . ["CategoryAR7Device"]
