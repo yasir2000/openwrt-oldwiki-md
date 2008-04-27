@@ -28,7 +28,7 @@ See TableOfHardware
  * D-Link DI-634M - RTL8651B
  * Edimax BR-6204Wg (FW compatible with the above Canyon CN-WF514) - RTL8186
  * Edimax IC-1500 - RTL8651B [http://www.edimax.com/en/produce_detail.php?pd_id=54&pl1_id=8&pl2_id=35 product description] [http://www.edimax.com/images/Image/OpenSourceCode/Wireless/IPCamera/IC-1500wg/IC1500_RTL865X.tar.gz Firmware source code] (IP Web-camera)
- * !LogiLink Wireless Lan Internet Camera (FW and HW compatible with the above Edimax IC-1500)
+ * !LogiLink Wireless Lan Internet Camera - RTL8650B (FW compatible with the above Edimax IC-1500)
  * Linksys WRT54GX2, WRT54GX4, [:OpenWrtDocs/Hardware/Linksys/WRT54GX:WRT54GXv2], WRV200
  * [:OpenWrtDocs/Hardware/Netgear/WPNT834:Netgear WPNT834] [http://www.netgear.com/products/details/WPNT834.php product page] (has a crippled bootloader, can't netboot)
 == TODO ==
