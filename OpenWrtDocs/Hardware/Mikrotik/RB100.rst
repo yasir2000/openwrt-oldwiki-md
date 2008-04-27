@@ -3,16 +3,17 @@ http://www.routerboard.com/img/rb100_comp.jpg
 
 These boards come with a MIPS32 4Kc based 175MHz embedded processor, Infineon ADM5120.
 
-There are currently 5 boards in this range:-
+There are currently 6 boards in this range:-
 
  1. 112 The original 1xx board, two mini-pci, 16MB RAM, 64MB NAND Flash, one ethernet, no CF
  1. 133 Three mini-pci, 32/16MB RAM, 128/64MB NAND Flash, three ethernet, no CF
  1. 133c One mini-pci, 32/16MB RAM, 128/64MB NAND Flash, one ethernet, no CF
  1. 150 No mini-pci, 32MB RAM, 64MB NAND Flash, five ethernet, no CF
- 1. 153 Three mini-pci, 32MB RAM, 64MB NAND Flash, give ethernet, one CF
+ 1. 153 Three mini-pci, 32MB RAM, 64MB NAND Flash, five ethernet, one CF
+ 1. 192 Two mini-pci, 32MB RAM, 64MB NAND Flash, nine ethernet, no CF
 
 === Installation ===
-Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need a serial connection as console, and an ethernet connection to load the kernel and then download the flash image.  You will also need to have BOOTP and TFTPD servers on your machine.  This can be done either using independent packages or using DnsMasq.  You will also need a Web server.
+Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need a serial connection with a null modem cable as console (standard serial cable will not work), and an ethernet connection to load the kernel and then download the flash image.  You will also need to have DHCP and TFTPD servers on your machine.  This can be done either using independent packages or using DnsMasq.  You will also need a Web server.
 
 The minicom settings for a connection using a USB serial port would be:-
 
@@ -81,9 +82,7 @@ Unfortunately you need to build two kernels in order to install this system.  Th
 
 All the building happens under the ADM5120-2.6 target, so the first thing you need to do is to download an SVN copy of OpenWrt Kamikaze, and then run make menuconfig.
 
-For current revisions of Kamikaze (I tested with r9701) you need to enable "Advanced configuration options (for developers)", then go into the sub menu and enable "Show broken platforms / packages".  Otherwise you will not be able to select the Subtarget and Target Profile and the build will fail.
-
-Now select the "ADM5120-2.6 (Little Endian)" target.  Then in the Target Images section select RAMDISK.  This will disable all the other image options.
+In menuconfig select the "ADM5120-2.6 (Little Endian)" target.  Then in the Target Images section select RAMDISK.  This will disable all the other image options.
 
 There is no need to make package selections at this stage as all the packages you will need to install the system are there by default.
 
@@ -93,7 +92,7 @@ You should now have a file in the bin directory called openwrt-adm5120-2.6-vmlin
 
 === Starting the RAMDISK image ===
 
-Now power on your RB1xx board. Press "Enter" within 2 seconds to make it stop the autoboot process. You can now see the following menu :
+With your serial console ready, power on your RB1xx board. Press "Enter" within 2 seconds to make it stop the autoboot process. You can now see the following menu :
 
 {{{
 RouterBOOT booter 2.1
@@ -138,17 +137,17 @@ Choose "e" to boot over Ethernet.
 
 Now, you get back to he main menu. Press "o", then "b" to effectively boot from Ethernet now.
 
-Now you need to build the running image, and for this you will need to run make clean (to get rid of the old settings) and then run make menuconfig again.  This time select TAR as the Image type.  Once you have completed the configuration you can run make (and once again wait a while).
+=== Build the running image ===
 
-You can at this stage go through and select the packages that you are actually going to want (although you can always add them later with ipkg).
+Now you need to build the running image, and for this you will need to run make clean (to get rid of the old settings) and then run make menuconfig again.  This time select TAR as the Image type. You can at this stage go through and select the packages that you are actually going to want (although you can always add them later with ipkg). Once you have completed the configuration you can run make (and once again wait a while).
 
-This time you will find a tar file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz and the kernel called openwrt-adm5120-rb1xx-kernel.  (If for some reason you don't find the kernel in the bin directory, the one called build_dir/linux-adm5120_router_le/vmlinux.elf should also work.)  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-vmlinux.
+This time you will find a tar file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz and the kernel called openwrt-adm5120-rb1xx-vmlinux.  (If for some reason you don't find the kernel in the bin directory, the one called build_dir/linux-adm5120_router_le/vmlinux.elf should also work.)  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-vmlinux.
+
+=== Flash the running image ===
 
 Now you can power up your RB1xx and download the kernel.  At this stage you are using the first kernel you produced above.
 
-When you boot the RB1xx, go into the BIOS settings and say that you want to use Netboot rather than using the NAND as the boot source.
-
-When the kernel is booted hardly any of the normal OpenWrt initialisation occurs - you will not find that modules have been loaded or the network configured.
+When the RAMDISK Openwrt kernel is booted hardly any of the normal OpenWrt initialisation occurs - you will not find that modules have been loaded or the network configured.
 
 In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
 
