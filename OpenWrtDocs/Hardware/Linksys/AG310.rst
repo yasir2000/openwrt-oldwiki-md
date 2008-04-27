@@ -87,7 +87,7 @@ eoc_vendor_revision     0
 wan_autoresult  0:-1 0:-1 0:-1 0:-1 0:-1 0:-1 0:-1 0:-1
 HWA_0   00:1A:70:7F:94:7E
 eoc_vendor_serialnum    CQB01G300271
-IPA     192.168.33.7
+IPA     192.168.1.1
 BOOTCFG m:f:"mtd1"
 }}}
 == Console log ==
