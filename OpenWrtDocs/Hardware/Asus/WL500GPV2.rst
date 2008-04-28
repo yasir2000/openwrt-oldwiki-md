@@ -6,7 +6,7 @@ The redesigned version of the ASUS WL-500g Premium router, ["OpenWrtDocs/Hardwar
  * Broadcom BCM5354 CPU @ 240 Mhz
  * On-board wireless LAN controller
  * WLAN port and antenna port have changed sides
-Support for this latest version is not yet in trunk (Mar 14, 2008).
+Support in trunk since [https://dev.openwrt.org/changeset/10693 changeset 10693].
 
 == Hardware ==
 === Info ===
