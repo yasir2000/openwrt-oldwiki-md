@@ -173,7 +173,7 @@ Sadly this link is dead, so you currently have to use the wayback machine to see
 Here is another mod done for a version 4 wrt54gs [http://theattic.thruhere.net/mmc-sd-mod.html]
 
 
-=== WRT54GL v1.1 ===
+=== WRT54GL v1.1 + WRT54G-TM ===
 
 +3.3V and GND:
 
