@@ -75,6 +75,20 @@ The tool provides status as it works:
 
 After this you should be able to connect to the Router.
 
+== wrong nvram settings ==
+
+/!\ By providing wrong nvram settings, the router CPU might loose it´s connection to the switch.
+(wrong vlan configuration)
+If this is the case, it´s impossible to connect to the router via lan. Even in '''Failure Mode''' there
+is no way to restore the fw via tftp because the packages never reaches the routers cpu.
+Thats because the router reads nvram configuration during cfe sequence.
+The only way out of this Situation is to fix the wrong nvram settings
+This can only be done via serial console (see below) during the lack of lan support.
+
+Fortunately the router carries default nvram parameter.
+They can be restored by deleting the entire nvram. (All settings will be lost!)
+
+
 == Serial console ==
 
 See [http://wl500g.info/showthread.php?t=1993].
