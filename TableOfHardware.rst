@@ -434,9 +434,12 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://broadband.motorola.com/consumers/products/wr850g/default.asp WR850G] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Motorola/WR850G:Supported] ||
 ||[http://broadband.motorola.com/consumers/products/wr850gp/default.asp WR850GP] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||Supported ||
 ||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[http://web.archive.org/web/20030627094926/www.broadcom.com/pbs/3348-PB02-403-RDS.pdf Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
+
 == MSI ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || || ||Unsupported ||
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || ||Unsupported ||
+||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=1061&maincat_no=131 MSI RG60G] || ||AMRISC 10000 ||1MB ||2MB ||Ralink ? || || || || ||No ||Unsupported ||
+
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||CVG834G ||1 ||BCM3368 300Mhz ||8MB ||32MB ||BCM4318 ||BCM5365 ||No ||Yes ||Yes ||Yes ||WiP ||
