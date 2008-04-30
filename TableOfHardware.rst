@@ -308,10 +308,12 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/Gateworks/Avila GW2348 4:Kamikaze] ||
 ||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||Kamikaze ||
 ||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||Kamikaze ||
+
 == Gigabyte ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] ||1.0 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB ||mini-PCI ||IC+ IP175A || ||No ||Yes ||Space for connector || ||
-----
+||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=978&ProductName=GN-BR01G GN-BR01G] || ||RDC R2600 MIPS ||1MB ||8MB ||RaLink? ||IC+ IP175C ||? ||? ||? ||No ||Unsupported ||
+
 == LanReady - Antcor ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://shop.antcor.com/shop/product_info.php?cPath=37&products_id=138 FN522P] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||16MB ||64MB ||N/A (2 empty mini-PCI) ||2 Port ||N/A ||Yes ||Yes || No || || Untested ||
