@@ -85,6 +85,7 @@ Most devices listed here do not have enough flash memory, but there might be oth
 == TP-LINK ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||TL-WR541G || ||[http://www.micrel.com/_PDF/Ethernet/ks8695.pdf Kendin KS8695 ARM922T] @ 166MHz ||2MB ||8MB ||unknow(on board) ||in CPU ||on || || ||no ||no ||
+||TL-WR642G || ||[http://micrel.com/_PDF/Ethernet/ks8695px.pdf Kendin KS8695PX] ||2MB ||? ||Atheros AR5005GS ||? ||? || || ||No ||Unsupported ||
 == TRENDnet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.trendnet.com/products/TEW-431BRP.htm TEW-431BRP] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8010_88W8510.pdf Marvell 88W8510] (ARM9 core) ||1MB (Macronix 29LV800TTC-70) ||4 MB (2x EM636165TS-6: 1M x 16'') '' ||integrated (Marvell Libertas) ||Marvell 88E6060 (4x) || || ||20-pin not soldered ||No ||No ||
