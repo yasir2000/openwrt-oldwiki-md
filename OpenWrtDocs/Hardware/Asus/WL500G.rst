@@ -2,6 +2,8 @@
 
 The device is supported in OpenWrt 1.0 (White Russian) and later. You need to install the openwrt-brcm-2.4-<type>.trx firmware images.
 
+''Note'': beginning with SVN revision 10137 (and up to current rev10996), a new version 4.150.10.5 of the broadcom-wl driver and utils was integrated, which unfortunately does not seem to support the WLAN module in the WL-500g any longer. Unfortunately, the changes lie within binary code, so probably the only way is to get the old 4.80.53.0 version ported forward.
+
 {{{
 Bootloader: PMON
 System-On-Chip:  Broadcom 4710 
