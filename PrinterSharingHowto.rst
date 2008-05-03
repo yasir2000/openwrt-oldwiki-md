@@ -48,11 +48,13 @@ When you see the file {{{/dev/printers/0}}} than the installation is done. You c
 = Configuring the printer daemon =
 The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can run more than one printer at the same time by adding additional sections. The default configuration is (list all configured printers):
 
+Under Linux 2.4, the device name for the printer would be of the form /dev/usb/lpn. Under Linux 2.6, the device name for the printing would be of the form /dev/lpn
+
 {{{
 uci show p910nd}}}
 {{{
 uci set p910nd.cfg1=p910nd
-uci set p910nd.cfg1.ice=//usb/lp0
+uci set p910nd.cfg1.device=/dev/usb/lp0
 uci set p910nd.cfg1.port=0
 uci set p910nd.cfg1.bidirectional=1
 uci set p910nd.cfg1.enabled=1}}}
@@ -60,7 +62,7 @@ To add a second printer, do this:
 
 {{{
 uci set p910nd.cfg2=p910nd
-uci set p910nd.cfg2.ice=//usb/lp1
+uci set p910nd.cfg2.ice=/dev/usb/lp1
 uci set p910nd.cfg2.port=0
 uci set p910nd.cfg2.bidirectional=1
 uci set p910nd.cfg2.enabled=1
@@ -74,7 +76,7 @@ uci commit p910nd
 /etc/init.d/p910nd restart}}}
 Description of the options in the p910nd config file (/etc/config/p910nd):
 ||<tablewidth="1155px" tableheight="145px">'''Option''' ||'''Value''' ||'''Default value''' ||'''Description''' ||
-||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to (e.g. /dev/usb/lp0 for USB - e.g. /dev/printers/0 for LPT) ||
+||device ||/dev/usb/lp0 ||/dev/usb/lp0 ||The device your printer is connected to (e.g. /dev/usb/lp0, /dev/printers/0 for LPT under Linux 2.4; /dev/lp0 for USB under Linux 2.6) ||
 ||port ||[0-9] ||0 ||The p910nd daemon will listen on TCP port 9100+port ||
 ||bidirectional ||[1|0] ||1 ||1: Turn on bidirectional copying; 0: Turn off bidirectional copying ||
 ||enabled ||[1|0] ||0 ||1: Enable the printer; 0: Disable the printer ||
