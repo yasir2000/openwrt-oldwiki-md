@@ -6,11 +6,13 @@ CPU Speed: 200MHz
 Flash size: 4MB
 RAM: 16MB
 Wireless: Broadcom Corporation BCM4306 802.11b/g Wireless LAN Controller / Broadcom BCM4320 802.11 Wireless Controller 4.80.53.0
-Ethernet: 1 ethernet port, (but with integrated Broadcom switch, "ETHERNET" port is connected to port number 3)
-USB: ? (no external connector)
-Serial: ?
+Antennas: 1 (WL-320gE) / 2 (WL-320gP)
+Ethernet: 1 Ethernet port (but with integrated Broadcom switch, "ETHERNET" port is connected to port number 3)
+USB: yes, but no external connector. Header can be soldered onto the PCB.
+Serial: yes, header already present (at least on r1.50 boards)
 JTAG: ?
-802.3af Power over Ethernet: no
+802.3af Power over Ethernet: no (WL-320gE) / yes (WL-320gP)
+GPIO: yes, header already present (at least on r1.50 boards)
 }}}
 
 === lspci ===
