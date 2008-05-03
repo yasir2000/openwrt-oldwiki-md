@@ -43,7 +43,7 @@ Now you've to reboot your Wrt router.
 
 {{{
 reboot}}}
-When you see the file {{{/dev/printers/0}}} than the installation is done. You can also check the output from {{{dmesg}}}.
+When you see the file {{{/dev/printers/0}}} under linux 2.4 than the installation is done. You can also check the output from {{{dmesg}}}.
 
 = Configuring the printer daemon =
 The configuration has been migrated to use UCI and is stored in the /etc/config/p910nd config file. You can run more than one printer at the same time by adding additional sections. The default configuration is (list all configured printers):
