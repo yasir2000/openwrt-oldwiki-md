@@ -43,6 +43,40 @@ VCEI exceptions         : not available
 === nvram show ===
 [http://sokrates.mimuw.edu.pl/~sebek/openwrt/wl320gE-nvram.txt]
 
+The bare minimum of nvram variables required should be this (taken from a WL-320gE, HWRev 1.5):
+
+{{{
+aa0=1
+boardflags=0x0658
+boardnum=45
+boardrev=0x10
+boardtype=0x467
+boot_wait=on
+clkfreq=200
+dl_ram_addr=a0001000
+et0macaddr=xx:xx:xx:xx:xx:xx
+et0mdcport=0
+et0phyaddr=30
+hardware_version=WL320G-01-02-01-00
+lan_ipaddr=192.168.1.1
+lan_netmask=255.255.255.0
+opo=0x0
+os_date=Jul 25 2007
+os_flash_addr=bfc40000  
+os_ram_addr=80001000
+os_version=3.131.35.0
+pmon_ver=CFE 3.91.23.0
+scratch=a0180000
+sdram_config=0x0032
+sdram_init=0x2100
+sdram_ncdl=0x2023f
+sdram_refresh=0x0
+sysDescr=ASUSTeK WL320g 1.9.8.0
+watchdog=5000
+wl0id=0x4320
+}}}
+
+Don't be stupid and try to "optimize" NVRAM - '''you can brick your router'''!
 
 === Versions Tested ===
  *  7.09, brcm-2.4-squashfs
