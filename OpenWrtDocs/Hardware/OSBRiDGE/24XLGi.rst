@@ -18,7 +18,7 @@ Here there is a photo of the board: http://img388.imageshack.us/img388/8409/osbr
 There are 6 pins on boards, but nobody has figured out how to attach a serial on the board
 
 == Hacking ==
-I managed to inject commands to the webif using this tool I wrote:[javascript:void(0);/*1210026107050*/ inject.pl]:
+I managed to inject commands to the webif using this tool I wrote: [javascript:void(0);/*1210027397147*/ inject.pl]
 
 {{{
 $ inject.pl cat /proc/cpuinfo
@@ -72,4 +72,4 @@ $ inject.pl ps
 23955 root        308 R N ps
 }}}
 == Uploading the firmware ==
-It's a mistery yt
+It's a mistery yet
