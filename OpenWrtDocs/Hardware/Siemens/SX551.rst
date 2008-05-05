@@ -113,6 +113,41 @@ The serial signals are at a 3.3V level, so you need to use a level convertor, se
 
 The serial signal itself is 115200 baud, 8 databits, 1 stopbit, no parity (8N1).
 
+= Rescue mode =
+
+The SX551 has a rescue mode, which is reached by holding start while powering on the device, and then pressing 'reset' three times. In this mode, the router is reachable at 192.168.2.1 and runs a webserver. The webpages on that are password-protected: the username and password have been found, though. The username is root, the password is LAYS?8<}HJ?]W.i&c*oV[ouHwzM:QMV]9:XQ(u (yes, the complete string). This mode is quite useless, though: First of all, it'll only accept files which have BRN4519JW[null] as the last few bytes. A bit of hexediting can solve this, but the second problem is that it doesn't seem to recognize the flash: at the serial console, this shows up:
+{{{
+upgrade CGI > process content-type...                                           
+boundary=-----------------------------3334805413133863571136168153              
+endbound=-----------------------------3334805413133863571136168153--            
+content-length: 1485187                                                         
+lens_up=0, call recv(), recv() returned, lens_up=512...                         
+remove 0xD, 0xA                                                                 
+remove 0xD, 0xA                                                                 
+remove 0xD, 0xA                             
+parse file upload                                                               
+value: sx551-w-a-fw1_08_SWD-for-bootloader.bin                                  
+remove 0xD, 0xA                                                                 
+content-type upg_buf = Content-Type: application/octet-stream                   
+remove 0xD, 0xA                  
+remove 0xD, 0xA                                                                 
+remove 0xD, 0xA                                                                 
+remove 0xD, 0xA
+#####8<#####
+count=1484810                                                    
+comparing UI...                                                                 
+comparing FW...                                                                 
+found signature: 78h 56h 34h 12h                                                
+ulImgLens=254705, LENGTH[2]-12=1769460                                          
+length checking OK                                                              
+search_signature: image's lens = 254976                                         
+write to flash task...                                                          
+period_task running 1200                                                        
+                                                                                
+update UI and FW, length=1484800...                                             
+Flash not found                 
+}}}                   
+
 = Original bootlog =
 {{{
 ===========================================================
@@ -127,7 +162,7 @@ Unzipping code at 0x94000000 ... [LZMA] done
 }}}
 That really is all...
 
-There is a debug console which can be reached by pressing the reset when you start de device and then pressing the reset three times after that. (tnx equinoxe for that tip)
+In the rescue-mode, which can be reached by pressing the reset when you start de device and then pressing the reset three times after that. (tnx equinoxe for that tip)
 
 Then the output becomes:
 
