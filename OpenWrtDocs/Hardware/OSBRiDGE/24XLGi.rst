@@ -16,5 +16,6 @@ Here there is a photo of the board: http://img388.imageshack.us/img388/8409/osbr
 
 == Serial ==
 There are 6 pins on boards, but nobody has figured out how to attach a serial on the board
+
 == Uploading the firmware ==
 It's a mistery yet
