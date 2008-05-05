@@ -34,6 +34,7 @@ See TableOfHardware
 == TODO ==
  * Make a working 2.6 kernel and netboot it.
  * Find a JTAG on any of the devices to be able to make a crash recovery
+  * JTAG found on the !LogiLink Wireless Lan Internet Camera - RTL8650B (flash r/w working with urjtag)
 == Status ==
 Currently only the diff-ing is done based on 2.4.26-uc0, integration into 2.6 is in progress.
 
