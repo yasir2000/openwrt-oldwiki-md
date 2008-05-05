@@ -18,6 +18,8 @@ Here there is a photo of the board: http://img388.imageshack.us/img388/8409/osbr
 There are 6 pins on boards, but nobody has figured out how to attach a serial on the board
 
 == Hacking ==
+That's a long story, if you are curious read this: [http://teknoraver.campuslife.it/software/osbridge_hacking/I http://teknoraver.campuslife.it/software/osbridge_hacking/]
+
 I managed to inject commands to the webif using this tool I wrote: [http://teknoraver.campuslife.it/software/inject.pl inject.pl]
 
 {{{
