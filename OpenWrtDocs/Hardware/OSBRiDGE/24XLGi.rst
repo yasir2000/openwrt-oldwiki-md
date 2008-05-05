@@ -18,7 +18,7 @@ Here there is a photo of the board: http://img388.imageshack.us/img388/8409/osbr
 There are 6 pins on boards, but nobody has figured out how to attach a serial on the board
 
 == Hacking ==
-That's a long story, if you are curious read this: [http://teknoraver.campuslife.it/software/osbridge_hacking/I http://teknoraver.campuslife.it/software/osbridge_hacking/]
+That's a long story, if you are curious read this: [http://teknoraver.campuslife.it/software/osbridge_hacking/ http://teknoraver.campuslife.it/software/osbridge_hacking/]
 
 I managed to inject commands to the webif using this tool I wrote: [http://teknoraver.campuslife.it/software/inject.pl inject.pl]
 
@@ -61,7 +61,7 @@ $ inject.pl ps
   216 root        624 S   /bin/pppoe-relay -S wlan0 -C br0
   476 root        320 S   /usr/sbin/udhcpd /tmp/udhcpd.conf
   496 root       1816 S   /bin/snmpd -f -c /tmp/snmpd.conf
-  522 root        384 S   /bin/sh /bin/pppoe.sh eth0
+  522 root        384 S   /bin/sh /bin/pppoe.sh eth0 sganga
   878 root            Z   [tftpd]
   879 root        244 S   tftpd -l -u root
 23864 root        488 S   /bin/pppd pty /bin/pppoe -p /tmp/ppp/run/pppoe.conf-a
