@@ -9,7 +9,7 @@
 The OSBRiDGE 24XLGi is a router used for long wireless links
 
 === Hardware ===
-The 24XLGi uses a Realtek RTL8186 SoC{{{
+The 24XLGi uses a Realtek RTL8186 SoC http://img388.imageshack.us/img388/8409/osbridgecb5.jpg {{{
 SoC: RTL8186
 CPU: LX5280
 Switch: RTL8305SC
