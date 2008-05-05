@@ -19,6 +19,7 @@ There are 6 pins on boards, but nobody has figured out how to attach a serial on
 
 == Hacking ==
 I managed to inject commands to the webif using this tool I wrote:[javascript:void(0);/*1210026107050*/ inject.pl]:
+
 {{{
 $ inject.pl cat /proc/cpuinfo
 [~] cat /proc/cpuinfo
@@ -58,7 +59,7 @@ $ inject.pl ps
   216 root        624 S   /bin/pppoe-relay -S wlan0 -C br0
   476 root        320 S   /usr/sbin/udhcpd /tmp/udhcpd.conf
   496 root       1816 S   /bin/snmpd -f -c /tmp/snmpd.conf
-  522 root        384 S   /bin/sh /bin/pppoe.sh eth0 scanga_enel
+  522 root        384 S   /bin/sh /bin/pppoe.sh eth0
   878 root            Z   [tftpd]
   879 root        244 S   tftpd -l -u root
 23864 root        488 S   /bin/pppd pty /bin/pppoe -p /tmp/ppp/run/pppoe.conf-a
@@ -71,4 +72,4 @@ $ inject.pl ps
 23955 root        308 R N ps
 }}}
 == Uploading the firmware ==
-It's a mistery ye
+It's a mistery yt
