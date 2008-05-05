@@ -76,5 +76,5 @@ Working(?) free firmware : http://inbox.eu.org/
 Info at [http://www.linux-mips.org www.linux-mips.org]:
 
  * [http://www.linux-mips.org/wiki/Lexra Lexra]
- * [http://www.linux-mips.org/wiki/Realtek_SOC Raltek SOCs]
+ * [http://www.linux-mips.org/wiki/Realtek_SOC Realtek SOCs]
 Investigation of DI-524UP: http://ossfans.org/DI524UP/
