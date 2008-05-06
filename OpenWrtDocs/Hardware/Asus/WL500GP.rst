@@ -374,7 +374,7 @@ Work in progress. Please see the UsbAudioHowto.
 
 == External Links ==
 === Tutorials ===
- * [http://begunje.dyndns.org/articles/wl500gx-ram-upgrade/index.html RAM Upgrade] 
+ * [http://wl500g.info/showthread.php?t=12962 RAM Upgrade] 
  * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
  * [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 Tips for configuration Atheros MiniPCI card on wl-500gP]  in Russian and [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 English translation]
 === Product Info Pages ===
