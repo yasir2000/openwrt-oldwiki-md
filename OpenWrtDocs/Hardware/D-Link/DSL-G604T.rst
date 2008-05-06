@@ -26,6 +26,9 @@ wlan0     IEEE 802.11b  ESSID:"OpenWrt"
           Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
           Tx excessive retries:0  Invalid misc:0   Missed beacon:0
 }}}
+
+Ethernet is reported to be broken for kernel > 2.6.23. Release 10417 seems to be the last one without this problem. For details see https://dev.openwrt.org/ticket/3124
+
 == Specifications ==
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
 
