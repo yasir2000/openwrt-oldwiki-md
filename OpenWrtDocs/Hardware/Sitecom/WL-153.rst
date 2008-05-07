@@ -25,6 +25,11 @@ RX GND TX VCC
 
 Speed is 38400.
 
+= JTAG =
+
+The JTAG header may be similar to the one at a AR525W:
+http://wiki.openwrt.org/OpenWrtDocs/Hardware/Airlink101/AR525W
+
 = Boot Loader =
 The bootload used is a modified and restricted Redboot:
 
