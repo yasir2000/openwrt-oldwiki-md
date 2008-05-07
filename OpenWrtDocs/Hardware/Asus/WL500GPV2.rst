@@ -9,6 +9,9 @@ The redesigned version of the ASUS WL-500g Premium router, ["OpenWrtDocs/Hardwar
 Support in trunk since [https://dev.openwrt.org/changeset/10693 changeset 10693].
 
 == Hardware ==
+
+There is an [http://www.vr-zone.com/?i=5624 article about the wl-500gPv2] with a picture.
+
 === Info ===
 ||<tablewidth="400px" tableheight="289px">'''Architecture''' ||MIPS ||
 ||'''Vendor''' ||Broadcom ||
