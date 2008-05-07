@@ -23,6 +23,8 @@ attachment:WL153TOP.JPG
  . LEDS
 RX GND TX VCC
 
+Speed is 38400.
+
 = Boot Loader =
 The bootload used is a modified and restricted Redboot:
 
