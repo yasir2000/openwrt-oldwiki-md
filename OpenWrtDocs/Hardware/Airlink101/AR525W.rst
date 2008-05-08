@@ -38,6 +38,9 @@ Serial connection parameters are : 38400,8N1
 
 The bootloader is RedBoot, and is a highly modified version by Dante Su. No sources are provided yet for RedBoot, only an incorrect binary image in the GPL tarball. Equivalent source is on the LinkSys FTP site.
 
+THIS UNIT REQUIRES A CONVERTER TO COMMUNICATE WITH THE SERIAL PORT.  See this thread for details: http://forum.x-wrt.org/index.php/topic,641.0.html
+GPL Tarball located here: http://www.airlink101.com/gpl/
+
 Boot log :
 
 {{{
@@ -149,6 +152,8 @@ Run make menuconfig, then in Target, choose "RDC321x x86 [2.6]" and Target Profi
 
 You should flash this image using TFTP : bin/openwrt-rdc-jffs2-64k-ar525w.img
 and this one using the web interface : bin/openwrt-rdc-jffs2-64k-ar525w-web.img
+
+Myself and others have not had much luck with these images and have rendered the network interfaces disabled on the 525W after flashing.  Please see http://forum.x-wrt.org/index.php/topic,641.0.html for details of our experiences and instructions on returning your 525W to the original firmware.  BTW, the 525W is picky about the browser you use for the GUI flash, stick with IE for this unit.
 
 Bootlog :
 
