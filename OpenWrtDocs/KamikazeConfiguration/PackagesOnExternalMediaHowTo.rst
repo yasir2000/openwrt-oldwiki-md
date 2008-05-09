@@ -10,7 +10,7 @@ This guide is based on http://forum.openwrt.org/viewtopic.php?id=11495.
 = Configuration files for the different routers =
 Save the configuration file to /etc/config/bootfromexternalmedia.
 
-== For e.g. ASUS WL-500g Premium ==
+== For e.g. ASUS WL-500g Premium and ASUS WL-500W ==
 {{{
 config bootfromexternalmedia
         option target   '/mnt'
@@ -62,6 +62,7 @@ config_get_bool "enabled"  "$section" "enabled" '1'
 exec /bin/busybox init}}}
 
 Note: On Kamikaze 7.09 (on a wrt54gl) i've to use pivot_root instead of pivot.
+Note: This is not required on my ASUS WL-500W, where using pivot_root will cause the device to be unable to boot using my USB drive. (AlexanderSandstrom)
 
 Remove the old /sbin/init script, which is just a symbolic link to the Busybox binary.
 
