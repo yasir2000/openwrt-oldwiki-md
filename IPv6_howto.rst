@@ -1,21 +1,21 @@
 [[TableOfContents]]
 
 = Preface =
-This HOWTO describes how to setup IPv6 on your OpenWrt based router.
+This HOWTO describes how to setup IPv6 on your OpenWrt-based router.
 
-There is 2 big different steps :
+There are two big, different steps :
 
- 1. setup a working ipv6 connection on the OpenWRT router. This can either be:
+ 1. Setup a working ipv6 connection on the OpenWRT router. This can either be:
   * using a tunnel broker (like [http://www.sixxs.net SixXS], [http://www.tunnelbroker.net hurricane electric], or the services provided by a tunnel broker that supports the Tunnel Setup Protocol (TSP), such as the [http://www.hexago.com Hexago Gateway6]).
   * using 6to4, a standard encapsulation protocol for IPv6 over IPv4
- 1. propagate the IPv6 subnet to the LAN with radvd
+ 1. Propagate the IPv6 subnet to the LAN with radvd
 = Install necessary software =
-To use IPv6 we need the following modules:
+To use IPv6, we need the following modules:
 
  * IPv6 kernel module (always)
  * IPv6 routing software (always, to configure IPv6 routing)
  * ip6tables kernel modules (optional, if you need an IPv6 firewall)
- * ip6tables commandline tool (optional, to configure the IPv6 firewall)
+ * ip6tables command-line tool (optional, to configure the IPv6 firewall)
 == Install the IPv6 kernel modules ==
 {{{
 ipkg install kmod-ipv6
