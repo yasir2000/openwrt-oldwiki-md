@@ -12,6 +12,9 @@ These methods use the [http://en.wikipedia.org/wiki/Dd_(Unix) dd] tool to copy d
 There are a number of ways to get disk image copies from an OpenWrt box.
 
 ==== using Netcat (recommended) ====
+[http://en.wikipedia.org/wiki/Netcat Netcat] (nc) is a simple yet powerful way to transfer bits and bytes across a network.
+The following steps show how to use it to backup a full OpenWrt disk image as well as the nvram data.
+
  1. Start listening for data with netcat on the target machine.
  {{{
 plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-linux.trx}}}
