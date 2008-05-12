@@ -12,14 +12,24 @@ These methods use the [http://en.wikipedia.org/wiki/Dd_(Unix) dd] tool to copy d
 There are a number of ways to get disk image copies from an OpenWrt box.
 
 ==== using Netcat (recommended) ====
-{{{
-plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-linux.trx
-root@router $ mount -o remount,ro /dev/mtdblock/4 /jffs
-root@router $ dd if=/dev/mtdblock/1 | nc linuxbox 7777
-root@router $ mount -o remount,rw /dev/mtdblock/4 /jffs
-plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin
-root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777
-}}}
+ 1. Start listening for data with netcat on the target machine.
+ {{{
+plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-linux.trx}}}
+ 1. Remount the main partition as read-only to prevent disk changes during the backup process.
+ {{{
+root@router $ mount -o remount,ro /dev/mtdblock/4 /jffs}}}
+ 1. Copy the data from the router's disk across a network to the listening target machine.
+ {{{
+root@router $ dd if=/dev/mtdblock/1 | nc linuxbox 7777}}}
+ 1. Remount the partition back as read-write.
+ {{{
+root@router $ mount -o remount,rw /dev/mtdblock/4 /jffs}}}
+ 1. Prepare to receive the nvram data on the target machine.
+ {{{
+plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin}}}
+ 1. Send the nvram data to the target machine
+ {{{
+root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777}}}
 
 ==== using /tmp as intermediate ====
 It's a good idea to put the jffs2 partition in read only mode before reading it as a device, or you could make a backup that's not up to date or corrupt. The default commit interval for jffs2 is 5 seconds. Log into your WRT, then:
