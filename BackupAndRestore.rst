@@ -3,7 +3,7 @@
 = Backing up and Restoring your OpenWrt box =
 There are two ways your OpenWrt box. The [#image image] method involves copying full [http://en.wikipedia.org/wiki/Disk_image disk images] from an OpenWrt box. The [#file file] method only involves copying the files from OpenWrt box filesystems.
 
-Some of the commands in this document assume that DNS is configured such that {{{linuxbox}}} points to the backup target machine and {{{router}}} points to the router which is being backed up.
+Some of the commands in this document assume that DNS is configured such that {{{linuxbox}}} points to the backup target machine and {{{router}}} points to the router which is being backed up. In cases when DNS is not available (eg: new router installation), simply substitute the hostnames with appropriate IP numbers.
 
 [[Anchor(image)]]
 == Image method ==
