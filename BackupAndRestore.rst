@@ -35,7 +35,7 @@ plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin}}}
 root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777}}}
 
 ==== using /tmp as intermediate ====
-It's a good idea to put the jffs2 partition in read only mode before reading it as a device, or you could make a backup that's not up to date or corrupt. The default commit interval for jffs2 is 5 seconds. Log into your WRT, then:
+It's a good idea to put the jffs2 partition in read only mode before reading it as a device, or you could make a backup that's not up to date or corrupt. The default commit interval for jffs2 is 5 seconds. Log into your OpenWrt, then:
 
 {{{
 mount -o remount,ro /dev/mtdblock/4 /jffs
@@ -46,7 +46,7 @@ dd if=/dev/mtdblock/3 > /tmp/wrt-nvram.bin
 
 Note: I had to write {{{/}}} instead of {{{/jffs}}}, otherwise it gave an error. -- Xerces8
 
-And scp the files out. This assumes you have enough ram free on the WRT, which is usually the case.
+And scp the files out. This assumes you have enough ram free on the OpenWrt, which is usually the case.
 
 If you do not have enough free space in your {{{/tmp}}} fs, you can generate and copy in one operation.  Please make sure you use the right quotes; double quotes (") won't work.  From another workstation, and assuming that {{{router}}} is the name of your OpenWrt AP:
 
@@ -55,14 +55,14 @@ If you do not have enough free space in your {{{/tmp}}} fs, you can generate and
 ssh router -C 'mount -o remount,ro /dev/mtdblock/4 /jffs ; dd if=/dev/mtdblock/1 ; mount -o remount,rw /dev/mtdblock/4 /jffs' > wrt-linux.trx
 ssh router -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
 }}}
-If you did everything right, {{{wrt-linux.trx}}} contains {{{kernel+squashfs+jffs2}}} one after the other. You could back the mtd partitions separately: 2 is squashfs and 4 is jffs2. Unlike disk partitions mtd partitions can, and in OpenWRT do overlap: 1 includes 2 and 4.
+If you did everything right, {{{wrt-linux.trx}}} contains {{{kernel+squashfs+jffs2}}} one after the other. You could back the mtd partitions separately: 2 is squashfs and 4 is jffs2. Unlike disk partitions mtd partitions can, and in OpenWrt do overlap: 1 includes 2 and 4.
 
 === Restoring ===
-/!\ '''WARNING:''' Restore the NVRAM partition '''only''' on the same Wrt router where you did the backup! Restoring the NVRAM partition can brick your router.
+/!\ '''WARNING:''' Restore the NVRAM partition '''only''' on the same OpenWrt router where you did the backup! Restoring the NVRAM partition can brick your router.
 
 I'll assume you need a full restore, i. e. you've totally botched your box, and you have either restored to factory firmware, or bought a new box :)
 
-1. install standard openwrt firmware on your box, if you haven't already. Set up a password so you can use scp:
+1. install standard OpenWrt firmware on your box, if you haven't already. Set up a password so you can use scp:
 
 {{{
 telnet 192.168.1.1
@@ -73,7 +73,7 @@ passwd
 {{{
 scp wrt-linux.trx wrt-nvram.bin root@192.168.1.1:/tmp
 }}}
-3. On the wrt box, don't forget to put jffs2 in ro mode if your're writing the whole kernel+squashfs+jffs2 image.
+3. On the OpenWrt box, don't forget to put jffs2 in ro mode if your're writing the whole kernel+squashfs+jffs2 image.
 
 {{{
 dd if=/tmp/wrt-nvram.bin of=/dev/mtdblock/3
