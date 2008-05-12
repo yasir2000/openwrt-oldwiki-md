@@ -8,6 +8,17 @@ There are two ways your OpenWrt box. The [#image image] method involves copying 
 These methods use the [http://en.wikipedia.org/wiki/Dd_(Unix) dd] tool to copy disks byte by byte.
 === Backing up ===
 There are a number of ways to get disk image copies from an OpenWrt box.
+
+==== using Netcat (recommended) ====
+{{{
+plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-linux.trx
+root@router $ mount -o remount,ro /dev/mtdblock/4 /jffs
+root@router $ dd if=/dev/mtdblock/1 | nc linuxbox 7777
+root@router $ mount -o remount,rw /dev/mtdblock/4 /jffs
+plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin
+root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777
+}}}
+
 ==== using /tmp as intermediate ====
 It's a good idea to put the jffs2 partition in read only mode before reading it as a device, or you could make a backup that's not up to date or corrupt. The default commit interval for jffs2 is 5 seconds. Log into your WRT, then:
 
@@ -30,16 +41,6 @@ ssh apollo -C 'mount -o remount,ro /dev/mtdblock/4 /jffs ; dd if=/dev/mtdblock/1
 ssh apollo -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
 }}}
 If you did everything right, wrt-linux.trx contains kernel+squashfs+jffs2 one after the other. You could back the mtd partitions separately: 2 is squashfs and 4 is jffs2. Unlike disk partitions mtd partitions can, and in OpenWRT do overlap: 1 includes 2 and 4.
-
-==== using Netcat (recommended) ====
-{{{
-plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-linux.trx
-root@router $ mount -o remount,ro /dev/mtdblock/4 /jffs
-root@router $ dd if=/dev/mtdblock/1 | nc linuxbox 7777
-root@router $ mount -o remount,rw /dev/mtdblock/4 /jffs
-plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin
-root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777
-}}}
 
 === Restoring ===
 /!\ '''WARNING:''' Restore the NVRAM partition '''only''' on the same Wrt router where you did the backup! Restoring the NVRAM partition can brick your router.
