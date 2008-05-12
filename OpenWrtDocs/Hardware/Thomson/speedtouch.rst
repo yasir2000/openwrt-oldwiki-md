@@ -15,4 +15,4 @@ Does this mean there is some Linux code running here?
 The memsize should be 16MB, but the flashsize is 4MB - strange.
 
 Board photo:
-http://www.visigoth.de/~alx/speedtouch_585iv6_thomson_2.jpg
+[attachment:speedtouch_585iv6_thomson_2.jpg]
