@@ -1,3 +1,5 @@
+[[TableOfContents(4)]]
+
 = Backing up and Restoring your OpenWrt box =
 There are two ways: image method and file method.
 
