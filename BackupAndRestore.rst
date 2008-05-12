@@ -13,7 +13,7 @@ There are a number of ways to get disk image copies from an OpenWrt box.
 
 ==== using Netcat (recommended) ====
 [http://en.wikipedia.org/wiki/Netcat Netcat] (nc) is a simple yet powerful way to transfer bits and bytes across a network.
-The following steps show how to use it to backup a full OpenWrt disk image as well as the nvram data.
+The following steps show how to use it to backup a full OpenWrt disk image as well as the NVRAM data.
 
  1. Start listening for data with netcat on the target machine.
  {{{
@@ -27,10 +27,10 @@ root@router $ dd if=/dev/mtdblock/1 | nc linuxbox 7777}}}
  1. Remount the partition back as read-write.
  {{{
 root@router $ mount -o remount,rw /dev/mtdblock/4 /jffs}}}
- 1. Prepare to receive the nvram data on the target machine.
+ 1. Prepare to receive the NVRAM data on the target machine.
  {{{
 plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin}}}
- 1. Send the nvram data to the target machine
+ 1. Send the NVRAM data to the target machine
  {{{
 root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777}}}
 
@@ -48,7 +48,7 @@ Note: I had to write {{{/}}} instead of {{{/jffs}}}, otherwise it gave an error.
 
 And scp the files out. This assumes you have enough ram free on the OpenWrt, which is usually the case.
 
-If you do not have enough free space in your {{{/tmp}}} fs, you can generate and copy in one operation.  Please make sure you use the right quotes; double quotes (") won't work.  From another workstation, and assuming that {{{router}}} is the name of your OpenWrt AP:
+If you do not have enough free space in your {{{/tmp}}} filesystem, you can generate and copy in one operation.  Please make sure you use the right quotes; double quotes (") won't work.  From another workstation, and assuming that {{{router}}} is the name of your OpenWrt router:
 
 ==== using SSH transfer ====
 {{{
@@ -62,29 +62,28 @@ If you did everything right, {{{wrt-linux.trx}}} contains {{{kernel+squashfs+jff
 
 I'll assume you need a full restore, i. e. you've totally botched your box, and you have either restored to factory firmware, or bought a new box :)
 
-1. install standard OpenWrt firmware on your box, if you haven't already. Set up a password so you can use scp:
-
-{{{
+ 1. install standard OpenWrt firmware on your box, if you haven't already. Set up a password so you can use scp:
+ {{{
 telnet 192.168.1.1
 passwd
 }}}
-2. Transfer the files
 
-{{{
+ 1. Transfer the files
+ {{{
 scp wrt-linux.trx wrt-nvram.bin root@192.168.1.1:/tmp
 }}}
-3. On the OpenWrt box, don't forget to put jffs2 in ro mode if your're writing the whole kernel+squashfs+jffs2 image.
 
-{{{
+ 1. On the OpenWrt box, don't forget to put jffs2 in read-only mode if you're writing the whole {{{kernel+squashfs+jffs2}}} image.
+ {{{
 dd if=/tmp/wrt-nvram.bin of=/dev/mtdblock/3
 mount -o remount,ro /dev/mtdblock/4 /jffs
 mtd -r write /tmp/wrt-linux.trx linux
 }}}
-The second command will take a minute or so to flash the rest and then reboot.
+ The second command will take a minute or so to flash the rest and then reboot.
 
 [[Anchor(file)]]
 == File method ==
-Of course you can use a shell script and the well known tar to backup your files and some system informations too. In the example below i installed the package wput, to upload the backup to my main FTP server.
+Of course you can use a shell script and the well known {{{tar}}} to backup your files and some system informations too. In the example below I installed the package {{{wput}}}, to upload the backup to my main FTP server.
 
 {{{
 #!/bin/sh
