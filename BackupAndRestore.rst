@@ -3,6 +3,8 @@
 = Backing up and Restoring your OpenWrt box =
 There are two ways your OpenWrt box. The [#image image] method involves copying full [http://en.wikipedia.org/wiki/Disk_image disk images] from an OpenWrt box. The [#file file] method only involves copying the files from OpenWrt box filesystems.
 
+Some of the commands in this document assume that DNS is configured such that {{{linuxbox}}} points to the backup target machine and {{{router}}} points to the router which is being backed up.
+
 [[Anchor(image)]]
 == Image method ==
 These methods use the [http://en.wikipedia.org/wiki/Dd_(Unix) dd] tool to copy disks byte by byte.
@@ -33,12 +35,12 @@ Note: I had to write "/" instead of "/jffs", otherwise it gave an error. -- Xerc
 
 And scp the files out. This assumes you have enough ram free on the WRT, which is usually the case.
 
-If you do not have enough free space in your /tmp fs, you can generate and copy in one operation.  Please make sure yhou use the right quotes; double quotes (") won't work.  From another workstation, and assuming that apollo is the name of your OpenWrt AP:
+If you do not have enough free space in your /tmp fs, you can generate and copy in one operation.  Please make sure you use the right quotes; double quotes (") won't work.  From another workstation, and assuming that {{{router}}} is the name of your OpenWrt AP:
 
 ==== using SSH transfer ====
 {{{
-ssh apollo -C 'mount -o remount,ro /dev/mtdblock/4 /jffs ; dd if=/dev/mtdblock/1 ; mount -o remount,rw /dev/mtdblock/4 /jffs' > wrt-linux.trx
-ssh apollo -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
+ssh router -C 'mount -o remount,ro /dev/mtdblock/4 /jffs ; dd if=/dev/mtdblock/1 ; mount -o remount,rw /dev/mtdblock/4 /jffs' > wrt-linux.trx
+ssh router -C 'dd if=/dev/mtdblock/3' > wrt-nvram.bin
 }}}
 If you did everything right, wrt-linux.trx contains kernel+squashfs+jffs2 one after the other. You could back the mtd partitions separately: 2 is squashfs and 4 is jffs2. Unlike disk partitions mtd partitions can, and in OpenWRT do overlap: 1 includes 2 and 4.
 
