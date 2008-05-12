@@ -1,11 +1,13 @@
 [[TableOfContents(4)]]
 
 = Backing up and Restoring your OpenWrt box =
-There are two ways: image method and file method.
+There are two ways your OpenWrt box. The [#image image] method involves copying full [http://en.wikipedia.org/wiki/Disk_image disk images] from an OpenWrt box. The [#file file] method only involves copying the files from OpenWrt box filesystems.
 
+[[Anchor(image)]]
 == Image method ==
+These methods use the [http://en.wikipedia.org/wiki/Dd_(Unix) dd] tool to copy disks byte by byte.
 === Backing up ===
-Here are three ways to backup your router's image.
+There are a number of ways to get disk image copies from an OpenWrt box.
 ==== using /tmp as intermediate ====
 It's a good idea to put the jffs2 partition in read only mode before reading it as a device, or you could make a backup that's not up to date or corrupt. The default commit interval for jffs2 is 5 seconds. Log into your WRT, then:
 
@@ -64,6 +66,7 @@ mtd -r write /tmp/wrt-linux.trx linux
 }}}
 The second command will take a minute or so to flash the rest and then reboot.
 
+[[Anchor(file)]]
 == File method ==
 Of course you can use a shell script and the well known tar to backup your files and some system informations too. In the example below i installed the package wput, to upload the backup to my main FTP server.
 
