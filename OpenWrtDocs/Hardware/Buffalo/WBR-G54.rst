@@ -1,6 +1,6 @@
 = Buffalo WBR-G54 =
 
-attachment:wbrg54-top.jpg attachment:wbrg54-bottom.jpg
+attachment:wbrg54-top.jpg attachment:wbrg54-bottom2.jpg
 
 '''Note:''' OpenWrt (Kamikaze v7.09) doesn't work out of the box with this device (the last simple working version is White Russian). The problem is that the default Kamikaze config is to use vlans on the first ethernet adapter, but this device has different ethernet adapters for LAN and WAN, so gets all confused. You need to build your own copy of Kamikaze, and either fix the vlan stuff there, or just enable wifi and ssh in to fix.
 
