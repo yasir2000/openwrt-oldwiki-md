@@ -10,14 +10,7 @@ See [http://forum.openwrt.org/viewtopic.php?id=11292 this forum post] for more d
 
 == Installation ==
 
-
----- /!\ '''Edit conflict - other version:''' ----
 Used the same TFTP method as for the WBR2-G54: the only difference is that the TTL during the bootloader is 128 and not 100.
-
----- /!\ '''Edit conflict - your version:''' ----
-Used the same TFTP method as for the WBR2-G54: the only difference is that the TTL during the bootloader is 128 and not 100.
-
----- /!\ '''End of edit conflict''' ----
 
 == Wireless config ==
 
@@ -29,20 +22,8 @@ I dumped the wl*_ settings, edited them to be wl0_* istead, and scripted them ba
 
 As per the OpenWrt manual except that 34 bytes not 32 need to be trimmed from the front of the file WBR-G54_2.20_1.16 which is obtained from Buffalo's European website.
 
----- /!\ '''Edit conflict - other version:''' ----
-
 == JTAG ==
 
 There is a JTAG port on the bottom left, the pinout is the standard JTAG pinout: 3: TDI 5: TDO 7: TMS 9: TCK
 
 attachment:wbrg54-jtag.jpg
-
----- /!\ '''Edit conflict - your version:''' ----
-
-== JTAG ==
-
-There is a JTAG port on the bottom left, the pinout is standard JTAG: 3: TDI 5: TDO 7: TMS 9: TCK
-
-attachment:wbrg54-jtag.jpg
-
----- /!\ '''End of edit conflict''' ----
