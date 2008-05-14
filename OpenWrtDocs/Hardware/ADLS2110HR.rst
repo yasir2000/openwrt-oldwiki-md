@@ -370,4 +370,5 @@ connect resistor 4,7k Between red points.
 attachment:watchdog_point.jpg
 
 ----
- . ["CategoryAR7Device"]
+
+CategoryModel ["CategoryAR7Device"]
