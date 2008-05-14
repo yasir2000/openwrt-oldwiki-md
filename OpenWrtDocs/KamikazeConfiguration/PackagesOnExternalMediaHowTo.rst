@@ -61,9 +61,6 @@ config_get_bool "enabled"  "$section" "enabled" '1'
 }
 exec /bin/busybox init}}}
 
-Note: On Kamikaze 7.09 (on a wrt54gl) i've to use pivot_root instead of pivot.
-Note: This is not required on my ASUS WL-500W, where using pivot_root will cause the device to be unable to boot using my USB drive. (AlexanderSandstrom)
-
 Remove the old /sbin/init script, which is just a symbolic link to the Busybox binary.
 
 {{{
