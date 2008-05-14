@@ -146,6 +146,7 @@ mtd5 0x901F0000,0x90200000
 }}}
 
 == WatchDog Enable ==
+
 {{{
 CPU revision is: 00018448 (MIPS 4KEc)
 bootcr 7300 is 0x2514281
