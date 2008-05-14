@@ -13,5 +13,6 @@
  * [:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP: WZR-RS-G54HP]
  * [:OpenWrtDocs/Hardware/Buffalo/WHR3-G54: WHR3-G54]
  * [:OpenWrtDocs/Hardware/Buffalo/WHR3-AG54: WHR3-AG54]
+ * [:OpenWrtDocs/Hardware/Buffalo/Wi-Fi-Gamers: Wi-Fi Gamers Access Point]
 ----
 CategoryBrand
