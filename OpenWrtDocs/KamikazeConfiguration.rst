@@ -133,9 +133,10 @@ This section describe how to setup IPv6 using the [[http://go6.net/ | Go6.net]] 
   1. Start immediately with /etc/init.d/gw6c start
   1. Reboot your router
  1. Check syslog for errors.
-Most of this information came from[http://forum.openwrt.org/profile.php?id=524 jake1981]at the OpwntWRT forums from this post:
 
- . '''[http://forum.openwrt.org/profile.php?id=524 ]'''
+Most of this information came from [http://forum.openwrt.org/profile.php?id=524 jake1981] at the OpenWRT forums from this post:
+
+[http://forum.openwrt.org/profile.php?id=524 ]
 === Wireless configuration ===
 ==== 802.11x ====
 '''Note: Currently supported on Broadcom only, although madwifi support is almost complete :)'''
