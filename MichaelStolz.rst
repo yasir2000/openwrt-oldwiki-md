@@ -13,8 +13,9 @@ I own/manage some OpenWRT/DD-WRT compatible devices that I flashed with either D
 I also own 2 devices that should be compatible with OpenWRT Kamikaze but I haven't verified it:
 
  * PC Engines alix1c and alix2c3
-Unfortunately I have also come in contact with some less friendly (wireless) routers which I couldn't flash: * ZyXEL Prestige 660HW-63
+Unfortunately I have also come in contact with some less friendly (wireless) routers which I couldn't flash:
 
+ * ZyXEL Prestige 660HW-63
  * DLink DI-???
  * Thomson Speedtouch 536
  * [http://fr.wikipedia.org/wiki/Livebox Inventel/Orange Livebox]
