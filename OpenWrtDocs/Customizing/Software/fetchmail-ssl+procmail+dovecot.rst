@@ -172,7 +172,7 @@ and select from the '''Mail''' menu '''fetchmail''' then excute:
 make package/fetchmail-compile
 }}}
 
-Now in '''~/src/kamikaze_7.09/bin/packages''' you'll find the fetchmail packages with all it's dependencies:
+Now in '''~/src/kamikaze_7.09/bin/packages''' you'll find the fetchmail package with all it's dependencies:
 
 {{{
 fetchmail_6.3.8-1_mipsel.ipk
