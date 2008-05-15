@@ -85,7 +85,7 @@ NOTE: My SB4100 was pre-modded by TCNiSO adding a serial cable
 == Partial Boot Log ==
 NOTE: This is via telnet, so the beginning is missing. Also, Sigma 1.7 is installed, so it's not vanilla.
 
-{
+{{{
 HFC: UCD scanning timer expired.
 UCD List before prioritizing
   HFC: UCD UpstreamChanId List ->[07] [08] [05] [06]
@@ -257,7 +257,7 @@ $$ REGISTRATION SUCCESS $$
 ***********************************************
 
 $$MCNS_STARTUP_COMPLETE$$
-}
+}}}
 ----
 
 CategoryModel CategoryCableModem
