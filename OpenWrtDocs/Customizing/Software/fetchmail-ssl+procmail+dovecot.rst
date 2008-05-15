@@ -83,7 +83,8 @@ endef
 $(eval $(call BuildPackage,fetchmail))
 }}}
 
-Now create the file '''fetchmail-ssl/patches/dn_skipname.diff''' with the following content:
+Now create the file '''fetchmail-ssl/patches/dn_skipname.diff''' with the following content
+(the diff file come from ["http://forum.openwrt.org/viewtopic.php?id=10793"]):
 
 {{{
 diff -U 3 -Br fetchmail-6.3.8.org/mxget.c fetchmail-6.3.8/mxget.c
