@@ -25,6 +25,9 @@ In front panel. Green, unless otherwise stated. In top-down order:
  * Online
  * Activity
 
+= Software =
+By default, the SB4100 comes with a variant of VxWorks.
+
 = Accessing SB4100 =
 
 == Opening the Case ==
@@ -40,6 +43,7 @@ Standard firmware provides configuration interface using HTTP.
 
 http://imagebin.ca.tbcdn.com/img/y9K_u4Yi.jpg
 
+{{{
 *** Top center chip ***
 intel
 TE28F160
@@ -79,7 +83,7 @@ ARA1400
 
 *** Board label (bottom-right of green board) ***
 MOTOROLA SB4100 469855-001-99 REV A 04-MAY-00
-
+}}}
 NOTE: My SB4100 was pre-modded by TCNiSO adding a serial cable
 
 == Partial Boot Log ==
