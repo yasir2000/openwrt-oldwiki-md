@@ -7,7 +7,7 @@ So we need the following tools
 
 ----
 
-As we need to have the ssl support in fetchmail (to be able to connect to gmail for example) we need to recompile it as the version you find in kamikaze 7.09 doesn't support ssl.
+As we need to have the ssl support in fetchmail (to be able to connect to gmail for example) we need to recompile it as the version you find the repositories doesn't support ssl.
 
 So you have to download the build environment
 
@@ -172,7 +172,7 @@ and select from the '''Mail''' menu '''fetchmail''' then excute:
 make package/fetchmail-compile
 }}}
 
-Now in '''~/src/kamikaze_7.09/bin/packages''' you'll find al the fetchmail packages with all it's dependencies:
+Now in '''~/src/kamikaze_7.09/bin/packages''' you'll find the fetchmail packages with all it's dependencies:
 
 {{{
 fetchmail_6.3.8-1_mipsel.ipk
