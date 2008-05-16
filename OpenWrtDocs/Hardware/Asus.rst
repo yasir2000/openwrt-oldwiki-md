@@ -8,6 +8,7 @@
  * [:OpenWrtDocs/Hardware/Asus/WL500GP: WL-500G Premium]
  * [:OpenWrtDocs/Hardware/Asus/WL500GPV2: WL-500G Premium V2]
  * [:OpenWrtDocs/Hardware/Asus/WL500W: WL-500W]
+ * [:OpenWrtDocs/Hardware/Asus/WL520GC: WL-520GC]
  * [:OpenWrtDocs/Hardware/Asus/WL550gE: WL-550gE]
  * [:OpenWrtDocs/Hardware/Asus/WL700gE: WL-700gE]
  * [:OpenWrtDocs/Hardware/Asus/AAM6020VI: AAM6020VI]
