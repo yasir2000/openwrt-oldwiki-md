@@ -77,3 +77,7 @@ mtd9: 00010000 00010000 "board_config"
 Note that rootfs, rootfs_data and config are all inside "image", so you don't need to backup partitions 3, 4 and 5.
 
 As long as you only modify the loader, image and image2 partitions, and take care to restore them back to their original settings, then you should be able to use RedBoot to reflash the saved partitions.  Be careful with the load address and entry point for image (0x80040400).
+
+To load openwrt, just fis init the flash, then "load openwrt-atheros-vmlinux.elf" and fis create the kernel partition, then create the rootfs partition in the rest of the empty space using the openwrt-atheros-root.squashfs file.
+
+fis load kernel ; exec
