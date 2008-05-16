@@ -80,4 +80,4 @@ As long as you only modify the loader, image and image2 partitions, and take car
 
 To load openwrt, just "fis init" the flash, then "load -r -b 0x8004100 openwrt-atheros-vmlinux.lzma" and "fis create kernel", then create the rootfs partition in the rest of the empty space using the openwrt-atheros-root.squashfs file with "load -r -b 0x80041000 openwrt-atheros-root.squashfs" and "fis create -l 0x6f0000 rootfs" (make sure that 0x6f0000 corresponds to the amount of free space left in the flash).
 
-fis load kernel ; exec
+fis load -l kernel ; exec
