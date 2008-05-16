@@ -76,4 +76,4 @@ mtd9: 00010000 00010000 "board_config"
 
 Note that rootfs, rootfs_data and config are all inside "image", so you don't need to backup partitions 3, 4 and 5.
 
-As long as you only modify the loader, image and image partitions, and take care to restore them back to their original settings, then you should be able to use RedBoot to reflash the saved partitions.
+As long as you only modify the loader, image and image2 partitions, and take care to restore them back to their original settings, then you should be able to use RedBoot to reflash the saved partitions.  Be careful with the load address and entry point for image (0x80040400).
