@@ -42,6 +42,8 @@ This only needs to be done once and then copied to all machines to be part of th
 === Bridge Startup ===
 We need to add a script to start the bridge.
 
+==== White Russian ====
+
 {{{/etc/openvpn/startupscript:}}}
 
 {{{
@@ -92,7 +94,15 @@ esac
 }}}
 This file will create the OpenVPN tap devices and add them to the default OpenWRT ethernet/wifi bridge.
 
-If you are using Kamikaze change the line:
+At last the script has to be made executable:
+
+{{{
+chmod +x /etc/openvpn/startupscript
+}}}
+
+==== Kamikaze ====
+
+If you are using Kamikaze follow the startup script instructions for White Russian, except change the line:
 
 {{{
 br="br0"
@@ -102,11 +112,6 @@ to:
 br="br-lan"
 }}}
 
-At last the script has to be made executable:
-
-{{{
-chmod +x /etc/openvpn/startupscript
-}}}
 === OpenVPN server config file ===
 {{{/etc/openvpn/server.ovpn:}}}
 
