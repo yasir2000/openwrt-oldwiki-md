@@ -1,9 +1,10 @@
 = Asus WL-520GC =
 
 {{{
-CPU: BCM5354
+SoC: BCM5354
 SDRAM: 16MB
 Flash: 2MB
+Wi-Fi: in SoC
 }}}
 
 == Serial pinout ==
