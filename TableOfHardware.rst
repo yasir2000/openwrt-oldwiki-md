@@ -436,7 +436,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://broadband.motorola.com/consumers/products/wr850g/default.asp WR850G] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Motorola/WR850G:Supported] ||
 ||[http://broadband.motorola.com/consumers/products/wr850gp/default.asp WR850GP] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||Supported ||
 ||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[http://web.archive.org/web/20030627094926/www.broadcom.com/pbs/3348-PB02-403-RDS.pdf Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
-||SB4100 (SURFboard cable modem) || ||Broadcom 3350 KPB || || || No || || ||Yes || ||1x ||[:OpenWrtDocs/Hardware/Motorola/SB4100:Info entered / WiP] ||
+||SB4100 (SURFboard cable modem) || ||Broadcom 3350 KPB || 2 MB || 8 MB || No || || ||Yes || ||1x ||[:OpenWrtDocs/Hardware/Motorola/SB4100:Info entered / WiP] ||
 
 == MSI ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
