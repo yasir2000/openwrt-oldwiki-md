@@ -1,2 +1,3 @@
 MIPS R3000 CPU
-http://www.broadcom.com/collateral/pb/3349-PB03-R.pdf
+
+http://www.datasheetcatalog.org/datasheets/134/404172_DS.pdf
