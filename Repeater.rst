@@ -1,5 +1,5 @@
 = Repeater =
-by pier11 — last modified 2007-04-12 21:28
+by pier11, loic — last modified 2008-05-19 00:23
 
 '''Applicable''': Kamikaze, Broadcom.
 
