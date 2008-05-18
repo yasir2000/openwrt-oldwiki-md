@@ -3,7 +3,7 @@ by pier11 — last modified 2007-04-12 21:28
 
 '''Applicable''': Kamikaze, Broadcom.
 
-'''Tested''': WRT54G v2.0, Kamikaze r6816(02 Apr).
+'''Tested''': WRT54G v2.0, Kamikaze r6816(02 Apr). Linksys WRT54GL, Kamikaze 7.09 (19 may 2008).
 
 This page describes configuration of Kamikaze as a wireless repeater. In this configuration it uses open wireless network and creates your own private wireless network on top of it.
 
@@ -67,7 +67,9 @@ config interface	wan
 }}}
 '''Notes''':
  *You have to have your derivative network on a different address range than a host network.
- 
+ *In the end you will see two interfaces : wl0 with the IP from the other AP and wl0.1 that shows with brctl. The packets are routed by openwrt. The "magic" comes from the fact that the broadcom chip really has two wifi interfaces that can be configured separately and work independently : one as an AP and the other as a STAtion.
+ *If there is Encryption key:too big on wl0 after configuring the AP with a wep key, it won't prevent the setup to work. However, one may have to manualy set the wep key using wlc wepkey =1,2021232324 (or another 64 bit wep key instead of 2021222324).
+ *Download http://dachary.org/repeater-openwrt.tar.gz for an example installation working on a WRT54GL running Kamikaze 7.09 (19 may 2008).
 '''References''':
  *Compiled official Kamikaze [http://www.nbd.name/openwrt.html documentation]
  *Wiki on [:OpenWrtDocs/KamikazeConfiguration:Kamikaze configuration]
