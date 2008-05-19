@@ -1,4 +1,6 @@
-The Motorola '''SB4100''' is cable modem based on Broadcom BCM3350 chip. Ethernet and USB ports are provided. The modem is compatible with DOCSIS and EuroDOCSIS standards(?). 
+The Motorola '''SB4100''' is cable modem based on Broadcom BCM3350 chip. Ethernet and USB ports are provided. The modem is compatible with DOCSIS and EuroDOCSIS standards(?).
+
+See ["BroadcomBCM3350Port"] for general progress on porting to this SoC.
 
 = Hardware =
 
