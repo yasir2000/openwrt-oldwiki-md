@@ -1,4 +1,4 @@
-Serial port pinout (left to right) is GND,RX (input to the Fonera),TX (output from the Fonera),3.3V
+Serial port pinout (front to rear) is GND,RX (input to the Fonera),TX (output from the Fonera),3.3V
 
 {{{
 +Ethernet eth0: MAC address 00:18:84:d0:00:10
