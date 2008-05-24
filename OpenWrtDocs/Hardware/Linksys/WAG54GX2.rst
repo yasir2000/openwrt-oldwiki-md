@@ -6,7 +6,7 @@ The device is NOT supported in OpenWrt. The internals are strikingly similar to 
 Bootloader     : CFE version 1.0.37-5.11 for BCM96348 (32bit,SP,BE)
 System-On-Chip : Broadcom 6348 (CPU type 0x29107)
 CPU Speed      : 240MHz, Bus: 133MHz, Ref: 26MHz
-Flash size     : 8 MB
+Flash size     : 8 MB (MX29LV640T)
 RAM            : 32 MB
 Wireless       : Mini-PCI Airgo MIMO 802.11b/g Wireless LAN Controller
 Ethernet       : Unknown, switch BCM5325
