@@ -1,6 +1,6 @@
 = Linksys WAG54GX2 =
 
-The device is NOT supported in OpenWrt. The internals are strikingly similar to the [:OpenWrtDocs/Hardware/Netgear/DG834GT: DG834GT].
+The device is NOT supported in OpenWrt. The internals are strikingly similar to the [:OpenWrtDocs/Hardware/Netgear/DG834GT: DG834GT] and [:OpenWrtDocs/Hardware/Huawei/EchoLife_HG520: HG520].
 
 {{{
 Bootloader     : CFE version 1.0.37-5.11 for BCM96348 (32bit,SP,BE)
@@ -15,6 +15,7 @@ ADSL           : 2/2+
 Serial         : yes J503
 JTAG           : yes J201
 }}}
+
 
 The {{{boot_wait}}} NVRAM variable is not defined.
 
@@ -48,10 +49,11 @@ Analysis of WAG54GX2_A_V1.00.01.img
 005b610c-        :lzma compressed kernel
 }}}
 
+
 The image is in flash at $1F800000 (the boot loader is at $1FC00000), the top $10000 (64k)
 of the flash contains the nvram and there is 64k of "lang" below this.
 
-To debrick this box you require a version of wrt54g.exe that has been modified to handle the big endian cpu. Also beware that the cfe commands think the cfe is at the bottom of flash rather than at $1fc00000!
+To debrick this box you require a version of wrt54g.exe that has been modified to handle the big endian cpu. Also beware that the cfe commands think the cfe is at the bottom of flash rather than at $1fc00000! See [:OpenWrtDocs/Hardware/Netgear/DG834GT: DG834GT] about the endian problem.
 
 == connectors ==
 
