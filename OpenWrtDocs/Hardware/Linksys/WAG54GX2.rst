@@ -55,7 +55,6 @@ of the flash contains the nvram and there is 64k of "lang" below this.
 To debrick this box you require a version of wrt54g.exe that has been modified to handle the big endian cpu. Also beware that the cfe commands think the cfe is at the bottom of flash rather than at $1fc00000!
 
 == connectors ==
-The serial console can best be reached fron the bottom of the PCB, the holes seem not to be drilled.
 
 attachment:connector.jpg
 
@@ -64,16 +63,30 @@ Serial console confirmed on J503.
 ||'''pin'''||'''signal'''||
 ||1||GND||
 ||2||TX||
-||3||VCC||
+||3||VCC (3.3v)||
 ||4||RX||
+
+''' JTAG Port '''
+
+Jtag Port is J201 this port is verified.
+
+Disposition on the board:
+
+||2 ||4 ||6 ||8 ||10 ||12 ||
+||1 ||3 ||5 ||7 || 9 ||11 ||
+
+JTAG signals and pins
+
+||nTRST || 1 || 2 || GND ||
+||TDI || 3 || 4 || GND ||
+||TDO || 5 || 6 || GND ||
+||TMS || 7 || 8 || GND ||
+||TCK || 9 ||10 || GND ||
+||nSRST ||11 ||12 || GND ||
 
 === Shell access ===
 
 Serial console, or http://<router ip>/setup.cgi?todo=debug (turn on telnet server)
-
-=== JTAG ===
-The device has an internal 12-pins connector on J201.
-
 
 == Appendix ==
 
