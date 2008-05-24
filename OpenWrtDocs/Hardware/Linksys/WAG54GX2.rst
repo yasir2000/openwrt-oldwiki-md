@@ -13,7 +13,7 @@ Ethernet       : Unknown, switch BCM5325
 USB            : None
 ADSL           : 2/2+
 Serial         : yes J503
-JTAG           : assumed on J201
+JTAG           : yes J201
 }}}
 
 The {{{boot_wait}}} NVRAM variable is not defined.
@@ -25,10 +25,11 @@ We can build custom firmwares that will upload via the regular web interface.
 {{{
 Analysis of WAG54GX2_A_V1.00.01.img
 -----------------------------------
-00010100:0035d100:gzip cramfs on /tmp/fs1
-00400000:-       :CFE bootloader 0
-00404a84:00404a84:CFE bootloader 1 (lzma compressed)
-00410000:00410100:Firmware header
+00000000-00010000:Space for a bootloader!
+00010000-00010100:Space for a firmware header!
+00010100-0035d100:gzip cramfs on /tmp/fs1
+00400000-00410000:CFE bootloader (some of which maybe lzma compressed)
+00410000-00410100:Firmware header
    FW_BCM.vendor = Broadcom Corporatio
    FW_BCM.version = ver. 2.0
    FW_BCM.chipid = 6348
@@ -43,12 +44,18 @@ Analysis of WAG54GX2_A_V1.00.01.img
    FW_BCM.payload_checksum = 0x0
    FW_BCM.data_crc = 0x67b71da5
    FW_BCM.header_crc = 0xf8ebdca2
-00410100:005b6100:gzip cramfs on /
-005b610c:-       :lzma compressed kernel
+00410100-005b6100:gzip cramfs on /
+005b610c-        :lzma compressed kernel
 }}}
 
+
+The image is in flash at $1F800000 (the boot loader is at $1FC00000), the top $10000 (64k)
+of the flash contains the nvram and there is 64k of "lang" below this.
+
+To debrick this box you require a version of wrt54g.exe that has been modified to handle the big endian cpu. Also beware that the cfe commands think the cfe is at the bottom of flash rather than at $1fc00000!
+
 == connectors ==
-The serial console can best be reached fron the bottom of the PCB.
+The serial console can best be reached fron the bottom of the PCB, the holes seem not to be drilled.
 
 attachment:connector.jpg
 
@@ -65,7 +72,7 @@ Serial console confirmed on J503.
 Serial console, or http://<router ip>/setup.cgi?todo=debug (turn on telnet server)
 
 === JTAG ===
-The device has an internal 12-pins connector on J201 although not confirmed this should be for JTAG.
+The device has an internal 12-pins connector on J201.
 
 
 == Appendix ==
