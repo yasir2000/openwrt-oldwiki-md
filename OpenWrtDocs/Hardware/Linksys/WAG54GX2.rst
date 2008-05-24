@@ -48,7 +48,6 @@ Analysis of WAG54GX2_A_V1.00.01.img
 005b610c-        :lzma compressed kernel
 }}}
 
-
 The image is in flash at $1F800000 (the boot loader is at $1FC00000), the top $10000 (64k)
 of the flash contains the nvram and there is 64k of "lang" below this.
 
@@ -59,6 +58,7 @@ To debrick this box you require a version of wrt54g.exe that has been modified t
 attachment:connector.jpg
 
 === Serial Console ===
+
 Serial console confirmed on J503.
 ||'''pin'''||'''signal'''||
 ||1||GND||
@@ -66,9 +66,9 @@ Serial console confirmed on J503.
 ||3||VCC (3.3v)||
 ||4||RX||
 
-''' JTAG Port '''
+=== JTAG Port ===
 
-Jtag Port is J201 this port is verified.
+Jtag Port confirmed on J201.
 
 Disposition on the board:
 
@@ -84,7 +84,7 @@ JTAG signals and pins
 ||TCK || 9 ||10 || GND ||
 ||nSRST ||11 ||12 || GND ||
 
-=== Shell access ===
+== Shell access ==
 
 Serial console, or http://<router ip>/setup.cgi?todo=debug (turn on telnet server)
 
