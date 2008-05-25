@@ -11,7 +11,7 @@
  * ["OpenWrtDocs/KamikazeConfiguration"]
  * ["Faq"]
  * ["MiniHowtos"]
- * [CategoryHowTo]
+ * ["CategoryHowTo"]
  * ["OpenWrtDocs/Using"]
  * ["RrdTrafficWatch"]
  * ["OpenWrtDocs/dnsmasq"]
