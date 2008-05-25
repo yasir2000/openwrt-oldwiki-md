@@ -23,9 +23,15 @@ Development takes place in SVN. You get the source via:
 {{{
 svn checkout https://svn.openwrt.org/openwrt/trunk/ .
 }}}
+/!\ Note: patches to boot siemens se154and smc SMC7908VoWBRB devices can be found http://ar7-firmware.berlios.de/openwrt/patches.html.en
+
 /!\ Note: Currently the AR7 code is disabled in the menu, as it is currently work in progress.
 
-/!\ Note: patches to boot siemens se154and smc SMC7908VoWBRB devices can be found http://ar7-firmware.berlios.de/openwrt/patches.html.en
+To enable AR7 select the following option in menuconfig
+{{{
+Advanced configuration options (for developers) --> Show broken platforms / packages
+}}}
+Once this is done, {{{TI AR7 [2.6]}}} will appear in the Target System menu.
 
 = Installing OpenWrt =
 == Disclaimer ==
