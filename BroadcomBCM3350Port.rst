@@ -1,4 +1,4 @@
-MIPS R3000 CPU **without a TLB**
+MIPS R3000 CPU ''without a TLB''
 
 Note: Ralf says this is just mostly R3000-*compatible*, so -march=mips32 is safer.
 
