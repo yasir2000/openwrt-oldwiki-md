@@ -10,7 +10,7 @@ NS16550 serial UART
 
 i82559 Ethernet
 
-==eCos source==
+== eCos source ==
 The Netgear CVG834G uses a bcm33xx chip and has GPL'd eCos.
 
 Netgear modified the Atlas driver in eCos to add the bcm3350.
