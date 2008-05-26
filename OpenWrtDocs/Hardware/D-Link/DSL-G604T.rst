@@ -57,9 +57,9 @@ First of all you what you need:
 
 1) Linux machine or shell account;
 
-2) Windows machine for flashing;
+2) Linux or Windows machine for flashing;
 
-3) Simple hex editor like XVI, or shareware WinHex for example;
+3) Simple hex editor like hexer (Linux), XVI, or shareware WinHex for example;
 
 4) For Windows machines of course and PuTTY ssh-client.
 
@@ -92,7 +92,7 @@ In configuration mode we need select those options:
 
 {{{
 Target System (TI AR7 [2.6])
-Target Profile (Texas Instruments WiFi (default)) - usually set's by default. (Still at date 15/06/2007 it isn't work).
+Target Profile (Texas Instruments WiFi (default)) - usually set's by default
 Target Images ---> SquashFS
 Libraries ----> linux-atm
 
