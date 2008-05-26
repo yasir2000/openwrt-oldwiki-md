@@ -28,6 +28,7 @@ wlan0     IEEE 802.11b  ESSID:"OpenWrt"
 }}}
 
 Ethernet is reported to be broken for kernel > 2.6.23. Release 10417 seems to be the last one without this problem. For details see https://dev.openwrt.org/ticket/3124
+Ethernet works in r11266 when pathc target/linux/ar7/patches-2.6.25/150-cpmac_up_and_running.diff is removed.
 
 == Specifications ==
 Wireless 4-Port ADSL Router (ADSL 2/2+ Compliant).
