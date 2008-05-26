@@ -3,7 +3,9 @@ Internal Photos: http://www.smallnetbuilder.com/content/view/30222/191/
 Serial console is on JP4.
 
 Pins 1, 3, 5, 7, 9 are GND
+
 Pin 8 is RX (input to the RVL200)
+
 Pin 10 is TX (output from the RVL200)
 
 {{{
