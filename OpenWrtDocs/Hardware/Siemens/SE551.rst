@@ -21,7 +21,6 @@ This router seems however to have a propiertary OS instead.
 {{{ar531xPlus rev 0x00000087 boot loader startup...}}}
 So AtherosPort seems like the right place
 
-It uses a Serial Flash 25P16 which is 2MB (2M x 8 = 16Mbit). [[BR]]
 CPU is an AR2316A Atheros Chipset and covered by a soldered-in heatsink
 
 Infineon (ADMTek) ADM6996Lc [[BR]]
@@ -43,7 +42,9 @@ TXC 24.0MHz Xtal
 APL1117[[BR]]
 Voltage Regulator
 
-SI IC42S16800 or PSC A2V28S40CTP-G6 [[BR]]
+FLASH = Serial Flash 25P16 = 2MB (2M x 8 = 16Mbit). [[BR]]
+
+SDRAM = SI IC42S16800 or PSC A2V28S40CTP-G6 [[BR]]
 16MB RAM
 
 APW34063[[BR]]
