@@ -23,6 +23,11 @@ So AtherosPort seems like the right place
 
 CPU is an AR2316A Atheros Chipset and covered by a soldered-in heatsink
 
+FLASH = Serial Flash 25P16 = 2MB (2M x 8 = 16Mbit). [[BR]]
+
+SDRAM = SI IC42S16800 or PSC A2V28S40CTP-G6 [[BR]]
+16MB RAM
+
 Infineon (ADMTek) ADM6996Lc [[BR]]
 Ethernet Switch
 
@@ -41,11 +46,6 @@ TXC 24.0MHz Xtal
 
 APL1117[[BR]]
 Voltage Regulator
-
-FLASH = Serial Flash 25P16 = 2MB (2M x 8 = 16Mbit). [[BR]]
-
-SDRAM = SI IC42S16800 or PSC A2V28S40CTP-G6 [[BR]]
-16MB RAM
 
 APW34063[[BR]]
 DC/DC Converter Controlling IC
