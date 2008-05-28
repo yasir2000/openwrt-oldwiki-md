@@ -62,6 +62,12 @@ The console is JP603 and is oriented with pin1 closest to the edge of the board 
 || LAN MAC/PHY Switch || Marvell 88E6060 ||
 || WLAN || TI TNETW1350A ||
 
+Image of DG834Gv3, with serial port at top right (4 pins)
+
+attachment:DG834Gv3.jpg
+
+[attachment:DG834Gv3-thumb.jpg Larger version available (756 KiB)]
+
 == Serial console ==
 Same as the v2.
 
