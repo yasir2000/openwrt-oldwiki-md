@@ -155,6 +155,14 @@ and this one using the web interface : bin/openwrt-rdc-jffs2-64k-ar525w-web.img
 
 Myself and others have not had much luck with these images and have rendered the network interfaces disabled on the 525W after flashing.  Please see http://forum.x-wrt.org/index.php/topic,641.0.html for details of our experiences and instructions on returning your 525W to the original firmware.  BTW, the 525W is picky about the browser you use for the GUI flash, stick with IE for this unit.
 
+Update 05/28/2008 :
+
+I got the ethernet ports working tweaking the driver for r6040. I'll post all the procedure on the following thread :
+http://forum.x-wrt.org/index.php?PHPSESSID=htl0dp14brbea731bn0ch8aop1&topic=865.0
+
+I have one airlink 525 running with openwrt, and the other one being use for development. 
+
+
 Bootlog :
 
 {{{
