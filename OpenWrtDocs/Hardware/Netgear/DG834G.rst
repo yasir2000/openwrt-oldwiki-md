@@ -62,25 +62,24 @@ The console is JP603 and is oriented with pin1 closest to the edge of the board 
 || LAN MAC/PHY Switch || Marvell 88E6060 ||
 || WLAN || TI TNETW1350A ||
 
+
 Image of DG834Gv3, with serial port at top right (4 pins)
 
-attachment:DG834Gv3.jpg
+attachment:DG834Gv3-thumb.jpg
 
-[attachment:DG834Gv3-thumb.jpg Larger version available (756 KiB)]
+[attachment:DG834Gv3.jpg Larger version available (756 KiB)]
 
 == Serial console ==
 Same as the v2.
 
 = Netgear DG834G V4 =
 == Hardware ==
-
 According to [http://en.wikipedia.org/wiki/DG834G Wikipedia], not based anymore on TI AR7, but Broadcom.
 
  * BCM6348 V0.7 cpu @ 239.20 bogomips
  * Broadcom BCM4318 802.11 Wireless Controller
  * Broadcom BCM6348B0 Ethernet Network Device v0.3
  * Linux version 2.6.8.1 (gcc version 3.4.2)
-
 Doesn't have /proc/sys/dev/adam2/, so might not be adam2 based bootloader?
 
 = ADAM2 =
@@ -220,10 +219,8 @@ ftp> quote REBOOT
 Wait for it to reboot and enjoy.
 
 {{{
-
 BusyBox v1.7.2 (2007-10-05 16:40:15 EDT) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
