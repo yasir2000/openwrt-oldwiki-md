@@ -158,7 +158,7 @@ Myself and others have not had much luck with these images and have rendered the
 Update 05/28/2008 , from Bruce :
 
 I got the ethernet ports working tweaking the driver for r6040. I'll post all the procedure on the following thread :
-http://forum.x-wrt.org/index.php?PHPSESSID=htl0dp14brbea731bn0ch8aop1&topic=865.0
+http://forum.x-wrt.org/index.php?topic=865.0
 I have one airlink 525 running with openwrt, and the other one being use for development. 
 
 
