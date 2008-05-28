@@ -72,11 +72,6 @@ Serial console confirmed on J503.
 
 Jtag Port confirmed on J201.
 
-Disposition on the board:
-
-||2 ||4 ||6 ||8 ||10 ||12 ||
-||1 ||3 ||5 ||7 || 9 ||11 ||
-
 JTAG signals and pins
 
 ||nTRST || 1 || 2 || GND ||
