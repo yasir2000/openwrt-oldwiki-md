@@ -67,7 +67,7 @@ Image of DG834Gv3, with serial port at top right (4 pins)
 
 attachment:DG834Gv3-thumb.jpg
 
-[attachment:DG834Gv3.jpg Larger version available (756 KiB)]
+[attachment:DG834Gv3.jpg Larger version available (Higher quality) (756 KiB)]
 
 == Serial console ==
 Same as the v2.
