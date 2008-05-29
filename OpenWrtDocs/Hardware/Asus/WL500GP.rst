@@ -128,7 +128,7 @@ tftp> put openwrt-brcm-2.4-squashfs.trx}}}
  * Type 'tftp -i 192.168.1.1 PUT <yourfirmware>.trx' but DO NOT HIT ENTER!
  * Unplug the power to the router.
  * Hold down the reset/restore button while reconnecting the power. Wait until the power light starts blinking before releasing the reset/restore button.
- * Hit enter in your command prompt window (to run 'tftp -i 192.168.1.1 <yourfirmware>.trx').
+ * Hit enter in your command prompt window (to run 'tftp -i 192.168.1.1 PUT <yourfirmware>.trx').
  * Wait 15-30 seconds for the image to upload. If you receive a TFTP timeout message start the process over again
  * Wait 4-5 minutes and power cycle the router.
 ==== ASUS firmware restoration tool (Windows only) ====
