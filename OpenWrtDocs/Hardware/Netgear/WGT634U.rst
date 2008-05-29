@@ -58,7 +58,7 @@ CFE> reboot
 Flashing may take over a minute or more. After that you can use {{{reboot}}} to start !OpenWrt.
 
 == Edit files in Serial Console ==
-If you made a mistake in /etc/config/network file and you can't access to the router, even in browser, ssh, telnet or ftp, you can use the serial port as above but instead of typing 'ctrl-C' while you connect the power, you can do this:
+If you made a mistake in /etc/config/network file and you can't access to the router, even in browser, ssh, telnet or ftp, you can use the serial port as above but instead of typing 'ctrl-c' while you connect the power, you can do this:
  * Connect the power cord and leave the router boot
  * When the router finish to boot, you can do enter to get your linux prompt
  * Modify all files you want
