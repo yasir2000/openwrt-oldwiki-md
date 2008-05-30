@@ -120,11 +120,13 @@ Add mtd5 and change mtd0 & mtd4
 # echo "mtd4 0x90020000,0x901F0000" > /proc/ticfg/env
 # echo "mtd0 0x90094000,0x901F0000" > /proc/ticfg/env
 }}}
+
 tftpd32 for Windows
 
 {{{
 http://tftpd32.jounin.net/
 }}}
+
 TX & RX led fix:
 
 {{{
@@ -132,6 +134,7 @@ TX & RX led fix:
 # tftp -g -l mycfg.tar.gz_blink_on_lan 192.168.0.90
 # cat mycfg.tar.gz_blink_on_lan > /dev/mtdblock/5
 }}}
+
 attachment:mycfg.tar.gz_blink_on_lan file size 759
 
 http://mcmcc.bat.ru/acorp/env_db/env_lan120.txt
