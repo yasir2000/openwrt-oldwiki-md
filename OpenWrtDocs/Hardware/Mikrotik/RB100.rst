@@ -17,8 +17,8 @@ Installing OpenWrt on these boards (apart from the 153) is only possible by usin
  1. A serial connection with a null modem cable as console (standard serial cable will not work).
  1. An ethernet connection to load the NetBoot kernel and then download the NAND image.
  1. A DHCP server to tell the RB1xx where to get it's netboot image. This can be done either using independent packages or using DnsMasq.
- 1. A TFTPD server to supply the NetBoot image to load a barebone Kamikaze RAMdisk image.  You will boot into the RAMdisk version of Kamikaze and use it to flash the permanent Kamikaze image into NAND.
- 1. A Web server to serve up the permanent version of the Kamikaze kernal and rootfs.
+ 1. A TFTPD server to supply the NetBoot image to load a barebone OpenWrt RAMdisk image.  You will boot into the RAMdisk version of OpenWrt and use it to flash the permanent OpenWrt image into NAND.
+ 1. A Web server to serve up the permanent version of the OpenWrt kernal and rootfs.
 
 The minicom settings for a connection using a USB serial port would be:-
 
@@ -81,25 +81,23 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 }
 }}}
 
-Where "next-server" is the IP address of the TFTP server, which is here, the same IP address as the DHCP server as well.
+Where "next-server" is the IP address of the TFTP server, which is here, the same IP address as the DHCP server as well. You may need to rename the vmlinux.elf file by adding the "-2.6-" so it matches the DHCP settings above.
 
 === Building OpenWrt for RB1xx ===
 
-Unfortunately you need to build two kernels in order to install this system.  The first has a RAMDISK built into it so that you can download it using the Netboot facility and have a working system without a disk, and the second is the one that is going to be installed on the flash and will be your running kernel.
+Unfortunately you need to build two kernels in order to install OpenWrt.  The first has a RAMDISK based file system and will use NetBoot for startup. It will be used to install the second image--the permanent one that will be flashed into NAND and will be your running OpenWrt kernel.
 
-All the building happens under the ADM5120-2.6 target, so the first thing you need to do is to download an SVN copy of OpenWrt Kamikaze, and then run make menuconfig.
+To compile your OpenWrt firmware images you need to download an SVN copy of OpenWrt Kamikaze, and then run make menuconfig.
 
-In menuconfig select the "ADM5120-2.6 (Little Endian)" target.  Then in the Target Images section select RAMDISK.  This will disable all the other image options.
-
-There is no need to make package selections at this stage as all the packages you will need to install the system are there by default.
+In menuconfig select the "ADM5120-2.6 (Little Endian)" target.  Then in the Target Images section select RAMDISK.  This will disable all the other image options. There is no need to make package selections at this stage as all the packages you will need to install the system are there by default.
 
 Save the configuration and run make (this will take a while).
 
-You should now have a file in the bin directory called openwrt-adm5120-2.6-vmlinux.elf, and this should be copied to your TFTPD root directory, the same as mentionned in "dhcpd.conf".
+You should now have a file in the bin directory called openwrt-adm5120-2.6-vmlinux.elf, and this should be copied to your TFTPD root directory, the same as mentionned in "dhcpd.conf". Check the spelling of this file closely, NetBoot will be looking for the above file with the "-2.6-" in it.
 
 === Starting the RAMDISK image ===
 
-With your serial console ready, power on your RB1xx board. Press "Enter" within 2 seconds to make it stop the autoboot process. You can now see the following menu :
+With your serial console ready, power on your RB1xx board. Press "Enter" within 2 seconds to make it stop the autoboot process. You can now see the following boot loaker menu :
 
 {{{
 RouterBOOT booter 2.1
@@ -142,15 +140,15 @@ Select boot device:
 your choice:
 }}}
 
-Choose "e" to boot over Ethernet, or "1" to boot over Ethernet for the flash, then boot from NAND.
+Choose "e" to boot over Ethernet, or "1" to boot over Ethernet once, then boot from NAND thereafter.
 
-Now, you get back to he main menu. Press "o", then "b" to effectively boot from Ethernet now.
+Select "x" to exit and boot from Ethernet now.
 
 === Build the running image ===
 
-Now you need to build the running image, and for this you will need to run make clean (to get rid of the old settings) and then run make menuconfig again.  This time select TAR as the Image type. You can at this stage go through and select the packages that you are actually going to want (although you can always add them later with ipkg). Once you have completed the configuration you can run make (and once again wait a while).
+Now you need to build the final running image, and for this you will need to run make clean (to get rid of the old settings) and then run make menuconfig again.  This time select TAR as the Image type. You should also go through and select the packages that you want (although you can always add them later with ipkg). Once you have completed the configuration you can save and exit, then run make (and once again wait a while).
 
-This time you will find a tar file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz and the kernel called openwrt-adm5120-rb1xx-vmlinux.  (If for some reason you don't find the kernel in the bin directory, the one called build_dir/linux-adm5120_router_le/vmlinux.elf should also work.)  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-vmlinux.
+This time you will find a tar file in the bin directory called openwrt-adm5120-2.6-rootfs.tgz and the kernel called openwrt-adm5120-rb1xx-kernel.  (If for some reason you don't find the kernel in the bin directory, the one called build_dir/linux-adm5120_router_le/vmlinux.elf should also work.)  Copy these two files into a directory which can be reached by your web server as openwrt-adm5120-2.6-rootfs.tgz and openwrt-adm5120-2.6-kernel. Again, verify the name of this file, you may need to add the "-2.6-" to the file name.
 
 === Flash the running image ===
 
@@ -158,7 +156,7 @@ Now you can power up your RB1xx and it will boot the RAMdisk version of Openwrt 
 
 wget2nand takes a single parameter, the URL of the directory into which the tgz and kernel files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
 
-When you build Openwrt using the trunk the NAND kernel image file needs to be renamed, you have to add the "2.6" to the name. wget2nand looks for a kernel file called "openwrt-adm5120-2.6-rb1xx-kernel" The rootfs file name is correct and does not need to be changed.
+When you build Openwrt using the trunk the NAND kernel image file needs to be renamed, you have to add the "-2.6-" to the name. wget2nand looks for a kernel file called "openwrt-adm5120-2.6-rb1xx-kernel" The rootfs file name is correct and does not need to be changed.
 
 At the Openwrt command prompt, run:
 
