@@ -121,6 +121,8 @@ What do you want to configure?
 your choice:
 }}}
 
+Press "e" and type "yes" to format the NAND memory, this must be done to free up memory for the new kernel and file system.
+
 Press "o" to select your boot device. Then you will see this menu :
 
 {{{
@@ -133,7 +135,7 @@ Select boot device:
 your choice:
 }}}
 
-Choose "e" to boot over Ethernet.
+Choose "e" to boot over Ethernet, or "1" to boot over Ethernet for the flash, then boot from NAND.
 
 Now, you get back to he main menu. Press "o", then "b" to effectively boot from Ethernet now.
 
@@ -152,6 +154,11 @@ When the RAMDISK Openwrt kernel is booted hardly any of the normal OpenWrt initi
 In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
 
 wget2nand takes a single parameter, the URL of the directory into which the tgz and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
+
+When you build kamikaze using the trunk the NAND kernel image file needs to be renamed, you have to add the "2.6" to the name. The kernel should be called "openwrt-adm5120-2.6-rb1xx-kernel" so wget2nand can find it. The rootfs file does not need to be renamed.
+
+At the kamikaze command prompt, run: /sbin/wget2nand http://192.168.1.20/
+to flash kamikaze to NAND. This command assumes the kernel and rootfs files are stored in the web server root. Substitute your http server's address for "192.168.1.20"
 
 If wget2nand does not work for you, see the [#head-b8817b9d50b5e02079e208b41b684656cfbfece1 Manual flashing] section below.
 
@@ -176,9 +183,9 @@ Cannot find NAND Flash partitions
 root@OpenWrt:/# 
 }}}
 
-You might need to format the flash from the BIOS and then do the extractions manually, as follows:
+You will need to format the flash from the BIOS and then do the extractions manually, as follows:
 
-(Original source of the manual method: Up to kamikaze svn #7272, RouterBoard 1xx NAND support is not working due to some changes at the mtd API.  A quick HOWTO to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here].  I did not need to install the [http://www.cygwin.com/redboot/ RedBoot] version mentioned on that page.)
+A quick HOWTO to get things going is over [http://rb1xx.ozo.com/doku.php#quick_howto here].  I did not need to install the [http://www.cygwin.com/redboot/ RedBoot] version mentioned on that page.)
 
 {{{
 root@OpenWrt:/# mount /dev/mtdblock2 /mnt
