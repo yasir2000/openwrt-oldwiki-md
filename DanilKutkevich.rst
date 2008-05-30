@@ -18,5 +18,8 @@
  * [http://forum.openwrt.org/viewtopic.php?id=3474 Forum]
  * [http://downloads.openwrt.org/kamikaze/docs/openwrt.html Documentation]
 
+=== Bugs ===
+[http://forum.openwrt.org/viewtopic.php?pid=59584 Port forwarding stops working after a while on Kamikaze 7.09]
+
 ----
 CategoryHomepage
