@@ -154,24 +154,23 @@ This time you will find a tar file in the bin directory called openwrt-adm5120-2
 
 === Flash the running image ===
 
-Now you can power up your RB1xx and download the kernel.  At this stage you are using the first kernel you produced above.
+Now you can power up your RB1xx and it will boot the RAMdisk version of Openwrt over the ethernet. When the RAMDISK Openwrt kernel is booted hardly any of the normal OpenWrt initialisation occurs - you will not find that modules have been loaded or the network configured. In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
 
-When the RAMDISK Openwrt kernel is booted hardly any of the normal OpenWrt initialisation occurs - you will not find that modules have been loaded or the network configured.
+wget2nand takes a single parameter, the URL of the directory into which the tgz and kernel files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
 
-In /sbin however you will find a script called wget2nand which will do the installation for you, using the second kernel and the flash image.
+When you build Openwrt using the trunk the NAND kernel image file needs to be renamed, you have to add the "2.6" to the name. wget2nand looks for a kernel file called "openwrt-adm5120-2.6-rb1xx-kernel" The rootfs file name is correct and does not need to be changed.
 
-wget2nand takes a single parameter, the URL of the directory into which the tgz and vmlinux files were stored.  wget2nand assumes you are still running DnsMasq (or whatever was your Bootp server) and that it will also serve addresses using DHCP.
+At the Openwrt command prompt, run:
 
-When you build kamikaze using the trunk the NAND kernel image file needs to be renamed, you have to add the "2.6" to the name. The kernel should be called "openwrt-adm5120-2.6-rb1xx-kernel" so wget2nand can find it. The rootfs file does not need to be renamed.
+/sbin/wget2nand http://192.168.1.20/
 
-At the kamikaze command prompt, run: /sbin/wget2nand http://192.168.1.20/
-to flash kamikaze to NAND. This command assumes the kernel and rootfs files are stored in the web server root. Substitute your http server's address for "192.168.1.20"
+to flash Openwrt to NAND. This command assumes the kernel and rootfs files are stored in the web server root. Substitute your http server's address for "192.168.1.20"
 
 If wget2nand does not work for you, see the [#head-b8817b9d50b5e02079e208b41b684656cfbfece1 Manual flashing] section below.
 
 When you reboot you need to change the BIOS settings back to booting from the NAND.
 
-Once the installation is complete you can reboot your RouterBoard 1xx card and you should have a running system.
+Once the installation is complete you can reboot your RouterBoard 1xx and you should have a running system.
 
 === Manual flashing ===
 wget2nand was broken, but as of r10221 it should work.  If you are trying an older revision or wget2nand still does not work and gives you a "Cannot find NAND Flash partitions" error like this:
