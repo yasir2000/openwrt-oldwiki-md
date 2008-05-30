@@ -13,7 +13,12 @@ There are currently 6 boards in this range:-
  1. 192 Two mini-pci, 32MB RAM, 64MB NAND Flash, nine ethernet, no CF
 
 === Installation ===
-Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need a serial connection with a null modem cable as console (standard serial cable will not work), and an ethernet connection to load the kernel and then download the flash image.  You will also need to have DHCP and TFTPD servers on your machine.  This can be done either using independent packages or using DnsMasq.  You will also need a Web server.
+Installing OpenWrt on these boards (apart from the 153) is only possible by using the NetBoot facility.  For this you will need:
+ 1. A serial connection with a null modem cable as console (standard serial cable will not work).
+ 1. An ethernet connection to load the NetBoot kernel and then download the NAND image.
+ 1. A DHCP server to tell the RB1xx where to get it's netboot image. This can be done either using independent packages or using DnsMasq.
+ 1. A TFTPD server to supply the NetBoot image to load a barebone Kamikaze RAMdisk image.  You will boot into the RAMdisk version of Kamikaze and use it to flash the permanent Kamikaze image into NAND.
+ 1. A Web server to serve up the permanent version of the Kamikaze kernal and rootfs.
 
 The minicom settings for a connection using a USB serial port would be:-
 
@@ -35,6 +40,8 @@ pu mdialsuf2
 pu mdialpre3
 pu mdialsuf3
 }}}
+
+You can also use Windows' Hyperterminal for the serial console.
 
 === Setting up DHCP/TFTP server ===
 
