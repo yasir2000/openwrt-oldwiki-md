@@ -258,22 +258,7 @@ ibase=16
 A87E0000 - A80F0000
 6F0000
 }}}
-Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs:
-
-{{{
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
-Using default protocol (TFTP)
-|
-Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
-RedBoot> fis create -l 0xLENGTH rootfs
-An image named 'rootfs' exists - continue (y/n)? y
-... Erase from 0xa8030000-0xa8730000: ................................................................................................................
-... Program from 0x80041000-0x80741000 at 0xa8030000: ..............................................................................................................
-... Erase from 0xa87e0000-0xa87f0000: .
-... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
-RedBoot> reset
-}}}
-If everything is okay, then it will now look like this:
+Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs    If everything is okay, then it will now look like this:
 
 {{{
 +PHY ID is 0022:5521
@@ -399,6 +384,35 @@ root@OpenWrt:/#
 }}}
 '''NOTE''': If you changed !RedBoot's baud rate to something different than 9600bps, revert that change unless your terminal program does auto baud detection -- !OpenWrt logs to its serial console with 9600bps, so having the same baud rate in !RedBoot is a good idea.
 
+== Installing openwrt with reboot via expect ==
+First you need to have the tftp server working then you need cu , to access the serial port , expect to execute this script. once you have the files needed in the tftp dir you can exec this  script (save it to a file and exec it via expect "file name")
+
+{{{
+#!/usr/bin/expect -f
+spawn cu -l /dev/ttyS0 -s 9600
+#match_max 100000
+set timeout 3600
+# Look for passwod prompt
+expect "enter ^C to abort"
+send \003
+# send blank line (\r) to make sure we get back to gui
+expect "RedBoot>"
+send -- "ip_address -h 192.168.1.13 -l 192.168.1.21/24\r"
+expect "RedBoot>"
+send -- "fis init\r"
+expect "(y/n)? "
+send -- "y\r"
+expect "RedBoot>"
+send -- "load -r -b %\{FREEMEMLO\} openwrt-atheros-vmlinux.lzma\r"
+expect "RedBoot>"
+send -- "fis create -e 0x80041000 -r 0x80041000 vmlinux.bin.l7\r"
+expect "RedBoot>"
+send -- "load -r -b %\{FREEMEMLO\} openwrt-atheros-root.squashfs\r"
+expect "RedBoot>"
+send -- "fis create -l 0x006F0000 rootfs\r"
+expect "RedBoot>"
+send -- "reset\r"
+}}}
 = Telnet into RedBoot =
 You can change the !RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
 
