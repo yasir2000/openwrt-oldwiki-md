@@ -335,9 +335,7 @@ br-lan: Dropping NETIF_F_UFO since no NETIF_F_HW_CSUM feature.
 Link Change 9002
 }}}
 
-=== More Information ===
 
-[http://www.macsat.com/macsat/component/option,com_openwiki/Itemid,66/ RDC321x-Wiki]
 
 ----
 
