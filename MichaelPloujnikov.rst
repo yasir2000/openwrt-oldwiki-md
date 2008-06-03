@@ -10,6 +10,7 @@ My website: http://plouj.com/
  * BackupAndRestore
  * ["OpenWrtDocs/Hardware/Thomson/speedtouch"]
  * ["MiniHowtos/QoSHowto"]
+ * OpenWrtDocs/Jffs2Root
 
 ----
 CategoryHomepage
