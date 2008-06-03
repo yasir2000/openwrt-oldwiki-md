@@ -258,7 +258,23 @@ ibase=16
 A87E0000 - A80F0000
 6F0000
 }}}
-Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs    If everything is okay, then it will now look like this:
+Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs:
+
+{{{
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
+Using default protocol (TFTP)
+|
+Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
+RedBoot> fis create -l 0xLENGTH rootfs
+An image named 'rootfs' exists - continue (y/n)? y
+... Erase from 0xa8030000-0xa8730000: ................................................................................................................
+... Program from 0x80041000-0x80741000 at 0xa8030000: ..............................................................................................................
+... Erase from 0xa87e0000-0xa87f0000: .
+... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+RedBoot> reset
+}}}
+
+If everything is okay, then it will now look like this:
 
 {{{
 +PHY ID is 0022:5521
