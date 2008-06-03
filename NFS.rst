@@ -1,3 +1,9 @@
+This package seems to be broken. 
+
+Portmap is not working, and nobody  to fix it yet. 
+Seems that NFS on kamikaze is not going to work.
+
+
 = Intro =
 Here's how I was able to export a USB drive from my WRTSL54GS.
 
