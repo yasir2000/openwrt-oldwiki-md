@@ -104,4 +104,4 @@ Decompressed length: 3932683
 
 ----
 
-CategoryModel CategoryCableModem BroadcomBCM33xxPort
+CategoryModel CategoryCableModem CategoryBCM33xx
