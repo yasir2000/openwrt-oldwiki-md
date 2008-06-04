@@ -723,4 +723,4 @@ Scanning CFL Frequency..
 
 ----
 
-CategoryModel CategoryCableModem
+CategoryModel CategoryCableModem CategoryBCM33xx
