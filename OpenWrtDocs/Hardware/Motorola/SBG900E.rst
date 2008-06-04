@@ -82,4 +82,4 @@ JTAG is not yet tested.
 
 ----
 
-CategoryModel CategoryCableModem BroadcomBCM33xxPort
+CategoryModel CategoryCableModem CategoryBCM33xx
