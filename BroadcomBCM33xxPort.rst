@@ -84,6 +84,7 @@ Used in the [:OpenWrtDocs/Hardware/Motorola/SB4100:SB4100] cable modem
 === bcm3368 ===
 Known platforms:
  * [:OpenWrtDocs/Hardware/Netgear/CVG834G:Netgear CVG834G]
+ * Scientific-Atlanta WebStar DPX 2203
 
 == Finished tasks ==
 The support for Broadcom 33xx is at this state :
