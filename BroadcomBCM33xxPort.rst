@@ -11,12 +11,13 @@ This page covers the BCM33xx SoC specificities, but the BCM63xx SoC are mostly t
 
 == What are 33xx variants? ==
 There are many 33xx variants. Only those with a TLB will be supported:
-||Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||DOCSIS ||TLB ||Product ID ||-march ||Surfboard ||
+||Chip ||CPU Mhz ||USB Device ||VoIP ||WiFi ||DOCSIS ||TLB ||Product ID ||-march ||Surfboard ||
 ||[http://www.datasheetcatalog.org/datasheets2/13/131978_1.pdf bcm3300] ||  n/a ||- ||- ||- ||1.0/1.1 ||- ||- ||- ||3100 ||
 ||[http://www.datasheetcatalog.org/datasheets2/15/155898_1.pdf bcm3345] ||  140 ||1.1 ||- ||- ||1.0/1.1 ||Yes? ||      ? ||mips32? ||4200 ||
 ||[http://www.datasheetcatalog.org/datasheets/166/404171_DS.pdf bcm3348] ||  200 ||1.1 ||- ||- ||1.0/1.1/2.0 ||Yes? ||      ? ||mips32? ||5100 ||
 ||[http://www.broadcom.com/collateral/pb/3349-PB03-R.pdf bcm3349] ||  200 ||1.1 ||- ||EBI/PCMCIA ||1.0/1.1/2.0 ||Yes? ||      ? ||mips32? ||5101 ||
 ||[http://www.datasheetcatalog.org/datasheets/134/404172_DS.pdf bcm3350] ||  100 ||1.1 ||- ||- ||1.0/1.1 || No  ||0x28000 ||mips32? ||4100 ||
+||[http://www.broadcom.com/collateral/pb/3368-PB202-R.pdf bcm3368] ||  300 ||1.1 ||2 lines ||Expansion Bus ||2.0 ||Yes? ||      ? ||mips32? ||- ||
 
 === bcm3300 ===
 Known platforms:
@@ -79,6 +80,10 @@ NS16550 serial UART
 i82559 Ethernet
 
 Used in the [:OpenWrtDocs/Hardware/Motorola/SB4100:SB4100] cable modem
+
+=== bcm3368 ===
+Known platforms:
+ * [:OpenWrtDocs/Hardware/Netgear/CVG834G:Netgear CVG834G]
 
 == Finished tasks ==
 The support for Broadcom 33xx is at this state :
