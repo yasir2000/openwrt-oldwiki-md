@@ -1,1 +1,1 @@
-#redirect [[BroadcomBCM33xxPort]]
+#redirect BroadcomBCM33xxPort
