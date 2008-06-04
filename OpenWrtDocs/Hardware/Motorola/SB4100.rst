@@ -266,4 +266,4 @@ $$MCNS_STARTUP_COMPLETE$$
 }}}
 ----
 
-CategoryModel CategoryCableModem BroadcomBCM33xxPort
+CategoryModel CategoryCableModem CategoryBCM33xx
