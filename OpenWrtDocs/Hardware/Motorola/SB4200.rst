@@ -43,4 +43,4 @@ Standard firmware provides configuration interface using HTTP.
 
 ----
 
-CategoryModel CategoryCableModem
+CategoryModel CategoryCableModem CategoryBCM33xx
