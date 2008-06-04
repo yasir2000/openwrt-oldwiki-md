@@ -189,7 +189,7 @@ Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech i
 == Castlenet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
-||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[http://web.archive.org/web/20030627094926/www.broadcom.com/pbs/3348-PB02-403-RDS.pdf Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
+||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
 == CC&C ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.ccandc.com.tw/Wireless%20LAN%20Products.htm WA-6208-V1] || ||Atheros AR9132, 200MHz ||8MB ||16MB ||Atheors AR9103 ||Atheros AR8316 ||Yes ||Yes ||No ||Yes ||Yes ||WiP ||
