@@ -11,11 +11,12 @@ This page covers the BCM33xx SoC specificities, but the BCM63xx SoC are mostly t
 
 == What are 33xx variants? ==
 There are many 33xx variants. Only those with a TLB will be supported:
-||Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||DOCSIS ||TLB ||Surfboard ||Product ID ||-march ||
-||[http://www.datasheetcatalog.org/datasheets2/15/155898_1.pdf bcm3345] ||  140 ||1.1 ||- ||- ||1.0/1.1 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB4200:SB4200] ||      ? ||mips32? ||
-||[http://www.datasheetcatalog.org/datasheets/166/404171_DS.pdf bcm3348] ||  200 ||1.1 ||- ||- ||1.0/1.1/2.0 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB5100:SB5100] [:OpenWrtDocs/Hardware/Motorola/SBG900E:SBG900E] ||      ? ||mips32? ||
-||[http://www.broadcom.com/collateral/pb/3349-PB03-R.pdf bcm3349] ||  200 ||1.1 ||- ||EBI/PCMCIA ||1.0/1.1/2.0 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB5101:SB5101] ||      ? ||mips32? ||
-||[http://www.datasheetcatalog.org/datasheets/134/404172_DS.pdf bcm3350] ||  100 ||1.1 ||- ||- ||1.0/1.1 || No  ||[:OpenWrtDocs/Hardware/Motorola/SB4100:SB4100] ||0x28000 ||mips32? ||
+||Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||DOCSIS ||TLB ||Boards ||Product ID ||-march ||
+||[http://www.datasheetcatalog.org/datasheets2/13/131978_1.pdf bcm3300] ||  n/a ||- ||- ||- ||1.0/1.1 ||- ||3Com HomeConnect Cable Modem, Aastra PipeRider HM200, Ambit 60098E, Ambit 60098U, Arris CM200[U], Askey CME03x, Cisco uBR924, Com21 DOXport 1010, E-Tech ICE 200, E-Tech ITCM, GVC USB Cable Modem, Motorola SURFboard 3100A/B, Samsung InfoRanger ITCM/SCM-110R, Thomson RCA DCM 205/215/225, Zyxel Prestige 941 ||- ||- ||
+||[http://www.datasheetcatalog.org/datasheets2/15/155898_1.pdf bcm3345] ||  140 ||1.1 ||- ||- ||1.0/1.1 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB4200:Motorola SURFboard 4200], Hitron BRG-3520 ||      ? ||mips32? ||
+||[http://www.datasheetcatalog.org/datasheets/166/404171_DS.pdf bcm3348] ||  200 ||1.1 ||- ||- ||1.0/1.1/2.0 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB5100:Motorola SURFboard 5100], [:OpenWrtDocs/Hardware/Motorola/SBG900E:Motorola SBG900E], Scientific-Atlanta WebStar DPX-2100 ||      ? ||mips32? ||
+||[http://www.broadcom.com/collateral/pb/3349-PB03-R.pdf bcm3349] ||  200 ||1.1 ||- ||EBI/PCMCIA ||1.0/1.1/2.0 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB5101:Motorola SURFboard 5101] ||      ? ||mips32? ||
+||[http://www.datasheetcatalog.org/datasheets/134/404172_DS.pdf bcm3350] ||  100 ||1.1 ||- ||- ||1.0/1.1 || No  ||[:OpenWrtDocs/Hardware/Motorola/SB4100:Motorola SURFboard 4000/410x], Ambit 60218P, Ambit 60194E, Askey CME063, Com21 DOXport 1110, Hitron BRG-3510, Icable ICS-110, Linksys BEFCMUH4/BEFCMU10, Thomson RCA DCM 235/305 ||0x28000 ||mips32? ||
 
 === bcm3350 ===
 
