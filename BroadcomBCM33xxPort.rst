@@ -12,7 +12,8 @@ This page covers the BCM33xx SoC specificities, but the BCM63xx SoC are mostly t
 == What are 33xx variants? ==
 There are many 33xx variants. Only those with a TLB will be supported:
 ||Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||DOCSIS ||TLB ||Surfboard ||Product ID ||-march ||
-||[http://www.datasheetcatalog.org/datasheets/134/404172_DS.pdf bcm3345] ||  140 ||1.1 ||- ||- ||1.0/1.1 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB4200:SB4200] ||      ? ||mips32? ||
+||[http://www.datasheetcatalog.org/datasheets2/15/155898_1.pdf bcm3345] ||  140 ||1.1 ||- ||- ||1.0/1.1 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB4200:SB4200] ||      ? ||mips32? ||
+||[http://www.datasheetcatalog.org/datasheets/166/404171_DS.pdf bcm3348] ||  200 ||1.1 ||- ||- ||1.1/2.0 ||Yes? ||[:OpenWrtDocs/Hardware/Motorola/SB5100:SB5100] ||      ? ||mips32? ||
 ||[http://www.datasheetcatalog.org/datasheets/134/404172_DS.pdf bcm3350] ||  100 ||1.1 ||- ||- ||1.0/1.1 || No  ||[:OpenWrtDocs/Hardware/Motorola/SB4100:SB4100] ||0x28000 ||mips32? ||
 
 === bcm3350 ===
