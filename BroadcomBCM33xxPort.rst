@@ -7,7 +7,7 @@ This page covers the BCM33xx SoC specificities, but the BCM63xx SoC are mostly t
  * We have no GPL'd drivers for Ethernet or DOCSIS so this makes the board pretty useless
 
 == What is this Broadcom 33xx stuff? ==
-[http://www.broadcom.com/products/Cable/Cable-Modem-Solutions/BCM3349 Broadcom33xx SoC]integrates DOCSIS/EuroDOCSIS features and routing.
+[http://www.broadcom.com/products/Cable/Cable-Modem-Solutions/BCM3349 Broadcom33xx SoC] integrates DOCSIS/EuroDOCSIS features and routing.
 
 == What are 33xx variants? ==
 There are many 33xx variants. Only those with a TLB will be supported:
