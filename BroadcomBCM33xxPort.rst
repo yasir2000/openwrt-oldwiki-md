@@ -3,7 +3,7 @@
 This page covers the BCM33xx SoC specificities, but the BCM63xx SoC are mostly the same chip, except that the DOCSIS/EuroDOCSIS core is replaced with a DSL one.
 
 = Status of the Broadcom 33xx port of OpenWrt =
- * The Broadcom BCM33xx currently only begins booting with the SB4100 cable modem
+ * The Broadcom BCM33xx currently only begins booting with the SB4xxx cable modems
  * We have no GPL'd drivers for Ethernet or DOCSIS so this makes the board pretty useless
 
 == What is this Broadcom 33xx stuff? ==
@@ -89,9 +89,9 @@ Known platforms:
 == Finished tasks ==
 The support for Broadcom 33xx is at this state :
 
- * Linux 2.6.x loading
+ * Linux 2.6.x booting before failing to find init on bcm3348 (SB4200)
 == TODO ==
- * Linux 2.6.x booting on bcm3345
+ * Linux 2.6.x booting to a shell/busybox
  * Talk with Broadcom related vendors to make them release some sources
     The Netgear CVG834G uses a bcm33xx chip and has GPL'd eCos. Netgear modified the Atlas driver in eCos to add the bcm3350.
 
