@@ -145,7 +145,7 @@ The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of Gene
 
 The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED pins. The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
 
-== Installing on a wrt54g version 3 and 3.1 ==
+== Installing on a WRT54G v3 and 3.1 ==
 *to be written, in the meantime you can find [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ version 3 info] here.
 
 Basically the same as above, but different GPIO points on the board.
@@ -179,15 +179,17 @@ Here is another mod done for a version 4 wrt54gs [http://theattic.thruhere.net/m
 
 +3.3V and GND:
 
-[http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-3.3v+GND.jpg]
+attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-3.3v+GND.jpg
 
 GPIO 2 and 3:
 
-[http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-2+3.jpg]
+attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-2+3.jpg
 
 GPIO 4 and 7:
 
-[http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-4+7.jpg]
+attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg]
+
+Pictures taken from [http://cascade.dyndns.org/~datagarbage/wrt350n.html cascade.dyndns.org].
 
 == Porting to other platforms ==
 *almost done being written
