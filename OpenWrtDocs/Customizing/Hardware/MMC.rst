@@ -95,8 +95,12 @@ lrwxrwxrwx    1 root     root           28 Jan  1 00:01 et.o -> /rom/lib/modules
 -rw-r--r--    1 root     root        11244 Jan  1 00:03 msdos.o
 -rw-r--r--    1 root     root        19156 Jan  1 00:05 vfat.o
 lrwxrwxrwx    1 root     root           28 Jan  1 00:01 wl.o -> /rom/lib/modules/2.4.20/wl.o
+}}}
+{{{
 root@radio:~# insmod mmc
 Using /lib/modules/2.4.20/mmc.o
+}}}
+{{{
 root@radio:~# dmesg | tail -7
 mmc Hardware init
 mmc Card init
@@ -105,10 +109,16 @@ mmc Card init *2*
 Size = 249856, hardsectsize = 512, sectors = 499712
 Partition check:
  mmca: p1
+}}}
+{{{
 root@radio:~# insmod fat
 Using /lib/modules/2.4.20/fat.o
+}}}
+{{{
 root@radio:~# insmod msdos
 Using /lib/modules/2.4.20/msdos.o
+}}}
+{{{
 root@radio:~# mount /dev/mmc/disc0/part1 /mnt -tmsdos
 root@radio:~# ls -al /mnt
 drwxr-xr-x    2 root     root        16384 Jan  1  1970 .
