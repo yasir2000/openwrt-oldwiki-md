@@ -41,9 +41,10 @@ This project is for people who would like to add a little storage to their Links
 
 
  . We will be driving the SD card in SPI mode, meaning that only one of the four data out pins are used (pin 7). Obtaining the specs for driving the card in the native SD mode is VERY costly and furthermore the limited number of GPIO pins available inside the router also mandates the use of some sort of serial protocol. The two VSS pins can simply be wired together for this project (VSS2 is used to control the sleep mode of the card). With this in mind lets look at the solder points in the router.
-  1. [http://kiel.kool.dk/pics/solderpoint_1_annotated.jpg The first three solder points] are located at RP3
-  1. [http://kiel.kool.dk/pics/solderpoint_2_annotated.jpg The next two solder points] are located at JP1
-  1. [http://kiel.kool.dk/pics/solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
+
+  1. [attachment:kiel.kool.dk-solderpoint_1_annotated.jpg The first three solder points] are located at RP3
+  1. [attachment:kiel.kool.dk-solderpoint_2_annotated.jpg The next two solder points] are located at JP1
+  1. [attachment:kiel.kool.dk-solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
  . '''Important note for V2 hardware and some WRT54GS:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture. ''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched. Can definitely confirm this swapped CLK/DO for my WRT54GS V1.0, so it's likely that the V1.1 statement before is correct, too) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]] A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5): ''
 
