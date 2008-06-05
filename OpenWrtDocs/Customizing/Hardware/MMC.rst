@@ -199,17 +199,20 @@ Buffalo WHR-HP-G54 connections are:
 '''GPIO3''' Output (uninstalled LED) to CLK (SD Card #5) Connect to the very small pad above "R4" in the picture.[[BR]]
 '''GPIO6''' Output (AOSS LED) to DO (SD Card #2) Connect to the bottom of the resistor in the picture.[[BR]] 
 '''GPIO7''' Output (Diag LED) to CS (SD Card #1) Connect to the left side of the resistor shown in the picture.[[BR]]
-http://www.flatsurface.com/pics/whr-sdcard1.jpg
+
+attachement:flatsurface.com-pics/whr-sdcard1.jpg
 
 '''GPIO5''' Input (Bridge/Auto switch) to DI (SD Card #7) Connect to the C242 on the side nearest R151 in the picture. ''The switch '''must''' remain in the "auto" position for proper operation.''[[BR]]
 '''3.3v''' (near voltage regulator) to Vcc (SD Card #4)Connect to the pad shown in the picture.[[BR]]
 '''GND''' (Bridge/Auto switch frame) to Gnd (SD Card #3&6) Available in many places - the frame of the switch is convenient.[[BR]]
-http://www.flatsurface.com/pics/whr-sdcard2.jpg
+
+attachement:flatsurface.com-whr-sdcard2.jpg
 
 Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automatically adapt to the connections given. 
 
 '''echo 0xe8 > /proc/diag/gpiomask''' to avoid hotplug problems.
 
+Pictures taken from [http://www.flatsurface.com flatsurface.com].
 
 === SDcard on WAP54G V31 (EU) ===
 
