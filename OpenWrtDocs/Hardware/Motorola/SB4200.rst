@@ -5,7 +5,7 @@ See ["BroadcomBCM3345Port"] for general progress on porting to this SoC.
 = Hardware =
 
  * Main Chip: Broadcom QAMLink® BCM3345KPB
- * Ram: ?? MB SDRAM (hynix KOREA HY57V641620HG 0229A T-7)
+ * Ram: 8 MB SDRAM (hynix KOREA HY57V641620HG 0229A T-7)
  * Flash: 2 MB (Intel TE28F160)
 
 == Connectors ==
