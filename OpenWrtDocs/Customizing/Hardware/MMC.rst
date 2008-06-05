@@ -188,9 +188,6 @@ Picture taken from [http://www.otago.ac.nz/mjb/wrt54g/ otago.ac.nz].
 Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
 Sadly this link is dead, so you currently have to use the wayback machine to see where to solder the cables. [http://web.archive.org/http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html that site from web.archive.org]
 
-Here is another mod done for a WRT54GS v4, [http://theattic.thruhere.net/mmc-sd-mod.html].
-
-
 === WRT54GL v1.1 + WRT54G-TM ===
 
 +3.3V and GND:
@@ -206,6 +203,18 @@ GPIO 4 and 7:
 attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg]
 
 Pictures taken from [http://cascade.dyndns.org/~datagarbage/wrt350n.html cascade.dyndns.org].
+
+== WRT54GS v4 ==
+
+Here is another mod done for a WRT54GS v4, [http://theattic.thruhere.net/mmc-sd-mod.html project webpage].
+
+attachment:theattic.thruhere.net-GPIO47.jpg
+
+attachment:theattic.thruhere.net-attachment:theattic.thruhere.net-
+
+attachment:theattic.thruhere.net-VDDVSS.jpg
+
+attachment:theattic.thruhere.net-Complete.jpg
 
 == Porting to other platforms ==
 *almost done being written
