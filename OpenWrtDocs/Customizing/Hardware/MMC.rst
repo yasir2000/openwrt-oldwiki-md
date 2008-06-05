@@ -210,7 +210,7 @@ Here is another mod done for a WRT54GS v4, [http://theattic.thruhere.net/mmc-sd-
 
 attachment:theattic.thruhere.net-GPIO47.jpg
 
-attachment:theattic.thruhere.net-attachment:theattic.thruhere.net-
+attachment:theattic.thruhere.net-GPIO23.jpg
 
 attachment:theattic.thruhere.net-VDDVSS.jpg
 
