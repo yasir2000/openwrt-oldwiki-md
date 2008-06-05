@@ -14,8 +14,10 @@ This project is for people who would like to add a little storage to their Links
 
 '''Pictures'''
 
- * The insides of the router with SD card reader installed<br>attachment:kiel.kool.dk-AllSolderingDone.jpg
- * The finished product with SD card reader installed<br>attachment:kiel.kool.dk-Reuter_complete.jpg
+ * The insides of the router with SD card reader installed
+   attachment:kiel.kool.dk-AllSolderingDone.jpg
+ * The finished product with SD card reader installed
+   attachment:kiel.kool.dk-Reuter_complete.jpg
 
 '''What you need'''
 
