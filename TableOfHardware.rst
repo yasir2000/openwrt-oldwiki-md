@@ -23,6 +23,7 @@ See also
  * '''["CategoryBCM63xx"]''' - Which models use the BCM63xx
  * '''TableOfPeripheralHardware''' - Peripheral devices (USB, NAS) which may [or may not] talk to your OpenWRT system.
  * '''OpenWrtDocs''' - back to the Table of Contents
+ * [https://dev.openwrt.org/wiki/platforms Supported platforms on Kamikaze]
 Notes:
 
  * Just because a device is in this list doesn't mean that OpenWRT will run on this device. Furthermore, some devices have limited support, while others get by with just the bare minimums. For example. Devices with 2mb of flash and 8mb of ram will be able to handle basic tasks only.
