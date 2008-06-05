@@ -46,7 +46,8 @@ This project is for people who would like to add a little storage to their Links
   1. [attachment:kiel.kool.dk-solderpoint_2_annotated.jpg The next two solder points] are located at JP1
   1. [attachment:kiel.kool.dk-solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
- . '''Important note for V2 hardware and some WRT54GS:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture. ''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched. Can definitely confirm this swapped CLK/DO for my WRT54GS V1.0, so it's likely that the V1.1 statement before is correct, too) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]] A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5): ''
+ . '''Important note for V2 hardware and some WRT54GS:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture.
+''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched. Can definitely confirm this swapped CLK/DO for my WRT54GS V1.0, so it's likely that the V1.1 statement before is correct, too) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]] A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5): ''
 
  . {{{
  while true; do gpio enable 5; sleep 1; gpio disable 5; sleep 1; done}}}
@@ -183,11 +184,11 @@ attachment:otago.ac.nz-gpio5.jpg
 
 Picture taken from [http://www.otago.ac.nz/mjb/wrt54g/ otago.ac.nz].
 
-== Installing on a wrt54g version 4 and wrt54gl ==
+== Installing on a WRT54G v4 and WRT54GL v1.1 ==
 Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
-Sadly this link is dead, so you currently have to use the wayback machine to see where to solder the cables. [http://web.archive.org/web/20060406214348/http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html that site from web.archive.org]
+Sadly this link is dead, so you currently have to use the wayback machine to see where to solder the cables. [http://web.archive.org/http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html that site from web.archive.org]
 
-Here is another mod done for a version 4 wrt54gs [http://theattic.thruhere.net/mmc-sd-mod.html]
+Here is another mod done for a WRT54GS v4, [http://theattic.thruhere.net/mmc-sd-mod.html].
 
 
 === WRT54GL v1.1 + WRT54G-TM ===
