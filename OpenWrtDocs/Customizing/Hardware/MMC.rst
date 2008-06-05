@@ -55,7 +55,7 @@ This project is for people who would like to add a little storage to their Links
 
  . GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find GPIO 5 next to the RA10 Text label. GPIO 4 is located near the RA13 Text label (near to the Power LED)
 
-[http://www.linuxbench.org/wrt54g/wrt54gs.jpg]
+[attachment:linuxbench.org-wrt54gs.jpg]
 
  . This is a picture of the GPIO 3+5 for wrt-Version 2.2 taken from http://linuxbench.org
 
