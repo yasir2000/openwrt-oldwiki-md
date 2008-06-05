@@ -1,12 +1,12 @@
 = Adding an MMC/SD Card =
-''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
+''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ archive.org mirror]) for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
 
 '''Introduction'''
 
 This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
 == Installing on a WRT54G v2 and v2.2 ==
-''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
+''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] ([http://web.archive.org/http://kiel.kool.dk/ archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
 
 ''I added now comments for WRT HW-version 2.2 where the GPIO locations are different, but the general procedure is the same.''
 
