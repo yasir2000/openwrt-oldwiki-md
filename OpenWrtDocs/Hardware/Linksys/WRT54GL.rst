@@ -39,6 +39,9 @@ Once the modification is made you can have at most two serial ports to use for c
 
 == JTAG ==
 == Photos ==
+
+WRT54GL v1.1 - Serial number: CL7B
+
 ''Front:''
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_front_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_front_thumb___.jpg]
