@@ -5,7 +5,7 @@
 
 This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
-== Installing on a wrt54g version 2 and 2.2 ==
+== Installing on a WRT54G v2 and v2.2 ==
 ''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
 
 ''I added now comments for WRT HW-version 2.2 where the GPIO locations are different, but the general procedure is the same.''
@@ -200,13 +200,13 @@ Buffalo WHR-HP-G54 connections are:
 '''GPIO6''' Output (AOSS LED) to DO (SD Card #2) Connect to the bottom of the resistor in the picture.[[BR]] 
 '''GPIO7''' Output (Diag LED) to CS (SD Card #1) Connect to the left side of the resistor shown in the picture.[[BR]]
 
-attachement:flatsurface.com-pics/whr-sdcard1.jpg
+attachment:flatsurface.com-whr-sdcard1.jpg
 
 '''GPIO5''' Input (Bridge/Auto switch) to DI (SD Card #7) Connect to the C242 on the side nearest R151 in the picture. ''The switch '''must''' remain in the "auto" position for proper operation.''[[BR]]
 '''3.3v''' (near voltage regulator) to Vcc (SD Card #4)Connect to the pad shown in the picture.[[BR]]
 '''GND''' (Bridge/Auto switch frame) to Gnd (SD Card #3&6) Available in many places - the frame of the switch is convenient.[[BR]]
 
-attachement:flatsurface.com-whr-sdcard2.jpg
+attachment:flatsurface.com-whr-sdcard2.jpg
 
 Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automatically adapt to the connections given. 
 
