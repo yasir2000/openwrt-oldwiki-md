@@ -41,11 +41,11 @@ Once the modification is made you can have at most two serial ports to use for c
 == Photos ==
 ''Front:''
 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_front_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_front_thumb__.jpg]
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_front_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_front_thumb___.jpg]
 
 ''Back:''
 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_back_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_back_thumb_.jpg]
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_back_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_back_thumb___.jpg]
 
 == Opening the case ==
 = Installation =
