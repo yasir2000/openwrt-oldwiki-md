@@ -1,34 +1,18 @@
 #pragma section-numbers off
 
----- /!\ '''Edit conflict - other version:''' ----
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="FONT-SIZE: 0.9em; FLOAT: right; MARGIN: 0pt 0pt 1em 1em"style="PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em">[[TableOfContents]]||
 = Linksys WRT54GL =
 The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}} and {{{CL7C}}}. As of August 2006, version 1.1 appears to be shipping worldwide. See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL. The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.
-
----- /!\ '''Edit conflict - your version:''' ----
-||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="FONT-SIZE: 0.9em; FLOAT: right; MARGIN: 0pt 0pt 1em 1em"style="PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em">[[TableOfContents]]||
-= Linksys WRT54GL =
-The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that still runs Linux. The 1.0 version of this model has serial numbers starting with {{{CL7A}}}; version 1.1 models have serial numbers starting with {{{CL7B}}} and {{{CL7C}}}. As of August 2006, version 1.1 appears to be shipping worldwide. See the [http://forum.openwrt.org/viewtopic.php?pid=15672 WRT54GL] thread in the forum. The model number shown on the package, the front panel, and the sticker on the underside of the unit is WRT54GL. The FCC ID sticker says it is [https://gullfoss2.fcc.gov/prod/oet/cf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=615033&fcc_id='Q87-WT54GV40' WT54GV40], so it is substantially identical to a WRT54G v4.0/WRT54GS v3.0.
-
----- /!\ '''End of edit conflict''' ----
 
 '''NOTE:''' This howto is written for !OpenWrt Kamikaze 7.09 and later versions.
 
 = Supported Versions =
 
----- /!\ '''Edit conflict - other version:''' ----
 ||'''Model''' ||'''S/N''' ||'''!OpenWrt Kamikaze''' ||
 ||WRT54GL v1 ||CL7A || (./) ||
 ||WRT54GL v1.1 ||CL7B || (./) ||
 ||WRT54GL v1.1 ||CL7C || (./) ||
 
----- /!\ '''Edit conflict - your version:''' ----
-||'''Model''' ||'''S/N''' ||'''!OpenWrt Kamikaze''' ||
-||WRT54GL v1 ||CL7A || (./) ||
-||WRT54GL v1.1 ||CL7B || (./) ||
-||WRT54GL v1.1 ||CL7C || (./) ||
-
----- /!\ '''End of edit conflict''' ----
 '''NOTE:''' The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet) the wireless does not work if you flash a image with a 2.6 Kernel.
 
 = Hardware =
@@ -63,20 +47,6 @@ Once the modification is made you can have at most two serial ports to use for c
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_back_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_back_thumb_.jpg]
 
-
----- /!\ '''Edit conflict - other version:''' ----
-''Front:''
-
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_front_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_front_thumb__.jpg]
-
-''Back:''
-
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_back_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_back_thumb_.jpg]
-
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 == Opening the case ==
 = Installation =
 Right after flashing at your first login set a few NVRAM parameters.
@@ -113,26 +83,15 @@ tftp> put openwrt-wrt54g-2.4-squashfs.bin}}}
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
 == Using the mtd command line tool ==
 
----- /!\ '''Edit conflict - other version:''' ----
 If you have already installed !OpenWrt and like to reflash for e.g. upgrading to a new !OpenWrt version. It is important that you put the firmware image into the ramdisk (/tmp) before you start flashing.
-
----- /!\ '''Edit conflict - your version:''' ----
-If you have already installed !OpenWrt and like to reflash for e.g. upgrading to a new !OpenWrt version. It is important that you put the firmware image into the ramdisk (/tmp) before you start flashing.
-
----- /!\ '''End of edit conflict''' ----
 
 {{{
 cd /tmp/
 wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write /tmp/openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 
----- /!\ '''Edit conflict - other version:''' ----
 = Linksys WRT54GL specific configuration =
 
----- /!\ '''Edit conflict - your version:''' ----
-= Linksys WRT54GL specific configuration =
-
----- /!\ '''End of edit conflict''' ----
 == Interfaces ==
 The default network configuration is:
 ||<tablewidth="541px" tableheight="129px">'''Interface Name''' ||'''Description''' ||'''Default configuration''' ||
@@ -245,13 +204,8 @@ This section is under construction...
 == Adding an MMC/SD card ==
 Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
 
----- /!\ '''Edit conflict - other version:''' ----
 ||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
 
----- /!\ '''Edit conflict - your version:''' ----
-||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
-
----- /!\ '''End of edit conflict''' ----
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
 ||3. VSS - Ground is a good thing ||GND ||
 ||4. VDD - We need power of course. 3.3 V will do the job ||3.3 V ||
@@ -325,13 +279,7 @@ Mine is the same version and manufacturing date, v1.1 made in 08/2007, brought h
 I bought a new WRT54GL in Germany at amazon.de (in May 07) The Revision is v1.1. The router was manufactured in 01/2007. I can see this date on a sticker on the bottom of the router. -- ThomasBrinkmann
 
 
----- /!\ '''Edit conflict - other version:''' ----
 The WRT54GL is Linksys' response to angry customers. For a long time, they had the original WRT54G, which was hackable, but when they joined with Cisco they made it so you were unable to hack the router. Thus, the 54GL. Version 1.1 is the current release, and as of yet there is no v1.2. --CharlesEddy
-
----- /!\ '''Edit conflict - your version:''' ----
-The WRT54GL is Linksys' response to angry customers. For a long time, they had the original WRT54G, which was hackable, but when they joined with Cisco they made it so you were unable to hack the router. Thus, the 54GL. Version 1.1 is the current release, and as of yet there is no v1.2. --CharlesEddy
-
----- /!\ '''End of edit conflict''' ----
 
 ----
  . CategoryModel
