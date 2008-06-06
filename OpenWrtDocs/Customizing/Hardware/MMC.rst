@@ -2,17 +2,19 @@
 
 GPIO pins, eh? The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of General Purpose Input/Output pins (or GPIO pins) that are used for various purposes in the router. We have been able to identify 8 such pins until now and these are assigned as follows:
 
-||'''Pin'''||	'''Direction'''||	'''v2.2 Name'''||		'''v3.0 name'''||	'''SD Card Name'''||
-||GPIO 0||	(Output)||		WLAN LED||	unknown||	n/a||
-||GPIO 1||	Output||		POWER LED||	POWER LED||	n/a||
-||GPIO 2||	Output||		ADM_EECS||	WHITE LED||	n/a||
-||GPIO 3||	Output||		ADM_EESK||	AMBER LED||	CLK||
-||GPIO 4||	Input||			ADM_EEDO||	FRONT BUTTON||	DO||
-||GPIO 5||	Output||		ADM_EEDI||	unknown?|| 	robo_reset?||	DI||
-||GPIO 6||	Input||			Reset button||	reset?||	n/a||
-||GPIO 7||	Output||		DMZ LED||	DMZ LED||	CS||
+||'''Pin'''||	'''Direction'''||	'''v2.2 Name'''||		'''v3.0+ Name'''||	'''SD Card Name'''||
+||GPIO 0||	(Output)||		WLAN LED||	Unknown||		Not used||
+||GPIO 1||	Output||		POWER LED||	POWER LED||		Not used||
+||GPIO 2||	Output||		ADM_EECS||	WHITE LED||		DI||
+||GPIO 3||	Output||		ADM_EESK||	AMBER LED||		CLK||
+||GPIO 4||	Input||			ADM_EEDO||	FRONT BUTTON||		DO||
+||GPIO 5||	Output||		ADM_EEDI||	Unknown, robo_reset?||	Not used/DI (alt.)||
+||GPIO 6||	Input||			Reset button||	Reset?||		Not used||
+||GPIO 7||	Output||		DMZ LED||	DMZ LED||		CS||
 
-The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
+On WRT54G v2.2 the ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
+
+More information on the [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ Fully hacked WRT54G] and [http://web.archive.org/http://kiel.kool.dk/ Adding a SD card to your WRT54G] pages.
 
 = Driver =
 
@@ -60,9 +62,7 @@ echo 0x9c > /proc/diag/gpiomask
 = Adding a MMC/SD Card =
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
 
-'''Introduction'''
-
-This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
+This mod allows you to read and write from a MMC/SD card (including miniSD and microSD) in SPI mode. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
 == WRT54G v2 and v2.2 ==
 ''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] ([http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
@@ -129,6 +129,8 @@ Proceed by soldering a wire to each of the 6 solder points. Pay special attentio
  1. That was easy. We are now ready for the software part.
 
 '''Software'''
+
+* ''This section is obsolete, see driver section for driver installation.''
 
 First of all we suggest that you configure a kernel with support for MSDOS partitions and VFAT. Partition support must be built into the kernel whereas VFAT can be built both as a module or into the kernel. These are some things you may want to include in your .config:
 
