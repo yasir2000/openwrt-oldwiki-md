@@ -281,8 +281,8 @@ This stuff, is working really well, I managed to have around 150Ko/s (reading) w
 
 [http://www.larsen-b.com/Article/262.html Project page]
 
-== Porting to other platforms ==
-*almost done being written
+== Buffalo WHR-HP-G54 ==
+*almost done being written porting to other platforms
 
 Buffalo WHR-HP-G54 connections are:
 
@@ -304,15 +304,22 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 
 Pictures taken from [http://www.flatsurface.com flatsurface.com].
 
-=== SD Card on WAP54G v31 (EU) ===
+== WAP54G v31 ==
 
 Here is a link that describes how to add a SD card to a WAP54G v31 (EU), this project uses the card read only,
 first a cramfs is created on the card with the PC (this is the native system the Linksys software uses),
 so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G v31 EU). 
 http://panteltje.com/panteltje/wap54g/to-linksys-wap54g-forum-2.txt
 
-== Yay, it works, now what? ==
+= Yay, it works, now what? =
 
-Now to configure OpenWrt or X-Wrt firmware you can go to Digital Incursion: http://www.digitalincursion.net/wrt54gl.html for a easy configuration instructions for both with the mmc/sd. Some people in the past have had problems configuring the device with OpenWrt and or X-Wrt the above website makes it simple.
+== Install packages on external media ==
 
-For Package installation Please see PackagesOnExternalMediaHowTo
+Use the new additional storage to install and store packages on the SD card.
+
+In the case of Kamikaze, the entire writable parition can be moved to the external media while the original SquashFS root read-only files stays on the flash chip.
+
+ * White Russian: [http://wiki.openwrt.org/PackagesOnExternalMediaHowTo]
+ * Kamikaze: [http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo]
+
+[http://x-wrt.org/ X-Wrt] also makes it easy to use and manage the MMC/SD card hack.
