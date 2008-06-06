@@ -8,7 +8,7 @@ GPIO pins, eh? The integrated Broadcom CPU BCM4712 used in the WRT54G provides a
 ||GPIO 2||	Output||		ADM_EECS||	WHITE LED||		DI||
 ||GPIO 3||	Output||		ADM_EESK||	AMBER LED||		CLK||
 ||GPIO 4||	Input||			ADM_EEDO||	FRONT BUTTON||		DO||
-||GPIO 5||	Output||		ADM_EEDI||	Unknown, robo_reset?||	Not used/DI (alt.)||
+||GPIO 5||	Output||		ADM_EEDI||	Unknown, robo_reset?||	Not used / DI (up to v2.2)||
 ||GPIO 6||	Input||			Reset button||	Reset?||		Not used||
 ||GPIO 7||	Output||		DMZ LED||	DMZ LED||		CS||
 
