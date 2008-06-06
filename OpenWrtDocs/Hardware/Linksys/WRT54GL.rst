@@ -205,7 +205,8 @@ Turn !WiFi on/off with the Reset or Easy Secure Setup [#Buttons button]. Please 
 This section is under construction...
 
 == Adding an MMC/SD card ==
-Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
+
+Here we use the Kamikaze 7.07+ package ''kmod-broadcom-mmc'' or the older [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
 
 ||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
