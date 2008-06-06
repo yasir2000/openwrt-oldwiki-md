@@ -1,9 +1,9 @@
 = Driver =
 
-There is a optimized version modified by Cyril of the original kiel.kool.dk driver available and recommended for best card compatibility.
+There is a optimized of the original MMC driver modified by Cyril and recommended for best card compatibility.
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
- * [http://web.archive.org/web/20070828013856/http://kiel.kool.dk/mmc.c Original MMC driver]
+ * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
 = Adding an MMC/SD Card =
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
