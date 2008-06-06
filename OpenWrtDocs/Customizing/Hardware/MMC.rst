@@ -1,14 +1,20 @@
 = Driver =
 
-Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package with the latest mmc.o module for WRT54G.
+Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package for WRT54G but it's not as compatible as the optimized driver, mentioned below.
 {{{
 ipkg install kmod-broadcom-mmc
 }}}
 
-There is also an older optimized version with better best card compatibility than the original mmc.o module.
+There is also an optimized version with better best card compatibility than the original mmc.o module. It's recommended if the Kamikaze package is not working.
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
+
+{{{
+wget http://programmingstuff.free.fr/files/openwrt/whiterussian/mmc/1_3_4/gpio2/mmc.o
+insmod mmc.o
+dmesg
+}}}
 
 = Adding a MMC/SD Card =
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
