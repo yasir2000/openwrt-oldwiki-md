@@ -10,14 +10,29 @@ There is also an optimized version with better best card compatibility than the 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
+If the unit locks up, make sure the set the gpiomask before loading the driver. The gpiomask value can be found by adding up all the hex values in the following table:
+
+||GPIO PIN 0||0x01
+||GPIO PIN 1||0x02
+||GPIO PIN 2||0x04
+||GPIO PIN 3||0x08
+||GPIO PIN 4||0x10
+||GPIO PIN 5||0x20
+||GPIO PIN 6||0x40
+||GPIO PIN 7||0x80
+||GPIO PIN 8||0x100
+||GPIO PIN 9||0x200
+||GPIO PIN 10||0x400
+||GPIO PIN 11||0x800
+||GPIO PIN 12||0x1000
+||GPIO PIN 13||0x2000
+||GPIO PIN 14||0x4000
+||GPIO PIN 15||0x8000
+
+E.g. for WRT54GL using GPIO line 2, 3, 4, and 7: 0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''
+ 
 {{{
-wget http://programmingstuff.free.fr/files/openwrt/whiterussian/mmc/1_3_4/gpio2/mmc.o
-}}}
-{{{
-insmod mmc.o
-}}}
-{{{
-dmesg
+echo 0x9c > /proc/diag/gpiomask
 }}}
 
 = Adding a MMC/SD Card =
