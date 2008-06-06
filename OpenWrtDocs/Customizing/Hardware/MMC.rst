@@ -130,7 +130,7 @@ Proceed by soldering a wire to each of the 6 solder points. Pay special attentio
 
 '''Software'''
 
-* ''This section is obsolete, see driver section for driver installation.''
+ * ''This section is obsolete, see driver section for driver installation.''
 
 First of all we suggest that you configure a kernel with support for MSDOS partitions and VFAT. Partition support must be built into the kernel whereas VFAT can be built both as a module or into the kernel. These are some things you may want to include in your .config:
 
