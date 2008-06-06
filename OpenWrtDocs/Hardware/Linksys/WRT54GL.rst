@@ -225,7 +225,7 @@ Photos for the soldering points:
 
 Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip.
 
-PackagesOnExternalMediaHowTo
+[http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo PackagesOnExternalMediaHowTo]
 
 ''/sbin/init script:''
 
@@ -264,6 +264,7 @@ config bootfromexternalmedia
         option gpiomask '0x9c'
         option modules  'mmc jbd ext3'
         option enabled  '1'}}}
+
 = Other Info =
 == v1.2 ==
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
