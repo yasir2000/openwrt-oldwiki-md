@@ -64,7 +64,7 @@ echo 0x9c > /proc/diag/gpiomask
 
 This mod allows you to read and write from a MMC/SD card (including miniSD and microSD) in SPI mode. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
-== WRT54G v2 and v2.2 ==
+== WRT54G v2.0 ==
 ''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] ([http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
 
 ''I added now comments for WRT HW-version 2.2 where the GPIO locations are different, but the general procedure is the same.''
