@@ -5,10 +5,10 @@ GPIO pins, eh? The integrated Broadcom CPU BCM4712 used in the WRT54G provides a
 ||'''Pin'''||	'''Direction'''||	'''v2.2 Name'''||		'''v3.0+ Name'''||	'''SD Card Name'''||
 ||GPIO 0||	(Output)||		WLAN LED||	Unknown||		Not used||
 ||GPIO 1||	Output||		POWER LED||	POWER LED||		Not used||
-||GPIO 2||	Output||		ADM_EECS||	WHITE LED||		DI||
+||GPIO 2||	Output||		ADM_EECS||	WHITE LED||		DI (only v4.0+)||
 ||GPIO 3||	Output||		ADM_EESK||	AMBER LED||		CLK||
 ||GPIO 4||	Input||			ADM_EEDO||	FRONT BUTTON||		DO||
-||GPIO 5||	Output||		ADM_EEDI||	Unknown, robo_reset?||	Not used / DI (up to v2.2)||
+||GPIO 5||	Output||		ADM_EEDI||	Unknown, robo_reset?||	DI (only up to v3.1)||
 ||GPIO 6||	Input||			Reset button||	Reset?||		Not used||
 ||GPIO 7||	Output||		DMZ LED||	DMZ LED||		CS||
 
