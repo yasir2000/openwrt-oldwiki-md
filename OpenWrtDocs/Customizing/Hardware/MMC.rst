@@ -5,14 +5,18 @@ Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package for WRT54G 
 ipkg install kmod-broadcom-mmc
 }}}
 
-There is also an optimized version with better best card compatibility than the original mmc.o module. It's recommended if the Kamikaze package is not working.
+There is also an optimized version with better best card compatibility than the original mmc.o module. It's recommended if the Kamikaze package is not working. Althought it's made of r White Russian, it seems to work fine with Kamikaze based on kernel 2.4.
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
 {{{
 wget http://programmingstuff.free.fr/files/openwrt/whiterussian/mmc/1_3_4/gpio2/mmc.o
+}}}
+{{{
 insmod mmc.o
+}}}
+{{{
 dmesg
 }}}
 
