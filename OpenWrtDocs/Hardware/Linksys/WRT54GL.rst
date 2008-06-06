@@ -208,7 +208,6 @@ This section is under construction...
 Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
 
 ||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
-
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
 ||3. VSS - Ground is a good thing ||GND ||
 ||4. VDD - We need power of course. 3.3 V will do the job ||3.3 V ||
@@ -216,12 +215,12 @@ Here we use the[http://forum.openwrt.org/viewtopic.php?id=9653 optimized version
 ||6. VSS2 - Another ground is also a good thing ||GND ||
 ||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
 
-
 Photos for the soldering points:
 
- * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-3.3v+GND.jpg +3.3V and GND]
- * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
- * [http://cascade.dyndns.org/~datagarbage/linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
+ * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-3.3v+GND.jpg +3.3V and GND]
+ * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
+ * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
+
 === /sbin/init script ===
 {{{
 #!/bin/sh
@@ -261,17 +260,9 @@ config bootfromexternalmedia
 I have seen revision v1.2 in the shop. The sales guy told me it would not run homebrew linux. So i ended up buying a [:OpenWrtDocs/Hardware/Linksys/WRT54GS:WRTG54GS] which i now sucks and works. :) Has anyone seen a v1.2 revision to work?
 
 
----- /!\ '''Edit conflict - other version:''' ----
 just bought a WRT54GL (22 Nov 2007), and it'a v1.1 CL7B*** (manufactured 09/2007 ? date on the FCC/CE label) - NathaelPajani
 
 I bought a WRT54GL today and received a v1.1 so I would expect that this is still the latest version. OTOH LinkSys claimed that the GL version is specifically targeted at hackers that customize their WRT, so why would they sell one that can not be customized? Did anybody else already see a v1.2 at all? -- TorstenLandschoff
-
----- /!\ '''Edit conflict - your version:''' ----
-just bought a WRT54GL (22 Nov 2007), and it'a v1.1 CL7B*** (manufactured 09/2007 ? date on the FCC/CE label) - NathaelPajani
-
-I bought a WRT54GL today and received a v1.1 so I would expect that this is still the latest version. OTOH LinkSys claimed that the GL version is specifically targeted at hackers that customize their WRT, so why would they sell one that can not be customized? Did anybody else already see a v1.2 at all? -- TorstenLandschoff
-
----- /!\ '''End of edit conflict''' ----
 
 I tell you. I had the Package in my Hand. I backed of buying i because, as i sayed, had no confimation it will work. It was at Arlt in Freiburg im Breisgau, Germany. Possibly only a -DE Version?
 
@@ -280,7 +271,6 @@ I bought an WRT54GL-DE last week (11/07) from amazon and the device looks like a
 Mine is the same version and manufacturing date, v1.1 made in 08/2007, brought here 27-Dec-2007 at a local store. The "-DE" label seems to be sort of a marketing trick. In fact, even the manual on CD-ROM is labeled "english-only". -- StHoffmann
 
 I bought a new WRT54GL in Germany at amazon.de (in May 07) The Revision is v1.1. The router was manufactured in 01/2007. I can see this date on a sticker on the bottom of the router. -- ThomasBrinkmann
-
 
 The WRT54GL is Linksys' response to angry customers. For a long time, they had the original WRT54G, which was hackable, but when they joined with Cisco they made it so you were unable to hack the router. Thus, the 54GL. Version 1.1 is the current release, and as of yet there is no v1.2. --CharlesEddy
 
