@@ -1,6 +1,11 @@
 = Driver =
 
-There is a optimized of the original MMC driver modified by Cyril and recommended for best card compatibility.
+Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package with the latest mmc.o module for WRT54G.
+{{{
+ipkg install kmod-broadcom-mmc
+}}}
+
+There is also a optimized version of the original MMC driver with better best card compatibility than the original mmc.o module.
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
