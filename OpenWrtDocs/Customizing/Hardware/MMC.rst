@@ -105,23 +105,6 @@ This project is for people who would like to add a little storage to their Links
   1. [attachment:kiel.kool.dk-solderpoint_2_annotated.jpg The next two solder points] are located at JP1
   1. [attachment:kiel.kool.dk-solderpoint_3_annotated.jpg The last solder point] is at the DMZ LED
 
- . '''Important note for V2 hardware and some WRT54GS:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture.
- . ''(Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched. Can definitely confirm this swapped CLK/DO for my WRT54GS V1.0, so it's likely that the V1.1 statement before is correct, too) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.[[BR]] A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5): ''
-
- . {{{
- while true; do gpio enable 5; sleep 1; gpio disable 5; sleep 1; done}}}
- I then used my multimeter to detect the pin toggling between 0V and 3.3V every second. I seriously recommend that you do this to verify which pins you are working on prior to doing any soldering.
-
- . On a WRT54G Version 2 the tests on GPIO4 failed. According to http://forum.openwrt.org/viewtopic.php?pid=31968 the reason is an incomplete initialization of the GPIOs. Using the mmc.o downloadable at the end of the thread the MMC is detected and working, the GPIO test is also working after loading this module.
-
-'''For Version 2.2 hardware:'''
-
- . GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find GPIO 5 next to the RA10 Text label. GPIO 4 is located near the RA13 Text label (near to the Power LED)
-
-attachment:linuxbench.org-wrt54gs.jpg
-
- . This is a picture of the GPIO 3+5 for wrt-Version 2.2 taken from http://linuxbench.org
-
 Proceed by soldering a wire to each of the 6 solder points. Pay special attention not to short circuit the pins of RP3 - even though these solder points were chosen because they provide the most spacious access point to the GPIO lines needed, it's still pretty tight quarters, so watch out!
 
  1. By now the wires should be attached nicely inside the router, so that we may continue to connect them to the SD card (reader). This picture shows the SD card reader. It is pretty easy to solder on that one.
@@ -221,6 +204,29 @@ The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of Gene
 
 
 The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED pins. The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
+
+== WRT54G v2.2 and WRT54GS ==
+
+'''Important note for v2 hardware and some WRT54GS:''' It is worth double-checking the GPIO pin allocations on RP3. The picture above was not correct for my V2 WRT54G. The CLK and DO, which are GPIO3 and GPIO4, were swapped compared to the picture.
+
+Further unverified evidence supports that the wrt54gs v1.1 hardware also has gpio 3 and 4 switched. Can definitely confirm this swapped CLK/DO for my WRT54GS V1.0, so it's likely that the V1.1 statement before is correct, too) I soldered to the right-hand side of RP3 as shown in the picture with GPIO5 (DI) at the bottom, GPIO4 (DO) next up and GPIO3 (CLK) up from that.
+
+A good way to test the pin allocations is with the [http://downloads.openwrt.org/utils/gpio.tar.gz gpio utility] and a script to toggle the GPIO pin periodically, then search for the pin with a digital multimeter or oscilloscope probe. I toggled the pins with the following single line in the shell (example for GPIO 5):
+
+{{{
+ while true; do gpio enable 5; sleep 1; gpio disable 5; sleep 1; done}}}
+
+I then used my multimeter to detect the pin toggling between 0V and 3.3V every second. I seriously recommend that you do this to verify which pins you are working on prior to doing any soldering.
+
+On a WRT54G Version 2 the tests on GPIO4 failed. According to http://forum.openwrt.org/viewtopic.php?pid=31968 the reason is an incomplete initialization of the GPIOs. Using the mmc.o downloadable at the end of the thread the MMC is detected and working, the GPIO test is also working after loading this module.
+
+'''For v2.2 hardware:'''
+
+GPIO 3 can be found on Pin 3 of RP4 (near the BCM switch IC), just left of it you can find GPIO 5 next to the RA10 Text label. GPIO 4 is located near the RA13 Text label (near to the Power LED)
+
+attachment:linuxbench.org-wrt54gs.jpg
+
+This is a picture of the GPIO 3+5 for WRT54G v2.2 taken from http://linuxbench.org
 
 == WRT54G v3 and v3.1 ==
 *to be written, in the meantime you can find [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ version 3 info] here.
