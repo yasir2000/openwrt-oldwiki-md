@@ -206,8 +206,6 @@ This section is under construction...
 
 == Adding an MMC/SD card ==
 
-Here we use the Kamikaze 7.07+ package ''kmod-broadcom-mmc'' or the older [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
-
 ||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
 ||3. VSS - Ground is a good thing ||GND ||
@@ -221,6 +219,12 @@ Photos for the soldering points:
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-3.3v+GND.jpg +3.3V and GND]
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
+
+=== Driver ===
+Here we use the Kamikaze 7.07+ package ''kmod-broadcom-mmc'' or the older [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
+
+{{{
+ipkg install kmod-broadcom-mmc}}}
 
 === Move writable filesystem ===
 
