@@ -8,6 +8,9 @@ ipkg install kmod-broadcom-mmc
 There is also an optimized version with better best card compatibility than the original mmc.o module. It's recommended if the Kamikaze package is not working. Althought it's made for White Russian, it seems to work fine with Kamikaze based on kernel 2.4.
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
+   [attachment:mmc-v1.3.4-gpio2.rar mmc v1.3.4 GPIO2 module]
+   [attachment:mmc-v1.3.4-gpio3.rar mmc v1.3.4 GPIO5 module ]
+   [attachment:mmc-v1.3.4-buffalo.rar mmc v1.3.4 Buffalo module]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
 If the unit locks up, make sure the set the gpiomask before loading the driver. The gpiomask value can be found by adding up all the hex values in the following table:
