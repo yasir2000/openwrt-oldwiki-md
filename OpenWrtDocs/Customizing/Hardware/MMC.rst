@@ -29,7 +29,7 @@ If the unit locks up, make sure the set the gpiomask before loading the driver. 
 ||GPIO PIN 14||0x4000||
 ||GPIO PIN 15||0x8000||
 
-E.g. for WRT54GL using GPIO line 2, 3, 4, and 7: 0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''
+E.g. for WRT54GL using GPIO line 2, 3, 4, and 7: ''0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''''
  
 {{{
 echo 0x9c > /proc/diag/gpiomask
