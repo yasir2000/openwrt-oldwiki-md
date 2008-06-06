@@ -9,7 +9,7 @@ There is also an optimized version with better best card compatibility than the 
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
    * [attachment:mmc-v1.3.4-gpio2.rar mmc v1.3.4 GPIO2 module]
-   * [attachment:mmc-v1.3.4-gpio3.rar mmc v1.3.4 GPIO5 module ]
+   * [attachment:mmc-v1.3.4-gpio5.rar mmc v1.3.4 GPIO5 module ]
    * [attachment:mmc-v1.3.4-buffalo.rar mmc v1.3.4 Buffalo module]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
