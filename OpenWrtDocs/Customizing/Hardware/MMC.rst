@@ -1,3 +1,19 @@
+= GPIO =
+
+GPIO pins, eh? The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of General Purpose Input/Output pins (or GPIO pins) that are used for various purposes in the router. We have been able to identify 8 such pins until now and these are assigned as follows:
+
+||'''Pin'''||	'''Direction'''||	'''v2.2 Name'''||		'''v3.0 name'''||	'''SD Card Name'''||
+||GPIO 0||	(Output)||		WLAN LED||	unknown||	n/a||
+||GPIO 1||	Output||		POWER LED||	POWER LED||	n/a||
+||GPIO 2||	Output||		ADM_EECS||	WHITE LED||	n/a||
+||GPIO 3||	Output||		ADM_EESK||	AMBER LED||	CLK||
+||GPIO 4||	Input||			ADM_EEDO||	FRONT BUTTON||	DO||
+||GPIO 5||	Output||		ADM_EEDI||	unknown?|| 	robo_reset?||	DI||
+||GPIO 6||	Input||			Reset button||	reset?||	n/a||
+||GPIO 7||	Output||		DMZ LED||	DMZ LED||	CS||
+
+The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
+
 = Driver =
 
 Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package for WRT54G but it's not as compatible as the optimized driver, mentioned below.
