@@ -269,9 +269,6 @@ This stuff, is working really well, I managed to have around 150Ko/s (reading) w
 
 [http://www.larsen-b.com/Article/262.html Project page]
 
-attachment:jkx.larsen-b.com-DSC02577.sized.jpg
-
-
 == Porting to other platforms ==
 *almost done being written
 
