@@ -232,34 +232,6 @@ Move the writable filesystem to the SD card and let the SquashFS (boot and read-
 
 [http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo PackagesOnExternalMediaHowTo]
 
-''/sbin/init script:''
-
-{{{
-#!/bin/sh
-. /etc/functions.sh
-config_load "bootfromexternalmedia"
-local section="cfg1"
-config_get      "target"   "$section" "target"
-config_get      "device"   "$section" "device"
-config_get      "gpiomask" "$section" "gpiomask"
-config_get      "modules"  "$section" "modules"
-config_get_bool "enabled"  "$section" "enabled" '1'
-[ "$enabled" -gt 0 ] && {
-        [ -n "$gpiomask" ] && {
-                echo "$gpiomask" > /proc/diag/gpiomask
-        }
-        for module in $modules; do {
-                insmod $module
-        }; done
-        sleep 5s
-        mount -o rw "$device" $target
-        [ -x $target/sbin/init ] && {
-                . /bin/firstboot
-                pivot $target $target
-        }
-}
-exec /bin/busybox init}}}
-
 ''/etc/config/bootfromexternalmedia config:''
 
 {{{
