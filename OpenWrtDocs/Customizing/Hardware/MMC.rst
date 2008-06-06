@@ -206,7 +206,7 @@ Pictures taken from [http://cascade.dyndns.org/~datagarbage/wrt350n.html cascade
 
 == WRT54GS v4 ==
 
-Here is another mod done for a WRT54GS v4, [http://theattic.thruhere.net/mmc-sd-mod.html project webpage].
+Here is another mod done for a WRT54GS v4, same as WRTG54 v4 and WRTG54GL. [http://theattic.thruhere.net/mmc-sd-mod.html Project webpage].
 
 attachment:theattic.thruhere.net-GPIO47.jpg
 
@@ -239,19 +239,68 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 
 Pictures taken from [http://www.flatsurface.com flatsurface.com].
 
-=== SDcard on WAP54G V31 (EU) ===
+=== SD Card on WAP54G v31 (EU) ===
 
-Here is a link that describes how to add a SD card to a WAP54G V31 (EU), this project uses the card read only,
+Here is a link that describes how to add a SD card to a WAP54G v31 (EU), this project uses the card read only,
 first a cramfs is created on the card with the PC (this is the native system the Linksys software uses),
-so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G V31 EU). 
+so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G v31 EU). 
 http://panteltje.com/panteltje/wap54g/to-linksys-wap54g-forum-2.txt
 
+=== Fonera SD Card Hack ===
 
+I read on several websites, that some people managed to wire a SD Card (or a MMC) to a Fonera access point. I run into one issue so I decided to describe the process here.
 
+'''Solder the SD Card'''
+
+The first step, is to locate the SW pins (near the antenna).. simply solder some wires like this:
+{{{
+SD Card              Fonera
+DO  (pin 7)          SW1
+CLK (pin 5)          SW2
+DI  (pin 2)          SW5
+CS  (pin 1)          SW6
+Gnd (pin 3)          Gnd
+Vcc (pin 4)          Vcc
+}}}
+
+attachment:jkx.larsen-b.com-DSC02584_2.sized.jpg
+
+You can solder the VCC, and Gnd on the serial pins.
+
+'''Unsolder the Caps'''
+
+In my first tests, I discovered the SD card is detected, so I checked the signals. And discover the clk isn’t really clear.. So I decided to remove the capacitor on the SPI bus. (C142, C143, C144, C145)
+
+attachment:jkx.larsen-b.com-DSC02582.sized.jpg
+
+'''Install software and test'''
+
+Next we need to install the kernel module on OpenWRT. You can find it on the [http://phrozen.org/fonera.html Phrozen website]. Simply ipkg install the file and it should be ok. Now, let’s try: insert a SD Card, and reboot, you should see something like this in your log.
+
+{{{
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : MMC Driver for Fonera Version 2.5 (050507) -- '2B|!2B' (john@phrozen.org)
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : Card Found
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : card in op mode
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : SIZE : 241, nMUL : 6, COUNT : 1932, NAME : 256MB
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : Card Initialised
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : The inserted card has a capacity of 253231104 Bytes
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : adding disk
+Jan  1 00:00:49 OpenWrt user.info kernel:  mmc1
+Jan  1 00:00:49 OpenWrt user.warn kernel: mmc : Card was Found
+}}}
+
+So now you can mount it:
+{{{
+mount /dev/mmc0 /mnt
+}}}
+
+This stuff, is working really well, I managed to have around 150Ko/s (reading) which is far enough for my needs. The only issue right now, is that you need to carefully umount the card before removing it, otherwise the fonera will crash.
+
+[http://www.larsen-b.com/Article/262.html Project page]
+
+attachment:jkx.larsen-b.com-DSC02577.sized.jpg
 
 == Yay, it works, now what? ==
-
-
 
 Now to configure OpenWrt or X-Wrt firmware you can go to Digital Incursion: http://www.digitalincursion.net/wrt54gl.html for a easy configuration instructions for both with the mmc/sd. Some people in the past have had problems configuring the device with OpenWrt and or X-Wrt the above website makes it simple.
 
