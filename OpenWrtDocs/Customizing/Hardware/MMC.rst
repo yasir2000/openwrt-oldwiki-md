@@ -5,7 +5,7 @@ Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package with the la
 ipkg install kmod-broadcom-mmc
 }}}
 
-There is also a optimized version of the original MMC driver with better best card compatibility than the original mmc.o module.
+There is also an older optimized version with better best card compatibility than the original mmc.o module.
 
  * [http://forum.openwrt.org/viewtopic.php?id=9653 Optimized MMC driver]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
