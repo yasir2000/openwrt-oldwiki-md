@@ -5,7 +5,7 @@
 
 This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
-== Driver == 
+= Driver =
 
 There is a optimized version of the original kiel.kool.dk driver modified by Cyril.
 
