@@ -221,7 +221,7 @@ Photos for the soldering points:
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
 
 === Driver ===
-Here we use the Kamikaze 7.07+ package ''kmod-broadcom-mmc'' or the older [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c].
+Here we use the Kamikaze 7.07+ package ''kmod-broadcom-mmc'' or the [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c] (currently has better compatibility).
 
 {{{
 ipkg install kmod-broadcom-mmc}}}
