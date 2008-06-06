@@ -5,7 +5,7 @@
 
 This mod allows you to read and write from a MMC/SD card. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
-== Installing on a WRT54G v2 and v2.2 ==
+== WRT54G v2 and v2.2 ==
 ''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] ([http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
 
 ''I added now comments for WRT HW-version 2.2 where the GPIO locations are different, but the general procedure is the same.''
@@ -161,7 +161,7 @@ The integrated Broadcom CPU BCM4712 used in the WRT54G provides a number of Gene
 
 The pins used in this project are the ADM_EESK, ADM_EEDO, ADM_EEDI and DMZ LED pins. The ADM_* pins constitute an interface used to configure the ADMTek switch chip. Since this only happens during the boot process, we are free to use these pins to our likings afterwards (the corresponding pins on the switch chip will be tri-state after configuration). The names of the other pins should be self explanatory. The direction of the pins can be individually programmed (even though this of course does not make sense for every pin).
 
-== Installing on a WRT54G v3 and v3.1 ==
+== WRT54G v3 and v3.1 ==
 *to be written, in the meantime you can find [http://www.allaboutjake.com/network/linksys/wrt54g/hack/ version 3 info] here.
 
 Basically the same as above, but different GPIO points on the board.
@@ -184,7 +184,7 @@ attachment:otago.ac.nz-gpio5.jpg
 
 Picture taken from [http://www.otago.ac.nz/mjb/wrt54g/ otago.ac.nz].
 
-== Installing on a WRT54G v4 and WRT54GL v1.1 ==
+== WRT54G v4 and WRT54GL v1.1 ==
 Almost the same as for version 3, except GPIO 5 seems to be missing from the board, so use GPIO 2 instead and edit the driver accordingly. Here is more [http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html version 4 info] someone has made available, including pictures and modified driver source and binary.
 Sadly this link is dead, so you currently have to use the wayback machine to see where to solder the cables. [http://web.archive.org/http://support.warwick.net/~ryan/wrt54g-v4/v4_sd_done.html that site from web.archive.org]
 
@@ -216,39 +216,10 @@ attachment:theattic.thruhere.net-VDDVSS.jpg
 
 attachment:theattic.thruhere.net-Complete.jpg
 
-== Porting to other platforms ==
-*almost done being written
 
-Buffalo WHR-HP-G54 connections are:
+== Fonera Access Point ==
 
-'''GPIO3''' Output (uninstalled LED) to CLK (SD Card #5) Connect to the very small pad above "R4" in the picture.[[BR]]
-'''GPIO6''' Output (AOSS LED) to DO (SD Card #2) Connect to the bottom of the resistor in the picture.[[BR]] 
-'''GPIO7''' Output (Diag LED) to CS (SD Card #1) Connect to the left side of the resistor shown in the picture.[[BR]]
-
-attachment:flatsurface.com-whr-sdcard1.jpg
-
-'''GPIO5''' Input (Bridge/Auto switch) to DI (SD Card #7) Connect to the C242 on the side nearest R151 in the picture. ''The switch '''must''' remain in the "auto" position for proper operation.''[[BR]]
-'''3.3v''' (near voltage regulator) to Vcc (SD Card #4)Connect to the pad shown in the picture.[[BR]]
-'''GND''' (Bridge/Auto switch frame) to Gnd (SD Card #3&6) Available in many places - the frame of the switch is convenient.[[BR]]
-
-attachment:flatsurface.com-whr-sdcard2.jpg
-
-Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automatically adapt to the connections given. 
-
-'''echo 0xe8 > /proc/diag/gpiomask''' to avoid hotplug problems.
-
-Pictures taken from [http://www.flatsurface.com flatsurface.com].
-
-=== SD Card on WAP54G v31 (EU) ===
-
-Here is a link that describes how to add a SD card to a WAP54G v31 (EU), this project uses the card read only,
-first a cramfs is created on the card with the PC (this is the native system the Linksys software uses),
-so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G v31 EU). 
-http://panteltje.com/panteltje/wap54g/to-linksys-wap54g-forum-2.txt
-
-=== Fonera SD Card Hack ===
-
-I read on several websites, that some people managed to wire a SD Card (or a MMC) to a Fonera access point. I run into one issue so I decided to describe the process here.
+I read on several websites, that some people managed to wire a SD Card (or a MMC) to a [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Fon/Fonera Fonera access point]. I run into one issue so I decided to describe the process here.
 
 '''Solder the SD Card'''
 
@@ -299,6 +270,37 @@ This stuff, is working really well, I managed to have around 150Ko/s (reading) w
 [http://www.larsen-b.com/Article/262.html Project page]
 
 attachment:jkx.larsen-b.com-DSC02577.sized.jpg
+
+
+== Porting to other platforms ==
+*almost done being written
+
+Buffalo WHR-HP-G54 connections are:
+
+'''GPIO3''' Output (uninstalled LED) to CLK (SD Card #5) Connect to the very small pad above "R4" in the picture.[[BR]]
+'''GPIO6''' Output (AOSS LED) to DO (SD Card #2) Connect to the bottom of the resistor in the picture.[[BR]] 
+'''GPIO7''' Output (Diag LED) to CS (SD Card #1) Connect to the left side of the resistor shown in the picture.[[BR]]
+
+attachment:flatsurface.com-whr-sdcard1.jpg
+
+'''GPIO5''' Input (Bridge/Auto switch) to DI (SD Card #7) Connect to the C242 on the side nearest R151 in the picture. ''The switch '''must''' remain in the "auto" position for proper operation.''[[BR]]
+'''3.3v''' (near voltage regulator) to Vcc (SD Card #4)Connect to the pad shown in the picture.[[BR]]
+'''GND''' (Bridge/Auto switch frame) to Gnd (SD Card #3&6) Available in many places - the frame of the switch is convenient.[[BR]]
+
+attachment:flatsurface.com-whr-sdcard2.jpg
+
+Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automatically adapt to the connections given. 
+
+'''echo 0xe8 > /proc/diag/gpiomask''' to avoid hotplug problems.
+
+Pictures taken from [http://www.flatsurface.com flatsurface.com].
+
+=== SD Card on WAP54G v31 (EU) ===
+
+Here is a link that describes how to add a SD card to a WAP54G v31 (EU), this project uses the card read only,
+first a cramfs is created on the card with the PC (this is the native system the Linksys software uses),
+so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G v31 EU). 
+http://panteltje.com/panteltje/wap54g/to-linksys-wap54g-forum-2.txt
 
 == Yay, it works, now what? ==
 
