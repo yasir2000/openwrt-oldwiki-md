@@ -13,6 +13,9 @@ There is also an optimized version with better best card compatibility than the 
    * [attachment:mmc-v1.3.4-buffalo.rar mmc v1.3.4 Buffalo module]
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
+{{{
+insmod mmc.o}}}
+
 If the unit locks up, make sure the set the gpiomask before loading the driver. The gpiomask value can be found by adding up all the hex values in the following table:
 
 ||GPIO PIN 0||0x01||
