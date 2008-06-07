@@ -4,14 +4,19 @@ N mode wireless is not functional at this time (Connections are at 54 Mbit/s).
 __'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, your router, or your computer. These instructions worked for me. They may not for you.  If they don't you may end up with a $100 paperweight, and that's your problem not mine. That said... these should in all reality not cause any dangers, and if you brick your router you can most likely flash back to regular asus firmware and try again. That's a hint BTW...go download a regular copy of the asus firmware esp. If you are relying on this router for internet!
 
 == Stock Firmware ==
-'''1.''' Connect to the router with a ethernet cable on LAN port 2, 3 or 4 (1 is not yet active). Tftp the new image to the router: Unplug router, replug it back in while holding in the black reset button. Wait for a slowly blinking power light before releasing the black reset button. The remainder of the TFTP process is described here: OpenWrtViaTftp.
-Use the Broadcom 2.4 image:
+'''1.''' Download the Broadcom 2.4 image:
+
+I recommend using the snapshot from x-wrt. The network settings work out of the box so step 2 isn't necessary. (Also seems to fix [http://forum.openwrt.org/viewtopic.php?id=11189 this bug] when using a USB disk)
+
+http://downloads.x-wrt.org/xwrt/kamikaze/snapshots/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+
+You can also use the stable 7.09 release from either OpenWRT or X-Wrt but you'll have to do step 2.
 
 http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 
-Or the one provided by x-wrt if you want webif:
-
 http://downloads.x-wrt.org/xwrt/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+
+Connect to the router with a ethernet cable (on LAN port 2, 3 or 4 if using 7.09 as port1 is only properly configured in the snapshot). Tftp the new image to the router: Unplug router, replug it back in while holding in the black reset button. Wait for a slowly blinking power light before releasing the black reset button. The remainder of the TFTP process is described here: OpenWrtViaTftp.
 
 ''2.''' Update the network settings
 {{{
