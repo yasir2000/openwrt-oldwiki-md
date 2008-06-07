@@ -18,7 +18,7 @@ More information on the [http://www.allaboutjake.com/network/linksys/wrt54g/hack
 
 = Driver =
 
-Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package for WRT54G but it's not as compatible as the optimized driver, mentioned below.
+Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package for WRT54G but it does not have as good compatibility as the optimized driver, mentioned below.
 {{{
 ipkg install kmod-broadcom-mmc}}}
 
