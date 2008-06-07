@@ -20,8 +20,7 @@ More information on the [http://www.allaboutjake.com/network/linksys/wrt54g/hack
 
 Kamikaze 7.07 and later now includes a ''kmod-broadcom-mmc'' package for WRT54G but it's not as compatible as the optimized driver, mentioned below.
 {{{
-ipkg install kmod-broadcom-mmc
-}}}
+ipkg install kmod-broadcom-mmc}}}
 
 There is also an optimized version with better best card compatibility than the original mmc.o module. It's recommended if the Kamikaze package is not working. Althought it's made for White Russian, it seems to work fine with Kamikaze based on kernel 2.4.
 
@@ -32,9 +31,17 @@ There is also an optimized version with better best card compatibility than the 
  * [http://web.archive.org/http://kiel.kool.dk/ Original MMC driver]
 
 {{{
-insmod mmc.o}}}
+tar zxvf mmc-v1.3.4-gpio2.tgz
+cp mmc-v1-3.4-gpio2/mmc.o /lib/modules/2.4.34/}}}
 
-If the unit locks up, make sure the set the gpiomask before loading the driver. The gpiomask value can be found by adding up all the hex values in the following table:
+Configure the gpiomask (see below for correct value) and load the mmc module. Verify that it loaded correctly by checking the dmesg log.
+
+{{{
+echo 0x9c > /proc/diag/gpiomask
+insmod mmc
+dmesg}}}
+
+If the unit locks up, make sure the set the correct gpiomask before loading the driver. The gpiomask value can be found by adding up all the hex values in the following table:
 
 ||GPIO PIN 0||0x01||
 ||GPIO PIN 1||0x02||
@@ -53,11 +60,9 @@ If the unit locks up, make sure the set the gpiomask before loading the driver. 
 ||GPIO PIN 14||0x4000||
 ||GPIO PIN 15||0x8000||
 
-E.g. for WRT54GL using GPIO line 2, 3, 4, and 7: ''0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''''
- 
-{{{
-echo 0x9c > /proc/diag/gpiomask
-}}}
+E.g. for WRT54GL that is using GPIO line 2, 3, 4, and 7:
+
+ * Hex values: 0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''
 
 = Adding a MMC/SD Card =
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
