@@ -213,6 +213,9 @@ A simple unbuffered JTAG cable works fine. See HairyDairyMaid's WRT54G Debrickin
 ||5 ||output ||RA10 (front pad) || ||
 ||6 || || || ||
 ||7 ||output ||LEDC7 ||DMZ LED ||
+
+For more information on the GPIO lines, also see ["OpenWrtDocs/Customizing/Hardware/MMC"].
+
 === WRT54G v2.0 revision XH/XB RAM Increase ===
 There are revision XH and XB (WRT54GS based card) units of the WRT54G v2.0. Some of these units have 32 MB of memory, but they are locked to 16 MB. You can unlock the remaining memory with changing some of the variables. Afterburner (aka. Speedbooster) mode can be enabled with some variables, too.
 
