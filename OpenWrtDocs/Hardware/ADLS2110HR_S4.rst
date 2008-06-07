@@ -6,8 +6,9 @@ STAR-NET ADSL 2110EHR S4+ V1.20
 PCB: 2110EHR-S4VW+ Revision V1.01 2005.10.27
 
 == Jtag & Console ==
-serial console 9600,n,8,1,hw jp1: 
-2-GND 5-RX 6-TX
+serial console 9600,8,no,1,no jp1: 
+
+1-GND 2-GND 3- 4- 5-RX 6-TX 7-
 
 Standart MIPS EJTAG 2.5 14-PIN Header
 
