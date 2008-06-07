@@ -36,23 +36,17 @@ Once the modification is made you can have at most two serial ports to use for c
 ||<tablewidth="1084px" tableheight="65px">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
 ||'''Pin 1''' ||3.3V ||'''Pin 3''' ||TX_1 ||'''Pin 5''' ||RX_1 ||'''Pin 7''' ||Not connected ||'''Pin 9''' ||GND ||
 
-attachment:wrt54gl_v11_serialport.jpg
+attachment:wrt54gl_v11_serialport_.jpg
 
 == JTAG ==
 
 The JTAG port is a unpopulated 12-pin header and is located next to the serial port header. A simple unbuffered should work fine.
+||<tablewidth="1084px" tableheight="65px">'''Pin 2'''||GND||'''Pin 4'''||GND||'''Pin 6'''||GND||'''Pin 8'''||GND||'''Pin 10'''||GND||'''Pin 12'''||GND||
+||'''Pin 1'''||nTRST*||'''Pin 3'''||TDI||'''Pin 5'''||TDO||'''Pin 6'''||TMS||'''Pin 9'''||TDK||'''Pin 11'''||nSRST*||
 
-||'''Pin'''||'''Name'''||'''Pin'''||'''Name'''||
-||1||nTRST*||2||GND||
-||3||TDI||4||GND||
-||5||TDO||6||GND||
-||7||TMS||8||GND||
-||9||TDK||10||GND||
-||11||nSRST*||12||GND||
+* Not used on an unbuffered JTAG cable.
 
-* Not used on a unbuffered JTAG cable.
-
-attachment:wrt54gl_v11_jtagport.jpg
+attachment:wrt54gl_v11_jtagport_.jpg
 
 See ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"] for more JTAG details.
 
