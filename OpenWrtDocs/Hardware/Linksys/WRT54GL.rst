@@ -218,6 +218,8 @@ This section is under construction...
 
 == Adding an MMC/SD card ==
 
+WRT54GL uses GPIO 2 instead of GPIO 5 for DI, make sure to use the appropriate driver. 
+
 ||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
 ||3. VSS - Ground is a good thing ||GND ||
@@ -232,17 +234,17 @@ Photos for the soldering points:
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
 
-=== Driver ===
-Here we use the Kamikaze 7.07+ package ''kmod-broadcom-mmc'' or the [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version of mmc.c] (currently has better compatibility).
+The MMC driver is available in Kamikaze 7.07+ (package ''kmod-broadcom-mmc'') and as a [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version] (currently has best compatibility) of the original module.
 
 {{{
 ipkg install kmod-broadcom-mmc}}}
 
-=== Move writable filesystem ===
+{{{
+insmod mmc.o}}}
 
-Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip.
+Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Packages will then be installed on the SD card along with all the binaries and configs.
 
-[http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo PackagesOnExternalMediaHowTo]
+See ["OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo"] for details.
 
 ''/etc/config/bootfromexternalmedia config:''
 
