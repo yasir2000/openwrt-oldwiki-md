@@ -246,7 +246,7 @@ To manually set up the SD card, use the following commands:
 
 {{{
 echo 0x9c > /proc/diag/gpiomask
-insmod mmc.o
+insmod mmc
 dmesg}}}
 
 Mount vfat (i.e. fat ,fat32) or ext3 formatted partition:
