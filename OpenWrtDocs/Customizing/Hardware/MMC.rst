@@ -62,7 +62,7 @@ If the unit locks up, make sure the set the correct gpiomask before loading the 
 
 E.g. for WRT54GL that is using GPIO line 2, 3, 4, and 7:
 
- * Hex values: 0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''
+ * Hex values: 0x04 + 0x08 + 0x10 + 0x80 = '''0x9c'''
 
 Use [http://www.squarebox.co.uk/hcalc.html squarebox.co.uk] online hex calculator or similar to add up the values.
 
