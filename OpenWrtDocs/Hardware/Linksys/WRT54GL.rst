@@ -29,6 +29,7 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
+
 == Serial port ==
 The WRT54GL has a 10 pin connection slot on the board called JP1 (JP2 on some v1.1 boards). This slot provides two TTL serial ports at 3.3V. Neither of the ports use hardware flow control, you need to use software flow control instead. Other routers may have similar connections. These two TTL serial ports on the WRT54GL router can be used as standard Serial Ports similiar to the serial ports you may have on your PC. In order to do this though you need a line driver chip that can raise the signal levels to RS-232 levels. You can not directly connect a serial port header to the board and expect it to work. That method will only work with devices that can connect to TTL serial ports at 3.3V. Connecting two which have 3.3V directly will work (TX - RX, RX - TX, GND - GND). Standard RS-232 devices cannot be directly connected which accounts for nearly all serial PC devices.
 
@@ -207,6 +208,7 @@ Please see [:DDNSHowTo:Dynamic DNS].
 {{{
 uci set wireless.wl0.disabled=0
 uci commit wireless && wifi}}}
+
 === WiFi encryption ===
 Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
 
@@ -234,13 +236,28 @@ Photos for the soldering points:
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
 
-The MMC driver is available in Kamikaze 7.07+ (package ''kmod-broadcom-mmc'') and as an [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/MMC optimized version] (currently has better compatibility) of the original mmc.o module.
+The MMC driver is available in Kamikaze 7.07+ (package ''kmod-broadcom-mmc'') and as an [:OpenWrtDocs/Customizing/Hardware/MMC: optimized version] of the original mmc.o module (which currently has best compatibility).
 
 {{{
-ipkg install kmod-broadcom-mmc}}}
-or
+tar zxvf mmc-v1.3.4-gpio2.tgz
+cp mmc-v1.3.4-gpio2/mmc.o /lib/module/2.4.34/}}}
+
+To manually set up the SD card, use the following commands:
+
 {{{
-insmod mmc.o}}}
+echo 0x9c > /proc/diag/gpiomask
+insmod mmc.o
+dmesg}}}
+
+Mount vfat (i.e. fat ,fat32) or ext3 formatted partition:
+
+{{{
+ipkg install kmod-fs-vfat
+ipkg install kmod-fs-ext3
+insmod vfat ext3
+mount /dev/mmc/disc0/part1 /mnt/ # alternatively add -t vfat or ext3}}}
+
+See ["OpenWrtDocs/Customizing/Hardware/MMC"] for details.
 
 Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Packages will then be installed on the SD card along with all the binaries and configs.
 
