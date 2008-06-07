@@ -203,7 +203,7 @@ A 12-pin unpopulated JTAG header is included on all versions of this router. It 
 
 A simple unbuffered JTAG cable works fine. See HairyDairyMaid's WRT54G Debricking Tool for pin defintions, cable schematics, and software to utilize the JTAG interface.
 
-See ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable" for details.
+See ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"] for details.
 
 === GPIO pins ===
 ||'''GPIO #''' ||'''direction''' ||'''location''' ||'''function''' ||
