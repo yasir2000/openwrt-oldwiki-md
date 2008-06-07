@@ -64,6 +64,8 @@ E.g. for WRT54GL that is using GPIO line 2, 3, 4, and 7:
 
  * Hex values: 0x02 + 0x08 + 0x10 + 0x80 = '''0x9c'''
 
+Use [http://www.squarebox.co.uk/hcalc.html squrebox.co.uk] online hex calculator or similar to add up the values.
+
 = Adding a MMC/SD Card =
 ''This is one very cool mod! Credit goes to [http://kiel.kool.dk kiel.kool.dk] (seems to be down, [http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) for this awesome work. They have also pioneered some other interesting mods as well. Check out http://duff.dk/wrt54gs/ for info. They created this mod for the wrt54g version 2, then I (INH) ported it to version 3. If you have another version, you are going to have to figure out how to port it.. but it shouldn't be too hard.''
 
