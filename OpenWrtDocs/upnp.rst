@@ -39,7 +39,7 @@ The libpthread package is already part of the OpenWRT package tree, but if you w
 ipkg install libpthread
 
 With '''miniupnpd''', Only one package is required to be installed :
-http://downloads.x-wrt.org/xwrt/kamikaze/7.07/brcm-2.4/packages/miniupnpd_1.0-RC1-1_mipsel.ipk
+http://downloads.x-wrt.org/xwrt/kamikaze/snapshots/brcm-2.4/packages/miniupnpd_1.1-1_mipsel.ipk
 ipkg install miniupnpd
 
 
