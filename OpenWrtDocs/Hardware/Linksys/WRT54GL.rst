@@ -234,11 +234,11 @@ Photos for the soldering points:
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-2+3.jpg GPIO 2 and 3]
  * [attachment:cascade.dyndns.org-linksys-wrt54gl-v1.1-gpio-4+7.jpg GPIO 4 and 7]
 
-The MMC driver is available in Kamikaze 7.07+ (package ''kmod-broadcom-mmc'') and as a [http://forum.openwrt.org/viewtopic.php?id=9653 optimized version] (currently has best compatibility) of the original module.
+The MMC driver is available in Kamikaze 7.07+ (package ''kmod-broadcom-mmc'') and as an [http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/MMC optimized version] (currently has better compatibility) of the original mmc.o module.
 
 {{{
 ipkg install kmod-broadcom-mmc}}}
-
+or
 {{{
 insmod mmc.o}}}
 
