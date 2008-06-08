@@ -22,9 +22,9 @@ serial connector J303
 
 {{{
        |---|
-front  | o | 3.3V
- of    | o   GND
- the   | o   Tx
+front  | o | 3.3V  (pin 1)
+ of    | o | GND
+ the   | o | Tx
 board  | o | Rx
        |---|}}}
 
@@ -37,3 +37,5 @@ Unzipping started
 
  Speedtouch initialization sequence started.
 }}}
+
+I think my router is broken or the firmware is corrupt because the red led (D503) doesn't stop shining and the terminal continuously prints the upper printout. (Unzipping started, ...)
