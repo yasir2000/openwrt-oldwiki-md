@@ -74,6 +74,15 @@ chmod a+x /sbin/init}}}
 = Install required packages =
 To prepare your external media you need to install extra packages on the flash chip. E.g. fdisk or cfdisk to partition your external media, e2fsprogs to format and check the filesystem, kmod-fs-ext2 or kmod-fs-ext3 for the filesystem support, the IDE related packages for IDE support, the USB related packages for USB support or copy the mmc.o driver to /lib/modules/2.4.34.
 
+= Format external media =
+Install e2fsprogs to re-format a SD card to ext3 filesystem to make it compatible with Linux (i.e symblinks, etc).
+
+{{{
+ipkg install e2fsprogs
+mkfs.ext3 /dev/mmc/disc0/part1 # See above for the correct parition path
+ipkg install kmod-fs-ext3
+mount -t ext3 /dev/mmc/disc0/part1 /mnt/}}}
+
 = Copy the flash content to the external media =
 Then we create /tmp/root, mount it to /rom and copying the files, sync it and at last unmount it.
 
