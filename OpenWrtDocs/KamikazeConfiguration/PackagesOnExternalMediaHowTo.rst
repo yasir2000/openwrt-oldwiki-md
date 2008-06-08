@@ -94,7 +94,7 @@ sync
 umount /tmp/root
 umount /mnt}}}
 
-Finally reboot or power cycle your router. When the system comes back up it switch over to use the root filesystem on the SD card.
+Finally reboot or power cycle your router. When the system comes back up it switch to use the root filesystem on the SD card during the boot process.
 
 = Some more info =
 Some things you can check if its working correctly:
