@@ -17,3 +17,23 @@ The memsize should be 16MB, but the flashsize is 4MB - strange.
 Board photo:
 http://www.visigoth.de/~alx/speedtouch_585iv6_thomson_2.jpg
 [attachment:speedtouch_585iv6_thomson_2.jpg]
+
+serial connector J303
+
+{{{
+       |---|
+front  | o | 3.3V
+ of    | o   GND
+ the   | o   Tx
+board  | o | Rx
+       |---|}}}
+
+After connecting an RS-232 transceiver one can see the following in the terminal (9600 1N8):
+{{{
+Unzipping started
+
+ UNZIP DONE -> starting bootloader 
+
+
+ Speedtouch initialization sequence started.
+}}}
