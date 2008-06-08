@@ -93,13 +93,13 @@ cp /tmp/root/* /mnt -a
 sync
 umount /tmp/root
 umount /mnt}}}
-Finally reboot or power cycle your router.
+
+Finally reboot or power cycle your router. When the system comes back up it switch over to use the root filesystem on the SD card.
 
 = Some more info =
 Some things you can check if its working correctly:
 
 df -h
-
 {{{
 Filesystem                Size      Used Available Use% Mounted on
 none                      7.0M     36.0k      6.9M   1% /tmp
@@ -119,13 +119,12 @@ none on /dev/pts type devpts (rw)
 mini_fo:/jffs on /mnt type mini_fo (rw)
 /dev/mmc/disc0/part1 on / type ext3 (rw)
 }}}
-fdisk -l /dev/mmc/disc0/disc
 
+fdisk -l /dev/mmc/disc0/disc
 {{{
 Disk /dev/mmc/disc0/disc: 522 MB, 522846208 bytes
 4 heads, 16 sectors/track, 15956 cylinders
 Units = cylinders of 64 * 512 = 32768 bytes
               Device Boot      Start         End      Blocks   Id  System
 /dev/mmc/disc0/part1               1       12207      390616   83  Linux
-/dev/mmc/disc0/part2           12208       15956      119968   82  Linux swap / Solaris
-}}}
+/dev/mmc/disc0/part2           12208       15956      119968   82  Linux swap / Solaris}}}
