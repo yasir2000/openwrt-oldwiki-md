@@ -66,6 +66,10 @@ WRT54GL v1.1 - Serial number: CL7B
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&do=view&target=wrt54gl_v11_back_hires.jpg http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL?action=AttachFile&amp;do=get&amp;target=wrt54gl_v11_back_thumb___.jpg]
 
 == Opening the case ==
+To remove the front cover you simply pop the front of the case off after removing the antennas. Please note that the warranty will be voided. 
+
+There are two screws holding the PCB to the bottom cover.
+
 = Installation =
 Right after flashing at your first login set a few NVRAM parameters.
 
@@ -83,6 +87,7 @@ It is possible to install !OpenWrt directly with the Linksys web GUI. If you are
  * Upload openwrt-wrt54g-2.4-squashfs.bin
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
+
 == Using the TFTP method ==
 Once you have set the NVRAM parameters above it is possible to use a TFTP client to flash !OpenWrt. The TFTP method is also the recommended way to restore the original Linksys firmware or switch to other third-party firmwares.
 
