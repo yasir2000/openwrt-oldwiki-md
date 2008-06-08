@@ -184,7 +184,7 @@ mini_fo: using storage directory: /jffs
        . 3 - Data out
        . 4 - Data in
 
- * An [wiki:self:OpenWrtDocs/Customizing/Hardware/MMC MMC] hack can be done.
+ * An [wiki:self:OpenWrtDocs/Customizing/Hardware/MMC#WHRHPG54 MMC] hack can be done.
 
 == JTAG Support ==
 
