@@ -1,8 +1,5 @@
 #pragma section-numbers off
-[[TableOfContents]]
-= Actiontec MI424-WR =
-The [http://www.actiontec.com Actiontec] MI424-WR
-is based on a 533MHz IXP425. It has 32MB RAM and 8MB of FLASH.
-
+This page should be deleted. Information on Actiontec's MI424-WR
+can be found here: ["OpenWrtDocs/Hardware/Actiontec/MI424-WR"]
 ----
 CategoryModel ["CategoryIXP4xxDevice"]
