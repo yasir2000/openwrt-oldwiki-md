@@ -79,7 +79,7 @@ Install e2fsprogs to re-format the SD card to ext3 filesystem to make it Linux c
 
 {{{
 ipkg install e2fsprogs
-mkfs.ext3 /dev/mmc/disc0/part1 # See above for the correct parition path
+mkfs.ext3 /dev/mmc/disc0/part1 # See above for the correct partition path
 ipkg install kmod-fs-ext3
 mount -t ext3 /dev/mmc/disc0/part1 /mnt/}}}
 
