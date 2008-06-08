@@ -382,7 +382,7 @@ This stuff, is working really well, I managed to have around 150Ko/s (reading) w
 
 Use the new additional storage to install and store packages on the SD card.
 
-In the case of Kamikaze, the entire writable parition can be moved to the external media while the original SquashFS root read-only files stays on the flash chip.
+In the case of Kamikaze, the writable parition can be relocated to the external media while the original SquashFS root read-only files stays on the flash chip.
 
  * White Russian: [http://wiki.openwrt.org/PackagesOnExternalMediaHowTo]
  * Kamikaze: [http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo]
