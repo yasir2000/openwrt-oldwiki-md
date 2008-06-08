@@ -73,7 +73,7 @@ Right after flashing at your first login set a few NVRAM parameters.
 nvram set boot_wait=on
 nvram set boot_time=10
 nvram commit && reboot}}}
-NOTE: You do not have to touch any other NVRAM parameters. After this point NVRAM is no longer used.
+NOTE: You do not have to touch any other NVRAM parameters. After this point NVRAM is no longer used. You might consider [:Faq#head-71cacf8460752af3f5771d2fae54923ded5beb9c: cleaning the NVRAM] to trim any uneccessary settings.
 
 == Using the Linksys web GUI ==
 It is possible to install !OpenWrt directly with the Linksys web GUI. If you are initially installing !OpenWrt use the Linksys web GUI. This is the easiest way.
