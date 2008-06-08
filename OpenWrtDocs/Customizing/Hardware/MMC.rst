@@ -295,8 +295,8 @@ attachment:theattic.thruhere.net-VDDVSS.jpg
 attachment:theattic.thruhere.net-Complete.jpg
 
 
+[[Anchor(WHRHPG54)]]
 == Buffalo WHR-HP-G54 ==
-*almost done being written porting to other platforms
 
 Buffalo WHR-HP-G54 connections are:
 
@@ -315,8 +315,6 @@ attachment:flatsurface.com-whr-sdcard2.jpg
 Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automatically adapt to the connections given. 
 
 '''echo 0xe8 > /proc/diag/gpiomask''' to avoid hotplug problems.
-
-Pictures taken from [http://www.flatsurface.com flatsurface.com].
 
 == WAP54G v31 ==
 
