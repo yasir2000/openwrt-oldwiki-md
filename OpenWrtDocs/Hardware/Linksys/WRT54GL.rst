@@ -17,6 +17,8 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 
 = Hardware =
 == Info ==
+||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt54gl_v11_systeminfo.jpg||
+
 ||'''Architecture''' ||MIPS ||
 ||'''Vendor''' ||Broadcom ||
 ||'''Bootloader''' ||CFE ||
