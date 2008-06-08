@@ -261,7 +261,6 @@ Mount vfat (i.e. fat ,fat32) or ext3 formatted partition:
 {{{
 ipkg install kmod-fs-vfat
 ipkg install kmod-fs-ext3
-insmod vfat ext3
 mount /dev/mmc/disc0/part1 /mnt/ # alternatively add -t vfat or ext3}}}
 
 See ["OpenWrtDocs/Customizing/Hardware/MMC"] for details.
