@@ -79,7 +79,7 @@ This mod allows you to read and write from a MMC/SD card (including miniSD and m
 ||6. VSS2 - Another ground is also a good thing ||GND (Not on microSD) ||
 ||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
 
-* GPIO 5 was used for WRT54G version up to v3.0 and GPIO 2 for WRT54G v4.0 and later, including WRT54GL. Other units may have a different layout.
+* GPIO 5 was used for WRT54G version up to v3.1 and GPIO 2 for WRT54G v4.0 and later, including WRT54GL. Other units may have a different layout.
 
 == WRT54G v2.0 ==
 ''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] ([http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
