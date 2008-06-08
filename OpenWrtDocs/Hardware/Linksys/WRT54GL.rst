@@ -266,11 +266,11 @@ mount /dev/mmc/disc0/part1 /mnt/ # alternatively add -t vfat or ext3}}}
 
 See ["OpenWrtDocs/Customizing/Hardware/MMC"] for details.
 
-Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Packages will then be installed on the SD card along with all the binaries and configs.
+Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Any changes and new packages will then be stored on the SD card.
 
 See ["OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo"] for details.
 
-''/etc/config/bootfromexternalmedia config:''
+Config /etc/config/bootfromexternalmedia:
 
 {{{
 config bootfromexternalmedia
