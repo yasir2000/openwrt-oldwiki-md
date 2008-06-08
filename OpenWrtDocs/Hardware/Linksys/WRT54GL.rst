@@ -227,7 +227,7 @@ This section is under construction...
 
 == Adding an MMC/SD card ==
 
-WRT54GL uses GPIO 2 instead of GPIO 5 for DI, make sure to use the appropriate driver. 
+The GPIO (General Purpose Input/Output) lines can be used to add a SD card in SPI mode. There are 4 points in additional to power and ground needs to be connected. WRT54GL uses GPIO line 2 instead of GPIO line 5 (WRT54G v3.0 and lower) for DI, make sure to use the appropriate driver. 
 
 ||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
 ||2. DI - Data in on the SD card. ||GPIO 2 (0x04) ||
@@ -265,7 +265,7 @@ mount /dev/mmc/disc0/part1 /mnt/ # alternatively add -t vfat or ext3}}}
 
 See ["OpenWrtDocs/Customizing/Hardware/MMC"] for details.
 
-Move the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Any changes and new packages will then be stored on the SD card.
+Relocate the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Any changes and new packages will then be stored on the SD card.
 
 See ["OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo"] for details.
 
