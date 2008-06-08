@@ -71,6 +71,16 @@ Use [http://www.squarebox.co.uk/hcalc.html squarebox.co.uk] online hex calculato
 
 This mod allows you to read and write from a MMC/SD card (including miniSD and microSD) in SPI mode. This is awesome as it can literally give you 555 time the storage space. You can now have over one gigabyte of memory to store and run programs from, store packet logs, etc etc.. It's not a very hard mod to do, unless you have something other than a wrt54g version 2 or 3. If thats the case, please read on, as I go over how I ported this mod to my version 3.
 
+||<style="TEXT-ALIGN: center" |7> http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL/mmc_gif?action=AttachFile&do=get&target=mmc.gif ||1. CS - Chip Select for the SD card ||GPIO 7 (0x80) ||
+||2. DI - Data in on the SD card. ||GPIO 5 (0x20) / GPIO 2 (0x04) * ||
+||3. VSS - Ground is a good thing ||GND ||
+||4. VDD - We need power of course. 3.3 V will do the job ||3.3 V ||
+||5. CLK - The clock we generate for the SD card ||GPIO 3 (0x08) ||
+||6. VSS2 - Another ground is also a good thing ||GND (Not on microSD) ||
+||7. DO - Data out from the SD card ||GPIO 4 (0x10) ||
+
+* GPIO 5 was used for WRT54G version up to v3.0 and GPIO 2 for WRT54G v4.0 and later, including WRT54GL. Other units may have a different layout.
+
 == WRT54G v2.0 ==
 ''The following is the guide from [http://kiel.kool.dk kiel.kool.dk] ([http://web.archive.org/http://kiel.kool.dk/ web.archive.org mirror]) by Rasmus Rohde and Mads Ulrik Kristoffersenon about installing an MMC/SD card reader/writer in a wrt54g version 2, with added commentary where I feel is appropriate''
 
