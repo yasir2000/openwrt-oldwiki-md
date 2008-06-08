@@ -36,7 +36,7 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 The WRT54GL has a 10 pin connection slot on the board called JP1 (JP2 on some v1.1 boards). This slot provides two TTL serial ports at 3.3V. Neither of the ports use hardware flow control, you need to use software flow control instead. Other routers may have similar connections. These two TTL serial ports on the WRT54GL router can be used as standard Serial Ports similiar to the serial ports you may have on your PC. In order to do this though you need a line driver chip that can raise the signal levels to RS-232 levels. You can not directly connect a serial port header to the board and expect it to work. That method will only work with devices that can connect to TTL serial ports at 3.3V. Connecting two which have 3.3V directly will work (TX - RX, RX - TX, GND - GND). Standard RS-232 devices cannot be directly connected which accounts for nearly all serial PC devices.
 
 Once the modification is made you can have at most two serial ports to use for connecting devices etc. By default, !OpenWrt uses the first serial port to access the built-in serial console on the router. You can connect to it at 115200,8,N,1 using a terminal program like Putty, SecureCRT or minicom for example. This is helpful because if you have problems communicating with your router this method will allow you easy access connecting over a serial console. By default this leaves you with one serial port left, however, there is a method to turn the console off giving you access to both ports if you really need them. It isn't recommended but it can be done.
-||<tablewidth="1084px" tableheight="65px">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
+||<tablewidth="1084px" tableheight="52px">'''Pin 2''' ||3.3V ||'''Pin 4''' ||TX_0 ||'''Pin 6''' ||RX_0 ||'''Pin 8''' ||Not connected ||'''Pin 10''' ||GND ||
 ||'''Pin 1''' ||3.3V ||'''Pin 3''' ||TX_1 ||'''Pin 5''' ||RX_1 ||'''Pin 7''' ||Not connected ||'''Pin 9''' ||GND ||
 
 attachment:wrt54gl_v11_serialport___.jpg
@@ -44,7 +44,7 @@ attachment:wrt54gl_v11_serialport___.jpg
 == JTAG ==
 
 The JTAG port is a unpopulated 12-pin header and is located next to the serial port header. A simple unbuffered should work fine.
-||<tablewidth="1084px" tableheight="65px">'''Pin 2'''||GND||'''Pin 4'''||GND||'''Pin 6'''||GND||'''Pin 8'''||GND||'''Pin 10'''||GND||'''Pin 12'''||GND||
+||<tablewidth="1084px" tableheight="52px">'''Pin 2'''||GND||'''Pin 4'''||GND||'''Pin 6'''||GND||'''Pin 8'''||GND||'''Pin 10'''||GND||'''Pin 12'''||GND||
 ||'''Pin 1'''||nTRST*||'''Pin 3'''||TDI||'''Pin 5'''||TDO||'''Pin 6'''||TMS||'''Pin 9'''||TDK||'''Pin 11'''||nSRST*||
 
 * Not used on an unbuffered JTAG cable.
@@ -121,7 +121,7 @@ The default network configuration is:
 
 == Switch Ports (for VLANs) ==
 Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs. vlan0 = eth0.0, vlan1 = eth0.1 and so on.
-||<tablewidth="369px" tableheight="243px">'''Port''' ||'''Switch port''' ||
+||<tablewidth="369px" tableheight="155px">'''Port''' ||'''Switch port''' ||
 ||Internet (WAN) ||4 ||
 ||LAN 1 ||3 ||
 ||LAN 2 ||2 ||
