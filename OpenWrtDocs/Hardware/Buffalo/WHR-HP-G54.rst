@@ -156,6 +156,7 @@ mini_fo: using storage directory: /jffs
 
  * 48-pin TSOP flash chip on top PCB:  Macronix MX29LV320CBTC-90G 48-pin TSOP 90ns
  . URL: http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/209CFCBBF4BCCB9148257031002F02E6/$File/MX29LV320CTBver15.pdf
+
  * 2 sets of open pads on top PCB for other SDRAM memory footprint, each 66-pin TSOP
    . can use Micron 32Mx16 MT46V32M16TG (if same assumptions regarding other routers with similar BCM5352 processor are true for this board)
    . Caveats:
@@ -163,6 +164,7 @@ mini_fo: using storage directory: /jffs
             2. VERY GOOD soldering skills would be required, using microscope and Metcal or other SMT soldering iron
             3. Bulk decoupling and small-value high-freq decoupling capacitors would need to be install on the front of the PCB.  The footprints are there but the capacitors are not installed.
             4. The SDRAM chips on the bottom side of the PCB must be removed before populating the top PCB with SDRAM chips.
+
  * 2 DDR SDRAM devices on back-side:  Mira 64Mbit/SDRAM  4M*16 P2V64S40 54-pin
    . more details (copied from Jeremy Collake aka db90h of DD-WRT): http://www.dd-wrt.com/phpBB2/viewtopic.php?t=2542
      . RAM : Mira p2v28s40btp [5409fa03-6]
@@ -175,12 +177,14 @@ mini_fo: using storage directory: /jffs
        . 0 == random column
        . B == 3rd gen
        . TP == TSOP(II)
+
  * 2 serial ports detected, the first port (/dev/tts/0) is brought out on a 4 pin header labeled J1, located near a corner of the PCB. Pin 1 is nearest the edge. The signals are low level, and not directly EIA232 compatible. The default baud rate is 115K. When booting, CTRL-C will interrupt the CFE monitor. The pinout is:
        . 1 - 3.3V
        . 2 - Ground
        . 3 - Data out
        . 4 - Data in
- * There appears to be an LED (LED4) and a series resistor (R4) missing.  Perhaps that could be used for GPIO and thus for the SD card slot kernel mod??
+
+ * An [wiki:self:OpenWrtDocs/Customizing/Hardware/MMC MMC] hack can be done.
 
 == JTAG Support ==
 
@@ -190,3 +194,5 @@ Old versions of the WRT54G EJTAG DeBrick Utility will not talk to this board; ve
 
 
 If you have bricked your router and can't recover your CFE.BIN, contact [:JK1Joel:JK1Joel] for the file.
+----
+CategoryModel
