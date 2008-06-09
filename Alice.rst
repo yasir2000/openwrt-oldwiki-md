@@ -15,6 +15,7 @@ as i never succeeded to use the wifi we will connect trough the cable so: 1. con
 and click on "disattiva"
 == Disable alice's wifi ==
 if you want more security and an incrased range or signal quality on your openwrt you should disactivate the wifi
+
 1. connect to the alice box
 
 2. go in wifi
