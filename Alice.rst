@@ -16,9 +16,12 @@ and click on "disattiva"
 == Disable alice's wifi ==
 if you want more security and an incrased range or signal quality on your openwrt you should disactivate the wifi
 1. connect to the alice box
+
 2. go in wifi
+
 3. disable it
-4. confirm
+
+4. confirm 
 
 == OpenWrt's setup ==
 1. connect your openwrt router to the alice-gate with a normal(non cross) ethernet cable 2. modify the wan configuration inside /etc/config/network:
