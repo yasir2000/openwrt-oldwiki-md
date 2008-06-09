@@ -13,6 +13,12 @@ as i never succeeded to use the wifi we will connect trough the cable so: 1. con
 2. go below "modalita bridged+router" there is "connessione automatica da modem/router" like on this image: http://www.intilinux.com/wp-content/w2+menu.JPG
 
 and click on "disattiva"
+== Disable alice's wifi ==
+if you want more security and an incrased range or signal quality on your openwrt you should disactivate the wifi
+1. connect to the alice box
+2. go in wifi
+3. disable it
+4. confirm
 
 == OpenWrt's setup ==
 1. connect your openwrt router to the alice-gate with a normal(non cross) ethernet cable 2. modify the wan configuration inside /etc/config/network:
