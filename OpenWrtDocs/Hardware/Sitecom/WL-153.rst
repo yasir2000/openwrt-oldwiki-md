@@ -16,7 +16,7 @@ attachment:WL153TOP.JPG
 ||<tablewidth="410px" tableheight="129px">Amount ||Type ||
 ||1 ||MX29LV160BBTC-70 ||
 ||1 ||RT2661T ||
-||1 ||RTL83055C ||
+||1 ||RTL8305SC ||
 
 
 = Serial =
