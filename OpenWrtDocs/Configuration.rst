@@ -603,9 +603,9 @@ Examples of timezone values:
 ||Hong Kong ||HKT-8 ||
 ||Ulaanbaatar, Mongolia ||ULAT-8ULAST,M3.5.0/2,M9.5.0/2 ||
 ||<style="TEXT-ALIGN: center" |4>Central and South America ||Brazil, São Paulo ||BRST+3BRDT+2,M10.3.0,M2.3.0 ||
-||Colombia ||UTC-5 ||
-||Argentina ||UTC-3 ||
-||Central America ||CST-6 ||
+||Colombia ||UTC+5 ||
+||Argentina ||UTC+3 ||
+||Central America ||CST+6 ||
 
 
 Please update and include your time zone. You can find more on time zones on [http://www.timeanddate.com/worldclock/ timeanddate.com].
