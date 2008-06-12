@@ -137,6 +137,10 @@ If you want to open the device (maybe for exchanging the disk) remove the screws
 
 If you made a mistake while configuring the router and it isn't reachable anymore via network, there is a possibility to reset the device config. To do that, plug the power off during booting, much times, at different timings. You can exploit a bug in the bootloader. The new ip is 192.168.1.1 then (attention, not the standard 192.168.1.220) and boot_wait is on. Now you are able to use tftp for uploading new images. [https://wiki.graz.funkfeuer.at/nvram_reset source]
 
+=== Harddisk ===
+
+The device is/was available with 60GB discs, but it works perfectly with larger discs - for example a WD 160GB Harddrive: ( WDC WD1600BEVE-00UYT0 )
+
 === Power Consumption ===
 
 The device ships with a 2A 5V switch-mode power supply terminating to a DC plug.
