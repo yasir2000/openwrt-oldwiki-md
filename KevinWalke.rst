@@ -1,6 +1,6 @@
 ##master-page:HomepageTemplate
 #format wiki
-== Your Name ==
+== Kevin Walke==
 Email: [[MailTo(you AT SPAMFREE example DOT com)]]
 
 I will be working towards creating a far more structured TableOfHardware as I think the current one could do with some tidying up and adding some taxonomy.
