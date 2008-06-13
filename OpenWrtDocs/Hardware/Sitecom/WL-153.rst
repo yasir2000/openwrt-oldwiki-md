@@ -320,5 +320,8 @@ load -r -v -b 0x100000 wl153145.bin
 
 flash -s 0x100000 -d 0xffe08000 -l 0x19EDFB
 
+If you flash an OpenWRT image, check that the '''image size doesn't exceed 1998847 (0x1e7fff) byte'''!
+Otherwise you will brick your device by overwriting the bootloader.
+
 ----
  . CategoryModel ["RDCPort"] ["CategoryRDC"]
