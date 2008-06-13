@@ -72,8 +72,7 @@ stop() {
 }}}
 This will flash the LED white at start so you see something is happening, then the script takes over. And when stopped it makes sure the LED is off.
 
-As I was unsure how the links in /etc/rc.d/ get created, I made them manually. '''''please update if you know a cleaner way'''''
+Finally, enable the init script
 {{{
-ln -s /etc/init.d/loadmon /etc/rc.d/K01loadmon
-ln -s /etc/init.d/loadmon /etc/rc.d/S99loadmon
+/etc/init.d/loadmon enable
 }}}
