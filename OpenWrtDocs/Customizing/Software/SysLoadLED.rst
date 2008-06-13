@@ -51,3 +51,29 @@ chmod +x /etc/init.d/S60loadmon
 }}}
 
 Now reboot and test it out :)
+
+== on kamikaze ==
+create /usr/sbin/loadmon.sh as outlined above. But to start at boot, create /etc/init.d/loadmon
+{{{
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=01
+start() {
+        echo "f" > /proc/diag/led/ses_white
+        [ -f /usr/sbin/loadmon.sh ] && /usr/sbin/loadmon.sh &
+}
+
+stop() {
+        killall loadmon.sh
+        echo "0" > /proc/diag/led/ses_white
+        echo "0" > /proc/diag/led/ses_orange
+}
+}}}
+This will flash the LED white at start so you see something is happening, then the script takes over. And when stopped it makes sure the LED is off.
+
+As I was unsure how the links in /etc/rc.d/ get created, I made them manually. '''''please update if you know a cleaner way'''''
+{{{
+ln -s /etc/init.d/loadmon /etc/rc.d/K01loadmon
+ln -s /etc/init.d/loadmon /etc/rc.d/S99loadmon
+}}}
