@@ -6,7 +6,7 @@ See ["BroadcomBCM33xxPort"] for general progress on porting to this SoC.
 
  * Main Chip: Broadcom QAMLink® BCM3349KPB
  * Ram: 8 MB SDRAM (ISSI IS42S16400B-7T A0146600E 0445)
- * Flash: ?? MB ()
+ * Flash: 2 MB (SPANSION S29AL016M)
 
 == Connectors ==
 
