@@ -21,4 +21,4 @@ $ make world
 While you won't typically need to do this, if you need to modify the Linux kernel configuration, use this command to enter the regular Linux menuconfig:
 {{{
 $ make kernel_menuconfig
-}}
+}}}
