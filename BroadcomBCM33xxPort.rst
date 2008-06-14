@@ -54,6 +54,7 @@ Known platforms:
 === bcm3349 ===
 Known platforms:
  * [:OpenWrtDocs/Hardware/Motorola/SB5101:Motorola SURFboard 5101]
+ * [:OpenWrtDocs/Hardware/Scientific-Atlanta/DPC2100:Scientific-Atlanta WebStar DPC2100]
 
 === bcm3350 ===
 Known platforms:
