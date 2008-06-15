@@ -18,7 +18,7 @@ There is an [http://www.vr-zone.com/?i=5624 article about the wl-500gPv2] with a
 ||'''Bootloader''' ||CFE ||
 ||'''System-On-Chip''' ||Broadcom BCM5354 ||
 ||'''CPU Speed''' ||240 Mhz ||
-||'''Flash size''' ||8MiB ||
+||'''Flash size''' ||8MiB (Macronix 29LV640DB, 64K sector size) ||
 ||'''RAM''' ||32MiB ||
 ||'''Wireless''' ||Onboard BCM5354 802.11b/g ||
 ||'''Ethernet Switch''' || ? ||
