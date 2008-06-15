@@ -49,6 +49,7 @@ Two annoying screws (not flatblade or phillips) under the front rubber feet (adh
 == Serial Header ==
 
 There is a 4-pin TTL-level serial header inside. However, the standard 4-pin CD-ROM cable does NOT fit it. Removing the header itself is a pain, so avoid it if possible.
+The default baud rate is 115200.
 
 == Ethernet Access ==
 
