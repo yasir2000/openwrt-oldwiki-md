@@ -8,6 +8,10 @@ See ["BroadcomBCM33xxPort"] for general progress on porting to this SoC.
  * Ram: 8 MB SDRAM (ISSI IS42S16400B-7T A0146600E 0445)
  * Flash: 2 MB (SPANSION S29AL016M)
 
+== Pictures ==
+
+ * http://usbjtag.net/jtagdevices/dpc2100.php
+
 == Connectors ==
 
 On back-side, in left-to-right order:
