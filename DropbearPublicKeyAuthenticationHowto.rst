@@ -144,14 +144,14 @@ In this example, the first instance is your failsafe, which runs on port 22 and 
 The downside of this second instance strategy is that it takes up slightly more memory. In the future, it would be nice if {{{webif}}} could allow you to enable and disable password logins. For now, this second instance strategy works.
 
 == Disable password login (Kamikaze Method) ==
-Follow the same guidelines as above but only edit {{{/etc/config/dropbear}}}
-
-To invoke the {{{-s}}} option in dropbear change PasswordAuth from "on" to "off":
+Follow the same guidelines as above but adjust the settings with uci
 
 {{{
-config dropbear
-        option PasswordAuth 'off'
-        option Port         '22'}}}
+uci set dropbear.cfg1.PasswordAuth=off
+uci set dropbear.cfg1.Port=22
+uci commit dropbear
+}}}
+
 
 == Accessing your router via SSH from WAN (Internet) by changing firewall rules ==
 '''Attention!!!''' First you need to be sure that Dropbear is configured for maximum security and only then start exposing it to the WAN. If you use passwords you are vulnerable to brute force attacks, so it is recommended to disable password logins and use public key authentication instead (see above).
