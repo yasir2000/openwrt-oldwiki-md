@@ -148,7 +148,7 @@ Follow the same guidelines as above but adjust the settings with uci
 
 {{{
 uci set dropbear.cfg1.PasswordAuth=off
-uci set dropbear.cfg1.Port=22
+uci set dropbear.cfg1.Port=50022
 uci commit dropbear
 }}}
 
