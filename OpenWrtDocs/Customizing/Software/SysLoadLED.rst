@@ -74,5 +74,6 @@ This will flash the LED white at start so you see something is happening, then t
 
 Finally, enable the init script
 {{{
+chmod 755 /etc/init.d/loadmon
 /etc/init.d/loadmon enable
 }}}
