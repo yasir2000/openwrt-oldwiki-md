@@ -20,9 +20,9 @@ Wireless works as long as kmod-brcm-wl-mimo is installed.  USB also works with k
 
 '''WRT350N v2.0'''
 
-The WRT350N v2.0 is based on the Marvell 88F5181 running at 500MHz cpu. It has 8MB flash and 16MB SDRAM. The wireless NIC is an Atheros AR5008 card. The WRT350N runs 802.11 B, G, and Draft N wireless protocols. It provides 4 gigabit LAN ports, 1 WAN port and a USB 'storage link' port.
+The WRT350N v2.0 is based on the Marvell 88F5181 running at 500MHz cpu. It has 8MB flash and --(16MB)-- 32MB SDRAM. The wireless NIC is an Atheros AR5416 (AR5008 family) Mini-PCI card. The WRT350N runs 802.11 B, G, and Draft N wireless protocols. It provides 4 gigabit LAN ports, 1 WAN port and a USB 'storage link' port.
 
-There seems to be another version of WRT350N v2 based on ARM926EJ running at 333MHz and with  32MB SDRAM.
+--(There seems to be another version of WRT350N v2 based on ARM926EJ running at 333MHz and with  32MB SDRAM.)-- Not so, when looking at /proc/cpuinfo 333 BogoMIPS are reported. This does not, however, mean that it runs at 333MHz. All WRT350N V2's seem to run at 500 MHz.
 
 '''''Information'''''
 
