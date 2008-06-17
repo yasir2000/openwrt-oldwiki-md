@@ -24,6 +24,8 @@ The WRT350N v2.0 is based on the Marvell 88F5181 running at 500MHz cpu. It has 8
 
 --(There seems to be another version of WRT350N v2 based on ARM926EJ running at 333MHz and with  32MB SDRAM.)-- Not so, when looking at /proc/cpuinfo 333 BogoMIPS are reported. This does not, however, mean that it runs at 333MHz. All WRT350N V2's seem to run at 500 MHz.
 
+OpenWRT support for the WRT350N V2 is coming along well, for the latest information see this thread: http://forum.openwrt.org/viewtopic.php?id=12358
+
 '''''Information'''''
 
 serial is on  JP5  with 115200 8N1
