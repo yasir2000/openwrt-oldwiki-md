@@ -29,10 +29,23 @@ Speed is 38400.
 
 = JTAG =
 
-probably at connector JP1
+connector JP1
 
-The JTAG header may be similar to the one at a AR525W:
-http://wiki.openwrt.org/OpenWrtDocs/Hardware/Airlink101/AR525W
+The JTAG header layout is (component side, LED up, Pin1 right):
+{{{
+[TMS] [TDI] [TDO] [TCK] [GND] [Vcc]
+}}}
+
+Each JTAG pin may be redefined as a GPIO:
+||Pin JP1 || JTAG || GPIO no ||
+|| 6 || TMS || 11 ||
+|| 5 || TDI || 13 ||
+|| 4 || TDO ||  9 ||
+|| 3 || TCK || 12 ||
+|| 2 || GND || - ||
+|| 1 || Vcc || - ||
+
+(Found this by checking the PCB traces. Could someone please confirm this info?)
 
 = Boot Loader =
 The bootload used is a modified and restricted Redboot:
