@@ -14,14 +14,13 @@ The ZyXEL P-320W is a Firewall router with 4-port Switch with built-in 802.11g A
 
 CPU is most likely a custom version of the RDC R8610 CPU.
 
-The JTAG is a Xilinx 6 PIN port. 
-J7
-O
-O
-O
-O
-O - VCC (3.3V)
-O - GND
+The JTAG is a Xilinx 6 PIN port: 
+||'''J7'''||
+||O||
+||O||
+||O||
+||O||
+||O||VCC (3.3V)||
+||O||GND||
 
 The top 4 is TDO, TMS, TCK, TDI. But it's unclear in which order.
-
