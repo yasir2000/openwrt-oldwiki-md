@@ -1,5 +1,5 @@
 == Pirelli Alice Gate 2 plus Wi-Fi ==
-This router is rent to his users by Telecom Italia. It's basically a [BCM63xx] device with a smart card reader for IPTV and VoIP.
+This router is rent to his users by Telecom Italia. It's basically a [javascript:void(0);/*1213754106989*/ BCM63xx] device with a smart card reader for IPTV and VoIP.
 
 === Serial ===
 There are six pins (3x2) in the middle of the board. The serial layout is:
