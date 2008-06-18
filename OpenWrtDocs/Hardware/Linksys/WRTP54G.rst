@@ -391,10 +391,12 @@ Here are programs which you can use for packing and unpacking firmware image fil
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
 
  * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
- * The patch: attachment:lzma427_zlib.patch
+ * Patch for the LZMA library: attachment:lzma427_zlib.patch
 '''unsquashfs-lzma''' can be used to extract the files from a root partition image (previously extracted from a firmware image file) into a directory
 
 '''mksquashfs-lzma''' packs the contexts of a directory into a root partition image which can subsequently be packed into a firmware image file
+
+Better instructions for building the Squashfs tools with LZMA support can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm.
 
 = Configuration File Format =
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
