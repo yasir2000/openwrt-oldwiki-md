@@ -43,7 +43,7 @@ Because a 40 pin cable is used, the drives cannot operator above UDMA 33MB. But 
  *J2  IDE header (1 port, 2 channels) 
  *J3  Cannot find any J3, but existance of J4 and J5 infers it must exist on the design
  *J4  Possibly 20 pin JTAG, though I cannot map even the ground connections to any known JTAG. Or 14 pin JTAG *and* Serial in a custom format ? 
- *J5: Non-driven 3 pin header, silk screen shape hints at 3-pin fan header, but supporting components are missing anyway.
+ *J5: Non-driven 3 pin header, silk screen shape hints at 3-pin fan header, but supporting components are missing anyway.  The original SC101 prototype design did have an external fan mounted on the back end of the unit, which was removed once the device went into production.
 
 == GPIO ==
 
