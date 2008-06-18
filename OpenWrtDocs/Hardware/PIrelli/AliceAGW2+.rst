@@ -3,13 +3,15 @@ This router is rent to his users by Telecom Italia. It's basically a [BCM63xx] d
 
 === Serial ===
 There are six pins (3x2) in the middle of the board. The serial layout is:
-{{{ Antennas
-||<tablewidth="200px" tablealign="">TX||-||
-||-||-||
-||RX||GND||
+
+{{{
+Antennas
++---+---+
+|TX | - |
+| - | - |
+|RX |GND|
++---+---+
 LEDs }}}
-
-
 === Bootloader ===
 The bootloader is CFE, but it seems that when the boot process is interrupted by a keypress, a web server on port 80 is open,
 
