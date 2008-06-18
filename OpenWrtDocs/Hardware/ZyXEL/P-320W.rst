@@ -7,7 +7,7 @@ The ZyXEL P-320W is a Firewall router with 4-port Switch with built-in 802.11g A
 ||'''Flash'''||4MBit 1xEON EN29LV800||
 ||'''RAM'''||16MBit 1xEtronTech EM636165TS-7G||
 ||'''Switch'''||IC+ IP175C LF||
-|'''WLAN'''||On board no-name||
+||'''WLAN'''||On board no-name||
 ||'''USB'''||no||
 ||'''Serial'''||no||
 ||'''JTAG'''||yes||
@@ -24,6 +24,4 @@ O - VCC (3.3V)
 O - GND
 
 The top 4 is TDO, TMS, TCK, TDI. But it's unclear in which order.
-
-
 
