@@ -20,6 +20,19 @@ Support for the wrt350n v1.0 was added to SVN with changesets 11466-11471 (broad
 
 Wireless works as long as kmod-brcm-wl-mimo is installed.  USB also works with kmod-usb-ohci, I have tested it as a print server with p9100d.
 
+A note about NVRAM
+
+The switch in the wrt350n v1 is a little different from the older switch chips.  By default, it will forward packets between the LAN and WAN, much like a normal switch.  This is a problem during bootup because boot_wait will activate the switch to wait for an image.  The only way I could find to make the switch not forward packets on bootup was to set the following NVRAM variables:
+
+''Disabling boot_wait is a bad idea, so make sure you really need it off before doing so.''
+{{{
+nvram set boot_wait=off
+nvram set manual_boot_nv=1
+nvram unset disabled_57xx
+nvram commit
+}}}
+
+
 '''WRT350N v2.0'''
 
 The WRT350N v2.0 is based on the Marvell 88F5181 running at 500MHz cpu. It has 8MB flash and --(16MB)-- 32MB SDRAM. The wireless NIC is an Atheros AR5416 (AR5008 family) Mini-PCI card. The WRT350N runs 802.11 B, G, and Draft N wireless protocols. It provides 4 gigabit LAN ports, 1 WAN port and a USB 'storage link' port.
