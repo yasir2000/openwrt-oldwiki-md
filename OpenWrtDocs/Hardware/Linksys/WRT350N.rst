@@ -14,7 +14,9 @@ Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the bo
 
 The WRT350N v1.0 is based on the Broadcom 4785 r2 running at 300MHz cpu. It has 8 MB flash and 32 MB SDRAM. The wireless NIC is a Broadcom Cardbus card with maybe a BCM5397 Chipset on the switch.  The WRT350N runs 802.11 B, G, and Draft N wireless protocols. It provides 4 gigabit LAN ports, 1 WAN port and a USB 'storage link' port.
 
-OpenWRT runs on the v1.0, but currently the switch is unsupported.  This means you must have a serial console installed to access the device.  Work is being done to support the switch in kamikaze 2.4, which will hopefully be added soon.  
+--(OpenWRT runs on the v1.0, but currently the switch is unsupported.  This means you must have a serial console installed to access the device.  Work is being done to support the switch in kamikaze 2.4, which will hopefully be added soon.)--
+
+Support for the wrt350n v1.0 was added to SVN with changesets 11466-11471 (broadcom 2.4 build).  In order to use the device, make sure the bcm57xx package is included in your image (selected as * in menuconfig).  Without this package installed, the switch will not come up and you'll have to use a serial console to recover.
 
 Wireless works as long as kmod-brcm-wl-mimo is installed.  USB also works with kmod-usb-ohci, I have tested it as a print server with p9100d.
 
