@@ -29,8 +29,6 @@ Using WEP in client mode is simple; two more options need to be set:
       option key          <encryption key>
 }}}
 == AP using WPA/WPA2 ==
-WPA requires a program that interfaces with the driver called a supplicant.  There are two supplicants available for OpenWRT (and Linux, in general): wpa_supplicant and xsupplicant.  Xsupplicant supports both Atheros and Broadcom devices (e.g. WRT54G), while wpa_supplicant supports Atheros (among other chipsets), but not Broadcom.
-
 === wpa_supplicant ===
 
 wpa_supplicant is the tool that deals with AP authentication, reconnects, etc.  It can even be configured to scan and select APs (useful for hidden APs and APs broadcasting multiple ESSIDs from a single BSSID).  Among [http://hostap.epitest.fi/wpa_supplicant/ other chipets], it supports the two wireless chipsets supported by OpenWRT, Atheros and the Broadcom wl.o binary.
