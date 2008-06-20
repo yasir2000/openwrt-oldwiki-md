@@ -33,7 +33,9 @@ WPA requires a program that interfaces with the driver called a supplicant.  The
 
 === wpa_supplicant ===
 
-wpa_supplicant is available as a package in Kamikaze 7.09, but it might not have support for MadWifi (the Atheros driver).  You need to obtain the OpenWRT source, edit the config file, and build the wpa_supplicant package to get MadWifi support. If you run `make menuconfig` you can build wpa_supplicant by marking it in the Network category.
+wpa_supplicant is the tool that deals with AP authentication, reconnects, etc.  It can even be configured to scan and select APs (useful for hidden APs and APs broadcasting multiple ESSIDs from a single BSSID).  Among [http://hostap.epitest.fi/wpa_supplicant/ other chipets], it supports the two wireless chipsets supported by OpenWRT, Atheros and the Broadcom wl.o binary.
+
+It is available as a precompiled package in Kamikaze 7.09, and is in the "Network" category of buildroot's `make menuconfig`.
 
 Note: wpa_supplicant.conf should have permissions of 600 and ownership of root:root.
 
@@ -88,11 +90,6 @@ Note: having wpa_supplicant interact with madwifi using the Linux wireless exten
 
 -B sends it to the background (use this once you get it working)
 -d increases debugging level
-
-=== xsupplicant ===
-Info needed
-
-Maybe it is not possible at all to use WPA together with the proprietary Broadcom nas driver, see this [http://thread.gmane.org/gmane.network.wireless.open1x.xsupplicant.general/462 message from xsupplicant's main developer], Chris Hessing.
 
 == Bridged and routed client modes ==
 There are no bridged and routed modes on Kamikaze, per se.  Instead, multiple interfaces are bridged with an entry in /etc/config/network like this:
