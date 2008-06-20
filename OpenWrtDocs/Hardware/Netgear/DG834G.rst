@@ -77,6 +77,13 @@ Same as the v2.
 According to [http://en.wikipedia.org/wiki/DG834G Wikipedia], not based anymore on TI AR7, but Broadcom.
 Confirmed by image below.
 
+---- /!\ '''Edit conflict - other version:''' ----
+Confirmed by image below.
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
+
  * BCM6348 V0.7 cpu @ 239.20 bogomips
  * Broadcom BCM4318 802.11 Wireless Controller
  * Broadcom BCM6348B0 Ethernet Network Device v0.3
@@ -95,6 +102,24 @@ Power | Ethernet 1 | Ethernet 2 | Ethernet 3 | Ethernet 4 | Wireless | DSL | Int
 
 2 possible locations. First located to the right of the BCM634 CPU, the second to the top left.
 
+
+---- /!\ '''Edit conflict - other version:''' ----
+attachment:DG834Gv4-thumb.jpg
+
+[attachment:DG834Gv4.jpg Larger version available (Higher quality) (1.14 MiB)]
+
+Lights have been reordered along the front, new order as follows:
+
+Power | Ethernet 1 | Ethernet 2 | Ethernet 3 | Ethernet 4 | Wireless | DSL | Internet
+
+==Serial Console==
+
+2 possible locations. First located to the right of the BCM634 CPU, the second to the top left.
+
+
+---- /!\ '''Edit conflict - your version:''' ----
+
+---- /!\ '''End of edit conflict''' ----
 = ADAM2 =
 The DG834(G) bootloader, ADAM2, calculates a checksum of the image in flash memory. If this checksum fails, the router won't boot. OpenWRT does not include this checksum (stored in the image), although it could be added. [http://web.archive.org/web/20070124233723/http://members.iinet.net.au/~mlanagan/ http://members.iinet.net.au/~mlanagan/] is a tool that builds custom firmware with this checksum. The following instructions, however, disable the checksum verification.
 
