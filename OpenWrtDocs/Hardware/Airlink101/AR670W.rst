@@ -1,22 +1,27 @@
 '''Airlink101 AR670W'''
-= Hardware =
-== Serial Port ==
-This model has a populated 5-pin header that exposes a serial port. The pins are listed below:
-||Pin1||Rx||
-||Pin2||ABSENT||
-||Pin3||3.3V||
-||Pin4||GND||
-||Pin5||Tx||
+
+== Hardware ==
+=== Serial Port ===
+This model has a populated 5-pin header that exposes a serial port. Pin 2 is not present in the header. The pins are listed below:
+||Pin 1||Rx||
+||Pin 2||ABSENT||
+||Pin 3||3.3V||
+||Pin 4||GND||
+||Pin 5||Tx||
 
 If this doesn't work try to swap Tx and Rx.
-Serial port settings are: 
-57600 8N1 
-Hardware Flow Control : No    
-Software Flow Control : No
-The bootloader is u-boot.
 
-= Firmware =
-== Boot Log ==
+Serial port settings are:
+
+57600 8N1
+
+Hardware Flow Control : No
+
+Software Flow Control : No
+
+== Firmware ==
+The bootloader is U-Boot.
+=== Boot Log ===
 {{{
 U-Boot 1.1.3 (Oct  3 2007 - 16:02:26) Build 001
 
@@ -273,13 +278,13 @@ Enter 'help' for a list of built-in commands.
 }}}
 
 
-== U-Boot configuration ==
+=== U-Boot configuration ===
 The U-Boot configuration, as extracted from mtdblock05:
 {{{
 dunno how to get this yet :S
 }}}
 
-== /proc/interrupts: ==
+=== /proc/interrupts: ===
 {{{
            CPU0       
   3:        185       Surfboard  eth0
@@ -292,7 +297,7 @@ dunno how to get this yet :S
 ERR:          0
 }}}
 
-== /proc/cpuinfo: ==
+=== /proc/cpuinfo: ===
 {{{
 system type		: Palmchip Surfboard
 processor		: 0
@@ -307,7 +312,7 @@ VCED exceptions		: not available
 VCEI exceptions		: not available
 }}}
 
-== /proc/mtd: ==
+=== /proc/mtd: ===
 {{{
 mtd0: 00400000 00010000 "ELBOX Physically mapped flash"
 mtd1: 001ec000 00010000 "rootfs"
