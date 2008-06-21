@@ -47,6 +47,10 @@ Each JTAG pin may be redefined as a GPIO:
 
 (Found this by checking the PCB traces. Could someone please confirm this info?)
 
+= GPIO =
+
+The JTAG pins may be redefined as GPIO (see above). Furthermore the reset button is connected to GPIO 6.
+
 = Boot Loader =
 The bootload used is a modified and restricted Redboot:
 
