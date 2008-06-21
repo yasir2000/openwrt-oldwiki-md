@@ -324,7 +324,7 @@ Next you must transfer  sihp1020.dl to your Asus box.
 On Asus You should install packages :
 
 {{{
- ipkg install kmod-usb-pinter
+ ipkg install kmod-usb-printer
  ipkg install p910nd
 }}}
 When do you have problem with depends  kmod-nls-base. You should edit /usr/lib/ipkg/lists and remove depends for your pacage.
@@ -335,7 +335,7 @@ Next:
 /etc/init.d/p910nd enable
 /etc/default/p910nd I leave without any changes !!!!
 }}}
-And next You need create script which upload frimware to your printer when she had pluged.
+Next you need to create script that uploads the firmware to your printer after you've plugged it it.
 
 Create a new file /etc/hotplug.d/usb/hplj1020:
 
@@ -388,7 +388,7 @@ if [ "$BUTTON" = "ses" ] ; then
         fi
 fi
 }}}
-Step 4: Save the file and just test it, it will lit Wlan and White SES Led when radio is on, and turn both off when radio is off
+Step 4: Save the file and just test it, it will light Wlan and White SES Led when radio is on, and turn both off when radio is off
 
 === Problems running vsftp on OpenWRT Kamikaze 7.06 ===
 If you just install vsftp on Kamikaze 7.06 with ipkg install vsftpd and start it with "vsftpd" you will not be able to login into your ftp-server due to a missing directory. Just add a new line to your vsftpd.conf in /etc/. This line is secure_chroot_dir=existing_dir (existing_dir musst be a directory which will be "be" once the service is started. So point to a directory which exists all the time or one which will be created at boot time)
