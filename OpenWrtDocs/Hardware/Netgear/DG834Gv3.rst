@@ -24,7 +24,7 @@ A full-sized image can be viewed [attachment:dg834gv3_internal.jpg here].
 
 '''svn r10180'''
 
-|| Ethernet || Broken || All four switch LEDs blank when packets are sent out, nothing visible in tcpdump ||
+|| Ethernet || Broken || All four switch LEDs blink when packets are sent out, nothing visible in tcpdump ||
 || Wireless || Broken || acx_mac80211 seems to initialise but no interface is visible in ifconfig/iwconfig ||
 || ATM (ADSL) || '''Working''' || DSL interface initialises and handshakes successfully (only Annex A tested) ||
 
