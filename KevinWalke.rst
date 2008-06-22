@@ -18,6 +18,8 @@ WorkInProgress
 NotSupported
 NeverSupported
 
+WL500W
+
 ----
 
 If anyone else would like to lend a hand that would be great
