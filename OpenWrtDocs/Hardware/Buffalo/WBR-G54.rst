@@ -28,6 +28,7 @@ config interface wan
    option ifname   "eth1"
    option proto    dhcp
 }}}
+otherwise your router's WAN port acts like a LAN port.
 
 See [http://forum.openwrt.org/viewtopic.php?id=11292 this forum post] for more details. Apparently, Serial or JTAG are not possible.
 
