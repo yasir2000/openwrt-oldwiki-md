@@ -13,6 +13,7 @@ This page covers the BCM33xx SoC specificities, but the BCM63xx SoC are mostly t
 There are many 33xx variants. Only those with a TLB will be supported:
 ||Chip ||CPU Mhz ||USB Device ||VoIP ||WiFi ||DOCSIS ||TLB ||Product ID ||-march ||Surfboard ||
 ||[http://www.datasheetcatalog.org/datasheets2/13/131978_1.pdf bcm3300] ||  n/a ||- ||- ||- ||1.0/1.1 ||- ||- ||- ||3100 ||
+||bcm3302 || ? || ? || ? || ? || - || ? || ? || ? || ||
 ||[http://www.datasheetcatalog.org/datasheets2/15/155898_1.pdf bcm3345] ||  140 ||1.1 ||- ||- ||1.0/1.1 ||Yes? ||0x28000 ||mips32? ||4200 ||
 ||[http://www.datasheetcatalog.org/datasheets/166/404171_DS.pdf bcm3348] ||  200 ||1.1 ||- ||- ||1.0/1.1/2.0 ||Yes? ||      ? ||mips32? ||5100 ||
 ||[http://www.broadcom.com/collateral/pb/3349-PB03-R.pdf bcm3349] ||  200 ||1.1 ||- ||EBI/PCMCIA ||1.0/1.1/2.0 ||Yes? ||      ? ||mips32? ||5101 ||
