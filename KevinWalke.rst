@@ -18,7 +18,7 @@ WorkInProgress
 NotSupported
 NeverSupported
 
-WL500W
+OpenWrtDocs/Hardware/Asus/WL500W
 
 ----
 
