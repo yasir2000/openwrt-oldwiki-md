@@ -21,6 +21,8 @@ There are many 33xx variants. Only those with a TLB will be supported:
 ||[http://www.broadcom.com/collateral/pb/3368-PB202-R.pdf bcm3368] ||  300 ||1.1 ||2 lines ||Expansion Bus ||2.0 ||Yes? ||      ? ||mips32? ||- ||
 
 === bcm3300 ===
+This chip does not include a CPU itself.
+
 Known platforms:
  * 3Com HomeConnect Cable Modem
  * Aastra PipeRider HM200
@@ -36,6 +38,9 @@ Known platforms:
  * Samsung InfoRanger ITCM/SCM-110R
  * Thomson RCA DCM 205/215/225
  * Zyxel Prestige 941
+
+=== bcm3302 ===
+This chip seems to be a general-purpose MIPS CPU. It is usually included with other platforms like bcm47xx and such.
 
 === bcm3345 ===
 Known platforms:
