@@ -6,6 +6,7 @@ attachment:wbrg54-top.jpg attachment:wbrg54-bottom2.jpg
 
 You can download a pre-built Kamikaze 7.09 with working vlan/ethernet configuration from [http://gagravarr.org/misc/openwrt-kamikaze_7.09_WBR-G54-squashfs.trx here]. It will come up with ssh, and a default root password of "password", on the IP 192.168.1.9. UPDATE: this particular build has a broken /etc/config/network file. The wan and lan sections are repeated at the end of the file with no content in the section and the upper part of the file is wrong anyway. You need to modify that file to read as follows:
 
+{{{
 #### VLAN configuration
 config switch eth0
    option vlan0    "0 1 2 3 4 5u"
@@ -26,7 +27,7 @@ config interface lan
 config interface wan
    option ifname   "eth1"
    option proto    dhcp
-
+}}}
 
 See [http://forum.openwrt.org/viewtopic.php?id=11292 this forum post] for more details. Apparently, Serial or JTAG are not possible.
 
