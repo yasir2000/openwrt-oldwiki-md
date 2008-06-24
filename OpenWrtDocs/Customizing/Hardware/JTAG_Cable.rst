@@ -52,7 +52,7 @@ This cable is fully compatible with Macraigor [http://www.macraigor.com/ocd_cmd.
 Another consideration is that a buffered Wiggler-style cable '''requires''' a voltage source to operate. Usually +3.3 volts is needed and is commonly referred to as Vcc (voltage common-collector is the traditional meaning of Vcc). The buffer IC may take a Vcc from the PC LPT also. The DATA7 pin may be used for this purposes, so Wiggler software should provide aclive "1" at this pin. Do not use this pin if your JTAG header provides Vcc.
 
 == Headers ==
-There are two major JTAG header arrangements used in SOHO routers based on MIPS CPUs. One uses 12 pins and the other uses 14 pins. While not radically different, you should be familiar with both.
+There are two major JTAG header arrangements used in SOHO routers based on MIPS CPUs. One uses 12 pins and the other uses 14 pins. While not radically different, you should be familiar with both. Other JTAG pinouts can be found at [http://www.jtagtest.com/pinouts/].
 
 === 12 Pin Header ===
 Found in Linksys routers such as the WRT54G and WRT54GS, the 12-pin header has the following arrangement of JTAG signals and pins:
@@ -156,3 +156,4 @@ Personally, as an engineer, I prefer the buffered cable and would not use an unb
  * [http://downloads.openwrt.org/utils/ HairyDairyMaid_WRT54G_Debrick_Utility]
  * [http://ar7.wikispaces.com/JTAG AR7 JTAG]
  * [http://www.asset-intertech.com/products/free_resources.htm FREE JTAG Resources]
+ * [http://www.jtagtest.com/pinouts/ JTAG Pinouts]
