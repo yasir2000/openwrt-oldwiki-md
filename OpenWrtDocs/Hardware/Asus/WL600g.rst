@@ -25,7 +25,7 @@ SQUASHFS error: lzma returned unexpected result 0x1
 }}}
 You can find here a patched squashfs-LZMA kernel module that correctly mounts the Broadcom filesystem (used to extract the italian Telsey firmware):
 
-http://www.piccato.it/openwgate/start?idx=wiki (Italian language)
+http://www.piccato.it/wikies/openwgate/modulo_squashfs (Italian language)
 
 Asus, like other, now has correctly put online the GPL source code:
 
