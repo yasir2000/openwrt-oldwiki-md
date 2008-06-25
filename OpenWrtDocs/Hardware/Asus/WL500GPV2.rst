@@ -26,13 +26,12 @@ There is an [http://www.vr-zone.com/?i=5624 article about the wl-500gPv2] with a
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' ||No ||
 === Serial Port ===
-Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the center of the right upper side (viewing from front panel) above the ASUS label.
-||RESET ||(unused) ||
-||GND ||3.3V_OUT ||
-||UART_TX1 ||UART_TX0 ||
-||UART_RX1 ||UART_RX0 ||
+This 500g v2 has two sets of soldering points.  The first is two rows of 6 pins (JTAG perhaps).  The second, which is the serial port, is one row of four pins.  
+||Pin 4 || GND ||
+||Pin 3 || UART_TX ||
+||Pin 2 || UART_RX ||
+||Pin 1 || 3.3V ||
 
-
-Pin 1 (with the square solder pad) is RX0.
+When examining the board carefully, one can see that pin 4 has no trace leading to it -- it is simply part of the top layer ground plane.  Pin 1 is connected to a relatively fat power trace.
 
 These serial ports use TTL levels. You need an additional voltage convertor to get a standard serial port. The parameters are 115200 baud and 8-n-1.
