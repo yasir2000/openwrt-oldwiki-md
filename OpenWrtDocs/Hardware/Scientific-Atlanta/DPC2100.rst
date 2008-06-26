@@ -36,6 +36,14 @@ By default, the DPC2100 comes with eCos, which is GPL
 
 Luke's DPC2100 had a sticker on the flash chip labelled: SA-DPC2100 V2.0.2R1242
 
+== Flash layout ==
+|| Purpose    || Flash Offset || Size   ||
+|| Bootloader || 0            ||  64 KB ||
+|| Firmware A || 0x010000     || 960 KB ||
+|| Unused     ||              || 191  B ||
+|| Firmware B || 0x100000     || 960 KB ||
+|| Logs       || 0x1f0000     ||  64 KB ||
+
 == Source Code ==
 
 eCos is licensed under the GNU GPL. However, Scientific-Atlanta appears to have completely ignored the licensing terms, as there is no sign of the GPL text nor source code with this cable modem. The eCos maintainers and gpl-violations.org has been notified, and hopefully they will be able to extract the eCos source which can be used as a reference for Linux drivers.
