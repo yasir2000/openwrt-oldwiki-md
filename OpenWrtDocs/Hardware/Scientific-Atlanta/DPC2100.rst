@@ -38,10 +38,11 @@ Luke's DPC2100 had a sticker on the flash chip labelled: SA-DPC2100 V2.0.2R1242
 
 == Flash layout ==
 || Purpose    || Flash Offset || Size   ||
+||____________||______________||________||
 || Bootloader || 0            ||  64 KB ||
-|| Firmware_A || 0x010000     || 960 KB ||
+|| Image 1    || 0x010000     || 960 KB ||
 || Unused     ||              || 191  B ||
-|| Firmware_B || 0x100000     || 960 KB ||
+|| Image 2    || 0x100000     || 960 KB ||
 || Logs       || 0x1f0000     ||  64 KB ||
 
 == Source Code ==
