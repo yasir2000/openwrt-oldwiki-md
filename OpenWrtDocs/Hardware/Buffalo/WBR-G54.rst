@@ -30,11 +30,11 @@ config interface wan
 }}}
 otherwise your router's WAN port acts like a LAN port.
 
-See [http://forum.openwrt.org/viewtopic.php?id=11292 this forum post] for more details. Apparently, Serial or JTAG are not possible.
+See [http://forum.openwrt.org/viewtopic.php?id=11292 this forum post] for more details. Apparently, Serial connection is not possible, JTAG information is below.
 
 == Installation ==
 
-Used the same TFTP method as for the WBR2-G54: the only difference is that the TTL during the bootloader is 128 and not 100.
+Used the same TFTP method as for the ["OpenWrtDocs/Hardware/Buffalo/WBR2-G54"]: the only difference is that the TTL during the bootloader is 128 and not 100.
 
 == Wireless config ==
 
@@ -51,3 +51,7 @@ As per the OpenWrt manual except that 34 bytes not 32 need to be trimmed from th
 There is a JTAG port on the bottom left, the pinout is the standard JTAG pinout: 3: TDI 5: TDO 7: TMS 9: TCK
 
 attachment:wbrg54-jtag.jpg
+
+== Un-bricking ==
+
+The 5-second-init method does not seem to work if not running Buffalo's firmware. [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=15390 This] forum post describes a TFTP-method to un-brick a WBR-G54. It has proven to work in a situation where White Russian to Kamikaze upgrade failed. Original White Russian firmware was succesfully TFTPd back and unit was running again.
