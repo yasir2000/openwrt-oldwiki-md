@@ -64,7 +64,8 @@ r . . . .
 
 Serial settings are 9600-8-N-1
 
-You should plug in the serialadapter after turning the fonera on, otherwise it won't boot.
+You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial
+adapter plugged in.)
 
 == Case ==
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
