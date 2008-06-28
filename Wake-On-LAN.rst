@@ -45,29 +45,15 @@ if [ -z "$1" ]; then
 	exit
 fi
 
-
-if [ -z "$1" ]; then 
-	echo usage: $0 directory
-	exit
-
-sucky_resolve () {
-	HOSTNAME=$1
-	grep -i $HOSTNAME /etc/hosts | awk '{ print $1 }'
+sucky_resolve () {	grep  -i $1  /etc/hosts  | awk '{ print $1 }'
+}
+sucky_ether   () {	grep  -i $1  /etc/ethers | awk '{ print $1 }'
+}
+broadcast_ip4 () {	echo $IPADDRESS | sed s/\.[0-9]*$/.255/
 }
 
-sucky_ether () {
-	HOSTNAME=$1
-	grep -i $HOSTNAME /etc/ethers | awk '{ print $1 }'
-}
-
-broadcast_ip4 () {
-	IPADDRESS=$1
-	echo $IPADDRESS | sed s/\.[0-9]*$/.255/
-}
-
- WAKEHOST=$1
-IPADDRESS=`sucky_resolve  $WAKEHOST`
-    ETHER=`sucky_ether    $WAKEHOST`
+IPADDRESS=`sucky_resolve  $1`
+    ETHER=`sucky_ether    $1`
 BROADCAST=`broadcast_ip4  $IPADDRESS`
 wol -i $BROADCAST $ETHER
 }}}
