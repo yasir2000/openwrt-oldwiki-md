@@ -47,8 +47,8 @@ sucky_resolve () {
 }
 
 sucky_ether () {
-    IPADDRESS=$1
-    grep -i $IPADDRESS /etc/ethers | awk '{ print $1 }'
+    HOSTNAME=$1
+    grep -i $HOSTNAME /etc/ethers | awk '{ print $1 }'
 }
 
 broadcast_ip4() {
@@ -56,10 +56,10 @@ broadcast_ip4() {
     echo $IPADDRESS | sed s/\.[0-9]*$/.255/
 }
 
-WAKEHOST=$1
-IPADDRESS=`sucky_resolve $WAKEHOST`
-BROADCAST=`broadcast_ip4 $IPADDRESS`
-ETHER=`sucky_ether $IPADDRESS`
+ WAKEHOST=$1
+IPADDRESS=`sucky_resolve  $WAKEHOST`
+    ETHER=`sucky_ether    $WAKEHOST`
+BROADCAST=`broadcast_ip4  $IPADDRESS`
 wol -i $BROADCAST $ETHER
 }}}
 
