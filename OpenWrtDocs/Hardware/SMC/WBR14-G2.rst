@@ -2,7 +2,7 @@
 
 = SMC WBR14-G2 =
 
-The [http://www.smc.com SMC] [http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_USA&cid=5&scid=26&pid=1535 WBR14T-G] is an Atheros 2317-based device. (for more information look at ["AtherosPort"])
+The [http://www.smc.com SMC] [http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_USA&cid=5&scid=26&pid=1535 WBR14-G2] is an Atheros 2317-based device. (for more information look at ["AtherosPort"])
 
 This device runs Atheros's own bootloader, and VxWorks proprietary OS, which doesn't have network (ethernet) firmware uploading/downloading support, so no boot_wait either. It supports uploads/downloads via serial console (XMODEM).
 It also seems that SMC removed the atheros board configuration data from the flash ROM, so it has to be reprogrammed.
