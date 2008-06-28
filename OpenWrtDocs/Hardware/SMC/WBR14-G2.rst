@@ -127,7 +127,7 @@ Pressing "H" brings up the list of available commands.
 
 You have to test if RedBoot works properly, so an upload to memory instead of flash will do it at first.
 Press "M", and when it asks for memory address, type "80041000".
-You have 10 seconds to start XModem upload. You can either upload your customized RedBoot loader, or mine. You should upload the ROMRAM version of RedBoot, not the RAM one (bootloader does not support ELF images).
+You have 10 seconds to start XModem upload. You can either upload your customized RedBoot loader, or mine (attachment:RedBoot-WBR14-G2.bin). You should upload the ROMRAM version of RedBoot, not the RAM one (bootloader does not support ELF images).
 {{{
 RAM upload destination: (default:0x80001000) : 0x80041000
 Starting XModem download...(press Enter to abort)
