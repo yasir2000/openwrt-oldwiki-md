@@ -100,7 +100,7 @@ Works on v1.1 fw 2.08 - -- BrianWhite [[DateTime(2006-11-03T21:50:41Z)]]
 
 Works on v2.0 fw 2.07 - -- AaronW [[DateTime(2007-04-15T21:22:00Z)]]
 
-Works on v2.0 fw 2.08
+Works on v2.0 fw 2.08 - -- MarioS [[DateTime()]]
 
 ==== Setting boot_wait from a serial connection ====
 Same as for [:OpenWrtDocs/Installing:WRT54G].
