@@ -40,20 +40,29 @@ Save the following script to /usr/bin/wake
 
 {{{
 #!/bin/ash
+if [ -z "$1" ]; then 
+	echo Usage:  $0  hostname
+	exit
+fi
+
+
+if [ -z "$1" ]; then 
+	echo usage: $0 directory
+	exit
 
 sucky_resolve () {
-    HOSTNAME=$1
-    grep -i $HOSTNAME /etc/hosts | awk '{ print $1 }'
+	HOSTNAME=$1
+	grep -i $HOSTNAME /etc/hosts | awk '{ print $1 }'
 }
 
 sucky_ether () {
-    HOSTNAME=$1
-    grep -i $HOSTNAME /etc/ethers | awk '{ print $1 }'
+	HOSTNAME=$1
+	grep -i $HOSTNAME /etc/ethers | awk '{ print $1 }'
 }
 
-broadcast_ip4() {
-    IPADDRESS=$1
-    echo $IPADDRESS | sed s/\.[0-9]*$/.255/
+broadcast_ip4 () {
+	IPADDRESS=$1
+	echo $IPADDRESS | sed s/\.[0-9]*$/.255/
 }
 
  WAKEHOST=$1
