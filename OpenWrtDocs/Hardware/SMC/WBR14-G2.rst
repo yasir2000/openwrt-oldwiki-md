@@ -54,12 +54,13 @@ Notice: JTAG might not work "out of the box". If JTAG SPI flash programmers like
 
 === Default Flash Layout ===
 
-0xbfc00000 - 0xbfc1ffff (128  kbytes): Bootloader
-0xbfc20000 - 0xbfc3ffff (128  kbytes): Configuration / NVRAM
-0xbfc40000 - 0xbfcbffff (512  kbytes): Web Image
-0xbfcc0000 - 0xbfddffff (1152 kbytes): VxWorks OS
-0xbfde0000 - 0xbfdeffff (64   kbytes): Customer Area
-0xbfdf0000 - 0xbfdfffff (64   kbytes): Boot Settings
+||'''Start Address''' ||'''End Address''' ||'''Size''' ||'''Name''' ||
+||0xbfc00000||0xbfc1ffff||128 kbytes||Bootloader||
+||0xbfc20000||0xbfc3ffff||128 kbytes||Configuration / NVRAM||
+||0xbfc40000||0xbfcbffff||512 kbytes||Web Image||
+||0xbfcc0000||0xbfddffff||1152 kbytes||VxWorks OS||
+||0xbfde0000||0xbfdeffff||64 kbytes||Customer Area||
+||0xbfdf0000||0xbfdfffff||64 kbytes||Boot Settings||
 
 == Installing RedBoot ==
 
