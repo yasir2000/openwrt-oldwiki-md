@@ -135,19 +135,26 @@ CCC
 Execute uploaded code? (Y/n)
 }}}
 
-Just press "Y". Set your serial port speed temporarily to "9600 8N1".
+Just press "Y". Set your serial port speed temporarily to "9600 8N1" (or whatever your RedBoot defaults to).
 Wait a few seconds and then type "help". If the RedBoot help appears, then proceed to uploading RedBoot. If it doesn't, it either means that you just had bad luck and it didn't work (unlikely), or that you are in trouble and either you or the loader screwed up something (more likely).
 
 === Uploading RedBoot ===
 
 At first, you should try the "bdrestore" command, which locates and moves Atheros Board Configuration to a more sensible location (and hopefully prevents RedBoot configuration from overwriting it).
 Then, you should tell RedBoot to write itself to the flash ROM.
+
 If it is smaller than 128 kbytes then use
+
 "fis write -b 0x80041000 -f 0xbfc00000 -l 0x00020000"
+
 If it is between 128 and 192 kbytes, use
+
 "fis write -b 0x80041000 -f 0xbfc00000 -l 0x00030000"
+
 If it is bigger than 192 kbytes then you probably need a smaller one, because of the limited amount of flash memory.
+
 ("fis write" does not need the flash image system to be initialised)
+
 When the flash programming is done, use the "reset" command and wait.
 You should see RedBoot booting instead of the Atheros bootloader.
 After RedBoot loaded, use "fconfig -i" and "fis init" to initialise the configuration and images.
