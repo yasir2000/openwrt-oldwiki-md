@@ -64,6 +64,7 @@ Known 6348 platforms*:
 ||[:OpenWrtDocs/Hardware/Belkin/f5d7633-4:Belkin f5d7633-4] ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536/1+] ||
 ||[http://comtrend.com/index.php?module=products&op=show&sn=41 Comtrend CT-638/1] ||
+||[http://www.dynalink.co.nz/cms/index.php?page=rta1046vw Dynalink RTA1046VW] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV4:Freebox v4] ||
 ||[http://www.tecomproduct.com/AH4021.htm Hitachi AH4021 (German Telekom "Speedport W500V")] ||
 ||[:OpenWrtDocs/Hardware/Huawei/EchoLife HG520:Huawei EchoLife HG520] ||
