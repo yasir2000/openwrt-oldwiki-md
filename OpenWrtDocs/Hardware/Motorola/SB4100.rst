@@ -43,7 +43,7 @@ Standard firmware provides configuration interface using HTTP.
 = Luke's SB4100 =
 == Picture ==
 
-http://imagebin.ca.tbcdn.com/img/y9K_u4Yi.jpg
+http://dashjr.org/gallery/v/tech/sb4100/
 
 {{{
 *** Top center chip ***
