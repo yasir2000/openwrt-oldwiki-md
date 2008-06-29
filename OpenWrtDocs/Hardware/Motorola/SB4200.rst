@@ -41,6 +41,10 @@ Three annoying screws (not flatblade or phillips). In addition, the labeling of 
 
 Standard firmware provides configuration interface using HTTP.
 
+= Luke's SB4200 =
+
+http://dashjr.org/gallery/v/tech/sb4200/
+
 ----
 
 CategoryModel CategoryCableModem CategoryBCM33xx
