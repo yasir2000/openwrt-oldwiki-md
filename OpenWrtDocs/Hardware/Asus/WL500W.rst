@@ -6,7 +6,7 @@ __'''!!!Disclaimer!!!'''__ I am in no way responsible for the safety of you, you
 == Stock Firmware ==
 '''1.''' Download the Broadcom 2.4 image:
 
-I recommend using the snapshot from x-wrt. The network settings work out of the box so step 2 isn't necessary. (Also seems to fix [http://forum.openwrt.org/viewtopic.php?id=11189 this bug] when using a USB disk)
+I recommend using the snapshot from x-wrt. (Seems to fix [http://forum.openwrt.org/viewtopic.php?id=11189 this bug] when using a USB disk)
 
 http://downloads.x-wrt.org/xwrt/kamikaze/snapshots/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 
