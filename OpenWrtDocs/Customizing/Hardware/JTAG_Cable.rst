@@ -51,6 +51,8 @@ This cable is fully compatible with Macraigor [http://www.macraigor.com/ocd_cmd.
 
 Another consideration is that a buffered Wiggler-style cable '''requires''' a voltage source to operate. Usually +3.3 volts is needed and is commonly referred to as Vcc (voltage common-collector is the traditional meaning of Vcc). The buffer IC may take a Vcc from the PC LPT also. The DATA7 pin may be used for this purposes, so Wiggler software should provide aclive "1" at this pin. Do not use this pin if your JTAG header provides Vcc.
 
+Do not change 74'''HC'''244 (High-speed CMOS) series with another 74 type i.e. LS, ALS or LV. This HC series works fine from 2.6 V to 6.0V Vcc range. The blocking capacitor may be any type, 0.1mF or 10mF, more is better.
+
 == Headers ==
 There are two major JTAG header arrangements used in SOHO routers based on MIPS CPUs. One uses 12 pins and the other uses 14 pins. While not radically different, you should be familiar with both. Other JTAG pinouts can be found at [http://www.jtagtest.com/pinouts/].
 
