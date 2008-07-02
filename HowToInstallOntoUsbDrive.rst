@@ -93,25 +93,35 @@ startup()
 
 }}}
 
-I have modified disable() enable() and enabled() in /etc/rc.common.  The 'init.d/drivername enable' function will place a link in ../rc.d that points to ../init.d/drivername.
+I have modified disable() enable() and enabled() in /etc/rc.common.  The 'init.d/drivername enable' function will place a link in ../rc.d that points to ../init.d/drivername. ''Note: This has been modified (2/7/2008) to support being placed into files/etc directory on a custom build.  If IPKG_INSTROOT isn't supported, the image (from bitter experience) will turn your router into a switch and you will have to use the inbuilt rescue mode.''
 
 {{{
 
 disable() {
 	name="$(basename "${initscript}")"
-	basedir=${initscript%/[^/]*}
-	[ -z $basedir ] || cd $basedir
-	cd ../rc.d
-	stripname=${name##[SK][0-9][0-9]}
+
+        if [ "$IPKG_INSTROOT" == "" ]; then
+                basedir=${initscript%/[^/]*}
+                [ -z $basedir ] || cd $basedir
+                cd ../rc.d
+        else
+                cd "$IPKG_INSTROOT"/etc/rc.d
+        fi
+
+        stripname=${name##[SK][0-9][0-9]}
 	rm -f [SK]??$stripname
 }
 
 enable() {
 	name="$(basename "${initscript}")"
 
-	basedir=${initscript%/[^/]*}
-	[ -z $basedir ] || cd $basedir
-	cd ../rc.d
+        if [ "$IPKG_INSTROOT" == "" ]; then
+                basedir=${initscript%/[^/]*}
+                [ -z $basedir ] || cd $basedir
+                cd ../rc.d
+        else
+                cd "$IPKG_INSTROOT"/etc/rc.d
+        fi
 
 	stripname=${name##[SK][0-9][0-9]}
 	rm -f [SK]??$stripname
@@ -122,10 +132,15 @@ enable() {
 
 enabled() {
 	name="$(basename "${initscript}")"
+
+        if [ "$IPKG_INSTROOT" == "" ]; then
+                basedir=${initscript%/[^/]*}
+                [ -z $basedir ] || cd $basedir
+                cd ../rc.d
+        else
+                cd "$IPKG_INSTROOT"/etc/rc.d
+        fi
 	stripname=${name##[SK][0-9][0-9]}
-	basedir=${initscript%/[^/]*}
-	[ -z $basedir ] || cd $basedir
-	cd ../rc.d
 	[ -x "S${START}${stripname}" ]
 }
 
