@@ -444,7 +444,7 @@ proc     dev      usr      linuxrc  images   bin
 I have only original firmware from Asus in binary format. You can download it from my site - [http://router.smurv.cz/asus/JOYCE_IAD_U2_B_306063520_cfe_fs_kernel here].
 
 hajma: 
-The machine seems to be very similar to WL-600g, for which Asus released the GPL source. Based on this fact I was able to hack the firmware. The minimally modified firmware attachment:bcmimage-hajma-01 will run a script located at /var/usb/usb_2/myscript.sh (i.e. residing on a second partition of the connected flash drive) as soon as the flash is mounted, so you can do anything post-boot. So far I was able to have jabberd running on the box.
+The machine seems to be very similar to WL-600g, for which Asus released the GPL source. Based on this fact I was able to hack the firmware. The minimally modified firmware attachment:bcmimage-hajma-01 will run a script located at /var/usb/usb_2/myscript.sh (i.e. residing on a second partition of the connected flash drive) as soon as the flash is mounted, so you can do anything post-boot. So far I was able to have jabberd running on the box. Click [http://www.abclinuxu.cz/blog/hajma/2008/6/customizing-asus-am200g-v.-firmware-modification here] for the steps.
 
 = Compatibility with OpenWRT =
 -- untested --
