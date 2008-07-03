@@ -9,3 +9,10 @@ Documentation for the IP175C can be found at http://www.icplus.com.tw/Data/Datas
 By default the ports on the IP175C will come up in its default mode, which is a simple bridge of all the ports to the switch.  So for the RB192 it is as though a passive switch has been added to port eth5.
 
 Changes will be needed to amd5120sw.c to enable full operation with the extra ports exposed as though they were normal network ports.
+
+In addition the following config options need to be added to the default configuration for any board using this switch:-
+
+{{{
+CONFIG_PHYLIB=y
+CONFIG_ICPLUS_PHY=y
+}}}
