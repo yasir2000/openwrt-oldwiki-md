@@ -2,7 +2,7 @@
 [[TableOfContents]]
 
 = SMT-G3210 =
-The Samsung SMT-G3210 is a ADSL2+ CPE featuring 64MB RAM and 16MB flash, USB 2.0 Host, Atheros 802.11b/g WiFi, 4-port switch and 3 analogue and 1 S0 phone lines.
+The Samsung SMT-G3210 is a ADSL2+ CPE featuring 64MB RAM, 16MB flash, USB 2.0 Host, Atheros 802.11b/g WiFi, 4-port switch and 3 analogue and 1 S0 phone lines.
 
 It is part of a model family from Samsung. Featurematrix (from: http://www.samsung.com/global/business/telecommunication/productDetailDown.do?b2b_down_file=2200)
 
