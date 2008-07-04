@@ -502,6 +502,11 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 == RaidSonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://raidsonic.de/de/pages/products/external_cases.php?we_objectID=4444 IB-NAS1000-B] ||||<style="text-align: center;">ARM9 200MHZ ||8MB ||64MB ||no ||no ||On-board ||? ||YES ||pata ||[:OpenWrtDocs/Hardware/RaidSonic/IB-NAS1000-B:Info entered] ||
+== Samsung ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.samsung.com/global/business/telecommunication/productInfo.do?ctgry_group=14&ctgry_type=32&b2b_prd_id=215 SMT-G3010] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||16 MB ||64 MB ||NA ||Infineon ADM6996I ||Yes ||Yes ||Yes ||1x 2.0 ||[:OpenWrtDocs/Hardware/Samsung/SMT-G3010:WIP] ||
+||[http://www.samsung.com/global/business/telecommunication/productInfo.do?ctgry_group=14&ctgry_type=32&b2b_prd_id=218 SMT-G3210] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||16 MB ||64 MB ||Atheros AR2414A-001 ||Infineon ADM6996I ||Yes ||Yes ||Yes ||1x 2.0 ||[:OpenWrtDocs/Hardware/Samsung/SMT-G3210:WIP] ||
+||[http://www.samsung.com/global/business/telecommunication/productInfo.do?ctgry_group=14&ctgry_type=32&b2b_prd_id=219 SMT-G3220] || ||Infineon AMAZON (MIPS 4KEc) @ 235 MHZ ||16 MB ||64 MB ||Atheros AR2414A-001 ||Infineon ADM6996I ||Yes ||Yes ||Yes ||1x 2.0 ||[:OpenWrtDocs/Hardware/Samsung/SMT-G3220:WIP] ||
 == Senao/EnGenius ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||NL-5354AP1 ||ARIES 2 ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros AR5312] / 32-bit MIPS R4000-class @ unknown ||2MB ||8MB ||Atheros ROC ||No ||On-board ||? ||No ||[:AtherosPort:WiP] ||
