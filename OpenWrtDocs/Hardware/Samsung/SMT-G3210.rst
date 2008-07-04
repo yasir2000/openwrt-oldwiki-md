@@ -116,7 +116,7 @@ http://ting.ip-phone-forum.de/showpost.php?s=d1195b6a5aff9d8feada1a9fb86dfed4&p=
 
 On the bottom of the PCB, there are testpads close to P1. The test pads are labelled TDI TDO TMS and TCK. TRST is pin1 of P1
 
-=== PCB Photographs ===
+== PCB Photographs ==
 
 See http://laforge.gnumonks.org/photoalbum/devices/samsung_smt-g3210/
 
