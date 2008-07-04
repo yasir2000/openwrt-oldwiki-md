@@ -1,7 +1,7 @@
 == Requirements ==
 The build-system checks for the requirements and print what's missing on your system. Then install the packages.
 
-To manually check the prerequisits run
+To manually check the prerequisites run
 
 {{{
 $ make prereq
