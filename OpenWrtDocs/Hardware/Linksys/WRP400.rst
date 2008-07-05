@@ -66,7 +66,7 @@ Source code can be found at ftp://ftp.linksys.com/opensourcecode/wrp400/
 
 From examination of the source code, it seems that the WRP400 is just a rebranded version of the CyberTan WGV414 (http://www.cybertan.com.tw/Products/WGV414.htm).
 
-The source code does not build on Ubuntu, but does build on CentOS 5.
+The source code does not build on Ubuntu, but does build on CentOS 5, and looks like it builds the "cybertan_rom_bin" image (which contains the second rootfs listed below).  It also builds the u-boot binary, including the secret console-locking code.  What seems to be missing is means to build the "cybertan_half_bin" image, and the tool to turn those images into a flashable binary (with the "WRP400  FiRmWaRe" header).
 
 The u-boot configuration in the source code is "cywgv414dls".
 
