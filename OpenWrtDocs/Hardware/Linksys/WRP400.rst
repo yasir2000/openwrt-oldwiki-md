@@ -1,3 +1,13 @@
+Interesting CGI commands:
+
+http://192.168.15.1/SysInfo.htm
+
+http://192.168.15.1/CgiCommand.htm?command=Reboot
+
+http://192.168.15.1/CgiCommand.htm?command=TftpOn&user=admin&pass=admin
+
+http://192.168.15.1/CgiCommand.htm?command=FactoryReset
+
 Boot Log:
 
 {{{
