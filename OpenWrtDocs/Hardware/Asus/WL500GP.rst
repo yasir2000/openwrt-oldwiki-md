@@ -1,7 +1,12 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 == ASUS WL-500g Premium ==
-With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4] the ASUS WL-500g Premium is fully supported and runs stable.
+With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4 kernel] the ASUS WL-500g Premium is fully supported and runs stable.
+
+With a 2.6 kernel, wireless support is problematic.  The supplied Broadcom wireless miniPCI card requires the open source driver.  That driver is not yet completely functional.  It appears to work in STA mode.  See [https://dev.openwrt.org/ticket/2677].
+
+If you replace the Broadcom wirelss miniPCI card with an Atheros card, you can run a 2.6 kernel, as long has it has [https://dev.openwrt.org/changeset/9285 SVN 9285].
+
 ||||<style="text-align: center;">'''Target System''' ||||<style="text-align: center;">'''!WiFi Support''' ||<style="text-align: center;">'''Comments''' ||
 ||||<style="text-align: center;"> ||'''Broadcom''' ||'''Atheros''' || ||
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) || ||
