@@ -3,7 +3,7 @@
 == ASUS WL-500g Premium ==
 With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4 kernel] the ASUS WL-500g Premium is fully supported and runs stable.
 
-With a 2.6 kernel, wireless support is problematic.  The supplied Broadcom wireless miniPCI card requires the open source driver.  That driver is not yet completely functional.  It appears to work in STA mode.  See [https://dev.openwrt.org/ticket/2677].
+With a 2.6 kernel, wireless support is problematic.  The supplied Broadcom wireless miniPCI card requires the open source b43 driver.  As of 2008 July 5, that driver is not yet completely functional.  It appears to work in STA mode (client mode).
 
 If you replace the Broadcom wirelss miniPCI card with an Atheros card, you can run a 2.6 kernel, as long has it has [https://dev.openwrt.org/changeset/9285 SVN 9285].
 
@@ -366,7 +366,14 @@ Work in progress. Please see the UsbAudioHowto.
 
 '''P:''' USB 1.1 devices are not recognized, USB 2.0 devices like harddrives etc. work perfectly. How come? ''' '''
 
-'''S:''' The WL-500gP ehci-hcd module handles all USB2 transfer well, but the external ports use uhci-hcd for usb1. To make it even worse, the current trunk version has issues with this module to load but it can be fixed like mentioned in the forum http://forum.openwrt.org/viewtopic.php?id=7149. The broadcom chip seems to have a "buried" ohci controller that can not be used with the external connectors.
+'''S:''' The WL-500gP ehci-hcd module handles all USB2 transfer well, but the external ports use uhci-hcd for usb1. To make it even worse, the current trunk version has issues with this module to load but it can be fixed as described in the forum http://forum.openwrt.org/viewtopic.php?id=7149. The Broadcom chip seems to have a "buried" ohci controller that can not be used with the external connectors.
+
+'''P:''' The binary-only Broadcom wireless driver won't work with 2.6
+
+'''S1:''' You can transplant an Atheros miniPCI card and use the Atheros driver.
+
+'''S2:''' You can use the open source b43 Broadcom driver but it isn't yet completely functional.  STA mode is thought to work.  See [https://dev.openwrt.org/ticket/2677]
+
 
 == ASUS WL-500g Premium info ==
  * FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
