@@ -1,14 +1,23 @@
 = Work in Progress =
 Porting OpenWrt to the [http://www.a-link.com/RR24AP.html RoadRunner 24AP] is a work in progress.
 
+== Variants ==
+There ae three different variants of [http://support.a-link.com/rr24ap/upd.htm RR24AP]:
+[http://support.a-link.com/rr24ap/upd_idap.htm RR24AP]
+[http://support.a-link.com/rr24ap/upd_idapc.htm RR24AP(c)]
+[http://support.a-link.com/rr24ap/upd_idapi.htm RR24AP(i)]
+[http://support.a-link.com/rr24ap/upd_idapi+.htm RR24AP(i+)]
+
+All information below on this page for now related to RR24AP(i)
+
 == Specifications ==
-A-Link RoadRunner 24AP(i+) is an external 4-port ADSL2+-router with 54Mb WLAN Access point (also supports standard ADSL,RE ADSL and ANNEX M).
+A-Link RoadRunner 24AP(i) is an external 4-port ADSL2-router with 54Mb WLAN Access point.
 
 === Hardware ===
-||'''CPU''' || AR7 @ 211 MHz || Texas Instruments AR7 MIPS-based, [http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe TNETD73000AZDW] ||
-||'''RAM''' || Unknown || Unknown ||
-||'''FLASH''' || Unknown || Unknown ||
-||'''SWITCH''' || Unknown || Unknown ||
+||'''CPU''' || AR7 @ 211 MHz || Texas Instruments AR7 MIPS-based, [http://focus.ti.com/lit/ml/spat013a/spat013a.pdf TNETD7200ZDW] ||
+||'''RAM''' || 16MB || MIRA P2V28S40CTP  ||
+||'''FLASH''' || 4MB || Macronix MX P063421 29LV320CBTC-70G ||
+||'''SWITCH''' || Marvell || [https://www.marvell.com/files/products/switching/linkstreet/MV-S100952-U0.pdf 88E6060-RCJ1] ||
 ||'''Wi-Fi''' || Unknown || Unknown ||
 
 === Loader ===
@@ -218,6 +227,7 @@ avalanche_usb          65208 c0020060 96    1}}}
 
 == External Links ==
 [http://librium08200.tripod.com/rr24ap.htm Details for A-link RR24AP firmware GPL licensed components]
+[http://support.a-link.com/rr24ap/upd.htm A-Link RoadRunner 24AP]
 
 ----
 ["CategoryAR7Device"]
