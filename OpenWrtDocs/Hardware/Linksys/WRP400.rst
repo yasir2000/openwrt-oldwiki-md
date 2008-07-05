@@ -66,6 +66,10 @@ Source code can be found at ftp://ftp.linksys.com/opensourcecode/wrp400/
 
 From examination of the source code, it seems that the WRP400 is just a rebranded version of the CyberTan WGV414 (http://www.cybertan.com.tw/Products/WGV414.htm).
 
+The source code does not build on Ubuntu, but does build on CentOS 5.
+
+The u-boot configuration in the source code is "cywgv414dls".
+
 Interesting offsets:
 
 {{{
