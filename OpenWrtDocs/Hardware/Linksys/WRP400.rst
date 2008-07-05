@@ -62,6 +62,10 @@ Note that after the "Uncompressing Linux ..." line, there is no other console ou
 
 Firmware image can be found at http://firmware.linksys-cisco.cz/WRP400/WRP400_v1.00.04.c_ETSI.zip
 
+Source code can be found at ftp://ftp.linksys.com/opensourcecode/wrp400/
+
+From examination of the source code, it seems that the WRP400 is just a rebranded version of the CyberTan WGV414 (http://www.cybertan.com.tw/Products/WGV414.htm).
+
 Interesting offsets:
 
 {{{
