@@ -10,6 +10,8 @@ http://192.168.15.1/CgiCommand.htm?command=TftpOff&user=admin&pass=admin
 
 http://192.168.15.1/CgiCommand.htm?command=FactoryReset
 
+When the TftpStatus is 'on', you can contact a tftpd server on the device.  It responds to Linksys-style authenticated 'put' commands, and starts the power led flashing as if it's erasing the flash, but responds with a 'Password Incorrect' error (where that string comes directly from the tftpd binary that we've extracted from the firmware image).  So the password it requires is not the default admin password, nor is it the admin password you can set in the management web pages.
+
 Boot Log:
 
 {{{
