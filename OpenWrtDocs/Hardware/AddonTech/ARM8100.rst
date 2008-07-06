@@ -68,7 +68,7 @@ Here's a schematic of the circuit i used.
 
 http://www.hydraservices.com/files/addontecharm8100/router-serial-cable.png
 
-IMPORTANT!!!! - On that schematic I found after checking that pin 14 of the chip goes to pin 3 on the serial port and pin 15 of the chip goes to pin 2 of the serial port. - Thanks to Freundschaft for making me check :D - Hydra
+IMPORTANT!!!! - On that schematic I found after checking that pin 14 of the chip goes to pin 3 on the serial port and pin 15 of the chip goes to pin 2 of the serial port.  Also the table lists pin 15 twice, pin 16 is gnd, not pin 15. - Thanks to Freundschaft for making me check :D - Hydra
 
 == Original Firmware Info ==
 
