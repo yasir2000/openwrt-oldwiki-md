@@ -68,6 +68,8 @@ Here's a schematic of the circuit i used.
 
 http://www.hydraservices.com/files/addontecharm8100/router-serial-cable.png
 
+IMPORTANT!!!! - On that schematic I found after checking that pin 14 of the chip goes to pin 3 on the serial port and pin 15 of the chip goes to pin 2 of the serial port. - Thanks to Freundschaft for making me check :D - Hydra
+
 == Original Firmware Info ==
 
 The original firmware on these devices has trouble keeping track of lots of connections, for example if you use something like The All Seeing Eye to ping a bunch of game servers eventually you won't be able to make any more new connections, existing tcp connections continue to function.  After a while it goes back to normal.  The DNS server actually stops working completly when this happens however.
