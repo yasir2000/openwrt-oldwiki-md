@@ -27,7 +27,7 @@ http://www.hydraservices.com/files/t-com_speedport-w701v/pcb1.jpg
 http://www.hydraservices.com/files/t-com_speedport-w701v/pcb2.jpg
 
 === Serial Port ===
-It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Maplin Electronics for £0.79p and soldered it carefully to the back of the PCB  I then attached my serial port adaptor (see the Addontech ARM8100 page on this wiki for circuit diagram) to the pin header and to my pc.
+It has a 3.3v serial port to the lower right of the CPU, near the crystal and the large capacitor.  The PCB on my router didn't have a pin header/pin strip attached to it so I bought a pin strip from Maplin Electronics for £0.79p and soldered it carefully to the back of the PCB  I then attached my serial port adaptor (see the Addontech ARM8100 page on this wiki for circuit diagram, note the different order of RX and TX signals on the router's pin serial port) to the pin header and to my pc.
 
 The general location of the port and it's pin-out is as follows:
 
