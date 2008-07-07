@@ -60,7 +60,10 @@ Quicklinks to manufacturers:
 ||ARM8100 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||2MB ||8MB ||None ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/AddonTech/ARM8100:WiP] ||
 == Airlink101 ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+
 ||[http://www.airlink101.com/products/ar360w3g.php AR360WG] || ||AMRISC 20000 R3210GCL3H ||4MB ||32MB ||RT2561 ||IC+ IP101A-LF (x2) || ||Yes ||Yes ||Depopulated ||Info Entered ||
+||[http://www.airlink101.com/products/ar335w.php AR335W] || || Atheros 2317 & 182Mhz || 4mb || 16mb || ? || 
+|| ? || ? || Yes || Yes || No || Partialy supported ||
 ||[http://www.airlink101.com/products/ar420w.php AR420W] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? ||No || ||
 ||[http://www.airlink101.com/products/ar525w.php AR525W] || ||[http://www.rdc.com.tw/ RDC] R3211 SoC (x86-compatible) ||4MB ||16MB ||[http://www.ralinktech.com/prod-2661.htm Ralink RT2661] ||IC+ IP175C || ||[:OpenWrtDocs/Hardware/Airlink/AR525W:Yes] ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR525W:Supported] ||
 ||[http://www.airlink101.com/products/ar625w.php AR625W] || ||Marvell ARM926 @ 500MHz ||8MB ||32MB ||Marvell (mini-PCI) 802.11n || || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR625W:Untested] ||
