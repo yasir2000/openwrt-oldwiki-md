@@ -61,7 +61,8 @@ Quicklinks to manufacturers:
 
 == Airlink101 ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.airlink101.com/products/ar335w.php AR335W] || || Atheros 2317 & 182Mhz || 4mb || 16mb || ? || ? || ? || Yes || Yes || No || Partialy supported ||
+||[http://www.airlink101.com/products/ar335w.php AR335W] Clone of [http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=2&Sub2=5&PID=337 Dir-300] || || Atheros 2317 & 182Mhz || 4mb || 16mb || ? || ? || ? || Yes || Yes || No || Partialy supported ||
+||[http://www.airlink101.com/products/ar430w.php AR430W] || || Atheros 2318 & 182Mhz || 4mb || 16mb || ? || ? || ? || Yes || Yes || No || Partialy supported ||
 ||[http://www.airlink101.com/products/ar360w3g.php AR360WG] || ||AMRISC 20000 R3210GCL3H ||4MB ||32MB ||RT2561 ||IC+ IP101A-LF (x2) || ||Yes ||Yes ||Depopulated ||Info Entered ||
 ||[http://www.airlink101.com/products/ar420w.php AR420W] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? ||No || ||
 ||[http://www.airlink101.com/products/ar525w.php AR525W] || ||[http://www.rdc.com.tw/ RDC] R3211 SoC (x86-compatible) ||4MB ||16MB ||[http://www.ralinktech.com/prod-2661.htm Ralink RT2661] ||IC+ IP175C || ||[:OpenWrtDocs/Hardware/Airlink/AR525W:Yes] ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR525W:Supported] ||
