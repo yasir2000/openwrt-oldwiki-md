@@ -10,21 +10,47 @@ first the amazon port needs to be complete the todo is here http://wiki.openwrt.
 == original firmware ==
  * original firmware from t-com --> [http://www.t-home.de/is-bin/INTERSHOP.enfinity/WFS/EKI-PK-Site/de%20DE/-/EUR/ViewFAQTheme-Download;sid=McR43bq5YDR43PzBEJ9yRZuXxxFB7ru8uPJEuBo%20h5CDLpty2x4=?ProductThemeId=theme-1000&selaction=themen&FaqId=theme-2001628&pageNr=0&bound=3&itemLocator=Bedienungsanleitungen&headerSelection=2&SelectedTheme=theme-2000178&SelectedTheme=theme-2001628&SelectedTheme=theme-6512161 link]
  * some  information about the firmware --> [http://www.kessler-design.com/speedport-w700v/firmware.html link]
-== Hardware ==
+
+=== Major components ===
  * Router is build by Arcadyan for Siemens and they resell it to t-com
   * http://www.arcadyan.com/Downloads/downloads.htm
- * I[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65097&pageTypeId=17099 Infineon Amazon] ADSL2+ Chipsatz with
-  * [http://www.mips.com/content/Products/Cores/HardIPCores/ProductCatalog/P_MIPS324KEHardCore/productBrief MIPS32® 4KEc®] Hard IP Core, CPU (among other stuff  [http://www.openssl.org/docs/ OpenSSL 0.9.6a] Crypto library, SSL/TLS Library
-   . and [http://www.ccl.itri.org.tw/ccl.asp CCL/ITRI VoIP Middleware] sip, sipTX, UACore)
-  * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65146&pageTypeId=17099 Infineon ADM6996 'Samurai'] 5+1 Port 10/100 Switch, [http://www.infineon.convergy.de/upload/documents/techdoc/GF_15/Samurai_6I_IX_VAD_DS_Rev1.4.pdf Data Sheet 1.4]
+
+==== mainboard ====
+ * Infineon PSB50505
+  * AMAZON Family highly integrated single-chip solution for ADSL2/2+ Modems
+  * 32-bit MIPS 4KEc RISC processor running at 235 MHz
+  * no public documentation 
+ * EON EN29LV320B Flash
+  * http://www.eonssi.com/pdf/EN29LV320.pdf
+ * 2x Infineon PEB 3332 HT V2.1
+  * VINETIC-CPE Voice over IP Processor for CPE
+  * RTP packetization
+  * Voice compression G.711, G.732.1, G.726, G.729, iLBC
+  * T.38 Fax Relay support
+  * DTMF + Caller-ID rx/tx
+  * Line-Echo-Cancellation up to 128ms
+  * Parallel and SPI interface to host
+  * 2-channel CODEC with voice processing DSP
+  * SLIC interface
+  * http://www.infineon.com/dgdl/VINETIC_CPE_PB_Rev1.0.pdf?folderId=db3a304412b407950112b408e8c90004&fileId=db3a304412b407950112b40a89da05f2 
+ * 1x Infineon ADM6996I
+  * 6port 10/100Mb/s single chip ethernet switch controller 
+  * http://www.infineon.convergy.de/upload/documents/techdoc/GF_15/Samurai_6I_IX_VAD_DS_Rev1.4.pdf
+ * 1x Delta LFE8752
+  * magnetics for ethernet 
+ * 1x SLIC Infineon SLICOFI PEB3164F V1.1 
+  * Single / dual channel analog termination solutions family optimized for access network and customer premises applications
+ * 1x ISDN Infineon IPAC-X PSB 21150F V1.4
+  * ISDN S-transceiver with extended HDLC controllers
+  * http://www.cassy.de/fbox/psb21150.pdf
+ * 2x Infineon SLIC-DC PEF4268 T V1.2
+  * Advanced ringing SLIC with integrated DC / DC converter
+
+==== Atheros WLAN 802.11b/g chipset ====
  * [http://www.atheros.com/pt/AR5002XBulletin.htm Atheros AR5212] Multiprotocol MAC/baseband processor, WLAN CPU
  * [http://www.atheros.com/pt/AR5002XBulletin.htm Atheros AR5112] Dual band Radio-on-a-Chip (RoC), WLAN
  * [http://www.atheros.com/pt/AR5005G.htm Atheros AR2413] Single-Chip  CMOS MAC/Baseband/Radio, WLAN
- * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-86154&pageTypeId=17099 Infineon VINETIC®-2CPE] Voice Processor / Analog Termination Chipsat
- * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-88949&pageTypeId=17099 Infineon SLIC-DC] Ringing SLIC with Integrated DC/DC Convertor
- * [http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65153&pageTypeId=17099 Infineon ISDN ST Transceiver] on a single chip
- * eon en29lv3208 flash
- * more Information in german  available [http://www.kessler-design.com/speedport-w700v/hardware.html here]
+
 == Serial Port ==
 image coming soon in the meantime look for pictures of the serialport [http://www.kessler-design.com/speedport-w700v/hardware.html here]
 
@@ -1000,3 +1026,6 @@ wlan1 stopped
 [init_wpa] dot1x_ready[5]=3
 [reset_802dot1x] 802.1Xv2 ready
 }}}
+
+== Links ==
+More Information in german available [http://www.kessler-design.com/speedport-w700v/hardware.html here]
