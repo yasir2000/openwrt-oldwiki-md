@@ -246,5 +246,17 @@ Hostname:
 == NVRAM committing ==
 When you set/get nvram settings, you are get/setting them in RAM. "nvram commit" writes them persistenly to the flash. But you don't have to commit in order to test, in fact it's safer not to because the flash memory has a limited write cycle life. (Don't be scared though, it's something like 1000-10.000 times; still better to only save it when really needed! NB In ["Faq"] it is however stated that this figure, according to manufacturers, can be in the range of 100,000 - 1,000,000) You can save your settings to RAM, check them out by ifdown/ifup'ing all your interfaces, and then "nvram commit" them if they are to your liking. If not, you can reboot and you're back to the last working configuration you had.
 
+You can find out the type of flash chip you have with:
+
+{{{
+root@OpenWrt:~# nvram get flash_type
+Samsung K8D3216UBC 2Mx16 BotB
+}}}
+
+Here is a table of known flash chips and their endurance according to the manufacturers datasheet:
+
+|| '''flash_type''' || '''Endurance''' ||
+|| Samsung K8D3216UBC 2Mx16 BotB || 100,000 Program/Erase Cycles Minimum ||
+
 == Applying changes to wireless settings ==
 To apply the changes made to the nvram settings that start with '''{{{wl0_}}}''' (e.g. to the {{{wl0_maclist}}} entry) run the '''{{{wifi}}}''' command (or '''{{{wl}}}''' if you have not installed the wificonf package) to reconfigure the Broadcom {{{wl.o}}} module in the kernel.
