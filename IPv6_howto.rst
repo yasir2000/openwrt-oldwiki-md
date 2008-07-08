@@ -206,6 +206,22 @@ COMMAND=/usr/sbin/ip
 }}}
 '''Warning:''' use {{{ prefix 0:0:0:5678::/64 }}} in your /etc/radvd.conf. The subnet 5678 is hardcoded in this script.
 
+== Native IPv6 with an Internet connection that uses PPP ==
+Kamikaze 7.09 supports IPv6 on PPP.
+
+ * Activate PPP IPv6 support. Add following lines to /etc/ppp/options :
+{{{
++ipv6
+#debug
+#logfile /var/log/ppp.log}}}
+Uncomment the lines if you need to debug PPP.
+
+ * Add your static IPv6 address to your LAN interface in /etc/config/network :
+{{{
+option ip6addr  xxxx:xxxx:xxxx:xxxx::1/64}}}
+ * Restart the network
+{{{
+/etc/init.d/network restart}}}
 == Static tunnel to SixXS.net ==
 ''Note: this script should works with any Tunnel Broker''
 
@@ -216,9 +232,7 @@ LOCALIP=Your IPv4 Endpoint
 POPIP=POP IPv4 Endpoint
 LOCTUN=Your IPv6 Endpoint
 REMTUN=SixXS IPv6 Endpoint
-
 START=50
-
 start() {
         echo -n "Starting SixXS.Net IPv6 tunnel: "
         ip tunnel add sixxs mode sit local $LOCALIP remote $POPIP
@@ -241,8 +255,6 @@ restart() {
 }
 }}}
 Note: I had to add "ttl 64" to the "ip tunnel add sixxs" line in order to be able to do traceroutes. Without it, traceroute6's did work, but slowly and with all intermediate hops missed ("* * *"). With this setting it works. -RZ
-
-
 
 == Dynamic (heartbeat) tunnel to SixXS.net ==
 {{{
@@ -289,7 +301,7 @@ interface br0
         };
 };
 }}}
-Now we add {{{2001:db8:0:f101::1}}} to br0 using the command below.  To keep the changes at boot add it to the ''/etc/init.d/S40network'' script. If the release is kamikaze, ip6addr theaddress/theprefixlength is an interface option in /etc/config/network. Forwarding of our delegated /64 subnet to br0 is done automatically in ''S51radvd'' 
+Now we add {{{2001:db8:0:f101::1}}} to br0 using the command below.  To keep the changes at boot add it to the ''/etc/init.d/S40network'' script. If the release is kamikaze, ip6addr theaddress/theprefixlength is an interface option in /etc/config/network. Forwarding of our delegated /64 subnet to br0 is done automatically in ''S51radvd''
 
 {{{
 ip -6 addr add 2001:db8:0:f101::1/64 dev br0
@@ -299,7 +311,6 @@ In the /etc/init.d/S51radvd we have to add an route in case the aiccu is used:
 {{{
 ip -6 route add 2001:db8:0:f101::1/64 dev br0
 }}}
-
 After all this you can start the daemon:
 
 {{{
@@ -534,7 +545,6 @@ C:\>
 = ToDo =
  * list of IPv6 ready application available in OpenWrt
  * start/stop radvd when connection goes up/down
- * provide IPv6 support to PPP
  * add firewall rules for incoming IPv6 connections
 = Questions =
 How would i go about setting up radvd to announce an v6 address (6to4), derived from an DHCP assigned v4 address (it changes every few weeks)?
