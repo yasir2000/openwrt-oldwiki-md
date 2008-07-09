@@ -2,9 +2,11 @@
 Those two routers have almost identical hardware. Both are based on an Atheros System on Chip (SoC) and both have limited Redboot. 
 
 
+[[ImageLink(AR335W,target[,width=width[,height=height]])]]
+
 = Hardware =
 == Info ==
-||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc ||
+||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 5KEc ? ||
 ||'''Vendor''' || ||
 ||'''Bootloader''' ||!RedBoot ||
 ||'''System-On-Chip''' ||Atheros AR2317/AR2318 ||
