@@ -1,4 +1,5 @@
 = Airlink AR335W/AR430W WIP=
+
 Those two routers have almost identical hardware. Both are based on an Atheros System on Chip (SoC) and both have limited Redboot. 
 
 
