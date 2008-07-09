@@ -8,7 +8,7 @@ Those two routers have almost identicle hardware. Both are based on an Atheros S
 ||'''Vendor''' || ||
 ||'''Bootloader''' ||!RedBoot ||
 ||'''System-On-Chip''' ||Atheros AR2317/AR2318 ||
-||'''CPU Speed''' ||183 MHz ||
+||'''CPU Speed''' ||182 MHz ||
 ||'''Flash size''' ||4 MB ||
 ||'''RAM''' ||16 MB ||
 ||'''Switch''' ||IC+ IP175C||
