@@ -48,6 +48,15 @@ Here are the drivers needed by Microsoft Windows: http://www.ftdichip.com/Driver
 
 Meraki have in the past withdrawn the serial adaptor from sale (it's back in the store as of June 2007). A suitable replacement is the Fox console board. It is available here: http://www.acmesystems.it/?id=106 It is not USB enabled so a separate USB to serial converter must be purchased in order to use it in a computer that does not have a serial port. Also to convert the 6pin header on the Fox board to the 4 pin available on the Meraki mini I used an old power connector for a floppy drive and shoved the wires into the correct ports on the fox adapter.
 
+Another choice of cable is for sale pre-assembled from the FTDI Chip Shop: http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3.htm
+
+It plugs directly into a USB host port on one end, and the Meraki on the other end, and includes all the connectors cables  and converters you need.  The FTDI TTL-232R-3V3 worked fine on my Meraki after I moved some pins around in the 0,1-inch connector they give you, which is easy to do with a drywall knife or dental tool.  Here is how to repin FTDI connector for Meraki Mini:
+
+{{{
+                       o NC
+ meraki ethernet       o yellow        meraki antenna
+                       o orange
+                       o black }}}
 = Standard Meraki firmware =
 == Startup messages ==
 [captured from serial port, with ethernet port not connected]
@@ -1060,14 +1069,11 @@ Unfortunately, I had installed using the flash method rather than the failsafe m
 
 = Automated Firmware Install =
 == EasyFlash utility ==
-
 The Expect script below is now redundant.  Sven-Ola Tuecke of Berlin Freifunk has modified the Fonera EasyFlash utility to support the Meraki.
 
-Get it here:
-http://download.olsrexperiment.de/sven-ola/area51/
+Get it here: http://download.olsrexperiment.de/sven-ola/area51/
 
-Under Windows you need to install WinPcap:
-http://www.winpcap.org/
+Under Windows you need to install WinPcap: http://www.winpcap.org/
 
 It's cool because it has an internal TFTP server and with WinPcap it configures the selected network interface transparently.  It's also a much smaller download, and a nice shiny GUI.
 
@@ -1076,16 +1082,13 @@ To use it, plug in your Meraki to your PC's ethernet jack.  Run the EasyFlash ut
 The complete quick how-to (from downloading OpenWRT sources to longing in) is collected here: http://www.maco.sk/wireless/meraki/openwrt.html
 
 == Expect Script ==
-
 This is an Expect script for Windows XP - it shouldn't be too hard to adapt to Linux or other OSes.
 
 You need to install Expect for Windows XP: http://bmrc.berkeley.edu/people/chaffee/expectnt.html
 
-and Solarwinds TFTP Server 6.0 (hard to get now - version 8.0 doesn't seem to work with the Meraki - someone please test this!)
-Version 8.0 is available here: http://www.tucows.com/preview/512630
+and Solarwinds TFTP Server 6.0 (hard to get now - version 8.0 doesn't seem to work with the Meraki - someone please test this!) Version 8.0 is available here: http://www.tucows.com/preview/512630
 
-These scripts have been packaged and the necessary applications included here:
-http://danversj.bravehost.com/meraki-flash-v1.0.zip
+These scripts have been packaged and the necessary applications included here: http://danversj.bravehost.com/meraki-flash-v1.0.zip
 
 Extract it wherever you want and run '''install-apps.bat''' to install everything you need.
 
@@ -1106,15 +1109,13 @@ The script pauses 3 minutes while the Linux image is written to flash, and 5 min
 I execute the expect script via a batch file:
 
 '''meraki-flash.bat'''
+
 {{{
 @ECHO OFF
 CLS
-
 SET linux_file=openwrt-atheros-2.6-vmlinux.gz
 SET rootfs_file=openwrt-atheros-2.6-root.squashfs
-
 REM The above files are copied to the tftp server root directory so the meraki can load them
-
 ECHO .
 ECHO .
 ECHO About to erase the Meraki's memory
@@ -1129,25 +1130,19 @@ ECHO .
 ECHO .
 ECHO Confirm - Ctrl-C to abort... or...
 PAUSE
-
-
 COPY ".\%linux_file%" "C:\TFTP-Root\" || ECHO . && ECHO Please place %linux_file% in the same directory as meraki-flash.bat && PAUSE && EXIT
-
 COPY ".\%rootfs_file%" "C:\TFTP-Root\"|| ECHO . && ECHO Please place %rootfs_file% in the same directory as meraki-flash.bat && PAUSE && EXIT
-
 "C:\Program Files\Expect-5.21\bin\expect.exe" ".\data\meraki-redboot.exp" %linux_file% %rootfs_file%
-
 REM Clean up TFTP-Root directory
 DEL "C:\TFTP-Root\%linux_file%"
 DEL "C:\TFTP-Root\%rootfs_file%"
-
 ECHO meraki-flash.bat ends here
 PAUSE
 }}}
-
 Here is the Expect script - which I put in a subdirectory called data
 
 '''data/meraki-redboot.exp'''
+
 {{{
 # start TFTP server
 spawn "C:/Program Files/SolarWinds/2003 Standard Edition/TFTP-Server.exe"
@@ -1166,7 +1161,6 @@ expect {
     timeout        {close}
 }
 }
-
 # erase/format flash
 set timeout 20
 expect "RedBoot>"
@@ -1177,8 +1171,6 @@ expect {
     "Program from 0x80ff0000-0x81000000 at 0xa87d0000"    {send_user "\n\nFLASH init succeeded\n\n"}
 #    timeout        {close; send_user "\n\n\n\nFLASH init failed!\n\n"; exit 10}
 }
-
-
 # TFTP upload linux kernel image
 expect "RedBoot>"
 send "load -r -b 0x80041000 -m tftp -h 192.168.84.9 [lindex $argv 0]\n"
@@ -1187,22 +1179,18 @@ expect {
     "Raw file loaded"    {send_user "\n\nLinux kernel TFTP load succeeded\n\n"}
     timeout            {close; send_user "\n\n\n\nLinux file not loaded! Exiting...\n\n"; exit 20}
 }
-
 # flash linux kernel image
 expect "RedBoot>"
 send "fis create -r 0x80041000 -l 0x100000 -e 0x80041000 linux\n"
 set timeout 10
 expect
-
 # Close telnet session - it takes a long time to flash and telnet times out anyway
 close
 spawn cmd
 expect "Corp."
 send_user "\n\n\n\n"
-
 send_user "Don't Panic!  Telnet session closed while Linux image is flashed\n"
 send_user "Please wait 3 minutes\n"
-
 # Countdown 180 seconds
 set timeout 1
 for {set i 180} {$i>0} {incr i -1} {
@@ -1210,7 +1198,6 @@ send_user "\b\b\b\b$i "
 expect
 }
 close
-
 # Re-open telnet session
 set timeout 2
 for {set i 0} {$i<20} {incr i 1} {
@@ -1220,7 +1207,6 @@ expect {
     timeout        {close}
 }
 }
-
 # Check that linux kernel flashed correctly
 set timeout 5
 send "fis list\n"
@@ -1228,7 +1214,6 @@ expect {
     "linux"        {send_user "\n\nLinux kernel flash succeeded\n\n"}
 #    timeout        {close; send_user "\n\n\n\nLinux flash failed!\n\n"; exit 30}
 }
-
 # TFTP upload rootfs image
 expect "RedBoot>"
 send "load -r -b 0x80041000 -m tftp -h 192.168.84.9 [lindex $argv 1]\n"
@@ -1237,22 +1222,18 @@ expect {
     "Raw file loaded"    {send_user "\n\nrootfs TFTP load succeeded\n\n"}
     timeout            {close; send_user "\n\n\n\nrootfs load failed!\n\n"; exit 40}
 }
-
 # Flash rootfs image
 expect "RedBoot>"
-send "fis create -r 0x80041000 -l 0x6A0000 rootfs\n"    
+send "fis create -r 0x80041000 -l 0x6A0000 rootfs\n"
 set timeout 10
 expect
-
 # Close telnet session - it takes a long time to flash and telnet times out anyway
 close
 spawn cmd
 expect "Corp."
 send_user "\n\n\n\n"
-
 send_user "Don't Panic!  Telnet session closed while rootfs image is flashed\n"
 send_user "Please wait 5 minutes\n"
-
 # Countdown 300 seconds
 set timeout 1
 for {set i 300} {$i>0} {incr i -1} {
@@ -1260,7 +1241,6 @@ send_user "\b\b\b\b$i "
 expect
 }
 close
-
 # Re-open telnet session
 set timeout 2
 for {set i 0} {$i<20} {incr i 1} {
@@ -1270,7 +1250,6 @@ expect {
     timeout        {close}
 }
 }
-
 # Check that rootfs image flashed correctly
 set timeout 5
 send "fis list\n"
@@ -1278,7 +1257,6 @@ expect {
     "rootfs"    {send_user "\n\nrootfs flash succeeded\n\n"}
     timeout        {close; send_user "\n\n\n\nrootfs flash failed!\n\n"; exit 50}
 }
-
 # change boot script
 expect "RedBoot>"
 send "\nfconfig boot_script_data\n"
@@ -1291,7 +1269,6 @@ expect ">>"
 send "\n"
 expect "continue (y/n)?"
 send "y\n"
-
 # Check that boot script change ocurred
 expect "RedBoot>"
 send "\nfconfig -l -n\n"
@@ -1300,7 +1277,6 @@ expect {
     "fis load -d linux"    {send_user "\n\nboot script change succeeded\n\n"; send "\n\n" }
     timeout            {close; send_user "\n\n\n\nboot scrpit change failed!\n\n"; exit 60}
 }
-
 # Reset (reboot) Meraki
 expect "RedBoot>"
 send "\nreset\n"
@@ -1310,11 +1286,10 @@ send_user "You sould be able to connect to OpenWRT via Telnet on 192.168.1.1 in 
 send_user "The firstboot operation will take about 3.5 minutes, starting now\n"
 send_user "please leave the power plugged in during this time\n\n\n\n"
 }}}
-Here's a Windows registry file that makes the appropriate config changes to the Solarwinds TFTP server to make sure it works with the above script
-'''chng-tftpserver.reg'''
+Here's a Windows registry file that makes the appropriate config changes to the Solarwinds TFTP server to make sure it works with the above script '''chng-tftpserver.reg'''
+
 {{{
 Windows Registry Editor Version 5.00
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\SolarWinds.Net\TFTP Server\Config]
 "RootDir"="C:\\TFTP-Root"
 "TransmitOnly"="False"
