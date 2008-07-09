@@ -134,7 +134,7 @@ ibase=16
 A87E0000 - A80F0000
 6F0000
 }}}
-Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs:
+Replace ''0xLENGTH'' with the value above (0x006F0000 in my case '''It's very important that you calculate value for your router, DO NOT TRY TO USE 0x006F0000, It will brick your router!''') and flash the the rootfs:
 
 {{{
 DD-WRT> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
@@ -171,4 +171,4 @@ DD-WRT>reset
 
 }}}
 
-If everything is okay, then it will now look like this:
+If you did everything correctly then you should be able to telnet your router after it reboots.
