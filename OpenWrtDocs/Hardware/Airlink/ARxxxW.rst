@@ -23,6 +23,74 @@ Those two routers have almost identical hardware. Both are based on an Atheros S
  * 5V power supply
  * Antenna
 
+= Installing Modified Redboot =
+This is a copy-paste from DD-WRT website
+
+Configure your local ip to 192.168.20.80
+plugoff the power cord and replug it
+now enter the redboot using telnet and ip 192.168.20.81 and port 9000. conside to connect your lan cable on the wan port. You might need several tries since its only available for 1 second after aprox. 5 sec. of booting.
+
+
+IP: 192.168.20.81/255.255.255.0, Gateway: 0.0.0.0
+Default server: 192.168.20.80
+
+
+Now start a local tftp server on your computer and place ap61.ram as well as ap61.rom in the root dir of this server
+
+Back to the redboot enter:
+'''load ap61.ram'''
+'''go'''
+
+Now a new temporarily bootloader should start. It will display some warning. but you dont need to care about
+
+Important! while doing the following steps. never plugoff the lan cable or the power cord
+now type
+Redboot> '''fconfig -i'''
+for now use all settings from default and save the config finally
+
+
+Redboot> '''fconfig bootp false'''
+{{{
+bootp: Setting to false
+Update RedBoot non-volatile configuration - continue (y/n)? y
+... Erase from 0xbffe0000-0xbfff0000: .
+... Program from 0x80ff0000-0x81000000 at 0xbffe0000: .
+}}}
+
+Warning this step will erase firmware on your router!
+
+Redboot> '''fis init'''
+{{{
+About to initialize [format] FLASH image system - continue (y/n)? y
+*** Initialize FLASH Image System
+... Erase from 0xbffe0000-0xbfff0000: .
+... Program from 0x807f0000-0x80800000 at 0xbffe0000: .
+}}}
+
+Redboot> '''ip_address -l 192.168.20.81 -h 192.168.20.80'''
+{{{
+IP: 192.168.20.81/255.255.255.0, Gateway: 0.0.0.0
+Default server: 192.168.20.80
+}}}
+
+Redboot> '''load -r -b %{FREEMEMLO} ap61.rom'''
+{{{
+Using default protocol (TFTP)
+Raw file loaded 0x80080000-0x800a8717, assumed entry at 0x80080000
+}}}
+
+Redboot> '''fis create -l 0x30000 -e 0xbfc00000 RedBoot'''
+{{{
+An image named 'RedBoot' exists - continue (y/n)? y
+... Erase from 0xbfc00000-0xbfc30000: ...
+... Program from 0x80080000-0x800a8718 at 0xbfc00000: ...
+... Erase from 0xbffe0000-0xbfff0000: .
+... Program from 0x807f0000-0x80800000 at 0xbffe0000: .
+}}}
+
+Redboot> '''reset'''
+
+'''You will need to change your static ip address to 192.168.1.23, because your router is now reachable at 192.168.1.1 port 9000'''
 
 = Installing OpenWrt with RedBoot =
 '''You will need to flash modified Redboot before you continue.'''
