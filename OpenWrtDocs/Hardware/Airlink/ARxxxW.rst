@@ -2,7 +2,7 @@
 Those two routers have almost identical hardware. Both are based on an Atheros System on Chip (SoC) and both have limited Redboot. 
 
 
-[[ImageLink(AR335W,target[,width=width[,height=height]])]]
+[[ImageLink(AR335W,width=width[,height=height]])]]
 
 = Hardware =
 == Info ==
