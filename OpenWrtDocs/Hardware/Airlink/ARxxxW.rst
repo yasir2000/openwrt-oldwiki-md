@@ -82,19 +82,19 @@ An image named 'rootfs' exists - continue (y/n)? y
 now type fconfig and configure the bootscript to
 Run script at boot: true 
 Enter script, terminate with empty line 
->> fis load -l linux 
+>> fis load -l vmlinux.bin.l7
 >> exec 
 >><--- just press enter 
 Boot script timeout (1000ms resolution): 5 
-Use BOOTP for network configuration: false<--- just press enter 
-Gateway IP address:<--- just press enter 
+Use BOOTP for network configuration: false <--- just press enter 
+Gateway IP address: <--- just press enter 
 Local IP address: 192.168.1.1 
 Local IP address mask: 255.255.255.0 
 Default server IP address: 192.168.1.254 
 Console baud rate: 9600 
 GDB connection port: 9000 
-Force console for special debug messages: false<--- just press enter 
-Network debug at boot time: false<--- just press enter 
+Force console for special debug messages: false  <--- just press enter 
+Network debug at boot time: false  <--- just press enter 
 Update RedBoot non-volatile configuration - continue (y/n)? y 
 ... Erase from 0xbffe0000-0xbfff0000: . 
 ... Program from 0x80ff0000-0x81000000 at 0xbffe0000: . 
