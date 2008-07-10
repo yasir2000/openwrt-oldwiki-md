@@ -335,6 +335,8 @@ br-lan: Dropping NETIF_F_UFO since no NETIF_F_HW_CSUM feature.
 Link Change 9002
 }}}
 
+Note: The 320GB SATA hard drive and 2GB usb flash drive are not installed by default.
+
 
 
 ----
