@@ -24,7 +24,7 @@ Those two routers have almost identical hardware. Both are based on an Atheros S
  * Antenna
 
 = Installing Modified Redboot =
-This is a copy-paste from DD-WRT website
+This is a copy-paste from DD-WRT website. You can download files you need from this page. http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fv24%2FAtheros+WiSoc%2FAirlink+101+AR430W/
 
 Configure your local ip to 192.168.20.80
 plugoff the power cord and replug it
