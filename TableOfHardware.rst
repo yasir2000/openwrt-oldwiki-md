@@ -61,6 +61,7 @@ Quicklinks to manufacturers:
 
 == Airlink101 ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.airlink101.com/products/anas350.html ANAS350] || ||AMRISC 20000 R3210GCL3H ||4MB ||32MB ||NONE ||IC+ IP101A-LF (x2) || ||Yes ||Yes ||Depopulated ||N/A ||
 ||[http://www.airlink101.com/products/ar335w.php AR335W] Clone of [http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=2&Sub2=5&PID=337 Dir-300] || || Atheros 2317@182Mhz || 4mb || 16mb || Atheros || IC+ IP175C || ? || Yes || Yes || No ||[:OpenWrtDocs/Hardware/Airlink/ARxxxW:Partialy supported]||
 ||[http://www.airlink101.com/products/ar430w.php AR430W] || || Atheros 2318@182Mhz || 4mb || 16mb || Atheros || IC+ IP175C || ? || Yes || Yes || No ||[:OpenWrtDocs/Hardware/Airlink/ARxxxW:Partialy supported]||
 ||[http://www.airlink101.com/products/ar360w3g.php AR360WG] || ||AMRISC 20000 R3210GCL3H ||4MB ||32MB ||RT2561 ||IC+ IP101A-LF (x2) || ||Yes ||Yes ||Depopulated ||Info Entered ||
