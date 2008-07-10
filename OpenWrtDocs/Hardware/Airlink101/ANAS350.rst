@@ -16,6 +16,7 @@ Not yet documented.
 
 === kernel boot from /proc/kmsg ===
 
+{{{
 <4>Linux version 2.4.28 (root@ATC-P4-95) (gcc version 3.3.6) #187 ¤­ 3¤ë 30 10:33:32 CST 2007
 <6>BIOS-provided physical RAM map:
 <4> BIOS-e801: 0000000000000000 - 000000000009f000 (usable)
@@ -142,3 +143,6 @@ Not yet documented.
 <6>br0: port 1(eth1) entering learning state
 <6>br0: port 1(eth1) entering forwarding state
 <6>br0: topology change detected, propagating
+}}}
+
+Note: The 320GB SATA hard drive and 2GB usb flash drive are not installed by default.
