@@ -56,6 +56,7 @@ Known platforms:
  * [:OpenWrtDocs/Hardware/Motorola/SB5100:Motorola SURFboard 5100]
  * [:OpenWrtDocs/Hardware/Motorola/SBG900E:Motorola SBG900E]
  * Scientific-Atlanta WebStar DPX-2100
+ * [:OpenWrtDocs/Hardware/Thomson/TCM390:Thomson TCM390]
 
 === bcm3349 ===
 Known platforms:
