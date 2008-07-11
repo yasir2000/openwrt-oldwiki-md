@@ -98,8 +98,8 @@ Known platforms:
 The support for Broadcom 33xx is at this state :
 
  * Linux 2.6.x booting before failing to find init on bcm3348 (SB4200)
+ * Linux 2.6.x booting to BusyBox shell on bcm3349 (WebSTAR DPC2100)
 == TODO ==
- * Linux 2.6.x booting to a shell/busybox
  * Talk with Broadcom related vendors to make them release some sources
     The Netgear CVG834G uses a bcm33xx chip and has GPL'd eCos. Netgear modified the Atlas driver in eCos to add the bcm3350.
 
