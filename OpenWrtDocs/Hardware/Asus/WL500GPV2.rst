@@ -224,6 +224,6 @@ Packages can then be installed as with e.g.:
 
 ==== Epilogue ====
 
-You got it to work?
-Nice. Share your joy with the world;
-buy someone a beer.
+You got it to work?[[BR]]
+Nice. Share your joy with the world;[[BR]]
+buy someone a beer.[[BR]]
