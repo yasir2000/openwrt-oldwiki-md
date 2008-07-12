@@ -7,12 +7,13 @@ the WGT624 v3 is based on an Atheros System on a Chip (Soc). It got a ar2312a MI
 == Specs for WGT624 Rev3 ==
  * THESE SPECS ARE NOT VERIFIED YET
 
- * Atheros Product Name: Atheros AR5001AP
- * CPU: AR2312A-00
- * Flash: 4MB
+ * NOT VERIFIED: Atheros Product Name: Atheros AR5001AP
+ * NOT VERIFIED: CPU: AR2312A-00
+ * NOT VERIFIED: Flash: 4MB
  * RAM: 16MB
- * Switch: Marvell
- * One Antenna (2db)
+ * Switch: Marvell 88E6060
+ * One External Antenna (2db)
+ * One Internal Antenna, etched onto PCB.
  * 1 WAN-Ports
  * 4 LAN-Ports
  * Powersupply: 12VDC @1A positive tip
