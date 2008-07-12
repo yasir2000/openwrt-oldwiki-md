@@ -41,8 +41,11 @@ The bootloader is RedBoot, and is a highly modified version by Dante Su. No sour
 THIS UNIT REQUIRES A CONVERTER TO COMMUNICATE WITH THE SERIAL PORT.  See this thread for details: http://forum.x-wrt.org/index.php/topic,641.0.html
 GPL Tarball located here: http://www.airlink101.com/gpl/
 
-Boot log :
+== Power Supply ==
 
+The manufacturer's website says this unit runs on 12V@1A, with no specified polarity. other websites say this unit runs on 5V. I'm successfully running mine using a power adapter that provides 5V@2A, with a positive tip.
+
+== Boot Log ==
 {{{
 +Ethernet eth0: MAC address 00:00:01:02:03:04
 IP: 192.168.1.1/255.255.255.0, Gateway: 192.168.1.254
