@@ -1,17 +1,18 @@
 [[TableOfContents]]
 
 = Netgear WGT624 =
-the WGT624 v3 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
+the WGT624 v3 is based on an Atheros System on a Chip (Soc). It got a ar2315? MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
 
 == Specs for WGT624 Rev3 ==
  * THESE SPECS ARE NOT VERIFIED YET
 
- * NOT VERIFIED: Atheros Product Name: Atheros AR5001AP
- * NOT VERIFIED: CPU: AR2312A-00
+ * NOT VERIFIED: Atheros Product Name: Atheros AR5007AP
+ * NOT VERIFIED: CPU: AR2315???
  * NOT VERIFIED: Flash: 4MB
  * RAM: 16MB
  * Switch: Marvell 88E6060
+ * Wireless: AR5315
  * One External Antenna (2db)
  * One Internal Antenna, etched onto PCB.
  * 1 WAN-Ports
