@@ -131,7 +131,7 @@ I'm hooking up the wrt to a new, fully charged, 12V lead-acid car battery, rated
 We have run a Wrt for 6 weeks on a lead-acid battery, charger, generator combination with no problems. Power was cut due to legal problems concerning the site the AP was on. The only time the unit was down was when we had power restored.
 
 === No Kernel 2.6 Kamikaze ===
-These models use bcm43xx wireless chipsets. The some software does not support the chipset under kamikaze 2.6. See [bcm43xx] problem.
+These models use bcm43xx wireless chipsets. The some software does not support the chipset under kamikaze 2.6. See ["bcm43xx"] problem.
 
 === Links ===
 [ftp://lwfinger.dynalias.org/patches (Inofficial?) bcm43xx Kernel Patches by Larry Finger]
