@@ -148,7 +148,7 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 
-now type [b]fconfig[/b] and configure the bootscript to
+now type '''fconfig''' and configure the bootscript to
 Run script at boot: true 
 Enter script, terminate with empty line 
 >> fis load -l vmlinux.bin.l7
