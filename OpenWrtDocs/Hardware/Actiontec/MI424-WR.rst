@@ -5,8 +5,8 @@
 The [http://www.actiontec.com Actiontec] MI424-WR router is based on a 533MHz IXP425. It has 32MB RAM and 8MB of FLASH. It has 4 external LAN ports and 1 WAN port. It has a coax interface and IEEE 802.11g support. Some pictures of the unit and the various revisions can be found here: [http://en.wikipedia.org/wiki/MI424WR].
 
 == Hardware ==
- * NPEB - WAN interface with separate Micrel KS8721 PHY.
- * NPEC - LAN interface connected to Micrel KSZ8995MA switch via SPI.
+ * NPEB - LAN interface connected to Micrel KSZ8995MA switch via SPI; PHY addresses: 1, 2, 3, 4.
+ * NPEC - WAN interface with separate Micrel KS8721 PHY; PHY address: 17.
  * 3 PCI slots - 2 used for coax interface.
  * Wireless MiniPCI based on RA2560.
 === GPIO ===
@@ -33,5 +33,14 @@ There's a latch accessible via CS1 that is 16-bits wide.
 ||<)>5 ||MoCA LAN ||
 ||<)>7 ||PCI reset ||
 
+== Software ==
+
+=== Redboot ===
+
+A custom version has been built. After installation (using JTAG), the redboot prompt is accessible via "telnet 192.168.1.1 9000".
+
+=== Linux ===
+
+Board id 1778 has been registered for this device.
 ----
  CategoryModel ["CategoryIXP4xxDevice"]
