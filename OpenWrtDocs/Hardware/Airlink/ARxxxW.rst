@@ -148,7 +148,7 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 
-now type fconfig and configure the bootscript to
+now type [b]fconfig[/b] and configure the bootscript to
 Run script at boot: true 
 Enter script, terminate with empty line 
 >> fis load -l vmlinux.bin.l7
@@ -157,7 +157,7 @@ Enter script, terminate with empty line
 Boot script timeout (1000ms resolution): 5 
 Use BOOTP for network configuration: false <--- just press enter 
 Gateway IP address: <--- just press enter 
-Local IP address: 192.168.1.1 
+Local IP address: 192.168.1.1
 Local IP address mask: 255.255.255.0 
 Default server IP address: 192.168.1.254 
 Console baud rate: 9600 
