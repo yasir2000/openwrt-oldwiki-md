@@ -3,8 +3,18 @@
 = Netgear WGT624 v3 =
 the WGT624 v3 is based on an Atheros System on a Chip (Soc). It has an AR2316A MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
+== Hardware Versions ==
 
-== Specs for WGT624 v3 ==
+there appear to be multiple versions of the 'v3' router. the one described on this page is the following:
+
+{{{
+Hardware Version  	V3H1
+Firmware Version 	V2.0.16_1.0.1NA
+}}}
+
+this information can be found at the top of the 'router status page' in the web interface.
+
+== Specs for WGT624 v3 -- HW REV V3H1 ==
 
  * CPU: AR2316A? NOT VERIFIED
  * Flash: 2MB Macronix 25L1605AMC
@@ -18,9 +28,13 @@ the WGT624 v3 is based on an Atheros System on a Chip (Soc). It has an AR2316A M
  * Powersupply: 12VDC @1A positive tip
 
 == Photos ==
+
+=== HW REV V3H1 ===
 Some photos are here: http://linuxpmi.org/trac/wiki/WGT624v3Pics
 
 == Serial or JTAG ==
+
+=== HW REV V3H1 ===
 Its got an unpopulated header of some sort labeled JP1. not yet verified whether its serial or JTAG.
 
 == Telnet ==
@@ -35,18 +49,7 @@ wlan0 revisions: mac 11.0 phy 4.8 analog 7.0
   Sub Vendor ID: 0x168c, Sub Device ID: 0x13
 chip is ar5315
 }}}
-
-
-== Hardware Versions ==
-
-there appear to be multiple versions of the 'v3' router. the one described on this page is the following:
-
-{{{
-Hardware Version  	V3H1
-Firmware Version 	V2.0.16_1.0.1NA
-}}}
-
-this information can be found at the top of the 'router status page' in the web interface.
+(note, this output is from a HW REV V3H1)
 
 ----
  . CategoryModel
