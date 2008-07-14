@@ -189,5 +189,31 @@ default ftp server2=router-fw2.ftp.netgear.com
 default ftp server3=router-fw3.ftp.netgear.com
 }}}
 
+=== remote shells ===
+
+there are two shells under this system. the windsh, and the wla shell
+
+{{{
+U12H05500> windsh
+
+-> version
+VxWorks (for Atheros AR5001AP default) version VxWorks5.4.2.
+Kernel: WIND version 2.5.
+Made on Aug 21 2006, 16:56:10.
+Boot line:
+tffs:(0,0):/fl/APIMG1 e=192.168.1.20:0xffffff00 f=0x8 o=et
+value = 70 = 0x46 = 'F'
+-> exit
+U12H05500> wla
+
+Atheros Access Point Rev 4.1.4.18
+wlan[0,0] -> version
+AP software 4.1.4.18
+wlan[0,0] -> get hardware
+wlan0 revisions: mac 11.0 phy 4.8 analog 7.0
+  PCI Vendor ID: 0x168c, Device ID: 0x13
+  Sub Vendor ID: 0x168c, Sub Device ID: 0x13
+chip is AR5315
+}}}
 ----
  . CategoryModel
