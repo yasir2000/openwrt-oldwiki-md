@@ -1,10 +1,10 @@
 [[TableOfContents]]
 
-= Netgear WGT624 =
+= Netgear WGT624 v3 =
 the WGT624 v3 is based on an Atheros System on a Chip (Soc). It has an AR2316A MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
 
-== Specs for WGT624 Rev3 ==
+== Specs for WGT624 v3 ==
 
  * CPU: AR2316A? NOT VERIFIED
  * Flash: 2MB Macronix 25L1605AMC
