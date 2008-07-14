@@ -214,6 +214,14 @@ wlan0 revisions: mac 11.0 phy 4.8 analog 7.0
   PCI Vendor ID: 0x168c, Device ID: 0x13
   Sub Vendor ID: 0x168c, Sub Device ID: 0x13
 chip is AR5315
+wlan[0,0] -> ping 192.168.1.38
+PING 192.168.1.38: 56 data bytes
+64 bytes from 192.168.1.38: icmp_seq=0. time=0. ms
+64 bytes from 192.168.1.38: icmp_seq=1. time=0. ms
+64 bytes from 192.168.1.38: icmp_seq=2. time=0. ms
+----192.168.1.38 PING Statistics----
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip (ms)  min/avg/max = 0/0/0
 }}}
 ----
  . CategoryModel
