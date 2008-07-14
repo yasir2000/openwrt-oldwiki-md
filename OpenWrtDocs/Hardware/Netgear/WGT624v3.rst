@@ -129,6 +129,15 @@ cumulative
 
 ==== show interface ====
 {{{
+U12H05500> show interface
+lo (unit number 0):
+     Flags: (0x8069) UP LOOPBACK MULTICAST ARP RUNNING
+     Type: SOFTWARE_LOOPBACK
+     Internet address: 127.0.0.1
+     Netmask 0xff000000 Subnetmask 0xff000000
+     Metric is 0
+     Maximum Transfer Unit size is 32768
+     168 packets received; 168 packets sent
      0 multicast packets received
      0 multicast packets sent
      0 input errors; 0 output errors
