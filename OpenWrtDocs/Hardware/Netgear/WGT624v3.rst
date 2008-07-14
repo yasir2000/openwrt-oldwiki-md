@@ -36,5 +36,17 @@ wlan0 revisions: mac 11.0 phy 4.8 analog 7.0
 chip is ar5315
 }}}
 
+
+== Hardware Versions ==
+
+there appear to be multiple versions of the 'v3' router. the one described on this page is the following:
+
+{{{
+Hardware Version  	V3H1
+Firmware Version 	V2.0.16_1.0.1NA
+}}}
+
+this information can be found at the top of the 'router status page' in the web interface.
+
 ----
  . CategoryModel
