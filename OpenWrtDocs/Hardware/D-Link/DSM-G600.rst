@@ -16,4 +16,5 @@ There are two known hardware versions with different chipsets available:
  * [http://forum.openwrt.org/viewtopic.php?id=4151 more on the openwrt forum]
 
  . CategoryGigabitDevices
+ . Category80211gDevices
  . CategoryNasDevices
