@@ -154,3 +154,6 @@ Netgear are pretty good about providing sources and being open about the GPL.  S
  * glibc 2.3.5 
 
 You will need to change some hard-coded paths in the Makefiles and config files.  You should also modify the top level makefile so that mkfs.jffs2 makes the ownership of all the files root (using -U).  Finally, the mkimage tool is missing, which generates suitable uboot kernels.  I modified linux/scripts/mkuboot.sh in the archive to point at the one built in openwrt (openwrt/tool_build/mkimage/mkimage).
+
+ . Category80211nDevices
+ . CategoryGigabitDevices
