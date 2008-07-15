@@ -5,6 +5,7 @@ This page covers the BCM63xx SoC specificities, but the BCM33xx SoC (excluding B
 = Status of the Broadcom 63xx port of OpenWrt =
  * The Broadcom BCM963xx currently only works with BCM96348 boards, but will soon with others as well
  * We have no GPL'd drivers for Ethernet, DSL so this makes the board pretty useless
+   Belkin has released [http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D7633uk4A&aid=9294&scid=314 "GPL code for the F5D7633"], does this help?
 == What is this Broadcom 63xx stuff? ==
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 
