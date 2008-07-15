@@ -22,8 +22,8 @@ If you replace the Broadcom wirelss miniPCI card with an Atheros card, you can r
 ||'''Bootloader''' ||CFE ||
 ||'''System-On-Chip''' ||Broadcom BCM94704 ||
 ||'''CPU Speed''' ||266 Mhz ||
-||'''Flash size''' ||8MiB ||
-||'''RAM''' ||32MiB (some older units have only 16MiB enabled) ||
+||'''Flash size''' ||8MiB (Spansion S29GL064M90) ||
+||'''RAM''' ||32MiB (2* HY50U281622ETP-5, some older units have only 16MiB enabled) ||
 ||'''Wireless''' ||MiniPCI Broadcom 802.11b/g BCM4318 802.11 Wireless LAN Controller ||
 ||'''Ethernet''' ||Robo switch BCM5325 ||
 ||'''USB''' ||2x USB 2.0 ||
