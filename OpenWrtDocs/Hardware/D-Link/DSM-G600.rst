@@ -14,3 +14,6 @@ There are two known hardware versions with different chipsets available:
 
  * [http://www.nslu2-linux.org/wiki/DSMG600/HomePage some info on the NSLU2 Linux wiki]
  * [http://forum.openwrt.org/viewtopic.php?id=4151 more on the openwrt forum]
+
+ . CategoryGigabitDevices
+ . CategoryNasDevices
