@@ -575,3 +575,5 @@ download uses obsolete (PF_INET,SOCK_PACKET)
 }}}
 ----
  . CategoryModel
+ . Category80211gDevices
+ . CategoryGigabitDevices
