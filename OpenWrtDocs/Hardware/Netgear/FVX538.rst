@@ -359,3 +359,5 @@ Found device on bus 0, devfn 0xa8:
 }}}
 = Links =
 [http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx Product page]
+
+ . CategoryGigabitDevices
