@@ -250,3 +250,4 @@ root@OpenWrt:~$
 }}}
 ----
  . CategoryModel ["CategoryAR7Device"]
+ . CategoryDslModems
