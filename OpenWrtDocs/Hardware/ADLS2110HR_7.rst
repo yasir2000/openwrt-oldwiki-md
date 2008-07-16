@@ -8,8 +8,7 @@ STAR-NET ADSL 2110EHR V7.0+
 PCB: 2110EH V7.0 2005.1.28
 
 PCB Photo:
-
- attachment:2110EH_V700_2005_1_28.jpg
+[[ImageLink(2110EH_V700_2005_1_28.jpg,2110EH_V700_2005_1_28.jpg,width=400)]]
 
 serial console 9600,n,8,1,hw jp1:
 
@@ -29,8 +28,7 @@ http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 Add type B female USB connector & 2N7002 Transistor
 
 Photo connector&Transistor installed :
-
- attachment:Add_Usb.jpg
+[[ImageLink(Add_Usb.jpg,Add_Usb.jpg,width=400)]]
 
 == Jtag CPU pin-out ==
 TNETD7300A TCK A20 TMS A21 TDO A22 TDI B20
@@ -153,3 +151,4 @@ attachment:enable_watchdog.jpg
 
 ----
 CategoryModel ["CategoryAR7Device"]
+ . CategoryDslModems
