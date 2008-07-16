@@ -905,4 +905,4 @@ http://www.hydraservices.com/files/addontecharm8100/openwrt-arm8100_20061104.tgz
 ----
  CategoryModel ["CategoryAR7Device"]
  . CategoryDslModems
- . CategorySupportedInKamikaez7_07
+ . CategorySupportedInKamikaze7_07
