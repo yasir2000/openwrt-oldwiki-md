@@ -15,7 +15,9 @@ Aircrack is a suite of tools that enables wireless traffic monitoring and penetr
 The official page for Aircrack is [http://www.aircrack-ng.org here].
 
 = Requirements =
- * A WRT54G/S in client mode ClientModeHowto
+ * A WRT54G/S in client mode
+   * ["OpenWrtDocs/WhiteRussian/ClientMode"]
+   * ["OpenWrtDocs/Kamikaze/ClientMode"]
  * The following packages and the packages they depend upon
  * aircrack
  * the {{{wl}}} utility
