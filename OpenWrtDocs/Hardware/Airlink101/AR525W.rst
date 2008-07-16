@@ -343,3 +343,5 @@ Link Change 9002
 ----
 
 CategoryModel
+ . CategorySupportedInTrunk
+ . Category80211gDevices
