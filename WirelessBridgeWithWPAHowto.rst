@@ -15,7 +15,7 @@ This page describes how to set up an OpenWRT install -- White Russian RC3 on a W
   * No wireless repeater on this end *
 }}}
 
-It's very easy to set up bridged client mode ({{{wl0_mode=wet}}}) on an unsecured network - see ClientModeHowto for example - and this also works with WEP or WPA1. You can also set up routed client mode ({{{wl0_mode=sta}}}) on a WPA2 network; in this case, the LAN ports must be on a different subnet from the !WiFi network.
+It's very easy to set up bridged client mode ({{{wl0_mode=wet}}}) on an unsecured network - see ["OpenWrtDocs/WhiteRussian/ClientMode"] for example - and this also works with WEP or WPA1. You can also set up routed client mode ({{{wl0_mode=sta}}}) on a WPA2 network; in this case, the LAN ports must be on a different subnet from the !WiFi network.
 
 It turns out, however, that bridged client mode on a WPA2 network is not quite as easy.  It's also easy to get this configuration working in WDS mode, but where the bridge and the AP are located close to each other, some clients would jump on the repeater side of the network and cause a loss in throughput. ''Note: There are some reports that this doesn't work any more under RC4.''
 
