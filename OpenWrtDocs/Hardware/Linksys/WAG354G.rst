@@ -23,7 +23,7 @@ Processor: ''MIPS 4KEc V4.8'' @ 150 MHz
 
 Wireless chipset: ''TI TNETW1130''
 
-Expansions: '''minipci slot''' for wireless card (connected to the processor via a VLYNQ bus)
+Expansions: '''VLYNQ slot''' for wireless card
 
 Internal:
 
@@ -63,22 +63,19 @@ Legend:
 2  Tx
 1  Vcc
 }}}
-'''Interface'''
+'''interface'''
 
-You cannot plug directly those pins to your pc serial port. You need a RS232-TTL level adapter. Some examples:
+You cannot plug directly those pins to your pc serial port. You need a RS232-TTL level adapter.
 
- * Using a MAX232: [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WAG354G?action=AttachFile&do=get&target=serial-wag354G.png Serial Console Schematic]
- * Using a USB-Serial Converter cable based on the Prolific [http://www.prolific.com.tw/eng/downloads.asp?ID=23 PL2303 chipset]. Good if you have an Apple MAC.
- * Using an hacked mobile phone datacable (MBUS), both serial or USB. Ususally this cables are really cheap and implements one of the 2 above solutions.
-Detailed instructions: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort''' '''
+See ["OpenWrtDocs/Customizing/Hardware/Serial_Console"]
 
 '''Terminal'''
 
 Configuration:
 
 {{{
- 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1) }}}
-Software: [http://alioth.debian.org/projects/minicom/ Minicom] on Linux or MacOSX(via fink); [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html Putty] on Windows; or [http://efault.net/npat/hacks/picocom/index.html picocom] on Linux as well; or any other serial line terminal program
+ 38400 bauds, 8 bits, no parity, 1 stop bit (38400 8N1)
+}}}
 
 ----
  . '''JTAG'''
@@ -101,7 +98,7 @@ to be written (& tested)...
  . '''Mods'''
 Possible mods:
 
- * Minipci Wireless Card is not replaceable!! It uses the proprietary vlynq bus by T.I.
+ * The VLYNQ expansion card is not interchangeable with a mini PCI card, despite sharing form factor
 
  * Add an SD card reader.
 to be written (& tested)...
@@ -304,3 +301,5 @@ Configuration:
 
 ----
  . ["CategoryAR7Device"]
+ . CategoryDslModems
+ . Category80211gDevices
