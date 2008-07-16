@@ -7,7 +7,7 @@
  * ["OpenWrtOverview"]
  * ["OpenWrtDocs/Installing"]
  * ["OpenWrtDocs/Hardware/Linksys/WRT54GL"]
- * ["OpenWrtDocs/Configuration"]
+ * ["OpenWrtDocs/WhiteRussian/Configuration"]
  * ["OpenWrtDocs/KamikazeConfiguration"]
  * ["Faq"]
  * ["MiniHowtos"]
