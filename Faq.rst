@@ -344,7 +344,7 @@ note: RC6 seems has a more easier way of configuring firewall rules. Instead of 
 See ["MiniHowtos/QoSHowto"].
 
 == How do I route wireless instead of a bridging LAN and WIFI? ==
-See ["OpenWrtDocs/Configuration"].
+See ["OpenWrtDocs/WhiteRussian/Configuration"].
 
 == How do I set the timezone and make it stick between reboots? ==
 !OpenWrt stores the timezone in the {{{/etc/TZ}}} file.
