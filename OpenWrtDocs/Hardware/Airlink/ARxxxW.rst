@@ -174,4 +174,4 @@ DD-WRT>reset
 If you did everything correctly then you should be able to telnet your router after it reboots.
 
  . Category80211gDevices
- . CategorySupportedInKamikaez7_07
+ . CategorySupportedInKamikaze7_07
