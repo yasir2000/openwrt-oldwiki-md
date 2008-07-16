@@ -35,7 +35,7 @@ Nevertheless there are some instances where allowing public access to FTP is nec
 iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 21 -j ACCEPT
 iptables        -A input_rule      -i $WAN -p tcp --dport 21 -j ACCEPT
 }}}
-See the ["OpenWrtDocs/Configuration"] section ''iptables  - Firewall'' for more help with firewall configuration.
+See the ["OpenWrtDocs/WhiteRussian/Configuration"] section ''iptables  - Firewall'' for more help with firewall configuration.
 
 = What is My Username and Password? =
 Your username is {{{root}}} and your password is the password you set with the {{{passwd}}} command.
