@@ -1,4 +1,4 @@
-'''Client mode howto'''
+'''White Russian Client mode howto'''
 
 [[TableOfContents]]
 
