@@ -8,3 +8,6 @@ The GT704-WG provides a DSL Modem, a USB port, a 802.11G wifi port, and 4 Ethern
 It is running Linux out of the box. It has 16MB RAM.
 ----
 CategoryModel ["CategoryAR7Device"]
+ . CategorySupportedInKamikaez7_07
+ . CategoryDslModems
+ . Category80211gDevices
