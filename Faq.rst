@@ -418,7 +418,7 @@ For details and howto configure WPA2 or AES encryption see ["OpenWrtDocs/Configu
 == How can I enable Client Mode? ==
 OpenWrt can be configured as Bridged Client Mode or Routed Client Mode.
 
-For more details on configuring the Wrt as a wireless client, see ClientModeHowto.
+For more details on configuring the Wrt as a wireless client, see ["OpenWrtDocs/WhiteRussian/ClientMode"].
 
 == Wireless Distribution System (WDS) / Repeater / Bridge ==
 This is an ASCII art for what WDS can be useful.
