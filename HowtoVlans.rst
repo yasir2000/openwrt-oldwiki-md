@@ -7,4 +7,4 @@ vlan2ports -> /proc/switch/eth0/vlan/2/ports
 ...
 }}}
 
-See [:OpenWrtDocs/Configuration]
+See [:OpenWrtDocs/WhiteRussian/Configuration]
