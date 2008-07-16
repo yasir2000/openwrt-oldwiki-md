@@ -139,10 +139,10 @@ Most of this information came from [http://forum.openwrt.org/profile.php?id=524 
 [http://forum.openwrt.org/profile.php?id=524 ]
 === Wireless configuration ===
 ==== 802.11x ====
-'''Note: Currently supported on Broadcom only, although madwifi support is almost complete :)'''
+'''Note: Currently supported on Broadcom and Atheros (MadWifi) only'''
 
  * /etc/config/wireless documentations https://dev.openwrt.org/browser/trunk/docs/wireless.tex
- * Other types, e.g. madwifi, are not yet handled here and must use a startup script to work.
+
 Wireless specific (Layers 1 and 2) configuration is in /etc/config/wireless.  Layer 3 (Network) is done in /etc/config/network.
 
 Default Configuration:
@@ -206,6 +206,8 @@ config wifi-iface
 '''5) "option type broadcom":''' If you get an error about 'broadcom unsupported', make sure you have the '''wlc''' and '''kmod-brcm-wl''' packages installed. You will probably also need '''nas''' for WPA.
 
 '''6) hostapd:''' For WPA you may need hostapd. The kamikaze 7.07 does not include hostapd and must be installed to support WPA (at least when using madwifi).
+===== Client Mode with WPA/WPA2 =====
+See ["OpenWrtDocs/Kamikaze/ClientMode"]
 
 ==== MAC Filter ====
 First, you need to have installed the wl package - '''ipkg install wl'''
@@ -487,7 +489,7 @@ For more How-To's (for example setting up Kamikaze, step by step) have a look at
 
 = Sample Application Config Scripts =
  * Repeater http://wiki.openwrt.org/Repeater
- * Routed client-mode wireless on a Fonera http://wiki.openwrt.org/ClientModeKamikazeStyleHowto
+ * Routed client-mode wireless on a Fonera ["OpenWrtDocs/Kamikaze/ClientMode"]
 == multi wan configuration on kamikaze ==
 OpenWrtDocs/KamikazeConfiguration/MultipleWan
 
