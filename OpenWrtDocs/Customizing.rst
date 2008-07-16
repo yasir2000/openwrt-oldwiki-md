@@ -30,7 +30,7 @@ The contents of this section of the wiki can have serious consequences. While ev
  * Networking
   * [http://www.hetos.de/bwlog.html WRTbwlog] A tool that shows internet traffic on all wired and wireless interfaces, as well as many other useful and related functions. (WRTbwlog doesn't count traffic in OpenWRT, because it uses "find -mtime -1", but "find" from OpenWRT WhiteRussian RC6 doesn't support "-mtime")
   * BandwithTestPage - A simple CGI script for testing the instantaneous bandwidth to the wireless router. Just drop into /www/cgi-bin and chmod+x.
-  * TransparentFirewall
+  * ["OpenWrtDocs/WhiteRussian/TransparentFirewall"]
   * System
    * ["OpenWrtDocs/Customizing/Software/SysLoadLED"]
    * Wireless
