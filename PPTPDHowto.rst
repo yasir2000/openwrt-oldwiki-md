@@ -92,7 +92,7 @@ iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
 iptables        -A output_rule             -p 47               -j ACCEPT
 iptables        -A input_rule              -p 47               -j ACCEPT
 }}}
-See the ["OpenWrtDocs/Configuration"] section ''iptables  - Firewall'' for more help with firewall configuration.
+See the ["OpenWrtDocs/WhiteRussian/Configuration"] section ''iptables  - Firewall'' for more help with firewall configuration.
 
 == Test Connection ==
 Tell a client to connect to the PPTP server, using the username and password you set in ''chap-secrets''.
