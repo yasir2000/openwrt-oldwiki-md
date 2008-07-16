@@ -8,3 +8,5 @@ I've put some informations to http://www.wehavemorefun.de/fritzbox/OpenWRT
 
 ----
 CategoryModel ["CategoryAR7Device"]
+ . CategoryDslModems
+ . CategorySupportedInTrunk
