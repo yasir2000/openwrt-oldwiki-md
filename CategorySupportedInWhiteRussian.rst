@@ -15,5 +15,5 @@ To add a page to this category, add a link to this page on the last line of the 
 
 ----
 CategoryCategory
-CategorySupportedInKamikaze7_07
+"CategorySupportedInKamikaze7_07"
 CategorySupportedInTrunk
