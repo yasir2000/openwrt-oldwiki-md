@@ -59,3 +59,5 @@ chmod +x /etc/init.d/S39confwifi
 }}}
 
 After a reboot WME should be enabled automatically.
+
+CategoryWhiteRussian
