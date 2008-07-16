@@ -14,7 +14,9 @@ Standart MIPS EJTAG 2.5 14-PIN Header
 
 MIPS EJTAG PIN-OUT: attachment:MIPS.JPG
 
-PCB Photo: attachment:Jtag_Serial.JPG
+PCB Photo:
+[[ImageLink(Jtag_Serial.JPG,Jtag_Serial.JPG,width=400)]]
 
 ----
  . ["CategoryAR7Device"]
+ . CategoryDslModems
