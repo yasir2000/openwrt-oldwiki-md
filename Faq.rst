@@ -673,7 +673,7 @@ svn co https://svn.openwrt.org/openwrt/branches/whiterussian/openwrt/
 
 '''Development'''
 
-/!\ '''WARNING:''' Please never use any image of Kamikaze, if you have no access to serial console. The chance to brick your router with the development version is very high.
+/!\ '''WARNING:''' Please never use any development image (release images are safe) of Kamikaze, if you have no access to serial console. The chance to brick your router with the development version is very high.
 
 Development take place in SVN. You get the source via:
 
