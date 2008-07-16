@@ -106,3 +106,5 @@ Additional high-res photos can be found at
 http://user.kollasch.net/jakllsch/photos/Actiontec%20GT701-WG/
 ----
 CategoryModel ["CategoryAR7Device"]
+ . Category80211gDevices
+ . CategoryDslModems
