@@ -35,4 +35,4 @@ The serial port is marked with the red circle on the picture (lower left corner)
 
 [[ImageLink(adsl2mue_serial.jpg,adsl2mue_serial.jpg,width=400)]]
 ----
-["CategoryAR7Device"] CategoryModel
+["CategoryAR7Device"] CategoryModel CategoryDslModems
