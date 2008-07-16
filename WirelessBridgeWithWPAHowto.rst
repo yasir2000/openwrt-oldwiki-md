@@ -339,3 +339,5 @@ wl0_ssid=<<SSID>>
 wl0_wpa_psk=<<PSK>>
 ...
 }}}
+
+CategoryWhiteRussian
