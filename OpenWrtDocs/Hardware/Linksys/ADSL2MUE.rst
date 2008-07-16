@@ -5,7 +5,8 @@
 To reach the serial console you have to first unscrew the unit. Underneath the little rubber feet under the blue part of the unit there are two tiny
 screws. Gently remove the little rubber feet and you can open the unit.
 
-attachment:adsl2mue_screw.jpg
+[[ImageLink(adsl2mue_screw.jpg,adsl2mue_screw.jpg,width=400)]]
+
 
 == ADSL2MUE Serial Console ==
 
@@ -32,6 +33,6 @@ Mine already had a connector soldered just like to ones we usually see on comput
 
 The serial port is marked with the red circle on the picture (lower left corner).
 
-attachment:adsl2mue_serial.jpg
+[[ImageLink(adsl2mue_serial.jpg,adsl2mue_serial.jpg,width=400)]]
 ----
 ["CategoryAR7Device"] CategoryModel
