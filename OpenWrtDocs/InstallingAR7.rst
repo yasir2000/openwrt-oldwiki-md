@@ -231,8 +231,5 @@ While some official firmware's have a tftpd server running once loaded. It is no
 
 Currently the OpenWrt firmware's don't include the checksum to allow firmware upgrading via the web inferface of official firmware's. This may change in the future. However the recommended method is via tftp/ftp (depending on which is available) at bootloader time. Unless the bootloader is damaged this should allow recovery from any failed flashes.
 
-= Using OpenWrt =
-Please see ["OpenWrtDocs/Using"]
-
 = Troubleshooting =
 If you have any trouble flashing to OpenWrt please refer to ["OpenWrtDocs/TroubleshootingAR7"]
