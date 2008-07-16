@@ -9,3 +9,5 @@ or
 ----
 
 CategoryModel
+ . CategoryDslModems
+ . Category80211gDevices
