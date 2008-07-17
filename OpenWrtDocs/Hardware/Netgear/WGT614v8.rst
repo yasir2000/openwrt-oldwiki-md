@@ -1,5 +1,5 @@
-= Netgear WGT614 v8 =
-the WGT614 v8 is based on an Atheros System on a Chip (Soc). It has an ??? MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
+= Netgear WGR614 v8 =
+the WGR614 v8 is based on an Atheros System on a Chip (Soc). It has an ??? MIPS processor. There is an ongoing process porting OpenWRT to this chip: AtherosPort
 
 == Hardware Versions ==
 
