@@ -9,6 +9,7 @@ Some ["OpenWrtDocs/Hardware/Netgear"] routers run a telnet daemon which can be a
  * WGR614 v7: known to work (if it does not work for you, try to hardreset your router first)
  * WGR614 v3,v4,v5,v6: known to work
  * WGR614 v1-2: unknown, may well work
+ * WGT624 V3H1: worked, after 6-12 try, reboot, try again cycles.
  * WPN824 v1: known to work
  * WPN824 V2.0.15_1.0.11 : works!
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
