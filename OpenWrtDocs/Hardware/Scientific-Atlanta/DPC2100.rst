@@ -53,18 +53,28 @@ eCos is licensed under the GNU GPL. However, Scientific-Atlanta appears to have 
 == Firmware Images ==
 
 {{{
-2 bytes: signature
-2 bytes: "Control" 00 05
+2 bytes: signature (hardware target ID)
+2 bytes: "Control" (image compression format)
+	00 00 -- Uncompressed
+	00 01 -- LZRW1/KH
+	00 02 -- mini-LZO
+	00 03 -- Uncompressed
+	00 04 -- NRV2D99 (required for bootloader?)
+	00 05 -- (non-standard) LZMA
+	00 06 -- Uncompressed
+	00 07 -- Uncompressed
 2 bytes: Major Rev 00 03
 2 bytes: ?? Minor Rev 00 00
-4 bytes: ?? Build Time (big endian MOO-time-compat)
+4 bytes: Build Time
 4 bytes (int32): File Length
-4 bytes: Load Address 80 01 00 00
+4 bytes: Load Address
+	81 f8 00 00 -- for Bootloader?
+	80 01 00 00 -- for Firmware Image
 64 bytes: Filename (padded null)
 2 bytes: HCS (Header checksum?) 06 49
 2 bytes: 00 00
 4 bytes: CRC
-*Data*?
+*Data*
 }}}
 
 = Accessing DPC2100 =
