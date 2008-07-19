@@ -123,19 +123,7 @@ CFE> reset
 The !OpenWrt port for Netgear WGT634U will '''not''' use any NVRAM configuration. Everything is configured in {{{/etc}}}. For network configuration please modify {{{/etc/config/network}}}. The NVRAM partition is your old config partition, so please back it up. You eventually need it to restore your original firmware. The WGT634U uses the madwifi driver for the wireless card. See [http://madwifi.org/wiki madwifi wiki] for several examples of how to configure access point/client mode/monitor mode and the up to date docs on the madwifi driver.
 
 == Client-mode for the wireless card ==
-The WGT634U also supports client-mode (aka managed mode). You need kmod-madwifi, which is probably already installed since it's selected by default.
-
-Modes cannot be changed with iwconfig. You need wlanconfig. For help run it without parameters.
-
-The usual commands would probably be:
-
-{{{
-ifconfig ath0 down    # if it isn't already down
-wlanconfig ath0 destroy
-wlanconfig ath0 create wlandev wifi0 wlanmode sta
-iwconfig ath0 essid your_essid
-}}}
-You can then configure ath0 as usual with ifconfig and iwconfig. Iwconfig will display Mode: Managed, but the card will be in client-mode.
+The WGT634U also supports client-mode (aka managed mode). You need kmod-madwifi, which is probably already installed since it's selected by default.  Once you get the wireless working, follow the Kamikaze client mode guide ["OpenWrtDocs/Kamikaze/ClientMode"].
 
 = Using USB drive for Root =
 Normally, using the usb drive for root requires making a custom image with a proper bootline such as:
