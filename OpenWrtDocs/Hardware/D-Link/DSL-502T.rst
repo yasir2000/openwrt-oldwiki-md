@@ -36,6 +36,8 @@ In most other situations, the worst that will happen is that you will have to po
 
 '''Get the source code'''
 
+Warning! over 1GB space needed to complete install
+
 The sourcecode is held in a subversion repository and is updated continuously. Install the subversion package (e.g. using the synaptic package manager on ubuntu). To get the latest trunk code:
 
 {{{
@@ -92,7 +94,7 @@ Enter into the folder and run make menuconfig. Select at least:
  * Kernel Modules -> Network Devices -> select either annex A or B depending on your ADSL type (B = Germany only?). The annex of your router is marked on the PCB if you don't mind opening the case.
 Quit and save the config.
 
-Run 'make' to download essential packages (approximately 100MByte) and compile the firmware. Go and get a coffee. Maybe a second coffee too.
+Run 'make' to download essential packages (approximately 100MByte, this is an extreme under estimate, I run out of space after having more than 600MB of free space) and compile the firmware. Go and get a coffee. Maybe a second coffee too.
 
 The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.bin.
 
