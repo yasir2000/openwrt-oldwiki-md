@@ -5,3 +5,4 @@ This is identical to the [:OpenWrtDocs/Hardware/Netgear/WNR854:Netgear WNR854] -
 ----
 
 CategoryModel
+Category80211nDevice
