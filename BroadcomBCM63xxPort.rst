@@ -63,7 +63,7 @@ Known 6348 platforms*:
 ||[:OpenWrtDocs/Hardware/Asus/WL600g:ASUS WL-600G] ||
 ||[:OpenWrtDocs/Hardware/Asus/AM200g:ASUS AM200G] ||
 ||[:OpenWrtDocs/Hardware/Belkin/f5d7633-4:Belkin f5d7633-4] ||
-||[:OpenWrtDocs/Hardware/BT/Voyager2091:BT Voyager 2091 ||
+||[:OpenWrtDocs/Hardware/BT/Voyager2091:BT Voyager 2091] ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 Comtrend CT-536/1+] ||
 ||[http://comtrend.com/index.php?module=products&op=show&sn=41 Comtrend CT-638/1] ||
 ||[http://www.dynalink.co.nz/cms/index.php?page=rta1046vw Dynalink RTA1046VW] ||
