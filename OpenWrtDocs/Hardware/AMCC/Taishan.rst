@@ -45,3 +45,4 @@ reset
 
 ----
 CategoryModel
+CategoryGigabitDevices
