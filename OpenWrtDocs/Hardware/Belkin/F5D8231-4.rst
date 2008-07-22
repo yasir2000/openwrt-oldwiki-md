@@ -110,4 +110,4 @@ ixp400_eth: Use default MAC address 00:02:b3:02:02:02 for port 1
 http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D8231-uk4&aid=9126&scid=0
 
 Category80211nDevice
-Category100baseTDevice
+["Category100BaseTDevice"]
