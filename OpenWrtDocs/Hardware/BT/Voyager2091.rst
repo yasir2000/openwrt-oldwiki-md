@@ -1,4 +1,4 @@
-attachment:small-2091.png [BR]
+attachment:small-2091.png
 
 [http://www.voyager.bt.com/wireless_devices/voyager_2091/product_info.htm BT Voyager 2091] uses a [:BroadcomBCM63xxPort:BCM6348] chipset. 
 
