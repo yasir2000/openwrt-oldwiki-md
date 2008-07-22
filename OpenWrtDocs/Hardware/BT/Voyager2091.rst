@@ -1,3 +1,5 @@
+attachment:small-2091.png [BR]
+
 [http://www.voyager.bt.com/wireless_devices/voyager_2091/product_info.htm BT Voyager 2091] uses a [:BroadcomBCM63xxPort:BCM6348] chipset. 
 
 More information on this device can be found on [http://corz.org/comms/hardware/router/other.bt.voyager.routers.php corz.org]
