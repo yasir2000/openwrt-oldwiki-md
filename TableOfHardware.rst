@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2008/04/24
+This is a table of all supported devices as of 2008/07/21
 
 '''Status Legend''':
 
@@ -378,7 +378,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||5.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL Broadcom 5352] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:NO] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||6.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL Broadcom 5352] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G:NO] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=601 WRT54G] ||8.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5354 Broadcom 5354] @ 240Mhz ||2MB ||8MB ||Broadcom (Integrated) ||in CPU ||off ||Yes ||Yes ||No ||NO ||
-||WRT54G3G || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||Broadcom (integrated) ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G3G:WiP] ||
+||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175237934633&pagename=Linksys%2FCommon%2FVisitorWrapper&lid=3463339789B06 WRT54G3G] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||Broadcom (integrated) ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54G3G:Supported] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1133202177241&pagename=Linksys/Common/VisitorWrapper WRT54GL] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GL:Supported] ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&amp;cid=1133202177241&pagename=Linksys/Common/VisitorWrapper WRT54GL] ||1.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GL:Supported] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=610 WRT54GS] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||8MB ||32MB ||Broadcom (integrated) ||ADM6996L ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GS:Supported] ||
