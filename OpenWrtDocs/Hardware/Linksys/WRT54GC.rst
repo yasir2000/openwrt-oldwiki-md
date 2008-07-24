@@ -61,5 +61,7 @@ Is it '''linux-based'''?  Probably not. It's returning part of your User-Agent m
 
 The WRT54GC is based on the Sercomm IP806SM reference design, which is same platform as the Airlink101 AR315W, Alloy WRT2454AP, and Hawking HWR54G (Rev. M).
 
+Can this router support OpenWRT?
+
 ----
  CategoryModel
