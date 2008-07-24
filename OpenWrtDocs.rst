@@ -13,8 +13,34 @@
 ## (no, don't reply here, use the forum)
 ##
 ##
-##
-##
+### 2 problems with the above:
+### 
+### 1: I apologize but there seems to be no place and no link to anywhere appropriate
+### for questions/problems with the wiki itself. I suggest right on the front page,
+### however small and out of the way and low contrast, there needs to be _something_
+### for contacting the wiki or site admins.
+###
+### 2: For example, the instigation of #1:
+### The recover lost password procedure does not work.
+### It emails you your login name and an encrypted password in a format {SHA}...
+### and tells you to past that password into the login password field.
+### This does not work. Luckily I was able eventually to simply remember/guess
+### my password the normal way.
+### As unwelcome as this comment may be in the front page, I figure it's better than
+### simply creating a (visible) link to a new page, which is what I probably should
+### do by rights, and allow the natural process of everyone revising that take it's course.
+### Another reasonable approach would have been to create a new account, or call a
+### friend who knows their password simply edit the page that gives the faulty directions.
+### But even after successfully logging in I do not have permission to edit that page.
+###
+### Yes I looked in the forms and didn't see anything there either, though even if there
+### were something there that's not very useful without a clearly labeled "contact us"
+### or "feedback" or "site admin" or "webmaster" etc... link to it from here.
+### I guess this is as good a way as any to point out the lack. Had there been some
+### official place for such dialog, I'd have used it, instead of this messy comment.
+###
+### Sorry again for the intrusion.
+### Respectfully, wiki user BrianWhite , brian@aljex.com
 ##
 ##
 ##
