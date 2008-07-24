@@ -1150,11 +1150,13 @@ CONFIG_PACKAGE_kmod-zd1211=m
  * When opening the case, be very careful when separating the upper from the lower half. The internal antenna pigtails are quite short and can be ripped out of the plug in the rear of the case.
 
 = Second Serial =
- * this unit has a second serial port, which is a 3.3V port. it is the ten pin un-soldered header toward the front of the PCB. (not the 20 pin next to it).
+ * this unit has a second serial port, which is a 3.3V port. as in, you will have to raise the voltage to 12V levels to hook it to a PC. it is the ten pin un-soldered header toward the front of the PCB. (not the 20 pin in front of that).
  * its pinout is:
 
-{
+{{{
 1 == GND
 2 == +3.3V
+3 == RX
 5 == TX
-}
+10 == drops on tx?
+}}}
