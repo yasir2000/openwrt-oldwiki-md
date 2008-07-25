@@ -605,6 +605,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.usr-emea.com/support/s-prod-template.asp?loc=unkg&prod=9106 USR9106] || ||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6345 Broadcom 6345] @ 100MHz ||4MB ||16MB ||mini-PCI || ||Yes ||Yes ||Yes || ||[:BroadcomBCM63xxPort:WiP] ||
 ||[http://www.usr-emea.com/products/p-wireless-product.asp?prod=net-5475&page=specs&loc=grmy USR 5463] || ||Atheros SoC ||2MB ||8MB ||Atheros 5212 SoC ||IC ip175C || ||Yes ||Yes || ||[http://wiki.openwrt.org/usr5463 Possible] ||
 || [http://www.usr.com/support/product-template.asp?prod=6000 USR6000] || || Broadcom BCM3350 || 2MB MX 29LV160BTC || 8MB || No || || || Yes || || Yes || [:OpenWrtDocs/Hardware/USRobotics/USR6000:Info entered] ||
+|| [http://www.usr.com/ USR8200] || || [http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @266 MHz || 16MB (Intel TE28F128) || 64MB (2 x V54C3256164) || No (but has pads for mini-PCI) || Marvell 88E6060-RCJ || || Yes || Yes || Yes || [http://wiki.openwrt.org/usr8200 Possible] ||
 == Viewsonic ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WAPBR-100, A.K.A VS10407 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||off ||Maybe ||No ||No ||WiP ||
