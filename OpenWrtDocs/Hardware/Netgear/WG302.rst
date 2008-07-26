@@ -1,3 +1,121 @@
+= Versions =
+
+Apparently, there are two versions of this hardware. to tell the difference, look at the bottom of the chasis, at the sticker. the sticker on the V1 has no mention of version number on it.
+
+= Default Firmware =
+
+The firmware from the manufacturer runs linux. the following is the output of firmware version 3.0.2 on a version 1 router:
+
+== Boot Messages ==
+{{{
+
+Using base address 0x01600000 and length 0x00600000
+Uncompressing Linux............................................................................................... done, booting the kernel.
+Linux version 2.4.18_mvl30-ixdp425 (wg302@Perphect) (gcc version 3.2.1 20020930 (MontaVista)) #1 Sun Mar 27 11:31:09 HKT 2005
+CPU: Intel XScale-IXP4xx/IXC1100 revision 1
+Machine: Intel IXDP425 Development Platform
+Warning: bad configuration page, trying to continue
+bootmem_init: rdisk setup
+rdisk  start c0039100, end 0019162e
+Security risk: creating user accessible mapping for 0x60000000 at 0xff00f000
+Security risk: creating user accessible mapping for 0x51000000 at 0xf1000000
+Security risk: creating user accessible mapping for 0x55000000 at 0xf5000000
+On node 0 totalpages: 8192
+zone(0): 8192 pages.
+zone(1): 0 pages.
+zone(2): 0 pages.
+Kernel command line: console=ttyS0,9600 ip=off root=/dev/ram0 mem=32M@0x00000000
+Calibrating delay loop... 263.78 BogoMIPS
+Memory: 32MB = 32MB total
+Memory: 29140KB available (1053K code, 211K data, 196K init)
+XScale Cache/TLB Locking Copyright(c) 2001 MontaVista Software, Inc.
+XScale cache_lock_init called
+   Calling consistent alloc
+   low_level_page initialized
+   low_level_page @ 0xc2800000
+      icache_lock_fn @ 0xc2800080
+      dcache_lock_fn @ 0xc28000a0
+      icache_unlock_fn @ 0xc2800098
+      dcache_unlock_fn @ 0xc28000f0
+Initializing TLB locking
+TLB locking initialized
+Dentry-cache hash table entries: 4096 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 2048 (order: 2, 16384 bytes)
+Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+Buffer-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Page-cache hash table entries: 8192 (order: 3, 32768 bytes)
+POSIX conformance testing by UNIFIX
+PCI Autoconfig: Found Bus 0, Device 2, Function 0
+PCI Autoconfig: BAR 0, Mem, size=0x10000, address=0x4bff0000
+PCI: bus0: Fast back to back transfers enabled
+Linux NET4.0 for Linux 2.4
+Based upon Swansea University Computer Society NET3.039
+Initializing RT netlink socket
+Starting kswapd
+Disabling the Out Of Memory Killer
+JFFS2 version 2.1. (C) 2001, 2002 Red Hat, Inc., designed by Axis Communications AB.
+pty: 256 Unix98 ptys configured
+Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI enabled
+ttyS00 at 0xff000003 (irq = 15) is a XScale UART
+ttyS01 at 0xff001003 (irq = 13) is a XScale UART
+block: 64 slots per queue, batch=16
+RAMDISK driver initialized: 16 RAM disks of 8192K size 1024 blocksize
+loop: loaded (max 8 devices)
+PPP generic driver version 2.4.1
+Creating 6 MTD partitions on "IXP425 Flash":
+0x00000000-0x00060000 : "RedBoot"
+0x00060000-0x00660000 : "ixp425"
+0x00660000-0x007c0000 : "unallocated space"
+0x007c0000-0x007c1000 : "RedBoot config"
+mtd: partition "RedBoot config" doesn't end on an erase block -- force read-only
+0x007c1000-0x007c2000 : "Config backup"
+mtd: partition "Config backup" doesn't start on an erase block boundary -- force read-only
+0x007e0000-0x00800000 : "FIS directory"
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 2048 bind 4096)
+NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+NetWinder Floating Point Emulator V0.95 (c) 1998-1999 Rebel.com
+RAMDISK: Compressed image found at block 0
+Problen locking and unloacking for freeing initrd mem
+VFS: Mounted root (ext2 filesystem).
+Freeing init memory: 196K
+/dev/cramfs mounted
+serial console detected.  Disabling virtual terminals.
+init started:  BusyBox v0.60.3 (2002.12.19-12:19+0000) multi-call binary
+Mounting local filesystems...
+Initializing random number generator... done.
+Mounting JFFS2 partition....
+start zcomlog...
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/zcommisc.o
+loading csr & ethernet drivers...
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/csr.o
+Intel CSR module init.
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/ixp425_etixp425_eth: Initializing ixp425_eth driver 0.0.9
+h.o
+ixp425_eth: Found PHY 0 at 30
+ixp425_eth: ixp0 is using the PHY at address 30
+ixp425_eth: ixp1 is using the PHY at address 1
+ixp425_eth: PHY 0 MAC address is:       00:02:b3:01:01:01
+ixp425_eth: PHY 1 MAC address is:       00:02:b3:02:02:02
+Mounting ramd for firmware upgrade....
+Using /lib/modules/2.4.18_mvl30-ixdp425/kernel/drivers/igateway.o
+configserver 2.1.0
+AG-621 802.11a/b/g linux driver 1.1.9 ap
+==============================================
+  Driver Build Time: 11:47:08 Mar 27 2005
+==============================================
+Allocate ZComDmaPool @c15fb720, UnitCount: 640, UnitSize:128 Total Size: 81920
+         Host Address:c324a000, Dma Address: 01140000
+Allocate ZComDmaPool @c15fb760, UnitCount: 3328, UnitSize:256 Total Size: 851968
+         Host Address:c325f000, Dma Address: 01000000
+Read MacAddress By ZComWlan_IOControl()
+MacAddress: 00:15:6d:53:2c:c1
+device ixp0 entered promiscuous mode
+device sap0 entered promiscuous mode
+}}}
+
 = Installation =
  * Prepare TFTP Server with zImage and root filesystem (sqashfs or jffs2)
  * Connect PC to wg302 with serial cable
