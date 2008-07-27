@@ -1274,7 +1274,12 @@ CONFIG_PACKAGE_kmod-zd1211=m
 {{{
 1 == GND
 2 == +3.3V
-3 == RX
+3 == CTS?
 5 == TX
-10 == drops on tx?
+8 == RX
+10 == RTS?
 }}}
+
+its worth noting, if you're thinking of using this to de-brick another AP, that you need to cross the CTS and RX lines, connecting them to RX on the receiving AP's end. don't ask me why.
+
+second serial port access is only available on the ixp4xx firmware, or in the latest trunk.
