@@ -1282,4 +1282,6 @@ CONFIG_PACKAGE_kmod-zd1211=m
 
 its worth noting, if you're thinking of using this to de-brick another AP, that you need to cross the CTS and RX lines, connecting them to RX on the receiving AP's end. don't ask me why.
 
+more weirdness, with CTS and RX crossed, occasionally the unit refuses to boot until it sees activity on the primary port. randomly.
+
 second serial port access is only available on the ixp4xx firmware, or in the latest trunk.
