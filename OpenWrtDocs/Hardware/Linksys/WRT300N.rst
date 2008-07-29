@@ -221,3 +221,7 @@ There aren't many connector slots on the board. The serial console (JP1) is just
 ----
  . CategoryModel
 The console connector for the WRT300N v2 uses TTL voltage. Thus it cannot be directly connected to a PC RS232 port (you may fry your WRT300N v2 if you do so). It requires level shifting (by the use of MAX3232 component for example). Details about such a modified cable are widely available. Among other places you can find them at the WRT54G (linux) pages.
+
+'''WRT300N v2 PCB's'''
+
+attachment:'''wrt300nv2_side1.jpg'''
