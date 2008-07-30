@@ -12,9 +12,9 @@ Practically, installation can be easy but you need to read up to make sure you a
 === Summary of OpenWrt software ===
 There are two main versions:
 
- * ''whiterussian'' - older, more stable, more documentation and tutorials are aimed at this version. [http://forum.openwrt.org/viewtopic.php?pid=42105 Development stopped] in early 2007. You might want this version, but consider x-wrt below before deciding.
+ * ''whiterussian'' - Only for Broadcom hardware, more documentation and tutorials are aimed at this version. [http://forum.openwrt.org/viewtopic.php?pid=42105 Development stopped] in early 2007.
 
- * ''kamikaze'' is the new version, it's based on a different design so it can run on a wider range of devices, it has a newer kernel, but it's the bleeding-edge choice. Stable, but work in progress. Unless you know you want this version, you probably don't want this version.
+ * ''kamikaze'' - Supports multiple hardware architectures, uses the 2.6 kernel for all targets except a legacy Broadcom target (to keep Broadcom wireless functionality.) Uses config files to store configuration instead of nvram.
 
  * There is a project aimed more at user friendliness (OpenWrt plus an updated web interface) http://x-wrt.org/ - You may well want this version.
 
