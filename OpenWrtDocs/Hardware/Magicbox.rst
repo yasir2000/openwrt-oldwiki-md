@@ -59,7 +59,7 @@ setenv bootargs console=ttyS0,115200 root=/dev/mtdblock1 rootfstype=squashfs,jff
 
 Magicbox 2.0:
 {{{
-setenv bootargs console=ttyS1,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
+setenv bootargs console=ttyS0,115200 root=/dev/mtdblock1 rootfstype=squashfs,jffs2 noinitrd init=/etc/preinit
 }}}
 
 Set/clear the needed variables and save:
