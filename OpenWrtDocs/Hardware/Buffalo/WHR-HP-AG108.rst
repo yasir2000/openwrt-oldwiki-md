@@ -70,7 +70,7 @@ screen -c /dev/null -m /dev/ttyUSB0 9600 8N1
 }}}
 If you're connecting to the router using '''ethernet''', make sure your network cable is plugged into port 1! It's the one closest to the antenna. I tried port 4 before and didn't got a network connection with that.
 
-Now you may power up your router and hit Ctrl-C when it asks for it. Once in !RedBoot you should set your network config
+Now you may power up your router and hit Ctrl-C when it asks for it. '''Once in !RedBoot''' you should set your network config
 
 {{{
 ip_address -l [router ip address] -h [ftp server address]
