@@ -78,6 +78,8 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 
 '''[:OpenWrtDocs/Installing:Installing OpenWrt]'''
 
+'''[:OpenWrtDocs/Deinstalling:Uninstalling OpenWrt]'''
+
 '''[:OpenWrtDocs/Customizing:OpenWrt Customization]''' [[Include(OpenWrtDocs/Customizing,,titlesonly)]]
 
 '''[:OpenWrtDocs/Hardware:Hardware Information]''' [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
