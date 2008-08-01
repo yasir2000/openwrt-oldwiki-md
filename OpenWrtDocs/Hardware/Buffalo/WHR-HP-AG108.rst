@@ -20,7 +20,7 @@ I tested it with Kamikaze 7.06 so if you're unsure you may use that version. It 
 '''If you can't compile the firmware image yourself you can download my pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 here: '''http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
 The image is very stable and has Webif^2 built in so you will be able to access the router using your web browser at http://192.168.1.1 after you flash it.
 
-== Accessing RedBoot via telnet ==
+== Accessing RedBoot via ethernet ==
 Start Buffalo debug interface (instructions below)
 
 activate telnet
@@ -53,15 +53,15 @@ interrupt it with CTRL-C
 
 you should be at the !RedBoot prompt : RedBoot>
 
-== Loading OpenWrt via Telnet ==
+== Loading OpenWrt ==
 '''Always make a backup of your old firmware. If something goes wrong - I told you!'''
 
-If you're using a serial console configure it with:
+If you're using a '''serial console''' configure it with:
 
 {{{
 screen -c /dev/null -m /dev/ttyUSB0 9600 8N1
 }}}
-If you're connecting to the router using ethernet, make sure your network cable is plugged into port 1! It's the one closest to the antenna. I tried port 4 before and didn't got a network connection with that.
+If you're connecting to the router using '''ethernet''', make sure your network cable is plugged into port 1! It's the one closest to the antenna. I tried port 4 before and didn't got a network connection with that.
 
 Now you may power up your router and hit Ctrl-C when it asks for it. Once in !RedBoot you should set your network config
 
