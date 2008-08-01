@@ -20,6 +20,13 @@ I tested it with Kamikaze 7.06 so if you're unsure you may use that version. It 
 '''If you can't compile the firmware image yourself you can download my pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 here: '''http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
 The image is very stable and has Webif^2 built in so you will be able to access the router using your web browser at http://192.168.1.1 after you flash it.
 
+== Buffalo debug interface ==
+{{{
+http://192.168.11.1/cgi-bin/cgi?req=frm&frm=py-db/55debug.html
+user: bufpy
+password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
+}}}
+
 == Accessing RedBoot via ethernet ==
 Start Buffalo debug interface (instructions below)
 
@@ -182,17 +189,12 @@ I confirmed that both wifi interfaces were working simultaneously with this setu
 == Troubles ==
 Said this I'm still very unsatisfied with the wireless performance because compared to my wrt54gl the wireless range just sucks. Maybe it's because I can't set txpower to levels higher than 13 dBm, but I'm unsure about that because of the built in amplifier.
 
-== Buffalo debug interface ==
-{{{
-http://192.168.11.1/cgi-bin/cgi?req=frm&frm=py-db/55debug.html
-user: bufpy
-password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
-}}}
 == Serial pinout (JP2) ==
 {{{
 3.3V, GND, RX, TX
 Board on this side
 }}}
+
 == RedBoot factory defaults ==
 {{{
 RedBoot> fis list
