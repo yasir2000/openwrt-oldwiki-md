@@ -28,7 +28,7 @@ password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
 }}}
 
 == Accessing RedBoot via ethernet ==
-Start Buffalo debug interface (instructions below)
+Start Buffalo debug interface
 
 activate telnet
 
