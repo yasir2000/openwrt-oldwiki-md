@@ -6,6 +6,9 @@ To manually check the prerequisites run
 {{{
 $ make prereq
 }}}
+
+Note for Mac OS X Users:
+To build your images on a Mac OS X Machine all you need is the package "fileutils" from the fink project. (Tested on Leopard 10.5.3)
 == Actual commands ==
 {{{
 $ cd ~
