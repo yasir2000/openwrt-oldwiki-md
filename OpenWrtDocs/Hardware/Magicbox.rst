@@ -47,7 +47,7 @@ setenv serverip 192.168.1.254
 
 Create script to flash !OpenWrt:
 {{{
-setenv flash_openwrt tftp 100000 openwrt-magicbox-squashfs.img\;erase \${kernel_addr} +\${filesize}\;cp.b \${fileaddr} \${kernel_addr} \${filesize}
+setenv flash_openwrt tftp 100000 openwrt-magicbox-squashfs.img\;erase \${openwrt_image_start} \${openwrt_image_end}\;cp.b \${fileaddr} \${openwrt_image_start} \${filesize}
 }}}
 
 Create the needed bootargs for !OpenWrt:
@@ -65,9 +65,11 @@ setenv bootargs console=ttyS0,115200 root=/dev/mtdblock1 rootfstype=squashfs,jff
 Set/clear the needed variables and save:
 
 {{{
+setenv openwrt_image_start ffc00000
+setenv openwrt_image_end fffbffff
 setenv ramdisk_addr
 setenv flash_mem
-setenv bootcmd bootm \${kernel_addr}
+setenv bootcmd bootm \${openwrt_image_start}
 saveenv
 }}}
 
