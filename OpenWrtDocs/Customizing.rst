@@ -6,6 +6,7 @@ The contents of this section of the wiki can have serious consequences. While ev
 = Hardware =
  * http://www.dpeddi.com/index.php?file=wrt54g&language=en 2 WRT54G as very long rs232 cable
  * [:OpenWrtDocs/Customizing/Hardware/JTAG Cable:/Hardware/JTAG Cable] Howto create a JTAG cable to revive a WRT
+ * [http://www.jtagtest.com/pinouts/ JTAG Interface Pinouts] Various JTAG pinouts, commonly used also in WiFi routers/APs
  * [:OpenWrtDocs/Customizing/Hardware/Serial Console:/Hardware/Serial Console] Howto attach a serial console via usb or parallel port to your wrt
  * ["OpenWrtDocs/Customizing/Hardware/Overclocking"] Overclocking can increase performance in a number of areas
  * ["OpenWrtDocs/Customizing/Hardware/USB"] USB is pretty powerfull, read about attaching webcams, harddisks etc via usb
