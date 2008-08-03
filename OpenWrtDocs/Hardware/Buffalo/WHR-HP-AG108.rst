@@ -30,37 +30,30 @@ password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
 }}}
 
 == Accessing RedBoot via ethernet ==
-Start Buffalo debug interface
-
-activate telnet
-
-connect via telnet to the router
-
-download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi’s redboot configuration]
-
-{{{
+  * Start Buffalo debug interface
+  * Activate telnet
+  * Connect via telnet to the router
+  * Download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi’s redboot configuration]
+  {{{
 cd /tmp
 wget ftp://[remote server address]/RedBoot_config_gdb.rom
 }}}
-flash it
-
-{{{
+  * Flash it
+  {{{
 dd if=/tmp/RedBoot_config_gdb.rom of=/dev/mtdblock/4
 }}}
-confirm "128+0 records" in and out
-
-power cycle the router
-
-just after it starts, while the red diagnostic led is flashing, connect via telnet on port 9000
-
-you should see
-
-{{{
+  * Confirm "128+0 records" in and out
+  * Power cycle the router
+  * Just after it starts, while the red diagnostic led is flashing, connect via telnet on port 9000
+  . you should see
+  {{{
 Executing boot script in...
 }}}
-interrupt it with CTRL-C
-
-you should be at the !RedBoot prompt : !RedBoot>
+  interrupt it with CTRL-C
+  * You should be at the !RedBoot prompt
+  {{{
+RedBoot>
+}}}
 
 == Loading OpenWrt ==
 '''Always make a backup of your old firmware. If something goes wrong - I told you!'''
