@@ -33,7 +33,7 @@ password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
   * Start Buffalo debug interface
   * Activate telnet
   * Connect via telnet to the router
-  * Download [http://www.i-hotspot.net/holgi/whrhpag108/RedBoot_config_gdb.rom Holgi’s redboot configuration]
+  * Download [attachment:RedBoot_config_gdb.rom Holgi’s redboot configuration]
   {{{
 cd /tmp
 wget ftp://[remote server address]/RedBoot_config_gdb.rom
