@@ -1,7 +1,7 @@
 = WHR-HP-AG108 =
 attachment:WHR-HP-AG108.jpg
 
-The WHR-HP-AG108 has a Atheros WiSoC CPU running at 220 MHz. It has 4 MB flash and 32 MB RAM as well as two wireless devices onboard (one a/b/g, one b/g) which allows simultaneous a and g wireless networks using the Buffalo or OpenWrt firmware. There is a serial port and most possibly the soldering points are for JTAG (didn't tried it jet).
+The WHR-HP-AG108 has a Atheros WiSoC CPU running at 220 MHz. It has 4 MB flash and 32 MB RAM as well as '''two wireless devices onboard''' (one a/b/g, one b/g) which allows '''simultaneous a and g''' wireless networks using the Buffalo or OpenWrt firmware. There is a serial port and most possibly the soldering points are for JTAG (didn't tried it jet).
 
 Packaging suggest that my unit is a WHR-HP-AG108-4 (EU-Version), so it seems there are some different versions out there.
 
