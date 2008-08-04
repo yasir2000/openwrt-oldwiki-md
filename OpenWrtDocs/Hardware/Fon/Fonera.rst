@@ -4,6 +4,8 @@
 The Fonera FON2100A is based on an Atheros System on Chip (SoC). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting !OpenWrt to this chip: AtherosPort.
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
+ 
+It is also externally identical to the FON2200. The FON2200 has different power system (less heat) and serial connection. Most obvious difference (apart from the label) is the power supply, which is 5V for FON2100 and 7.5V for the FON2200. The FON2200 has its own page in the OpenWRT wiki: "Fonera2"
 
 == Additional Comments ==
 Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton/SMC (http://www.accton.com.tw/).
