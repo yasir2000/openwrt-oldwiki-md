@@ -4,8 +4,12 @@
 The Fonera FON2100A is based on an Atheros System on Chip (SoC). It got a MIPS 4KEc V6.4 processor. There is an ongoing process porting !OpenWrt to this chip: AtherosPort.
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
- 
-It is also externally identical to the FON2200. The FON2200 has different power system (less heat) and serial connection. Most obvious difference (apart from the label) is the power supply, which is 5V for FON2100 and 7.5V for the FON2200. The FON2200 has its own page in the OpenWRT wiki: "Fonera2"
+
+The FON2200 is a rebuild of the FON2100. The only outward
+changes (apart from the label) is that it runs on 7.5V rather then 5V.
+Inside, the entire board was reworked. It has a simpler serial connection
+and gives off much less heat. They even left off the heatsync. When relevant
+sections below mention when 2200 deviates.
 
 == Additional Comments ==
 Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton/SMC (http://www.accton.com.tw/).
@@ -41,10 +45,22 @@ Another interessting issue is the possible frequency range, as specified by Athe
  * 5V power supply
  * Antenna
  * SPI-Bus
+
+Power: 
+
+FON2100: 5V - 
+Internally this is regulated to 3.3V by a linear regulator, so it will probably work
+on anything from 4 to 6V. But higher voltage will add to the heat issues of the device.
+
+FON2200: 7.5V (small connector) - 
+Internally this is regulated to 3.3V by a switched regulator, so it will probably work
+on anything from 4 to 16V, without adding to heat. I tried 12V 
+
 == Serial Port ==
-If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side)
+If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD and TXD are lowlevel (3.3V) signals. NOT RS232 levels.
 
 {{{
+FON2100: 
 +-------------------+
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
@@ -52,7 +68,17 @@ If the ethernet jack is in front of you, it looks like (RXD and TXD directions a
 +-----+ +--------+    +---+
 |Power| |Ethernet|    |Ant|
 }}}
-RXD and TXD are lowlevel (3.3V) signals. NOT RS232 levels.
+
+{{{
+FON2200: 
+Looking inside, with the connectors at your left hand:
+---+  +----------------+
+ P |  |GND RXD TXD 3.3V|
+ O |  +----------------+
+ W | +---------------------+
+ E | |RAM                  |
+ R | |                     |
+}}}
 
 {{{
 VCC (3.3V) -> red
@@ -92,6 +118,8 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
+Note: FON2200 seems to have more full-featured redboot, as well as address 192.168.1.1 set with a 2 second timeout. So theoratically, you could telnet directly into the Redboot, without serial or modification.
+
 == Flash layout ==
 {{{
 RedBoot> fis list
@@ -220,6 +248,8 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 }}}
 = Installing OpenWrt with RedBoot =
 Once you have gained access to [:RedBoot:!RedBoot] either by telnet or the serial console you can install [:OpenWrt:!OpenWrt] with the following method.
+
+Note: instructions below also worked on FON2200
 
 You have to download two files (right click and save as).
 
