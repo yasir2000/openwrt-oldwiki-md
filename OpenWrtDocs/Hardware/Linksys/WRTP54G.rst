@@ -36,7 +36,7 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 == Misc Notes ==
  * CyberTAN is a subcontractor for Linksys and their name appears in the router's source code (even the source code archive's name: _cyt_).
  * The VoIP daemon appears to be "RADVISION SIP TOOLKIT 3.0.5.1" (/usr/sbin/ggsip)
- * The telephony chip is the Legerity Le88221, part of the VE880 series. There is a website with product liturature and example code at http://www.legerity.com/products.php?cid=&sid=1&bpid=33
+ * The telephony chip is the Legerity Le88221, part of the VE880 series. There is a website with product liturature and example code [http://www.legerity.com/products.php?cid=&sid=1&bpid=33 here]. [http://mirror2.openwrt.org/ref/DS_Le882x1%20(2FXS)%20_%20Le88221-241%20Dual%20ABS%20VoicePort%20_C2.pdf Here] is a datasheet, and [http://mirror2.openwrt.org/ref/VoicePath%20API-II%20Lite%202.11.3.7z here] are GPL drivers for this hardware.
  * A channel on Freenode #wrtp54g is where those devoted to hacking the wrtp54g and rtp300 hang out.
  * There is information about Linux on AR7 at http://www.linux-mips.org/wiki/AR7
 See also: ["AR7Port"]
