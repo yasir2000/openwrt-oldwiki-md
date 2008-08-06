@@ -43,15 +43,15 @@ There are several different models available of WP54, but only WP54 with part nu
 
 [http://www.compex.com.sg/ Homepage] =The manufacturer's Website
 
-[http://compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf DataSheet] = Provide Technical Specification and Ordering Information.
+[http://www.compex.com.sg/home/OEM/Downloads/OpenWRT_WP54_6E_Bareboard_DSv2.7.pdf DataSheet] = Provide Technical Specification and Ordering Information.
 
-[http://compex.com.sg/home/OEM/index.htm OEM Solution] = It is about Company OEM Solution.
+[http://www.compex.com.sg/home/OEM/index.htm OEM Solution] = It is about Company OEM Solution.
 
-[http://compex.com.sg/home/OEM/Downloads/WP54_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting, and so on. *** BROKEN LINK ***
+[http://www.compex.com.sg/home/OEM/Downloads/WP54_6E_Board_Product_Manual_Rev1.4.pdf Hardware Manual] = Its all about what you need to know about hardware. GPIO bit mapping, Serial Port, Serial Console Setting, Jtag Port, Power Supply Jumper Setting, and so on.
 
-[http://compex.com.sg/home/OEM/Downloads/Open-WRT_Codes.rar OpenWRT Codes] = Its a .Rar file that contain Open WRT Code.
+[http://www.compex.com.sg/home/OEM/Downloads/Open-WRT_Codes.rar OpenWRT Codes] = Its a .Rar file that contain Open WRT Code.
 
-[http://compex.com.sg/home/OEM/Downloads/JTAG_Programmer.rar JTAG Programmer Codes] = Like the name, Contain the JTAG Programmer codes
+[http://www.compex.com.sg/home/OEM/Downloads/JTAG_Programmer.rar JTAG Programmer Codes] = Like the name, Contain the JTAG Programmer codes
 
 '''''For Europe'''''
 
