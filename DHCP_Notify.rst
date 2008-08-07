@@ -10,7 +10,7 @@ I chose the mini-sendmail program. It should be in your ipkg repository so go ri
 ipkg install mini-sendmail}}}
 '''Configuring dnsmasq'''
 OpenWRT/X-WRT uses the dnsmasq utility to handle DHCP leases.
-It is required to simply open up the configuration file''/etc/dnsmasq.conf''and add the following configuration directive inside
+It is required to simply open up the configuration file ''/etc/dnsmasq.conf'' and add the following configuration directive inside
 {{{
 dhcp-script=/sbin/mailme}}}
 The idea is that on every dhcp action performed dnsmasq will execute the script with certain arguments that we can use to get some info.
@@ -22,7 +22,7 @@ Let's create the script to email us:
 # upon execution append the current date along with all arguments passed to us
 # and pipe them to the mini_sendmail program.
 #
-# Replace <SMTP_SERVER> with your smtp server address
+# Replace <SMTP_SERVER> with your smtp server address (default is localhost)
 #         <PORT> with the port number of your smtp server (default is 25)
 #         <TO_EMAIL> with the email address you would like to send these notifications to
 #
