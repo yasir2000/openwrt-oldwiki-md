@@ -75,12 +75,13 @@ config interface	wan
  *Wiki on [:OpenWrtDocs/KamikazeConfiguration:Kamikaze configuration]
 
 = Encrypted Repeater =
+by Wildfire — last modified 2008-08-07 20:56 (CEST)
 
 Here's my current repeater configuration. For improved security it uses WPA(2) encryption between each access point and client and WPA encryption between the stations (WPA2 is currently not supported). I very strongly discourage the usage of WEP, current algorithms are able to crack WEP encryption in a matter of minutes (<<20).
 
 '''Tested''': WRT54GL v1.1 KAMIKAZE (bleeding edge, r10542)
 
-== Access Point #1 ==
+== Access Point #1 (Access to LAN) ==
 
 '''/etc/config/network'''
 {{{
@@ -143,7 +144,7 @@ config wifi-iface
         option key              {strong-encryption-key}
 }}}
 
-== Access Point #2 ==
+== Access Point #2 (Stand-alone repeater) ==
 
 '''/etc/config/network'''
 {{{
