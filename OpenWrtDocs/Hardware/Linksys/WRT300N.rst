@@ -225,6 +225,12 @@ The console connector for the WRT300N v2 uses TTL voltage. Thus it cannot be dir
 ----
 '''WRT300N v2 PCB's'''
 
-[[ImageLink(wrt300nv2_side1.jpg,target[,width=300][,alt=PCB front])]] [[ImageLink(wrt300nv2_side2.jpg,target[,width=300][,alt=PCB back])]]
+[[ImageLink(wrt300nv2_side1.jpg,,width=800,alt=PCB front])]]
+
+[attachment:wrt300nv2_side1.jpg]
+
+[[ImageLink(wrt300nv2_side2.jpg,,width=800,alt=PCB front])]]
+
+[attachment:wrt300nv2_side2.jpg]
 
 ----
