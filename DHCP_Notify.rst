@@ -5,9 +5,9 @@ It comes in handy in case that you would like to put up an open-authentication W
 that connect to it.
 == Install and Configure ==
 '''Installing the SMTP client'''
-I chose the mini_sendmail program. It should be in your ipkg repository so go right ahead and perform
+I chose the mini-sendmail program. It should be in your ipkg repository so go right ahead and perform
 {{{
-ipkg install mini_sendmail}}}
+ipkg install mini-sendmail}}}
 '''Configuring dnsmasq'''
 OpenWRT/X-WRT uses the dnsmasq utility to handle DHCP leases.
 It is required to simply open up the configuration file''/etc/dnsmasq.conf''and add the following configuration directive inside
