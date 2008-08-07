@@ -229,7 +229,7 @@ The console connector for the WRT300N v2 uses TTL voltage. Thus it cannot be dir
 
 [attachment:wrt300nv2_side1.jpg]
 
-[[ImageLink(wrt300nv2_side2.jpg,,width=800,alt=PCB front])]]
+[[ImageLink(wrt300nv2_side2.jpg,,width=800,alt=PCB back])]]
 
 [attachment:wrt300nv2_side2.jpg]
 
