@@ -4,7 +4,6 @@ The WHR-HP-G54 router has a Broadcom 5352 CPU running at 200 MHz.  It has 4 MB o
 The WHR-HP-G54 is also sold as the WHR-HP-G54-1 and the WHR-HP-G54-4.  Users have reported that all three versions work well with OpenWRT 0.9 (WhiteRussian).
 
 == Loading OpenWrt via TFTP ==
-
 Buffalo's default router IP address is 192.168.11.1.  Keep that in mind as you follow instructions on other pages which assume that your router's IP address is 192.168.1.1.
 
 OpenWrt cannot be loaded using Buffalo's original firmware upgrade procedure as it expects an encrypted firmware image.  Loading [:OpenWrtViaTftp:OpenWrt via TFTP] works fine though.  You will need a .trx version (such as openwrt-brcm-2.4-<type>.trx) for this device, as explained on the ["Installing"] page.  Ensure that you have your cable plugged into one of the LAN ports (the 4-port hub portion), not the WAN port (the "separate" port).  Plugging in to the WAN port will get you responses to pings, but will not allow tftp to work, which will potentially cause hours of frustration.
@@ -14,33 +13,21 @@ After loading OpenWrt on, you can erase the NVRAM settings as follows:
 {{{
 mtd erase nvram
 }}}
-
 On older versions of OpenWrt, manual configuration of NVRAM variables for wifi settings was required.  OpenWrt 0.9 (WhiteRussian) correctly configures the variables, so these steps are unnecessary.  To manually change the settings for older versions, use the following commands, then reboot the device:
 
 {{{
-
 nvram set wifi_ifname=eth1
-
 nvram set wlan_hardware_present=yes
-
 nvram commit
-
 }}}
-
 If you would like to change the LAN IP address to the OpenWrt defaults, use the following commands, then reboot the router:
 
 {{{
-
 nvram set lan_ipaddr=192.168.1.1
-
 nvram set lan_netmask=255.255.255.0
-
 nvram commit
-
 }}}
-
 == dmesg output ==
-
 (MAC address has been changed)
 
 {{{
@@ -151,48 +138,57 @@ vlan1: add 01:00:5e:00:00:01 mcast address to master interface
 mini_fo: using base directory: /
 mini_fo: using storage directory: /jffs
 }}}
-
 == Device info: ==
-
  * 48-pin TSOP flash chip on top PCB:  Macronix MX29LV320CBTC-90G 48-pin TSOP 90ns
  . URL: http://www.macronix.com/QuickPlace/hq/PageLibrary48256F5500439ED0.nsf/h_CE4C9490FDF4280B48256F550043C6D8/209CFCBBF4BCCB9148257031002F02E6/$File/MX29LV320CTBver15.pdf
-
  * 2 sets of open pads on top PCB for other SDRAM memory footprint, each 66-pin TSOP
-   . can use Micron 32Mx16 MT46V32M16TG (if same assumptions regarding other routers with similar BCM5352 processor are true for this board)
-   . Caveats:
-            1. This modification has not yet been attempted
-            2. VERY GOOD soldering skills would be required, using microscope and Metcal or other SMT soldering iron
-            3. Bulk decoupling and small-value high-freq decoupling capacitors would need to be install on the front of the PCB.  The footprints are there but the capacitors are not installed.
-            4. The SDRAM chips on the bottom side of the PCB must be removed before populating the top PCB with SDRAM chips.
-
+  . can use Micron 32Mx16 MT46V32M16TG (if same assumptions regarding other routers with similar BCM5352 processor are true for this board)
+  . Caveats:
+   1. This modification has not yet been attempted
+   1. VERY GOOD soldering skills would be required, using microscope and Metcal or other SMT soldering iron
+   1. Bulk decoupling and small-value high-freq decoupling capacitors would need to be install on the front of the PCB.  The footprints are there but the capacitors are not installed.
+   1. The SDRAM chips on the bottom side of the PCB must be removed before populating the top PCB with SDRAM chips.
  * 2 DDR SDRAM devices on back-side:  Mira 64Mbit/SDRAM  4M*16 P2V64S40 54-pin
-   . more details (copied from Jeremy Collake aka db90h of DD-WRT): http://www.dd-wrt.com/phpBB2/viewtopic.php?t=2542
-     . RAM : Mira p2v28s40btp [5409fa03-6]
-     . spec: http://www.deutron.com.tw/data_sheets/sdram/p2v28s_0btp11_07024.pdf
-       . P2 == Mira DRAM
-       . V == LVTTL
-       . 28 == density (128mbit)
-       . S == synchronous DRAM
-       . 4 == x16 organization (4 banks - 16-bit)
-       . 0 == random column
-       . B == 3rd gen
-       . TP == TSOP(II)
-
+  . more details (copied from Jeremy Collake aka db90h of DD-WRT): http://www.dd-wrt.com/phpBB2/viewtopic.php?t=2542
+   . RAM : Mira p2v28s40btp [5409fa03-6]
+   . spec: http://www.deutron.com.tw/data_sheets/sdram/p2v28s_0btp11_07024.pdf
+    . P2 == Mira DRAM
+    . V == LVTTL
+    . 28 == density (128mbit)
+    . S == synchronous DRAM
+    . 4 == x16 organization (4 banks - 16-bit)
+    . 0 == random column
+    . B == 3rd gen
+    . TP == TSOP(II)
  * 2 serial ports detected, the first port (/dev/tts/0) is brought out on a 4 pin header labeled J1, located near a corner of the PCB. Pin 1 is nearest the edge. The signals are low level, and not directly EIA232 compatible. The default baud rate is 115K. When booting, CTRL-C will interrupt the CFE monitor. The pinout is:
-       . 1 - 3.3V
-       . 2 - Ground
-       . 3 - Data out
-       . 4 - Data in
-
- * An [wiki:self:OpenWrtDocs/Customizing/Hardware/MMC#WHRHPG54 MMC] hack can be done.
-
+  . 1 - 3.3V
+  . 2 - Ground
+  . 3 - Data out
+  . 4 - Data in
+ * An [:OpenWrtDocs/Customizing/Hardware/MMC#WHRHPG54:MMC] hack can be done.
 == JTAG Support ==
-
 The WHR-HP-G54 version (no trailing -1 or -4) version of this router is confirmed to have JTAG support.  JTAG support on the other versions is unconfirmed.  The WHR-HP-G54 board has thru-hole pads labeled CN1 for JTAG near the J1 serial header.  The solder can be removed and a 12-pin header can be added for use with JTAG.  The holes for the even pins are slightly smaller than the odd holes and it may be difficult to extract all the old solder enough to insert the header.
 
-Old versions of the WRT54G EJTAG DeBrick Utility will not talk to this board; version 3.0 or newer will work. The `/noreset` option is required for all operations as of version 3.0 of the Utility.
+Old versions of the WRT54G EJTAG DeBrick Utility will not talk to this board; version 3.0 or newer will work. The {{{/noreset}}} option is required for all operations as of version 3.0 of the Utility.
 
+If you have bricked your router and can't recover your CFE.BIN, contact ["JK1Joel"] for the file.
 
-If you have bricked your router and can't recover your CFE.BIN, contact [:JK1Joel:JK1Joel] for the file.
+== Enable Internal AMPLIFIER (at least on latest svn as of 9th August 2k8) ==
+get into the shell and:type
+
+nvram get boardflags
+
+the result probably will be  0x1758 - enhanced receive sensitivity
+
+the other settings are:
+
+0x0758 - no amp and receive sensitivity normal 0x2758 - amp on, normal receive 0x3758 - both amp and BroadRange enhanced receive sensitivity on
+
+i'm using 0x3758 and it's much better than the stock setting
+
+to do it just
+
+nvram set boardflags=0x3758 nvram commit reboot
+
 ----
-CategoryModel
+ CategoryModel
