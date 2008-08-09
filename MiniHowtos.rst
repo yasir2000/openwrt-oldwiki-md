@@ -139,28 +139,13 @@ You don't have to give them the names that I did, nor do you have to put them in
 There is a modified version of /etc/firewall.user in SimpleFirewall.
 
 == Wake-On-LAN (WOL) ==
-   Wake-On-LAN
+  http://wiki.openwrt.org/Wake-On-LAN
 
-
----- /!\ '''Edit conflict - other version:''' ----
-== Wake-On-LAN ==
-http://wiki.openwrt.org/Wake-On-LAN
-
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 == IPSec pass-through ==
 The stock wrt54gl router software has the ability to perform ipsec pass-through.  This is useful if you are running a VPN client behind your NATed wrt54gl router.  By default, the openwrt install does not provide ipsec passthrough.  If you need this feature, add the following rules to the bottom of your /etc/firewall.user file:
 
 iptables -t nat -A postrouting_rule -p 50 -j ACCEPT
 
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
-
----- /!\ '''End of edit conflict''' ----
 iptables -t nat -A postrouting_rule -p 51 -j ACCEPT
 
 This will enable ipsec pass-through.  Protocol 50 is ESP and protocol 51 is AH.
@@ -347,3 +332,5 @@ Modify the script for your needs and don't forget to '''chmod a+x''' it.
 See also: ["wrtLEDCodes"] and [http://forum.openwrt.org/viewtopic.php?id=5286]
 
 For RC6 the whole shebang is changed; instead you put shell scripts in /etc/hotplug.d/button, and the LEDs are controlled by separate files in /proc/diag/led.  See [http://forum.openwrt.org/viewtopic.php?id=8745] for details and [http://forum.openwrt.org/viewtopic.php?id=8151] for an updated script (which I haven't tested).
+----
+CategoryHowTo
