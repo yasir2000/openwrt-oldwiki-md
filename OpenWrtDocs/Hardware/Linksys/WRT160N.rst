@@ -4,6 +4,20 @@ Link to Product info page at linksys.com -> http://www.linksys.com/servlet/Satel
 
 == Hardware ==
 
+=== Chipset ===
+
+ * BCM4703
+ * BCM4321L
+ * BCM5325
+
+=== Flashchip ===
+
+ * EN29LV320AB
+
+=== Wireless Chip ===
+
+ * BCM2055
+
 === Pads on PCB ===
 
 There is 3 sets of pads on the PCB of the WRT160N.
@@ -40,6 +54,8 @@ Not yet documented.
 Not yet documented.
 
 == TODO ==
+
+ * Find the datasheets for the chips used in this device.
 
 == Other Categories this device is in ==
 
