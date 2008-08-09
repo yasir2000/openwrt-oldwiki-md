@@ -182,7 +182,11 @@ the result probably will be  0x1758 - enhanced receive sensitivity
 
 the other settings are:
 
-0x0758 - no amp and receive sensitivity normal 0x2758 - amp on, normal receive 0x3758 - both amp and BroadRange enhanced receive sensitivity on
+0x0758 - no amp and receive sensitivity normal
+
+0x2758 - amp on, normal receive
+
+ 0x3758 - both amp and BroadRange enhanced receive sensitivity on
 
 i'm using 0x3758 and it's much better than the stock setting
 
@@ -191,4 +195,4 @@ to do it just
 nvram set boardflags=0x3758 nvram commit reboot
 
 ----
- CategoryModel
+ . CategoryModel
