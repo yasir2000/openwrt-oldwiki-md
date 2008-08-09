@@ -2,7 +2,7 @@
 
 == Notes ==
 
-Link to Product info page at linksys.com -> http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper
+Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper WRT160N Product_Page]
 
 The Linksys WRT160N is the Ultra RangePlus Wireless-N Broadband Router.
 
@@ -11,16 +11,16 @@ The Linksys WRT160N is the Ultra RangePlus Wireless-N Broadband Router.
 === Chipset ===
 
  * BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief]
- * BCM4321L [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
+ * BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
  * BCM5325 [http://www.broadcom.com/collateral/pb/5325-PB05-R.pdf Product_Brief]
 
 === Flashchip ===
 
- * EN29LV320AB
+ * EN29LV320AB [http://www.eonsdi.com/pdf/EN29LV320.pdf Data Sheet]
 
 === Wireless Chip ===
 
- * BCM2055 (under the shield)
+ * BCM2055 (under the shield) [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
 
 === Pads on PCB ===
 
