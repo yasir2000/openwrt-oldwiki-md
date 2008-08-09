@@ -4,7 +4,7 @@
 
 Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper WRT160N Product_Page]
 
-The Linksys WRT160N is the Ultra RangePlus Wireless-N Broadband Router.
+The Linksys WRT160N is the Ultra Range Plus Wireless-N Broadband Router.
 
 == Hardware ==
 
