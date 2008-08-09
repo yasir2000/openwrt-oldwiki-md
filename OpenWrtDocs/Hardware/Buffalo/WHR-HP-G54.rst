@@ -194,7 +194,7 @@ to do it just
 
 nvram set boardflags=0x3758
 
- nvram commit
+nvram commit
 
  reboot
 
