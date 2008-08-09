@@ -1,6 +1,10 @@
 = Linksys WRT160N =
 
+== Notes ==
+
 Link to Product info page at linksys.com -> http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper
+
+The Linksys WRT160N is the Ultra RangePlus Wireless-N Broadband Router.
 
 == Hardware ==
 
@@ -16,11 +20,13 @@ Link to Product info page at linksys.com -> http://www.linksys.com/servlet/Satel
 
 === Wireless Chip ===
 
- * BCM2055
+ * BCM2055 (under the shield)
 
 === Pads on PCB ===
 
 There is 3 sets of pads on the PCB of the WRT160N.
+JP1 and JP3 seem to be missing some surface mount components so may not actually work.
+JP2 looks like it should work.
 
 '''JP1'''
 || Pad1 || ||
@@ -55,7 +61,8 @@ Not yet documented.
 
 == TODO ==
 
- * Find the datasheets for the chips used in this device.
+ * Find the data sheets for the chips used in this device.
+ * Figure out what JP1, JP2, JP3 are for and the exact pinouts.
 
 == Other Categories this device is in ==
 
