@@ -138,6 +138,9 @@ You don't have to give them the names that I did, nor do you have to put them in
 == Simplified Firewall ==
 There is a modified version of /etc/firewall.user in SimpleFirewall.
 
+== Wake-On-LAN ==
+http://wiki.openwrt.org/Wake-On-LAN
+
 == IPSec pass-through ==
 The stock wrt54gl router software has the ability to perform ipsec pass-through.  This is useful if you are running a VPN client behind your NATed wrt54gl router.  By default, the openwrt install does not provide ipsec passthrough.  If you need this feature, add the following rules to the bottom of your /etc/firewall.user file:
 
