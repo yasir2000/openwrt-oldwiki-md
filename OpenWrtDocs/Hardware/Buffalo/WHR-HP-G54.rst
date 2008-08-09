@@ -186,13 +186,19 @@ the other settings are:
 
 0x2758 - amp on, normal receive
 
- 0x3758 - both amp and BroadRange enhanced receive sensitivity on
+0x3758 - both amp and BroadRange enhanced receive sensitivity on
 
 i'm using 0x3758 and it's much better than the stock setting
 
 to do it just
 
-nvram set boardflags=0x3758 nvram commit reboot
+nvram set boardflags=0x3758
+
+ nvram commit
+
+ reboot
+
+Have Fun :)
 
 ----
  . CategoryModel
