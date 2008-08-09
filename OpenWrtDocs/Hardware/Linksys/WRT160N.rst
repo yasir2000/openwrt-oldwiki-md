@@ -25,16 +25,22 @@ The Linksys WRT160N is the Ultra RangePlus Wireless-N Broadband Router.
 === Pads on PCB ===
 
 There is 3 sets of pads on the PCB of the WRT160N.
-JP1 and JP3 seem to be missing some surface mount components so may not actually work.
+JP1 and JP3 seem to be missing some surface mount components so may not actually work. Half of the pads are on the reverse side of the PCB.
 JP2 looks like it should work.
 
 '''JP1'''
 || Pad1 || ||
-|| Pad2 || ||
+|| Pad2 || Ground ||
 || Pad3 || ||
-|| Pad4 || ||
+|| Pad4 || Ground ||
 || Pad5 || ||
-|| Pad6 || ||
+|| Pad6 || Ground ||
+|| Pad7 || ||
+|| Pad8 || Ground ||
+|| Pad9 || ||
+|| Pad10 || Ground ||
+|| Pad11 || ||
+|| Pad12 || ||
 
 '''JP2'''
 || Pad1 || 3.3v ||
@@ -45,11 +51,17 @@ JP2 looks like it should work.
 
 '''JP3'''
 || Pad1 || ||
-|| Pad2 || ||
+|| Pad2 || Ground ||
 || Pad3 || ||
-|| Pad4 || ||
+|| Pad4 || Ground ||
 || Pad5 || ||
-|| Pad6 || ||
+|| Pad6 || Ground ||
+|| Pad7 || ||
+|| Pad8 || Ground ||
+|| Pad9 || ||
+|| Pad10 || Ground ||
+|| Pad11 || ||
+|| Pad12 || ||
 
 === JTAG Port ===
 
