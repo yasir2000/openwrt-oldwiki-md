@@ -6,12 +6,25 @@
 == Notes ==
 
 There is NO known OpenWrt firmware that supports this device. Support is possible one day though because DD-WRT supports it as of v24 rc 7 - build 9344 (25.03.08). 
-
+Please Update this wiki page if this information is proven false or a port is created.
 Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper WRT160N Product_Page]
 
 The Linksys WRT160N is the Ultra Range Plus Wireless-N Broadband Router.
 
 == Hardware ==
+
+== Info ==
+||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
+
+||'''Architecture''' ||MIPS ||
+||'''Vendor''' ||Broadcom ||
+||'''Bootloader''' ||CFE ||
+||'''CPU Speed''' ||266 Mhz ||
+||'''Flash size''' ||4 MiB ||
+||'''RAM''' ||16 MiB ||
+||'''Wireless''' ||Broadcom BCM47xx 802.11b/g/n Wireless LAN (integrated) ||
+||'''Ethernet''' ||Switch in CPU ||
+||'''USB''' ||No ||
 
 === Chipset ===
 
