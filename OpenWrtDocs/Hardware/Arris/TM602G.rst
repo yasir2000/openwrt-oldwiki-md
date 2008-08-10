@@ -2,8 +2,8 @@ The Arris '''TM602G''' is cable modem based on ??? chip. Ethernet, USB, and RJ11
 
 = Hardware =
 
- * Main Chip: ???
- * Ram: ?? MB SDRAM
+ * Main Chip: Puma-4
+ * Ram: 32 MB SDRAM
  * Flash: ?? MB
 
 == Connectors ==
