@@ -9,12 +9,14 @@ Broadcom 2-port router with Wi-Fi (WDS compatible with Linksys WRT's) running Li
 
 = Clones =
 
-* BT Home Hub v1.0 - v1.1 ?
-* Speedtouch 790
+ * Speedtouch 790
+ * BT Home Hub (v1.0 - v1.1 ?)
 
 == Similar ==
 
-* Speedtouch 7G
+ * Speedtouch 585
+ * BT Home Hub (v2.0)
+ * Speedtouch 7G
 
 = Circuit Board =
 
