@@ -574,7 +574,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||Speedtouch 585 int dsl-modem || ||Broadcom BCM6348 @ ???MHz ||4MB ||32MB ||Broadcom (integrated) ||BCM5325 || ||??? ||??? ||??? ||[:OpenWrtDocs/Hardware/Thomson/speedtouch:WiP] ||
 ||Speedtouch 580/580i DSL modem || ||Broadcom BCM6345 @ ???MHz ||4MB (?) ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||? ||yes ||yes ||1 x V1.1? ||[:OpenWrtDocs/Hardware/Thomson/Speedtouch580:WiP] ||
 ||Speedtouch 780WL || ||Broadcom BCM6345 @ ???MHz ||4MB (TBV) ||?? ||Broadcom (Integrated) ||BCM5325 || || || || ||[:OpenWrtDocs/Hardware/Thomson/Speedtouch780WL:WiP] ||
-||TG790|| ||Broadcom BCM6348 @ (?) 240Mhz|| || ||Broadcom (Integrated)|| || || || ||yes||WiP||
+||TG790|| ||Broadcom BCM6348 @ (?) 240Mhz|| || ||Broadcom (Integrated)|| || || || ||yes||:OpenWrtDocs/Hardware/Thomson/TG790:WiP||
 == Toshiba ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WRC-1000 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Prism2 (mini-PCI) ||Kendin KS8995E ||on || || ||no ||Partial ||
