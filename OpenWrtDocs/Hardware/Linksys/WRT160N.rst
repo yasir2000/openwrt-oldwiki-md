@@ -54,6 +54,8 @@ JP2 looks like it should work.
 || On Front ||'''Pad 1''' || ? ||'''Pad 3''' || ? ||'''Pad 5''' || ? ||'''Pad 7''' || ? ||'''Pad 9''' || ? ||'''Pad 12''' || ? ||
 
 '''JP2'''
+||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_JP2_systeminfo_.jpg||
+
 || On Front ||'''Pad 1''' || 3.3v ||'''Pad 2''' || ? ||'''Pad 3''' || ? ||'''Pad 4''' || ? ||'''Pad 5''' || GND ||
 
 '''JP3'''
