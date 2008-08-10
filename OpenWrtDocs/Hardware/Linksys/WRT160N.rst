@@ -28,7 +28,7 @@ The Linksys WRT160N is the Ultra Range Plus Wireless-N Broadband Router.
 
 === Chipset ===
 
- * BCM4704 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief]
+ * BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief]
  * BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
  * BCM5325 [http://www.broadcom.com/collateral/pb/5325-PB05-R.pdf Product_Brief]
 
