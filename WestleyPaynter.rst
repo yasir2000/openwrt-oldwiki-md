@@ -16,19 +16,23 @@ Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT com)]]
  * Linksys NSLU2 (Running OpenWRT)
  * Linksys WRT160N
 
-=== Handy Notes ===
+=== Notes about TFTP ===
 
-TFTP commands that I use that are useful
-
-tftp 192.168.1.1
-
+TFTP commands that I use that are useful.
+{{{tftp 192.168.1.1
 binary
-
 rexmt 1
-
 trace
+put firmware.bin}}}
+Also sometimes it is helpful to set the session timeout high. (5000 seconds)
 
-put firmware.bin
+{{{
+timeout 5000
+}}}
+
+=== Pages that have excellent formatting ===
+
+ * [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT54GL WRT54GL]
 
 ...
 
