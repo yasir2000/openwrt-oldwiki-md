@@ -4,6 +4,11 @@
 
 Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT com)]]
 
+=== Pages I Have Contributed to ===
+
+ * [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N WRT160N]
+ * [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Airlink101/ANAS350 ANAS350]
+
 === Devices I Have ===
 
  * Airlink101 ANAS350
