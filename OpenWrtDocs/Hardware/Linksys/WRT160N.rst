@@ -1,6 +1,11 @@
+#pragma section-numbers off
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="FONT-SIZE: 0.9em; FLOAT: right; MARGIN: 0pt 0pt 1em 1em"style="PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em">[[TableOfContents]]||
+
 = Linksys WRT160N =
 
 == Notes ==
+
+There is NO known OpenWrt firmware that supports this device. Support is possible one day though because DD-WRT supports it as of v24 rc 7 - build 9344 (25.03.08). 
 
 Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper WRT160N Product_Page]
 
@@ -10,7 +15,7 @@ The Linksys WRT160N is the Ultra Range Plus Wireless-N Broadband Router.
 
 === Chipset ===
 
- * BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief]
+ * BCM4704 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief]
  * BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
  * BCM5325 [http://www.broadcom.com/collateral/pb/5325-PB05-R.pdf Product_Brief]
 
@@ -25,43 +30,22 @@ The Linksys WRT160N is the Ultra Range Plus Wireless-N Broadband Router.
 === Pads on PCB ===
 
 There is 3 sets of pads on the PCB of the WRT160N.
-JP1 and JP3 seem to be missing some surface mount components so may not actually work. Half of the pads are on the reverse side of the PCB.
+
+JP1 and JP3 seem to be missing some surface mount components so may not actually work. 
+Half of the JP1 and JP3 pads are on the reverse side of the PCB.
+
 JP2 looks like it should work.
 
 '''JP1'''
-|| Pad1 || ||
-|| Pad2 || Ground ||
-|| Pad3 || ||
-|| Pad4 || Ground ||
-|| Pad5 || ||
-|| Pad6 || Ground ||
-|| Pad7 || ||
-|| Pad8 || Ground ||
-|| Pad9 || ||
-|| Pad10 || Ground ||
-|| Pad11 || ||
-|| Pad12 || ||
+|| On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 11''' || ? ||
+|| On Front ||'''Pad 1''' || ? ||'''Pad 3''' || ? ||'''Pad 5''' || ? ||'''Pad 7''' || ? ||'''Pad 9''' || ? ||'''Pad 12''' || ? ||
 
 '''JP2'''
-|| Pad1 || 3.3v ||
-|| Pad2 ||  ||
-|| Pad3 ||  ||
-|| Pad4 ||  ||
-|| Pad5 || Ground||
+|| On Front ||'''Pad 1''' || 3.3v ||'''Pad 2''' || ? ||'''Pad 3''' || ? ||'''Pad 4''' || ? ||'''Pad 5''' || GND ||
 
 '''JP3'''
-|| Pad1 || ||
-|| Pad2 || Ground ||
-|| Pad3 || ||
-|| Pad4 || Ground ||
-|| Pad5 || ||
-|| Pad6 || Ground ||
-|| Pad7 || ||
-|| Pad8 || Ground ||
-|| Pad9 || ||
-|| Pad10 || Ground ||
-|| Pad11 || ||
-|| Pad12 || ||
+|| On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 11''' || ? ||
+|| On Front ||'''Pad 1''' || ? ||'''Pad 3''' || ? ||'''Pad 5''' || ? ||'''Pad 7''' || ? ||'''Pad 9''' || ? ||'''Pad 12''' || ? ||
 
 === JTAG Port ===
 
