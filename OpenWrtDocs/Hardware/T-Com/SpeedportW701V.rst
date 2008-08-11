@@ -2,12 +2,18 @@
 [[TableOfContents]]
 
 = T-Com Speedport W701V =
-Speak to Hydra on #openwrt and #ar7 on freenode for more info.
-
-Others users known to have this device:  saftsack, Heini66, loswillios
+Speak to loswillios on #openwrt and #ar7 on freenode for more info.
 
 == Status ==
-Wifi: no support for the TNETW1350A, it's a chip with features somewhere between the supported TNETW1150 and the TNETW1450 though. ADSL: working Ethernet: working LEDs: working Serial Port: working
+Wifi: loading acx-mac80211 freezes the router (chip: TNETW1350A, it's a chip with features somewhere between the supported TNETW1150 and the TNETW1450)
+
+ADSL: working 
+
+Ethernet: working 
+
+LEDs: working 
+
+Serial Port: working
 
 == Hardware Info ==
 Uses TI AR7 chipset, onboard wireless lan, a very nice amount of ram (32MB) and flash (8MB) making it a great device to run OpenWRT on!
@@ -1436,7 +1442,13 @@ svn co https://svn.openwrt.org/openwrt/trunk/
 
 cd trunk
 
-make defconfig package/symlinks
+make defconfig
+
+scripts/feeds update -a
+
+scripts/feeds install -a
+
+apply the patch from http://article.gmane.org/gmane.comp.embedded.openwrt.devel/1688
 
 make menuconfig
 
@@ -1698,6 +1710,7 @@ config atm-bridge
         option encaps   llc
         option vpi      1
         option vci      32
+        option payload  bridged
 
 config interface wan
         option ifname   nas0
