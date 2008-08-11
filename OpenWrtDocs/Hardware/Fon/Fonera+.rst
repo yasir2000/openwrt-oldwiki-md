@@ -53,11 +53,6 @@ have a .telnetrc file in my home directory, with the following content:
 	mode line
 }}}
 
-Unfortunately this has one minor side effect: When flashing the device, telnet
-doesn't display any progress (it displays all the progress when it is done), so
-what you can do to work around this is: After pressing Ctrl-C you close the
-telnet session, switch to an other user (or move .telnetrc out of the way)
-and then connect again - RedBoot will be waiting anyway.
 
 == Original flash layout ==
 
