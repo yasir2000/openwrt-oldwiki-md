@@ -59,5 +59,18 @@ what you can do to work around this is: After pressing Ctrl-C you close the
 telnet session, switch to an other user (or move .telnetrc out of the way)
 and then connect again - RedBoot will be waiting anyway.
 
+== Original flash layout ==
+
+{{{
+RedBoot> fis list
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0xA8000000  0x80040400  0x00030000  0xA8000000
+loader            0xA8030000  0x80100000  0x00010000  0x80100000
+image             0xA8040000  0x80040400  0x00230004  0x80040400
+image2            0xA8660000  0xA8660000  0x00140000  0x80040400
+FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
+RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
+}}}
+
 = Resources =
  * [https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 FON Shop Link]
