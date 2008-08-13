@@ -95,7 +95,7 @@ Known 6358 platforms*:
 ||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5:Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
-||[:OpenWrtDocs/Hardware/Neuf/NeufBoxV4:NeufBox v4] ||
+||[:OpenWrtDocs/Hardware/Neuf/NeufBox4:Neuf Box 4] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
 ||[http://zhone.com/products/6228/ Zhone 6228] ||
 
