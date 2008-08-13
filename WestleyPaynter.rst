@@ -18,7 +18,7 @@ Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT com)]]
 
 === Notes about TFTP ===
 
-TFTP commands that I use that are useful.
+TFTP commands that I use that are useful. (using tftp in Back|Track linux livecd)
 {{{tftp 192.168.1.1
 binary
 rexmt 1
