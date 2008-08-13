@@ -168,47 +168,60 @@ I have one airlink 525 running with openwrt, and the other one being use for dev
 Bootlog :
 
 {{{
-root@OpenWrt:/# dmesg
-Linux version 2.6.24.2 (fainelli@anaconda.int-evry.fr) (gcc version 4.1.2) #1 Wed Mar 26 12:37:41 CET 2008
+RedBoot(tm) bootstrap and debug environment [ROM]
+Non-certified release, version v2_0 - built 18:31:11, Aug  4 2005
+
+Platform: PC (I386)
+Copyright (C) 2000, 2001, 2002, Red Hat, Inc.
+
+RAM: 0x00000000-0x000f0000, 0x00072ed0-0x000a0000 available
+ver 00:0003  05-24-05
+
+<press Ctrl+C to enter prompt mode>
+
+# Activate RDC-Keilven's RS232 Patch V2
+RedBoot>
+# Kernel size = 752160 bytes
+# FW size = 2214464 bytes
+
+# fwcheck: base = 0x00400000, size = 0x00000400
+# Firmware Checksum O.K
+# Kernel copying......BEGIN
+# Kernel copying......FINISH
+
+mem_size: 1000000
+Uncompressing Linux
+Done, booting
+Linux version 2.6.24.7 (ffainelli@jumper) (gcc version 4.1.2) #1 Wed Aug 13 17:22:20 CEST 2008
 BIOS-provided physical RAM map:
  BIOS-e801: 0000000000000000 - 000000000009f000 (usable)
  BIOS-e801: 0000000000100000 - 0000000001000000 (usable)
 16MB LOWMEM available.
-Entering add_active_range(0, 0, 4096) 0 entries of 256 used
 Zone PFN ranges:
   DMA             0 ->     4096
   Normal       4096 ->     4096
 Movable zone start PFN for each node
 early_node_map[1] active PFN ranges
     0:        0 ->     4096
-On node 0 totalpages: 4096
-  DMA zone: 32 pages used for memmap
-  DMA zone: 0 pages reserved
-  DMA zone: 4064 pages, LIFO batch:0
-  Normal zone: 0 pages used for memmap
-  Movable zone: 0 pages used for memmap
 DMI not present or invalid.
 Allocating PCI resources starting at 10000000 (gap: 01000000:ff000000)
 Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 4064
-Kernel command line: console=ttyS0,38400 root=/dev/mtdblock1 noinitrd
+Kernel command line: console=ttyS0,38400 root=/dev/mtdblock1 noinitrd init=/etc/preinit
 Initializing CPU#0
 PID hash table entries: 64 (order: 6, 256 bytes)
 console [ttyS0] enabled
 Dentry cache hash table entries: 2048 (order: 1, 8192 bytes)
 Inode-cache hash table entries: 1024 (order: 0, 4096 bytes)
-Memory: 13972k/16384k available (1254k kernel code, 2024k reserved, 340k data, 124k init, 0k highmem)
+Memory: 13952k/16384k available (1259k kernel code, 2044k reserved, 343k data, 136k init, 0k highmem)
 virtual kernel memory layout:
     fixmap  : 0xffffa000 - 0xfffff000   (  20 kB)
     vmalloc : 0xc1800000 - 0xffff8000   ( 999 MB)
     lowmem  : 0xc0000000 - 0xc1000000   (  16 MB)
-      .init : 0xc0292000 - 0xc02b1000   ( 124 kB)
-      .data : 0xc0239be9 - 0xc028ed1c   ( 340 kB)
-      .text : 0xc0100000 - 0xc0239be9   (1254 kB)
+      .init : 0xc0294000 - 0xc02b6000   ( 136 kB)
+      .data : 0xc023aebd - 0xc0290cfc   ( 343 kB)
+      .text : 0xc0100000 - 0xc023aebd   (1259 kB)
 Checking if this processor honours the WP bit even in supervisor mode... Ok.
-Calibrating delay loop... 49.53 BogoMIPS (lpj=99072)
 Mount-cache hash table entries: 512
-CPU: After generic identify, caps: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-CPU: After all inits, caps: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
 Compat vDSO mapped to ffffe000.
 CPU: 486
 Checking 'hlt' instruction... OK.
@@ -218,7 +231,6 @@ NET: Registered protocol family 16
 PCI: Using configuration type 1
 Setting up standard PCI resources
 PCI: Probing PCI hardware
-PCI: Probing PCI hardware (bus 00)
 Time: pit clocksource has been installed.
 NET: Registered protocol family 2
 IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
@@ -236,6 +248,7 @@ io scheduler cfq registered (default)
 Non-volatile memory driver v1.2
 Serial: 8250/16550 driver $Revision: 1.90 $ 2 ports, IRQ sharing disabled
 serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
 flash device: 400000 at ffc00000
 RDC3210 Flash: Found 1 x16 devices at 0x0 in 16-bit bank
  Amd/Fujitsu Extended Query Table at 0x0040
@@ -244,9 +257,9 @@ number of CFI chips: 1
 cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
 Creating 4 MTD partitions on "RDC3210 Flash":
 0x00000000-0x003e0000 : "linux"
-0x000b60e0-0x00180000 : "romfs"
+0x000b7a40-0x00220000 : "romfs"
 mtd: partition "romfs" doesn't start on an erase block boundary -- force read-only
-0x00180000-0x003e0000 : "rootfs_data"
+0x00220000-0x003e0000 : "rootfs_data"
 0x003e0000-0x00400000 : "bootldr"
 Registered led device: rdc321x:dmz
 nf_conntrack version 0.5.0 (1024 buckets, 4096 max)
@@ -258,84 +271,46 @@ NET: Registered protocol family 17
 All bugs added by David S. Miller <davem@redhat.com>
 Using IPI Shortcut mode
 VFS: Mounted root (squashfs filesystem) readonly.
-Freeing unused kernel memory: 124k freed
+Freeing unused kernel memory: 136k freed
 Please be patient, while OpenWrt loads ...
+- preinit -
+Press CTRL-C for failsafe
+switching to jffs2
 mini_fo: using base directory: /
 mini_fo: using storage directory: /jffs
-rt2x00lib: Unknown symbol rt2x00lib_config_bssid
-rt2x00lib: Unknown symbol ieee80211_register_hw
-rt2x00lib: Unknown symbol ieee80211_tx_status_irqsafe
-rt2x00lib: Unknown symbol rt2x00lib_config_mac_addr
-rt2x00lib: Unknown symbol ieee80211_ctstoself_get
-rt2x00lib: Unknown symbol rt2x00lib_config
-rt2x00lib: Unknown symbol ieee80211_start_queues
-rt2x00lib: Unknown symbol rt2x00lib_config_type
-rt2x00lib: Unknown symbol ieee80211_stop_queues
-rt2x00lib: Unknown symbol ieee80211_unregister_hw
-rt2x00lib: Unknown symbol ieee80211_rts_get
-rt2x00lib: Unknown symbol ieee80211_beacon_get
-rt2x00lib: Unknown symbol ieee80211_register_hwmode
-rt2x00lib: Unknown symbol ieee80211_rx_irqsafe
-rt2x00pci: Unknown symbol rt2x00lib_probe_dev
-rt2x00pci: Unknown symbol ieee80211_free_hw
-rt2x00pci: Unknown symbol ieee80211_alloc_hw
-rt2x00pci: Unknown symbol rt2x00lib_get_ring
-rt2x00pci: Unknown symbol rt2x00lib_rxdone
-rt2x00pci: Unknown symbol rt2x00lib_remove_dev
-rt2x00pci: Unknown symbol rt2x00lib_write_tx_desc
-rt2x00pci: Unknown symbol ieee80211_stop_queue
-rt2x00pci: Unknown symbol ieee80211_get_hdrlen
-rt61pci: Unknown symbol rt2x00mac_add_interface
-rt61pci: Unknown symbol rt2x00mac_get_stats
-rt61pci: Unknown symbol rt2x00pci_initialize
-rt61pci: Unknown symbol rt2x00lib_get_ring
-rt61pci: Unknown symbol ieee80211_wake_queue
-rt61pci: Unknown symbol rt2x00pci_uninitialize
-rt61pci: Unknown symbol rt2x00mac_config_interface
-rt61pci: Unknown symbol rt2x00pci_remove
-rt61pci: Unknown symbol rt2x00mac_remove_interface
-rt61pci: Unknown symbol rt2x00lib_txdone
-rt61pci: Unknown symbol rt2x00mac_config
-rt61pci: Unknown symbol rt2x00lib_write_tx_desc
-rt61pci: Unknown symbol rt2x00mac_conf_tx
-rt61pci: Unknown symbol rt2x00mac_start
-rt61pci: Unknown symbol rt2x00mac_stop
-rt61pci: Unknown symbol rt2x00mac_tx
-rt61pci: Unknown symbol rt2x00mac_erp_ie_changed
-rt61pci: Unknown symbol rt2x00pci_probe
-rt61pci: Unknown symbol rt2x00mac_get_tx_stats
-rt61pci: Unknown symbol rt2x00pci_rxdone
-rt61pci: Unknown symbol rt2x00pci_write_tx_data
-PPP generic driver version 2.4.2
-r6040: Unknown parameter `parent'
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 0 pos 0 00000021.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 0 pos 0 00000021.
-iptables: loop hook 0 pos 0 00000021.
-iptables: loop hook 0 pos 0 00000021.
-iptables: loop hook 0 pos 0 00000021.
-iptables: loop hook 1 pos 0 00000022.
-ip_tables:  target: invalid size 4 != 8
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-iptables: loop hook 1 pos 0 00000022.
-r6040: RDC R6040 NAPI net driver,version 0.16 (10Nov2007)
+- init -
 
-PCI: Setting latency timer of device 0000:00:08.0 to 64
-r6040: RDC R6040 NAPI net driver,version 0.16 (10Nov2007)
+Please press Enter to activate this console. PPP generic driver version 2.4.2
+ipt_time loading
+<6>r6040: RDC R6040 NAPI net driver,version 0.19 (16Jun2008)
 
-PCI: Setting latency timer of device 0000:00:09.0 to 64
+r6040: debug 0
+<6>r6040: RDC R6040 NAPI net driver,version 0.19 (16Jun2008)
+
+r6040: debug 0
 br-lan: Dropping NETIF_F_UFO since no NETIF_F_HW_CSUM feature.
-Link Change 9002
+device eth1 entered promiscuous mode
+br-lan: port 1(eth1) entering learning state
+br-lan: topology change detected, propagating
+br-lan: port 1(eth1) entering forwarding state
+
+
+
+BusyBox v1.8.2 (2008-08-12 16:27:52 CEST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ KAMIKAZE (bleeding edge, r12285) -------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into Link Change x9022
+10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------
+root@OpenWrt:/#
 }}}
 
 
