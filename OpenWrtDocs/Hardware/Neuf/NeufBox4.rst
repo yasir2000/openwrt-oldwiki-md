@@ -20,4 +20,6 @@ The processor is a MIPS 32 bits at 300 MHz (BCM6358 MIPS32® Dual Thread).
  * http://broadcom.com/collateral/pb/94318-PB00-R.pdf
 
 = Links =
- * [OpenBox4 http://www.neufbox4.org], community project which aims at creating an alternative firmware for the Neuf Box 4
+ * [http://www.neufbox4.org OpenBox4], community project which aims at creating an alternative firmware for the Neuf Box 4
+
+["CategoryBCM63xx"]
