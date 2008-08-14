@@ -111,13 +111,13 @@ This script can either be placed in the /etc/init.d directory if you'd like the 
 
 It is a good idea to create the /var/run/vpnc directory in the start-up script as this is where vpnc will attempt to store original versions of the files it changes.
 
-For automatic start, place this in /etc/init.d/S75vpnc:
+For automatic start, place this in /etc/init.d/S75vpnc (on White Russian):
 {{{
 #!/bin/sh
 mkdir -p -m777 /var/run/vpnc
 vpnc /etc/vpnc/vpnc.conf}}}
 
-Another option (on Kamikaze) is to use the following in /etc/init.d/vpnc:
+Another option (on Kamikaze) is to use the following in /etc/init.d/vpnc and softlink /etc/rc.d/S75vpnc to /etc/init.d/vpnc:
 {{{
 #!/bin/sh /etc/rc.common
 START=75
@@ -156,7 +156,7 @@ Save the script and execute it to start the connection.
 An additional change to vpnc-script is required to share the VPN with the router's clients. These changes are already in the modified file [http://www.dades.ca/openwrt/vpnc-script here] (updated version that works with the LEDs in White Russian RC6: attachment:vpnc-script).
 
 
-Add these two functions to the /etc/vpnc-script:
+Add these two functions to the /etc/vpnc-script (NOT necessary in vpnc 0.4 for Kamikaze):
 {{{
 start_vpn_nat() {
         iptables -A forwarding_rule -o tun0 -j ACCEPT
@@ -221,7 +221,8 @@ vpn_led_disconnected() {
 }
 }}}
 
-And finally, add calls to these functions in the pre-init, connect, and disconnect cases at the bottom of the script:
+And finally, add calls to these functions in the pre-init, connect, and disconnect cases at the 
+bottom of the script:
 {{{
 pre-init)
     vpn_led_pending
