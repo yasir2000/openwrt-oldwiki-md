@@ -9,7 +9,7 @@ Performance Reports
  - WRT54GL v1.1 (200mhz) - scp test at 45Kbytes a second with  31% CPU usage }}}
 
 = Compatibility and stability =
-Be warned that the vpnc 0.3 series has issues with re-keying, something that was fixed in version 0.4 and upwards.  Depending upon your environment, you may have significant issues with 0.3.
+Be warned that the vpnc 0.3 series has issues with re-keying, which means that your connection may hang or be dropped.  This is an issue that was fixed in version 0.4 and upwards.  Depending upon your environment (concentrator model, software version), you may have significant issues with 0.3.
 
 From a practical standpoint, using 0.4 and beyond means using Kamikaze - !not White Russian.  Ok, you've been warned.  ;-)
 
