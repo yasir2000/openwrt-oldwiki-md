@@ -8,6 +8,10 @@ Performance Reports
  - Tested WRT54GSv4 (200MHz) with Ethernet connection to Cisco Pix, 1des encryption, from NAT'd client behind WRT to ftp server behind Pix. 2.3 Mbps down and 1.9Mbps up.
  - WRT54GL v1.1 (200mhz) - scp test at 45Kbytes a second with  31% CPU usage }}}
 
+= Compatibility and stability =
+Be warned that the vpnc 0.3 series has issues with re-keying, something that was fixed in version 0.4 and upwards.  Depending upon your environment, you may have significant issues with 0.3.
+
+From a practical standpoint, using 0.4 and beyond means using Kamikaze - !not White Russian.  Ok, you've been warned.  ;-)
 
 = Installation =
 To install vpnc your !OpenWrt router needs internet - obviously you first need to connect to another network than the net you want to access with vpnc. Configure your device to use the backports repository. See ["OpenWrtDocs/Packages"] for instructions. Don't forget {{{ipkg update}}} after you added the backport repository to {{{/etc/ipkg.conf}}}.
