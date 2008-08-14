@@ -80,7 +80,7 @@ Note: having wpa_supplicant interact with madwifi using the Linux wireless exten
 
 -B sends it to the background (use this once you get it working) -d increases debugging level
 
-=== Using nas (an example with Kamikaze & Broadcom) ===
+=== Using nas as a WPA supplicant (an example with Kamikaze & Broadcom) ===
 On Kamikaze, you can use:
 
 {{{
