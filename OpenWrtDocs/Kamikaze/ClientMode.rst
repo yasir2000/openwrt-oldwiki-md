@@ -28,7 +28,7 @@ Using WEP in client mode is simple; two more options need to be set:
       option key          <encryption key>
 }}}
 == AP using WPA/WPA2 ==
-WPA requires a "supplicant" -- that is, code that deals with the whole encryption and authentication dealie.  While some have had success with the proprietary Broadcom chipset and the wpa_supplicant package (more on that in a moment), others have had to utilize the Broadcom proprietary supplicant, "nas" [[OpenWrtDocs/nas]] to get this stuff working -- see section below.  Don't blame me, man, I didn't do it.
+WPA requires a "supplicant" -- that is, code that deals with the whole encryption and authentication dealie.  While some have had success with the proprietary Broadcom chipset and the wpa_supplicant package (more on that in a moment), others have had to utilize the Broadcom proprietary supplicant, "nas" [[/OpenWrtDocs/nas]] to get this stuff working -- see section below.  Don't blame me, man, I didn't do it.
 
 === wpa_supplicant ===
 wpa_supplicant is the tool that deals with AP authentication, reconnects, etc.  It can even be configured to scan and select APs (useful for hidden APs and APs broadcasting multiple ESSIDs from a single BSSID).  Among [http://hostap.epitest.fi/wpa_supplicant/ other chipets], it supports the two wireless chipsets supported by OpenWRT, Atheros and the Broadcom wl.o binary.
