@@ -47,14 +47,16 @@ There is 3 sets of pads on the PCB of the WRT160N.
 JP1 and JP3 seem to be missing some surface mount components so may not actually work. 
 Half of the JP1 and JP3 pads are on the reverse side of the PCB.
 
-JP2 looks like it should work.
+JP2 works if you use a 3.3v TTL to RS-232.
 
 '''JP1'''
 || On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 11''' || ? ||
 || On Front ||'''Pad 1''' || ? ||'''Pad 3''' || ? ||'''Pad 5''' || ? ||'''Pad 7''' || ? ||'''Pad 9''' || ? ||'''Pad 12''' || ? ||
 
 '''JP2'''
-|| On Front ||'''Pad 1''' || 3.3v ||'''Pad 2''' || ? ||'''Pad 3''' || ? ||'''Pad 4''' || ? ||'''Pad 5''' || GND ||
+
+3.3v TTL Serial
+|| On Front ||'''Pad 1''' || 3.3v ||'''Pad 2''' || TX ||'''Pad 3''' || RX ||'''Pad 4''' || Not Connected ||'''Pad 5''' || GND ||
 
 '''JP3'''
 || On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 11''' || ? ||
@@ -66,12 +68,16 @@ Not yet documented.
 
 === Serial Ports ===
 
-Not yet documented.
+JP2 is a 3.3v serial port.  Boot messages can be seen if you connect a 3.3v level shifter here and monitor with a serial port. 
+
+DO NOT CONNECT DIRECTLY TO A PC SERIAL PORT. Use a 3.3v TTL level shifter. 
+Details at this page:
+ * http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Serial_Console
 
 == TODO ==
 
  * Find the data sheets for the chips used in this device.
- * Figure out what JP1, JP2, JP3 are for and the exact pinouts.
+ * Figure out what JP1, JP3 are for and the exact pinouts.
 
 == Other Categories this device is in ==
 
