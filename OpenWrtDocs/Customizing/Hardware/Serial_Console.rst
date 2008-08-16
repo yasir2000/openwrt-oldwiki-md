@@ -8,7 +8,7 @@ Pinouts for your model can often be found on your model's page in CategoryModel.
 
 == USB Kit ==
 You could buy something like [http://www.sparkfun.com/commerce/product_info.php?products_id=718 this] or [http://www.sparkfun.com/commerce/product_info.php?products_id=199 this].
-[http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm This] is even simpler.
+[http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm This] is even simpler. (Scroll down on that page.)
 
 A USB based data cable for a mobile cell phone is another possibility.
 
