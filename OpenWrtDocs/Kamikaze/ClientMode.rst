@@ -8,7 +8,7 @@ First off, why do this versus use WDS (Wireless Distribution System).  Well,
 
 Client mode can either be used without bridging (when all you're interested in is connecting the WRT itself wirelessly to your network), or with bridging (when you want to connect devices with Ethernet to the WRT, then allow them to use the WRT's wireless connection as a bridge).  Below are some methodologies for all of these scenarios.
 
-== AP without authentication (open) ==
+== ClientMode without authentication (open) ==
 /etc/config/wireless
 
 {{{
@@ -25,7 +25,7 @@ Client mode can either be used without bridging (when all you're interested in i
       option mode         "sta"
       option ssid         <network name>
 }}}
-== AP using WEP ==
+== ClientMode using WEP ==
 Using WEP in client mode is simple; two more options need to be set:
 
 {{{
@@ -34,7 +34,7 @@ Using WEP in client mode is simple; two more options need to be set:
       option encryption   "wep"
       option key          <encryption key>
 }}}
-== AP using WPA/WPA2 ==
+== ClientMode using WPA/WPA2 ==
 WPA requires a "supplicant" -- that is, code that deals with the whole encryption and authentication dealie.  While some have had success with the proprietary Broadcom chipset and the wpa_supplicant package (more on that in a moment), others have had to utilize the Broadcom proprietary supplicant, "nas" ["OpenWrtDocs/nas"] to get this stuff working -- see section below.  Don't blame me, man, I didn't do it.
 
 === wpa_supplicant ===
