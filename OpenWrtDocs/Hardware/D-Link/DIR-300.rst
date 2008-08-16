@@ -8,7 +8,7 @@ My USB->Serial Adapter was only 3,3V whereas this device needs 5V!
 
 = replace Bootloader =
 
-Get ap61.ram/ap61.rom from here: http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fv24%2FAtheros+WiSoc%2FAirlink+101+AR430W/
+Get ap61.ram/ap61.rom from here: http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fv24%2FAtheros+WiSoc%2FAirlink+101+AR430W/ and put it in your tftp-dir
 
 I have done this via serial, but it's also possible with just telnet (see [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Airlink/ARxxxW ARxxxW])
 {{{ 
@@ -69,34 +69,43 @@ DD-WRT> reset
 
 = install OpenWrt =
 
+== compile image ==
+
 deselect PCI support in the kernel otherwise your image won't boot:
 {{{ 
 make kernel_menuconfig
 Machine selection  ---> [ ]   PCI support
 }}}
 
+== initial flash ==
+
 {{{
-DD-WRT> load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
-Using default protocol (TFTP)
-Raw file loaded 0x80040800-0x801007ff, assumed entry at 0x80040800
 DD-WRT> fis init
 About to initialize [format] FLASH image system - continue (y/n)? y
 *** Initialize FLASH Image System
 ... Erase from 0xbffe0000-0xbfff0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xbffe0000: .
+
+DD-WRT> load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
+Using default protocol (TFTP)
+Raw file loaded 0x80040800-0x801007ff, assumed entry at 0x80040800
+
 DD-WRT> fis create -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
 ... Erase from 0xbfc30000-0xbfcf0000: ............
 ... Program from 0x80040800-0x80100800 at 0xbfc30000: ............
 ... Erase from 0xbffe0000-0xbfff0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xbffe0000: .
+
 DD-WRT> load -r -b %{FREEMEMLO} openwrt-atheros-root.squashfs
 Using default protocol (TFTP)
 Raw file loaded 0x80040800-0x802207ff, assumed entry at 0x80040800
+
 DD-WRT> fis create rootfs
 ... Erase from 0xbfcf0000-0xbffe0000: ...............................................
 ... Program from 0x80040800-0x80220800 at 0xbfcf0000: ..............................
 ... Erase from 0xbffe0000-0xbfff0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xbffe0000: .
+
 DD-WRT> fconfig
 Run script at boot: true
 Boot script:
@@ -117,6 +126,7 @@ Network debug at boot time: false
 Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Erase from 0xbffe0000-0xbfff0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xbffe0000: .
+
 DD-WRT> reset
 [...]
 DD-WRT> fis load -l vmlinux.bin.l7
@@ -127,4 +137,19 @@ Now booting linux kernel:
  Cmdline : 
 Linux version 2.6.26.2 (jan@jan) (gcc version 4.1.2) #1 Tue Aug 12 10:14:23 CEST 2008
 [...]
+}}}
+
+== reflash ==
+
+for reflashing via redboot use
+{{{
+load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
+fis create -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
+load -r -b %{FREEMEMLO} openwrt-atheros-root.squashfs
+fis create rootfs
+}}}
+or from openwrt
+{{{
+mtd -e vmlinux.bin.l7 write openwrt-atheros-vmlinux.lzma vmlinux.bin.l7
+mtd -r write openwrt-atheros-2.6-root.squashfs rootfs
 }}}
