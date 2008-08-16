@@ -1,6 +1,13 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Client Mode Wireless =
+First off, why do this versus use WDS (Wireless Distribution System).  Well, 
+ * WDS (wireless Distribution System) always robs you of bandwidth, so unless you actually ''need'' another AP as a distribution point because of distance or obstacles, using it simply to bridge is not beneficial
+ * It may be that you don't want to use your router as an access point -- perhaps you simply have a printer attached, or are using it as network attached storage.
+ * You may want to be able to reset the device in question without consequences to your wireless network -- therefore, using the device as a client makes a lot of sense.
+
+Client mode can either be used without bridging (when all you're interested in is connecting the WRT itself wirelessly to your network), or with bridging (when you want to connect devices with Ethernet to the WRT, then allow them to use the WRT's wireless connection as a bridge).  Below are some methodologies for all of these scenarios.
+
 == AP without authentication (open) ==
 /etc/config/wireless
 
