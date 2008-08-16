@@ -2,6 +2,8 @@ Rename from ["OpenWrtDocs/Hardware/Airlink/AR525W"]
 
 '''Airlink101 AR525W'''
 
+NOTE: Many of these units will stop functioning altogether after operating awhile, with no obvious way to get them working again. This problem is completely irrespective of what firmware they may be running. If you open the router, you will find that the RFI shield on the MiniPCI card is hot to the touch when this happens. Press a chemical cold-pack against that part while it's running. As long as cold remains applied directly to the RFI shield, the unit will operate as intended, indefinitely.
+
 GPL tarball : http://www.airlink101.com/gpl/ar525w/
 
 === JTAG Port ===
@@ -43,7 +45,7 @@ GPL Tarball located here: http://www.airlink101.com/gpl/
 
 == Power Supply ==
 
-The manufacturer's website says this unit runs on 12V@1A, with no specified polarity. other websites say this unit runs on 5V. I'm successfully running mine using a power adapter that provides 5V@2A, with a positive tip.
+The manufacturer's website says this unit runs on 12V@1A, with no specified polarity. other websites say this unit runs on 5V. I'm successfully running mine using a power adapter that provides 5V@2A, with a positive tip. The power adapter that comes with it says 12V@500mA.
 
 == Boot Log ==
 {{{
