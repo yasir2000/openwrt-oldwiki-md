@@ -74,6 +74,10 @@ DO NOT CONNECT DIRECTLY TO A PC SERIAL PORT. Use a 3.3v TTL level shifter.
 Details at this page:
  * http://wiki.openwrt.org/OpenWrtDocs/Customizing/Hardware/Serial_Console
 
+=== Boot Messages ===
+
+Boot messages are [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages here]
+
 == TODO ==
 
  * Find the data sheets for the chips used in this device.
