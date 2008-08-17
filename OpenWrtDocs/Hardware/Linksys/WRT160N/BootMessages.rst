@@ -2,7 +2,7 @@
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N Return to WRT160N]
 
-This is what shows on the serial console when booting firmware 1.02.2
+This is what shows on the serial console when booting the Linksys firmware 1.02.2
 {{{Start to blink diag led ...
 
 
