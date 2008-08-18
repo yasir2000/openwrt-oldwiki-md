@@ -77,7 +77,8 @@ Details at this page:
 
 === Boot Messages ===
 
-Boot messages are [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages here]
+ * Boot messages from original Linksys firmware are [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages here]
+ * Boot messages from OpenWRT Trunk 8-17-2008 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk_8-17-2008 here]
 
 == TODO ==
 
