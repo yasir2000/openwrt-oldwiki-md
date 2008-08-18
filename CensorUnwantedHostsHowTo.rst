@@ -24,7 +24,7 @@ receive all http-requests from the internal lan to Internet.  Then
 Tinyproxy will redirect these requests to the real hosts.  All this
 happens transparently for the clients in the lan.
 
-== `tinyproxy.conf` ==
+== tinyproxy.conf ==
 
 The configuration file of Tinyproxy is
 `/etc/tinyproxy/tinyproxy.conf`.  We have to change some of the
@@ -104,7 +104,6 @@ are quiet big and not suited for a device with limited resources.  I
 think it would be inappropriate and offencive to write here a real
 filter list so use the following only as an example:
 {{{
-breasts
 erotic
 fashion
 fitness
@@ -263,9 +262,11 @@ IP-numbers.  Create a file `/etc/forbidden` which lists these hosts -
 one IP-number per line.
 
 Add the following commands at the end of `/etc/firewall.user`:
+{{{
 iptables -N censor
 iptables -I forwarding_rule -j censor
 iptables -I output_rule -j censor
+}}}
 
 Modify the script `/etc/init.d/censor` as follows:
 {{{
