@@ -1,4 +1,8 @@
-Describe OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk 8-17-2008 here.
+= Linksys WRT160N / BootMessages =
+
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N Return to WRT160N]
+
+This is what shows on the serial console when booting the OpenWRT firmware from trunk 8-17-2008
 
 {{{
 Start to blink diag led ...
