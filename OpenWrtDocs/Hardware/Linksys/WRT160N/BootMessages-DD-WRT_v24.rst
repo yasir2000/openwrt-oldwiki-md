@@ -1,4 +1,9 @@
-CPU revision is: 00029006
+= Linksys WRT160N / BootMessages =
+
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N Return to WRT160N]
+
+This is what shows on the serial console when booting the DD-WRT v24 firmware
+{{{CPU revision is: 00029006
 Linux version 2.4.36 (root@dd-wrt) (gcc version 3.4.6 (OpenWrt-2.0)) #308 Sun Jul 27 16:11:05 CEST 2008
 Setting the PFC to its default value
 Determined physical RAM map:
@@ -80,4 +85,6 @@ Mounted devfs on /dev
 device eth0 entered promiscuous mode
 device eth2 entered promiscuous mode
 device eth1 entered promiscuous mode
-device eth1 left promiscuous mode
+device eth1 left promiscuous mode}}}
+
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N Return to WRT160N]
