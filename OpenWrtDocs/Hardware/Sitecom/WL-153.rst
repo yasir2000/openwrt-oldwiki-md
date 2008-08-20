@@ -50,8 +50,10 @@ Each JTAG pin may be redefined as a GPIO:
 This [http://www.linksysinfo.org/forums/showpost.php?p=319556&postcount=22 article] describes how to flash the bootloader of
 a NAS-200 containing a RDC R3210. A Xilinx (buffered) cable was used, together with the (Windows only) RDC Loader application.
 Another [http://www.linksysinfo.org/forums/archive/index.php?t-56755.html thread] shortly mentions the pin mappings of the Xilinx cable.
-It looks similar to the one used with HairyDairyMaid's tool, maybe the unbuffered version works?
+It looks similar to the one used with [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable: HairyDairyMaid's tool], maybe the unbuffered version works too?
 (Haven't tried JTAG yet.)
+
+Be aware that pin 40 must be tied to Vcc (see links above).
 
 = GPIO =
 
