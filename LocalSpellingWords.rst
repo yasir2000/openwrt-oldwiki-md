@@ -204,3 +204,5 @@ ran rip
 Die Linkspam
 
 boots Cliff customize Detailed entry executes ext2 finishes follow fs grub halts Hat hda hda1 hda2 init Init initializing inittab loader located menu mother Notes notes observations options pre preinit processes rc reads reboots Red sbin scripts sequence setups shutdown someone startup Sys sys sysinit tm vmlinuz wants x86
+
+boots Cliff customize Detailed entry executes ext2 finishes follow fs grub halts Hat hda hda1 hda2 init Init initializing inittab loader located menu mother Notes notes observations options pre preinit processes rc reads reboots Red sbin scripts sequence setups shutdown someone startup Sys sys sysinit tm vmlinuz wants x86
