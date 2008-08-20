@@ -93,4 +93,4 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 == Building OpenWrt ==
 [:OpenWrtDocs/BuildingKamikazeHowTo:BuildingKamikazeHowTo]
 
-[:OpenWrtDocs/OpenWrtDocs/Customizing/Software/boot:Boot Sequence]
+[:OpenWrtDocs/OpenWrtDocs/Customizing/Software/boot:Kamikaze Boot Sequence]
