@@ -1,44 +1,98 @@
-== Building firmware for the alix 2c2: ==
+== Building firmware for the ALIX.2C2 ==
+{{{
+$ cd ~/
+$ rm -rf ~/x86-trunk/
+$ git clone git://nbd.ds10.mine.nu/openwrt.git ~/x86-trunk/
+$ cd ~/x86-trunk/
+$ echo "src-git packages git://nbd.ds10.mine.nu/packages.git
+src-git luci git://nbd.ds10.mine.nu/luci.git" > ~/x86-trunk/feeds.conf
+$ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/
+$ ./scripts/feeds update
+$ ./scripts/feeds install -a -p luci
+$ ./scripts/feeds install wget nano
+$ cd ~/x86-trunk/; rm -rf .config*; make menuconfig
+$ cd ~/x86-trunk/; make menuconfig}}}
+~/x86-trunk/files/etc/uci-defaults/defaults:
+
+{{{
+#!/bin/sh (-)
+uci batch <<-EOF
+        set network.wan=interface
+        set network.wan.proto=dhcp
+        set network.wan.ifname=eth1
+        commit network
+        set luci.main.mediaurlbase=/luci-static/openwrt-light
+        commit luci
+EOF}}}
+Changes in menuconfig:
+
+ * Target Profile: '''PCEngines Alix'''
+ * '''
+'''
+ * Target Images
+  * Serial port baud rate: '''115200'''
+  * Extra kernel boot options: '''irqpoll'''
+  * Filesystem part size (in MB): '''128'''
+ * Kernel modules
+  * Cryptographic API modules
+   * kmod-crypto-ocf: '''Y '''
+  * Filesystems
+   * kmod-fs-ext3: '''Y'''
+   * kmod-nls-iso8859-15: '''Y'''
+   * kmod-nls-utf8: '''Y'''
+  * Wireless Drivers
+   * kmod-madwifi
+    . Use the upstream release version 0.9.4
+ * Multimedia
+  * mjpg-streamer: '''Y '''
+ * Administration
+  * LuCI Components
+   * luci-admin-full: '''Y'''
+   * luci-admin-mini: '''Y'''
+   * luci-app-ddns: '''Y'''
+   * luci-app-firewall: '''Y'''
+   * luci-app-ntpc: '''Y'''
+   * luci-app-qos: '''Y'''
+   * luci-app-samba: '''Y '''
+  * LuCI Themes
+   * luci-theme-openwrtlight: Y
+ * Utilities
+  * disc
+   * cfdisk: Y
+   * swap-utils: Y
+  * e2fsprogs: Y
+{{{$ make world}}}
 
 http://www.netgate.com/product_info.php?cPath=60&products_id=509
 
 === Hardware Encryption ===
 http://www.docunext.com/wiki/My_Notes_on_Patching_2.6.22_with_OCF
 
-I was able to patch the kernel and openssl with cryptodev support.  I also created
-a package makefile for cryptotest.  cryptotest reports the geode AES engine to be
-very fast, nearly exactly as fast as in the link above.
+I was able to patch the kernel and openssl with cryptodev support.  I also created a package makefile for cryptotest.  cryptotest reports the geode AES engine to be very fast, nearly exactly as fast as in the link above.
 
-Using openVPN, I am seeing a thoughput increase
-from 1.3MB/s without the hardware crypto, to 2.0MB/s with the hardware crypto.
+Using openVPN, I am seeing a thoughput increase from 1.3MB/s without the hardware crypto, to 2.0MB/s with the hardware crypto.
 
-I was hoping the hardware crypto would make openvpn much faster, but it appears
-there is a lot of overhead, mainly authentication.  Perhaps if the geode supported
-both encryption and authentication it would help more?
+I was hoping the hardware crypto would make openvpn much faster, but it appears there is a lot of overhead, mainly authentication.  Perhaps if the geode supported both encryption and authentication it would help more?
 
-Anyway, here are the patches:
-http://www.psyc.vt.edu/openwrt/110-geode_aes_support-package.patch
-http://www.psyc.vt.edu/openwrt/110-geode_aes_support-target.patch
+Anyway, here are the patches: http://www.psyc.vt.edu/openwrt/110-geode_aes_support-package.patch http://www.psyc.vt.edu/openwrt/110-geode_aes_support-target.patch
 
 Run 'make distclean' before running menuconfig, this will re-load the alix profile.
-
 
 === OpenWRT menuconfig ===
  * config buildroot with the following options:
   * Target System: x86
   * Subtarget: Generic
   * Target Profile: PCEngines Alix
-  * Target Options: 
+  * Target Options:
    * jffs2, squashfs, ext2
    * serial baud rate: 38400
    * Kernel partition size: 12 (my preference)
    * root partition: /dev/hda2
    * Filsystem part size: 96MB (my preference)
    * Maximum number of inodes: 1500
-
 === Flashing the image to the CF card ===
-
 On a linux box with a cf reader:
+
  * Make sure the card isn't mounted, often its mounted by default
  * use dd to write the image to the disk:
 {{{
@@ -46,50 +100,41 @@ On a linux box with a cf reader:
 }}}
  * After booting linux, it took a long time for the jffs partition to init.
  * After jffs init, run firstboot manually (causes oops?)
-
-
 To upgrade from within openwrt:
+
  * use dd to write the image to the disk:
 {{{
  dd if=openwrt-x86-squashfs.image of=/dev/hda
 }}}
  * reboot
  * make sure the root_data partition was regenerated automatically
-
-
 === Controlling the LEDs ===
+Using the LEDs on the alix:
 
-Using the LEDs on the alix: 
 {{{
-You should get three LED devices under /sys/class/leds/ 
+You should get three LED devices under /sys/class/leds/
 - alix:1, alix:2 and alix:3
-
 This should turn on one led:
   echo 1 > /sys/class/leds/alix:1/brightness
-
 And off:
   echo 0 > /sys/class/leds/alix:1/brightness
-
 And this should make it blink:
   echo timer > /sys/class/leds/alix:1/trigger
   echo 1000 > /sys/class/leds/alix:1/delay_off
   echo 100 > /sys/class/leds/alix:1/delay_on
 }}}
-
 After rebooting, you will have to add the wan interface to /etc/config/network
 
-
 === Entering Failsafe ===
-
 Entering failsafe:
+
  * The button does not seem to work
  * Attach serial cable, speed is 38400
  * Press Esc during or after the memory check (can be tricky to time right)
  * Choose 'safe mode' in the grub menu
-
 == More Info ==
-
 /proc/cpuinfo
+
 {{{
 processor       : 0
 vendor_id       : AuthenticAMD
@@ -111,8 +156,8 @@ flags           : fpu de pse tsc msr cx8 sep pge cmov clflush mmx mmxext 3dnowex
 bogomips        : 997.37
 clflush size    : 32
 }}}
-
 /proc/meminfo
+
 {{{
 MemTotal:       257144 kB
 MemFree:        227688 kB
@@ -139,8 +184,8 @@ VmallocTotal:   777948 kB
 VmallocUsed:       820 kB
 VmallocChunk:   777092 kB
 }}}
-
 dmesg
+
 {{{
 Linux version 2.6.23.16 (bpfountz@bens-computer) (gcc version 4.1.2) #1 SMP Sun Mar 2 18:09:17 EST 2008
 BIOS-provided physical RAM map:
@@ -216,7 +261,7 @@ TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
 TCP: Hash tables configured (established 8192 bind 8192)
 TCP reno registered
 microcode: CPU0 not a capable Intel processor
-IA-32 Microcode Update Driver: v1.14a 
+IA-32 Microcode Update Driver: v1.14a
 scx200: NatSemi SCx200 Driver
 squashfs: version 3.0 (2006/03/15) Phillip Lougher
 Registering mini_fo version $Id$
@@ -242,7 +287,7 @@ hda: 1000944 sectors (512 MB) w/1KiB Cache, CHS=993/16/63
 block2mtd: version $Revision: 1.30 $
 Creating 1 MTD partitions on "rootfs":
 0x00000000-0x06070000 : "rootfs"
-mtd: partition "rootfs_data" created automatically, ofs=2E0000, len=5D90000 
+mtd: partition "rootfs_data" created automatically, ofs=2E0000, len=5D90000
 0x002e0000-0x06070000 : "rootfs_data"
 block2mtd: mtd0: [rootfs] erase_size = 64KiB [65536]
 PNP: No PS/2 controller found. Probing ports directly.
@@ -253,8 +298,8 @@ ip_tables: (C) 2000-2006 Netfilter Core Team
 TCP vegas registered
 NET: Registered protocol family 1
 NET: Registered protocol family 17
-802.1Q VLAN Support v1.8 Ben Greear 
-All bugs added by David S. Miller 
+802.1Q VLAN Support v1.8 Ben Greear
+All bugs added by David S. Miller
 Using IPI Shortcut mode
 VFS: Mounted root (squashfs filesystem) readonly.
 Freeing unused kernel memory: 184k freed
@@ -262,7 +307,7 @@ Please be patient, while OpenWrt loads ...
 mini_fo: using base directory: /
 mini_fo: using storage directory: /jffs
 natsemi dp8381x driver, version 2.1, Sept 11, 2006
-  originally by Donald Becker 
+  originally by Donald Becker
   2.4.x kernel port by Jeff Garzik, Tjeerd Mulder
 Registered led device: alix:1
 Registered led device: alix:2
@@ -285,7 +330,7 @@ br-lan: topology change detected, propagating
 br-lan: port 1(eth0) entering forwarding state
 eth1: link up, 100Mbps, full-duplex, lpa 0x41E1
 tun: Universal TUN/TAP device driver, 1.6
-tun: (C) 1999-2004 Max Krasnyansky 
+tun: (C) 1999-2004 Max Krasnyansky
 geode-aes: GEODE AES engine enabled.
 ocf: module license 'BSD' taints kernel.
 cryptosoft: setkey failed -22 (crt_flags=0x200000)
