@@ -53,7 +53,8 @@ The options are:
 
 The first program called after the kernel loads is located at the kernel options entry of the boot loader. For grub, the entry is located in the openwrt-<cpu>-<filesystem>.image.kernel.image file in the /boot/grub/menu.lst file.
 
-NOTE: See the man page on grub for all of the grub parameters. In this example, the entry "init=/etc/preinit" tells the kernel that the first program to run after initializing is  "preinit" found in the "/etc" directory located on the disk "/dev/hda" and partition "hda2".
+[ NOTE: See the man page on grub for all of the grub parameters ]
+In this example, the entry "init=/etc/preinit" tells the kernel that the first program to run after initializing is  "preinit" found in the "/etc" directory located on the disk "/dev/hda" and partition "hda2".
 
 == /etc/preinit script ==
 The preinit script's primary purpose is initial checks and setups for the rest of the startup scripts. One primary job is to mount the /proc and /sys pseudo filesystems so access to status information and some control functions are made available. Another primary function is to prepare the /dev directory for access to things like console, tty, and media access devices. The final job of preinit is to start the init daemon process itself.
