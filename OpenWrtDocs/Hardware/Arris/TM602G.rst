@@ -50,7 +50,7 @@ There is a 4-pin TTL-level serial header inside. The default baud rate is 9600.
 
 = Luke's =
 
-http://dashjr.org/gallery/v/tech/tm602g/
+http://dashjr.org/gallery/v/tech/TM602G/
 
 == Serial Output ==
 
