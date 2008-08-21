@@ -48,14 +48,13 @@ Changes in menuconfig:
    * luci-app-firewall: '''Y'''
    * luci-app-ntpc: '''Y'''
    * luci-app-qos: '''Y'''
-   * luci-app-samba: '''Y '''
   * LuCI Themes
    * luci-theme-openwrtlight: '''Y'''
  * Utilities
   * disc
-   * cfdisk: Y
-   * swap-utils: Y
-  * e2fsprogs: Y
+   * cfdisk: '''Y'''
+   * swap-utils: '''Y'''
+  * e2fsprogs: '''Y'''
 {{{$ make world}}}
 
 http://www.netgate.com/product_info.php?cPath=60&products_id=509
