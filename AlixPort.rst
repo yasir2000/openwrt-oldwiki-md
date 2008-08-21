@@ -4,15 +4,14 @@ $ cd ~/
 $ rm -rf ~/x86-trunk/
 $ git clone git://nbd.ds10.mine.nu/openwrt.git ~/x86-trunk/
 $ cd ~/x86-trunk/
-$ echo "src-git packages git://nbd.ds10.mine.nu/packages.git
-src-git luci git://nbd.ds10.mine.nu/luci.git" > ~/x86-trunk/feeds.conf
+$ cp -fpR ~/patches/feeds.conf ~/x86-trunk/
 $ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/
 $ ./scripts/feeds update
 $ ./scripts/feeds install -a -p luci
 $ ./scripts/feeds install wget nano
 $ cd ~/x86-trunk/; rm -rf .config*; make menuconfig
 $ cd ~/x86-trunk/; make menuconfig}}}
-~/x86-trunk/files/etc/uci-defaults/defaults:
+~/patches/defaults:
 
 {{{
 #!/bin/sh (-)
@@ -24,6 +23,13 @@ uci batch <<-EOF
         set luci.main.mediaurlbase=/luci-static/openwrt-light
         commit luci
 EOF}}}
+~/patches/feeds.conf
+{{{
+src-git packages git://nbd.ds10.mine.nu/packages.git
+src-git luci git://nbd.ds10.mine.nu/luci.git}}}
+
+
+
 Changes in menuconfig:
 
  * Target System: '''x86 [2.6]'''
