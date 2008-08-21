@@ -38,7 +38,7 @@ Changes in menuconfig:
    * kmod-fs-ext3: '''Y'''
    * kmod-nls-utf8: '''Y'''
   * Wireless Drivers
-   * kmod-madwifi
+   * kmod-madwifi: '''Y'''
     * Madwifi version: '''Use the upstream release version 0.9.4'''
  * Administration
   * LuCI Components
