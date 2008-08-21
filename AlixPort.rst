@@ -26,9 +26,8 @@ uci batch <<-EOF
 EOF}}}
 Changes in menuconfig:
 
+ * Target System: '''x86 [2.6]'''
  * Target Profile: '''PCEngines Alix'''
- * '''
-'''
  * Target Images
   * Serial port baud rate: '''115200'''
   * Extra kernel boot options: '''irqpoll'''
@@ -42,9 +41,7 @@ Changes in menuconfig:
    * kmod-nls-utf8: '''Y'''
   * Wireless Drivers
    * kmod-madwifi
-    . Use the upstream release version 0.9.4
- * Multimedia
-  * mjpg-streamer: '''Y '''
+    * Madwifi version: '''Use the upstream release version 0.9.4'''
  * Administration
   * LuCI Components
    * luci-admin-full: '''Y'''
@@ -55,7 +52,7 @@ Changes in menuconfig:
    * luci-app-qos: '''Y'''
    * luci-app-samba: '''Y '''
   * LuCI Themes
-   * luci-theme-openwrtlight: Y
+   * luci-theme-openwrtlight: '''Y'''
  * Utilities
   * disc
    * cfdisk: Y
