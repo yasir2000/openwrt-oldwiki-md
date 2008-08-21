@@ -104,11 +104,13 @@ The format of the script name is "X##nnnn" where:
  * ## = a sequence number with a leading zero (if less than 10)
  * nnnn = the script name as found in /etc/init.d
 
-For example - the real script /etc/init.d/network is the script that brings up/takes down network interfaces. The relevant startup script is /etc/rc.d/S40network and K40network and shutdown script is /etc/rc.d/K40network.
+For example - the real script /etc/init.d/network is the script that brings up/takes down network interfaces. The relevant startup link is /etc/rc.d/S40network and the shutdown link is /etc/rc.d/K40network.
 
-If you look at the /etc/rc.d directory, you may notice that some scripts have relevant links for startup, but no shutdown (i.e., /etc/rc.d/S50httpd), while some others have no startup script, but do have a shutdown script (i.e., /etc/rc.d/K99umount).
+If you look at the /etc/rc.d directory, you may notice that some scripts have relevant links for startup, but no shutdown (i.e., /etc/init.d/httpd), while some others have no startup script, but do have a shutdown script (i.e., /etc/init.d/umount).
 
-In the case of httpd (the webserver), it doesn't matter if it dies or not, there's nothing to clean up before quitting. On the other hand, the umount script MUST be executed before shutdown to ensure a clean unmounting of any relevant storage media, otherwise data corruption could occur. There's no need to call unmount at startup, since storage media mounting is handled somewhere else (like /etc/preinit), so there's no startup script for this one.
+In the case of httpd (the webserver), it doesn't matter if it dies or not, there's nothing to clean up before quitting.
+
+On the other hand, the umount script MUST be executed before shutdown to ensure a clean unmounting of any relevant storage media, otherwise data corruption could occur. There's no need to call unmount at startup, since storage media mounting is handled somewhere else (like /etc/preinit), so there's no startup script for this one.
 
 After the last startup script is executed, you should have a fully operational OpenWRT system.
 
