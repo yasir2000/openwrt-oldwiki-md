@@ -24,19 +24,23 @@ uci batch <<-EOF
         commit luci
 EOF}}}
 ~/patches/feeds.conf
+
 {{{
 src-git packages git://nbd.ds10.mine.nu/packages.git
 src-git luci git://nbd.ds10.mine.nu/luci.git}}}
-
-
-
 Changes in menuconfig:
 
  * Target System: '''x86 [2.6]'''
  * Target Profile: '''PCEngines Alix'''
  * Target Images
+  * jffs2: '''N'''
+  * ext2: '''N'''
   * Extra kernel boot options: '''irqpoll'''
   * Filesystem part size (in MB): '''128'''
+ * Network
+  * hostapd: '''Y'''
+  * ppp: '''N''' (if you don't need PPP)
+  * wget: '''Y'''
  * Kernel modules
   * Cryptographic API modules
    * kmod-crypto-ocf: '''Y '''
@@ -57,6 +61,8 @@ Changes in menuconfig:
   * LuCI Themes
    * luci-theme-openwrtlight: '''Y'''
  * Utilities
+  * Editors
+   * nano: '''Y'''
   * disc
    * cfdisk: '''Y'''
    * swap-utils: '''Y'''
