@@ -29,7 +29,6 @@ Changes in menuconfig:
  * Target System: '''x86 [2.6]'''
  * Target Profile: '''PCEngines Alix'''
  * Target Images
-  * Serial port baud rate: '''115200'''
   * Extra kernel boot options: '''irqpoll'''
   * Filesystem part size (in MB): '''128'''
  * Kernel modules
@@ -37,7 +36,6 @@ Changes in menuconfig:
    * kmod-crypto-ocf: '''Y '''
   * Filesystems
    * kmod-fs-ext3: '''Y'''
-   * kmod-nls-iso8859-15: '''Y'''
    * kmod-nls-utf8: '''Y'''
   * Wireless Drivers
    * kmod-madwifi
