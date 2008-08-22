@@ -17,8 +17,8 @@ Serial port (labeled JP1, @115200bps):
 
 {{{
       VCC o
-LAN   TX  o   Antenna
-      RX  o
+LAN   RX  o   Antenna
+      TX  o
       GND o
 }}}
 == Opening the case ==
