@@ -57,7 +57,7 @@ Internally this is regulated to 3.3V by a switched regulator, so it will probabl
 on anything from 4 to 16V, without adding to heat. I tried 12V 
 
 == Serial Port ==
-If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD and TXD are lowlevel (3.3V) signals. NOT RS232 levels.
+If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
 
 {{{
 FON2100: 
@@ -799,7 +799,7 @@ As with most routers, the Fonera has some gpio pins that extra hardware can be c
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
  * [http://stefans.datenbruch.de/lafonera/ Hacking the La Fonera]
  * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 OpenWrt development]
- * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial] (albeit with wrong pinout)
+ * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial] (pinout from fonera perspective: RX host->fonera)
  * [http://www.easy2design.de/bla/?page_id=98 Debricking and more]
  * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to RedBoot without the Serial Console]
  * [http://coppercore.net/~kevin/fon/ Files to get the access to RedBoot without the Serial Console]
