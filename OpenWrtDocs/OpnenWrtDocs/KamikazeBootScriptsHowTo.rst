@@ -75,11 +75,11 @@ This script contains wrapper functions for making it easier to manipulate config
 == /etc/rc.common ==
 This shell script is some common functions that are used for the startup/shutdown sequences.
 
-Imports functions from /etc/functions.sh
+ * Imports functions from /etc/functions.sh
 
-Optionally, execute $1=INITSCRIPT $2=ACTION (start, stop, etc.)
+ * Optionally, execute $1=INITSCRIPT $2=ACTION (start, stop, etc.)
 
-Optionally, execute $EXTRA_COMMANDS
+ * Optionally, execute $EXTRA_COMMANDS
 
 === Placeholder Functions ===
 In most cases, these functions used for boot scripts that don't have them defined due to not being needed.
