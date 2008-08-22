@@ -57,6 +57,7 @@ file: /etc/hosts
 192.168.1.55 printer_01
 195.xxx.xxx.xxx remote_access
 xxx.xxx.xxx.xxx router
+xxx.xxx.0.0 lan
 }}}
 
 file: /etc/fwlib.sh
@@ -76,6 +77,11 @@ flush_firewall () {
     iptables -F forwarding_rule
     iptables -t nat -F prerouting_rule
     iptables -t nat -F postrouting_rule
+
+    #create logdrop rule
+    iptables -N LOGDROP
+    iptables -A LOGDROP -j LOG --log-level warning --log-prefix 'BLOCKED: ' --log-tcp-sequence --log-ip-options --log-tcp-options
+    iptables -A LOGDROP -j DROP
 }
 
 ### BIG FAT DISCLAIMER
@@ -108,7 +114,8 @@ forward_port() {
     ALLOWHOSTNAME=$2
     ALLOWHOST=`sucky_resolve $ALLOWHOSTNAME`
     ROUTER=`sucky_resolve router`
-    
+    LAN=`sucky_resolve lan`    
+
     echo "FORWARDING $ALLOWPORT TO $ALLOWHOSTNAME ($ALLOWHOST)"
 
     # Original outside to WAN forwarding lines
@@ -119,7 +126,7 @@ forward_port() {
     # your router needs to be in hosts, see updated hosts
     iptables -t nat -A prerouting_rule -d $ROUTER -p tcp --dport $ALLOWPORT -j DNAT --to $ALLOWHOST
     iptables        -A forwarding_wan -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j ACCEPT
-    iptables -t nat -A postrouting_rule -s 192.168.0.0/12 -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j MASQUERADE
+    iptables -t nat -A postrouting_rule -s $LAN/12 -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j MASQUERADE
 
 }
 
@@ -139,6 +146,12 @@ trusted_host (){
     TRUSTEDHOST=`sucky_resolve $ALLOWHOSTNAME`
     iptables -t nat -A prerouting_rule -i $WAN -p tcp -s $TRUSTEDHOST -j ACCEPT
     iptables        -A input_rule      -i $WAN -p tcp -s $TRUSTEDHOST -j ACCEPT
+}
+
+
+drop_incoming (){
+    echo "BLOCKING INCOMING PACKETS FROM $1"
+    iptables -A input_rule -i $WAN -s $1 -p tcp -j LOGDROP
 }
 
 }}}
