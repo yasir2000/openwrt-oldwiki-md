@@ -56,7 +56,7 @@ file: /etc/hosts
 195.xxx.xxx.xxx my_support_company
 192.168.1.55 printer_01
 195.xxx.xxx.xxx remote_access
-
+xxx.xxx.xxx.xxx router
 }}}
 
 file: /etc/fwlib.sh
@@ -107,9 +107,20 @@ forward_port() {
     ALLOWPORT=$1
     ALLOWHOSTNAME=$2
     ALLOWHOST=`sucky_resolve $ALLOWHOSTNAME`
+    ROUTER=`sucky_resolve router`
+    
     echo "FORWARDING $ALLOWPORT TO $ALLOWHOSTNAME ($ALLOWHOST)"
-    iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport $ALLOWPORT -j DNAT --to $ALLOWHOST
-    iptables        -A forwarding_rule -i $WAN -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j ACCEPT
+
+    # Original outside to WAN forwarding lines
+    #iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport $ALLOWPORT -j DNAT --to $ALLOWHOST
+    #iptables        -A forwarding_rule -i $WAN -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j ACCEPT
+
+    # Updated to handle LAN->WAN and external -> WAN
+    # your router needs to be in hosts, see updated hosts
+    iptables -t nat -A prerouting_rule -d $ROUTER -p tcp --dport $ALLOWPORT -j DNAT --to $ALLOWHOST
+    iptables        -A forwarding_wan -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j ACCEPT
+    iptables -t nat -A postrouting_rule -s 192.168.0.0/12 -p tcp --dport $ALLOWPORT -d $ALLOWHOST -j MASQUERADE
+
 }
 
 translate_port() {
