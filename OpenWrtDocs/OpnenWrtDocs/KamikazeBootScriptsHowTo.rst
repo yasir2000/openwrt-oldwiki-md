@@ -53,7 +53,24 @@ This shell script is nothing more than a repository of common functions and vari
  * '''package()''' returns 0
  * '''reset_cb()'''
  * '''strtok()''' $1= $2= $* returns $COUNT
- * '''uci_apply_defaults() 
+ * '''uci_apply_defaults()'''
+
+== /lib/config/uci.sh ==
+This script contains wrapper functions for making it easier to manipulate configuration files as used by UCI
+
+=== Defined Variables ===
+ * '''CONFIG_APPEND='''
+
+=== Defined Functions ===
+ * '''uci_add()''' $1=PACKAGE $2=TYPE $3=CONFIG
+ * '''uci_commit()''' $1=PACKAGE
+ * '''uci_load()''' $1=PACKAGE
+ * '''uci_remove()''' $1=PACKAGE $2=CONFIG $3=OPTION
+ * '''uci_rename()''' $1=PACKAGE $2=CONFIG $3=VALUE
+ * '''uci_revert_state()''' $1=PACKAGE $2=CONFIG $3=OPTION
+ * '''uci_set()''' $1=PACKAGE $2=CONFIG $3=OPTION $4=VALUE
+ * '''uci_set_default()''' $1=PACKAGE
+ * '''uci_set_state()''' $1=PACKAGE $2=CONFIG $3=OPTION $4=VALUE
 
 == /etc/rc.common ==
 This shell script is some common functions that are used for the startup/shutdown sequences.
