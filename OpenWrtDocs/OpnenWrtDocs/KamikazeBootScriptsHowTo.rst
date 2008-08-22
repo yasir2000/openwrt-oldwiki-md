@@ -75,6 +75,33 @@ This script contains wrapper functions for making it easier to manipulate config
 == /etc/rc.common ==
 This shell script is some common functions that are used for the startup/shutdown sequences.
 
+Imports functions from /etc/functions.sh
+Optionally, execute $1=INITSCRIPT $2=ACTION (start, stop, etc.)
+Optionally, execute $EXTRA_COMMANDS
+
+=== Placeholder Functions ===
+In most cases, these functions used for boot scripts that don't have them defined due to not being needed.
+
+For example, the /etc/init.d/umount boot script only needs to define the stop() function since it's only purpose is to cleanly unmount storage media before the system halts/reboots.
+
+ * '''boot()'''
+ * '''depends()'''
+ * '''reload()'''
+ * '''restart()'''
+ * '''shutdown()'''
+ * '''start()'''
+ * '''stop()'''
+
+=== Defined Functions ===
+
+ * '''disable()'''
+  * Removes the link[s] in /etc/rc.d for package $NAME in /etc/init.d
+ * '''enable()'''
+  * Creates the link[s] in /etc/rc.d for package $NAME in /etc/init.d
+ * '''enabled()'''
+  * Returns whether the $NAME link in /etc/rc.d is executable
+ * '''help()'''
+  * Shows list of possible function calls for an initialization script
 
 = Boot Scripts =
 The boot scripts follow the SysVInit style ( similar to RedHat(tm) ).
