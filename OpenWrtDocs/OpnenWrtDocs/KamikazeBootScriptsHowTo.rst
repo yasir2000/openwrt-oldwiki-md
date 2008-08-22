@@ -137,15 +137,15 @@ For example - the script file /etc/init.d/network is the script that brings up/t
 For this example, I will use the /etc/init.d/network script since it is called at both power-up and shutdown/reboot.
 
 {{{
-1.  #!/bin/sh /etc/rc.common
-2.  # Copyright (C) 2006 OpenWrt.org
-3. 
-4.  START=40
-5.  STOP=40
-6. 
-7.  boot() {
-8.      setup_switch() { return 0; }
-9.
+01.  #!/bin/sh /etc/rc.common
+02.  # Copyright (C) 2006 OpenWrt.org
+03. 
+04.  START=40
+05.  STOP=40
+06. 
+07.  boot() {
+08.      setup_switch() { return 0; }
+09.
 10.     include /lib/network
 11.     setup_switch
 12.     [ -s /etc/config/wireless ] || \
@@ -172,5 +172,16 @@ For this example, I will use the /etc/init.d/network script since it is called a
 33. }
 34.
 }}}
+
+ * Line 01 is the normal script declaration. #!/bin/sh says to use /bin/sh to interpret the script, and /etc/rc.common is then executed by /bin/sh before the rest of this script is interpreted
+ * Line 04 declares that the link in /etc/rc.d/S##network should be assigned sequence number 40 for boot/start/restart
+ * Line 05 declares that the link in /etc/rc.d/K##network should be assigned sequence number 40 for stop
+ * The rest of the script redefines certain functions that need to be executed at specific actions. The functions listed here replace the functions that are defined in /etc/rc.common.
+  * Lines 07-15 redefine the boot() function
+  * Lines 17-20 redefine the start() function
+  * Lines 22-29 redefine the restart() function
+  * Lines 31-33 redefine the stop() function
+
+
 ----
 CategoryHowTo
