@@ -16,11 +16,12 @@ JTAG: yes
 Serial port (labeled JP1, @115200bps):
 
 {{{
-      VCC o
-LAN   RX  o   Antenna
-      TX  o
-      GND o
+      VCC o->
+LAN   RX  o->   Antenna
+      TX  o<-
+      GND o--
 }}}
+
 == Opening the case ==
 Peel off the bottom left and top right corners of the silver label on the back of the unit, to reveal two crosspoint screws. Remove them, then prise apart the case with a screwdriver.
 
