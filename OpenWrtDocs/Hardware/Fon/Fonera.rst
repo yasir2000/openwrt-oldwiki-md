@@ -83,17 +83,17 @@ Looking inside, with the connectors at your left hand:
 {{{
 VCC (3.3V) -> red
 GND        -> blue
-RX         -> white
-TX         -> orange
+RX         -> orange
+TX         -> white
 b . o w .
 r . . . .
 }}}
-[http://jauzsi.hu/img/others/fonera_serial.jpg Here] the picture.
+[http://jauzsi.hu/img/others/fonera_serial.jpg Here] the picture of FON2100.
 
 Serial settings are 9600-8-N-1
 
 You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial
-adapter plugged in.)
+adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
 
 == Case ==
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
@@ -118,6 +118,19 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
+
+Timing:
+{{{
+power                t=0
+safe to connect TX   t+~3sec
++                    t+7sec
+PHY ID               t+9sec
+redboot banner       t+13sec
+WLAN light blinks    t+86sec
+}}}
+
+Maybe you think your fonera serial port is not working due to bogus serial pinouts posted on Hungarian blog pages.  Maybe you started cursing greedy mouth-breathing corporations and ranting about the need for GPLv3.  If so, the timing above may help you restore your calmness.  You should see the '+' within 7 seconds of poweron.  The problem "my fonera doesn't boot with serial port plugged in" stops the '+' from appearing, so if you see '+' you haven't got that problem.
+
 Note: FON2200 seems to have more full-featured redboot, as well as address 192.168.1.1 set with a 2 second timeout. So theoratically, you could telnet directly into the Redboot, without serial or modification.
 
 == Flash layout ==
@@ -786,7 +799,7 @@ As with most routers, the Fonera has some gpio pins that extra hardware can be c
  * [http://blog.blase16.de/index.php?url=2006/11/28/Hacking-Fonera Get the SSH access to the Fonera]
  * [http://stefans.datenbruch.de/lafonera/ Hacking the La Fonera]
  * [http://forum.openwrt.org/viewtopic.php?pid=39251#p39251 OpenWrt development]
- * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial]
+ * [http://jauzsi.hu/2006/10/13/inside-of-the-fonera Picture of serial] (albeit with wrong pinout)
  * [http://www.easy2design.de/bla/?page_id=98 Debricking and more]
  * [http://www.dd-wrt.com/phpBB2/viewtopic.php?t=9011 How to get the access to RedBoot without the Serial Console]
  * [http://coppercore.net/~kevin/fon/ Files to get the access to RedBoot without the Serial Console]
