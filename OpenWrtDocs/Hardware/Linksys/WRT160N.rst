@@ -73,7 +73,7 @@ cd ../../../
 make
 }}}
 
-Now you can flash the Image to your WRT160N.
+Now you can flash the openwrt-brcm-2.4-squashfs.trx image in /bin to your WRT160N.
 
 == Hardware Info ==
 ||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
