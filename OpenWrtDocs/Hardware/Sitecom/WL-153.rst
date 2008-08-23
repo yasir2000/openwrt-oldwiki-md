@@ -51,9 +51,11 @@ This [http://www.linksysinfo.org/forums/showpost.php?p=319556&postcount=22 artic
 a NAS-200 containing a RDC R3210. A Xilinx (buffered) cable was used, together with the (Windows only) RDC Loader application.
 Another [http://www.linksysinfo.org/forums/archive/index.php?t-56755.html thread] shortly mentions the pin mappings of the Xilinx cable.
 It looks similar to the one used with [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable: HairyDairyMaid's tool], maybe the unbuffered version works too?
-(Haven't tried JTAG yet.)
 
-Be aware that pin 40 must be tied to Vcc (see links above).
+I tried an unbuffered cable and failed with the RDC tool. CPU pin 40 (STRAP[11] is pulled high with 4.7k, so JTAG should be enabled.
+If you start HairyDairyMaid's tool with /instrlen:4 it displays a CPU ID which seems to be reasonable (!= 0 and != -1)
+but is (of course) unknown to the tool.
+
 
 = GPIO =
 
