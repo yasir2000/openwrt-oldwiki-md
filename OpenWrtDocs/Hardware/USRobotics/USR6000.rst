@@ -1,12 +1,19 @@
 USRobotics USR6000 is a cable modem.
 
-http://www.usr.com/support/product-template.asp?prod=6000
+== Details ==
+||'''CPU'''||BCM3350||
+||'''Bootloader'''||?||
+||'''OS'''||?||
+||'''Flash'''||[http://www.alldatasheet.co.kr/datasheet-pdf/pdf_kor/74527/MCNIX/MX29LV160BTC-90.html 16Mbit MX29LV160BTC-90]||
+||'''RAM'''||[http://www.datasheetcatalog.com/datasheets_pdf/K/4/S/6/K4S641632F-TC60.shtml 64Mbit Samsung K4S641632F-TC60]||
+||'''WLAN'''||no||
+||'''USB'''||yes||
+||'''Serial'''||yes||
+||'''JTAG'''||no||
 
-Related pages:
 
- * http://www.broadcom.com/products/Cable/Cable-Modem-Solutions/BCM3349
- * http://www.broadcom.com/press/release.php?id=274841
- * http://www.broadcom.com/collateral/pb/3349-PB03-R.pdf
+== Links ==
+* http://www.usr.com/support/product-template.asp?prod=6000
 
 ----
 
