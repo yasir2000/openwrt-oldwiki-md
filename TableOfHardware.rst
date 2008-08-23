@@ -597,7 +597,7 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP HW:D1.0R] || ||RealTek 8186 ||2MB MX29LV160BTC-70 ||8MB M12L64164A ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8306S || || || ||No ||Untested ||
 ||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
-||[http://www.trendnet.com/products/TEW-632BRP.htm TEW-632BRP] || ||Atheros 9130 ||4MB ||32MB || todo ||None || || || ||No || [http://wiki.x-wrt.org/index.php/Trendnet_TEW-632BRP#Trendnet_TEW-632BRP_Research_and_Development WiP] ||
+||[http://www.trendnet.com/products/TEW-632BRP.htm TEW-632BRP] || ||Atheros 9130 ||4MB ||32MB || AR9130 || AR7100 || n/a || Yes || Yes ||No || [http://wiki.x-wrt.org/index.php/Trendnet_TEW-632BRP WiP] ||
 == US Robotics ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.usr.com/products/networking/wireless-product.asp?sku=USR5430 USR5430] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200 MHz ||2MB ||8MB ||Broadcom (integrated) || ||on || || || ||Supported ||
