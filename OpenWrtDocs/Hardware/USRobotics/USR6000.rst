@@ -11,6 +11,8 @@ USRobotics USR6000 is a cable modem.
 ||'''Serial'''||yes||
 ||'''JTAG'''||no||
 
+== Ethernet Access ==
+Cable modem can be accessed by 192.168.100.1 with login '''cablemodem''' and password '''robotics'''.
 
 == Links ==
 * http://www.usr.com/support/product-template.asp?prod=6000
