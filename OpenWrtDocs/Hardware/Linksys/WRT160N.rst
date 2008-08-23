@@ -88,6 +88,12 @@ Now you can flash the openwrt-brcm-2.4-squashfs.trx image in /bin to your WRT160
 ||'''Ethernet''' ||Switch in CPU ||
 ||'''USB''' ||No ||
 
+== NVRAM ==
+
+|| '''boardtype''' || 0x0472 ||
+|| '''boardnum''' || 42 ||
+|| '''boardflags''' || 0x0010 ||
+
 === Chipset ===
 
  * CPU - BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief] (the original linksys firmware calls it a BCM4704 in /proc/cpuinfo)
