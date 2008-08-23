@@ -210,3 +210,5 @@ Enter 'help' for a list of built-in commands.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
 root@OpenWrt:/#}}}
+
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N Return to WRT160N]
