@@ -5,7 +5,7 @@
 
 The Linksys WRT160N is the Linksys Ultra Range Plus Wireless-N Broadband Router.
 
-OpenWRT will run on WRT160N. It is not directly supported by any prebuilt firmware images on the downoad page though, You need to compile it yourself.
+OpenWRT will run on WRT160N. It is not directly supported by any prebuilt firmware images on the downoad page yet, You need to compile it yourself.
 
 Please update this wiki page if this information is proven false or further support is added.
 
@@ -88,12 +88,6 @@ Now you can flash the openwrt-brcm-2.4-squashfs.trx image in /bin to your WRT160
 ||'''Ethernet''' ||Switch in CPU ||
 ||'''USB''' ||No ||
 
-== NVRAM ==
-
-|| '''boardtype''' || 0x0472 ||
-|| '''boardnum''' || 42 ||
-|| '''boardflags''' || 0x0010 ||
-
 === Chipset ===
 
  * CPU - BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief] (the original linksys firmware calls it a BCM4704 in /proc/cpuinfo)
@@ -107,6 +101,12 @@ Now you can flash the openwrt-brcm-2.4-squashfs.trx image in /bin to your WRT160
 === Wireless Chip ===
 
  * BCM2055 (under the shield) [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
+
+=== NVRAM ===
+
+|| '''boardtype''' || 0x0472 ||
+|| '''boardnum''' || 42 ||
+|| '''boardflags''' || 0x0010 ||
 
 === Pads on PCB ===
 
@@ -153,9 +153,11 @@ Details at this page:
 
 == TODO ==
 
+ * /proc/diag/model detects the router as a WRT54G/GS/GL (you can see this in the boot messages. "diag: Detected 'Linksys WRT54G/GS/GL'")
+ * eth0 and eth1 work but are not configured on boot. 
+ * Wireless does not work at all. The device appears as wl0 in iwconfig/ifconfig but trying to scan or connect gives an 'invalid argument' error. 
  * Find the data sheets for the chips used in this device.
  * Figure out what JP1, JP3 are for and the exact pinouts.
-
 == Other Categories this device is in ==
 
  . Category80211nDevice
