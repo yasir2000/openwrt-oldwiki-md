@@ -74,6 +74,7 @@ Known platforms:
  * Icable ICS-110
  * Linksys BEFCMUH4/BEFCMU10
  * Thomson RCA DCM 235/305
+ * [:OpenWrtDocs/Hardware/USRobotics/USR6000:USRobotics USR6000]
 
 MIPS R3000 CPU '''without a TLB''' (random register always reads a 0)
 
