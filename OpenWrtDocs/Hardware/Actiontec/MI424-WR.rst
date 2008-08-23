@@ -44,96 +44,134 @@ A custom version has been built. After installation (using JTAG), the redboot pr
 Board id 1778 has been registered for this device.
 Here's a boot log:
 {{{
-<5>Linux version 2.6.26 (jose@chessmaster) (gcc version 4.2.4) #13 Thu Jul 24 18:52:37 EDT 2008
-<4>CPU: XScale-IXP42x Family [690541c1] revision 1 (ARMv5TE), cr=000039ff
-<4>Machine: Actiontec MI424WR
-<4>Memory policy: ECC disabled, Data cache writeback
-<7>On node 0 totalpages: 8192
-<7>  DMA zone: 64 pages used for memmap
-<7>  DMA zone: 0 pages reserved
-<7>  DMA zone: 8128 pages, LIFO batch:0
-<7>  Normal zone: 0 pages used for memmap
-<7>  Movable zone: 0 pages used for memmap
-<4>CPU0: D VIVT undefined 5 cache
-<4>CPU0: I cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
-<4>CPU0: D cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
-<4>Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 8128
-<5>Kernel command line: root=/dev/mtdblock2 rootfstype=squashfs,jffs2 noinitrd console=ttyS0,115200 init=/etc/preinit
-<4>PID hash table entries: 128 (order: 7, 512 bytes)
-<6>Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
-<6>Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
-<6>Memory: 32MB = 32MB total
-<5>Memory: 30324KB available (1844K code, 179K data, 100K init)
-<7>Calibrating delay loop... 532.48 BogoMIPS (lpj=2662400)
-<4>Mount-cache hash table entries: 512
-<6>CPU: Testing write buffer coherency: ok
-<6>net_namespace: 480 bytes
-<6>NET: Registered protocol family 16
-<4>IXP4xx: Using 16MiB expansion bus window size
-<4>PCI: IXP4xx is host
-<4>PCI: IXP4xx Using direct access for memory space
-<6>PCI: bus0: Fast back to back transfers enabled
-<7>Switched to high resolution mode on CPU 0
-<6>NET: Registered protocol family 2
-<6>IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
-<6>TCP established hash table entries: 1024 (order: 1, 8192 bytes)
-<6>TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
-<6>TCP: Hash tables configured (established 1024 bind 1024)
-<6>TCP reno registered
-<6>NET: Registered protocol family 1
-<6>IXP4xx Queue Manager initialized.
-<6>squashfs: version 3.0 (2006/03/15) Phillip Lougher
-<4>Registering mini_fo version $Id$
-<6>JFFS2 version 2.2. (NAND) (SUMMARY)  Â© 2001-2006 Red Hat, Inc.
-<6>msgmni has been set to 59
-<6>io scheduler noop registered
-<6>io scheduler deadline registered (default)
-<6>Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
-<6>serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15) is a XScale
-<6>console [ttyS0] enabled
-<6>serial8250.0: ttyS1 at MMIO 0xc8001000 (irq = 13) is a XScale
-<6>eth0: MII PHY 17 on NPE-B
-<6>eth1: MII PHY 1 on NPE-C
-<6>eth1: MII PHY 2 on NPE-C
-<6>eth1: MII PHY 3 on NPE-C
-<6>eth1: MII PHY 4 on NPE-C
-<6>IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
-<4> Intel/Sharp Extended Query Table at 0x0031
-<6>Using buffer write method
-<5>cfi_cmdset_0001: Erase suspend on write enabled
-<7>erase region 0: offset=0x0,size=0x20000,blocks=64
-<5>Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0x7e0000
-<5>5 RedBoot partitions found on MTD device IXP4XX-Flash.0
-<5>Creating 5 MTD partitions on "IXP4XX-Flash.0":
-<5>0x00000000-0x00080000 : "RedBoot"
-<5>0x00080000-0x001c0000 : "linux"
-<5>0x001c0000-0x007e0000 : "root"
-<5>0x007e0000-0x007ff000 : "FIS directory"
-<5>0x007ff000-0x00800000 : "RedBoot config"
-<6>i2c /dev entries driver
-<3>i2c-gpio: probe failed: -19
-<4>IXP4xx Watchdog Timer: heartbeat 60 sec
-<6>Registered led device: moca-wan
-<6>Registered led device: power-alarm
-<6>Registered led device: power-ok
-<6>Registered led device: wireless
-<6>Registered led device: inet-down
-<6>Registered led device: inet-up
-<6>Registered led device: moca-lan
-<6>Registered led device: wan-alarm
-<4>nf_conntrack version 0.5.0 (1024 buckets, 4096 max)
-<6>ip_tables: (C) 2000-2006 Netfilter Core Team
-<6>TCP westwood registered
-<6>NET: Registered protocol family 17
-<6>802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
-<6>All bugs added by David S. Miller <davem@redhat.com>
-<6>XScale DSP coprocessor detected.
-<4>drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
-<4>VFS: Mounted root (jffs2 filesystem).
-<6>Freeing init memory: 100K
-<4>Please be patient, while OpenWrt loads ...
-<0>Kernel panic - not syncing: Attempted to kill init!
+Linux version 2.6.26.3 (jose@chessmaster) (gcc version 4.2.4) #3 Sat Aug 23 13:05:32 EDT 2008
+CPU: XScale-IXP42x Family [690541c1] revision 1 (ARMv5TE), cr=000039ff
+Machine: Actiontec MI424WR
+Memory policy: ECC disabled, Data cache writeback
+On node 0 totalpages: 8192
+  DMA zone: 64 pages used for memmap
+  DMA zone: 0 pages reserved
+  DMA zone: 8128 pages, LIFO batch:0
+  Normal zone: 0 pages used for memmap
+  Movable zone: 0 pages used for memmap
+CPU0: D VIVT undefined 5 cache
+CPU0: I cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
+CPU0: D cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 8128
+Kernel command line: root=/dev/mtdblock2 rootfstype=squashfs,jffs2 noinitrd console=ttyS0,115200 init=/etc/preinit
+PID hash table entries: 128 (order: 7, 512 bytes)
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Memory: 32MB = 32MB total
+Memory: 30424KB available (1792K code, 141K data, 88K init)
+SLUB: Genslabs=12, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Calibrating delay loop... 532.48 BogoMIPS (lpj=2662400)
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+net_namespace: 640 bytes
+NET: Registered protocol family 16
+IXP4xx: Using 16MiB expansion bus window size
+PCI: IXP4xx is host
+PCI: IXP4xx Using direct access for memory space
+PCI: bus0: Fast back to back transfers enabled
+NET: Registered protocol family 2
+Switched to high resolution mode on CPU 0
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+TCP: Hash tables configured (established 1024 bind 1024)
+TCP reno registered
+NET: Registered protocol family 1
+IXP4xx Queue Manager initialized.
+squashfs: version 3.0 (2006/03/15) Phillip Lougher
+Registering mini_fo version $Id$
+JFFS2 version 2.2. (NAND) (SUMMARY)  Â© 2001-2006 Red Hat, Inc.
+msgmni has been set to 59
+io scheduler noop registered
+io scheduler deadline registered (default)
+Serial: 8250/16550 driver $Revision: 1.90 $ 2 ports, IRQ sharing disabled
+serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15) is a XScale
+console [ttyS0] enabled
+serial8250.0: ttyS1 at MMIO 0xc8001000 (irq = 13) is a XScale
+eth0: MII PHY 17 on NPE-B
+eth1: MII PHY 1 on NPE-C
+eth1: MII PHY 2 on NPE-C
+eth1: MII PHY 3 on NPE-C
+eth1: MII PHY 4 on NPE-C
+IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
+ Intel/Sharp Extended Query Table at 0x0031
+Using buffer write method
+cfi_cmdset_0001: Erase suspend on write enabled
+erase region 0: offset=0x0,size=0x20000,blocks=64
+Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0x7e0000
+5 RedBoot partitions found on MTD device IXP4XX-Flash.0
+Creating 5 MTD partitions on "IXP4XX-Flash.0":
+0x00000000-0x00080000 : "RedBoot"
+0x00080000-0x00180000 : "linux"
+0x00180000-0x007e0000 : "rootfs"
+mtd: partition "rootfs" set to be root filesystem
+mtd: partition "rootfs_data" created automatically, ofs=2C0000, len=520000 
+0x002c0000-0x007e0000 : "rootfs_data"
+0x007e0000-0x007ff000 : "FIS directory"
+0x007ff000-0x00800000 : "RedBoot config"
+IXP4xx Watchdog Timer: heartbeat 60 sec
+Registered led device: moca-wan
+Registered led device: power-alarm
+Registered led device: power-ok
+Registered led device: wireless
+Registered led device: inet-down
+Registered led device: inet-up
+Registered led device: moca-lan
+Registered led device: wan-alarm
+nf_conntrack version 0.5.0 (1024 buckets, 4096 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP westwood registered
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+XScale DSP coprocessor detected.
+drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing init memory: 88K
+Please be patient, while OpenWrt loads ...
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+firmware: requesting NPE-B
+NPE-B: firmware's license can be found in /usr/share/doc/LICENSE.IPL
+NPE-B: firmware functionality 0x2, revision 0x2:1
+eth0: link down
+firmware: requesting NPE-C
+NPE-C: firmware's license can be found in /usr/share/doc/LICENSE.IPL
+NPE-C: firmware functionality 0x5, revision 0x2:1
+eth1: link down
+NET: Registered protocol family 10
+lo: Disabled Privacy Extensions
+ADDRCONF(NETDEV_UP): eth0: link is not ready
+ADDRCONF(NETDEV_UP): eth1: link is not ready
+PPP generic driver version 2.4.2
+IPv6 over IPv4 tunneling driver
+sit0: Disabled Privacy Extensions
+ipt_time loading
+wlan: trunk
+ath_hal: module license 'Proprietary' taints kernel.
+ath_hal: 0.10.5.6 (AR5210, AR5211, AR5212, AR5416, RF5111, RF5112, RF2413, RF5413, RF2133, RF2425, RF2417, REGOPS_FUNC)
+ath_rate_minstrel: Minstrel automatic rate control algorithm 1.2 (trunk)
+ath_rate_minstrel: look around rate set to 10%
+ath_rate_minstrel: EWMA rolloff level set to 75%
+ath_rate_minstrel: max segment size in the mrr set to 6000 us
+eth0: link up, 100Mbps, full-duplex, lpa 0x45E1
+ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+wlan: mac acl policy registered
+ath_pci: trunk
+eth0: no IPv6 routers present
 }}}
+
+=== TODO ===
+
+* Test switch (KS8995)
+* Fix scripts
+* Fix latched leds
+* Add support for RA2560.
 
 ----
  CategoryModel ["CategoryIXP4xxDevice"]
