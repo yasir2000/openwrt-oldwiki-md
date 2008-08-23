@@ -3,18 +3,79 @@
 
 = Linksys WRT160N =
 
-== Notes ==
+The Linksys WRT160N is the Linksys Ultra Range Plus Wireless-N Broadband Router.
 
-There is NO known OpenWrt firmware that supports this device. Support is possible one day though because DD-WRT supports it as of v24 rc 7 - build 9344 (25.03.08). 
-Please update this wiki page if this information is proven false or support is added.
+OpenWRT will run on WRT160N. It is not directly supported by any prebuilt firmware images on the downoad page though, You need to compile it yourself.
+
+Please update this wiki page if this information is proven false or further support is added.
 
 Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1175239516849&pagename=Linksys%2FCommon%2FVisitorWrapper WRT160N Product_Page]
 
-The Linksys WRT160N is the Ultra Range Plus Wireless-N Broadband Router.
+== How To ==
 
-== Hardware ==
+'''''I recommend you have a serial console installed because networking is not working as expected. So you cannot use Telnet or web-if once OpenWRT is installed.'''''
 
-== Info ==
+1. Get trunk. ie:
+
+{{{
+svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/trunk/
+}}}
+
+2. make menuconfig and change target profile to 'Generic, Broadcom WiFi (MIMO)'
+
+{{{
+make menuconfig
+}}}
+
+Target Profile ---> (Generic, Broadcom WiFi (MIMO))
+
+3. Exit and save changes
+
+4. build it once (This can take a while)
+
+{{{
+make
+}}}
+
+5.change to the kernel build folder
+
+{{{
+cd build_dir/linux-brcm-2.4/linux-2.4.35.4/
+}}}
+
+6. enter kernel config options menu
+
+{{{
+make ARCH=mips menuconfig
+}}}
+
+7. go to 'Memory Technology Devices (MTD)  --->' 
+    then 'RAM/ROM/Flash chip drivers  --->'
+and enable 'Support  8-bit buswidth'
+
+8. go to 'exit' then 'exit' again then 'exit' once more and yes to the question 'save settings?'
+
+9. copy the saved config from '.config' to the default kernel build file.
+
+{{{
+cp .config ../../../target/linux/brcm-2.4/config-default
+}}}
+
+10. go back to the root of the build
+
+{{{
+cd ../../../
+}}}
+
+11. rebuild the whole thing with the new config (This doesn't take as long as the fist time)
+
+{{{
+make
+}}}
+
+Now you can flash the Image to your WRT160N.
+
+== Hardware Info ==
 ||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
 
 ||'''Architecture''' ||MIPS ||
