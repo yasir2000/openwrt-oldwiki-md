@@ -18,7 +18,7 @@ Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT com)]]
 
 === Patches ===
 
- *  Linksys WRT160N Detection [http://wiki.openwrt.org/WestleyPaynter?action=AttachFile&do=view&target=openwrt-wrt160n-detection-rev12384.diff View in Browser] [http://wiki.openwrt.org/WestleyPaynter?action=AttachFile&do=get&target=openwrt-wrt160n-detection-rev12384.diff Download]
+ *  Linksys WRT160N Detection [http://wiki.openwrt.org/WestleyPaynter?action=AttachFile&do=view&target=openwrt-wrt160n-detection-rev12384.diff View in Browser] [http://wiki.openwrt.org/WestleyPaynter?action=AttachFile&do=get&target=openwrt-wrt160n-detection-rev12384.diff Download] [http://snipes420.googlepages.com/openwrt-wrt160n-detection-rev12384.diff Another copy here]
 
 === Notes about TFTP ===
 
