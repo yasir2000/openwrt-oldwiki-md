@@ -19,6 +19,7 @@ http://downloads.x-wrt.org/xwrt/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs
 Connect to the router with a ethernet cable (on LAN port 2, 3 or 4 if using 7.09 as port1 is only properly configured in the snapshot). Tftp the new image to the router: Unplug router, replug it back in while holding in the black reset button. Wait for a slowly blinking power light before releasing the black reset button. The remainder of the TFTP process is described here: OpenWrtViaTftp.
 
 '''2.''' Update the network settings
+
 {{{
 #### VLAN configuration
 config switch eth0
@@ -41,7 +42,6 @@ config interface wan
    option ifname   "eth1"
    option proto    dhcp
 }}}
-
 reboot
 
 '''3.''' Connect the WAN port to the internet and use ipkg to install the memo wireless driver
@@ -50,31 +50,29 @@ reboot
 ipkg update
 ipkg install kmod-brcm-wl-mimo
 }}}
-
 '''4.''' Edit the wireless file and enable wireless
+
 {{{
 vi /etc/config/wireless
 }}}
-
 Basic wireless file example:
+
 {{{
 config "wifi-device" "wl0"
-	option "type" "broadcom"
-	option "channel" "5"
-	option "disabled" "0"
-
+        option "type" "broadcom"
+        option "channel" "5"
+        option "disabled" "0"
 config "wifi-iface"
-	option "device" "wl0"
-	option network	'lan'
-	option ssid	'OpenWRT'
-	option mode	'ap'
-	option encryption	'none'
-	option hidden	'0'
-	option isolate	'0'
-	option bgscan	'0'
-	option wds	'0'
+        option "device" "wl0"
+        option network  'lan'
+        option ssid     'OpenWRT'
+        option mode     'ap'
+        option encryption       'none'
+        option hidden   '0'
+        option isolate  '0'
+        option bgscan   '0'
+        option wds      '0'
 }}}
-
 reboot
 
 '''5.''' Make a kamikaze, drink, enjoy.
@@ -206,7 +204,10 @@ WL-500W from linux point of view has three interfaces, eth0, eth1, eth2 where:
 You should configure the switch to have no VLANs, but current Kamikaze version unable to do this. Thus, you must configure the switch to have all ports untagged and placed to same VLAN (VLAN0 for instance). See NetworkInterfaces and KamikazeConfiguration for more detailed network configuration information.
 
 === Why must a 2.4 Kernel be used? ===
-There's an option in the Kamikaze to use proprietary broadcom wl driver (and utilities). This option is only available with 2.4.x kernel, because only binaries compiled for a 2.4 kernel for broadcom wl driver are available. So you MUST use a 2.4.x kernel to be able to use the broadcom wl driver. This proprietary broadcom wl driver was taken from some Linksys router firmware and was used (in Linksys) with different models of wifi cards (controllers). As I know WL-500 W/B/G has different wifi cards, but I think broadcom proprietary wl driwer will work with any of them.
+There's an option in the Kamikaze to use proprietary broadcom wl driver (and utilities). This option is only available with 2.4.x kernel, because only binaries compiled for a 2.4 kernel for broadcom wl driver are available. So you MUST use a 2.4.x kernel to be able to use the broadcom wl driver. This proprietary broadcom wl driver was taken from some Linksys router firmware and was used (in Linksys) with different models of wifi cards (controllers). As I know WL-500 W/B/G has different Broadcom wifi cards, but I think broadcom proprietary wl driwer will work with any of them.
+
+=== Using a different miniPCI wireless card (and Kernel 2.6) ===
+Because the WL500W has a miniPCI port, it is possible to swap out the original Broadcom MIMO card with another card (such as an Atheros 5xxx model).  The Atheros madwifi drivers are compatible with kernel 2.6 and come built in with OpenWRT.  When doing a custom build, just 'make menuconfig' and select the 2.6 kernel as well as the Atheros WiFi. This has been tested and is working (OpenWRT r12384). It may even be possible to use the Madwifi r5k atheros source drivers.  Remember to enable the wirless with uci (see the WL500GP page).
 
 === How does the reflash procedure looks like for WL500w? ===
 While holding in the black reset button apply the power. Then release the reset button. The Power Led should blink. Initiate tftp transfer from windows/linux and wait about 3-4 sek (100Mb/s). Do not disconnect power for at least 6 min (copied from WL500g page) after you get successful tftp copy status report. After bricking one router earlier I use to wait more than 30min. Then I HAVE TO pull out the power cable, wait 20 seconds and reapply the power. Router boots the kamikaze for the first time. Boot sequence begins with Power LED on for a couple of seconds, then off for the whole boot time (about 30s) and at the end it goes permanently on. You can log in with telnet as root without the password if it's the first reflash. Run "mtd -r erase ..." as described above. That reboots the router for the second time. Then set root password and you will be able to login as root over ssh from then on. If you later repeat reflashing with newer kamikaze release, your settings as password, net configuration,... are preserved (were for me this - my first time).  This is the approximate sequence as I remember it from the day before. It will get checked exactly and optionally corrected the next time through.
