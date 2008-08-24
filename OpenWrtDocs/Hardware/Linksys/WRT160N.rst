@@ -136,11 +136,10 @@ Details at this page:
 
 == TODO ==
 
- * /proc/diag/model detects the router as a WRT54G/GS/GL (you can see this in the boot messages. "diag: Detected 'Linksys WRT54G/GS/GL'")
- * eth0 and eth1 work but are not configured on boot. 
  * Wireless does not work at all. The device appears as wl0 in iwconfig/ifconfig but trying to scan or connect gives an 'invalid argument' error. 
  * Find the data sheets for the chips used in this device.
  * Figure out what JP1, JP3 are for and the exact pinouts.
+
 == Other Categories this device is in ==
 
  . Category80211nDevice
