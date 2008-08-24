@@ -16,6 +16,10 @@ Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT com)]]
  * Linksys NSLU2 (Running OpenWRT)
  * Linksys WRT160N
 
+=== Patches ===
+
+ *  Linksys WRT160N Detection [http://wiki.openwrt.org/WestleyPaynter?action=AttachFile&do=view&target=openwrt-wrt160n-detection-rev12384.diff View in Browser] [http://wiki.openwrt.org/WestleyPaynter?action=AttachFile&do=get&target=openwrt-wrt160n-detection-rev12384.diff Download]
+
 === Notes about TFTP ===
 
 TFTP commands that I use that are useful. (using tftp in Back|Track linux livecd)
