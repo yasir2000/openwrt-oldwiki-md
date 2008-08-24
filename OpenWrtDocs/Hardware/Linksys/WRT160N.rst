@@ -13,7 +13,9 @@ Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Sate
 
 == How To ==
 
-'''''I recommend you have a serial console installed because networking is not working as expected. So you cannot use Telnet or web-if once OpenWRT is installed.'''''
+'''''You NEED --(I recommend you have)-- a serial console installed because networking is not working as expected. So you cannot use Telnet or web-if once OpenWRT is installed.'''''
+
+As of Rev12377 the LAN seems to be setup correctly as 192.168.1.1. But the firewall is also blocks everything so you need the serial console to disable it before connecting over the network.
 
 1. Get trunk. ie:
 
@@ -21,7 +23,7 @@ Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Sate
 svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/trunk/
 }}}
 
-2. make menuconfig and change target profile to 'Generic, Broadcom WiFi (MIMO)'
+2. make menuconfig and change target profile to 'Generic, Broadcom !WiFi (MIMO)'
 
 {{{
 make menuconfig
@@ -67,7 +69,7 @@ cp .config ../../../target/linux/brcm-2.4/config-default
 cd ../../../
 }}}
 
-11. rebuild the whole thing with the new config (This doesn't take as long as the fist time)
+11. rebuild the whole thing with the new config (This doesn't take as long as the first time)
 
 {{{
 make
