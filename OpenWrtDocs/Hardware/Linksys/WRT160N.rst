@@ -13,9 +13,7 @@ Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Sate
 
 == How To ==
 
-'''''You NEED --(I recommend you have)-- a serial console installed because networking is not working as expected. So you cannot use Telnet or web-if once OpenWRT is installed.'''''
-
-As of Rev12377 the LAN seems to be setup correctly as 192.168.1.1. But the firewall is also blocks everything so you need the serial console to disable it before connecting over the network.
+'''''Telnet is working once OpenWRT is installed but to be on the safe side a serial connection is recommended.'''''
 
 1. Get trunk. ie:
 
@@ -23,59 +21,42 @@ As of Rev12377 the LAN seems to be setup correctly as 192.168.1.1. But the firew
 svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/trunk/
 }}}
 
-2. make menuconfig and change target profile to 'Generic, Broadcom !WiFi (MIMO)'
+2. Download and apply patch.
+
+{{{
+cd ~/
+wget http://snipes420.googlepages.com/openwrt-wrt160n-detection-rev12384.diff
+cd ~/trunk/
+patch -p0 -i ~/openwrt-wrt160n-detection-rev12384.diff
+}}}
+
+3. Enter the configuration menu and change target profile to 'Generic, Broadcom !WiFi (MIMO)', then exit saving changes.
 
 {{{
 make menuconfig
 }}}
 
-Target Profile ---> (Generic, Broadcom WiFi (MIMO))
+Target Profile ---> (Generic, Broadcom !WiFi (MIMO))
 
-3. Exit and save changes
-
-4. build it once (This can take a while)
+4. Enter kernel config options menu (this will download the kernel source then open the menu)
 
 {{{
-make
+make kernel_menuconfig
 }}}
 
-5.change to the kernel build folder
-
-{{{
-cd build_dir/linux-brcm-2.4/linux-2.4.35.4/
-}}}
-
-6. enter kernel config options menu
-
-{{{
-make ARCH=mips menuconfig
-}}}
-
-7. go to 'Memory Technology Devices (MTD)  --->' 
+5. go to 'Memory Technology Devices (MTD)  --->' 
     then 'RAM/ROM/Flash chip drivers  --->'
 and enable 'Support  8-bit buswidth'
 
-8. go to 'exit' then 'exit' again then 'exit' once more and yes to the question 'save settings?'
+6. Exit the configuration menu and save the settings. [[BR]] Note: When you exit it errors while looking for stuff in staging_dir/host/ (which is not built yet), but it doesn't seem to affect anything. Just continue with step 7.
 
-9. copy the saved config from '.config' to the default kernel build file.
-
-{{{
-cp .config ../../../target/linux/brcm-2.4/config-default
-}}}
-
-10. go back to the root of the build
-
-{{{
-cd ../../../
-}}}
-
-11. rebuild the whole thing with the new config (This doesn't take as long as the first time)
+7. build the whole thing with the new config
 
 {{{
 make
 }}}
 
-Now you can flash the openwrt-brcm-2.4-squashfs.trx image in /bin to your WRT160N.
+Now you can flash the image in /bin to your WRT160N.
 
 == Hardware Info ==
 ||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
