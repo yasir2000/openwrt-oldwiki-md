@@ -56,7 +56,7 @@ and enable 'Support  8-bit buswidth'
 make
 }}}
 
-Now you can flash the image in /bin to your WRT160N.
+Now you can flash the firmware image in /bin to your WRT160N using the Linksys web interface. (I tried the openwrt-wrt150n-squashfs.bin and it worked)
 
 == Hardware Info ==
 ||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
@@ -136,6 +136,7 @@ Details at this page:
 
 == TODO ==
 
+ * WAN does not seem to work. (It will not grab an IP address from the DHCP server)
  * Wireless does not work at all. The device appears as wl0 in iwconfig/ifconfig but trying to scan or connect gives an 'invalid argument' error. 
  * Find the data sheets for the chips used in this device.
  * Figure out what JP1, JP3 are for and the exact pinouts.
