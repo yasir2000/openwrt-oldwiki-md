@@ -6,37 +6,32 @@ Currently we are looking for the following devices:
 
 ===== For bug-fixing: =====
 
- * Siemens SE505v1 and v2
- * Asus WL500b v2, Asus WL-520g
+ * Netgear WG302 v1 or WAG302 v1
  * Buffalo devices
  * Motorola devices
 
 ===== For new ports: =====
 
-Realtek RTL865x platform:
-
- * D-Link DI-624M
- * D-Link DI-634M
- * Linksys WAP54GX
- * Linksys WRT54GX2
-
 Atheros AR531x/231x platform:
 
- * Linksys WAP55AG v2
- * Linksys WRT55AG v2
- * Netgear WGT624
+ * Mikrotik Crossroads / CRD
+ * Wiligear WBD-500 
+
+Atheros AR71xx platform:
+
+ * Mikrotik RB411AH
+ * Mikrotik RB433 (non-'AH')
+ * Mikrotik RB493
 
 x86 platform:
 
- * Mikrotik Routerboard 230
- * Soekris boards
+ * PCengines Alix boards
  * VIA EPIA boards
 
-Intel IXP(XScale) 4xx platform:
+Intel IXP4xx platform:
 
  * Linksys WRV54G (both v1 and v2 versions)
- * Netgear WAG302
- * Netgear WGM124
+ * Senao NOP-8670
 
 TI AR7 platform:
 
@@ -46,6 +41,7 @@ TI AR7 platform:
 AMD Alchemy platform:
 
  * 4G Systeme Meshcube
+ * Plat'Home !OpenMicroServer
 
 
 ===== For other networking card support: =====
