@@ -4,6 +4,6 @@ It contains a Infinoen MIPS32 CPU and an Atheros 2317 WLAN Chipset. It has 4MB F
 
 The Bootloader is probaly a relabled Broadnet bootloader.
 
-
+attachment:boardwithlabels.jpg
 attachment:board1.jpg
 attachment:board2.jpg
