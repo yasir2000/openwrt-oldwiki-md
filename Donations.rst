@@ -12,6 +12,11 @@ Currently we are looking for the following devices:
 
 ===== For new ports: =====
 
+AMD Alchemy platform:
+
+ * 4G Systeme Meshcube
+ * Plat'Home !OpenMicroServer
+
 Atheros AR531x/231x platform:
 
  * Mikrotik Crossroads / CRD
@@ -23,10 +28,11 @@ Atheros AR71xx platform:
  * Mikrotik RB433 (non-'AH')
  * Mikrotik RB493
 
-x86 platform:
+Brodcom 47xx/53xx platform:
 
- * PCengines Alix boards
- * VIA EPIA boards
+ * Linksys WRT310N
+ * Linksys WRT600N
+ * Linksys WRT610N
 
 Intel IXP4xx platform:
 
@@ -38,10 +44,11 @@ TI AR7 platform:
  * Linksys WRTP54G
  * Linksys ADSL2MUE
 
-AMD Alchemy platform:
+x86 platform:
 
- * 4G Systeme Meshcube
- * Plat'Home !OpenMicroServer
+ * PCengines Alix boards
+ * VIA EPIA boards
+
 
 
 ===== For other networking card support: =====
