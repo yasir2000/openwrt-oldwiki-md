@@ -10,6 +10,7 @@
  * ["OpenWrtDocs/WhiteRussian/Configuration"]
  * ["OpenWrtDocs/KamikazeConfiguration"]
  * ["OpenWrtDocs/KamikazeConfiguration/WiFiEncryption"]
+ * ["OpenWrtDocs/NetworkInterfaces"]
  * ["Faq"]
  * ["MiniHowtos"]
  * ["CategoryHowTo"]
