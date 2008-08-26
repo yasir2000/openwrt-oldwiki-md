@@ -2,13 +2,14 @@
 #format wiki
 == Danil Kutkevich ==
 
-=== My favourite links ===
+=== My bookmarks ===
 
  * ["OpenWrtOverview"]
  * ["OpenWrtDocs/Installing"]
  * ["OpenWrtDocs/Hardware/Linksys/WRT54GL"]
  * ["OpenWrtDocs/WhiteRussian/Configuration"]
  * ["OpenWrtDocs/KamikazeConfiguration"]
+ * ["OpenWrtDocs/KamikazeConfiguration/WiFiEncryption"]
  * ["Faq"]
  * ["MiniHowtos"]
  * ["CategoryHowTo"]
