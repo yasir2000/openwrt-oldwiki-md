@@ -53,7 +53,7 @@ Another [http://www.linksysinfo.org/forums/archive/index.php?t-56755.html thread
 It looks similar to the one used with [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable: HairyDairyMaid's tool], maybe the unbuffered version works too?
 
 I tried an unbuffered cable and failed with the RDC tool. CPU pin 40 (STRAP[11] is pulled high with 4.7k, so JTAG should be enabled.
-If you start HairyDairyMaid's tool with /instrlen:4 it displays a CPU ID which seems to be reasonable (!= 0 and != -1)
+If you start HairyDairyMaid's tool with /instrlen:4 it displays a CPU ID which seems to be reasonable (0x3BFFFFDB)
 but is (of course) unknown to the tool.
 
 
