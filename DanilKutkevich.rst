@@ -9,6 +9,7 @@
  * ["OpenWrtDocs/Hardware/Linksys/WRT54GL"]
  * ["OpenWrtDocs/WhiteRussian/Configuration"]
  * ["OpenWrtDocs/KamikazeConfiguration"]
+ * ["OpenWrtDocs/KamikazeConfiguration/NonBridgedWiFi"]
  * ["OpenWrtDocs/KamikazeConfiguration/WiFiEncryption"]
  * ["OpenWrtDocs/NetworkInterfaces"]
  * ["Faq"]
