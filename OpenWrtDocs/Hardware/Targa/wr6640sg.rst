@@ -1,3 +1,6 @@
+
+XXXX Work-In-Progress - page copied from fonera ... XXXX
+
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = WR6640Sg =
 The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (SoC). So it's a candidate for the OpenWrt AtherosPort.
