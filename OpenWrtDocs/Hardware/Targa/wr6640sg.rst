@@ -23,30 +23,14 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (S
 
 Power: 
 
-
----- /!\ '''Edit conflict - other version:''' ----
 12V power supply, internally this is regulated to 3.3V by a switched regulator. Device starts up at >=7.5v, to get wireless working it needs >=10V. This device 
-needs only ~3.5W of power, so it's well suited vor solarpowered/batterypowered applications (like the 4Km wireless link i've built).
+needs only ~3.5W of power, so it's well suited for solarpowered/batterypowered applications (like the 4Km wireless link i've built).
 
 
 
 XXXX Work-In-Progress - rest of page copied from fonera ... XXXX
 
 
-
-
----- /!\ '''Edit conflict - your version:''' ----
-12V power supply, internally this is regulated to 3.3V by a switched regulator. Device starts up at >=7.5v, to get wireless working it needs >=10V. This device 
-needs only ~3.5W of power, so it's well suited vor solarpowered/batterypowered applications (like the 4Km wireless link i've built).
-
-
-
-XXXX Work-In-Progress - rest of page copied from fonera ... XXXX
-
-
-
-
----- /!\ '''End of edit conflict''' ----
 
 == Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
