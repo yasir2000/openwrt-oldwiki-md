@@ -83,7 +83,7 @@ Most devices listed here do not have enough flash memory, but there might be oth
 
 == Targa (Silvercrest, Lidl) ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.service.targa.de/dokumente/6640Sg_manual.pdf WR-6640Sg] || Rev: 1.0 || Atheros AR2313A @ 180MHz ||2MB (MX 29LV160) ||16Mb || Atheros AR2112 || Marvell 88E6060 || YES || YES || NO || Probably ||
+||[http://www.service.targa.de/dokumente/6640Sg_manual.pdf WR-6640Sg] || Rev: 1.0 || Atheros AR2313A @ 180MHz ||2MB (MX 29LV160) ||16Mb || Atheros AR2112 || Marvell 88E6060 || YES || YES || NO || [OpenWrtDocs/Hardware/Targa/wr6640sg Probably] ||
 
 == Topcom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
