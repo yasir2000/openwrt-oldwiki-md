@@ -9,4 +9,4 @@ Email: [[MailTo(erwin.rieger AT SPAMFREE ibrieger DOT de)]]
 ...
 
 ----
-CategoryHomepage
+CategoryHomepage CategoryHomepage
