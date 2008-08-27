@@ -23,13 +23,15 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (S
 
 Power: 
 
-FON2100: 5V - 
-Internally this is regulated to 3.3V by a linear regulator, so it will probably work
-on anything from 4 to 6V. But higher voltage will add to the heat issues of the device.
+12V power supply, internally this is regulated to 3.3V by a switched regulator. Device starts up at >=7.5v, to get wireless working it needs >=10V. This device 
+needs only ~3.5W of power, so it's well suited vor solarpowered/batterypowered applications (like the 4Km wireless link i've built).
 
-FON2200: 7.5V (small connector) - 
-Internally this is regulated to 3.3V by a switched regulator, so it will probably work
-on anything from 4 to 16V, without adding to heat. I tried 12V 
+
+
+XXXX Work-In-Progress - rest of page copied from fonera ... XXXX
+
+
+
 
 == Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
