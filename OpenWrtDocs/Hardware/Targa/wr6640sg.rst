@@ -1,25 +1,25 @@
-
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
-= Fonera =
+= WR6640Sg =
 The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (SoC). So it's a candidate for the OpenWrt AtherosPort.
 
 = Hardware =
 == Info ==
 ||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc ||
-||'''Vendor''' || ||
-||'''Bootloader''' ||!RedBoot ||
-||'''System-On-Chip''' ||Atheros AR2315 ||
-||'''CPU Speed''' ||183 MHz ||
-||'''Flash size''' ||8 MiB ||
-||'''RAM''' ||16 MiB ||
-||'''Wireless''' ||Integrated Atheros 802.11b/g ||
-||'''Ethernet''' ||1x RJ45 ||
+||'''Vendor''' || Targa (Silvercrest, sold by Lidl) ||
+||'''Bootloader''' || PMon ? ||
+||'''System-On-Chip''' ||Atheros AR2313 ||
+||'''CPU Speed''' ||184 MHz ||
+||'''Flash size''' || 4 Mb ||
+||'''RAM''' || 16 Mb ||
+||'''Wireless''' ||Integrated Atheros 802.11b/g, AR2112 ||
+||'''Ethernet''' ||5 x RJ45 (4 Lan, 1 Wan) ||
+||'''Ethernet Switch''' || Marvell 88E6060 ||
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
-||'''JTAG''' ||No ||
- * 5V power supply
+||'''JTAG''' || Yes ||
+ * 12V power supply
  * Antenna
- * SPI-Bus
+ * SPI-Bus ???
 
 Power: 
 
