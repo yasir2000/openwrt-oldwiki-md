@@ -40,6 +40,7 @@ Freecom FSG-3 is Intel XScale based consumer NAS device. '''OpenWrt [http://www.
 
 == Notes ==
  * Holding reset button while powering on enables recovery mode. FSG requests IP using bootp and tries to load zImage-recovery with tftp from bootp server.
+  * If you want to test OpenWrt without flashing your FSG, a good way is too net boot this way and to choose "ramdisk" as target image.
  * RedBoot incorrectly reports Coyote machine ID to Linux kernel
  * Fan is noisy. It can be slowed down using software but it causes higher internal temperatures.
  * At least 250GB model came with internal Samsung 7200rpm 8MB PATA HDD. I don't know if other models are PATA or SATA. -- The FSG has the possibility to use either pata or sata disks (2 SATA and 1 PATA connector) One SATA is always used for the external SATA connector. Whether PATA or SATA is used internally (and therefor which connector is mounted) is dependent on the price/performance/quality of the PATA or SATA disks at the time of production. The disks can come from any manufacturer, again depending on best price/performance/quality at the time of production. (rbar)
