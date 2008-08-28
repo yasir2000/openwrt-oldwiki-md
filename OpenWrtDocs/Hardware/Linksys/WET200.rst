@@ -14,8 +14,22 @@ Since the ARM9 architecture seems to be currently not supported by OpenWRT, ther
 ||'''CPU Speed''' ||250 Mhz ||
 ||'''Flash size''' ||4 MiB (MX 29LV320CBTC-90G)||
 ||'''RAM''' ||16 MiB ||
-||'''Wireless''' ||Ralink RT2661 (MiniPCI) ||
+||'''Wireless''' ||Ralink RT2661T (MiniPCI) ||
 ||'''Switch''' || ADM6996M ||
 ||'''Serial''' ||Yes, 9-pin header ||
 ||'''JTAG''' ||No ||
 ||'''USB''' ||No ||
+
+== Pictures ==
+
+=== The board ===
+
+attachment:wet200.jpg
+
+=== The CPU ===
+
+attachment:wet200_str9110.jpg
+
+=== The WLAN card ===
+
+attachment:wet200_rt2661t.jpg
