@@ -1731,3 +1731,4 @@ There are loads of forum posts (in german) relating to the W701V here (use Suche
 
 ----
  . CategoryModel ["CategoryAR7Device"]
+ . CategoryDslModems
