@@ -31,6 +31,7 @@ There's a latch accessible via CS1 that is 16-bits wide.
 ||<style="text-align: right;">3 ||Internet alarm (red) ||
 ||<style="text-align: right;">4 ||Internet active ||
 ||<style="text-align: right;">5 ||MoCA LAN ||
+||<style="text-align: right;">6 ||MoCA WAN alarm (red) ||
 ||<style="text-align: right;">7 ||PCI reset ||
 
 
@@ -167,7 +168,6 @@ ath_pci: trunk
 eth0: no IPv6 routers present
 }}}
 === TODO ===
- * Fix mac address [http://forum.openwrt.org/viewtopic.php?id=16760 issue].
  * Figure out how to load redboot without using JTAG.
  * Fix latched led.
  * Add support for RA2560.
