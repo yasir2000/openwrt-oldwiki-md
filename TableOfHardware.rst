@@ -379,8 +379,8 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://meraki.com/oursolution/hardware/outdoor/ Meraki Outdoor] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180MHz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||? ||No ||[:OpenWrtDocs/Hardware/Meraki/Outdoor:Kamikaze] ||
 == MicraDigital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.micradigital.com/Product.aspx?id=216667 F5D7230ec4-E] || || || || || || || || || || ||WIP - see F5D7230ec4 ||
-||F5D7230ec4 ||1020ec ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315A] @ 184MHz ||2MB ||8MB ||AR2315A integrated ||IP175C ||N/A ||Yes ||Yes ||No ||WIP - see F5D7230ec4 ||
+||[http://www.micradigital.com/Product.aspx?id=216667 F5D7230ec4-E] || || || || || || || || || || ||[:F5D7230ec4:WiP] ||
+||F5D7230ec4 ||1020ec ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315A] @ 184MHz ||2MB ||8MB ||AR2315A integrated ||IP175C ||N/A ||Yes ||Yes ||No ||[:F5D7230ec4:WiP] ||
 == Microsoft ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||N/A ||No ||Yes (not soldered) ||No ||[:OpenWrtDocs/Hardware/Microsoft:Supported] ||
@@ -410,14 +410,9 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://broadband.motorola.com/consumers/products/wr850g/default.asp WR850G] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Motorola/WR850G:Supported] ||
 ||[http://broadband.motorola.com/consumers/products/wr850g/default.asp WR850G] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Motorola/WR850G:Supported] ||
 ||[http://broadband.motorola.com/consumers/products/wr850gp/default.asp WR850GP] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L || ||Yes ||Yes ||No ||Supported ||
-||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:Info entered / WiP] ||
-||SB4100 (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3350] || 2 MB || 8 MB || No || || ||Yes || ||1x 1.1 ||[:OpenWrtDocs/Hardware/Motorola/SB4100:Unsupported] ||
-||SB4200 (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3345] || 2 MB || 8 MB || No || || ||Yes || ||1x 1.1 ||[:OpenWrtDocs/Hardware/Motorola/SB4200:Info entered / WiP] ||
-||SB5100 (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3348] || || || No || || || || ||1x 1.1 ||[:OpenWrtDocs/Hardware/Motorola/SB5100:Info entered / WiP] ||
-== MSI ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || ||Unsupported ||
-||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=1061&maincat_no=131 MSI RG60G] || ||AMRISC 10000 ||1MB ||2MB ||Ralink ? || || || || ||No ||Unsupported ||
+||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:WiP] ||
+||SB4200 (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3345] || 2 MB || 8 MB || No || || ||Yes || ||1x 1.1 ||[:OpenWrtDocs/Hardware/Motorola/SB4200:WiP] ||
+||SB5100 (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3348] || || || No || || || || ||1x 1.1 ||[:OpenWrtDocs/Hardware/Motorola/SB5100:WiP] ||
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||CVG834G ||1 ||BCM3368 300Mhz ||8MB ||32MB ||BCM4318 ||BCM5365 ||No ||Yes ||Yes ||Yes ||WiP ||
@@ -436,7 +431,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||3 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros || ||N/A || || ||No ||[:AtherosPort:WiP] ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||7 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2317] ||4MB ||16MB ||Atheros (integrated) ||ADM6996FC ||N/A || || ||No ||[:AtherosPort:WiP]? ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||8 || ?? ||??MB ||??MB ||?? ||?? ||N/A || || ||No ||[:OpenWrtDocs/Hardware/Netgear/WGR614v8:WiP] ||
-||[http://www.netgear.com/Products/PrintServers/WirelessPrintServers/WGPS606.aspx WGPS606] ||1.1 (on PCB) ||Broadcom BCM5350KPB5G ||2MB ||8MB ||Broadcom (integrated) ||Integrated Broadcom || ||Yes ||Yes ||2x v1.1 ||[:OpenWrtDocs/Hardware/Netgear/WGPS606 v1.1:No] ||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||1 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros ||Marvell ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624:WiP] ||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||3 ||Atheros 2316A? @ ???MHz ||2MB ||8MB (16MB?) || Integrated Atheros 5315 ||Marvell 88E6060 ||N/A || ? || ? ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624v3:WiP] ||
 ||[http://www.netgear.com/products/details/WGT634U.php WGT634U] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5365-5365P Broadcom 5365] @ 200MHz ||[http://download.intel.com/design/flcomp/datashts/29066721.pdf 8MB Intel te28f640] ||[http://web.icsi.com.tw/domino/packinfo.nsf/WebDSProcNum/(798C2B999CBCD0EA3FDA31D07F57CC19)?OpenDocument 32MB ICSI IC42S26800] ||Atheros (mini-PCI) ||in CPU ||N/A ||2x 3.3v ||No ||1x v2.0 ||[:OpenWrtDocs/Hardware/Netgear/WGT634U:Kamikaze] ||
@@ -456,10 +450,6 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.ovislink.com.tw/WLA5000AP.htm Ovislink WLA-5000AP] ||? ||Atheros AR2313 @ ? MHz ||4MB ||32MB ||Atheros AR5112A ||? ||? ||Yes ||? ||No ||[:OpenWrtDocs/Hardware/Wistron/CA8-4  CE8-1:WiP], identical to Winstron CA8-4/CE8-1 ||
 ||[http://www.airlive.com/products/WMM-3000AP/wmm_3000ap.shtml WMM-3000AP] ||? ||AMRISC 10000? ||1MB? ||2MB? ||Ralink RT2661 ||Ralink RT2559 ||? ||? ||? ||No ||Info entered ||
-== Philips ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNR6500_05_GB_CONSUMER SNR6500] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||2MB ||8MB || ||ALTIMA AC101 || ||Yes ||Yes ||No ||Unsupported ||
-||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNB5600_05_GB_CONSUMER SNB5600] || ||Atheros @ 184MHz ||2MB ||8MB ||Atheros (integrated) ||IC+ IP175C || ||Yes, Rx-pin disconnected ||Yes ||No ||Unsupported ||
 == PC Engines ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.pcengines.ch/wrap.htm WRAP.2d] || ||x86 233mhz or 266mhz ||CF Card ||64MB || || || ||Yes ||No ||No ||[:SoekrisPort:Kamikaze] ||
@@ -526,12 +516,9 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 == T-Com ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||Eumex 300IP || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||4MB ||16MB ||None ||None || ||Yes || ||1 ||? ||
-||[http://www.t-com.de/service/downloads Sinus 154 DSL] || ||[http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510] ||2MB ||16MB ||Conexant ISL3880 - miniPCI ||Infineon ADM6996L ||? ||Yes? ||? ||1 x V1.1? ||[:OpenWrtDocs/Hardware/T-Com/SINUS154-DSL:Unsupported] ||
-||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic] || ||[http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510] ||2MB ||16MB ||Conexant ISL3886 - miniPCI ||Infineon ADM6996L || ||Yes || ||No ||Unsupported ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic 3] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-BASIC-3:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||None || ||Yes || ||No ||[:OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-BASIC-SE:WiP] ||
 ||[http://www.t-com.de/service/downloads Sinus 154 DSL SE] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Infineon ADM6996L || ||Yes || ||1 x V1.1 ||[:OpenWrtDocs/Hardware/T-Com/SINUS154-DSL-SE:WiP] ||
-||[http://www.t-com.de/service/downloads Sinus 1054 DSL] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] 140 MHz ||4MB ||8MB ||Broadcom BCM4306 - miniPCI ||No || ||Yes || ||No ||Unsupported ||
 ||Speedport 500V || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] ||4MB ||16MB ||no ||None || ||yes || ||yes ||[:BroadcomBCM63xxPort:WiP] ||
 ||[http://www.t-com.de/service/downloads Speedport W500V] || ||BCM963xx @125MHz ||4MB ||16MB ||BCM4318 ||None || ||yes ||? || ||[:OpenWrtDocs/Hardware/T-Com/Speedport W500V:Untested] ||
 ||[http://www.t-com.de/service/downloads Speedport W501V] || ||TNETD7200GDW (AR7) @??MHz ||4MB ||16MB ||TNETW1350A ||None || ||yes ||? || ||[:OpenWrtDocs/Hardware/T-Com/SpeedportW501V:WiP] ||
@@ -544,7 +531,6 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ||WR 500 VoIP ||See T-Com Speedport W500V above || || || || || || || || || || ||
 == Thomson ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:NO] ||
 ||Speedtouch 546 int dsl-modem || v6 ||Broadcom BCM6338 @ ???MHz ||??MB ||??MB ||n/a ||BCM5325 || ||??? ||??? || ||Info Entered ||
 ||Speedtouch 585 int dsl-modem || ||Broadcom BCM6348 @ ???MHz ||4MB ||32MB ||Broadcom (integrated) ||BCM5325 || ||??? ||??? ||??? ||[:OpenWrtDocs/Hardware/Thomson/speedtouch:WiP] ||
 ||Speedtouch 580/580i DSL modem || ||Broadcom BCM6345 @ ???MHz ||4MB (?) ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||? ||yes ||yes ||1 x V1.1? ||[:OpenWrtDocs/Hardware/Thomson/Speedtouch580:WiP] ||
