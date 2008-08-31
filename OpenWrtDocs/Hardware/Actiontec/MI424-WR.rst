@@ -40,6 +40,10 @@ There's a latch accessible via CS1 that is 16-bits wide.
 A custom version of redboot has been built. The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button
 after power on for about 10 seconds.
 
+Installation of redboot can be accomplished with the {{{mi424wr-image.py}}} script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes.
+The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options.
+If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG.
+
 === Linux ===
 Board id 1778 has been registered for this device. When building OpenWrt from source, you'll need the MI424-WR patch that can be found [http://lists.openwrt.org/pipermail/openwrt-devel/2008-August/003107.html here]. Also, make sure to add the spi-ks8995 kernel module to enable the switch.
 
@@ -168,7 +172,6 @@ ath_pci: trunk
 eth0: no IPv6 routers present
 }}}
 === TODO ===
- * Figure out how to load redboot without using JTAG.
  * Fix latched led.
  * Add support for RA2560.
 ----
