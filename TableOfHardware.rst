@@ -80,6 +80,9 @@ Quicklinks to manufacturers:
 == AMCC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||''Other '' ||'''Status''' ||
 ||[http://www.amcc.com/Embedded/evalkits/440GX_PB_1_04.pdf Taishan] || ||[https://www.amcc.com/MyAMCC/jsp/public/productDetail/product_detail.jsp?productID=PPC440GX AMCC PPC440GX] @ 800MHz ||64MB ||256MB ||none, two PCI-X slots ||none, 2x gigabit ethernet ||N/A ||Yes ||Yes ||None ||I2C, LCD display ||[:OpenWrtDocs/Hardware/AMCC/Taishan:Supported] ||
+== Apple ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
+||[http://www.apple.com/airportextreme/ AirPort Extreme]|| ? || Marvell 88F5181 || 16MB [http://www.st.com/stonline/products/literature/ds/11881/m29w128fl.pdf M29W128FL] || 64 MB [http://www.samsung.com/Products/Semiconductor/DDR_DDR2/download/ddr_product_guide_jul_06_rev11.pdf K4H651638H-3UCB] x 2 || Atheros [http://www.atheros.com/pt/bulletins/AR5008-3NXBulletin.pdf AR5008-3NX] || [http://www.broadcom.com/products/Small-Medium-Business/Fast-Ethernet-Switching-Products/BCM5325 BCM5325E1QMG] || ? || ? || ? || yes || no || Info entered ||
 == Asus ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||[http://www.asus.com/products4.aspx?l1=13&l2=96&l3=0&model=1107&modelmenu=1 AM604g] ||Since Aug-2006 ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256Mhz ||4Mb ||16Mb ||Broadcom BCM4318 ||BCM5325EKQM ||? ||Yes ||? ||no ||no ||[:BroadcomBCM63xxPort:WiP] ||
