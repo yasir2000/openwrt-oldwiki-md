@@ -96,27 +96,46 @@ Most devices listed here do not have enough flash memory, but there might be oth
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1124916804580&pagename=Linksys/Common/VisitorWrapper WRT54GX2] ||2.0 ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=11&Level=4&Conn=3&ProdID=70 Realtek RTL8651B] @ 200MHz ? || || ||Airgo (mini-PCI) ? ||in CPU ? ||N/A || || ||No ||No ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1130279435381&pagename=Linksys/Common/VisitorWrapper WRT54GX4] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=11&Level=4&Conn=3&ProdID=70 Realtek RTL8651B] @ 200MHz || || ||Airgo (mini-PCI) ||in CPU ||N/A || || ||No ||No ||
 ||[http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US%2FLayout&cid=1154659755942&pagename=Linksys%2FCommon%2FVisitorWrapper&lid=5594254480B10 WRVS4400N] || 1.1 || Dual [http://www.starsemi.com.tw/vEng/product.php Star9109 (Wireless) & Star9202 (Wired) ] || 8MB || 32MB & 64MB ||Marvell TopDog (mini-PCI) || [http://www.vitesse.com/products/product.php?number=VSC7385 Vitesse VSC7385 (SparX G5)] || ?? || ?? || ?? ||?? || [:OpenWrtDocs/Hardware/Linksys/WRVS4400N:No]||
-== Mikrotik ==
 
 == Motorola ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||SB4100 (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3350] || 2 MB || 8 MB || No || || ||Yes || ||1x 1.1 ||[:OpenWrtDocs/Hardware/Motorola/SB4100:Unsupported] ||
 ||[http://broadband.motorola.com/consumers/products/wa840g/default.asp WA840G] ||2 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200Mhz ||2MB ||8MB ||Broadcom (integrated) ||None || ||Yes ||No ||No ||Unsupported ||
+== MSI ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=104&maincat_no=131 RG54SE II] || ||Atheros AR2317 ||2MB ||8MB || || || || || || ||Unsupported ||
+||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=1061&maincat_no=131 MSI RG60G] || ||AMRISC 10000 ||1MB ||2MB ||Ralink ? || || || || ||No ||Unsupported ||
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||2 ||ARM9 (ISL3893) ||2MB ||8MB || ||None || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WG602v2:Unsupported] ||
+||[http://www.netgear.com/Products/PrintServers/WirelessPrintServers/WGPS606.aspx WGPS606] ||1.1 (on PCB) ||Broadcom BCM5350KPB5G ||2MB ||8MB ||Broadcom (integrated) ||Integrated Broadcom || ||Yes ||Yes ||2x v1.1 ||[:OpenWrtDocs/Hardware/Netgear/WGPS606 v1.1:No] ||
 ||[http://www.netgear.com/products/details/WGR101.php WGR101] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||4 ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Broadcom (?) ||Marvell 88E6060 ||No ||No ||No ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||5 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU ||on || || ||No ||No ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||6 ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||1MB ||8MB ||in CPU ||in CPU || ||Yes || ||No ||No ||
 ||[http://www.netgear.com/products/details/WGU624.php WGU624] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm AR5312] @220MHz ||2MB ||8MB ||AR5112A AR2112A ||[http://www.realtek.com.tw/search/default.aspx?keyword=8305SB Realtek RTL8305SB] ||N/A ||Yes ||Yes ||No ||Needs Redboot - should probably be classified as a WiP ||
 ||[http://netgear.com/products/details/WPNT834.php WPNT834] || ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=11&Level=4&Conn=3&ProdID=70 Realtek RTL8651B] @ 200MHz ||4MB ||32MB ||Airgo (mini-PCI) ||integrated Realtek ||N/A || || ||No ||No ||
+== Philips ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNR6500_05_GB_CONSUMER SNR6500] || ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||2MB ||8MB || ||ALTIMA AC101 || ||Yes ||Yes ||No ||Unsupported ||
+||[http://www.consumer.philips.com/consumer/catalog/product.jsp?language=en&country=GB&catalogType=CONSUMER&productId=SNB5600_05_GB_CONSUMER SNB5600] || ||Atheros @ 184MHz ||2MB ||8MB ||Atheros (integrated) ||IC+ IP175C || ||Yes, Rx-pin disconnected ||Yes ||No ||Unsupported ||
 == Siemens ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://gigaset.siemens.com/shc/0,1935,hq_en_0_89729_rArNrNrNrN,00.html SE551] || ||AR5312? @240MHz ||2MB ||16MB || ||ADM6996 ||Yes ||Yes ||1x v2.0 ||No ||
 
+== T-Com ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.t-com.de/service/downloads Sinus 154 DSL] || ||[http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510] ||2MB ||16MB ||Conexant ISL3880 - miniPCI ||Infineon ADM6996L ||? ||Yes? ||? ||1 x V1.1? ||[:OpenWrtDocs/Hardware/T-Com/SINUS154-DSL:Unsupported] ||
+||[http://www.t-com.de/service/downloads Sinus 154 DSL Basic] || ||[http://www.samsung.com/products/semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510] ||2MB ||16MB ||Conexant ISL3886 - miniPCI ||Infineon ADM6996L || ||Yes || ||No ||Unsupported ||
+||[http://www.t-com.de/service/downloads Sinus 1054 DSL] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Solutions/BCM6345 Broadcom 6345] 140 MHz ||4MB ||8MB ||Broadcom BCM4306 - miniPCI ||No || ||Yes || ||No ||Unsupported ||
+
 == Targa (Silvercrest, Lidl) ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.service.targa.de/dokumente/6640Sg_manual.pdf WR-6640Sg] || Rev: 1.0 || Atheros AR2313A @ 180MHz ||2MB (MX 29LV160) ||16Mb || Atheros AR2112 || Marvell 88E6060 || YES || YES || NO || [:OpenWrtDocs/Hardware/Targa/wr6640sg:Probably] ||
+
+== Thomson ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||TCM390 (Cable modem) || ||Broadcom 3348 @ 192MHz ||4MB ||8MB ||n/a ||n/a || ||yes || || ||[:OpenWrtDocs/Hardware/Thomson/TCM390:NO] ||
 
 == Topcom ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
