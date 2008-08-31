@@ -12,25 +12,45 @@ Unsupported routers are listed here to save space on the [:TableOfHardware:Suppo
 ||LAN420M || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||2Mb ||8Mb ||None ||Marvell 88E6060 || ||Yes ||Yes ||No ||Unsupported ||
 ||LAN120 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||2Mb ||8Mb ||None ||None ||PSPBoot ||No ||No ||Yes ||Unsupported ||
 ||LAN420 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||2Mb ||8Mb ||None ||Realtek RTL8305SC ||PSPBoot ||No ||No ||No ||Unsupported ||
+||WR-G || ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] ||2Mb S29AL016D ||16Mb ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8305SC ||PSPBoot || ||No ||No ||No ||
 == Asus ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
 ||WL-300 Spacelink || || || || ||Intersil chips? || || || || || || ||Unsupported? Original entry short on details ||
 ||[http://www.asus.com/products.aspx?l1=12&l2=41&l3=0&model=58&modelmenu=1 WL-330] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8500] ||1MB ||8MB ||Marvell (integrated 88W8000) ||None || ||No ||No ||No ||No ||No ||
 ||WL-500 || ||Intel SA-1100 ||? ||? ||Prism-Pcmcia || || || || || || ||No ||
+||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=492&modelmenu=1 WL-520g] || ||[http://www.broadcom.com/press/release.php?id=577575 Broadcom 5350] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||in CPU ||on ||Yes || ||No ||No ||[:OpenWrtDocs/Hardware/Asus/WL520G:Unsupported] ||
+||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=409&modelmenu=1 WL-530g] || ||[http://www.marvell.com/products/wireless/gateways.jsp Marvell Libertas 88W8510] @160MHz ||4MB ||16MB ||Marvell (integrated). ||in CPU ||on ||[http://www.bitsum.com/openwiking/owbase/ow.asp?WL-530G Yes] [http://www.bitsum.com/openwiking/owbase/ow.asp?WL-530G Unsupported] || ||No ||No ||No ||
+||[http://www.asus.com/products4.aspx?l1=12&l2=43&l3=0&model=1038&modelmenu=1 WL-566gM] || ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2006036 Realtek RTL8651B] || || ||Airgo MIMO (mini-PCI) ||in CPU || || ||No ||No ||No ||[:OpenWrtDocs/Hardware/Asus/WL566gM:Unsupported] ||
 == Belkin ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||F5D7630-4B ||1210de ||Samsung S3C2510A01 (ARM9) ||2MB ||16MB ||ISL3880 ||ADMtek ADM6996L ||? ||3.3V 2x5 pins soldered ||no ||no (PCB supports USB) ||unsupported ||
 == Comtrend ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.comtrend.com/index.php?module=products&op=show&sn=2 CT-536+] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||Broadcom mini-PCI BCM4306 || || ||No || ||No ||No ||
+== Conceptronic ==
+||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||CADSLR4+ || ||Texas Instruments AR7 TNETD7200 ||2 MB ||8 MB || ||Marvell 88E6060 || ||Yes || ||No ||Unsupported ||
+||C54BRS4A || ||Atheros AR2317 ||2 MB ||16 MB || ||IP175C || || || || ||Unsupported ||
 == D-Link ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.dlink.com/products/?pid=316 DI-524] ||[https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=595497&native_or_pdf=pdf Rev. D (internal photos)] ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros 2315] ||? ||[http://www.esmt.com.tw/DB/manager/upload/M12L64164A.pdf 8MB (ESMT M12L64164A)] ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||? ||No ||Unsupported ||
+||[http://www.dlink.com/products/?pid=316 DI-524] ||VER:V1.1 (2004) ||Marvell 88W8510-BAN ||[http://rpmfind.net/linux/netwinder.org/netwinder/docs/nw/29060805.pdf 2MB (Intel TE28F160)] ||8MB (IS42S32200B ||Marvell 88W8000 ||Marvell 88E6060 ||? ||J5 - 20pins ||J5 ||No ||Unsupported ||
 ||DI-524 ||B2 ||D-Link DL7500A@100MHz (extended 16bit x86, RDC R2880?) ||1MB ||2MB || Ralink RT25xx ||D-Link DL1005x (IC+ IP175x) || || || || ||No ||
+||[http://www.dlink.com/products/?pid=316 DI-524] ||HW: B2 (B1 printed on PCB) ||D-Link DL7500 (Atheros remarked?) ||[http://www.eonsdi.com/pdf/EN29LV800B.pdf 1MB (EON EN29LV800BB)] ||[http://www.etron.com/manager/uploads/EM636165_27.pdf 8MB (EtronTech EM636165TS-7)] ||Ralink RT2525 ||D-Link DL1005C ||? ||? ||J7? - 6 pins ||No ||Unsupported ||
+||[http://www.dlink.com/products/?pid=316 DI-524] ||HW: B4 (D1 0741printed on PCB) ||D-Link DL7500A ||[http://www.eonsdi.com/pdf/EN29LV800B.pdf 1MB (EON EN29LV800BB)] ||2MB (ISSI IS42S16100C1-7TL) ||? ||D-Link DL1005E ||? ||? ||? ||No ||Unsupported ||
+||[http://www.dlink.com.au/Products.aspx?Sec=2&Sub1=18&Sub2=42&PID=61 DI-524UP] ||A2 ||RealTek RTL8650B @ 200Mhz ||4MB ||16MB ||RTL8185 (integrated) ||In CPU ||Via serial console ||Yes ||Yes ||Yes ||Unsupported ||
 ||DI-604 ||Bx,Cx,Dx,Fx ||D-Link DL7x00@100MHz (RDC R162x, real 16bit x86)||1MB? ||2MB || ||D-Link DL1005x (IC+ IP175x?) || || || || ||No ||
 ||DI-604 ||F4 (PCB F3) ||D-Link DL7300A@100MHz (RDC R1621, real 16bit x86)||512KB (EN29LV040A 512Kx8) ||2MB EM636165TS-7G (1Mx16) || ||D-Link DL1005E (IC+ IP175x?) || || || || ||No ||
+||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oWIB5kP98f8p8M6tj5jkkBSnqxCBC9o4ABNs= DI-614+] ||HW:A2 ||Samsung [http://www.datasheet4u.com/download.php?id=259661 S3C4510B01-QER0 (ARM7)] @ 50 MHz ||8M [http://www.datasheetarchive.com/pdf/207970.pdf 1MB 29LV800BTC-90] ||2M [http://www.hynix.com/datasheet/pdf/dram/HY57V643220C(L)T(P)(Rev0.9).pdf 8MB hy57v643220ct] ||?? ||Marvell 88E6052 [http://www.marvell.com/products/soho_soft.jsp (link street soho switch)] ||? ||? ||JP2 - 14pins ||no ||Unsupported ||
+||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:H1 ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros 2316] ||1MB (MX 29LV800BBTC-70) ||8MB (MIRA P2V64S40DTP) ||Atheros (integrated) ||Marvell 88E6060 ||? ||Yes ||Yes ||No ||Unsupported ||
+||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:A1 ||NEC ŒºPD30131F1 VR4131 ||2MB || |||XG-600V02 MiniPC ||4xLAN || || || || ||Unsupported ||
+||[http://www.dlink.com/products/?sec=0&pid=6 DI-624] ||HW:C3 chassis 1.2 ||AR2313-00 ||[http://www.digchip.com/datasheets/parts/datasheet/211/IC42S16400-7T.php IC42S16400-7T] 1MB || ||AR2112 ||88E6060-RCJ 4xLAN || || || ||No ||Unsupported ||
+||DI-624+A ||HW: B2 ||D-Link DL7500A (Atheros remarked?, Radio integrated?) ||EON EN29LV800BB-70TCP 1MB ||EtronTech EM636165TS-7G 2MB ||AIROHA AL2230 ||? ||? ||? ||? ||? ||Unsupported ||
 ||DI-704(P) ||Cx,Dx ||D-Link DL7x00@100MHz (RDC R162x, real 16bit x86) ||1MB? ||2MB || ||D-Link DL1005x (IC+ IP175x?) || || || ||Yes ||No ||
 ||DI-707(P) ||Cx,Dx ||D-Link DL7x00@100MHz (RDC R162x, real 16bit x86) ||1MB? ||2MB || ||D-Link DL1008x (IC+ IP178C?) || || || || ||No ||
 ||DI-704P ||D1 ||D-Link DL7300A@100MHz (RDC R1621, real 16bit x86) ||512KB (EN29LV040A 512Kx8) ||2MB EM636165TS-7G (1Mx16) || ||5-port (RTL8305SC) || || || || ||No ||
+||[ftp://ftp10.dlink.com/pdfs/products/DI-724P/DI-724P_ds_ca.pdf DI-724P+] ||HW:A1 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI WL541M ||DL1005 ||? ||? ||? ||No ||Unsupported ||
+||[ftp://ftp10.dlink.com/pdfs/products/DI-824VUP/DI-824VUP_ds_ca.pdf DI-824VUP+] || ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||8MB ||Mini-PCI ||DL1005C (IP175C) [http://www.xbitlabs.com/articles/other/print/dlink-di824vup.html chip photos] ||? ||? ||? ||Yes ||Unsupported ||
 ||DI-824VUP+ || ||Samsung S3C2510A10 ||2MB ||8MB ||TI TNETW1130 MiniPCI ||D-Link DL1005C ||N/A ||Yes (RS232C) ||Maybe ||Yes ||No ||
 == Edimax ==
 Most devices listed here do not have enough flash memory, but there might be other reasons as well why they're unsupported.
