@@ -47,6 +47,10 @@ GPL Tarball located here: http://www.airlink101.com/gpl/
 
 The manufacturer's website says this unit runs on 12V@1A, with no specified polarity. other websites say this unit runs on 5V. I'm successfully running mine using a power adapter that provides 5V@2A, with a positive tip. The power adapter that comes with it says 12V@500mA.
 
+Update 09/01/2008 , from bonafide :
+
+...To add to this confusion, the power adapter on the ar525w I acquired reads 12V@500mA, yet measured 17+V. The client who didn't want it was complaining about connection problems. So I chucked the weird PS and hooked the ar525w up to a 12V supply. It's running well, without excessive heat on the RALink wireless miniPCI card so far. 
+
 == Boot Log ==
 {{{
 +Ethernet eth0: MAC address 00:00:01:02:03:04
@@ -166,6 +170,11 @@ I got the ethernet ports working tweaking the driver for r6040. I'll post all th
 http://forum.x-wrt.org/index.php?topic=865.0
 I have one airlink 525 running with openwrt, and the other one being use for development. 
 
+Update 09/01/2008 , from bonafide :
+
+...it is unfortunately true that Mozilla chokes on the IE-centric web-based firmware upgrade. I had to use M$ to go that route to flash the unit. Ick. 
+
+But otherwise trunk is working just fine. 
 
 Bootlog :
 
