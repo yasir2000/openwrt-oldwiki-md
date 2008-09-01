@@ -34,6 +34,18 @@ There's a latch accessible via CS1 that is 16-bits wide.
 ||<style="text-align: right;">6 ||MoCA WAN alarm (red) ||
 ||<style="text-align: right;">7 ||PCI reset ||
 
+=== Serial Port ===
+There's an internal serial port available on the J20 pins. It's found on the side.
+It's possible to connect a TTL 3.3V serial converter
+(e.g. [http://www.sparkfun.com/commerce/product_info.php?products_id=8772 this])
+and have access to the console for both redboot and linux.
+||'''Pin''' ||'''Function''' ||
+||<style="text-align: right;">1 ||Gnd ||
+||<style="text-align: right;">2 ||Tx ||
+||<style="text-align: right;">3 ||Rx ||
+||<style="text-align: right;">4 ||? ||
+||<style="text-align: right;">5 ||? ||
+||<style="text-align: right;">6 ||? ||
 
 == Software ==
 === Redboot ===
