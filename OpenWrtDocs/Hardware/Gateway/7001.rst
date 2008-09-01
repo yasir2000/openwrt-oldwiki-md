@@ -247,6 +247,8 @@ RedBoot> reset
 }}}
 
 = Building NPE Microcode =
+ * Note: These steps may no longer be necessary.  I did a fresh install from the 2008-08-31 trunk, and /lib/firmware/NPE-* files were created and detected automatically.
+
 In order to use the ethernet ports on this router, you have to build the Intel
 NPE-B and NPE-C microcode binaries, concatenate them together, and write them
 into a flash partition with the name "microcode".
