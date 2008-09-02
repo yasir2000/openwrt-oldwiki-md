@@ -5,7 +5,7 @@
 
 The Linksys WRT160N is the Linksys Ultra Range Plus Wireless-N Broadband Router.
 
-OpenWRT will run on WRT160N. It is not directly supported by any prebuilt firmware images on the downoad page yet, You need to compile it yourself.
+OpenWRT will run on WRT160N. It is not directly supported by any pre-built firmware images on the download page yet, You need to compile it yourself.
 
 Please update this wiki page if this information is proven false or further support is added.
 
@@ -13,15 +13,13 @@ Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Sate
 
 == How To ==
 
-'''''Telnet is working once OpenWRT is installed but to be on the safe side a serial connection is recommended.'''''
-
 1. Get trunk. ie:
 
 {{{
 svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/trunk/
 }}}
 
-2. Download and apply patch.
+2. Download and apply patch. (This may not be necessary. It only lets the system know it is a WRT160N and not a WRT54G or other type of WRT)
 
 {{{
 cd ~/
@@ -38,25 +36,32 @@ make menuconfig
 
 Target Profile ---> (Generic, Broadcom !WiFi (MIMO))
 
-4. Enter kernel config options menu (this will download the kernel source then open the menu)
-
-{{{
-make kernel_menuconfig
-}}}
-
-5. go to 'Memory Technology Devices (MTD)  --->' 
-    then 'RAM/ROM/Flash chip drivers  --->'
-and enable 'Support  8-bit buswidth'
-
-6. Exit the configuration menu and save the settings. [[BR]] Note: When you exit it errors while looking for stuff in staging_dir/host/ (which is not built yet), but it doesn't seem to affect anything. Just continue with step 7.
-
-7. build the whole thing with the new config
+4. build the image once first. (This will take a while)
 
 {{{
 make
 }}}
 
-Now you can flash the firmware image in /bin to your WRT160N using the Linksys web interface. (I tried the openwrt-wrt150n-squashfs.bin and it worked)
+5. Enter kernel config options menu.
+
+{{{
+make kernel_menuconfig
+}}}
+
+6. go to 'Memory Technology Devices (MTD)  --->' 
+    then 'RAM/ROM/Flash chip drivers  --->'
+and enable 'Support  8-bit buswidth'
+
+7. Exit the configuration menu and save the settings.
+
+8. build the whole thing again with the new config. (This time wont take as long)
+
+{{{
+make
+}}}
+
+Now you can flash the firmware image in /bin to your WRT160N using the Linksys web interface. (I tried the openwrt-wrt150n-squashfs.bin and it worked; openwrt-brcm-2.4-squashfs.trx also works if using the tftp install method)
+ * The wireless works when you enable it in /etc/config/wireless
 
 == Hardware Info ==
 ||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
@@ -137,9 +142,8 @@ Details at this page:
 == TODO ==
 
  * WAN does not seem to work. (It will not grab an IP address from the DHCP server)
- * Wireless does not work at all. The device appears as wl0 in iwconfig/ifconfig but trying to scan or connect gives an 'invalid argument' error. 
  * Find the data sheets for the chips used in this device.
- * Figure out what JP1, JP3 are for and the exact pinouts.
+ * Figure out what JP1, JP3 are for and the exact pin outs.
 
 == Other Categories this device is in ==
 
