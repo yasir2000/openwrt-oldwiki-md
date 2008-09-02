@@ -40,6 +40,52 @@ config dhcp
 	option limit		150
 	option leasetime	4h}}}
 
+= Using OpenWrt stock firewall (new UCI firewall) =
+
+Zones
+{{{
+uci add firewall zone
+uci set firewall.@zone[-1].name=wifi
+uci set firewall.@zone[-1].network=wifi
+uci set firewall.@zone[-1].input=ACCEPT
+uci set firewall.@zone[-1].forward=DROP
+uci set firewall.@zone[-1].output=ACCEPT}}}
+
+Forwarding (Allow wifi -> wan, Allow wifi -> lan, Allow lan -> wifi)
+{{{
+uci add firewall forwarding
+uci set firewall.@forwarding[-1].src=wifi
+uci set firewall.@forwarding[-1].dest=wan
+uci add firewall forwarding
+uci set firewall.@forwarding[-1].src=wifi
+uci set firewall.@forwarding[-1].dest=lan
+uci add firewall forwarding
+uci set firewall.@forwarding[-1].src=lan
+uci set firewall.@forwarding[-1].dest=wifi}}}
+
+Save and restart the firewall
+{{{uci commit firewall
+/etc/init.d/firewall restart}}}
+
+= Using OpenWrt stock firewall (old firewall) =
+As an easier alternative to shorewall, modify {{{/etc/init.d/firewall}}} like this:
+
+Find where the other {{{config_get}}} commands are. Add:
+{{{
+config_get WIFI wifi ifname
+}}}
+to where the others are.
+
+Now, scroll down to where it says {{{ ### FORWARDING }}} and under the {{{ # allow }}} section, add
+{{{
+	iptables -A FORWARD -i $WIFI -o $WIFI -j ACCEPT
+	[ -z "$WAN" ] || iptables -A FORWARD -i $WIFI -o $WAN -j ACCEPT
+
+	iptables -A FORWARD -i $WIFI -o $LAN -j ACCEPT
+	iptables -A FORWARD -i $LAN -o $WIFI -j ACCEPT
+}}}
+That will allow computers on the wireless lan to contact each other, to access internet, and for contact between lan and wireless segments.
+
 = Shorewall =
 
 Your !WiFi network should now be operational on 192.168.2.x after a reboot.  However, it will not be able to communicate with your LAN or the Internet until you set up the appropriate firewall rules.  It may be possible to do that with the default OpenWRT firewall, but I'm more familiar with Shorewall, so that's what I used.
@@ -236,25 +282,6 @@ COMMAND=/sbin/shorewall
 				}
 	} &
 } }}}
-
-= Using OpenWrt Stock Scripts =
-As an easier alternative to shorewall, modify {{{/etc/init.d/firewall}}} like this:
-
-Find where the other {{{config_get}}} commands are. Add:
-{{{
-config_get WIFI wifi ifname
-}}}
-to where the others are.
-
-Now, scroll down to where it says {{{ ### FORWARDING }}} and under the {{{ # allow }}} section, add
-{{{
-	iptables -A FORWARD -i $WIFI -o $WIFI -j ACCEPT
-	[ -z "$WAN" ] || iptables -A FORWARD -i $WIFI -o $WAN -j ACCEPT
-
-	iptables -A FORWARD -i $WIFI -o $LAN -j ACCEPT
-	iptables -A FORWARD -i $LAN -o $WIFI -j ACCEPT
-}}}
-That will allow computers on the wireless lan to contact each other, to access internet, and for contact between lan and wireless segments.
 
 ----
 CategoryHowTo
