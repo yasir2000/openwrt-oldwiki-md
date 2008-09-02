@@ -49,12 +49,20 @@ and have access to the console for both redboot and linux.
 
 == Software ==
 === Redboot ===
-A custom version of redboot has been built. The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button
+A custom version of redboot has been built and can be found [http://mysite.verizon.net/jvasco/mi424wr/redboot.bin here]. The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button
 after power on for about 10 seconds.
 
-Installation of redboot can be accomplished with the {{{mi424wr-image.py}}} script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes.
+Installation of redboot can be accomplished with the [http://mysite.verizon.net/jvasco/mi424wr/mi424wr-image.py mi424wr-image.py] script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes.
 The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options.
 If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG.
+
+After establishing a telnet session to redboot, the flash must be initialized and configured:
+
+ 1. Initialize flash -- {{{fis init}}}
+ 2. Configure MAC addresses -- {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}
+    Use MAC address at the bottom of the unit!
+ 3. Write linux image to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-zImage}}} followed by {{{fis create linux}}}
+ 4. Write rootfs to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-squashfs.img}}} followed by {{{fis create rootfs}}}
 
 === Linux ===
 Board id 1778 has been registered for this device. When building OpenWrt from source, you'll need the MI424-WR patch that can be found [http://lists.openwrt.org/pipermail/openwrt-devel/2008-August/003107.html here]. Also, make sure to add the spi-ks8995 kernel module to enable the switch.
