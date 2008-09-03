@@ -9,6 +9,8 @@ The [http://www.actiontec.com Actiontec] MI424-WR router is based on a 533MHz IX
  * NPEC - LAN interface connected to Micrel KSZ8995MA switch via SPI; PHY addresses: 1, 2, 3, 4.
  * 3 PCI slots - 2 used for coax interface.
  * Wireless MiniPCI based on RA2560.
+
+There are also two [http://www.entropic.com/products/homenetworking.htm Entropic] [http://www.mocalliance.org MoCA] controllers for the coax interface. Because of the proprietary nature of these devices, they are not supported.
 === GPIO ===
 ||'''Pin''' ||'''I/O''' ||'''Description''' ||
 ||<style="text-align: right;">0 ||<style="text-align: center;">O ||Reset? ||
@@ -49,8 +51,7 @@ and have access to the console for both redboot and linux.
 
 == Software ==
 === Redboot ===
-A custom version of redboot has been built and can be found [http://mysite.verizon.net/jvasco/mi424wr/redboot.bin here]. The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button
-after power on for about 10 seconds.
+A custom version of redboot has been built and can be found [http://mysite.verizon.net/jvasco/mi424wr/redboot.bin here]. The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button after power on for about 10 seconds. When redboot is ready to accept commands, it sets the Internet LED red.
 
 Installation of redboot can be accomplished with the [http://mysite.verizon.net/jvasco/mi424wr/mi424wr-image.py mi424wr-image.py] script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes.
 The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options.
@@ -59,14 +60,13 @@ If there's some failure, the only recourse is to install a JTAG header and resto
 After establishing a telnet session to redboot, the flash must be initialized and configured:
 
  1. Initialize flash -- {{{fis init}}}
- 2. Configure MAC addresses -- {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}
-    Use MAC address at the bottom of the unit!
- 3. Write linux image to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-zImage}}} followed by {{{fis create linux}}}
- 4. Write rootfs to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-squashfs.img}}} followed by {{{fis create rootfs}}}
+ 2. Configure MAC addresses -- {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit!
+ 3. Write [http://mysite.verizon.net/jvasco/mi424wr/openwrt-ixp4xx-zImage linux] image to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-zImage}}} followed by {{{fis create linux}}}
+ 4. Write [http://mysite.verizon.net/jvasco/mi424wr/openwrt-ixp4xx-squashfs.img rootfs] to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-squashfs.img}}} followed by {{{fis create rootfs}}}
 
 The original image can be restored using the following procedure:
 
- 1. Get a copy of [http://mysite.verizon.net/jvasco/mi424wr/redboot.bin redram.img].
+ 1. Get a copy of [http://mysite.verizon.net/jvasco/mi424wr/redram.img redram.img].
  2. {{{load -h <ipaddress> redram.img}}}
  3. {{{go}}}
  4. Close telnet session and start another one.
@@ -203,6 +203,7 @@ ath_pci: trunk
 eth0: no IPv6 routers present
 }}}
 === TODO ===
- * Fix latched led.
+ * Add latched led driver.
+ * Debug RA2500 driver.
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
