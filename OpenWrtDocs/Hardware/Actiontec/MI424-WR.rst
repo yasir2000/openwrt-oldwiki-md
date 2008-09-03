@@ -193,6 +193,5 @@ eth0: no IPv6 routers present
 }}}
 === TODO ===
  * Fix latched led.
- * Add support for RA2560.
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
