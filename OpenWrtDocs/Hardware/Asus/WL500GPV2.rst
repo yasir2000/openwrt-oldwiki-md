@@ -115,9 +115,9 @@ In the kamikaze directory, begin the build with:
 % make
 }}}
 
-Hopefully, there are no errors during the build. If there are, a message about re-running with V=99 will be produced, and you'll have to dig yourself out.
+Hopefully, there are no errors during the build. If there are, a message about re-running with V=99 will be produced, and you'll have to dig yourself out. If you just want to see the compilation proces in ditail, yum also may use V=99.
 
-It'll take maybe an hour and a half to finish?
+It'll take maybe an hour and a half to finish? Be sure thet you conectet to the Internet: the compilation proces downloads tarbols of src-codes during 1st building. 
 
 ==== Patching Kamikaze to Work With the BCM5354 ====
 
@@ -126,8 +126,8 @@ The patching occurs after the 1st build, because all of the patches target build
 First, the CFE (Common Firmware Environment, the lowest level firmware in this router) does not interact correctly with the kernel, and a hang during boot occurs. Modify these two files:
 
 {{{
-build_dir/linux-brcm47xx/linux-2.6.25.10/arch/mips/kernel/setup.c
-build_dir/linux-brcm47xx/linux-2.6.25.10/arch/mips/bcm47xx/prom.c
+build_dir/linux-brcm47xx/linux-2.6.25.16/arch/mips/kernel/setup.c
+build_dir/linux-brcm47xx/linux-2.6.25.16/arch/mips/bcm47xx/prom.c
 }}}
 
 as per sbrown's post at [http://forum.openwrt.org/viewtopic.php?id=15443&p=2].
@@ -135,7 +135,7 @@ as per sbrown's post at [http://forum.openwrt.org/viewtopic.php?id=15443&p=2].
 Next, the USB2 support needs to be patched. You can review the patch at [https://dev.openwrt.org/cgi-bin/trac.fcgi/attachment/ticket/3365/ssb-ehci-25.patch], and you can pull down the patch file via a little, tiny, grey link at the bottom. That patch targets kernel 2.6.25-4, which is probably not your kernel. The following appears to do an okay job of pulling down the patch, and rewriting it for kernel 2.6.25-10:
 
 {{{
-% wget -nv -O - http://dev.openwrt.org/cgi-bin/trac.fcgi/raw-attachment/ticket/3365/ssb-ehci-25.patch | sed s:/linux-2.6.25.4/:/linux-2.6.25.10/:g > ssb-ehci-25.patch
+% wget -nv -O - http://dev.openwrt.org/cgi-bin/trac.fcgi/raw-attachment/ticket/3365/ssb-ehci-25.patch | sed s:/linux-2.6.25.4/:/linux-2.6.25.16/:g > ssb-ehci-25.patch
 }}}
 
 Then apply the patch:
@@ -199,7 +199,7 @@ After the waiting, power cycle the unit, and wait a while for it to boot. When i
 Edit /etc/pkg.conf:
 
 {{{
-# vi /etc/pkg.conf
+# vi /etc/opkg.conf
 }}}
 
 Change the URL to your host machine. You'll have to configure your host machine to run httpd, and serve the bin/packages/mipsel directory you just built. I added the following to /etc/httpd/conf.d/ipkg.conf:
@@ -213,13 +213,13 @@ Change the URL to your host machine. You'll have to configure your host machine 
 Hopefully, you get the idea. When you can update ipkg's database, you'll know you've succeeded:
 
 {{{
-# ipkg update
+# opkg update
 }}}
 
 Packages can then be installed as with e.g.:
 
 {{{
-# ipkg install madplay
+# opkg install madplay
 }}}
 
 ==== Epilogue ====
