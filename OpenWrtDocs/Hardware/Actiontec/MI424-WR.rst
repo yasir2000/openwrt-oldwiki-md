@@ -64,6 +64,17 @@ After establishing a telnet session to redboot, the flash must be initialized an
  3. Write linux image to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-zImage}}} followed by {{{fis create linux}}}
  4. Write rootfs to flash -- {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-squashfs.img}}} followed by {{{fis create rootfs}}}
 
+The original image can be restored using the following procedure:
+
+ 1. Get a copy of [http://mysite.verizon.net/jvasco/mi424wr/redboot.bin redram.img].
+ 2. {{{load -h <ipaddress> redram.img}}}
+ 3. {{{go}}}
+ 4. Close telnet session and start another one.
+ 5. {{{load -h <ipaddress> -r -b %{FREEMEMLO} mi424wr-xxxxxxxxxxxx.bin}}}
+ 6. {{{fis unlock -f 0x50000000 -l 0x800000}}}
+ 7. {{{fis write -b %{FREEMEMLO} -l 0x800000 -f 0x50000000}}}
+ 8. Close telnet session and power cycle.
+
 === Linux ===
 Board id 1778 has been registered for this device. When building OpenWrt from source, you'll need the MI424-WR patch that can be found [http://lists.openwrt.org/pipermail/openwrt-devel/2008-August/003107.html here]. Also, make sure to add the spi-ks8995 kernel module to enable the switch.
 
