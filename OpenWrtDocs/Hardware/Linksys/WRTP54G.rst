@@ -603,6 +603,6 @@ http://www.bargainshare.com/index.php?showtopic=87504
  * Prepend header according to 12. Firmware Update File Format with wrtp-mod-kit.tar.bz2
 
  * Go to psbl prompt with serial cable, fmt IMAGE_B and flash the openwrt image into it (maybe both IMAGE_A and B, still unsure)
- * boot
+ * boot...dead with [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt/BootLog this log]
 ----
  . CategoryModel ["CategoryAR7Device"]
