@@ -593,5 +593,16 @@ http://www.bargainshare.com/index.php?showtopic=87504
 === Ping Hack ===
 [To be written.]
 
+= OpenWrt =
+
+ * Get console working (See 14. Serial Console)
+ * Use Ping Hack to get a shell
+ * Unlock psbl (See 14. Serial Console)
+ 
+ * Build openwrt latter than r12454, get openwrt-ar7-squashfs.bin
+ * Prepend header according to 12. Firmware Update File Format with wrtp-mod-kit.tar.bz2
+
+ * Go to psbl prompt with serial cable, fmt IMAGE_B and flash the openwrt image into it (maybe both IMAGE_A and B, still unsure)
+ * boot
 ----
  . CategoryModel ["CategoryAR7Device"]
