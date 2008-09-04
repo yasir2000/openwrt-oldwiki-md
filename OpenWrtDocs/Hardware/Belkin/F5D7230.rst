@@ -1,10 +1,6 @@
 ##language:en
 == Overview ==
 
-A lot of information is being discussed, and development is taking place, on the Belkin F5D7230-4.  There is interest in having an open firmware running on this platform.  As OpenWRT is the starting point for most new Broadcom customers, and as OpenWRT's FAQ links to this page, hopefully, information can be provided here to those who have purchased Belkin's as well as those wanting to contribute to opening this platform.
- 
-NOTE: OpenWRT '''will not run''' on these boxes! They have only 2MB flash. OpenWRT images are 4MB and 8MB. You do the math. The micro version of whiterussian RC4 stops on boot without giving wireless or LAN access. The router ships with boot_wait=on, so it's simple to change the firmware via tftp without bricking it (and restore eventually the original from belkin).
-
 NOTE2: Pre-1444 hardware versions do have 4 MB flash and 16 MB RAM ...
 
 NOTE3: F5D7231-4 seems to have the same firmware. Hardware looks exactly the same. There even is a procedure to convert a 7230 v1444 into a 7231. (just change the firmware (look in [wiki:SeattleWireless:FrontPage Seattle Wireless] wiki))
@@ -23,17 +19,24 @@ NOTE9: The MicraDigital F5D7230ec4 (ver. 1020ec) is not based on a Broadcom chip
 
 == GPIO ==
 
-For v1444:
-|| GPIO0 || "Connected" LED ||
-|| GPIO1 || EESK (on one end of R658 on the back near the switch chip) ||
-|| GPIO2 || EECS (on one end of R656 on the back near the switch chip) ||
-|| GPIO3 || "WLAN" LED ||
-|| GPIO4 || RC (on one end of R603 on the back near the switch chip) ||
-|| GPIO5 || "Power" LED ||
-|| GPIO6 || EEDI (on one end of R652 on the back near the switch chip) ||
-|| GPIO7 || Reset button ||
+|| Version || v1222de || v1444 ||
+|| GPIO0 || "Connected" LED || "Connected" LED ||
+|| GPIO1 || Pin 12 of J1 || EESK (on one end of R658 on the back near the switch chip) ||
+|| GPIO2 || switch reset (pad near R34 on the back) || EECS (on one end of R656 on the back near the switch chip) ||
+|| GPIO3 || "WLAN" LED || "WLAN" LED ||
+|| GPIO4 || unknown (*) || RC (on one end of R603 on the back near the switch chip) ||
+|| GPIO5 || "Power" LED || "Power" LED ||
+|| GPIO6 || switch WAN on/off (R54 on the top) || EEDI (on one end of R652 on the back near the switch chip) ||
+|| GPIO7 || Reset button (**) || Reset button ||
+
+(*)  I could not find GPIO4 on this device.
+
+(**) I did not verify this. I assumed this must be the reset button. (Limer)
 
 GPIO7 can be used for a different purpose by removing C365 (v1444) or C367 (v2000) from the board (near the memory chips and JTAG connector on a v1444, near reset button on a v2000). This will disconnect the watchdog circuit from the reset button. (Pull the plug to do a soft reset, use serial interface to do a hard reset.)
+
+On v1222de devices GPIO 1,2 and 6 can be used for a different purpose as well. To make GPIO 1 and 6 usable you need to remove R109 (near pin 12 of J1) and R54 (near the WAN chip). Then you can use them as shown in [http://wwwhomes.uni-bielefeld.de/joehlschlaeger/hw/BelkinF5D7230-4v1222de/GPIOfront_small.jpg GPIOfront_small.jpg] or [http://wwwhomes.uni-bielefeld.de/joehlschlaeger/hw/BelkinF5D7230-4v1222de/GPIOfront.jpg GPIOfront.jpg].
+Making GPIO2 usable is a little bit more difficult: If you dont need the switch you just have to cut a trace pitch and connect a wire as shown in [http://wwwhomes.uni-bielefeld.de/joehlschlaeger/hw/BelkinF5D7230-4v1222de/GPIOback_small.jpg GPIOback_small.jpg] or [http://wwwhomes.uni-bielefeld.de/joehlschlaeger/hw/BelkinF5D7230-4v1222de/GPIOback.jpg GPIOback.jpg]. If you DO need the switch take a look at GPIOfront_small.jpg or GPIOfront.jpg. (Limer)
 
 Credit to:
 
