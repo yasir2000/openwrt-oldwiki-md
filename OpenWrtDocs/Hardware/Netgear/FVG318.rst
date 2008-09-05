@@ -6,7 +6,7 @@ The FVG318 is based on an Atheros [http://www.atheros.com/pt/AR5006AP-GS.htm AR5
 No idea if AtherosPort of OpenWRT supports it.
 
 == Specs of FVG318 v1 ==
- * CPU: AR2316
+ * CPU: AR2316 @ 184 MHz
  * Flash: ST 25P32V6P (SPI, 4 MByte)
  * RAM: Mosel-Vitelic V54C3128164VBI7 (8Mbit x 16)
  * Switch: 2x Marvell 88E6060
