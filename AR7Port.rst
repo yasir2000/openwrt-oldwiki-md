@@ -143,7 +143,7 @@ jtag> detectflash 0x30000000 1
 jtag> readmem 0x30000000 0x400000 dsl-500t-fullflash.img
 jtag> flashmem 0x30000000 adam2.img}}}
 
-For flashing connect rst pin on VCC 
+For flashing connect RST pin on VCC
 attachment:ar7_jtag.jpg
 
 ----
