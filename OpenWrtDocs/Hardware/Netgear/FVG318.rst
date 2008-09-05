@@ -2,7 +2,7 @@
 
 = Netgear FVG318 v1 =
 
-The FVG318 is based on an Atheros [http://www.atheros.com/pt/AR5006AP-GS.htm AR5006AP (aka AR2316) SoC].
+The FVG318 is based on an Atheros [http://www.atheros.com/pt/AR5006AP-GS.htm AR5006AP-GS (aka AR2316) SoC].
 No idea if AtherosPort of OpenWRT supports it.
 
 == Specs of FVG318 v1 ==
