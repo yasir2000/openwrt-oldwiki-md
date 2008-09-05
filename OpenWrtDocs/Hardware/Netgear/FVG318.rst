@@ -16,6 +16,9 @@ No idea if AtherosPort of OpenWRT supports it.
 
 You find [https://fjallfoss.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=592352&native_or_pdf=pdf internal pictures] in the FCC database.
 
+== Disassemble ==
+Just remove one black screw on the bottom and pull apart the two pieces of the case. Be careful with the U.FL pigtail inside.
+
 == Serial Port ==
 
 The serial port is located on JP1:
