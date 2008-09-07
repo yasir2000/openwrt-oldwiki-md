@@ -1,5 +1,6 @@
-Netgear FVX 538
+[[TableOfContents(1)]]
 
+= Features =
  * Intel IXP425 based (533MHz)
  * 2 WAN interfaces:
   * WAN1 is Realtek RTL8110s (theorically gigabit capable, but connected to a 10/100 Mbps transformer)
@@ -11,9 +12,6 @@ Netgear FVX 538
   ||Flash ||16MB ||32MB ||
   ||RAM ||32MB ||64MB ||
  * Redboot bootloader
-
-
-[[TableOfContents(1)]]
 
 = Schematic =
 {{{
