@@ -13,7 +13,28 @@ Netgear FVX 538
  * Redboot bootloader
 
 
-[[TableOfContents(2)]]
+[[TableOfContents(1)]]
+
+= Schematic =
+{{{
+                   |----------------|
+                   |     IXP425     |
+                   |                |
+     --------------| PCI       GPIO |-----
+     |             |                |    |
+     |             | NPE-C   NPE-B  |    |
+     |             |----------------|    |SPI
+     |                 |       |         |MGMT
+ |--------|            /        \MII     |
+ |RTL8110s|           /MII       \       |
+ |--------|          /         |-------| |
+     |            |---|        |BCM5380|-|
+     |            |PHY|        |-------|
+     |            |---|            |
+   |----|           |         |---------|
+   |WAN1|        |WAN2|       |LAN PORTS|
+---|-  -|--------|-  -|-------|-       -|---
+}}}
 
 
 = Inside a FVX538 v1 =
