@@ -1,14 +1,20 @@
 Netgear FVX 538
 
  * Intel IXP425 based (533MHz)
- * 2 WAN interfaces
- * 9 ports switch (8 x 10/100 Mbps + 1 x 1Gbps)
+ * 2 WAN interfaces:
+  * WAN1 is Realtek RTL8110s (theorically gigabit capable, but connected to a 10/100 Mbps transformer)
+  * WAN2 is IXP425 NPE-C (10/100 Mbps)
+ * 9 ports switch: Broadcom BCM5380MKPB (8 x 10/100 Mbps + 1 x 1Gbps), connected to IXP425 NPE-B MAC
  * up to 200 ipsec VPN (source: Netgear)
  * 2 hardware versions:
   || ||v1 ||v2 ||
   ||Flash ||16MB ||32MB ||
   ||RAM ||32MB ||64MB ||
  * Redboot bootloader
+
+
+[[TableOfContents(2)]]
+
 
 = Inside a FVX538 v1 =
 attachment:pic1.jpg
@@ -31,7 +37,7 @@ Serial parameters:
 ||Flow control || none ||
 
 
-= Boot log =
+= Original (w/ Netgear firmware) boot log =
 {{{
 Initiating BCM5380 ... ok
 +starting api entry
@@ -357,7 +363,18 @@ Found device on bus 0, devfn 0xa8:
  BAR[5]    0x00000000 / probed size 0x00000000 / CPU addr 0xffffffff
  Wired to HAL vector 7
 }}}
+
+= Work in progress =
+ I done some patches to run OpenWRT in this box  
+ Not working / to do:
+  * BCM5380 switch works standalone only, it is not usable as a network interface in linux at this time
+   The switch is fully working in Redboot, but we loose the MII connection when loading linux.
+   It seems that the mode of the switch MAC that is connected to the processor changes from "Reverse MII" to "Standard MAC/PHY" when loading linux.
+   Then, the NPE driver always says "MII read failed" when the interface is up.
+  * Nitrox Cavium encryption accelerator chip doesn't work as its driver is closed source
+
 = Links =
 [http://www.netgear.com/Products/VPNandSSL/WiredVPNFirewallRouters/FVX538.aspx Product page]
+[http://kbserver.netgear.com/inquira/default.asp?ui_mode=answer&prior_transaction_id=2139237&action_code=5&turl=http%3A%2F%2Fkbserver.netgear.com%2Fkb_web_files%2Fn101238.asp&answer_id=58414350 GPL source code]
 
  . CategoryGigabitDevices
