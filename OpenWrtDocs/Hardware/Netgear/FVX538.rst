@@ -365,7 +365,7 @@ Found device on bus 0, devfn 0xa8:
 }}}
 
 = Work in progress =
- I done some patches to run OpenWRT in this box  
+ I did some patches to run OpenWRT in this box  
  Not working / to do:
   * BCM5380 switch works standalone only, it is not usable as a network interface in linux at this time
    The switch is fully working in Redboot, but we loose the MII connection when loading linux.
