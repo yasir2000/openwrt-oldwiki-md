@@ -1,14 +1,14 @@
 Netgear FVX 538
 
  * Intel IXP425 based (533MHz)
- * 2 WAN
- * 8 ports switch (10/100 Mbps)
- * 1 Gb port
+ * 2 WAN interfaces
+ * 9 ports switch (8 x 10/100 Mbps + 1 x 1Gbps)
  * up to 200 ipsec VPN (source: Netgear)
  * 2 hardware versions:
   || ||v1 ||v2 ||
   ||Flash ||16MB ||32MB ||
   ||RAM ||32MB ||64MB ||
+ * Redboot bootloader
 
 = Inside a FVX538 v1 =
 attachment:pic1.jpg
