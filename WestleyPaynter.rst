@@ -69,10 +69,21 @@ cd ~/xbox-openwrt/target/linux/x86/patches
 wget http://snipes420.googlepages.com/linux-2.6.22.7-xbox.patch
 }}}
 
+
+install the raincoat package
+
+{{{
+cd ~/xbox-openwrt/
+wget http://snipes420.googlepages.com/raincoat-openwrt-package.tgz
+tar -jxvf raincoat-openwrt-package.tgz
+rm raincoat-openwrt-package.tgz
+}}}
+
 make a folder for the extra files we need for packaging.
 
 {{{
 mkdir ~/xbox-openwrt/files
+mkdir ~/xbox-openwrt/files/boot
 }}}
 
 Make the whole thing
