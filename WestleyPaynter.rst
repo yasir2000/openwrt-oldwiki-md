@@ -40,5 +40,18 @@ timeout 5000
 
 ...
 
+=== Running OpenWrt on an xbox ===
+
+== WIP ==
+
+Get build source.
+
+svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/xbox-openwrt/
+
+go to /target/linux/x86 and download this config to this folder
+
+go to /target/linux/x86/patches and download this patch to this folder
+
+
 ----
 CategoryHomepage
