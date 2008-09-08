@@ -40,18 +40,46 @@ timeout 5000
 
 ...
 
-=== Running OpenWrt on an xbox ===
-
 == WIP ==
 
+=== Running OpenWrt on an xbox ===
+An xbox is a gaming console made by microsoft that is basically a x86 computer with some custom tweaks.
+We should be able to use the x86 build option and add the xbox-linux kernel patches to that to get openwrt on the xbox.
+I will focus first on getting it running with the xbox-linux bios 'cromwell' and then perhaps get it going from a live booting cd for the xbox.
+
+
+OK now we start.
 Get build source.
 
+{{{
 svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/xbox-openwrt/
+}}}
 
-go to /target/linux/x86 and download this config to this folder
+go to ~/xbox-openwrt/target/linux/x86 and download this config to this folder
 
-go to /target/linux/x86/patches and download this patch to this folder
+{{{
+cd ~/xbox-openwrt/target/linux/x86
+wget http://snipes420.googlepages.com/config-2.6.22
+}}}
 
+go to ~/xbox-openwrt/target/linux/x86/patches and download this patch to this folder
+
+{{{
+cd ~/xbox-openwrt/target/linux/x86/patches
+wget http://snipes420.googlepages.com/linux-2.6.22.7-xbox.patch
+}}}
+
+make a folder for the extra files we need for packaging.
+
+{{{
+mkdir ~/xbox-openwrt/files
+}}}
+
+Make the whole thing
+
+{{{
+make
+}}}
 
 ----
 CategoryHomepage
