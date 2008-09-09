@@ -50,7 +50,7 @@ create the file /etc/hotplug.d/usb/20-novatel_switch
 #!/bin/sh
 
 massstorage () {
-        grep -q 'Vendor=1410 ProdID=5010' /proc/bus/usb/devices && /bin/true || /bin/false
+        grep -q 'Vendor=1410 ProdID=5010' /proc/bus/usb/devices 2> /dev/null && /bin/true || /bin/false
 }
 
 tryeject () {
