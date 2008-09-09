@@ -69,6 +69,11 @@ cd ~/xbox-openwrt/target/linux/x86/patches
 wget http://snipes420.googlepages.com/linux-2.6.22.7-xbox.patch
 }}}
 
+edit the target/linux/x86/Makefile and change the kernel version to 2.6.22.7
+
+{{{
+nano ~/xbox-openwrt/target/linux/x86/Makefile
+}}}
 
 install the raincoat package
 
