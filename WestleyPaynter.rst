@@ -75,7 +75,7 @@ install the raincoat package
 {{{
 cd ~/xbox-openwrt/
 wget http://snipes420.googlepages.com/raincoat-openwrt-package.tgz
-tar -jxvf raincoat-openwrt-package.tgz
+tar -zxvf raincoat-openwrt-package.tgz
 rm raincoat-openwrt-package.tgz
 }}}
 
