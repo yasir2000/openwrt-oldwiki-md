@@ -122,6 +122,12 @@ OK
 
 The led on the mc950d should now stop blinking red and show whatever network is usable (blue = umts, yellow = hsdpa, green = GPRS, lila = EDGE)
 
+'''Note: if you don't run minicom once (you don't have to do anything, just start minicom and quit it with CTRL-A Q), gcom doesn't work and the kernel usb-serial module gets [http://pastebin.com/f42c97a28 hickup].'''
+
+It seems that the serial port initialization by minicom does something important, have to figure out, what it is.
+
+
+
 == gcom / gtcom ==
 
 Install the needed stuff with
@@ -218,4 +224,5 @@ Aug 10 16:34:08 OpenWrt daemon.notice pppd[2918]: secondary DNS address 139.7.30
 
 So, you are up and running...
 
-Next thing is routing.
+
+Routing should work automatically, if you name that interface 'wan'.
