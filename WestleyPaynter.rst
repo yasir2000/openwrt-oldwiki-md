@@ -89,6 +89,14 @@ make a folder for the extra files we need for packaging.
 {{{
 mkdir ~/xbox-openwrt/files
 mkdir ~/xbox-openwrt/files/boot
+mkdir ~/xbox-openwrt/files/dev
+}}}
+
+when booting the xbox with this system it will hang at boot saying it cannot open the initial console.
+thats because /dev/console is missing. 
+
+{{{
+mknod ~/xbox-openwrt/files/dev/console c 5 1
 }}}
 
 Make the whole thing
