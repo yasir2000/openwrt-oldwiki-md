@@ -49,12 +49,21 @@ create the file /etc/hotplug.d/usb/20-novatel_switch
 {{{
 #!/bin/sh
 
+massstorage () {
+        grep -q 'Vendor=1410 ProdID=5010' /proc/bus/usb/devices && /bin/true || /bin/false
+}
+
+tryeject () {
+        /usr/bin/sdparm --command=eject /dev/sg0
+}
+
 case "$ACTION" in
-        add) ( grep -q 'Vendor=1410 ProdID=5010' /proc/bus/usb/devices  && sleep 3 &&  /usr/bin/sdparm --command=eject /dev/sg0 2>&1  )
+        add) (  while $(massstorage) ; do tryeject ; sleep 2; done )
         ;;
 esac
+
 }}}
-I found this in the forum, but there wasn't the sleep 3 and it didn't work for me without it, because the /dev/sg0 isn't there, when this script is called. Also doesn't this version depend on lsusb, which I didn't have and didn't need...
+This small script doesn't depend on lsusb and tries to eject the mass-storage as long it's there. The while loop is needed, because it might not be ready for ejection, when the script is called first. We just try every 2 seconds until the mass-storage is gone.
 
 Next problem is, that usbserial doesn't know the vendor and product id from novatel...
 
@@ -63,7 +72,7 @@ so modify /etc/modules.d/60-usb-serial to look like that:
 usbserial vendor=0x1410 product=0x4400 # Novatel MC950D
 }}}
 
-The eject doesn't work when booting with this stick, but if you plug that umts-stick in once kamikaze is running, dmesg now should look like this:
+If you plug MC950D in once kamikaze is running, dmesg now should look like this:
 
 {{{
 usb 2-1: new full speed USB device using ohci_hcd and address 4
@@ -82,7 +91,131 @@ usb 2-1: generic converter now attached to ttyUSB0
 usbserial_generic 2-1:1.1: generic converter detected
 usb 2-1: generic converter now attached to ttyUSB1
 }}}
+When you boot with the mc950d inserted, the order might be slightly different, but it automatically register the two serial devices just fine.
 
 The hard part is done, you have the working serial devices and you overcame the mass-storage and usb-serial-vendor-id problem.
 
-Next thing to configure is gcom. (To be continued tomorrow)
+== testing with minicom ==
+
+{{{
+# opkg install minicom
+}}}
+run minicom and configure the serial-port with CTRL+A O -> Serial port setup -> Serial Device -> /dev/ttyUSB0 -> Save setup as dfl.
+Restart minicom and it should be connecting to the mc950d
+
+{{{
+AT
+OK
+
+AT+CPIN?
++CPIN: SIM PIN
+OK
+
+AT+CPIN=1234
+OK
+
+AT+CPIN?
++CPIN: READY
+OK
+
+}}}
+
+The led on the mc950d should now stop blinking red and show whatever network is usable (blue = umts, yellow = hsdpa, green = GPRS, lila = EDGE)
+
+== gcom / gtcom ==
+
+Install the needed stuff with
+
+{{{
+# opkg install chat
+# opkg install ppp
+# opkg install comgt
+}}}
+
+Edit /etc/config/network through adding the following:
+
+{{{
+config interface ppp0
+        option ifname   'ppp0'
+        option proto    '3g'
+        option device   '/dev/ttyUSB0'
+        option apn      'access.vodafone.de'
+        option pincode  '1234'
+}}}
+Make sure, you change the pincode line to your pin code, if your sim asks for one.
+
+Test gcom
+{{{
+root@OpenWrt:~# gcom info -d /dev/ttyUSB0
+##### Wireless WAN Modem Configuration #####
+Product text:
+====
+
+Manufacturer: Novatel Wireless Incorporated
+Model: Ovation MC950D Card
+Revision: 3.18.02.0-00  [2008-04-15 16:18:23]
+IMEI: xxx
++GCAP: +CGSM,+DS
+OK
+====
+Manufacturer:           Novatel Wireless Incorporated
+IMEI and Serial Number: xxx
+Manufacturer's Revision:
+3.18.02.0-00  [2008-04-15 16:18:2
+Hardware Revision:
+
+Network Locked:         0
+Customisation:
+
+Band settings:          (
+)
+APN:                    1,"IP","access.vodafone.de","",0,0
+##### END #####
+}}}
+
+you can try, whether setting the pin works:
+
+{{{
+root@OpenWrt:~# COMGTPIN=1234 gcom PIN -d /dev/ttyUSB0
+SIM ready
+}}}
+
+Now try connecting:
+
+{{{
+root@OpenWrt:~# ifup ppp0
+grep: /proc/diag/model: No such file or directory
+grep: /proc/diag/model: No such file or directory
+Manufacturer: Novatel Wireless Incorporated
+SIM ready
+PIN set successfully
+Trying to set mode
+grep: /proc/diag/model: No such file or directory
+}}}
+
+The /proc/diag/model doesn't exist, but it doesn't seem to cause any problems...
+
+You can use logread to check, if it worked:
+
+{{{
+# logread
+Aug 10 16:34:02 OpenWrt daemon.notice pppd[2918]: pppd 2.4.3 started by root, uid 0
+...
+Aug 10 16:34:04 OpenWrt daemon.info pppd[2918]: Serial connection established.
+Aug 10 16:34:04 OpenWrt daemon.info pppd[2918]: Using interface ppp0
+Aug 10 16:34:04 OpenWrt daemon.notice pppd[2918]: Connect: ppp0 <--> /dev/ttyUSB0
+Aug 10 16:34:08 OpenWrt daemon.warn pppd[2918]: Could not determine remote IP address: defaulting to 10.64.64.64
+Aug 10 16:34:08 OpenWrt daemon.info dnsmasq[2445]: reading /tmp/resolv.conf.auto
+Aug 10 16:34:08 OpenWrt daemon.info dnsmasq[2445]: using nameserver 139.7.30.126#53
+Aug 10 16:34:08 OpenWrt daemon.info dnsmasq[2445]: using nameserver 139.7.30.125#53
+Aug 10 16:34:08 OpenWrt daemon.info dnsmasq[2445]: using local addresses only for domain lan
+Aug 10 16:34:08 OpenWrt daemon.notice pppd[2918]: replacing old default route to br-lan [192.168.1.1]
+Aug 10 16:34:08 OpenWrt daemon.notice pppd[2918]: local  IP address 10.248.245.1
+Aug 10 16:34:08 OpenWrt daemon.notice pppd[2918]: remote IP address 10.64.64.64
+Aug 10 16:34:08 OpenWrt daemon.notice pppd[2918]: primary   DNS address 139.7.30.125
+Aug 10 16:34:08 OpenWrt daemon.notice pppd[2918]: secondary DNS address 139.7.30.126
+}}}
+
+So, you are up and running...
+
+Next thing is routing.
