@@ -236,8 +236,7 @@ For more information about Compex's OpenWRT Products please Click ==>[http://For
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.dlink.co.uk/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oVo5+h6ltbNlwaaFp6DQoHDrpziVF9o0OBN/l DSL-320T] ||EU ||200Mhz ||2MB ||8MB ||None ||None ||pspboot (mod) || || || ||[:OpenWrtDocs/Hardware/D-Link/DSL-320T:WiP] ||
 ||["OpenWrtDocs/Hardware/D-Link/DSL-502T"] ||AU/AT ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150MHz ||4MB ||16MB ||None ||None ||["ADAM2"] ||Yes ||Yes ||Yes ||[:OpenWrtDocs/Hardware/D-Link/DSL-502T:WiP] ||
-||[http://www.dlink.com/products/?pid=390&sec=0 DI-624S] ||HW:A1||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200 Mhz ||[http://www.intel.com/design/flcomp/prodbref/308275.htm Intel TE28F128] 16MB ||32MB||Atheros Mini-PCI ||
-||? ||Yes ||Yes ||Yes ||[http://forum.openwrt.org/viewtopic.php?pid=43891 WIP] ||
+||[http://www.dlink.com/products/?pid=390&sec=0 DI-624S] ||HW:A1 ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] @ 200 Mhz ||[http://www.intel.com/design/flcomp/prodbref/308275.htm Intel TE28F128] 16MB ||32MB ||Atheros Mini-PCI ||None||?||Yes||Yes||Yes||[http://forum.openwrt.org/viewtopic.php?pid=43891 WIP]||
 ||[http://www.dlink.com/products/?pid=390&sec=0 DI-624S] ||HW:B1 ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PNid=9&PFid=11&Level=4&Conn=3&ProdID=70 RTL8651B] ||MX 29LV320ATTC-90, 4MB ||MIRA P2V28S40BTP 32MB ||Atheros Mini-PCI || ||? ||? ||? ||Yes ||Info Entered ||
 ||[http://www.dlink.de/?go=gNTyP9CgrdFOIC4AStFCF834mptYKO9ZTdvhLPG3yV3oWI5/galtbNlwaaFp6DQoHDrpzi5L+Y8MDNrn DIR-300] Clone of ["OpenWrtDocs/Hardware/Airlink/ARxxxW"] || || Atheros 2317@182Mhz || 4mb || 16mb || Atheros || IC+ IP175C || ? || Yes || Yes || No ||[:OpenWrtDocs/Hardware/D-Link/DIR-300:Partialy supported] ||
 ||[http://www.dlink.com/products/?pid=565 DIR-615] ||HW:A1 ||Marvel ARM926 @500MHz (88W5180) ||28F640 (64Mbit/8MB) ||32MB? ||Marvel 88W8361 Mini-PCI ||4x10/100 (Marvell 88E661-LAJ1) ||Unknown ||yes ||yes (unknown pinout) ||Not Populated ||Untested ||
@@ -606,4 +605,4 @@ The SE515 has the same hardware as the Dynalink RTA770W (it's the same board, th
 ----
  . CategoryModel
 ----
-CategoryOpenWrtPort
+ . CategoryOpenWrtPort
