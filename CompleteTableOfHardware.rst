@@ -88,28 +88,9 @@ Quicklinks to manufacturers:
 == Auerswald ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone) || ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
-== AVM ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||FRITZ!Box SL || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||2MB ||8MB ||None || || || || || ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-||FRITZ!Box 2030 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||2MB ||8MB ||None || || || || || ||Untested ||
-||FRITZ!Box 2070 || ||? ||? ||? ||None || || || || || ||Untested ||
-||FRITZ!Box 2170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||4MB ||14MB ||None ||4xLAN || || || ||yes ||Untested ||
-||FRITZ!Box SL WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150 MHz ||4MB ||8MB ||acx111 mini-pci || || || || || ||Untested ||
-||FRITZ!Box WLAN 3020 || ||? ||? ||? || || || || || || ||Untested ||
-||FRITZ!Box WLAN 3030 || ||? ||4MB ||? || || || || || || ||Untested ||
-||FRITZ!Box WLAN 3050 || ||? ||4MB ||? || || || || || || ||Untested ||
-||FRITZ!Box WLAN 3130 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||4MB ||16MB || || || || || ||yes ||Untested ||
-||FRITZ!Box WLAN 3070 || ||? ||4MB ||? || || || || || || ||Untested ||
-||FRITZ!Box Fon ata || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || ||yes || ||None ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box SL:WiP] ||
-||FRITZ!Box Fon 5010 (analog) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none || || || ||None ||Untested ||
-||FRITZ!Box Fon 5012 (ISDN) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None ||none (2xLAN) || ||yes || ||none ||Untested ||
-||FRITZ!Box Fon || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || || ||Untested ||
-||FRITZ!Box Fon 5050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||16MB ||None || || || || ||1.1 ||Untested ||
-||FRITZ!Box Fon WLAN || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci || || ||yes || || ||Untested ||
-||FRITZ!Box Fon WLAN 7050 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 150mhz ||4MB ||32MB ||acx111 mini-pci ||2xLAN || ||yes ||yes ||none ||[:OpenWrtDocs/Hardware/AVM/FRITZ!Box WLAN 7050:WiP] ||
-||FRITZ!Box Fon WLAN 7140 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||acx111 on-board ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
-||FRITZ!Box Fon WLAN 7170 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 212mhz ||8MB ||32MB ||ac111 on-oard ||ADMtek ADM6996 || ||yes || ||1.1 ||Untested ||
-detailed information about avm's flash-memory is in german (but some graphics) under http://wiki.ip-phone-forum.de/software:ds-mod:development:flash
+
+##AVM
+[[Include(Hardware/AVM)]]
 
 == Aztech ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
@@ -118,39 +99,10 @@ detailed information about avm's flash-memory is in german (but some graphics) u
 ||DSL600EW || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 160 MHz ||4MB ||16MB ||TI TNETW1130 ||Marvell 88E6060 || || || ||1.1 ||[http://forum.openwrt.org/viewtopic.php?pid=22136 WIP] ||
 Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech is commonly being used in Malaysia and Singapore.
 
-##Belkin
-[[Include(Hardware/Belkin)]]
 
-== Buffalo ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=27 WBR-B11] || ||[http://www.broadcom.com/press/release.php?id=332500 Broadcom 4702] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) 803.11b ||BCM5325 ||on || || ||Space for connector ||[:OpenWrtDocs/Hardware/Buffalo/WBR-B11:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=24&categoryid=6 WBR2-B11] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WBR2-B11:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=17 WBR-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || ||No ||[:OpenWrtDocs/Hardware/Buffalo/WBR-G54:Supported (doesn't work on Kamikaze)] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=11&categoryid=6 WBR2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WBR2-G54:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=79&categoryid=6 WBR2-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes ||No ||Supported ||
-||[http://www.buffalotech.com/products/wireless/wireless-g-125-high-speed/wireless-g-125-high-speed-broadband-router-and-access-point-with-high-gain-antenna/ WHR-G54S] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G54S:Supported] ||
-||[http://www.buffalotech.com/products/wireless/wireless-g-125-high-speed WHR-G125] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5354 Broadcom 5354] @ 240MHz ||4MB ||16MB ||BCM5354KFBG ||in CPU ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-G125:WIP] ||
-||[http://www.buffalotech.com/products/wireless/wireless-g-125-high-speed WHR-HP-G125] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5354 Broadcom 5354] @ 240MHz ||4MB ||16MB ||BCM5354KFBG ||in CPU ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-HP-G54S:WIP] ||
-||[http://www.buffalotech.com/products/wireless/wireless-ag-mimo-performance/wireless-ag-mimo-performance-broadband-router-and-access-point-with-high-gain-antenna/ WHR-HP-AG108] || ||[http://www.atheros.com/pt/AR5002AP-2XBulletin.htm Atheros WiSoC 5312] @ 220MHz ||4MB ||32MB ||Atheros (integrated) ||in CPU || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-HP-AG108:WIP] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=115&categoryid=6 WHR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352EL Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Buffalo/WHR-HP-G54:Supported] ||
-||WHR2-G54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=2 WHR3-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-G54:Supported] ||
-||WHR3-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) || || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WHR3-AG54:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=12 WLA-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=13 WLA-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||[:OpenWrtDocs/Hardware/Buffalo/WLA-G54C:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=70 WLA2-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None ||off || || || ||Untested ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=92&categoryid=6 WLA2-G54C] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||None || ||Yes ||Yes || ||[:OpenWrtDocs/Hardware/Buffalo/WLA2-G54C:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=90&categoryid=6 WLA2-G54L] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||ADM6996L ||on ||Yes ||Yes || ||[:OpenWrtDocs/Hardware/Buffalo/WLA2-G54L:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=35 WLI-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Supported ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=44 WLI2-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
-||[http://buffalo.jp/products/catalog/item/w/wli3-tx1-g54/ WLI3-TX1-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||None || ||Yes ||Yes || ||[:OpenWrtDocs/Hardware/Buffalo/WLI3-TX1-G54:Supported] ||
-||WLI2-TX1-AG54 || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||None || || || || ||Untested ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=102&categoryid=6 WZR-G108] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 300MHz ||8MB ||32MB ||Airgo (mini-PCI) ||BCM5325 || || || || ||Untested ||
-||[http://buffalo.jp/products/catalog/item/w/wzr-hp-g54/ WZR-HP-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 264MHz ||4MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 || || || || ||Untested ||
-||[http://buffalo.jp/products/catalog/item/w/wzr-rs-g54hp/ WZR-RS-G54HP] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54HP:Supported] ||
-||[http://www.buffalotech.com/products/product-detail.php?productid=88&categoryid=6 WZR-RS-G54] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom 4704] @ 266MHz ||8MB ||64MB ||Broadcom (mini-PCI) ||BCM5325 ||on || || || ||[:OpenWrtDocs/Hardware/Buffalo/WZR-RS-G54:Supported] ||
-||[http://www.buffalotech.com/products/wireless/wireless-n-nfiniti-dual-band WZR-AG300] || ||Marvell ARM926 @ 500Mhz ||8MB ||32MB ||2 x Marvell (mini-PCI) 802.11a + n/b/g || || ||Yes ||Yes ||Space for connector ||[:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Untested] ||
-||WZR-AGL300NH || ||Ralink RT2880F SoC (MIPS 4KEC @ 266 MHz) ||4MB ||16MB ||1x a/b/g/n (included in RT2880F) 1x g (RT2561T) ||Realtek RTL8366SR (5x GBit) || ||No ||No || ||Untested ||
+[[Include(Hardware/Belkin)]]
+[[Include(Hardware/Buffalo)]]
+
 == Bewan ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
 ||[http://www.bewan.fr/bewan/produits/fai/index.php ibox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros (mini-PCI) ||no, 2 interface on cpu ||off ||yes ||yes ||2+1 ||2xFXO, ADSL+ ||Untested ||
