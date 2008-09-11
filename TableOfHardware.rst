@@ -1,3 +1,4 @@
+= NOTE: this page is going to link to tables for each manufacturer, and a complete version will be at CompleteTableOfHardware, but the transition isn't done, yet =
 This is a table of all supported devices as of 2008/07/21
 
 '''Status Legend''':
