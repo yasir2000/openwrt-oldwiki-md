@@ -13,13 +13,13 @@ The [http://www.actiontec.com Actiontec] MI424-WR router is based on a 533MHz IX
 There are also two [http://www.entropic.com/products/homenetworking.htm Entropic] [http://www.mocalliance.org MoCA] controllers for the coax interface. Because of the proprietary nature of these devices, they are not supported.
 === GPIO ===
 ||'''Pin''' ||'''I/O''' ||'''Description''' ||
-||<style="text-align: right;">0 ||<style="text-align: center;">O ||Reset? ||
+||<style="text-align: right;">0 ||<style="text-align: center;">O ||HW Reset ||
 ||<style="text-align: right;">2 ||<style="text-align: center;">O ||SPI CLK ||
 ||<style="text-align: right;">3 ||<style="text-align: center;">I ||SPI RxD ||
 ||<style="text-align: right;">4 ||<style="text-align: center;">O ||SPI TxD ||
 ||<style="text-align: right;">6 ||<style="text-align: center;">I ||PCI INTA (MoCA WAN) ||
-||<style="text-align: right;">7 ||<style="text-align: center;">I ||PCI INTB (MoCA LAN) ||
-||<style="text-align: right;">8 ||<style="text-align: center;">I ||PCI INTC (Mini-PCI) ||
+||<style="text-align: right;">7 ||<style="text-align: center;">I ||PCI INTB (Mini-PCI) ||
+||<style="text-align: right;">8 ||<style="text-align: center;">I ||PCI INTC (MoCA LAN) ||
 ||<style="text-align: right;">9 ||<style="text-align: center;">O ||SPI CS ||
 ||<style="text-align: right;">10 ||<style="text-align: center;">I ||Button ||
 ||<style="text-align: right;">11 ||<style="text-align: center;">O ||MoCA WAN LED ||
