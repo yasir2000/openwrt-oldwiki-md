@@ -12,6 +12,7 @@ This is a table of all supported devices as of 2008/07/21
  * '''Info entered''' - Information about the device is entered in this list, for reference.
 See also
 
+ * '''CompleteTableOfHardware'''
  * '''MinimumSystemRequirements'''
  * '''["Unsupported"]'''
  * '''CategoryCategory''' - For a list of lists
