@@ -108,9 +108,6 @@ Quicklinks to manufacturers:
 ----
 ----
  . ["CategoryAR7Device"]
-----
  . CategoryOpenWrtPort
-----
  . CategoryModel
-----
  . CategoryOpenWrtPort
