@@ -40,45 +40,69 @@ timeout 5000
 
 ...
 
-== WIP ==
+== WIP - Xbox Console ==
 
-=== Running OpenWrt on an xbox ===
 An xbox is a gaming console made by microsoft that is basically a x86 computer with some custom tweaks.
 We should be able to use the x86 build option and add the xbox-linux kernel patches to that to get openwrt on the xbox.
 I will focus first on getting it running with the xbox-linux bios 'cromwell' and then perhaps get it going from a live booting cd for the xbox.
 
-
 OK now we start.
+
+=== Running OpenWrt on an xbox (with linux-2.4) ===
+
+The linux 2.4 kernel source patches seem to be more complete and stable. They also include a working fatx filesystem driver. The problem seems to be that the kernel for the x86 target is 2.6. I have made a openwrt buildroot target with the xbox as a target with different profiles for the different types of xbox discs/system to be made by it.
+
+Coming soon
+
 Get build source.
 
 {{{
-svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/xbox-openwrt/
+svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/xbox-openwrt-2.4/
 }}}
 
-go to ~/xbox-openwrt/target/linux/x86 and download this config to this folder
+change directory to ~/xbox-openwrt-2.4/target/linux, download this package, extract it and delete the original archive.
 
 {{{
-cd ~/xbox-openwrt/target/linux/x86
+cd ~/xbox-openwrt-2.4/target/linux
+wget http://snipes420.googlepages.com/openwrt-target-x86-2.4.tgz
+tar -zxf openwrt-target-x86-2.4.tgz
+rm openwrt-target-x86-2.4.tgz
+}}}
+
+=== Running OpenWrt on an xbox (with linux-2.6) ===
+
+The linux 2.6 kernel source patches are rather old and do not include a working fatx filesystem driver. 
+
+Get build source.
+
+{{{
+svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/xbox-openwrt-2.6/
+}}}
+
+go to ~/xbox-openwrt-2.6/target/linux/x86 and download this config to this folder
+
+{{{
+cd ~/xbox-openwrt-2.6/target/linux/x86
 wget http://snipes420.googlepages.com/config-2.6.22
 }}}
 
-go to ~/xbox-openwrt/target/linux/x86/patches and download this patch to this folder
+go to ~/xbox-openwrt-2.6/target/linux/x86/patches and download this patch to this folder
 
 {{{
-cd ~/xbox-openwrt/target/linux/x86/patches
+cd ~/xbox-openwrt-2.6/target/linux/x86/patches
 wget http://snipes420.googlepages.com/linux-2.6.22.7-xbox.patch
 }}}
 
 edit the target/linux/x86/Makefile and change the kernel version to 2.6.22.7
 
 {{{
-nano ~/xbox-openwrt/target/linux/x86/Makefile
+nano ~/xbox-openwrt-2.6/target/linux/x86/Makefile
 }}}
 
 install the raincoat package
 
 {{{
-cd ~/xbox-openwrt/
+cd ~/xbox-openwrt-2.6/
 wget http://snipes420.googlepages.com/raincoat-openwrt-package.tgz
 tar -zxvf raincoat-openwrt-package.tgz
 rm raincoat-openwrt-package.tgz
@@ -87,16 +111,16 @@ rm raincoat-openwrt-package.tgz
 make a folder for the extra files we need for packaging.
 
 {{{
-mkdir ~/xbox-openwrt/files
-mkdir ~/xbox-openwrt/files/boot
-mkdir ~/xbox-openwrt/files/dev
+mkdir ~/xbox-openwrt-2.6/files
+mkdir ~/xbox-openwrt-2.6/files/boot
+mkdir ~/xbox-openwrt-2.6/files/dev
 }}}
 
 when booting the xbox with this system it will hang at boot saying it cannot open the initial console.
 thats because /dev/console is missing. 
 
 {{{
-mknod ~/xbox-openwrt/files/dev/console c 5 1
+mknod ~/xbox-openwrt-2.6/files/dev/console c 5 1
 }}}
 
 Make the whole thing
