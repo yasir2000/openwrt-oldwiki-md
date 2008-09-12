@@ -2,7 +2,7 @@
 #format wiki
 == Westley Paynter ==
 
-Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT com)]]
+Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT ca)]]
 
 === Pages I Have Contributed to ===
 
