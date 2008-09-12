@@ -37,14 +37,14 @@ If you're new to OpenWrt, you'll probably want the latest release, Kamikaze, ava
 
  * [http://downloads.openwrt.org/kamikaze/7.09/ Kamikaze 7.09]
 
-The general method for picking the right image is visiting the TableOfHardware, then matching your the "Platform & Frequency" of your device with the image you're downloading.  Sometimes, the "Status" column will have additional for your device, such as building its image or device-specific installation instructions.
+The general method for picking the right image is visiting the TableOfHardware, then matching the "Platform & Frequency" of your device with the image you're downloading.  Sometimes, the "Status" column will have additional for your device, such as building its image or device-specific installation instructions.
 
-If there isn't a pre-built image for your device, follow the [OpenWrtDocs/BuildingKamikazeHowTo Building Kamikaze how to] instructions to build a custom image.
+If there isn't a pre-built image for your device, follow the OpenWrtDocs/BuildingKamikazeHowTo instructions to build a custom image.
 
 The legacy White Russian release is also available, but Kamikaze is strongly encouraged.
 
  * [http://downloads.openwrt.org/whiterussian/newest/ Final White Russian release]
- * [OpenWrtDocs/WhiteRussian/Distribution White Russian distribution descriptions]
+ * [OpenWrtDocs/WhiteRussian/Distribution]
 
 Any bugs in the firmware should be reported via the ticket system [https://dev.openwrt.org/newticket here].
 
