@@ -171,7 +171,7 @@ Please press Enter to activate this console.
 Redboot can be interrupted. It has a limited number of stock Redboot commands, but you can still choose to pass a custom kernel command line to Linux, to get shell access and networking, issue the following command in redboot :
 
 {{{
-start -c "console=ttyS1,115200 rootfstype=squashfs mtdparts=IXP4XX-Flash.0:0x3c0000@0x410000(Firmware),0x26b000@0x4e0000(root) root=/dev/mtdblock10 init=/bin/sh"
+start -c "console=ttyS1,115200 rootfstype=squashfs mtdparts=IXP4XX-Flash.0:0x3c0000@0x410000(Firmware),0x26b000@0x4e0000(root) root=/dev/mtdblock1 init=/bin/sh"
 }}}
 
 You then get shell access and allow network interfaces to be loaded with the NPE microcode.
