@@ -68,42 +68,16 @@ Quicklinks to manufacturers:
 [[Include(Hardware/Antcor)]]
 [[Include(Hardware/LevelOne)]]
 [[Include(Hardware/Linksys)]]
-
-== Maxtor ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.maxtor.com/portal/site/Maxtor/menuitem.ba88f6d7cf664718376049b291346068/?channelpath=/en_us/Products/Network%20Storage/Maxtor%20Shared%20Storage%20Family/Maxtor%20Shared%20Storage Shared Storage] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||Untested ||
-||[http://www.maxtor.com/portal/site/Maxtor/menuitem.5d2b41d3cef51dfe29dd10a191346068/?channelpath=/en_us/Support/Product+Support/Network+Storage/Maxtor+Shared+Storage+Family/Maxtor+Shared+Storage+Plus Shared Storage Plus] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||[:OpenWrtDocs/Hardware/Maxtor:UnTested] ||
-== Meraki ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://meraki.com/oursolution/hardware/mini/ Meraki Mini] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180MHz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||Yes ||No ||[:OpenWrtDocs/Hardware/Meraki/Mini:Kamikaze] ||
-||[http://meraki.com/oursolution/hardware/outdoor/ Meraki Outdoor] || ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] @ 180MHz ||8MB ||32MB ||AR2315 integrated ||None ||? ||3.3V ||? ||No ||[:OpenWrtDocs/Hardware/Meraki/Outdoor:Kamikaze] ||
-== MicraDigital ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.micradigital.com/Product.aspx?id=216667 F5D7230ec4-E] || || || || || || || || || || ||[:F5D7230ec4:WiP] ||
-||F5D7230ec4 ||1020ec ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315A] @ 184MHz ||2MB ||8MB ||AR2315A integrated ||IP175C ||N/A ||Yes ||Yes ||No ||[:F5D7230ec4:WiP] ||
-== Microsoft ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.microsoft.com/hardware/broadbandnetworking/productdetails.aspx?pid=002 MN-700] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||N/A ||No ||Yes (not soldered) ||No ||[:OpenWrtDocs/Hardware/Microsoft:Supported] ||
-== Mikrotik ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://routerboard.com/rb100.html RouterBoard 133c] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||32MB ||16MB ||1 mini-PCI ||1 ethernet port ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB100:Supported] ||
-||[http://routerboard.com/rb100.html RouterBoard 133] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||64MB ||32MB ||3 mini-PCI ||3 ports ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB100:Supported] ||
-||[http://routerboard.com/rb100.html RouterBoard 150] || ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120P] @ 175MHz ||64MB ||32MB ||None ||5 ports ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB100:Supported] ||
-||[http://routerboard.com/rb200.html RouterBoard 230] || ||NSC SC1100 ||None, CF slot/IDE ||So-DIMM slot ||mini-PCI slot and 2x cardbus ||None ||N/A ||Yes ||No ||1x v1.1 ||[:SoekrisPort:WiP] ||
-||[http://www.routerboard.com/comparison.html RouterBoard 411] || ||[http://www.atheros.com/pt/AR7100.htm Atheros AR7130] @ 300MHz ||64MB ||32MB ||1 mini-PCI ||1 ethernet port ||N/A ||Yes ||No ||No || Info entered ||
-||[http://www.routerboard.com/comparison.html RouterBoard 433] || ||[http://www.atheros.com/pt/AR7100.htm Atheros AR7130] @ 300MHz ||64MB ||64MB ||3 mini-PCI ||3 ethernet port ||N/A ||Yes ||No ||No || Info entered ||
-||[http://www.routerboard.com/comparison.html RouterBoard 450] || ||[http://www.atheros.com/pt/AR7100.htm Atheros AR7130] @ 300MHz ||64MB ||32MB ||None ||5 ports ||N/A ||Yes ||No ||No || Info entered ||
-||[http://routerboard.com/rb500.html RouterBoard 511] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||1 mini-PCI slot ||None ||N/A ||Yes ||No ||No ||WiP ||
-||[http://routerboard.com/rb500.html RouterBoard 512] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None ||N/A ||Yes ||No ||No ||Supported ||
-||[http://routerboard.com/rb500.html RouterBoard 532] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||64MB/128MB + CF slot ||32MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||[:OpenWrtDocs/Hardware/Mikrotik/RB532:Supported] ||
-||[http://routerboard.com/rb500.html RouterBoard 532a] || ||[http://www.idt.com/?catID=58533&genID=79RC32434 IDT 79RC32H434] ||128MB + CF slot ||64MB ||2 mini-PCI slots ||None, 3 ethernet interfaces ||N/A ||Yes ||No ||No ||Supported ||
-== Mitsubishi ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://www.mitsubishi-electric.com.au/PRODUCTS/COMPP/net/R100.htm Mitsubshi (Diamond Data) R100] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||BCM5325 ||on ||No UART ||No ||1x v1.1 ||No ||[:OpenWrtDocs/Hardware/Asus/WL500G:Supported - Rebadged Asus WL-500g] ||
-## Motorola
+[[Include(Hardware/Maxtor)]]
+[[Include(Hardware/Meraki)]]
+[[Include(Hardware/MicraDigital)]]
+[[Include(Hardware/Microsoft)]]
+[[Include(Hardware/Mikrotik)]]
+[[Include(Hardware/Mitsubishi)]]
 [[Include(Hardware/Motorola)]]
-## Netgear
 [[Include(Hardware/Netgear)]]
+
+
 == Netopia ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.netopia.com/support/hardware/3387wgent.html 3387WG-ENT] || ||[http://www.conexant.com/products/entry.jsp?id=25 CX86113] @ 200MHz ||4MB ||16MB ||[http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigationId=12246&contentId=4039 TNETW1130GVF] ||[http://www.broadcom.com/products/Enterprise-Small-Office/Fast-Ethernet-Switching-Products/BCM5325M BCM5325EKQM] || || || ||No ||Untested ||
