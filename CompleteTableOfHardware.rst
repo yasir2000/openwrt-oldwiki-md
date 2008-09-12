@@ -31,60 +31,19 @@ Quicklinks to manufacturers:
 
 [[TableOfContents(2)]]
 
-== 3Com ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.3com.com/products/en_US/detail.jsp?tab=reqoptprod&sku=3CRWDR100A-72&pathtype=purchase 3CRWDR100A-72] || ||Texas Instruments AR7 TNETD7300 ||2MB ||16 (?)MB ||TI TNETW1130 ||Marvell 88E6060 ||Yes ||Yes ||? ||No ||[:OpenWrtDocs/Hardware/3Com/3CRWDR100A-72:Untested] ||
-== 4G Systems ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.meshcube.org/index_e.html AccessCube] ||MTX-1 ||[http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625_6010,00.html AMD Alchemy 1500] @400MHz ||32MB ||64MB ||Atheros Mini-PCI ||None ||N/A ||Yes ||Yes ||Yes ||Kamikaze ||
-== Acmesystems SRL. ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.acmesystems.it FoxBoard] ||MCM ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ]@100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
-||[http://www.acmesystems.it FoxBoard] ||416 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ]@100MHz ||4MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
-||[http://www.acmesystems.it FoxBoard] ||816 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ]@100MHz ||8MB ||16MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
-||[http://www.acmesystems.it FoxBoard] ||832 ||[http://www.axis.com/products/dev_etrax_100lx/index.htm Etrax-LX100 v2 ]@100MHz ||8MB ||32MB ||None ||None ||N/A ||Yes ||None ||Yes ||WIP ||
-== ACorp ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||LAN122 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||None ||None || ||Yes ||Yes ||Yes ||Untested? ||
-||LAN422 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||None ||Marvell 88E6060 || ||Yes ||Yes ||No ||Untested? ||
-||W422G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7200 @212MHz ||4Mb ||16Mb ||TNETW1150 ||Marvell 88E6060 ||PSPBoot ||Yes ||Yes ||No ||Untested? ||
-||W400G || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @150MHz ||4Mb ||16Mb ||TNETW1130 ||Realtek RTL8305SC ||PSPBoot ||No ||No ||No ||Untested? ||
-== Actiontec ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||GT701-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT701-WG:WiP] ||
-||GT704-WG || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||4MB ||16MB ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] ||Yes || || ||[:OpenWrtDocs/Hardware/Actiontec/GT704-WG:WiP] ||
-||MI424-WR || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @533MHz ||8MB ||32MB ||Ralink RT2560 (mini-PCI) ||KS8995M || || ||Some ||No ||[:OpenWrtDocs/Hardware/Actiontec/MI424-WR:WiP] ||
-== Addon-Tech ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||ARM8100 || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHz ||2MB ||8MB ||None ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/AddonTech/ARM8100:WiP] ||
-== Airlink101 ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.airlink101.com/products/anas350.html ANAS350] || ||AMRISC 20000 R3210GCL3H ||4MB ||32MB ||NONE ||IC+ IP101A-LF (x2) || ||Yes ||Yes ||Depopulated ||N/A ||
-||[http://www.airlink101.com/products/ar335w.php AR335W] Clone of [http://www.dlink.com.au/Products.aspx?Sec=1&Sub1=2&Sub2=5&PID=337 Dir-300] || || Atheros 2317@182Mhz || 4mb || 16mb || Atheros || IC+ IP175C || ? || Yes || Yes || No ||[:OpenWrtDocs/Hardware/Airlink/ARxxxW:Partialy supported] ||
-||[http://www.airlink101.com/products/ar430w.php AR430W] || || Atheros 2318@182Mhz || 4mb || 16mb || Atheros || IC+ IP175C || ? || Yes || Yes || No ||[:OpenWrtDocs/Hardware/Airlink/ARxxxW:Partialy supported] ||
-||[http://www.airlink101.com/products/ar360w3g.php AR360WG] || ||AMRISC 20000 R3210GCL3H ||4MB ||32MB ||RT2561 ||IC+ IP101A-LF (x2) || ||Yes ||Yes ||Depopulated ||Info Entered ||
-||[http://www.airlink101.com/products/ar420w.php AR420W] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2313] ||2MB ||8MB ||integrated Atheros ||Marvell 88E6060 || ||? ||EJTAG ? ||No || ||
-||[http://www.airlink101.com/products/ar525w.php AR525W] || ||[http://www.rdc.com.tw/ RDC] R3211 SoC (x86-compatible) ||4MB ||16MB ||[http://www.ralinktech.com/prod-2661.htm Ralink RT2661] ||IC+ IP175C || ||[:OpenWrtDocs/Hardware/Airlink/AR525W:Yes] ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR525W:Supported] ||
-||[http://www.airlink101.com/products/ar625w.php AR625W] || ||Marvell ARM926 @ 500MHz ||8MB ||32MB ||Marvell (mini-PCI) 802.11n || || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR625W:Untested] ||
-||[http://www.airlink101.com/products/ar670w.php AR670W] || || MIPS4KEc @ 266MHz ||4MB ||32MB ||Ralink RT2880F ||IC+ IP175C || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR670W:Untested] ||
-||[http://www.airlink101.com/products/ar680w.php AR680W] || ||[http://www.5vtechnologies.com/5vt/products/pro_detail.php?pid=5VT1310 5VT1310] ARM926 @ 300MHz ||4MB ||16MB ||Ralink RT2860 802.11n ||Realtek RTL8306S || ||Yes || ||No ||[:OpenWrtDocs/Hardware/Airlink101/AR680W:Untested] ||
-== A-Link ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.a-link.com/WL54AP2.html WL54AP2] || ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2005091 Realtek RTL8186] ||2MB(?) ||? ||? ||[http://www.realtek.com.tw/products/products1-2.aspx?modelid=2004082 Realtek RTL8305SC] ||? || || || || ||
-== ALLNET ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||''Other '' ||'''Status''' ||
-||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL130DSL&katnr=10 ALL130DSL] (aka [http://www.sercomm.com/IP505AB.htm Sercomm IP505] ???) || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||8MB || || || || || || ||No ||[:AR7Port:WiP] ||
-||[http://www.allnet.de/product_info.php?products_id=34503 ALL0277DSL] (aka [http://www.sercomm.com/IP806GAGB.htm Sercomm IP806] ???) ||v2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2MB ||16MB ||TI ACX111 (["VLYNQ"]) ||Marvell 88E6060 || ||Yes ||No ||No ||No ||[:AR7Port:WiP] ||
-||[http://www.allnet.de/cgi-php/produkte_text_neu.php?allnet_pn=ALL0277&katnr=19 ALL0277] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||4MB ||16MB ||Broadcom (mini-PCI) ||ADMtek ADM6996 ||on || || ||No ||No ||[:OpenWrtDocs/Hardware/ALLNET/ALL0277:Supported] ||
-||[http://www.allnet.de/product_info_allnet.php?cPath=_&products_id=99968 ALL6250] ||N/A ||[http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPC8241&srch=1 Freescale MPC8241] @ 266MHz ||4MB ||64MB ||N/A ||RTL8169 ||PPCboot ||Yes ||Yes ||1x2.0, 1x1.1 ||PATA ||WiP ||
-== AMCC ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||''Other '' ||'''Status''' ||
-||[http://www.amcc.com/Embedded/evalkits/440GX_PB_1_04.pdf Taishan] || ||[https://www.amcc.com/MyAMCC/jsp/public/productDetail/product_detail.jsp?productID=PPC440GX AMCC PPC440GX] @ 800MHz ||64MB ||256MB ||none, two PCI-X slots ||none, 2x gigabit ethernet ||N/A ||Yes ||Yes ||None ||I2C, LCD display ||[:OpenWrtDocs/Hardware/AMCC/Taishan:Supported] ||
-== Apple ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://www.apple.com/airportextreme/ AirPort Extreme] || ? || Marvell 88F5181 || 16MB [http://www.st.com/stonline/products/literature/ds/11881/m29w128fl.pdf M29W128FL] || 64 MB [http://www.samsung.com/Products/Semiconductor/DDR_DDR2/download/ddr_product_guide_jul_06_rev11.pdf K4H651638H-3UCB] x 2 || Atheros [http://www.atheros.com/pt/bulletins/AR5008-3NXBulletin.pdf AR5008-3NX] || [http://www.broadcom.com/products/Small-Medium-Business/Fast-Ethernet-Switching-Products/BCM5325 BCM5325E1QMG] || ? || ? || ? || yes || no || [:OpenWrtDocs/Hardware/Apple/AirPort Extreme:Info entered] ||
-## Asus
+[[Include(Hardware/3Com)]]
+[[Include(Hardware/4gSystems)]]
+[[Include(Hardware/Acmesystems)]]
+[[Include(Hardware/ACorp)]]
+[[Include(Hardware/Actiontec)]]
+[[Include(Hardware/Addon-Tech)]]
+[[Include(Hardware/Airlink101)]]
+[[Include(Hardware/ALink)]]
+[[Include(Hardware/Allnet)]]
+[[Include(Hardware/AMCC)]]
+[[Include(Hardware/Apple)]]
 [[Include(Hardware/Asus)]]
+
 == Auerswald ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone) || ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
