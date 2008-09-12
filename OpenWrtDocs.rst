@@ -42,11 +42,6 @@
 ### Sorry again for the intrusion.
 ### Respectfully, wiki user BrianWhite , brian@aljex.com
 ##
-##
-##
-##
-##
-##
 
 = OpenWrt Community wiki =
 Welcome to the !OpenWrt Community Wiki!  As the title states, this is for all of you who use, develop with, and hack on !OpenWrt. (Read OpenWrtOverview if you are new to the world of !OpenWrt ).
@@ -76,7 +71,7 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 
 == OpenWrt documentation ==
 
-'''[:OpenWrtDocs/Installing:Installing OpenWrt]'''
+'''[:OpenWrtDocs/Installation:Installing OpenWrt]'''
 
 '''[:OpenWrtDocs/Deinstalling:Uninstalling OpenWrt]'''
 
