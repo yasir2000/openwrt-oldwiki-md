@@ -35,3 +35,4 @@ Look at the [http://www.nslu2-linux.org/wiki/OpenWrt/HomePage OpenWRT page on NS
 Little endian images?
 ----
 ["CategoryIXP4xxDevice"]
+["CategoryNasDevices"]
