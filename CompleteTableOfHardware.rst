@@ -30,7 +30,6 @@ Notes:
 Quicklinks to manufacturers:
 
 [[TableOfContents(2)]]
-
 [[Include(Hardware/3Com)]]
 [[Include(Hardware/4gSystems)]]
 [[Include(Hardware/Acmesystems)]]
@@ -43,45 +42,16 @@ Quicklinks to manufacturers:
 [[Include(Hardware/AMCC)]]
 [[Include(Hardware/Apple)]]
 [[Include(Hardware/Asus)]]
-
-== Auerswald ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.auerswald.de/de/produkte/comfvoip250_intro.htm Comfortel VoIP 250] (VoIP phone) || ||? ||? ||? ||? ||? ||? ||? ||? ||? ||Untested ||
-
-##AVM
+[[Include(Hardware/Auerswald)]]
 [[Include(Hardware/AVM)]]
-
-== Aztech ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||DSL600E || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 160MHz ||2MB ||8MB ||None || || || || ||None ||Untested ||
-||DSL600EU || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 160 MHz ||2MB ||8MB ||None || || || || ||1.1 ||Untested ||
-||DSL600EW || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @ 160 MHz ||4MB ||16MB ||TI TNETW1130 ||Marvell 88E6060 || || || ||1.1 ||[http://forum.openwrt.org/viewtopic.php?pid=22136 WIP] ||
-Official product information at http://www.aztech.com.sg/prod_adsl.html Aztech is commonly being used in Malaysia and Singapore.
-
-
+[[Include(Hardware/Aztech)]]
 [[Include(Hardware/Belkin)]]
 [[Include(Hardware/Buffalo)]]
+[[Include(Hardware/Bewan)]]
+[[Include(Hardware/Canyon)]]
+[[Include(Hardware/Castlenet)]]
+[[Include(Hardware/CC&C)]]
 
-== Bewan ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://www.bewan.fr/bewan/produits/fai/index.php ibox] || ||[http://www.centillium.com/assets/pdf/Palladia_400brief.pdf Palladia 400] @ 200MHz ||16MB ||32MB ||Atheros (mini-PCI) ||no, 2 interface on cpu ||off ||yes ||yes ||2+1 ||2xFXO, ADSL+ ||Untested ||
-== Canyon ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||2 (rev.AE) ||[http://www.linux-mips.org/wiki/Adm5120 ADM5120 ] ||2MB ||16MB(8MB?) || || || || || || ||[:Edimax:Untested] ||
-||[http://www1.canyon-tech.com/products/show.cfm/Networking/Net/Wireless_Products_IEEE_802.11g/CN-WF514 CN-WF514] ||3 ||http://www.linux-mips.org/wiki/Realtek_SOC ||2MB ||16MB ||RTL 8186 ||RTL 8305SC || || || || ||[:RTL8651BPort:Untested] ||
-== Castlenet ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.castlenet.com.tw/products/XDSL/ASW800%20Series.htm ASW800] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||4MB ||16MB ||TI ACX111 - TNETW1130GVF (["VLYNQ"]) ||Marvell 88E6060 ||["ADAM2"] ||Yes ||Yes ||1x v1.1? ||[:AR7Port:WiP] ||
-||[http://broadband.motorola.com/consumers/products/sbg900/default.asp SBG900E] (SURFboard cable modem) || ||[:BroadcomBCM33xxPort:Broadcom 3348] || ||32MB ||Mini-PCI (not yet fully confirmed) || || ||Yes ||Yes ||1x v1.1 ||[:OpenWrtDocs/Hardware/Motorola/SBG900E:WiP] ||
-== CC&C ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''HDD''' ||'''Status''' ||
-||[http://www.ccandc.com.tw/Wireless%20LAN%20Products.htm WA-6208-V1] || ||Atheros AR9132, 200MHz ||8MB ||16MB ||Atheors AR9103 ||Atheros AR8316 ||Yes ||Yes ||No ||Yes ||Yes ||WiP ||
-||[http://www.ccandc.com.tw/Wireless%20LAN%20Products.htm WA-6208-V2] || ||Atheros AR9132, 200MHz ||8MB ||16MB ||Atheors AR9106, dual band ||Atheros AR8316 ||Yes ||Yes ||No ||Yes ||Yes ||WiP ||
-||[http://www.ccandc.com.tw/product/wa-6204a.htm WA-6204A] || ||Atheros AR9130, 200MHz ||8MB ||16MB ||Atheors AR9102 for 2x2, AR9103 for 3x3 ||Atheros AR8216 ||Yes ||Yes ||No ||No ||No ||WiP ||
-||[http://www.ccandc.com.tw/product/11g-wa-2204a.htm WA-2204A] || ||Realtek RTL8186, 180MHz ||2MB ||16MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
-||[http://www.ccandc.com.tw/product/11g-wa-2204b.htm WA-2204B] || ||Realtek RTL8186, 180MHz ||2MB ||16MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
-||[http://www.ccandc.com.tw/product/11g-wa-2204c.htm WA-2204C] || ||Realtek RTL8186, 180MHz ||2MB ||16MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
-||[http://www.ccandc.com.tw/product/wa-2204e.htm WA-2204E] || ||Realtek RTL8186, 180MHz ||2MB ||8MB ||Realtek RTL8225 ||Realtek RTL8306SD ||Yes ||Yes ||No ||No ||No ||WiP ||
 == Compex ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://compex.com.sg/home/OEM/Open_wrt.htm WP54] ||[:OpenWrtDocs/Hardware/Compex/WP54G:WRT6B] ||[http://www.infineon.com/cgi-bin/ifx/portal/ep/channelView.do?channelId=-65123&channelPage=/ep/channel/productOverview.jsp&pageTypeId=17099 Infineon ADM5120 @ 175MHz] ||4MB ||16MB/32MB ||Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Compex/WP54G:Kamikaze] ||
