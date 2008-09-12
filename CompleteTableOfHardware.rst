@@ -62,37 +62,13 @@ Quicklinks to manufacturers:
 [[Include(Hardware/Edimax)]]
 [[Include(Hardware/Fon)]]
 [[Include(Hardware/Freecom)]]
-
-
-== Gateway ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_g_wap&seg=sb 7001] ||802.11g ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||None ||[:OpenWrtDocs/Hardware/Gateway/7001:Kamikaze] ||
-||[http://products.gateway.com/products/GConfig/prodDetails.asp?system_id=gtwy7001_ag_wap&seg=sb 7001] ||802.11a+g ||[http://www.intel.com/design/network/products/npfamily/ixp422.htm Intel IXP422] @ 266MHz ||8MB ||32MB ||2x Atheros (mini-PCI) ||None ||N/A ||Yes ||Yes ||None ||[:OpenWrtDocs/Hardware/Gateway/7001:Kamikaze] ||
-== Gateworks ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://www.gateworks.com/avila_gw2348_4.htm GW2348-4] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/Gateworks/Avila GW2348 4:Kamikaze] ||
-||[http://www.gateworks.com/avila_gw2348_2.htm GW2348-2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (2 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||Optional || ||Kamikaze ||
-||[http://www.gateworks.com/avila_gw2347htm GW2347] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||8MB ||32MB ||N/A (1 empty mini-PCI) ||None ||N/A ||Yes ||Yes ||None || ||Kamikaze ||
-== Gigabyte ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.gigabyte.com.tw/Products/Communication/Products_Spec.aspx?ProductID=944&ProductName=GN-B41G GN-B41G] ||1.0 ||[http://www.samsung.com/Products/Semiconductor/SystemLSI/Networks/PersonalNTASSP/CommunicationProcessor/S3C2510A/S3C2510A.htm Samsung S3C2510A] (ARM940T) ||2MB ||16MB ||mini-PCI ||IC+ IP175A || ||No ||Yes ||Space for connector || ||
-== LanReady - Antcor ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Other''' ||'''Status''' ||
-||[http://shop.antcor.com/shop/product_info.php?cPath=37&products_id=138 FN522P] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 266MHz ||16MB ||64MB ||N/A (2 empty mini-PCI) ||2 Port ||N/A ||Yes ||Yes || No || || Untested ||
-||[http://shop.antcor.com/shop/product_info.php?cPath=37&products_id=139 FN522Pv2] || ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (2 empty mini-PCI) ||2 Port ||N/A ||Yes ||Yes || No || || Untested ||
-||[http://shop.antcor.com/shop/product_info.php?products_id=140 FN545Pv2] ||? ||[http://www.intel.com/design/network/products/npfamily/ixp425.htm Intel IXP425] @ 533MHz ||16MB ||64MB ||N/A (4 empty mini-PCI) ||5 Port ||N/A ||Yes ||Yes ||Optional ||CF slot ||[:OpenWrtDocs/Hardware/LanReady/FN545Pv2:Kamikaze] ||
-----
-== LevelOne ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.level1.com/products3.php?sklop=12&id=560156 FBR-1416A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
-||[http://www.level1.com/products3.php?sklop=12&id=560157 FBR-1416B] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || ||none || || || || || ||[:AR7Port:WiP] ||
-||[http://global.level1.com/products2.php?Id=29 WAP-0005] || ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ ?MHz ||2MB ||8MB ||AR2112 ||None ||N/A ||Yes, out of the box ||? ||No ||? (does PoE, Clone: Planet WAP-4060PE) ||
-||[http://global.level1.com/products2.php?Id=5 WAP-0006] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||No ||? ||Yes ||No ||No ||Clone of Edimax EW-7206Apg ||
-||[http://global.level1.com/products2.php?Id=238 WAP-0009] ||? ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=1&Level=5&Conn=4&ProdID=4 Realtek RTL8186] ||2MB ||8MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||No ||? ||Yes ||No ||No ||Same as WAP-0006 but with PoE ||
-||[http://www.level1.com/products3.php?sklop=12&id=540548 WBR-3407A] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || || || || || || || ||[:AR7Port:WiP] ||
-||[http://www.level1.com/products3.php?sklop=12&id=540549 WBR-3407B] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7]@150mhz || || || || || || || || ||[:AR7Port:WiP] ||
-##Linksys
+[[Include(Hardware/Gateway)]]
+[[Include(Hardware/Gateworks)]]
+[[Include(Hardware/Gigabyte)]]
+[[Include(Hardware/Antcor)]]
+[[Include(Hardware/LevelOne)]]
 [[Include(Hardware/Linksys)]]
+
 == Maxtor ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.maxtor.com/portal/site/Maxtor/menuitem.ba88f6d7cf664718376049b291346068/?channelpath=/en_us/Products/Network%20Storage/Maxtor%20Shared%20Storage%20Family/Maxtor%20Shared%20Storage Shared Storage] || ||[http://www.broadcom.com/products/Enterprise-Small-Office/Storage-Solutions/BCM4780 Broadcom 4780] @ 300Mhz ||2MB ||32MB ||None ||None || ||Yes ||No ||2x v2.0 ||Untested ||
