@@ -1,6 +1,6 @@
 This is a table of all supported devices as of 2008/07/21
 
-'''Status Legend''':
+== Legend ==
 
  * '''Supported''' - supported in White Russian (previous release)
  * '''Partial''' - partially supported, no support for the wireless card.
@@ -10,8 +10,8 @@ This is a table of all supported devices as of 2008/07/21
  * '''Forked''' - Vendor has released some source based on an older snapshot of !OpenWrt, but it has not been merged back into the main !OpenWrt source tree
  * '''No''' - confirmed that this device is not supported (please move to ["Unsupported"])
  * '''Info entered''' - Information about the device is entered in this list, for reference.
-See also
 
+== See also ==
  * '''CompleteTableOfHardware''' (the old version; a single-page version of these pages)
  * '''MinimumSystemRequirements'''
  * '''["Unsupported"]'''
@@ -25,11 +25,12 @@ See also
  * '''TableOfPeripheralHardware''' - Peripheral devices (USB, NAS) which may [or may not] talk to your OpenWRT system.
  * '''OpenWrtDocs''' - back to the Table of Contents
  * [https://dev.openwrt.org/wiki/platforms Supported platforms on Kamikaze]
-Notes:
 
- * Just because a device is listed doesn't mean that OpenWRT will run on this device. Furthermore, some devices have limited support, while others get by with just the bare minimums. For example, devices with 2mb of flash and 8mb of ram will be able to handle basic tasks only.
+== Caveats ==
+Just because a device is listed doesn't mean that OpenWRT will run on this device. Furthermore, some devices have limited support, while others get by with just the bare minimums. For example, devices with 2mb of flash and 8mb of ram will be able to handle basic tasks only.
 Quicklinks to manufacturers:
 
+== Device Manufacturers ==
  * [:Hardware/3Com:]
  * [:Hardware/4gSystems:]
  * [:Hardware/Acmesystems:]
@@ -105,7 +106,7 @@ Quicklinks to manufacturers:
  * [:Hardware/Wippies:]
  * [:Hardware/Yakumo:]
  * [:Hardware/ZyXEL:]
-----
+
 ----
  . ["CategoryAR7Device"]
  . CategoryOpenWrtPort
