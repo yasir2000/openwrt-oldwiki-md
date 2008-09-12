@@ -175,3 +175,5 @@ start -c "console=ttyS1,115200 rootfstype=squashfs mtdparts=IXP4XX-Flash.0:0x3c0
 }}}
 
 You then get shell access and allow network interfaces to be loaded with the NPE microcode.
+
+ . CategoryModel ["CategoryIXP4xxDevice"]
