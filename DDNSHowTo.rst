@@ -1,162 +1,95 @@
-'''DDNS howto'''
+= DDNS howto =
 
 [[TableOfContents]]
 
-= About Dynamic DNS (DDNS) =
+== About Dynamic DNS (DDNS) ==
 The DDNS service comes in handy for establishing connections from computers on the Internet to your network at home. This is especially useful if you want to run server software or SSH on your !OpenWrt and only have a dynamic IP.
 
-!OpenWrt uses the package {{{updatedd}}} for providing DDNS service.
+!OpenWrt uses the package {{{ddns-scripts}}} for providing DDNS service.
 
-/!\ '''Please note:''' ez-ipupdate has been critizied for various reasons in the !OpenWrt Forum. However, if you are using PPP or PPPoE (as often for DSL), you can use a simple script - no package needs to be installed. See at the end in the section '''ip-up Script Alternative'''.
-
-= Requirements =
+== Requirements ==
  * A recent !OpenWrt version. This howto was written for the 'Kamikaze 7.07' and later releases.
- * An account with a compatible DDNS service (see Configuration)
-= Installation =
-Install the updatedd package and the plugin package for your DDNS service. <plugin> can be changeip, dyndns, eurodyndns, hn, noip, ods, ovh, regfish, tzo or zoneedit.
+ * An account with a compatible DDNS service, currently
+   * dyndns.org
+    * changeip.com
+    * zoneedit.com
+    * no-ip.com
+    * freedns.afraid.org
+    * Any other that can update when some URL is accessed.  The script's quite versatile.
+
+== Installation ==
+Install the ddns-scripts package.
+{{{
+# use ipkg on older Kamikaze builds
+opkg update
+opkg install ddns-scripts
+}}}
+
+== Configuration ==
+The configuration is stored in /etc/config/ddns.
+
+In order to enable dynamic dns you need at least one section, and in that section the "enabled" option must be set to one
+
+Each section represents an update to a different service
+
+You specify your domain name, your username and your password with the options "domain", "username" and "password" respectively
+
+Next you need to specify the name of the service you are connecting to "e.g. dyndns.org".  The format of the update URLsfor several different dynamic DNS services is specified in the /usr/lib/ddns/services file.  This list is hardly complete as there are many, many different dynamic DNS services.  If your service is on the list you can merely specify it with the "service_name" option.  Otherwise you will need to determine the format of the url to update with.  You can either add an entry to the /usr/lib/ddns/services file or specify this with the "update_url" option.
+
+Currently the following services are
+
+We also need to specify the source of the ip address to associate with your domain.  The "ip_source" option can be "network", "interface" or "web", with "network" as the default.
+
+If "ip_source" is "network" you specify a network section in your /etc/network config file (e.g. "wan", which is the default) with the "ip_network" option.  If you specify "wan", you will update with whatever the ip for your wan is.
+
+If "ip_source" is "interface" you specify a hardware interface (e.g. "eth1") and whatever the current ip of this interface is will be associated with the domain when an update is performed.
+
+The last possibility is that "ip_source" is "web", which means that in order to obtain our ip address we will connect to a website, and the first valid ip address listed on that page will be assumed to be ours.  If you are behind another firewall this is the best option since none of the local networks or interfaces will have the external ip.  The website to connect to is specified by the "ip_url" option.  You may specify multiple urls in the option, separated by whitespace.
+
+Finally we need to specify how often to check whether we need to check whether the ip address has changed (and if so update it) and how often we need to force an update ( many services will expire your domain if you don't connect and do an update every so often).  Use the "check_interval" to specify how often to check whether an update is necessary, and the "force_interval" option to specify how often to force an update.  Specify the units for these values with the "check_unit" and the "force_unit" options.  Units can be "days", "hours", "minutes" or "seconds".  The default force_unit is hours and the default check_unit is seconds.  The default check_interval is 600 seconds, or ten minutes.  The default force_interval is 72 hours or 3 days.
 
 {{{
-ipkg update
-ipkg install updatedd updatedd-mod-<plugin>
+config service "myddns"
+        option enabled          "0"
+
+        option service_name     "dyndns.org"
+        option domain           "mypersonaldomain.dyndns.org"
+        option username         "myusername"
+        option password         "mypassword"
+
+        option ip_source        "network"
+        option ip_network       "wan"
+
+
+        option force_interval   "72"
+        option force_unit       "hours"
+        option check_interval   "10"
+        option check_unit       "minutes"
+
+        #option ip_source       "interface"
+        #option ip_interface    "eth0.1"
+
+        #option ip_source       "web"
+        #option ip_url          "http://www.whatismyip.com/automation/n09230945.asp"
+
+        #option update_url      "http://[USERNAME]:[PASSWORD]@members.dyndns.org/nic/update?hostname=[DOMAIN]&myip=[IP]"
 }}}
-= Configuration =
-Updatedd can be used with the following services:
 
- * [http://www.changeip.com/ http://www.changeip.com]
- * http://www.dyndns.org
- * http://www.eurodns.com
- * http://www.hn.org (Closed according to notice on site.)
- * [http://www.dyns.cx http://www.no-ip.com]
- * http://www.ods.org
- * [http://www.dyn.ca http://www.ovh.com]
- * http://www.regfish.com
- * http://www.tzo.com
- * http://www.zoneedit.com
-== The configuration file ==
-Kamikaze uses UCI to configure the updatedd configuration file (/etc/config/updatedd).
-
-=== Show the current configuration ===
-Default configuration after installing the updatedd package.
+== Trying it out ==
+The script runs when hotplug events happen or a monitored IP address changes, so initially, you have to start it manually.  After setting "enabled" to 1, run the following:
 
 {{{
-uci show updatedd
+sh
+. /usr/lib/ddns/dynamic_dns_functions.sh # note the leading period
+start_daemon_for_all_ddns_sections
+exit
 }}}
-{{{
-updatedd.cfg1=updatedd
-updatedd.cfg1.update=0
-}}}
-=== Add a new service ===
-{{{
-uci set updatedd.cfg1=updatedd
-uci set updatedd.cfg1.service=dyndns
-uci set updatedd.cfg1.username=<username>
-uci set updatedd.cfg1.password=<password>
-uci set updatedd.cfg1.host=<hostname>.dyndns.org
-uci set updatedd.cfg1.update=1
-uci commit updatedd
-}}}
-The main configuration is done now.
 
-=== Multiple Hostnames ===
-If you have more than one hostname registered and would like to update them all to the same IP via updatedd, then simply add another section/config via UCI to /etc/config/updatedd.
+= Old methods =
+DDNS scripts have been a surprisingly complicated part of OpenWrt.  There have been many other scripts and packages used.
 
-{{{
-uci set updatedd.cfg2=updatedd
-uci set updatedd.cfg2.service=dyndns
-uci set updatedd.cfg2.username=<username>
-uci set updatedd.cfg2.password=<password>
-uci set updatedd.cfg2.host=<hostname>.homelinux.org
-uci set updatedd.cfg2.update=1
-uci commit updatedd
-}}}
-=== Delete a service ===
-{{{
-uci del updatedd.cfg2
-uci commit updatedd
-}}}
-= Starting DDNS =
-== Via hotplug (recommended and default) ==
-This updates your DDNS every time a WAN connection gets etablished.
-
-For a test run, temporarilly remove the {{{quiet}}} option from the config and do:
-
-{{{
-ifdown wan && ifup wan
-}}}
-You can see updatedd's output with the {{{logread}}} command.
-
-Dyndns requires periodic updates no longer than 30 days in order to keep your DNS names. If  you seldom reset your router, or your WAN connection is usually stable, hotplug may not be enough.  Use cronjob described below to update your Dyndns records weekly in case they are expired.
-
-== Manually via the command line ==
-{{{
-...
-}}}
-== Via init script (obsolete) ==
-To start it now, do:
-
-{{{
-/etc/init.d/updatedd start
-}}}
-== Via a cronjob (obsolote) ==
-This updates your DDNS account on a specified time via {{{crond}}}. You have to configure HowtoEnableCron before you continue.
-
-Do:
-
-{{{
-crontab -e
-}}}
-Insert a line like this:
-
-{{{
-0 22 * * * /etc/init.d/updatedd start &
-}}}
-When finished do {{{ESC}}} and {{{:wq}}} to save it. You can check it with {{{crontab -l}}}. This will execute {{{ez-ipupdate}}} every day at 10:00 pm.
-
-There are some cron job calculators around the Internet. They maybe helpful for you. One of them is http://www.csgnetwork.com/crongen.html.
-
-== Debugging ==
-Use logread for debugging:
-
-{{{
-[...]
-Jul 20 13:47:49 OpenWrt user.notice syslog: <hostname>.dyndns.org: No changes, update considered abusive.
-Jul 20 13:47:50 OpenWrt user.notice syslog: <hostname>.homelinux.org: No changes, update considered abusive.
-Jul 20 13:47:50 OpenWrt user.notice syslog: <hostname>.no-ip.org: successfully updated
-[...]
-}}}
-= ip-up Script Alternative =
-If you are using PPP or PPPoE (as often for DSL), you can use a simple script, because the pppd supports to run scripts in case of interface changes.
-
-Create the file /etc/ppp/ip-up.d/S01dyndns with the following content:
-
-{{{
-#!/bin/sh
-USER="username"
-PASS="password"
-DOMAIN="yourhost.homeip.net"
-MAXDAYS=28
-registered=$(nslookup $DOMAIN|sed 's/[^0-9. ]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e's/ *//')
-current=$(wget -O - http://checkip.dyndns.org|sed 's/[^0-9.]//g')
-now=$(date +%s)
-last_update=$(cat /tmp/ddupd.lastupdate 2>/dev/null)
-max_seconds=`expr $MAXDAYS \* 24 \* 60 \* 60`
-[ "$current" != "$registered" -o $(($last_update+$max_seconds)) -lt $now ] && {
-        wget -O /dev/null http://$USER:$PASS@members.dyndns.org/nic/update?hostname=$DOMAIN &&
-        registered=$current
-        echo $now >/tmp/ddupd.lastupdate
-}
-sleep 3
-newip=$(wget -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
-newdns=$(nslookup $DOMAIN|sed 's/[^0-9. ]//g'|tail -n1|sed -e's/ [0-9.]*//2' -e's/ *//')
-echo "Set ${newip} (DNS: ${newdns}), had ${current} (DNS: ${registered})" \
-        | /usr/bin/logger -t ddupd
-}}}
-And please don't forget to chmod it executable.
-
-This script queries DNS to find the current registered address, compares it with the current external IP using the ''checkip'' Web Service to avoid unneeded updates. It also force an update if the last one has been done more than 28 days before.
-
-The last two lines are for debug and can be ommitted. Often, DNS is not updated withhin the 3 seconds the script waits (at least it takes some seconds more until the clients recognise because of caching). By replacing the wget-update URL other DNS services should also be usable.
-
-'''Attention:''' You probably need to install the ''wget-package''(by typing "ipkg -force-overwrite install wget") cause the busybox wget might give a segmentation fault. At least it does on my WRT54GL ;-) . See also: https://dev.openwrt.org/ticket/2039
-
-This script is heavily based on the nice pragmatic proposal of ''mbm'' here: http://forum.openwrt.org/viewtopic.php?pid=3947#p3947 Thanks you!
+  * ez-ipupdate (no longer maintained?)
+  * [OpenWrtDocs/Kamikaze/UpdateDD updatedd] (no longer maintained?) Supports many other services
+  * [http://forum.openwrt.org/viewtopic.php?pid=48762 JimWright's White Russian dyndns.org script] (probably based off a script mbm posted in the forum)
+  * [http://forum.openwrt.org/viewtopic.php?id=14040 exobyte's Kamikaze dyndns.org script (based of JimWright's)]
+    * ddns-scripts's dyndns.org support was [http://www.mail-archive.com/openwrt-devel@lists.openwrt.org/msg00922.html based off] this
