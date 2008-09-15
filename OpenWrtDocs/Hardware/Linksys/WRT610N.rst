@@ -3,7 +3,7 @@
 
 '''Identification by S/N'''
 
-Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, below the UPC barcode.
+Useful for identifying shrinkwrapped units. The '''S/N''' can be found on the box, left of the UPC and EAN barcodes.
 ||||<style="text-align: center;"> (!) '''Please contribute to this list.''' (!) ||
 ||||<style="text-align: center;">'''Model''' ||<style="text-align: center;"> '''S/N''' ||
 ||||<style="text-align: center;">WRT610N v1.0 ||<style="text-align: center;"> CTG01 ||
