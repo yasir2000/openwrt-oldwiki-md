@@ -32,7 +32,17 @@ If you replace the Broadcom wirelss miniPCI card with an Atheros card, you can r
 [[Anchor(serial)]] [[Anchor(Serial)]]
 
 === Wireless LAN Controller ===
-The standard wireless LAN controller is the BCM4318 on a MiniPCI card.  Some people have replaced this with an Atheros MiniPCI card.  The advantage is that the Atheros card has an open source driver. For example it works with Wistron CM9 (some people say that signal quality is poor), Tp-Link TL-WN560G (signal quality is as with original controller).
+The standard wireless LAN controller is the BCM4318 on a MiniPCI card.  Some people have replaced this with an Atheros MiniPCI card.  The advantage is that the Atheros card has an open source driver and is supported by the 2.6 kernel version of OpenWrt. Atheros-based wireless cards that have been known to work include the Wistron CM9 (though some people say that signal quality is poor), and various Tp-Link cards such as the TL-WN560G (signal quality reported to be the same as with the original Broadcom controller).
+
+In order to replace the Broadcom controller with an Atheros one, open the case (instructions below), carefully disconnect the antenna cable from the card, press out the two latches on the sides, and pull the card out of the socket. In some cases the card is glued to a supporting sponge on the main board, so you might have to apply a certain measure of force to get it out. Re-assemble the case, and install packages kmod-madwifi and hostapd-mini to get the new wireless controller to work. Change your /etc/config/wireless to include the following:
+
+{{{config wifi-device  wifi0
+        option type atheros
+
+config wifi-iface
+        option device   wifi0}}}
+
+Go [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 here] for more info and an example configuration.
 
 === Serial Port ===
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
@@ -388,7 +398,7 @@ Work in progress. Please see the UsbAudioHowto.
 === Tutorials ===
  * [http://wl500g.info/showthread.php?t=12962 RAM Upgrade] 
  * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
- * [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 Tips for configuration Atheros MiniPCI card on wl-500gP]  in Russian and [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 English translation]
+ * [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 Example configuration for the Atheros MiniPCI card on wl-500gP (translated from Russian)]  and [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 The original Russian text]
  * [http://josefsson.org/grisslan/wlan.html Setting up WDS/PSK2 on two Asus WL-500gP] by Simon Josefsson
 === Product Info Pages ===
  * [http://usa.asus.com/search.aspx?searchitem=1&searchkey=WL-500g+Premium ASUS WL-500g Premium]
