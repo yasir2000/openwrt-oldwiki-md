@@ -65,7 +65,7 @@ To mount the drive automatically on boot, we create a start script (in /etc/init
 
 {{{
 echo 'mount /dev/mmc/disc0/part1 /mnt/sd' > /etc/init.d/externalmount
-chmod +x /etc/init.d/S60externalmount
+chmod +x /etc/init.d/externalmount
 ln -s /etc/init.d/externalmount /etc/rc.d/S60externalmount
 }}}
 
