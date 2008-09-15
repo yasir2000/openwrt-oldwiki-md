@@ -89,7 +89,7 @@ exit
 DDNS scripts have been a surprisingly complicated part of OpenWrt.  There have been many other scripts and packages used.
 
   * ez-ipupdate (no longer maintained?)
-  * [OpenWrtDocs/Kamikaze/UpdateDD updatedd] (no longer maintained?) Supports many other services
+  * [:OpenWrtDocs/Kamikaze/UpdateDD: updatedd] (no longer maintained?) Supports many other services
   * [http://forum.openwrt.org/viewtopic.php?pid=48762 JimWright's White Russian dyndns.org script] (probably based off a script mbm posted in the forum)
   * [http://forum.openwrt.org/viewtopic.php?id=14040 exobyte's Kamikaze dyndns.org script (based of JimWright's)]
     * ddns-scripts's dyndns.org support was [http://www.mail-archive.com/openwrt-devel@lists.openwrt.org/msg00922.html based off] this
