@@ -44,6 +44,10 @@ config wifi-iface
 
 Go [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 here] for more info and an example configuration.
 
+After installation of kmod-madwifi package you can automatically generate a standard /etc/config/wireless file for Atheros:
+{{{rm -rf /etc/config/wireless
+wifi detect > /etc/config/wireless}}}
+
 === Serial Port ===
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
 ||RESET || ||
