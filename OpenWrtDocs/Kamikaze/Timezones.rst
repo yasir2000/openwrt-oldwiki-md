@@ -47,3 +47,5 @@ and issue
 /etc/init.d/timezone start
 /etc/init.d/timezone enable
 }}}
+
+CategoryHowTo
