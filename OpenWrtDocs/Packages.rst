@@ -6,15 +6,15 @@
 ##
 OpenWrtDocs [[TableOfContents]]
 
-== Where to get packages ==
-=== Official packages ===
+= Where to get packages =
+== Official packages ==
 The official packages for the Kamikaze release can be found here: [http://downloads.openwrt.org/kamikaze/].  Almost all packages are architecture-dependent, and some, e.g. kmods, are kernel version specific.  The linux command {{{uname -a}}} can be used to determine architecture.  ''Most'' residential gateways are mipsel (little endian MIPS).
 
 Legacy White Russian packages are still available:
   * [http://downloads.openwrt.org/whiterussian/packages/ White Russian packages]
   * [http://downloads.openwrt.org/backports/0.9 White Russian backports]
 
-=== Third party packages ===
+== Third party packages ==
 Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers.  Here are some common sources:
   * [http://www.ipkg.be/ ipkg.be package tracker]
   * [http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable nslu2 "optware" package feed] (targeted at devices with external storage)
@@ -26,7 +26,7 @@ Most are only for mipsel, and some only support mipsel Broadcom devices.
 == Building your own packages ==
 To build your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
 
-= opkg / ipkg =
+= Managing packages =
 The opkg utility is a lightweight package manager used to download and install !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}} will recognise the similarities)
 
 The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly command line interface or web administration interface. With no packages installed, !OpenWrt will configure the network interfaces, setup a basic NAT firewall, a secure shell server, a DNS forwarder and DHCP server.
