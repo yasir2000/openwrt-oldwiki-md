@@ -1,20 +1,20 @@
 = Firewall configuration =
 == Parameters ==
 === Zones ===
-  * '''syn_flood''': defend the system from [[http://en.wikipedia.org/wiki/SYN_flood SYN flood]] attacks.  Valid values are 1 and 0.
+  * '''syn_flood''': defend the system from [http://en.wikipedia.org/wiki/SYN_flood SYN flood] attacks.  Valid values are 1 and 0.
   * '''input''': the chain to, by default, send incoming packets to.  Valid values: "DROP," "ACCEPT."
   * '''output''': the chain to, by default, send outgoing packets to.  If the value isn't "ACCEPT," all outgoing ports must be explicitly enabled; extra effort would be required for ping, wget, and ssh to work.  Valid values: "DROP," "ACCEPT."
   * '''forward''': the chain to, by default, send forwarded packets to.  Valid values: "DROP," "ACCEPT."
   * '''masq''': enable IP on the zone.  Typically, a wan zone will have this enabled.  Valid values are 1 and 0.
 === Rules and forwarding ===
-  * '''src''': the source ''network''; the first network the packet is seen on.  For traffic originating from the internet, this is "wan," and for traffic originating from the local network, this is "lan."  This also apples ('''please confirm''') to traffic originating from the current system, only "src" will be chosen according to the destination address, i.e. a packet on a typical network with a destination of 192.168.1.55 will have "lan" as the source, while a packet with a destination of 64.233.187.99 will have "wan" as the source.
+  * '''src''': the source ''network''; the first network the packet is seen on.  For traffic originating from the internet, this is "wan," and for traffic originating from the local network, this is "lan."  This also applies ('''please confirm''') to traffic originating from the current system, only "src" will be chosen according to the destination address, i.e. a packet on a typical network with a destination of 192.168.1.55 will have "lan" as the source, while a packet with a destination of 64.233.187.99 will have "wan" as the source.
   * '''dest''': the destination ''network''; the last network the system will see the packet on.  This option is mainly used for forwarding, routing, and NAT.
   * '''src_ip''': source IP address; the IP address of the system where the packet originated.
   * '''src_dport''': the destination port as chosen by the system at the source IP address.  This is the port that it's attempting to access on the system, e.g. a web server at port 80.
   * '''dest_ip''': destination IP address; the IP address a packet is being sent to.  Packets destined for the system will be delivered to the process bound to a specified port on this IP address.  Packets destined for another system, if either routing or NAT is set up, will be forwarded.  See [:OpenWrtDocs/Kamikaze/NetworkConfiguration: Network Configuration] for how to set routes.
   * '''src_ip''': source IP address; the IP address of the computer that originally send the packet.  This can be a remote computer on the internet, a computer on the local network, or even the local system.
   * '''target''': which chain to send the packet in a rule to.  Valid values are "DROP" and "ACCEPT."
-  * '''protocol'': the protocol of the packet.  It isn't strictly an [http://en.wikipedia.org/wiki/Transport_Layer transport layer] or [http://en.wikipedia.org/wiki/Internet_Layer internet layer] protocol.  Valid values are "tcp," "udp," and "ICMP."
+  * '''protocol''': the protocol of the packet.  It isn't strictly an [http://en.wikipedia.org/wiki/Transport_Layer transport layer] or [http://en.wikipedia.org/wiki/Internet_Layer internet layer] protocol.  Valid values are "tcp," "udp," and "ICMP."
 
 == Examples ==
 === Opening ports ===
