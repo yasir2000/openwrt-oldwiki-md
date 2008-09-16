@@ -281,6 +281,15 @@ If that's the case, just append to your lan interface section:
 option force 1
 }}}
 = HowTo =
+###
+###
+###
+###
+### Please don't add any more howtos here.  It's not that we don't want them, it's that we don't want the main Kamikaze page growing.
+###
+###
+###
+###
 === How to Automatically configure Client/Ad-hoc Client/Client+Repeater Mode on a Fonera or Meraki mini ===
 Visit Meltyblood's site for more Openwrt/Legend firmware upgrades: http://fon.testbox.dk  1. Read the instructions and get the tar.gz package from here http://fon.testbox.dk/packages/NEW/LEGEND4.5/clientscript/
 
@@ -288,97 +297,6 @@ That's it.  The package of scripts self-installs and will ask you questions to c
 
 === How to Automatically configure Standalone Repeater Mode on a Fonera or Meraki mini ===
 Coming VERY soon.  This one will differ from the Client mode script package in that there will also be a option to quickly setup a repeater without restarting services.
-
-
-
-=== timezone/ntp ===
-With the x-wrt webif^2, use System -> Settings page. :)
-
-Otherwise, in /etc/config/timezone an example is (for info about other zones and DST rules, see http://wiki.openwrt.org/OpenWrtDocs/Configuration and look for Timezone)
-
-{{{
-config timezone
-        option posixtz  MST7MDT,M3.2.0,M11.1.0
-        option zoneinfo 'America/Denver'
-}}}
-~-Note: The '''zoneinfo''' field is designed to contain the same information like the timezone setting in most current *nix implementations (the Olson's database). It will later enable to simply synchronize changes in the POSIX TZ strings.-~
-
-Do the following on a *nix system to find out your timezone string:
-
-{{{
-cat /usr/share/zoneinfo/posix/continent/city
-}}}
-and look at the last line.
-
-Next you either create the /etc/TZ file and copy the posixtz field to it or you can create a simple timezone init script which will handle all TZ changes and the creation of the /etc/TZ file:
-
-{{{
-#!/bin/sh /etc/rc.common
-START=11
-timezone_config() {
-        local cfg="$1"
-        local posixtz
-        local etctz="/etc/TZ"
-        config_get posixtz "$cfg" posixtz
-        if [ ! -h $etctz ]; then
-                ln -sf /tmp/TZ "$etctz"
-        fi
-        [ -n "$posixtz" ] && echo "$posixtz" > "$etctz" || echo "UTC+0" > "$etctz"
-}
-start() {
-        config_load timezone
-        config_foreach timezone_config timezone
-}
-restart() {
-        start
-}
-}}}
-and issue
-
-{{{
-/etc/init.d/timezone start
-/etc/init.d/timezone enable
-}}}
-You could use rdate in a script to set the time just at boot time and rely on the router's timer to keep it current.  But, to use ntp install ntpclient, and in modify /etc/config/ntpclient to your needs:
-
-{{{
-config ntpclient
-        option hostname 'pool.ntp.org'
-        option port     '123'
-        option count    '1'
-config ntpclient
-        option hostname 'ntp.ubuntu.com'
-        option port     '123'
-        option count    '1'
-}}}
-OpenWrt will soon advertise its [http://www.pool.ntp.org/vendors.html NTP Vendor Zone] with appropriate entries in all relevant packages. A [http://lists.openwrt.org/pipermail/openwrt-devel/2008-January/001524.html patch] for fixing this in ntpclient has these additional timeservers:
-
-{{{
-config ntpclient
-        option hostname '0.openwrt.pool.ntp.org'
-        option port     '123'
-        option count    '1'
-config ntpclient
-        option hostname '1.openwrt.pool.ntp.org'
-        option port     '123'
-        option count    '1'
-config ntpclient
-        option hostname '2.openwrt.pool.ntp.org'
-        option port     '123'
-        option count    '1'
-config ntpclient
-        option hostname '3.openwrt.pool.ntp.org'
-        option port     '123'
-        option count    '1'
-}}}
-Of course there are even more alternatives, i.e. feel free to substitute your local ntp server for pool.ntp.org.
-
-Then run
-
-{{{
-ACTION=ifup /etc/hotplug.d/iface/20-ntpclient
-}}}
-or restart the network and check what date says.
 
 == More HowTos ==
 For more How-To's (for example setting up Kamikaze, step by step) have a look at  http://forum.openwrt.org/viewforum.php?id=17
