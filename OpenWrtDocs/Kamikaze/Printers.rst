@@ -1,3 +1,4 @@
+''' PLEASE ADD TO THIS PAGE '''
 = HowTo run HP LaserJet 1018/1020/1022 on OpenWRT Kamikaze 7.06 =
 At first a install foo2zjs  drivers from http://foo2zjs.rkkda.com/ on linux box.
 
