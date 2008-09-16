@@ -18,13 +18,30 @@ Legacy White Russian packages are still available:
 Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers.  Here are some common sources:
   * [http://www.ipkg.be/ ipkg.be package tracker]
   * [http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable nslu2 "optware" package feed] (targeted at devices with external storage)
-  * [:http://wiki.openwrt.org/OpenWrtDocs/xwrt: X-Wrt], a third-party quasi-supported web interface package
+  * [:OpenWrtDocs/xwrt: X-Wrt], a third-party quasi-supported web interface package
 
 
 Most are only for mipsel, and some only support mipsel Broadcom devices.
 
-== Building your own packages ==
-To build your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
+== Creating your own packages ==
+To creating your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
+
+== Building OpenWrt packages ==
+Some packages are supported by OpenWrt, but not precompiled or distributed.
+
+After [:OpenWrtDocs/BuildingKamikazeHowTo: building a Kamikaze image], go to the {{{packages}}} directory, typically in {{{trunk}}}.  Then check out the package.
+{{{
+cd packages
+svn co https://svn.openwrt.org/openwrt/packages/<package name>
+
+cd ..
+make menuconfig
+make
+}}}
+
+The package should now show up somewhere in {{{make menuconfig}}}.  When selecting it, press "m" to ensure it's built as a package, not built into the image.  Some packages that only allow this, e.g. br2684ctl, require hitting <space> to show up as a package.
+
+After {{{make}}} completes, the .ipk file will be in ./bin/package/<arch>/.
 
 = Managing packages =
 The opkg utility is a lightweight package manager used to download and install !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}} will recognise the similarities)
