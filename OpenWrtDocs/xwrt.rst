@@ -13,3 +13,5 @@ It offers a large number of new features and is constantly being improved. Some 
  * Too much to possibly list...
 
 Information and download: http://www.x-wrt.org
+
+CategoryPackage
