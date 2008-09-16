@@ -25,3 +25,5 @@ While you won't typically need to do this, if you need to modify the Linux kerne
 {{{
 $ make kernel_menuconfig
 }}}
+
+CategoryHowTo
