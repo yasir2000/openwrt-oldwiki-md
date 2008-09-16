@@ -38,3 +38,5 @@ Run
 ACTION=ifup /etc/hotplug.d/iface/20-ntpclient
 }}}
 or restart the network to update the time.
+
+CategoryHowTo CategoryPackage
