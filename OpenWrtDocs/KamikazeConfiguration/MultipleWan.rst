@@ -297,5 +297,4 @@ iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
 }}}
 will open port 22 to you router from both wan and wan2
 
-This is in hope it can help
-Ben
+CategoryHowTo
