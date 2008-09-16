@@ -250,7 +250,8 @@ uci set wireless.wl0.macfilter="2"
 uci set wireless.wl0.maclist="00:0D:0B:B5:2A:BF 00:0D:0C:A2:2A:BA"
 uci commit}}}
 After making changes to the mac list with uci, run '''/etc/init.d/wlmacfilter start'''
-
+=== Firewall ===
+[:OpenWrtDocs/Kamikaze/FirewallConfiguration: Kamikaze firewall configuration]
 == Services ==
 === DHCP ===
 OpenWrt uses the lightweight [http://www.thekelleys.org.uk/dnsmasq/doc.html dnsmasq] DHCP server, which is configured in '''/etc/config/dhcp''':
